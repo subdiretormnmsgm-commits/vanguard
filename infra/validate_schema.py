@@ -3,12 +3,7 @@
 
 import re
 import sys
-import os
 from pathlib import Path
-
-# Set UTF-8 encoding for Windows
-if sys.platform == 'win32':
-    os.environ['PYTHONIOENCODING'] = 'utf-8'
 
 REQUIRED_COLUMNS = {
     "id":         r"uuid",
@@ -23,11 +18,12 @@ REQUIRED_RLS    = "ENABLE ROW LEVEL SECURITY"
 REQUIRED_POLICY = "anon_insert_only"
 
 def validate():
+    if sys.platform == 'win32':
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
     path = Path(__file__).parent / "schema.sql"
     if not path.exists():
-        sys.stdout.reconfigure(encoding='utf-8', errors='ignore')
-        print("ERRO: schema.sql nao encontrado")
-        sys.exit(1)
+        print("❌ schema.sql não encontrado"); sys.exit(1)
 
     content = path.read_text(encoding="utf-8")
     errors = []
@@ -37,19 +33,17 @@ def validate():
             errors.append(f"  Coluna ausente ou tipo errado: {col} ({type_pat})")
 
     if REQUIRED_RLS not in content:
-        errors.append(f"  RLS nao activado: {REQUIRED_RLS}")
+        errors.append(f"  RLS não activado: {REQUIRED_RLS}")
 
     if REQUIRED_POLICY not in content:
-        errors.append(f"  Politica RLS ausente: {REQUIRED_POLICY}")
+        errors.append(f"  Política RLS ausente: {REQUIRED_POLICY}")
 
     if errors:
-        sys.stdout.reconfigure(encoding='utf-8', errors='ignore')
-        print("ERRO: Erros no schema:")
+        print("❌ Erros no schema:")
         print("\n".join(errors))
         sys.exit(1)
 
-    sys.stdout.reconfigure(encoding='utf-8', errors='ignore')
-    print("OK: Schema valido - colunas, RLS e politica verificados.")
+    print("✅ Schema válido — colunas, RLS e política verificados.")
 
 if __name__ == "__main__":
     validate()
