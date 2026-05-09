@@ -1,0 +1,192 @@
+{
+  "name": "Protocolo Hermes — Secretário Virtual Vanguard",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "hermes-whatsapp",
+        "responseMode": "onReceived",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "WhatsApp Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "webhookId": "hermes-wa-trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extrai dados do payload WhatsApp Business API\nconst body = $input.first().json;\n\nlet mensagem = '';\nlet telefone = '';\nlet conversaId = '';\n\ntry {\n  const entry = body.entry?.[0];\n  const value = entry?.changes?.[0]?.value;\n  const msg   = value?.messages?.[0];\n\n  telefone   = msg?.from || '';\n  conversaId = entry?.id || '';\n  mensagem   = msg?.text?.body || msg?.interactive?.button_reply?.title || '';\n\n  if (!mensagem || !telefone) {\n    return [{ json: { ignorar: true, motivo: 'sem mensagem ou telefone' } }];\n  }\n} catch (e) {\n  return [{ json: { ignorar: true, motivo: 'payload invalido' } }];\n}\n\nreturn [{ json: { mensagem, telefone, conversaId } }];"
+      },
+      "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+      "name": "Extrair Mensagem",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.ignorar }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "notEquals" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+      "name": "Tem Mensagem?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{ $vars.ANTHROPIC_API_KEY }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": []
+        },
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-haiku-4-5-20251001\",\n  \"max_tokens\": 500,\n  \"system\": \"Você é o Hermes, secretário executivo da Vanguard Tech. Analise a mensagem e extraia em JSON válido (sem markdown):\\n{\\n  \\\"nome\\\": \\\"nome da pessoa ou null\\\",\\n  \\\"nicho\\\": \\\"nicho de negócio ou null\\\",\\n  \\\"gargalo_tecnologico\\\": \\\"problema tecnológico ou null\\\",\\n  \\\"status_agendamento\\\": \\\"NOVO|QUALIFICADO|AGENDADO\\\",\\n  \\\"resposta\\\": \\\"resposta humanizada max 120 palavras\\\"\\n}\",\n  \"messages\": [{\"role\": \"user\", \"content\": \"{{ $json.mensagem }}\"}]\n}",
+        "options": { "timeout": 20000 }
+      },
+      "id": "d4e5f6a7-b8c9-0123-defa-234567890123",
+      "name": "Claude AI — Extrair Lead",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse da resposta do Claude\nconst resposta = $input.first().json;\nconst texto = resposta.content?.[0]?.text || '{}';\n\nlet dados = {};\ntry {\n  let limpo = texto.trim();\n  if (limpo.startsWith('```')) {\n    limpo = limpo.replace(/```json?\\n?/g, '').replace(/```/g, '').trim();\n  }\n  dados = JSON.parse(limpo);\n} catch (e) {\n  dados = {\n    nome: null,\n    nicho: null,\n    gargalo_tecnologico: null,\n    status_agendamento: 'NOVO',\n    resposta: 'Olá! Recebi a sua mensagem. Como posso ajudá-lo hoje?'\n  };\n}\n\n// Injeta telefone do step anterior\ndados.telefone = $('Extrair Mensagem').first().json.telefone;\ndados.conversa_id = $('Extrair Mensagem').first().json.conversaId;\ndados.mensagem_original = $('Extrair Mensagem').first().json.mensagem;\n\nreturn [{ json: dados }];"
+      },
+      "id": "e5f6a7b8-c9d0-1234-efab-345678901234",
+      "name": "Parsear Resposta IA",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $vars.SUPABASE_URL }}/rest/v1/leads_qualificados",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $vars.SUPABASE_SERVICE_KEY }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $vars.SUPABASE_SERVICE_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=minimal" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"nome\": \"{{ $json.nome || 'Não identificado' }}\",\n  \"telefone\": \"{{ $json.telefone }}\",\n  \"nicho\": {{ $json.nicho ? '\"' + $json.nicho + '\"' : 'null' }},\n  \"gargalo_tecnologico\": {{ $json.gargalo_tecnologico ? '\"' + $json.gargalo_tecnologico + '\"' : 'null' }},\n  \"status_agendamento\": \"{{ $json.status_agendamento || 'NOVO' }}\",\n  \"mensagem_original\": \"{{ $json.mensagem_original }}\",\n  \"resposta_hermes\": \"{{ $json.resposta }}\",\n  \"conversa_id\": \"{{ $json.conversa_id }}\",\n  \"origem\": \"hermes\"\n}",
+        "options": {}
+      },
+      "id": "f6a7b8c9-d0e1-2345-fabc-456789012345",
+      "name": "Salvar no Supabase",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v20.0/{{ $vars.WA_PHONE_NUMBER_ID }}/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $vars.WA_TOKEN }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"messaging_product\": \"whatsapp\",\n  \"to\": \"{{ $('Parsear Resposta IA').first().json.telefone }}\",\n  \"type\": \"text\",\n  \"text\": { \"body\": \"{{ $('Parsear Resposta IA').first().json.resposta }}\" }\n}",
+        "options": {}
+      },
+      "id": "a7b8c9d0-e1f2-3456-abcd-567890123456",
+      "name": "Enviar Resposta WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1560, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $vars.SUPABASE_URL }}/rest/v1/hermes_conversas",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $vars.SUPABASE_SERVICE_KEY }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $vars.SUPABASE_SERVICE_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\"telefone\": \"{{ $('Parsear Resposta IA').first().json.telefone }}\", \"role\": \"user\", \"conteudo\": \"{{ $('Parsear Resposta IA').first().json.mensagem_original }}\"},\n  {\"telefone\": \"{{ $('Parsear Resposta IA').first().json.telefone }}\", \"role\": \"assistant\", \"conteudo\": \"{{ $('Parsear Resposta IA').first().json.resposta }}\"}\n]",
+        "options": {}
+      },
+      "id": "b8c9d0e1-f2a3-4567-bcde-678901234567",
+      "name": "Salvar Memória Conversa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 380]
+    }
+  ],
+  "connections": {
+    "WhatsApp Webhook Trigger": {
+      "main": [[{ "node": "Extrair Mensagem", "type": "main", "index": 0 }]]
+    },
+    "Extrair Mensagem": {
+      "main": [[{ "node": "Tem Mensagem?", "type": "main", "index": 0 }]]
+    },
+    "Tem Mensagem?": {
+      "main": [
+        [{ "node": "Claude AI — Extrair Lead", "type": "main", "index": 0 }],
+        []
+      ]
+    },
+    "Claude AI — Extrair Lead": {
+      "main": [[{ "node": "Parsear Resposta IA", "type": "main", "index": 0 }]]
+    },
+    "Parsear Resposta IA": {
+      "main": [[
+        { "node": "Salvar no Supabase",       "type": "main", "index": 0 },
+        { "node": "Salvar Memória Conversa",  "type": "main", "index": 0 },
+        { "node": "Enviar Resposta WhatsApp", "type": "main", "index": 0 }
+      ]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    { "createdAt": "2026-05-09", "updatedAt": "2026-05-09", "id": "hermes-v1", "name": "Hermes" }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2026-05-09T00:00:00.000Z",
+  "versionId": "hermes-vanguard-v1"
+}

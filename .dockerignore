@@ -10,5 +10,9 @@ docs/
 .Rhistory
 .serena/
 shadow_closer_v2.py
+scraper_vanguard.py
 diagnosticos/
 memorias/
+hermes/
+docker-compose.yml
+n8n-workflow-hermes.json
