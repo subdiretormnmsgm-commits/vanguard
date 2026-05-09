@@ -1,6 +1,6 @@
 const Quiz = (() => {
   // Substitua pelo número WhatsApp da Vanguard (ex: 351912345678)
-  const WA_NUMBER = 'YOUR_WHATSAPP_NUMBER';
+  const WA_NUMBER = '5521996008570';
 
   const state = { step: 1, nicho: '', gargalo: '', nome: '', whatsapp: '' };
 
