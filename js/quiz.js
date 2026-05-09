@@ -47,11 +47,15 @@ const Quiz = (() => {
     const waEl   = document.getElementById('quiz-whatsapp');
     const btn    = document.getElementById('btn-submit');
 
+    const WA_REGEX = /^\+?[1-9]\d{7,14}$/;
+
     function checkStep3() {
-      btn.disabled = !(nomeEl.value.trim() && waEl.value.trim());
+      btn.disabled = !(nomeEl.value.trim() && WA_REGEX.test(waEl.value.trim()));
     }
     nomeEl.addEventListener('input', checkStep3);
     waEl.addEventListener('input', checkStep3);
+    nomeEl.addEventListener('change', checkStep3);
+    waEl.addEventListener('change', checkStep3);
 
     // Submit
     btn.addEventListener('click', async () => {
@@ -78,7 +82,8 @@ const Quiz = (() => {
       } else {
         btn.disabled    = false;
         btn.textContent = 'Enviar Diagnóstico →';
-        alert('Erro ao enviar. Por favor tente novamente.');
+        const errEl = document.getElementById('quiz-error');
+        if (errEl) { errEl.textContent = 'Erro ao enviar. Por favor tente novamente.'; errEl.hidden = false; }
       }
     });
   }
