@@ -1,0 +1,7 @@
+.env
+diagnosticos/
+outbound/
+__pycache__/
+*.pyc
+.Rhistory
+.serena/
