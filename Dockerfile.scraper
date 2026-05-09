@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY scraper_vanguard.py .
+COPY shadow_closer_v2.py .
+
+RUN mkdir -p outbound
+
+ENTRYPOINT ["python", "scraper_vanguard.py"]
+CMD ["--help"]
