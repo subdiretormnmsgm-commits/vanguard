@@ -140,12 +140,21 @@
           <p id="quiz-error" hidden style="color:#ff6b6b;font-size:0.875rem;margin-top:0.75rem;"></p>
         </div>
 
+        <!-- IA Processando -->
+        <div class="quiz__step quiz__step--hidden" id="step-processing">
+          <div class="quiz__processing">
+            <div class="quiz__processing-orb"></div>
+            <p class="quiz__processing-title">IA a processar o seu diagnóstico...</p>
+            <p class="quiz__processing-sub">Verifique o seu WhatsApp em 2 minutos.</p>
+          </div>
+        </div>
+
         <!-- Sucesso -->
         <div class="quiz__step quiz__step--hidden" id="step-success">
           <div class="quiz__success">
             <div class="quiz__success-icon">✅</div>
-            <h3>Diagnóstico Recebido!</h3>
-            <p>A nossa equipa vai analisar o seu perfil e entrar em contacto em breve.</p>
+            <h3>Relatório Gerado!</h3>
+            <p>O seu diagnóstico foi processado. Entraremos em contacto via WhatsApp em instantes.</p>
             <a href="#" class="btn btn--primary" id="btn-whatsapp-contact" target="_blank">
               Falar agora no WhatsApp →
             </a>

@@ -59,10 +59,13 @@ const Quiz = (() => {
 
     // Submit
     btn.addEventListener('click', async () => {
-      state.nome      = nomeEl.value.trim();
-      state.whatsapp  = waEl.value.trim();
-      btn.disabled    = true;
-      btn.textContent = 'A enviar...';
+      state.nome     = nomeEl.value.trim();
+      state.whatsapp = waEl.value.trim();
+      btn.disabled   = true;
+
+      // Mostra estado de processamento IA
+      setProgress('done');
+      showStep('step-processing');
 
       const result = await supabaseClient.saveLeadDiagnostico({
         nicho:    state.nicho,
@@ -77,11 +80,12 @@ const Quiz = (() => {
         );
         document.getElementById('btn-whatsapp-contact').href =
           `https://wa.me/${WA_NUMBER}?text=${msg}`;
-        setProgress('done');
-        showStep('step-success');
+        // Mantém o ecrã de processamento por 2s (efeito "IA a analisar")
+        setTimeout(() => showStep('step-success'), 2000);
       } else {
-        btn.disabled    = false;
-        btn.textContent = 'Enviar Diagnóstico →';
+        showStep('step-3');
+        setProgress(3);
+        btn.disabled = false;
         const errEl = document.getElementById('quiz-error');
         if (errEl) { errEl.textContent = 'Erro ao enviar. Por favor tente novamente.'; errEl.hidden = false; }
       }

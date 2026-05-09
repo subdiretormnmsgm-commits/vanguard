@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cockpit — Vanguard Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/dashboard/dashboard.css">
+</head>
+<body class="cockpit-body">
+
+  <!-- LOGIN -->
+  <div class="cockpit-login" id="view-login">
+    <div class="cockpit-login__card">
+      <div class="cockpit-login__logo">VANGUARD</div>
+      <p class="cockpit-login__sub">Cockpit — Acesso Restrito</p>
+      <form class="cockpit-login__form" id="login-form" novalidate>
+        <input class="quiz__input" type="email" id="login-email"
+               placeholder="E-mail do director" required autocomplete="email">
+        <input class="quiz__input" type="password" id="login-password"
+               placeholder="Palavra-passe" required autocomplete="current-password">
+        <p class="cockpit-error" id="login-error" hidden></p>
+        <button class="btn btn--primary" type="submit" id="login-btn">
+          Entrar no Cockpit →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- COCKPIT -->
+  <div class="cockpit" id="view-cockpit" hidden>
+
+    <header class="cockpit__header">
+      <span class="cockpit__logo">VANGUARD <span class="cockpit__badge">COCKPIT</span></span>
+      <div class="cockpit__header-right">
+        <span class="cockpit__user" id="cockpit-user-email"></span>
+        <button class="btn btn--outline btn--sm" id="btn-logout">Sair</button>
+      </div>
+    </header>
+
+    <!-- KPIs -->
+    <section class="cockpit__kpis" id="cockpit-kpis">
+      <div class="card card--glass cockpit__kpi-card">
+        <div class="card__icon">📥</div>
+        <div class="card__number" id="kpi-total">—</div>
+        <div class="card__label">Total de Leads</div>
+      </div>
+      <div class="card card--glass cockpit__kpi-card">
+        <div class="card__icon">🔴</div>
+        <div class="card__number" id="kpi-vip">—</div>
+        <div class="card__label">Leads VIP</div>
+      </div>
+      <div class="card card--glass cockpit__kpi-card">
+        <div class="card__icon">📊</div>
+        <div class="card__number" id="kpi-avg">—</div>
+        <div class="card__label">Score Médio</div>
+      </div>
+      <div class="card card--glass cockpit__kpi-card">
+        <div class="card__icon">⏱</div>
+        <div class="card__number" id="kpi-today">—</div>
+        <div class="card__label">Leads Hoje</div>
+      </div>
+    </section>
+
+    <!-- MAPA DE CALOR DE DORES -->
+    <section class="cockpit__section">
+      <h2 class="cockpit__section-title">Mapa de Calor de Dores</h2>
+      <div class="heatmap" id="heatmap"></div>
+    </section>
+
+    <!-- TABELA DE LEADS -->
+    <section class="cockpit__section">
+      <h2 class="cockpit__section-title">Leads <span id="leads-filter-label">(todos)</span></h2>
+      <div class="cockpit__filters">
+        <button class="cockpit__filter cockpit__filter--active" data-filter="all">Todos</button>
+        <button class="cockpit__filter" data-filter="VIP">🔴 VIP</button>
+        <button class="cockpit__filter" data-filter="QUENTE">🟡 Quentes</button>
+        <button class="cockpit__filter" data-filter="FRIO">🔵 Frios</button>
+      </div>
+      <div class="cockpit__table-wrap">
+        <table class="cockpit__table" id="leads-table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Nicho</th>
+              <th>Gargalo</th>
+              <th>Score</th>
+              <th>Tier</th>
+              <th>Data</th>
+              <th>WhatsApp</th>
+            </tr>
+          </thead>
+          <tbody id="leads-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </div><!-- /.cockpit -->
+
+  <script src="/js/supabase-lib.js"></script>
+  <script src="/dashboard/dashboard.js"></script>
+</body>
+</html>
