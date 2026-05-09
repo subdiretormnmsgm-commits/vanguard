@@ -4,7 +4,6 @@
 infra/*.py
 infra/*.sql
 infra/Dockerfile
-infra/nginx.conf
 *.md
 docs/
 .env*
