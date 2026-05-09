@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanguard Tech — Tecnologia Proprietária</title>
+  <meta name="description" content="O fim do aluguer de software. Transformamos o seu método único em Tecnologia Proprietária.">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#00F0FF">
+  <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <span class="navbar__logo">VANGUARD</span>
+      <a href="#quiz" class="btn btn--outline btn--sm">Diagnóstico Gratuito</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__bg"></div>
+    <div class="hero__container">
+      <div class="hero__badge">⚡ Forja de Ecossistemas Digitais</div>
+      <h1 class="hero__headline">
+        O fim do aluguer<br>de software.
+      </h1>
+      <p class="hero__sub">
+        Transformamos o seu método único em
+        <strong>Tecnologia Proprietária</strong>.<br>
+        Do diagnóstico ao Micro-SaaS em produção.
+      </p>
+      <a href="#quiz" class="btn btn--primary btn--lg">
+        Diagnosticar o meu negócio →
+      </a>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section class="social-proof" id="resultados">
+    <div class="social-proof__container">
+      <div class="social-proof__grid">
+        <div class="card card--glass">
+          <div class="card__icon">⚡</div>
+          <div class="card__number">50+</div>
+          <div class="card__label">Ecossistemas Diagnosticados</div>
+        </div>
+        <div class="card card--glass">
+          <div class="card__icon">🚀</div>
+          <div class="card__number">3</div>
+          <div class="card__label">Micro-SaaS em Produção</div>
+        </div>
+        <div class="card card--glass">
+          <div class="card__icon">🔒</div>
+          <div class="card__number">100%</div>
+          <div class="card__label">Tecnologia Proprietária</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz-section" id="quiz">
+    <div class="quiz-section__container">
+      <div class="quiz-section__header">
+        <h2>Diagnóstico de Negócio</h2>
+        <p>Descubra como transformar o seu processo num activo digital em 2 minutos.</p>
+      </div>
+
+      <div class="quiz" id="quiz-widget">
+
+        <div class="quiz__progress">
+          <div class="quiz__progress-bar" id="quiz-progress-bar"></div>
+        </div>
+        <div class="quiz__step-label" id="quiz-step-label">Passo 1 de 3</div>
+
+        <!-- Passo 1: Nicho -->
+        <div class="quiz__step" id="step-1">
+          <h3 class="quiz__question">Qual é o seu nicho de mercado?</h3>
+          <select class="quiz__select" id="quiz-nicho">
+            <option value="">Seleccione o seu nicho...</option>
+            <option value="Saúde">Saúde</option>
+            <option value="Educação">Educação</option>
+            <option value="Finanças">Finanças</option>
+            <option value="Consultoria">Consultoria</option>
+            <option value="E-commerce">E-commerce</option>
+            <option value="Imobiliário">Imobiliário</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Outro">Outro</option>
+          </select>
+          <button class="btn btn--primary" id="btn-next-1">Próximo →</button>
+        </div>
+
+        <!-- Passo 2: Gargalo -->
+        <div class="quiz__step quiz__step--hidden" id="step-2">
+          <h3 class="quiz__question">Qual gargalo operacional impede a sua escala hoje?</h3>
+          <div class="quiz__radio-group">
+            <label class="quiz__radio-card">
+              <input type="radio" name="gargalo" value="Processos manuais que consomem tempo">
+              <span>Processos manuais que consomem tempo</span>
+            </label>
+            <label class="quiz__radio-card">
+              <input type="radio" name="gargalo" value="Falta de visibilidade sobre métricas do negócio">
+              <span>Falta de visibilidade sobre métricas do negócio</span>
+            </label>
+            <label class="quiz__radio-card">
+              <input type="radio" name="gargalo" value="Dificuldade em escalar a equipa">
+              <span>Dificuldade em escalar a equipa</span>
+            </label>
+            <label class="quiz__radio-card">
+              <input type="radio" name="gargalo" value="Captação e retenção de clientes">
+              <span>Captação e retenção de clientes</span>
+            </label>
+            <label class="quiz__radio-card">
+              <input type="radio" name="gargalo" value="Dependência de ferramentas de terceiros">
+              <span>Dependência de ferramentas de terceiros</span>
+            </label>
+          </div>
+          <button class="btn btn--primary" id="btn-next-2">Próximo →</button>
+        </div>
+
+        <!-- Passo 3: Contacto -->
+        <div class="quiz__step quiz__step--hidden" id="step-3">
+          <h3 class="quiz__question">Como podemos contactá-lo?</h3>
+          <div class="quiz__inputs">
+            <input type="text" class="quiz__input" id="quiz-nome"
+                   placeholder="O seu nome completo">
+            <input type="tel" class="quiz__input" id="quiz-whatsapp"
+                   placeholder="WhatsApp (ex: +351912345678)">
+          </div>
+          <button class="btn btn--primary" id="btn-submit" disabled>
+            Enviar Diagnóstico →
+          </button>
+        </div>
+
+        <!-- Sucesso -->
+        <div class="quiz__step quiz__step--hidden" id="step-success">
+          <div class="quiz__success">
+            <div class="quiz__success-icon">✅</div>
+            <h3>Diagnóstico Recebido!</h3>
+            <p>A nossa equipa vai analisar o seu perfil e entrar em contacto em breve.</p>
+            <a href="#" class="btn btn--primary" id="btn-whatsapp-contact" target="_blank">
+              Falar agora no WhatsApp →
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /.quiz -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div>
+        <span class="footer__logo">VANGUARD</span>
+        <p class="footer__tagline">Forja de Ecossistemas Digitais</p>
+      </div>
+      <div class="footer__links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Contacto</a>
+      </div>
+      <p class="footer__copy">© 2026 Vanguard Tech. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/js/supabase.js"></script>
+  <script src="/js/quiz.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
