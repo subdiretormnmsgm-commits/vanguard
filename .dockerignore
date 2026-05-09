@@ -8,3 +8,7 @@ infra/Dockerfile
 docs/
 .env*
 .Rhistory
+.serena/
+shadow_closer_v2.py
+diagnosticos/
+memorias/
