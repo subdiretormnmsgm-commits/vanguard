@@ -1,0 +1,87 @@
+version: '3.8'
+
+# Protocolo Hermes — Stack completa para VPS Hostinger
+# Deploy: docker compose up -d
+# Logs:   docker compose logs -f
+
+services:
+
+  # ─── n8n — Motor de Automação ──────────────────────────────────────────────
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: hermes_n8n
+    restart: always
+    ports:
+      - '5678:5678'
+    environment:
+      - N8N_HOST=${N8N_HOST}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - WEBHOOK_URL=https://${N8N_HOST}/
+      - GENERIC_TIMEZONE=America/Sao_Paulo
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_USER}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD}
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
+      - N8N_LOG_LEVEL=info
+    volumes:
+      - n8n_data:/home/node/.n8n
+    networks:
+      - hermes_net
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ─── PostgreSQL — Persistência do n8n (execuções, credenciais) ─────────────
+  postgres:
+    image: postgres:15-alpine
+    container_name: hermes_postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=n8n
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - hermes_net
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U n8n']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ─── Hermes Webhook — Servidor Python FastAPI ───────────────────────────────
+  hermes:
+    build:
+      context: ./hermes
+      dockerfile: Dockerfile
+    container_name: hermes_webhook
+    restart: always
+    ports:
+      - '8000:8000'
+    environment:
+      - WA_VERIFY_TOKEN=${WA_VERIFY_TOKEN}
+      - WA_TOKEN=${WA_TOKEN}
+      - WA_PHONE_NUMBER_ID=${WA_PHONE_NUMBER_ID}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    networks:
+      - hermes_net
+
+volumes:
+  n8n_data:
+    driver: local
+  postgres_data:
+    driver: local
+
+networks:
+  hermes_net:
+    driver: bridge
