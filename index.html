@@ -3,104 +3,299 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vanguard Tech — Tecnologia Proprietária</title>
-  <meta name="description" content="O fim do aluguer de software. Transformamos o seu método único em Tecnologia Proprietária.">
+  <title class="brand-name-title">VANGUARD — Soberano Digital</title>
+  <meta name="description" content="O fim do aluguer de software. Transformamos o seu método único em Tecnologia Proprietária. Auditor IA · Scraper Outbound · Deploy Automático.">
+
+  <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#00F0FF">
   <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+
+  <!-- Fonts: Syne (display) + Inter (body) + JetBrains Mono (code) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- White-Label brand override (injected by Docker entrypoint) -->
+  <script src="/brand-config.js" onerror="void(0)"></script>
+
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
+  <!-- ─── NAVBAR ──────────────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Navegação principal">
     <div class="navbar__container">
-      <span class="navbar__logo">VANGUARD</span>
-      <a href="#quiz" class="btn btn--outline btn--sm">Diagnóstico Gratuito</a>
+      <span class="navbar__logo brand-name">VANGUARD</span>
+
+      <div class="navbar__status" aria-hidden="true">
+        <span class="navbar__status-dot"></span>
+        <span>Sistema Operacional · V5</span>
+      </div>
+
+      <div class="navbar__actions">
+        <a href="#quiz" class="btn btn--outline btn--sm">Diagnóstico Gratuito</a>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero__bg"></div>
+  <!-- ─── HERO ────────────────────────────────────────────────────────── -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__scanline" aria-hidden="true"></div>
+
     <div class="hero__container">
-      <div class="hero__badge">⚡ Forja de Ecossistemas Digitais</div>
-      <h1 class="hero__headline">
-        O fim do aluguer<br>de software.
-      </h1>
-      <p class="hero__sub">
-        Transformamos o seu método único em
-        <strong>Tecnologia Proprietária</strong>.<br>
-        Do diagnóstico ao Micro-SaaS em produção.
+      <!-- Left: Content -->
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="label-tag">⚡ Soberano Digital V5</span>
+        </div>
+
+        <h1 class="hero__headline" id="hero-title">
+          <em class="text-gradient">Transforme o seu</em>
+          <em>método num</em>
+          <em class="text-gradient--accent">Activo Digital.</em>
+        </h1>
+
+        <p class="hero__sub">
+          Do diagnóstico ao Micro-SaaS em produção.
+          <strong>Auditor IA com Claude Haiku</strong>, prospecção outbound e
+          automação n8n — tudo num ecossistema Docker White-Label.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#quiz" class="btn btn--primary btn--xl">
+            Diagnosticar o meu negócio →
+          </a>
+          <a href="#features" class="btn btn--ghost btn--lg">
+            Ver como funciona
+          </a>
+        </div>
+
+        <div class="hero__social-proof" aria-label="Métricas de impacto">
+          <span><span>50+</span> diagnósticos</span>
+          <span>·</span>
+          <span><span>3</span> Micro-SaaS live</span>
+          <span>·</span>
+          <span><span>100%</span> proprietário</span>
+        </div>
+      </div>
+
+      <!-- Right: Terminal visual -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="terminal__badge">LIVE</div>
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span class="terminal__dot terminal__dot--red"></span>
+            <span class="terminal__dot terminal__dot--yellow"></span>
+            <span class="terminal__dot terminal__dot--green"></span>
+            <span class="terminal__title">scraper_vanguard.py — V5 Soberano</span>
+          </div>
+          <div class="terminal__body">
+            <div class="terminal__line">
+              <span class="terminal__prompt">$</span>
+              <span class="terminal__cmd">python scraper --nicho advocacia --modo osm</span>
+            </div>
+            <div class="terminal__divider"></div>
+            <div class="terminal__metrics">
+              <div class="terminal__metric">
+                <span class="terminal__metric-label">LEADS PROCESSADOS</span>
+                <span class="terminal__metric-value" data-count="127">127</span>
+              </div>
+              <div class="terminal__metric">
+                <span class="terminal__metric-label">SCORE MÉDIO IA</span>
+                <span class="terminal__metric-value">7.8<sup>/10</sup></span>
+              </div>
+              <div class="terminal__metric">
+                <span class="terminal__metric-label">HOOKS GERADOS</span>
+                <span class="terminal__metric-value" data-count="127">127</span>
+              </div>
+              <div class="terminal__metric">
+                <span class="terminal__metric-label">INJECTADOS SUPABASE</span>
+                <span class="terminal__metric-value" data-count="119">119</span>
+              </div>
+            </div>
+            <div class="terminal__divider"></div>
+            <div class="terminal__status">
+              <span class="status-dot"></span>
+              <span class="terminal__status-text">Claude Haiku · Auditor IA</span>
+              <span class="terminal__status-sub">conectado</span>
+            </div>
+            <div class="terminal__status" style="margin-top:var(--sp-2)">
+              <span class="status-dot status-dot--accent"></span>
+              <span class="terminal__status-text">Hermes n8n · Automação</span>
+              <span class="terminal__status-sub">activo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS ────────────────────────────────────────────────────────── -->
+  <section class="stats" id="resultados" aria-label="Métricas do sistema">
+    <div class="stats__container">
+      <div class="stats__item">
+        <div class="stats__number" data-target="50">50<span style="color:var(--c-muted);font-size:0.6em">+</span></div>
+        <div class="stats__label">Ecossistemas Diagnosticados</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__number" data-target="3">3</div>
+        <div class="stats__label">Micro-SaaS em Produção</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__number" data-target="100">100<span style="color:var(--c-muted);font-size:0.6em">%</span></div>
+        <div class="stats__label">Tecnologia 100% Proprietária</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES ─────────────────────────────────────────────────────── -->
+  <section class="features" id="features" aria-labelledby="features-title">
+    <div class="section__header">
+      <div class="section__label">
+        <span class="label-tag">Fábrica Autônoma V5</span>
+      </div>
+      <h2 class="section__title" id="features-title">
+        Um ecossistema.<br>
+        <span class="text-gradient">Zero dependências externas.</span>
+      </h2>
+      <p class="section__desc">
+        Cada módulo foi construído para funcionar de forma autónoma e
+        coordenada — do lead ao contrato fechado.
       </p>
-      <a href="#quiz" class="btn btn--primary btn--lg">
-        Diagnosticar o meu negócio →
-      </a>
+    </div>
+
+    <div class="features__grid">
+      <!-- Card 1: Auditor IA -->
+      <div class="feature-card card--glass" tabindex="0" aria-label="Auditor IA">
+        <div class="feature-card__icon">🧠</div>
+        <div class="feature-card__tag">Feature 01</div>
+        <h3 class="feature-card__title">Auditor IA<br>Claude Haiku</h3>
+        <p class="feature-card__desc">
+          O scraper analisa o HTML de cada site prospectado e envia para o
+          Claude Haiku, que identifica gargalos específicos e gera um hook de
+          WhatsApp 100% personalizado para aquele negócio.
+        </p>
+        <div class="feature-card__footer">auditoria_ia · python</div>
+      </div>
+
+      <!-- Card 2: Hermes n8n -->
+      <div class="feature-card card--glass" tabindex="0" aria-label="Hermes n8n">
+        <div class="feature-card__icon">⚡</div>
+        <div class="feature-card__tag">Feature 02</div>
+        <h3 class="feature-card__title">Hermes n8n<br>Automação Total</h3>
+        <p class="feature-card__desc">
+          O n8n detecta o novo lead no Supabase, lê o <code>ai_hook</code>
+          gerado pela IA e dispara automaticamente a mensagem personalizada via
+          WhatsApp Business API. Zero intervenção humana.
+        </p>
+        <div class="feature-card__footer">n8n workflow · webhook</div>
+      </div>
+
+      <!-- Card 3: White-Label -->
+      <div class="feature-card card--glass" tabindex="0" aria-label="White-Label">
+        <div class="feature-card__icon">🏷️</div>
+        <div class="feature-card__tag">Feature 03</div>
+        <h3 class="feature-card__title">Clone<br>White-Label</h3>
+        <p class="feature-card__desc">
+          Todo o frontend usa variáveis de ambiente para cores, logótipo e nome
+          da marca. O Docker Compose injeta estas variáveis — qualquer agência
+          tem o seu próprio Soberano Digital em 1-click.
+        </p>
+        <div class="feature-card__footer">brand-config.js · docker env</div>
+      </div>
     </div>
   </section>
 
-  <!-- PROVA SOCIAL -->
-  <section class="social-proof" id="resultados">
-    <div class="social-proof__container">
-      <div class="social-proof__grid">
-        <div class="card card--glass">
-          <div class="card__icon">⚡</div>
-          <div class="card__number">50+</div>
-          <div class="card__label">Ecossistemas Diagnosticados</div>
+  <!-- ─── HOW IT WORKS ──────────────────────────────────────────────────── -->
+  <section class="how-it-works" id="como-funciona" aria-labelledby="how-title">
+    <div class="how-it-works__container">
+      <div class="section__header">
+        <div class="section__label">
+          <span class="label-tag">Processo</span>
         </div>
-        <div class="card card--glass">
-          <div class="card__icon">🚀</div>
-          <div class="card__number">3</div>
-          <div class="card__label">Micro-SaaS em Produção</div>
+        <h2 class="section__title" id="how-title">
+          De prospect a cliente<br>
+          <span class="text-gradient">em 4 passos automáticos.</span>
+        </h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">01</div>
+          <h3 class="step__title">Scraper OSM</h3>
+          <p class="step__desc">Minera negócios locais do OpenStreetMap por nicho e cidade.</p>
         </div>
-        <div class="card card--glass">
-          <div class="card__icon">🔒</div>
-          <div class="card__number">100%</div>
-          <div class="card__label">Tecnologia Proprietária</div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <h3 class="step__title">Auditor IA</h3>
+          <p class="step__desc">Claude Haiku analisa o site e gera o hook personalizado.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <h3 class="step__title">Supabase</h3>
+          <p class="step__desc">Lead + ai_hook injectados em tempo real no Cockpit.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">04</div>
+          <h3 class="step__title">Hermes Dispara</h3>
+          <p class="step__desc">n8n detecta o lead e envia a mensagem IA via WhatsApp.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- QUIZ -->
-  <section class="quiz-section" id="quiz">
+  <!-- ─── QUIZ ─────────────────────────────────────────────────────────── -->
+  <section class="quiz-section" id="quiz" aria-labelledby="quiz-title">
     <div class="quiz-section__container">
-      <div class="quiz-section__header">
-        <h2>Diagnóstico de Negócio</h2>
-        <p>Descubra como transformar o seu processo num activo digital em 2 minutos.</p>
+      <div class="section__header">
+        <div class="section__label">
+          <span class="label-tag">Diagnóstico Gratuito</span>
+        </div>
+        <h2 class="section__title" id="quiz-title">
+          Descubra o seu<br>
+          <span class="text-gradient">gargalo digital.</span>
+        </h2>
+        <p class="section__desc">
+          Em 2 minutos identificamos exactamente onde o seu negócio está a perder dinheiro.
+        </p>
       </div>
 
-      <div class="quiz" id="quiz-widget">
-
-        <div class="quiz__progress">
-          <div class="quiz__progress-bar" id="quiz-progress-bar"></div>
+      <div class="quiz" id="quiz-widget" role="form" aria-label="Quiz de diagnóstico">
+        <div class="quiz__top">
+          <div class="quiz__progress" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
+            <div class="quiz__progress-bar" id="quiz-progress-bar"></div>
+          </div>
+          <div class="quiz__step-label" id="quiz-step-label" aria-live="polite">Passo 1 / 3</div>
         </div>
-        <div class="quiz__step-label" id="quiz-step-label">Passo 1 de 3</div>
 
         <!-- Passo 1: Nicho -->
         <div class="quiz__step" id="step-1">
           <h3 class="quiz__question">Qual é o seu nicho de mercado?</h3>
-          <select class="quiz__select" id="quiz-nicho">
-            <option value="">Seleccione o seu nicho...</option>
-            <option value="Saúde">Saúde</option>
-            <option value="Educação">Educação</option>
-            <option value="Finanças">Finanças</option>
-            <option value="Consultoria">Consultoria</option>
-            <option value="E-commerce">E-commerce</option>
-            <option value="Imobiliário">Imobiliário</option>
-            <option value="Tecnologia">Tecnologia</option>
-            <option value="Outro">Outro</option>
-          </select>
-          <button class="btn btn--primary" id="btn-next-1">Próximo →</button>
+          <div class="quiz__select-wrap">
+            <select class="quiz__select" id="quiz-nicho" aria-label="Seleccione o seu nicho">
+              <option value="">Seleccione o seu nicho...</option>
+              <option value="Saúde">Saúde</option>
+              <option value="Educação">Educação</option>
+              <option value="Finanças">Finanças</option>
+              <option value="Consultoria">Consultoria</option>
+              <option value="E-commerce">E-commerce</option>
+              <option value="Imobiliário">Imobiliário</option>
+              <option value="Tecnologia">Tecnologia</option>
+              <option value="Outro">Outro</option>
+            </select>
+            <span class="quiz__select-arrow" aria-hidden="true">▾</span>
+          </div>
+          <button class="btn btn--primary" id="btn-next-1" style="width:100%">
+            Próximo →
+          </button>
         </div>
 
         <!-- Passo 2: Gargalo -->
         <div class="quiz__step quiz__step--hidden" id="step-2">
           <h3 class="quiz__question">Qual gargalo operacional impede a sua escala hoje?</h3>
-          <div class="quiz__radio-group">
+          <div class="quiz__radio-group" role="radiogroup" aria-label="Gargalos operacionais">
             <label class="quiz__radio-card">
               <input type="radio" name="gargalo" value="Processos manuais que consomem tempo">
               <span>Processos manuais que consomem tempo</span>
@@ -122,28 +317,34 @@
               <span>Dependência de ferramentas de terceiros</span>
             </label>
           </div>
-          <button class="btn btn--primary" id="btn-next-2">Próximo →</button>
+          <button class="btn btn--primary" id="btn-next-2" style="width:100%">
+            Próximo →
+          </button>
         </div>
 
         <!-- Passo 3: Contacto -->
         <div class="quiz__step quiz__step--hidden" id="step-3">
           <h3 class="quiz__question">Como podemos contactá-lo?</h3>
           <div class="quiz__inputs">
-            <input type="text" class="quiz__input" id="quiz-nome"
-                   placeholder="O seu nome completo">
-            <input type="tel" class="quiz__input" id="quiz-whatsapp"
-                   placeholder="WhatsApp (ex: +351912345678)">
+            <div class="quiz__input-wrap">
+              <input type="text" class="quiz__input" id="quiz-nome"
+                     placeholder="O seu nome completo" autocomplete="name">
+            </div>
+            <div class="quiz__input-wrap">
+              <input type="tel" class="quiz__input" id="quiz-whatsapp"
+                     placeholder="WhatsApp (ex: +351912345678)" autocomplete="tel">
+            </div>
           </div>
-          <button class="btn btn--primary" id="btn-submit" disabled>
+          <button class="btn btn--primary" id="btn-submit" disabled style="width:100%">
             Enviar Diagnóstico →
           </button>
-          <p id="quiz-error" hidden style="color:#ff6b6b;font-size:0.875rem;margin-top:0.75rem;"></p>
+          <p id="quiz-error" hidden style="color:#ff6b6b;font-size:var(--text-sm);margin-top:var(--sp-3);text-align:center;"></p>
         </div>
 
         <!-- IA Processando -->
         <div class="quiz__step quiz__step--hidden" id="step-processing">
           <div class="quiz__processing">
-            <div class="quiz__processing-orb"></div>
+            <div class="quiz__processing-orb" aria-hidden="true"></div>
             <p class="quiz__processing-title">IA a processar o seu diagnóstico...</p>
             <p class="quiz__processing-sub">Verifique o seu WhatsApp em 2 minutos.</p>
           </div>
@@ -152,39 +353,158 @@
         <!-- Sucesso -->
         <div class="quiz__step quiz__step--hidden" id="step-success">
           <div class="quiz__success">
-            <div class="quiz__success-icon">✅</div>
-            <h3>Relatório Gerado!</h3>
-            <p>O seu diagnóstico foi processado. Entraremos em contacto via WhatsApp em instantes.</p>
-            <a href="#" class="btn btn--primary" id="btn-whatsapp-contact" target="_blank">
+            <div class="quiz__success-icon" aria-hidden="true">✅</div>
+            <h3>Diagnóstico Enviado!</h3>
+            <p>O Claude Haiku analisou o seu perfil. Entraremos em contacto via WhatsApp com o seu plano de acção personalizado.</p>
+            <a href="#" class="btn btn--primary btn--lg" id="btn-whatsapp-contact" target="_blank" rel="noopener">
               Falar agora no WhatsApp →
             </a>
           </div>
         </div>
 
-      </div><!-- /.quiz -->
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ─── STACK ────────────────────────────────────────────────────────── -->
+  <section class="stack" aria-label="Tecnologias utilizadas">
+    <div class="stack__container">
+      <p class="stack__label">Stack Técnica do Soberano Digital</p>
+      <div class="stack__items">
+        <div class="stack__item"><span class="stack__item-dot"></span>Claude Haiku</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>Supabase</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>n8n</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>WhatsApp API</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>OpenStreetMap</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>Docker Compose</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>Python 3.11</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>FastAPI</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>nginx</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>PostgreSQL</div>
+        <div class="stack__item"><span class="stack__item-dot"></span>PWA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
   <footer class="footer">
     <div class="footer__container">
-      <div>
-        <span class="footer__logo">VANGUARD</span>
-        <p class="footer__tagline">Forja de Ecossistemas Digitais</p>
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo brand-name">VANGUARD</span>
+          <p class="footer__tagline brand-tagline">Forja de Ecossistemas Digitais</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__link-group">
+            <p class="footer__link-title">Produto</p>
+            <ul class="footer__link-list">
+              <li><a href="#features">Funcionalidades</a></li>
+              <li><a href="#como-funciona">Como funciona</a></li>
+              <li><a href="#quiz">Diagnóstico</a></li>
+            </ul>
+          </div>
+          <div class="footer__link-group">
+            <p class="footer__link-title">Legal</p>
+            <ul class="footer__link-list">
+              <li><a href="#">Política de Privacidade</a></li>
+              <li><a href="#">Termos de Uso</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="footer__links">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-        <a href="#">Contacto</a>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Vanguard Tech. Todos os direitos reservados.</p>
+        <p class="footer__version">v5.0 · Soberano Digital · Claude Haiku</p>
       </div>
-      <p class="footer__copy">© 2026 Vanguard Tech. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- ─── Scripts ──────────────────────────────────────────────────────── -->
   <script src="/js/supabase-lib.js"></script>
   <script src="/js/supabase.js"></script>
   <script src="/js/quiz.js"></script>
   <script src="/js/main.js"></script>
+
+  <script>
+    /* ── Counter animation ── */
+    const observeCounters = () => {
+      const els = document.querySelectorAll('[data-target]');
+      if (!els.length) return;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el     = e.target;
+          const target = parseInt(el.dataset.target, 10);
+          const dur    = 1400;
+          const step   = target / (dur / 16);
+          let cur      = 0;
+          const tick   = () => {
+            cur = Math.min(cur + step, target);
+            el.firstChild.textContent = Math.round(cur);
+            if (cur < target) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.4 });
+      els.forEach(el => io.observe(el));
+    };
+
+    /* ── Scroll-reveal fade-up ── */
+    const observeFadeUp = () => {
+      const style = document.createElement('style');
+      style.textContent = `
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.visible { opacity: 1; transform: none; }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+      `;
+      document.head.appendChild(style);
+
+      document.querySelectorAll('.feature-card, .step, .stats__item').forEach((el, i) => {
+        el.classList.add('reveal', `reveal-delay-${(i % 3) + 1}`);
+      });
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    };
+
+    /* ── 3D card tilt ── */
+    const initTilt = () => {
+      document.querySelectorAll('.card--glass').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+          const y = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+          card.style.transform = `perspective(900px) rotateX(${y * -6}deg) rotateY(${x * 6}deg) translateY(-5px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    };
+
+    /* ── White-Label dynamic text ── */
+    const applyBrand = () => {
+      const name    = getComputedStyle(document.documentElement).getPropertyValue('--brand-name').trim().replace(/['"]/g, '');
+      const tagline = getComputedStyle(document.documentElement).getPropertyValue('--brand-tagline').trim().replace(/['"]/g, '');
+      if (name) document.querySelectorAll('.brand-name').forEach(el => { el.textContent = name; });
+      if (tagline) document.querySelectorAll('.brand-tagline').forEach(el => { el.textContent = tagline; });
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      observeCounters();
+      observeFadeUp();
+      initTilt();
+      applyBrand();
+    });
+  </script>
 </body>
 </html>

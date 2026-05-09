@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Scraper Vanguard — Engenheiro de Dados Outbound V3
-Minera leads B2B, audita presença digital e injeta no Supabase Cockpit.
+Scraper Vanguard — Engenheiro de Dados Outbound V5 (Soberano Digital)
+Minera leads B2B, audita presença digital com IA e injeta no Supabase Cockpit.
 
 Modos de operação:
   --modo demo    : gera leads sintéticos realistas (teste sem API keys)
@@ -33,10 +33,19 @@ load_dotenv()
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
+# ─── Disponibilidade opcional: anthropic ──────────────────────────────────────
+try:
+    import anthropic as _anthropic_lib
+    _ANTHROPIC_AVAILABLE = True
+except ImportError:
+    _anthropic_lib = None
+    _ANTHROPIC_AVAILABLE = False
+
 # ─── Configuração ─────────────────────────────────────────────────────────────
 SUPABASE_URL      = os.getenv('SUPABASE_URL', 'https://ehyaecxqijgyuuiorzcj.supabase.co')
 SUPABASE_ANON_KEY = os.getenv('SUPABASE_ANON_KEY', '')
 GOOGLE_API_KEY    = os.getenv('GOOGLE_PLACES_API_KEY', '')
+ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY', '')
 QUIZ_URL          = os.getenv('VANGUARD_QUIZ_URL', 'https://vanguardtech.com/#quiz')
 
 OUTPUT_DIR = Path('outbound')
@@ -49,14 +58,14 @@ HEADERS = {
 
 # ─── Mapeamentos ──────────────────────────────────────────────────────────────
 NICHO_MAP = {
-    'advocacia':   {'supabase': 'Consultoria', 'osm': 'office=lawyer',      'places': 'lawyer'},
-    'estetica':    {'supabase': 'Saúde',       'osm': 'shop=beauty',        'places': 'beauty_salon'},
-    'clinica':     {'supabase': 'Saúde',       'osm': 'amenity=clinic',     'places': 'doctor'},
-    'dentista':    {'supabase': 'Saúde',       'osm': 'amenity=dentist',    'places': 'dentist'},
-    'contabilidade': {'supabase': 'Finanças',  'osm': 'office=accountant',  'places': 'accounting'},
-    'imobiliaria': {'supabase': 'Imobiliário', 'osm': 'office=estate_agent','places': 'real_estate_agency'},
-    'farmacia':    {'supabase': 'Saúde',       'osm': 'amenity=pharmacy',   'places': 'pharmacy'},
-    'restaurante': {'supabase': 'E-commerce',  'osm': 'amenity=restaurant', 'places': 'restaurant'},
+    'advocacia':    {'supabase': 'Consultoria',  'osm': 'office=lawyer',       'places': 'lawyer'},
+    'estetica':     {'supabase': 'Saúde',        'osm': 'shop=beauty',         'places': 'beauty_salon'},
+    'clinica':      {'supabase': 'Saúde',        'osm': 'amenity=clinic',      'places': 'doctor'},
+    'dentista':     {'supabase': 'Saúde',        'osm': 'amenity=dentist',     'places': 'dentist'},
+    'contabilidade':{'supabase': 'Finanças',     'osm': 'office=accountant',   'places': 'accounting'},
+    'imobiliaria':  {'supabase': 'Imobiliário',  'osm': 'office=estate_agent', 'places': 'real_estate_agency'},
+    'farmacia':     {'supabase': 'Saúde',        'osm': 'amenity=pharmacy',    'places': 'pharmacy'},
+    'restaurante':  {'supabase': 'E-commerce',   'osm': 'amenity=restaurant',  'places': 'restaurant'},
 }
 
 GARGALO_BY_SCORE = {
@@ -66,51 +75,126 @@ GARGALO_BY_SCORE = {
     range(0, 2):  'Processos manuais que consomem tempo',
 }
 
+
+# ─── Feature 01: Auditor IA (Claude Haiku) ────────────────────────────────────
+
+class AuditorIA:
+    """
+    Usa Claude Haiku para analisar o HTML do site prospectado e gerar:
+    - gargalos_ia: lista de gargalos específicos identificados no site
+    - hook_personalizado: mensagem WhatsApp personalizada para o lead
+    """
+
+    _PROMPT = """\
+Analisa o site desta empresa como especialista em marketing digital B2B.
+Responde APENAS com JSON válido, sem markdown, sem texto extra.
+
+Empresa : {nome}
+Nicho   : {nicho}
+Score   : {score}/10 (10 = presença digital crítica, 0 = excelente)
+HTML do site (primeiros 5000 chars):
+---
+{html}
+---
+
+JSON esperado:
+{{
+  "gargalos_ia": [
+    "gargalo específico e concreto identificado no site",
+    "segundo gargalo específico identificado"
+  ],
+  "hook_personalizado": "Mensagem WhatsApp de 2-3 frases, personalizada para esta empresa específica, mencionando um problema real encontrado no site. Tom consultivo, não vendedor."
+}}"""
+
+    def __init__(self) -> None:
+        self.enabled = bool(ANTHROPIC_API_KEY) and _ANTHROPIC_AVAILABLE
+        self._client = None
+
+        if not _ANTHROPIC_AVAILABLE:
+            print('  ○ anthropic não instalado (pip install anthropic) — hooks por template.')
+            return
+        if not ANTHROPIC_API_KEY:
+            print('  ○ ANTHROPIC_API_KEY não definida — hooks por template.')
+            return
+
+        self._client = _anthropic_lib.Anthropic(api_key=ANTHROPIC_API_KEY)
+        print('  ✓ Claude Haiku · Auditor IA V5 activado')
+
+    def auditar(self, nome: str, nicho: str, html: str, score: int) -> dict:
+        """Retorna dict com 'gargalos_ia' e 'hook_personalizado', ou {} se indisponível."""
+        if not self.enabled or not html:
+            return {}
+
+        prompt = self._PROMPT.format(
+            nome=nome,
+            nicho=nicho,
+            score=score,
+            html=html[:5000],
+        )
+
+        try:
+            msg = self._client.messages.create(
+                model='claude-haiku-4-5-20251001',
+                max_tokens=512,
+                messages=[{'role': 'user', 'content': prompt}],
+            )
+            texto = msg.content[0].text.strip()
+
+            # Limpar markdown se o modelo o incluir
+            if '```' in texto:
+                partes = texto.split('```')
+                for parte in partes:
+                    parte = parte.lstrip('json').strip()
+                    if parte.startswith('{'):
+                        texto = parte
+                        break
+
+            resultado = json.loads(texto)
+            return resultado
+
+        except (json.JSONDecodeError, ValueError):
+            return {}
+        except Exception as ex:
+            print(f'  ⚠️  AuditorIA erro: {type(ex).__name__}: {ex}')
+            return {}
+
+
 # ─── Auditoria de Presença Digital ───────────────────────────────────────────
 
 class DigitalAudit:
     """Avalia a presença digital de um negócio. Score 0–10 (10 = gargalo máximo)."""
 
-    def auditar(self, site: str | None) -> tuple[int, str]:
+    def auditar(self, site: str | None) -> tuple[int, str, str]:
+        """Retorna (score, descricao, html_raw)."""
         if not site or site.strip() == '':
-            return 10, 'Sem site detectado'
+            return 10, 'Sem site detectado', ''
 
         url = site if site.startswith('http') else f'https://{site}'
         try:
             resp = requests.get(url, headers=HEADERS, timeout=6, allow_redirects=True)
             score = self._analisar(resp, url)
-            return score, self._descricao(score)
+            return score, self._descricao(score), resp.text
         except requests.exceptions.SSLError:
-            return 7, 'Site sem HTTPS (certificado inválido)'
+            return 7, 'Site sem HTTPS (certificado inválido)', ''
         except requests.exceptions.ConnectionError:
-            return 8, 'Site fora do ar ou domínio inexistente'
+            return 8, 'Site fora do ar ou domínio inexistente', ''
         except requests.exceptions.Timeout:
-            return 6, 'Site com tempo de resposta crítico (>6s)'
+            return 6, 'Site com tempo de resposta crítico (>6s)', ''
         except Exception:
-            return 5, 'Site com erros de acesso'
+            return 5, 'Site com erros de acesso', ''
 
     def _analisar(self, resp: requests.Response, url: str) -> int:
         score = 0
-        soup = BeautifulSoup(resp.text, 'lxml')
+        soup  = BeautifulSoup(resp.text, 'lxml')
 
-        # HTTPS
         if not url.startswith('https'):
             score += 3
-
-        # Meta description
         if not soup.find('meta', attrs={'name': 'description'}):
             score += 2
-
-        # Mobile viewport
         if not soup.find('meta', attrs={'name': 'viewport'}):
             score += 2
-
-        # Google Analytics / Meta Pixel / GTM
-        has_analytics = any(kw in resp.text for kw in ['gtag', 'fbq', 'GTM-', '_ga'])
-        if not has_analytics:
+        if not any(kw in resp.text for kw in ['gtag', 'fbq', 'GTM-', '_ga']):
             score += 2
-
-        # Open Graph / Social
         if not soup.find('meta', property='og:title'):
             score += 1
 
@@ -123,7 +207,7 @@ class DigitalAudit:
         return 'Presença digital básica'
 
 
-# ─── Geração de Copy WhatsApp ─────────────────────────────────────────────────
+# ─── Geração de Copy WhatsApp (fallback sem IA) ───────────────────────────────
 
 class CopyGenerator:
     TEMPLATES = [
@@ -157,11 +241,12 @@ class SupabaseWriter:
 
         endpoint = f'{self.url}/rest/v1/leads_diagnostico'
         payload  = json.dumps({
-            'nome':       lead['nome'],
-            'whatsapp':   lead.get('telefone') or 'N/D',
-            'nicho':      lead['nicho'],
-            'gargalo':    lead['gargalo'],
-            'origem':     'scraper',
+            'nome':     lead['nome'],
+            'whatsapp': lead.get('telefone') or 'N/D',
+            'nicho':    lead['nicho'],
+            'gargalo':  lead['gargalo'],
+            'origem':   'scraper',
+            'ai_hook':  lead.get('ai_hook', ''),
         }).encode('utf-8')
 
         req = urllib.request.Request(
@@ -169,10 +254,10 @@ class SupabaseWriter:
             data=payload,
             method='POST',
             headers={
-                'apikey':       self.key,
+                'apikey':        self.key,
                 'Authorization': f'Bearer {self.key}',
-                'Content-Type': 'application/json',
-                'Prefer':       'return=minimal',
+                'Content-Type':  'application/json',
+                'Prefer':        'return=minimal',
             }
         )
         try:
@@ -180,9 +265,8 @@ class SupabaseWriter:
                 return resp.status in (200, 201)
         except urllib.error.HTTPError as e:
             body = e.read().decode()
-            # Ignora duplicados (23505 = unique violation)
             if '23505' in body:
-                return True
+                return True  # Duplicado — OK
             print(f'  ✗ Erro Supabase: {e.code} — {body[:120]}')
             return False
         except Exception as ex:
@@ -204,11 +288,11 @@ class DemoSource:
             ('LegalPro — Advogados Associados', '+5511994321098', 'legalpro.adv.br',         'Rua Pamplona, 145, SP'),
         ],
         'estetica': [
-            ('Studio Bella Forma',             '+5521997001122', 'bellaestetica.com',       'Rua das Laranjeiras, 40, RJ'),
-            ('Clínica Estética Renascer',       '+5521996112233', '',                        'Av. Atlântica, 500, RJ'),
-            ('SPA Luxo & Bem-Estar',            '+5521995223344', 'spaluxo.com.br',          'Rua do Catete, 88, RJ'),
-            ('Instituto Corpo & Saúde',         '+5521994334455', '',                        'Largo do Machado, 12, RJ'),
-            ('Beauty Point Estética',           '+5521993445566', 'beautypoint.net',         'Rua Voluntários da Pátria, 22'),
+            ('Studio Bella Forma',              '+5521997001122', 'bellaestetica.com',       'Rua das Laranjeiras, 40, RJ'),
+            ('Clínica Estética Renascer',        '+5521996112233', '',                        'Av. Atlântica, 500, RJ'),
+            ('SPA Luxo & Bem-Estar',             '+5521995223344', 'spaluxo.com.br',          'Rua do Catete, 88, RJ'),
+            ('Instituto Corpo & Saúde',          '+5521994334455', '',                        'Largo do Machado, 12, RJ'),
+            ('Beauty Point Estética',            '+5521993445566', 'beautypoint.net',         'Rua Voluntários da Pátria, 22'),
         ],
         'clinica': [
             ('Clínica Dr. Alves — Medicina Integral', '+5531998001020', 'clinicaalves.med.br', 'Av. do Contorno, 100, BH'),
@@ -235,7 +319,6 @@ class OSMSource:
         'https://overpass.kumi.systems/api/interpreter',
     ]
 
-    # Coordenadas centrais das principais cidades brasileiras
     CITY_COORDS: dict[str, tuple[float, float, int]] = {
         'são paulo':      (-23.5505, -46.6333, 15000),
         'rio de janeiro': (-22.9068, -43.1729, 15000),
@@ -259,10 +342,8 @@ class OSMSource:
 
         query = (
             f'[out:json][timeout:25];'
-            f'('
-            f'node["{key}"="{val}"](around:{raio},{lat},{lon});'
-            f'way["{key}"="{val}"](around:{raio},{lat},{lon});'
-            f');'
+            f'(node["{key}"="{val}"](around:{raio},{lat},{lon});'
+            f'way["{key}"="{val}"](around:{raio},{lat},{lon}););'
             f'out body {limite};'
         )
 
@@ -270,10 +351,7 @@ class OSMSource:
         for url in self.OVERPASS_URLS:
             try:
                 resp = requests.post(
-                    url,
-                    data={'data': query},
-                    headers=HEADERS,
-                    timeout=30
+                    url, data={'data': query}, headers=HEADERS, timeout=30
                 )
                 resp.raise_for_status()
                 elementos = resp.json().get('elements', [])
@@ -306,7 +384,6 @@ class PlacesSource:
             return []
 
         mapa    = NICHO_MAP.get(nicho, {})
-        ptype   = mapa.get('places', 'establishment')
         query   = f'{nicho} em {cidade}'
         results = []
         token   = None
@@ -316,20 +393,19 @@ class PlacesSource:
             if token:
                 params = {'pagetoken': token, 'key': GOOGLE_API_KEY}
 
-            r = requests.get(f'{self.BASE}/textsearch/json', params=params, timeout=10)
+            r    = requests.get(f'{self.BASE}/textsearch/json', params=params, timeout=10)
             data = r.json()
 
             for place in data.get('results', []):
                 if len(results) >= limite:
                     break
-                detail = self._detail(place['place_id'])
-                results.append(detail)
+                results.append(self._detail(place['place_id']))
                 time.sleep(0.3)
 
             token = data.get('next_page_token')
             if not token:
                 break
-            time.sleep(2)  # Google exige delay antes de usar next_page_token
+            time.sleep(2)
 
         return results
 
@@ -338,7 +414,7 @@ class PlacesSource:
         r = requests.get(
             f'{self.BASE}/details/json',
             params={'place_id': place_id, 'fields': fields, 'key': GOOGLE_API_KEY, 'language': 'pt-BR'},
-            timeout=10
+            timeout=10,
         )
         d = r.json().get('result', {})
         return {
@@ -352,8 +428,14 @@ class PlacesSource:
 
 # ─── Pipeline Principal ───────────────────────────────────────────────────────
 
-def processar(leads_raw: list[dict], nicho: str, auditor: DigitalAudit,
-              copy_gen: CopyGenerator, writer: SupabaseWriter) -> list[dict]:
+def processar(
+    leads_raw:  list[dict],
+    nicho:      str,
+    auditor:    DigitalAudit,
+    copy_gen:   CopyGenerator,
+    writer:     SupabaseWriter,
+    auditor_ia: AuditorIA | None = None,
+) -> list[dict]:
     mapa     = NICHO_MAP.get(nicho, {'supabase': 'Consultoria'})
     nicho_sb = mapa['supabase']
     results  = []
@@ -362,10 +444,8 @@ def processar(leads_raw: list[dict], nicho: str, auditor: DigitalAudit,
         nome = raw.get('nome', 'Empresa').strip() or 'Empresa sem nome'
         print(f'  [{i}/{len(leads_raw)}] {nome}')
 
-        # Auditoria digital
-        score_digital, descricao_gargalo = auditor.auditar(raw.get('site', ''))
-
-        # Gargalo mapeado para o esquema do quiz
+        # Auditoria técnica — retorna HTML para o Auditor IA
+        score_digital, descricao_gargalo, html_site = auditor.auditar(raw.get('site', ''))
         gargalo = _score_to_gargalo(score_digital)
 
         lead = {
@@ -378,22 +458,31 @@ def processar(leads_raw: list[dict], nicho: str, auditor: DigitalAudit,
             'gargalo':       gargalo,
             'auditoria':     descricao_gargalo,
             'fonte':         raw.get('fonte', 'manual'),
+            'ai_hook':       '',
+            'ai_gargalos':   [],
         }
 
-        # Copy WhatsApp
-        lead['wa_copy'] = copy_gen.gerar(lead)
+        # Feature 01: Auditor IA — hook personalizado por Claude Haiku
+        if auditor_ia and auditor_ia.enabled:
+            ia_result = auditor_ia.auditar(nome, nicho_sb, html_site, score_digital)
+            if ia_result:
+                lead['ai_hook']     = ia_result.get('hook_personalizado', '')
+                lead['ai_gargalos'] = ia_result.get('gargalos_ia', [])
+                if lead['ai_hook']:
+                    print(f'      🧠 Hook IA: {lead["ai_hook"][:70]}...')
+
+        # Copy WhatsApp (usa ai_hook se disponível, senão template)
+        lead['wa_copy'] = lead['ai_hook'] if lead['ai_hook'] else copy_gen.gerar(lead)
 
         # Injectar no Supabase
         ok = writer.inserir_lead(lead)
         lead['supabase_ok'] = ok
-        if ok:
-            print(f'      ✓ Supabase · Score {score_digital}/10 · {gargalo[:35]}')
-        else:
-            print(f'      ○ Local  · Score {score_digital}/10 · {gargalo[:35]}')
+        status = '✓ Supabase' if ok else '○ Local'
+        ia_tag = ' 🧠IA' if lead['ai_hook'] else ''
+        print(f'      {status} · Score {score_digital}/10 · {gargalo[:35]}{ia_tag}')
 
         results.append(lead)
 
-        # Rate limiting — respeita servidores externos
         if i < len(leads_raw):
             time.sleep(random.uniform(0.8, 1.8))
 
@@ -409,17 +498,18 @@ def _score_to_gargalo(score: int) -> str:
 
 def exportar(leads: list[dict], nicho: str, cidade: str) -> Path:
     OUTPUT_DIR.mkdir(exist_ok=True)
-    ts        = datetime.now().strftime('%Y%m%d_%H%M')
-    ficheiro  = OUTPUT_DIR / f'{nicho}_{cidade.replace(" ", "_")}_{ts}.md'
+    ts       = datetime.now().strftime('%Y%m%d_%H%M')
+    ficheiro = OUTPUT_DIR / f'{nicho}_{cidade.replace(" ", "_")}_{ts}.md'
 
     linhas = [
-        f'# Outbound Vanguard — {nicho.title()} / {cidade}',
-        f'> Gerado em {datetime.now().strftime("%Y-%m-%d %H:%M")} · {len(leads)} leads processados',
+        f'# Outbound Vanguard V5 — {nicho.title()} / {cidade}',
+        f'> Gerado em {datetime.now().strftime("%Y-%m-%d %H:%M")} · {len(leads)} leads · Claude Haiku Auditor',
         '', '---', '',
     ]
 
     for i, l in enumerate(leads, 1):
         status_sb = '✓ Supabase' if l.get('supabase_ok') else '○ Local'
+        ia_badge  = ' · 🧠 Hook IA' if l.get('ai_hook') else ''
         score_bar = '█' * l['score_digital'] + '░' * (10 - l['score_digital'])
         linhas += [
             f'## {i}. {l["nome"]}',
@@ -429,8 +519,17 @@ def exportar(leads: list[dict], nicho: str, cidade: str) -> Path:
             f'- **Score Digital:** `{score_bar}` {l["score_digital"]}/10',
             f'- **Gargalo:** {l["gargalo"]}',
             f'- **Auditoria:** {l["auditoria"]}',
-            f'- **Status:** {status_sb}',
+            f'- **Status:** {status_sb}{ia_badge}',
             '',
+        ]
+
+        if l.get('ai_gargalos'):
+            linhas.append('### Gargalos IA (Claude Haiku)')
+            for g in l['ai_gargalos']:
+                linhas.append(f'- {g}')
+            linhas.append('')
+
+        linhas += [
             '### Copy WhatsApp',
             '```',
             l['wa_copy'],
@@ -443,58 +542,57 @@ def exportar(leads: list[dict], nicho: str, cidade: str) -> Path:
 
 
 def resumo(leads: list[dict]) -> None:
-    total   = len(leads)
-    criticos = [l for l in leads if l['score_digital'] >= 8]
-    medios   = [l for l in leads if 4 <= l['score_digital'] < 8]
-    bons     = [l for l in leads if l['score_digital'] < 4]
+    total     = len(leads)
+    criticos  = [l for l in leads if l['score_digital'] >= 8]
+    medios    = [l for l in leads if 4 <= l['score_digital'] < 8]
+    bons      = [l for l in leads if l['score_digital'] < 4]
     injetados = [l for l in leads if l.get('supabase_ok')]
+    com_ia    = [l for l in leads if l.get('ai_hook')]
 
-    sep = '─' * 50
+    sep = '─' * 55
     print(f'\n{sep}')
-    print(f'RESUMO FINAL · {datetime.now().strftime("%Y-%m-%d %H:%M")}')
+    print(f'RESUMO FINAL V5 · {datetime.now().strftime("%Y-%m-%d %H:%M")}')
     print(sep)
-    print(f'  Total processados     : {total}')
-    print(f'  🔴 Críticos (≥8/10)   : {len(criticos)}  ← atacar primeiro')
-    print(f'  🟡 Médios   (4-7/10)  : {len(medios)}')
-    print(f'  🟢 Bons     (<4/10)   : {len(bons)}')
-    print(f'  ✓  Injectados Supabase: {len(injetados)}')
+    print(f'  Total processados      : {total}')
+    print(f'  🔴 Críticos (≥8/10)    : {len(criticos)}  ← atacar primeiro')
+    print(f'  🟡 Médios   (4-7/10)   : {len(medios)}')
+    print(f'  🟢 Bons     (<4/10)    : {len(bons)}')
+    print(f'  ✓  Injectados Supabase : {len(injetados)}')
+    print(f'  🧠 Hooks por IA Haiku  : {len(com_ia)}')
     print(sep)
 
     if criticos:
         print('\n🔴 LEADS CRÍTICOS (ATACAR AGORA):')
         for l in sorted(criticos, key=lambda x: x['score_digital'], reverse=True):
-            print(f'  • {l["nome"]} — Score {l["score_digital"]}/10 — {l["telefone"]}')
+            ia = ' 🧠' if l.get('ai_hook') else ''
+            print(f'  • {l["nome"]} — Score {l["score_digital"]}/10 — {l["telefone"]}{ia}')
 
 
 # ─── CLI ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description='Scraper Vanguard — Engenheiro de Dados Outbound V3'
+        description='Scraper Vanguard V5 — Soberano Digital (Auditor IA + Claude Haiku)'
     )
-    parser.add_argument('--nicho',  default='advocacia',
-                        choices=list(NICHO_MAP.keys()),
-                        help='Nicho a minerar')
-    parser.add_argument('--cidade', default='São Paulo',
-                        help='Cidade alvo')
-    parser.add_argument('--limite', type=int, default=5,
-                        help='Número máximo de leads a extrair')
-    parser.add_argument('--modo',   default='demo',
-                        choices=['demo', 'osm', 'places'],
-                        help='Fonte de dados: demo | osm | places')
+    parser.add_argument('--nicho',  default='advocacia', choices=list(NICHO_MAP.keys()))
+    parser.add_argument('--cidade', default='São Paulo')
+    parser.add_argument('--limite', type=int, default=5)
+    parser.add_argument('--modo',   default='demo', choices=['demo', 'osm', 'places'])
+    parser.add_argument('--sem-ia', action='store_true', help='Desactivar Auditor IA (mais rápido)')
     args = parser.parse_args()
 
-    print('Scraper Vanguard — Engenheiro de Dados Outbound V3')
-    print('=' * 50)
+    print('╔══════════════════════════════════════════════════════╗')
+    print('║  Scraper Vanguard V5 — Soberano Digital              ║')
+    print('╚══════════════════════════════════════════════════════╝')
     print(f'  Nicho  : {args.nicho}')
     print(f'  Cidade : {args.cidade}')
     print(f'  Limite : {args.limite}')
     print(f'  Modo   : {args.modo}')
     print()
 
-    # Fonte de dados
-    fontes = {'demo': DemoSource, 'osm': OSMSource, 'places': PlacesSource}
-    fonte  = fontes[args.modo]()
+    fontes    = {'demo': DemoSource, 'osm': OSMSource, 'places': PlacesSource}
+    fonte     = fontes[args.modo]()
+
     print('1/4 · A extrair leads...')
     leads_raw = fonte.buscar(args.nicho, args.cidade, args.limite)
 
@@ -503,17 +601,20 @@ def main() -> None:
         sys.exit(1)
     print(f'     {len(leads_raw)} leads encontrados.\n')
 
-    print('2/4 · A auditar presença digital e a calcular scores...')
-    auditor  = DigitalAudit()
-    copy_gen = CopyGenerator()
-    writer   = SupabaseWriter()
-    leads    = processar(leads_raw, args.nicho, auditor, copy_gen, writer)
+    print('2/4 · A inicializar motores de auditoria...')
+    auditor    = DigitalAudit()
+    copy_gen   = CopyGenerator()
+    writer     = SupabaseWriter()
+    auditor_ia = None if args.sem_ia else AuditorIA()
+    print()
 
-    print(f'\n3/4 · A exportar relatório Markdown...')
+    print('3/4 · A auditar presença digital + IA...')
+    leads = processar(leads_raw, args.nicho, auditor, copy_gen, writer, auditor_ia)
+
+    print(f'\n4/4 · A exportar relatório Markdown...')
     ficheiro = exportar(leads, args.nicho, args.cidade)
     print(f'     Relatório: {ficheiro}')
 
-    print('\n4/4 · Resumo de execução:')
     resumo(leads)
 
 

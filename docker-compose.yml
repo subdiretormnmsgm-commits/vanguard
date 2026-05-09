@@ -1,12 +1,78 @@
 version: '3.8'
 
-# Protocolo Hermes — Stack completa para VPS Hostinger
-# Deploy: docker compose up -d
-# Logs:   docker compose logs -f
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║  VANGUARD SOBERANO DIGITAL V5 — Docker Compose Mestre               ║
+# ║  Orquestra: Frontend PWA · Scraper IA · n8n Hermes · PostgreSQL      ║
+# ║                                                                      ║
+# ║  Deploy  : docker compose up -d                                      ║
+# ║  Scraper : docker compose run --rm scraper --nicho advocacia --modo osm ║
+# ║  Logs    : docker compose logs -f                                    ║
+# ╚══════════════════════════════════════════════════════════════════════╝
 
 services:
 
-  # ─── n8n — Motor de Automação ──────────────────────────────────────────────
+  # ──────────────────────────────────────────────────────────────────────
+  # PWA Frontend — nginx serve static files + White-Label brand injection
+  # ──────────────────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vanguard-frontend:v5
+    container_name: vanguard_frontend
+    restart: always
+    ports:
+      - '80:80'
+    environment:
+      # Feature 03: White-Label — override these per client
+      - BRAND_NAME=${BRAND_NAME:-VANGUARD}
+      - BRAND_TAGLINE=${BRAND_TAGLINE:-Forja de Ecossistemas Digitais}
+      - BRAND_PRIMARY=${BRAND_PRIMARY:-#00F0FF}
+      - BRAND_SECONDARY=${BRAND_SECONDARY:-#1A0B2E}
+      - BRAND_ACCENT=${BRAND_ACCENT:-#7B2FFF}
+      - BRAND_BG=${BRAND_BG:-#0A0A0A}
+    networks:
+      - vanguard_net
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://localhost/']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ──────────────────────────────────────────────────────────────────────
+  # Scraper IA — Python on-demand (use docker compose run)
+  # Feature 01: Claude Haiku Auditor integrado
+  # ──────────────────────────────────────────────────────────────────────
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile.scraper
+    image: vanguard-scraper:v5
+    container_name: vanguard_scraper
+    restart: 'no'
+    profiles:
+      - scraper
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - GOOGLE_PLACES_API_KEY=${GOOGLE_PLACES_API_KEY:-}
+      - VANGUARD_QUIZ_URL=${VANGUARD_QUIZ_URL:-https://vanguardtech.com/#quiz}
+    volumes:
+      - ./outbound:/app/outbound
+    networks:
+      - vanguard_net
+    command: >
+      python scraper_vanguard.py
+      --nicho ${SCRAPER_NICHO:-advocacia}
+      --cidade ${SCRAPER_CIDADE:-São Paulo}
+      --limite ${SCRAPER_LIMITE:-10}
+      --modo ${SCRAPER_MODO:-osm}
+
+  # ──────────────────────────────────────────────────────────────────────
+  # n8n — Motor de Automação Hermes
+  # Detecta novo lead no Supabase e dispara ai_hook via WhatsApp
+  # ──────────────────────────────────────────────────────────────────────
   n8n:
     image: n8nio/n8n:latest
     container_name: hermes_n8n
@@ -32,13 +98,16 @@ services:
       - N8N_LOG_LEVEL=info
     volumes:
       - n8n_data:/home/node/.n8n
+      - ./n8n-workflow-hermes.json:/home/node/.n8n/workflows/hermes.json:ro
     networks:
-      - hermes_net
+      - vanguard_net
     depends_on:
       postgres:
         condition: service_healthy
 
-  # ─── PostgreSQL — Persistência do n8n (execuções, credenciais) ─────────────
+  # ──────────────────────────────────────────────────────────────────────
+  # PostgreSQL — Persistência do n8n
+  # ──────────────────────────────────────────────────────────────────────
   postgres:
     image: postgres:15-alpine
     container_name: hermes_postgres
@@ -50,18 +119,21 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - hermes_net
+      - vanguard_net
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U n8n']
       interval: 10s
       timeout: 5s
       retries: 5
 
-  # ─── Hermes Webhook — Servidor Python FastAPI ───────────────────────────────
+  # ──────────────────────────────────────────────────────────────────────
+  # Hermes Webhook — FastAPI (receptor WhatsApp → Supabase → Claude)
+  # ──────────────────────────────────────────────────────────────────────
   hermes:
     build:
       context: ./hermes
       dockerfile: Dockerfile
+    image: vanguard-hermes:v5
     container_name: hermes_webhook
     restart: always
     ports:
@@ -74,8 +146,11 @@ services:
       - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     networks:
-      - hermes_net
+      - vanguard_net
+    depends_on:
+      - n8n
 
+# ──────────────────────────────────────────────────────────────────────────────
 volumes:
   n8n_data:
     driver: local
@@ -83,5 +158,6 @@ volumes:
     driver: local
 
 networks:
-  hermes_net:
+  vanguard_net:
     driver: bridge
+    name: vanguard_soberano_v5
