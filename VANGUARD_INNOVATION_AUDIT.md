@@ -17,6 +17,26 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 
 
 
+## [ID-005] — Recurrence Singularity Engine (V18)
+
+**Data:** 2026-05-10  
+**Missão:** Início da V18 — Transição para recorrência de dados e MRR defensável.  
+**Transição Estratégica:** Do produto unitário (R$50 Neural Audit Trail) para subscrição recorrente (R$97/mês Neural Sentinel) + lock-in via Sovereign Playbook.
+
+**O que foi construído:**
+- `sovereign-playbook.js` — Gerador de Plano Estratégico 90 dias (12 semanas). Cada tarefa está nativamente ancorada a um Power-Up do ecossistema Vanguard. Sem a plataforma activa, o cliente não consegue executar o próprio plano. Free: semanas 1-2 (isca). Pago: plano completo via R$97/mês Neural Sentinel.
+- `neural-sentinel.js` — Guarda do Castelo: analisa delta semanal do Sovereign Pixel (FIRE, HOT, WARM vs semana anterior). Se FIRE cair >15%, dispara alerta de receita com valor estimado em R$. Histórico de 4 semanas bloqueado para não-subscritores — paywall R$97/mês via Stripe subscriptions.
+
+**Fundação reutilizada (Conexão Histórica):**
+- `closer-machine.js` (V12): motor jsPDF e paleta Ion Gold/Obsidian reutilizados no Playbook
+- `pixel_events_staging` UNLOGGED (V16/V17): tabela de eventos consumida pelo Sentinel para delta semanal
+- `prospectar.ps1` (V17): espinha dorsal do loop comercial Hermes Autonomous
+- Stripe Connect (V16): checkout de subscrição recorrente (price_id sentinel_97_monthly)
+
+**Lock-in gerado:** Playbook = plano do cliente preso na plataforma. Sentinel = histórico do Pixel preso na subscrição. Cancelar = perder ambos.
+
+---
+
 ## [ID-004] — Sovereign Intent Engine (V17)
 
 **Data:** 2026-05-10  
