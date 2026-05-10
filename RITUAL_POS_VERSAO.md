@@ -32,6 +32,43 @@ Isso faz tudo: COMANDO_GEMINI, NotebookLM, Doc Gemini, commit.
 
 ---
 
+## PARTE 1B — INSTRUÇÃO AO CONSELHO QUADRILATERAL
+
+> **Esta secção é obrigatória. Claude diz isto ao Diretor ao final de cada versão.**
+
+### NOTEBOOKLM — O que fazer
+
+1. Abrir o NotebookLM do projecto Vanguard
+2. Fazer upload dos ficheiros novos da versão (pasta `NotebookLM/`):
+   - `07_MEMORIA_VXX.md` — memória técnica da versão que fechou
+   - `08_relatorio_evolutivo_vXX.md` — relatório com as 5 ideias do Claude
+   - Qualquer outro ficheiro actualizado (ver lista completa na pasta)
+3. Colar o **Bloco 3** do Gemini no NotebookLM (comando do Arquivista)
+4. Receber a Skill `vanguard-vXX-[nome].md` gerada pelo NotebookLM
+5. Salvar a Skill em `.claude/skills/vanguard-vXX-[nome].md`
+
+### GEMINI — O que fazer
+
+1. Abrir o Gemini (gemini.google.com ou app)
+2. Colar o conteúdo de `Doc Gemini\COMANDO_GEMINI_VXX.md`
+3. Receber os **4 blocos**:
+   - **Bloco 1** → Análise estratégica (leia, avalie como Arquitecto-Mestre)
+   - **Bloco 2** → Salvar como `DIRETRIZ GEMINI V(XX+1).txt`
+   - **Bloco 3** → Colar no NotebookLM (passo acima)
+   - **Bloco 4** → Colar no terminal do Claude Code (inicia V(XX+1))
+
+### O LOOP FECHA ASSIM
+
+```
+Claude fecha VXX → Gemini recebe COMANDO → Gemini gera 4 blocos
+Bloco 2 → DIRETRIZ salva
+Bloco 3 → NotebookLM gera Skill
+Bloco 4 → Claude lê Skill → executa V(XX+1)
+Loop abre mais rico do que fechou
+```
+
+---
+
 ## PARTE 2 — ACTIVAÇÃO COMERCIAL
 
 ### Passo 1 — Identificar a nova arma
