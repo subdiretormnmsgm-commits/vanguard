@@ -45,6 +45,7 @@
 
   <!-- ─── HERO ────────────────────────────────────────────────────────── -->
   <section class="hero" id="home" aria-labelledby="hero-title">
+    <canvas id="neural-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.55"></canvas>
     <div class="hero__bg" aria-hidden="true"></div>
     <div class="hero__scanline" aria-hidden="true"></div>
 
@@ -348,119 +349,298 @@
     </div>
   </section>
 
-  <!-- ─── QUIZ ─────────────────────────────────────────────────────────── -->
+  <!-- ─── DIAGNÓSTICO QUADRILATERAL™ ────────────────────────────────────── -->
   <section class="quiz-section" id="quiz" aria-labelledby="quiz-title">
     <div class="quiz-section__container">
       <div class="section__header">
         <div class="section__label">
-          <span class="label-tag">Diagnóstico Gratuito</span>
+          <span class="label-tag">Diagnóstico Quadrilateral™</span>
         </div>
         <h2 class="section__title" id="quiz-title">
-          Descubra o seu<br>
-          <span class="text-gradient">gargalo digital.</span>
+          7 perguntas que revelam<br>
+          <span class="text-gradient">onde perde dinheiro.</span>
         </h2>
         <p class="section__desc">
-          Em 2 minutos identificamos exactamente onde o seu negócio está a perder dinheiro.
+          Mapeamos os quatro pilares do seu negócio — Presença, Aquisição, Conversão e Retenção — e entregamos um diagnóstico financeiro real.
         </p>
       </div>
 
-      <div class="quiz" id="quiz-widget" role="form" aria-label="Quiz de diagnóstico">
+      <div class="quiz" id="quiz-widget" role="form" aria-label="Diagnóstico Quadrilateral">
         <div class="quiz__top">
-          <div class="quiz__progress" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
+          <div class="quiz__progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
             <div class="quiz__progress-bar" id="quiz-progress-bar"></div>
           </div>
-          <div class="quiz__step-label" id="quiz-step-label" aria-live="polite">Passo 1 / 3</div>
+          <div class="quiz__step-label" id="quiz-step-label" aria-live="polite">Pergunta 1 de 7</div>
         </div>
 
-        <!-- Passo 1: Nicho -->
+        <!-- Q1: Sector -->
         <div class="quiz__step" id="step-1">
-          <h3 class="quiz__question">Qual é o seu nicho de mercado?</h3>
+          <div class="quiz__quad-badge">P · A · C · R</div>
+          <h3 class="quiz__question">Qual é o sector do seu negócio?</h3>
+          <p class="quiz__hint">Usado para calibrar os benchmarks do seu diagnóstico.</p>
           <div class="quiz__select-wrap">
-            <select class="quiz__select" id="quiz-nicho" aria-label="Seleccione o seu nicho">
-              <option value="">Seleccione o seu nicho...</option>
-              <option value="Saúde">Saúde</option>
-              <option value="Educação">Educação</option>
-              <option value="Finanças">Finanças</option>
-              <option value="Consultoria">Consultoria</option>
-              <option value="E-commerce">E-commerce</option>
+            <select class="quiz__select" id="quiz-sector" aria-label="Seleccione o sector">
+              <option value="">Seleccione o sector...</option>
+              <option value="Saúde e Bem-Estar">Saúde e Bem-Estar</option>
+              <option value="Educação e Formação">Educação e Formação</option>
+              <option value="Consultoria e Serviços B2B">Consultoria e Serviços B2B</option>
+              <option value="Tecnologia e SaaS">Tecnologia e SaaS</option>
               <option value="Imobiliário">Imobiliário</option>
-              <option value="Tecnologia">Tecnologia</option>
+              <option value="Finanças e Seguros">Finanças e Seguros</option>
+              <option value="E-commerce e Retalho">E-commerce e Retalho</option>
+              <option value="Indústria e Manufatura">Indústria e Manufatura</option>
+              <option value="Agência de Marketing">Agência de Marketing</option>
               <option value="Outro">Outro</option>
             </select>
             <span class="quiz__select-arrow" aria-hidden="true">▾</span>
           </div>
-          <button class="btn btn--primary" id="btn-next-1" style="width:100%">
-            Próximo →
+          <button class="btn btn--primary" id="btn-next-1" disabled style="width:100%;margin-top:1.5rem">
+            Próxima pergunta →
           </button>
         </div>
 
-        <!-- Passo 2: Gargalo -->
+        <!-- Q2: Faturamento -->
         <div class="quiz__step quiz__step--hidden" id="step-2">
-          <h3 class="quiz__question">Qual gargalo operacional impede a sua escala hoje?</h3>
-          <div class="quiz__radio-group" role="radiogroup" aria-label="Gargalos operacionais">
-            <label class="quiz__radio-card">
-              <input type="radio" name="gargalo" value="Processos manuais que consomem tempo">
-              <span>Processos manuais que consomem tempo</span>
-            </label>
-            <label class="quiz__radio-card">
-              <input type="radio" name="gargalo" value="Falta de visibilidade sobre métricas do negócio">
-              <span>Falta de visibilidade sobre métricas do negócio</span>
-            </label>
-            <label class="quiz__radio-card">
-              <input type="radio" name="gargalo" value="Dificuldade em escalar a equipa">
-              <span>Dificuldade em escalar a equipa</span>
-            </label>
-            <label class="quiz__radio-card">
-              <input type="radio" name="gargalo" value="Captação e retenção de clientes">
-              <span>Captação e retenção de clientes</span>
-            </label>
-            <label class="quiz__radio-card">
-              <input type="radio" name="gargalo" value="Dependência de ferramentas de terceiros">
-              <span>Dependência de ferramentas de terceiros</span>
-            </label>
+          <div class="quiz__quad-badge quiz__quad-badge--all">P · A · C · R</div>
+          <h3 class="quiz__question">Qual é o faturamento mensal actual do seu negócio?</h3>
+          <p class="quiz__hint">Usado para calcular o valor real em risco no seu diagnóstico.</p>
+          <div class="quiz__card-grid quiz__card-grid--2">
+            <button class="quiz__card-opt" data-group="q2" data-value="lt10">
+              <span class="quiz__card-icon">🌱</span>
+              <span class="quiz__card-label">Menos de R$ 10k/mês</span>
+              <span class="quiz__card-sub">Fase de tração</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q2" data-value="10_50">
+              <span class="quiz__card-icon">📈</span>
+              <span class="quiz__card-label">R$ 10k – 50k/mês</span>
+              <span class="quiz__card-sub">Em crescimento</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q2" data-value="50_150">
+              <span class="quiz__card-icon">⚡</span>
+              <span class="quiz__card-label">R$ 50k – 150k/mês</span>
+              <span class="quiz__card-sub">Escala acelerada</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q2" data-value="gt150">
+              <span class="quiz__card-icon">🏆</span>
+              <span class="quiz__card-label">Acima de R$ 150k/mês</span>
+              <span class="quiz__card-sub">Operação consolidada</span>
+            </button>
           </div>
-          <button class="btn btn--primary" id="btn-next-2" style="width:100%">
-            Próximo →
+        </div>
+
+        <!-- Q3: Canal de aquisição -->
+        <div class="quiz__step quiz__step--hidden" id="step-3">
+          <div class="quiz__quad-badge quiz__quad-badge--a">A — Aquisição</div>
+          <h3 class="quiz__question">Como a maioria dos seus clientes actuais chegou até si?</h3>
+          <p class="quiz__hint">Identifica a dependência e fragilidade do seu canal principal.</p>
+          <div class="quiz__card-grid quiz__card-grid--1">
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="indicacao">
+              <span class="quiz__card-icon">🤝</span>
+              <span class="quiz__card-label">Maioritariamente por indicação</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="social">
+              <span class="quiz__card-icon">📱</span>
+              <span class="quiz__card-label">Redes sociais e conteúdo orgânico</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="prospeccao">
+              <span class="quiz__card-icon">🎯</span>
+              <span class="quiz__card-label">Prospecção activa (outbound/cold)</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="misto">
+              <span class="quiz__card-icon">🔀</span>
+              <span class="quiz__card-label">Combinação de vários canais</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="nenhum">
+              <span class="quiz__card-icon">❓</span>
+              <span class="quiz__card-label">Não tenho uma fonte clara</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q4: Presença digital -->
+        <div class="quiz__step quiz__step--hidden" id="step-4">
+          <div class="quiz__quad-badge quiz__quad-badge--p">P — Presença</div>
+          <h3 class="quiz__question">Como classificaria a sua presença digital actual?</h3>
+          <p class="quiz__hint">A autoridade digital é o primeiro filtro que o seu cliente usa.</p>
+          <div class="quiz__card-grid quiz__card-grid--2">
+            <button class="quiz__card-opt" data-group="q4" data-value="site_bom">
+              <span class="quiz__card-icon">🌐</span>
+              <span class="quiz__card-label">Site profissional, rápido e actualizado</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q4" data-value="site_velho">
+              <span class="quiz__card-icon">🕸️</span>
+              <span class="quiz__card-label">Tenho site, mas está desactualizado</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q4" data-value="redes">
+              <span class="quiz__card-icon">📲</span>
+              <span class="quiz__card-label">Só uso redes sociais (sem site)</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q4" data-value="sem_digital">
+              <span class="quiz__card-icon">🚫</span>
+              <span class="quiz__card-label">Quase sem presença digital</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q5: Taxa de conversão -->
+        <div class="quiz__step quiz__step--hidden" id="step-5">
+          <div class="quiz__quad-badge quiz__quad-badge--c">C — Conversão</div>
+          <h3 class="quiz__question">De cada 10 potenciais clientes com quem conversa, quantos fecham?</h3>
+          <p class="quiz__hint">Mede a eficiência do seu processo de venda actual.</p>
+          <div class="quiz__card-grid quiz__card-grid--2">
+            <button class="quiz__card-opt" data-group="q5" data-value="lt1">
+              <span class="quiz__card-icon">😰</span>
+              <span class="quiz__card-label">Menos de 1 em 10</span>
+              <span class="quiz__card-sub">Taxa crítica (&lt;10%)</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q5" data-value="1_3">
+              <span class="quiz__card-icon">🤔</span>
+              <span class="quiz__card-label">1 a 3 em cada 10</span>
+              <span class="quiz__card-sub">Abaixo do mercado (10–30%)</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q5" data-value="3_5">
+              <span class="quiz__card-icon">👍</span>
+              <span class="quiz__card-label">3 a 5 em cada 10</span>
+              <span class="quiz__card-sub">Na média do mercado (30–50%)</span>
+            </button>
+            <button class="quiz__card-opt" data-group="q5" data-value="gt5">
+              <span class="quiz__card-icon">🔥</span>
+              <span class="quiz__card-label">Mais de 5 em cada 10</span>
+              <span class="quiz__card-sub">Alta performance (&gt;50%)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q6: Maior obstáculo -->
+        <div class="quiz__step quiz__step--hidden" id="step-6">
+          <div class="quiz__quad-badge quiz__quad-badge--all">P · A · C · R</div>
+          <h3 class="quiz__question">Qual é o maior obstáculo ao crescimento do seu negócio hoje?</h3>
+          <p class="quiz__hint">Ser honesto aqui é o que torna o diagnóstico preciso.</p>
+          <div class="quiz__card-grid quiz__card-grid--1">
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q6" data-value="visibilidade">
+              <span class="quiz__card-icon">👁️</span>
+              <span class="quiz__card-label">Visibilidade — as pessoas certas não me conhecem</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q6" data-value="leads">
+              <span class="quiz__card-icon">🎯</span>
+              <span class="quiz__card-label">Leads — não consigo gerar oportunidades suficientes</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q6" data-value="fechamento">
+              <span class="quiz__card-icon">🤝</span>
+              <span class="quiz__card-label">Fechamento — as conversas não avançam para venda</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q6" data-value="retencao">
+              <span class="quiz__card-icon">🔄</span>
+              <span class="quiz__card-label">Retenção — clientes ficam pouco tempo</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q6" data-value="tempo">
+              <span class="quiz__card-icon">⏱️</span>
+              <span class="quiz__card-label">Tempo — faço tudo sozinho e não consigo escalar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q7: Histórico de tentativas -->
+        <div class="quiz__step quiz__step--hidden" id="step-7">
+          <div class="quiz__quad-badge quiz__quad-badge--all">P · A · C · R</div>
+          <h3 class="quiz__question">Já tentou resolver estes desafios de alguma forma?</h3>
+          <p class="quiz__hint">Contexto importante para não recomendar o que já não funcionou.</p>
+          <div class="quiz__card-grid quiz__card-grid--1">
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q7" data-value="nunca">
+              <span class="quiz__card-icon">🆕</span>
+              <span class="quiz__card-label">Ainda não investi em nenhuma solução</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q7" data-value="tentei">
+              <span class="quiz__card-icon">💸</span>
+              <span class="quiz__card-label">Já tentei sozinho — não funcionou como esperado</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q7" data-value="agencia">
+              <span class="quiz__card-icon">🏢</span>
+              <span class="quiz__card-label">Trabalhei com agência — resultado abaixo do esperado</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q7" data-value="freelancer">
+              <span class="quiz__card-icon">👨‍💻</span>
+              <span class="quiz__card-label">Contratei freelancers — qualidade inconsistente</span>
+            </button>
+            <button class="quiz__card-opt quiz__card-opt--wide" data-group="q7" data-value="sistema">
+              <span class="quiz__card-icon">🔧</span>
+              <span class="quiz__card-label">Tenho sistemas em curso — quero optimizar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Preview: P+A revelados, C+R bloqueados -->
+        <div class="quiz__step quiz__step--hidden" id="step-preview">
+          <div class="quiz__preview-header">
+            <span class="quiz__preview-tag">PRÉ-DIAGNÓSTICO</span>
+            <h3 class="quiz__preview-title">Os seus primeiros resultados</h3>
+            <p class="quiz__preview-sub">Sector: <strong id="preview-sector">—</strong></p>
+          </div>
+          <div class="quiz__preview-risk">
+            <span class="quiz__preview-risk-label">Receita estimada em risco</span>
+            <span class="quiz__preview-risk-value" id="preview-risk">R$ —</span>
+            <span class="quiz__preview-risk-hint">calculado com base no seu faturamento e scores</span>
+          </div>
+          <div class="quiz__quads" id="preview-quads"></div>
+          <p class="quiz__preview-lock-note">🔒 Os quadrantes C e R requerem o seu contacto para serem revelados.</p>
+          <button class="btn btn--primary" id="btn-preview-next" style="width:100%;margin-top:1.5rem">
+            Revelar diagnóstico completo →
           </button>
         </div>
 
-        <!-- Passo 3: Contacto -->
-        <div class="quiz__step quiz__step--hidden" id="step-3">
-          <h3 class="quiz__question">Como podemos contactá-lo?</h3>
+        <!-- Contacto -->
+        <div class="quiz__step quiz__step--hidden" id="step-contact">
+          <div class="quiz__quad-badge">Último passo</div>
+          <h3 class="quiz__question">Para onde enviamos o diagnóstico completo?</h3>
+          <p class="quiz__hint">O relatório completo + recomendação chega via WhatsApp em minutos.</p>
           <div class="quiz__inputs">
             <div class="quiz__input-wrap">
               <input type="text" class="quiz__input" id="quiz-nome"
-                     placeholder="O seu nome completo" autocomplete="name">
+                     placeholder="O seu nome" autocomplete="name">
             </div>
             <div class="quiz__input-wrap">
               <input type="tel" class="quiz__input" id="quiz-whatsapp"
-                     placeholder="WhatsApp (ex: +351912345678)" autocomplete="tel">
+                     placeholder="WhatsApp com DDD (ex: 21912345678)" autocomplete="tel">
+            </div>
+            <div class="quiz__input-wrap">
+              <input type="email" class="quiz__input" id="quiz-email"
+                     placeholder="E-mail (opcional)" autocomplete="email">
             </div>
           </div>
-          <button class="btn btn--primary" id="btn-submit" disabled style="width:100%">
-            Enviar Diagnóstico →
+          <button class="btn btn--primary" id="btn-submit" disabled style="width:100%;margin-top:1rem">
+            Receber diagnóstico completo →
           </button>
-          <p id="quiz-error" hidden style="color:#ff6b6b;font-size:var(--text-sm);margin-top:var(--sp-3);text-align:center;"></p>
+          <p style="font-size:11px;color:#5A5546;text-align:center;margin-top:0.75rem">
+            Sem spam. Os seus dados são usados exclusivamente para o diagnóstico.
+          </p>
         </div>
 
         <!-- Processando -->
         <div class="quiz__step quiz__step--hidden" id="step-processing">
           <div class="quiz__processing">
             <div class="quiz__processing-orb" aria-hidden="true"></div>
-            <p class="quiz__processing-title">A nossa equipa está a analisar o seu perfil...</p>
-            <p class="quiz__processing-sub">Verifique o seu WhatsApp em 2 minutos.</p>
+            <p class="quiz__processing-title">A processar o seu Diagnóstico Quadrilateral™...</p>
+            <p class="quiz__processing-sub">Cruzamos os seus dados com 1.200+ benchmarks do sector.</p>
           </div>
         </div>
 
-        <!-- Sucesso -->
+        <!-- Sucesso: resultado completo -->
         <div class="quiz__step quiz__step--hidden" id="step-success">
           <div class="quiz__success">
-            <div class="quiz__success-icon" aria-hidden="true">✅</div>
-            <h3>Diagnóstico Enviado!</h3>
-            <p>Os nossos especialistas analisaram o seu perfil. Entraremos em contacto via WhatsApp com o seu plano de acção personalizado.</p>
-            <a href="#" class="btn btn--primary btn--lg" id="btn-whatsapp-contact" target="_blank" rel="noopener">
-              Falar agora no WhatsApp →
+            <div class="quiz__success-badge">DIAGNÓSTICO COMPLETO</div>
+            <div class="quiz__quads" id="result-quads" style="margin:1.25rem 0"></div>
+            <div class="quiz__result-risk">
+              <span>Receita mensal em risco</span>
+              <strong id="result-risk" style="color:#DC3C3C">—</strong>
+            </div>
+            <div class="quiz__rec" id="result-recommendation"></div>
+            <a href="#" class="btn btn--primary btn--lg" id="btn-whatsapp-contact"
+               target="_blank" rel="noopener" style="width:100%;margin-top:1.25rem">
+              Falar com especialista no WhatsApp →
             </a>
+            <p style="font-size:10px;color:#5A5546;text-align:center;margin-top:0.75rem">
+              Resposta garantida em até 2 horas em dias úteis.
+            </p>
           </div>
         </div>
 
@@ -590,8 +770,11 @@
   <script src="/js/neural-audit-trail.js"></script>
   <script src="/js/sovereign-playbook.js"></script>
   <script src="/js/neural-sentinel.js"></script>
+  <script src="/js/neural-hero.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      /* Neural Particle Hero */
+      if (window.NeuralHero) NeuralHero.init('neural-canvas');
       var lastScan = window.Scanner?.getCurrentResult?.() || null;
       // V17: Neural Audit Trail — auto-entrega pós-pagamento
       NeuralAuditTrail.checkPostPayment(lastScan);
