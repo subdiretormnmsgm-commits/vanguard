@@ -397,5 +397,95 @@ Receita financia mais automação → mais tenants → mais pixels
 
 ---
 
-> *Próxima actualização de custos: V17 — instalação massiva do Pixel (volume de eventos vai escalar 100×).*  
-> *Monitorar especialmente: Supabase IOPS e custos de Claude Haiku em Batch mode.*
+> *Actualizado em V17 — Sovereign Intent Engine.*
+
+---
+---
+
+# ══ ACTUALIZAÇÃO V17 — SOVEREIGN INTENT ENGINE ══
+> **Data:** 2026-05-10 · **Câmbio base:** 1 EUR = R$ 5,50 · 1 USD = R$ 5,05
+
+---
+
+## V17.1 — NOVOS COMPONENTES DE CUSTO
+
+### Cloudflare Workers (Sovereign Pixel)
+
+| Tier | Requests/mês | Custo (USD) | Custo (R$) |
+|---|---|---|---|
+| **Free** | 100.000 | $0 | R$ 0 |
+| **Paid ($5/mês)** | 10.000.000 (10M) | $5 | R$ 25 |
+| **Paid + overages** | >10M | $0.50/M adicional | R$ 2,53/M |
+
+> **Projecção V17:** com 50 tenants × 200 visitas/dia = 300.000 eventos/mês → **Free tier cobre** até escalar a 100+ tenants.
+
+### Neural Audit Trail (jsPDF client-side)
+
+| Componente | Custo | Notas |
+|---|---|---|
+| **jsPDF (geração PDF)** | R$ 0 | Client-side — zero custo de servidor |
+| **Scan PageSpeed (RealScanner V15)** | R$ 0 | API pública gratuita |
+| **Stripe Checkout (R$50 pago)** | ~R$ 2,60/transacção | Stripe: 2,9% + R$0,30 por transacção |
+| **Haiku (análise competitiva, opcional)** | R$ 0,04/audit | Claude Haiku $0.80/M input |
+
+> **Margem Neural Audit Trail:** R$50 receita − R$2,60 Stripe = **R$47,40 líquido** (94,8% margem)
+
+### prospectar.ps1 (Motor Comercial)
+
+| Item | Custo | Notas |
+|---|---|---|
+| **WhatsApp Web (wa.me)** | R$ 0 | Abertura manual pelo Director |
+| **CSV pipeline local** | R$ 0 | Sem banco de dados externo |
+| **Haiku por mensagem (opcional)** | R$ 0,04 | Quando integrado ao Hermes Autonomous V18 |
+
+---
+
+## V17.2 — CUSTOS FIXOS MENSAIS ACTUALIZADOS (R$)
+
+| Componente | V16 | V17 | Delta |
+|---|---|---|---|
+| VPS / EasyPanel | R$ 110 | R$ 110 | = |
+| Supabase Pro | R$ 127 | R$ 127 | = |
+| Domínio | R$ 6 | R$ 6 | = |
+| Cloudflare Workers | R$ 0–30 | **R$ 0–25** | -R$ 5 (plano mais eficiente) |
+| Evolution API / WABA | R$ 0 | R$ 0 | = |
+| **Total Fixo Mínimo** | **R$ 243** | **R$ 243** | = |
+| **Total Fixo Standard** | **R$ 350** | **R$ 268** | -R$ 82 (sem Z-API até 20 tenants) |
+
+---
+
+## V17.3 — CUSTO TOTAL POR LEAD (VERSÃO V17)
+
+| Modo Operação | Haiku | Pixel Worker | WABA | Infra* | **Total/lead** |
+|---|---|---|---|---|---|
+| **Texto puro (Hermes)** | R$ 0,04 | R$ 0 | R$ 0 | R$ 1,22 | **R$ 1,26** |
+| **Pixel FIRE + Hermes** | R$ 0,04 | R$ 0,001 | R$ 0 | R$ 1,22 | **R$ 1,26** |
+| **Hermes Autonomous V18** | R$ 0,12 | R$ 0,001 | R$ 0 | R$ 1,22 | **R$ 1,34** |
+
+*Infra calculada a 200 leads/mês (R$ 243 / 200 = R$ 1,22/lead)
+
+---
+
+## V17.4 — BREAKEVEN NEURAL AUDIT TRAIL
+
+**Se o Director vender 7 auditorias unitárias (R$50 cada):**
+- Receita: R$ 350
+- Custo Stripe: R$ 18,20
+- **Receita líquida: R$ 331,80 → cobre 100% do custo fixo mensal mínimo**
+
+**Meta realista V17:** 3 auditorias/semana = 12/mês = R$ 568 líquido — positivo desde o dia 1 se vendido activamente.
+
+---
+
+## V17.5 — ALERTA DE CUSTOS: MONITORAR EM V17
+
+| Gatilho | Componente | Custo adicional (R$/mês) | Acção |
+|---|---|---|---|
+| > 100.000 req/mês Pixel Worker | Cloudflare Workers Free → Paid | +R$ 25 | Activar plano pago ($5) |
+| > 50 tenants com Pixel activo | Supabase IOPS (UNLOGGED) | +R$ 275–550 | Activar particionamento mensal |
+| > 1.000 auditorias/mês | Stripe fees | +R$ 260 | Negociar plano Stripe Volume |
+| > 500 GB pixel_events | Supabase Storage | +R$ 275 | Migrar histórico para Cloudflare R2 |
+
+---
+
+> *Conclusão V17: a arquitectura Pixel + Neural Audit Trail não aumenta os custos operacionais na fase actual. O custo marginal por evento Pixel é R$ 0,0001 (Cloudflare). O Neural Audit Trail gera margem de 94,8% por venda. O investimento principal da V17 é **tempo de prospecção do Director** — não capital.*

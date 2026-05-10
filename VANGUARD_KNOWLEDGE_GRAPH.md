@@ -1,5 +1,5 @@
 # VANGUARD KNOWLEDGE GRAPH — Mapa Mestre da Arquitectura
-> **Versão:** V13 — Global Domination & Viral Traction  
+> **Versão:** V17 — Sovereign Intent Engine  
 > **Última actualização:** 2026-05-10  
 > **Propósito:** Verdade absoluta sobre a arquitectura para NotebookLM e sessões futuras.  
 > **Arquitecto de IA:** Claude Sonnet 4.6
@@ -43,27 +43,31 @@ V10 → The Sovereign Fortress: Health Monitor + IA Firefighter + Stress Test + 
 V11 → The Sovereign Launch: Neural V Logo + Rate Limiting + Audit Log + Predictive Routing + Deploy EasyPanel
 V12 → Sovereign Ignition Cockpit: Instant Reality Scanner + Living HUD + Ghost Holographics + Closer Machine V1
 V13 → Global Domination & Viral Traction: Hermes Outbound + Census Engine + Partnership API + HUD Previews
+V14 → Sovereign Optimization: PDCA Ledger + Hive Mind SQL/UI + Trojan Generator PNG + Dynamic HUD Alerts
+V15 → Sovereign Invasion: Real Scanner PageSpeed + War Room Realtime + Burn Rate Shield + n8n Trojan Pipeline
+V16 → Visual Authority: Badge SVG Edge + Stripe Connect + Pixel Staging UNLOGGED + Ion Gold/Obsidian + Neural Grid
+V17 → Sovereign Intent Engine: Sovereign Pixel (edge, LGPD) + Neural Audit Trail PDF + Motor Prospecção + PDCA inter-versões
 ```
 
 ---
 
-## 3. Arquitectura de Sistema (V13 — Estado Actual)
+## 3. Arquitectura de Sistema (V17 — Estado Actual)
 
 ```
 Internet
     │
     ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│  nginx (Frontend Container) — Rate Limiting V11                   │
-│  ├── /              → PWA Landing + Instant Reality Scanner (V12) │
-│  ├── /preview/      → HUD Preview Personalizado — Isca (V13)      │
-│  ├── /census/       → Vanguard Census Engine — Público (V13)      │
-│  ├── /dashboard/    → Cockpit HUD: Outbound + Censo + Parceiros   │
-│  ├── /saas/         → SaaS Dashboard PWA (V6)                     │
-│  ├── /marketplace/  → Dark Bazaar Marketplace (V7)                │
-│  ├── /intelligence/ → Sovereign Glass Landing (V8)                │
-│  ├── /api/          → proxy → FastAPI :9000                       │
-│  └── /v1/           → proxy → FastAPI :9000                       │
+│  nginx (Frontend Container) — Rate Limiting V11                          │
+│  ├── /              → PWA Landing + Real Scanner V15 + Neural Audit Trail │
+│  ├── /preview/      → HUD Preview Personalizado — Isca (V13)             │
+│  ├── /census/       → Vanguard Census Engine — Público (V13)             │
+│  ├── /dashboard/    → Cockpit HUD: Outbound + Censo + Parceiros          │
+│  ├── /saas/         → SaaS Dashboard PWA (V6)                            │
+│  ├── /marketplace/  → Dark Bazaar Marketplace (V7)                       │
+│  ├── /intelligence/ → Sovereign Glass Landing (V8)                       │
+│  ├── /api/          → proxy → FastAPI :9000                              │
+│  └── /v1/           → proxy → FastAPI :9000                              │
 └──────────────────────────────────────────────────────────────────┘
                     │
                     ▼
