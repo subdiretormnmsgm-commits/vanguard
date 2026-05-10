@@ -24,8 +24,6 @@ services:
     image: vanguard-frontend:v5
     container_name: vanguard_frontend
     restart: always
-    ports:
-      - '80:80'
     environment:
       # Feature 03: White-Label — override these per client
       - BRAND_NAME=${BRAND_NAME:-VANGUARD}
