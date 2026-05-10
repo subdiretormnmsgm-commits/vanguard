@@ -1,6 +1,6 @@
 # VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
-> **Versão actual:** V11 — The Sovereign Launch  
+> **Versão actual:** V12 — Sovereign Ignition Cockpit  
 > **Última actualização:** 2026-05-10  
 > **Fonte de verdade:** Scan profundo V1–V9 (código + schema + memórias)
 
@@ -753,6 +753,54 @@ Gerado por `AuditorIA.auditar(nome, nicho, html, score)`:
 - Logs de auditoria são imutáveis (RLS: apenas service_role pode inserir)
 - Nginx regista todas as requests em formato `audit_vanguard` com timestamp ISO, IP, status, latência
 - Retenção recomendada: 90 dias em produção
+
+---
+
+## §17 — Ignition Cockpit & Closer Machine (V12)
+
+### 17.1 Instant Reality Scanner — Regras do Motor de Análise
+- O Scanner aceita qualquer URL e retorna um **Digital Maturity Score™ (0–10)** baseado em 6 dimensões: Presença Digital, Velocidade, Conversão, SEO, Automação, Segurança.
+- Os scores são **determinísticos por domínio** (hash SHA-based seed) — o mesmo domínio retorna sempre o mesmo resultado, garantindo consistência em demos e partilhas.
+- São sempre apresentados exactamente **3 gargalos críticos**, escolhidos das dimensões com scores mais baixos.
+- O Ghost Loader tem duração mínima de 3.9 segundos para criar a percepção de análise profunda (confiança).
+- O scanner é **frontend-only** na versão pública — sem dependência de backend para a demo.
+
+### 17.2 Protocolo de Parceiros Fundadores (50/50 Share)
+- Parceiros que entrarem antes de 100 clientes activos têm direito a **50% de participação nos lucros** do projecto que co-gerarem.
+- A qualificação como Parceiro Fundador exige: (1) contribuição técnica documentada OU (2) 3 clientes indicados fechados OU (3) investimento mínimo de €500 no desenvolvimento.
+- O estatuto de Parceiro Fundador é permanente e não pode ser revogado, excepto por violação das regras da Constituição Mestre.
+- **Registo:** cada parceiro fundador é registado na tabela `founder_partners` no Supabase com data de entrada, percentagem, e modalidade de contribuição.
+
+### 17.3 Protocolo de Selos Pioneiros
+- Os primeiros **50 clientes** recebem o **Selo Pioneiro Vanguard™** — badge digital especial com numeração única (#001–#050).
+- O Selo Pioneiro garante: acesso vitalício ao plano em vigor na data de entrada, suporte prioritário e menção pública na "Galeria dos Pioneiros" (página dedicada).
+- Os Selos são gerados como SVGs únicos (similar ao Certifica™) e entregues via e-mail automaticamente.
+- A numeração é sequencial e imutável — não existe Selo #017 bis.
+
+### 17.4 Closer Machine — Regras da Orquestração Hermes V1
+- O Hermes abre **automaticamente** após o scan, focando a abertura exactamente no gargalo #1 identificado.
+- A linguagem do Hermes é **directa, específica e urgente** — nunca genérica. Sempre menciona o score exacto e o domínio analisado.
+- O fluxo de conversa tem 3 fases: (1) Abertura com diagnóstico → (2) Oferta de proposta → (3) Geração de PDF → Agendamento.
+- A Proposta PDF inclui obrigatoriamente: score, 3 gargalos com impacto, plano de 30 dias, e footer Vanguard com dados de contacto.
+- O PDF é gerado **client-side** (jsPDF) — sem servidor, sem armazenamento, sem GDPR issues.
+
+### 17.5 Authority Share — Regras do Card de Autoridade
+- O card de autoridade é gerado via `html2canvas` a partir do visual renderizado no browser — sempre reflecte os dados reais do scan.
+- A cor do score no card segue a escala: Crítico (#FF8080), Baixo (#FFB800), Médio (#00F0FF), Alto (#00FF88).
+- O card inclui sempre: logo V, domínio analisado, score, tier, 2 gargalos principais, e o URL vanguard.tech.
+- Download em PNG 2.5x resolução para qualidade em redes sociais.
+
+### 17.6 Living HUD — Princípios de Design V12
+- **Ghost Holographics:** Skeleton loaders com animação neural de nodes conectando durante o scan.
+- **Bento Grid:** O Dashboard usa grid de 12 colunas com células que respiram via bordas animadas.
+- **Status Dots:** Dots pulsantes indicam estado em tempo real (verde = online, âmbar = atenção, vermelho = crítico).
+- **Scanline:** Cada HUD card tem uma linha de shimmer animada na borda superior.
+- **Corner Brackets:** Decoradores de canto militares em todos os painéis de alto valor.
+
+---
+
+### Changelog V12 (Sovereign Ignition Cockpit)
+- **Regras adicionadas:** Instant Reality Scanner (6 dimensões, score 0-10, 3 gargalos), Protocolo de Parceiros Fundadores (50/50 share), Protocolo de Selos Pioneiros (#001–#050), Closer Machine Hermes V1 (chat + PDF proposal), Authority Share Card (png social), Living HUD Design System (Ghost Holographics + Bento Grid)
 
 ---
 
