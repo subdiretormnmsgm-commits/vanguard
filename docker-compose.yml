@@ -1,8 +1,8 @@
 version: '3.8'
 
 # ╔══════════════════════════════════════════════════════════════════════╗
-# ║  VANGUARD SOBERANO DIGITAL V5 — Docker Compose Mestre               ║
-# ║  Orquestra: Frontend PWA · Scraper IA · n8n Hermes · PostgreSQL      ║
+# ║  VANGUARD SOBERANO DIGITAL V6 — Docker Compose Mestre               ║
+# ║  Orquestra: Frontend PWA · API SaaS · Scraper IA · n8n · PostgreSQL  ║
 # ║                                                                      ║
 # ║  Deploy  : docker compose up -d                                      ║
 # ║  Scraper : docker compose run --rm scraper --nicho advocacia --modo osm ║
@@ -35,6 +35,41 @@ services:
       - vanguard_net
     healthcheck:
       test: ['CMD', 'wget', '-qO-', 'http://localhost/']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ──────────────────────────────────────────────────────────────────────
+  # API Bridge V6 — FastAPI: Scraper trigger + Stripe billing + JWT auth
+  # Feature 04: Multi-Tenant SaaS API
+  # ──────────────────────────────────────────────────────────────────────
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: vanguard-api:v6
+    container_name: vanguard_api
+    restart: always
+    ports:
+      - '9000:9000'
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+      - SUPABASE_JWT_SECRET=${SUPABASE_JWT_SECRET}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
+      - STRIPE_PRICE_STARTER=${STRIPE_PRICE_STARTER}
+      - STRIPE_PRICE_PRO=${STRIPE_PRICE_PRO}
+      - STRIPE_PRICE_ENTERPRISE=${STRIPE_PRICE_ENTERPRISE}
+      - SAAS_URL=${SAAS_URL:-http://localhost/saas}
+      - SCRAPER_IMAGE=vanguard-scraper:v5
+      - DOCKER_NETWORK=vanguard_soberano_v5
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - vanguard_net
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://localhost:9000/health']
       interval: 30s
       timeout: 5s
       retries: 3

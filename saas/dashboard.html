@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Vanguard SaaS</title>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#080810" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/saas.css" />
+</head>
+<body>
+  <!-- ────────────────────────────── SHELL ─────────────────────────── -->
+  <div class="shell" id="shell">
+
+    <!-- ═══════════════════ SIDEBAR ══════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar__header">
+        <div class="sidebar__logo">
+          <span class="sidebar__logo-icon">⚡</span>
+          <span class="sidebar__logo-text">VANGUARD</span>
+        </div>
+        <div class="sidebar__plan-badge plan-starter" id="planBadge">STARTER</div>
+      </div>
+
+      <nav class="sidebar__nav">
+        <a class="nav-item active" data-section="overview" onclick="navigate('overview')">
+          <span class="nav-item__icon">◈</span>
+          <span>Painel</span>
+        </a>
+        <a class="nav-item" data-section="scraper" onclick="navigate('scraper')">
+          <span class="nav-item__icon">◉</span>
+          <span>Scraper</span>
+        </a>
+        <a class="nav-item" data-section="leads" onclick="navigate('leads')">
+          <span class="nav-item__icon">◎</span>
+          <span>Leads</span>
+          <span class="nav-item__count" id="leadsCount">0</span>
+        </a>
+        <a class="nav-item" data-section="planos" onclick="navigate('planos')">
+          <span class="nav-item__icon">◆</span>
+          <span>Planos</span>
+        </a>
+      </nav>
+
+      <!-- Quota bar -->
+      <div class="sidebar__quota">
+        <div class="sidebar__quota-header">
+          <span>Leads este ciclo</span>
+          <span id="quotaLabel">0 / 100</span>
+        </div>
+        <div class="sidebar__quota-bar">
+          <div class="sidebar__quota-fill" id="quotaFill" style="width:0%"></div>
+        </div>
+        <div class="sidebar__quota-reset">Reset: <span id="quotaReset">—</span></div>
+      </div>
+
+      <div class="sidebar__footer">
+        <div class="sidebar__user">
+          <div class="sidebar__user-avatar" id="userAvatar">U</div>
+          <div class="sidebar__user-info">
+            <div class="sidebar__user-name" id="userName">Carregando...</div>
+            <div class="sidebar__user-email" id="userEmail">—</div>
+          </div>
+        </div>
+        <button class="sidebar__logout" id="btnLogout" title="Sair">⏻</button>
+      </div>
+    </aside>
+
+    <!-- ═══════════════════ MAIN CONTENT ═════════════════════════════ -->
+    <main class="main-content">
+
+      <!-- ── TOPBAR ───────────────────────────────────────────────── -->
+      <header class="topbar">
+        <div class="topbar__title" id="sectionTitle">Painel de Controlo</div>
+        <div class="topbar__actions">
+          <div class="topbar__status" id="realtimeStatus">
+            <span class="status-dot"></span>
+            <span>Realtime</span>
+          </div>
+          <button class="topbar__refresh" onclick="loadDashboard()" title="Actualizar">↻</button>
+        </div>
+      </header>
+
+      <!-- ═══════ SECTION: OVERVIEW ═══════════════════════════════ -->
+      <section id="section-overview" class="section active">
+        <!-- KPI Grid -->
+        <div class="kpi-grid" id="kpiGrid">
+          <div class="kpi-card skeleton" id="kpi-leads">
+            <div class="kpi-card__label">Total de Leads</div>
+            <div class="kpi-card__value" id="kpiLeadsTotal">—</div>
+            <div class="kpi-card__sub">acumulado</div>
+          </div>
+          <div class="kpi-card skeleton" id="kpi-jobs">
+            <div class="kpi-card__label">Jobs Activos</div>
+            <div class="kpi-card__value" id="kpiJobsAtivos">—</div>
+            <div class="kpi-card__sub">em execução</div>
+          </div>
+          <div class="kpi-card skeleton" id="kpi-restante">
+            <div class="kpi-card__label">Leads Restantes</div>
+            <div class="kpi-card__value" id="kpiRestante">—</div>
+            <div class="kpi-card__sub">neste ciclo</div>
+          </div>
+          <div class="kpi-card skeleton" id="kpi-score">
+            <div class="kpi-card__label">Score Médio IA</div>
+            <div class="kpi-card__value" id="kpiScoreMedio">—</div>
+            <div class="kpi-card__sub">0-10</div>
+          </div>
+        </div>
+
+        <!-- Recent Jobs -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Jobs Recentes</h2>
+            <button class="btn-ghost" onclick="navigate('scraper')">+ Novo Job</button>
+          </div>
+          <div id="recentJobs" class="jobs-list">
+            <div class="empty-state">
+              <div class="empty-state__icon">◎</div>
+              <div class="empty-state__text">Nenhum job ainda.<br>Inicie o seu primeiro scraper!</div>
+              <button class="btn-sovereign" style="margin-top:1rem" onclick="navigate('scraper')">
+                Iniciar Scraper
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: SCRAPER ════════════════════════════════ -->
+      <section id="section-scraper" class="section">
+        <div class="scraper-panel">
+          <div class="scraper-panel__header">
+            <h2>Motor de Prospecção</h2>
+            <p>Configure e dispare o scraper de leads com IA integrada</p>
+          </div>
+
+          <form id="scraperForm" onsubmit="triggerScraper(event)">
+            <div class="scraper-panel__fields">
+              <div class="field">
+                <label class="field__label">Nicho de Mercado</label>
+                <input type="text" class="field__input" id="scraperNicho" placeholder="Ex: advocacia, dentistas, academias..." required />
+              </div>
+              <div class="field">
+                <label class="field__label">Cidade / Região</label>
+                <input type="text" class="field__input" id="scraperCidade" placeholder="Ex: São Paulo, Lisboa..." required />
+              </div>
+              <div class="field">
+                <label class="field__label">
+                  Quantidade de Leads
+                  <span class="field__value" id="limiteValue">20</span>
+                </label>
+                <input type="range" class="field__range" id="scraperLimite" min="5" max="100" value="20"
+                  oninput="document.getElementById('limiteValue').textContent = this.value" />
+              </div>
+            </div>
+
+            <div class="modo-cards">
+              <label class="modo-card">
+                <input type="radio" name="modo" value="demo" />
+                <div class="modo-card__body">
+                  <div class="modo-card__icon">🎭</div>
+                  <div class="modo-card__title">Demo</div>
+                  <div class="modo-card__desc">Dados sintéticos para teste</div>
+                </div>
+              </label>
+              <label class="modo-card">
+                <input type="radio" name="modo" value="osm" checked />
+                <div class="modo-card__body">
+                  <div class="modo-card__icon">🗺</div>
+                  <div class="modo-card__title">OpenStreetMap</div>
+                  <div class="modo-card__desc">Empresas reais via OSM</div>
+                </div>
+              </label>
+              <label class="modo-card">
+                <input type="radio" name="modo" value="places" />
+                <div class="modo-card__body">
+                  <div class="modo-card__icon">📍</div>
+                  <div class="modo-card__title">Google Places</div>
+                  <div class="modo-card__desc">Máxima cobertura geográfica</div>
+                </div>
+              </label>
+            </div>
+
+            <!-- Quota warning -->
+            <div id="quotaWarning" class="quota-warning" style="display:none">
+              ⚠️ Quota insuficiente. <a onclick="navigate('planos')" href="#">Faça upgrade do plano.</a>
+            </div>
+
+            <button type="submit" class="btn-sovereign" id="btnScraper" style="width:100%;margin-top:1.5rem">
+              ⚡ Disparar Scraper
+            </button>
+          </form>
+
+          <!-- Active jobs list -->
+          <div class="content-block" style="margin-top:2rem">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Jobs em Execução</h3>
+            </div>
+            <div id="activeJobs" class="jobs-list">
+              <div class="empty-state">
+                <div class="empty-state__icon">◎</div>
+                <div class="empty-state__text">Nenhum job activo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: LEADS ═══════════════════════════════════ -->
+      <section id="section-leads" class="section">
+        <div class="content-block">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Base de Leads</h2>
+            <div class="leads-filters">
+              <input type="search" class="field__input" id="leadsSearch" placeholder="Pesquisar..." oninput="filterLeads(this.value)" style="width:220px" />
+              <button class="btn-ghost" onclick="exportLeads()">↓ Exportar CSV</button>
+            </div>
+          </div>
+
+          <div class="leads-table-wrap">
+            <table class="leads-table">
+              <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>Nicho</th>
+                  <th>Cidade</th>
+                  <th>Score</th>
+                  <th>IA Hook</th>
+                  <th>WhatsApp</th>
+                  <th>Data</th>
+                </tr>
+              </thead>
+              <tbody id="leadsTableBody">
+                <tr>
+                  <td colspan="7" style="text-align:center;padding:3rem;color:var(--text-muted)">
+                    <div class="empty-state">
+                      <div class="empty-state__icon">◎</div>
+                      <div class="empty-state__text">Nenhum lead ainda</div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="leads-pagination" id="leadsPagination"></div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: PLANOS ══════════════════════════════════ -->
+      <section id="section-planos" class="section">
+        <div class="content-block">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Planos e Assinaturas</h2>
+          </div>
+
+          <div class="plan-grid" id="planGrid">
+            <!-- Renderizado via JS -->
+            <div class="kpi-card skeleton" style="height:300px"></div>
+            <div class="kpi-card skeleton" style="height:300px"></div>
+            <div class="kpi-card skeleton" style="height:300px"></div>
+          </div>
+
+          <div class="content-block" style="margin-top:1.5rem">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Gerir Subscrição</h3>
+            </div>
+            <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1rem">
+              Aceda ao portal do cliente Stripe para actualizar método de pagamento, ver facturas ou cancelar.
+            </p>
+            <button class="btn-ghost" id="btnPortal" onclick="openPortal()">
+              Abrir Portal de Pagamento →
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div><!-- /shell -->
+
+  <!-- ═══════════════ MODAL (job detail / upgrade) ═══════════════ -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modalTitle">Detalhes do Job</h3>
+        <button class="modal__close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOASTS ════════════════════════════════════ -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="assets/js/saas-auth.js"></script>
+  <script src="assets/js/saas-dashboard.js"></script>
+</body>
+</html>
