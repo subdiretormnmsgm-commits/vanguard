@@ -9,13 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/dashboard/dashboard.css">
+  <script src="/assets/js/neural-v-logo.js"></script>
 </head>
 <body class="cockpit-body">
 
   <!-- LOGIN -->
   <div class="cockpit-login" id="view-login">
     <div class="cockpit-login__card">
-      <div class="cockpit-login__logo">VANGUARD</div>
+      <div class="cockpit-login__logo" data-nv-logo data-nv-size="md" data-nv-label="VANGUARD"></div>
       <p class="cockpit-login__sub">Cockpit — Acesso Restrito</p>
       <form class="cockpit-login__form" id="login-form" novalidate>
         <input class="quiz__input" type="email" id="login-email"
@@ -34,7 +35,7 @@
   <div class="cockpit" id="view-cockpit" hidden>
 
     <header class="cockpit__header">
-      <span class="cockpit__logo">VANGUARD <span class="cockpit__badge">COCKPIT</span></span>
+      <span class="cockpit__logo" data-nv-logo data-nv-size="xs" data-nv-label="VANGUARD"></span>
       <div class="cockpit__header-right">
         <span class="cockpit__user" id="cockpit-user-email"></span>
         <button class="btn btn--outline btn--sm" id="btn-logout">Sair</button>

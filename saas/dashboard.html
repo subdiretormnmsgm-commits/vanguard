@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/saas.css" />
+  <script src="/assets/js/neural-v-logo.js"></script>
 </head>
 <body>
   <!-- ────────────────────────────── SHELL ─────────────────────────── -->
@@ -18,26 +19,7 @@
     <!-- ═══════════════════ SIDEBAR ══════════════════════════════════ -->
     <aside class="sidebar">
       <div class="sidebar__header">
-        <div class="sidebar__logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 36" width="28" height="21" aria-hidden="true" style="flex-shrink:0">
-            <defs>
-              <linearGradient id="nv-g-sb" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#00F0FF"/><stop offset="100%" stop-color="#7B2FFF"/>
-              </linearGradient>
-              <filter id="nv-glow-sb" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="1.2" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <polyline points="2,2 24,34 46,2" fill="none" stroke="url(#nv-g-sb)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#nv-glow-sb)"/>
-            <circle cx="2"  cy="2"  r="2.5" fill="#00F0FF" filter="url(#nv-glow-sb)"/>
-            <circle cx="24" cy="34" r="3"   fill="#7B2FFF" filter="url(#nv-glow-sb)"/>
-            <circle cx="46" cy="2"  r="2.5" fill="#00F0FF" filter="url(#nv-glow-sb)"/>
-            <circle cx="13" cy="18" r="1.5" fill="#00F0FF" opacity="0.7"/>
-            <circle cx="35" cy="18" r="1.5" fill="#00F0FF" opacity="0.7"/>
-            <line x1="13" y1="18" x2="35" y2="18" stroke="#00F0FF" stroke-width="0.6" opacity="0.3"/>
-          </svg>
-          <span class="sidebar__logo-text">VANGUARD</span>
+        <div class="sidebar__logo" data-nv-logo data-nv-size="xs" data-nv-label="VANGUARD">
         </div>
         <div class="sidebar__plan-badge plan-starter" id="planBadge">STARTER</div>
       </div>
