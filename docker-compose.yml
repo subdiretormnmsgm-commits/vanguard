@@ -1,12 +1,14 @@
 version: '3.8'
 
 # ╔══════════════════════════════════════════════════════════════════════╗
-# ║  VANGUARD SOVEREIGN ECONOMY V9 — Docker Compose Mestre               ║
+# ║  VANGUARD V10 — THE SOVEREIGN FORTRESS — Docker Compose Mestre       ║
 # ║  Orquestra: Frontend PWA · API SaaS · Intelligence API · Fractal WL  ║
 # ║             Arbitragem · Certifica · Hermes Voice · Scraper IA · n8n ║
+# ║             Fortress: Health Monitor · IA Firefighter · Stress Test  ║
 # ║                                                                      ║
 # ║  Deploy  : docker compose up -d                                      ║
-# ║  Scraper : docker compose run --rm scraper --nicho advocacia --modo osm ║
+# ║  Fortress: curl http://localhost:9000/api/fortress/health             ║
+# ║  Stress  : python tests/stress_test.py --n 1000 --url http://localhost:9000 ║
 # ║  Logs    : docker compose logs -f                                    ║
 # ╚══════════════════════════════════════════════════════════════════════╝
 
@@ -48,7 +50,7 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile
-    image: vanguard-api:v6
+    image: vanguard-api:v10
     container_name: vanguard_api
     restart: always
     ports:
@@ -76,6 +78,8 @@ services:
       - VAPI_KEY=${VAPI_KEY}
       - VAPI_PHONE_NUMBER_ID=${VAPI_PHONE_NUMBER_ID}
       - CERTIFICA_URL=${CERTIFICA_URL:-http://localhost}
+      # V10: Sovereign Fortress
+      - DIRECTOR_WEBHOOK_URL=${DIRECTOR_WEBHOOK_URL:-}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
@@ -83,8 +87,9 @@ services:
     healthcheck:
       test: ['CMD', 'wget', '-qO-', 'http://localhost:9000/health']
       interval: 30s
-      timeout: 5s
-      retries: 3
+      timeout: 10s
+      retries: 5
+      start_period: 20s
 
   # ──────────────────────────────────────────────────────────────────────
   # Scraper IA — Python on-demand (use docker compose run)
@@ -196,6 +201,12 @@ services:
       - vanguard_net
     depends_on:
       - n8n
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://localhost:8000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
 
 # ──────────────────────────────────────────────────────────────────────────────
 volumes:

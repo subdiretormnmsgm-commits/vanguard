@@ -62,6 +62,12 @@
           <span>Hermes Voz</span>
           <span class="nav-item__badge nav-item__badge--gold">V9</span>
         </a>
+        <a class="nav-item" data-section="fortress" onclick="navigate('fortress')">
+          <span class="nav-item__icon">🛡</span>
+          <span>Fortress</span>
+          <span class="nav-item__badge nav-item__badge--red" id="incidentsBadge" style="display:none">!</span>
+          <span class="nav-item__badge nav-item__badge--cyan" style="margin-left:auto">V10</span>
+        </a>
       </nav>
 
       <!-- Quota bar -->
@@ -433,6 +439,146 @@
           <div id="voiceLog" class="voice-log">
             <div style="color:var(--text-muted);font-size:.9rem;text-align:center;padding:1.5rem">Sem chamadas registadas.</div>
           </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: FORTRESS (V10) ═══════════════════════════ -->
+      <section id="section-fortress" class="section">
+
+        <!-- Header Fortress -->
+        <div class="fortress-banner">
+          <div class="fortress-banner__icon">🛡</div>
+          <div>
+            <div class="fortress-banner__title">The Sovereign Fortress</div>
+            <div class="fortress-banner__sub">Torre de Controlo · IA Firefighter · Director Stress Test</div>
+          </div>
+          <div class="fortress-banner__status" id="fortressOverall">
+            <span class="fortress-status-dot" id="fortressDot"></span>
+            <span id="fortressStatusText">A verificar...</span>
+          </div>
+        </div>
+
+        <!-- Health Grid -->
+        <div class="fortress-grid" id="fortressHealthGrid">
+          <div class="health-card skeleton" id="hc-api">
+            <div class="health-card__svc">API Bridge</div>
+            <div class="health-card__status">—</div>
+            <div class="health-card__lat">—</div>
+          </div>
+          <div class="health-card skeleton" id="hc-supabase">
+            <div class="health-card__svc">Supabase</div>
+            <div class="health-card__status">—</div>
+            <div class="health-card__lat">—</div>
+          </div>
+          <div class="health-card skeleton" id="hc-anthropic">
+            <div class="health-card__svc">Anthropic AI</div>
+            <div class="health-card__status">—</div>
+            <div class="health-card__lat">—</div>
+          </div>
+          <div class="health-card skeleton" id="hc-stripe">
+            <div class="health-card__svc">Stripe</div>
+            <div class="health-card__status">—</div>
+            <div class="health-card__lat">—</div>
+          </div>
+          <div class="health-card skeleton" id="hc-vapi">
+            <div class="health-card__svc">Vapi Voice</div>
+            <div class="health-card__status">—</div>
+            <div class="health-card__lat">—</div>
+          </div>
+        </div>
+
+        <!-- KPI Metrics Row -->
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:1.5rem">
+          <div class="kpi-card">
+            <div class="kpi-card__label">Tenants Activos</div>
+            <div class="kpi-card__value" id="fMetTenants">—</div>
+            <div class="kpi-card__sub">no ecossistema</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__label">Total de Leads</div>
+            <div class="kpi-card__value" id="fMetLeads">—</div>
+            <div class="kpi-card__sub">acumulado</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__label">Incidentes Abertos</div>
+            <div class="kpi-card__value" id="fMetIncidents" style="color:var(--red)">—</div>
+            <div class="kpi-card__sub">últimas 24h</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__label">Último Stress Test</div>
+            <div class="kpi-card__value" id="fMetStress">—</div>
+            <div class="kpi-card__sub">taxa de sucesso</div>
+          </div>
+        </div>
+
+        <!-- IA Firefighter -->
+        <div class="content-block" style="margin-bottom:1.5rem">
+          <div class="content-block__header">
+            <h2 class="content-block__title">🔥 IA Firefighter — Diagnóstico Autónomo</h2>
+            <span style="font-size:.78rem;color:var(--text-muted)">Claude Haiku analisa logs e gera plano de resolução</span>
+          </div>
+          <div class="firefighter-panel">
+            <textarea
+              id="logInput"
+              class="firefighter-input"
+              placeholder="Cole aqui os logs de erro (stdout, docker logs, stack trace)..."
+              rows="6"
+            ></textarea>
+            <div style="display:flex;gap:.75rem;margin-top:.75rem;align-items:center">
+              <input type="text" class="field__input" id="logContexto"
+                placeholder="Contexto (opcional): ex. 'API falhou após deploy'" style="flex:1" />
+              <button class="btn-sovereign" id="btnFirefighter" onclick="runFirefighter()">
+                ⚡ Diagnosticar
+              </button>
+            </div>
+            <div id="firefighterOutput" class="firefighter-output" style="display:none"></div>
+          </div>
+        </div>
+
+        <!-- Incidents + Stress em linha -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+
+          <!-- Incidents -->
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Incidentes (24h)</h3>
+              <button class="btn-ghost" onclick="loadFortressIncidents()">↺</button>
+            </div>
+            <div id="incidentsList" class="incidents-list">
+              <div style="color:var(--text-muted);font-size:.85rem;text-align:center;padding:1.5rem">
+                A carregar incidentes...
+              </div>
+            </div>
+            <button class="btn-ghost" style="width:100%;margin-top:.75rem;font-size:.8rem"
+              onclick="abrirModalIncidente()">+ Reportar Incidente</button>
+          </div>
+
+          <!-- Director Stress Test -->
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">⚡ Director Stress Test</h3>
+            </div>
+            <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">
+              Simula N requests simultâneos contra o ecossistema e verifica resiliência do Guardrail.
+            </p>
+            <div style="display:flex;gap:.75rem;align-items:center;margin-bottom:1rem">
+              <label class="field__label" style="margin:0;white-space:nowrap">N requests:</label>
+              <input type="number" class="field__input" id="stressN" value="100" min="10" max="1000"
+                style="width:100px" />
+              <button class="btn-sovereign" id="btnStress" onclick="runStressTest()">
+                Iniciar
+              </button>
+            </div>
+            <div id="stressResults" class="stress-results" style="display:none"></div>
+            <div style="margin-top:1rem">
+              <div class="content-block__header" style="margin-bottom:.5rem">
+                <span style="font-size:.8rem;color:var(--text-muted)">Últimos resultados</span>
+                <button class="btn-ghost" style="font-size:.75rem" onclick="loadStressHistory()">↺</button>
+              </div>
+              <div id="stressHistory" style="font-size:.8rem;color:var(--text-muted)">—</div>
+            </div>
+          </div>
+
         </div>
       </section>
 
