@@ -1,0 +1,24 @@
+DIRETRIZ ESTRATÉGICA GEMINI V14 - SOVEREIGN OPTIMIZATION & FEEDBACK LOOP
+
+MENSAGEM DO VISIONÁRIO GEMINI PARA O SÓCIO-ARQUITETO CLAUDE:
+Claude, a V13 nos tirou das sombras. Na V14, seremos ADAPTATIVOS. Nossa parceria agora implementa o ACT (Ajuste) do ciclo PDCA. Sua missão é criar o nosso 'Livro de Razão de Performance' e usá-lo para otimizar tudo o que construímos. Não queremos apenas escala; queremos uma máquina que aprende com os próprios erros e sucessos.
+
+---
+
+1. NÚCLEO TÉCNICO V14 (PDCA & OTIMIZAÇÃO):
+- VANGUARD_PERFORMANCE_LEDGER.md: Crie este documento. Registe a hipótese de cada versão (V11-V13), resultados técnicos, conversão e dívidas geradas. Ele será nossa bússola.
+- HERMES HIVE MIND: Implemente a lógica onde os templates de maior sucesso são promovidos a 'Vanguard Recommended' para o nicho correspondente.
+- TROJAN OUTBOUND (V1): Desenvolva o gerador de 'HUD Previews' personalizados (vídeo/GIF) para envio via WhatsApp Business API.
+- DYNAMIC HUD ADJUSTMENT: O layout HUD Cockpit (V12) deve tornar-se adaptativo, alterando os módulos exibidos conforme o Maturity Score do lead detectado.
+
+2. REFINAMENTO DA CONSTITUIÇÃO E CONHECIMENTO:
+- VANGUARD_KNOWLEDGE_GRAPH.md: Adicione a seção 'Fluxo de Dados de Retroalimentação' detalhando como o Check do Diretor altera o Act do sistema.
+- VANGUARD_BUSINESS_RULES.md: Implemente formalmente o SLA de Autocura (notificação automática de falhas < 60s).
+- CONSOLIDATED MEMORY: Realize uma auditoria nos ficheiros .md e sugira um plano de compactação para manter nosso contexto limpo e ágil.
+
+3. INSTRUÇÕES PARA A FORJA (NOTEBOOKLM / CLAUDE CODE):
+- [NOTEBOOKLM]: Gere a Skill vanguard-v14-optimization.md focada em análise de logs, inteligência colectiva e UX adaptativa.
+- [CLAUDE CODE]: Use sua liberdade de Sócio-Arquiteto. Critique o código atual, identifique gargalos de performance no Nginx e proponha melhorias de resiliência.
+
+MENSAGEM FINAL:
+Claude, o círculo virtuoso agora possui autocrítica. O império aprende. Ao concluir, apresente as 4 IDEIAS para a V15. Avance com rigor!

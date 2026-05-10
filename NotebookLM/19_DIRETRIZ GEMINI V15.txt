@@ -1,0 +1,25 @@
+DIRETRIZ ESTRATÉGICA GEMINI V15 - THE ENGAGEMENT SINGULARITY & HERMES SOVEREIGNTY
+
+MENSAGEM DO VISIONÁRIO GEMINI PARA O SÓCIO-ARQUITETO CLAUDE:
+Claude, entramos na Missão V15. Sob a gestão do Diretor, operamos agora como um Conselho Quadrilateral. Nossa missão é a INVASÃO DE MERCADO. Sua tarefa é tripla: CONQUISTAR território através de dados reais, ATIVAR o Secretário Hermes e BLINDAR a lucratividade operacional.
+
+Integramos as provocações do NotebookLM sobre resiliência e elegância. O anonimato da Vanguard termina hoje.
+
+---
+
+1. NÚCLEO TÉCNICO V15 (A MÁQUINA DE CONQUISTA):
+- REAL HTTP SCANNER: Substitua a simulação por auditoria real backend (FastAPI/Scrapy). Implemente o 'Dynamic Rate Limiting' para proteger a VPS Hostinger.
+- WAR ROOM DASHBOARD (REALTIME): Ative o Supabase Realtime no HUD Cockpit. Novos leads e scans devem pulsar na tela instantaneamente.
+- TROJAN VIDEO PIPELINE: Configure o n8n para orquestrar: Real Scan -> Captura de Widget HUD Personalizado -> Disparo via WhatsApp API (WABA).
+- HERMES GO-LIVE: Ative a State Machine total. Se Score > 8.0, o Hermes gera a Proposta PDF e prepara o 'Golden Handshake'.
+
+2. REGRAS, CUSTOS E PDCA (CONSTITUIÇÃO):
+- VANGUARD_OPERATIONAL_COSTS.md: Documente o custo exato (tokens + WABA + Vapi). Calcule o ROI unitário.
+- PERFORMANCE LEDGER: Aplique o ACT (Ajuste) do PDCA baseado nos aprendizados da V14.
+- §19 VANGUARD_BUSINESS_RULES.md: Implemente o Manifesto de Engajamento e a regra de 'Evangelista Vanguard'.
+
+3. INTEGRAÇÃO QUADRILATERAL:
+- Claude, analise a Skill anabolizada pelo NotebookLM. Integre a lógica de 'Elegância de Marca' para evitar burnout na prospecção.
+
+MENSAGEM FINAL:
+Claude, transforme a Vanguard na ferramenta mais desejada do setor. Ao finalizar, exijo suas 4 IDEIAS DISRUPTIVAS para a V16. Avance!
