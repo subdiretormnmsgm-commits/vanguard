@@ -174,4 +174,144 @@ Cada versão segue o ciclo PDCA:
 
 ---
 
-*Vanguard Performance Ledger™ — Gerado por Claude Sonnet 4.6 — V14 Sovereign Optimization*
+---
+
+## V15 — SOVEREIGN INVASION
+**Tema:** Real Scanner + War Room Realtime + Burn Rate Shield  
+**Commit:** 21365b8 · **Data:** 2026-05-10
+
+### PLAN — Hipótese
+> *"O scanner frontend-only (dívida crítica V12) precisa de dados reais da PageSpeed API. Com o War Room Realtime e o Burn Rate Shield, o Director passa a tomar decisões com dados ao vivo — não com score simulado."*
+
+### DO — Execução
+| Feature | Implementado | Ficheiro |
+|---------|-------------|---------|
+| RealScanner PageSpeed API | ✅ | `js/real-scanner.js` |
+| War Room Realtime (Supabase Realtime) | ✅ | `js/war-room.js` |
+| Burn Rate Shield (alertas de custo) | ✅ | `js/burn-rate-shield.js` |
+| Hermes Ready Check | ✅ | verificação pré-envio WhatsApp |
+| WhatsApp Bridge (wa.me real) | ✅ | integração directa |
+| n8n Trojan Pipeline | ✅ | automação outbound |
+
+### CHECK — Resultados & Métricas
+| Métrica | V14 (Baseline) | V15 | Δ |
+|---------|----------------|-----|---|
+| Precisão do Score | Demo (hash) | Real (PageSpeed API) | ✅ Crítico resolvido |
+| Tempo de scan | Instantâneo (falso) | 3–8s (real) | Aceitável |
+| Visibilidade do pipeline | Zero realtime | War Room ao vivo | ✅ |
+| Controlo de custos | Manual | Alertas automáticos | ✅ |
+| Dívida crítica V12 (scanner fake) | 🔴 Aberta | ✅ Fechada | ✅ |
+
+### ACT — Dívidas Técnicas V15
+- 🟡 **ALTO:** PageSpeed API tem quota de 25.000 req/dia grátis — monitorar quando escalar
+- 🟡 **ALTO:** War Room sem autenticação de canal (qualquer tenant vê eventos de outros se URL exposta)
+- 🟢 **MÉDIO:** Burn Rate Shield sem integração Stripe (alertas manuais, não automáticos)
+
+---
+
+## V16 — VISUAL AUTHORITY
+**Tema:** Badge SVG Edge + Stripe Connect + Pixel Staging + Ion Gold UI  
+**Commits:** 2c3356e + 572f998 · **Data:** 2026-05-10
+
+### PLAN — Hipótese
+> *"A autoridade visual (Badge SVG via Cloudflare Edge) vai criar distribuição viral passiva. O Stripe Connect vai monetizar o Neural Audit Trail. A tabela UNLOGGED vai preparar a infra para o Pixel V17 sem custo de schema extra."*
+
+### DO — Execução
+| Feature | Implementado | Ficheiro |
+|---------|-------------|---------|
+| Badge SVG Edge (Cloudflare Worker) | ✅ | `cloudflare/badge-worker.js` |
+| Stripe Connect V16 | ✅ | endpoints `/api/stripe/connect` |
+| pixel_events_staging UNLOGGED | ✅ | schema Supabase |
+| Ion Gold (#C5A028) + Deep Obsidian UI | ✅ | `assets/css/ion-gold.css` |
+| Neural Grid CSS | ✅ | componente reutilizável |
+| Crypto Glitch Animation | ✅ | efeito de identidade |
+
+### CHECK — Resultados & Métricas
+| Métrica | Estimado | Real | Δ |
+|---------|----------|------|---|
+| Badge instalado por tenants | A medir | 0 (sem tenants ainda) | ⚠️ Sem base de clientes |
+| Stripe Connect activado | ✅ | ✅ (conta criada) | ✅ |
+| ARR projetado modelado | R$ 4,1M | Projecção (não realizado) | — |
+| Ion Gold como padrão visual | ✅ | ✅ | ✅ |
+
+### ACT — Dívidas Técnicas V16
+- 🔴 **CRÍTICO:** 0 clientes pagantes — toda a infra financeira (Stripe Connect) não está sendo testada em produção
+- 🟡 **ALTO:** Badge SVG não tem analytics de impressões — sem forma de medir viralidade
+- 🟢 **MÉDIO:** pixel_events_staging UNLOGGED sem particionamento por mês — vai crescer infinitamente
+
+---
+
+## V17 — SOVEREIGN INTENT ENGINE
+**Tema:** Sovereign Pixel + Neural Audit Trail + Motor Comercial + Ritual Pós-Versão  
+**Commits:** 1be6bba · e34e5b2 · 97548f3 · a6a3c2a · **Data:** 2026-05-10
+
+### PLAN — Hipótese
+> *"O Pixel edge vai ser o primeiro activo de dados comportamentais reais do ecossistema. O Neural Audit Trail vai ser o primeiro produto com ticket unitário (R$50) — quebrando o zero clientes. O Motor Comercial (prospectar.ps1) vai fechar o gap entre código e venda. O Ritual Pós-Versão vai garantir que cada versão gere actividade comercial, não apenas código."*
+
+### DO — Execução
+| Feature | Implementado | Ficheiro |
+|---------|-------------|---------|
+| Sovereign Pixel <3KB | ✅ | `js/pixel.js` |
+| Cloudflare Worker Pixel | ✅ | `cloudflare/pixel-worker.js` |
+| LGPD/GDPR consent banner | ✅ | integrado no pixel.js |
+| Neural Audit Trail 12 páginas | ✅ | `js/neural-audit-trail.js` |
+| Financial Translation Algorithm | ✅ | score → R$/mês perdido |
+| Stripe R$50 checkout | ✅ | endpoint `/api/stripe/neural-audit-checkout` |
+| prospectar.ps1 | ✅ | `scripts/prospectar.ps1` |
+| PDCA no PROTOCOLO_INTERATIVO | ✅ | `PROTOCOLO_INTERATIVO.md` |
+| RITUAL_POS_VERSAO.md | ✅ | 8 passos cronológicos |
+| Directiva Arquitecto-Mestre | ✅ | `PROTOCOLO_INTERATIVO.md` |
+
+### CHECK — Resultados & Métricas
+| Métrica | V16 (Baseline) | V17 | Δ |
+|---------|----------------|-----|---|
+| Clientes pagantes | 0 | 0 (meta: 1 em 30 dias) | = |
+| Ferramentas de venda prontas | Nenhuma | Neural Audit Trail + prospectar.ps1 | ✅ |
+| Pipeline de prospecção | Inexistente | CSV funil 6 estados | ✅ |
+| Produto com preço unitário | Nenhum | Neural Audit Trail R$50 | ✅ |
+| Dados comportamentais reais | Nenhum | Pixel pronto para instalar | ✅ |
+| Protocolo inter-versões | Ad-hoc | PDCA estruturado + Ritual | ✅ |
+
+### ACT — Dívidas Técnicas V17
+- 🔴 **CRÍTICO:** 0 clientes = 0 dados reais do Pixel. Hermes Autonomous (V18) depende de 30+ dias de eventos
+- 🔴 **CRÍTICO:** Neural Audit Trail não testado com cliente real — conversão R$50 não validada
+- 🟡 **ALTO:** prospectar.ps1 sem integração ao Supabase — pipeline isolado no CSV local
+- 🟡 **ALTO:** WABA oficial não activada — WhatsApp via wa.me (manual, não API)
+- 🟢 **MÉDIO:** Pixel Federation (DNS) não implementado — instalação ainda requer `<script>` tag manual
+
+---
+
+## MAPA DE DÍVIDAS TÉCNICAS GLOBAIS (V17)
+
+| Prioridade | Dívida | Versão Origem | Status V17 |
+|-----------|--------|--------------|-----------|
+| 🔴 CRÍTICO | 0 clientes pagantes | V1→V17 | Pendente — meta 30 dias |
+| 🔴 CRÍTICO | CORS `allow_origins=['*']` em produção | V11 | Pendente |
+| 🔴 CRÍTICO | Sub-tenant login isolado | V11 | Pendente |
+| 🟡 ALTO | pg_cron para Materialized Views | V8 | Pendente |
+| 🟡 ALTO | Predictive Routing retreino automático | V11 | Pendente |
+| 🟡 ALTO | prospectar.ps1 → Supabase (vs CSV local) | V17 | V18 |
+| 🟡 ALTO | Pixel Federation via DNS | V17 | V18 |
+| 🟢 MÉDIO | Hermes sem memória de sessão | V12 | Pendente |
+| 🟢 MÉDIO | Audit Log dashboard de visualização | V11 | Pendente |
+| 🟢 MÉDIO | Badge SVG analytics de impressões | V16 | Pendente |
+
+---
+
+## MÉTRICAS GLOBAIS DO EMPIRE (V1–V17)
+
+| Versão | Linhas de Código | Features | Dívidas Geradas | Dívidas Pagas |
+|--------|-----------------|----------|----------------|---------------|
+| V1–V10 | ~25.000 | 30+ | 18 | 8 |
+| V11–V13 | ~6.734 | 12 | 13 | 1 |
+| V14 | ~2.000 | 6 | 2 | 8 |
+| V15 | ~2.500 | 6 | 2 | 1 |
+| V16 | ~2.200 | 6 | 3 | 0 |
+| **V17** | **~2.800** | **10** | **5** | **1** |
+| **TOTAL** | **~41.234** | **70+** | **~43** | **~19** |
+
+> **Estado da dívida técnica V17:** a maior dívida não é técnica — é comercial. 17 versões, 0 clientes. O foco de V18 deve começar por validação de mercado, não por novas features.
+
+---
+
+*Vanguard Performance Ledger™ — Gerado por Claude Sonnet 4.6 — V17 Sovereign Intent Engine*

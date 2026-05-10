@@ -320,10 +320,11 @@ Isso não limita a visão — **é a execução inteligente dela**.
 | V14 | Sovereign Optimization | ✅ Completo | Hive Mind, PDCA Ledger, Trojan Generator |
 | V15 | Sovereign Invasion | ✅ Completo | Real Scanner PageSpeed, War Room Realtime, Burn Rate Shield |
 | V16 | Visual Authority | ✅ Completo | Badge SVG Edge, Stripe Connect, Pixel Staging, Ion Gold UI |
-| **V17** | **Sovereign Pixel** | 🔵 Próximo | `pixel.js`, Hermes Autonomous, Vanguard Exchange, Neural Audit Trail, Sovereign Playbook |
-| **V18** | **Versão Oráculo** | 🔮 Horizonte | Bolsa de Intenção B2B, Sovereign Credit Score™, M&A Target Engine, Institutional Data Room |
+| **V17** | **Sovereign Intent Engine** | ✅ **Completo** | `pixel.js` Edge, Neural Audit Trail R$50, prospectar.ps1, PDCA, Ritual Pós-Versão |
+| **V18** | **Hermes Autonomous + Neural Sentinel** | 🔵 Próximo | Hermes loop fechado, Neural Sentinel R$97/mês, Sovereign Playbook, Intent Graph |
+| **V19** | **Versão Oráculo** | 🔮 Horizonte | Bolsa de Intenção B2B, Sovereign Credit Score™, M&A Target Engine, Institutional Data Room |
 
-**Conclusão do mapa:** O software está 70% do caminho para a V18. O que falta é **mercado**, não código.
+**Conclusão do mapa:** O software está 80% do caminho para a V19 (ex-V18 Oráculo). O que falta é **mercado**, não código. A V17 entregou o primeiro produto com preço unitário (Neural Audit Trail R$50) e o motor comercial (prospectar.ps1). A próxima versão deve ter **1 cliente pagante** como pré-requisito antes de novas features.
 
 ---
 

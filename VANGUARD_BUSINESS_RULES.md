@@ -1,6 +1,6 @@
 # VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
-> **Versão actual:** V14/V15 — Sovereign Optimization & Operational Readiness  
+> **Versão actual:** V17 — Sovereign Intent Engine  
 > **Última actualização:** 2026-05-10  
 > **Fonte de verdade:** Scan profundo V1–V9 (código + schema + memórias)
 
@@ -1014,6 +1014,77 @@ O cockpit deve exibir permanentemente:
 - % do orçamento diário usado
 - Custo médio por lead (sessão)
 - Status do Burn Rate Shield (OK / ALERT / EXCEEDED)
+
+
+---
+
+## §23 — Sovereign Intent Engine & Motor Comercial (V17)
+
+### 23.1 Sovereign Pixel — Regras de Rastreio de Intenção
+
+- O `pixel.js` (<3KB) é o único script autorizado a ser instalado nos sites dos clientes finais dos tenants. Nunca instalar scripts de terceiros sem auditoria.
+- **Classificação de intenção obrigatória:** cada sessão deve ser classificada em exactamente um de: `COLD` / `WARM` / `HOT` / `FIRE`. Não existe classificação intermédia.
+- **Algoritmo de classificação (score ponderado):**
+  - dwell >90s=2pts, >30s=1pt
+  - scroll >70%=2pts, >40%=1pt
+  - CTA hover >5s=2pts, >1s=1pt
+  - exit intent detectado=2pts
+  - clicks >3=1pt
+  - FIRE ≥7pts · HOT 4-6pts · WARM 2-3pts · COLD 0-1pt
+- **Dispatch:** obrigatoriamente via Beacon API (non-blocking) para `pixel_events_staging` UNLOGGED. Nunca bloquear o thread principal do site do cliente.
+- **LGPD/GDPR:** o banner de consentimento é **obrigatório** antes de qualquer rastreio. Sem opt-in explícito (`vp_consent=1`), o pixel não inicializa. Isto não é opcional.
+- **Identificação por tenant:** cada evento deve conter `tenant_id` válido. Eventos sem `tenant_id` são rejeitados pelo Worker com HTTP 422.
+
+### 23.2 Cloudflare Worker — Regras do Servidor de Pixel
+
+- O Worker serve `pixel.js` com configuração do tenant injetada em `window.__VP_CFG`. Nunca expor a configuração de um tenant para outro.
+- **Cache obrigatório:** 1 hora (`Cache-Control: public, max-age=3600`) — reduz custo de edge computing.
+- **Enriquecimento edge:** o Worker adiciona `ip_country`, `ip_city` e `asn` de `request.cf` antes de persistir. Estes campos são metadados edge, não dados pessoais identificáveis.
+- **Falha silenciosa:** erros de persistência no Supabase não retornam erro ao site do cliente. O pixel nunca pode degradar a experiência do utilizador final.
+
+### 23.3 Neural Audit Trail — Regras do Relatório Financeiro
+
+- O relatório usa obrigatoriamente a **Tradução Financeira**: gargalos técnicos → Receita Perdida (R$/mês). Nunca apresentar apenas métricas técnicas sem impacto financeiro.
+- **Fórmula canónica de Receita Perdida:**
+  ```
+  trafficEst = 500 + (score/10) × 9500
+  convDelta  = 0.023 − (score/10 × 0.023)
+  lostRevenue = trafficEst × convDelta × R$800
+  ```
+- **Versão Free (3 páginas):** gratuita, descarrega directamente. Serve como lead magnet. Inclui capa com gatilho psicológico e 3 gargalos com impacto financeiro.
+- **Versão Paid (12 páginas, R$50):** desbloqueada após pagamento via Stripe Connect. O download só é entregue após confirmação de pagamento (`?audit_paid=1`). **Nunca entregar antes do pagamento ser confirmado.**
+- **Design obrigatório:** Ion Gold (#C5A028) + Deep Obsidian (#0A0802) em todo o relatório. Nunca usar o design antigo (Cyber Cyan) no Neural Audit Trail.
+
+### 23.4 Motor de Prospecção — Regras do Pipeline
+
+- O pipeline de prospecção é mantido em `data/pipeline.csv` — fonte de verdade para todos os contactos.
+- **Estados válidos (máquina de estados):** `NAO_CONTACTADO → CONTACTADO → RESPONDEU → REUNIAO → PROPOSTA → FECHADO` ou `PERDIDO`. Nunca criar estados fora desta lista.
+- **Follow-up obrigatório:** prospectos `CONTACTADO` há 2+ dias sem resposta entram automaticamente em `followup_pendente`. O script `prospectar.ps1 -followup` processa esta fila.
+- **Mensagem de abertura:** obrigatoriamente menciona o domínio analisado, o score e a receita perdida estimada. Mensagens genéricas são proibidas.
+- **Meta por versão:** ≥ 20 novos contactos após cada fechamento de versão.
+
+### 23.5 Protocolo Colaborativo — Regras do Conselho Quadrilateral
+
+- O Gemini propõe obrigatoriamente **5 ideias disruptivas para a próxima versão** na sua DIRETRIZ. Não é opcional.
+- O Claude avalia as ordens do Gemini com perspectiva técnica antes de executar. Se identificar risco arquitectural, comunica ao Diretor antes de construir.
+- O NotebookLM inclui obrigatoriamente uma secção `[CONEXÃO HISTÓRICA]` e `[PADRÃO DE SUCESSO]` em cada Skill gerada.
+- O ciclo PDCA fecha **entre versões**, não dentro de versões: Plan (Gemini DIRETRIZ) → Do (Claude build) → Check (Gemini analisa) → Act (Diretor decide).
+- **Ritual Pós-Versão:** o `RITUAL_POS_VERSAO.md` define os 8 passos cronológicos obrigatórios. Nenhuma versão está encerrada sem o Ritual completo.
+
+---
+
+### Changelog V16 (Visual Authority)
+- **Regras adicionadas:** Design System Ion Gold/Obsidian como identidade permanente; Badge SVG Edge com cache 24h; Stripe Connect Express para pagamentos diretos tenant-a-tenant; Pixel Staging UNLOGGED para 10M+ eventos/mês; Neural Grid e Cipher Glitch como linguagem visual institucional
+
+---
+
+### Changelog V17 (Sovereign Intent Engine)
+- **Regras adicionadas:** §23 completo — Sovereign Pixel (LGPD obrigatório, classificação COLD/WARM/HOT/FIRE, Beacon API), Cloudflare Worker (cache 1h, falha silenciosa), Neural Audit Trail (Tradução Financeira, versões Free/Paid R$50), Motor de Prospecção (pipeline CSV, estados máquina), Protocolo Colaborativo (PDCA inter-versões, Ritual Pós-Versão obrigatório)
+
+---
+
+### 22 - Doutrina de Distribuição Subjacente:
+Todo contrato estabelecido entre um Tenant (Agência/Consultor) e um cliente final via ecossistema Vanguard exige a implementação do Selo Dinâmico de Performance. Este selo é a garantia de transparência técnica e serve como o ponto de ancoragem (lock-in) dos dados da empresa na infraestrutura Vanguard. A remoção do selo implica na suspensão imediata dos relatórios de inteligência para o cliente final.
 
 Endpoint: `GET /admin/burn-rate` → JSON com todas as métricas de custo.
 

@@ -1,5 +1,5 @@
 # TODO_FUTURE — Backlog Estratégico Vanguard
-> **Actualizado:** V16 — 2026-05-10  
+> **Actualizado:** V17 — 2026-05-10  
 > **Metodologia:** ideias ordenadas por impacto × viabilidade
 
 ---
@@ -80,36 +80,65 @@ A **Versão Oráculo** é a singularidade do ecossistema Vanguard — a transiç
 
 ---
 
-## 🏹 V17 — 5 IDEIAS DISRUPTIVAS (do Sócio-Arquitecto Claude · V16)
+## ✅ V17 — SOVEREIGN INTENT ENGINE (CONCLUÍDA)
 
-- [ ] **IDEIA 1 — Sovereign Pixel** — motor de intenção comportamental edge (COLD/WARM/HOT/FIRE em < 500ms)
-  - `pixel.js` 3KB instalado nos sites dos clientes finais via script tag
-  - Cloudflare Worker classifica intenção → Supabase UNLOGGED (schema V16 pronto)
-  - 50 agências × 200 clientes = 10.000 sites → 10M sessões/mês → maior base de intenção B2B do Brasil
+- [x] **IDEIA 1 — Sovereign Pixel** ✅ IMPLEMENTADO
+  - `js/pixel.js` <3KB — classifica COLD/WARM/HOT/FIRE em tempo real
+  - `cloudflare/pixel-worker.js` — serve pixel com tenant config + persiste no Supabase UNLOGGED
+  - LGPD/GDPR: banner de consentimento automático com `localStorage vp_consent`
 
-- [ ] **IDEIA 2 — Hermes Autonomous** — loop fechado sem intervenção humana
-  - Pixel FIRE → Haiku gera msg com comportamento em tempo real → WhatsApp envia → `agent_jobs` qualifica
-  - Custo: R$ 0,04/lead (Haiku) vs R$ 150+ SDR humano · taxa de resposta esperada: +45%
-  - Usar Supabase Realtime (já V15) como trigger do loop
+- [x] **IDEIA 4 — Neural Audit Trail** ✅ IMPLEMENTADO
+  - `js/neural-audit-trail.js` — PDF 12 páginas Ion Gold + Deep Obsidian
+  - Financial Translation: score → R$/mês perdido (fórmula R$800 ticket médio B2B)
+  - Versão free (3 páginas) → versão paga R$50 via Stripe Connect V16
+  - Primeiro produto unitário da Vanguard com preço definido
 
-- [ ] **IDEIA 3 — Vanguard Exchange** — mercado de leads FIRE com bid automático
-  - Tenant sem capacidade coloca lead em leilão → outros tenants especializados fazem bid
-  - Vanguard retém 20% do bid · stack: Supabase Realtime + `leads_arbitrage` + push WhatsApp
-  - Primeiro mercado secundário de leads com intenção verificada e score certificado do Brasil
+- [x] **Motor Comercial (prospectar.ps1)** ✅ IMPLEMENTADO (adicional)
+  - `scripts/prospectar.ps1` — pipeline CSV com funil 6 estados + mensagens WhatsApp
+  - Follow-up automático, métricas de conversão, stats vs metas
 
-- [ ] **IDEIA 4 — Neural Audit Trail** — relatório de 12 páginas que vende sozinho
-  - Puppeteer screenshots + Claude Opus (análise competitiva vs 3 concorrentes do nicho)
-  - Projeção de receita perdida por gargalo: "Este site perde R$ 18.000/mês sem CTA acima do fold"
-  - Versão resumida grátis (lead magnet) · versão completa: R$ 50 auditoria unitária
+- [ ] **IDEIA 2 — Hermes Autonomous** → ADIADO PARA V18
+  - Depende de 30+ dias de dados reais do Pixel activo
+  - Loop: FIRE → Haiku gera msg → WhatsApp → classifica resposta → cadência automática
 
-- [ ] **IDEIA 5 — Sovereign Playbook** — plano de acção 90 dias que é lock-in disfarçado de consultoria
-  - Cada tarefa do Playbook está ancorada a um módulo Vanguard: cliente não segue o plano sem usar a plataforma
-  - Gerado automaticamente pós-scan: Claude Haiku + jsPDF Cyber-Premium (já V12)
-  - **Plano de implementação imediato (antes da V17):**
-    - Semanas 1-2: 10 diagnósticos grátis em Saúde/Advocacia/Tech → Playbook via WhatsApp
-    - Semanas 3-6: converter 5 clientes pagantes R$ 270/mês → R$ 1.350 MRR
-    - Semanas 7-12: onboarding 2 agências parceiras (V13 Partnership API) → 25 tenants · R$ 6.750 MRR
-    - Meta LTV/CAC: > 64× (R$ 270/mês × 12 / R$ 50 CAC)
+- [ ] **IDEIA 3 — Vanguard Exchange** → ADIADO PARA V18/V19
+  - Prematura — precisa de massa crítica de tenants (20+) com Pixel activo
+
+- [ ] **IDEIA 5 — Sovereign Playbook** → V18 (implementação rápida ~1 dia)
+  - Haiku + jsPDF (já existe desde V12) — só falta o prompt e o fluxo pós-scan
+
+---
+
+## 🏹 V18 — 5 IDEIAS DISRUPTIVAS (do Sócio-Arquitecto Claude · V17)
+
+- [ ] **IDEIA 1 — Intent Graph: API de Intenção Cross-Tenant**
+  - Agrega dados FIRE de todos os tenants → grafo de intenção nacional B2B
+  - "Quais PMEs em saúde em SP tiveram sessões FIRE nas últimas 72h?" — vendida a bancos/M&A
+  - Ticket mínimo: R$15.000/mês por cliente institucional
+  - **Dependência:** 30+ dias de dados do Sovereign Pixel activo
+
+- [ ] **IDEIA 2 — Neural Sentinel: Subscrição Semanal R$97/mês**
+  - Neural Audit Trail passa a ser recorrente: relatório automático toda segunda com deltas
+  - "Esta semana perdeu R$3.200 a mais vs semana passada" — lock-in por histórico temporal
+  - Stack: cron job + `neural-audit-trail.js` + Stripe subscriptions (V16)
+  - **Impacto:** transforma produto unitário em MRR recorrente
+
+- [ ] **IDEIA 3 — Hermes Autonomous Loop Completo**
+  - FIRE → Haiku gera msg com comportamento real → WhatsApp → classifica resposta → cadência
+  - Custo: R$0,12/lead total · Taxa resposta esperada: +45% vs outbound frio
+  - **Dependência:** Pixel activo com dados reais (30+ dias)
+
+- [ ] **IDEIA 4 — Sovereign Playbook: 90 dias gerado por IA**
+  - Pós-scan: plano de 90 dias onde cada tarefa ancora a módulo Vanguard
+  - Gerado por Haiku (R$0,04/doc) + jsPDF (já existe desde V12)
+  - Isca gratuita pós-diagnóstico → lock-in disfarçado de consultoria
+  - **Implementação:** 1 dia de trabalho — ALTA PRIORIDADE V18
+
+- [ ] **IDEIA 5 — Pixel Federation: Instalação via DNS sem código**
+  - Tenant adiciona CNAME DNS `vpx.seudominio.com → pixel.vanguard.tech`
+  - Worker injeta pixel automaticamente — zero fricção de instalação → adoção 10×
+  - Tecnicamente viável com Cloudflare Snippets (beta 2026)
+  - Elimina barreira técnica para tenants não-técnicos
 
 ---
 
