@@ -20,33 +20,14 @@
   <script src="/brand-config.js" onerror="void(0)"></script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/neural-v-logo.js"></script>
 </head>
 <body>
 
   <!-- ─── NAVBAR ──────────────────────────────────────────────────────── -->
   <nav class="navbar" role="navigation" aria-label="Navegação principal">
     <div class="navbar__container">
-      <span class="navbar__logo brand-name" style="display:flex;align-items:center;gap:10px">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 36" width="32" height="24" aria-hidden="true">
-          <defs>
-            <linearGradient id="nv-g-nav" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00F0FF"/><stop offset="100%" stop-color="#7B2FFF"/>
-            </linearGradient>
-            <filter id="nv-glow-nav" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="1.5" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <polyline points="2,2 24,34 46,2" fill="none" stroke="url(#nv-g-nav)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#nv-glow-nav)"/>
-          <circle cx="2"  cy="2"  r="2.5" fill="#00F0FF" filter="url(#nv-glow-nav)"/>
-          <circle cx="24" cy="34" r="3"   fill="#7B2FFF" filter="url(#nv-glow-nav)"/>
-          <circle cx="46" cy="2"  r="2.5" fill="#00F0FF" filter="url(#nv-glow-nav)"/>
-          <circle cx="13" cy="18" r="1.5" fill="#00F0FF" opacity="0.7"/>
-          <circle cx="35" cy="18" r="1.5" fill="#00F0FF" opacity="0.7"/>
-          <line x1="13" y1="18" x2="35" y2="18" stroke="#00F0FF" stroke-width="0.6" opacity="0.3"/>
-        </svg>
-        VANGUARD
-      </span>
+      <span class="navbar__logo brand-name" data-nv-logo data-nv-size="sm" data-nv-label="VANGUARD"></span>
 
       <div class="navbar__status" aria-hidden="true">
         <span class="navbar__status-dot"></span>
