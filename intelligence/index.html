@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vanguard Intelligence API — Dados de maturidade digital B2B para fundos, franquias e aceleradoras." />
+  <title>Vanguard Intelligence API — Sovereign Data</title>
+  <link rel="stylesheet" href="assets/css/intelligence.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23040D18'/><text y='.9em' font-size='80' fill='%23A3FF57'>⬡</text></svg>" />
+</head>
+<body>
+
+<!-- Background effects -->
+<canvas id="noise-canvas"></canvas>
+<div class="node-pulse"></div>
+<div class="node-pulse"></div>
+<div class="node-pulse"></div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav__logo">Vanguard <span>Intelligence</span></div>
+  <ul class="nav__links">
+    <li><a href="#endpoints">Endpoints</a></li>
+    <li><a href="#playground">Playground</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="/saas/">Dashboard</a></li>
+  </ul>
+  <a href="#pricing" class="nav__cta">Obter Key →</a>
+</nav>
+
+<main>
+
+  <!-- ─── Hero ──────────────────────────────────────────────────────────── -->
+  <section class="hero container">
+    <div class="hero__content">
+      <p class="hero__eyebrow fade-up">API B2B de Inteligência de Mercado</p>
+      <h1 class="hero__title fade-up delay-1">
+        Dados que<br><span class="accent">mais ninguém</span><br>consegue ter.
+      </h1>
+      <p class="hero__desc fade-up delay-2">
+        Scores de maturidade digital de +50.000 empresas brasileiras.
+        Tendências de nicho em tempo real. Inteligência de mercado que
+        os seus concorrentes não têm — e não conseguirão replicar.
+      </p>
+      <div class="hero__actions fade-up delay-3">
+        <a href="#playground" class="btn-primary">▶ Testar a API</a>
+        <a href="/api/docs" class="btn-ghost">Documentação</a>
+      </div>
+      <div class="hero__stats fade-up delay-4">
+        <div class="stat">
+          <span class="stat__value" id="stat-empresas">50k+</span>
+          <span class="stat__label">Empresas indexadas</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" id="stat-nichos">12</span>
+          <span class="stat__label">Nichos activos</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" id="stat-uptime">99.9%</span>
+          <span class="stat__label">Uptime SLA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal hero -->
+    <div class="hero__terminal fade-up delay-2">
+      <div class="terminal__header">
+        <div class="terminal__dots">
+          <span class="terminal__dot"></span>
+          <span class="terminal__dot"></span>
+          <span class="terminal__dot"></span>
+        </div>
+        <span class="terminal__label">Live Response — /v1/intelligence/nicho/advocacia</span>
+      </div>
+      <div class="terminal__body" id="hero-terminal-body">
+        <div class="terminal__line"><span class="t-comment">// GET /v1/intelligence/nicho/advocacia</span></div>
+        <div class="terminal__line"><span class="t-comment">// X-Vanguard-Key: vng_live_xxxx_...</span></div>
+        <div class="terminal__line">&nbsp;</div>
+        <div class="terminal__line">{</div>
+        <div class="terminal__line indent"><span class="t-key">"nicho"</span>: <span class="t-str">"advocacia"</span>,</div>
+        <div class="terminal__line indent"><span class="t-key">"total_empresas"</span>: <span class="t-num" id="t-total">8431</span>,</div>
+        <div class="terminal__line indent"><span class="t-key">"score_medio"</span>: <span class="t-num">3.8</span>,</div>
+        <div class="terminal__line indent"><span class="t-key">"score_mediana"</span>: <span class="t-num">3.2</span>,</div>
+        <div class="terminal__line indent"><span class="t-key">"empresas_qualidade"</span>: <span class="t-num">1204</span>,</div>
+        <div class="terminal__line indent"><span class="t-key">"pct_com_ia_hook"</span>: <span class="t-num">71.4</span>,</div>
+        <div class="terminal__line indent"><span class="t-key">"insight"</span>: <span class="t-str">"Nicho com maturidade digital baixa (score médio 3.8/10) — alta oportunidade de captação..."</span>,</div>
+        <div class="terminal__line indent"><span class="t-key">"referencia_mes"</span>: <span class="t-str">"2026-05-01T00:00:00Z"</span></div>
+        <div class="terminal__line">}</div>
+        <div class="terminal__line">&nbsp;</div>
+        <div class="terminal__line"><span class="t-comment">// 23ms · 200 OK</span> <span class="terminal__cursor"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Fingerprint Numbers ─────────────────────────────────────────── -->
+  <div class="fingerprint-grid">
+    <div class="fingerprint-cell">
+      <span class="fp-number">50K+</span>
+      <span class="fp-label">Empresas com score de maturidade digital indexado</span>
+    </div>
+    <div class="fingerprint-cell">
+      <span class="fp-number">12</span>
+      <span class="fp-label">Nichos com cobertura profunda (advocacia, estética, clínica...)</span>
+    </div>
+    <div class="fingerprint-cell">
+      <span class="fp-number">30d</span>
+      <span class="fp-label">Tendências actualizadas continuamente nos últimos 30 dias</span>
+    </div>
+    <div class="fingerprint-cell">
+      <span class="fp-number">&lt;30ms</span>
+      <span class="fp-label">Latência média via Materialized Views pré-computadas</span>
+    </div>
+    <div class="fingerprint-cell">
+      <span class="fp-number">SHA-256</span>
+      <span class="fp-label">API keys seguras com hash criptográfico — nunca armazenamos a key real</span>
+    </div>
+    <div class="fingerprint-cell">
+      <span class="fp-number">0€</span>
+      <span class="fp-label">Custo marginal de produção — dados são subproduto do motor de prospecção</span>
+    </div>
+  </div>
+
+  <!-- ─── Endpoints ────────────────────────────────────────────────────── -->
+  <section class="section" id="endpoints">
+    <div class="container">
+      <h2 class="section__title">6 Endpoints. Todos os dados.</h2>
+      <p class="section__sub">Construídos sobre Materialized Views actualizadas continuamente. Respostas em &lt;30ms.</p>
+
+      <div class="endpoints-grid">
+        <div class="endpoint-card">
+          <span class="endpoint-card__method method-get">GET</span>
+          <div class="endpoint-card__path">/v1/intelligence/nichos</div>
+          <div class="endpoint-card__desc">Lista todos os nichos indexados com volume total e score médio. Ponto de entrada para descoberta de mercados.</div>
+          <div class="endpoint-card__plano">Disponível: <span class="free">Free</span></div>
+        </div>
+
+        <div class="endpoint-card">
+          <span class="endpoint-card__method method-get">GET</span>
+          <div class="endpoint-card__path">/v1/intelligence/nicho/{nicho}</div>
+          <div class="endpoint-card__desc">Score médio, mediana, % com IA hook e insight automático para um nicho específico. Inclui total de empresas de alta qualidade.</div>
+          <div class="endpoint-card__plano">Disponível: <span class="free">Free</span></div>
+        </div>
+
+        <div class="endpoint-card">
+          <span class="endpoint-card__method method-get">GET</span>
+          <div class="endpoint-card__path">/v1/intelligence/tendencias</div>
+          <div class="endpoint-card__desc">Top mercados por crescimento de prospecção digital nos últimos 30 dias. Filtrável por nicho. Ideal para decisões de expansão.</div>
+          <div class="endpoint-card__plano">Disponível: <span class="free">Free</span></div>
+        </div>
+
+        <div class="endpoint-card">
+          <span class="endpoint-card__method method-get">GET</span>
+          <div class="endpoint-card__path">/v1/intelligence/empresa</div>
+          <div class="endpoint-card__desc">Lookup de score de maturidade digital por nome de empresa. Retorna gargalo principal e data de indexação. Búsqueda fuzzy.</div>
+          <div class="endpoint-card__plano">Disponível: <span class="paid">Starter+</span></div>
+        </div>
+
+        <div class="endpoint-card">
+          <span class="endpoint-card__method method-get">GET</span>
+          <div class="endpoint-card__path">/v1/intelligence/cidades</div>
+          <div class="endpoint-card__desc">Top cidades com maior actividade num nicho — ordenadas por volume de prospecção 30d. Essencial para mapping geográfico.</div>
+          <div class="endpoint-card__plano">Disponível: <span class="free">Free</span></div>
+        </div>
+
+        <div class="endpoint-card">
+          <span class="endpoint-card__method method-get">GET</span>
+          <div class="endpoint-card__path">/v1/intelligence/status</div>
+          <div class="endpoint-card__desc">Estado da sua API key: plano, requests usados este mês, quota restante e percentagem de uso. Ideal para monitorização.</div>
+          <div class="endpoint-card__plano">Disponível: <span class="free">Free</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Playground ───────────────────────────────────────────────────── -->
+  <section class="playground" id="playground">
+    <div class="container">
+      <h2 class="section__title">Playground</h2>
+      <p class="section__sub">Teste os endpoints em tempo real. A resposta é real — dados da nossa base.</p>
+
+      <div class="playground__inner">
+        <div class="playground__controls">
+          <div class="control-group">
+            <label>Endpoint</label>
+            <select id="pg-endpoint">
+              <option value="nichos">GET /v1/intelligence/nichos</option>
+              <option value="nicho" selected>GET /v1/intelligence/nicho/{nicho}</option>
+              <option value="tendencias">GET /v1/intelligence/tendencias</option>
+              <option value="cidades">GET /v1/intelligence/cidades?nicho={nicho}</option>
+              <option value="status">GET /v1/intelligence/status</option>
+            </select>
+          </div>
+
+          <div class="control-group" id="pg-nicho-group">
+            <label>Nicho</label>
+            <select id="pg-nicho">
+              <option value="advocacia">Advocacia</option>
+              <option value="estetica">Estética</option>
+              <option value="clinica">Clínica Médica</option>
+              <option value="dentista">Dentista</option>
+              <option value="contabilidade">Contabilidade</option>
+              <option value="imobiliaria">Imobiliária</option>
+              <option value="farmacia">Farmácia</option>
+              <option value="restaurante">Restaurante</option>
+            </select>
+          </div>
+
+          <div class="control-group" id="pg-top-group" style="display:none;">
+            <label>Top N Cidades</label>
+            <input type="number" id="pg-top" value="10" min="1" max="30" />
+          </div>
+
+          <div class="control-group">
+            <label>API Key (demo)</label>
+            <input type="text" id="pg-key" value="vng_live_demo_vanguard2026"
+                   placeholder="vng_live_xxxx_..." />
+          </div>
+
+          <button class="btn-primary" onclick="executarPlayground()">
+            ▶ Executar Request
+          </button>
+
+          <div style="padding: 1.2rem; border: 1px solid var(--border); background: var(--glass);">
+            <div style="font-family: var(--font-m); font-size: 0.65rem; color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase;">Exemplo cURL</div>
+            <pre id="curl-example" style="font-family: var(--font-m); font-size: 0.7rem; color: var(--cyan); overflow-x: auto; white-space: pre-wrap;"></pre>
+          </div>
+        </div>
+
+        <div class="playground__output">
+          <div class="output-panel">
+            <div class="output-panel__header">
+              <span class="output-panel__status status-pending" id="pg-status">Aguardando request</span>
+              <span class="output-panel__latency" id="pg-latency"></span>
+            </div>
+            <div class="output-panel__body" id="pg-output">
+              <span style="color: var(--muted); font-style: italic;"># Seleccione um endpoint e clique em Executar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Pricing ──────────────────────────────────────────────────────── -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2 class="section__title">Simples. Escalável. Justo.</h2>
+      <p class="section__sub">Pague pelo uso real. Sem contratos. Cancel anytime.</p>
+
+      <div class="pricing-grid">
+        <div class="plan-card">
+          <span class="plan__name">Free</span>
+          <div class="plan__price">
+            <span class="plan__price-value">€0</span>
+            <span class="plan__price-period">/mês</span>
+          </div>
+          <span class="plan__quota">1.000 requests/mês</span>
+          <ul class="plan__features">
+            <li>Endpoint /nichos</li>
+            <li>Endpoint /nicho/{nicho}</li>
+            <li>Endpoint /tendencias</li>
+            <li>Endpoint /cidades</li>
+            <li>Endpoint /status</li>
+            <li>Sem acesso a /empresa</li>
+          </ul>
+          <a href="/saas/" class="btn-ghost" style="text-align:center;">Criar conta</a>
+        </div>
+
+        <div class="plan-card featured">
+          <span class="plan__name">Pro</span>
+          <div class="plan__price">
+            <span class="plan__price-value">€97</span>
+            <span class="plan__price-period">/mês</span>
+          </div>
+          <span class="plan__quota">50.000 requests/mês</span>
+          <ul class="plan__features">
+            <li>Todos os endpoints Free</li>
+            <li>Endpoint /empresa (lookup)</li>
+            <li>Histórico 90 dias</li>
+            <li>SLA 99.9%</li>
+            <li>Suporte email prioritário</li>
+          </ul>
+          <a href="/saas/" class="btn-primary" style="text-align:center; justify-content:center;">Começar agora</a>
+        </div>
+
+        <div class="plan-card">
+          <span class="plan__name">Enterprise</span>
+          <div class="plan__price">
+            <span class="plan__price-value">€497</span>
+            <span class="plan__price-period">/mês</span>
+          </div>
+          <span class="plan__quota">Ilimitado</span>
+          <ul class="plan__features">
+            <li>Todos os endpoints Pro</li>
+            <li>Requests ilimitados</li>
+            <li>IP whitelist</li>
+            <li>SLA 99.99% + on-call</li>
+            <li>Dados raw (CSV/JSON bulk)</li>
+            <li>Integrações custom</li>
+          </ul>
+          <a href="mailto:hello@vanguardtech.io" class="btn-ghost" style="text-align:center;">Falar com equipa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA Final ─────────────────────────────────────────────────────── -->
+  <section class="cta-final">
+    <h2 class="cta-final__title">O mercado já existe.<br>Seja o primeiro a vê-lo.</h2>
+    <p class="cta-final__desc">Registe-se gratuitamente. Primeira API key em 30 segundos.</p>
+    <a href="/saas/" class="btn-primary">Criar conta grátis →</a>
+  </section>
+
+</main>
+
+<footer>
+  <span class="footer__brand">VANGUARD INTELLIGENCE API · V8 · 2026</span>
+  <ul class="footer__links">
+    <li><a href="/api/docs">Docs</a></li>
+    <li><a href="/saas/">Dashboard</a></li>
+    <li><a href="/marketplace/">Marketplace</a></li>
+  </ul>
+</footer>
+
+<script src="assets/js/intelligence.js"></script>
+</body>
+</html>

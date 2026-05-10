@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """
-Vanguard V6 — API Bridge
+Vanguard V8 — API Bridge (Sovereign Data)
 FastAPI: Scraper trigger · Stripe Billing · Auth JWT
+       + V7 Marketplace · V8 Intelligence API · V8 Fractal White-Label
 
-Endpoints:
-  POST /api/scraper/trigger    — dispara scraper para o tenant (valida quota)
-  GET  /api/scraper/jobs       — lista jobs do tenant
-  GET  /api/tenant/me          — dados do tenant autenticado
-  POST /api/stripe/checkout    — cria sessão de checkout Stripe
-  POST /api/stripe/portal      — cria sessão do portal Stripe
-  POST /api/stripe/webhook     — webhook Stripe (events)
-  GET  /health                 — healthcheck
+Endpoints V8 adicionais:
+  GET  /v1/intelligence/nichos          — nichos indexados
+  GET  /v1/intelligence/nicho/{nicho}   — stats maturidade digital
+  GET  /v1/intelligence/tendencias      — tendências 30d
+  GET  /v1/intelligence/empresa         — lookup empresa
+  GET  /v1/intelligence/cidades         — top cidades
+  GET  /v1/intelligence/status          — estado da API key
+  POST /api/fractal/sub-tenants         — criar sub-tenant
+  GET  /api/fractal/sub-tenants         — listar sub-tenants
+  PATCH /api/fractal/sub-tenants/{id}/brand — actualizar brand
 
 Deploy: uvicorn main:app --host 0.0.0.0 --port 9000
 """
@@ -259,7 +262,7 @@ async def executar_scraper_bg(
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    log.info('Vanguard API Bridge V7 iniciada — Marketplace activo.')
+    log.info('Vanguard API Bridge V8 iniciada — Intelligence API + Fractal White-Label.')
     if not SUPABASE_URL:       log.warning('SUPABASE_URL não configurada!')
     if not STRIPE_SECRET_KEY:  log.warning('STRIPE_SECRET_KEY não configurada!')
     if not SUPABASE_JWT_SECRET:log.warning('SUPABASE_JWT_SECRET não configurada!')
@@ -268,8 +271,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title='Vanguard SaaS API Bridge V7',
-    version='7.0.0',
+    title='Vanguard SaaS API Bridge V8 — Sovereign Data',
+    version='8.0.0',
     docs_url='/api/docs',
     redoc_url=None,
     lifespan=lifespan,
@@ -289,7 +292,27 @@ try:
     app.include_router(marketplace_router, prefix='/api')
     log.info('Marketplace router registado.')
 except ImportError as e:
-    log.warning(f'marketplace.py não encontrado — endpoints /api/marketplace indisponíveis: {e}')
+    log.warning(f'marketplace.py não encontrado: {e}')
+
+# ─── V8: Intelligence API router ──────────────────────────────────────────────
+try:
+    from intelligence import make_intelligence_router
+    intelligence_router = make_intelligence_router(SUPABASE_URL, SUPABASE_SERVICE_KEY)
+    app.include_router(intelligence_router)
+    log.info('Intelligence API router registado (/v1/intelligence/).')
+except ImportError as e:
+    log.warning(f'intelligence.py não encontrado: {e}')
+
+# ─── V8: Fractal White-Label router ───────────────────────────────────────────
+try:
+    from fractal import make_fractal_router
+    fractal_router = make_fractal_router(
+        SUPABASE_URL, SUPABASE_SERVICE_KEY, autenticar, get_tenant
+    )
+    app.include_router(fractal_router)
+    log.info('Fractal White-Label router registado (/api/fractal/).')
+except ImportError as e:
+    log.warning(f'fractal.py não encontrado: {e}')
 
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
@@ -619,8 +642,8 @@ async def stripe_webhook(request: Request):
 async def health():
     return {
         'status':  'ok',
-        'service': 'Vanguard API Bridge V6',
-        'version': '7.0.0',
+        'service': 'Vanguard API Bridge V8 — Sovereign Data',
+        'version': '8.0.0',
         'ts':       datetime.utcnow().isoformat(),
         'stripe':   bool(STRIPE_SECRET_KEY),
         'supabase': bool(SUPABASE_URL),

@@ -1,8 +1,9 @@
 version: '3.8'
 
 # ╔══════════════════════════════════════════════════════════════════════╗
-# ║  VANGUARD SOBERANO DIGITAL V6 — Docker Compose Mestre               ║
-# ║  Orquestra: Frontend PWA · API SaaS · Scraper IA · n8n · PostgreSQL  ║
+# ║  VANGUARD SOVEREIGN DATA V8 — Docker Compose Mestre                  ║
+# ║  Orquestra: Frontend PWA · API SaaS · Intelligence API · Fractal WL  ║
+# ║             Scraper IA · n8n Hermes · PostgreSQL                     ║
 # ║                                                                      ║
 # ║  Deploy  : docker compose up -d                                      ║
 # ║  Scraper : docker compose run --rm scraper --nicho advocacia --modo osm ║
@@ -67,6 +68,9 @@ services:
       # V7: Marketplace Stripe Connect
       - STRIPE_CONNECT_WEBHOOK_SECRET=${STRIPE_CONNECT_WEBHOOK_SECRET}
       - MARKETPLACE_URL=${MARKETPLACE_URL:-http://localhost/marketplace}
+      # V8: Intelligence API + Fractal
+      - INTELLIGENCE_URL=${INTELLIGENCE_URL:-http://localhost/intelligence}
+      - VANGUARD_API_URL=${VANGUARD_API_URL:-http://vanguard_api:9000}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
