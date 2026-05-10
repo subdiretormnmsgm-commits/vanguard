@@ -1,6 +1,39 @@
 # TODO_FUTURE — Backlog Estratégico Vanguard
-> **Actualizado:** V13 — 2026-05-10  
+> **Actualizado:** V16 — 2026-05-10  
 > **Metodologia:** ideias ordenadas por impacto × viabilidade
+
+---
+
+## 🔮 V18 — VERSÃO ORÁCULO *(Horizonte Estratégico)*
+
+> *"Não vendemos leads. Vendemos certeza."*
+
+A **Versão Oráculo** é a singularidade do ecossistema Vanguard — a transição de plataforma SaaS para **Terminal de Dados Preditivos B2B** com acesso a mercados institucionais (M&A, Banca Comercial, VC).
+
+### Pilares da V18
+
+- **Bolsa de Intenção B2B** — Marketplace privado de sinais de intenção vendidos a Fundos de M&A, Bancos e VCs como instrumentos de dados
+- **Sovereign Credit Score™** — API de scoring preditivo de crédito para PMEs, licenciada a Fintechs e Bancos (modelo SaaS B2B2B)
+- **M&A Target Engine** — Algoritmo de detecção de empresas em pré-momentum de crescimento ou vulnerabilidade estratégica, 6–18 meses de antecedência
+- **Institutional Data Room** — Interface institucional com autenticação dois factores, SLA 99.99%, relatórios auditados e contratos de NDA automatizados
+- **Oráculo API v3** — Endpoint unificado de inteligência preditiva: `POST /v3/oracle/signal` → retorna scoring + contexto + janela temporal de acção
+
+### Dependências Críticas (devem estar prontas antes da V18)
+- [ ] V17: Vanguard Pixel instalado em 10 000+ sites (massa crítica de dados)
+- [ ] V17: Pipeline de anonimização e certificação de dados conforme RGPD/LGPD
+- [ ] V17: Infra de dados com latência < 200ms (BigQuery ou Supabase Analytics)
+- [ ] Certificação legal de comercialização de dados agregados (parecer jurídico)
+- [ ] Partnership com pelo menos 1 banco comercial piloto (PoC fechada antes de build)
+
+### Modelo de Receita Projectado
+| Canal | Modelo | ARR Estimado |
+|---|---|---|
+| Fundos M&A | Subscription €5 000/mês + success fee 0.1% deal | €600K+ |
+| Bancos Comerciais | Licença API €50K/ano por banco | €500K+ |
+| VCs B2B | Dashboard €2 000/mês por fundo | €240K+ |
+| Score™ Metered | €0.50/consulta institucional | Variável |
+
+**Target V18:** €1.5M ARR institucional no primeiro ano de operação.
 
 ---
 

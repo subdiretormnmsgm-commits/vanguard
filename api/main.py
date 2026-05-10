@@ -383,6 +383,22 @@ try:
 except ImportError as e:
     log.warning(f'predictive.py não encontrado: {e}')
 
+# V16 — Badge SVG Edge
+try:
+    from badge import router as badge_router
+    app.include_router(badge_router)
+    log.info('Badge SVG Edge router registado (/api/badge/).')
+except ImportError as e:
+    log.warning(f'badge.py não encontrado: {e}')
+
+# V16 — Stripe Connect & Open Data Exchange
+try:
+    from stripe_connect import router as stripe_connect_router
+    app.include_router(stripe_connect_router)
+    log.info('Stripe Connect router registado (/api/v1/stripe/).')
+except ImportError as e:
+    log.warning(f'stripe_connect.py não encontrado: {e}')
+
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
 
