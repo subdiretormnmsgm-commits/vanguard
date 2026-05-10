@@ -80,6 +80,39 @@ A **Versão Oráculo** é a singularidade do ecossistema Vanguard — a transiç
 
 ---
 
+## 🏹 V17 — 5 IDEIAS DISRUPTIVAS (do Sócio-Arquitecto Claude · V16)
+
+- [ ] **IDEIA 1 — Sovereign Pixel** — motor de intenção comportamental edge (COLD/WARM/HOT/FIRE em < 500ms)
+  - `pixel.js` 3KB instalado nos sites dos clientes finais via script tag
+  - Cloudflare Worker classifica intenção → Supabase UNLOGGED (schema V16 pronto)
+  - 50 agências × 200 clientes = 10.000 sites → 10M sessões/mês → maior base de intenção B2B do Brasil
+
+- [ ] **IDEIA 2 — Hermes Autonomous** — loop fechado sem intervenção humana
+  - Pixel FIRE → Haiku gera msg com comportamento em tempo real → WhatsApp envia → `agent_jobs` qualifica
+  - Custo: R$ 0,04/lead (Haiku) vs R$ 150+ SDR humano · taxa de resposta esperada: +45%
+  - Usar Supabase Realtime (já V15) como trigger do loop
+
+- [ ] **IDEIA 3 — Vanguard Exchange** — mercado de leads FIRE com bid automático
+  - Tenant sem capacidade coloca lead em leilão → outros tenants especializados fazem bid
+  - Vanguard retém 20% do bid · stack: Supabase Realtime + `leads_arbitrage` + push WhatsApp
+  - Primeiro mercado secundário de leads com intenção verificada e score certificado do Brasil
+
+- [ ] **IDEIA 4 — Neural Audit Trail** — relatório de 12 páginas que vende sozinho
+  - Puppeteer screenshots + Claude Opus (análise competitiva vs 3 concorrentes do nicho)
+  - Projeção de receita perdida por gargalo: "Este site perde R$ 18.000/mês sem CTA acima do fold"
+  - Versão resumida grátis (lead magnet) · versão completa: R$ 50 auditoria unitária
+
+- [ ] **IDEIA 5 — Sovereign Playbook** — plano de acção 90 dias que é lock-in disfarçado de consultoria
+  - Cada tarefa do Playbook está ancorada a um módulo Vanguard: cliente não segue o plano sem usar a plataforma
+  - Gerado automaticamente pós-scan: Claude Haiku + jsPDF Cyber-Premium (já V12)
+  - **Plano de implementação imediato (antes da V17):**
+    - Semanas 1-2: 10 diagnósticos grátis em Saúde/Advocacia/Tech → Playbook via WhatsApp
+    - Semanas 3-6: converter 5 clientes pagantes R$ 270/mês → R$ 1.350 MRR
+    - Semanas 7-12: onboarding 2 agências parceiras (V13 Partnership API) → 25 tenants · R$ 6.750 MRR
+    - Meta LTV/CAC: > 64× (R$ 270/mês × 12 / R$ 50 CAC)
+
+---
+
 ## 🔴 CRÍTICO (V14 — Próximas Operações)
 
 - [ ] **Trojan Outbound Engine** — Envio de vídeo/GIF do HUD personalizado via WhatsApp
