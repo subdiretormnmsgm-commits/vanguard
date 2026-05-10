@@ -1,6 +1,6 @@
 # VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
-> **Versão actual:** V12 — Sovereign Ignition Cockpit  
+> **Versão actual:** V13 — Global Domination & Viral Traction  
 > **Última actualização:** 2026-05-10  
 > **Fonte de verdade:** Scan profundo V1–V9 (código + schema + memórias)
 
@@ -801,6 +801,72 @@ Gerado por `AuditorIA.auditar(nome, nicho, html, score)`:
 
 ### Changelog V12 (Sovereign Ignition Cockpit)
 - **Regras adicionadas:** Instant Reality Scanner (6 dimensões, score 0-10, 3 gargalos), Protocolo de Parceiros Fundadores (50/50 share), Protocolo de Selos Pioneiros (#001–#050), Closer Machine Hermes V1 (chat + PDF proposal), Authority Share Card (png social), Living HUD Design System (Ghost Holographics + Bento Grid)
+
+---
+
+---
+
+## §18 — Protocolo de Expansão e Viralidade (V13)
+
+### 18.1 Marketing de Diagnóstico — Regra Zero-Friction
+- O **Instant Reality Scanner** na Home é a porta de entrada obrigatória para qualquer novo visitante. Não existe formulário de e-mail antes do scan — apenas WhatsApp **após** o valor ser entregue.
+- Sequência canónica: `URL no scanner → 3.9s Ghost Loader → Score + 3 Gargalos → Hermes abre automaticamente → WhatsApp`.
+- **Proibido:** pedir e-mail, nome ou qualquer dado pessoal antes de o visitante ver o seu score. O valor vem primeiro, os dados depois.
+- A taxa de abandono máxima aceitável no scanner é **10%** — acima disso, o fluxo deve ser revisto.
+
+### 18.2 Cláusula de Meta-dados Setoriais (Censo Digital)
+- A Vanguard detém o direito irrevogável de **agregar anonimamente** os dados de todos os scans para produzir o Censo Digital Vanguard™.
+- Os dados agregados contêm exclusivamente: nicho, score médio, gargalo mais frequente, data do scan (sem identificadores de utilizador ou empresa).
+- O Censo é **público** e serve como motor de viralidade orgânica — "o sector da advocacia tem score médio 3.2/10" é notícia que se espalha.
+- Nenhum dado pessoal (nome, domínio, contacto) é incluído no Censo. Conformidade RGPD/LGPD garantida.
+
+### 18.3 Cláusula de Aprendizado Colectivo Anónimo (Rede Hermes)
+- O que o Hermes aprende num nicho (taxa de resposta por mensagem, objecções frequentes, melhores CTAs) beneficia **toda a rede Vanguard**, não apenas o tenant que gerou os dados.
+- O aprendizado é **anónimo e agregado** — a variante A/B que converte melhor no sector de Saúde passa a ser a variante padrão para todos os tenants do mesmo sector.
+- Mecanismo técnico: `hermes_variants.taxa_resposta` é actualizado globalmente por nicho (não por tenant) quando um threshold de 50 respostas é atingido.
+- Esta regra é a fonte de **vantagem competitiva cumulativa** da Vanguard — quanto mais tenants, mais inteligente fica o Hermes para todos.
+
+### 18.4 Viral Badge Upgrade — Regras do Selo Embeddable
+- O **Selo de Maturidade™** é o principal mecanismo de distribuição orgânica da Vanguard.
+- Qualquer empresa auditada pode receber o badge HTML e embeder no seu site. O badge linka para `/preview/?d=dominio`.
+- Ao clicar num badge num site externo, o visitante é levado ao HUD Preview personalizado com o score da empresa anfitriã.
+- **Viral loop:** o preview termina sempre com CTA "Analise o seu site gratuitamente" → novo scan → novo lead.
+- Regras técnicas do badge:
+  - Score ≥ 7.0 → badge desbloqueado gratuitamente após scan
+  - Score < 7.0 → badge desbloqueado após activação de plano (pressão natural de compra)
+  - O link do badge **nunca expira** — o preview é gerado client-side, sem servidor
+
+### 18.5 Partnership API — Splits e SLA
+Parceiros que integram a Intelligence API da Vanguard nos seus produtos:
+
+| Plano | Preço | Scans/mês | Branding | Revenue Share |
+|-------|-------|-----------|----------|---------------|
+| Free | €0 | 10/dia | Vanguard | — |
+| Agency (€49/mês) | €49 | 500 | Vanguard nos PDFs | — |
+| White-Label (€149/mês) | €149 | 2000 | Logo próprio | 20% de leads convertidos |
+
+- **Revenue share White-Label:** 20% do valor do primeiro mês de contrato de cada cliente trazido pelo parceiro
+- A agência pode cobrar o preço que quiser — a Vanguard não interfere na margem do parceiro
+- Cada agência recebe uma API Key no formato `vg-api-{8chars}` com rastreio de uso
+
+### 18.6 SLA de Autocura — Protocolo de Resposta a Incidentes
+Formaliza as garantias do sistema Fortress (V10) como compromisso de negócio:
+
+| Nível | Condição | Acção | Tempo máximo |
+|-------|----------|-------|--------------|
+| **CRITICAL** | Qualquer serviço DOWN | Webhook Director notificado automaticamente | **< 60 segundos** |
+| **HIGH** | `overall_status = degraded` | IA Firefighter analisa logs + gera diagnóstico | **< 5 minutos** |
+| **MEDIUM** | Stress test falha (taxa_sucesso < 99%) | Alerta no dashboard + sugestão de optimização | **< 15 minutos** |
+| **LOW** | Health check intermitente (flap) | Log em `health_checks_log` + análise no próximo ciclo | **< 1 hora** |
+
+- O Director Webhook recebe JSON estruturado: `{serviço, severidade, diagnóstico_ia, acção_sugerida}`
+- A Vanguard compromete-se a **notificar o Director em < 60 segundos** após qualquer queda crítica
+- Resoluções automáticas (IA Firefighter) não substituem a intervenção humana — apenas informam e sugerem
+
+---
+
+### Changelog V13 (Global Domination & Viral Traction)
+- **Regras adicionadas:** §18 completo — Marketing de Diagnóstico Zero-Friction, Cláusula de Meta-dados Setoriais, Aprendizado Colectivo Anónimo, Viral Badge Upgrade, Partnership API splits, SLA de Autocura < 60s
 
 ---
 

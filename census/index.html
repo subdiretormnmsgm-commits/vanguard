@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanguard Census Engine™ — Censo Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #080C14;
+      --cyan: #00F0FF;
+      --purple: #7B2FBE;
+      --amber: #FFB800;
+      --green: #00FF88;
+      --red: #FF4444;
+      --text: #E8EAF0;
+      --muted: rgba(232,234,240,0.45);
+      --border: rgba(0,240,255,0.12);
+      --glass: rgba(255,255,255,0.03);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,240,255,0.05) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 85% 100%, rgba(123,47,190,0.05) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(8,12,20,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+    .logo-hex { font-size: 1.1rem; }
+    .header-right { display: flex; gap: 1rem; align-items: center; }
+    .pill {
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .pill--live { background: rgba(0,255,136,0.1); color: var(--green); border: 1px solid rgba(0,255,136,0.2); }
+    .pill--anon { background: rgba(0,240,255,0.08); color: var(--cyan); border: 1px solid var(--border); }
+
+    /* MAIN */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* HERO */
+    .hero { margin-bottom: 2.5rem; }
+    .hero__eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 0.5rem;
+    }
+    .hero__title {
+      font-size: clamp(1.6rem, 4vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.625rem;
+    }
+    .hero__sub { font-size: 0.9rem; color: var(--muted); max-width: 620px; line-height: 1.6; }
+
+    /* STATS GRID */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 768px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr; } }
+    .stat-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    .stat-card__val {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--cyan);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-card__lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* TWO-COL */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* HUD CARD */
+    .hud-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hud-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan) 50%, transparent);
+      animation: shimmer 3.5s ease-in-out infinite;
+    }
+    .hud-card--full { margin-bottom: 1.5rem; }
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 1.25rem;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .dot--amber { background: var(--amber); }
+    .dot--purple { background: var(--purple); }
+    .dot--green { background: var(--green); }
+
+    /* CHART */
+    .chart-wrap { position: relative; height: 260px; }
+
+    /* GARGALOS LIST */
+    .gargalo-item {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0,240,255,0.05);
+    }
+    .gargalo-item:last-child { border-bottom: none; }
+    .gargalo-rank {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--cyan);
+      opacity: 0.4;
+      width: 1.25rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .gargalo-body { flex: 1; min-width: 0; }
+    .gargalo-name {
+      font-size: 0.78rem;
+      margin-bottom: 0.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .gargalo-bar-bg {
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .gargalo-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      border-radius: 2px;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gargalo-count {
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* RANKING TABLE */
+    .rank-table { width: 100%; border-collapse: collapse; }
+    .rank-table th {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 0 0 0.75rem;
+      border-bottom: 1px solid rgba(0,240,255,0.08);
+    }
+    .rank-table td {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0,240,255,0.04);
+      font-size: 0.85rem;
+    }
+    .rank-table tr:last-child td { border-bottom: none; }
+    .score-val {
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .mat-badge {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .mat-badge--critico { background: rgba(255,68,68,0.12); color: #FF8080; }
+    .mat-badge--baixo   { background: rgba(255,184,0,0.12); color: var(--amber); }
+    .mat-badge--medio   { background: rgba(0,240,255,0.1);  color: #88CCF0; }
+    .mat-badge--alto    { background: rgba(0,255,136,0.1);  color: var(--green); }
+
+    /* BADGE GENERATOR */
+    .badge-gen {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .badge-gen::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green) 50%, transparent);
+      animation: shimmer 4s ease-in-out infinite;
+    }
+    .badge-gen__desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+    .badge-gen__form {
+      display: grid;
+      grid-template-columns: 1fr 120px auto;
+      gap: 0.75rem;
+      align-items: end;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .badge-gen__form { grid-template-columns: 1fr; }
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+    .form-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-input {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      padding: 0.6rem 0.875rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-input:focus { border-color: var(--cyan); }
+    .btn-gen {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      border: none;
+      border-radius: 8px;
+      color: #080C14;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.6rem 1.25rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn-gen:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* BADGE PREVIEW */
+    .badge-output {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media (max-width: 600px) { .badge-output { grid-template-columns: 1fr; } }
+    .badge-code-block {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(0,240,255,0.08);
+      border-radius: 8px;
+      color: rgba(0,240,255,0.65);
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      line-height: 1.65;
+      padding: 0.875rem;
+      white-space: pre;
+      overflow-x: auto;
+      max-height: 130px;
+      overflow-y: auto;
+      margin-bottom: 0.625rem;
+    }
+    .btn-copy {
+      background: rgba(0,240,255,0.07);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--cyan);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 0.45rem 0.875rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .btn-copy:hover { background: rgba(0,240,255,0.14); }
+
+    /* INLINE BADGE COMPONENT */
+    .vg-badge-preview {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0A0A14;
+      border: 1px solid rgba(0,240,255,0.28);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(0,240,255,0.08);
+      cursor: pointer;
+    }
+    .vg-badge-score {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .vg-badge-info { display: flex; flex-direction: column; }
+    .vg-badge-lbl {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(0,240,255,0.45);
+    }
+    .vg-badge-brand { font-size: 11px; font-weight: 600; color: #E8EAF0; margin-top: 1px; }
+
+    /* LOADING */
+    .loading {
+      text-align: center;
+      padding: 2.5rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .spin {
+      width: 28px; height: 28px;
+      border: 2px solid rgba(0,240,255,0.1);
+      border-top-color: var(--cyan);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+      margin: 0 auto 0.75rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: rgba(232,234,240,0.18);
+    }
+    footer a { color: var(--cyan); text-decoration: none; opacity: 0.5; }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.75); opacity: 0.4; }
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.45s ease forwards; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-hex">⬡</span>
+    Vanguard Census Engine™
+  </div>
+  <div class="header-right">
+    <span class="pill pill--anon">Dados Anónimos</span>
+    <span class="pill pill--live">● Tempo Real</span>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="hero__eyebrow">Inteligência de Mercado · Portugal & Brasil</p>
+    <h1 class="hero__title">Censo Digital Vanguard™</h1>
+    <p class="hero__sub">
+      Agregação anónima de dados de maturidade digital por sector. Cada scan alimenta este censo —
+      nenhum dado pessoal é armazenado. A inteligência colectiva do mercado, em tempo real.
+    </p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid" id="stats-grid">
+    <div class="stat-card">
+      <div class="stat-card__val" id="stat-total"><span class="spin" style="width:22px;height:22px;margin:0;"></span></div>
+      <div class="stat-card__lbl">Total de Scans</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__val" id="stat-nichos">—</div>
+      <div class="stat-card__lbl">Sectores Monitorizados</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__val" id="stat-avg" style="color:var(--amber);">—</div>
+      <div class="stat-card__lbl">Score Médio Global</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__val" id="stat-critical" style="color:#FF8080;">—</div>
+      <div class="stat-card__lbl">Sectores Críticos</div>
+    </div>
+  </div>
+
+  <!-- CHART + GARGALOS -->
+  <div class="two-col">
+    <div class="hud-card">
+      <p class="card-title"><span class="dot"></span>Maturidade Média por Sector</p>
+      <div class="chart-wrap"><canvas id="chart-nicho"></canvas></div>
+    </div>
+    <div class="hud-card">
+      <p class="card-title"><span class="dot dot--amber"></span>Top Gargalos Críticos do Mercado</p>
+      <div id="gargalos-list"><div class="loading"><div class="spin"></div>A agregar...</div></div>
+    </div>
+  </div>
+
+  <!-- RANKING TABLE -->
+  <div class="hud-card hud-card--full">
+    <p class="card-title"><span class="dot dot--purple"></span>Ranking de Maturidade Digital por Sector</p>
+    <div id="ranking-wrap"><div class="loading"><div class="spin"></div>A carregar ranking...</div></div>
+  </div>
+
+  <!-- VIRAL BADGE GENERATOR -->
+  <div class="badge-gen">
+    <p class="card-title" style="margin-bottom:0.75rem;"><span class="dot dot--green"></span>Gerador de Selo de Maturidade™</p>
+    <p class="badge-gen__desc">
+      Gere o badge HTML para os seus clientes colocarem no site deles.
+      Cada clique num badge externo traz um novo visitante ao scanner da Vanguard —
+      o loop de aquisição 100% orgânico e autónomo.
+    </p>
+    <div class="badge-gen__form">
+      <div class="form-group">
+        <label class="form-label">Domínio do Cliente</label>
+        <input class="form-input" type="text" id="badge-domain" placeholder="clinicaexemplo.pt" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Score (0–10)</label>
+        <input class="form-input" type="number" id="badge-score" min="0" max="10" step="0.1" value="7.4" />
+      </div>
+      <button class="btn-gen" id="btn-gen">Gerar Selo →</button>
+    </div>
+    <div id="badge-output" style="display:none;">
+      <div class="badge-output">
+        <div id="badge-preview"></div>
+        <div>
+          <div class="badge-code-block" id="badge-code"></div>
+          <button class="btn-copy" id="btn-copy">⎘ Copiar HTML</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  VANGUARD CENSUS ENGINE™ · Dados Anónimos · Actualizados em Tempo Real ·
+  <a href="/">vanguard.tech</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+'use strict';
+
+const SB_URL  = 'https://ehyaecxqijgyuuiorzcj.supabase.co';
+const SB_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoeWFlY3hxaWpneXV1aW9yemNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyODMzNTAsImV4cCI6MjA5Mzg1OTM1MH0.xZfcEe2Av5Fn9BKEkNRIi5CQkPD6C6ADSNzMfh3DGPo';
+const db      = supabase.createClient(SB_URL, SB_KEY);
+
+// Mirrors dashboard.js scoring
+const GARGALO_SCORES = {
+  'Dificuldade em escalar a equipa':                  100,
+  'Falta de visibilidade sobre métricas do negócio':   85,
+  'Captação e retenção de clientes':                   80,
+  'Processos manuais que consomem tempo':              70,
+  'Dependência de ferramentas de terceiros':            65,
+};
+const NICHO_MULT = {
+  'Finanças': 1.00, 'Consultoria': 0.95, 'Tecnologia': 0.90,
+  'Saúde': 0.85, 'Imobiliário': 0.80, 'E-commerce': 0.75,
+  'Educação': 0.70, 'Outro': 0.65,
+};
+
+function calcScore(nicho, gargalo) {
+  const base = GARGALO_SCORES[gargalo] ?? 50;
+  const mult = NICHO_MULT[nicho]  ?? 0.65;
+  return +(Math.min(10, (base * mult) / 10)).toFixed(1);
+}
+
+function scoreColor(s) {
+  if (s <= 3) return '#FF4444';
+  if (s <= 5) return '#FFB800';
+  if (s <= 7) return '#88CCF0';
+  return '#00FF88';
+}
+
+function matLabel(s) {
+  if (s <= 3) return ['CRÍTICO',  'critico'];
+  if (s <= 5) return ['BAIXO',    'baixo'];
+  if (s <= 7) return ['MÉDIO',    'medio'];
+  return             ['ALTO',     'alto'];
+}
+
+// ── Demo data when DB is empty ──────────────────────────────────────────────
+function demoData() {
+  const rows = [
+    ...Array(14).fill({nicho:'Saúde',         gargalo:'Captação e retenção de clientes'}),
+    ...Array(12).fill({nicho:'Advocacia',      gargalo:'Captação e retenção de clientes'}),
+    ...Array(10).fill({nicho:'Consultoria',    gargalo:'Falta de visibilidade sobre métricas do negócio'}),
+    ...Array(9 ).fill({nicho:'Imobiliário',    gargalo:'Processos manuais que consomem tempo'}),
+    ...Array(8 ).fill({nicho:'Restauração',    gargalo:'Captação e retenção de clientes'}),
+    ...Array(7 ).fill({nicho:'E-commerce',     gargalo:'Dificuldade em escalar a equipa'}),
+    ...Array(6 ).fill({nicho:'Tecnologia',     gargalo:'Dificuldade em escalar a equipa'}),
+    ...Array(5 ).fill({nicho:'Educação',       gargalo:'Dependência de ferramentas de terceiros'}),
+  ];
+  return rows;
+}
+
+// ── Main render ─────────────────────────────────────────────────────────────
+function render(rows) {
+  const byNicho  = {};
+  const gargalos = {};
+
+  rows.forEach(r => {
+    const n = r.nicho   || 'Outro';
+    const g = r.gargalo || 'Outro';
+    if (!byNicho[n]) byNicho[n] = { total: 0, scoreSum: 0 };
+    byNicho[n].total++;
+    byNicho[n].scoreSum += calcScore(n, g);
+    gargalos[g] = (gargalos[g] || 0) + 1;
+  });
+
+  const nichos  = Object.keys(byNicho).sort((a,b) => byNicho[b].total - byNicho[a].total);
+  const avgs    = nichos.map(n => +(byNicho[n].scoreSum / byNicho[n].total).toFixed(1));
+  const globalAvg  = +(avgs.reduce((s,v) => s + v, 0) / avgs.length).toFixed(1);
+  const critCount  = avgs.filter(v => v <= 3).length;
+
+  // Stats
+  document.getElementById('stat-total').textContent    = rows.length;
+  document.getElementById('stat-nichos').textContent   = nichos.length;
+  document.getElementById('stat-avg').textContent      = globalAvg;
+  document.getElementById('stat-critical').textContent = critCount;
+
+  // Bar chart
+  const ctx = document.getElementById('chart-nicho').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: nichos,
+      datasets: [{
+        label: 'Score Médio',
+        data:  avgs,
+        backgroundColor: avgs.map(s => s <= 3 ? 'rgba(255,68,68,0.35)'
+                                      : s <= 5 ? 'rgba(255,184,0,0.35)'
+                                      : 'rgba(0,240,255,0.3)'),
+        borderColor: avgs.map(scoreColor),
+        borderWidth: 1,
+        borderRadius: 5,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: {
+          grid: { color: 'rgba(0,240,255,0.04)' },
+          ticks: { color: 'rgba(232,234,240,0.45)', font: { size: 10 } },
+        },
+        y: {
+          min: 0, max: 10,
+          grid: { color: 'rgba(0,240,255,0.04)' },
+          ticks: { color: 'rgba(232,234,240,0.45)', font: { size: 10 } },
+        },
+      },
+    },
+  });
+
+  // Gargalos
+  const sorted = Object.entries(gargalos).sort((a,b) => b[1] - a[1]).slice(0, 6);
+  const maxG   = sorted[0]?.[1] || 1;
+  document.getElementById('gargalos-list').innerHTML = sorted.map(([g, c], i) => `
+    <div class="gargalo-item fade-up" style="animation-delay:${i * 0.07}s">
+      <span class="gargalo-rank">#${i+1}</span>
+      <div class="gargalo-body">
+        <div class="gargalo-name">${g}</div>
+        <div class="gargalo-bar-bg">
+          <div class="gargalo-bar-fill" style="width:${Math.round(c / maxG * 100)}%"></div>
+        </div>
+      </div>
+      <span class="gargalo-count">${c}</span>
+    </div>
+  `).join('');
+
+  // Ranking table
+  const tableRows = nichos.map((n, i) => {
+    const avg  = avgs[i];
+    const [lbl, cls] = matLabel(avg);
+    const col  = scoreColor(avg);
+    return `<tr class="fade-up" style="animation-delay:${i * 0.05}s">
+      <td style="color:var(--muted);font-size:0.72rem;">${i+1}</td>
+      <td style="font-weight:600;">${n}</td>
+      <td><span class="score-val" style="color:${col};">${avg}</span><span style="color:var(--muted);font-size:0.72rem;">/10</span></td>
+      <td><span class="mat-badge mat-badge--${cls}">${lbl}</span></td>
+      <td style="color:var(--muted);font-size:0.72rem;">${byNicho[n].total} registos</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('ranking-wrap').innerHTML = `
+    <table class="rank-table">
+      <thead><tr>
+        <th>#</th><th>Sector</th><th>Score Médio</th><th>Maturidade</th><th>Registos</th>
+      </tr></thead>
+      <tbody>${tableRows}</tbody>
+    </table>
+  `;
+}
+
+// ── Load data ────────────────────────────────────────────────────────────────
+async function load() {
+  const { data, error } = await db
+    .from('leads_diagnostico')
+    .select('nicho, gargalo');
+
+  render((error || !data?.length) ? demoData() : data);
+}
+
+// ── Badge generator ──────────────────────────────────────────────────────────
+function buildBadgeHTML(domain, score) {
+  const color     = scoreColor(score);
+  const scanUrl   = `https://vanguardtech.io/preview/?d=${encodeURIComponent(domain)}`;
+  return `<!-- Selo Vanguard Tech™ -->
+<a href="${scanUrl}" target="_blank" rel="noopener"
+   style="display:inline-flex;align-items:center;gap:10px;
+          background:#0A0A14;border:1px solid rgba(0,240,255,.28);
+          border-radius:10px;padding:10px 16px;
+          font-family:Inter,-apple-system,sans-serif;
+          text-decoration:none;
+          box-shadow:0 0 20px rgba(0,240,255,.08);">
+  <span style="font-size:22px;font-weight:700;color:${color};line-height:1;">${score}</span>
+  <span style="display:flex;flex-direction:column;">
+    <span style="font-size:9px;color:rgba(0,240,255,.45);
+                 letter-spacing:.15em;text-transform:uppercase;">Maturidade Digital</span>
+    <span style="font-size:11px;font-weight:600;color:#E8EAF0;margin-top:2px;">
+      Auditado · Vanguard Tech™</span>
+  </span>
+</a>`;
+}
+
+document.getElementById('btn-gen').addEventListener('click', () => {
+  const domain = (document.getElementById('badge-domain').value.trim() || 'meusite.pt');
+  const score  = Math.max(0, Math.min(10,
+    parseFloat(document.getElementById('badge-score').value) || 7.4
+  ));
+  const html   = buildBadgeHTML(domain, score);
+  const color  = scoreColor(score);
+  const previewUrl = `/preview/?d=${encodeURIComponent(domain)}`;
+
+  document.getElementById('badge-preview').innerHTML = `
+    <a class="vg-badge-preview" href="${previewUrl}" target="_blank">
+      <span class="vg-badge-score" style="color:${color};">${score}</span>
+      <span class="vg-badge-info">
+        <span class="vg-badge-lbl">Maturidade Digital</span>
+        <span class="vg-badge-brand">Auditado · Vanguard Tech™</span>
+      </span>
+    </a>
+  `;
+  document.getElementById('badge-code').textContent = html;
+  document.getElementById('badge-output').style.display = 'block';
+});
+
+document.getElementById('btn-copy').addEventListener('click', async () => {
+  const code = document.getElementById('badge-code').textContent;
+  try {
+    await navigator.clipboard.writeText(code);
+    const btn = document.getElementById('btn-copy');
+    btn.textContent = '✓ Copiado!';
+    setTimeout(() => { btn.textContent = '⎘ Copiar HTML'; }, 2200);
+  } catch { /* clipboard blocked */ }
+});
+
+load();
+</script>
+</body>
+</html>

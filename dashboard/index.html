@@ -121,9 +121,61 @@
       </div>
     </section>
 
+    <!-- ═══ HERMES OUTBOUND — FILA DE PROSPECÇÃO V13 ═══ -->
+    <section class="cockpit__section" id="cockpit-outbound">
+      <div class="cockpit-hud-frame" data-label="OUTBOUND" style="margin-bottom:var(--sp-3);">
+        <h2 class="cockpit__section-title hud-label" style="margin-bottom:0;">
+          <span class="hud-status-dot" aria-hidden="true"></span>
+          Hermes Outbound · Prospecção Autónoma
+        </h2>
+      </div>
+      <div id="section-outbound" class="hud-card"></div>
+    </section>
+
+    <!-- ═══ CENSO GLOBAL V13 ═══ -->
+    <section class="cockpit__section" id="cockpit-censo">
+      <div class="cockpit-hud-frame" data-label="CENSO" style="margin-bottom:var(--sp-3);">
+        <h2 class="cockpit__section-title hud-label" style="margin-bottom:0;">
+          <span class="hud-status-dot hud-status-dot--amber" aria-hidden="true"></span>
+          Censo Digital Global
+        </h2>
+      </div>
+      <div class="hud-card" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.5rem;">
+        <div>
+          <p style="font-size:.82rem;color:rgba(232,234,240,.6);line-height:1.55;max-width:520px;">
+            O Censo Digital agrega os dados anónimos de todos os scans para produzir inteligência sectorial.
+            Consulte o ranking de maturidade por nicho, os gargalos mais críticos do mercado e gere selos embeddable para os seus clientes.
+          </p>
+        </div>
+        <a href="/census/" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:.5rem;
+                  background:linear-gradient(135deg,#00F0FF,#7B2FBE);
+                  border:none;border-radius:8px;color:#080C14;
+                  font-family:'Inter',sans-serif;font-size:.78rem;
+                  font-weight:700;letter-spacing:.1em;
+                  padding:.6rem 1.25rem;text-decoration:none;
+                  text-transform:uppercase;white-space:nowrap;">
+          📊 Abrir Censo Engine →
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ PARCERIAS — PARTNERSHIP API V13 ═══ -->
+    <section class="cockpit__section" id="cockpit-parcerias">
+      <div class="cockpit-hud-frame" data-label="PARCEIROS" style="margin-bottom:var(--sp-3);">
+        <h2 class="cockpit__section-title hud-label" style="margin-bottom:0;">
+          <span class="hud-status-dot hud-status-dot--green" aria-hidden="true"></span>
+          Partnership API · Agências
+        </h2>
+      </div>
+      <div id="section-partnerships" class="hud-card"></div>
+    </section>
+
   </div><!-- /.cockpit -->
 
   <script src="/js/supabase-lib.js"></script>
+  <script src="/js/outbound-engine.js"></script>
+  <script src="/js/partnerships.js"></script>
   <script src="/dashboard/dashboard.js"></script>
 </body>
 </html>
