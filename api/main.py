@@ -259,7 +259,7 @@ async def executar_scraper_bg(
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    log.info('Vanguard API Bridge V6 iniciada.')
+    log.info('Vanguard API Bridge V7 iniciada — Marketplace activo.')
     if not SUPABASE_URL:       log.warning('SUPABASE_URL não configurada!')
     if not STRIPE_SECRET_KEY:  log.warning('STRIPE_SECRET_KEY não configurada!')
     if not SUPABASE_JWT_SECRET:log.warning('SUPABASE_JWT_SECRET não configurada!')
@@ -268,8 +268,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title='Vanguard SaaS API Bridge V6',
-    version='6.0.0',
+    title='Vanguard SaaS API Bridge V7',
+    version='7.0.0',
     docs_url='/api/docs',
     redoc_url=None,
     lifespan=lifespan,
@@ -282,6 +282,14 @@ app.add_middleware(
     allow_methods=['*'],
     allow_headers=['*'],
 )
+
+# ─── V7: Marketplace router ───────────────────────────────────────────────────
+try:
+    from marketplace import router as marketplace_router
+    app.include_router(marketplace_router, prefix='/api')
+    log.info('Marketplace router registado.')
+except ImportError as e:
+    log.warning(f'marketplace.py não encontrado — endpoints /api/marketplace indisponíveis: {e}')
 
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
@@ -612,7 +620,7 @@ async def health():
     return {
         'status':  'ok',
         'service': 'Vanguard API Bridge V6',
-        'version': '6.0.0',
+        'version': '7.0.0',
         'ts':       datetime.utcnow().isoformat(),
         'stripe':   bool(STRIPE_SECRET_KEY),
         'supabase': bool(SUPABASE_URL),

@@ -64,6 +64,9 @@ services:
       - SAAS_URL=${SAAS_URL:-http://localhost/saas}
       - SCRAPER_IMAGE=vanguard-scraper:v5
       - DOCKER_NETWORK=vanguard_soberano_v5
+      # V7: Marketplace Stripe Connect
+      - STRIPE_CONNECT_WEBHOOK_SECRET=${STRIPE_CONNECT_WEBHOOK_SECRET}
+      - MARKETPLACE_URL=${MARKETPLACE_URL:-http://localhost/marketplace}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
