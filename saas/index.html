@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanguard SaaS — Acesso</title>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#080810" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/saas.css" />
+  <style>
+    /* ── Login-page only ─────────────────────────────────────────────── */
+    .auth-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .auth-wrap::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 40%, rgba(0,240,255,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(123,47,255,.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Animated grid */
+    .auth-wrap::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,240,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,240,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: gridDrift 20s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes gridDrift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 48px 48px; }
+    }
+
+    .auth-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 400px;
+      padding: 2.5rem;
+      background: rgba(10,10,20,.7);
+      border: 1px solid rgba(0,240,255,.15);
+      border-radius: 1rem;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 0 40px rgba(0,240,255,.05), 0 24px 64px rgba(0,0,0,.5);
+    }
+
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+    .auth-logo__icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      border-radius: .5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .auth-logo__text {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: .05em;
+    }
+    .auth-logo__text span {
+      color: var(--cyan);
+    }
+
+    .auth-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .5rem;
+    }
+    .auth-subtitle {
+      font-size: .875rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .auth-tabs {
+      display: flex;
+      gap: .5rem;
+      margin-bottom: 1.5rem;
+      background: rgba(255,255,255,.04);
+      border-radius: .5rem;
+      padding: .25rem;
+    }
+    .auth-tab {
+      flex: 1;
+      padding: .5rem;
+      text-align: center;
+      font-size: .875rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: .35rem;
+      transition: all .2s;
+      border: none;
+      background: transparent;
+    }
+    .auth-tab.active {
+      background: rgba(0,240,255,.1);
+      color: var(--cyan);
+      border: 1px solid rgba(0,240,255,.2);
+    }
+
+    .auth-form { display: flex; flex-direction: column; gap: 1rem; }
+    .auth-form .field { display: flex; flex-direction: column; gap: .4rem; }
+    .auth-form label { font-size: .8rem; color: var(--text-muted); letter-spacing: .04em; text-transform: uppercase; }
+    .auth-form input {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      color: var(--text);
+      font-size: .95rem;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .auth-form input:focus {
+      border-color: rgba(0,240,255,.4);
+      box-shadow: 0 0 0 3px rgba(0,240,255,.08);
+    }
+    .auth-form input::placeholder { color: var(--text-muted); opacity: .5; }
+
+    .auth-error {
+      display: none;
+      background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.3);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      font-size: .85rem;
+      color: #f87171;
+    }
+    .auth-error.show { display: block; }
+
+    .auth-success {
+      display: none;
+      background: rgba(0,240,255,.08);
+      border: 1px solid rgba(0,240,255,.2);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      font-size: .85rem;
+      color: var(--cyan);
+      text-align: center;
+    }
+    .auth-success.show { display: block; }
+
+    .auth-footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
+    .auth-footer a { color: var(--cyan); text-decoration: none; }
+    .auth-footer a:hover { text-decoration: underline; }
+
+    /* Loading state for button */
+    #btnSubmit:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+    #btnSubmit.loading::after {
+      content: '...';
+      animation: dots 1s steps(3, end) infinite;
+    }
+    @keyframes dots {
+      0%   { content: '.'; }
+      33%  { content: '..'; }
+      66%  { content: '...'; }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <div class="auth-logo__icon">⚡</div>
+        <div class="auth-logo__text">VANGUARD<span>SAAS</span></div>
+      </div>
+
+      <div class="auth-title">Bem-vindo de volta</div>
+      <div class="auth-subtitle">Aceda ao seu painel de geração de leads</div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Entrar</button>
+        <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Criar Conta</button>
+      </div>
+
+      <form class="auth-form" id="authForm" onsubmit="handleSubmit(event)">
+        <div class="field" id="fieldNome" style="display:none">
+          <label>Nome da Agência</label>
+          <input type="text" id="inputNome" placeholder="Ex: Agência Apex" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label>E-mail</label>
+          <input type="email" id="inputEmail" placeholder="seu@email.com" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label>Palavra-passe</label>
+          <input type="password" id="inputPassword" placeholder="••••••••" required autocomplete="current-password" minlength="6" />
+        </div>
+
+        <div class="auth-error" id="authError"></div>
+        <div class="auth-success" id="authSuccess"></div>
+
+        <button type="submit" class="btn-sovereign" id="btnSubmit" style="margin-top:.5rem">
+          <span id="btnLabel">Entrar</span>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Ao criar conta concorda com os <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="assets/js/saas-auth.js"></script>
+</body>
+</html>

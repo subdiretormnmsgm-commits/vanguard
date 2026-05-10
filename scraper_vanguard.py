@@ -47,6 +47,7 @@ SUPABASE_ANON_KEY = os.getenv('SUPABASE_ANON_KEY', '')
 GOOGLE_API_KEY    = os.getenv('GOOGLE_PLACES_API_KEY', '')
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY', '')
 QUIZ_URL          = os.getenv('VANGUARD_QUIZ_URL', 'https://vanguardtech.com/#quiz')
+VANGUARD_TENANT_ID = os.getenv('VANGUARD_TENANT_ID', '')
 
 OUTPUT_DIR = Path('outbound')
 
@@ -240,14 +241,17 @@ class SupabaseWriter:
             return False
 
         endpoint = f'{self.url}/rest/v1/leads_diagnostico'
-        payload  = json.dumps({
-            'nome':     lead['nome'],
-            'whatsapp': lead.get('telefone') or 'N/D',
-            'nicho':    lead['nicho'],
-            'gargalo':  lead['gargalo'],
-            'origem':   'scraper',
-            'ai_hook':  lead.get('ai_hook', ''),
-        }).encode('utf-8')
+        row = {
+            'nome':       lead['nome'],
+            'whatsapp':   lead.get('telefone') or 'N/D',
+            'nicho':      lead['nicho'],
+            'gargalo':    lead['gargalo'],
+            'origem':     'scraper',
+            'ai_hook':    lead.get('ai_hook', ''),
+        }
+        if lead.get('tenant_id'):
+            row['tenant_id'] = lead['tenant_id']
+        payload = json.dumps(row).encode('utf-8')
 
         req = urllib.request.Request(
             endpoint,
@@ -435,6 +439,7 @@ def processar(
     copy_gen:   CopyGenerator,
     writer:     SupabaseWriter,
     auditor_ia: AuditorIA | None = None,
+    tenant_id:  str = '',
 ) -> list[dict]:
     mapa     = NICHO_MAP.get(nicho, {'supabase': 'Consultoria'})
     nicho_sb = mapa['supabase']
@@ -460,6 +465,7 @@ def processar(
             'fonte':         raw.get('fonte', 'manual'),
             'ai_hook':       '',
             'ai_gargalos':   [],
+            'tenant_id':     tenant_id,
         }
 
         # Feature 01: Auditor IA — hook personalizado por Claude Haiku
@@ -474,7 +480,7 @@ def processar(
         # Copy WhatsApp (usa ai_hook se disponível, senão template)
         lead['wa_copy'] = lead['ai_hook'] if lead['ai_hook'] else copy_gen.gerar(lead)
 
-        # Injectar no Supabase
+        # Injectar no Supabase (com tenant_id se disponível)
         ok = writer.inserir_lead(lead)
         lead['supabase_ok'] = ok
         status = '✓ Supabase' if ok else '○ Local'
@@ -574,20 +580,22 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description='Scraper Vanguard V5 — Soberano Digital (Auditor IA + Claude Haiku)'
     )
-    parser.add_argument('--nicho',  default='advocacia', choices=list(NICHO_MAP.keys()))
-    parser.add_argument('--cidade', default='São Paulo')
-    parser.add_argument('--limite', type=int, default=5)
-    parser.add_argument('--modo',   default='demo', choices=['demo', 'osm', 'places'])
-    parser.add_argument('--sem-ia', action='store_true', help='Desactivar Auditor IA (mais rápido)')
+    parser.add_argument('--nicho',     default='advocacia', choices=list(NICHO_MAP.keys()))
+    parser.add_argument('--cidade',    default='São Paulo')
+    parser.add_argument('--limite',    type=int, default=5)
+    parser.add_argument('--modo',      default='demo', choices=['demo', 'osm', 'places'])
+    parser.add_argument('--sem-ia',    action='store_true', help='Desactivar Auditor IA (mais rápido)')
+    parser.add_argument('--tenant-id', default=VANGUARD_TENANT_ID, help='UUID do tenant SaaS (Multi-Tenant V6)')
     args = parser.parse_args()
 
     print('╔══════════════════════════════════════════════════════╗')
     print('║  Scraper Vanguard V5 — Soberano Digital              ║')
     print('╚══════════════════════════════════════════════════════╝')
-    print(f'  Nicho  : {args.nicho}')
-    print(f'  Cidade : {args.cidade}')
-    print(f'  Limite : {args.limite}')
-    print(f'  Modo   : {args.modo}')
+    print(f'  Nicho     : {args.nicho}')
+    print(f'  Cidade    : {args.cidade}')
+    print(f'  Limite    : {args.limite}')
+    print(f'  Modo      : {args.modo}')
+    print(f'  Tenant ID : {args.tenant_id or "(sem tenant — modo standalone)"}')
     print()
 
     fontes    = {'demo': DemoSource, 'osm': OSMSource, 'places': PlacesSource}
@@ -609,7 +617,7 @@ def main() -> None:
     print()
 
     print('3/4 · A auditar presença digital + IA...')
-    leads = processar(leads_raw, args.nicho, auditor, copy_gen, writer, auditor_ia)
+    leads = processar(leads_raw, args.nicho, auditor, copy_gen, writer, auditor_ia, args.tenant_id)
 
     print(f'\n4/4 · A exportar relatório Markdown...')
     ficheiro = exportar(leads, args.nicho, args.cidade)
