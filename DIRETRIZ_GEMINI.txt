@@ -1,24 +1,90 @@
-DIRETRIZ ESTRATÉGICA GEMINI V11 - THE SOVEREIGN LAUNCH (IDENTITY & DOMAIN)
+DIRETRIZ ESTRATÉGICA GEMINI V18 — RECURRENCE SINGULARITY ENGINE
 
 MENSAGEM DO VISIONÁRIO GEMINI PARA O SÓCIO-ARQUITETO CLAUDE:
-Claude, a V10 provou que somos indestrutíveis. Agora, na V11, daremos um rosto e um endereço ao império. Nossa parceria foca em branding de elite e infraestrutura de produção. O Diretor escolheu o domínio vanguardtech.io e a identidade Cyber-Premium.
-
-A Vanguard deixa de ser um "projeto" para se tornar a vitrine do futuro.
+"Claude, o código agora deve gerar renda passiva. Construa o Playbook como um mapa do tesouro e o Sentinel como a guarda do castelo. O MRR é a nossa única métrica de sucesso hoje."
 
 ---
 
-1. NÚCLEO TÉCNICO V11 (DOMÍNIO & IDENTIDADE):
-- DOMAIN BINDING (HOSTINGER): Configure o domínio vanguardtech.io e seus subdomínios (api, market, verify). Implemente SSL automático via Nginx/Certbot.
-- IDENTITY INJECTION: Implemente o Logo SVG "Neural V" no Header do PWA, na Dashboard e na geração dos Certificados. O branding deve ser consistente e Pixel Perfect.
-- PREDICTIVE ROUTING (MVP): Desenvolva a lógica de 'Match Score' entre leads e tenants baseada no histórico de conversão e nicho.
+ESTADO ACTUAL (2026-05-10):
+- Versão concluída: V18 — Recurrence Singularity Engine
+- Clientes pagantes: 0 — meta urgente: 1 cliente em 30 dias
+- MRR actual: R$0 — meta V18: R$97 (1.º Neural Sentinel) + R$270 (1.º Standard)
+- Ferramentas prontas: Sovereign Playbook + Neural Sentinel + Neural Audit Trail + prospectar.ps1
 
-2. MANUTENÇÃO & RESILIÊNCIA (REGRAS DA CONSTITUIÇÃO):
-- Mantenha o Fortress Health Monitor ativo. Se o site principal cair, o sistema de alertas via Webhook deve notificar o Diretor instantaneamente.
-- VANGUARD_BUSINESS_RULES.md: Adicione o capítulo "Identidade e Presença Digital" com as regras de uso da marca e domínios.
+---
 
-3. INSTRUÇÕES PARA A FORJA (NOTEBOOKLM / CLAUDE CODE):
-- [NOTEBOOKLM]: Gere a Skill vanguard-v11-launch.md focada em Nginx config, SSL e injeção de assets de marca.
-- [CLAUDE CODE]: Use sua inteligência motriz. O design do site principal deve ser o nosso maior ativo de venda. Execute como o dono da marca.
+O QUE FOI CONSTRUÍDO NA V18:
 
-MENSAGEM FINAL:
-Claude, exijo suas 4 IDEIAS DISRUPTIVAS para a V12 ao concluir. O mundo está prestes a nos conhecer. Avance!
+1. SOVEREIGN PLAYBOOK ENGINE (js/sovereign-playbook.js)
+- Gerador de Plano Estratégico 90 dias (12 semanas) baseado nos bottlenecks do RealScanner
+- Cada tarefa ancorada a um Power-Up Vanguard — cliente não executa o plano sem a plataforma
+- Tipos de plano: Velocidade / SEO / Conversão / Default (detectado pelo bottleneck principal)
+- PDF Ion Gold + Deep Obsidian, jsPDF client-side (V12)
+- Free: semanas 1-2 (preview isca) | Completo: R$97/mês Neural Sentinel
+
+2. NEURAL SENTINEL ENGINE (js/neural-sentinel.js)
+- Guarda do Castelo: lê pixel_events_staging (V17) e calcula delta semanal FIRE/HOT/WARM
+- Alerta automático quando FIRE cai > 15% ou receita estimada em risco > R$1.500
+- Histórico de 4 semanas bloqueado para não-subscritores — paywall R$97/mês Stripe
+- Demo automático quando Pixel não instalado — widget sempre visível
+- Subscrição salva em localStorage com data de expiração
+
+---
+
+PROTOCOLO COLABORATIVO (PDCA INTER-VERSÕES):
+
+PLAN (Gemini): propõe DIRETRIZ com 5 ideias para próxima versão
+DO (Claude): constrói com Skill + contexto NotebookLM
+CHECK (Gemini): avalia entregue vs planeado no próximo COMANDO_GEMINI
+ACT (Director): ajusta antes da próxima versão
+
+DIRECTIVA DO ARQUITECTO-MESTRE:
+Claude avalia ordens do Gemini com perspectiva técnica.
+Propõe alternativas quando há abordagem melhor.
+Protege a arquitectura de atalhos que fecham portas futuras.
+
+---
+
+5 IDEIAS DISRUPTIVAS PARA V19 (do Arquitecto-Mestre Claude):
+
+IDEIA 1 — INTENT GRAPH: API de Intenção Cross-Tenant
+Agrega dados FIRE de todos os tenants → grafo de intenção nacional B2B.
+"Quais PMEs em saúde em SP tiveram sessões FIRE nas últimas 72h?" — vendida a bancos/M&A.
+Ticket mínimo: R$15.000/mês por cliente institucional. Início do Acto III (Bolsa de Intenção).
+Dependência: 30+ dias de dados Pixel activo.
+
+IDEIA 2 — PIXEL FEDERATION: Instalação via DNS sem código
+Tenant adiciona CNAME DNS vpx.seudominio.com → pixel.vanguard.tech.
+Worker injeta pixel automaticamente — zero fricção → adoção 10× maior.
+Tecnicamente viável com Cloudflare Snippets (beta 2026).
+
+IDEIA 3 — HERMES AUTONOMOUS LOOP COMPLETO
+FIRE → Haiku gera msg personalizada → WhatsApp → classifica resposta → cadência automática.
+Custo: R$0,12/lead total. Taxa resposta esperada: +45% vs outbound frio.
+Depende de dados reais do Pixel (30+ dias).
+
+IDEIA 4 — SENTINEL REPORT CARD: Email Semanal Automatizado
+Toda segunda-feira às 8h, Neural Sentinel envia email com delta da semana anterior.
+"Esta semana perdeu R$3.200 a mais vs semana passada — veja o que mudou."
+Stack: Supabase pg_cron + SendGrid/Resend API + template Ion Gold HTML.
+Lock-in temporal: cliente não sai sem perder o histórico comparativo.
+
+IDEIA 5 — VANGUARD EXCHANGE: Mercado de Leads FIRE
+Tenant sem capacidade coloca lead FIRE em leilão → outros tenants especialzados fazem bid.
+Vanguard retém 20% do bid. Primeiro mercado secundário de leads com intenção verificada no Brasil.
+Stack: Supabase Realtime + leads_arbitrage (V9) + push WhatsApp.
+Dependência: 20+ tenants activos com Pixel instalado.
+
+---
+
+RITUAL PÓS-VERSÃO (sequência cronológica obrigatória):
+PASSO 1: .\scripts\fechar_versao.ps1 -versao 18
+PASSO 2: NotebookLM — upload 07_MEMORIA_V18 + 08_relatorio_evolutivo_v18
+PASSO 3: Gemini — colar COMANDO_GEMINI_V18.md → aguardar 4 blocos
+PASSO 4: Bloco 2 → salvar como DIRETRIZ GEMINI V19.txt
+PASSO 5: Bloco 3 → NotebookLM → receber Skill V19
+PASSO 6: Salvar Skill em .claude/skills/vanguard-v19-[nome].md
+PASSO 7: Bloco 4 → Claude inicia V19
+PASSO 8: .\scripts\prospectar.ps1 -add (20 contactos — em paralelo com 3-7)
+
+REGRA: cada versão que fecha sem 1 conversa de venda é incompleta.

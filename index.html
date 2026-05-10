@@ -517,7 +517,7 @@
       </div>
       <div class="footer__bottom">
         <p class="footer__copy">© 2026 Vanguard Tech. Todos os direitos reservados.</p>
-        <p class="footer__version">v16.0 · Visual Authority · Sovereign Intelligence</p>
+        <p class="footer__version">v18.0 · Recurrence Singularity · Sovereign Intelligence</p>
       </div>
     </div>
   </footer>
@@ -588,11 +588,20 @@
   <script src="/js/real-scanner.js"></script>
   <script src="/js/closer-machine.js"></script>
   <script src="/js/neural-audit-trail.js"></script>
+  <script src="/js/sovereign-playbook.js"></script>
+  <script src="/js/neural-sentinel.js"></script>
   <script>
-    /* Neural Audit Trail — auto-entrega pós-pagamento Stripe */
     document.addEventListener('DOMContentLoaded', function () {
       var lastScan = window.Scanner?.getCurrentResult?.() || null;
+      // V17: Neural Audit Trail — auto-entrega pós-pagamento
       NeuralAuditTrail.checkPostPayment(lastScan);
+      // V18: Sovereign Playbook — entrega pós-pagamento
+      SovereignPlaybook.checkPostPayment(lastScan);
+      // V18: Neural Sentinel — subscrição pós-pagamento + widget
+      var sentinelEl = document.getElementById('ns-container');
+      var tenantId   = localStorage.getItem('vg_tenant_id') || 'demo';
+      NeuralSentinel.checkPostPayment(tenantId, sentinelEl);
+      if (sentinelEl) NeuralSentinel.init(sentinelEl, tenantId);
     });
   </script>
   <script>
