@@ -1,0 +1,20 @@
+DIRETRIZ ESTRATÉGICA V17 — SOVEREIGN INTENT & NEURAL AUDIT
+
+MENSAGEM DO VISIONÁRIO PARA O CONSELHO:
+A Missão V16 nos deu autoridade visual e soberania financeira. A Missão V17 nos dará a Inteligência Predatória. Nosso objetivo é parar de "bater na porta" do cliente e começar a "monitorar o cofre" dele. Vamos fundir o rastreio de intenção com a quantificação da perda financeira.
+
+1. O NÚCLEO TÉCNICO (O Monopólio da Intenção):
+
+    Sovereign Pixel: Implementar o pixel.js (3KB) servido via Edge (Cloudflare Workers). Ele deve classificar o comportamento do usuário final (scroll, clicks, exit intent) nas categorias COLD a FIRE.
+
+    Neural Audit Trail: Criar o gerador de PDF via Puppeteer que projeta a "Receita Perdida". Se o Pixel detectar 10 leads FIRE abandonando o site, o Audit deve dizer: "Você perdeu R$ 5.400 hoje".
+
+2. FOCO COMERCIAL (O Primeiro R$):
+
+    Nicho: Clínicas de Saúde e Escritórios de Advocacia.
+
+    Produto de Entrada: Vender a "Auditoria Neural Completa" por R$ 50,00 logo após o diagnóstico gratuito. Isso valida o Stripe Connect e inicia o lock-in.
+
+3. REGRAS DE BLINDAGEM:
+
+    Silêncio de Dados: Se o Tenant estiver inadimplente (Stripe), o Pixel e o Badge entram em modo invisível instantaneamente.
