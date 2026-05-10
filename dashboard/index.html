@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/hud.css">
   <link rel="stylesheet" href="/dashboard/dashboard.css">
   <script src="/assets/js/neural-v-logo.js"></script>
 </head>
@@ -42,46 +43,67 @@
       </div>
     </header>
 
-    <!-- KPIs -->
-    <section class="cockpit__kpis" id="cockpit-kpis">
-      <div class="card card--glass cockpit__kpi-card">
-        <div class="card__icon">📥</div>
-        <div class="card__number" id="kpi-total">—</div>
-        <div class="card__label">Total de Leads</div>
+    <!-- ═══ KPI BENTO GRID — LIVING HUD V12 ═══ -->
+    <div class="cockpit-hud-frame" data-label="COCKPIT" style="margin-bottom:var(--sp-3);">
+      <p style="font-family:var(--ff-mono);font-size:var(--text-xs);color:rgba(0,240,255,0.35);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:var(--sp-4);">
+        <span class="hud-status-dot" style="width:5px;height:5px;display:inline-block;margin-right:6px;vertical-align:middle;" aria-hidden="true"></span>
+        MÉTRICAS DO SISTEMA · TEMPO REAL
+      </p>
+    </div>
+    <section class="bento-grid" id="cockpit-kpis" aria-label="Métricas do cockpit">
+
+      <div class="bento-cell bento-cell--w3 hud-corners" role="region" aria-label="Total de leads">
+        <div class="bento-kpi-ring" aria-hidden="true"></div>
+        <span class="bento-kpi__icon" aria-hidden="true">📥</span>
+        <span class="bento-kpi__value" id="kpi-total">—</span>
+        <span class="bento-kpi__label">Total de Leads</span>
       </div>
-      <div class="card card--glass cockpit__kpi-card">
-        <div class="card__icon">🔴</div>
-        <div class="card__number" id="kpi-vip">—</div>
-        <div class="card__label">Leads VIP</div>
+
+      <div class="bento-cell bento-cell--w3" role="region" aria-label="Leads VIP">
+        <div class="bento-kpi-ring" style="background:#FF4444;" aria-hidden="true"></div>
+        <span class="bento-kpi__icon" aria-hidden="true">🔴</span>
+        <span class="bento-kpi__value" id="kpi-vip" style="color:#FF8080;">—</span>
+        <span class="bento-kpi__label">Leads VIP</span>
       </div>
-      <div class="card card--glass cockpit__kpi-card">
-        <div class="card__icon">📊</div>
-        <div class="card__number" id="kpi-avg">—</div>
-        <div class="card__label">Score Médio</div>
+
+      <div class="bento-cell bento-cell--w3" role="region" aria-label="Score médio">
+        <div class="bento-kpi-ring" style="background:#FFB800;" aria-hidden="true"></div>
+        <span class="bento-kpi__icon" aria-hidden="true">📊</span>
+        <span class="bento-kpi__value" id="kpi-avg" style="color:#FFB800;">—</span>
+        <span class="bento-kpi__label">Score Médio</span>
       </div>
-      <div class="card card--glass cockpit__kpi-card">
-        <div class="card__icon">⏱</div>
-        <div class="card__number" id="kpi-today">—</div>
-        <div class="card__label">Leads Hoje</div>
+
+      <div class="bento-cell bento-cell--w3" role="region" aria-label="Leads hoje">
+        <div class="bento-kpi-ring" style="background:#00FF88;" aria-hidden="true"></div>
+        <span class="bento-kpi__icon" aria-hidden="true">⚡</span>
+        <span class="bento-kpi__value" id="kpi-today" style="color:#00FF88;">—</span>
+        <span class="bento-kpi__label">Leads Hoje</span>
       </div>
+
     </section>
 
     <!-- MAPA DE CALOR DE DORES -->
     <section class="cockpit__section">
-      <h2 class="cockpit__section-title">Mapa de Calor de Dores</h2>
-      <div class="heatmap" id="heatmap"></div>
+      <h2 class="cockpit__section-title hud-label">
+        <span class="hud-status-dot hud-status-dot--amber" aria-hidden="true"></span>
+        Mapa de Calor de Dores
+      </h2>
+      <div class="heatmap hud-card" id="heatmap"></div>
     </section>
 
     <!-- TABELA DE LEADS -->
     <section class="cockpit__section">
-      <h2 class="cockpit__section-title">Leads <span id="leads-filter-label">(todos)</span></h2>
+      <h2 class="cockpit__section-title hud-label">
+        <span class="hud-status-dot hud-status-dot--green" aria-hidden="true"></span>
+        Leads <span id="leads-filter-label">(todos)</span>
+      </h2>
       <div class="cockpit__filters">
         <button class="cockpit__filter cockpit__filter--active" data-filter="all">Todos</button>
         <button class="cockpit__filter" data-filter="VIP">🔴 VIP</button>
         <button class="cockpit__filter" data-filter="QUENTE">🟡 Quentes</button>
         <button class="cockpit__filter" data-filter="FRIO">🔵 Frios</button>
       </div>
-      <div class="cockpit__table-wrap">
+      <div class="cockpit__table-wrap hud-card">
         <table class="cockpit__table" id="leads-table">
           <thead>
             <tr>

@@ -20,6 +20,8 @@
   <script src="/brand-config.js" onerror="void(0)"></script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/hud.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="/assets/js/neural-v-logo.js"></script>
 </head>
 <body>
@@ -31,7 +33,7 @@
 
       <div class="navbar__status" aria-hidden="true">
         <span class="navbar__status-dot"></span>
-        <span>Sistema Operacional · V5</span>
+        <span>Sistema Operacional · V12</span>
       </div>
 
       <div class="navbar__actions">
@@ -49,7 +51,7 @@
       <!-- Left: Content -->
       <div class="hero__content">
         <div class="hero__badge">
-          <span class="label-tag">⚡ Soberano Digital V5</span>
+          <span class="label-tag">⚡ Ignition Cockpit V12</span>
         </div>
 
         <h1 class="hero__headline" id="hero-title">
@@ -131,6 +133,104 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FEATURE 01 + 03 · INSTANT REALITY SCANNER · GHOST HOLOGRAPHICS
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="scanner-section" id="scanner" aria-labelledby="scanner-title">
+    <div class="scanner-section__inner">
+
+      <!-- Badge -->
+      <div class="scanner-section__badge" aria-hidden="true">
+        <span class="hud-status-dot"></span>
+        INSTANT REALITY SCANNER · SISTEMA ONLINE
+      </div>
+
+      <!-- Title -->
+      <h2 class="scanner-section__title" id="scanner-title">
+        Descubra a <span class="text-gradient">Maturidade Digital</span><br>
+        do seu negócio em 30 segundos.
+      </h2>
+      <p class="scanner-section__desc">
+        Cole o URL do seu site. A nossa IA analisa 6 dimensões críticas e expõe os gargalos que estão a custar-lhe clientes agora.
+      </p>
+
+      <!-- ─── Scanner Form ─────────────────────────────────────────── -->
+      <form class="scanner-form" id="scanner-form" novalidate aria-label="Formulário de análise de site">
+        <input type="url" class="scanner-form__input" id="scanner-url"
+               placeholder="https://seunegocio.com.br"
+               autocomplete="url"
+               aria-label="URL do seu site">
+        <button type="submit" class="scanner-form__btn" aria-label="Iniciar análise">
+          ANALISAR →
+        </button>
+      </form>
+
+      <!-- ─── Ghost Holographic Loader (Feature 03) ────────────────── -->
+      <div class="ghost-loader hud-card" id="ghost-loader" aria-live="polite" aria-busy="true" role="status">
+        <div class="ghost-sweep" aria-hidden="true"></div>
+        <canvas class="ghost-loader__canvas" id="ghost-canvas" aria-hidden="true"></canvas>
+        <div class="ghost-loader__label" aria-hidden="true">MAPEAMENTO NEURAL EM CURSO</div>
+        <div class="ghost-loader__status" id="ghost-status">Iniciando análise...</div>
+        <div style="padding:0 var(--sp-4);" aria-hidden="true">
+          <div class="ghost-skeleton ghost-skeleton--wide"></div>
+          <div class="ghost-skeleton ghost-skeleton--med"></div>
+          <div class="ghost-skeleton ghost-skeleton--short"></div>
+        </div>
+      </div>
+
+      <!-- ─── Scanner Results ──────────────────────────────────────── -->
+      <div class="scanner-results" id="scanner-results" aria-live="polite">
+
+        <!-- Meta -->
+        <div class="scanner-results__meta">
+          <span class="hud-status-dot hud-status-dot--green" aria-hidden="true"></span>
+          ANÁLISE CONCLUÍDA ·
+          <span class="scanner-results__url" id="scan-url-label"></span>
+        </div>
+
+        <!-- Score + Radar -->
+        <div class="scanner-results__grid">
+
+          <!-- Score Panel -->
+          <div class="hud-card hud-corners scanner-score-panel" role="region" aria-label="Pontuação de maturidade">
+            <div class="bento-kpi-ring" aria-hidden="true"></div>
+            <div class="scanner-score__label">DIGITAL MATURITY SCORE™</div>
+            <div class="scanner-score__number" id="scan-score-value" aria-live="polite">—</div>
+            <div class="scanner-score__tier scanner-score__tier--critical" id="scan-score-tier">—</div>
+          </div>
+
+          <!-- Radar Panel -->
+          <div class="hud-card scanner-radar-panel" role="region" aria-label="Análise multidimensional">
+            <div class="scanner-radar__title" aria-hidden="true">ANÁLISE MULTIDIMENSIONAL</div>
+            <div class="scanner-radar__chart">
+              <canvas id="scanner-radar" aria-label="Gráfico radar de maturidade digital"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottlenecks -->
+        <div class="hud-card hud-corners scanner-bottlenecks" role="region" aria-label="Gargalos detectados">
+          <div class="scanner-bottlenecks__title" aria-hidden="true">
+            <span class="hud-status-dot hud-status-dot--red"></span>
+            GARGALOS CRÍTICOS DETECTADOS
+          </div>
+          <div id="scan-bottlenecks"></div>
+        </div>
+
+        <!-- CTA Row -->
+        <div class="scanner-cta-row">
+          <button class="btn btn--outline" id="btn-authority-share">
+            ⚡ Partilhar Autoridade
+          </button>
+          <button class="btn btn--primary" id="btn-hermes-open">
+            🤖 Falar com Hermes →
+          </button>
+        </div>
+
+      </div><!-- /.scanner-results -->
+    </div><!-- /.scanner-section__inner -->
   </section>
 
   <!-- ─── STATS ────────────────────────────────────────────────────────── -->
@@ -416,16 +516,81 @@
       </div>
       <div class="footer__bottom">
         <p class="footer__copy">© 2026 Vanguard Tech. Todos os direitos reservados.</p>
-        <p class="footer__version">v5.0 · Soberano Digital · Claude Haiku</p>
+        <p class="footer__version">v12.0 · Ignition Cockpit · Instant Reality Scanner</p>
       </div>
     </div>
   </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FEATURE 03 · AUTHORITY SHARE CARD MODAL
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="authority-share-overlay" id="authority-share-overlay" role="dialog" aria-modal="true" aria-label="Card de Autoridade">
+    <div class="authority-share-modal">
+      <button class="authority-share-modal__close" id="share-overlay-close" aria-label="Fechar">×</button>
+      <h3 class="authority-share-modal__heading">Card de Autoridade Digital</h3>
+      <p class="authority-share-modal__sub">Partilhe o seu relatório e mostre que conhece os seus dados</p>
+      <div id="share-card-visual"></div>
+      <div class="authority-share-modal__actions">
+        <button class="btn btn--primary btn--sm" id="btn-share-download" style="flex:1">
+          ↓ Descarregar PNG
+        </button>
+        <button class="btn btn--outline btn--sm" id="share-modal-cancel" style="flex:1">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FEATURE 04 · CLOSER MACHINE · HERMES CHAT
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="closer-machine" id="closer-machine" role="complementary" aria-label="Hermes — Agente de Vendas IA">
+    <div class="closer-machine__header">
+      <div class="closer-machine__avatar" aria-hidden="true">H</div>
+      <div>
+        <div class="closer-machine__agent-name">Hermes · Agente IA Vanguard</div>
+        <div class="closer-machine__agent-status">
+          <span class="hud-status-dot" style="width:5px;height:5px;" aria-hidden="true"></span>
+          Online · Processando análise
+        </div>
+      </div>
+      <button class="closer-machine__close" id="cm-close" aria-label="Fechar chat">×</button>
+    </div>
+    <div class="closer-machine__messages" id="cm-messages" aria-live="polite" aria-label="Mensagens do chat"></div>
+    <div class="cm-pdf-action" id="cm-pdf-action" style="display:none;">
+      <button class="btn btn--primary btn--sm" id="cm-pdf-btn">
+        📄 Gerar Proposta PDF Personalizada →
+      </button>
+    </div>
+    <div class="closer-machine__input-row">
+      <input type="text" class="cm-input" id="cm-input"
+             placeholder="Responder ao Hermes..."
+             autocomplete="off"
+             aria-label="Mensagem para o Hermes">
+      <button class="cm-send" id="cm-send" aria-label="Enviar mensagem">→</button>
+    </div>
+  </div>
+
+  <!-- FAB — Hermes Trigger -->
+  <button class="hud-fab hidden" id="hud-fab" aria-label="Abrir Hermes IA" title="Falar com Hermes">
+    🤖
+  </button>
 
   <!-- ─── Scripts ──────────────────────────────────────────────────────── -->
   <script src="/js/supabase-lib.js"></script>
   <script src="/js/supabase.js"></script>
   <script src="/js/quiz.js"></script>
   <script src="/js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
+  <script src="/js/scanner.js"></script>
+  <script src="/js/closer-machine.js"></script>
+  <script>
+    /* Share modal cancel button */
+    document.getElementById('share-modal-cancel')?.addEventListener('click', () => {
+      document.getElementById('authority-share-overlay')?.classList.remove('active');
+    });
+  </script>
 
   <script>
     /* ── Counter animation ── */
