@@ -42,6 +42,7 @@ function navigate(section) {
     intelligence: 'Intelligence API — Keys',
     arbitrage:    'Mercado de Arbitragem',
     hermes:       'Hermes — Voz & Persona',
+    fortress:     'Fortress — Torre de Controlo V10',
   };
   document.getElementById('sectionTitle').textContent = titles[section] || '';
 
@@ -51,6 +52,7 @@ function navigate(section) {
   if (section === 'intelligence') loadApiKeys();
   if (section === 'arbitrage')    loadArbitrageMarket();
   if (section === 'hermes')       loadHermesDashboard();
+  if (section === 'fortress')     loadFortressDashboard();
 }
 
 // ── API helper ────────────────────────────────────────────────────
@@ -922,4 +924,214 @@ async function removerVariante(id) {
   await sb.from('hermes_variants').delete().eq('id', id);
   showToast('Variante eliminada.', 'success');
   loadHermesDashboard();
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// V10 — FORTRESS: Torre de Controlo, IA Firefighter, Stress Test
+// ══════════════════════════════════════════════════════════════════════
+
+async function loadFortressDashboard() {
+  await Promise.all([
+    loadFortressHealth(),
+    loadFortressMetrics(),
+    loadFortressIncidents(),
+    loadStressHistory(),
+  ]);
+}
+
+async function loadFortressHealth() {
+  try {
+    const data = await apiCall('/fortress/health');
+    const dot  = document.getElementById('fortressDot');
+    const txt  = document.getElementById('fortressStatusText');
+    const overall = data.overall || 'unknown';
+
+    dot.className = `fortress-status-dot ${overall}`;
+    const labels = { healthy: 'FORTRESS ONLINE', degraded: 'DEGRADADO', critical: 'CRÍTICO', unknown: 'DESCONHECIDO' };
+    txt.textContent = labels[overall] || overall.toUpperCase();
+
+    const grid = document.getElementById('fortressHealthGrid');
+    if (data.servicos && data.servicos.length) {
+      grid.innerHTML = data.servicos.map(s => `
+        <div class="health-card ${s.status || ''}">
+          <div class="health-card__svc">${s.servico}</div>
+          <div class="health-card__status">${s.status || '—'}</div>
+          <div class="health-card__lat">${s.latencia_ms != null ? s.latencia_ms + ' ms' : s.erro || '—'}</div>
+        </div>
+      `).join('');
+    }
+
+    // Alert badge on nav if critical
+    const badge = document.getElementById('incidentsBadge');
+    if (badge) badge.style.display = overall === 'critical' ? 'inline' : 'none';
+  } catch (e) {
+    console.warn('Fortress health error:', e);
+  }
+}
+
+async function loadFortressMetrics() {
+  try {
+    const data = await apiCall('/fortress/metrics');
+    document.getElementById('fMetTenants').textContent  = data.tenants_total ?? '—';
+    document.getElementById('fMetLeads').textContent    = (data.leads_total ?? 0).toLocaleString('pt-PT');
+    const inc = data.incidents_open ?? 0;
+    const incEl = document.getElementById('fMetIncidents');
+    incEl.textContent = inc;
+    incEl.style.color = inc > 0 ? 'var(--red)' : 'var(--green)';
+  } catch (e) {
+    console.warn('Fortress metrics error:', e);
+  }
+}
+
+async function loadFortressIncidents() {
+  const el = document.getElementById('incidentsList');
+  try {
+    const data = await apiCall('/fortress/incidents?horas=24');
+    const list = data.incidents || [];
+    if (!list.length) {
+      el.innerHTML = `<div style="color:var(--green);font-size:.85rem;text-align:center;padding:1rem">
+        ✓ Nenhum incidente nas últimas 24h</div>`;
+      return;
+    }
+    el.innerHTML = list.map(i => `
+      <div class="incident-row">
+        <div class="incident-sev incident-sev--${i.severidade}"></div>
+        <div>
+          <div class="incident-title">${i.titulo}</div>
+          <div class="incident-svc">${i.servico} · ${new Date(i.detectado_em).toLocaleTimeString('pt-PT')}</div>
+        </div>
+        <span class="incident-status incident-status--${i.status}">${i.status}</span>
+      </div>
+    `).join('');
+  } catch (e) {
+    el.innerHTML = `<div style="color:var(--text-muted);font-size:.85rem">Erro ao carregar incidentes.</div>`;
+  }
+}
+
+async function loadStressHistory() {
+  const el = document.getElementById('stressHistory');
+  try {
+    const data = await apiCall('/fortress/stress-test/results');
+    const list = data.resultados || [];
+    if (!list.length) { el.textContent = 'Nenhum teste executado.'; return; }
+    const last = list[0];
+    const c = last.taxa_sucesso >= 99 ? 'ok' : last.taxa_sucesso >= 95 ? 'warn' : 'danger';
+    el.innerHTML = `<span class="stress-value--${c}">${last.taxa_sucesso}% sucesso</span> ·
+      p95: ${last.p95_ms}ms · ${last.total_requests} req ·
+      ${new Date(last.ran_at).toLocaleDateString('pt-PT')}`;
+    document.getElementById('fMetStress').textContent = last.taxa_sucesso + '%';
+    document.getElementById('fMetStress').style.color =
+      last.taxa_sucesso >= 99 ? 'var(--green)' : last.taxa_sucesso >= 95 ? 'var(--amber)' : 'var(--red)';
+  } catch (e) {
+    el.textContent = '—';
+  }
+}
+
+async function runFirefighter() {
+  const logs     = document.getElementById('logInput').value.trim();
+  const contexto = document.getElementById('logContexto').value.trim();
+  const btn      = document.getElementById('btnFirefighter');
+  const output   = document.getElementById('firefighterOutput');
+
+  if (!logs) { showToast('Cole os logs de erro antes de diagnosticar.', 'error'); return; }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Analisando...';
+  output.style.display = 'none';
+
+  try {
+    const data = await apiCall('/fortress/diagnose', {
+      method: 'POST',
+      body: JSON.stringify({ logs, contexto }),
+    });
+    const d = data.diagnostico || {};
+    const sev = d.severidade || 'medium';
+    const passos = (d.passos_resolucao || []).map((p, i) => `<li>${i+1}. ${p}</li>`).join('');
+    const prev   = (d.acoes_preventivas || []).map(p => `<li>→ ${p}</li>`).join('');
+
+    output.innerHTML = `
+      <div style="margin-bottom:.75rem">
+        <strong style="color:var(--cyan)">Causa Raiz</strong>
+        <span class="diag-sev diag-sev--${sev}">${sev.toUpperCase()}</span>
+        <p style="margin-top:.4rem;color:var(--text-primary)">${d.causa_raiz || '—'}</p>
+      </div>
+      <div style="margin-bottom:.75rem">
+        <strong style="color:var(--text-secondary);font-size:.8rem">Serviço afectado:</strong>
+        <code style="font-size:.78rem;color:var(--amber)">${d.servico_afectado || '—'}</code>
+        &nbsp;·&nbsp;
+        <strong style="color:var(--text-secondary);font-size:.8rem">Tempo estimado:</strong>
+        <code style="font-size:.78rem;color:var(--cyan)">${d.tempo_estimado_min || '?'} min</code>
+      </div>
+      ${passos ? `<div style="margin-bottom:.75rem"><strong style="color:var(--green);font-size:.85rem">Plano de Resolução</strong><ul style="margin:.4rem 0 0 1rem;color:var(--text-secondary);font-size:.82rem">${passos}</ul></div>` : ''}
+      ${prev   ? `<div><strong style="color:var(--text-tertiary);font-size:.8rem">Acções Preventivas</strong><ul style="margin:.4rem 0 0 1rem;color:var(--text-tertiary);font-size:.78rem">${prev}</ul></div>` : ''}
+      <div style="margin-top:.75rem;font-size:.7rem;color:var(--text-tertiary);font-family:var(--ff-mono)">
+        Tokens: ${data.tokens_usados || 0} · Claude Haiku · ${new Date().toLocaleTimeString('pt-PT')}
+      </div>
+    `;
+    output.style.display = 'block';
+  } catch (e) {
+    output.innerHTML = `<div style="color:var(--red)">Erro: ${e.message}</div>`;
+    output.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '⚡ Diagnosticar';
+  }
+}
+
+async function runStressTest() {
+  const n      = parseInt(document.getElementById('stressN').value) || 100;
+  const btn    = document.getElementById('btnStress');
+  const output = document.getElementById('stressResults');
+
+  btn.disabled = true;
+  btn.textContent = '⏳ A testar...';
+  output.style.display = 'none';
+
+  try {
+    const data = await apiCall(`/fortress/stress-test?n=${n}`, { method: 'POST', body: '{}' });
+    const taxa = data.taxa_sucesso || 0;
+    const c    = taxa >= 99 ? 'ok' : taxa >= 95 ? 'warn' : 'danger';
+    const verdict = taxa >= 99 ? 'pass' : taxa >= 95 ? 'warn' : 'fail';
+    const vtext   = taxa >= 99 ? '🟢 FORTRESS IMPENETRÁVEL'
+                  : taxa >= 95 ? '🟡 SISTEMA RESILIENTE'
+                  : '🔴 ATENÇÃO — taxa abaixo de 95%';
+
+    output.innerHTML = `
+      <div class="stress-row"><span class="stress-label">Total requests</span><span class="stress-value">${data.n_requests}</span></div>
+      <div class="stress-row"><span class="stress-label">Taxa de sucesso</span><span class="stress-value stress-value--${c}">${taxa}%</span></div>
+      <div class="stress-row"><span class="stress-label">Erros</span><span class="stress-value">${data.erros || 0}</span></div>
+      <div class="stress-row"><span class="stress-label">Latência p50</span><span class="stress-value">${data.latencia_p50} ms</span></div>
+      <div class="stress-row"><span class="stress-label">Latência p95</span><span class="stress-value">${data.latencia_p95} ms</span></div>
+      <div class="stress-row"><span class="stress-label">Latência p99</span><span class="stress-value">${data.latencia_p99} ms</span></div>
+      <div class="stress-row"><span class="stress-label">Tempo total</span><span class="stress-value">${data.tempo_total_ms} ms</span></div>
+      <div class="stress-verdict stress-verdict--${verdict}">${vtext}</div>
+    `;
+    output.style.display = 'block';
+    await loadStressHistory();
+    showToast(`Stress test concluído: ${taxa}% sucesso`, taxa >= 95 ? 'success' : 'error');
+  } catch (e) {
+    output.innerHTML = `<div style="color:var(--red);font-size:.85rem">Erro: ${e.message}</div>`;
+    output.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Iniciar';
+  }
+}
+
+function abrirModalIncidente() {
+  const sev  = prompt('Severidade (critical/high/medium/low):', 'medium');
+  if (!sev) return;
+  const svc  = prompt('Serviço afectado (api/supabase/stripe/anthropic/vapi/n8n/nginx/outro):', 'api');
+  if (!svc) return;
+  const tit  = prompt('Título do incidente:');
+  if (!tit) return;
+  const desc = prompt('Descrição (opcional):');
+  apiCall('/fortress/incidents', {
+    method: 'POST',
+    body: JSON.stringify({ severidade: sev, servico: svc, titulo: tit, descricao: desc }),
+  }).then(() => {
+    showToast('Incidente registado. Director notificado.', 'success');
+    loadFortressIncidents();
+  }).catch(e => showToast('Erro: ' + e.message, 'error'));
+}
 }

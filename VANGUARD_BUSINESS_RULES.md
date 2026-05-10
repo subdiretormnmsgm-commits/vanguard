@@ -1,6 +1,6 @@
 # VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
-> **Versão actual:** V9 — Sovereign Economy  
+> **Versão actual:** V10 — The Sovereign Fortress  
 > **Última actualização:** 2026-05-09  
 > **Fonte de verdade:** Scan profundo V1–V9 (código + schema + memórias)
 

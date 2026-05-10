@@ -1,5 +1,5 @@
 # VANGUARD KNOWLEDGE GRAPH — Mapa Mestre da Arquitectura
-> **Versão:** V9 — Sovereign Economy  
+> **Versão:** V10 — The Sovereign Fortress  
 > **Última actualização:** 2026-05-09  
 > **Propósito:** Verdade absoluta sobre a arquitectura para NotebookLM e sessões futuras.  
 > **Arquitecto de IA:** Claude Sonnet 4.6
@@ -8,7 +8,7 @@
 
 ## 1. Visão Geral — O Que é a Vanguard
 
-A Vanguard é uma **Venture Builder Autónoma & Holding de Dados SaaS** com 6 linhas de receita:
+A Vanguard é uma **Venture Builder Autónoma & Holding de Dados SaaS** com 6 linhas de receita e infraestrutura de resiliência V10:
 
 | Linha | Produto | Modelo | Status |
 |-------|---------|--------|--------|
@@ -19,22 +19,27 @@ A Vanguard é uma **Venture Builder Autónoma & Holding de Dados SaaS** com 6 li
 | 5 | Lead Arbitrage System | Leilão interno 30% comissão | ✅ V9 |
 | 6 | Vanguard Maturity Certificate™ | Badge SVG anual €97-297 | ✅ V9 |
 
+**Infraestrutura V10 — The Sovereign Fortress:**
+- Health Monitor contínuo (5 serviços)
+- IA Firefighter autónomo (Claude Haiku + webhook Director)
+- Director Stress Test Protocol (1000 req simultâneos)
+- `system_incidents` com alertas automáticos
+
 ---
 
 ## 2. Evolução Histórica
 
 ```
-V1 → PWA Quiz + Diagnóstico (Supabase + Vanilla JS)
-V2 → Shadow Closer Lite + Cockpit (leads manuais, quiz IA)
-V3 → Scraper Outbound (OSM + Claude Haiku + Supabase inject)
-V4 → [não documentado — incrementos intermediários]
-V5 → Soberano Digital: Docker Mestre + White-Label brand-config.js + UI Awwwards
-V6 → SaaS Multi-Tenant: FastAPI + Stripe Billing + JWT Auth + RLS
-V7 → Marketplace Nichos: Stripe Connect 70/30 + Dark Bazaar UI
-V8 → Intelligence API: SHA-256 keys + Fractal WL + Sovereign Glass UI
-V9 → Sovereign Economy: Lead Arbitrage + Certifica SVG + Hermes Voice + Score™
-V7 → Marketplace: Stripe Connect + Dark Bazaar UI + webhooks intenção
-V8 → Sovereign Data: Intelligence API + Fractal White-Label + Feed Intenção
+V1  → PWA Quiz + Diagnóstico (Supabase + Vanilla JS)
+V2  → Shadow Closer Lite + Cockpit (leads manuais, quiz IA)
+V3  → Scraper Outbound (OSM + Claude Haiku + Supabase inject)
+V4  → [incrementos intermediários]
+V5  → Soberano Digital: Docker Mestre + White-Label brand-config.js + UI Awwwards
+V6  → SaaS Multi-Tenant: FastAPI + Stripe Billing + JWT Auth + RLS
+V7  → Marketplace Nichos: Stripe Connect 70/30 + Dark Bazaar UI
+V8  → Sovereign Data: Intelligence API SHA-256 + Fractal WL + Sovereign Glass UI
+V9  → Sovereign Economy: Lead Arbitrage + Certifica SVG + Hermes Voice + Score™
+V10 → The Sovereign Fortress: Health Monitor + IA Firefighter + Stress Test + Dashboard Pixel Perfect
 ```
 
 ---
@@ -349,4 +354,47 @@ O `service_role` bypassa RLS para operações da API (insert com tenant_id).
 
 ---
 
-*Mapa gerado por Claude Sonnet 4.6 — Arquitecto de IA Supremo — V8 Sovereign Data*
+---
+
+## 11. V10 — Fortress Infrastructure
+
+### Novos Ficheiros V10
+| Ficheiro | Propósito |
+|----------|-----------|
+| `api/fortress.py` | Router Fortress: health, incidents, IA Firefighter, stress test |
+| `infra/schema_v10_fortress.sql` | 3 tabelas + RLS + função fn_health_summary |
+| `tests/stress_test.py` | Director Stress Test autónomo (1000 req, p50/p95/p99) |
+| `memorias/MEMORIA_10_FORTRESS.md` | Documentação técnica V10 |
+| `relatorio_evolutivo_v10.md` | Relatório + 4 ideias V11 |
+| `VANGUARD_BUSINESS_RULES.md` | Constituição económica completa V1–V10 |
+| `TODO_FUTURE.md` | Backlog estratégico V11+ |
+
+### Novas Tabelas V10
+| Tabela | Propósito |
+|--------|-----------|
+| `system_incidents` | Incidentes: severidade, serviço, diagnóstico IA, webhook Director |
+| `health_checks_log` | Log de health checks periódicos por serviço |
+| `stress_test_results` | Resultados do Director Stress Test (taxa_sucesso GENERATED) |
+
+### Endpoints Fortress
+```
+GET  /api/fortress/health              — health de 5 serviços simultâneos
+GET  /api/fortress/incidents           — incidentes últimas 24h
+POST /api/fortress/incidents           — criar incidente (auto webhook Director)
+GET  /api/fortress/metrics             — KPIs agregados (tenants, leads, incidentes)
+POST /api/fortress/diagnose            — IA Firefighter: Claude Haiku analisa logs
+POST /api/fortress/stress-test         — simula N requests (max 1000)
+GET  /api/fortress/stress-test/results — histórico de stress tests
+```
+
+### Variáveis de Ambiente V10
+```env
+DIRECTOR_WEBHOOK_URL=https://hooks.slack.com/...  # ou Discord, n8n, etc.
+```
+
+### Docker V10
+- API: `vanguard-api:v10`
+- Health check `start_period: 20s` (evita false positives no arranque)
+- Hermes: health check adicionado
+
+*Mapa gerado por Claude Sonnet 4.6 — Arquitecto de IA Supremo — V10 The Sovereign Fortress*
