@@ -179,7 +179,7 @@
 
     tbody.innerHTML = filtered.map(l => {
       const date = l.created_at.slice(0, 10);
-      const waHref = `https://wa.me/${l.whatsapp.replace(/\D/g, '')}`;
+      const waHref = `https://web.whatsapp.com/send/?phone=${l.whatsapp.replace(/\D/g, '')}`;
       const scoreBar = `<div class="score-bar"><div class="score-bar__fill" style="width:${l.scoring.val}%"></div><span>${l.scoring.val}</span></div>`;
       return `<tr>
         <td>${l.nome}</td>

@@ -79,7 +79,7 @@ const Quiz = (() => {
           `Olá! Acabei de fazer o diagnóstico Vanguard.\nNicho: ${state.nicho}\nGargalo: ${state.gargalo}`
         );
         document.getElementById('btn-whatsapp-contact').href =
-          `https://wa.me/${WA_NUMBER}?text=${msg}`;
+          `https://web.whatsapp.com/send/?phone=${WA_NUMBER}&text=${msg}`;
         // Mantém o ecrã de processamento por 2s (efeito "IA a analisar")
         setTimeout(() => showStep('step-success'), 2000);
       } else {

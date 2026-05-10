@@ -284,7 +284,7 @@ function renderLeadsTable(leads) {
     const scoreClass = score >= 7 ? 'high' : score >= 4 ? 'mid' : 'low';
     const dt       = new Date(l.created_at).toLocaleDateString('pt-PT');
     const tel      = l.telefone?.replace(/\D/g,'');
-    const waLink   = tel ? `<a class="wa-link" href="https://wa.me/${tel}" target="_blank">↗ WA</a>` : '—';
+    const waLink   = tel ? `<a class="wa-link" href="https://web.whatsapp.com/send/?phone=${tel}" target="_blank" rel="noopener">↗ WA</a>` : '—';
     const iaHook   = l.ai_hook ? `<span class="ia-badge">IA</span>` : '';
     return `
       <tr>
