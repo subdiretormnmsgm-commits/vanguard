@@ -43,6 +43,15 @@
           <span class="nav-item__icon">◆</span>
           <span>Planos</span>
         </a>
+        <a class="nav-item" data-section="fractal" onclick="navigate('fractal')">
+          <span class="nav-item__icon">⬡</span>
+          <span>Fractal</span>
+          <span class="nav-item__badge">PRO</span>
+        </a>
+        <a class="nav-item" data-section="intelligence" onclick="navigate('intelligence')">
+          <span class="nav-item__icon">◈</span>
+          <span>API Keys</span>
+        </a>
       </nav>
 
       <!-- Quota bar -->
@@ -107,6 +116,19 @@
             <div class="kpi-card__label">Score Médio IA</div>
             <div class="kpi-card__value" id="kpiScoreMedio">—</div>
             <div class="kpi-card__sub">0-10</div>
+          </div>
+        </div>
+
+        <!-- Feed de Intenção — Neural Command Center -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Feed de Intenção</h2>
+            <div class="feed-live-badge"><span class="feed-pulse"></span> LIVE</div>
+          </div>
+          <div class="intention-feed" id="intentionFeed">
+            <div class="intention-feed__empty">
+              <span style="color:var(--text-muted);font-size:.85rem">Aguardando eventos em tempo real...</span>
+            </div>
           </div>
         </div>
 
@@ -249,6 +271,83 @@
         </div>
       </section>
 
+      <!-- ═══════ SECTION: FRACTAL WHITE-LABEL ═══════════════════════ -->
+      <section id="section-fractal" class="section">
+        <div class="content-block">
+          <div class="content-block__header">
+            <h2 class="content-block__title">⬡ Fractal — White-Label Engine</h2>
+            <button class="btn-sovereign" onclick="abrirModalCriarSubTenant()">+ Novo Sub-Tenant</button>
+          </div>
+
+          <!-- Fractal KPIs -->
+          <div class="kpi-grid" id="fractalKpis" style="margin-bottom:2rem">
+            <div class="kpi-card" id="fkpi-subtens">
+              <div class="kpi-card__label">Sub-Tenants Activos</div>
+              <div class="kpi-card__value" id="fractalSubsActivos">—</div>
+              <div class="kpi-card__sub">revendedores</div>
+            </div>
+            <div class="kpi-card" id="fkpi-quota">
+              <div class="kpi-card__label">Quota Cedida</div>
+              <div class="kpi-card__value" id="fractalQuotaCedida">—</div>
+              <div class="kpi-card__sub">leads/mês</div>
+            </div>
+            <div class="kpi-card" id="fkpi-mrr">
+              <div class="kpi-card__label">MRR Fractal</div>
+              <div class="kpi-card__value" id="fractalMRR">—</div>
+              <div class="kpi-card__sub">receita mensal</div>
+            </div>
+            <div class="kpi-card" id="fkpi-leads">
+              <div class="kpi-card__label">Leads Gerados</div>
+              <div class="kpi-card__value" id="fractalLeadsGerados">—</div>
+              <div class="kpi-card__sub">total rede</div>
+            </div>
+          </div>
+
+          <!-- Sub-tenants lista -->
+          <div id="fractalSubsList" class="sub-tenants-grid">
+            <div class="empty-state">
+              <div class="empty-state__icon">⬡</div>
+              <div class="empty-state__text">
+                Nenhum sub-tenant ainda.<br>
+                Crie o primeiro revendedor do seu sistema.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: INTELLIGENCE API KEYS ══════════════════════ -->
+      <section id="section-intelligence" class="section">
+        <div class="content-block">
+          <div class="content-block__header">
+            <h2 class="content-block__title">◈ Intelligence API — Keys</h2>
+            <div style="display:flex;gap:.75rem">
+              <a href="/intelligence/" target="_blank" class="btn-ghost">Ver Documentação ↗</a>
+              <button class="btn-sovereign" onclick="criarApiKey()">+ Gerar Nova Key</button>
+            </div>
+          </div>
+          <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:1.5rem">
+            As suas API keys para acesso à <strong>Vanguard Intelligence API</strong>.
+            Cada key tem hash SHA-256 — guarde o valor completo no momento da criação.
+          </p>
+
+          <div id="apiKeysList" class="api-keys-list">
+            <div class="empty-state">
+              <div class="empty-state__icon">◈</div>
+              <div class="empty-state__text">Nenhuma API key criada.<br>Crie a sua primeira key acima.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block" style="margin-top:1.5rem">
+          <div class="content-block__header">
+            <h3 class="content-block__title">Exemplo de uso</h3>
+          </div>
+          <pre class="code-block">curl -X GET "https://seudominio.com/v1/intelligence/nicho/advocacia" \
+  -H "X-Vanguard-Key: vng_live_xxxx_SEU_TOKEN"</pre>
+        </div>
+      </section>
+
       <!-- ═══════ SECTION: PLANOS ══════════════════════════════════ -->
       <section id="section-planos" class="section">
         <div class="content-block">
@@ -279,6 +378,46 @@
 
     </main>
   </div><!-- /shell -->
+
+  <!-- ═══════════════ MODAL: Criar Sub-Tenant ═══════════════════ -->
+  <div class="modal-backdrop" id="modalFractalBackdrop" onclick="fecharModalFractal()" style="display:none">
+    <div class="modal" onclick="event.stopPropagation()" style="max-width:520px">
+      <div class="modal__header">
+        <h3 class="modal__title">⬡ Novo Sub-Tenant</h3>
+        <button class="modal__close" onclick="fecharModalFractal()">✕</button>
+      </div>
+      <div class="modal__body">
+        <form id="fractalForm" onsubmit="submeterSubTenant(event)">
+          <div class="field" style="margin-bottom:1rem">
+            <label class="field__label">Nome da Agência</label>
+            <input type="text" class="field__input" id="ftNome" placeholder="Ex: Agência Prime Digital" required />
+          </div>
+          <div class="field" style="margin-bottom:1rem">
+            <label class="field__label">Email de Contacto</label>
+            <input type="email" class="field__input" id="ftEmail" placeholder="contacto@agencia.com" required />
+          </div>
+          <div class="field" style="margin-bottom:1rem">
+            <label class="field__label">Quota de Leads / mês</label>
+            <input type="number" class="field__input" id="ftQuota" value="50" min="5" max="500" required />
+          </div>
+          <div class="field" style="margin-bottom:1rem">
+            <label class="field__label">Preço Cobrado / mês (€)</label>
+            <input type="number" class="field__input" id="ftPreco" value="0" min="0" step="0.01" />
+          </div>
+          <div style="margin-bottom:1rem">
+            <label class="field__label" style="margin-bottom:.5rem;display:block">Cor Principal da Brand</label>
+            <div style="display:flex;gap:.75rem;align-items:center">
+              <input type="color" id="ftPrimary" value="#00F0FF" style="width:48px;height:36px;border:none;background:none;cursor:pointer" />
+              <input type="color" id="ftSecondary" value="#1A0B2E" style="width:48px;height:36px;border:none;background:none;cursor:pointer" />
+              <input type="color" id="ftAccent" value="#7B2FFF" style="width:48px;height:36px;border:none;background:none;cursor:pointer" />
+              <span style="font-size:.75rem;color:var(--text-muted)">Primary · Secondary · Accent</span>
+            </div>
+          </div>
+          <button type="submit" class="btn-sovereign" style="width:100%;margin-top:1rem">Criar Sub-Tenant</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══════════════ MODAL (job detail / upgrade) ═══════════════ -->
   <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()">

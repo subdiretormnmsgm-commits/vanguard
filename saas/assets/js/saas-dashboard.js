@@ -34,15 +34,19 @@ function navigate(section) {
     el.classList.toggle('active', el.id === `section-${section}`);
   });
   const titles = {
-    overview: 'Painel de Controlo',
-    scraper:  'Motor de Prospecção',
-    leads:    'Base de Leads',
-    planos:   'Planos e Assinaturas',
+    overview:     'Painel de Controlo',
+    scraper:      'Motor de Prospecção',
+    leads:        'Base de Leads',
+    planos:       'Planos e Assinaturas',
+    fractal:      'Fractal — White-Label Engine',
+    intelligence: 'Intelligence API — Keys',
   };
   document.getElementById('sectionTitle').textContent = titles[section] || '';
 
-  if (section === 'leads')  loadLeads();
-  if (section === 'planos') loadPlanos();
+  if (section === 'leads')        loadLeads();
+  if (section === 'planos')       loadPlanos();
+  if (section === 'fractal')      loadFractalDashboard();
+  if (section === 'intelligence') loadApiKeys();
 }
 
 // ── API helper ────────────────────────────────────────────────────
@@ -72,6 +76,7 @@ async function loadDashboard() {
     renderKPIs(_tenant);
     loadRecentJobs();
     subscribeRealtime(_tenant.id);
+    subscribeIntentionFeed();
   } catch (err) {
     showToast('Erro ao carregar dados: ' + err.message, 'error');
     console.error(err);
@@ -425,4 +430,277 @@ function showToast(msg, type = 'info') {
 // ── Utils ─────────────────────────────────────────────────────────
 function esc(str) {
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ═════════════════════════════════════════════════════════════════
+// V8: Feed de Intenção (Realtime intention_webhooks)
+// ═════════════════════════════════════════════════════════════════
+
+const FEED_MAX = 30;
+let _intentionSub = null;
+
+function subscribeIntentionFeed() {
+  if (_intentionSub) return;
+  _intentionSub = sb
+    .channel('intention-feed')
+    .on('postgres_changes', {
+      event:  'INSERT',
+      schema: 'public',
+      table:  'intention_webhooks',
+    }, (payload) => {
+      renderIntentionEvent(payload.new);
+    })
+    .subscribe();
+}
+
+function renderIntentionEvent(ev) {
+  const feed = document.getElementById('intentionFeed');
+  if (!feed) return;
+
+  const empty = feed.querySelector('.intention-feed__empty');
+  if (empty) empty.remove();
+
+  const typeLabels = {
+    view:           'view',
+    preview:        'preview',
+    subscribed:     'subscribed',
+    scraper_ran:    'scraper',
+    checkout_start: 'checkout',
+    add_to_cart:    'cart',
+  };
+
+  const label  = typeLabels[ev.evento] || ev.evento;
+  const ts     = new Date(ev.created_at);
+  const timeAgo = _timeAgo(ts);
+
+  const item = document.createElement('div');
+  item.className = 'intention-event';
+  item.innerHTML = `
+    <span class="intention-event__type ev-${ev.evento}">${label}</span>
+    <span class="intention-event__info">
+      <strong>${esc(ev.nicho || ev.pack_id?.slice(0,8) || '—')}</strong>
+      ${ev.cidade ? `· ${esc(ev.cidade)}` : ''}
+      ${ev.tenant_id ? `· tenant ${ev.tenant_id.slice(0,6)}` : '· anónimo'}
+    </span>
+    <span class="intention-event__time">${timeAgo}</span>`;
+
+  feed.insertBefore(item, feed.firstChild);
+
+  // Limitar tamanho do feed
+  const items = feed.querySelectorAll('.intention-event');
+  if (items.length > FEED_MAX) items[items.length - 1].remove();
+}
+
+function _timeAgo(date) {
+  const secs = Math.floor((Date.now() - date) / 1000);
+  if (secs < 10)  return 'agora';
+  if (secs < 60)  return `${secs}s`;
+  if (secs < 3600) return `${Math.floor(secs / 60)}m`;
+  return `${Math.floor(secs / 3600)}h`;
+}
+
+// ═════════════════════════════════════════════════════════════════
+// V8: Fractal White-Label
+// ═════════════════════════════════════════════════════════════════
+
+async function loadFractalDashboard() {
+  try {
+    const data = await apiCall('/fractal/dashboard');
+
+    document.getElementById('fractalSubsActivos').textContent  = data.sub_tenants.ativos;
+    document.getElementById('fractalQuotaCedida').textContent  = data.quota.cedido_subs;
+    document.getElementById('fractalMRR').textContent          = `€${data.receita_mensal_mrr.toFixed(0)}`;
+    document.getElementById('fractalLeadsGerados').textContent = data.leads_gerados_total;
+
+    renderSubTenants(data.sub_tenants_lista || []);
+  } catch (err) {
+    const grid = document.getElementById('fractalSubsList');
+    if (grid) grid.innerHTML = `<p style="color:var(--red);font-size:.85rem">Requer plano Pro ou Enterprise.</p>`;
+  }
+}
+
+function renderSubTenants(subs) {
+  const grid = document.getElementById('fractalSubsList');
+  if (!grid) return;
+
+  if (!subs.length) {
+    grid.innerHTML = `<div class="empty-state">
+      <div class="empty-state__icon">⬡</div>
+      <div class="empty-state__text">Nenhum sub-tenant ainda.<br>Crie o primeiro revendedor.</div>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = subs.map(sub => {
+    const pct = Math.round(sub.leads_usados / Math.max(sub.leads_quota, 1) * 100);
+    const brand = sub.brand_config || {};
+    return `
+    <div class="sub-tenant-card" style="--brand-primary: ${brand.primary || 'var(--cyan)'}">
+      <div class="sub-tenant-card__header">
+        <div>
+          <div class="sub-tenant-card__name">${esc(sub.nome)}</div>
+          <div class="sub-tenant-card__email">${esc(sub.email)}</div>
+        </div>
+        <span class="sub-tenant-card__status ${sub.ativo ? 'status-active' : 'status-inactive'}">
+          ${sub.ativo ? 'ATIVO' : 'INATIVO'}
+        </span>
+      </div>
+      <div class="sub-tenant-card__quota-bar">
+        <div class="sub-tenant-card__quota-fill" style="width:${pct}%"></div>
+      </div>
+      <div style="font-size:.72rem;color:var(--text-secondary);margin-bottom:.5rem">
+        ${sub.leads_usados}/${sub.leads_quota} leads · ${pct}% usado
+      </div>
+      <div class="sub-tenant-card__stats">
+        <div>
+          <div class="sub-tenant-card__stat-label">MRR</div>
+          <div class="sub-tenant-card__stat-value">€${(sub.preco_cobrado||0).toFixed(0)}</div>
+        </div>
+        <div>
+          <div class="sub-tenant-card__stat-label">Criado</div>
+          <div class="sub-tenant-card__stat-value">${new Date(sub.created_at).toLocaleDateString('pt-PT')}</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:.5rem;margin-top:1rem">
+        <button class="btn-ghost" style="flex:1;font-size:.72rem" onclick="editarBrandSubTenant('${sub.id}')">
+          🎨 Brand
+        </button>
+        <button class="btn-ghost" style="flex:1;font-size:.72rem;border-color:var(--red);color:var(--red)"
+          onclick="desactivarSubTenant('${sub.id}')">
+          ✕ Desactivar
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function abrirModalCriarSubTenant() {
+  document.getElementById('modalFractalBackdrop').style.display = 'flex';
+}
+
+function fecharModalFractal() {
+  document.getElementById('modalFractalBackdrop').style.display = 'none';
+}
+
+async function submeterSubTenant(ev) {
+  ev.preventDefault();
+  const payload = {
+    nome:          document.getElementById('ftNome').value,
+    email:         document.getElementById('ftEmail').value,
+    leads_quota:   +document.getElementById('ftQuota').value,
+    preco_cobrado: +document.getElementById('ftPreco').value,
+    brand_config: {
+      nome:      document.getElementById('ftNome').value,
+      primary:   document.getElementById('ftPrimary').value,
+      secondary: document.getElementById('ftSecondary').value,
+      accent:    document.getElementById('ftAccent').value,
+      bg:        '#0A0A0A',
+      logo_url:  '',
+    },
+  };
+
+  try {
+    await apiCall('/fractal/sub-tenants', { method: 'POST', body: JSON.stringify(payload) });
+    showToast('Sub-tenant criado com sucesso!', 'success');
+    fecharModalFractal();
+    loadFractalDashboard();
+  } catch (err) {
+    showToast('Erro: ' + err.message, 'error');
+  }
+}
+
+async function desactivarSubTenant(id) {
+  if (!confirm('Desactivar este sub-tenant?')) return;
+  try {
+    await apiCall(`/fractal/sub-tenants/${id}`, { method: 'DELETE' });
+    showToast('Sub-tenant desactivado.', 'success');
+    loadFractalDashboard();
+  } catch (err) {
+    showToast('Erro: ' + err.message, 'error');
+  }
+}
+
+function editarBrandSubTenant(id) {
+  showToast('Brand editor em breve — use a API PATCH /fractal/sub-tenants/' + id + '/brand', 'info');
+}
+
+// ═════════════════════════════════════════════════════════════════
+// V8: Intelligence API Keys
+// ═════════════════════════════════════════════════════════════════
+
+async function loadApiKeys() {
+  try {
+    const { data, error } = await sb
+      .from('api_keys')
+      .select('id,key_prefix,nome,plano,requests_mes,limite_mes,ativo,created_at')
+      .order('created_at', { ascending: false });
+
+    if (error) throw new Error(error.message);
+    renderApiKeys(data || []);
+  } catch (err) {
+    console.error('API keys:', err);
+  }
+}
+
+function renderApiKeys(keys) {
+  const list = document.getElementById('apiKeysList');
+  if (!list) return;
+
+  if (!keys.length) {
+    list.innerHTML = `<div class="empty-state">
+      <div class="empty-state__icon">◈</div>
+      <div class="empty-state__text">Nenhuma API key criada.<br>Crie a sua primeira key acima.</div>
+    </div>`;
+    return;
+  }
+
+  list.innerHTML = keys.map(k => `
+    <div class="api-key-row">
+      <div>
+        <div class="api-key-row__prefix">${esc(k.key_prefix)}_••••••••</div>
+        <div class="api-key-row__name">${esc(k.nome)}</div>
+      </div>
+      <span class="api-key-row__plano plano-${k.plano}">${k.plano.toUpperCase()}</span>
+      <span class="api-key-row__quota">${k.requests_mes} / ${k.limite_mes}</span>
+      <button class="btn-ghost" style="font-size:.72rem;color:var(--red);border-color:var(--red)"
+        onclick="revogarApiKey('${k.id}')">Revogar</button>
+    </div>`).join('');
+}
+
+async function criarApiKey() {
+  const nome = prompt('Nome da API key (ex: Produção, Teste):');
+  if (!nome || !nome.trim()) return;
+
+  try {
+    const { data: { user } } = await sb.auth.getUser();
+    const prefix  = 'vng_live_' + Math.random().toString(36).slice(2,10);
+    const token   = crypto.randomUUID().replace(/-/g,'');
+    const fullKey = `${prefix}_${token}`;
+
+    const encoder = new TextEncoder();
+    const hashBuf = await crypto.subtle.digest('SHA-256', encoder.encode(fullKey));
+    const keyHash = Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2,'0')).join('');
+
+    const { error } = await sb.from('api_keys').insert({
+      user_id:    user.id,
+      nome:       nome.trim(),
+      key_hash:   keyHash,
+      key_prefix: prefix,
+      plano:      _tenant?.plano === 'enterprise' ? 'pro' : 'free',
+    });
+
+    if (error) throw new Error(error.message);
+
+    alert(`✅ API Key gerada (guarde-a agora — não será mostrada novamente):\n\n${fullKey}`);
+    loadApiKeys();
+  } catch (err) {
+    showToast('Erro ao criar key: ' + err.message, 'error');
+  }
+}
+
+async function revogarApiKey(id) {
+  if (!confirm('Revogar esta API key? Não poderá ser recuperada.')) return;
+  await sb.from('api_keys').update({ ativo: false }).eq('id', id);
+  showToast('API key revogada.', 'success');
+  loadApiKeys();
 }
