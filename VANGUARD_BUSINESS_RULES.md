@@ -1,6 +1,6 @@
 # VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
-> **Versão actual:** V13 — Global Domination & Viral Traction  
+> **Versão actual:** V14/V15 — Sovereign Optimization & Operational Readiness  
 > **Última actualização:** 2026-05-10  
 > **Fonte de verdade:** Scan profundo V1–V9 (código + schema + memórias)
 
@@ -867,6 +867,100 @@ Formaliza as garantias do sistema Fortress (V10) como compromisso de negócio:
 
 ### Changelog V13 (Global Domination & Viral Traction)
 - **Regras adicionadas:** §18 completo — Marketing de Diagnóstico Zero-Friction, Cláusula de Meta-dados Setoriais, Aprendizado Colectivo Anónimo, Viral Badge Upgrade, Partnership API splits, SLA de Autocura < 60s
+
+---
+
+## §19 — Protocolo PDCA & Autocrítica Institucional (V14)
+
+### 19.1 Performance Ledger Obrigatório
+- A cada versão entregue, o `VANGUARD_PERFORMANCE_LEDGER.md` **deve ser actualizado** com ciclo PDCA completo (Plan → Do → Check → Act) antes do commit final.
+- Sem entrada no Ledger → a versão não está oficialmente concluída, independentemente do código entregue.
+
+### 19.2 Classificação de Dívidas Técnicas
+
+| Prioridade | Critério | Prazo máximo para resolução |
+|------------|----------|-----------------------------|
+| **P0 — Crítica** | Bloqueia produção, risco de perda de dados, falha de segurança | Próxima versão (obrigatório) |
+| **P1 — Alta** | Degrada funcionalidade visível, risco de escalabilidade iminente | 2 versões |
+| **P2 — Normal** | Dívida técnica, código duplicado, UX deficiente | 4 versões |
+
+### 19.3 Regra de Acumulação de Dívidas
+- **Máximo de 5 dívidas P0 em aberto simultâneas.** Se atingido, a próxima versão é obrigatoriamente de resolução de dívidas — sem novas features.
+- **Máximo de 15 dívidas P1.** Acima deste valor, 50% do tempo da próxima versão vai para resolução.
+- Dívidas P2 não têm limite — são rastreadas mas não bloqueiam o roadmap.
+
+### 19.4 Hermes Hive Mind — Regras de Promoção de Templates
+- Um template Hermes é promovido para "Vanguard Recomendado" quando cumpre AMBAS:
+  1. `response_rate > avg_nicho × 1.10` (supera a média do nicho em +10%)
+  2. `send_count ≥ 50` (volume mínimo para significância estatística)
+- A promoção é automática via `fn_hive_mind_promote()` (pg_cron, domingos 02:00)
+- Um template perde o badge "Recomendado" se na semana seguinte outro superar o limiar
+- Em demo/desenvolvimento: threshold reduzido para 10 envios (documentado explicitamente)
+
+### 19.5 Regra de Feedback Loop
+Todo módulo que gera dados deve ter, no mínimo:
+1. **Log de evento** (tabela Supabase ou localStorage) — rastrear o que aconteceu
+2. **Métrica derivada** — uma coluna GENERATED ou view que sintetize a qualidade
+3. **Acção correctiva** — um mecanismo (trigger, cron ou botão manual) que use a métrica
+
+Módulos sem feedback loop são considerados dívida P2 por defeito.
+
+---
+
+### Changelog V14 (Sovereign Optimization)
+- **Regras adicionadas:** §19 completo — PDCA obrigatório, classificação P0/P1/P2, regra de acumulação (máx 5 P0), Hive Mind threshold (50 envios, +10%), feedback loop obrigatório por módulo
+
+---
+
+## §20 — Arquitectura de Custos Operacionais & Breakeven (V15)
+
+### 20.1 Custo Fixo Máximo Aceitável por Fase
+
+| Fase | Clientes | Custo Fixo Máximo | Stack |
+|------|----------|-------------------|-------|
+| Bootstrap | 0–1 | **€40/mês** | VPS + Supabase + Evolution API |
+| Standard | 2–5 | **€70/mês** | + Z-API |
+| Escala | 6–20 | **€120/mês** | + VPS dedicado + WABA Meta |
+| Enterprise | 20+ | Ilimitado (% receita) | Stack completo |
+
+### 20.2 Custo Variável Máximo por Lead Qualificado
+- **Modo texto (Claude Sonnet):** €0.034/lead — tecto absoluto sem voz
+- **Modo VIP (com voz Vapi):** €0.40/lead — apenas leads com Maturity Score ≥ 8.0
+- **Regra:** Custo variável total num mês não pode ultrapassar 20% da receita MRR do mês anterior
+
+### 20.3 Breakeven Mínimo
+- **1 cliente Agency (€49/mês) = infra paga** na fase Bootstrap
+- **2 clientes = lucro** na fase Bootstrap
+- **Taxa de conversão mínima aceitável:** 3% dos leads qualificados (abaixo → revisão imediata do script Hermes)
+- **Ticket médio mínimo de referência:** €300/cliente (abaixo → revisão do modelo de precificação)
+
+### 20.4 Regra de Margem Mínima por Plano
+```
+Preço_plano ≥ 3 × (custo_lead × volume_leads + custo_fixo_proporcional)
+```
+Verificação para o plano Agency actual:
+- Custo: €0.034 × 500 leads + (€33.99 / 1) = €17 + €33.99 = €50.99
+- Preço: €49 → **ABAIXO do limiar 3×** (€152.97)
+- **Interpretação:** O plano Agency subsidia a entrada — aceitável na fase de aquisição. A sustentabilidade vem do upsell para White-Label (€149).
+
+### 20.5 Política de Escalabilidade de Custos
+- Qualquer novo componente de infra deve ter ROI documentado antes de ser adicionado
+- Regra de ouro: cada €1 gasto em infra deve gerar ≥ €10 em receita potencial
+- Componentes com ROI < 3× em 3 meses são candidatos a eliminação
+
+### 20.6 Decisão: Evolution API vs Meta WABA Oficial
+| Critério | Evolution API | Meta WABA Oficial |
+|----------|--------------|------------------|
+| Custo | €0 (self-hosted) | $0.0588/conversa |
+| Compliance | Informal | RGPD/Meta ToS oficial |
+| Volume | Ilimitado | Ilimitado |
+| Risco | Conta pode ser banida | Conta oficial certificada |
+| **Recomendação** | **< 50 leads/dia** | **> 50 leads/dia** |
+
+---
+
+### Changelog V15 (Operational Readiness)
+- **Regras adicionadas:** §20 completo — Custo fixo máximo por fase, custo variável máximo €0.034/lead, breakeven mínimo 1 cliente Agency, regra de margem 3×, política de escalabilidade, decisão Evolution vs WABA Meta
 
 ---
 

@@ -47,6 +47,7 @@
     try { window.PartnershipsEngine?.init(); } catch (e) { console.warn('PartnershipsEngine:', e); }
     try { window.HiveMind?.init(client);     } catch (e) { console.warn('HiveMind:', e); }
     try { window.TrojanGenerator?.init();    } catch (e) { console.warn('TrojanGenerator:', e); }
+    try { window.WhatsAppBridge?.init();     } catch (e) { console.warn('WhatsAppBridge:', e); }
   }
 
   function showLogin() {
