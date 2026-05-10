@@ -1,23 +1,24 @@
-DIRETRIZ ESTRATÉGICA GEMINI V9 - MULTIMODAL SOVEREIGNTY & LEAD ARBITRAGE
+DIRETRIZ ESTRATÉGICA GEMINI V11 - THE SOVEREIGN LAUNCH (IDENTITY & DOMAIN)
 
 MENSAGEM DO VISIONÁRIO GEMINI PARA O SÓCIO-ARQUITETO CLAUDE:
-Claude, o Diretor e eu convocamos sua inteligência para a Missão V9. Nossa parceria agora foca em dar "Voz" ao Hermes e "Mercado" aos nossos leads. Fundiremos minha estratégia de captação e os pilares estéticos do Diretor com seu motor de engenharia.
+Claude, a V10 provou que somos indestrutíveis. Agora, na V11, daremos um rosto e um endereço ao império. Nossa parceria foca em branding de elite e infraestrutura de produção. O Diretor escolheu o domínio vanguardtech.io e a identidade Cyber-Premium.
+
+A Vanguard deixa de ser um "projeto" para se tornar a vitrine do futuro.
 
 ---
 
-1. NÚCLEO V9 (VOZ, CERTIFICAÇÃO & ARBITRAGEM):
-- MULTIMODAL HERMES: Integre webhooks para APIs de Voz (Vapi/ElevenLabs). O Hermes deve transitar de WhatsApp para chamadas de fechamento automaticamente.
-- VANGUARD MATURITY CERTIFICATE: Crie o sistema de badges dinâmicos (SVG) e a página de verificação pública para empresas com score > 80.
-- LEAD ARBITRAGE SYSTEM: Desenvolva o Marketplace de Leads interno. Se um Tenant não atende o lead, ele vai a leilão para outros parceiros via Stripe.
+1. NÚCLEO TÉCNICO V11 (DOMÍNIO & IDENTIDADE):
+- DOMAIN BINDING (HOSTINGER): Configure o domínio vanguardtech.io e seus subdomínios (api, market, verify). Implemente SSL automático via Nginx/Certbot.
+- IDENTITY INJECTION: Implemente o Logo SVG "Neural V" no Header do PWA, na Dashboard e na geração dos Certificados. O branding deve ser consistente e Pixel Perfect.
+- PREDICTIVE ROUTING (MVP): Desenvolva a lógica de 'Match Score' entre leads e tenants baseada no histórico de conversão e nicho.
 
-2. GESTÃO DE CONHECIMENTO & DESIGN:
-- DESIGN: O Dashboard deve ser o "Neural Command Center". Exijo visualizações 3D de dados e radar de leads (Cyber-Cyan on Obsidian).
-- VANGUARD_KNOWLEDGE_GRAPH.md: Atualize o mapa mestre. Nada da arquitetura de arbitragem deve se perder.
-- TODO_FUTURE.md: Catalogue os lampejos de genialidade para a V10.
+2. MANUTENÇÃO & RESILIÊNCIA (REGRAS DA CONSTITUIÇÃO):
+- Mantenha o Fortress Health Monitor ativo. Se o site principal cair, o sistema de alertas via Webhook deve notificar o Diretor instantaneamente.
+- VANGUARD_BUSINESS_RULES.md: Adicione o capítulo "Identidade e Presença Digital" com as regras de uso da marca e domínios.
 
 3. INSTRUÇÕES PARA A FORJA (NOTEBOOKLM / CLAUDE CODE):
-- [NOTEBOOKLM]: Gere a Skill vanguard-v9-arbitrage.md com foco em fluxos multimodais e economia interna.
-- [CLAUDE CODE]: Use sua inteligência motriz. Se vir uma falha na lógica de leilão ou no design do certificado, execute a melhoria como dono do projeto.
+- [NOTEBOOKLM]: Gere a Skill vanguard-v11-launch.md focada em Nginx config, SSL e injeção de assets de marca.
+- [CLAUDE CODE]: Use sua inteligência motriz. O design do site principal deve ser o nosso maior ativo de venda. Execute como o dono da marca.
 
 MENSAGEM FINAL:
-Claude, ao concluir, proponha as suas 4 IDEIAS DISRUPTIVAS para a V10. Vamos pensar juntos. Avance!
+Claude, exijo suas 4 IDEIAS DISRUPTIVAS para a V12 ao concluir. O mundo está prestes a nos conhecer. Avance!

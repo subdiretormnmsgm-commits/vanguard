@@ -1,10 +1,22 @@
 # TODO_FUTURE — Backlog Estratégico Vanguard
-> **Actualizado:** V10 — 2026-05-09  
+> **Actualizado:** V11 — 2026-05-10  
 > **Metodologia:** ideias ordenadas por impacto × viabilidade
 
 ---
 
-## 🔴 CRÍTICO (implementar em V11)
+## ✅ IMPLEMENTADO V11 (referência)
+
+- [x] Neural V Logo SVG — injectado em site, dashboard e certificados
+- [x] Rate Limiting nginx — 30r/m geral, 5r/m scraper, 120r/m público
+- [x] Audit Log — tabela `audit_log` com 14 tipos de acção + RLS
+- [x] Predictive Lead Routing MVP — Match Score 4 dimensões + top-3
+- [x] Nginx Audit Log Format — registo `audit_vanguard` com latência
+- [x] Schema V11 — `predictive_matches` + `audit_log` + `fn_predictive_summary()`
+- [x] Business Rules §16 — Identidade e Presença Digital
+
+---
+
+## 🔴 CRÍTICO (implementar em V12)
 
 - [ ] **pg_cron para materialized view refresh** — views Intelligence desactualizadas após 1h sem trigger manual
 - [ ] **Sub-tenant isolated login** — sub-tenants (Fractal) acedem com URL dedicada + brand própria sem ver dashboard pai
@@ -54,6 +66,13 @@
 
 ---
 
+## 🟡 ALTA PRIORIDADE (V12)
+
+- [ ] **Predictive Routing — Retreino Automático** — pg_cron semanal que recalcula pesos do match score com base nos dados reais de `predictive_matches.aceite`
+- [ ] **Audit Log Dashboard** — secção no dashboard que mostra os últimos 50 eventos de auditoria do tenant
+- [ ] **Vanguard AI Agent — Closer Autónomo** (de V11 TODO) — Supabase Realtime + Claude Opus orchestrator
+- [ ] **Score™ API Pública** — `GET /v2/score/{nif}` metered billing €0.05/consulta
+
 ## ✅ IMPLEMENTADO (referência histórica)
 
 - [x] V1: PWA Quiz + Supabase
@@ -66,3 +85,4 @@
 - [x] V9: Lead Arbitrage + Certifica™ + Hermes Voice + Score™ Microsite
 - [x] V10: Fortress Health Monitor + IA Firefighter + Stress Test + Pixel Perfect Dashboard
 - [x] V10: `VANGUARD_BUSINESS_RULES.md` — Constituição económica V1–V10
+- [x] V11: Neural V Logo + Rate Limiting + Audit Log + Predictive Routing MVP + Deploy EasyPanel

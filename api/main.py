@@ -281,8 +281,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title='Vanguard SaaS API Bridge V10 — The Sovereign Fortress',
-    version='10.0.0',
+    title='Vanguard SaaS API Bridge V11 — The Sovereign Launch',
+    version='11.0.0',
     docs_url='/api/docs',
     redoc_url=None,
     lifespan=lifespan,
@@ -373,6 +373,15 @@ try:
     log.info('Fortress router registado (/api/fortress/).')
 except ImportError as e:
     log.warning(f'fortress.py não encontrado: {e}')
+
+# ─── V11: Predictive Lead Routing ─────────────────────────────────────────────
+try:
+    from predictive import make_predictive_router
+    predictive_router = make_predictive_router(SUPABASE_URL, SUPABASE_SERVICE_KEY, autenticar)
+    app.include_router(predictive_router)
+    log.info('Predictive Routing router registado (/api/arbitrage/suggest/).')
+except ImportError as e:
+    log.warning(f'predictive.py não encontrado: {e}')
 
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
@@ -702,8 +711,8 @@ async def stripe_webhook(request: Request):
 async def health():
     return {
         'status':  'ok',
-        'service': 'Vanguard API Bridge V10 — The Sovereign Fortress',
-        'version': '10.0.0',
+        'service': 'Vanguard API Bridge V11 — The Sovereign Launch',
+        'version': '11.0.0',
         'ts':       datetime.utcnow().isoformat(),
         'stripe':   bool(STRIPE_SECRET_KEY),
         'supabase': bool(SUPABASE_URL),

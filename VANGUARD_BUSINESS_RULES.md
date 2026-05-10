@@ -1,7 +1,7 @@
 # VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
-> **Versão actual:** V10 — The Sovereign Fortress  
-> **Última actualização:** 2026-05-09  
+> **Versão actual:** V11 — The Sovereign Launch  
+> **Última actualização:** 2026-05-10  
 > **Fonte de verdade:** Scan profundo V1–V9 (código + schema + memórias)
 
 ---
@@ -709,6 +709,50 @@ Gerado por `AuditorIA.auditar(nome, nicho, html, score)`:
 
 ### V9 (Sovereign Economy)
 - **Regras adicionadas:** COMISSAO_VANGUARD = 0.30 (arbitragem), lance_minimo = max(preco_base, maior_lance + €0.50), privacidade no mercado (só preview), Certificação score≥8.0 níveis 4, badge SVG cache 1h, reivindicação pública sem auth, Hermes persona por tenant, variantes A/B com taxa gerada, Vapi sem key → modo simulada
+
+### V10 (Sovereign Fortress)
+- **Regras adicionadas:** Health check 5 serviços em paralelo (asyncio.gather), overall=critical dispara webhook Director, IA Firefighter Claude Haiku retorna JSON estruturado, Stress Test Protocol ≥99% + p95<500ms = FORTRESS IMPENETRÁVEL, 3 novas tabelas (system_incidents, health_checks_log, stress_test_results)
+
+### V11 (Sovereign Launch — Identidade e Presença Digital)
+- **Regras adicionadas:** Ver §16 abaixo.
+
+---
+
+## §16 — Identidade e Presença Digital (V11)
+
+### 16.1 Logo Neural V — Regras de Uso da Marca
+- O Logo "Neural V" é o símbolo oficial da Vanguard Tech. Consiste numa geometria em V com gradiente Cyber Cyan (#00F0FF) → Deep Purple (#7B2FFF) e nodes neurais nos vértices e midpoints.
+- **Onde é obrigatório:** Navbar do site principal, sidebar do dashboard SaaS, badges SVG Certifica™, todos os documentos oficiais e relatórios de tenant.
+- **Proibido:** distorcer as proporções, alterar as cores, usar sobre fundo branco sem wrapper escuro, remover o efeito glow.
+- **Ficheiro canónico:** `saas/assets/img/logo-neural-v.svg` — este ficheiro é a fonte de verdade da marca.
+
+### 16.2 Domínio e Subdomínios
+- **Domínio principal:** `vanguardtech.io`
+- **Subdomínios reservados:**
+  - `api.vanguardtech.io` → API Bridge (porta 9000)
+  - `market.vanguardtech.io` → Marketplace Dark Bazaar
+  - `verify.vanguardtech.io` → Verificação pública de Certificados
+  - `n8n.vanguardtech.io` → Painel n8n (acesso interno)
+- **HTTPS obrigatório** em todos os domínios em produção (Let's Encrypt via EasyPanel/Traefik).
+
+### 16.3 Rate Limiting — Política de Protecção
+- **Endpoint geral `/api/`:** 30 req/min por IP (burst 10)
+- **Endpoint scraper `/api/scraper`:** 5 req/min por IP (burst 2) — custo computacional alto
+- **Endpoint público `/v1/`:** 120 req/min por IP
+- **Resposta excedida:** HTTP 429 com header `X-RateLimit-Policy`
+- **Regra de negócio:** o rate limiting é por IP, não por tenant — tenants com muitos utilizadores devem usar API Keys da Intelligence API.
+
+### 16.4 Predictive Lead Routing — Regras do Match Score
+- **Fórmula:** Match Score = 40% nicho_match + 35% taxa_conversao + 15% score_tenant + 10% quota_livre
+- **Top-3:** o sistema retorna sempre os 3 melhores tenants, nunca apenas 1 (evita monopolização)
+- **Persistência:** cada sugestão é gravada em `predictive_matches` para retreino futuro
+- **Privacidade:** o lead-owner só vê o match score, não os dados internos do tenant sugerido
+
+### 16.5 Auditoria de Dados
+- Toda operação sensível gera entrada em `audit_log` (14 tipos de acção definidos)
+- Logs de auditoria são imutáveis (RLS: apenas service_role pode inserir)
+- Nginx regista todas as requests em formato `audit_vanguard` com timestamp ISO, IP, status, latência
+- Retenção recomendada: 90 dias em produção
 
 ---
 
