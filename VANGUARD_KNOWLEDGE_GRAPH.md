@@ -517,4 +517,66 @@ Relatórios de Clientes da Agência (com dados Vanguard)
 |-------|-------|
 | `vanguard_partners` | JSON array de parceiros (demo + adicionados pelo admin) |
 
-*Mapa gerado por Claude Sonnet 4.6 — Arquitecto de IA Supremo — V13 Global Domination*
+---
+
+## 15. V14 — Sovereign Optimization
+
+### Novos Ficheiros V14
+| Ficheiro | Propósito |
+|----------|-----------|
+| `VANGUARD_PERFORMANCE_LEDGER.md` | Livro de Razão PDCA: hipóteses V11-V13, resultados, métricas, dívidas técnicas |
+| `infra/schema_v14_hive_mind.sql` | Schema: `hermes_templates` + `hermes_outbound_log` + `agency_partners` + `fn_hive_mind_promote()` + view `v_hive_mind_performance` |
+| `js/hive-mind.js` | Hive Mind UI: tabela de performance de templates + log de envios/respostas + promoção automática |
+| `js/trojan-generator.js` | Trojan Generator V1: PNG de alto impacto via html2canvas para envio WhatsApp |
+| `memorias/MEMORIA_14_OPTIMIZATION.md` | Documentação técnica V14 |
+| `relatorio_evolutivo_v14.md` | Relatório + 4 ideias V15 |
+
+### Correcções de Escalabilidade V14
+| Problema | Fix |
+|---------|-----|
+| `SELECT *` sem LIMIT no dashboard | `LIMIT 200` + constante `LEADS_PAGE_SIZE` |
+| Engine inits sem error boundary | `try/catch` em todos os `window.Module?.init()` |
+| `fn_hive_mind_promote()` | pg_cron semanal + lógica auto-promoção por threshold |
+| Parceiros em localStorage | Schema `agency_partners` no Supabase (SQL pronto) |
+
+### Fluxo de Dados de Retroalimentação (PDCA Loop)
+
+```
+Acção do Utilizador (envio Hermes)
+    │
+    ▼
+hermes_outbound_log ← INSERT (template_id, nicho, sent_at)
+    │
+    │ (resposta recebida)
+    ▼
+hermes_outbound_log ← UPDATE (responded_at, outcome='responded')
+    │
+    ▼ (pg_cron domingo 02:00)
+fn_hive_mind_promote(nicho)
+    ├── Calcula response_rate por template
+    ├── Compara com média do nicho
+    └── Promove melhor template → is_vanguard_recommended = TRUE
+    │
+    ▼
+v_hive_mind_performance (VIEW)
+    │
+    ▼
+HiveMind.init() → Cockpit mostra template recomendado
+    │
+    ▼ (próximo envio)
+Utilizador usa template recomendado → taxa_resposta sobe
+    │
+    └── Loop fecha: dados → análise → promoção → utilização → mais dados
+```
+
+### Dynamic HUD Alert Logic (V14)
+```
+renderDynamicAlerts(leads)
+    ├── vips.length > 0     → ALERT "🔴 N leads VIP aguardam contacto imediato"
+    ├── todayN > 5          → INFO  "⚡ Dia de alta actividade — N leads hoje"
+    └── avgScore < 50       → WARN  "📊 Score médio baixo — oportunidade upsell"
+    │
+    └── Alertas injectados entre KPI grid e secção de Mapa de Calor
+```
+
+*Mapa gerado por Claude Sonnet 4.6 — Arquitecto de IA Supremo — V14 Sovereign Optimization*
