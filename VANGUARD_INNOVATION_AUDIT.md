@@ -17,6 +17,28 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 
 
 
+## [ID-006] — Edge Domination & IAH Factory (V19)
+
+**Data:** 2026-05-10
+**Missão:** Início da V19 — Total Disintermediation. Infraestrutura de Edge Middleware.
+**Transição Estratégica:** De SaaS instalável para infraestrutura invisível — o tráfego do cliente passa nativamente pela Vanguard sem uma linha de código no servidor deles.
+
+**O que foi construído:**
+- `cloudflare/federation-proxy.js` — Cloudflare Worker com HTMLRewriter: proxy transparente que injeta Sovereign Pixel + Authority Badge + modal Exit Intent (exclusivo para leads FIRE) em qualquer site via Custom Hostnames / SSL for SaaS. Zero código no cliente.
+- `scripts/iah-clone.ps1` — CLI de clonagem IAH Factory: provisiona instância Vanguard completa para franqueadoras e redes (nicho, branding, Supabase tenant, CNAME). Um comando = monopólio de nicho clonado.
+- `infra/schema_v19.sql` — Migrations críticas: `leads_diagnostico.metadata` JSONB + `tenant_subscriptions` + `maturity_scores` view.
+- `js/burn-rate-shield.js` — Motor de Maturity Score: Hermes Voice só activa para leads com score > 8.5 (§21 Burn Rate Shield).
+
+**Fundação reutilizada (Conexão Histórica):**
+- `cloudflare/pixel-worker.js` (V17): arquitectura Worker + CORS + Supabase REST reutilizada
+- `pixel_events_staging` UNLOGGED (V16): fonte de dados para Maturity Score engine
+- `brand-config.js` (V5): sistema de white-label reutilizado no IAH Factory
+- `prospectar.ps1` (V17): modelo de script PowerShell para iah-clone.ps1
+
+**Lock-in gerado:** A infraestrutura Edge torna-nos literalmente invisíveis e irremovíveis — o tráfego do cliente já passa por nós antes de qualquer decisão de "cancelar".
+
+---
+
 ## [ID-005] — Recurrence Singularity Engine (V18)
 
 **Data:** 2026-05-10  
