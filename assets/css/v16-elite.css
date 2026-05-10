@@ -1,0 +1,511 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   VANGUARD V16 — CYBER-ELITE DESIGN SYSTEM
+   "Visual Authority" — Deep Obsidian + Ion Gold
+   Três elementos visuais do Conselho:
+     1. Monolithic Glass Panels  — peso de cofre suíço
+     2. Cryptographic Glitch Data — cifragem visual antes de revelar dados
+     3. Gold-Laced Neural Grid  — pulso da rede B2B em tempo real
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── TOKENS V16 — Ion Gold sobrepõe Cyber Cyan no dashboard ─────────── */
+:root {
+  /* Ion Gold — a cor do poder institucional */
+  --gold:           #C5A028;
+  --gold-dim:       rgba(197, 160, 40, 0.18);
+  --gold-glow:      rgba(197, 160, 40, 0.45);
+  --gold-border:    rgba(197, 160, 40, 0.35);
+  --gold-rgb:       197, 160, 40;
+
+  /* Deep Obsidian — mais profundo que o V15 */
+  --obsidian:       #0A0802;
+  --obsidian-panel: #100E09;
+  --obsidian-lift:  #16130C;
+
+  /* Glass panel — peso máximo */
+  --glass-elite:       rgba(16, 14, 9, 0.94);
+  --glass-elite-blur:  blur(28px) saturate(120%);
+  --glass-elite-shadow: 0 8px 48px rgba(0,0,0,0.72), 0 2px 8px rgba(197,160,40,0.08);
+
+  /* Borda élite: finíssima, 0.5px, Gold pulsante */
+  --border-elite: 0.5px solid rgba(197, 160, 40, 0.4);
+
+  /* Transições institucionais — mais lentas, mais pesadas */
+  --t-elite-base: 360ms cubic-bezier(0.16, 1, 0.3, 1);
+  --t-elite-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── KEYFRAMES ─────────────────────────────────────────────────────── */
+
+/* Gold border pulse — bordas vivas mas contidas */
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197,160,40,0), var(--glass-elite-shadow); }
+  50%       { box-shadow: 0 0 18px 1px rgba(197,160,40,0.15), var(--glass-elite-shadow); }
+}
+
+/* Shimmer Ion Gold na borda superior */
+@keyframes goldShimmer {
+  0%   { background-position: -300% center; }
+  100% { background-position:  300% center; }
+}
+
+/* Glitch Cipher — caracteres aleatórios em Gold antes do dado real */
+@keyframes cipherReveal {
+  0%   { opacity: 1; content: attr(data-cipher-0); color: var(--gold); }
+  10%  { content: attr(data-cipher-1); }
+  20%  { content: attr(data-cipher-2); }
+  30%  { content: attr(data-cipher-3); }
+  40%  { content: attr(data-cipher-4); }
+  50%  { content: attr(data-cipher-5); letter-spacing: 0.08em; }
+  60%  { content: attr(data-cipher-6); letter-spacing: 0.04em; }
+  70%  { content: attr(data-cipher-7); color: rgba(197,160,40,0.7); }
+  80%  { content: attr(data-cipher-8); color: rgba(197,160,40,0.4); }
+  90%  { content: attr(data-cipher-9); color: rgba(197,160,40,0.2); }
+  100% { opacity: 1; color: inherit; }
+}
+
+/* Scan line dourada vertical para o Neural Grid */
+@keyframes goldScan {
+  0%   { transform: translateX(-100%) scaleY(1); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateX(100vw) scaleY(1); opacity: 0; }
+}
+
+/* Pulse dot dourado */
+@keyframes goldDot {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50%       { transform: scale(1.6); opacity: 0.3; }
+}
+
+/* Entrada de painel monolítico */
+@keyframes eliteSlideIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.988); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+/* Thread dourada percorrendo a Neural Grid */
+@keyframes neuralThread {
+  0%   { stroke-dashoffset: 1000; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* ─── 1. MONOLITHIC GLASS PANELS ─────────────────────────────────────── */
+
+.elite-panel {
+  position: relative;
+  background: var(--glass-elite);
+  backdrop-filter: var(--glass-elite-blur);
+  -webkit-backdrop-filter: var(--glass-elite-blur);
+  border: var(--border-elite);
+  border-radius: 10px;
+  box-shadow: var(--glass-elite-shadow);
+  overflow: hidden;
+  animation: eliteSlideIn 0.6s var(--t-elite-base) both, goldPulse 6s ease-in-out infinite;
+  transition: border-color var(--t-elite-base), box-shadow var(--t-elite-base);
+}
+
+/* Linha shimmer Ion Gold no topo — assinatura visual do painel */
+.elite-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent     0%,
+    var(--gold)    35%,
+    #F0C84A       50%,
+    var(--gold)    65%,
+    transparent   100%
+  );
+  background-size: 300% 100%;
+  animation: goldShimmer 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Reflexo sutil na base — profundidade do cofre */
+.elite-panel::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40px;
+  background: linear-gradient(to top, rgba(197,160,40,0.03), transparent);
+  pointer-events: none;
+}
+
+.elite-panel:hover {
+  border-color: rgba(197, 160, 40, 0.65);
+  box-shadow: 0 12px 64px rgba(0,0,0,0.8), 0 0 24px rgba(197,160,40,0.12);
+}
+
+/* Variante com cantos HUD */
+.elite-panel--hud .elite-corner {
+  position: absolute;
+  width: 16px; height: 16px;
+  border-color: rgba(197, 160, 40, 0.6);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 2;
+}
+.elite-panel--hud .elite-corner--tl { top: 8px; left: 8px; border-width: 1.5px 0 0 1.5px; }
+.elite-panel--hud .elite-corner--tr { top: 8px; right: 8px; border-width: 1.5px 1.5px 0 0; }
+.elite-panel--hud .elite-corner--bl { bottom: 8px; left: 8px; border-width: 0 0 1.5px 1.5px; }
+.elite-panel--hud .elite-corner--br { bottom: 8px; right: 8px; border-width: 0 1.5px 1.5px 0; }
+
+/* Painel KPI — variante compacta */
+.elite-kpi {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.elite-kpi__label {
+  font-family: var(--ff-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(197, 160, 40, 0.55);
+}
+
+.elite-kpi__value {
+  font-family: var(--ff-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(197,160,40,0.4));
+}
+
+.elite-kpi__sub {
+  font-family: var(--ff-body);
+  font-size: 0.72rem;
+  color: rgba(240, 237, 232, 0.45);
+}
+
+/* ─── 2. CRYPTOGRAPHIC GLITCH DATA ──────────────────────────────────── */
+
+/*
+  Uso: <span class="cipher-reveal" data-real="7.4M">████████</span>
+  JS (crypto-glitch.js) detecta .cipher-reveal e injeta atributos
+  data-cipher-0 … data-cipher-9 com strings aleatórias de hex/matrix.
+  A pseudo-animação via CSS transitions + JS classList cria o efeito.
+*/
+
+.cipher-reveal {
+  position: relative;
+  display: inline-block;
+  font-family: var(--ff-mono);
+}
+
+/* Estado: cifrando */
+.cipher-reveal.is-ciphering {
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+/* Estado: revelado */
+.cipher-reveal.is-revealed {
+  color: inherit;
+  transition: color 0.4s ease;
+}
+
+/* Partícula de ruído dourado durante o cipher */
+.cipher-reveal.is-ciphering::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 6px,
+    rgba(197,160,40,0.04) 6px,
+    rgba(197,160,40,0.04) 7px
+  );
+  pointer-events: none;
+  animation: goldPulse 0.2s ease-in-out infinite;
+}
+
+/* ─── 3. GOLD-LACED NEURAL GRID ──────────────────────────────────────── */
+
+/* Container do War Room — posiciona a canvas de grid atrás do conteúdo */
+.neural-grid-host {
+  position: relative;
+  isolation: isolate;
+}
+
+/* A canvas é posicionada por JS (neural-grid.js) como ::before do host */
+.neural-grid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;  /* 3% — pulso sutil, não distrai */
+  transition: opacity 0.8s ease;
+}
+
+/* Quando um webhook dispara — pulso momentâneo de visibilidade */
+.neural-grid-canvas.is-pulsing {
+  opacity: 0.12;
+  transition: opacity 0.15s ease-out;
+}
+
+/* O conteúdo do War Room fica acima da grid */
+.neural-grid-host > *:not(.neural-grid-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Thread de ouro — elemento SVG animado pelo JS sobre a canvas */
+.neural-thread {
+  position: absolute;
+  pointer-events: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 1000;
+  animation: neuralThread 2.2s ease-out forwards;
+}
+
+/* ─── TYPOGRAPHY INSTITUCIONAL ──────────────────────────────────────── */
+
+.elite-heading {
+  font-family: var(--ff-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(197, 160, 40, 0.65);
+}
+
+.elite-label {
+  font-family: var(--ff-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(197, 160, 40, 0.4);
+}
+
+/* Status dot dourado */
+.elite-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: goldDot 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ─── BOTÕES ÉLITE ──────────────────────────────────────────────────── */
+
+.btn--elite {
+  background: transparent;
+  border: 0.5px solid var(--gold-border);
+  color: var(--gold);
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--t-elite-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--elite::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(197,160,40,0.08), transparent);
+  opacity: 0;
+  transition: opacity var(--t-elite-base);
+}
+
+.btn--elite:hover {
+  border-color: rgba(197, 160, 40, 0.75);
+  box-shadow: 0 0 16px rgba(197,160,40,0.2), inset 0 0 8px rgba(197,160,40,0.05);
+  color: #F0C84A;
+}
+.btn--elite:hover::before { opacity: 1; }
+
+.btn--elite-solid {
+  background: linear-gradient(135deg, #C5A028, #8B7019);
+  border: none;
+  color: #0A0802;
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.65rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(197,160,40,0.35);
+  transition: all var(--t-elite-base);
+}
+.btn--elite-solid:hover {
+  background: linear-gradient(135deg, #D4B030, #A08020);
+  box-shadow: 0 6px 32px rgba(197,160,40,0.5);
+  transform: translateY(-1px);
+}
+
+/* ─── PIXEL DASHBOARD — SECÇÃO V16 ──────────────────────────────────── */
+
+.pixel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.pixel-card {
+  padding: 1.25rem;
+}
+
+.pixel-card__domain {
+  font-family: var(--ff-mono);
+  font-size: 0.78rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pixel-card__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.pixel-metric {
+  text-align: center;
+}
+
+.pixel-metric__val {
+  font-family: var(--ff-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+
+.pixel-metric__label {
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(197,160,40,0.4);
+}
+
+/* Fire sessions — destaque máximo */
+.pixel-metric--fire .pixel-metric__val {
+  color: #FF6B35;
+  filter: drop-shadow(0 0 6px rgba(255,107,53,0.5));
+}
+
+/* ─── BADGE EMBED PREVIEW ───────────────────────────────────────────── */
+
+.badge-preview-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(197,160,40,0.04);
+  border: 0.5px solid rgba(197,160,40,0.15);
+  border-radius: 6px;
+}
+
+.badge-embed-code {
+  font-family: var(--ff-mono);
+  font-size: 0.68rem;
+  color: rgba(197,160,40,0.7);
+  background: rgba(0,0,0,0.4);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 0.5px solid rgba(197,160,40,0.2);
+  word-break: break-all;
+  flex: 1;
+  user-select: all;
+  cursor: copy;
+}
+
+/* ─── STRIPE CONNECT SECTION ────────────────────────────────────────── */
+
+.connect-tier {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 0.5px solid rgba(197,160,40,0.08);
+}
+
+.connect-tier:last-child { border-bottom: none; }
+
+.connect-tier__price {
+  font-family: var(--ff-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 72px;
+}
+
+.connect-tier__name {
+  font-family: var(--ff-body);
+  font-size: 0.82rem;
+  color: rgba(240,237,232,0.8);
+  font-weight: 600;
+}
+
+.connect-tier__desc {
+  font-size: 0.72rem;
+  color: rgba(240,237,232,0.4);
+  margin-top: 0.15rem;
+}
+
+/* ─── OVERRIDE: cockpit body com Obsidian V16 ───────────────────────── */
+.cockpit-body {
+  background: var(--obsidian);
+}
+
+.cockpit__header {
+  background: rgba(10,8,2,0.96);
+  border-bottom: 0.5px solid rgba(197,160,40,0.2);
+  backdrop-filter: blur(20px);
+}
+
+/* Redefinir hud-card para usar Gold no dashboard cockpit */
+.cockpit-body .hud-card {
+  background: var(--glass-elite);
+  border: var(--border-elite);
+  box-shadow: var(--glass-elite-shadow);
+}
+
+.cockpit-body .hud-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197,160,40,0.5) 40%,
+    rgba(197,160,40,0.5) 60%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  animation: goldShimmer 5s ease-in-out infinite;
+}
+
+/* Bento cells no tema Gold */
+.cockpit-body .bento-cell {
+  background: var(--glass-elite);
+  border: var(--border-elite);
+}
+
+.cockpit-body .bento-kpi__value {
+  color: var(--gold);
+}

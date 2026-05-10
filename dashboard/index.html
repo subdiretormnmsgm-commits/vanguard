@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cockpit — Vanguard Tech</title>
+  <title>Cockpit V16 — Vanguard Sovereign Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/hud.css">
+  <link rel="stylesheet" href="/assets/css/v16-elite.css">
   <link rel="stylesheet" href="/dashboard/dashboard.css">
   <script src="/assets/js/neural-v-logo.js"></script>
 </head>
@@ -212,6 +213,177 @@
 
   </div><!-- /.cockpit -->
 
+  <!-- ═══ VANGUARD PIXEL STAGING — DASHBOARD V16 ═══ -->
+  <section class="cockpit__section" id="cockpit-pixel">
+    <div class="cockpit-hud-frame neural-grid-host" data-label="PIXEL V16" style="margin-bottom:var(--sp-3);">
+      <h2 class="cockpit__section-title elite-heading" style="margin-bottom:0;">
+        <span class="elite-dot" aria-hidden="true"></span>
+        Vanguard Pixel · Staging Engine
+        <span style="font-size:.6rem;letter-spacing:.15em;color:rgba(197,160,40,0.4);margin-left:auto;font-family:var(--ff-mono);">V17 READY</span>
+      </h2>
+    </div>
+
+    <!-- Neural Grid War Room — fundo animado -->
+    <div class="elite-panel neural-grid-host" style="padding:1.5rem;position:relative;">
+      <div class="elite-panel--hud">
+        <span class="elite-corner elite-corner--tl"></span>
+        <span class="elite-corner elite-corner--tr"></span>
+        <span class="elite-corner elite-corner--bl"></span>
+        <span class="elite-corner elite-corner--br"></span>
+      </div>
+
+      <!-- KPIs de hoje com Cipher Reveal -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem;">
+        <div class="elite-kpi">
+          <span class="elite-kpi__label">Pixels Activos</span>
+          <span class="elite-kpi__value cipher-reveal" data-real="—" id="px-active">—</span>
+          <span class="elite-kpi__sub">Sites monitorados</span>
+        </div>
+        <div class="elite-kpi">
+          <span class="elite-kpi__label">Eventos Hoje</span>
+          <span class="elite-kpi__value cipher-reveal" data-real="—" id="px-events">—</span>
+          <span class="elite-kpi__sub">Total staging</span>
+        </div>
+        <div class="elite-kpi">
+          <span class="elite-kpi__label" style="color:rgba(255,107,53,0.7);">🔥 FIRE Sessions</span>
+          <span class="elite-kpi__value cipher-reveal" style="color:#FF6B35;" data-real="—" id="px-fire">—</span>
+          <span class="elite-kpi__sub">Intenção máxima</span>
+        </div>
+        <div class="elite-kpi">
+          <span class="elite-kpi__label">Intent Score Médio</span>
+          <span class="elite-kpi__value cipher-reveal" data-real="—" id="px-score">—</span>
+          <span class="elite-kpi__sub">0–10 escala</span>
+        </div>
+      </div>
+
+      <!-- Grid de pixels instalados -->
+      <div class="pixel-grid" id="pixel-grid">
+        <div class="elite-panel pixel-card" style="opacity:.5;">
+          <div class="pixel-card__domain">
+            <span class="elite-dot"></span>
+            <span>A aguardar instalação do pixel V17...</span>
+          </div>
+          <p style="font-size:.72rem;color:rgba(197,160,40,0.45);line-height:1.6;margin-top:.5rem;">
+            O Vanguard Pixel é instalado nos sites dos clientes finais para captar
+            sinais de intenção em tempo real. Schema de staging preparado e aguarda
+            instalação massiva na V17.
+          </p>
+          <div style="margin-top:1rem;">
+            <span style="font-family:var(--ff-mono);font-size:.62rem;color:rgba(197,160,40,0.3);letter-spacing:.2em;">
+              PIXEL TOKEN:
+            </span>
+            <code style="font-family:var(--ff-mono);font-size:.68rem;color:rgba(197,160,40,0.6);display:block;margin-top:.3rem;word-break:break-all;background:rgba(0,0,0,.4);padding:.4rem .6rem;border-radius:4px;border:.5px solid rgba(197,160,40,.15);">
+              &lt;script src="https://vanguardtech.io/pixel.js?t=SEU_TOKEN"&gt;&lt;/script&gt;
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOVEREIGN ENGINE — STRIPE CONNECT & OPEN DATA EXCHANGE ═══ -->
+  <section class="cockpit__section" id="cockpit-stripe">
+    <div class="cockpit-hud-frame" data-label="OPEN DATA EXCHANGE" style="margin-bottom:var(--sp-3);">
+      <h2 class="cockpit__section-title elite-heading" style="margin-bottom:0;">
+        <span class="elite-dot" style="background:#C5A028;" aria-hidden="true"></span>
+        Sovereign Engine · Stripe Connect & Licenças
+      </h2>
+    </div>
+
+    <div class="elite-panel" style="padding:0;overflow:hidden;">
+      <!-- Header -->
+      <div style="padding:1.25rem 1.5rem;border-bottom:.5px solid rgba(197,160,40,0.12);">
+        <p style="font-size:.78rem;color:rgba(240,237,232,.6);line-height:1.6;">
+          Open Data Exchange · Venda de licenças e auditorias via Stripe Connect.
+          A plataforma Vanguard retém <strong style="color:var(--gold,#C5A028);">30%</strong> de todas as transacções dos tenants.
+        </p>
+      </div>
+
+      <!-- Tiers de produto -->
+      <div class="connect-tier">
+        <div>
+          <div class="connect-tier__price">R$ 270<span style="font-size:.7rem;font-weight:400;opacity:.6;">/mês</span></div>
+        </div>
+        <div style="flex:1;">
+          <div class="connect-tier__name">Standard License</div>
+          <div class="connect-tier__desc">Cockpit completo: Scanner, Outbound, Hive Mind, War Room</div>
+        </div>
+        <button class="btn--elite" onclick="stripeCheckout('license_standard')">Activar →</button>
+      </div>
+      <div class="connect-tier">
+        <div>
+          <div class="connect-tier__price">R$ 50<span style="font-size:.7rem;font-weight:400;opacity:.6;">/scan</span></div>
+        </div>
+        <div style="flex:1;">
+          <div class="connect-tier__name">Auditoria Unitária</div>
+          <div class="connect-tier__desc">Relatório PDF Cyber-Premium por empresa · Revenda possível</div>
+        </div>
+        <button class="btn--elite" onclick="stripeCheckout('audit_unit')">Comprar →</button>
+      </div>
+      <div class="connect-tier">
+        <div>
+          <div class="connect-tier__price" style="color:#FF6B35;">R$ 1.650<span style="font-size:.7rem;font-weight:400;opacity:.6;">/mês</span></div>
+        </div>
+        <div style="flex:1;">
+          <div class="connect-tier__name" style="color:#FF6B35;">Open Data Exchange ◆ ELITE</div>
+          <div class="connect-tier__desc">Intelligence API + Pixel Analytics + Sinais de Intenção B2B</div>
+        </div>
+        <button class="btn--elite-solid" onclick="stripeCheckout('license_elite')">Acesso Elite →</button>
+      </div>
+
+      <!-- Onboarding Connect para tenants -->
+      <div style="padding:1.25rem 1.5rem;border-top:.5px solid rgba(197,160,40,0.12);display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div style="flex:1;">
+          <p class="elite-label">Tenants: Activar receita própria</p>
+          <p style="font-size:.72rem;color:rgba(240,237,232,.5);margin-top:.2rem;">
+            Conecte a sua conta Stripe para receber 70% das vendas das suas auditorias directamente.
+          </p>
+        </div>
+        <button class="btn--elite" id="btn-connect-onboard">Criar Conta Stripe Connect →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BADGE SVG ENGINE — MOTOR DE BACKLINKS V16 ═══ -->
+  <section class="cockpit__section" id="cockpit-badge">
+    <div class="cockpit-hud-frame" data-label="AUTHORITY BADGE" style="margin-bottom:var(--sp-3);">
+      <h2 class="cockpit__section-title elite-heading" style="margin-bottom:0;">
+        <span class="elite-dot" aria-hidden="true"></span>
+        Dynamic Badge SVG · Motor de Backlinks Orgânicos
+      </h2>
+    </div>
+
+    <div class="elite-panel" style="padding:1.5rem;">
+      <p style="font-size:.78rem;color:rgba(240,237,232,.6);line-height:1.6;margin-bottom:1.25rem;">
+        Cada empresa avaliada recebe um badge de autoridade dinâmico. Ao embeddar no site,
+        cria um backlink permanente para a Vanguard e sinaliza ao mercado o seu nível de
+        maturidade digital.
+      </p>
+
+      <div style="display:flex;gap:.75rem;margin-bottom:1.25rem;flex-wrap:wrap;">
+        <input id="badge-domain-input" type="text"
+               placeholder="ex: empresa.com.br"
+               style="flex:1;min-width:200px;background:rgba(0,0,0,.5);border:.5px solid rgba(197,160,40,.3);
+                      border-radius:4px;color:#F0EDE8;font-family:var(--ff-mono);font-size:.78rem;
+                      padding:.6rem .9rem;outline:none;" />
+        <button class="btn--elite-solid" onclick="generateBadge()">Gerar Badge →</button>
+      </div>
+
+      <div id="badge-result" style="display:none;">
+        <div class="badge-preview-wrap">
+          <img id="badge-preview-img" width="320" height="88"
+               alt="Vanguard Authority Badge" style="border-radius:4px;flex-shrink:0;" />
+          <div style="flex:1;">
+            <p class="elite-label" style="margin-bottom:.4rem;">Código de Embed</p>
+            <div class="badge-embed-code" id="badge-embed-code" title="Clique para copiar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /.cockpit -->
+
   <script src="/js/supabase-lib.js"></script>
   <script src="/js/real-scanner.js"></script>
   <script src="/js/outbound-engine.js"></script>
@@ -219,6 +391,57 @@
   <script src="/js/hive-mind.js"></script>
   <script src="/js/trojan-generator.js"></script>
   <script src="/js/whatsapp-bridge.js"></script>
+  <script src="/js/neural-grid.js"></script>
+  <script src="/js/crypto-glitch.js"></script>
   <script src="/dashboard/dashboard.js"></script>
+
+  <script>
+  /* ── V16 Inline: Badge Generator + Stripe Checkout ── */
+  function generateBadge() {
+    const domain = document.getElementById('badge-domain-input').value.trim();
+    if (!domain) return;
+    const slug = domain.replace(/\./g, '-').replace(/[^a-zA-Z0-9\-]/g, '');
+    const url  = `/api/badge/${slug}.svg`;
+    const img  = document.getElementById('badge-preview-img');
+    const code = document.getElementById('badge-embed-code');
+    const res  = document.getElementById('badge-result');
+    img.src    = url;
+    code.textContent = `<img src="https://vanguardtech.io/api/badge/${slug}.svg" alt="Vanguard Authority Badge" width="320" height="88" />`;
+    code.onclick = () => { navigator.clipboard.writeText(code.textContent); code.style.color='#C5A028'; };
+    res.style.display = 'block';
+    // Thread dourada no Neural Grid ao gerar badge
+    if (window.VanguardGrid) window.VanguardGrid.fireGoldThread();
+  }
+
+  async function stripeCheckout(productKey) {
+    const email = document.getElementById('cockpit-user-email')?.textContent || '';
+    try {
+      const resp = await fetch('/api/v1/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product_key: productKey, tenant_id: 'current', customer_email: email }),
+      });
+      const data = await resp.json();
+      if (data.checkout_url) window.open(data.checkout_url, '_blank');
+    } catch(e) {
+      console.warn('[V16 Stripe] Endpoint não disponível em dev:', e.message);
+    }
+  }
+
+  document.getElementById('btn-connect-onboard')?.addEventListener('click', async () => {
+    const email = document.getElementById('cockpit-user-email')?.textContent || '';
+    try {
+      const resp = await fetch('/api/v1/stripe/connect/onboard', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tenant_id: 'current', email, country: 'BR', business_name: 'Vanguard Tenant' }),
+      });
+      const data = await resp.json();
+      if (data.onboarding_url) window.open(data.onboarding_url, '_blank');
+    } catch(e) {
+      console.warn('[V16 Connect] Endpoint não disponível em dev:', e.message);
+    }
+  });
+  </script>
 </body>
 </html>
