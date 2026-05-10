@@ -44,6 +44,7 @@
     viewCockpit.hidden = false;
     document.getElementById('cockpit-user-email').textContent = email;
     loadLeads();
+    window.PartnershipsEngine?.init();
   }
 
   function showLogin() {
@@ -110,6 +111,7 @@
     renderKpis(allLeads);
     renderHeatmap(allLeads);
     renderTable(allLeads);
+    window.OutboundEngine?.init(client, allLeads);
   }
 
   // ─── KPIs ─────────────────────────────────────────────────────────────────

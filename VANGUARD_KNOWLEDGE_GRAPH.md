@@ -1,6 +1,6 @@
 # VANGUARD KNOWLEDGE GRAPH — Mapa Mestre da Arquitectura
-> **Versão:** V10 — The Sovereign Fortress  
-> **Última actualização:** 2026-05-09  
+> **Versão:** V13 — Global Domination & Viral Traction  
+> **Última actualização:** 2026-05-10  
 > **Propósito:** Verdade absoluta sobre a arquitectura para NotebookLM e sessões futuras.  
 > **Arquitecto de IA:** Claude Sonnet 4.6
 
@@ -40,57 +40,100 @@ V7  → Marketplace Nichos: Stripe Connect 70/30 + Dark Bazaar UI
 V8  → Sovereign Data: Intelligence API SHA-256 + Fractal WL + Sovereign Glass UI
 V9  → Sovereign Economy: Lead Arbitrage + Certifica SVG + Hermes Voice + Score™
 V10 → The Sovereign Fortress: Health Monitor + IA Firefighter + Stress Test + Dashboard Pixel Perfect
+V11 → The Sovereign Launch: Neural V Logo + Rate Limiting + Audit Log + Predictive Routing + Deploy EasyPanel
+V12 → Sovereign Ignition Cockpit: Instant Reality Scanner + Living HUD + Ghost Holographics + Closer Machine V1
+V13 → Global Domination & Viral Traction: Hermes Outbound + Census Engine + Partnership API + HUD Previews
 ```
 
 ---
 
-## 3. Arquitectura de Sistema (V8)
+## 3. Arquitectura de Sistema (V13 — Estado Actual)
 
 ```
 Internet
     │
     ▼
-┌─────────────────────────────────────────────────────┐
-│  nginx (Frontend Container)                          │
-│  ├── /            → PWA Landing/Quiz (V1-V5 herdado) │
-│  ├── /saas/       → SaaS Dashboard PWA (V6)          │
-│  ├── /marketplace/→ Dark Bazaar Marketplace (V7)     │
-│  ├── /intelligence/→ Sovereign Glass Landing (V8)    │
-│  ├── /api/        → proxy → FastAPI :9000            │
-│  └── /v1/         → proxy → FastAPI :9000            │
-└─────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  nginx (Frontend Container) — Rate Limiting V11                   │
+│  ├── /              → PWA Landing + Instant Reality Scanner (V12) │
+│  ├── /preview/      → HUD Preview Personalizado — Isca (V13)      │
+│  ├── /census/       → Vanguard Census Engine — Público (V13)      │
+│  ├── /dashboard/    → Cockpit HUD: Outbound + Censo + Parceiros   │
+│  ├── /saas/         → SaaS Dashboard PWA (V6)                     │
+│  ├── /marketplace/  → Dark Bazaar Marketplace (V7)                │
+│  ├── /intelligence/ → Sovereign Glass Landing (V8)                │
+│  ├── /api/          → proxy → FastAPI :9000                       │
+│  └── /v1/           → proxy → FastAPI :9000                       │
+└──────────────────────────────────────────────────────────────────┘
                     │
                     ▼
-┌─────────────────────────────────────────────────────┐
-│  FastAPI API Bridge :9000                            │
-│  ├── main.py          (V6 endpoints + lifespan)      │
-│  ├── marketplace.py   (V7 router /api/marketplace/)  │
-│  ├── intelligence.py  (V8 router /v1/intelligence/)  │
-│  └── fractal.py       (V8 router /api/fractal/)      │
-└─────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  FastAPI API Bridge :9000                                         │
+│  ├── main.py          (V6 endpoints + lifespan)                   │
+│  ├── marketplace.py   (V7 router /api/marketplace/)               │
+│  ├── intelligence.py  (V8 router /v1/intelligence/) ← Partnership │
+│  ├── fractal.py       (V8 router /api/fractal/)                   │
+│  └── fortress.py      (V10 router /api/fortress/)                 │
+└──────────────────────────────────────────────────────────────────┘
                     │
-      ┌─────────────┴──────────────┐
-      ▼                            ▼
-┌───────────────┐        ┌──────────────────┐
-│  Supabase     │        │  Stripe          │
-│  ├── Auth     │        │  ├── Billing     │
-│  ├── DB (PG)  │        │  ├── Connect     │
-│  ├── Realtime │        │  └── Webhooks    │
-│  └── Storage  │        └──────────────────┘
-└───────────────┘
+      ┌─────────────┴──────────────────────────┐
+      ▼                                         ▼
+┌────────────────────┐                ┌──────────────────┐
+│  Supabase          │                │  Stripe          │
+│  ├── Auth (JWT)    │                │  ├── Billing     │
+│  ├── DB (PG + RLS) │                │  ├── Connect     │
+│  ├── Realtime      │                │  └── Webhooks    │
+│  ├── Storage       │                └──────────────────┘
+│  └── MVs (Intel.)  │
+└────────────────────┘
       │
-      ▼
-┌───────────────┐
-│  Scraper IA   │   Claude Haiku (Auditor)
-│  (on-demand   │   OpenStreetMap + Places API
-│   Docker run) │   → leads_diagnostico
-└───────────────┘
+      ├──────────────────────────────────────────────┐
+      ▼                                              ▼
+┌────────────────────┐              ┌─────────────────────────────┐
+│  Scraper IA        │              │  Census Engine (V13)         │
+│  (on-demand Docker)│              │  ├── /census/index.html      │
+│  OpenStreetMap +   │              │  ├── Supabase anon read      │
+│  Claude Haiku      │              │  ├── Agregação por nicho     │
+│  → leads_diag.     │              │  └── Viral Badge Generator   │
+└────────────────────┘              └─────────────────────────────┘
       │
-      ▼
-┌───────────────┐
-│  n8n Hermes   │   WhatsApp → Claude Sonnet → resposta
-│  :5678        │   Supabase Realtime trigger
-└───────────────┘
+      ├──────────────────────────────────────────────┐
+      ▼                                              ▼
+┌────────────────────┐              ┌─────────────────────────────┐
+│  n8n Hermes :5678  │              │  Partnership API (V13)       │
+│  WhatsApp →        │              │  ├── Agências (localStorage) │
+│  Claude Sonnet →   │              │  ├── API Key management      │
+│  Resposta          │              │  ├── Usage tracking          │
+│  Supabase Realtime │              │  └── Revenue share 20%       │
+└────────────────────┘              └─────────────────────────────┘
+```
+
+### 3.1 Fluxo Viral Badge (V13)
+```
+Cliente embeda badge em site externo
+    │ clique → /preview/?d=dominio-do-cliente
+    ▼
+preview/index.html
+    ├── Lê ?d= da URL
+    ├── Executa scanner determinístico (client-side, sem servidor)
+    ├── Renderiza HUD com score + gargalos + radar
+    ├── Detecta document.referrer → sugere scan do site do visitante
+    └── CTA WhatsApp pré-preenchido → Hermes
+                    │
+                    ▼ (visitante clica CTA)
+            Novo lead qualificado
+```
+
+### 3.2 Fluxo Hermes Outbound (V13)
+```
+dashboard.js carrega leads_diagnostico
+    │
+    ▼
+OutboundEngine.init(client, leads)
+    ├── Filtra por tier (VIP → Quente → Frio)
+    ├── Gera mensagem Hermes personalizada por nicho+gargalo
+    ├── Cria link wa.me com mensagem pré-preenchida
+    └── Botão "Ver Preview HUD" → /preview/?d=domínio
 ```
 
 ---
@@ -397,4 +440,81 @@ DIRECTOR_WEBHOOK_URL=https://hooks.slack.com/...  # ou Discord, n8n, etc.
 - Health check `start_period: 20s` (evita false positives no arranque)
 - Hermes: health check adicionado
 
-*Mapa gerado por Claude Sonnet 4.6 — Arquitecto de IA Supremo — V10 The Sovereign Fortress*
+---
+
+## 12. V11 — Sovereign Launch
+
+### Novos Ficheiros V11
+| Ficheiro | Propósito |
+|----------|-----------|
+| `assets/js/neural-v-logo.js` | Logo Neural V injectado em todas as páginas via data-nv-logo |
+| `infra/schema_v11_launch.sql` | `predictive_matches` + `audit_log` + `fn_predictive_summary()` |
+| `memorias/MEMORIA_11_LAUNCH.md` | Documentação técnica V11 |
+| `relatorio_evolutivo_v11.md` | Relatório + 4 ideias V12 |
+
+### Novas Funcionalidades V11
+- Rate Limiting nginx: 30r/m geral, 5r/m scraper, 120r/m público
+- Audit Log: 14 tipos de acção, imutável via RLS
+- Predictive Lead Routing: Match Score 4 dimensões (nicho 40% + taxa_conv 35% + score_tenant 15% + quota 10%)
+- Deploy EasyPanel: frontend porta 8080, nginx Traefik proxy
+
+---
+
+## 13. V12 — Sovereign Ignition Cockpit
+
+### Novos Ficheiros V12
+| Ficheiro | Propósito |
+|----------|-----------|
+| `assets/css/hud.css` | Living HUD: 580+ linhas, Bento Grid, Ghost Holographics, shimmer, corner brackets |
+| `js/scanner.js` | Instant Reality Scanner: hash-seed determinístico, 6 dimensões, radar Chart.js |
+| `js/closer-machine.js` | Closer Machine V1: Hermes chat + jsPDF Cyber-Premium client-side |
+| `memorias/MEMORIA_12_IGNITION_COCKPIT.md` | Documentação técnica V12 |
+| `relatorio_evolutivo_v12.md` | Relatório + 4 ideias V13 |
+
+### CDNs V12 (index.html)
+```html
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+```
+
+### Princípios do Scanner Determinístico (V12)
+- Mesmo domínio → mesmo score (djb2 hash seed) → partilhável e credível em demos
+- Ghost Loader mínimo 3.9s → percepção de análise profunda
+- 3 gargalos extraídos das dimensões com scores mais baixos
+
+---
+
+## 14. V13 — Global Domination & Viral Traction
+
+### Novos Ficheiros V13
+| Ficheiro | Propósito |
+|----------|-----------|
+| `preview/index.html` | HUD Preview personalizado por URL param `?d=domain` — "Isca de Autoridade" standalone |
+| `census/index.html` | Census Engine público: agregação Supabase + ranking sectorial + viral badge generator |
+| `js/outbound-engine.js` | Hermes Outbound Dashboard: fila de leads + mensagens por gargalo + WhatsApp 1-click |
+| `js/partnerships.js` | Partnership API UI: gestão de agências parceiras + API keys + revenue share |
+| `memorias/MEMORIA_13_DOMINATION.md` | Documentação técnica V13 |
+| `relatorio_evolutivo_v13.md` | Relatório + 4 ideias V14 |
+
+### Topologia Partnership API (V13)
+```
+Agência Parceira
+    │ possui API Key (vg-api-{8chars})
+    ├── Free: 10 scans/dia
+    ├── Agency (€49/mês): 500 scans/mês · branding Vanguard
+    └── White-Label (€149/mês): 2000 scans/mês · logo próprio + revenue share 20%
+    │
+    ▼ usa
+Intelligence API /v1/intelligence/*
+    │ score por nicho · tendências · lookup empresa
+    ▼ alimenta
+Relatórios de Clientes da Agência (com dados Vanguard)
+```
+
+### Dados Novos V13 — localStorage
+| Store | Dados |
+|-------|-------|
+| `vanguard_partners` | JSON array de parceiros (demo + adicionados pelo admin) |
+
+*Mapa gerado por Claude Sonnet 4.6 — Arquitecto de IA Supremo — V13 Global Domination*

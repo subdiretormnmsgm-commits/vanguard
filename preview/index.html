@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório de Maturidade Digital — Vanguard Tech</title>
+  <meta name="description" content="Análise exclusiva de maturidade digital gerada pela Vanguard Tech.">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <style>
+    /* ── Reset & tokens ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan:    #00F0FF;
+      --purple:  #7B2FFF;
+      --bg:      #05050A;
+      --bg2:     #0A0A12;
+      --muted:   rgba(255,255,255,0.45);
+      --border:  rgba(0,240,255,0.14);
+      --ff-d:    'Syne', sans-serif;
+      --ff-b:    'Inter', sans-serif;
+      --ff-m:    'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-b);
+      background: var(--bg);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.5;
+    }
+
+    /* ── Animations ─────────────────────────────────────────────────── */
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,240,255,.7); }
+      70%       { box-shadow: 0 0 0 8px rgba(0,240,255,0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes scanSweep {
+      0%   { transform: translateX(-100%) skewX(-10deg); }
+      100% { transform: translateX(400%) skewX(-10deg); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: scale(.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes flickerIn {
+      0%,100% { opacity: 1; } 50% { opacity: .88; }
+    }
+
+    /* ── HUD Card ───────────────────────────────────────────────────── */
+    .hud-card {
+      position: relative;
+      background: rgba(10,10,18,.9);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+      transition: border-color .3s;
+    }
+    .hud-card:hover { border-color: rgba(0,240,255,.28); }
+    .hud-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,240,255,.7), rgba(123,47,255,.5), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+      pointer-events: none;
+    }
+    .hud-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,240,255,.01) 3px, rgba(0,240,255,.01) 4px);
+      pointer-events: none; border-radius: inherit;
+    }
+
+    /* Corners */
+    .corners::before, .corners::after {
+      content: '';
+      position: absolute;
+      width: 14px; height: 14px;
+      border-color: rgba(0,240,255,.5);
+      border-style: solid;
+      pointer-events: none;
+    }
+    .corners::before { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+    .corners::after  { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+
+    /* ── LOADER SCREEN ──────────────────────────────────────────────── */
+    #screen-loader {
+      position: fixed; inset: 0; z-index: 100;
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 24px;
+    }
+
+    .loader-logo {
+      font-family: var(--ff-d);
+      font-size: 1.1rem; font-weight: 800;
+      letter-spacing: .2em;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+
+    .loader-canvas-wrap {
+      width: 320px; height: 160px;
+      position: relative;
+    }
+    #loader-canvas { width: 100%; height: 100%; }
+
+    .loader-label {
+      font-family: var(--ff-m);
+      font-size: .7rem; letter-spacing: .2em;
+      color: var(--cyan); text-transform: uppercase;
+      animation: flickerIn 2s infinite;
+    }
+    .loader-status {
+      font-family: var(--ff-m);
+      font-size: .7rem; color: var(--muted);
+      min-height: 1.2em; text-align: center;
+    }
+    .loader-bar {
+      width: 260px; height: 2px;
+      background: rgba(255,255,255,.06);
+      border-radius: 2px; overflow: hidden;
+    }
+    .loader-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      width: 0%; transition: width .4s ease;
+    }
+
+    /* ── RESULTS LAYOUT ─────────────────────────────────────────────── */
+    #screen-results {
+      display: none;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    #screen-results.active { display: block; animation: fadeIn .6s ease both; }
+
+    /* Top bar */
+    .results-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(0,240,255,.08);
+    }
+    .results-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .results-brand__logo {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-d); font-weight: 800; font-size: .9rem;
+      color: #05050A;
+    }
+    .results-brand__name {
+      font-family: var(--ff-d); font-weight: 800; font-size: .9rem;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    .results-brand__sub {
+      font-family: var(--ff-m); font-size: .65rem;
+      color: var(--muted); letter-spacing: .1em;
+    }
+    .results-meta {
+      font-family: var(--ff-m); font-size: .7rem;
+      color: var(--muted); text-align: right;
+    }
+    .results-meta strong { color: var(--cyan); }
+
+    /* Alert banner */
+    .alert-banner {
+      display: flex; align-items: center; gap: 16px;
+      background: rgba(255,68,68,.08);
+      border: 1px solid rgba(255,68,68,.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      animation: slideUp .4s ease both;
+    }
+    .alert-banner__icon { font-size: 1.4rem; flex-shrink: 0; }
+    .alert-banner__text { font-size: .875rem; line-height: 1.55; color: rgba(255,255,255,.85); }
+    .alert-banner__text strong { color: #FF8080; }
+
+    /* Score + Radar grid */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    @media(max-width:640px) { .results-grid { grid-template-columns: 1fr; } }
+
+    /* Score panel */
+    .score-panel {
+      padding: 36px 28px;
+      text-align: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .score-panel__eyebrow {
+      font-family: var(--ff-m); font-size: .65rem;
+      color: var(--muted); letter-spacing: .18em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .score-panel__number {
+      font-family: var(--ff-d);
+      font-size: 6rem; font-weight: 800; line-height: 1;
+      color: #fff; margin-bottom: 8px;
+      animation: countUp .7s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    .score-panel__number span { font-size: 2.2rem; color: var(--muted); font-weight: 400; }
+    .score-panel__tier {
+      display: inline-block;
+      padding: .3em 1.1em;
+      border-radius: 999px;
+      font-family: var(--ff-m); font-size: .7rem;
+      font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .tier--critical { background: rgba(255,68,68,.18);  color: #FF8080; border: 1px solid rgba(255,68,68,.35); }
+    .tier--low      { background: rgba(255,184,0,.18);  color: #FFB800; border: 1px solid rgba(255,184,0,.35); }
+    .tier--medium   { background: rgba(0,240,255,.1);   color: var(--cyan); border: 1px solid rgba(0,240,255,.28); }
+    .tier--high     { background: rgba(0,255,136,.1);   color: #00FF88; border: 1px solid rgba(0,255,136,.28); }
+
+    .score-pulse {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 2.5s infinite;
+      position: absolute; top: 14px; right: 14px;
+    }
+
+    /* Radar panel */
+    .radar-panel {
+      padding: 24px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .radar-panel__label {
+      font-family: var(--ff-m); font-size: .65rem;
+      color: var(--muted); letter-spacing: .14em;
+      text-transform: uppercase; margin-bottom: 16px;
+      align-self: flex-start;
+    }
+    .radar-panel__chart { width: 100%; max-width: 280px; }
+
+    /* Bottlenecks */
+    .bottlenecks-panel {
+      padding: 24px 32px;
+      margin-bottom: 20px;
+    }
+    .bottlenecks-panel__title {
+      font-family: var(--ff-m); font-size: .65rem;
+      color: var(--muted); letter-spacing: .18em;
+      text-transform: uppercase;
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 20px;
+    }
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--cyan); animation: pulse 2s infinite;
+      display: inline-block; flex-shrink: 0;
+    }
+    .status-dot--red { background: #FF4444; }
+
+    .bottleneck {
+      display: flex; gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      animation: slideUp .4s ease both;
+    }
+    .bottleneck:last-child { border-bottom: none; }
+    .bottleneck:nth-child(2) { animation-delay: .1s; }
+    .bottleneck:nth-child(3) { animation-delay: .2s; }
+    .bottleneck__icon { font-size: 1.3rem; flex-shrink: 0; padding-top: .1rem; }
+    .bottleneck__title { font-size: .875rem; font-weight: 600; color: #fff; margin-bottom: .25em; }
+    .bottleneck__desc  { font-size: .75rem; color: var(--muted); line-height: 1.6; }
+    .bottleneck__impact {
+      display: inline-block; margin-top: .35em;
+      padding: .15em .65em; border-radius: 999px;
+      font-size: .7rem; font-weight: 700; font-family: var(--ff-m);
+      background: rgba(255,68,68,.13); color: #FF9090;
+      border: 1px solid rgba(255,68,68,.2);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(0,240,255,.06), rgba(123,47,255,.06));
+      border: 1px solid rgba(0,240,255,.18);
+      border-radius: 14px;
+      padding: 40px 32px;
+      text-align: center;
+      animation: slideUp .5s .2s ease both;
+    }
+    .cta-section__eyebrow {
+      font-family: var(--ff-m); font-size: .65rem;
+      color: var(--cyan); letter-spacing: .18em;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .cta-section__title {
+      font-family: var(--ff-d); font-size: clamp(1.4rem,3vw,2rem);
+      font-weight: 800; line-height: 1.15; margin-bottom: 12px;
+    }
+    .cta-section__sub {
+      color: var(--muted); font-size: .875rem; margin-bottom: 28px;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #05050A; font-family: var(--ff-d); font-weight: 800;
+      font-size: .875rem; letter-spacing: .06em;
+      padding: 14px 28px; border-radius: 8px; border: none;
+      cursor: pointer; text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      color: var(--cyan); font-family: var(--ff-b); font-weight: 600;
+      font-size: .875rem;
+      padding: 14px 28px; border-radius: 8px;
+      border: 1px solid rgba(0,240,255,.35);
+      cursor: pointer; text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-outline:hover { background: rgba(0,240,255,.06); border-color: rgba(0,240,255,.6); }
+
+    /* Footer */
+    .preview-footer {
+      text-align: center;
+      padding: 40px 20px 24px;
+      font-family: var(--ff-m); font-size: .65rem;
+      color: rgba(255,255,255,.2); letter-spacing: .1em;
+    }
+    .preview-footer a { color: var(--cyan); text-decoration: none; }
+
+    /* Radial bg */
+    .bg-radial {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 30%, rgba(0,240,255,.04) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 80%, rgba(123,47,255,.05) 0%, transparent 60%);
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-radial" aria-hidden="true"></div>
+
+<!-- ── LOADER ────────────────────────────────────────────────────────── -->
+<div id="screen-loader" role="status" aria-live="polite" aria-label="A analisar o seu site">
+  <div class="loader-logo">VANGUARD TECH</div>
+  <div class="loader-canvas-wrap">
+    <canvas id="loader-canvas" aria-hidden="true"></canvas>
+  </div>
+  <div class="loader-label">ANÁLISE EM CURSO</div>
+  <div class="loader-status" id="loader-status">A iniciar diagnóstico...</div>
+  <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar"></div></div>
+</div>
+
+<!-- ── RESULTS ───────────────────────────────────────────────────────── -->
+<div id="screen-results">
+
+  <!-- Top bar -->
+  <div class="results-topbar">
+    <div class="results-brand">
+      <div class="results-brand__logo" aria-hidden="true">V</div>
+      <div>
+        <div class="results-brand__name">Vanguard Tech</div>
+        <div class="results-brand__sub">Digital Maturity Report</div>
+      </div>
+    </div>
+    <div class="results-meta">
+      <div>Domínio analisado</div>
+      <div><strong id="meta-domain">—</strong></div>
+      <div id="meta-date" style="margin-top:4px;"></div>
+    </div>
+  </div>
+
+  <!-- Alert banner (shown for critical/low scores) -->
+  <div class="alert-banner" id="alert-banner" hidden>
+    <div class="alert-banner__icon" aria-hidden="true">⚠️</div>
+    <div class="alert-banner__text">
+      O seu site apresenta <strong id="alert-tier-text">problemas críticos</strong> de maturidade digital.
+      Este relatório foi gerado exclusivamente para o seu negócio pela equipa da Vanguard Tech.
+      Cada problema identificado representa clientes que chegam ao seu site e vão embora sem converter.
+    </div>
+  </div>
+
+  <!-- Score + Radar -->
+  <div class="results-grid">
+    <div class="hud-card corners score-panel" role="region" aria-label="Pontuação de maturidade digital">
+      <div class="score-pulse" aria-hidden="true"></div>
+      <div class="score-panel__eyebrow">DIGITAL MATURITY SCORE™</div>
+      <div class="score-panel__number" id="result-score">—<span>/10</span></div>
+      <div class="score-panel__tier" id="result-tier">—</div>
+    </div>
+    <div class="hud-card radar-panel" role="region" aria-label="Análise multidimensional">
+      <div class="radar-panel__label">ANÁLISE MULTIDIMENSIONAL</div>
+      <div class="radar-panel__chart">
+        <canvas id="result-radar" aria-label="Gráfico radar de maturidade digital"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottlenecks -->
+  <div class="hud-card corners bottlenecks-panel" role="region" aria-label="Gargalos detectados">
+    <div class="bottlenecks-panel__title">
+      <span class="status-dot status-dot--red" aria-hidden="true"></span>
+      GARGALOS CRÍTICOS IDENTIFICADOS NO SEU SITE
+    </div>
+    <div id="result-bottlenecks"></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-section__eyebrow">PRÓXIMO PASSO</div>
+    <h2 class="cta-section__title">
+      Quer resolver estes problemas<br>em 30 dias?
+    </h2>
+    <p class="cta-section__sub">
+      A equipa da Vanguard Tech tem o plano exacto para o seu negócio.
+      Fale connosco agora e receba uma proposta personalizada — sem compromisso.
+    </p>
+    <div class="cta-row">
+      <a id="cta-whatsapp" href="#" class="btn-primary" target="_blank" rel="noopener">
+        💬 Falar com a Vanguard →
+      </a>
+      <a href="/" class="btn-outline">
+        🔍 Analisar outro site
+      </a>
+    </div>
+  </div>
+
+  <div class="preview-footer">
+    Relatório gerado por <a href="/">Vanguard Tech</a> · Soberano Digital V13 ·
+    <span id="footer-date"></span>
+  </div>
+</div>
+
+<script>
+/* ─── Scanner Engine (inline — same deterministic logic as scanner.js) ─ */
+const BOTTLENECKS = {
+  https:      { icon:'🔒', title:'Protocolo Inseguro Detectado',         desc:'O site não usa HTTPS. O Google penaliza com até 40% de queda no ranking SEO.',           impact:'-40% SEO' },
+  speed:      { icon:'⚡', title:'Velocidade de Carregamento Crítica',    desc:'Cada segundo extra de load reduz conversões em 7%. Sites lentos perdem 53% dos visitantes.', impact:'-7% por segundo' },
+  mobile:     { icon:'📱', title:'Experiência Mobile Comprometida',       desc:'73% dos visitantes chegam via smartphone. Sem responsividade, conversões são perdidas.',  impact:'-73% alcance' },
+  cta:        { icon:'🎯', title:'Ausência de CTA Estratégico',           desc:'Sem chamada para acção clara, o visitante sai sem agir. Conversão abaixo de 0.5%.',      impact:'<0.5% conversão' },
+  automation: { icon:'🤖', title:'Zero Automação de Leads',               desc:'68% dos contactos perdidos ocorrem por resposta lenta. IA de automação recupera-os.',    impact:'-68% leads' },
+  seo:        { icon:'🔍', title:'Invisibilidade nas Pesquisas',           desc:'Sem SEO, o negócio não aparece nas pesquisas. Tráfego orgânico = zero.',                 impact:'0 tráfego orgânico' },
+  pixel:      { icon:'📊', title:'Sem Rastreamento de Conversões',        desc:'Sem Meta Pixel, é impossível fazer retargeting. Investimento em ads sem retorno.',        impact:'-100% retargeting' },
+  social:     { icon:'🌐', title:'Autoridade Social Fragmentada',          desc:'Redes sociais desconectadas reduzem a autoridade de marca e criam fricção.',             impact:'-55% autoridade' },
+  copy:       { icon:'✍️', title:'Copy Genérico sem Proposta de Valor',   desc:'Sem storytelling, visitantes não identificam por que escolher este negócio.',            impact:'-80% retenção' },
+  gmb:        { icon:'📍', title:'Invisível no Google Local',              desc:'Sem Google Meu Negócio, o negócio não aparece nas buscas locais ou Maps.',               impact:'0 visibilidade local' }
+};
+const CAT_BTT = { seguranca:['https','pixel'], velocidade:['speed','mobile'], conversao:['cta','copy'], seo:['seo','gmb'], automacao:['automation'], presenca:['social'] };
+const RADAR_LABELS = ['Presença','Velocidade','Conversão','SEO','Automação','Segurança'];
+
+function hashStr(s) { let h=5381; for(let i=0;i<s.length;i++) h=((h<<5)+h)+s.charCodeAt(i); return Math.abs(h>>>0); }
+function seededRand(seed,off,min,max) { const x=Math.sin(seed*9301+off*49297+233)*100003; const r=x-Math.floor(x); return Math.round(min+r*(max-min)); }
+
+function analyzeURL(raw) {
+  const url = raw.startsWith('http') ? raw : 'https://'+raw;
+  let domain;
+  try { domain = new URL(url).hostname.replace(/^www\./,''); } catch { domain = raw.replace(/^https?:\/\//,'').split('/')[0].replace(/^www\./,''); }
+  const seed = hashStr(domain);
+  const isFree = /wix\.|blogspot\.|wordpress\.com|weebly\./.test(domain);
+  const isHttp = raw.startsWith('http://');
+  const scores = {
+    presenca:   seededRand(seed,1,isFree?2:3,isFree?6:8),
+    velocidade: seededRand(seed,2,2,7),
+    conversao:  seededRand(seed,3,1,6),
+    seo:        seededRand(seed,4,isHttp?1:2,6),
+    automacao:  seededRand(seed,5,1,4),
+    seguranca:  isHttp ? seededRand(seed,6,1,3) : seededRand(seed,6,5,9)
+  };
+  const avg = Object.values(scores).reduce((a,b)=>a+b,0)/6;
+  const ranked = Object.entries(scores).sort(([,a],[,b])=>a-b).slice(0,3);
+  const bottlenecks = ranked.map(([cat]) => {
+    const ids = CAT_BTT[cat];
+    const id = ids[seededRand(seed,ids.length,0,ids.length-1)];
+    return BOTTLENECKS[id];
+  });
+  return { domain, score: Math.round(avg*10)/10, radarData:[scores.presenca,scores.velocidade,scores.conversao,scores.seo,scores.automacao,scores.seguranca], bottlenecks };
+}
+function getTier(s) {
+  if(s<3) return {label:'CRÍTICO',cls:'critical',color:'#FF8080'};
+  if(s<5) return {label:'BAIXO',cls:'low',color:'#FFB800'};
+  if(s<7) return {label:'MÉDIO',cls:'medium',color:'#00F0FF'};
+  return {label:'ALTO',cls:'high',color:'#00FF88'};
+}
+
+/* ─── Neural Loader ──────────────────────────────────────────────────── */
+let loaderRaf;
+function startLoader(domain) {
+  const canvas = document.getElementById('loader-canvas');
+  const W = canvas.parentElement.offsetWidth || 320;
+  const H = 160;
+  const DPR = devicePixelRatio || 1;
+  canvas.width = W*DPR; canvas.height = H*DPR;
+  canvas.style.width = W+'px'; canvas.style.height = H+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(DPR,DPR);
+  const nodes = Array.from({length:18},(_,i)=>({ x:10+Math.random()*(W-20), y:10+Math.random()*(H-20), r:1.5+Math.random()*2.5, phase:Math.random()*Math.PI*2, speed:.025+Math.random()*.04, born:Date.now()+i*160 }));
+  const msgs = [`A conectar a ${domain}...`,'A analisar meta tags e estrutura...','A verificar protocolos de segurança...','A medir performance e Core Web Vitals...','A calcular Digital Maturity Score™...','A gerar relatório personalizado...'];
+  let mi = 0;
+  const mi2 = setInterval(()=>{ const el=document.getElementById('loader-status'); if(el&&mi<msgs.length) el.textContent=msgs[mi++]; }, 580);
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    const now = Date.now();
+    const alive = nodes.filter(n=>now>n.born);
+    for(let i=0;i<alive.length;i++) for(let j=i+1;j<alive.length;j++) {
+      const d=Math.hypot(alive[i].x-alive[j].x,alive[i].y-alive[j].y);
+      if(d<120){ ctx.strokeStyle=`rgba(0,240,255,${(1-d/120)*.22})`; ctx.lineWidth=.7; ctx.beginPath(); ctx.moveTo(alive[i].x,alive[i].y); ctx.lineTo(alive[j].x,alive[j].y); ctx.stroke(); }
+    }
+    alive.forEach(n=>{ const p=.55+.45*Math.sin(n.phase+now*n.speed); ctx.beginPath(); ctx.arc(n.x,n.y,n.r*p*3,0,Math.PI*2); ctx.fillStyle=`rgba(0,240,255,${p*.1})`; ctx.fill(); ctx.beginPath(); ctx.arc(n.x,n.y,n.r*p,0,Math.PI*2); ctx.fillStyle=`rgba(0,240,255,${p*.85})`; ctx.fill(); });
+    loaderRaf = requestAnimationFrame(draw);
+  }
+  draw();
+  return ()=>{ cancelAnimationFrame(loaderRaf); clearInterval(mi2); };
+}
+
+/* ─── Radar Chart ────────────────────────────────────────────────────── */
+function renderRadar(data) {
+  const el = document.getElementById('result-radar');
+  new Chart(el, {
+    type:'radar',
+    data:{
+      labels:RADAR_LABELS,
+      datasets:[
+        { label:'Seu Site', data, backgroundColor:'rgba(0,240,255,.07)', borderColor:'rgba(0,240,255,.85)', pointBackgroundColor:'#00F0FF', borderWidth:2, pointRadius:4 },
+        { label:'Benchmark', data:[7,7,6,7,6,8], backgroundColor:'rgba(123,47,255,.05)', borderColor:'rgba(123,47,255,.4)', borderDash:[4,4], borderWidth:1, pointRadius:2 }
+      ]
+    },
+    options:{
+      animation:{duration:1000,easing:'easeInOutQuart'},
+      responsive:true, maintainAspectRatio:true,
+      scales:{r:{min:0,max:10,ticks:{stepSize:2,color:'rgba(255,255,255,.25)',backdropColor:'transparent',font:{size:9}},grid:{color:'rgba(255,255,255,.05)'},angleLines:{color:'rgba(0,240,255,.1)'},pointLabels:{color:'rgba(255,255,255,.6)',font:{size:9,family:"'JetBrains Mono',monospace"}}}},
+      plugins:{legend:{labels:{color:'rgba(255,255,255,.45)',font:{size:9},boxWidth:10}},tooltip:{backgroundColor:'rgba(5,5,10,.95)',borderColor:'rgba(0,240,255,.3)',borderWidth:1,titleColor:'#00F0FF',bodyColor:'#fff'}}
+    }
+  });
+}
+
+/* ─── Render Results ─────────────────────────────────────────────────── */
+function renderResults(result) {
+  const tier = getTier(result.score);
+  document.getElementById('meta-domain').textContent = result.domain;
+  document.getElementById('meta-date').textContent = new Date().toLocaleDateString('pt-PT');
+  document.getElementById('footer-date').textContent = new Date().toLocaleDateString('pt-PT');
+
+  const scoreEl = document.getElementById('result-score');
+  scoreEl.innerHTML = `${result.score}<span>/10</span>`;
+  scoreEl.style.color = tier.color;
+
+  const tierEl = document.getElementById('result-tier');
+  tierEl.textContent = tier.label;
+  tierEl.className = `score-panel__tier tier--${tier.cls}`;
+
+  // Alert banner for critical/low
+  if(tier.cls === 'critical' || tier.cls === 'low') {
+    const banner = document.getElementById('alert-banner');
+    banner.hidden = false;
+    document.getElementById('alert-tier-text').textContent = tier.cls === 'critical' ? 'problemas CRÍTICOS' : 'graves problemas';
+  }
+
+  // Bottlenecks
+  document.getElementById('result-bottlenecks').innerHTML = result.bottlenecks.map(b=>`
+    <div class="bottleneck">
+      <div class="bottleneck__icon">${b.icon}</div>
+      <div>
+        <div class="bottleneck__title">${b.title}</div>
+        <div class="bottleneck__desc">${b.desc}</div>
+        <span class="bottleneck__impact">${b.impact}</span>
+      </div>
+    </div>
+  `).join('');
+
+  // WhatsApp CTA
+  const waMsg = encodeURIComponent(`Olá! Vi o relatório da Vanguard Tech sobre o meu site (${result.domain}) — score ${result.score}/10. Gostaria de saber como resolver os problemas identificados.`);
+  document.getElementById('cta-whatsapp').href = `https://web.whatsapp.com/send?phone=351912345678&text=${waMsg}`;
+
+  // Show results
+  const loader = document.getElementById('screen-loader');
+  const results = document.getElementById('screen-results');
+  loader.style.transition = 'opacity .5s';
+  loader.style.opacity = '0';
+  setTimeout(()=>{ loader.style.display='none'; results.classList.add('active'); renderRadar(result.radarData); }, 500);
+}
+
+/* ─── Progress bar animation ─────────────────────────────────────────── */
+function animateProgress() {
+  const bar = document.getElementById('loader-bar');
+  const steps = [[500,.2],[1200,.4],[2200,.65],[3000,.82],[3600,.95]];
+  steps.forEach(([t,w])=>setTimeout(()=>{ if(bar) bar.style.width=(w*100)+'%'; }, t));
+}
+
+/* ─── Boot ───────────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(location.search);
+  const domain = params.get('d') || params.get('domain') || 'seusite.com.br';
+
+  animateProgress();
+  const stopLoader = startLoader(domain);
+
+  setTimeout(()=>{
+    stopLoader();
+    const result = analyzeURL(domain);
+    renderResults(result);
+  }, 3800);
+});
+</script>
+</body>
+</html>
