@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanguard Score™ — Inteligência de Mercado</title>
+  <meta name="description" content="Consulte o Vanguard Score™ da sua empresa. Inteligência de mercado, benchmarking digital e certificação de maturidade para empresas portuguesas.">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/score.css">
+</head>
+<body>
+
+  <!-- ── TICKER TAPE ──────────────────────────────────────────────────── -->
+  <div class="ticker-rail" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <span class="tick tick--up">RESTAURAÇÃO PORTO <b>9.4</b> ▲0.2</span>
+      <span class="tick tick--down">CLÍNICA LISBOA <b>7.1</b> ▼0.3</span>
+      <span class="tick tick--up">FITNESS BRAGA <b>8.8</b> ▲0.5</span>
+      <span class="tick tick--up">IMOBILIÁRIA FARO <b>9.1</b> ▲0.1</span>
+      <span class="tick tick--neutral">ADVOCACIA COIMBRA <b>8.3</b> —</span>
+      <span class="tick tick--down">HOTEL ÉVORA <b>6.9</b> ▼0.4</span>
+      <span class="tick tick--up">AUTO SETÚBAL <b>9.6</b> ▲0.7</span>
+      <span class="tick tick--up">PHARMA AVEIRO <b>9.2</b> ▲0.3</span>
+      <span class="tick tick--neutral">TECH STARTUP PORTO <b>8.5</b> —</span>
+      <span class="tick tick--down">CAFÉ BRAGA <b>7.4</b> ▼0.1</span>
+    </div>
+  </div>
+
+  <!-- ── HEADER ────────────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__brand">
+        <span class="brand-mark">◆</span>
+        <span class="brand-name">Vanguard<em>Score</em>™</span>
+      </div>
+      <nav class="header__nav">
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#benchmark">Benchmark</a>
+        <a href="#certificar" class="nav-cta">Certificar Empresa</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__bg">
+      <canvas id="gridCanvas"></canvas>
+      <div class="hero__vignette"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__kicker">ÍNDICE DE MATURIDADE DIGITAL</p>
+      <h1 class="hero__title">
+        Descubra onde a sua<br>
+        empresa <em>realmente</em> está.
+      </h1>
+      <p class="hero__sub">
+        O Vanguard Score™ analisa mais de 40 indicadores digitais e posiciona
+        a sua empresa contra os líderes do seu sector. Dados reais. Zero especulação.
+      </p>
+      <div class="search-box" id="searchBox">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-box__input"
+          placeholder="Pesquise pelo nome da empresa ou nicho..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="search-box__btn" onclick="pesquisarEmpresa()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          Consultar
+        </button>
+      </div>
+      <p class="search-hint">Ex: "Restaurante Lisboa" · "Clínica Braga" · "Advogado Porto"</p>
+    </div>
+    <div class="hero__stats">
+      <div class="stat">
+        <span class="stat__num" data-target="14700">0</span>
+        <span class="stat__label">Empresas Analisadas</span>
+      </div>
+      <div class="stat__sep"></div>
+      <div class="stat">
+        <span class="stat__num" data-target="18">0</span>
+        <span class="stat__label">Sectores Cobertos</span>
+      </div>
+      <div class="stat__sep"></div>
+      <div class="stat">
+        <span class="stat__num" data-target="97" data-suffix="%">0</span>
+        <span class="stat__label">Precisão do Modelo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTADO DA PESQUISA ─────────────────────────────────────────── -->
+  <section class="result-section" id="resultSection" style="display:none">
+    <div class="result-container">
+
+      <div class="result-header">
+        <div class="result-header__meta">
+          <span class="result-nicho" id="resultNicho">—</span>
+          <span class="result-cidade" id="resultCidade">—</span>
+        </div>
+        <div class="result-header__status" id="resultStatus"></div>
+      </div>
+
+      <div class="result-body">
+        <!-- Score Gauge -->
+        <div class="gauge-wrap">
+          <svg class="gauge" viewBox="0 0 220 120">
+            <defs>
+              <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FF4E4E"/>
+                <stop offset="50%" stop-color="#C5A028"/>
+                <stop offset="100%" stop-color="#22C55E"/>
+              </linearGradient>
+            </defs>
+            <!-- Track -->
+            <path class="gauge__track"
+              d="M 20 110 A 90 90 0 0 1 200 110"
+              fill="none" stroke="#1A1206" stroke-width="14" stroke-linecap="round"/>
+            <!-- Fill -->
+            <path class="gauge__fill" id="gaugeFill"
+              d="M 20 110 A 90 90 0 0 1 200 110"
+              fill="none" stroke="url(#gaugeGrad)" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="283" stroke-dashoffset="283"/>
+            <!-- Center text -->
+            <text class="gauge__score" id="gaugeScore" x="110" y="95" text-anchor="middle">—</text>
+            <text class="gauge__label" x="110" y="112" text-anchor="middle">SCORE</text>
+          </svg>
+          <div class="gauge-level" id="gaugeLevel">—</div>
+        </div>
+
+        <!-- Breakdown bars -->
+        <div class="breakdown">
+          <p class="breakdown__title">Composição do Score</p>
+          <div class="breakdown__list" id="breakdownList">
+            <div class="bar-row">
+              <span class="bar-row__label">Presença Digital</span>
+              <div class="bar-row__track"><div class="bar-row__fill" style="width:0%" data-val="72"></div></div>
+              <span class="bar-row__val">—</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row__label">Reputação Online</span>
+              <div class="bar-row__track"><div class="bar-row__fill" style="width:0%" data-val="85"></div></div>
+              <span class="bar-row__val">—</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row__label">Velocidade Web</span>
+              <div class="bar-row__track"><div class="bar-row__fill" style="width:0%" data-val="63"></div></div>
+              <span class="bar-row__val">—</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row__label">SEO Local</span>
+              <div class="bar-row__track"><div class="bar-row__fill" style="width:0%" data-val="78"></div></div>
+              <span class="bar-row__val">—</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row__label">Conversão</span>
+              <div class="bar-row__track"><div class="bar-row__fill" style="width:0%" data-val="55"></div></div>
+              <span class="bar-row__val">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Percentil -->
+      <div class="percentil-band">
+        <div class="percentil-band__inner">
+          <span class="percentil-band__label">Posição no Mercado</span>
+          <div class="percentil-track">
+            <div class="percentil-fill" id="percentilFill" style="width:0%"></div>
+            <div class="percentil-marker" id="percentilMarker" style="left:0%"></div>
+          </div>
+          <div class="percentil-labels">
+            <span>0</span><span>P25</span><span>P50</span><span>P75</span><span>Top 1%</span>
+          </div>
+          <p class="percentil-text" id="percentilText">—</p>
+        </div>
+      </div>
+
+      <!-- Gargalo & Certificação -->
+      <div class="result-actions">
+        <div class="gargalo-card" id="gargaloCard">
+          <p class="gargalo-card__label">Principal Gargalo Identificado</p>
+          <p class="gargalo-card__text" id="gargaloText">—</p>
+        </div>
+        <div class="cert-prompt" id="certPrompt" style="display:none">
+          <div class="cert-prompt__icon">◈</div>
+          <p class="cert-prompt__title">Elegível para Certificação</p>
+          <p class="cert-prompt__sub">Score ≥ 8.0 — A sua empresa pode obter o Vanguard Maturity Certificate™</p>
+          <a href="#certificar" class="cert-prompt__btn">Obter Certificado →</a>
+        </div>
+      </div>
+
+      <!-- Embed code -->
+      <div class="embed-section" id="embedSection" style="display:none">
+        <p class="embed-section__title">Incorpore o Badge no seu Website</p>
+        <div class="embed-preview" id="embedPreview"></div>
+        <div class="embed-code-wrap">
+          <code class="embed-code" id="embedCode"></code>
+          <button class="embed-copy-btn" onclick="copiarEmbed()">Copiar</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── COMO FUNCIONA ─────────────────────────────────────────────────── -->
+  <section class="how-section" id="como-funciona">
+    <div class="how-inner">
+      <p class="section-kicker">METODOLOGIA</p>
+      <h2 class="section-title">Como calculamos o seu Score</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step__num">01</div>
+          <h3 class="step__title">Captura de Dados</h3>
+          <p class="step__text">O nosso motor de scraping analisa automaticamente o website, Google Business Profile, redes sociais e presença nos mapas.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <h3 class="step__title">Análise por IA</h3>
+          <p class="step__text">Claude AI avalia mais de 40 indicadores: velocidade, SEO, reputação, consistência de dados e potencial de conversão.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <h3 class="step__title">Benchmarking Sectorial</h3>
+          <p class="step__text">O score é normalizado contra +14.700 empresas do mesmo sector e região para posicionamento percentil real.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">04</div>
+          <h3 class="step__title">Certificação</h3>
+          <p class="step__text">Empresas com score ≥ 8.0 recebem o Vanguard Maturity Certificate™ — badge dinâmico incorporável e página de verificação pública.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BENCHMARK TABLE ───────────────────────────────────────────────── -->
+  <section class="benchmark-section" id="benchmark">
+    <div class="benchmark-inner">
+      <p class="section-kicker">RANKINGS SECTORIAIS</p>
+      <h2 class="section-title">Líderes por Nicho</h2>
+      <div class="nicho-selector">
+        <button class="nicho-btn active" onclick="filtrarNicho(this, 'restauracao')">Restauração</button>
+        <button class="nicho-btn" onclick="filtrarNicho(this, 'clinica')">Clínicas</button>
+        <button class="nicho-btn" onclick="filtrarNicho(this, 'fitness')">Fitness</button>
+        <button class="nicho-btn" onclick="filtrarNicho(this, 'imobiliaria')">Imobiliária</button>
+        <button class="nicho-btn" onclick="filtrarNicho(this, 'advocacia')">Advocacia</button>
+      </div>
+      <div class="leaderboard" id="leaderboard">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA CERTIFICAR ────────────────────────────────────────────────── -->
+  <section class="cta-section" id="certificar">
+    <div class="cta-inner">
+      <div class="cert-badge-preview">
+        <svg viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0A0802"/><stop offset="100%" stop-color="#1A1004"/>
+            </linearGradient>
+            <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#C5A028"/><stop offset="100%" stop-color="#F0C842"/>
+            </linearGradient>
+          </defs>
+          <rect width="280" height="320" rx="16" fill="url(#bgGrad)" stroke="#C5A028" stroke-width="1.5"/>
+          <rect x="2" y="2" width="276" height="316" rx="14" fill="none" stroke="#C5A028" stroke-width="0.5" opacity="0.4"/>
+          <text x="140" y="42" text-anchor="middle" font-family="EB Garamond, serif" font-size="13" fill="#C5A028" opacity="0.8" letter-spacing="3">VANGUARD</text>
+          <circle cx="140" cy="140" r="60" fill="none" stroke="#1A1004" stroke-width="10"/>
+          <circle cx="140" cy="140" r="60" fill="none" stroke="url(#circleGrad)" stroke-width="10" stroke-dasharray="330" stroke-dashoffset="33" stroke-linecap="round"/>
+          <text x="140" y="130" text-anchor="middle" font-family="EB Garamond, serif" font-size="44" font-weight="700" fill="#C5A028">9.4</text>
+          <text x="140" y="158" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#C5A028" opacity="0.7">SCORE DIGITAL</text>
+          <text x="140" y="230" text-anchor="middle" font-family="EB Garamond, serif" font-size="15" font-weight="600" fill="#F5F0E8">Restaurante Exemplo</text>
+          <text x="140" y="250" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#C5A028" opacity="0.8">ELITE · TOP 5%</text>
+          <text x="140" y="295" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#C5A028" opacity="0.5">Válido até Maio 2027</text>
+        </svg>
+      </div>
+      <div class="cta-text">
+        <p class="section-kicker">CERTIFICAÇÃO OFICIAL</p>
+        <h2 class="section-title">Prove que a sua empresa<br>é líder digital.</h2>
+        <p class="cta-desc">
+          O Vanguard Maturity Certificate™ é o standard de excelência digital para empresas portuguesas.
+          Um badge dinâmico, verificável publicamente, que diferencia a sua empresa da concorrência.
+        </p>
+        <ul class="cta-benefits">
+          <li>◆ Badge SVG incorporável no website</li>
+          <li>◆ Página de verificação pública</li>
+          <li>◆ Actualização anual automática</li>
+          <li>◆ QR Code de autenticidade</li>
+        </ul>
+        <div class="cta-actions">
+          <a href="/saas" class="btn-gold">Aceder ao Dashboard →</a>
+          <span class="cta-footnote">Score mínimo 8.0 · Válido 12 meses</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__brand">◆ Vanguard Score™</span>
+      <span class="footer__copy">© 2026 Vanguard Tech — Dados de mercado actualizados mensalmente</span>
+      <div class="footer__links">
+        <a href="/saas">Dashboard</a>
+        <a href="/intelligence">API Intelligence</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/score.js"></script>
+</body>
+</html>

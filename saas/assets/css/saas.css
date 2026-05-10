@@ -1273,6 +1273,241 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.6;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* V9 — SOVEREIGN ECONOMY: Arbitragem · Certifica · Hermes Voice             */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── NAV Badge gold (V9) ─────────────────────────────────────────────────── */
+.nav-item__badge--gold {
+  background: rgba(197,160,40,0.15);
+  color: #C5A028;
+  border: 1px solid rgba(197,160,40,0.3);
+  font-size: 0.5rem;
+  font-family: var(--ff-mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  margin-left: auto;
+}
+
+/* ─── Market Grid (Arbitragem) ────────────────────────────────────────────── */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.market-card {
+  background: var(--glass-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s, transform 0.15s;
+  cursor: default;
+}
+.market-card:hover {
+  border-color: rgba(var(--cyan-rgb), 0.3);
+  transform: translateY(-2px);
+}
+.market-card--auction { border-left: 3px solid #C5A028; }
+.market-card--fixo    { border-left: 3px solid rgba(var(--cyan-rgb), 0.7); }
+
+.market-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.market-card__nicho {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  background: rgba(var(--cyan-rgb), 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+.market-card__tipo {
+  font-family: var(--ff-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.market-card__cidade {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.market-card__score {
+  font-family: var(--ff-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+}
+.market-card__score-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+.market-card__gargalo {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  border-left: 2px solid rgba(var(--cyan-rgb), 0.2);
+  padding-left: 0.6rem;
+}
+.market-card__bid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+.market-card__bid-label {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.market-card__bid-val {
+  font-family: var(--ff-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #C5A028;
+}
+.market-card__time {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  color: #FF4E4E;
+}
+.market-card__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn-bid {
+  flex: 1;
+  padding: 0.5rem;
+  background: rgba(197,160,40,0.1);
+  border: 1px solid rgba(197,160,40,0.35);
+  border-radius: 6px;
+  color: #C5A028;
+  font-family: var(--ff-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-bid:hover { background: rgba(197,160,40,0.2); }
+.btn-buy {
+  flex: 1;
+  padding: 0.5rem;
+  background: rgba(var(--cyan-rgb), 0.08);
+  border: 1px solid rgba(var(--cyan-rgb), 0.3);
+  border-radius: 6px;
+  color: var(--cyan);
+  font-family: var(--ff-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-buy:hover { background: rgba(var(--cyan-rgb), 0.15); }
+
+/* ─── Variantes A/B (Hermes) ──────────────────────────────────────────────── */
+.variantes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.variante-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 36px 36px;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: var(--glass-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+.variante-row--winner { border-left: 3px solid var(--cyan); }
+.variante-row:hover { border-color: rgba(var(--cyan-rgb), 0.25); }
+.variante-nome {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+.variante-taxa {
+  font-family: var(--ff-mono);
+  font-size: 0.9rem;
+  color: #22C55E;
+  text-align: right;
+}
+.variante-canal {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+.variante-winner-badge {
+  font-size: 0.55rem;
+  font-family: var(--ff-mono);
+  padding: 0.2rem 0.4rem;
+  background: rgba(var(--cyan-rgb), 0.08);
+  border: 1px solid rgba(var(--cyan-rgb), 0.3);
+  color: var(--cyan);
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ─── Voice Log ───────────────────────────────────────────────────────────── */
+.voice-log {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.voice-row {
+  display: grid;
+  grid-template-columns: 140px 100px 80px 90px 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--glass-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.82rem;
+}
+.voice-row__num {
+  font-family: var(--ff-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.voice-row__dur {
+  font-family: var(--ff-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+.voice-outcome {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  text-align: center;
+}
+.voice-outcome--converteu { background: rgba(34,197,94,0.12); color: #22C55E; }
+.voice-outcome--respondeu { background: rgba(var(--cyan-rgb),0.08); color: var(--cyan); }
+.voice-outcome--nao_atendeu { background: rgba(255,78,78,0.1); color: #FF4E4E; }
+.voice-outcome--voicemail { background: rgba(197,160,40,0.1); color: #C5A028; }
+
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .content-grid { grid-template-columns: 1fr; }
