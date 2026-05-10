@@ -1,5 +1,5 @@
 # VANGUARD KNOWLEDGE GRAPH — Mapa Mestre da Arquitectura
-> **Versão:** V8 — Sovereign Data  
+> **Versão:** V9 — Sovereign Economy  
 > **Última actualização:** 2026-05-09  
 > **Propósito:** Verdade absoluta sobre a arquitectura para NotebookLM e sessões futuras.  
 > **Arquitecto de IA:** Claude Sonnet 4.6
@@ -8,7 +8,7 @@
 
 ## 1. Visão Geral — O Que é a Vanguard
 
-A Vanguard é uma **Venture Builder Autónoma & Holding de Dados SaaS** com 4 linhas de receita:
+A Vanguard é uma **Venture Builder Autónoma & Holding de Dados SaaS** com 6 linhas de receita:
 
 | Linha | Produto | Modelo | Status |
 |-------|---------|--------|--------|
@@ -16,6 +16,8 @@ A Vanguard é uma **Venture Builder Autónoma & Holding de Dados SaaS** com 4 li
 | 2 | Marketplace de Nichos | Comissão 30% (Stripe Connect) | ✅ V7 |
 | 3 | Intelligence API | Pay-per-request + planos | ✅ V8 |
 | 4 | Fractal White-Label | MRR revendedores | ✅ V8 |
+| 5 | Lead Arbitrage System | Leilão interno 30% comissão | ✅ V9 |
+| 6 | Vanguard Maturity Certificate™ | Badge SVG anual €97-297 | ✅ V9 |
 
 ---
 
@@ -28,6 +30,9 @@ V3 → Scraper Outbound (OSM + Claude Haiku + Supabase inject)
 V4 → [não documentado — incrementos intermediários]
 V5 → Soberano Digital: Docker Mestre + White-Label brand-config.js + UI Awwwards
 V6 → SaaS Multi-Tenant: FastAPI + Stripe Billing + JWT Auth + RLS
+V7 → Marketplace Nichos: Stripe Connect 70/30 + Dark Bazaar UI
+V8 → Intelligence API: SHA-256 keys + Fractal WL + Sovereign Glass UI
+V9 → Sovereign Economy: Lead Arbitrage + Certifica SVG + Hermes Voice + Score™
 V7 → Marketplace: Stripe Connect + Dark Bazaar UI + webhooks intenção
 V8 → Sovereign Data: Intelligence API + Fractal White-Label + Feed Intenção
 ```

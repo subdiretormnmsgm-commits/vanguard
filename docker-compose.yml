@@ -1,9 +1,9 @@
 version: '3.8'
 
 # ╔══════════════════════════════════════════════════════════════════════╗
-# ║  VANGUARD SOVEREIGN DATA V8 — Docker Compose Mestre                  ║
+# ║  VANGUARD SOVEREIGN ECONOMY V9 — Docker Compose Mestre               ║
 # ║  Orquestra: Frontend PWA · API SaaS · Intelligence API · Fractal WL  ║
-# ║             Scraper IA · n8n Hermes · PostgreSQL                     ║
+# ║             Arbitragem · Certifica · Hermes Voice · Scraper IA · n8n ║
 # ║                                                                      ║
 # ║  Deploy  : docker compose up -d                                      ║
 # ║  Scraper : docker compose run --rm scraper --nicho advocacia --modo osm ║
@@ -71,6 +71,11 @@ services:
       # V8: Intelligence API + Fractal
       - INTELLIGENCE_URL=${INTELLIGENCE_URL:-http://localhost/intelligence}
       - VANGUARD_API_URL=${VANGUARD_API_URL:-http://vanguard_api:9000}
+      # V9: Sovereign Economy
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - VAPI_KEY=${VAPI_KEY}
+      - VAPI_PHONE_NUMBER_ID=${VAPI_PHONE_NUMBER_ID}
+      - CERTIFICA_URL=${CERTIFICA_URL:-http://localhost}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:

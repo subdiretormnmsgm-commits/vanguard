@@ -40,6 +40,8 @@ function navigate(section) {
     planos:       'Planos e Assinaturas',
     fractal:      'Fractal — White-Label Engine',
     intelligence: 'Intelligence API — Keys',
+    arbitrage:    'Mercado de Arbitragem',
+    hermes:       'Hermes — Voz & Persona',
   };
   document.getElementById('sectionTitle').textContent = titles[section] || '';
 
@@ -47,6 +49,8 @@ function navigate(section) {
   if (section === 'planos')       loadPlanos();
   if (section === 'fractal')      loadFractalDashboard();
   if (section === 'intelligence') loadApiKeys();
+  if (section === 'arbitrage')    loadArbitrageMarket();
+  if (section === 'hermes')       loadHermesDashboard();
 }
 
 // ── API helper ────────────────────────────────────────────────────
@@ -703,4 +707,219 @@ async function revogarApiKey(id) {
   await sb.from('api_keys').update({ ativo: false }).eq('id', id);
   showToast('API key revogada.', 'success');
   loadApiKeys();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// V9 — ARBITRAGEM
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function loadArbitrageMarket() {
+  const nicho  = document.getElementById('arbFiltroNicho')?.value  || '';
+  const modelo = document.getElementById('arbFiltroModelo')?.value || '';
+  const grid   = document.getElementById('arbitrageMarket');
+  if (!grid) return;
+  grid.innerHTML = '<div style="color:var(--text-muted);text-align:center;padding:2rem;grid-column:1/-1">A carregar...</div>';
+
+  try {
+    const params = new URLSearchParams({ limite: 20 });
+    if (nicho)  params.set('nicho', nicho);
+    if (modelo) params.set('modelo', modelo);
+    const data = await apiCall('/arbitrage/market?' + params.toString());
+    const listings = data.listings || [];
+
+    // KPIs
+    const mine = data.minhas_listagens || [];
+    const totalRec = mine.reduce((s, l) => s + (l.preco_pago || 0), 0);
+    document.getElementById('arbListings').textContent  = listings.length;
+    document.getElementById('arbAuctions').textContent  = listings.filter(l => l.modelo === 'leilao').length;
+    document.getElementById('arbRevenue').textContent   = `€${totalRec.toFixed(2)}`;
+    document.getElementById('arbSold').textContent      = mine.filter(l => l.status === 'sold').length;
+
+    if (!listings.length) {
+      grid.innerHTML = '<div style="color:var(--text-muted);text-align:center;padding:2rem;grid-column:1/-1">Sem listagens activas neste momento.</div>';
+      return;
+    }
+    grid.innerHTML = listings.map(renderMarketCard).join('');
+
+    // Minhas listagens
+    const myGrid = document.getElementById('myListings');
+    if (myGrid) myGrid.innerHTML = mine.length ? mine.map(renderMarketCard).join('') : '<div style="color:var(--text-muted);text-align:center;padding:1.5rem">Sem listagens activas.</div>';
+  } catch (e) {
+    grid.innerHTML = `<div style="color:var(--text-muted);text-align:center;padding:2rem;grid-column:1/-1">Erro: ${esc(e.message)}</div>`;
+  }
+}
+
+function renderMarketCard(l) {
+  const isAuction = l.modelo === 'leilao';
+  const expiry = l.horas_restantes != null ? `${l.horas_restantes}h restantes` : '';
+  return `<div class="market-card market-card--${isAuction ? 'auction' : 'fixo'}">
+    <div class="market-card__header">
+      <span class="market-card__nicho">${esc(l.preview_nicho || '—')}</span>
+      <span class="market-card__tipo">${isAuction ? '⚖ LEILÃO' : '◆ FIXO'}</span>
+    </div>
+    <div class="market-card__cidade">${esc(l.preview_cidade || '—')}</div>
+    <div style="display:flex;align-items:baseline;gap:.4rem">
+      <span class="market-card__score">${l.preview_score?.toFixed(1) ?? '—'}</span>
+      <span class="market-card__score-label">SCORE</span>
+    </div>
+    ${l.preview_gargalo ? `<div class="market-card__gargalo">${esc(l.preview_gargalo)}</div>` : ''}
+    <div class="market-card__bid">
+      <div>
+        <div class="market-card__bid-label">${isAuction ? 'Lance actual' : 'Preço fixo'}</div>
+        <div class="market-card__bid-val">€${(l.maior_lance || l.preco_fixo || l.preco_base || 0).toFixed(2)}</div>
+      </div>
+      ${expiry ? `<span class="market-card__time">⏱ ${esc(expiry)}</span>` : ''}
+    </div>
+    <div class="market-card__actions">
+      ${isAuction
+        ? `<button class="btn-bid" onclick="fazerLance('${l.id}', ${l.maior_lance || l.preco_base || 0})">Licitar</button>`
+        : `<button class="btn-buy" onclick="comprarDirecto('${l.id}')">Comprar €${(l.preco_fixo || 0).toFixed(2)}</button>`
+      }
+    </div>
+  </div>`;
+}
+
+async function fazerLance(listingId, lanceActual) {
+  const minLance = +(lanceActual + 0.50).toFixed(2);
+  const valor = parseFloat(prompt(`Lance mínimo: €${minLance.toFixed(2)}\nInsira o seu lance (€):`));
+  if (isNaN(valor)) return;
+  if (valor < minLance) { showToast(`Lance mínimo: €${minLance.toFixed(2)}`, 'error'); return; }
+  try {
+    await apiCall(`/arbitrage/listings/${listingId}/bid`, {
+      method: 'POST', body: JSON.stringify({ valor }),
+    });
+    showToast('Lance registado com sucesso!', 'success');
+    loadArbitrageMarket();
+  } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+}
+
+async function comprarDirecto(listingId) {
+  if (!confirm('Confirmar compra directa? Será redirecionado para pagamento Stripe.')) return;
+  try {
+    const data = await apiCall(`/arbitrage/listings/${listingId}/buy`, { method: 'POST' });
+    if (data.checkout_url) window.open(data.checkout_url, '_blank');
+  } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+}
+
+async function abrirModalListarLead() {
+  const { data: leads } = await sb.from('leads_diagnostico')
+    .select('id,empresa_nome,score_digital,nicho')
+    .order('created_at', { ascending: false })
+    .limit(30);
+  if (!leads?.length) { showToast('Sem leads disponíveis para listar.', 'error'); return; }
+
+  const opcoes = leads.map(l => `${l.id.slice(0,8)} — ${l.empresa_nome || '?'} (score ${l.score_digital?.toFixed(1) || '?'})`).join('\n');
+  const escolha = prompt(`Selecione o índice do lead (0-${leads.length-1}):\n\n${leads.map((l,i) => i + ': ' + (l.empresa_nome || l.id.slice(0,8))).join('\n')}`);
+  const idx = parseInt(escolha, 10);
+  if (isNaN(idx) || idx < 0 || idx >= leads.length) return;
+
+  const lead = leads[idx];
+  const modelo = prompt('Modelo: "leilao" ou "fixo"?', 'leilao');
+  if (!['leilao','fixo'].includes(modelo)) return;
+  const preco_base = parseFloat(prompt('Preço base (€):', '10.00'));
+  const preco_fixo = modelo === 'fixo' ? parseFloat(prompt('Preço fixo (€):', '50.00')) : undefined;
+  const duracao_horas = parseInt(prompt('Duração (horas, 1-168):', '48'), 10);
+
+  try {
+    await apiCall('/arbitrage/listings', {
+      method: 'POST',
+      body: JSON.stringify({ lead_id: lead.id, modelo, preco_base, preco_fixo, duracao_horas }),
+    });
+    showToast('Lead listado no mercado!', 'success');
+    loadArbitrageMarket();
+  } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// V9 — HERMES VOICE
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function loadHermesDashboard() {
+  try {
+    const [perfData, varData, callData] = await Promise.all([
+      apiCall('/hermes/persona'),
+      apiCall('/hermes/variantes').catch(() => ({ variantes: [] })),
+      sb.from('hermes_voice_calls').select('*').order('created_at', { ascending: false }).limit(20),
+    ]);
+
+    const persona = perfData?.persona || {};
+    document.getElementById('hTom').textContent      = persona.tom || '—';
+    document.getElementById('hTaxaResp').textContent = persona.taxa_resposta ? persona.taxa_resposta.toFixed(1) + '%' : '—';
+    document.getElementById('hChamadas').textContent = callData?.data?.length || 0;
+
+    renderHermesVariantes(varData?.variantes || []);
+    renderVoiceLog(callData?.data || []);
+  } catch (e) {
+    console.error('Hermes dashboard:', e);
+  }
+}
+
+function renderHermesVariantes(variantes) {
+  const el = document.getElementById('hermesVariantes');
+  if (!el) return;
+  if (!variantes.length) {
+    el.innerHTML = '<div style="color:var(--text-muted);font-size:.9rem;text-align:center;padding:1.5rem">Sem variantes criadas. Crie a primeira!</div>';
+    return;
+  }
+  el.innerHTML = variantes.map(v => `
+    <div class="variante-row ${v.is_winner ? 'variante-row--winner' : ''}">
+      <span class="variante-nome">${esc(v.nome)}</span>
+      <span class="variante-taxa">${v.taxa_resposta != null ? v.taxa_resposta.toFixed(1) + '%' : '—'}</span>
+      <span class="variante-canal">${esc(v.canal)}</span>
+      ${v.is_winner ? '<span class="variante-winner-badge">WINNER</span>' : '<span></span>'}
+      <button class="btn-ghost" style="font-size:.7rem;padding:.25rem .6rem" onclick="removerVariante('${v.id}')">✕</button>
+    </div>`).join('');
+}
+
+function renderVoiceLog(calls) {
+  const el = document.getElementById('voiceLog');
+  if (!el) return;
+  if (!calls.length) {
+    el.innerHTML = '<div style="color:var(--text-muted);font-size:.9rem;text-align:center;padding:1.5rem">Sem chamadas registadas.</div>';
+    return;
+  }
+  el.innerHTML = calls.map(c => {
+    const outcomeClass = c.outcome ? `voice-outcome--${c.outcome}` : '';
+    const dur = c.duracao_seg ? `${Math.floor(c.duracao_seg/60)}m${c.duracao_seg%60}s` : '—';
+    return `<div class="voice-row">
+      <span class="voice-row__num">${esc(c.numero_destino || '—')}</span>
+      <span class="voice-row__dur">${dur}</span>
+      <span class="voice-outcome ${outcomeClass}">${esc(c.outcome || c.status || '—')}</span>
+      <span style="font-family:var(--ff-mono);font-size:.65rem;color:var(--text-muted)">${esc(c.provider || 'vapi')}</span>
+      <span style="font-size:.75rem;color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(c.proximo_passo || c.analise_claude || '')}</span>
+    </div>`;
+  }).join('');
+}
+
+async function analisarPersona() {
+  showToast('A analisar padrões com Claude Haiku...', 'info');
+  try {
+    const data = await apiCall('/hermes/persona/analisar', { method: 'POST' });
+    showToast('Persona actualizada: ' + (data.persona?.insight || 'OK'), 'success');
+    loadHermesDashboard();
+  } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+}
+
+async function abrirModalVariante() {
+  const nome     = prompt('Nome da variante (ex: "Abordagem Urgente"):');
+  if (!nome) return;
+  const template = prompt('Template (use {nome}, {cidade}, {gargalo}, {ai_hook}):',
+    'Olá {nome}! Detectámos que {gargalo} está a custar-lhe clientes em {cidade}. {ai_hook} Posso ajudar?');
+  if (!template) return;
+  const canal = prompt('Canal (whatsapp/voice/email):', 'whatsapp');
+  try {
+    await apiCall('/hermes/variantes', {
+      method: 'POST',
+      body: JSON.stringify({ nome, template, canal: canal || 'whatsapp' }),
+    });
+    showToast('Variante criada!', 'success');
+    loadHermesDashboard();
+  } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+}
+
+async function removerVariante(id) {
+  if (!confirm('Eliminar esta variante?')) return;
+  await sb.from('hermes_variants').delete().eq('id', id);
+  showToast('Variante eliminada.', 'success');
+  loadHermesDashboard();
 }

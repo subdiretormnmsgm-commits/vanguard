@@ -52,6 +52,16 @@
           <span class="nav-item__icon">◈</span>
           <span>API Keys</span>
         </a>
+        <a class="nav-item" data-section="arbitrage" onclick="navigate('arbitrage')">
+          <span class="nav-item__icon">⇄</span>
+          <span>Arbitragem</span>
+          <span class="nav-item__badge nav-item__badge--gold">V9</span>
+        </a>
+        <a class="nav-item" data-section="hermes" onclick="navigate('hermes')">
+          <span class="nav-item__icon">☎</span>
+          <span>Hermes Voz</span>
+          <span class="nav-item__badge nav-item__badge--gold">V9</span>
+        </a>
       </nav>
 
       <!-- Quota bar -->
@@ -345,6 +355,84 @@
           </div>
           <pre class="code-block">curl -X GET "https://seudominio.com/v1/intelligence/nicho/advocacia" \
   -H "X-Vanguard-Key: vng_live_xxxx_SEU_TOKEN"</pre>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: ARBITRAGEM (V9) ══════════════════════════ -->
+      <section id="section-arbitrage" class="section">
+        <div class="content-block">
+          <div class="content-block__header">
+            <h2 class="content-block__title">⇄ Mercado de Arbitragem</h2>
+            <button class="btn-ghost" onclick="abrirModalListarLead()">+ Listar Lead</button>
+          </div>
+          <!-- KPI mini-grid -->
+          <div class="kpi-grid" style="margin-bottom:1.5rem;grid-template-columns:repeat(4,1fr)" id="arbitrageKpis">
+            <div class="kpi-card"><div class="kpi-card__label">Listagens Activas</div><div class="kpi-card__value" id="arbListings">—</div></div>
+            <div class="kpi-card"><div class="kpi-card__label">Leilões em Curso</div><div class="kpi-card__value" id="arbAuctions">—</div></div>
+            <div class="kpi-card"><div class="kpi-card__label">Receita Gerada</div><div class="kpi-card__value" id="arbRevenue">—</div></div>
+            <div class="kpi-card"><div class="kpi-card__label">Leads Vendidos</div><div class="kpi-card__value" id="arbSold">—</div></div>
+          </div>
+          <!-- Market browse -->
+          <div class="content-block__header" style="margin-bottom:.75rem">
+            <span style="font-size:.85rem;color:var(--text-muted)">Filtrar:</span>
+            <select id="arbFiltroNicho" class="field__input" style="width:auto;padding:.35rem .75rem;font-size:.85rem" onchange="loadArbitrageMarket()">
+              <option value="">Todos os nichos</option>
+              <option>advocacia</option><option>clinica</option><option>restaurante</option>
+              <option>fitness</option><option>imobiliaria</option>
+            </select>
+            <select id="arbFiltroModelo" class="field__input" style="width:auto;padding:.35rem .75rem;font-size:.85rem" onchange="loadArbitrageMarket()">
+              <option value="">Todos</option>
+              <option value="leilao">Leilão</option>
+              <option value="fixo">Preço Fixo</option>
+            </select>
+          </div>
+          <div id="arbitrageMarket" class="market-grid">
+            <div style="color:var(--text-muted);font-size:.9rem;text-align:center;padding:2rem">A carregar mercado...</div>
+          </div>
+        </div>
+
+        <!-- Minhas Listagens -->
+        <div class="content-block" style="margin-top:1.5rem">
+          <div class="content-block__header">
+            <h3 class="content-block__title">Minhas Listagens</h3>
+          </div>
+          <div id="myListings" class="market-grid">
+            <div style="color:var(--text-muted);font-size:.9rem;text-align:center;padding:1.5rem">Sem listagens activas.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: HERMES VOZ (V9) ════════════════════════════ -->
+      <section id="section-hermes" class="section">
+        <div class="content-block">
+          <div class="content-block__header">
+            <h2 class="content-block__title">☎ Hermes — Voz & Persona</h2>
+            <button class="btn-ghost" onclick="analisarPersona()">↺ Analisar Persona</button>
+          </div>
+          <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.5rem" id="hermesKpis">
+            <div class="kpi-card"><div class="kpi-card__label">Tom da Persona</div><div class="kpi-card__value" id="hTom">—</div></div>
+            <div class="kpi-card"><div class="kpi-card__label">Taxa de Resposta</div><div class="kpi-card__value" id="hTaxaResp">—</div></div>
+            <div class="kpi-card"><div class="kpi-card__label">Chamadas Voz</div><div class="kpi-card__value" id="hChamadas">—</div></div>
+          </div>
+
+          <!-- Variantes A/B -->
+          <div class="content-block__header" style="margin-bottom:.75rem">
+            <h3 class="content-block__title" style="font-size:.95rem">Variantes A/B</h3>
+            <button class="btn-ghost" style="font-size:.8rem" onclick="abrirModalVariante()">+ Nova Variante</button>
+          </div>
+          <div id="hermesVariantes" class="variantes-list">
+            <div style="color:var(--text-muted);font-size:.9rem;text-align:center;padding:1.5rem">A carregar variantes...</div>
+          </div>
+        </div>
+
+        <!-- Log de Chamadas -->
+        <div class="content-block" style="margin-top:1.5rem">
+          <div class="content-block__header">
+            <h3 class="content-block__title">Log de Chamadas de Voz</h3>
+          </div>
+          <div id="voiceLog" class="voice-log">
+            <div style="color:var(--text-muted);font-size:.9rem;text-align:center;padding:1.5rem">Sem chamadas registadas.</div>
+          </div>
         </div>
       </section>
 

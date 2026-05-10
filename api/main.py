@@ -1,19 +1,28 @@
 #!/usr/bin/env python3
 """
-Vanguard V8 — API Bridge (Sovereign Data)
+Vanguard V9 — API Bridge (Sovereign Economy)
 FastAPI: Scraper trigger · Stripe Billing · Auth JWT
        + V7 Marketplace · V8 Intelligence API · V8 Fractal White-Label
+       + V9 Lead Arbitrage · V9 Certifica · V9 Hermes Voice
 
-Endpoints V8 adicionais:
-  GET  /v1/intelligence/nichos          — nichos indexados
-  GET  /v1/intelligence/nicho/{nicho}   — stats maturidade digital
-  GET  /v1/intelligence/tendencias      — tendências 30d
-  GET  /v1/intelligence/empresa         — lookup empresa
-  GET  /v1/intelligence/cidades         — top cidades
-  GET  /v1/intelligence/status          — estado da API key
-  POST /api/fractal/sub-tenants         — criar sub-tenant
-  GET  /api/fractal/sub-tenants         — listar sub-tenants
-  PATCH /api/fractal/sub-tenants/{id}/brand — actualizar brand
+Endpoints V9 adicionais:
+  GET  /api/arbitrage/market            — browsing público do mercado
+  POST /api/arbitrage/listings          — criar listagem de lead
+  POST /api/arbitrage/listings/{id}/bid — fazer lance
+  POST /api/arbitrage/listings/{id}/buy — compra directa
+  POST /api/arbitrage/webhook           — Stripe webhook arbitragem
+  POST /api/certifica/emitir/{lead_id}  — emitir certificado
+  GET  /api/certifica/meus             — certificados do tenant
+  POST /api/certifica/reivindicar/{token} — reivindicar (público)
+  GET  /certifica/verificar/{token}    — página verificação (HTML)
+  GET  /certifica/badge/{token}.svg    — badge SVG (público)
+  GET  /api/hermes/persona             — persona do tenant
+  POST /api/hermes/persona/analisar    — análise Claude Haiku
+  POST /api/hermes/variantes           — criar variante A/B
+  POST /api/hermes/selecionar/{lead_id} — selecionar melhor variante
+  POST /api/hermes/voice/iniciar       — iniciar chamada Vapi
+  POST /api/hermes/voice/webhook       — webhook Vapi
+  GET  /api/hermes/performance         — métricas Hermes
 
 Deploy: uvicorn main:app --host 0.0.0.0 --port 9000
 """
@@ -50,6 +59,11 @@ STRIPE_WEBHOOK_SECRET= os.getenv('STRIPE_WEBHOOK_SECRET', '')
 SAAS_URL             = os.getenv('SAAS_URL', 'http://localhost')
 SCRAPER_IMAGE        = os.getenv('SCRAPER_IMAGE', 'vanguard-scraper:v5')
 DOCKER_NETWORK       = os.getenv('DOCKER_NETWORK', 'vanguard_soberano_v5')
+# V9 — Sovereign Economy
+VAPI_KEY             = os.getenv('VAPI_KEY', '')
+VAPI_PHONE_NUMBER_ID = os.getenv('VAPI_PHONE_NUMBER_ID', '')
+CERTIFICA_URL        = os.getenv('CERTIFICA_URL', SAAS_URL)
+ARBITRAGE_STRIPE_KEY = os.getenv('STRIPE_SECRET_KEY', STRIPE_SECRET_KEY)
 
 stripe.api_key = STRIPE_SECRET_KEY
 
@@ -262,17 +276,18 @@ async def executar_scraper_bg(
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    log.info('Vanguard API Bridge V8 iniciada — Intelligence API + Fractal White-Label.')
+    log.info('Vanguard API Bridge V9 iniciada — Sovereign Economy: Arbitragem + Certifica + Hermes Voice.')
     if not SUPABASE_URL:       log.warning('SUPABASE_URL não configurada!')
     if not STRIPE_SECRET_KEY:  log.warning('STRIPE_SECRET_KEY não configurada!')
     if not SUPABASE_JWT_SECRET:log.warning('SUPABASE_JWT_SECRET não configurada!')
+    if not VAPI_KEY:           log.warning('VAPI_KEY não configurada — Hermes Voice em modo demo.')
     yield
     log.info('API Bridge encerrada.')
 
 
 app = FastAPI(
-    title='Vanguard SaaS API Bridge V8 — Sovereign Data',
-    version='8.0.0',
+    title='Vanguard SaaS API Bridge V9 — Sovereign Economy',
+    version='9.0.0',
     docs_url='/api/docs',
     redoc_url=None,
     lifespan=lifespan,
@@ -313,6 +328,43 @@ try:
     log.info('Fractal White-Label router registado (/api/fractal/).')
 except ImportError as e:
     log.warning(f'fractal.py não encontrado: {e}')
+
+# ─── V9: Lead Arbitrage router ────────────────────────────────────────────────
+try:
+    from arbitrage import make_arbitrage_router
+    arbitrage_router = make_arbitrage_router(
+        SUPABASE_URL, SUPABASE_SERVICE_KEY,
+        ARBITRAGE_STRIPE_KEY, SAAS_URL,
+        autenticar, get_tenant,
+    )
+    app.include_router(arbitrage_router)
+    log.info('Lead Arbitrage router registado (/api/arbitrage/).')
+except ImportError as e:
+    log.warning(f'arbitrage.py não encontrado: {e}')
+
+# ─── V9: Certifica router ─────────────────────────────────────────────────────
+try:
+    from certifica import make_certifica_router
+    certifica_router = make_certifica_router(
+        SUPABASE_URL, SUPABASE_SERVICE_KEY, autenticar, get_tenant,
+    )
+    app.include_router(certifica_router)
+    log.info('Certifica router registado (/api/certifica/ + /certifica/).')
+except ImportError as e:
+    log.warning(f'certifica.py não encontrado: {e}')
+
+# ─── V9: Hermes Voice router ──────────────────────────────────────────────────
+try:
+    from hermes_voice import make_hermes_voice_router
+    hermes_router = make_hermes_voice_router(
+        SUPABASE_URL, SUPABASE_SERVICE_KEY,
+        ANTHROPIC_API_KEY, VAPI_KEY,
+        autenticar, get_tenant,
+    )
+    app.include_router(hermes_router)
+    log.info('Hermes Voice router registado (/api/hermes/).')
+except ImportError as e:
+    log.warning(f'hermes_voice.py não encontrado: {e}')
 
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
@@ -642,8 +694,8 @@ async def stripe_webhook(request: Request):
 async def health():
     return {
         'status':  'ok',
-        'service': 'Vanguard API Bridge V8 — Sovereign Data',
-        'version': '8.0.0',
+        'service': 'Vanguard API Bridge V9 — Sovereign Economy',
+        'version': '9.0.0',
         'ts':       datetime.utcnow().isoformat(),
         'stripe':   bool(STRIPE_SECRET_KEY),
         'supabase': bool(SUPABASE_URL),
