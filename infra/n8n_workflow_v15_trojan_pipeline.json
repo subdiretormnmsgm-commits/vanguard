@@ -1,0 +1,255 @@
+{
+  "name": "Vanguard Trojan Video Pipeline V15",
+  "meta": {
+    "instanceId": "vanguard-n8n",
+    "description": "Pipeline letal: Novo lead → Scan Real → HUD Screenshot → Trojan PNG/GIF → WABA API. Activado por Supabase Webhook em INSERT na leads_diagnostico."
+  },
+  "nodes": [
+    {
+      "id": "trigger-webhook",
+      "name": "Webhook — Novo Lead Supabase",
+      "type": "n8n-nodes-base.webhook",
+      "position": [0, 0],
+      "parameters": {
+        "path": "vanguard-new-lead",
+        "method": "POST",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": false
+        }
+      },
+      "notes": "Configure em Supabase > Database > Webhooks: INSERT em leads_diagnostico → POST neste URL"
+    },
+    {
+      "id": "extract-lead",
+      "name": "Extrair Dados do Lead",
+      "type": "n8n-nodes-base.set",
+      "position": [200, 0],
+      "parameters": {
+        "values": {
+          "string": [
+            { "name": "nome",      "value": "={{ $json.record.nome }}" },
+            { "name": "nicho",     "value": "={{ $json.record.nicho }}" },
+            { "name": "gargalo",   "value": "={{ $json.record.gargalo }}" },
+            { "name": "whatsapp",  "value": "={{ $json.record.whatsapp }}" },
+            { "name": "domain",    "value": "={{ $json.record.nome.toLowerCase().replace(/[^a-z0-9]/g, '-') + '.pt' }}" },
+            { "name": "lead_id",   "value": "={{ $json.record.id }}" }
+          ],
+          "number": [
+            { "name": "score",     "value": "={{ $json.record.score_digital || 5 }}" }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "check-score",
+      "name": "Score > Threshold?",
+      "type": "n8n-nodes-base.if",
+      "position": [400, 0],
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.score }}",
+              "operation": "smallerEqual",
+              "value2": 7
+            }
+          ]
+        }
+      },
+      "notes": "Só dispara Trojan para leads com score ≤ 7 (maturidade baixa/crítica = maior urgência)"
+    },
+    {
+      "id": "real-scanner",
+      "name": "Real Scanner — PageSpeed API",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [600, -100],
+      "parameters": {
+        "url": "https://www.googleapis.com/pagespeedonline/v5/runPagespeed",
+        "method": "GET",
+        "queryParameters": {
+          "parameters": [
+            { "name": "url",      "value": "=https://{{ $json.domain }}" },
+            { "name": "key",      "value": "={{ $env.PAGESPEED_API_KEY }}" },
+            { "name": "strategy", "value": "mobile" },
+            { "name": "category", "value": "performance" },
+            { "name": "category", "value": "seo" }
+          ]
+        },
+        "options": { "timeout": 15000 },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "compute-score",
+      "name": "Calcular Score Real",
+      "type": "n8n-nodes-base.code",
+      "position": [800, -100],
+      "parameters": {
+        "jsCode": "const psi = $input.item.json;\nconst cats = psi.lighthouseResult?.categories || {};\nconst perf = (cats.performance?.score || 0.5) * 10;\nconst seo  = (cats.seo?.score || 0.5) * 10;\nconst score = Math.round((perf * 0.6 + seo * 0.4) * 10) / 10;\nreturn [{ json: { ...items[0].json, real_score: score, psi_ok: true } }];"
+      }
+    },
+    {
+      "id": "screenshot-hud",
+      "name": "Screenshot HUD Preview",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1000, -100],
+      "parameters": {
+        "url": "=https://vanguardtech.io/preview/?d={{ encodeURIComponent($json.domain) }}&score={{ $json.real_score || $json.score }}&format=png",
+        "method": "GET",
+        "responseFormat": "file",
+        "options": { "timeout": 20000 },
+        "notes": "Requer endpoint /preview/?format=png no backend (Playwright headless)"
+      }
+    },
+    {
+      "id": "burn-rate-check",
+      "name": "Burn Rate Shield Check",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1000, 100],
+      "parameters": {
+        "url": "=https://api.vanguardtech.io/admin/burn-rate",
+        "method": "GET",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth"
+      }
+    },
+    {
+      "id": "budget-ok",
+      "name": "Orçamento Permitido?",
+      "type": "n8n-nodes-base.if",
+      "position": [1200, 0],
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $('burn-rate-check').item.json.status }}",
+              "operation": "notEqual",
+              "value2": "EXCEEDED"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "spintax-message",
+      "name": "Gerar Mensagem Spintax",
+      "type": "n8n-nodes-base.code",
+      "position": [1400, -100],
+      "parameters": {
+        "jsCode": "// Motor Spintax V15 — WABA Escudo (texto apenas no cold contact)\nfunction spintax(t) {\n  return t.replace(/\\{([^}]+)\\}/g, (_, opts) => {\n    const choices = opts.split('|');\n    return choices[Math.floor(Math.random() * choices.length)];\n  });\n}\n\nconst nome   = $json.nome   || 'empresário';\nconst nicho  = $json.nicho  || 'negócio';\nconst domain = $json.domain || 'o seu site';\nconst score  = $json.real_score || $json.score || 5;\n\n// ESCUDO WABA: Estado 1 = APENAS TEXTO (sem anexos, sem PDFs)\n// Trojan PNG/Vídeo só desbloqueado no Estado 2 (após reply do lead)\nconst templates = [\n  `{Olá|Bom dia|Boa tarde} ${nome}! {👋|✋}\\n\\n{Fiz|Realizei} uma {análise|auditoria} ao site *${domain}* e o score de maturidade digital é *${score}/10*.\\n\\n{Identifiquei|Detectei} {gargalos|problemas} que podem estar a custar-lhe {clientes|visibilidade}.\\n\\nVer o relatório completo: https://vanguardtech.io/preview/?d=${encodeURIComponent(domain)}\\n\\n— Hermes · Vanguard Tech 🚀`,\n  `${nome}, {detectei|encontrei} algo importante no *${domain}*. {Score de maturidade: ${score}/10.|Auditoria: ${score}/10.}\\n\\nOs concorrentes em *${nicho}* com score acima de 7 {fecham 3× mais leads|têm 3× mais conversões}.\\n\\nPosso mostrar-lhe como resolver isto em 30 dias?\\n\\nhttps://vanguardtech.io/preview/?d=${encodeURIComponent(domain)}\\n— Hermes · Vanguard Tech`,\n];\n\nconst msg = spintax(templates[Math.floor(Math.random() * templates.length)]);\nreturn [{ json: { ...$json, message_text: msg, state: 1, trojan_locked: true } }];"
+      }
+    },
+    {
+      "id": "send-whatsapp-text",
+      "name": "Enviar WhatsApp — Texto (Estado 1)",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1600, -100],
+      "parameters": {
+        "url": "=http://evolution.vanguardtech.io:8080/message/sendText/vanguard-hermes",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"number\": \"{{ $json.whatsapp.replace(/\\\\D/g, '') }}\",\n  \"text\":   \"{{ $json.message_text }}\",\n  \"delay\":  1500\n}"
+      }
+    },
+    {
+      "id": "log-supabase",
+      "name": "Registar em hermes_outbound_log",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1800, -100],
+      "parameters": {
+        "url": "=https://ehyaecxqijgyuuiorzcj.supabase.co/rest/v1/hermes_outbound_log",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"lead_id\":    \"{{ $json.lead_id }}\",\n  \"nicho\":      \"{{ $json.nicho }}\",\n  \"template_id\": null,\n  \"outcome\":    \"sent_state_1\",\n  \"score\":       {{ $json.real_score || $json.score }},\n  \"message_preview\": \"{{ $json.message_text.substring(0, 100) }}\"\n}"
+      }
+    },
+    {
+      "id": "fallback-static",
+      "name": "Fallback — Template Estático",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1400, 100],
+      "parameters": {
+        "url": "=http://evolution.vanguardtech.io:8080/message/sendText/vanguard-hermes",
+        "method": "POST",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"number\": \"{{ $json.whatsapp.replace(/\\\\D/g, '') }}\",\n  \"text\": \"Olá {{ $json.nome }}! Identificámos oportunidades no seu sector. Podemos mostrar-lhe resultados em 30min? — Hermes · Vanguard Tech\",\n  \"delay\": 1000\n}",
+        "notes": "Activado quando Burn Rate Shield detecta orçamento excedido"
+      }
+    },
+    {
+      "id": "skip-low-priority",
+      "name": "Ignorar (Score alto = lead satisfeito)",
+      "type": "n8n-nodes-base.noOp",
+      "position": [600, 100],
+      "notes": "Leads com score > 7 não recebem Trojan — já estão digitalmente maduros"
+    },
+    {
+      "id": "respond-webhook",
+      "name": "Responder Webhook 200",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [2000, 0],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"status\": \"ok\", \"lead_id\": \"{{ $json.lead_id }}\" }"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook — Novo Lead Supabase": {
+      "main": [[ { "node": "Extrair Dados do Lead", "type": "main", "index": 0 } ]]
+    },
+    "Extrair Dados do Lead": {
+      "main": [[ { "node": "Score > Threshold?", "type": "main", "index": 0 } ]]
+    },
+    "Score > Threshold?": {
+      "main": [
+        [ { "node": "Real Scanner — PageSpeed API", "type": "main", "index": 0 } ],
+        [ { "node": "Ignorar (Score alto = lead satisfeito)", "type": "main", "index": 0 } ]
+      ]
+    },
+    "Real Scanner — PageSpeed API": {
+      "main": [[ { "node": "Calcular Score Real", "type": "main", "index": 0 } ]]
+    },
+    "Calcular Score Real": {
+      "main": [[ { "node": "Screenshot HUD Preview", "type": "main", "index": 0 } ]]
+    },
+    "Screenshot HUD Preview": {
+      "main": [[ { "node": "Orçamento Permitido?", "type": "main", "index": 0 } ]]
+    },
+    "Burn Rate Shield Check": {
+      "main": [[ { "node": "Orçamento Permitido?", "type": "main", "index": 0 } ]]
+    },
+    "Orçamento Permitido?": {
+      "main": [
+        [ { "node": "Gerar Mensagem Spintax", "type": "main", "index": 0 } ],
+        [ { "node": "Fallback — Template Estático", "type": "main", "index": 0 } ]
+      ]
+    },
+    "Gerar Mensagem Spintax": {
+      "main": [[ { "node": "Enviar WhatsApp — Texto (Estado 1)", "type": "main", "index": 0 } ]]
+    },
+    "Enviar WhatsApp — Texto (Estado 1)": {
+      "main": [[ { "node": "Registar em hermes_outbound_log", "type": "main", "index": 0 } ]]
+    },
+    "Registar em hermes_outbound_log": {
+      "main": [[ { "node": "Responder Webhook 200", "type": "main", "index": 0 } ]]
+    },
+    "Fallback — Template Estático": {
+      "main": [[ { "node": "Responder Webhook 200", "type": "main", "index": 0 } ]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveExecutionProgress": true,
+    "errorWorkflow": ""
+  },
+  "active": false,
+  "tags": ["vanguard", "hermes", "v15", "trojan", "waba"]
+}
