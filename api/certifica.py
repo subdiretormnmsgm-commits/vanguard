@@ -130,9 +130,19 @@ def make_certifica_router(
     Expires: {expires} · vanguard.io/c/{token}
   </text>
 
-  <!-- Vanguard logo mark -->
-  <text x="318" y="110" text-anchor="middle" fill="#C5A02855"
-    font-family="Georgia,serif" font-size="7" letter-spacing="1">VANGUARD</text>
+  <!-- Vanguard Neural V logo mark V11 -->
+  <g transform="translate(296,94) scale(0.38)">
+    <defs>
+      <linearGradient id="nv-cert" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#C5A028" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#C5A02822"/>
+      </linearGradient>
+    </defs>
+    <polyline points="2,2 24,34 46,2" fill="none" stroke="url(#nv-cert)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="2"  cy="2"  r="3" fill="#C5A02866"/>
+    <circle cx="24" cy="34" r="3.5" fill="#C5A02844"/>
+    <circle cx="46" cy="2"  r="3" fill="#C5A02866"/>
+  </g>
 
   <!-- Link -->
   <a href="{verificar_url}">
