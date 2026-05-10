@@ -1,3 +1,4 @@
+
 # COMANDO GEMINI — V17
 > **Copie tudo a partir da linha pontilhada e cole no Gemini.**  
 > Não é necessário modificar nada — o texto já está completo e contextualizado.
