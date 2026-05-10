@@ -47,7 +47,9 @@ SUPABASE_ANON_KEY = os.getenv('SUPABASE_ANON_KEY', '')
 GOOGLE_API_KEY    = os.getenv('GOOGLE_PLACES_API_KEY', '')
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY', '')
 QUIZ_URL          = os.getenv('VANGUARD_QUIZ_URL', 'https://vanguardtech.com/#quiz')
-VANGUARD_TENANT_ID = os.getenv('VANGUARD_TENANT_ID', '')
+VANGUARD_TENANT_ID  = os.getenv('VANGUARD_TENANT_ID', '')
+VANGUARD_PACK_ID    = os.getenv('VANGUARD_PACK_ID', '')
+VANGUARD_API_URL    = os.getenv('VANGUARD_API_URL', '')   # para webhooks de intenção
 
 OUTPUT_DIR = Path('outbound')
 
@@ -432,6 +434,28 @@ class PlacesSource:
 
 # ─── Pipeline Principal ───────────────────────────────────────────────────────
 
+def _enviar_intention_webhook(pack_id: str, tenant_id: str, leads_gerados: int) -> None:
+    """Notifica a API do Marketplace que o scraper correu para este pack."""
+    if not VANGUARD_API_URL:
+        return
+    payload = json.dumps({
+        'pack_id':  pack_id,
+        'evento':   'scraper_ran',
+        'metadata': {'leads_gerados': leads_gerados, 'tenant_id': tenant_id},
+    }).encode('utf-8')
+    try:
+        req = urllib.request.Request(
+            f'{VANGUARD_API_URL}/api/marketplace/webhook/intention',
+            data=payload, method='POST',
+            headers={'Content-Type': 'application/json'},
+        )
+        with urllib.request.urlopen(req, timeout=5):
+            pass
+        print(f'  ✓ Webhook de intenção enviado para pack {pack_id[:8]}...')
+    except Exception as ex:
+        print(f'  ⚠️ Webhook de intenção falhou (não crítico): {ex}')
+
+
 def processar(
     leads_raw:  list[dict],
     nicho:      str,
@@ -440,10 +464,15 @@ def processar(
     writer:     SupabaseWriter,
     auditor_ia: AuditorIA | None = None,
     tenant_id:  str = '',
+    pack_config: dict | None = None,
 ) -> list[dict]:
     mapa     = NICHO_MAP.get(nicho, {'supabase': 'Consultoria'})
     nicho_sb = mapa['supabase']
     results  = []
+
+    # V7: Aplicar config do pack (prompts personalizados)
+    pack_prompts = (pack_config or {}).get('config_prompts', {})
+    pack_hook_template = pack_prompts.get('hook_template', '')
 
     for i, raw in enumerate(leads_raw, 1):
         nome = raw.get('nome', 'Empresa').strip() or 'Empresa sem nome'
@@ -477,8 +506,13 @@ def processar(
                 if lead['ai_hook']:
                     print(f'      🧠 Hook IA: {lead["ai_hook"][:70]}...')
 
-        # Copy WhatsApp (usa ai_hook se disponível, senão template)
-        lead['wa_copy'] = lead['ai_hook'] if lead['ai_hook'] else copy_gen.gerar(lead)
+        # Copy WhatsApp: prioridade ai_hook > pack template > gerador padrão
+        if lead['ai_hook']:
+            lead['wa_copy'] = lead['ai_hook']
+        elif pack_hook_template:
+            lead['wa_copy'] = pack_hook_template.replace('{nome}', nome).replace('{gargalo}', lead['gargalo'])
+        else:
+            lead['wa_copy'] = copy_gen.gerar(lead)
 
         # Injectar no Supabase (com tenant_id se disponível)
         ok = writer.inserir_lead(lead)
@@ -585,7 +619,9 @@ def main() -> None:
     parser.add_argument('--limite',    type=int, default=5)
     parser.add_argument('--modo',      default='demo', choices=['demo', 'osm', 'places'])
     parser.add_argument('--sem-ia',    action='store_true', help='Desactivar Auditor IA (mais rápido)')
-    parser.add_argument('--tenant-id', default=VANGUARD_TENANT_ID, help='UUID do tenant SaaS (Multi-Tenant V6)')
+    parser.add_argument('--tenant-id',  default=VANGUARD_TENANT_ID, help='UUID do tenant SaaS (Multi-Tenant V6)')
+    parser.add_argument('--pack-id',    default=VANGUARD_PACK_ID,   help='UUID do pack do Marketplace (V7)')
+    parser.add_argument('--pack-config',default='',                  help='JSON com config do pack {config_osm, config_prompts}')
     args = parser.parse_args()
 
     print('╔══════════════════════════════════════════════════════╗')
@@ -596,7 +632,17 @@ def main() -> None:
     print(f'  Limite    : {args.limite}')
     print(f'  Modo      : {args.modo}')
     print(f'  Tenant ID : {args.tenant_id or "(sem tenant — modo standalone)"}')
+    print(f'  Pack ID   : {args.pack_id or "(sem pack — modo standalone)"}')
     print()
+
+    # Aplicar config do pack se fornecida (V7 Marketplace)
+    pack_config = {}
+    if args.pack_config:
+        try:
+            pack_config = json.loads(args.pack_config)
+            print(f'  ✓ Config do pack aplicada: {list(pack_config.keys())}')
+        except json.JSONDecodeError:
+            print('  ⚠️ pack-config JSON inválido — ignorado.')
 
     fontes    = {'demo': DemoSource, 'osm': OSMSource, 'places': PlacesSource}
     fonte     = fontes[args.modo]()
@@ -617,13 +663,21 @@ def main() -> None:
     print()
 
     print('3/4 · A auditar presença digital + IA...')
-    leads = processar(leads_raw, args.nicho, auditor, copy_gen, writer, auditor_ia, args.tenant_id)
+    leads = processar(
+        leads_raw, args.nicho, auditor, copy_gen, writer, auditor_ia,
+        args.tenant_id,
+        pack_config=pack_config,
+    )
 
     print(f'\n4/4 · A exportar relatório Markdown...')
     ficheiro = exportar(leads, args.nicho, args.cidade)
     print(f'     Relatório: {ficheiro}')
 
     resumo(leads)
+
+    # V7: Webhook de intenção ao API se pack_id fornecido
+    if args.pack_id and VANGUARD_API_URL:
+        _enviar_intention_webhook(args.pack_id, args.tenant_id, len(leads))
 
 
 if __name__ == '__main__':

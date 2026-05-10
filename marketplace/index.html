@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanguard Marketplace — O Bazaar da Prospecção</title>
+  <meta name="description" content="Packs de nicho especializados. Scraper configurado. Revenue share 70/30 para criadores." />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0C0C0E" />
+  <link rel="stylesheet" href="assets/css/marketplace.css" />
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ═══════════════ NAV ═══════════════════════════════════════════════ -->
+<nav class="nav">
+  <a href="index.html" class="nav__logo">
+    <span class="nav__logo-mark">VANGUARD<em>MKT</em></span>
+    <span class="nav__badge">V7 BETA</span>
+  </a>
+  <div class="nav__center">
+    <a href="#featured" class="nav__link active">Em Destaque</a>
+    <a href="#packs" class="nav__link">Todos os Packs</a>
+    <a href="#criadores" class="nav__link">Criadores</a>
+    <a href="#como-funciona" class="nav__link">Como Funciona</a>
+  </div>
+  <div class="nav__actions">
+    <a href="creator.html" class="btn btn-ghost btn-sm">Seja um Criador</a>
+    <a href="/saas/dashboard.html" class="btn btn-primary btn-sm">Meu Painel</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow reveal">Marketplace de Prospecção B2B</div>
+    <h1 class="hero__title reveal reveal-d1">
+      O Bazaar
+      <em>da Prospecção</em>
+    </h1>
+    <p class="hero__desc reveal reveal-d2">
+      Packs de nicho criados por especialistas. Scraper configurado, prompts afinados, templates WhatsApp testados.
+      Subscreva e comece a prospectar em minutos.
+    </p>
+    <div class="hero__stats reveal reveal-d3">
+      <div>
+        <span class="hero__stat-value" data-count="127">127</span>
+        <div class="hero__stat-label">Packs Activos</div>
+      </div>
+      <div>
+        <span class="hero__stat-value" data-count="3400">3.4k</span>
+        <div class="hero__stat-label">Subscritores</div>
+      </div>
+      <div>
+        <span class="hero__stat-value" data-count="94">94%</span>
+        <div class="hero__stat-label">Satisfação</div>
+      </div>
+    </div>
+    <div class="hero__ctas reveal reveal-d4">
+      <a href="#packs" class="btn btn-primary btn-lg">Explorar Packs →</a>
+      <a href="creator.html" class="btn btn-ghost btn-lg">Publicar Pack</a>
+    </div>
+  </div>
+
+  <div class="hero__right">
+    <div class="hero__featured">
+      <div class="hero__featured-label">⭐ Pack em Destaque</div>
+      <!-- Pack card featured — renderizado via JS -->
+      <div id="heroFeaturedPack">
+        <div class="pack-card skeleton" style="height:420px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FEATURED PACKS (scroll) ══════════════════════════ -->
+<section class="section" id="featured">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Mais Populares</div>
+        <h2 class="section-title">Em <em>Destaque</em></h2>
+      </div>
+      <a href="#packs" class="btn btn-ghost btn-sm">Ver todos</a>
+    </div>
+
+    <div class="featured-scroll" id="featuredScroll">
+      <!-- Renderizado via JS -->
+      <div class="pack-card skeleton" style="min-width:300px;height:380px"></div>
+      <div class="pack-card skeleton" style="min-width:300px;height:380px"></div>
+      <div class="pack-card skeleton" style="min-width:300px;height:380px"></div>
+      <div class="pack-card skeleton" style="min-width:300px;height:380px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ALL PACKS ══════════════════════════════════════════ -->
+<section class="section section--alt" id="packs">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Catálogo Completo</div>
+        <h2 class="section-title">Todos os <em>Packs</em></h2>
+      </div>
+      <span id="packsCount" class="badge badge-amber">— packs</span>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-bar">
+      <button class="filter-chip active" data-nicho="">Todos</button>
+      <button class="filter-chip" data-nicho="advocacia">⚖️ Advocacia</button>
+      <button class="filter-chip" data-nicho="dentista">🦷 Odonto</button>
+      <button class="filter-chip" data-nicho="estetica">💅 Estética</button>
+      <button class="filter-chip" data-nicho="contabilidade">📊 Contabilidade</button>
+      <button class="filter-chip" data-nicho="imobiliaria">🏠 Imobiliária</button>
+      <button class="filter-chip" data-nicho="clinica">🏥 Clínica</button>
+      <button class="filter-chip" data-nicho="restaurante">🍽 Restaurante</button>
+      <div class="filter-sort">
+        <label>Ordenar por</label>
+        <select id="sortSelect" onchange="filtrarPacks()">
+          <option value="assinantes">Mais subscrito</option>
+          <option value="rating">Melhor avaliado</option>
+          <option value="preco">Menor preço</option>
+          <option value="recente">Mais recente</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="packs-grid" id="packsGrid">
+      <!-- Renderizado via JS -->
+      <div class="pack-card skeleton" style="height:360px"></div>
+      <div class="pack-card skeleton" style="height:360px"></div>
+      <div class="pack-card skeleton" style="height:360px"></div>
+      <div class="pack-card skeleton" style="height:360px"></div>
+      <div class="pack-card skeleton" style="height:360px"></div>
+      <div class="pack-card skeleton" style="height:360px"></div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem" id="loadMoreWrap" style="display:none">
+      <button class="btn btn-ghost" id="btnLoadMore" onclick="carregarMais()">Carregar mais packs</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CRIADORES ═════════════════════════════════════════ -->
+<section class="section" id="criadores">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Parceiros Especializados</div>
+        <h2 class="section-title">Top <em>Criadores</em></h2>
+      </div>
+      <a href="creator.html" class="btn btn-ghost btn-sm">Tornar-me criador →</a>
+    </div>
+
+    <div class="creators-grid" id="criadoresGrid">
+      <div class="creator-card skeleton" style="height:200px"></div>
+      <div class="creator-card skeleton" style="height:200px"></div>
+      <div class="creator-card skeleton" style="height:200px"></div>
+      <div class="creator-card skeleton" style="height:200px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ COMO FUNCIONA ═════════════════════════════════════ -->
+<section class="section section--alt" id="como-funciona">
+  <div class="container">
+    <div class="section-header" style="justify-content:center;text-align:center;display:block;margin-bottom:3rem">
+      <div class="section-eyebrow" style="text-align:center">Simples e Poderoso</div>
+      <h2 class="section-title">Como <em>Funciona</em></h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-step reveal">
+        <div class="how-step__num">01</div>
+        <div class="how-step__title">Escolha um Pack</div>
+        <div class="how-step__desc">Browse por nicho, cidade ou avaliação. Veja taxa de conversão real e leads típicos por mês.</div>
+      </div>
+      <div class="how-step reveal reveal-d1">
+        <div class="how-step__num">02</div>
+        <div class="how-step__title">Subscreva</div>
+        <div class="how-step__desc">Pagamento seguro via Stripe. Cancele quando quiser. Revenue share automático para o criador.</div>
+      </div>
+      <div class="how-step reveal reveal-d2">
+        <div class="how-step__num">03</div>
+        <div class="how-step__title">Dispare o Scraper</div>
+        <div class="how-step__desc">O scraper usa a config exacta do pack — queries OSM optimizadas e prompts Claude Haiku afinados para o nicho.</div>
+      </div>
+      <div class="how-step reveal reveal-d3">
+        <div class="how-step__num">04</div>
+        <div class="how-step__title">Prospecte</div>
+        <div class="how-step__desc">Leads com scores IA, hooks personalizados e links WhatsApp prontos. O Hermes n8n trata do follow-up automático.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA CREATOR ═══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2 class="cta-banner__title">É especialista em algum <em>nicho</em>?</h2>
+      <p class="cta-banner__desc">
+        Publique o seu pack de prospecção e ganhe 70% de cada subscrição.
+        Revenue share automático via Stripe Connect. Sem código, sem infra.
+      </p>
+      <div class="cta-banner__actions">
+        <a href="creator.html" class="btn btn-primary btn-lg">Criar o Meu Pack →</a>
+        <button class="btn btn-ghost btn-lg" onclick="openModal('modalComoGanhar')">Como funciona o revenue share?</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-name">VANGUARD<em>MKT</em></div>
+        <p class="footer__brand-desc">O marketplace de prospecção B2B mais especializado do mercado. Packs criados por especialistas, revenue share transparente.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Plataforma</div>
+        <div class="footer__links">
+          <a href="#packs" class="footer__link">Explorar Packs</a>
+          <a href="creator.html" class="footer__link">Ser Criador</a>
+          <a href="/saas/" class="footer__link">Meu Painel</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Nichos</div>
+        <div class="footer__links">
+          <a href="#" class="footer__link">Advocacia</a>
+          <a href="#" class="footer__link">Odontologia</a>
+          <a href="#" class="footer__link">Estética</a>
+          <a href="#" class="footer__link">Contabilidade</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Legal</div>
+        <div class="footer__links">
+          <a href="#" class="footer__link">Termos de Uso</a>
+          <a href="#" class="footer__link">Privacidade</a>
+          <a href="#" class="footer__link">Revenue Share</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 <em>Vanguard Tech</em> — Forja de Ecossistemas Digitais</span>
+      <span class="mono" style="font-size:.75rem">V7.0.0 · Dark Bazaar</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ MODALS ════════════════════════════════════════════ -->
+<div class="modal-backdrop" id="modalPackDetail" onclick="fecharModal('modalPackDetail')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal__header">
+      <h3 class="modal__title" id="modalPackDetailTitle">Pack</h3>
+      <button class="modal__close" onclick="fecharModal('modalPackDetail')">✕</button>
+    </div>
+    <div id="modalPackDetailBody"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalComoGanhar" onclick="fecharModal('modalComoGanhar')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal__header">
+      <h3 class="modal__title">Revenue Share 70/30</h3>
+      <button class="modal__close" onclick="fecharModal('modalComoGanhar')">✕</button>
+    </div>
+    <div class="form-grid">
+      <p style="color:var(--text-2);line-height:1.7">Cada vez que um tenant subscreve o seu pack, o pagamento é processado pelo Stripe e dividido automaticamente:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="pack-detail__metric" style="background:var(--amber-dim);border:1px solid var(--border-amber)">
+          <span style="font-family:var(--font-mono);font-size:2.5rem;font-weight:700;color:var(--amber);display:block">70%</span>
+          <span style="font-size:.8rem;color:var(--text-2)">Para o criador do pack</span>
+        </div>
+        <div class="pack-detail__metric" style="background:var(--bg-3);border:1px solid var(--border)">
+          <span style="font-family:var(--font-mono);font-size:2.5rem;font-weight:700;color:var(--text-3);display:block">30%</span>
+          <span style="font-size:.8rem;color:var(--text-3)">Para a plataforma Vanguard</span>
+        </div>
+      </div>
+      <p style="color:var(--text-3);font-size:.875rem">Os pagamentos chegam directamente à sua conta bancária via Stripe Connect Express. Sem espera, sem aprovação manual.</p>
+      <a href="creator.html" class="btn btn-primary">Começar agora →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Toasts -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="assets/js/marketplace.js"></script>
+</body>
+</html>

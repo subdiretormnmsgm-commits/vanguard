@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Criador — Vanguard Marketplace</title>
+  <link rel="stylesheet" href="assets/css/marketplace.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV (simplificada para criador) -->
+<nav class="nav">
+  <a href="index.html" class="nav__logo">
+    <span class="nav__logo-mark">VANGUARD<em>MKT</em></span>
+    <span class="nav__badge">CRIADOR</span>
+  </a>
+  <div class="nav__actions">
+    <a href="index.html" class="btn btn-ghost btn-sm">← Marketplace</a>
+    <a href="/saas/dashboard.html" class="btn btn-ghost btn-sm">Painel SaaS</a>
+    <button class="btn btn-crimson btn-sm" id="btnLogout">Sair</button>
+  </div>
+</nav>
+
+<!-- ═══════════════ ONBOARDING (se não é criador ainda) ══════════════ -->
+<div id="onboardingWrap" style="display:none;padding-top:5rem">
+  <div class="container" style="max-width:600px;padding-top:4rem">
+    <div class="section-eyebrow" style="text-align:center;margin-bottom:1rem">Bem-vindo ao programa de criadores</div>
+    <h1 class="section-title" style="text-align:center;margin-bottom:1.5rem">Torne-se um <em>Criador</em></h1>
+    <p style="color:var(--text-2);text-align:center;margin-bottom:2.5rem;line-height:1.7">
+      Publique packs de nicho especializados e ganhe 70% de cada subscrição.
+      O Stripe Connect cuida do pagamento automático para a sua conta bancária.
+    </p>
+    <div class="form-grid" id="onboardingForm">
+      <div class="field">
+        <label class="field__label">Nome / Agência</label>
+        <input type="text" class="field__input" id="onbNome" placeholder="Ex: João Fonseca" />
+      </div>
+      <div class="field">
+        <label class="field__label">Bio (opcional)</label>
+        <textarea class="field__textarea" id="onbBio" placeholder="Especialista em prospecção para o sector da saúde..." rows="3"></textarea>
+      </div>
+      <div class="field">
+        <label class="field__label">Especialidade Principal</label>
+        <select class="field__select" id="onbEspecialidade">
+          <option value="">Seleccione...</option>
+          <option value="advocacia">Advocacia</option>
+          <option value="dentista">Odontologia</option>
+          <option value="estetica">Estética e Bem-Estar</option>
+          <option value="contabilidade">Contabilidade</option>
+          <option value="imobiliaria">Imobiliária</option>
+          <option value="clinica">Clínicas Médicas</option>
+          <option value="restaurante">Food & Beverage</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" id="btnOnboard" onclick="iniciarOnboard()">
+        Criar Perfil + Conectar Stripe →
+      </button>
+      <p style="color:var(--text-3);font-size:.8rem;text-align:center">
+        Vai ser redirecionado para o Stripe para configurar a sua conta de pagamento.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ DASHBOARD DO CRIADOR ═════════════════════════════ -->
+<div id="creatorDash" style="display:none">
+  <div class="creator-shell">
+    <!-- SIDEBAR -->
+    <aside class="creator-sidebar">
+      <div class="creator-sidebar__profile">
+        <div class="creator-sidebar__avatar" id="creatorAvatar">C</div>
+        <div class="creator-sidebar__name" id="creatorNome">Criador</div>
+        <div class="creator-sidebar__stripe-status" id="stripeStatus">
+          <span class="badge badge-grey">Stripe não conectado</span>
+        </div>
+      </div>
+
+      <div class="creator-kpis">
+        <div class="creator-kpi">
+          <span class="creator-kpi__val" id="kpiPacks">0</span>
+          <span class="creator-kpi__lbl">Packs publicados</span>
+        </div>
+        <div class="creator-kpi">
+          <span class="creator-kpi__val" id="kpiSubs">0</span>
+          <span class="creator-kpi__lbl">Subscritores activos</span>
+        </div>
+        <div class="creator-kpi">
+          <span class="creator-kpi__val" id="kpiReceita">R$ 0</span>
+          <span class="creator-kpi__lbl">Receita total (70%)</span>
+        </div>
+      </div>
+
+      <nav class="creator-nav">
+        <a class="creator-nav__item active" data-section="meus-packs" onclick="navCreator('meus-packs')">
+          <span>📦</span> Meus Packs
+        </a>
+        <a class="creator-nav__item" data-section="novo-pack" onclick="navCreator('novo-pack')">
+          <span>✚</span> Novo Pack
+        </a>
+        <a class="creator-nav__item" data-section="pagamentos" onclick="navCreator('pagamentos')">
+          <span>💰</span> Pagamentos
+        </a>
+        <a class="creator-nav__item" data-section="perfil" onclick="navCreator('perfil')">
+          <span>◈</span> Meu Perfil
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="creator-main">
+
+      <!-- Stripe não conectado — aviso -->
+      <div id="stripeAlert" style="display:none;margin-bottom:1.5rem">
+        <div class="cta-banner" style="padding:1.5rem;text-align:left">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem">
+            <div>
+              <strong style="color:var(--amber)">⚠️ Stripe Connect não configurado</strong>
+              <p style="color:var(--text-2);font-size:.875rem;margin-top:.25rem">
+                Configure a sua conta Stripe para receber pagamentos automaticamente.
+              </p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnStripeConnect" onclick="reconectarStripe()">
+              Conectar Stripe
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECÇÃO: Meus Packs -->
+      <div class="creator-section active" id="section-meus-packs">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
+          <h2 class="section-title" style="font-size:1.75rem">Meus <em>Packs</em></h2>
+          <button class="btn btn-primary btn-sm" onclick="navCreator('novo-pack')">+ Novo Pack</button>
+        </div>
+        <div id="meusPacksList">
+          <div class="pack-card skeleton" style="height:140px;margin-bottom:1rem"></div>
+          <div class="pack-card skeleton" style="height:140px;margin-bottom:1rem"></div>
+        </div>
+      </div>
+
+      <!-- SECÇÃO: Novo Pack -->
+      <div class="creator-section" id="section-novo-pack">
+        <h2 class="section-title" style="font-size:1.75rem;margin-bottom:2rem">Criar Novo <em>Pack</em></h2>
+        <form id="formNovoPack" onsubmit="submeterPack(event)" class="form-grid">
+          <div class="form-grid form-grid--2">
+            <div class="field">
+              <label class="field__label">Nome do Pack *</label>
+              <input type="text" class="field__input" id="packNome" placeholder="Ex: Advocacia SP Premium" required />
+            </div>
+            <div class="field">
+              <label class="field__label">Nicho *</label>
+              <select class="field__select" id="packNicho" required>
+                <option value="">Seleccione...</option>
+                <option value="advocacia">Advocacia</option>
+                <option value="dentista">Odontologia</option>
+                <option value="estetica">Estética</option>
+                <option value="contabilidade">Contabilidade</option>
+                <option value="imobiliaria">Imobiliária</option>
+                <option value="clinica">Clínica Médica</option>
+                <option value="farmacia">Farmácia</option>
+                <option value="restaurante">Restaurante</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label">Descrição</label>
+            <textarea class="field__textarea" id="packDescricao" placeholder="Descreva o que torna este pack especial — taxa de conversão, diferenciais do nicho, área geográfica foco..." rows="4"></textarea>
+          </div>
+
+          <div class="form-grid form-grid--2">
+            <div class="field">
+              <label class="field__label">Cidade / Região Alvo</label>
+              <input type="text" class="field__input" id="packCidade" placeholder="Ex: São Paulo (ou vazio = nacional)" />
+            </div>
+            <div class="field">
+              <label class="field__label">Preço Mensal (R$) *</label>
+              <input type="number" class="field__input" id="packPreco" placeholder="97" min="9.9" max="9999" step="0.01" required />
+            </div>
+          </div>
+
+          <div class="form-grid form-grid--2">
+            <div class="field">
+              <label class="field__label">Leads Típicos / Mês</label>
+              <input type="number" class="field__input" id="packLeads" placeholder="50" min="5" max="2000" />
+            </div>
+            <div class="field">
+              <label class="field__label">Emoji do Pack</label>
+              <input type="text" class="field__input" id="packEmoji" placeholder="📦" maxlength="4" />
+            </div>
+          </div>
+
+          <!-- Config OSM (avançado) -->
+          <details style="border:1px solid var(--border);border-radius:var(--r);padding:1rem">
+            <summary style="cursor:pointer;color:var(--amber);font-family:var(--font-mono);font-size:.85rem;letter-spacing:.04em">
+              ⚙ Configuração Avançada — Query OSM + Prompts IA
+            </summary>
+            <div class="form-grid" style="margin-top:1.25rem">
+              <div class="field">
+                <label class="field__label">Query OSM (ex: office=lawyer)</label>
+                <input type="text" class="field__input" id="packOsmQuery" placeholder="office=lawyer" />
+              </div>
+              <div class="field">
+                <label class="field__label">Raio de Busca (km)</label>
+                <input type="number" class="field__input" id="packOsmRaio" placeholder="10" min="1" max="100" />
+              </div>
+              <div class="field">
+                <label class="field__label">Persona do Hook IA</label>
+                <input type="text" class="field__input" id="packPersona" placeholder="Ex: consultor especialista em captação para advocacia" />
+              </div>
+              <div class="field">
+                <label class="field__label">Template do Hook (use {nome} e {gargalo})</label>
+                <textarea class="field__textarea" id="packHookTemplate" rows="3"
+                  placeholder="Olá {nome}, notei que o vosso escritório pode estar a perder clientes por..."></textarea>
+              </div>
+              <div class="field">
+                <label class="field__label">Tags (separadas por vírgula)</label>
+                <input type="text" class="field__input" id="packTags" placeholder="advocacia, sp, premium, oab" />
+              </div>
+            </div>
+          </details>
+
+          <div style="display:flex;gap:1rem">
+            <button type="submit" class="btn btn-primary" id="btnSubmitPack">
+              Guardar Rascunho
+            </button>
+            <button type="button" class="btn btn-ghost" onclick="navCreator('meus-packs')">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- SECÇÃO: Pagamentos -->
+      <div class="creator-section" id="section-pagamentos">
+        <h2 class="section-title" style="font-size:1.75rem;margin-bottom:2rem">
+          <em>Pagamentos</em> & Payouts
+        </h2>
+        <div style="margin-bottom:1.5rem">
+          <p style="color:var(--text-2);margin-bottom:1rem">
+            Os pagamentos chegam directamente à sua conta via Stripe Connect.
+            Aceda ao painel Stripe para ver o histórico detalhado.
+          </p>
+          <button class="btn btn-ghost" id="btnStripeDash" onclick="abrirStripeDash()">
+            Abrir Painel Stripe →
+          </button>
+        </div>
+        <div id="pagamentosList">
+          <div class="pack-card skeleton" style="height:80px;margin-bottom:.75rem"></div>
+          <div class="pack-card skeleton" style="height:80px;margin-bottom:.75rem"></div>
+        </div>
+      </div>
+
+      <!-- SECÇÃO: Perfil -->
+      <div class="creator-section" id="section-perfil">
+        <h2 class="section-title" style="font-size:1.75rem;margin-bottom:2rem">Meu <em>Perfil</em></h2>
+        <form class="form-grid" onsubmit="actualizarPerfil(event)" style="max-width:500px">
+          <div class="field">
+            <label class="field__label">Nome / Agência</label>
+            <input type="text" class="field__input" id="perfilNome" />
+          </div>
+          <div class="field">
+            <label class="field__label">Bio</label>
+            <textarea class="field__textarea" id="perfilBio" rows="4"></textarea>
+          </div>
+          <div class="field">
+            <label class="field__label">Especialidade</label>
+            <select class="field__select" id="perfilEspecialidade">
+              <option value="advocacia">Advocacia</option>
+              <option value="dentista">Odontologia</option>
+              <option value="estetica">Estética</option>
+              <option value="contabilidade">Contabilidade</option>
+              <option value="imobiliaria">Imobiliária</option>
+              <option value="clinica">Clínicas</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar Alterações</button>
+        </form>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- Modal publicar pack -->
+<div class="modal-backdrop" id="modalPublicar" onclick="fecharModal('modalPublicar')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal__header">
+      <h3 class="modal__title">Publicar Pack</h3>
+      <button class="modal__close" onclick="fecharModal('modalPublicar')">✕</button>
+    </div>
+    <div id="modalPublicarBody" class="form-grid">
+      <p style="color:var(--text-2)">
+        Ao publicar, será criado um produto e preço recorrente no Stripe.
+        O pack entrará em revisão e será publicado em até 24h.
+      </p>
+      <div style="display:flex;gap:1rem">
+        <button class="btn btn-primary" id="btnConfirmarPublicar">Confirmar Publicação</button>
+        <button class="btn btn-ghost" onclick="fecharModal('modalPublicar')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="assets/js/creator.js"></script>
+</body>
+</html>
