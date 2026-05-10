@@ -44,7 +44,9 @@
     viewCockpit.hidden = false;
     document.getElementById('cockpit-user-email').textContent = email;
     loadLeads();
-    window.PartnershipsEngine?.init();
+    try { window.PartnershipsEngine?.init(); } catch (e) { console.warn('PartnershipsEngine:', e); }
+    try { window.HiveMind?.init(client);     } catch (e) { console.warn('HiveMind:', e); }
+    try { window.TrojanGenerator?.init();    } catch (e) { console.warn('TrojanGenerator:', e); }
   }
 
   function showLogin() {
@@ -99,11 +101,14 @@
   });
 
   // ─── Dados ────────────────────────────────────────────────────────────────
+  const LEADS_PAGE_SIZE = 200;
+
   async function loadLeads() {
     const { data, error } = await client
       .from('leads_diagnostico')
       .select('*')
-      .order('created_at', { ascending: false });
+      .order('created_at', { ascending: false })
+      .limit(LEADS_PAGE_SIZE);
 
     if (error) { console.error(error); return; }
 
@@ -111,7 +116,47 @@
     renderKpis(allLeads);
     renderHeatmap(allLeads);
     renderTable(allLeads);
-    window.OutboundEngine?.init(client, allLeads);
+    renderDynamicAlerts(allLeads);
+    try { window.OutboundEngine?.init(client, allLeads); } catch (e) { console.warn('OutboundEngine:', e); }
+  }
+
+  // ─── Dynamic HUD Alerts (V14) ────────────────────────────────────────────
+  function renderDynamicAlerts(leads) {
+    const existing = document.getElementById('dynamic-alert-bar');
+    if (existing) existing.remove();
+
+    const vips    = leads.filter(l => l.scoring.tier === 'VIP');
+    const today   = new Date().toISOString().slice(0, 10);
+    const todayN  = leads.filter(l => l.created_at?.startsWith(today)).length;
+    const avgScore = leads.length
+      ? Math.round(leads.reduce((s, l) => s + l.scoring.val, 0) / leads.length)
+      : 0;
+
+    const alerts = [];
+    if (vips.length > 0)   alerts.push({ color: '#FF8080', bg: 'rgba(255,68,68,0.08)',   icon: '🔴', msg: `${vips.length} lead${vips.length > 1 ? 's' : ''} VIP aguarda${vips.length > 1 ? 'm' : ''} contacto imediato` });
+    if (todayN > 5)        alerts.push({ color: '#00FF88', bg: 'rgba(0,255,136,0.08)',   icon: '⚡', msg: `Dia de alta actividade — ${todayN} leads captados hoje` });
+    if (avgScore < 50 && leads.length > 5) alerts.push({ color: '#FFB800', bg: 'rgba(255,184,0,0.08)', icon: '📊', msg: `Score médio baixo (${avgScore}/100) — oportunidade de upsell no censo` });
+
+    if (!alerts.length) return;
+
+    const bar = document.createElement('div');
+    bar.id = 'dynamic-alert-bar';
+    bar.style.cssText = 'margin-bottom:1rem;display:flex;flex-direction:column;gap:.5rem;';
+
+    bar.innerHTML = alerts.map(a => `
+      <div style="
+        background:${a.bg};border:1px solid ${a.color}33;border-left:3px solid ${a.color};
+        border-radius:8px;padding:.625rem 1rem;
+        display:flex;align-items:center;gap:.625rem;
+        font-size:.78rem;color:${a.color};font-weight:500;
+        animation:slideUp .3s ease;">
+        <span style="font-size:1rem;">${a.icon}</span>
+        ${a.msg}
+      </div>
+    `).join('');
+
+    const kpiSection = document.getElementById('cockpit-kpis');
+    if (kpiSection) kpiSection.after(bar);
   }
 
   // ─── KPIs ─────────────────────────────────────────────────────────────────
