@@ -45,9 +45,13 @@
 
     <!-- ═══ KPI BENTO GRID — LIVING HUD V12 ═══ -->
     <div class="cockpit-hud-frame" data-label="COCKPIT" style="margin-bottom:var(--sp-3);">
-      <p style="font-family:var(--ff-mono);font-size:var(--text-xs);color:rgba(0,240,255,0.35);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:var(--sp-4);">
-        <span class="hud-status-dot" style="width:5px;height:5px;display:inline-block;margin-right:6px;vertical-align:middle;" aria-hidden="true"></span>
+      <p style="font-family:var(--ff-mono);font-size:var(--text-xs);color:rgba(0,240,255,0.35);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:var(--sp-4);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+        <span class="hud-status-dot" style="width:5px;height:5px;display:inline-block;vertical-align:middle;" aria-hidden="true"></span>
         MÉTRICAS DO SISTEMA · TEMPO REAL
+        <span style="margin-left:auto;display:inline-flex;align-items:center;gap:4px;">
+          <span class="wr-status-dot" id="wr-status-dot" aria-hidden="true"></span>
+          <span id="wr-status-text" style="font-size:.6rem;letter-spacing:.14em;color:rgba(232,234,240,.25);">WAR ROOM · A INICIAR</span>
+        </span>
       </p>
     </div>
     <section class="bento-grid" id="cockpit-kpis" aria-label="Métricas do cockpit">
@@ -209,6 +213,7 @@
   </div><!-- /.cockpit -->
 
   <script src="/js/supabase-lib.js"></script>
+  <script src="/js/real-scanner.js"></script>
   <script src="/js/outbound-engine.js"></script>
   <script src="/js/partnerships.js"></script>
   <script src="/js/hive-mind.js"></script>

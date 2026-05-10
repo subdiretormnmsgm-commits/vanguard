@@ -964,6 +964,66 @@ Verificação para o plano Agency actual:
 
 ---
 
+## §21 — Protocolo de Invasão Soberana e Segurança WABA (V15)
+> *Exigido pelo Conselho Quadrilateral. Leis de Sobrevivência e Expansão Agressiva.*
+
+### 21.1 Lei do Escudo WABA — Sobrevivência da Operação
+A number de WhatsApp Business (WABA) é o activo mais crítico e mais frágil da operação Hermes. A sua perda por banimento paralisa a prospecção. Esta lei é **imutável e inviolável**:
+
+**Estado 1 — Cold Contact (Primeiro Contacto):**
+- É **expressamente proibido** enviar anexos pesados (PDFs, Trojan Videos, imagens > 500KB) no primeiro contacto com qualquer lead.
+- O Estado 1 **obrigatoriamente** usa **apenas texto simples com Spintax** — variação aleatória de saudações, estrutura e CTAs para evitar detecção como bulk messaging.
+- Formato Spintax obrigatório: `{Opção A|Opção B}` no mínimo 3 variáveis por mensagem (saudação, verbo principal, CTA final).
+
+**Estado 2 — Warm Contact (Após Reply):**
+- Qualquer resposta do lead — incluindo "sim", "ok" ou emoji — constitui **opt-in implícito** e activa o Estado 2.
+- No Estado 2: Trojan PNG, Trojan GIF, PDF da Proposta e links HUD são **desbloqueados automaticamente**.
+- A máquina de estados `agent_jobs` regista a transição CONTACTO → EM_CONVERSA como gatilho de desbloqueio.
+
+**Justificação técnica:** A Meta e Evolution API detectam conteúdo pesado em cold contact como spam. O opt-in implícito (qualquer reply) respeita as guidelines WABA e imuniza o número contra banimento.
+
+### 21.2 Doutrina da Exposição e Autoridade — Name & Shame Elegante
+A Vanguard detém autorização irrevogável para exercer poder de mercado através de dados públicos:
+
+- Sempre que o Scanner captar uma empresa classificada como **Tier VIP** com **Maturity Score ≤ 3.0** ("Crítico"), a Vanguard pode publicar os resultados analíticos de forma **agregada, anonimizada e estilizada** no LinkedIn e/ou X/Twitter.
+- Formato permitido: *"O sector de [Nicho] em Portugal tem score médio de [X]/10. Identificámos [N] empresas Tier VIP com infra digital crítica."* — sem nomear empresas individualmente.
+- Publicações devem sempre incluir link para o Censo Digital público (`/census/`).
+- Esta prática gera prova social, autoridade de mercado e tráfego orgânico qualificado.
+- **Proibido:** identificar empresas individualmente sem consentimento expresso. O poder é dos dados agregados, não da exposição individual.
+
+### 21.3 Lei do Tecto de Combustão — Burn Rate Shield
+O sistema de IA (Claude API) é um recurso de custo variável que pode escapar ao controlo sem limitação activa. Esta lei impõe:
+
+| Tecto | Valor | Acção ao atingir |
+|-------|-------|-----------------|
+| **Custo por Lead máximo** | €0.30 | Graceful degradation para templates estáticos |
+| **Orçamento diário total** | €8.00 | Hard cap — bloqueia Claude API para o dia |
+| **Zona de alerta** | 75% do diário | Log de aviso + downgrade Opus→Sonnet |
+| **Degradação nível 1** | 65-85% do orçamento | Substituição automática Opus → Sonnet |
+| **Degradação nível 2** | 85-100% | Substituição automática Sonnet → Haiku |
+| **Degradação nível 3** | 100% | Claude desactivado → templates estáticos |
+
+- O ficheiro `infra/burn_rate_shield.py` implementa estes limites como middleware FastAPI.
+- A degradação é **reversível no dia seguinte** (reset automático à meia-noite).
+- Templates estáticos (fallback) mantêm o pipeline operacional sem custo de IA.
+- **Os limites são configuráveis** via variáveis de ambiente: `DAILY_AI_BUDGET_EUR`, `MAX_COST_PER_LEAD_EUR`.
+
+### 21.4 Dashboard de Custos em Tempo Real
+O cockpit deve exibir permanentemente:
+- Custo total do dia em curso (EUR)
+- % do orçamento diário usado
+- Custo médio por lead (sessão)
+- Status do Burn Rate Shield (OK / ALERT / EXCEEDED)
+
+Endpoint: `GET /admin/burn-rate` → JSON com todas as métricas de custo.
+
+---
+
+### Changelog V15 (Sovereign Invasion)
+- **Regras adicionadas:** §21 completo — Escudo WABA (cold=texto+Spintax, warm=Trojan desbloqueado), Doutrina da Exposição (Name & Shame agregado), Tecto de Combustão (€0.30/lead, €8/dia, 3 níveis de degradação), Dashboard de Custos Realtime
+
+---
+
 ## Como Actualizar Este Documento
 
 **A cada nova versão, adicionar:**

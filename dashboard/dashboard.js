@@ -44,6 +44,7 @@
     viewCockpit.hidden = false;
     document.getElementById('cockpit-user-email').textContent = email;
     loadLeads();
+    startWarRoom();  // V15: Supabase Realtime activado
     try { window.PartnershipsEngine?.init(); } catch (e) { console.warn('PartnershipsEngine:', e); }
     try { window.HiveMind?.init(client);     } catch (e) { console.warn('HiveMind:', e); }
     try { window.TrojanGenerator?.init();    } catch (e) { console.warn('TrojanGenerator:', e); }
@@ -119,6 +120,127 @@
     renderTable(allLeads);
     renderDynamicAlerts(allLeads);
     try { window.OutboundEngine?.init(client, allLeads); } catch (e) { console.warn('OutboundEngine:', e); }
+  }
+
+  // ─── War Room Realtime (V15) ──────────────────────────────────────────────
+  // Supabase Realtime: novos leads piscam instantaneamente sem reload
+  let _realtimeChannel = null;
+
+  function startWarRoom() {
+    if (_realtimeChannel) return; // já activo
+
+    injectWarRoomStyles();
+
+    _realtimeChannel = client
+      .channel('war-room-leads')
+      .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'leads_diagnostico' },
+        (payload) => {
+          const raw   = payload.new;
+          const lead  = { ...raw, scoring: score(raw.nicho, raw.gargalo) };
+
+          // Prepend + cap
+          allLeads = [lead, ...allLeads].slice(0, LEADS_PAGE_SIZE);
+
+          // Re-renderizar tudo
+          renderKpis(allLeads);
+          renderHeatmap(allLeads);
+          renderTable(allLeads);
+          renderDynamicAlerts(allLeads);
+
+          // Flash de alerta no HUD
+          flashWarRoomAlert(lead);
+
+          // Actualizar Outbound Engine com novo lead no topo
+          try { window.OutboundEngine?.init(client, allLeads); } catch (e) {}
+        }
+      )
+      .subscribe((status) => {
+        updateWarRoomStatus(status);
+      });
+  }
+
+  function stopWarRoom() {
+    if (_realtimeChannel) {
+      client.removeChannel(_realtimeChannel);
+      _realtimeChannel = null;
+    }
+  }
+
+  function flashWarRoomAlert(lead) {
+    const tier  = lead.scoring?.tier ?? 'FRIO';
+    const color = tier === 'VIP' ? '#FF8080' : tier === 'QUENTE' ? '#FFB800' : '#00F0FF';
+
+    const flash = document.createElement('div');
+    flash.className = 'wr-flash';
+    flash.innerHTML = `
+      <span style="font-size:1.1rem;">${tier === 'VIP' ? '🔴' : tier === 'QUENTE' ? '🟡' : '📥'}</span>
+      <strong style="color:${color};">NOVO LEAD ${tier}</strong>
+      <span style="color:rgba(232,234,240,.7);">${lead.nome || 'Anónimo'} · ${lead.nicho || '—'} · Score ${lead.scoring?.val ?? '?'}</span>
+    `;
+    document.body.appendChild(flash);
+
+    // Pulsar durante 4s depois remover
+    setTimeout(() => flash.classList.add('wr-flash--exit'), 4000);
+    setTimeout(() => flash.remove(), 4600);
+
+    // Pulsar dot de status
+    const dot = document.getElementById('wr-status-dot');
+    if (dot) { dot.classList.add('wr-dot--pulse'); setTimeout(() => dot.classList.remove('wr-dot--pulse'), 1000); }
+  }
+
+  function updateWarRoomStatus(status) {
+    const indicator = document.getElementById('wr-status-text');
+    const dot       = document.getElementById('wr-status-dot');
+    if (!indicator) return;
+
+    const states = {
+      SUBSCRIBED:    { text: 'WAR ROOM · ONLINE', color: '#00FF88', dotClass: 'wr-dot--green' },
+      CHANNEL_ERROR: { text: 'WAR ROOM · ERRO',   color: '#FF8080', dotClass: 'wr-dot--red' },
+      TIMED_OUT:     { text: 'WAR ROOM · TIMEOUT', color: '#FFB800', dotClass: 'wr-dot--amber' },
+      CLOSED:        { text: 'WAR ROOM · OFFLINE', color: 'rgba(232,234,240,.35)', dotClass: '' },
+    };
+    const s = states[status] || states.CLOSED;
+    indicator.textContent = s.text;
+    indicator.style.color = s.color;
+    if (dot) { dot.className = 'wr-status-dot ' + s.dotClass; }
+  }
+
+  function injectWarRoomStyles() {
+    if (document.getElementById('wr-styles')) return;
+    const s = document.createElement('style');
+    s.id = 'wr-styles';
+    s.textContent = `
+      .wr-status-dot {
+        width:8px;height:8px;border-radius:50%;
+        background:rgba(232,234,240,.2);display:inline-block;margin-right:6px;
+        transition:background .3s;
+      }
+      .wr-dot--green { background:#00FF88; box-shadow:0 0 8px rgba(0,255,136,.6); }
+      .wr-dot--amber { background:#FFB800; box-shadow:0 0 8px rgba(255,184,0,.6); }
+      .wr-dot--red   { background:#FF4444; box-shadow:0 0 8px rgba(255,68,68,.6); }
+      @keyframes wr-pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.8)} }
+      .wr-dot--pulse { animation:wr-pulse .4s ease 2; }
+
+      @keyframes wr-flash-in  { from{opacity:0;transform:translateY(80px) scale(.95)} to{opacity:1;transform:translateY(0) scale(1)} }
+      @keyframes wr-flash-out { from{opacity:1;transform:translateY(0)} to{opacity:0;transform:translateY(-20px)} }
+      .wr-flash {
+        position:fixed;bottom:2rem;right:2rem;z-index:9000;
+        background:rgba(8,12,20,.92);
+        border:1px solid rgba(0,240,255,.25);
+        border-left:3px solid #00F0FF;
+        border-radius:10px;
+        padding:.875rem 1.25rem;
+        display:flex;align-items:center;gap:.75rem;
+        font-family:'Inter',sans-serif;font-size:.82rem;
+        box-shadow:0 8px 32px rgba(0,0,0,.5);
+        animation:wr-flash-in .35s cubic-bezier(.16,1,.3,1) both;
+        max-width:400px;
+      }
+      .wr-flash--exit { animation:wr-flash-out .5s ease both; }
+    `;
+    document.head.appendChild(s);
   }
 
   // ─── Dynamic HUD Alerts (V14) ────────────────────────────────────────────
