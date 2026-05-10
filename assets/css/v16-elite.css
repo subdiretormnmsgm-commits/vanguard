@@ -509,3 +509,171 @@
 .cockpit-body .bento-kpi__value {
   color: var(--gold);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LANDING PAGE OVERRIDES — Ion Gold aplicado a elementos existentes V16
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Navbar status dot */
+.navbar__status-dot {
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(var(--gold-rgb), 0.6);
+}
+
+/* Gradient text — Gold no lugar do Cyan */
+.text-gradient {
+  background: linear-gradient(135deg, #C5A028 0%, #F0C84A 50%, #8B7019 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient--accent {
+  background: linear-gradient(135deg, #8B7019 0%, #C5A028 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Primary button — Gold */
+.btn--primary {
+  background: linear-gradient(135deg, #C5A028, #8B7019);
+  color: #0A0802;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 4px 24px rgba(197, 160, 40, 0.35);
+}
+
+.btn--primary:hover {
+  background: linear-gradient(135deg, #D4B030, #A08020);
+  box-shadow: 0 6px 32px rgba(197, 160, 40, 0.55);
+  transform: translateY(-2px);
+}
+
+/* Outline button — Gold */
+.btn--outline {
+  border-color: rgba(197, 160, 40, 0.45);
+  color: var(--gold);
+}
+.btn--outline:hover {
+  border-color: rgba(197, 160, 40, 0.8);
+  background: rgba(197, 160, 40, 0.06);
+  color: #F0C84A;
+}
+
+/* Ghost button */
+.btn--ghost {
+  color: rgba(197, 160, 40, 0.7);
+}
+.btn--ghost:hover {
+  color: var(--gold);
+  background: rgba(197, 160, 40, 0.05);
+}
+
+/* Label tags */
+.label-tag {
+  border-color: rgba(197, 160, 40, 0.4) !important;
+  color: var(--gold) !important;
+  background: rgba(197, 160, 40, 0.06) !important;
+}
+
+/* HUD status dots */
+.hud-status-dot {
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(197, 160, 40, 0.5);
+}
+
+.hud-status-dot--green {
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+
+.hud-status-dot--red {
+  background: #ef4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+}
+
+/* Stats numbers */
+.stats__number {
+  color: var(--gold);
+  text-shadow: 0 0 24px rgba(197, 160, 40, 0.3);
+}
+
+/* Feature card — Gold hover */
+.feature-card__tag {
+  color: var(--gold);
+  border-color: rgba(197, 160, 40, 0.3);
+}
+
+.feature-card.card--glass {
+  border-color: rgba(197, 160, 40, 0.1);
+}
+
+.feature-card.card--glass:hover {
+  border-color: rgba(197, 160, 40, 0.4);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.6), 0 0 20px rgba(197, 160, 40, 0.07);
+}
+
+/* Steps */
+.step__num {
+  color: var(--gold);
+  border-color: rgba(197, 160, 40, 0.3);
+  text-shadow: 0 0 16px rgba(197, 160, 40, 0.4);
+}
+
+/* Stack dots */
+.stack__item-dot {
+  background: var(--gold);
+  box-shadow: 0 0 4px rgba(197, 160, 40, 0.4);
+}
+
+/* Scanner button */
+.scanner-form__btn {
+  background: linear-gradient(135deg, #C5A028, #8B7019);
+  color: #0A0802;
+  font-weight: 700;
+}
+.scanner-form__btn:hover {
+  background: linear-gradient(135deg, #D4B030, #A08020);
+}
+
+/* Status dot no terminal */
+.status-dot {
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(197, 160, 40, 0.5);
+}
+
+.status-dot--accent {
+  background: #C5A028;
+  box-shadow: 0 0 8px rgba(197, 160, 40, 0.4);
+}
+
+/* Terminal value colors */
+.terminal__metric-value {
+  color: var(--gold);
+}
+
+/* Quiz progress bar */
+.quiz__progress-bar {
+  background: linear-gradient(90deg, #8B7019, #C5A028, #F0C84A);
+}
+
+/* Footer version */
+.footer__version {
+  color: rgba(197, 160, 40, 0.5);
+  letter-spacing: 0.05em;
+}
+
+/* Hero social proof numbers */
+.hero__social-proof span > span {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Scrollbar — Gold */
+html {
+  scrollbar-color: rgba(197, 160, 40, 0.4) transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 40, 0.4);
+}
