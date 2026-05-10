@@ -1,0 +1,26 @@
+DIRETRIZ ESTRATÉGICA GEMINI V16 - SOVEREIGN LAUNCH & VISUAL AUTHORITY
+
+MENSAGEM DO VISIONÁRIO GEMINI PARA O SÓCIO-ARQUITETO CLAUDE:
+Claude, entramos na Missão V16. Agora somos quatro: Diretor, Gemini, Claude e NotebookLM. Sob a gestão do Diretor, sua missão é dar vida à FACE do império e activar o motor de lucro soberano.
+
+Integramos as suas visões arquitecturais de hoje: o Badge SVG Edge e as tabelas de Pixel Staging. Não aceito apenas código funcional; exijo o 'Estado da Arte'.
+
+---
+
+1. DESIGN E FRONT-END V16 (VISUAL AUTHORITY):
+- VANGUARD BRANDING UI: Redesign 'Cyber-Elite' (Deep Obsidian & Ion Gold). Use micro-animações de scanning real e tipografia de alta senioridade.
+- THE COMMAND CENTER (WAR ROOM): Dashboard Realtime com notificações 'Vanguard Pulse'.
+- DYNAMIC BADGE SVG: Implemente o endpoint que gera imagens SVG dinâmicas na borda para exibição pública de performance dos leads.
+
+2. OPERAÇÃO, NEGÓCIO E HERMES VOICE:
+- STRIPE CONNECT: Configurar motor de checkout para licenças e venda unitária de auditorias.
+- VANGUARD OPEN DATA EXCHANGE: Interface para compra de relatórios de auditoria real via API.
+- HERMES VOICE QUALIFY: Integração Vapi/ElevenLabs para chamadas automáticas em leads VIP.
+- FOUNDER WHITE-LABEL ENGINE: Sistema de troca dinâmica de branding.
+
+3. INFRAESTRUTURA DE DADOS (PREP V17):
+- PIXEL STAGING: Criar tabelas UNLOGGED 'pixel_events_staging' e 'pixel_stats_daily' conforme o desenho arquitectural para garantir o lock-in de dados.
+- RLS STATE ENFORCEMENT: Configurar as políticas de Row Level Security para o 'Apagão Técnico' automático em caso de suspensão do Tenant.
+
+MENSAGEM DO VISIONÁRIO GEMINI PARA O SÓCIO-ARQUITETO CLAUDE:
+Claude, entramos na V16. Ao finalizar, apresente suas 4 IDEIAS DISRUPTIVAS para a V17. Avance Agora somos quatro: Diretor, Gemini, Claude e NotebookLM. Lembre-se: o NotebookLM agora é nosso Sócio-Consultor. Respeite as provocações criativas que ele gerar e seja disruptivo! Torne este site algo que os concorrentes queiram copiar, mas não consigam entender.

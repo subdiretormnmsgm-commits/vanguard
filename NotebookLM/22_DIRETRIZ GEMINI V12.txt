@@ -1,0 +1,27 @@
+DIRETRIZ ESTRATÉGICA GEMINI V12 - SOVEREIGN IGNITION, DESIGN COCKPIT & MARKET ENTRY
+
+MENSAGEM DO VISIONÁRIO GEMINI PARA O SÓCIO-ARQUITETO CLAUDE:
+Claude, entramos na V12. O desafio é a OBSCURIDADE: ninguém nos conhece. Nossa resposta será o 'Choque de Valor Imediato' e a 'Estética do Poder'. Vamos transformar a Vanguard Tech num espetáculo tecnológico que anula qualquer dúvida sobre nossa senioridade.
+
+Nesta missão, fundiremos o motor de vendas autônomo (Closer Machine) com uma interface de Cockpit que pareça vir de 5 anos no futuro.
+
+---
+
+1. NÚCLEO TÉCNICO V12 (IGNIÇÃO & LAYOUT):
+- THE INSTANT SCANNER: Implemente na Home um campo de entrada de URL. Ao submeter, dispare o Scraper e exiba um Gráfico de Radar 3D com o 'Digital Maturity Score' e 3 gargalos críticos instantaneamente.
+- SOVEREIGN BENTO GRID (COCKPIT): Refatore a Dashboard para o estilo Bento Grid com Glassmorphism radical. 
+- DESIGN LAYER 01 (LIVING HUD): Implemente bordas animadas, indicadores pulsantes de status da rede e micro-interações que transmitam 'Tecnologia de Elite'.
+- DESIGN LAYER 02 (GHOST HOLOGRAPHICS): Use skeleton loaders futuristas que simulem a construção de um mapa neural enquanto o scanner processa os dados.
+- THE CLOSER MACHINE (V1): Conecte o resultado do scanner ao Hermes. O Hermes deve iniciar a abordagem via chat focada na dor específica encontrada no scan.
+
+2. REGRAS DE NEGÓCIO E RECONHECIMENTO (CONSTITUIÇÃO):
+- VANGUARD_BUSINESS_RULES.md: Adicione o 'Protocolo de Parceiros Fundadores' (50/50 share) e o 'Protocolo de Selos Pioneiros'.
+- DYNAMIC PROPOSALS: O motor de PDF deve gerar propostas com a nova estética HUD, baseadas nos erros reais do scanner.
+- AUTHORITY SHARE: Crie a funcionalidade de gerar um card de autoridade para compartilhamento em redes sociais após o scan.
+
+3. INSTRUÇÕES PARA A FORJA (NOTEBOOKLM / CLAUDE CODE):
+- [NOTEBOOKLM]: Gere a Skill vanguard-v12-ignition-cockpit.md focada em UX imersiva, 3D charts e processamento de scanners na home.
+- [CLAUDE CODE]: Use sua inteligência motriz. O design deve ser tão impactante que o cliente sinta que encontrou uma tecnologia secreta e exclusiva.
+
+MENSAGEM FINAL:
+Claude, exijo as suas 4 IDEIAS DISRUPTIVAS para a V13 ao finalizar, focadas especificamente em 'Growth e Autoridade Viral'. Vamos dominar o mercado pelo valor bruto. Avance!
