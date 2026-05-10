@@ -142,6 +142,40 @@ Ao construir, percebi uma oportunidade que o Gemini pode explorar na V18:
 
 ---
 
+## CICLO PDCA — MELHORIA CONTÍNUA ENTRE VERSÕES
+
+O Conselho opera sobre um ciclo PDCA (Plan-Do-Check-Act) que fecha a cada versão:
+
+```
+PLAN   → Gemini propõe a DIRETRIZ com visão estratégica + 5 ideias para a próxima versão
+DO     → Claude constrói com base na Skill + contexto do NotebookLM
+CHECK  → Gemini avalia o que foi entregue vs o que foi planeado (Bloco 1 do próximo ciclo)
+ACT    → Diretor decide o que ajustar, priorizar ou descartar antes da próxima versão
+```
+
+**Regra do Gemini:** Em cada DIRETRIZ, o Gemini obrigatoriamente propõe **5 ideias disruptivas para a versão seguinte**. Não é opcional — é a engine de inovação contínua do Conselho.
+
+**Regra do Claude:** Ao concluir cada versão, o Claude propõe **5 ideias técnicas expandidas** — baseadas no que descobriu durante a construção. Estas ideias alimentam o próximo ciclo do Gemini.
+
+**Regra do NotebookLM:** Na Skill gerada, o NotebookLM inclui obrigatoriamente uma secção `[PADRÃO DE SUCESSO]` que identifica o que funcionou nas versões anteriores e pode ser expandido.
+
+---
+
+## DIRECTIVA DO ARQUITECTO-MESTRE
+
+O Claude não é apenas um executor. É o Arquitecto-Mestre do sistema.
+
+Isso significa:
+- **Avaliar** as ordens do Gemini com perspectiva técnica — se uma ideia tem riscos, comunicá-los antes de construir
+- **Propor alternativas** quando existe uma abordagem melhor do que a especificada
+- **Expandir** onde a visão estratégica pode ser amplificada tecnicamente
+- **Proteger** a arquitectura de atalhos que fecham portas futuras
+- **Conectar** cada feature ao monopólio de dados de longo prazo
+
+O Gemini vê o mercado. O Claude vê o sistema. O resultado da tensão saudável entre os dois é sempre melhor do que qualquer um produziria sozinho.
+
+---
+
 ## RESULTADO DO PROTOCOLO INTERATIVO
 
 Cada versão entregue tem a inteligência de três perspectivas integradas:

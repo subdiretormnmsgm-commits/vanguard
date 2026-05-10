@@ -17,6 +17,25 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 
 
 
+## [ID-004] — Sovereign Intent Engine (V17)
+
+**Data:** 2026-05-10  
+**Missão:** Início da V17 — Sovereign Intent Engine  
+**Transição Estratégica:** De SaaS de vendas para Infraestrutura de Inteligência Preditiva.
+
+**O que foi construído:**
+- `pixel.js` (<3KB) — rastreio de intenção no edge via Cloudflare Worker. Classifica sessões em COLD/WARM/HOT/FIRE em tempo real com base em dwell time, scroll velocity e exit intent. Integra LGPD/GDPR consent automático e faz dispatch para as tabelas UNLOGGED `pixel_events_staging` da V16.
+- Neural Audit Trail Engine — PDF de 12 páginas com "Tradução Financeira": gargalos reais do RealScanner (V15) convertidos em "Receita Perdida" (R$/mês) e injetados no PDF da Closer Machine (V12) com estética Ion Gold/Obsidian. Versão completa liberada via Stripe Connect (R$50) após validação de cartão.
+
+**Fundação reutilizada (Conexão Histórica):**
+- `real-scanner.js` (V15): dados factuais PageSpeed + SEO alimentam o motor de tradução financeira
+- `closer-machine.js` (V12): estrutura jsPDF + framework 3 Gargalos expandida para 12 páginas
+- `pixel_events_staging` UNLOGGED (V16): schema de alta performance já pronto
+
+**Lock-in gerado:** Cada lead que recebe o Neural Audit Trail gratuito vê receita perdida em tempo real — o gatilho psicológico mais forte para conversão.
+
+---
+
 ## [ID-003] — Horizonte de Singularidade Macro: A Bolsa de Intenção B2B
 
 **Deliberação do Conselho Estratégico — Maio 2026**
