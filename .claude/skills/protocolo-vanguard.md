@@ -34,6 +34,102 @@ Aguardando briefing para iniciar Fase 0.
 
 ---
 
+## FASE -1 — QUALIFICAÇÃO (GO / NO-GO)
+
+> Antes de qualquer Discovery, verificar se o cliente merece o Quadrilateral.
+> Um cliente mal qualificado consome tempo de Eduardo e recursos do Conselho sem retorno.
+
+### Critérios GO (avançar para Fase 0)
+
+- [ ] Tem um problema real e específico — não "quero um site bonito"
+- [ ] Tem orçamento compatível com pelo menos Camada 1 (R$1.500+)
+- [ ] Tem urgência ou prazo — há pressão real para resolver
+- [ ] Tem autoridade para decidir — fala com o decisor, não com intermediário
+- [ ] O problema é resolúvel com tecnologia + estratégia
+
+### Critérios NO-GO (não avançar — ou redireccionar)
+
+| Sinal | Interpretação | Acção |
+|-------|--------------|-------|
+| "Quero só um site simples e barato" | Sem visão de negócio | Oferecer Sprint Discovery R$1.500 para primeiro clarificar |
+| Não sabe qual o seu gargalo | Problema não diagnosticado | Sprint Discovery antes de qualquer build |
+| Quer tudo para ontem sem budget | Expectativa desalinhada | Redefinir âmbito ou recusar |
+| Fala com intermediário sem poder de decisão | Ciclo de aprovação infinito | Exigir reunião com o decisor |
+| Quer copiar um concorrente sem diferenciação | Sem vantagem competitiva | Consultar antes de construir |
+| Budget < R$1.500 para projecto de Camada 2+ | Desalinhamento crítico | Propor entrada por Sprint Discovery |
+
+### Qualificação Rápida — 3 Perguntas de Filtro
+
+Se Eduardo ainda não tem certeza, fazer apenas estas 3 antes de arrancar o Quadrilateral completo:
+
+```
+1. "Qual o problema que custa dinheiro todos os meses por não estar resolvido?"
+   → Se não consegue responder: NO-GO (não tem clareza)
+
+2. "Qual o investimento que faz sentido para resolver este problema?"
+   → Se resposta for "o mínimo possível": NO-GO (não vê valor)
+
+3. "O que acontece se não resolver isto nos próximos 3 meses?"
+   → Se resposta for "nada": NO-GO (sem urgência real)
+```
+
+Se passar nos 3 filtros → avançar para Fase 0 com confiança.
+
+---
+
+## PITCH DO MODELO IAH — 60 SEGUNDOS PARA O CLIENTE
+
+> Eduardo usa este pitch em reunião de apresentação, antes da proposta.
+> O cliente não precisa de saber os detalhes técnicos — precisa de sentir a diferença.
+
+### Versão Curta (reunião presencial ou call de 15 min)
+
+```
+"A maioria das agências tem um developer e um gestor de projecto.
+Nós operamos de forma diferente.
+
+Cada projecto que recebemos passa por três análises em paralelo:
+uma estratégica, uma de auditoria histórica, e uma de execução técnica.
+O Eduardo coordena as três e toma o veredito final.
+
+O resultado prático: antes de escrevermos uma linha de código,
+já sabemos o que não construir, o que já existe e pode ser reutilizado,
+e qual o retorno esperado do investimento.
+
+Entregamos mais rápido porque não construímos o que não precisa de existir."
+```
+
+### Versão Expandida (proposta formal ou apresentação)
+
+```
+"Trabalhamos com um modelo chamado IAH — Inteligência Artificial Humana.
+
+Tem quatro membros com papéis fixos:
+→ O Estrategista analisa o mercado e propõe o que construir
+→ O Auditor cruza a proposta com o histórico de projectos anteriores
+   e identifica riscos antes de qualquer execução
+→ O Músculo executa — código, design, integrações, deploy
+→ O Diretor (Eduardo) toma todas as decisões finais
+
+Nenhum passo começa sem aprovação do Diretor.
+Nenhum código é escrito sem um plano validado.
+Nenhum projecto fecha sem documentação que o cliente leva consigo.
+
+A diferença para uma agência tradicional:
+uma agência executa o que o cliente pede.
+Nós questionamos o que o cliente pede antes de executar —
+porque construir a coisa errada com perfeição é o maior desperdício possível."
+```
+
+### O Que Nunca Dizer ao Cliente
+
+- ❌ "Usamos inteligência artificial" — genérico, sem impacto
+- ❌ "Temos processos muito avançados" — vago, não compra
+- ❌ Nomear ferramentas (Gemini, Claude, NotebookLM) — o cliente não quer saber do motor, quer chegar ao destino
+- ✅ Falar sempre em **resultado** e **ROI**: "com base no seu ticket médio de R$X, uma melhoria de 10% na conversão representa R$Y/mês"
+
+---
+
 ## FASE 0 — DISCOVERY (7 Perguntas Universais)
 
 Perguntar **uma de cada vez**. Não avançar para Fase 1 sem as 7 respostas.
@@ -232,6 +328,34 @@ Stack: [tecnologias]
 
 ## Plano Imediato [responsável: Eduardo vs Claude]
 ```
+
+### Checklist de Handoff ao Cliente (entrega final)
+
+> O cliente deve sair com tudo o que precisa para operar sem depender de Eduardo.
+> Dependência permanente é um risco para o cliente e para a reputação da Vanguard.
+
+**Acesso e Credenciais:**
+- [ ] Domínio transferido ou apontado para o cliente
+- [ ] Hospedagem / servidor acessível pelo cliente (painel de login entregue)
+- [ ] Contas criadas no nome do cliente (Supabase, Stripe, etc.) — não no nome da Vanguard
+- [ ] `.env` com todas as variáveis preenchidas entregue por canal seguro (nunca por email)
+- [ ] Repositório git transferido ou acesso dado ao cliente
+
+**Documentação:**
+- [ ] `README.md` com instruções de instalação, deploy e operação diária
+- [ ] Lista de todos os serviços externos utilizados e os seus custos mensais
+- [ ] Instruções para renovar chaves de API quando expirarem
+- [ ] O que fazer se algo parar de funcionar (diagnóstico básico)
+
+**Formação:**
+- [ ] Sessão de entrega (30–60 min) onde o cliente opera o sistema ao vivo
+- [ ] Gravação ou documento com os fluxos principais demonstrados
+- [ ] Contacto de suporte definido (retainer ou por hora)
+
+**Comercial:**
+- [ ] `relatorio_evolutivo` da iteração final entregue ao cliente (em linguagem de negócio)
+- [ ] Próximos passos propostos (upsell de camada superior ou retainer)
+- [ ] Testemunho / feedback pedido ao cliente após entrega
 
 ### Code Review Antes do Commit
 
