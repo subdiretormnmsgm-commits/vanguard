@@ -11,10 +11,10 @@
   <meta name="theme-color" content="#00F0FF">
   <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
 
-  <!-- Fonts: Syne (display) + Inter (body) + JetBrains Mono (code) -->
+  <!-- Fonts V22: Chakra Petch (HUD) + DM Sans (body) + JetBrains Mono (data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- White-Label brand override (injected by Docker entrypoint) -->
   <script src="/brand-config.js" onerror="void(0)"></script>
@@ -22,10 +22,14 @@
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/hud.css">
   <link rel="stylesheet" href="/assets/css/v16-elite.css">
+  <link rel="stylesheet" href="/assets/css/v22-sovereign.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="/assets/js/neural-v-logo.js"></script>
 </head>
 <body>
+
+  <!-- Global scan line -->
+  <div class="scan-overlay" aria-hidden="true"></div>
 
   <!-- ─── NAVBAR ──────────────────────────────────────────────────────── -->
   <nav class="navbar" role="navigation" aria-label="Navegação principal">
@@ -34,7 +38,7 @@
 
       <div class="navbar__status" aria-hidden="true">
         <span class="navbar__status-dot"></span>
-        <span>Sistema Operacional · V18</span>
+        <span>Sistema Operacional · V22</span>
       </div>
 
       <div class="navbar__actions">
@@ -42,6 +46,27 @@
       </div>
     </div>
   </nav>
+
+  <!-- ─── INTEL TICKER ──────────────────────────────────────────────── -->
+  <div class="intel-ticker" aria-hidden="true">
+    <div class="intel-ticker__label">INTEL LIVE</div>
+    <div class="intel-ticker__track">
+      <!-- Track duplicated for seamless loop -->
+      <span class="intel-ticker__item"><span class="fire">FIRE</span> LEAD DETECTADO <span class="sep">·</span> São Paulo · Clínica Odontológica <span class="sep">·</span> Score <strong>9.7</strong></span>
+      <span class="intel-ticker__item"><span class="fire">HERMES</span> VOICE <span class="sep">·</span> IAH Bridge <span class="sep">·</span> <strong>§21 ACTIVO</strong></span>
+      <span class="intel-ticker__item">SENTINEL REPORT <span class="sep">·</span> Semana 22 <span class="sep">·</span> <strong>127 Tenants</strong> Notificados</span>
+      <span class="intel-ticker__item"><span class="fire">ORÁCULO</span> PULSE v0.1 <span class="sep">·</span> Bússola de Nicho <span class="sep">·</span> <strong>Early Access R$500/mês</strong></span>
+      <span class="intel-ticker__item">NEURAL SENTINEL <span class="sep">·</span> 22 Versões <span class="sep">·</span> Plataforma <strong>Operacional</strong></span>
+      <span class="intel-ticker__item">ESCALATION LADDER <span class="sep">·</span> Semana 3 <span class="sep">·</span> <strong>Hermes alerta Eduardo</strong></span>
+      <!-- duplicate for seamless scroll -->
+      <span class="intel-ticker__item"><span class="fire">FIRE</span> LEAD DETECTADO <span class="sep">·</span> São Paulo · Clínica Odontológica <span class="sep">·</span> Score <strong>9.7</strong></span>
+      <span class="intel-ticker__item"><span class="fire">HERMES</span> VOICE <span class="sep">·</span> IAH Bridge <span class="sep">·</span> <strong>§21 ACTIVO</strong></span>
+      <span class="intel-ticker__item">SENTINEL REPORT <span class="sep">·</span> Semana 22 <span class="sep">·</span> <strong>127 Tenants</strong> Notificados</span>
+      <span class="intel-ticker__item"><span class="fire">ORÁCULO</span> PULSE v0.1 <span class="sep">·</span> Bússola de Nicho <span class="sep">·</span> <strong>Early Access R$500/mês</strong></span>
+      <span class="intel-ticker__item">NEURAL SENTINEL <span class="sep">·</span> 22 Versões <span class="sep">·</span> Plataforma <strong>Operacional</strong></span>
+      <span class="intel-ticker__item">ESCALATION LADDER <span class="sep">·</span> Semana 3 <span class="sep">·</span> <strong>Hermes alerta Eduardo</strong></span>
+    </div>
+  </div>
 
   <!-- ─── HERO ────────────────────────────────────────────────────────── -->
   <section class="hero" id="home" aria-labelledby="hero-title">
@@ -53,7 +78,7 @@
       <!-- Left: Content -->
       <div class="hero__content">
         <div class="hero__badge">
-          <span class="label-tag">⚡ Inteligência de Mercado · V18</span>
+          <span class="label-tag">⚡ Inteligência de Mercado · V22</span>
         </div>
 
         <h1 class="hero__headline" id="hero-title">
@@ -94,7 +119,7 @@
             <span class="terminal__dot terminal__dot--red"></span>
             <span class="terminal__dot terminal__dot--yellow"></span>
             <span class="terminal__dot terminal__dot--green"></span>
-            <span class="terminal__title">vanguard_sovereign — V18 · LIVE</span>
+            <span class="terminal__title">vanguard_sovereign — V22 · LIVE</span>
           </div>
           <div class="terminal__body">
             <div class="terminal__line">
@@ -257,7 +282,7 @@
   <section class="features" id="features" aria-labelledby="features-title">
     <div class="section__header">
       <div class="section__label">
-        <span class="label-tag">⚡ Protocolo Vanguard · V18</span>
+        <span class="label-tag">⚡ Protocolo Vanguard · V22</span>
       </div>
       <h2 class="section__title" id="features-title">
         Uma equipa dedicada.<br>
@@ -668,6 +693,86 @@
     </div>
   </section>
 
+  <!-- ─── PRICING ─────────────────────────────────────────────────────── -->
+  <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+    <div class="section__header" style="text-align:center;max-width:640px;margin:0 auto;">
+      <div class="section__label">
+        <span class="label-tag">Planos · Investimento Transparente</span>
+      </div>
+      <h2 class="section__title" id="pricing-title">
+        Escolha o seu<br>
+        <span class="text-gradient--accent">nível de inteligência.</span>
+      </h2>
+      <p class="section__desc">
+        Cada plano foi desenhado para gerar ROI positivo no primeiro mês.
+        Sem contrato de fidelidade. Sem surpresas.
+      </p>
+    </div>
+
+    <div class="pricing__grid">
+
+      <!-- Card: Neural Sentinel -->
+      <div class="pricing-card pricing-card--sentinel scan-reveal">
+        <div class="pricing-card__badge">Neural Sentinel</div>
+        <div class="pricing-card__name">Inteligência<br>Contínua</div>
+        <p class="pricing-card__desc">
+          O seu negócio monitorado 24/7. Relatório semanal com score FIRE,
+          alertas de churn e prospecção automática via Hermes.
+        </p>
+        <div class="pricing-card__price">
+          <span class="pricing-card__currency">R$</span>
+          <span class="pricing-card__amount">97</span>
+          <span class="pricing-card__period">/mês</span>
+        </div>
+        <ul class="pricing-card__features">
+          <li>Digital Maturity Score™ semanal</li>
+          <li>Sentinel Report Card por email</li>
+          <li>Hermes Motor de Prospecção activo</li>
+          <li>Escalation Ladder automática (4 níveis)</li>
+          <li>Painel em tempo real no cockpit</li>
+          <li>Pixel de comportamento instalado</li>
+          <li>Marca 100% proprietária</li>
+        </ul>
+        <a href="#quiz" class="pricing-cta pricing-cta--cyan">
+          Começar diagnóstico gratuito →
+        </a>
+      </div>
+
+      <!-- Card: Projecto IAH -->
+      <div class="pricing-card pricing-card--iah scan-reveal scan-reveal--delay-2">
+        <div class="pricing-card__badge">Projecto IAH</div>
+        <div class="pricing-card__name">Transformação<br>Total</div>
+        <p class="pricing-card__desc">
+          Implementação completa do ecossistema IAH com consultoria estratégica,
+          Hermes Loop activado e Sovereign Playbook de 90 dias.
+        </p>
+        <div class="pricing-card__price">
+          <span class="pricing-card__currency">R$</span>
+          <span class="pricing-card__amount">3k–6k</span>
+          <span class="pricing-card__period">/projecto</span>
+        </div>
+        <ul class="pricing-card__features">
+          <li>Tudo do Neural Sentinel incluso</li>
+          <li>Hermes Loop + Google Calendar OAuth</li>
+          <li>IAH Bridge — Eduardo recebe alerta voz</li>
+          <li>Sovereign Playbook 90 dias personalizado</li>
+          <li>Oráculo Pulse API (Early Access)</li>
+          <li>Onboarding dedicado (4h sessão)</li>
+          <li>Suporte prioritário por WhatsApp</li>
+        </ul>
+        <a href="https://wa.me/5521996008570" class="pricing-cta pricing-cta--gold" target="_blank" rel="noopener">
+          Falar com o Diretor →
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Guarantee note -->
+    <p style="text-align:center;font-family:var(--ff-mono);font-size:10px;color:var(--c-muted);letter-spacing:0.08em;margin-top:2.5rem;opacity:0.6;">
+      SEM CONTRATO DE FIDELIDADE · CANCELE QUANDO QUISER · DADOS SEMPRE SEUS
+    </p>
+  </section>
+
   <!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
   <footer class="footer">
     <div class="footer__container">
@@ -682,6 +787,7 @@
             <ul class="footer__link-list">
               <li><a href="#features">Funcionalidades</a></li>
               <li><a href="#como-funciona">Como funciona</a></li>
+              <li><a href="#pricing">Preços</a></li>
               <li><a href="#quiz">Diagnóstico</a></li>
             </ul>
           </div>
@@ -697,7 +803,7 @@
       </div>
       <div class="footer__bottom">
         <p class="footer__copy">© 2026 Vanguard Tech. Todos os direitos reservados.</p>
-        <p class="footer__version">v18.0 · Recurrence Singularity · Sovereign Intelligence</p>
+        <p class="footer__version">v22.0 · Autonomous Dominion Engine · Sovereign Intelligence</p>
       </div>
     </div>
   </footer>
@@ -867,11 +973,27 @@
       if (tagline) document.querySelectorAll('.brand-tagline').forEach(el => { el.textContent = tagline; });
     };
 
+    /* ── Scan-reveal observer (V22) ── */
+    const observeScanReveal = () => {
+      const els = document.querySelectorAll('.scan-reveal');
+      if (!els.length) return;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
       observeCounters();
       observeFadeUp();
       initTilt();
       applyBrand();
+      observeScanReveal();
     });
   </script>
 </body>

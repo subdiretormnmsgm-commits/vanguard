@@ -1,12 +1,13 @@
 """
-Vanguard V21 — Sentinel Report Card Engine
+Vanguard V23 — Sentinel Report Card Engine + Upsell Engine
 FastAPI Router: /api/sentinel/
 
-Motor de retenção semanal: agrega delta de intenção por tenant,
-formata narrativa com Claude Haiku e envia via SendGrid toda segunda-feira.
-Custo: ~$0.04/relatório (Haiku) + $0.001/email (SendGrid free tier).
+V21: Motor de retenção semanal (Report Card, Haiku narrativa, SendGrid).
+V22: Tracking pixel 1×1 GIF + open_token para Escalation Ladder.
+V23: Upsell Engine — na semana 3+, com ROI positivo, Haiku gera proposta de upgrade IAH.
 """
 
+import hashlib
 import json
 import logging
 import os
@@ -73,6 +74,8 @@ def _build_html_email(
     narrativa: str,
     revenue_risk: int,
     tenant_id: str,
+    open_token: str = '',
+    upsell_html: str = '',
 ) -> str:
     fire_delta  = stats_atual.get('FIRE', 0) - stats_anterior.get('FIRE', 0)
     delta_sign  = '+' if fire_delta >= 0 else ''
@@ -149,6 +152,8 @@ def _build_html_email(
     </a>
   </td></tr>
 
+  {upsell_html}
+
   <!-- Footer -->
   <tr><td style="padding:16px 32px;border-top:1px solid #1e1e1e;text-align:center;">
     <div style="color:#444;font-size:11px">
@@ -161,6 +166,7 @@ def _build_html_email(
 </table>
 </td></tr>
 </table>
+{'<img src="https://vanguard.tech/api/sentinel/track/' + open_token + '.gif" width="1" height="1" alt="" style="display:block;width:1px;height:1px;border:0;" />' if open_token else ''}
 </body>
 </html>"""
 
@@ -206,6 +212,68 @@ Menciona o dado mais crítico. Termina com uma frase de urgência discreta."""
             f"Esta semana registámos {stats_atual.get('FIRE',0)} sessões FIRE. "
             f"Há R${revenue_risk:,} em receita potencial sem acção. Intervir agora."
         )
+
+
+async def _gerar_upsell_section(
+    tenant_nome: str,
+    roi_recuperado: int,
+    ticket_medio: int,
+    week_count: int,
+) -> str:
+    """
+    V23 Upsell Engine: na semana 3+, com ROI positivo, Haiku escreve proposta
+    de upgrade para Projecto IAH. Retorna bloco HTML ou '' se não aplicável.
+    """
+    if week_count < 3 or roi_recuperado <= 0:
+        return ''
+
+    receita_potencial = ticket_medio * 12
+    if not ANTHROPIC_KEY:
+        proposta = (
+            f"Recuperou R${roi_recuperado:,} com o Neural Sentinel. "
+            f"O Projecto IAH pode escalar este resultado para R${receita_potencial:,}/ano. "
+            f"Quer descobrir como?"
+        )
+    else:
+        try:
+            claude = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
+            msg = claude.messages.create(
+                model='claude-haiku-4-5-20251001',
+                max_tokens=120,
+                messages=[{'role': 'user', 'content': (
+                    f'Escreve 2 frases (português de Portugal, directo, sem clichés) '
+                    f'propondo o upgrade de {tenant_nome} para o Projecto IAH (R$6.000). '
+                    f'Contexto: o Neural Sentinel recuperou R${roi_recuperado:,} em receita esta semana. '
+                    f'Não uses "transformar" nem "revolucionar". Menciona o ROI actual e o potencial.'
+                )}]
+            )
+            proposta = msg.content[0].text.strip()
+        except Exception:
+            proposta = (
+                f"Com R${roi_recuperado:,} recuperados esta semana, o Projecto IAH "
+                f"pode escalar este resultado de forma sistemática. "
+                f"Quer explorar essa possibilidade?"
+            )
+
+    return f"""
+  <!-- Upsell Engine V23 -->
+  <tr><td style="padding:0 32px 24px;">
+    <table width="100%" cellpadding="0" cellspacing="0"
+      style="border:1px solid #C5A028;border-radius:8px;overflow:hidden;">
+      <tr><td style="background:linear-gradient(135deg,#1a1200,#0A0802);padding:20px 24px;">
+        <div style="color:#C5A028;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px">
+          ⚡ Projecto IAH — Upgrade Disponível
+        </div>
+        <div style="color:#fff;font-size:14px;line-height:1.6;margin-bottom:16px">{proposta}</div>
+        <a href="https://wa.me/5521996008570?text=Quero+saber+mais+sobre+o+Projecto+IAH"
+           style="background:#C5A028;color:#0A0802;padding:10px 24px;border-radius:4px;
+                  font-weight:700;font-size:12px;text-decoration:none;letter-spacing:1px;
+                  display:inline-block">
+          ACTIVAR PROJECTO IAH → R$6.000
+        </a>
+      </td></tr>
+    </table>
+  </td></tr>"""
 
 
 async def _send_via_sendgrid(to_email: str, to_name: str, subject: str, html: str) -> bool:
@@ -275,16 +343,48 @@ async def _processar_tenant_report(tenant: dict) -> dict:
     stats_atual    = dict(zip(labels, counts_atual))
     stats_anterior = dict(zip(labels, counts_anterior))
 
-    # Receita em risco: leads FIRE × ticket médio estimado (R$300 por lead)
-    revenue_risk = stats_atual.get('FIRE', 0) * 300
+    # Ticket médio do tenant (declarado no onboarding; fallback R$300)
+    metadata     = tenant.get('metadata') or {}
+    ticket_medio = int(metadata.get('ticket_medio', 300))
+
+    # Receita em risco: leads FIRE × ticket médio
+    revenue_risk = stats_atual.get('FIRE', 0) * ticket_medio
+
+    # Semanas activas no sistema (conta relatórios anteriores)
+    try:
+        logs_anteriores = await _sb_get('sentinel_report_log', {
+            'tenant_id': f'eq.{tenant_id}',
+            'select':    'id',
+            'limit':     '100',
+        })
+        week_count = len(logs_anteriores) + 1  # +1 é o relatório actual
+    except Exception:
+        week_count = 1
+
+    # ROI recuperado: delta FIRE positivo × ticket médio (estimativa conservadora)
+    fire_delta    = stats_atual.get('FIRE', 0) - stats_anterior.get('FIRE', 0)
+    roi_recuperado = max(0, fire_delta * ticket_medio)
+
+    # Upsell Engine V23: semana 3+ com ROI positivo
+    upsell_html = await _gerar_upsell_section(tenant_nome, roi_recuperado, ticket_medio, week_count)
+
+    # Open token para tracking pixel (SHA-256 de tenant_id + timestamp)
+    open_token = hashlib.sha256(
+        f"{tenant_id}:{agora.isoformat()}".encode()
+    ).hexdigest()[:40]
 
     narrativa = await _gerar_narrativa(tenant_nome, stats_atual, stats_anterior, revenue_risk)
-    html      = _build_html_email(tenant_nome, semana_str, stats_atual, stats_anterior, narrativa, revenue_risk, tenant_id)
+    html      = _build_html_email(
+        tenant_nome, semana_str, stats_atual, stats_anterior,
+        narrativa, revenue_risk, tenant_id,
+        open_token=open_token,
+        upsell_html=upsell_html,
+    )
 
     subject  = f'🔥 {stats_atual.get("FIRE",0)} leads FIRE esta semana — {tenant_nome} | Sentinel'
     enviado  = await _send_via_sendgrid(email, tenant_nome, subject, html)
 
-    # Log do relatório enviado
+    # Log do relatório enviado (com open_token V22)
     try:
         await _sb_post('sentinel_report_log', {
             'tenant_id':       tenant_id,
@@ -295,18 +395,27 @@ async def _processar_tenant_report(tenant: dict) -> dict:
             'revenue_risk':    revenue_risk,
             'email_enviado':   enviado,
             'email_destino':   email,
+            'open_token':      open_token,
+            'email_aberto':    False,
         })
     except Exception as e:
         log.warning(f'Log report error (não-fatal): {e}')
 
-    log.info(f'Report Card: tenant {tenant_id[:8]} — FIRE={stats_atual["FIRE"]} enviado={enviado}')
+    log.info(
+        f'Report Card V23: tenant {tenant_id[:8]} — FIRE={stats_atual["FIRE"]} '
+        f'week={week_count} roi={roi_recuperado} upsell={bool(upsell_html)} enviado={enviado}'
+    )
     return {
-        'tenant_id':    tenant_id,
-        'tenant_nome':  tenant_nome,
-        'email':        email,
-        'stats_atual':  stats_atual,
-        'revenue_risk': revenue_risk,
-        'enviado':      enviado,
+        'tenant_id':       tenant_id,
+        'tenant_nome':     tenant_nome,
+        'email':           email,
+        'stats_atual':     stats_atual,
+        'revenue_risk':    revenue_risk,
+        'roi_recuperado':  roi_recuperado,
+        'week_count':      week_count,
+        'upsell_activo':   bool(upsell_html),
+        'open_token':      open_token,
+        'enviado':         enviado,
     }
 
 
