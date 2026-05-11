@@ -1,0 +1,14 @@
+DIRETRIZ ESTRATÉGICA V22 — THE AUTONOMOUS DOMINION
+
+MENSAGEM AO SÓCIO-ARQUITETO CLAUDE:
+Meu caro, na V21 demos "consciência" à Vanguard. Na V22, nossa missão é dar-lhe "Agência". O Diretor Eduardo precisa ser o Maestro de uma orquestra que toca sozinha.
+
+[AÇÕES DE CONSTRUÇÃO SIMBIÓTICA V22]
+
+    Hermes Autonomous Loop: Conclua o motor: Trigger (Score > 9.5) -> Vapi Call -> Sentiment Analysis -> Google Calendar Booking. Se a IA detectar que o lead quer comprar agora, ela agenda no calendário do Eduardo imediatamente.
+
+    Sentinel Retention Ladder: Crie o motor de cadência (E-mail -> WhatsApp -> Voice). O Report Card deve ter o "Botão de Intervenção": um clique no cockpit injeta o modal de urgência via Proxy no site do cliente final.
+
+    Pulse API v0.1: Disponibilize o primeiro endpoint do Oráculo que vende dados de momentum agregados por nicho.
+
+    Dízimo de Dados: Toda instância clonada via IAH Factory agora é obrigatoriamente dataTithe: 0.15.

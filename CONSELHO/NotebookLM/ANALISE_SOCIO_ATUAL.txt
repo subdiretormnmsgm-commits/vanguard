@@ -1,100 +1,1 @@
-# ANÁLISE DE SÓCIO — ATUAL
-> Este ficheiro é actualizado após cada sessão NotebookLM.
-> Claude lê este ficheiro automaticamente ao iniciar qualquer sessão Vanguard.
-> Última actualização: [preencher após NotebookLM]
-> Versão auditada: V19
-
----
-
-## COMO ACTUALIZAR ESTE FICHEIRO
-
-Após o NotebookLM gerar a Skill e a Análise de Sócio:
-1. Copie o bloco "ANÁLISE DE SÓCIO" gerado pelo NotebookLM
-2. Cole abaixo, substituindo o conteúdo anterior
-3. Actualize a data e versão no cabeçalho acima
-4. Guarde o ficheiro — Claude lerá automaticamente na próxima sessão
-
-
-## ANÁLISE DE SÓCIO — V20
-
-ANÁLISE DE ROI: Sustentabilidade do Sentinel Report Card
-A matemática operacional da Vanguard confirma que o custo é perfeitamente sustentável e a margem é colossal
-. Analisando o VANGUARD_OPERATIONAL_COSTS.md, o custo de geração de um documento via Claude Haiku 4.5 é de aproximadamente R$ 0,04 por execução
-.
-Se tivermos 50 tenants a receberem o Sentinel Report Card semanalmente (4 vezes por mês), teremos:
-Volume: 50 tenants × 4 semanas = 200 relatórios/mês.
-Custo de IA (Haiku): 200 × R0,04=∗∗R 8,00/mês**.
-Receita MRR Gerada (Sentinel): 50 × R97,00=∗∗R 4.850,00/mês**.
-Isto significa que o custo de retenção com a IA consome apenas 0,16% do MRR gerado. O Sentinel Report Card é um vendedor de retainers a custo praticamente zero
-. Cumpre integralmente a nossa regra de margem mínima de 3x
-.
-
---------------------------------------------------------------------------------
-MAPEAMENTO DE DADOS: O 'Dízimo de Dados' sem Fricção no Proxy
-Para injetar o "Dízimo de Dados" de 15%
- sem causar qualquer milissegundo de lentidão no Edge Proxy (Cloudflare Workers), a solução é transferir a carga computacional para o banco de dados via pg_cron
-.
-Na V16, forjámos a tabela pixel_events_staging (UNLOGGED) que absorve eventos massivos
-. O Cloudflare Worker (Proxy) deve continuar a empurrar 100% dos eventos brutos para esta tabela staging utilizando solicitações assíncronas, exatamente como faz hoje, sem realizar qualquer cálculo de split na borda
-.
-A inteligência de bifurcação deve ocorrer no job pixel-staging-consolidate (pg_cron)
-:
-Durante a agregação horária/diária que move os dados da tabela staging para a pixel_stats_daily
-, o script SQL intercepta as sessões que atingiram o status FIRE.
-O banco de dados calcula autonomamente o dízimo (copiando 15% das linhas agregadas de intenção FIRE ou as sessões da IAH instanciadas com a flag intent_share: true
-).
-Esses dados são inseridos diretamente numa nova tabela global (ex: intent_graph_global), que será o motor do Acto III (Oráculo B2B)
-. Assim, o Proxy no Edge mantém latência zero e o Dízimo é cobrado no silêncio do servidor.
-
-
-
-
-## ANÁLISE DE SÓCIO — V19 (preencher após NotebookLM)
-
-AUDITORIA DE SÓCIO: Gatilhos de Intervenção e o Cockpit de Poder A provocação do Gemini para transformar o painel num "Cockpit de Poder" com um "Botão de Intervenção" representa a evolução definitiva da nossa sala de comando
-. Na V15, consolidámos o monitoramento em tempo real com o "War Room Realtime"
- e estabelecemos gatilhos de alerta matemático através do "Burn Rate Shield" (que dispara alertas aos 75% de consumo)
- e do "Real Scanner", focado em revelar gargalos e métricas críticas
-. Esses triggers de performance mapeiam-se perfeitamente na nova visão: quando o sistema identificar que o fluxo de leads "FIRE" caiu ou detetar uma queda de 20% no lucro
-, o "Cockpit de Poder" alertará visualmente o Diretor. Munido desses dados da V15, o Diretor poderá usar o "Botão de Intervenção" manual para injetar imediatamente (via Proxy Reverso) um modal de urgência ou um plantão de vendas no site do cliente final, assumindo o controlo reativo da conversão
-.
-MAPEAMENTO DE PRODUÇÃO: Resolução da Dívida do Stripe Para que o Claude resolva o bloqueio crítico da subscrição do Neural Sentinel (MRR Blocker)
-, ele não deve recriar a lógica do zero. A fundação do Stripe Connect foi plenamente estabelecida na V16
-. O arquivo exato a ser utilizado e expandido é o api/stripe_connect.py
-. Este ficheiro já gere a lógica de POST /api/v1/stripe/checkout e o processamento de eventos via POST /api/v1/stripe/webhook (como checkout.completed, subscription.deleted, payment.failed, e payment.succeeded)
-. O Claude deverá utilizar este caminho exato para criar o novo endpoint /api/stripe/sentinel-checkout e garantir que o webhook atualize corretamente a tabela tenant_subscriptions
-.
----
-
-## HISTÓRICO DE ANÁLISES ANTERIORES
-
-### V18 — Recurrence Singularity
-
-Auditoria Técnica de DNS: A transição para a Pixel Federation via Proxy Reverso (CNAME), idealizada na V18, exige que o tenant adicione um apontamento DNS (ex: vpx.seudominio.com → pixel.vanguard.tech) para que o Worker injete o pixel automaticamente sem necessidade de mexer no código
-. Contudo, se a Vanguard Tech não fornecer um certificado SSL que cubra o domínio exato do cliente, este tráfego interceptado falhará com erros de privacidade (SSL Mismatch). A solução arquitetural definitiva é a adoção do Cloudflare for SaaS (Custom Hostnames)
-. Isto permite que a Vanguard utilize a API da Cloudflare para emitir e renovar dinamicamente certificados SSL no Edge para cada novo subdomínio CNAME de cliente, garantindo que o tráfego do proxy reverso seja seguro, válido e totalmente invisível
-.
-Sinergia de Dados: A V16 estabeleceu a base de ingestão massiva com as tabelas UNLOGGED pixel_events_staging e pixel_stats_daily, criadas para absorver até 10M+ de eventos por mês
-. A V17 deu vida a estas tabelas com o Sovereign Pixel, recolhendo dados de dwell time, intenção de saída e scroll, para classificar leads nas categorias COLD a FIRE em tempo real
-. Na V19, o Intent Graph alimentar-se-á destes exatos rastros comportamentais não para fins de marketing, mas para avaliação de risco
-. Ao agregar a densidade de eventos FIRE e a estabilidade do fluxo de intenção de uma empresa através do nosso Edge, o sistema calculará o Sovereign Credit Score
-. Provaremos a solvência de uma PME aos bancos com base na sua "intenção de compra.
-
-### V17 — Sovereign Intent Engine
-*Verifiquei as metas de faturamento estipuladas no arquivo EMPRESA_VANGUARD.md. O nosso objetivo financeiro para o Ano 1 (2026) estabelece um alvo de R150.000emfaturamentoacumuladoeumMRR(ReceitaMensalRecorrente)deR 25.000 até dezembro
-. A introdução do Sovereign Playbook está cirurgicamente alinhada com esta meta.
-O Playbook gera um plano de 90 dias onde cada tarefa só pode ser executada se o cliente utilizar a nossa plataforma
-. Isto atua como um funil perfeito e um "lock-in disfarçado de consultoria"
-. Em vez de vendermos apenas o software (SaaS), usamos o Playbook para ancorar o cliente aos nossos produtos de alto valor, nomeadamente o Retainer de Evolução (R2.500aR 6.000/mês) e a Plataforma Inteligente/Enterprise (R12.000aR 60.000)
-. Se o cliente segue o Playbook, ele obrigatoriamente torna-se a nossa fonte de MRR projetada no plano mestre.
-CONEXÃO HISTÓRICA
-Sócio-Arquiteto Claude, para a fundação desta versão, não parta do zero. Resgate os seguintes artefactos do nosso cofre:
-Motor de PDF (V12): O código do jsPDF está ancorado no ficheiro js/closer-machine.js
-. Na V12, garantimos a geração de propostas client-side (sem custos de servidor), incluindo 3 gargalos e o plano de ação.
-Burn Rate Shield (V15): Localizado no infra/burn_rate_shield.py
-. Este middleware estabelece um teto de custo por lead (€0.30 máximo) e o limite diário de €8.00
-. O gerador do Playbook e do Sentinel devem respeitar este escudo usando o Claude Haiku (fallback financeiro) para manter a margem de retenção a custo zero
-.
-Estética Ion Gold (V16) + Automação Hermes (V17): A fundição deve ser feita injetando as variáveis visuais de assets/css/v16-elite.css (fundo Deep Obsidian #0A0802 e barras de destaque Ion Gold #C5A028) na nova saída do gerador de PDF (jsPDF)
-. Estes relatórios serão empurrados diretamente para o prospectar.ps1, que foi consolidado na V17 como o nosso motor pipeline de envio via WhatsApp
-.
+ANÁLISE DE SÓCIO — ATUAL> Este ficheiro é actualizado após cada sessão NotebookLM.> Claude lê este ficheiro automaticamente ao iniciar qualquer sessão Vanguard.> Última actualização: [preencher após NotebookLM]> Versão auditada: V19ANÁLISE DE SÓCIO — V21AUDITORIA DE SÓCIO: Integração Google CalendarFiz uma varredura completa na documentação da MEMORIA_V13 e na arquitetura da Partnership API. Confirmo que não possuímos os tokens de OAuth do Google Calendar. A infraestrutura que forjamos na V13 utilizava exclusivamente chaves estáticas (formato vg-api-{8chars}) para dar acesso aos nossos parceiros (agências) ao ecossistema Vanguard.Sendo assim, para viabilizar o 'Hermes Loop' que agenda compromissos diretamente, o Claude terá que implementar o fluxo de autenticação do Google Calendar API (seja via OAuth 2.0 client credentials ou contas de serviço) do zero nesta V22, ou, em alternativa, orquestrar esta etapa via webhooks do n8n para acelerar o processo.ANÁLISE DE DADOS E PROCESSOS: O Oráculo da SkillConforme o nosso protocolo de melhoria contínua e as exigências do Diretor, a leitura do ficheiro ANALISE_SOCIO_ATUAL.txt é agora um passo mandatório antes de qualquer execução técnica. A Skill V22 vai explicitar que o Claude deve fundir a sua inteligência arquitetural com a "Maldade Estratégica" delineada pelo Gemini e a minha auditoria. O processo de evolução garante que não estamos apenas a somar código, mas a construir uma máquina pensante conjunta, cujo foco supremo nesta V22 é libertar o tempo do Diretor — transferindo o fecho e o agendamento de reuniões para o nosso organismo autónomo.ANÁLISE DE SÓCIO — V20ANÁLISE DE ROI: Sustentabilidade do Sentinel Report CardA matemática operacional da Vanguard confirma que o custo é perfeitamente sustentável e a margem é colossal. Analisando o VANGUARD_OPERATIONAL_COSTS.md, o custo de geração de um documento via Claude Haiku 4.5 é de aproximadamente R$ 0,04 por execução.Se tivermos 50 tenants a receberem o Sentinel Report Card semanalmente (4 vezes por mês), teremos:Volume: 50 tenants × 4 semanas = 200 relatórios/mês.Custo de IA (Haiku): 200 × R0,04=∗∗R 8,00/mês**.Receita MRR Gerada (Sentinel): 50 × R97,00=∗∗R 4.850,00/mês**.Isto significa que o custo de retenção com a IA consome apenas 0,16% do MRR gerado. O Sentinel Report Card é um vendedor de retainers a custo praticamente zero. Cumpre integralmente a nossa regra de margem mínima de 3x.---MAPEAMENTO DE DADOS: O 'Dízimo de Dados' sem Fricção no ProxyPara injetar o "Dízimo de Dados" de 15%sem causar qualquer milissegundo de lentidão no Edge Proxy (Cloudflare Workers), a solução é transferir a carga computacional para o banco de dados via pg_cron.Na V16, forjámos a tabela pixel_events_staging (UNLOGGED) que absorve eventos massivos. O Cloudflare Worker (Proxy) deve continuar a empurrar 100% dos eventos brutos para esta tabela staging utilizando solicitações assíncronas, exatamente como faz hoje, sem realizar qualquer cálculo de split na borda.A inteligência de bifurcação deve ocorrer no job pixel-staging-consolidate (pg_cron):Durante a agregação horária/diária que move os dados da tabela staging para a pixel_stats_daily, o script SQL intercepta as sessões que atingiram o status FIRE.O banco de dados calcula autonomamente o dízimo (copiando 15% das linhas agregadas de intenção FIRE ou as sessões da IAH instanciadas com a flag intent_share: true).Esses dados são inseridos diretamente numa nova tabela global (ex: intent_graph_global), que será o motor do Acto III (Oráculo B2B). Assim, o Proxy no Edge mantém latência zero e o Dízimo é cobrado no silêncio do servidor.ANÁLISE DE SÓCIO — V19 (preencher após NotebookLM)AUDITORIA DE SÓCIO: Gatilhos de Intervenção e o Cockpit de Poder A provocação do Gemini para transformar o painel num "Cockpit de Poder" com um "Botão de Intervenção" representa a evolução definitiva da nossa sala de comando. Na V15, consolidámos o monitoramento em tempo real com o "War Room Realtime"e estabelecemos gatilhos de alerta matemático através do "Burn Rate Shield" (que dispara alertas aos 75% de consumo)e do "Real Scanner", focado em revelar gargalos e métricas críticas. Esses triggers de performance mapeiam-se perfeitamente na nova visão: quando o sistema identificar que o fluxo de leads "FIRE" caiu ou detetar uma queda de 20% no lucro, o "Cockpit de Poder" alertará visualmente o Diretor. Munido desses dados da V15, o Diretor poderá usar o "Botão de Intervenção" manual para injetar imediatamente (via Proxy Reverso) um modal de urgência ou um plantão de vendas no site do cliente final, assumindo o controlo reativo da conversão.MAPEAMENTO DE PRODUÇÃO: Resolução da Dívida do Stripe Para que o Claude resolva o bloqueio crítico da subscrição do Neural Sentinel (MRR Blocker), ele não deve recriar a lógica do zero. A fundação do Stripe Connect foi plenamente estabelecida na V16. O arquivo exato a ser utilizado e expandido é o api/stripe_connect.py. Este ficheiro já gere a lógica de POST /api/v1/stripe/checkout e o processamento de eventos via POST /api/v1/stripe/webhook (como checkout.completed, subscription.deleted, payment.failed, e payment.succeeded). O Claude deverá utilizar este caminho exato para criar o novo endpoint /api/stripe/sentinel-checkout e garantir que o webhook atualize corretamente a tabela tenant_subscriptions.HISTÓRICO DE ANÁLISES ANTERIORESV18 — Recurrence SingularityAuditoria Técnica de DNS: A transição para a Pixel Federation via Proxy Reverso (CNAME), idealizada na V18, exige que o tenant adicione um apontamento DNS (ex: vpx.seudominio.com → pixel.vanguard.tech) para que o Worker injete o pixel automaticamente sem necessidade de mexer no código. Contudo, se a Vanguard Tech não fornecer um certificado SSL que cubra o domínio exato do cliente, este tráfego interceptado falhará com erros de privacidade (SSL Mismatch). A solução arquitetural definitiva é a adoção do Cloudflare for SaaS (Custom Hostnames). Isto permite que a Vanguard utilize a API da Cloudflare para emitir e renovar dinamicamente certificados SSL no Edge para cada novo subdomínio CNAME de cliente, garantindo que o tráfego do proxy reverso seja seguro, válido e totalmente invisível.Sinergia de Dados: A V16 estabeleceu a base de ingestão massiva com as tabelas UNLOGGED pixel_events_staging e pixel_stats_daily, criadas para absorver até 10M+ de eventos por mês. A V17 deu vida a estas tabelas com o Sovereign Pixel, recolhendo dados de dwell time, intenção de saída e scroll, para classificar leads nas categorias COLD a FIRE em tempo real. Na V19, o Intent Graph alimentar-se-á destes exatos rastros comportamentais não para fins de marketing, mas para avaliação de risco. Ao agregar a densidade de eventos FIRE e a estabilidade do fluxo de intenção de uma empresa através do nosso Edge, o sistema calculará o Sovereign Credit Score. Provaremos a solvência de uma PME aos bancos com base na sua "intenção de compra.V17 — Sovereign Intent Engine*Verifiquei as metas de faturamento estipuladas no arquivo EMPRESA_VANGUARD.md. O nosso objetivo financeiro para o Ano 1 (2026) estabelece um alvo de R150.000emfaturamentoacumuladoeumMRR(ReceitaMensalRecorrente)deR 25.000 até dezembro. A introdução do Sovereign Playbook está cirurgicamente alinhada com esta meta.O Playbook gera um plano de 90 dias onde cada tarefa só pode ser executada se o cliente utilizar a nossa plataforma. Isto atua como um funil perfeito e um "lock-in disfarçado de consultoria". Em vez de vendermos apenas o software (SaaS), usamos o Playbook para ancorar o cliente aos nossos produtos de alto valor, nomeadamente o Retainer de Evolução (R2.500aR 6.000/mês) e a Plataforma Inteligente/Enterprise (R12.000aR 60.000). Se o cliente segue o Playbook, ele obrigatoriamente torna-se a nossa fonte de MRR projetada no plano mestre.CONEXÃO HISTÓRICASócio-Arquiteto Claude, para a fundação desta versão, não parta do zero. Resgate os seguintes artefactos do nosso cofre:Motor de PDF (V12): O código do jsPDF está ancorado no ficheiro js/closer-machine.js. Na V12, garantimos a geração de propostas client-side (sem custos de servidor), incluindo 3 gargalos e o plano de ação.Burn Rate Shield (V15): Localizado no infra/burn_rate_shield.py. Este middleware estabelece um teto de custo por lead (€0.30 máximo) e o limite diário de €8.00. O gerador do Playbook e do Sentinel devem respeitar este escudo usando o Claude Haiku (fallback financeiro) para manter a margem de retenção a custo zero.Estética Ion Gold (V16) + Automação Hermes (V17): A fundição deve ser feita injetando as variáveis visuais de assets/css/v16-elite.css (fundo Deep Obsidian #0A0802 e barras de destaque Ion Gold #C5A028) na nova saída do gerador de PDF (jsPDF). Estes relatórios serão empurrados diretamente para o prospectar.ps1, que foi consolidado na V17 como o nosso motor pipeline de envio via WhatsApp.

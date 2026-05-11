@@ -39,16 +39,16 @@ Copiar Skill do NotebookLM → guardar em `.claude/skills/vanguard-vXX-[nome].md
 
 ---
 
-## DOCUMENTOS ACTUAIS (V21)
+## DOCUMENTOS ACTUAIS (V22)
 
 | Tipo | Ficheiro | Destino |
 |------|---------|---------|
+| Memória V22 | NotebookLM/MEMORIA_V22.txt | Upload NotebookLM |
+| Relatório V22 | NotebookLM/relatorio_evolutivo_v22.txt | Upload NotebookLM |
 | Memória V21 | NotebookLM/MEMORIA_V21.txt | Upload NotebookLM |
-| Relatório V21 | NotebookLM/relatorio_evolutivo_v21.txt | Upload NotebookLM |
-| Memória V20 | NotebookLM/MEMORIA_V20.txt | Upload NotebookLM |
-| DIRETRIZ V21 | NotebookLM/DIRETRIZ GEMINI V21.txt | Upload NotebookLM (receber do Gemini) |
+| DIRETRIZ V22 | NotebookLM/DIRETRIZ GEMINI V22.txt | Upload NotebookLM (receber do Gemini) |
 | Audit | NotebookLM/VANGUARD_INNOVATION_AUDIT.txt | Upload NotebookLM |
 | Regras | NotebookLM/VANGUARD_BUSINESS_RULES.txt | Upload NotebookLM |
 | Plano Negócio | NotebookLM/PLANO_IMPLEMENTACAO_NEGOCIO.txt | Upload NotebookLM |
 | Análise Sócio | ANALISE_SOCIO_ATUAL.md | Actualizado após cada sessão NotebookLM |
-| Comando V21 | Gemini/COMANDO_GEMINI_V21.md | Colar no Gemini |
+| Comando V22 | Gemini/COMANDO_GEMINI_V22.md | Colar no Gemini |

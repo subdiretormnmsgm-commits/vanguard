@@ -423,6 +423,30 @@ try:
 except ImportError as e:
     log.warning(f'hermes_trigger.py não encontrado: {e}')
 
+# V22 — Hermes Loop Completo (Vapi + Google Calendar OAuth)
+try:
+    from hermes_loop import router as hermes_loop_router
+    app.include_router(hermes_loop_router)
+    log.info('Hermes Loop router registado (/api/hermes-loop/).')
+except ImportError as e:
+    log.warning(f'hermes_loop.py não encontrado: {e}')
+
+# V22 — Sentinel Escalation Ladder (tracking pixel + cadência retenção)
+try:
+    from sentinel_escalation import router as sentinel_escalation_router
+    app.include_router(sentinel_escalation_router)
+    log.info('Sentinel Escalation router registado (/api/sentinel/escalation/ + /track/).')
+except ImportError as e:
+    log.warning(f'sentinel_escalation.py não encontrado: {e}')
+
+# V22 — Oráculo Pulse API v0.1 (Bússola de Nicho)
+try:
+    from oracle_pulse import router as oracle_pulse_router
+    app.include_router(oracle_pulse_router)
+    log.info('Oráculo Pulse API registada (/api/v1/oracle/).')
+except ImportError as e:
+    log.warning(f'oracle_pulse.py não encontrado: {e}')
+
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
 

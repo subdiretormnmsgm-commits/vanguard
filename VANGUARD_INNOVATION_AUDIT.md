@@ -17,6 +17,25 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 
 
 
+## [ID-009] — Autonomous Dominion Engine (V22)
+
+**Data:** 2026-05-10
+**Missão:** Autonomia de agenda e retenção — a fábrica opera sem o Diretor no funil.
+**Transição Estratégica:** De sistema com alertas para sistema que age sozinho: agenda reuniões, escala retenção, monetiza dados de intenção.
+
+**O que foi construído:**
+- `api/hermes_loop.py` — Hermes Loop completo: OAuth Google Calendar + Vapi IAH Bridge (Eduardo recebe chamada quando lead FIRE está no checkout) + Haiku sentiment analysis + booking automático no Calendar
+- `api/sentinel_escalation.py` — Escalation Ladder: tracking pixel de abertura de email (1×1 GIF) + cadência Semana 1→4: email → WhatsApp → Hermes Voice → IAH Rescue Plan (modal no site via KV bus)
+- `api/oracle_pulse.py` — Oráculo Pulse API v0.1: endpoint `/api/v1/oracle/pulse` com auth por API key, campo `tenant_coverage` transparente, endpoint admin para criar keys a R$500/mês
+- `infra/schema_v22.sql` — Tables: escalation_log, escalation_whatsapp_queue, oracle_api_keys, oracle_usage_log + VIEW oracle_mrr
+
+**Arquitectura IAH Bridge (Semana da V22):**
+Score >= 9.5 + checkout + time_on_page > 90s → Vapi liga para Eduardo → "Lead FIRE agora, pressione 1 para agir" → Eduardo confirma → Calendar abre slot livre → evento criado automaticamente.
+
+**Lock-in gerado:** O cliente não consegue cancelar sem perder a inteligência semanal, a escalação que protege o seu MRR e os relatórios que chegam antes que ele perceba que está em risco.
+
+---
+
 ## [ID-008] — Market Consciousness Engine (V21)
 
 **Data:** 2026-05-10
