@@ -1,33 +1,33 @@
-﻿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MENSAGEM 1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Ei, preciso da tua ajuda para uma coisa.
+Ei, preciso da sua ajuda com uma coisa.
 
-Tenho um sistema que constrói produtos digitais de forma
-diferente do que estás habituado a ver — antes de escrever
-uma linha de código, passamos por uma análise que garante
-que o que vamos construir resolve mesmo o problema certo.
+Tenho um sistema que constrói produtos digitais de um jeito
+diferente do que você está acostumado a ver — antes de escrever
+uma linha de código, a gente passa por uma análise que garante
+que o que vamos construir resolve de verdade o problema certo.
 
-Quero testar isso contigo. O projeto é por minha conta —
-mas preciso que sejas honesto como se fosses um cliente real.
-As tuas respostas são a matéria-prima do que vamos construir.
+Quero testar isso com você. O projeto é por minha conta —
+mas preciso que você seja honesto como se fosse um cliente real.
+As suas respostas são a matéria-prima do que vamos construir.
 
-Podes responder em áudio, texto, como quiseres.
+Pode responder em áudio, texto, como quiser.
 Vou fazer umas perguntas, uma de cada vez.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MENSAGEM 2
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Primeira: o que queres construir?
+Primeira: o que você quer construir?
 
 Não precisa ser técnico. Pode ser "quero um site que vende
-os meus cursos", "quero uma app que gere os agendamentos
+os meus cursos", "quero um app que gerencia os agendamentos
 da minha clínica", "quero automatizar uma coisa que faço
-manualmente todos os dias"...
+manualmente todo dia"...
 
-Descreve como explicarias a um amigo que não percebe nada
+Descreve como você explicaria a um amigo que não entende nada
 de tecnologia.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -36,43 +36,43 @@ MENSAGEM 3
 
 Segunda: qual é a dor real?
 
-O que está a custar-te dinheiro ou tempo por isto não existir?
-Tenta dar-me um número — quantas horas por semana,
-ou quantos clientes perdes, ou quanto deixas de faturar.
+O que está te custando dinheiro ou tempo por isso não existir?
+Tenta me dar um número — quantas horas por semana,
+ou quantos clientes você perde, ou quanto você deixa de faturar.
 
-Isso não é para te julgar. É para no final eu mostrar-te
-quanto isto vale de facto.
+Isso não é para te julgar. É para no final eu te mostrar
+quanto isso vale de verdade.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MENSAGEM 4
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Terceira — e esta é o coração do projeto:
+Terceira — e essa é o coração do projeto:
 
 O Momento Mágico.
 
-Se um utilizador entrar no teu sistema e fizer UMA coisa
-que significa que o teu negócio funcionou — qual é essa coisa?
+Se um usuário entrar no seu sistema e fizer UMA coisa
+que significa que o seu negócio funcionou — qual é essa coisa?
 
 Por exemplo: comprou, agendou, pediu orçamento, entrou em
-contato pelo WhatsApp, registou-se, assinou...
+contato pelo WhatsApp, se registrou, assinou...
 
-Qual é o teu momento de "sim, isto resultou"?
+Qual é o seu momento de "sim, isso funcionou"?
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MENSAGEM 5
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Quarta — esta é a minha favorita:
+Quarta — essa é a minha favorita:
 
 A Varinha Mágica.
 
-Se pudéssemos meter uma função "impossível" lá dentro —
+Se a gente pudesse colocar uma função "impossível" lá dentro —
 algo que a IA mais avançada do mundo fizesse para te deixar
-completamente à frente de toda a tua concorrência —
+completamente à frente de toda a sua concorrência —
 o que seria?
 
-Não filtra. Não te preocupes se parece impossível.
+Não filtra. Não se preocupe se parece impossível.
 É exatamente aqui que nascem as ideias que mais importam.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -81,12 +81,12 @@ MENSAGEM 6
 
 Quinta: o que já existe?
 
-Tens algum site, ferramenta, conta de hospedagem, design
+Você tem algum site, ferramenta, conta de hospedagem, design
 feito, redes sociais ativas, código antigo, app instalada?
 
-E o que é que os teus clientes pagam hoje, em média,
+E o que os seus clientes pagam hoje, em média,
 por cada venda ou serviço? (valor aproximado serve)
-Quantos clientes tens ou esperas ter por mês?
+Quantos clientes você tem ou espera ter por mês?
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MENSAGEM 7
@@ -94,13 +94,13 @@ MENSAGEM 7
 
 Sexta e última:
 
-Há alguma data que te faz querer isto pronto?
+Tem alguma data que faz você querer isso pronto?
 Evento, época alta, apresentação, algo assim?
 
 E — mesmo sabendo que este projeto é por minha conta —
-quanto investirias se fosse um serviço pago?
-Preciso desta resposta para no final te mostrar o que
-isto valeria no mercado real.
+quanto você investiria se fosse um serviço pago?
+Preciso dessa resposta para no final te mostrar o que
+isso valeria no mercado real.
 
 Responde com honestidade. É o teste mais importante.
 
@@ -108,18 +108,18 @@ Responde com honestidade. É o teste mais importante.
 MENSAGEM 8
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Assim que me responderes tudo isto, ponho o Conselho
-a trabalhar. Vais ver o processo do início ao fim —
+Assim que você me responder tudo isso, coloco a equipe
+para trabalhar. Você vai ver o processo do início ao fim —
 da análise à entrega.
 
-No final tens um produto no ar, com contrato, documentação
-e suporte. E eu tenho dados reais sobre o que a nossa
-máquina consegue fazer.
+No final você tem um produto no ar, com contrato, documentação
+e suporte. E eu tenho dados reais sobre o que o nosso processo
+consegue entregar.
 
-Obrigado por seres o primeiro cliente oficial.
+Obrigado por ser o primeiro cliente oficial.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 [FIM DAS MENSAGENS]
 Enviar uma a uma. Aguardar resposta entre cada mensagem.
-Guardar todas as respostas para o BRIEFING_DISCOVERY.
+Salvar todas as respostas para o BRIEFING_DISCOVERY.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
