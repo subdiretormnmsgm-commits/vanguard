@@ -447,6 +447,14 @@ try:
 except ImportError as e:
     log.warning(f'oracle_pulse.py não encontrado: {e}')
 
+# V23 — Partner Portal Alpha (canal de vendas via agências)
+try:
+    from partner_portal import router as partner_portal_router
+    app.include_router(partner_portal_router)
+    log.info('Partner Portal registado (/api/partners/).')
+except ImportError as e:
+    log.warning(f'partner_portal.py não encontrado: {e}')
+
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
 

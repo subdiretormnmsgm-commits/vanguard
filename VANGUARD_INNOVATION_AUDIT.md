@@ -17,6 +17,31 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 
 
 
+## [ID-010] — The Revenue Strike (V23)
+
+**Data:** 2026-05-10
+**Missão:** Converter 22 versões de tecnologia no primeiro cliente a pagar. Fim do laboratório — início do faturamento.
+**Transição Estratégica:** De sistema autónomo para sistema que vende sozinho: Upsell Engine activo no Sentinel Report, Partner Portal como canal de vendas externo, tracking pixel que alimenta a Escalation Ladder.
+
+**O que foi construído:**
+- `api/sentinel_report.py` — V23 Upsell Engine: na semana 3+, com ROI positivo (delta FIRE × ticket_medio), Haiku gera proposta personalizada de upgrade para Projecto IAH (R$6.000) no rodapé do Report Card. Zero intervenção do Diretor.
+- `api/sentinel_report.py` — Tracking pixel 1×1 GIF integrado no template HTML: `<img src=".../track/{open_token}.gif">` regista `email_aberto` em `sentinel_report_log`. Dívida técnica da V22 paga.
+- `api/partner_portal.py` — Partner Portal Alpha: `POST /api/partners/register` (gera API key + link afiliado), `GET /api/partners/dashboard` (performance + comissões), `GET /api/partners/clients` (Maturity Scores com consentimento LGPD), `POST /api/partners/commission/record` (auto-registo de comissão).
+- `infra/schema_v23.sql` — Tables: `partner_agencies`, `partner_referrals`, `partner_commissions` + VIEW `partner_mrr` + índice LGPD de consentimento + colunas V22 garantidas em `sentinel_report_log`.
+- `assets/css/v22-sovereign.css` — Design "Sovereign Intelligence Terminal": Chakra Petch + DM Sans + hex grid animado + holographic card sweep + intel ticker + scan-reveal + Pricing Section.
+
+**Arquitectura Upsell Engine:**
+`_processar_tenant_report()` → conta semanas em `sentinel_report_log` → calcula ROI (fire_delta × ticket_medio) → semana >= 3 + ROI > 0 → `_gerar_upsell_section()` → Haiku cria proposta personalizada → injeta no HTML do Report Card.
+
+**Arquitectura Partner Portal (LGPD compliant):**
+Agência regista → gera `VGP-XXXX` + API key → partilha `?ref=VGP-XXXX` → novo tenant regista + consente opt-in → `partner_referrals` activo → agência vê Maturity Scores dos clientes consented → Stripe webhook chama `/commission/record` automaticamente.
+
+**Comissões activas:** R$19,40 por activação Neural Sentinel (20% do 1.º mês) + R$600 por Projecto IAH convertido.
+
+**Lock-in gerado:** O Partner Network multiplica o canal de vendas sem custo fixo. O Upsell Engine converte retenção em expansão de MRR. O tracking pixel transforma cada email numa trigger de escalação inteligente.
+
+---
+
 ## [ID-009] — Autonomous Dominion Engine (V22)
 
 **Data:** 2026-05-10
