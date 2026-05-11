@@ -1,5 +1,5 @@
 # PROPOSTA COMERCIAL — [NOME DO CLIENTE]
-**Data:** [data] | **Válida até:** [data + 15 dias] | **Preparada por:** IAH Factory — Quadrilateral
+**Data:** [data] | **Válida até:** [data + 15 dias] | **Preparada por:** [NOME DO OPERADOR]
 
 ---
 
@@ -96,4 +96,4 @@ Para avançar com a **Opção [A/B]:**
 
 ---
 
-*Proposta preparada pelo Quadrilateral IAH · Válida por 15 dias · Sujeita a ajuste de âmbito após Discovery completo*
+*Proposta preparada por [NOME DO OPERADOR] · Válida por 15 dias · Sujeita a ajuste de âmbito após Discovery completo*

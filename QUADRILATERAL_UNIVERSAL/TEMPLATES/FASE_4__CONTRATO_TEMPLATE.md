@@ -91,8 +91,8 @@ Após o pagamento integral, o CONTRATANTE detém os direitos sobre:
 
 A CONTRATADA retém os direitos sobre:
 - Frameworks, bibliotecas e componentes reutilizáveis da sua metodologia
-- O Sovereign Pixel e sistema de telemetria da IAH Factory
-- A metodologia e processo de desenvolvimento (Quadrilateral IAH)
+- O sistema de telemetria e análise de dados proprietário da CONTRATADA
+- A metodologia e processo de desenvolvimento proprietário da CONTRATADA
 
 ---
 
@@ -172,5 +172,5 @@ Data: ___________________________
 
 ---
 
-*Contrato gerado pela IAH Factory · Modelo Universal · Adaptar ao quadro legal local*
+*Modelo de contrato · Adaptar ao quadro legal local*
 *Recomendado: validação com advogado antes de utilizar em contratos de alto valor*
