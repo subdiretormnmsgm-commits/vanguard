@@ -1,0 +1,94 @@
+# RELATÓRIO EVOLUTIVO V19 — Edge Domination & IAH Factory
+**Data:** 2026-05-10  
+**Ciclo PDCA:** Do (Claude) — construção completa da infraestrutura Edge
+
+---
+
+## O Que Foi Construído
+
+### 1. Pixel Federation v2 — `cloudflare/federation-proxy.js`
+Cloudflare Worker que actua como proxy transparente via Custom Hostnames (SSL for SaaS). O cliente configura um CNAME → Cloudflare emite SSL automaticamente → Worker intercepta todo o tráfego e injeta via HTMLRewriter:
+- **`<head>`**: tag `<script>` do Sovereign Pixel (pixel.vanguard.tech)
+- **`<body>`**: Authority Badge fixo canto inferior direito (Ion Gold)
+- **`<body>`** (só leads FIRE): Exit Intent Modal com mouseleave + cookie `__vg_intent=FIRE`
+
+**Lock-in estratégico:** o cliente não tem como remover — o código nunca chega ao servidor dele.
+
+### 2. IAH Factory CLI — `scripts/iah-clone.ps1`
+PowerShell que clona uma instância Vanguard completa em 5 passos:
+1. Gera `brand-config.js` com identidade do tenant (nome, slug, cor, tagline por nicho)
+2. Provisiona tenant no Supabase (tabela `tenants`) via REST API
+3. Gera instruções CNAME + comando `wrangler kv:key put`
+4. Gera README da instância
+5. Commit git automático
+
+Um comando = franquia clonada. Suporta hierarquia franquia → unidades via `parent_id`.
+
+### 3. Schema Supabase — `infra/schema_v19.sql`
+Migrations que resolvem dívidas V18 e constroem fundação para Edge:
+- `leads_diagnostico`: colunas `metadata` JSONB + `email` + `revenue_risk` + `quadrant_weak` + `scores_p/a/c/r`
+- `tenant_subscriptions`: paywall Neural Sentinel (Stripe sub_id, status, period_end)
+- `tenants`: registo de instâncias IAH com hierarquia parent_id
+- `maturity_scores` VIEW: composite score 0–10 por sessão (60% intent + 25% depth + 15% recência)
+- `is_sentinel_active()` function + RLS + trigger updated_at
+
+### 4. Burn Rate Shield §21 — `js/burn-rate-shield.js`
+Motor de Maturity Score que gera o gate para Hermes Voice:
+- Score composto: `intent×0.60 + depth×0.25 + recência×0.15`
+- Gate §21: score > 8.5 → autoriza contacto de voz
+- HUD widget renderizável com barra de progresso + receita estimada
+- Fallback por cookie `__vg_intent` para demo sem Supabase
+
+---
+
+## Avaliação das Ideias Gemini (DIRETRIZ V19)
+
+| Ideia | Avaliação | Decisão |
+|-------|-----------|---------|
+| Pixel Federation v2 (Edge Proxy) | Estratégica — elimina fricção de instalação | ✅ CONSTRUÍDA |
+| IAH Factory CLI | Escala de nicho em minutos | ✅ CONSTRUÍDA |
+| Maturity Score Engine (§21) | Gate inteligente para Hermes Voice | ✅ CONSTRUÍDA |
+| Stripe Sentinel Subscription | Crítica para MRR | 🔴 DÍVIDA — V20 prioridade 1 |
+| Multi-tenant Dashboard Unificado | Visibilidade franqueadora | 📋 V20 prioridade 2 |
+
+---
+
+## 5 Ideias Disruptivas para V20
+
+### [V20-001] 🔴 STRIPE SUBSCRIPTION ENGINE (Crítica — MRR Blocker)
+Implementar endpoint `/api/stripe/sentinel-checkout` + webhook Stripe → actualiza `tenant_subscriptions`. Sem isto o paywall Neural Sentinel existe apenas no schema — não gera receita. **ROI:** desbloqueio do MRR recorrente.
+
+### [V20-002] VANGUARD OS — Painel Multi-Tenant
+Dashboard unificado para franqueadoras: visão matriz → unidades, Maturity Score por tenant em tempo real, alertas Neural Sentinel por email (SendGrid), ranking de performance entre unidades. **ROI:** diferencial decisivo na venda da franquia IAH.
+
+### [V20-003] SENTINEL REPORT CARD — Email Semanal Automático
+Relatório semanal automático (cron ou n8n) para cada tenant: delta FIRE/HOT/WARM vs semana anterior, receita estimada em risco, top 3 recomendações do Sovereign Playbook. Enviado via SendGrid. **ROI:** stickiness — o cliente espera o relatório toda segunda-feira.
+
+### [V20-004] HERMES AUTONOMOUS LOOP — Outbound 100% Automático
+Integração `real-scanner.js` (V15) + `prospectar.ps1` (V17) + Hermes Voice (Vapi) em pipeline autónomo: scanner identifica leads qualificados → Hermes liga → se score > 8.5 agenda demo → CRM actualizado. Zero intervenção humana. **ROI:** custo de aquisição próximo de zero.
+
+### [V20-005] HOSTINGER DEPLOY — Go Live Produção
+Deploy completo na Hostinger: CI/CD GitHub Actions → FTP deploy, variáveis de ambiente (SUPABASE_URL, ANON_KEY, STRIPE_KEY) via painel Hostinger, domínio + SSL activo, pixel.vanguard.tech apontado. **ROI:** produto em produção real — base para primeiros clientes pagantes.
+
+---
+
+## Estado do Ecossistema ao Fechar V19
+
+```
+ACTO I — SaaS Operacional (V1–V13):     ████████████ COMPLETO
+ACTO II — Terminal de Dados (V14–V19):  ████████░░░░ 70% (Stripe bloqueado)
+ACTO III — Bolsa de Intenção (V20+):    ░░░░░░░░░░░░ HORIZONTE
+```
+
+**Próximo milestone crítico:** V20 deve desbloquear Stripe + Deploy Hostinger para o primeiro cliente pagar.
+
+---
+
+## Plano Imediato (antes de V20)
+
+1. ✅ Re-executar `infra/schema_v19.sql` corrigido no Supabase
+2. ✅ Executar `fechar_versao.ps1 -versao 18` (MEMORIA_V18.md existe)
+3. ✅ Executar `fechar_versao.ps1 -versao 19` (este ficheiro + MEMORIA_V19.md criados)
+4. ⬜ Ritual Gemini V19 → gerar DIRETRIZ V20
+5. ⬜ Criar skill `vanguard-v20-*.md` com directrizes Gemini
+6. ⬜ Deploy Hostinger (após V20 completa)

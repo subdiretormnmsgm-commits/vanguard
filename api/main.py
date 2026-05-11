@@ -399,6 +399,14 @@ try:
 except ImportError as e:
     log.warning(f'stripe_connect.py não encontrado: {e}')
 
+# V20 — Stripe Sentinel Engine (Neural Sentinel R$97/mês)
+try:
+    from stripe_sentinel import router as stripe_sentinel_router
+    app.include_router(stripe_sentinel_router)
+    log.info('Stripe Sentinel router registado (/api/stripe/sentinel-checkout + /sentinel-webhook).')
+except ImportError as e:
+    log.warning(f'stripe_sentinel.py não encontrado: {e}')
+
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
 

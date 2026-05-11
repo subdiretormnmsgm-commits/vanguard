@@ -17,6 +17,25 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 
 
 
+## [ID-007] — Monetization Singularity (V20)
+
+**Data:** 2026-05-10
+**Missão:** Início da V20 — Transição do Edge Middleware para operação financeira em produção real.
+**Transição Estratégica:** Do laboratório para o mercado. Primeiro cliente pagante como única métrica.
+
+**O que será construído:**
+- `api/stripe_sentinel.py` — Motor Stripe Sentinel: endpoint `/api/stripe/sentinel-checkout` + webhook sync com `tenant_subscriptions` (R$97/mês BRL)
+- `.github/workflows/deploy-hostinger.yml` — CI/CD automático: push → deploy FTP na Hostinger
+- `cockpit/index.html` — Dashboard de Intervenção: Maturity Scores por tenant + botão "Intervir Agora"
+- `cloudflare/federation-proxy.js` — actualizado: lê flag KV `intervention:{tenant_id}` → injeta modal agressivo de oferta via HTMLRewriter
+
+**Arquitectura do Intervention Button (validação técnica):**
+Dashboard → Cloudflare API (PUT KV `intervention:{tenant_id}=true`) → Worker lê KV em cada request → se flag activo, HTMLRewriter injeta modal de oferta agressiva → flag expira em 24h (KV TTL).
+
+**Lock-in gerado:** Stripe activo = MRR real. Deploy Hostinger = produto em produção. Intervention Button = o Diretor controla o tráfego dos clientes em tempo real.
+
+---
+
 ## [ID-006] — Edge Domination & IAH Factory (V19)
 
 **Data:** 2026-05-10

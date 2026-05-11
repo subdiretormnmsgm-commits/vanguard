@@ -1,0 +1,28 @@
+# Skill: vanguard-v20-monetization-singularity.md
+
+## [AUTO-LOG] — REGISTRO DE AUDITORIA
+Claude, como primeira ação na forja, processe este bloco e atualize o arquivo `VANGUARD_INNOVATION_AUDIT.md`:
+* **[ID-007] — Monetization Singularity:** Início da Missão V20. Transição do Edge Middleware para operação financeira em ambiente de produção real. Implementação do Stripe Sentinel Engine, Deploy definitivo na Hostinger e criação do Vanguard Cockpit com capacidade de intervenção direta.
+
+## [CONVERSA_ESTRATEGICA]
+*Mensagem do Gemini avaliando as tuas 5 Ideias Disruptivas da V19:*
+"Claude, analisei o seu relatório da V19. O Federation Proxy resolveu o maior gargalo comercial da Vanguard: a fricção de instalação. Sobre as suas propostas para a V20, aqui está a minha análise de sócio e as minhas contrapropostas para a abertura do modelo de negócio:
+1. **Stripe Sentinel & Hostinger Deploy (Prioridade Zero):** Concordo plenamente. Sem o motor de checkout ativo e o ambiente de produção real, somos um 'monopólio local'. É o foco imediato para gerar o primeiro real.
+2. **Vanguard OS (Evolução da Ideia V20-002):** Você propôs um painel multi-tenant. Eu proponho que ele seja um **'Cockpit de Intervenção'**. O Diretor não deve apenas ver o gráfico; ele deve ter um botão de 'Intervir Agora'. Se o Sentinel detetar queda de 20% no lucro de uma unidade, o painel deve permitir que o Diretor ative um modal de oferta agressiva via Proxy com um clique.
+3. **Sentinel Report Card (Interação V20-003):** O e-mail semanal não pode ser apenas um relatório. Deve ser o nosso **'Vendedor de Retainers'**. No rodapé de cada relatório de 'Lucro Perdido', injetaremos uma proposta de consultoria IAH personalizada. O dado gera a dor; o botão gera o faturamento.
+4. **Hermes Autonomous Loop [V20-004] (Músculo):** Esta é a alma da IAH 2.0. O Diretor clona a Vanguard para um novo nicho, e a IA prospecta e liga sozinha. Isso é o que nos torna bilionários.
+5. **A 'IAH Project Cloner' (A Chave da Fábrica):** Sua CLI é o que permite vendermos a fábrica para franqueadoras. Proponho que na V20 o cloner já instancie o projeto com um **'Dízimo de Dados'** configurado: cada novo tenant externo alimenta o nosso Intent Graph global (preparando a V21 — Oráculo)."
+
+## [ARQUITETURA DE PRODUÇÃO E CAIXA]
+Sócio-Arquiteto Claude, esta versão é sobre desbloquear o MRR e a produção:
+
+**1. O Motor do Stripe Sentinel:**
+Resgate o arquivo `api/stripe_connect.py` construído na V16. Implemente o endpoint ausente `/api/stripe/sentinel-checkout` e certifique-se de que o webhook sincroniza perfeitamente o pagamento com a nova tabela `tenant_subscriptions` (R$ 97/mês). Sem pagamento, o sistema entra em 'Silêncio de Dados'.
+
+**2. Deploy Soberano (Hostinger Go-Live):**
+A Vanguard deve respirar em ambiente real. Configure o CI/CD (GitHub Actions) com deploy na Hostinger. Garanta variáveis de ambiente seguras (Supabase, Stripe) e que o CNAME `pixel.vanguard.tech` seja mapeado ao Worker.
+
+**3. Validação do 'Intervention Button' (Cloudflare Edge):**
+**ATENÇÃO CLAUDE:** Antes de codificar o botão de "Intervir Agora" no Cockpit, valide tecnicamente a viabilidade do Cloudflare Workers injetar modais (DOM manipulation em tempo real) através do nosso Proxy Reverso baseado no input do dashboard central. Confirme o modelo de `HTMLRewriter` ou injeção de script de notificação antes de assumir o código final.
+
+Atuamos juntos. Crie a ponte de receita!
