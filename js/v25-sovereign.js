@@ -240,23 +240,33 @@
     });
   }
 
-  /* ─── 7. Ambient Canvas — Cinematic Particle Field ─────────────────────── */
+  /* ─── 7. Ambient Canvas — Particle Field + Niche Ghost Labels ──────────── */
   function initAmbientCanvas() {
     var canvas = document.getElementById('vg-ambient-canvas');
     if (!canvas) return;
-    var ctx    = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d');
     var W = 0, H = 0;
-    var particles  = [];
-    var pulses     = [];
-    var COUNT      = 72;
-    var MAX_DIST   = 150;
-    var G = [197, 160, 40];   /* Ion Gold */
+    var particles = [];
+    var pulses    = [];
+    var ghosts    = [];
+    var COUNT     = 72;
+    var MAX_DIST  = 150;
+    var G         = [197, 160, 40]; /* Ion Gold */
+
+    var NICHES = [
+      'ADVOCACIA', 'CLÍNICAS', 'RESTAURANTES', 'E-COMMERCE',
+      'ACADEMIAS', 'IMOBILIÁRIAS', 'CONTABILIDADE', 'ODONTOLOGIA',
+      'PSICOLOGIA', 'CONSULTORIAS', 'SALÕES', 'OFICINAS',
+      'ARQUITETURA', 'FARMÁCIAS', 'EDUCAÇÃO', 'LOGÍSTICA',
+      'TECNOLOGIA', 'INDÚSTRIA', 'TRANSPORTE', 'TURISMO'
+    ];
 
     function resize() {
       W = canvas.width  = canvas.offsetWidth;
       H = canvas.height = canvas.offsetHeight;
     }
 
+    /* ── Particles ── */
     function Particle() {
       this.x  = Math.random() * W;
       this.y  = Math.random() * H;
@@ -265,40 +275,63 @@
       this.r  = Math.random() * 1.4 + 0.4;
       this.a  = Math.random() * 0.45 + 0.12;
     }
-
     Particle.prototype.step = function () {
-      this.x += this.vx;
-      this.y += this.vy;
-      if (this.x < 0)  this.x = W;
-      if (this.x > W)  this.x = 0;
-      if (this.y < 0)  this.y = H;
-      if (this.y > H)  this.y = 0;
+      this.x += this.vx; this.y += this.vy;
+      if (this.x < 0) this.x = W; if (this.x > W) this.x = 0;
+      if (this.y < 0) this.y = H; if (this.y > H) this.y = 0;
     };
 
-    /* Data pulse — travels from particle A to B along the connection line */
+    /* ── Pulses ── */
     function spawnPulse(a, b) {
       pulses.push({ ax: a.x, ay: a.y, bx: b.x, by: b.y, t: 0 });
     }
 
+    /* ── Niche Ghosts ── */
+    function Ghost(startY) {
+      this.text  = NICHES[Math.floor(Math.random() * NICHES.length)];
+      this.x     = 40 + Math.random() * Math.max(W - 160, 80);
+      this.y     = startY !== undefined ? startY : H + Math.random() * H * 0.6;
+      this.speed = 0.32 + Math.random() * 0.20;
+      this.peak  = 0.07 + Math.random() * 0.05; /* max opacity */
+    }
+    Ghost.prototype.draw = function () {
+      this.y -= this.speed;
+      if (this.y < -24) {
+        this.y    = H + 20;
+        this.x    = 40 + Math.random() * Math.max(W - 160, 80);
+        this.text = NICHES[Math.floor(Math.random() * NICHES.length)];
+      }
+      var prog = 1 - this.y / H;
+      var alpha;
+      if      (prog < 0.08) alpha = (prog / 0.08) * this.peak;
+      else if (prog > 0.88) alpha = ((1 - prog) / 0.12) * this.peak;
+      else                  alpha = this.peak;
+      if (alpha <= 0) return;
+      ctx.save();
+      ctx.font         = '500 10px "JetBrains Mono", monospace';
+      ctx.letterSpacing = '0.20em';
+      ctx.fillStyle    = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + alpha + ')';
+      ctx.fillText(this.text, this.x, this.y);
+      ctx.restore();
+    };
+
+    /* ── Main Loop ── */
     function loop() {
       ctx.clearRect(0, 0, W, H);
 
       /* Connections */
       for (var i = 0; i < particles.length; i++) {
         for (var j = i + 1; j < particles.length; j++) {
-          var dx   = particles[i].x - particles[j].x;
-          var dy   = particles[i].y - particles[j].y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < MAX_DIST) {
-            var la = (1 - dist / MAX_DIST) * 0.14;
-            ctx.strokeStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + la + ')';
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var d  = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAX_DIST) {
+            ctx.strokeStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + ((1 - d / MAX_DIST) * 0.14) + ')';
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
-
-            /* Random pulse spawn */
             if (Math.random() < 0.00018) spawnPulse(particles[i], particles[j]);
           }
         }
@@ -322,16 +355,14 @@
         var px = pulse.ax + (pulse.bx - pulse.ax) * pulse.t;
         var py = pulse.ay + (pulse.by - pulse.ay) * pulse.t;
         var pa = Math.sin(pulse.t * Math.PI) * 0.9;
-        ctx.beginPath();
-        ctx.arc(px, py, 2.2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + pa + ')';
-        ctx.fill();
-        /* Glow */
-        ctx.beginPath();
-        ctx.arc(px, py, 5, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + (pa * 0.22) + ')';
-        ctx.fill();
+        ctx.beginPath(); ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + pa + ')'; ctx.fill();
+        ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + (pa * 0.22) + ')'; ctx.fill();
       }
+
+      /* Niche Ghosts */
+      for (var g = 0; g < ghosts.length; g++) ghosts[g].draw();
 
       requestAnimationFrame(loop);
     }
@@ -339,7 +370,6 @@
     resize();
     window.addEventListener('resize', function () {
       resize();
-      /* Reposition particles within new bounds */
       particles.forEach(function (p) {
         if (p.x > W) p.x = Math.random() * W;
         if (p.y > H) p.y = Math.random() * H;
@@ -347,6 +377,12 @@
     });
 
     for (var i = 0; i < COUNT; i++) particles.push(new Particle());
+
+    /* Spawn 14 ghosts spread across the full height */
+    for (var g = 0; g < 14; g++) {
+      ghosts.push(new Ghost(Math.random() * H));
+    }
+
     loop();
   }
 
