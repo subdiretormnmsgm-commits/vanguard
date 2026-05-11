@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="brand-name-title">VANGUARD — Inteligência de Mercado</title>
-  <meta name="description" content="Descubra onde o seu negócio está a perder dinheiro. Diagnóstico em 30 segundos. Plano de acção em 4 minutos. Resultados em 90 dias.">
+  <meta name="description" content="Descubra onde seu negócio está perdendo dinheiro. Diagnóstico em 30 segundos. Plano de ação em 4 minutos. Resultados em 90 dias.">
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
@@ -25,11 +25,16 @@
   <link rel="stylesheet" href="/assets/css/v22-sovereign.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="/assets/js/neural-v-logo.js"></script>
+  <style>
+    /* V24 — eliminar todas as linhas animadas */
+    .hero__scanline          { display: none !important; animation: none !important; }
+    .ghost-sweep             { animation: none !important; }
+    .ghost-loader.active .ghost-sweep { animation: ghostScan 2.2s linear infinite !important; }
+  </style>
 </head>
 <body>
 
-  <!-- Global scan line -->
-  <div class="scan-overlay" aria-hidden="true"></div>
+
 
   <!-- ─── NAVBAR ──────────────────────────────────────────────────────── -->
   <nav class="navbar" role="navigation" aria-label="Navegação principal">
@@ -47,24 +52,43 @@
     </div>
   </nav>
 
-  <!-- ─── INTEL TICKER ──────────────────────────────────────────────── -->
-  <div class="intel-ticker" aria-hidden="true">
-    <div class="intel-ticker__label">INTEL LIVE</div>
-    <div class="intel-ticker__track">
-      <!-- Track duplicated for seamless loop -->
-      <span class="intel-ticker__item"><span class="fire">FIRE</span> LEAD DETECTADO <span class="sep">·</span> São Paulo · Clínica Odontológica <span class="sep">·</span> Score <strong>9.7</strong></span>
-      <span class="intel-ticker__item"><span class="fire">HERMES</span> VOICE <span class="sep">·</span> IAH Bridge <span class="sep">·</span> <strong>§21 ACTIVO</strong></span>
-      <span class="intel-ticker__item">SENTINEL REPORT <span class="sep">·</span> Semana 22 <span class="sep">·</span> <strong>127 Tenants</strong> Notificados</span>
-      <span class="intel-ticker__item"><span class="fire">ORÁCULO</span> PULSE v0.1 <span class="sep">·</span> Bússola de Nicho <span class="sep">·</span> <strong>Early Access R$500/mês</strong></span>
-      <span class="intel-ticker__item">NEURAL SENTINEL <span class="sep">·</span> 22 Versões <span class="sep">·</span> Plataforma <strong>Operacional</strong></span>
-      <span class="intel-ticker__item">ESCALATION LADDER <span class="sep">·</span> Semana 3 <span class="sep">·</span> <strong>Hermes alerta Eduardo</strong></span>
-      <!-- duplicate for seamless scroll -->
-      <span class="intel-ticker__item"><span class="fire">FIRE</span> LEAD DETECTADO <span class="sep">·</span> São Paulo · Clínica Odontológica <span class="sep">·</span> Score <strong>9.7</strong></span>
-      <span class="intel-ticker__item"><span class="fire">HERMES</span> VOICE <span class="sep">·</span> IAH Bridge <span class="sep">·</span> <strong>§21 ACTIVO</strong></span>
-      <span class="intel-ticker__item">SENTINEL REPORT <span class="sep">·</span> Semana 22 <span class="sep">·</span> <strong>127 Tenants</strong> Notificados</span>
-      <span class="intel-ticker__item"><span class="fire">ORÁCULO</span> PULSE v0.1 <span class="sep">·</span> Bússola de Nicho <span class="sep">·</span> <strong>Early Access R$500/mês</strong></span>
-      <span class="intel-ticker__item">NEURAL SENTINEL <span class="sep">·</span> 22 Versões <span class="sep">·</span> Plataforma <strong>Operacional</strong></span>
-      <span class="intel-ticker__item">ESCALATION LADDER <span class="sep">·</span> Semana 3 <span class="sep">·</span> <strong>Hermes alerta Eduardo</strong></span>
+  <!-- ─── SYSTEM HUD ───────────────────────────────────────────────── -->
+  <div class="sys-hud" aria-hidden="true">
+    <div class="sys-hud__node sys-hud__node--active">
+      <span class="sys-hud__dot"></span>
+      <span class="sys-hud__label">FIRE</span>
+      <span class="sys-hud__value" id="hud-fire">23</span>
+      <span class="sys-hud__unit">leads</span>
+    </div>
+    <div class="sys-hud__divider"></div>
+    <div class="sys-hud__node sys-hud__node--active">
+      <span class="sys-hud__dot"></span>
+      <span class="sys-hud__label">HERMES</span>
+      <span class="sys-hud__value">ATIVO</span>
+    </div>
+    <div class="sys-hud__divider"></div>
+    <div class="sys-hud__node sys-hud__node--active">
+      <span class="sys-hud__dot"></span>
+      <span class="sys-hud__label">SENTINEL</span>
+      <span class="sys-hud__value">ONLINE</span>
+    </div>
+    <div class="sys-hud__divider"></div>
+    <div class="sys-hud__node sys-hud__node--standby">
+      <span class="sys-hud__dot"></span>
+      <span class="sys-hud__label">ORÁCULO</span>
+      <span class="sys-hud__value">STANDBY</span>
+    </div>
+    <div class="sys-hud__divider"></div>
+    <div class="sys-hud__node sys-hud__node--scan">
+      <span class="sys-hud__dot"></span>
+      <span class="sys-hud__label">SCAN</span>
+      <span class="sys-hud__value" id="hud-scan">00:00s</span>
+    </div>
+    <div class="sys-hud__divider"></div>
+    <div class="sys-hud__node sys-hud__node--shield">
+      <span class="sys-hud__dot"></span>
+      <span class="sys-hud__label">§21 SHIELD</span>
+      <span class="sys-hud__value">R$0,28/lead</span>
     </div>
   </div>
 
@@ -84,13 +108,13 @@
         <h1 class="hero__headline" id="hero-title">
           <em class="text-gradient">Transforme o seu</em>
           <em>método num</em>
-          <em class="text-gradient--accent">Activo Digital.</em>
+          <em class="text-gradient--accent">Ativo Digital.</em>
         </h1>
 
         <p class="hero__sub">
-          Os nossos especialistas analisam o seu site em 30 segundos,
-          identificam onde está a perder clientes e entregam um
-          <strong>Plano de 90 dias</strong> com acções concretas semana a semana.
+          Nossos especialistas analisam seu site em 30 segundos,
+          identificam onde está perdendo clientes e entregam um
+          <strong>Plano de 90 dias</strong> com ações concretas semana a semana.
         </p>
 
         <div class="hero__cta">
@@ -113,13 +137,12 @@
 
       <!-- Right: Terminal visual -->
       <div class="hero__visual" aria-hidden="true">
-        <div class="terminal__badge">LIVE</div>
         <div class="terminal">
           <div class="terminal__bar">
             <span class="terminal__dot terminal__dot--red"></span>
             <span class="terminal__dot terminal__dot--yellow"></span>
             <span class="terminal__dot terminal__dot--green"></span>
-            <span class="terminal__title">vanguard_sovereign — V22 · LIVE</span>
+            <span class="terminal__title">vanguard_sovereign — V24</span>
           </div>
           <div class="terminal__body">
             <div class="terminal__line">
@@ -154,7 +177,7 @@
             <div class="terminal__status" style="margin-top:var(--sp-2)">
               <span class="status-dot status-dot--accent"></span>
               <span class="terminal__status-text">Motor de Prospecção · Hermes</span>
-              <span class="terminal__status-sub">activo</span>
+              <span class="terminal__status-sub">ativo</span>
             </div>
           </div>
         </div>
@@ -180,7 +203,7 @@
         do seu negócio em 30 segundos.
       </h2>
       <p class="scanner-section__desc">
-        Cole o URL do seu site. Os nossos especialistas analisam 6 dimensões críticas e expõem os gargalos que estão a custar-lhe clientes agora.
+        Cole a URL do seu site. Nossos especialistas analisam 6 dimensões críticas e expõem os gargalos que estão te custando clientes agora.
       </p>
 
       <!-- ─── Scanner Form ─────────────────────────────────────────── -->
@@ -249,7 +272,7 @@
         <!-- CTA Row -->
         <div class="scanner-cta-row">
           <button class="btn btn--outline" id="btn-authority-share">
-            ⚡ Partilhar Autoridade
+            ⚡ Compartilhar Autoridade
           </button>
           <button class="btn btn--primary" id="btn-hermes-open">
             Falar com o Consultor →
@@ -285,7 +308,7 @@
         <span class="label-tag">⚡ Protocolo Vanguard · V22</span>
       </div>
       <h2 class="section__title" id="features-title">
-        Uma equipa dedicada.<br>
+        Uma equipe dedicada.<br>
         <span class="text-gradient">Do diagnóstico ao contrato.</span>
       </h2>
       <p class="section__desc">
@@ -301,11 +324,11 @@
         <div class="feature-card__tag">Feature 01</div>
         <h3 class="feature-card__title">Diagnóstico<br>de Precisão</h3>
         <p class="feature-card__desc">
-          Os nossos especialistas analisam o site de cada prospecto em segundos,
+          Nossos especialistas analisam o site de cada prospecto em segundos,
           identificam os 3 gargalos que mais custam clientes e entregam uma
           mensagem de impacto 100% personalizada para aquele negócio.
         </p>
-        <div class="feature-card__footer">análise · relatório · acção</div>
+        <div class="feature-card__footer">análise · relatório · ação</div>
       </div>
 
       <!-- Card 2: Motor de Prospecção -->
@@ -316,7 +339,7 @@
         <p class="feature-card__desc">
           O sistema detecta o novo lead, lê a análise de impacto
           e entrega automaticamente a mensagem certa via
-          WhatsApp — no momento exacto, sem esforço da sua parte.
+          WhatsApp — no momento exato, sem esforço da sua parte.
         </p>
         <div class="feature-card__footer">prospecção · follow-up · fechamento</div>
       </div>
@@ -327,7 +350,7 @@
         <div class="feature-card__tag">Feature 03</div>
         <h3 class="feature-card__title">Marca<br>100% Proprietária</h3>
         <p class="feature-card__desc">
-          Toda a plataforma usa as cores, o logótipo e o nome da sua marca.
+          Toda a plataforma usa as cores, o logotipo e o nome da sua marca.
           Qualquer agência parceira tem o seu próprio ecossistema
           em menos de 24 horas — sem dependência de terceiros.
         </p>
@@ -358,16 +381,16 @@
         <div class="step">
           <div class="step__num">02</div>
           <h3 class="step__title">Diagnóstico</h3>
-          <p class="step__desc">Os nossos especialistas analisam o site e identificam os 3 gargalos mais custosos.</p>
+          <p class="step__desc">Nossos especialistas analisam o site e identificam os 3 gargalos mais custosos.</p>
         </div>
         <div class="step">
           <div class="step__num">03</div>
           <h3 class="step__title">Inteligência</h3>
-          <p class="step__desc">Lead, análise e plano de acção ficam disponíveis em tempo real no seu painel.</p>
+          <p class="step__desc">Lead, análise e plano de ação ficam disponíveis em tempo real no seu painel.</p>
         </div>
         <div class="step">
           <div class="step__num">04</div>
-          <h3 class="step__title">Hermes Actua</h3>
+          <h3 class="step__title">Hermes Atua</h3>
           <p class="step__desc">O consultor detecta o lead e entrega a mensagem certa via WhatsApp — sem esforço.</p>
         </div>
       </div>
@@ -382,7 +405,7 @@
           <span class="label-tag">Diagnóstico Quadrilateral™</span>
         </div>
         <h2 class="section__title" id="quiz-title">
-          7 perguntas que revelam<br>
+          8 perguntas que revelam<br>
           <span class="text-gradient">onde perde dinheiro.</span>
         </h2>
         <p class="section__desc">
@@ -404,8 +427,8 @@
           <h3 class="quiz__question">Qual é o sector do seu negócio?</h3>
           <p class="quiz__hint">Usado para calibrar os benchmarks do seu diagnóstico.</p>
           <div class="quiz__select-wrap">
-            <select class="quiz__select" id="quiz-sector" aria-label="Seleccione o sector">
-              <option value="">Seleccione o sector...</option>
+            <select class="quiz__select" id="quiz-sector" aria-label="Selecione o setor">
+              <option value="">Selecione o setor...</option>
               <option value="Saúde e Bem-Estar">Saúde e Bem-Estar</option>
               <option value="Educação e Formação">Educação e Formação</option>
               <option value="Consultoria e Serviços B2B">Consultoria e Serviços B2B</option>
@@ -427,7 +450,7 @@
         <!-- Q2: Faturamento -->
         <div class="quiz__step quiz__step--hidden" id="step-2">
           <div class="quiz__quad-badge quiz__quad-badge--all">P · A · C · R</div>
-          <h3 class="quiz__question">Qual é o faturamento mensal actual do seu negócio?</h3>
+          <h3 class="quiz__question">Qual é o faturamento mensal atual do seu negócio?</h3>
           <p class="quiz__hint">Usado para calcular o valor real em risco no seu diagnóstico.</p>
           <div class="quiz__card-grid quiz__card-grid--2">
             <button class="quiz__card-opt" data-group="q2" data-value="lt10">
@@ -456,12 +479,12 @@
         <!-- Q3: Canal de aquisição -->
         <div class="quiz__step quiz__step--hidden" id="step-3">
           <div class="quiz__quad-badge quiz__quad-badge--a">A — Aquisição</div>
-          <h3 class="quiz__question">Como a maioria dos seus clientes actuais chegou até si?</h3>
+          <h3 class="quiz__question">Como a maioria dos seus clientes atuais chegou até você?</h3>
           <p class="quiz__hint">Identifica a dependência e fragilidade do seu canal principal.</p>
           <div class="quiz__card-grid quiz__card-grid--1">
             <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="indicacao">
               <span class="quiz__card-icon">🤝</span>
-              <span class="quiz__card-label">Maioritariamente por indicação</span>
+              <span class="quiz__card-label">Principalmente por indicação</span>
             </button>
             <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="social">
               <span class="quiz__card-icon">📱</span>
@@ -469,7 +492,7 @@
             </button>
             <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="prospeccao">
               <span class="quiz__card-icon">🎯</span>
-              <span class="quiz__card-label">Prospecção activa (outbound/cold)</span>
+              <span class="quiz__card-label">Prospecção ativa (outbound/cold)</span>
             </button>
             <button class="quiz__card-opt quiz__card-opt--wide" data-group="q3" data-value="misto">
               <span class="quiz__card-icon">🔀</span>
@@ -485,16 +508,16 @@
         <!-- Q4: Presença digital -->
         <div class="quiz__step quiz__step--hidden" id="step-4">
           <div class="quiz__quad-badge quiz__quad-badge--p">P — Presença</div>
-          <h3 class="quiz__question">Como classificaria a sua presença digital actual?</h3>
+          <h3 class="quiz__question">Como você classificaria sua presença digital atual?</h3>
           <p class="quiz__hint">A autoridade digital é o primeiro filtro que o seu cliente usa.</p>
           <div class="quiz__card-grid quiz__card-grid--2">
             <button class="quiz__card-opt" data-group="q4" data-value="site_bom">
               <span class="quiz__card-icon">🌐</span>
-              <span class="quiz__card-label">Site profissional, rápido e actualizado</span>
+              <span class="quiz__card-label">Site profissional, rápido e atualizado</span>
             </button>
             <button class="quiz__card-opt" data-group="q4" data-value="site_velho">
               <span class="quiz__card-icon">🕸️</span>
-              <span class="quiz__card-label">Tenho site, mas está desactualizado</span>
+              <span class="quiz__card-label">Tenho site, mas está desatualizado</span>
             </button>
             <button class="quiz__card-opt" data-group="q4" data-value="redes">
               <span class="quiz__card-icon">📲</span>
@@ -511,7 +534,7 @@
         <div class="quiz__step quiz__step--hidden" id="step-5">
           <div class="quiz__quad-badge quiz__quad-badge--c">C — Conversão</div>
           <h3 class="quiz__question">De cada 10 potenciais clientes com quem conversa, quantos fecham?</h3>
-          <p class="quiz__hint">Mede a eficiência do seu processo de venda actual.</p>
+          <p class="quiz__hint">Mede a eficiência do seu processo de venda atual.</p>
           <div class="quiz__card-grid quiz__card-grid--2">
             <button class="quiz__card-opt" data-group="q5" data-value="lt1">
               <span class="quiz__card-icon">😰</span>
@@ -589,9 +612,46 @@
             </button>
             <button class="quiz__card-opt quiz__card-opt--wide" data-group="q7" data-value="sistema">
               <span class="quiz__card-icon">🔧</span>
-              <span class="quiz__card-label">Tenho sistemas em curso — quero optimizar</span>
+              <span class="quiz__card-label">Tenho sistemas em andamento — quero otimizar</span>
             </button>
           </div>
+        </div>
+
+        <!-- Q8: Calculadora de Lucro em Risco (V24) -->
+        <div class="quiz__step quiz__step--hidden" id="step-8">
+          <div class="quiz__quad-badge quiz__quad-badge--fire">💸 LUCRO EM RISCO</div>
+          <h3 class="quiz__question">Quanto investes em anúncios por mês?</h3>
+          <p class="quiz__hint">Calculamos exatamente quanto você está desperdiçando — e quanto o Sentinel recupera.</p>
+          <div class="quiz__risk-calc">
+            <div class="quiz__input-wrap quiz__input-wrap--currency">
+              <span class="quiz__currency-prefix">R$</span>
+              <input type="number" class="quiz__input quiz__input--number" id="quiz-custo-ads"
+                     placeholder="0" min="0" max="9999999" inputmode="numeric"
+                     aria-label="Investimento mensal em anúncios">
+              <span class="quiz__currency-suffix">/mês</span>
+            </div>
+            <div class="quiz__risk-preview" id="risk-preview-box" style="display:none">
+              <div class="quiz__risk-row">
+                <span class="quiz__risk-label">💸 Ads investidos</span>
+                <span class="quiz__risk-val quiz__risk-val--neutral" id="rp-ads">—</span>
+              </div>
+              <div class="quiz__risk-row">
+                <span class="quiz__risk-label">🔥 Receita desperdiçada</span>
+                <span class="quiz__risk-val quiz__risk-val--danger" id="rp-desperdicio">—</span>
+              </div>
+              <div class="quiz__risk-row quiz__risk-row--highlight">
+                <span class="quiz__risk-label">✅ Sentinel recupera (sem.1)</span>
+                <span class="quiz__risk-val quiz__risk-val--green" id="rp-recuperacao">—</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn--primary" id="btn-next-8" disabled style="width:100%;margin-top:1.5rem">
+            Ver o meu diagnóstico →
+          </button>
+          <p style="font-size:11px;color:#5A5546;text-align:center;margin-top:0.5rem">Campo opcional — podes avançar sem preencher.</p>
+          <button class="btn btn--ghost" id="btn-skip-8" style="width:100%;margin-top:0.5rem;font-size:12px">
+            Avançar sem preencher →
+          </button>
         </div>
 
         <!-- Preview: P+A revelados, C+R bloqueados -->
@@ -601,19 +661,33 @@
             <h3 class="quiz__preview-title">Os seus primeiros resultados</h3>
             <p class="quiz__preview-sub">Sector: <strong id="preview-sector">—</strong></p>
           </div>
-          <div class="quiz__preview-risk">
+          <!-- Calculadora de Lucro em Risco (V24) -->
+          <div class="quiz__lucro-em-risco" id="lucro-em-risco-box" style="display:none">
+            <div class="quiz__ler-title">⚠️ Lucro em Risco Calculado</div>
+            <div class="quiz__ler-row">
+              <span>Investimento em ads</span><strong id="ler-ads">—</strong>
+            </div>
+            <div class="quiz__ler-row quiz__ler-row--danger">
+              <span>Receita desperdiçada</span><strong id="ler-desperdicio">—</strong>
+            </div>
+            <div class="quiz__ler-row quiz__ler-row--green">
+              <span>Sentinel recupera (semana 1)</span><strong id="ler-recuperacao">—</strong>
+            </div>
+            <div class="quiz__ler-roi">ROI estimado no 1.º mês: <strong id="ler-roi">—×</strong></div>
+          </div>
+          <div class="quiz__preview-risk" id="preview-risk-box">
             <span class="quiz__preview-risk-label">Receita estimada em risco</span>
             <span class="quiz__preview-risk-value" id="preview-risk">R$ —</span>
             <span class="quiz__preview-risk-hint">calculado com base no seu faturamento e scores</span>
           </div>
           <div class="quiz__quads" id="preview-quads"></div>
-          <p class="quiz__preview-lock-note">🔒 Os quadrantes C e R requerem o seu contacto para serem revelados.</p>
+          <p class="quiz__preview-lock-note">🔒 Os quadrantes C e R requerem seu contato para serem revelados.</p>
           <button class="btn btn--primary" id="btn-preview-next" style="width:100%;margin-top:1.5rem">
             Revelar diagnóstico completo →
           </button>
         </div>
 
-        <!-- Contacto -->
+        <!-- Contato -->
         <div class="quiz__step quiz__step--hidden" id="step-contact">
           <div class="quiz__quad-badge">Último passo</div>
           <h3 class="quiz__question">Para onde enviamos o diagnóstico completo?</h3>
@@ -621,7 +695,7 @@
           <div class="quiz__inputs">
             <div class="quiz__input-wrap">
               <input type="text" class="quiz__input" id="quiz-nome"
-                     placeholder="O seu nome" autocomplete="name">
+                     placeholder="Seu nome" autocomplete="name">
             </div>
             <div class="quiz__input-wrap">
               <input type="tel" class="quiz__input" id="quiz-whatsapp"
@@ -636,7 +710,7 @@
             Receber diagnóstico completo →
           </button>
           <p style="font-size:11px;color:#5A5546;text-align:center;margin-top:0.75rem">
-            Sem spam. Os seus dados são usados exclusivamente para o diagnóstico.
+            Sem spam. Seus dados são usados exclusivamente para o diagnóstico.
           </p>
         </div>
 
@@ -644,8 +718,8 @@
         <div class="quiz__step quiz__step--hidden" id="step-processing">
           <div class="quiz__processing">
             <div class="quiz__processing-orb" aria-hidden="true"></div>
-            <p class="quiz__processing-title">A processar o seu Diagnóstico Quadrilateral™...</p>
-            <p class="quiz__processing-sub">Cruzamos os seus dados com 1.200+ benchmarks do sector.</p>
+            <p class="quiz__processing-title">Processando seu Diagnóstico Quadrilateral™...</p>
+            <p class="quiz__processing-sub">Cruzamos seus dados com 1.200+ benchmarks do setor.</p>
           </div>
         </div>
 
@@ -676,7 +750,7 @@
   <!-- ─── STACK ────────────────────────────────────────────────────────── -->
   <section class="stack" aria-label="Tecnologias utilizadas">
     <div class="stack__container">
-      <p class="stack__label">O que entregamos em cada projecto</p>
+      <p class="stack__label">O que entregamos em cada projeto</p>
       <div class="stack__items">
         <div class="stack__item"><span class="stack__item-dot"></span>Diagnóstico em 30 segundos</div>
         <div class="stack__item"><span class="stack__item-dot"></span>Relatório financeiro em R$</div>
@@ -727,7 +801,7 @@
         <ul class="pricing-card__features">
           <li>Digital Maturity Score™ semanal</li>
           <li>Sentinel Report Card por email</li>
-          <li>Hermes Motor de Prospecção activo</li>
+          <li>Hermes Motor de Prospecção ativo</li>
           <li>Escalation Ladder automática (4 níveis)</li>
           <li>Painel em tempo real no cockpit</li>
           <li>Pixel de comportamento instalado</li>
@@ -738,18 +812,18 @@
         </a>
       </div>
 
-      <!-- Card: Projecto IAH -->
+      <!-- Card: Projeto IAH -->
       <div class="pricing-card pricing-card--iah scan-reveal scan-reveal--delay-2">
-        <div class="pricing-card__badge">Projecto IAH</div>
+        <div class="pricing-card__badge">Projeto IAH</div>
         <div class="pricing-card__name">Transformação<br>Total</div>
         <p class="pricing-card__desc">
           Implementação completa do ecossistema IAH com consultoria estratégica,
-          Hermes Loop activado e Sovereign Playbook de 90 dias.
+          Hermes Loop ativado e Sovereign Playbook de 90 dias.
         </p>
         <div class="pricing-card__price">
           <span class="pricing-card__currency">R$</span>
           <span class="pricing-card__amount">3k–6k</span>
-          <span class="pricing-card__period">/projecto</span>
+          <span class="pricing-card__period">/projeto</span>
         </div>
         <ul class="pricing-card__features">
           <li>Tudo do Neural Sentinel incluso</li>
@@ -796,7 +870,7 @@
             <ul class="footer__link-list">
               <li><a href="#">Política de Privacidade</a></li>
               <li><a href="#">Termos de Uso</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Contato</a></li>
             </ul>
           </div>
         </div>
@@ -815,11 +889,11 @@
     <div class="authority-share-modal">
       <button class="authority-share-modal__close" id="share-overlay-close" aria-label="Fechar">×</button>
       <h3 class="authority-share-modal__heading">Card de Autoridade Digital</h3>
-      <p class="authority-share-modal__sub">Partilhe o seu relatório e mostre que conhece os seus dados</p>
+      <p class="authority-share-modal__sub">Compartilhe seu relatório e mostre que conhece seus dados</p>
       <div id="share-card-visual"></div>
       <div class="authority-share-modal__actions">
         <button class="btn btn--primary btn--sm" id="btn-share-download" style="flex:1">
-          ↓ Descarregar PNG
+          ↓ Baixar PNG
         </button>
         <button class="btn btn--outline btn--sm" id="share-modal-cancel" style="flex:1">
           Fechar
@@ -994,6 +1068,25 @@
       initTilt();
       applyBrand();
       observeScanReveal();
+
+      /* ── System HUD — scan counter (V24) ── */
+      const scanEl = document.getElementById('hud-scan');
+      if (scanEl) {
+        let t = 0;
+        setInterval(() => {
+          t = (t + 1) % 60;
+          scanEl.textContent = '00:' + String(t).padStart(2, '0') + 's';
+        }, 1000);
+      }
+      /* ── System HUD — FIRE counter flicker (V24) ── */
+      const fireEl = document.getElementById('hud-fire');
+      if (fireEl) {
+        setInterval(() => {
+          const delta = Math.random() < 0.3 ? (Math.random() < 0.5 ? 1 : -1) : 0;
+          const cur = parseInt(fireEl.textContent) + delta;
+          if (cur >= 18 && cur <= 31) fireEl.textContent = cur;
+        }, 3200);
+      }
     });
   </script>
 </body>

@@ -7,7 +7,7 @@
 - **Estilo:** UI Futurista, Glassmorphism, fontes limpas (Inter). Padrão startup bilionária.
 
 ## ⚖️ REGRAS DO ECOSSISTEMA E MARKETING
-1. PWA Obrigatório: Sistema instalável no telemóvel (manifest.json).
+1. PWA Obrigatório: Sistema instalável no celular (manifest.json).
 2. Motor de Diagnóstico (Quiz): Capta Nicho, Gargalo e WhatsApp para análise de mercado.
 3. Dados: Integração Supabase via JS Vanilla (Assíncrono).
 
