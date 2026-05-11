@@ -1,0 +1,95 @@
+════════════════════════════════════════════════════════════
+QUADRILATERAL IAH — DIRETRIZ ESTRATÉGICA
+PROJECTO: [nome] | ITERAÇÃO: V[X] | DATA: [data]
+════════════════════════════════════════════════════════════
+
+BLOCO 0 — DIAGNÓSTICO
+──────────────────────
+Problema real por trás do gargalo declarado:
+[O que o cliente pensa que é o problema vs. o que é de facto]
+
+Oportunidade que o cliente ainda não viu:
+[O que está disponível no mercado/tecnologia que o cliente desconhece]
+
+[PARA O AUDITOR]
+Conectar esta visão ao que foi construído em: [módulo/iteração]
+Verificar se o padrão de [X] pode ser reutilizado.
+Alerta: há risco de [Y] baseado no histórico — verificar.
+
+──────────────────────
+BLOCO 1 — CAMADA E 3 PRIORIDADES
+──────────────────────
+Camada confirmada: [1–5] | Razão: [justificação]
+
+Prioridade 1: [o que construir] — impacto comercial: [razão]
+Prioridade 2: [o que construir] — impacto comercial: [razão]
+Prioridade 3: [o que construir] — impacto comercial: [razão]
+
+O que NÃO construir agora: [e porquê — protege foco]
+
+──────────────────────
+BLOCO 2 — PROPOSTA COMERCIAL
+──────────────────────
+Nome do serviço: [nome que ressoa com o cliente]
+
+O que inclui:
+- [entregável 1]
+- [entregável 2]
+- [entregável 3]
+
+Preço recomendado: R$ [valor]
+Prazo: [X dias/semanas]
+
+Argumento de ROI (em linguagem do cliente, sem jargão técnico):
+"[Frase de impacto: o que o cliente ganha em termos de dinheiro ou tempo]"
+
+──────────────────────
+BLOCO 3 — DIRETRIZ TÉCNICA PARA O MÚSCULO
+──────────────────────
+[PARA O AUDITOR]
+Conectar ao que foi construído em: [iteração/módulo]
+Verificar reutilização de: [componente específico]
+
+[PARA O MÚSCULO]
+A intenção estratégica é: [não apenas a feature — o loop completo]
+Construir com esta visão de fundo.
+
+Prioridade 1: [o que construir] — porque: [impacto comercial]
+Prioridade 2: [o que construir] — porque: [impacto comercial]
+Prioridade 3: [o que construir] — porque: [impacto comercial]
+
+O que proteger sem alterar: [módulos/lógica intocáveis]
+O que NÃO construir agora: [e porquê]
+Alertas de risco: [o que pode falhar]
+
+[VISÃO DE LONGO PRAZO]
+Em 3 iterações, o objectivo é: [Z]
+Cada decisão arquitectural deve ter isto em mente.
+
+[RESPOSTA ÀS IDEIAS DO MÚSCULO — se iteração seguinte]
+Ideia 1 do Músculo: [aprovada / modificada: ... / descartada: ...]
+Ideia 2 do Músculo: [aprovada com enhancement: ...]
+Ideia 3 do Músculo: [descartada — alternativa que prefiro: ...]
+
+[IDEIAS DO ESTRATEGISTA PARA O MÚSCULO REAGIR]
+A. [ideia estratégica] — tecnicamente viável nesta stack?
+B. [ideia de mercado] — podes implementar em [prazo]?
+C. [ideia de posicionamento] — como traduzirias em produto?
+
+──────────────────────
+BLOCO 4 — PRÓXIMOS PASSOS DO DIRECTOR (próximas 24h)
+──────────────────────
+1. [acção concreta do Diretor — ex: confirmar budget com o cliente]
+2. [acção concreta — ex: activar NotebookLM com fontes carregadas]
+3. [acção concreta — ex: dar Veredito sobre esta DIRETRIZ]
+
+──────────────────────
+5 IDEIAS DISRUPTIVAS PARA A PRÓXIMA ITERAÇÃO
+──────────────────────
+1. [ideia] — impacto estimado: [X]
+2. [ideia] — impacto estimado: [X]
+3. [ideia] — impacto estimado: [X]
+4. [ideia] — impacto estimado: [X]
+5. [ideia] — impacto estimado: [X]
+
+════════════════════════════════════════════════════════════

@@ -1,0 +1,84 @@
+{
+  "_instrucoes": "Preencher na clonagem. enabled=true activa a feature. teaser=true mostra o botão greyed-out com upgrade_message. Nunca remover features de camada superior — são o vendedor silencioso.",
+
+  "_regra_arquitectural": "Este ficheiro entra em TODO projecto desde o Dia 1 (Camada 1). Adicionar features conforme o produto evolui. Nunca retrofitar — desenhar desde o início.",
+
+  "features": {
+
+    "core": {
+      "_grupo": "Features base — activas em todas as camadas",
+      "landing_page": { "enabled": true, "tier": 1, "label": "Página principal", "teaser": false },
+      "contact_form": { "enabled": true, "tier": 1, "label": "Formulário de contacto", "teaser": false },
+      "cookie_consent": { "enabled": true, "tier": 1, "label": "Consentimento de cookies", "teaser": false }
+    },
+
+    "produto": {
+      "_grupo": "Features de Camada 2 — produto completo",
+      "auth": {
+        "enabled": "[PREENCHER: true se Camada 2+, false se Camada 1]",
+        "tier": 2, "label": "Login e autenticação", "teaser": true,
+        "upgrade_message": "Disponível no Plano Produto. Permite que os seus clientes tenham área de cliente personalizada."
+      },
+      "payment": {
+        "enabled": "[PREENCHER: true se Camada 2+]",
+        "tier": 2, "label": "Pagamentos online", "teaser": true,
+        "upgrade_message": "Aceite pagamentos directamente no seu site. Disponível no Plano Produto."
+      },
+      "admin_panel": {
+        "enabled": "[PREENCHER]",
+        "tier": 2, "label": "Painel de gestão", "teaser": true,
+        "upgrade_message": "Gira tudo num só painel. Disponível no Plano Produto."
+      }
+    },
+
+    "plataforma": {
+      "_grupo": "Features de Camada 3 — com IA e automação",
+      "ai_reports": {
+        "enabled": false, "tier": 3,
+        "label": "Relatórios semanais com IA",
+        "teaser": true,
+        "upgrade_message": "Receba todas as segundas-feiras um relatório automático com o desempenho do seu negócio. Disponível no Plano Plataforma."
+      },
+      "auto_followup": {
+        "enabled": false, "tier": 3,
+        "label": "Follow-up automático de clientes",
+        "teaser": true,
+        "upgrade_message": "O sistema envia mensagens automáticas aos seus clientes no momento certo. Disponível no Plano Plataforma."
+      },
+      "sentiment_analysis": {
+        "enabled": false, "tier": 3,
+        "label": "Análise de intenção de compra",
+        "teaser": true,
+        "upgrade_message": "Saiba quais clientes estão prestes a comprar antes de entrarem em contacto. Disponível no Plano Plataforma."
+      }
+    },
+
+    "ecossistema": {
+      "_grupo": "Features de Camada 4 — multi-tenant / ecossistema",
+      "multi_location": {
+        "enabled": false, "tier": 4,
+        "label": "Múltiplas unidades / filiais",
+        "teaser": true,
+        "upgrade_message": "Gerencie todas as suas unidades num só sistema. Disponível no Plano Ecossistema."
+      },
+      "white_label": {
+        "enabled": false, "tier": 4,
+        "label": "Marca branca para parceiros",
+        "teaser": true,
+        "upgrade_message": "Licencie o sistema com a sua marca para outros negócios. Disponível no Plano Ecossistema."
+      },
+      "api_publica": {
+        "enabled": false, "tier": 4,
+        "label": "API pública para integrações",
+        "teaser": true,
+        "upgrade_message": "Conecte o sistema a qualquer ferramenta que já usa. Disponível no Plano Ecossistema."
+      }
+    }
+  },
+
+  "upgrade_cta": {
+    "whatsapp": "[PREENCHER: número do operador — ex: 5511999999999]",
+    "email": "[PREENCHER: email do operador]",
+    "cta_text": "Fale connosco para activar →"
+  }
+}
