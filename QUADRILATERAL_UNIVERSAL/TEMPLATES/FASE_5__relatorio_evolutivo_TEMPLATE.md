@@ -1,4 +1,4 @@
-# RELATÓRIO V[X] — [NOME DO PROJECTO]
+﻿# RELATÓRIO V[X] — [NOME DO projeto]
 **Data:** [data] | **Avaliação do Consultor:** [A / A- / B+ / B / C]
 
 ---
@@ -26,11 +26,11 @@ O que o sistema faz automaticamente por ele.]
 
 ### Pontos Fracos e Riscos
 
-| Risco | Probabilidade | Impacto | Acção Correctiva |
+| Risco | Probabilidade | Impacto | ação Correctiva |
 |-------|--------------|---------|-----------------|
 | [risco 1] | Alta/Média/Baixa | Alto/Médio/Baixo | [o que fazer] |
-| [risco 2] | [prob] | [impacto] | [acção] |
-| [risco 3] | [prob] | [impacto] | [acção] |
+| [risco 2] | [prob] | [impacto] | [ação] |
+| [risco 3] | [prob] | [impacto] | [ação] |
 
 ### Avaliação do Consultor
 
@@ -81,12 +81,12 @@ Payback: [X] meses
 
 ## PLANO IMEDIATO
 
-| Acção | Responsável | Prazo |
+| ação | Responsável | Prazo |
 |-------|------------|-------|
-| [acção 1 — ex: activar Sentinel em produção] | [Músculo / Diretor] | [data] |
-| [acção 2 — ex: enviar Playbook ao cliente] | [Diretor] | [data] |
-| [acção 3 — ex: agendar sessão de handoff] | [Diretor] | [data] |
-| [acção 4 — ex: propor Retainer ao cliente] | [Diretor] | [data] |
+| [ação 1 — ex: ativar Sentinel em produção] | [Músculo / Diretor] | [data] |
+| [ação 2 — ex: enviar Playbook ao cliente] | [Diretor] | [data] |
+| [ação 3 — ex: agendar sessão de handoff] | [Diretor] | [data] |
+| [ação 4 — ex: propor Retainer ao cliente] | [Diretor] | [data] |
 
 ---
 

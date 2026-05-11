@@ -1,4 +1,4 @@
-# QUESTIONÁRIO DE DISCOVERY — CLIENTE
+﻿# QUESTIONÁRIO DE DISCOVERY — CLIENTE
 **[NOME DO OPERADOR]** | Confidencial
 
 ---
@@ -12,7 +12,7 @@
 
 ## BLOCO A — O SEU NEGÓCIO
 
-**A1. Nome da empresa e sector de actividade:**
+**A1. Nome da empresa e SETOR de atividade:**
 _______________________________________________
 
 **A2. Qual é o seu cargo / papel na empresa?**
@@ -30,7 +30,7 @@ _______________________________________________
 
 ---
 
-## BLOCO B — O PROJECTO
+## BLOCO B — O projeto
 
 **B1. O que pretende construir?**
 *(site, app, sistema interno, loja online, automação, outro — descreva com as suas palavras)*
@@ -38,7 +38,7 @@ _______________________________________________
 _______________________________________________
 _______________________________________________
 
-**B2. Qual é o problema principal que este projecto resolve?**
+**B2. Qual é o problema principal que este projeto resolve?**
 *(o que está a custar dinheiro ou tempo por não existir)*
 
 _______________________________________________
@@ -59,10 +59,10 @@ _______________________________________________
 **C1. Quem vai usar o produto que vamos construir?**
 [ ] Os meus clientes finais (B2C)
 [ ] Outras empresas (B2B)
-[ ] A minha equipa interna
+[ ] A minha equipe interna
 [ ] Todos os anteriores
 
-**C2. Quantos utilizadores activos espera ter no primeiro mês após o lançamento?**
+**C2. Quantos utilizadores ativos espera ter no primeiro mês após o lançamento?**
 [ ] Menos de 100
 [ ] 100 – 1.000
 [ ] 1.000 – 10.000
@@ -71,7 +71,7 @@ _______________________________________________
 **C3. Qual é o ticket médio por cliente/venda/serviço hoje?**
 R$ __________ por __________ (ex: R$150 por consulta / R$2.000 por contrato)
 
-**C4. Quantos clientes ou transacções tem por mês actualmente?**
+**C4. Quantos clientes ou transações tem por mês atualmente?**
 __________ por mês
 
 ---
@@ -85,7 +85,7 @@ __________ por mês
 [ ] Comprou um produto ou serviço
 [ ] Agendou uma consulta / reunião / visita
 [ ] Pediu um orçamento
-[ ] Entrou em contacto pelo WhatsApp
+[ ] Entrou em contato pelo WhatsApp
 [ ] Registou-se / criou uma conta
 [ ] Assinou uma subscrição
 [ ] Outro: _______________________________________________
@@ -95,7 +95,7 @@ __________ vezes/mês
 
 ---
 
-## BLOCO E — ESTADO ACTUAL E RECURSOS
+## BLOCO E — ESTADO atual E RECURSOS
 
 **E1. O que já existe? (marque tudo o que se aplica)**
 [ ] Site ou página online
@@ -109,7 +109,7 @@ __________ vezes/mês
 **E2. Descreva brevemente o que já existe:**
 _______________________________________________
 
-**E3. Qual é a stack técnica actual (se souber)?**
+**E3. Qual é a stack técnica atual (se souber)?**
 _______________________________________________
 
 ---
@@ -121,13 +121,13 @@ _______________________________________________
 [ ] Sim — motivo: _______________________________
 [ ] Data desejada: _______________
 
-**F2. Como classifica a urgência deste projecto?**
+**F2. Como classifica a urgência deste projeto?**
 [ ] Exploratório — ainda estou a perceber o que quero
 [ ] Normal — preciso nos próximos 2–3 meses
 [ ] Urgente — preciso em menos de 1 mês
 [ ] Crítico — está a custar dinheiro agora
 
-**F3. Qual é o orçamento disponível para este projecto?**
+**F3. Qual é o orçamento disponível para este projeto?**
 [ ] Até R$2.000
 [ ] R$2.000 – R$8.000
 [ ] R$8.000 – R$25.000
@@ -144,13 +144,13 @@ _______________________________________________
 
 ## BLOCO G — EXPECTATIVAS
 
-**G1. O que define, para si, que este projecto foi um sucesso?**
+**G1. O que define, para si, que este projeto foi um sucesso?**
 *(em termos de negócio — não em termos técnicos)*
 
 _______________________________________________
 _______________________________________________
 
-**G2. Qual é o seu maior medo em relação a este tipo de projecto?**
+**G2. Qual é o seu maior medo em relação a este tipo de projeto?**
 *(ex: não ser entregue a tempo, custar mais do que o esperado, não ser usado pelos clientes)*
 
 _______________________________________________
@@ -164,7 +164,7 @@ _______________________________________________
 
 ## BLOCO H — CONTEXTO ADICIONAL
 
-**H1. Há algo que considera importante partilhar e que as perguntas anteriores não cobriram?**
+**H1. Há algo que considera importante compartilhar e que as perguntas anteriores não cobriram?**
 
 _______________________________________________
 _______________________________________________
@@ -178,6 +178,6 @@ _______________________________________________
 
 ---
 
-*Obrigado pelo seu tempo. Entraremos em contacto em até [X] horas úteis com uma análise inicial.*
+*Obrigado pelo seu tempo. Entraremos em contato em até [X] horas úteis com uma análise inicial.*
 
 *[NOME DO OPERADOR] | [email do operador] | [WhatsApp do operador]*

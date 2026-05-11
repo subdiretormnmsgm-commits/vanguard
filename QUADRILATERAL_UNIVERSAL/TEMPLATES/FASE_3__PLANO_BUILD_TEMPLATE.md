@@ -1,4 +1,4 @@
-# PLANO DE BUILD — V[X] — [NOME DO PROJECTO]
+﻿# PLANO DE BUILD — V[X] — [NOME DO projeto]
 **Data:** [data] | **Músculo:** Claude Code | **Aguarda Veredito do Diretor**
 
 ---
@@ -21,7 +21,7 @@ Extras:    [Cloudflare Workers / Stripe / n8n / Vapi / outro]
 | Sub-módulo | Descrição | Est. | Status |
 |-----------|-----------|------|--------|
 | 0.1 Sovereign Pixel | Telemetria pré-configurada para FIRE Event: `[success_event]` | [X]h | [ ] |
-| 0.2 Burn Rate Shield | Variáveis no .env + middleware activo + alerta 75% testado | [X]h | [ ] |
+| 0.2 Burn Rate Shield | Variáveis no .env + middleware ativo + alerta 75% testado | [X]h | [ ] |
 | 0.3 Kill-Switch | tenant_subscriptions + grace period 72h + webhook Stripe | [X]h | [ ] |
 | 0.4 LGPD/GDPR | Banner cookies + tabela user_consents + vp_consent flag | [X]h | [ ] |
 | 0.5 Ticket Médio Wizard | 3 perguntas onboarding no tenant_config | [X]h | [ ] |
@@ -33,7 +33,7 @@ Extras:    [Cloudflare Workers / Stripe / n8n / Vapi / outro]
 ## MÓDULOS DO CLIENTE
 
 ### Módulo 1 — [NOME]
-**Porquê prioritário:** [impacto comercial directo]
+**Porquê prioritário:** [impacto comercial direto]
 **Estimativa:** [X]h | **Risco:** [SIM — qual / NÃO]
 **Dependências:** [Módulo 0 / nenhuma / outro]
 
@@ -75,12 +75,12 @@ Subtarefas:
 
 ---
 
-## REGRAS ACTIVAS NESTE BUILD
+## REGRAS ativas NESTE BUILD
 
 - [ ] LGPD/GDPR: consentimento antes de qualquer dado pessoal
 - [ ] Sem variáveis de ambiente no código — sempre em `.env`
 - [ ] Sem commit sem aprovação do Diretor
-- [ ] BURN_RATE_LIMITE activo (ver `.env`)
+- [ ] BURN_RATE_LIMITE ativo (ver `.env`)
 - [ ] Inventário verificado — não construir o que já existe
 - [ ] Stack fundação respeitada — sem novos frameworks sem VEREDITO DO DIRETOR
 - [ ] FIRE Event `[success_event]` pré-configurado no Módulo 0

@@ -1,4 +1,4 @@
-# PROPOSTA COMERCIAL — [NOME DO CLIENTE]
+﻿# PROPOSTA COMERCIAL — [NOME DO CLIENTE]
 **Data:** [data] | **Válida até:** [data + 15 dias] | **Preparada por:** [NOME DO OPERADOR]
 
 ---
@@ -57,7 +57,7 @@ Inclui:
 
 ## O RETORNO DO INVESTIMENTO
 
-| Métrica | Situação actual | Com a solução |
+| Métrica | Situação atual | Com a solução |
 |---------|----------------|---------------|
 | [métrica 1 — ex: horas gastas por semana] | [X horas] | [Y horas (-Z%)] |
 | [métrica 2 — ex: clientes por mês] | [X] | [Y (+Z%)] |
@@ -91,7 +91,7 @@ Para avançar com a **Opção [A/B]:**
 3. Pagamento de 50% para iniciar · 50% na entrega
 4. Discovery completo em [X] dias · Build inicia em [data]
 
-**[NOME DO DIRECTOR]**
+**[NOME DO diretoR]**
 [email] · [WhatsApp]
 
 ---

@@ -1,4 +1,4 @@
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+﻿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MENSAGEM 1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -9,7 +9,7 @@ diferente do que estás habituado a ver — antes de escrever
 uma linha de código, passamos por uma análise que garante
 que o que vamos construir resolve mesmo o problema certo.
 
-Quero testar isso contigo. O projecto é por minha conta —
+Quero testar isso contigo. O projeto é por minha conta —
 mas preciso que sejas honesto como se fosses um cliente real.
 As tuas respostas são a matéria-prima do que vamos construir.
 
@@ -47,7 +47,7 @@ quanto isto vale de facto.
 MENSAGEM 4
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Terceira — e esta é o coração do projecto:
+Terceira — e esta é o coração do projeto:
 
 O Momento Mágico.
 
@@ -55,7 +55,7 @@ Se um utilizador entrar no teu sistema e fizer UMA coisa
 que significa que o teu negócio funcionou — qual é essa coisa?
 
 Por exemplo: comprou, agendou, pediu orçamento, entrou em
-contacto pelo WhatsApp, registou-se, assinou...
+contato pelo WhatsApp, registou-se, assinou...
 
 Qual é o teu momento de "sim, isto resultou"?
 
@@ -73,7 +73,7 @@ completamente à frente de toda a tua concorrência —
 o que seria?
 
 Não filtra. Não te preocupes se parece impossível.
-É exactamente aqui que nascem as ideias que mais importam.
+É exatamente aqui que nascem as ideias que mais importam.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MENSAGEM 6
@@ -82,7 +82,7 @@ MENSAGEM 6
 Quinta: o que já existe?
 
 Tens algum site, ferramenta, conta de hospedagem, design
-feito, redes sociais activas, código antigo, app instalada?
+feito, redes sociais ativas, código antigo, app instalada?
 
 E o que é que os teus clientes pagam hoje, em média,
 por cada venda ou serviço? (valor aproximado serve)
@@ -97,7 +97,7 @@ Sexta e última:
 Há alguma data que te faz querer isto pronto?
 Evento, época alta, apresentação, algo assim?
 
-E — mesmo sabendo que este projecto é por minha conta —
+E — mesmo sabendo que este projeto é por minha conta —
 quanto investirias se fosse um serviço pago?
 Preciso desta resposta para no final te mostrar o que
 isto valeria no mercado real.

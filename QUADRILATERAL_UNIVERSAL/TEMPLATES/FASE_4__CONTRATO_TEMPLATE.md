@@ -1,5 +1,5 @@
-# CONTRATO DE PRESTAÇÃO DE SERVIÇOS DIGITAIS
-**[NOME DO PROJECTO]**
+﻿# CONTRATO DE PRESTAÇÃO DE SERVIÇOS DIGITAIS
+**[NOME DO projeto]**
 
 ---
 
@@ -78,14 +78,14 @@ O CONTRATANTE compromete-se a:
 - Fornecer as informações necessárias em até [X] dias úteis quando solicitadas
 - Dar feedback sobre entregas parciais em até [X] dias úteis
 - Pagar as parcelas nos prazos definidos
-- Não partilhar credenciais de acesso com terceiros sem autorização prévia
+- Não compartilhar credenciais de acesso com terceiros sem autorização prévia
 
 ---
 
 ## CLÁUSULA 6 — PROPRIEDADE INTELECTUAL
 
 Após o pagamento integral, o CONTRATANTE detém os direitos sobre:
-- O código-fonte produzido especificamente para este projecto
+- O código-fonte produzido especificamente para este projeto
 - Os conteúdos inseridos pelo CONTRATANTE na plataforma
 - O domínio e contas de serviço criadas em seu nome
 
@@ -136,14 +136,14 @@ O CONTRATANTE declara ter lido e aceite esta cláusula.
 
 ## CLÁUSULA 10 — LGPD E PROTECÇÃO DE DADOS
 
-Ambas as partes comprometem-se a cumprir a Lei Geral de Protecção de Dados (LGPD — Lei nº 13.709/2018). O sistema entregue inclui módulo de consentimento de cookies e política de privacidade, de responsabilidade do CONTRATANTE actualizar conforme o seu negócio.
+Ambas as partes comprometem-se a cumprir a Lei Geral de Protecção de Dados (LGPD — Lei nº 13.709/2018). O sistema entregue inclui módulo de consentimento de cookies e política de privacidade, de responsabilidade do CONTRATANTE atualizar conforme o seu negócio.
 
 ---
 
 ## CLÁUSULA 11 — LIMITAÇÃO DE RESPONSABILIDADE
 
 A CONTRATADA não é responsável por:
-- Perda de dados causada por acção do CONTRATANTE ou de terceiros
+- Perda de dados causada por ação do CONTRATANTE ou de terceiros
 - Interrupções de serviços externos (Supabase, Stripe, AWS, etc.)
 - Decisões de negócio tomadas com base nos relatórios automáticos
 - Danos causados por uso inadequado do sistema pelo CONTRATANTE

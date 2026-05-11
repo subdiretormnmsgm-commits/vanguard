@@ -1,11 +1,11 @@
-# COMANDO ESTRATEGISTA — V[X+1] — [NOME DO PROJECTO]
-> Copiar tudo abaixo desta linha e colar directamente no Gemini (Estrategista).
+﻿# COMANDO ESTRATEGISTA — V[X+1] — [NOME DO projeto]
+> Copiar tudo abaixo desta linha e colar diretamente no Gemini (Estrategista).
 > O Diretor não precisa formatar nada — copia e cola.
 > ─────────────────────────────────────────────────────────────────────────
 
 ════════════════════════════════════════════════════════════
 QUADRILATERAL IAH — EDUARDO → GEMINI
-PROJECTO: [nome] | ITERAÇÃO: V[X+1] | DATA: [data]
+projeto: [nome] | ITERAÇÃO: V[X+1] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
 Gemini, somos o Quadrilateral IAH.
@@ -28,14 +28,14 @@ RELATORIO_V[X] — VISÃO DO MÚSCULO
 [COLAR AQUI O CONTEÚDO COMPLETO DO relatorio_evolutivo_v[X].md]
 
 ────────────────────────────────────────────
-ESTADO ACTUAL DO PROJECTO
+ESTADO atual DO projeto
 ────────────────────────────────────────────
 
-Camada actual: [X]
-MRR / Revenue actual: [valor ou "pré-lançamento"]
-Clientes activos: [N ou "0 — a prospectar"]
-Próximo objectivo de negócio: [o que o Diretor quer atingir em V[X+1]]
-FIRE Event activo: `[success_event]` — [N] eventos registados na última semana
+Camada atual: [X]
+MRR / Revenue atual: [valor ou "pré-lançamento"]
+Clientes ativos: [N ou "0 — a prospectar"]
+Próximo objetivo de negócio: [o que o Diretor quer atingir em V[X+1]]
+FIRE Event ativo: `[success_event]` — [N] eventos registados na última semana
 
 ────────────────────────────────────────────
 [REAGE A ESTAS IDEIAS DO MÚSCULO]
@@ -56,7 +56,7 @@ O QUE PRECISO DE TI (5 BLOCOS OBRIGATÓRIOS)
 ────────────────────────────────────────────
 
 BLOCO 0 — DIAGNÓSTICO
-Qual é o estado real do projecto?
+Qual é o estado real do projeto?
 Qual a oportunidade que ainda não explorámos?
 
 BLOCO 1 — CAMADA E 3 PRIORIDADES
@@ -70,10 +70,10 @@ Preço, prazo, argumento de valor.
 BLOCO 3 — DIRETRIZ TÉCNICA
 [PARA O AUDITOR]: o que conectar do histórico, o que auditar
 [PARA O MÚSCULO]: o que construir, em que ordem, alertas de risco
-[VISÃO DE LONGO PRAZO]: onde este projecto chega em 3 iterações
+[VISÃO DE LONGO PRAZO]: onde este projeto chega em 3 iterações
 [RESPOSTA ÀS IDEIAS DO MÚSCULO]: aprova / modifica / descarta cada uma
 
-BLOCO 4 — PRÓXIMOS PASSOS DO DIRECTOR
+BLOCO 4 — PRÓXIMOS PASSOS DO diretoR
 O que o Diretor faz nas próximas 24h para avançar.
 
 Inclui obrigatoriamente: 5 ideias disruptivas para a iteração seguinte.

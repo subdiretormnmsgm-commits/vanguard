@@ -1,31 +1,31 @@
-# PERFIL DO CLIENTE — [NOME / EMPRESA]
+﻿# PERFIL DO CLIENTE — [NOME / EMPRESA]
 **Quadrilateral IAH · Segundo Cérebro do Cliente**
 **Versão:** 1.0 · Data de criação: [data]
-**Última actualização:** [data] · Iteração actual: V[X]
+**Última atualização:** [data] · Iteração atual: V[X]
 
 ---
 
-> ⚠️ **ORGANISMO VIVO — ACTUALIZAR A CADA ITERAÇÃO**
-> Este ficheiro cresce com a relação. Quanto mais rico, mais inteligente fica a Skill.
+> ⚠️ **ORGANISMO VIVO — atualizar A CADA ITERAÇÃO**
+> Este arquivo cresce com a relação. Quanto mais rico, mais inteligente fica a Skill.
 > Carregar sempre no NotebookLM junto com as MEMORIAs e relatórios.
 > O que aprendeu sobre o cliente em V1 deve estar aqui antes de V2 começar.
 
 ---
 
 > **Para que serve:**
-> O briefing captura o que o cliente diz. Este ficheiro captura o que o cliente é.
+> O briefing captura o que o cliente diz. Este arquivo captura o que o cliente é.
 > A diferença entre uma entrega boa e uma relação de longo prazo está aqui.
 
 ---
 
-## SECÇÃO 1 — QUEM É O CLIENTE
+## seção 1 — QUEM É O CLIENTE
 
 ```
 NOME:              [nome completo]
 EMPRESA:           [nome da empresa]
-SECTOR:            [sector de actividade]
+SETOR:            [SETOR de atividade]
 CIDADE / PAÍS:     [localização]
-TAMANHO:           [solo / pequena equipa / empresa média / grande empresa]
+TAMANHO:           [solo / pequena equipe / empresa média / grande empresa]
 MATURIDADE DIGITAL: [sem presença / básica / estabelecida / avançada]
 LITERACIA TÉCNICA:  [nenhuma / básica / intermédia / técnico]
 CANAL PREFERIDO:   [WhatsApp / email / chamada / reunião presencial]
@@ -34,9 +34,9 @@ TEMPO DE RESPOSTA: [imediato / horas / dias / imprevisível]
 
 ---
 
-## SECÇÃO 2 — O QUE DIZ vs. O QUE QUER
+## seção 2 — O QUE DIZ vs. O QUE QUER
 
-> Esta é a secção mais valiosa. O que o cliente declara raramente é o que motiva a decisão.
+> Esta é a seção mais valiosa. O que o cliente declara raramente é o que motiva a decisão.
 
 ```
 O QUE DECLAROU QUERER:
@@ -56,7 +56,7 @@ O QUE NUNCA VAI DIZER EM VOZ ALTA:
 
 ---
 
-## SECÇÃO 3 — ESTILO DE DECISÃO
+## seção 3 — ESTILO DE DECISÃO
 
 ```
 COMO DECIDE:
@@ -67,10 +67,10 @@ COMO DECIDE:
   [ ] Decide por medo de perder — usar urgência com cuidado
 
 QUEM INFLUENCIA AS SUAS DECISÕES:
-[sócio, cônjuge, contador, amigo do sector, concorrente]
+[sócio, cônjuge, contador, amigo do SETOR, concorrente]
 
 O QUE FAZ ELE DIZER SIM:
-[o que activou os "sim" anteriores — ROI claro, prazo rápido, comparação com concorrente, autoridade]
+[o que ativou os "sim" anteriores — ROI claro, prazo rápido, comparação com concorrente, autoridade]
 
 O QUE FAZ ELE DIZER NÃO (OU ATRASAR):
 [o que causa hesitação — preço sem contexto, prazo longo, muitas opções, falta de referências]
@@ -78,11 +78,11 @@ O QUE FAZ ELE DIZER NÃO (OU ATRASAR):
 
 ---
 
-## SECÇÃO 4 — COMUNICAÇÃO E RELAÇÃO
+## seção 4 — COMUNICAÇÃO E RELAÇÃO
 
 ```
 TOM QUE FUNCIONA COM ELE:
-  [ ] Directo e rápido — não quer rodeios
+  [ ] direto e rápido — não quer rodeios
   [ ] Explicativo — quer entender o porquê de cada decisão
   [ ] Consultivo — quer ser tratado como parceiro, não como cliente
   [ ] Formal — prefere documentos e emails a conversas informais
@@ -99,7 +99,7 @@ FRASES QUE ELE REPETE:
 
 ---
 
-## SECÇÃO 5 — O NEGÓCIO REAL
+## seção 5 — O NEGÓCIO REAL
 
 ```
 PROBLEMA QUE PAGA AS CONTAS (dor real):
@@ -120,16 +120,16 @@ O QUE SIGNIFICARIA UMA VITÓRIA PARA ELE:
 
 ---
 
-## SECÇÃO 6 — HISTÓRICO DA RELAÇÃO
+## seção 6 — HISTÓRICO DA RELAÇÃO
 
-> Actualizar após cada iteração. É o que torna o NotebookLM um consultor com memória real.
+> atualizar após cada iteração. É o que torna o NotebookLM um consultor com memória real.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ITERAÇÃO V1 — [data]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 O que foi entregue: [1 frase]
-Reacção do cliente: [positiva / neutra / negativa — e porquê]
+Reação do cliente: [positiva / neutra / negativa — e porquê]
 O que surpreendeu (positivo): [o que foi além das expectativas]
 O que decepcionou: [o que ficou abaixo — mesmo que pequeno]
 Decisão-chave que tomou: [a decisão mais importante desta iteração]
@@ -144,9 +144,9 @@ ITERAÇÃO V2 — [data]
 
 ---
 
-## SECÇÃO 7 — O QUE O CONSELHO SABE QUE O CLIENTE NÃO SABE
+## seção 7 — O QUE O CONSELHO SABE QUE O CLIENTE NÃO SABE
 
-> Esta secção é interna — nunca partilhar com o cliente.
+> Esta seção é interna — nunca compartilhar com o cliente.
 
 ```
 BLIND SPOT DO CLIENTE:
@@ -164,7 +164,7 @@ O QUE O QUADRILATERAL PROTEGE (sem ele saber):
 
 ---
 
-## COMO USAR ESTE FICHEIRO
+## COMO USAR ESTE arquivo
 
 **Ao iniciar cada iteração:**
 1. Carregar no NotebookLM junto com as MEMORIAs e relatórios
@@ -172,15 +172,15 @@ O QUE O QUADRILATERAL PROTEGE (sem ele saber):
 3. O Claude vai receber contexto humano para além do contexto técnico
 
 **Ao fechar cada iteração:**
-1. Actualizar a Secção 6 com o que foi aprendido
-2. Rever a Secção 2 — o que o cliente "realmente quer" pode ter mudado
-3. Actualizar o estado da relação
+1. atualizar a seção 6 com o que foi aprendido
+2. Rever a seção 2 — o que o cliente "realmente quer" pode ter mudado
+3. atualizar o estado da relação
 
 **Para o Gemini (Bloco 0 da DIRETRIZ):**
-Incluir no briefing: "O cliente tem este perfil: [resumo de 3 linhas das Secções 2 e 3]"
+Incluir no briefing: "O cliente tem este perfil: [resumo de 3 linhas das seções 2 e 3]"
 O diagnóstico do Gemini fica muito mais preciso com este contexto.
 
 ---
 
 *Perfil do Cliente · Quadrilateral IAH · V1.0*
-*Confidencial — nunca partilhar com o cliente · Carregar sempre no NotebookLM*
+*Confidencial — nunca compartilhar com o cliente · Carregar sempre no NotebookLM*

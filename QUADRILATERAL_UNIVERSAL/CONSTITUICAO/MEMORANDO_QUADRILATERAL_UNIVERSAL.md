@@ -1,22 +1,22 @@
-# MEMORANDO QUADRILATERAL — MODELO UNIVERSAL
+﻿# MEMORANDO QUADRILATERAL — MODELO UNIVERSAL
 **IAH — Inteligência Artificial Humana**
-**Classificação:** Operacional · Portátil · Qualquer projecto · Qualquer operador
+**Classificação:** Operacional · Portátil · Qualquer projeto · Qualquer operador
 **Versão:** 2.0
 **Data de emissão:** 2026-05-11
 
 ---
 
-> ⚠️ **ORGANISMO VIVO — ACTUALIZAR A CADA PROJECTO**
+> ⚠️ **ORGANISMO VIVO — atualizar A CADA projeto**
 > Este memorando melhora com cada entrega.
-> O Músculo é responsável por manter actualizado ao fechar cada iteração.
+> O Músculo é responsável por manter atualizado ao fechar cada iteração.
 
 ---
 
 > **Premissa fundamental:**
 > O cliente não contrata tecnologia. Contrata inteligência orquestrada.
-> O Quadrilateral não é uma agência. Não é um freelancer. Não é uma equipa de dev.
+> O Quadrilateral não é uma agência. Não é um freelancer. Não é uma equipe de dev.
 > É um conselho de quatro inteligências que delibera antes de executar.
-> O resultado: menos retrabalho, mais precisão, entrega mais rápida do que qualquer equipa de 15 pessoas.
+> O resultado: menos retrabalho, mais precisão, entrega mais rápida do que qualquer equipe de 15 pessoas.
 
 ---
 
@@ -27,20 +27,20 @@ AGÊNCIA TRADICIONAL
   ├── 10–20 pessoas (developers, designers, PM, QA, comercial)
   ├── Custo fixo elevado — pago independente de entregar
   ├── Prazo: 3–18 meses para um produto funcionar
-  ├── Taxa de falha: 70% dos projectos nunca vão ao ar
+  ├── Taxa de falha: 70% dos projetos nunca vão ao ar
   └── Preço mínimo: alto — cobre a estrutura, não o valor
 
 FREELANCER
   ├── 1 pessoa com conhecimento limitado
   ├── Sem visão de negócio — executa o que pedem
-  ├── Sem metodologia — cada projecto começa do zero
+  ├── Sem metodologia — cada projeto começa do zero
   └── Entrega código. Não entrega produto.
 
 QUADRILATERAL IAH
   ├── 1 Diretor + 3 inteligências especializadas
   ├── Custo de infraestrutura mínimo
   ├── V1 funcional em 48h — produto completo em 1–4 semanas
-  ├── O projecto não para — não há dependência de pessoas
+  ├── O projeto não para — não há dependência de pessoas
   └── Preço: calibrado ao valor gerado, não ao custo de produção
 ```
 
@@ -79,9 +79,9 @@ A diferença não é de processo — é de paradigma. Um pipeline produz o que f
 > O Estrategista pode ser qualquer sistema de análise estratégica.
 > O Auditor pode ser qualquer sistema com memória histórica consultável.
 > O Músculo pode ser qualquer executor técnico com capacidade crítica.
-> O Diretor é sempre humano. Sem excepção.
+> O Diretor é sempre humano. Sem exceção.
 
-**Regra de ouro:** Nenhum membro tem autoridade absoluta. O Gemini propõe. O Claude avalia e contra-propõe. O NotebookLM fundamenta com histórico. O Eduardo decide. A força está na deliberação activa entre os quatro — não na execução sequencial.
+**Regra de ouro:** Nenhum membro tem autoridade absoluta. O Gemini propõe. O Claude avalia e contra-propõe. O NotebookLM fundamenta com histórico. O Eduardo decide. A força está na deliberação ativa entre os quatro — não na execução sequencial.
 
 ---
 
@@ -97,7 +97,7 @@ MODELO ERRADO — Pipeline passivo:
   Cada um faz a sua parte. Nunca se encontram de verdade.
   Resultado: a soma das partes.
 
-MODELO CORRECTO — Deliberação activa:
+MODELO CORRECTO — Deliberação ativa:
   Estrategista propõe → Músculo analisa + enriquece + contra-propõe
   Auditor fundamenta com histórico real → Estrategista e Músculo refinam
   Diretor decide com síntese das três perspectivas
@@ -106,7 +106,7 @@ MODELO CORRECTO — Deliberação activa:
 
 **O Estrategista propõe ideias.** O Músculo não as executa — analisa-as. Identifica o que está certo, o risco implícito, como torná-las mais fortes, e propõe alternativas. O Estrategista, no ciclo seguinte, faz o mesmo com as propostas do Músculo.
 
-**O Auditor não é apenas um arquivo — é um sócio consultor.** Não diz apenas "isto foi feito antes". Diz "isto foi feito antes, funcionou neste contexto, falhou naquele, e dada a situação actual a abordagem B tem mais probabilidade de sucesso — aqui está o porquê".
+**O Auditor não é apenas um arquivo — é um sócio consultor.** Não diz apenas "isto foi feito antes". Diz "isto foi feito antes, funcionou neste contexto, falhou naquele, e dada a situação atual a abordagem B tem mais probabilidade de sucesso — aqui está o porquê".
 
 **O Diretor não arbittra entre propostas isoladas.** Recebe a síntese de três perspectivas que já debateram entre si. A decisão é mais informada porque o debate aconteceu antes de chegar ao Veredito.
 
@@ -147,15 +147,15 @@ A intenção estratégica é [Y] — não apenas a funcionalidade, mas o loop co
 Construir com esta visão de fundo.
 
 [VISÃO DE LONGO PRAZO]
-Em 3 iterações, o objectivo é [Z].
+Em 3 iterações, o objetivo é [Z].
 ```
 
 ### O Auditor escreve na Skill:
 
 ```
 [CONEXÃO HISTÓRICA — Para o Músculo]
-Na iteração [Vx], foi construído [X] com o objectivo [Y].
-Reutilizar a estrutura de [ficheiro] — economiza [estimativa] de desenvolvimento.
+Na iteração [Vx], foi construído [X] com o objetivo [Y].
+Reutilizar a estrutura de [arquivo] — economiza [estimativa] de desenvolvimento.
 
 [PADRÃO DE SUCESSO]
 O que funcionou em situações similares: [exemplo] com resultado [impacto].
@@ -200,15 +200,15 @@ Aguardo Veredito do Diretor.
 **Auditor detecta contradição com iteração anterior:**
 ```
 [CONEXÃO HISTÓRICA]
-Em [projecto/iteração anterior], foi construído [X] com o objectivo [Y].
-A proposta actual contradiz [Y] porque [razão].
+Em [projeto/iteração anterior], foi construído [X] com o objetivo [Y].
+A proposta atual contradiz [Y] porque [razão].
 [PADRÃO DE SUCESSO / FALHA]
 Recomendação: [manter / adaptar / substituir].
 ```
 
 **Músculo detecta que o Estrategista propõe algo que já existe:**
 ```
-"O módulo [X] já existe em [ficheiro/local].
+"O módulo [X] já existe em [arquivo/local].
 Está funcional. Posso adaptá-lo em [estimativa] — muito mais rápido que construir do zero.
 Confirmas se adaptar o existente ou construir novo?"
 ```
@@ -223,7 +223,7 @@ Resultado a acompanhar nas próximas iterações."
 
 ---
 
-## A MATRIZ DE 5 CAMADAS — QUALQUER PROJECTO
+## A MATRIZ DE 5 CAMADAS — QUALQUER projeto
 
 > A descoberta central: todo produto digital evolui pelas mesmas 5 camadas,
 > independente do nicho. O que muda é o conteúdo, não a estrutura.
@@ -232,7 +232,7 @@ Resultado a acompanhar nas próximas iterações."
 ┌─────────────────────────────────────────────────────────────────┐
 │  CAMADA 5 — MONOPÓLIO                                           │
 │  Dados proprietários · Efeito de rede · Canal institucional     │
-│  O produto vira um activo de sector — difícil de copiar         │
+│  O produto vira um ativo de SETOR — difícil de copiar         │
 ├─────────────────────────────────────────────────────────────────┤
 │  CAMADA 4 — ECOSSISTEMA                                         │
 │  Multi-tenant · Marketplace · API pública · White-label         │
@@ -271,7 +271,7 @@ Camada 1: Formulário de briefing + gerador de PDF → 2 dias
 Camada 2: Login + histórico de orçamentos + aprovação digital
 Camada 3: IA sugere itens do orçamento + calcula margem automaticamente
 Camada 4: Múltiplos consultores na mesma plataforma + relatórios gerenciais
-Camada 5: Benchmark de preços do sector → produto para associações da categoria
+Camada 5: Benchmark de preços do SETOR → produto para associações da categoria
 ```
 
 ---
@@ -279,14 +279,14 @@ Camada 5: Benchmark de preços do sector → produto para associações da categ
 ## AS 7 LEIS SOBERANAS — CONSTITUIÇÃO DA IAH FACTORY
 
 > Mandato do Conselho Quadrilateral (Diretor · Estrategista · Auditor) · Expandidas pelo Músculo
-> Estas 7 Leis são as "Leis da Física" da IAH Factory — a Constituição que governa cada projecto.
-> Todo projecto entregue pela Vanguard sai com as 7 Leis activas — sem excepção.
+> Estas 7 Leis são as "Leis da Física" da IAH Factory — a Constituição que governa cada projeto.
+> Todo projeto entregue pela Vanguard sai com as 7 Leis ativas — sem exceção.
 
 ---
 
 ### LEI 1 — DÍZIMO DE DADOS AGNÓSTICO (Data Tithe Universal)
 
-**O que é:** Todo projecto inclui o Sovereign Pixel da Vanguard antes do handoff, independente da stack.
+**O que é:** Todo projeto inclui o Sovereign Pixel da Vanguard antes do handoff, independente da stack.
 
 **Método por stack:**
 
@@ -300,23 +300,23 @@ Camada 5: Benchmark de preços do sector → produto para associações da categ
 
 **Regra de arquitectura:**
 - Método preferencial: **CNAME subdomain** (`vpx.dominiocliente.com → pixel.vanguard.tech`) — vive no DNS, sobrevive a qualquer redesign futuro
-- Fallback aceite: snippet directo no HTML — apenas para projectos de Camada 1
+- Fallback aceite: snippet direto no HTML — apenas para projetos de Camada 1
 - O pixel só dispara **após** consentimento de cookies (ver Garra 2) — as duas garras são dependentes
 
-**Impacto estratégico:** cada cliente activo é um tentáculo do Oráculo B2B. Os dados de intenção de uma barbearia em SP e de uma clínica no Porto alimentam o mesmo gráfico de inteligência de mercado da Vanguard.
+**Impacto estratégico:** cada cliente ativo é um tentáculo do Oráculo B2B. Os dados de intenção de uma barbearia em SP e de uma clínica no Porto alimentam o mesmo gráfico de inteligência de mercado da Vanguard.
 
 ---
 
 ### LEI 2 — COMPLIANCE AUTOMÁTICO (LGPD/GDPR by Design)
 
-**O que é:** Nenhum projecto vai ao ar sem módulo de consentimento auditável. É um requisito do boilerplate, não um extra cobrado à parte.
+**O que é:** Nenhum projeto vai ao ar sem módulo de consentimento auditável. É um requisito do boilerplate, não um extra cobrado à parte.
 
 **Módulo obrigatório no boilerplate:**
 
 ```
 consent/
 ├── CookieBanner.tsx (ou .html)     ← banner granular: necessários / analytics / marketing
-├── ConsentManager.ts               ← lógica de activação/desactivação por categoria
+├── ConsentManager.ts               ← lógica de ativação/desativação por categoria
 ├── privacy-policy-template.md     ← template pré-preenchível por nicho
 └── schema_consent.sql              ← tabela user_consents auditável
 ```
@@ -336,7 +336,7 @@ CREATE TABLE user_consents (
 );
 ```
 
-**Regra:** O Sovereign Pixel e qualquer ferramenta de analytics só activa se `analytics = true`.
+**Regra:** O Sovereign Pixel e qualquer ferramenta de analytics só ativa se `analytics = true`.
 O Músculo bloqueia o handoff se o módulo de consentimento estiver ausente ou não testado.
 
 ---
@@ -345,12 +345,12 @@ O Músculo bloqueia o handoff se o módulo de consentimento estiver ausente ou n
 
 **O que é:** O Sentinel Report Card adapta-se ao nicho do cliente — a métrica de "sucesso" é configurável em 30 segundos na clonagem.
 
-**Ficheiro de configuração obrigatório (`sentinel_config.json`):**
+**arquivo de configuração obrigatório (`sentinel_config.json`):**
 
 ```json
 {
   "success_event": "[add_to_cart | booking_confirmed | lead_form | call_clicked]",
-  "success_label": "[Carrinho | Agendamento | Lead | Contacto]",
+  "success_label": "[Carrinho | Agendamento | Lead | contato]",
   "upsell_threshold": 50,
   "upsell_service": "Retainer de Evolução — [PREÇO DO OPERADOR]",
   "client_email": "[EMAIL DO CLIENTE]",
@@ -378,18 +378,18 @@ Tracking de abertura (pixel 1×1 GIF) → se abriu → escalate upsell
 **Regra de custo:** R$0.04 por relatório vs. retainer de R$2.500/mês = ROI de 62.500×.
 O Sentinel é o vendedor mais barato que existe.
 
-**Alerta de dívida técnica:** o tracking de abertura de email (pixel 1×1 GIF) é dívida P1 da V22 — sem ele, o Sentinel não sabe se o cliente leu o relatório. Pagar esta dívida antes de activar o upsell automático.
+**Alerta de dívida técnica:** o tracking de abertura de email (pixel 1×1 GIF) é dívida P1 da V22 — sem ele, o Sentinel não sabe se o cliente leu o relatório. Pagar esta dívida antes de ativar o upsell automático.
 
 **Ticket Médio Wizard — Exigência Universal de Onboarding:**
 
-O ticket fixo de R$300 (V23) é dívida P1. O Wizard substitui-o definitivamente em todo projecto.
+O ticket fixo de R$300 (V23) é dívida P1. O Wizard substitui-o definitivamente em todo projeto.
 
 3 perguntas obrigatórias no onboarding, antes de qualquer feature ser desbloqueada:
 
 ```
 1. "Qual o ticket médio por cliente?" → ticket_medio (DECIMAL)
 2. "Quantos clientes atende por mês?"  → monthly_client_volume (INTEGER)
-3. "Qual a acção principal no seu site?" → success_event (dropdown)
+3. "Qual a ação principal no seu site?" → success_event (dropdown)
 ```
 
 Schema (adicionar a `tenant_config`):
@@ -408,12 +408,12 @@ Uma barbearia com ticket R$50 e uma consultoria com ticket R$8.000 recebem o mes
 
 ### LEI 4 — ZERO SUPORTE HUMANO (Sovereign Playbook Automático)
 
-**O que é:** Todo projecto entregue inclui um Sovereign Playbook gerado por IA, personalizado para o nicho do cliente, produzido na clonagem a custo marginal zero.
+**O que é:** Todo projeto entregue inclui um Sovereign Playbook gerado por IA, personalizado para o nicho do cliente, produzido na clonagem a custo marginal zero.
 
 **Geração automática:**
 
 ```
-Operador preenche: nicho + funcionalidades entregues + FAQ frequente do sector
+Operador preenche: nicho + funcionalidades entregues + FAQ frequente do SETOR
       ↓
 Script Python chama Claude Haiku com contexto do cliente
       ↓
@@ -423,10 +423,10 @@ Entregue como: PDF + página web do cliente + FAQ bot WhatsApp (opcional, Camada
 ```
 
 **Conteúdo padrão do Playbook:**
-- Como operar o sistema dia-a-dia (com screenshots reais do projecto)
+- Como operar o sistema dia-a-dia (com screenshots reais do projeto)
 - As 10 perguntas mais frequentes do nicho (geradas por IA com contexto do cliente)
 - Troubleshooting passo-a-passo: o que fazer se algo parar de funcionar
-- Como pedir a próxima evolução (formulário directo para a Vanguard → gera lead qualificado)
+- Como pedir a próxima evolução (formulário direto para a Vanguard → gera lead qualificado)
 
 **Boundary obrigatório:** o Playbook resolve 70% das dúvidas operacionais. Os outros 30% — mudanças de escopo, erros críticos de produção, suporte emocional — são cobertos pelo **Retainer**. O suporte humano não é eliminado. É monetizado. Esta distinção deve estar clara no contrato.
 
@@ -434,7 +434,7 @@ Entregue como: PDF + página web do cliente + FAQ bot WhatsApp (opcional, Camada
 
 ### LEI 5 — BURN RATE SHIELD INEGOCIÁVEL
 
-**O que é:** Toda arquitectura com custo variável (IA, Workers, APIs externas) tem limites de consumo obrigatórios. Sem excepção. Sem negociação.
+**O que é:** Toda arquitectura com custo variável (IA, Workers, APIs externas) tem limites de consumo obrigatórios. Sem exceção. Sem negociação.
 
 **Regra de arquitectura do Músculo:**
 > Quando um cliente exige "escala ilimitada", o Músculo apresenta o custo projectado antes de concordar.
@@ -450,7 +450,7 @@ Entregue como: PDF + página web do cliente + FAQ bot WhatsApp (opcional, Camada
 | FastAPI + IA | Middleware que incrementa contador e retorna 429 com fallback gracioso |
 | n8n / Make | Limite de execuções mensais no plano + alerta email |
 
-**Variáveis obrigatórias no `.env` de todo projecto com IA:**
+**Variáveis obrigatórias no `.env` de todo projeto com IA:**
 
 ```
 BURN_RATE_DAILY_LIMIT_USD=8.00
@@ -468,7 +468,7 @@ BURN_RATE_FALLBACK=static
 
 ### LEI 6 — KILL-SWITCH SOBERANO (Degradação por Inadimplência)
 
-**O que é:** Todo código entregue não é um arquivo morto — é um nó vivo atrelado ao status de pagamento. Inadimplência gera degradação automática. Pagamento reactivado = sistema restaurado instantaneamente.
+**O que é:** Todo código entregue não é um arquivo morto — é um nó vivo atrelado ao status de pagamento. Inadimplência gera degradação automática. Pagamento reativado = sistema restaurado instantaneamente.
 
 **Estados do Kill-Switch:**
 
@@ -477,13 +477,13 @@ BURN_RATE_FALLBACK=static
 | `active` | Pagamento em dia | 100% funcional |
 | `past_due_72h` | 0–72h após falha | Banner de aviso suave — sem degradação |
 | `past_due` | +72h após falha | Modo leitura: consultar OK, criar/editar bloqueado |
-| `canceled` | Cancelamento activo | Redirect para reactivação + Selo "Sistema Inativo — Vanguard" |
+| `canceled` | Cancelamento ativo | Redirect para reativação + Selo "Sistema Inativo — Vanguard" |
 
 **Regras de arquitectura obrigatórias:**
 
 1. **Fail Open:** se o Stripe estiver inacessível (outage externo), o sistema assume o tenant como `active`. Nunca degradar por falha de infraestrutura — só por confirmação de inadimplência.
 2. **Grace Period de 72h:** entre `payment_failed` e degradação real. Reduz churn por cartão expirado ou temporariamente sem limite.
-3. **Webhook obrigatório:** status actualizado via Stripe webhook (`payment_failed`, `payment_succeeded`, `subscription.canceled`) — nunca por polling.
+3. **Webhook obrigatório:** status atualizado via Stripe webhook (`payment_failed`, `payment_succeeded`, `subscription.canceled`) — nunca por polling.
 
 **Implementação (tabela existente desde V6):**
 
@@ -494,16 +494,16 @@ ALTER TABLE tenant_subscriptions
 -- pg_cron a cada hora: se payment_failed_at > 72h → kill_switch_state = 'past_due'
 ```
 
-**Alerta legal:** O Kill-Switch deve estar explicitamente descrito nos Termos de Serviço e no Contrato assinado antes de ser activado. Responsabilidade do Diretor — o Músculo implementa, não valida a legalidade.
+**Alerta legal:** O Kill-Switch deve estar explicitamente descrito nos Termos de Serviço e no Contrato assinado antes de ser ativado. Responsabilidade do Diretor — o Músculo implementa, não valida a legalidade.
 
 ---
 
 ### LEI 7 — FREEMIUM BY DESIGN (Upgrade Constante)
 
-**O que é:** Todo projecto de Camada 1 ou 2 é entregue com funcionalidades das Camadas 3 e 4 visíveis mas inactivas (greyed-out). O software actua como isca constante para o upgrade — o cliente vê o que está a perder, não o que lhe está a ser negado.
+**O que é:** Todo projeto de Camada 1 ou 2 é entregue com funcionalidades das Camadas 3 e 4 visíveis mas inativas (greyed-out). O software actua como isca constante para o upgrade — o cliente vê o que está a perder, não o que lhe está a ser negado.
 
 **Regra arquitectural inegociável:**
-> O componente `FeatureGate` e o ficheiro `feature_flags.json` entram em todo boilerplate desde o Dia 1 — mesmo que todos os flags estejam `enabled: true` na Camada 1. Retrofitting em Camada 3 é 5× mais caro do que desenhar desde o início.
+> O componente `FeatureGate` e o arquivo `feature_flags.json` entram em todo boilerplate desde o Dia 1 — mesmo que todos os flags estejam `enabled: true` na Camada 1. Retrofitting em Camada 3 é 5× mais caro do que desenhar desde o início.
 
 **`feature_flags.json` (estrutura universal):**
 
@@ -524,13 +524,13 @@ ALTER TABLE tenant_subscriptions
 ```
 
 **Comportamento dos teasers:**
-- Botão existe mas inactivo (`opacity-40`, `cursor-not-allowed`)
+- Botão existe mas inativo (`opacity-40`, `cursor-not-allowed`)
 - Ao clicar: modal com [nome da feature] · [por que faz diferença] · [CTA de upgrade → WhatsApp/email do operador]
 - Modal gerado automaticamente a partir do `upgrade_message` no JSON — zero esforço por feature
 
-**Exemplos por tipo de projecto:**
+**Exemplos por tipo de projeto:**
 
-| Projecto (Camada 1–2) | Feature teaser (Camada 3–4) |
+| projeto (Camada 1–2) | Feature teaser (Camada 3–4) |
 |----------------------|----------------------------|
 | Site institucional | "Relatório mensal de leads com IA" |
 | E-commerce | "Recuperação de carrinho automática" |
@@ -541,7 +541,7 @@ ALTER TABLE tenant_subscriptions
 
 ### CHECKLIST DAS 7 LEIS — BLOQUEIO DE HANDOFF
 
-> Nenhum projecto avança para entrega sem todas as 7 Leis verificadas.
+> Nenhum projeto avança para entrega sem todas as 7 Leis verificadas.
 > O Músculo bloqueia o commit de entrega se qualquer Lei estiver ausente.
 
 **Adicionar ao Checklist de Handoff:**
@@ -550,11 +550,11 @@ ALTER TABLE tenant_subscriptions
 - [ ] **L3** — `sentinel_config.json` + Ticket Médio Wizard configurado + primeiro report testado em staging
 - [ ] **L4** — Sovereign Playbook gerado e entregue ao cliente (PDF confirmado)
 - [ ] **L5** — Variáveis Burn Rate no `.env` + alerta de 75% testado
-- [ ] **L6** — Kill-Switch activo + grace period 72h configurado + ToS/contrato cobre degradação
+- [ ] **L6** — Kill-Switch ativo + grace period 72h configurado + ToS/contrato cobre degradação
 - [ ] **L7** — `feature_flags.json` no boilerplate + teasers das Camadas superiores visíveis e testados
 
 ```
-ALERTA HANDOFF: [N]/7 LEIS ACTIVAS — Leis em falta: [lista]
+ALERTA HANDOFF: [N]/7 LEIS ativas — Leis em falta: [lista]
 Não avançar para entrega sem todas as 7 verificadas.
 ```
 
@@ -579,9 +579,9 @@ Guia de implementação: `SECRETARIO_VIRTUAL/SETUP_GUIDE.md`
 
 ## FASE -1 — QUALIFICAÇÃO (GO / NO-GO)
 
-> Antes de activar o Quadrilateral, verificar se o projecto merece o processo completo.
-> O Quadrilateral é um activo escasso — não desperdiçar em clientes sem clareza ou urgência.
-> **Se o Secretário Virtual estiver activo, esta fase corre automaticamente.**
+> Antes de ativar o Quadrilateral, verificar se o projeto merece o processo completo.
+> O Quadrilateral é um ativo escasso — não desperdiçar em clientes sem clareza ou urgência.
+> **Se o Secretário Virtual estiver ativo, esta fase corre automaticamente.**
 
 ### 3 Perguntas de Filtro
 
@@ -598,7 +598,7 @@ Guia de implementação: `SECRETARIO_VIRTUAL/SETUP_GUIDE.md`
 
 ### Tabela GO / NO-GO
 
-| Sinal | Decisão | Acção |
+| Sinal | Decisão | ação |
 |-------|---------|-------|
 | Problema real e específico | GO | Avançar para Fase 0 |
 | Budget compatível com o âmbito | GO | Avançar para Fase 0 |
@@ -621,33 +621,33 @@ Guia de implementação: `SECRETARIO_VIRTUAL/SETUP_GUIDE.md`
 > O Músculo não avança sem estas respostas — a análise seria sem contexto.
 
 ```
-1. PROJECTO
+1. projeto
    O que é? (ecommerce, app, site, SaaS, automação, modelo de negócio, outro?)
    Quem é o cliente ideal? Qual o mercado?
 
 2. PROBLEMA
-   Qual o maior problema que este projecto resolve HOJE?
-   Sem este projecto, o que acontece? Qual a dor concreta?
+   Qual o maior problema que este projeto resolve HOJE?
+   Sem este projeto, o que acontece? Qual a dor concreta?
 
 3. VOLUME
-   Quantos utilizadores / clientes / transacções por mês?
+   Quantos utilizadores / clientes / transações por mês?
    Pequeno: <1.000 | Médio: 1k–50k | Grande: 50k+
 
 4. RECEITA
-   Como o projecto gera dinheiro?
-   (venda directa, subscrição, comissão, publicidade, freemium, serviço?)
+   Como o projeto gera dinheiro?
+   (venda direta, subscrição, comissão, publicidade, freemium, serviço?)
    Qual o ticket médio ou revenue esperado?
 
-5. ESTADO ACTUAL
+5. ESTADO atual
    O que já existe? (código, design, domínio, contas, APIs?)
-   Qual a stack actual, se existir?
+   Qual a stack atual, se existir?
 
 6. URGÊNCIA
    Há um prazo, evento ou pressão que define a entrega?
    (lançamento, apresentação, investidor, sazonalidade?)
 
 7. RECURSOS
-   Orçamento aproximado, tempo disponível, equipa, ferramentas já pagas?
+   Orçamento aproximado, tempo disponível, equipe, ferramentas já pagas?
 ```
 
 ---
@@ -657,7 +657,7 @@ Guia de implementação: `SECRETARIO_VIRTUAL/SETUP_GUIDE.md`
 > O Músculo actua como consultor antes de actuar como executor.
 > Nenhum código antes desta análise.
 
-### Classificar o Tipo de Projecto
+### Classificar o Tipo de projeto
 
 | Tipo | Exemplos | Stack Típica |
 |------|---------|-------------|
@@ -678,7 +678,7 @@ Guia de implementação: `SECRETARIO_VIRTUAL/SETUP_GUIDE.md`
 | 2 — Produto | Produto completo, lançável ao mercado | 1–3 semanas |
 | 3 — Plataforma | Com IA, dados, automação, integrações | 2–6 semanas |
 | 4 — Ecossistema | Multi-tenant, marketplace, API pública | 1–3 meses |
-| 5 — Monopólio | Activo de sector, holding de dados | 3–6 meses |
+| 5 — Monopólio | ativo de SETOR, holding de dados | 3–6 meses |
 
 ### Inventário Antes de Construir
 
@@ -693,14 +693,14 @@ Ordem obrigatória:
 Reutilizar > Adaptar > Construir do zero.
 ```
 
-> **Princípio de Clonagem:** Um projecto que partilha camada e tipo com um projecto anterior
+> **Princípio de Clonagem:** Um projeto que partilha camada e tipo com um projeto anterior
 > não começa do zero — começa de um boilerplate. O que levaria 3 meses do zero leva
 > 1 semana clonando uma base já validada.
 
 ### Análise Crítica
 
 ```
-ANÁLISE QUADRILATERAL — [NOME / TIPO DE PROJECTO]
+ANÁLISE QUADRILATERAL — [NOME / TIPO DE projeto]
 
 TIPO: [ecommerce / app / site / SaaS / automação / outro]
 CAMADA: [1–5]
@@ -722,18 +722,18 @@ Confirmas para avançar? →
 
 ```
 ════════════════════════════════════════════════════════════
-PROJECTO CLIENTE — DIRETRIZ ESTRATÉGICA V1
+projeto CLIENTE — DIRETRIZ ESTRATÉGICA V1
 ════════════════════════════════════════════════════════════
 
-Somos o Quadrilateral IAH. Novo projecto de cliente.
+Somos o Quadrilateral IAH. Novo projeto de cliente.
 Analisa o briefing abaixo e gera a Diretriz com 5 blocos.
 
 --- BRIEFING ---
-NICHO/SECTOR: [resposta 1]
+NICHO/SETOR: [resposta 1]
 PROBLEMA PRINCIPAL: [resposta 2]
 VOLUME MENSAL: [resposta 3]
 RECEITA / TICKET MÉDIO: [resposta 4]
-ESTADO ACTUAL: [resposta 5]
+ESTADO atual: [resposta 5]
 URGÊNCIA: [resposta 6]
 RECURSOS / ORÇAMENTO: [resposta 7]
 CAMADA ESTIMADA: [1–5]
@@ -755,7 +755,7 @@ argumento de ROI em linguagem do cliente.
 BLOCO 3 — DIRETRIZ TÉCNICA PARA O MÚSCULO
 [PARA O AUDITOR]: o que conectar do histórico
 [PARA O MÚSCULO]: o que construir, em que ordem, alertas de risco
-[VISÃO DE LONGO PRAZO]: onde este projecto pode chegar em 3 iterações
+[VISÃO DE LONGO PRAZO]: onde este projeto pode chegar em 3 iterações
 
 BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR
 O que o Diretor faz nas próximas 24h para avançar.
@@ -764,15 +764,15 @@ O que o Diretor faz nas próximas 24h para avançar.
 
 ---
 
-## FASE 2 — ACTIVAÇÃO DO AUDITOR
+## FASE 2 — ativação DO AUDITOR
 
-> Esta fase é opcional mas recomendada para projectos de Camada 2+.
+> Esta fase é opcional mas recomendada para projetos de Camada 2+.
 > O Auditor cruza a estratégia com o histórico acumulado.
 > Sem esta fase, o Quadrilateral opera sem memória — o risco de repetir erros é real.
 
-**Quando activar:**
+**Quando ativar:**
 - Camada 2 ou superior
-- Projecto que partilha módulos ou tipo com projectos anteriores
+- projeto que partilha módulos ou tipo com projetos anteriores
 - Quando o Estrategista propõe algo que "parece familiar"
 
 **Comando Padrão para o Auditor:**
@@ -780,24 +780,24 @@ O que o Diretor faz nas próximas 24h para avançar.
 ```
 Actuas como Auditor do Quadrilateral IAH.
 
-Analisa o projecto [NICHO/TIPO] com estes objectivos:
+Analisa o projeto [NICHO/TIPO] com estes objetivos:
 
 1. AUDITORIA DE COERÊNCIA
    A DIRETRIZ do Estrategista está alinhada com o que foi construído antes?
    Há contradições, módulos duplicados ou riscos ignorados?
 
 2. MÓDULOS REUTILIZÁVEIS
-   Dos módulos já construídos, quais se aplicam directamente?
+   Dos módulos já construídos, quais se aplicam diretamente?
    Quais requerem adaptação? O que precisa ser construído do zero?
 
 3. ESTIMATIVA DE ESFORÇO
-   Com base em projectos similares, quantas sessões/horas são necessárias?
+   Com base em projetos similares, quantas sessões/horas são necessárias?
 
 4. GERAR SKILL TÉCNICA
    Cria a Skill de implementação para o Músculo:
    - Contexto do cliente
    - [CONEXÃO HISTÓRICA]: módulos reutilizáveis com localização
-   - [PADRÃO DE SUCESSO]: o que funcionou em projectos similares
+   - [PADRÃO DE SUCESSO]: o que funcionou em projetos similares
    - [PADRÃO DE FALHA]: o que falhou e deve ser evitado
    - Sequência de builds recomendada
    - Alertas críticos
@@ -814,7 +814,7 @@ Fontes disponíveis: [lista de MEMORIAs e relatórios carregados]
 > Sem plano confirmado pelo Diretor → sem execução.
 
 ```
-PLANO DE BUILD — [ITERAÇÃO] — [NOME DO PROJECTO]
+PLANO DE BUILD — [ITERAÇÃO] — [NOME DO projeto]
 
 Stack: [tecnologias confirmadas]
 
@@ -826,7 +826,7 @@ Total: [X horas / sessões]
 O que NÃO será construído nesta iteração: [e porquê]
 Dívidas técnicas previstas: [P0/P1/P2 ou NENHUMA]
 
-Regras activas:
+Regras ativas:
 - LGPD/GDPR por design
 - Sem variáveis de ambiente no código
 - Sem commit sem Veredito do Diretor
@@ -872,9 +872,9 @@ Aguardo confirmação do Diretor. →
 
 ### Documentação Obrigatória ao Fechar
 
-**MEMORIA_V[X]_[PROJECTO].md:**
+**MEMORIA_V[X]_[projeto].md:**
 ```markdown
-# MEMÓRIA V[X] — [PROJECTO] — [MISSÃO]
+# MEMÓRIA V[X] — [projeto] — [MISSÃO]
 Data: [data]   Tipo: [tipo]   Camada: [1–5]   Stack: [tecnologias]
 
 ## O Que Foi Construído
@@ -890,15 +890,15 @@ Data: [data]   Tipo: [tipo]   Camada: [1–5]   Stack: [tecnologias]
 [recomendações com impacto estimado]
 ```
 
-**relatorio_evolutivo_V[X]_[PROJECTO].md:**
+**relatorio_evolutivo_V[X]_[projeto].md:**
 ```markdown
-# RELATÓRIO V[X] — [PROJECTO]
+# RELATÓRIO V[X] — [projeto]
 
 ## O Que Foi Construído [em linguagem de negócio]
 
 ## Análise de Negócio
 ### Pontos Fortes [3–5]
-### Pontos Fracos e Riscos [2–4 com acção correctiva]
+### Pontos Fracos e Riscos [2–4 com ação correctiva]
 ### Avaliação do Consultor [Nota A/B/C + justificação]
 
 ## ROI Estimado [investimento vs retorno esperado]
@@ -913,7 +913,7 @@ Data: [data]   Tipo: [tipo]   Camada: [1–5]   Stack: [tecnologias]
 ```
 Documento pré-formatado que o Diretor copia e cola no Estrategista para iniciar
 a próxima iteração. Inclui: MEMORIA + relatorio + pedido dos 5 blocos de DIRETRIZ.
-O Director não precisa formatar nada — copia e cola.
+O diretor não precisa formatar nada — copia e cola.
 ```
 
 ### Checklist de Handoff ao Cliente
@@ -922,7 +922,7 @@ O Director não precisa formatar nada — copia e cola.
 - [ ] Domínio e hospedagem no nome do cliente — nunca no nome de quem construiu
 - [ ] Todas as contas de serviço externo em nome do cliente
 - [ ] Credenciais entregues por canal seguro (nunca por email)
-- [ ] Repositório git transferido ou acesso partilhado
+- [ ] Repositório git transferido ou acesso comCompartilhado
 
 **Documentação:**
 - [ ] README com instruções de operação diária
@@ -943,8 +943,8 @@ O Director não precisa formatar nada — copia e cola.
 
 - [ ] Sem variáveis de ambiente hardcoded
 - [ ] Consentimento de privacidade implementado onde necessário
-- [ ] `.env.example` actualizado com todas as variáveis
-- [ ] README actualizado
+- [ ] `.env.example` atualizado com todas as variáveis
+- [ ] README atualizado
 - [ ] Nenhuma dívida P0 não declarada
 - [ ] Caminho principal testado e funcional
 
@@ -958,7 +958,7 @@ O Director não precisa formatar nada — copia e cola.
 ```
 PLAN  → Estrategista gera DIRETRIZ
         Inclui obrigatoriamente:
-        · Diagnóstico do estado actual
+        · Diagnóstico do estado atual
         · 3 prioridades em ordem de impacto comercial
         · [PARA O AUDITOR]: o que conectar do histórico
         · [PARA O MÚSCULO]: o que construir e a visão por trás
@@ -1008,7 +1008,7 @@ ACT   → Diretor decide o próximo passo
 Todo módulo construído deve ter:
 1. **Log de evento** — registo do que aconteceu
 2. **Métrica derivada** — síntese que mede a qualidade
-3. **Acção correctiva** — mecanismo que usa a métrica
+3. **ação correctiva** — mecanismo que usa a métrica
 
 Módulos sem feedback loop = dívida P2 automática.
 
@@ -1047,7 +1047,7 @@ Diretor confirma? ─── NÃO → ajustar → re-apresentar
      SIM
       │
       ▼
-FASE 4 — Execução (com alertas activos + postura de Arquitecto-Mestre)
+FASE 4 — Execução (com alertas ativos + postura de Arquitecto-Mestre)
       │
       ▼
 FASE 5 — Fechamento (MEMORIA + relatorio + COMANDO_ESTRATEGISTA + Handoff)
@@ -1064,20 +1064,20 @@ PRÓXIMA ITERAÇÃO — o loop fecha mais rico do que abriu
 
 ```
 Músculo — sessão nova.
-Contexto: [NOME DO PROJECTO], Camada [X], iteração V[Y].
-Estado actual: [o que foi feito em 3 bullets].
+Contexto: [NOME DO projeto], Camada [X], iteração V[Y].
+Estado atual: [o que foi feito em 3 bullets].
 Próximo passo: [o que começa agora].
-[Lê a Skill antes de qualquer acção.]
+[Lê a Skill antes de qualquer ação.]
 ```
 
 ### Quando o Músculo encerra sem terminar
 
 ```
-ESTADO ACTUAL — [DATA/HORA]
+ESTADO atual — [DATA/HORA]
 Módulo 1: [nome] — COMPLETO
 Módulo 2: [nome] — EM CURSO — [o que falta]
 Módulo 3: [nome] — NÃO INICIADO
-Próximo passo ao retomar: [acção exacta]
+Próximo passo ao retomar: [ação exata]
 Bloqueios pendentes: [lista ou "nenhum"]
 ```
 
@@ -1144,10 +1144,10 @@ Sempre apresentar duas opções. O cliente decide o ritmo. O Quadrilateral decid
 ### Versão Curta (60 segundos)
 
 ```
-"A maioria das agências tem um developer e um gestor de projecto.
+"A maioria das agências tem um developer e um gestor de projeto.
 Nós operamos de forma diferente.
 
-Cada projecto passa por três análises em paralelo:
+Cada projeto passa por três análises em paralelo:
 uma estratégica, uma de auditoria histórica, e uma de execução técnica.
 O Diretor coordena as três e toma o veredito final.
 
@@ -1166,7 +1166,7 @@ um Estrategista, um Auditor com memória histórica, um Executor técnico,
 e o Diretor com poder de veredito.
 
 Nenhum código é escrito sem plano validado.
-Nenhum projecto fecha sem documentação que o cliente leva consigo.
+Nenhum projeto fecha sem documentação que o cliente leva consigo.
 O Músculo não executa cegamente — questiona antes de construir.
 
 A diferença: uma agência executa o que o cliente pede.
@@ -1186,9 +1186,9 @@ porque construir a coisa errada com perfeição é o maior desperdício possíve
 
 ## ESCALONAMENTO DE PROBLEMAS
 
-| Situação | Quem resolve | Acção |
+| Situação | Quem resolve | ação |
 |----------|-------------|-------|
-| Cliente muda o gargalo a meio do projecto | Diretor | Voltar à Fase 0 — novas 7 perguntas |
+| Cliente muda o gargalo a meio do projeto | Diretor | Voltar à Fase 0 — novas 7 perguntas |
 | Músculo detecta risco não previsto | Músculo → Diretor | ALERTA antes de construir |
 | Estrategista propõe módulo já existente | Músculo | Informar Diretor — reutilizar |
 | Prazo em risco | Diretor | Negociar com cliente — reduzir âmbito |
@@ -1201,35 +1201,35 @@ porque construir a coisa errada com perfeição é o maior desperdício possíve
 
 ## PROTOCOLO DE ESCALABILIDADE DO OPERADOR
 
-> O Quadrilateral começa com 1 Diretor. Pode escalar para N Directores.
+> O Quadrilateral começa com 1 Diretor. Pode escalar para N diretores.
 > O repositório é a "franquia documentada" — quem tem acesso às MEMORIAs e à Skill
-> pode operar como Diretor em projectos similares sem começar do zero.
+> pode operar como Diretor em projetos similares sem começar do zero.
 
 ### Fase 1 — Solo (início)
 
 ```
 1 Diretor + 3 inteligências
-Capacidade: 2–3 projectos simultâneos
+Capacidade: 2–3 projetos simultâneos
 O Diretor faz tudo: vendas, discovery, veredito, handoff
 ```
 
-O que fazer para crescer: documentar cada projecto com MEMORIA + relatorio.
-Cada iteração entregue é um activo — não é só um projecto concluído.
+O que fazer para crescer: documentar cada projeto com MEMORIA + relatorio.
+Cada iteração entregue é um ativo — não é só um projeto concluído.
 O repositório acumulado é o que torna a Fase 2 possível.
 
 ### Fase 2 — Assistente (6–12 meses)
 
 ```
 1 Diretor Sénior + 1 Assistente treinado + 3 inteligências
-O Assistente opera como Diretor Júnior em projectos de Camada 1–2
-Capacidade combinada: 4–6 projectos simultâneos
+O Assistente opera como Diretor Júnior em projetos de Camada 1–2
+Capacidade combinada: 4–6 projetos simultâneos
 ```
 
 **Como treinar o Assistente:**
-1. Acesso ao repositório completo — o conhecimento está nos ficheiros, não na cabeça
-2. 4 sessões de 2h observando o Diretor Sénior em projecto real (discovery + veredito)
-3. 2 projectos de Camada 1 sob supervisão directa
-4. Autonomia progressiva: Camada 1 → Camada 2 → projectos independentes
+1. Acesso ao repositório completo — o conhecimento está nos arquivos, não na cabeça
+2. 4 sessões de 2h observando o Diretor Sénior em projeto real (discovery + veredito)
+3. 2 projetos de Camada 1 sob supervisão direta
+4. Autonomia progressiva: Camada 1 → Camada 2 → projetos independentes
 
 **O que o Assistente NÃO faz sem supervisão:**
 - Vereditos sobre Camada 3+
@@ -1246,30 +1246,30 @@ Cada licenciado opera o seu próprio Quadrilateral para os seus clientes.
 **O que a licença inclui:**
 - Repositório de boilerplates por tipo e camada
 - Skill universal (este protocolo) configurada para o licenciado
-- MEMORIAs anonimizadas dos projectos anteriores (padrões sem dados de clientes)
+- MEMORIAs anonimizadas dos projetos anteriores (padrões sem dados de clientes)
 - 4 sessões de formação: processo + operação + comercial
 - Acesso ao Auditor central (histórico de padrões acumulados)
 
 **O que o licenciado recebe ao operar:**
 - Atalhos que levaram N iterações para ser descobertos
 - Padrões de falha já documentados — não precisa repetir os mesmos erros
-- Biblioteca de Padrões pré-preenchida com projectos reais
+- Biblioteca de Padrões pré-preenchida com projetos reais
 
 ### Fase 4 — Plataforma IAH (produto)
 
 ```
 A metodologia vira um produto SaaS.
-Outros Directores usam a plataforma com os seus próprios clientes.
+Outros diretores usam a plataforma com os seus próprios clientes.
 ```
 
 **O que a plataforma oferece:**
-- Auditor centralizado com histórico de todos os projectos (com consentimento)
+- Auditor centralizado com histórico de todos os projetos (com consentimento)
 - Músculo pré-configurado com a Skill universal
-- Biblioteca de Padrões alimentada por todos os Directores da rede
+- Biblioteca de Padrões alimentada por todos os diretores da rede
 - Dashboard de métricas por Diretor e por cliente
 
 **O efeito de rede:** cada Diretor que entra torna o Auditor mais inteligente para todos.
-Os padrões de um projecto em SP alimentam as estimativas de um projecto em Lisboa.
+Os padrões de um projeto em SP alimentam as estimativas de um projeto em Lisboa.
 A memória institucional deixa de ser local — passa a ser colectiva.
 
 ---
@@ -1295,7 +1295,7 @@ A memória institucional deixa de ser local — passa a ser colectiva.
 
 ---
 
-## ESTRUTURA DE PASTAS — QUALQUER PROJECTO
+## ESTRUTURA DE PASTAS — QUALQUER projeto
 
 ```
 CLIENTES/
@@ -1313,7 +1313,7 @@ CLIENTES/
     │   ├── mobile/
     │   └── infra/
     └── CONSELHO/
-        ├── Auditor/                      ← ficheiros para o Auditor
+        ├── Auditor/                      ← arquivos para o Auditor
         └── Estrategista/                 ← comandos para o Estrategista
 ```
 
@@ -1330,7 +1330,7 @@ O que não se copia em semanas é o que o Quadrilateral acumula ao longo de N it
 os padrões de sucesso indexados, os erros documentados, os módulos reutilizáveis,
 as estimativas calibradas com a realidade.
 
-Cada iteração entregue torna o próximo projecto mais rápido e mais preciso.
+Cada iteração entregue torna o próximo projeto mais rápido e mais preciso.
 Não linearmente — exponencialmente. Porque o Auditor guarda tudo.
 Porque o Músculo aprende a não repetir o que falhou.
 Porque o Estrategista recebe feedback real do que funcionou no mercado.
@@ -1341,13 +1341,13 @@ O Músculo vê o sistema e restringe — isso é necessário.
 A maioria dos sistemas de IA tem só um dos dois. O resultado é ou código sem direcção
 ou estratégia sem execução. O Quadrilateral tem os dois em tensão permanente.
 
-**O Director decide com informação real.**
+**O diretor decide com informação real.**
 Não com intuição, não com pressão do cliente, não com entusiasmo do Estrategista.
 Com o contexto histórico do Auditor, a avaliação técnica do Músculo
 e a visão de mercado do Estrategista — integrados, contrapostos, filtrados.
 
-O cliente contrata uma solução. Recebe um activo.
-O Quadrilateral entrega um projecto. Retém a inteligência.
+O cliente contrata uma solução. Recebe um ativo.
+O Quadrilateral entrega um projeto. Retém a inteligência.
 E não esquece.
 
 ---
@@ -1366,18 +1366,18 @@ E não esquece.
 | **[CONEXÃO HISTÓRICA]** | Marcação na Skill: módulo reutilizável identificado pelo Auditor |
 | **[PADRÃO DE SUCESSO]** | Marcação na Skill: o que funcionou e pode ser expandido |
 | **[VISÃO LMM]** | Marcação no relatório: expandindo a ideia do Estrategista com visão técnica |
-| **MEMORIA_Vx** | Documento técnico de cada iteração — memória viva do projecto |
+| **MEMORIA_Vx** | Documento técnico de cada iteração — memória viva do projeto |
 | **relatorio_evolutivo** | Análise de negócio + [VISÃO LMM] — alimenta o próximo ciclo do Estrategista |
 | **COMANDO_ESTRATEGISTA** | Documento auto-gerado pelo Músculo ao fechar — pronto para o Diretor colar |
 | **Produto de Entrada** | Diagnóstico + Roadmap sem build — qualifica clientes sem clareza |
-| **Camada** | Nível de complexidade do projecto (1 — MVP a 5 — Monopólio) |
+| **Camada** | Nível de complexidade do projeto (1 — MVP a 5 — Monopólio) |
 | **Dívida P0** | Problema crítico que bloqueia produção — resolve antes de qualquer feature |
-| **Feedback Loop** | Log + Métrica + Acção correctiva — obrigatório em cada módulo |
+| **Feedback Loop** | Log + Métrica + ação correctiva — obrigatório em cada módulo |
 | **Handoff** | Entrega ao cliente com tudo para operar de forma autónoma |
 | **Retainer** | Mensalidade de operação e evolução contínua pós-entrega |
-| **Skill** | Ficheiro `.md` que instrui o Músculo sobre contexto e regras do projecto |
+| **Skill** | arquivo `.md` que instrui o Músculo sobre contexto e regras do projeto |
 | **Arquitecto-Mestre** | O papel do Músculo: não só executor — avalia, propõe, expande, protege |
-| **Clonagem** | Usar boilerplate de projectos anteriores para acelerar novos projectos similares |
+| **Clonagem** | Usar boilerplate de projetos anteriores para acelerar novos projetos similares |
 
 ---
 
@@ -1395,4 +1395,4 @@ E não esquece.
 *Documento do Quadrilateral IAH · Modelo Universal v2.0*
 *Portátil: funciona independentemente do operador, das ferramentas e da empresa*
 *Pode ser apresentado ao cliente como metodologia — não revela detalhes operacionais*
-*Próxima revisão: após o primeiro projecto de cliente concluído com esta versão*
+*Próxima revisão: após o primeiro projeto de cliente concluído com esta versão*
