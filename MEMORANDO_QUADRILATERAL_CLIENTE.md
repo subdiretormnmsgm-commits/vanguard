@@ -255,6 +255,90 @@ O Quadrilateral aplica-se a projectos de qualquer camada. Antes de iniciar, clas
 
 ---
 
+## FASE -1 — QUALIFICAÇÃO DO CLIENTE (GO / NO-GO)
+
+> Antes de activar o Quadrilateral, verificar se o cliente é qualificado.
+> O Quadrilateral é um activo escasso — não desperdiçar em clientes sem clareza, sem urgência ou sem budget.
+
+### 3 Perguntas de Filtro Rápido
+
+```
+1. "Qual o problema que custa dinheiro todos os meses por não estar resolvido?"
+   → Sem resposta clara: NO-GO. Falta diagnóstico.
+
+2. "Qual o investimento que faz sentido para resolver este problema?"
+   → "O mínimo possível": NO-GO. Não vê valor.
+
+3. "O que acontece se não resolver isto nos próximos 3 meses?"
+   → "Nada": NO-GO. Sem urgência real.
+```
+
+### Critérios GO / NO-GO
+
+| Sinal | GO / NO-GO | Acção |
+|-------|-----------|-------|
+| Problema real e específico | GO | Avançar para Fase 0 |
+| Budget compatível com Camada 1+ | GO | Avançar para Fase 0 |
+| Urgência real (prazo, evento, perda) | GO | Avançar para Fase 0 |
+| Fala com o decisor | GO | Avançar para Fase 0 |
+| "Quero só um site barato" | NO-GO | Oferecer Sprint Discovery R$1.500 |
+| Sem urgência declarada | NO-GO | Sprint Discovery antes de qualquer build |
+| Intermediário sem poder de decisão | NO-GO | Exigir reunião com o decisor |
+| Budget < R$1.500 para projecto Camada 2+ | NO-GO | Redefinir âmbito ou recusar |
+
+---
+
+## PITCH DO MODELO IAH — 60 SEGUNDOS PARA O CLIENTE
+
+> Eduardo usa em reunião de apresentação, antes de qualquer proposta.
+> O cliente não precisa de saber os detalhes — precisa de sentir a diferença.
+
+### Versão Curta (call ou reunião de 15 min)
+
+```
+"A maioria das agências tem um developer e um gestor de projecto.
+Nós operamos de forma diferente.
+
+Cada projecto passa por três análises em paralelo:
+uma estratégica, uma de auditoria histórica, e uma de execução técnica.
+O Eduardo coordena as três e toma o veredito final.
+
+O resultado: antes de escrevermos uma linha de código,
+já sabemos o que não construir, o que pode ser reutilizado,
+e qual o retorno esperado do investimento.
+
+Entregamos mais rápido porque não construímos o que não precisa de existir."
+```
+
+### Versão Completa (proposta formal)
+
+```
+"Trabalhamos com um modelo chamado IAH — Inteligência Artificial Humana.
+Quatro membros com papéis fixos:
+
+→ O Estrategista analisa o mercado e propõe o que construir
+→ O Auditor cruza a proposta com o histórico de projectos anteriores
+   e identifica riscos antes de qualquer execução
+→ O Músculo executa — código, design, integrações, deploy
+→ O Diretor (Eduardo) toma todas as decisões finais
+
+Nenhum código é escrito sem plano validado.
+Nenhum projecto fecha sem documentação que o cliente leva consigo.
+
+A diferença: uma agência executa o que o cliente pede.
+Nós questionamos o que o cliente pede antes de executar —
+porque construir a coisa errada com perfeição é o maior desperdício possível."
+```
+
+### Regras do Pitch
+
+- ❌ Nunca mencionar ferramentas pelo nome (Gemini, Claude, NotebookLM)
+- ❌ Nunca dizer "usamos inteligência artificial" — genérico, sem impacto
+- ✅ Sempre falar em resultado e ROI com números reais do cliente
+- ✅ A proposta tem sempre duas opções: entrada (menor) e completo
+
+---
+
 ## FASE 0 — DIRETRIZ ZERO (Pré-Projecto)
 
 **Quem actua:** Eduardo (Diretor)
@@ -621,6 +705,30 @@ Antes do commit e entrega, Claude executa:
 ## Plano Imediato
 [Numerado, com responsável — Eduardo vs Claude]
 ```
+
+### 4.3.1 — Checklist de Handoff ao Cliente
+
+> O cliente deve sair com tudo o que precisa para operar sem depender de Eduardo.
+
+**Acesso e Credenciais:**
+- [ ] Domínio apontado para o cliente (não para a Vanguard)
+- [ ] Contas criadas no nome do cliente — nunca no nome da Vanguard
+- [ ] `.env` com variáveis preenchidas entregue por canal seguro (nunca por email)
+- [ ] Acesso ao repositório git transferido ou partilhado
+
+**Documentação:**
+- [ ] `README.md` com instruções de instalação, deploy e operação
+- [ ] Lista de todos os serviços externos e custos mensais
+- [ ] Instruções para renovar chaves de API quando expirarem
+
+**Formação:**
+- [ ] Sessão de entrega (30–60 min) onde o cliente opera o sistema ao vivo
+- [ ] Contacto de suporte definido (retainer ou por hora)
+
+**Comercial:**
+- [ ] `relatorio_evolutivo` da iteração final entregue ao cliente (em linguagem de negócio)
+- [ ] Próxima iteração proposta (upsell ou retainer)
+- [ ] Testemunho / feedback pedido ao cliente
 
 ### 4.4 — Ritual de Fechamento do Círculo (Eduardo)
 
@@ -1035,6 +1143,7 @@ O Quadrilateral aprende. E não esquece.
 | 1.0 | 2026-05-10 | Criação inicial — síntese de 23 versões de aprendizagem interna |
 | 1.1 | 2026-05-10 | Adicionado: Protocolo de Debate Formal, PDCA Institucional, Loop de Interações, exemplos históricos |
 | 1.2 | 2026-05-11 | Actualizado: inventário de módulos V24 (Calculadora LER + System HUD + 22 módulos), debates V24 (Trojan adiado, LER aprovada, HUD escolhido), protocolo de actualização permanente activado |
+| 1.3 | 2026-05-11 | Adicionado: Fase -1 (qualificação GO/NO-GO), Pitch IAH 60 segundos, Checklist de Handoff ao Cliente |
 
 ---
 
