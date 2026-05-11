@@ -11,10 +11,10 @@
   <meta name="theme-color" content="#00F0FF">
   <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
 
-  <!-- Fonts V22: Chakra Petch (HUD) + DM Sans (body) + JetBrains Mono (data) -->
+  <!-- Fonts V25: Syne 800 (display) + Space Grotesk (body) + JetBrains Mono (data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- White-Label brand override (injected by Docker entrypoint) -->
   <script src="/brand-config.js" onerror="void(0)"></script>
@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/assets/css/hud.css">
   <link rel="stylesheet" href="/assets/css/v16-elite.css">
   <link rel="stylesheet" href="/assets/css/v22-sovereign.css">
+  <link rel="stylesheet" href="/assets/css/v25-sovereign-ui.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="/assets/js/neural-v-logo.js"></script>
   <style>
@@ -34,7 +35,10 @@
 </head>
 <body>
 
-
+  <!-- Noise texture overlay (opacity set by JS) -->
+  <div class="vg-noise" aria-hidden="true"></div>
+  <!-- Noise source canvas (hidden, used once to generate data URL) -->
+  <canvas id="vg-noise-canvas" style="display:none" aria-hidden="true"></canvas>
 
   <!-- ─── NAVBAR ──────────────────────────────────────────────────────── -->
   <nav class="navbar" role="navigation" aria-label="Navegação principal">
@@ -92,6 +96,20 @@
     </div>
   </div>
 
+  <!-- ─── DATA TICKER ─────────────────────────────────────────────────── -->
+  <div class="vg-ticker" aria-hidden="true">
+    <div class="vg-ticker__track">
+      <span class="vg-ticker__item"><strong>[FIRE EVENT DETECTED]</strong><span class="vg-ticker__dot"></span>ADVOCACIA · SP · SCORE 9.1</span>
+      <span class="vg-ticker__item"><strong>[REVENUE AT RISK: R$ 38.400]</strong><span class="vg-ticker__dot"></span>DIAGNÓSTICO CONCLUÍDO</span>
+      <span class="vg-ticker__item"><strong>[ORACLE CONFIDENCE: 99.2%]</strong><span class="vg-ticker__dot"></span>6 DIMENSÕES ANALISADAS</span>
+      <span class="vg-ticker__item"><strong>[SENTINEL ONLINE]</strong><span class="vg-ticker__dot"></span>47 EMPRESAS MONITORADAS · TEMPO REAL</span>
+      <span class="vg-ticker__item"><strong>[HERMES ATIVO]</strong><span class="vg-ticker__dot"></span>23 LEADS GERADOS HOJE · TAXA 68%</span>
+      <span class="vg-ticker__item"><strong>[MATURITY SCORE: 8.4]</strong><span class="vg-ticker__dot"></span>TOP 15% DO SETOR · ACIMA DA MÉDIA</span>
+      <span class="vg-ticker__item"><strong>[GARGALO CRÍTICO]</strong><span class="vg-ticker__dot"></span>CONVERSÃO ABAIXO DO MERCADO · PLANO EM 4 MIN</span>
+      <span class="vg-ticker__item"><strong>[BURN RATE: R$ 0,28/LEAD]</strong><span class="vg-ticker__dot"></span>BENCHMARK SETOR: R$ 4,20</span>
+    </div>
+  </div>
+
   <!-- ─── HERO ────────────────────────────────────────────────────────── -->
   <section class="hero" id="home" aria-labelledby="hero-title">
     <canvas id="neural-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.55"></canvas>
@@ -120,6 +138,7 @@
         <div class="hero__cta">
           <a href="#quiz" class="btn btn--primary btn--xl">
             Diagnosticar o meu negócio →
+            <span class="btn-veredito">✦ ACESSO LIBERADO</span>
           </a>
           <a href="#features" class="btn btn--ghost btn--lg">
             Ver como funciona
@@ -153,19 +172,19 @@
             <div class="terminal__metrics">
               <div class="terminal__metric">
                 <span class="terminal__metric-label">NEGÓCIOS ANALISADOS</span>
-                <span class="terminal__metric-value" data-count="127">127</span>
+                <span class="terminal__metric-value" data-count="127" data-vg-meta="INT · SENTINEL API · LIVE">127</span>
               </div>
               <div class="terminal__metric">
                 <span class="terminal__metric-label">SCORE MÉDIO</span>
-                <span class="terminal__metric-value">7.8<sup>/10</sup></span>
+                <span class="terminal__metric-value" data-vg-meta="FLOAT · PRECISION 0.1 · CALCULADO">7.8<sup>/10</sup></span>
               </div>
               <div class="terminal__metric">
                 <span class="terminal__metric-label">PLANOS GERADOS</span>
-                <span class="terminal__metric-value" data-count="127">127</span>
+                <span class="terminal__metric-value" data-count="127" data-vg-meta="INT · RELATÓRIO GERADO · ACUMULADO">127</span>
               </div>
               <div class="terminal__metric">
                 <span class="terminal__metric-label">SESSÕES FIRE HOJE</span>
-                <span class="terminal__metric-value" data-count="119">119</span>
+                <span class="terminal__metric-value" data-count="119" data-vg-meta="INT · FIRE EVENT · SCORE ≥ 8.5">119</span>
               </div>
             </div>
             <div class="terminal__divider"></div>
@@ -375,22 +394,22 @@
       <div class="steps">
         <div class="step">
           <div class="step__num">01</div>
-          <h3 class="step__title">Mapeamento</h3>
+          <h3 class="step__title" data-forge>Mapeamento</h3>
           <p class="step__desc">Identificamos negócios no seu nicho e cidade com potencial de crescimento.</p>
         </div>
         <div class="step">
           <div class="step__num">02</div>
-          <h3 class="step__title">Diagnóstico</h3>
+          <h3 class="step__title" data-forge>Diagnóstico</h3>
           <p class="step__desc">Nossos especialistas analisam o site e identificam os 3 gargalos mais custosos.</p>
         </div>
         <div class="step">
           <div class="step__num">03</div>
-          <h3 class="step__title">Inteligência</h3>
+          <h3 class="step__title" data-forge>Inteligência</h3>
           <p class="step__desc">Lead, análise e plano de ação ficam disponíveis em tempo real no seu painel.</p>
         </div>
         <div class="step">
           <div class="step__num">04</div>
-          <h3 class="step__title">Hermes Atua</h3>
+          <h3 class="step__title" data-forge>Hermes Atua</h3>
           <p class="step__desc">O consultor detecta o lead e entrega a mensagem certa via WhatsApp — sem esforço.</p>
         </div>
       </div>
@@ -807,8 +826,9 @@
           <li>Pixel de comportamento instalado</li>
           <li>Marca 100% proprietária</li>
         </ul>
-        <a href="#quiz" class="pricing-cta pricing-cta--cyan">
+        <a href="#quiz" class="btn btn--primary pricing-cta pricing-cta--cyan">
           Começar diagnóstico gratuito →
+          <span class="btn-veredito">✦ DIAGNÓSTICO ATIVO</span>
         </a>
       </div>
 
@@ -938,6 +958,7 @@
   </button>
 
   <!-- ─── Scripts ──────────────────────────────────────────────────────── -->
+  <script src="/js/v25-sovereign.js"></script>
   <script src="/js/supabase-lib.js"></script>
   <script src="/js/supabase.js"></script>
   <script src="/js/quiz.js"></script>

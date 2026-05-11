@@ -4,8 +4,8 @@
    Fonts: Chakra Petch (HUD headlines) · DM Sans (body) · JetBrains Mono (data)
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ─── Font Imports ───────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+/* ─── Font Imports — substituídos por Syne + Space Grotesk em v25 ───────── */
+/* @import Chakra Petch + DM Sans removido — V25 */
 
 /* ─── Token Override ─────────────────────────────────────────────────────────── */
 :root {
@@ -67,91 +67,123 @@ body::after {
     radial-gradient(ellipse 55% 35% at 85% 85%, rgba(26, 11, 46, 0.55) 0%, transparent 65%);
 }
 
-/* ─── Global Scan Line ───────────────────────────────────────────────────────── */
-@keyframes scanSweep {
-  0%   { transform: translateY(-4px); opacity: 0; }
-  5%   { opacity: 0.4; }
-  95%  { opacity: 0.4; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
+/* scan-overlay removido V24 — substituído pelo sys-hud */
 
-.scan-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--c-cyan) 40%, rgba(0, 240, 255, 0.6) 50%, var(--c-cyan) 60%, transparent 100%);
-  animation: scanSweep 10s linear infinite;
-  pointer-events: none;
-  z-index: 9998;
-}
-
-/* ─── Intel Ticker ───────────────────────────────────────────────────────────── */
-.intel-ticker {
-  position: relative;
-  background: linear-gradient(90deg, var(--c-void), rgba(0, 240, 255, 0.03), var(--c-void));
-  border-bottom: 1px solid var(--c-border);
-  padding: 7px 0;
-  overflow: hidden;
-  z-index: 50;
-}
-
-.intel-ticker__label {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
+/* ─── System HUD (V24 — substitui Intel Ticker) ─────────────────────────────── */
+.sys-hud {
   display: flex;
   align-items: center;
-  padding: 0 1.25rem;
-  background: var(--c-cyan);
-  color: #000;
-  font-family: var(--ff-mono);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  z-index: 2;
-  white-space: nowrap;
+  justify-content: center;
+  gap: 0;
+  background: linear-gradient(90deg, var(--c-void), rgba(0, 240, 255, 0.04), var(--c-void));
+  border-bottom: 1px solid var(--c-border);
+  padding: 0;
+  height: 36px;
+  z-index: 49;
+  position: sticky;
+  top: 71px;
+  overflow: hidden;
 }
 
-.intel-ticker__track {
+.sys-hud::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 120px,
+    rgba(0, 240, 255, 0.015) 120px,
+    rgba(0, 240, 255, 0.015) 121px
+  );
+  pointer-events: none;
+}
+
+.sys-hud__node {
   display: flex;
-  animation: tickerScroll 40s linear infinite;
-  padding-left: 130px;
-  will-change: transform;
-}
-
-@keyframes tickerScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.intel-ticker__item {
-  white-space: nowrap;
+  align-items: center;
+  gap: 6px;
+  padding: 0 1.4rem;
+  height: 100%;
   font-family: var(--ff-mono);
   font-size: 10px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transition: background 0.3s;
+}
+
+.sys-hud__node:hover {
+  background: rgba(0, 240, 255, 0.04);
+}
+
+.sys-hud__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sys-hud__node--active .sys-hud__dot {
+  background: var(--c-cyan);
+  box-shadow: 0 0 6px var(--c-cyan);
+  animation: hudPulse 2s ease-in-out infinite;
+}
+
+.sys-hud__node--standby .sys-hud__dot {
+  background: #f0a500;
+  box-shadow: 0 0 4px #f0a500;
+  animation: hudPulse 3.5s ease-in-out infinite;
+}
+
+.sys-hud__node--scan .sys-hud__dot {
+  background: #00ff88;
+  box-shadow: 0 0 5px #00ff88;
+  animation: hudPulse 1s ease-in-out infinite;
+}
+
+.sys-hud__node--shield .sys-hud__dot {
+  background: #a78bfa;
+  box-shadow: 0 0 4px #a78bfa;
+  animation: hudPulse 4s ease-in-out infinite;
+}
+
+@keyframes hudPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(0.75); }
+}
+
+.sys-hud__label {
   color: var(--c-muted);
-  padding: 0 3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  letter-spacing: 0.04em;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.intel-ticker__item strong {
-  color: var(--c-gold);
-  font-weight: 600;
-}
-
-.intel-ticker__item .sep {
-  color: var(--c-border);
-  padding: 0 0.5rem;
-}
-
-.intel-ticker__item .fire {
+.sys-hud__value {
   color: var(--c-cyan);
+  font-weight: 600;
+  font-size: 11px;
   letter-spacing: 0.06em;
+}
+
+.sys-hud__node--standby .sys-hud__value {
+  color: #f0a500;
+}
+
+.sys-hud__node--shield .sys-hud__value {
+  color: #a78bfa;
+}
+
+.sys-hud__unit {
+  color: var(--c-muted);
+  font-size: 9px;
+}
+
+.sys-hud__divider {
+  width: 1px;
+  height: 16px;
+  background: var(--c-border);
+  flex-shrink: 0;
 }
 
 /* ─── Navbar V22 ─────────────────────────────────────────────────────────────── */
@@ -1026,7 +1058,146 @@ body::after {
     padding: 5rem 1.25rem;
   }
 
-  .intel-ticker {
+  .sys-hud {
     display: none;
   }
+}
+
+/* ─── V24: Calculadora de Lucro em Risco ────────────────────────────────────── */
+.quiz__quad-badge--fire {
+  background: rgba(220, 60, 60, 0.12);
+  color: #ff6b6b;
+  border: 1px solid rgba(220, 60, 60, 0.3);
+}
+
+.quiz__risk-calc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.quiz__input-wrap--currency {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.quiz__input-wrap--currency:focus-within {
+  border-color: var(--c-cyan);
+  box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.08);
+}
+
+.quiz__currency-prefix,
+.quiz__currency-suffix {
+  padding: 0 0.85rem;
+  font-family: var(--ff-mono);
+  font-size: 13px;
+  color: var(--c-cyan);
+  white-space: nowrap;
+  background: rgba(0, 240, 255, 0.04);
+}
+
+.quiz__input--number {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-align: right;
+  font-family: var(--ff-mono);
+  font-size: 18px;
+  color: #fff;
+  flex: 1;
+  min-width: 0;
+  padding: 0.85rem 0.5rem !important;
+}
+
+.quiz__input--number::-webkit-inner-spin-button,
+.quiz__input--number::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+.quiz__risk-preview {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  animation: fadeUp 0.3s ease;
+}
+
+.quiz__risk-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--ff-mono);
+  font-size: 12px;
+}
+
+.quiz__risk-label { color: var(--c-muted); }
+.quiz__risk-val--neutral { color: #aaa; }
+.quiz__risk-val--danger  { color: #ff6b6b; font-weight: 700; }
+.quiz__risk-val--green   { color: #00ff88; font-weight: 700; font-size: 14px; }
+
+/* ─── V24: Bloco LER na preview ────────────────────────────────────────────── */
+.quiz__lucro-em-risco {
+  background: linear-gradient(135deg, rgba(220,60,60,0.06), rgba(0,240,255,0.04));
+  border: 1px solid rgba(220, 60, 60, 0.25);
+  border-radius: 4px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.quiz__ler-title {
+  font-family: var(--ff-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff6b6b;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
+}
+
+.quiz__ler-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 13px;
+  color: var(--c-muted);
+}
+
+.quiz__ler-row strong { color: #fff; font-family: var(--ff-mono); }
+.quiz__ler-row--danger strong { color: #ff6b6b; }
+.quiz__ler-row--green strong  { color: #00ff88; font-size: 15px; }
+
+.quiz__ler-roi {
+  margin-top: 0.85rem;
+  text-align: center;
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  color: var(--c-muted);
+}
+
+.quiz__ler-roi strong {
+  color: var(--c-cyan);
+  font-size: 16px;
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid var(--c-border);
+  color: var(--c-muted);
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn--ghost:hover {
+  border-color: var(--c-cyan);
+  color: var(--c-cyan);
 }
