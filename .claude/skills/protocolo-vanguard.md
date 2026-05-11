@@ -6,6 +6,12 @@ description: Activa o Modelo Quadrilateral IAH para QUALQUER projecto — ecomme
 # PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
 **Versão da Skill:** 3.0 — Universal · Qualquer Projecto · Qualquer Stack
 
+> ⚠️ **ORGANISMO VIVO — ACTUALIZAR SEMPRE**
+> Esta skill e o `MEMORANDO_QUADRILATERAL_CLIENTE.md` melhoram a cada projecto.
+> Ao fechar qualquer sessão ou projecto: verificar o que é novo e registar.
+> Um módulo novo → inventário. Um debate → tabela de debates. Um padrão → regra.
+> Fazer `git push` depois. Nunca fechar sem verificar.
+
 > **Este protocolo constrói qualquer coisa.**
 > Um ecommerce, uma app mobile, um site institucional, um SaaS, um modelo de negócio, uma automação, uma API. O que muda é o projecto. O que não muda é o processo.
 >
