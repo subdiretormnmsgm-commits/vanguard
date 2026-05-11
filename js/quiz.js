@@ -7,12 +7,13 @@ const Quiz = (() => {
   'use strict';
 
   const WA_NUMBER = '5521996008570';
-  const TOTAL_QUESTIONS = 7;
+  const TOTAL_QUESTIONS = 8;
 
   /* ─── Estado ──────────────────────────────────────────────────────────── */
   const state = {
     step: 1,
     q1: '', q2: '', q3: '', q4: '', q5: '', q6: '', q7: '',
+    q8_custo_ads: 0,
     nome: '', whatsapp: '', email: '',
     scores: { P: 0, A: 0, C: 0, R: 0 },
   };
@@ -129,6 +130,44 @@ const Quiz = (() => {
     return Math.round(base * riskPct / 1000) * 1000;
   }
 
+  /* ─── V24: Calculadora de Lucro em Risco ────────────────────────────── */
+  function calcLucroEmRisco(custoAds) {
+    const ads = parseFloat(custoAds) || 0;
+    if (ads <= 0) return null;
+    const taxaConversao = 0.20;
+    const leadsCusto    = 15;
+    const leadsGerados  = Math.round(ads / leadsCusto);
+    const leadsPerdidos = Math.round(leadsGerados * (1 - taxaConversao));
+    const baseRevenue   = REVENUE_BASE[state.q2] || 8000;
+    const ticketMedio   = Math.round(baseRevenue / 20);
+    const desperdicio   = Math.round(leadsPerdidos * ticketMedio / 1000) * 1000;
+    const recuperacao   = Math.round(desperdicio * 0.30 / 100) * 100;
+    const roi           = ads > 0 ? (recuperacao / 97).toFixed(1) : 0;
+    return { ads, leadsGerados, leadsPerdidos, desperdicio, recuperacao, roi };
+  }
+
+  function fmtBRL(n) {
+    return 'R$ ' + Math.round(n).toLocaleString('pt-BR');
+  }
+
+  function updateRiskPreview() {
+    const ads = parseFloat(document.getElementById('quiz-custo-ads')?.value) || 0;
+    const box  = document.getElementById('risk-preview-box');
+    const btn  = document.getElementById('btn-next-8');
+    if (!box) return;
+    if (ads > 0) {
+      const r = calcLucroEmRisco(ads);
+      box.style.display = 'block';
+      document.getElementById('rp-ads').textContent         = fmtBRL(r.ads);
+      document.getElementById('rp-desperdicio').textContent = fmtBRL(r.desperdicio) + '/mês';
+      document.getElementById('rp-recuperacao').textContent = fmtBRL(r.recuperacao) + '/sem';
+      if (btn) btn.disabled = false;
+    } else {
+      box.style.display = 'none';
+      if (btn) btn.disabled = true;
+    }
+  }
+
   /* ─── Navegação ───────────────────────────────────────────────────────── */
   function showStep(id) {
     document.querySelectorAll('.quiz__step')
@@ -217,6 +256,21 @@ const Quiz = (() => {
     if (riskEl) riskEl.textContent = 'R$ ' + risk.toLocaleString('pt-BR') + '/mês';
     var sectorEl = document.getElementById('preview-sector');
     if (sectorEl) sectorEl.textContent = state.q1 || '—';
+
+    /* V24 — Lucro em Risco block */
+    var lerBox = document.getElementById('lucro-em-risco-box');
+    var riskBox = document.getElementById('preview-risk-box');
+    var ler = calcLucroEmRisco(state.q8_custo_ads);
+    if (ler && lerBox) {
+      lerBox.style.display = 'block';
+      if (riskBox) riskBox.style.display = 'none';
+      document.getElementById('ler-ads').textContent         = fmtBRL(ler.ads) + '/mês';
+      document.getElementById('ler-desperdicio').textContent = fmtBRL(ler.desperdicio) + '/mês';
+      document.getElementById('ler-recuperacao').textContent = fmtBRL(ler.recuperacao) + '/semana';
+      document.getElementById('ler-roi').textContent         = ler.roi + '×';
+    } else if (lerBox) {
+      lerBox.style.display = 'none';
+    }
   }
 
   /* ─── Resultado completo ──────────────────────────────────────────────── */
@@ -253,7 +307,7 @@ const Quiz = (() => {
     var ctaEl = document.getElementById('btn-whatsapp-contact');
     if (ctaEl && rec) {
       var msg = encodeURIComponent(
-        'Olá! Fiz o Diagnóstico Quadrilateral Vanguard.\n' +
+        'Olá! Fiz o Diagnóstico Vanguard.\n' +
         'Sector: ' + state.q1 + '\n' +
         'Gargalo principal: ' + rec.label + '\n' +
         'Receita em risco: R$ ' + risk.toLocaleString('pt-BR') + '/mês\n\n' +
@@ -293,8 +347,10 @@ const Quiz = (() => {
         conversao:   state.q5,
         obstaculo:   state.q6,
         historico:   state.q7,
+        custo_ads:   state.q8_custo_ads,
         scores:      state.scores,
         revenue_risk: getRevenueRisk(),
+        lucro_em_risco: calcLucroEmRisco(state.q8_custo_ads),
       },
     };
 
@@ -328,7 +384,30 @@ const Quiz = (() => {
     setupCards('q4', 'q4', 5);
     setupCards('q5', 'q5', 6);
     setupCards('q6', 'q6', 7);
-    setupCards('q7', 'q7', 'preview');
+    setupCards('q7', 'q7', 8);
+
+    /* Q8 — Calculadora de Lucro em Risco (V24) */
+    var adsInput = document.getElementById('quiz-custo-ads');
+    var btn8     = document.getElementById('btn-next-8');
+    var btnSkip8 = document.getElementById('btn-skip-8');
+    if (adsInput) {
+      adsInput.addEventListener('input', function() {
+        state.q8_custo_ads = parseFloat(adsInput.value) || 0;
+        updateRiskPreview();
+      });
+    }
+    if (btn8) {
+      btn8.addEventListener('click', function() {
+        state.q8_custo_ads = parseFloat(adsInput?.value) || 0;
+        goTo('preview');
+      });
+    }
+    if (btnSkip8) {
+      btnSkip8.addEventListener('click', function() {
+        state.q8_custo_ads = 0;
+        goTo('preview');
+      });
+    }
 
     /* Preview → Contact */
     var btnPreviewNext = document.getElementById('btn-preview-next');
