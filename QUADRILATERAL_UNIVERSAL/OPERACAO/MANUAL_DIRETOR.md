@@ -172,15 +172,22 @@ P3: "O que acontece se não resolver isso nos próximos 3 meses?"
 
 ### PASSO 2 — Você faz o Discovery com o cliente
 
-**Onde:** Reunião ou chamada com o cliente
-**Tempo:** 30–60 minutos
-**Output:** Briefing com as 7 respostas — vai ser a base de tudo
+**Dois modos disponíveis:**
 
-Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 7 respostas.
+| Modo | Quando usar | Template |
+|------|-------------|----------|
+| **Informal (WhatsApp)** | Amigo, conhecido, primeiro contacto descontraído | `FASE_PRE__DISCOVERY_WHATSAPP_AMIGO.txt` — 8 mensagens sequenciais, tom de parceria |
+| **Formal (Questionário)** | Cliente pagante, reunião, proposta comercial | `FASE_PRE__QUESTIONARIO_CLIENTE_FORMAL.md` — 8 blocos estruturados |
+
+**Onde:** Reunião, chamada, ou WhatsApp
+**Tempo:** 30–60 minutos (formal) | assíncrono (informal)
+**Output:** Briefing com as 8 respostas — vai ser a base de tudo
+
+Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-7 PERGUNTAS DE DISCOVERY — ANOTAR AS RESPOSTAS
+8 PERGUNTAS DE DISCOVERY — ANOTAR AS RESPOSTAS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 1. PROJECTO
@@ -189,40 +196,54 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 7 respostas.
    "Quem é o teu cliente ideal? Qual o teu mercado?"
    → Resposta: _______________________________________________
 
-2. PROBLEMA
+2. PROBLEMA (em números)
    "Qual o maior problema que este projecto resolve HOJE?"
+   "Dá-me um número — horas/semana, clientes perdidos, quanto deixas de faturar?"
    "Se não resolvermos isso, o que acontece concretamente?"
    → Resposta: _______________________________________________
 
-3. VOLUME
-   "Quantos utilizadores / clientes / transacções por mês tens agora?
-   E qual a meta para daqui a 6 meses?"
+3. O MOMENTO MÁGICO — FIRE Event  ★ CRÍTICO
+   "Se um utilizador entrar no teu sistema e fizer UMA coisa
+   que significa que o teu negócio funcionou — qual é essa coisa?"
+   (comprou / agendou / pediu orçamento / registou-se / outro)
    → Resposta: _______________________________________________
+   → success_event para sentinel_config.json: ________________
 
-4. RECEITA
-   "Como é que este projecto gera dinheiro para ti?
-   Qual o ticket médio ou quanto esperas facturar?"
+4. A VARINHA MÁGICA
+   "Se pudéssemos colocar uma função impossível ou uma IA
+   super-inteligente lá dentro — o que ela faria para te deixar
+   à frente de toda a concorrência?"
+   (Anotar sem filtrar. Captura a visão e os diferenciais futuros.)
    → Resposta: _______________________________________________
 
 5. ESTADO ACTUAL
-   "O que já existe? Tens código, design, domínio, contas, APIs?"
+   "O que já existe? Código, design, domínio, contas, APIs, base de dados?"
    → Resposta: _______________________________________________
 
-6. URGÊNCIA
-   "Há algum prazo fixo? Um lançamento, evento, investidor, data de pico?"
+6. RECEITA E VOLUME
+   "Como é que este projecto gera dinheiro?"
+   "Qual o ticket médio por venda/serviço? Quantos clientes por mês?"
+   (→ Correr calculadora_precificacao.py com estes dados)
+   → Ticket médio: R$_______ | Volume: _______ /mês
+
+7. URGÊNCIA
+   "Há algum prazo fixo? Lançamento, evento, investidor, data de pico?"
    → Resposta: _______________________________________________
 
-7. RECURSOS
+8. RECURSOS E ORÇAMENTO
    "Qual é o orçamento aproximado? Tens equipa? Que ferramentas já usas?"
    → Resposta: _______________________________________________
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Guardar como:** `CLIENTES/[NOME_CLIENTE]/BRIEFING_DISCOVERY.txt`
+**Guardar como:** `CLIENTES/[NOME_CLIENTE]/BRIEFING_DISCOVERY.md`
+**Template:** `QUADRILATERAL_UNIVERSAL/TEMPLATES/FASE_0__BRIEFING_DISCOVERY.md`
 
-> 💡 **Ferramenta de apoio:** `DISCOVERY_CARD.md` — tem os dois blocos de perguntas
-> formatados para usar no telemóvel ou imprimir em A5. Leva para todas as reuniões.
-> O Bloco D captura o perfil do cliente para o `PERFIL_CLIENTE_TEMPLATE.md`.
+> 💡 **Ferramentas de apoio:**
+> · `OPERACAO/DISCOVERY_CARD.md` — cartão para reuniões (imprimir A5 ou telemóvel)
+> · `FASE_PRE__DISCOVERY_WHATSAPP_AMIGO.txt` — 8 mensagens prontas para WhatsApp informal
+> · `FASE_PRE__QUESTIONARIO_CLIENTE_FORMAL.md` — questionário completo para cliente pagante
+> · `scripts/calculadora_precificacao.py` — correr após respostas 6 para gerar proposta
 
 ---
 

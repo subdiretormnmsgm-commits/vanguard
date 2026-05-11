@@ -2,29 +2,98 @@
 
 > Esta pasta contém os documentos universais do Modelo Quadrilateral IAH.
 > Copiar para qualquer projecto de cliente — funcionam independentemente da Vanguard.
+> **Todos os documentos são organismos vivos — actualizar após cada projecto.**
+
+---
 
 ## O Que Está Aqui
 
-| Ficheiro | Para quê |
-|----------|----------|
-| `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | Processo completo: Fase -1 a Fase 4, PDCA, Pitch, Handoff, Anti-padrões, Manifesto |
-| `SKILL_PROTOCOLO_VANGUARD.md` | Skill de activação do Claude Code para qualquer projecto |
+| Ficheiro | Para quê | Quem usa |
+|----------|----------|----------|
+| `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | Metodologia completa: Fases -1 a 5, paradigma conselho vs pipeline, PDCA, Pitch, Anti-padrões, Manifesto, Glossário | Eduardo + Conselho |
+| `SKILL_PROTOCOLO_VANGUARD.md` | Skill de activação do Claude Code — protocolo operacional completo, todos os comandos, Pré-Mortem, Carta ao Músculo Futuro | Claude Code (interno) |
+| `MANUAL_DIRETOR.md` | Guia passo a passo para Eduardo orquestrar os 4 membros — comandos exactos, quando usar cada um, o loop completo | Eduardo (uso diário) |
+| `DISCOVERY_CARD.md` | Cartão de bolso: 3 perguntas GO/NO-GO + 7 perguntas de Discovery — para usar em reuniões | Eduardo (reuniões) |
+| `PERFIL_CLIENTE_TEMPLATE.md` | Template do segundo cérebro do cliente — o que diz vs. o que quer, estilo de decisão, histórico da relação | Eduardo + NotebookLM |
+| `ROI_TRACKER_TEMPLATE.md` | Verificação 30 dias pós-lançamento — mensagem ao cliente, formulário interno, acumulador de resultados | Eduardo (30 dias após go-live) |
 
-## Como Usar
+---
 
-**Num projecto de cliente novo:**
+## Qual Documento Usar para Quê
+
+```
+ANTES de ir a uma reunião com cliente potencial
+  → DISCOVERY_CARD.md (levar no telemóvel ou impresso)
+
+DURANTE o projecto (operação diária)
+  → MANUAL_DIRETOR.md (guia passo a passo com comandos prontos)
+
+AO ACTIVAR o Claude Code
+  → SKILL_PROTOCOLO_VANGUARD.md (carregada com "PROTOCOLO VANGUARD")
+
+PARA MOSTRAR ao cliente ou ao Conselho
+  → MEMORANDO_QUADRILATERAL_UNIVERSAL.md (metodologia em linguagem de negócio)
+
+AO CRIAR o perfil de um cliente (Camada 2+)
+  → PERFIL_CLIENTE_TEMPLATE.md (copiar para CLIENTES/[NOME]/PERFIL_CLIENTE.md)
+
+30 DIAS APÓS O LANÇAMENTO
+  → ROI_TRACKER_TEMPLATE.md (copiar para CLIENTES/[NOME]/ROI_CHECK_V[X]_30DIAS.md)
+```
+
+---
+
+## Como Usar num Projecto Novo
+
 1. Copiar esta pasta para `CLIENTES/[NOME_CLIENTE]/QUADRILATERAL/`
-2. O Memorando serve de referência de processo para Eduardo e para o Conselho
-3. A Skill é carregada no Claude Code ao activar `PROTOCOLO VANGUARD`
+2. Abrir `MANUAL_DIRETOR.md` — seguir os passos 1 a 10
+3. Levar `DISCOVERY_CARD.md` para a primeira reunião com o cliente
+4. Criar `PERFIL_CLIENTE.md` com base no template (Camada 2+)
+5. Ao activar o Claude Code, referenciar `SKILL_PROTOCOLO_VANGUARD.md`
+6. Ao lançar, activar o `ROI_TRACKER_TEMPLATE.md` para verificação em 30 dias
 
-**Para mostrar ao cliente:**
-- O Memorando pode ser apresentado como metodologia — é agnóstico de ferramentas
-- Nunca mostrar a Skill (é interna — contém detalhes operacionais)
+**O que nunca mostrar ao cliente:**
+- `SKILL_PROTOCOLO_VANGUARD.md` — mecânica operacional interna
+- `MANUAL_DIRETOR.md` — orquestração do Conselho (interno)
+- `PERFIL_CLIENTE.md` — contém análise interna do cliente
 
-## Actualização
+---
 
-Estes documentos são cópias dos originais em:
-- `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` (raiz do projecto)
-- `.claude/skills/protocolo-vanguard.md`
+## Protocolo de Actualização — Organismo Vivo
 
-Sempre que os originais forem actualizados, actualizar as cópias aqui.
+Ao fechar cada iteração, verificar todos os documentos:
+
+| Documento | Quando actualizar |
+|-----------|-----------------|
+| `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | Novo padrão de sucesso/falha · Estimativa diferente do real · Anti-padrão novo |
+| `SKILL_PROTOCOLO_VANGUARD.md` | Novo módulo construído · Padrão de projecto novo · Regra de build nova |
+| `MANUAL_DIRETOR.md` | Passo mais demorado do que estimado · Situação nova no troubleshooting · Comando que precisou de ajuste |
+| `DISCOVERY_CARD.md` | Pergunta que revelou informação inesperadamente útil · Pergunta que confundiu o cliente |
+| `PERFIL_CLIENTE_TEMPLATE.md` | Nova secção útil descoberta · Campo que nunca é preenchido (remover) |
+| `ROI_TRACKER_TEMPLATE.md` | Dados reais de ROI muito diferentes das estimativas · Pergunta ao cliente que gerou mais contexto |
+
+O Claude pode actualizar qualquer destes documentos directamente — basta pedir ao fechar a iteração.
+
+---
+
+## Secretário Virtual
+
+O Secretário Virtual é um serviço separado que opera ANTES do Quadrilateral:
+qualifica leads automaticamente e entrega briefings prontos ao Diretor.
+
+**Localização:** `../SECRETARIO_VIRTUAL/` (raiz do projecto)
+**Setup:** `../SECRETARIO_VIRTUAL/SETUP_GUIDE.md`
+
+---
+
+## Versão Actual
+
+| Documento | Versão | Última actualização |
+|-----------|--------|-------------------|
+| Memorando Universal | 2.1 | 2026-05-11 |
+| Skill Protocolo Vanguard | 4.1 | 2026-05-11 |
+| Manual do Director | 1.2 | 2026-05-11 |
+| Discovery Card | 1.0 | 2026-05-11 |
+| Perfil do Cliente (template) | 1.0 | 2026-05-11 |
+| ROI Tracker (template) | 1.0 | 2026-05-11 |
+| Secretário Virtual | 1.0 | 2026-05-11 |
