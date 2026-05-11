@@ -1,0 +1,493 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   VANGUARD V25 · SOVEREIGN GOLD UI · Institutional Power Design
+   Syne 800 (display) · Space Grotesk (body) · JetBrains Mono (data)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Token Override ─────────────────────────────────────────────────────── */
+:root {
+  --ff-display: 'Syne', sans-serif;
+  --ff-body:    'Space Grotesk', sans-serif;
+
+  --c-gold:        #C5A028;
+  --c-gold-bright: #F0C93A;
+  --c-gold-dim:    rgba(197, 160, 40, 0.09);
+  --c-gold-border: rgba(197, 160, 40, 0.20);
+  --glow-gold:     0 0 24px rgba(197, 160, 40, 0.28), 0 0 72px rgba(197, 160, 40, 0.10);
+  --glow-gold-sm:  0 0 12px rgba(197, 160, 40, 0.22);
+
+  --c-void:     #050505;
+  --c-obsidian: #0A0A0A;
+}
+
+/* ─── Cursor supression ──────────────────────────────────────────────────── */
+html, body {
+  cursor: none !important;
+}
+a, button, [role="button"], select, input, textarea, label, [tabindex] {
+  cursor: none !important;
+}
+
+/* ─── Noise Overlay (canvas-generated, GPU composited) ───────────────────── */
+.vg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.040;
+  mix-blend-mode: screen;
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  background-image: var(--noise-url, none);
+}
+
+/* ─── Custom Cursor Reticle ──────────────────────────────────────────────── */
+.vg-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  transform: translate(
+    calc(var(--cx, -200px) - 18px),
+    calc(var(--cy, -200px) - 18px)
+  );
+  will-change: transform;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.vg-cursor__ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(197, 160, 40, 0.55);
+  border-radius: 50%;
+  transform-origin: center;
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.vg-cursor--expanded .vg-cursor__ring {
+  transform: scale(1.70);
+  border-color: var(--c-gold);
+  box-shadow: var(--glow-gold);
+}
+
+.vg-cursor--click .vg-cursor__ring {
+  transform: scale(0.72);
+  border-color: var(--c-gold-bright);
+}
+
+/* Crosshair arms */
+.vg-cursor__arm {
+  position: absolute;
+  background: rgba(197, 160, 40, 0.28);
+}
+
+.vg-cursor__arm--top,
+.vg-cursor__arm--bottom {
+  width: 1px;
+  height: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.vg-cursor__arm--top    { bottom: calc(100% + 5px); }
+.vg-cursor__arm--bottom { top:    calc(100% + 5px); }
+
+.vg-cursor__arm--left,
+.vg-cursor__arm--right {
+  height: 1px;
+  width: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.vg-cursor__arm--left  { right: calc(100% + 5px); }
+.vg-cursor__arm--right { left:  calc(100% + 5px); }
+
+.vg-cursor__dot {
+  width: 3px;
+  height: 3px;
+  background: var(--c-gold);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 7px var(--c-gold);
+  transition: box-shadow 0.15s;
+}
+
+.vg-cursor--expanded .vg-cursor__dot {
+  box-shadow: 0 0 14px var(--c-gold-bright);
+}
+
+/* Metadata tooltip */
+.vg-cursor__meta {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  background: rgba(5, 5, 5, 0.94);
+  border: 1px solid var(--c-gold-border);
+  padding: 3px 10px;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.18s;
+  pointer-events: none;
+}
+
+.vg-cursor--expanded .vg-cursor__meta { opacity: 1; }
+
+/* ─── Data Ticker ────────────────────────────────────────────────────────── */
+.vg-ticker {
+  width: 100%;
+  height: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--c-gold-border);
+  border-bottom: 1px solid var(--c-gold-border);
+  background: linear-gradient(90deg,
+    var(--c-void) 0%,
+    rgba(197, 160, 40, 0.042) 25%,
+    rgba(197, 160, 40, 0.042) 75%,
+    var(--c-void) 100%
+  );
+  position: relative;
+  z-index: 47;
+  user-select: none;
+}
+
+.vg-ticker::before,
+.vg-ticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.vg-ticker::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--c-void), transparent);
+}
+
+.vg-ticker::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--c-void), transparent);
+}
+
+.vg-ticker__track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: vgTicker 60s linear infinite;
+  will-change: transform;
+}
+
+.vg-ticker:hover .vg-ticker__track {
+  animation-play-state: paused;
+}
+
+@keyframes vgTicker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.vg-ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(197, 160, 40, 0.58);
+  padding: 0 2.4rem;
+}
+
+.vg-ticker__item strong {
+  color: var(--c-gold-bright);
+  font-weight: 600;
+}
+
+.vg-ticker__dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--c-gold-border);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ─── Typography — Syne 800 authority ───────────────────────────────────── */
+h1, h2 {
+  font-family: var(--ff-display) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.030em !important;
+}
+
+h3 {
+  font-family: var(--ff-display) !important;
+  font-weight: 700 !important;
+}
+
+body {
+  font-family: var(--ff-body) !important;
+  font-weight: 300;
+}
+
+/* ─── Hero headline size adjustment for Syne ─────────────────────────────── */
+.hero__headline {
+  font-size: clamp(2.8rem, 6.5vw, 5.8rem) !important;
+  line-height: 1.0 !important;
+}
+
+/* ─── Section titles ─────────────────────────────────────────────────────── */
+.section__title {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem) !important;
+  line-height: 1.05 !important;
+}
+
+/* ─── Label Tag — Ion Gold ───────────────────────────────────────────────── */
+.label-tag {
+  color: var(--c-gold) !important;
+  background: var(--c-gold-dim) !important;
+  border-color: var(--c-gold-border) !important;
+  font-weight: 500;
+}
+
+/* ─── Navbar — Gold brand ────────────────────────────────────────────────── */
+.navbar__logo,
+.brand-name {
+  color: var(--c-gold) !important;
+  font-family: var(--ff-display) !important;
+  text-shadow: var(--glow-gold-sm);
+  letter-spacing: 0.14em !important;
+}
+
+/* ─── Forge Reveal ───────────────────────────────────────────────────────── */
+[data-forge] {
+  opacity: 0;
+  transition: opacity 0.05s;
+}
+
+[data-forge].forge-active {
+  opacity: 1;
+}
+
+/* ─── Card 3D Tilt + Radial Glow ─────────────────────────────────────────── */
+.feature-card {
+  transform:
+    perspective(1000px)
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition:
+    box-shadow 0.28s ease,
+    border-color 0.22s ease;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(197, 160, 40, 0.10) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.28s;
+}
+
+.feature-card:hover::after { opacity: 1; }
+
+.feature-card:hover {
+  box-shadow: var(--glow-gold), 0 44px 88px rgba(0, 0, 0, 0.55);
+  border-color: var(--c-gold-border) !important;
+}
+
+/* ─── Pricing Card — Gold hover ──────────────────────────────────────────── */
+.pricing-card {
+  transition: border-color 0.22s, box-shadow 0.28s;
+}
+
+.pricing-card:hover {
+  border-color: var(--c-gold-border) !important;
+  box-shadow: var(--glow-gold);
+}
+
+.pricing-card__badge {
+  border-color: var(--c-gold-border) !important;
+  color: var(--c-gold) !important;
+  background: var(--c-gold-dim) !important;
+}
+
+/* ─── CTA Primary — Veredito Hover ──────────────────────────────────────── */
+.btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-veredito {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-gold-bright);
+  background: rgba(6, 6, 6, 0.95);
+  border: 1px solid var(--c-gold-border);
+  border-radius: inherit;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: var(--glow-gold-sm);
+}
+
+.btn--primary:hover .btn-veredito {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── HUD value gold tint ────────────────────────────────────────────────── */
+.sys-hud__value {
+  color: var(--c-gold) !important;
+}
+
+.sys-hud__node--standby .sys-hud__value {
+  color: rgba(197, 160, 40, 0.55) !important;
+}
+
+/* ─── Scanner score — Gold accent ────────────────────────────────────────── */
+.scanner-score__number {
+  color: var(--c-gold) !important;
+  text-shadow: var(--glow-gold);
+}
+
+/* ─── Step numbers — Gold ────────────────────────────────────────────────── */
+.step__num {
+  color: var(--c-gold) !important;
+  text-shadow: var(--glow-gold-sm);
+}
+
+/* ─── Footer — Gold accents ──────────────────────────────────────────────── */
+.footer__tagline {
+  color: var(--c-gold) !important;
+  opacity: 0.7;
+}
+
+/* ─── Gold gradient override ─────────────────────────────────────────────── */
+.text-gradient--accent {
+  background: linear-gradient(135deg, #C5A028 0%, #F0C93A 45%, #E8B820 100%) !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Scan reveal — gold border flash ───────────────────────────────────── */
+.scan-reveal {
+  border-color: transparent;
+  transition: border-color 0.4s ease;
+}
+
+.scan-reveal.revealed {
+  border-color: var(--c-gold-border);
+}
+
+/* ─── Auditor View ───────────────────────────────────────────────────────── */
+.vg-auditor-hud {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 8900;
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--c-gold);
+  background: rgba(5, 5, 5, 0.96);
+  border: 1px solid var(--c-gold-border);
+  padding: 0.8rem 1.2rem;
+  border-radius: 3px;
+  box-shadow: var(--glow-gold);
+  line-height: 1.95;
+  display: none;
+  min-width: 230px;
+}
+
+body.auditor-mode .vg-auditor-hud {
+  display: block;
+}
+
+body.auditor-mode *:not(.vg-cursor):not(.vg-cursor *):not(.vg-noise):not(.vg-auditor-hud):not(.vg-auditor-hud *) {
+  outline: 1px solid rgba(197, 160, 40, 0.09) !important;
+}
+
+body.auditor-mode section,
+body.auditor-mode nav,
+body.auditor-mode footer {
+  outline: 1px solid rgba(197, 160, 40, 0.30) !important;
+}
+
+body.auditor-mode [id] {
+  position: relative;
+}
+
+body.auditor-mode [id]::after {
+  content: '#' attr(id);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-family: var(--ff-mono) !important;
+  font-size: 7.5px;
+  color: var(--c-gold);
+  background: rgba(5, 5, 5, 0.90);
+  border: 1px solid var(--c-gold-border);
+  padding: 1px 5px;
+  z-index: 8901;
+  pointer-events: none;
+  letter-spacing: 0.08em;
+  border-radius: 1px;
+  white-space: nowrap;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* ─── Mobile: disable cursor + tilt ─────────────────────────────────────── */
+@media (hover: none), (pointer: coarse) {
+  html, body, a, button, [role="button"] {
+    cursor: auto !important;
+  }
+  .vg-cursor {
+    display: none !important;
+  }
+  .feature-card {
+    transform: none !important;
+  }
+}
