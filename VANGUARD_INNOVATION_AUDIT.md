@@ -17,6 +17,25 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 
 
 
+## [ID-008] — Market Consciousness Engine (V21)
+
+**Data:** 2026-05-10
+**Missão:** Consolidação da Simbiose Operacional — Automatizar a retenção, começar a colher o grafo global de intenção e preparar a chamada de voz autónoma.
+**Transição Estratégica:** De ferramenta com MRR potencial para sistema que protege o seu próprio MRR.
+
+**O que foi construído:**
+- `api/sentinel_report.py` — Motor de Report Card semanal: agrega delta FIRE/HOT/WARM, gera narrativa com Claude Haiku (~$0.04/relatório), envia via SendGrid toda segunda-feira. CTA "Intervir Agora" no rodapé vende projectos IAH.
+- `api/hermes_trigger.py` — Hermes Voice Bridge: varredura automática de maturity_scores >= 9.5, cria fila `hermes_voice_triggers`, Diretor autoriza (ou activa modo AUTO). §21 imutável.
+- `scripts/iah-clone.ps1` — Actualizado com `-IntentShare`: activa `dataTithe: 0.15` no brand-config.js. Cada clone contribui 15% dos seus FIRE events ao `global_intent_graph`.
+- `infra/schema_v21.sql` — Tables: `sentinel_report_log`, `global_intent_graph`, `hermes_voice_triggers`. Função `aggregate_intent_tithe()`. pg_cron para orquestração automática.
+
+**Arquitectura do Dízimo de Dados:**
+IAH Clone com `-IntentShare` → metadata `{intent_share: true, dataTithe: 0.15}` → `aggregate_intent_tithe()` rota 15% dos FIRE events semanais → `global_intent_graph` com nicho + geo_region + week_bucket. Com 50 tenants: base suficiente para o Oráculo B2B.
+
+**Lock-in gerado:** O cliente recebe o relatório toda segunda-feira. Se cancelar, perde a inteligência. O Hermes sabe quando ligar. O Oráculo começa a respirar silenciosamente.
+
+---
+
 ## [ID-007] — Monetization Singularity (V20)
 
 **Data:** 2026-05-10

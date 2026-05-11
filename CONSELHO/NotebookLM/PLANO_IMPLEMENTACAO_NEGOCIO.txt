@@ -1,0 +1,103 @@
+# PLANO DE IMPLEMENTAÇÃO DE NEGÓCIO — VANGUARD / IAH
+**Data:** 2026-05-10
+**Objetivo:** Primeiro cliente pagante em 30 dias
+
+## O QUE ESTAMOS A VENDER
+
+| Produto | Preço | Modelo |
+|---------|-------|--------|
+| Diagnóstico Quadrilateral | Grátis | Isca / Captação |
+| Neural Audit Trail (PDF 12 pág.) | R$50 | Unitário via Stripe |
+| Neural Sentinel (monitoramento semanal) | R$97/mês | Recorrente via Stripe |
+| Projeto IAH Completo | R$3.000-R$6.000 | Proposta comercial |
+
+Funil: Diagnóstico gratuito -> PDF R$50 -> Sentinel R$97/mês -> Projeto IAH
+
+## BLOCO 1 — ENTIDADE LEGAL & FISCAL
+
+Sem CNPJ não há Stripe, não há nota fiscal, não há cliente sério.
+
+- Abrir MEI (limite R$81.000/ano — suficiente para início)
+  Portal: gov.br/empresas-e-negocios
+  CNAE: 6209-1/00 (Suporte técnico em TI)
+- Conta bancária PJ: Nubank PJ (gratuito) ou Inter PJ
+- Contrato de prestação de serviços (template para clientes Sentinel)
+- Nota Fiscal via prefeitura do município (NFS-e)
+
+## BLOCO 2 — INFRAESTRUTURA DE PAGAMENTOS
+
+- Criar conta Stripe com CNPJ (stripe.com/br)
+- Verificar conta (documentos CNPJ + conta bancária PJ)
+- Criar produto "Neural Sentinel" R$97/mês BRL recorrente
+- Copiar Price ID -> definir STRIPE_SENTINEL_PRICE_ID no servidor
+- Webhook endpoint: https://vanguard.tech/api/stripe/sentinel-webhook
+- Testar checkout de ponta a ponta
+
+Alternativa imediata: cobrar primeiros clientes via PIX + comprovante manual.
+
+## BLOCO 3 — PLATAFORMAS
+
+Já tem:
+- Hostinger (assinatura activa)
+- Supabase (free tier)
+- GitHub (free)
+- Cloudflare (free tier)
+
+Precisa activar:
+- Stripe: 3,4% + R$0,40/transação
+- Cloudflare Workers Paid: US$5/mês (para production)
+- SendGrid: free até 100 emails/dia (V21)
+- Vapi: ~US$0,05/min (V21 Hermes Voice)
+
+## BLOCO 4 — DEPLOY PRODUÇÃO (HOSTINGER)
+
+- Configurar GitHub Secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+- git push master -> deploy automático via GitHub Actions
+- Variáveis de ambiente: SUPABASE_URL, SUPABASE_ANON_KEY, STRIPE_SECRET_KEY, STRIPE_SENTINEL_PRICE_ID
+- Domínio: vanguard.tech -> SSL automático Cloudflare
+
+## BLOCO 5 — PRIMEIRO CLIENTE (30 DIAS)
+
+Nicho alvo: clínicas médicas ou e-commerce de nicho
+
+Script WhatsApp:
+"Olá [Nome], fiz uma análise rápida do site [domínio] e identifiquei R$[valor] em receita que pode estar a perder por mês. Posso enviar o relatório gratuito?"
+
+Meta semana 1: 20 contactos enviados via prospectar.ps1
+Meta semana 2: 3 respostas -> 1 reunião
+Meta semana 3: 1 cliente Neural Sentinel R$97/mês
+
+## CHECKLIST DE LANÇAMENTO
+
+SEMANA 1 — Fundação Legal & Financeira
+[ ] Abrir MEI
+[ ] Abrir conta PJ
+[ ] Criar conta Stripe + verificar
+[ ] Criar produto Stripe (R$97/mês BRL)
+[ ] Configurar GitHub Secrets Hostinger
+
+SEMANA 2 — Deploy & Pagamentos
+[ ] git push -> deploy automático Hostinger
+[ ] Testar checkout ponta a ponta
+[ ] Configurar pixel.vanguard.tech -> Cloudflare Worker
+
+SEMANA 3 — Primeiros Contactos
+[ ] 20 diagnósticos via prospectar.ps1
+[ ] 20 mensagens WhatsApp enviadas
+[ ] 1 reunião de vendas
+
+SEMANA 4 — Primeiro R$ Real
+[ ] 1 cliente Neural Sentinel activo (R$97/mês)
+[ ] Pixel instalado no site do cliente
+[ ] Primeiro relatório Sentinel enviado
+
+## ORÇAMENTO MÍNIMO
+
+| Item | Custo Mensal |
+|------|-------------|
+| Cloudflare Workers Paid | R$27 |
+| MEI DAS | R$71 |
+| Stripe (comissão) | 3,4% das vendas |
+| **TOTAL mínimo** | **~R$100/mês** |
+
+Breakeven: 2 clientes Neural Sentinel (R$194/mês) cobrem toda a infra.

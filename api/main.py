@@ -407,6 +407,22 @@ try:
 except ImportError as e:
     log.warning(f'stripe_sentinel.py não encontrado: {e}')
 
+# V21 — Sentinel Report Card (retenção semanal via SendGrid + Haiku)
+try:
+    from sentinel_report import router as sentinel_report_router
+    app.include_router(sentinel_report_router)
+    log.info('Sentinel Report router registado (/api/sentinel/).')
+except ImportError as e:
+    log.warning(f'sentinel_report.py não encontrado: {e}')
+
+# V21 — Hermes Voice Bridge (trigger autónomo score >= 9.5)
+try:
+    from hermes_trigger import router as hermes_trigger_router
+    app.include_router(hermes_trigger_router)
+    log.info('Hermes Trigger router registado (/api/hermes-trigger/).')
+except ImportError as e:
+    log.warning(f'hermes_trigger.py não encontrado: {e}')
+
 
 # ─── Endpoints: Tenant ────────────────────────────────────────────────────────
 
