@@ -6,6 +6,66 @@
    Bindings: TENANTS_KV (KV namespace), env.SUPABASE_URL, env.SUPABASE_ANON
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* ── V20: Intervention KV Bus ───────────────────────────────────────────── */
+/*
+  Cockpit escreve: TENANTS_KV.put(`intervention:${tenantId}`, JSON, { expirationTtl: ttl })
+  Worker lê na request → injeta modal de oferta se flag activo
+  Endpoint auxiliar: POST /api/intervention → write KV (requer auth header)
+*/
+
+async function getIntervention(tenantId, env) {
+  if (!env.TENANTS_KV) return null;
+  try {
+    const raw = await env.TENANTS_KV.get(`intervention:${tenantId}`, 'json');
+    return raw;
+  } catch { return null; }
+}
+
+function interventionSnippet(tenantId, intervention) {
+  const msg = intervention?.message
+    || 'O nosso sistema detectou uma oportunidade crítica no seu negócio. Um especialista Vanguard pode mostrar-lhe exactamente como recuperar a receita perdida — em 5 minutos.';
+  return `
+<div id="vg-intervention-modal" style="
+  display:flex;position:fixed;inset:0;z-index:9999999;
+  background:rgba(0,0,0,0.88);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+">
+  <div style="
+    background:linear-gradient(135deg,#0A0802,#100D05);
+    border:1px solid rgba(197,160,40,0.6);border-radius:14px;
+    padding:40px 44px;max-width:440px;width:90%;position:relative;
+    box-shadow:0 24px 80px rgba(0,0,0,0.9),0 0 60px rgba(197,160,40,0.15);
+    font-family:'Inter',sans-serif;color:#E6E4DC;text-align:center;
+    animation:vgSlideIn .4s cubic-bezier(.16,1,.3,1) both;
+  ">
+    <style>@keyframes vgSlideIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}</style>
+    <button onclick="document.getElementById('vg-intervention-modal').remove()"
+            style="position:absolute;top:14px;right:18px;background:none;border:none;
+                   color:#5A5546;font-size:18px;cursor:pointer;">✕</button>
+    <div style="font-size:36px;margin-bottom:14px">⚡</div>
+    <div style="font-size:10px;letter-spacing:.18em;color:rgba(197,160,40,.6);margin-bottom:12px">
+      VANGUARD INTELLIGENCE — ALERTA PRIORITÁRIO
+    </div>
+    <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:14px;color:#E6E4DC;line-height:1.3">
+      Acção imediata recomendada
+    </h3>
+    <p style="font-size:.82rem;color:rgba(230,228,220,.7);line-height:1.6;margin-bottom:26px">
+      ${msg}
+    </p>
+    <a href="https://vanguard.tech?ref=intervention&tid=${tenantId}&type=${intervention?.type || 'offer'}"
+       target="_blank" style="
+      display:block;background:linear-gradient(135deg,#C5A028,#8B7019);
+      color:#0A0802;border-radius:9px;padding:15px;font-weight:700;
+      font-size:.88rem;letter-spacing:.04em;text-decoration:none;
+      box-shadow:0 4px 20px rgba(197,160,40,0.4);
+    ">Falar com especialista agora →</a>
+    <p style="font-size:9px;color:#3A3020;margin-top:14px">
+      Vanguard Intelligence · Intervenção autorizada pelo Diretor · tid:${tenantId}
+    </p>
+  </div>
+</div>`;
+}
+
 /* ── Snippets a injectar ─────────────────────────────────────────────────── */
 
 function pixelSnippet(tenantId) {
@@ -90,13 +150,17 @@ class HeadInjector {
 }
 
 class BodyInjector {
-  constructor(tenantId, isFire) {
-    this.tenantId = tenantId;
-    this.isFire   = isFire;
+  constructor(tenantId, isFire, intervention) {
+    this.tenantId     = tenantId;
+    this.isFire       = isFire;
+    this.intervention = intervention;
   }
   element(el) {
     el.append(badgeSnippet(this.tenantId), { html: true });
-    if (this.isFire) {
+    /* Intervenção do Cockpit tem prioridade sobre Exit Intent normal */
+    if (this.intervention) {
+      el.append(interventionSnippet(this.tenantId, this.intervention), { html: true });
+    } else if (this.isFire) {
       el.append(exitIntentSnippet(this.tenantId), { html: true });
     }
   }
@@ -159,10 +223,13 @@ export default {
     /* Detect FIRE intent from cookie */
     const fire = isFireVisitor(request);
 
+    /* Check active intervention from Cockpit (KV bus) */
+    const intervention = await getIntervention(tenant.tenant_id, env);
+
     /* Inject via HTMLRewriter */
     const transformed = new HTMLRewriter()
       .on('head', new HeadInjector(tenant.tenant_id))
-      .on('body', new BodyInjector(tenant.tenant_id, fire))
+      .on('body', new BodyInjector(tenant.tenant_id, fire, intervention))
       .transform(response);
 
     /* Add Vanguard headers (audit trail) */

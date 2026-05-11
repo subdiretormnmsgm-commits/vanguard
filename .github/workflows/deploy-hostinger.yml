@@ -1,0 +1,50 @@
+name: Deploy → Hostinger
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: FTP Deploy to Hostinger
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:         ${{ secrets.FTP_SERVER }}
+          username:       ${{ secrets.FTP_USERNAME }}
+          password:       ${{ secrets.FTP_PASSWORD }}
+          server-dir:     /public_html/
+          local-dir:      ./
+          exclude:        |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.claude/**
+            **/api/**
+            **/NotebookLM/**
+            **/Doc Gemini/**
+            **/*.ps1
+            **/*.py
+            **/tests/**
+            **/infra/**
+            **/scripts/**
+            **/.env*
+            **/MEMORIA_*.md
+            **/relatorio_*.md
+            **/COMANDO_*.md
+            **/PLANO_*.md
+            **/ANALISE_*.md
+
+      - name: Notify success
+        if: success()
+        run: |
+          echo "✅ Deploy concluído — vanguard.tech em produção"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"

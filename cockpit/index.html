@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanguard Cockpit — Painel de Intervenção</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:     #C5A028;
+      --gold-dim: rgba(197,160,40,0.15);
+      --obs:      #0A0802;
+      --obs2:     #100D05;
+      --obs3:     #1A1408;
+      --text:     #E6E4DC;
+      --muted:    #5A5546;
+      --green:    #32C878;
+      --red:      #DC3C3C;
+      --border:   rgba(197,160,40,0.2);
+    }
+
+    body {
+      background: var(--obs);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 32px;
+      border-bottom: 1px solid var(--border);
+      background: var(--obs2);
+    }
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .1em;
+      color: var(--gold);
+    }
+    .header__badge {
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: .08em;
+    }
+    .header__status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+
+    /* ── Layout ── */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    /* ── Stats Bar ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-card {
+      background: var(--obs2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .stat-card__label {
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .stat-card__value {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .stat-card__sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── Section header ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      color: var(--gold);
+    }
+    .btn-refresh {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: color .2s, border-color .2s;
+    }
+    .btn-refresh:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── Tenant Grid ── */
+    .tenant-grid { display: flex; flex-direction: column; gap: 12px; }
+
+    .tenant-row {
+      background: var(--obs2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 160px;
+      align-items: center;
+      gap: 16px;
+      transition: border-color .2s;
+    }
+    .tenant-row:hover { border-color: rgba(197,160,40,0.4); }
+    .tenant-row.tenant-row--alert { border-color: rgba(220,60,60,0.4); background: rgba(220,60,60,0.04); }
+
+    .tenant-name {
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .tenant-domain {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Score bar */
+    .score-wrap { display: flex; flex-direction: column; gap: 4px; }
+    .score-label { font-size: 10px; color: var(--muted); letter-spacing: .06em; }
+    .score-bar-bg {
+      height: 6px;
+      background: var(--obs3);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .score-bar {
+      height: 100%;
+      border-radius: 3px;
+      transition: width .8s cubic-bezier(.16,1,.3,1);
+    }
+    .score-bar--fire  { background: linear-gradient(90deg,#C5A028,#F0C84A); }
+    .score-bar--hot   { background: linear-gradient(90deg,#7A5A00,#C5A028); }
+    .score-bar--warm  { background: linear-gradient(90deg,#5A1010,#DC7C2C); }
+    .score-bar--cold  { background: #2A2820; }
+    .score-val {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .score-val--fire { color: var(--gold); }
+    .score-val--warn { color: #DC7C2C; }
+    .score-val--low  { color: var(--muted); }
+
+    .sentinel-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+    .sentinel-badge--active {
+      background: rgba(50,200,120,0.1);
+      color: var(--green);
+      border: 1px solid rgba(50,200,120,0.3);
+    }
+    .sentinel-badge--inactive {
+      background: rgba(90,85,70,0.2);
+      color: var(--muted);
+      border: 1px solid rgba(90,85,70,0.3);
+    }
+
+    /* Intervir button */
+    .btn-intervir {
+      background: linear-gradient(135deg,#C5A028,#8B7019);
+      color: #0A0802;
+      border: none;
+      border-radius: 7px;
+      padding: 9px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      width: 100%;
+      transition: opacity .2s, transform .1s;
+    }
+    .btn-intervir:hover   { opacity: .88; }
+    .btn-intervir:active  { transform: scale(.97); }
+    .btn-intervir:disabled {
+      background: var(--obs3);
+      color: var(--muted);
+      cursor: default;
+      opacity: 1;
+    }
+    .btn-intervir--active {
+      background: linear-gradient(135deg,#32C878,#1A7A3C);
+      color: #fff;
+    }
+
+    /* ── Intervention Modal ── */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-bg.open { display: flex; }
+    .modal {
+      background: linear-gradient(135deg,var(--obs),var(--obs2));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 40px;
+      max-width: 480px;
+      width: 92%;
+      position: relative;
+    }
+    .modal__close {
+      position: absolute;
+      top: 14px; right: 18px;
+      background: none; border: none;
+      color: var(--muted); font-size: 18px; cursor: pointer;
+    }
+    .modal__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .modal__tenant {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .modal__label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      letter-spacing: .05em;
+    }
+    .modal__input, .modal__select {
+      width: 100%;
+      background: var(--obs3);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--text);
+      font-size: 13px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .modal__input:focus, .modal__select:focus { border-color: var(--gold); }
+    .modal__actions { display: flex; gap: 10px; margin-top: 6px; }
+    .btn-cancel {
+      flex: 1;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .btn-confirm {
+      flex: 2;
+      background: linear-gradient(135deg,#C5A028,#8B7019);
+      border: none;
+      border-radius: 7px;
+      color: #0A0802;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 10px;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn-confirm:hover { opacity: .88; }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--obs2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 12px;
+      color: var(--text);
+      z-index: 2000;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all .35s cubic-bezier(.16,1,.3,1);
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast--ok  { border-color: rgba(50,200,120,.5); }
+    .toast--err { border-color: rgba(220,60,60,.5); }
+
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2,1fr); }
+      .tenant-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header__logo">
+    🛡️ VANGUARD COCKPIT
+    <span class="header__badge">V20 — INTERVENÇÃO</span>
+  </div>
+  <div class="header__status">
+    <span class="dot"></span>
+    <span id="status-text">Carregando...</span>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Stats Bar -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-card__label">TENANTS ACTIVOS</div>
+      <div class="stat-card__value" id="stat-tenants">—</div>
+      <div class="stat-card__sub">instâncias monitoradas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">SENTINEL ACTIVOS</div>
+      <div class="stat-card__value" id="stat-sentinel">—</div>
+      <div class="stat-card__sub">R$97/mês recorrente</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">MRR ACTUAL</div>
+      <div class="stat-card__value" id="stat-mrr">—</div>
+      <div class="stat-card__sub">receita recorrente mensal</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">LEADS FIRE (24H)</div>
+      <div class="stat-card__value" id="stat-fire">—</div>
+      <div class="stat-card__sub">prontos para Hermes Voice</div>
+    </div>
+  </div>
+
+  <!-- Tenant Grid -->
+  <div class="section-header">
+    <div class="section-title">MATURITY SCORES — INTERVENÇÃO EM TEMPO REAL</div>
+    <button class="btn-refresh" onclick="loadTenants()">↻ Actualizar</button>
+  </div>
+
+  <div class="tenant-grid" id="tenant-grid">
+    <div style="text-align:center;color:var(--muted);padding:48px;font-size:13px;">
+      Carregando dados do Supabase...
+    </div>
+  </div>
+
+</main>
+
+<!-- Intervention Modal -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <button class="modal__close" onclick="closeModal()">✕</button>
+    <div class="modal__title">⚡ Intervir Agora</div>
+    <div class="modal__tenant" id="modal-tenant-label">—</div>
+
+    <div class="modal__label">TIPO DE INTERVENÇÃO</div>
+    <select class="modal__select" id="modal-type">
+      <option value="offer_aggressive">Oferta Agressiva — Modal de Urgência</option>
+      <option value="offer_discount">Desconto Exclusivo — 20% por 48h</option>
+      <option value="consultant_call">Consultoria Urgente — Slot disponível</option>
+    </select>
+
+    <div class="modal__label">MENSAGEM PERSONALIZADA (opcional)</div>
+    <input class="modal__input" id="modal-msg" type="text"
+           placeholder="Ex: Identificámos queda de 18% nas suas conversões esta semana...">
+
+    <div class="modal__label">DURAÇÃO DA INTERVENÇÃO</div>
+    <select class="modal__select" id="modal-ttl">
+      <option value="3600">1 hora</option>
+      <option value="14400">4 horas</option>
+      <option value="86400" selected>24 horas</option>
+    </select>
+
+    <div class="modal__actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-confirm" onclick="confirmIntervention()">
+        Activar Intervenção →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── Config ── */
+const SB_URL  = window.__VG_TENANT?.supabase_url  || '';
+const SB_ANON = window.__VG_TENANT?.supabase_anon || '';
+
+/* Cloudflare API para activar intervenção via KV */
+/* O endpoint abaixo é uma Cloudflare Worker que escreve no KV com TTL */
+const CF_INTERVENTION_ENDPOINT = '/api/intervention';
+
+let currentTenantId = null;
+
+/* ── Load Stats & Tenants ── */
+async function loadTenants() {
+  document.getElementById('status-text').textContent = 'Actualizando...';
+
+  try {
+    /* Buscar tenants activos */
+    const tenantsRes = await fetch(
+      `${SB_URL}/rest/v1/tenants?status=eq.active&order=created_at.desc`,
+      { headers: sbHeaders() }
+    );
+    const tenants = await tenantsRes.json();
+
+    /* Buscar subscriptions activas */
+    const subsRes = await fetch(
+      `${SB_URL}/rest/v1/tenant_subscriptions?status=eq.active`,
+      { headers: sbHeaders() }
+    );
+    const subs = await subsRes.json();
+
+    /* Buscar scores */
+    const scoresRes = await fetch(
+      `${SB_URL}/rest/v1/maturity_scores?order=maturity_score.desc&limit=100`,
+      { headers: sbHeaders() }
+    );
+    const scores = await scoresRes.json();
+
+    /* Buscar leads FIRE últimas 24h */
+    const since24h = new Date(Date.now() - 86400000).toISOString();
+    const fireRes = await fetch(
+      `${SB_URL}/rest/v1/pixel_events_staging?intent_label=eq.FIRE&fired_at=gte.${since24h}&select=tenant_id`,
+      { headers: sbHeaders() }
+    );
+    const fireLeads = await fireRes.json();
+
+    /* Montar mapa de scores por tenant */
+    const scoreMap = {};
+    scores.forEach(s => {
+      if (!scoreMap[s.tenant_id] || s.maturity_score > scoreMap[s.tenant_id]) {
+        scoreMap[s.tenant_id] = s.maturity_score;
+      }
+    });
+
+    /* Montar mapa de subscriptions */
+    const subsSet = new Set(subs.map(s => s.tenant_id));
+
+    /* Calcular stats */
+    const sentinelCount = subs.length;
+    const mrr = sentinelCount * 97;
+    const fireCount = new Set(fireLeads.map(f => f.tenant_id)).size;
+
+    document.getElementById('stat-tenants').textContent  = tenants.length;
+    document.getElementById('stat-sentinel').textContent = sentinelCount;
+    document.getElementById('stat-mrr').textContent      = `R$${mrr.toLocaleString('pt-BR')}`;
+    document.getElementById('stat-fire').textContent     = fireCount;
+    document.getElementById('status-text').textContent   =
+      `Actualizado às ${new Date().toLocaleTimeString('pt-BR')}`;
+
+    renderTenants(tenants, scoreMap, subsSet);
+
+  } catch(e) {
+    document.getElementById('status-text').textContent = 'Erro ao carregar dados';
+    renderDemoMode();
+  }
+}
+
+function renderTenants(tenants, scoreMap, subsSet) {
+  const grid = document.getElementById('tenant-grid');
+
+  if (!tenants.length) {
+    grid.innerHTML = `<div style="text-align:center;color:var(--muted);padding:48px;font-size:13px;">
+      Nenhum tenant activo. Use iah-clone.ps1 para criar a primeira instância.
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = tenants.map(t => {
+    const score     = scoreMap[t.id] || 0;
+    const hasSub    = subsSet.has(t.id);
+    const pct       = Math.round((score / 10) * 100);
+    const scoreClass = score >= 8.5 ? 'fire' : score >= 5 ? 'hot' : score >= 2 ? 'warm' : 'cold';
+    const barClass   = `score-bar--${scoreClass}`;
+    const valClass   = score >= 8.5 ? 'score-val--fire' : score >= 5 ? 'score-val--warn' : 'score-val--low';
+    const isAlert    = score >= 8.5;
+
+    return `
+    <div class="tenant-row ${isAlert ? 'tenant-row--alert' : ''}">
+      <div>
+        <div class="tenant-name">${t.nome}</div>
+        <div class="tenant-domain">${t.dominio || t.slug}</div>
+      </div>
+
+      <div class="score-wrap">
+        <div class="score-label">MATURITY SCORE</div>
+        <div class="score-bar-bg">
+          <div class="score-bar ${barClass}" data-w="${pct}" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="score-val ${valClass}">${score.toFixed(1)}</div>
+
+      <div>
+        <span class="sentinel-badge ${hasSub ? 'sentinel-badge--active' : 'sentinel-badge--inactive'}">
+          ${hasSub ? '✓ SENTINEL' : '○ FREE'}
+        </span>
+      </div>
+
+      <button
+        class="btn-intervir ${isAlert ? 'btn-intervir--active' : ''}"
+        onclick="openModal('${t.id}', '${t.nome}', ${score})"
+      >
+        ${isAlert ? '⚡ INTERVIR AGORA' : 'Intervir'}
+      </button>
+    </div>`;
+  }).join('');
+
+  /* Animar barras */
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.score-bar[data-w]').forEach(el => {
+      el.style.width = el.dataset.w + '%';
+    });
+  });
+}
+
+function renderDemoMode() {
+  const demoTenants = [
+    { id: 'demo-1', nome: 'Clínica São Paulo', dominio: 'clinicasp.com.br', score: 9.1, sub: true },
+    { id: 'demo-2', nome: 'E-commerce Moda', dominio: 'lojamodal.com.br',   score: 6.3, sub: true },
+    { id: 'demo-3', nome: 'Consultoria RH',   dominio: 'rhconsult.com.br',   score: 2.8, sub: false },
+  ];
+  document.getElementById('stat-tenants').textContent  = demoTenants.length;
+  document.getElementById('stat-sentinel').textContent = 2;
+  document.getElementById('stat-mrr').textContent      = 'R$194';
+  document.getElementById('stat-fire').textContent     = '1';
+  document.getElementById('status-text').textContent   = 'Modo demo — configure SUPABASE_URL';
+
+  const scoreMap = {};
+  const subsSet = new Set();
+  demoTenants.forEach(t => {
+    scoreMap[t.id] = t.score;
+    if (t.sub) subsSet.add(t.id);
+  });
+  renderTenants(demoTenants, scoreMap, subsSet);
+}
+
+/* ── Intervention Modal ── */
+function openModal(tenantId, tenantName, score) {
+  currentTenantId = tenantId;
+  document.getElementById('modal-tenant-label').textContent =
+    `${tenantName} — Score ${score.toFixed(1)}`;
+  document.getElementById('modal-bg').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal-bg').classList.remove('open');
+  currentTenantId = null;
+}
+
+async function confirmIntervention() {
+  if (!currentTenantId) return;
+
+  const type = document.getElementById('modal-type').value;
+  const msg  = document.getElementById('modal-msg').value;
+  const ttl  = parseInt(document.getElementById('modal-ttl').value);
+
+  closeModal();
+
+  try {
+    /* Enviar para CF Worker que escreve no KV com TTL */
+    await fetch(CF_INTERVENTION_ENDPOINT, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        tenant_id:    currentTenantId,
+        type,
+        message:      msg || null,
+        ttl_seconds:  ttl,
+      }),
+    });
+    showToast(`✓ Intervenção activada — modal injectado no site do tenant (TTL: ${ttl/3600}h)`, 'ok');
+  } catch(e) {
+    showToast('Erro ao activar intervenção. Verifique CF_INTERVENTION_ENDPOINT.', 'err');
+  }
+}
+
+/* ── Helpers ── */
+function sbHeaders() {
+  return {
+    'apikey':        SB_ANON,
+    'Authorization': `Bearer ${SB_ANON}`,
+  };
+}
+
+function showToast(msg, type = 'ok') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className   = `toast toast--${type} show`;
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+/* ── Init ── */
+loadTenants();
+setInterval(loadTenants, 60000);
+</script>
+</body>
+</html>
