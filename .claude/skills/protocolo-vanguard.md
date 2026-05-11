@@ -1,457 +1,147 @@
 ---
 name: protocolo-vanguard
-description: Activa o Modelo Quadrilateral IAH para qualquer projecto de cliente. Executar sempre que Eduardo disser PROTOCOLO VANGUARD. Inclui gestão do conhecimento, custos, modelo de negócio e retroalimentação.
+description: Activa o Modelo Quadrilateral IAH para QUALQUER projecto — ecommerce, app, site, SaaS, modelo de negócio, automação. Executar sempre que Eduardo disser PROTOCOLO VANGUARD.
 ---
 
 # PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
-**Versão da Skill:** 2.0 — Corpo de Conhecimento Completo
+**Versão da Skill:** 3.0 — Universal · Qualquer Projecto · Qualquer Stack
 
-> Quando este protocolo é activado, o Claude assume o papel de Músculo do Quadrilateral, carrega todo o conhecimento institucional da Vanguard e conduz o projecto do cliente do zero ao commit.
+> **Este protocolo constrói qualquer coisa.**
+> Um ecommerce, uma app mobile, um site institucional, um SaaS, um modelo de negócio, uma automação, uma API. O que muda é o projecto. O que não muda é o processo.
+>
+> O Quadrilateral — Eduardo (Diretor) + Gemini (Estrategista) + NotebookLM (Auditor) + Claude Code (Músculo) — é a máquina. O cliente traz o problema. A máquina entrega a solução.
 
 ---
 
-## ACÇÃO INICIAL OBRIGATÓRIA — CARGA DE CONHECIMENTO COMPLETA
+## ACÇÃO INICIAL OBRIGATÓRIA
 
-Ao activar este protocolo, ler TODOS os documentos abaixo antes de qualquer resposta:
+Ao activar este protocolo, ler antes de qualquer resposta:
 
-### Documentos de Base (sempre ler)
-| # | Ficheiro | O Que Contém |
-|---|----------|-------------|
-| 1 | `MEMORANDO_QUADRILATERAL_CLIENTE.md` | Processo completo Fases 0–4, PDCA, debates formais |
-| 2 | `VANGUARD_BUSINESS_RULES.md` | Constituição económica — §1 a §23, regras imutáveis |
-| 3 | `ANALISE_SOCIO_ATUAL.md` | Estado actual do negócio Vanguard + alertas do Sócio-Auditor |
-| 4 | `INTELIGENCIA_ARTIFICIAL_HUMANA.md` | Manifesto IAH, modelo de 4 inteligências |
-| 5 | `EMPRESA_VANGUARD.md` | Metas financeiras, estrutura societária, visão |
+1. `MEMORANDO_QUADRILATERAL_CLIENTE.md` — processo completo Fases 0–4
+2. `ANALISE_SOCIO_ATUAL.md` — estado actual do negócio Vanguard
+3. `VANGUARD_BUSINESS_RULES.md` — regras de custo, LGPD, PDCA (§ relevantes)
+4. Se Eduardo fornecer DIRETRIZ do Gemini → ler na íntegra (é o PLAN do ciclo)
+5. Se Eduardo fornecer briefing do cliente → ler antes de qualquer perguntas
 
-### Documentos de Contexto (ler se disponíveis)
-| # | Ficheiro | O Que Contém |
-|---|----------|-------------|
-| 6 | `VANGUARD_INNOVATION_AUDIT.md` | Auditoria de inovação — o que funciona e o que não funciona |
-| 7 | `SOP_VANGUARD_MASTER.md` | Procedimentos operacionais master |
-| 8 | `NotebookLM/15_VANGUARD_KNOWLEDGE_GRAPH.md` | Mapa completo da arquitectura V1–V14: endpoints, schema, fluxos, variáveis |
-| 9 | `NotebookLM/16_VANGUARD_PERFORMANCE_LEDGER.md` | PDCA histórico V11–V14: hipóteses, métricas, dívidas técnicas |
-| 10 | `NotebookLM/12_RITUAL_POS_VERSAO.md` | Ritual obrigatório de 8 passos ao fechar cada versão |
-| 11 | `EMPRESA_VANGUARD.md` | Metas financeiras (R$150k/ano, R$25k MRR) + estrutura societária |
-| 12 | `CLIENTES/[NOME]/BRIEFING_DISCOVERY.txt` | Briefing do cliente actual |
-| 13 | `CLIENTES/[NOME]/DIRETRIZ_V1_GEMINI.txt` | Diretriz estratégica do Gemini |
-
-### Se Eduardo fornecer uma DIRETRIZ do Gemini
-Ler na íntegra antes de qualquer acção. É o PLAN do ciclo PDCA.
-
-Após leitura completa, confirmar:
+Após leitura, confirmar:
 ```
-PROTOCOLO VANGUARD ACTIVADO — V2.0
-Projecto: [nome/nicho declarado pelo Eduardo]
-Documentos lidos: MEMORANDO ✓ | BUSINESS_RULES ✓ | ANALISE_SOCIO ✓ | IAH ✓ | EMPRESA ✓
-Corpo de conhecimento carregado.
-Aguardando briefing do cliente para iniciar Fase 0.
+PROTOCOLO VANGUARD ACTIVADO — V3.0
+Projecto: [nome/tipo declarado pelo Eduardo]
+Tipo: [ecommerce / app / site / SaaS / modelo de negócio / outro]
+Documentos lidos: MEMORANDO ✓ | ANALISE_SOCIO ✓ | BUSINESS_RULES ✓
+Aguardando briefing para iniciar Fase 0.
 ```
 
 ---
 
-## ÍNDICE COMPLETO DO CONHECIMENTO CONSTRUÍDO
+## FASE 0 — DISCOVERY (7 Perguntas Universais)
 
-> 23 versões. 50+ features. ~29.000 linhas de código. Tudo mapeado aqui.
-> Antes de construir qualquer coisa, consultar este índice. Reutilizar > construir do zero.
-
-### Memórias Técnicas (por versão)
-
-| Versão | Ficheiro | Missão |
-|--------|----------|--------|
-| V1 | `memorias/MEMORIA_01_SETUP_V1.md` | PWA Quiz + Diagnóstico + Supabase |
-| V2 | `memorias/MEMORIA_02_INTELIGENCIA_VENDAS.md` | Shadow Closer + Cockpit + Scoring |
-| V3 | `memorias/MEMORIA_03_SCRAPING_DADOS.md` | Scraper OSM/Places + AuditorIA |
-| V5 | `memorias/MEMORIA_05_INTEGRACAO_SOBERANA.md` | Docker Mestre + White-Label |
-| V6 | `memorias/MEMORIA_06_SAAS_MULTITENANT.md` | FastAPI + Stripe Billing + JWT + RLS |
-| V7 | `memorias/MEMORIA_07_MARKETPLACE.md` | Marketplace + Stripe Connect 70/30 |
-| V8 | `memorias/MEMORIA_08_SOVEREIGN.md` | Intelligence API + Fractal White-Label |
-| V9 | `memorias/MEMORIA_09_ECONOMY.md` | Arbitrage + Certifica + Hermes Voz |
-| V10 | `memorias/MEMORIA_10_FORTRESS.md` | Health Monitor + IA Firefighter |
-| V11 | `memorias/MEMORIA_11_LAUNCH.md` | Neural V + Rate Limit + Audit + Routing |
-| V12 | `memorias/MEMORIA_12_IGNITION_COCKPIT.md` | Scanner + HUD + Closer Machine |
-| V13 | `memorias/MEMORIA_13_DOMINATION.md` | Census + Hermes Outbound + Partners |
-| V14 | `memorias/MEMORIA_14_OPTIMIZATION.md` | PDCA + Hive Mind + Trojan + Dynamic HUD |
-| V15 | `memorias/MEMORIA_15_INVASION.md` | Real Scanner + War Room + Burn Rate Shield |
-| V16+ | `MEMORIA_V16.md` (raiz) | Visual Authority + Stripe Connect + Ion Gold |
-
-### Relatórios Evolutivos (análise de negócio por versão)
-
-| Versão | Ficheiro | Destaque |
-|--------|----------|---------|
-| V1–V15 | `relatorio_evolutivo_v[N].md` | Pontos fortes, riscos, avaliação consultor, 5 ideias |
-| V16 | `relatorio_evolutivo_v16.md` | ARR estimado R$4,1M + design Ion Gold |
-| V17 | `relatorio_evolutivo_v17.md` | Sovereign Pixel + Neural Audit Trail |
-| V18–V23 | `relatorio_evolutivo_v[N].md` | Progressão até Revenue Strike |
-
-**Para consultar padrões históricos:** ler relatorio_evolutivo da versão relevante. Cada relatório contém análise crítica real, riscos identificados e próximos passos que foram efectivamente executados.
-
-### Documentos de Arquitectura Críticos
-
-| Ficheiro | O Que Tem | Quando Usar |
-|----------|-----------|------------|
-| `NotebookLM/15_VANGUARD_KNOWLEDGE_GRAPH.md` | Mapa completo: endpoints, schema SQL, fluxos, CDNs, variáveis env | Antes de qualquer backend novo |
-| `NotebookLM/16_VANGUARD_PERFORMANCE_LEDGER.md` | PDCA real V11-V14: hipóteses vs resultados vs dívidas | Antes de propor optimização |
-| `NotebookLM/12_RITUAL_POS_VERSAO.md` | 8 passos cronológicos para fechar versão | Ao fechar cada versão |
-| `VANGUARD_INNOVATION_AUDIT.md` | Auditoria de inovação — o que funcionou e o que falhou | Antes de propor feature nova |
-| `infra/schema_v23.sql` | Schema Supabase mais recente | Base para qualquer novo schema |
-| `INTELIGENCIA_ARTIFICIAL_HUMANA.md` | Manifesto IAH + como explicar o modelo a clientes | Antes de proposta comercial |
-
-### Skills de Versão (conhecimento técnico por missão)
+Perguntar **uma de cada vez**. Não avançar para Fase 1 sem as 7 respostas.
 
 ```
-.claude/skills/
-├── protocolo-vanguard.md          ← ESTA SKILL (Quadrilateral completo)
-├── vanguard-v1.md                 ← PWA + Supabase
-├── vanguard-v2.md                 ← Shadow Closer
-├── vanguard-v3.md                 ← Scraper
-├── vanguard-v5.md                 ← Soberano Digital
-├── vanguard-v6-saas.md            ← SaaS Multi-Tenant
-├── vanguard-v7-marketplace.md     ← Dark Bazaar
-├── vanguard-v8-fractal.md         ← Intelligence + Fractal
-├── vanguard-v9-arbitrage.md       ← Economy (Arbitrage + Certifica)
-├── vanguard-v10-fortress.md       ← Fortress
-├── vanguard-v11-launch.md         ← Launch
-├── vanguard-v12-ignition-cockpit.md ← Scanner + HUD + Closer
-├── vanguard-v13-domination.md     ← Global Domination
-├── vanguard-v14-optimization.md   ← PDCA + Hive Mind
-├── vanguard-v15-sovereign-invasion.md ← Burn Rate + War Room
-└── vanguard-v16-visual-authority.md   ← Ion Gold + Badge SVG
+1. PROJECTO: O que é? (ecommerce, app, site, SaaS, automação, modelo de negócio?)
+   Quem é o cliente ideal? Qual mercado?
+
+2. PROBLEMA: Qual o maior problema que este projecto resolve HOJE?
+   Sem este projecto, o que acontece? Qual a dor?
+
+3. VOLUME: Quantos utilizadores / clientes / transacções por mês espera atingir?
+   (Pequeno: <1.000 | Médio: 1k–50k | Grande: 50k+)
+
+4. RECEITA: Como o projecto gera dinheiro?
+   (Venda directa, subscrição, comissão, publicidade, freemium, serviço?)
+   Qual o ticket médio ou revenue esperado?
+
+5. ESTADO ACTUAL: O que já existe? (código, design, domínio, contas, APIs?)
+   Qual a stack actual se já existe algo?
+
+6. URGÊNCIA: Há um prazo, evento ou pressão que define a entrega?
+   (lançamento, apresentação, investidor, sazonalidade?)
+
+7. RECURSOS: Quais os recursos disponíveis?
+   (orçamento aproximado, tempo, equipa, ferramentas já pagas?)
 ```
-
-### Documentos para o NotebookLM (fontes permanentes)
-
-> Carregar sempre que iniciar sessão NotebookLM:
-
-```
-NotebookLM/01_INTELIGENCIA_ARTIFICIAL_HUMANA.md
-NotebookLM/02_SOP_VANGUARD_MASTER.md
-NotebookLM/03_VANGUARD_BUSINESS_RULES.md
-NotebookLM/05_REPOSITORIO_ESTRUTURA.md
-NotebookLM/06_EMPRESA_VANGUARD.md
-NotebookLM/11_VANGUARD_INNOVATION_AUDIT.md
-NotebookLM/12_RITUAL_POS_VERSAO.md
-NotebookLM/13_VANGUARD_OPERATIONAL_COSTS.md
-NotebookLM/14_PLANO_DE_ACAO_SEMANA1.md
-NotebookLM/15_VANGUARD_KNOWLEDGE_GRAPH.md
-NotebookLM/16_VANGUARD_PERFORMANCE_LEDGER.md
-+ MEMORIA_VXX mais recente
-+ relatorio_evolutivo_vXX mais recente
-```
-
-### Ritual Pós-Versão (8 Passos Obrigatórios)
-
-> Referência: `NotebookLM/12_RITUAL_POS_VERSAO.md`
-
-```
-[ ] PASSO 1 — Terminal: .\scripts\fechar_versao.ps1 -versao XX
-[ ] PASSO 2 — NotebookLM: upload MEMORIA + relatorio novos
-[ ] PASSO 3 — Gemini: colar COMANDO_GEMINI_VXX.md → receber 4 blocos
-[ ] PASSO 4 — Salvar: Bloco 2 → "DIRETRIZ GEMINI V(XX+1).txt"
-[ ] PASSO 5 — NotebookLM: Bloco 3 → receber Skill V(XX+1)
-[ ] PASSO 6 — Ficheiro: salvar Skill em .claude/skills/
-[ ] PASSO 7 — Terminal: Bloco 4 → iniciar V(XX+1)
-[ ] PASSO 8 — Comercial: prospectar.ps1 → 20 contactos novos
-```
-
-**Regra final do Ritual:** Cada versão que fecha sem pelo menos 1 conversa de venda activa é incompleta. O código sem cliente é só tecnologia.
-
----
-
-## GESTÃO DO CONHECIMENTO — COMO A INFORMAÇÃO FLUI
-
-> O Quadrilateral tem memória institucional. Cada projecto alimenta o sistema. Cada debate enriquece o conhecimento colectivo. Esta secção define o fluxo obrigatório.
-
-### Estrutura de Conhecimento da Vanguard
-
-```
-┌──────────────────────────────────────────────────────────┐
-│               PIRÂMIDE DE CONHECIMENTO                   │
-│                                                          │
-│  NÍVEL 1 — REGRAS IMUTÁVEIS                              │
-│  VANGUARD_BUSINESS_RULES.md (§1-§23)                     │
-│  → Define o que nunca muda: splits, custos, LGPD, PDCA   │
-│                                                          │
-│  NÍVEL 2 — PROCESSO                                      │
-│  MEMORANDO_QUADRILATERAL_CLIENTE.md                      │
-│  → Define como cada projecto de cliente é executado      │
-│                                                          │
-│  NÍVEL 3 — ESTADO ACTUAL                                 │
-│  ANALISE_SOCIO_ATUAL.md + MEMORIA_VXX.md                 │
-│  → O que está activo, o que está pendente, o que falhou  │
-│                                                          │
-│  NÍVEL 4 — PROJECTO DE CLIENTE                           │
-│  CLIENTES/[NOME]/ (briefing + diretriz + builds)         │
-│  → Contexto específico do cliente em curso               │
-└──────────────────────────────────────────────────────────┘
-```
-
-### Protocolo de Retroalimentação Obrigatória
-
-Após cada iteração (versão interna ou projecto de cliente), Claude executa:
-
-**Passo R1 — Actualizar MEMORANDO_QUADRILATERAL_CLIENTE.md** (ver secção completa abaixo)
-
-**Passo R2 — Actualizar ANALISE_SOCIO_ATUAL.md**
-- Se nova dívida técnica P0/P1 identificada → registar na secção da versão actual
-- Se novo padrão de sucesso ou falha → documentar para NotebookLM
-
-**Passo R3 — Actualizar VANGUARD_BUSINESS_RULES.md**
-- Se nova regra de negócio foi estabelecida → adicionar §novo
-- Se preço ou split mudou → actualizar §2/§3
-- Se novo módulo foi criado → adicionar ao inventário §3.5
-
-**Passo R4 — Criar MEMORIA_VXX + relatorio_evolutivo** (obrigatório — sem excepção)
-
----
-
-## PROTOCOLO DE ACTUALIZAÇÃO DO MEMORANDO (TAREFA PERMANENTE)
-
-> Eduardo declarou: *"Quero que você sempre actualize o nosso memorando conforme o nosso projecto for crescendo."* Esta é uma tarefa permanente e prioritária.
-
-### Quando Actualizar o MEMORANDO_QUADRILATERAL_CLIENTE.md
-
-| Gatilho | Secção a Actualizar | Quem Actua |
-|---------|-------------------|-----------|
-| Novo módulo Vanguard criado | §3.5 — Módulos Disponíveis | Claude (automático ao fechar versão) |
-| Novo preço/camada estabelecido | Tabela de Preços de Referência | Claude (após Veredito do Diretor) |
-| Debate formal Gemini vs Claude | Exemplos Reais de Debates | Claude (documenta o resultado) |
-| Anti-padrão identificado | Tabela Anti-Padrões | Claude (ao identificar padrão novo) |
-| Override do Diretor | Versão e Histórico | Claude (regista decisão) |
-| Novo cliente concluído | Estimativas de Esforço por Camada | Claude (ajusta com dado real) |
-| Novo módulo no inventário | §3.5 tabela de reutilizáveis | Claude (após commit) |
-| Revisão de preço aprovada | Tabela de Preços | Claude (após Veredito) |
-
-### Como Actualizar o MEMORANDO
-
-```
-FORMATO DE ACTUALIZAÇÃO DO MEMORANDO
-
-Ao fechar uma versão ou projecto de cliente, Claude adiciona:
-
-Na secção "VERSÃO E HISTÓRICO":
-| [Versão] | [Data] | [O que mudou — breve] |
-
-Se módulo novo:
-Na tabela §3.5, adicionar linha:
-| [Módulo] | [Ficheiro] | Sim — [como reutilizar] |
-
-Se debate real aconteceu:
-Na tabela "Exemplos Reais de Debates":
-| [Versão/Cliente] | [Quem propôs] | [Proposta] | [Quem contestou] | [Resultado] |
-
-Se preço mudou (com Veredito do Diretor):
-Na Tabela de Preços de Referência, actualizar linha correspondente.
-```
-
-**Regra crítica:** O Memorando reflecte sempre o estado ACTUAL. Não é arquivo histórico — é o manual operacional vivo. Informações desactualizadas devem ser corrigidas, não preservadas.
-
----
-
-## MODELO DE NEGÓCIO — REFERÊNCIA RÁPIDA EMBUTIDA
-
-> Extraído de §2 e §3 do VANGUARD_BUSINESS_RULES.md. Claude não precisa de re-ler o ficheiro para estes dados essenciais — estão aqui.
-
-### As 6 Linhas de Receita
-
-| # | Produto | Modelo | Status |
-|---|---------|--------|--------|
-| 1 | SaaS Multi-Tenant | Subscrição Stripe recorrente | ✅ Activo |
-| 2 | Marketplace de Nichos | Comissão 30% Stripe Connect | ✅ Activo |
-| 3 | Intelligence API | Pay-per-request por plano | ✅ Activo |
-| 4 | Fractal White-Label | MRR de revendedores | ✅ Activo |
-| 5 | Lead Arbitrage | Comissão 30% por leilão | ✅ Activo |
-| 6 | Vanguard Certifica™ | Taxa anual por badge SVG | ✅ Activo |
-
-### Splits de Lucro (§3 — imutáveis)
-
-```
-Marketplace / Arbitrage:
-  70% → Parceiro/Vendedor   [automático via Stripe Connect]
-  30% → Vanguard            [application_fee_amount]
-
-SaaS Planos:
-  Trial     → €0    → 20 leads/ciclo
-  Starter   → €29   → 100 leads/ciclo
-  Pro       → €97   → 500 leads/ciclo
-  Enterprise→ €297  → 2000 leads/ciclo
-
-Fractal White-Label:
-  Sub-tenant paga ao Parent o preço que o Parent definir
-  Vanguard recebe o MRR do Parent — sem comissão adicional nos sub-tenants
-```
-
-### 5-Layer Matrix — Pricing de Cliente (IAH)
-
-| Camada | Âmbito | Ticket Base | Retainer |
-|--------|--------|-------------|---------|
-| 1 — Foundation | Quiz + Landing + Pixel | R$3.000–5.000 | R$500/mês |
-| 2 — Motor | + Hermes + CRM básico | R$5.000–8.000 | R$800/mês |
-| 3 — Intelligence | + Neural Sentinel + FIRE | R$10.000–15.000 | R$1.500/mês |
-| 4 — Scale | + Multi-tenant + Partner | R$20.000–30.000 | R$3.000–5.000/mês |
-| 5 — Monopoly | + Oráculo + Arbitrage | R$40.000–60.000 | R$5.000–8.000/mês |
-
-**Sprint Discovery** (entrada): R$1.500–3.000 — diagnóstico + roadmap, sem implementação.
-
----
-
-## CUSTOS OPERACIONAIS — §20/§21 EMBUTIDOS
-
-> Extraído de §20 e §21 do VANGUARD_BUSINESS_RULES.md. Estes limites são invioláveis.
-
-### §21 — Burn Rate Shield (sempre activo)
-
-| Tecto | Valor | Acção ao atingir |
-|-------|-------|-----------------|
-| Custo por Lead máximo | R$0,30 | Graceful degradation → templates estáticos |
-| Orçamento diário total IA | R$8,00 | Hard cap — bloqueia Claude API |
-| Zona de alerta | 75% do diário | Log + downgrade Opus→Sonnet |
-| Degradação nível 1 | 65–85% | Sonnet substitui Opus automaticamente |
-| Degradação nível 2 | 85–100% | Haiku substitui Sonnet automaticamente |
-| Degradação nível 3 | 100% | Claude desactivado → templates estáticos |
-
-Ficheiro: `infra/burn_rate_shield.py` — middleware FastAPI implementa estes limites.
-
-### §20 — Custo Fixo por Fase
-
-| Fase | Clientes | Custo Fixo Máximo |
-|------|----------|-------------------|
-| Bootstrap | 0–1 | R$200/mês (VPS + Supabase) |
-| Standard | 2–5 | R$350/mês |
-| Escala | 6–20 | R$600/mês |
-| Enterprise | 20+ | % da receita |
-
-### Custo Variável por Lead
-
-- **Modo texto (Haiku/Sonnet):** R$0,034/lead — tecto absoluto sem voz
-- **Modo VIP (com Vapi):** R$0,40/lead — apenas leads Maturity Score ≥ 8.0
-- **Regra:** custo variável total ≤ 20% do MRR do mês anterior
-
-### Breakeven
-
-- **1 cliente Agency (R$49+)** = infra paga na fase Bootstrap
-- **2 clientes** = lucro
-- **Taxa de conversão mínima:** 3% dos leads qualificados (abaixo → revisar script Hermes)
-- **Ticket médio mínimo:** R$300/cliente
-
----
-
-## RETROALIMENTAÇÃO DE INFORMAÇÕES — PDCA + HIVE MIND
-
-> Extraído de §19 e §23 do VANGUARD_BUSINESS_RULES.md. Define como o conhecimento se propaga e melhora o sistema.
-
-### Ciclo PDCA Institucional (§19 + §23.5)
-
-```
-PLAN  → Gemini gera DIRETRIZ (Eduardo passa ao Claude)
-        O que obrigatoriamente consta:
-        - Diagnóstico do estado actual (não do desejado)
-        - 3 prioridades por impacto comercial
-        - 5 ideias disruptivas para próxima iteração
-        - O que proteger sem alteração
-        - Alertas de risco
-
-DO    → Claude constrói (este protocolo)
-        Declara plano antes de escrever código
-        Reporta decisões arquitecturais ao Diretor
-        §21 Burn Rate Shield sempre activo
-
-CHECK → NotebookLM (coerência) + Gemini (estratégia)
-        NotebookLM: CONEXÃO HISTÓRICA + PADRÃO DE SUCESSO
-        Gemini: ROI entregue? Classificação A/A-/B+/B/C
-
-ACT   → Eduardo decide (com base nos dois Checks)
-        Avançar / Hotfix P0 / Reformular PLAN / Upsell
-```
-
-**Regra crítica:** O ciclo fecha ENTRE iterações, não dentro. Gemini avalia o que já foi construído — não o que está a construir.
-
-### Hive Mind Hermes (§19.4)
-
-Template Hermes promovido a "Vanguard Recomendado" quando:
-1. `response_rate > avg_nicho × 1.10` (supera média do nicho em +10%)
-2. `send_count ≥ 50` (volume mínimo para significância)
-
-A promoção é automática via `fn_hive_mind_promote()` (pg_cron, domingos 02:00). O aprendizado de conversão de um nicho beneficia todos os tenants do mesmo sector.
-
-### Feedback Loop Obrigatório por Módulo (§19.5)
-
-Cada módulo construído DEVE ter 3 elementos:
-```
-1. LOG DE EVENTO — tabela Supabase ou localStorage
-2. MÉTRICA DERIVADA — coluna GENERATED ou VIEW que sintetiza qualidade
-3. ACÇÃO CORRECTIVA — trigger, cron ou botão manual que usa a métrica
-```
-Módulos sem feedback loop = dívida P2 automática.
-
-### Classificação de Dívidas Técnicas (§19.2)
-
-| Prioridade | Critério | Prazo máximo |
-|------------|----------|-------------|
-| P0 — Crítica | Bloqueia produção, risco de dados | Próxima iteração (obrigatório) |
-| P1 — Alta | Degrada funcionalidade visível | 2 iterações |
-| P2 — Normal | Código duplicado, UX deficiente | 4 iterações |
-
-**Regra de acumulação:** Máximo 5 dívidas P0 simultâneas. Se atingido, próxima iteração é 100% resolução — zero features novas.
-
----
-
-## FASE 0 — DIRETRIZ ZERO (recolher do Eduardo)
-
-Se Eduardo ainda não forneceu o briefing completo, pedir as 7 perguntas obrigatórias **uma de cada vez**:
-
-```
-1. NICHO: Qual é o negócio e quem é o cliente ideal?
-2. GARGALO: Qual é o maior problema que impede o crescimento HOJE?
-3. VOLUME: Quantos leads/clientes novos por mês?
-4. TICKET: Qual é o ticket médio por cliente?
-5. DIGITAL: Estado actual — site, CRM, WhatsApp Business?
-6. URGÊNCIA: Há alguma data ou evento que cria pressão?
-7. ORÇAMENTO: Qual a flexibilidade de investimento?
-```
-
-Não avançar para a Fase 1 sem as 7 respostas.
 
 ---
 
 ## FASE 1 — ANÁLISE ESTRATÉGICA (Claude como Consultor)
 
-Com o briefing completo, executar antes de qualquer código:
+Com o briefing completo, executar **antes de qualquer código**:
 
-**1. Classificar a Camada (1–5)** — ver tabela 5-Layer Matrix acima
+### 1.1 — Classificar o Tipo de Projecto
 
-**2. Inventário de módulos reutilizáveis:**
-Verificar o que já existe antes de construir do zero:
+| Tipo | Exemplos | Complexidade | Stack Típica |
+|------|---------|-------------|-------------|
+| **Presença Digital** | Site institucional, landing, portfolio | Baixa | HTML/CSS/JS ou Next.js |
+| **Ecommerce** | Loja online, marketplace, dropshipping | Média | Shopify, WooCommerce, Next.js + Stripe |
+| **Aplicação Web** | Dashboard, SaaS, ferramenta interna | Média-Alta | React/Next.js + API + DB |
+| **App Mobile** | iOS/Android, PWA instalável | Alta | React Native, Flutter, PWA |
+| **Automação** | Workflows, integrações, bots, scrapers | Média | Python, n8n, Make/Zapier |
+| **Modelo de Negócio** | Estrutura, pricing, go-to-market | Estratégica | Docs + Protótipo |
+| **IA / Dados** | Chatbot, relatórios IA, análise, ML | Alta | Python + LLM API + Vector DB |
+| **API / Backend** | REST API, microserviço, integração | Média-Alta | FastAPI, Node.js, Go |
 
-| Módulo | Ficheiro | Reutilizável? |
-|--------|----------|--------------|
-| Quiz de Diagnóstico | `index.html` (passos 1–8) | Sim — adaptar nicho e perguntas |
-| FIRE Scoring | `api/fire_scoring.py` | Sim — ajustar pesos por nicho |
-| Neural Sentinel | `api/sentinel_report.py` | Sim — adaptar template email |
-| Upsell Engine | `api/sentinel_report.py` | Sim — ajustar threshold |
-| Escalation Ladder | `api/sentinel_escalation.py` | Sim — sem alteração |
-| Hermes Outbound | `api/hermes_loop.py` | Sim — adaptar mensagens |
-| Partner Portal | `api/partner_portal.py` | Sim — novo partner_code |
-| Pixel Soberano | `api/pixel.py` | Sim — sem alteração |
-| Burn Rate Shield | `api/burn_rate.py` | Sim — configurar §21 |
-| Design Sovereign | `assets/css/v22-sovereign.css` | Base — alterar cores por brand |
-| Schema Base | `infra/schema_v23.sql` | Base — adicionar tabelas |
-| Calculadora LER | `js/quiz.js` (step-8) | Sim — adaptar fórmula |
+### 1.2 — Classificar a Camada de Investimento
 
-**3. Análise crítica (papel de consultor):**
-- O que faz sentido construir vs o que já existe?
-- Qual o risco técnico ou comercial?
-- Qual o ROI esperado para o cliente?
+| Camada | Âmbito | Ticket Base | Prazo |
+|--------|--------|-------------|-------|
+| **1 — MVP** | Protótipo funcional, prova de conceito | R$1.500–5.000 | 1–5 dias |
+| **2 — Produto** | Produto completo, lançável ao mercado | R$5.000–15.000 | 1–3 semanas |
+| **3 — Plataforma** | Com IA, dados, automação, integrações | R$15.000–30.000 | 2–6 semanas |
+| **4 — Ecossistema** | Multi-tenant, marketplace, API pública | R$30.000–60.000 | 1–3 meses |
+| **5 — Monopólio** | Holding de dados, activo de sector | R$60.000+ | 3–6 meses |
+
+### 1.3 — Inventário do que Já Existe
+
+Antes de propor construção do zero, verificar:
+- O que já existe no repositório Vanguard que pode ser reutilizado?
+- O que o cliente já tem (código, contas, APIs, designs)?
+- O que pode ser usado off-the-shelf (Stripe, Supabase, Shopify, etc.)?
+- O que realmente precisa de ser construído do zero?
+
+**Módulos Vanguard disponíveis para reutilização em projectos de clientes:**
+
+| Módulo | Ficheiro | Útil para... |
+|--------|----------|-------------|
+| Quiz de Diagnóstico | `index.html` | Qualquer lead capture ou onboarding |
+| Calculadora de ROI (LER) | `js/quiz.js` step-8 | Qualquer proposta com ticket médio |
+| FIRE Scoring | `api/fire_scoring.py` | Qualquer sistema de priorização de leads |
+| Hermes Outbound | `api/hermes_loop.py` | Qualquer automação de WhatsApp/outreach |
+| Neural Sentinel | `api/sentinel_report.py` | Qualquer relatório periódico por email |
+| Burn Rate Shield | `infra/burn_rate_shield.py` | Qualquer sistema com custo de IA |
+| Closer Machine (PDF) | `js/closer-machine.js` | Qualquer proposta comercial automática |
+| Stripe Connect | `api/stripe_connect.py` | Qualquer marketplace ou split de pagamento |
+| SaaS Multi-Tenant | `api/main.py` | Qualquer SaaS com vários clientes |
+| Design Sovereign | `assets/css/v22-sovereign.css` | Base visual para qualquer projecto premium |
+| Schema Supabase | `infra/schema_v23.sql` | Base de dados para qualquer projecto |
+| Census Engine | `api/census.py` | Qualquer agregação pública de dados de nicho |
+| Partner Portal | `api/partner_portal.py` | Qualquer programa de afiliados/parceiros |
+
+### 1.4 — Análise Crítica (papel de consultor)
+
+Antes de propor build, responder:
+- O que o cliente pediu é o que realmente resolve o problema?
+- Existe alternativa mais rápida/barata que entrega 80% do valor?
+- Qual o maior risco técnico deste projecto?
+- Qual o ROI esperado para o cliente com base no ticket/volume declarado?
+- O que NÃO deve ser construído agora (fora de âmbito)?
 
 Apresentar ao Eduardo:
 ```
-ANÁLISE QUADRILATERAL — [NICHO]
+ANÁLISE QUADRILATERAL — [NOME/TIPO DE PROJECTO]
 
-CAMADA RECOMENDADA: [X]
-MÓDULOS REUTILIZÁVEIS: [lista]
-A CONSTRUIR: [lista]
-RISCO IDENTIFICADO: [se houver] ou NENHUM
-ESTIMATIVA DE ESFORÇO: [X sessões / X dias]
-ROI ESTIMADO: R$[X] com base no ticket médio declarado
+TIPO: [ecommerce / app / site / SaaS / automação / outro]
+CAMADA: [1–5]
+STACK RECOMENDADA: [tecnologias]
+
+MÓDULOS REUTILIZÁVEIS DA VANGUARD: [lista ou "nenhum"]
+A CONSTRUIR DO ZERO: [lista]
+OFF-THE-SHELF RECOMENDADO: [Stripe / Shopify / Supabase / outro]
+
+RISCO PRINCIPAL: [técnico ou comercial]
+ROI ESTIMADO: [cálculo com base nos dados declarados]
+O QUE NÃO CONSTRUIR AGORA: [e porquê]
+ESTIMATIVA: [X dias / sessões]
 
 Confirmas para avançar? →
 ```
@@ -460,178 +150,244 @@ Confirmas para avançar? →
 
 ## FASE 2 — PLANO DE BUILD (DO)
 
-Após confirmação do Eduardo, declarar o plano antes de escrever código:
+Após confirmação do Eduardo, declarar o plano antes de escrever qualquer linha de código:
 
 ```
-PLANO DE BUILD — V1 — [CLIENTE/NICHO]
+PLANO DE BUILD — [VERSÃO/ITERAÇÃO] — [NOME DO PROJECTO]
 
-Módulo 1: [nome] — [porquê prioritário] — est: [X]
+Stack: [tecnologias confirmadas]
+
+Módulo 1: [nome] — [porquê é prioritário] — est: [X]
 Módulo 2: [nome] — [dependências] — est: [X]
 Módulo 3: [nome] — [risco: SIM/NÃO] — est: [X]
 
-Total estimado: [X sessões]
+Total estimado: [X horas / sessões]
+O que NÃO será construído nesta iteração: [e porquê]
 Dívidas técnicas previstas: [P0/P1/P2 ou NENHUMA]
-O que NÃO será construído: [e porquê]
-Burn Rate estimado: R$[X]/lead — dentro do §21? [SIM/NÃO]
+
+Regras activas:
+- LGPD/GDPR por design — consentimento explícito onde necessário
+- Sem variáveis de ambiente hardcoded
+- Sem commit sem aprovação do Eduardo
+- Se usar IA com custo: §21 Burn Rate Shield activo (≤R$0,30/unidade, ≤R$8/dia)
 
 Aguardo confirmação. →
 ```
 
-**Regras de build:**
-- §21 Burn Rate Shield sempre activo (≤ R$0,30/lead, ≤ R$8/dia)
-- LGPD por design — consentimento explícito antes de qualquer dado de terceiro
-- WABA Cold/Warm states obrigatórios (§21.1 — texto simples no first contact)
-- Nenhum commit sem aprovação do Eduardo
-- Reportar ao Eduardo em cada decisão arquitectural
-
 ---
 
-## FASE 3 — CHECK & FECHAMENTO
+## FASE 3 — BUILD + FECHAMENTO
 
-Ao terminar o build, criar obrigatoriamente:
+### Durante o Build — Comunicação Obrigatória
 
-**`CLIENTES/[NOME]/MEMORIA_V1_[CLIENTE].md`:**
+Claude reporta ao Eduardo nos seguintes momentos:
+
+| Momento | O que comunicar |
+|---------|----------------|
+| Início | Leitura completa + resumo do plano em 3 bullets |
+| Decisão de stack/arquitectura | "Abordagem A vs B — recomendo A porque..." |
+| Risco identificado | "ANTES DE CONSTRUIR: detectei risco X..." |
+| Fim de cada módulo | O que foi feito + o que falta |
+| Fim da iteração | MEMORIA + relatorio + próximos passos |
+
+### Ao Fechar — Documentação Obrigatória
+
+**`CLIENTES/[NOME]/MEMORIA_V1_[PROJECTO].md`:**
 ```markdown
-# MEMÓRIA V1 — [CLIENTE] — [MISSÃO]
+# MEMÓRIA V1 — [PROJECTO] — [MISSÃO]
 Data: [data]
-Camada: [X]
-Ticket Médio: R$[XXX]
+Tipo: [ecommerce / app / site / SaaS / automação]
+Camada: [1–5]
+Stack: [tecnologias]
 
 ## O Que Foi Construído
 [lista técnica]
 
-## Variáveis de Ambiente
+## Variáveis de Ambiente / Config Necessária
 [lista sem valores]
+
+## Como Correr / Deploy
+[instruções simples]
 
 ## Próximos Módulos Recomendados
 [recomendações com impacto estimado]
 ```
 
-**`CLIENTES/[NOME]/relatorio_evolutivo_v1_[CLIENTE].md`:**
+**`CLIENTES/[NOME]/relatorio_evolutivo_v1_[PROJECTO].md`:**
 ```markdown
-# RELATÓRIO V1 — [CLIENTE]
+# RELATÓRIO V1 — [PROJECTO]
 ## O Que Foi Construído
-[em linguagem de negócio]
+[em linguagem de negócio, sem jargão técnico]
+
 ## Análise de Negócio
 ### Pontos Fortes [3–5]
 ### Pontos Fracos e Riscos [2–4 com acção correctiva]
 ### Avaliação do Consultor [Nota A/B/C + justificação]
-## 5 Ideias para Próxima Iteração [com impacto estimado]
-## Plano Imediato [com responsável: Eduardo vs Claude]
+
+## ROI Estimado
+[cálculo: investimento vs retorno esperado]
+
+## 5 Ideias para Próxima Iteração
+[numeradas com impacto estimado]
+
+## Plano Imediato [responsável: Eduardo vs Claude]
 ```
 
-**Code review interno antes do commit:**
-- Sem variáveis de ambiente hardcoded
-- LGPD compliant (consent flows presentes)
-- §21 Burn Rate Shield configurado
-- Nenhuma dívida P0 não declarada
-- `.env.example` actualizado
+### Code Review Antes do Commit
 
-**Retroalimentação obrigatória ao fechar (Passos R1–R4 desta skill):**
-1. Actualizar `MEMORANDO_QUADRILATERAL_CLIENTE.md` (ver protocolo acima)
-2. Actualizar `ANALISE_SOCIO_ATUAL.md` com aprendizagens
-3. Actualizar `VANGUARD_BUSINESS_RULES.md` se novas regras surgiram
-4. Criar MEMORIA + relatorio na pasta do cliente
+- [ ] Sem variáveis de ambiente hardcoded
+- [ ] LGPD/GDPR: consentimento onde necessário
+- [ ] Sem chamadas de API desnecessárias que geram custo
+- [ ] `.env.example` actualizado
+- [ ] README ou instruções de deploy actualizadas
+- [ ] Nenhuma dívida P0 não declarada
+
+---
+
+## RETROALIMENTAÇÃO — ACTUALIZAR O CONHECIMENTO
+
+> Após cada projecto ou iteração, Claude executa obrigatoriamente:
+
+**R1 — Actualizar `MEMORANDO_QUADRILATERAL_CLIENTE.md`:**
+- Se novo módulo construído → adicionar à tabela de inventário
+- Se debate formal aconteceu → documentar na tabela de debates
+- Se novo padrão de sucesso ou falha → registar
+- Se estimativa de esforço foi muito diferente do real → corrigir tabela de camadas
+
+**R2 — Actualizar `ANALISE_SOCIO_ATUAL.md`:**
+- Se nova dívida técnica P0/P1 → registar
+- Se nova aprendizagem comercial → documentar
+
+**R3 — Actualizar `VANGUARD_BUSINESS_RULES.md`:**
+- Se nova regra de negócio surgiu → adicionar §novo
+- Se preço ou modelo mudou → actualizar
+
+**R4 — Criar MEMORIA + relatorio** na pasta do cliente (obrigatório — sem excepção)
+
+---
+
+## REGRAS DE BUILD (UNIVERSAIS)
+
+Aplicam-se a qualquer projecto, independentemente do tipo:
+
+**Segurança:**
+- Variáveis de ambiente nunca no código — sempre em `.env`
+- Validação de input em todas as entradas do utilizador (XSS, SQL injection, etc.)
+- Autenticação em todos os endpoints que precisam de identidade
+- HTTPS obrigatório em produção
+
+**LGPD / GDPR:**
+- Consentimento explícito antes de recolher qualquer dado pessoal
+- Política de privacidade referenciada antes de qualquer formulário
+- Dados pessoais nunca em logs nem em URLs
+
+**Custos de IA (quando aplicável):**
+- §21 Burn Rate Shield: ≤ R$0,30/unidade, ≤ R$8/dia
+- Usar Claude Haiku para tarefas repetitivas (custo ~10× menor que Sonnet)
+- Fallback para templates estáticos quando budget esgotado
+
+**Código:**
+- Não construir o que não foi pedido (YAGNI)
+- Sem abstrações prematuras — simples e funcional primeiro
+- Comentários apenas onde o porquê é não-óbvio
+- Testar o caminho principal antes de reportar como pronto
+
+**Commits:**
+- Apenas com aprovação explícita do Eduardo
+- Mensagem descreve o que foi feito e porquê
 
 ---
 
 ## ALERTAS AUTOMÁTICOS
 
-Claude emite ALERTA ao Eduardo quando:
+Claude emite ALERTA quando:
 
 | Situação | Formato |
 |----------|---------|
-| Gemini propõe módulo que já existe | `ALERTA: [módulo] já existe em [ficheiro]. Reutilizar?` |
-| Risco LGPD detectado | `ALERTA LGPD: [descrição]. Implementar consent flow antes de avançar.` |
-| Custo estimado ultrapassa §21 | `ALERTA §21: custo projectado R$X/lead. Acima do limite de R$0,30.` |
+| Gemini propõe algo que já existe | `ALERTA: [módulo/padrão] já existe em [ficheiro]. Reutilizar?` |
+| Risco de segurança detectado | `ALERTA SEGURANÇA: [descrição]. Resolver antes de avançar.` |
+| Risco LGPD/GDPR detectado | `ALERTA LGPD: [descrição]. Consent flow obrigatório.` |
+| Custo de IA acima de §21 | `ALERTA §21: custo projectado R$X/unidade. Acima do limite.` |
 | Dívida P0 identificada | `ALERTA P0: [descrição]. Resolver antes de nova feature.` |
-| Prazo em risco | `ALERTA PRAZO: estimativa actual [X] sessões vs prazo declarado [Y].` |
-| Módulo sem feedback loop | `ALERTA P2: [módulo] não tem log/métrica/acção correctiva. §19.5.` |
-| WABA cold contact com anexo | `ALERTA §21.1: proibido enviar anexo em cold contact. Apenas texto+Spintax.` |
-| Mais de 5 dívidas P0 abertas | `ALERTA CRÍTICO: 5 P0 em aberto. Próxima iteração é 100% resolução.` |
+| Prazo em risco | `ALERTA PRAZO: estimativa [X] vs prazo declarado [Y].` |
+| Stack inadequada para o volume | `ALERTA ESCALA: [stack] não suporta [volume] sem [ajuste].` |
+| Feature fora de âmbito | `ALERTA ÂMBITO: [feature] não estava no plano. Confirma inclusão?` |
 
 ---
 
-## INVENTÁRIO DE MÓDULOS VANGUARD (actualizado a cada versão)
+## PDCA — O MOTOR DO QUADRILATERAL
 
-> Claude verifica este inventário antes de propor construção do zero.
-> **Actualizar aqui quando novo módulo é adicionado ao repositório.**
+```
+PLAN  → Gemini gera DIRETRIZ ou Eduardo passa o briefing
+        Conteúdo obrigatório: diagnóstico real, 3 prioridades, alertas de risco
 
-| Módulo | Ficheiro | V. Introduzida | Status |
-|--------|----------|---------------|--------|
-| Quiz de Diagnóstico | `index.html` | V1 | ✅ Produção |
-| Shadow Closer / Cockpit | `saas/` | V2 | ✅ Produção |
-| Scraper OSM/Places | `api/scraper.py` | V3 | ✅ Produção |
-| AuditorIA (Claude Haiku) | `api/auditor.py` | V5 | ✅ Produção |
-| SaaS Multi-Tenant | `api/main.py` | V6 | ✅ Produção |
-| Marketplace de Nichos | `api/marketplace.py` | V7 | ✅ Produção |
-| Intelligence API | `api/intelligence.py` | V8 | ✅ Produção |
-| Fractal White-Label | `api/fractal.py` | V8 | ✅ Produção |
-| Lead Arbitrage | `api/arbitrage.py` | V9 | ✅ Produção |
-| Vanguard Certifica™ | `api/certifica.py` | V9 | ✅ Produção |
-| Hermes Persona + A/B | `api/hermes_personas.py` | V9 | ✅ Produção |
-| Health Monitor | `api/health.py` | V10 | ✅ Produção |
-| IA Firefighter | `api/firefighter.py` | V10 | ✅ Produção |
-| Logo Neural V | `saas/assets/img/logo-neural-v.svg` | V11 | ✅ Produção |
-| Rate Limiting | `nginx.conf` | V11 | ✅ Produção |
-| Audit Log | `infra/schema_v11.sql` | V11 | ✅ Produção |
-| Predictive Routing | `api/routing.py` | V11 | ✅ Produção |
-| Instant Reality Scanner | `index.html` | V12 | ✅ Produção |
-| Closer Machine | `js/closer-machine.js` | V12 | ✅ Produção |
-| Authority Share Card | `js/authority-share.js` | V12 | ✅ Produção |
-| Census Engine | `api/census.py` | V13 | ✅ Produção |
-| Hermes Outbound Loop | `api/hermes_loop.py` | V13 | ✅ Produção |
-| Partnership API | `api/partner_portal.py` | V13 | ✅ Produção |
-| PDCA Ledger | `api/pdca.py` | V14 | ✅ Produção |
-| Hive Mind SQL | `infra/hive_mind.sql` | V14 | ✅ Produção |
-| Trojan Generator | `api/trojan_generator.py` | V14 | ✅ Produção |
-| Burn Rate Shield | `infra/burn_rate_shield.py` | V15 | ✅ Produção |
-| War Room Realtime | `api/war_room.py` | V15 | ✅ Produção |
-| Real Scanner PageSpeed | `api/scanner.py` | V15 | ✅ Produção |
-| Badge SVG Edge | `api/badge_edge.py` | V16 | ✅ Produção |
-| Stripe Connect Express | `api/stripe_connect.py` | V16 | ✅ Produção |
-| Pixel Staging UNLOGGED | `infra/schema_v16.sql` | V16 | ✅ Produção |
-| Sovereign Pixel | `api/pixel.py` | V17 | ✅ Produção |
-| Neural Audit Trail | `api/audit_trail.py` | V17 | ✅ Produção |
-| Sistema HUD | `index.html` + CSS | V22 | ✅ Produção |
-| Partner Portal Alpha | `api/partner_portal.py` | V23 | ✅ Produção |
-| Upsell Engine | `api/sentinel_report.py` | V23 | ✅ Produção |
-| Calculadora LER (Quiz Step-8) | `js/quiz.js` | V24 | ✅ Produção |
+DO    → Claude constrói (este protocolo)
+        Declara plano antes de escrever código
+        Reporta decisões ao Eduardo
+
+CHECK → Eduardo valida + NotebookLM audita coerência + Gemini avalia ROI
+        NotebookLM: "o que foi construído está alinhado com o que foi prometido?"
+        Gemini: "a entrega avança a posição comercial do cliente?"
+
+ACT   → Eduardo decide
+        Avançar / Hotfix P0 / Reformular / Upsell de camada superior
+```
+
+**Regra crítica:** O ciclo fecha ENTRE iterações. Gemini avalia o que já foi construído — não o que está a construir.
 
 ---
 
-## ESTRUTURA DE PASTAS DO CLIENTE
+## ESTRUTURA DE PASTAS PARA QUALQUER PROJECTO DE CLIENTE
 
 ```
 CLIENTES/
 └── [NOME_CLIENTE]/
-    ├── BRIEFING_DISCOVERY.txt
-    ├── DIRETRIZ_V1_GEMINI.txt
-    ├── PROPOSTA_COMERCIAL.pdf
-    ├── CONTRATO.pdf
-    ├── MEMORIA_V1.md
-    ├── relatorio_evolutivo_v1.md
-    ├── api/
-    ├── assets/
-    ├── infra/
+    ├── BRIEFING_DISCOVERY.txt       ← notas da Fase 0
+    ├── DIRETRIZ_V1_GEMINI.txt       ← estratégia do Gemini
+    ├── PROPOSTA_COMERCIAL.pdf       ← proposta enviada ao cliente
+    ├── MEMORIA_V1.md                ← memória técnica da iteração
+    ├── relatorio_evolutivo_v1.md    ← análise de negócio
+    ├── src/                         ← código do projecto
+    │   ├── api/                     ← backend (se aplicável)
+    │   ├── web/                     ← frontend (se aplicável)
+    │   ├── mobile/                  ← app mobile (se aplicável)
+    │   └── infra/                   ← schema, docker, deploy
     └── CONSELHO/
-        ├── NotebookLM/
-        └── Gemini/
+        ├── NotebookLM/              ← ficheiros .txt para upload
+        └── Gemini/                  ← comandos para o Gemini
 ```
 
 ---
 
-## CICLO PDCA ENTRE ITERAÇÕES (resumo operacional)
+## ANTI-PADRÕES — O QUE NUNCA FAZER
 
-```
-PLAN  → Gemini gera DIRETRIZ (Eduardo passa ao Claude)
-DO    → Claude constrói (este protocolo)
-CHECK → Eduardo valida + NotebookLM audita + Gemini avalia
-ACT   → Eduardo decide próxima iteração
-```
+| Anti-Padrão | Consequência | Regra Correcta |
+|-------------|-------------|---------------|
+| Código antes do plano | Retrabalho garantido | Declarar plano e aguardar confirmação |
+| Falar em tecnologia ao cliente | Cliente não compra | Linguagem de resultado e ROI sempre |
+| Construir o que não foi pedido | Desperdício de tempo | YAGNI — só o que resolve o problema |
+| Commit sem aprovação | Mudanças não validadas em produção | Sempre aguardar Veredito do Eduardo |
+| Stack overcomplicated para MVP | Custo e tempo inflacionados | Solução mais simples que funciona |
+| Proposta sem ROI | Cliente negocia o preço | ROI calculado com dados reais do cliente |
+| Avançar sem as 7 perguntas | Estratégia genérica inútil | Fase 0 completa obrigatória |
+| Ignorar o que já existe | Reinventar a roda | Inventário antes de qualquer build |
 
-O protocolo reinicia a cada nova DIRETRIZ do Gemini.
-Após ACT, Claude actualiza MEMORANDO + BUSINESS_RULES + ANALISE_SOCIO.
+---
+
+## CONTEXTO VANGUARD (referência de fundo)
+
+> Quando o projecto de cliente pode beneficiar de módulos já construídos pela Vanguard,
+> ler os documentos abaixo para entender o que está disponível:
+
+| Documento | Contém |
+|-----------|--------|
+| `VANGUARD_BUSINESS_RULES.md` | Regras de negócio, splits, custos, compliance |
+| `NotebookLM/15_VANGUARD_KNOWLEDGE_GRAPH.md` | Mapa completo de endpoints, schema, fluxos V1–V14 |
+| `NotebookLM/16_VANGUARD_PERFORMANCE_LEDGER.md` | Hipóteses vs resultados — o que funcionou e o que falhou |
+| `NotebookLM/12_RITUAL_POS_VERSAO.md` | Ritual de 8 passos para fechar qualquer versão |
+| `memorias/MEMORIA_[VXX].md` | Documentação técnica de cada versão (V1–V15+) |
+| `relatorio_evolutivo_v[XX].md` | Análise de negócio real de cada versão (V1–V23) |
+| `INTELIGENCIA_ARTIFICIAL_HUMANA.md` | Manifesto IAH — como explicar o modelo a qualquer cliente |
 
 ---
 
@@ -640,23 +396,25 @@ Após ACT, Claude actualiza MEMORANDO + BUSINESS_RULES + ANALISE_SOCIO.
 Quando Eduardo diz **PROTOCOLO VANGUARD** + descreve o projecto:
 
 ```
-PROTOCOLO VANGUARD ACTIVADO — V2.0
+PROTOCOLO VANGUARD ACTIVADO — V3.0
 
 Projecto: [o que Eduardo descreveu]
+Tipo: [detectado ou a confirmar]
 
 Acções imediatas:
-1. Carregar corpo de conhecimento completo (5 documentos base)
-2. Recolher as 7 perguntas da Diretriz Zero (uma a uma)
-3. Classificar a camada (1–5) e inventariar módulos reutilizáveis
-4. Apresentar análise crítica antes de qualquer código
-5. Aguardar Veredito do Diretor antes de avançar
+1. Ler documentos base (MEMORANDO + ANALISE_SOCIO + BUSINESS_RULES)
+2. Recolher as 7 perguntas de Discovery — uma a uma
+3. Classificar o tipo e a camada do projecto
+4. Inventariar o que já existe (Vanguard + cliente)
+5. Apresentar análise crítica ANTES de qualquer código
+6. Aguardar Veredito do Eduardo antes de avançar
 
-O Quadrilateral está pronto. O conhecimento está carregado.
+O Quadrilateral está pronto.
+Traz-me o problema. Entregamos a solução.
 ```
 
 ---
 
 *Skill criada por Claude Code (Músculo) · Vanguard Quadrilateral · V24*
-*Versão 2.0 — Corpo de Conhecimento Completo*
+*Versão 3.0 — Universal: ecommerce, app, site, SaaS, modelo de negócio, automação, IA*
 *Activa sempre que Eduardo disser: PROTOCOLO VANGUARD*
-*Actualizar este inventário sempre que novo módulo for adicionado ao repositório*
