@@ -240,6 +240,116 @@
     });
   }
 
+  /* ─── 7. Ambient Canvas — Cinematic Particle Field ─────────────────────── */
+  function initAmbientCanvas() {
+    var canvas = document.getElementById('vg-ambient-canvas');
+    if (!canvas) return;
+    var ctx    = canvas.getContext('2d');
+    var W = 0, H = 0;
+    var particles  = [];
+    var pulses     = [];
+    var COUNT      = 72;
+    var MAX_DIST   = 150;
+    var G = [197, 160, 40];   /* Ion Gold */
+
+    function resize() {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+
+    function Particle() {
+      this.x  = Math.random() * W;
+      this.y  = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.28;
+      this.vy = (Math.random() - 0.5) * 0.28;
+      this.r  = Math.random() * 1.4 + 0.4;
+      this.a  = Math.random() * 0.45 + 0.12;
+    }
+
+    Particle.prototype.step = function () {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0)  this.x = W;
+      if (this.x > W)  this.x = 0;
+      if (this.y < 0)  this.y = H;
+      if (this.y > H)  this.y = 0;
+    };
+
+    /* Data pulse — travels from particle A to B along the connection line */
+    function spawnPulse(a, b) {
+      pulses.push({ ax: a.x, ay: a.y, bx: b.x, by: b.y, t: 0 });
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, W, H);
+
+      /* Connections */
+      for (var i = 0; i < particles.length; i++) {
+        for (var j = i + 1; j < particles.length; j++) {
+          var dx   = particles[i].x - particles[j].x;
+          var dy   = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAX_DIST) {
+            var la = (1 - dist / MAX_DIST) * 0.14;
+            ctx.strokeStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + la + ')';
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+
+            /* Random pulse spawn */
+            if (Math.random() < 0.00018) spawnPulse(particles[i], particles[j]);
+          }
+        }
+      }
+
+      /* Particles */
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + p.a + ')';
+        ctx.fill();
+        p.step();
+      }
+
+      /* Pulses */
+      for (var k = pulses.length - 1; k >= 0; k--) {
+        var pulse = pulses[k];
+        pulse.t += 0.022;
+        if (pulse.t >= 1) { pulses.splice(k, 1); continue; }
+        var px = pulse.ax + (pulse.bx - pulse.ax) * pulse.t;
+        var py = pulse.ay + (pulse.by - pulse.ay) * pulse.t;
+        var pa = Math.sin(pulse.t * Math.PI) * 0.9;
+        ctx.beginPath();
+        ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + pa + ')';
+        ctx.fill();
+        /* Glow */
+        ctx.beginPath();
+        ctx.arc(px, py, 5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + G[0] + ',' + G[1] + ',' + G[2] + ',' + (pa * 0.22) + ')';
+        ctx.fill();
+      }
+
+      requestAnimationFrame(loop);
+    }
+
+    resize();
+    window.addEventListener('resize', function () {
+      resize();
+      /* Reposition particles within new bounds */
+      particles.forEach(function (p) {
+        if (p.x > W) p.x = Math.random() * W;
+        if (p.y > H) p.y = Math.random() * H;
+      });
+    });
+
+    for (var i = 0; i < COUNT; i++) particles.push(new Particle());
+    loop();
+  }
+
   /* ─── Init ──────────────────────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     initNoise();
@@ -248,6 +358,7 @@
     initCardTilt();
     initTicker();
     initAuditorView();
+    initAmbientCanvas();
   });
 
 })();
