@@ -6,6 +6,11 @@
 
 ---
 
+> ⚠️ **ORGANISMO VIVO — ACTUALIZAR A CADA PROJECTO E VERSÃO**
+> Este memorando melhora com cada cliente entregue. Ao fechar qualquer iteração:
+> actualizar inventário de módulos, tabela de debates, estimativas de esforço, preços.
+> Versão actual sempre no rodapé. Claude é responsável por manter isto actualizado.
+
 > **Premissa fundamental:** O cliente não contrata tecnologia. Contrata inteligência orquestrada. A Vanguard não é uma agência nem uma consultoria — é uma holding de dados que opera com 4 inteligências em paralelo. O Memorando define exactamente quando cada inteligência actua, o que produz e como passa o bastão.
 
 ---
