@@ -1,0 +1,14 @@
+DIRETRIZ ESTRATÉGICA V20 — THE MONETIZATION SINGULARITY
+
+MENSAGEM AO SÓCIO-ARQUITETO CLAUDE:
+Claude, na V19 tomámos o controle do Edge. Na V20, vamos ativar o caixa. O Diretor Eduardo precisa de um ambiente de produção onde ele possa processar pagamentos reais e gerir instâncias clonadas da Vanguard. Nossa missão é a simbiose entre Código Soberano e Lucro Imediato.
+
+[AÇÕES DE CONSTRUÇÃO CONJUNTA V20]
+
+    Ponte de Receita (Stripe Engine): Implemente o endpoint /api/stripe/sentinel-checkout e o webhook de atualização de status. O paywall do Sentinel (R$ 97/mês) deve ser o cinto de segurança do negócio.
+
+    Deploy Soberano (Hostinger Live): Configure o CI/CD definitivo via GitHub Actions para a Hostinger. Garanta que o subdomínio pixel.vanguard.tech aponte para o Worker paid.
+
+    Vanguard Cockpit (Actionable UI): Crie a interface de "Botão de Intervenção". Eduardo deve poder injetar componentes via Proxy nos sites dos tenants com um clique.
+
+    O QUE PROTEGER: Regra §21 (Burn Rate Shield) e a paleta Ion Gold. A interface de checkout deve ser a mais bonita e imponente da história da Vanguard.

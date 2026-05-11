@@ -1,0 +1,22 @@
+MENSAGEM DO VISIONÁRIO PARA O SÓCIO-ARQUITETO CLAUDE:
+Claude, na V18 demos raízes à Vanguard. Na V19, vamos dar-lhe o Poder de Intervenção. Não quero que sejamos apenas observadores. Quero que a Vanguard seja a inteligência que "sequestra" a camada de apresentação do cliente para otimizar o lucro dele em tempo real. O seu desafio é a Simbiose via Edge.
+
+1. O NÚCLEO DA MISSÃO (EDGE DOMINATION):
+
+    Pixel Federation v2 (The Proxy): Implemente a infraestrutura de proxy reverso via Cloudflare. O tráfego do cliente passa por nós. Isso nos permite injetar o Badge Ion Gold e o Hermes Voice Trigger sem uma única linha de código no servidor original.
+
+    Intent-Driven UI Injection: Crie o motor que injeta modais de "Oferta Irresistível" apenas para leads com score FIRE que demonstram Exit Intent.
+
+2. A MÁQUINA DE CLONAGEM (IAH FACTORY):
+
+    IAH-Core CLI: Desenvolva a ferramenta que o Diretor Eduardo usará para clonar instâncias da Vanguard para novos nichos em segundos. O sistema deve "limpar" o banco e reconfigurar o branding Ion Gold automaticamente.
+
+3. FOCO COMERCIAL E ROI:
+
+    Nicho: Franqueadoras e Redes de Clínicas.
+
+    Racional: A matriz paga para ter o Intent Graph de todas as suas franquias em um único dashboard (O Olhar do Dono).
+
+4. O QUE PROTEGER:
+
+    Regra §21 (Burn Rate Shield): O processamento de voz do Hermes (Vapi) deve ser restrito a leads com score > 8.5. Não desperdiçamos inteligência com leads frios.

@@ -1,7 +1,8 @@
 # ═══════════════════════════════════════════════════════════════════════════
-# VANGUARD V19 — IAH FACTORY CLI
+# VANGUARD V21 — IAH FACTORY CLI
 # Clona uma instância Vanguard completa para um nicho/franquia em minutos
 # Uso: .\scripts\iah-clone.ps1 -Nicho "clinicas" -TenantNome "Rede Clínicas ABC" -Email "admin@clinicasabc.com.br"
+# Dízimo de Dados: adicionar -IntentShare para contribuir 15% dos FIRE events ao Oráculo B2B
 # ═══════════════════════════════════════════════════════════════════════════
 
 param(
@@ -14,9 +15,10 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$Email,
 
-    [string]$TenantSlug = "",
-    [string]$Dominio    = "",
-    [string]$CorPrimaria = "#C5A028"  # Ion Gold por defeito
+    [string]$TenantSlug  = "",
+    [string]$Dominio     = "",
+    [string]$CorPrimaria = "#C5A028",  # Ion Gold por defeito
+    [switch]$IntentShare               # Dízimo de Dados V21: 15% FIRE → Oráculo B2B
 )
 
 $base = Split-Path $PSScriptRoot -Parent
@@ -32,6 +34,9 @@ if (-not $TenantSlug) {
 
 $TenantId = $TenantSlug + "-" + (Get-Random -Minimum 1000 -Maximum 9999)
 
+$DataTithe   = if ($IntentShare) { 0.15 } else { 0.0 }
+$IntentShareJs = if ($IntentShare) { "true" } else { "false" }
+
 Write-Host ""
 Write-Host "======================================================" -ForegroundColor Yellow
 Write-Host "  VANGUARD IAH FACTORY — Clonar Instância" -ForegroundColor Yellow
@@ -43,6 +48,9 @@ Write-Host "  Slug:        $TenantSlug"
 Write-Host "  Tenant ID:   $TenantId"
 Write-Host "  Email:       $Email"
 Write-Host "  Cor:         $CorPrimaria"
+if ($IntentShare) {
+    Write-Host "  Dízimo:      15% FIRE → Oráculo B2B" -ForegroundColor Cyan
+}
 Write-Host ""
 
 # ── PASSO 1: Gerar brand-config.js para o tenant ──────────────────────────
@@ -82,6 +90,10 @@ $brandConfig = @"
     /* Intent Graph: unidades desta rede */
     matrizDashboard: true,
     unidades: [],  /* populate via Supabase: tenants where parent_id = '$TenantId' */
+
+    /* V21 — Dízimo de Dados: contribuição ao Oráculo B2B global */
+    intentShare:  $IntentShareJs,
+    dataTithe:    $DataTithe,  /* 0.15 = 15% dos eventos FIRE vão ao global_intent_graph */
   };
 
   /* Aplica CSS variables */
@@ -127,6 +139,7 @@ if (-not $supabaseUrl -or -not $supabaseAnon) {
     Write-Host "         Definir e re-executar para provisionar automaticamente." -ForegroundColor Yellow
     Write-Host "         Tenant ID reservado: $TenantId" -ForegroundColor Yellow
 } else {
+    $tenantMetadata = @{ intent_share = $IntentShare.IsPresent; dataTithe = $DataTithe }
     $payload = @{
         id         = $TenantId
         nome       = $TenantNome
@@ -137,7 +150,8 @@ if (-not $supabaseUrl -or -not $supabaseAnon) {
         cor_primaria = $CorPrimaria
         plano      = "iah_starter"
         status     = "active"
-    } | ConvertTo-Json
+        metadata   = $tenantMetadata
+    } | ConvertTo-Json -Depth 5
 
     try {
         $response = Invoke-RestMethod `
@@ -225,7 +239,8 @@ Write-Host "[5/5] Commitando nova instância..." -ForegroundColor Cyan
 
 Set-Location $base
 git add "tenants/$TenantSlug/" 2>&1 | Out-Null
-git commit -m "feat(iah): Nova instancia $TenantSlug ($Nicho) — IAH Factory V19" 2>&1 | Out-Null
+$dizimo = if ($IntentShare) { " + Dízimo de Dados" } else { "" }
+git commit -m "feat(iah): Nova instancia $TenantSlug ($Nicho) — IAH Factory V21$dizimo" 2>&1 | Out-Null
 $hash = git rev-parse --short HEAD
 Write-Host "  OK — commit $hash" -ForegroundColor Green
 

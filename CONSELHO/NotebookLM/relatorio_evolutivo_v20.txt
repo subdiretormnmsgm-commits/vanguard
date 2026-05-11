@@ -1,0 +1,69 @@
+# RELATÓRIO EVOLUTIVO V20 — Monetization Singularity
+**Data:** 2026-05-10
+**Ciclo PDCA:** Do (Claude) — motor de receita + produção real
+
+## O Que Foi Construído
+
+### 1. Stripe Sentinel Engine — api/stripe_sentinel.py
+Endpoint completo para subscrição Neural Sentinel R$97/mês em BRL:
+- POST /api/stripe/sentinel-checkout: cria Customer + Checkout Session Stripe, retorna URL de redirect
+- POST /api/stripe/sentinel-webhook: processa 4 eventos e sincroniza tenant_subscriptions
+- Router independente do stripe_connect.py V16 — zero risco de regressão
+
+### 2. CI/CD Hostinger — .github/workflows/deploy-hostinger.yml
+Pipeline automático: push master -> deploy FTP na Hostinger via SamKirkland/FTP-Deploy-Action. Exclui ficheiros sensíveis. Activar: 3 secrets GitHub (FTP_SERVER, FTP_USERNAME, FTP_PASSWORD).
+
+### 3. Cockpit de Intervenção — cockpit/index.html
+Dashboard completo:
+- Stats: tenants activos, sentinel, MRR calculado, leads FIRE 24h
+- Grid: Maturity Score por tenant com barra animada + status Sentinel
+- Modal: tipo (oferta agressiva / desconto / consultoria) + mensagem + TTL
+- Auto-refresh 60 segundos. Modo demo automático se Supabase não configurado.
+
+### 4. Intervention Button via KV Bus
+Cockpit -> POST /api/intervention (intervention-worker.js) -> KV.put(intervention:{tenantId}, TTL) -> federation-proxy.js lê KV -> HTMLRewriter injeta modal agressivo no site do cliente. O Diretor controla o tráfego dos clientes em tempo real com um clique.
+
+## Avaliação das Ideias Gemini V20
+
+| Ideia | Decisão |
+|-------|---------|
+| Stripe Sentinel Engine | CONSTRUÍDO |
+| Cockpit de Intervenção | CONSTRUÍDO |
+| CI/CD Hostinger Deploy | CONSTRUÍDO |
+| Sentinel Report Card email | V21 |
+| Hermes Autonomous Loop | V21 |
+
+## 5 Ideias Disruptivas para V21
+
+[V21-001] ORÁCULO B2B — Intent Graph como Produto Institucional
+Agregar dados FIRE cross-tenant -> API privada para bancos, fundos M&A, seguradoras. "Quais PMEs em SP tiveram sessões FIRE nas últimas 72h?" Ticket R$15.000/mês. Início do Acto III.
+
+[V21-002] HERMES AUTONOMOUS LOOP COMPLETO
+Loop fechado zero intervenção humana: real-scanner -> lead -> Haiku mensagem -> WhatsApp -> classifica resposta -> score > 8.5 -> Vapi liga -> agenda demo -> CRM actualizado.
+
+[V21-003] SENTINEL REPORT CARD — Vendedor de Retainers
+Email semanal: delta FIRE/HOT/WARM + receita em risco + proposta IAH no rodapé. SendGrid + cron.
+
+[V21-004] IAH PROJECT CLONER com Dízimo de Dados
+Cada instância clonada com dataTithe: 0.15 — 15% dos dados alimentam o Intent Graph global.
+
+[V21-005] SOVEREIGN CREDIT SCORE — PME como Activo Financeiro
+Densidade FIRE + estabilidade de intenção -> score de solvência vendido a bancos.
+
+## Estado do Ecossistema ao Fechar V20
+
+ACTO I — SaaS Operacional (V1-V13):    COMPLETO
+ACTO II — Terminal de Dados (V14-V20): 85% (aguarda deploy + Stripe live)
+ACTO III — Bolsa de Intenção (V21+):   HORIZONTE
+
+Próximo milestone crítico: Eduardo abre MEI -> Stripe activo -> git push -> primeiro cliente paga.
+
+## Plano Imediato
+
+1. FEITO: Schema V20 executado no Supabase
+2. PENDENTE: Eduardo abre MEI (gov.br — 30 min)
+3. PENDENTE: Criar conta Stripe BR com CNPJ
+4. PENDENTE: Criar produto Neural Sentinel R$97/mês BRL -> copiar Price ID
+5. PENDENTE: Configurar GitHub Secrets FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+6. PENDENTE: git push -> CI/CD deploy automático na Hostinger
+7. PENDENTE: 20 diagnósticos via prospectar.ps1 -> primeiro contacto WhatsApp
