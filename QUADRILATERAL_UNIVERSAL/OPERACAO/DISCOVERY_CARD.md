@@ -1,12 +1,12 @@
-# DISCOVERY CARD — QUADRILATERAL IAH
+﻿# DISCOVERY CARD — QUADRILATERAL IAH
 **Para Eduardo · Usar em qualquer reunião com cliente potencial**
 **Versão:** 1.0 · 2026-05-11
 
 ---
 
-> **Como usar:** Abrir no telemóvel ou imprimir.
+> **Como usar:** Abrir no celular ou imprimir.
 > Fazer as perguntas nesta ordem, uma de cada vez.
-> Anotar as respostas — vão directo para o COMANDO 1 do Gemini.
+> Anotar as respostas — vão direto para o COMANDO 1 do Gemini.
 
 ---
 
@@ -55,8 +55,8 @@ DECISÃO:  [ ] GO — avançar para Bloco B
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P1 — PROJECTO
-"O que é exactamente o que precisas?
+P1 — projeto
+"O que é exatamente o que precisas?
  Quem é o teu cliente ideal?"
 
 Resposta: ____________________________________
@@ -72,7 +72,7 @@ _____________________________________________
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 P3 — VOLUME
-"Quantos clientes / transacções por mês?"
+"Quantos clientes / transações por mês?"
 
   < 1.000 → Camada 1–2
   1k–50k  → Camada 2–3
@@ -89,7 +89,7 @@ Resposta: ____________________________________
 _____________________________________________
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P5 — ESTADO ACTUAL
+P5 — ESTADO atual
 "O que já existe?
  Código, design, domínio, contas, APIs?"
 
@@ -106,7 +106,7 @@ _____________________________________________
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 P7 — RECURSOS
-"Qual o orçamento? Tens equipa?
+"Qual o orçamento? Tens equipe?
  Que ferramentas já usas?"
 
 Resposta: ____________________________________
@@ -121,7 +121,7 @@ _____________________________________________
 > Usar as respostas acima para classificar antes de sair da reunião.
 
 ```
-TIPO DE PROJECTO:
+TIPO DE projeto:
   [ ] Presença Digital  (site, landing, portfolio)
   [ ] Ecommerce         (loja, marketplace)
   [ ] App Web / SaaS    (dashboard, ferramenta)
@@ -136,7 +136,7 @@ CAMADA ESTIMADA:
   [ ] 2 — Produto    (1–3 sem · completo e lançável)
   [ ] 3 — Plataforma (2–6 sem · IA, dados, automação)
   [ ] 4 — Ecossistema (1–3 meses · multi-tenant)
-  [ ] 5 — Monopólio   (3–6 meses · activo de sector)
+  [ ] 5 — Monopólio   (3–6 meses · ativo de SETOR)
 
 PRÓXIMO PASSO:
   [ ] Enviar proposta (Bloco 2 do Gemini)
@@ -183,4 +183,4 @@ _____________________________________________
 ---
 
 *Discovery Card · Quadrilateral IAH · V1.0*
-*Imprimir em A5 ou guardar no telemóvel · Usar em qualquer reunião*
+*Imprimir em A5 ou guardar no celular · Usar em qualquer reunião*

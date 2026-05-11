@@ -1,4 +1,4 @@
-# [NOME DO PROJECTO] — Guia de Operação
+﻿# [NOME DO projeto] — Guia de Operação
 **Cliente:** [nome do cliente] | **Versão:** V[X] | **Entregue em:** [data]
 **Desenvolvido por:** [NOME DO OPERADOR]
 
@@ -6,11 +6,11 @@
 
 ## ACESSO RÁPIDO
 
-| Recurso | URL / Contacto |
+| Recurso | URL / contato |
 |---------|---------------|
 | Sistema principal | [URL] |
 | Painel de administração | [URL/admin] |
-| Supabase (base de dados) | [URL do projecto Supabase] |
+| Supabase (base de dados) | [URL do projeto Supabase] |
 | Stripe (pagamentos) | [URL do dashboard Stripe] |
 | Repositório Git | [URL do repositório] |
 | Suporte: WhatsApp | [número do operador] |
@@ -23,28 +23,28 @@
 ```bash
 # 1. Clonar o repositório
 git clone [URL do repositório]
-cd [nome-do-projecto]
+cd [nome-do-projeto]
 
 # 2. Instalar dependências
 [npm install / pip install -r requirements.txt]
 
 # 3. Configurar variáveis de ambiente
 cp .env.example .env
-# Editar .env com os valores reais (ver secção abaixo)
+# Editar .env com os valores reais (ver seção abaixo)
 
 # 4. Correr em desenvolvimento
 [npm run dev / uvicorn main:app --reload]
 
 # 5. Deploy em produção
-[instrução de deploy específica do projecto]
+[instrução de deploy específica do projeto]
 ```
 
 ---
 
 ## VARIÁVEIS DE AMBIENTE
 
-Ver ficheiro `.env.example` na raiz do projecto para a lista completa.
-**Nunca commitar o ficheiro `.env` com valores reais.**
+Ver arquivo `.env.example` na raiz do projeto para a lista completa.
+**Nunca commitar o arquivo `.env` com valores reais.**
 
 Variáveis críticas que o cliente precisa de gerir:
 - `STRIPE_SECRET_KEY` — renovar se comprometida
@@ -59,7 +59,7 @@ Variáveis críticas que o cliente precisa de gerir:
 |---------|--------|-------------|-----------------|
 | [Supabase] | Base de dados | R$[X]/mês | [Cliente] |
 | [Vercel/Railway] | Hospedagem | R$[X]/mês | [Cliente] |
-| [Stripe] | Pagamentos | % por transacção | [Cliente] |
+| [Stripe] | Pagamentos | % por transação | [Cliente] |
 | [Resend/SendGrid] | Email | R$[X]/mês | [Cliente] |
 | [Anthropic] | IA (relatórios) | ~R$[X]/mês | [Operador — cobrado no Retainer] |
 
@@ -85,7 +85,7 @@ Variáveis críticas que o cliente precisa de gerir:
 3. Contactar operador
 
 ### Os relatórios automáticos pararam
-1. Verificar se o pg_cron está activo no Supabase (SQL Editor: `SELECT * FROM cron.job;`)
+1. Verificar se o pg_cron está ativo no Supabase (SQL Editor: `SELECT * FROM cron.job;`)
 2. Verificar saldo de créditos na conta Anthropic
 3. Contactar operador
 
@@ -99,14 +99,14 @@ Variáveis críticas que o cliente precisa de gerir:
 | Stripe | Se comprometida | Dashboard Stripe → Developers → API keys → Roll key |
 | Anthropic | Se comprometida | console.anthropic.com → API Keys → Create new |
 
-**Após renovar qualquer chave:** actualizar o `.env` em produção e reiniciar o serviço.
+**Após renovar qualquer chave:** atualizar o `.env` em produção e reiniciar o serviço.
 
 ---
 
-## ESTRUTURA DO PROJECTO
+## ESTRUTURA DO projeto
 
 ```
-[nome-do-projecto]/
+[nome-do-projeto]/
 ├── api/              ← backend (FastAPI / Node.js)
 ├── web/              ← frontend (Next.js / HTML)
 ├── infra/            ← schemas SQL, Docker, deploy
@@ -114,7 +114,7 @@ Variáveis críticas que o cliente precisa de gerir:
 ├── .env.example      ← template de variáveis de ambiente
 ├── sentinel_config.json  ← configuração do relatório automático
 ├── feature_flags.json    ← flags de funcionalidades
-└── README.md         ← este ficheiro
+└── README.md         ← este arquivo
 ```
 
 ---
@@ -129,4 +129,4 @@ Para suporte ou evolução: **[WhatsApp do operador]** ou **[email do operador]*
 ---
 
 *Documento preparado por [NOME DO OPERADOR] · V[X]*
-*Actualizar a cada iteração — versão mais recente no repositório*
+*atualizar a cada iteração — versão mais recente no repositório*

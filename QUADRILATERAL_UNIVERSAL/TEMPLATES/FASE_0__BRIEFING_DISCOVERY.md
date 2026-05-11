@@ -1,29 +1,29 @@
-# BRIEFING DE IGNIÇÃO — [NOME DO PROJECTO]
+﻿# BRIEFING DE IGNIÇÃO — [NOME DO projeto]
 **IAH Factory — Quadrilateral** | Discovery Fase 0
 **Cliente:** [nome] | **Data:** [data] | **Modo:** [Amigo / Cliente Formal]
 
 ---
 
 > Preencher após a sessão de discovery (WhatsApp ou reunião).
-> Este documento vai directamente para o Gemini (Comando 1) e para o NotebookLM.
+> Este documento vai diretamente para o Gemini (Comando 1) e para o NotebookLM.
 > Guardar em: `CLIENTES/[NOME_CLIENTE]/BRIEFING_DISCOVERY.md`
 
 ---
 
-## BLOCO 1 — DEFINIÇÃO DO PROJECTO
+## BLOCO 1 — DEFINIÇÃO DO projeto
 
-**Nome do Projecto:**
+**Nome do projeto:**
 _______________________________________________
 
-**Objectivo Único** *(em uma frase: o que o sistema faz)*
+**objetivo Único** *(em uma frase: o que o sistema faz)*
 > Ex: "Um app que gere agendamentos de petshop e avisa o dono no WhatsApp."
 
 _______________________________________________
 
-**Nicho / Sector:**
+**Nicho / SETOR:**
 _______________________________________________
 
-**Tipo de Projecto:**
+**Tipo de projeto:**
 [ ] Presença Digital   [ ] Ecommerce   [ ] App Web / SaaS   [ ] App Mobile
 [ ] Automação          [ ] IA / Dados  [ ] Sistema Interno   [ ] Outro: _____
 
@@ -48,16 +48,16 @@ _______________________________________________
 
 ## BLOCO 3 — O MOMENTO MÁGICO (FIRE Event)
 
-> A acção mais importante que acontece no sistema — indica que o negócio funcionou.
+> A ação mais importante que acontece no sistema — indica que o negócio funcionou.
 
 **FIRE Event:**
 [ ] Compra realizada         [ ] Agendamento confirmado   [ ] Orçamento pedido
-[ ] Contacto WhatsApp        [ ] Registo / conta criada   [ ] Subscrição assinada
+[ ] contato WhatsApp        [ ] Registo / conta criada   [ ] Subscrição assinada
 [ ] Outro: _______________________________________________
 
 **`success_event` para sentinel_config.json:** `_____________________`
 
-**Frequência actual:** _________ vezes/mês
+**Frequência atual:** _________ vezes/mês
 
 ---
 
@@ -86,12 +86,12 @@ _______________________________________________
 
 ---
 
-## BLOCO 6 — ESTADO ACTUAL E RECURSOS
+## BLOCO 6 — ESTADO atual E RECURSOS
 
 **O que já existe** *(código, design, domínio, contas, APIs, base de dados)*:
 _______________________________________________
 
-**Stack técnica actual** *(se souber)*:
+**Stack técnica atual** *(se souber)*:
 _______________________________________________
 
 ---
@@ -100,7 +100,7 @@ _______________________________________________
 
 **Ticket médio por venda/serviço:** R$ __________ por __________
 
-**Volume mensal actual ou esperado:** __________ clientes/transacções por mês
+**Volume mensal atual ou esperado:** __________ clientes/transações por mês
 
 **Receita mensal estimada:** R$ __________ /mês
 
@@ -146,11 +146,11 @@ _______________________________________________
 [ ] 2. Correr calculadora_precificacao.py com dados do Bloco 7
 [ ] 3. Abrir Gemini → colar FASE_1__COMANDO_ESTRATEGISTA_TEMPLATE.md com este briefing
 [ ] 4. Guardar DIRETRIZ do Gemini → CLIENTES/[NOME]/DIRETRIZ_V1_ESTRATEGISTA.txt
-[ ] 5. Validar DIRETRIZ (Score ≥7?) → activar NotebookLM ou ir directo ao Claude
-[ ] 6. Activar: "Protocolo Vanguard [nome do projecto]"
+[ ] 5. Validar DIRETRIZ (Score ≥7?) → ativar NotebookLM ou ir direto ao Claude
+[ ] 6. ativar: "Protocolo Vanguard [nome do projeto]"
 ```
 
 ---
 
 *FASE_0__BRIEFING_DISCOVERY.md · IAH Factory · Quadrilateral*
-*Organismo Vivo — actualizar se o cliente mudar de foco a meio do projecto*
+*Organismo Vivo — atualizar se o cliente mudar de foco a meio do projeto*

@@ -1,4 +1,4 @@
-# SOVEREIGN PLAYBOOK — [NOME DO CLIENTE]
+﻿# SOVEREIGN PLAYBOOK — [NOME DO CLIENTE]
 **Sistema:** [nome do sistema entregue] | **Versão:** V[X] | **Data:** [data]
 **Preparado por:** [NOME DO OPERADOR]
 
@@ -18,11 +18,11 @@
 3. Se for o primeiro acesso, verifique o email de boas-vindas
 
 ### O seu painel principal
-[Descrição do que o cliente vê ao entrar — o que cada secção faz]
+[Descrição do que o cliente vê ao entrar — o que cada seção faz]
 
-- **[Secção 1]:** [o que é e para que serve]
-- **[Secção 2]:** [o que é e para que serve]
-- **[Secção 3]:** [o que é e para que serve]
+- **[seção 1]:** [o que é e para que serve]
+- **[seção 2]:** [o que é e para que serve]
+- **[seção 3]:** [o que é e para que serve]
 
 ---
 
@@ -46,7 +46,7 @@
 ## AS 10 PERGUNTAS MAIS COMUNS — [NICHO]
 
 **1. [Pergunta específica do nicho — ex: "Como adicionar um novo produto?"]**
-[Resposta directa e simples — máximo 3 linhas]
+[Resposta direta e simples — máximo 3 linhas]
 
 **2. [Pergunta]**
 [Resposta]
@@ -82,12 +82,12 @@
 ### Não consigo entrar no sistema
 - Verifique se a palavra-passe está correcta (maiúsculas/minúsculas importam)
 - Clique em "Esqueci a palavra-passe" para recuperar
-- Se o problema persistir: [contacto do operador]
+- Se o problema persistir: [contato do operador]
 
-### [Problema específico do projecto — ex: "O agendamento não aparece"]
+### [Problema específico do projeto — ex: "O agendamento não aparece"]
 Causa mais comum: [causa]
 Solução: [passo a passo para resolver]
-Se não resolver: [contacto]
+Se não resolver: [contato]
 
 ### [Problema específico 2]
 Causa mais comum: [causa]
@@ -101,14 +101,14 @@ Solução: [passo a passo]
 1. Verifique a sua ligação à internet
 2. Tente outro browser (Chrome, Firefox, Safari)
 3. Limpe o cache do browser (Ctrl+Shift+Del)
-4. Se persistir há mais de 10 minutos: [contacto de emergência do operador]
+4. Se persistir há mais de 10 minutos: [contato de emergência do operador]
 
 ---
 
 ## RELATÓRIO SEMANAL AUTOMÁTICO
 
 Todos as [segunda-feira / dia configurado] às [hora], receberá no email **[email do cliente]** um relatório com:
-- Quantas [acções FIRE — ex: vendas / agendamentos / leads] aconteceram na semana
+- Quantas [ações FIRE — ex: vendas / agendamentos / leads] aconteceram na semana
 - Comparação com a semana anterior
 - Recomendações automáticas para melhorar os resultados
 
@@ -124,7 +124,7 @@ Quando quiser melhorar o sistema, adicionar funcionalidades, ou resolver algo qu
 
 **Formulário de pedido:** [URL do formulário — gera lead qualificado automaticamente]
 
-Ou directamente:
+Ou diretamente:
 - **WhatsApp:** [número do operador]
 - **Email:** [email do operador]
 
@@ -144,13 +144,13 @@ Informe:
 | [Serviço 3 — ex: Email transaccional] | R$[X]/mês | [data] |
 | **Total mensal de infraestrutura** | **R$[X]/mês** | |
 
-**Nota:** Estes custos são pagos directamente pelos serviços nas contas criadas em seu nome. Não cobramos margem sobre infraestrutura — o que o serviço custa, é o que você paga.
+**Nota:** Estes custos são pagos diretamente pelos serviços nas contas criadas em seu nome. Não cobramos margem sobre infraestrutura — o que o serviço custa, é o que você paga.
 
 ---
 
 ## RENOVAÇÃO DE CHAVES DE API (quando necessário)
 
-[Instrução específica por serviço — apenas se o cliente tiver acesso directo às contas]
+[Instrução específica por serviço — apenas se o cliente tiver acesso direto às contas]
 
 Se receber um email de [Supabase / Stripe / outro] a pedir renovação:
 1. Contacte-nos primeiro — fazemos a renovação sem interrupção do serviço
@@ -159,5 +159,5 @@ Se receber um email de [Supabase / Stripe / outro] a pedir renovação:
 ---
 
 *Guia de Operação preparado por [NOME DO OPERADOR]*
-*Versão V[X] · [data] · Actualizado a cada melhoria do sistema*
-*Dúvidas: [contacto do operador]*
+*Versão V[X] · [data] · atualizado a cada melhoria do sistema*
+*Dúvidas: [contato do operador]*

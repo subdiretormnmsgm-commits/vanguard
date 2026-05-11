@@ -1,25 +1,25 @@
-# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO QUADRILATERAL IAH
+﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO QUADRILATERAL IAH
 **O guia completo de Eduardo para coordenar Gemini, NotebookLM e Claude Code**
-**Versão:** 1.1 · 2026-05-11 · Organismo Vivo — actualizar após cada projecto
+**Versão:** 1.1 · 2026-05-11 · Organismo Vivo — atualizar após cada projeto
 
 ---
 
-> ⚠️ **ORGANISMO VIVO — ACTUALIZAR APÓS CADA PROJECTO**
+> ⚠️ **ORGANISMO VIVO — atualizar APÓS CADA projeto**
 > Este manual melhora com cada entrega real.
-> Ao fechar qualquer iteração, verificar e actualizar:
+> Ao fechar qualquer iteração, verificar e atualizar:
 > · Um comando que não funcionou como esperado → corrigir o template
-> · Um passo que demorou mais do que o estimado → actualizar a tabela de tempo
+> · Um passo que demorou mais do que o estimado → atualizar a tabela de tempo
 > · Uma situação nova no troubleshooting → adicionar à Parte 6
 > · Um padrão de comportamento do Gemini ou Claude → documentar
 > · O número da versão do Manual → incrementar
-> Nunca fechar uma iteração sem verificar se algo aqui precisa de ser actualizado.
+> Nunca fechar uma iteração sem verificar se algo aqui precisa de ser atualizado.
 > **A consistência deste manual é o que garante a consistência do sistema.**
 
 ---
 
 > **Para que serve este documento:**
 > Para que Eduardo nunca precise de improvisar.
-> Cada fase tem uma acção clara. Cada membro recebe um comando exacto.
+> Cada fase tem uma ação clara. Cada membro recebe um comando exato.
 > O Quadrilateral corre por si — você decide, não inventa o processo.
 
 ---
@@ -103,8 +103,8 @@
 
 ## PARTE 0 — SECRETÁRIO VIRTUAL (opera antes de você)
 
-> Se o Secretário Virtual estiver activo (`SECRETARIO_VIRTUAL/`), os Passos 1 e 2 são automáticos.
-> O cliente preenche o formulário → você recebe o briefing por email → vai directo para o Passo 3.
+> Se o Secretário Virtual estiver ativo (`SECRETARIO_VIRTUAL/`), os Passos 1 e 2 são automáticos.
+> O cliente preenche o formulário → você recebe o briefing por email → vai direto para o Passo 3.
 
 ```
 SEM SECRETÁRIO VIRTUAL:
@@ -113,7 +113,7 @@ SEM SECRETÁRIO VIRTUAL:
 
 COM SECRETÁRIO VIRTUAL:
   Cliente → formulário → Claude Haiku → email a você com briefing pronto
-  Você → cola no Gemini → activa o Quadrilateral
+  Você → cola no Gemini → ativa o Quadrilateral
   (5 min do seu tempo)
 ```
 
@@ -121,14 +121,14 @@ COM SECRETÁRIO VIRTUAL:
 
 ---
 
-## PARTE 1 — PROJECTO NOVO (primeira iteração, V1)
+## PARTE 1 — projeto NOVO (primeira iteração, V1)
 
 ---
 
-### PASSO 1 — Você qualifica o cliente (sozinho, antes de activar qualquer membro)
+### PASSO 1 — Você qualifica o cliente (sozinho, antes de ativar qualquer membro)
 
-> **Se o Secretário Virtual estiver activo, este passo foi feito automaticamente.**
-> Só executar manualmente se o lead chegou por outro canal (indicação, evento, chamada directa).
+> **Se o Secretário Virtual estiver ativo, este passo foi feito automaticamente.**
+> Só executar manualmente se o lead chegou por outro canal (indicação, evento, chamada direta).
 
 **Onde:** Conversa com o cliente (WhatsApp, chamada, reunião)
 **Tempo:** 10 minutos
@@ -176,7 +176,7 @@ P3: "O que acontece se não resolver isso nos próximos 3 meses?"
 
 | Modo | Quando usar | Template |
 |------|-------------|----------|
-| **Informal (WhatsApp)** | Amigo, conhecido, primeiro contacto descontraído | `FASE_PRE__DISCOVERY_WHATSAPP_AMIGO.txt` — 8 mensagens sequenciais, tom de parceria |
+| **Informal (WhatsApp)** | Amigo, conhecido, primeiro contato descontraído | `FASE_PRE__DISCOVERY_WHATSAPP_AMIGO.txt` — 8 mensagens sequenciais, tom de parceria |
 | **Formal (Questionário)** | Cliente pagante, reunião, proposta comercial | `FASE_PRE__QUESTIONARIO_CLIENTE_FORMAL.md` — 8 blocos estruturados |
 
 **Onde:** Reunião, chamada, ou WhatsApp
@@ -190,14 +190,14 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 8 PERGUNTAS DE DISCOVERY — ANOTAR AS RESPOSTAS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. PROJECTO
-   "O que é exactamente o que precisas?"
+1. projeto
+   "O que é exatamente o que precisas?"
    (ecommerce, app, site, SaaS, automação, modelo de negócio, outro?)
    "Quem é o teu cliente ideal? Qual o teu mercado?"
    → Resposta: _______________________________________________
 
 2. PROBLEMA (em números)
-   "Qual o maior problema que este projecto resolve HOJE?"
+   "Qual o maior problema que este projeto resolve HOJE?"
    "Dá-me um número — horas/semana, clientes perdidos, quanto deixas de faturar?"
    "Se não resolvermos isso, o que acontece concretamente?"
    → Resposta: _______________________________________________
@@ -216,12 +216,12 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
    (Anotar sem filtrar. Captura a visão e os diferenciais futuros.)
    → Resposta: _______________________________________________
 
-5. ESTADO ACTUAL
+5. ESTADO atual
    "O que já existe? Código, design, domínio, contas, APIs, base de dados?"
    → Resposta: _______________________________________________
 
 6. RECEITA E VOLUME
-   "Como é que este projecto gera dinheiro?"
+   "Como é que este projeto gera dinheiro?"
    "Qual o ticket médio por venda/serviço? Quantos clientes por mês?"
    (→ Correr calculadora_precificacao.py com estes dados)
    → Ticket médio: R$_______ | Volume: _______ /mês
@@ -231,7 +231,7 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
    → Resposta: _______________________________________________
 
 8. RECURSOS E ORÇAMENTO
-   "Qual é o orçamento aproximado? Tens equipa? Que ferramentas já usas?"
+   "Qual é o orçamento aproximado? Tens equipe? Que ferramentas já usas?"
    → Resposta: _______________________________________________
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -240,14 +240,14 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 **Template:** `QUADRILATERAL_UNIVERSAL/TEMPLATES/FASE_0__BRIEFING_DISCOVERY.md`
 
 > 💡 **Ferramentas de apoio:**
-> · `OPERACAO/DISCOVERY_CARD.md` — cartão para reuniões (imprimir A5 ou telemóvel)
+> · `OPERACAO/DISCOVERY_CARD.md` — cartão para reuniões (imprimir A5 ou celular)
 > · `FASE_PRE__DISCOVERY_WHATSAPP_AMIGO.txt` — 8 mensagens prontas para WhatsApp informal
 > · `FASE_PRE__QUESTIONARIO_CLIENTE_FORMAL.md` — questionário completo para cliente pagante
 > · `scripts/calculadora_precificacao.py` — correr após respostas 6 para gerar proposta
 
 ---
 
-### PASSO 3 — Você activa o Gemini (COMANDO 1)
+### PASSO 3 — Você ativa o Gemini (COMANDO 1)
 
 **Onde:** Chat do Gemini Advanced
 **Tempo:** 5 minutos seus + 5–15 minutos do Gemini
@@ -258,7 +258,7 @@ Copiar o comando abaixo, preencher os campos `[entre colchetes]` com as resposta
 ```
 ════════════════════════════════════════════════════════════
 QUADRILATERAL IAH — EDUARDO → GEMINI
-PROJECTO: [nome do projecto] | ITERAÇÃO: V1 | DATA: [data de hoje]
+projeto: [nome do projeto] | ITERAÇÃO: V1 | DATA: [data de hoje]
 ════════════════════════════════════════════════════════════
 
 Gemini, somos o Quadrilateral IAH.
@@ -266,11 +266,11 @@ Tu és o Estrategista. Eu sou o Diretor.
 O NotebookLM é o Auditor. O Claude Code é o Músculo.
 
 BRIEFING DO CLIENTE:
-NICHO/SECTOR:        [resposta da pergunta 1 do Discovery]
+NICHO/SETOR:        [resposta da pergunta 1 do Discovery]
 PROBLEMA PRINCIPAL:  [resposta da pergunta 2]
 VOLUME MENSAL:       [resposta da pergunta 3]
 RECEITA/TICKET:      [resposta da pergunta 4]
-ESTADO ACTUAL:       [resposta da pergunta 5]
+ESTADO atual:       [resposta da pergunta 5]
 URGÊNCIA:            [resposta da pergunta 6]
 RECURSOS/ORÇAMENTO:  [resposta da pergunta 7]
 CAMADA ESTIMADA:     [1=MVP · 2=Produto · 3=Plataforma · 4=Ecossistema · 5=Monopólio]
@@ -284,18 +284,18 @@ BLOCO 0 — DIAGNÓSTICO
 BLOCO 1 — CAMADA E 3 PRIORIDADES
   Confirma ou corrige a camada.
   Define as 3 entregas prioritárias em ordem de impacto comercial imediato.
-  (máximo 3 — não 5, não 7 — exactamente 3)
+  (máximo 3 — não 5, não 7 — exatamente 3)
 
 BLOCO 2 — PROPOSTA COMERCIAL
   Nome do serviço, o que inclui, preço recomendado, prazo,
   argumento de ROI em linguagem do cliente (sem jargão técnico).
 
 BLOCO 3 — DIRETRIZ TÉCNICA (mais importante para o Claude)
-  [PARA O NOTEBOOKLM]: o que conectar do histórico de projectos
+  [PARA O NOTEBOOKLM]: o que conectar do histórico de projetos
   [PARA O CLAUDE]: o que construir, em que ordem, alertas de risco
-  [VISÃO DE LONGO PRAZO]: onde este projecto pode chegar em 3 iterações
+  [VISÃO DE LONGO PRAZO]: onde este projeto pode chegar em 3 iterações
 
-BLOCO 4 — PRÓXIMOS PASSOS DO DIRECTOR
+BLOCO 4 — PRÓXIMOS PASSOS DO diretoR
   O que eu (Eduardo) faço nas próximas 24h para avançar.
 
 OBRIGATÓRIO no final: 5 ideias disruptivas para a iteração seguinte.
@@ -319,11 +319,11 @@ Marcar o que está presente:
 CHECKLIST DE VALIDAÇÃO DA DIRETRIZ V1:
 
 [ ] Bloco 0 — Diagnóstico com dados reais (não só sintomas vagos)
-[ ] Bloco 1 — Exactamente 3 prioridades, em ordem clara
+[ ] Bloco 1 — exatamente 3 prioridades, em ordem clara
 [ ] Bloco 2 — ROI calculado com os dados declarados pelo cliente
 [ ] Bloco 3 — [PARA O NOTEBOOKLM] preenchido com instrução específica
 [ ] Bloco 3 — [PARA O CLAUDE] preenchido com o que construir e alertas
-[ ] Bloco 4 — Acção concreta para o Director nas próximas 24h
+[ ] Bloco 4 — ação concreta para o diretor nas próximas 24h
 [ ] 5 ideias disruptivas presentes no final
 ```
 
@@ -347,10 +347,10 @@ O problema central é [descrever em 1 frase o que você entendeu]."
 
 ---
 
-### PASSO 5 — Você activa o NotebookLM (COMANDO 2)
+### PASSO 5 — Você ativa o NotebookLM (COMANDO 2)
 
-**Quando usar:** Camada 2 ou superior, OU quando há projectos anteriores com módulos reutilizáveis.
-**Quando saltar:** Primeiro projecto de sempre (sem histórico), OU Camada 1 simples.
+**Quando usar:** Camada 2 ou superior, OU quando há projetos anteriores com módulos reutilizáveis.
+**Quando saltar:** Primeiro projeto de sempre (sem histórico), OU Camada 1 simples.
 
 **Onde:** Interface do NotebookLM
 **Tempo:** 10 minutos seus + 10–20 minutos do NotebookLM
@@ -374,13 +374,13 @@ FONTES A CARREGAR (na ordem):
 ```
 ════════════════════════════════════════════════════════════
 QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
-PROJECTO: [nome] | ITERAÇÃO: V1
+projeto: [nome] | ITERAÇÃO: V1
 ════════════════════════════════════════════════════════════
 
 NotebookLM, actuas como Sócio Consultor do Quadrilateral IAH.
-Não apenas arquivo — consultor activo com memória longa.
+Não apenas arquivo — consultor ativo com memória longa.
 
-ANALISA O PROJECTO [NICHO/TIPO] COM 4 OBJECTIVOS:
+ANALISA O projeto [NICHO/TIPO] COM 4 objetivos:
 
 1. AUDITORIA DE COERÊNCIA
    A DIRETRIZ do Gemini está alinhada com o histórico?
@@ -388,34 +388,34 @@ ANALISA O PROJECTO [NICHO/TIPO] COM 4 OBJECTIVOS:
    Se sim — nomeia os específicos.
 
 2. PERSPECTIVA DO SÓCIO CONSULTOR
-   Baseado em todos os projectos que conheces:
-   · O que sistematicamente funciona neste tipo de projecto?
-   · O que sistematicamente falha neste tipo de projecto?
-   · O que este projecto tem de diferente que pode mudar o padrão?
+   Baseado em todos os projetos que conheces:
+   · O que sistematicamente funciona neste tipo de projeto?
+   · O que sistematicamente falha neste tipo de projeto?
+   · O que este projeto tem de diferente que pode mudar o padrão?
    · O que o Gemini e o Claude não estão a ver?
    · Qual a abordagem com maior probabilidade de sucesso?
 
 3. MÓDULOS REUTILIZÁVEIS
-   O que já foi construído que se aplica directamente?
+   O que já foi construído que se aplica diretamente?
    O que precisa de adaptação? O que é mesmo do zero?
-   Localização exacta nos ficheiros, se disponível.
+   Localização exata nos arquivos, se disponível.
 
 4. GERAR SKILL TÉCNICA PARA O CLAUDE
    Formato obrigatório da Skill (bloco copiável):
    ────────────────────────────────────────────
-   SKILL — [PROJECTO] — V1
+   SKILL — [projeto] — V1
    Gerada por: NotebookLM (Auditor/Sócio Consultor)
    ────────────────────────────────────────────
-   CONTEXTO DO PROJECTO
+   CONTEXTO DO projeto
    Cliente: [nome/nicho] | Camada: [X] | Stack esperada: [X]
    Problema principal: [1 frase]
-   Objectivo desta iteração: [1 frase]
+   objetivo desta iteração: [1 frase]
 
    [CONEXÃO HISTÓRICA — Para o Claude]
-   [módulos reutilizáveis com localização exacta]
+   [módulos reutilizáveis com localização exata]
 
    [PADRÃO DE SUCESSO]
-   [o que funcionou em projectos similares]
+   [o que funcionou em projetos similares]
 
    [PADRÃO DE FALHA]
    [o que falhou e deve ser evitado]
@@ -433,7 +433,7 @@ ANALISA O PROJECTO [NICHO/TIPO] COM 4 OBJECTIVOS:
    [e porquê]
    ────────────────────────────────────────────
 
-Fontes carregadas: [listar os ficheiros que carregou]
+Fontes carregadas: [listar os arquivos que carregou]
 ════════════════════════════════════════════════════════════
 ```
 
@@ -443,15 +443,15 @@ Fontes carregadas: [listar os ficheiros que carregou]
 3. Lista de módulos reutilizáveis com localização
 4. A Skill técnica pronta para o Claude
 
-**Guardar a Skill como:** `.claude/skills/[nome-projecto]-v1.md`
+**Guardar a Skill como:** `.claude/skills/[nome-projeto]-v1.md`
 
 > **Nota:** Se o NotebookLM não tiver fontes suficientes para a perspectiva histórica,
-> irá dizer isso — e isso é informação válida. "Sem histórico suficiente neste tipo de projecto"
+> irá dizer isso — e isso é informação válida. "Sem histórico suficiente neste tipo de projeto"
 > já é um sinal útil para o Claude operar com mais cautela.
 
 ---
 
-### PASSO 6 — Você activa o Claude Code
+### PASSO 6 — Você ativa o Claude Code
 
 **Onde:** Terminal com Claude Code instalado
 **O que escrever (primeiro comando):**
@@ -459,14 +459,14 @@ Fontes carregadas: [listar os ficheiros que carregou]
 ```
 PROTOCOLO VANGUARD
 
-Projecto: [nome] — [tipo: ecommerce / app / SaaS / etc.] — Camada estimada: [X]
+projeto: [nome] — [tipo: ecommerce / app / SaaS / etc.] — Camada estimada: [X]
 ```
 
-**O Claude vai confirmar a activação. Em seguida, colar nesta ordem:**
+**O Claude vai confirmar a ativação. Em seguida, colar nesta ordem:**
 
 **1º — A Skill do NotebookLM** (se foi ao Passo 5):
 ```
-[colar o conteúdo completo do ficheiro .claude/skills/[nome]-v1.md]
+[colar o conteúdo completo do arquivo .claude/skills/[nome]-v1.md]
 ```
 
 **2º — O Bloco 3 da DIRETRIZ do Gemini** (DIRETRIZ TÉCNICA):
@@ -499,7 +499,7 @@ Depois cola a versão melhorada no Claude.
 O Claude vai apresentar um plano estruturado antes de escrever qualquer código:
 
 ```
-PLANO DE BUILD — V1 — [NOME DO PROJECTO]
+PLANO DE BUILD — V1 — [NOME DO projeto]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Stack: [tecnologias confirmadas]
 
@@ -572,41 +572,41 @@ ALERTA TÉCNICO — [decisão]:
 
 **Quando NÃO interromper:**
 - Quando o Claude está a construir dentro do plano aprovado
-- Quando não há ALERTA activo
+- Quando não há ALERTA ativo
 - Quando não fez nenhuma pergunta
 
 > **O silêncio do Claude durante a execução é boa notícia — significa que está a construir.**
 
 ---
 
-### PASSO 9 — O Claude entrega os ficheiros finais (COMANDO 5)
+### PASSO 9 — O Claude entrega os arquivos finais (COMANDO 5)
 
 Ao terminar a iteração, o Claude entrega automaticamente:
 
 ```
 ════════════════════════════════════════════════════════════
-CLAUDE → EDUARDO — FECHO DA ITERAÇÃO V1 — [PROJECTO]
+CLAUDE → EDUARDO — FECHO DA ITERAÇÃO V1 — [projeto]
 ════════════════════════════════════════════════════════════
 
 ENTREGÁVEIS:
 
-1. MEMORIA_V1_[PROJECTO].md — memória técnica completa
+1. MEMORIA_V1_[projeto].md — memória técnica completa
    Contém: módulos construídos, variáveis de ambiente, deploy, próximos recomendados
 
-2. relatorio_evolutivo_v1_[PROJECTO].md — análise de negócio
+2. relatorio_evolutivo_v1_[projeto].md — análise de negócio
    Contém: o que foi construído (linguagem cliente), análise, ROI, [VISÃO LMM]
    [VISÃO LMM] inclui: 5 ideias técnicas para a próxima iteração
 
 3. COMANDO_ESTRATEGISTA_V1.md — pronto para colar no Gemini
    Contém: MEMORIA + relatorio + [REAGE A ESTAS IDEIAS DO MÚSCULO]
-   O Director não precisa formatar nada — copia e cola directamente
+   O diretor não precisa formatar nada — copia e cola diretamente
 
 ESTADO FINAL:
 Módulos entregues: [lista]
 Dívidas técnicas: [lista ou NENHUMA]
 O que ficou fora: [e porquê]
 
-ACÇÃO IMEDIATA DO DIRECTOR:
+ação IMEDIATA DO diretoR:
 1. Validar entregáveis
 2. Aprovar commit
 3. Abrir COMANDO_ESTRATEGISTA_V1.md → copiar → colar no Gemini
@@ -637,7 +637,7 @@ No **COMANDO_ESTRATEGISTA_V1:**
 [ ] Conteúdo do relatorio incluído
 [ ] [REAGE A ESTAS IDEIAS DO MÚSCULO] com as 5 ideias do Claude
 [ ] Pedido dos 5 blocos de DIRETRIZ V2 presente
-[ ] Copiável directamente para o Gemini sem formatação adicional
+[ ] Copiável diretamente para o Gemini sem formatação adicional
 ```
 
 **Se faltar algo:**
@@ -660,7 +660,7 @@ No **COMANDO_ESTRATEGISTA_V1:**
 - Acesso ao que foi construído
 - Próxima iteração proposta (com base no Bloco 2 do Gemini e nas 5 ideias do Claude)
 
-**Activar o ROI Tracker:**
+**ativar o ROI Tracker:**
 1. Copiar `ROI_TRACKER_TEMPLATE.md` para `CLIENTES/[NOME_CLIENTE]/ROI_CHECK_V1_30DIAS.md`
 2. Registar o ROI prometido (base de comparação)
 3. Marcar lembrete no calendário: **data de hoje + 30 dias**
@@ -669,7 +669,7 @@ No **COMANDO_ESTRATEGISTA_V1:**
 **Abrir o próximo ciclo:**
 1. Abrir `CLIENTES/[NOME_CLIENTE]/COMANDO_ESTRATEGISTA_V1.md`
 2. Copiar todo o conteúdo
-3. Colar directamente no Gemini
+3. Colar diretamente no Gemini
 
 O Gemini vai receber:
 - O que foi construído (MEMORIA)
@@ -694,7 +694,7 @@ Este documento já contém tudo que o Gemini precisa.
 • MEMORIA_V1 — o que foi construído tecnicamente
 • relatorio_evolutivo_v1 — como o negócio evoluiu
 • [REAGE A ESTAS IDEIAS DO MÚSCULO] — as 5 ideias do Claude
-• Estado actual: camada, receita/MRR, próximo objectivo
+• Estado atual: camada, receita/MRR, próximo objetivo
 • Pedido dos 5 blocos de DIRETRIZ V2
 ```
 
@@ -704,12 +704,12 @@ Este documento já contém tudo que o Gemini precisa.
   - Reage às 5 ideias do Claude (aprova, modifica ou descarta)
   - Propõe as suas próprias 5 ideias novas
   - Define 3 prioridades baseadas no que foi aprendido em V1
-  - Inclui [PARA O NOTEBOOKLM] e [PARA O CLAUDE] actualizados
+  - Inclui [PARA O NOTEBOOKLM] e [PARA O CLAUDE] atualizados
 ```
 
-> **Este é o diálogo entre Gemini e Claude.** Eles nunca falam directamente —
+> **Este é o diálogo entre Gemini e Claude.** Eles nunca falam diretamente —
 > você é o canal. Mas o COMANDO_ESTRATEGISTA garante que cada membro responde ao que o outro propôs.
-> A inteligência emerge desta conversa indirecta.
+> A inteligência emerge desta conversa indireta.
 
 ### O que muda no Passo 5 (NotebookLM) a partir de V2
 
@@ -722,12 +722,12 @@ A Skill V2 gerada vai:
 - Conectar a DIRETRIZ V2 ao que foi construído em V1
 - Identificar módulos de V1 reutilizáveis em V2
 - Detectar padrões que emergiram na primeira iteração
-- Actualizar [PADRÃO DE SUCESSO] e [PADRÃO DE FALHA] com dados reais
+- atualizar [PADRÃO DE SUCESSO] e [PADRÃO DE FALHA] com dados reais
 
 ### O que muda no Passo 6 (Claude) a partir de V2
 
 O Claude começa a ter contexto acumulado real.
-Em vez de trabalhar com estimativas, trabalha com dados do projecto específico.
+Em vez de trabalhar com estimativas, trabalha com dados do projeto específico.
 A deliberação sobre a DIRETRIZ fica mais afinada porque o Claude conhece a arquitectura de V1.
 
 ---
@@ -742,7 +742,7 @@ ITERAÇÃO V1 — O QUADRILATERAL NASCE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Gemini        → Analisa com base em conhecimento geral
 NotebookLM    → Pouco histórico (ou nenhum)
-Claude        → Sem contexto do projecto específico
+Claude        → Sem contexto do projeto específico
 Resultado     → Bom produto, estimativas calibradas ao mercado geral
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -765,7 +765,7 @@ Gemini        → Recebe feedback real de 2 ciclos
 NotebookLM    → Tem 2 MEMORIAs — começa a ver padrões
               → "Em V1 estimámos X, foi Y — ajusta a estimativa de V3"
 Claude        → Tem arquitectura de 2 iterações para reutilizar
-              → Boilerplate real do projecto específico
+              → Boilerplate real do projeto específico
               → Identifica onde pode acelerar com base no que já construiu
 Resultado     → Velocidade 2x de V1. Custo de erros perto de zero.
 
@@ -774,9 +774,9 @@ ITERAÇÃO V5+ — O QUADRILATERAL É IMPOSSÍVEL DE COPIAR
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Gemini        → Debate com o Claude como sócio experiente
               → Sabe o que é viável nesta stack específica
-NotebookLM    → Banco de padrões real do projecto e do sector
-              → Pode dizer "é exactamente como V2, mas com a variável X diferente"
-Claude        → Sistema em evolução, não projecto novo
+NotebookLM    → Banco de padrões real do projeto e do SETOR
+              → Pode dizer "é exatamente como V2, mas com a variável X diferente"
+Claude        → Sistema em evolução, não projeto novo
               → Estima com precisão, executa com velocidade, antecipa problemas
 Resultado     → Produto no mercado. Código de qualidade. Cliente independente.
               O que levaria 6 meses levou 6 semanas.
@@ -836,9 +836,9 @@ B. Integração com Google Calendar bidirecional — quanto esforço adicional?
 C. Perfil do paciente com histórico de consultas — vale a pena nesta camada?
 ```
 
-**O Claude lê esta resposta ao activar para V2 e responde na deliberação:**
+**O Claude lê esta resposta ao ativar para V2 e responde na deliberação:**
 ```
-[REACÇÃO ÀS IDEIAS NOVAS DO GEMINI]
+[REação ÀS IDEIAS NOVAS DO GEMINI]
 
 A. Reagendamento pelo paciente: VIÁVEL em V2.
    Cuidado: requer lógica de validação de slots disponíveis.
@@ -850,7 +850,7 @@ B. Google Calendar bidirecional: NÃO V2.
    Proposta: V2 faz Calendar → sistema (unidirecional). V3 faz bidirecional.
 
 C. Perfil do paciente: APROVADO com ajuste.
-   Perfil básico (nome, contacto, histórico de consultas) cabe em V2.
+   Perfil básico (nome, contato, histórico de consultas) cabe em V2.
    Perfil completo (fichas clínicas) é Camada 3 e tem implicações de LGPD.
    Fazer o básico agora, documentar o que fica para V3.
 ```
@@ -891,7 +891,7 @@ CLIENTES/
             └── [comandos para o Gemini]
 ```
 
-### Quem activa quem, quando
+### Quem ativa quem, quando
 
 | Passo | Você faz | Para quem | Output esperado |
 |-------|----------|-----------|-----------------|
@@ -900,7 +900,7 @@ CLIENTES/
 | 3 | Envia COMANDO 1 | **Gemini** | DIRETRIZ com 5 blocos |
 | 4 | Valida DIRETRIZ | — (você sozinho) | Score de validação |
 | 5 | Envia COMANDO 2 | **NotebookLM** | Skill técnica do Claude |
-| 6 | Activa PROTOCOLO VANGUARD | **Claude** | Confirmação + Análise |
+| 6 | ativa PROTOCOLO VANGUARD | **Claude** | Confirmação + Análise |
 | 7 | Aprova plano | **Claude** | Build iniciado |
 | 8 | Decide sobre ALERTAs | **Claude** | Execução contínua |
 | 9 | Recebe COMANDO 5 | **Claude** → você | MEMORIA + relatorio + ESTRATEGISTA |
@@ -912,10 +912,10 @@ CLIENTES/
 |-------|-----------|
 | Qualificação | 10 min |
 | Discovery | 30–60 min |
-| Activar Gemini | 5 min |
+| ativar Gemini | 5 min |
 | Validar DIRETRIZ | 5 min |
-| Activar NotebookLM | 10 min |
-| Activar Claude | 5 min |
+| ativar NotebookLM | 10 min |
+| ativar Claude | 5 min |
 | Aprovar plano | 10 min |
 | Supervisão da execução | 5–15 min/dia |
 | Verificar entregáveis | 15 min |
@@ -971,41 +971,41 @@ Novo ciclo com nova DIRETRIZ do Gemini.
 
 ### Não tem histórico no NotebookLM
 
-Saltar o Passo 5. Ir directamente do Gemini para o Claude.
+Saltar o Passo 5. Ir diretamente do Gemini para o Claude.
 O NotebookLM só tem valor quando tem fontes para analisar.
-A partir do segundo projecto começa a ter valor real.
+A partir do segundo projeto começa a ter valor real.
 
-### Quer saber em que ponto está o projecto
+### Quer saber em que ponto está o projeto
 
 Pedir ao Claude:
 ```
-"Dá-me o estado actual do projecto em 5 bullets."
+"Dá-me o estado atual do projeto em 5 bullets."
 ```
 
 O Claude responde com:
 ```
-ESTADO ACTUAL — [PROJECTO] — [DATA]
+ESTADO atual — [projeto] — [DATA]
 • Módulo 1: COMPLETO
 • Módulo 2: EM CURSO — [o que falta]
 • Módulo 3: NÃO INICIADO
-• Dívidas técnicas activas: [lista ou NENHUMA]
-• Próximo passo: [acção exacta]
+• Dívidas técnicas ativas: [lista ou NENHUMA]
+• Próximo passo: [ação exata]
 ```
 
-### Retoma o projecto depois de uma pausa
+### Retoma o projeto depois de uma pausa
 
 Iniciar uma nova sessão do Claude com:
 ```
 Músculo — sessão nova.
-Projecto: [NOME], Camada [X], iteração V[Y].
-Estado: [o que foi feito em 3 bullets — copiar do ESTADO ACTUAL].
+projeto: [NOME], Camada [X], iteração V[Y].
+Estado: [o que foi feito em 3 bullets — copiar do ESTADO atual].
 Próximo passo: [o que começa agora].
-Lê a Skill do cliente antes de qualquer acção.
+Lê a Skill do cliente antes de qualquer ação.
 ```
 
 ---
 
-## PARTE 7 — REGRAS DE OURO DO DIRECTOR
+## PARTE 7 — REGRAS DE OURO DO diretoR
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1037,8 +1037,8 @@ REGRA 6 — O CLIENTE VÊ O RELATÓRIO, NÃO A ESTRATÉGIA
   O cliente recebe o relatorio_evolutivo — em linguagem de negócio.
   O motor é invisível. O resultado é o que importa.
 
-REGRA 7 — CADA ITERAÇÃO ENTREGUE É UM ACTIVO
-  Não é só um projecto concluído.
+REGRA 7 — CADA ITERAÇÃO ENTREGUE É UM ativo
+  Não é só um projeto concluído.
   É uma MEMORIA, um padrão validado, um boilerplate que acelera o próximo.
   O valor do Quadrilateral cresce de forma não-linear — exponencial.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1051,7 +1051,7 @@ REGRA 7 — CADA ITERAÇÃO ENTREGUE É UM ACTIVO
 | Termo | O que é | Quando usar |
 |-------|---------|-------------|
 | **DIRETRIZ** | Documento do Gemini com 5 blocos — é o PLAN do ciclo | Sempre, ao início de cada iteração |
-| **Skill** | Ficheiro .md do NotebookLM com contexto e padrões para o Claude | Camada 2+, antes de activar o Claude |
+| **Skill** | arquivo .md do NotebookLM com contexto e padrões para o Claude | Camada 2+, antes de ativar o Claude |
 | **MEMORIA_Vx** | Registo técnico do que foi construído na iteração X | Gerado pelo Claude ao fechar |
 | **relatorio_evolutivo** | Análise de negócio + [VISÃO LMM] para o cliente e para o Gemini | Gerado pelo Claude ao fechar |
 | **COMANDO_ESTRATEGISTA** | Documento pré-formatado para colar no Gemini no próximo ciclo | Gerado pelo Claude ao fechar — colar imediatamente |
@@ -1060,8 +1060,8 @@ REGRA 7 — CADA ITERAÇÃO ENTREGUE É UM ACTIVO
 | **Score de Confiança** | Avaliação do Claude sobre a solidez da DIRETRIZ (0–10) | Antes de qualquer build |
 | **ALERTA P0** | Problema crítico que bloqueia produção | Resolver antes de qualquer feature |
 | **Veredito** | Sua decisão final — único que pode aprovar avanços | Em qualquer momento de decisão |
-| **Camada** | Nível de complexidade: 1=MVP, 2=Produto, 3=Plataforma, 4=Ecossistema, 5=Monopólio | Para classificar o projecto |
-| **Handoff** | Entrega ao cliente com tudo para operar sozinho | Fase 5 — ao fechar o projecto |
+| **Camada** | Nível de complexidade: 1=MVP, 2=Produto, 3=Plataforma, 4=Ecossistema, 5=Monopólio | Para classificar o projeto |
+| **Handoff** | Entrega ao cliente com tudo para operar sozinho | Fase 5 — ao fechar o projeto |
 
 ---
 
@@ -1097,7 +1097,7 @@ O que não se copia em semanas é o que o sistema acumula:
 
 Em V1, o Quadrilateral é um bom processo.
 Em V5, é uma vantagem competitiva real.
-Em V10, é um activo que vale muito mais do que a soma das ferramentas.
+Em V10, é um ativo que vale muito mais do que a soma das ferramentas.
 
 ### O que é difícil neste sistema — e você precisa saber
 
@@ -1112,7 +1112,7 @@ Um COMANDO 1 com dados reais produz uma DIRETRIZ accionável.
 O Quadrilateral não compensa um briefing mal feito — amplifica o que recebe.
 
 **O NotebookLM fica mais valioso com o tempo — mas precisa de fontes.**
-Nos primeiros 2–3 projectos, o valor do Auditor é limitado.
+Nos primeiros 2–3 projetos, o valor do Auditor é limitado.
 A partir do 4º–5º, começa a ter padrões reais para extrair.
 Não subestime — mas não sobrestime nos primeiros meses.
 
@@ -1138,26 +1138,26 @@ Isso é genuinamente valioso. E o mais importante: está todo documentado para f
 
 ---
 
-## PROTOCOLO DE ACTUALIZAÇÃO — COMO MANTER ESTE MANUAL VIVO
+## PROTOCOLO DE atualização — COMO MANTER ESTE MANUAL VIVO
 
 > Executar ao fechar cada iteração (junto com MEMORIA + relatorio + COMANDO_ESTRATEGISTA).
-> O Claude pode actualizar este ficheiro directamente — basta pedir.
+> O Claude pode atualizar este arquivo diretamente — basta pedir.
 
-### Quando actualizar o Manual
+### Quando atualizar o Manual
 
-| Situação | O que actualizar |
+| Situação | O que atualizar |
 |----------|-----------------|
 | Passo mais demorado do que o estimado | Corrigir tabela de tempo (Parte 5) |
 | Comando que o Gemini/NotebookLM não entendeu bem | Refinar o template do comando |
 | Situação nova que não está no troubleshooting | Adicionar à Parte 6 |
-| Regra de ouro nova que emergiu do projecto | Adicionar à Parte 7 |
+| Regra de ouro nova que emergiu do projeto | Adicionar à Parte 7 |
 | Padrão de comportamento do Claude/Gemini | Documentar como nota no passo relevante |
 | Nova iteração entregue com sucesso | Incrementar o número de versão |
 
-### Como pedir ao Claude para actualizar
+### Como pedir ao Claude para atualizar
 
 ```
-"Claude, ao fechar esta iteração, actualiza o MANUAL_DIRETOR.md:
+"Claude, ao fechar esta iteração, atualiza o MANUAL_DIRETOR.md:
 - [o que mudar no passo X]
 - [nova situação a adicionar ao troubleshooting]
 - [estimativa de tempo a corrigir]
@@ -1171,10 +1171,10 @@ Incrementa a versão para [X.X]."
 | Versão | Data | O que mudou |
 |--------|------|------------|
 | 1.0 | 2026-05-11 | Criação — 10 passos completos, MAPA do loop, troubleshooting, referência rápida, avaliação |
-| 1.1 | 2026-05-11 | Adicionado protocolo de organismo vivo, protocolo de actualização, histórico de versões, diagrama evolutivo V1→V5, diálogo Gemini↔Claude ilustrado |
+| 1.1 | 2026-05-11 | Adicionado protocolo de organismo vivo, protocolo de atualização, histórico de versões, diagrama evolutivo V1→V5, diálogo Gemini↔Claude ilustrado |
 
 ---
 
-*Manual do Director · Quadrilateral IAH · V1.1*
+*Manual do diretor · Quadrilateral IAH · V1.1*
 *Criado pelo Músculo para o Diretor Eduardo*
-*Actualizar após cada projecto — este documento é tão vivo quanto o sistema que descreve*
+*atualizar após cada projeto — este documento é tão vivo quanto o sistema que descreve*

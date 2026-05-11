@@ -1,6 +1,6 @@
-════════════════════════════════════════════════════════════
+﻿════════════════════════════════════════════════════════════
 QUADRILATERAL IAH — DIRETRIZ ESTRATÉGICA
-PROJECTO: [nome] | ITERAÇÃO: V[X] | DATA: [data]
+projeto: [nome] | ITERAÇÃO: V[X] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
 BLOCO 0 — DIAGNÓSTICO
@@ -63,7 +63,7 @@ O que NÃO construir agora: [e porquê]
 Alertas de risco: [o que pode falhar]
 
 [VISÃO DE LONGO PRAZO]
-Em 3 iterações, o objectivo é: [Z]
+Em 3 iterações, o objetivo é: [Z]
 Cada decisão arquitectural deve ter isto em mente.
 
 [RESPOSTA ÀS IDEIAS DO MÚSCULO — se iteração seguinte]
@@ -77,11 +77,11 @@ B. [ideia de mercado] — podes implementar em [prazo]?
 C. [ideia de posicionamento] — como traduzirias em produto?
 
 ──────────────────────
-BLOCO 4 — PRÓXIMOS PASSOS DO DIRECTOR (próximas 24h)
+BLOCO 4 — PRÓXIMOS PASSOS DO diretoR (próximas 24h)
 ──────────────────────
-1. [acção concreta do Diretor — ex: confirmar budget com o cliente]
-2. [acção concreta — ex: activar NotebookLM com fontes carregadas]
-3. [acção concreta — ex: dar Veredito sobre esta DIRETRIZ]
+1. [ação concreta do Diretor — ex: confirmar budget com o cliente]
+2. [ação concreta — ex: ativar NotebookLM com fontes carregadas]
+3. [ação concreta — ex: dar Veredito sobre esta DIRETRIZ]
 
 ──────────────────────
 5 IDEIAS DISRUPTIVAS PARA A PRÓXIMA ITERAÇÃO

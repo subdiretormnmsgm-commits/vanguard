@@ -1,4 +1,4 @@
-# MEMÓRIA V[X] — [NOME DO PROJECTO] — [MISSÃO EM 3 PALAVRAS]
+﻿# MEMÓRIA V[X] — [NOME DO projeto] — [MISSÃO EM 3 PALAVRAS]
 
 **Data:** [data] | **Tipo:** [ecommerce / app / site / SaaS / automação / outro]
 **Camada:** [1–5] | **Stack:** [tecnologias] | **FIRE Event:** `[success_event]`
@@ -10,21 +10,21 @@
 ### Módulo 0 — Injecções Soberanas
 - **Sovereign Pixel:** [integrado via CNAME / snippet — endpoint: URL]
 - **Burn Rate Shield:** [limite diário: $X | limite mensal: $Y | alerta: email]
-- **Kill-Switch:** [activo — grace period: 72h — estados: active/past_due_72h/past_due/canceled]
-- **LGPD/GDPR:** [banner activo — tabela user_consents no Supabase]
+- **Kill-Switch:** [ativo — grace period: 72h — estados: active/past_due_72h/past_due/canceled]
+- **LGPD/GDPR:** [banner ativo — tabela user_consents no Supabase]
 - **Ticket Médio Wizard:** [ticket médio: R$X | volume: Y clientes/mês | FIRE: success_event]
 
 ### Módulo 1 — [NOME]
-[descrição técnica do que foi construído — ficheiros criados, endpoints, schemas]
-Localização: `[path/ficheiro.ext]`
+[descrição técnica do que foi construído — arquivos criados, endpoints, schemas]
+Localização: `[path/arquivo.ext]`
 
 ### Módulo 2 — [NOME]
 [descrição técnica]
-Localização: `[path/ficheiro.ext]`
+Localização: `[path/arquivo.ext]`
 
 ### Módulo 3 — [NOME]
 [descrição técnica]
-Localização: `[path/ficheiro.ext]`
+Localização: `[path/arquivo.ext]`
 
 ---
 
@@ -41,7 +41,7 @@ ANTHROPIC_API_KEY=
 BURN_RATE_DAILY_LIMIT_USD=
 VANGUARD_PIXEL_TOKEN=
 FIRE_EVENT_KEY=[success_event]
-[outras variáveis específicas do projecto]
+[outras variáveis específicas do projeto]
 ```
 
 ---
@@ -91,7 +91,7 @@ cp env_TEMPLATE.example .env
 
 Músculo,
 
-Quando abrires esta memória, o projecto está em V[X]. Aqui está o que não está nos ficheiros e precisas de saber:
+Quando abrires esta memória, o projeto está em V[X]. Aqui está o que não está nos arquivos e precisas de saber:
 
 **Decisões arquitecturais que parecem estranhas mas têm razão:**
 - [decisão 1]: [razão — a alternativa foi descartada porque...]
@@ -105,7 +105,7 @@ Quando abrires esta memória, o projecto está em V[X]. Aqui está o que não es
 - [módulo/componente] — vigiar. Se quebrar, o sintoma é [X].
 
 **O que correu melhor do que esperava:**
-- [descoberta técnica] — pode ser usada em projectos similares de [tipo].
+- [descoberta técnica] — pode ser usada em projetos similares de [tipo].
 
 **O que faria diferente:**
 - [decisão que mudaria] — a alternativa seria [X] porque [razão].

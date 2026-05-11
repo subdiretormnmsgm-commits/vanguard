@@ -1,10 +1,10 @@
-# ROI TRACKER — VERIFICAÇÃO 30 DIAS PÓS-LANÇAMENTO
+﻿# ROI TRACKER — VERIFICAÇÃO 30 DIAS PÓS-LANÇAMENTO
 **Quadrilateral IAH · Template Universal**
 **Versão:** 1.0 · 2026-05-11
 
 ---
 
-> ⚠️ **ORGANISMO VIVO — ACTUALIZAR APÓS CADA VERIFICAÇÃO**
+> ⚠️ **ORGANISMO VIVO — atualizar APÓS CADA VERIFICAÇÃO**
 > · Resultado melhor do que estimado → corrigir estimativas futuras para cima
 > · Resultado abaixo do estimado → documentar porquê e ajustar Biblioteca de Padrões
 > · Cliente respondeu com dados reais → guardar como caso de estudo (sem nome)
@@ -25,7 +25,7 @@
 Dia do lançamento → marcar lembrete para 30 dias depois
 Dia 30 → enviar Mensagem 1 ao cliente
 Dia 33–35 → se sem resposta, enviar Mensagem 2
-Dia 37 → se ainda sem resposta → verificar pelo telemóvel
+Dia 37 → se ainda sem resposta → verificar pelo celular
 Dia 40 → fechar o tracker com os dados disponíveis
 ```
 
@@ -40,12 +40,12 @@ Adaptar ao canal e ao tom da relação. Copiar e preencher os `[campos]`:
 [CANAL: WhatsApp — versão curta]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[Nome], já faz 30 dias desde que o [nome do projecto] entrou no ar.
+[Nome], já faz 30 dias desde que o [nome do projeto] entrou no ar.
 
 Queria fazer 3 perguntas rápidas — levam menos de 5 minutos:
 
 1. O [resultado que prometemos — ex: agendamentos online] está a funcionar?
-   Tens algum número de referência? (não precisa de ser exacto)
+   Tens algum número de referência? (não precisa de ser exato)
 
 2. O que correu melhor do que esperavas?
 
@@ -62,11 +62,11 @@ Obrigado!
 [CANAL: Email — versão formal]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Assunto: [Nome do projecto] — verificação de 30 dias
+Assunto: [Nome do projeto] — verificação de 30 dias
 
 Olá [Nome],
 
-Passado um mês desde o lançamento do [projecto], gostava de fazer
+Passado um mês desde o lançamento do [projeto], gostava de fazer
 uma breve verificação do impacto.
 
 Três perguntas — resposta curta basta:
@@ -79,7 +79,7 @@ Três perguntas — resposta curta basta:
 3. A MELHORAR: O que ainda não está como gostavas?
 
 Os teus dados são úteis para mim também — ajudam a afinar as estimativas
-para projectos futuros. Podes ser directo.
+para projetos futuros. Podes ser direto.
 
 [Assinatura]
 ```
@@ -92,7 +92,7 @@ Guardar em `CLIENTES/[NOME_CLIENTE]/ROI_CHECK_V[X]_30DIAS.md`:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ROI CHECK — [PROJECTO] — 30 DIAS PÓS-LANÇAMENTO
+ROI CHECK — [projeto] — 30 DIAS PÓS-LANÇAMENTO
 Data de lançamento: [data]
 Data desta verificação: [data]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -116,13 +116,13 @@ CLASSIFICAÇÃO:
   [ ] Entregou parcialmente — o que faltou: [razão]
   [ ] Não entregou o prometido — o que falhou: [razão]
 
-ACÇÃO IMEDIATA:
+ação IMEDIATA:
   [ ] Propor próxima iteração (se resultado sólido)
   [ ] Oferecer correcção (se algo falhou)
   [ ] Pedir testemunho (se superou expectativas)
 
 APRENDIZAGEM PARA PADRÕES FUTUROS:
-  [o que isto ensina sobre estimativas deste tipo de projecto]
+  [o que isto ensina sobre estimativas deste tipo de projeto]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -134,14 +134,14 @@ Se o resultado foi positivo, pedir ao cliente um testemunho escrito ou em vídeo
 Estrutura sugerida para o testemunho (pode enviar como guia):
 
 ```
-"Antes do projecto, [problema que tinha].
+"Antes do projeto, [problema que tinha].
 Depois do lançamento, [resultado específico com número se possível].
 O que mais surpreendeu foi [algo inesperadamente bom].
 Recomendo porque [razão específica]."
 ```
 
 **Onde usar o testemunho:**
-- Na próxima proposta para clientes do mesmo sector
+- Na próxima proposta para clientes do mesmo SETOR
 - No pitch do modelo IAH (versão curta e versão completa)
 - No Gemini: alimentar a DIRETRIZ V2 com dados reais de impacto
 
@@ -151,13 +151,13 @@ Recomendo porque [razão específica]."
 
 **Ao receber as respostas do cliente:**
 
-1. Actualizar a Biblioteca de Padrões na Skill (`SKILL_PROTOCOLO_VANGUARD.md`):
+1. atualizar a Biblioteca de Padrões na Skill (`SKILL_PROTOCOLO_VANGUARD.md`):
    - Se a estimativa de ROI estava certa → reforçar o padrão
-   - Se estava errada → corrigir a estimativa para o tipo de projecto
+   - Se estava errada → corrigir a estimativa para o tipo de projeto
 
-2. Adicionar ao NotebookLM como fonte para projectos futuros do mesmo sector:
-   - O ficheiro `ROI_CHECK_V[X]_30DIAS.md` torna-se fonte de dados reais
-   - O NotebookLM passa a dizer "neste tipo de projecto, o ROI real foi X em 30 dias"
+2. Adicionar ao NotebookLM como fonte para projetos futuros do mesmo SETOR:
+   - O arquivo `ROI_CHECK_V[X]_30DIAS.md` torna-se fonte de dados reais
+   - O NotebookLM passa a dizer "neste tipo de projeto, o ROI real foi X em 30 dias"
 
 3. Se abriu porta para próxima iteração:
    - Iniciar novo ciclo com COMANDO 1 para o Gemini
@@ -165,15 +165,15 @@ Recomendo porque [razão específica]."
 
 ---
 
-## ACUMULADOR DE RESULTADOS (actualizar após cada check)
+## ACUMULADOR DE RESULTADOS (atualizar após cada check)
 
-> Manter este registo actualizado — é a prova social real do Quadrilateral.
+> Manter este registo atualizado — é a prova social real do Quadrilateral.
 
-| Projecto | Tipo | Camada | ROI Prometido | ROI Real 30d | Desvio | Testemunho |
+| projeto | Tipo | Camada | ROI Prometido | ROI Real 30d | Desvio | Testemunho |
 |----------|------|--------|--------------|-------------|--------|-----------|
 | [nome] | [tipo] | [C] | [estimado] | [real] | [+/-] | SIM/NÃO |
 
 ---
 
 *ROI Tracker · Quadrilateral IAH · V1.0*
-*Usar em todos os projectos, sem excepção · Os dados acumulados aqui são o activo mais valioso do sistema*
+*Usar em todos os projetos, sem exceção · Os dados acumulados aqui são o ativo mais valioso do sistema*
