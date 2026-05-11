@@ -1,6 +1,6 @@
 # [NOME DO PROJECTO] — Guia de Operação
 **Cliente:** [nome do cliente] | **Versão:** V[X] | **Entregue em:** [data]
-**Operado por:** IAH Factory — Quadrilateral
+**Desenvolvido por:** [NOME DO OPERADOR]
 
 ---
 
@@ -128,5 +128,5 @@ Para suporte ou evolução: **[WhatsApp do operador]** ou **[email do operador]*
 
 ---
 
-*Documento entregue pela IAH Factory · Quadrilateral · V[X]*
+*Documento preparado por [NOME DO OPERADOR] · V[X]*
 *Actualizar a cada iteração — versão mais recente no repositório*

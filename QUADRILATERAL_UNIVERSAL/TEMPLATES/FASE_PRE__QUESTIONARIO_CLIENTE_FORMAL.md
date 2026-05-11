@@ -1,5 +1,5 @@
 # QUESTIONÁRIO DE DISCOVERY — CLIENTE
-**IAH Factory — Quadrilateral** | Confidencial
+**[NOME DO OPERADOR]** | Confidencial
 
 ---
 
@@ -180,4 +180,4 @@ _______________________________________________
 
 *Obrigado pelo seu tempo. Entraremos em contacto em até [X] horas úteis com uma análise inicial.*
 
-*IAH Factory — Quadrilateral | [email do operador] | [WhatsApp do operador]*
+*[NOME DO OPERADOR] | [email do operador] | [WhatsApp do operador]*

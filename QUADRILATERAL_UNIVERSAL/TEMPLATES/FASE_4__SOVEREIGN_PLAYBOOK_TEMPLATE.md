@@ -1,6 +1,6 @@
 # SOVEREIGN PLAYBOOK — [NOME DO CLIENTE]
 **Sistema:** [nome do sistema entregue] | **Versão:** V[X] | **Data:** [data]
-**Preparado por:** IAH Factory — Quadrilateral
+**Preparado por:** [NOME DO OPERADOR]
 
 ---
 
@@ -144,7 +144,7 @@ Informe:
 | [Serviço 3 — ex: Email transaccional] | R$[X]/mês | [data] |
 | **Total mensal de infraestrutura** | **R$[X]/mês** | |
 
-**Nota:** Estes custos são pagos directamente pelos serviços nas contas criadas em seu nome. A IAH Factory não cobra margem sobre infraestrutura.
+**Nota:** Estes custos são pagos directamente pelos serviços nas contas criadas em seu nome. Não cobramos margem sobre infraestrutura — o que o serviço custa, é o que você paga.
 
 ---
 
@@ -158,6 +158,6 @@ Se receber um email de [Supabase / Stripe / outro] a pedir renovação:
 
 ---
 
-*Sovereign Playbook gerado pela IAH Factory · Quadrilateral*
-*Versão V[X] · [data] · Actualizado automaticamente a cada iteração*
+*Guia de Operação preparado por [NOME DO OPERADOR]*
+*Versão V[X] · [data] · Actualizado a cada melhoria do sistema*
 *Dúvidas: [contacto do operador]*
