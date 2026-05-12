@@ -1,6 +1,27 @@
 services:
+
   frontend:
     build:
       context: .
       dockerfile: Dockerfile
     restart: always
+
+  api:
+    image: alpine
+    command: ["tail", "-f", "/dev/null"]
+    restart: unless-stopped
+
+  postgres:
+    image: alpine
+    command: ["tail", "-f", "/dev/null"]
+    restart: unless-stopped
+
+  n8n:
+    image: alpine
+    command: ["tail", "-f", "/dev/null"]
+    restart: unless-stopped
+
+  hermes:
+    image: alpine
+    command: ["tail", "-f", "/dev/null"]
+    restart: unless-stopped
