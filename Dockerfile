@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-ARG BUILD_VERSION=v25
+ARG BUILD_VERSION=v26
 LABEL version="${BUILD_VERSION}"
 
 COPY . /usr/share/nginx/html
