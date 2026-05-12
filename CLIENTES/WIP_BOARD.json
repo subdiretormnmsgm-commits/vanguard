@@ -1,0 +1,21 @@
+{
+  "atualizado_em": "2026-05-12",
+  "wip_limits": {
+    "build": 2,
+    "check": 1
+  },
+  "board": {
+    "discovery": [],
+    "build": [],
+    "check": [],
+    "entregue": [],
+    "retainer": []
+  },
+  "politica_explicita": {
+    "regra_1": "Nada entra em BUILD sem Briefing aprovado pelo Diretor",
+    "regra_2": "Nada sai de BUILD sem check_leis.ps1 aprovado",
+    "regra_3": "Nada vai para ENTREGUE sem Sovereign Playbook gerado",
+    "regra_4": "Sentinel do cliente atual validado antes de novo projeto entrar em BUILD",
+    "regra_5": "Retainer só após 30 dias de dados reais do Sentinel"
+  }
+}
