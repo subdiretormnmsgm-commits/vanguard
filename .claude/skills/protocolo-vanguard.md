@@ -445,6 +445,63 @@ Claude emite ALERTA quando:
 
 ---
 
+## COUNCIL MESSENGER AGENT — COMUNICAÇÃO PROATIVA
+
+O Conselho fala com o Diretor via email de forma proativa. Dois canais activos:
+
+| Canal | Frequência | Trigger |
+|-------|-----------|---------|
+| Monitor urgente (`alert_wip_monitor.ps1`) | A cada 5 min | Novo cliente, slot liberado, Circuit Breaker, Sentinel FIRE |
+| Despacho Matinal (`alert_daily_briefing.ps1`) | Diariamente 07h | Sempre — Score GUT + board completo |
+
+### Fórmula de Alerta de Alta Alavancagem (Pager do Diretor)
+
+> Baseada em A Meta (Goldratt) — o gargalo do sistema é o tempo do Diretor.
+> Proteger o gargalo = proteger o throughput. Emails longos são desperdício no gargalo.
+
+Quando um gate é acionado ou há Dívida P0, o email deve seguir **apenas** este formato:
+
+```
+[ALERTA] [TIPO] -- [PROJETO]
+Gatilho Acionado: [ex: Circuit Breaker Dia 4]
+
+[SINTESE] (max 2 linhas objectivas)
+[DELIBERACAO DO CONSELHO]
+- Estrategista (Gemini): [visao negocio]
+- Musculo (Claude): [visao tecnica]
+- Auditor (NotebookLM): [padrao historico]
+[RECOMENDACAO DE ACAO]
+[VEREDITO REQUERIDO]:
+[ 1 ] APROVAR  [ 2 ] VETAR + Emergencia  [ 3 ] Aguardar (WIP pausa)
+```
+
+### Score GUT (Despacho Matinal)
+
+`GUT = Gravidade × Urgência × Tendência` (escala 1–5 cada)
+125 = CRÍTICO · 50+ = ALTO · 20+ = MÉDIO · <20 = BAIXO
+
+### Leis Activas — A Startup Enxuta (Eric Ries)
+
+- **Pequenos Lotes:** cada entrega valida uma hipótese em 24–48h. Nada de "produto completo" — iterar sempre.
+- **Métricas Acionáveis:** nunca métricas de vaidade. A pergunta é: "o cliente validou que X resolve o FIRE Event?"
+- **Build-Measure-Learn:** código não validado é inventário — cria custo, não valor.
+
+### Protocolo dos 5 Porquês (Incidentes e FIRE Events)
+
+Aplicar **antes** de qualquer correção quando um módulo falha:
+
+```
+Incidente: [descrição]
+Por que 1: [causa imediata]
+Por que 2: [causa da causa]
+Por que 3: ...
+Por que 4: ...
+Por que 5: [raiz real — processo, arquitectura ou decisão]
+Investimento proporcional: [correcção na raiz, não no sintoma]
+```
+
+---
+
 ## PDCA — O MOTOR DO QUADRILATERAL
 
 ```

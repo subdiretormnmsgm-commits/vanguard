@@ -12,6 +12,16 @@
 
 ---
 
+> **Axioma Fundador — declarado pelo Diretor Eduardo:**
+> "A gestão do nosso negócio é realizada com gestão de processos, evolução e inteligência.
+> Este é o nosso maior ativo."
+>
+> O produto entregue ao cliente é consequência.
+> O ativo é o sistema que o produz — protocolo, memória acumulada, frameworks operacionais.
+> Cada projeto entregue torna o sistema mais inteligente. Esse é o diferencial impossível de copiar.
+
+---
+
 > **Premissa fundamental:**
 > O cliente não contrata tecnologia. Contrata inteligência orquestrada.
 > O Quadrilateral não é uma agência. Não é um freelancer. Não é uma equipe de dev.
@@ -252,6 +262,96 @@ O Músculo documenta na MEMORIA_Vx:
 "[OVERRIDE DO DIRETOR]: a proposta era [X]. O Diretor decidiu [Y] porque [razão].
 Resultado a acompanhar nas próximas iterações."
 ```
+
+---
+
+## COMUNICAÇÃO PROATIVA — O PAGER DO DIRETOR
+
+> O gargalo do sistema é o tempo do Diretor Eduardo.
+> Pela Teoria das Restrições (A Meta — Goldratt): proteger o gargalo é proteger o throughput de todo o sistema.
+> Cada minuto do Diretor desperdiçado em leitura de alertas longos é um minuto que não decide, não prospecta, não fecha.
+
+### Council Messenger Agent
+
+O Conselho fala com o Diretor via email de forma proativa. Dois canais:
+
+| Canal | Frequência | Responsável | Quando envia |
+|-------|-----------|-------------|-------------|
+| **Monitor urgente** | A cada 5 min | Músculo | Quando um evento exige decisão imediata |
+| **Despacho Matinal** | Diariamente às 07h | Conselho | Sempre — estado do board + Score GUT |
+
+**Scripts:** `scripts/alert_wip_monitor.ps1` · `scripts/alert_daily_briefing.ps1`
+**Credenciais:** `$env:QUADRILATERAL_GMAIL_SENHA` (env var) ou `scripts/alert_config.ps1` (fallback — nunca commitado)
+
+### Fórmula de Alerta de Alta Alavancagem (O "Pager" do Diretor)
+
+Quando o Conselho precisa de decisão urgente, envia **apenas** este template — sem texto adicional:
+
+```
+[ALERTA] [TIPO] -- [PROJETO]
+
+Gatilho Acionado: [ex: Circuit Breaker Dia 4 / Burn Rate 75% / Sentinel FIRE]
+
+==================================================
+[SINTESE] (max 2 linhas objetivas)
+[O que aconteceu de forma factual]
+
+[DELIBERACAO DO CONSELHO]
+- Estrategista (Gemini): [visao de negocio]
+- Musculo (Claude Code): [visao tecnica]
+- Auditor (NotebookLM): [padrao historico]
+
+[RECOMENDACAO DE ACAO]
+[A solucao mais segura para o ROI e prazo]
+
+[VEREDITO REQUERIDO -- responder com o numero]:
+[ 1 ] APROVAR recomendacao.
+[ 2 ] VETAR recomendacao e acionar Protocolo de Emergencia.
+[ 3 ] Aguardar o Diretor (Assumir paralisacao do WIP).
+==================================================
+```
+
+**Regra de ouro:** O Diretor responde com um número. O Conselho executa. Zero reunião. Zero email longo. Zero bloqueio de gargalo.
+
+### Score GUT Automático (Despacho Matinal)
+
+O briefing das 07h calcula automaticamente o Score GUT semanal:
+
+| Dimensão | O que mede | Escala |
+|----------|-----------|--------|
+| **Gravidade** | Impacto no negócio se nada for feito | 1–5 |
+| **Urgência** | Pressão de tempo / prazo | 1–5 |
+| **Tendência** | Probabilidade de piorar sem ação | 1–5 |
+
+`GUT = G × U × T` — 125 = CRÍTICO · 50+ = ALTO · 20+ = MÉDIO · <20 = BAIXO
+
+### Leis de Operação — Baseadas em "A Startup Enxuta" (Eric Ries)
+
+**Lei dos Pequenos Lotes:** Nunca construir features em grandes blocos. Cada entrega deve ser um lote mínimo que gera aprendizado mensurável. Um projeto em BUILD não entrega "o produto completo" — entrega iterações de 24–48h que validam hipóteses.
+
+**Métricas Acionáveis vs. Métricas de Vaidade:**
+- ❌ Vaidade: "construímos 15 features esta semana"
+- ✅ Acionável: "o cliente validou que X resolve o FIRE Event com evidência Y"
+
+**Build-Measure-Learn:** O objetivo supremo não é produzir código. É rodar o ciclo mais rápido possível para obter aprendizagem validada. Código não validado é inventário — cria custo, não valor.
+
+### Protocolo dos 5 Porquês (Debugging e Incidentes)
+
+Quando qualquer módulo falha ou um FIRE Event é ativado, aplicar antes de qualquer correção:
+
+```
+INCIDENTE: [descrição do que falhou]
+
+Por que 1: [causa imediata]
+Por que 2: [causa da causa imediata]
+Por que 3: [causa da causa da causa]
+Por que 4: [causa sistémica]
+Por que 5: [raiz real — processo, arquitetura ou decisão]
+
+INVESTIMENTO PROPORCIONAL: [correção na raiz, não no sintoma]
+```
+
+**Regra:** A correção deve ser aplicada no nível do "Por que 5" — não no sintoma (Por que 1). Correções superficiais criam dívidas P0 recorrentes.
 
 ---
 
