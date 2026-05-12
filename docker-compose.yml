@@ -1,5 +1,11 @@
 services:
 
+  vanguard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+
   frontend:
     build:
       context: .
