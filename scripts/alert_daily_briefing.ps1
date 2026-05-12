@@ -4,11 +4,11 @@
 # Inclui Score GUT semanal calculado automaticamente
 # ============================================================
 
-$BASE             = Split-Path -Parent $PSScriptRoot
-$WIP_PATH         = "$BASE\CLIENTES\WIP_BOARD.json"
-$CONFIG_PATH      = "$BASE\scripts\alert_config.ps1"
-$LOG_PATH         = "$BASE\scripts\alert_monitor.log"
-$TIMESTAMPS_PATH  = "$BASE\CLIENTES\.build_timestamps.json"
+$BASE               = Split-Path -Parent $PSScriptRoot
+$WIP_PATH           = "$BASE\CLIENTES\WIP_BOARD.json"
+$CONFIG_PATH        = "$BASE\scripts\alert_config.ps1"
+$LOG_PATH           = "$BASE\scripts\alert_monitor.log"
+$TIMESTAMPS_PATH    = "$BASE\CLIENTES\.build_timestamps.json"
 $FIRE_NOTIFIED_PATH = "$BASE\CLIENTES\.sentinel_fire_notified.json"
 
 function Write-Log {
@@ -17,7 +17,7 @@ function Write-Log {
     "$ts  $msg" | Out-File -FilePath $LOG_PATH -Append -Encoding utf8
 }
 
-# --- Credenciais (env var tem prioridade — Seguranca Soberana) ---
+# --- Credenciais (env var tem prioridade --- Seguranca Soberana) ---
 if (-not (Test-Path $CONFIG_PATH)) { Write-Log "ERRO: alert_config.ps1 nao encontrado."; exit 1 }
 . $CONFIG_PATH
 
@@ -35,13 +35,6 @@ if (Test-Path $TIMESTAMPS_PATH) {
     $ts_raw.PSObject.Properties | ForEach-Object { $timestamps[$_.Name] = $_.Value }
 }
 
-# --- Carregar FIRE notificados ---
-$fire_notified = @{}
-if (Test-Path $FIRE_NOTIFIED_PATH) {
-    $fn_raw = Get-Content $FIRE_NOTIFIED_PATH -Raw | ConvertFrom-Json
-    $fn_raw.PSObject.Properties | ForEach-Object { $fire_notified[$_.Name] = $_.Value }
-}
-
 # ============================================================
 # CALCULAR SCORE GUT SEMANAL
 # Gravidade  : impacto no negocio se nada for feito
@@ -50,10 +43,10 @@ if (Test-Path $FIRE_NOTIFIED_PATH) {
 # Escala: 1 (baixo) a 5 (critico)
 # ============================================================
 
-$gut_gravidade  = 1
-$gut_urgencia   = 1
-$gut_tendencia  = 1
-$gut_razoes     = @()
+$gut_gravidade = 1
+$gut_urgencia  = 1
+$gut_tendencia = 1
+$gut_razoes    = @()
 
 # Gravidade sobe com projetos em BUILD sem sentinel
 $projetos_sem_sentinel = 0
@@ -62,24 +55,37 @@ foreach ($cliente in $wip.board.build) {
         $projetos_sem_sentinel++
     }
 }
-if ($projetos_sem_sentinel -ge 2) { $gut_gravidade = [Math]::Min(5, $gut_gravidade + 3); $gut_razoes += "  · $projetos_sem_sentinel projetos em BUILD sem Sentinel configurado" }
-elseif ($projetos_sem_sentinel -eq 1) { $gut_gravidade = [Math]::Min(5, $gut_gravidade + 2); $gut_razoes += "  · 1 projeto em BUILD sem Sentinel configurado" }
+if ($projetos_sem_sentinel -ge 2) {
+    $gut_gravidade = [Math]::Min(5, $gut_gravidade + 3)
+    $gut_razoes += "  . $projetos_sem_sentinel projetos em BUILD sem Sentinel configurado"
+} elseif ($projetos_sem_sentinel -eq 1) {
+    $gut_gravidade = [Math]::Min(5, $gut_gravidade + 2)
+    $gut_razoes += "  . 1 projeto em BUILD sem Sentinel configurado"
+}
 
 # Gravidade sobe com FIRE events ativos
 $fire_ativos = 0
-foreach ($cliente in ($wip.board.discovery + $wip.board.build + $wip.board.check)) {
+$todos_clientes_fire = @($wip.board.discovery) + @($wip.board.build) + @($wip.board.check)
+foreach ($cliente in $todos_clientes_fire) {
     $sp = "$BASE\CLIENTES\$cliente\sentinel_config.json"
     if (Test-Path $sp) {
         $s = Get-Content $sp -Raw | ConvertFrom-Json
         if ($s.fire_event -eq $true) { $fire_ativos++ }
     }
 }
-if ($fire_ativos -gt 0) { $gut_gravidade = 5; $gut_razoes += "  · $fire_ativos FIRE Event(s) ativo(s) no sistema" }
+if ($fire_ativos -gt 0) {
+    $gut_gravidade = 5
+    $gut_razoes += "  . $fire_ativos FIRE Event(s) ativo(s) no sistema"
+}
 
-# Urgencia sobe com WIP cheio e projetos no prazo limite
+# Urgencia sobe com WIP cheio
 $slots_livres = $wip.wip_limits.build - $wip.board.build.Count
-if ($slots_livres -eq 0) { $gut_urgencia = [Math]::Min(5, $gut_urgencia + 2); $gut_razoes += "  · WIP BUILD cheio — nenhum slot disponivel" }
+if ($slots_livres -eq 0) {
+    $gut_urgencia = [Math]::Min(5, $gut_urgencia + 2)
+    $gut_razoes += "  . WIP BUILD cheio - nenhum slot disponivel"
+}
 
+# Urgencia sobe com projeto no prazo limite
 $max_dias = 0
 foreach ($cliente in $wip.board.build) {
     if ($timestamps.ContainsKey($cliente)) {
@@ -87,25 +93,30 @@ foreach ($cliente in $wip.board.build) {
         if ($dias -gt $max_dias) { $max_dias = $dias }
     }
 }
-if ($max_dias -ge 6) { $gut_urgencia = 5; $gut_razoes += "  · Projeto em BUILD ha $max_dias dias — critico" }
-elseif ($max_dias -ge 4) { $gut_urgencia = [Math]::Min(5, $gut_urgencia + 2); $gut_razoes += "  · Projeto em BUILD ha $max_dias dias — Circuit Breaker ativo" }
+if ($max_dias -ge 6) {
+    $gut_urgencia = 5
+    $gut_razoes += "  . Projeto em BUILD ha $max_dias dias - CRITICO"
+} elseif ($max_dias -ge 4) {
+    $gut_urgencia = [Math]::Min(5, $gut_urgencia + 2)
+    $gut_razoes += "  . Projeto em BUILD ha $max_dias dias - Circuit Breaker ativo"
+}
 
-# Tendencia sobe se ha discovery sem avanco ou retainer sem renovacao pendente
+# Tendencia sobe com discovery parado ou check pendente
 if ($wip.board.discovery.Count -gt 0 -and $wip.board.build.Count -eq 0) {
     $gut_tendencia = [Math]::Min(5, $gut_tendencia + 2)
-    $gut_razoes += "  · Clientes em DISCOVERY sem avancar para BUILD"
+    $gut_razoes += "  . Clientes em DISCOVERY sem avancar para BUILD"
 }
 if ($wip.board.check.Count -gt 0) {
     $gut_tendencia = [Math]::Min(5, $gut_tendencia + 1)
-    $gut_razoes += "  · Projeto em CHECK aguardando validacao"
+    $gut_razoes += "  . Projeto em CHECK aguardando validacao"
 }
 if ($fire_ativos -gt 0) { $gut_tendencia = 5 }
 
-$gut_score  = $gut_gravidade * $gut_urgencia * $gut_tendencia
-$gut_nivel  = if ($gut_score -ge 100) { "CRITICO" } `
-              elseif ($gut_score -ge 50) { "ALTO" } `
-              elseif ($gut_score -ge 20) { "MEDIO" } `
-              else { "BAIXO" }
+$gut_score = $gut_gravidade * $gut_urgencia * $gut_tendencia
+$gut_nivel = if ($gut_score -ge 100) { "CRITICO" } `
+             elseif ($gut_score -ge 50) { "ALTO" } `
+             elseif ($gut_score -ge 20) { "MEDIO" } `
+             else { "BAIXO" }
 
 $gut_razoes_texto = if ($gut_razoes.Count -eq 0) { "  Sem fatores de risco ativos." } `
                     else { ($gut_razoes | Select-Object -Unique) -join "`n" }
@@ -114,18 +125,21 @@ $gut_razoes_texto = if ($gut_razoes.Count -eq 0) { "  Sem fatores de risco ativo
 # MONTAR LISTA DE BUILD COM DIAS
 # ============================================================
 
-function Get-BuildLine {
-    param([string]$cliente)
-    if ($timestamps.ContainsKey($cliente)) {
-        $dias = ([datetime]::Today - [datetime]::ParseExact($timestamps[$cliente], "yyyy-MM-dd", $null)).Days
-        $alerta = if ($dias -ge 4) { " ⚠ Circuit Breaker" } else { "" }
-        return "  . $cliente — Dia $dias$alerta"
+$build_linhas = if ($wip.board.build.Count -eq 0) {
+    "  -- vazio"
+} else {
+    $linhas = @()
+    foreach ($cliente in $wip.board.build) {
+        if ($timestamps.ContainsKey($cliente)) {
+            $dias   = ([datetime]::Today - [datetime]::ParseExact($timestamps[$cliente], "yyyy-MM-dd", $null)).Days
+            $alerta = if ($dias -ge 4) { " [Circuit Breaker]" } else { "" }
+            $linhas += "  . $cliente -- Dia $dias$alerta"
+        } else {
+            $linhas += "  . $cliente"
+        }
     }
-    return "  . $cliente"
+    $linhas -join "`n"
 }
-
-$build_linhas = if ($wip.board.build.Count -eq 0) { "  — vazio" } `
-               else { ($wip.board.build | ForEach-Object { Get-BuildLine $_ }) -join "`n" }
 
 # ============================================================
 # CALCULAR ACOES PENDENTES
@@ -134,30 +148,38 @@ $build_linhas = if ($wip.board.build.Count -eq 0) { "  — vazio" } `
 $acoes = @()
 
 foreach ($cliente in $wip.board.build) {
-    if (-not (Test-Path "$BASE\CLIENTES\$cliente\sentinel_config.json")) {
-        $acoes += "  . Sentinel de $cliente nao configurado — obrigatorio antes do handoff"
+    $sp = "$BASE\CLIENTES\$cliente\sentinel_config.json"
+    if (-not (Test-Path $sp)) {
+        $acoes += "  . Sentinel de $cliente nao configurado - obrigatorio antes do handoff"
     }
     $pdf = "$BASE\CLIENTES\$cliente\SOVEREIGN_PLAYBOOK.pdf"
     $md  = "$BASE\CLIENTES\$cliente\SOVEREIGN_PLAYBOOK.md"
     if (-not (Test-Path $pdf) -and -not (Test-Path $md)) {
-        $acoes += "  . Playbook de $cliente pendente — gerar antes de ENTREGUE"
+        $acoes += "  . Playbook de $cliente pendente - gerar antes de ENTREGUE"
     }
     if ($timestamps.ContainsKey($cliente)) {
         $dias = ([datetime]::Today - [datetime]::ParseExact($timestamps[$cliente], "yyyy-MM-dd", $null)).Days
-        if ($dias -ge 4) { $acoes += "  . $cliente em BUILD ha $dias dias — revisar scope com Musculo" }
+        if ($dias -ge 4) {
+            $acoes += "  . $cliente em BUILD ha $dias dias - revisar scope com Musculo"
+        }
     }
 }
 
-foreach ($cliente in ($wip.board.build + $wip.board.check + $wip.board.discovery)) {
+foreach ($cliente in $todos_clientes_fire) {
     $sp = "$BASE\CLIENTES\$cliente\sentinel_config.json"
     if (Test-Path $sp) {
         $s = Get-Content $sp -Raw | ConvertFrom-Json
-        if ($s.fire_event -eq $true) { $acoes += "  . FIRE Event ativo em $cliente — resolver com urgencia" }
+        if ($s.fire_event -eq $true) {
+            $acoes += "  . FIRE Event ativo em $cliente - resolver com urgencia"
+        }
     }
 }
 
-$acoes_texto = if ($acoes.Count -eq 0) { "  Nenhuma acao pendente. Board em ordem." } `
-               else { ($acoes | Select-Object -Unique) -join "`n" }
+$acoes_texto = if ($acoes.Count -eq 0) {
+    "  Nenhuma acao pendente. Board em ordem."
+} else {
+    ($acoes | Select-Object -Unique) -join "`n"
+}
 
 $capacidade_label = if ($slots_livres -gt 0) { "LIVRE ($slots_livres slot(s))" } else { "CHEIO" }
 
@@ -165,26 +187,31 @@ $capacidade_label = if ($slots_livres -gt 0) { "LIVRE ($slots_livres slot(s))" }
 # MONTAR E ENVIAR EMAIL
 # ============================================================
 
-$assunto = "[QUADRILATERAL IAH] Despacho Matinal — $hoje"
+$disc_txt     = if ($wip.board.discovery.Count -eq 0) { "-- vazio" } else { $wip.board.discovery -join ", " }
+$check_txt    = if ($wip.board.check.Count -eq 0)     { "-- vazio" } else { $wip.board.check -join ", " }
+$entregue_txt = if ($wip.board.entregue.Count -eq 0)  { "-- vazio" } else { $wip.board.entregue -join ", " }
+$retainer_txt = if ($wip.board.retainer.Count -eq 0)  { "-- vazio" } else { $wip.board.retainer -join ", " }
+
+$assunto = "[QUADRILATERAL IAH] Despacho Matinal -- $hoje"
 $corpo = @"
-QUADRILATERAL IAH — DESPACHO MATINAL
+QUADRILATERAL IAH -- DESPACHO MATINAL
 =========================================
 
 Diretor Eduardo, bom dia.
 
 ========================================
-ESTADO DO BOARD — $hoje
+ESTADO DO BOARD -- $hoje
 ========================================
 
-  Discovery : $(if ($wip.board.discovery.Count -eq 0) { "— vazio" } else { $wip.board.discovery -join ", " })
+  Discovery : $disc_txt
   Build     :
 $build_linhas
-  Check     : $(if ($wip.board.check.Count -eq 0) { "— vazio" } else { $wip.board.check -join ", " })
-  Entregue  : $(if ($wip.board.entregue.Count -eq 0) { "— vazio" } else { $wip.board.entregue -join ", " })
-  Retainer  : $(if ($wip.board.retainer.Count -eq 0) { "— vazio" } else { $wip.board.retainer -join ", " })
+  Check     : $check_txt
+  Entregue  : $entregue_txt
+  Retainer  : $retainer_txt
 
 CAPACIDADE:
-  Slots BUILD: $($wip.board.build.Count)/$($wip.wip_limits.build) — $capacidade_label
+  Slots BUILD: $($wip.board.build.Count)/$($wip.wip_limits.build) -- $capacidade_label
 
 ========================================
 SCORE GUT SEMANAL
@@ -193,7 +220,7 @@ SCORE GUT SEMANAL
   Gravidade  : $gut_gravidade / 5
   Urgencia   : $gut_urgencia / 5
   Tendencia  : $gut_tendencia / 5
-  GUT Total  : $gut_score — $gut_nivel
+  GUT Total  : $gut_score -- $gut_nivel
 
 FATORES DE RISCO:
 $gut_razoes_texto
@@ -219,7 +246,7 @@ try {
     $msg.Subject = $assunto
     $msg.Body    = $corpo
     $smtp.Send($msg)
-    Write-Log "BRIEFING MATINAL ENVIADO — $hoje (GUT $gut_score — $gut_nivel)"
+    Write-Log "BRIEFING MATINAL ENVIADO -- $hoje (GUT $gut_score -- $gut_nivel)"
 } catch {
     Write-Log "ERRO briefing: $_"
 }

@@ -46,7 +46,54 @@ Register-ScheduledTask `
 Write-Host ""
 Write-Host "Tarefa registrada com sucesso." -ForegroundColor Green
 Write-Host "Monitorando a cada 5 minutos." -ForegroundColor Green
+
+# ============================================================
+# TASK 2 — Despacho Matinal (todo dia as 07:00)
+# ============================================================
+
+$TASK_BRIEFING   = "Quadrilateral_Despacho_Matinal"
+$SCRIPT_BRIEFING = "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\scripts\alert_daily_briefing.ps1"
+
 Write-Host ""
-Write-Host "Para verificar: Abrir Task Scheduler e buscar '$TASK_NAME'" -ForegroundColor Yellow
+Write-Host "Registrando tarefa: $TASK_BRIEFING" -ForegroundColor Cyan
+
+Unregister-ScheduledTask -TaskName $TASK_BRIEFING -Confirm:$false -ErrorAction SilentlyContinue
+
+$acao2 = New-ScheduledTaskAction `
+    -Execute "powershell.exe" `
+    -Argument "-NonInteractive -WindowStyle Hidden -File `"$SCRIPT_BRIEFING`""
+
+$gatilho2 = New-ScheduledTaskTrigger -Daily -At "07:00"
+
+$settings2 = New-ScheduledTaskSettingsSet `
+    -ExecutionTimeLimit (New-TimeSpan -Minutes 2) `
+    -RestartCount 3 `
+    -RestartInterval (New-TimeSpan -Minutes 1)
+
+$principal2 = New-ScheduledTaskPrincipal `
+    -UserId ([System.Security.Principal.WindowsIdentity]::GetCurrent().Name) `
+    -LogonType Interactive `
+    -RunLevel Highest
+
+Register-ScheduledTask `
+    -TaskName $TASK_BRIEFING `
+    -Action $acao2 `
+    -Trigger $gatilho2 `
+    -Settings $settings2 `
+    -Principal $principal2 `
+    -Description "Quadrilateral IAH — Despacho Matinal do Conselho. Score GUT + estado do board todo dia as 07:00." `
+    -Force
+
+Write-Host "Tarefa '$TASK_BRIEFING' registrada com sucesso." -ForegroundColor Green
+Write-Host "Despacho Matinal: todo dia as 07:00" -ForegroundColor Green
+
+Write-Host ""
+Write-Host "============================================================" -ForegroundColor Cyan
+Write-Host "  TASKS REGISTRADAS:" -ForegroundColor Cyan
+Write-Host "  1. $TASK_NAME — a cada 5 minutos (eventos urgentes)" -ForegroundColor Green
+Write-Host "  2. $TASK_BRIEFING — diariamente as 07:00 (Score GUT + board)" -ForegroundColor Green
+Write-Host "============================================================" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Para verificar: Abrir Task Scheduler e buscar as duas tasks." -ForegroundColor Yellow
 Write-Host "Log em: scripts\alert_monitor.log" -ForegroundColor Yellow
 Write-Host ""
