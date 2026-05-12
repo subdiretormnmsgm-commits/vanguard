@@ -40,20 +40,37 @@ O que o sistema faz automaticamente por ele.]
 
 ---
 
-## ROI ESTIMADO
+## ROI — CASO DE ESTUDO (alimentar o ROI_TRACKER)
 
-| Métrica | Antes | Depois | Variação |
-|---------|-------|--------|----------|
-| [métrica 1] | [valor] | [valor estimado] | [+/-X%] |
-| [métrica 2] | [valor] | [valor estimado] | [+/-X%] |
-| Custo de construção | — | R$[X] | — |
-| Custo mensal de operação | — | R$[X]/mês | — |
-| Payback estimado | — | [X meses] | — |
+### Dados de entrada
+| Campo | Valor |
+|-------|-------|
+| Investimento total (build) | R$[X] |
+| Custo mensal de operação | R$[X]/mês |
+| Ticket médio do cliente | R$[Z] |
+| Volume estimado (mês 1) | [N] clientes/mês |
+| Volume estimado (mês 3) | [N] clientes/mês |
+| Receita antes da solução | R$[X]/mês |
 
-**Cálculo de ROI:**
-Investimento: R$[X]
-Retorno estimado no mês 1: R$[Y] (baseado em ticket médio R$[Z] × volume estimado [N] clientes)
-Payback: [X] meses
+### Cálculo automático
+```
+Receita projetada mês 1 = R$[Z] × [N] = R$[Y]
+Receita projetada mês 3 = R$[Z] × [N] = R$[Y]
+Crescimento estimado     = +[X]% em relação ao baseline
+Payback                  = R$[investimento] ÷ R$[margem_mes1] = [X] meses
+ROI 6 meses             = (R$[receita_6m] - R$[investimento]) ÷ R$[investimento] × 100 = [X]%
+```
+
+### Tabela de variação
+| Métrica | Antes | Mês 1 | Mês 3 | Variação |
+|---------|-------|-------|-------|----------|
+| [métrica 1 — ex: leads/semana] | [valor] | [valor] | [valor] | [+X%] |
+| [métrica 2 — ex: taxa de conversão] | [valor] | [valor] | [valor] | [+X%] |
+| [métrica 3 — ex: ticket médio] | [valor] | [valor] | [valor] | [+X%] |
+| Receita mensal | R$[X] | R$[Y] | R$[Z] | [+X%] |
+
+### Frase de impacto para proposta comercial
+> "[Em linguagem do cliente: o que ganhou em R$ ou horas. Ex: 'Em 90 dias, o sistema gerou R$18.000 em receita nova — 3× o investimento inicial.']"
 
 ---
 

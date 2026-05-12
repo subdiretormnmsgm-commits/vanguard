@@ -44,6 +44,30 @@ Argumento de ROI (em linguagem do cliente, sem jargão técnico):
 "[Frase de impacto: o que o cliente ganha em termos de dinheiro ou tempo]"
 
 ──────────────────────
+BLOCO 2.5 — PROMESSAS A VALIDAR PELO MÚSCULO (obrigatório)
+──────────────────────
+⚠️ ANTES DE EXECUTAR: O Músculo revisa esta lista e confirma viabilidade técnica.
+Qualquer item impossível de cumprir → alertar o Diretor ANTES de iniciar o build.
+
+Promessa 1: "[o que foi prometido ao cliente]"
+  └── Tecnicamente viável? [SIM / NÃO / PARCIAL — justificativa]
+  └── Prazo realista: [X dias]
+
+Promessa 2: "[promessa]"
+  └── Tecnicamente viável? [SIM / NÃO / PARCIAL]
+  └── Prazo realista: [X dias]
+
+Promessa 3: "[promessa]"
+  └── Tecnicamente viável? [SIM / NÃO / PARCIAL]
+  └── Prazo realista: [X dias]
+
+⚠️ ANTI-PADRÕES A VERIFICAR (Músculo alerta se qualquer um estiver presente):
+[ ] SaaS B2B: billing (Stripe) conectado ANTES de features core
+[ ] E-commerce/Mobile: off-the-shelf considerado antes de custom
+[ ] Automação/IA: todos os fluxos têm logs e ciclos de feedback
+[ ] Marketplace: split de pagamento via Stripe Connect (não manual)
+
+──────────────────────
 BLOCO 3 — DIRETRIZ TÉCNICA PARA O MÚSCULO
 ──────────────────────
 [PARA O AUDITOR]

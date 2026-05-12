@@ -1,4 +1,18 @@
-﻿# MEMÓRIA V[X] — [NOME DO projeto] — [MISSÃO EM 3 PALAVRAS]
+﻿---
+cliente: "[nome do cliente ou projeto]"
+versao: "V[X]"
+data: "YYYY-MM-DD"
+tipo: "[ecommerce / app / site / SaaS / automação / outro]"
+camada: [1-5]
+status: "[em-progresso | concluído | bloqueado]"
+proxima_acao: "[descrição curta da próxima ação prioritária]"
+dividas_p0: 0
+ultima_entrega: "[nome do módulo ou feature entregue]"
+roi_estimado_mes1: "R$[X]"
+payback_meses: [X]
+---
+
+# MEMÓRIA V[X] — [NOME DO projeto] — [MISSÃO EM 3 PALAVRAS]
 
 **Data:** [data] | **Tipo:** [ecommerce / app / site / SaaS / automação / outro]
 **Camada:** [1–5] | **Stack:** [tecnologias] | **FIRE Event:** `[success_event]`
