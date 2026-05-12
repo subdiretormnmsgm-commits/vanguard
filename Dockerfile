@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
-ARG BUILD_VERSION=v26
-LABEL version="${BUILD_VERSION}"
+ARG BUILD_VERSION=v27
+RUN echo "Vanguard build ${BUILD_VERSION}" > /tmp/build.txt
 
 COPY . /usr/share/nginx/html
 COPY infra/nginx.conf /etc/nginx/conf.d/default.conf
