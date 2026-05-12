@@ -16,27 +16,33 @@ O que o sistema faz automaticamente por ele.]
 
 ---
 
-## ANÁLISE DE NEGÓCIO
+## ANÁLISE SWOT DO PROJETO
 
-### Pontos Fortes
-1. **[ponto forte 1]** — [impacto concreto com dado ou estimativa]
-2. **[ponto forte 2]** — [impacto]
-3. **[ponto forte 3]** — [impacto]
-4. **[ponto forte 4]** — [impacto]
-
-### Pontos Fracos e Riscos
-
-| Risco | Probabilidade | Impacto | ação Correctiva |
-|-------|--------------|---------|-----------------|
-| [risco 1] | Alta/Média/Baixa | Alto/Médio/Baixo | [o que fazer] |
-| [risco 2] | [prob] | [impacto] | [ação] |
-| [risco 3] | [prob] | [impacto] | [ação] |
+| | Positivo | Negativo |
+|---|---|---|
+| **Interno** | **Forças:** [o que foi bem executado, diferenciais técnicos] | **Fraquezas:** [o que ficou abaixo, dívidas geradas] |
+| **Externo** | **Oportunidades:** [o que o mercado/cliente abre para o próximo ciclo] | **Ameaças:** [riscos externos — concorrência, prazo, budget] |
 
 ### Avaliação do Consultor
 
 **Nota: [A / A- / B+ / B / C]**
 
-[Justificação honesta: o que foi entregue vs. o que foi prometido. O que superou as expectativas. O que ficou abaixo. Se a nota é B ou abaixo, o que teria de ser diferente para ser A.]
+[Justificação honesta: o que foi entregue vs. o que foi prometido. O que superou. O que ficou abaixo. Se nota B ou menor — o que teria de mudar para ser A.]
+
+---
+
+## DÍVIDAS TÉCNICAS — PRIORIZAÇÃO GUT
+
+> G = Gravidade (1–5) · U = Urgência (1–5) · T = Tendência (1–5) · Score = G×U×T
+> Score ≥ 50 = P0 (resolver antes de nova feature) · 20–49 = P1 · < 20 = P2
+
+| Dívida | G | U | T | Score GUT | Prioridade |
+|--------|---|---|---|-----------|------------|
+| [dívida 1] | _ | _ | _ | _ | P0/P1/P2 |
+| [dívida 2] | _ | _ | _ | _ | P0/P1/P2 |
+| [dívida 3] | _ | _ | _ | _ | P0/P1/P2 |
+
+**Total de P0s:** ___ / 5 máximo permitido
 
 ---
 
@@ -96,14 +102,14 @@ ROI 6 meses             = (R$[receita_6m] - R$[investimento]) ÷ R$[investimento
 
 ---
 
-## PLANO IMEDIATO
+## PLANO IMEDIATO — 5W2H
 
-| ação | Responsável | Prazo |
-|-------|------------|-------|
-| [ação 1 — ex: ativar Sentinel em produção] | [Músculo / Diretor] | [data] |
-| [ação 2 — ex: enviar Playbook ao cliente] | [Diretor] | [data] |
-| [ação 3 — ex: agendar sessão de handoff] | [Diretor] | [data] |
-| [ação 4 — ex: propor Retainer ao cliente] | [Diretor] | [data] |
+| O quê | Por quê | Quem | Quando | Como | Quanto custa |
+|-------|---------|------|--------|------|--------------|
+| [ativar Sentinel em produção] | [capturar FIRE Event real] | Músculo | [data] | [script check_leis.ps1] | R$0 |
+| [enviar Playbook ao cliente] | [onboarding e prova de valor] | Diretor | [data] | [PDF gerado + Loom] | R$0 |
+| [agendar handoff 30 dias] | [coletar métricas reais para case] | Diretor | [data] | [WhatsApp] | R$0 |
+| [propor Retainer] | [receita recorrente] | Diretor | [data] | [seção do Playbook] | — |
 
 ---
 

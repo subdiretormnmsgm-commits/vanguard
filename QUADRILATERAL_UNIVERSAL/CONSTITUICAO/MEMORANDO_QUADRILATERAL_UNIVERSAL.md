@@ -66,6 +66,38 @@ A diferença não é de processo — é de paradigma. Um pipeline produz o que f
 
 ---
 
+## O LOOP DE MELHORIA CONTÍNUA — PDCA DO QUADRILATERAL
+
+> Todo projeto executado pelo Quadrilateral segue este ciclo.
+> Não fechar uma iteração sem completar todas as 4 fases.
+
+```
+PLAN  (Planejar)
+  → Discovery: extrair dor real em números + FIRE Event
+  → DIRETRIZ do Estrategista com Bloco 2.5 validado pelo Músculo
+  → Briefing aprovado pelo Diretor
+
+DO  (Executar)
+  → Build do Músculo: Módulo 0 primeiro (Injeções Soberanas)
+  → Prazo máximo Camada 1: 5 dias úteis
+  → Escopo travado — ajusta escopo, nunca o prazo
+
+CHECK  (Verificar)
+  → check_leis.ps1: 7 Leis Soberanas confirmadas
+  → Sentinel ativo: FIRE Event sendo capturado
+  → Auditor audita coerência com Memória Longa
+
+ACT  (Agir / Melhorar)
+  → relatorio_evolutivo com SWOT + GUT + 5W2H + ROI real
+  → MEMORIA atualizada com cabeçalho YAML
+  → Protocolo e templates atualizados com novo aprendizado
+  → Próximo ciclo começa mais inteligente
+```
+
+**Regra:** o sistema só evolui se o ACT for executado. Entregar sem documentar é trabalho perdido.
+
+---
+
 ## OS 4 MEMBROS DO QUADRILATERAL
 
 | Membro | Actor | Papel | O que faz | O que NÃO faz |
