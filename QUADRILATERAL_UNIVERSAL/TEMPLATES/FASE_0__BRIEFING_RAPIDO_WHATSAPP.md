@@ -1,147 +1,67 @@
-# BRIEFING RÁPIDO — DISCOVERY VIA WHATSAPP
-**Quadrilateral IAH · Caso de Estudo V1**
-**Preencher:** copie cada resposta do amigo no campo correspondente.
-**Depois:** cole o bloco final no Gemini e acione o Músculo.
+# BRIEFING V1 — [NOME DO AMIGO / PROJETO]
+**Data:** _____ | **Modo:** Piloto Gratuito · Quadrilateral IAH
+
+> Regra de ouro: se hemorragia ou FIRE Event estiver vazio,
+> voltar ao WhatsApp antes de avançar.
 
 ---
 
-## RESPOSTA 1 — O QUE ELE QUER CONSTRUIR
-> *(Mensagem 2 do WhatsApp)*
+━━━ 1. O QUE ELE QUER CONSTRUIR ━━━
 
-```
-[Cole aqui a resposta do amigo]
-```
-
-**Músculo interpreta como:**
-- Tipo de projeto: [ ] Site  [ ] App  [ ] Automação  [ ] Dashboard  [ ] E-commerce  [ ] Outro
-- Camada estimada: [ ] 1 — MVP 1–5 dias  [ ] 2 — Produto 1–3 semanas
+[cole a resposta aqui]
 
 ---
 
-## RESPOSTA 2 — A DOR REAL EM NÚMEROS
-> *(Mensagem 3 do WhatsApp)*
+━━━ 2. A DOR (em números) ━━━
 
-```
-[Cole aqui a resposta do amigo]
-```
+[cole a resposta aqui]
 
-**Extração de métricas:**
-- Horas perdidas por semana: _______ h
-- Clientes perdidos por semana: _______
-- Ticket médio por cliente: R$ _______
-- Faturamento em risco por mês: R$ _______
-
-**HEMORRAGIA CALCULADA:**
-```
-clientes_perdidos × ticket_médio × 4 semanas = R$ [_______] /mês
-```
-*(Se o amigo não deu número concreto → PARAR e pedir antes de continuar)*
+→ Clientes perdidos/semana: _____
+→ Ticket médio: R$ _____
+→ **HEMORRAGIA: _____ × R$_____ × 4 = R$_____ /mês**
 
 ---
 
-## RESPOSTA 3 — O MOMENTO MÁGICO (FIRE Event)
-> *(Mensagem 4 do WhatsApp)*
+━━━ 3. O MOMENTO MÁGICO (FIRE Event) ━━━
 
-```
-[Cole aqui a resposta do amigo]
-```
+[cole a resposta aqui]
 
-**FIRE Event identificado:**
-[ ] compra_realizada
-[ ] agendamento_confirmado
-[ ] orcamento_solicitado
-[ ] contato_whatsapp
-[ ] cadastro_criado
-[ ] outro: _______________________
-
-**`success_event` para sentinel_config.json:**
-```json
-"success_event": "[preencher com o event acima]"
-```
+→ **success_event:** [ ] compra  [ ] agendamento  [ ] contato  [ ] cadastro  [ ] outro: _____
 
 ---
 
-## RESPOSTA 4 — A VARINHA MÁGICA
-> *(Mensagem 5 do WhatsApp)*
+━━━ 4. A VARINHA MÁGICA ━━━
 
-```
-[Cole aqui a resposta do amigo]
-```
-
-**Nota do Músculo:**
-- Viável no V1: _______________________
-- Fica para roadmap futuro: _______________________
+[cole a resposta aqui]
 
 ---
 
-## RESPOSTA 5 — O QUE JÁ EXISTE + TICKET + VOLUME
-> *(Mensagem 6 do WhatsApp)*
+━━━ 5. O QUE JÁ EXISTE + NÚMEROS ━━━
 
-```
-[Cole aqui a resposta do amigo]
-```
+[cole a resposta aqui]
 
-**Extração:**
-- Já tem site/ferramenta: [ ] Sim — qual: _______  [ ] Não
-- Ticket médio: R$ _______ por _______
-- Volume mensal atual: _______ clientes/mês
-- Receita atual estimada: R$ _______ /mês
+→ Volume mensal: _____ clientes/mês
 
 ---
 
-## RESPOSTA 6 — PRAZO E INVESTIMENTO
-> *(Mensagem 7 do WhatsApp)*
+━━━ 6. PRAZO E INVESTIMENTO ━━━
 
-```
-[Cole aqui a resposta do amigo]
-```
-
-**Extração:**
-- Data importante: _______________________
-- Quanto investiria (se fosse pago): R$ _______
-- Urgência: [ ] Exploratória  [ ] Normal  [ ] Urgente
+[cole a resposta aqui]
 
 ---
 
-## SÍNTESE AUTOMÁTICA — COLE NO GEMINI
-
-> Quando todos os campos estiverem preenchidos, copie o bloco abaixo
-> e cole no Gemini junto com o FASE_1__COMANDO_ESTRATEGISTA_TEMPLATE.
+## SÍNTESE — COLAR NO GEMINI
 
 ```
 ════════════════════════════════════════════════════
-BRIEFING DO CLIENTE PILOTO V1
-════════════════════════════════════════════════════
-Projeto:       [nome do projeto]
-Nicho:         [nicho do amigo]
-Dor declarada: [resumo da resposta 2]
-Hemorragia:    R$[X]/mês (clientes perdidos × ticket × 4)
-FIRE Event:    [success_event identificado]
-Varinha Mágica:[ideia dele]
-Já tem:        [ferramentas/recursos existentes]
-Ticket médio:  R$[X]
-Volume:        [N] clientes/mês
-Prazo:         [urgência + data se houver]
-Orçamento:     R$[X] (declarado pelo amigo)
-Camada:        1 — MVP 1–5 dias
-════════════════════════════════════════════════════
-ATIVAR: PROTOCOLO VANGUARD [nome do projeto]
+Projeto:    [nome]
+Nicho:      [nicho]
+Dor:        [resumo em 1 frase]
+Hemorragia: R$___/mês
+FIRE Event: [success_event]
+Ticket:     R$___ | Volume: ___ clientes/mês
+Camada:     1 — MVP 1–5 dias
+
+PROTOCOLO VANGUARD [nome do projeto]
 ════════════════════════════════════════════════════
 ```
-
----
-
-## CHECKLIST ANTES DE ENVIAR AO GEMINI
-
-- [ ] A hemorragia tem número real (não estimativa vaga)
-- [ ] O FIRE Event está definido com clareza
-- [ ] O ticket médio e o volume estão preenchidos
-- [ ] A Camada está confirmada como 1 (se não, revisar escopo)
-- [ ] O amigo concordou em ceder os dados para o case study
-
-**Se algum campo estiver vazio → voltar ao WhatsApp e perguntar antes de avançar.**
-
----
-
-*FASE_0__BRIEFING_RAPIDO_WHATSAPP.md · Quadrilateral IAH*
-*Versão simplificada do FASE_0__BRIEFING_DISCOVERY.md — uso exclusivo para Discovery via WhatsApp*
