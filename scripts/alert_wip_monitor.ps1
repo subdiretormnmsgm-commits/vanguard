@@ -209,28 +209,33 @@ foreach ($cliente in $wip.board.build) {
         $ja_alertou_hoje = $ultimo_alerta -eq (Get-Date -Format "yyyy-MM-dd")
 
         if (-not $ja_alertou_hoje) {
-            $assunto = "[QUADRILATERAL IAH] AUDITOR -> Circuit Breaker: $cliente — Dia $dias_em_build sem MVP"
+            $assunto = "[ALERTA] Circuit Breaker Dia $dias_em_build -- $cliente"
             $corpo = @"
-QUADRILATERAL IAH — DESPACHO DO AUDITOR
-=========================================
+[ALERTA] CIRCUIT BREAKER -- $cliente
 
-Diretor,
+Gatilho Acionado: Circuit Breaker Dia $dias_em_build (BUILD sem MVP entregue)
 
-$cliente esta em BUILD ha $dias_em_build dias sem MVP entregue.
+==================================================
+[SINTESE] (situacao objetiva)
+$cliente esta em BUILD ha $dias_em_build dias.
+Sentinel nao configurado. Gargalo identificado: sem validacao de entrega.
 
-Score GUT: Gravidade 5 . Urgencia 5 . Tendencia 5 = PRIORIDADE MAXIMA
+[DELIBERACAO DO CONSELHO]
+- Estrategista (Gemini): Consultar Gemini com contexto do cliente antes de decidir.
+- Musculo (Claude Code): Cortar escopo ao MVP minimo viavel. Entregar algo hoje.
+- Auditor (NotebookLM): Padrao historico indica risco de "museu tecnologico" apos Dia 6.
 
-DIAGNOSTICO: Risco de entrega comprometida. Intervencao necessaria.
+[RECOMENDACAO DE ACAO]
+Redefinir MVP em sessao com Musculo hoje. Validar com cliente em 24h.
+Nao adicionar features. Entregar o minimo que gera valor mensuravel.
 
-ACAO NECESSARIA HOJE:
-  -> Revisar o appetite com o Musculo
-  -> Cortar escopo ou redefinir MVP
-  -> Confirmar nova data de entrega
-
-Sem sua decisao nas proximas 24h, o projeto entra em modo de congelamento.
-
-=========================================
-Auditor . Quadrilateral IAH
+[VEREDITO REQUERIDO -- responder com o numero]:
+[ 1 ] APROVAR recomendacao -- redefinir MVP com Musculo.
+[ 2 ] VETAR -- acionar Protocolo de Emergencia (congelar projeto).
+[ 3 ] Aguardar Diretor -- WIP entra em pausa.
+==================================================
+GUT: Gravidade 5 . Urgencia 5 . Tendencia 5 = PRIORIDADE MAXIMA
+Conselho . Quadrilateral IAH
 "@
 
             if (Send-Email -Assunto $assunto -Corpo $corpo) {
@@ -262,26 +267,33 @@ foreach ($cliente in $todos_clientes) {
              elseif ($cliente -in $wip.board.check) { "CHECK" } `
              else { "DISCOVERY" }
 
-    $assunto = "[QUADRILATERAL IAH] AUDITOR -> FIRE Event detectado: $cliente"
+    $assunto = "[ALERTA] FIRE Event -- $cliente ($etapa)"
     $corpo = @"
-QUADRILATERAL IAH — DESPACHO DO AUDITOR
-=========================================
+[ALERTA] SENTINEL FIRE EVENT -- $cliente
 
-Diretor,
+Gatilho Acionado: Sentinel FIRE (fire_event = true em sentinel_config.json)
 
-O Sentinel de $cliente sinalizou um FIRE Event.
+==================================================
+[SINTESE] (situacao objetiva)
+Sentinel de $cliente ($etapa) sinalizou incidente critico.
+Flag fire_event ativa. Requer decisao imediata do Diretor.
 
-Cliente : $cliente
-Etapa   : $etapa
-Flag    : fire_event = true em sentinel_config.json
+[DELIBERACAO DO CONSELHO]
+- Estrategista (Gemini): Consultar Gemini com contexto do incidente antes de agir.
+- Musculo (Claude Code): Inspecionar sentinel_config.json. Avaliar impacto tecnico.
+- Auditor (NotebookLM): Aplicar 5 Porques antes de qualquer correcao (raiz, nao sintoma).
 
-ACAO NECESSARIA:
-  -> Acessar CLIENTES\$cliente\sentinel_config.json
-  -> Avaliar o incidente com o Musculo
-  -> Definir resposta e remover a flag apos resolucao
+[RECOMENDACAO DE ACAO]
+Abrir sessao com Musculo agora. Identificar raiz via 5 Porques.
+Aplicar correcao minima e proporcional. Remover flag apos validacao.
 
-=========================================
-Auditor . Quadrilateral IAH
+[VEREDITO REQUERIDO -- responder com o numero]:
+[ 1 ] APROVAR -- iniciar sessao de diagnostico com Musculo.
+[ 2 ] VETAR -- acionar Protocolo de Emergencia (isolar cliente).
+[ 3 ] Aguardar Diretor -- WIP entra em pausa.
+==================================================
+GUT: Gravidade 5 . Urgencia 5 . Tendencia 5 = PRIORIDADE MAXIMA
+Conselho . Quadrilateral IAH
 "@
 
     if (Send-Email -Assunto $assunto -Corpo $corpo) {
