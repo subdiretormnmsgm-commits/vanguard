@@ -262,8 +262,8 @@
     ];
 
     function resize() {
-      W = canvas.width  = canvas.offsetWidth;
-      H = canvas.height = canvas.offsetHeight;
+      W = canvas.width  = canvas.offsetWidth  || window.innerWidth;
+      H = canvas.height = canvas.offsetHeight || window.innerHeight;
     }
 
     /* ── Particles ── */
@@ -367,7 +367,6 @@
       requestAnimationFrame(loop);
     }
 
-    resize();
     window.addEventListener('resize', function () {
       resize();
       particles.forEach(function (p) {
@@ -376,14 +375,16 @@
       });
     });
 
-    for (var i = 0; i < COUNT; i++) particles.push(new Particle());
+    /* Defer init until layout is ready — offsetWidth can be 0 on DOMContentLoaded */
+    function tryInit() {
+      resize();
+      if (!W || !H) { requestAnimationFrame(tryInit); return; }
 
-    /* Spawn 14 ghosts spread across the full height */
-    for (var g = 0; g < 14; g++) {
-      ghosts.push(new Ghost(Math.random() * H));
+      for (var i = 0; i < COUNT; i++) particles.push(new Particle());
+      for (var g = 0; g < 14; g++) ghosts.push(new Ghost(Math.random() * H));
+      loop();
     }
-
-    loop();
+    tryInit();
   }
 
   /* ─── Init ──────────────────────────────────────────────────────────────── */
