@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-ARG BUILD_VERSION=v27
+ARG BUILD_VERSION=v28
 RUN echo "Vanguard build ${BUILD_VERSION}" > /tmp/build.txt
 
 COPY . /usr/share/nginx/html
