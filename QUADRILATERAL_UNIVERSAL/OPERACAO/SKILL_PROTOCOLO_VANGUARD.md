@@ -4,7 +4,7 @@ description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerc
 ---
 
 # PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
-**Versão da Skill:** 4.3 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas ativas
+**Versão da Skill:** 4.5 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos
 
 ---
 
@@ -1758,6 +1758,83 @@ Módulos sem feedback loop = dívida P2 automática.
 
 ---
 
+## REGRAS DE ALAVANCAGEM — HIGH OUTPUT MANAGEMENT (Grove)
+
+> O output do Diretor = output direto + output de tudo que ele desbloqueia.
+> Maximizar alavancagem, não esforço.
+
+### Lei 1 — Template é alavancagem 10×
+```
+1 hora criando um template perfeito = dezenas de horas economizadas em projetos futuros.
+O Músculo que cria templates trabalha com alavancagem 10×.
+
+OBRIGATÓRIO: sempre que um documento for criado pela segunda vez,
+transformar em template antes de entregar ao cliente.
+```
+
+### Lei 2 — Veredito rápido desbloqueia o sistema
+```
+Uma decisão do Diretor em 2 minutos = desbloqueia 5 horas do Músculo.
+Veredito demorado = sistema parado.
+
+PARA O MÚSCULO: nunca aguardar veredito em silêncio.
+Se bloqueado por mais de 1 dia → escalar com contexto claro e 2 opções.
+
+PARA O DIRETOR: decisão com informação suficiente (não perfeita).
+Melhor 80% certo hoje do que 100% certo amanhã.
+```
+
+### Lei 3 — Deliberação sem output = alavancagem zero
+```
+Toda deliberação do Conselho vira arquivo.
+Se não foi documentado, não aconteceu.
+
+REGRA: ao fechar qualquer deliberação Gemini / NotebookLM / Claude Code:
+→ Atualizar SKILL, MEMORANDO, ou gerar COMANDO_ESTRATEGISTA.
+O Músculo é responsável por converter deliberação em entregável.
+```
+
+### Distribuição de Tempo do Diretor (Grove-adapted)
+
+| Atividade | Alavancagem | Frequência |
+|-----------|-------------|-----------|
+| Veredito de DIRETRIZ | Alta — desbloqueia ciclo | Por projeto |
+| Falar com o cliente | Insubstituível | Por projeto |
+| Identificar próximo cliente | Alta — escala o negócio | Semanal |
+| Alimentar o Gemini (Briefing) | Alta — inicia ciclo | Por projeto |
+| Preencher planilhas manualmente | Baixa — delegar | Nunca |
+| Reescrever docs com template existente | Baixa — usar template | Nunca |
+| Resolver problemas técnicos do Músculo | Zero — papel errado | Nunca |
+
+> **Regra de Ouro do Diretor:** Só faz o que só o Diretor pode fazer.
+
+---
+
+## REGRAS SHAPE UP — TEMPO FIXO / ESCOPO VARIÁVEL
+
+> "Se não cabe em 5 dias, não é Camada 1. Reformule o escopo antes de começar."
+
+| Conceito Shape Up | Equivalente no Quadrilateral |
+|---|---|
+| Appetite (apetite) | Quanto tempo estamos dispostos a gastar — definido no Discovery |
+| Pitch | BRIEFING_RAPIDO_WHATSAPP — problema + solução + appetite |
+| Betting Table | Veredito do Diretor — aposta UM projeto por ciclo |
+| Cool-down | Dia ACT — relatorio + Playbook + próximo ciclo. Não pular. |
+| Circuit Breaker | Se dia 4 sem MVP → cortar ao núcleo mínimo e entregar. Prazo não move. |
+
+**Regra do Circuit Breaker:**
+```
+Se no dia 4 o MVP não está aterrissando:
+1. Identificar o núcleo absoluto mínimo que resolve a dor principal
+2. Cortar tudo o mais
+3. Entregar o que funciona
+4. Documentar o que ficou como dívida P1
+
+O prazo não se move. O escopo se move.
+```
+
+---
+
 ## PROTOCOLO INTER-SESSÕES
 
 ### Quando o Diretor retoma após pausa
@@ -1898,7 +1975,8 @@ Traz-me o problema. Entregamos a solução.
 
 ---
 
-*Skill criada pelo Músculo · Quadrilateral IAH · V4.0*
+*Skill criada pelo Músculo · Quadrilateral IAH · V4.5*
 *Universal: ecommerce, app, site, SaaS, modelo de negócio, automação, IA*
 *Portátil: copiar para qualquer projeto, preencher CONFIGURAÇÃO DO OPERADOR, ativar*
 *ativa sempre que o Diretor disser: PROTOCOLO VANGUARD*
+*V4.5 — 3 Leis de Alavancagem (Grove) + Circuit Breaker (Shape Up) + BIBLIOTECA_MANAGEMENT 8 frameworks*
