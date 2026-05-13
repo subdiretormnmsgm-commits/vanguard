@@ -74,6 +74,14 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ---
 
+### [P-008] Primeiro cliente com produto soberano vale mais que MRR
+**Descoberto:** 2026-05-13 | **Sessão:** PROJ-001 — Valdece / Decisão Opção A
+**Evidência:** Valdece pediu sistema sem mensalidade que se atualize sozinho. Diretor escolheu Opção A: produto na infra do cliente, corpus auto-atualiza por R$0,22/mês, zero vínculo. Raciocínio: "Com o melhor sistema possível, ele será nossa propaganda."
+**Princípio:** O primeiro cliente de um nicho não é fonte de MRR — é canal de distribuição. Um advogado satisfeito em uma sala da OAB fala com 50 colegas. Entregar soberania total elimina objeção de churn e transforma o cliente em vendedor ativo. Cada indicação = R$3.000–5.000 de novo projeto com o mesmo codebase. MRR vem na V2, quando o cliente já está dependente e pede mais.
+**Aplica-se a:** qualquer primeiro cliente de nicho com comunidade profissional densa (advogados, médicos, contadores, engenheiros).
+
+---
+
 ### [P-007] Template colado em IA = alucinação estrutural
 **Descoberto:** 2026-05-13 | **Sessão:** PROJETO_001 — Valdece / Padronização do Quadrilateral
 **Evidência:** Criamos templates de comunicação com campos `[entre colchetes]`. Diretor identificou que colar isso diretamente no Gemini faz ele preencher os campos mecanicamente sem deliberar sobre o projeto real — alucina na estrutura em vez de pensar no contexto.
