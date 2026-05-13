@@ -1159,6 +1159,22 @@ Inclui obrigatoriamente: 5 ideias disruptivas para a próxima iteração.
 | Risco principal | Hallucination · Custo de API por volume · Latência · Janela de contexto |
 | Padrão de falha | Sem sistema de feedback → modelo nunca melhora, erros acumulam sem visibilidade |
 
+### IA / Busca Semântica Legal Tech (Camada 1–2) — PROJ-001 Valdece
+
+| Elemento | Padrão Validado |
+|----------|----------------|
+| Stack | Vanilla JS + Supabase pgvector + Gemini embedding-004 (768 dims) |
+| Sequência | Schema pgvector → Corpus CLI ingest → Mágico de Oz gate → UI → Auth → Handoff |
+| Off-the-shelf | Supabase HNSW index · Gemini embedding-004 $0.000025/1K tokens |
+| Estimativa | MVP Camada 1: 5 dias · Corpus limpo (JSON/CSV) é pré-requisito |
+| Risco principal | Corpus ruim → busca irrelevante sem importar a UI · Custo Gemini descontrolado |
+| Padrão de falha | Construir UI antes de validar motor semântico via CLI → descobre corpus ruim tarde demais |
+| Token Rate Shield | OBRIGATÓRIO antes de qualquer chamada de API: hard-limit diário ($10) + warning 80% + log token_usage |
+| Mágico de Oz Gate | search_cli.py valida corpus antes de UI: se resultados abaixo de threshold → parar build, corrigir corpus |
+| Anti-padrão | Scraping real-time de jurisprudência → viola ToS + dependência frágil → usar Open Data público |
+
+---
+
 ### Presença Digital (Camada 1)
 
 | Elemento | Padrão Validado |

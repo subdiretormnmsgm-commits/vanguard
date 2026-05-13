@@ -161,6 +161,31 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ## LOG DE SESSÕES
 
+### [SESSÃO 2026-05-13] — PROJETO_001 · Dia 1 commit + Dia 2 corpus pipeline · Valdece
+
+**Direção da sessão:** Execução do build Dia 1 (commit ef3f1cd) e Dia 2 do projeto Valdece. WIP_BOARD movido de discovery → build. Corpus pipeline Python criado com Mágico de Oz gate.
+
+**Eventos capturados:**
+
+`[CONFIRMADO]` Padrão "Token Rate Shield antes de features IA" aplicado: ingest.py inclui estimativa de custo + confirmação do usuário antes de chamar API Gemini. Conforme P-003 e P-006 do LEDGER.
+
+`[PADRÃO NOVO]` **Mágico de Oz Gate**: Validar busca semântica via CLI (search_cli.py) antes de construir UI. Se CLI não retornar resultados relevantes → corpus ruim → parar build antes de investir em frontend. Candidato a PADRÃO CONFIRMADO após Dia 2 ser completado com sucesso.
+
+`[INTENÇÃO]` Diretor reforçou: "Precisamos do processo evolutivo rodando, esse é o nosso diferencial." → Músculo deve registrar cada padrão emergente de projeto real neste LEDGER na mesma sessão.
+
+`[FRICÇÃO]` Sessão foi interrompida (context compaction) após criação do kill_switch.js — commit do Dia 1 ainda não havia sido feito. Retomada nesta sessão com commit imediato.
+
+**Princípios candidatos desta sessão:**
+
+- **P-007 (candidato):** "Mágico de Oz Gate" — validar motor semântico CLI antes de UI. Corpus ruim não melhora com UI bonita.
+- **P-008 (candidato):** "Context compaction = risco de perda de estado" — qualquer sessão longa deve ter checkpoint git de cada Dia de build antes de continuar.
+
+**Confirmar em próxima sessão se padrões viraram princípios.**
+
+**Princípios ativos aplicados:** P-003 (sem scraping intrusivo — STF Open Data público), P-006 (custo estimado antes de executar).
+
+---
+
 ### [SESSÃO 2026-05-12] — V24 Intelligence Compounding Engine
 
 **Direção da sessão:** Construção da inteligência evolutiva do Quadrilateral — sistema de acumulação por sessão.

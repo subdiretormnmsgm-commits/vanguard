@@ -1,11 +1,12 @@
 {
-  "atualizado_em": "2026-05-12",
+  "atualizado_em": "2026-05-13",
   "wip_limits": {
     "build": 2,
     "check": 1
   },
   "board": {
-    "discovery": [
+    "discovery": [],
+    "build": [
       {
         "id": "PROJ-001",
         "cliente": "Valdece",
@@ -15,16 +16,19 @@
         "valor_fechado": 5000,
         "contrapartida_proposta": "20% MRR do SaaS enquanto rodar na nossa infra",
         "deadline": "2026-05-17",
-        "status": "Aguardando DIRETRIZ Gemini",
+        "status": "Em build — Dia 2/5 (corpus + CLI test)",
+        "camada_gemini": "1 (MVP Alto Impacto)",
         "discovery_completo": true,
-        "diretriz_gemini": false,
-        "skill_notebooklm": false,
+        "diretriz_gemini": true,
+        "skill_notebooklm": true,
         "briefing_path": "CLIENTES/VALDECE/BRIEFING_DISCOVERY.txt",
         "gut_score": 75,
-        "entrada_em": "2026-05-12"
+        "entrada_em": "2026-05-12",
+        "build_iniciado_em": "2026-05-13",
+        "dias_completos": ["dia1_infraestrutura"],
+        "commit_dia1": "ef3f1cd"
       }
     ],
-    "build": [],
     "check": [],
     "entregue": [],
     "retainer": []
