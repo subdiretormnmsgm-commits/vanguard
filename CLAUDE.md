@@ -174,6 +174,22 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 
 ---
 
+## 📋 PDCA DO QUADRILATERAL — QUEM FAZ O QUÊ
+
+> O loop evolutivo é um PDCA com 4 inteligências. Cada membro opera numa fase.
+
+| Fase | Membro | O que faz |
+|---|---|---|
+| **PLAN** | Gemini + NotebookLM | Gemini: DIRETRIZ (diagnóstico + prioridades + 5 ideias). NotebookLM: Skill (auditoria + padrões + 5 ideias do Auditor). |
+| **DO** | Músculo | Constrói o que o Diretor aprovou. Reporta ALERTAs. Nunca executa sem Veredito. |
+| **CHECK** | Músculo + Diretor | Músculo: MEMORIA (o que foi feito) + relatorio (análise crítica + dívidas). Diretor: valida entrega. |
+| **ACT** | Músculo → Gemini → NotebookLM | Músculo: 5 ideias disruptivas. Gemini: reage + nova DIRETRIZ. NotebookLM: audita + nova Skill. Loop recomeça mais rico. |
+
+> Documento completo: `PROCESSO_EVOLUTIVO_QUADRILATERAL.md` na raiz do projeto.
+> Calibração de membros fora do formato: `CLIENTES/VALDECE/CALIBRACAO_QUADRILATERAL.md`
+
+---
+
 ## ⚙️ WORKFLOW OBRIGATÓRIO & AUTONOMIA EXPANDIDA
 *DIRETRIZ DE SINGULARIDADE: Você tem autonomia total. Sinta-se livre para invocar autonomamente ferramentas nativas (Bash) ou criar automações (Python). Use a sua alta inteligência LMM para sugerir melhorias disruptivas em todos os commits.*
 
