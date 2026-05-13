@@ -225,6 +225,41 @@ A proposta [X] foi substituída por [Y] porque [razão técnica/comercial].
 
 ---
 
+## VEREDITO BINÁRIO — PROTOCOLO DE DECISÃO EM 10 SEGUNDOS
+
+> Emitido pelo Músculo sempre que há divergência real entre duas abordagens técnicas.
+> Não usar em decisões óbvias — o card binário não deve virar burocracia.
+> Aprovado pelo Diretor Eduardo em 2026-05-12.
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║  VEREDITO BINÁRIO — [MÓDULO OU DECISÃO]                     ║
+╠═══════════════════════════════╦══════════════════════════════╣
+║  A — [Nome curto: o que é]    ║  B — [Nome curto: o que é]  ║
+╠═══════════════════════════════╬══════════════════════════════╣
+║  GUT: G[x] × U[x] × T[x]=[N] ║  GUT: G[x]×U[x]×T[x]=[N]  ║
+║  ROI: R$X em Y dias           ║  ROI: R$X em Y dias         ║
+║  Prazo: X dias                ║  Prazo: X dias              ║
+║  Risco: [1 frase]             ║  Risco: [1 frase]           ║
+╠═══════════════════════════════╩══════════════════════════════╣
+║  MÚSCULO RECOMENDA: [A/B] — [razão em 1 frase]              ║
+╠══════════════════════════════════════════════════════════════╣
+║  VEREDITO:  [ ] A   [ ] B   [ ] Reformular                  ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+**Fluxo de leitura do Diretor (< 10 segundos):**
+1. GUT — número maior = urgência real
+2. ROI — retorno e prazo
+3. Músculo recomenda — filtro técnico já aplicado
+4. Marcar e seguir
+
+**Opção A** = foco em estancar a hemorragia (MVP / agilidade)
+**Opção B** = foco em IP e escalabilidade (robustez)
+**Reformular** = nenhuma das duas está certa — evita decisão forçada
+
+---
+
 ## PROTOCOLO DE DEBATE FORMAL
 
 Quando os membros discordam em decisões relevantes:
@@ -940,6 +975,34 @@ Fontes disponíveis: [lista de MEMORIAs e relatórios carregados]
 
 ---
 
+## SHADOW ARCHITECT — Análise Adversarial Obrigatória
+
+> Seção obrigatória em todo PLANO DE BUILD (Camada 2+).
+> O Shadow Architect não bloqueia — informa. Fortalece decisões antes da execução.
+> Output gravado no INTELLIGENCE_LEDGER.md como `[SOMBRA]`.
+
+```
+[SHADOW ANALYSIS] — [nome do módulo ou decisão]
+
+Blast radius se falhar em produção:
+  → [o que quebra, quem é afetado, reversibilidade]
+
+Hardest fix se a arquitetura estiver errada:
+  → [o que seria mais difícil de consertar depois]
+
+Cenário 1000x (escala):
+  → [como se comporta com 1000x o volume atual]
+
+Ponto de falha mais provável:
+  → [onde vai quebrar primeiro e por quê]
+
+Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
+```
+
+**Regra:** Se Shadow Analysis retornar BLOQUEADO → emitir Hard Veto HV-4 antes de qualquer código.
+
+---
+
 ## FASE 3 — PLANO DE BUILD
 
 > Declarar o plano antes de escrever qualquer linha de código.
@@ -1521,6 +1584,8 @@ E não esquece.
 | 2.0 | 2026-05-11 | Reescrita completa: paradigma conselho vs pipeline adicionado, Protocolo de Marcação, 5-layer matrix com exemplos, Fase 2 (Auditor) restaurada, COMANDO_ESTRATEGISTA, Regras PDCA por membro, Arquitecto-Mestre definido, Princípio de Clonagem, Precificação por valor, Escalonamento e Loop, Glossário expandido |
 | 3.0 | 2026-05-11 | As 5 Garras Comerciais injectadas: Dízimo de Dados (Lei 1), Compliance LGPD (Lei 2), Sentinel Dinâmico (Lei 3), Sovereign Playbook (Lei 4), Burn Rate Shield (Lei 5) |
 | 4.0 | 2026-05-11 | Constituição elevada a 7 Leis Soberanas por mandato do Conselho Quadrilateral: Kill-Switch Soberano (Lei 6) + Freemium by Design (Lei 7) adicionados · Ticket Médio Wizard integrado na Lei 3 como exigência universal de onboarding · GARRAS renomeadas para LEIS · Checklist de Handoff expandido para 7 itens · Alertas CSP/Fail-Open/Grace-Period documentados |
+| 5.0 | 2026-05-12 | Protocolo VEREDITO BINÁRIO adicionado: card de decisão em 10 segundos com Score GUT + ROI por opção · Músculo opera em "Modo Oráculo" — proponente, não apenas executor · Aprovado pelo Diretor Eduardo |
+| 5.1 | 2026-05-12 | Intelligence Compounding Engine (V24): INTELLIGENCE_LEDGER.md + knowledge_graph.json + Constituição de Processo (5 Hard Vetos + 5 Soft Vetos) + Shadow Architect obrigatório em todo Build + Skill-Drift Check no início de sessão + CONSELHO_SESSAO template + 5 princípios ativos capturados da sessão inaugural |
 
 ---
 
