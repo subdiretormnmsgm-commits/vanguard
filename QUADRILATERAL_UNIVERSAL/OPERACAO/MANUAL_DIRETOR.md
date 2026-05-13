@@ -671,6 +671,35 @@ No **COMANDO_ESTRATEGISTA_V1:**
 2. Copiar todo o conteúdo
 3. Colar diretamente no Gemini
 
+---
+
+### RITUAL DE FECHAMENTO DE SESSÃO — Intelligence Compounding
+
+> **Executar ao fechar QUALQUER sessão do Quadrilateral — não só ao fechar versão.**
+> Este ritual garante que a inteligência da sessão não se perde.
+
+```powershell
+# Na pasta do projeto:
+.\scripts\session_close.ps1
+```
+
+O script faz 4 perguntas (30 segundos):
+1. Houve FRICÇÃO? (ALERTA emitido, escopo mudou, P0 criado)
+2. Algum PRINCÍPIO novo foi descoberto?
+3. O Diretor fez OVERRIDE de algum veto?
+4. Houve DERIVA de algum princípio ativo?
+
+Cada resposta é registrada automaticamente no `INTELLIGENCE_LEDGER.md` e no `knowledge_graph.json`.
+
+**Por que isso importa:** cada sessão sem este ritual é inteligência perdida. O sistema não aprende sozinho — aprende quando você fecha o loop.
+
+**Arquivos atualizados pelo script:**
+- `INTELLIGENCE_LEDGER.md` — nova entrada `[SESSÃO YYYY-MM-DD]`
+- `knowledge_graph.json` — `meta.last_updated` + nova sessão no histórico
+
+> ⚠️ Se o `INTELLIGENCE_LEDGER.md` não for atualizado por 3 dias consecutivos,
+> o GUT do Despacho Matinal sobe automaticamente como penalidade.
+
 O Gemini vai receber:
 - O que foi construído (MEMORIA)
 - A avaliação do Claude (relatorio + 5 ideias do Músculo)

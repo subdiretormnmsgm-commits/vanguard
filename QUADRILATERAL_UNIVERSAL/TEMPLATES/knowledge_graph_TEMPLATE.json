@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "project": "[NOME DO PROJETO]",
+    "version": "1.0",
+    "created": "YYYY-MM-DD",
+    "last_updated": "YYYY-MM-DD",
+    "total_sessions": 0,
+    "schema": "quadrilateral-kg-v1"
+  },
+  "principles": [],
+  "patterns": {
+    "confirmed": [],
+    "refuted": []
+  },
+  "constitution": {
+    "hard_vetos": [],
+    "soft_vetos": []
+  },
+  "sessions": []
+}
