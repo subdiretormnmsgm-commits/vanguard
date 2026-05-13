@@ -176,6 +176,37 @@
     #searchBtn:active  { transform: scale(0.97); }
     #searchBtn:disabled { opacity: 0.4; cursor: not-allowed; }
 
+    /* Threshold toggle */
+    .threshold-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
+    .btn-threshold {
+      background: var(--glass);
+      border: 1px solid var(--cyan-border);
+      border-radius: 20px;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 14px;
+      transition: all 0.15s;
+    }
+    .btn-threshold.active {
+      background: var(--cyan-dim);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .threshold-hint {
+      font-size: 10px;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
     .search-hint {
       font-size: 11px;
       color: var(--muted);
@@ -409,6 +440,17 @@
     ></textarea>
     <button id="searchBtn">Pesquisar</button>
   </div>
+  <!-- Busca Precisa / Busca Ampla -->
+  <div class="threshold-toggle">
+    <button class="btn-threshold active" id="btnPrecisa" data-threshold="0.60">
+      Busca Precisa
+    </button>
+    <button class="btn-threshold" id="btnAmpla" data-threshold="0.45">
+      Busca Ampla
+    </button>
+    <span class="threshold-hint" id="thresholdHint">Alta relevância</span>
+  </div>
+
   <div class="search-hint normal">Digite uma questão jurídica em linguagem natural — sem aspas, sem código.</div>
   <div class="search-hint tatico">Cole aqui o trecho da denúncia do MP. O sistema encontra a jurisprudência de defesa.</div>
 
@@ -437,7 +479,8 @@
   const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
   const EMBED_URL   = `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${GEMINI_KEY}`;
-  const RECENTE_MS  = 180 * 24 * 60 * 60 * 1000; // 180 dias em ms
+  const RECENTE_MS  = 180 * 24 * 60 * 60 * 1000;
+  let   currentThreshold = 0.60; // Busca Precisa (default)
 
   // ── DOM refs ──
   const queryEl    = document.getElementById('query');
@@ -497,7 +540,7 @@
     const { data, error } = await sb.rpc('search_documents', {
       query_embedding: embedding,
       match_count: 8,
-      similarity_threshold: 0.55,
+      similarity_threshold: currentThreshold,
     });
     if (error) throw error;
     const elapsed = ((Date.now() - t0) / 1000).toFixed(2);
@@ -594,10 +637,23 @@
   }
 
   function buildCopyText(r) {
-    const data = r.data_julgamento
-      ? new Date(r.data_julgamento + 'T00:00:00').toLocaleDateString('pt-BR')
-      : '';
-    return `${r.tribunal} — ${r.numero_acordao || ''} (${data})\n${r.ementa}\n${r.link || ''}`;
+    // Citação ABNT NBR 6023:2018 para jurisprudência
+    const nomeCompleto = r.tribunal === 'STF'
+      ? 'Supremo Tribunal Federal'
+      : 'Superior Tribunal de Justiça';
+    const dataJulg = r.data_julgamento
+      ? new Date(r.data_julgamento + 'T00:00:00')
+          .toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })
+          .replace(' de ', ' ')
+      : 'data não informada';
+    const dataAcesso = new Date()
+      .toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })
+      .replace(' de ', ' ');
+    const ementa = r.ementa ? r.ementa.slice(0, 120) + (r.ementa.length > 120 ? '...' : '') : '';
+    const relator = r.relator ? `Relator: ${r.relator}. ` : '';
+    const link = r.link ? `Disponível em: ${r.link}. Acesso em: ${dataAcesso}.` : '';
+
+    return `BRASIL. ${nomeCompleto}. ${r.numero_acordao || 'S/N'}. ${ementa} ${relator}Brasília: ${r.tribunal}, ${dataJulg}. ${link}`;
   }
 
   function truncate(str, max) {
@@ -610,6 +666,19 @@
     if (!sid) { sid = Math.random().toString(36).slice(2); sessionStorage.setItem('vsid', sid); }
     return sid;
   }
+
+  // ── Threshold — Busca Precisa / Ampla ──
+  const thresholdHint = document.getElementById('thresholdHint');
+  document.querySelectorAll('.btn-threshold').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.btn-threshold').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentThreshold = parseFloat(btn.dataset.threshold);
+      thresholdHint.textContent = currentThreshold >= 0.60
+        ? 'Alta relevância'
+        : 'Mais resultados, inclui relacionados indiretamente';
+    });
+  });
 
   // ── Modo Tático ──
   modoToggle.addEventListener('change', () => {
