@@ -234,6 +234,18 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 | **CHECK** | Músculo + Diretor | Músculo: MEMORIA (o que foi feito) + relatorio (análise crítica + dívidas). Diretor: valida entrega. |
 | **ACT** | Músculo → Gemini → NotebookLM | Músculo: 5 ideias disruptivas. Gemini: reage + nova DIRETRIZ. NotebookLM: audita + nova Skill. Loop recomeça mais rico. |
 
+**CADÊNCIA DE LOOPS — proporcional à amplitude do projeto (P-009):**
+
+| Camada | Prazo | Loops totais | Gatilho do loop |
+|---|---|---|---|
+| 1 — MVP | 1–5 dias | 2–3 | Início + gate + fechamento |
+| 2 — Produto | 1–3 semanas | 4–6 | 1 por semana de build |
+| 3 — Plataforma | 2–6 semanas | 6–10 | 1 por sprint (3–5 dias) |
+| 4 — Ecossistema | 1–3 meses | 10–16 | 2 por semana |
+| 5 — Monopólio | 3–6 meses | 20–30 | Semanal fixo |
+
+> Loop acontece quando há output real para deliberar — gate, módulo entregue, cliente reagindo. Nunca por calendário vazio.
+
 > Documento completo: `PROCESSO_EVOLUTIVO_QUADRILATERAL.md` na raiz do projeto.
 > Calibração de membros fora do formato: `CLIENTES/VALDECE/CALIBRACAO_QUADRILATERAL.md`
 

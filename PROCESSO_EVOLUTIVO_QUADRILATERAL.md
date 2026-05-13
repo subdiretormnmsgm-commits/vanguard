@@ -372,6 +372,65 @@ Quando o Gemini lê a MEMORIA, já sabe o que o Músculo aprendeu construindo.
 
 ---
 
+---
+
+## 13. CADÊNCIA DE LOOPS — CALIBRADA PELA AMPLITUDE DO PROJETO
+
+> Loops em excesso num projeto pequeno = análise paralisia.
+> Loops insuficientes num projeto grande = deriva sem correção.
+> A cadência certa é o que separa inteligência de ruído.
+
+```
+REGRA: loops acontecem quando há OUTPUT REAL para deliberar.
+  Gate passou → loop.
+  Módulo entregue → loop.
+  Cliente reagiu → loop.
+  Decisão de arquitetura crítica tomada → loop.
+  Nunca por calendário sem evidência nova.
+```
+
+| Camada | Escopo | Prazo | Loops totais | Cadência |
+|---|---|---|---|---|
+| **1 — MVP** | Protótipo funcional | 1–5 dias | **2–3 loops** | Início + gate + fechamento |
+| **2 — Produto** | Produto completo | 1–3 semanas | **4–6 loops** | 1 loop por semana de build |
+| **3 — Plataforma** | IA, dados, automação | 2–6 semanas | **6–10 loops** | 1 loop por sprint (3–5 dias) |
+| **4 — Ecossistema** | Multi-tenant, marketplace | 1–3 meses | **10–16 loops** | 2 loops por semana |
+| **5 — Monopólio** | Ativo de setor | 3–6 meses | **20–30 loops** | 1 loop semanal fixo |
+
+### Exemplo aplicado — PROJ-001 Valdece (Camada 1, 5 dias):
+
+```
+LOOP 1 — Início do projeto
+  Músculo delibera Diretriz V1 + Skill V1
+  Output: plano de build aprovado
+
+LOOP 2 — Gate do Dia 3 (GO/NO-GO do corpus)
+  Músculo reporta resultado do gate
+  Gemini decide: continuar ou Circuit Breaker
+  Output: confirmação do escopo dos Dias 4 e 5
+
+LOOP 3 — Fechamento (Dia 5)
+  MEMORIA_V2 + relatorio_evolutivo_V2 → Gemini → NotebookLM → Músculo
+  Output: roadmap V2 definido, Valdece como propaganda ativa
+```
+
+**3 loops para 5 dias. Não mais — o build morre de reunião. Não menos — o projeto deriva.**
+
+### Como definir a cadência no Passo 7 (aprovação do plano):
+
+Antes de iniciar qualquer build, o Músculo declara:
+```
+CADÊNCIA DE LOOPS — [PROJETO]
+Camada: [X] | Prazo: [Y dias] | Loops previstos: [N]
+Loop 1: [gatilho — ex: "após aprovação do plano"]
+Loop 2: [gatilho — ex: "após gate CLI do Dia 3"]
+Loop 3: [gatilho — ex: "fechamento Dia 5"]
+```
+
+O Diretor aprova a cadência junto com o plano de build.
+
+---
+
 ## ADIÇÕES — HISTÓRICO DE EVOLUÇÃO
 
 ### [2026-05-13] — PROJETO_001 Valdece (Legal Tech / Busca Semântica)
