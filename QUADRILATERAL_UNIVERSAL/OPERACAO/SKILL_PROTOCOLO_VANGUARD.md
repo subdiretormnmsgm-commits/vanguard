@@ -4,7 +4,7 @@ description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerc
 ---
 
 # PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
-**Versão da Skill:** 4.5 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos
+**Versão da Skill:** 5.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding (V24)
 
 ---
 
@@ -69,6 +69,109 @@ DOCS_BASE:
 
 > **Para outro operador:** substituir Eduardo, Gemini, NotebookLM e Claude Code
 > pelos membros do seu próprio Quadrilateral. A estrutura não muda — os actores sim.
+
+---
+
+## SESSION STARTUP PROTOCOL — Skill-Drift Check
+
+> Executar obrigatoriamente ao INICIAR qualquer sessão com esta Skill ativa.
+> Tempo: 2 minutos. Previne deriva silenciosa de princípios entre sessões.
+
+```
+SKILL-DRIFT CHECK — [PROJETO] — [DATA]
+
+1. Ler as últimas 3 entradas do INTELLIGENCE_LEDGER.md do projeto
+   → Algum princípio ativo contradiz o que vou fazer agora?
+   → Se SIM → emitir Soft Veto [SV] antes de qualquer ação
+
+2. Verificar se há ALERTA_CONFLITO ativo na pasta
+   → Se existe e tem status BLOQUEADO → processo paralisa até resolução
+
+3. Confirmar pesos da sessão:
+   → weight_simplicidade_arquitetural: [1.0 por padrão]
+   → weight_velocidade_codigo: [0.1 por padrão]
+   → O Diretor pode ajustar para a sessão — se não declarar, usar defaults
+
+4. Declarar o tema da sessão em 1 linha ao Diretor antes de começar
+```
+
+**Se `INTELLIGENCE_LEDGER.md` ainda não existe no projeto:**
+Inicializar agora com o template:
+`QUADRILATERAL_UNIVERSAL/TEMPLATES/FASE_5__INTELLIGENCE_LEDGER_TEMPLATE.md`
+Copiar para a raiz do projeto e preencher o cabeçalho com nome e data.
+
+---
+
+## INTELLIGENCE COMPOUNDING — O ORGANISMO QUE APRENDE
+
+> Todo projeto gerido pelo Quadrilateral acumula inteligência por sessão.
+> Não por versão — por sessão. Cada decisão documentada é um ativo.
+
+### Artefatos de Inteligência do Projeto
+
+| Artefato | Localização | Responsável |
+|---|---|---|
+| `INTELLIGENCE_LEDGER.md` | Raiz do projeto | Músculo (escreve via session_close.ps1) |
+| `knowledge_graph.json` | Raiz do projeto | Músculo (atualizado automaticamente) |
+| `friction.log` | `.claude/meta/` | Músculo (registra eventos em tempo real) |
+
+### Ritual de Fechamento de Sessão (obrigatório)
+
+```powershell
+# Executar ao fechar QUALQUER sessão — mesmo que pequena
+.\scripts\session_close.ps1
+```
+
+O script captura em 30 segundos:
+- `[FRICÇÃO]` — instrução que causou problema ou desvio
+- `[PRINCÍPIO]` — regra que emergiu de uma decisão
+- `[OVERRIDE]` — veto superado pelo Diretor (com motivo)
+- `[DERIVA]` — sessão que divergiu de um princípio ativo
+
+**Por que importa:** cada sessão sem este ritual é inteligência perdida para sempre.
+O organismo não aprende sozinho — aprende quando o loop fecha.
+
+### Registrar no friction.log
+
+Quando ocorrer qualquer evento de fricção técnica, registrar imediatamente:
+
+```json
+{
+  "id": "F-[N]",
+  "timestamp": "[ISO 8601]",
+  "session": "[VXX-nome]",
+  "type": "[ALUCINACAO_TECNICA | ESCOPO_INDEVIDO | COMPLEXIDADE_PREMATURA | DADOS_FALSOS]",
+  "source": "[quem emitiu a instrução problemática]",
+  "instrucao_original": "[texto exato]",
+  "problema_detectado": "[análise objetiva]",
+  "acao_tomada": "[o que foi feito]",
+  "principio_gerado": "[P-00X ou null]",
+  "severidade": "[CRITICAL | HIGH | MEDIUM | LOW]"
+}
+```
+
+---
+
+## ROLE-SWAP — ADVERSARIAL REVIEW ANTES DE QUALQUER BUILD
+
+> Antes de avançar para a Fase 3 (Plano de Build), o Músculo executa o Role-Swap:
+> assume o papel do Estrategista e encontra 3 falhas no próprio plano.
+
+```
+[ADVERSARIAL_REVIEW] — [PROJETO / MÓDULO]
+
+3 razões para NÃO construir isso agora:
+1. [razão técnica — YAGNI, dívida, dependência inexistente]
+2. [razão comercial — ROI insuficiente, cliente sem base, dados falsos]
+3. [razão arquitetural — complexidade desnecessária, viola simplicidade]
+
+Avaliação: os 3 argumentos são superados pelo ROI? [SIM / NÃO]
+
+→ SIM: avançar para Plano de Build com os 3 riscos documentados
+→ NÃO: emitir Soft Veto [SV] e apresentar ao Diretor antes de construir
+```
+
+**Regra:** se o Músculo não consegue encontrar 3 argumentos adversariais válidos, o plano é trivialmente sólido. Se encontra e são fortes, o Diretor decide com informação real.
 
 ---
 
@@ -1438,6 +1541,25 @@ O que está incompleto mas não é dívida P0:
 Boa sorte. Sabes o que estás a fazer.
 — Músculo V[X]
 ```
+
+### Ritual de Fechamento de Sessão — Intelligence Compounding
+
+> Executar ao final de TODA sessão, antes ou depois do ROI Tracker.
+> São 30 segundos que evitam que a inteligência da sessão se perca.
+
+```powershell
+.\scripts\session_close.ps1
+```
+
+O script atualiza automaticamente:
+- `INTELLIGENCE_LEDGER.md` — nova entrada `[SESSÃO YYYY-MM-DD]`
+- `knowledge_graph.json` — histórico de sessões + `meta.last_updated`
+
+**Checklist de Inteligência:**
+- [ ] `session_close.ps1` executado
+- [ ] Fricção registada no `friction.log` (se houve)
+- [ ] Princípio novo adicionado ao INTELLIGENCE_LEDGER (se emergiu)
+- [ ] INTELLIGENCE_LEDGER.md commitado com o restante dos artefatos
 
 ### ROI Tracker — ativar ao Fechar
 
