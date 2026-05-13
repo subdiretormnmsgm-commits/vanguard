@@ -12,21 +12,35 @@
         "cliente": "Valdece",
         "projeto": "Ferramenta de Busca Jurisprudência STF/STJ",
         "area": "Legal Tech · Direito Penal",
-        "camada": "2-3",
+        "camada": "1 (MVP Alto Impacto)",
         "valor_fechado": 5000,
-        "contrapartida_proposta": "20% MRR do SaaS enquanto rodar na nossa infra",
+        "contrapartida_proposta": "20% MRR do SaaS — revisada para: Eduardo como boutique de expansão (V2 R$8.500–12.000)",
         "deadline": "2026-05-17",
-        "status": "Em build — Dia 2/5 (corpus + CLI test)",
-        "camada_gemini": "1 (MVP Alto Impacto)",
+        "status": "Em build — Dia 3/5 concluído | Aguardando Quick Audit NotebookLM → Dia 4",
+        "modelo_entrega": "Opção A — infra Valdece, sem MRR, R$1,20/mês no API dele",
+        "loop_atual": "Loop 2 — DIRETRIZ V3 recebida e deliberada | Quick Audit pendente",
         "discovery_completo": true,
-        "diretriz_gemini": true,
-        "skill_notebooklm": true,
+        "diretriz_gemini_v3": true,
+        "skill_notebooklm_v2": false,
+        "quick_audit_pendente": true,
         "briefing_path": "CLIENTES/VALDECE/BRIEFING_DISCOVERY.txt",
         "gut_score": 75,
         "entrada_em": "2026-05-12",
         "build_iniciado_em": "2026-05-13",
-        "dias_completos": ["dia1_infraestrutura"],
-        "commit_dia1": "ef3f1cd"
+        "dias_completos": ["dia1_infraestrutura", "dia2_corpus_pipeline", "dia3_stj_tema_ui"],
+        "commits": {
+          "dia1": "ef3f1cd",
+          "dia2": "996b40d",
+          "dia3": "18c617f"
+        },
+        "decisoes_pendentes": "CLIENTES/VALDECE/DECISOES_PENDENTES.md",
+        "status_decisoes": "4/4 validadas pelo Gemini DIRETRIZ V3",
+        "proximo_passo": "Quick Audit NotebookLM → Veredito Diretor → Dia 4",
+        "v2_pipeline": {
+          "features": ["Sovereign Upload", "Radar de Divergência", "Citação DOCX"],
+          "gatilho": "corpus ≥ 500 docs ou 30 dias pós-entrega",
+          "pricing": "R$8.500–12.000 projeto único + R$300/mês manutenção opcional"
+        }
       }
     ],
     "check": [],
