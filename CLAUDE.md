@@ -174,6 +174,26 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 
 ---
 
+## 📐 TEMPLATES DE COMUNICAÇÃO — FORMATOS FIXOS DE CADA MEMBRO
+
+> Nenhum membro improvisa formato. Cada documento tem estrutura obrigatória.
+> Documento completo: `QUADRILATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_QUADRILATERAL.md`
+
+| Template | De → Para | Quando usar |
+|---|---|---|
+| **COMANDO 1** | Eduardo → Gemini | Iniciar projeto novo ou nova iteração |
+| **DIRETRIZ** | Gemini → Eduardo | Resposta do Gemini — sempre 5 blocos + 5 ideias |
+| **COMANDO 2** | Eduardo → NotebookLM | Após receber DIRETRIZ do Gemini |
+| **SKILL** | NotebookLM → Eduardo | Resposta do NotebookLM — sempre com [SÓCIO CONSULTOR] + 5 ideias |
+| **MEMORIA** | Músculo → Eduardo | Ao fechar iteração — contexto técnico completo |
+| **RELATORIO** | Músculo → Eduardo | Ao fechar iteração — análise de negócio + 5 ideias |
+| **COMANDO_ESTRATEGISTA** | Músculo → Eduardo (→ Gemini) | Fecha o loop — aciona o próximo ciclo |
+
+**Ordem de envio ao Gemini:** MEMORIA → relatorio_evolutivo → COMANDO_ESTRATEGISTA (nessa ordem, mesmo chat)
+**Calibração quando membro desviar:** `CLIENTES/VALDECE/CALIBRACAO_QUADRILATERAL.md`
+
+---
+
 ## 📋 PDCA DO QUADRILATERAL — QUEM FAZ O QUÊ
 
 > O loop evolutivo é um PDCA com 4 inteligências. Cada membro opera numa fase.
