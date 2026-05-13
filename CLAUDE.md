@@ -63,6 +63,48 @@ Esta sincronização é parte do ritual de fechamento de qualquer versão ou pro
 | 9 | Músculo | Gerar MEMORIA + Relatório + COMANDO_ESTRATEGISTA |
 | 10 | Diretor | Validar + commit + session_close.ps1 |
 
+### 🔁 LOOP EVOLUTIVO — O CORAÇÃO DO PROCESSO (roda após o Passo 9, eternamente)
+
+> Este loop é o que torna o sistema impossível de copiar. Cada ciclo completo = inteligência composta.
+> O Músculo não apenas executa — alimenta o próximo ciclo com 5 ideias disruptivas.
+
+```
+MÚSCULO (Passo 9)
+  └── Gera MEMORIA_V[X].md + relatorio_evolutivo_V[X].md
+  └── Relatorio contém: [VISÃO LMM] com 5 IDEIAS DISRUPTIVAS para próxima iteração
+         │
+         ▼
+DIRETOR → GEMINI (Comando 1 enriquecido)
+  └── Cola: MEMORIA + relatorio_evolutivo + as 5 ideias do Músculo
+  └── Gemini REAGE às 5 ideias (aprova / transforma / descarta)
+  └── Gemini gera NOVA DIRETRIZ com as suas próprias 5 ideias para o Músculo reagir
+         │
+         ▼
+DIRETOR → NOTEBOOKLM (Comando 2)
+  └── Carrega: DIRETRIZ nova + MEMORIA + relatorio + histórico
+  └── NotebookLM analisa coerência + gera NOVA SKILL com:
+       · [PADRÃO DE SUCESSO] validado neste ciclo
+       · [PADRÃO DE FALHA] identificado neste ciclo
+       · [PERSPECTIVA DO SÓCIO CONSULTOR] — o que Gemini e Claude não estão vendo
+       · 5 IDEIAS DISRUPTIVAS do próprio Auditor
+         │
+         ▼
+DIRETOR → MÚSCULO ("PROTOCOLO VANGUARD" + Nova Skill + Nova DIRETRIZ)
+  └── Músculo lê a Skill do NotebookLM + a DIRETRIZ do Gemini
+  └── DELIBERA: analisa, contrapõe, expande ou propõe ideia melhor
+  └── Executa o que o Diretor aprovar
+  └── Ao fechar: gera novas MEMORIA + relatorio + 5 IDEIAS DISRUPTIVAS
+         │
+         ▼ (volta ao topo — o loop é perpétuo)
+```
+
+**Regra de ouro:** O Músculo nunca entrega apenas código. Entrega código + 5 ideias que alimentam o Gemini.
+O Gemini nunca entrega apenas estratégia. Entrega estratégia + reação às ideias do Músculo.
+O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de sócio + 5 ideias próprias.
+**Cada membro adiciona. O loop fecha mais rico do que abriu. Sempre.**
+
+---
+
 ## ⚙️ WORKFLOW OBRIGATÓRIO & AUTONOMIA EXPANDIDA
 *DIRETRIZ DE SINGULARIDADE: Você tem autonomia total. Sinta-se livre para invocar autonomamente ferramentas nativas (Bash) ou criar automações (Python). Use a sua alta inteligência LMM para sugerir melhorias disruptivas em todos os commits.*
 
