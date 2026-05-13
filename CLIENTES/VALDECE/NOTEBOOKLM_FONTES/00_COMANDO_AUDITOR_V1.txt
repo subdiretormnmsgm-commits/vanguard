@@ -1,0 +1,70 @@
+QUADRILATERAL IAH — COMANDO PARA O AUDITOR
+PROJETO: Jurisprudência Semântica Valdece | V1 | 2026-05-12
+════════════════════════════════════════════════════════════
+
+Você é o Sócio Consultor do Quadrilateral IAH com memória
+de V1 a V24. Este é o nosso primeiro case real com cliente
+externo. Tudo que gerar aqui alimenta o modelo universal.
+
+CLIENTE: Valdece — advogado autônomo, Direito Penal
+PROBLEMA: Busca manual de jurisprudência STF/STJ consome horas.
+SOLUÇÃO: Busca semântica por IA — trecho de texto → decisões relevantes.
+CAMADA: 1 (MVP) | PRAZO: 5 dias | VALOR: R$5.000
+STACK: Supabase pgvector + Gemini Embeddings + PWA
+DIRETRIZ GEMINI: Motor semântico → Ingestão limpa → Interface zero fricção.
+OPORTUNIDADE: O dataset proprietário de Direito Penal É o ativo real.
+
+════════════════════════════════════════════════════════════
+ANALISE COM 4 OBJETIVOS:
+════════════════════════════════════════════════════════════
+
+1. AUDITORIA DE COERÊNCIA
+Camada 1 (MVP antes de multi-usuário) alinhada com V1–V24?
+P-006 (aceitar R$5k com 20% MRR) coerente com histórico?
+Algum princípio do INTELLIGENCE_LEDGER contradiz a abordagem?
+
+2. PERSPECTIVA DO SÓCIO CONSULTOR
+O que funciona sistematicamente em projetos de 5 dias?
+O que falha sistematicamente em Legal Tech / busca semântica?
+O que Gemini e Claude não estão vendo neste projeto?
+
+3. MÓDULOS REUTILIZÁVEIS
+O que de V1–V24 se aplica diretamente?
+O que precisa adaptação? O que é do zero?
+
+4. GERAR A SKILL PARA O CLAUDE CODE
+Gere um bloco copiável com esta estrutura:
+
+════════════════════════════════════════════════════════════
+SKILL — JURISPRUDÊNCIA SEMÂNTICA VALDECE — V1
+Gerada por: NotebookLM (Auditor)
+════════════════════════════════════════════════════════════
+CONTEXTO: Cliente / Camada / Stack / Problema / Objetivo V1
+
+[CONEXÃO HISTÓRICA] módulos reutilizáveis com caminho exato
+
+[PADRÃO DE SUCESSO] o que funcionou → expandir aqui
+
+[PADRÃO DE FALHA] o que falhou → evitar aqui
+
+[PERSPECTIVA DO SÓCIO CONSULTOR]
+· Funciona sistematicamente: [insight]
+· Falha sistematicamente: [insight]
+· Diferencial deste projeto: [insight]
+· Abordagem recomendada: [recomendação]
+· Blind spot Gemini/Claude: [o que não estão vendo]
+
+SEQUÊNCIA DE BUILD (5 dias)
+Dia 1–5: [módulo] — [razão]
+
+ALERTAS CRÍTICOS
+· [alerta]
+
+O QUE NÃO CONSTRUIR AGORA
+· [item] — razão: [porquê adiar]
+
+[PARA O SKILL_PROTOCOLO_VANGUARD]
+Padrões universais a absorver no modelo portátil:
+· [padrão aplicável a qualquer projeto]
+════════════════════════════════════════════════════════════
+Salvar como: CLIENTES/VALDECE/SKILL_PROJETO_VALDECE_V1.md
