@@ -1,11 +1,29 @@
-﻿{
+{
   "atualizado_em": "2026-05-12",
   "wip_limits": {
     "build": 2,
     "check": 1
   },
   "board": {
-    "discovery": [],
+    "discovery": [
+      {
+        "id": "PROJ-001",
+        "cliente": "Valdece",
+        "projeto": "Ferramenta de Busca Jurisprudência STF/STJ",
+        "area": "Legal Tech · Direito Penal",
+        "camada": "2-3",
+        "valor_fechado": 5000,
+        "contrapartida_proposta": "20% MRR do SaaS enquanto rodar na nossa infra",
+        "deadline": "2026-05-17",
+        "status": "Aguardando DIRETRIZ Gemini",
+        "discovery_completo": true,
+        "diretriz_gemini": false,
+        "skill_notebooklm": false,
+        "briefing_path": "CLIENTES/VALDECE/BRIEFING_DISCOVERY.txt",
+        "gut_score": 75,
+        "entrada_em": "2026-05-12"
+      }
+    ],
     "build": [],
     "check": [],
     "entregue": [],

@@ -58,6 +58,14 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ---
 
+### [P-006] Precificação de serviço deve ser calculada por ROI do cliente, não por feeling
+**Descoberto:** 2026-05-12 | **Sessão:** PROJETO_001 — Valdece
+**Evidência:** Primeiro cliente real (Valdece, advogado penal) propôs R$5.000 pela ferramenta. Cálculo GUT de aceitar vs. renegociar = 75 (G:5 · U:5 · T:3). ROI calculado para o cliente: ferramenta economiza ~20h/mês × R$200/h = R$4.000/mês de dívida de tempo. Payback em 1,25 meses. Valor justo de mercado: R$12.000–18.000.
+**Princípio:** Antes de aceitar qualquer preço de cliente, rodar o algoritmo: (horas_perdidas × valor_hora_cliente) × 12 = valor_anual_gerado. Preço justo = 10–25% do valor anual gerado. Se o cliente propôs abaixo disso, aceitar apenas com contrapartida (% de MRR, cláusula de referência, ou direito de case público).
+**Aplica-se a:** toda proposta de precificação de projeto cliente.
+
+---
+
 ### [P-005] Inteligência acumulada por sessão, não por versão
 **Descoberto:** 2026-05-12 | **Sessão:** V24 Intelligence Engine
 **Evidência:** 23 versões aprenderam, mas o aprendizado ficou preso em MEMORIAs que descrevem "o que foi feito", não "o princípio descoberto". Lag de semanas entre fricção e princípio.
@@ -174,6 +182,26 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Princípios gerados nesta sessão:** P-001, P-002, P-003, P-004, P-005
 
 **Override do Diretor:** V24 aberta antes do primeiro cliente (override da regra V23). Aceito. Motivo: "construção de inteligência é o maior ativo". Documentado.
+
+### [SESSÃO 2026-05-12] — PROJETO_001 · Primeiro Case Real · Valdece
+
+**Direção da sessão:** Discovery completo com cliente Valdece (advogado penal). Ativação do PROTOCOLO VANGUARD para ferramenta de busca semântica de jurisprudências STF/STJ.
+
+**Eventos capturados:**
+
+`[INTENÇÃO]` Diretor declarou: "Tudo o que for gravado nesse nosso primeiro projeto é primordial." → Projeto Valdece = caso de sucesso fundacional do modelo IAH.
+
+`[PRINCÍPIO]` P-006 extraído: precificação deve ser calculada por ROI do cliente, não por feeling. R$5.000 proposto pelo cliente = abaixo do mercado (valor justo: R$12k–18k). Decisão: aceitar com contrapartida de % MRR do SaaS do cliente.
+
+`[FRICÇÃO]` Músculo entrou na Etapa 4 (build) antes da Etapa 2 (Gemini) e Etapa 3 (NotebookLM). Corrigido após sinalização do Diretor.
+
+`[FRICÇÃO]` Processo do Quadrilateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
+
+`[CONFIRMADO]` Algoritmo de qualificação BLOCO A funcionou: 3 respostas fortes = GO imediato. Prazo de 5 dias confirmado como restrição real, não negociável.
+
+**Próximos passos em aberto:** COMANDO 1 → Gemini → DIRETRIZ · COMANDO 2 → NotebookLM → SKILL · Build 5 dias
+
+**Princípios gerados nesta sessão:** P-006
 
 ---
 

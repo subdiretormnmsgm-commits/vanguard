@@ -1,0 +1,24 @@
+Nome do Cliente: Valdece
+Ele é formado em Direito.
+Esse é o nosso primeiro case
+
+
+1. O que você quer construir?
+Quero montar uma ferramenta para pesquisar jurisprudência no Superior Tribunal de Justiça e no Supremo Tribunal Federal.
+2. Qual tempo isso consume por não existir?
+Isso exige muito tempo de busca, às vezes horas.
+3. Quanto você pagaria por essa ferramenta?
+Pela ferramenta pagaria R$ 5.000,00. Caso fosse disponibilizar a ferramenta para vários usuários, cobraria R$ 15,00 mensais para cada usuário.
+4. O que significa que o negócio funcionou?
+Quando o usuário faz a busca específica e encontra resposta coerente que se aplica ao assunto pesquisado.
+5. Qual seria a função que se desenvolvida seria o diferencial do mercado?
+Desenvolver uma ferramenta que apenas com trechos de determinado assunto trouxesse o resultado de decisões do STJ ou STF em que esses assuntos foram tema dos julgados que servirão de argumento para construção de textos jurídicos.
+6. O que já existe atualmente?
+No momento, as melhores ferramentas que executam essa função é o site dizer o direito e o site legislação integrada.
+7. Qual a data em que deseja essa tarefa pronta?
+Gostaria que essa ferramenta fosse entregue em no máximo 5 dias.
+Seguem os links interessantes:
+https://portal.stf.jus.br/
+https://scon.stj.jus.br/SCON/
+https://buscadordizerodireito.com.br/
+https://legislacaointegrada.com/?utm_source=www.google.com&xcod=1776520251234_17765207887097&sck=www.google.com

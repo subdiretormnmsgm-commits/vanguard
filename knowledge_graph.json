@@ -3,9 +3,9 @@
     "version": "1.0",
     "created": "2026-05-12",
     "last_updated": "2026-05-12",
-    "total_principles": 5,
-    "total_sessions": 1,
-    "total_friction_events": 3,
+    "total_principles": 6,
+    "total_sessions": 2,
+    "total_friction_events": 5,
     "description": "Camada programática do INTELLIGENCE_LEDGER.md — alimenta scripts, GUT e briefing matinal"
   },
   "principles": [
@@ -59,6 +59,29 @@
       "applies_to": ["toda sessão"],
       "veto_trigger": null,
       "confidence": "high"
+    },
+    {
+      "id": "P-006",
+      "title": "Precificação calculada por ROI do cliente, não por feeling",
+      "discovered": "2026-05-12",
+      "session": "PROJ-001-Valdece",
+      "category": "comercial",
+      "applies_to": ["precificação", "proposta comercial", "negociação com cliente"],
+      "algoritmo": {
+        "formula": "(horas_perdidas_mes × valor_hora_cliente) × 12 = valor_anual_gerado",
+        "preco_justo": "10-25% do valor_anual_gerado",
+        "contrapartida_se_abaixo": "% MRR ou direito de case público"
+      },
+      "caso_evidencia": {
+        "cliente": "Valdece",
+        "preco_proposto": 5000,
+        "roi_calculado_ano1_pct": 860,
+        "preco_justo_mercado_min": 12000,
+        "preco_justo_mercado_max": 18000,
+        "gut_score_aceitar": 75
+      },
+      "veto_trigger": null,
+      "confidence": "high"
     }
   ],
   "confirmed_patterns": [
@@ -90,6 +113,19 @@
       { "id": "SV-5", "rule": "Claude Code proposto como daemon autônomo [P-001]" }
     ]
   },
+  "active_projects": [
+    {
+      "id": "PROJ-001",
+      "cliente": "Valdece",
+      "projeto": "Ferramenta Jurisprudência STF/STJ",
+      "status": "discovery",
+      "camada": "2-3",
+      "deadline": "2026-05-17",
+      "valor": 5000,
+      "gut_score": 75,
+      "iniciado_em": "2026-05-12"
+    }
+  ],
   "sessions": [
     {
       "date": "2026-05-12",
@@ -106,6 +142,22 @@
       ],
       "drift_detected": true,
       "drift_description": "Sessão quase divergiu para redesign do site (GUT 12) — Músculo sinalizou — Diretor manteve foco"
+    },
+    {
+      "date": "2026-05-12",
+      "label": "PROJ-001 · Primeiro Case Real · Valdece",
+      "friction_events": 2,
+      "principles_generated": ["P-006"],
+      "overrides": [],
+      "drift_detected": false,
+      "drift_description": null,
+      "marcos": [
+        "Primeiro cliente qualificado via DISCOVERY_CARD",
+        "P-006 extraído: precificação por ROI calculado",
+        "WIP_BOARD atualizado com PROJ-001",
+        "CLIENTES/VALDECE/ criado com BRIEFING_DISCOVERY.txt",
+        "COMANDO 1 gerado para Gemini"
+      ]
     }
   ]
 }
