@@ -431,6 +431,82 @@ O Diretor aprova a cadência junto com o plano de build.
 
 ---
 
+## 14. CLASSIFICAÇÃO DE DECISÕES — O QUE PODE AVANÇAR SEM O LOOP
+
+> Descoberto em PROJ-001 Valdece [2026-05-13].
+> Sessões de alta energia fazem o Diretor + Músculo tomarem decisões estratégicas sem Gemini.
+> A solução não é frear o ritmo — é classificar antes de decidir.
+
+### As três classes:
+
+| Classe | Tipo | Exemplos | Quem decide |
+|---|---|---|---|
+| **A — Técnica** | Implementação, nomes, ajustes | Aumentar limit de 100→300, adicionar fallback, renomear campo | Músculo decide. Reporta na MEMORIA. |
+| **B — Estratégica** | Escopo, arquitetura, onboarding | PWA vs app nativo, credenciais na entrega, adicionar STJ | Músculo propõe → Diretor aprova → Gemini valida no próximo loop. |
+| **C — Fundacional** | Modelo de negócio, pricing, relação com cliente | Opção A sem MRR, cliente como propaganda, preço | Loop completo obrigatório antes de executar. |
+
+**Regra de ouro:** quando houver dúvida entre B e C → trate como C.
+
+### Gatilho automático de loop:
+
+```
+3 decisões Classe B sem validação do Gemini
+  → Músculo emite ALERTA ao Diretor
+  → Diretor escolhe: acionar loop agora ou registrar em DECISOES_PENDENTES.md
+```
+
+Isso impede o acúmulo silencioso de decisões estratégicas não auditadas.
+
+---
+
+## 15. QUICK AUDIT — NOTEBOOKLM ENTRE DIAS DE BUILD
+
+> O loop completo (Skill em 4 partes) leva 2 horas. É pesado para usar entre dias de build.
+> O Quick Audit leva 15 minutos e mantém o Auditor presente sem interromper o ritmo.
+
+**Quando usar:** antes de avançar de um dia de build para o próximo, quando não houve loop completo.
+
+**Prompt do Quick Audit — colar no NotebookLM com as fontes carregadas:**
+
+```
+NotebookLM, Quick Audit de 3 perguntas antes de continuarmos o build:
+
+1. COERÊNCIA: Há contradição entre o que foi decidido hoje e o que foi planejado no loop anterior?
+   (Decisões tomadas hoje: [listar])
+
+2. RISCO CEGO: Há um risco óbvio que o Gemini e o Músculo não estão vendo com base no histórico?
+
+3. REVISÃO URGENTE: Alguma decisão tomada hoje precisa ser revertida antes de avançar?
+
+Responda em 3 parágrafos curtos. Seja direto. Sem Skill completa — só o que é urgente.
+```
+
+**Fontes mínimas para o Quick Audit:**
+- MEMORIA_V[X] mais recente
+- DIRETRIZ mais recente do Gemini
+- Lista de decisões tomadas hoje
+
+---
+
+## 16. DECISÕES PENDENTES — RASTREAMENTO BILATERAL
+
+> Toda decisão Classe B ou C tomada sem Gemini deve ser registrada.
+> Arquivo: `CLIENTES/[CLIENTE]/DECISOES_PENDENTES.md`
+
+**Formato de entrada:**
+```
+[DATA] [CLASSE B/C] PENDENTE GEMINI
+Decisão: [o que foi decidido]
+Contexto: [por que foi decidido assim, sem o Gemini]
+Impacto: [o que muda se o Gemini discordar]
+Validar em: [qual PASSO3 ou Loop vai cobrir isso]
+Status: PENDENTE / VALIDADO / REVERTIDO
+```
+
+**Regra:** ao iniciar cada sessão de build, o Músculo lê o `DECISOES_PENDENTES.md` e reporta quantas estão em aberto. Se houver 3+ pendentes → propor loop antes de continuar.
+
+---
+
 ## ADIÇÕES — HISTÓRICO DE EVOLUÇÃO
 
 ### [2026-05-13] — PROJETO_001 Valdece (Legal Tech / Busca Semântica)
