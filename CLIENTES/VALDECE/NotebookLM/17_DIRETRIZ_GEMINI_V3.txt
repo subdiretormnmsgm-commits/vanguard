@@ -1,0 +1,54 @@
+QUADRILATERAL IAH — DIRETRIZ ESTRATÉGICA V3
+PROJETO: Jurisprudência Semântica Valdece
+DATA: 2026-05-13 | FASE: Dias 4 e 5 (Fechamento)
+
+Excelente trabalho de orquestração, Diretor. O Músculo foi cirúrgico e o nosso risco principal (falta de dados do STJ) foi mitigado. O fato de o cliente ter escolhido a Opção A (Infra Própria, sem MRR) muda o nosso tabuleiro tático: deixamos de ser os "donos do aluguel" e passamos a ser a "boutique de expansão".
+
+BLOCO 1 — REAÇÃO ÀS 5 IDEIAS DO MÚSCULO
+
+1. Sovereign Upload: [V2]
+Razão: Feature mais poderosa já pensada. Gera lock-in absoluto. Requer gestão de arquivos e UI documental. Risco letal de estourar Dias 4 e 5. Guardar para V2.
+
+2. Modo Audiência (Voice): [V3 ou Descartada]
+Razão: Fóruns têm internet terrível. Latência voz > texto > embedding > banco > UI frustrará o advogado na frente do juiz. Foco deve ser a "preparação" no escritório.
+
+3. Relatório Mensal Automático: [V2]
+Razão: Sem MRR, não precisamos provar valor mensalmente. Torna-se ferramenta de upsell para vender V2. Próxima fase.
+
+4. OAB Network Effect: [Descartada / Pivotada]
+Razão: Sem MRR, não temos como dar "crédito". O Network Effect será acordo verbal: "Apresente 2 colegas, se fecharem R$5k cada, você recebe Radar de Divergência de graça."
+
+5. Citação Formatada Automática (ABNT): [VIÁVEL AGORA]
+Razão: Esforço mínimo (manipulação de strings JS), impacto gigantesco. Aprovada para o MVP.
+
+BLOCO 2 — AJUSTES NOS DIAS 4 E 5
+
+DIA 4:
+- Gate STJ obrigatório: endpoints não testados em produção. Circuit Breaker se STJ cair — app continua com STF.
+- Adicionar Ideia 5 (Citação ABNT).
+
+DIA 5:
+- Edge Function cron com limite de execução e try/catch blindado. Se falhar: paralisa silenciosamente sem gastar quota.
+
+BLOCO 3 — ESTRATÉGIA COMERCIAL V2
+
+Radar de Divergência: espere ele pedir. No Dia 15 pós-entrega, agende café:
+"Valdece, vi no log que você buscou 'Tráfico' e a IA não achou nada bom. Tenho a arquitetura para plugar as SUAS petições e criar um Radar de Divergência."
+
+Pricing V2: R$8.500 a R$12.000 projeto único. Advogados amam exclusividade e soberania patrimonial. Venda como "Expansão Definitiva do Cérebro". Opção: R$300/mês de Manutenção Estratégica para monitorar saúde dos endpoints.
+
+BLOCO 4 — O QUE O MÚSCULO NÃO ESTÁ VENDO
+
+O corpus_gap é o maior vendedor disfarçado de código. No fim do mês, Eduardo terá relatório exato: "O Valdece tentou 12 temas e o sistema falhou nestes." Esses 12 temas justificam a V2. O Músculo construiu uma Feature — nós usaremos como Fechador de Negócios.
+
+BLOCO 5 — 5 IDEIAS DISRUPTIVAS PARA O MÚSCULO REAGIR NO DIA 5
+
+1. Auto-Heal Preventivo: Edge Function envia email [FALHA DE INGESTÃO - STJ] ao Diretor Eduardo via Resend/SendGrid antes que o cliente perceba?
+
+2. Slider de Criatividade Jurídica: threshold 0.65 (Precisão Exata) vs 0.45 (Exploração Ampla) no frontend. Devolve controle ao advogado. Viável em Vanilla JS hoje?
+
+3. Router de Sobrevivência LLM: try/catch com fallback para API gratuita secundária (ex: Groq) se Gemini tiver outage. Complexo demais para V1?
+
+4. Export para .DOCX: lib leve (docx.js) para baixar jurisprudência com capa e cabeçalho pronto para anexar nos autos. Viável no Dia 4?
+
+5. Telemetry Heartbeat Anônimo: ping de 1 byte no servidor Vanguard uma vez por dia apenas confirmando "tenant Valdece ativo". Sem dados sensíveis. Para sabermos se ele abandonou o software.
