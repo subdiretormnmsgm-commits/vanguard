@@ -24,6 +24,22 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 > `vanguard-design-elite.md` → só em projetos com UI premium (Next.js/React).
 
+### ⚠️ REGRA DE SINCRONIZAÇÃO — OBRIGATÓRIA
+Sempre que qualquer um destes arquivos for atualizado, sincronizar a cópia em `.claude/skills/`:
+
+| Arquivo original | Cópia em `.claude/skills/` |
+|---|---|
+| `QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md` | `vanguard-protocolo.md` |
+| `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | `vanguard-memorando.md` |
+| `QUADRILATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md` | — (não tem cópia ainda) |
+
+**Comando de sincronização:**
+```powershell
+Copy-Item "QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md" ".claude/skills/vanguard-protocolo.md"
+Copy-Item "QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md" ".claude/skills/vanguard-memorando.md"
+```
+Esta sincronização é parte do ritual de fechamento de qualquer versão ou projeto.
+
 ### 2. Seguir ESTA ORDEM de passos. Nunca pular etapas.
 > Músculo NÃO delibera nem propõe plano antes do PASSO 5 (Skill do NotebookLM).
 
