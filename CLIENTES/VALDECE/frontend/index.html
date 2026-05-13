@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>Jurisprudência IA — Valdece</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --obsidian:    #0A0A0A;
+      --cyan:        #00F0FF;
+      --cyan-dim:    rgba(0, 240, 255, 0.12);
+      --cyan-border: rgba(0, 240, 255, 0.25);
+      --purple:      #1A0B2E;
+      --purple-mid:  #2D1B4E;
+      --white:       #F0F4FF;
+      --muted:       rgba(240, 244, 255, 0.45);
+      --card-bg:     rgba(26, 11, 46, 0.55);
+      --glass:       rgba(255,255,255,0.04);
+      --danger:      #FF4757;
+      --success:     #00F0A0;
+    }
+
+    html, body {
+      min-height: 100vh;
+      background: var(--obsidian);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 24px 20px 16px;
+      border-bottom: 1px solid var(--cyan-border);
+      background: linear-gradient(180deg, rgba(0,240,255,0.04) 0%, transparent 100%);
+    }
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-mark {
+      width: 36px; height: 36px;
+      border: 1.5px solid var(--cyan);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: var(--cyan);
+      flex-shrink: 0;
+    }
+    .header-title { font-size: 15px; font-weight: 600; color: var(--white); }
+    .header-sub   { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+    /* ── PAINEL DO DIRETOR ── */
+    .director-panel {
+      max-width: 800px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .stat-card {
+      background: var(--glass);
+      border: 1px solid var(--cyan-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .stat-number { font-size: 22px; font-weight: 700; color: var(--cyan); }
+    .stat-label  { font-size: 10px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ── SEARCH AREA ── */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* Modo Tático toggle */
+    .mode-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .toggle-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .toggle-switch {
+      position: relative;
+      width: 44px; height: 24px;
+      cursor: pointer;
+    }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-track {
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--cyan-border);
+      border-radius: 12px;
+      transition: background 0.2s;
+    }
+    .toggle-thumb {
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 16px; height: 16px;
+      background: var(--muted);
+      border-radius: 50%;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .toggle-switch input:checked ~ .toggle-track { background: var(--cyan-dim); border-color: var(--cyan); }
+    .toggle-switch input:checked ~ .toggle-thumb { transform: translateX(20px); background: var(--cyan); }
+    .toggle-badge {
+      font-size: 11px;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 20px;
+      padding: 2px 10px;
+      display: none;
+    }
+    .modo-tatico-active .toggle-badge { display: inline; }
+    .modo-tatico-active .toggle-label  { color: var(--cyan); }
+
+    /* Search bar */
+    .search-wrap {
+      position: relative;
+      display: flex;
+      gap: 10px;
+    }
+    #query {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--cyan-border);
+      border-radius: 12px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: none;
+      min-height: 52px;
+      max-height: 160px;
+    }
+    #query::placeholder { color: var(--muted); }
+    #query:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.08);
+    }
+    #searchBtn {
+      background: var(--cyan);
+      border: none;
+      border-radius: 12px;
+      color: var(--obsidian);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 0 22px;
+      letter-spacing: 0.3px;
+      transition: opacity 0.15s, transform 0.1s;
+      white-space: nowrap;
+    }
+    #searchBtn:hover   { opacity: 0.88; }
+    #searchBtn:active  { transform: scale(0.97); }
+    #searchBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .search-hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .search-hint.tatico {
+      color: var(--cyan);
+      display: none;
+    }
+    .modo-tatico-active .search-hint.normal { display: none; }
+    .modo-tatico-active .search-hint.tatico { display: block; }
+
+    /* ── ESTADO VAZIO / LOADING ── */
+    #status {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--muted);
+      font-size: 14px;
+      display: none;
+    }
+    .spinner {
+      width: 28px; height: 28px;
+      border: 2px solid var(--cyan-border);
+      border-top-color: var(--cyan);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 14px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── RESULTADOS ── */
+    #results { margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+
+    .result-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .result-meta span { color: var(--cyan); }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--cyan-border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(0, 240, 255, 0.45); }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .badge-tribunal {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--obsidian);
+      background: var(--cyan);
+      border-radius: 6px;
+      padding: 3px 8px;
+      flex-shrink: 0;
+    }
+    .badge-recente {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--success);
+      background: rgba(0, 240, 160, 0.1);
+      border: 1px solid rgba(0, 240, 160, 0.3);
+      border-radius: 6px;
+      padding: 3px 8px;
+      flex-shrink: 0;
+      display: none;
+    }
+    .badge-recente.visible { display: inline; }
+    .badge-tema {
+      font-size: 10px;
+      color: var(--muted);
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 3px 8px;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-modo {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 6px;
+      padding: 3px 8px;
+      flex-shrink: 0;
+      display: none;
+    }
+    .badge-modo.visible { display: inline; }
+
+    .similarity-bar {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .sim-value { font-size: 13px; font-weight: 700; color: var(--cyan); }
+    .sim-track {
+      width: 60px; height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .sim-fill { height: 100%; background: var(--cyan); border-radius: 2px; }
+
+    .card-number { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+    .card-ementa  { font-size: 14px; line-height: 1.6; color: var(--white); }
+
+    .card-footer {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .card-date { font-size: 11px; color: var(--muted); }
+
+    .card-actions { display: flex; gap: 8px; align-items: center; }
+
+    .btn-copy, .btn-feedback {
+      background: var(--glass);
+      border: 1px solid var(--cyan-border);
+      border-radius: 8px;
+      color: var(--white);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      padding: 6px 12px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn-copy:hover     { background: var(--cyan-dim); border-color: var(--cyan); }
+    .btn-copy.copied    { color: var(--success); border-color: var(--success); }
+    .btn-feedback       { padding: 6px 8px; }
+    .btn-feedback:hover { background: var(--cyan-dim); }
+    .btn-feedback.voted { opacity: 0.5; cursor: default; }
+
+    .btn-link {
+      font-size: 11px;
+      color: var(--cyan);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+    .btn-link:hover { opacity: 1; }
+
+    /* ── KILL SWITCH MESSAGE ── */
+    #kill-msg {
+      background: rgba(255, 71, 87, 0.1);
+      border: 1px solid rgba(255, 71, 87, 0.4);
+      border-radius: 12px;
+      color: var(--danger);
+      font-size: 14px;
+      padding: 20px;
+      text-align: center;
+      display: none;
+      margin-top: 20px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      .director-panel { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .stat-number    { font-size: 18px; }
+      .card           { padding: 14px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">V</div>
+    <div>
+      <div class="header-title">Jurisprudência Penal IA</div>
+      <div class="header-sub">STF · STJ · Busca semântica</div>
+    </div>
+  </div>
+</header>
+
+<!-- Painel do Diretor -->
+<div class="director-panel">
+  <div class="stat-card">
+    <div class="stat-number" id="stat-searches">—</div>
+    <div class="stat-label">Buscas hoje</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number" id="stat-cost">—</div>
+    <div class="stat-label">Custo hoje</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number" id="stat-corpus">—</div>
+    <div class="stat-label">Decisões</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- Modo Tático toggle -->
+  <div class="mode-toggle" id="modeToggleWrap">
+    <span class="toggle-label">Modo Normal</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="modoTatico">
+      <div class="toggle-track"></div>
+      <div class="toggle-thumb"></div>
+    </label>
+    <span class="toggle-label">Modo Tático</span>
+    <span class="toggle-badge">⚔ Contra-Argumento Ativo</span>
+  </div>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <textarea
+      id="query"
+      rows="1"
+      placeholder="Buscar jurisprudência... ex: prisão preventiva excesso de prazo"
+      aria-label="Campo de busca jurídica"
+    ></textarea>
+    <button id="searchBtn">Pesquisar</button>
+  </div>
+  <div class="search-hint normal">Digite uma questão jurídica em linguagem natural — sem aspas, sem código.</div>
+  <div class="search-hint tatico">Cole aqui o trecho da denúncia do MP. O sistema encontra a jurisprudência de defesa.</div>
+
+  <!-- Kill switch message -->
+  <div id="kill-msg">⚠ Sistema em manutenção. Tente novamente em instantes.</div>
+
+  <!-- Status / loading -->
+  <div id="status">
+    <div class="spinner"></div>
+    <div id="status-text">Buscando...</div>
+  </div>
+
+  <!-- Results -->
+  <div id="results"></div>
+
+</main>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+  // ── Config ── substituído na entrega com credenciais de Valdece
+  const SUPABASE_URL  = '__SUPABASE_URL__';
+  const SUPABASE_ANON = '__SUPABASE_ANON_KEY__';
+  const GEMINI_KEY    = '__GEMINI_API_KEY__';
+
+  const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+  const EMBED_URL   = `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${GEMINI_KEY}`;
+  const RECENTE_MS  = 180 * 24 * 60 * 60 * 1000; // 180 dias em ms
+
+  // ── DOM refs ──
+  const queryEl    = document.getElementById('query');
+  const searchBtn  = document.getElementById('searchBtn');
+  const resultsEl  = document.getElementById('results');
+  const statusEl   = document.getElementById('status');
+  const statusTxt  = document.getElementById('status-text');
+  const killMsg    = document.getElementById('kill-msg');
+  const modoToggle = document.getElementById('modoTatico');
+  const modeWrap   = document.getElementById('modeToggleWrap');
+
+  // ── Kill Switch check ──
+  async function checkKillSwitch() {
+    try {
+      const { data } = await sb.from('config').select('value').eq('key', 'search_enabled').single();
+      return data?.value !== 'false';
+    } catch { return true; } // fail-open
+  }
+
+  // ── Painel do Diretor ──
+  async function loadStats() {
+    const today = new Date().toISOString().slice(0, 10);
+    try {
+      const [searches, cost, corpus] = await Promise.all([
+        sb.from('search_logs').select('id', { count: 'exact', head: true })
+          .gte('created_at', today + 'T00:00:00'),
+        sb.from('token_usage').select('cost_usd').gte('date', today),
+        sb.from('documents').select('id', { count: 'exact', head: true }),
+      ]);
+      document.getElementById('stat-searches').textContent = searches.count ?? 0;
+      const totalCost = (cost.data || []).reduce((s, r) => s + parseFloat(r.cost_usd), 0);
+      document.getElementById('stat-cost').textContent = `R$${(totalCost * 5.8).toFixed(3)}`;
+      document.getElementById('stat-corpus').textContent = corpus.count ?? 0;
+    } catch { /* painel não crítico */ }
+  }
+
+  // ── Embed query ──
+  async function embedQuery(text) {
+    const res = await fetch(EMBED_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'models/text-embedding-004',
+        content: { parts: [{ text: text.slice(0, 2048) }] },
+        taskType: 'RETRIEVAL_QUERY',
+      }),
+    });
+    if (!res.ok) throw new Error('Falha ao gerar embedding da busca');
+    const data = await res.json();
+    return data.embedding.values;
+  }
+
+  // ── Search ──
+  async function search(query) {
+    const t0 = Date.now();
+    const embedding = await embedQuery(query);
+    const { data, error } = await sb.rpc('search_documents', {
+      query_embedding: embedding,
+      match_count: 8,
+      similarity_threshold: 0.55,
+    });
+    if (error) throw error;
+    const elapsed = ((Date.now() - t0) / 1000).toFixed(2);
+
+    // Log no Sovereign Pixel (DT-001 resolvido)
+    const isModoTatico = modoToggle.checked;
+    const topSimilarity = data?.[0]?.similarity ?? 0;
+    const corpusGap = topSimilarity < 0.50 ? topSimilarity : null;
+    sb.from('search_logs').insert({
+      query,
+      results_count: data?.length ?? 0,
+      session_id: getSessionId(),
+      corpus_gap: corpusGap,
+    }).then(() => {});
+
+    return { results: data || [], elapsed };
+  }
+
+  // ── Render results ──
+  function renderResults(results, elapsed, isTatico) {
+    resultsEl.innerHTML = '';
+
+    if (!results.length) {
+      resultsEl.innerHTML = `
+        <div style="text-align:center;padding:40px;color:var(--muted)">
+          <div style="font-size:32px;margin-bottom:12px">◎</div>
+          <div>Nenhum resultado com relevância suficiente.</div>
+          <div style="font-size:12px;margin-top:6px">Tente reformular a busca ou use termos mais específicos.</div>
+        </div>`;
+      return;
+    }
+
+    const meta = document.createElement('div');
+    meta.className = 'result-meta';
+    meta.innerHTML = `<span>${results.length}</span> resultado${results.length > 1 ? 's' : ''} · ${elapsed}s`;
+    resultsEl.appendChild(meta);
+
+    results.forEach((r, idx) => {
+      const isRecente = r.data_julgamento &&
+        (Date.now() - new Date(r.data_julgamento).getTime() < RECENTE_MS);
+      const simPct = Math.round((r.similarity || 0) * 100);
+      const dataFmt = r.data_julgamento
+        ? new Date(r.data_julgamento + 'T00:00:00').toLocaleDateString('pt-BR')
+        : 'Data não informada';
+      const tema = (r.tema || 'outros').replace('_', ' ');
+
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-header">
+          <span class="badge-tribunal">${r.tribunal}</span>
+          <span class="badge-recente ${isRecente ? 'visible' : ''}">● RECENTE</span>
+          <span class="badge-tema">${tema}</span>
+          ${isTatico ? '<span class="badge-modo visible">⚔ Contra-arg.</span>' : ''}
+          <div class="similarity-bar">
+            <div class="sim-track"><div class="sim-fill" style="width:${simPct}%"></div></div>
+            <span class="sim-value">${simPct}%</span>
+          </div>
+        </div>
+        <div class="card-number">${r.numero_acordao || 'N/A'}</div>
+        <div class="card-ementa">${truncate(r.ementa, 220)}</div>
+        <div class="card-footer">
+          <span class="card-date">${dataFmt}</span>
+          <div class="card-actions">
+            ${r.link ? `<a class="btn-link" href="${r.link}" target="_blank" rel="noopener">Ver íntegra ↗</a>` : ''}
+            <button class="btn-feedback" data-id="${r.id}" data-val="up" title="Relevante">👍</button>
+            <button class="btn-feedback" data-id="${r.id}" data-val="down" title="Não relevante">👎</button>
+            <button class="btn-copy" data-copy="${encodeURIComponent(buildCopyText(r))}">Copiar</button>
+          </div>
+        </div>`;
+      resultsEl.appendChild(card);
+    });
+
+    // Event listeners
+    resultsEl.querySelectorAll('.btn-copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(decodeURIComponent(btn.dataset.copy));
+        btn.textContent = 'Copiado ✓';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+
+    resultsEl.querySelectorAll('.btn-feedback').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (btn.classList.contains('voted')) return;
+        const isUp = btn.dataset.val === 'up';
+        await sb.from('search_logs').update({ marked_relevant: isUp })
+          .eq('clicked_doc_id', btn.dataset.id).order('created_at', { ascending: false }).limit(1);
+        btn.closest('.card-actions').querySelectorAll('.btn-feedback')
+          .forEach(b => b.classList.add('voted'));
+      });
+    });
+  }
+
+  function buildCopyText(r) {
+    const data = r.data_julgamento
+      ? new Date(r.data_julgamento + 'T00:00:00').toLocaleDateString('pt-BR')
+      : '';
+    return `${r.tribunal} — ${r.numero_acordao || ''} (${data})\n${r.ementa}\n${r.link || ''}`;
+  }
+
+  function truncate(str, max) {
+    if (!str) return '';
+    return str.length > max ? str.slice(0, max) + '…' : str;
+  }
+
+  function getSessionId() {
+    let sid = sessionStorage.getItem('vsid');
+    if (!sid) { sid = Math.random().toString(36).slice(2); sessionStorage.setItem('vsid', sid); }
+    return sid;
+  }
+
+  // ── Modo Tático ──
+  modoToggle.addEventListener('change', () => {
+    modeWrap.classList.toggle('modo-tatico-active', modoToggle.checked);
+    queryEl.placeholder = modoToggle.checked
+      ? 'Cole aqui o trecho da denúncia do MP...'
+      : 'Buscar jurisprudência... ex: prisão preventiva excesso de prazo';
+  });
+
+  // ── Auto-resize textarea ──
+  queryEl.addEventListener('input', () => {
+    queryEl.style.height = 'auto';
+    queryEl.style.height = Math.min(queryEl.scrollHeight, 160) + 'px';
+  });
+
+  // ── Search handler ──
+  async function handleSearch() {
+    const query = queryEl.value.trim();
+    if (!query) return;
+
+    const alive = await checkKillSwitch();
+    if (!alive) {
+      killMsg.style.display = 'block';
+      return;
+    }
+    killMsg.style.display = 'none';
+
+    searchBtn.disabled = true;
+    resultsEl.innerHTML = '';
+    statusEl.style.display = 'block';
+    statusTxt.textContent = modoToggle.checked ? 'Analisando denúncia e buscando contra-argumento...' : 'Buscando jurisprudência...';
+
+    try {
+      const { results, elapsed } = await search(query);
+      renderResults(results, elapsed, modoToggle.checked);
+      loadStats();
+    } catch (err) {
+      resultsEl.innerHTML = `<div style="color:var(--danger);padding:20px;text-align:center">Erro na busca: ${err.message}</div>`;
+    } finally {
+      statusEl.style.display = 'none';
+      searchBtn.disabled = false;
+    }
+  }
+
+  searchBtn.addEventListener('click', handleSearch);
+  queryEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSearch(); }
+  });
+
+  // ── Init ──
+  loadStats();
+  setInterval(loadStats, 60000);
+</script>
+</body>
+</html>

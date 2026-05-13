@@ -1,0 +1,115 @@
+================================================================
+  SEU SISTEMA DE JURISPRUDÊNCIA COM INTELIGÊNCIA ARTIFICIAL
+  Guia de Configuração — Valdece
+================================================================
+
+O que vamos fazer agora:
+Criar duas contas no seu nome, no seu e-mail.
+Eduardo faz tudo. Você só faz o login.
+Tempo total: 10 minutos.
+
+----------------------------------------------------------------
+  POR QUE ESSAS DUAS CONTAS?
+----------------------------------------------------------------
+
+CONTA 1 — Supabase
+  É onde ficam guardadas todas as jurisprudências do STF e STJ
+  que o sistema aprendeu. Pense como o arquivo digital do seu
+  escritório. Só você tem acesso.
+
+CONTA 2 — Google AI Studio
+  É a inteligência artificial que lê e entende o texto jurídico.
+  Você não precisa acessar isso nunca. Só precisa saber que
+  existe e que custa cerca de R$ 1,20 por mês no seu cartão.
+
+----------------------------------------------------------------
+  PASSO 1 — CRIAR O BANCO DE DADOS
+----------------------------------------------------------------
+
+1. Abre o navegador e acessa: supabase.com
+
+2. Clica no botão verde "Start your project"
+
+3. Clica em "Continue with Google"
+   Entre com o e-mail do escritório
+
+4. Clica em "New Project" e preenche:
+
+   Nome do projeto:  valdece-juridico
+   Senha:            (escolhe uma senha forte e anota abaixo)
+   Região:           South America (São Paulo)
+
+   ANOTE SUA SENHA AQUI: ______________________________
+
+5. Clica em "Create new project"
+   Aguarda cerca de 2 minutos
+
+6. Quando carregar, clica no ícone de engrenagem no menu
+   esquerdo, depois em "Settings" e depois em "API"
+
+   Eduardo copia as três chaves que aparecem na tela.
+
+PRONTO — O cofre das jurisprudências está criado.
+
+----------------------------------------------------------------
+  PASSO 2 — ATIVAR A INTELIGÊNCIA ARTIFICIAL
+----------------------------------------------------------------
+
+1. Abre o navegador e acessa: aistudio.google.com
+
+2. O Google já reconhece você — clica em "Continue"
+
+3. Clica em "Get API key" no menu esquerdo
+
+4. Clica em "Create API key"
+   Seleciona "In new project"
+   Clica em "Create API key in new project"
+
+5. Aparece uma chave longa na tela.
+   Eduardo copia essa chave.
+
+PRONTO — A inteligência está ativada.
+
+----------------------------------------------------------------
+  PASSO 3 — CARTÃO DE CRÉDITO
+----------------------------------------------------------------
+
+Na primeira vez que o sistema funcionar, o Google pode pedir
+um cartão de crédito para ativar a cobrança.
+
+  Supabase:    R$ 0,00 por mês (gratuito para o seu volume)
+  Google AI:   R$ 1,20 por mês (menos que um café)
+
+Você coloca o cartão uma vez. Nunca mais precisa mexer.
+
+----------------------------------------------------------------
+  O QUE O SEU SISTEMA FAZ
+----------------------------------------------------------------
+
+  - Busca jurisprudências do STF e STJ em linguagem normal,
+    como você falaria para um assistente
+
+  - Se atualiza sozinho toda segunda-feira de manhã,
+    sem você precisar fazer nada
+
+  - Tem um modo especial: você cola a denúncia do MP
+    e o sistema mostra a jurisprudência que derruba o argumento
+
+  - Tudo fica no seu nome, no seu servidor, sob seu controle
+
+----------------------------------------------------------------
+  RESUMO DO QUE ANOTAR
+----------------------------------------------------------------
+
+  Senha do banco de dados:  ______________________________
+
+  (As demais chaves Eduardo copia na hora)
+
+----------------------------------------------------------------
+  CONTATO
+----------------------------------------------------------------
+
+  Eduardo — Vanguard Tech
+  subdiretor.mnmsgm@gmail.com
+
+================================================================
