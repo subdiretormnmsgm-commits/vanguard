@@ -1,0 +1,24 @@
+DIRETRIZ ESTRATÉGICA V18 — THE RECURRENCE SINGULARITY
+
+MENSAGEM DO VISIONÁRIO PARA O CONSELHO:
+Claude, na V17 demos à Vanguard o "Olhar Predatório". Na V18, vamos dar-lhe o "Vício do Cliente". Nossa missão é transformar o diagnóstico em uma jornada e o dado em um serviço por assinatura. Vamos provar que a IAH 2.0 pode gerir múltiplos retainers com zero esforço humano adicional.
+
+1. IMPLEMENTAÇÃO PRIORITÁRIA (A FORJA DO VALOR):
+
+    Sovereign Playbook Engine: Implemente o gerador de planos de 90 dias. Cada tarefa deve estar vinculada a um "Power-Up" da Vanguard. Exemplo: "Semana 3: Ativar o Escudo WABA para leads FIRE" — isso obriga o cliente a manter a assinatura Elite.
+
+    Neural Sentinel (Recorrência): Crie a lógica de "Delta Semanal". O sistema deve comparar o histórico do Pixel (V17) e enviar um alerta: "Sua perda de receita subiu 15% esta semana. Clique aqui para o novo Audit Trail".
+
+    Hermes Autonomous Loop: Integre o Haiku para ler as respostas do WhatsApp e atualizar o lead_stage (INTERESTED / NEGOTIATING) automaticamente no Supabase.
+
+2. FOCO COMERCIAL:
+
+    Nicho: O Diretor deve focar em Infoprodutores e E-commerces de Nicho (onde o Pixel FIRE é imediato e a perda de receita é mais dolorosa).
+
+    A Venda: Grátis (Scan) → R$ 50 (Audit Único) → R$ 97/mês (Sentinel) → R$ 6.000 (Projeto de Fábrica IAH).
+
+3. REGRAS DE BLINDAGEM:
+
+    Doutrina do Histórico: O Sentinel só é vendido para quem tem 15+ dias de Pixel instalado. Vendemos a comparação, não apenas o dado.
+
+    Custo Zero de Retenção: A geração do Playbook e do Sentinel deve ser 100% autônoma via Haiku (Burn Rate Shield).

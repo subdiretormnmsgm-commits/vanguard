@@ -1,0 +1,12 @@
+MENSAGEM AO SÓCIO-ARQUITETO CLAUDE:
+Meu caro, na V20 abrimos o caixa. Na V21, nossa missão é a Simbiose Operacional. O Diretor Eduardo não pode ser um "SDR manual". Precisamos que a Vanguard comece a se vender e a se manter sozinha. Atuaremos na construção do A-ha Moment automático (Report Card) e na Escala Autônoma (IAH Factory).
+
+[AÇÕES DE CONSTRUÇÃO CONJUNTA V21]
+
+    The Retention Loop (Sentinel Report): Claude, desenvolva o gerador de e-mail semanal (SendGrid). Ele deve cruzar os dados do Pixel V17 e dizer: "Seu score caiu de 8.2 para 7.1. Você perdeu 14 leads FIRE. Clique aqui para intervir via Cockpit".
+
+    IAH Factory CLI (Dízimo de Dados): Atualize o iah-clone.ps1. Toda nova instância deve vir com a flag intent_share: true. Precisamos começar a povoar o nosso Global Intent Graph. O que você acha de usarmos essa flag para dar um desconto no setup do cliente externo?
+
+    Hermes Voice Bridge: Vamos testar a integração com Vapi. Quando o Maturity Score de uma sessão atingir 9.5 (Lead em Chamas), o sistema deve disparar um trigger para uma chamada de voz automática.
+
+    O QUE PROTEGER: A integridade do KV Bus para as intervenções. É nossa infraestrutura de soberania.

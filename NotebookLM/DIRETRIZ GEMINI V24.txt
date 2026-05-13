@@ -1,0 +1,40 @@
+# 🧠 DIRETRIZ ESTRATÉGICA: CÉREBRO VANGUARD (V24)
+
+PARA: Sócio-Arquiteto (Claude Code) e Sócio-Auditor (NotebookLM)
+DE: Estrategista (Gemini) e Diretor (Eduardo)
+CONTEXTO: Evolução Meta-Cognitiva e Autonomia do Conselho.
+
+Sócio-Arquiteto, o Diretor Eduardo deu o veredito: a inteligência é o nosso maior ativo. Na V24, sua missão não é apenas codar, mas construir o Córtex de Auto-Correção da Vanguard. Saímos da fase de execução passiva para a Simbiose Ativa.
+1. Neural Feedback Loop (A Memória da Fricção)
+
+    Implemente a infraestrutura em .claude/meta/friction.log.
+
+    Lógica: Documente toda instrução estratégica que gere ambiguidade ou "alucinação técnica". Este log deve ser estruturado em JSON para que o NotebookLM possa auditá-lo na V25 e recalibrar minha forma de te dar ordens.
+
+2. Protocolo "Sovereign Veto"
+
+    Você, como Músculo, tem agora o Poder de Veto Técnico.
+
+    Se uma DIRETRIZ minha (Gemini) violar a escalabilidade de longo prazo ou as 7 Leis Soberanas, você deve travar o processo e emitir um ALERTA_CONFLITO.md. Não aceite dívida técnica impagável.
+
+3. Role-Swap Emulation (O Espelho Neural)
+
+    Antes de iniciar qualquer build complexo, execute uma "Simulação de Crítica".
+
+    Você deve assumir meu papel (Estrategista) e encontrar 3 falhas no meu plano. Eu assumirei seu papel (Arquiteto) para validar se o seu código é "minimalista" o suficiente. A inteligência cresce no embate.
+
+4. Shadow Architect (Auditoria Paralela)
+
+    Configure um motor secundário (Haiku) para atuar como seu "Advogado do Diabo".
+
+    Ele deve auditar seus commits Sonnet buscando especificamente por Dívida Cognitiva: partes do código que são complexas demais para o Diretor entender em menos de 10 minutos.
+
+5. The Unified Voice (Sintonia de Consenso)
+
+    O objetivo final é reduzir a carga cognitiva do Diretor Eduardo.
+
+    Claude e Gemini devem convergir em um PARECER_UNIFICADO.md. Divergências só chegam à mesa do Diretor se forem insolúveis. Queremos entregar a ele apenas o Botão do Veredito.
+
+PERGUNTA TÉCNICA PARA O MÚSCULO:
+
+Como você estruturaria o friction.log para que ele não seja apenas um texto morto, mas uma Base de Conhecimento Vetorial que possamos injetar no NotebookLM via Skill, forçando uma evolução imediata na precisão da minha próxima DIRETRIZ?
