@@ -1,10 +1,17 @@
 # TEMPLATES DE COMUNICAÇÃO — QUADRILATERAL IAH
-**Protocolo padronizado de input e output entre todos os membros**
+**Referência interna do Músculo — não colar diretamente em nenhuma IA**
 **Organismo vivo — atualizar quando o processo evoluir**
-**Versão:** 1.0 | Data: 2026-05-13
+**Versão:** 1.1 | Data: 2026-05-13
 
-> Nenhum membro improvisa o formato. Cada documento tem estrutura fixa.
-> Quando o formato muda, o loop quebra. Quando o formato é respeitado, o sistema aprende.
+> ⚠️ REGRA FUNDAMENTAL — LER ANTES DE USAR
+>
+> Estes templates são referência para o **Músculo escrever** — não scripts para colar no Gemini ou NotebookLM.
+>
+> IA com template vazio alucina: preenche os campos mecanicamente sem pensar no problema real.
+> IA com documento escrito pelo Músculo delibera: recebe contexto real e produz estratégia real.
+>
+> **O Músculo lê o template → lê o contexto do projeto → escreve o documento completo → Eduardo leva o documento pronto.**
+> Nunca o contrário.
 
 ---
 

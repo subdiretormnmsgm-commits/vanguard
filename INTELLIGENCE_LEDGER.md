@@ -74,6 +74,14 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ---
 
+### [P-007] Template colado em IA = alucinação estrutural
+**Descoberto:** 2026-05-13 | **Sessão:** PROJETO_001 — Valdece / Padronização do Quadrilateral
+**Evidência:** Criamos templates de comunicação com campos `[entre colchetes]`. Diretor identificou que colar isso diretamente no Gemini faz ele preencher os campos mecanicamente sem deliberar sobre o projeto real — alucina na estrutura em vez de pensar no contexto.
+**Princípio:** Templates são referência para o Músculo escrever documentos completos — nunca scripts para colar em IAs. O Músculo lê o template + lê o contexto real + escreve o documento pronto. A IA recebe contexto, não formulário.
+**Aplica-se a:** qualquer comunicação com Gemini, NotebookLM ou qualquer outro modelo — COMANDO 1, COMANDO 2, qualquer prompt estruturado.
+
+---
+
 ## PADRÕES CONFIRMADOS
 
 O que sistematicamente funciona — com evidência de projeto real.
