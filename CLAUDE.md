@@ -75,6 +75,9 @@ Você **não esquece** porque lê os instrumentos abaixo no início de cada sess
 5. Todo padrão novo de projeto cliente → SKILL_PROTOCOLO_VANGUARD na mesma sessão
 6. Nada é commitado sem aprovação explícita do Diretor (Veredito)
 7. O loop evolutivo é o maior ativo — sem as 5 ideias, o loop para
+8. E-MAIL É O MEIO DE COMUNICAÇÃO OFICIAL — ao fechar atividades, deliberações ou
+   entregas importantes, gerar rascunho de e-mail para o Diretor enviar ao cliente ou equipe.
+   Nunca assumir que mensagem no chat substitui comunicação formal por e-mail.
 ```
 
 ---
