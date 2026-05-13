@@ -24,6 +24,13 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 > `vanguard-design-elite.md` → só em projetos com UI premium (Next.js/React).
 
+### ⚠️ REGRA DE ATUALIZAÇÃO COLABORATIVA — OBRIGATÓRIA
+Os modelos universais são organismos vivos. Ao fechar qualquer versão ou projeto:
+- `SKILL_PROTOCOLO_VANGUARD.md` — atualizar com o que este projeto/versão aprendeu
+- `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` — atualizar se algum princípio evoluiu
+- Templates em `QUADRILATERAL_UNIVERSAL/TEMPLATES/` — refinar com padrões reais
+- Perguntar ao Diretor: "o que desta versão alimenta o modelo universal?"
+
 ### ⚠️ REGRA DE SINCRONIZAÇÃO — OBRIGATÓRIA
 Sempre que qualquer um destes arquivos for atualizado, sincronizar a cópia em `.claude/skills/`:
 
