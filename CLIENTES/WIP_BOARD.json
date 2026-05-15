@@ -25,14 +25,15 @@
         "diretriz_gemini_v1": true,
         "skill_notebooklm_v1": true,
         "deliberacao_musculo": true,
-        "veredito_diretor": false,
-        "edital_sedes_json": false,
+        "veredito_diretor": true,
+        "veredito_data": "2026-05-15",
+        "edital_sedes_json": true,
         "build_iniciado_em": "2026-05-15",
         "dias_completos": [],
         "plano_build": {
           "dia1_2": "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
-          "dia3_5": "Feed Diario (70/30 Peso 2) + Spaced Repetition SM-2 + Pilula JSON + Contador header",
-          "dia6_8": "Interface questoes + Tutor Socratico (Haiku/Peso2) + Caching + Fallback Fadiga 70%",
+          "dia3_5": "Feed Diario (70/30 Peso 2) + Spaced Repetition SM-2 + Pilula JSON + Explicacao direta ao errar + Contador header",
+          "dia6_8": "Interface questoes + Tutor Socratico Haiku (Peso 2) + Caching + Fallback Fadiga 70%",
           "dia9_11": "Heatmap urgencia temporal + Micro-Simulado diario + Modo Sedes-DF domingos",
           "dia12_13": "Contador Pontos Ponderados + Notificacao push domingo",
           "dia14_15": "OFFBOARDING_RUNBOOK + SaaS Readiness Audit + P-013 soberania"
@@ -46,7 +47,8 @@
           "burn_rate": "BURN_RATE_DAILY_LIMIT_USD=5.00",
           "fallback": "trigger 70% da cota diaria",
           "spaced_repetition": "SM-2 intervalo variavel",
-          "push_vs_email": "push no MVP / email com tracking no Loop 2"
+          "push_vs_email": "push no MVP / email com tracking no Loop 2",
+          "comentario_erro": "Opcao A (Dias 3-5): explicacao direta do banco + Opcao B (Dias 6-8): Tutor Socratico Haiku"
         },
         "gates_bloqueantes": {
           "dia2": "10 questoes avaliadas por Eduardo — rubrica media >= 4/5",
@@ -55,12 +57,18 @@
           "dia11": "Heatmap correto + simulado domingo completo",
           "dia15": "Ingrid com acesso admin proprio Supabase"
         },
+        "precificacao": {
+          "valor_gerado_candidato": "R$ 9.750 (tempo + probabilidade aprovacao)",
+          "servico_personalizado": "R$ 2.500 por candidato externo",
+          "licenca_acesso_saas": "R$ 197 por ciclo do concurso",
+          "saas_b2c_mrr": "R$ 97/mes x 4 meses = R$ 388 por usuario",
+          "meta_saas": "500 usuarios = R$ 194.000 no ciclo Sedes-DF 2026"
+        },
         "pendente_diretor": [
-          "Veredito nos 8 pontos de decisao arquitetural",
-          "edital_sedes.json — conteudo programatico TDAS (bloqueante Dia 3)",
           "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
         ],
-        "proximo_passo": "Eduardo da Veredito nos 8 pontos → Musculo inicia Dia 1 (schema + Edge Function + Gate CLI)"
+        "status": "VEREDITO APROVADO — build liberado. Iniciando Dia 1.",
+        "proximo_passo": "Musculo executa Dia 1: schema SQL + Edge Function + Gate CLI"
       },
       {
         "id": "PROJ-001",
