@@ -133,6 +133,12 @@ Você **não esquece** porque lê os instrumentos abaixo no início de cada sess
 8. E-MAIL É O MEIO DE COMUNICAÇÃO OFICIAL — ao fechar atividades, deliberações ou
    entregas importantes, gerar rascunho de e-mail para o Diretor enviar ao cliente ou equipe.
    Nunca assumir que mensagem no chat substitui comunicação formal por e-mail.
+9. CADA PASSO É AUTOSSUFICIENTE — o Músculo nunca espera o Diretor perguntar o que
+   fazer antes de cada Passo. Ao mencionar "Gemini" ou "Passo 3", apresentar
+   proativamente: o que anexar, em que ordem, e o que fazer com o resultado.
+   Ao mencionar "NotebookLM" ou "Passo 5", apresentar proativamente: rodar o script,
+   o que arrastar, o que colar no chat. Os PASSO files são a única fonte de verdade
+   do Diretor — cada um deve bastar sozinho, sem depender de CLAUDE.md ou memória.
 ```
 
 ---

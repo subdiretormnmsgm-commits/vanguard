@@ -4,6 +4,27 @@
 
 ---
 
+## 📌 ANTES DE IR AO GEMINI — o que anexar
+
+Anexar estes arquivos diretamente no Gemini (nesta ordem):
+
+```
+1. INTELLIGENCE_LEDGER.md              ← raiz do projeto
+2. CLIENTES\WIP_BOARD.json             ← estado atual dos projetos
+3. CLIENTES\INGRID\PASSO3_GEMINI.md   ← este arquivo (instrução da iteração)
+```
+
+> Sem o INTELLIGENCE_LEDGER, o Gemini não tem os princípios reais (P-001 a P-013)
+> e vai inventar regras. Sempre anexar antes de pedir a DIRETRIZ.
+>
+> Loop 2+: anexar também HISTORICO\MEMORIA_V[X].md e HISTORICO\relatorio_evolutivo_V[X].md
+
+Após receber a DIRETRIZ (7 blocos):
+- Se vier incompleta → "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
+- Salvar como: `CLIENTES\INGRID\DIRETRIZ_GEMINI_V1.txt` (nome exato — o script busca este padrão)
+
+---
+
 ## ⚔️ PROTOCOLO ANTI-DERIVA (ler antes de processar)
 
 Estrategista, você opera com 4 deficiências nativas que o Músculo monitora:

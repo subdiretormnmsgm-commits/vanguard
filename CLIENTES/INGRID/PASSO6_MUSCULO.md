@@ -1,6 +1,30 @@
 # PASSO 6 — MÚSCULO (CLAUDE) · PROJETO INGRID · LOOP 1
-> Leitura interna obrigatória antes de qualquer deliberação.
-> Eduardo não precisa editar este arquivo — é guia do Músculo.
+> Eduardo não edita este arquivo — é guia permanente do Músculo.
+
+---
+
+## 📌 INSTRUÇÕES PARA O DIRETOR — COMO ACIONAR O MÚSCULO
+
+**O que fazer (em 3 passos simples):**
+
+```
+1. ABRIR nova sessão do Claude Code.
+
+2. COLAR (nesta ordem) no chat:
+   ┌──────────────────────────────────────────────────────────────┐
+   │  Conteúdo da Skill recebida do NotebookLM (Passo 5)         │
+   │  Conteúdo da DIRETRIZ recebida do Gemini (Passo 3)          │
+   │  Conteúdo deste arquivo (PASSO6_MUSCULO.md)                 │
+   └──────────────────────────────────────────────────────────────┘
+
+3. DIZER:
+   "PROTOCOLO VANGUARD — INGRID.
+    Trago a Skill do Auditor e a DIRETRIZ do Estrategista.
+    Leia tudo e delibere nos 7 pontos antes de qualquer build."
+```
+
+> O Músculo não delibera sem a Skill + a DIRETRIZ.
+> Sem esses dois documentos, a resposta será genérica — não consultoria do Quadrilateral.
 
 ---
 
