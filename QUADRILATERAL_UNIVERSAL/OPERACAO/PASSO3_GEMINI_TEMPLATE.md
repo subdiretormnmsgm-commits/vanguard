@@ -102,17 +102,22 @@ Como apresentar o ROI ao cliente com números reais. Como posicionar o que vem d
 **BLOCO 3 — DIRETRIZ TÉCNICA**
 Três sub-blocos obrigatórios:
 
-→ **[PARA O NOTEBOOKLM]:** MANDATÓRIO — este sub-bloco deve instruir o NotebookLM a gerar a Skill em exatamente 4 partes:
-  - PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ contradiz no histórico real do projeto
-  - PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
-  - PARTE 3 — A Skill copiável para `.claude/skills/` (contexto, padrões, alertas, sequência de build, o que NÃO construir)
-  - PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas — não as do Gemini nem do Músculo)
-  Além do mandato de formato: especificar o que auditar neste projeto e qual risco priorizar.
-  **[PARA O NOTEBOOKLM] sem mandato explícito das 4 partes = BLOCO 3 inválido.**
+→ **[PARA O NOTEBOOKLM]:** MANDATÓRIO — este sub-bloco deve:
+  1. **Definir o nome exato da Skill** a ser criada pelo Auditor:
+     formato obrigatório → `[cliente]-v[N].md` (ex: `ingrid-v1.md`)
+     O Auditor salva com este nome exato em `.claude/skills/`
+  2. Instruir o NotebookLM a gerar a Skill em 4 partes obrigatórias:
+     - PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ contradiz no histórico real
+     - PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
+     - PARTE 3 — A Skill copiável para `.claude/skills/` (contexto, padrões, alertas, sequência de build, o que NÃO construir)
+     - PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas — não as do Gemini nem do Músculo)
+  3. Especificar o que auditar neste projeto e qual risco priorizar.
+  **[PARA O NOTEBOOKLM] sem nome da Skill e sem mandato das 4 partes = BLOCO 3 inválido.**
 
 → **[PARA O MÚSCULO]:** A intenção estratégica desta entrega em uma frase — não a lista de features, o porquê. Prioridades em ordem com razão para cada. O que não construir. Alertas de risco a monitorar. Gates de verificação por dia de build.
   MANDATÓRIO — instruir o Músculo a:
-  (0) rodar e ler a Skill completa do Auditor (PARTE 1 a 4) antes de qualquer deliberação
+  (0) executar a Skill pelo nome exato definido no [PARA O NOTEBOOKLM] (ex: /ingrid-v1)
+      antes de qualquer deliberação — sem rodar a Skill, deliberação é inválida
   (a) reagir a cada uma das suas 5 ideias disruptivas (BLOCO 6) nos 7 pontos obrigatórios
   (b) reagir a cada uma das 5 ideias do Auditor (PARTE 4 da Skill) com razão técnica
   (c) propor as suas próprias 5 ideias disruptivas ao fechar — perspectiva técnica exclusiva
