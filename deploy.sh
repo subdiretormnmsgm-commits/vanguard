@@ -26,4 +26,10 @@ update cockpit/index.html
 update saas/dashboard.html
 update preview/index.html
 
+# Atualiza nginx.conf e recarrega
+curl -sL "$BASE/infra/nginx.conf" -o /tmp/nginx.conf
+cp /tmp/nginx.conf /etc/nginx/conf.d/default.conf
+nginx -s reload
+echo "OK: nginx.conf recarregado"
+
 echo "Deploy concluido!"
