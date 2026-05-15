@@ -140,6 +140,35 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ---
 
+### [P-014] Score de Incidência Histórica como variável de priorização em EdTech concursos
+**Descoberto:** 2026-05-15 | **Sessão:** PROJ-002 — Ingrid / Loop 1 Kickoff
+**Ideia de:** Eduardo (Diretor) — Loop 1
+**Evidência:** O edital do concurso Sedes-DF define pesos por disciplina (Peso 1 / Peso 2), mas não reflete frequência histórica de cobrança. Algoritmo criado: `score_prioridade = peso_edital × incidencia_historica_pct`. Resultado: SUAS com score 196 vs Primeiros Socorros com score 50 — diferença de 3,9× que não aparece na leitura linear do edital.
+**Princípio:** Em todo produto EdTech para concursos públicos, o feed de estudo deve ser organizado por `score_prioridade`, não pela ordem do edital. Disciplina com peso 2 e baixa incidência histórica < disciplina com peso 1 e alta incidência histórica. O candidato que segue o edital linearmente perde para quem segue a frequência real de cobrança.
+**Aplica-se a:** todo projeto EdTech de concurso público com histórico de provas disponível. Registrar `incidencia_historica_pct` como campo obrigatório no schema de disciplinas.
+
+---
+
+### [P-015] Análise cross-concurso como método de calibração para primeiras edições
+**Descoberto:** 2026-05-15 | **Sessão:** PROJ-002 — Ingrid / Loop 1 Kickoff
+**Ideia de:** Eduardo (Diretor) — Loop 1
+**Evidência:** SEDES-DF 2026 (Quadrix) não tem histórico direto — é o primeiro concurso desta banca neste órgão. Gap de 8 anos desde o último concurso (2018, banca IBRAE). Workaround aplicado: triangular com provas Quadrix similares (SEDF 2022, CFP 2024, CRQ-12 2024, CRT-01 2024) + análise de top-6 temas nacionais de assistência social (SUAS, LOAS, PNAS, CRAS/CREAS).
+**Princípio:** Quando concurso não tem histórico direto da mesma banca no mesmo cargo: (1) usar provas da banca em cargos similares, (2) usar concursos do mesmo cargo em bancas diferentes, (3) usar ranking nacional do tema. Nunca deixar `incidencia_historica_pct` vazio — estimar com fonte declarada explicitamente. Incerteza declarada é melhor que ausência de dado.
+**Corolário de IP:** O banco de dados Provas×Editais, quando construído sistematicamente, vira ativo proprietário do Vanguard — impossível de replicar por concorrente sem as mesmas fontes e o mesmo trabalho manual de classificação.
+**Aplica-se a:** todo projeto EdTech para concurso sem histórico direto. Documentar as fontes cruzadas em `provas_referencia` no schema.
+
+---
+
+### [P-016] Podcast como canal de retenção passiva em EdTech (recurso V2)
+**Descoberto:** 2026-05-15 | **Sessão:** PROJ-002 — Ingrid / Loop 1 Kickoff
+**Ideia de:** Eduardo (Diretor) — Loop 1
+**Evidência:** Proposta de criar áudio para Ingrid ouvir durante commuting, exercício, tarefas domésticas. Análise: viável com geração de roteiro via Claude API + TTS nativo do browser (Web Speech API) sem custo extra. Nenhum app de concurso entrega áudio proprietário gerado por IA.
+**Princípio:** Em produtos EdTech de Camada 2+, adicionar canal de áudio como V2 após validação do MVP visual. Sequência: roteiro → TTS → reprodução in-app. O candidato que estuda em estado passivo (ouvindo) retém ~50% do conteúdo com zero custo cognitivo adicional. Feature premium natural: plano básico = texto, plano premium = áudio do dia gerado por IA.
+**Restrição:** Nunca usar scraping ou TTS de conteúdo de terceiros (P-003). Roteiro sempre gerado pela API sobre conteúdo proprietário do edital_sedes.json.
+**Aplica-se a:** todo projeto EdTech Camada 2+. Não entra no MVP — entra no V2 após Dia 15 com output real validado.
+
+---
+
 ## PADRÕES CONFIRMADOS
 
 O que sistematicamente funciona — com evidência de projeto real.
@@ -295,6 +324,47 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Próximos passos em aberto:** COMANDO 1 → Gemini → DIRETRIZ · COMANDO 2 → NotebookLM → SKILL · Build 5 dias
 
 **Princípios gerados nesta sessão:** P-006
+
+---
+
+### [SESSÃO 2026-05-15 — Loop 1 Build Deliberation] — PROJ-002 Ingrid / Deliberação Completa
+
+**Direção da sessão:** Completar o Loop 1 do PROJ-002 Ingrid — deliberação do Músculo com a Skill do Auditor e a DIRETRIZ do Gemini. Construção do edital_sedes.json com score de incidência. Pesquisa de provas anteriores Quadrix + SEDES-DF. Registro das ideias do Diretor Eduardo.
+
+**Eventos capturados:**
+
+`[FRICÇÃO]` PASSO3_GEMINI.md não continha mandato explícito para o Gemini instruir o Auditor a criar a Skill em 4 partes. Corrigido: mandato embedded no [PARA O AUDITOR] de todos os PASSO3 — Gemini passa o nome exato da Skill e as 4 partes obrigatórias.
+
+`[FRICÇÃO]` PASSO6_MUSCULO.md não continha sequência explícita para o Músculo: (a) reagir às 5 ideias do Estrategista, (b) reagir às 5 ideias do Auditor, (c) propor as próprias 5 ideias. Corrigido com sequência A-H formal.
+
+`[PRINCÍPIO]` **P-014 extraído:** Score de Incidência Histórica — `score_prioridade = peso_edital × incidencia_historica_pct`. Mais poderoso que seguir o edital literalmente. Ideia do Diretor.
+
+`[PRINCÍPIO]` **P-015 extraído:** Cross-concurso como método de calibração para primeiras edições — SEDES-DF 2026 não tem histórico Quadrix. Triangular com CFP 2024, SEDF 2022, CRQ-12 2024.
+
+`[PRINCÍPIO]` **P-016 extraído:** Podcast como canal de retenção passiva — V2 feature. Roteiro → TTS → audio do dia. Nenhum app de concurso entrega isso. Ideia do Diretor.
+
+`[CONFIRMADO]` Arquitetura multi-tenant validada: `questoes_quadrix` (global + concurso_id) + `progresso_usuario` (por user_id). Evita refatoração massiva quando escalar para B2C SaaS.
+
+`[CONFIRMADO]` Gap SEDES-DF confirmado por pesquisa: último concurso foi 2018 (banca IBRAE, não Quadrix). Este 2026 é o primeiro concurso Quadrix neste órgão. Cross-concurso obrigatório.
+
+`[FRICÇÃO]` Skill do Auditor chegou sem blocos PARTE 1 e PARTE 2 completos no arquivo `.claude/skills/`. Eduardo colou manualmente. Gate de qualidade `skill_parser_gate.ps1` deve ser rodado antes de aceitar qualquer Skill.
+
+`[CODE REVIEW]` `edital_sedes.json`: questoes_estimadas somavam 21 (gerais) e 45 (específicos) — corrigido para 20 e 40. Bug identificado e corrigido no mesmo loop.
+
+`[INTENÇÃO]` Diretor: "Quero mostrar esse relatório para a minha esposa, para ela observar o nosso poder conjunto." → Relatório final do Loop 1 deve ser legível por Ingrid — não só técnico, mas narrativo e motivacional.
+
+**Princípios gerados nesta sessão:** P-014, P-015, P-016
+
+**Princípios aplicados:** P-003 (sem scraping), P-007 (CLI gate), P-010 (gate por etapa), P-013 (soberania)
+
+**Documentos atualizados nesta sessão:**
+- `CLIENTES/INGRID/edital_sedes.json` — score incidência + pesquisa + D-5 + achados
+- `CLIENTES/INGRID/PASSO3_GEMINI.md` — mandato Skill explícito
+- `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` — idem universal
+- `CLIENTES/INGRID/PASSO6_MUSCULO.md` — sequência A-H formal
+- `CLIENTES/INGRID/DIRETRIZ_GEMINI_V1.txt` — DIRETRIZ completa 7 blocos
+- `CLIENTES/WIP_BOARD.json` — PROJ-002 movido para build
+- `INTELLIGENCE_LEDGER.md` — P-014, P-015, P-016 + log desta sessão
 
 ---
 
