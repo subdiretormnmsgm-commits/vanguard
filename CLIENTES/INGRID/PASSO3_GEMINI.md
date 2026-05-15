@@ -6,22 +6,32 @@
 
 ## 📌 ANTES DE IR AO GEMINI — o que anexar
 
-Anexar estes arquivos diretamente no Gemini (nesta ordem):
+Anexar estes 3 arquivos diretamente no Gemini (nesta ordem):
 
 ```
-1. INTELLIGENCE_LEDGER.md              ← raiz do projeto
-2. CLIENTES\WIP_BOARD.json             ← estado atual dos projetos
-3. CLIENTES\INGRID\PASSO3_GEMINI.md   ← este arquivo (instrução da iteração)
-```
+1. INTELLIGENCE_LEDGER.md
+   Caminho: vanguard\INTELLIGENCE_LEDGER.md
+   Motivo:  princípios reais P-001 a P-013 — sem isso, Gemini inventa regras
 
-> Sem o INTELLIGENCE_LEDGER, o Gemini não tem os princípios reais (P-001 a P-013)
-> e vai inventar regras. Sempre anexar antes de pedir a DIRETRIZ.
->
-> Loop 2+: anexar também HISTORICO\MEMORIA_V[X].md e HISTORICO\relatorio_evolutivo_V[X].md
+2. WIP_BOARD.json
+   Caminho: vanguard\CLIENTES\WIP_BOARD.json
+   Motivo:  estado atual de todos os projetos (Valdece + Ingrid)
+
+3. PASSO3_GEMINI.md (este arquivo)
+   Caminho: vanguard\CLIENTES\INGRID\PASSO3_GEMINI.md
+   Motivo:  contexto do projeto + 5 ideias + formato obrigatório da DIRETRIZ
+```
 
 Após receber a DIRETRIZ (7 blocos):
-- Se vier incompleta → "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
-- Salvar como: `CLIENTES\INGRID\DIRETRIZ_GEMINI_V1.txt` (nome exato — o script busca este padrão)
+- Se vier incompleta → dizer: "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
+- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V1.txt`
+  (nome exato — o script do Passo 5 busca este padrão automaticamente)
+
+Loop 2+ — anexar também:
+```
+4. HISTORICO\MEMORIA_V[X].md          ← estado técnico do ciclo anterior
+5. HISTORICO\relatorio_evolutivo_V[X].md ← ideias + SWOT do ciclo anterior
+```
 
 ---
 
