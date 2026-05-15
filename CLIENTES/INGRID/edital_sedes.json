@@ -1,0 +1,130 @@
+{
+  "concurso": {
+    "orgao": "Secretaria de Estado de Desenvolvimento Social do DF (Sedes/DF)",
+    "edital": "No. 1, de 13 de Maio de 2026",
+    "cargo": "TDAS — Tecnico em Desenvolvimento e Assistencia Social (Tecnico Administrativo)",
+    "banca": "Instituto Quadrix",
+    "data_prova": "2026-09-06",
+    "formato_prova": {
+      "total_questoes": 60,
+      "tipo": "multipla escolha",
+      "distribuicao": {
+        "conhecimentos_gerais": { "questoes": 20, "peso": 1 },
+        "conhecimentos_especificos": { "questoes": 40, "peso": 2 }
+      }
+    }
+  },
+  "disciplinas": {
+    "conhecimentos_gerais": [
+      {
+        "id": "portugues",
+        "nome": "Lingua Portuguesa",
+        "peso": 1,
+        "pilula": [
+          "Interpretacao de texto e coesao textual",
+          "Gramatica: concordancia, regencia, crase",
+          "Questoes de vocabulario e semantica"
+        ],
+        "topicos": []
+      },
+      {
+        "id": "ride_df",
+        "nome": "RIDE-DF (Regiao Integrada de Desenvolvimento do Distrito Federal)",
+        "peso": 1,
+        "pilula": [
+          "Regiao formada por municipios do DF, GO e MG",
+          "Criada pela LC 94/1998",
+          "Objetivo: integracao e desenvolvimento regional"
+        ],
+        "topicos": []
+      },
+      {
+        "id": "politica_mulheres",
+        "nome": "Politica para Mulheres",
+        "peso": 1,
+        "pilula": [
+          "Lei Maria da Penha (Lei 11.340/2006) — violencia domestica",
+          "Lei do Feminicidio (Lei 13.104/2015)",
+          "Politica Nacional de Enfrentamento a Violencia contra Mulheres"
+        ],
+        "topicos": []
+      },
+      {
+        "id": "lei_organica_df",
+        "nome": "Lei Organica do Distrito Federal",
+        "peso": 1,
+        "pilula": [
+          "Promulgada em 08/06/1993",
+          "Estrutura administrativa, direitos e garantias do DF",
+          "Organizacao dos Poderes no DF"
+        ],
+        "topicos": []
+      },
+      {
+        "id": "lc840",
+        "nome": "LC 840/2011 — Estatuto dos Servidores do DF",
+        "peso": 1,
+        "pilula": [
+          "Regime juridico dos servidores publicos do DF",
+          "Estagio probatorio: 3 anos",
+          "Direitos, deveres e responsabilidades do servidor"
+        ],
+        "topicos": []
+      },
+      {
+        "id": "maria_da_penha",
+        "nome": "Lei Maria da Penha (Lei 11.340/2006)",
+        "peso": 1,
+        "pilula": [
+          "Coibir violencia domestica e familiar contra a mulher",
+          "Medidas protetivas de urgencia",
+          "Tipos de violencia: fisica, psicologica, sexual, patrimonial, moral"
+        ],
+        "topicos": []
+      },
+      {
+        "id": "primeiros_socorros",
+        "nome": "Primeiros Socorros",
+        "peso": 1,
+        "pilula": [
+          "PCR: checar responsividade → acionar socorro → iniciar RCP",
+          "Hemorragias: pressao direta no local",
+          "Engasgo (manobra de Heimlich): compressoes abdominais"
+        ],
+        "topicos": []
+      }
+    ],
+    "conhecimentos_especificos": [
+      {
+        "id": "PREENCHER_COM_EDITAL",
+        "nome": "PREENCHER: copiar disciplinas do Conteudo Programatico TDAS do PDF do edital",
+        "peso": 2,
+        "pilula": [],
+        "topicos": [],
+        "instrucao": "Abrir PDF edital Sedes-DF → Conteudo Programatico TDAS Tecnico Administrativo → copiar cada disciplina aqui com seus topicos"
+      }
+    ]
+  },
+  "algoritmo_feed": {
+    "proporcao_diaria": {
+      "peso2_especificos": 0.70,
+      "peso1_gerais": 0.30
+    },
+    "spaced_repetition": {
+      "acerto_abaixo_30": "revisao_em_2_dias",
+      "acerto_30_a_50": "revisao_em_4_dias",
+      "acerto_50_a_70": "revisao_em_7_dias"
+    },
+    "micro_simulado": {
+      "frequencia": "diario",
+      "questoes": 15,
+      "distribuicao": { "peso2": 0.70, "peso1": 0.30 }
+    },
+    "modo_sedes_df": {
+      "frequencia": "domingos",
+      "questoes": 60,
+      "distribuicao": { "gerais": 20, "especificos": 40 }
+    }
+  },
+  "instrucao_preenchimento": "Abrir PDF do edital Sedes-DF 2026. Localizar secao 'Conteudo Programatico' do cargo TDAS Tecnico Administrativo. Copiar cada disciplina de Conhecimentos Especificos (Peso 2) no array conhecimentos_especificos acima, com nome, topicos e 3 bullet-points para a pilula."
+}
