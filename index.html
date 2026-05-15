@@ -8,13 +8,13 @@
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#00F0FF">
+  <meta name="theme-color" content="#0ea5e9">
   <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
 
-  <!-- Fonts V25: Syne 800 (display) + Space Grotesk (body) + JetBrains Mono (data) -->
+  <!-- Fonts V26: Nunito 800/900 (display) + Nunito Sans (body) + JetBrains Mono (data/terminal) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- White-Label brand override (injected by Docker entrypoint) -->
   <script src="/brand-config.js" onerror="void(0)"></script>
@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="/assets/css/v16-elite.css">
   <link rel="stylesheet" href="/assets/css/v22-sovereign.css">
   <link rel="stylesheet" href="/assets/css/v25-sovereign-ui.css">
+  <link rel="stylesheet" href="/assets/css/v26-design-unification.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="/assets/js/neural-v-logo.js"></script>
   <style>
@@ -35,9 +36,11 @@
 </head>
 <body>
 
-  <!-- Noise texture overlay (opacity set by JS) -->
+  <!-- V26: orbs de fundo — alinhados com o formulário -->
+  <div class="bg-orb-top" aria-hidden="true"></div>
+  <div class="bg-orb-bottom" aria-hidden="true"></div>
+  <!-- Noise texture (oculto via v26 CSS) -->
   <div class="vg-noise" aria-hidden="true"></div>
-  <!-- Noise source canvas (hidden, used once to generate data URL) -->
   <canvas id="vg-noise-canvas" style="display:none" aria-hidden="true"></canvas>
 
   <!-- ─── NAVBAR ──────────────────────────────────────────────────────── -->
@@ -379,6 +382,50 @@
     </div>
   </section>
 
+  <!-- ─── V26 · SERVIÇOS ─────────────────────────────────────────────────── -->
+  <section class="v26-servicos" id="servicos" aria-labelledby="servicos-title">
+    <div class="section__header" style="text-align:center">
+      <div class="section__label"><span class="label-tag">O que construímos</span></div>
+      <h2 class="section__title" id="servicos-title">
+        Soluções digitais que<br>
+        <span class="text-gradient">geram resultado real.</span>
+      </h2>
+      <p class="section__desc">Cada entrega é construída para durar — sem dependência de terceiros, sem atalhos.</p>
+    </div>
+    <div class="v26-servicos-grid">
+      <div class="v26-servico-card">
+        <div class="v26-servico-icon">🌐</div>
+        <div class="v26-servico-title">Presença Digital</div>
+        <div class="v26-servico-desc">Sites, landing pages e portais institucionais que convertem e transmitem autoridade.</div>
+      </div>
+      <div class="v26-servico-card">
+        <div class="v26-servico-icon">⚙️</div>
+        <div class="v26-servico-title">Plataformas Web & SaaS</div>
+        <div class="v26-servico-desc">Sistemas sob medida, aplicações escaláveis e produtos digitais do zero.</div>
+      </div>
+      <div class="v26-servico-card">
+        <div class="v26-servico-icon">🤖</div>
+        <div class="v26-servico-title">IA & Automação</div>
+        <div class="v26-servico-desc">Eliminação de tarefas manuais, integrações e inteligência aplicada ao negócio.</div>
+      </div>
+      <div class="v26-servico-card">
+        <div class="v26-servico-icon">📊</div>
+        <div class="v26-servico-title">Dashboards & Dados</div>
+        <div class="v26-servico-desc">Painéis em tempo real, análise e relatórios que mostram o que realmente importa.</div>
+      </div>
+      <div class="v26-servico-card">
+        <div class="v26-servico-icon">🛒</div>
+        <div class="v26-servico-title">E-commerce</div>
+        <div class="v26-servico-desc">Lojas digitais com foco em conversão, experiência e margem por pedido.</div>
+      </div>
+      <div class="v26-servico-card">
+        <div class="v26-servico-icon">📱</div>
+        <div class="v26-servico-title">App Mobile</div>
+        <div class="v26-servico-desc">Aplicativos iOS e Android orientados a resultado — não só a design.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── HOW IT WORKS ──────────────────────────────────────────────────── -->
   <section class="how-it-works" id="como-funciona" aria-labelledby="how-title">
     <div class="how-it-works__container">
@@ -413,6 +460,34 @@
           <h3 class="step__title" data-forge>Hermes Atua</h3>
           <p class="step__desc">O consultor detecta o lead e entrega a mensagem certa via WhatsApp — sem esforço.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── V26 · POR QUE VANGUARD ─────────────────────────────────────────── -->
+  <section class="v26-diferenciais" id="por-que-vanguard" aria-labelledby="diferenciais-title">
+    <div class="section__header" style="text-align:center">
+      <div class="section__label"><span class="label-tag">O que nos diferencia</span></div>
+      <h2 class="section__title" id="diferenciais-title">
+        Parceiro, não<br>
+        <span class="text-gradient">fornecedor.</span>
+      </h2>
+    </div>
+    <div class="v26-diferenciais-grid">
+      <div class="v26-diferencial-card">
+        <div class="v26-diferencial-num">01</div>
+        <div class="v26-diferencial-title">Clareza antes do código</div>
+        <div class="v26-diferencial-desc">Nenhuma linha é escrita sem entender o problema real. Discovery é a nossa primeira entrega.</div>
+      </div>
+      <div class="v26-diferencial-card">
+        <div class="v26-diferencial-num">02</div>
+        <div class="v26-diferencial-title">Velocidade sem atalhos</div>
+        <div class="v26-diferencial-desc">Entregamos rápido sem sacrificar qualidade ou escalabilidade. Prazo real, não estimativa otimista.</div>
+      </div>
+      <div class="v26-diferencial-card">
+        <div class="v26-diferencial-num">03</div>
+        <div class="v26-diferencial-title">Soberania total</div>
+        <div class="v26-diferencial-desc">Seus dados, seu servidor, sua marca. Nenhum ativo digital fica preso em sistema de terceiro.</div>
       </div>
     </div>
   </section>
@@ -898,7 +973,7 @@
       </div>
       <div class="footer__bottom">
         <p class="footer__copy">© 2026 Vanguard Tech. Todos os direitos reservados.</p>
-        <p class="footer__version">v22.0 · Autonomous Dominion Engine · Sovereign Intelligence</p>
+        <p class="footer__version">v26.0 · Design Unification · Sovereign Intelligence</p>
       </div>
     </div>
   </footer>
