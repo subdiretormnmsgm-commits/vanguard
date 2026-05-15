@@ -8,23 +8,23 @@ window.OutboundEngine = (() => {
 
   // Templates de mensagem Hermes por gargalo
   const HERMES_SCRIPTS = {
-    'Dificuldade em escalar a equipa': (nome, nicho) =>
-      `Olá ${nome}! 👋\n\nAnalisei o perfil digital do seu negócio em *${nicho}* e identifiquei que a dificuldade em escalar a equipa está a travar o seu crescimento.\n\nEsta é a dor mais custosa do sector — empresas que resolvem este gargalo crescem em média 3× mais rápido nos 6 meses seguintes.\n\nA Vanguard Tech já ajudou ${nicho.toLowerCase()}s a automatizar o processo de contratação e formação. Podemos mostrar-lhe como em 30 minutos?\n\n— Hermes · Vanguard Tech 🚀`,
+    'Dificuldade em escalar a equipe': (nome, nicho) =>
+      `Olá ${nome}! 👋\n\nAnalisei o perfil digital do seu negócio em *${nicho}* e identifiquei que a dificuldade em escalar a equipe está travando o seu crescimento.\n\nEsta é a dor mais custosa do setor — empresas que resolvem este gargalo crescem em média 3× mais rápido nos 6 meses seguintes.\n\nA Vanguard Tech já ajudou ${nicho.toLowerCase()}s a automatizar o processo de contratação e treinamento. Podemos mostrar como em 30 minutos?\n\n— Hermes · Vanguard Tech 🚀`,
 
     'Falta de visibilidade sobre métricas do negócio': (nome, nicho) =>
-      `Olá ${nome}! 👋\n\nO seu negócio em *${nicho}* tem um problema crítico: está a tomar decisões sem dados.\n\nNo sector de ${nicho.toLowerCase()}, as empresas sem dashboard de métricas perdem em média 23% de margem por trimestre em decisões mal informadas.\n\nInstalamos o painel de controlo completo do seu negócio em 72h. Quer ver uma demo?\n\n— Hermes · Vanguard Tech 🚀`,
+      `Olá ${nome}! 👋\n\nO seu negócio em *${nicho}* tem um problema crítico: está tomando decisões sem dados.\n\nNo setor de ${nicho.toLowerCase()}, as empresas sem dashboard de métricas perdem em média 23% de margem por trimestre em decisões mal informadas.\n\nInstalamos o painel de controle completo do seu negócio em 72h. Quer ver uma demo?\n\n— Hermes · Vanguard Tech 🚀`,
 
     'Captação e retenção de clientes': (nome, nicho) =>
-      `Olá ${nome}! 👋\n\nAnalisei negócios em *${nicho}* e a captação de clientes é o gargalo #1 do sector.\n\nA boa notícia: temos um sistema que gera leads qualificados automaticamente para ${nicho.toLowerCase()} — sem depender de indicações ou publicidade cara.\n\nPosso mostrar-lhe os resultados de outros negócios do mesmo sector? 5 minutos, sem compromisso.\n\n— Hermes · Vanguard Tech 🚀`,
+      `Olá ${nome}! 👋\n\nAnalisei negócios em *${nicho}* e a captação de clientes é o gargalo #1 do setor.\n\nA boa notícia: temos um sistema que gera leads qualificados automaticamente para ${nicho.toLowerCase()} — sem depender de indicações ou publicidade cara.\n\nPosso mostrar os resultados de outros negócios do mesmo setor? 5 minutos, sem compromisso.\n\n— Hermes · Vanguard Tech 🚀`,
 
     'Processos manuais que consomem tempo': (nome, nicho) =>
-      `Olá ${nome}! 👋\n\nIdentifiquei que o seu negócio em *${nicho}* ainda opera com processos manuais que consomem tempo crítico da equipa.\n\nCalculamos que este gargalo está a custar-lhe entre 15 a 20 horas semanais que podiam estar em vendas.\n\nAutomatizamos os 3 processos mais repetitivos do seu sector em menos de uma semana. Posso mostrar-lhe como?\n\n— Hermes · Vanguard Tech 🚀`,
+      `Olá ${nome}! 👋\n\nIdentifiquei que o seu negócio em *${nicho}* ainda opera com processos manuais que consomem tempo crítico da equipe.\n\nCalculamos que este gargalo está custando entre 15 a 20 horas semanais que poderiam estar em vendas.\n\nAutomatizamos os 3 processos mais repetitivos do seu setor em menos de uma semana. Posso mostrar como?\n\n— Hermes · Vanguard Tech 🚀`,
 
     'Dependência de ferramentas de terceiros': (nome, nicho) =>
-      `Olá ${nome}! 👋\n\nO seu negócio em *${nicho}* está refém de ferramentas externas — se uma delas mudar o preço ou encerrar, o seu negócio para.\n\nConstruímos infraestrutura própria para ${nicho.toLowerCase()}s em Portugal e Brasil, eliminando essa dependência.\n\nQuer uma análise gratuita das ferramentas que representam risco para o seu negócio?\n\n— Hermes · Vanguard Tech 🚀`,
+      `Olá ${nome}! 👋\n\nO seu negócio em *${nicho}* está refém de ferramentas externas — se uma delas mudar o preço ou encerrar, o seu negócio para.\n\nConstruímos infraestrutura própria para ${nicho.toLowerCase()}s no Brasil, eliminando essa dependência.\n\nQuer uma análise gratuita das ferramentas que representam risco para o seu negócio?\n\n— Hermes · Vanguard Tech 🚀`,
 
     _default: (nome, nicho) =>
-      `Olá ${nome}! 👋\n\nSou o Hermes da Vanguard Tech. Analisei centenas de negócios em *${nicho}* e identificámos um padrão de gargalos que afecta directamente a sua rentabilidade.\n\nA Vanguard Tech tem um sistema específico para ${nicho.toLowerCase()}s. Podemos mostrar-lhe resultados reais em 30 minutos?\n\n— Hermes · Vanguard Tech 🚀`,
+      `Olá ${nome}! 👋\n\nSou o Hermes da Vanguard Tech. Analisei centenas de negócios em *${nicho}* e identificamos um padrão de gargalos que afeta diretamente a sua rentabilidade.\n\nA Vanguard Tech tem um sistema específico para ${nicho.toLowerCase()}s. Podemos mostrar resultados reais em 30 minutos?\n\n— Hermes · Vanguard Tech 🚀`,
   };
 
   function buildMessage(lead) {

@@ -378,7 +378,7 @@
   <!-- Tenant Grid -->
   <div class="section-header">
     <div class="section-title">MATURITY SCORES — INTERVENÇÃO EM TEMPO REAL</div>
-    <button class="btn-refresh" onclick="loadTenants()">↻ Actualizar</button>
+    <button class="btn-refresh" onclick="loadTenants()">↻ Atualizar</button>
   </div>
 
   <div class="tenant-grid" id="tenant-grid">
@@ -439,7 +439,7 @@ let currentTenantId = null;
 
 /* ── Load Stats & Tenants ── */
 async function loadTenants() {
-  document.getElementById('status-text').textContent = 'Actualizando...';
+  document.getElementById('status-text').textContent = 'Atualizando...';
 
   try {
     /* Buscar tenants activos */

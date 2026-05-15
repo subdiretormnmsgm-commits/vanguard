@@ -26,7 +26,7 @@ const SovereignPlaybook = (() => {
     audit:    { label: 'Neural Audit',         icon: '📊', module: 'Neural Audit Trail' },
     sentinel: { label: 'Neural Sentinel',      icon: '🛡️', module: 'Sentinela Semanal' },
     badge:    { label: 'Authority Badge',      icon: '🏆', module: 'Selo de Autoridade' },
-    hive:     { label: 'Hive Mind™',      icon: '🧠', module: 'Inteligência Colectiva' },
+    hive:     { label: 'Hive Mind™',      icon: '🧠', module: 'Inteligência Coletiva' },
   };
 
   // Tasks 1-6 por tipo de gargalo principal (personalizado por bottleneck)

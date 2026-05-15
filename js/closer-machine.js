@@ -10,26 +10,26 @@ const CloserMachine = (() => {
 
   /* ─── Hermes Script Library ───────────────────────────────────────── */
   const SCRIPTS = {
-    opener: (d) => `Olá! Sou o <strong>Hermes</strong>, agente IA da Vanguard.<br><br>
-Acabei de analisar <strong>${d.domain}</strong> e o resultado preocupa-me.<br><br>
+    opener: (d) => `Olá! Sou o <strong>Hermes</strong>, especialista da Vanguard.<br><br>
+Acabei de analisar <strong>${d.domain}</strong> e o resultado me preocupa.<br><br>
 O seu <strong>Digital Maturity Score™ é ${d.score}/10</strong> — abaixo do benchmark do seu mercado (7.2/10).<br><br>
-O maior gargalo identificado: <em>${d.bottlenecks[0]?.title}</em>. Posso mostrar-lhe como resolver isso em 30 dias? 🎯`,
+O maior gargalo identificado: <em>${d.bottlenecks[0]?.title}</em>. Posso mostrar como resolver isso em 30 dias? 🎯`,
 
-    follow1: `Óptimo! Tenho exactamente o plano para isso.<br><br>
-Com base nos 3 gargalos detectados no scanner, estou a preparar uma <strong>Proposta de Transformação Digital</strong> personalizada para o seu negócio.<br><br>
+    follow1: `Ótimo! Tenho exatamente o plano para isso.<br><br>
+Com base nos 3 gargalos detectados no scanner, estou preparando uma <strong>Proposta de Transformação Digital</strong> personalizada para o seu negócio.<br><br>
 Devo gerar o PDF agora?`,
 
     followGeneric: [
       'Com base nos dados do scan, estimo um crescimento de <strong>40% em leads</strong> nos primeiros 60 dias após a implementação.',
-      'O nosso sistema Soberano Digital já transformou mais de 50 negócios no seu nicho. Os resultados surgem nas primeiras semanas.',
+      'Nosso sistema Soberano Digital já transformou mais de 50 negócios no seu nicho. Os resultados aparecem nas primeiras semanas.',
       'Vejo uma oportunidade imediata de recuperação. O gargalo de automação que detectei é o que mais custa leads ao seu negócio.',
-      'Deixe-me ser directo: cada dia sem resolver estes gargalos representa clientes que vão directamente para a concorrência.'
+      'Vou ser direto: cada dia sem resolver estes gargalos representa clientes que vão diretamente para a concorrência.'
     ],
 
     pdfReady: `✅ <strong>Proposta PDF gerada com sucesso!</strong><br><br>
 O documento inclui:<br>
 • Análise completa dos 3 gargalos<br>
-• Plano de acção de 30 dias<br>
+• Plano de ação de 30 dias<br>
 • ROI estimado para o seu nicho<br><br>
 Quando podemos agendar <strong>20 minutos</strong> para detalhar o plano juntos?`
   };

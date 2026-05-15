@@ -106,7 +106,7 @@ window.HiveMind = (() => {
       <div style="margin-bottom:.875rem;">
         <p style="font-size:.72rem;color:rgba(232,234,240,.4);line-height:1.5;">
           Templates com <strong style="color:#00F0FF;">50+ envios</strong> e taxa superior a 10% da média do nicho são automaticamente promovidos a "Vanguard Recommended" via <code style="font-size:.65rem;color:#7B2FBE;">fn_hive_mind_promote()</code>.
-          Registe envios e respostas reais para activar o aprendizado colectivo.
+          Registe envios e respostas reais para ativar o aprendizado coletivo.
         </p>
       </div>
       <div style="overflow-x:auto;">
@@ -155,7 +155,7 @@ window.HiveMind = (() => {
         }
 
         document.getElementById('hm-feedback').textContent =
-          action === 'send' ? `✓ Envio registado para ${tmpl.nicho}` : `✓ Resposta registada — taxa actualizada`;
+          action === 'send' ? `✓ Envio registrado para ${tmpl.nicho}` : `✓ Resposta registrada — taxa atualizada`;
         setTimeout(() => { document.getElementById('hm-feedback').textContent = ''; }, 3000);
 
         document.getElementById('hm-tbody').innerHTML = templates.map(renderRow).join('');
