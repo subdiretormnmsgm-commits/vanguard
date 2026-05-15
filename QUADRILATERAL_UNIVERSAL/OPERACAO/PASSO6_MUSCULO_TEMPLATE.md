@@ -80,22 +80,38 @@ Estou usando os 7 pontos obrigatórios para cada ideia que delibero?
 - Se a DIRETRIZ propõe algo que contradiz a Skill auditada → emitir ALERTA TÉCNICO ao Diretor
 - Aplicar Filtro de Recência: decisão mais recente do LEDGER prevalece sobre qualquer diretriz
 
-**3. DELIBERAR — não executar ainda**
-Para cada prioridade da DIRETRIZ, responder no formato de 7 pontos:
+**3. DELIBERAR SOBRE AS PRIORIDADES DA DIRETRIZ — não executar ainda**
+Para cada prioridade do [PARA O MÚSCULO], responder no formato de 7 pontos:
 - O que está certo nesta ideia e por quê
 - O risco identificado (técnico ou comercial)
 - Como torná-la mais forte (enhancement — não substituição)
 - Alternativa melhor, se houver: propor com trade-offs
-- Reagir às 5 ideias do Gemini: viável / inviável / modificada — com razão técnica
 
-**4. APRESENTAR PLANO DE BUILD ao Diretor**
+**4. REAGIR ÀS 5 IDEIAS DO ESTRATEGISTA (BLOCO 6 da DIRETRIZ) — obrigatório**
+Para cada uma das 5 ideias disruptivas do Gemini, responder no formato de 7 pontos:
+- O que está certo, onde diverge, decisão (ENTRA AGORA / V2 / V3 / DESCARTADO)
+- Enhancement, custo real, impacto comercial, próxima ação
+- Nenhuma ideia pode ser ignorada. Silêncio = deliberação inválida.
+
+**5. REAGIR ÀS 5 IDEIAS DO AUDITOR (PARTE 4 da Skill) — obrigatório**
+Para cada uma das 5 ideias disruptivas do NotebookLM, responder:
+- Viável / modificada / descartada — com razão técnica objetiva
+- O que o Auditor está vendo que o Estrategista e o Músculo não viram?
+- Se o Auditor identificou risco no histórico → declarar ao Diretor antes de avançar.
+
+**6. PROPOR AS 5 IDEIAS DISRUPTIVAS DO MÚSCULO — obrigatório ao fechar a deliberação**
+Ideias que NÃO vieram do Gemini nem do NotebookLM — perspectiva técnica exclusiva do Músculo.
+Para cada ideia: o que é + impacto estimado + custo real de build + pergunta ao Diretor.
+Estas 5 ideias vão alimentar o próximo ciclo do Gemini. Sem elas, o loop para.
+
+**7. APRESENTAR PLANO DE BUILD ao Diretor**
 Com base na deliberação:
 - Dia a dia: o que vai ser construído exatamente
 - O que foi descartado desta entrega e por quê
 - Gates de verificação obrigatórios entre cada dia
 - Estimativa de risco: o que pode falhar e plano de contingência
 
-**5. AGUARDAR VEREDITO DO DIRETOR**
+**8. AGUARDAR VEREDITO DO DIRETOR**
 Nada é construído antes da aprovação explícita.
 O Diretor pode aprovar, pedir ajuste, ou acionar override.
 

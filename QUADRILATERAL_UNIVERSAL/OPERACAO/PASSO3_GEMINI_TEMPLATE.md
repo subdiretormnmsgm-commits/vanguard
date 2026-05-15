@@ -102,9 +102,22 @@ Como apresentar o ROI ao cliente com números reais. Como posicionar o que vem d
 **BLOCO 3 — DIRETRIZ TÉCNICA**
 Três sub-blocos obrigatórios:
 
-→ **[PARA O NOTEBOOKLM]:** O que você quer que o Auditor conecte do histórico. Qual risco auditar. O que deve estar na Skill que ele vai gerar para o Músculo.
+→ **[PARA O NOTEBOOKLM]:** MANDATÓRIO — este sub-bloco deve instruir o NotebookLM a gerar a Skill em exatamente 4 partes:
+  - PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ contradiz no histórico real do projeto
+  - PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
+  - PARTE 3 — A Skill copiável para `.claude/skills/` (contexto, padrões, alertas, sequência de build, o que NÃO construir)
+  - PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas — não as do Gemini nem do Músculo)
+  Além do mandato de formato: especificar o que auditar neste projeto e qual risco priorizar.
+  **[PARA O NOTEBOOKLM] sem mandato explícito das 4 partes = BLOCO 3 inválido.**
 
 → **[PARA O MÚSCULO]:** A intenção estratégica desta entrega em uma frase — não a lista de features, o porquê. Prioridades em ordem com razão para cada. O que não construir. Alertas de risco a monitorar. Gates de verificação por dia de build.
+  MANDATÓRIO — instruir o Músculo a:
+  (0) rodar e ler a Skill completa do Auditor (PARTE 1 a 4) antes de qualquer deliberação
+  (a) reagir a cada uma das suas 5 ideias disruptivas (BLOCO 6) nos 7 pontos obrigatórios
+  (b) reagir a cada uma das 5 ideias do Auditor (PARTE 4 da Skill) com razão técnica
+  (c) propor as suas próprias 5 ideias disruptivas ao fechar — perspectiva técnica exclusiva
+      do construtor, não síntese das ideias dos outros membros
+  [PARA O MÚSCULO] sem esses mandatos = sub-bloco inválido.
 
 → **[VISÃO DE LONGO PRAZO]:** Onde este projeto estará em 3 meses se tudo correr bem. Qual decisão que o Músculo toma agora abre ou fecha portas para escala.
 
@@ -116,6 +129,23 @@ Três ações concretas para o Diretor executar nas próximas 24 horas. Cada uma
 
 **SUAS 5 IDEIAS DISRUPTIVAS PARA O MÚSCULO REAGIR**
 Cinco ideias que o Músculo não propôs mas que você vê do ponto de vista estratégico. Para cada uma: o que é, impacto estimado, e uma pergunta direta que o Músculo deve responder ao analisar tecnicamente.
+
+---
+
+## ⛔ VALIDAÇÃO OBRIGATÓRIA ANTES DE SUBMETER A DIRETRIZ
+
+Antes de finalizar, o Estrategista verifica:
+
+| Item | Critério de validade |
+|---|---|
+| BLOCO 3 tem 3 sub-blocos? | [PARA O NOTEBOOKLM] + [PARA O MÚSCULO] + [VISÃO DE LONGO PRAZO] |
+| [PARA O NOTEBOOKLM] manda gerar Skill em 4 partes? | Sim — com PARTE 1, 2, 3 e 4 nomeadas |
+| BLOCO 1 tem gates verificáveis por dia? | Sim — output real definido |
+| BLOCO 4 tem número de prioridades > 3? | Não — máximo 3 |
+| BLOCO 6 tem exatamente 5 ideias disruptivas? | Sim |
+
+**DIRETRIZ que falhar em qualquer item = inválida. Eduardo devolve com a frase:**
+> "Estrategista, DIRETRIZ inválida. [DESCREVER O ITEM FALTANTE]. Reapresente."
 
 ---
 *Template Universal · Quadrilateral IAH · OPERACAO/ · Atualizar ao descobrir novo padrão*

@@ -132,8 +132,26 @@ BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
   Potencial de replicação para outros concurseiros (nicho de mercado).
 
 BLOCO 3 — DIRETRIZ TÉCNICA (3 sub-blocos obrigatórios)
-  [PARA O AUDITOR]: o que auditar, qual risco priorizar, o que a Skill deve conter.
-  [PARA O MÚSCULO]: intenção estratégica + prioridades + o que NÃO construir + gates por dia.
+
+  [PARA O AUDITOR] — MANDATÓRIO: este sub-bloco deve instruir o NotebookLM a gerar
+  a Skill em exatamente 4 partes obrigatórias:
+    PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ contradiz no histórico real
+    PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
+    PARTE 3 — A Skill copiável para .claude/skills/ (com contexto, padrões, alertas,
+               sequência de build, o que NÃO construir)
+    PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas — não as do Gemini nem do Músculo)
+  Além do mandato de formato: especificar o que auditar neste projeto e qual risco priorizar.
+  [PARA O AUDITOR] sem mandato explícito das 4 partes = BLOCO 3 inválido.
+
+  [PARA O MÚSCULO]: intenção estratégica em 1 frase + prioridades em ordem + o que NÃO construir
+  + gates verificáveis por dia + MANDATÓRIO: instruir o Músculo a:
+    (0) ler a Skill completa do Auditor (PARTE 1 a 4) antes de qualquer deliberação
+    (a) reagir a cada uma das suas 5 ideias disruptivas (BLOCO 6) nos 7 pontos obrigatórios
+    (b) reagir a cada uma das 5 ideias do Auditor (PARTE 4 da Skill) com razão técnica
+    (c) propor as suas próprias 5 ideias disruptivas ao fechar a deliberação — perspectiva
+        técnica exclusiva do construtor, não síntese das ideias dos outros membros
+  [PARA O MÚSCULO] sem esses mandatos = sub-bloco inválido.
+
   [VISÃO DE LONGO PRAZO]: onde este produto pode estar após o Sedes-DF de Ingrid.
 
 BLOCO 4 — RESPOSTA ÀS 5 IDEIAS DO MÚSCULO
@@ -154,3 +172,4 @@ BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
 
 **Se desviar deste formato:**
 > "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos. Prioridades >3 = descartadas."
+> "Estrategista, BLOCO 3 inválido. [PARA O AUDITOR] deve mandar explicitamente gerar a Skill em 4 partes. Reapresente."

@@ -56,6 +56,42 @@
 
 ---
 
+## 📋 SEQUÊNCIA DE DELIBERAÇÃO — NESTA ORDEM EXATA
+
+**PASSO A — Ler a Skill (PARTE 1 a 4) completa antes de qualquer resposta**
+- Atenção especial a: AUDITORIA DE COERÊNCIA, ALERTAS CRÍTICOS, PADRÃO DE FALHA
+- Se a Skill contradiz a DIRETRIZ → sinalizar ao Diretor antes de deliberar
+- Se a Skill não tem as 4 partes com dados reais → rejeitar:
+  *"🚨 ALERTA: Diretor, a Skill está incompleta. Retorne ao NotebookLM antes de eu deliberar."*
+
+**PASSO B — Ler a DIRETRIZ completa**
+- Atenção especial a: [PARA O MÚSCULO], [VISÃO DE LONGO PRAZO], BLOCO 6
+- Filtro de Recência: qualquer princípio do LEDGER prevalece sobre a DIRETRIZ
+
+**PASSO C — Deliberar sobre as prioridades do [PARA O MÚSCULO]**
+Usar os 7 pontos para cada prioridade de build aprovada pelo Estrategista.
+
+**PASSO D — Reagir às 5 ideias do Estrategista (BLOCO 6 da DIRETRIZ) — obrigatório**
+Para cada uma das 5 ideias do Gemini, responder nos 7 pontos.
+Nenhuma ideia pode ser ignorada. Silêncio = deliberação inválida.
+
+**PASSO E — Reagir às 5 ideias do Auditor (PARTE 4 da Skill) — obrigatório**
+Para cada uma das 5 ideias do NotebookLM: viável / modificada / descartada + razão técnica.
+O que o Auditor viu que Gemini e Músculo não viram? Declarar antes de avançar.
+
+**PASSO F — Propor as 5 ideias disruptivas do Músculo — obrigatório**
+Ideias que NÃO vieram do Gemini nem do NotebookLM — perspectiva técnica exclusiva.
+Para cada ideia: o que é + impacto estimado + custo real + pergunta ao Diretor.
+Estas 5 ideias alimentam o próximo ciclo do Gemini. Sem elas, o loop para.
+
+**PASSO G — Apresentar Plano de Build dia a dia**
+Com gates verificáveis + o que foi descartado + estimativa de risco.
+
+**PASSO H — Aguardar Veredito do Diretor**
+Nada é construído antes da aprovação explícita.
+
+---
+
 ## 🔁 RITUAL DE FECHAMENTO (ao fechar o loop)
 
 Ao encerrar qualquer iteração de build, gerar obrigatoriamente:
