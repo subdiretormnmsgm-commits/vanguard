@@ -478,7 +478,23 @@ html::-webkit-scrollbar-thumb {
   background: rgba(14,165,233,.4) !important;
 }
 
-/* ── 21. STATUS DOTS ── */
+/* ── 21. CURSOR — restaura cursor nativo (V25 usava crosshair customizado) ── */
+html, body, * {
+  cursor: auto !important;
+}
+a, button, [role="button"], [tabindex], select, input[type="submit"],
+input[type="button"], input[type="checkbox"], input[type="radio"],
+label[for], .btn, .quiz__card-opt, .pricing-cta,
+.feature-card, .closer-machine__close, .btn-hermes-open {
+  cursor: pointer !important;
+}
+input[type="text"], input[type="email"], input[type="tel"],
+input[type="number"], input[type="url"], textarea, select {
+  cursor: text !important;
+}
+.vg-cursor { display: none !important; }
+
+/* ── 22. STATUS DOTS ── */
 .hud-status-dot { background: var(--c-primary) !important; }
 .hud-status-dot--green { background: var(--c-success) !important; }
 .hud-status-dot--red { background: #ef4444 !important; }
