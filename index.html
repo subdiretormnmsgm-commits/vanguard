@@ -405,8 +405,8 @@
       </div>
       <div class="v26-servico-card">
         <div class="v26-servico-icon">🤖</div>
-        <div class="v26-servico-title">IA & Automação</div>
-        <div class="v26-servico-desc">Eliminação de tarefas manuais, integrações e inteligência aplicada ao negócio.</div>
+        <div class="v26-servico-title">Automação de Processos</div>
+        <div class="v26-servico-desc">Eliminação de tarefas manuais, integrações e sistemas que trabalham por você.</div>
       </div>
       <div class="v26-servico-card">
         <div class="v26-servico-icon">📊</div>
@@ -568,6 +568,14 @@
               <span class="quiz__card-label">Acima de R$ 150k/mês</span>
               <span class="quiz__card-sub">Operação consolidada</span>
             </button>
+            <button class="quiz__card-opt quiz__card-opt--wide quiz__card-opt--outros" data-group="q2" data-value="outros">
+              <span class="quiz__card-icon">✏️</span>
+              <span class="quiz__card-label">Outro</span>
+            </button>
+          </div>
+          <div class="outros-box" id="outros-q2" style="display:none">
+            <input type="text" class="outros-input" placeholder="Descreva sua situação...">
+            <button class="btn btn--primary outros-confirmar" disabled>Confirmar →</button>
           </div>
         </div>
 
@@ -597,6 +605,14 @@
               <span class="quiz__card-icon">❓</span>
               <span class="quiz__card-label">Não tenho uma fonte clara</span>
             </button>
+            <button class="quiz__card-opt quiz__card-opt--wide quiz__card-opt--outros" data-group="q3" data-value="outros">
+              <span class="quiz__card-icon">✏️</span>
+              <span class="quiz__card-label">Outro</span>
+            </button>
+          </div>
+          <div class="outros-box" id="outros-q3" style="display:none">
+            <input type="text" class="outros-input" placeholder="Descreva como seus clientes chegam até você...">
+            <button class="btn btn--primary outros-confirmar" disabled>Confirmar →</button>
           </div>
         </div>
 
@@ -622,6 +638,14 @@
               <span class="quiz__card-icon">🚫</span>
               <span class="quiz__card-label">Quase sem presença digital</span>
             </button>
+            <button class="quiz__card-opt quiz__card-opt--wide quiz__card-opt--outros" data-group="q4" data-value="outros">
+              <span class="quiz__card-icon">✏️</span>
+              <span class="quiz__card-label">Outro</span>
+            </button>
+          </div>
+          <div class="outros-box" id="outros-q4" style="display:none">
+            <input type="text" class="outros-input" placeholder="Descreva sua presença digital...">
+            <button class="btn btn--primary outros-confirmar" disabled>Confirmar →</button>
           </div>
         </div>
 
@@ -651,6 +675,14 @@
               <span class="quiz__card-label">Mais de 5 em cada 10</span>
               <span class="quiz__card-sub">Alta performance (&gt;50%)</span>
             </button>
+            <button class="quiz__card-opt quiz__card-opt--wide quiz__card-opt--outros" data-group="q5" data-value="outros">
+              <span class="quiz__card-icon">✏️</span>
+              <span class="quiz__card-label">Outro</span>
+            </button>
+          </div>
+          <div class="outros-box" id="outros-q5" style="display:none">
+            <input type="text" class="outros-input" placeholder="Descreva sua taxa de conversão...">
+            <button class="btn btn--primary outros-confirmar" disabled>Confirmar →</button>
           </div>
         </div>
 
@@ -680,6 +712,14 @@
               <span class="quiz__card-icon">⏱️</span>
               <span class="quiz__card-label">Tempo — faço tudo sozinho e não consigo escalar</span>
             </button>
+            <button class="quiz__card-opt quiz__card-opt--wide quiz__card-opt--outros" data-group="q6" data-value="outros">
+              <span class="quiz__card-icon">✏️</span>
+              <span class="quiz__card-label">Outro</span>
+            </button>
+          </div>
+          <div class="outros-box" id="outros-q6" style="display:none">
+            <input type="text" class="outros-input" placeholder="Descreva seu maior obstáculo...">
+            <button class="btn btn--primary outros-confirmar" disabled>Confirmar →</button>
           </div>
         </div>
 
@@ -709,6 +749,14 @@
               <span class="quiz__card-icon">🔧</span>
               <span class="quiz__card-label">Tenho sistemas em andamento — quero otimizar</span>
             </button>
+            <button class="quiz__card-opt quiz__card-opt--wide quiz__card-opt--outros" data-group="q7" data-value="outros">
+              <span class="quiz__card-icon">✏️</span>
+              <span class="quiz__card-label">Outro</span>
+            </button>
+          </div>
+          <div class="outros-box" id="outros-q7" style="display:none">
+            <input type="text" class="outros-input" placeholder="Descreva o que já tentou...">
+            <button class="btn btn--primary outros-confirmar" disabled>Confirmar →</button>
           </div>
         </div>
 
@@ -828,7 +876,7 @@
               <strong id="result-risk" style="color:#DC3C3C">—</strong>
             </div>
             <div class="quiz__rec" id="result-recommendation"></div>
-            <a href="https://wa.me/5521996008570" class="btn btn--primary btn--lg" id="btn-whatsapp-contact"
+            <a href="https://api.whatsapp.com/send?phone=5521996008570&text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20Vanguard%20e%20gostaria%20de%20conversar." class="btn btn--primary btn--lg" id="btn-whatsapp-contact"
                target="_blank" rel="noopener" style="width:100%;margin-top:1.25rem">
               Falar com especialista no WhatsApp →
             </a>
@@ -930,7 +978,7 @@
           <li>Onboarding dedicado (4h sessão)</li>
           <li>Suporte prioritário por WhatsApp</li>
         </ul>
-        <a href="https://wa.me/5521996008570" class="pricing-cta pricing-cta--gold" target="_blank" rel="noopener">
+        <a href="https://api.whatsapp.com/send?phone=5521996008570&text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20Vanguard%20e%20gostaria%20de%20conversar." class="pricing-cta pricing-cta--gold" target="_blank" rel="noopener">
           Falar com o Consultor →
         </a>
       </div>
@@ -1001,11 +1049,11 @@
   <!-- ═══════════════════════════════════════════════════════════════════
        FEATURE 04 · CLOSER MACHINE · HERMES CHAT
        ═══════════════════════════════════════════════════════════════════ -->
-  <div class="closer-machine" id="closer-machine" role="complementary" aria-label="Hermes — Agente de Vendas IA">
+  <div class="closer-machine" id="closer-machine" role="complementary" aria-label="Hermes — Especialista Vanguard">
     <div class="closer-machine__header">
       <div class="closer-machine__avatar" aria-hidden="true">H</div>
       <div>
-        <div class="closer-machine__agent-name">Hermes · Agente IA Vanguard</div>
+        <div class="closer-machine__agent-name">Hermes · Especialista Vanguard</div>
         <div class="closer-machine__agent-status">
           <span class="hud-status-dot" style="width:5px;height:5px;" aria-hidden="true"></span>
           Online · Processando análise
@@ -1029,8 +1077,8 @@
   </div>
 
   <!-- FAB — Hermes Trigger -->
-  <button class="hud-fab hidden" id="hud-fab" aria-label="Abrir Hermes IA" title="Falar com Hermes">
-    🤖
+  <button class="hud-fab hidden" id="hud-fab" aria-label="Falar com especialista" title="Falar com Hermes">
+    💬
   </button>
 
   <!-- ─── Scripts ──────────────────────────────────────────────────────── -->

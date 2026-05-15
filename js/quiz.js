@@ -1,7 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   VANGUARD V18 — DIAGNÓSTICO QUADRILATERAL™
+   VANGUARD V26 — DIAGNÓSTICO QUADRILATERAL™
    Quatro quadrantes: Presença (P) · Aquisição (A) · Conversão (C) · Retenção (R)
    Scoring matrix por resposta → recomendação de produto baseada no quadrante fraco
+   V26: campo "Outros" em Q2–Q7 + texto PT-BR
    ═══════════════════════════════════════════════════════════════════════════ */
 const Quiz = (() => {
   'use strict';
@@ -16,43 +17,49 @@ const Quiz = (() => {
     q8_custo_ads: 0,
     nome: '', whatsapp: '', email: '',
     scores: { P: 0, A: 0, C: 0, R: 0 },
+    outros_textos: {},
   };
 
   /* ─── Scoring Matrix ──────────────────────────────────────────────────── */
-  /* Cada entrada: {P, A, C, R} — contribuição por quadrante (0-10) */
   const SCORE_MAP = {
     q2_lt10:    { P:2, A:2, C:2, R:2 },
     q2_10_50:   { P:4, A:4, C:4, R:4 },
     q2_50_150:  { P:6, A:6, C:6, R:6 },
     q2_gt150:   { P:8, A:8, C:8, R:8 },
+    q2_outros:  { P:4, A:4, C:4, R:4 },
 
     q3_indicacao:  { P:3, A:4, C:8, R:8 },
     q3_social:     { P:7, A:6, C:4, R:3 },
     q3_prospeccao: { P:4, A:8, C:5, R:4 },
     q3_misto:      { P:6, A:7, C:6, R:5 },
     q3_nenhum:     { P:1, A:1, C:2, R:2 },
+    q3_outros:     { P:4, A:4, C:4, R:4 },
 
     q4_site_bom:    { P:9, A:7, C:6, R:5 },
     q4_site_velho:  { P:4, A:4, C:5, R:4 },
     q4_redes:       { P:5, A:6, C:3, R:3 },
     q4_sem_digital: { P:1, A:1, C:2, R:2 },
+    q4_outros:      { P:5, A:5, C:4, R:4 },
 
     q5_lt1:  { P:2, A:3, C:1, R:2 },
     q5_1_3:  { P:4, A:5, C:3, R:4 },
     q5_3_5:  { P:6, A:6, C:6, R:5 },
     q5_gt5:  { P:7, A:7, C:9, R:8 },
+    q5_outros: { P:5, A:5, C:5, R:5 },
 
     q6_visibilidade: { P:1, A:4, C:5, R:5 },
     q6_leads:        { P:4, A:1, C:4, R:4 },
     q6_fechamento:   { P:5, A:4, C:1, R:5 },
     q6_retencao:     { P:5, A:5, C:4, R:1 },
     q6_tempo:        { P:3, A:3, C:3, R:3 },
+    q6_outros:       { P:4, A:4, C:4, R:4 },
 
     q7_nunca:      { P:2, A:2, C:2, R:2 },
     q7_tentei:     { P:4, A:3, C:4, R:3 },
     q7_agencia:    { P:5, A:5, C:4, R:4 },
     q7_freelancer: { P:4, A:4, C:5, R:4 },
     q7_sistema:    { P:6, A:5, C:5, R:6 },
+    q7_outros:     { P:4, A:4, C:4, R:4 },
   };
 
   /* ─── Recomendações por quadrante mais fraco ──────────────────────────── */
@@ -60,17 +67,17 @@ const Quiz = (() => {
     P: {
       label: 'Presença Digital',
       icon: '🌐',
-      problem: 'A sua presença digital não está a trabalhar por si — está invisível para quem importa.',
+      problem: 'Sua presença digital não está trabalhando por você — está invisível para quem importa.',
       solution: 'Authority Badge + RealScanner™',
-      description: 'O RealScanner™ identifica exactamente o que está a custar visibilidade e o Authority Badge posiciona a sua marca como referência no nicho.',
-      cta: 'Quero dominar a minha presença digital',
+      description: 'O RealScanner™ identifica exatamente o que está custando visibilidade e o Authority Badge posiciona sua marca como referência no nicho.',
+      cta: 'Quero dominar minha presença digital',
     },
     A: {
       label: 'Aquisição de Clientes',
       icon: '⚡',
-      problem: 'O seu pipeline de novos clientes é inconsistente — depende de sorte, não de sistema.',
+      problem: 'Seu pipeline de novos clientes é inconsistente — depende de sorte, não de sistema.',
       solution: 'Hermes Outbound + Sovereign Pixel',
-      description: 'O Hermes Outbound automatiza a prospecção com precisão cirúrgica. O Pixel identifica quem visitou o seu site e está pronto para comprar.',
+      description: 'O Hermes Outbound automatiza a prospecção com precisão cirúrgica. O Pixel identifica quem visitou seu site e está pronto para comprar.',
       cta: 'Quero um sistema previsível de aquisição',
     },
     C: {
@@ -78,16 +85,16 @@ const Quiz = (() => {
       icon: '🎯',
       problem: 'Oportunidades entram, mas escapam — o processo de venda tem fugas críticas.',
       solution: 'Neural Audit Trail + Hermes Closer',
-      description: 'O Neural Audit Trail mostra ao seu prospect exactamente o que está a perder em reais. O Hermes Closer estrutura a conversa para o sim.',
+      description: 'O Neural Audit Trail mostra ao seu prospecto exatamente o que está perdendo em reais. O Hermes Closer estrutura a conversa para o sim.',
       cta: 'Quero converter mais dos meus leads',
     },
     R: {
       label: 'Retenção e Receita Recorrente',
       icon: '🛡️',
-      problem: 'Clientes ganhos com esforço saem sem que perceba porquê — o MRR é frágil.',
+      problem: 'Clientes conquistados com esforço saem sem que você perceba por que — o MRR é frágil.',
       solution: 'Neural Sentinel + Sovereign Playbook',
-      description: 'O Neural Sentinel monitoriza sinais de abandono antes de acontecerem. O Playbook dá ao cliente um mapa de 90 dias que o prende à plataforma.',
-      cta: 'Quero blindar a minha receita recorrente',
+      description: 'O Neural Sentinel monitora sinais de abandono antes de acontecerem. O Playbook dá ao cliente um mapa de 90 dias que o mantém engajado na plataforma.',
+      cta: 'Quero blindar minha receita recorrente',
     },
   };
 
@@ -198,23 +205,65 @@ const Quiz = (() => {
     }
   }
 
-  /* ─── Card selection ──────────────────────────────────────────────────── */
+  /* ─── Card selection (com suporte a "outros") ─────────────────────────── */
   function setupCards(groupName, stateKey, nextStep) {
     document.querySelectorAll('[data-group="' + groupName + '"]').forEach(function(card) {
       card.addEventListener('click', function() {
         document.querySelectorAll('[data-group="' + groupName + '"]')
           .forEach(function(c) { c.classList.remove('quiz__card-opt--active'); });
         card.classList.add('quiz__card-opt--active');
-        state[stateKey] = card.dataset.value;
-        setTimeout(function() {
-          if (typeof nextStep === 'function') nextStep();
-          else goTo(nextStep);
-        }, 280);
+
+        var val = card.dataset.value;
+
+        if (val === 'outros') {
+          /* Mostra caixa de texto — não avança automaticamente */
+          var outrosBox = document.getElementById('outros-' + groupName);
+          if (outrosBox) {
+            outrosBox.style.display = 'block';
+            var inp = outrosBox.querySelector('.outros-input');
+            if (inp) { inp.value = ''; inp.focus(); }
+            var btn = outrosBox.querySelector('.outros-confirmar');
+            if (btn) btn.disabled = true;
+          }
+        } else {
+          /* Oculta caixa de outros se estava aberta */
+          var outrosBox = document.getElementById('outros-' + groupName);
+          if (outrosBox) outrosBox.style.display = 'none';
+
+          state[stateKey] = val;
+          setTimeout(function() {
+            if (typeof nextStep === 'function') nextStep();
+            else goTo(nextStep);
+          }, 280);
+        }
       });
     });
+
+    /* Confirmar botão do campo "outros" */
+    var outrosBox = document.getElementById('outros-' + groupName);
+    if (outrosBox) {
+      var inp = outrosBox.querySelector('.outros-input');
+      var btn = outrosBox.querySelector('.outros-confirmar');
+      if (inp && btn) {
+        inp.addEventListener('input', function() {
+          btn.disabled = !inp.value.trim();
+        });
+        btn.addEventListener('click', function() {
+          if (!inp.value.trim()) return;
+          state[stateKey] = 'outros';
+          state.outros_textos[stateKey] = inp.value.trim();
+          outrosBox.style.display = 'none';
+          if (typeof nextStep === 'function') nextStep();
+          else goTo(nextStep);
+        });
+        inp.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' && inp.value.trim()) btn.click();
+        });
+      }
+    }
   }
 
-  /* ─── Quadrant bar renderer (com animação CSS correcta) ─────────────── */
+  /* ─── Quadrant bar renderer ──────────────────────────────────────────── */
   function renderQuadBars(containerId, quads) {
     var el = document.getElementById(containerId);
     if (!el) return;
@@ -230,7 +279,6 @@ const Quiz = (() => {
         '<span class="quiz__quad-score">' + (q.locked ? '🔒' : q.score + '/10') + '</span>' +
         '</div>';
     }).join('');
-    /* Trigger CSS transition by applying width after paint */
     requestAnimationFrame(function() {
       el.querySelectorAll('[data-w]').forEach(function(bar) {
         var w = bar.dataset.w;
@@ -257,7 +305,6 @@ const Quiz = (() => {
     var sectorEl = document.getElementById('preview-sector');
     if (sectorEl) sectorEl.textContent = state.q1 || '—';
 
-    /* V24 — Lucro em Risco block */
     var lerBox = document.getElementById('lucro-em-risco-box');
     var riskBox = document.getElementById('preview-risk-box');
     var ler = calcLucroEmRisco(state.q8_custo_ads);
@@ -308,7 +355,7 @@ const Quiz = (() => {
     if (ctaEl && rec) {
       var msg = encodeURIComponent(
         'Olá! Fiz o Diagnóstico Vanguard.\n' +
-        'Sector: ' + state.q1 + '\n' +
+        'Setor: ' + state.q1 + '\n' +
         'Gargalo principal: ' + rec.label + '\n' +
         'Receita em risco: R$ ' + risk.toLocaleString('pt-BR') + '/mês\n\n' +
         rec.cta
@@ -340,17 +387,18 @@ const Quiz = (() => {
       nome:     state.nome,
       whatsapp: state.whatsapp,
       metadata: {
-        email: state.email,
-        faturamento: state.q2,
-        canal:       state.q3,
-        presenca:    state.q4,
-        conversao:   state.q5,
-        obstaculo:   state.q6,
-        historico:   state.q7,
-        custo_ads:   state.q8_custo_ads,
-        scores:      state.scores,
+        email:        state.email,
+        faturamento:  state.q2,
+        canal:        state.q3,
+        presenca:     state.q4,
+        conversao:    state.q5,
+        obstaculo:    state.q6,
+        historico:    state.q7,
+        custo_ads:    state.q8_custo_ads,
+        scores:       state.scores,
         revenue_risk: getRevenueRisk(),
         lucro_em_risco: calcLucroEmRisco(state.q8_custo_ads),
+        outros_textos:  state.outros_textos,
       },
     };
 
@@ -367,7 +415,7 @@ const Quiz = (() => {
     setProgress(1);
     showStep('step-1');
 
-    /* Q1 — sector dropdown */
+    /* Q1 — setor dropdown */
     var selectQ1 = document.getElementById('quiz-sector');
     var btnQ1    = document.getElementById('btn-next-1');
     if (selectQ1 && btnQ1) {
@@ -378,7 +426,7 @@ const Quiz = (() => {
       btnQ1.addEventListener('click', function() { if (state.q1) goTo(2); });
     }
 
-    /* Q2–Q7 card groups */
+    /* Q2–Q7 — grupos de cards */
     setupCards('q2', 'q2', 3);
     setupCards('q3', 'q3', 4);
     setupCards('q4', 'q4', 5);
@@ -386,7 +434,7 @@ const Quiz = (() => {
     setupCards('q6', 'q6', 7);
     setupCards('q7', 'q7', 8);
 
-    /* Q8 — Calculadora de Lucro em Risco (V24) */
+    /* Q8 — Calculadora de Lucro em Risco */
     var adsInput = document.getElementById('quiz-custo-ads');
     var btn8     = document.getElementById('btn-next-8');
     var btnSkip8 = document.getElementById('btn-skip-8');
@@ -409,13 +457,13 @@ const Quiz = (() => {
       });
     }
 
-    /* Preview → Contact */
+    /* Preview → Contato */
     var btnPreviewNext = document.getElementById('btn-preview-next');
     if (btnPreviewNext) {
       btnPreviewNext.addEventListener('click', function() { goTo('contact'); });
     }
 
-    /* Contact: enable submit when nome + whatsapp valid */
+    /* Contato: habilita submit quando nome + whatsapp válidos */
     var nomeEl = document.getElementById('quiz-nome');
     var waEl   = document.getElementById('quiz-whatsapp');
     var btn    = document.getElementById('btn-submit');

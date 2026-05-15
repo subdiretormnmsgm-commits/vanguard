@@ -498,3 +498,49 @@ input[type="number"], input[type="url"], textarea, select {
 .hud-status-dot { background: var(--c-primary) !important; }
 .hud-status-dot--green { background: var(--c-success) !important; }
 .hud-status-dot--red { background: #ef4444 !important; }
+
+/* ── 23. OUTROS — campo de texto livre nas perguntas do quiz ── */
+.quiz__card-opt--outros {
+  border-style: dashed !important;
+  border-color: rgba(14,165,233,.3) !important;
+  color: var(--c-muted) !important;
+  margin-top: .25rem;
+}
+.quiz__card-opt--outros:hover {
+  border-color: var(--c-primary) !important;
+  color: var(--c-text) !important;
+}
+.quiz__card-opt--outros.selected {
+  border-color: var(--c-primary) !important;
+  border-style: solid !important;
+  color: var(--c-primary) !important;
+}
+.outros-box {
+  margin-top: .75rem;
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  animation: fadeUp .2s ease both;
+}
+.outros-input {
+  flex: 1;
+  background: #0a0f1c;
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  padding: .75rem 1rem;
+  color: var(--c-text);
+  font-family: var(--ff-body);
+  font-size: .95rem;
+  outline: none;
+  transition: border-color .2s;
+}
+.outros-input:focus {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px rgba(14,165,233,.12);
+}
+.outros-input::placeholder { color: var(--c-muted); }
+.outros-confirmar {
+  white-space: nowrap;
+  padding: .75rem 1.5rem !important;
+  font-size: .85rem !important;
+}
