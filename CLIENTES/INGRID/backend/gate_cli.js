@@ -31,8 +31,21 @@ const QUANTIDADE = parseInt(getArg("--quantidade") || "10", 10);
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 
-if (!SUPABASE_URL || !ANTHROPIC_API_KEY) {
-  console.error("❌ Configure SUPABASE_URL e ANTHROPIC_API_KEY no ambiente.");
+// PREFLIGHT — verifica variaveis antes de qualquer chamada de API
+const variaveis = {
+  SUPABASE_URL:      process.env.SUPABASE_URL,
+  ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
+};
+const faltando = Object.entries(variaveis).filter(([, v]) => !v).map(([k]) => k);
+if (faltando.length > 0) {
+  console.error("\n❌ PREFLIGHT FALHOU — variáveis ausentes:", faltando.join(", "));
+  console.error("\n📋 Solução:");
+  console.error("   1. Abra: CLIENTES/INGRID/backend/.env");
+  console.error("   2. Preencha as linhas faltantes com suas chaves reais");
+  console.error("   3. Salve o arquivo e rode novamente");
+  console.error("\n   Exemplo do .env:");
+  console.error("   SUPABASE_URL=https://ehyaecxqijgyuuiorzcj.supabase.co");
+  console.error("   ANTHROPIC_API_KEY=sk-ant-api03-...");
   process.exit(1);
 }
 

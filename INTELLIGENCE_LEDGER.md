@@ -169,6 +169,18 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ---
 
+### [P-017] Infraestrutura de e-mail do Conselho — nunca reconfigurar do zero
+**Descoberto:** 2026-05-16 | **Sessão:** PROJ-002 Ingrid / Dias 1-2
+**Evidência:** Diretor não sabia onde estava registrada a infraestrutura de e-mail estabelecida numa sessão anterior. Sistema existia mas não estava documentado no LEDGER — risco de retrabalho ou reconfiguração desnecessária.
+**Princípio:** A infraestrutura de comunicação do Conselho com o Diretor está em:
+- `scripts/alert_config.ps1` — credenciais Gmail (senha de app + destinatário)
+- `scripts/email_fechamento.ps1` — envia e-mail de fechamento de sessão
+- `scripts/alert_teste_email.ps1` — teste do sistema
+O Músculo aciona `email_fechamento.ps1` ao fechar qualquer sessão. Nunca recriar ou alterar `alert_config.ps1` sem instrução explícita do Diretor.
+**Aplica-se a:** toda sessão do Quadrilateral — qualquer projeto, qualquer cliente.
+
+---
+
 ## PADRÕES CONFIRMADOS
 
 O que sistematicamente funciona — com evidência de projeto real.
