@@ -406,6 +406,15 @@ const Quiz = (() => {
       await supabaseClient.saveLeadDiagnostico(payload);
     } catch (_) { /* não bloqueia o fluxo */ }
 
+    try {
+      await emailjs.send('service_qt06xy8', 'template_267dxn', {
+        nome:     state.nome,
+        whatsapp: state.whatsapp,
+        nicho:    state.q1,
+        gargalo:  getWeakestQuadrant()
+      });
+    } catch (_) { /* não bloqueia o fluxo */ }
+
     renderResult();
     setTimeout(function() { showStep('step-success'); }, 2200);
   }
