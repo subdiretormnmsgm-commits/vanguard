@@ -407,13 +407,23 @@ const Quiz = (() => {
     } catch (_) { /* não bloqueia o fluxo */ }
 
     try {
-      await emailjs.send('service_qt06xy8', 'template_267dxn', {
-        nome:     state.nome,
-        whatsapp: state.whatsapp,
-        nicho:    state.q1,
-        gargalo:  getWeakestQuadrant()
+      const _ej = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id:      'service_qt06xy8',
+          template_id:     'template_267dxn',
+          user_id:         'CB_Vkf6wRAGjL55qE',
+          template_params: {
+            nome:     state.nome,
+            whatsapp: state.whatsapp,
+            nicho:    state.q1,
+            gargalo:  getWeakestQuadrant()
+          }
+        })
       });
-    } catch (err) { console.error('[EmailJS]', err); }
+      console.log('[EmailJS]', _ej.status, await _ej.text());
+    } catch (err) { console.error('[EmailJS error]', err); }
 
     renderResult();
     setTimeout(function() { showStep('step-success'); }, 2200);
