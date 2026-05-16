@@ -56,33 +56,8 @@
     viewCockpit.style.display = 'none';
   }
 
-  // ─── Auth ─────────────────────────────────────────────────────────────────
-  client.auth.getSession().then(({ data: { session } }) => {
-    if (session) showCockpit(session.user.email);
-    else showLogin();
-  });
-
-  document.getElementById('login-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    const btn = document.getElementById('login-btn');
-    const err = document.getElementById('login-error');
-    const email    = document.getElementById('login-email').value.trim();
-    const password = document.getElementById('login-password').value;
-
-    btn.disabled     = true;
-    btn.textContent  = 'A autenticar...';
-    err.hidden       = true;
-
-    const { error } = await client.auth.signInWithPassword({ email, password });
-    if (error) {
-      err.textContent = 'Credenciais inválidas. Verifique o e-mail e a palavra-passe.';
-      err.hidden      = false;
-      btn.disabled    = false;
-      btn.textContent = 'Entrar no Cockpit →';
-    } else {
-      showCockpit(email);
-    }
-  });
+  // ─── Auth (bypass — acesso direto por URL) ───────────────────────────────
+  showCockpit('subdiretor.mnmsgm@gmail.com');
 
   document.getElementById('btn-logout').addEventListener('click', async () => {
     await client.auth.signOut();
