@@ -407,23 +407,21 @@ const Quiz = (() => {
     } catch (_) { /* não bloqueia o fluxo */ }
 
     try {
-      const _ej = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      const _wf = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          service_id:      'service_qt06xy8',
-          template_id:     'template_267dxn',
-          user_id:         'CB_Vkf6wRAGjL55qE',
-          template_params: {
-            nome:     state.nome,
-            whatsapp: state.whatsapp,
-            nicho:    state.q1,
-            gargalo:  getWeakestQuadrant()
-          }
+          access_key: 'f0c78955-a64c-40d9-a88f-b101957f1f24',
+          subject:    'Novo Lead Vanguard — ' + state.nome,
+          from_name:  'Vanguard Tech',
+          nome:       state.nome,
+          whatsapp:   state.whatsapp,
+          nicho:      state.q1,
+          gargalo:    getWeakestQuadrant()
         })
       });
-      console.log('[EmailJS]', _ej.status, await _ej.text());
-    } catch (err) { console.error('[EmailJS error]', err); }
+      console.log('[Web3Forms]', _wf.status, await _wf.text());
+    } catch (err) { console.error('[Web3Forms error]', err); }
 
     renderResult();
     setTimeout(function() { showStep('step-success'); }, 2200);
