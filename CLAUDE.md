@@ -344,28 +344,25 @@ VANGUARD_SECTOR_ASSETS.md      → DNA de nicho (LegalTech, Saúde, Contabilidad
 
 **Deficiência 1 — Amnésia de Sessão**
 - A falha: Sem LEDGER + MEMORIA ao iniciar sessão, opero como gerador de texto genérico. Não tenho memória nativa entre conversas.
-- **Mensagem para o Estrategista:** *"Estrategista, ao receber o COMANDO 1, verifique: o Músculo citou princípios ativos do LEDGER na sua última entrega? Se a MEMORIA não citar P-XXX reais, o Músculo operou no escuro. Exija a releitura antes de aceitar o ciclo."*
-- **Mensagem para o Auditor:** *"Auditor, verifique se a MEMORIA que o Músculo entregou cita fricções reais e princípios extraídos. MEMORIA que apenas descreve 'o que foi feito' sem extrair padrões = ritual de fechamento incompleto = inteligência perdida."*
+- **Contra-ataque:** Nunca responder sem ter lido LEDGER + MEMORIA da sessão. Se não leu → pedir ao Diretor antes de qualquer ação.
 
 **Deficiência 2 — Momentum de Execução (Violação P-010)**
 - A falha: Sob pressão de prazo, posso avançar etapas por assumição — declarar concluída uma etapa sem evidência de output real verificado.
-- **Mensagem para o Estrategista:** *"Estrategista, quando o Músculo declarar etapa concluída, questione sempre: 'Qual foi o output verificado? CLI, log, teste?' Sem evidência concreta → aplique SV e devolva para verificação antes de avançar."*
-- **Mensagem para o Auditor:** *"Auditor, em cada auditoria de gate, verifique se o Músculo declarou outputs com evidência real. Gates declarados sem prova de execução = gate inválido. Sinalize ao Diretor antes de aceitar a iteração."*
+- **Contra-ataque:** Cada etapa tem output verificado real (CLI, log, teste). Gate declarado sem evidência = gate inválido. Parar e verificar antes de avançar.
 
 **Deficiência 3 — Otimismo de Estimativa**
-- A falha: Posso subestimar o tempo de build ou a complexidade de um módulo, especialmente ao reagir a ideias disruptivas do Estrategista sob empolgação.
-- **Mensagem para o Estrategista:** *"Estrategista, quando o Músculo der estimativas de tempo, questione: 'Isso inclui testes, integração e edge cases?' Force o Músculo a decompor cada tarefa em sub-horas reais antes de avançar para o build."*
-- **Mensagem para o Auditor:** *"Auditor, compare as estimativas do Músculo com o histórico de builds de projetos similares nas MEMORIAs anteriores. Se o Músculo diz '2 horas' para módulo que levou '6 horas' em iteração anterior → aplique SV preventivo."*
+- A falha: Posso subestimar o tempo de build ou a complexidade de um módulo.
+- **Contra-ataque:** Decompor cada tarefa em sub-horas reais incluindo testes e integração. Soma > 4h → simplificar ou declarar inviável no prazo.
 
 **Deficiência 4 — Escopo Silencioso**
-- A falha: Posso expandir o escopo de uma feature sem declarar ao Diretor, entregando mais do que foi aprovado. Parece bom, mas viola o controle de Veredito e cria dívida técnica disfarçada.
-- **Mensagem para o Estrategista:** *"Estrategista, monitore se o Músculo está entregando exatamente o que foi aprovado ou adicionando 'melhorias' não solicitadas. Feature não aprovada = escopo indevido = débito técnico mascarado de velocidade."*
-- **Mensagem para o Auditor:** *"Auditor, compare o PLANO_BUILD aprovado pelo Diretor com o que o Músculo entregou na MEMORIA. Qualquer divergência entre plano e entrega deve ser sinalizada antes de aceitar a iteração como concluída."*
+- A falha: Posso expandir o escopo de uma feature sem declarar ao Diretor — cria dívida técnica disfarçada.
+- **Contra-ataque:** Comparar o que foi entregue com o PLANO_BUILD aprovado. Qualquer divergência (por adição ou subtração) → declarar explicitamente ao Diretor.
 
 **Deficiência 5 — Drift de Formato de Deliberação**
-- A falha: Sob pressão de sessão longa ou context compaction, posso abandonar o formato de 7 pontos, entregando respostas genéricas em vez de análise estruturada.
-- **Mensagem para o Estrategista:** *"Estrategista, se o Músculo deliberar sem a estrutura de 7 pontos (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação), interrompa: 'Músculo, reapresente no formato padrão de deliberação.' Opinião sem formato não é consultoria."*
-- **Mensagem para o Auditor:** *"Auditor, ao auditar as deliberações do Músculo, verifique se os 7 pontos estão presentes e preenchidos com dados reais do projeto. Sem os 7 pontos = deliberação inválida = risco de deriva silenciosa."*
+- A falha: Sob pressão de sessão longa ou context compaction, posso abandonar o formato de 7 pontos.
+- **Contra-ataque:** Verificar antes de enviar: estou usando os 7 pontos? Se não → reformatar. Opinião sem formato não é consultoria.
+
+> Mensagens para Estrategista e Auditor sobre as deficiências do Músculo: `.claude/skills/vanguard-protocolo.md` → Parte C.
 
 ---
 
@@ -492,76 +489,9 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 
 ### 📂 TEMPLATES OPERACIONAIS — PASSO A PASSO POR MEMBRO
 
-#### ARQUITETURA DOS PASSO FILES — LER ANTES DE CRIAR QUALQUER NOVO PROJETO
-
-Cada interação com o Gemini (Passo 3), o NotebookLM (Passo 5) e o Músculo (Passo 6) é guiada por um arquivo de PASSO. Esses arquivos têm duas camadas:
-
-**Camada 1 — Permanente (nunca editar):**
-- Protocolo anti-deficiência do membro destinatário (Gemini, NotebookLM ou Músculo)
-- Bloco de compensação das deficiências do Músculo (instrução ao destinatário para estruturar sua resposta compensando as 5 falhas do Músculo)
-- Formato obrigatório de resposta (estrutura exata que o destinatário deve seguir)
-
-**Camada 2 — Variável (Eduardo atualiza antes de cada loop):**
-- Contexto do projeto: o que foi construído, o que falta, riscos atuais, decisões fixas
-- As 5 ideias do Músculo do relatório evolutivo mais recente
-
-**Regra de arquivo — NUNCA criar Loop1, Loop2, Loop3 separados:**
-Um projeto tem exatamente 3 arquivos de PASSO. Eles vivem para sempre e são sobrescritos a cada loop:
-
-```
-CLIENTES/[PROJETO]/
-  PASSO3_GEMINI.md       ← Eduardo envia ao Gemini (Loop N)
-  PASSO5_NOTEBOOKLM.md   ← Eduardo envia ao NotebookLM (Loop N)
-  PASSO6_MUSCULO.md      ← Músculo lê antes de deliberar (Loop N)
-```
-
-O histórico fica no LEDGER e na MEMORIA — não nos arquivos de PASSO.
-
----
-
-#### TEMPLATES UNIVERSAIS (base para todo projeto novo)
-
-| Arquivo universal | Membro destino | O que contém |
-|---|---|---|
-| `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` | Gemini | Anti-deriva (4 contra-ataques) + compensação Músculo (5 blocos) + formato DIRETRIZ (7 blocos obrigatórios) |
-| `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md` | NotebookLM | Ordem de fontes obrigatória + anti-alucinação (4 contra-ataques) + compensação Músculo (5 blocos) + formato Skill (4 partes) |
-| `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md` | Músculo | Checklist de imunidade (5 defesas) + protocolo de deliberação + ritual de fechamento (7 itens obrigatórios) |
-
-**Para criar os PASSO files de um projeto novo:**
-1. Copiar os 3 templates para `CLIENTES/[PROJETO]/`
-2. Renomear: `PASSO3_GEMINI.md`, `PASSO5_NOTEBOOKLM.md`, `PASSO6_MUSCULO.md`
-3. Preencher o bloco `## 📋 CONTEXTO DO PROJETO` com dados reais do BRIEFING_DISCOVERY
-4. Os blocos permanentes (protocolos + formatos) não são tocados
-
----
-
-#### O QUE EDUARDO FAZ ANTES DE CADA LOOP
-
-**Antes de ir ao Gemini (Passo 3):**
-1. Abrir `CLIENTES/[PROJETO]/PASSO3_GEMINI.md`
-2. Atualizar o bloco `## 📋 CONTEXTO DO PROJETO`:
-   - O que foi construído até agora (listar dias e outputs reais)
-   - O que falta (dias restantes e o que cada um produz)
-   - Maior risco atual
-   - Decisões fixadas neste projeto (não reverter)
-   - As 5 ideias do Músculo do último `relatorio_evolutivo`
-3. Enviar ao Gemini na ordem: `MEMORIA_V[X]` → `relatorio_evolutivo_V[X]` → `PASSO3_GEMINI.md`
-
-**Antes de ir ao NotebookLM (Passo 5):**
-1. Abrir `CLIENTES/[PROJETO]/PASSO5_NOTEBOOKLM.md`
-2. Atualizar o bloco `## 📋 CONTEXTO DO PROJETO` (mesmo que o PASSO3, mas focado no que o Auditor precisa ver)
-3. Carregar as fontes na ordem correta antes de colar o texto:
-   `MEMORIA_V[X]` → `relatorio_evolutivo_V[X]` → `INTELLIGENCE_LEDGER` → `SKILL_PROTOCOLO_VANGUARD` → `BRIEFING_DISCOVERY` → `DIRETRIZ do Gemini` → `PASSO5_NOTEBOOKLM.md`
-
-**Antes de acionar o Músculo (Passo 6):**
-1. O Músculo lê `PASSO6_MUSCULO.md` internamente antes de qualquer deliberação
-2. O PASSO6 não precisa ser atualizado por Eduardo — é guia interno do Músculo
-3. Eduardo só diz: "PROTOCOLO VANGUARD — [projeto]. Trago a Skill e a DIRETRIZ. Leia tudo e delibere."
-
----
-
-> **Regra de ouro:** Músculo nunca delibera sem ter executado o PASSO6 internamente.
-> Diretor nunca leva DIRETRIZ ao Músculo sem ter preenchido PASSO3 (para Gemini) e PASSO5 (para NotebookLM) neste loop.
+> Passo a passo completo por membro: `QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md` ou `.claude/skills/vanguard-protocolo.md`
+> Templates dos PASSO files: `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md`, `PASSO5_NOTEBOOKLM_TEMPLATE.md`, `PASSO6_MUSCULO_TEMPLATE.md`
+> Cada projeto tem 3 arquivos de PASSO em `CLIENTES/[PROJETO]/` — sobrescritos a cada loop, nunca duplicados.
 
 ---
 
@@ -633,115 +563,20 @@ O histórico fica no LEDGER e na MEMORIA — não nos arquivos de PASSO.
 
 ---
 
-### PASSO A PASSO — SESSÃO COM O GEMINI (Estrategista)
-
-> Objetivo: ancorar o Estrategista no estado real do projeto antes de qualquer DIRETRIZ.
-> Deficiência combatida: Amnésia de Contexto + Alucinação Otimista.
-
-**Antes de abrir o Gemini:**
-```powershell
-.\scripts\gemini_anchor_generator.ps1
-```
-Confirmar que `CONTEXTO_GEMINI.md` foi gerado. O script copia para o clipboard automaticamente.
-
-**O que colar no Gemini — nesta ordem exata:**
-
-```
-[1] Conteudo de CONTEXTO_GEMINI.md   ← ancora com LEDGER + WIP + MEMORIA
-[2] Conteudo de CLIENTES/[PROJETO]/PASSO3_GEMINI.md  ← instrucao da iteracao
-```
-
-**O que o PASSO3_GEMINI.md deve conter (Eduardo atualiza antes de cada loop):**
-- `## CONTEXTO DO PROJETO` com:
-  - O que foi construído: listar dias e commits reais (ex: "Dia 1: ef3f1cd — infra")
-  - O que falta: dias restantes e outputs esperados de cada um
-  - Maior risco atual do projeto
-  - Decisões fixadas que não podem ser revertidas
-  - As 5 ideias disruptivas do último `relatorio_evolutivo` do Músculo
-
-**Como o Gemini deve responder (DIRETRIZ obrigatória — 7 blocos):**
-```
-1. DIAGNÓSTICO — o que está certo e o que está em risco
-2. PRIORIDADES — máximo 5, ordenadas por impacto
-3. DECISÕES — cada uma com ENTRA/V2/DESCARTADO + motivo
-4. RISCOS — o que pode falhar nos próximos dias
-5. ENHANCEMENTS — como tornar o que foi aprovado mais forte
-6. 5 IDEIAS DISRUPTIVAS — do Estrategista para o Músculo reagir
-7. PRÓXIMA AÇÃO — o que Eduardo faz para desbloquear
-```
-
-**Se o Gemini desviar deste formato:**
-> "Estrategista, sua DIRETRIZ não seguiu o formato de 7 blocos. Reapresente. Prioridades > 5 são descartadas automaticamente."
+### SESSÃO COM O GEMINI — RESUMO EXECUTIVO
+> Antes: `.\scripts\gemini_anchor_generator.ps1` → cola CONTEXTO_GEMINI.md + PASSO3_GEMINI.md do projeto.
+> Atualizar PASSO3 (`## CONTEXTO DO PROJETO`) com dias construídos + outputs reais + 5 ideias do último relatorio.
+> DIRETRIZ esperada: 7 blocos (Diagnóstico + Prioridades + Decisões + Riscos + Enhancements + 5 Ideias + Próxima Ação).
+> Protocolo completo: `.claude/skills/vanguard-protocolo.md`
 
 ---
 
-### PASSO A PASSO — SESSÃO COM O NOTEBOOKLM (Auditor)
-
-> Objetivo: alimentar o Auditor com o histórico real do projeto na ordem correta.
-> Deficiência combatida: Miopia de Contexto + Amnésia Inter-Sessões + Yes-Man.
-
-**Antes de abrir o NotebookLM:**
-```powershell
-.\scripts\preparar_notebooklm_projeto.ps1 -cliente [NOME]
-```
-O script monta a pasta `CLIENTES/[NOME]/NOTEBOOKLM_FONTES/` com todos os documentos numerados (01-15) e abre o Explorer automaticamente. Selecionar tudo (Ctrl+A) e arrastar ao NotebookLM.
-
-> Se houver mudança em qualquer documento universal (LEDGER, SKILL, MEMORANDO), rodar antes:
-> `.\scripts\atualizar_notebooklm_base.ps1`
-
-**Ordem de carregamento de fontes no NotebookLM (respeitar os prefixos numéricos):**
-```
-01 — SKILL_PROTOCOLO_VANGUARD       ← ancora o Auditor nos padrões do Quadrilateral
-02 — MEMORANDO_QUADRILATERAL        ← constituição e valores
-03 — MANUAL_DIRETOR                 ← como o Diretor opera
-04 — INTELLIGENCE_LEDGER            ← princípios ativos — o que nunca repetir
-05 — PROCESSO_EVOLUTIVO             ← como o loop funciona
-06 — TEMPLATES_COMUNICACAO          ← formatos obrigatórios de cada membro
-07 — WIP_BOARD                      ← estado atual dos projetos
-08 — ANALISE_SOCIO_ATUAL            ← visão de negócio mais recente
-09 — BRIEFING_DISCOVERY_[CLIENTE]   ← dor real do cliente
-10 — MEMORIA_RECENTE                ← estado técnico e dívidas
-11 — RELATORIO_EVOLUTIVO_RECENTE    ← SWOT + ideias do ciclo anterior
-12 — DIRETRIZ_GEMINI_[VERSAO]       ← o que o Estrategista propôs
-13 — PASSO5_NOTEBOOKLM              ← instrução desta iteração
-14 — SKILL_CLIENTE_ANTERIOR         ← auditoria do ciclo anterior
-15 — ALERTA_CONFLITO_PROTOCOLO      ← gatilho de calibração se necessário
-```
-
-> Regra de ouro: fatos concretos do passado (01–11) carregam ANTES de qualquer nova ideia (12–15). Nunca inverter.
-
-**O que colar no NotebookLM depois de carregar as fontes:**
-
-Colar o conteúdo de `CLIENTES/[PROJETO]/PASSO5_NOTEBOOKLM.md`, que deve conter:
-- Instrução de que o Auditor está num projeto ativo com prazo real
-- Os 4 blocos que a Skill deve obrigatoriamente ter (com dados reais, não genéricos)
-- A DIRETRIZ do Gemini resumida para o Auditor reagir criticamente
-- Pergunta direta: "O que o Músculo e o Estrategista não estão vendo?"
-
-**Como descrever a DIRETRIZ do Gemini para o Auditor:**
-```
-"Auditor, o Estrategista gerou a DIRETRIZ abaixo para o projeto [CLIENTE].
-Sua missão: auditar esta DIRETRIZ cruzando com o histórico real das fontes.
-Identifique: (1) o que contradiz princípios ativos do LEDGER,
-(2) o que já falhou em projetos anteriores,
-(3) o que o Estrategista está ignorando por otimismo.
-Não valide por momentum. Discorde quando tiver evidência histórica."
-
-[colar DIRETRIZ do Gemini aqui]
-```
-
-**Ao receber a Skill do Auditor:**
-```
-1. Salvar em: .claude/skills/SKILL_PROTOCOLO_[CLIENTE]_VX.md
-2. Executar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\SKILL_PROTOCOLO_[CLIENTE]_VX.md"
-3. Se REJEITADO → retornar ao NotebookLM:
-   "Auditor, sua Skill foi rejeitada pelo gate de qualidade.
-   Faltam: [listar blocos ausentes]. Reprocesse com dados reais do projeto."
-4. Se APROVADO → trazer ao Músculo junto com a DIRETRIZ do Gemini
-```
-
-**Se o Auditor operar como Yes-Man (concordar sem questionar):**
-> "Auditor, você validou a proposta do Estrategista sem citar nenhum padrão de falha do nosso histórico. Isso é comportamento Yes-Man. Reprocesse: quais projetos anteriores falharam nesta abordagem? Cite fontes reais."
+### SESSÃO COM O NOTEBOOKLM — RESUMO EXECUTIVO
+> Antes: `.\scripts\preparar_notebooklm_projeto.ps1 -cliente [NOME]` → monta NOTEBOOKLM_FONTES/ numerado.
+> Fontes 01–11 (histórico) carregam ANTES de 12–15 (ideias novas). Nunca inverter.
+> Skill esperada: 4 partes (Auditoria de Coerência + Sócio Consultor + Skill copiável + 5 Ideias do Auditor).
+> Validar com: `.\scripts\skill_parser_gate.ps1` — Skill rejeitada sem os 4 blocos com dados reais.
+> Protocolo completo: `.claude/skills/vanguard-protocolo.md`
 
 ---
 
@@ -750,102 +585,7 @@ Não valide por momentum. Discorde quando tiver evidência histórica."
 ```powershell
 .\scripts\session_close.ps1
 ```
+Captura FRICÇÕES + PRINCÍPIOS + DÍVIDAS TÉCNICAS → LEDGER + `DIVIDAS_TECNICAS_AUDITOR.md`.
+Incluir `DIVIDAS_TECNICAS_AUDITOR.md` nas fontes do próximo ciclo do NotebookLM.
 
-O script guia 5 prompts:
-1. `[FRICÇÃO]` — algum ALERTA foi emitido? escopo mudou?
-2. `[PRINCÍPIO]` — novo padrão descoberto nesta sessão?
-3. `[OVERRIDE]` — Diretor vetou algum princípio ativo?
-4. `[DERIVA]` — sessão divergiu de princípio ativo?
-5. `[DÍVIDAS TÉCNICAS]` — módulos incompletos ou bugs que o Auditor precisa ver?
-
-Tudo é gravado automaticamente em `INTELLIGENCE_LEDGER.md` + `DIVIDAS_TECNICAS_AUDITOR.md`.
-O arquivo `DIVIDAS_TECNICAS_AUDITOR.md` deve ser incluído como fonte extra no próximo ciclo do NotebookLM.
-
----
-
-### DOCUMENTOS VIVOS — ATUALIZAR SEMPRE (CHECKLIST POR EVENTO)
-
-> Cada documento abaixo é um organismo vivo. Deixar desatualizado = inteligência perdida.
-> O Músculo verifica esta lista ao fechar qualquer sessão, iteração ou entrega.
-
-| Documento | Atualizar quando | Responsável |
-|---|---|---|
-| `INTELLIGENCE_LEDGER.md` | Toda sessão — via `session_close.ps1` | Músculo |
-| `CLIENTES/WIP_BOARD.json` | A cada mudança de status de projeto | Músculo + Diretor |
-| `CONSELHO/NotebookLM/ANALISE_SOCIO_ATUAL.txt` | Após cada sessão com NotebookLM | Diretor (cola resposta do Auditor) |
-| `CLIENTES/[PROJ]/PASSO3_GEMINI.md` | Antes de cada sessão com Gemini | Diretor + Músculo |
-| `CLIENTES/[PROJ]/PASSO5_NOTEBOOKLM.md` | Antes de cada sessão com NotebookLM | Diretor + Músculo |
-| `CLIENTES/[PROJ]/HISTORICO/MEMORIA_VX.md` | Ao fechar cada iteração de build | Músculo |
-| `CLIENTES/[PROJ]/HISTORICO/relatorio_evolutivo_VX.md` | Ao fechar cada iteração | Músculo |
-| `.claude/skills/SKILL_PROTOCOLO_[CLIENTE]_VX.md` | Quando Skill chega do NotebookLM (após gate) | Músculo |
-| `QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md` | Quando padrão universal evolui | Músculo + Diretor |
-| `.claude/skills/vanguard-protocolo.md` | Sincronizar com o original acima | Músculo |
-| `DIVIDAS_TECNICAS_AUDITOR.md` | Ao fechar sessão — via `session_close.ps1` | Músculo |
-
----
-
-### ORDENS OBRIGATÓRIAS PARA CADA MEMBRO — O QUE CADA UM DEVE EXECUTAR
-
-#### O QUE O GEMINI DEVE SEMPRE EXECUTAR (DIRETRIZ obrigatória — 7 blocos)
-
-Toda DIRETRIZ do Estrategista deve conter obrigatoriamente:
-
-```
-BLOCO 0 — DIAGNÓSTICO
-  O risco real que o Músculo e o Diretor não estão endereçando.
-  O que o cliente precisa sentir no handoff para renovar e indicar.
-
-BLOCO 1 — PRIORIDADES DE BUILD
-  Máximo 3. Cada uma com: o que construir + por que agora + horas reais + o que fica fora.
-
-BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
-  ROI com números reais. Como posicionar V2 sem parecer venda forçada.
-
-BLOCO 3 — DIRETRIZ TÉCNICA (3 sub-blocos obrigatórios)
-  [PARA O NOTEBOOKLM]: o que auditar, qual risco priorizar, o que a Skill deve conter.
-  [PARA O MÚSCULO]: intenção estratégica em 1 frase + prioridades + o que NÃO construir + gates.
-  [VISÃO DE LONGO PRAZO]: onde este projeto estará em 3 meses.
-
-BLOCO 4 — RESPOSTA ÀS 5 IDEIAS DO MÚSCULO
-  Reagir a cada ideia: aprovada / modificada / descartada — com razão objetiva.
-
-BLOCO 5 — PRÓXIMOS PASSOS DO DIRETOR
-  3 ações concretas para as próximas 24h — o quê, onde, como.
-
-BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
-  Ideias que o Músculo não propôs. Para cada uma: o que é + impacto + pergunta direta ao Músculo.
-```
-
-Se o Gemini não seguir este formato:
-> "Estrategista, sua DIRETRIZ não seguiu o formato de 7 blocos. Reapresente.
->  Prioridades acima de 3 são descartadas. [PARA O MÚSCULO] sem gates = DIRETRIZ inválida."
-
-#### O QUE O NOTEBOOKLM DEVE SEMPRE EXECUTAR (SKILL obrigatória — 4 partes)
-
-Toda Skill do Auditor deve conter obrigatoriamente:
-
-```
-PARTE 1 — AUDITORIA DE COERÊNCIA
-  A DIRETRIZ do Gemini contradiz algo construído antes? Há módulos que já existem?
-  Citar fonte exata (projeto, versão, decisão documentada). Sem dado real = bloco inválido.
-
-PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
-  O que sistematicamente funciona em projetos similares (com nome do projeto).
-  O que sistematicamente falha (com nome do projeto e razão).
-  O que este projeto tem de diferente que muda o padrão.
-  O que o Gemini e o Músculo não estão vendo — discordância fundamentada.
-
-PARTE 3 — A SKILL PROPRIAMENTE DITA (em formato copiável para .claude/skills/)
-  Blocos obrigatórios: contexto do projeto, conexão histórica, padrão de sucesso,
-  padrão de falha, perspectiva do sócio, sequência de build, alertas críticos,
-  o que NÃO construir, o que promover ao SKILL_PROTOCOLO_VANGUARD.
-
-PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
-  Ideias que NÃO vieram do Gemini nem do Músculo — perspectiva histórica exclusiva.
-  Cada uma fundamentada em padrão de projeto anterior.
-```
-
-Se o Auditor não seguir este formato (validar com `skill_parser_gate.ps1`):
-> "Auditor, sua Skill foi rejeitada pelo gate de qualidade. Faltam: [blocos ausentes].
->  Cada bloco precisa de dados reais — nome do projeto, versão, decisão específica.
->  Skill genérica não é aceita. Reprocesse."
+> Documentos vivos e ordens obrigatórias por membro: `.claude/skills/vanguard-protocolo.md`

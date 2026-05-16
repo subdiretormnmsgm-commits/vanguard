@@ -79,11 +79,24 @@ if (Test-Path $pingScript) {
     try { & $pingScript 2>$null | Out-Null } catch {}
 }
 
+# --- Loop Guardian silencioso (detecta loop evolutivo parado) ---
+$loopGuardianOutput = ""
+$loopScript = Join-Path $projectDir "scripts\loop_guardian.ps1"
+if (Test-Path $loopScript) {
+    try {
+        $loopLines = & powershell.exe -NonInteractive -File $loopScript -Silencioso 2>$null
+        if ($loopLines) {
+            $loopGuardianOutput = ($loopLines | Where-Object { $_ -ne $null }) -join "`n"
+        }
+    } catch {}
+}
+
 $sections = @()
-if ($ledger)    { $sections += "## INTELLIGENCE_LEDGER - PRINCIPIOS ATIVOS`n$ledger" }
-if ($wip)       { $sections += "## WIP_BOARD - PROJETOS ATIVOS`n$wip" }
-if ($socio)     { $sections += "## ANALISE DO SOCIO - CONTEXTO ATUAL`n$socio" }
-if ($gateAlert) { $sections += "## GATE ALERT - STATUS DOS PROJETOS`n$gateAlert" }
+if ($ledger)             { $sections += "## INTELLIGENCE_LEDGER - PRINCIPIOS ATIVOS`n$ledger" }
+if ($wip)                { $sections += "## WIP_BOARD - PROJETOS ATIVOS`n$wip" }
+if ($socio)              { $sections += "## ANALISE DO SOCIO - CONTEXTO ATUAL`n$socio" }
+if ($gateAlert)          { $sections += "## GATE ALERT - STATUS DOS PROJETOS`n$gateAlert" }
+if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }
 
 if ($sections.Count -eq 0) { exit 0 }
 

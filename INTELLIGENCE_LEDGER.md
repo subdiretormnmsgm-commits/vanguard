@@ -198,6 +198,24 @@ O Músculo aciona `email_fechamento.ps1` ao fechar qualquer sessão. Nunca recri
 
 ---
 
+---
+
+### [P-020] Alucinação do Auditor deve ser registrada no LEDGER imediatamente
+**Descoberto:** 2026-05-16 | **Sessão:** Auditoria de processo
+**Evidência:** Auditor afirmou "PROJ-002 parou porque o Diretor não preencheu o .env". Eduardo confirmou que isso não ocorreu. O incidente não foi registrado no LEDGER. Sem registro, o Auditor pode re-invocar a mesma alucinação como "histórico" no próximo loop.
+**Princípio:** Toda alucinação identificada do Auditor deve ser registrada no LEDGER com tag `[ALUCINACAO-Auditor-YYYY-MM-DD]` e contradita com a realidade documentada. Sem registro → a alucinação vira "memória" e contamina o próximo ciclo.
+**Aplica-se a:** toda sessão com NotebookLM.
+
+```
+[ALUCINACAO-Auditor-2026-05-16]
+Afirmação inventada: "PROJ-002 Ingrid parou porque Diretor não preencheu o .env"
+Realidade: Dias 1-2 foram completados normalmente — schema + Edge Function + gate CLI aprovado
+Causa provável: Auditor não tinha os commits e MEMORIA_V1_INGRID nas fontes antes de auditar
+Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do NotebookLM
+```
+
+---
+
 ## PADRÕES CONFIRMADOS
 
 O que sistematicamente funciona — com evidência de projeto real.
