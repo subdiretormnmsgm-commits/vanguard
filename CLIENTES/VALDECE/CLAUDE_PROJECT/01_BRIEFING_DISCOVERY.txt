@@ -1,0 +1,108 @@
+PROJETO_001 — BRIEFING DISCOVERY
+Cliente: Valdece | Data: 2026-05-12 | Responsável: Eduardo
+══════════════════════════════════════════════════════════════
+
+QUALIFICAÇÃO — BLOCO A
+──────────────────────
+Q1 — Problema que custa dinheiro:
+"Busca de jurisprudência no STF e STJ exige muito tempo, às vezes horas."
+→ DOR REAL ✓
+
+Q2 — Investimento:
+"Pela ferramenta pagaria R$5.000."
+→ VALOR CONCRETO ✓
+
+Q3 — Consequência de não resolver:
+Tempo desperdiçado em pesquisa manual, produtividade reduzida.
+→ ACEITÁVEL ✓
+
+DECISÃO: ✅ GO
+
+══════════════════════════════════════════════════════════════
+
+DISCOVERY — BLOCO B
+────────────────────
+P1 — Projeto:
+Ferramenta de busca de jurisprudência no STJ e STF.
+
+P2 — Problema:
+Não existe ferramenta com busca por raciocínio jurídico (semântica).
+As existentes usam palavra-chave — retornam decisões pela palavra, não pelo conceito.
+
+P3 — Volume:
+Multi-usuário (Valdece + outros advogados que ele vai cobrar).
+
+P4 — Receita:
+R$5.000 pela ferramenta (pagamento único a nós).
+Plano do Valdece: cobrar R$15/usuário/mês de outros advogados.
+
+P5 — Estado atual:
+Usa: STF portal + SCON/STJ + Dizer o Direito + Legislação Integrada.
+Nenhuma tem IA ou busca semântica.
+
+P6 — Urgência:
+5 dias (prazo fixo e não negociável declarado pelo cliente).
+
+P7 — Recursos:
+Orçamento: R$5.000.
+
+══════════════════════════════════════════════════════════════
+
+CLASSIFICAÇÃO — BLOCO C
+────────────────────────
+TIPO: IA / Dados (busca semântica com embeddings)
+CAMADA: 2–3 (multi-usuário eleva complexidade)
+DISPOSITIVO: Desktop/web principal + responsivo mobile (PWA)
+ÁREA DO DIREITO: Direito Penal (foco do corpus inicial)
+
+PRÓXIMO PASSO: COMANDO 1 → Gemini → DIRETRIZ
+
+══════════════════════════════════════════════════════════════
+
+PERFIL DO CLIENTE — BLOCO D
+────────────────────────────
+O que ele DISSE que quer:
+Ferramenta que retorna decisões do STF/STJ a partir de trechos de texto.
+
+O que eu acho que ele REALMENTE quer:
+Reduzir horas de pesquisa para minutos → mais clientes atendidos por mês → mais receita.
+
+O medo que não verbalizou:
+Cobrar R$15/usuário/mês pode ser barato demais — ele talvez não saiba o valor real do produto.
+
+Quem influencia a decisão dele:
+Provavelmente decide sozinho (advogado autônomo).
+
+O que fará ele dizer SIM:
+Demonstração real funcionando — busca por trecho → resultado coerente em segundos.
+
+══════════════════════════════════════════════════════════════
+
+ANÁLISE DE PRECIFICAÇÃO — ALGORITMO GUT + ROI
+──────────────────────────────────────────────
+GUT (aceitar R$5k vs renegociar):
+  G = 5 (subavaliar cria precedente ruim para próximos clientes)
+  U = 5 (0 clientes há 24 versões — urgência máxima de fechar o primeiro)
+  T = 3 (Valdece pode ir embora, mas não é crise imediata)
+  SCORE GUT = 75/125
+
+ROI calculado para o cliente:
+  Horas perdidas por busca:   ~2h
+  Buscas por mês:             ~10 (estimativa conservadora)
+  Horas/mês economizadas:     20h
+  Valor hora (penal):         R$200/h
+  Custo mensal da ineficiência: R$4.000/mês
+  Payback da ferramenta:      R$5.000 / R$4.000 = 1,25 meses
+  Valor anual gerado:         R$48.000/ano
+  ROI para o cliente:         860% no primeiro ano
+
+Preço justo pelo mercado:  R$12.000–18.000
+Preço proposto pelo cliente: R$5.000 (abaixo em 2–3x)
+
+DECISÃO RECOMENDADA: aceitar R$5.000 com contrapartida
+  → 20% do MRR do SaaS enquanto rodar na nossa infraestrutura
+  → Direito de case público documentado
+  → Referência para próximos clientes
+
+══════════════════════════════════════════════════════════════
+PROJETO_001 · Quadrilateral IAH · 2026-05-12

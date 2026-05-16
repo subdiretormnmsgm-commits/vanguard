@@ -550,6 +550,36 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 
 ---
 
+## 🤝 FORMALIZADOR — 4º MEMBRO DO CONSELHO (Claude Projects)
+
+> Adicionado em 2026-05-16 por intervenção direta do Diretor (P-021, P-023).
+> Opera fora do loop Músculo→Gemini→NotebookLM. Ativado pelo Diretor em momentos de interface com o cliente.
+
+| Membro | Papel | Ferramenta |
+|---|---|---|
+| Músculo | Construtor e executor | Claude Code |
+| Estrategista | Direção estratégica | Gemini |
+| Auditor | Auditoria histórica | NotebookLM |
+| **Formalizador** | **Relacionamento e formalização com cliente** | **Claude Projects** |
+
+**Quando o Músculo ativa o Formalizador:**
+- Antes do build: contrato ainda não existe → lembrar o Diretor de abrir o Project e gerar o contrato
+- Antes do handoff: pitch de Manutenção Soberana + termo de uso → lembrar o Diretor de preparar via Project
+- Ao detectar P-023 ativo (projeto sem contrato) → alertar e indicar o caminho: `CLIENTES/[NOME]/CLAUDE_PROJECT/`
+
+**Pasta âncora por projeto:**
+```
+CLIENTES/[NOME]/CLAUDE_PROJECT/
+  00_INSTRUCAO_SISTEMA.md   ← colar em claude.ai/projects → Instructions
+  01_BRIEFING_DISCOVERY.*   ← upload no Project → Files
+  02_OFFBOARDING_RUNBOOK.*  ← upload no Project → Files
+  03_ROTEIRO_CAMPO.*        ← upload no Project → Files
+```
+
+**Template universal:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_FORMALIZADOR.md`
+
+---
+
 ## 🔧 FERRAMENTAS DE ORQUESTRAÇÃO DO CONSELHO
 
 > Criadas em 2026-05-14. Protegem contra as deficiências nativas de cada membro.

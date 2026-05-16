@@ -1,0 +1,63 @@
+BRIEFING DISCOVERY — INGRID
+Quadrilateral IAH · PROJ-002
+Data: 2026-05-15
+Entrevistador: Eduardo (Diretor)
+
+══════════════════════════════════════════════════════════
+DADOS DO CONCURSO
+══════════════════════════════════════════════════════════
+Órgão        : Secretaria de Estado de Desenvolvimento Social do DF (Sedes/DF)
+Edital       : Nº 1, de 13 de Maio de 2026
+Cargo        : TDAS — Técnico em Desenvolvimento e Assistência Social (Técnico Administrativo)
+Banca        : Instituto Quadrix
+Data da Prova: 06 de Setembro de 2026
+Dias até prova (a partir de 2026-05-15): ~114 dias
+
+══════════════════════════════════════════════════════════
+RESPOSTAS DO DISCOVERY (7 perguntas)
+══════════════════════════════════════════════════════════
+
+P1 — O QUE QUER CONSTRUIR:
+"Quero construir algo que me ajude a estudar para o Concurso Sedes-DF
+que farei no dia 06 de Setembro de 2026."
+
+P2 — DOR PRINCIPAL:
+"Não ter um programa de estudos e o pouco tempo até a data da prova."
+
+P3 — O QUE PRECISA:
+"Ter todo o conteúdo discriminado e dividido por dias, para um estudo
+disciplinado, além de ter uma bateria de questões da banca Quadrix relacionadas."
+
+P4 — VISÃO DO PRODUTO:
+"Um aplicativo que discriminasse tudo que preciso estudar, com ênfase
+nas questões certas, e um método de avaliar meu rendimento e tempo para
+resolução de uma prova fictícia, com a finalidade de estar muito bem
+preparada para a data da prova no pouco tempo que tenho."
+
+P5 — ESTADO ATUAL:
+"Ainda não tenho nada pronto."
+
+P6 — PRAZO DO PROJETO:
+"Preciso disso no prazo de 15 dias."
+(App pronto até ~2026-05-30)
+
+P7 — RECURSOS / RESTRIÇÕES:
+- TEC Concursos: assinatura ativa (uso manual — sem scraping, P-003)
+- Edital PDF disponível (13/05/2026)
+- Usuária não-técnica — UX deve ser extremamente simples
+- Projeto piloto interno Vanguard (sem custo para cliente)
+
+══════════════════════════════════════════════════════════
+DECISÕES JÁ TOMADAS (não reverter)
+══════════════════════════════════════════════════════════
+- Fonte de questões = Claude API (estilo Quadrix) — sem scraping TEC Concursos
+- Stack = PWA (HTML/CSS/JS) + Supabase + Claude API
+- Auth = single-user (só Ingrid — sem multi-tenant no MVP)
+- Sem Stripe / pagamento (projeto piloto)
+
+══════════════════════════════════════════════════════════
+CAMADA E TIPO
+══════════════════════════════════════════════════════════
+Tipo  : Aplicação Web PWA — EdTech / Concursos Públicos
+Camada: 2 — Produto (1–3 semanas, produto completo e funcional)
+Loops : 4 loops planejados (Kickoff → Corpus → App → Polimento)
