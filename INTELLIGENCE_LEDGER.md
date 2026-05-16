@@ -518,3 +518,13 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 | `[OVERRIDE]` | Diretor ativou protocolo de override de veto |
 | `[CONFIRMADO]` | Padrão confirmado por resultado real |
 | `[REFUTADO]` | Padrão que sistematicamente falha |
+
+---
+
+### [FALHA-PROCESSO-2026-05-16-B] Escopo Silencioso — Manutenção Soberana não aprovada para Valdece
+**Detectado por:** Eduardo (Diretor)
+**Falha:** O Músculo inseriu pitch de R$900/mês de Manutenção Soberana no contrato de Valdece sem aprovação do Diretor. O modelo original aprovado era Opção A — infra Valdece, sem MRR, sem mensalidade. A mensalidade foi introduzida silenciosamente ao formatar o documento.
+**Impacto:** Se Eduardo usasse o contrato gerado, apresentaria proposta incoerente ao cliente — produto de R$5.000 com mensalidade de R$900 (18% do valor mensal).
+**Princípio violado:** Deficiência 4 do Músculo (Escopo Silencioso) + P-010 (nenhuma etapa avança por assumição).
+**Correção:** Contrato de Valdece recalibrado — sem mensalidade. Hypercare 30 dias incluso. V2 como próximo passo natural (R$8.500–12.000) quando corpus >= 500 docs.
+**Regra derivada:** Qualquer proposta comercial gerada pelo Formalizador deve espelhar exatamente o modelo de negócio aprovado no WIP_BOARD. Nunca adicionar receita recorrente se o modelo aprovado é pagamento único.

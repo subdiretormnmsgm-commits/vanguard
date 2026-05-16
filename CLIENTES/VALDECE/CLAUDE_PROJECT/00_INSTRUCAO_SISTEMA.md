@@ -93,18 +93,13 @@ Após a entrega, o sistema opera na infraestrutura do Contratante. O custo estim
 A ferramenta é licenciada para uso exclusivo do Contratante. É vedado o compartilhamento de acesso, sublicenciamento ou uso por terceiros sem autorização expressa do Contratado.
 
 **7. SUPORTE PÓS-ENTREGA**
-O Contratado oferece período de Hypercare de 30 dias, incluindo correção de bugs críticos sem custo adicional. Após este período, suporte continuado está disponível mediante contrato de Manutenção Soberana (Cláusula 8).
+O Contratado oferece período de Hypercare de 30 dias, incluindo correção de bugs críticos sem custo adicional. Após este período, o Contratante opera de forma soberana com base no Sovereign Playbook entregue no handoff — sem dependência do Contratado e sem custo mensal adicional.
 
-**8. MANUTENÇÃO SOBERANA (OPCIONAL)**
-Serviço de manutenção mensal: R$900/mês.
-Inclui: monitoramento do corpus, atualização de modelos de IA, correções preventivas, relatório mensal de uso.
-A contratação é opcional mas recomendada para garantir a estabilidade operacional após o período de Hypercare.
-
-**9. PROPRIEDADE INTELECTUAL**
+**8. PROPRIEDADE INTELECTUAL**
 O código-fonte entregue pertence ao Contratante após a quitação integral do valor. O Contratado retém o direito de reutilizar padrões arquiteturais genéricos em outros projetos, sem reproduzir dados ou identidade visual do Contratante.
 
-**10. VIGÊNCIA**
-Este contrato entra em vigor na data de assinatura e encerra-se na conclusão do handoff e quitação integral do valor, salvo contratação da Manutenção Soberana.
+**9. VIGÊNCIA**
+Este contrato entra em vigor na data de assinatura e encerra-se na conclusão do handoff e quitação integral do valor.
 
 **Assinaturas:**
 
@@ -114,20 +109,16 @@ Contratado: _________________________ Data: ___/___/______
 
 ---
 
-## PITCH — MANUTENÇÃO SOBERANA (R$900/mês)
+## QUANDO VALDECE PERGUNTAR "E DEPOIS?"
 
-> Usar quando Valdece perguntar "e depois?" ou quando Eduardo apresentar no presencial.
-> Tom: consultor, não vendedor. Partir do risco, não do produto.
+> Modelo Opção A: infra na conta do Valdece. Ele opera sozinho após o handoff.
+> Não há mensalidade. Não propor Manutenção Soberana para este contrato.
 
----
+Resposta calibrada:
 
-"Valdece, a ferramenta que você vai receber opera de forma soberana — você não depende de mim para o dia a dia. Mas há um risco que vale endereçar: os modelos de IA evoluem rápido. O que funciona hoje com o Google AI Studio pode mudar em 6 meses — novos limites de API, depreciação de modelos, atualização de corpus.
+"Valdece, a grande vantagem do modelo que escolhemos é que você não depende de mim depois da entrega. A infraestrutura está na sua conta — você paga R$1,20/mês diretamente ao Google, sem intermediário. O Sovereign Playbook que entrego no Dia 5 explica tudo que você precisa operar.
 
-A Manutenção Soberana resolve isso: R$900/mês, sem fidelidade mínima. Todo mês eu monitoro o sistema, atualizo o corpus com novas decisões relevantes e faço os ajustes preventivos antes que você note qualquer problema. Você recebe um relatório simples do que foi feito.
-
-Não é um seguro para o que pode dar errado. É o que garante que a ferramenta fica mais inteligente com o tempo, não estagnada.
-
-Os primeiros 30 dias são Hypercare — incluídos no contrato, sem custo adicional. A partir daí, você decide."
+Se em algum momento o corpus crescer bastante — mais de 500 decisões relevantes — posso expandir a ferramenta com novas funcionalidades. Isso seria um novo projeto, conversamos na hora."
 
 ---
 
