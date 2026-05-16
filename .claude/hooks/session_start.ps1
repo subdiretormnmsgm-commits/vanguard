@@ -79,6 +79,12 @@ if (Test-Path $pingScript) {
     try { & $pingScript 2>$null | Out-Null } catch {}
 }
 
+# --- Gemini Anchor silencioso (CONTEXTO_GEMINI.md sempre atualizado) ---
+$anchorScript = Join-Path $projectDir "scripts\gemini_anchor_generator.ps1"
+if (Test-Path $anchorScript) {
+    try { & powershell.exe -NonInteractive -File $anchorScript 2>$null | Out-Null } catch {}
+}
+
 # --- Loop Guardian silencioso (detecta loop evolutivo parado) ---
 $loopGuardianOutput = ""
 $loopScript = Join-Path $projectDir "scripts\loop_guardian.ps1"

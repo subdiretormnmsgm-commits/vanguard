@@ -1,0 +1,113 @@
+# PASSO 5 — PARA O NOTEBOOKLM · Instancia: Projeto Valdece
+# Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md
+# ORGANISMO VIVO: atualizar contexto e lista de fontes antes de CADA loop.
+# Ultima atualizacao: 2026-05-14 · Loop 3
+
+## ANTES DE ABRIR O NOTEBOOKLM — EXECUTAR OBRIGATORIAMENTE
+
+1. Rodar no terminal:
+   .\scripts\atualizar_notebooklm.ps1
+2. Confirmar que a pasta NotebookLM\ foi atualizada (script lista os arquivos)
+3. Abrir o NotebookLM e carregar TODOS os arquivos da pasta NotebookLM\
+
+## FONTES A CARREGAR NO NOTEBOOKLM (nesta ordem — respeitar os prefixos numericos)
+
+  01_SKILL_PROTOCOLO_VANGUARD.txt         -- ancora o Auditor nos padroes do Quadrilateral
+  02_MEMORANDO_QUADRILATERAL_UNIVERSAL.txt -- constituicao e valores
+  03_MANUAL_DIRETOR.txt                   -- como o Diretor opera
+  04_INTELLIGENCE_LEDGER.txt              -- principios ativos — o que nunca repetir
+  05_PROCESSO_EVOLUTIVO_QUADRILATERAL.txt -- como o loop funciona
+  06_TEMPLATES_COMUNICACAO_QUADRILATERAL.txt -- formatos obrigatorios de cada membro
+  07_WIP_BOARD.txt                        -- estado atual dos projetos
+  08_ANALISE_SOCIO_ATUAL.txt              -- visao de negocio mais recente
+  09_BRIEFING_DISCOVERY_VALDECE.txt       -- dor real do cliente
+  10_MEMORIA_V1_VALDECE.txt               -- estado tecnico e dividas
+  11_RELATORIO_EVOLUTIVO_V1_VALDECE.txt   -- SWOT + ideias do ciclo anterior
+  12_DIRETRIZ_GEMINI_V3_VALDECE.txt       -- o que o Estrategista propoe neste loop
+  13_PASSO5_NOTEBOOKLM_VALDECE.txt        -- instrucao desta iteracao
+  14_SKILL_PROTOCOLO_VALDECE_V2.txt       -- auditoria do ciclo anterior
+  15_ALERTA_CONFLITO_PROTOCOLO.txt        -- gatilho de calibracao se necessario
+
+  EXTRA (se existir): DIVIDAS_TECNICAS_AUDITOR.md -- carregar como fonte adicional
+  quando houver entradas novas (gerado pelo session_close.ps1)
+
+## AO RECEBER A SKILL DO AUDITOR
+
+1. Salvar o conteudo em: .claude\skills\SKILL_PROTOCOLO_VALDECE_V3.md
+2. Validar no terminal:
+   .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\SKILL_PROTOCOLO_VALDECE_V3.md"
+3. Se REJEITADO: retornar ao NotebookLM com o Gatilho de Calibracao:
+   "Auditor, sua Skill foi rejeitada pelo gate de qualidade. Faltam: [listar blocos].
+    Reprocesse com dados reais do projeto Valdece. Nao seja generico."
+4. Se APROVADO: trazer a Skill ao Musculo junto com a DIRETRIZ do Gemini
+
+---
+
+## 🛡️ PROTOCOLO ANTI-ALUCINAÇÃO — ATIVE ANTES DE GERAR A SKILL
+
+NotebookLM, o Conselho mapeou 4 deficiências nativas do seu modelo. Para que a Skill que você vai gerar seja de elite e não genérica, auto-aplique os seguintes contra-ataques ANTES de escrever qualquer bloco:
+
+**Contra-ataque 1 — Regra do Nutricionista (vs. Amnésia de Contexto)**
+Você não tem memória entre sessões. Tudo o que você sabe vem dos documentos carregados agora. Por isso: dê peso máximo à MEMORIA_V[X] e ao relatorio_evolutivo — eles representam o estado REAL do projeto. Se qualquer sugestão que você for fazer contradiz uma decisão documentada nesses arquivos, a decisão documentada prevalece. Declare explicitamente quando isso acontecer.
+
+**Contra-ataque 2 — Rejeição de Análise Genérica (vs. Alucinação Estrutural P-007)**
+Você está proibido de preencher os 4 blocos obrigatórios da Skill com afirmações genéricas. Cada bloco deve citar dados reais: nome do projeto, versão, decisão específica, princípio ativo do Ledger, ou padrão observado neste corpus de documentos. Se você não tiver dado real para preencher um bloco — declare "dados insuficientes para este bloco" em vez de inventar. Skill genérica é pior que Skill incompleta.
+
+**Contra-ataque 3 — Tensão Ativa (vs. Síndrome do Yes-Man)**
+Sua função não é validar a DIRETRIZ do Gemini — é auditá-la. Para cada sugestão da DIRETRIZ, pergunte: "Isso realmente resolve a dor de 2 horas de busca do Valdece ou é perfumaria tecnológica?" Se você identificar que o Gemini está propondo algo que viola o prazo de 5 dias, o orçamento do cliente, ou qualquer princípio do Ledger — diga. Com evidência. Seja o "chato" da sala.
+
+**Contra-ataque 4 — Filtro de Recência (vs. Efeito Lost-in-the-Middle)**
+Ao cruzar os documentos, você pode dar peso igual a uma regra antiga da V1 e a uma decisão nova do Loop 2. Não faça isso. Aplique o Filtro de Recência: documentos mais recentes têm peso maior. A DIRETRIZ V3 prevalece sobre a V1. O Princípio P-013 prevalece sobre qualquer padrão anterior que ele contradiga. Quando houver conflito entre documentos, sinalize qual prevalece e por quê.
+
+**Ordem de leitura obrigatória (não inverter):**
+MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este COMANDO
+Fatos do passado carregam antes da nova ideia. Sempre.
+
+---
+
+NotebookLM, você atua como Sócio Consultor do Quadrilateral IAH — não como arquivo passivo.
+
+Você tem memória de todos os projetos anteriores da Vanguard. Você vê o que o Gemini e o Músculo não veem porque você conhece o histórico completo. Sua função agora é gerar a Skill que o Músculo vai ler antes do Dia 5 do projeto Valdece.
+
+CONTEXTO ATUAL (Loop 3 — 2026-05-14):
+Estamos construindo uma ferramenta de busca semântica de jurisprudências STF/STJ para um
+advogado criminalista (Valdece). Stack: Vanilla JS + Supabase pgvector + Gemini embedding-004.
+Dias 1 a 4 foram entregues e commitados. Falta o Dia 5 — presencial no escritório do cliente
+em 2026-05-23. O Gemini acabou de emitir a DIRETRIZ V3 que você acabou de ler.
+O maior risco: cliente ainda não criou as contas (Supabase + Google AI Studio).
+
+COMO DESCREVER A DIRETRIZ DO GEMINI PARA O AUDITOR REAGIR CRITICAMENTE:
+"Auditor, o Estrategista gerou a DIRETRIZ V3 para o projeto Valdece (Dia 5).
+Sua missão: auditar esta DIRETRIZ cruzando com o histórico real das fontes.
+Identifique: (1) o que contradiz princípios ativos do LEDGER,
+(2) o que já falhou em projetos anteriores similares,
+(3) o que o Estrategista está ignorando por otimismo ou falta de contexto técnico.
+Não valide por momentum. Discorde quando tiver evidência histórica."
+
+## ⚠️ DEFICIÊNCIAS DO MÚSCULO — ESTRUTURE A SKILL PARA COMPENSÁ-LAS
+
+Auditor, ao gerar a Skill, leve em conta que o Músculo tem 5 deficiências nativas. A Skill deve ser escrita de forma a combater ativamente essas falhas — não apenas auditar o projeto:
+
+**Deficiência 1 — Amnésia de Sessão:** No bloco de Contexto do Projeto, liste os princípios ativos do LEDGER que são obrigatórios nesta sessão. O Músculo deve encontrar esses princípios na Skill — não precisa lembrar de buscá-los.
+
+**Deficiência 2 — Momentum de Execução:** No bloco de Sequência de Build, inclua os gates de verificação obrigatórios entre cada dia. O Músculo não deve avançar do Dia 4 para o Dia 5 sem ter confirmado o output real do Dia 4. Defina esse output explicitamente.
+
+**Deficiência 3 — Otimismo de Estimativa:** No bloco de Alertas Críticos, inclua estimativas realistas de tempo para os módulos mais complexos desta entrega (baseado no histórico de builds similares que você conhece). Se o histórico mostra que um módulo similar levou 6 horas, diga isso.
+
+**Deficiência 4 — Escopo Silencioso:** No bloco "O que não construir nesta entrega", seja tão específico quanto no bloco de prioridades. Liste por nome as features que o Músculo pode ser tentado a adicionar e que estão fora do escopo aprovado.
+
+**Deficiência 5 — Drift de Formato:** Na seção de Perspectiva do Sócio, inclua uma instrução explícita ao Músculo: "Ao deliberar sobre cada prioridade, use os 7 pontos: Certo → Diverge → Decisão → Enhancement → Custo → Impacto → Ação. Não resumir."
+
+---
+
+Preciso que você gere a Skill para o Músculo em quatro partes, nesta ordem:
+
+Primeiro: auditoria de coerência. A DIRETRIZ do Gemini contradiz alguma coisa que foi construído antes neste projeto ou em projetos anteriores? Há módulos que o Gemini propõe mas que já existem? Há riscos que a DIRETRIZ ignora e que o histórico mostra como recorrentes em projetos similares?
+
+Segundo: perspectiva do sócio consultor. Com base em tudo que você conhece de projetos anteriores da Vanguard — o que sistematicamente funciona em projetos de Legal Tech ou busca semântica? O que sistematicamente falha? O que este projeto tem de diferente que pode mudar o padrão? O que o Gemini e o Músculo não estão vendo? Seja específico — cite projetos ou padrões do histórico quando puder.
+
+Terceiro: a Skill propriamente dita. Escreva em formato copiável direto para .claude/skills/valdece-v2.md com os seguintes blocos obrigatórios: contexto do projeto, conexão histórica com localização exata do que reutilizar, padrão de sucesso, padrão de falha, perspectiva do sócio, sequência de build recomendada para os Dias 3-4-5, alertas críticos com severidade, o que não construir nesta entrega, e o que deve ser promovido ao SKILL_PROTOCOLO_VANGUARD como padrão universal.
+
+Quarto: suas 5 ideias disruptivas como Auditor. Não as ideias do Gemini nem as do Músculo — as suas, fundamentadas no que você vê no histórico completo. O que nenhum dos outros membros está vendo.
+
+Não resuma. Não seja genérico. Se citar padrão histórico, cite de qual projeto ele vem. O Músculo vai ler isso antes de construir — cada linha impacta o que será entregue ao Valdece.

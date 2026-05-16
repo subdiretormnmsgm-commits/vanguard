@@ -1,0 +1,44 @@
+QUADRILATERAL IAH — DIRETRIZ ESTRATÉGICA V2 (RESPOSTA DO ESTRATEGISTA)
+PROJETO: Jurisprudência Semântica Valdece
+DATA: 2026-05-13 | RESTANTE: 3 Dias
+════════════════════════════════════════════════════════════
+
+Diretor Eduardo, analisei a Memória V1 e o Relatório Evolutivo gerados pelo Músculo. O "esqueleto" está montado e as proteções soberanas (Kill-Switch, Burn Rate) estão ativas. Excelente.
+
+Contudo, temos apenas 3 dias e um risco gravíssimo pairando sobre nós. Segue a Diretriz V2 para garantirmos a vitória e o nosso MRR.
+BLOCO 0 — DIAGNÓSTICO (O que o Músculo não está a ver)
+
+O Músculo está cego pelo brilho das próprias ideias (White-label, Sentinel, Síntese). Ele está a esquecer o Abismo do Corpus. A nossa ferramenta não é nada sem dados precisos.
+O Risco Real: O Músculo quer construir funcionalidades de retenção e UI, mas ainda não testou se o STF Open Data devolve resultados minimamente coerentes em Direito Penal com o modelo Gemini. Se a busca por vetor retornar "lixo" porque os PDFs do STF estão mal formatados, perderemos o projeto no Dia 5. A urgência máxima não é o frontend, é provar que a IA acha a jurisprudência certa no terminal.
+BLOCO 1 — PRIORIDADES PARA OS DIAS 3, 4 E 5 (Ordem de Impacto)
+
+Foco absoluto no "FIRE Event" e na proteção do MRR.
+
+    Dia 3: O "Mágico de Oz Gate" e Frontend Core
+
+        Ação 1: Ingestão imediata de dados reais (ou amostra CSV) e teste exaustivo via search_cli.py. Sem aprovação neste Gate, nenhuma interface será construída.
+
+        Ação 2 (Se aprovado): Criação do Frontend Vanilla JS (Apenas Barra de Busca, Lista de Resultados e Botão "Copiar").
+
+    Dia 4: Máquina de Vender MRR (Retenção)
+
+        Ação 1: Implementar o Painel do Diretor (Dashboard de ROI para o Valdece).
+
+        Ação 2: Coleta de logs de feedback (Thumbs up/down).
+
+    Dia 5: Polimento Soberano
+
+        Ação única: Trancar a aplicação (Supabase Auth single-user), testar o Kill-Switch via interface e preparar o ambiente de Handoff.
+
+(O que NÃO construir agora: Nenhuma rota multi-tenant, nenhum trigger de notificação WhatsApp, nenhuma chamada ao Gemini Pro para síntese de texto).
+BLOCO 2 — ROADMAP PÓS-ENTREGA E NEGOCIAÇÃO
+
+O valor do negócio expande-se nos próximos 3 meses, mas precisamos de garantir o caixa hoje.
+
+    A. Das 5 ideias — quais entram no roadmap apresentado no handoff? Apenas a Síntese Automática e o Sentinel Automático. Serão a nossa isca.
+
+    B. O Painel (Ideia 5) entra no Dia 3/4? Sim, no Dia 4. É prioridade máxima. O Valdece precisa fazer login no Dia 5 e ver: "Você economizou 4 horas hoje". É isso que vende a renovação mensal.
+
+    C. O argumento de MRR — como apresentar? "Valdece, os seus R$ 5k pagaram-se nesta primeira semana. O sistema rodando custa dinheiro de IA e Servidor. Por X reais mensais (ou 20% das suas vendas), nós mantemos o motor ligado e financiamos o desenvolvimento da 'Síntese Automática', que redigirá a peça por você no próximo mês."
+
+    D. Estratégia White-label: Guarde segredo. Não comunique agora. Faça o Valdece ficar viciado no MVP por 30 dias. Quando ele perceber que não consegue mais viver sem a ferramenta, sugerimos que ele revenda o acesso para os colegas (e ficamos com a nossa fatia).

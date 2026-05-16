@@ -1,0 +1,99 @@
+# WIP BOARD — QUADRILATERAL IAH
+Atualizado em: 2026-05-16
+Limite WIP: Build=2 | Check=1
+
+---
+
+## EM BUILD
+
+### PROJ-002 — Ingrid
+Projeto: Ferramenta de Estudo — Concurso Sedes-DF
+Área: EdTech · Concursos Públicos
+Camada: 2 (Produto — 15 dias)
+Valor fechado: R$0 (Projeto Piloto Interno — Validação V25)
+Deadline: 2026-05-30 | Prova da cliente: 2026-09-06
+Stack: PWA + Supabase + Claude API
+Loop atual: Loop #1 — Build
+Cargo alvo: TDAS — Técnico em Desenvolvimento e Assistência Social
+Banca: Instituto Quadrix
+
+Dias completos: dia1_schema_edge, dia2_gate_questoes
+
+Plano de build:
+- Dias 1-2: Schema multi-tenant + Edge Function + Mágico de Oz Gate CLI + playbook distratores
+- Dias 3-5: Feed Diário (70/30 Peso 2) + Spaced Repetition SM-2 + Pílula JSON + Explicação direta ao errar + Contador header
+- Dias 6-8: Interface questões + Tutor Socrático Haiku (Peso 2) + Caching + Fallback Fadiga 70%
+- Dias 9-11: Heatmap urgência temporal + Micro-Simulado diário + Modo Sedes-DF domingos
+- Dias 12-13: Contador Pontos Ponderados + Notificação push domingo
+- Dias 14-15: OFFBOARDING_RUNBOOK + SaaS Readiness Audit + P-013 soberania
+
+Decisões fixadas:
+- Fonte questões: Claude API — sem scraping (P-003)
+- Auth: single-user — sem login complexo
+- Cache: gerar lote 50 quando < 30 questões disponíveis
+- Proporção feed: 70% Peso 2 / 30% Peso 1
+- Modelos API: Haiku (gerais + dicas socrátidas) / Sonnet (específicos)
+- Burn rate: BURN_RATE_DAILY_LIMIT_USD=5.00
+- Fallback: trigger 70% da cota diária
+- Spaced repetition: SM-2 intervalo variável
+- Push vs email: push no MVP / email com tracking no Loop 2
+
+Gates bloqueantes:
+- dia2: 10 questões avaliadas por Eduardo — rubrica média >= 4/5 ✅ APROVADO
+- dia5: Feed exibe plano correto 7 dias com proporção correta
+- dia8: Ingrid responde 10 questões — progresso salvo — fallback testado
+- dia11: Heatmap correto + simulado domingo completo
+- dia15: Ingrid com acesso admin próprio Supabase
+
+Pendente Diretor: 5 questões reais Quadrix para playbook distratores (bloqueante Dia 2)
+Próximo passo: Dias 3-5 — Feed Diário + SM-2 + Pílula JSON + Explicação ao errar
+
+---
+
+### PROJ-001 — Valdece
+Projeto: Ferramenta de Busca Jurisprudência STF/STJ
+Área: Legal Tech · Direito Penal
+Camada: 1 (MVP Alto Impacto)
+Valor fechado: R$5.000
+Contrapartida proposta: Boutique de expansão V2 (R$8.500–12.000)
+Deadline: 2026-05-23 (anterior: 2026-05-17)
+Motivo do slip: Cliente com dificuldades no Supabase e Google AI Studio
+Status: Build concluído (Dia 4/5) — Eduardo vai presencialmente na segunda 2026-05-19
+
+Modelo de entrega: Opção A — infra Valdece, sem MRR, R$1,20/mês no API dele
+Loop atual: Loop 2 concluído — DIRETRIZ V3 + Quick Audit NotebookLM executados
+
+Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui, dia4_gate_abnt_threshold_toga
+
+Entregues no Dia 4: gate_stj.py, citacao_abnt_nbr6023, busca_precisa_ampla_threshold, redesign_toga_digital_navy_ouro
+
+Próximo passo (Dia 5 — presencial):
+Auth Supabase (single-user) + Edge Function cron blindado + Auto-Heal pg_net + view last_activity + Sovereign Playbook + migração infra Valdece
+
+V2 pipeline:
+- Features: Sovereign Upload, Radar de Divergência, Citação DOCX
+- Gatilho: corpus >= 500 docs ou 30 dias pós-entrega
+- Pricing: R$8.500–12.000 projeto único + R$300/mês manutenção opcional
+
+---
+
+## DISCOVERY
+(vazio)
+
+## CHECK
+(vazio)
+
+## ENTREGUE
+(vazio)
+
+## RETAINER
+(vazio)
+
+---
+
+## POLÍTICA EXPLÍCITA
+1. Nada entra em BUILD sem Briefing aprovado pelo Diretor
+2. Nada sai de BUILD sem check_leis.ps1 aprovado
+3. Nada vai para ENTREGUE sem Sovereign Playbook gerado
+4. Sentinel do cliente atual validado antes de novo projeto entrar em BUILD
+5. Retainer só após 30 dias de dados reais do Sentinel

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanguard — Bem-vindo ao seu sistema</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0B1420;
+      --gold:    #C9A84C;
+      --gold-b:  rgba(201,168,76,0.2);
+      --cream:   #F0EAD6;
+      --muted:   rgba(240,234,214,0.4);
+      --cyan:    #00F0FF;
+      --cyan-b:  rgba(0,240,255,0.12);
+      --cyan-bd: rgba(0,240,255,0.25);
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--navy);
+      background-image:
+        linear-gradient(rgba(201,168,76,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.02) 1px, transparent 1px);
+      background-size: 48px 48px;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
+      background: rgba(13,27,42,0.92);
+      border: 1px solid var(--gold-b);
+      border-radius: 16px;
+      padding: 40px 36px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), #E2C46E, var(--gold), transparent);
+      position: absolute;
+      top: 0; left: 0; right: 0;
+    }
+
+    /* ── HEADER ── */
+    .vg-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 28px;
+    }
+
+    .vg-pulse {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,240,255,0.5); }
+      50%       { box-shadow: 0 0 0 6px rgba(0,240,255,0); }
+    }
+
+    /* ── DIA ── */
+    .vg-day-label {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .vg-day {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--cream);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 28px;
+    }
+
+    .vg-day span { color: var(--cyan); }
+
+    /* ── BARRAS ── */
+    .vg-bars { margin-bottom: 24px; }
+
+    .vg-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .vg-bar-label {
+      font-size: 11px;
+      color: var(--muted);
+      min-width: 130px;
+      line-height: 1.3;
+    }
+
+    .vg-bar-track {
+      flex: 1;
+      height: 7px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .vg-bar {
+      height: 100%;
+      border-radius: 4px;
+      width: 0;
+      transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .vg-bar--us     { background: linear-gradient(90deg, var(--cyan), #0088AA); }
+    .vg-bar--agency { background: rgba(255,255,255,0.14); }
+
+    .vg-bar-pct {
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 34px;
+      text-align: right;
+    }
+
+    .vg-bar-pct--us     { color: var(--cyan); }
+    .vg-bar-pct--agency { color: rgba(255,255,255,0.25); }
+
+    /* ── BADGE DE VANTAGEM ── */
+    .vg-advantage {
+      background: var(--cyan-b);
+      border: 1px solid var(--cyan-bd);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: rgba(240,234,214,0.85);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .vg-advantage strong { color: var(--cyan); }
+
+    /* ── FONTE ── */
+    .vg-source {
+      font-size: 10px;
+      color: rgba(240,234,214,0.25);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* ── BOTÃO ── */
+    .vg-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .vg-btn:hover  { opacity: 0.9; }
+    .vg-btn:active { transform: scale(0.98); }
+
+    /* ── RODAPÉ ── */
+    .vg-footer {
+      margin-top: 16px;
+      font-size: 10px;
+      color: rgba(240,234,214,0.2);
+      text-align: center;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="vg-badge">
+    <div class="vg-pulse"></div>
+    <span>VANGUARD — VELOCIDADE VERIFICÁVEL</span>
+  </div>
+
+  <div class="vg-day-label">PROJETO VALDECE</div>
+  <div class="vg-day">
+    DIA <span id="vg-current">3</span> DE <span id="vg-total">5</span>
+  </div>
+
+  <div class="vg-bars">
+    <div class="vg-bar-row">
+      <span class="vg-bar-label">Vanguard</span>
+      <div class="vg-bar-track">
+        <div class="vg-bar vg-bar--us" id="bar-us"></div>
+      </div>
+      <span class="vg-bar-pct vg-bar-pct--us" id="pct-us">—</span>
+    </div>
+
+    <div class="vg-bar-row">
+      <span class="vg-bar-label">Agência tradicional</span>
+      <div class="vg-bar-track">
+        <div class="vg-bar vg-bar--agency" id="bar-agency"></div>
+      </div>
+      <span class="vg-bar-pct vg-bar-pct--agency" id="pct-agency">—</span>
+    </div>
+  </div>
+
+  <div class="vg-advantage">
+    Você está <strong id="vg-weeks">— semanas</strong> à frente
+    de qualquer concorrente que tivesse contratado uma agência hoje.
+  </div>
+
+  <div class="vg-source">
+    Benchmark: prazo médio real de agências brasileiras para projetos equivalentes = 90 a 180 dias
+    (fonte: ABES / pesquisas de mercado). O seu projeto: <strong id="vg-deadline" style="color:rgba(240,234,214,0.4)">5 dias</strong>.
+  </div>
+
+  <button class="vg-btn" onclick="entrar()">ACESSAR O SISTEMA →</button>
+
+  <div class="vg-footer">QUADRILATERAL IAH · CONSELHO DELIBERATIVO</div>
+</div>
+
+<script>
+  // ── CONFIGURAÇÃO REAL — PROJETO VALDECE (dados do Discovery 2026-05-12) ──
+  const CONFIG = {
+    projectName:   'VALDECE',
+    currentDay:    5,    // dia da entrega presencial
+    totalDays:     5,
+    agencyDays:    90,   // benchmark: prazo médio real de agências BR (ABES)
+  };
+
+  function init() {
+    const { currentDay, totalDays, agencyDays } = CONFIG;
+
+    const pctUs     = Math.round((currentDay / totalDays) * 100);
+    const pctAgency = Math.round((currentDay / agencyDays) * 100);
+    // semanas à frente = diferença de dias restantes convertida em semanas
+    const weeksAhead = Math.round((agencyDays - totalDays) / 5);
+
+    document.getElementById('vg-current').textContent  = currentDay;
+    document.getElementById('vg-total').textContent    = totalDays;
+    document.getElementById('pct-us').textContent      = pctUs + '%';
+    document.getElementById('pct-agency').textContent  = pctAgency + '%';
+    document.getElementById('vg-weeks').textContent    = weeksAhead + ' semanas';
+    document.getElementById('vg-deadline').textContent = totalDays + ' dias';
+
+    // anima as barras após um breve delay para impacto visual
+    setTimeout(() => {
+      document.getElementById('bar-us').style.width     = pctUs + '%';
+      document.getElementById('bar-agency').style.width = pctAgency + '%';
+    }, 400);
+  }
+
+  function entrar() {
+    // marca que o onboarding já foi visto (não aparece de novo)
+    localStorage.setItem('vg_onboarding_seen', '1');
+    window.location.href = 'index.html';
+  }
+
+  // se já viu, vai direto para o app
+  if (localStorage.getItem('vg_onboarding_seen')) {
+    window.location.href = 'index.html';
+  } else {
+    init();
+  }
+</script>
+</body>
+</html>
