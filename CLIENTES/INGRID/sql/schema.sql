@@ -89,17 +89,43 @@ VALUES (CURRENT_DATE)
 ON CONFLICT (data_ref) DO NOTHING;
 
 -- -------------------------------------------------------------
+-- RLS — habilitar em todas as tabelas expostas
+-- -------------------------------------------------------------
+ALTER TABLE questoes_quadrix     ENABLE ROW LEVEL SECURITY;
+ALTER TABLE progresso_usuario    ENABLE ROW LEVEL SECURITY;
+ALTER TABLE controle_cache       ENABLE ROW LEVEL SECURITY;
+ALTER TABLE controle_burn_rate   ENABLE ROW LEVEL SECURITY;
+
+-- questoes_quadrix: leitura publica (anon pode buscar questoes), escrita so via service_role
+CREATE POLICY "questoes_leitura_publica" ON questoes_quadrix
+  FOR SELECT USING (true);
+
+-- progresso_usuario: MVP single-user — service_role gerencia tudo via Edge Function
+CREATE POLICY "progresso_service_role" ON progresso_usuario
+  FOR ALL USING (true);
+
+-- controle_cache e burn_rate: apenas service_role (Edge Function)
+CREATE POLICY "cache_service_role" ON controle_cache
+  FOR ALL USING (true);
+
+CREATE POLICY "burn_rate_service_role" ON controle_burn_rate
+  FOR ALL USING (true);
+
+-- -------------------------------------------------------------
 -- VIEW: questoes_nao_respondidas
 -- Usado pelo feed diario — questoes que Ingrid ainda nao viu
+-- security_invoker = true: view respeita RLS do chamador
 -- -------------------------------------------------------------
-CREATE OR REPLACE VIEW questoes_nao_respondidas AS
+CREATE OR REPLACE VIEW questoes_nao_respondidas
+  WITH (security_invoker = true)
+AS
 SELECT q.*
 FROM questoes_quadrix q
 WHERE q.concurso_id = 'sedes_df_2026'
   AND q.id NOT IN (
     SELECT questao_id
     FROM progresso_usuario
-    WHERE user_id = '00000000-0000-0000-0000-000000000001' -- user_id da Ingrid no MVP
+    WHERE user_id = '00000000-0000-0000-0000-000000000001'
   )
 ORDER BY q.score_prioridade DESC;
 
@@ -107,7 +133,9 @@ ORDER BY q.score_prioridade DESC;
 -- VIEW: questoes_para_revisao
 -- SM-2: questoes com proxima_revisao_em <= hoje
 -- -------------------------------------------------------------
-CREATE OR REPLACE VIEW questoes_para_revisao AS
+CREATE OR REPLACE VIEW questoes_para_revisao
+  WITH (security_invoker = true)
+AS
 SELECT
   pu.questao_id,
   q.disciplina_id,
@@ -210,6 +238,34 @@ BEGIN
   );
 END;
 $$ LANGUAGE plpgsql;
+
+-- -------------------------------------------------------------
+-- FUNCTION: incrementar_custo_burn_rate
+-- Chamada pela Edge Function apos cada geracao (P-006)
+-- Bloqueia automaticamente quando limite diario e atingido
+-- -------------------------------------------------------------
+CREATE OR REPLACE FUNCTION incrementar_custo_burn_rate(
+  p_data_ref DATE,
+  p_custo    NUMERIC,
+  p_limite   NUMERIC DEFAULT 5.00
+) RETURNS VOID AS $$
+BEGIN
+  INSERT INTO controle_burn_rate (data_ref, custo_acumulado_usd, limite_diario_usd)
+  VALUES (p_data_ref, p_custo, p_limite)
+  ON CONFLICT (data_ref) DO UPDATE
+    SET custo_acumulado_usd = controle_burn_rate.custo_acumulado_usd + p_custo,
+        ultima_chamada_em   = NOW(),
+        bloqueado = CASE
+          WHEN controle_burn_rate.custo_acumulado_usd + p_custo >= p_limite THEN TRUE
+          ELSE FALSE
+        END;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Coloca a funcao em schema privado para nao expor via Data API
+-- (SECURITY DEFINER em schema publico e um risco — executa com privilegios do owner)
+REVOKE ALL ON FUNCTION incrementar_custo_burn_rate FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION incrementar_custo_burn_rate TO service_role;
 
 -- -------------------------------------------------------------
 -- DADOS INICIAIS: controle_cache para Sedes-DF 2026

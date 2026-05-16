@@ -7,6 +7,17 @@
 // Uso: node gate_cli.js --disciplina suas --quantidade 10
 // =============================================================
 
+// Carrega .env se existir (nunca commitar o .env — só o .env.example)
+const fs = require("fs");
+const path = require("path");
+const envPath = path.join(__dirname, ".env");
+if (fs.existsSync(envPath)) {
+  fs.readFileSync(envPath, "utf8").split("\n").forEach((line) => {
+    const [key, ...rest] = line.split("=");
+    if (key && rest.length) process.env[key.trim()] = rest.join("=").trim();
+  });
+}
+
 const readline = require("readline");
 
 const args = process.argv.slice(2);
@@ -56,8 +67,7 @@ async function chamarEdgeFunction() {
 
   if (!resp.ok) {
     const err = await resp.text();
-    console.error("❌ Erro na Edge Function:", err);
-    process.exit(1);
+    throw new Error(err);
   }
 
   return resp.json();
@@ -156,6 +166,13 @@ async function gerarDireto() {
   const peso = ["suas","pnas","loas","cras_creas_servicos","lei_distrital_7484","nob_suas","programas_sociais_df","bpc_beneficios"].includes(DISCIPLINA) ? 2 : 1;
   const modelo = peso === 2 ? "claude-sonnet-4-6" : "claude-haiku-4-5-20251001";
 
+  if (!ANTHROPIC_API_KEY) {
+    console.error("❌ ANTHROPIC_API_KEY não encontrada. Verifique o arquivo .env");
+    process.exit(1);
+  }
+
+  console.log(`   Modelo: ${modelo} | Chave: ${ANTHROPIC_API_KEY.substring(0, 20)}...`);
+
   const resp = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -165,19 +182,41 @@ async function gerarDireto() {
     },
     body: JSON.stringify({
       model: modelo,
-      max_tokens: 4096,
+      max_tokens: 8192,
       messages: [{
         role: "user",
         content: `Gere ${QUANTIDADE} questões de concurso público estilo Instituto Quadrix sobre ${DISCIPLINA.toUpperCase()}.
         Múltipla escolha, 5 alternativas, literalidade da lei, distratores plausíveis.
-        Retorne JSON: { "questoes": [{ "enunciado", "alternativas": [{"letra","texto","correta"}], "gabarito", "explicacao", "distrator_principal", "nivel_dificuldade", "estilo_quadrix" }] }`
+        IMPORTANTE: Retorne APENAS o JSON puro abaixo, sem nenhum texto antes ou depois, sem markdown:
+        { "questoes": [{ "enunciado": "...", "alternativas": [{"letra": "A","texto": "...","correta": false},{"letra": "B","texto": "...","correta": false},{"letra": "C","texto": "...","correta": true},{"letra": "D","texto": "...","correta": false},{"letra": "E","texto": "...","correta": false}], "gabarito": "C", "explicacao": "...", "distrator_principal": "troca_competencia", "nivel_dificuldade": 3, "estilo_quadrix": ["literalidade"] }] }`
       }]
     })
   });
 
+  if (!resp.ok) {
+    const err = await resp.text();
+    console.error("❌ Claude API retornou erro:", resp.status, err);
+    process.exit(1);
+  }
+
   const data = await resp.json();
   const texto = data.content?.[0]?.text ?? "{}";
-  const parsed = JSON.parse(texto.replace(/```json|```/g, "").trim());
+
+  let parsed;
+  try {
+    // Extrai JSON pelo primeiro { e último } — funciona com ou sem markdown
+    const start = texto.indexOf("{");
+    const end = texto.lastIndexOf("}");
+    const jsonStr = (start !== -1 && end > start)
+      ? texto.slice(start, end + 1)
+      : texto.trim();
+    parsed = JSON.parse(jsonStr);
+  } catch (e) {
+    console.error("❌ Falha ao fazer parse do JSON retornado pela API:");
+    console.error(texto.substring(0, 500));
+    process.exit(1);
+  }
+
   const input = data.usage?.input_tokens ?? 0;
   const output = data.usage?.output_tokens ?? 0;
   const custo = peso === 2

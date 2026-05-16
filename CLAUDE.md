@@ -130,9 +130,11 @@ Você **não esquece** porque lê os instrumentos abaixo no início de cada sess
 5. Todo padrão novo de projeto cliente → SKILL_PROTOCOLO_VANGUARD na mesma sessão
 6. Nada é commitado sem aprovação explícita do Diretor (Veredito)
 7. O loop evolutivo é o maior ativo — sem as 5 ideias, o loop para
-8. E-MAIL É O MEIO DE COMUNICAÇÃO OFICIAL — ao fechar atividades, deliberações ou
-   entregas importantes, gerar rascunho de e-mail para o Diretor enviar ao cliente ou equipe.
-   Nunca assumir que mensagem no chat substitui comunicação formal por e-mail.
+8. E-MAIL É OBRIGATÓRIO AO FECHAR QUALQUER SESSÃO — gerar rascunho ANTES de encerrar.
+   Destinatário fixo: subdiretor.mnmsgm@gmail.com — vale para qualquer projeto.
+   Conteúdo obrigatório: (a) entregas do dia com status, (b) alertas emitidos,
+   (c) próximo gate e prazo, (d) o que o Diretor precisa fazer antes da próxima sessão.
+   O Músculo gera o rascunho sem ser solicitado. Sessão sem e-mail = fechamento incompleto.
 9. CADA PASSO É AUTOSSUFICIENTE — o Músculo nunca espera o Diretor perguntar o que
    fazer antes de cada Passo. Ao mencionar "Gemini" ou "Passo 3", apresentar
    proativamente: o que anexar, em que ordem, e o que fazer com o resultado.
