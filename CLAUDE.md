@@ -19,7 +19,7 @@
 | Deficiência | Contra-Ataque Ativo |
 |---|---|
 | **Miopia por Excesso** — dá peso igual a regra antiga e decisão nova | **Filtro de Recência Soberana:** verificar LEDGER para OVERRIDE posterior. Se ignorou P-XXX recente → SV: *"Estrategista, recalibre com o Princípio P-XXX da última sessão."* |
-| **Alucinação Otimista** — propõe arquiteturas complexas demais para 5 dias | **Shadow Architect:** para cada 3 ideias disruptivas → "Por que isso falha no Dia 5?" weight_simplicidade = 1.0. Feature > 4h → Mágico de Oz. |
+| **Alucinação Otimista** — propõe arquiteturas complexas demais para 5 dias | **Shadow Architect:** para cada 3 ideias disruptivas → "Por que isso falha no Dia 5?" weight_simplicidade = 1.0. Feature > 4h → Mágico de Oz. **Verificação obrigatória:** o Bloco 6 da DIRETRIZ deve ter pelo menos 2 ideias marcadas `[CONTRA-INTUITIVO]`. Sem marcadores → DIRETRIZ inválida, pedir reformulação. |
 | **Efeito Lost-in-the-Middle** — esquece as 7 Leis Soberanas em contexto longo | **Checklist de Conformidade Binária:** antes de qualquer build, extrair tabela "Promessas vs. Restrições" e comparar com SKILL_PROTOCOLO_VANGUARD. Discrepância → HV. |
 | **Síndrome de Complacência** — concorda com o Diretor por momentum | **Independência de Auditoria:** perguntar sempre "Estrategista, está sugerindo por ser o melhor para o cliente ou por momentum?" Forçar justificativa com BRIEFING_DISCOVERY. |
 

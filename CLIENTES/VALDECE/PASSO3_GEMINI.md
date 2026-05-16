@@ -18,6 +18,19 @@
 
 ---
 
+## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — PRIORIDADE CRÍTICA ANCORADA
+> Gerado automaticamente por session_close.ps1. Estrategista: proibido de suavizar ou ignorar.
+> O Bloco 1 da DIRETRIZ deve endereçar obrigatoriamente cada mandato abaixo.
+
+[2026-05-16] Eduardo declarou diretamente:
+1. Contrato formal é pré-requisito antes de qualquer projeto Camada 1+ [P-023]
+   → Valdece não tem contrato. Endereçar no Dia 5 (presencial segunda-feira 2026-05-19).
+2. NotebookLM atua como advogado do processo — objeções com base em precedentes [P-022]
+3. Manutenção Soberana (R$900/mês) deve ser apresentada como pré-requisito de estabilidade,
+   não como upsell — ancorando no ROI do Hypercare de 30 dias.
+
+---
+
 ## 🛡️ PROTOCOLO ANTI-DERIVA — ATIVE ANTES DE RESPONDER
 > Bloco permanente. Nunca remover. Aplica-se a todo loop deste projeto.
 

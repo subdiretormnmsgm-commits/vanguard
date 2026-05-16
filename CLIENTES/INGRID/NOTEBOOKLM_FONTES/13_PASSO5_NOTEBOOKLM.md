@@ -54,11 +54,18 @@ Ao gerar a Skill, compense:
 ## 📤 FORMATO OBRIGATÓRIO DA SKILL (4 partes — sem exceção)
 
 ```
+PARTE 0 — INTERVENÇÕES DO DIRETOR NO CICLO ANTERIOR (obrigatório — P-021)
+  [INTERVENÇÃO-Eduardo-2026-05-16] Necessidade do contrato formal (P-023).
+  [INTERVENÇÃO-Eduardo-2026-05-16] NotebookLM como advogado do processo (P-022).
+  [INTERVENÇÃO-Eduardo-2026-05-16] 5 falhas de processo detectadas pelo Diretor antes do Músculo (P-021).
+
 PARTE 1 — AUDITORIA DE COERÊNCIA
   A DIRETRIZ contradiz algo construído antes? Módulos que já existem?
   Citar fonte exata (projeto, versão, decisão documentada). Sem dado real = bloco inválido.
 
-PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
+PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR (atuar como advogado — P-022)
+  Identificar o cenário mais provável em que a decisão do Diretor falha nos próximos 90 dias.
+  Levantar objeções com base em precedentes históricos — não validar por momentum.
   O que funciona em projetos similares (com nome do projeto).
   O que falha (com nome do projeto e razão).
   O que este projeto tem de diferente que muda o padrão.

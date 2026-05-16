@@ -152,6 +152,58 @@ Write-Host "=============================================="
 Write-Host "  Proximo passo: git commit + fechar sessao"
 Write-Host "=============================================="
 
+# --- Mandato Direto do Diretor — auto-injecao no PASSO3 do projeto ativo ---
+Write-Host ""
+Write-Host "[MANDATO] Houve intervencao direta do Diretor nesta sessao?"
+Write-Host "  (novo principio, nova regra, nova funcao do Conselho — ex: 'necessidade do contrato')"
+Write-Host "  Liste 1 por linha. Enter em branco para encerrar. Enter direto para pular."
+$mandatos = @()
+$DATA_MANDATO = Get-Date -Format "yyyy-MM-dd"
+while ($true) {
+    $linha = Read-Host "    > "
+    if ([string]::IsNullOrWhiteSpace($linha)) { break }
+    $mandatos += $linha
+}
+
+if ($mandatos.Count -gt 0) {
+    # Detectar projeto ativo (primeiro em BUILD)
+    $wipPath = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
+    if (Test-Path $wipPath) {
+        $board    = Get-Content $wipPath -Raw -Encoding utf8 | ConvertFrom-Json
+        $projetoAtivo = @($board.board.build) | Select-Object -First 1
+        if ($projetoAtivo) {
+            $clienteDir = Join-Path $BASE "CLIENTES\$($projetoAtivo.cliente.ToUpper())"
+            $passo3Path = Join-Path $clienteDir "PASSO3_GEMINI.md"
+            if (Test-Path $passo3Path) {
+                $blocoMandato = "`n## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — $DATA_MANDATO`n"
+                $blocoMandato += "> Eduardo declarou diretamente. Estrategista: proibido de suavizar ou ignorar.`n"
+                $blocoMandato += "> Bloco 1 da DIRETRIZ deve enderecar cada mandato abaixo.`n`n"
+                $num = 1
+                foreach ($m in $mandatos) {
+                    $blocoMandato += "$num. $m`n"
+                    $num++
+                }
+                $blocoMandato += "`n---`n"
+                # Inserir antes do primeiro ## (protocolo anti-deriva)
+                $conteudo = Get-Content $passo3Path -Raw -Encoding utf8
+                if ($conteudo -match "## ⚠️ \[MANDATO_DIRETO_DO_DIRETOR\]") {
+                    # Substituir bloco existente
+                    $conteudo = $conteudo -replace "(?s)## ⚠️ \[MANDATO_DIRETO_DO_DIRETOR\].*?---\r?\n", $blocoMandato
+                } else {
+                    # Inserir antes do primeiro bloco de protocolo
+                    $conteudo = $conteudo -replace "(## [⚔🛡])", "$blocoMandato`$1"
+                }
+                Set-Content $passo3Path -Value $conteudo -Encoding utf8
+                Write-Host ""
+                Write-Host "  [OK] Mandato injetado em: CLIENTES\$($projetoAtivo.cliente.ToUpper())\PASSO3_GEMINI.md"
+                Write-Host "       Estrategista vai receber os mandatos no proximo loop automaticamente."
+            } else {
+                Write-Host "  [!!] PASSO3_GEMINI.md nao encontrado para $($projetoAtivo.cliente). Injete manualmente."
+            }
+        }
+    }
+}
+
 # --- Auto-regenerar CONTEXTO_GEMINI.md para o proximo loop ---
 $anchorScript = Join-Path $BASE "scripts\gemini_anchor_generator.ps1"
 if (Test-Path $anchorScript) {

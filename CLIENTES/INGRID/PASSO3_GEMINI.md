@@ -35,6 +35,17 @@ Loop 2+ — anexar também:
 
 ---
 
+## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — PRIORIDADE CRÍTICA ANCORADA
+> Gerado automaticamente por session_close.ps1. Estrategista: proibido de suavizar ou ignorar.
+> O Bloco 1 da DIRETRIZ deve endereçar obrigatoriamente cada mandato abaixo.
+
+[2026-05-16] Eduardo declarou diretamente:
+1. Contrato formal é pré-requisito antes de qualquer projeto Camada 1+ [P-023]
+2. NotebookLM atua como advogado do processo — objeções com base em precedentes [P-022]
+3. O Diretor é o originador das inovações estratégicas — sistema amplifica, não substitui [P-021]
+
+---
+
 ## ⚔️ PROTOCOLO ANTI-DERIVA (ler antes de processar)
 
 Estrategista, você opera com 4 deficiências nativas que o Músculo monitora:

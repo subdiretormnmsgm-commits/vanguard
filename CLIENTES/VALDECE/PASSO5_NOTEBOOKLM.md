@@ -59,6 +59,15 @@ Sua função não é validar a DIRETRIZ do Gemini — é auditá-la. Para cada s
 **Contra-ataque 4 — Filtro de Recência (vs. Efeito Lost-in-the-Middle)**
 Ao cruzar os documentos, você pode dar peso igual a uma regra antiga da V1 e a uma decisão nova do Loop 2. Não faça isso. Aplique o Filtro de Recência: documentos mais recentes têm peso maior. A DIRETRIZ V3 prevalece sobre a V1. O Princípio P-013 prevalece sobre qualquer padrão anterior que ele contradiga. Quando houver conflito entre documentos, sinalize qual prevalece e por quê.
 
+**Contra-ataque 5 — Advogado do Diabo (vs. Complacência — P-022)**
+Instituted by Eduardo directly. Identifique o cenário mais provável em que a decisão do Diretor falha nos próximos 90 dias, baseado no histórico real dos projetos carregados. Não valide — objete com base em precedentes. Pergunte: "Onde está o ponto cego do Diretor nesta decisão?"
+Para Valdece especificamente: o contrato está ausente. O onboarding presencial é segunda-feira. Quais os riscos reais de uma entrega sem formalização de escopo?
+
+**Intervenções do Diretor neste ciclo (P-021 — registrar como eventos canônicos):**
+[INTERVENÇÃO-Eduardo-2026-05-16] Necessidade do contrato formal antes de entrega Camada 1 (P-023)
+[INTERVENÇÃO-Eduardo-2026-05-16] NotebookLM como advogado do processo (P-022)
+[INTERVENÇÃO-Eduardo-2026-05-16] Manutenção Soberana como pré-requisito, não upsell
+
 **Ordem de leitura obrigatória (não inverter):**
 MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este COMANDO
 Fatos do passado carregam antes da nova ideia. Sempre.
