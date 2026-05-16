@@ -360,7 +360,7 @@ const Quiz = (() => {
         'Receita em risco: R$ ' + risk.toLocaleString('pt-BR') + '/mês\n\n' +
         rec.cta
       );
-      ctaEl.href = 'https://api.whatsapp.com/send?phone=' + WA_NUMBER + '&text=' + msg;
+      ctaEl.href = 'https://web.whatsapp.com/send?phone=' + WA_NUMBER + '&text=' + msg;
     }
   }
 
