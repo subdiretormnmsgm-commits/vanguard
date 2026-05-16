@@ -40,11 +40,11 @@
   const viewCockpit = document.getElementById('view-cockpit');
 
   function showCockpit(email) {
-    viewLogin.hidden   = true;
-    viewCockpit.hidden = false;
+    viewLogin.style.display   = 'none';
+    viewCockpit.style.display = 'block';
     document.getElementById('cockpit-user-email').textContent = email;
     loadLeads();
-    startWarRoom();  // V15: Supabase Realtime activado
+    startWarRoom();
     try { window.PartnershipsEngine?.init(); } catch (e) { console.warn('PartnershipsEngine:', e); }
     try { window.HiveMind?.init(client);     } catch (e) { console.warn('HiveMind:', e); }
     try { window.TrojanGenerator?.init();    } catch (e) { console.warn('TrojanGenerator:', e); }
@@ -52,8 +52,8 @@
   }
 
   function showLogin() {
-    viewLogin.hidden   = false;
-    viewCockpit.hidden = true;
+    viewLogin.style.display   = 'flex';
+    viewCockpit.style.display = 'none';
   }
 
   // ─── Auth ─────────────────────────────────────────────────────────────────
