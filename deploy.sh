@@ -19,6 +19,7 @@ update assets/css/v26-design-unification.css
 update score/index.html
 update census/index.html
 update dashboard/index.html
+update dashboard/dashboard.js
 update intelligence/index.html
 update marketplace/index.html
 update marketplace/creator.html
