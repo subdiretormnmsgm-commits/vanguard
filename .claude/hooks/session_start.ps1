@@ -130,6 +130,18 @@ if (Test-Path $anchorScript) {
     try { & powershell.exe -NonInteractive -File $anchorScript 2>$null | Out-Null } catch {}
 }
 
+# --- Validador Formalizador silencioso (detecta termo comercial nao aprovado) ---
+$formalizadorOutput = ""
+$validarScript = Join-Path $projectDir "scripts\validar_formalizador.ps1"
+if (Test-Path $validarScript) {
+    try {
+        $fLines = & powershell.exe -NonInteractive -File $validarScript -Silencioso 2>$null
+        if ($fLines) {
+            $formalizadorOutput = ($fLines | Where-Object { $_ -ne $null }) -join "`n"
+        }
+    } catch {}
+}
+
 # --- Loop Guardian silencioso (detecta loop evolutivo parado) ---
 $loopGuardianOutput = ""
 $loopScript = Join-Path $projectDir "scripts\loop_guardian.ps1"
@@ -148,6 +160,7 @@ if ($wip)                { $sections += "## WIP_BOARD - PROJETOS ATIVOS`n$wip" }
 if ($socio)              { $sections += "## ANALISE DO SOCIO - CONTEXTO ATUAL`n$socio" }
 if ($gateAlert)          { $sections += "## GATE ALERT - STATUS DOS PROJETOS`n$gateAlert" }
 if ($checkIn)            { $sections += "## CHECK-IN OBRIGATORIO - PERGUNTAR AO DIRETOR`n$checkIn" }
+if ($formalizadorOutput) { $sections += "## FORMALIZADOR - CONFLITO COMERCIAL DETECTADO`n$formalizadorOutput" }
 if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }
 
 if ($sections.Count -eq 0) { exit 0 }
