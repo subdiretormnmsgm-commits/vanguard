@@ -75,16 +75,74 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 
 ---
 
-## 📚 ORDEM DE INJEÇÃO DE FONTES (respeitar sempre)
+## 📚 COMO CARREGAR AS FONTES (V25 — pasta única)
 
-```
-01 SKILL_PROTOCOLO_VANGUARD        ← ancora nos padrões do Quadrilateral
-02 MEMORANDO_QUADRILATERAL         ← constituição e valores
-03 INTELLIGENCE_LEDGER             ← princípios ativos (P-001 a P-013)
-04 WIP_BOARD                       ← estado dos projetos ativos
-05 BRIEFING_DISCOVERY_INGRID       ← dor real da cliente
-06 PASSO3_GEMINI (enviado)         ← instrução do loop 1
-07 DIRETRIZ_GEMINI_V1              ← o que o Estrategista propôs
+```powershell
+.\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
 ```
 
-> Fatos do passado carregam ANTES de novas ideias. Nunca inverter.
+O script monta `CLIENTES/INGRID/NOTEBOOKLM_FONTES/` com os documentos numerados e abre o Explorer.
+Selecionar tudo (Ctrl+A) → arrastar ao NotebookLM → colar o texto desta seção no chat.
+
+Ordem dos documentos gerados automaticamente:
+
+```
+--- UNIVERSAIS (fatos do passado — carregam primeiro) ---
+01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Quadrilateral
+02_MEMORANDO_QUADRILATERAL.md      ← constituição e valores
+03_MANUAL_DIRETOR.md               ← como Eduardo opera
+04_INTELLIGENCE_LEDGER.md          ← princípios ativos P-001 a P-013
+05_PROCESSO_EVOLUTIVO.md           ← como o loop funciona
+06_TEMPLATES_COMUNICACAO.md        ← formatos obrigatórios
+07_WIP_BOARD.json                  ← estado atual dos projetos
+08_ANALISE_SOCIO_ATUAL.txt         ← visão de negócio atualizada
+
+--- PROJETO INGRID (contexto específico) ---
+09_BRIEFING_DISCOVERY.txt          ← dor real da cliente
+10_MEMORIA_RECENTE.md              ← estado técnico (Loop 2+ )
+11_RELATORIO_EVOLUTIVO.md          ← SWOT + ideias (Loop 2+)
+12_DIRETRIZ_GEMINI.txt             ← o que o Estrategista propôs ← COLAR AQUI
+13_PASSO5_NOTEBOOKLM.md            ← missão do Auditor (este arquivo)
+14_SKILL_ANTERIOR.md               ← Skill do ciclo anterior (Loop 2+)
+15_ALERTA_CONFLITO.md              ← gatilho de calibração
+```
+
+> Fatos do passado (01-11) carregam ANTES das novas ideias (12-15). Nunca inverter.
+> O que NÃO vai ao NotebookLM: PASSO3_GEMINI.md · PASSO6_MUSCULO.md
+
+---
+
+## 🔄 PROTOCOLO WIPE & SYNC (obrigatório a cada loop)
+
+> Em projetos Camada 2 com 4 loops programados, o NotebookLM acumula fontes desatualizadas.
+> A cada mudança de loop, Eduardo apaga tudo e re-sobe as fontes frescas.
+> Nunca acumular fontes de loops anteriores — Auditor confunde histórico com presente.
+
+### Quando executar
+
+| Loop | Gatilho | Status |
+|---|---|---|
+| Loop 1 → Loop 2 | Gate Dia 5 aprovado | pendente |
+| Loop 2 → Loop 3 | Gate Dia 11 aprovado | pendente |
+| Loop 3 → Loop 4 | Gate Dia 15 aprovado | pendente |
+
+### Como executar
+
+```powershell
+# 1. Atualizar as fontes locais
+.\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
+
+# 2. No NotebookLM:
+#    — Abrir o notebook do projeto Ingrid
+#    — Excluir TODAS as fontes existentes
+#    — Arrastar os novos arquivos de CLIENTES/INGRID/NOTEBOOKLM_FONTES/
+
+# 3. Verificar que as fontes mais recentes incluem:
+#    04_INTELLIGENCE_LEDGER.md atualizado com o loop anterior
+#    07_WIP_BOARD.json com loops_programados atualizados
+#    10_MEMORIA_RECENTE.md do loop que fechou
+#    11_RELATORIO_EVOLUTIVO.md do loop que fechou
+```
+
+> Auditor que lê fontes antigas acha que o projeto está no Dia 1.
+> Wipe & Sync é o que garante que a inteligência do Auditor cresce com o projeto.

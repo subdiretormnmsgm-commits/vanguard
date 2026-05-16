@@ -69,6 +69,36 @@
                                                          "saas_b2c_mrr":  "R$ 97/mes x 4 meses = R$ 388 por usuario",
                                                          "meta_saas":  "500 usuarios = R$ 194.000 no ciclo Sedes-DF 2026"
                                                      },
+                                    "loops_programados":  [
+                                                              {
+                                                                  "loop":  1,
+                                                                  "nome":  "Kickoff",
+                                                                  "gate":  "dia2_questoes",
+                                                                  "notebooklm_wipe":  true,
+                                                                  "status":  "concluido"
+                                                              },
+                                                              {
+                                                                  "loop":  2,
+                                                                  "nome":  "Gate Dia 5",
+                                                                  "gate":  "dia5_feed_proporcao",
+                                                                  "notebooklm_wipe":  true,
+                                                                  "status":  "pendente"
+                                                              },
+                                                              {
+                                                                  "loop":  3,
+                                                                  "nome":  "Gate Dia 11",
+                                                                  "gate":  "dia11_heatmap_simulado",
+                                                                  "notebooklm_wipe":  true,
+                                                                  "status":  "pendente"
+                                                              },
+                                                              {
+                                                                  "loop":  4,
+                                                                  "nome":  "Handoff Dia 15",
+                                                                  "gate":  "dia15_admin_supabase",
+                                                                  "notebooklm_wipe":  true,
+                                                                  "status":  "pendente"
+                                                              }
+                                                          ],
                                     "pendente_diretor":  [
                                                              "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
                                                          ],
