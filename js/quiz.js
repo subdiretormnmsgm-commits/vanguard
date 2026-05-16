@@ -413,7 +413,7 @@ const Quiz = (() => {
         nicho:    state.q1,
         gargalo:  getWeakestQuadrant()
       });
-    } catch (_) { /* não bloqueia o fluxo */ }
+    } catch (err) { console.error('[EmailJS]', err); }
 
     renderResult();
     setTimeout(function() { showStep('step-success'); }, 2200);
