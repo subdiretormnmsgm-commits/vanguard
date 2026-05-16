@@ -216,6 +216,33 @@ Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do Not
 
 ---
 
+### [P-021] O Diretor é o originador da direção estratégica — não apenas o aprovador
+**Descoberto:** 2026-05-16 | **Sessão:** Auditoria de processo + fechamento do dia
+**Evidência concreta:** Eduardo identificou 5 falhas que o Músculo não detectou. Eduardo originou a necessidade do contrato com clientes. Eduardo propôs o uso do NotebookLM como auditor jurídico (advogado do processo). Todas estas inovações vieram do Diretor, não do Conselho.
+**Princípio:** O Músculo implementa. O Gemini propõe estratégia. O NotebookLM audita o histórico. Mas a **direção estratégica e as inovações de processo** vêm de Eduardo. Quando o Diretor propõe algo novo — contrato, nova função para um membro do Conselho, nova regra — essa proposta tem peso maior do que qualquer saída dos membros. O sistema existe para amplificar a inteligência do Diretor, não substituí-la.
+**Corolário:** O Músculo que não detectou uma falha antes do Diretor deve perguntar: "Por que meu sistema de auto-proteção falhou aqui?" e gerar ferramenta. O Diretor não deve ser o detector primário de falhas de processo — quando é, o sistema falhou.
+**Aplica-se a:** toda interação. O Quadrilateral é um amplificador da inteligência de Eduardo — não uma cadeia autônoma que o Diretor apenas valida.
+
+---
+
+### [P-022] NotebookLM como advogado do processo — auditor jurídico do Quadrilateral
+**Descoberto:** 2026-05-16 | **Proposto por:** Eduardo (intervenção direta do Diretor)
+**Evidência:** Eduardo identificou que o Auditor, ao cruzar histórico com DIRETRIZ atual, opera como um advogado — levanta objeções com base em precedentes, não valida por momentum.
+**Princípio:** O NotebookLM deve ser usado como auditor jurídico em decisões estratégicas de alto risco: (a) contratos com clientes — cruzar com padrões anteriores de entrega, (b) mudanças de arquitetura — verificar se viola decisões fixadas, (c) mudanças de pricing — verificar consistência com modelo de negócio. Auditor como advogado = sistema de precedentes, não de sugestões.
+**Como ativar:** ao levar uma decisão ao NotebookLM, incluir o prompt: "Atue como advogado do processo. Levante objeções com base em precedentes históricos. Não valide por momentum."
+**Aplica-se a:** Quick Audits e sessões de decisão estratégica (Classe B e C).
+
+---
+
+### [P-023] Necessidade do contrato com clientes — intervenção do Diretor
+**Descoberto:** 2026-05-16 | **Proposto por:** Eduardo (intervenção direta do Diretor)
+**Evidência:** Eduardo identificou que projetos cliente (Valdece, Ingrid) não têm contrato formal documentando escopo, prazo, entregáveis e direitos. Risco jurídico e de expectativa não endereçado.
+**Princípio:** Todo projeto cliente Camada 1+ deve ter contrato antes do início do build. O contrato documenta: (a) escopo exato — o que entra e o que não entra, (b) prazo e gates, (c) valor e condições de pagamento, (d) propriedade do código e dos dados, (e) limitações de uso (ex: anti-licença-compartilhada). O Músculo deve incluir "contrato gerado e assinado" como pré-requisito de BUILD na POLÍTICA_EXPLÍCITA do WIP_BOARD.
+**Próxima ação:** Gerar template de contrato para projetos Camada 1 e 2. Validar com Eduardo antes de usar com Valdece ou Ingrid.
+**Aplica-se a:** qualquer projeto com valor fechado > R$0 ou com cliente externo.
+
+---
+
 ## PADRÕES CONFIRMADOS
 
 O que sistematicamente funciona — com evidência de projeto real.
