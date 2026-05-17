@@ -19,7 +19,7 @@ Seu papel neste Project:
 
 ## CONTEXTO DO PROJETO
 
-**Cliente:** Ingrid (candidata a TDAS — Técnico em Desenvolvimento e Assistência Social)
+**Cliente:** Ingrid (candidata a TDAS – Especialidade: Técnico Administrativo, Cargo 202)
 **Banca:** Instituto Quadrix
 **Prova:** 2026-09-06
 **Projeto:** Ferramenta de Estudo personalizada para o concurso Sedes-DF

@@ -2,6 +2,9 @@
 # Executar ao fechar qualquer sessao do Quadrilateral
 # Prompts obrigatorios para atualizar o INTELLIGENCE_LEDGER
 
+[Console]::InputEncoding  = [System.Text.Encoding]::UTF8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 $BASE   = Split-Path -Parent $PSScriptRoot
 $LEDGER = "$BASE\INTELLIGENCE_LEDGER.md"
 $KG     = "$BASE\knowledge_graph.json"
@@ -25,7 +28,7 @@ if (-not $comandoGerado) {
     Write-Host "  Opcoes:"
     Write-Host "    [1] Gerar COMANDO_ESTRATEGISTA agora (recomendado)"
     Write-Host "    [2] Declarar quebra intencional de loop (justificar abaixo)"
-    Write-Host "    [3] Ja gerado em outro caminho — continuar"
+    Write-Host "    [3] Ja gerado em outro caminho -- continuar"
     Write-Host ""
     $opcao = Read-Host "  Escolha [1/2/3]"
     if ($opcao -eq "2") {
@@ -86,7 +89,7 @@ if ($deriva)   { $entrada += "`n``[DERIVA]`` $deriva" }
 if ($friccao -or $principio -or $override -or $deriva) {
     $conteudo = Get-Content $LEDGER -Raw -Encoding utf8
     if ($conteudo -match "## GLOSSARIO") {
-        $conteudo = $conteudo -replace "(## GLOSSARIO)", "$entrada`n`n## GLOSSARIO"
+        $conteudo = $conteudo -replace "(?m)^## GLOSSARIO", "$entrada`n`n## GLOSSARIO"
     } else {
         $conteudo = $conteudo + $entrada
     }
@@ -152,10 +155,10 @@ Write-Host "=============================================="
 Write-Host "  Proximo passo: git commit + fechar sessao"
 Write-Host "=============================================="
 
-# --- Mandato Direto do Diretor — auto-injecao no PASSO3 do projeto ativo ---
+# --- Mandato Direto do Diretor -- auto-injecao no PASSO3 do projeto ativo ---
 Write-Host ""
 Write-Host "[MANDATO] Houve intervencao direta do Diretor nesta sessao?"
-Write-Host "  (novo principio, nova regra, nova funcao do Conselho — ex: 'necessidade do contrato')"
+Write-Host "  (novo principio, nova regra, nova funcao do Conselho - ex: necessidade do contrato)"
 Write-Host "  Liste 1 por linha. Enter em branco para encerrar. Enter direto para pular."
 $mandatos = @()
 $DATA_MANDATO = Get-Date -Format "yyyy-MM-dd"
@@ -169,13 +172,13 @@ if ($mandatos.Count -gt 0) {
     # Detectar projeto ativo (primeiro em BUILD)
     $wipPath = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
     if (Test-Path $wipPath) {
-        $board    = Get-Content $wipPath -Raw -Encoding utf8 | ConvertFrom-Json
+        $board = Get-Content $wipPath -Raw -Encoding utf8 | ConvertFrom-Json
         $projetoAtivo = @($board.board.build) | Select-Object -First 1
         if ($projetoAtivo) {
             $clienteDir = Join-Path $BASE "CLIENTES\$($projetoAtivo.cliente.ToUpper())"
             $passo3Path = Join-Path $clienteDir "PASSO3_GEMINI.md"
             if (Test-Path $passo3Path) {
-                $blocoMandato = "`n## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — $DATA_MANDATO`n"
+                $blocoMandato  = "`n## [!!] [MANDATO_DIRETO_DO_DIRETOR] -- $DATA_MANDATO`n"
                 $blocoMandato += "> Eduardo declarou diretamente. Estrategista: proibido de suavizar ou ignorar.`n"
                 $blocoMandato += "> Bloco 1 da DIRETRIZ deve enderecar cada mandato abaixo.`n`n"
                 $num = 1
@@ -184,14 +187,14 @@ if ($mandatos.Count -gt 0) {
                     $num++
                 }
                 $blocoMandato += "`n---`n"
-                # Inserir antes do primeiro ## (protocolo anti-deriva)
+
                 $conteudo = Get-Content $passo3Path -Raw -Encoding utf8
-                if ($conteudo -match "## ⚠️ \[MANDATO_DIRETO_DO_DIRETOR\]") {
+                if ($conteudo -match "\[MANDATO_DIRETO_DO_DIRETOR\]") {
                     # Substituir bloco existente
-                    $conteudo = $conteudo -replace "(?s)## ⚠️ \[MANDATO_DIRETO_DO_DIRETOR\].*?---\r?\n", $blocoMandato
+                    $conteudo = $conteudo -replace "(?s)## \[!!\] \[MANDATO_DIRETO_DO_DIRETOR\].*?---\r?\n", $blocoMandato
                 } else {
-                    # Inserir antes do primeiro bloco de protocolo
-                    $conteudo = $conteudo -replace "(## [⚔🛡])", "$blocoMandato`$1"
+                    # Inserir no inicio do arquivo
+                    $conteudo = $blocoMandato + "`n" + $conteudo
                 }
                 Set-Content $passo3Path -Value $conteudo -Encoding utf8
                 Write-Host ""
@@ -213,6 +216,6 @@ if (Test-Path $anchorScript) {
         & powershell.exe -NonInteractive -File $anchorScript 2>$null | Out-Null
         Write-Host "  [OK] CONTEXTO_GEMINI.md atualizado com commits + WIP + LEDGER."
     } catch {
-        Write-Host "  [!!] Falha ao atualizar CONTEXTO_GEMINI.md — execute manualmente."
+        Write-Host "  [!!] Falha ao atualizar CONTEXTO_GEMINI.md -- execute manualmente."
     }
 }

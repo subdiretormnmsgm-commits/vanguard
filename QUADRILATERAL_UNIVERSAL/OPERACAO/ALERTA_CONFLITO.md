@@ -1,97 +1,111 @@
-# PROTOCOLO — ALERTA DE CONFLITO TÉCNICO
-**Sovereign Veto — Constituição de Processo do Quadrilateral IAH**
-**Versão:** 1.0 · Organismo Vivo
+# ALERTA DE CONFLITO TÉCNICO
+**Emitido por:** Músculo (Claude Code) — Poder de Veto Soberano
+**Protocolo:** Sovereign Veto — Camada 2 (Hard Block)
+**Status:** ⛔ PROCESSO PARALISADO
 
 ---
 
-> Este documento define o protocolo de veto técnico do Músculo (Claude Code).
-> Quando um conflito real ocorrer em um projeto, copie este protocolo e crie
-> um `ALERTA_CONFLITO_[PROJETO].md` na raiz do projeto específico.
+> **INSTRUÇÕES:** Este arquivo é um template. Quando um conflito real for emitido, preencha as seções com o conflito específico, commit o arquivo, e o processo não prossegue até resolução documentada.
 
 ---
 
-## AS TRÊS CAMADAS DO VETO
+## CONFLITO IDENTIFICADO
+
+**ID do Conflito:** [CONFLITO-XXX]
+**Data:** [YYYY-MM-DD]
+**Sessão:** [V__-nome-da-sessao]
+**Ponto de origem:** [quem emitiu a instrução conflitante]
+
+### Instrução Vetada
+
+> [Copie a instrução exata que está sendo vetada]
+
+### Violação Detectada
+
+**Princípio violado:** [P-00X — nome do princípio] / [Lei X — nome da lei]
+**Peso afetado:** [weight_simplicidade_arquitetural | peso_seguranca | etc.]
+**Severidade:** [CRITICAL | HIGH | MEDIUM]
+
+### Por que isso viola o princípio
+
+[Explicação técnica objetiva em 3-5 linhas. Sem julgamento — apenas a análise.
+Exemplo: "Construir hook de CI/CD requer que o pipeline exista em produção. 
+O pipeline não está deployado. Enforcement para infraestrutura inexistente é o 
+anti-padrão do museu sem visitantes — identificado e refutado na V22."]
+
+### Impacto se ignorado
+
+- **Técnico:** [dívida específica que será gerada]
+- **Comercial:** [custo em tempo ou receita]
+- **Arquitetural:** [degradação do sistema]
+
+---
+
+## CONTRAPROPOSTA DO MÚSCULO
+
+**O que fazer em vez disso:**
+
+[Proposta concreta e simples. Código se aplicável. Sem abstrações desnecessárias.]
+
+**GUT da contraproposta:** G[X] × U[X] × T[X] = [score]
+
+---
+
+## PROTOCOLO DE RESOLUÇÃO
+
+### Opção 1 — Aceitar a contraproposta [RECOMENDADO]
+O Diretor confirma e o Músculo implementa a contraproposta.
+→ Registrar no `friction.log` como evento resolvido.
+
+### Opção 2 — Override com risco documentado [REQUER ASSINATURA]
+O Diretor pode fazer override, mas deve assinar explicitamente:
 
 ```
-Camada 1 — Soft Signal  [SV-X]
-  · Flag no PARECER TÉCNICO
-  · Cooling de 1 sessão antes de construir
-  · Diretor pode continuar se confirmar ciência do risco
-
-Camada 2 — Hard Block   [HV-X]
-  · ALERTA_CONFLITO_[PROJETO].md criado
-  · Processo paralisa completamente
-  · Requer resolução documentada antes de qualquer build
-
-Camada 3 — Override Documentado
-  · Diretor assina o risco explicitamente
-  · Registrado no friction.log com severidade HIGH
-  · 3 overrides do mesmo tipo → novo princípio gerado automaticamente
+OVERRIDE DOCUMENTADO — [CONFLITO-XXX]
+Data: [YYYY-MM-DD]
+Diretor: Eduardo
+Risco aceito: [descrição do risco]
+Motivo do override: [justificativa]
+Revisão prevista: [quando este override será revisitado]
 ```
+
+> ⚠️ 3 overrides do mesmo tipo = padrão de comportamento → novo princípio gerado automaticamente no INTELLIGENCE_LEDGER.
+
+### Opção 3 — Deliberação do Conselho
+Emitir para o Estrategista e Auditor. Aguardar PARECER_UNIFICADO.md.
 
 ---
 
-## QUANDO EMITIR CADA CAMADA
+## RASTREAMENTO
 
-| Situação | Camada |
+| Campo | Valor |
 |---|---|
-| Feature viola simplicidade mas o prazo é real | SV (Camada 1) |
-| Instrução viola segurança ou dado do cliente | HV (Camada 2) |
-| Arquitetura proposta gera dívida irreversível | HV (Camada 2) |
-| Gemini propõe infra que não existe em produção | SV (Camada 1) |
-| Dado usado como base é estimado, não real | HV (Camada 2) |
-| Feature não tem ROI calculável | SV (Camada 1) |
+| Status | ⛔ BLOQUEADO |
+| Soft Veto anterior? | [SV-X emitido em sessão anterior? S/N] |
+| Recorrência | [1ª ocorrência / 2ª / 3ª] |
+| Resolução | [pendente] |
+| Resolvido em | [data] |
+| Método de resolução | [contraproposta / override / conselho] |
 
 ---
 
-## TEMPLATE DE INSTÂNCIA (copiar quando emitir veto real)
+## NOTA PARA CI/CD
 
-```markdown
-# ALERTA DE CONFLITO TÉCNICO — [PROJETO]
-Emitido: YYYY-MM-DD | Sessão: [VXX] | Camada: [1-SV / 2-HV]
+Quando o pipeline de deploy estiver ativo, adicionar ao `.github/workflows/deploy.yml`:
 
-## Instrução Vetada
-[copie exatamente]
-
-## Violação
-Princípio: [P-00X] | Lei: [nome ou null] | Severidade: [HIGH/MEDIUM]
-
-## Problema
-[3-5 linhas objetivas]
-
-## Contraproposta
-[o que construir em vez disso]
-
-## Resolução
-- [ ] Contraproposta aceita → Músculo implementa
-- [ ] Override → Diretor assina abaixo
-- [ ] Conselho → emitir PARECER_UNIFICADO
-
-Override (se aplicável):
-> Diretor: ___ | Data: ___ | Risco aceito: ___ | Revisão em: ___
-```
-
----
-
-## RASTREAMENTO DE OVERRIDES
-
-> 3 overrides do mesmo tipo de problema = padrão de comportamento.
-> Quando atingir 3, o Músculo gera um novo princípio no INTELLIGENCE_LEDGER automaticamente.
-
-| Override | Projeto | Tipo | Data | Revisado? |
-|---|---|---|---|---|
-| — | — | — | — | — |
-
----
-
-## NOTA CI/CD
-
-Quando o pipeline de deploy estiver ativo, adicionar verificação:
 ```yaml
-- name: Bloquear deploy se ALERTA_CONFLITO ativo
+- name: Check for active conflict alerts
   run: |
-    for f in ALERTA_CONFLITO_*.md; do
-      [ -f "$f" ] && grep -q "BLOQUEADO" "$f" && echo "Deploy bloqueado." && exit 1
-    done
+    if [ -f "ALERTA_CONFLITO.md" ]; then
+      if grep -q "⛔ BLOQUEADO" ALERTA_CONFLITO.md; then
+        echo "DEPLOY BLOQUEADO: ALERTA_CONFLITO.md ativo"
+        exit 1
+      fi
+    fi
 ```
-*Hook inativo até pipeline existir em produção.*
+
+*Este hook não está ativo até o pipeline existir em produção.*
+
+---
+
+*Sovereign Veto — Camada 2. Arquitetura antes de velocidade.*

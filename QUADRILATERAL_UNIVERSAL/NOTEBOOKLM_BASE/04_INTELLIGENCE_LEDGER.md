@@ -140,6 +140,82 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ---
 
+### [P-014] Score de Incidência Histórica como variável de priorização em EdTech concursos
+**Descoberto:** 2026-05-15 | **Sessão:** PROJ-002 — Ingrid / Loop 1 Kickoff
+**Ideia de:** Eduardo (Diretor) — Loop 1
+**Evidência:** O edital do concurso Sedes-DF define pesos por disciplina (Peso 1 / Peso 2), mas não reflete frequência histórica de cobrança. Algoritmo criado: `score_prioridade = peso_edital × incidencia_historica_pct`. Resultado: SUAS com score 196 vs Primeiros Socorros com score 50 — diferença de 3,9× que não aparece na leitura linear do edital.
+**Princípio:** Em todo produto EdTech para concursos públicos, o feed de estudo deve ser organizado por `score_prioridade`, não pela ordem do edital. Disciplina com peso 2 e baixa incidência histórica < disciplina com peso 1 e alta incidência histórica. O candidato que segue o edital linearmente perde para quem segue a frequência real de cobrança.
+**Aplica-se a:** todo projeto EdTech de concurso público com histórico de provas disponível. Registrar `incidencia_historica_pct` como campo obrigatório no schema de disciplinas.
+
+---
+
+### [P-015] Análise cross-concurso como método de calibração para primeiras edições
+**Descoberto:** 2026-05-15 | **Sessão:** PROJ-002 — Ingrid / Loop 1 Kickoff
+**Ideia de:** Eduardo (Diretor) — Loop 1
+**Evidência:** SEDES-DF 2026 (Quadrix) não tem histórico direto — é o primeiro concurso desta banca neste órgão. Gap de 8 anos desde o último concurso (2018, banca IBRAE). Workaround aplicado: triangular com provas Quadrix similares (SEDF 2022, CFP 2024, CRQ-12 2024, CRT-01 2024) + análise de top-6 temas nacionais de assistência social (SUAS, LOAS, PNAS, CRAS/CREAS).
+**Princípio:** Quando concurso não tem histórico direto da mesma banca no mesmo cargo: (1) usar provas da banca em cargos similares, (2) usar concursos do mesmo cargo em bancas diferentes, (3) usar ranking nacional do tema. Nunca deixar `incidencia_historica_pct` vazio — estimar com fonte declarada explicitamente. Incerteza declarada é melhor que ausência de dado.
+**Corolário de IP:** O banco de dados Provas×Editais, quando construído sistematicamente, vira ativo proprietário do Vanguard — impossível de replicar por concorrente sem as mesmas fontes e o mesmo trabalho manual de classificação.
+**Aplica-se a:** todo projeto EdTech para concurso sem histórico direto. Documentar as fontes cruzadas em `provas_referencia` no schema.
+
+---
+
+### [P-016] Podcast como canal de retenção passiva em EdTech (recurso V2)
+**Descoberto:** 2026-05-15 | **Sessão:** PROJ-002 — Ingrid / Loop 1 Kickoff
+**Ideia de:** Eduardo (Diretor) — Loop 1
+**Evidência:** Proposta de criar áudio para Ingrid ouvir durante commuting, exercício, tarefas domésticas. Análise: viável com geração de roteiro via Claude API + TTS nativo do browser (Web Speech API) sem custo extra. Nenhum app de concurso entrega áudio proprietário gerado por IA.
+**Princípio:** Em produtos EdTech de Camada 2+, adicionar canal de áudio como V2 após validação do MVP visual. Sequência: roteiro → TTS → reprodução in-app. O candidato que estuda em estado passivo (ouvindo) retém ~50% do conteúdo com zero custo cognitivo adicional. Feature premium natural: plano básico = texto, plano premium = áudio do dia gerado por IA.
+**Restrição:** Nunca usar scraping ou TTS de conteúdo de terceiros (P-003). Roteiro sempre gerado pela API sobre conteúdo proprietário do edital_sedes.json.
+**Aplica-se a:** todo projeto EdTech Camada 2+. Não entra no MVP — entra no V2 após Dia 15 com output real validado.
+
+---
+
+### [P-017] Infraestrutura de e-mail do Conselho — nunca reconfigurar do zero
+**Descoberto:** 2026-05-16 | **Sessão:** PROJ-002 Ingrid / Dias 1-2
+**Evidência:** Diretor não sabia onde estava registrada a infraestrutura de e-mail estabelecida numa sessão anterior. Sistema existia mas não estava documentado no LEDGER — risco de retrabalho ou reconfiguração desnecessária.
+**Princípio:** A infraestrutura de comunicação do Conselho com o Diretor está em:
+- `scripts/alert_config.ps1` — credenciais Gmail (senha de app + destinatário)
+- `scripts/email_fechamento.ps1` — envia e-mail de fechamento de sessão
+- `scripts/alert_teste_email.ps1` — teste do sistema
+O Músculo aciona `email_fechamento.ps1` ao fechar qualquer sessão. Nunca recriar ou alterar `alert_config.ps1` sem instrução explícita do Diretor.
+**Aplica-se a:** toda sessão do Quadrilateral — qualquer projeto, qualquer cliente.
+
+---
+
+### [P-018] O Diretor é o 4º LLM — Orquestração Dinâmica de Deficiências como Vantagem Competitiva
+**Descoberto:** 2026-05-16 | **Sessão:** Opinião Consultora #01 — construção colaborativa Diretor + Músculo
+**Evidência:** Ao construir a Ideia Disruptiva da Opinião #01, Eduardo articulou: a vantagem real do Quadrilateral não é usar IA — é saber usar a deficiência de cada IA contra a deficiência das outras. Gemini alucina com otimismo → Claude âncora com custo real. Claude tem amnésia → NotebookLM âncora com histórico. NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos. O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas, não apesar delas.
+**Princípio:** O Quadrilateral tem três funções constitucionais separadas. Os 3 LLMs são a válvula motriz com **comportamento ativo** — não passivo. Estão em looping evolutivo permanente: geram ideias, combatem as deficiências uns dos outros, acumulam padrões ciclo a ciclo, protegidos por firewalls persistentes (contra-ataques de deficiência estruturalmente embutidos, não dependentes de memória). O Diretor contribui com opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 3 LLMs e evoluídas por eles. Ao final, dá o Veredito soberano. A cada etapa, a cada processo, a cada projeto, o sistema fica mais inteligente e os processos mais definidos — acumulação exponencial que torna o modelo de negócio imbatível.
+**Aplica-se a:** toda proposta de substituir o processo por execução direta ou reduzir a tensão entre os LLMs. O comportamento ativo e o looping cíclico são a fonte da vantagem composta. Reduzir a tensão é reduzir a inteligência. Os firewalls persistentes não são burocracia — são o que impede a deriva silenciosa que mata sistemas complexos.
+
+---
+
+### [P-019] IAH Retainer não se vende sem MRR confirmado — Soft Veto ativo
+**Descoberto:** 2026-05-16 | **Sessão:** Análise do Auditor sobre Opinião Consultora #01
+**Evidência:** Auditor identificou, com base na V22, que propor IAH Retainer (modelo de receita recorrente de Conselho) antes do primeiro MRR real é vender método sem credencial. O argumento "pagamos por si mesmo" é especulativo sem um case de antes/depois mensurável. O Auditor ainda apontou risco de percepção: cliente assina retainer por confiança, não por prova — e cancela quando não vê ROI tangível.
+**Princípio:** IAH Retainer só é ofertado após: (1) pelo menos 1 projeto cliente entregue e pago na íntegra, (2) pelo menos 1 case documentado com ROI mensurável para o cliente, (3) o cliente já ter vivenciado pelo menos 1 ciclo completo do Conselho. Ofertar antes é vender expectativa — e expectativa sem prova é argumento fraco que gera churn acelerado.
+**Soft Veto [SV-6] ativo:** Qualquer proposta de oferta de IAH Retainer → flag + revisão obrigatória antes de apresentar ao cliente. Override requer: case documentado com ROI + aprovação explícita do Diretor.
+**Aplica-se a:** toda proposta comercial que inclua IAH Retainer como pacote de entrada ou produto isolado.
+
+---
+
+---
+
+### [P-020] Alucinação do Auditor deve ser registrada no LEDGER imediatamente
+**Descoberto:** 2026-05-16 | **Sessão:** Auditoria de processo
+**Evidência:** Auditor afirmou "PROJ-002 parou porque o Diretor não preencheu o .env". Eduardo confirmou que isso não ocorreu. O incidente não foi registrado no LEDGER. Sem registro, o Auditor pode re-invocar a mesma alucinação como "histórico" no próximo loop.
+**Princípio:** Toda alucinação identificada do Auditor deve ser registrada no LEDGER com tag `[ALUCINACAO-Auditor-YYYY-MM-DD]` e contradita com a realidade documentada. Sem registro → a alucinação vira "memória" e contamina o próximo ciclo.
+**Aplica-se a:** toda sessão com NotebookLM.
+
+```
+[ALUCINACAO-Auditor-2026-05-16]
+Afirmação inventada: "PROJ-002 Ingrid parou porque Diretor não preencheu o .env"
+Realidade: Dias 1-2 foram completados normalmente — schema + Edge Function + gate CLI aprovado
+Causa provável: Auditor não tinha os commits e MEMORIA_V1_INGRID nas fontes antes de auditar
+Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do NotebookLM
+```
+
+---
+
 ## PADRÕES CONFIRMADOS
 
 O que sistematicamente funciona — com evidência de projeto real.
@@ -189,6 +265,7 @@ O que sistematicamente falha — com evidência de projeto real.
 [SV-3] Acumulação de >3 dívidas P1 no mesmo componente
 [SV-4] DIRETRIZ com >5 prioridades (foco perdido = entrega fraca)
 [SV-5] Proposta de Claude Code como daemon autônomo [ver P-001]
+[SV-6] Oferta de IAH Retainer sem MRR confirmado e case documentado [ver P-019]
 ```
 
 ### Protocolo de Override
@@ -228,6 +305,39 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 ---
 
 ## LOG DE SESSÕES
+
+### [SESSÃO 2026-05-16] — Evolução Constitucional · Opinião Consultora #01 · P-018
+
+**Direção da sessão:** Sessão inteiramente filosófica e constitucional. Nenhum build executado. Foco em clarificar e documentar a arquitetura de papéis do Quadrilateral IAH com precisão crescente — através de refinamentos sucessivos propostos pelo Diretor.
+
+**Eventos capturados:**
+
+`[PRINCÍPIO]` **P-018 extraído e refinado iterativamente:** O Diretor é o Gestor Soberano — contribui com opiniões nascidas da experiência acumulada e do feeling instintivo, analisadas pelos 3 LLMs. Dá o Veredito. Os 3 LLMs são a válvula motriz em looping evolutivo ativo, com firewalls persistentes estruturalmente embutidos.
+
+`[INTENÇÃO]` Diretor clarificou em 4 iterações o seu papel preciso: não operador, não co-autor das ideias — Gestor Soberano que ergueu o processo, gerencia, pontua o que é pertinente e dá o Veredito. A evolução sempre será a inteligência que os 3 LLMs conceberam.
+
+`[PRINCÍPIO]` **Automação Cíclica** nomeada como diferencial central da Vanguard: o loop Músculo→Gemini→NotebookLM→Músculo é o que torna o sistema exponencialmente mais difícil de copiar a cada ciclo.
+
+`[CONFIRMADO]` **PARADIGMA v3.0** inserido na Constituição: Conselho em Looping Evolutivo Ativo — comportamento ativo (não passivo), firewalls persistentes, acumulação exponencial, modelo de negócio progressivamente imbatível.
+
+`[CONFIRMADO]` Opinião Consultora #01 concluída com Ideia Disruptiva completa: 3 LLMs como Conselho Evolutivo + papel preciso do Diretor + vantagem composta + IAH Retainer como produto empacotável.
+
+`[FRICÇÃO]` Refinamento do papel do Diretor exigiu 4 iterações para chegar à definição precisa. Cada iteração o Diretor corrigiu com uma palavra ou frase mais exata: operador → orquestrador → gerencia → opiniões analisadas. Evidência de que o processo de refinamento colaborativo entre Diretor e Músculo é o próprio P-018 em ação.
+
+**Documentos atualizados nesta sessão:**
+- `CONSELHO/OPINIAO_CONSULTORA_01_2026-05-16.md` — completa, com Ideia Disruptiva e papel constitucional do Diretor
+- `INTELLIGENCE_LEDGER.md` — P-018 extraído e refinado
+- `CLIENTES/INGRID/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md` — sincronizado
+- `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` — PARADIGMA v3.0 + tabela OS 4 MEMBROS + Manifesto atualizados
+- `.claude/skills/vanguard-memorando.md` — sincronizado
+- `CLIENTES/INGRID/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md` — PARADIGMA v3.0 inserido
+- `CLAUDE.md` — QUEM VOCÊ É: Músculo como Agente Ativo
+
+**Princípios gerados nesta sessão:** P-018
+
+**Próximo passo:** Sessão Gemini com Opinião Consultora #01 — reação do Estrategista às 3 ideias principais + IAH Retainer. Segunda-feira: onboarding presencial PROJ-001 Valdece.
+
+---
 
 ### [SESSÃO 2026-05-13] — PROJETO_001 · Dia 1 commit + Dia 2 corpus pipeline · Valdece
 
@@ -295,6 +405,47 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Próximos passos em aberto:** COMANDO 1 → Gemini → DIRETRIZ · COMANDO 2 → NotebookLM → SKILL · Build 5 dias
 
 **Princípios gerados nesta sessão:** P-006
+
+---
+
+### [SESSÃO 2026-05-15 — Loop 1 Build Deliberation] — PROJ-002 Ingrid / Deliberação Completa
+
+**Direção da sessão:** Completar o Loop 1 do PROJ-002 Ingrid — deliberação do Músculo com a Skill do Auditor e a DIRETRIZ do Gemini. Construção do edital_sedes.json com score de incidência. Pesquisa de provas anteriores Quadrix + SEDES-DF. Registro das ideias do Diretor Eduardo.
+
+**Eventos capturados:**
+
+`[FRICÇÃO]` PASSO3_GEMINI.md não continha mandato explícito para o Gemini instruir o Auditor a criar a Skill em 4 partes. Corrigido: mandato embedded no [PARA O AUDITOR] de todos os PASSO3 — Gemini passa o nome exato da Skill e as 4 partes obrigatórias.
+
+`[FRICÇÃO]` PASSO6_MUSCULO.md não continha sequência explícita para o Músculo: (a) reagir às 5 ideias do Estrategista, (b) reagir às 5 ideias do Auditor, (c) propor as próprias 5 ideias. Corrigido com sequência A-H formal.
+
+`[PRINCÍPIO]` **P-014 extraído:** Score de Incidência Histórica — `score_prioridade = peso_edital × incidencia_historica_pct`. Mais poderoso que seguir o edital literalmente. Ideia do Diretor.
+
+`[PRINCÍPIO]` **P-015 extraído:** Cross-concurso como método de calibração para primeiras edições — SEDES-DF 2026 não tem histórico Quadrix. Triangular com CFP 2024, SEDF 2022, CRQ-12 2024.
+
+`[PRINCÍPIO]` **P-016 extraído:** Podcast como canal de retenção passiva — V2 feature. Roteiro → TTS → audio do dia. Nenhum app de concurso entrega isso. Ideia do Diretor.
+
+`[CONFIRMADO]` Arquitetura multi-tenant validada: `questoes_quadrix` (global + concurso_id) + `progresso_usuario` (por user_id). Evita refatoração massiva quando escalar para B2C SaaS.
+
+`[CONFIRMADO]` Gap SEDES-DF confirmado por pesquisa: último concurso foi 2018 (banca IBRAE, não Quadrix). Este 2026 é o primeiro concurso Quadrix neste órgão. Cross-concurso obrigatório.
+
+`[FRICÇÃO]` Skill do Auditor chegou sem blocos PARTE 1 e PARTE 2 completos no arquivo `.claude/skills/`. Eduardo colou manualmente. Gate de qualidade `skill_parser_gate.ps1` deve ser rodado antes de aceitar qualquer Skill.
+
+`[CODE REVIEW]` `edital_sedes.json`: questoes_estimadas somavam 21 (gerais) e 45 (específicos) — corrigido para 20 e 40. Bug identificado e corrigido no mesmo loop.
+
+`[INTENÇÃO]` Diretor: "Quero mostrar esse relatório para a minha esposa, para ela observar o nosso poder conjunto." → Relatório final do Loop 1 deve ser legível por Ingrid — não só técnico, mas narrativo e motivacional.
+
+**Princípios gerados nesta sessão:** P-014, P-015, P-016
+
+**Princípios aplicados:** P-003 (sem scraping), P-007 (CLI gate), P-010 (gate por etapa), P-013 (soberania)
+
+**Documentos atualizados nesta sessão:**
+- `CLIENTES/INGRID/edital_sedes.json` — score incidência + pesquisa + D-5 + achados
+- `CLIENTES/INGRID/PASSO3_GEMINI.md` — mandato Skill explícito
+- `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` — idem universal
+- `CLIENTES/INGRID/PASSO6_MUSCULO.md` — sequência A-H formal
+- `CLIENTES/INGRID/DIRETRIZ_GEMINI_V1.txt` — DIRETRIZ completa 7 blocos
+- `CLIENTES/WIP_BOARD.json` — PROJ-002 movido para build
+- `INTELLIGENCE_LEDGER.md` — P-014, P-015, P-016 + log desta sessão
 
 ---
 

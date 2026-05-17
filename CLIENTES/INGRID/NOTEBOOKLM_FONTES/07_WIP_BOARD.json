@@ -5,7 +5,8 @@
     "check": 1
   },
   "board": {
-    "discovery": [
+    "discovery": [],
+    "build": [
       {
         "id": "PROJ-002",
         "cliente": "Ingrid",
@@ -16,23 +17,59 @@
         "tipo": "Projeto Piloto Interno — Validação V25",
         "deadline": "2026-05-30",
         "prova_cliente": "2026-09-06",
-        "status": "Discovery completo — aguardando DIRETRIZ Gemini (Passo 3)",
-        "cargo": "TDAS — Técnico em Desenvolvimento e Assistência Social",
+        "status": "Build iniciado — Loop 1 deliberado. Aguardando Veredito do Diretor nos 8 pontos.",
+        "cargo": "TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202)",
         "banca": "Instituto Quadrix",
-        "discovery_completo": true,
-        "passo3_pronto": true,
-        "diretriz_gemini": false,
-        "skill_notebooklm": false,
-        "loop_atual": "Loop #1 — Kickoff",
-        "briefing_path": "quadrilateral/CLIENTES/ingrid/PASSO3_GEMINI.md",
         "stack": "PWA + Supabase + Claude API",
-        "decisao_fonte_questoes": "Claude API gerando estilo Quadrix — sem scraping TEC Concursos (P-003)",
-        "gate_bloqueante": "Conteúdo programático do edital — Gemini pesquisa no PASSO3",
-        "entrada_em": "2026-05-15",
-        "proximo_passo": "Eduardo leva PASSO3_GEMINI.md ao Gemini → receber DIRETRIZ → NotebookLM → Skill → Músculo delibera"
-      }
-    ],
-    "build": [
+        "loop_atual": "Loop #1 — Build",
+        "diretriz_gemini_v1": true,
+        "skill_notebooklm_v1": true,
+        "deliberacao_musculo": true,
+        "veredito_diretor": true,
+        "veredito_data": "2026-05-15",
+        "edital_sedes_json": true,
+        "build_iniciado_em": "2026-05-15",
+        "dias_completos": [],
+        "plano_build": {
+          "dia1_2": "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
+          "dia3_5": "Feed Diario (70/30 Peso 2) + Spaced Repetition SM-2 + Pilula JSON + Explicacao direta ao errar + Contador header",
+          "dia6_8": "Interface questoes + Tutor Socratico Haiku (Peso 2) + Caching + Fallback Fadiga 70%",
+          "dia9_11": "Heatmap urgencia temporal + Micro-Simulado diario + Modo Sedes-DF domingos",
+          "dia12_13": "Contador Pontos Ponderados + Notificacao push domingo",
+          "dia14_15": "OFFBOARDING_RUNBOOK + SaaS Readiness Audit + P-013 soberania"
+        },
+        "decisoes_fixadas": {
+          "fonte_questoes": "Claude API — sem scraping (P-003)",
+          "auth": "single-user — sem login complexo",
+          "cache": "gerar lote 50 quando < 30 questoes disponiveis",
+          "proporcao_feed": "70% Peso 2 / 30% Peso 1",
+          "modelos_api": "Haiku (gerais + dicas socraticas) / Sonnet (especificos)",
+          "burn_rate": "BURN_RATE_DAILY_LIMIT_USD=5.00",
+          "fallback": "trigger 70% da cota diaria",
+          "spaced_repetition": "SM-2 intervalo variavel",
+          "push_vs_email": "push no MVP / email com tracking no Loop 2",
+          "comentario_erro": "Opcao A (Dias 3-5): explicacao direta do banco + Opcao B (Dias 6-8): Tutor Socratico Haiku"
+        },
+        "gates_bloqueantes": {
+          "dia2": "10 questoes avaliadas por Eduardo — rubrica media >= 4/5",
+          "dia5": "Feed exibe plano correto 7 dias com proporcao correta",
+          "dia8": "Ingrid responde 10 questoes — progresso salvo — fallback testado",
+          "dia11": "Heatmap correto + simulado domingo completo",
+          "dia15": "Ingrid com acesso admin proprio Supabase"
+        },
+        "precificacao": {
+          "valor_gerado_candidato": "R$ 9.750 (tempo + probabilidade aprovacao)",
+          "servico_personalizado": "R$ 2.500 por candidato externo",
+          "licenca_acesso_saas": "R$ 197 por ciclo do concurso",
+          "saas_b2c_mrr": "R$ 97/mes x 4 meses = R$ 388 por usuario",
+          "meta_saas": "500 usuarios = R$ 194.000 no ciclo Sedes-DF 2026"
+        },
+        "pendente_diretor": [
+          "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
+        ],
+        "status": "VEREDITO APROVADO — build liberado. Iniciando Dia 1.",
+        "proximo_passo": "Musculo executa Dia 1: schema SQL + Edge Function + Gate CLI"
+      },
       {
         "id": "PROJ-001",
         "cliente": "Valdece",

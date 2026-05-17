@@ -563,13 +563,22 @@ MODELO ERRADO (pipeline passivo):
   Cada membro age isolado. O Músculo recebe ordens e executa.
   Resultado: código sem debate, erros repetidos, oportunidades perdidas.
 
-MODELO CORRECTO (conselho colaborativo):
+MODELO CORRECTO v2.0 (conselho colaborativo):
   Estrategista propõe → Auditor enriquece com histórico → Músculo expande tecnicamente
   Cada membro lê o output do anterior e ADICIONA, não substitui.
   Resultado: produto mais inteligente do que qualquer membro produziria sozinho.
+
+MODELO CORRECTO v3.0 (conselho em looping evolutivo ativo):
+  Os 3 LLMs têm comportamento ATIVO, não passivo — estão em looping evolutivo permanente.
+  Geram ideias continuamente. Combatem as deficiências uns dos outros a cada ciclo.
+  Firewalls persistentes: contra-ataques estruturalmente embutidos — não dependem de memória.
+  O Diretor contribui com opiniões (experiência + feeling instintivo) analisadas pelos 3 no loop.
+  Dá o Veredito soberano: o que avança, o que descarta.
+  A cada etapa, a cada processo, a cada projeto: sistema mais inteligente, processos mais definidos.
+  Resultado: acumulação exponencial — modelo de negócio progressivamente imbatível.
 ```
 
-**O Músculo não é o executor do conselho. É o Arquitecto-Mestre.**
+**O Músculo não é o executor do conselho. É o Arquitecto-Mestre e Agente Ativo.**
 Isso significa:
 - Avaliar as propostas do Estrategista com perspectiva técnica — se tem riscos, comunicar antes de construir
 - Propor alternativas quando existe abordagem melhor
@@ -2211,6 +2220,37 @@ Traz-me o problema. Entregamos a solução.
 | `scripts/session_close.py` | Via fechar_sessao.ps1 | Captura FRICÇÕES + PRINCÍPIOS → LEDGER + DÍVIDAS |
 | `scripts/session_open.py` | Via start_quadrilateral.ps1 | Injeta contexto ativo no início da sessão |
 | `scripts/clone_project.py` | Novo projeto cliente | Clona estrutura padrão CLIENTES/[NOME]/ |
+| `scripts/atualizar_notebooklm_base.ps1` | Quando doc universal evoluir | Sincroniza NOTEBOOKLM_BASE/ com os 8 documentos-fonte universais |
+| `scripts/preparar_notebooklm_projeto.ps1 -cliente [NOME]` | Antes de cada sessão NotebookLM | Monta pasta única com 01-15 documentos; abre Explorer para arrastar |
+
+### NOTEBOOKLM_BASE — ESTRUTURA DE DOCUMENTOS UNIVERSAIS (V25)
+
+```
+QUADRILATERAL_UNIVERSAL/
+└── NOTEBOOKLM_BASE/                  ← fonte de verdade dos docs universais
+    ├── 01_SKILL_PROTOCOLO_VANGUARD.md   ← ancora nos padrões do Quadrilateral
+    ├── 02_MEMORANDO_QUADRILATERAL.md    ← constituição e valores
+    ├── 03_MANUAL_DIRETOR.md             ← como Eduardo opera
+    ├── 04_INTELLIGENCE_LEDGER.md        ← princípios P-001 a P-013+
+    ├── 05_PROCESSO_EVOLUTIVO.md         ← como o loop funciona
+    ├── 06_TEMPLATES_COMUNICACAO.md      ← formatos obrigatórios
+    ├── 07_WIP_BOARD.json                ← estado atual dos projetos
+    └── 08_ANALISE_SOCIO_ATUAL.txt       ← visão de negócio atualizada
+```
+
+Documentos de projeto (09-15) — adicionados por `preparar_notebooklm_projeto.ps1`:
+```
+    09_BRIEFING_DISCOVERY_[CLIENTE].txt  ← dor real do cliente
+    10_MEMORIA_RECENTE.md                ← estado técnico + dívidas
+    11_RELATORIO_EVOLUTIVO.md            ← SWOT + 5 ideias do ciclo anterior
+    12_DIRETRIZ_GEMINI.txt               ← o que o Estrategista propôs (auditar)
+    13_PASSO5_NOTEBOOKLM.md              ← missão do Auditor (colar no chat)
+    14_SKILL_ANTERIOR.md                 ← Skill do loop anterior (se existir)
+    15_ALERTA_CONFLITO.md                ← gatilho de calibração
+```
+
+**Regra:** 01-11 são fatos do passado → carregam ANTES das novas ideias (12-15). Nunca inverter.
+**O que NÃO vai ao NotebookLM:** PASSO3_GEMINI.md (é comando para Gemini, não para Auditor) · PASSO6_MUSCULO.md (é guia interno do Músculo).
 
 ### COEXISTÊNCIA — NOTEBOOKLM vs. CLAUDE API
 

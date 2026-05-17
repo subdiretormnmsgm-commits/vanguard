@@ -45,10 +45,16 @@ const MODELO_POR_PESO: Record<number, string> = {
   2: "claude-sonnet-4-6",           // especificos — qualidade maxima
 };
 
-// Peso do edital por disciplina
+// Peso do edital por disciplina — Cargo 202: Tecnico Administrativo
 const PESO_POR_DISCIPLINA: Record<string, number> = {
-  suas: 2, pnas: 2, loas: 2, cras_creas_servicos: 2,
-  lei_distrital_7484: 2, nob_suas: 2, programas_sociais_df: 2, bpc_beneficios: 2,
+  // Conhecimentos Especificos (peso 2) — Cargo 202
+  suas_fundamentos: 2,           // SUAS, PNAS, LOAS, NOB/SUAS, CRAS/CREAS, tipificacao
+  programas_beneficios_df: 2,    // Lei 7484/2024, Cartao Prato Cheio, CadUnico, BPC, beneficios eventuais
+  direito_administrativo: 2,     // principios, atos, licitacoes 14.133, improbidade, processo adm
+  direito_constitucional: 2,     // CF/88 arts. 1-17 + 37-41, direitos fundamentais
+  arquivologia_rotinas_atendimento: 2, // arquivologia, protocolo, redacao oficial, atendimento ao publico
+  recursos_materiais_patrimonio: 2,    // gestao de estoques, patrimonio, compras publicas
+  // Conhecimentos Gerais (peso 1)
   portugues: 1, realidade_df_ride: 1, lei_organica_df: 1, lc840: 1,
   maria_da_penha: 1, politica_mulheres: 1, primeiros_socorros: 1,
 };
@@ -57,22 +63,23 @@ const PESO_POR_DISCIPLINA: Record<string, number> = {
 // PROMPT DO GERADOR — estilo Quadrix
 // ---------------------------------------------------------------
 function buildPrompt(disciplina_id: string, quantidade: number): string {
+  // Cargo 202 — Tecnico Administrativo SEDES-DF
   const disciplinas: Record<string, string> = {
-    suas: "SUAS — Sistema Único de Assistência Social (CRAS, CREAS, PAIF, PAEFI, proteção social básica e especial)",
-    pnas: "PNAS — Política Nacional de Assistência Social 2004 (princípios, diretrizes, níveis de proteção)",
-    loas: "LOAS — Lei 8.742/1993 (BPC, benefícios eventuais, CNAS, financiamento, princípios)",
-    cras_creas_servicos: "Proteção Social Básica e Especial — CRAS, CREAS, PAIF, PAEFI, alta complexidade",
-    lei_distrital_7484: "Lei Distrital 7.484/2024 — Política de Assistência Social do DF",
-    nob_suas: "NOB/SUAS — Norma Operacional Básica (gestão municipal, pacto de aprimoramento, responsabilidades)",
-    programas_sociais_df: "Programas Sociais do DF — Cartão Prato Cheio, Cartão Gás DF, DF Social, CadÚnico",
-    bpc_beneficios: "BPC — Benefício de Prestação Continuada e Benefícios Eventuais",
-    portugues: "Língua Portuguesa — interpretação de texto, concordância, regência, crase, pontuação",
-    realidade_df_ride: "Realidade do DF e RIDE — história de Brasília, Regiões Administrativas, economia, RIDE",
-    lei_organica_df: "Lei Orgânica do DF — competências cumulativas, Câmara Legislativa, governador",
-    lc840: "LC 840/2011 — Estatuto dos Servidores do DF — direitos, deveres, estágio probatório, licenças",
-    maria_da_penha: "Lei Maria da Penha — Lei 11.340/2006 — formas de violência, medidas protetivas, ação penal",
-    politica_mulheres: "Política para Mulheres — feminicídio, DEAM, Casa da Mulher, PDPM",
-    primeiros_socorros: "Noções de Primeiros Socorros — PCR, RCP, hemorragia, Heimlich, queimaduras",
+    // Conhecimentos Especificos
+    suas_fundamentos: "SUAS — Fundamentos, Organização, Gestão e Marcos Operacionais: PNAS 2004 (princípios, diretrizes, níveis de proteção), LOAS 8.742/1993 (BPC, benefícios eventuais, CNAS, financiamento), NOB/SUAS (gestão municipal inicial/básica/plena, pacto de aprimoramento), Tipificação Nacional CNAS 109/2009, CRAS/PAIF, CREAS/PAEFI, proteção básica e especial, matricialidade sociofamiliar, territorialização, vigilância socioassistencial",
+    programas_beneficios_df: "Programas, Benefícios e Instrumentos de Assistência Social do DF — Lei Distrital 7.484/2024 (política de assistência social do DF), Cartão Prato Cheio DF (critérios, renda per capita ≤ 1/2 SM), Cartão Gás DF (CadÚnico, extrema pobreza), DF Social, Restaurantes Comunitários, CadÚnico (cadastramento, atualização, papel nos programas), BPC (critérios, 1/4 SM, operacionalização INSS), Benefícios Eventuais (competência municipal)",
+    direito_administrativo: "Noções de Direito Administrativo — Princípios da Adm Pública (Art. 37 CF/88: LIMPE + implícitos), Atos Administrativos (elementos: competência, finalidade, forma, motivo, objeto; atributos: presunção de legitimidade, imperatividade, autoexecutoriedade; vícios e anulação), Poderes Administrativos (vinculado, discricionário, hierárquico, disciplinar, regulamentar, de polícia), Processo Administrativo Lei 9.784/1999 (princípios, prazos, recursos), Licitações e Contratos Lei 14.133/2021 (modalidades: Pregão, Concorrência, Concurso, Leilão, Diálogo Competitivo; fases; dispensa e inexigibilidade), Improbidade Administrativa Lei 8.429/1992 (atos que importam enriquecimento ilícito, dano ao erário, violação de princípios; sanções), Controle da Administração",
+    direito_constitucional: "Noções de Direito Constitucional — CF/88: Princípios Fundamentais (Título I: soberania, cidadania, dignidade da pessoa humana, valores sociais do trabalho), Direitos e Garantias Fundamentais (Art. 5: igualdade, legalidade, HC, MS, ação popular, direitos sociais Art. 6-11), Administração Pública (Arts. 37-41: princípios LIMPE, cargos e empregos públicos, concurso público, estabilidade, acumulação de cargos), separação dos Poderes",
+    arquivologia_rotinas_atendimento: "Atendimento ao Público, Rotinas Administrativas e Arquivologia — Arquivologia: conceitos (arquivo, documento, fundo, coleção), princípios arquivísticos (proveniência, organicidade, unicidade, indivisibilidade), ciclo vital dos documentos (corrente, intermediário, permanente), gestão de documentos (produção, tramitação, uso, avaliação, arquivamento), tabela de temporalidade (elaboração, aprovação, destinação), protocolo (recebimento, classificação, registro, distribuição, expedição), Redação Oficial: Manual da Presidência 3ª edição (ofício, e-mail institucional, exposição de motivos, relatório — clareza, impessoalidade, concisão), Atendimento ao público: qualidade, acessibilidade, comunicação, ética no serviço público",
+    recursos_materiais_patrimonio: "Noções de Recursos Materiais, Patrimônio e Compras — Administração de materiais: classificação, codificação, padronização, catalogação; Gestão de estoques: curva ABC (A=alto valor/poucos itens, B=médio, C=baixo valor/muitos itens), ponto de pedido, estoque mínimo e máximo, PEPS/UEPS; Almoxarifado: recebimento, armazenagem, controle, inventário; Patrimônio público: tombamento, inventário anual, depreciação, alienação, baixa de bens; Compras públicas: planejamento, pesquisa de mercado, Lei 14.133/2021 (dispensa até R$50mil bens/serviços, até R$100mil obras; inexigibilidade)",
+    // Conhecimentos Gerais
+    portugues: "Língua Portuguesa — interpretação de texto (literalidade Quadrix), concordância verbal e nominal, regência, crase, pontuação/vírgula, reescrita de frases, ortografia oficial, significação das palavras",
+    realidade_df_ride: "Realidade do DF e RIDE — história de Brasília (Missão Cruls, JK, Lúcio Costa, inauguração 1960), RIDE (LC 94/1998, municípios GO/MG/DF, SUDECO), 33 Regiões Administrativas, economia do DF, dados demográficos",
+    lei_organica_df: "Lei Orgânica do DF — competência cumulativa estadual+municipal, Câmara Legislativa (24 deputados, 4 anos), Governador, direitos e garantias no DF, promulgada 08/06/1993",
+    lc840: "LC 840/2011 — Estatuto dos Servidores do DF — direitos e deveres, regime disciplinar, licenças (tipos, prazos, remuneração), férias, estabilidade (3 anos de estágio probatório), aposentadoria, acumulação de cargos, vencimento vs remuneração",
+    maria_da_penha: "Lei Maria da Penha — Lei 11.340/2006 — definição de violência doméstica (Art. 5, não exige coabitação), formas de violência (física, psicológica, sexual, patrimonial, moral), medidas protetivas, ação penal incondicionada (Súmula 542 STJ), vedação suspensão condicional (Art. 41), Súmula 600 STJ",
+    politica_mulheres: "Política para Mulheres — Lei do Feminicídio 13.104/2015, PDPM, rede de serviços (DEAM, Casa da Mulher, CRAM, CREAS), Política Nacional de Enfrentamento à Violência",
+    primeiros_socorros: "Noções de Primeiros Socorros — PCR (reconhecimento, acionamento 192/193, RCP 30:2), hemorragias (pressão direta), engasgo (Heimlich), queimaduras (classificação), desmaio e convulsão",
   };
 
   const tema = disciplinas[disciplina_id] ?? disciplina_id;
@@ -86,7 +93,7 @@ REGRAS OBRIGATÓRIAS DO ESTILO QUADRIX:
 2. Enunciado direto e objetivo — máximo 3 linhas
 3. LITERALIDADE: a resposta correta está EXPLÍCITA no texto da lei ou norma — nunca inferida
 4. Distratores plausíveis: troque "preferencialmente" por "exclusivamente", "deverá" por "poderá", competências entre órgãos similares
-5. Pegadinhas típicas Quadrix: troca de competência (CRAS vs CREAS), troca de quem paga (federal vs municipal), troca de prazos
+5. Pegadinhas típicas Quadrix: troca de competência (CRAS vs CREAS), troca de quem paga (BPC=federal vs benefício eventual=municipal), troca de prazos (estágio probatório 3 anos, não 2), troca de modalidade de licitação (Pregão vs Concorrência), troca de arquivo corrente por intermediário, troca de "dispensável" por "dispensada", uso de Lei 8.666 no lugar da 14.133/2021
 6. Nível de dificuldade entre 2 e 4 (escala 1-5)
 
 FORMATO DE RESPOSTA — JSON puro, sem markdown, sem texto fora do JSON:

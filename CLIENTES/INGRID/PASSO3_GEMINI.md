@@ -105,7 +105,7 @@ Ao estruturar sua DIRETRIZ, compense ativamente:
 |---|---|
 | Órgão | Secretaria de Estado de Desenvolvimento Social do DF (Sedes/DF) |
 | Edital | Nº 1, de 13 de Maio de 2026 |
-| Cargo | TDAS — Técnico em Desenvolvimento e Assistência Social (Técnico Administrativo) |
+| Cargo | TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202) |
 | Banca | Instituto Quadrix |
 | Data da prova | 06 de Setembro de 2026 |
 | Dias até a prova | ~114 dias a partir de hoje |

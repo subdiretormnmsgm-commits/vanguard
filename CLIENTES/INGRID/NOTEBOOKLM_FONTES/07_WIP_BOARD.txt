@@ -14,7 +14,7 @@ Valor fechado: R$0 (Projeto Piloto Interno — Validação V25)
 Deadline: 2026-05-30 | Prova da cliente: 2026-09-06
 Stack: PWA + Supabase + Claude API
 Loop atual: Loop #1 — Build
-Cargo alvo: TDAS — Técnico em Desenvolvimento e Assistência Social
+Cargo alvo: TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202)
 Banca: Instituto Quadrix
 
 Dias completos: dia1_schema_edge, dia2_gate_questoes
