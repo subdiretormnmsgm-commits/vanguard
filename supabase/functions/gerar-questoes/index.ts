@@ -256,8 +256,17 @@ serve(async (req: Request) => {
     const precoOutput = peso === 1 ? 0.00000125 : 0.000015;
     custoEstimadoUsd  = (inputTokens * precoInput) + (outputTokens * precoOutput);
 
+    // Remove markdown code block se Claude retornar ```json ... ```
+    let jsonText = conteudo.trim();
+    if (jsonText.startsWith("```")) {
+      jsonText = jsonText
+        .replace(/^```(?:json)?\s*\n?/, "")
+        .replace(/\n?```\s*$/, "")
+        .trim();
+    }
+
     // Parse do JSON retornado
-    const parsed = JSON.parse(conteudo);
+    const parsed = JSON.parse(jsonText);
     geradas = parsed.questoes ?? [];
 
   } catch (err) {
