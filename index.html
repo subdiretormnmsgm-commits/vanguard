@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#00F0FF" />
+  <title>Sedes-DF 2026</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header>
+  <span class="header-title">Sedes-DF 2026</span>
+  <div class="contador-pontos">
+    <span class="label">pts</span>
+    <span id="pontos-valor">0</span>
+  </div>
+  <span class="progresso-pill" id="progresso-header">0 / 20</span>
+</header>
+
+<main id="main-content">
+  <div class="estado-vazio" id="loading-inicial">
+    <div class="spinner"></div>
+    <p>Carregando seu feed do dia…</p>
+  </div>
+</main>
+
+<!-- Templates (ocultos) -->
+<template id="tpl-pilula">
+  <div class="pilula">
+    <span class="pilula-icon">💡</span>
+    <span class="pilula-texto"></span>
+  </div>
+</template>
+
+<template id="tpl-questao">
+  <div class="questao-card">
+    <div class="questao-meta">
+      <span class="badge-disciplina"></span>
+      <span class="badge-tipo"></span>
+      <span class="questao-numero"></span>
+    </div>
+    <div class="barra-progresso"><div class="barra-fill" style="width:0%"></div></div>
+    <p class="questao-enunciado"></p>
+    <div class="alternativas"></div>
+  </div>
+</template>
+
+<template id="tpl-alternativa">
+  <button class="alternativa">
+    <span class="letra"></span>
+    <span class="texto"></span>
+  </button>
+</template>
+
+<template id="tpl-explicacao">
+  <div class="explicacao">
+    <div class="explicacao-header">
+      <span class="icone-resultado"></span>
+      <span class="texto-resultado"></span>
+    </div>
+    <div class="explicacao-body"></div>
+  </div>
+</template>
+
+<template id="tpl-btn-proxima">
+  <button class="btn-proxima">Próxima questão →</button>
+</template>
+
+<template id="tpl-fim">
+  <div class="fim-sessao">
+    <div style="font-size:48px">🎯</div>
+    <h2>Sessão concluída!</h2>
+    <div class="fim-stats">
+      <div class="stat-box">
+        <div class="valor" id="stat-acertos">0</div>
+        <div class="desc">Acertos</div>
+      </div>
+      <div class="stat-box">
+        <div class="valor" id="stat-pontos">0</div>
+        <div class="desc">Pontos ponderados</div>
+      </div>
+      <div class="stat-box">
+        <div class="valor" id="stat-pct">0%</div>
+        <div class="desc">Aproveitamento</div>
+      </div>
+      <div class="stat-box">
+        <div class="valor" id="stat-revisoes">0</div>
+        <div class="desc">Para revisar</div>
+      </div>
+    </div>
+    <p style="color: var(--muted); font-size:13px; max-width:280px; line-height:1.5">
+      Volte amanhã para o próximo feed. O SM-2 já agendou suas revisões.
+    </p>
+    <button class="btn-novo-dia" id="btn-refazer">Ver resumo do dia</button>
+  </div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
