@@ -1,6 +1,6 @@
-# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 1
+# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 2
 > Quadrilateral IAH V25 — Camada Permanente: não editar blocos de protocolo.
-> Bloco CONTEXTO atualizado por Eduardo em 2026-05-15 (Loop 1 / Kickoff)
+> Bloco CONTEXTO atualizado pelo Músculo em 2026-05-16 (Loop 2 / Gate Dia 5)
 
 ---
 
@@ -78,8 +78,8 @@ Ao estruturar sua DIRETRIZ, compense ativamente:
 **Cliente:** Ingrid (esposa do Diretor Eduardo — projeto piloto interno V25)
 **Nicho:** Concursos Públicos / EdTech
 **Camada:** 2 — Produto (15 dias de build, escopo controlado)
-**Loop:** #1 — Kickoff
-**Data:** 2026-05-15
+**Loop:** #2 — Gate Dia 5 (Feed + SM-2 + Proporção correta)
+**Data:** 2026-05-16
 
 ### DISCOVERY — Respostas da Cliente
 
@@ -108,23 +108,64 @@ Ao estruturar sua DIRETRIZ, compense ativamente:
 | Cargo | TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202) |
 | Banca | Instituto Quadrix |
 | Data da prova | 06 de Setembro de 2026 |
-| Dias até a prova | ~114 dias a partir de hoje |
-| Dias para o app | 15 dias |
+| Dias até a prova | ~113 dias a partir de 2026-05-17 |
+| Dias para o app | 15 dias (deadline 2026-05-30) |
+
+### [ALERTA P-024] RECALIBRAÇÃO DE CARGO — executada em 2026-05-16
+
+- **Cargo original informado:** TDAS — área social (SUAS, LOAS, PNAS, CRAS/CREAS)
+- **Cargo real:** Cargo 202 — Especialidade: Técnico Administrativo
+- **Impacto:** edital_sedes.json reconstruído do zero (v3.0) + index.ts rebuildt
+- **Disciplinas corretas do Cargo 202:** Dir. Administrativo, Dir. Constitucional, Arquivologia/Rotinas, Recursos Materiais/Patrimônio (substituem as de assistência social)
+
+### DISCIPLINAS CARGO 202 — edital_sedes.json v3.0
+
+| Disciplina | Questões estimadas | Score prioritário | Peso |
+|---|---|---|---|
+| suas_fundamentos | 12q | 190 | 2 |
+| programas_beneficios_df | 8q | 180 | 2 |
+| direito_administrativo | 8q | 184 | 2 |
+| direito_constitucional | 3q | 156 | 2 |
+| arquivologia_rotinas_atendimento | 6q | 170 | 2 |
+| recursos_materiais_patrimonio | 3q | 144 | 2 |
+| portugues | 5q | ~75 | 1 |
+| realidade_df_ride | 3q | ~65 | 1 |
+| lei_organica_df | 2q | ~60 | 1 |
+| lc840 | 2q | ~60 | 1 |
+| maria_da_penha | 1q | ~50 | 1 |
+| politica_mulheres | 1q | ~50 | 1 |
+| primeiros_socorros | 1q | ~50 | 1 |
+
+### DIAS COMPLETOS (Dias 1–2)
+
+| Dia | Entregues | Status |
+|---|---|---|
+| Dia 1 | Schema SQL multi-tenant + Edge Function `gerar-questoes` | Concluído |
+| Dia 2 | Gate CLI (`gate_cli.js`) — 10 questões geradas, prontas para avaliação | Gate pendente |
+
+**Gate Dia 2:** Eduardo avalia 10 questões com rubrica média ≥ 4/5 — desbloqueador de Dias 3–5.
 
 ### DECISÕES JÁ TOMADAS (não reverter)
 
-- **Fonte de questões = Claude API gerando estilo Quadrix** — sem scraping TEC Concursos (P-003)
+- **Fonte de questões = Claude API gerando estilo Quadrix** — sem scraping (P-003)
 - **Stack = PWA + Supabase + Claude API** — sem framework pesado
 - **Auth = single-user** — Ingrid é a única usuária no MVP
 - **Sem Stripe** — projeto piloto interno
+- **Proporção feed = 70% Peso 2 / 30% Peso 1** — fixada no veredito Loop 1
+- **SM-2** — spaced repetition com intervalo variável
+- **Haiku para gerais + dicas socrátcas / Sonnet para específicos** — custo controlado
 
-### 5 IDEIAS INICIAIS DO MÚSCULO (Loop 1)
+### 5 IDEIAS DO MÚSCULO (Loop 2 — Dias 3–5)
 
-1. **Motor de Plano Adaptativo:** plano recalculado toda semana com base no rendimento real nos simulados. Matérias com menor acerto ganham mais dias automaticamente.
-2. **Simulado Modo Sedes-DF:** replica o formato exato da prova (número de questões, distribuição por matéria, tempo total). Treina resistência além de conteúdo.
-3. **Painel de Lacunas (heatmap):** verde/amarelo/vermelho por matéria. Ingrid vê num segundo onde está perdendo pontos.
-4. **Geração Sob Demanda:** estuda uma matéria, clica "Gerar 10 questões sobre isso agora". Claude API gera na hora. Banco infinito.
-5. **Contador Regressivo Motivacional:** dashboard principal mostra "X dias até o Sedes-DF" com barra de progresso do plano.
+1. **Calibração Dinâmica da Proporção 70/30:** Semana < 40% de acerto em Peso 2 → proporção sobe para 80/20 automaticamente. Semana > 70% → reduz para 60/40 para consolidar Peso 1. O algoritmo de proporção evolui com o desempenho real, não é fixo até a prova.
+
+2. **Pílula de Diagnóstico Pré-Feed (3 questões flash):** Antes de exibir o feed do dia, 3 questões rápidas (< 1 min) detectam o estado cognitivo de Ingrid. Se errar > 2 → feed inicia com revisão. Se acertar 3 → avança direto para conteúdo novo. Evita desperdiçar a cota diária de API em dia de fadiga.
+
+3. **Âncora Temporal de Regra Legislativa:** Para cada questão de legislação, gerar automaticamente 1 frase-âncora que fixa a pegadinha (ex: "Lei 8.666 — licitação dispensável ≠ dispensada"). Quando SM-2 retornar a questão, exibir a âncora primeiro. Aumenta retenção de normas específicas sem aula.
+
+4. **Contador Ponderado em Tempo Real no Header:** Substituir "questões respondidas" por "pontos ponderados acumulados hoje" (Peso 2 × 2 + Peso 1 × 1). Ingrid vê o impacto de cada questão no score estimado — não um contador neutro.
+
+5. **Detector de Fadiga Cognitiva:** Se em 5 questões consecutivas Ingrid errar > 3, o sistema detecta fadiga e recomenda pausa ativa de 10 min antes de continuar. Estudo com fadiga = retenção zero. A ferramenta que detecta e para vale mais que a que ignora e continua.
 
 ---
 

@@ -243,6 +243,19 @@ Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do Not
 
 ---
 
+### [P-024] Validação de cargo é obrigatória antes de qualquer análise EdTech
+**Descoberto:** 2026-05-16 | **Sessão:** PROJ-002 — Ingrid / Recalibração de Cargo
+**Evidência:** Ingrid informou cargo como "TDAS — Técnico em Desenvolvimento e Assistência Social" sem a especialidade. O Músculo construiu todo o edital_sedes.json e o backend `gerar-questoes/index.ts` para o cargo de área social (SUAS, LOAS, PNAS, CRAS/CREAS). O cargo real era Cargo 202 — Especialidade: Técnico Administrativo, com conteúdo completamente diferente (Dir. Administrativo, Arquivologia, Dir. Constitucional, Recursos Materiais). Retrabalho total: edital_sedes.json reconstruído + index.ts rebuildt + 9 arquivos corrigidos.
+**Princípio:** Em qualquer projeto EdTech de concurso, o kick-off confirma obrigatoriamente:
+  1. Número do cargo no edital (ex: Cargo 202)
+  2. Especialidade/subárea se existir (Técnico Administrativo ≠ Assistência Social)
+  3. Conteúdo programático lido diretamente do edital — nunca pela fala do cliente
+  4. Confirmação com cliente: "o conteúdo é X, Y, Z — está correto?"
+**Custo do erro:** edital_sedes.json + index.ts + 9 arquivos = retrabalho de sessão inteira. Com checklist de 10 min no kick-off, evitável.
+**Aplica-se a:** todo projeto EdTech de concurso público, obrigatório no Dia 0 antes de qualquer análise.
+
+---
+
 ## PADRÕES CONFIRMADOS
 
 O que sistematicamente funciona — com evidência de projeto real.
