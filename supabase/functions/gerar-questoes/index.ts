@@ -45,34 +45,56 @@ const MODELO_POR_PESO: Record<number, string> = {
   2: "claude-sonnet-4-6",           // especificos — qualidade maxima
 };
 
-// Peso do edital por disciplina
+// Score de incidencia historica por disciplina (P-014 — ideia do Diretor Eduardo)
+// score_prioridade = peso_edital x incidencia_historica_pct
+const INCIDENCIA_HISTORICA: Record<string, number> = {
+  suas_fundamentos: 95, programas_beneficios_df: 90, direito_administrativo: 92,
+  direito_constitucional: 78, arquivologia_rotinas_atendimento: 85,
+  recursos_materiais_patrimonio: 72, portugues: 95, realidade_df_ride: 88,
+  lei_organica_df: 82, lc840: 80, maria_da_penha: 75, politica_mulheres: 60,
+  primeiros_socorros: 50,
+};
+
+// Cargo 202 — Tecnico Administrativo SEDES-DF (recalibrado P-024 2026-05-16)
 const PESO_POR_DISCIPLINA: Record<string, number> = {
-  suas: 2, pnas: 2, loas: 2, cras_creas_servicos: 2,
-  lei_distrital_7484: 2, nob_suas: 2, programas_sociais_df: 2, bpc_beneficios: 2,
-  portugues: 1, realidade_df_ride: 1, lei_organica_df: 1, lc840: 1,
-  maria_da_penha: 1, politica_mulheres: 1, primeiros_socorros: 1,
+  // Peso 2 — Conhecimentos Especificos (valem 80/100 pontos da prova)
+  suas_fundamentos:               2,
+  programas_beneficios_df:        2,
+  direito_administrativo:         2,
+  direito_constitucional:         2,
+  arquivologia_rotinas_atendimento: 2,
+  recursos_materiais_patrimonio:  2,
+  // Peso 1 — Conhecimentos Gerais (valem 20/100 pontos da prova)
+  portugues:                      1,
+  realidade_df_ride:              1,
+  lei_organica_df:                1,
+  lc840:                          1,
+  maria_da_penha:                 1,
+  politica_mulheres:              1,
+  primeiros_socorros:             1,
 };
 
 // ---------------------------------------------------------------
 // PROMPT DO GERADOR — estilo Quadrix
 // ---------------------------------------------------------------
 function buildPrompt(disciplina_id: string, quantidade: number): string {
+  // Cargo 202 — Tecnico Administrativo SEDES-DF (recalibrado P-024)
   const disciplinas: Record<string, string> = {
-    suas: "SUAS — Sistema Único de Assistência Social (CRAS, CREAS, PAIF, PAEFI, proteção social básica e especial)",
-    pnas: "PNAS — Política Nacional de Assistência Social 2004 (princípios, diretrizes, níveis de proteção)",
-    loas: "LOAS — Lei 8.742/1993 (BPC, benefícios eventuais, CNAS, financiamento, princípios)",
-    cras_creas_servicos: "Proteção Social Básica e Especial — CRAS, CREAS, PAIF, PAEFI, alta complexidade",
-    lei_distrital_7484: "Lei Distrital 7.484/2024 — Política de Assistência Social do DF",
-    nob_suas: "NOB/SUAS — Norma Operacional Básica (gestão municipal, pacto de aprimoramento, responsabilidades)",
-    programas_sociais_df: "Programas Sociais do DF — Cartão Prato Cheio, Cartão Gás DF, DF Social, CadÚnico",
-    bpc_beneficios: "BPC — Benefício de Prestação Continuada e Benefícios Eventuais",
-    portugues: "Língua Portuguesa — interpretação de texto, concordância, regência, crase, pontuação",
-    realidade_df_ride: "Realidade do DF e RIDE — história de Brasília, Regiões Administrativas, economia, RIDE",
-    lei_organica_df: "Lei Orgânica do DF — competências cumulativas, Câmara Legislativa, governador",
-    lc840: "LC 840/2011 — Estatuto dos Servidores do DF — direitos, deveres, estágio probatório, licenças",
-    maria_da_penha: "Lei Maria da Penha — Lei 11.340/2006 — formas de violência, medidas protetivas, ação penal",
-    politica_mulheres: "Política para Mulheres — feminicídio, DEAM, Casa da Mulher, PDPM",
-    primeiros_socorros: "Noções de Primeiros Socorros — PCR, RCP, hemorragia, Heimlich, queimaduras",
+    // Peso 2 — Especificos
+    suas_fundamentos: "SUAS — Fundamentos, Organização e Gestão. LOAS 8.742/1993 (BPC, benefícios eventuais, CNAS). PNAS 2004 (princípios, proteção social básica e especial). NOB/SUAS (pacto de aprimoramento, níveis municipais). CRAS: PAIF, vigilância socioassistencial. CREAS: PAEFI, média e alta complexidade. Matricialidade sociofamiliar, territorialização, descentralização. Pegadinhas Quadrix: CRAS vs CREAS, competência federal vs municipal, quem paga BPC (INSS federal), confundir PAIF com PAEFI.",
+    programas_beneficios_df: "Programas e Benefícios de Assistência Social do DF. Lei Distrital 7.484/2024 (NOVA — alta chance de cobrança). Cartão Prato Cheio: renda per capita até 1/2 SM, benefício mensal. Cartão Gás DF: extrema pobreza, CadÚnico. CadÚnico: porta de entrada, atualização obrigatória a cada 2 anos. Restaurantes Comunitários do DF. Benefícios eventuais: competência municipal. Pegadinhas: confundir critério de renda BPC (1/4 SM) vs Prato Cheio (1/2 SM).",
+    direito_administrativo: "Noções de Direito Administrativo. Princípios: LIMPE (Legalidade, Impessoalidade, Moralidade, Publicidade, Eficiência — Art. 37 CF). Ato administrativo: elementos (competência, finalidade, forma, motivo, objeto). Nova Lei de Licitações 14.133/2021 — modalidades (pregão, concorrência, concurso, leilão, diálogo competitivo). Dispensa vs inexigibilidade. Improbidade administrativa (Lei 8.429/92). Serviços públicos: classificação, concessão, permissão. Poderes administrativos. Pegadinhas Quadrix: confundir dispensável com dispensada, modalidades de licitação, hipóteses de inexigibilidade.",
+    direito_constitucional: "Noções de Direito Constitucional. Princípios fundamentais da CF/88 (Art. 1 a 4). Direitos e garantias fundamentais (Art. 5 — rol não taxativo, HD, MS, MI, HC). Organização do Estado (Art. 37 a 43): Administração Pública, princípios constitucionais. Poder Executivo e Poder Legislativo: atribuições básicas. Seguridade Social (Art. 194): saúde, previdência e assistência social — distinções. Pegadinhas Quadrix: direitos absolutos vs relativos, remédios constitucionais (confundir HC com MS), responsabilidade civil do Estado.",
+    arquivologia_rotinas_atendimento: "Arquivologia e Rotinas de Atendimento ao Público. Gestão de documentos: arquivo corrente, intermediário e permanente. Protocolo: recebimento, registro, distribuição e expedição. Classificação de documentos: sigiloso, reservado, confidencial, secreto, ultrassecreto. Lei de Arquivos 8.159/1991. Atendimento ao público: técnicas de comunicação, empatia, proatividade. Telefonia e redação oficial. Pegadinhas Quadrix: confundir fases do arquivo, prazos de temporalidade, eliminação vs recolhimento ao permanente.",
+    recursos_materiais_patrimonio: "Administração de Recursos Materiais e Patrimônio. Gestão patrimonial: inventário, tombamento, alienação, baixa. Materiais: classificação (permanentes vs consumo). Almoxarifado: recebimento, armazenamento, distribuição. Compras públicas: planejamento, requisição, processo licitatório simplificado. Registro patrimonial: número de tombamento, responsáveis. Pegadinhas Quadrix: confundir bem permanente com consumo, processo de alienação (leilão obrigatório), responsabilidade do gestor de patrimônio.",
+    // Peso 1 — Gerais
+    portugues: "Língua Portuguesa — interpretação de texto (resposta na literalidade — não inferir além do escrito), concordância verbal e nominal, regência verbal e nominal, crase, pontuação (uso da vírgula), reescrita de frases, significação das palavras (sinonímia, antonímia, paronímia, polissemia), ortografia oficial, classes de palavras. Pegadinhas Quadrix: cobrar literalidade, candidato que interpreta além do texto erra.",
+    realidade_df_ride: "Realidade do DF e RIDE — RIDE: municípios de GO, MG e DF, criada pela LC 94/1998. Brasília: Missão Cruls, Plano Piloto Lúcio Costa, inauguração 1960 por JK. DF: 33 Regiões Administrativas, maior densidade do Centro-Oeste. Economia do DF: predominância de serviços e administração pública. Clima Cerrado, hidrografia.",
+    lei_organica_df: "Lei Orgânica do Distrito Federal (LODF). DF acumula competências estaduais E municipais — não tem municípios próprios. Câmara Legislativa: 24 deputados distritais, mandato 4 anos. Governador: eleito pelo povo. Promulgada em 08/06/1993. Competências cumulativas, organização política e administrativa.",
+    lc840: "LC 840/2011 — Estatuto dos Servidores Públicos Civis do DF. Estágio probatório: 3 anos (pegadinha: confundir com 2 anos da lei anterior). Acumulação de cargos: permitida em casos específicos (saúde, professores). Licenças: tipos, prazos, remuneração. Férias e afastamentos. Cargos em comissão vs efetivos. Vencimento vs remuneração.",
+    maria_da_penha: "Lei Maria da Penha — Lei 11.340/2006. Não é necessário coabitar com o agressor (Súmula 600 STJ — pegadinha clássica). Lesão corporal dolosa doméstica: ação penal INCONDICIONADA (Súmula 542 STJ). Suspensão condicional e transação penal: VEDADAS expressamente (Art. 41). Formas de violência: física, psicológica, sexual, patrimonial, moral. Medidas protetivas de urgência.",
+    politica_mulheres: "Política para Mulheres. Lei do Feminicídio: Lei 13.104/2015 — homicídio qualificado por razão de gênero. Plano Distrital de Política para Mulheres (PDPM). Rede de atendimento: DEAM, Casa da Mulher Brasileira, CRAM, CREAS. Política Nacional de Enfrentamento à Violência contra Mulheres.",
+    primeiros_socorros: "Noções de Primeiros Socorros. PCR: checar responsividade → acionar socorro (192/193) → iniciar RCP 30:2. Hemorragia: pressão direta no local — NÃO usar torniquete sem treinamento. Engasgo consciente: Manobra de Heimlich — 5 compressões abdominais. Queimaduras: classificação 1º/2º/3º grau e primeiros cuidados. Desmaio e convulsão: conduta.",
   };
 
   const tema = disciplinas[disciplina_id] ?? disciplina_id;
@@ -266,7 +288,7 @@ serve(async (req: Request) => {
     concurso_id:        CONCURSO_ID,
     disciplina_id,
     peso_edital:        peso,
-    score_prioridade:   peso * (PESO_POR_DISCIPLINA[disciplina_id] ? 85 : 50),
+    score_prioridade:   peso * (INCIDENCIA_HISTORICA[disciplina_id] ?? 50),
     enunciado:          q.enunciado,
     alternativas:       q.alternativas,
     gabarito:           q.gabarito,
