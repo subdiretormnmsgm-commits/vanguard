@@ -11,11 +11,19 @@
 [x] 2. Rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
 [x] 3. Explorer abre automaticamente — Ctrl+A → arrastar TUDO ao NotebookLM
 [x] 4. Fazer Wipe & Sync das fontes (apagar antigas antes de subir as novas)
-[x] 5. Colar o texto deste PASSO5 como primeiro prompt no chat do NotebookLM
+[x] 5. Colar o COMANDO CURTO no chat (não o arquivo inteiro — ele já está nas fontes)
 ```
 
 > Sem o Wipe & Sync, o Auditor mistura contexto do Loop anterior com o atual.
 > Auditor com fontes velhas = Skill que contradiz o que já foi construído.
+
+### 💬 COMANDO CURTO — colar no chat do NotebookLM (Ctrl+V)
+
+```
+Auditor, leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas e execute todas as instruções contidas nele.
+```
+
+> O arquivo já está nas fontes — não colar o conteúdo inteiro no chat.
 
 ---
 
