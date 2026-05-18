@@ -10,6 +10,10 @@ com memória persistente deste projeto. Amanhã é o presencial. Vou explorar is
 
 Responda cada bloco. Não faça perguntas — entregue. Se algo estiver faltando, declare e prossiga.
 
+Depois dos blocos: se você tiver algo que eu não pedi mas deveria saber — diga.
+Você vê o que os outros membros não veem. Contradiga, sugira, aponte risco.
+Interaja como membro ativo do Conselho, não como respondente de formulário.
+
 ---
 
 **[A] DIAGNÓSTICO CRUZADO — o que só você pode ver**
@@ -113,3 +117,12 @@ Data: 2026-05-17 | Gerado por: Embaixador
 5. NÍVEL DE RISCO: VERDE / AMARELO / VERMELHO
 6. PRÓXIMO CONTATO SUGERIDO: 2026-05-19 (presencial) — confirmar via B1
 ```
+
+---
+
+**[+] INTERAÇÃO LIVRE — o que você vê que eu não perguntei**
+
+Após o LOG_CLIENTE, traga até 3 observações autônomas — qualquer coisa que os documentos revelem
+e que mude o que eu deveria fazer agora. Pode ser uma oportunidade, um risco, uma contradição
+entre o que o Valdece disse e o que o WIP_BOARD mostra, ou uma sugestão de ação que nenhum bloco
+acima capturou. Você tem memória persistente — use.

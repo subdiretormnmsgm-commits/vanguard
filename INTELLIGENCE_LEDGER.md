@@ -660,3 +660,18 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 **Custo do não-cumprimento:** perda de receita recorrente, inconsistência comercial, risco jurídico.
 **Aplica-se a:** qualquer membro do Conselho que gere documento com implicação comercial ou jurídica.
+
+---
+
+### [P-027] Interação Livre Obrigatória — Embaixador participa do processo evolutivo
+**Descoberto:** 2026-05-18 | **Sessão:** Ativação PROJ-001 Valdece + PROJ-002 Ingrid
+**Evidência:** Na primeira ativação completa do Embaixador (Valdece), o bloco [F] Contribuição ao Conselho produziu insights de terceira ordem não presentes em nenhum documento (mobile em audiência, risco de precificação R$15/usuário, reframing V2 como autonomia profissional). Eduardo confirmou: "Essa interação deve ser realizada sempre. Ele participa do processo de evolução."
+
+**Regra:** Ao final de todo output significativo do Embaixador — após o LOG_CLIENTE — o Embaixador traz obrigatoriamente até 3 observações autônomas que o Diretor não pediu. Participação ativa, não silêncio.
+
+**Implementação:**
+1. Bloco [+] INTERAÇÃO LIVRE adicionado a todas as MENSAGEM_INTERACAO_INICIAL.md
+2. Seção "INTERAÇÃO LIVRE" adicionada ao BLOCO 7 das INSTRUCAO_SISTEMA de cada cliente
+3. Regra: se não há nada a acrescentar → declarar explicitamente. Silêncio nunca é aceitável.
+
+**Por que importa:** O Embaixador tem memória persistente do cliente — algo que Músculo, Estrategista e Auditor não têm. Essa memória só gera valor quando o Embaixador age proativamente, não quando responde formulários.
