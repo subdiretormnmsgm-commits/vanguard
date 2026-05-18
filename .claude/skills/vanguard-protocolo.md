@@ -271,6 +271,7 @@ Avaliação: os 3 argumentos são superados pelo ROI? [SIM / NÃO]
 
 ### COMANDO 1 — EDUARDO → GEMINI
 **Quando usar:** Ao iniciar qualquer novo projeto ou iteração. Colar diretamente no Gemini.
+**Novo:** inclui inteligência do Embaixador — [E-1 a E-5] + LOG_CLIENTE.
 
 ```
 ════════════════════════════════════════════════════════════
@@ -278,9 +279,8 @@ QUADRILATERAL IAH — EDUARDO → GEMINI
 projeto: [nome] | ITERAÇÃO: V[X] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH.
-Tu és o Estrategista. Eu sou o Diretor. O NotebookLM é o Auditor.
-O Claude Code é o Músculo.
+Gemini, somos o Quadrilateral IAH — agora com 4 membros.
+Estrategista (tu) | Diretor (eu) | Auditor (NotebookLM) | Músculo (Claude Code) | Embaixador (Claude Projects)
 
 [SE ITERAÇÃO INICIAL — colar briefing do cliente:]
 NICHO/SETOR: [resposta 1]
@@ -294,16 +294,26 @@ CAMADA ESTIMADA: [1–5]
 
 [SE ITERAÇÃO SEGUINTE — colar MEMORIA + RELATORIO do Claude:]
 [CONTEÚDO DA MEMORIA_V[X]]
-[CONTEÚDO DO RELATORIO_V[X] incluindo as 5 IDEIAS DO MÚSCULO]
+[CONTEÚDO DO RELATORIO_V[X] incluindo as 5 IDEIAS DO MÚSCULO [M-1 a M-5]]
 
-[REAGE A ESTAS IDEIAS DO MÚSCULO — obrigatório se iteração seguinte:]
-O Claude propõe para esta iteração:
-1. [ideia 1]
-2. [ideia 2]
-3. [ideia 3]
-4. [ideia 4]
-5. [ideia 5]
-Analisa, descarta, transforma, prioriza. Propõe as tuas próprias.
+════════════════════
+INTELIGÊNCIA DO EMBAIXADOR — [cliente] · [data]
+════════════════════
+LOG_CLIENTE mais recente:
+[COLAR LOG_CLIENTE gerado no Claude Project do cliente]
+
+5 IDEIAS DO EMBAIXADOR [E-1 a E-5]:
+[E-1] [colar do Embaixador]
+[E-2] [colar do Embaixador]
+[E-3] [colar do Embaixador]
+[E-4] [colar do Embaixador]
+[E-5] [colar do Embaixador]
+════════════════════
+
+[REAGE A ESTAS IDEIAS DO MÚSCULO + EMBAIXADOR — obrigatório se iteração seguinte:]
+O Músculo propõe [M-1 a M-5]. O Embaixador propõe [E-1 a E-5].
+Analisa CADA UMA explicitamente: APROVA / TRANSFORMA / DESCARTA + justificativa.
+Propõe as tuas próprias [G-1 a G-5].
 
 ESTADO atual DO projeto:
 Camada: [X] | MRR/Revenue: [valor] | Próximo objetivo: [o que quero atingir]
@@ -312,8 +322,8 @@ RESPONDE COM 5 BLOCOS:
 BLOCO 0 — DIAGNÓSTICO (problema real + oportunidade não vista)
 BLOCO 1 — CAMADA E 3 PRIORIDADES (em ordem de impacto comercial)
 BLOCO 2 — PROPOSTA COMERCIAL (ROI em linguagem do cliente)
-BLOCO 3 — DIRETRIZ TÉCNICA (com [PARA O NOTEBOOKLM] e [PARA O CLAUDE])
-BLOCO 4 — PRÓXIMOS PASSOS DO diretoR (nas próximas 24h)
+BLOCO 3 — DIRETRIZ TÉCNICA (com [PARA O NOTEBOOKLM], [PARA O CLAUDE] e [PARA O EMBAIXADOR])
+BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR (nas próximas 24h)
 
 Inclui obrigatoriamente: 5 ideias disruptivas para a iteração seguinte.
 Inclui [RESPOSTA ÀS IDEIAS DO MÚSCULO] no Bloco 3 se for iteração seguinte.
@@ -331,6 +341,8 @@ Inclui [RESPOSTA ÀS IDEIAS DO MÚSCULO] no Bloco 3 se for iteração seguinte.
 - Relatórios evolutivos das últimas 3 iterações
 - Briefing do cliente atual
 - Skill anterior do cliente (se existir)
+- **LOG_CLIENTE do Embaixador** (mais recente) ← novo
+- **MEMORIA_EMBAIXADOR.md** do cliente ← novo
 
 ```
 ════════════════════════════════════════════════════════════
@@ -394,6 +406,12 @@ Alerta: há risco de [Y] baseado no histórico — verificar.
 [PARA O CLAUDE]
 A intenção estratégica é [Z].
 Construir com esta visão de fundo — não apenas a funcionalidade, o loop completo.
+
+[PARA O EMBAIXADOR]
+Com base nesta DIRETRIZ, o Embaixador deve:
+- Validar se [ideia G-X] faz sentido para o perfil real do cliente (CONFIRMA/EXPANDE/ALERTA)
+- Preparar argumento de relacionamento para [próxima reunião/entrega]
+- Monitorar se [aspecto do produto] gera a reação esperada no cliente
 
 Prioridade 1: [o que construir] — porque [impacto comercial]
 Prioridade 2: [o que construir] — porque [impacto comercial]

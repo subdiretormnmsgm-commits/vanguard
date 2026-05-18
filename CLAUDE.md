@@ -428,19 +428,22 @@ Esta sincronização é parte do ritual de fechamento de qualquer versão ou pro
 
 ### 2. Seguir ESTA ORDEM de passos. Nunca pular etapas.
 > Músculo NÃO delibera nem propõe plano antes do PASSO 5 (Skill do NotebookLM).
+> O Embaixador corre em PARALELO ao processo técnico — entra no Passo 0 e retroalimenta do Passo 3 em diante.
 
 | Passo | Quem | Ação |
 |---|---|---|
+| **0** | **Embaixador** | **Criar Claude Project do cliente + INSTRUCAO_SISTEMA + MEMORIA_EMBAIXADOR inicial. Ativar: `ir_ao_embaixador.ps1 -cliente [NOME]`** |
 | 1 | Diretor | Qualificação BLOCO A — GO/NO-GO |
-| 2 | Diretor | Discovery 7 perguntas |
-| 3 | Diretor→Gemini | COMANDO 1 → receber DIRETRIZ |
+| 2 | Diretor | Discovery 7 perguntas → Embaixador popula MEMORIA_EMBAIXADOR + gera hipóteses [H] |
+| 3 | Diretor→Gemini | COMANDO_ESTRATEGISTA (inclui LOG_CLIENTE + [E-1 a E-5] do Embaixador) → receber DIRETRIZ |
 | 4 | Diretor | Validar DIRETRIZ |
-| 5 | Diretor→NotebookLM | COMANDO 2 + 14 fontes → receber SKILL ← **aguardar** |
-| 6 | Diretor→Músculo | Trazer Skill + DIRETRIZ → Músculo delibera + plano |
+| 5 | Diretor→NotebookLM | COMANDO 2 + fontes (inclui LOG_CLIENTE + MEMORIA_EMBAIXADOR) → receber SKILL |
+| 6 | Diretor→Músculo | Trazer Skill + DIRETRIZ + LOG_CLIENTE → Músculo delibera + plano |
 | 7 | Diretor | Aprovar plano |
-| 8 | Músculo | Executar + reportar ALERTAS |
-| 9 | Músculo | Gerar MEMORIA + Relatório + COMANDO_ESTRATEGISTA |
-| 10 | Diretor | Validar + commit + session_close.ps1 |
+| 8 | Músculo | Executar + reportar ALERTAS \| Embaixador: monitorar engagement do cliente |
+| **8.5** | **Embaixador** | **Pós-reunião: Eduardo relata → Embaixador extrai inteligência + gera LOG_CLIENTE + confirma/refuta [H]** |
+| 9 | Músculo + **Embaixador** | Músculo: MEMORIA + Relatório + [M-1 a M-5] \| **Embaixador: LOG_CLIENTE + MEMORIA atualizado + [E-1 a E-5]** |
+| 10 | Diretor | Validar + commit + Gemini reage a [M]+[E] → Embaixador reage a [G]+[N] (CONFIRMA/EXPANDE/ALERTA) |
 
 ### 🔁 LOOP EVOLUTIVO — O CORAÇÃO DO PROCESSO (roda após o Passo 9, eternamente)
 
