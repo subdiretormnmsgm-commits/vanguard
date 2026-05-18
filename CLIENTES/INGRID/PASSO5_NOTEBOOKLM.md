@@ -1,5 +1,5 @@
 # PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 3
-> Quadrilateral IAH V25 — Camada Permanente: não editar blocos de protocolo.
+> Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
 > Atualizado pelo Músculo em 2026-05-17 (Loop 3 / Gate Dia 8)
 
 ---

@@ -1,4 +1,4 @@
-# INTELLIGENCE LEDGER — Quadrilateral IAH
+# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -756,6 +756,17 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 - Embaixador envia reação → Músculo delibera no próximo loop com 4 perspectivas + 1 filtro de realidade
 
 **Impacto:** Sistema fica mais inteligente A CADA PROJETO porque o comportamento real do cliente corrigi as ideias abstratas dos outros membros. É o anti-hallucination de produto mais eficaz que existe — e foi inventado pelo Diretor.
+
+---
+
+### [FALHA-PROCESSO-2026-05-18-B] PASSO files não cobertos pela sincronização de nomenclatura
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Quadrilateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem QUADRILATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
+
+**Regra gerada:** Ao fazer qualquer migração de nomenclatura do sistema, a varredura obrigatória inclui: `CLIENTES/**/PASSO*.md`. Estes arquivos não são gerados por script — são editados manualmente. Criação de ferramenta de varredura: `grep -r "Quadrilateral IAH" CLIENTES/**/*.md` como parte do ritual de migração.
+
+**Arquivos corrigidos:** INGRID/PASSO3, INGRID/PASSO5, INGRID/NOTEBOOKLM_FONTES/13, VALDECE/PASSO5
 
 ---
 

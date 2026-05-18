@@ -1,5 +1,5 @@
 # PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 3
-> Quadrilateral IAH V25 — Camada Permanente: não editar blocos de protocolo.
+> Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
 > Atualizado pelo Músculo em 2026-05-17 (Loop 3 / Gate Dia 8)
 
 ---
@@ -38,7 +38,7 @@ Auditor, você opera com 4 deficiências nativas:
 
 Ao gerar a Skill, compense ativamente:
 
-1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-025) que o Músculo deve citar ao deliberar
+1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-032) que o Músculo deve citar ao deliberar
 2. **Momentum de Execução** → gates verificáveis por dia — sem output real = gate inválido
 3. **Otimismo de Estimativa** → comparar estimativas com projetos similares; SV preventivo se subestimar
 4. **Escopo Silencioso** → listar explicitamente o que NÃO construir neste loop
@@ -139,7 +139,7 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 
 ```
 --- UNIVERSAIS ---
-01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Quadrilateral
+01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Pentalateral IAH
 02_MEMORANDO_QUADRILATERAL.md      ← constituição e valores
 03_MANUAL_DIRETOR.md               ← como Eduardo opera
 04_INTELLIGENCE_LEDGER.md          ← princípios ativos P-001 a P-025
