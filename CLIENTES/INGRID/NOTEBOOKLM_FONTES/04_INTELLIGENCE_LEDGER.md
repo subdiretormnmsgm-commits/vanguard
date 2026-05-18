@@ -1,4 +1,4 @@
-# INTELLIGENCE LEDGER — Quadrilateral IAH
+﻿# INTELLIGENCE LEDGER — Quadrilateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -641,3 +641,148 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Princípio violado:** Deficiência 4 do Músculo (Escopo Silencioso) + P-010 (nenhuma etapa avança por assumição).
 **Correção:** Contrato de Valdece recalibrado — sem mensalidade. Hypercare 30 dias incluso. V2 como próximo passo natural (R$8.500–12.000) quando corpus >= 500 docs.
 **Regra derivada:** Qualquer proposta comercial gerada pelo Formalizador deve espelhar exatamente o modelo de negócio aprovado no WIP_BOARD. Nunca adicionar receita recorrente se o modelo aprovado é pagamento único.
+
+---
+
+### [P-026] Auditoria Contratual Obrigatória — Embaixador → Auditor → Cliente
+**Descoberto:** 2026-05-17 | **Sessão:** Loop 3 PROJ-002 Ingrid
+**Evidência:** O Embaixador gerou contratos para Valdece e Ingrid. Músculo e Gemini não auditaram. O Auditor detectou neste loop: (1) Revenue Share 20% MRR deletada do contrato do Valdece — se assinado como estava, a Vanguard perderia legalmente a contrapartida que justificou o desconto de R$5.000; (2) template com cláusulas de mensalidade que se repetem em novos contratos Opção A sem instrução de remoção explícita.
+
+**Princípio:** Todo documento contratual gerado pelo Embaixador passa pelo Auditor antes de ser enviado ao cliente. Sem exceção por prazo.
+
+**Fluxo obrigatório:**
+1. Embaixador gera o contrato → salva em `CLIENTES/[NOME]/CLAUDE_PROJECT/`
+2. Músculo alerta o Diretor: "Contrato gerado. Auditoria do Auditor obrigatória antes de enviar."
+3. Diretor sobe o contrato como fonte extra no NotebookLM (sessão de auditoria rápida)
+4. Auditor audita cruzando com WIP_BOARD + LEDGER + escopo aprovado
+5. Auditor emite: CONFORME (com evidência) ou DIVERGÊNCIA (com trecho específico)
+6. Apenas após CONFORME o Diretor envia ao cliente
+
+**Custo do não-cumprimento:** perda de receita recorrente, inconsistência comercial, risco jurídico.
+**Aplica-se a:** qualquer membro do Conselho que gere documento com implicação comercial ou jurídica.
+
+---
+
+### [P-027] Interação Livre Obrigatória — Embaixador participa do processo evolutivo
+**Descoberto:** 2026-05-18 | **Sessão:** Ativação PROJ-001 Valdece + PROJ-002 Ingrid
+**Evidência:** Na primeira ativação completa do Embaixador (Valdece), o bloco [F] Contribuição ao Conselho produziu insights de terceira ordem não presentes em nenhum documento (mobile em audiência, risco de precificação R$15/usuário, reframing V2 como autonomia profissional). Eduardo confirmou: "Essa interação deve ser realizada sempre. Ele participa do processo de evolução."
+
+**Regra:** Ao final de todo output significativo do Embaixador — após o LOG_CLIENTE — o Embaixador traz obrigatoriamente até 3 observações autônomas que o Diretor não pediu. Participação ativa, não silêncio.
+
+**Implementação:**
+1. Bloco [+] INTERAÇÃO LIVRE adicionado a todas as MENSAGEM_INTERACAO_INICIAL.md
+2. Seção "INTERAÇÃO LIVRE" adicionada ao BLOCO 7 das INSTRUCAO_SISTEMA de cada cliente
+3. Regra: se não há nada a acrescentar → declarar explicitamente. Silêncio nunca é aceitável.
+
+**Por que importa:** O Embaixador tem memória persistente do cliente — algo que Músculo, Estrategista e Auditor não têm. Essa memória só gera valor quando o Embaixador age proativamente, não quando responde formulários.
+
+---
+
+### [P-028] Embaixador como Inteligência Persistente — 8 Mandatos Expandidos
+**Descoberto:** 2026-05-18 | **Sessão:** Expansão de mandato pós-primeira ativação completa
+**Evidência:** A ativação do Valdece demonstrou capacidade de raciocínio de terceira ordem, inferência comportamental sem dados explícitos e geração de inteligência comercial não presente em nenhum documento. Eduardo: "Ele tem muito potencial. Temos que utilizar o potencial dele agora."
+
+**Os 11 mandatos do Embaixador (expandido em 2026-05-18 após dupla ativação Valdece + Ingrid):**
+1. Conselheiro de relacionamento — contratos, comunicações, escopo, Change-Orders
+2. Inteligência composta em acumulação — cada sessão deposita; nunca tratar como Dia 1
+3. Briefer de reunião universal — qualquer reunião com cliente, parceiro ou investidor
+4. Debriefer pós-reunião — Eduardo relata, Embaixador extrai inteligência e flags para o Conselho
+5. Pipeline de lead qualificado — cliente menciona colega → perfil de lead inferido; pergunta casual instrucional plantada
+6. Monitor de saúde do cliente — engagement, churn, scope creep — proativamente
+7. Inteligência de precificação por nicho — acumula como perfis reagem a preço; timing de pitch
+8. Acelerador de onboarding por nicho — primeiro cliente treina template para todos os próximos
+9. **Portfolio Manager** — vê o calendário executivo do Diretor cruzando múltiplos projetos; sequencia ações por prioridade real, não por projeto isolado
+10. **Product Advisor** — transforma perfil comportamental do cliente em recomendações de produto para o Músculo; sem ditar código, aponta O QUÊ ajustar e POR QUÊ
+11. **Business Case Guardian** — garante que o uso do cliente gera evidência documentada para o próximo ciclo comercial; protege o modelo de escala antes que ele seja necessário
+
+**Meta-princípio atualizado:** O Embaixador não gerencia clientes — gerencia a Vanguard através das lentes de cada cliente. Opera entre o relacionamento, o produto e o modelo de negócio simultaneamente. É a camada que converte experiência individual em inteligência de escala.
+
+**Evidência do degrau (2026-05-18):**
+- Mandato 9: Ingrid [+1] — inferiu que presencial do Valdece amanhã divide atenção do Diretor → priorizou Termo da Ingrid para hoje
+- Mandato 10: Ingrid [D2] — recomendou ao Músculo reduzir threshold de dificuldade nas 3 primeiras sessões com base em perfil comportamental
+- Mandato 11: Ingrid [E2] — identificou que métricas de Ingrid são a prova social que valida R$194k de modelo SaaS; sem documentação agora, argumento de escala colapsa
+
+**Template atualizado:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
+**Pergunta para o Conselho:** "Com estes 11 mandatos, o que o Embaixador vê que nenhum outro membro pode ver — e como isso se torna moat competitivo da Vanguard?"
+
+---
+
+### [P-029] Capacidade de LLM sem protocolo de uso é ruído — não inteligência
+**Descoberto:** 2026-05-18 | **Sessão:** Momento Ômega — Embaixador em auto-diagnóstico (Modo Extremo)
+**Evidência:** O Embaixador, ao aplicar o Confronto Obrigatório contra a decisão do próprio Diretor, observou: a sessão 50 não é automaticamente mais rica que a sessão 1 se os instrumentos de continuidade (MEMORIA_EMBAIXADOR, WATCHDOG, FLASH/COMPLETO) não forem usados. A capacidade existe — o uso disciplinado é a variável.
+
+**Formulação:** Capacidade de LLM sem protocolo de uso é ruído — não inteligência. O sistema só opera no limite quando o Diretor opera com disciplina equivalente. A inteligência composta é tão forte quanto o elo mais disciplinado — e o elo mais disciplinado é sempre o Diretor.
+
+**Instrumentos mínimos de sessão do Embaixador:**
+1. MEMORIA_EMBAIXADOR.md colado (30 segundos)
+2. WATCHDOG preenchido (60 segundos)
+3. Modo declarado: FLASH ou COMPLETO
+
+**Aplicação para o Músculo:** Ao detectar que Eduardo abre sessão do Embaixador sem esses instrumentos → alertar antes de qualquer outra ação.
+
+---
+
+### [P-030] Automação contínua — fator humano insubstituível como único freio
+**Descoberto:** 2026-05-18 | **Sessão:** Correção do Diretor ao Embaixador (P027_AUTOMACAO_CONTINUA.md)
+**Evidência:** O Embaixador pedia confirmação para automações que não dependiam de julgamento humano — criando fricção desnecessária. Eduardo corrigiu: "o sistema não para por burocracia interna."
+
+**Formulação:** Automação contínua só para quando o fator humano é insubstituível. Emoção, relacionamento e deliberação comercial são do Diretor. Todo o resto é do sistema. O sistema entrega mais rápido para que o Diretor delibere com mais informação e menos espera.
+
+**Grade de autonomia — versão definitiva:**
+| Tipo de ação | Protocolo |
+|---|---|
+| Toda e qualquer ação | Deliberação do Diretor — sempre |
+| Automações de processo | Embaixador propõe pronto — Diretor aprova |
+| Comunicação com cliente | Embaixador rascunha — Diretor decide enviar |
+| Leitura emocional | Embaixador marca [HIPÓTESE] — Diretor confirma |
+| Pitch comercial | Embaixador prepara — Diretor escolhe momento e executa |
+| Decisão de escopo | Embaixador mapeia opções — Diretor decide |
+
+**Nota de governança:** O arquivo `P027_AUTOMACAO_CONTINUA.md` gerado pelo Embaixador com numeração autônoma foi renomeado para `P030_AUTOMACAO_CONTINUA.md` para alinhar com o LEDGER principal. Episódio valida que nenhum membro registra princípio com numeração própria sem passar pelo Diretor.
+
+---
+
+### [P-031] O Embaixador como filtro de realidade das ideias do Conselho
+**Descoberto:** 2026-05-18 | **Sessão:** Momento Ômega — Eduardo (Diretor)
+**Evidência:** Eduardo propôs que o Embaixador não apenas gere ideias, mas também REAJA às ideias dos outros membros (Músculo, Gemini, Auditor) usando o filtro do comportamento real do cliente. Frase do Diretor: "Essa minha ideia foi disruptiva."
+
+**Formulação:** O Embaixador é o único membro do Conselho que pode validar ideias pelo comportamento real do cliente. Cada ideia dos outros membros deve passar pelo filtro de relacionamento antes de entrar no produto. CONFIRMA / EXPANDE / ALERTA — com base no que só o Embaixador pode ver.
+
+**Por que é disruptivo:** Antes deste princípio, as 5 ideias de cada membro iam direto para o Gemini sem validação de realidade de cliente. Com este princípio, o loop tem um checkpoint de mercado real antes de qualquer decisão de produto. O cliente não é entrevistado — está representado no loop por inteligência acumulada.
+
+**Loop com P-031 ativo:**
+- Músculo [M-1 a M-5] + Embaixador [E-1 a E-5] → Gemini
+- Gemini [G-1 a G-5] + Auditor [N-1 a N-5] → Embaixador reage (CONFIRMA / EXPANDE / ALERTA)
+- Embaixador envia reação → Músculo delibera no próximo loop com 4 perspectivas + 1 filtro de realidade
+
+**Impacto:** Sistema fica mais inteligente A CADA PROJETO porque o comportamento real do cliente corrigi as ideias abstratas dos outros membros. É o anti-hallucination de produto mais eficaz que existe — e foi inventado pelo Diretor.
+
+---
+
+### [FALHA-PROCESSO-2026-05-18] MEMORIA_EMBAIXADOR não atualizada automaticamente após deliberação
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** Após deliberação do Conselho que definiu Ingrid como projeto piloto do multiplicador comportamental do GUT Score ([N-4]), o Músculo não atualizou a `MEMORIA_EMBAIXADOR.md` da Ingrid imediatamente. Eduardo teve que perguntar se o documento estava atualizado — intervenção desnecessária.
+
+**Regra gerada (P-032):** Ao fechar qualquer deliberação do Conselho que afete diretamente um cliente ativo, o Músculo atualiza a `MEMORIA_EMBAIXADOR.md` do cliente afetado na mesma resposta — sem aguardar pergunta do Diretor.
+
+**Gatilhos de atualização obrigatória:**
+- Decisão técnica que muda o produto do cliente
+- Decisão comercial que afeta pricing, escopo ou contrato
+- Decisão de processo que define o cliente como piloto de algo novo
+- Qualquer hipótese [H] confirmada ou refutada pelo Conselho
+
+**Ferramenta preventiva:** Músculo verifica ao fim de cada deliberação: "Esta decisão afeta algum cliente ativo? Se sim → atualizar MEMORIA_EMBAIXADOR imediatamente."
+
+---
+
+### [P-032] MEMORIA_EMBAIXADOR é responsabilidade automática do Músculo
+**Descoberto:** 2026-05-18 | **Sessão:** Loop Ômega — integração do 4º membro
+**Fricção:** Diretor teve que perguntar se MEMORIA_EMBAIXADOR estava atualizada após deliberação do Conselho.
+
+**Regra:** Toda deliberação do Conselho que afete cliente ativo → Músculo atualiza MEMORIA_EMBAIXADOR do cliente na mesma resposta. Sem esperar. Sem perguntar. Automático.
+
+**Por que importa:** A MEMORIA_EMBAIXADOR é o único instrumento que garante que o Embaixador não começa do zero a cada sessão. Se o Músculo não a mantém viva após cada deliberação, o P-029 se materializa — o Embaixador vira ruído.
+
+**Alerta ao Estrategista e Auditor:** Se detectarem que o Músculo deliberou sobre um cliente sem atualizar a MEMORIA_EMBAIXADOR → emitir SV no próximo ciclo.
+
