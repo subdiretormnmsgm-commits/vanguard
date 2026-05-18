@@ -346,6 +346,64 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ## LOG DE SESSÕES
 
+### [SESSÃO 2026-05-17] — PROJ-002 Ingrid / Seed + Gate Dia 5 APROVADO
+
+**Direção da sessão:** Populaçao do banco (seed_questoes.ps1) + Gate Dia 5 validado. Loop 2 encerrado.
+
+**GATE DIA 5 APROVADO:**
+```
+7 dias x 20 questoes | Peso 2: 98 (70.0%) | Peso 1: 42 | Erros de API: 0
+```
+
+**O QUE DEU CERTO:**
+
+`[CONFIRMADO]` **Arquitetura de batch invertida funciona:** Edge Function faz UMA chamada Claude por invocacao, seed faz o loop externo. Cada HTTP request fica dentro do timeout (Sonnet: ~80s < 200s, Haiku: ~25s < 120s).
+
+`[CONFIRMADO]` **max_tokens: 8192 suficiente para 5 questoes Sonnet:** 5 x ~700 tokens = 3.500 < 8.192. Sem truncamento de JSON.
+
+`[CONFIRMADO]` **Strip de markdown robusto:** `replace(/^```(?:json)?\\s*\\n?/, "")` elimina o bloco mesmo quando Claude ignora a instrucao de JSON puro.
+
+`[CONFIRMADO]` **Feed 70/30 preciso:** feed-diario retornou exatamente 14 Peso2 + 6 Peso1 por dia durante 7 dias simulados. SM-2 integrado e funcionando (Revisoes: 0 no teste de gate — correto para banco novo).
+
+`[CONFIRMADO]` **Documento de troubleshooting funciona:** QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md criado com 7 panes + diagrama + sequencia obrigatoria. Proxima vez: diagnose em <5 min.
+
+**ERROS E FRICÇÕES (para nao repetir):**
+
+`[FRICÇÃO]` **Deploy do diretorio errado:** `npx supabase functions deploy` rodado de `C:\\Users\\Eduardo DELL` em vez de `C:\\Users\\Eduardo DELL\\OneDrive\\Area de Trabalho\\vanguard`. Erro 400. Fix: sempre `cd` para a raiz do projeto antes do deploy. Registrado no cabeçalho do seed e no troubleshooting.
+
+`[FRICÇÃO]` **Variaveis de ambiente perdem-se entre sessoes:** `$env:SUPABASE_URL` e `$env:SUPABASE_SERVICE_ROLE_KEY` precisam ser reconfiguradas a cada terminal novo. Fix: documentado no cabecalho do seed_questoes.ps1 como PASSO 2.
+
+`[FRICÇÃO]` **API key Anthropic arquivada:** primeira rodada de seed falhou com HTTP 500 instantaneo. Fix: criar nova chave em console.anthropic.com e atualizar o Supabase Secret.
+
+`[FRICÇÃO]` **max_tokens: 4096 insuficiente:** Claude Sonnet gera ~700 tokens/questao. Para 30 questoes = 21.000 tokens — trunca no limite de 4.096. JSON incompleto → SyntaxError. Fix: max_tokens: 8192 + limite de 5 questoes por chamada para Sonnet.
+
+`[FRICÇÃO]` **Loop de batches dentro da Edge Function causa timeout:** 4 chamadas Claude sequenciais dentro de uma unica invocacao da Edge Function = ~180s > limite Supabase de ~150s. Fix: uma chamada por invocacao, loop no seed.
+
+`[FRICÇÃO]` **`node-fetch` desnecessario no Node.js v24:** gate_cli_dia5.js importava `node-fetch` mas Node.js 18+ tem fetch nativo. Fix: remover o import.
+
+`[FRICÇÃO]` **feed-diario nao deployada:** gate retornou 404 na primeira tentativa. Fix: `npx supabase functions deploy feed-diario`. Adicionar ao checklist: sempre verificar se TODAS as Edge Functions do projeto estao deployadas antes de rodar o gate.
+
+`[PRINCÍPIO]` **P-025 gerado:** 7 panes documentadas com diagrama de diagnostico. Proxima stack Supabase+Claude: zero retrabalho de debugging.
+
+**Custo total da sessao (seed):** $1,56 — dentro do limite diario de $5.
+
+**Documentos criados/atualizados:**
+- `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` — novo
+- `CLIENTES/INGRID/seed_questoes.ps1` — cabecalho com sequencia obrigatoria + batch P2/P1
+- `CLIENTES/INGRID/gate_cli_dia5.js` — removido import node-fetch
+- `INTELLIGENCE_LEDGER.md` — P-025 + log desta sessao
+- `CLIENTES/WIP_BOARD.json` — Loop 2 concluido + proximo_passo atualizado
+
+**Proximos passos (Loop 3):**
+1. Wipe & Sync NotebookLM: `.\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID`
+2. Sessao Gemini com PASSO3 → DIRETRIZ 2
+3. Sessao NotebookLM → Skill 2
+4. Build Dias 6-8: Interface questoes + Tutor Socratico Haiku + Caching + Fallback 70%
+
+---
+
+
+
 ### [SESSÃO 2026-05-16] — Evolução Constitucional · Opinião Consultora #01 · P-018
 
 **Direção da sessão:** Sessão inteiramente filosófica e constitucional. Nenhum build executado. Foco em clarificar e documentar a arquitetura de papéis do Quadrilateral IAH com precisão crescente — através de refinamentos sucessivos propostos pelo Diretor.
@@ -534,6 +592,48 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ---
 
+### [P-025] Stack Supabase + Claude API — 7 panes documentadas e prevenção
+**Descoberto:** 2026-05-17 | **Sessão:** PROJ-002 — Ingrid / Seed de Questões
+**Evidência:** Seed `seed_questoes.ps1` falhou 13/13 em três rodadas seguidas. Cada rodada expôs uma pane diferente na stack Supabase Edge Functions + Anthropic Claude API. Custo de debug: ~3h de sessão. Com o troubleshooting registrado, o próximo projeto similar resolve cada pane em <5 min.
+
+**As 7 panes e diagnóstico rápido:**
+
+| Sintoma | Causa | Tempo de resposta |
+|---|---|---|
+| HTTP 500 instantâneo (<1s) | API key Anthropic arquivada | <1s |
+| HTTP 500 após ~28s, backtick no erro | Claude retornou ```json``` em vez de JSON puro | ~28s |
+| 5 questões OK, 30 questões ERRO | `max_tokens: 4096` trunca JSON longo | ~45-60s |
+| "tempo limite atingido" em tudo | Loop de batches dentro da Edge Function → >150s | >120s |
+| ParserError antes de executar | Em-dash `—` ou Unicode em script PowerShell 5.1 | Imediato |
+| 'supabase' não reconhecido | CLI não está no PATH do Windows | Imediato |
+| HTTP 429 BURN_RATE_LIMIT | Tokens consumidos em tentativas fracassadas acumulam custo | Variável |
+
+**Princípios de arquitetura derivados:**
+1. Strip de markdown (`replace /^```...```)`) é obrigatório em toda Edge Function que recebe JSON via Claude API
+2. `max_tokens = ceil(quantidade × tokens_por_item × 1.3)` — Sonnet ~700 tokens/questão, Haiku ~400
+3. Edge Function faz UMA chamada LLM por invocação — loop de múltiplas invocações fica no caller (seed, n8n, frontend)
+4. Scripts PowerShell gerados pelo Músculo: apenas ASCII no código-fonte
+5. Diagnóstico com `quantidade: 1` ANTES de rodar seed completo
+6. Usar `npx supabase functions deploy` em vez de `supabase` no Windows
+
+**Documento completo:** `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md`
+**Aplica-se a:** todo projeto com Supabase Edge Functions + Claude API, qualquer nicho.
+
+---
+
+### [FALHA-PROCESSO-2026-05-17] Músculo não auditou documentos ao fechar sessão
+**Detectado por:** Eduardo (Diretor)
+**Falha:** Ao fechar o Loop 2 (Gate Dia 5 aprovado), o Músculo não executou a Auditoria de Documentos obrigatória (Regra 11 da Diretriz de Singularidade). O PASSO3_GEMINI.md estava desatualizado (ainda dizia Loop 2, Gate pendente, 5 ideias do Loop anterior). Eduardo precisou lembrar ao invés do Músculo agir automaticamente.
+**Princípio violado:** Regra 11 — "AO FECHAR CADA SESSÃO — AUDITORIA DE DOCUMENTOS DO AUDITOR OBRIGATÓRIA."
+**Custo do erro:** Eduardo perde tempo relembrando o Músculo de ações que deveriam ser automáticas. O valor do sistema está exatamente em não depender da memória do Diretor.
+**Correção:**
+1. PASSO3_GEMINI.md atualizado para Loop 3 (feito nesta sessão)
+2. Seção de Auditoria de Documentos adicionada ao session_close.ps1
+3. Músculo passa a executar a auditoria proativamente, sem ser solicitado
+**Regra derivada:** Ao encerrar qualquer gate ou loop, antes de qualquer outra ação, o Músculo entrega a lista de documentos em 3 categorias: DESATUALIZADO / AUSENTE / EM DIA. Sem esta auditoria, o fechamento está incompleto.
+
+---
+
 ### [FALHA-PROCESSO-2026-05-16-B] Escopo Silencioso — Manutenção Soberana não aprovada para Valdece
 **Detectado por:** Eduardo (Diretor)
 **Falha:** O Músculo inseriu pitch de R$900/mês de Manutenção Soberana no contrato de Valdece sem aprovação do Diretor. O modelo original aprovado era Opção A — infra Valdece, sem MRR, sem mensalidade. A mensalidade foi introduzida silenciosamente ao formatar o documento.
@@ -541,3 +641,22 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Princípio violado:** Deficiência 4 do Músculo (Escopo Silencioso) + P-010 (nenhuma etapa avança por assumição).
 **Correção:** Contrato de Valdece recalibrado — sem mensalidade. Hypercare 30 dias incluso. V2 como próximo passo natural (R$8.500–12.000) quando corpus >= 500 docs.
 **Regra derivada:** Qualquer proposta comercial gerada pelo Formalizador deve espelhar exatamente o modelo de negócio aprovado no WIP_BOARD. Nunca adicionar receita recorrente se o modelo aprovado é pagamento único.
+
+---
+
+### [P-026] Auditoria Contratual Obrigatória — Embaixador → Auditor → Cliente
+**Descoberto:** 2026-05-17 | **Sessão:** Loop 3 PROJ-002 Ingrid
+**Evidência:** O Embaixador gerou contratos para Valdece e Ingrid. Músculo e Gemini não auditaram. O Auditor detectou neste loop: (1) Revenue Share 20% MRR deletada do contrato do Valdece — se assinado como estava, a Vanguard perderia legalmente a contrapartida que justificou o desconto de R$5.000; (2) template com cláusulas de mensalidade que se repetem em novos contratos Opção A sem instrução de remoção explícita.
+
+**Princípio:** Todo documento contratual gerado pelo Embaixador passa pelo Auditor antes de ser enviado ao cliente. Sem exceção por prazo.
+
+**Fluxo obrigatório:**
+1. Embaixador gera o contrato → salva em `CLIENTES/[NOME]/CLAUDE_PROJECT/`
+2. Músculo alerta o Diretor: "Contrato gerado. Auditoria do Auditor obrigatória antes de enviar."
+3. Diretor sobe o contrato como fonte extra no NotebookLM (sessão de auditoria rápida)
+4. Auditor audita cruzando com WIP_BOARD + LEDGER + escopo aprovado
+5. Auditor emite: CONFORME (com evidência) ou DIVERGÊNCIA (com trecho específico)
+6. Apenas após CONFORME o Diretor envia ao cliente
+
+**Custo do não-cumprimento:** perda de receita recorrente, inconsistência comercial, risco jurídico.
+**Aplica-se a:** qualquer membro do Conselho que gere documento com implicação comercial ou jurídica.
