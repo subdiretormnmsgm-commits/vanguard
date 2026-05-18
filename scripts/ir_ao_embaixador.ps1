@@ -63,7 +63,7 @@ Write-Host ""
 Write-Host "[1/4] Copiando mensagem de ativacao para o clipboard..." -ForegroundColor Yellow
 if (Test-Path $mensagem) {
     Get-Content $mensagem -Raw -Encoding UTF8 | Set-Clipboard
-    Write-Host "  [OK] Mensagem copiada — so colar (Ctrl+V) no chat do Claude Projects" -ForegroundColor Green
+    Write-Host "  [OK] Mensagem copiada -- so colar (Ctrl+V) no chat do Claude Projects" -ForegroundColor Green
 } else {
     Write-Host "  [--] MENSAGEM_INTERACAO_INICIAL.md nao encontrada em:" -ForegroundColor Red
     Write-Host "       $mensagem" -ForegroundColor DarkGray
@@ -96,7 +96,7 @@ if (Test-Path $contratoStatus) {
         Write-Host "  [!!] Contrato: PENDENTE DE ASSINATURA (P-023 ativo)" -ForegroundColor Red
     }
 } else {
-    Write-Host "  [--] CONTRATO_STATUS.txt nao existe — criar apos assinatura" -ForegroundColor Yellow
+    Write-Host "  [--] CONTRATO_STATUS.txt nao existe -- criar apos assinatura" -ForegroundColor Yellow
 }
 
 # INSTRUCOES FINAIS
@@ -150,10 +150,10 @@ Write-Host "  O clipboard JA TEM a mensagem de ativacao." -ForegroundColor Green
 Write-Host "  Cole (Ctrl+V) diretamente no chat do Project." -ForegroundColor White
 Write-Host ""
 Write-Host "  O Embaixador vai entregar SEM voce pedir:" -ForegroundColor Yellow
-Write-Host "  [A] Diagnostico cruzado — so ele pode ver (memoria persistente)" -ForegroundColor White
-Write-Host "  [B] Artefatos prontos — mensagens, scripts, respostas" -ForegroundColor White
+Write-Host "  [A] Diagnostico cruzado -- so ele pode ver (memoria persistente)" -ForegroundColor White
+Write-Host "  [B] Artefatos prontos -- mensagens, scripts, respostas" -ForegroundColor White
 Write-Host "  [C] Mapa de risco com cenarios sutis" -ForegroundColor White
-Write-Host "  [D] Simulacao de cenario — teste de resiliencia" -ForegroundColor White
+Write-Host "  [D] Simulacao de cenario -- teste de resiliencia" -ForegroundColor White
 Write-Host "  [E] Sentinel Report / Contribuicao ao Conselho" -ForegroundColor White
 Write-Host "  [F/G] LOG_CLIENTE desta sessao (fonte 17 do Auditor)" -ForegroundColor White
 Write-Host ""
