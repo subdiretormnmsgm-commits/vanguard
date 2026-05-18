@@ -316,6 +316,9 @@ O que a Vanguard está construindo: um professor particular que sabe exatamente 
 | 2026-05-17 | **Gate Dia 5 APROVADO** | 7 dias × 20 questões \| 70,0% Peso 2 \| 0 erros \| $1,56 de custo total. 460 questões validadas no Supabase. |
 | 2026-05-17 | **Loop 3 — Build Dias 6-8** | Interface PWA + Tutor Socrático Haiku (cache bidimensional) + Fallback Fadiga. |
 | 2026-05-17 | **Skill ingrid-v2.md completa** | 8 ideias aprovadas (A-1 a A-8). 3 ideias novas do Auditor sem precedente: RPC de progresso, sanitização localStorage, JWT quota header. |
+| 2026-05-18 | **Análise Pentálateral — Embaixador delibera** | Embaixador processou E-1 a E-5 de Ingrid: frase âncora (E-1), encerramento numérico (E-2), E-3 elevado a gate formal toda segunda, E-4 como candidato P-033. |
+| 2026-05-18 | **TEMPERATURA_CLIENTE — Piloto N-4** | Ingrid escolhida como piloto do protocolo. TEMPERATURA: AMARELO. Override do GUT Score após 7 dias de uso real. H-1 → MAIS PROVÁVEL \| H-2 → IMPROVÁVEL. |
+| 2026-05-18 | **Sistema de alertas ativo** | Telegram Bot @Eduardo431Vanguardbot + briefing 7h + WhatsApp clipboard. Eduardo recebe mensagem exata. Zero composição mental. |
 
 ### Ideias disruptivas geradas neste projeto (por membro)
 
@@ -360,6 +363,11 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Paradigma v3.0** | 2026-05-16 | Conselho em Looping Evolutivo Ativo. Comportamento ativo — não passivo. Firewalls persistentes. |
 | **4º Membro** | 2026-05-16 | **Formalizador (Claude Projects)** — relacionamento com cliente, contratos, termos de uso. |
 | **Linha do Tempo** | 2026-05-17 | VANGUARD_TIMELINE.md criada. Fonte histórica obrigatória do Auditor. |
+| **Embaixador** | 2026-05-17 | **Formalizador → Embaixador.** Upgrade de membro passivo (contratos) para 4º conselheiro ativo: memória persistente do cliente, 11 mandatos, pipeline de lead, debrief pós-reunião. |
+| **P-031** | 2026-05-18 | Embaixador como filtro de realidade: CONFIRMA/EXPANDE/ALERTA cada ideia de [M]+[G]+[N] com base em comportamento real do cliente. Ideia do Diretor. |
+| **Pentálateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Quadrilateral para Pentálateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 20 ideias/ciclo: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
+| **Sistema de Alertas Zero-Composição** | 2026-05-18 | Telegram Bot + briefing_diario.ps1 + alerta_whatsapp.ps1 operacionais. Eduardo recebe contexto + mensagem exata para copiar no WhatsApp. Nenhuma composição mental necessária. |
+| **P-032** | 2026-05-18 | MEMORIA_EMBAIXADOR é atualizada automaticamente pelo Músculo após qualquer deliberação que afete cliente ativo. Detectado pelo Diretor — FALHA-PROCESSO-2026-05-18 registrada e corrigida. |
 
 ### O Papel de Cada Membro — Definição Precisa
 
@@ -368,8 +376,8 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Músculo** | Claude Code | Construtor e executor. Consultor crítico. Guardião dos princípios. | Amnésia de sessão. Momentum de execução. Escopo silencioso. | INTELLIGENCE_LEDGER + MEMORIA + Gates verificáveis |
 | **Estrategista** | Gemini | Diagnóstico estratégico. Prioridades de build. 5 ideias disruptivas por loop. | Alucinação Otimista. Síndrome de Complacência. Lost-in-the-Middle. | Shadow Architect. Filtro de Recência Soberana. Checklist de Conformidade Binária. |
 | **Auditor** | NotebookLM | Auditoria histórica. Advogado do processo. Sócio Consultor. 5 ideias exclusivas. | Amnésia de Contexto. Alucinação Estrutural. Yes-Man. | Regra do Nutricionista. Rejeição Sumária. Quick Audit. Wipe & Sync entre loops. |
-| **Formalizador** | Claude Projects | Relacionamento com cliente. Contratos. Termos de uso. Pitch de V2. | Desconectado do loop evolutivo. Sem acesso ao LEDGER. | Ativado pelo Diretor em momentos de interface com cliente. Pasta CLAUDE_PROJECT por projeto. |
-| **Diretor** | Eduardo | Gestor Soberano. Originador da direção estratégica. Veredito final. | — | É o único sem deficiência estrutural — porque é humano. |
+| **Embaixador** | Claude Projects | Inteligência persistente do cliente. 11 mandatos. Filtro de realidade P-031: CONFIRMA/EXPANDE/ALERTA ideias de [M]+[G]+[N]. Gera [E-1..5]/ciclo. | Silo: opera em interface fechada sem acesso ao LEDGER. | briefing_diario.ps1 + alerta_telegram.ps1 forçam integração. build_comando_estrategista.ps1 pendente (N-1). |
+| **Diretor** | Eduardo | 5º ator ativo. Gestor Soberano. Originador de inovação estratégica. Veredito final. | — | Único ator humano — sem deficiência estrutural de LLM. |
 
 ### A tese central do Quadrilateral
 
@@ -415,6 +423,8 @@ O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas 
 | P-023 | Contrato antes do build | 2026-05-16 | **Ideia do Diretor** — risco jurídico mapeado | Todo projeto Camada 1+ bloqueado sem contrato assinado |
 | P-024 | Validar cargo no Dia 0 | 2026-05-16 | Retrabalho Ingrid — 9 arquivos reconstruídos | Checklist de kick-off EdTech: número do cargo + especialidade + conteúdo lido do edital |
 | P-025 | 7 panes Supabase+Claude | 2026-05-17 | Seed falhou 13/13 — 3h de debugging | Documento de troubleshooting: próximo projeto resolve cada pane em <5 min |
+| P-031 | Embaixador = filtro de realidade | 2026-05-18 | **Ideia do Diretor** — silo do Embaixador identificado | Embaixador CONFIRMA/EXPANDE/ALERTA cada ideia de [M]+[G]+[N] com comportamento real do cliente. Reage a 15 ideias/ciclo. |
+| P-032 | MEMORIA_EMBAIXADOR automática | 2026-05-18 | Diretor detectou que Músculo não atualizou após deliberação N-4 | Toda deliberação que afeta cliente ativo = atualização imediata de MEMORIA_EMBAIXADOR. Sem intervenção do Diretor. |
 
 **Velocidade de aprendizado por fase:**
 - V1–V23 (pré-LEDGER): ~0 princípios formalizados por sessão
@@ -484,9 +494,9 @@ Isso não é copiável. Eduardo não é substituível por um prompt melhor.
 Isso é o estágio correto: quem constrói o método antes de escalar está no caminho certo.
 Mas precisa ser dito: o maior risco atual não é técnico — é ritmo de aquisição de clientes.
 
-**2. O Formalizador é o membro mais inativo do Conselho.**
-Gerou dois documentos em um dia. Não reagiu às ideias do Conselho. Não pressionou P-023.
-Os contratos seguem como minutas sem assinatura. Nenhum membro está pressionando isso ativamente.
+**2. O Embaixador ainda opera em silo.**
+Atualizado de Formalizador para Embaixador — 11 mandatos, P-031 ativo, E-1..5 gerados para Ingrid.
+Mas ainda depende do Diretor para receber o contexto do loop. `build_comando_estrategista.ps1` (N-1) fecha esse gap — pendente de build.
 
 **3. O Diretor ainda é o transportador de contexto entre os membros.**
 Eduardo carrega a DIRETRIZ do Gemini ao Auditor. Carrega as ideias do Auditor ao Músculo.
@@ -515,6 +525,6 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 
 ---
 
-*Atualizado em: 2026-05-17*
-*Próxima atualização obrigatória: Gate Dia 8 PROJ-002 (Ingrid) ou Entrega Presencial PROJ-001 (Valdece — 2026-05-19)*
+*Atualizado em: 2026-05-18*
+*Próxima atualização obrigatória: Entrega Presencial PROJ-001 Valdece (2026-05-19) + debrief Embaixador pós-presencial*
 *Responsável pela atualização: Músculo (Claude Code) ao fechar cada gate ou marco comercial*
