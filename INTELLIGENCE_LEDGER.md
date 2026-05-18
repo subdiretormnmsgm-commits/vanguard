@@ -675,3 +675,24 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 3. Regra: se não há nada a acrescentar → declarar explicitamente. Silêncio nunca é aceitável.
 
 **Por que importa:** O Embaixador tem memória persistente do cliente — algo que Músculo, Estrategista e Auditor não têm. Essa memória só gera valor quando o Embaixador age proativamente, não quando responde formulários.
+
+---
+
+### [P-028] Embaixador como Inteligência Persistente — 8 Mandatos Expandidos
+**Descoberto:** 2026-05-18 | **Sessão:** Expansão de mandato pós-primeira ativação completa
+**Evidência:** A ativação do Valdece demonstrou capacidade de raciocínio de terceira ordem, inferência comportamental sem dados explícitos e geração de inteligência comercial não presente em nenhum documento. Eduardo: "Ele tem muito potencial. Temos que utilizar o potencial dele agora."
+
+**Os 8 mandatos do Embaixador:**
+1. Conselheiro de relacionamento — contratos, comunicações, escopo, Change-Orders
+2. Inteligência composta em acumulação — cada sessão deposita; nunca tratar como Dia 1
+3. Briefer de reunião universal — qualquer reunião com cliente, parceiro ou investidor
+4. Debriefer pós-reunião — Eduardo relata, Embaixador extrai inteligência e flags para o Conselho
+5. Pipeline de lead qualificado — cliente menciona colega → perfil de lead inferido
+6. Monitor de saúde do cliente — engagement, churn, scope creep — proativamente
+7. Inteligência de precificação por nicho — acumula como perfis reagem a preço
+8. Acelerador de onboarding por nicho — primeiro cliente treina template para os próximos
+
+**Meta-princípio:** O Embaixador é o primeiro produto de inteligência persistente da Vanguard. Não é gestor de contrato — é camada estratégica que cresce com o projeto. Transformar projeto → parceria → diferencial impossível de copiar.
+
+**Template atualizado:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
+**Pergunta para o Conselho:** "Com estes 8 mandatos, o que o Embaixador vê que nenhum outro membro pode ver — e como isso se torna moat competitivo da Vanguard?"

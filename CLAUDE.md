@@ -550,33 +550,46 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 
 ---
 
-## 🤝 FORMALIZADOR — 4º MEMBRO DO CONSELHO (Claude Projects)
+## 🤝 EMBAIXADOR — 4º MEMBRO DO CONSELHO (Claude Projects)
 
-> Adicionado em 2026-05-16 por intervenção direta do Diretor (P-021, P-023).
-> Opera fora do loop Músculo→Gemini→NotebookLM. Ativado pelo Diretor em momentos de interface com o cliente.
+> Nomeado Embaixador em 2026-05-17 (upgrade de Formalizador passivo → conselheiro ativo).
+> Adicionado em 2026-05-16 por intervenção direta do Diretor (P-021, P-023, P-027, P-028).
+> Opera fora do loop Músculo→Gemini→NotebookLM. Tem memória persistente do cliente — o único membro que acumula inteligência entre sessões.
 
 | Membro | Papel | Ferramenta |
 |---|---|---|
 | Músculo | Construtor e executor | Claude Code |
 | Estrategista | Direção estratégica | Gemini |
 | Auditor | Auditoria histórica | NotebookLM |
-| **Formalizador** | **Relacionamento e formalização com cliente** | **Claude Projects** |
+| **Embaixador** | **Inteligência persistente do cliente** | **Claude Projects** |
 
-**Quando o Músculo ativa o Formalizador:**
-- Antes do build: contrato ainda não existe → lembrar o Diretor de abrir o Project e gerar o contrato
-- Antes do handoff: pitch de Manutenção Soberana + termo de uso → lembrar o Diretor de preparar via Project
-- Ao detectar P-023 ativo (projeto sem contrato) → alertar e indicar o caminho: `CLIENTES/[NOME]/CLAUDE_PROJECT/`
+**Os 8 mandatos do Embaixador (P-028):**
+1. Conselheiro de relacionamento — contratos, comunicações, escopo
+2. Inteligência composta em acumulação — cada ativação deposita; session 50 sabe 50x mais que session 1
+3. Briefer de reunião universal — qualquer reunião com cliente, parceiro ou investidor
+4. Debriefer pós-reunião — Eduardo relata, Embaixador extrai inteligência e flags para os outros membros
+5. Pipeline de lead qualificado — cliente menciona colega → Embaixador gera perfil de lead inferido
+6. Monitor de saúde do cliente — engagement, churn, scope creep, proativamente
+7. Inteligência de precificação por nicho — como cada perfil reage a preço, acumulado em múltiplos clientes
+8. Acelerador de onboarding por nicho — primeiro cliente treina o template para todos os próximos no mesmo nicho
+
+**Quando o Músculo ativa o Embaixador:**
+- Ao detectar P-023 ativo → alertar e rodar `.\scripts\ir_ao_embaixador.ps1 -cliente [NOME]`
+- Antes de qualquer reunião significativa com cliente → briefing pré-reunião
+- Ao receber relato do Diretor sobre interação com cliente → acionar debrief pós-reunião
+- Ao detectar lead novo mencionado por cliente → pipeline de lead
+
+**Trigger de execução:** "vamos ao Embaixador" ou qualquer menção ao cliente → rodar `ir_ao_embaixador.ps1` imediatamente. O script copia a MENSAGEM_INTERACAO_INICIAL para o clipboard (Ctrl+V pronto), abre browser e Explorer automaticamente.
 
 **Pasta âncora por projeto:**
 ```
 CLIENTES/[NOME]/CLAUDE_PROJECT/
-  00_INSTRUCAO_SISTEMA.md   ← colar em claude.ai/projects → Instructions
-  01_BRIEFING_DISCOVERY.*   ← upload no Project → Files
-  02_OFFBOARDING_RUNBOOK.*  ← upload no Project → Files
-  03_ROTEIRO_CAMPO.*        ← upload no Project → Files
+  00_INSTRUCAO_SISTEMA.md        ← colar em claude.ai/projects → Instructions
+  MENSAGEM_INTERACAO_INICIAL.md  ← script copia para clipboard automaticamente
 ```
 
-**Template universal:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_FORMALIZADOR.md`
+**Script:** `scripts/ir_ao_embaixador.ps1 -cliente [NOME]`
+**Template universal:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
 
 ---
 
