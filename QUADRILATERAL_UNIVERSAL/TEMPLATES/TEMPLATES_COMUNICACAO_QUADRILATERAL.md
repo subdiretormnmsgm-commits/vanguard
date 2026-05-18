@@ -1,7 +1,7 @@
-# TEMPLATES DE COMUNICAÇÃO — QUADRILATERAL IAH
+# TEMPLATES DE COMUNICAÇÃO — PENTALATERAL IAH
 **Referência interna do Músculo — não colar diretamente em nenhuma IA**
 **Organismo vivo — atualizar quando o processo evoluir**
-**Versão:** 1.1 | Data: 2026-05-13
+**Versão:** 2.0 | Data: 2026-05-18
 
 > ⚠️ REGRA FUNDAMENTAL — LER ANTES DE USAR
 >
@@ -20,18 +20,23 @@
 ```
 DIRETOR
   │
-  ├──[COMANDO 1]──► GEMINI ──[DIRETRIZ]──► DIRETOR
-  │                                              │
-  ├──[COMANDO 2 + fontes]──► NOTEBOOKLM ──[SKILL]──► DIRETOR
-  │                                                        │
-  └──[PROTOCOLO VANGUARD + Skill + Diretriz]──► MÚSCULO
-                                                     │
-                                    ┌────────────────┤
-                                    │                │
-                               [MEMORIA]      [RELATORIO]
-                               [COMANDO_ESTRATEGISTA]
-                                    │
-                                    └──► DIRETOR ──► (volta ao GEMINI)
+  ├──[COMANDO 1 + M-1..5 + E-1..5]──► GEMINI ──[DIRETRIZ]──► DIRETOR
+  │                                                                 │
+  ├──[COMANDO 2 + fontes + MEMORIA_EMBAIXADOR]──► NOTEBOOKLM ──[SKILL]──► DIRETOR
+  │                                                                             │
+  └──[PROTOCOLO VANGUARD + Skill + Diretriz + MEMORIA_EMBAIXADOR]──► MÚSCULO
+                                                                          │
+                                               ┌────────────────────────┤
+                                               │                        │
+                                          [MEMORIA]              [RELATORIO]
+                                          [COMANDO_ESTRATEGISTA]
+                                          [MEMORIA_EMBAIXADOR atualizada]
+                                               │
+                                               └──► EMBAIXADOR (CONFIRMA/EXPANDE/ALERTA)
+                                                         │
+                                                    [E-1 a E-5]
+                                                         │
+                                                    ──► DIRETOR ──► (volta ao GEMINI)
 ```
 
 ---
@@ -39,19 +44,23 @@ DIRETOR
 # TEMPLATE 1 — COMANDO 1
 ## Eduardo → Gemini | Como pedir a DIRETRIZ
 
+> Pentalateral IAH: o Gemini recebe [M-1 a M-5] do Músculo E [E-1 a E-5] do Embaixador
+> (quando disponíveis). Reage a ambos os conjuntos na DIRETRIZ.
+
 **Quando usar:** Ao iniciar projeto novo ou nova iteração após receber MEMORIA + relatorio do Músculo.
 
 **O que colar antes do comando:** MEMORIA_V[X] + relatorio_evolutivo_V[X] (nessa ordem, no mesmo chat).
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → GEMINI
+PENTALATERAL IAH — EDUARDO → GEMINI
 projeto: [NOME DO PROJETO] | ITERAÇÃO: V[X] | DATA: [DD-MM-AAAA]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH.
+Gemini, somos o Pentalateral IAH.
 Tu és o Estrategista. Eu sou o Diretor.
 O NotebookLM é o Auditor. O Claude Code é o Músculo.
+O Claude Projects é o Embaixador — tem memória persistente do cliente.
 
 [SE PROJETO NOVO — preencher com dados do Discovery:]
 NICHO/SETOR: [resposta]
@@ -63,14 +72,23 @@ URGÊNCIA: [resposta]
 ORÇAMENTO / RECURSOS: [resposta]
 CAMADA ESTIMADA: [1–5]
 
-[SE ITERAÇÃO SEGUINTE — preencher com reação às ideias do Músculo:]
-O Músculo propôs para esta iteração:
+[SE ITERAÇÃO SEGUINTE — preencher com reação às ideias do Músculo e do Embaixador:]
+O Músculo propôs [M-1 a M-5]:
 1. [ideia 1 do Músculo]
 2. [ideia 2 do Músculo]
 3. [ideia 3 do Músculo]
 4. [ideia 4 do Músculo]
 5. [ideia 5 do Músculo]
 Analisa cada uma. Aprova, transforma ou descarta — com razão.
+
+O Embaixador propôs [E-1 a E-5] com base em comportamento real do cliente:
+1. [ideia 1 do Embaixador]
+2. [ideia 2 do Embaixador]
+3. [ideia 3 do Embaixador]
+4. [ideia 4 do Embaixador]
+5. [ideia 5 do Embaixador]
+Para cada uma: CONFIRMA / EXPANDE / ALERTA — com razão estratégica.
+(As ideias do Embaixador têm peso de evidência de campo — não ignorar.)
 
 ESTADO ATUAL DO PROJETO:
 Camada: [X] | Valor/MRR: [R$X] | Próximo objetivo: [1 frase]

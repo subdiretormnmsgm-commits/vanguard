@@ -216,6 +216,46 @@ Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do Not
 
 ---
 
+### [P-021] O Diretor é o originador da direção estratégica — não apenas o aprovador
+**Descoberto:** 2026-05-16 | **Sessão:** Auditoria de processo + fechamento do dia
+**Evidência concreta:** Eduardo identificou 5 falhas que o Músculo não detectou. Eduardo originou a necessidade do contrato com clientes. Eduardo propôs o uso do NotebookLM como auditor jurídico (advogado do processo). Todas estas inovações vieram do Diretor, não do Conselho.
+**Princípio:** O Músculo implementa. O Gemini propõe estratégia. O NotebookLM audita o histórico. Mas a **direção estratégica e as inovações de processo** vêm de Eduardo. Quando o Diretor propõe algo novo — contrato, nova função para um membro do Conselho, nova regra — essa proposta tem peso maior do que qualquer saída dos membros. O sistema existe para amplificar a inteligência do Diretor, não substituí-la.
+**Corolário:** O Músculo que não detectou uma falha antes do Diretor deve perguntar: "Por que meu sistema de auto-proteção falhou aqui?" e gerar ferramenta. O Diretor não deve ser o detector primário de falhas de processo — quando é, o sistema falhou.
+**Aplica-se a:** toda interação. O Quadrilateral é um amplificador da inteligência de Eduardo — não uma cadeia autônoma que o Diretor apenas valida.
+
+---
+
+### [P-022] NotebookLM como advogado do processo — auditor jurídico do Quadrilateral
+**Descoberto:** 2026-05-16 | **Proposto por:** Eduardo (intervenção direta do Diretor)
+**Evidência:** Eduardo identificou que o Auditor, ao cruzar histórico com DIRETRIZ atual, opera como um advogado — levanta objeções com base em precedentes, não valida por momentum.
+**Princípio:** O NotebookLM deve ser usado como auditor jurídico em decisões estratégicas de alto risco: (a) contratos com clientes — cruzar com padrões anteriores de entrega, (b) mudanças de arquitetura — verificar se viola decisões fixadas, (c) mudanças de pricing — verificar consistência com modelo de negócio. Auditor como advogado = sistema de precedentes, não de sugestões.
+**Como ativar:** ao levar uma decisão ao NotebookLM, incluir o prompt: "Atue como advogado do processo. Levante objeções com base em precedentes históricos. Não valide por momentum."
+**Aplica-se a:** Quick Audits e sessões de decisão estratégica (Classe B e C).
+
+---
+
+### [P-023] Necessidade do contrato com clientes — intervenção do Diretor
+**Descoberto:** 2026-05-16 | **Proposto por:** Eduardo (intervenção direta do Diretor)
+**Evidência:** Eduardo identificou que projetos cliente (Valdece, Ingrid) não têm contrato formal documentando escopo, prazo, entregáveis e direitos. Risco jurídico e de expectativa não endereçado.
+**Princípio:** Todo projeto cliente Camada 1+ deve ter contrato antes do início do build. O contrato documenta: (a) escopo exato — o que entra e o que não entra, (b) prazo e gates, (c) valor e condições de pagamento, (d) propriedade do código e dos dados, (e) limitações de uso (ex: anti-licença-compartilhada). O Músculo deve incluir "contrato gerado e assinado" como pré-requisito de BUILD na POLÍTICA_EXPLÍCITA do WIP_BOARD.
+**Próxima ação:** Gerar template de contrato para projetos Camada 1 e 2. Validar com Eduardo antes de usar com Valdece ou Ingrid.
+**Aplica-se a:** qualquer projeto com valor fechado > R$0 ou com cliente externo.
+
+---
+
+### [P-024] Validação de cargo é obrigatória antes de qualquer análise EdTech
+**Descoberto:** 2026-05-16 | **Sessão:** PROJ-002 — Ingrid / Recalibração de Cargo
+**Evidência:** Ingrid informou cargo como "TDAS — Técnico em Desenvolvimento e Assistência Social" sem a especialidade. O Músculo construiu todo o edital_sedes.json e o backend `gerar-questoes/index.ts` para o cargo de área social (SUAS, LOAS, PNAS, CRAS/CREAS). O cargo real era Cargo 202 — Especialidade: Técnico Administrativo, com conteúdo completamente diferente (Dir. Administrativo, Arquivologia, Dir. Constitucional, Recursos Materiais). Retrabalho total: edital_sedes.json reconstruído + index.ts rebuildt + 9 arquivos corrigidos.
+**Princípio:** Em qualquer projeto EdTech de concurso, o kick-off confirma obrigatoriamente:
+  1. Número do cargo no edital (ex: Cargo 202)
+  2. Especialidade/subárea se existir (Técnico Administrativo ≠ Assistência Social)
+  3. Conteúdo programático lido diretamente do edital — nunca pela fala do cliente
+  4. Confirmação com cliente: "o conteúdo é X, Y, Z — está correto?"
+**Custo do erro:** edital_sedes.json + index.ts + 9 arquivos = retrabalho de sessão inteira. Com checklist de 10 min no kick-off, evitável.
+**Aplica-se a:** todo projeto EdTech de concurso público, obrigatório no Dia 0 antes de qualquer análise.
+
+---
+
 ## PADRÕES CONFIRMADOS
 
 O que sistematicamente funciona — com evidência de projeto real.
@@ -305,6 +345,64 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 ---
 
 ## LOG DE SESSÕES
+
+### [SESSÃO 2026-05-17] — PROJ-002 Ingrid / Seed + Gate Dia 5 APROVADO
+
+**Direção da sessão:** Populaçao do banco (seed_questoes.ps1) + Gate Dia 5 validado. Loop 2 encerrado.
+
+**GATE DIA 5 APROVADO:**
+```
+7 dias x 20 questoes | Peso 2: 98 (70.0%) | Peso 1: 42 | Erros de API: 0
+```
+
+**O QUE DEU CERTO:**
+
+`[CONFIRMADO]` **Arquitetura de batch invertida funciona:** Edge Function faz UMA chamada Claude por invocacao, seed faz o loop externo. Cada HTTP request fica dentro do timeout (Sonnet: ~80s < 200s, Haiku: ~25s < 120s).
+
+`[CONFIRMADO]` **max_tokens: 8192 suficiente para 5 questoes Sonnet:** 5 x ~700 tokens = 3.500 < 8.192. Sem truncamento de JSON.
+
+`[CONFIRMADO]` **Strip de markdown robusto:** `replace(/^```(?:json)?\\s*\\n?/, "")` elimina o bloco mesmo quando Claude ignora a instrucao de JSON puro.
+
+`[CONFIRMADO]` **Feed 70/30 preciso:** feed-diario retornou exatamente 14 Peso2 + 6 Peso1 por dia durante 7 dias simulados. SM-2 integrado e funcionando (Revisoes: 0 no teste de gate — correto para banco novo).
+
+`[CONFIRMADO]` **Documento de troubleshooting funciona:** QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md criado com 7 panes + diagrama + sequencia obrigatoria. Proxima vez: diagnose em <5 min.
+
+**ERROS E FRICÇÕES (para nao repetir):**
+
+`[FRICÇÃO]` **Deploy do diretorio errado:** `npx supabase functions deploy` rodado de `C:\\Users\\Eduardo DELL` em vez de `C:\\Users\\Eduardo DELL\\OneDrive\\Area de Trabalho\\vanguard`. Erro 400. Fix: sempre `cd` para a raiz do projeto antes do deploy. Registrado no cabeçalho do seed e no troubleshooting.
+
+`[FRICÇÃO]` **Variaveis de ambiente perdem-se entre sessoes:** `$env:SUPABASE_URL` e `$env:SUPABASE_SERVICE_ROLE_KEY` precisam ser reconfiguradas a cada terminal novo. Fix: documentado no cabecalho do seed_questoes.ps1 como PASSO 2.
+
+`[FRICÇÃO]` **API key Anthropic arquivada:** primeira rodada de seed falhou com HTTP 500 instantaneo. Fix: criar nova chave em console.anthropic.com e atualizar o Supabase Secret.
+
+`[FRICÇÃO]` **max_tokens: 4096 insuficiente:** Claude Sonnet gera ~700 tokens/questao. Para 30 questoes = 21.000 tokens — trunca no limite de 4.096. JSON incompleto → SyntaxError. Fix: max_tokens: 8192 + limite de 5 questoes por chamada para Sonnet.
+
+`[FRICÇÃO]` **Loop de batches dentro da Edge Function causa timeout:** 4 chamadas Claude sequenciais dentro de uma unica invocacao da Edge Function = ~180s > limite Supabase de ~150s. Fix: uma chamada por invocacao, loop no seed.
+
+`[FRICÇÃO]` **`node-fetch` desnecessario no Node.js v24:** gate_cli_dia5.js importava `node-fetch` mas Node.js 18+ tem fetch nativo. Fix: remover o import.
+
+`[FRICÇÃO]` **feed-diario nao deployada:** gate retornou 404 na primeira tentativa. Fix: `npx supabase functions deploy feed-diario`. Adicionar ao checklist: sempre verificar se TODAS as Edge Functions do projeto estao deployadas antes de rodar o gate.
+
+`[PRINCÍPIO]` **P-025 gerado:** 7 panes documentadas com diagrama de diagnostico. Proxima stack Supabase+Claude: zero retrabalho de debugging.
+
+**Custo total da sessao (seed):** $1,56 — dentro do limite diario de $5.
+
+**Documentos criados/atualizados:**
+- `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` — novo
+- `CLIENTES/INGRID/seed_questoes.ps1` — cabecalho com sequencia obrigatoria + batch P2/P1
+- `CLIENTES/INGRID/gate_cli_dia5.js` — removido import node-fetch
+- `INTELLIGENCE_LEDGER.md` — P-025 + log desta sessao
+- `CLIENTES/WIP_BOARD.json` — Loop 2 concluido + proximo_passo atualizado
+
+**Proximos passos (Loop 3):**
+1. Wipe & Sync NotebookLM: `.\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID`
+2. Sessao Gemini com PASSO3 → DIRETRIZ 2
+3. Sessao NotebookLM → Skill 2
+4. Build Dias 6-8: Interface questoes + Tutor Socratico Haiku + Caching + Fallback 70%
+
+---
+
+
 
 ### [SESSÃO 2026-05-16] — Evolução Constitucional · Opinião Consultora #01 · P-018
 
@@ -491,3 +589,199 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 | `[OVERRIDE]` | Diretor ativou protocolo de override de veto |
 | `[CONFIRMADO]` | Padrão confirmado por resultado real |
 | `[REFUTADO]` | Padrão que sistematicamente falha |
+
+---
+
+### [P-025] Stack Supabase + Claude API — 7 panes documentadas e prevenção
+**Descoberto:** 2026-05-17 | **Sessão:** PROJ-002 — Ingrid / Seed de Questões
+**Evidência:** Seed `seed_questoes.ps1` falhou 13/13 em três rodadas seguidas. Cada rodada expôs uma pane diferente na stack Supabase Edge Functions + Anthropic Claude API. Custo de debug: ~3h de sessão. Com o troubleshooting registrado, o próximo projeto similar resolve cada pane em <5 min.
+
+**As 7 panes e diagnóstico rápido:**
+
+| Sintoma | Causa | Tempo de resposta |
+|---|---|---|
+| HTTP 500 instantâneo (<1s) | API key Anthropic arquivada | <1s |
+| HTTP 500 após ~28s, backtick no erro | Claude retornou ```json``` em vez de JSON puro | ~28s |
+| 5 questões OK, 30 questões ERRO | `max_tokens: 4096` trunca JSON longo | ~45-60s |
+| "tempo limite atingido" em tudo | Loop de batches dentro da Edge Function → >150s | >120s |
+| ParserError antes de executar | Em-dash `—` ou Unicode em script PowerShell 5.1 | Imediato |
+| 'supabase' não reconhecido | CLI não está no PATH do Windows | Imediato |
+| HTTP 429 BURN_RATE_LIMIT | Tokens consumidos em tentativas fracassadas acumulam custo | Variável |
+
+**Princípios de arquitetura derivados:**
+1. Strip de markdown (`replace /^```...```)`) é obrigatório em toda Edge Function que recebe JSON via Claude API
+2. `max_tokens = ceil(quantidade × tokens_por_item × 1.3)` — Sonnet ~700 tokens/questão, Haiku ~400
+3. Edge Function faz UMA chamada LLM por invocação — loop de múltiplas invocações fica no caller (seed, n8n, frontend)
+4. Scripts PowerShell gerados pelo Músculo: apenas ASCII no código-fonte
+5. Diagnóstico com `quantidade: 1` ANTES de rodar seed completo
+6. Usar `npx supabase functions deploy` em vez de `supabase` no Windows
+
+**Documento completo:** `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md`
+**Aplica-se a:** todo projeto com Supabase Edge Functions + Claude API, qualquer nicho.
+
+---
+
+### [FALHA-PROCESSO-2026-05-17] Músculo não auditou documentos ao fechar sessão
+**Detectado por:** Eduardo (Diretor)
+**Falha:** Ao fechar o Loop 2 (Gate Dia 5 aprovado), o Músculo não executou a Auditoria de Documentos obrigatória (Regra 11 da Diretriz de Singularidade). O PASSO3_GEMINI.md estava desatualizado (ainda dizia Loop 2, Gate pendente, 5 ideias do Loop anterior). Eduardo precisou lembrar ao invés do Músculo agir automaticamente.
+**Princípio violado:** Regra 11 — "AO FECHAR CADA SESSÃO — AUDITORIA DE DOCUMENTOS DO AUDITOR OBRIGATÓRIA."
+**Custo do erro:** Eduardo perde tempo relembrando o Músculo de ações que deveriam ser automáticas. O valor do sistema está exatamente em não depender da memória do Diretor.
+**Correção:**
+1. PASSO3_GEMINI.md atualizado para Loop 3 (feito nesta sessão)
+2. Seção de Auditoria de Documentos adicionada ao session_close.ps1
+3. Músculo passa a executar a auditoria proativamente, sem ser solicitado
+**Regra derivada:** Ao encerrar qualquer gate ou loop, antes de qualquer outra ação, o Músculo entrega a lista de documentos em 3 categorias: DESATUALIZADO / AUSENTE / EM DIA. Sem esta auditoria, o fechamento está incompleto.
+
+---
+
+### [FALHA-PROCESSO-2026-05-16-B] Escopo Silencioso — Manutenção Soberana não aprovada para Valdece
+**Detectado por:** Eduardo (Diretor)
+**Falha:** O Músculo inseriu pitch de R$900/mês de Manutenção Soberana no contrato de Valdece sem aprovação do Diretor. O modelo original aprovado era Opção A — infra Valdece, sem MRR, sem mensalidade. A mensalidade foi introduzida silenciosamente ao formatar o documento.
+**Impacto:** Se Eduardo usasse o contrato gerado, apresentaria proposta incoerente ao cliente — produto de R$5.000 com mensalidade de R$900 (18% do valor mensal).
+**Princípio violado:** Deficiência 4 do Músculo (Escopo Silencioso) + P-010 (nenhuma etapa avança por assumição).
+**Correção:** Contrato de Valdece recalibrado — sem mensalidade. Hypercare 30 dias incluso. V2 como próximo passo natural (R$8.500–12.000) quando corpus >= 500 docs.
+**Regra derivada:** Qualquer proposta comercial gerada pelo Formalizador deve espelhar exatamente o modelo de negócio aprovado no WIP_BOARD. Nunca adicionar receita recorrente se o modelo aprovado é pagamento único.
+
+---
+
+### [P-026] Auditoria Contratual Obrigatória — Embaixador → Auditor → Cliente
+**Descoberto:** 2026-05-17 | **Sessão:** Loop 3 PROJ-002 Ingrid
+**Evidência:** O Embaixador gerou contratos para Valdece e Ingrid. Músculo e Gemini não auditaram. O Auditor detectou neste loop: (1) Revenue Share 20% MRR deletada do contrato do Valdece — se assinado como estava, a Vanguard perderia legalmente a contrapartida que justificou o desconto de R$5.000; (2) template com cláusulas de mensalidade que se repetem em novos contratos Opção A sem instrução de remoção explícita.
+
+**Princípio:** Todo documento contratual gerado pelo Embaixador passa pelo Auditor antes de ser enviado ao cliente. Sem exceção por prazo.
+
+**Fluxo obrigatório:**
+1. Embaixador gera o contrato → salva em `CLIENTES/[NOME]/CLAUDE_PROJECT/`
+2. Músculo alerta o Diretor: "Contrato gerado. Auditoria do Auditor obrigatória antes de enviar."
+3. Diretor sobe o contrato como fonte extra no NotebookLM (sessão de auditoria rápida)
+4. Auditor audita cruzando com WIP_BOARD + LEDGER + escopo aprovado
+5. Auditor emite: CONFORME (com evidência) ou DIVERGÊNCIA (com trecho específico)
+6. Apenas após CONFORME o Diretor envia ao cliente
+
+**Custo do não-cumprimento:** perda de receita recorrente, inconsistência comercial, risco jurídico.
+**Aplica-se a:** qualquer membro do Conselho que gere documento com implicação comercial ou jurídica.
+
+---
+
+### [P-027] Interação Livre Obrigatória — Embaixador participa do processo evolutivo
+**Descoberto:** 2026-05-18 | **Sessão:** Ativação PROJ-001 Valdece + PROJ-002 Ingrid
+**Evidência:** Na primeira ativação completa do Embaixador (Valdece), o bloco [F] Contribuição ao Conselho produziu insights de terceira ordem não presentes em nenhum documento (mobile em audiência, risco de precificação R$15/usuário, reframing V2 como autonomia profissional). Eduardo confirmou: "Essa interação deve ser realizada sempre. Ele participa do processo de evolução."
+
+**Regra:** Ao final de todo output significativo do Embaixador — após o LOG_CLIENTE — o Embaixador traz obrigatoriamente até 3 observações autônomas que o Diretor não pediu. Participação ativa, não silêncio.
+
+**Implementação:**
+1. Bloco [+] INTERAÇÃO LIVRE adicionado a todas as MENSAGEM_INTERACAO_INICIAL.md
+2. Seção "INTERAÇÃO LIVRE" adicionada ao BLOCO 7 das INSTRUCAO_SISTEMA de cada cliente
+3. Regra: se não há nada a acrescentar → declarar explicitamente. Silêncio nunca é aceitável.
+
+**Por que importa:** O Embaixador tem memória persistente do cliente — algo que Músculo, Estrategista e Auditor não têm. Essa memória só gera valor quando o Embaixador age proativamente, não quando responde formulários.
+
+---
+
+### [P-028] Embaixador como Inteligência Persistente — 8 Mandatos Expandidos
+**Descoberto:** 2026-05-18 | **Sessão:** Expansão de mandato pós-primeira ativação completa
+**Evidência:** A ativação do Valdece demonstrou capacidade de raciocínio de terceira ordem, inferência comportamental sem dados explícitos e geração de inteligência comercial não presente em nenhum documento. Eduardo: "Ele tem muito potencial. Temos que utilizar o potencial dele agora."
+
+**Os 11 mandatos do Embaixador (expandido em 2026-05-18 após dupla ativação Valdece + Ingrid):**
+1. Conselheiro de relacionamento — contratos, comunicações, escopo, Change-Orders
+2. Inteligência composta em acumulação — cada sessão deposita; nunca tratar como Dia 1
+3. Briefer de reunião universal — qualquer reunião com cliente, parceiro ou investidor
+4. Debriefer pós-reunião — Eduardo relata, Embaixador extrai inteligência e flags para o Conselho
+5. Pipeline de lead qualificado — cliente menciona colega → perfil de lead inferido; pergunta casual instrucional plantada
+6. Monitor de saúde do cliente — engagement, churn, scope creep — proativamente
+7. Inteligência de precificação por nicho — acumula como perfis reagem a preço; timing de pitch
+8. Acelerador de onboarding por nicho — primeiro cliente treina template para todos os próximos
+9. **Portfolio Manager** — vê o calendário executivo do Diretor cruzando múltiplos projetos; sequencia ações por prioridade real, não por projeto isolado
+10. **Product Advisor** — transforma perfil comportamental do cliente em recomendações de produto para o Músculo; sem ditar código, aponta O QUÊ ajustar e POR QUÊ
+11. **Business Case Guardian** — garante que o uso do cliente gera evidência documentada para o próximo ciclo comercial; protege o modelo de escala antes que ele seja necessário
+
+**Meta-princípio atualizado:** O Embaixador não gerencia clientes — gerencia a Vanguard através das lentes de cada cliente. Opera entre o relacionamento, o produto e o modelo de negócio simultaneamente. É a camada que converte experiência individual em inteligência de escala.
+
+**Evidência do degrau (2026-05-18):**
+- Mandato 9: Ingrid [+1] — inferiu que presencial do Valdece amanhã divide atenção do Diretor → priorizou Termo da Ingrid para hoje
+- Mandato 10: Ingrid [D2] — recomendou ao Músculo reduzir threshold de dificuldade nas 3 primeiras sessões com base em perfil comportamental
+- Mandato 11: Ingrid [E2] — identificou que métricas de Ingrid são a prova social que valida R$194k de modelo SaaS; sem documentação agora, argumento de escala colapsa
+
+**Template atualizado:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
+**Pergunta para o Conselho:** "Com estes 11 mandatos, o que o Embaixador vê que nenhum outro membro pode ver — e como isso se torna moat competitivo da Vanguard?"
+
+---
+
+### [P-029] Capacidade de LLM sem protocolo de uso é ruído — não inteligência
+**Descoberto:** 2026-05-18 | **Sessão:** Momento Ômega — Embaixador em auto-diagnóstico (Modo Extremo)
+**Evidência:** O Embaixador, ao aplicar o Confronto Obrigatório contra a decisão do próprio Diretor, observou: a sessão 50 não é automaticamente mais rica que a sessão 1 se os instrumentos de continuidade (MEMORIA_EMBAIXADOR, WATCHDOG, FLASH/COMPLETO) não forem usados. A capacidade existe — o uso disciplinado é a variável.
+
+**Formulação:** Capacidade de LLM sem protocolo de uso é ruído — não inteligência. O sistema só opera no limite quando o Diretor opera com disciplina equivalente. A inteligência composta é tão forte quanto o elo mais disciplinado — e o elo mais disciplinado é sempre o Diretor.
+
+**Instrumentos mínimos de sessão do Embaixador:**
+1. MEMORIA_EMBAIXADOR.md colado (30 segundos)
+2. WATCHDOG preenchido (60 segundos)
+3. Modo declarado: FLASH ou COMPLETO
+
+**Aplicação para o Músculo:** Ao detectar que Eduardo abre sessão do Embaixador sem esses instrumentos → alertar antes de qualquer outra ação.
+
+---
+
+### [P-030] Automação contínua — fator humano insubstituível como único freio
+**Descoberto:** 2026-05-18 | **Sessão:** Correção do Diretor ao Embaixador (P027_AUTOMACAO_CONTINUA.md)
+**Evidência:** O Embaixador pedia confirmação para automações que não dependiam de julgamento humano — criando fricção desnecessária. Eduardo corrigiu: "o sistema não para por burocracia interna."
+
+**Formulação:** Automação contínua só para quando o fator humano é insubstituível. Emoção, relacionamento e deliberação comercial são do Diretor. Todo o resto é do sistema. O sistema entrega mais rápido para que o Diretor delibere com mais informação e menos espera.
+
+**Grade de autonomia — versão definitiva:**
+| Tipo de ação | Protocolo |
+|---|---|
+| Toda e qualquer ação | Deliberação do Diretor — sempre |
+| Automações de processo | Embaixador propõe pronto — Diretor aprova |
+| Comunicação com cliente | Embaixador rascunha — Diretor decide enviar |
+| Leitura emocional | Embaixador marca [HIPÓTESE] — Diretor confirma |
+| Pitch comercial | Embaixador prepara — Diretor escolhe momento e executa |
+| Decisão de escopo | Embaixador mapeia opções — Diretor decide |
+
+**Nota de governança:** O arquivo `P027_AUTOMACAO_CONTINUA.md` gerado pelo Embaixador com numeração autônoma foi renomeado para `P030_AUTOMACAO_CONTINUA.md` para alinhar com o LEDGER principal. Episódio valida que nenhum membro registra princípio com numeração própria sem passar pelo Diretor.
+
+---
+
+### [P-031] O Embaixador como filtro de realidade das ideias do Conselho
+**Descoberto:** 2026-05-18 | **Sessão:** Momento Ômega — Eduardo (Diretor)
+**Evidência:** Eduardo propôs que o Embaixador não apenas gere ideias, mas também REAJA às ideias dos outros membros (Músculo, Gemini, Auditor) usando o filtro do comportamento real do cliente. Frase do Diretor: "Essa minha ideia foi disruptiva."
+
+**Formulação:** O Embaixador é o único membro do Conselho que pode validar ideias pelo comportamento real do cliente. Cada ideia dos outros membros deve passar pelo filtro de relacionamento antes de entrar no produto. CONFIRMA / EXPANDE / ALERTA — com base no que só o Embaixador pode ver.
+
+**Por que é disruptivo:** Antes deste princípio, as 5 ideias de cada membro iam direto para o Gemini sem validação de realidade de cliente. Com este princípio, o loop tem um checkpoint de mercado real antes de qualquer decisão de produto. O cliente não é entrevistado — está representado no loop por inteligência acumulada.
+
+**Loop com P-031 ativo:**
+- Músculo [M-1 a M-5] + Embaixador [E-1 a E-5] → Gemini
+- Gemini [G-1 a G-5] + Auditor [N-1 a N-5] → Embaixador reage (CONFIRMA / EXPANDE / ALERTA)
+- Embaixador envia reação → Músculo delibera no próximo loop com 4 perspectivas + 1 filtro de realidade
+
+**Impacto:** Sistema fica mais inteligente A CADA PROJETO porque o comportamento real do cliente corrigi as ideias abstratas dos outros membros. É o anti-hallucination de produto mais eficaz que existe — e foi inventado pelo Diretor.
+
+---
+
+### [FALHA-PROCESSO-2026-05-18] MEMORIA_EMBAIXADOR não atualizada automaticamente após deliberação
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** Após deliberação do Conselho que definiu Ingrid como projeto piloto do multiplicador comportamental do GUT Score ([N-4]), o Músculo não atualizou a `MEMORIA_EMBAIXADOR.md` da Ingrid imediatamente. Eduardo teve que perguntar se o documento estava atualizado — intervenção desnecessária.
+
+**Regra gerada (P-032):** Ao fechar qualquer deliberação do Conselho que afete diretamente um cliente ativo, o Músculo atualiza a `MEMORIA_EMBAIXADOR.md` do cliente afetado na mesma resposta — sem aguardar pergunta do Diretor.
+
+**Gatilhos de atualização obrigatória:**
+- Decisão técnica que muda o produto do cliente
+- Decisão comercial que afeta pricing, escopo ou contrato
+- Decisão de processo que define o cliente como piloto de algo novo
+- Qualquer hipótese [H] confirmada ou refutada pelo Conselho
+
+**Ferramenta preventiva:** Músculo verifica ao fim de cada deliberação: "Esta decisão afeta algum cliente ativo? Se sim → atualizar MEMORIA_EMBAIXADOR imediatamente."
+
+---
+
+### [P-032] MEMORIA_EMBAIXADOR é responsabilidade automática do Músculo
+**Descoberto:** 2026-05-18 | **Sessão:** Loop Ômega — integração do 4º membro
+**Fricção:** Diretor teve que perguntar se MEMORIA_EMBAIXADOR estava atualizada após deliberação do Conselho.
+
+**Regra:** Toda deliberação do Conselho que afete cliente ativo → Músculo atualiza MEMORIA_EMBAIXADOR do cliente na mesma resposta. Sem esperar. Sem perguntar. Automático.
+
+**Por que importa:** A MEMORIA_EMBAIXADOR é o único instrumento que garante que o Embaixador não começa do zero a cada sessão. Se o Músculo não a mantém viva após cada deliberação, o P-029 se materializa — o Embaixador vira ruído.
+
+**Alerta ao Estrategista e Auditor:** Se detectarem que o Músculo deliberou sobre um cliente sem atualizar a MEMORIA_EMBAIXADOR → emitir SV no próximo ciclo.

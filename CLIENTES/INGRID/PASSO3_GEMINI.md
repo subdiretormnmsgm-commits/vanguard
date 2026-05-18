@@ -1,6 +1,6 @@
-# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 2
+# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 3
 > Quadrilateral IAH V25 — Camada Permanente: não editar blocos de protocolo.
-> Bloco CONTEXTO atualizado pelo Músculo em 2026-05-16 (Loop 2 / Gate Dia 5)
+> Bloco CONTEXTO atualizado pelo Músculo em 2026-05-17 (Loop 3 / Gate Dia 8)
 
 ---
 
@@ -24,7 +24,7 @@ Anexar estes 3 arquivos diretamente no Gemini (nesta ordem):
 
 Após receber a DIRETRIZ (7 blocos):
 - Se vier incompleta → dizer: "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
-- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V1.txt`
+- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V2.txt`
   (nome exato — o script do Passo 5 busca este padrão automaticamente)
 
 Loop 2+ — anexar também:
@@ -78,8 +78,8 @@ Ao estruturar sua DIRETRIZ, compense ativamente:
 **Cliente:** Ingrid (esposa do Diretor Eduardo — projeto piloto interno V25)
 **Nicho:** Concursos Públicos / EdTech
 **Camada:** 2 — Produto (15 dias de build, escopo controlado)
-**Loop:** #2 — Gate Dia 5 (Feed + SM-2 + Proporção correta)
-**Data:** 2026-05-16
+**Loop:** #3 — Gate Dia 8 (Interface + Tutor Socrático + Fallback Fadiga)
+**Data:** 2026-05-17
 
 ### DISCOVERY — Respostas da Cliente
 
@@ -136,14 +136,16 @@ Ao estruturar sua DIRETRIZ, compense ativamente:
 | politica_mulheres | 1q | ~50 | 1 |
 | primeiros_socorros | 1q | ~50 | 1 |
 
-### DIAS COMPLETOS (Dias 1–2)
+### DIAS COMPLETOS (Dias 1–5) — 2 Gates APROVADOS
 
 | Dia | Entregues | Status |
 |---|---|---|
 | Dia 1 | Schema SQL multi-tenant + Edge Function `gerar-questoes` | Concluído |
-| Dia 2 | Gate CLI (`gate_cli.js`) — 10 questões geradas, prontas para avaliação | Gate pendente |
+| Dia 2 | Gate CLI — 10 questões avaliadas por Eduardo | **GATE APROVADO** (rubrica média ≥ 4/5) |
+| Dias 3–5 | Feed Diário 70/30 + SM-2 + PWA frontend + Contador ponderado + Explicação ao errar | Concluído |
+| Dia 5 | Gate CLI feed — 7 dias simulados, 70% Peso2, 0 erros | **GATE APROVADO** 2026-05-17 |
 
-**Gate Dia 2:** Eduardo avalia 10 questões com rubrica média ≥ 4/5 — desbloqueador de Dias 3–5.
+**Banco de questões:** 460 questões no Supabase — 13 disciplinas Cargo 202, priorizadas por score de incidência histórica (P-014).
 
 ### DECISÕES JÁ TOMADAS (não reverter)
 
@@ -155,17 +157,17 @@ Ao estruturar sua DIRETRIZ, compense ativamente:
 - **SM-2** — spaced repetition com intervalo variável
 - **Haiku para gerais + dicas socrátcas / Sonnet para específicos** — custo controlado
 
-### 5 IDEIAS DO MÚSCULO (Loop 2 — Dias 3–5)
+### 5 IDEIAS DO MÚSCULO (Loop 3 — Dias 6–8)
 
-1. **Calibração Dinâmica da Proporção 70/30:** Semana < 40% de acerto em Peso 2 → proporção sobe para 80/20 automaticamente. Semana > 70% → reduz para 60/40 para consolidar Peso 1. O algoritmo de proporção evolui com o desempenho real, não é fixo até a prova.
+1. **Tutor Socrático com Memória de Erro:** Ao errar a mesma questão duas vezes, o Tutor Haiku não repete a explicação — muda o ângulo. Na 1ª tentativa: explica o conceito. Na 2ª: ataca especificamente o distrator que Ingrid escolheu. Na 3ª: formula uma pergunta analógica para forçar o raciocínio próprio. Tutor que repete não ensina — que adapta ao erro específico, ensina.
 
-2. **Pílula de Diagnóstico Pré-Feed (3 questões flash):** Antes de exibir o feed do dia, 3 questões rápidas (< 1 min) detectam o estado cognitivo de Ingrid. Se errar > 2 → feed inicia com revisão. Se acertar 3 → avança direto para conteúdo novo. Evita desperdiçar a cota diária de API em dia de fadiga.
+2. **Cache Inteligente de Explicações:** As explicações geradas pelo Tutor Haiku para cada questão são salvas no banco (`explicacao_tutor`). Na segunda vez que Ingrid errar a mesma questão, o sistema usa o cache — zero custo de API, resposta instantânea. A cota de API se concentra em questões novas, não em repetir o que já foi explicado.
 
-3. **Âncora Temporal de Regra Legislativa:** Para cada questão de legislação, gerar automaticamente 1 frase-âncora que fixa a pegadinha (ex: "Lei 8.666 — licitação dispensável ≠ dispensada"). Quando SM-2 retornar a questão, exibir a âncora primeiro. Aumenta retenção de normas específicas sem aula.
+3. **Fallback de Fadiga com Conteúdo Passivo:** Quando Ingrid atinge 70% da cota diária de API (`controle_burn_rate`), o sistema não para — muda de modo. Exibe as "pílulas do dia" salvas no banco (campo `pilula_do_dia`): frases-âncora das pegadinhas, resumos legislativos em 2 linhas, casos práticos sem questão. Estudo continua sem custo extra de API.
 
-4. **Contador Ponderado em Tempo Real no Header:** Substituir "questões respondidas" por "pontos ponderados acumulados hoje" (Peso 2 × 2 + Peso 1 × 1). Ingrid vê o impacto de cada questão no score estimado — não um contador neutro.
+4. **Progresso Visual por Disciplina no Header:** Em vez de contador genérico, mostrar barra de progresso por disciplina Peso 2 (as 6 mais importantes). Ingrid vê que "Direito Administrativo" está em 45% e "SUAS" em 80% — sabe onde atacar sem o app precisar dizer. A visualização cria urgência específica, não genérica.
 
-5. **Detector de Fadiga Cognitiva:** Se em 5 questões consecutivas Ingrid errar > 3, o sistema detecta fadiga e recomenda pausa ativa de 10 min antes de continuar. Estudo com fadiga = retenção zero. A ferramenta que detecta e para vale mais que a que ignora e continua.
+5. **Modo Revisão Express (5 min):** Para dias com pouco tempo, um modo de 5 questões pré-selecionadas pelo SM-2 — apenas as que estão vencidas (intervalo expirado) com maior score de prioridade. Ingrid abre o app no ônibus, responde 5 em 5 min, fecha. Consistência diária supera sessões longas esporádicas — e o produto que se adapta ao tempo disponível retém mais usuário que o que exige bloco de 30 min.
 
 ---
 

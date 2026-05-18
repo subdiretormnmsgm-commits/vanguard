@@ -3,8 +3,6 @@
 // Rodar: node gate_cli_dia5.js
 // Gate passa se proporcao_peso2 >= 0.65 e proporcao_peso2 <= 0.75
 
-import fetch from "node-fetch";
-
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const USER_ID = process.env.USER_ID_INGRID ?? "00000000-0000-0000-0000-000000000001";

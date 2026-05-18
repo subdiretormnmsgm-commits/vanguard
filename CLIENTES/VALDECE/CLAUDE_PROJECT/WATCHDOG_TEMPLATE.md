@@ -17,20 +17,19 @@
 ## BLOCO WATCHDOG — COPIAR E COLAR
 
 ```
-WATCHDOG — [data de hoje]
+WATCHDOG — [18/05/2026]
 
 ESTADO_ATUAL:
-- Termo: [PENDENTE / ASSINADO em DD/MM]
-- Gate: [Dia X / o que está em build agora]
-- Último contato Ingrid: [há X dias / hoje — o que aconteceu em 1 linha]
-- Risco: [VERDE / AMARELO / VERMELHO]
+- Termo: [PENDENTE / VALDECE ESTÁ EM VIAGEM. JÁ ACEITOU O ATRASO DO PROJETO. NÃO TEREMOS PROBLEMAS]
+- Gate: [AGUARDANDO VALDECE PASSAR AS CREDENCIAIS]
+- Último contato Ingrid: [hoje — o que aconteceu em 1 linha]
+- Risco: [VERDE / AMARELO / VERMELHO] = PONTUE O RISCO
 
 DESDE A ÚLTIMA SESSÃO:
-[O que aconteceu com Ingrid, com o build, ou com o projeto desde que fechou o Project.
-Pode ser uma linha. Pode ser bruto — o Embaixador processa.]
+[INGRID ASSINOIU O TERMO DE ENTREGA.]
 
 PERGUNTA DESTA SESSÃO:
-[O que Eduardo quer resolver agora — uma frase.]
+[CONTINUAR O PROCESSO DE MONTAGEM DO PROCESSO DE INGRID E AGUARDAR OS DADOIS DE VALDECE]
 ```
 
 ---
@@ -115,4 +114,5 @@ O Embaixador não julga. Mas precisa saber o que foi omitido para compensar na p
 ---
 
 *Criado por: Embaixador · 2026-05-18*
-*Atualizar quando: o processo de abertura de sessão mudar ou um novo membro entrar no Conselho*
+*Atualizar quando: o processo de abertura de sessão mudar ou um novo membro entrar no Conselho* 
+FOI ATUALIZADO PELO DIRETOR EM 18 MAI 26.

@@ -1,0 +1,129 @@
+DIRETRIZ_V3_ESTRATEGISTA
+BLOCO 1 — DIAGNÓSTICO DO EMBAIXADOR COMO MEMBRO
+O erro atual na utilização do Embaixador (Claude Projects) é tratá-lo como um repositório passivo de arquivos ou um secretário digital de atas. No arranjo constitucional da Vanguard Tech (Paradigmas V25), o Embaixador ocupa a fronteira mais crítica do sistema: a linha de contato direta entre a livre alucinação comercial do mercado (o cliente) e a consistência lógica fria do Conselho IAH.
+
+A passividade dele é um sintoma da falta de garras de monitoramento operacional. Ele possui a única vantagem que os outros membros não têm: a persistência histórica contextual de longo prazo do ecossistema do cliente dentro do ambiente de trabalho. Enquanto o Músculo opera no calor do commit e o Estrategista opera na abstração de mercado, o Embaixador deve agir como o Guardião da Fronteira Jurídico-Comercial. Ele não serve para fazer sumários; ele serve para interceptar desvios de escopo e garantir a Soberania do Cliente [P-013] sem comprometer o Burn Rate Shield [P-006].
+
+BLOCO 2 — PRIORIDADES DE AÇÃO (MÁXIMO 3)
+Injeção do Bloco de Contenção de Risco Comercial (Prompt Master)
+
+O que construir: Atualização estrutural imediata das instruções do Embaixador para incluir o sub-bloco [SHIELD_DE_ESCOPO]. O prompt deve forçá-lo a confrontar toda nova mensagem ou documento do cliente com as cláusulas limitantes do contrato original.
+
+Por que agora: Valdece está travado por falta de documentos e Ingrid alterou o escopo programático do edital no Loop 2 [P-024]. Sem essa trava de contenção ativa, o Músculo começará a codificar demandas marginais não faturadas.
+
+Horas reais: ~2h (Engenharia de Prompt nas instruções permanentes do Claude Project).
+
+O que fica de fora: Sistemas externos de alertas por webhooks. A notificação ocorre estritamente dentro da interface de chat do projeto.
+
+Mecanismo de Automação de Logs Cíclicos (LOG_CLIENTE.md)
+
+O que construir: Instrução mandatória para o Embaixador gerar o arquivo LOG_CLIENTE.md ao final de cada interação significativa. Este arquivo condensa de forma ultra-comprimida (máximo 5 bullet points) as fricções, desvios de escopo tentados e o clima emocional do cliente.
+
+Por que agora: Alimenta a retroalimentação cíclica do sistema. Esse documento vira a Fonte 17 oficial no Passo 5 do NotebookLM, unificando a inteligência comercial da Vanguard.
+
+Horas reais: ~3h (Montagem do template estruturado e instrução de extração autônoma).
+
+O que fica de fora: Digitação manual por parte do Eduardo. O Diretor apenas roda o script de fechamento que copia o output gerado pelo Embaixador para a pasta de fontes.
+
+Mecanismo de Alerta P-023 (SLA de Assinatura de Contrato)
+
+O que construir: Protocolo de verificação de pendência de assinatura. Se o arquivo CONTRATO_FINAL.md na raiz do projeto não contiver a marcação de validação [ASSINADO] em até 24 horas após sua emissão, o Embaixador entra em estado de bloqueio de build.
+
+Por que agora: Valdece e Ingrid estão operando com minutas soltas há mais de 24 horas, violando frontalmente a governança de risco comercial estabelecida no mandato [P-023].
+
+Horas reais: ~3h (Estruturação do script local que lê a tag do contrato e gera o texto de interrupção).
+
+O que fica de fora: Envio automático de e-mails para o cliente (o que feriria a discrição da boutique). Ele gera a mensagem exata para Eduardo copiar e enviar manualmente.
+
+BLOCO 3 — POSICIONAMENTO COMERCIAL
+No pitch comercial da Vanguard Tech para as próximas captações da Camada 3+, o Embaixador será o nosso maior diferencial competitivo contra agências tradicionais ou squads de freelancers seniores. O argumento irresistível de venda baseia-se na Memória Soberana do Projeto:
+
+"Agências mudam o seu gerente de conta a cada três meses. Freelancers esquecem o que você combinou em uma reunião de call na semana passada. Na Vanguard Tech, o seu projeto é governado por um Embaixador dedicado de Inteligência Composta. Ele possui memória absoluta e persistente de cada milhão de caracteres trafegados no seu negócio. Ele conhece cada dor manifestada, monitora o escopo contra surpresas contratuais e sabe exatamente qual o próximo passo técnico, operando 24h por dia para blindar a velocidade da sua entrega corporativa."
+
+Transformamos o Claude Projects de uma ferramenta de engenharia interna para um Ativo de Governança Comercial incluído no valor do Discovery Product.
+
+BLOCO 4 — DECISÕES E SLAS
+Decisão 1 (Identidade): O nome do 4º membro fica constitucionalmente consolidado como Embaixador. O termo "Formalizador" reduzia o papel a uma função cartorial e burocrática, enquanto "Embaixador" carrega o peso diplomático da boutique: ele representa os interesses da Vanguard (lucratividade e proteção de escopo) dentro do território do cliente, mantendo a elegância institucional.
+
+Decisão 2 (O SLA de Contrato): Fica estabelecido o limite rígido de 24 horas (X = 24) para a tag [ASSINADO] ser inserida no contrato em Markdown. Se o prazo estourar, o Embaixador está instruído a emitir um alerta no chat contendo um rascunho de mensagem de follow-up ultra-polida, customizada com base no perfil emocional do cliente (ex: o tom formal para o Valdece e o tom ágil para a Ingrid).
+
+Decisão 3 (Estrutura do Log Cíclico): O LOG_CLIENTE.md é aprovado. Para garantir que ele não vire overhead para Eduardo, a geração será 100% autônoma por parte do Embaixador. Eduardo usará o comando de fechamento de bloco; o Embaixador cospe o Markdown limpo e o Diretor apenas executa o redirecionamento de arquivo para a pasta .claude/skills/ ou NOTEBOOKLM_FONTES/.
+
+BLOCO 5 — RISCOS QUE O ESTRATEGISTA VÊ E OS OUTROS NÃO VEEM
+O Risco da Espionagem Involuntária (Paranoia do Cliente): Se o Embaixador começar a registrar de forma muito explícita no LOG_CLIENTE.md análises frias sobre o estado "emocional" ou "ansiedade" do cliente (especialmente em produtos B2B onde o cliente lê os relatórios de handoff), isso pode gerar uma crise de desconfiança. O cliente pode sentir que está sendo monitorado psicologicamente por uma máquina em vez de assessorado por uma boutique humana. Os registros emocionais devem ser traduzidos em "indicadores de risco de fricção de escopo".
+
+O Risco do Escopo Silencioso via Customização de Prompts: O Embaixador pode começar a tentar sugerir ajustes no código do Músculo diretamente no chat para agradar o cliente nas calls de alinhamento. Isso quebra a hierarquia de controle técnico. O Embaixador está estritamente proibido de ditar linhas de código; ele aponta o o quê e o limite, nunca o como.
+
+O Risco da Burocratização do Fluxo: Se o Eduardo precisar extrair logs de três instâncias de Claude Projects diferentes simultaneamente, a esteira operacional vai travar por saturação de micro-tarefas. A automação desses logs deve ser integrada diretamente nos scripts .ps1 existentes na raiz do repositório universal.
+
+BLOCO 6 — REAÇÃO ÀS 5 IDEIAS DO MÚSCULO
+M-11: Edge Function única por projeto (consolidação de chamadas)
+
+Veredito: MODIFICADA.
+
+Razão Técnica: Centralizar toda a inteligência do PROJ-002 em uma única Edge Function (um monólito de roteamento) reduz o tempo de deploy inicial, mas viola severamente a resiliência arquitetural e o princípio de isolamento de falhas. Se a lógica do Tutor Socrático falhar por um erro de parsing de JSON da Claude API, o mecanismo crítico de entrega do Feed Diário e o cálculo do SM-2 também cairão. Mantenha o código modularizado em arquivos separados dentro do mesmo diretório de deploy do Supabase.
+
+M-12: Debug Mode via ?debug=true na URL (visibilidade interna)
+
+Veredito: APROVADA.
+
+Razão Técnica: Vital para a validação mobile-first no celular do Diretor. Permite inspecionar o estado do SM-2, o easiness factor da questão e o custo em milidólares daquela chamada sem precisar abrir o dashboard de logs do Supabase na trincheira do teste físico.
+
+M-13: Pixel de Latência — SM-2 preditivo por tempo de resposta
+
+Veredito: MODIFICADA.
+
+Razão Técnica: A ideia de capturar o timestamp de resposta da Ingrid para medir a fluência cognitiva é genial, mas alterar a matriz matemática do algoritmo SM-2 puro em um prazo de build de 10 dias restantes é um risco de quebra de consistência. Modifique para: o tempo de resposta não altera as variáveis principais (easiness_factor), mas atua como um modificador de margem de segurança de ±1 dia no intervalo final calculado, caso o tempo de resposta ultrapasse 60 segundos (hesitação extrema).
+
+M-14: Hardcode user_id no MVP (sem auth complexa)
+
+Veredito: APROVADA.
+
+Razão Técnica: Cumpre com maestria a eliminação de escopo invisível e atende à premissa de single-user estabelecida no Discovery. Economiza pelo menos 8 horas de desenvolvimento que seriam gastas configurando fluxos de e-mail de confirmação, recuperação de senha e telas de login desnecessárias para a Ingrid nesta fase.
+
+M-15: Sequência obrigatória Mock→Supabase→Tutor (sem pular etapa)
+
+Veredito: APROVADA.
+
+Razão Técnica: É a materialização estrita do princípio [P-010] (nenhuma etapa avança por assumição). Construir a UI sem garantir a estabilidade do fluxo de dados com mocks estáticos locais gera retrabalho maciço de CSS e manipulação de DOM mais adiante quando as Edge Functions forem integradas.
+
+BLOCO 7 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA (SOBRE O EMBAIXADOR)
+O Interceptor de Escopo "Change-Order" Automático
+
+O que é: O Embaixador monitora o chat do Claude Project. Se o cliente digitar um requerimento que fira a Cláusula 1 do objeto do contrato (ex: Valdece pedindo para incluir citação de tribunais estaduais em vez do STF acordado), o Embaixador gera na hora o rascunho de um termo aditivo com precificação extra para Eduardo enviar.
+
+Impacto: Zera o vazamento de receita e transforma pedidos fora de escopo em upsell imediato.
+
+Pergunta ao Músculo: É viável injetar a matriz de precificação de tokens/hora da Vanguard diretamente nas instruções locais do Embaixador para ele calcular o valor do aditivo de forma autônoma?
+
+Análise de Temperatura de Churn por Cadência
+
+O que é: O Embaixador avalia a variação do intervalo de tempo entre as mensagens do cliente e o tamanho das suas frases ao longo da semana. Se o cliente começar a responder com monossílabos ou demorar mais de 48h para enviar documentos (como o estado atual do Valdece), o sistema emite um alerta interno de risco de engajamento.
+
+Impacto: Permite ao Diretor agir preventivamente antes que o cliente desista do projeto por falta de ritmo.
+
+Pergunta ao Músculo: Conseguimos parametrizar um indicador visual de "Saúde do Cliente" (Verde/Amarelo/Vermelho) no topo do WIP_BOARD.json alimentado pelo Embaixador?
+
+O Handoff Blueprint Generator
+
+O que é: No Dia 15 do projeto, em vez de Eduardo escrever o manual de uso do cliente do zero, o Embaixador varre todo o histórico persistente de conversas e gera autonomamente o Sovereign Playbook personalizado, contendo todas as decisões arquiteturais tomadas e instruções de manutenção.
+
+Impacto: Reduz o tempo de handoff humano de 6 horas para 10 minutos.
+
+Pergunta ao Músculo: A janela de contexto atual do Claude Projects comporta a consolidação de toda a árvore de arquivos desenvolvida para cuspir um PDF/Markdown estruturado de alta fidelidade sem truncamento?
+
+Trava de Deploy por Pendência Contratual
+
+O que é: Integração do Embaixador com o script preflight.ps1. Se o Embaixador marcar o status do contrato do cliente como [PENDENTE_ASSINATURA], o script impede fisicamente a execução do deploy das Edge Functions em ambiente de produção.
+
+Impacto: Enforcement tecnológico absoluto da governança do Conselho. Código Vanguard só toca a nuvem do cliente após segurança jurídica garantida.
+
+Pergunta ao Músculo: Conseguimos ler o status do projeto no Claude Project via CLI para alimentar essa trava local no PowerShell antes do push do Supabase?
+
+Dízimo de Dados Cíclico para o Ledger (Retroalimentação Permanente)
+
+O que é: Ao fechar o projeto do cliente, o Embaixador identifica qual foi a maior fricção comercial ou jurídica enfrentada (ex: o erro de enquadramento de cargo da Ingrid no Loop 2) e redige um novo princípio técnico compacto para ser inserido diretamente no INTELLIGENCE_LEDGER.md global da Holding.
+
+Impacto: Execução matemática da evolução do DNA da IAH. A empresa fica literalmente mais inteligente a cada projeto encerrado, sem depender da memória do Diretor.
+
+Pergunta ao Músculo: Esse feeder automático pode ser rodado como um script de pós-fechamento sem risco de corromper a estrutura de codificação dos princípios ativos já consolidados?

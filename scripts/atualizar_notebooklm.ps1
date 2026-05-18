@@ -1,79 +1,82 @@
-# atualizar_notebooklm.ps1 — Sincroniza a pasta NotebookLM com os docs mais recentes
+# atualizar_notebooklm.ps1
+# Empacota os documentos atuais do Quadrilateral para o NotebookLM (Auditor)
+# Previne Deficiencia 1 do Auditor: Miopia de Contexto / Lost-in-the-Middle
 # Uso: .\scripts\atualizar_notebooklm.ps1
-# Copia sempre as versoes mais atuais de todos os documentos chave
+# Output: pasta NotebookLM\ com arquivos numerados prontos para upload
 
-$base = "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard"
-$dest = "$base\NotebookLM"
+[Console]::InputEncoding  = [System.Text.Encoding]::UTF8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-New-Item -ItemType Directory -Path $dest -Force | Out-Null
+$BASE = Split-Path -Parent $PSScriptRoot
+$DEST = "$BASE\NotebookLM"
+$DATA = Get-Date -Format "yyyy-MM-dd HH:mm"
 
-Write-Host "Atualizando NotebookLM/..."
+New-Item -ItemType Directory -Path $DEST -Force | Out-Null
+
+Write-Host ""
+Write-Host "================================================"
+Write-Host "  atualizar_notebooklm -- $DATA"
+Write-Host "================================================"
+Write-Host ""
+Write-Host "Destino: NotebookLM\"
 Write-Host ""
 
+# ORDEM OBRIGATORIA DE INJECAO NO AUDITOR:
+# Fatos concretos do passado ANTES de qualquer nova ideia.
+# Nunca inverter esta ordem.
+
 $arquivos = @(
-    # Camada 1 — Identidade e Metodologia
-    @{src="INTELIGENCIA_ARTIFICIAL_HUMANA.md";  prefix="01"},
-    @{src="SOP_VANGUARD_MASTER.md";             prefix="02"},
-    @{src="VANGUARD_BUSINESS_RULES.md";         prefix="03"},
-    @{src="O Protocolo Quadrilateral.txt";       prefix="04"},
-    @{src="REPOSITORIO_ESTRUTURA.md";           prefix="05"},
-    @{src="EMPRESA_VANGUARD.md";                prefix="06"},
-    @{src="PROTOCOLO_INTERATIVO.md";            prefix="06b"},
+    # CAMADA 1 -- Processo e Constituicao (ancora o Auditor)
+    @{ src = ".claude\skills\vanguard-protocolo.md";                                          prefix = "01"; nome = "SKILL_PROTOCOLO_VANGUARD.txt" },
+    @{ src = "QUADRILATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_QUADRILATERAL_UNIVERSAL.md";    prefix = "02"; nome = "MEMORANDO_QUADRILATERAL_UNIVERSAL.txt" },
+    @{ src = "QUADRILATERAL_UNIVERSAL\OPERACAO\MANUAL_DIRETOR.md";                           prefix = "03"; nome = "MANUAL_DIRETOR.txt" },
 
-    # Camada 2 — Estado atual
-    @{src="MEMORIA_V16.md";                     prefix="07"},
-    @{src="relatorio_evolutivo_v16.md";         prefix="08"},
-    @{src="HANDOFF_V16_PARA_GEMINI.md";         prefix="09"},
-    @{src="TODO_FUTURE.md";                     prefix="10"},
-    @{src="VANGUARD_INNOVATION_AUDIT.md";       prefix="11"},
-    @{src="MASTER_PLAN.md";                     prefix="12"},
-    @{src="VANGUARD_OPERATIONAL_COSTS.md";      prefix="13"},
-    @{src="PLANO_DE_ACAO_SEMANA1.md";           prefix="14"},
-    @{src="VANGUARD_KNOWLEDGE_GRAPH.md";        prefix="15"},
-    @{src="VANGUARD_PERFORMANCE_LEDGER.md";     prefix="16"},
+    # CAMADA 2 -- Inteligencia acumulada (principios e historico)
+    @{ src = "INTELLIGENCE_LEDGER.md";                                                        prefix = "04"; nome = "INTELLIGENCE_LEDGER.txt" },
+    @{ src = "QUADRILATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md";         prefix = "05"; nome = "PROCESSO_EVOLUTIVO_QUADRILATERAL.txt" },
+    @{ src = "QUADRILATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md";     prefix = "06"; nome = "TEMPLATES_COMUNICACAO_QUADRILATERAL.txt" },
 
-    # Camada 3 — DIRETRIZ Gemini
-    @{src="DIRETRIZ_GEMINI.txt";                prefix="17"},
-    @{src="DIRETRIZ GEMINI V16.txt";            prefix="18"},
-    @{src="DIRETRIZ GEMINI V15.txt";            prefix="19"},
-    @{src="DIRETRIZ GEMINI V14.txt";            prefix="20"},
-    @{src="DIRETRIZ GEMINI V13.txt";            prefix="21"},
-    @{src="DIRETRIZ GEMINI V12.txt";            prefix="22"},
+    # CAMADA 3 -- Estado atual dos projetos
+    @{ src = "CLIENTES\WIP_BOARD.json";                                                       prefix = "07"; nome = "WIP_BOARD.txt" },
+    @{ src = "CONSELHO\NotebookLM\ANALISE_SOCIO_ATUAL.txt";                                  prefix = "08"; nome = "ANALISE_SOCIO_ATUAL.txt" },
 
-    # Camada 4 — Relatorios evolutivos
-    @{src="relatorio_evolutivo_v16.md";         prefix="23"},
-    @{src="relatorio_evolutivo_v15.md";         prefix="24"},
-    @{src="relatorio_evolutivo_v14.md";         prefix="25"},
-    @{src="relatorio_evolutivo_v13.md";         prefix="26"},
-    @{src="relatorio_evolutivo_v12.md";         prefix="27"},
-    @{src="relatorio_evolutivo_v11.md";         prefix="28"},
+    # CAMADA 4 -- Projeto ativo: VALDECE (atualizar quando mudar de cliente)
+    @{ src = "CLIENTES\VALDECE\BRIEFING_DISCOVERY.txt";                                       prefix = "09"; nome = "BRIEFING_DISCOVERY_VALDECE.txt" },
+    @{ src = "CLIENTES\VALDECE\HISTORICO\MEMORIA_V1_VALDECE.md";                             prefix = "10"; nome = "MEMORIA_V1_VALDECE.txt" },
+    @{ src = "CLIENTES\VALDECE\HISTORICO\relatorio_evolutivo_V1_VALDECE.md";                 prefix = "11"; nome = "RELATORIO_EVOLUTIVO_V1_VALDECE.txt" },
+    @{ src = "CLIENTES\VALDECE\HISTORICO\DIRETRIZ ESTRATEGICA V3.txt";                       prefix = "12"; nome = "DIRETRIZ_GEMINI_V3_VALDECE.txt" },
+    @{ src = "CLIENTES\VALDECE\PASSO5_NOTEBOOKLM.md";                                        prefix = "13"; nome = "PASSO5_NOTEBOOKLM_VALDECE.txt" },
+    @{ src = "CLIENTES\VALDECE\SKILL_PROTOCOLO_VALDECE_V2.md";                               prefix = "14"; nome = "SKILL_PROTOCOLO_VALDECE_V2.txt" },
 
-    # Camada 5 — Memorias tecnicas recentes
-    @{src="memorias\MEMORIA_15_INVASION.md";    prefix="29"},
-    @{src="memorias\MEMORIA_14_OPTIMIZATION.md";prefix="30"},
-    @{src="memorias\MEMORIA_13_DOMINATION.md";  prefix="31"},
-    @{src="memorias\MEMORIA_12_IGNITION_COCKPIT.md";prefix="32"},
-    @{src="memorias\MEMORIA_11_LAUNCH.md";      prefix="33"}
+    # CAMADA 5 -- Alertas e calibracao
+    @{ src = "QUADRILATERAL_UNIVERSAL\OPERACAO\ALERTA_CONFLITO.md";                          prefix = "15"; nome = "ALERTA_CONFLITO_PROTOCOLO.txt" }
 )
 
 $ok  = 0
 $err = 0
 
 foreach ($item in $arquivos) {
-    $src = "$base\$($item.src)"
-    if (Test-Path $src) {
-        $nome = Split-Path $item.src -Leaf
-        Copy-Item $src -Destination "$dest\$($item.prefix)_$nome" -Force
-        Write-Host "  ✅ $($item.prefix) — $nome"
+    $srcPath = Join-Path $BASE $item.src
+    $dstPath = Join-Path $DEST "$($item.prefix)_$($item.nome)"
+
+    if (Test-Path $srcPath) {
+        Copy-Item $srcPath -Destination $dstPath -Force
+        Write-Host "  OK  $($item.prefix) -- $($item.nome)"
         $ok++
     } else {
-        Write-Host "  ⚪ nao encontrado: $($item.src)"
+        Write-Host "  --  nao encontrado: $($item.src)"
         $err++
     }
 }
 
 Write-Host ""
-Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-Write-Host "  $ok arquivos atualizados · $err nao encontrados"
-Write-Host "  Pasta: NotebookLM\ ($((Get-ChildItem $dest).Count) arquivos total)"
-Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+Write-Host "================================================"
+Write-Host "  $ok copiados  |  $err nao encontrados"
+Write-Host "  Total na pasta: $((Get-ChildItem $DEST).Count) arquivos"
+Write-Host ""
+Write-Host "PROXIMOS PASSOS:"
+Write-Host "  1. Abrir NotebookLM e carregar todos os arquivos de NotebookLM\"
+Write-Host "  2. Manter a ordem numerada -- ela define o peso de leitura do Auditor"
+Write-Host "  3. Colar o conteudo de CLIENTES\[PROJETO]\PASSO5_NOTEBOOKLM.md como prompt"
+Write-Host "  4. Ao receber a Skill: validar com skill_parser_gate.ps1 antes de usar"
+Write-Host "================================================"

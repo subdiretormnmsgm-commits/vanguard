@@ -219,11 +219,16 @@ serve(async (req: Request) => {
   const peso = PESO_POR_DISCIPLINA[disciplina_id] ?? 1;
   const modelo = MODELO_POR_PESO[peso];
 
-  // Gera questões via Claude API
-  const prompt = buildPrompt(disciplina_id, quantidade);
-
   let geradas: QuestaoGerada[] = [];
   let custoEstimadoUsd = 0;
+
+  // Uma unica chamada Claude por invocacao — seed faz o loop externo
+  // max_tokens 8192 suporta ate ~10 questoes Sonnet sem truncar
+  const MAX_POR_INVOCACAO = 8;
+  const efectiveQty = Math.min(quantidade, MAX_POR_INVOCACAO);
+  const prompt = buildPrompt(disciplina_id, efectiveQty);
+  const precoInput  = peso === 1 ? 0.00000025 : 0.000003;
+  const precoOutput = peso === 1 ? 0.00000125 : 0.000015;
 
   try {
     const response = await fetch("https://api.anthropic.com/v1/messages", {
@@ -235,7 +240,7 @@ serve(async (req: Request) => {
       },
       body: JSON.stringify({
         model: modelo,
-        max_tokens: 4096,
+        max_tokens: 8192,
         messages: [{ role: "user", content: prompt }],
       }),
     });
@@ -248,13 +253,9 @@ serve(async (req: Request) => {
     const apiResponse = await response.json();
     const conteudo = apiResponse.content?.[0]?.text ?? "";
 
-    // Estimativa de custo (tokens de saida ~ mais caros)
     const inputTokens  = apiResponse.usage?.input_tokens  ?? 0;
     const outputTokens = apiResponse.usage?.output_tokens ?? 0;
-    // Haiku: $0.25/1M input, $1.25/1M output | Sonnet: $3/1M input, $15/1M output
-    const precoInput  = peso === 1 ? 0.00000025 : 0.000003;
-    const precoOutput = peso === 1 ? 0.00000125 : 0.000015;
-    custoEstimadoUsd  = (inputTokens * precoInput) + (outputTokens * precoOutput);
+    custoEstimadoUsd = (inputTokens * precoInput) + (outputTokens * precoOutput);
 
     // Remove markdown code block se Claude retornar ```json ... ```
     let jsonText = conteudo.trim();
@@ -265,7 +266,6 @@ serve(async (req: Request) => {
         .trim();
     }
 
-    // Parse do JSON retornado
     const parsed = JSON.parse(jsonText);
     geradas = parsed.questoes ?? [];
 

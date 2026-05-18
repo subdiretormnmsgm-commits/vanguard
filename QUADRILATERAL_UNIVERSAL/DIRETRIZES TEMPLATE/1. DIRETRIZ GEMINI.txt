@@ -1,0 +1,36 @@
+════════════════════════════════════════════════════════════
+DIRETRIZ ESTRATÉGICA — [NOME DO PROJETO] — V[X]
+Data: [DD-MM-AAAA] | Estrategista: Gemini
+════════════════════════════════════════════════════════════
+
+BLOCO 0 — DIAGNÓSTICO
+Problema real (além do que foi declarado):
+[1–3 parágrafos — o que está por trás do pedido do cliente]
+
+Oportunidade não vista:
+[o que ninguém está vendo — oportunidade de diferenciação ou expansão]
+
+Risco principal ignorado:
+[o que pode destruir o projeto se não endereçado agora]
+
+---
+
+BLOCO 1 — PRIORIDADES (máximo 3 — em ordem de impacto comercial)
+1. [O QUÊ] — porque [impacto comercial direto] — até [prazo]
+2. [O QUÊ] — porque [dependência de 1 ou impacto] — até [prazo]
+3. [O QUÊ] — porque [risco se não feito] — até [prazo]
+
+O que NÃO está nesta lista (e por quê):
+· [item] — adiar porque [razão objetiva]
+· [item] — adiar porque [razão objetiva]
+
+---
+
+BLOCO 2 — PROPOSTA COMERCIAL
+Nome da entrega: [nome em linguagem do cliente]
+O que inclui: [lista do que será entregue]
+O que não inclui (próxima iteração): [lista]
+ROI para o cliente: [cálculo com números reais — ex: "economiza X horas × R$Y/h = R$Z/mês"]
+Preço recomendado: [R$X] | Prazo: [X dias]
+Argumento de venda: [1 frase em linguagem do cliente, sem jargão técnico]
+

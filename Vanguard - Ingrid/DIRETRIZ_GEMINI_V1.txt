@@ -1,0 +1,138 @@
+﻿DIRETRIZ GEMINI V1 — PROJ-002 INGRID · LOOP 1
+Data: 2026-05-15
+Estrategista: Gemini | Projeto: Ferramenta de Estudo Sedes-DF
+
+=============================================================
+BLOCO 3 — [PARA O MUSCULO]
+=============================================================
+
+Arquitecto, sua deliberacao e execucao neste Loop 1 devem obedecer estritamente a este fluxo:
+
+(0) Antes de qualquer deliberacao ou linha de codigo, rode e leia a Skill completa gerada pelo Auditor: skill_proj002_ingrid_loop1.md.
+
+(a) Reaja a cada uma das minhas 5 ideias disruptivas (BLOCO 6 desta DIRETRIZ) utilizando os 7 pontos obrigatorios de avaliacao tecnica.
+
+(b) Reaja a cada uma das 5 ideias do Auditor (PARTE 4 da Skill) justificando com razao tecnica a sua aceitacao, modificacao ou veto.
+
+(c) Ao fechar sua deliberacao, proponha as suas proprias 5 ideias disruptivas — traga a perspectiva tecnica exclusiva do construtor na trincheira.
+
+Intencao Estrategica: Eliminar a fadiga de decisao e o esgotamento cognitivo da cliente, entregando apenas a meta diaria e as questoes exatas com zero cliques extras.
+
+Prioridades: 1) Motor de Plano Adaptativo (Feed diario); 2) Gerador de Questoes Quadrix via Claude API sob demanda; 3) Painel de Lacunas visual por Peso.
+
+O que NAO construir: Sistemas de login complexos, scraping (P-003), gamificacao excessiva, calendarios drag and drop.
+
+Gates por Dia: P-010. Gate bloqueante Dia 1/2: Magico de Oz Gate [P-007] — validar geracao de questoes via CLI. Se output nao for perfeito em texto, build da UI bloqueado.
+
+=============================================================
+BLOCO 0 — DIAGNOSTICO
+=============================================================
+
+Risco real: esgotamento cognitivo. 114 dias de estudo podem transformar disciplina em tortura.
+Problema central: ansiedade de nao saber se o plano funciona.
+Prova: 60 questoes multipla escolha — 20 gerais (Peso 1) + 40 especificos (Peso 2).
+Disciplinas Peso 1: Portugues, RIDE-DF, Politica Mulheres, Lei Organica DF, LC 840/2011, Maria da Penha, Primeiros Socorros.
+O app deve ser fonte de dopamina e controle — nao cobranca.
+
+=============================================================
+BLOCO 1 — PRIORIDADES DE BUILD (maximo 3)
+=============================================================
+
+1. Feed Diario Dinamico (Motor de Plano Adaptativo)
+   O que: tela principal com escopo do dia fechado — "Hoje: 2 topicos, 20 questoes."
+   Por que: resolve dor principal (falta de programa).
+   Horas: ~10h | Fora: drag and drop.
+
+2. Gerador de Questoes Quadrix Sob Demanda (Sovereign Engine)
+   O que: Claude API com prompt estilo Quadrix multipla escolha.
+   Por que: IP soberano, sem scraping (P-003).
+   Horas: ~15h (inclui Magico de Oz Gate CLI) | Fora: pre-geracao massiva.
+
+3. Painel de Lacunas por Peso (Heatmap de Sobrevivencia)
+   O que: dashboard verde/amarelo/vermelho por disciplina — foco Peso 2.
+   Por que: motivacao visual + direciona revisao.
+   Horas: ~8h | Fora: analises preditivas complexas.
+
+=============================================================
+BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
+=============================================================
+
+Piloto interno, sem custo. Case validacao IAH V25 para B2C.
+Potencial: 50.000 candidatos Sedes-DF — SaaS R$97/mes pos-setembro.
+Handoff soberano: Supabase e questoes sao ativos da Ingrid (P-013) desde Dia 1.
+
+=============================================================
+PARTE 4 — 5 IDEIAS DO AUDITOR
+(ATENCAO: verificar se vieram do NotebookLM ou do Gemini)
+=============================================================
+
+1. Motor de Caching Soberano: query Supabase antes de chamar Claude. < 10 questoes ineditas = gerar lote 20 e salvar. Blinda Lei 5, forma ativo B2C.
+2. Fallback de Fadiga / Modo Revisao: se API atingir 90% cota diaria, entrar Modo Revisao com questoes erradas. PWA nao quebra.
+3. Sentinela de Sobrevivencia Cognitiva: taxa de acerto cai muito em 30min = UI sugere parar. Sentinel como Treinador.
+4. Engenharia de Distratores Especificos: prompt instrui Claude a simular pegadinhas Quadrix ("poderia" vs "devera" em legislacao).
+5. Semente Multi-Tenant: feature_flags.json no boilerplate. Funcionalidades futuras inativas para Ingrid, prontas para SaaS.
+
+=============================================================
+BLOCO 4 — RESPOSTA AS 5 IDEIAS DO MUSCULO
+=============================================================
+
+1. Motor de Plano Adaptativo: APROVADA. Fundacao do aplicativo. Prioridade 1.
+
+2. Simulado Modo Sedes-DF: MODIFICADA. Micro-Simulados diarios (15-20 min).
+   Modo Sedes-DF completo (60 questoes) reservado para os domingos.
+
+3. Painel de Lacunas (heatmap): APROVADA. Elevada a Prioridade 3.
+
+4. Geracao Sob Demanda: APROVADA. Alinhamento com P-003. Prioridade 2.
+
+5. Contador Regressivo Motivacional: MODIFICADA. Integrar discretamente
+   no cabecalho do Motor Adaptativo: "Faltam 114 dias. Topicos de hoje:"
+
+=============================================================
+BLOCO 5 — PROXIMOS PASSOS DO DIRETOR
+=============================================================
+
+1. Ativar NotebookLM (Passo 5): gerar SKILL tecnica com o Auditor.
+   [STATUS: CONCLUIDO]
+
+2. Extrair Estrutura do Edital: copiar Conteudo Programatico TDAS
+   e salvar em edital_sedes.json na pasta CLIENTES/INGRID/.
+   [STATUS: TEMPLATE CRIADO — Eduardo preenche Conhecimentos Especificos (Peso 2)]
+
+3. Levar ao Musculo (Passo 6): colar SKILL + DIRETRIZ para obter Plano de Build.
+   [STATUS: CONCLUIDO — deliberacao completa realizada]
+
+=============================================================
+BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
+=============================================================
+
+1. Tutor Socratico de Revisao
+   O que: quando Ingrid erra, Claude da dica em vez de gabarito direto.
+   Segunda tentativa antes de revelar resposta.
+   Impacto: active recall — retencao ativa de memoria.
+   Pergunta ao Musculo: aumenta custo de tokens ou limitamos a Peso 2?
+   [DECISAO MUSCULO: ENTRA AGORA — limitado a Peso 2 + Haiku para dicas]
+
+2. Simulacao de Pegadinhas da Banca
+   O que: distrator mais atrativo = texto LOMDF desatualizado (classico Quadrix).
+   Impacto: treina resiliencia emocional, nao so conteudo.
+   Pergunta ao Musculo: como validar no Gate se pegadinhas estao realistas?
+   [DECISAO MUSCULO: ENTRA AGORA — parte do playbook do Magico de Oz Gate]
+
+3. Revisao Espacada Automatica (Spaced Repetition)
+   O que: topico vermelho no Heatmap force 5 questoes desse topico em X dias.
+   Impacto: garantia matematica de evolucao sem intervencao manual.
+   Pergunta ao Musculo: query simples no Supabase e suficiente?
+   [DECISAO MUSCULO: ENTRA AGORA — SM-2 intervalo variavel. Query simples confirmada.]
+
+4. Resumo Pilula de 3 Minutos
+   O que: antes de disciplina inedita, app fornece 3 bullet-points de resumo.
+   Impacto: aquecimento cognitivo antes da cobranca.
+   Pergunta ao Musculo: adicionar no mesmo payload JSON para economizar chamadas?
+   [DECISAO MUSCULO: MODIFICADA — bullet-points no edital_sedes.json estatico, sem Claude API]
+
+5. Vendedor Silencioso B2C (Lei 3)
+   O que: email domingo a noite com progresso semanal da Ingrid.
+   Impacto: dopamina pura + validacao do Sentinel para produtos B2C.
+   Pergunta ao Musculo: pixel de email tracking da divida P1 foi corrigido?
+   [DECISAO MUSCULO: V2 — push notification no MVP. Email com tracking no Loop 2.]

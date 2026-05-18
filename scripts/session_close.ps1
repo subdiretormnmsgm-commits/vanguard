@@ -207,6 +207,78 @@ if ($mandatos.Count -gt 0) {
     }
 }
 
+# --- AUDITORIA DE DOCUMENTOS (Regra 11 da Diretriz de Singularidade) ---
+# Obrigatoria ao fechar qualquer sessao. Musculo nao depende do Diretor lembrar.
+Write-Host ""
+Write-Host "=============================================="
+Write-Host "  AUDITORIA DE DOCUMENTOS — FECHAMENTO"
+Write-Host "=============================================="
+Write-Host ""
+
+$wipPath = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
+$projetosEmBuild = @()
+if (Test-Path $wipPath) {
+    $board = Get-Content $wipPath -Raw -Encoding utf8 | ConvertFrom-Json
+    $projetosEmBuild = @($board.board.build)
+}
+
+foreach ($proj in $projetosEmBuild) {
+    $cliente = $proj.cliente.ToUpper()
+    $clienteDir = Join-Path $BASE "CLIENTES\$cliente"
+    Write-Host "  Projeto: $($proj.id) — $($proj.cliente)" -ForegroundColor Cyan
+    Write-Host ""
+
+    $docs = @(
+        @{ nome = "PASSO3_GEMINI.md";      caminho = "$clienteDir\PASSO3_GEMINI.md" },
+        @{ nome = "WIP_BOARD.json";        caminho = $wipPath },
+        @{ nome = "INTELLIGENCE_LEDGER.md"; caminho = "$BASE\INTELLIGENCE_LEDGER.md" }
+    )
+
+    foreach ($doc in $docs) {
+        if (-not (Test-Path $doc.caminho)) {
+            Write-Host "  [AUSENTE]      $($doc.nome)" -ForegroundColor Red
+        } else {
+            $ultimaEdicao = (Get-Item $doc.caminho).LastWriteTime
+            $hoje = (Get-Date).Date
+            if ($ultimaEdicao.Date -eq $hoje) {
+                Write-Host "  [EM DIA]       $($doc.nome) — editado hoje $($ultimaEdicao.ToString('HH:mm'))" -ForegroundColor Green
+            } else {
+                Write-Host "  [DESATUALIZADO] $($doc.nome) — ultima edicao: $($ultimaEdicao.ToString('yyyy-MM-dd'))" -ForegroundColor Yellow
+            }
+        }
+    }
+
+    # Verificar NOTEBOOKLM_FONTES
+    $fontes = Join-Path $clienteDir "NOTEBOOKLM_FONTES"
+    if (-not (Test-Path $fontes)) {
+        Write-Host "  [AUSENTE]      NOTEBOOKLM_FONTES/ — rodar preparar_notebooklm_projeto.ps1" -ForegroundColor Red
+    } else {
+        $ultimaFonte = Get-ChildItem $fontes -Recurse -File | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+        if ($ultimaFonte -and $ultimaFonte.LastWriteTime.Date -eq (Get-Date).Date) {
+            Write-Host "  [EM DIA]       NOTEBOOKLM_FONTES/ — sincronizado hoje" -ForegroundColor Green
+        } else {
+            Write-Host "  [DESATUALIZADO] NOTEBOOKLM_FONTES/ — rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente $cliente" -ForegroundColor Yellow
+        }
+    }
+
+    # Verificar se loop foi encerrado (gate aprovado hoje) — lembra Wipe & Sync
+    $loopAtual = $proj.loop_atual
+    if ($loopAtual -and $loopAtual -match "Loop #(\d+)") {
+        $numLoop = [int]$Matches[1]
+        $loopAnterior = $proj.loops_programados | Where-Object { $_.loop -eq ($numLoop - 1) -and $_.status -eq "concluido" }
+        if ($loopAnterior -and $loopAnterior.concluido_em -eq $DATA) {
+            Write-Host ""
+            Write-Host "  [!!] LOOP $($numLoop - 1) ENCERRADO HOJE — Wipe & Sync obrigatorio antes do Loop $numLoop" -ForegroundColor Magenta
+            Write-Host "       .\scripts\preparar_notebooklm_projeto.ps1 -cliente $cliente" -ForegroundColor Cyan
+        }
+    }
+
+    Write-Host ""
+}
+
+Write-Host "  Auditoria concluida." -ForegroundColor Green
+Write-Host ""
+
 # --- Auto-regenerar CONTEXTO_GEMINI.md para o proximo loop ---
 $anchorScript = Join-Path $BASE "scripts\gemini_anchor_generator.ps1"
 if (Test-Path $anchorScript) {
@@ -218,4 +290,31 @@ if (Test-Path $anchorScript) {
     } catch {
         Write-Host "  [!!] Falha ao atualizar CONTEXTO_GEMINI.md -- execute manualmente."
     }
+}
+
+# --- Notificação Telegram: sessão encerrada ───────────────
+. "$BASE\scripts\alert_config.ps1"
+$resumoTelegram  = "SESSAO ENCERRADA — $DATA`n"
+$resumoTelegram += "Pentalateral IAH · Musculo`n`n"
+if ($friccao)            { $resumoTelegram += "Friccao: $friccao`n" }
+if ($principio)          { $resumoTelegram += "Principio: $principio`n" }
+if ($override)           { $resumoTelegram += "Override: $override`n" }
+if ($deriva)             { $resumoTelegram += "Deriva corrigida: $deriva`n" }
+if ($mandatos.Count -gt 0) {
+    $resumoTelegram += "Mandatos do Diretor ($($mandatos.Count)):`n"
+    foreach ($m in $mandatos) { $resumoTelegram += "  - $m`n" }
+}
+if ($divida)             { $resumoTelegram += "Divida tecnica registrada: $divida`n" }
+$resumoTelegram += "`nProximo: PASSO3 + Gemini para fechar o loop."
+
+$urlTelegram = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
+try {
+    Invoke-RestMethod -Uri $urlTelegram -Method POST -Body @{
+        chat_id = $TELEGRAM_CHAT_ID
+        text    = $resumoTelegram
+    } | Out-Null
+    Write-Host ""
+    Write-Host "  [OK] Resumo da sessao enviado ao Telegram." -ForegroundColor Cyan
+} catch {
+    Write-Host "  [!!] Telegram: $($_.Exception.Message)" -ForegroundColor Yellow
 }

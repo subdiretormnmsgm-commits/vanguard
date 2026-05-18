@@ -20,7 +20,7 @@ $linhas = $corpo -split "`n"
 $assunto = ($linhas | Where-Object { $_ -match "^\*\*Assunto:" } | Select-Object -First 1) -replace "\*\*Assunto:\*\* ", ""
 
 if (-not $assunto) {
-    $assunto = "Quadrilateral IAH — Fechamento de Sessão $(Get-Date -Format 'yyyy-MM-dd')"
+    $assunto = "Quadrilateral IAH - Fechamento de Sessao $(Get-Date -Format 'yyyy-MM-dd')"
 }
 
 try {

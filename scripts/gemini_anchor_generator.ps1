@@ -88,3 +88,102 @@ Write-Host "  Clipboard: $clipMsg"
 Write-Host ""
 Write-Host "Cole no inicio da sessao do Gemini antes de qualquer DIRETRIZ."
 Write-Host "================================================"
+
+# --- LISTA DE ANEXOS OBRIGATORIOS PARA O GEMINI ---
+Write-Host ""
+Write-Host "================================================" -ForegroundColor Cyan
+Write-Host "  ANEXOS OBRIGATORIOS -- ABRIR NO GEMINI"        -ForegroundColor Cyan
+Write-Host "================================================" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  Anexe estes arquivos ao Gemini (nesta ordem):" -ForegroundColor Yellow
+Write-Host ""
+
+$anexos   = [System.Collections.ArrayList]@()
+$num      = 1
+
+# 1 — INTELLIGENCE_LEDGER
+$ledgerPath = Join-Path $BASE "INTELLIGENCE_LEDGER.md"
+if (Test-Path $ledgerPath) {
+    Write-Host "  [$num] INTELLIGENCE_LEDGER.md" -ForegroundColor Green
+    Write-Host "       $ledgerPath"
+    [void]$anexos.Add($ledgerPath)
+    $num++
+} else {
+    Write-Host "  [!!] INTELLIGENCE_LEDGER.md NAO ENCONTRADO" -ForegroundColor Red
+}
+
+# 2 — WIP_BOARD
+$wipPath = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
+if (Test-Path $wipPath) {
+    Write-Host "  [$num] WIP_BOARD.json" -ForegroundColor Green
+    Write-Host "       $wipPath"
+    [void]$anexos.Add($wipPath)
+    $num++
+} else {
+    Write-Host "  [!!] WIP_BOARD.json NAO ENCONTRADO" -ForegroundColor Red
+}
+
+# Detectar projeto ativo em BUILD
+$projetoAtivo = $null
+if (Test-Path $wipPath) {
+    try {
+        $board = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $projetoAtivo = @($board.board.build) | Where-Object { $_ } | Select-Object -First 1
+    } catch {}
+}
+
+if ($projetoAtivo) {
+    $clienteUpper = $projetoAtivo.cliente.ToUpper()
+    $clienteDir   = Join-Path $BASE "CLIENTES\$clienteUpper"
+    $histDir      = Join-Path $clienteDir "HISTORICO"
+
+    # 3 — MEMORIA mais recente do projeto ativo
+    $mem = Get-ChildItem $histDir -Filter "MEMORIA_V*.md" -ErrorAction SilentlyContinue |
+           Sort-Object Name -Descending | Select-Object -First 1
+    if ($mem) {
+        Write-Host "  [$num] $($mem.Name)" -ForegroundColor Green
+        Write-Host "       $($mem.FullName)"
+        [void]$anexos.Add($mem.FullName)
+        $num++
+    } else {
+        Write-Host "  [--] MEMORIA_V*.md nao encontrada em HISTORICO (normal no Loop 1)" -ForegroundColor DarkGray
+    }
+
+    # 4 — RELATORIO mais recente do projeto ativo
+    $rel = Get-ChildItem $histDir -Filter "relatorio_evolutivo_V*.md" -ErrorAction SilentlyContinue |
+           Sort-Object Name -Descending | Select-Object -First 1
+    if ($rel) {
+        Write-Host "  [$num] $($rel.Name)" -ForegroundColor Green
+        Write-Host "       $($rel.FullName)"
+        [void]$anexos.Add($rel.FullName)
+        $num++
+    } else {
+        Write-Host "  [--] relatorio_evolutivo_V*.md nao encontrado (normal no Loop 1)" -ForegroundColor DarkGray
+    }
+
+    # 5 — PASSO3_GEMINI.md do projeto ativo
+    $passo3 = Join-Path $clienteDir "PASSO3_GEMINI.md"
+    if (Test-Path $passo3) {
+        Write-Host "  [$num] PASSO3_GEMINI.md ($clienteUpper)" -ForegroundColor Green
+        Write-Host "       $passo3"
+        [void]$anexos.Add($passo3)
+        $num++
+    } else {
+        Write-Host "  [!!] PASSO3_GEMINI.md NAO ENCONTRADO para $clienteUpper" -ForegroundColor Red
+    }
+
+    Write-Host ""
+    Write-Host "  Projeto ativo: $($projetoAtivo.id) - $($projetoAtivo.cliente)" -ForegroundColor Cyan
+    Write-Host "  Loop atual   : $($projetoAtivo.loop_atual)" -ForegroundColor Cyan
+} else {
+    Write-Host ""
+    Write-Host "  [!!] Nenhum projeto em BUILD detectado no WIP_BOARD." -ForegroundColor Yellow
+    Write-Host "       Anexe manualmente: LEDGER + WIP + PASSO3_GEMINI do projeto." -ForegroundColor Yellow
+}
+
+Write-Host ""
+Write-Host "  Apos receber a DIRETRIZ do Gemini:"                              -ForegroundColor Yellow
+Write-Host '  Salvar como: CLIENTES\[CLIENTE]\DIRETRIZ_GEMINI_V[N].txt'       -ForegroundColor White
+Write-Host '  Depois rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente [CLIENTE]' -ForegroundColor White
+Write-Host ""
+Write-Host "================================================" -ForegroundColor Cyan

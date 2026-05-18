@@ -1,7 +1,8 @@
 # ============================================================
 # BRIEFING_DIARIO.PS1 — Briefing matinal do Diretor
-# Lê estado real dos projetos ativos e envia e-mail com ações do dia
+# Lê estado real dos projetos ativos e envia briefing completo via Telegram + e-mail
 # Agendado para rodar 7h automaticamente (registrar_briefing_agendado.ps1)
+# Telegram: entrega garantida mesmo se e-mail falhar (canal primário)
 # Uso manual: .\scripts\briefing_diario.ps1
 # ============================================================
 
@@ -159,38 +160,51 @@ $linhas += "  Embaixador Ingrid  : .\scripts\ir_ao_embaixador.ps1 -cliente INGRI
 $linhas += "  WhatsApp Ingrid B1 : .\scripts\alerta_whatsapp.ps1 -cliente INGRID -tipo B1"
 $linhas += "  WhatsApp Ingrid Rel: .\scripts\alerta_whatsapp.ps1 -cliente INGRID -tipo RELATORIO_SEMANAL"
 $linhas += ""
-$linhas += "— Quadrilateral IAH · Músculo"
+$linhas += "— Pentalateral IAH · Músculo"
 
 $corpo = $linhas -join "`n"
 
-# ── Envia alerta Telegram (resumo crítico) ────────────────
-if ($alertasCriticos.Count -gt 0) {
-    $resumoTelegram = "BRIEFING $dataStr - ALERTAS:`n"
-    foreach ($a in $alertasCriticos) { $resumoTelegram += "- $a`n" }
-    $resumoTelegram += "`nDetalhes completos no e-mail."
-
-    $urlTelegram = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
-    try {
-        Invoke-RestMethod -Uri $urlTelegram -Method POST -Body @{
-            chat_id = $TELEGRAM_CHAT_ID
-            text    = $resumoTelegram
-        } | Out-Null
-        Write-Host "📱 Alerta enviado ao Telegram" -ForegroundColor Cyan
-    } catch {
-        Write-Host "⚠️  Telegram: $($_.Exception.Message)" -ForegroundColor Yellow
+# ── Função: envia texto ao Telegram com split automático ──
+function Send-Telegram {
+    param([string]$Texto)
+    $url      = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
+    $maxLen   = 4000
+    $offset   = 0
+    $partes   = 0
+    while ($offset -lt $Texto.Length) {
+        $parte = $Texto.Substring($offset, [Math]::Min($maxLen, $Texto.Length - $offset))
+        try {
+            Invoke-RestMethod -Uri $url -Method POST -Body @{
+                chat_id = $TELEGRAM_CHAT_ID
+                text    = $parte
+            } | Out-Null
+        } catch {
+            Write-Host "⚠️  Telegram (parte $($partes+1)): $($_.Exception.Message)" -ForegroundColor Yellow
+        }
+        $offset += $maxLen
+        $partes++
+        if ($partes -gt 1) { Start-Sleep -Milliseconds 300 }
     }
-} else {
-    # Dia limpo — envia confirmação simples
-    $urlTelegram = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
-    try {
-        Invoke-RestMethod -Uri $urlTelegram -Method POST -Body @{
-            chat_id = $TELEGRAM_CHAT_ID
-            text    = "Bom dia, Diretor. Briefing $dataStr enviado. Nenhum alerta critico hoje."
-        } | Out-Null
-    } catch {}
+    return $partes
 }
 
+# ── Envia briefing completo via Telegram ──────────────────
+$cabecalhoTelegram = if ($alertasCriticos.Count -gt 0) {
+    "🔴 BRIEFING $dataStr — $($alertasCriticos.Count) ALERTA(S) CRITICO(S)`n`n"
+} else {
+    "✅ BRIEFING $dataStr — Pentalateral IAH — nenhum alerta`n`n"
+}
+
+$partesTelegram = Send-Telegram ($cabecalhoTelegram + $corpo)
+Write-Host "📱 Briefing enviado ao Telegram ($partesTelegram parte(s))" -ForegroundColor Cyan
+
 # ── Envia e-mail ───────────────────────────────────────────
+$assuntoEmail = if ($alertasCriticos.Count -gt 0) {
+    "🔴 BRIEFING $dataStr — $($alertasCriticos.Count) ALERTA(S) — Pentalateral IAH"
+} else {
+    "BRIEFING $dataStr — Pentalateral IAH"
+}
+
 try {
     $smtp = New-Object Net.Mail.SmtpClient("smtp.gmail.com", 587)
     $smtp.EnableSsl     = $true
@@ -199,12 +213,13 @@ try {
     $msg                 = New-Object Net.Mail.MailMessage
     $msg.From            = $ALERT_FROM
     $msg.To.Add($ALERT_TO)
-    $msg.Subject         = "BRIEFING $dataStr — Quadrilateral IAH"
+    $msg.Subject         = $assuntoEmail
     $msg.Body            = $corpo
     $msg.BodyEncoding    = [System.Text.Encoding]::UTF8
 
     $smtp.Send($msg)
-    Write-Host "✅ Briefing enviado para $ALERT_TO" -ForegroundColor Green
+    Write-Host "✉️  Briefing enviado para $ALERT_TO" -ForegroundColor Green
 } catch {
-    Write-Host "❌ ERRO ao enviar briefing: $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "❌ ERRO ao enviar e-mail: $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "   (Briefing já foi entregue pelo Telegram)" -ForegroundColor Yellow
 }

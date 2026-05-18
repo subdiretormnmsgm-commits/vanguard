@@ -276,14 +276,17 @@
 
 .ghost-loader.active { display: block; animation: slideUp 0.4s var(--ease-out) both; }
 
-/* Moving light sweep */
+/* Moving light sweep — só activo quando loader está visible */
 .ghost-loader .ghost-sweep {
   position: absolute;
   top: 0; bottom: 0;
   width: 45%;
   background: linear-gradient(90deg, transparent, rgba(0,240,255,0.05), transparent);
-  animation: ghostScan 2.2s linear infinite;
+  animation: none;
   pointer-events: none;
+}
+.ghost-loader.active .ghost-sweep {
+  animation: ghostScan 2.2s linear infinite;
 }
 
 .ghost-loader__canvas {

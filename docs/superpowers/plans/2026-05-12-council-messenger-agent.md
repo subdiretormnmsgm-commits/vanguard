@@ -4,7 +4,11 @@
 
 **Goal:** Expandir o monitor existente e criar um briefing diário para que o Conselho fale proativamente com o Diretor via email sobre tudo que requer sua atenção.
 
-**Architecture:** Dois scripts PowerShell — `alert_wip_monitor.ps1` (expandido, roda a cada 5 min via Task Scheduler existente) e `alert_daily_briefing.ps1` (novo, roda às 07:00). Três arquivos de estado em `CLIENTES/` rastreiam o que já foi notificado para evitar spam. Reutiliza credenciais Gmail de `scripts/alert_config.ps1`.
+**Architecture:** Dois scripts PowerShell — `alert_wip_monitor.ps1` (expandido, roda a cada 5 min via Task Scheduler existente) e `alert_daily_briefing.ps1` (novo, roda às 07:00). Três arquivos de estado em `CLIENTES/` rastreiam o que já foi notificado para evitar spam. Credenciais lidas de variável de ambiente `$env:QUADRILATERAL_GMAIL_SENHA` (primário) com fallback para `alert_config.ps1` (nunca commitado).
+
+**Nuances do Estrategista (incorporadas):**
+- Briefing das 07h inclui Score GUT semanal calculado automaticamente (Gravidade/Urgência/Tendência 1–5)
+- Segurança Soberana: credenciais via env var, nunca expostas no código
 
 **Tech Stack:** PowerShell 5.1, Net.Mail.SmtpClient (Gmail SMTP TLS 587), JSON para estado persistido, Windows Task Scheduler.
 

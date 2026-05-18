@@ -53,30 +53,53 @@ CREATE TABLE IF NOT EXISTS tenants (
 CREATE INDEX IF NOT EXISTS idx_tenants_parent
   ON tenants (parent_id) WHERE parent_id IS NOT NULL;
 
--- ─── 4. maturity_scores: view para Burn Rate Shield §21 ───────────────────
--- Calcula score composto por tenant + session a partir dos eventos do Pixel
+-- ─── 4. pixel_events_staging: garantir existência (criada em schema_v16) ──
+-- Se o schema V16 ainda não foi executado, cria a tabela mínima necessária
+CREATE UNLOGGED TABLE IF NOT EXISTS pixel_events_staging (
+  id            bigserial    PRIMARY KEY,
+  pixel_id      uuid,
+  tenant_id     uuid         NOT NULL,
+  site_domain   text         NOT NULL,
+  session_hash  text         NOT NULL,
+  country_code  char(2),
+  device_type   text,
+  referrer_host text,
+  event_type    text         NOT NULL DEFAULT 'pageview',
+  page_path     text,
+  time_on_page  smallint,
+  scroll_depth  smallint,
+  intent_score  numeric(4,2),
+  intent_label  text,
+  fired_at      timestamptz  NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_pixel_staging_tenant
+  ON pixel_events_staging (tenant_id, fired_at DESC);
+CREATE INDEX IF NOT EXISTS idx_pixel_staging_intent
+  ON pixel_events_staging (intent_label, fired_at DESC);
+
+-- ─── 5. maturity_scores: view para Burn Rate Shield §21 ───────────────────
+-- Nomes correctos das colunas V16: intent_label, session_hash, fired_at
 CREATE OR REPLACE VIEW maturity_scores AS
 SELECT
   tenant_id,
-  session_id,
-  COUNT(*)                                              AS total_events,
-  MAX(created_at)                                       AS last_seen,
-  MIN(created_at)                                       AS first_seen,
-  EXTRACT(EPOCH FROM (MAX(created_at) - MIN(created_at))) / 60 AS session_minutes,
+  session_hash,
+  COUNT(*)                                                    AS total_events,
+  MAX(fired_at)                                               AS last_seen,
+  MIN(fired_at)                                               AS first_seen,
+  EXTRACT(EPOCH FROM (MAX(fired_at) - MIN(fired_at))) / 60   AS session_minutes,
 
-  -- Score base por intent_level (V17 classification)
-  MAX(CASE intent_level
+  MAX(CASE intent_label
     WHEN 'FIRE' THEN 9.0
     WHEN 'HOT'  THEN 6.0
     WHEN 'WARM' THEN 3.0
     ELSE              1.0
-  END)                                                  AS intent_score,
+  END)                                                        AS intent_score,
 
-  -- Maturity Score composto (0–10)
-  -- 60% intent + 25% session depth + 15% recência (últimas 72h)
+  -- Maturity Score composto (0–10): 60% intent + 25% depth + 15% recência
   ROUND(
     (
-      MAX(CASE intent_level
+      MAX(CASE intent_label
         WHEN 'FIRE' THEN 9.0
         WHEN 'HOT'  THEN 6.0
         WHEN 'WARM' THEN 3.0
@@ -85,13 +108,13 @@ SELECT
       +
       LEAST(COUNT(*) / 10.0, 1.0) * 10.0 * 0.25
       +
-      CASE WHEN MAX(created_at) > NOW() - INTERVAL '72 hours'
+      CASE WHEN MAX(fired_at) > NOW() - INTERVAL '72 hours'
            THEN 10.0 ELSE 3.0 END * 0.15
     )::NUMERIC, 2
-  )                                                     AS maturity_score
+  )                                                           AS maturity_score
 
 FROM pixel_events_staging
-GROUP BY tenant_id, session_id;
+GROUP BY tenant_id, session_hash;
 
 -- ─── 5. RLS: tenant_subscriptions ─────────────────────────────────────────
 ALTER TABLE tenant_subscriptions ENABLE ROW LEVEL SECURITY;

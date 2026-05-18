@@ -403,20 +403,7 @@ img, svg { display: block; }
   animation: orbFloat 8s ease-in-out infinite;
 }
 
-/* Horizontal scan line */
-.hero__scanline {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(var(--c-primary-rgb), 0.4),
-    transparent
-  );
-  animation: scanline 6s linear infinite;
-  pointer-events: none;
-  z-index: 1;
-}
+.hero__scanline { display: none !important; animation: none !important; }
 
 .hero__container {
   position: relative;

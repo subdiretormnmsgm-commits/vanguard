@@ -40,7 +40,7 @@ PROJ-001 — VALDECE (status: build / aguardando entrega)
 
 PROJ-002 — INGRID (status: discovery completo / aguardando Gemini)
   Nicho: EdTech — Concursos Públicos
-  Concurso: Sedes-DF · Cargo TDAS Técnico Administrativo (202) · Banca Quadrix · Prova 06/09/2026
+  Concurso: Sedes-DF · Cargo TDAS · Banca Quadrix · Prova 06/09/2026
   Prazo app: 15 dias (entrega ~30/05/2026)
   Stack: PWA + Supabase + Claude API (geração estilo Quadrix)
   Relação: Esposa do Diretor. Projeto piloto interno V25. Sem custo para cliente.

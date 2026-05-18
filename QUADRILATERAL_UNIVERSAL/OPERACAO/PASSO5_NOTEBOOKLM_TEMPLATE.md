@@ -1,5 +1,5 @@
 # PASSO 5 — TEMPLATE UNIVERSAL: PARA O NOTEBOOKLM (AUDITOR)
-# Versão: Universal · QUADRILATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v2.0 · 2026-05-18 · QUADRILATERAL_UNIVERSAL/OPERACAO/
 # Uso: O Músculo preenche os [PLACEHOLDERS] com dados reais antes de enviar.
 
 ---
@@ -26,13 +26,17 @@
 
 > Por que usar o script: ele monta a pasta certa com os 15 documentos na ordem
 > correta. Fatos do passado (01-11) antes das novas ideias (12-15). Nunca inverter.
+>
+> Sobre a MEMORIA_EMBAIXADOR: se disponível, ela deve ser incluída nas fontes (posição 12
+> ou como fonte complementar). O Embaixador gera [E-1 a E-5] — estas ideias devem ser
+> incluídas nas fontes se disponíveis. O Auditor deve reagir a elas na PARTE 4 da Skill.
 
 ---
 
 ## 🛡️ PROTOCOLO ANTI-ALUCINAÇÃO — ATIVE ANTES DE GERAR A SKILL
-> Este bloco é permanente. Nunca remover. Aplica-se a todo projeto do Quadrilateral.
+> Este bloco é permanente. Nunca remover. Aplica-se a todo projeto do Pentalateral IAH.
 
-Auditor, o Conselho mapeou 4 deficiências nativas do seu modelo. Auto-aplique os contra-ataques abaixo ANTES de escrever qualquer bloco da Skill:
+Auditor, o Pentalateral IAH mapeou 4 deficiências nativas do seu modelo. Auto-aplique os contra-ataques abaixo ANTES de escrever qualquer bloco da Skill:
 
 **Contra-ataque 1 — Regra do Nutricionista (vs. Amnésia de Contexto)**
 Você não tem memória entre sessões. Tudo que você sabe vem dos documentos carregados agora. Dê peso máximo à MEMORIA_V[X] e ao relatorio_evolutivo — eles representam o estado REAL do projeto. Se qualquer sugestão que for fazer contradiz decisão documentada nesses arquivos, a decisão documentada prevalece. Declare quando isso acontecer.
@@ -111,5 +115,12 @@ Escreva em formato copiável direto para `.claude/skills/[projeto]-v[X].md` com 
 **PARTE 4 — SUAS 5 IDEIAS DISRUPTIVAS COMO AUDITOR**
 Não as ideias do Gemini nem as do Músculo — as suas, fundamentadas no histórico completo. O que nenhum dos outros membros está vendo. Para cada ideia: o que é, qual o impacto estimado, e uma pergunta direta para o Diretor validar.
 
+**REAÇÃO ÀS IDEIAS DO EMBAIXADOR [E-1 a E-5] — obrigatório se incluídas nas fontes**
+Para cada ideia do Embaixador (baseada em comportamento real do cliente):
+- CONFIRMA: alinha com o histórico e deve avançar
+- EXPANDE: há evidência histórica que vai além do que o Embaixador viu
+- ALERTA: o histórico de outros projetos mostra risco que o Embaixador não tem como ver
+O Embaixador tem contexto de cliente. O Auditor tem contexto de todos os projetos. Juntos cobrindo os dois ângulos é inteligência composta real.
+
 ---
-*Template Universal · Quadrilateral IAH · OPERACAO/ · Atualizar ao descobrir novo padrão*
+*Template Universal · Pentalateral IAH · OPERACAO/ · Atualizar ao descobrir novo padrão*

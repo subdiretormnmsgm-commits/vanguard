@@ -1,6 +1,21 @@
-# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 1
+# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 3
 > Quadrilateral IAH V25 — Camada Permanente: não editar blocos de protocolo.
-> Bloco CONTEXTO atualizado por Eduardo após receber DIRETRIZ do Gemini.
+> Atualizado pelo Músculo em 2026-05-17 (Loop 3 / Gate Dia 8)
+
+---
+
+## 📌 ANTES DE IR AO NOTEBOOKLM — checklist obrigatório
+
+```
+[x] 1. DIRETRIZ_GEMINI_V3.txt recebida e salva em CLIENTES\INGRID\
+[x] 2. Rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
+[x] 3. Explorer abre automaticamente — Ctrl+A → arrastar TUDO ao NotebookLM
+[x] 4. Fazer Wipe & Sync das fontes (apagar antigas antes de subir as novas)
+[x] 5. Colar o texto deste PASSO5 como primeiro prompt no chat do NotebookLM
+```
+
+> Sem o Wipe & Sync, o Auditor mistura contexto do Loop anterior com o atual.
+> Auditor com fontes velhas = Skill que contradiz o que já foi construído.
 
 ---
 
@@ -21,64 +36,93 @@ Auditor, você opera com 4 deficiências nativas:
 
 ## ⚙️ COMPENSAÇÃO DAS DEFICIÊNCIAS DO MÚSCULO
 
-Ao gerar a Skill, compense:
+Ao gerar a Skill, compense ativamente:
 
-1. **Amnésia de Sessão** → listar princípios do LEDGER que o Músculo deve citar ao deliberar
-2. **Momentum de Execução** → incluir gates de verificação por dia/módulo; sem evidência = gate inválido
+1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-025) que o Músculo deve citar ao deliberar
+2. **Momentum de Execução** → gates verificáveis por dia — sem output real = gate inválido
 3. **Otimismo de Estimativa** → comparar estimativas com projetos similares; SV preventivo se subestimar
-4. **Escopo Silencioso** → listar explicitamente o que NÃO construir; Músculo tende a expandir silenciosamente
+4. **Escopo Silencioso** → listar explicitamente o que NÃO construir neste loop
 5. **Drift de Formato** → exigir os 7 pontos de deliberação; sem formato = deliberação rejeitada
 
 ---
 
-## 📋 CONTEXTO DO PROJETO (Eduardo preenche antes de ir ao NotebookLM)
+## 📋 CONTEXTO DO PROJETO
 
 **Projeto:** Ingrid — Ferramenta de Estudo Sedes-DF
 **Nicho:** EdTech / Concursos Públicos
 **Camada:** 2 — Produto (15 dias)
-**Loop:** #1
+**Loop:** #3 — Dias 6–8 (Interface + Tutor Socrático + Fallback Fadiga)
+**Gates aprovados:** Dia 2 (qualidade das questões) + Dia 5 (feed 70/30, 7 dias, 0 erros)
+**Banco de questões:** 460 questões no Supabase — 13 disciplinas Cargo 202
+**Próximo gate:** Dia 8 — Ingrid responde 10 questões reais, progresso salvo, fallback testado
 
-**DIRETRIZ do Estrategista (colar aqui após receber do Gemini):**
+**Estado técnico atual (MEMORIA_V2_INGRID.md):**
+- Edge Functions gerar-questoes + feed-diario deployadas e validadas
+- Arquitetura: 1 Claude call por Edge Function invocação (nunca reverter)
+- Recalibração de cargo executada (P-024): Cargo 202, não TDAS área social
 
-> "Auditor, o Estrategista gerou a DIRETRIZ abaixo para o projeto Ingrid.
-> Missão: auditar cruzando com o histórico real das fontes.
-> Identifique: (1) o que contradiz princípios ativos do LEDGER,
+**Missão do Auditor neste loop:**
+> "Auditor, você recebeu a DIRETRIZ_GEMINI_V3 para o Loop 3 do Projeto Ingrid.
+> O Músculo vai deliberar e construir a interface mobile, o Tutor Socrático e o fallback de fadiga.
+> Sua missão: auditar a DIRETRIZ cruzando com o histórico real das fontes.
+> Identifique: (1) o que contradiz princípios ativos do LEDGER ou decisões já tomadas,
 > (2) o que já falhou em projetos anteriores,
-> (3) o que o Estrategista está ignorando por otimismo.
+> (3) o que o Estrategista está ignorando por otimismo de prazo.
 > Não valide por momentum. Discorde quando tiver evidência histórica."
 
-[COLAR DIRETRIZ DO GEMINI AQUI]
+---
+
+## 🎯 MISSÃO CRÍTICA — GERAR A SKILL ingrid-v2.md
+
+**Após processar as fontes e a missão acima, gere a Skill completa em 4 partes obrigatórias.**
+
+O nome exato da Skill: **`ingrid-v2.md`**
+
+O Músculo vai executar `/ingrid-v2` antes de qualquer deliberação do Loop 3.
+Skill sem os 4 blocos com dados reais = Skill rejeitada. Músculo não inicia o build sem Skill válida.
 
 ---
 
 ## 📤 FORMATO OBRIGATÓRIO DA SKILL (4 partes — sem exceção)
 
 ```
-PARTE 0 — INTERVENÇÕES DO DIRETOR NO CICLO ANTERIOR (obrigatório — P-021)
-  [INTERVENÇÃO-Eduardo-2026-05-16] Necessidade do contrato formal (P-023).
-  [INTERVENÇÃO-Eduardo-2026-05-16] NotebookLM como advogado do processo (P-022).
-  [INTERVENÇÃO-Eduardo-2026-05-16] 5 falhas de processo detectadas pelo Diretor antes do Músculo (P-021).
-
 PARTE 1 — AUDITORIA DE COERÊNCIA
-  A DIRETRIZ contradiz algo construído antes? Módulos que já existem?
-  Citar fonte exata (projeto, versão, decisão documentada). Sem dado real = bloco inválido.
+  A DIRETRIZ V3 contradiz algo já construído ou decidido no Loop 1 ou Loop 2?
+  Citar: fonte exata (arquivo, princípio, versão). Sem dado real = bloco inválido.
+  Verificar especificamente:
+    - Arquitetura de batch (1 Claude call/invocação — nunca reverter)
+    - Cargo 202 vs TDAS (P-024 — recalibração obrigatória)
+    - Deadline 2026-05-30 (10 dias restantes para 2 loops)
+    - Budget $5,00/dia (P-006 — Burn Rate Shield)
 
-PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR (atuar como advogado — P-022)
-  Identificar o cenário mais provável em que a decisão do Diretor falha nos próximos 90 dias.
-  Levantar objeções com base em precedentes históricos — não validar por momentum.
-  O que funciona em projetos similares (com nome do projeto).
-  O que falha (com nome do projeto e razão).
+PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
+  O que funciona em projetos similares (citar projeto + resultado).
+  O que falha (citar projeto + razão documentada).
   O que este projeto tem de diferente que muda o padrão.
   O que Gemini e Músculo não estão vendo — discordância fundamentada.
 
-PARTE 3 — A SKILL (em formato ```skill ... ``` copiável)
-  Contexto, conexão histórica, padrão de sucesso, padrão de falha,
-  perspectiva do sócio, sequência de build, alertas, o que NÃO construir.
+PARTE 3 — A SKILL (em formato ```skill ... ``` copiável para .claude/skills/ingrid-v2.md)
+  Incluir obrigatoriamente:
+    - Contexto do projeto (cargo, banco, stack, decisões fixadas)
+    - Conexão histórica (o que os Loops 1 e 2 provaram)
+    - Padrão de sucesso validado (o que funcionou)
+    - Padrão de falha documentado (7 panes — ver TROUBLESHOOTING)
+    - Perspectiva do Sócio (o que o Auditor vê que os outros não veem)
+    - Sequência de build Dias 6-8 com gates verificáveis
+    - O que NÃO construir neste loop (com razão objetiva)
+    - Alertas ativos (P-006, P-010, P-024, P-025)
 
 PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
   Ideias que NÃO vieram do Gemini nem do Músculo — perspectiva histórica exclusiva.
-  Cada uma fundamentada em padrão de projeto anterior.
+  Cada uma fundamentada em padrão de projeto anterior ou princípio do LEDGER.
+  Formato: o que é + impacto + por que o Músculo não propôs isso.
 ```
+
+**Validação antes de entregar:**
+- [ ] Skill tem nome exato `ingrid-v2.md` declarado na PARTE 3
+- [ ] PARTE 1 cita fontes reais (não genéricas)
+- [ ] PARTE 4 tem 5 ideias exclusivas do Auditor
+- [ ] Skill é copiável diretamente para `.claude/skills/`
 
 ---
 
@@ -88,68 +132,31 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
 ```
 
-O script monta `CLIENTES/INGRID/NOTEBOOKLM_FONTES/` com os documentos numerados e abre o Explorer.
-Selecionar tudo (Ctrl+A) → arrastar ao NotebookLM → colar o texto desta seção no chat.
+O script monta `CLIENTES/INGRID/NOTEBOOKLM_FONTES/` e abre o Explorer automaticamente.
+Selecionar tudo (Ctrl+A) → arrastar ao NotebookLM → colar o texto deste PASSO5 no chat.
 
-Ordem dos documentos gerados automaticamente:
+Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 
 ```
---- UNIVERSAIS (fatos do passado — carregam primeiro) ---
+--- UNIVERSAIS ---
 01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Quadrilateral
 02_MEMORANDO_QUADRILATERAL.md      ← constituição e valores
 03_MANUAL_DIRETOR.md               ← como Eduardo opera
-04_INTELLIGENCE_LEDGER.md          ← princípios ativos P-001 a P-013
+04_INTELLIGENCE_LEDGER.md          ← princípios ativos P-001 a P-025
 05_PROCESSO_EVOLUTIVO.md           ← como o loop funciona
 06_TEMPLATES_COMUNICACAO.md        ← formatos obrigatórios
-07_WIP_BOARD.json                  ← estado atual dos projetos
+07_WIP_BOARD.txt                   ← estado atual dos projetos (TXT — NotebookLM lê)
 08_ANALISE_SOCIO_ATUAL.txt         ← visão de negócio atualizada
 
---- PROJETO INGRID (contexto específico) ---
+--- PROJETO INGRID ---
 09_BRIEFING_DISCOVERY.txt          ← dor real da cliente
-10_MEMORIA_RECENTE.md              ← estado técnico (Loop 2+ )
-11_RELATORIO_EVOLUTIVO.md          ← SWOT + ideias (Loop 2+)
-12_DIRETRIZ_GEMINI.txt             ← o que o Estrategista propôs ← COLAR AQUI
-13_PASSO5_NOTEBOOKLM.md            ← missão do Auditor (este arquivo)
-14_SKILL_ANTERIOR.md               ← Skill do ciclo anterior (Loop 2+)
+10_MEMORIA_RECENTE.md              ← MEMORIA_V2_INGRID.md (Loop 2)
+11_RELATORIO_EVOLUTIVO.md          ← relatorio_evolutivo_V2_INGRID.md (Loop 2)
+12_DIRETRIZ_GEMINI.txt             ← DIRETRIZ_GEMINI_V3 do Gemini ← OBRIGATÓRIO
+13_PASSO5_NOTEBOOKLM.md            ← este arquivo (missão do Auditor)
+14_SKILL_ANTERIOR.md               ← Skill ingrid-v1.md do Loop 1 (se existir)
 15_ALERTA_CONFLITO.md              ← gatilho de calibração
 ```
 
-> Fatos do passado (01-11) carregam ANTES das novas ideias (12-15). Nunca inverter.
-> O que NÃO vai ao NotebookLM: PASSO3_GEMINI.md · PASSO6_MUSCULO.md
-
----
-
-## 🔄 PROTOCOLO WIPE & SYNC (obrigatório a cada loop)
-
-> Em projetos Camada 2 com 4 loops programados, o NotebookLM acumula fontes desatualizadas.
-> A cada mudança de loop, Eduardo apaga tudo e re-sobe as fontes frescas.
-> Nunca acumular fontes de loops anteriores — Auditor confunde histórico com presente.
-
-### Quando executar
-
-| Loop | Gatilho | Status |
-|---|---|---|
-| Loop 1 → Loop 2 | Gate Dia 5 aprovado | pendente |
-| Loop 2 → Loop 3 | Gate Dia 11 aprovado | pendente |
-| Loop 3 → Loop 4 | Gate Dia 15 aprovado | pendente |
-
-### Como executar
-
-```powershell
-# 1. Atualizar as fontes locais
-.\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
-
-# 2. No NotebookLM:
-#    — Abrir o notebook do projeto Ingrid
-#    — Excluir TODAS as fontes existentes
-#    — Arrastar os novos arquivos de CLIENTES/INGRID/NOTEBOOKLM_FONTES/
-
-# 3. Verificar que as fontes mais recentes incluem:
-#    04_INTELLIGENCE_LEDGER.md atualizado com o loop anterior
-#    07_WIP_BOARD.json com loops_programados atualizados
-#    10_MEMORIA_RECENTE.md do loop que fechou
-#    11_RELATORIO_EVOLUTIVO.md do loop que fechou
-```
-
-> Auditor que lê fontes antigas acha que o projeto está no Dia 1.
-> Wipe & Sync é o que garante que a inteligência do Auditor cresce com o projeto.
+> **07_WIP_BOARD.txt** — extensão `.txt` obrigatória. NotebookLM não lê `.json`.
+> O script converte automaticamente. Se aparecer `.json`, rodar `atualizar_notebooklm_base.ps1` antes.

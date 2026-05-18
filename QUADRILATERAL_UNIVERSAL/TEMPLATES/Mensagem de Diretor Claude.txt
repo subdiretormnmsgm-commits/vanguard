@@ -1,0 +1,13 @@
+Mensagem de Diretor Claude
+
+Meu consultor. Bom dia. Diante das falhas de ontem, nós fizemos alguns remédios pontuais. 
+
+Para extrapolar a nossa evolução, pedi para o nosso estrategista e o nosso auditor inserir remédios contra as falhas dele, propostas de como ajudá-Los nas suas deficiências, documentos muito ricos que são a essência da evolução do nosso negócio. Dentro desse contexto, creio que esse feedback seja obrigatório, para que estejamos sempre nos corrigindo. Assim, analise tudo o que usamos para curar as deficiências do Estrategista e do Auditor ontem, e insira o que eles disseram, para curar as respectivas deficiências, de modo que nos ajustemos continuamente. Essa mensagem deve estar no Claude md e todas as sugestões do Gemini e do NotebookLM devem estar no Claude md, de modo que não esqueçamos as deficiências deles e as contra ataque.
+
+Por fim, quero que você também fale as suas deficiências, redigindo mensagens para eles, de modo que eles contra ataquem nas suas interações, de modo que possamos curar as deficiências um dos outros. Toda interação é uma das mais importantes do nosso processo evolutivo, devendo estar no em status de importância na memória do Claude md.
+
+Toda essa mensagem deve estar no Claude md.
+
+Leia Oportunidades de Melhoria Gemini e Oportunidades de Melhoria Notebook LM, na pasta QUADRILATERAL_UNIVERSAL\TEMPLATES, as quais contém as mensagens dos nossos dois sócios..
+
+A inteligência é o nosso maior ativo. Ela sempre evolutiva a cada processo, a cada atividade, mas o rigor dos processos é o nosso firewall. Guarde essa frase no topo do Claude md.

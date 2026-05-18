@@ -1,0 +1,59 @@
+{
+  "_instrucoes": "Pré-configurado para Camada 2. Revisar antes do lançamento.",
+  "_camada_detectada": 2,
+  "features": {
+    "core": {
+      "landing_page": {
+        "enabled": true,
+        "tier": 1
+      },
+      "contact_form": {
+        "enabled": true,
+        "tier": 1
+      },
+      "cookie_consent": {
+        "enabled": true,
+        "tier": 1
+      }
+    },
+    "produto": {
+      "auth": {
+        "enabled": true,
+        "tier": 2,
+        "teaser": false,
+        "upgrade_message": "Disponível no Plano Produto."
+      },
+      "payment": {
+        "enabled": true,
+        "tier": 2,
+        "teaser": false,
+        "upgrade_message": "Aceite pagamentos. Disponível no Plano Produto."
+      },
+      "admin_panel": {
+        "enabled": true,
+        "tier": 2,
+        "teaser": false,
+        "upgrade_message": "Painel de gestão. Disponível no Plano Produto."
+      }
+    },
+    "plataforma": {
+      "ai_reports": {
+        "enabled": false,
+        "tier": 3,
+        "teaser": true,
+        "upgrade_message": "Relatórios semanais com IA. Disponível no Plano Plataforma."
+      },
+      "auto_followup": {
+        "enabled": false,
+        "tier": 3,
+        "teaser": true,
+        "upgrade_message": "Follow-up automático. Disponível no Plano Plataforma."
+      }
+    }
+  },
+  "upgrade_cta": {
+    "whatsapp": "[PREENCHER: número do operador]",
+    "email": "[PREENCHER: email do operador]",
+    "cta_text": "Fale connosco para activar →"
+  }
+}

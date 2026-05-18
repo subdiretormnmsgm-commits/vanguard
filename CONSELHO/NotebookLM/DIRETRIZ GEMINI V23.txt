@@ -1,0 +1,14 @@
+DIRETRIZ ESTRATÉGICA V23 — THE REVENUE STRIKE
+
+VISÃO ESTRATÉGICA:
+Na V23, a Vanguard Tech deixa de ser uma promessa técnica e torna-se um Agente de Vendas. Nossa missão simbiótica é criar a rede de parceiros e o motor de upsell que transformam dados em contratos de R$ 6.000 (Projeto IAH).
+
+[AÇÕES SIMBIÓTRICAS PRIORITÁRIAS]
+
+    Partner Portal Alpha: Área restrita para agências com links de afiliado e dashboard de performance dos indicados.
+
+    Sentinel Upsell Engine: Narrativa dinâmica nos e-mails semanais que propõe o upgrade para consultoria IAH baseada no lucro recuperado.
+
+    Hermes Calendar Integration: Automação total do agendamento pós-qualificação de voz.
+
+    O QUE PROTEGER: Regra §21, integridade do Oráculo Pulse (v0.1) e o design Ion Gold.

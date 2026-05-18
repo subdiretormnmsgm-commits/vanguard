@@ -1,6 +1,6 @@
-﻿# DISCOVERY CARD — QUADRILATERAL IAH
+﻿# DISCOVERY CARD — PENTALATERAL IAH
 **Para Eduardo · Usar em qualquer reunião com cliente potencial**
-**Versão:** 1.0 · 2026-05-11
+**Versão:** 2.0 · 2026-05-18
 
 ---
 
@@ -170,17 +170,51 @@ _____________________________________________
 
 ---
 
+## BLOCO E — ATIVAÇÃO DO EMBAIXADOR (obrigatório após GO no Bloco A)
+
+> Passo 0 do Pentalateral IAH. O Embaixador é o único membro com memória persistente do cliente.
+> Sem Embaixador ativo, a inteligência acumulada nesta reunião morre na memória do Diretor.
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHECKLIST DE ATIVAÇÃO DO EMBAIXADOR:
+
+  [ ] Claude Project criado em claude.ai/projects
+      Nome sugerido: "Embaixador — [Nome do Cliente]"
+
+  [ ] INSTRUCAO_SISTEMA colada em Settings > Instructions
+      Arquivo: CLIENTES/[NOME]/CLAUDE_PROJECT/00_INSTRUCAO_SISTEMA.md
+
+  [ ] MENSAGEM_INTERACAO_INICIAL enviada (script copia para clipboard)
+      Rodar: .\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
+
+  [ ] MEMORIA_EMBAIXADOR iniciada com dados desta reunião
+      Arquivo: CLIENTES/[NOME]/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md
+
+  [ ] Embaixador recebeu briefing dos Blocos B e D desta reunião
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ATENÇÃO: Nenhum ciclo de build avança sem o Embaixador ativo.
+O Embaixador é quem acumula inteligência do cliente entre sessões.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
+
 ## DEPOIS DA REUNIÃO — PRÓXIMOS 30 MINUTOS
 
 ```
 1. Guardar este cartão em CLIENTES/[NOME]/BRIEFING_DISCOVERY.txt
 2. Preencher PERFIL_CLIENTE_TEMPLATE.md com as notas do Bloco D
-3. Abrir Gemini → colar COMANDO 1 com as respostas dos Blocos B e C
-4. Aguardar DIRETRIZ do Gemini (5–15 min)
-5. Validar DIRETRIZ → decidir se vai ao NotebookLM antes do Claude
+3. ATIVAR EMBAIXADOR — rodar .\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
+   → Script abre claude.ai/projects e copia MENSAGEM_INTERACAO_INICIAL para clipboard
+   → Colar no chat do Embaixador e enviar
+   → Embaixador inicia MEMORIA_EMBAIXADOR com os dados da reunião
+4. Abrir Gemini → colar COMANDO 1 com as respostas dos Blocos B e C
+5. Aguardar DIRETRIZ do Gemini (5–15 min)
+6. Validar DIRETRIZ → decidir se vai ao NotebookLM antes do Claude
 ```
 
 ---
 
-*Discovery Card · Quadrilateral IAH · V1.0*
+*Discovery Card · Pentalateral IAH · V2.0 · 2026-05-18*
 *Imprimir em A5 ou guardar no celular · Usar em qualquer reunião*

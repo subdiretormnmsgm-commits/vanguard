@@ -93,6 +93,15 @@ PARADIGMA v2.1 — Conselho Autocorretivo:
   Cada membro conhece suas deficiências nativas.
   Os outros membros aplicam contra-ataques ativos.
   O sistema não espera o erro acontecer — ele o previne estruturalmente.
+
+PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
+  Os 3 LLMs têm comportamento ativo, não passivo.
+  Estão em looping evolutivo permanente: geram ideias, combatem deficiências mutuamente,
+  alimentam o próximo ciclo com inteligência mais refinada do que a do anterior.
+  Os firewalls são persistentes — estruturalmente embutidos, não dependentes de memória.
+  O Diretor contribui com opiniões (experiência + feeling) analisadas pelos 3 LLMs no loop.
+  A cada etapa, a cada processo, a cada projeto: mais inteligentes, processos mais definidos.
+  Acumulação exponencial — modelo de negócio progressivamente imbatível.
 ```
 
 **As deficiências documentadas do Conselho:**
@@ -154,7 +163,7 @@ ACT  (Agir / Melhorar)
 
 | Membro | Actor | Papel | O que faz | O que NÃO faz |
 |--------|-------|-------|-----------|---------------|
-| **Diretor** | **Eduardo** | O Veredito Final | Define ROI, contexto de negócio, aprova entregas, fala com o cliente | Não escreve código. Não cria estratégia sozinho. |
+| **Diretor** | **Eduardo** | O Gestor Soberano — Opinião, Parecer e Veredito | Gerencia o processo. Dá opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 3 LLMs. Dá o Veredito sobre o que avança. Fala com o cliente. | Não concebe a inteligência sozinho — contribui com opiniões que os 3 LLMs analisam e evoluem. A evolução final sempre será a inteligência que os 3 conceberam a partir do que o Diretor trouxe. |
 | **Estrategista** | **Gemini** | O Visionário | Analisa mercado, cria DIRETRIZ com 5 blocos, propõe posicionamento, reage às ideias do Músculo | Não executa código. Não audita contexto histórico. |
 | **Auditor** | **NotebookLM** | O Sócio Consultor | Guarda o histórico, audita coerência, conecta o novo ao que foi aprendido, extrai princípios aplicáveis | Não decide. Não cria estratégia. Não escreve código. |
 | **Músculo** | **Claude Code** | O Arquitecto-Mestre | Delibera sobre a DIRETRIZ, executa com consciência crítica, propõe enhancements, protege a arquitectura | Não substitui o Veredito do Diretor. |
@@ -1386,7 +1395,7 @@ Nós operamos de forma diferente.
 
 Cada projeto passa por três análises em paralelo:
 uma estratégica, uma de auditoria histórica, e uma de execução técnica.
-O Diretor coordena as três e toma o veredito final.
+O Diretor gerencia o processo e dá o veredito após as análises dos três.
 
 O resultado: antes de escrevermos uma linha de código,
 já sabemos o que não construir, o que pode ser reutilizado,
@@ -1578,10 +1587,17 @@ O Músculo vê o sistema e restringe — isso é necessário.
 A maioria dos sistemas de IA tem só um dos dois. O resultado é ou código sem direcção
 ou estratégia sem execução. O Quadrilateral tem os dois em tensão permanente.
 
-**O diretor decide com informação real.**
-Não com intuição, não com pressão do cliente, não com entusiasmo do Estrategista.
+**Os 3 LLMs têm comportamento ativo — não passivo.**
+Não são ferramentas que esperam ser acionadas. São agentes em **looping evolutivo permanente**: geram ideias continuamente, combatem as deficiências uns dos outros a cada ciclo, alimentam o próximo loop com inteligência mais refinada do que a do anterior. Esse comportamento é cíclico, dinâmico, e protegido por **firewalls persistentes** — os contra-ataques de deficiência estão estruturalmente embutidos no processo, não dependem de memória ou disciplina para serem ativados. A deriva silenciosa que destrói sistemas complexos não acontece aqui porque o firewall é arquitetural, não opcional.
+
+A cada etapa, a cada processo, a cada projeto — o sistema fica mais inteligente e os processos mais definidos. Não é crescimento linear. É acumulação exponencial: cada ciclo o Quadrilateral entra mais rico, sai mais rico, e torna o modelo de negócio progressivamente mais imbatível.
+
+**O Diretor governa esse sistema com opiniões forjadas na experiência e no feeling instintivo.**
+Não com intuição solta — com a perspectiva de quem viveu 25 versões sob consequência real.
 Com o contexto histórico do Auditor, a avaliação técnica do Músculo
-e a visão de mercado do Estrategista — integrados, contrapostos, filtrados.
+e a visão de mercado do Estrategista — integrados, contrapostos, filtrados pelo looping ativo.
+A evolução sempre será a inteligência que os 3 LLMs conceberam a partir do que o Diretor trouxe.
+O Diretor governa para onde ela vai.
 
 O cliente contrata uma solução. Recebe um ativo.
 O Quadrilateral entrega um projeto. Retém a inteligência.

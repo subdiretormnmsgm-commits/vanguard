@@ -17,20 +17,19 @@
 ## BLOCO WATCHDOG — COPIAR E COLAR
 
 ```
-WATCHDOG — [data de hoje]
+WATCHDOG — [18/05/2026]
 
 ESTADO_ATUAL:
-- Termo: [PENDENTE / ASSINADO em DD/MM]
-- Gate: [Dia X / o que está em build agora]
-- Último contato Ingrid: [há X dias / hoje — o que aconteceu em 1 linha]
+- Termo: [TERMO ASSINADO POR INGRID]
+- Gate: [Dia X / o que está em build agora] - NÃO ME RECORDO DO DIA
+- Último contato Ingrid: [hoje — o que aconteceu em 1 linha]
 - Risco: [VERDE / AMARELO / VERMELHO]
 
 DESDE A ÚLTIMA SESSÃO:
-[O que aconteceu com Ingrid, com o build, ou com o projeto desde que fechou o Project.
-Pode ser uma linha. Pode ser bruto — o Embaixador processa.]
+[INGRID ASSINOU O TERMO, CONTINUEMOS COM O PROCESSO.]
 
 PERGUNTA DESTA SESSÃO:
-[O que Eduardo quer resolver agora — uma frase.]
+[CONTINUAR O PROCESSO, CONFORME PLANEJADO.]
 ```
 
 ---

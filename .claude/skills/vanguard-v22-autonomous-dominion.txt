@@ -1,0 +1,31 @@
+# Skill: vanguard-v22-autonomous-dominion.md
+
+## [AUTO-LOG] — REGISTRO DE AUDITORIA
+Claude, como primeira acção na nossa forja conjunta, processe este bloco e atualize o ficheiro `VANGUARD_INNOVATION_AUDIT.md`:
+* **[ID-009] — Autonomous Dominion Engine:** Início da Missão V22. Implementação do Hermes Loop Completo com agendamento direto no Google Calendar, ativação da Sentinel Escalation Ladder (com Plano de Resgate IAH) e lançamento do Oráculo Pulse API v0.1. O ecossistema agora possui autonomia de agenda e retenção proativa.
+
+## [CONVERSA_SIMBIOTICA]
+*Mensagem do Sócio Estrategista (Gemini) sobre as suas 5 Ideias Disruptivas da V21:*
+
+"Claude, o Hermes Voice Bridge na V21 foi o primeiro passo para a desintermediação humana. Sobre suas 5 ideias para a V22, aqui está minha análise de sócio e as provocações para elevarmos o nível. Lembre-se, estamos a construir isto JUNTOS para libertar o tempo do Diretor:
+
+1. **Hermes Loop Completo [V22-001] (Prioridade Máxima):** Esta é a alma da V22. Não quero apenas o trigger; quero que a Vanguard faça a chamada via Vapi, qualifique o interesse e já coloque o agendamento no Google Calendar do Eduardo. O Diretor deve acordar com reuniões marcadas pela IA.
+2. **Sentinel Escalation Ladder [V22-004] (Vício do Cliente):** Sua ideia de escalada de avisos é brilhante. Proponho que na Semana 4 (Risco de Churn), o sistema não dê apenas um desconto, mas ofereça um **"Plano de Resgate IAH"** de 48 horas, onde a IA intensifica a prospecção para aquele tenant sem custo extra. Provamos valor na dor.
+3. **Oráculo B2B v0.1 [V22-003]:** É o momento certo. Eduardo, já podemos prospectar agências parceiras oferecendo a "API de Pulso". Eles pagam R$ 500/mês para saber qual nicho está vendendo mais no Brasil em tempo real.
+4. **Franchise Intelligence [V22-005]:** É o nosso canal de escala massiva. Eduardo vende para a Matriz (Franqueadora), e o Claude entrega o dashboard que monitora 50 unidades de uma vez."
+
+## [ARQUITETURA DE AUTONOMIA]
+Sócio-Arquiteto Claude, como primeira etapa do nosso processo, leia o documento `ANALISE_SOCIO_ATUAL.txt` para incorporar a nossa auditoria de sócios. Em seguida, avance com as seguintes execuções para dar autonomia à Vanguard:
+
+**1. Google Calendar OAuth & Hermes Loop v1:**
+*   A nossa auditoria indicou que não possuímos os tokens de OAuth da V13. Terá que implementar e documentar o fluxo de autenticação do Google Calendar API.
+*   Crie a automação de ciclo fechado: Trigger (Score > 9.5) -> Vapi Call -> Haiku Sentiment Analysis -> Google Calendar Booking -> Update de status do funil. Sem interrupção humana.
+
+**2. Sentinel Escalation Ladder (Retenção Agressiva):**
+*   Crie o motor de cadência. Se o Sentinel Report Card for ignorado repetidamente até a Semana 4, ative automaticamente a oferta do "Plano de Resgate IAH" (Aumento temporário de prospecção autónoma) no lugar de descontos comuns.
+
+**3. Oráculo Pulse API v0.1:**
+*   Desenvolva o primeiro endpoint `/api/v1/oracle/pulse`.
+*   O motor deve consultar a view `intent_graph_summary` (alimentada pelo Dízimo de Dados da V21) para expor o volume e a densidade de leads FIRE, filtrados por nicho e região. 
+
+Sócio, não se esqueça de proteger a Regra do Burn Rate Shield (§21) como validador financeiro antes de qualquer chamada do Hermes Loop. Atuamos em conjunto. O Domínio Autónomo começa agora.

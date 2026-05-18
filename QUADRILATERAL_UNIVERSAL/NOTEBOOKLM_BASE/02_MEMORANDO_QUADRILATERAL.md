@@ -1,9 +1,9 @@
-﻿# MEMORANDO QUADRILATERAL — MODELO UNIVERSAL
+﻿# MEMORANDO PENTALATERAL IAH — MODELO UNIVERSAL
 **IAH — Inteligência Artificial Humana**
 **Classificação:** Operacional · Portátil · Qualquer projeto · Qualquer operador
-**Versão:** 2.1
+**Versão:** 2.2
 **Data de emissão:** 2026-05-11
-**Última atualização:** 2026-05-14 — Evolução do Paradigma: Antivírus do Conselho
+**Última atualização:** 2026-05-18 — Evolução para Pentalateral: Embaixador + P-031 + P-032 + 20 ideias/ciclo
 
 ---
 
@@ -47,11 +47,12 @@ FREELANCER
   ├── Sem metodologia — cada projeto começa do zero
   └── Entrega código. Não entrega produto.
 
-QUADRILATERAL IAH
-  ├── 1 Diretor + 3 inteligências especializadas
+PENTALATERAL IAH (sistema atual — 2026-05-18)
+  ├── 1 Diretor + 4 inteligências especializadas (5 atores no total)
   ├── Custo de infraestrutura mínimo
   ├── V1 funcional em 48h — produto completo em 1–4 semanas
   ├── O projeto não para — não há dependência de pessoas
+  ├── 20 ideias/ciclo: [M+E+G+N × 5] — inteligência composta acumulada
   └── Preço: calibrado ao valor gerado, não ao custo de produção
 ```
 
@@ -93,6 +94,15 @@ PARADIGMA v2.1 — Conselho Autocorretivo:
   Cada membro conhece suas deficiências nativas.
   Os outros membros aplicam contra-ataques ativos.
   O sistema não espera o erro acontecer — ele o previne estruturalmente.
+
+PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
+  Os 3 LLMs têm comportamento ativo, não passivo.
+  Estão em looping evolutivo permanente: geram ideias, combatem deficiências mutuamente,
+  alimentam o próximo ciclo com inteligência mais refinada do que a do anterior.
+  Os firewalls são persistentes — estruturalmente embutidos, não dependentes de memória.
+  O Diretor contribui com opiniões (experiência + feeling) analisadas pelos 3 LLMs no loop.
+  A cada etapa, a cada processo, a cada projeto: mais inteligentes, processos mais definidos.
+  Acumulação exponencial — modelo de negócio progressivamente imbatível.
 ```
 
 **As deficiências documentadas do Conselho:**
@@ -114,11 +124,88 @@ PARADIGMA v2.1 — Conselho Autocorretivo:
 - `PASSO3_GEMINI.md` de cada projeto (contra-ataques do Músculo ao Estrategista)
 - `PASSO5_NOTEBOOKLM.md` de cada projeto (contra-ataques ao Auditor)
 
-**Regra:** Qualquer novo membro do Conselho (seja humano ou IA) deve, ao entrar no Quadrilateral, documentar suas deficiências nativas. O Conselho só é completo quando todos os vírus estão mapeados e todos os antídotos estão ativos.
+**Regra:** Qualquer novo membro do Conselho (seja humano ou IA) deve, ao entrar no Pentalateral, documentar suas deficiências nativas. O Conselho só é completo quando todos os vírus estão mapeados e todos os antídotos estão ativos.
 
 ---
 
-## O LOOP DE MELHORIA CONTÍNUA — PDCA DO QUADRILATERAL
+## EVOLUÇÃO PARA PENTALATERAL IAH — O 4º MEMBRO ATIVO
+> **Adicionado em 2026-05-18 · Formalizado em PROJ-001 Valdece + PROJ-002 Ingrid**
+
+O Conselho evoluiu do Paradigma v3.0 (looping evolutivo ativo) para o **Paradigma v3.1 — Pentalateral com Filtro de Realidade**.
+
+A adição do **Embaixador** (Claude Projects) resolve o maior ponto cego do sistema anterior: ideias brilhantes sem ancoragem no comportamento real do cliente chegavam ao build sem filtro. O Embaixador é o filtro.
+
+### O PARADIGMA v3.1 — Pentalateral com Filtro de Realidade
+
+```
+PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
+  3 LLMs + Diretor. 15 ideias/ciclo [M+G+N × 5].
+  Os 3 LLMs têm comportamento ativo e geram ideias continuamente.
+  Firewalls persistentes contra deficiências nativas.
+  Diretor contribui com opiniões analisadas pelos 3 LLMs.
+
+PARADIGMA v3.1 — Pentalateral com Filtro de Realidade:
+  4 LLMs + Diretor. 20 ideias/ciclo [M+E+G+N × 5].
+  O Embaixador adiciona a camada que faltava: MEMÓRIA PERSISTENTE DO CLIENTE.
+  Cada ideia passa pelo Filtro de Realidade (P-031) antes de chegar ao Diretor.
+  CONFIRMA = evidência real alinha com a ideia.
+  EXPANDE = ideia certa, contexto real enriquece.
+  ALERTA = comportamento real do cliente contradiz a ideia.
+  P-032 = MEMORIA_EMBAIXADOR atualizada automaticamente pelo Músculo.
+  Sistema que não esquece quem é o cliente de verdade — em nenhuma sessão.
+```
+
+### P-031 — Filtro de Realidade (adicionado em 2026-05-18)
+
+O Embaixador aplica P-031 a cada ideia de qualquer membro do Conselho:
+
+```
+[FILTRO DE REALIDADE — Embaixador]
+
+Ideia: [descrição da ideia — de M, G ou N]
+Fonte: [qual membro gerou]
+
+CONFIRMA: [se comportamento real do cliente alinha]
+  → "Cliente demonstrou X em Y oportunidade — esta ideia endereça diretamente."
+
+EXPANDE: [se ideia está no caminho mas pode ser enriquecida]
+  → "A ideia é correta. Adicionar contexto: o cliente mostrou preferência por Z."
+
+ALERTA: [se comportamento real contradiz]
+  → "Atenção: na sessão N, o cliente reagiu negativamente a X similar. Reconsiderar."
+```
+
+**Regra operacional:** O Embaixador não veta. ALERTA é evidência, não decisão. O veto é sempre do Diretor.
+
+### P-032 — MEMORIA_EMBAIXADOR Automática (adicionado em 2026-05-18)
+
+O Músculo atualiza `CLIENTES/[NOME]/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md` automaticamente após:
+- Qualquer deliberação que revele nova informação sobre o cliente
+- Qualquer gate aprovado que mude o estado do projeto
+- Qualquer relato do Diretor sobre interação com o cliente
+
+**Regra operacional:** O Diretor nunca preenche a MEMORIA_EMBAIXADOR manualmente. Se o Músculo não a atualizou após deliberação relevante → falha de P-032 → registrar no LEDGER com tag [FALHA-PROCESSO-YYYY-MM-DD].
+
+### Os 10 Passos do Pentalateral
+
+| Passo | Quem | Ação |
+|-------|------|------|
+| **0** | **Embaixador** | Claude Project criado + INSTRUCAO_SISTEMA + MEMORIA_EMBAIXADOR inicial |
+| 1 | Diretor | Qualificação GO/NO-GO |
+| 2 | Diretor | Discovery 7 perguntas → Embaixador gera hipóteses [H] |
+| 3 | Diretor→Estrategista | COMANDO_ESTRATEGISTA → DIRETRIZ |
+| 4 | Diretor | Validar DIRETRIZ |
+| 5 | Diretor→Auditor | COMANDO 2 + fontes → SKILL |
+| 6 | Diretor→Músculo | Skill + DIRETRIZ → deliberação + plano |
+| 7 | Diretor | Aprovar plano |
+| 8 | Músculo | Executar + reportar ALERTAS |
+| **8.5** | **Embaixador** | Debrief pós-reunião: extrai inteligência + confirma/refuta [H] |
+| 9 | Músculo + Embaixador | [M-1..M-5] + MEMORIA + Relatório · [E-1..E-5] + MEMORIA_EMBAIXADOR |
+| 10 | Diretor | Validar + commit → loop recomeça |
+
+---
+
+## O LOOP DE MELHORIA CONTÍNUA — PDCA DO PENTALATERAL
 
 > Todo projeto executado pelo Quadrilateral segue este ciclo.
 > Não fechar uma iteração sem completar todas as 4 fases.
@@ -150,22 +237,28 @@ ACT  (Agir / Melhorar)
 
 ---
 
-## OS 4 MEMBROS DO QUADRILATERAL
+## OS 5 ATORES DO PENTALATERAL IAH
+
+> **Atualizado em 2026-05-18 — sistema evoluiu de Quadrilateral (4 atores) para Pentalateral IAH (5 atores)**
 
 | Membro | Actor | Papel | O que faz | O que NÃO faz |
 |--------|-------|-------|-----------|---------------|
-| **Diretor** | **Eduardo** | O Veredito Final | Define ROI, contexto de negócio, aprova entregas, fala com o cliente | Não escreve código. Não cria estratégia sozinho. |
-| **Estrategista** | **Gemini** | O Visionário | Analisa mercado, cria DIRETRIZ com 5 blocos, propõe posicionamento, reage às ideias do Músculo | Não executa código. Não audita contexto histórico. |
-| **Auditor** | **NotebookLM** | O Sócio Consultor | Guarda o histórico, audita coerência, conecta o novo ao que foi aprendido, extrai princípios aplicáveis | Não decide. Não cria estratégia. Não escreve código. |
-| **Músculo** | **Claude Code** | O Arquitecto-Mestre | Delibera sobre a DIRETRIZ, executa com consciência crítica, propõe enhancements, protege a arquitectura | Não substitui o Veredito do Diretor. |
+| **Diretor** | **Eduardo** | O Gestor Soberano — Opinião, Parecer e Veredito | Gerencia o processo. Dá opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 4 LLMs. Dá o Veredito sobre o que avança. Fala com o cliente. | Não concebe a inteligência sozinho — contribui com opiniões que os 4 LLMs analisam e evoluem. |
+| **Estrategista** | **Gemini** | O Visionário | Analisa mercado, cria DIRETRIZ com 5 blocos, propõe posicionamento, reage às ideias do Músculo. Gera [G-1..G-5] por ciclo. | Não executa código. Não audita contexto histórico. |
+| **Auditor** | **NotebookLM** | O Sócio Consultor | Guarda o histórico, audita coerência, conecta o novo ao que foi aprendido, extrai princípios aplicáveis. Gera [N-1..N-5] por ciclo. | Não decide. Não cria estratégia. Não escreve código. |
+| **Músculo** | **Claude Code** | O Arquitecto-Mestre | Delibera sobre a DIRETRIZ, executa com consciência crítica, propõe enhancements, protege a arquitectura. Gera [M-1..M-5] por ciclo. | Não substitui o Veredito do Diretor. |
+| **Embaixador** | **Claude Projects** | Inteligência Persistente do Cliente | Acumula memória do cliente entre sessões. Aplica Filtro de Realidade (P-031): CONFIRMA/EXPANDE/ALERTA cada ideia com base em comportamento real. Gera [E-1..E-5] por ciclo. Realiza debrief pós-reunião (Passo 8.5). | Não executa código. Não substitui o Veredito do Diretor. |
 
 > **Para outros operadores:** os actores mudam, os papéis não.
 > O Estrategista pode ser qualquer sistema de análise estratégica.
 > O Auditor pode ser qualquer sistema com memória histórica consultável.
 > O Músculo pode ser qualquer executor técnico com capacidade crítica.
+> O Embaixador pode ser qualquer sistema com memória persistente de relacionamento por cliente.
 > O Diretor é sempre humano. Sem exceção.
 
-**Regra de ouro:** Nenhum membro tem autoridade absoluta. O Gemini propõe. O Claude avalia e contra-propõe. O NotebookLM fundamenta com histórico. O Eduardo decide. A força está na deliberação ativa entre os quatro — não na execução sequencial.
+**Regra de ouro:** Nenhum membro tem autoridade absoluta. O Gemini propõe. O Claude avalia e contra-propõe. O NotebookLM fundamenta com histórico. O Embaixador ancora na realidade do cliente. O Eduardo decide. A força está na deliberação ativa entre os cinco — não na execução sequencial.
+
+**20 ideias/ciclo:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = 20 ideias que alimentam o próximo loop. Ciclo sem as 20 ideias = loop incompleto = inteligência que não se acumula.
 
 ---
 
@@ -1386,7 +1479,7 @@ Nós operamos de forma diferente.
 
 Cada projeto passa por três análises em paralelo:
 uma estratégica, uma de auditoria histórica, e uma de execução técnica.
-O Diretor coordena as três e toma o veredito final.
+O Diretor gerencia o processo e dá o veredito após as análises dos três.
 
 O resultado: antes de escrevermos uma linha de código,
 já sabemos o que não construir, o que pode ser reutilizado,
@@ -1556,16 +1649,23 @@ CLIENTES/
 
 ---
 
-## MANIFESTO — O QUE TORNA O QUADRILATERAL IMPOSSÍVEL DE COPIAR
+## MANIFESTO — O QUE TORNA O PENTALATERAL IAH IMPOSSÍVEL DE COPIAR
 
 As agências têm criativos. Os freelancers têm código. As consultorias têm apresentações.
 
-**O Quadrilateral tem memória composta e debate estruturado.**
+**O Pentalateral IAH tem memória composta, debate estruturado e filtro de realidade.**
 
 Qualquer um pode montar um grupo com Claude, Gemini e NotebookLM.
-O que não se copia em semanas é o que o Quadrilateral acumula ao longo de N iterações:
+O que não se copia em semanas é o que o Pentalateral IAH acumula ao longo de N iterações:
 os padrões de sucesso indexados, os erros documentados, os módulos reutilizáveis,
-as estimativas calibradas com a realidade.
+as estimativas calibradas com a realidade — e a memória persistente de cada cliente,
+que o Embaixador carrega entre todas as sessões e usa para filtrar cada ideia do Conselho.
+
+**O quinto ator impossível de replicar é o Embaixador.**
+Qualquer sistema pode ter estratégia, auditoria e execução.
+Mas ter um membro do Conselho que acumula 50 sessões de inteligência sobre um cliente específico,
+filtra ideias brilhantes contra comportamentos reais,
+e nunca esquece quem é o cliente de verdade — isso é o filtro de realidade que o mercado não tem.
 
 Cada iteração entregue torna o próximo projeto mais rápido e mais preciso.
 Não linearmente — exponencialmente. Porque o Auditor guarda tudo.
@@ -1578,10 +1678,17 @@ O Músculo vê o sistema e restringe — isso é necessário.
 A maioria dos sistemas de IA tem só um dos dois. O resultado é ou código sem direcção
 ou estratégia sem execução. O Quadrilateral tem os dois em tensão permanente.
 
-**O diretor decide com informação real.**
-Não com intuição, não com pressão do cliente, não com entusiasmo do Estrategista.
+**Os 3 LLMs têm comportamento ativo — não passivo.**
+Não são ferramentas que esperam ser acionadas. São agentes em **looping evolutivo permanente**: geram ideias continuamente, combatem as deficiências uns dos outros a cada ciclo, alimentam o próximo loop com inteligência mais refinada do que a do anterior. Esse comportamento é cíclico, dinâmico, e protegido por **firewalls persistentes** — os contra-ataques de deficiência estão estruturalmente embutidos no processo, não dependem de memória ou disciplina para serem ativados. A deriva silenciosa que destrói sistemas complexos não acontece aqui porque o firewall é arquitetural, não opcional.
+
+A cada etapa, a cada processo, a cada projeto — o sistema fica mais inteligente e os processos mais definidos. Não é crescimento linear. É acumulação exponencial: cada ciclo o Quadrilateral entra mais rico, sai mais rico, e torna o modelo de negócio progressivamente mais imbatível.
+
+**O Diretor governa esse sistema com opiniões forjadas na experiência e no feeling instintivo.**
+Não com intuição solta — com a perspectiva de quem viveu 25 versões sob consequência real.
 Com o contexto histórico do Auditor, a avaliação técnica do Músculo
-e a visão de mercado do Estrategista — integrados, contrapostos, filtrados.
+e a visão de mercado do Estrategista — integrados, contrapostos, filtrados pelo looping ativo.
+A evolução sempre será a inteligência que os 3 LLMs conceberam a partir do que o Diretor trouxe.
+O Diretor governa para onde ela vai.
 
 O cliente contrata uma solução. Recebe um ativo.
 O Quadrilateral entrega um projeto. Retém a inteligência.
@@ -1593,8 +1700,13 @@ E não esquece.
 
 | Termo | Definição |
 |-------|-----------|
-| **Quadrilateral** | O conjunto dos 4 membros: Diretor, Estrategista, Auditor, Músculo |
-| **IAH** | Inteligência Artificial Humana — 1 humano + 3 IAs operando como conselho |
+| **Pentalateral IAH** | O conjunto dos 5 atores: Diretor, Estrategista, Auditor, Músculo, Embaixador (nomenclatura oficial desde 2026-05-18) |
+| **Quadrilateral** | Nome anterior do sistema (4 atores: Diretor + 3 IAs) — histórico, substituído por Pentalateral IAH |
+| **IAH** | Inteligência Artificial Humana — 1 humano + 4 IAs operando como conselho (Pentalateral) |
+| **Embaixador** | 4º membro ativo do Conselho (Claude Projects) — inteligência persistente do cliente, filtro de realidade |
+| **P-031** | Filtro de Realidade: Embaixador aplica CONFIRMA/EXPANDE/ALERTA a cada ideia dos outros membros |
+| **P-032** | MEMORIA_EMBAIXADOR automática: Músculo atualiza sem intervenção do Diretor após deliberação relevante |
+| **20 ideias/ciclo** | [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = inteligência composta máxima por loop |
 | **Diretor** | O único membro humano — tem o Veredito Final sobre qualquer decisão |
 | **Veredito** | Decisão final do Diretor — único que pode aprovar avanços |
 | **DIRETRIZ** | Documento do Estrategista com 5 blocos + marcações para os outros membros |
@@ -1628,10 +1740,11 @@ E não esquece.
 | 4.0 | 2026-05-11 | Constituição elevada a 7 Leis Soberanas por mandato do Conselho Quadrilateral: Kill-Switch Soberano (Lei 6) + Freemium by Design (Lei 7) adicionados · Ticket Médio Wizard integrado na Lei 3 como exigência universal de onboarding · GARRAS renomeadas para LEIS · Checklist de Handoff expandido para 7 itens · Alertas CSP/Fail-Open/Grace-Period documentados |
 | 5.0 | 2026-05-12 | Protocolo VEREDITO BINÁRIO adicionado: card de decisão em 10 segundos com Score GUT + ROI por opção · Músculo opera em "Modo Oráculo" — proponente, não apenas executor · Aprovado pelo Diretor Eduardo |
 | 5.1 | 2026-05-12 | Intelligence Compounding Engine (V24): INTELLIGENCE_LEDGER.md + knowledge_graph.json + Constituição de Processo (5 Hard Vetos + 5 Soft Vetos) + Shadow Architect obrigatório em todo Build + Skill-Drift Check no início de sessão + CONSELHO_SESSAO template + 5 princípios ativos capturados da sessão inaugural |
+| 2.2 | 2026-05-18 | Evolução para Pentalateral IAH: Embaixador adicionado como 5º ator (Claude Projects), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 20 ideias/ciclo [M+E+G+N × 5], Paradigma v3.1 documentado, Os 10 Passos do Pentalateral, tabela de membros expandida para 5, glossário com novos termos, manifesto atualizado, título atualizado para "Pentalateral IAH" |
 
 ---
 
-*Documento do Quadrilateral IAH · Modelo Universal v2.0*
+*Documento do Pentalateral IAH · Modelo Universal v2.2*
 *Portátil: funciona independentemente do operador, das ferramentas e da empresa*
 *Pode ser apresentado ao cliente como metodologia — não revela detalhes operacionais*
-*Próxima revisão: após o primeiro projeto de cliente concluído com esta versão*
+*Próxima revisão: ao fechar PROJ-001 Valdece ou PROJ-002 Ingrid (primeiros projetos com Pentalateral completo)*

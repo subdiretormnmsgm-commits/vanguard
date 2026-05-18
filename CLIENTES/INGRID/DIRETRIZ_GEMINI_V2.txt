@@ -1,0 +1,149 @@
+DIRETRIZ_V2_ESTRATEGISTA
+
+BLOCO 0 — DIAGNÓSTICO
+O risco real que não estamos endereçando nesta transição do backend para o frontend (Dias 6-8) é a fricção da latência. O motor no Supabase já tem 460 questões geradas e calibradas para o Cargo 202 (Peso 2 priorizado) [P-014], mas se a Interface (PWA) tiver telas de carregamento lentas, a carga cognitiva de Ingrid mudará de "o que estudar" para "esperar o aplicativo funcionar". O aplicativo precisa ser instantâneo. Ao mesmo tempo, o sistema precisa integrar imediatamente os novos mandatos operacionais da Vanguard Tech no núcleo do seu processo para evitar a Síndrome de Complacência. A cliente deve abrir a tela e, em menos de 2 segundos, estar respondendo à primeira questão do dia.
+
+BLOCO 1 — PRIORIDADES DE BUILD (máximo 3)
+[MANDATOS DIRETOS DO DIRETOR (Ancoragem Sistêmica)]:
+Antes do código, a arquitetura deste Loop acata formalmente:
+
+[P-023] Contrato Formal: O sistema está instruído a barrar qualquer futura inicialização de infraestrutura (Camada 1+) sem a leitura de um contrato em PDF/Markdown assinado. (Não se aplica retrospectivamente ao piloto PROJ-002, mas rege o sistema).
+
+[P-022] Auditor Advogado: O NotebookLM no Passo 5 atuará como adversário técnico, exigindo precedentes.
+
+[P-021] Diretor como Originador: O conselho amplifica as dores do mercado sentidas pelo Diretor, rejeitando alucinações técnicas que não geram faturamento (MRR) ou retenção.
+
+Prioridades Técnicas (Dias 6-8):
+
+Interface PWA de Alta Performance (Mobile-First)
+
+O que construir: O front-end limpo em Vanilla JS/CSS (sem frameworks pesados). Tela de "Tópicos do Dia" consumindo as views do Supabase (questoes_nao_respondidas).
+
+Por que agora: O banco tem 460 questões. Precisamos da ponte para a usuária consumi-las.
+
+Horas reais: ~7h (UI fluida, roteamento de estado local).
+
+O que fica de fora: Animações complexas, transições de página elaboradas, Redux/React. Simplicidade extrema.
+
+Tutor Socrático Adaptativo com Cache (P-006 Burn Rate Shield)
+
+O que construir: A Edge Function que aciona o Claude Haiku quando Ingrid erra. Implementar tabela explicacao_tutor para salvar o output e nunca chamar a API duas vezes para a mesma explicação da mesma questão.
+
+Por que agora: Transforma o app de um "banco de dados" para um "professor particular", atacando a curva de esquecimento.
+
+Horas reais: ~5h (Integração de Edge Function + Lógica de Cache no Supabase).
+
+O que fica de fora: Histórico longo de chat. É uma explicação pontual em modal, não um chatbot de conversação infinita.
+
+Engine de Fallback de Fadiga (Modo Revisão/Passivo)
+
+O que construir: Quando o limite de API bate 70% ou o usuário atinge o limite do SM-2 do dia, a interface bloqueia novas requisições e oferece "Pílulas de Revisão" ou o "Modo Express" (5 min).
+
+Por que agora: Protege o caixa da Vanguard contra spikes de uso e protege a mente da aluna contra o excesso de estudo.
+
+Horas reais: ~4h (Lógica de interrupção baseada na view daily_cost).
+
+O que fica de fora: Geração dinâmica de pílulas. As pílulas devem ser extraídas das questões já em cache.
+
+BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
+O "PROJ-002 Ingrid" acaba de provar que podemos fatiar e engolir a fundação de qualquer edital do Brasil em 5 dias (Dias 1 a 5 concluídos com sucesso).
+
+Posicionamento: Este não é mais apenas um projeto interno. Com a UI (Dias 6-8) validada no celular da usuária, criamos o produto "Sovereign Study SaaS". O mercado de concursos tem milhões de candidatos que detestam os fóruns tóxicos do QConcursos/TEC.
+
+Replicação: Vendemos a assinatura (R$ 97/mês) onde o candidato sobe o PDF do Edital, e o nosso backend gera 500 questões inéditas e um plano de 90 dias em 24 horas, rodando em single-user com chaves limitadas.
+
+BLOCO 3 — DIRETRIZ TÉCNICA
+
+[PARA O AUDITOR]:
+
+Missão obrigatória: Gerar a Skill de nome exato ingrid-v2.md em 4 partes obrigatórias (conforme PASSO5_NOTEBOOKLM.md). O Músculo executa /ingrid-v2 antes de qualquer deliberação — sem a Skill, o build não inicia.
+
+O que auditar: Exerça o seu mandato [P-022]. Audite se o Músculo está propondo tecnologias de Frontend pesadas (React, Vue) que violam a velocidade de 15 dias. Audite se o cache de explicações do Tutor Socrático está blindando estritamente os custos ([P-006]).
+
+Qual risco priorizar: O "Drift de Interface" (ficar horas alinhando pixels em vez de conectar os dados do Supabase à tela de forma funcional).
+
+O que a Skill deve conter: A ordem estrita de execução: primeiro o esqueleto PWA (HTML/JS puro), depois a injeção do Supabase JS, depois a lógica do Tutor.
+
+[PARA O MÚSCULO]:
+
+MANDATO OBRIGATÓRIO: Executar /ingrid-v2 (Skill gerada pelo Auditor) ANTES de qualquer deliberação. Sem rodar a Skill, a deliberação é inválida e será rejeitada pelo Diretor.
+
+Intenção estratégica: Ingrid deve abrir o celular e dar 1 clique para estudar. Zero menus de navegação complexos.
+
+Prioridades: 1) PWA Front-end. 2) Tutor Socrático com Cache. 3) Fallback Mode.
+
+O que NÃO construir: Gráficos com Recharts, avatares de usuário, configurações de perfil, temas dark/light dinâmicos. Auth é hardcoded para a Ingrid neste MVP.
+
+Gates por dia:
+
+Dia 6: PWA estático rodando local com mock de dados (Validar layout mobile-first).
+
+Dia 7: Feed consumindo Supabase via RLS.
+
+Dia 8: Tutor Socrático funcionando e salvando na tabela de cache. Teste unitário de limite de API.
+
+(Nota: Deliberação sem reagir às 5 ideias do Estrategista e às 5 ideias do Auditor nos 7 pontos será rejeitada).
+
+[VISÃO DE LONGO PRAZO]:
+Após 06 de Setembro (prova da Ingrid), este app converte-se no Vanguard EdTech Framework. Um sistema "White-Label" que podemos clonar e adaptar para a OAB, ENEM ou residências médicas com o clique de um script ingest.py.
+
+BLOCO 4 — RESPOSTA ÀS 5 IDEIAS DO MÚSCULO
+Tutor Socrático com Memória de Erro: APROVADA. A inteligência não está em dar a resposta, mas em adaptar o distrator. Totalmente alinhado com retenção avançada.
+
+Cache Inteligente de Explicações: APROVADA. Imperativo para sustentar o SaaS futuro (Lei 5 - Burn Rate Shield [P-006]). O que já foi ensinado não deve custar novos tokens.
+
+Fallback de Fadiga com Conteúdo Passivo: MODIFICADA. O conceito é perfeito, mas as "pílulas" devem ser um subproduto gerado junto com a bateria original de questões (batch do Supabase), e não exigir novas chamadas de LLM para serem criadas na hora.
+
+Progresso Visual por Disciplina no Header: MODIFICADA. Inserir 6 barras de progresso polui a visão mobile-first. Faremos uma única "Barra de Progresso do Dia" (ex: "8/20 questões resolvidas"). O progresso global das disciplinas fica numa aba de "Raio-X".
+
+Modo Revisão Express (5 min): APROVADA. Consistência micro-habitual. Ajuda a cumprir o SM-2 nos dias de colapso de tempo de Ingrid.
+
+BLOCO 5 — PRÓXIMOS PASSOS DO DIRETOR
+Eduardo, seu papel é ser o portão de validação do mundo real:
+
+Levar ao Auditor: Copie esta DIRETRIZ V2 e rode o Passo 5 no NotebookLM para gerar a Skill ingrid-v2.md dos Dias 6-8.
+
+Impor o Gate Dia 6: Não deixe o Músculo passar para a conexão de banco de dados no Dia 7 sem você abrir o HTML/CSS no seu celular e confirmar que os botões estão fáceis de tocar.
+
+Garantir o P-021: Se ao testar o frontend você sentir que falta algo comercial, anote. Você é a fonte primária.
+
+BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
+Pré-fetch Offline (IndexedDB):
+
+O que é: Quando Ingrid abre o PWA via WiFi de manhã, o JS baixa silenciosamente o lote das 20 questões diárias para o storage do navegador.
+
+Impacto: Ela pode resolver as questões no ônibus sem 4G. O app sincroniza com o Supabase quando a rede voltar.
+
+Pergunta ao Músculo: A implementação do PWA Sync Manager estoura nossa cota de horas do Dia 6 e 7, ou a Supabase JS lida com fallback offline facilmente?
+
+Técnica Feynman Reversa (Inversão de Papel):
+
+O que é: Ao errar a questão 3 vezes, o modal do Tutor Socrático bloqueia as alternativas e exige: "Ingrid, digite em 1 frase por que a letra A está errada". O Claude Haiku avalia a resposta dela.
+
+Impacto: Fim do modo zumbi de clicar até acertar. Força sinapses reais.
+
+Pergunta ao Músculo: Podemos fazer isso como uma Edge Function simples retornando um boolean (aprovado/reprovado) para manter o custo irrisório?
+
+Sovereign Pixel de Latência (Dificuldade Real):
+
+O que é: O frontend mede os milissegundos entre renderizar a questão e o clique da usuária. Questões acertadas em 5 segundos têm um intervalo SM-2 muito maior que questões acertadas em 50 segundos.
+
+Impacto: Transforma o algoritmo de revisão (SM-2) de um cálculo estúpido (certo/errado) num modelo preditivo de fluência cerebral real.
+
+Pergunta ao Músculo: Somar esse timer no progresso_usuario exige uma refatoração grande no Schema do Dia 1?
+
+"Dark Pattern" do Bem (Contenção de Evasão):
+
+O que é: Se Ingrid tenta fechar o PWA (ou mudar de aba) antes de concluir a cota do Cargo 202, um modal não-intrusivo alerta: "Você está a apenas 4 questões Peso 2 de garantir a memorização hoje. Sair agora quebra a curva."
+
+Impacto: Retenção via gatilhos comportamentais simples.
+
+Pergunta ao Músculo: O evento visibilitychange do DOM é confiável o suficiente no PWA mobile para dispararmos isso?
+
+Áudio Socrático Nativo (TTS):
+
+O que é: O Tutor não só exibe o texto, mas lê a explicação socrática usando a API nativa do navegador (Web Speech API), sem custo extra.
+
+Impacto: Retenção auditiva. Ingrid pode ouvir a explicação da Maria da Penha ou LC 840 enquanto dirige.
+
+Pergunta ao Músculo: A Web Speech API suporta PT-BR de forma consistente em iOS e Android sem precisar de APIs pagas da ElevenLabs/OpenAI?

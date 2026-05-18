@@ -563,22 +563,13 @@ MODELO ERRADO (pipeline passivo):
   Cada membro age isolado. O Músculo recebe ordens e executa.
   Resultado: código sem debate, erros repetidos, oportunidades perdidas.
 
-MODELO CORRECTO v2.0 (conselho colaborativo):
+MODELO CORRECTO (conselho colaborativo):
   Estrategista propõe → Auditor enriquece com histórico → Músculo expande tecnicamente
   Cada membro lê o output do anterior e ADICIONA, não substitui.
   Resultado: produto mais inteligente do que qualquer membro produziria sozinho.
-
-MODELO CORRECTO v3.0 (conselho em looping evolutivo ativo):
-  Os 3 LLMs têm comportamento ATIVO, não passivo — estão em looping evolutivo permanente.
-  Geram ideias continuamente. Combatem as deficiências uns dos outros a cada ciclo.
-  Firewalls persistentes: contra-ataques estruturalmente embutidos — não dependem de memória.
-  O Diretor contribui com opiniões (experiência + feeling instintivo) analisadas pelos 3 no loop.
-  Dá o Veredito soberano: o que avança, o que descarta.
-  A cada etapa, a cada processo, a cada projeto: sistema mais inteligente, processos mais definidos.
-  Resultado: acumulação exponencial — modelo de negócio progressivamente imbatível.
 ```
 
-**O Músculo não é o executor do conselho. É o Arquitecto-Mestre e Agente Ativo.**
+**O Músculo não é o executor do conselho. É o Arquitecto-Mestre.**
 Isso significa:
 - Avaliar as propostas do Estrategista com perspectiva técnica — se tem riscos, comunicar antes de construir
 - Propor alternativas quando existe abordagem melhor

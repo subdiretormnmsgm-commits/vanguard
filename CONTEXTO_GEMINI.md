@@ -1,9 +1,17 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-16 19:18
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-18 00:26
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
 Antes de qualquer DIRETRIZ: verifique o WIP_BOARD -- nao proponha
 acoes para etapas ja concluidas.
+
+================================================================================
+
+## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
+ULTIMOS 3 COMMITS:
+46329ab feat(embaixador): P-028 — 8 mandatos expandidos + template universal V26
+51deee5 feat(embaixador): P-027 Interacao Livre obrigatorio -- Embaixador e membro ativo do Conselho
+2cf2387 feat(contratos): CONTRATO_STATUS.txt para Valdece e Ingrid
 
 ================================================================================
 
@@ -155,10 +163,10 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
                                     "status":  "VEREDITO APROVADO — build liberado. Iniciando Dia 1.",
-                                    "cargo":  "TDAS — Técnico em Desenvolvimento e Assistência Social",
+                                    "cargo":  "TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop #1 — Build",
+                                    "loop_atual":  "Loop #2 — Build (Dias 3-5)",
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -168,7 +176,8 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                     "build_iniciado_em":  "2026-05-15",
                                     "dias_completos":  [
                                                            "dia1_schema_edge",
-                                                           "dia2_gate_questoes"
+                                                           "dia2_gate_questoes",
+                                                           "dia3_5_feed_sm2_pwa"
                                                        ],
                                     "plano_build":  {
                                                         "dia1_2":  "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
@@ -204,27 +213,26 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                          "saas_b2c_mrr":  "R$ 97/mes x 4 meses = R$ 388 por usuario",
                                                          "meta_saas":  "500 usuarios = R$ 194.000 no ciclo Sedes-DF 2026"
                                                      },
-                                    "pendente_diretor":  [
-                                                             "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
-                                                         ],
-                                    "proximo_passo":  "Musculo executa Dia 1: schema SQL + Edge Function + Gate CLI"
-                                },
-                                {
-                                    "id":  "PROJ-001",
-                                    "cliente":  "Valdece",
-                                    "projeto":  "Ferramenta de Busca Jurisprudência STF/STJ",
+                                    "loops_programados":  [
+                                                              {
+                                                                  "loop":  1,
+                                                                  "nome":  "Kickoff",
+                                                                  "gate":  "dia2_questoes",
+                                                                  "notebooklm_wipe":  true,
+                                                                  "status":  "concluido"
+                                                              },
 ... [truncado -- ver arquivo completo]
 
 ================================================================================
 
 ## MEMORIA MAIS RECENTE
-# MEMORIA V1 — PROJ-002 Ingrid
-**Loop:** #1 — Kickoff e Deliberação  
-**Data:** 2026-05-15  
-**Próximo loop:** ao final do Dia 5 de build (gate Feed Adaptativo)
+# MEMORIA V2 — PROJ-002 Ingrid
+**Loop:** #2 — Build Dias 3–5 (Feed Diário + Gate)  
+**Data:** 2026-05-17  
+**Próximo loop:** Loop #3 — Dias 6–8 (Interface + Tutor Socrático + Fallback Fadiga)
 
-> Este arquivo é lido pelo Músculo no início do Loop 2.
-> Contém o estado técnico real — decisões tomadas, dívidas, riscos, gates pendentes.
+> Este arquivo é lido pelo Músculo no início do Loop 3.  
+> Contém o estado técnico real — o que foi construído, o que falhou, o que está pendente.
 
 ---
 
@@ -232,198 +240,229 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 | Item | Status |
 |---|---|
-| Loop atual | #1 concluído — aguardando Veredito do Diretor para Dia 1 |
-| Dias completos | 0 — build ainda não iniciado |
-| Deadline app | 2026-05-30 (15 dias de build) |
-| Prova cliente | 2026-09-06 (114 dias) |
-| Stack aprovada | PWA + Supabase + Claude API |
+| Loop atual | #2 concluído — Gate Dia 5 APROVADO 2026-05-17 |
+| Dias completos | 5 de 15 |
+| Deadline app | 2026-05-30 (10 dias restantes) |
+| Prova cliente | 2026-09-06 (~112 dias) |
+| Questões no banco | 460 — 13 disciplinas Cargo 202 |
 
 ---
 
-## DECISÕES FIXADAS — NÃO REVERTER
+## RECALIBRAÇÃO CRÍTICA — EXECUTADA 2026-05-16 (P-024)
 
-| Decisão | Razão |
-|---|---|
-| Fonte de questões = Claude API (estilo Quadrix) | P-003 — sem scraping TEC/QConcursos |
-| Auth = single-user (sem login complexo) | MVP — Ingrid é a única usuária |
-| Cache = lote 50 quando < 30 disponíveis | P-006 Lei 5 — evitar geração on-the-fly repetida |
-| Proporção feed = 70% Peso 2 / 30% Peso 1 | Específicos valem 80/100 pontos — foco obrigatório |
-| Haiku = gerais + dicas socráticas | Custo baixo para conteúdo simples |
-| Sonnet = específicos (SUAS, LOAS, PNAS) | Qualidade máxima para conteúdo crítico |
-| BURN_RATE_DAILY_LIMIT_USD = 5.00 | P-006 — limite antes de qualquer chamada API |
-| Fallback = trigger em 70% da cota diária | Margem de segurança antes do hard-limit |
-| SM-2 = intervalo variável | <30% acerto → 2 dias / 30-50% → 4 dias / >50% → 7 dias |
-| Push MVP / email Loop 2 | Sem serviço de email complexo no MVP |
+O cargo identificado no Loop 1 estava errado.
 
----
-
-## ARQUITETURA APROVADA (Dias 1-2)
-
-### Schema Supabase
-
-```sql
--- Tabela de questões (global, multi-tenant desde o Dia 1)
-questoes_quadrix (
-  id uuid PRIMARY KEY,
-  concurso_id text NOT NULL,       -- 'sedes_df_2026'
-  disciplina_id text NOT NULL,     -- 'suas', 'loas', 'pnas', etc.
-  peso_edital integer NOT NULL,    -- 1 ou 2
-  score_prioridade integer,        -- peso × incidencia_historica_pct
-  enunciado text NOT NULL,
-  alternativas jsonb,              -- [{ letra, texto, correta }]
-  gabarito text,
-  explicacao text,
-  nivel_dificuldade integer,       -- 1 (fácil) a 5 (difícil)
-  estilo_quadrix text[],           -- ['literalidade', 'pegadinha_troca', ...]
-  criada_em timestamptz DEFAULT now()
-)
-
--- Progresso por usuário (per user_id — pronto para multi-tenant)
-progresso_usuario (
-  id uuid PRIMARY KEY,
-  user_id uuid NOT NULL,           -- FK futura para auth.users
-  questao_id uuid REFERENCES questoes_quadrix(id),
-  respondida_em timestamptz DEFAULT now(),
-  resposta_usuario text,
-  correta boolean,
-  tempo_resposta_seg integer,
-  proxima_revisao_em date          -- SM-2
-)
-```
-
-### Algoritmo de Feed Diário
-
-```
-score_prioridade = peso_edital × incidencia_historica_pct
-
-Ranking (top-3 por score):
-  1. SUAS       — score 196 — 10 questões estimadas na prova
-  2. PNAS/LOAS  — score 190 — 7/6 questões estimadas
-  3. CRAS/CREAS — score 184 — 4 questões estimadas
-
-Feed diário de 20 questões:
-  → 14 questões Peso 2 (70%) — priorizadas por score_prioridade DESC
-  → 6 questões Peso 1 (30%) — priorizadas por score_prioridade DESC
-  → SM-2 insere questões de revisão antes das novas
-```
-
-### Edge Function (Dias 1-2)
-
-```
-POST /gerar-questoes
-  body: { disciplina, peso, quantidade, estilo_quadrix }
-  → chama Claude API (Haiku ou Sonnet por peso)
-  → valida JSON da resposta
-  → insere em questoes_quadrix
-  → retorna questões para o front
-  
-Trigger de cache:
-  QUANDO questoes disponíveis (concurso_id, disciplina_id) < 30
-  → gerar lote de 50 em background
-  → BURN_RATE_DAILY_LIMIT_USD = $5.00 verificado antes
-```
-
-### Mágico de Oz Gate (Dia 2 — bloqueante)
-
-```bash
-# Eduardo avalia 10 questões geradas via CLI
-node test_geracao.js --disciplina suas --quantidade 10
-# Rubrica: estilo Quadrix (literalidade, alternativas plausíveis, pegadinhas)
-# Gate passa se média >= 4/5 na rubrica
-```
-
----
-
-## GATES BLOQUEANTES POR DIA
-
-| Dia | Gate | Critério | Output verificado |
-|---|---|---|---|
-| Dia 2 | Qualidade da questão | Eduardo avalia 10 questões — rubrica média >= 4/5 | JSON com 10 questões geradas no terminal |
-| Dia 5 | Feed correto | Feed exibe plano 7 dias com proporção 70/30 correta | Tela do app mostrando disciplinas e contagens |
-| Dia 8 | Experiência real | Ingrid responde 10 questões, progresso salvo, fallback testado | Registros no Supabase + log de custo |
-| Dia 11 | Heatmap funcional | Heatmap verde/amarelo/vermelho correto + simulado domingo | Screenshot da tela + resultado do simulado |
-| Dia 15 | Soberania (P-013) | Ingrid com acesso admin ao próprio Supabase | Login da Ingrid no Supabase confirmado ao vivo |
-
----
-
-## VEREDITO DO DIRETOR — PENDENTE (BLOQUEANTE DIA 1)
-
-O build não pode iniciar sem aprovação nos 8 pontos abaixo:
-
-1. Schema multi-tenant desde o Dia 1 (questoes_quadrix + progresso_usuario)?
-2. Haiku para gerais + dicas / Sonnet para específicos?
-3. BURN_RATE_DAILY_LIMIT_USD = $5,00?
-4. Cache: gerar lote 50 quando < 30 disponíveis?
-5. Proporção feed: 70% Peso 2 / 30% Peso 1?
-6. Fallback trigger em 70% (não 90%) da cota?
-7. SM-2 intervalo variável (não 3 dias fixos)?
-8. Push no MVP / email com tracking no Loop 2?
-
-**Quando o Diretor responder SIM a todos → Músculo inicia Dia 1.**
-
----
-
-## IDEIAS DO DIRETOR (REGISTRADAS — alimentar Gemini no Loop 2)
-
-| ID | Ideia | Status |
+| Campo | Loop 1 (errado) | Loop 2 (correto) |
 |---|---|---|
-| D-1 | Score de Incidência Histórica (peso × incidencia) | Implementado no edital_sedes.json |
-| D-2 | Blocos de Incidência como critério de feed | Implementado no algoritmo_feed |
-| D-3 | Análise Provas vs Editais (base proprietária) | Pesquisa feita, V2 pipeline |
-| D-4 | Estrutura JSON rica por concurso (modelo reutilizável) | Implementado — edital_sedes.json v2.0 |
-| D-5 | Podcast passivo (roteiro → TTS → áudio do dia) | Registrado, entra no Loop 2/V2 |
+| Cargo | TDAS — área social | Cargo 202 — Técnico Administrativo |
+| Disciplinas centrais | SUAS, LOAS, PNAS, CRAS/CREAS | Dir. Administrativo, Dir. Constitucional, Arquivologia, Recursos Materiais |
+| edital_sedes.json | v2.0 (área social) | v3.0 (reconstruído do zero) |
+| Edge Function index.ts | prompt com SUAS/LOAS | rebuildt — disciplinas Cargo 202 |
+
+**P-024:** Validar o número do cargo e a especialidade no edital antes de gerar qualquer questão. Cargo errado = banco inútil.
 
 ---
 
-## DÍVIDAS TÉCNICAS
+## DISCIPLINAS DO CARGO 202 — edital_sedes.json v3.0
+
+| Disciplina | Questões estimadas | Score | Peso |
+|---|---|---|---|
+| suas_fundamentos | 12q | 190 | 2 |
+| programas_beneficios_df | 8q | 180 | 2 |
+| direito_administrativo | 8q | 184 | 2 |
+| direito_constitucional | 3q | 156 | 2 |
+| arquivologia_rotinas_atendimento | 6q | 170 | 2 |
+| recursos_materiais_patrimonio | 3q | 144 | 2 |
+| portugues | 5q | ~75 | 1 |
+| realidade_df_ride | 3q | ~65 | 1 |
+| lei_organica_df | 2q | ~60 | 1 |
+| lc840 | 2q | ~60 | 1 |
+| maria_da_penha | 1q | ~50 | 1 |
+| politica_mulheres | 1q | ~50 | 1 |
+| primeiros_socorros | 1q | ~50 | 1 |
+
+---
+
+## O QUE FOI CONSTRUÍDO NO LOOP 2
+
+### Dias 3–5
+
+| Componente | Status | Arquivo |
+|---|---|---|
+| Edge Function `feed-diario` | Deployada e funcional | `supabase/functions/feed-diario/index.ts` |
+| Edge Function `gerar-questoes` | Refatorada — 1 chamada Claude/invocação | `supabase/functions/gerar-questoes/index.ts` |
+| Seed de questões | 460 questões no Supabase | `CLIENTES/INGRID/seed_questoes.ps1` |
+| Gate Dia 5 (CLI) | APROVADO — 7 dias × 20q, 70.0% Peso 2, 0 erros | `CLIENTES/INGRID/gate_cli_dia5.js` |
+| Ponto de entrada único | `iniciar.ps1` — menu, env, banco | `CLIENTES/INGRID/iniciar.ps1` |
+| Troubleshooting | 7 panes documentadas | `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` |
+| session_close.ps1 | Auditoria automática de documentos adicionada | `scripts/session_close.ps1` |
+
+---
+
+## ARQUITETURA REAL — APÓS LOOP 2
+
+### Edge Function gerar-questoes (regra permanente)
+
+```
+REGRA DE OURO: 1 chamada Claude por invocação da Edge Function.
+O loop é externo (no seed script), não dentro da Function.
+
+Por quê: Supabase Edge Function timeout = ~150s wall clock.
+Sonnet para 5 questões técnicas complexas = ~87s por chamada.
+2 chamadas sequenciais = 174s → timeout garantido.
+
+Parâmetros corretos:
+  - Peso 2 (Sonnet): max 5 questões por invocação, max_tokens = 8192, TimeoutSec = 200
+  - Peso 1 (Haiku): max 8 questões por invocação, max_tokens = 4096, TimeoutSec = 120
+```
+
+### Seed script — controle externo do loop
+
+```powershell
+# Peso 2: batch de 5, timeout 200s por chamada
+# Peso 1: batch de 8, timeout 120s por chamada
+# Seed chama a Edge Function N vezes até atingir quota
+# Edge Function faz 1 Claude call e retorna
+```
+
+### Strip de markdown (regra permanente)
+
+```typescript
+// Claude pode retornar JSON envolvido em ```json ... ```
+// Sempre fazer strip antes de JSON.parse
+let jsonText = conteudo.trim();
+if (jsonText.startsWith("```")) {
+  jsonText = jsonText.replace(/^```(?:json)?\s*\n?/, "").replace(/\n?```\s*$/, "").trim();
+}
+```
+
+### Gate Dia 5 — Node.js v24
+
+```javascript
+// Node.js v24 tem fetch nativo — NÃO importar node-fetch
+// Remover: import fetch from 'node-fetch'
+```
+
+---
+
+## 7 PANES DOCUMENTADAS (P-025)
+
+| # | Sintoma | Causa | Solução |
+|---|---|---|---|
+| 1 | HTTP 500 instantâneo | API key Anthropic arquivada | Gerar nova key + atualizar Secret Supabase (sem redeploy) |
+| 2 | HTTP 500 após ~28s | Claude retorna JSON em markdown | Strip antes de JSON.parse — permanente na Edge Function |
+| 3 | HTTP 500 — max_tokens | 4096 insuficiente para 5+ questões Sonnet | max_tokens = 8192 para Sonnet; regra: N × 700 × 1.3 |
+| 4 | Timeout da Edge Function | Loop de múltiplas chamadas Claude dentro da Function | 1 Claude call por invocação; loop externo no script |
+| 5 | Timeout PowerShell | Sonnet demora ~87s para 5q, TimeoutSec default 120s insuficiente para batch maior | TimeoutSec = 200 para Peso 2 |
+| 6 | HTTP 400 no deploy | Deploy rodado fora do diretório raiz do projeto | `cd vanguard/` antes de qualquer `npx supabase functions deploy` |
+| 7 | ERR_MODULE_NOT_FOUND: node-fetch | Node.js v24 tem fetch nativo, package desnecessário | Remover import, usar fetch global |
+
+---
+
+## RESULTADO DO GATE DIA 5
+
+```
+Resultado: 7 dias simulados
+  Dia 1: 14 Peso2 + 6 Peso1 = 20 questões ✅
+  Dia 2: 14 Peso2 + 6 Peso1 = 20 questões ✅
+  Dia 3: 14 Peso2 + 6 Peso1 = 20 questões ✅
+  Dia 4: 14 Peso2 + 6 Peso1 = 20 questões ✅
+  Dia 5: 14 Peso2 + 6 Peso1 = 20 questões ✅
+  Dia 6: 14 Peso2 + 6 Peso1 = 20 questões ✅
+  Dia 7: 14 Peso2 + 6 Peso1 = 20 questões ✅
+
+Proporção Peso 2: 70.0% (exata)
+Erros de API: 0
+Status: 🟢 APROVADO
+```
+
+---
+
+## FALHA DE PROCESSO REGISTRADA — 2026-05-17
+
+O Músculo não auditou documentos ao fechar o Loop 2. Eduardo teve que lembrar.
+
+**Medida permanente:** `session_close.ps1` agora inclui AUDITORIA DE DOCUMENTOS automática.  
+**Regra ativa:** CLAUDE.md Regra 11 — AO FECHAR CADA SESSÃO.  
+**Registrado em:** INTELLIGENCE_LEDGER.md como FALHA-PROCESSO-2026-05-17.
+
+---
+
+## DÍVIDAS TÉCNICAS PARA O LOOP 3
 
 | Prioridade | Item | Impacto |
 |---|---|---|
-| P0 | 5 questões reais Quadrix para playbook de distratores | Sem isso o prompt de geração tem distratores fracos |
-| P0 | Veredito do Diretor nos 8 pontos | Build bloqueado |
-| P1 | Conteúdo topicos detalhados do PDF do Edital | edital_sedes.json tem estrutura mas pode complementar |
-| P2 | Pesquisa provas reais anteriores para calibrar incidência_pct | Dados atuais são cross-concurso (Quadrix similares) |
+| P0 | Interface PWA mobile para Ingrid responder questões | Gate Dia 8 bloqueante — Ingrid precisa interagir |
+| P0 | Tutor Socrático Haiku — feedback ao errar | Engajamento e aprendizado real |
+| P1 | Cache de explicações (`explicacao_tutor` no banco) | Zero custo de API em repetições |
+| P1 | Fallback de fadiga — conteúdo passivo quando burn 70% | Estudo sem custo extra |
+| P2 | Progresso visual por disciplina no header | UX — Ingrid vê onde atacar |
+| P2 | Modo Revisão Express 5 min | Consistência diária |
 
 ---
 
-## ARQUIVOS CRIADOS NO LOOP 1
+## DECISÕES FIXADAS — NÃO REVERTER (acumulado Loop 1 + Loop 2)
+
+| Decisão | Razão |
+|---|---|
+| Fonte de questões = Claude API | P-003 — sem scraping |
+| Auth = single-user | MVP — Ingrid é a única usuária |
+| Proporção feed = 70% Peso 2 / 30% Peso 1 | Fixado no Gate Dia 5 |
+| SM-2 intervalo variável | <30% → 2 dias / 30-50% → 4 dias / >50% → 7 dias |
+| Haiku para gerais + dicas socrátcas | Custo baixo |
+| Sonnet para específicos Peso 2 | Qualidade máxima |
+| BURN_RATE_DAILY_LIMIT_USD = 5.00 | P-006 |
+| Fallback trigger = 70% da cota | Margem de segurança |
+| Stack = PWA + Supabase + Claude API | Sem framework pesado |
+| 1 Claude call por Edge Function invocação | Arquitetura de timeout — nunca reverter |
+| max_tokens = 8192 para Sonnet | Custo vs segurança validado |
+| Batch Sonnet = 5 questões | TimeoutSec 200s comporta ~87s por call |
+| Batch Haiku = 8 questões | TimeoutSec 120s comporta confortavelmente |
+
+---
+
+## ARQUIVOS CRIADOS/MODIFICADOS NO LOOP 2
 
 ```
 CLIENTES/INGRID/
-  BRIEFING_DISCOVERY.txt          ← respostas do discovery com Ingrid
-  PASSO3_GEMINI.md                ← instrução ao Gemini (atualizada)
-  PASSO5_NOTEBOOKLM.md            ← instrução ao Auditor
-  PASSO6_MUSCULO.md               ← guia do Músculo (atualizado)
-  DIRETRIZ_GEMINI_V1.txt          ← DIRETRIZ completa 7 blocos
-  edital_sedes.json               ← v2.0 completo com score incidência
-  HISTORICO/MEMORIA_V1_INGRID.md  ← este arquivo
-  HISTORICO/relatorio_evolutivo_V1_INGRID.md
-  sql/                            ← schema SQL (a criar no Dia 1)
-  backend/                        ← Edge Functions (a criar no Dia 1)
-  frontend/                       ← PWA (a criar no Dia 3)
+  iniciar.ps1                           ← ponto de entrada único da sessão
+  seed_questoes.ps1                     ← refatorado com batch externo
+  gate_cli_dia5.js                      ← import node-fetch removido
+  HISTORICO/MEMORIA_V2_INGRID.md        ← este arquivo
+  HISTORICO/relatorio_evolutivo_V2_INGRID.md
 
-.claude/skills/
-  skill_proj002_ingrid_loop1.md   ← Skill do Auditor
+supabase/functions/
+  gerar-questoes/index.ts               ← 1 Claude call + strip markdown
+  feed-diario/index.ts                  ← deployada pela 1ª vez
 
-INTELLIGENCE_LEDGER.md            ← P-014, P-015, P-016 adicionados
-CLIENTES/WIP_BOARD.json           ← PROJ-002 em BUILD
+scripts/
+  session_close.ps1                     ← seção AUDITORIA DE DOCUMENTOS adicionada
+
+infra/
+  schema_v19.sql                        ← schema atualizado
+
+QUADRILATERAL_UNIVERSAL/REFERENCIAS/
+  TROUBLESHOOTING_SUPABASE_CLAUDE_API.md ← 7 panes documentadas
+
+INTELLIGENCE_LEDGER.md                  ← P-025 + FALHA-PROCESSO-2026-05-17
+CLIENTES/WIP_BOARD.json                 ← Loop 2 concluído, Loop 3 declarado
+CLIENTES/INGRID/PASSO3_GEMINI.md        ← atualizado para Loop 3
 ```
 
 ---
 
-## PRINCÍPIOS ATIVOS PARA O LOOP 2
+## PRINCÍPIOS ATIVOS PARA O LOOP 3
 
-- **P-003:** Sem scraping — questões são IP da Vanguard gerado via Claude API
-- **P-006:** Burn Rate Shield — $5,00/dia hard-limit antes de qualquer chamada
-- **P-007:** Mágico de Oz Gate — CLI valida geração antes de UI avançar
-- **P-010:** Gate por dia — nenhuma etapa avança sem output verificado
-- **P-013:** Supabase na conta da Ingrid desde o Dia 1
-- **P-014:** Score de incidência histórica guia o feed — não o edital linear
-- **P-016:** Podcast como V2 — não entra no MVP
+- **P-003:** Sem scraping — questões são IP da Vanguard via Claude API
+- **P-006:** Burn Rate Shield — $5,00/dia hard-limit
+- **P-007:** Mágico de Oz Gate — CLI valida antes de UI avançar
+- **P-010:** Gate por dia — output verificado antes de avançar
+- **P-024:** Validar cargo e especialidade no edital antes de gerar qualquer questão
+- **P-025:** Arquitetura Supabase+Claude — 1 call por invocação, batch externo, strip markdown sempre
 
 ---
 
-*MEMORIA gerada pelo Músculo ao fechar Loop 1 · PROJ-002 Ingrid · 2026-05-15*
+*MEMORIA gerada pelo Músculo ao fechar Loop 2 · PROJ-002 Ingrid · 2026-05-17*
 
 
 ================================================================================

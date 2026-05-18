@@ -1,7 +1,28 @@
 # seed_questoes.ps1 - PROJ-002 Ingrid
 # Popula o banco com questoes para todas as disciplinas do Cargo 202
-# Pre-requisito do Gate Dia 5 - rodar UMA VEZ antes do gate
-# Uso: .\seed_questoes.ps1
+# Pre-requisito do Gate Dia 5 - rodar antes do gate
+#
+# SEQUENCIA OBRIGATORIA (executar nesta ordem a cada sessao nova):
+#
+#   PASSO 1 - Estar no diretorio correto do projeto:
+#     cd "C:\Users\Eduardo DELL\OneDrive\Area de Trabalho\vanguard"
+#
+#   PASSO 2 - Configurar variaveis de ambiente (perdem-se ao fechar o terminal):
+#     $env:SUPABASE_URL = "https://ehyaecxqijgyuuiorzcj.supabase.co"
+#     $env:SUPABASE_SERVICE_ROLE_KEY = "[service_role key do Supabase Dashboard > Settings > API]"
+#
+#   PASSO 3 - (Se houve mudanca na Edge Function) Fazer deploy:
+#     npx supabase functions deploy gerar-questoes --project-ref ehyaecxqijgyuuiorzcj
+#
+#   PASSO 4 - Rodar o seed:
+#     .\CLIENTES\INGRID\seed_questoes.ps1 -QuantidadePorDisciplina 25
+#
+# NOTAS DE ARQUITETURA (aprendidas em 2026-05-17):
+#   - Peso 2 (Sonnet): lotes de 5 questoes, timeout 200s (~3500 tokens/lote)
+#   - Peso 1 (Haiku): lotes de 8 questoes, timeout 120s (~3200 tokens/lote)
+#   - Edge Function faz UMA chamada Claude por invocacao (loop fica aqui no seed)
+#   - Variaveis de ambiente NAO persistem entre sessoes do PowerShell - sempre reconfigurar
+#   - Deploy sempre do diretorio raiz do projeto, nunca de outro diretorio
 
 param(
     [int]$QuantidadePorDisciplina = 50
@@ -70,8 +91,8 @@ if ($custoEstimado -gt 4.50) {
 
 Write-Host ""
 
-function Invoke-GerarQuestoes {
-    param($DisciplinaId, $Quantidade)
+function Invoke-GerarLote {
+    param($DisciplinaId, $Quantidade, $TimeoutSec = 200)
 
     $body = @{
         disciplina_id = $DisciplinaId
@@ -88,7 +109,7 @@ function Invoke-GerarQuestoes {
                 "Content-Type"  = "application/json"
             } `
             -Body $body `
-            -TimeoutSec 120
+            -TimeoutSec $TimeoutSec
 
         return @{
             ok        = $true
@@ -98,6 +119,41 @@ function Invoke-GerarQuestoes {
         }
     } catch {
         return @{ ok = $false; erro = $_.Exception.Message }
+    }
+}
+
+function Invoke-GerarQuestoes {
+    param($DisciplinaId, $Quantidade, $EhPeso2 = $false)
+
+    # Sonnet (P2) gera ~700 tokens/questao - usar lotes menores e timeout maior
+    # Haiku  (P1) gera ~400 tokens/questao - lotes maiores e timeout padrao
+    $BATCH      = if ($EhPeso2) { 5 } else { 8 }
+    $TIMEOUT    = if ($EhPeso2) { 200 } else { 120 }
+    $batches    = [Math]::Ceiling($Quantidade / $BATCH)
+    $salvasTotal = 0
+    $custoTotal  = 0.0
+    $modeloUsado = ""
+
+    for ($b = 0; $b -lt $batches; $b++) {
+        $batchQty = [Math]::Min($BATCH, $Quantidade - $salvasTotal)
+        $r = Invoke-GerarLote -DisciplinaId $DisciplinaId -Quantidade $batchQty -TimeoutSec $TIMEOUT
+
+        if (-not $r.ok) {
+            return @{ ok = $false; erro = $r.erro }
+        }
+
+        $salvasTotal += $r.salvas
+        $custoTotal  += $r.custo_usd
+        $modeloUsado  = $r.modelo
+
+        if ($b -lt ($batches - 1)) { Start-Sleep -Seconds 1 }
+    }
+
+    return @{
+        ok        = $true
+        salvas    = $salvasTotal
+        custo_usd = $custoTotal
+        modelo    = $modeloUsado
     }
 }
 
@@ -111,7 +167,8 @@ foreach ($disc in $todas) {
     $prefixo  = if ($idsP2 -contains $disc.id) { "P2" } else { "P1" }
     Write-Host "  [$indice/$total] $prefixo | $($disc.nome) (score $($disc.score))" -ForegroundColor White
 
-    $resultado = Invoke-GerarQuestoes -DisciplinaId $disc.id -Quantidade $QuantidadePorDisciplina
+    $ehP2 = $idsP2 -contains $disc.id
+    $resultado = Invoke-GerarQuestoes -DisciplinaId $disc.id -Quantidade $QuantidadePorDisciplina -EhPeso2 $ehP2
 
     if ($resultado.ok) {
         $custoTotal  += $resultado.custo_usd

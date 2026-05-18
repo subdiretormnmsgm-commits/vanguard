@@ -1,0 +1,41 @@
+{
+  "_instrucoes": "Preencher campos marcados com [PREENCHER] antes do lançamento.",
+  "projecto": {
+    "nome": "ingrid",
+    "nicho": "outro",
+    "camada": 2
+  },
+  "fire_event": {
+    "success_event": "quote_requested",
+    "success_label": "[PREENCHER: ex. Quote Requested]",
+    "fire_threshold_score": 70,
+    "_nota": "Pré-configurado para nicho 'outro'. Confirmar com o cliente."
+  },
+  "ticket_medio": {
+    "valor": "[PREENCHER: ticket médio em BRL — ex: 150.00]",
+    "monthly_client_volume": "[PREENCHER: clientes por mês — ex: 80]",
+    "currency_code": "BRL"
+  },
+  "sentinel_report": {
+    "report_day": "monday",
+    "report_time": "09:00",
+    "report_language": "pt-BR",
+    "upsell_threshold": 50,
+    "upsell_service": "[PREENCHER: ex. Retainer de Evolução — R$2.500/mês]",
+    "upsell_cta_whatsapp": "[PREENCHER: número do operador]"
+  },
+  "destinatario": {
+    "client_email": "[PREENCHER: email do cliente]",
+    "client_name": "[PREENCHER: nome do responsável]",
+    "operator_email": "[PREENCHER: seu email]"
+  },
+  "email_tracking": {
+    "tracking_pixel_enabled": true,
+    "tracking_pixel_url": "[PREENCHER: URL do pixel]"
+  },
+  "modelo_ia": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_tokens": 1024,
+    "_nota": "Haiku para custo ~R$0.04/relatório. Não alterar sem Veredito."
+  }
+}
