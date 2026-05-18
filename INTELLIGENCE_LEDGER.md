@@ -821,3 +821,26 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Por que importa:** O Auditor (NotebookLM) não tem acesso direto às fontes universais. Só vê o que está em NOTEBOOKLM_FONTES/. Se o Músculo não sincroniza, o Auditor opera com uma realidade desatualizada — e gera Skill baseada em premissas erradas.
 
 **Alerta ao Estrategista:** Ao gerar DIRETRIZ, verificar se fontes do Auditor estão em dia. Se não → pedir ao Músculo sync antes de prosseguir.
+
+---
+
+### [FALHA-PROCESSO-2026-05-18-D] Documentação desatualizada bloqueou sessão completa
+**Data:** 2026-05-18 | **Detectado por:** Diretor Eduardo
+**Impacto:** ~2 horas de sessão consumidas em auditoria e correção de documentação. Objetivo principal da sessão (gerar Skill ingrid-v2.md via NotebookLM Loop 3) não concluído.
+
+**Causa raiz:** Músculo não executou sync de documentos universais ao iniciar sessão. Nomenclatura "Quadrilateral IAH" estava ativa em 27+ arquivos enquanto o sistema já operava como "Pentalateral IAH" há 2+ dias. PASSO5 de Ingrid indicava DIRETRIZ V5 (futura) quando a corrente era V4. Sem detecção proativa do Músculo — Diretor teve que auditar manualmente arquivo por arquivo.
+
+**Cadeia de falhas:**
+1. sync_passo_files.ps1 não cobria documentos universais (só PASSOs)
+2. session_start hook não chamava sync_passo_files.ps1
+3. Músculo não auditou estado das NOTEBOOKLM_FONTES ao iniciar sessão (P-033 não existia ainda)
+
+**Correções aplicadas:**
+- P-033 criado: sync universal → projetos obrigatório e imediato
+- sync_passo_files.ps1 extendido: seção 3 sincroniza docs universais + WIP + ANALISE + TIMELINE
+- CLAUDE.md atualizado com P-033
+- 27 arquivos corrigidos (Ingrid + Valdece + Universal)
+
+**Ferramenta criada:** sync_passo_files.ps1 — executar ao iniciar qualquer sessão de Conselho.
+
+**Regra derivada:** Músculo audita proativamente NOTEBOOKLM_FONTES ao abrir sessão. Não espera o Diretor perguntar. Se encontrar desatualização → corrige antes de qualquer outra ação.
