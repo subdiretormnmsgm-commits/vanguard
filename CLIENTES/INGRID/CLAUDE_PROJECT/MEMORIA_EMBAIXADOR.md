@@ -80,8 +80,8 @@ Está em espera passiva. Não está ansiosa ainda — mas a janela está fechand
 
 | # | Hipótese | Status | Baseada em |
 |---|---|---|---|
-| H-1 | Ingrid não assinou por esquecimento funcional — não por hesitação | PENDENTE | Perfil dedicada + silêncio sem justificativa |
-| H-2 | Está em espera passiva, sem ansiedade ativa ainda | PENDENTE | Ausência de contato de cobrança da parte dela |
+| H-1 | Ingrid não assinou por esquecimento funcional — não por hesitação | **MAIS PROVÁVEL** (Embaixador 2026-05-18) | Em modo foco de estudo — Termo é objeto passivo na fila mental |
+| H-2 | Medo financeiro causou hesitação na assinatura | **IMPROVÁVEL** (Embaixador 2026-05-18) | Piloto sem custo — sem gatilho financeiro; medo aparece no pitch V2 |
 | H-3 | Vai comparar o app com TEC Concursos na primeira sessão | PENDENTE | TEC citado no briefing como ferramenta ativa |
 | H-4 | Primeiras questões parecendo difíceis = reação normal, não abandono | PENDENTE | Perfil sistemático + nunca usou spaced repetition |
 | H-5 | Pode compartilhar login com familiar ou colega próxima | PENDENTE | Perfil social — risco ativo de monitorar |
@@ -139,6 +139,23 @@ Ingrid diz algo como "tô conseguindo estudar todo dia" ou "acertei mais hoje do
 **Argumento de abertura:**
 "Ingrid, esse ciclo foi piloto. Quero continuar do seu lado até o dia da prova —
 R$97/mês, menos que qualquer cursinho, e o sistema já te conhece. Quer continuar?"
+
+---
+
+## TEMPERATURA_CLIENTE (P-032 — atualização automática pelo Músculo)
+
+```
+TEMPERATURA_CLIENTE — PROJ-002 INGRID
+Status atual: AMARELO
+Baseado em: hipótese (dados reais a partir do Gate Dia 8)
+Válido até: próximo contato ou gate
+Override ativo: NÃO — aguarda 7 dias de uso real após entrega
+Última atualização: 2026-05-18 (Embaixador)
+```
+
+**AMARELO porque:** Termo pendente + 2 dias sem contato + gate bloqueado por P-023.
+**Não é VERMELHO porque:** nenhum sinal de resistência — silêncio tem explicação comportamental plausível (foco de estudo).
+**Vira VERDE quando:** Termo assinado + primeiros 7 dias de uso com dados reais de check-in (E-4).
 
 ---
 

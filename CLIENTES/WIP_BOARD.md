@@ -77,6 +77,13 @@
 
 **Próximo passo:** DIRETRIZ V2 recebida. NotebookLM gerando Skill ingrid-v2.md. Amanhã: Músculo delibera + Build Dias 6-8
 
+**Decisões aprovadas Loop 3 (Embaixador 2026-05-18):**
+- E-1: Frase âncora dinâmica de abertura — ativar junto com Tutor Socrático (Dias 6-8)
+- E-2: Encerramento com número concreto — ativar no Gate Dia 8
+- E-3: Relatório semanal WhatsApp — **GATE FORMAL** toda segunda-feira — Eduardo não pode pular
+- E-4: Check-in pós-sessão 1 clique → TEMPERATURA_CLIENTE real — ativar Gate Dia 8
+- E-5: Modo Silêncio Ativo — limiar 2 dias sem abertura → Eduardo recebe alerta do Embaixador
+
 **Pendente do Diretor:** 5 questões reais Quadrix para playbook distratores (bloqueante Dia 2)
 
 ---
