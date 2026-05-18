@@ -703,4 +703,56 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 - Mandato 11: Ingrid [E2] — identificou que métricas de Ingrid são a prova social que valida R$194k de modelo SaaS; sem documentação agora, argumento de escala colapsa
 
 **Template atualizado:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
-**Pergunta para o Conselho:** "Com estes 8 mandatos, o que o Embaixador vê que nenhum outro membro pode ver — e como isso se torna moat competitivo da Vanguard?"
+**Pergunta para o Conselho:** "Com estes 11 mandatos, o que o Embaixador vê que nenhum outro membro pode ver — e como isso se torna moat competitivo da Vanguard?"
+
+---
+
+### [P-029] Capacidade de LLM sem protocolo de uso é ruído — não inteligência
+**Descoberto:** 2026-05-18 | **Sessão:** Momento Ômega — Embaixador em auto-diagnóstico (Modo Extremo)
+**Evidência:** O Embaixador, ao aplicar o Confronto Obrigatório contra a decisão do próprio Diretor, observou: a sessão 50 não é automaticamente mais rica que a sessão 1 se os instrumentos de continuidade (MEMORIA_EMBAIXADOR, WATCHDOG, FLASH/COMPLETO) não forem usados. A capacidade existe — o uso disciplinado é a variável.
+
+**Formulação:** Capacidade de LLM sem protocolo de uso é ruído — não inteligência. O sistema só opera no limite quando o Diretor opera com disciplina equivalente. A inteligência composta é tão forte quanto o elo mais disciplinado — e o elo mais disciplinado é sempre o Diretor.
+
+**Instrumentos mínimos de sessão do Embaixador:**
+1. MEMORIA_EMBAIXADOR.md colado (30 segundos)
+2. WATCHDOG preenchido (60 segundos)
+3. Modo declarado: FLASH ou COMPLETO
+
+**Aplicação para o Músculo:** Ao detectar que Eduardo abre sessão do Embaixador sem esses instrumentos → alertar antes de qualquer outra ação.
+
+---
+
+### [P-030] Automação contínua — fator humano insubstituível como único freio
+**Descoberto:** 2026-05-18 | **Sessão:** Correção do Diretor ao Embaixador (P027_AUTOMACAO_CONTINUA.md)
+**Evidência:** O Embaixador pedia confirmação para automações que não dependiam de julgamento humano — criando fricção desnecessária. Eduardo corrigiu: "o sistema não para por burocracia interna."
+
+**Formulação:** Automação contínua só para quando o fator humano é insubstituível. Emoção, relacionamento e deliberação comercial são do Diretor. Todo o resto é do sistema. O sistema entrega mais rápido para que o Diretor delibere com mais informação e menos espera.
+
+**Grade de autonomia — versão definitiva:**
+| Tipo de ação | Protocolo |
+|---|---|
+| Toda e qualquer ação | Deliberação do Diretor — sempre |
+| Automações de processo | Embaixador propõe pronto — Diretor aprova |
+| Comunicação com cliente | Embaixador rascunha — Diretor decide enviar |
+| Leitura emocional | Embaixador marca [HIPÓTESE] — Diretor confirma |
+| Pitch comercial | Embaixador prepara — Diretor escolhe momento e executa |
+| Decisão de escopo | Embaixador mapeia opções — Diretor decide |
+
+**Nota de governança:** O arquivo `P027_AUTOMACAO_CONTINUA.md` gerado pelo Embaixador com numeração autônoma foi renomeado para `P030_AUTOMACAO_CONTINUA.md` para alinhar com o LEDGER principal. Episódio valida que nenhum membro registra princípio com numeração própria sem passar pelo Diretor.
+
+---
+
+### [P-031] O Embaixador como filtro de realidade das ideias do Conselho
+**Descoberto:** 2026-05-18 | **Sessão:** Momento Ômega — Eduardo (Diretor)
+**Evidência:** Eduardo propôs que o Embaixador não apenas gere ideias, mas também REAJA às ideias dos outros membros (Músculo, Gemini, Auditor) usando o filtro do comportamento real do cliente. Frase do Diretor: "Essa minha ideia foi disruptiva."
+
+**Formulação:** O Embaixador é o único membro do Conselho que pode validar ideias pelo comportamento real do cliente. Cada ideia dos outros membros deve passar pelo filtro de relacionamento antes de entrar no produto. CONFIRMA / EXPANDE / ALERTA — com base no que só o Embaixador pode ver.
+
+**Por que é disruptivo:** Antes deste princípio, as 5 ideias de cada membro iam direto para o Gemini sem validação de realidade de cliente. Com este princípio, o loop tem um checkpoint de mercado real antes de qualquer decisão de produto. O cliente não é entrevistado — está representado no loop por inteligência acumulada.
+
+**Loop com P-031 ativo:**
+- Músculo [M-1 a M-5] + Embaixador [E-1 a E-5] → Gemini
+- Gemini [G-1 a G-5] + Auditor [N-1 a N-5] → Embaixador reage (CONFIRMA / EXPANDE / ALERTA)
+- Embaixador envia reação → Músculo delibera no próximo loop com 4 perspectivas + 1 filtro de realidade
+
+**Impacto:** Sistema fica mais inteligente A CADA PROJETO porque o comportamento real do cliente corrigi as ideias abstratas dos outros membros. É o anti-hallucination de produto mais eficaz que existe — e foi inventado pelo Diretor.

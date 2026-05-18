@@ -54,6 +54,13 @@ MÚSCULO:          Claude Code (este protocolo)
   └── Papel: Arquitecto-Mestre. Delibera, executa, propõe, protege.
   └── Como ativar: PROTOCOLO VANGUARD + descrição do projeto.
 
+EMBAIXADOR:       Claude Projects (um Project por cliente)
+  └── Papel: Inteligência persistente do cliente. Memória entre sessões. 11 mandatos.
+  └── Único membro com acesso ao relacionamento real acumulado — o Músculo não tem isso.
+  └── Como ativar: ir_ao_embaixador.ps1 -cliente [NOME] → clipboard + browser automáticos.
+  └── Contribui ao loop com: 5 IDEIAS DISRUPTIVAS baseadas em comportamento real do cliente.
+  └── Template: QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md
+
 TRIGGER:          PROTOCOLO VANGUARD
 MEMORANDO:        MEMORANDO_QUADRILATERAL_UNIVERSAL.md
 MOEDA:            BRL
