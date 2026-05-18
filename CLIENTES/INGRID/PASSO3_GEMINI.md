@@ -1,6 +1,22 @@
 # PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 3
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Bloco CONTEXTO atualizado pelo Músculo em 2026-05-17 (Loop 3 / Gate Dia 8)
+> Bloco CONTEXTO atualizado pelo Músculo em 2026-05-18 (Loop 3 / Gate Dia 8)
+
+---
+
+## 🎯 MISSÃO DESTA SESSÃO
+
+Estrategista, você está recebendo o contexto completo do Loop 2 do Projeto Ingrid:
+MEMORIA_V2 + RELATORIO_V2 + 5 ideias do Músculo (abaixo).
+
+**Sua missão: gerar a DIRETRIZ V3 para o Loop 3 (Dias 6–8).**
+
+O que construir neste loop: Interface de questões mobile + Tutor Socrático Haiku + Fallback de Fadiga (70% da cota diária).
+Prazo: 3 dias de build. Deadline do projeto: 2026-05-30. Dias restantes: ~12.
+Gates aprovados até aqui: Dia 2 (questões) + Dia 5 (feed 70/30, 7 dias, 0 erros).
+Próximo gate: Dia 8 — Ingrid responde 10 questões reais, progresso salvo, fallback testado.
+
+Use o formato obrigatório de 7 blocos definido no final deste documento.
 
 ---
 
@@ -24,7 +40,7 @@ Anexar estes 3 arquivos diretamente no Gemini (nesta ordem):
 
 Após receber a DIRETRIZ (7 blocos):
 - Se vier incompleta → dizer: "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
-- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V2.txt`
+- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V3.txt`
   (nome exato — o script do Passo 5 busca este padrão automaticamente)
 
 Loop 2+ — anexar também:
@@ -65,7 +81,7 @@ Estrategista, você opera com 4 deficiências nativas que o Músculo monitora:
 
 Ao estruturar sua DIRETRIZ, compense ativamente:
 
-1. **Amnésia de Sessão** → cite os princípios do LEDGER global relevantes (P-001 a P-013)
+1. **Amnésia de Sessão** → cite os princípios do LEDGER global relevantes (P-001 a P-032)
 2. **Momentum de Execução** → inclua gates verificáveis por dia de build (output real, não declarado)
 3. **Otimismo de Estimativa** → questione cada estimativa; force decomposição em sub-horas
 4. **Escopo Silencioso** → liste explicitamente o que NÃO construir nesta iteração
