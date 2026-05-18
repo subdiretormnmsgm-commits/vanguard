@@ -163,6 +163,33 @@ $linhas += "— Quadrilateral IAH · Músculo"
 
 $corpo = $linhas -join "`n"
 
+# ── Envia alerta Telegram (resumo crítico) ────────────────
+if ($alertasCriticos.Count -gt 0) {
+    $resumoTelegram = "BRIEFING $dataStr - ALERTAS:`n"
+    foreach ($a in $alertasCriticos) { $resumoTelegram += "- $a`n" }
+    $resumoTelegram += "`nDetalhes completos no e-mail."
+
+    $urlTelegram = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
+    try {
+        Invoke-RestMethod -Uri $urlTelegram -Method POST -Body @{
+            chat_id = $TELEGRAM_CHAT_ID
+            text    = $resumoTelegram
+        } | Out-Null
+        Write-Host "📱 Alerta enviado ao Telegram" -ForegroundColor Cyan
+    } catch {
+        Write-Host "⚠️  Telegram: $($_.Exception.Message)" -ForegroundColor Yellow
+    }
+} else {
+    # Dia limpo — envia confirmação simples
+    $urlTelegram = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
+    try {
+        Invoke-RestMethod -Uri $urlTelegram -Method POST -Body @{
+            chat_id = $TELEGRAM_CHAT_ID
+            text    = "Bom dia, Diretor. Briefing $dataStr enviado. Nenhum alerta critico hoje."
+        } | Out-Null
+    } catch {}
+}
+
 # ── Envia e-mail ───────────────────────────────────────────
 try {
     $smtp = New-Object Net.Mail.SmtpClient("smtp.gmail.com", 587)
