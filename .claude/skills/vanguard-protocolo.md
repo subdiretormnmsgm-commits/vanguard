@@ -4,7 +4,7 @@ description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerc
 ---
 
 # PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
-**Versão da Skill:** 5.1 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14)
+**Versão da Skill:** 6.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **4º Membro: Embaixador + P-031 Filtro de Realidade (2026-05-18)**
 
 ---
 
@@ -184,6 +184,48 @@ CLIENTES/[PROJETO]/
 ```
 
 Templates universais em: `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` (e análogos)
+
+---
+
+---
+
+## P-031 — EMBAIXADOR COMO FILTRO DE REALIDADE DO CONSELHO (2026-05-18)
+
+> **Princípio:** O Embaixador é o único membro com acesso ao comportamento real do cliente acumulado.
+> Por isso é o único que pode filtrar se uma ideia abstrata dos outros membros funciona para ESTE perfil específico.
+
+### Protocolo de Reação (obrigatório no Passo 10 de cada ciclo)
+
+O Embaixador reage às ideias de TODOS os sócios com um de três vereditos:
+
+| Veredito | Quando usar | Formato |
+|---|---|---|
+| **CONFIRMA** | O cliente usaria exatamente isso | "O cliente usaria porque [comportamento real observado]" |
+| **EXPANDE** | A ideia é boa mas o posicionamento errado | "Faz mais sentido como [ajuste baseado no perfil]" |
+| **ALERTA** | A ideia não funcionará com este perfil | "Não vai funcionar porque [padrão comportamental específico]" |
+
+### Como Ativar P-031
+
+1. Ao fechar Passo 9 → Músculo inclui [M-1 a M-5] no COMANDO_ESTRATEGISTA
+2. Gemini recebe [M] + [E] → gera [G-1 a G-5] na DIRETRIZ
+3. NotebookLM gera [N-1 a N-5] na Skill
+4. **Eduardo cola [M] + [G] + [N] no Embaixador → Embaixador filtra os 15 com CONFIRMA/EXPANDE/ALERTA + gera [E-1 a E-5] próprias**
+5. [E] filtradas voltam ao Músculo no próximo loop como insumo validado
+
+> Regra de ouro: ideia aprovada pelo Embaixador = validada por comportamento real. Ideia que o Embaixador alerta = não construir até revisar posicionamento.
+
+### Instrumentos do Embaixador (obrigatórios por projeto)
+
+| Instrumento | Localização | Função |
+|---|---|---|
+| `00_INSTRUCAO_SISTEMA.md` | `CLIENTES/[NOME]/CLAUDE_PROJECT/` | Constituição do Embaixador — colar em claude.ai/projects → Instructions |
+| `MEMORIA_EMBAIXADOR.md` | `CLIENTES/[NOME]/CLAUDE_PROJECT/` | Contexto de 30 segundos — 12 seções — colar no chat ao abrir sessão |
+| `WATCHDOG_TEMPLATE.md` | `CLIENTES/[NOME]/CLAUDE_PROJECT/` | Eduardo preenche 60s → Embaixador retorna 4 linhas de alerta |
+| `MENSAGEM_INTERACAO_INICIAL.md` | `CLIENTES/[NOME]/CLAUDE_PROJECT/` | Script copia para clipboard → Eduardo cola no primeiro contato |
+| `LOG_CLIENTE.md` | gerado pelo Embaixador por sessão | Vai para COMANDO 1 (Gemini) + COMANDO 2 (NotebookLM) |
+
+**Script de ativação:** `.\scripts\ir_ao_embaixador.ps1 -cliente [NOME]`
+**Template universal:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
 
 ---
 
@@ -407,9 +449,38 @@ Alerta: há risco de [Y] baseado no histórico — verificar.
 A intenção estratégica é [Z].
 Construir com esta visão de fundo — não apenas a funcionalidade, o loop completo.
 
-[PARA O EMBAIXADOR]
-Com base nesta DIRETRIZ, o Embaixador deve:
-- Validar se [ideia G-X] faz sentido para o perfil real do cliente (CONFIRMA/EXPANDE/ALERTA)
+[PARA O EMBAIXADOR] — P-031: Filtro de Realidade do Conselho
+O Embaixador é o único membro com acesso ao comportamento real do cliente.
+Reaja a CADA ideia abaixo com: CONFIRMA / EXPANDE / ALERTA + razão comportamental.
+
+Ideias do Músculo [M-1 a M-5] a filtrar:
+[M-1] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão comportamental do cliente]
+[M-2] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[M-3] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[M-4] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[M-5] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+
+Ideias do Estrategista [G-1 a G-5] a filtrar:
+[G-1] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão comportamental do cliente]
+[G-2] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[G-3] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[G-4] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[G-5] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+
+Ideias do Auditor [N-1 a N-5] a filtrar:
+[N-1] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão comportamental do cliente]
+[N-2] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[N-3] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[N-4] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+[N-5] [colar ideia] → [CONFIRMA/EXPANDE/ALERTA]: [razão]
+
+Suas próprias [E-1 a E-5] baseadas no comportamento real observado:
+[E-1] [ideia do Embaixador]
+[E-2] [ideia do Embaixador]
+[E-3] [ideia do Embaixador]
+[E-4] [ideia do Embaixador]
+[E-5] [ideia do Embaixador]
+
 - Preparar argumento de relacionamento para [próxima reunião/entrega]
 - Monitorar se [aspecto do produto] gera a reação esperada no cliente
 
@@ -528,23 +599,30 @@ O ciclo continua.
 
 ---
 
-> **Como o loop corre na prática:**
+> **Como o loop corre na prática — 4 MEMBROS (Versão 6.0):**
 >
 > ```
-> Eduardo → Gemini  (Comando 1)
+> PASSO 0 — Embaixador ativado (ir_ao_embaixador.ps1 -cliente [NOME])
 >      ↓
-> Gemini → Eduardo  (DIRETRIZ com Bloco 3 para Claude)
+> PASSO 1-2 — Diretor faz Discovery → Embaixador popula MEMORIA_EMBAIXADOR + hipóteses [H]
 >      ↓
-> Eduardo → NotebookLM  (Comando 2 + fontes)
+> PASSO 3 — Eduardo → Gemini  (Comando 1 inclui LOG_CLIENTE + [E-1 a E-5] do Embaixador)
 >      ↓
-> NotebookLM → Eduardo  (Skill com [CONEXÃO HISTÓRICA] e [SÓCIO CONSULTOR])
+> PASSO 4 — Gemini → Eduardo  (DIRETRIZ com [PARA O EMBAIXADOR] obrigatório)
 >      ↓
-> Eduardo → Claude  ("PROTOCOLO VANGUARD" + Skill + DIRETRIZ)
+> PASSO 5 — Eduardo → NotebookLM  (Comando 2 + fontes inclui MEMORIA_EMBAIXADOR)
 >      ↓
-> Claude delibera + executa + entrega  (Comando 5 automático)
+> PASSO 6 — NotebookLM → Eduardo  (Skill com [SÓCIO CONSULTOR] + [N-1 a N-5])
 >      ↓
-> Eduardo abre COMANDO_ESTRATEGISTA → volta ao Gemini
+> PASSO 8 — Claude delibera + executa + entrega  |  Embaixador monitora engagement
 >      ↓
+> PASSO 8.5 — Eduardo relata reunião → Embaixador extrai inteligência + atualiza LOG_CLIENTE
+>      ↓
+> PASSO 9 — Claude: MEMORIA + [M-1 a M-5]  |  Embaixador: LOG_CLIENTE + [E-1 a E-5] (paralelo)
+>      ↓
+> PASSO 10 — Gemini reage a [M]+[E]  |  Embaixador reage a [G]+[N] (CONFIRMA/EXPANDE/ALERTA)
+>      ↓
+> 20 ideias por ciclo: [M-1..5] + [E-1..5] + [G-1..5] + [N-1..5]
 > O loop fecha mais rico do que abriu. Sempre.
 > ```
 
