@@ -142,6 +142,17 @@ R$97/mês, menos que qualquer cursinho, e o sistema já te conhece. Quer continu
 
 ---
 
+## DECISÃO DO CONSELHO (2026-05-18)
+
+**Ingrid é o projeto piloto do multiplicador comportamental do GUT Score.**
+A partir do Loop 3, o Embaixador fornece a TEMPERATURA_CLIENTE (VERDE/AMARELO/VERMELHO)
+ao Músculo antes de qualquer priorização de dívidas técnicas.
+Se o Músculo classifica uma feature como "Urgente" mas o Embaixador reporta
+cliente VERDE e focada em outra área, a urgência técnica é rebaixada.
+O comportamento real da Ingrid valida ou refuta o modelo — resultado alimenta o LEDGER.
+
+---
+
 ## PRINCÍPIO CANDIDATO AO LEDGER
 
 **P-026 proposto:** O case de EdTech só tem valor comercial se as métricas de uso forem

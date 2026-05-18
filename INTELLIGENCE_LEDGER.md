@@ -756,3 +756,32 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 - Embaixador envia reação → Músculo delibera no próximo loop com 4 perspectivas + 1 filtro de realidade
 
 **Impacto:** Sistema fica mais inteligente A CADA PROJETO porque o comportamento real do cliente corrigi as ideias abstratas dos outros membros. É o anti-hallucination de produto mais eficaz que existe — e foi inventado pelo Diretor.
+
+---
+
+### [FALHA-PROCESSO-2026-05-18] MEMORIA_EMBAIXADOR não atualizada automaticamente após deliberação
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** Após deliberação do Conselho que definiu Ingrid como projeto piloto do multiplicador comportamental do GUT Score ([N-4]), o Músculo não atualizou a `MEMORIA_EMBAIXADOR.md` da Ingrid imediatamente. Eduardo teve que perguntar se o documento estava atualizado — intervenção desnecessária.
+
+**Regra gerada (P-032):** Ao fechar qualquer deliberação do Conselho que afete diretamente um cliente ativo, o Músculo atualiza a `MEMORIA_EMBAIXADOR.md` do cliente afetado na mesma resposta — sem aguardar pergunta do Diretor.
+
+**Gatilhos de atualização obrigatória:**
+- Decisão técnica que muda o produto do cliente
+- Decisão comercial que afeta pricing, escopo ou contrato
+- Decisão de processo que define o cliente como piloto de algo novo
+- Qualquer hipótese [H] confirmada ou refutada pelo Conselho
+
+**Ferramenta preventiva:** Músculo verifica ao fim de cada deliberação: "Esta decisão afeta algum cliente ativo? Se sim → atualizar MEMORIA_EMBAIXADOR imediatamente."
+
+---
+
+### [P-032] MEMORIA_EMBAIXADOR é responsabilidade automática do Músculo
+**Descoberto:** 2026-05-18 | **Sessão:** Loop Ômega — integração do 4º membro
+**Fricção:** Diretor teve que perguntar se MEMORIA_EMBAIXADOR estava atualizada após deliberação do Conselho.
+
+**Regra:** Toda deliberação do Conselho que afete cliente ativo → Músculo atualiza MEMORIA_EMBAIXADOR do cliente na mesma resposta. Sem esperar. Sem perguntar. Automático.
+
+**Por que importa:** A MEMORIA_EMBAIXADOR é o único instrumento que garante que o Embaixador não começa do zero a cada sessão. Se o Músculo não a mantém viva após cada deliberação, o P-029 se materializa — o Embaixador vira ruído.
+
+**Alerta ao Estrategista e Auditor:** Se detectarem que o Músculo deliberou sobre um cliente sem atualizar a MEMORIA_EMBAIXADOR → emitir SV no próximo ciclo.
