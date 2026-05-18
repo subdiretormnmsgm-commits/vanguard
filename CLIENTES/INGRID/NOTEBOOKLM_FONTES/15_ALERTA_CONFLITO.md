@@ -2,6 +2,7 @@
 **Emitido por:** Músculo (Claude Code) — Poder de Veto Soberano
 **Protocolo:** Sovereign Veto — Camada 2 (Hard Block)
 **Status:** ⛔ PROCESSO PARALISADO
+**Última atualização:** 2026-05-18
 
 ---
 
@@ -73,6 +74,57 @@ Revisão prevista: [quando este override será revisitado]
 
 ### Opção 3 — Deliberação do Conselho
 Emitir para o Estrategista e Auditor. Aguardar PARECER_UNIFICADO.md.
+
+---
+
+## ALERTAS DO EMBAIXADOR — CONFLITOS DE RELACIONAMENTO COM CLIENTE
+
+> Seção exclusiva do Embaixador (Claude Projects). Monitoramento proativo de sinais de conflito antes de virarem crises.
+> Ativado pelo Embaixador quando detectar qualquer dos três padrões abaixo.
+> O Músculo recebe o alerta e bloqueia o loop até resolução.
+
+### CONFLITO-E01 — Divergência entre Embaixador e WIP_BOARD
+
+**Gatilho:** O cliente verbalizou ao Embaixador uma expectativa, prazo ou funcionalidade que não está registrada no WIP_BOARD ou contradiz o que está documentado.
+
+**Risco:** O Músculo e o Estrategista operam com base no WIP_BOARD. Se o cliente tem expectativa diferente do que está no board, a entrega vai decepcionar — mesmo que tecnicamente perfeita.
+
+**Ação obrigatória:**
+> "ALERTA EMBAIXADOR E-01: O cliente [NOME] verbalizou [EXPECTATIVA] ao Embaixador. O WIP_BOARD registra [O QUE ESTÁ NO BOARD]. Há divergência. Diretriz e build estão bloqueados até o Diretor reconciliar a expectativa do cliente com o escopo aprovado."
+
+**Resolução:**
+- Opção A: Atualizar WIP_BOARD para refletir a expectativa real do cliente
+- Opção B: Alinhar o cliente sobre o escopo correto via Embaixador antes de prosseguir
+
+---
+
+### CONFLITO-E02 — Prazo Informal vs. Prazo da DIRETRIZ
+
+**Gatilho:** O cliente mencionou informalmente ao Embaixador um prazo diferente (mais curto ou mais urgente) do que o prazo documentado na DIRETRIZ vigente do Estrategista.
+
+**Risco:** O Músculo executa conforme a DIRETRIZ. Se o cliente internamente comunicou data diferente para stakeholders ou parceiros, a entrega no prazo da DIRETRIZ ainda vai parecer atrasada.
+
+**Ação obrigatória:**
+> "ALERTA EMBAIXADOR E-02: O cliente [NOME] mencionou prazo de [DATA INFORMAL]. A DIRETRIZ vigente aponta [DATA DA DIRETRIZ]. Conflito de prazo detectado. Loop pausado. Diretor deve confirmar com o cliente o prazo real antes do próximo ciclo de build."
+
+**Resolução:**
+- O Diretor valida diretamente com o cliente qual prazo é o real
+- Se prazo informal for mais curto: Músculo recalcula escopo com Shadow Architect
+- DIRETRIZ deve ser atualizada com o prazo confirmado
+
+---
+
+### CONFLITO-E03 — Scope Creep Detectado Antes de Virar Pedido Formal
+
+**Gatilho:** O cliente fez menções laterais ao Embaixador sobre funcionalidades, integrações ou capacidades que não estão no escopo contratado — mesmo que não tenha feito pedido formal ainda.
+
+**Risco:** Scope creep silencioso é mais perigoso que o formal. O cliente começa a contar com a funcionalidade não contratada, e quando não é entregue, percebe como "promessa quebrada" — mesmo que nunca tenha sido prometida.
+
+**Ação obrigatória:**
+> "ALERTA EMBAIXADOR E-03: O cliente [NOME] fez menção lateral sobre [FUNCIONALIDADE]. Isso não está no escopo contratado. Registrando em MEMORIA_EMBAIXADOR. Músculo não constrói sem veredito do Diretor. Diretor: esse item entra como V2 pago, ou clarificamos agora que não está incluído?"
+
+**Ação de prevenção — MEMORIA_EMBAIXADOR:**
+O Embaixador registra toda menção lateral em MEMORIA_EMBAIXADOR.md com a tag `[SCOPE-WATCH]`. O Músculo verifica no início de cada sessão se há itens `[SCOPE-WATCH]` não resolvidos.
 
 ---
 

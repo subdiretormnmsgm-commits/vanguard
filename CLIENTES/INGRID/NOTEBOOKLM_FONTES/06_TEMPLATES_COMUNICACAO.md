@@ -1,4 +1,4 @@
-# TEMPLATES DE COMUNICAÇÃO — QUADRILATERAL IAH
+﻿# TEMPLATES DE COMUNICAÇÃO — QUADRILATERAL IAH
 **Referência interna do Músculo — não colar diretamente em nenhuma IA**
 **Organismo vivo — atualizar quando o processo evoluir**
 **Versão:** 1.1 | Data: 2026-05-13
@@ -49,7 +49,7 @@ QUADRILATERAL IAH — EDUARDO → GEMINI
 projeto: [NOME DO PROJETO] | ITERAÇÃO: V[X] | DATA: [DD-MM-AAAA]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH.
+Gemini, somos o Pentalateral IAH.
 Tu és o Estrategista. Eu sou o Diretor.
 O NotebookLM é o Auditor. O Claude Code é o Músculo.
 
@@ -213,7 +213,7 @@ QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
 projeto: [NOME] | ITERAÇÃO: V[X] | DATA: [DD-MM-AAAA]
 ════════════════════════════════════════════════════════════
 
-NotebookLM, você atua como Sócio Consultor do Quadrilateral IAH.
+NotebookLM, você atua como Sócio Consultor do Pentalateral IAH.
 Não é arquivo — é consultor ativo com memória histórica de todos os projetos.
 
 Analise o projeto [NICHO/TIPO] com 4 objetivos:

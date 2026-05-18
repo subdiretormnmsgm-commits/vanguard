@@ -1,9 +1,9 @@
 ﻿---
 name: protocolo-vanguard
-description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
+description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
 ---
 
-# PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
+# PROTOCOLO VANGUARD — Modelo Pentalateral IAH
 **Versão da Skill:** 6.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **4º Membro: Embaixador + P-031 Filtro de Realidade (2026-05-18)**
 
 ---
@@ -321,7 +321,7 @@ QUADRILATERAL IAH — EDUARDO → GEMINI
 projeto: [nome] | ITERAÇÃO: V[X] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH — agora com 4 membros.
+Gemini, somos o Pentalateral IAH — agora com 5 membros.
 Estrategista (tu) | Diretor (eu) | Auditor (NotebookLM) | Músculo (Claude Code) | Embaixador (Claude Projects)
 
 [SE ITERAÇÃO INICIAL — colar briefing do cliente:]
@@ -392,7 +392,7 @@ QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
 projeto: [nome] | ITERAÇÃO: V[X]
 ════════════════════════════════════════════════════════════
 
-NotebookLM, actuas como Sócio Consultor do Quadrilateral IAH.
+NotebookLM, actuas como Sócio Consultor do Pentalateral IAH.
 Não apenas arquivo — consultor ativo com memória longa.
 
 ANALISA O projeto [NICHO/TIPO] COM 4 objetivos:
@@ -1221,7 +1221,7 @@ Confirmas para avançar? →
 projeto CLIENTE — DIRETRIZ ESTRATÉGICA V1
 ════════════════════════════════════════════════════════════
 
-Somos o Quadrilateral IAH. Novo projeto de cliente.
+Somos o Pentalateral IAH. Novo projeto de cliente.
 Analisa o briefing e gera a Diretriz com 5 blocos.
 
 --- BRIEFING ---
@@ -1380,7 +1380,7 @@ Inclui obrigatoriamente: 5 ideias disruptivas para a próxima iteração.
 **Comando Padrão para o Auditor:**
 
 ```
-Actuas como Auditor do Quadrilateral IAH.
+Actuas como Auditor do Pentalateral IAH.
 
 Analisa o projeto [NICHO/TIPO] com estes objetivos:
 
@@ -2282,7 +2282,7 @@ Traz-me o problema. Entregamos a solução.
 
 ---
 
-*Skill criada pelo Músculo · Quadrilateral IAH · V4.5*
+*Skill criada pelo Músculo · Pentalateral IAH · V4.5*
 *Universal: ecommerce, app, site, SaaS, modelo de negócio, automação, IA*
 *Portátil: copiar para qualquer projeto, preencher CONFIGURAÇÃO DO OPERADOR, ativar*
 *ativa sempre que o Diretor disser: PROTOCOLO VANGUARD*

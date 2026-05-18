@@ -1,4 +1,4 @@
-﻿# INTELLIGENCE LEDGER — Quadrilateral IAH
+﻿# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -406,7 +406,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [SESSÃO 2026-05-16] — Evolução Constitucional · Opinião Consultora #01 · P-018
 
-**Direção da sessão:** Sessão inteiramente filosófica e constitucional. Nenhum build executado. Foco em clarificar e documentar a arquitetura de papéis do Quadrilateral IAH com precisão crescente — através de refinamentos sucessivos propostos pelo Diretor.
+**Direção da sessão:** Sessão inteiramente filosófica e constitucional. Nenhum build executado. Foco em clarificar e documentar a arquitetura de papéis do Pentalateral IAH com precisão crescente — através de refinamentos sucessivos propostos pelo Diretor.
 
 **Eventos capturados:**
 

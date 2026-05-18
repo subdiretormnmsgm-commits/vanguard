@@ -1,13 +1,13 @@
-# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 3
+﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 3
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Atualizado pelo Músculo em 2026-05-17 (Loop 3 / Gate Dia 8)
+> Atualizado pelo Músculo em 2026-05-18 (Loop 3 / Gate Dia 8)
 
 ---
 
 ## 📌 ANTES DE IR AO NOTEBOOKLM — checklist obrigatório
 
 ```
-[ ] 1. DIRETRIZ_GEMINI_V4.txt recebida e salva em CLIENTES\INGRID\
+[x] 1. DIRETRIZ_GEMINI_V4.txt recebida e salva em CLIENTES\INGRID\
 [x] 2. Rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
 [x] 3. Explorer abre automaticamente — Ctrl+A → arrastar TUDO ao NotebookLM
 [x] 4. Fazer Wipe & Sync das fontes (apagar antigas antes de subir as novas)
@@ -38,7 +38,7 @@ Auditor, você opera com 4 deficiências nativas:
 
 Ao gerar a Skill, compense ativamente:
 
-1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-025) que o Músculo deve citar ao deliberar
+1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-032) que o Músculo deve citar ao deliberar
 2. **Momentum de Execução** → gates verificáveis por dia — sem output real = gate inválido
 3. **Otimismo de Estimativa** → comparar estimativas com projetos similares; SV preventivo se subestimar
 4. **Escopo Silencioso** → listar explicitamente o que NÃO construir neste loop
@@ -92,7 +92,7 @@ PARTE 1 — AUDITORIA DE COERÊNCIA
   Verificar especificamente:
     - Arquitetura de batch (1 Claude call/invocação — nunca reverter)
     - Cargo 202 vs TDAS (P-024 — recalibração obrigatória)
-    - Deadline 2026-05-30 (10 dias restantes para 2 loops)
+    - Deadline 2026-05-30 (12 dias restantes)
     - Budget $5,00/dia (P-006 — Burn Rate Shield)
 
 PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
@@ -142,7 +142,7 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Quadrilateral
 02_MEMORANDO_QUADRILATERAL.md      ← constituição e valores
 03_MANUAL_DIRETOR.md               ← como Eduardo opera
-04_INTELLIGENCE_LEDGER.md          ← princípios ativos P-001 a P-025
+04_INTELLIGENCE_LEDGER.md          ← princípios ativos P-001 a P-032
 05_PROCESSO_EVOLUTIVO.md           ← como o loop funciona
 06_TEMPLATES_COMUNICACAO.md        ← formatos obrigatórios
 07_WIP_BOARD.txt                   ← estado atual dos projetos (TXT — NotebookLM lê)
@@ -160,3 +160,4 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 
 > **07_WIP_BOARD.txt** — extensão `.txt` obrigatória. NotebookLM não lê `.json`.
 > O script converte automaticamente. Se aparecer `.json`, rodar `atualizar_notebooklm_base.ps1` antes.
+

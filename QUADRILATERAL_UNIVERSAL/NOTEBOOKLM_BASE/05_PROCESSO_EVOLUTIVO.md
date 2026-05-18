@@ -1,4 +1,4 @@
-# PROCESSO EVOLUTIVO DO QUADRILATERAL IAH
+﻿# PROCESSO EVOLUTIVO DO QUADRILATERAL IAH
 **Documento mestre — ler antes de qualquer sessão relevante**
 **Organismo vivo — atualizado a cada projeto ou versão**
 **Versão:** 1.0 | Data: 2026-05-13 | Criado por: Eduardo (Diretor) + Músculo
@@ -276,7 +276,7 @@ Fontes complementares (adicionar quando disponíveis):
 
 ### Gemini respondendo fora do formato (5 blocos):
 Colar no início da resposta seguinte:
-> "Você saiu do formato obrigatório do Quadrilateral IAH. Releia o seu papel e responda novamente com os 5 blocos: DIAGNÓSTICO, PRIORIDADES, COMERCIAL, TÉCNICA (com [PARA O NOTEBOOKLM] e [PARA O MÚSCULO]), PASSOS. E não esqueça de reagir a cada uma das 5 ideias do Músculo e propor as suas 5."
+> "Você saiu do formato obrigatório do Pentalateral IAH. Releia o seu papel e responda novamente com os 5 blocos: DIAGNÓSTICO, PRIORIDADES, COMERCIAL, TÉCNICA (com [PARA O NOTEBOOKLM] e [PARA O MÚSCULO]), PASSOS. E não esqueça de reagir a cada uma das 5 ideias do Músculo e propor as suas 5."
 
 ### NotebookLM gerando auditoria genérica sem Skill copiável:
 Colar antes do próximo prompt:

@@ -1,129 +1,76 @@
-DIRETRIZ_V3_ESTRATEGISTA
-BLOCO 1 — DIAGNÓSTICO DO EMBAIXADOR COMO MEMBRO
-O erro atual na utilização do Embaixador (Claude Projects) é tratá-lo como um repositório passivo de arquivos ou um secretário digital de atas. No arranjo constitucional da Vanguard Tech (Paradigmas V25), o Embaixador ocupa a fronteira mais crítica do sistema: a linha de contato direta entre a livre alucinação comercial do mercado (o cliente) e a consistência lógica fria do Conselho IAH.
+BLOCO 0 — DIAGNÓSTICO
+O risco real que não estamos endereçando é a fricção do "Go-Live". O Músculo está focado na arquitetura perfeita da Edge Function (Dias 1-5), mas Ingrid (usuária final) ainda não tocou no produto. Há uma lacuna crítica de telemetria comportamental: se o design do PWA for denso ou confuso, o P-029 se materializa e ela abandona o estudo, tornando a arquitetura inútil. Além disso, o Status Amarelo do Termo de Uso (P-023) bloqueia juridicamente o avanço estrutural. O Embaixador precisa entrar em cena (P-031) para ser o Filtro de Realidade e monitorar a "Temperatura do Cliente" assim que o deploy ocorrer. O que Ingrid precisa sentir: "O aplicativo sabe exatamente onde estou falhando, ajusta a explicação para a minha dúvida real, e não me deixa perder tempo." Ela precisa sentir urgência cirúrgica.
 
-A passividade dele é um sintoma da falta de garras de monitoramento operacional. Ele possui a única vantagem que os outros membros não têm: a persistência histórica contextual de longo prazo do ecossistema do cliente dentro do ambiente de trabalho. Enquanto o Músculo opera no calor do commit e o Estrategista opera na abstração de mercado, o Embaixador deve agir como o Guardião da Fronteira Jurídico-Comercial. Ele não serve para fazer sumários; ele serve para interceptar desvios de escopo e garantir a Soberania do Cliente [P-013] sem comprometer o Burn Rate Shield [P-006].
+BLOCO 1 — PRIORIDADES DE BUILD (máximo 3)
+[MANDATOS DO DIRETOR ENDEREÇADOS] 
+- P-023: Deploy bloqueado para uso real até o aceite do contrato.
+- P-022: Auditoria severa e advocatícia exigida no Bloco 3.
+- P-021: Interface preparada para Intervenção Soberana do Diretor.
+[PESQUISA QUADRIX] A banca Quadrix para cargos técnicos (como TDAS) utiliza pegadinhas clássicas baseadas em "exceções" jurídicas (ex: "prescinde" vs "imprescinde", "pode" vs "deve"), literalidade da lei e distratores que parecem corretos pelo senso comum da assistência social. O frontend precisa focar na leitura cristalina das questões e o Tutor deve focar no método de eliminação de distratores, que é a essência para bater o corte em provas da Quadrix.
 
-BLOCO 2 — PRIORIDADES DE AÇÃO (MÁXIMO 3)
-Injeção do Bloco de Contenção de Risco Comercial (Prompt Master)
+1. PWA de Leitura e Resolução Rápida (Interface Mobile)
+   - O que construir: Frontend limpo conectado ao Supabase. Renderização das questões, seleção de alternativas e barra de progresso por disciplina (Peso 2).
+   - Por que agora: Sem a interface, Ingrid não pode iniciar a fase de testes do Dia 8.
+   - Horas reais: ~6h (1h Setup PWA, 2h Supabase Auth/Fetch, 3h UI e State Management).
+   - O que fica fora: Dashboards analíticos, animações complexas, perfil de usuário multi-tenant.
 
-O que construir: Atualização estrutural imediata das instruções do Embaixador para incluir o sub-bloco [SHIELD_DE_ESCOPO]. O prompt deve forçá-lo a confrontar toda nova mensagem ou documento do cliente com as cláusulas limitantes do contrato original.
+2. Tutor Socrático Haiku com Cache e Memória de Erro
+   - O que construir: Edge function de validação que aciona a explicação e guarda em `explicacao_tutor`. Na 1ª vez: conceito. Na 2ª vez (mesmo erro): ataque ao distrator específico, buscando no cache antes de chamar a API.
+   - Por que agora: É o "core value" da aplicação. Diferencia de plataformas genéricas.
+   - Horas reais: ~4h (2h Lógica de cache no DB, 2h Prompt dinâmico de mudança de ângulo).
+   - O que fica fora: Fine-tuning de modelo ou integração com Claude Opus/Sonnet para tutor (manter Haiku para custo).
 
-Por que agora: Valdece está travado por falta de documentos e Ingrid alterou o escopo programático do edital no Loop 2 [P-024]. Sem essa trava de contenção ativa, o Músculo começará a codificar demandas marginais não faturadas.
+3. Fallback de Fadiga e Burn Rate Shield (P-006)
+   - O que construir: Sistema que monitora a cota (limite $5/dia). Ao bater 70%, o app corta as requisições à API e exibe "Pílulas do Dia" (estáticas já no banco).
+   - Por que agora: Evita falência técnica (P-006) sem quebrar o ritmo de estudo da usuária (P-031).
+   - Horas reais: ~2h (Monitoramento do Burn Rate).
+   - O que fica fora: Geração dinâmica de novas pílulas.
 
-Horas reais: ~2h (Engenharia de Prompt nas instruções permanentes do Claude Project).
+BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
+Este projeto (PROJ-002) é a prova de fogo do Pentalateral IAH. O Embaixador agora monitora ativamente a retenção da Ingrid. Se conseguirmos comprovar a evolução do "Score de Sobrevivência" dela, teremos em mãos um motor educacional replicável com Custo Marginal Zero de expansão. O nicho de mercado: os outros milhares de candidatos da Quadrix que estão perdidos em plataformas genéricas que não ensinam *como* errar. O handoff comercial para o mercado exigirá a assinatura formal do Termo de Uso, transformando este piloto no nosso Case V25 Primário de MRR SaaS B2C (meta: 500 usuários).
 
-O que fica de fora: Sistemas externos de alertas por webhooks. A notificação ocorre estritamente dentro da interface de chat do projeto.
+BLOCO 3 — DIRETRIZ TÉCNICA
 
-Mecanismo de Automação de Logs Cíclicos (LOG_CLIENTE.md)
+[PARA O AUDITOR] — MANDATÓRIO
+1. Nome exato da Skill a ser criada: `ingrid-v4.md`
+   - O Auditor deve salvar com este nome exato em `.claude/skills/`
+2. Instruções obrigatórias para o NotebookLM (gerar a Skill em 4 partes):
+   - PARTE 1 — Auditoria de Coerência: Aja como advogado implacável (P-022). Onde a pressa pelo PWA pode quebrar a estabilidade de banco do Dia 5? Verifique o status da assinatura (P-023).
+   - PARTE 2 — Perspectiva do Sócio Consultor: O que nós (Gemini/Músculo) não estamos enxergando na usabilidade da Ingrid?
+   - PARTE 3 — A Skill (copiável): Contexto V4, padrões, alertas, sequência rígida de build de 3 dias, o que NÃO construir.
+   - PARTE 4 — 5 Ideias Disruptivas do Auditor: Exclusivas, baseadas no histórico.
+3. Risco a priorizar: O otimismo de construir interface + cache + fallback em 3 dias sem poluir o código. Alocar tempo estrito.
 
-O que construir: Instrução mandatória para o Embaixador gerar o arquivo LOG_CLIENTE.md ao final de cada interação significativa. Este arquivo condensa de forma ultra-comprimida (máximo 5 bullet points) as fricções, desvios de escopo tentados e o clima emocional do cliente.
+[PARA O MÚSCULO]
+Intenção Estratégica: Finalizar o loop de experiência primária da Ingrid com UX impecável e proteção absoluta de custos, bloqueando o acesso até o Termo de Uso ser chancelado.
+Prioridades de Execução: 1) Frontend PWA; 2) Tutor Socrático com Cache; 3) Fallback Fadiga.
+O que NÃO construir: Dashboards de desempenho complexos e modos de revisão que desviem do Feed 70/30 base.
+Gates Verificáveis: Dia 6 (PWA local acessando o feed), Dia 7 (Tutor em cache operando sem bater na API via Logs), Dia 8 (Ingrid responde 10 questões, Embaixador reporta temperatura).
+MANDATOS OBRIGATÓRIOS:
+(0) Executar `/ingrid-v4` antes de qualquer deliberação — Sem isso, deliberação é inválida.
+(a) Reagir a cada uma das 5 ideias disruptivas do Estrategista (Bloco 6).
+(b) Reagir a cada uma das 5 ideias do Auditor (Parte 4 da Skill) com razão técnica objetiva.
+(c) Propor as suas próprias 5 ideias disruptivas (Técnicas) ao fechar.
+*Regra de Ouro (P-032):* Ao final desta deliberação de build, o Músculo DEVE atualizar a `MEMORIA_EMBAIXADOR.md` automaticamente.
 
-Por que agora: Alimenta a retroalimentação cíclica do sistema. Esse documento vira a Fonte 17 oficial no Passo 5 do NotebookLM, unificando a inteligência comercial da Vanguard.
+[VISÃO DE LONGO PRAZO]
+O app deixa de ser apenas "Sedes-DF" e passa a ser o "Motor Anti-Quadrix", um white-label educacional que mapeia pegadinhas de bancas regionais para qualquer edital do Brasil.
 
-Horas reais: ~3h (Montagem do template estruturado e instrução de extração autônoma).
+BLOCO 4 — RESPOSTA ÀS 5 IDEIAS DO MÚSCULO
+1. Tutor Socrático com Memória de Erro: APROVADA. Modifica o ângulo (conceito -> distrator -> analógica). Fundamental para o valor pedagógico.
+2. Cache Inteligente de Explicações: APROVADA. Proteção indispensável para o P-006. Zero custo na repetição.
+3. Fallback de Fadiga: APROVADA. Mantém a resiliência e a disciplina da usuária (tempo de tela contínuo sem custo de Claude).
+4. Progresso Visual por Disciplina no Header: MODIFICADA. Aprovado o conceito, mas o Header polui a leitura. Inserir em um menu recolhível (drawer) ou indicador sutil na borda superior. Foco na questão.
+5. Modo Revisão Express (5 min): DESCARTADA NESTA ITERAÇÃO. Adiciona complexidade desnecessária para o Dia 8. O foco é homologar o Feed principal (70/30) no frontend antes de bifurcar modos.
 
-O que fica de fora: Digitação manual por parte do Eduardo. O Diretor apenas roda o script de fechamento que copia o output gerado pelo Embaixador para a pasta de fontes.
+BLOCO 5 — PRÓXIMOS PASSOS DO DIRETOR
+1. Obter assinatura (digital ou física) no `Termo_Uso_Ingrid_PROJ002_30052026.pdf` (Gate Comercial Bloqueante P-023).
+2. Levar o BLOCO 3 (Diretriz Técnica) ao NotebookLM para forçar a advocacia do processo e geração da Skill `ingrid-v4.md`.
+3. Inserir a Skill e esta Diretriz no console do Claude (Músculo) e ordenar a execução do Loop 3 (Dias 6-8).
 
-Mecanismo de Alerta P-023 (SLA de Assinatura de Contrato)
-
-O que construir: Protocolo de verificação de pendência de assinatura. Se o arquivo CONTRATO_FINAL.md na raiz do projeto não contiver a marcação de validação [ASSINADO] em até 24 horas após sua emissão, o Embaixador entra em estado de bloqueio de build.
-
-Por que agora: Valdece e Ingrid estão operando com minutas soltas há mais de 24 horas, violando frontalmente a governança de risco comercial estabelecida no mandato [P-023].
-
-Horas reais: ~3h (Estruturação do script local que lê a tag do contrato e gera o texto de interrupção).
-
-O que fica de fora: Envio automático de e-mails para o cliente (o que feriria a discrição da boutique). Ele gera a mensagem exata para Eduardo copiar e enviar manualmente.
-
-BLOCO 3 — POSICIONAMENTO COMERCIAL
-No pitch comercial da Vanguard Tech para as próximas captações da Camada 3+, o Embaixador será o nosso maior diferencial competitivo contra agências tradicionais ou squads de freelancers seniores. O argumento irresistível de venda baseia-se na Memória Soberana do Projeto:
-
-"Agências mudam o seu gerente de conta a cada três meses. Freelancers esquecem o que você combinou em uma reunião de call na semana passada. Na Vanguard Tech, o seu projeto é governado por um Embaixador dedicado de Inteligência Composta. Ele possui memória absoluta e persistente de cada milhão de caracteres trafegados no seu negócio. Ele conhece cada dor manifestada, monitora o escopo contra surpresas contratuais e sabe exatamente qual o próximo passo técnico, operando 24h por dia para blindar a velocidade da sua entrega corporativa."
-
-Transformamos o Claude Projects de uma ferramenta de engenharia interna para um Ativo de Governança Comercial incluído no valor do Discovery Product.
-
-BLOCO 4 — DECISÕES E SLAS
-Decisão 1 (Identidade): O nome do 4º membro fica constitucionalmente consolidado como Embaixador. O termo "Formalizador" reduzia o papel a uma função cartorial e burocrática, enquanto "Embaixador" carrega o peso diplomático da boutique: ele representa os interesses da Vanguard (lucratividade e proteção de escopo) dentro do território do cliente, mantendo a elegância institucional.
-
-Decisão 2 (O SLA de Contrato): Fica estabelecido o limite rígido de 24 horas (X = 24) para a tag [ASSINADO] ser inserida no contrato em Markdown. Se o prazo estourar, o Embaixador está instruído a emitir um alerta no chat contendo um rascunho de mensagem de follow-up ultra-polida, customizada com base no perfil emocional do cliente (ex: o tom formal para o Valdece e o tom ágil para a Ingrid).
-
-Decisão 3 (Estrutura do Log Cíclico): O LOG_CLIENTE.md é aprovado. Para garantir que ele não vire overhead para Eduardo, a geração será 100% autônoma por parte do Embaixador. Eduardo usará o comando de fechamento de bloco; o Embaixador cospe o Markdown limpo e o Diretor apenas executa o redirecionamento de arquivo para a pasta .claude/skills/ ou NOTEBOOKLM_FONTES/.
-
-BLOCO 5 — RISCOS QUE O ESTRATEGISTA VÊ E OS OUTROS NÃO VEEM
-O Risco da Espionagem Involuntária (Paranoia do Cliente): Se o Embaixador começar a registrar de forma muito explícita no LOG_CLIENTE.md análises frias sobre o estado "emocional" ou "ansiedade" do cliente (especialmente em produtos B2B onde o cliente lê os relatórios de handoff), isso pode gerar uma crise de desconfiança. O cliente pode sentir que está sendo monitorado psicologicamente por uma máquina em vez de assessorado por uma boutique humana. Os registros emocionais devem ser traduzidos em "indicadores de risco de fricção de escopo".
-
-O Risco do Escopo Silencioso via Customização de Prompts: O Embaixador pode começar a tentar sugerir ajustes no código do Músculo diretamente no chat para agradar o cliente nas calls de alinhamento. Isso quebra a hierarquia de controle técnico. O Embaixador está estritamente proibido de ditar linhas de código; ele aponta o o quê e o limite, nunca o como.
-
-O Risco da Burocratização do Fluxo: Se o Eduardo precisar extrair logs de três instâncias de Claude Projects diferentes simultaneamente, a esteira operacional vai travar por saturação de micro-tarefas. A automação desses logs deve ser integrada diretamente nos scripts .ps1 existentes na raiz do repositório universal.
-
-BLOCO 6 — REAÇÃO ÀS 5 IDEIAS DO MÚSCULO
-M-11: Edge Function única por projeto (consolidação de chamadas)
-
-Veredito: MODIFICADA.
-
-Razão Técnica: Centralizar toda a inteligência do PROJ-002 em uma única Edge Function (um monólito de roteamento) reduz o tempo de deploy inicial, mas viola severamente a resiliência arquitetural e o princípio de isolamento de falhas. Se a lógica do Tutor Socrático falhar por um erro de parsing de JSON da Claude API, o mecanismo crítico de entrega do Feed Diário e o cálculo do SM-2 também cairão. Mantenha o código modularizado em arquivos separados dentro do mesmo diretório de deploy do Supabase.
-
-M-12: Debug Mode via ?debug=true na URL (visibilidade interna)
-
-Veredito: APROVADA.
-
-Razão Técnica: Vital para a validação mobile-first no celular do Diretor. Permite inspecionar o estado do SM-2, o easiness factor da questão e o custo em milidólares daquela chamada sem precisar abrir o dashboard de logs do Supabase na trincheira do teste físico.
-
-M-13: Pixel de Latência — SM-2 preditivo por tempo de resposta
-
-Veredito: MODIFICADA.
-
-Razão Técnica: A ideia de capturar o timestamp de resposta da Ingrid para medir a fluência cognitiva é genial, mas alterar a matriz matemática do algoritmo SM-2 puro em um prazo de build de 10 dias restantes é um risco de quebra de consistência. Modifique para: o tempo de resposta não altera as variáveis principais (easiness_factor), mas atua como um modificador de margem de segurança de ±1 dia no intervalo final calculado, caso o tempo de resposta ultrapasse 60 segundos (hesitação extrema).
-
-M-14: Hardcode user_id no MVP (sem auth complexa)
-
-Veredito: APROVADA.
-
-Razão Técnica: Cumpre com maestria a eliminação de escopo invisível e atende à premissa de single-user estabelecida no Discovery. Economiza pelo menos 8 horas de desenvolvimento que seriam gastas configurando fluxos de e-mail de confirmação, recuperação de senha e telas de login desnecessárias para a Ingrid nesta fase.
-
-M-15: Sequência obrigatória Mock→Supabase→Tutor (sem pular etapa)
-
-Veredito: APROVADA.
-
-Razão Técnica: É a materialização estrita do princípio [P-010] (nenhuma etapa avança por assumição). Construir a UI sem garantir a estabilidade do fluxo de dados com mocks estáticos locais gera retrabalho maciço de CSS e manipulação de DOM mais adiante quando as Edge Functions forem integradas.
-
-BLOCO 7 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA (SOBRE O EMBAIXADOR)
-O Interceptor de Escopo "Change-Order" Automático
-
-O que é: O Embaixador monitora o chat do Claude Project. Se o cliente digitar um requerimento que fira a Cláusula 1 do objeto do contrato (ex: Valdece pedindo para incluir citação de tribunais estaduais em vez do STF acordado), o Embaixador gera na hora o rascunho de um termo aditivo com precificação extra para Eduardo enviar.
-
-Impacto: Zera o vazamento de receita e transforma pedidos fora de escopo em upsell imediato.
-
-Pergunta ao Músculo: É viável injetar a matriz de precificação de tokens/hora da Vanguard diretamente nas instruções locais do Embaixador para ele calcular o valor do aditivo de forma autônoma?
-
-Análise de Temperatura de Churn por Cadência
-
-O que é: O Embaixador avalia a variação do intervalo de tempo entre as mensagens do cliente e o tamanho das suas frases ao longo da semana. Se o cliente começar a responder com monossílabos ou demorar mais de 48h para enviar documentos (como o estado atual do Valdece), o sistema emite um alerta interno de risco de engajamento.
-
-Impacto: Permite ao Diretor agir preventivamente antes que o cliente desista do projeto por falta de ritmo.
-
-Pergunta ao Músculo: Conseguimos parametrizar um indicador visual de "Saúde do Cliente" (Verde/Amarelo/Vermelho) no topo do WIP_BOARD.json alimentado pelo Embaixador?
-
-O Handoff Blueprint Generator
-
-O que é: No Dia 15 do projeto, em vez de Eduardo escrever o manual de uso do cliente do zero, o Embaixador varre todo o histórico persistente de conversas e gera autonomamente o Sovereign Playbook personalizado, contendo todas as decisões arquiteturais tomadas e instruções de manutenção.
-
-Impacto: Reduz o tempo de handoff humano de 6 horas para 10 minutos.
-
-Pergunta ao Músculo: A janela de contexto atual do Claude Projects comporta a consolidação de toda a árvore de arquivos desenvolvida para cuspir um PDF/Markdown estruturado de alta fidelidade sem truncamento?
-
-Trava de Deploy por Pendência Contratual
-
-O que é: Integração do Embaixador com o script preflight.ps1. Se o Embaixador marcar o status do contrato do cliente como [PENDENTE_ASSINATURA], o script impede fisicamente a execução do deploy das Edge Functions em ambiente de produção.
-
-Impacto: Enforcement tecnológico absoluto da governança do Conselho. Código Vanguard só toca a nuvem do cliente após segurança jurídica garantida.
-
-Pergunta ao Músculo: Conseguimos ler o status do projeto no Claude Project via CLI para alimentar essa trava local no PowerShell antes do push do Supabase?
-
-Dízimo de Dados Cíclico para o Ledger (Retroalimentação Permanente)
-
-O que é: Ao fechar o projeto do cliente, o Embaixador identifica qual foi a maior fricção comercial ou jurídica enfrentada (ex: o erro de enquadramento de cargo da Ingrid no Loop 2) e redige um novo princípio técnico compacto para ser inserido diretamente no INTELLIGENCE_LEDGER.md global da Holding.
-
-Impacto: Execução matemática da evolução do DNA da IAH. A empresa fica literalmente mais inteligente a cada projeto encerrado, sem depender da memória do Diretor.
-
-Pergunta ao Músculo: Esse feeder automático pode ser rodado como um script de pós-fechamento sem risco de corromper a estrutura de codificação dos princípios ativos já consolidados?
+BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
+1. Inject Focus Override (P-021 em ação): Botão invisível no front (ex: 3 toques longos no título) para o Diretor injetar "Peso Absoluto" numa disciplina que notou deficiência na vida real. Reordena o banco instantaneamente. Impacto: Controle total sem precisar refazer deploy. Pergunta ao Músculo: "Podemos ter um endpoint serverless simples para aceitar esse Override JSON e forçar um cache reset no PWA da usuária?"
+2. Telemetria de Hesitação (P-031): O PWA mede o tempo gasto entre a leitura e a escolha do distrator. Se > 2 minutos e erro, o Embaixador flagra como "Desalinhamento Cognitivo" na Memória. Impacto: O Tutor sabe se o erro foi desatenção (rápido) ou falta de teoria (demorado). Pergunta ao Músculo: "É viável gravar o TTI (Time to Interact) no log de cada questão respondida no Supabase sem degradar a performance mobile?"
+3. Distrator Vingativo em Loop: O banco anota a 'letra' (ou tipo de viés) da pegadinha Quadrix que Ingrid errou. Na próxima geração via API para ela, passamos o último erro como few-shot para a Edge Function injetar uma pegadinha idêntica. Impacto: Força a vacina mental ativa contra o padrão da banca. Pergunta ao Músculo: "Conseguimos embutir o JSON do erro recente direto no prompt da API da próxima bateria?"
+4. Termo de Uso Integrado no Auth (Enforcement P-023): Como a assinatura está atrasada, transformamos a primeira tela de login (single-user) em uma assinatura digital (clickwrap) do Termo. Impacto: Cumpre a lei, resolve o atraso comercial e libera o acesso no mesmo clique. Pergunta ao Músculo: "O Supabase Auth permite anexarmos o consentimento jurídico explícito aos metadados de sessão do usuário no primeiro login?"
+5. "Cínico Socrático" (Mudança de Persona): Foguetes de acerto para concurseiro desesperado soam infantis. O Tutor deve ser frio: "Você não leu a palavra 'imprescindível', leu?". Impacto: Conexão profunda e emocional com o tom austero de provas reais. Pergunta ao Músculo: "Passar um `persona_tone: strict` na Edge Function altera muito a confiabilidade do Haiku na explicação de conceitos legais?"

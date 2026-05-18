@@ -1,4 +1,4 @@
-# RELATÓRIO EVOLUTIVO V2 — PROJ-002 Ingrid
+﻿# RELATÓRIO EVOLUTIVO V2 — PROJ-002 Ingrid
 **Loop:** #2 — Build Dias 3–5 (Feed Diário + Banco de Questões)  
 **Data:** 2026-05-17  
 **Próxima fase:** Loop #3 — Dias 6–8 (Interface + Tutor Socrático + Fallback)
@@ -156,4 +156,4 @@ Skill esperada: `ingrid-v2.md` — 4 partes obrigatórias
 ---
 
 *Relatório gerado pelo Músculo ao fechar Loop 2 · PROJ-002 Ingrid · 2026-05-17*  
-*Quadrilateral IAH V25 — Conselho: Eduardo (Diretor) · Gemini (Estrategista) · NotebookLM (Auditor) · Claude Code (Músculo)*
+*Pentalateral IAH V25 — Conselho: Eduardo (Diretor) · Gemini (Estrategista) · NotebookLM (Auditor) · Claude Code (Músculo)*

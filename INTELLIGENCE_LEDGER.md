@@ -807,3 +807,17 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Por que importa:** A MEMORIA_EMBAIXADOR é o único instrumento que garante que o Embaixador não começa do zero a cada sessão. Se o Músculo não a mantém viva após cada deliberação, o P-029 se materializa — o Embaixador vira ruído.
 
 **Alerta ao Estrategista e Auditor:** Se detectarem que o Músculo deliberou sobre um cliente sem atualizar a MEMORIA_EMBAIXADOR → emitir SV no próximo ciclo.
+
+---
+
+### [P-033] Sync universal → projetos é obrigatório e imediato
+**Descoberto:** 2026-05-18 | **Sessão:** Auditoria Pentalateral — preparação NotebookLM
+**Fricção:** Diretor detectou que documentos em QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Quadrilateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
+
+**Regra:** Ao atualizar QUALQUER documento em QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/, o Músculo sincroniza imediatamente as cópias em TODOS os projetos ativos (CLIENTES/[NOME]/NOTEBOOKLM_FONTES/). Fonte única de verdade = QUADRILATERAL_UNIVERSAL. Cópia no projeto = snapshot para o Auditor. Documento atualizado na universal mas não copiado = Auditor que lê versão velha = loop que começa com inteligência contaminada.
+
+**Automação:** sync_passo_files.ps1 deve executar este sync em toda sessão de abertura. Músculo não espera Eduardo pedir — executa proativamente.
+
+**Por que importa:** O Auditor (NotebookLM) não tem acesso direto às fontes universais. Só vê o que está em NOTEBOOKLM_FONTES/. Se o Músculo não sincroniza, o Auditor opera com uma realidade desatualizada — e gera Skill baseada em premissas erradas.
+
+**Alerta ao Estrategista:** Ao gerar DIRETRIZ, verificar se fontes do Auditor estão em dia. Se não → pedir ao Músculo sync antes de prosseguir.
