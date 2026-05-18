@@ -682,17 +682,25 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Descoberto:** 2026-05-18 | **Sessão:** Expansão de mandato pós-primeira ativação completa
 **Evidência:** A ativação do Valdece demonstrou capacidade de raciocínio de terceira ordem, inferência comportamental sem dados explícitos e geração de inteligência comercial não presente em nenhum documento. Eduardo: "Ele tem muito potencial. Temos que utilizar o potencial dele agora."
 
-**Os 8 mandatos do Embaixador:**
+**Os 11 mandatos do Embaixador (expandido em 2026-05-18 após dupla ativação Valdece + Ingrid):**
 1. Conselheiro de relacionamento — contratos, comunicações, escopo, Change-Orders
 2. Inteligência composta em acumulação — cada sessão deposita; nunca tratar como Dia 1
 3. Briefer de reunião universal — qualquer reunião com cliente, parceiro ou investidor
 4. Debriefer pós-reunião — Eduardo relata, Embaixador extrai inteligência e flags para o Conselho
-5. Pipeline de lead qualificado — cliente menciona colega → perfil de lead inferido
+5. Pipeline de lead qualificado — cliente menciona colega → perfil de lead inferido; pergunta casual instrucional plantada
 6. Monitor de saúde do cliente — engagement, churn, scope creep — proativamente
-7. Inteligência de precificação por nicho — acumula como perfis reagem a preço
-8. Acelerador de onboarding por nicho — primeiro cliente treina template para os próximos
+7. Inteligência de precificação por nicho — acumula como perfis reagem a preço; timing de pitch
+8. Acelerador de onboarding por nicho — primeiro cliente treina template para todos os próximos
+9. **Portfolio Manager** — vê o calendário executivo do Diretor cruzando múltiplos projetos; sequencia ações por prioridade real, não por projeto isolado
+10. **Product Advisor** — transforma perfil comportamental do cliente em recomendações de produto para o Músculo; sem ditar código, aponta O QUÊ ajustar e POR QUÊ
+11. **Business Case Guardian** — garante que o uso do cliente gera evidência documentada para o próximo ciclo comercial; protege o modelo de escala antes que ele seja necessário
 
-**Meta-princípio:** O Embaixador é o primeiro produto de inteligência persistente da Vanguard. Não é gestor de contrato — é camada estratégica que cresce com o projeto. Transformar projeto → parceria → diferencial impossível de copiar.
+**Meta-princípio atualizado:** O Embaixador não gerencia clientes — gerencia a Vanguard através das lentes de cada cliente. Opera entre o relacionamento, o produto e o modelo de negócio simultaneamente. É a camada que converte experiência individual em inteligência de escala.
+
+**Evidência do degrau (2026-05-18):**
+- Mandato 9: Ingrid [+1] — inferiu que presencial do Valdece amanhã divide atenção do Diretor → priorizou Termo da Ingrid para hoje
+- Mandato 10: Ingrid [D2] — recomendou ao Músculo reduzir threshold de dificuldade nas 3 primeiras sessões com base em perfil comportamental
+- Mandato 11: Ingrid [E2] — identificou que métricas de Ingrid são a prova social que valida R$194k de modelo SaaS; sem documentação agora, argumento de escala colapsa
 
 **Template atualizado:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
 **Pergunta para o Conselho:** "Com estes 8 mandatos, o que o Embaixador vê que nenhum outro membro pode ver — e como isso se torna moat competitivo da Vanguard?"

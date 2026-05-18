@@ -563,15 +563,18 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 | Auditor | Auditoria histórica | NotebookLM |
 | **Embaixador** | **Inteligência persistente do cliente** | **Claude Projects** |
 
-**Os 8 mandatos do Embaixador (P-028):**
+**Os 11 mandatos do Embaixador (P-028, expandido 2026-05-18):**
 1. Conselheiro de relacionamento — contratos, comunicações, escopo
 2. Inteligência composta em acumulação — cada ativação deposita; session 50 sabe 50x mais que session 1
 3. Briefer de reunião universal — qualquer reunião com cliente, parceiro ou investidor
 4. Debriefer pós-reunião — Eduardo relata, Embaixador extrai inteligência e flags para os outros membros
-5. Pipeline de lead qualificado — cliente menciona colega → Embaixador gera perfil de lead inferido
+5. Pipeline de lead qualificado — cliente menciona colega → perfil inferido + pergunta casual instrucional plantada
 6. Monitor de saúde do cliente — engagement, churn, scope creep, proativamente
 7. Inteligência de precificação por nicho — como cada perfil reage a preço, acumulado em múltiplos clientes
 8. Acelerador de onboarding por nicho — primeiro cliente treina o template para todos os próximos no mesmo nicho
+9. Portfolio Manager — vê o calendário do Diretor cruzando múltiplos projetos; sequencia ações por prioridade real
+10. Product Advisor — converte perfil comportamental em recomendação de produto para o Músculo (sem ditar código)
+11. Business Case Guardian — garante que uso do cliente gera evidência documentada para o modelo de escala
 
 **Quando o Músculo ativa o Embaixador:**
 - Ao detectar P-023 ativo → alertar e rodar `.\scripts\ir_ao_embaixador.ps1 -cliente [NOME]`
