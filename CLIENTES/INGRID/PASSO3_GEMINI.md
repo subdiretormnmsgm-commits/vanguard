@@ -199,6 +199,10 @@ Ao estruturar sua DIRETRIZ, compense ativamente:
 
 ## 📤 FORMATO OBRIGATÓRIO DA DIRETRIZ (7 blocos — sem exceção)
 
+> **Título obrigatório na primeira linha da resposta:**
+> `Diretriz Estratégica V4 — Projeto Ingrid — Loop 3`
+> Sem o título, a DIRETRIZ não é identificável nem arquivável.
+
 ```
 BLOCO 0 — DIAGNÓSTICO
   Risco real que o Músculo e o Diretor não estão endereçando.
