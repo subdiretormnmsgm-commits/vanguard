@@ -9,12 +9,22 @@
 Estrategista, você está recebendo o contexto completo do Loop 2 do Projeto Ingrid:
 MEMORIA_V2 + RELATORIO_V2 + 5 ideias do Músculo (abaixo).
 
-**Sua missão: gerar a DIRETRIZ V4 para o Loop 3 (Dias 6–8).**
+**Sua missão tem dois objetivos:**
 
-O que construir neste loop: Interface de questões mobile + Tutor Socrático Haiku + Fallback de Fadiga (70% da cota diária).
+**Objetivo 1 — Continuar o projeto Ingrid:**
+Gerar a DIRETRIZ V4 para o Loop 3 (Dias 6–8).
+O que construir: Interface de questões mobile + Tutor Socrático Haiku + Fallback de Fadiga (70% da cota diária).
 Prazo: 3 dias de build. Deadline do projeto: 2026-05-30. Dias restantes: ~12.
-Gates aprovados até aqui: Dia 2 (questões) + Dia 5 (feed 70/30, 7 dias, 0 erros).
+Gates aprovados: Dia 2 (questões) + Dia 5 (feed 70/30, 7 dias, 0 erros).
 Próximo gate: Dia 8 — Ingrid responde 10 questões reais, progresso salvo, fallback testado.
+
+**Objetivo 2 — Internalizar o processo evolutivo Pentalateral IAH (2026-05-18):**
+O sistema evoluiu de Quadrilateral para Pentalateral IAH. O Diretor Eduardo é agora o 5º ator formal.
+Dois novos princípios ativos no LEDGER:
+- P-031: Embaixador como filtro de realidade — CONFIRMA/EXPANDE/ALERTA cada ideia dos outros membros com base em comportamento real do cliente.
+- P-032: MEMORIA_EMBAIXADOR é atualizada automaticamente pelo Músculo após toda deliberação relevante.
+O loop agora gera 20 ideias/ciclo: [M-1 a M-5] + [E-1 a E-5] + [G-1 a G-5] + [N-1 a N-5].
+Sua DIRETRIZ V4 deve refletir o Pentalateral — incluir os mandatos do Embaixador e reagir a P-031/032.
 
 Use o formato obrigatório de 7 blocos definido no final deste documento.
 
