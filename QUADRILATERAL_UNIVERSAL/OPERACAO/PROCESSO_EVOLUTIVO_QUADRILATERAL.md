@@ -140,8 +140,12 @@ DIRETOR → MÚSCULO ("PROTOCOLO VANGUARD" + Nova Skill + Nova DIRETRIZ)
 
 **Ordem correta no sistema (P-030 + princípio fundador 2026-05-18):**
 1. Documentos gerados automaticamente pelos membros do Conselho
-2. Deliberação do Diretor — Eduardo decide, aprova, veta
-Nenhum membro espera Eduardo escrever algo que o sistema deveria gerar.
+2. Eduardo atua, relembra, delibera, interage — em TODOS os momentos
+3. As AÇÕES são automáticas — Eduardo dá os vereditos
+
+O Diretor não é passivo: é o cérebro do sistema. Participa em cada etapa — questiona, delibera, reage.
+O que é automático são os documentos, análises e propostas que chegam prontos para ele deliberar.
+Nenhum membro espera Eduardo produzir algo que o sistema deveria entregar — mas Eduardo está sempre presente.
 
 ---
 
