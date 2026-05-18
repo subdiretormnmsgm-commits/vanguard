@@ -9,7 +9,7 @@
 Estrategista, você está recebendo o contexto completo do Loop 2 do Projeto Ingrid:
 MEMORIA_V2 + RELATORIO_V2 + 5 ideias do Músculo (abaixo).
 
-**Sua missão: gerar a DIRETRIZ V3 para o Loop 3 (Dias 6–8).**
+**Sua missão: gerar a DIRETRIZ V4 para o Loop 3 (Dias 6–8).**
 
 O que construir neste loop: Interface de questões mobile + Tutor Socrático Haiku + Fallback de Fadiga (70% da cota diária).
 Prazo: 3 dias de build. Deadline do projeto: 2026-05-30. Dias restantes: ~12.
@@ -40,7 +40,7 @@ Anexar estes 3 arquivos diretamente no Gemini (nesta ordem):
 
 Após receber a DIRETRIZ (7 blocos):
 - Se vier incompleta → dizer: "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
-- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V3.txt`
+- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V4.txt`
   (nome exato — o script do Passo 5 busca este padrão automaticamente)
 
 Loop 2+ — anexar também:

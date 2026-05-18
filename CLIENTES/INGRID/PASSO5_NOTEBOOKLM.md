@@ -7,7 +7,7 @@
 ## 📌 ANTES DE IR AO NOTEBOOKLM — checklist obrigatório
 
 ```
-[x] 1. DIRETRIZ_GEMINI_V3.txt recebida e salva em CLIENTES\INGRID\
+[ ] 1. DIRETRIZ_GEMINI_V4.txt recebida e salva em CLIENTES\INGRID\
 [x] 2. Rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
 [x] 3. Explorer abre automaticamente — Ctrl+A → arrastar TUDO ao NotebookLM
 [x] 4. Fazer Wipe & Sync das fontes (apagar antigas antes de subir as novas)
@@ -62,7 +62,7 @@ Ao gerar a Skill, compense ativamente:
 - Recalibração de cargo executada (P-024): Cargo 202, não TDAS área social
 
 **Missão do Auditor neste loop:**
-> "Auditor, você recebeu a DIRETRIZ_GEMINI_V3 para o Loop 3 do Projeto Ingrid.
+> "Auditor, você recebeu a DIRETRIZ_GEMINI_V4 para o Loop 3 do Projeto Ingrid.
 > O Músculo vai deliberar e construir a interface mobile, o Tutor Socrático e o fallback de fadiga.
 > Sua missão: auditar a DIRETRIZ cruzando com o histórico real das fontes.
 > Identifique: (1) o que contradiz princípios ativos do LEDGER ou decisões já tomadas,
@@ -87,7 +87,7 @@ Skill sem os 4 blocos com dados reais = Skill rejeitada. Músculo não inicia o 
 
 ```
 PARTE 1 — AUDITORIA DE COERÊNCIA
-  A DIRETRIZ V3 contradiz algo já construído ou decidido no Loop 1 ou Loop 2?
+  A DIRETRIZ V4 contradiz algo já construído ou decidido nos Loops 1, 2 ou 3?
   Citar: fonte exata (arquivo, princípio, versão). Sem dado real = bloco inválido.
   Verificar especificamente:
     - Arquitetura de batch (1 Claude call/invocação — nunca reverter)
@@ -152,7 +152,7 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 09_BRIEFING_DISCOVERY.txt          ← dor real da cliente
 10_MEMORIA_RECENTE.md              ← MEMORIA_V2_INGRID.md (Loop 2)
 11_RELATORIO_EVOLUTIVO.md          ← relatorio_evolutivo_V2_INGRID.md (Loop 2)
-12_DIRETRIZ_GEMINI.txt             ← DIRETRIZ_GEMINI_V3 do Gemini ← OBRIGATÓRIO
+12_DIRETRIZ_GEMINI.txt             ← DIRETRIZ_GEMINI_V4 do Gemini ← OBRIGATÓRIO
 13_PASSO5_NOTEBOOKLM.md            ← este arquivo (missão do Auditor)
 14_SKILL_ANTERIOR.md               ← Skill ingrid-v1.md do Loop 1 (se existir)
 15_ALERTA_CONFLITO.md              ← gatilho de calibração

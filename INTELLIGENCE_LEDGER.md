@@ -759,6 +759,17 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ---
 
+### [FALHA-PROCESSO-2026-05-18-C] Versão da DIRETRIZ no PASSO não rastreada por projeto
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** PASSO3_INGRID e PASSO5_INGRID referenciavam DIRETRIZ V3 como próxima a gerar. Porém a V3 já existia — foi gerada para a sessão do Embaixador (2026-05-17), não para o Loop 3 do projeto. A próxima DIRETRIZ do projeto é a V4. Músculo não rastreou a versão correta ao atualizar os PASSOs.
+
+**Regra gerada:** Ao atualizar qualquer PASSO file, verificar antes quais arquivos DIRETRIZ_GEMINI_V*.txt já existem na pasta do cliente. Próxima versão = maior número existente + 1. Nunca assumir versão por número de loop.
+
+**Arquivos corrigidos:** INGRID/PASSO3 e PASSO5 (master + NOTEBOOKLM_FONTES/13): V3 → V4
+
+---
+
 ### [FALHA-PROCESSO-2026-05-18-B] PASSO files não cobertos pela sincronização de nomenclatura
 
 **Detectado por:** Diretor Eduardo
