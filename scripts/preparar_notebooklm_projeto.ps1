@@ -49,13 +49,13 @@ if (Test-Path $fontes_dir) {
 }
 
 Write-Host ""
-Write-Host "--- PARTE 1: Documentos universais (01-08) ---" -ForegroundColor Yellow
+Write-Host "--- PARTE 1: Atualizando documentos universais (01-08) ---" -ForegroundColor Yellow
+Write-Host "  Sincronizando BASE com fontes originais..." -ForegroundColor DarkGray
 
-if (-not (Test-Path "$base_dir\01_SKILL_PROTOCOLO_VANGUARD.md")) {
-    Write-Host "[AVISO] NOTEBOOKLM_BASE vazia. Atualizando a BASE primeiro..." -ForegroundColor Yellow
-    & "$PSScriptRoot\atualizar_notebooklm_base.ps1"
-}
+# Sempre atualiza a BASE antes de copiar — garante que Eduardo arrasta documentos em dia
+& "$PSScriptRoot\atualizar_notebooklm_base.ps1" | Out-Null
 
+Write-Host ""
 Get-ChildItem $base_dir | ForEach-Object {
     Copy-Item $_.FullName "$fontes_dir\$($_.Name)" -Force
     Write-Host "  [OK] $($_.Name)" -ForegroundColor Green
@@ -130,6 +130,15 @@ if (Test-Path $f) {
     Write-Host "  [OK] 15_ALERTA_CONFLITO.md" -ForegroundColor Green
 } else {
     Write-Host "  [--] 15_ALERTA_CONFLITO.md (nao encontrado)" -ForegroundColor DarkGray
+}
+
+# 16 - VANGUARD_TIMELINE (historia completa da Vanguard - fonte historica do Auditor)
+$f = "$raiz\VANGUARD_TIMELINE.md"
+if (Test-Path $f) {
+    Copy-Item $f "$fontes_dir\16_VANGUARD_TIMELINE.md" -Force
+    Write-Host "  [OK] 16_VANGUARD_TIMELINE.md" -ForegroundColor Green
+} else {
+    Write-Host "  [--] 16_VANGUARD_TIMELINE.md (nao encontrado - criar na raiz)" -ForegroundColor Yellow
 }
 
 Write-Host ""
