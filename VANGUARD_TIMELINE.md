@@ -365,7 +365,7 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Linha do Tempo** | 2026-05-17 | VANGUARD_TIMELINE.md criada. Fonte histórica obrigatória do Auditor. |
 | **Embaixador** | 2026-05-17 | **Formalizador → Embaixador.** Upgrade de membro passivo (contratos) para 4º conselheiro ativo: memória persistente do cliente, 11 mandatos, pipeline de lead, debrief pós-reunião. |
 | **P-031** | 2026-05-18 | Embaixador como filtro de realidade: CONFIRMA/EXPANDE/ALERTA cada ideia de [M]+[G]+[N] com base em comportamento real do cliente. Ideia do Diretor. |
-| **Pentálateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Quadrilateral para Pentálateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 20 ideias/ciclo: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
+| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Quadrilateral para Pentalateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 20 ideias/ciclo: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
 | **Sistema de Alertas Zero-Composição** | 2026-05-18 | Telegram Bot + briefing_diario.ps1 + alerta_whatsapp.ps1 operacionais. Eduardo recebe contexto + mensagem exata para copiar no WhatsApp. Nenhuma composição mental necessária. |
 | **P-032** | 2026-05-18 | MEMORIA_EMBAIXADOR é atualizada automaticamente pelo Músculo após qualquer deliberação que afete cliente ativo. Detectado pelo Diretor — FALHA-PROCESSO-2026-05-18 registrada e corrigida. |
 
