@@ -1,5 +1,5 @@
-# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO VALDECE · LOOP 4
-> Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Criado em 2026-05-19
+# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO VALDECE · LOOP 6
+> Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Atualizado em 2026-05-19
 > Eduardo não edita este arquivo — é o guia de ativação do Embaixador para este projeto.
 > Músculo atualiza as ideias dos sócios (SEÇÃO D) ao fechar cada loop.
 
@@ -54,30 +54,40 @@ Contra-ataque: Eduardo quer TANTO evidências quanto pensamentos inovadores.
 
 ```
 ATIVAÇÃO DO EMBAIXADOR — VALDECE
-Data: [YYYY-MM-DD]
-Loop atual: 4 | Fase: [PRÉ-DEMO / DEBRIEF-PÓS-DEMO / PIPELINE / REAÇÃO AO PENTALATERAL]
-Última ativação: [DATA]
+Data: 2026-05-19
+Loop atual: 6 | Fase: REAÇÃO AO PENTALATERAL
+Última ativação: 2026-05-19
 
 --- ELO DO CICLO ATUAL (obrigatório no cabeçalho) ---
-DIRETRIZ em processo: DIRETRIZ_GEMINI_V4.txt
-Skill gerada pelo Auditor: valdece-v4.md
-Skill executada pelo Músculo: /valdece-v4 (antes de qualquer build)
-Gate atual: Demo ao vivo → Valdece diz "é isso" em <10s no sistema DELE → contrato assinado
+DIRETRIZ em processo: DIRETRIZ_GEMINI_V6.txt
+Skill gerada pelo Auditor: valdece-v6.md (APROVADA pelo gate)
+Skill executada pelo Músculo: /valdece-v6
+Gate atual: Contrato R$5.000 assinado → V3 desbloqueado (schema migration + badges vinculantes)
 ```
 
 ---
 
-## 📋 CONTEXTO ATUALIZADO DO PROJETO — Loop 4
+## 📋 CONTEXTO ATUALIZADO DO PROJETO — Loop 6
 
 **Cliente:** Valdece — Advogado criminalista
 **Projeto:** Toga Digital — busca semântica de jurisprudências STF/STJ
-**Camada:** 1 — MVP (5 dias de build concluídos)
-**Loop atual:** 4 (pós-presencial 2026-05-19 · demo ao vivo pendente)
-**Temperatura atual:** QUENTE (sistema funciona + credenciais obtidas + presencial realizado)
-**App:** https://toga-digital-valdece.netlify.app — LIVE
-**Corpus:** 61 acórdãos · 22 temas · threshold 0.67 · top 3 · similaridade 0.67-0.818 · VERDE
-**Gate aprovado:** GATE P-038 (12/12 verde · latência 2.1-3.4s)
-**Gate pendente:** Demo real — Valdece diz "é isso" em <10s → contrato R$5.000 fechado
+**Camada:** 1 — MVP (5 dias de build + loop evolutivo concluídos)
+**Loop atual:** 6 — pós-feedback 5 áudios · contrato pendente assinatura presencial
+**Temperatura atual:** QUENTE (sistema live + melhorias entregues hoje + feedback ativo via áudios)
+**App:** https://toga-digital-valdece.netlify.app — LIVE (commit 9709649)
+**Corpus:** 61 acórdãos · threshold 0.67 (Precisa) / 0.45 (Ampla) · top 3 · GATE P-038 VERDE
+
+**Entregas do Loop 6 (2026-05-19):**
+- Ementa completa no card (não truncada em 280 chars)
+- Badge UF extraído do numero_acordao (ex: HC 512.290/RJ → badge "RJ")
+- Boost monocrático: HC/liminar/monocrática sobem +0.15 no ranking
+- HC 512.290/RJ corrigido no banco (dado errado substituído + re-embedding)
+
+**Feedback de Valdece (5 áudios — processados pelo Estrategista):**
+- Ementa completa obrigatória (✅ entregue)
+- Estado de origem (UF) após número do acórdão (✅ entregue)
+- Badge Repercussão Geral STF + Recurso Repetitivo STJ (❌ V3 pós-contrato)
+- Data DJE na citação (❌ V3 pós-contrato)
 
 **Cena de sucesso (P-041 — âncora do Embaixador):**
 "Estou num julgamento, o promotor cita um precedente que eu não conheço. Abro o Toga Digital,
@@ -86,13 +96,14 @@ digito o nome do crime, e em 10 segundos tenho o acórdão com mais peso — cit
 **Estado atual (2026-05-19):**
 - Credenciais do Valdece: obtidas no presencial — Eduardo as tem
 - Sovereign Playbook apresentado — objeção vendor lock-in destruída
-- Demo real: PRÓXIMA — Valdece ainda não testou o sistema. Janela de encantamento intacta.
-- Contrato: PENDENTE — aguarda demo + encantamento
+- Valdece enviou 5 áudios com feedback técnico — sinal de comprometimento alto (P-046)
+- Contrato: PENDENTE ASSINATURA — Eduardo vai presencialmente hoje
+- V3 (badges vinculantes): BLOQUEADO até assinatura — P-023 ativo
 
 **Watchdog ativo:**
-- [CHURN-WATCH] janela de encantamento: cada dia sem demo = encantamento esfriando
-- [SCOPE-WATCH] P-023: contrato formal é pré-requisito — nenhuma feature nova antes de assinar
-- [PIPELINE] Valdece pode mencionar colegas — momento de plantio de lead no pós-demo
+- [SCOPE-WATCH] P-023: teto do V1 atingido — ementa + UF + boost. Nada mais sem assinatura.
+- [PIPELINE] Valdece criminalista ativo — círculo de colegas é lead natural pós-encantamento
+- [V3-WATCH] re-ingestão e schema migration prontos para executar em 4-6h após contrato
 
 ---
 
@@ -101,7 +112,7 @@ digito o nome do crime, e em 10 segundos tenho o acórdão com mais peso — cit
 - [ ] SEÇÃO A — BRIEFING PRÉ-DEMO (antes da demo ao vivo com Valdece)
 - [ ] SEÇÃO B — DEBRIEF PÓS-DEMO (após qualquer contato real com Valdece)
 - [ ] SEÇÃO C — PIPELINE DE LEAD (Valdece mencionou colega)
-- [ ] SEÇÃO D — REAÇÃO AO PENTALATERAL (Músculo + Gemini + NotebookLM geraram ideias)
+- [x] SEÇÃO D — REAÇÃO AO PENTALATERAL (Músculo + Gemini + NotebookLM geraram ideias)
 
 ---
 
@@ -208,22 +219,82 @@ PEDIDO AO EMBAIXADOR:
 
 ```
 Embaixador, reação ao ciclo atual do Pentalateral — VALDECE.
-Loop 4 · pós-presencial 2026-05-19 · demo pendente · contrato pendente
+Loop 6 · pós-áudios Valdece · 3 features entregues (ementa + UF + boost) · contrato pendente assinatura
 
 CONTEXTO DO CICLO (elo obrigatório — não omitir):
-- DIRETRIZ em execução: DIRETRIZ_GEMINI_V4.txt
-- Skill que o Músculo vai executar: /valdece-v4
-- O que a Skill define como prioridade: converter a demo em contrato — não build novo
-- O que a Skill proíbe de construir: qualquer feature nova antes do contrato assinado
+- DIRETRIZ em execução: DIRETRIZ_GEMINI_V6.txt
+- Skill que o Músculo vai executar: /valdece-v6
+- O que a Skill define como prioridade: assinar o contrato R$5.000 → liberar V3 (badges vinculantes)
+- O que a Skill proíbe de construir: qualquer campo V3 (data_dje, repercussao_geral, recurso_repetitivo) antes do contrato
+- Teto atual: ementa completa + badge UF + boost monocrático — nada mais sem assinatura (P-023)
 
-[M-1 a M-5] — IDEIAS DO MÚSCULO:
-[Eduardo: colar as 5 ideias do relatorio_evolutivo mais recente aqui]
+[M-1 a M-5] — IDEIAS DO MÚSCULO (Loop 6 · 2026-05-19):
 
-[G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI):
-[Eduardo: colar as 5 ideias da DIRETRIZ V4 do Gemini aqui]
+[M-1] SCHEMA V3 — MIGRAÇÃO CIRÚRGICA SEM REESCREVER O SISTEMA
+ALTER TABLE ADD COLUMN (data_dje, repercussao_geral, recurso_repetitivo, turma) + re-ingestão.
+Custo: 4-6h pós-contrato. Ordem segura: SQL → ingest.py dry-run → frontend → ABNT.
 
-[N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM · valdece-v4.md):
-[Eduardo: colar as 5 ideias da Skill valdece-v4 aqui]
+[M-2] BADGE "VINCULANTE" COMO ARGUMENTO DE RENOVAÇÃO
+Repercussão Geral e Recurso Repetitivo — nenhum portal mostra isso de forma clara.
+Fidelização por utilidade exclusiva, não por preço. Entregar no Loop V3 como surprise delivery.
+
+[M-3] CORPUS 300+ COM RE-INGESTÃO ESTRUTURADA
+Re-ingestão para V3 é oportunidade de expandir 61→300+ acórdãos. Custo marginal quase zero.
+Prioridade: cobertura por tema do criminalista (não volume bruto) — mapear temas do Valdece primeiro.
+
+[M-4] DATA_DJE — ESTRATÉGIA DE CAPTURA MANUAL
+Capturar manualmente nos 61 acórdãos existentes (~2h). Scraping automático do STJ vai para V4
+(risco de quebra por mudança de HTML do portal é alto no curto prazo).
+
+[M-5] CONTRATO COMO DESBLOQUEADOR DO V3 — NÃO ENTREGAR ANTES
+Sem contrato assinado = feedback dos áudios vira escopo ilimitado gratuito.
+As 3 features entregues hoje são o teto do V1. Proteção comercial ativa (FALHA-PROCESSO-2026-05-16-B).
+
+[G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI · Diretriz Técnica V6):
+
+[G-1] O GATILHO DO BOLETO ANCORADO
+Emitir boleto R$5.000 junto com a assinatura. Materializa compromisso financeiro imediatamente.
+Controle de liberação de feature por faturamento — V1 humano, V3 automatizável.
+
+[G-2] SHADOW INGEST (V3 SECRETO)
+Músculo prepara corpus 300+ e script V3 localmente enquanto espera assinatura.
+Quando contrato chegar, deploy leva 3 minutos. Choque de time-to-value irreal para Valdece.
+Custo embedding local: ~$0.02 (300 docs × 768 dims).
+
+[G-3] CLÁUSULA DE EVOLUÇÃO DINÂMICA
+Inserir no contrato: "2h técnicas mensais" para ajustes pequenos; pedidos maiores = escopo pago.
+Mata scope creep verbal pela raiz. O UF e Ementa que vieram por áudio: cláusula que encobre esses ajustes.
+
+[G-4] ZERO CHURN DASHBOARD OCULTO (view já existe)
+View vg_roi_mensal JÁ EXISTE no schema — zero build. Eduardo acessa via `SELECT * FROM vg_roi_mensal;`
+Métrica para renovação e pedido de indicações no dia 25. Nenhuma UI necessária no V1.
+
+[G-5] DOSSIÊ NICHO CONTABILIDADE (P-043)
+DFD tributário/contábil em paralelo enquanto Valdece está em stand-by.
+4 perguntas P-043: fonte + obsolescência + restrições + estrutura semântica.
+Não paralisa a fábrica enquanto aguarda a assinatura.
+
+[N-1 a N-5] — IDEIAS DO AUDITOR (NotebookLM · valdece-v6.md):
+
+[N-1] AUDITORIA DE COERENCIA — ESCOPO SILENCIOSO ATIVO
+3 melhorias entregues sem contrato assinado violam P-023. Risco de "fábrica de favores".
+Cada entrega sem contrato enfraquece a posição comercial. Teto V1 declarado e documentado.
+
+[N-2] DRY-RUN OBRIGATORIO PRE-REINGESTA
+Re-ingestão V3 sem dry-run = risco de gap temporário no corpus (threshold 0.67 pode cair).
+Sequência segura: SQL local → ingest dry-run → validar sim score → só então substituir corpus produção.
+
+[N-3] BADGE VINCULANTE COMO GATE FINAL DO V3
+Gate V3 aprovado quando Valdece identifica o badge "VINCULANTE" sozinho, sem explicação.
+Não é entrega técnica — é percepção do cliente. Se ele não nota, o gate não passou.
+
+[N-4] PERFIL "COAUTOR SOBERANO" — VETO DE MENSALIDADE
+Embaixador detectou perfil incompatível com modelo MRR. Não propor mensalidade R$900/mês.
+Modelo Opção A fixado: produto na infra do Valdece, sem MRR, ~R$1,20/mês na conta dele.
+
+[N-5] DEMO NO COMPUTADOR DO VALDECE — OBRIGATORIO
+Padrão histórico Vanguard: demo no computador do Diretor mata sentimento de posse do cliente.
+Valdece deve operar o sistema no PC dele, com busca em tema que ELE escolhe.
 
 PEDIDO AO EMBAIXADOR:
 Para cada ideia acima, responder com:
@@ -238,10 +309,10 @@ Formato de resposta para cada ideia:
   Severidade (apenas para ALERTA): [ALTO / CRÍTICO]
 
 ANÁLISE INOVADORA OBRIGATÓRIA (P-035 — amplitude total):
-- Estratégia comercial: qual o timing certo para apresentar a Manutenção Soberana R$900/mês?
-- Pipeline: há outros advogados no círculo do Valdece que o sistema já serviria?
-- Business case: quais dados da demo validam escala para outros escritórios criminais?
-- Risco não endereçado: o que o Músculo e o Gemini não estão vendo sobre o perfil do Valdece?
+- Estratégia comercial: qual o timing certo para apresentar o roadmap V3 (badges vinculantes) durante a assinatura?
+- Pipeline: há outros advogados criminais no círculo do Valdece que o sistema já serviria?
+- Business case: quais dados do uso atual (buscas, sim scores) validam escala para outros escritórios criminais?
+- Risco não endereçado: o que o Músculo e o Gemini não estão vendo sobre o perfil de Valdece como "Coautor Soberano"?
 ```
 
 ---
@@ -296,10 +367,10 @@ Razão: [por que esta ação agora e não outra]
 | Antes da demo ao vivo | SEÇÃO A (briefing pré-demo) | ALTA |
 | Após a demo | SEÇÃO B (debrief) | ALTA — prazo 24h |
 | Se Valdece mencionar colega | SEÇÃO C (pipeline) | IMEDIATA |
-| Após Gemini + NotebookLM Loop 4 | SEÇÃO D (reação) | NORMAL |
+| Após Gemini + NotebookLM Loop 6 | SEÇÃO D (reação) | NORMAL |
 | Se 3+ dias sem contato pós-demo | SEÇÃO B (debrief) | [CHURN-WATCH] |
 
 ---
 
-*PASSO7 · Projeto Valdece · Loop 4 · Criado em 2026-05-19*
+*PASSO7 · Projeto Valdece · Loop 6 · Atualizado em 2026-05-19*
 *Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md*
