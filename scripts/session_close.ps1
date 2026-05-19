@@ -150,6 +150,75 @@ if ($divida) {
     Write-Host "Inclua este arquivo nas fontes do NotebookLM no proximo ciclo."
 }
 
+# --- EVOLUÇÃO DO PROTOCOLO: padrões universais desta sessão ---
+Write-Host ""
+Write-Host "=============================================="
+Write-Host "  EVOLUCAO DO PROTOCOLO VANGUARD"
+Write-Host "=============================================="
+Write-Host ""
+Write-Host "  Esta sessao revelou algum padrao que muda COMO o sistema opera?"
+Write-Host "  (nao apenas o que aprendemos de um cliente -- mas como o Pentalateral funciona)"
+Write-Host ""
+Write-Host "  Exemplos: nova deficiencia descoberta, novo passo no ritual,"
+Write-Host "            novo tipo de documento, nova regra de processo."
+Write-Host ""
+Write-Host "  Liste 1 por linha. Enter em branco para encerrar. Enter direto para pular."
+$padroesProtocolo = @()
+while ($true) {
+    $linha = Read-Host "    > "
+    if ([string]::IsNullOrWhiteSpace($linha)) { break }
+    $padroesProtocolo += $linha
+}
+
+if ($padroesProtocolo.Count -gt 0) {
+    $protocoloPath  = Join-Path $BASE ".claude\skills\vanguard-protocolo.md"
+    $universalPath  = Join-Path $BASE "QUADRILATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md"
+
+    $blocoEvol  = "`n`n### [EVOLUCAO-$DATA]`n"
+    $blocoEvol += "> Capturado via session_close.ps1 — posicionar na secao adequada ao fechar o projeto.`n"
+    $num = 1
+    foreach ($p in $padroesProtocolo) {
+        $blocoEvol += "$num. $p`n"
+        $num++
+    }
+
+    $conteudoProt = Get-Content $protocoloPath -Raw -Encoding utf8
+
+    if ($conteudoProt -match "## EVOLUCOES DE PROCESSO EM CURSO") {
+        $conteudoProt += $blocoEvol
+    } else {
+        $secaoEvol = "`n`n---`n`n## EVOLUCOES DE PROCESSO EM CURSO`n"
+        $secaoEvol += "> Capturadas pelo Musculo via session_close.ps1.`n"
+        $secaoEvol += "> Ao fechar o projeto: incorporar ao corpo do protocolo + remover esta secao.`n"
+        $conteudoProt = $conteudoProt + $secaoEvol + $blocoEvol
+    }
+
+    Set-Content $protocoloPath -Value $conteudoProt -Encoding utf8
+    Copy-Item $protocoloPath $universalPath -Force
+
+    # Também registrar no LEDGER com tag [PROTOCOLO]
+    $entradaProt = "`n`n### [SESSAO $DATA -- PROTOCOLO]`n"
+    foreach ($p in $padroesProtocolo) {
+        $entradaProt += "``[PROTOCOLO]`` $p`n"
+    }
+    $conteudoLed = Get-Content $LEDGER -Raw -Encoding utf8
+    if ($conteudoLed -match "## GLOSSARIO") {
+        $conteudoLed = $conteudoLed -replace "(?m)^## GLOSSARIO", "$entradaProt`n`n## GLOSSARIO"
+    } else {
+        $conteudoLed = $conteudoLed + $entradaProt
+    }
+    Set-Content $LEDGER -Value $conteudoLed -Encoding utf8
+
+    Write-Host ""
+    Write-Host "  [OK] $($padroesProtocolo.Count) padrao(oes) registrado(s) em:" -ForegroundColor Green
+    Write-Host "       .claude/skills/vanguard-protocolo.md" -ForegroundColor Green
+    Write-Host "       QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md" -ForegroundColor Green
+    Write-Host "       INTELLIGENCE_LEDGER.md (tag [PROTOCOLO])" -ForegroundColor Green
+    Write-Host "  [!]  Proximo passo: posicionar na secao adequada ao fechar o projeto." -ForegroundColor Cyan
+} else {
+    Write-Host "  Nenhum padrao de protocolo registrado nesta sessao." -ForegroundColor DarkGray
+}
+
 Write-Host ""
 Write-Host "=============================================="
 Write-Host "  Proximo passo: git commit + fechar sessao"
@@ -399,6 +468,10 @@ if ($mandatos.Count -gt 0) {
     foreach ($m in $mandatos) { $resumoTelegram += "  - $m`n" }
 }
 if ($divida)             { $resumoTelegram += "Divida tecnica registrada: $divida`n" }
+if ($padroesProtocolo.Count -gt 0) {
+    $resumoTelegram += "Evolucao de protocolo ($($padroesProtocolo.Count) padrao(oes)):`n"
+    foreach ($p in $padroesProtocolo) { $resumoTelegram += "  - $p`n" }
+}
 $resumoTelegram += "`nProximo: PASSO3 + Gemini para fechar o loop."
 
 $urlTelegram = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
