@@ -1,8 +1,8 @@
 # PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 4
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Atualizado pelo Músculo em 2026-05-18 após Síntese Final do Loop 3.
-> Versão expandida: inclui novas questões estratégicas do Diretor (P-038 a P-040 + V26).
-> Usar após Gate Dia 8 aprovado + relatorio_evolutivo_V3 gerado.
+> Atualizado pelo Músculo em 2026-05-19 — MEMORIA_V3 + relatorio_V3 gerados.
+> Nichos aprovados: Médico + Contabilidade + Psicólogo (GO 2026-05-19).
+> Usar com: MEMORIA_V3_INGRID.md + relatorio_evolutivo_V3_INGRID.md + este arquivo.
 
 ---
 
@@ -64,6 +64,10 @@ Após receber a DIRETRIZ (7 blocos):
 | **P-035** | Embaixador opera em amplitude total — comercial, pipeline, business case, não só cliente |
 | **P-036** | Músculo prepara mensagem estruturada (6 blocos) para o Embaixador ao fim da análise cirúrgica |
 | **P-037** | Músculo faz Síntese Final com 25 inputs [M+G+N+M'+E] antes do veredito do Diretor |
+| **P-047** | Perfil de Nicho é trade secret — nunca em proposta, contrato ou pitch externo |
+| **P-048** | Perfil avança de maturidade só com evidência de cliente real — pesquisa externa não eleva acima de 30% |
+| **P-049** | Cada Perfil novo declara explicitamente como difere dos Perfis vizinhos |
+| **P-050** | Pesquisa de mercado externa é insumo do Estrategista, não substituto de captura verbatim |
 
 **Loop agora tem 7 passos:** Músculo → Gemini → NotebookLM → Músculo (cirúrgico) →
 Embaixador → Músculo (Síntese Final P-037) → Diretor (veredito).
@@ -85,6 +89,9 @@ Embaixador → Músculo (Síntese Final P-037) → Diretor (veredito).
 6. Perfil de candidato/cliente é pré-requisito de qualquer projeto EdTech [P-038]
 7. Modelo de testes 3 camadas (Técnica + Usuário + Regressão) antes de qualquer entrega [P-039]
 8. Perfis de Nicho são o ativo proprietário central da Vanguard — acumulam com cada projeto [P-040]
+9. Perfil de Nicho é trade secret — nunca em proposta, contrato ou pitch externo [P-047]
+10. METODOLOGIA_PERFIS_VANGUARD aprovada — Embaixador é guardião, 3 nichos em discovery: Médico + Contabilidade + Psicólogo
+11. AUDITORIA_VANGUARD.txt — diretriz de auditoria estrutural pendente de sessão dedicada
 
 ---
 
@@ -201,16 +208,29 @@ Gerar DIRETRIZ V5 com pelo menos 2 ideias [G-X] específicas sobre como acelerar
 
 ## 💡 5 IDEIAS DO MÚSCULO — Loop 3
 
-> ⚠️ PREENCHER após gerar relatorio_evolutivo_V3 (Gate Dia 8 concluído).
-> Seção abaixo é placeholder — substituir pelo conteúdo real do relatório.
+> Geradas pelo Músculo ao fechar o Loop 3 · 2026-05-19
+> O Estrategista reage a cada [M-X] no BLOCO 4 da DIRETRIZ.
+> [M-X] têm peso equivalente ao [E-X] do Embaixador — surgem do build real, não de abstração.
 
-```
-[M-1] [preencher após Loop 3]
-[M-2] [preencher após Loop 3]
-[M-3] [preencher após Loop 3]
-[M-4] [preencher após Loop 3]
-[M-5] [preencher após Loop 3]
-```
+**[M-1] AUDITORIA_VANGUARD como Processo Pentalateral Documentado**
+Eduardo deixou AUDITORIA_VANGUARD.txt com diretriz de auditoria estrutural cobrindo: consolidar duplicatas, organizar arquivos, atualizar documentos-chave, criar SKILL de auditoria. Isso não é tarefa de uma sessão — é processo com: (1) mapeamento completo de todos os documentos, (2) auditoria por tipo, (3) sessão com Gemini + NotebookLM para validar antes de qualquer mudança. Proposta: criar `SKILL_AUDITORIA_VANGUARD.md` em `.claude/skills/` com workflow completo, executar como Loop dedicado.
+*Pergunta para o Estrategista: qual é a ordem certa para auditar sem quebrar nada no processo vivo dos projetos ativos?*
+
+**[M-2] Custo Marginal Decrescente como KPI Rastreável**
+METODOLOGIA_PERFIS_VANGUARD declara "primeiro Perfil custou 15 dias, décimo Perfil custa 2 dias". Isso é tese sem dado. Para validar como argumento de captação, rastrear: `tempo_onboarding_cliente_N` por nicho. Criar campo no WIP_BOARD: `dias_ate_gate_dia8` por projeto. Ingrid = 15 dias. Próxima EdTech = previsto 5 dias. Quando o dado confirmar, o argumento de venda se torna irrefutável.
+*Pergunta para o Estrategista: como comunicar esse KPI ao próximo cliente antes de ter o dado do segundo cliente?*
+
+**[M-3] PESQUISA_BRUTA como Input Estruturado para Gemini**
+Os 3 novos nichos precisam de PESQUISA_BRUTA_MEDICINA.md, PESQUISA_BRUTA_CONTABILIDADE.md, PESQUISA_BRUTA_PSICOLOGIA.md. Formato ainda não padronizado. Proposta: criar `PASSO3_PESQUISA_BRUTA_TEMPLATE.md` com: (1) 5 falhas conhecidas das plataformas líderes, (2) 3 dores documentadas, (3) TAM estimado, (4) preço médio do concorrente, (5) 5 hipóteses iniciais a testar. Cada pesquisa em documento separado — nunca misturada com a DIRETRIZ do projeto ativo.
+*Pergunta para o Estrategista: qual dos 3 nichos tem resposta mais rápida de clientes potenciais para Eduardo prospectar primeiro?*
+
+**[M-4] SKILL_AUDITORIA_VANGUARD.md — SKILL Universal para Auditoria**
+Eduardo pediu explicitamente Skill que documente o processo de auditoria de documentação. Com base na AUDITORIA_VANGUARD.txt e nos princípios do LEDGER (P-033, P-044), essa Skill deve: (1) listar todos os documentos por tipo, (2) aplicar a pergunta universal "o que aprendemos muda o que este doc diz?", (3) definir quem atualiza cada tipo, (4) definir critério de completude. Guardião: Músculo. Ativação: ao fechar qualquer projeto Camada 2+, ou quando Diretor chamar `PROTOCOLO VANGUARD AUDITORIA`.
+*Pergunta para o Estrategista: quais documentos da Constituição precisam de atualização mais urgente dado o status atual da Vanguard?*
+
+**[M-5] Pergunta de Lead como Feature da Sessão de Estudo**
+A pergunta E-2 ("Você conhece mais alguém prestando concurso?") está planejada como ação manual do Eduardo. Mas em uma plataforma com 50 usuários, isso não escala. Proposta: incorporar pergunta de lead como parte do feedback pós-sessão — após completar 10 questões, exibir: "Alguém que você conhece também quer estudar assim? Compartilha com ela 👉 [link]". Forma não-comercial, dentro do fluxo natural da sessão. Testável com Ingrid na primeira semana.
+*Pergunta para o Estrategista: o lead referral in-app é prematuro para piloto, ou o comportamento de Ingrid até agora já valida o teste?*
 
 ---
 

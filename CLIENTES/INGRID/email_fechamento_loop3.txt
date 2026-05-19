@@ -1,0 +1,112 @@
+PARA: subdiretor.mnmsgm@gmail.com
+ASSUNTO: [PROJ-002 INGRID] Loop 3 fechado — Embaixador entregou, MEMORIA_V3 + PASSO3 prontos
+DATA: 2026-05-19
+
+---
+
+Eduardo,
+
+Loop 3 do Projeto Ingrid encerrado. Resumo executivo abaixo.
+
+---
+
+## (A) ENTREGAS DO DIA
+
+1. **Commit 273906f — Embaixador Loop 3 (30 arquivos)**
+   - RELATÓRIO AUTORAL DO EMBAIXADOR.txt — análise estratégica completa com 3 descobertas estruturais
+   - METODOLOGIA_PERFIS_VANGUARD.md — framework proprietário de Perfis de Nicho (3 vetores, escala 0-100%)
+   - PERFIL_EDTECH_CONCURSO.md — 60% maturidade (cliente real Ingrid)
+   - PERFIL_LEGALTECH_PENAL.md — 50% maturidade (cliente real Valdece)
+   - PERFIL_CLIENTE_INGRID.md — perfil comportamental da candidata
+   - CAMADA_FATOS + CAMADA_INFERENCIA + CAMADA_DECISAO — MEMORIA 3 camadas do Embaixador
+   - AUDITORIA_VANGUARD.txt — diretriz de auditoria estrutural comprometida no repo
+   - QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/ criada com .gitignore protegendo PERFIL_*.md
+
+2. **MEMORY_V3_INGRID.md + relatorio_evolutivo_V3_INGRID.md** criados e prontos em HISTORICO/
+
+3. **PASSO3_GEMINI.md** atualizado com:
+   - P-047 a P-050 (princípios do Embaixador renumerados por conflito)
+   - Nichos aprovados: Médico + Contabilidade + Psicólogo
+   - [M-1 a M-5] reais (preenchidos após relatorio_V3)
+   - MANDATO_DIRETO_DO_DIRETOR itens 9-11
+
+4. **INTELLIGENCE_LEDGER.md** atualizado com P-047 a P-050
+   Sincronizado em CLIENTES/INGRID/NOTEBOOKLM_FONTES/ (P-033)
+
+5. **GO/NO-GO nichos novos aprovados pelo Diretor:**
+   - Médico-Prova-Especialidade (score 9/10) — GO
+   - Contabilidade-PME (score 8/10) — GO
+   - Psicólogo-Clínico-Autônomo (score 7/10) — GO
+   Embaixador foi acionado para gerar PASSO3 de Gemini para os 3 nichos.
+
+6. **Descoberta central do Embaixador (P-047):**
+   Perfil de Nicho é trade secret — não produto. É o moat proprietário da Vanguard.
+   Custo marginal: Ingrid = 15 dias. Próxima EdTech = previsto 5 dias. 10ª = 2 dias.
+
+---
+
+## (B) ALERTAS ATIVOS
+
+🔴 **ALERTA P0 — Gate Dia 8 NÃO está formalmente aprovado.**
+Ingrid usou o app em 2026-05-18, chegou até Q18, reportou bug (corrigido commit da9887a).
+Mas os 3 critérios formais ainda precisam de confirmação tua:
+  (1) Ingrid completou 10 questões no mínimo
+  (2) Progresso salvo (reload mostra mesma posição)
+  (3) Fallback de fadiga testado (≥70% cota diária)
+Sem Gate Dia 8 aprovado → Loop 4 não pode iniciar.
+
+🔴 **ALERTA P0 — WhatsApp para Ingrid urgente (janela emocional)**
+Ela teve primeira sessão excelente em 2026-05-18. Temperatura: QUENTE.
+Silêncio >36h a partir de hoje → janela emocional fecha.
+Mensagem sugerida (enviar HOJE):
+  "Ingrid, que bom que gostou — fico feliz mesmo. E olha, valeu demais por ter
+   notado aquilo da questão 18. Já corrigi. Agora os negritos aparecem certinho.
+   Como tá indo o estudo? Quantas questões você conseguiu hoje?"
+
+🟡 **ALERTA P0 — PDF Termo com data errada**
+Termo assinado em 18/05/2026 mas PDF datado 30/05/2026.
+Vulnerabilidade jurídica aberta. Gerar PDF corrigido + reassinatura da Ingrid antes do Gate Dia 15.
+
+🟡 **ALERTA P1 — Banco de questões em risco de esgotamento**
+460 questões atuais. Com uso diário regular, candidata sistemática esgota em ~23 dias (P-038).
+Expansão 1.000+ bloqueada por créditos Anthropic. Monitorar urgência.
+
+🟡 **ALERTA P2 — AUDITORIA_VANGUARD.txt pendente de sessão dedicada**
+Diretriz de auditoria estrutural aguarda Loop dedicado (não parte do Loop 4 de Ingrid).
+Escopo: consolidar duplicatas, reorganizar pastas, atualizar Constituição, criar SKILL_AUDITORIA_VANGUARD.md.
+
+---
+
+## (C) PRÓXIMO GATE E PRAZO
+
+**Gate Dia 8 → confirmar amanhã com Eduardo**
+Critérios: 10q completas + progresso salvo + fallback testado.
+Se APROVADO → Loop 4 inicia com:
+  - Wipe & Sync do NotebookLM (script: preparar_notebooklm_projeto.ps1 -cliente INGRID)
+  - Gemini com MEMORIA_V3 + relatorio_V3 + PASSO3 → DIRETRIZ V5
+  - Build Dias 9-11: Heatmap de erros por matéria + Simulado de domingo
+
+**Gate Dia 11 → ~2026-05-22**
+Heatmap correto + simulado domingo completo.
+
+**Gate Dia 15 → 2026-05-30 (deadline do projeto)**
+Ingrid com acesso admin próprio Supabase. SaaS Readiness Audit. Handoff.
+
+---
+
+## (D) O QUE VOCÊ PRECISA FAZER ANTES DA PRÓXIMA SESSÃO
+
+1. **HOJE** — WhatsApp para Ingrid (mensagem acima no ALERTA B)
+2. **HOJE ou amanhã** — Confirmar Gate Dia 8 (3 critérios: questões + progresso + fallback)
+3. **Antes de ir ao Gemini** — Rodar: `.\scripts\gemini_anchor_generator.ps1`
+4. **Ir ao Gemini** com: MEMORIA_V3_INGRID.md + relatorio_evolutivo_V3_INGRID.md + PASSO3_GEMINI.md
+   (nessa ordem, mesmo chat — MEMORIA primeiro, PASSO3 por último)
+   → Receber DIRETRIZ V5
+5. **Aguardar Embaixador** entregar PASSO3 para Medicina + Contabilidade + Psicologia
+6. **Antes do Loop 4** — Wipe & Sync NotebookLM:
+   `.\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID`
+   Arrastar todas as fontes de CLIENTES\INGRID\NOTEBOOKLM_FONTES\ para o NotebookLM.
+
+---
+
+Músculo · Pentalateral IAH · 2026-05-19
