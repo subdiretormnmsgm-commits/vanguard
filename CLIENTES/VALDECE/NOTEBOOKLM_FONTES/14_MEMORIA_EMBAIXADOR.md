@@ -1,7 +1,7 @@
 # MEMORIA_EMBAIXADOR — PROJ-001 VALDECE
 > Documento vivo. Atualizar a cada gate ou marco de relacionamento.
 > Leitura obrigatória de abertura de sessão — 30 segundos.
-> Versão: Pós-Loop Evolutivo · 2026-05-19 (Gate P-038 APROVADO · Deploy live · 4 princípios extraídos)
+> Versão: Loop 6 · 2026-05-19 (5 áudios Valdece processados · 3 features entregues · contrato pendente assinatura presencial hoje)
 
 ---
 
@@ -44,23 +44,27 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | commit 5da58f8 | Corpus 61 acórdãos + P-057/P-058 LEDGER ✅ |
 | Loop evolutivo | **4 princípios extraídos (P-041/P-042/P-043/P-044)** · 3 membros deliberaram |
 | Presencial 2026-05-19 | Realizado — credenciais obtidas — Sovereign Playbook apresentado (P-042) |
-| Demo real | **PRÓXIMA** — Valdece ainda não testou no sistema dele — janela de encantamento intacta |
-| Contrato | **PENDENTE** — aguarda demo + encantamento · pricing: R$5k fixo + sem mensalidade |
+| commit 9709649 | **Loop 6:** ementa completa (600 chars) + badge UF + boost monocrático (+0.15) ✅ |
+| fix HC 512.290/RJ | Dado errado corrigido no banco + re-embedding executado ✅ |
+| 5 áudios Valdece | Feedback técnico processado: ementa ✅ UF ✅ data_dje ❌V3 repercussão ❌V3 |
+| Temperatura | **QUENTE** — sistema live + 3 melhorias entregues + feedback ativo por áudio |
+| Contrato | **PENDENTE ASSINATURA** — Eduardo vai presencialmente hoje · R$5k fixo + sem mensalidade |
 
-**Sistema pronto — estado pós-entrega presencial:**
-- Schema vector(768) + HNSW + SECURITY DEFINER ✅ — Supabase US (migrar sa-east-1 pós-V2)
-- 61 acórdãos validados: HC · preventiva · tráfico · dosimetria · nulidade · homicídio · estupro ·
-  violência doméstica · execução penal · prescrição · legítima defesa · org criminosa ·
-  porte arma · corrupção · concurso crimes · sursis · estelionato · extorsão · ECA +
+**Sistema pronto — estado Loop 6 (2026-05-19):**
+- Schema vector(768) + HNSW + SECURITY DEFINER ✅ — Supabase Vanguard (migra pós-contrato)
+- 61 acórdãos STF/STJ · threshold 0.67 (Precisa) / 0.45 (Ampla) · top 3 · GATE P-038 VERDE ✅
 - Gate P-038: 12/12 queries aprovadas · sim ≥ 0.67 em todas · latência máx 3.4s
-- Sovereign Playbook apresentado antes do contrato (P-042) — objeção vendor lock-in destruída
+- Sovereign Playbook apresentado (P-042) — objeção vendor lock-in destruída
+- Loop 6: ementa completa + badge UF (regex numero_acordao) + boost monocrático (+0.15) entregues
+- HC 512.290/RJ: corrigido no banco (ementa errada → certa + re-embedding)
 
-**V2 pipeline mapeado (gatilho: corpus ≥ 500 docs ou 30 dias de uso ativo):**
-- Sovereign Upload (ingestão PDFs próprios do Valdece)
-- Radar de Divergência (STJ vs STF)
-- Citação DOCX export
-- Botão "Solicitar Expansão Semântica" quando sim < 0.60
-- Migração sa-east-1 São Paulo (latência de 3.4s → ~1.5s estimado)
+**V3 pipeline — identificado pelos áudios · BLOQUEADO até assinatura (P-023):**
+- `data_dje` (date) · `repercussao_geral` (boolean) · `recurso_repetitivo` (boolean) · `turma` (text)
+- Blueprint pronto: ALTER TABLE → ingest dry-run → frontend badges → ABNT atualizado
+- Gate V3: badge "VINCULANTE" — Valdece identifica sozinho, sem explicação
+
+**V2 pipeline (gatilho: 30 dias de uso ativo pós-contrato):**
+- Sovereign Upload · Radar de Divergência STJ vs STF · Citação DOCX · Expansão semântica
 
 ---
 
@@ -68,15 +72,16 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 
 | Campo | Status |
 |---|---|
-| Último contato | **Presencial realizado — 2026-05-19** |
-| Próximo contato | Próxima sessão — configuração + demo real (credenciais em mãos) |
+| Último contato | **5 áudios de feedback — 2026-05-19** (Valdece usa o sistema e avalia ativamente) |
+| Próximo contato | Presencial hoje — Eduardo leva contrato + OFFBOARDING_RUNBOOK impresso |
 | Canal principal | Presencial / WhatsApp |
 | Tom que funciona | Direto, resultado concreto, sem jargão técnico |
 | Tom que não funciona | Técnico, detalhado, longo, com termos de infraestrutura |
 
-**O que Valdece imagina agora:** Eduardo tem as credenciais dele e está configurando o sistema.
-Ainda não testou — aguarda a configuração na conta dele. A janela de encantamento está intacta.
-A primeira impressão real ainda vai acontecer — é a sessão mais crítica do projeto.
+**O que Valdece demonstrou:** Está usando o sistema e enviando feedback técnico por áudio — nível de engajamento alto.
+Pediu ementa completa ✅ · badge UF ✅ · data DJE ❌(V3) · badges vinculantes ❌(V3).
+O fato de enviar 5 áudios técnicos = comprometimento real com o produto (P-046).
+Contrato ainda não assinado — Eduardo vai presencialmente hoje fechar.
 
 ---
 
@@ -104,7 +109,7 @@ A primeira impressão real ainda vai acontecer — é a sessão mais crítica do
 | H-1 | Vai perguntar sobre mensalidade durante ou após a demo | **PARCIAL** — modelo sem mensalidade confirmado no presencial | Perfil orientado a custo + modelo incomum para o nicho |
 | H-2 | A demo no computador DELE (não de Eduardo) é o momento de virada | PENDENTE — demo ainda não realizada | Perfil exigente — precisa sentir que o sistema é dele |
 | H-3 | O silêncio durante a primeira busca = aprovação — não interromper | PENDENTE — demo ainda não realizada | Perfil orientado a resultado, não a explicação |
-| H-4 | Pode pedir feature não existente depois do encantamento | PENDENTE — demo ainda não realizada | Padrão de scope creep em clientes satisfeitos da área jurídica |
+| H-4 | Pode pedir feature não existente depois do encantamento | **CONFIRMADA** — 5 áudios pedindo V3 (data_dje, badges vinculantes) | Scope creep via áudio já em curso — P-023 ativo |
 | H-5 | Mencionará colega advogado criminalista se ficar satisfeito | PENDENTE — demo ainda não realizada | Advocacia criminal é comunidade densa — 1 satisfeito fala com 50 na OAB |
 
 ---
@@ -222,6 +227,7 @@ não em horas economizadas. O argumento certo é "eu encontrei antes" — não "
 | 2026-05-19 | Presencial realizado — credenciais obtidas — modelo confirmado (sem mensalidade) — demo pendente | Músculo (P-032) |
 | 2026-05-19 | LOG_002 Embaixador processado: 3-temas question + script V2 + script sigilo + alerta H-5 janela 14 dias. Threshold demo ajustado para 0.45. 20 acórdãos testados — sistema verde. | Músculo (P-032) |
 | 2026-05-20 | Valdece confirmou os 3 temas reais: crimes contra a vida + patrimônio + adm. pública. Gate CLI: vida 0.818, patrimônio 0.792, adm.pública 0.780. Frontend corrigido: credenciais reais + gemini-embedding-001. Sistema VERDE para demo. | Músculo (P-032) |
+| 2026-05-19 (Loop 6) | 5 áudios de feedback processados. Entregas: ementa completa + badge UF + boost monocrático (commit 9709649). HC 512.290/RJ corrigido. V3 identificado (data_dje, repercussao_geral, recurso_repetitivo) — BLOQUEADO até contrato (P-023). Eduardo vai presencialmente assinar hoje. Temperatura: QUENTE. | Músculo (P-032) |
 
 ---
 
