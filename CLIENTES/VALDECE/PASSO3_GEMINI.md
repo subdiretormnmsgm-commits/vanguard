@@ -1,7 +1,7 @@
 # PASSO 3 — PARA O GEMINI · Projeto Valdece
 # Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md
 # ORGANISMO VIVO: atualizar o bloco "CONTEXTO DO PROJETO" antes de CADA loop.
-# Ultima atualizacao: 2026-05-14 · Loop 3
+# Ultima atualizacao: 2026-05-19 · Loop 4 (pós-demo)
 
 ## ANTES DE ABRIR O GEMINI — EXECUTAR OBRIGATORIAMENTE
 
@@ -70,38 +70,43 @@ Não siga o momentum da conversa. Se o Diretor ou o Músculo propuseram algo que
 
 ## CONTEXTO DO PROJETO — ATUALIZAR ANTES DE CADA LOOP
 > Eduardo preenche esta secao antes de levar ao Gemini. Sempre com dados reais — nunca placeholders.
-> Ultima atualizacao: 2026-05-14 · Loop 3
+> Ultima atualizacao: 2026-05-19 · Loop 4 (pos-demo)
 
-**Loop atual:** Loop 3
+**Loop atual:** Loop 4 — pos-demo + contrato + V2
 
 **O que foi construido ate aqui:**
 - Dia 1 (commit ef3f1cd): Infraestrutura — Supabase pgvector, schema SQL, burn_rate_shield.js, kill_switch.js
 - Dia 2 (commit 996b40d): Corpus pipeline — ingest.py com Token Rate Shield, embeddings Gemini, CLI de busca semantica
 - Dia 3 (commit 18c617f): STJ adicionado ao corpus + motor semantico + UI base + Gate STJ (GO/NO-GO)
-- Dia 4 (commit e9afb36): gate_stj.py validado, citacao ABNT NBR 6023:2018, Busca Precisa (0.60) / Ampla (0.45), redesign Toga Digital Navy+Ouro
+- Dia 4 (commit e9afb36): gate_stj.py validado, citacao ABNT NBR 6023:2018, Busca Precisa / Ampla, redesign Toga Digital Navy+Ouro
+- Dia 5 (commit 5da58f8): Corpus 61 acordaos reais STF/STJ, 22 temas, SECURITY DEFINER, threshold 0.45, top 3
 
-**O que falta construir:**
-- Dia 5 (presencial no escritorio do Valdece — deadline 2026-05-23):
-  - Migracao para infra do cliente (Supabase dele + Gemini key dele)
-  - Auth Supabase single-user (so Valdece acessa)
-  - Edge Function cron semanal blindada (try/catch, max 20 docs/execucao)
-  - Auto-Heal pg_net: notifica Eduardo se cron falhar
-  - View last_activity para monitorar churn (LGPD compliant)
-  - Sovereign Playbook: guia de auto-gestao para Valdece ser independente
-  - Testes finais com dados reais ao vivo
+**Estado atual (2026-05-19):**
+- Sistema IMPLANTADO no Supabase do Valdece (credenciais dele, conta dele)
+- Corpus: 61 acordaos reais — sim 0.67-0.78 — latencia 2-3s — TESTADO E VERDE
+- Demo: PENDENTE 2026-05-20 — janela de encantamento intacta
+- Contrato: PENDENTE — aguarda demo + encantamento
+- P-056 registrado: corpus e pre-requisito — pergunta obrigatoria de Discovery
+- P-057: Vanguard Tech entrega o melhor produto
+- P-058: verificar escopo inicial E final — sempre
 
-**Maior risco agora:**
-Cliente nao criou as contas (Supabase + Google AI Studio) antes da reuniao presencial.
-Risco de perder o Dia 5 por falta de credenciais. Mitigacao: Eduardo leva o roteiro de criacao de conta
-e faz junto com o cliente nos primeiros 20 minutos da reuniao.
+**Falhas registradas neste projeto (nao repetir):**
+- APIs STF/STJ nao acessiveis programaticamente sem auth — corpus foi seed manual
+- Corpus de 20 casos era insuficiente para escopo "Google melhor para jurisprudencia penal"
+  Solucao: expandir para 61 + plano para dataset publico pos-contrato
 
-**Decisoes fixadas neste projeto (nao reverter sem justificativa explicita):**
-- Opcao A confirmada: produto na infra do Valdece, sem MRR, ~R$1,20/mes na conta dele
-- Stack: Vanilla JS + Supabase pgvector + Gemini text-embedding-004
-- STJ adicionado ao corpus (alem do STF)
-- Threshold duplo: Busca Precisa 0.60 / Busca Ampla 0.45
-- Design Toga Digital: Navy #0B1420 + Ouro #C9A84C (aprovado pelo Diretor)
+**Decisoes fixadas (nao reverter sem justificativa explicita):**
+- Opcao A: produto na infra do Valdece, sem MRR, ~R$1,20/mes na conta dele
+- Stack: Vanilla JS + Supabase pgvector + gemini-embedding-001 outputDimensionality 768
+- Corpus: 61 acordaos · threshold 0.45 · top 3 resultados
+- Design Toga Digital: Navy #0B1420 + Ouro #C9A84C
 - Soberania total: dados e chaves no ambiente do cliente
+
+**Pendente pos-contrato (nao antes da demo):**
+- Auth Supabase single-user
+- Dataset publico STF/STJ — corpus de milhares de casos
+- Sovereign Upload V2 — ingestao PDF/Word do acervo do Valdece
+- Slider de Criatividade — toggle Precisao/Exploracao na UI
 
 **As 5 ideias do Musculo para voce reagir:**
 [Eduardo: colar aqui as 5 ideias do relatorio_evolutivo mais recente antes de enviar ao Gemini]

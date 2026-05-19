@@ -33,22 +33,29 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 
 | Campo | Status |
 |---|---|
-| Gate atual | **Credenciais obtidas — configuração pendente** |
+| Gate atual | **Sistema pronto — demo 2026-05-20** |
+| Corpus Supabase | **61 acórdãos reais STF/STJ · 22 temas · TESTADO E VERDE** ✅ |
 | commit ef3f1cd | Schema Supabase + ingest.py + kill_switch.js ✅ |
 | commit 996b40d | Corpus pipeline Python + Mágico de Oz Gate ✅ |
 | commit 18c617f | STJ por Tema + busca semântica threshold + UI Toga Digital ✅ |
 | commit e9afb36 | Gate ABNT NBR6023 + busca precisa/ampla + redesign Navy/Ouro ✅ |
-| Presencial 2026-05-19 | Realizado — credenciais do Valdece obtidas por Eduardo |
-| Demo real | **NÃO REALIZADA** — Valdece ainda não testou o sistema |
-| Contrato | **PENDENTE** — aguarda onboarding técnico + demo real |
+| commit 5da58f8 | Corpus 61 acórdãos + P-057/P-058 LEDGER ✅ |
+| Presencial 2026-05-19 | Realizado — credenciais do Valdece obtidas — demo pendente |
+| Demo real | **PENDENTE — 2026-05-20 — janela de encantamento intacta** |
+| Contrato | **PENDENTE** — aguarda demo + encantamento |
 
-**Pendente para a próxima sessão (com as credenciais em mãos):**
-- Auth Supabase single-user (configurar com credenciais do Valdece)
-- Edge Function cron blindado (auto-atualização do corpus na conta dele)
-- Auto-Heal pg_net (reconexão automática em falhas)
-- View last_activity (Valdece vê quando corpus foi atualizado)
-- Sovereign Playbook (guia impresso)
-- Migração infra → conta Supabase do Valdece (P-013 — soberania)
+**Sistema configurado no Supabase do Valdece — pronto para demo:**
+- Schema vector(768) + HNSW + SECURITY DEFINER ✅
+- 61 acórdãos: HC · preventiva · tráfico · dosimetria · nulidade · homicídio · estupro ·
+  violência doméstica · execução penal · prescrição · legítima defesa · org criminosa ·
+  porte arma · corrupção · concurso crimes · sursis · estelionato · extorsão · ECA +
+- Busca testada: threshold 0.45 · top 3 · latência 2-3s · similaridade 0.73-0.78
+
+**Pós-contrato (não bloqueia demo):**
+- Auth Supabase single-user
+- Edge Function cron (auto-atualização corpus)
+- Sovereign Upload V2 — ingestão de PDFs próprios do Valdece
+- Dataset público STF/STJ → corpus de milhares de casos
 - **Demo real** — primeiro teste do Valdece no próprio sistema
 
 ---

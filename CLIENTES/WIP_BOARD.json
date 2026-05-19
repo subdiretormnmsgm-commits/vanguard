@@ -139,7 +139,7 @@
                                     "deadline":  "2026-05-23",
                                     "deadline_anterior":  "2026-05-17",
                                     "motivo_slip":  "Cliente com dificuldades no Supabase e Google AI Studio — reunião presencial agendada segunda-feira 2026-05-19",
-                                    "status":  "Presencial realizado 2026-05-19 — credenciais obtidas — configuração + demo pendentes",
+                                    "status":  "Sistema VERDE — corpus 61 acórdãos testado — demo 2026-05-20",
                                     "modelo_entrega":  "Opção A — infra Valdece, sem MRR, R$1,20/mês no API dele",
                                     "loop_atual":  "Loop 2 concluído — DIRETRIZ V3 + Quick Audit NotebookLM executados | Loop 3 no Dia 5",
                                     "discovery_completo":  true,
@@ -160,7 +160,18 @@
                                                     "dia1":  "ef3f1cd",
                                                     "dia2":  "996b40d",
                                                     "dia3":  "18c617f",
-                                                    "dia4":  "e9afb36"
+                                                    "dia4":  "e9afb36",
+                                                    "dia5_corpus":  "5da58f8"
+                                                },
+                                    "corpus_status":  {
+                                                    "total_acordaos":  61,
+                                                    "temas_cobertos":  22,
+                                                    "threshold":  0.45,
+                                                    "top_resultados":  3,
+                                                    "latencia_media_s":  "2.1-3.4",
+                                                    "similaridade_range":  "0.67-0.78",
+                                                    "status":  "TESTADO E VERDE",
+                                                    "temas":  "HC · preventiva · trafico · dosimetria · nulidade · homicidio · estupro · violencia-domestica · execucao-penal · prescricao · legitima-defesa · org-criminosa · porte-arma · corrupcao · concurso-crimes · sursis · estelionato · extorsao · ECA · lesao-corporal · tentativa · trafico-internacional"
                                                 },
                                     "decisoes_pendentes":  "CLIENTES/VALDECE/DECISOES_PENDENTES.md",
                                     "status_decisoes":  "4/4 validadas pelo Gemini DIRETRIZ V3",
@@ -179,7 +190,7 @@
                                     "credenciais_obtidas":  "2026-05-19 — Eduardo com credenciais do Valdece",
                                     "demo_realizada":  false,
                                     "contrato_assinado":  false,
-                                    "proximo_passo":  "Configurar sistema com credenciais do Valdece (Auth Supabase + Edge Function + migração) → testar antes da demo → Demo real → Contrato",
+                                    "proximo_passo":  "DEMO 2026-05-20 — 3-temas question no minuto 0 → demo → contrato. Pós-contrato: Auth Supabase + dataset público STF/STJ + Sovereign Upload V2",
                                     "v2_pipeline":  {
                                                         "features":  [
                                                                          "Sovereign Upload",

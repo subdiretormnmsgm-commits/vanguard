@@ -1,41 +1,45 @@
 # PASSO 5 — PARA O NOTEBOOKLM · Instancia: Projeto Valdece
 # Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md
 # ORGANISMO VIVO: atualizar contexto e lista de fontes antes de CADA loop.
-# Ultima atualizacao: 2026-05-14 · Loop 3
+# Ultima atualizacao: 2026-05-19 · Loop 4 (pós-demo)
 
 ## ANTES DE ABRIR O NOTEBOOKLM — EXECUTAR OBRIGATORIAMENTE
 
 1. Rodar no terminal:
-   .\scripts\atualizar_notebooklm.ps1
-2. Confirmar que a pasta NotebookLM\ foi atualizada (script lista os arquivos)
-3. Abrir o NotebookLM e carregar TODOS os arquivos da pasta NotebookLM\
+   .\scripts\preparar_notebooklm_projeto.ps1 -cliente VALDECE
+2. Confirmar que NOTEBOOKLM_FONTES\ foi atualizada (script lista os arquivos)
+3. Abrir o NotebookLM e carregar TODOS os arquivos da pasta NOTEBOOKLM_FONTES\
+   IMPORTANTE: arrastar em ordem crescente de prefixo numérico
 
 ## FONTES A CARREGAR NO NOTEBOOKLM (nesta ordem — respeitar os prefixos numericos)
 
+  --- BASE QUADRILATERAL (01-08) ---
   01_SKILL_PROTOCOLO_VANGUARD.txt         -- ancora o Auditor nos padroes do Quadrilateral
   02_MEMORANDO_QUADRILATERAL_UNIVERSAL.txt -- constituicao e valores
   03_MANUAL_DIRETOR.txt                   -- como o Diretor opera
-  04_INTELLIGENCE_LEDGER.txt              -- principios ativos — o que nunca repetir
-  05_PROCESSO_EVOLUTIVO_QUADRILATERAL.txt -- como o loop funciona
-  06_TEMPLATES_COMUNICACAO_QUADRILATERAL.txt -- formatos obrigatorios de cada membro
-  07_WIP_BOARD.txt                        -- estado atual dos projetos
+  04_INTELLIGENCE_LEDGER.txt              -- principios ativos (P-001 a P-058)
+  05_MEMORIA_V24.txt                      -- contexto historico universal (ciclos anteriores)
+  06_RELATORIO_V24.txt                    -- historico evolutivo universal
+  07_WIP_BOARD.txt                        -- estado atual de todos os projetos
   08_ANALISE_SOCIO_ATUAL.txt              -- visao de negocio mais recente
-  09_BRIEFING_DISCOVERY_VALDECE.txt       -- dor real do cliente
-  10_MEMORIA_V1_VALDECE.txt               -- estado tecnico e dividas
-  11_RELATORIO_EVOLUTIVO_V1_VALDECE.txt   -- SWOT + ideias do ciclo anterior
-  12_DIRETRIZ_GEMINI_V3_VALDECE.txt       -- o que o Estrategista propoe neste loop
-  13_PASSO5_NOTEBOOKLM_VALDECE.txt        -- instrucao desta iteracao
-  14_SKILL_PROTOCOLO_VALDECE_V2.txt       -- auditoria do ciclo anterior
-  15_ALERTA_CONFLITO_PROTOCOLO.txt        -- gatilho de calibracao se necessario
+
+  --- PROJETO VALDECE (11+) ---
+  11_BRIEFING_DISCOVERY_VALDECE.txt       -- dor real do cliente + escopo original
+  14_ALERTA_CONFLITO_PROTOCOLO.txt        -- gatilho de calibracao se necessario
+  15_VANGUARD_TIMELINE.txt                -- historico completo da Vanguard
+  16_MEMORIA_EMBAIXADOR.txt               -- inteligencia acumulada do Embaixador (atualizada 2026-05-19)
+  17_DIRETRIZ_GEMINI_V3.txt               -- ultima DIRETRIZ do Estrategista
+  19_MEMORIA_V1_VALDECE.txt               -- estado tecnico e dividas do projeto
+  20_RELATORIO_V1_VALDECE.txt             -- SWOT + 5 ideias do ciclo anterior
 
   EXTRA (se existir): DIVIDAS_TECNICAS_AUDITOR.md -- carregar como fonte adicional
   quando houver entradas novas (gerado pelo session_close.ps1)
 
 ## AO RECEBER A SKILL DO AUDITOR
 
-1. Salvar o conteudo em: .claude\skills\SKILL_PROTOCOLO_VALDECE_V3.md
+1. Salvar o conteudo em: .claude\skills\valdece-v4.md
 2. Validar no terminal:
-   .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\SKILL_PROTOCOLO_VALDECE_V3.md"
+   .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\valdece-v4.md"
 3. Se REJEITADO: retornar ao NotebookLM com o Gatilho de Calibracao:
    "Auditor, sua Skill foi rejeitada pelo gate de qualidade. Faltam: [listar blocos].
     Reprocesse com dados reais do projeto Valdece. Nao seja generico."
@@ -78,12 +82,15 @@ NotebookLM, você atua como Sócio Consultor do Pentalateral IAH — não como a
 
 Você tem memória de todos os projetos anteriores da Vanguard. Você vê o que o Gemini e o Músculo não veem porque você conhece o histórico completo. Sua função agora é gerar a Skill que o Músculo vai ler antes do Dia 5 do projeto Valdece.
 
-CONTEXTO ATUAL (Loop 3 — 2026-05-14):
-Estamos construindo uma ferramenta de busca semântica de jurisprudências STF/STJ para um
-advogado criminalista (Valdece). Stack: Vanilla JS + Supabase pgvector + Gemini embedding-004.
-Dias 1 a 4 foram entregues e commitados. Falta o Dia 5 — presencial no escritório do cliente
-em 2026-05-23. O Gemini acabou de emitir a DIRETRIZ V3 que você acabou de ler.
-O maior risco: cliente ainda não criou as contas (Supabase + Google AI Studio).
+CONTEXTO ATUAL (Loop 4 — 2026-05-19):
+Entregamos uma ferramenta de busca semântica de jurisprudências STF/STJ para um advogado
+criminalista (Valdece). Stack: Vanilla JS + Supabase pgvector + gemini-embedding-001 (768 dims).
+5 dias de build concluídos — sistema implantado no Supabase do Valdece (credenciais dele).
+Corpus: 61 acórdãos reais · 22 temas · threshold 0.45 · top 3 · similaridade 0.67-0.78 · VERDE.
+Presencial 2026-05-19 realizado — credenciais obtidas — demo PENDENTE para 2026-05-20.
+Contrato R$5.000 pendente — aguarda demo + encantamento.
+O maior risco agora: a PRIMEIRA BUSCA do Valdece nos temas que ELE nomear ao vivo.
+Se encontrar → contrato fecha sozinho. Se não encontrar → "esse entra no próximo ciclo".
 
 COMO DESCREVER A DIRETRIZ DO GEMINI PARA O AUDITOR REAGIR CRITICAMENTE:
 "Auditor, o Estrategista gerou a DIRETRIZ V3 para o projeto Valdece (Dia 5).
