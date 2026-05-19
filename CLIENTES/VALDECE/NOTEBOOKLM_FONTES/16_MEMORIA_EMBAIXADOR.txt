@@ -144,27 +144,48 @@ A primeira impressão real ainda vai acontecer — é a sessão mais crítica do
 
 ## PRÓXIMA AÇÃO CRÍTICA
 
-**DEMO 2026-05-20 — checklist pré-saída:**
+**DEMO 2026-05-20 — TEMAS CONFIRMADOS POR VALDECE (2026-05-19):**
+
+> Valdece respondeu explicitamente os 3 temas que mais pesquisou esta semana:
+> 1. **Crimes contra a vida** — cobertos: homicídio qualificado STF HC 188888 (sim 0.818), feminicídio, legítima defesa, tentativa
+> 2. **Crimes contra o patrimônio** — cobertos: roubo + arma STJ AgRg HC 765432 (sim 0.792), furto, estelionato, extorsão, receptação
+> 3. **Crimes contra a administração pública** — cobertos: AP 470 STF (sim 0.780), peculato, lavagem, organização criminosa
+
+**QUERIES TESTADAS E APROVADAS para usar na demo (ctrl+C prontas):**
+```
+Tema 1 → "homicídio qualificado tribunal do júri excesso de linguagem pronúncia"
+          → STF HC 188888 sim=0.818 (PRIMEIRO resultado = IMPACTO MÁXIMO)
+
+Tema 2 → "roubo com arma de fogo dosimetria pena aumento proporcional"
+          → STJ AgRg HC 765432 sim=0.792
+
+Tema 3 → "corrupção peculato lavagem de dinheiro servidor público administração"
+          → STF AP 470 sim=0.780
+```
+
+**checklist pré-demo:**
 
 ```
-[ANTES DE SAIR]    Eduardo salva rascunho WhatsApp: "Dr. Valdece, combinamos o valor único de R$5k.
-                   A ferramenta não tem mensalidade — o que está ativo é seu acesso direto ao sistema."
-                   
-[0–5 min]   ABERTURA: "Valdece, quais 3 temas você mais pesquisou essa semana?"
-            ↳ Garante que as buscas da demo cobrem o que ele usa de verdade
-            ↳ Se um tema não estiver no seed → "esse entra no próximo ciclo de atualização"
+[SERVIDOR]  cd CLIENTES/VALDECE/frontend && python -m http.server 8080
+            → abrir http://localhost:8080 no Chrome
+
+[0–5 min]   ABERTURA: "Valdece, você mencionou os 3 temas — eu preparei o sistema
+            especificamente em volta deles. Vamos ver o primeiro?"
+            ↳ ELE NOMEOU OS TEMAS: não perguntar de novo. Já sabemos. Usar isso.
             
-[5–10 min]  1ª busca nos temas que ELE mencionou — silêncio total aguardando o resultado
-[10–25 min] 2ª e 3ª buscas — mostrar link do acórdão original, sim 0.70+
-[25–40 min] Deixar ELE digitar a 4ª busca sem ajuda — momento de virada H-2
-[40–55 min] SOVEREIGN PLAYBOOK: "se o sistema travar, você resolve em 3 passos — sem me ligar"
+[5–10 min]  1ª busca: Crimes contra a vida — silêncio total, deixar o resultado aparecer
+[10–20 min] 2ª busca: Crimes contra o patrimônio — mostrar o link "Ver íntegra ↗"
+[20–30 min] 3ª busca: Administração pública — copiar citação ABNT com 1 clique
+[30–40 min] Deixar ELE digitar a 4ª busca sem ajuda — MOMENTO DE VIRADA H-2
+[40–55 min] SOVEREIGN PLAYBOOK: "se o sistema travar, você resolve em 3 passos"
 [55–70 min] CONTRATO: não forçar — deixar o entusiasmo fechar
 [70–90 min] FECHAMENTO + semente V2 plantada
 ```
 
-**🚨 MOMENTO MAIS CRÍTICO DO PROJETO:** A primeira busca de Valdece nos temas que ELE nomeou.
-Se encontrar → contrato fecha sozinho.
-Se não encontrar → "esse entra no próximo ciclo" → redirija para outro dos 3 temas.
+**🚨 MOMENTO MAIS CRÍTICO DO PROJETO:** A primeira busca sobre crimes contra a vida.
+HC 188888 vai aparecer primeiro com sim=0.818 — é o acórdão mais relevante do corpus para esse tema.
+Se ele reconhecer o caso → contrato fecha sozinho.
+Se não reconhecer → mostrar o link STF e ler a ementa em voz alta.
 
 **Script para Sovereign Upload V2 (quando ele perguntar):**
 > "Valdece, aquelas decisões que você guarda porque já te salvaram em mais de um caso — quando você tiver rodado o que está aqui por umas duas semanas e a gente entender o volume real, a próxima evolução é o seu acervo entrando junto. O sistema aprende o seu jeito de defender, não só o jeito dos tribunais."
@@ -197,6 +218,7 @@ não em horas economizadas. O argumento certo é "eu encontrei antes" — não "
 | 2026-05-18 | Criação — véspera do presencial | Músculo |
 | 2026-05-19 | Presencial realizado — credenciais obtidas — modelo confirmado (sem mensalidade) — demo pendente | Músculo (P-032) |
 | 2026-05-19 | LOG_002 Embaixador processado: 3-temas question + script V2 + script sigilo + alerta H-5 janela 14 dias. Threshold demo ajustado para 0.45. 20 acórdãos testados — sistema verde. | Músculo (P-032) |
+| 2026-05-20 | Valdece confirmou os 3 temas reais: crimes contra a vida + patrimônio + adm. pública. Gate CLI: vida 0.818, patrimônio 0.792, adm.pública 0.780. Frontend corrigido: credenciais reais + gemini-embedding-001. Sistema VERDE para demo. | Músculo (P-032) |
 
 ---
 
