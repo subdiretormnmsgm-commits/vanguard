@@ -1,18 +1,18 @@
-// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
+﻿// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
 // Loop 3 · Dias 6-8: Clickwrap + Tutor Socrático + Telemetria TTI + Fallback
 
 // ── CONFIG ────────────────────────────────────────────────────────────────────
-const SUPABASE_URL      = "__SUPABASE_URL__";
-const SUPABASE_ANON_KEY = "__SUPABASE_ANON_KEY__";
-const USER_ID           = "__USER_ID_INGRID__";
+const SUPABASE_URL      = "https://ehyaecxqijgyuuiorzcj.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoeWFlY3hxaWpneXV1aW9yemNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyODMzNTAsImV4cCI6MjA5Mzg1OTM1MH0.xZfcEe2Av5Fn9BKEkNRIi5CQkPD6C6ADSNzMfh3DGPo";
+const USER_ID           = "00000000-0000-0000-0000-000000000001";
 const VERSAO_TERMO      = "1.0";
 const COTA_DIARIA_USD   = 5.00;
 const KILL_SWITCH_PCT   = 0.70;
-const ADMIN_TOKEN_CONF  = "__ADMIN_TOKEN__"; // substituir antes do deploy
+const ADMIN_TOKEN_CONF  = "vg-admin-2026-ingrid"; // substituir antes do deploy
 
 // Admin override: ?admin=<token>
 const _params   = new URLSearchParams(location.search);
-const ADMIN_MODE = _params.get("admin") === ADMIN_TOKEN_CONF && ADMIN_TOKEN_CONF !== "__ADMIN_TOKEN__";
+const ADMIN_MODE = _params.get("admin") === ADMIN_TOKEN_CONF && ADMIN_TOKEN_CONF !== "vg-admin-2026-ingrid";
 
 // ── NOMES LEGÍVEIS DAS DISCIPLINAS ────────────────────────────────────────────
 const NOMES_DISCIPLINAS = {
@@ -49,7 +49,7 @@ const errosPorQuestao   = {};
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sw.js").catch(() => {});
+  navigator.serviceWorker.register("sw.js").catch(() => {});
 }
 
 document.addEventListener("DOMContentLoaded", iniciar);
@@ -541,3 +541,4 @@ function mostrarErro(msg) {
       <button class="btn-novo-dia" onclick="location.reload()">Tentar novamente</button>
     </div>`);
 }
+
