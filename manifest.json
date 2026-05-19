@@ -2,7 +2,7 @@
   "name": "Sedes-DF 2026 — Estudo Ingrid",
   "short_name": "Sedes DF",
   "description": "Ferramenta de estudo personalizada para Ingrid — Concurso Sedes-DF 2026",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#0A0A0A",
   "theme_color": "#00F0FF",
