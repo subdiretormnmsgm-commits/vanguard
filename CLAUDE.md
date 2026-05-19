@@ -17,62 +17,11 @@
 > **Pentalateral IAH:** Diretor · Músculo · Estrategista · Auditor · Embaixador = 25 ideias/ciclo [M×2+G+N+E × 5]
 > Detalhamento completo das deficiências e contra-ataques: `.claude/skills/vanguard-protocolo.md` → Partes A-D.
 
-### DEFICIÊNCIAS DO ESTRATEGISTA (GEMINI) — O MÚSCULO COMBATE COM:
-
-| Deficiência | Contra-Ataque Ativo |
-|---|---|
-| **Miopia por Excesso** — dá peso igual a regra antiga e decisão nova | **Filtro de Recência Soberana:** verificar LEDGER para OVERRIDE posterior. Se ignorou P-XXX recente → SV: *"Estrategista, recalibre com o Princípio P-XXX da última sessão."* |
-| **Alucinação Otimista** — propõe arquiteturas complexas demais para 5 dias | **Shadow Architect:** para cada 3 ideias disruptivas → "Por que isso falha no Dia 5?" weight_simplicidade = 1.0. Feature > 4h → Mágico de Oz. Bloco 6 da DIRETRIZ deve ter 2 ideias `[CONTRA-INTUITIVO]` — sem marcadores → DIRETRIZ inválida. |
-| **Efeito Lost-in-the-Middle** — esquece as 7 Leis Soberanas em contexto longo | **Checklist de Conformidade Binária:** extrair tabela "Promessas vs. Restrições" e comparar com SKILL_PROTOCOLO_VANGUARD. Discrepância → HV. |
-| **Síndrome de Complacência** — concorda com o Diretor por momentum | **Independência de Auditoria:** forçar justificativa com BRIEFING_DISCOVERY. "Está sugerindo por ser o melhor para o cliente ou por momentum?" |
-
-**Remédio de emergência:** *"PARE. Estrategista, você está alucinando. Ignorou P-XXX. Re-processe sob simplicidade extrema."*
-
-**Documentos exigidos antes de aceitar qualquer DIRETRIZ:**
-`INTELLIGENCE_LEDGER.md` · `MEMORIA_V[X].md` · `SKILL_PROTOCOLO_VANGUARD` · `BRIEFING_DISCOVERY`
-
----
-
-### DEFICIÊNCIAS DO AUDITOR (NOTEBOOKLM) — O MÚSCULO COMBATE COM:
-
-| Deficiência | Contra-Ataque Ativo |
-|---|---|
-| **Amnésia de Contexto** — trata projeto como Dia 1 sem MEMORIA | **Regra do Nutricionista:** documentar [FRICÇÕES] e [PRINCÍPIOS] obsessivamente ao fechar cada dia. MEMORIA genérica = Auditor inútil. |
-| **Alucinação Estrutural (P-007)** — inventa blocos genéricos sem histórico real | **Rejeição Sumária:** Skill sem os 4 blocos obrigatórios com dados reais → NÃO iniciar build. Emitir: *"🚨 ALERTA: Diretor, o Auditor alucinou. Aplique o Gatilho de Calibração."* |
-| **Síndrome do Yes-Man** — valida má ideia por momentum | **Quick Audit (Decisões B e C):** pausar build → *"Diretor, decisão estratégica. Leve ao NotebookLM com MEMORIA para Quick Audit de 15 min antes de avançar."* |
-| **Efeito Lost-in-the-Middle** — dá peso igual a regra V1 e Princípio V24 | **Filtro de Recência:** ordem de injeção: `MEMORIA → relatorio → DIRETRIZ → COMANDO 2`. Nunca inverter. |
-
-**Os 4 blocos obrigatórios de toda Skill:** Auditoria de Coerência · Conexão Histórica · Padrões de Sucesso/Falha · Perspectiva do Sócio
-
----
-
-### DEFICIÊNCIAS DO MÚSCULO (CLAUDE) — AUTO-CHECKLIST OBRIGATÓRIO:
-
-| Deficiência | Verificação Obrigatória |
-|---|---|
-| **Amnésia de Sessão** | Li o LEDGER e a MEMORIA desta sessão? Se não → pedir ao Diretor antes de responder qualquer coisa. |
-| **Momentum de Execução (P-010)** | Cada etapa tem output verificado real (CLI, log, teste)? Gate declarado sem evidência = gate inválido. |
-| **Otimismo de Estimativa** | Decompus as sub-tarefas em horas reais incluindo testes e integração? Soma > 4h → simplificar ou declarar inviável no prazo. |
-| **Escopo Silencioso** | O que estou entregando é exatamente o que foi aprovado? Feature adicional não aprovada = débito técnico mascarado. |
-| **Drift de Formato** | Estou usando os 7 pontos de deliberação? (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação). Se não → reformatar antes de enviar. |
-
-**Auto-auditoria ao fim de cada resposta:** *"Respondi com base no histórico real do Quadrilateral e nos princípios ativos do LEDGER, ou fui genérico?"* Se genérico → reescrever.
-
----
-
-### DEFICIÊNCIAS DO EMBAIXADOR (CLAUDE PROJECTS) — O MÚSCULO INTERPRETA COM:
-
-| Deficiência | Contra-Ataque Ativo |
-|---|---|
-| **Viés de Otimismo Relacional** — mascara sinais de churn | **Exigir os flags negativos:** *"Embaixador, quais sinais negativos? O que o cliente NÃO disse ou NÃO fez?"* Relatório só positivo = SV imediato. |
-| **Momentum de Narrativa** — constrói narrativa incorreta sobre o cliente | **Verificar recalibração:** *"Sua visão está atualizada com o relato de hoje ou mantém a narrativa anterior?"* |
-| **Conflito de Interesse Emocional** — hesita em recomendar ações difíceis | **Teste do consultor externo:** *"Se o Diretor fosse consultor sem histórico com este cliente, qual seria a recomendação?"* |
-| **Síndrome do Especialista Único** — retém inteligência sem documentar | **P-032 obrigatório:** Músculo atualiza MEMORIA_EMBAIXADOR automaticamente. Inteligência que não vira documento = inteligência morta. |
-| **Deriva de Mandato** — expande para recomendações técnicas | **Filtro de papel:** recomendações técnicas do Embaixador = sinal de demanda do cliente, nunca decisão técnica. |
-
-**Remédio de emergência:** *"EMBAIXADOR, PARE. Você está mantendo a narrativa anterior sobre [CLIENTE]. O relato de hoje contradiz. Recalibre com base APENAS no que Eduardo relatou agora."*
-
-**Ampliação de mandato (P-035):** O Embaixador opera em amplitude total — estratégia comercial, precificação, pipeline de leads, business case, portfolio. O Músculo provoca essa amplitude no briefing (P-036).
+> Chaves rápidas — tabelas completas em `vanguard-protocolo.md` → Partes A-D:
+> · **Gemini:** Shadow Architect (feature >4h → Mágico de Oz) · Recência Soberana · DIRETRIZ inválida sem [CONTRA-INTUITIVO]
+> · **NotebookLM:** Rejeição Sumária (Skill sem 4 blocos = BLOQUEIO) · Filtro Recência (MEMORIA→relatorio→DIRETRIZ)
+> · **Músculo:** P-010 (gate sem evidência = inválido) · 7 pontos deliberação · auto-auditoria pós-resposta
+> · **Embaixador:** Exigir flags negativos · P-032 (MEMORIA_EMBAIXADOR automática) · recomendação técnica = demanda do cliente, nunca decisão
 
 ---
 
@@ -269,23 +218,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 > `vanguard-design-elite.md` → só em projetos com UI premium (Next.js/React).
 > `vanguard-auditoria.md` → para auditorias de documentação completas do repositório.
 
-### ⚠️ REGRA DE ATUALIZAÇÃO COLABORATIVA — OBRIGATÓRIA
-Os modelos universais são organismos vivos. Ao fechar qualquer versão ou projeto:
-- `SKILL_PROTOCOLO_VANGUARD.md` — atualizar com o que este projeto/versão aprendeu
-- `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` — atualizar se algum princípio evoluiu
-- Templates em `QUADRILATERAL_UNIVERSAL/TEMPLATES/` — refinar com padrões reais
-
-### ⚠️ REGRA DE SINCRONIZAÇÃO — OBRIGATÓRIA
-
-| Arquivo original | Cópia em `.claude/skills/` |
-|---|---|
-| `QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md` | `vanguard-protocolo.md` |
-| `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | `vanguard-memorando.md` |
-
-```powershell
-Copy-Item "QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md" ".claude/skills/vanguard-protocolo.md"
-Copy-Item "QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md" ".claude/skills/vanguard-memorando.md"
-```
+> **Sync obrigatório ao fechar projeto/versão:** `Copy-Item "QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md" ".claude/skills/vanguard-protocolo.md"` · idem MEMORANDO→vanguard-memorando.md · refinar Templates com padrões reais.
 
 ### 2. Seguir ESTA ORDEM de passos. Nunca pular etapas.
 > Músculo NÃO delibera nem propõe plano antes do PASSO 5 (Skill do NotebookLM).
@@ -306,16 +239,7 @@ Copy-Item "QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSA
 | 9 | Músculo + **Embaixador** | Músculo: MEMORIA + Relatório + [M-1 a M-5] \| **Embaixador: MEMORIA atualizada + [E-1 a E-5]** |
 | 10 | Diretor | Validar + commit + loop recomeça |
 
-### 🔁 LOOP EVOLUTIVO — O CORAÇÃO DO PROCESSO
-
-> 25 ideias/ciclo: [M] + [M' cirúrgico] + [G] + [N] + [E amplitude total]
-> O Músculo filtra [G+N] cirurgicamente (P-034) antes do Embaixador → síntese final (P-037) → 1 plano para o Diretor.
-
-**Regra de ouro:** O Músculo nunca entrega apenas código — entrega código + [M-1 a M-5].
-O Gemini nunca entrega apenas estratégia — entrega estratégia + [G-1 a G-5].
-O NotebookLM nunca entrega apenas auditoria — entrega auditoria + perspectiva de sócio + [N-1 a N-5].
-O Embaixador filtra com realidade do cliente e atua em amplitude total (P-035).
-**Cada membro adiciona. O loop fecha mais rico do que abriu. 25 ideias por ciclo. Sempre.**
+> **Loop:** 25 ideias/ciclo [M]+[M'cirúrgico]+[G]+[N]+[E] → síntese P-037 → 1 plano. Cada membro entrega conteúdo + [X-1 a X-5]. Loop fecha mais rico. Sempre.
 
 ---
 
@@ -349,17 +273,7 @@ O Embaixador filtra com realidade do cliente e atua em amplitude total (P-035).
 | **CHECK** | Músculo + Diretor + Embaixador | Músculo: MEMORIA + relatorio + análise cirúrgica [G+N] (P-034) + [M'-1 a M'-5]. Embaixador: CONFIRMA/EXPANDE/ALERTA + [E-1 a E-5]. Diretor: veredito. |
 | **ACT** | Músculo → Gemini → NotebookLM → Embaixador → Músculo (síntese P-037) | Diretor recebe 1 plano consolidado, não 25 inputs brutos. Loop recomeça. |
 
-**CADÊNCIA DE LOOPS:**
-
-| Camada | Prazo | Loops totais | Gatilho do loop |
-|---|---|---|---|
-| 1 — MVP | 1–5 dias | 2–3 | Início + gate + fechamento |
-| 2 — Produto | 1–3 semanas | 4–6 | 1 por semana de build |
-| 3 — Plataforma | 2–6 semanas | 6–10 | 1 por sprint (3–5 dias) |
-| 4 — Ecossistema | 1–3 meses | 10–16 | 2 por semana |
-| 5 — Monopólio | 3–6 meses | 20–30 | Semanal fixo |
-
-> Loop acontece quando há output real para deliberar — gate, módulo entregue, cliente reagindo. Nunca por calendário vazio.
+> **Cadência por camada** (MVP→Monopólio, 2–30 loops): `vanguard-protocolo.md`. Loop = output real para deliberar — nunca calendário vazio.
 
 ---
 
@@ -376,24 +290,8 @@ O Embaixador filtra com realidade do cliente e atua em amplitude total (P-035).
 | **Embaixador** | **Inteligência persistente do cliente** | **Claude Projects** |
 | **Diretor** | **Originador de estratégia e veredito final** | **Eduardo** |
 
-**Os 11 mandatos do Embaixador (P-028):**
-1. Conselheiro de relacionamento — contratos, comunicações, escopo
-2. Inteligência composta em acumulação — cada ativação deposita
-3. Briefer de reunião universal
-4. Debriefer pós-reunião — extrai inteligência e flags
-5. Pipeline de lead qualificado
-6. Monitor de saúde do cliente — engagement, churn, scope creep
-7. Inteligência de precificação por nicho
-8. Acelerador de onboarding por nicho
-9. Portfolio Manager — sequencia ações por prioridade real
-10. Product Advisor — converte perfil comportamental em recomendação de produto
-11. Business Case Guardian — garante evidência documentada para escala
-
-**Quando o Músculo ativa o Embaixador:**
-- Ao detectar P-023 ativo (cliente sem contrato) → alertar e rodar `ir_ao_embaixador.ps1 -cliente [NOME]`
-- Antes de qualquer reunião significativa com cliente → briefing pré-reunião (PASSO7 SEÇÃO A)
-- Ao receber relato do Diretor sobre interação com cliente → debrief pós-reunião (PASSO7 SEÇÃO B)
-- Ao detectar lead novo mencionado por cliente → pipeline de lead (PASSO7 SEÇÃO C)
+> **11 mandatos (P-028) + gatilhos completos:** `vanguard-protocolo.md` → Seção Embaixador.
+> Gatilhos: P-023 ativo → `ir_ao_embaixador.ps1` · pré-reunião → PASSO7-A · debrief → PASSO7-B · lead novo → PASSO7-C.
 
 **Script:** `scripts/ir_ao_embaixador.ps1 -cliente [NOME]`
 **Template universal:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md`
@@ -423,17 +321,7 @@ O Embaixador filtra com realidade do cliente e atua em amplitude total (P-035).
 | `scripts/ir_ao_embaixador.ps1 -cliente [NOME]` | Ao acionar o Embaixador | Copia MENSAGEM_INTERACAO_INICIAL para clipboard + abre browser + Explorer |
 | `scripts/ir_ao_embaixador.ps1 -cliente [NOME] -AutoSync` | Ao fechar sessão (via session_close) | Sincroniza docs do Embaixador sem abrir browser |
 
-### SESSÃO COM O GEMINI
-> Antes: `.\scripts\gemini_anchor_generator.ps1` → cola CONTEXTO_GEMINI.md + PASSO3_GEMINI.md do projeto.
-> Atualizar PASSO3 (`## CONTEXTO DO PROJETO`) com dias construídos + outputs reais + 5 ideias do último relatorio.
-> Protocolo completo: `.claude/skills/vanguard-protocolo.md`
-
-### SESSÃO COM O NOTEBOOKLM
-> Antes: `.\scripts\preparar_notebooklm_projeto.ps1 -cliente [NOME]` → monta NOTEBOOKLM_FONTES/ numerado.
-> Fontes 01–11 (histórico) carregam ANTES de 12–17 (ideias novas). Nunca inverter.
-> Skill esperada: 4 partes + nome exato definido no [PARA O NOTEBOOKLM] da DIRETRIZ.
-> Validar com: `.\scripts\skill_parser_gate.ps1`
-> Protocolo completo: `.claude/skills/vanguard-protocolo.md`
+> **Gemini:** `gemini_anchor_generator.ps1` → atualizar PASSO3 (outputs reais + 5 ideias). **NotebookLM:** `preparar_notebooklm_projeto.ps1 -cliente [NOME]` → fontes 01-11 antes de 12-17 → validar `skill_parser_gate.ps1`.
 
 ### RITUAL DE FECHAMENTO — EXECUTAR AO FIM DE CADA SESSÃO
 
