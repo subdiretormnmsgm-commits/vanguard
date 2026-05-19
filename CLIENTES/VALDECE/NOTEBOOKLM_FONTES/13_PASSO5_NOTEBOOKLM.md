@@ -1,45 +1,60 @@
 # PASSO 5 — PARA O NOTEBOOKLM · Instancia: Projeto Valdece
 # Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md
 # ORGANISMO VIVO: atualizar contexto e lista de fontes antes de CADA loop.
-# Ultima atualizacao: 2026-05-19 · Loop 4 (pós-demo)
+# Ultima atualizacao: 2026-05-19 · Loop 6 — pós-feedback 5 áudios Valdece · skill esperada: valdece-v6.md
 
 ## ANTES DE ABRIR O NOTEBOOKLM — EXECUTAR OBRIGATORIAMENTE
 
 1. Rodar no terminal:
    .\scripts\preparar_notebooklm_projeto.ps1 -cliente VALDECE
 2. Confirmar que NOTEBOOKLM_FONTES\ foi atualizada (script lista os arquivos)
-3. Abrir o NotebookLM e carregar TODOS os arquivos da pasta NOTEBOOKLM_FONTES\
-   IMPORTANTE: arrastar em ordem crescente de prefixo numérico
+3. Abrir o NotebookLM — Wipe & Sync das fontes (apagar antigas antes de subir as novas)
+4. Arrastar TUDO de NOTEBOOKLM_FONTES\ em ordem crescente de prefixo numérico
+5. Colar o COMANDO CURTO abaixo no chat (não o arquivo inteiro — ele já está nas fontes)
+
+> Sem o Wipe & Sync, o Auditor mistura contexto do Loop anterior com o atual.
+
+### 💬 COMANDO CURTO — colar no chat do NotebookLM (Ctrl+V)
+
+```
+Auditor, você opera no Pentalateral IAH — 5 membros ativos: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha o cliente Valdece em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Leia também a DIRETRIZ do Estrategista no arquivo 12_DIRETRIZ_GEMINI_V6.txt e incorpore as solicitações do bloco [PARA O NOTEBOOKLM] ao gerar a Skill. Missão principal: gerar a Skill valdece-v6.md — o Músculo não inicia o Loop 6 sem ela.
+```
+
+> O arquivo já está nas fontes — não colar o conteúdo inteiro no chat.
 
 ## FONTES A CARREGAR NO NOTEBOOKLM (nesta ordem — respeitar os prefixos numericos)
 
+> Geradas pelo script preparar_notebooklm_projeto.ps1 -cliente VALDECE
+> Arrastar em ordem crescente. Fatos do passado (01-11) ANTES das ideias novas (12-17).
+
   --- BASE QUADRILATERAL (01-08) ---
-  01_SKILL_PROTOCOLO_VANGUARD.txt         -- ancora o Auditor nos padroes do Quadrilateral
-  02_MEMORANDO_QUADRILATERAL_UNIVERSAL.txt -- constituicao e valores
-  03_MANUAL_DIRETOR.txt                   -- como o Diretor opera
-  04_INTELLIGENCE_LEDGER.txt              -- principios ativos (P-001 a P-058)
-  05_MEMORIA_V24.txt                      -- contexto historico universal (ciclos anteriores)
-  06_RELATORIO_V24.txt                    -- historico evolutivo universal
+  01_SKILL_PROTOCOLO_VANGUARD.md          -- ancora o Auditor nos padroes do Quadrilateral
+  02_MEMORANDO_QUADRILATERAL_UNIVERSAL.md -- constituicao e valores
+  03_MANUAL_DIRETOR.md                    -- como o Diretor opera
+  04_INTELLIGENCE_LEDGER.md               -- principios ativos (P-001 a P-045+)
+  05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md  -- como o loop funciona
+  06_TEMPLATES_COMUNICACAO_QUADRILATERAL.md -- formatos obrigatorios dos membros
   07_WIP_BOARD.txt                        -- estado atual de todos os projetos
   08_ANALISE_SOCIO_ATUAL.txt              -- visao de negocio mais recente
 
-  --- PROJETO VALDECE (11+) ---
-  11_BRIEFING_DISCOVERY_VALDECE.txt       -- dor real do cliente + escopo original
-  14_ALERTA_CONFLITO_PROTOCOLO.txt        -- gatilho de calibracao se necessario
-  15_VANGUARD_TIMELINE.txt                -- historico completo da Vanguard
-  16_MEMORIA_EMBAIXADOR.txt               -- inteligencia acumulada do Embaixador (atualizada 2026-05-19)
-  17_DIRETRIZ_GEMINI_V3.txt               -- ultima DIRETRIZ do Estrategista
-  19_MEMORIA_V1_VALDECE.txt               -- estado tecnico e dividas do projeto
-  20_RELATORIO_V1_VALDECE.txt             -- SWOT + 5 ideias do ciclo anterior
+  --- PROJETO VALDECE (09-17) ---
+  09_BRIEFING_DISCOVERY.txt               -- dor real do cliente + escopo original
+  10_MEMORIA_RECENTE.md                   -- MEMORIA mais recente do projeto (estado tecnico)
+  11_RELATORIO_EVOLUTIVO.md               -- relatorio evolutivo mais recente (SWOT + 5 ideias)
+  12_DIRETRIZ_GEMINI_V6.txt               -- DIRETRIZ V6 do Estrategista ← substituir pelo arquivo real após receber do Gemini
+  13_PASSO5_NOTEBOOKLM.md                 -- este arquivo (missao do Auditor) ← ja nas fontes
+  14_MEMORIA_EMBAIXADOR.md                -- inteligencia acumulada do Embaixador sobre o Valdece
+  16_ALERTA_CONFLITO.md                   -- gatilho de calibracao (se Auditor alucinar)
+  17_VANGUARD_TIMELINE.md                 -- historico completo da Vanguard
 
   EXTRA (se existir): DIVIDAS_TECNICAS_AUDITOR.md -- carregar como fonte adicional
   quando houver entradas novas (gerado pelo session_close.ps1)
 
 ## AO RECEBER A SKILL DO AUDITOR
 
-1. Salvar o conteudo em: .claude\skills\valdece-v4.md
+1. Salvar o conteudo em: .claude\skills\valdece-v6.md
 2. Validar no terminal:
-   .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\valdece-v4.md"
+   .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\valdece-v6.md"
 3. Se REJEITADO: retornar ao NotebookLM com o Gatilho de Calibracao:
    "Auditor, sua Skill foi rejeitada pelo gate de qualidade. Faltam: [listar blocos].
     Reprocesse com dados reais do projeto Valdece. Nao seja generico."
@@ -71,29 +86,66 @@ Para Valdece especificamente: o contrato está ausente. O onboarding presencial 
 [INTERVENÇÃO-Eduardo-2026-05-16] Necessidade do contrato formal antes de entrega Camada 1 (P-023)
 [INTERVENÇÃO-Eduardo-2026-05-16] NotebookLM como advogado do processo (P-022)
 [INTERVENÇÃO-Eduardo-2026-05-16] Manutenção Soberana como pré-requisito, não upsell
+[INTERVENÇÃO-Eduardo-2026-05-19] P-041 — Discovery V3 com 9 perguntas; Cena de Sucesso é obrigatória
+[INTERVENÇÃO-Eduardo-2026-05-19] P-042 — Gate semântico = "Protocolo de Garantia Soberana"; apresentar antes do contrato
+[INTERVENÇÃO-Eduardo-2026-05-19] P-043 — DFD obrigatório antes de replicar busca semântica em novo nicho
+[INTERVENÇÃO-Eduardo-2026-05-19] P-044 — Releitura da cena de sucesso antes de cada dia de build
+[INTERVENÇÃO-Eduardo-2026-05-19] Próximo nicho: Contabilidade (pós-Ingrid; DFD antes da proposta)
+[INTERVENÇÃO-Eduardo-2026-05-19] RLS exposta = P1 pós-contrato; NÃO mencionar ao cliente antes da assinatura
+[INTERVENÇÃO-Eduardo-2026-05-19] Garantia Zero Churn: teste 30 dias interno; NÃO incluir no contrato V1
+[INTERVENÇÃO-Eduardo-2026-05-19] P-046 — Contrato formaliza ciclo de evolução, não produto finalizado. Feedback durante teste = sinal de comprometimento. Não tratar como bloqueante.
 
 **Ordem de leitura obrigatória (não inverter):**
-MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este COMANDO
+MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este PASSO5
 Fatos do passado carregam antes da nova ideia. Sempre.
+
+**Integração obrigatória com o Estrategista:**
+A DIRETRIZ do Gemini (arquivo `12_DIRETRIZ_GEMINI_V6.txt`) contém um bloco `[PARA O NOTEBOOKLM]`
+com solicitações específicas do Estrategista sobre o que a Skill deve cobrir.
+Auditor: leia esse bloco e incorpore as solicitações — elas são complementares a este PASSO5, não redundantes.
+Conflito entre DIRETRIZ e PASSO5 → PASSO5 prevalece (é mais recente e específico).
 
 ---
 
 NotebookLM, você atua como Sócio Consultor do Pentalateral IAH — não como arquivo passivo.
 
-Você tem memória de todos os projetos anteriores da Vanguard. Você vê o que o Gemini e o Músculo não veem porque você conhece o histórico completo. Sua função agora é gerar a Skill que o Músculo vai ler antes do Dia 5 do projeto Valdece.
+Você tem memória de todos os projetos anteriores da Vanguard. Você vê o que o Gemini e o Músculo não veem porque você conhece o histórico completo. Sua função agora é gerar a Skill `valdece-v6.md` que o Músculo vai executar antes de deliberar sobre o Loop 6 do projeto Valdece.
 
-CONTEXTO ATUAL (Loop 4 — 2026-05-19):
-Entregamos uma ferramenta de busca semântica de jurisprudências STF/STJ para um advogado
-criminalista (Valdece). Stack: Vanilla JS + Supabase pgvector + gemini-embedding-001 (768 dims).
-5 dias de build concluídos — sistema implantado no Supabase do Valdece (credenciais dele).
-Corpus: 61 acórdãos reais · 22 temas · threshold 0.45 · top 3 · similaridade 0.67-0.78 · VERDE.
-Presencial 2026-05-19 realizado — credenciais obtidas — demo PENDENTE para 2026-05-20.
-Contrato R$5.000 pendente — aguarda demo + encantamento.
-O maior risco agora: a PRIMEIRA BUSCA do Valdece nos temas que ELE nomear ao vivo.
-Se encontrar → contrato fecha sozinho. Se não encontrar → "esse entra no próximo ciclo".
+CONTEXTO ATUAL (Loop 6 — pós-feedback 5 áudios · 2026-05-19):
+Ferramenta de busca semântica de jurisprudências STF/STJ para advogado criminalista (Valdece).
+Stack: Vanilla JS + Supabase pgvector + gemini-embedding-001 (768 dims). 5 dias de build concluídos.
+Corpus: 61 acórdãos reais · 22 temas · threshold 0.67 (Precisa) / 0.45 (Ampla) · top 3.
+GATE P-038 APROVADO (12/12 verde) · Deploy live: https://toga-digital-valdece.netlify.app
+Contrato R$5.000 pendente — Eduardo vai presencialmente assinar.
+
+ENTREGAS DO LOOP 6 (2026-05-19 — já executadas pelo Músculo):
+- Ementa completa no card (threshold 600 chars, sem truncamento forçado)
+- Badge UF extraído do numero_acordao (ex: HC 512.290/RJ → badge "RJ")
+- Boost monocrático: +0.15 similarity para HC/liminar/monocrática
+- HC 512.290/RJ corrigido no Supabase (dados e embedding)
+- commit 9709649
+
+SCHEMA AUDITADO — CAMPOS AUSENTES (V3 — pós-contrato):
+`data_dje` (date), `repercussao_geral` (boolean), `recurso_repetitivo` (boolean), `turma` (text)
+Esses campos foram pedidos por Valdece nos áudios e processados pelo Estrategista.
+Nenhum deles está no schema atual — V3 exige migration + re-ingestão.
+
+NOVOS PRINCÍPIOS (P-041 a P-046) — auditar coerência com DIRETRIZ:
+- P-041: Cena de Sucesso documentada é obrigatória. Demo aprovada = reproduz a cena.
+- P-042: Gate semântico documentado = "Protocolo de Garantia Soberana".
+- P-043: DFD obrigatório antes de novo nicho semântico.
+- P-044: Músculo relê a cena antes de cada dia de build.
+- P-046: Contrato formaliza o ciclo de evolução — não o produto finalizado. Feedback durante
+  teste = sinal de comprometimento com o produto, não bloqueante da assinatura.
+
+Cena de sucesso (P-041 — ÂNCORA):
+"Estou num julgamento, o promotor cita um precedente que não conheço. Abro o Toga Digital,
+ digito o nome do crime, e em 10 segundos tenho o acórdão com mais peso — citação pronta em ABNT."
+
+Skill esperada: `valdece-v6.md`
 
 COMO DESCREVER A DIRETRIZ DO GEMINI PARA O AUDITOR REAGIR CRITICAMENTE:
-"Auditor, o Estrategista gerou a DIRETRIZ V3 para o projeto Valdece (Dia 5).
+"Auditor, o Estrategista gerou a DIRETRIZ V6 para o projeto Valdece (Loop 6).
 Sua missão: auditar esta DIRETRIZ cruzando com o histórico real das fontes.
 Identifique: (1) o que contradiz princípios ativos do LEDGER,
 (2) o que já falhou em projetos anteriores similares,
@@ -122,7 +174,7 @@ Primeiro: auditoria de coerência. A DIRETRIZ do Gemini contradiz alguma coisa q
 
 Segundo: perspectiva do sócio consultor. Com base em tudo que você conhece de projetos anteriores da Vanguard — o que sistematicamente funciona em projetos de Legal Tech ou busca semântica? O que sistematicamente falha? O que este projeto tem de diferente que pode mudar o padrão? O que o Gemini e o Músculo não estão vendo? Seja específico — cite projetos ou padrões do histórico quando puder.
 
-Terceiro: a Skill propriamente dita. Escreva em formato copiável direto para .claude/skills/valdece-v2.md com os seguintes blocos obrigatórios: contexto do projeto, conexão histórica com localização exata do que reutilizar, padrão de sucesso, padrão de falha, perspectiva do sócio, sequência de build recomendada para os Dias 3-4-5, alertas críticos com severidade, o que não construir nesta entrega, e o que deve ser promovido ao SKILL_PROTOCOLO_VANGUARD como padrão universal.
+Terceiro: a Skill propriamente dita. Escreva em formato copiável direto para .claude/skills/valdece-v6.md com os seguintes blocos obrigatórios: contexto do projeto, conexão histórica com localização exata do que reutilizar, padrão de sucesso, padrão de falha, perspectiva do sócio, sequência de build recomendada para os Dias 3-4-5, alertas críticos com severidade, o que não construir nesta entrega, e o que deve ser promovido ao SKILL_PROTOCOLO_VANGUARD como padrão universal.
 
 Quarto: suas 5 ideias disruptivas como Auditor. Não as ideias do Gemini nem as do Músculo — as suas, fundamentadas no que você vê no histórico completo. O que nenhum dos outros membros está vendo.
 

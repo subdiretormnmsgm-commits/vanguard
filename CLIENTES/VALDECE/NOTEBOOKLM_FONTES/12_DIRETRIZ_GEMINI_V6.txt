@@ -1,0 +1,105 @@
+Diretriz Técnica V6 — Projeto Valdece — Loop 6
+
+BLOCO 0 — DIAGNÓSTICO
+Filtro de Recência Soberana ATIVADO (P-023, P-041, P-042, P-043, P-044)
+O que está realmente em jogo neste loop: o fechamento financeiro e a proteção da nossa autoridade. O contrato ainda não está assinado, mas o Músculo já entregou 3 melhorias táticas hoje (ementa completa, badge UF, boost monocrático) baseadas em áudios informais. O risco crítico invisível aqui é o escopo silencioso em loop (FALHA-PROCESSO-2026-05-16-B). Cada feature entregue sem contrato assinado enfraquece a alavanca comercial do Diretor. O cliente deve sentir que o sistema evolui na velocidade da luz porque há uma parceria formal e paga operando, não porque trabalhamos de graça por default. A prioridade zero não é código, é o contrato.
+
+BLOCO 1 — PRIORIDADES DE BUILD
+Gate contra Otimismo e Drift (Deficiências 2 e 3)
+
+    Prioridade 1: Congelamento de Código e Handoff Soberano (Imediato)
+
+        O que construir: Absolutamente nada novo. O código atual (commit 9709649) é o teto do V1.
+
+        Por que é prioritário: P-023 dita que não há build de Camada 1+ sem contrato. Continuar codificando transforma o Quadrilateral numa fábrica de favores.
+
+        Estimativa: 0 horas de build.
+
+        Gate: Contrato assinado fisicamente pelo Valdece.
+
+        O que fica de fora: NENHUM campo V3 (data_dje, repercussao_geral, etc.) será adicionado antes da assinatura.
+
+    Prioridade 2: Correção RLS (Pós-Contrato - Mandato Diretor)
+
+        O que construir: Migração da conta e proteção da API Key do Gemini (atualmente exposta no frontend) via Edge Function ou backend proxy no Supabase do Valdece.
+
+        Por que é prioritário: Risco P1 real após a migração para a infraestrutura do cliente.
+
+        Estimativa: 1 a 2 horas (incluindo testes de conectividade).
+
+        Gate: Chave removida do frontend e chamadas de embedding funcionando via backend/edge.
+
+    Prioridade 3: Planejamento Schema V3 (Sem Deploy)
+
+        O que construir: Apenas a escrita do script SQL de migration (ALTER TABLE ADD COLUMN) e a adaptação do ingest.py localmente.
+
+        Por que é prioritário: Prepara a "mágica" para o Loop 7. Quando o contrato for assinado, o Músculo sobe o V3 no mesmo dia, gerando choque de eficiência.
+
+        Estimativa: 2 horas.
+
+        Gate: Script SQL e ingest.py validados localmente (dry-run).
+
+BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
+Protocolo de Garantia Soberana (P-042) Ativo
+O handoff presencial de hoje é o fechamento.
+
+    O Posicionamento das 3 Features: Apresente o que foi entregue hoje (UF, Ementa, Boost) dizendo: "Valdece, ouvi seus áudios. A maioria das empresas levaria 45 dias para orçar isso. Nosso conselho deliberou e já está na sua tela. Isso é o que a Vanguard faz por parceiros oficiais."
+
+    O Protocolo de Garantia Soberana: Apresente o documento impresso ANTES do contrato. Diga: "Este é o manual de como nos demitir em 15 minutos e levar seus dados. Você é dono da infra. Assine isso e o sistema é seu."
+
+    Roadmap V3: Os campos data_dje e os badges vinculantes (Repercussão Geral/Repetitivo) são o roadmap do primeiro mês. Eles justificam o engajamento contínuo. Não prometa para amanhã; prometa como evolução contratual do V3.
+
+BLOCO 3 — DIRETRIZ TÉCNICA
+
+→ [PARA O NOTEBOOKLM]: Gerar valdece-v6.md — Skill para a fase Contrato → V3 (campos vinculantes) → Expansão de Corpus.
+Sócio Consultor, audite o cenário com base no histórico:
+
+    Escopo Silencioso (P-023): Audite o perigo de entregar 3 features hoje sem contrato assinado. Relembre o Músculo da fricção FALHA-PROCESSO-2026-05-16-B. Documente que o teto do V1 foi atingido.
+
+    Schema Migration em Produção: Analise o risco de alterar a tabela documents com 61 acórdãos vivos. Recomende o dry-run local antes da re-ingestão para evitar downtime e perda do threshold de 0.67.
+
+    Requisitos Verbais: Como o histórico da Vanguard trata pedidos por áudio? Recomende uma cláusula ou limite prático para não virar suporte técnico infinito.
+    Estrutura exigida na Skill: Estado V1 completo, Blueprint V3 (sequência segura de migration), Protocolo de Assinatura, O que NÃO construir, Gate V3 (Valdece identifica o badge VINCULANTE sozinho).
+
+→ [PARA O MÚSCULO]: Amnésia de Sessão e Escopo Silencioso ativados. Os princípios [P-023], [P-041], [P-042], e [P-044] estão ATIVOS.
+MANDATÓRIO:
+(0) Executar /valdece-v6 antes de qualquer deliberação. Sem rodar a Skill = deliberação inválida.
+(a) Reagir a cada [G-1 a G-5] abaixo nos 7 pontos: Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação.
+(b) Reagir a cada [N-1 a N-5] do Auditor com razão técnica.
+(c) V3 (schema migration + campos vinculantes) só inicia após contrato assinado — sem exceção.
+(d) As 3 features entregues hoje (ementa + UF + boost) são o TETO do que o Eduardo entrega sem contrato.
+(e) Propor [M-1 a M-5] disruptivos ao fechar.
+
+→ [VISÃO DE LONGO PRAZO]: O badge "VINCULANTE" criará um abismo entre o Toga Digital e o Jusbrasil/SCON na percepção do cliente. Em 3 meses, isso será o "Sovereign Moat". A disciplina de fazer a migração do schema corretamente agora dita a fundação para o 2º nicho (Contabilidade), que exigirá DFD rigoroso (P-043). Se usarmos gambiarras no JSON do Supabase hoje, a replicação para Contabilidade falhará.
+
+RESPOSTA ÀS 5 IDEIAS DO MÚSCULO:
+
+    [M-1] SCHEMA V3 — MIGRAÇÃO CIRÚRGICA: APROVADA. Ordem exata: Migrate SQL -> Re-ingest no backend -> Atualiza frontend. Tempo: 4-6h. Mas entra APENAS no V3 (Pós-Contrato).
+
+    [M-2] BADGE "VINCULANTE" COMO ARGUMENTO: APROVADA. Use isso na mesa de negociação hoje como o "Roadmap do V3" para ancorar a renovação/engajamento futuro.
+
+    [M-3] CORPUS 300+: MODIFICADA. Qualidade vence quantidade bruta. Mapeie os temas reais da advocacia do Valdece primeiro. Garantir cobertura de temas tem mais ROI do que volume aleatório. Entra no V3.
+
+    [M-4] DATA_DJE — ESTRATÉGIA MANUAL: APROVADA. Preencha manualmente nos 61 originais. Protege o pipeline contra quebras de HTML do STJ no curto prazo. Automação de scraping vai para o V4.
+
+    [M-5] CONTRATO DESBLOQUEIA V3: APROVADA INTEGRALMENTE. Execução perfeita da visão de negócios. Zero código para V3 antes da tinta no papel.
+
+BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR
+
+    AÇÃO 1: Ir presencialmente ao escritório do Valdece HOJE. Levar o Contrato e o Protocolo de Garantia Soberana (OFFBOARDING_RUNBOOK impresso em envelope lacrado).
+
+    AÇÃO 2: Na mesa, mostre a tela com o commit 9709649 (Ementa, UF, Boost). Diga: "O que você pediu no áudio está aqui. É assim que trabalhamos." Em seguida, coloque o contrato na mesa.
+
+    AÇÃO 3: Ao retornar com o contrato assinado, acionar o próximo loop no Gemini enviando na ordem exata: CONTEXTO_GEMINI.md → Este arquivo de Diretriz.
+
+SUAS 5 IDEIAS DISRUPTIVAS PARA O MÚSCULO REAGIR [G-1 a G-5]
+
+    [G-1] O Gatilho do Boleto Ancorado: Emitir a primeira fatura/boleto de R$ 5.000 (ou o valor de setup acordado) junto com a assinatura. Impacto: Materializa o compromisso financeiro instantaneamente. Pergunta ao Músculo: O sistema já tem alguma trigger fácil para rastrear pagamento vs liberação de feature, ou o controle será 100% humano no V1?
+
+    [G-2] Shadow Ingest (V3 Secreto): O Músculo prepara o corpus de 300+ acórdãos e o script V3 localmente enquanto espera. Quando o contrato for assinado, o deploy leva 3 minutos. Impacto: Choque de "time-to-value" irreal para o cliente. Pergunta ao Músculo: Qual o custo de rodar esse embedding de 300 documentos na nossa chave localmente hoje?
+
+    [G-3] Cláusula de Evolução Dinâmica: Inserir verbalmente ou num adendo que o contrato V1 prevê "2 horas técnicas mensais" para pequenos ajustes (como o UF e Ementa), e que pedidos maiores vão para escopo pago. Impacto: Mata o scope creep verbal pela raiz. Pergunta ao Músculo: É possível travar o deploy_guard do V1 para exigir flag de faturamento antes de subir novidade pro Valdece?
+
+    [G-4] Zero Churn Dashboard Oculto: Criar uma view /roi-admin visível apenas para Eduardo, contabilizando quantas buscas o Valdece faz e estimando "horas economizadas". Impacto: Eduardo terá a métrica exata para garantir a renovação ou pedir indicações no dia 25. Pergunta ao Músculo: Quanto tempo (realista) para plugar essa query simples na tabela search_logs sem fazer UI elaborada?
+
+    [G-5] Dossiê Nicho Contabilidade (P-043): Enquanto a infra do Valdece está congelada esperando assinatura, usar os ciclos sobrando para mapear a Fonte de Dados, Obsolescência, Restrições e Semântica do nicho tributário/contábil. Impacto: Não paralisamos a fábrica. Pergunta ao Músculo: Você está pronto para rodar o DFD da Contabilidade sem misturar o contexto ativo do Toga Digital?
