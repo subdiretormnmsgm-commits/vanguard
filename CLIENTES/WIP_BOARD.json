@@ -129,7 +129,7 @@
                                         "bug_negrito":  "CORRIGIDO — md2html() deployed gh-pages d00c2c1 — 2026-05-19",
                                         "temperatura_cliente":  "QUENTE"
                                     },
-                                    "proximo_passo":  "1. preparar_notebooklm_projeto.ps1 -cliente Ingrid → Wipe & Sync 2. NotebookLM gera skill_notebooklm_v2 3. Gemini DIRETRIZ V4 4. Build Dias 9-11 (heatmap urgencia + Micro-Simulado + Modo Sedes-DF domingos)"
+                                    "proximo_passo":  "1. Gemini: levar PASSO3_GEMINI.md → receber DIRETRIZ V4 2. preparar_notebooklm_projeto.ps1 -cliente Ingrid → Wipe & Sync 3. NotebookLM: FONTES + DIRETRIZ → gerar skill_notebooklm_v2 (ingrid-v4) 4. Músculo + skill → Build Dias 9-11 (heatmap + Micro-Simulado + Modo Sedes-DF)"
                                 },
                                 {
                                     "id":  "PROJ-001",
@@ -195,9 +195,11 @@
                                     "deploy_netlify":  "https://toga-digital-valdece.netlify.app",
                                     "deploy_netlify_data":  "2026-05-19",
                                     "link_enviado_valdece":  true,
-                                    "demo_realizada":  false,
-                                    "contrato_assinado":  false,
-                                    "proximo_passo":  "DEMO 2026-05-20 (link Netlify já enviado a Valdece). Pós-contrato: migração Supabase do Valdece + Auth + dataset público STF/STJ + Sovereign Upload V2",
+                                    "demo_realizada":  true,
+                                    "contrato_assinado":  true,
+                                    "contrato_assinado_em":  "2026-05-19",
+                                    "gate_v3":  "DESBLOQUEADO",
+                                    "proximo_passo":  "Loop 7 — V3 build: ALTER TABLE ADD COLUMN (data_dje, repercussao_geral, recurso_repetitivo, turma) + re-ingestão dry-run + badges vinculantes frontend + migração Supabase sa-east-1 conta Valdece",
                                     "v2_pipeline":  {
                                                         "features":  [
                                                                          "Sovereign Upload",
@@ -235,7 +237,7 @@
                 "arquivo":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/LEGALTECH_PENAL.md",
                 "maturidade":  "75%",
                 "cliente_referencia":  "PROJ-001 Valdece",
-                "status":  "gate aprovado — demo 2026-05-20 — contrato pendente",
+                "status":  "CONTRATO ASSINADO 2026-05-19 — V3 desbloqueado — Loop 7 iniciando",
                 "para_100pct":  "demo executada + contrato assinado + 14 dias uso real + Sentinel Report",
                 "benchmark_gate":  {
                     "threshold":  0.45,

@@ -48,7 +48,7 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | fix HC 512.290/RJ | Dado errado corrigido no banco + re-embedding executado ✅ |
 | 5 áudios Valdece | Feedback técnico processado: ementa ✅ UF ✅ data_dje ❌V3 repercussão ❌V3 |
 | Temperatura | **QUENTE** — sistema live + 3 melhorias entregues + feedback ativo por áudio |
-| Contrato | **PENDENTE ASSINATURA** — Eduardo vai presencialmente hoje · R$5k fixo + sem mensalidade |
+| Contrato | **ASSINADO — 2026-05-19** · R$5k fixo + sem mensalidade · Gate V3 DESBLOQUEADO |
 
 **Sistema pronto — estado Loop 6 (2026-05-19):**
 - Schema vector(768) + HNSW + SECURITY DEFINER ✅ — Supabase Vanguard (migra pós-contrato)
@@ -219,6 +219,34 @@ não em horas economizadas. O argumento certo é "eu encontrei antes" — não "
 
 ---
 
+## INSIGHTS DO EMBAIXADOR — Loop 6 (2026-05-19)
+
+**[E-1] Silêncio como protocolo técnico**
+Durante a demo, Eduardo entrega o teclado e não fala enquanto Valdece opera a primeira busca. Qualquer explicação técnica durante a busca cria ruído e mata o encantamento.
+
+**[E-2] Pergunta que revela encantamento**
+Se Valdece perguntar "isso salva para usar depois?" ou "dá pra pesquisar pelo celular?" = encantamento aconteceu. Contrato pode ser colocado na mesa imediatamente.
+
+**[E-3] Toga Digital como linha de nicho, não produto único**
+Cada decisão tomada para Valdece é replicável para o próximo criminalista. Documentar antes do próximo cliente chegar.
+
+**[E-4] Argumento do promotor**
+O fechamento mais forte: "o promotor não tem isso." Assimetria de ferramenta em audiência é o que Valdece entende visceralmente. Usar exatamente esse frame.
+
+**[E-5] Hypercare como janela de escuta**
+Os 30 dias não são suporte — são captura das queries sem resultado. Cada falha é evidência do V2. Risco: satisfação estável sem expansão após 30 dias.
+
+**ALERTA G-3 — Cláusula de Evolução Dinâmica**
+NÃO incluir "2h técnicas mensais" no contrato — contradiz o Sovereign Playbook (modelo sem dependência). Substituto correto: pedidos fora do escopo = Change-Orders formais. Severidade: ALTO.
+
+**ALERTA G-1 — Nomenclatura**
+Não chamar de "boleto" — usar "comprovante de formalização" ou "recibo". Advogado tem relação específica com o termo.
+
+**Timing V3 na assinatura**
+NÃO apresentar V3 durante a assinatura. Apresentar DEPOIS da demo, de forma casual: "quando seu corpus crescer, tem um próximo passo interessante." Assinatura é de fechamento, não de expansão.
+
+---
+
 ## HISTÓRICO DE ATUALIZAÇÕES
 
 | Data | O que mudou | Quem atualizou |
@@ -228,6 +256,8 @@ não em horas economizadas. O argumento certo é "eu encontrei antes" — não "
 | 2026-05-19 | LOG_002 Embaixador processado: 3-temas question + script V2 + script sigilo + alerta H-5 janela 14 dias. Threshold demo ajustado para 0.45. 20 acórdãos testados — sistema verde. | Músculo (P-032) |
 | 2026-05-20 | Valdece confirmou os 3 temas reais: crimes contra a vida + patrimônio + adm. pública. Gate CLI: vida 0.818, patrimônio 0.792, adm.pública 0.780. Frontend corrigido: credenciais reais + gemini-embedding-001. Sistema VERDE para demo. | Músculo (P-032) |
 | 2026-05-19 (Loop 6) | 5 áudios de feedback processados. Entregas: ementa completa + badge UF + boost monocrático (commit 9709649). HC 512.290/RJ corrigido. V3 identificado (data_dje, repercussao_geral, recurso_repetitivo) — BLOQUEADO até contrato (P-023). Eduardo vai presencialmente assinar hoje. Temperatura: QUENTE. | Músculo (P-032) |
+| 2026-05-19 (Embaixador Loop 6) | SEÇÃO D processada. G-3 ALERTA ALTO (cláusula horas contradiz Sovereign Playbook → Change-Orders). E-1 silêncio protocolo. E-2 sinal de encantamento. E-4 argumento do promotor. E-5 Hypercare como escuta. Timing V3: só após demo, nunca durante assinatura. Temperatura QUENTE confirmada. | Músculo (P-032) |
+| 2026-05-19 (GATE LOOP 6) | **CONTRATO ASSINADO.** Deu tudo certo. V3 desbloqueado. Temperatura: ENTUSIASMADA. Loop 7 iniciando. | Músculo (P-032) |
 
 ---
 
