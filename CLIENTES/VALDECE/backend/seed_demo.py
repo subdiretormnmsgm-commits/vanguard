@@ -165,6 +165,36 @@ ACORDAOS = [
         "ementa": "HABEAS CORPUS. VIOLÊNCIA DOMÉSTICA. LEI MARIA DA PENHA. AÇÃO PENAL PÚBLICA INCONDICIONADA. LEGITIMIDADE DO MINISTÉRIO PÚBLICO. Nos crimes praticados com violência doméstica e familiar contra a mulher, a ação penal é pública incondicionada, cabendo ao Ministério Público a titularidade da ação, sendo irrelevante a retratação da ofendida.",
         "link": "https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=AC&docID=612474"
     },
+    {
+        "tribunal": "STJ", "numero_acordao": "HC 338933",
+        "tema": "execucao_penal",
+        "ementa": "HABEAS CORPUS. EXECUÇÃO PENAL. PROGRESSÃO DE REGIME. REQUISITO OBJETIVO. CUMPRIMENTO DE 1/6 DA PENA. CONDENADO NÃO REINCIDENTE. A progressão de regime prisional exige o cumprimento de fração mínima da pena e o mérito do condenado, vedada a progressão por salto. O requisito objetivo para réu primário condenado por crime sem violência é o cumprimento de 1/6 da pena.",
+        "link": "https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201600225841"
+    },
+    {
+        "tribunal": "STF", "numero_acordao": "HC 121089",
+        "tema": "execucao_penal",
+        "ementa": "HABEAS CORPUS. EXECUÇÃO PENAL. LIVRAMENTO CONDICIONAL. REQUISITOS. BONS ANTECEDENTES. A concessão do livramento condicional não exige o cumprimento integral dos requisitos subjetivos de forma isolada, devendo o juízo da execução analisar o conjunto das circunstâncias do caso, incluindo comportamento carcerário, responsabilidade e antecedentes do condenado.",
+        "link": "https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=TP&docID=7547720"
+    },
+    {
+        "tribunal": "STJ", "numero_acordao": "REsp 1767968",
+        "tema": "prescricao",
+        "ementa": "RECURSO ESPECIAL. PRESCRIÇÃO PENAL. PRESCRIÇÃO DA PRETENSÃO PUNITIVA. MODALIDADE RETROATIVA. PENA EM CONCRETO. PERÍODO ENTRE RECEBIMENTO DA DENÚNCIA E SENTENÇA. A prescrição retroativa é calculada com base na pena concretamente aplicada na sentença, tomando-se por base as causas de interrupção do prazo prescricional previstas no art. 117 do Código Penal.",
+        "link": "https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201801703204"
+    },
+    {
+        "tribunal": "STF", "numero_acordao": "RE 971959",
+        "tema": "legitima_defesa",
+        "ementa": "RECURSO EXTRAORDINÁRIO. TRIBUNAL DO JÚRI. LEGÍTIMA DEFESA. EXCESSO CULPOSO. COMPETÊNCIA. O reconhecimento de legítima defesa com excesso culposo pelos jurados implica condenação pelo crime culposo, quando previsto. A soberania dos veredictos do Tribunal do Júri não impede a revisão criminal quando a decisão for manifestamente contrária às provas dos autos.",
+        "link": "https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=TP&docID=748400953"
+    },
+    {
+        "tribunal": "STJ", "numero_acordao": "HC 478545",
+        "tema": "prescricao",
+        "ementa": "HABEAS CORPUS. EXTINÇÃO DA PUNIBILIDADE. PRESCRIÇÃO. RECONHECIMENTO DE OFÍCIO. A prescrição, como matéria de ordem pública, pode ser reconhecida de ofício em qualquer fase do processo ou da execução, inclusive em sede de habeas corpus, independentemente de provocação das partes, em razão de seus efeitos sobre a pretensão punitiva do Estado.",
+        "link": "https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201801255634"
+    },
 ]
 
 
