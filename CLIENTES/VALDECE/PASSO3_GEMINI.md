@@ -184,6 +184,12 @@ Custo: 30min de teste. Pergunta ao Estrategista: validar ABNT vira gate pré-dem
 ## 📐 FORMATO OBRIGATÓRIO DA DIRETRIZ
 > Responda exatamente nesta estrutura. Não suprimir blocos. Não resumir o que deve ser desenvolvido.
 
+**TÍTULO OBRIGATÓRIO — primeira linha da sua resposta:**
+```
+Diretriz Técnica V5 — Projeto Valdece — Loop 5
+```
+> Sem o título neste formato → Eduardo não consegue identificar e arquivar a DIRETRIZ corretamente.
+
 **BLOCO 0 — DIAGNÓSTICO**
 O que está realmente em jogo além do código. O risco que o Músculo e o Diretor não estão endereçando. O que o cliente precisa sentir no handoff para renovar e indicar.
 
@@ -209,7 +215,7 @@ Riscos a auditar com evidência histórica:
 - RLS pendente: API key Gemini exposta no frontend — qual o risco real antes da migração para a conta do Valdece?
 - Scope creep pós-encantamento: cliente satisfeito pede feature nova antes de assinar. Como o Músculo responde sem perder o momentum do contrato?
 
-O que a Skill `valdece-v4.md` DEVE conter obrigatoriamente (não genérico — dados reais):
+O que a Skill `valdece-v5.md` DEVE conter obrigatoriamente (não genérico — dados reais):
 - Script de demo testado: queries dos 3 temas com sim scores reais, sequência dos 30-90 min, o que fazer se resultado não aparecer em <10s
 - Protocolo de fechamento de contrato: quando falar, quando silenciar, a linha de fechamento validada ("O sistema é seu. Isso aqui só formaliza.")
 - Semente V2: quando plantar ("quando seu corpus chegar em 500 decisões..."), como plantar sem parecer pitch prematuro

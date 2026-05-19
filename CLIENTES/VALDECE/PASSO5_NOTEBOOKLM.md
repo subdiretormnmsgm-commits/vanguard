@@ -8,8 +8,19 @@
 1. Rodar no terminal:
    .\scripts\preparar_notebooklm_projeto.ps1 -cliente VALDECE
 2. Confirmar que NOTEBOOKLM_FONTES\ foi atualizada (script lista os arquivos)
-3. Abrir o NotebookLM e carregar TODOS os arquivos da pasta NOTEBOOKLM_FONTES\
-   IMPORTANTE: arrastar em ordem crescente de prefixo numérico
+3. Abrir o NotebookLM — Wipe & Sync das fontes (apagar antigas antes de subir as novas)
+4. Arrastar TUDO de NOTEBOOKLM_FONTES\ em ordem crescente de prefixo numérico
+5. Colar o COMANDO CURTO abaixo no chat (não o arquivo inteiro — ele já está nas fontes)
+
+> Sem o Wipe & Sync, o Auditor mistura contexto do Loop anterior com o atual.
+
+### 💬 COMANDO CURTO — colar no chat do NotebookLM (Ctrl+V)
+
+```
+Auditor, você opera no Pentalateral IAH — 5 membros ativos: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha o cliente Valdece em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Leia também a DIRETRIZ do Estrategista no arquivo 12_DIRETRIZ_GEMINI_V5.txt e incorpore as solicitações do bloco [PARA O NOTEBOOKLM] ao gerar a Skill. Missão principal: gerar a Skill valdece-v5.md — o Músculo não inicia o Loop 5 sem ela.
+```
+
+> O arquivo já está nas fontes — não colar o conteúdo inteiro no chat.
 
 ## FONTES A CARREGAR NO NOTEBOOKLM (nesta ordem — respeitar os prefixos numericos)
 
@@ -80,8 +91,14 @@ Para Valdece especificamente: o contrato está ausente. O onboarding presencial 
 [INTERVENÇÃO-Eduardo-2026-05-19] Garantia Zero Churn: teste 30 dias interno; NÃO incluir no contrato V1
 
 **Ordem de leitura obrigatória (não inverter):**
-MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este COMANDO
+MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este PASSO5
 Fatos do passado carregam antes da nova ideia. Sempre.
+
+**Integração obrigatória com o Estrategista:**
+A DIRETRIZ do Gemini (arquivo `12_DIRETRIZ_GEMINI_V5.txt`) contém um bloco `[PARA O NOTEBOOKLM]`
+com solicitações específicas do Estrategista sobre o que a Skill deve cobrir.
+Auditor: leia esse bloco e incorpore as solicitações — elas são complementares a este PASSO5, não redundantes.
+Conflito entre DIRETRIZ e PASSO5 → PASSO5 prevalece (é mais recente e específico).
 
 ---
 
