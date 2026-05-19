@@ -128,25 +128,29 @@ Três sub-blocos obrigatórios:
 
 → **[PARA O NOTEBOOKLM]:** MANDATÓRIO — este sub-bloco deve:
   1. **Definir o nome exato da Skill** a ser criada pelo Auditor:
-     formato obrigatório → `[cliente]-v[N].md` (ex: `ingrid-v1.md`)
+     formato obrigatório → `[cliente]-v[N].md` (ex: `valdece-v4.md`, `ingrid-v4.md`)
+     ⚠️ Este nome DEVE aparecer também em [PARA O MÚSCULO] — o mesmo nome, sem variação.
      O Auditor salva com este nome exato em `.claude/skills/`
-  2. Instruir o NotebookLM a gerar a Skill em 4 partes obrigatórias:
+  2. Lê a DIRETRIZ pelo nome completo: `DIRETRIZ_GEMINI_V[N].txt`
+     Instrução ao Auditor: "Você está lendo a DIRETRIZ_GEMINI_V[N]. Gere `[cliente]-v[N].md`."
+  3. Instruir o NotebookLM a gerar a Skill em 4 partes obrigatórias:
      - PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ contradiz no histórico real
      - PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
-     - PARTE 3 — A Skill copiável para `.claude/skills/` (contexto, padrões, alertas, sequência de build, o que NÃO construir)
+     - PARTE 3 — A Skill copiável para `.claude/skills/[cliente]-v[N].md` (contexto, padrões, alertas, sequência de build, o que NÃO construir)
      - PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas — não as do Gemini nem do Músculo)
-  3. Especificar o que auditar neste projeto e qual risco priorizar.
-  **[PARA O NOTEBOOKLM] sem nome da Skill e sem mandato das 4 partes = BLOCO 3 inválido.**
+  4. Especificar o que auditar neste projeto e qual risco priorizar.
+  **[PARA O NOTEBOOKLM] sem nome da Skill, sem referência à DIRETRIZ pelo nome, e sem mandato das 4 partes = BLOCO 3 inválido.**
 
 → **[PARA O MÚSCULO]:** A intenção estratégica desta entrega em uma frase — não a lista de features, o porquê. Prioridades em ordem com razão para cada. O que não construir. Alertas de risco a monitorar. Gates de verificação por dia de build.
   MANDATÓRIO — instruir o Músculo a:
-  (0) executar a Skill pelo nome exato definido no [PARA O NOTEBOOKLM] (ex: /ingrid-v1)
-      antes de qualquer deliberação — sem rodar a Skill, deliberação é inválida
+  (0) executar **`/[cliente]-v[N]`** (nome exato) antes de qualquer deliberação
+      ⚠️ O nome aqui DEVE ser idêntico ao definido em [PARA O NOTEBOOKLM].
+      Músculo sem Skill rodada = deliberação inválida — nenhuma linha de código antes disso.
   (a) reagir a cada uma das suas 5 ideias disruptivas (BLOCO 6) nos 7 pontos obrigatórios
   (b) reagir a cada uma das 5 ideias do Auditor (PARTE 4 da Skill) com razão técnica
   (c) propor as suas próprias 5 ideias disruptivas ao fechar — perspectiva técnica exclusiva
       do construtor, não síntese das ideias dos outros membros
-  [PARA O MÚSCULO] sem esses mandatos = sub-bloco inválido.
+  **[PARA O MÚSCULO] sem nome exato da Skill = sub-bloco inválido.**
 
 → **[VISÃO DE LONGO PRAZO]:** Onde este projeto estará em 3 meses se tudo correr bem. Qual decisão que o Músculo toma agora abre ou fecha portas para escala.
 
@@ -171,9 +175,13 @@ Antes de finalizar, o Estrategista verifica:
 | Item | Critério de validade |
 |---|---|
 | BLOCO 3 tem 3 sub-blocos? | [PARA O NOTEBOOKLM] + [PARA O MÚSCULO] + [VISÃO DE LONGO PRAZO] |
+| [PARA O NOTEBOOKLM] define nome exato da Skill? | `[cliente]-v[N].md` — sem variação |
+| [PARA O NOTEBOOKLM] cita a DIRETRIZ pelo nome? | `DIRETRIZ_GEMINI_V[N].txt` — explícito |
 | [PARA O NOTEBOOKLM] manda gerar Skill em 4 partes? | Sim — com PARTE 1, 2, 3 e 4 nomeadas |
+| [PARA O MÚSCULO] repete o nome EXATO da Skill? | Sim — idêntico ao de [PARA O NOTEBOOKLM] |
+| [PARA O MÚSCULO] instrui a executar `/[cliente]-v[N]` antes de deliberar? | Sim — obrigatório |
 | BLOCO 1 tem gates verificáveis por dia? | Sim — output real definido |
-| BLOCO 4 tem número de prioridades > 3? | Não — máximo 3 |
+| Número de prioridades no BLOCO 1 > 3? | Não — máximo 3 |
 | BLOCO 6 tem exatamente 5 ideias disruptivas? | Sim |
 
 **DIRETRIZ que falhar em qualquer item = inválida. Eduardo devolve com a frase:**
