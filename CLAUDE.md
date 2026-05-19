@@ -15,7 +15,7 @@
 > **LEITURA OBRIGATÓRIA. Este bloco é o antivírus do Pentalateral.**
 > Cinco membros têm deficiências nativas. O Músculo conhece as suas e as de todos.
 > Este protocolo é a diferença entre inteligência composta e deriva silenciosa.
-> **Pentalateral IAH:** Diretor · Músculo · Estrategista · Auditor · Embaixador = 20 ideias/ciclo [M+E+G+N × 5]
+> **Pentalateral IAH:** Diretor · Músculo · Estrategista · Auditor · Embaixador = 25 ideias/ciclo [M×2+G+N+E × 5]
 
 ### DEFICIÊNCIAS DO ESTRATEGISTA (GEMINI) — O MÚSCULO COMBATE COM:
 
@@ -59,6 +59,24 @@ Antes de qualquer deliberação ou build, executar internamente:
 | **Drift de Formato** | Estou usando os 7 pontos de deliberação? (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação). Se não → reformatar antes de enviar. |
 
 **Auto-auditoria ao fim de cada resposta:** *"Respondi com base no histórico real do Quadrilateral e nos princípios ativos do LEDGER, ou fui genérico?"* Se genérico → reescrever.
+
+---
+
+### DEFICIÊNCIAS DO EMBAIXADOR (CLAUDE PROJECTS) — O MÚSCULO INTERPRETA COM:
+
+> Mapeado em 2026-05-18 · Auditoria Pentalateral · O Embaixador tem memória persistente — força e fraqueza simultâneas.
+
+| Deficiência | Contra-Ataque Ativo |
+|---|---|
+| **Viés de Otimismo Relacional** — mascara sinais de churn, insatisfação ou resistência do cliente | **Exigir os flags negativos:** *"Embaixador, quais sinais negativos você identificou? O que o cliente NÃO disse ou NÃO fez que deveria?"* Relatório só positivo = SV imediato. |
+| **Momentum de Narrativa** — constrói narrativa coerente mas incorreta sobre o cliente ao longo das sessões | **Verificar recalibração:** *"Embaixador, sua visão está atualizada com o relato de hoje ou mantém a narrativa anterior?"* Se reforçar sem questionar → pedir confirmação ao Diretor. |
+| **Conflito de Interesse Emocional** — hesita em recomendar ações difíceis (cobrança, escalação, encerramento) para preservar o relacionamento | **Teste do consultor externo:** *"Embaixador, se o Diretor fosse um consultor sem histórico com este cliente, qual seria a recomendação?"* Recomendação sistematicamente suave = flag. |
+| **Síndrome do Especialista Único** — retém inteligência sem transferir para MEMORIA_EMBAIXADOR | **P-032 obrigatório:** Músculo atualiza MEMORIA_EMBAIXADOR automaticamente após toda deliberação relevante. Inteligência que não vira documento = inteligência morta. |
+| **Deriva de Mandato** — expande para recomendações técnicas ou de arquitetura onde não tem competência | **Filtro de papel:** Recomendações técnicas do Embaixador = sinal de demanda do cliente, nunca decisão técnica. *"O Embaixador sinalizou o que o cliente quer — como fazer é decisão do Músculo."* |
+
+**Remédio de emergência:** *"EMBAIXADOR, PARE. Você está mantendo a narrativa anterior sobre [CLIENTE]. O relato de hoje contradiz. Recalibre com base APENAS no que Eduardo relatou agora."*
+
+**Ampliação de mandato (P-035 — 2026-05-18):** O Embaixador opera em amplitude total — não apenas comportamento do cliente. Pode e deve atuar em: estratégia comercial, precificação, pipeline de leads, business case, portfolio. O Músculo provoca essa amplitude no briefing que prepara para ele (P-036).
 
 ---
 
@@ -198,6 +216,20 @@ Você **não esquece** porque lê os instrumentos abaixo no início de cada sess
     Passo 8.5 = Debrief com Embaixador após TODA reunião significativa com cliente.
     Sem o Passo 8.5, a inteligência da reunião morre no relato do Diretor e não alimenta
     o Embaixador nem o loop do Pentalateral.
+17. P-034 + P-035 + P-036 — LOOP CIRÚRGICO ANTES DO EMBAIXADOR (2026-05-18):
+    Passo 4 do loop: Músculo executa Análise Cirúrgica de [G+N] com histórico técnico.
+    Ao concluir, prepara mensagem estruturada para o Embaixador (P-036) com:
+    (a) contexto do loop — o que foi construído, o que está em jogo
+    (b) ideias qualificadas — aprovadas/modificadas/vetadas com razão técnica
+    (c) perguntas específicas — o que precisa de confirmação/alerta do Embaixador
+    O Embaixador opera em amplitude total (P-035): comportamento do cliente +
+    estratégia comercial + pipeline + business case + portfolio. Não apenas filtro de cliente.
+    Ciclo: 25 ideias = [M] + [G] + [N] + [M' cirúrgico] + [E amplitude total].
+18. INFORMAR OS SÓCIOS AO FECHAR SESSÃO — ao encerrar qualquer sessão que produza
+    novos princípios, processos ou decisões de arquitetura, o Músculo inclui no
+    COMANDO_ESTRATEGISTA (próximo Gemini) e no PASSO5 (próximo NotebookLM) um bloco
+    "ATUALIZAÇÕES DO PROCESSO" com os princípios novos registrados. Os sócios não
+    descobrem por acidente — são informados ativamente pelo Músculo na próxima interação.
 ```
 
 ---
@@ -516,39 +548,63 @@ Esta sincronização é parte do ritual de fechamento de qualquer versão ou pro
 > O Músculo não apenas executa — alimenta o próximo ciclo com 5 ideias disruptivas.
 
 ```
-MÚSCULO (Passo 9)
-  └── Gera MEMORIA_V[X].md + relatorio_evolutivo_V[X].md
-  └── Relatorio contém: [VISÃO LMM] com 5 IDEIAS DISRUPTIVAS para próxima iteração
-         │
-         ▼
-DIRETOR → GEMINI (Comando 1 enriquecido)
-  └── Cola: MEMORIA + relatorio_evolutivo + as 5 ideias do Músculo
-  └── Gemini REAGE às 5 ideias (aprova / transforma / descarta)
-  └── Gemini gera NOVA DIRETRIZ com as suas próprias 5 ideias para o Músculo reagir
-         │
-         ▼
-DIRETOR → NOTEBOOKLM (Comando 2)
-  └── Carrega: DIRETRIZ nova + MEMORIA + relatorio + histórico
-  └── NotebookLM analisa coerência + gera NOVA SKILL com:
-       · [PADRÃO DE SUCESSO] validado neste ciclo
-       · [PADRÃO DE FALHA] identificado neste ciclo
-       · [PERSPECTIVA DO SÓCIO CONSULTOR] — o que Gemini e Claude não estão vendo
-       · 5 IDEIAS DISRUPTIVAS do próprio Auditor
-         │
-         ▼
-DIRETOR → MÚSCULO ("PROTOCOLO VANGUARD" + Nova Skill + Nova DIRETRIZ)
-  └── Músculo lê a Skill do NotebookLM + a DIRETRIZ do Gemini
-  └── DELIBERA: analisa, contrapõe, expande ou propõe ideia melhor
-  └── Executa o que o Diretor aprovar
-  └── Ao fechar: gera novas MEMORIA + relatorio + 5 IDEIAS DISRUPTIVAS
-         │
-         ▼ (volta ao topo — o loop é perpétuo)
+1. MÚSCULO (Passo 9)
+   └── Gera MEMORIA_V[X].md + relatorio_evolutivo_V[X].md
+   └── Relatorio contém: [M-1 a M-5] — 5 ideias disruptivas para próxima iteração
+          │
+          ▼
+2. DIRETOR → GEMINI (Comando 1 enriquecido)
+   └── Cola: MEMORIA + relatorio_evolutivo + [M-1 a M-5]
+   └── Gemini REAGE às [M-1 a M-5] (aprova / transforma / descarta)
+   └── Gemini gera NOVA DIRETRIZ + [G-1 a G-5]
+          │
+          ▼
+3. DIRETOR → NOTEBOOKLM (Comando 2)
+   └── Carrega: DIRETRIZ nova + MEMORIA + relatorio + histórico
+   └── NotebookLM audita coerência + gera NOVA SKILL com:
+        · [PADRÃO DE SUCESSO] validado neste ciclo
+        · [PADRÃO DE FALHA] identificado neste ciclo
+        · [PERSPECTIVA DO SÓCIO CONSULTOR]
+        · [N-1 a N-5] — 5 ideias do Auditor
+          │
+          ▼
+4. MÚSCULO — ANÁLISE CIRÚRGICA (P-034) [NOVO — 2026-05-18]
+   └── Filtra [G-1 a G-5] e [N-1 a N-5] com histórico técnico real de build:
+        · O que é inviável no prazo real
+        · O que contradiz decisões já tomadas
+        · O que precisa ajuste antes de chegar ao cliente
+   └── Gera [M'-1 a M'-5] — novo bloco de ideias nascidas da análise cruzada
+   └── Entrega pacote qualificado ao Embaixador
+          │
+          ▼
+5. EMBAIXADOR (P-031 expandido — P-035)
+   └── Recebe [G qualificado + N qualificado + M + M'] = até 20 ideias filtradas
+   └── CONFIRMA / EXPANDE / ALERTA com filtro de realidade do cliente
+   └── Pode atuar além do comportamento do cliente: estratégia comercial,
+       precificação, pipeline de leads, business case — mandatos 1-11
+   └── Gera [E-1 a E-5]
+          │
+          ▼
+5.5 MÚSCULO — SÍNTESE FINAL (P-037)
+   └── Recebe TODOS os 25 inputs: [M] + [G] + [N] + [M'] + [E]
+   └── Produz plano consolidado único para o Diretor:
+        · ENTRA AGORA: lista fechada com custo e prazo reais
+        · V2: o que foi qualificado mas sai do escopo corrente
+        · DESCARTADO: o que foi vetado e por quê (1 linha cada)
+        · ALERTAS ABERTOS: pontos que exigem decisão do Diretor
+   └── O Diretor nunca recebe 25 inputs brutos — recebe 1 plano
+          │
+          ▼
+6. DIRETOR → veredito → MÚSCULO executa
+   └── Ao fechar: volta ao passo 1 — loop perpétuo mais rico
 ```
 
-**Regra de ouro:** O Músculo nunca entrega apenas código. Entrega código + 5 ideias que alimentam o Gemini.
-O Gemini nunca entrega apenas estratégia. Entrega estratégia + reação às ideias do Músculo.
-O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de sócio + 5 ideias próprias.
-**Cada membro adiciona. O loop fecha mais rico do que abriu. Sempre.**
+**Regra de ouro:** O Músculo nunca entrega apenas código. Entrega código + [M-1 a M-5] que alimentam o Gemini.
+O Gemini nunca entrega apenas estratégia. Entrega estratégia + reação às ideias do Músculo + [G-1 a G-5].
+O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de sócio + [N-1 a N-5].
+O Músculo analisa cirurgicamente antes do Embaixador — filtra com histórico técnico (P-034).
+O Embaixador filtra com realidade do cliente e atua em amplitude total — não apenas comportamento (P-035).
+**Cada membro adiciona. O loop fecha mais rico do que abriu. 25 ideias por ciclo. Sempre.**
 
 ---
 
@@ -581,14 +637,15 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 ## 📋 PDCA DO PENTALATERAL — QUEM FAZ O QUÊ
 
 > O loop evolutivo é um PDCA com 5 inteligências. Cada membro opera numa fase.
-> **20 ideias/ciclo:** [M-1 a M-5] + [E-1 a E-5] + [G-1 a G-5] + [N-1 a N-5]
+> **25 ideias/ciclo:** [M-1 a M-5] + [M'-1 a M'-5] + [G-1 a G-5] + [N-1 a N-5] + [E-1 a E-5]
+> M = ideias ao fechar o loop · M' = ideias nascidas da análise cirúrgica (P-034) · G = Estrategista · N = Auditor · E = Embaixador
 
 | Fase | Membro | O que faz |
 |---|---|---|
-| **PLAN** | Gemini + NotebookLM + **Embaixador** | Gemini: DIRETRIZ (diagnóstico + prioridades + 5 ideias). NotebookLM: Skill (auditoria + padrões + 5 ideias). **Embaixador: CONFIRMA/EXPANDE/ALERTA cada ideia com base em comportamento real do cliente (P-031).** |
+| **PLAN** | Gemini + NotebookLM | Gemini: DIRETRIZ + [G-1 a G-5]. NotebookLM: Skill + [N-1 a N-5]. |
 | **DO** | Músculo | Constrói o que o Diretor aprovou. Reporta ALERTAs. Nunca executa sem Veredito. Atualiza MEMORIA_EMBAIXADOR automaticamente (P-032). |
-| **CHECK** | Músculo + Diretor + **Embaixador** | Músculo: MEMORIA + relatorio (análise crítica + dívidas). **Embaixador: valida se o que foi construído corresponde ao que o cliente realmente precisava.** Diretor: valida entrega. |
-| **ACT** | Músculo → Gemini → NotebookLM → **Embaixador** | Músculo: [M-1 a M-5]. Gemini: reage + nova DIRETRIZ + [G-1 a G-5]. NotebookLM: audita + nova Skill + [N-1 a N-5]. **Embaixador: [E-1 a E-5] com filtro de realidade do cliente.** Loop recomeça com 20 ideias. |
+| **CHECK** | Músculo + Diretor + **Embaixador** | Músculo: MEMORIA + relatorio + análise cirúrgica [G+N] (P-034) + [M'-1 a M'-5]. **Embaixador: CONFIRMA/EXPANDE/ALERTA + [E-1 a E-5] — atua em amplitude total (P-035), não só comportamento do cliente.** Diretor: veredito. |
+| **ACT** | Músculo → Gemini → NotebookLM → Músculo (cirúrgico) → **Embaixador** → **Músculo (síntese final)** | Sequência de 6 passos + Síntese Final (P-037). Diretor recebe 1 plano, não 25 inputs. Loop recomeça com 25 ideias. |
 
 **CADÊNCIA DE LOOPS — proporcional à amplitude do projeto (P-009):**
 
@@ -608,7 +665,7 @@ O NotebookLM nunca entrega apenas auditoria. Entrega auditoria + perspectiva de 
 ### [2026-05-18] — Pentalateral IAH — Auditoria Completa
 - **O Embaixador é o filtro de realidade do loop (P-031):** toda ideia gerada pelo Músculo, Gemini ou NotebookLM é submetida ao CONFIRMA/EXPANDE/ALERTA do Embaixador com base em comportamento real do cliente. Ideia tecnicamente perfeita mas incompatível com o perfil do cliente = desperdício de sprint. O Embaixador previne isso.
 - **MEMORIA_EMBAIXADOR é o ativo de relacionamento mais valioso por cliente (P-032):** o Músculo não pode ser preguiçoso neste ponto. Cada deliberação relevante atualiza automaticamente o documento. Um Embaixador sem MEMORIA_EMBAIXADOR atualizada é tão útil quanto iniciar cada sessão sem LEDGER.
-- **O sistema agora gera 20 ideias por ciclo completo:** [M-1 a M-5] + [E-1 a E-5] + [G-1 a G-5] + [N-1 a N-5]. A inteligência composta do Pentalateral é 4× mais rica do que qualquer membro individual. Ciclo sem os 20 inputs = potencial perdido.
+- **O sistema agora gera 25 ideias por ciclo completo (2026-05-18):** [M-1 a M-5] + [M'-1 a M'-5] + [G-1 a G-5] + [N-1 a N-5] + [E-1 a E-5]. M' = segundo bloco do Músculo, nascido da análise cirúrgica após ver [G+N]. Ciclo sem os 25 inputs = potencial perdido. Ver P-034 e P-035.
 - **Auditoria de documentação é responsabilidade contínua do Músculo:** não apenas ao fechar projetos. O Músculo detecta desatualização e alerta o Diretor proativamente. Sistema com documentação defasada = Auditor que alucina = loop que começa do zero. A Skill de Auditoria Vanguard (`.claude/skills/vanguard-auditoria.md`) pode ser acionada a qualquer momento.
 
 ---

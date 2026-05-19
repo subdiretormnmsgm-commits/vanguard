@@ -824,6 +824,29 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ---
 
+### [P-034] Análise Cirúrgica do Músculo é pré-requisito antes do Embaixador
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — deliberação Passo 6
+**Fricção:** O fluxo original enviava ideias cruas do Estrategista e do Auditor diretamente ao Embaixador. O Embaixador é expert no perfil comportamental do cliente — mas não no histórico técnico de build. Validava ou alertava com base no que não podia ver.
+
+**Regra:** Antes de levar qualquer conjunto de ideias [G + N] ao Embaixador, o Músculo executa análise cirúrgica de cada uma: (a) é viável no prazo real? (b) contradiz decisão técnica já tomada? (c) precisa de ajuste antes de chegar ao filtro de cliente? O Embaixador recebe ideias já qualificadas tecnicamente — não ideias cruas.
+
+**Fluxo correto:**
+```
+Gemini [G-1 a G-5] + Auditor [N-1 a N-5]
+        ↓
+Músculo — Análise Cirúrgica (filtro técnico + histórico de build)
+        ↓
+Embaixador — CONFIRMA / EXPANDE / ALERTA com filtro de realidade do cliente
+        ↓
+Diretor — veredito
+```
+
+**Por que importa:** O Músculo está a mais tempo no projeto. Conhece cada decisão técnica, cada veto, cada dívida. O Embaixador é insubstituível no comportamento do cliente — mas opera cego ao histórico técnico. A análise cirúrgica do Músculo protege o Embaixador de validar o que já foi descartado por razão técnica objetiva.
+
+**Alerta ao Embaixador:** Ao receber ideias do Músculo, elas já passaram pelo filtro técnico. Foque no que o Músculo não pode ver: como o cliente vai reagir na prática.
+
+---
+
 ### [FALHA-PROCESSO-2026-05-18-D] Documentação desatualizada bloqueou sessão completa
 **Data:** 2026-05-18 | **Detectado por:** Diretor Eduardo
 **Impacto:** ~2 horas de sessão consumidas em auditoria e correção de documentação. Objetivo principal da sessão (gerar Skill ingrid-v2.md via NotebookLM Loop 3) não concluído.
@@ -844,3 +867,44 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Ferramenta criada:** sync_passo_files.ps1 — executar ao iniciar qualquer sessão de Conselho.
 
 **Regra derivada:** Músculo audita proativamente NOTEBOOKLM_FONTES ao abrir sessão. Não espera o Diretor perguntar. Se encontrar desatualização → corrige antes de qualquer outra ação.
+
+---
+
+### [P-035] Embaixador opera em amplitude total — não apenas comportamento do cliente
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — revisão do fluxo Pentalateral
+**Fricção:** O P-031 limitava o Embaixador ao filtro de comportamento do cliente. Na prática, o Embaixador tem mandatos mais amplos: estratégia comercial, precificação, pipeline de leads, business case, portfolio management. Limitar ao comportamento subutiliza a inteligência acumulada.
+
+**Regra:** O Embaixador CONFIRMA/EXPANDE/ALERTA com base no cliente — mas pode e deve atuar em outras dimensões quando tiver perspectiva relevante: (a) oportunidades comerciais que o Músculo não vê por estar focado no build, (b) riscos de relacionamento que o Gemini não vê por ser estratégico, (c) padrões de nicho que o Auditor não vê por ancorar no histórico. Amplitude = mais valor por ciclo.
+
+**Fluxo:** O Músculo prepara a mensagem para o Embaixador ao concluir a Análise Cirúrgica (P-034). A mensagem contém: ideias qualificadas [G+N+M'] + contexto do que foi construído + perguntas específicas para o Embaixador responder. O Embaixador não recebe dump de informação — recebe briefing estruturado.
+
+**Por que importa:** Embaixador com briefing cirúrgico do Músculo = respostas de amplitude real. Embaixador com dump crú = filtro de comportamento apenas. A diferença é 5× o valor gerado por ciclo.
+
+---
+
+### [P-036] Músculo prepara mensagem estruturada para o Embaixador ao fim de cada análise cirúrgica
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — processo Passo 4
+**Fricção:** O fluxo previa "ir ao Embaixador" mas sem formato definido. Embaixador recebia ideias cruas ou resumo informal. Resultado: respostas genéricas de comportamento sem amplitude estratégica.
+
+**Regra:** Ao concluir o Passo 4 (Análise Cirúrgica), o Músculo gera automaticamente a mensagem para o Embaixador. Formato obrigatório:
+1. Contexto do loop: o que foi construído, o que está em jogo
+2. Ideias qualificadas: [G aprovadas/modificadas/vetadas] + [N aprovadas/modificadas/vetadas] + [M' novas]
+3. Perguntas específicas: o que o Músculo precisa que o Embaixador confirme, expanda ou alerte
+4. Alerta de prazo: deadline e impacto se o Embaixador não tiver a informação
+
+**Por que importa:** O Embaixador não tem contexto técnico do build. Sem briefing estruturado do Músculo, ele opera no escuro e produz alertas genéricos. Com o briefing, ele opera com precisão cirúrgica sobre o que realmente importa para o cliente.
+
+---
+
+### [P-037] Músculo faz Síntese Final com TODOS os 25 inputs antes da decisão do Diretor
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — após resposta do Embaixador
+**Fricção:** Após o Embaixador responder com [E-1 a E-5], o Diretor recebia 25 inputs brutos de 5 fontes diferentes para decidir sozinho o que entra no build. Carga de síntese desnecessária sobre quem deveria apenas dar o veredito.
+
+**Regra:** Após a resposta do Embaixador, o Músculo executa a Síntese Final (Passo 5.5 do loop):
+1. Consolida TODOS os 25 inputs: [M] + [G] + [N] + [M'] + [E]
+2. Produz plano único com 4 colunas: ENTRA AGORA (custo + prazo) · V2 · DESCARTADO (razão) · ALERTAS ABERTOS
+3. O Diretor recebe 1 plano para vetar ou aprovar — nunca 25 inputs para sintetizar
+
+**Posição no loop:** Passo 5.5 — após Embaixador (Passo 5), antes do veredito do Diretor (Passo 6).
+
+**Por que importa:** O Diretor é o único que não tem substituto no Pentalateral. Seu tempo e atenção são o recurso mais escasso do sistema. A Síntese Final garante que ele gasta esse recurso em decisão, não em curadoria de informação — que é função do Músculo.

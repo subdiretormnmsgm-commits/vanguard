@@ -2,12 +2,13 @@
 # Ponto de entrada unico da sessao. Roda ISSO e o projeto comeca certo.
 # Uso: .\CLIENTES\INGRID\iniciar.ps1
 
-$PROJECT_REF = "ehyaecxqijgyuuiorzcj"
+$PROJECT_REF  = "ehyaecxqijgyuuiorzcj"
 $SUPABASE_URL = "https://$PROJECT_REF.supabase.co"
 
 Write-Host ""
 Write-Host "  ======================================" -ForegroundColor Cyan
 Write-Host "  PROJ-002 INGRID - Iniciar Sessao"      -ForegroundColor Cyan
+Write-Host "  Loop 3 - Dias 6-8 (Build concluido)"   -ForegroundColor Cyan
 Write-Host "  ======================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -65,17 +66,28 @@ try {
 # ---------------------------------------------------------
 Write-Host ""
 Write-Host "  O que voce quer fazer?" -ForegroundColor Cyan
-Write-Host "  [1] Rodar seed (popular banco de questoes)"      -ForegroundColor White
-Write-Host "  [2] Rodar Gate Dia 5 (validar feed 70/30)"       -ForegroundColor White
-Write-Host "  [3] Deployar Edge Function (gerar-questoes)"     -ForegroundColor White
-Write-Host "  [4] Deployar Edge Function (feed-diario)"        -ForegroundColor White
-Write-Host "  [5] Deployar AMBAS as Edge Functions"            -ForegroundColor White
-Write-Host "  [6] So configurar ambiente (sem acao)"           -ForegroundColor White
+Write-Host ""
+Write-Host "  --- Banco & Seed ---" -ForegroundColor DarkGray
+Write-Host "  [1] Rodar seed (popular banco de questoes)" -ForegroundColor White
+Write-Host "  [2] Rodar Gate Dia 5 (validar feed 70/30)"  -ForegroundColor White
+Write-Host "  [M] Instrucoes para migracao SQL Dias 6-8"  -ForegroundColor Yellow
+Write-Host ""
+Write-Host "  --- Edge Functions ---" -ForegroundColor DarkGray
+Write-Host "  [3] Deploy: gerar-questoes"                          -ForegroundColor White
+Write-Host "  [4] Deploy: feed-diario"                             -ForegroundColor White
+Write-Host "  [5] Deploy: tutor-socratico  [NOVO - Dia 7]"         -ForegroundColor Cyan
+Write-Host "  [9] Deploy: TODAS as 3 Edge Functions"               -ForegroundColor White
+Write-Host ""
+Write-Host "  --- Frontend ---" -ForegroundColor DarkGray
+Write-Host "  [F] Configurar app.js (substituir placeholders)"     -ForegroundColor Cyan
+Write-Host "  [A] Configurar ANTHROPIC_API_KEY no Supabase Secrets" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  [6] So configurar ambiente (sem acao)" -ForegroundColor White
 Write-Host ""
 
-$opcao = Read-Host "  Escolha (1-6)"
+$opcao = Read-Host "  Escolha"
 
-switch ($opcao) {
+switch ($opcao.ToUpper()) {
     "1" {
         Write-Host ""
         $qtd = Read-Host "  Questoes por disciplina? (Enter = 25)"
@@ -99,14 +111,73 @@ switch ($opcao) {
     }
     "5" {
         Write-Host ""
-        Write-Host "  Deployando gerar-questoes..." -ForegroundColor Cyan
-        npx supabase functions deploy gerar-questoes --project-ref $PROJECT_REF
-        Write-Host "  Deployando feed-diario..." -ForegroundColor Cyan
-        npx supabase functions deploy feed-diario --project-ref $PROJECT_REF
+        Write-Host "  Deployando tutor-socratico..." -ForegroundColor Cyan
+        npx supabase functions deploy tutor-socratico --project-ref $PROJECT_REF
+        Write-Host "  [OK] tutor-socratico deployado." -ForegroundColor Green
+    }
+    "9" {
+        Write-Host ""
+        foreach ($fn in @("gerar-questoes", "feed-diario", "tutor-socratico")) {
+            Write-Host "  Deployando $fn..." -ForegroundColor Cyan
+            npx supabase functions deploy $fn --project-ref $PROJECT_REF
+        }
+        Write-Host "  [OK] Todas as Edge Functions deployadas." -ForegroundColor Green
     }
     "6" {
         Write-Host ""
         Write-Host "  Ambiente configurado. Variaveis ativas nesta sessao do PowerShell." -ForegroundColor Green
+    }
+    "M" {
+        Write-Host ""
+        Write-Host "  MIGRACAO SQL - Dias 6-8" -ForegroundColor Yellow
+        Write-Host "  ──────────────────────────────────────────────" -ForegroundColor DarkGray
+        Write-Host "  1. Abra o Supabase SQL Editor:" -ForegroundColor White
+        Write-Host "     https://supabase.com/dashboard/project/$PROJECT_REF/sql/new" -ForegroundColor Cyan
+        Write-Host "  2. Cole o conteudo do arquivo:" -ForegroundColor White
+        Write-Host "     CLIENTES\INGRID\supabase\migrations\20260518_dia678_tables.sql" -ForegroundColor Cyan
+        Write-Host "  3. Clique em Run" -ForegroundColor White
+        Write-Host "  4. Confirme: 3 tabelas novas + 5 colunas em progresso_usuario" -ForegroundColor White
+        Write-Host ""
+        $abrir = Read-Host "  Abrir o arquivo de migracao agora? (s/n)"
+        if ($abrir -eq "s") {
+            Invoke-Item "CLIENTES\INGRID\supabase\migrations\20260518_dia678_tables.sql"
+        }
+    }
+    "F" {
+        Write-Host ""
+        Write-Host "  CONFIGURAR FRONTEND - substituir placeholders em app.js" -ForegroundColor Cyan
+        Write-Host "  (Supabase Dashboard -> Settings -> API)" -ForegroundColor DarkGray
+        Write-Host ""
+        $anonKey  = Read-Host "  ANON KEY (anon/public)"
+        $userId   = Read-Host "  USER_ID da Ingrid (UUID)"
+        $adminTok = Read-Host "  Token admin (Enter = pular)"
+
+        if (-not $anonKey -or -not $userId) {
+            Write-Host "  Campos obrigatorios nao preenchidos. Cancelado." -ForegroundColor Red
+        } else {
+            $appPath = "CLIENTES\INGRID\frontend\app.js"
+            $appJs   = Get-Content $appPath -Raw -Encoding UTF8
+            $appJs   = $appJs -replace "__SUPABASE_URL__",      $SUPABASE_URL
+            $appJs   = $appJs -replace "__SUPABASE_ANON_KEY__", $anonKey
+            $appJs   = $appJs -replace "__USER_ID_INGRID__",    $userId
+            if ($adminTok) {
+                $appJs = $appJs -replace "__ADMIN_TOKEN__", $adminTok
+            }
+            Set-Content $appPath $appJs -Encoding UTF8
+            Write-Host "  [OK] app.js configurado com credenciais reais." -ForegroundColor Green
+            Write-Host "  ATENCAO: nao commitar app.js com credenciais." -ForegroundColor Yellow
+        }
+    }
+    "A" {
+        Write-Host ""
+        Write-Host "  ANTHROPIC_API_KEY - Supabase Secrets" -ForegroundColor Cyan
+        $apiKey = Read-Host "  Cole a Anthropic API Key (sk-ant-...)"
+        if ($apiKey) {
+            npx supabase secrets set ANTHROPIC_API_KEY=$apiKey --project-ref $PROJECT_REF
+            Write-Host "  [OK] Secret ANTHROPIC_API_KEY configurada." -ForegroundColor Green
+        } else {
+            Write-Host "  Chave nao fornecida. Cancelado." -ForegroundColor Yellow
+        }
     }
     default {
         Write-Host "  Opcao invalida." -ForegroundColor Red
@@ -114,7 +185,7 @@ switch ($opcao) {
 }
 
 Write-Host ""
-Write-Host "  Loop atual   : Loop 3 - Build Dias 6-8" -ForegroundColor DarkGray
-Write-Host "  Gate proximo : Dia 8 — Ingrid responde 10 questoes" -ForegroundColor DarkGray
-Write-Host "  Deadline     : 2026-05-30" -ForegroundColor DarkGray
+Write-Host "  Loop atual   : Loop 3 - Build Dias 6-8 CONCLUIDO"   -ForegroundColor DarkGray
+Write-Host "  Gate proximo : Dia 8 - Ingrid responde 10 questoes"  -ForegroundColor DarkGray
+Write-Host "  Deadline     : 2026-05-30"                           -ForegroundColor DarkGray
 Write-Host ""

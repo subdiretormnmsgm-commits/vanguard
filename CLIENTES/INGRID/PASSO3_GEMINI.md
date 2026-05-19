@@ -1,263 +1,240 @@
-# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 3
+# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 4
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Bloco CONTEXTO atualizado pelo Músculo em 2026-05-18 (Loop 3 / Gate Dia 8)
+> Atualizado pelo Músculo em 2026-05-18 após Síntese Final do Loop 3.
+> Usar após Gate Dia 8 aprovado + relatorio_evolutivo_V3 gerado.
 
 ---
 
 ## 🎯 MISSÃO DESTA SESSÃO
 
-Estrategista, você está recebendo o contexto completo do Loop 2 do Projeto Ingrid:
-MEMORIA_V2 + RELATORIO_V2 + 5 ideias do Músculo (abaixo).
+Estrategista, você está recebendo o contexto completo do Loop 3 do Projeto Ingrid.
 
-**Sua missão tem dois objetivos:**
+**Sua missão:**
+Gerar a DIRETRIZ V5 para o Loop 4 — consolidação, SaaS Readiness e escala.
+O Loop 3 entregou a interface PWA completa (Dias 6-8): Clickwrap + Tutor Socrático 3 níveis +
+Fallback de Fadiga + Telemetria TTI + Graceful Degradation.
+O Loop 4 começa com Ingrid usando o app de verdade. Os dados chegam. A análise começa.
 
-**Objetivo 1 — Continuar o projeto Ingrid:**
-Gerar a DIRETRIZ V4 para o Loop 3 (Dias 6–8).
-O que construir: Interface de questões mobile + Tutor Socrático Haiku + Fallback de Fadiga (70% da cota diária).
-Prazo: 3 dias de build. Deadline do projeto: 2026-05-30. Dias restantes: ~12.
-Gates aprovados: Dia 2 (questões) + Dia 5 (feed 70/30, 7 dias, 0 erros).
-Próximo gate: Dia 8 — Ingrid responde 10 questões reais, progresso salvo, fallback testado.
-
-**Objetivo 2 — Internalizar o processo evolutivo Pentalateral IAH (2026-05-18):**
-O sistema evoluiu de Quadrilateral para Pentalateral IAH. O Diretor Eduardo é agora o 5º ator formal.
-Dois novos princípios ativos no LEDGER:
-- P-031: Embaixador como filtro de realidade — CONFIRMA/EXPANDE/ALERTA cada ideia dos outros membros com base em comportamento real do cliente.
-- P-032: MEMORIA_EMBAIXADOR é atualizada automaticamente pelo Músculo após toda deliberação relevante.
-O loop agora gera 20 ideias/ciclo: [M-1 a M-5] + [E-1 a E-5] + [G-1 a G-5] + [N-1 a N-5].
-Sua DIRETRIZ V4 deve refletir o Pentalateral — incluir os mandatos do Embaixador e reagir a P-031/032.
-
-Use o formato obrigatório de 7 blocos definido no final deste documento.
+**Prazo remanescente:** ~dias até 2026-05-30 (conferir WIP_BOARD).
+**Gate do Loop 4:** Gate Dia 15 — Ingrid com 7 dias de uso, curva de erro por distrator documentada.
 
 ---
 
 ## 📌 ANTES DE IR AO GEMINI — o que anexar
 
-Anexar estes 3 arquivos diretamente no Gemini (nesta ordem):
+Anexar nesta ordem:
 
 ```
 1. INTELLIGENCE_LEDGER.md
    Caminho: vanguard\INTELLIGENCE_LEDGER.md
-   Motivo:  princípios reais P-001 a P-013 — sem isso, Gemini inventa regras
+   Motivo:  P-001 a P-037 ativos — sem isso, Gemini não conhece P-037 (Síntese Final)
 
 2. WIP_BOARD.json
    Caminho: vanguard\CLIENTES\WIP_BOARD.json
-   Motivo:  estado atual de todos os projetos (Valdece + Ingrid)
+   Motivo:  estado atual de todos os projetos
 
-3. PASSO3_GEMINI.md (este arquivo)
+3. HISTORICO\MEMORIA_V3.md
+   Caminho: vanguard\CLIENTES\INGRID\HISTORICO\MEMORIA_V3.md
+   Motivo:  decisões técnicas + dívidas do Loop 3 (gerar após Gate Dia 8)
+
+4. HISTORICO\relatorio_evolutivo_V3.md
+   Caminho: vanguard\CLIENTES\INGRID\HISTORICO\relatorio_evolutivo_V3.md
+   Motivo:  SWOT + [M-1 a M-5] do Músculo (gerar após Gate Dia 8)
+
+5. PASSO3_GEMINI.md (este arquivo)
    Caminho: vanguard\CLIENTES\INGRID\PASSO3_GEMINI.md
-   Motivo:  contexto do projeto + 5 ideias + formato obrigatório da DIRETRIZ
+   Motivo:  contexto Loop 4 + [E-1 a E-5] do Embaixador + formato obrigatório
 ```
 
 Após receber a DIRETRIZ (7 blocos):
 - Se vier incompleta → dizer: "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
-- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V4.txt`
-  (nome exato — o script do Passo 5 busca este padrão automaticamente)
+- Salvar como: `vanguard\CLIENTES\INGRID\DIRETRIZ_GEMINI_V5.txt`
 
-Loop 2+ — anexar também:
-```
-4. HISTORICO\MEMORIA_V[X].md          ← estado técnico do ciclo anterior
-5. HISTORICO\relatorio_evolutivo_V[X].md ← ideias + SWOT do ciclo anterior
-```
+---
+
+## 🆕 ATUALIZAÇÕES DO PROCESSO DESDE LOOP 3
+
+> Estrategista: internalizar antes de responder. Estes princípios estão no LEDGER
+> mas resumidos aqui para ancoragem rápida.
+
+| Princípio | Regra em 1 linha |
+|---|---|
+| **P-034** | Músculo faz Análise Cirúrgica de [G+N] ANTES de enviar ao Embaixador |
+| **P-035** | Embaixador opera em amplitude total — comercial, pipeline, business case, não só cliente |
+| **P-036** | Músculo prepara mensagem estruturada (6 blocos) para o Embaixador ao fim da análise cirúrgica |
+| **P-037** | Músculo faz Síntese Final com 25 inputs [M+G+N+M'+E] antes do veredito do Diretor |
+
+**Loop agora tem 7 passos:** Músculo → Gemini → NotebookLM → Músculo (cirúrgico) →
+Embaixador → Músculo (Síntese Final P-037) → Diretor (veredito).
+
+**25 ideias/ciclo:** [M-1 a M-5] + [M'-1 a M'-5] + [G-1 a G-5] + [N-1 a N-5] + [E-1 a E-5].
 
 ---
 
 ## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — PRIORIDADE CRÍTICA ANCORADA
-> Gerado automaticamente por session_close.ps1. Estrategista: proibido de suavizar ou ignorar.
-> O Bloco 1 da DIRETRIZ deve endereçar obrigatoriamente cada mandato abaixo.
 
 [2026-05-16] Eduardo declarou diretamente:
 1. Contrato formal é pré-requisito antes de qualquer projeto Camada 1+ [P-023]
 2. NotebookLM atua como advogado do processo — objeções com base em precedentes [P-022]
 3. O Diretor é o originador das inovações estratégicas — sistema amplifica, não substitui [P-021]
 
+[2026-05-18] Adições:
+4. Síntese Final do Músculo sempre antes do veredito do Diretor [P-037]
+5. Embaixador ativo antes e depois de toda entrega ao cliente [P-031]
+
 ---
 
-## ⚔️ PROTOCOLO ANTI-DERIVA (ler antes de processar)
-
-Estrategista, você opera com 4 deficiências nativas que o Músculo monitora:
+## ⚔️ PROTOCOLO ANTI-DERIVA
 
 | Deficiência | Gatilho de Alerta |
 |---|---|
-| Miopia por Excesso | Citar diretriz antiga ignorando princípio ativo do LEDGER |
-| Alucinação Otimista | Propor feature que leva >4h sem decompor sub-tarefas reais |
-| Lost-in-the-Middle | Ignorar restrição de prazo (15 dias de build / 114 dias de estudo) |
-| Síndrome de Complacência | Concordar com o Diretor sem justificativa técnica objetiva |
-
-**Remédio de emergência:** "PARE. Estrategista, recalibre sob simplicidade extrema. Prazo fixo."
+| Miopia por Excesso | Citar diretriz antiga ignorando P-034 a P-037 |
+| Alucinação Otimista | Propor feature que leva >4h sem decompor sub-tarefas |
+| Lost-in-the-Middle | Ignorar que Ingrid tem agora dados reais de uso (não só perfil inferido) |
+| Síndrome de Complacência | Ignorar os alertas do Embaixador no [E-1 a E-5] abaixo |
 
 ---
 
 ## 🔧 COMPENSAÇÃO DAS DEFICIÊNCIAS DO MÚSCULO
 
-Ao estruturar sua DIRETRIZ, compense ativamente:
-
-1. **Amnésia de Sessão** → cite os princípios do LEDGER global relevantes (P-001 a P-032)
-2. **Momentum de Execução** → inclua gates verificáveis por dia de build (output real, não declarado)
-3. **Otimismo de Estimativa** → questione cada estimativa; force decomposição em sub-horas
-4. **Escopo Silencioso** → liste explicitamente o que NÃO construir nesta iteração
-5. **Drift de Formato** → sua DIRETRIZ deve ter exatamente 7 blocos; Músculo sem formato = deliberação inválida
+1. **Amnésia de Sessão** → citar P-001 a P-037 relevantes
+2. **Momentum de Execução** → gates verificáveis por dia (output real)
+3. **Otimismo de Estimativa** → decompor em sub-horas; total >4h = simplificar
+4. **Escopo Silencioso** → listar explicitamente o que NÃO construir
+5. **Drift de Formato** → DIRETRIZ em 7 blocos; Músculo sem formato = deliberação inválida
 
 ---
 
 ## 📋 CONTEXTO DO PROJETO
 
-**Cliente:** Ingrid (esposa do Diretor Eduardo — projeto piloto interno V25)
-**Nicho:** Concursos Públicos / EdTech
-**Camada:** 2 — Produto (15 dias de build, escopo controlado)
-**Loop:** #3 — Gate Dia 8 (Interface + Tutor Socrático + Fallback Fadiga)
-**Data:** 2026-05-17
+**Cliente:** Ingrid
+**Cargo:** 202 — Técnico Administrativo · Sedes-DF · Banca Quadrix
+**Prova:** 2026-09-06
+**Prazo do projeto:** 2026-05-30
+**Camada:** 2 — Produto
+**Loop atual:** #4 — Pós-entrega (uso real + dados + SaaS Readiness)
 
-### DISCOVERY — Respostas da Cliente
+### GATES CONCLUÍDOS
 
-**P1 — O que quer construir:**
-"Quero construir algo que me ajude a estudar para o Concurso Sedes-DF que farei no dia 06 de Setembro de 2026."
-
-**P2 — Dor principal:**
-"Não ter um programa de estudos e o pouco tempo até a data da prova."
-
-**P3 — O que precisa:**
-"Ter todo o conteúdo discriminado e dividido por dias, para um estudo disciplinado, além de ter uma bateria de questões da banca Quadrix relacionadas."
-
-**P4 — Visão do produto:**
-"Um aplicativo que discriminasse tudo que preciso estudar, com ênfase nas questões certas, e um método de avaliar meu rendimento e tempo para resolução de uma prova fictícia, com a finalidade de estar muito bem preparada para a data da prova no pouco tempo que tenho."
-
-**P5 — O que já existe:** Nada pronto.
-
-**P6 — Prazo do projeto:** 15 dias (app entregue até ~30/05/2026)
-
-### DADOS DO CONCURSO
-
-| Campo | Dado |
-|---|---|
-| Órgão | Secretaria de Estado de Desenvolvimento Social do DF (Sedes/DF) |
-| Edital | Nº 1, de 13 de Maio de 2026 |
-| Cargo | TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202) |
-| Banca | Instituto Quadrix |
-| Data da prova | 06 de Setembro de 2026 |
-| Dias até a prova | ~113 dias a partir de 2026-05-17 |
-| Dias para o app | 15 dias (deadline 2026-05-30) |
-
-### [ALERTA P-024] RECALIBRAÇÃO DE CARGO — executada em 2026-05-16
-
-- **Cargo original informado:** TDAS — área social (SUAS, LOAS, PNAS, CRAS/CREAS)
-- **Cargo real:** Cargo 202 — Especialidade: Técnico Administrativo
-- **Impacto:** edital_sedes.json reconstruído do zero (v3.0) + index.ts rebuildt
-- **Disciplinas corretas do Cargo 202:** Dir. Administrativo, Dir. Constitucional, Arquivologia/Rotinas, Recursos Materiais/Patrimônio (substituem as de assistência social)
-
-### DISCIPLINAS CARGO 202 — edital_sedes.json v3.0
-
-| Disciplina | Questões estimadas | Score prioritário | Peso |
-|---|---|---|---|
-| suas_fundamentos | 12q | 190 | 2 |
-| programas_beneficios_df | 8q | 180 | 2 |
-| direito_administrativo | 8q | 184 | 2 |
-| direito_constitucional | 3q | 156 | 2 |
-| arquivologia_rotinas_atendimento | 6q | 170 | 2 |
-| recursos_materiais_patrimonio | 3q | 144 | 2 |
-| portugues | 5q | ~75 | 1 |
-| realidade_df_ride | 3q | ~65 | 1 |
-| lei_organica_df | 2q | ~60 | 1 |
-| lc840 | 2q | ~60 | 1 |
-| maria_da_penha | 1q | ~50 | 1 |
-| politica_mulheres | 1q | ~50 | 1 |
-| primeiros_socorros | 1q | ~50 | 1 |
-
-### DIAS COMPLETOS (Dias 1–5) — 2 Gates APROVADOS
-
-| Dia | Entregues | Status |
+| Gate | O que foi entregue | Status |
 |---|---|---|
-| Dia 1 | Schema SQL multi-tenant + Edge Function `gerar-questoes` | Concluído |
-| Dia 2 | Gate CLI — 10 questões avaliadas por Eduardo | **GATE APROVADO** (rubrica média ≥ 4/5) |
-| Dias 3–5 | Feed Diário 70/30 + SM-2 + PWA frontend + Contador ponderado + Explicação ao errar | Concluído |
-| Dia 5 | Gate CLI feed — 7 dias simulados, 70% Peso2, 0 erros | **GATE APROVADO** 2026-05-17 |
+| Dia 2 | 10 questões CLI avaliadas (rubrica ≥ 4/5) | APROVADO |
+| Dia 5 | Feed 70/30 · 7 dias simulados · SM-2 · 0 erros | APROVADO |
+| Dia 8 | PWA completo: Clickwrap + Tutor 3 níveis + Fallback + TTI + Telemetria | [GATE PENDENTE] |
 
-**Banco de questões:** 460 questões no Supabase — 13 disciplinas Cargo 202, priorizadas por score de incidência histórica (P-014).
+### DECISÕES FIXADAS (não reverter)
 
-### DECISÕES JÁ TOMADAS (não reverter)
+- Stack: PWA Vanilla JS + Supabase + Claude Haiku
+- Auth: single-user hardcoded
+- Feed: 70/30 (Peso 2 / Peso 1)
+- SM-2 original preservado (apenas coletar latência, não alterar fórmula)
+- 1 Edge Function por invocação (não monolito)
+- Clickwrap resolve P-023 em código (Gate Dia 8)
+- Pontos Ponderados = único número visível (obrigação contratual cláusula 2)
 
-- **Fonte de questões = Claude API gerando estilo Quadrix** — sem scraping (P-003)
-- **Stack = PWA + Supabase + Claude API** — sem framework pesado
-- **Auth = single-user** — Ingrid é a única usuária no MVP
-- **Sem Stripe** — projeto piloto interno
-- **Proporção feed = 70% Peso 2 / 30% Peso 1** — fixada no veredito Loop 1
-- **SM-2** — spaced repetition com intervalo variável
-- **Haiku para gerais + dicas socrátcas / Sonnet para específicos** — custo controlado
+### O QUE FOI CONSTRUÍDO NO LOOP 3 (Dias 6-8)
 
-### 5 IDEIAS DO MÚSCULO (Loop 3 — Dias 6–8)
+| Item | Status |
+|---|---|
+| Clickwrap Termo de Uso (`termos_aceitos` + SHA-256) | Construído |
+| E-2 com cold start state (edital → erro recente) | Construído |
+| E-5 com threshold ≥ 10 questões | Construído |
+| Tutor Socrático 3 níveis + tom austere | Construído |
+| TTI (acertos < 10s + erros por tempo) | Construído |
+| Curva erro/distrator/nivel_tutor como campo explícito | Construído |
+| Debug Mode: 5 toques no logo | Construído |
+| Beacon abandono: padrão 3+ na semana | Construído |
+| Stale session reload após 4h | Construído |
+| Graceful degradation (cache → explicacao_base → sem tela branca) | Construído |
 
-1. **Tutor Socrático com Memória de Erro:** Ao errar a mesma questão duas vezes, o Tutor Haiku não repete a explicação — muda o ângulo. Na 1ª tentativa: explica o conceito. Na 2ª: ataca especificamente o distrator que Ingrid escolheu. Na 3ª: formula uma pergunta analógica para forçar o raciocínio próprio. Tutor que repete não ensina — que adapta ao erro específico, ensina.
+---
 
-2. **Cache Inteligente de Explicações:** As explicações geradas pelo Tutor Haiku para cada questão são salvas no banco (`explicacao_tutor`). Na segunda vez que Ingrid errar a mesma questão, o sistema usa o cache — zero custo de API, resposta instantânea. A cota de API se concentra em questões novas, não em repetir o que já foi explicado.
+## 🧭 [E-1 a E-5] DO EMBAIXADOR — Loop 3 · 2026-05-18
 
-3. **Fallback de Fadiga com Conteúdo Passivo:** Quando Ingrid atinge 70% da cota diária de API (`controle_burn_rate`), o sistema não para — muda de modo. Exibe as "pílulas do dia" salvas no banco (campo `pilula_do_dia`): frases-âncora das pegadinhas, resumos legislativos em 2 linhas, casos práticos sem questão. Estudo continua sem custo extra de API.
+> O Estrategista reage a cada [E-X] no BLOCO 4 da DIRETRIZ.
+> [E-X] são input de campo — têm peso equivalente ao [M-X] do Músculo.
 
-4. **Progresso Visual por Disciplina no Header:** Em vez de contador genérico, mostrar barra de progresso por disciplina Peso 2 (as 6 mais importantes). Ingrid vê que "Direito Administrativo" está em 45% e "SUAS" em 80% — sabe onde atacar sem o app precisar dizer. A visualização cria urgência específica, não genérica.
+| # | Ideia | Dimensão |
+|---|---|---|
+| [E-1] | Vanguard é investidor de relacionamento neste piloto — gerar "Resumo da Entrega" de 1 página para Ingrid no Gate Dia 15 | Comercial |
+| [E-2] | Plantar pergunta no Gate Dia 8: "Você conhece mais alguém prestando concurso esse ano?" | Pipeline |
+| [E-3] | R$97/mês é teto receptivo da Ingrid; teto possível pode ser R$150 — registrar reação dela ao ouvir o número | Precificação |
+| [E-4] | Curva de erro por distrator nas 3 primeiras sessões = slide de pitch para 500 candidatos Quadrix | Business Case |
+| [E-5] | Clickwrap em D1 de produto vira regra Vanguard para todo SaaS — não exceção de caso | Portfólio |
 
-5. **Modo Revisão Express (5 min):** Para dias com pouco tempo, um modo de 5 questões pré-selecionadas pelo SM-2 — apenas as que estão vencidas (intervalo expirado) com maior score de prioridade. Ingrid abre o app no ônibus, responde 5 em 5 min, fecha. Consistência diária supera sessões longas esporádicas — e o produto que se adapta ao tempo disponível retém mais usuário que o que exige bloco de 30 min.
+---
+
+## 💡 5 IDEIAS DO MÚSCULO — Loop 3
+
+> ⚠️ PREENCHER após gerar relatorio_evolutivo_V3 (Gate Dia 8 concluído).
+> Seção abaixo é placeholder — substituir pelo conteúdo real do relatório.
+
+```
+[M-1] [preencher após Loop 3]
+[M-2] [preencher após Loop 3]
+[M-3] [preencher após Loop 3]
+[M-4] [preencher após Loop 3]
+[M-5] [preencher após Loop 3]
+```
 
 ---
 
 ## 📤 FORMATO OBRIGATÓRIO DA DIRETRIZ (7 blocos — sem exceção)
 
 > **Título obrigatório na primeira linha da resposta:**
-> `Diretriz Estratégica V4 — Projeto Ingrid — Loop 3`
+> `Diretriz Estratégica V5 — Projeto Ingrid — Loop 4`
 > Sem o título, a DIRETRIZ não é identificável nem arquivável.
 
 ```
 BLOCO 0 — DIAGNÓSTICO
-  Risco real que o Músculo e o Diretor não estão endereçando.
-  O que Ingrid precisa sentir ao usar o app para manter a disciplina até setembro.
+  Risco real que o Músculo e o Diretor não estão endereçando com Ingrid usando o app.
+  O que os dados das primeiras sessões reais revelarão que o perfil inferido não revelou.
 
 BLOCO 1 — PRIORIDADES DE BUILD (máximo 3)
   Cada uma com: o que construir + por que agora + horas reais + o que fica fora.
+  Foco: SaaS Readiness Audit (Dias 14-15), monetização V2 e escala para próximos candidatos.
 
 BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
-  Como posicionar este projeto como case de validação do Pentalateral IAH.
-  Potencial de replicação para outros concurseiros (nicho de mercado).
+  Posicionamento da Ingrid como case documentado de EdTech para 500 candidatos Quadrix.
+  Pitch V2 (R$97/mês) com timing e gatilho de conversão precisos.
+  Reagir ao [E-1 a E-5] do Embaixador — especialmente [E-3] (precificação) e [E-4] (business case).
 
 BLOCO 3 — DIRETRIZ TÉCNICA (3 sub-blocos obrigatórios)
 
-  [PARA O AUDITOR] — MANDATÓRIO: este sub-bloco deve:
-  1. Definir o nome exato da Skill a ser criada pelo Auditor:
-     formato obrigatório → `[cliente]-v[N].md` (ex: `ingrid-v1.md`)
-     O Auditor salva com este nome exato em .claude/skills/
-  2. Instruir o NotebookLM a gerar a Skill em 4 partes obrigatórias:
-    PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ contradiz no histórico real
-    PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
-    PARTE 3 — A Skill copiável para .claude/skills/ (contexto, padrões, alertas,
-               sequência de build, o que NÃO construir)
-    PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas — não as do Gemini nem do Músculo)
-  3. Especificar o que auditar neste projeto e qual risco priorizar.
-  [PARA O AUDITOR] sem nome da Skill e sem mandato das 4 partes = BLOCO 3 inválido.
+  [PARA O AUDITOR] — MANDATÓRIO:
+  1. Nome exato da Skill: `ingrid-v4.md`
+  2. Gerar em 4 partes obrigatórias:
+     PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ V5 contradiz no histórico real
+     PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
+     PARTE 3 — A Skill copiável (contexto Loop 4, padrões, alertas, sequência de build)
+     PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas)
+  3. Risco a priorizar: dados reais da Ingrid vs. inferências dos Loops 1-3.
 
-  [PARA O MÚSCULO]: intenção estratégica em 1 frase + prioridades em ordem + o que NÃO construir
-  + gates verificáveis por dia + MANDATÓRIO: instruir o Músculo a:
-    (0) executar a Skill pelo nome exato definido no [PARA O AUDITOR] (ex: /ingrid-v1)
-        antes de qualquer deliberação — sem rodar a Skill, deliberação é inválida
-    (a) reagir a cada uma das suas 5 ideias disruptivas (BLOCO 6) nos 7 pontos obrigatórios
-    (b) reagir a cada uma das 5 ideias do Auditor (PARTE 4 da Skill) com razão técnica
-    (c) propor as suas próprias 5 ideias disruptivas ao fechar a deliberação — perspectiva
-        técnica exclusiva do construtor, não síntese das ideias dos outros membros
-  [PARA O MÚSCULO] sem esses mandatos = sub-bloco inválido.
+  [PARA O MÚSCULO]:
+  Intenção estratégica + prioridades + o que NÃO construir + gates verificáveis.
+  MANDATÓRIO:
+    (0) Executar `/ingrid-v4` antes de qualquer deliberação.
+    (a) Reagir a cada [G-1 a G-5] do Estrategista nos 7 pontos.
+    (b) Reagir a cada [N-1 a N-5] do Auditor com razão técnica.
+    (c) Reagir a cada [E-1 a E-5] do Embaixador (comportamento real tem peso de evidência).
+    (d) Propor [M-1 a M-5] disruptivos ao fechar.
+    (e) Executar Síntese Final (P-037) com todos os 25 inputs antes do veredito do Diretor.
 
-  [VISÃO DE LONGO PRAZO]: onde este produto pode estar após o Sedes-DF de Ingrid.
+  [VISÃO DE LONGO PRAZO]: Motor Anti-Quadrix white-label para bancas regionais do Brasil.
 
-BLOCO 4 — RESPOSTA ÀS 5 IDEIAS DO MÚSCULO
-  Reagir a cada ideia: aprovada / modificada / descartada — com razão objetiva.
+BLOCO 4 — RESPOSTA ÀS IDEIAS
+  Reagir a cada [M-1 a M-5] do Músculo: aprovada / modificada / descartada — com razão objetiva.
+  Reagir a cada [E-1 a E-5] do Embaixador: CONFIRMA / EXPANDE / ALERTA — com visão estratégica.
 
 BLOCO 5 — PRÓXIMOS PASSOS DO DIRETOR
-  3 ações concretas para as próximas 24h — o quê, onde, como.
+  3 ações concretas — o quê, onde, como. Incluir: captura de voz da Ingrid no Gate Dia 8.
 
 BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
-  Ideias que o Músculo não propôs. Para cada uma: o que é + impacto + pergunta direta ao Músculo.
+  Ideias que o Músculo não propôs. Foco: pós-uso real da Ingrid, escala e monetização.
+  Para cada uma: o que é + impacto + pergunta direta ao Músculo.
 ```
-
-**PESQUISA NECESSÁRIA DO ESTRATEGISTA — incluir no BLOCO 1:**
-- Conteúdo programático típico do cargo TDAS Quadrix (matérias + peso estimado)
-- Formato de prova Quadrix para cargos de nível médio (nº de questões, tempo, distribuição)
-- Padrão das questões Quadrix: estilo, grau de dificuldade, pegadinhas comuns
-- Provas anteriores Quadrix para Sedes-DF ou concursos similares (GDF, secretarias distritais)
 
 **Se desviar deste formato:**
 > "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos. Prioridades >3 = descartadas."
-> "Estrategista, BLOCO 3 inválido. [PARA O AUDITOR] deve mandar explicitamente gerar a Skill em 4 partes. Reapresente."
+> "Estrategista, BLOCO 3 inválido. [PARA O AUDITOR] deve mandar gerar Skill em 4 partes. Reapresente."
+> "Estrategista, BLOCO 4 incompleto. Reagir a [E-1 a E-5] é obrigatório — Embaixador tem peso de evidência de campo."
