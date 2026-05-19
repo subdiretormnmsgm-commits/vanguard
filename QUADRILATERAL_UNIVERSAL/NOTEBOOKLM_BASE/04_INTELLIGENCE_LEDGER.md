@@ -951,8 +951,47 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 - `CLIENTES/INGRID/PERFIL_CANDIDATO_SEDES_DF.md` — P-038 aplicado ao concurso
 
 **Pendentes desta sessão:**
-1. Expandir banco para 1.000+ questões (seed 50/disciplina — aguarda SERVICE_ROLE_KEY)
-2. Deploy público do PWA (gh-pages com erro — alternativa: Netlify drop ou Supabase Storage)
-3. Criar PERFIL_NICHO template universal em QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/
-4. Criar Perfil de Nicho LegalTech-Penal (PROJ-001 Valdece — advogado penal)
-5. PDF dos 3 documentos de entrega
+1. Expandir banco para 1.000+ questões (seed 50/disciplina — aguarda créditos Anthropic)
+2. Deploy público do PWA (gh-pages branch pronto — aguarda ativação manual no GitHub Pages)
+3. PDF dos 3 documentos de entrega
+
+**Concluídos após o log inicial:**
+- CLIENTES/INGRID/PASSO7_EMBAIXADOR.md criado (falha detectada pelo Diretor — corrigido)
+
+---
+
+### [FALHA-PROCESSO-2026-05-18-E] PASSO7_EMBAIXADOR não instanciado para projetos ativos
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** PASSO3, PASSO5 e PASSO6 foram instanciados para o projeto Ingrid no momento da criação. PASSO7_EMBAIXADOR_TEMPLATE.md foi criado em QUADRILATERAL_UNIVERSAL/OPERACAO/ mas não foi instanciado como PASSO7_EMBAIXADOR.md em CLIENTES/INGRID/. O Embaixador ficou sem formato de resposta definido por toda a duração do Loop 3. Diretor identificou ao perguntar sobre documentos para as mensagens.
+
+**Regra gerada — Checklist de Criação de Projeto (P-041):**
+Ao criar qualquer projeto novo, o Músculo verifica antes de declarar projeto pronto:
+- [ ] PASSO3_GEMINI.md instanciado com dados do cliente
+- [ ] PASSO5_NOTEBOOKLM.md instanciado com dados do cliente
+- [ ] PASSO6_MUSCULO.md instanciado com dados do cliente
+- [ ] PASSO7_EMBAIXADOR.md instanciado com dados do cliente
+- [ ] 00_INSTRUCAO_SISTEMA.md criado em CLAUDE_PROJECT/
+- [ ] MEMORIA_EMBAIXADOR.md inicializado em CLAUDE_PROJECT/
+Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup sem esta checagem.
+
+**Correção aplicada:** CLIENTES/INGRID/PASSO7_EMBAIXADOR.md criado em 2026-05-18.
+
+---
+
+### [FALHA-PROCESSO-2026-05-18-F] Créditos Anthropic sem monitoramento — bloqueio silencioso
+
+**Detectado por:** Músculo (diagnóstico pós-falha do seed)
+**Contexto:** seed_questoes.ps1 rodou todas as 13 disciplinas e reportou apenas "ERRO - 500 Internal Server Error" sem diagnóstico do motivo. A causa real ("Your credit balance is too low") só foi identificada com uma chamada de diagnóstico manual. O seed consumiu tempo de execução e não entregou valor — e o Diretor só soube do bloqueio real após investigação.
+
+**Regra gerada:** seed_questoes.ps1 deve capturar o texto do erro da Edge Function e exibir o motivo real, não apenas o código HTTP. Erros de crédito da Anthropic são BLOQUEIO_CRITICO — parar imediatamente com mensagem clara: "BLOQUEIO: Créditos Anthropic esgotados. Acesse console.anthropic.com → Plans & Billing."
+
+**Ferramenta preventiva:** Adicionar ao checklist pré-seed: "Verificar saldo Anthropic em console.anthropic.com antes de rodar seed > 50 questões."
+
+---
+
+### [P-041] Checklist de Setup de Projeto — 6 artefatos obrigatórios antes de declarar pronto
+**Descoberto:** 2026-05-18 | **Detectado por:** Diretor Eduardo
+**Evidência:** PASSO7_EMBAIXADOR não foi instanciado para PROJ-002 Ingrid. O Embaixador ficou sem formato de resposta definido durante o Loop 3. Diretor detectou ao revisar documentos para as mensagens.
+**Princípio:** Todo projeto novo só está pronto quando os 6 artefatos abaixo existem com dados reais (não placeholders): PASSO3_GEMINI.md + PASSO5_NOTEBOOKLM.md + PASSO6_MUSCULO.md + PASSO7_EMBAIXADOR.md + 00_INSTRUCAO_SISTEMA.md + MEMORIA_EMBAIXADOR.md. Músculo verifica ao criar projeto e ao iniciar cada loop.
+**Aplica-se a:** criação de qualquer projeto cliente. Executar após BRIEFING_DISCOVERY.

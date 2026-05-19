@@ -1,4 +1,4 @@
-﻿# INTELLIGENCE LEDGER — Pentalateral IAH
+# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -406,7 +406,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [SESSÃO 2026-05-16] — Evolução Constitucional · Opinião Consultora #01 · P-018
 
-**Direção da sessão:** Sessão inteiramente filosófica e constitucional. Nenhum build executado. Foco em clarificar e documentar a arquitetura de papéis do Pentalateral IAH com precisão crescente — através de refinamentos sucessivos propostos pelo Diretor.
+**Direção da sessão:** Sessão inteiramente filosófica e constitucional. Nenhum build executado. Foco em clarificar e documentar a arquitetura de papéis do Quadrilateral IAH com precisão crescente — através de refinamentos sucessivos propostos pelo Diretor.
 
 **Eventos capturados:**
 
@@ -759,6 +759,28 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ---
 
+### [FALHA-PROCESSO-2026-05-18-C] Versão da DIRETRIZ no PASSO não rastreada por projeto
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** PASSO3_INGRID e PASSO5_INGRID referenciavam DIRETRIZ V3 como próxima a gerar. Porém a V3 já existia — foi gerada para a sessão do Embaixador (2026-05-17), não para o Loop 3 do projeto. A próxima DIRETRIZ do projeto é a V4. Músculo não rastreou a versão correta ao atualizar os PASSOs.
+
+**Regra gerada:** Ao atualizar qualquer PASSO file, verificar antes quais arquivos DIRETRIZ_GEMINI_V*.txt já existem na pasta do cliente. Próxima versão = maior número existente + 1. Nunca assumir versão por número de loop.
+
+**Arquivos corrigidos:** INGRID/PASSO3 e PASSO5 (master + NOTEBOOKLM_FONTES/13): V3 → V4
+
+---
+
+### [FALHA-PROCESSO-2026-05-18-B] PASSO files não cobertos pela sincronização de nomenclatura
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Quadrilateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem QUADRILATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
+
+**Regra gerada:** Ao fazer qualquer migração de nomenclatura do sistema, a varredura obrigatória inclui: `CLIENTES/**/PASSO*.md`. Estes arquivos não são gerados por script — são editados manualmente. Criação de ferramenta de varredura: `grep -r "Quadrilateral IAH" CLIENTES/**/*.md` como parte do ritual de migração.
+
+**Arquivos corrigidos:** INGRID/PASSO3, INGRID/PASSO5, INGRID/NOTEBOOKLM_FONTES/13, VALDECE/PASSO5
+
+---
+
 ### [FALHA-PROCESSO-2026-05-18] MEMORIA_EMBAIXADOR não atualizada automaticamente após deliberação
 
 **Detectado por:** Diretor Eduardo
@@ -786,3 +808,190 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 **Alerta ao Estrategista e Auditor:** Se detectarem que o Músculo deliberou sobre um cliente sem atualizar a MEMORIA_EMBAIXADOR → emitir SV no próximo ciclo.
 
+---
+
+### [P-033] Sync universal → projetos é obrigatório e imediato
+**Descoberto:** 2026-05-18 | **Sessão:** Auditoria Pentalateral — preparação NotebookLM
+**Fricção:** Diretor detectou que documentos em QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Quadrilateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
+
+**Regra:** Ao atualizar QUALQUER documento em QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/, o Músculo sincroniza imediatamente as cópias em TODOS os projetos ativos (CLIENTES/[NOME]/NOTEBOOKLM_FONTES/). Fonte única de verdade = QUADRILATERAL_UNIVERSAL. Cópia no projeto = snapshot para o Auditor. Documento atualizado na universal mas não copiado = Auditor que lê versão velha = loop que começa com inteligência contaminada.
+
+**Automação:** sync_passo_files.ps1 deve executar este sync em toda sessão de abertura. Músculo não espera Eduardo pedir — executa proativamente.
+
+**Por que importa:** O Auditor (NotebookLM) não tem acesso direto às fontes universais. Só vê o que está em NOTEBOOKLM_FONTES/. Se o Músculo não sincroniza, o Auditor opera com uma realidade desatualizada — e gera Skill baseada em premissas erradas.
+
+**Alerta ao Estrategista:** Ao gerar DIRETRIZ, verificar se fontes do Auditor estão em dia. Se não → pedir ao Músculo sync antes de prosseguir.
+
+---
+
+### [FALHA-PROCESSO-2026-05-18-D] Documentação desatualizada bloqueou sessão completa
+**Data:** 2026-05-18 | **Detectado por:** Diretor Eduardo
+**Impacto:** ~2 horas de sessão consumidas em auditoria e correção de documentação. Objetivo principal da sessão (gerar Skill ingrid-v2.md via NotebookLM Loop 3) não concluído.
+
+**Causa raiz:** Músculo não executou sync de documentos universais ao iniciar sessão. Nomenclatura "Quadrilateral IAH" estava ativa em 27+ arquivos enquanto o sistema já operava como "Pentalateral IAH" há 2+ dias. PASSO5 de Ingrid indicava DIRETRIZ V5 (futura) quando a corrente era V4. Sem detecção proativa do Músculo — Diretor teve que auditar manualmente arquivo por arquivo.
+
+**Cadeia de falhas:**
+1. sync_passo_files.ps1 não cobria documentos universais (só PASSOs)
+2. session_start hook não chamava sync_passo_files.ps1
+3. Músculo não auditou estado das NOTEBOOKLM_FONTES ao iniciar sessão (P-033 não existia ainda)
+
+**Correções aplicadas:**
+- P-033 criado: sync universal → projetos obrigatório e imediato
+- sync_passo_files.ps1 extendido: seção 3 sincroniza docs universais + WIP + ANALISE + TIMELINE
+- CLAUDE.md atualizado com P-033
+- 27 arquivos corrigidos (Ingrid + Valdece + Universal)
+
+**Ferramenta criada:** sync_passo_files.ps1 — executar ao iniciar qualquer sessão de Conselho.
+
+**Regra derivada:** Músculo audita proativamente NOTEBOOKLM_FONTES ao abrir sessão. Não espera o Diretor perguntar. Se encontrar desatualização → corrige antes de qualquer outra ação.
+
+---
+
+### [P-034] Análise Cirúrgica do Músculo antes do Embaixador
+**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo (intervenção direta do Diretor)
+**Evidência:** Sem filtro técnico, o Embaixador recebia ideias brutas de [G+N] com inviabilidades de prazo e contradições com decisões já tomadas. O Embaixador não tem competência técnica para filtrar — só competência relacional. Músculo com histórico de build resolve isso antes de passar o pacote.
+**Princípio:** Antes de enviar qualquer conjunto de ideias [G+N] ao Embaixador, o Músculo executa análise cirúrgica: (a) o que é inviável no prazo real, (b) o que contradiz decisões já tomadas no build, (c) o que precisa ajuste antes de chegar ao cliente. Gera [M'-1 a M'-5] como saída desta análise. Embaixador recebe o pacote qualificado — nunca as ideias brutas.
+**Aplica-se a:** todo ciclo completo do Pentalateral a partir do Loop 3.
+
+---
+
+### [P-035] Embaixador opera em amplitude total — não só comportamento do cliente
+**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo (expansão de mandato)
+**Evidência:** Embaixador estava sendo usado apenas como filtro de comportamento do cliente. Eduardo identificou que sua inteligência acumulada pode e deve atuar em: estratégia comercial, precificação, pipeline de leads, business case, portfolio. Restrição era artificial — não técnica.
+**Princípio:** O Embaixador recebe o pacote qualificado pelo Músculo (P-034) e confirma/expande/alerta em amplitude total: comportamento do cliente + estratégia comercial + precificação por nicho + pipeline de leads + business case. Mandatos 1–11 ativos simultaneamente.
+**Aplica-se a:** toda interação do Embaixador a partir de 2026-05-18.
+
+---
+
+### [P-036] Músculo prepara mensagem estruturada para o Embaixador
+**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo
+**Evidência:** Embaixador recebia contexto fragmentado — parte do relato do Diretor, parte de docs. Resultado: análise superficial. Com mensagem estruturada em 4 blocos, análise ganhou profundidade e precisão.
+**Princípio:** Ao ativar o Embaixador, o Músculo prepara mensagem com 4 blocos obrigatórios: (a) contexto do loop — o que foi construído, o que está em jogo; (b) ideias qualificadas — aprovadas/modificadas/vetadas com razão técnica; (c) perguntas específicas — o que precisa de confirmação/alerta do Embaixador; (d) prazo e próximos gates. O Embaixador que recebe mensagem estruturada entrega 3× mais inteligência que o que recebe relato livre.
+**Aplica-se a:** toda ativação do Embaixador por projeto ativo.
+
+---
+
+### [P-037] Síntese Final do Músculo — Diretor recebe 1 plano, não 25 inputs
+**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo (princípio de liderança)
+**Evidência:** Ciclo completo gera até 25 ideias: [M+M'+G+N+E]. Sem síntese, o Diretor precisa processar 25 inputs para tomar 1 decisão — isso é carga do sistema sobre o Diretor, não pelo Diretor. Eduardo definiu: sistema gera, Diretor delibera.
+**Princípio:** Após receber [E-1 a E-5] do Embaixador, o Músculo produz Síntese Final única com: ENTRA AGORA (lista fechada com custo e prazo), V2 (qualificado mas fora do escopo corrente), DESCARTADO (vetado com 1 linha de razão), ALERTAS ABERTOS (exige decisão do Diretor). O Diretor vê 1 plano — nunca os 25 inputs brutos.
+**Aplica-se a:** todo ciclo completo do Pentalateral onde Embaixador participou.
+
+---
+
+### [P-038] Perfil de Candidato/Cliente é pré-requisito de qualquer projeto EdTech
+**Descoberto:** 2026-05-18 | **Detectado por:** Eduardo | **Sessão:** PROJ-002 Ingrid — Loop 3
+**Evidência:** O banco de questões do PROJ-002 foi dimensionado com 460 questões por critério técnico (SM-2 + 25/disciplina). Eduardo identificou que um candidato sistêmico típico faz 50–100 questões/dia em plataformas abertas. Com 20/dia e 460 no banco, o candidato esgota questões novas em 23 dias — risco de abandono no dia 24 quando o feed vira só revisão. O Perfil de Candidato deveria ter definido o volume mínimo antes do build.
+**Princípio:** Em qualquer projeto EdTech de concurso, documentar o Perfil de Candidato ANTES do dimensionamento do banco com 5 variáveis obrigatórias: (1) volume diário típico, (2) padrão de sessão (mobile/desktop, curta/longa), (3) gatilho de abandono documentado, (4) referência de mercado com que vai comparar, (5) definição pessoal de progresso. Banco mínimo: 600 questões para MVP 30 dias, 1.000+ para ciclo completo.
+**Banco mínimo por ciclo:**
+- MVP (30 dias): 600 questões únicas
+- Produto completo (111 dias): 1.000 questões únicas
+- Plataforma escalável: 1.500+ questões únicas
+**Aplica-se a:** todo projeto EdTech de concurso. Executar no Dia 0 junto com P-024.
+
+---
+
+### [P-039] Modelo de Testes com Registro de Erro e Atitude Corretiva
+**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo | **Sessão:** PROJ-002 Ingrid — Loop 3
+**Evidência:** CORS no `feed-diario` não foi detectado antes do deploy porque o Gate Dia 5 rodou via CLI Node.js (que ignora CORS). Quando Eduardo testou no browser, o app travou. A falha era detectável com 5 minutos de teste browser antes do deploy. Sem protocolo de teste, a descoberta dependeu do cliente/usuário — não do Músculo.
+**Princípio:** Antes de qualquer entrega ao cliente, executar checklist de 3 camadas:
+  **Camada 1 — Técnica (Músculo):** a função roda? CORS ok? Banco responde? Edge Functions deployadas? Testar no browser antes do deploy — não só via CLI.
+  **Camada 2 — Usuário (Diretor):** Eduardo simula ser o cliente sem saber o fluxo esperado. Mínimo 5 minutos de uso real. Registrar o que travou, o que confundiu, o que não funcionou.
+  **Camada 3 — Regressão (Músculo):** o que funcionava antes ainda funciona? Checklist fixo por projeto.
+**Registro obrigatório:** cada erro encontrado → (a) registrar no LEDGER, (b) documentar atitude corretiva, (c) adicionar ao checklist de regressão para não repetir.
+**Aplica-se a:** toda entrega de feature a cliente ativo. Executar antes de enviar qualquer link.
+
+---
+
+### [P-040] Perfis de Nicho como Ativo Proprietário da Vanguard
+**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo | **Sessão:** PROJ-002 Ingrid — Loop 3
+**Evidência:** Eduardo identificou que o Perfil de Candidato criado para o PROJ-002 (concurseira administrativa) e o perfil futuro para PROJ-001 (advogado penal) são ativos de inteligência que nenhum concorrente tem — porque vêm de projetos reais, não de teoria de mercado. A cada projeto novo no mesmo nicho, o perfil fica mais preciso. Com 3 clientes no mesmo nicho, a Vanguard tem vantagem irreproduzível.
+**Princípio:** Ao fechar qualquer projeto, o Músculo cria ou atualiza o Perfil de Nicho correspondente em `QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/[nicho].md`. O perfil acumula: (a) comportamento real documentado do cliente, (b) gatilhos de abandono confirmados em campo, (c) definição de progresso validada, (d) objeções de preço reais, (e) referências de mercado citadas espontaneamente. Este ativo cresce a cada projeto e nunca pode ser copiado — é construído com dados reais de campo, não inferência.
+**Nichos iniciais a documentar:** EdTech-Concurso, LegalTech-Penal, [próximos clientes].
+**Os 4 LLMs do Pentalateral buscam ativamente** padrões dentro do nicho a cada ciclo — o Embaixador com comportamento de campo, o Gemini com visão de escala, o NotebookLM com consistência histórica, o Músculo com viabilidade técnica.
+**Aplica-se a:** fechamento de qualquer projeto cliente, obrigatório.
+
+---
+
+### [SESSÃO 2026-05-18] — PROJ-002 Ingrid / Loop 3 Build Dias 6-8 + P-038 a P-040
+
+**Direção da sessão:** Build completo Dias 6-8 (Clickwrap + Tutor Socrático + Telemetria TTI + Fallback) + correção CORS + deploy Edge Functions + criação de documentação de entrega para Ingrid.
+
+**GATES CONCLUÍDOS:**
+- Termo de Uso assinado (2026-05-18) — P-023 resolvido
+- Migração SQL Dias 6-8 executada — 3 tabelas novas + 5 colunas + RPC
+- `feed-diario` CORS corrigido e redeploy — app funcional no browser
+- `tutor-socratico` deployado pela primeira vez
+- Gate Dia 6: app carrega questões no browser ✓
+
+**O QUE DEU CERTO:**
+
+`[CONFIRMADO]` **SM-2 + Tutor Socrático funcionando no browser:** app carrega feed, aceita clickwrap, salva termos_aceitos, exibe questões.
+
+`[CONFIRMADO]` **CORS resolve browser vs. CLI:** Edge Functions construídas apenas com teste CLI falham no browser. Preflight OPTIONS + `Access-Control-Allow-Origin: *` são obrigatórios em qualquer Edge Function chamada do browser.
+
+`[CONFIRMADO]` **tutor-socratico precisa estar em `supabase/functions/` raiz:** CLI do Supabase não aceita caminhos alternativos. Copiar para raiz antes de deploy.
+
+**ERROS E FRICÇÕES:**
+
+`[FRICÇÃO]` **CORS não testado no browser antes do deploy:** Gate Dia 5 rodou via Node.js CLI (ignora CORS). Browser bloqueia sem `Access-Control-Allow-Origin`. Fix: teste browser obrigatório antes de declarar gate aprovado. → P-039 criado.
+
+`[FRICÇÃO]` **Banco de questões subdimensionado (460 vs. 1.000+ necessário):** Perfil de candidato não foi documentado antes do dimensionamento do banco. Candidato sistêmico esgota 460 questões em 23 dias. → P-038 criado. Banco em expansão para 1.000+.
+
+`[FRICÇÃO]` **gh-pages deploy falhou:** `npx gh-pages` com erro `TypeError: path argument must be string`. PWA ainda não tem URL pública. Deploy público pendente.
+
+`[PRINCÍPIO]` **P-038 gerado:** Perfil de Candidato é pré-requisito de EdTech.
+`[PRINCÍPIO]` **P-039 gerado:** Modelo de testes 3 camadas antes de qualquer entrega.
+`[PRINCÍPIO]` **P-040 gerado:** Perfis de nicho como ativo proprietário acumulado por projeto.
+
+**Documentos criados nesta sessão:**
+- `CLIENTES/INGRID/RELATORIO_ENTREGA_INGRID.md` — documento de entrega para Ingrid
+- `CLIENTES/INGRID/MANUAL_INSTRUCOES_INGRID.md` — manual de uso passo a passo
+- `CLIENTES/INGRID/METODOLOGIA_VANGUARD.md` — documento de metodologia/propaganda
+- `CLIENTES/INGRID/PERFIL_CANDIDATO_SEDES_DF.md` — P-038 aplicado ao concurso
+
+**Pendentes desta sessão:**
+1. Expandir banco para 1.000+ questões (seed 50/disciplina — aguarda créditos Anthropic)
+2. Deploy público do PWA (gh-pages branch pronto — aguarda ativação manual no GitHub Pages)
+3. PDF dos 3 documentos de entrega
+
+**Concluídos após o log inicial:**
+- CLIENTES/INGRID/PASSO7_EMBAIXADOR.md criado (falha detectada pelo Diretor — corrigido)
+
+---
+
+### [FALHA-PROCESSO-2026-05-18-E] PASSO7_EMBAIXADOR não instanciado para projetos ativos
+
+**Detectado por:** Diretor Eduardo
+**Contexto:** PASSO3, PASSO5 e PASSO6 foram instanciados para o projeto Ingrid no momento da criação. PASSO7_EMBAIXADOR_TEMPLATE.md foi criado em QUADRILATERAL_UNIVERSAL/OPERACAO/ mas não foi instanciado como PASSO7_EMBAIXADOR.md em CLIENTES/INGRID/. O Embaixador ficou sem formato de resposta definido por toda a duração do Loop 3. Diretor identificou ao perguntar sobre documentos para as mensagens.
+
+**Regra gerada — Checklist de Criação de Projeto (P-041):**
+Ao criar qualquer projeto novo, o Músculo verifica antes de declarar projeto pronto:
+- [ ] PASSO3_GEMINI.md instanciado com dados do cliente
+- [ ] PASSO5_NOTEBOOKLM.md instanciado com dados do cliente
+- [ ] PASSO6_MUSCULO.md instanciado com dados do cliente
+- [ ] PASSO7_EMBAIXADOR.md instanciado com dados do cliente
+- [ ] 00_INSTRUCAO_SISTEMA.md criado em CLAUDE_PROJECT/
+- [ ] MEMORIA_EMBAIXADOR.md inicializado em CLAUDE_PROJECT/
+Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup sem esta checagem.
+
+**Correção aplicada:** CLIENTES/INGRID/PASSO7_EMBAIXADOR.md criado em 2026-05-18.
+
+---
+
+### [FALHA-PROCESSO-2026-05-18-F] Créditos Anthropic sem monitoramento — bloqueio silencioso
+
+**Detectado por:** Músculo (diagnóstico pós-falha do seed)
+**Contexto:** seed_questoes.ps1 rodou todas as 13 disciplinas e reportou apenas "ERRO - 500 Internal Server Error" sem diagnóstico do motivo. A causa real ("Your credit balance is too low") só foi identificada com uma chamada de diagnóstico manual. O seed consumiu tempo de execução e não entregou valor — e o Diretor só soube do bloqueio real após investigação.
+
+**Regra gerada:** seed_questoes.ps1 deve capturar o texto do erro da Edge Function e exibir o motivo real, não apenas o código HTTP. Erros de crédito da Anthropic são BLOQUEIO_CRITICO — parar imediatamente com mensagem clara: "BLOQUEIO: Créditos Anthropic esgotados. Acesse console.anthropic.com → Plans & Billing."
+
+**Ferramenta preventiva:** Adicionar ao checklist pré-seed: "Verificar saldo Anthropic em console.anthropic.com antes de rodar seed > 50 questões."
+
+---
+
+### [P-041] Checklist de Setup de Projeto — 6 artefatos obrigatórios antes de declarar pronto
+**Descoberto:** 2026-05-18 | **Detectado por:** Diretor Eduardo
+**Evidência:** PASSO7_EMBAIXADOR não foi instanciado para PROJ-002 Ingrid. O Embaixador ficou sem formato de resposta definido durante o Loop 3. Diretor detectou ao revisar documentos para as mensagens.
+**Princípio:** Todo projeto novo só está pronto quando os 6 artefatos abaixo existem com dados reais (não placeholders): PASSO3_GEMINI.md + PASSO5_NOTEBOOKLM.md + PASSO6_MUSCULO.md + PASSO7_EMBAIXADOR.md + 00_INSTRUCAO_SISTEMA.md + MEMORIA_EMBAIXADOR.md. Músculo verifica ao criar projeto e ao iniciar cada loop.
+**Aplica-se a:** criação de qualquer projeto cliente. Executar após BRIEFING_DISCOVERY.

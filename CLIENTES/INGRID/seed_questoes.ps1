@@ -123,7 +123,19 @@ function Invoke-GerarLote {
             modelo    = $response.modelo_usado
         }
     } catch {
-        return @{ ok = $false; erro = $_.Exception.Message }
+        $erroMsg    = $_.Exception.Message
+        $erroCorpo  = $_.ErrorDetails.Message
+
+        $ehCreditoBloqueado = (
+            $erroCorpo -match "credit balance" -or
+            $erroMsg   -match "credit balance" -or
+            $erroCorpo -match "Plans & Billing"
+        )
+
+        if ($ehCreditoBloqueado) {
+            return @{ ok = $false; erro = $erroMsg; bloqueio_critico = $true }
+        }
+        return @{ ok = $false; erro = $erroMsg; bloqueio_critico = $false }
     }
 }
 
@@ -180,6 +192,15 @@ foreach ($disc in $todas) {
         $totalSalvas += $resultado.salvas
         $msg = "    OK - {0} questoes salvas | custo: `${1:F4} | modelo: {2}" -f $resultado.salvas, $resultado.custo_usd, $resultado.modelo
         Write-Host $msg -ForegroundColor Green
+    } elseif ($resultado.bloqueio_critico) {
+        Write-Host ""
+        Write-Host "  =============================================" -ForegroundColor Red
+        Write-Host "  BLOQUEIO CRITICO: Creditos Anthropic esgotados" -ForegroundColor Red
+        Write-Host "  Acesse: console.anthropic.com -> Plans & Billing" -ForegroundColor Yellow
+        Write-Host "  Adicione creditos e rode novamente o seed." -ForegroundColor Yellow
+        Write-Host "  =============================================" -ForegroundColor Red
+        Write-Host ""
+        break
     } else {
         $erros++
         Write-Host "    ERRO - $($resultado.erro)" -ForegroundColor Red

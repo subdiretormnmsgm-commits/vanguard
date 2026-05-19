@@ -89,6 +89,12 @@ try {
 Write-Host ""
 Write-Host "  O que voce quer fazer?" -ForegroundColor Cyan
 Write-Host ""
+Write-Host "  --- Conselho ---" -ForegroundColor Cyan
+Write-Host "  [G] Ir ao Gemini       (gera contexto + clipboard + lista anexos)" -ForegroundColor Cyan
+Write-Host "  [N] Ir ao NotebookLM   (prepara fontes + abre Explorer + browser)"  -ForegroundColor Cyan
+Write-Host "  [E] Ir ao Embaixador   (copia mensagem inicial + abre Projects)"    -ForegroundColor Cyan
+Write-Host "  [V] Verificar projeto  (P-041: 6 artefatos obrigatorios)"           -ForegroundColor Cyan
+Write-Host ""
 Write-Host "  --- Banco & Seed ---" -ForegroundColor DarkGray
 Write-Host "  [1] Rodar seed (popular banco de questoes)" -ForegroundColor White
 Write-Host "  [2] Rodar Gate Dia 5 (validar feed 70/30)"  -ForegroundColor White
@@ -97,12 +103,12 @@ Write-Host ""
 Write-Host "  --- Edge Functions ---" -ForegroundColor DarkGray
 Write-Host "  [3] Deploy: gerar-questoes"                          -ForegroundColor White
 Write-Host "  [4] Deploy: feed-diario"                             -ForegroundColor White
-Write-Host "  [5] Deploy: tutor-socratico  [NOVO - Dia 7]"         -ForegroundColor Cyan
+Write-Host "  [5] Deploy: tutor-socratico"                         -ForegroundColor White
 Write-Host "  [9] Deploy: TODAS as 3 Edge Functions"               -ForegroundColor White
 Write-Host ""
 Write-Host "  --- Frontend ---" -ForegroundColor DarkGray
-Write-Host "  [F] Configurar app.js (substituir placeholders)"     -ForegroundColor Cyan
-Write-Host "  [A] Configurar ANTHROPIC_API_KEY no Supabase Secrets" -ForegroundColor Cyan
+Write-Host "  [F] Configurar app.js (substituir placeholders)"     -ForegroundColor White
+Write-Host "  [A] Configurar ANTHROPIC_API_KEY no Supabase Secrets" -ForegroundColor White
 Write-Host ""
 Write-Host "  [6] So configurar ambiente (sem acao)" -ForegroundColor White
 Write-Host ""
@@ -110,6 +116,36 @@ Write-Host ""
 $opcao = Read-Host "  Escolha"
 
 switch ($opcao.ToUpper()) {
+    "G" {
+        Write-Host ""
+        Write-Host "  Preparando sessao com o Gemini (Estrategista)..." -ForegroundColor Cyan
+        & ".\scripts\gemini_anchor_generator.ps1"
+        Write-Host ""
+        Write-Host "  Abrindo Gemini no browser..." -ForegroundColor Cyan
+        Start-Process "https://gemini.google.com/app"
+        Write-Host "  [OK] Contexto no clipboard (Ctrl+V) + browser aberto." -ForegroundColor Green
+        Write-Host "  Anexe os arquivos listados acima antes de colar o contexto." -ForegroundColor Yellow
+    }
+    "N" {
+        Write-Host ""
+        Write-Host "  Preparando fontes para o NotebookLM (Auditor)..." -ForegroundColor Cyan
+        & ".\scripts\preparar_notebooklm_projeto.ps1" -cliente INGRID
+        Write-Host ""
+        Write-Host "  Abrindo NotebookLM no browser..." -ForegroundColor Cyan
+        Start-Process "https://notebooklm.google.com"
+        Write-Host "  [OK] Explorer aberto com fontes. Arrastar tudo ao NotebookLM." -ForegroundColor Green
+        Write-Host "  Depois colar o COMANDO CURTO do PASSO5_NOTEBOOKLM.md no chat." -ForegroundColor Yellow
+    }
+    "E" {
+        Write-Host ""
+        Write-Host "  Ativando o Embaixador (Claude Projects)..." -ForegroundColor Cyan
+        & ".\scripts\ir_ao_embaixador.ps1" -cliente INGRID
+        Write-Host "  [OK] Mensagem no clipboard. Usar PASSO7_EMBAIXADOR.md para escolher a secao." -ForegroundColor Green
+    }
+    "V" {
+        Write-Host ""
+        & ".\scripts\verificar_projeto.ps1" -cliente INGRID
+    }
     "1" {
         Write-Host ""
         $qtd = Read-Host "  Questoes por disciplina? (Enter = 25)"
