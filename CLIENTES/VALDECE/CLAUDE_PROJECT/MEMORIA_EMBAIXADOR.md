@@ -136,26 +136,38 @@ A primeira impressão real ainda vai acontecer — é a sessão mais crítica do
 
 ## PRÓXIMA AÇÃO CRÍTICA
 
-**CONFIGURAÇÃO + DEMO — próxima sessão (com credenciais em mãos):**
+**DEMO 2026-05-20 — checklist pré-saída:**
 
 ```
-[ANTES]     Eduardo configura sistema com credenciais do Valdece (Auth Supabase + migração)
-[0–5 min]   ABERTURA: demo no computador DELE — primeira busca com tema que ele usa
-[5–20 min]  CONFIGURAÇÃO SILENCIOSA: "estou transferindo o controle para você"
-[20–40 min] DEMONSTRAÇÃO GUIADA: 3 buscas reais + 1 busca DELE sem ajuda
+[ANTES DE SAIR]    Eduardo salva rascunho WhatsApp: "Dr. Valdece, combinamos o valor único de R$5k.
+                   A ferramenta não tem mensalidade — o que está ativo é seu acesso direto ao sistema."
+                   
+[0–5 min]   ABERTURA: "Valdece, quais 3 temas você mais pesquisou essa semana?"
+            ↳ Garante que as buscas da demo cobrem o que ele usa de verdade
+            ↳ Se um tema não estiver no seed → "esse entra no próximo ciclo de atualização"
+            
+[5–10 min]  1ª busca nos temas que ELE mencionou — silêncio total aguardando o resultado
+[10–25 min] 2ª e 3ª buscas — mostrar link do acórdão original, sim 0.70+
+[25–40 min] Deixar ELE digitar a 4ª busca sem ajuda — momento de virada H-2
 [40–55 min] SOVEREIGN PLAYBOOK: "se o sistema travar, você resolve em 3 passos — sem me ligar"
-[55–70 min] CONTRATO: não forçar — deixar o entusiasmo da demo fechar
-[70–90 min] FECHAMENTO + semente do V2 plantada
+[55–70 min] CONTRATO: não forçar — deixar o entusiasmo fechar
+[70–90 min] FECHAMENTO + semente V2 plantada
 ```
 
-**🚨 MOMENTO MAIS CRÍTICO DO PROJETO:** A primeira busca de Valdece no sistema dele.
-Se ele encontrar o precedente que precisava → contrato fecha sozinho.
-Se o sistema travar ou retornar resultado ruim → credibilidade perdida.
-**Testar com as credenciais dele ANTES de qualquer demo.**
+**🚨 MOMENTO MAIS CRÍTICO DO PROJETO:** A primeira busca de Valdece nos temas que ELE nomeou.
+Se encontrar → contrato fecha sozinho.
+Se não encontrar → "esse entra no próximo ciclo" → redirija para outro dos 3 temas.
+
+**Script para Sovereign Upload V2 (quando ele perguntar):**
+> "Valdece, aquelas decisões que você guarda porque já te salvaram em mais de um caso — quando você tiver rodado o que está aqui por umas duas semanas e a gente entender o volume real, a próxima evolução é o seu acervo entrando junto. O sistema aprende o seu jeito de defender, não só o jeito dos tribunais."
 
 **Linha de fechamento validada:** "O sistema é seu. Isso aqui só formaliza."
 **Se perguntar sobre mensalidade:** "não tem — você paga R$1,20/mês direto ao Google." (confirmado)
 **Se pedir desconto:** escalar ao Diretor. Não responder no momento. Mudar assunto.
+
+**RISCO MONITORADO — sigilo:**
+Se Valdece perguntar onde ficam os documentos dele (V2):
+> "Ficam no seu Supabase — a mesma conta sua que está rodando agora. Nada sai do seu controle. Você sabe disso, viu hoje."
 
 ---
 
@@ -176,6 +188,7 @@ não em horas economizadas. O argumento certo é "eu encontrei antes" — não "
 |---|---|---|
 | 2026-05-18 | Criação — véspera do presencial | Músculo |
 | 2026-05-19 | Presencial realizado — credenciais obtidas — modelo confirmado (sem mensalidade) — demo pendente | Músculo (P-032) |
+| 2026-05-19 | LOG_002 Embaixador processado: 3-temas question + script V2 + script sigilo + alerta H-5 janela 14 dias. Threshold demo ajustado para 0.45. 20 acórdãos testados — sistema verde. | Músculo (P-032) |
 
 ---
 
