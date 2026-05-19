@@ -105,12 +105,12 @@
                                     "pendente_diretor":  [
                                                              "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
                                                          ],
-                                    "loop_atual":  "Loop #3 — Build (Dias 6-8)",
+                                    "loop_atual":  "Loop #3 — Build (Dias 6-8) — Gate Dia 8 em andamento",
                                     "url_publica":  "https://subdiretormnmsgm-commits.github.io/vanguard/",
                                     "url_status":  "ATIVA — GitHub Pages gh-pages branch — 2026-05-18",
                                     "formalizador":  {
                                         "termo_uso":  "Termo_Uso_Ingrid_PROJ002_30052026.pdf",
-                                        "status":  "ASSINADO — 2026-05-18",
+                                        "status":  "ASSINADO — 2026-05-18 (data no PDF incorreta: 30/05/2026 — reassinatura pendente com PDF corrigido)",
                                         "gerado_em":  "2026-05-16",
                                         "path":  "CLIENTES/INGRID/Termo_Uso_Ingrid_PROJ002_30052026.pdf"
                                     },
@@ -118,7 +118,15 @@
                                     "diretriz_gemini_v4":  "pendente — Loop 4",
                                     "skill_notebooklm_v2":  "pendente — NotebookLM Loop 3",
                                     "banco_questoes":  "460 validadas — expansao para 1000+ aguarda creditos Anthropic",
-                                    "proximo_passo":  "Gate Dia 8 — Ingrid acessa URL publica + responde 10 questoes + feedback 3 frases"
+                                    "gate_dia8":  {
+                                        "status":  "em andamento",
+                                        "primeira_sessao":  "2026-05-18",
+                                        "questoes_alcancadas":  ">=18",
+                                        "feedback_verbatim":  "Gostou muito do aplicativo — questao 18 sem negrito (bug corrigido commit da9887a)",
+                                        "temperatura_cliente":  "QUENTE",
+                                        "pendente":  "confirmacao de 10 questoes completas + progresso salvo + fallback testado"
+                                    },
+                                    "proximo_passo":  "Confirmar Gate Dia 8 (10 questoes completas + progresso salvo) + Wipe & Sync NotebookLM + Loop 4: Gemini DIRETRIZ V4 + NotebookLM Skill ingrid-v4 + Build Dias 9-11 (heatmap + simulado) + novo seed (banco 460 → 1000+)"
                                 },
                                 {
                                     "id":  "PROJ-001",

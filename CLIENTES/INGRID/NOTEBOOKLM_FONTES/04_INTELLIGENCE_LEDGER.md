@@ -995,3 +995,47 @@ Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup s
 **Evidência:** PASSO7_EMBAIXADOR não foi instanciado para PROJ-002 Ingrid. O Embaixador ficou sem formato de resposta definido durante o Loop 3. Diretor detectou ao revisar documentos para as mensagens.
 **Princípio:** Todo projeto novo só está pronto quando os 6 artefatos abaixo existem com dados reais (não placeholders): PASSO3_GEMINI.md + PASSO5_NOTEBOOKLM.md + PASSO6_MUSCULO.md + PASSO7_EMBAIXADOR.md + 00_INSTRUCAO_SISTEMA.md + MEMORIA_EMBAIXADOR.md. Músculo verifica ao criar projeto e ao iniciar cada loop.
 **Aplica-se a:** criação de qualquer projeto cliente. Executar após BRIEFING_DISCOVERY.
+
+---
+
+### [P-042] FALAS_CLIENTE — repositório único por projeto
+**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
+**Evidência:** Fala verbatim de Ingrid sobre a questão 18 foi relatada pelo Diretor ao Músculo e ao Embaixador em momentos diferentes, com risco de interpretação diferente em cada captura. Sem repositório único, a mesma fala pode ser processada com filtros distintos por cada membro — gerando inteligência contaminada.
+**Princípio:** Em cada projeto ativo, um único arquivo `FALAS_CLIENTE.md` captura toda fala verbatim do cliente com timestamp, canal e contexto. Qualquer membro que precise da fala original lê deste arquivo — nunca recria a captura. Captura única, extração múltipla. Músculo cria o arquivo no kickoff; Embaixador e Diretor alimentam em campo.
+**Formato obrigatório:** `| Data | Canal | Fala exata (entre aspas) | Quem capturou | Contexto |`
+**Artefato:** `CLIENTES/[NOME]/FALAS_CLIENTE.md` — criado no kickoff, atualizado a cada contato real.
+**Aplica-se a:** todo projeto cliente a partir do primeiro contato real com o cliente.
+
+---
+
+### [P-043] Acusação de viés metodológico exige evidência verbatim
+**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
+**Evidência:** Debate entre Músculo e Embaixador sobre CAMADA_FATOS: Embaixador alegou que separar fatos de inferências era "restrição artificial" — Músculo contra-argumentou com dados reais de análise de risco. A resolução correta não foi quem ganhou o debate, mas quem produziu evidência objetiva vs. quem produziu argumento.
+**Princípio:** Quando um membro do Conselho acusa outro de viés metodológico, a acusação só é válida com evidência verbatim apontada — não com conclusão sintética. "O Embaixador está sendo otimista" sem citar o trecho específico = argumento fraco. "O Embaixador disse X [verbatim] enquanto o dado real é Y" = argumento auditável. O Músculo não aceita acusação de viés sem evidência.
+**Aplica-se a:** toda deliberação do Conselho onde um membro questiona a análise de outro.
+
+---
+
+### [P-044] Princípio do LEDGER sem rotina operacional é prosa
+**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
+**Evidência:** P-042 (FALAS_CLIENTE) foi proposto mas não tinha arquivo criado, nome declarado, nem instrução de quando e quem cria. Um princípio que descreve a intenção sem especificar o mecanismo de execução não muda comportamento — fica registrado mas não é aprendizado ativo.
+**Princípio:** Todo princípio extraído para o LEDGER que descreve uma prática operacional deve incluir: (a) o artefato que implementa a prática (arquivo, script, checklist), (b) quem cria/mantém, (c) quando é criado/atualizado. Sem estes três elementos, o princípio é prosa — documenta a intenção mas não muda o processo.
+**Aplica-se a:** toda entrada nova no LEDGER que descreve prática operacional. Retroativo: P-001 a P-041 sem artefato declarado são candidatos à revisão na próxima auditoria.
+
+---
+
+### [P-045] URL pública só em piloto — auth real antes do primeiro cliente pagante
+**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
+**Evidência:** App do PROJ-002 está em `https://subdiretormnmsgm-commits.github.io/vanguard/` — URL pública sem autenticação. Qualquer pessoa com o link acessa. Aceitável para piloto com 1 usuário controlado. Inaceitável para primeiro cliente pagante: (a) dados do cliente expostos sem controle, (b) qualquer concorrente pode acessar e clonar a UX, (c) violação de LGPD com dados de progresso sem consent rastreável.
+**Princípio:** URL pública (GitHub Pages, Netlify sem auth) é aceita apenas em fase de piloto com usuário único controlado. Antes do primeiro cliente pagante: auth real implementado (Supabase Auth + RLS por user_id), URL privada ou com token de acesso, audit log de acesso ativo. Transição é gate bloqueante — sem auth real, não há venda.
+**Artefato:** item no OFFBOARDING_RUNBOOK + gate bloqueante no SaaS Readiness Audit (Dia 14-15).
+**Aplica-se a:** todo projeto com dados de usuário real. Gate obrigatório antes de qualquer cobrança.
+
+---
+
+### [P-046] Primeiro feedback espontâneo de piloto é o ativo mais valioso do projeto
+**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
+**Evidência:** Ingrid, na primeira sessão real do app, reportou espontaneamente: "Na questão 18, não houve palavra destacada em negrito, como informava o enunciado." — feedback de QA técnico preciso, sem ser solicitado. Este único dado revelou: (a) bug real de renderização, (b) padrão de leitura literal da candidata (H-7), (c) prova de engajamento real (leu o enunciado até o fim), (d) postura de parceira do produto, não usuária passiva.
+**Princípio:** O primeiro feedback espontâneo de um piloto vale mais que qualquer pesquisa de mercado ou análise interna. Deve ser: (a) capturado verbatim imediatamente com timestamp e canal (P-042), (b) processado pelos 4 membros do Pentalateral, (c) incorporado ao produto em 24h quando se tratar de bug, (d) preservado como âncora de narrativa comercial. Músculo trata primeiro feedback espontâneo como alerta crítico de produto — não como sugestão opcional.
+**Artefato:** entrada em `FALAS_CLIENTE.md` (P-042) + atualização de `MEMORIA_EMBAIXADOR.md` (P-032) na mesma sessão.
+**Aplica-se a:** toda fase de piloto de qualquer projeto. Captura obrigatória na mesma sessão em que o feedback chega.
