@@ -16,9 +16,12 @@ import sys
 import time
 from pathlib import Path
 
+import urllib3
 import requests
 from dotenv import load_dotenv
 from supabase import create_client
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 
@@ -80,7 +83,7 @@ def fetch_stf(limit: int) -> list[dict]:
             "size": page_size,
         }
         try:
-            resp = requests.post(STF_SEARCH_URL, json=payload, timeout=15)
+            resp = requests.post(STF_SEARCH_URL, json=payload, timeout=15, verify=False)
             resp.raise_for_status()
         except Exception as e:
             print(f"[STF] Erro na requisição (página {page}): {e}")
@@ -136,8 +139,8 @@ def fetch_stj(limit: int) -> list[dict]:
     # Endpoint dos dados abertos do STJ
     STJ_OPEN_DATA_URL = "https://dadosabertos.stj.jus.br/api/3/action/datastore_search"
 
-    # Resource IDs conhecidos do STJ Open Data (jurisprudência penal)
-    # Fallback: busca por texto no endpoint de pesquisa do SCON
+    # Endpoint alternativo do STJ Open Data
+    STJ_OPEN_DATA_URL = "https://dadosabertos.stj.jus.br/api/3/action/datastore_search"
     RESOURCE_ID = "b4d57ee5-e538-4f74-9b8b-0cfd4ac7a979"
 
     print(f"[STJ] Buscando até {limit} acórdãos de Direito Penal...")
@@ -150,7 +153,7 @@ def fetch_stj(limit: int) -> list[dict]:
             "offset": page * page_size,
         }
         try:
-            resp = requests.get(STJ_OPEN_DATA_URL, params=params, timeout=15)
+            resp = requests.get(STJ_OPEN_DATA_URL, params=params, timeout=15, verify=False)
             resp.raise_for_status()
             data = resp.json()
 
@@ -234,6 +237,7 @@ def fetch_stj_scon(limit: int) -> list[dict]:
                 "https://scon.stj.jus.br/SCON/jurisprudencia/doc.jsp",
                 params=params,
                 timeout=15,
+                verify=False,
                 headers={"Accept": "application/json"},
             )
             if resp.status_code != 200:

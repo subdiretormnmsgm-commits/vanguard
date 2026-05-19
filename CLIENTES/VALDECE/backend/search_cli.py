@@ -25,7 +25,7 @@ GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 
 GEMINI_EMBED_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
-    "text-embedding-004:embedContent"
+    "gemini-embedding-001:embedContent"
 )
 
 COST_PER_1K_EMBED = 0.000025
@@ -33,9 +33,10 @@ COST_PER_1K_EMBED = 0.000025
 
 def embed_query(query: str) -> list[float]:
     payload = {
-        "model": "models/text-embedding-004",
+        "model": "models/gemini-embedding-001",
         "content": {"parts": [{"text": query}]},
         "taskType": "RETRIEVAL_QUERY",
+        "outputDimensionality": 768,
     }
     resp = requests.post(
         GEMINI_EMBED_URL,
@@ -64,7 +65,7 @@ def search(query: str, top_k: int = 5, threshold: float = 0.65) -> list[dict]:
 
 
 def display(results: list[dict], query: str, elapsed: float) -> None:
-    sep = "─" * 72
+    sep = "-" * 72
     print(f"\n{sep}")
     print(f"  QUERY : {query}")
     print(f"  TEMPO : {elapsed:.2f}s  |  RESULTADOS: {len(results)}")
