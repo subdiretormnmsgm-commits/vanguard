@@ -893,3 +893,97 @@ Diretor — veredito
 4. Alerta de prazo: deadline e impacto se o Embaixador não tiver a informação
 
 **Por que importa:** O Embaixador não tem contexto técnico do build. Sem briefing estruturado do Músculo, ele opera no escuro e produz alertas genéricos. Com o briefing, ele opera com precisão cirúrgica sobre o que realmente importa para o cliente.
+
+---
+
+### [P-037] Músculo faz Síntese Final com TODOS os 25 inputs antes da decisão do Diretor
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — após resposta do Embaixador
+**Fricção:** Após o Embaixador responder com [E-1 a E-5], o Diretor recebia 25 inputs brutos de 5 fontes diferentes para decidir sozinho o que entra no build. Carga de síntese desnecessária sobre quem deveria apenas dar o veredito.
+
+**Regra:** Após a resposta do Embaixador, o Músculo executa a Síntese Final (Passo 5.5 do loop):
+1. Consolida TODOS os 25 inputs: [M] + [G] + [N] + [M'] + [E]
+2. Produz plano único com 4 colunas: ENTRA AGORA (custo + prazo) · V2 · DESCARTADO (razão) · ALERTAS ABERTOS
+3. O Diretor recebe 1 plano para vetar ou aprovar — nunca 25 inputs para sintetizar
+
+**Posição no loop:** Passo 5.5 — após Embaixador (Passo 5), antes do veredito do Diretor (Passo 6).
+
+**Por que importa:** O Diretor é o único que não tem substituto no Pentalateral. Seu tempo e atenção são o recurso mais escasso do sistema. A Síntese Final garante que ele gasta esse recurso em decisão, não em curadoria de informação — que é função do Músculo.
+
+---
+
+### [FALHA-PROCESSO-2026-05-19] WIP_BOARD e MEMORIA_EMBAIXADOR com estado incorreto de entrega
+**Detectado por:** Eduardo (Diretor)
+**Contexto:** PROJ-001 Valdece. A MEMORIA_EMBAIXADOR.md e o WIP_BOARD.json indicavam "Sistema configurado no Supabase do Valdece — pronto para demo" e "credenciais_obtidas: 2026-05-19". Na realidade, o sistema ainda roda no Supabase da Vanguard — nenhuma migração foi executada porque o sistema não passou por gate de teste antes do envio. Músculo registrou estado de entrega projetado como estado real.
+**Princípio violado:** P-010 (nenhuma etapa avança por assumição) + Deficiência 2 do Músculo (Momentum de Execução).
+**Custo do erro:** Documentos de relacionamento com cliente (MEMORIA_EMBAIXADOR) refletem realidade falsa. Se o Embaixador operar com esses documentos, tomará decisões baseadas em premissa incorreta — o sistema não está na conta do Valdece.
+**Correção imediata:** Atualizar MEMORIA_EMBAIXADOR e WIP_BOARD com estado real: sistema na Vanguard, gate de teste pendente, envio ao Valdece bloqueado até aprovação do gate.
+**Regra derivada:** Nunca registrar "sistema configurado em [conta do cliente]" sem evidência de execução real (log, output CLI, print de tela). Estado projetado ≠ estado real.
+
+---
+
+### [P-039] Leitura das últimas conversas é obrigatória após a primeira interação de cada sessão
+**Descoberto:** 2026-05-20 | **Mandato direto do Diretor**
+**Fricção:** Músculo retomou o projeto Valdece sem verificar o que havia sido discutido na sessão anterior — operou com documentos incorretos que diziam "sistema implantado no Supabase do Valdece" quando na realidade o sistema ainda estava na Vanguard.
+**Regra:** Após a primeira interação de qualquer sessão com projeto ativo, o Músculo verifica proativamente: (a) commits recentes do projeto, (b) MEMORIA_EMBAIXADOR e documentos de estado, (c) inconsistências entre documentos e realidade. Se houver conflito → corrigir antes de qualquer outra ação. Músculo que não lê as últimas conversas opera com contexto defasado — e produz orientações baseadas em premissas erradas.
+**Aplica-se a:** toda sessão com projeto cliente ativo em BUILD ou CHECK.
+
+---
+
+### [P-040] Gate de nicho é template de replicação — não documentação de projeto
+**Descoberto:** 2026-05-20 | **Extraído do GATE_P038 — PROJ-001 Valdece**
+**Origem:** O gate de 12 queries do Embaixador para a demo do Valdece revelou um padrão replicável para qualquer projeto de nicho profissional com motor semântico.
+**Princípio:** O gate de teste de um projeto de nicho não é checklist de entrega — é o DNA do próximo projeto no mesmo nicho. Estrutura obrigatória do template:
+  - (1) **Categorias reais do cliente** (3+ queries por área de atuação real, confirmadas por ele mesmo)
+  - (2) **Coringa universal** (1-2 queries de alta sim que funcionam em qualquer subárea do nicho)
+  - (3) **Threshold explícito** com semáforo GO/AMARELO/NO-GO (não passar no GO não é falha — é dado para calibrar corpus antes da demo)
+  - (4) **Latência monitorada** por query (sinaliza região do banco e edge cases de performance)
+  - (5) **Decisão binária documentada**: APROVADO com evidência numérica ou BLOQUEADO com ação corretiva
+**Para o próximo projeto de nicho jurídico** (criminalista, tributarista, trabalhista): copiar estrutura do GATE_P038 Valdece, substituir apenas as categorias e as queries. O threshold, a lógica de semáforo e o coringa são universais.
+**Aplica-se a:** todo projeto com motor semântico vetorial — jurídico, médico, contábil, educacional.
+
+---
+
+### [P-041] Discovery deve capturar a cena de sucesso, não apenas o problema declarado
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise do Embaixador pós-gate
+**Fricção:** Valdece declarou "busca de jurisprudência consome horas". O build otimizou para corpus e threshold — correto tecnicamente. Mas o cliente imaginava uma cena específica: "júri começa em 20 minutos, encontro o precedente antes do juiz." Sem capturar essa cena no discovery, o build pode ser tecnicamente impecável e emocionalmente irrelevante para o cliente. O distanciamento detectado pelo Diretor durante o PROJ-001 tem origem aqui.
+**Princípio:** No Passo 2 (Discovery), além das perguntas de problema e escopo, incluir obrigatoriamente a P2: *"Me descreve uma situação real — uma cena específica — onde este sistema te salvaria. O que acontece, onde você está, o que você está fazendo, qual é o resultado que muda."* A resposta é o critério de aceitação real do projeto — não o spec técnico.
+**Corolário de build:** O Músculo usa a cena descrita como teste de aceitação final. Antes do handoff, rodar a cena exata no sistema real. Se funcionar → demo confiante. Se não → corrigir antes de sentar com o cliente.
+**Corolário de demo:** A abertura da demo reproduz a cena do cliente, não demonstra features. "Você me disse que precisava do precedente antes do juiz — vamos fazer isso agora."
+**Aplica-se a:** todo projeto cliente, todo nicho, toda camada.
+
+---
+
+### [P-042] Gate de validação semântica é ativo de nicho, não burocracia de entrega
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — gate P-038
+**Fricção:** O gate P-038 emergiu durante o build como proteção de demo. Mas ao documentar 12 queries + resultados + similaridades + latências, gerou algo mais valioso: um protocolo replicável para qualquer sistema de busca semântica jurídica. O segundo cliente do mesmo nicho custa 30 minutos de gate — não horas de fricção.
+**Princípio:** O gate de validação semântica de qualquer sistema de busca deve ser documentado como artefato formal do projeto. Estrutura mínima: área coberta + query testada + melhor similaridade + latência + status verde/amarelo/vermelho. Este documento é entregue ao cliente como parte do handoff e alimenta o perfil de nicho no WIP_BOARD.
+**Corolário de escala:** A cada cliente no mesmo nicho, o gate fica mais preciso e o tempo de validação cai. Em 5 clientes LegalTech-Criminal, a Vanguard tem benchmark de performance que nenhum concorrente possui.
+**Corolário comercial:** O gate documentado é argumento de proposta. "Testamos 12 queries antes de sentar com você" é diferencial de processo — não de produto.
+**Aplica-se a:** todo sistema de busca semântica por nicho profissional. Candidatos imediatos: médico, tributário, trabalhista.
+
+---
+
+### [P-043] Falácia da Homogeneidade dos Nichos — replicação não é trocar a URL dos dados
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise Estrategista + Auditor pós-gate
+**Evidência:** O Estrategista alertou e o Auditor confirmou: o risco silencioso da replicação para outros nichos não é técnico — é epistemológico. Assumir que "Médico funciona como LegalTech mas com dados de medicina" é a falácia. Cada nicho tem vocabulário semântico diferente (jurídico usa "STJ", médico usa "CID-10", contábil usa "IN RFB"), ontologia de busca diferente (criminalista busca por precedente, médico por protocolo, contador por normativa), e critério de sucesso diferente (sim ≥ 0.67 adequado para jurídico pode ser inadequado para médico).
+**Princípio:** Antes de replicar para novo nicho, o Músculo executa discovery semântico específico: (1) qual vocabulário de busca o profissional usa naturalmente, (2) qual é o corpus mínimo viável para o nicho, (3) qual threshold de similaridade é adequado, (4) qual é a "cena de sucesso" do nicho (P-041 aplicado ao novo nicho). Replicação sem discovery semântico = sistema com corpus errado, queries inadequadas e demo que não encanta.
+**Corolário de build:** O seed_demo.py do Valdece é ponto de partida — não template final. Cada nicho exige calibração de embeddings e validação de queries antes do primeiro cliente.
+**Corolário comercial:** O gate de nicho (P-042) precisa ser recalibrado por nicho — não apenas "rodar o mesmo gate com dados diferentes".
+**Aplica-se a:** qualquer proposta de replicação do modelo de busca semântica para novos nichos profissionais.
+
+---
+
+### [P-044] Momentum Tecnológico do Músculo — o motor ≠ a viagem do cliente
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise Estrategista pós-gate
+**Evidência:** O Músculo otimiza para métricas intrínsecas do sistema (threshold, latência, embedding dimensions) porque oferecem recompensas de engenharia claras e mensuráveis. O cliente, contudo, otimiza para alívio temático em cenários de alta pressão — a cena do "júri em 20 minutos". O distanciamento do PROJ-001 Valdece nasceu exatamente aqui: o Músculo construiu um motor impecável; o cliente compra a viagem, não o motor.
+**Princípio:** Ao iniciar cada dia de build, o Músculo relê a cena de sucesso descrita pelo cliente no discovery (P-041). Toda decisão técnica é avaliada com uma pergunta: "Esta decisão aproxima ou afasta o sistema da cena do cliente?" Se afasta → justificar explicitamente ou descartar. Se aproxima → executar. O gate final não testa apenas se o sistema funciona — testa se reproduz a cena do cliente.
+**Aplica-se a:** todo projeto cliente, todo dia de build, toda decisão arquitetural.
+
+---
+
+### [P-038] Nada sai da Vanguard sem gate de teste aprovado
+**Descoberto:** 2026-05-19 | **Sessão:** Retomada PROJ-001 Valdece
+**Fricção:** Eduardo precisou corrigir o Músculo: o sistema de busca do Valdece não foi enviado/configurado na conta dele porque não passou por gate de teste. O princípio já havia sido estabelecido no PROJ-002 Ingrid mas não foi registrado formalmente no LEDGER.
+**Princípio:** Nenhum sistema, código ou configuração sai do ambiente Vanguard para o ambiente do cliente sem gate de teste aprovado explicitamente pelo Diretor. Estado "pronto" ≠ estado "aprovado para envio". O gate de teste é o único que autoriza a migração.
+**Aplica-se a:** todo projeto cliente — migração de Supabase, deploy de frontend, configuração de credenciais na conta do cliente.
+**Consequência do não-cumprimento:** Cliente recebe sistema não testado → falha na demo → janela de encantamento destruída → contrato perdido.
