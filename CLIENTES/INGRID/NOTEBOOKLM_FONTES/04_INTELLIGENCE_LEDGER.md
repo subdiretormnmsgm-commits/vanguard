@@ -1136,6 +1136,16 @@ Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup s
 
 ---
 
+### [P-057] Vanguard Tech entrega o melhor produto — qualidade sem se importar com o preço
+**Descoberto:** 2026-05-19 | **Origem:** Diretor Eduardo — princípio fundador declarado
+**Evidência:** Durante a construção do corpus do Toga Digital (Valdece), o Músculo parou em 29 acórdãos por considerar "suficiente para a demo". O Diretor corrigiu: Vanguard Tech não entrega o suficiente — entrega o melhor. Corpus de 29 casos é seed de emergência, não produto final.
+**Princípio:** A Vanguard Tech não calibra qualidade pelo preço cobrado nem pelo prazo disponível. O produto entregue ao cliente é sempre o melhor possível dentro do escopo — não o mínimo viável. "Suficiente para passar" não é padrão Vanguard. O Músculo que detecta uma lacuna de qualidade e não corrige por ser "boa o suficiente" está violando este princípio.
+**Como aplica:** Ao detectar qualquer gap de qualidade (corpus raso, cobertura parcial, UI com bug visual menor, documentação incompleta), o Músculo corrige imediatamente — não agenda para V2, não documenta como "melhoria futura", não espera o cliente reclamar. Se cabe no escopo: entra agora. Se não cabe: é explicitamente declarado ao Diretor com prazo, não silenciado.
+**O que NÃO é este princípio:** não é perfeccionismo paralisante. É excelência com entrega. A diferença: perfeccionismo adia. Excelência entrega e depois melhora.
+**Lema:** *"A Vanguard Tech sempre entregará o melhor produto. Qualidade, sem se importar com o preço."*
+
+---
+
 ### [P-055] Ciclo de nicho tem máximo 3 rounds — perguntas abertas classificadas, não acumuladas
 **Descoberto:** 2026-05-19 | **Proposto por:** Músculo — análise do ciclo Medicina (6 documentos, 9 perguntas abertas para um Perfil em 25-30%) | **Sessão:** Nicho Medicina — Loop 3.5
 **Evidência:** O ciclo Medicina gerou 6 documentos de deliberação e encerrou com 9 perguntas abertas ao Auditor, sem critério de encerramento declarado antes de começar. Resultado: loop sem gate de fechamento, débito de perguntas acumulado que inicia o próximo ciclo já sobrecarregado. Overhead desproporcional para um Perfil ainda hipotético.
@@ -1143,3 +1153,17 @@ Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup s
 **Rotina operacional:** Antes de iniciar qualquer ciclo → `ciclo_nicho_init.ps1 -nicho [NICHO]` gera CICLO_GATE.md com critérios declarados. Ao encerrar → `perguntas_abertas_gate.ps1 -nicho [NICHO]` classifica o que bloqueia e o que não bloqueia. Perguntas INFORMATIVO em aberto → LEDGER. Ciclo nunca espera resposta de INFORMATIVO para fechar.
 **Scripts:** `scripts/ciclo_nicho_init.ps1` · `scripts/perguntas_abertas_gate.ps1`
 **Aplica-se a:** todo ciclo de exploração de nicho novo a partir de Contabilidade e Psicologia.
+
+---
+
+### [P-058] Verificar escopo inicial E escopo final antes de qualquer entrega
+**Descoberto:** 2026-05-19 | **Origem:** Diretor Eduardo — princípio declarado explicitamente
+**Evidência:** Na construção do Toga Digital (Valdece), o corpus foi expandido iterativamente (20 → 24 → 29 → 57 casos) sem confrontar o que foi prometido no BRIEFING_DISCOVERY com o que estava sendo entregue. O BRIEFING dizia "busca de jurisprudência STF/STJ para Direito Penal" — o corpus de 29 casos cobria 15 temas de 50+. A lacuna não foi identificada até o Diretor questionar.
+**Princípio:** Ao iniciar qualquer build e ao fechar qualquer entrega, o Músculo compara explicitamente: (1) o que o cliente pediu no BRIEFING_DISCOVERY, (2) o que está sendo entregue agora. Essa comparação deve ser verbalmente declarada ao Diretor — não assumida. A pergunta obrigatória ao fechar: *"O que estou entregando cobre o que foi prometido no escopo inicial?"*
+**Como aplica:**
+- Início do build → ler BRIEFING_DISCOVERY e declarar "o que prometemos" antes de começar
+- Ao fechar qualquer gate → confrontar entrega com o escopo e declarar qualquer gap
+- Se houver gap: declarar explicitamente, não silenciar, não deixar para V2 sem comunicar
+- Não confundir "funciona tecnicamente" com "cobre o que foi prometido"
+**Diferença de P-057:** P-057 é sobre qualidade intrínseca do produto. P-058 é sobre fidelidade ao compromisso feito com o cliente. Os dois juntos: entrega de qualidade que honra o escopo.
+**Lema:** *"Sempre verificar o pedido inicial e o final. Sempre."*
