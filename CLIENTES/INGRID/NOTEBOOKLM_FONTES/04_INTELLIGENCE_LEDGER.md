@@ -1091,3 +1091,21 @@ Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup s
 **Princípio:** Sub-nichos com baixo volume + alto ticket + problema mal resolvido pelos players dominantes têm prioridade sobre sub-nichos com alto volume + baixo ticket + competição saturada. Vanguard não compete onde o dinheiro de marketing decide. Compete onde a profundidade técnica decide.
 **Rotina operacional:** Ao avaliar GO/NO-GO de nicho, verificar: (a) competição por tráfego pago — alta = penalidade; (b) problema mal resolvido pelos líderes — confirmado = bônus; (c) método Vanguard entrega diferencial irreproduzível — sim = prosseguir.
 **Aplica-se a:** toda decisão GO/NO-GO de entrada em nicho novo.
+
+---
+
+### [P-053] Isolamento de Persona e Tom é obrigatório por nicho — não reutilizar configuração
+**Descoberto:** 2026-05-19 | **Proposto por:** Auditor (NotebookLM) — AUDITORIA_MEDICINA_V2 [DIV-A] | **Sessão:** Nicho Medicina — Loop 3.5
+**Evidência:** PERFIL_EDTECH_CONCURSO (Ingrid) = tom caloroso, motivacional, comemorativo. PERFIL_MEDICINA_R3 = tom austero, técnico-clínico, sem encorajamento. O mesmo motor SM-2 + Tutor Socrático subjaz a ambos. Reutilizar o system prompt de Ingrid para Medicina-R3 = entrega tom incompatível com médico residente = churn no Dia 1.
+**Princípio:** Cada novo nicho com perfil comportamental distinto exige: (1) system prompt isolado do Tutor Socrático, (2) sentinel_config.json com parâmetros do nicho (ex: session_timeout=180s para médico vs. 60s para concurseira), (3) 00_INSTRUCAO_SISTEMA.md separado para o Embaixador — Claude Project distinto, sem acesso cruzado ao histórico de outro nicho.
+**Rotina operacional:** Checklist de Comando de Propagação inclui: □ novo system prompt criado (não copiado) □ sentinel_config.json bifurcado □ Claude Project do Embaixador criado do zero para o nicho.
+**Aplica-se a:** toda propagação de produto Vanguard para novo nicho com tom, ticket ou perfil de uso distintos.
+
+---
+
+### [P-054] Bifurcação de Contexto no Comando de Propagação — 3 artefatos obrigatórios
+**Descoberto:** 2026-05-19 | **Proposto por:** Auditor (NotebookLM) — AUDITORIA_MEDICINA_V2 [P-052 ajuste] | **Sessão:** Nicho Medicina — Loop 3.5
+**Evidência:** PERFIL_MEDICINA_R3 v1 foi construído sobre PESQUISA_BRUTA_MEDICINA que cobriu Medicina geral, não R3 especificamente. Base documental parcialmente contaminada por dados de R1 (oceano vermelho) e TE (perfil diferente). Sem bifurcação formal de contexto, informações de nichos adjacentes contaminam o Perfil do nicho escolhido.
+**Princípio:** Todo Comando de Propagação para novo nicho DEVE instanciar: (1) PERFIL_CANDIDATO_[NICHO].md novo — nunca copiar de nicho anterior, (2) sentinel_config.json com parâmetros específicos do nicho, (3) 00_INSTRUCAO_SISTEMA.md nova para o Embaixador — resetar contexto, não herdar memória de nicho anterior.
+**Rotina operacional:** Antes do build de qualquer novo nicho → verificar que os 3 artefatos são novos criações, não cópias. Comando de Propagação inclui checklist de bifurcação como pré-requisito de release.
+**Aplica-se a:** toda expansão de produto Vanguard para nicho novo após o primeiro nicho operacional.
