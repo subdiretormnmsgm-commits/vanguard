@@ -133,21 +133,23 @@ Não siga o momentum da conversa. Se o Diretor ou o Músculo propuseram algo que
 - Sovereign Playbook apresentado (P-042) — objeção vendor lock-in destruída
 - RLS: P1 pós-contrato — API key Gemini exposta no frontend até migração
 
-**Feedback dos 5 áudios do Valdece (processados 2026-05-19):**
+**Análise do Estrategista sobre os 5 áudios do Valdece (entregue 2026-05-19):**
+> ATENÇÃO: esta análise JÁ FOI processada pelo Estrategista (Gemini). Ao levar este PASSO3 ao Gemini,
+> NÃO é necessário reenviar os áudios — o Estrategista tem contexto. Referenciar como "análise anterior".
 
-FEEDBACK 1 — Áudio 0: Ementa completa + fonte estruturada
+ANÁLISE ESTRATEGISTA — Áudio 0: Ementa completa + fonte estruturada
 - Ementa deve mostrar o trecho integral da decisão (não fragmento)
 - Fonte obrigatória: número da classe processual + ministro relator + data publicação + data DJE + resumo
-- STATUS: ementa completa ENTREGUE (threshold 600 → full). Data DJE → V3 (campo ausente no schema)
+- STATUS MÚSCULO: ementa completa ENTREGUE (threshold 600 → full). Data DJE → V3 (campo ausente no schema)
 
-FEEDBACK 2 — Áudio 1: Estado de origem + badges vinculantes
-- Identificação do estado após número do recurso (STF/STJ) — evita homonímia
+ANÁLISE ESTRATEGISTA — Áudio 1: Estado de origem + badges vinculantes
+- Identificação do estado após número do recurso (STF/STJ) — evita homonímia entre processos
 - Repercussão Geral STF: badge explícito (efeito vinculante a todo Judiciário)
 - Recurso Repetitivo STJ: badge explícito (efeito vinculante ao Judiciário)
-- STATUS: badge UF ENTREGUE hoje (regex no numero_acordao). Repercussão Geral + Repetitivo → V3 (campo ausente)
+- STATUS MÚSCULO: badge UF ENTREGUE hoje (regex no numero_acordao). Repercussão Geral + Repetitivo → V3 (campo ausente)
 
-FEEDBACK 3 — Áudios anteriores: Fix @NUM URL, boost monocrático
-- STATUS: @NUM ENTREGUE (deploy anterior). Boost monocrático ENTREGUE hoje.
+ANÁLISE ESTRATEGISTA — Áudios anteriores: Fix @NUM URL, boost monocrático
+- STATUS MÚSCULO: @NUM ENTREGUE (deploy anterior). Boost monocrático ENTREGUE hoje (commit 9709649).
 
 **Schema atual da tabela `documents` — campos confirmados:**
 `id, tribunal, numero_acordao, ementa, content, area, tema, relator, data_julgamento, link, embedding`
