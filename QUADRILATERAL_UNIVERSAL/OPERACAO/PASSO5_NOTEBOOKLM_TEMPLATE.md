@@ -101,7 +101,11 @@ A DIRETRIZ do Gemini contradiz algo construído antes neste projeto ou em projet
 Com base no histórico completo de projetos da Vanguard: o que sistematicamente funciona em projetos similares (nicho, stack, tipo de cliente)? O que sistematicamente falha? O que este projeto tem de diferente que pode mudar o padrão? Cite de qual projeto cada padrão vem.
 
 **PARTE 3 — A SKILL PROPRIAMENTE DITA**
-Escreva em formato copiável direto para `.claude/skills/[projeto]-v[X].md` com os seguintes blocos obrigatórios — todos preenchidos com dados reais:
+> Nome obrigatório: use EXATAMENTE o nome definido no sub-bloco [PARA O NOTEBOOKLM] da DIRETRIZ do Gemini.
+> Formato: `.claude/skills/[cliente]-v[N].md` (ex: `valdece-v4.md`, `ingrid-v4.md`)
+> Se a DIRETRIZ não especificou o nome → Skill inválida antes de começar. Declarar ao Diretor.
+
+Escreva em formato copiável direto para `.claude/skills/[cliente]-v[N].md` com os seguintes blocos obrigatórios — todos preenchidos com dados reais:
 - Contexto do projeto (stack, cliente, dor real, prazo)
 - Conexão histórica (o que reutilizar e onde encontrar no repositório)
 - Padrão de sucesso (confirmado com evidência deste projeto ou de projetos anteriores)
