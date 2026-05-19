@@ -13,22 +13,54 @@
 <body>
 
 <header>
-  <span class="header-title">Sedes-DF 2026</span>
+  <span class="header-title" id="logo-tap">Sedes-DF 2026</span>
   <div class="contador-pontos">
     <span class="label">pts</span>
     <span id="pontos-valor">0</span>
   </div>
-  <span class="progresso-pill" id="progresso-header">0 / 20</span>
+  <span class="progresso-pill" id="progresso-header">–</span>
 </header>
 
+<!-- Debug Panel (5 toques no logo) -->
+<div id="debug-panel" class="debug-panel" style="display:none">
+  <div class="debug-header">🔧 Debug</div>
+  <div id="debug-content" class="debug-content">aguardando questão…</div>
+</div>
+
 <main id="main-content">
-  <div class="estado-vazio" id="loading-inicial">
+  <div class="estado-vazio">
     <div class="spinner"></div>
-    <p>Carregando seu feed do dia…</p>
+    <p>Carregando…</p>
   </div>
 </main>
 
-<!-- Templates (ocultos) -->
+<!-- ── TEMPLATES ──────────────────────────────────────────────────────── -->
+
+<template id="tpl-clickwrap">
+  <div class="clickwrap-screen">
+    <div class="clickwrap-logo">Sedes-DF 2026</div>
+    <h1 class="clickwrap-titulo">Sua ferramenta de estudo está pronta.</h1>
+    <div class="clickwrap-corpo">
+      <p>Antes de começar, precisamos de uma confirmação rápida.</p>
+      <div class="clickwrap-box">
+        <p>Esta ferramenta foi desenvolvida exclusivamente para você.
+           O acesso é pessoal e intransferível. Ao clicar em Iniciar,
+           você declara que leu e concorda com os Termos de Uso.</p>
+      </div>
+    </div>
+    <button class="btn-iniciar" id="btn-aceitar-termo">
+      Aceito os Termos — Iniciar
+    </button>
+    <p class="clickwrap-rodape">Seu progresso fica salvo automaticamente.</p>
+  </div>
+</template>
+
+<template id="tpl-frase-abertura">
+  <div class="frase-abertura">
+    <span class="frase-texto"></span>
+  </div>
+</template>
+
 <template id="tpl-pilula">
   <div class="pilula">
     <span class="pilula-icon">💡</span>
@@ -63,6 +95,7 @@
       <span class="texto-resultado"></span>
     </div>
     <div class="explicacao-body"></div>
+    <div class="explicacao-nivel"></div>
   </div>
 </template>
 
@@ -92,10 +125,11 @@
         <div class="desc">Para revisar</div>
       </div>
     </div>
-    <p style="color: var(--muted); font-size:13px; max-width:280px; line-height:1.5">
-      Volte amanhã para o próximo feed. O SM-2 já agendou suas revisões.
+    <p id="frase-encerramento" class="frase-encerramento" style="display:none"></p>
+    <p style="color:var(--muted);font-size:13px;max-width:280px;line-height:1.5">
+      Volte amanhã. O SM-2 já agendou suas revisões.
     </p>
-    <button class="btn-novo-dia" id="btn-refazer">Ver resumo do dia</button>
+    <button class="btn-novo-dia" id="btn-fechar">Fechar</button>
   </div>
 </template>
 
