@@ -162,7 +162,15 @@ O que a Skill `valdece-v4.md` DEVE conter obrigatoriamente (não genérico — d
 - O que NÃO construir: nenhuma feature nova antes do contrato assinado — qualquer pedido do Valdece vira V2
 - Gate de demo: aprovado quando Valdece diz "é isso" em <10s no sistema DELE (não no de Eduardo)
 
-→ **[PARA O MÚSCULO]:** A intenção estratégica desta entrega em uma frase — não a lista de features, o porquê. Prioridades em ordem com razão para cada. O que não construir. Alertas de risco a monitorar. Gates de verificação por dia de build.
+→ **[PARA O MÚSCULO]:** A intenção estratégica desta entrega: converter a demo em contrato — o sistema já funciona, o próximo passo é encantamento, não build.
+  MANDATÓRIO:
+  (0) Executar `/valdece-v4` antes de qualquer deliberação.
+      Nome idêntico ao definido em [PARA O NOTEBOOKLM]. Sem rodar a Skill = deliberação inválida.
+  (a) Reagir a cada [G-1 a G-5] do Estrategista nos 7 pontos: Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação
+  (b) Reagir a cada [N-1 a N-5] do Auditor com razão técnica
+  (c) Nada de feature nova antes do contrato assinado — qualquer pedido do Valdece → V2
+  (d) Gate da demo: aprovado quando Valdece diz "é isso" em <10s no sistema DELE
+  (e) Propor [M-1 a M-5] disruptivos ao fechar (perspectiva do construtor, não síntese dos outros)
 
 → **[VISÃO DE LONGO PRAZO]:** Onde este projeto estará em 3 meses se tudo correr bem. Qual decisão que o Músculo toma agora abre ou fecha portas para escala.
 

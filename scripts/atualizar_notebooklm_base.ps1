@@ -26,11 +26,11 @@ Write-Host ""
 
 $documentos = @(
     @{ Num = "01"; Nome = "SKILL_PROTOCOLO_VANGUARD.md";      Origem = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md" },
-    @{ Num = "02"; Nome = "MEMORANDO_QUADRILATERAL.md";       Origem = "$raiz\QUADRILATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_QUADRILATERAL_UNIVERSAL.md" },
-    @{ Num = "03"; Nome = "MANUAL_DIRETOR.md";                Origem = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\MANUAL_DIRETOR.md" },
-    @{ Num = "04"; Nome = "INTELLIGENCE_LEDGER.md";           Origem = "$raiz\INTELLIGENCE_LEDGER.md" },
-    @{ Num = "05"; Nome = "PROCESSO_EVOLUTIVO.md";            Origem = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md" },
-    @{ Num = "06"; Nome = "TEMPLATES_COMUNICACAO.md";         Origem = "$raiz\QUADRILATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md" },
+    @{ Num = "02"; Nome = "MEMORANDO_QUADRILATERAL_UNIVERSAL.md";       Origem = "$raiz\QUADRILATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_QUADRILATERAL_UNIVERSAL.md" },
+    @{ Num = "03"; Nome = "MANUAL_DIRETOR.md";                         Origem = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\MANUAL_DIRETOR.md" },
+    @{ Num = "04"; Nome = "INTELLIGENCE_LEDGER.md";                    Origem = "$raiz\INTELLIGENCE_LEDGER.md" },
+    @{ Num = "05"; Nome = "PROCESSO_EVOLUTIVO_QUADRILATERAL.md";       Origem = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md" },
+    @{ Num = "06"; Nome = "TEMPLATES_COMUNICACAO_QUADRILATERAL.md";    Origem = "$raiz\QUADRILATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md" },
     @{ Num = "07"; Nome = "WIP_BOARD.txt";                    Origem = "$raiz\CLIENTES\WIP_BOARD.json" },
     @{ Num = "08"; Nome = "ANALISE_SOCIO_ATUAL.txt";          Origem = "$raiz\CONSELHO\NotebookLM\ANALISE_SOCIO_ATUAL.txt" }
 )

@@ -63,7 +63,18 @@ ATIVAÇÃO DO EMBAIXADOR — [NOME_DO_CLIENTE]
 Data: [YYYY-MM-DD]
 Loop atual: [N] | Dia do build: [X] | Fase: [PRÉ-REUNIÃO / DEBRIEF / PIPELINE / REAÇÃO]
 Última ativação: [DATA]
+
+--- ELO DO CICLO ATUAL (obrigatório no cabeçalho) ---
+DIRETRIZ em processo: DIRETRIZ_GEMINI_V[N].txt
+Skill gerada pelo Auditor: [cliente]-v[N].md
+Skill executada pelo Músculo: /[cliente]-v[N] (antes de qualquer build)
+Gate atual: [DESCREVER o gate do loop — ex: Gate P-038, demo pendente, contrato pendente]
 ```
+
+> Por que o elo importa para o Embaixador: sem saber qual DIRETRIZ e qual Skill estão
+> em execução, o Embaixador reage a ideias abstratas — não ao plano real do Músculo.
+> Com o elo declarado, o CONFIRMA/EXPANDE/ALERTA é baseado no que o Músculo vai
+> REALMENTE construir, não em hipóteses genéricas do ciclo.
 
 ---
 
@@ -182,6 +193,12 @@ PEDIDO AO EMBAIXADOR:
 
 ```
 Embaixador, reação ao ciclo atual do Pentalateral para [NOME_DO_CLIENTE].
+
+CONTEXTO DO CICLO (elo obrigatório — não omitir):
+- DIRETRIZ em execução: DIRETRIZ_GEMINI_V[N]
+- Skill que o Músculo vai executar: /[cliente]-v[N]
+- O que a Skill define como prioridade de build: [RESUMO DE 2 LINHAS DA PRIORIDADE PRINCIPAL]
+- O que a Skill proíbe de construir: [RESUMO DO QUE ESTÁ FORA DO ESCOPO]
 
 [M-1 a M-5] — IDEIAS DO MÚSCULO:
 [COLAR AS 5 IDEIAS DO MÚSCULO COM NOME E DESCRIÇÃO DE 2 LINHAS CADA]
