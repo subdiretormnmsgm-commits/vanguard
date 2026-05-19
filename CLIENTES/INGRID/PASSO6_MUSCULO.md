@@ -1,5 +1,5 @@
-# PASSO 6 — MÚSCULO (CLAUDE) · PROJETO INGRID · LOOP 1
-> Eduardo não edita este arquivo — é guia permanente do Músculo.
+# PASSO 6 — MÚSCULO (CLAUDE) · PROJETO INGRID · LOOP 4
+> Atualizado em 2026-05-19. Eduardo não edita este arquivo — é guia permanente do Músculo.
 
 ---
 
@@ -18,7 +18,8 @@
    └──────────────────────────────────────────────────────────────┘
 
 3. DIZER:
-   "PROTOCOLO VANGUARD — INGRID.
+   "PROTOCOLO VANGUARD — INGRID. Loop 4. Diretriz V4.
+    Execute /ingrid-v5 antes de deliberar.
     Trago a Skill do Auditor e a DIRETRIZ do Estrategista.
     Leia tudo e delibere nos 7 pontos antes de qualquer build."
 ```
@@ -96,9 +97,9 @@ Nada é construído antes da aprovação explícita.
 
 Ao encerrar qualquer iteração de build, gerar obrigatoriamente:
 
-- [ ] `HISTORICO/MEMORIA_V1_INGRID.md` — estado técnico completo
-- [ ] `HISTORICO/relatorio_evolutivo_V1_INGRID.md` — SWOT + 5 ideias disruptivas
-- [ ] `CONSELHO/COMANDO_ESTRATEGISTA_V1_INGRID.md` — pronto para Eduardo colar no Gemini
+- [ ] `HISTORICO/MEMORIA_V4_INGRID.md` — estado técnico completo
+- [ ] `HISTORICO/relatorio_evolutivo_V4_INGRID.md` — SWOT + 5 ideias disruptivas
+- [ ] `CONSELHO/COMANDO_ESTRATEGISTA_V4_INGRID.md` — pronto para Eduardo colar no Gemini
 - [ ] Atualizar `WIP_BOARD.json` — mover de discovery → build → check
 - [ ] Registrar fricções no `INTELLIGENCE_LEDGER.md` via `session_close.py`
 

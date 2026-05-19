@@ -274,6 +274,52 @@ foreach ($proj in $projetosEmBuild) {
     }
 
     Write-Host ""
+
+    # --- P-045: Verificar artefatos de fechamento do loop anterior (MEMORIA + relatorio) ---
+    $historico = Join-Path $clienteDir "HISTORICO"
+    if (Test-Path $historico) {
+        $memorias = Get-ChildItem $historico -Filter "MEMORIA_V*.md" -ErrorAction SilentlyContinue |
+                    Sort-Object Name -Descending
+        $relatorios = Get-ChildItem $historico -Filter "relatorio_evolutivo_V*.md" -ErrorAction SilentlyContinue |
+                      Sort-Object Name -Descending
+
+        # Detectar número do loop mais alto com DIRETRIZ (loop que aconteceu)
+        $diretrizes = Get-ChildItem $clienteDir -Filter "DIRETRIZ_GEMINI_V*.txt" -ErrorAction SilentlyContinue |
+                      Sort-Object Name -Descending
+        if (-not $diretrizes) {
+            $diretrizes = Get-ChildItem (Join-Path $clienteDir "HISTORICO") -Filter "DIRETRIZ*.txt" -ErrorAction SilentlyContinue |
+                          Sort-Object Name -Descending
+        }
+
+        if ($diretrizes) {
+            $ultimaDiretriz = $diretrizes | Select-Object -First 1
+            if ($ultimaDiretriz.Name -match "V(\d+)") {
+                $numLoopDiretriz = [int]$Matches[1]
+                $numMemoria = 0
+                if ($memorias) {
+                    $ultimaMemoria = $memorias | Select-Object -First 1
+                    if ($ultimaMemoria.Name -match "V(\d+)") { $numMemoria = [int]$Matches[1] }
+                }
+
+                if ($numMemoria -lt ($numLoopDiretriz - 1)) {
+                    Write-Host "  [P-045] AVISO: loops sem MEMORIA/relatorio detectados!" -ForegroundColor Red
+                    Write-Host "          DIRETRIZ V$numLoopDiretriz existe -- MEMORIA mais recente: V$numMemoria" -ForegroundColor Red
+                    for ($v = ($numMemoria + 1); $v -le $numLoopDiretriz; $v++) {
+                        $mPath = Join-Path $historico "MEMORIA_V${v}_${cliente}.md"
+                        $rPath = Join-Path $historico "relatorio_evolutivo_V${v}_${cliente}.md"
+                        if (-not (Test-Path $mPath))  { Write-Host "          [AUSENTE] MEMORIA_V${v}_${cliente}.md" -ForegroundColor Red }
+                        if (-not (Test-Path $rPath))  { Write-Host "          [AUSENTE] relatorio_evolutivo_V${v}_${cliente}.md" -ForegroundColor Red }
+                    }
+                    Write-Host "          Gere os artefatos ausentes antes de iniciar o proximo loop." -ForegroundColor Yellow
+                    Write-Host "          (P-045: loop sem artefatos = Auditor com contexto defasado)" -ForegroundColor Yellow
+                } else {
+                    Write-Host "  [P-045] Artefatos de loop OK — MEMORIA V$numMemoria em dia" -ForegroundColor Green
+                }
+            }
+        }
+    }
+
+    Write-Host ""
 }
 
 Write-Host "  Auditoria concluida." -ForegroundColor Green

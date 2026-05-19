@@ -1,6 +1,6 @@
-﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 3
+﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 4
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Atualizado pelo Músculo em 2026-05-18 (Loop 3 / Gate Dia 8)
+> Atualizado pelo Músculo em 2026-05-19 (Loop 4 / Diretriz V4)
 
 ---
 
@@ -20,7 +20,7 @@
 ### 💬 COMANDO CURTO — colar no chat do NotebookLM (Ctrl+V)
 
 ```
-Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha a cliente Ingrid em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Missão principal: gerar a Skill ingrid-v2.md — o Músculo não inicia o Loop 3 sem ela.
+Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha a cliente Ingrid em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Missão principal: gerar a Skill ingrid-v5.md — o Músculo não inicia o Loop 4 sem ela.
 ```
 
 > O arquivo já está nas fontes — não colar o conteúdo inteiro no chat.
@@ -80,13 +80,13 @@ Ao gerar a Skill, compense ativamente:
 
 ---
 
-## 🎯 MISSÃO CRÍTICA — GERAR A SKILL ingrid-v2.md
+## 🎯 MISSÃO CRÍTICA — GERAR A SKILL ingrid-v5.md
 
 **Após processar as fontes e a missão acima, gere a Skill completa em 4 partes obrigatórias.**
 
-O nome exato da Skill: **`ingrid-v2.md`**
+O nome exato da Skill: **`ingrid-v5.md`**
 
-O Músculo vai executar `/ingrid-v2` antes de qualquer deliberação do Loop 3.
+O Músculo vai executar `/ingrid-v5` antes de qualquer deliberação do Loop 4.
 Skill sem os 4 blocos com dados reais = Skill rejeitada. Músculo não inicia o build sem Skill válida.
 
 ---
@@ -109,7 +109,7 @@ PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
   O que este projeto tem de diferente que muda o padrão.
   O que Gemini e Músculo não estão vendo — discordância fundamentada.
 
-PARTE 3 — A SKILL (em formato ```skill ... ``` copiável para .claude/skills/ingrid-v2.md)
+PARTE 3 — A SKILL (em formato ```skill ... ``` copiável para .claude/skills/ingrid-v5.md)
   Incluir obrigatoriamente:
     - Contexto do projeto (cargo, banco, stack, decisões fixadas)
     - Conexão histórica (o que os Loops 1 e 2 provaram)
@@ -127,7 +127,7 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 ```
 
 **Validação antes de entregar:**
-- [ ] Skill tem nome exato `ingrid-v2.md` declarado na PARTE 3
+- [ ] Skill tem nome exato `ingrid-v5.md` declarado na PARTE 3
 - [ ] PARTE 1 cita fontes reais (não genéricas)
 - [ ] PARTE 4 tem 5 ideias exclusivas do Auditor
 - [ ] Skill é copiável diretamente para `.claude/skills/`
