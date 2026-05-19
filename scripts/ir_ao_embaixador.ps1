@@ -18,17 +18,20 @@
 #   .\scripts\ir_ao_embaixador.ps1            (detecta cliente ativo automaticamente)
 
 param(
-    [string]$cliente = ""
+    [string]$cliente = "",
+    [switch]$AutoSync   # Modo silencioso: sincroniza docs sem abrir browser/Explorer
 )
 
 $ErrorActionPreference = "Stop"
 $raiz = $PSScriptRoot | Split-Path -Parent
 
-Write-Host ""
-Write-Host "=================================================" -ForegroundColor Magenta
-Write-Host "  PENTALATERAL IAH -- Indo ao Embaixador         " -ForegroundColor Magenta
-Write-Host "=================================================" -ForegroundColor Magenta
-Write-Host ""
+if (-not $AutoSync) {
+    Write-Host ""
+    Write-Host "=================================================" -ForegroundColor Magenta
+    Write-Host "  PENTALATERAL IAH -- Indo ao Embaixador         " -ForegroundColor Magenta
+    Write-Host "=================================================" -ForegroundColor Magenta
+    Write-Host ""
+}
 
 # PASSO 0 -- Auto-detectar cliente
 if (-not $cliente) {
@@ -141,6 +144,11 @@ if ($ultimoTermo) {
     Sync-Doc $ultimoTermo.FullName `
              "$claude_project_dir\$($ultimoTermo.Name)" `
              "Termo PDF ($($ultimoTermo.Name))"
+}
+
+if ($AutoSync) {
+    Write-Host "  [AUTOSYNC] Embaixador $cliente - $syncCount docs sincronizados" -ForegroundColor Cyan
+    exit 0
 }
 
 Write-Host ""

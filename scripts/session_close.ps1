@@ -279,18 +279,66 @@ foreach ($proj in $projetosEmBuild) {
 Write-Host "  Auditoria concluida." -ForegroundColor Green
 Write-Host ""
 
-# --- Auto-regenerar CONTEXTO_GEMINI.md para o proximo loop ---
+# --- Auto-preparar os 3 Sócios (Gemini + NotebookLM + Embaixador) ---
+Write-Host ""
+Write-Host "=============================================="
+Write-Host "  AUTO-PREPARAÇÃO DOS 3 SÓCIOS"
+Write-Host "=============================================="
+
+# Sócio 1 — Gemini: regenerar CONTEXTO_GEMINI.md
 $anchorScript = Join-Path $BASE "scripts\gemini_anchor_generator.ps1"
 if (Test-Path $anchorScript) {
     try {
         Write-Host ""
-        Write-Host "Atualizando CONTEXTO_GEMINI.md para o proximo loop..."
+        Write-Host "  [1/3] Gemini — atualizando CONTEXTO_GEMINI.md..."
         & powershell.exe -NonInteractive -File $anchorScript 2>$null | Out-Null
-        Write-Host "  [OK] CONTEXTO_GEMINI.md atualizado com commits + WIP + LEDGER."
+        Write-Host "  [OK]  Gemini pronto — CONTEXTO_GEMINI.md no clipboard" -ForegroundColor Green
     } catch {
-        Write-Host "  [!!] Falha ao atualizar CONTEXTO_GEMINI.md -- execute manualmente."
+        Write-Host "  [!!]  Gemini — falha ao gerar CONTEXTO_GEMINI.md" -ForegroundColor Yellow
     }
 }
+
+# Sócio 2 — NotebookLM: preparar fontes para cada projeto ativo
+$prepScript = Join-Path $BASE "scripts\preparar_notebooklm_projeto.ps1"
+if (Test-Path $prepScript) {
+    Write-Host ""
+    Write-Host "  [2/3] NotebookLM — preparando NOTEBOOKLM_FONTES..."
+    foreach ($proj in $projetosEmBuild) {
+        $cli = $proj.cliente.ToUpper()
+        try {
+            & powershell.exe -NonInteractive -File $prepScript -cliente $cli 2>$null | Out-Null
+            Write-Host "  [OK]  NotebookLM/$cli — 19 docs prontos" -ForegroundColor Green
+        } catch {
+            Write-Host "  [!!]  NotebookLM/$cli — falha" -ForegroundColor Yellow
+        }
+    }
+} else {
+    Write-Host "  [--]  preparar_notebooklm_projeto.ps1 não encontrado" -ForegroundColor DarkGray
+}
+
+# Sócio 3 — Embaixador: sincronizar docs (sem abrir browser — modo AutoSync)
+$embScript = Join-Path $BASE "scripts\ir_ao_embaixador.ps1"
+if (Test-Path $embScript) {
+    Write-Host ""
+    Write-Host "  [3/3] Embaixador — sincronizando CLAUDE_PROJECT..."
+    foreach ($proj in $projetosEmBuild) {
+        $cli = $proj.cliente.ToUpper()
+        try {
+            & powershell.exe -NonInteractive -File $embScript -cliente $cli -AutoSync 2>$null | Out-Null
+            Write-Host "  [OK]  Embaixador/$cli — docs sincronizados" -ForegroundColor Green
+        } catch {
+            Write-Host "  [!!]  Embaixador/$cli — falha" -ForegroundColor Yellow
+        }
+    }
+} else {
+    Write-Host "  [--]  ir_ao_embaixador.ps1 não encontrado" -ForegroundColor DarkGray
+}
+
+Write-Host ""
+Write-Host "  3 sócios preparados. Quando for interagir:" -ForegroundColor Cyan
+Write-Host "  · Gemini    → CONTEXTO_GEMINI.md já no clipboard + PASSO3 do projeto" -ForegroundColor White
+Write-Host "  · NotebookLM → Wipe & Sync no Projects + colar PASSO5" -ForegroundColor White
+Write-Host "  · Embaixador → .\scripts\ir_ao_embaixador.ps1 (abre browser + clipboard)" -ForegroundColor White
 
 # --- Notificação Telegram: sessão encerrada ───────────────
 . "$BASE\scripts\alert_config.ps1"

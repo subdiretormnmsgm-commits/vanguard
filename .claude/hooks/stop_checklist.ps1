@@ -7,7 +7,7 @@
 
 $checklist = @"
 +----------------------------------------------------------+
-|       RITUAL DE FECHAMENTO -- QUADRILATERAL IAH          |
+|       RITUAL DE FECHAMENTO -- PENTALATERAL IAH           |
 |       (sessao encerrando -- verifique antes de sair)     |
 +----------------------------------------------------------+
 |  [ ] E-MAIL gerado pelo Musculo e enviado pelo Diretor  |
@@ -20,6 +20,10 @@ $checklist = @"
 |  [ ] WIP_BOARD.json atualizado (status do projeto)      |
 |  [ ] PASSO3_GEMINI.md pronto para proximo loop           |
 |  Se fechar versao: sincronizar .claude/skills/           |
++----------------------------------------------------------+
+|  EXECUTE PARA FECHAR (prepara os 3 socios automatico):  |
+|  > .\scripts\session_close.ps1                           |
+|    Gemini + NotebookLM + Embaixador preparados sozinhos  |
 +----------------------------------------------------------+
 "@
 
