@@ -1,10 +1,11 @@
 # ir_ao_embaixador.ps1
-# Quadrilateral IAH - V25
+# Pentalateral IAH - V25
 #
 # QUANDO RODAR: sempre que for interagir com o Embaixador (Claude Projects).
 # O Musculo roda este script automaticamente ao detectar intencao de ir ao Claude Projects.
 #
 # O QUE FAZ (em sequencia):
+#   0. [SYNC] Copia versoes mais recentes dos documentos para CLAUDE_PROJECT (automatico)
 #   1. Detecta o cliente ativo no WIP_BOARD
 #   2. Copia MENSAGEM_INTERACAO_INICIAL.md para o clipboard (so colar no chat)
 #   3. Abre o browser no Claude Projects
@@ -25,7 +26,7 @@ $raiz = $PSScriptRoot | Split-Path -Parent
 
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Magenta
-Write-Host "  QUADRILATERAL IAH -- Indo ao Embaixador        " -ForegroundColor Magenta
+Write-Host "  PENTALATERAL IAH -- Indo ao Embaixador         " -ForegroundColor Magenta
 Write-Host "=================================================" -ForegroundColor Magenta
 Write-Host ""
 
@@ -54,11 +55,100 @@ if (-not $cliente) {
 }
 
 $claude_project_dir = "$raiz\CLIENTES\$cliente\CLAUDE_PROJECT"
-$instrucao  = "$claude_project_dir\00_INSTRUCAO_SISTEMA.md"
-$mensagem   = "$claude_project_dir\MENSAGEM_INTERACAO_INICIAL.md"
-$contratoStatus = "$raiz\CLIENTES\$cliente\CONTRATO_STATUS.txt"
+$instrucao          = "$claude_project_dir\00_INSTRUCAO_SISTEMA.md"
+$mensagem           = "$claude_project_dir\MENSAGEM_INTERACAO_INICIAL.md"
+$contratoStatus     = "$raiz\CLIENTES\$cliente\CONTRATO_STATUS.txt"
 
+# --------------------------------------------------------------------------
+# PASSO SYNC -- Atualizar CLAUDE_PROJECT com versoes mais recentes
+# Roda sempre que o script e executado. Zero intervencao do Diretor.
+# --------------------------------------------------------------------------
+Write-Host ""
+Write-Host "[SYNC] Atualizando documentos do CLAUDE_PROJECT..." -ForegroundColor Cyan
+
+if (-not (Test-Path $claude_project_dir)) {
+    New-Item -ItemType Directory -Path $claude_project_dir -Force | Out-Null
+}
+
+$syncCount = 0
+$missCount = 0
+
+function Sync-Doc($origem, $destino, $label) {
+    if (Test-Path $origem) {
+        Copy-Item $origem $destino -Force
+        Write-Host "  [OK] $label" -ForegroundColor Green
+        $script:syncCount++
+    } else {
+        Write-Host "  [--] $label" -ForegroundColor DarkGray
+        $script:missCount++
+    }
+}
+
+# Universais (todos os clientes)
+Sync-Doc "$raiz\INTELLIGENCE_LEDGER.md" `
+         "$claude_project_dir\06_INTELLIGENCE_LEDGER.md" `
+         "INTELLIGENCE_LEDGER"
+
+Sync-Doc "$raiz\QUADRILATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md" `
+         "$claude_project_dir\16_VANGUARD_TIMELINE.md" `
+         "VANGUARD_TIMELINE"
+
+Sync-Doc "$raiz\CLIENTES\WIP_BOARD.json" `
+         "$claude_project_dir\07_WIP_BOARD.json" `
+         "WIP_BOARD"
+
+Sync-Doc "$raiz\CLIENTES\$cliente\BRIEFING_DISCOVERY.txt" `
+         "$claude_project_dir\01_BRIEFING_DISCOVERY.txt" `
+         "BRIEFING_DISCOVERY"
+
+Sync-Doc "$raiz\CLIENTES\$cliente\CONTRATO_STATUS.txt" `
+         "$claude_project_dir\05_CONTRATO_STATUS.txt" `
+         "CONTRATO_STATUS"
+
+# Cliente-especificos: ultima versao de cada tipo
+$clienteLower = $cliente.ToLower()
+
+# DIRETRIZ_GEMINI: copiada para CLAUDE_PROJECT apenas como referencia local.
+# NAO subir no Claude.ai/projects -- contem secoes [PARA O MUSCULO] que confundem o Embaixador.
+# O BLOCO 2 da MENSAGEM_INTERACAO_INICIAL ja extrai as [G-1 a G-5] relevantes para ele.
+$ultimaDiretriz = Get-ChildItem "$raiz\CLIENTES\$cliente" -Filter "DIRETRIZ_GEMINI_V*.txt" `
+                  -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if ($ultimaDiretriz) {
+    Sync-Doc $ultimaDiretriz.FullName `
+             "$claude_project_dir\02_DIRETRIZ_GEMINI_LATEST.txt" `
+             "DIRETRIZ_GEMINI ($($ultimaDiretriz.Name)) [referencia local -- nao subir no Projects]"
+}
+
+$ultimaSkill = Get-ChildItem "$raiz\.claude\skills" -Filter "skill_$($clienteLower)*.md" `
+               -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if ($ultimaSkill) {
+    Sync-Doc $ultimaSkill.FullName `
+             "$claude_project_dir\03_SKILL_BUILD_PLAN.md" `
+             "SKILL ($($ultimaSkill.Name))"
+}
+
+$proposta = Get-ChildItem "$raiz\CLIENTES\$cliente" -Filter "PROPOSTA_COMERCIAL*.md" `
+            -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if ($proposta) {
+    Sync-Doc $proposta.FullName `
+             "$claude_project_dir\04_PROPOSTA_COMERCIAL.md" `
+             "PROPOSTA_COMERCIAL ($($proposta.Name))"
+}
+
+$ultimoTermo = Get-ChildItem "$raiz\CLIENTES\$cliente" -Filter "Termo_*.pdf" `
+               -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if ($ultimoTermo) {
+    Sync-Doc $ultimoTermo.FullName `
+             "$claude_project_dir\$($ultimoTermo.Name)" `
+             "Termo PDF ($($ultimoTermo.Name))"
+}
+
+Write-Host ""
+Write-Host "  Sync: $syncCount docs atualizados | $missCount ausentes (normais)" -ForegroundColor Cyan
+
+# --------------------------------------------------------------------------
 # PASSO 1 -- Copiar mensagem de ativacao para o clipboard
+# --------------------------------------------------------------------------
 Write-Host ""
 Write-Host "[1/4] Copiando mensagem de ativacao para o clipboard..." -ForegroundColor Yellow
 if (Test-Path $mensagem) {
@@ -99,7 +189,9 @@ if (Test-Path $contratoStatus) {
     Write-Host "  [--] CONTRATO_STATUS.txt nao existe -- criar apos assinatura" -ForegroundColor Yellow
 }
 
+# --------------------------------------------------------------------------
 # INSTRUCOES FINAIS
+# --------------------------------------------------------------------------
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Magenta
 Write-Host "  INSTRUCOES -- O QUE FAZER NO CLAUDE PROJECTS  " -ForegroundColor Magenta
@@ -109,38 +201,25 @@ Write-Host "  PROJECT: $projetoId - $cliente" -ForegroundColor White
 Write-Host ""
 Write-Host "  SE FOR A PRIMEIRA VEZ (configuracao inicial):" -ForegroundColor Yellow
 Write-Host "  1. Criar novo Project para $cliente em claude.ai/projects" -ForegroundColor White
-Write-Host "  2. Colar o conteudo abaixo nas Instructions do Project:" -ForegroundColor White
+Write-Host "  2. Colar o conteudo de 00_INSTRUCAO_SISTEMA.md nas Instructions do Project" -ForegroundColor White
 Write-Host "     $instrucao" -ForegroundColor DarkGray
 Write-Host ""
-Write-Host "  3. Subir estes arquivos na aba Files do Project:" -ForegroundColor White
+Write-Host "  3. Subir TODOS os arquivos desta pasta na aba Files do Project:" -ForegroundColor White
+Write-Host "     $claude_project_dir" -ForegroundColor DarkGray
+Write-Host "     (MENSAGEM_INTERACAO_INICIAL.md e WATCHDOG_TEMPLATE.md: NAO subir -- uso interno)" -ForegroundColor DarkGray
 Write-Host ""
 
-# Lista de arquivos a subir — com deteccao automatica do contrato/termo
-$contratoArquivo = Get-ChildItem "$raiz\CLIENTES\$cliente" -Filter "Contrato_*.docx" -ErrorAction SilentlyContinue |
-                   Sort-Object Name -Descending | Select-Object -First 1
-$termoArquivo    = Get-ChildItem "$raiz\CLIENTES\$cliente" -Filter "Termo_*.pdf" -ErrorAction SilentlyContinue |
-                   Sort-Object Name -Descending | Select-Object -First 1
-
-$arquivos = [System.Collections.ArrayList]@(
-    @{ Nome = "BRIEFING_DISCOVERY.txt";  Caminho = "$raiz\CLIENTES\$cliente\BRIEFING_DISCOVERY.txt" },
-    @{ Nome = "WIP_BOARD.json";          Caminho = "$raiz\CLIENTES\WIP_BOARD.json" },
-    @{ Nome = "VANGUARD_TIMELINE.md";    Caminho = "$raiz\VANGUARD_TIMELINE.md" },
-    @{ Nome = "INTELLIGENCE_LEDGER.md";  Caminho = "$raiz\INTELLIGENCE_LEDGER.md" }
-)
-
-if ($contratoArquivo) {
-    $arquivos.Insert(1, @{ Nome = $contratoArquivo.Name; Caminho = $contratoArquivo.FullName })
-}
-if ($termoArquivo) {
-    $arquivos.Insert(1, @{ Nome = $termoArquivo.Name; Caminho = $termoArquivo.FullName })
-}
-
+# Lista os arquivos do CLAUDE_PROJECT para conferencia visual
+$arquivosCP = Get-ChildItem $claude_project_dir -File -ErrorAction SilentlyContinue | Sort-Object Name
 $i = 1
-foreach ($arq in $arquivos) {
-    $existe = if (Test-Path $arq.Caminho) { "[OK]" } else { "[--]" }
-    $cor    = if ($existe -eq "[OK]") { "White" } else { "Red" }
-    Write-Host "     [$i] $($arq.Nome) $existe" -ForegroundColor $cor
-    Write-Host "         $($arq.Caminho)" -ForegroundColor DarkGray
+foreach ($arq in $arquivosCP) {
+    if ($arq.Name -match "^(MENSAGEM|WATCHDOG)") {
+        Write-Host "     [$i] $($arq.Name)  [uso interno -- nao subir]" -ForegroundColor DarkGray
+    } elseif ($arq.Name -match "^02_DIRETRIZ") {
+        Write-Host "     [$i] $($arq.Name)  [referencia local -- nao subir]" -ForegroundColor DarkYellow
+    } else {
+        Write-Host "     [$i] $($arq.Name)" -ForegroundColor White
+    }
     $i++
 }
 
@@ -151,11 +230,11 @@ Write-Host "  Cole (Ctrl+V) diretamente no chat do Project." -ForegroundColor Wh
 Write-Host ""
 Write-Host "  O Embaixador vai entregar SEM voce pedir:" -ForegroundColor Yellow
 Write-Host "  [A] Diagnostico cruzado -- so ele pode ver (memoria persistente)" -ForegroundColor White
-Write-Host "  [B] Artefatos prontos -- mensagens, scripts, respostas" -ForegroundColor White
-Write-Host "  [C] Mapa de risco com cenarios sutis" -ForegroundColor White
-Write-Host "  [D] Simulacao de cenario -- teste de resiliencia" -ForegroundColor White
-Write-Host "  [E] Sentinel Report / Contribuicao ao Conselho" -ForegroundColor White
-Write-Host "  [F/G] LOG_CLIENTE desta sessao (fonte 17 do Auditor)" -ForegroundColor White
+Write-Host "  [B] CONFIRMA/EXPANDE/ALERTA nas 25 ideias do loop" -ForegroundColor White
+Write-Host "  [C] Comportamento real da Ingrid (frases E-2 e E-5)" -ForegroundColor White
+Write-Host "  [D] Amplitude Pentalateral -- [E-1 a E-5] (comercial, pipeline, business case)" -ForegroundColor White
+Write-Host "  [E] Artefatos prontos -- mensagens WhatsApp para uso imediato" -ForegroundColor White
+Write-Host "  [F] LOG_CLIENTE desta sessao (fonte do Auditor no proximo loop)" -ForegroundColor White
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Magenta
 Write-Host ""

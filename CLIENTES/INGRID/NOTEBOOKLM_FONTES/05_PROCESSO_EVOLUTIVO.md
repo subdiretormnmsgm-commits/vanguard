@@ -1,4 +1,4 @@
-﻿# PROCESSO EVOLUTIVO DO QUADRILATERAL IAH
+# PROCESSO EVOLUTIVO DO QUADRILATERAL IAH
 **Documento mestre — ler antes de qualquer sessão relevante**
 **Organismo vivo — atualizado a cada projeto ou versão**
 **Versão:** 1.0 | Data: 2026-05-13 | Criado por: Eduardo (Diretor) + Músculo
@@ -37,29 +37,50 @@ MÚSCULO (Claude Code)
   └── Delibera antes de construir. Contrapõe quando há caminho melhor.
   └── Emite ALERTAs. Propõe alternativas. Executa apenas após Veredito do Diretor.
   └── Ao fechar: gera MEMORIA + relatorio_evolutivo + 5 IDEIAS que alimentam o Gemini.
+
+EMBAIXADOR (Claude Projects — um Project por cliente) [adicionado: 2026-05-17]
+  └── Inteligência persistente do cliente. Único membro com memória entre sessões.
+  └── 11 mandatos: Conselheiro de relacionamento, Inteligência composta, Briefer de reunião,
+      Debriefer pós-contato, Pipeline de lead, Monitor de saúde, Inteligência de precificação,
+      Acelerador de nicho, Portfolio Manager, Product Advisor, Business Case Guardian.
+  └── Acumula inteligência de relacionamento que nenhum outro membro possui.
+  └── Contribui ao loop com: 5 IDEIAS DISRUPTIVAS baseadas em comportamento real do cliente.
+  └── Ao fechar cada loop: gera LOG_CLIENTE + MEMORIA_EMBAIXADOR atualizado + 5 ideias → Gemini.
+  └── Como ativar: scripts/ir_ao_embaixador.ps1 -cliente [NOME]
 ```
 
 **O espírito:** Cada membro é livre para discordar — mas deve propor algo melhor.
 Cada membro adiciona. Nunca apenas valida. O Diretor tem o veredito final. Sempre.
+
+**O loop evolutivo agora tem 4 contribuintes de ideias:**
+Músculo (5 ideias técnicas) + Estrategista (5 ideias estratégicas) + Auditor (5 ideias históricas) + Embaixador (5 ideias de relacionamento real) = 20 ideias por ciclo. O loop fica mais rico a cada volta porque cada membro vê ângulos que os outros não veem.
 
 ---
 
 ## 2. O PROCESSO — 10 PASSOS (para projeto novo ou nova iteração)
 
 > Nunca pular etapas. O Músculo NÃO delibera nem propõe plano antes do Passo 5.
+> O Embaixador corre em paralelo ao processo técnico — alimenta e é alimentado pelo loop.
 
 | Passo | Quem | Ação |
 |---|---|---|
+| **0** | **Embaixador** | **PRÉ-PROCESSO: Briefer de reunião — Eduardo recebe roteiro antes de qualquer contato com cliente** |
 | 1 | Diretor | Qualificação BLOCO A — GO/NO-GO (3 perguntas de filtro) |
-| 2 | Diretor | Discovery — 7 perguntas universais + perfil do cliente |
-| 3 | Diretor → Gemini | COMANDO 1 → receber DIRETRIZ estratégica |
+| 2 | Diretor | Discovery — 7 perguntas universais + perfil do cliente → Embaixador atualiza MEMORIA_EMBAIXADOR |
+| 3 | Diretor → Gemini | COMANDO 1 (inclui LOG_CLIENTE + 5 ideias do Embaixador) → receber DIRETRIZ estratégica |
 | 4 | Diretor | Validar DIRETRIZ — aprovar ou pedir revisão |
-| 5 | Diretor → NotebookLM | COMANDO 2 + fontes → receber SKILL ← **aguardar antes de construir** |
+| 5 | Diretor → NotebookLM | COMANDO 2 + fontes (inclui LOG_CLIENTE do Embaixador) → receber SKILL |
 | 6 | Diretor → Músculo | Trazer Skill + DIRETRIZ → Músculo delibera + plano |
 | 7 | Diretor | Veredito — aprovar plano |
-| 8 | Músculo | Executar + reportar ALERTAs ao Diretor em tempo real |
-| 9 | Músculo | Gerar MEMORIA + relatorio_evolutivo + COMANDO_ESTRATEGISTA |
-| 10 | Diretor | Validar + commit + acionar Gemini com o COMANDO_ESTRATEGISTA |
+| 8 | Músculo | Executar + reportar ALERTAs | Embaixador: monitorar engagement do cliente |
+| **8.5** | **Embaixador** | **PÓS-REUNIÃO: Eduardo relata → Embaixador extrai inteligência + gera LOG_CLIENTE** |
+| 9 | Músculo | Gerar MEMORIA + relatorio_evolutivo + 5 IDEIAS DISRUPTIVAS | Embaixador: gerar 5 IDEIAS DISRUPTIVAS de relacionamento |
+| 10 | Diretor | Validar + commit + acionar Gemini com COMANDO_ESTRATEGISTA (Músculo + Embaixador juntos) |
+
+**Intersecções obrigatórias Embaixador ↔ Loop:**
+- Passo 3: LOG_CLIENTE do Embaixador entra no COMANDO_ESTRATEGISTA → Gemini vê a inteligência de relacionamento
+- Passo 5: LOG_CLIENTE entra nas fontes do NotebookLM → Auditor analisa com dados reais do cliente
+- Passo 9: 5 ideias do Embaixador vão para o Gemini junto com as 5 ideias do Músculo → 10 ideias por ciclo de projeto
 
 ---
 
@@ -70,20 +91,29 @@ Cada membro adiciona. Nunca apenas valida. O Diretor tem o veredito final. Sempr
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EMBAIXADOR (paralelo — ao fechar loop do cliente)
+  └── Gera LOG_CLIENTE com inteligência de relacionamento real
+  └── Gera MEMORIA_EMBAIXADOR atualizado (30 segundos — estado comprimido)
+  └── Gera 5 IDEIAS DISRUPTIVAS baseadas em comportamento real do cliente
+  └── [E-1] a [E-5] vão para o COMANDO_ESTRATEGISTA junto com as ideias do Músculo
+         │
+         ▼ (em paralelo com o Músculo)
+
 MÚSCULO (Passo 9)
   └── Gera MEMORIA_V[X].md        ← contexto técnico completo
   └── Gera relatorio_evolutivo    ← análise de negócio
-  └── Relatorio contém [VISÃO LMM] com 5 IDEIAS DISRUPTIVAS
+  └── Relatorio contém [VISÃO LMM] com 5 IDEIAS DISRUPTIVAS [M-1 a M-5]
          │
          ▼
 DIRETOR → GEMINI
   └── Cola (nesta ordem): MEMORIA + relatorio + COMANDO_ESTRATEGISTA
-  └── Gemini lê tudo e REAGE às 5 ideias do Músculo (aprova/transforma/descarta)
+  └── COMANDO inclui: 5 ideias do Músculo [M-1 a M-5] + 5 ideias do Embaixador [E-1 a E-5]
+  └── Gemini lê tudo e REAGE às 10 ideias (aprova/transforma/descarta cada uma)
   └── Gemini gera NOVA DIRETRIZ com as suas próprias 5 ideias para o Músculo reagir
          │
          ▼
 DIRETOR → NOTEBOOKLM
-  └── Cola: DIRETRIZ nova + MEMORIA + relatorio + histórico relevante
+  └── Cola: DIRETRIZ nova + MEMORIA + relatorio + LOG_CLIENTE do Embaixador
   └── NotebookLM audita coerência + gera NOVA SKILL com:
        · [PADRÃO DE SUCESSO] validado neste ciclo
        · [PADRÃO DE FALHA] identificado neste ciclo
@@ -97,15 +127,25 @@ DIRETOR → MÚSCULO ("PROTOCOLO VANGUARD" + Nova Skill + Nova DIRETRIZ)
   └── Executa o que o Diretor aprovar
   └── Ao fechar: gera novas MEMORIA + relatorio + 5 IDEIAS DISRUPTIVAS
          │
-         ▼ (volta ao topo — o loop é perpétuo)
+         ▼ (volta ao topo — o loop é perpétuo, agora com 4 fontes de ideias)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 **Regra que nunca quebra:**
-- O Músculo nunca entrega apenas código — entrega código + 5 ideias que alimentam o Gemini
-- O Gemini nunca entrega apenas estratégia — reage às ideias do Músculo + propõe as suas
+- O Músculo nunca entrega apenas código — entrega código + 5 ideias [M] que alimentam o Gemini
+- O Embaixador nunca fecha loop sem — LOG_CLIENTE + MEMORIA atualizado + 5 ideias [E] para o Gemini
+- O Gemini nunca entrega apenas estratégia — reage às ideias do Músculo + Embaixador + propõe as suas
 - O NotebookLM nunca entrega apenas auditoria — propõe 5 ideias do ponto de vista histórico
-- Sem as 5 ideias, o loop para. O loop parado = inteligência perdida para sempre
+- Sem as ideias de TODOS os membros, o loop está incompleto. Loop incompleto = inteligência perdida
+
+**Ordem correta no sistema (P-030 + princípio fundador 2026-05-18):**
+1. Documentos gerados automaticamente pelos membros do Conselho
+2. Eduardo atua, relembra, delibera, interage — em TODOS os momentos
+3. As AÇÕES são automáticas — Eduardo dá os vereditos
+
+O Diretor não é passivo: é o cérebro do sistema. Participa em cada etapa — questiona, delibera, reage.
+O que é automático são os documentos, análises e propostas que chegam prontos para ele deliberar.
+Nenhum membro espera Eduardo produzir algo que o sistema deveria entregar — mas Eduardo está sempre presente.
 
 ---
 
@@ -138,6 +178,45 @@ DIRETOR → MÚSCULO ("PROTOCOLO VANGUARD" + Nova Skill + Nova DIRETRIZ)
 4. Incluir [PARA O SKILL_PROTOCOLO_VANGUARD] — promover padrões universais
 5. Incluir 5 ideias próprias fundamentadas no histórico — o Auditor propõe, não só audita
 ```
+
+### O Embaixador nunca esquece:
+```
+1. Abrir cada sessão com WATCHDOG preenchido (60 segundos) → 4 linhas antes de qualquer resposta
+2. Colar MEMORIA_EMBAIXADOR.md no início de cada sessão (30 segundos)
+3. Declarar modo: FLASH (máx 5 linhas) ou COMPLETO (padrão)
+4. Ao fechar loop: gerar LOG_CLIENTE + atualizar MEMORIA_EMBAIXADOR + 5 IDEIAS DISRUPTIVAS [E-1 a E-5]
+5. As 5 ideias [E] vão para o COMANDO_ESTRATEGISTA do Músculo → Gemini reage junto com [M]
+6. REAGIR às ideias dos outros membros quando Eduardo trouxer o COMANDO_ESTRATEGISTA:
+   · Recebe [M-1 a M-5] do Músculo → analisa cada uma pelo filtro de relacionamento real
+   · Recebe [G-1 a G-5] do Gemini → valida se fazem sentido para o perfil deste cliente
+   · Recebe [N-1 a N-5] do Auditor → verifica se batem com o comportamento real observado
+   · Responde: CONFIRMA / EXPANDE / ALERTA — com base no que só ele pode ver
+7. Nunca gerar princípio no LEDGER com numeração autônoma — numeração é do Músculo + Diretor
+8. A sessão 50 só é mais rica que a sessão 1 se os instrumentos de continuidade forem usados (P-029)
+```
+
+### COMO O LOOP DE IDEIAS FUNCIONA COM 4 MEMBROS
+
+```
+LOOP DE IDEIAS — ciclo completo (por projeto)
+
+MÚSCULO gera [M-1 a M-5] → vai para GEMINI
+EMBAIXADOR gera [E-1 a E-5] → vai para GEMINI junto com [M]
+
+GEMINI reage a [M] + [E] → gera [G-1 a G-5] → vai para NOTEBOOKLM
+
+NOTEBOOKLM reage a [M] + [E] + [G] → gera [N-1 a N-5]
+
+EMBAIXADOR recebe [M] + [G] + [N] (Eduardo traz) → REAGE a cada uma
+  · CONFIRMA: "E-1 confirma [M-3] — Valdece usaria exatamente isso"
+  · EXPANDE: "[G-2] faz mais sentido se posicionado como autonomia, não como feature"
+  · ALERTA: "[N-4] não vai funcionar com este perfil — Ingrid abandona se for complexo"
+
+MÚSCULO recebe tudo → DELIBERA no próximo loop com 4 perspectivas
+```
+
+O Embaixador é o único membro que filtra as ideias pelo comportamento real do cliente.
+Isso é o que nenhum concorrente tem: inteligência de relacionamento retroalimentando o produto.
 
 ---
 
@@ -197,7 +276,7 @@ Fontes complementares (adicionar quando disponíveis):
 
 ### Gemini respondendo fora do formato (5 blocos):
 Colar no início da resposta seguinte:
-> "Você saiu do formato obrigatório do Pentalateral IAH. Releia o seu papel e responda novamente com os 5 blocos: DIAGNÓSTICO, PRIORIDADES, COMERCIAL, TÉCNICA (com [PARA O NOTEBOOKLM] e [PARA O MÚSCULO]), PASSOS. E não esqueça de reagir a cada uma das 5 ideias do Músculo e propor as suas 5."
+> "Você saiu do formato obrigatório do Quadrilateral IAH. Releia o seu papel e responda novamente com os 5 blocos: DIAGNÓSTICO, PRIORIDADES, COMERCIAL, TÉCNICA (com [PARA O NOTEBOOKLM] e [PARA O MÚSCULO]), PASSOS. E não esqueça de reagir a cada uma das 5 ideias do Músculo e propor as suas 5."
 
 ### NotebookLM gerando auditoria genérica sem Skill copiável:
 Colar antes do próximo prompt:

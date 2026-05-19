@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-05-16",
+    "atualizado_em":  "2026-05-18",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -194,3 +194,4 @@
                                "regra_5":  "Retainer so apos 30 dias de dados reais do Sentinel"
                            }
 }
+

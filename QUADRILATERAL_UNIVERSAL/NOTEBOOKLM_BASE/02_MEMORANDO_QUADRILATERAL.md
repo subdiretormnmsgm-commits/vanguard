@@ -1027,7 +1027,7 @@ Confirmas para avançar? →
 projeto CLIENTE — DIRETRIZ ESTRATÉGICA V1
 ════════════════════════════════════════════════════════════
 
-Somos o Pentalateral IAH. Novo projeto de cliente.
+Somos o Quadrilateral IAH. Novo projeto de cliente.
 Analisa o briefing abaixo e gera a Diretriz com 5 blocos.
 
 --- BRIEFING ---
@@ -1080,7 +1080,7 @@ O que o Diretor faz nas próximas 24h para avançar.
 **Comando Padrão para o Auditor:**
 
 ```
-Actuas como Auditor do Pentalateral IAH.
+Actuas como Auditor do Quadrilateral IAH.
 
 Analisa o projeto [NICHO/TIPO] com estes objetivos:
 

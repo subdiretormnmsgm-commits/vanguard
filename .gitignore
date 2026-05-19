@@ -10,3 +10,4 @@ __pycache__/
 scripts/alert_config.ps1
 CLIENTES/.wip_last_state.json
 scripts/alert_monitor.log
+.claude/settings.local.json

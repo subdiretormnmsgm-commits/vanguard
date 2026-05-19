@@ -162,8 +162,10 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 11_RELATORIO_EVOLUTIVO.md          ← relatorio_evolutivo_V2_INGRID.md (Loop 2)
 12_DIRETRIZ_GEMINI.txt             ← DIRETRIZ_GEMINI_V4 do Gemini ← OBRIGATÓRIO
 13_PASSO5_NOTEBOOKLM.md            ← este arquivo (missão do Auditor)
-14_SKILL_ANTERIOR.md               ← Skill ingrid-v1.md do Loop 1 (se existir)
-15_ALERTA_CONFLITO.md              ← gatilho de calibração
+14_MEMORIA_EMBAIXADOR.md           ← inteligência Embaixador sobre Ingrid ← FILTRO DE REALIDADE
+15_SKILL_ANTERIOR.md               ← Skill ingrid-v1.md do Loop anterior (se existir)
+16_ALERTA_CONFLITO.md              ← gatilho de calibração
+17_VANGUARD_TIMELINE.md            ← histórico completo da Vanguard
 ```
 
 > **07_WIP_BOARD.txt** — extensão `.txt` obrigatória. NotebookLM não lê `.json`.

@@ -1,5 +1,5 @@
-﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
-**O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
+﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO QUADRILATERAL IAH
+**O guia completo de Eduardo para coordenar Gemini, NotebookLM e Claude Code**
 **Versão:** 1.2 · 2026-05-14 · Organismo Vivo — atualizar após cada projeto
 
 ---
@@ -343,7 +343,7 @@ QUADRILATERAL IAH — EDUARDO → GEMINI
 projeto: [nome do projeto] | ITERAÇÃO: V1 | DATA: [data de hoje]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Pentalateral IAH.
+Gemini, somos o Quadrilateral IAH.
 Tu és o Estrategista. Eu sou o Diretor.
 O NotebookLM é o Auditor. O Claude Code é o Músculo.
 
@@ -467,7 +467,7 @@ QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
 projeto: [nome] | ITERAÇÃO: V1
 ════════════════════════════════════════════════════════════
 
-NotebookLM, actuas como Sócio Consultor do Pentalateral IAH.
+NotebookLM, actuas como Sócio Consultor do Quadrilateral IAH.
 Não apenas arquivo — consultor ativo com memória longa.
 
 ANALISA O projeto [NICHO/TIPO] COM 4 objetivos:
@@ -1298,6 +1298,6 @@ Incrementa a versão para [X.X]."
 
 ---
 
-*Manual do diretor · Pentalateral IAH · V1.1*
+*Manual do diretor · Quadrilateral IAH · V1.1*
 *Criado pelo Músculo para o Diretor Eduardo*
 *atualizar após cada projeto — este documento é tão vivo quanto o sistema que descreve*

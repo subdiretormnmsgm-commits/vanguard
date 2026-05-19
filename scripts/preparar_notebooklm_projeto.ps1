@@ -1,10 +1,10 @@
 # preparar_notebooklm_projeto.ps1
-# Quadrilateral IAH - V25
+# Pentalateral IAH - V26
 #
 # O QUE FAZ:
 #   Monta a pasta CLIENTES/[CLIENTE]/NOTEBOOKLM_FONTES/ com:
 #   - Documentos universais (01-08) copiados da NOTEBOOKLM_BASE
-#   - Documentos do projeto (09-15) copiados de CLIENTES/[CLIENTE]/
+#   - Documentos do projeto (09-17) copiados de CLIENTES/[CLIENTE]/
 #   Resultado: UMA pasta com TUDO. Seleciona todos e arrasta ao NotebookLM.
 #
 # QUANDO RODAR: antes de qualquer sessao Passo 5 (NotebookLM).
@@ -28,7 +28,7 @@ $fontes_dir = "$proj_dir\NOTEBOOKLM_FONTES"
 
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Cyan
-Write-Host " QUADRILATERAL IAH - Preparar NotebookLM Projeto" -ForegroundColor Cyan
+Write-Host " PENTALATERAL IAH - Preparar NotebookLM Projeto" -ForegroundColor Cyan
 Write-Host " Cliente: $cliente" -ForegroundColor Cyan
 Write-Host "=================================================" -ForegroundColor Cyan
 Write-Host ""
@@ -113,32 +113,41 @@ if (Test-Path $f) {
     Write-Host "  [--] 13_PASSO5_NOTEBOOKLM.md (nao encontrado)" -ForegroundColor DarkGray
 }
 
-# 14 - SKILL do ciclo anterior (se existir)
+# 14 - MEMORIA_EMBAIXADOR (inteligencia do cliente - filtro de realidade do Auditor)
+$f = "$proj_dir\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
+if (Test-Path $f) {
+    Copy-Item $f "$fontes_dir\14_MEMORIA_EMBAIXADOR.md" -Force
+    Write-Host "  [OK] 14_MEMORIA_EMBAIXADOR.md" -ForegroundColor Green
+} else {
+    Write-Host "  [--] 14_MEMORIA_EMBAIXADOR.md (nao encontrado - criar via ir_ao_embaixador.ps1)" -ForegroundColor Yellow
+}
+
+# 15 - SKILL do ciclo anterior (se existir)
 $skill = Get-ChildItem "$proj_dir\CONSELHO" -Filter "SKILL_*.md" -Recurse -ErrorAction SilentlyContinue |
          Sort-Object Name -Descending | Select-Object -First 1
 if ($skill) {
-    Copy-Item $skill.FullName "$fontes_dir\14_SKILL_ANTERIOR.md" -Force
-    Write-Host "  [OK] 14_SKILL_ANTERIOR.md ($($skill.Name))" -ForegroundColor Green
+    Copy-Item $skill.FullName "$fontes_dir\15_SKILL_ANTERIOR.md" -Force
+    Write-Host "  [OK] 15_SKILL_ANTERIOR.md ($($skill.Name))" -ForegroundColor Green
 } else {
-    Write-Host "  [--] 14_SKILL_ANTERIOR.md (ainda nao existe - normal no Loop 1)" -ForegroundColor DarkGray
+    Write-Host "  [--] 15_SKILL_ANTERIOR.md (ainda nao existe - normal no Loop 1)" -ForegroundColor DarkGray
 }
 
-# 15 - ALERTA_CONFLITO (universal - alerta de calibracao)
+# 16 - ALERTA_CONFLITO (universal - alerta de calibracao)
 $f = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\ALERTA_CONFLITO.md"
 if (Test-Path $f) {
-    Copy-Item $f "$fontes_dir\15_ALERTA_CONFLITO.md" -Force
-    Write-Host "  [OK] 15_ALERTA_CONFLITO.md" -ForegroundColor Green
+    Copy-Item $f "$fontes_dir\16_ALERTA_CONFLITO.md" -Force
+    Write-Host "  [OK] 16_ALERTA_CONFLITO.md" -ForegroundColor Green
 } else {
-    Write-Host "  [--] 15_ALERTA_CONFLITO.md (nao encontrado)" -ForegroundColor DarkGray
+    Write-Host "  [--] 16_ALERTA_CONFLITO.md (nao encontrado)" -ForegroundColor DarkGray
 }
 
-# 16 - VANGUARD_TIMELINE (historia completa da Vanguard - fonte historica do Auditor)
-$f = "$raiz\VANGUARD_TIMELINE.md"
+# 17 - VANGUARD_TIMELINE (historia completa da Vanguard - fonte historica do Auditor)
+$f = "$raiz\QUADRILATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md"
 if (Test-Path $f) {
-    Copy-Item $f "$fontes_dir\16_VANGUARD_TIMELINE.md" -Force
-    Write-Host "  [OK] 16_VANGUARD_TIMELINE.md" -ForegroundColor Green
+    Copy-Item $f "$fontes_dir\17_VANGUARD_TIMELINE.md" -Force
+    Write-Host "  [OK] 17_VANGUARD_TIMELINE.md" -ForegroundColor Green
 } else {
-    Write-Host "  [--] 16_VANGUARD_TIMELINE.md (nao encontrado - criar na raiz)" -ForegroundColor Yellow
+    Write-Host "  [--] 17_VANGUARD_TIMELINE.md (nao encontrado)" -ForegroundColor Yellow
 }
 
 Write-Host ""
@@ -147,11 +156,26 @@ Write-Host "=================================================" -ForegroundColor 
 $total = (Get-ChildItem $fontes_dir).Count
 Write-Host " $total documentos prontos em:" -ForegroundColor Green
 Write-Host " CLIENTES\$cliente\NOTEBOOKLM_FONTES\" -ForegroundColor White
+
+# Extrair e copiar COMANDO CURTO automaticamente para o clipboard
+$passo5 = "$fontes_dir\13_PASSO5_NOTEBOOKLM.md"
+if (Test-Path $passo5) {
+    $conteudo = [System.IO.File]::ReadAllText($passo5, [System.Text.Encoding]::UTF8)
+    $match = [regex]::Match($conteudo, '(?s)### [^\n]*COMANDO CURTO[^\n]*\n+```\n(.*?)\n```')
+    if ($match.Success) {
+        $cmd = $match.Groups[1].Value.Trim()
+        $cmd | clip
+        Write-Host ""
+        Write-Host " [CLIPBOARD] COMANDO CURTO copiado (Ctrl+V pronto):" -ForegroundColor Green
+        Write-Host "  $($cmd.Substring(0, [Math]::Min(80, $cmd.Length)))..." -ForegroundColor DarkGray
+    }
+}
+
 Write-Host ""
 Write-Host " INSTRUCAO (3 passos):" -ForegroundColor Yellow
-Write-Host "  1. Explorer abre automaticamente - Ctrl+A para selecionar tudo" -ForegroundColor White
-Write-Host "  2. Arrastar todos para o NotebookLM como fontes" -ForegroundColor White
-Write-Host "  3. Colar o TEXTO do arquivo 13_PASSO5_NOTEBOOKLM.md no chat do NotebookLM" -ForegroundColor White
+Write-Host "  1. Explorer abre automaticamente - Ctrl+A + arrastar TUDO ao NotebookLM" -ForegroundColor White
+Write-Host "  2. Fazer Wipe & Sync das fontes (apagar antigas, subir as novas)" -ForegroundColor White
+Write-Host "  3. Colar o COMANDO CURTO no chat (Ctrl+V - ja esta no clipboard)" -ForegroundColor Cyan
 Write-Host ""
 Write-Host " NOTA: o arquivo 12 com PLACEHOLDER deve ser substituido pela" -ForegroundColor Yellow
 Write-Host "       DIRETRIZ real do Gemini antes de ir ao NotebookLM." -ForegroundColor Yellow

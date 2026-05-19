@@ -134,7 +134,7 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 
 ---
 
-## 📚 COMO CARREGAR AS FONTES (Pentalateral IAH — pasta única)
+## 📚 COMO CARREGAR AS FONTES (V25 — pasta única)
 
 ```powershell
 .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
@@ -147,7 +147,7 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 
 ```
 --- UNIVERSAIS ---
-01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Pentalateral IAH
+01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Quadrilateral
 02_MEMORANDO_QUADRILATERAL.md      ← constituição e valores
 03_MANUAL_DIRETOR.md               ← como Eduardo opera
 04_INTELLIGENCE_LEDGER.md          ← princípios ativos P-001 a P-032
@@ -162,8 +162,10 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 11_RELATORIO_EVOLUTIVO.md          ← relatorio_evolutivo_V2_INGRID.md (Loop 2)
 12_DIRETRIZ_GEMINI.txt             ← DIRETRIZ_GEMINI_V4 do Gemini ← OBRIGATÓRIO
 13_PASSO5_NOTEBOOKLM.md            ← este arquivo (missão do Auditor)
-14_SKILL_ANTERIOR.md               ← Skill ingrid-v1.md do Loop 1 (se existir)
-15_ALERTA_CONFLITO.md              ← gatilho de calibração
+14_MEMORIA_EMBAIXADOR.md           ← inteligência Embaixador sobre Ingrid ← FILTRO DE REALIDADE
+15_SKILL_ANTERIOR.md               ← Skill ingrid-v1.md do Loop anterior (se existir)
+16_ALERTA_CONFLITO.md              ← gatilho de calibração
+17_VANGUARD_TIMELINE.md            ← histórico completo da Vanguard
 ```
 
 > **07_WIP_BOARD.txt** — extensão `.txt` obrigatória. NotebookLM não lê `.json`.

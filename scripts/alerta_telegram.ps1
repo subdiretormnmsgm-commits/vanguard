@@ -29,7 +29,7 @@ P-023 ativo - gate bloqueado
 
 COPIE E ENVIE NO WHATSAPP:
 ---
-Ingrid, to por aqui. Como ta o estudo?
+Ingrid, tô por aqui. Como tá o estudo?
 ---
 "@
         }
@@ -40,7 +40,7 @@ Nenhuma acao ate assinar. Gate bloqueado.
 
 COPIE E ENVIE NO WHATSAPP:
 ---
-Ingrid! To quase liberando seu acesso - so falta sua assinatura no termo que te mandei. Assim que confirmar, ja te mando o link.
+Ingrid! Tô quase liberando seu acesso — só falta sua assinatura no termo que te mandei. Assim que confirmar, já te mando o link.
 ---
 "@
         }
@@ -51,19 +51,27 @@ Abrir Supabase, copiar metricas, enviar.
 
 COPIE E ENVIE NO WHATSAPP:
 ---
-Ingrid, semana encerrada! Me conta: quantas questoes voce respondeu essa semana? Quero atualizar seu relatorio de progresso
+Ingrid, semana encerrada! Me conta: quantas questões você respondeu essa semana? Quero atualizar seu relatório de progresso.
 ---
 "@
         }
         "INGRID_GATE_DIA8" {
             $mensagem = @"
-INGRID - Gate Dia 8 chegando
-Testar: 10 questoes + progresso salvo + fallback
+INGRID - Gate Dia 8 - URL ATIVA
+App publicado. Link direto para a Ingrid.
 
-COPIE E ENVIE NO WHATSAPP:
+COPIE E ENVIE NO TELEGRAM/WHATSAPP:
 ---
-Ingrid! Sua ferramenta ta pronta para o teste. Quando voce tiver 15 minutinhos, me fala que te mando o link de acesso
+Ingrid! Finalizei sua ferramenta de estudos 🎯
+
+Ela já está no ar, você acessa de qualquer lugar pelo celular:
+https://subdiretormnmsgm-commits.github.io/vanguard/
+
+Na primeira vez que abrir vai aparecer um termo rápido pra confirmar — é só aceitar e já começa.
+
+Me manda mensagem depois que testar? Quero saber como foi! 😊
 ---
+Apos testar: acionar Embaixador -> iniciar.ps1 [E] -> Secao B (Debrief)
 "@
         }
         "VALDECE_PRESENCIAL" {
@@ -75,7 +83,7 @@ VALDECE - Presencial hoje
 
 COPIE E ENVIE NO WHATSAPP (confirmacao):
 ---
-Dr. Valdece, so confirmando nosso encontro de hoje. Estarei ai no horario combinado. Qualquer coisa me chama!
+Dr. Valdece, só confirmando nosso encontro de hoje. Estarei aí no horário combinado. Qualquer coisa me chama!
 ---
 "@
         }
@@ -86,7 +94,7 @@ Acionar Embaixador com debrief agora.
 
 COPIE E ENVIE NO WHATSAPP:
 ---
-Dr. Valdece, foi otimo hoje! O sistema ta no ar na sua maquina. Qualquer duvida que surgir, e so me chamar aqui
+Dr. Valdece, foi ótimo hoje! O sistema tá no ar na sua máquina. Qualquer dúvida que surgir, é só me chamar aqui.
 ---
 "@
         }

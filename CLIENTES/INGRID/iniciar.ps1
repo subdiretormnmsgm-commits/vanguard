@@ -1,6 +1,14 @@
 # iniciar.ps1 - PROJ-002 Ingrid
 # Ponto de entrada unico da sessao. Roda ISSO e o projeto comeca certo.
-# Uso: .\CLIENTES\INGRID\iniciar.ps1
+# Uso interativo : .\CLIENTES\INGRID\iniciar.ps1
+# Uso automatico : .\CLIENTES\INGRID\iniciar.ps1 -opcao G
+#                  .\CLIENTES\INGRID\iniciar.ps1 -opcao N
+#                  .\CLIENTES\INGRID\iniciar.ps1 -opcao E
+#                  .\CLIENTES\INGRID\iniciar.ps1 -opcao V
+
+param(
+    [string]$opcao = ""
+)
 
 $PROJECT_REF  = "ehyaecxqijgyuuiorzcj"
 $SUPABASE_URL = "https://$PROJECT_REF.supabase.co"
@@ -94,6 +102,7 @@ Write-Host "  [G] Ir ao Gemini       (gera contexto + clipboard + lista anexos)"
 Write-Host "  [N] Ir ao NotebookLM   (prepara fontes + abre Explorer + browser)"  -ForegroundColor Cyan
 Write-Host "  [E] Ir ao Embaixador   (copia mensagem inicial + abre Projects)"    -ForegroundColor Cyan
 Write-Host "  [V] Verificar projeto  (P-041: 6 artefatos obrigatorios)"           -ForegroundColor Cyan
+Write-Host "  [W] WIP Guard Soberano (ALL CHECKS PASSED antes do Veredito)"      -ForegroundColor Green
 Write-Host ""
 Write-Host "  --- Banco & Seed ---" -ForegroundColor DarkGray
 Write-Host "  [1] Rodar seed (popular banco de questoes)" -ForegroundColor White
@@ -113,7 +122,11 @@ Write-Host ""
 Write-Host "  [6] So configurar ambiente (sem acao)" -ForegroundColor White
 Write-Host ""
 
-$opcao = Read-Host "  Escolha"
+if ($opcao -eq "") {
+    $opcao = Read-Host "  Escolha"
+} else {
+    Write-Host "  Opcao automatica: $($opcao.ToUpper())" -ForegroundColor DarkGray
+}
 
 switch ($opcao.ToUpper()) {
     "G" {
@@ -145,6 +158,11 @@ switch ($opcao.ToUpper()) {
     "V" {
         Write-Host ""
         & ".\scripts\verificar_projeto.ps1" -cliente INGRID
+    }
+    "W" {
+        Write-Host ""
+        Write-Host "  Rodando WIP Guard Soberano..." -ForegroundColor Green
+        & ".\scripts\wip_guard_soberano.ps1" -cliente INGRID
     }
     "1" {
         Write-Host ""

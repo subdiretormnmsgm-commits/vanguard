@@ -125,6 +125,43 @@ Para dias com pouco tempo: 5 questões pré-selecionadas pelo SM-2 — apenas as
 
 ---
 
+## 5 IDEIAS DISRUPTIVAS DO MÚSCULO — Loop 3 · Sessão 2026-05-18 (M-11 a M-15)
+
+> Geradas na sessão de build do Loop 3 antes do Gate Dia 8.
+> Para o Gemini reagir no próximo ciclo junto com [M-6 a M-10].
+
+### M-11 — verificar_projeto.ps1 como padrão universal (P-041)
+Checklist de 6 artefatos obrigatórios por projeto: PASSO3 + PASSO5 + PASSO6 + PASSO7 + 00_INSTRUCAO_SISTEMA + MEMORIA_EMBAIXADOR. Projeto sem os 6 = setup incompleto, detectado antes do primeiro build via `.\scripts\verificar_projeto.ps1 -cliente [NOME]`. Falha detectada hoje: PASSO7_EMBAIXADOR não havia sido instanciado para a Ingrid — setup estava incompleto sem que o Músculo detectasse.
+**Impacto:** elimina a classe de falha "artefato faltando descoberto no meio do build"
+**Custo:** script já construído e testado — adicionar ao ritual de kickoff de qualquer projeto
+**Pergunta para o Gemini:** P-041 deve entrar no BLOCO 0 (Diagnóstico) da DIRETRIZ como verificação obrigatória antes de qualquer novo loop?
+
+### M-12 — G/N/E/V no iniciar.ps1 — acesso cirúrgico ao Conselho
+Menu `[G]` / `[N]` / `[E]` / `[V]` integrado ao `iniciar.ps1` de cada projeto. Diretor escolhe 1 letra — sistema roda o script correto, abre Explorer e browser automaticamente. Elimina dependência de memória do Diretor sobre qual script rodar, em qual ordem, com quais argumentos. Implementado hoje no PROJ-002.
+**Impacto:** zero fricção para acionar qualquer membro do Conselho — barreira de adoção eliminada
+**Custo:** padrão já implementado — replicar para PROJ-001 Valdece e qualquer novo projeto
+**Pergunta para o Gemini:** [E] deve ser a primeira opção do menu (antes de [G] e [N]) dado que o Embaixador é o filtro de realidade do loop?
+
+### M-13 — Perfis de Nicho como produto central da Vanguard (P-040)
+EdTech-Concurso e LegalTech-Penal documentados hoje como nichos inaugurais. Cada projeto deixa para trás: perfil do candidato/cliente, troubleshooting proprietário, playbook de distratores e modelo de testes validado. O segundo projeto no mesmo nicho começa 60% mais rápido que o primeiro. V26 da Vanguard tem Perfis de Nicho como núcleo de produto — não apenas repositório interno.
+**Impacto:** diferencial competitivo que acumula a cada projeto; impossível de copiar sem o histórico
+**Custo:** PERFIL_CANDIDATO_SEDES_DF.md e METODOLOGIA_VANGUARD.md já criados — padrão definido
+**Pergunta para o Gemini:** os Perfis de Nicho devem ter uma pasta própria em QUADRILATERAL_UNIVERSAL/ (hoje estão em CLIENTES/[PROJ]/) para que o próximo projeto os herde automaticamente?
+
+### M-14 — BLOQUEIO_CRITICO — detecção proativa de dependências externas críticas
+Toda dependência externa com potencial de bloquear o build (crédito Anthropic, cota de API, chave expirada, limite de plano) deve ter detecção automática com mensagem clara e link direto de resolução. Implementado hoje no seed: quando créditos Anthropic esgotam, o processo para imediatamente com `BLOQUEIO_CRITICO` + link para console.anthropic.com. Antes: erro genérico sem diagnóstico — horas de debug.
+**Impacto:** elimina a classe de falha "build parou por recurso externo sem diagnóstico claro"
+**Custo:** padrão já implementado no seed — replicar para qualquer script que chame API externa
+**Pergunta para o Gemini:** BLOQUEIO_CRITICO deve gerar alerta automático no Telegram além de exibir no terminal?
+
+### M-15 — PASSO7_EMBAIXADOR com 6 blocos como padrão universal para todos os clientes
+Formato instanciado hoje para Ingrid: Temperatura do Cliente · Hipóteses Ativas · Comportamento Observado · Watchdog de Silêncio · [E-1 a E-5] · Próxima Ação. Os 6 blocos cobrem: estado do relacionamento, o que confirmar/refutar, ação imediata e inteligência para o loop. Antes do projeto Ingrid, PASSO7 existia só como template universal — nunca havia sido instanciado.
+**Impacto:** Embaixador opera com contexto específico de cada cliente, não com template genérico
+**Custo:** instanciamento leva ~30 min por projeto — deve ser o Passo 0 de qualquer projeto Camada 1+
+**Pergunta para o Gemini:** o PASSO7 deve ser gerado pelo Músculo automaticamente ao criar o projeto (junto com o 00_INSTRUCAO_SISTEMA), ou continua sendo instanciado manualmente?
+
+---
+
 ## O QUE ESTE LOOP PROVOU QUE É UNIVERSAL
 
 | Princípio | Aplicação futura |

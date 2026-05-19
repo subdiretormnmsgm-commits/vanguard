@@ -1,5 +1,5 @@
-﻿ANÁLISE DE SÓCIO — ATUAL
-Pentalateral IAH · V25
+ANÁLISE DE SÓCIO — ATUAL
+Quadrilateral IAH · V25
 Última atualização: 2026-05-15
 Versão auditada: V25 — The Sovereign Launch (Era IAH)
 
@@ -18,7 +18,7 @@ Meta MRR: R$25.000 até dezembro 2026.
 Estado: 0 clientes pagos. PROJ-001 Valdece = case fundacional.
 
 INFRAESTRUTURA V25:
-- Pentalateral IAH V25 implantado: pasta quadrilateral/ com FastAPI
+- Quadrilateral IAH V25 implantado: pasta quadrilateral/ com FastAPI
 - 3 Alavancas: LEDGER Vivo (porta 8765) + Auditor API + deploy_guard CI/CD
 - 17/17 testes passando após fix de encoding UTF-8 no Windows
 - Scripts: start_quadrilateral.ps1, preflight.ps1, fechar_sessao.ps1
@@ -54,7 +54,7 @@ VEREDITO DO SÓCIO-AUDITOR — ESTADO V25
 ══════════════════════════════════════════════════════════════════════
 
 PONTOS FORTES:
-1. Sistema de inteligência acumulativa (Pentalateral IAH) está funcional e documentado.
+1. Sistema de inteligência acumulativa (Quadrilateral IAH) está funcional e documentado.
    23 versões de aprendizado preservadas em git history + INTELLIGENCE_LEDGER P-001 a P-013.
 2. V25 resolve o maior risco anterior: LEDGER_VIVO via API elimina amnésia de sessão.
    Músculo agora pode consultar princípios em tempo real via GET /api/ledger/principios.
