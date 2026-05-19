@@ -929,6 +929,20 @@ Diretor — veredito
 
 ---
 
+### [P-040] Gate de nicho é template de replicação — não documentação de projeto
+**Descoberto:** 2026-05-20 | **Extraído do GATE_P038 — PROJ-001 Valdece**
+**Origem:** O gate de 12 queries do Embaixador para a demo do Valdece revelou um padrão replicável para qualquer projeto de nicho profissional com motor semântico.
+**Princípio:** O gate de teste de um projeto de nicho não é checklist de entrega — é o DNA do próximo projeto no mesmo nicho. Estrutura obrigatória do template:
+  - (1) **Categorias reais do cliente** (3+ queries por área de atuação real, confirmadas por ele mesmo)
+  - (2) **Coringa universal** (1-2 queries de alta sim que funcionam em qualquer subárea do nicho)
+  - (3) **Threshold explícito** com semáforo GO/AMARELO/NO-GO (não passar no GO não é falha — é dado para calibrar corpus antes da demo)
+  - (4) **Latência monitorada** por query (sinaliza região do banco e edge cases de performance)
+  - (5) **Decisão binária documentada**: APROVADO com evidência numérica ou BLOQUEADO com ação corretiva
+**Para o próximo projeto de nicho jurídico** (criminalista, tributarista, trabalhista): copiar estrutura do GATE_P038 Valdece, substituir apenas as categorias e as queries. O threshold, a lógica de semáforo e o coringa são universais.
+**Aplica-se a:** todo projeto com motor semântico vetorial — jurídico, médico, contábil, educacional.
+
+---
+
 ### [P-038] Nada sai da Vanguard sem gate de teste aprovado
 **Descoberto:** 2026-05-19 | **Sessão:** Retomada PROJ-001 Valdece
 **Fricção:** Eduardo precisou corrigir o Músculo: o sistema de busca do Valdece não foi enviado/configurado na conta dele porque não passou por gate de teste. O princípio já havia sido estabelecido no PROJ-002 Ingrid mas não foi registrado formalmente no LEDGER.
