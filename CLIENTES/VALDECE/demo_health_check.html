@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Check — Toga Digital</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0B1420;
+      color: #F0EAD6;
+      font-family: 'Inter', system-ui, sans-serif;
+      padding: 32px 20px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 18px; color: #C9A84C; margin-bottom: 4px; letter-spacing: 0.5px; }
+    .subtitle { font-size: 12px; color: rgba(240,234,214,0.45); margin-bottom: 28px; }
+    .check {
+      background: rgba(13,27,42,0.88);
+      border: 1px solid rgba(201,168,76,0.28);
+      border-radius: 4px;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .check-icon { font-size: 20px; width: 28px; text-align: center; flex-shrink: 0; }
+    .check-label { font-size: 13px; flex: 1; }
+    .check-detail { font-size: 11px; color: rgba(240,234,214,0.50); margin-top: 3px; }
+    .check-time { font-size: 12px; color: #C9A84C; font-weight: 600; flex-shrink: 0; }
+    .status-ok   { border-left: 3px solid #27AE60; }
+    .status-warn { border-left: 3px solid #E67E22; }
+    .status-fail { border-left: 3px solid #C0392B; }
+    .status-wait { border-left: 3px solid rgba(201,168,76,0.3); }
+    .verdict {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: none;
+    }
+    .verdict-go   { background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.40); color: #27AE60; }
+    .verdict-warn { background: rgba(230,126,34,0.15); border: 1px solid rgba(230,126,34,0.40); color: #E67E22; }
+    .verdict-fail { background: rgba(192,57,43,0.15);  border: 1px solid rgba(192,57,43,0.40);  color: #C0392B; }
+    .verdict-sub  { font-size: 12px; margin-top: 6px; font-weight: 400; opacity: 0.8; }
+    #btn-run {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: #C9A84C;
+      border: none;
+      border-radius: 4px;
+      color: #0B1420;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      transition: opacity 0.15s;
+    }
+    #btn-run:hover    { opacity: 0.88; }
+    #btn-run:disabled { opacity: 0.4; cursor: not-allowed; }
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid rgba(240,234,214,0.2);
+      border-top-color: #C9A84C;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<h1>⚖ Toga Digital — Demo Health Check</h1>
+<div class="subtitle">Rodar 5 minutos antes da demo. Todos os checks devem estar verdes.</div>
+
+<button id="btn-run">▶ Iniciar verificação</button>
+
+<div id="checks"></div>
+<div id="verdict" class="verdict"></div>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+  const SUPABASE_URL  = 'https://hqqxzecftkvtrlpkhvnc.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcXh6ZWNmdGt2dHJscGtodm5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzg5NjYsImV4cCI6MjA5NDcxNDk2Nn0.AFWbk2oi7zKDu7Q922CqS-cc-pG_VJNYMqqH2BeouxA';
+  const GEMINI_KEY    = 'AIzaSyBkrrCZINFNnC66wjpwld15TOmGyYLlrEw';
+  const EMBED_URL     = `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${GEMINI_KEY}`;
+
+  const DEMO_QUERIES = [
+    { id: 'q1', label: 'Crimes contra a vida', query: 'Homicídio qualificado motivo fútil',         expected: 'HC 188.888', minSim: 0.80 },
+    { id: 'q2', label: 'Crimes contra o patrimônio', query: 'Roubo majorado arma de fogo',          expected: 'AgRg HC 765.432', minSim: 0.75 },
+    { id: 'q3', label: 'Administração Pública', query: 'Lavagem de dinheiro organização criminosa', expected: 'AP 470', minSim: 0.75 },
+  ];
+
+  const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+  const checksEl  = document.getElementById('checks');
+  const verdictEl = document.getElementById('verdict');
+  const btn       = document.getElementById('btn-run');
+
+  function addCheck(id, label, detail = '') {
+    const div = document.createElement('div');
+    div.className = 'check status-wait';
+    div.id = `chk-${id}`;
+    div.innerHTML = `
+      <div class="check-icon"><span class="spinner"></span></div>
+      <div class="flex-1">
+        <div class="check-label">${label}</div>
+        ${detail ? `<div class="check-detail">${detail}</div>` : ''}
+      </div>
+      <div class="check-time" id="time-${id}">—</div>`;
+    checksEl.appendChild(div);
+    return div;
+  }
+
+  function updateCheck(id, status, icon, timeStr, detailExtra = '') {
+    const div = document.getElementById(`chk-${id}`);
+    if (!div) return;
+    div.className = `check status-${status}`;
+    div.querySelector('.check-icon').textContent = icon;
+    document.getElementById(`time-${id}`).textContent = timeStr;
+    if (detailExtra) {
+      const d = div.querySelector('.check-detail');
+      if (d) d.textContent = detailExtra;
+      else div.querySelector('.check-label').insertAdjacentHTML('afterend', `<div class="check-detail">${detailExtra}</div>`);
+    }
+  }
+
+  async function embedQuery(text) {
+    const res = await fetch(EMBED_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'models/gemini-embedding-001',
+        content: { parts: [{ text }] },
+        taskType: 'RETRIEVAL_QUERY',
+        outputDimensionality: 768,
+      }),
+    });
+    if (!res.ok) throw new Error(`Gemini ${res.status}`);
+    const d = await res.json();
+    return d.embedding.values;
+  }
+
+  async function runCheck() {
+    btn.disabled = true;
+    checksEl.innerHTML = '';
+    verdictEl.style.display = 'none';
+    let allGreen = true;
+    let hasWarn  = false;
+
+    // 1 — Supabase ping
+    addCheck('ping', 'Conexão Supabase', 'Verificando latência ao banco de dados');
+    try {
+      const t0 = Date.now();
+      const { error } = await sb.from('config').select('key').limit(1);
+      const ms = Date.now() - t0;
+      if (error) throw error;
+      const ok = ms < 2000;
+      if (!ok) hasWarn = true;
+      updateCheck('ping', ok ? 'ok' : 'warn', ok ? '✅' : '⚠️', `${ms}ms`, ok ? 'Latência normal' : 'Latência alta — use Wi-Fi estável');
+    } catch (e) {
+      allGreen = false;
+      updateCheck('ping', 'fail', '❌', '—', e.message);
+    }
+
+    // 2 — Gemini embedding API
+    addCheck('gemini', 'API Gemini Embedding', 'Aquecendo o motor de busca semântica');
+    try {
+      const t0 = Date.now();
+      await embedQuery('habeas corpus preventiva');
+      const ms = Date.now() - t0;
+      const ok = ms < 3000;
+      if (!ok) hasWarn = true;
+      updateCheck('gemini', ok ? 'ok' : 'warn', ok ? '✅' : '⚠️', `${ms}ms`, ok ? 'Motor aquecido' : 'Lento — aguarde 30s e tente novamente');
+    } catch (e) {
+      allGreen = false;
+      updateCheck('gemini', 'fail', '❌', '—', e.message);
+    }
+
+    // 3 — Corpus count
+    addCheck('corpus', 'Corpus de acórdãos', 'Verificando integridade do banco');
+    try {
+      const { count, error } = await sb.from('documents').select('id', { count: 'exact', head: true });
+      if (error) throw error;
+      const ok = count >= 50;
+      if (!ok) { allGreen = false; }
+      updateCheck('corpus', ok ? 'ok' : 'fail', ok ? '✅' : '❌', `${count} docs`, ok ? `${count} acórdãos disponíveis` : 'Corpus incompleto — verificar ingestão');
+    } catch (e) {
+      allGreen = false;
+      updateCheck('corpus', 'fail', '❌', '—', e.message);
+    }
+
+    // 4-6 — Demo queries
+    for (const q of DEMO_QUERIES) {
+      addCheck(q.id, q.label, `"${q.query}"`);
+      try {
+        const t0 = Date.now();
+        const emb = await embedQuery(q.query);
+        const { data, error } = await sb.rpc('search_documents', {
+          query_embedding: emb,
+          match_count: 3,
+          similarity_threshold: 0.67,
+        });
+        const ms = Date.now() - t0;
+        if (error) throw error;
+        const top = data?.[0];
+        const sim = top ? Math.round(top.similarity * 100) : 0;
+        const fast  = ms < 10000;
+        const simOk = sim >= Math.round(q.minSim * 100);
+        const ok    = fast && simOk && data?.length > 0;
+        if (!ok) { allGreen = false; }
+        const detail = top
+          ? `${top.numero_acordao} · ${sim}% sim · ${(ms/1000).toFixed(1)}s`
+          : `Sem resultado · ${(ms/1000).toFixed(1)}s`;
+        const timeLabel = fast ? `${(ms/1000).toFixed(1)}s` : `⚠ ${(ms/1000).toFixed(1)}s`;
+        updateCheck(q.id, ok ? 'ok' : (data?.length ? 'warn' : 'fail'), ok ? '✅' : (data?.length ? '⚠️' : '❌'), timeLabel, detail);
+        if (!fast) hasWarn = true;
+      } catch (e) {
+        allGreen = false;
+        updateCheck(q.id, 'fail', '❌', '—', e.message);
+      }
+    }
+
+    // Veredito
+    verdictEl.style.display = 'block';
+    if (allGreen) {
+      verdictEl.className = 'verdict verdict-go';
+      verdictEl.innerHTML = '✅ GO — Sistema pronto para a demo<div class="verdict-sub">Todas as queries passaram. Pode sair.</div>';
+    } else if (hasWarn && allGreen === true) {
+      verdictEl.className = 'verdict verdict-warn';
+      verdictEl.innerHTML = '⚠️ GO COM CAUTELA<div class="verdict-sub">Latência acima do ideal. Use Wi-Fi 5GHz ou 5G.</div>';
+    } else {
+      verdictEl.className = 'verdict verdict-fail';
+      verdictEl.innerHTML = '❌ NO-GO — Verificar antes de sair<div class="verdict-sub">Um ou mais checks falharam. Não realizar a demo até resolver.</div>';
+    }
+
+    btn.disabled = false;
+    btn.textContent = '↺ Rodar novamente';
+  }
+
+  btn.addEventListener('click', runCheck);
+</script>
+</body>
+</html>

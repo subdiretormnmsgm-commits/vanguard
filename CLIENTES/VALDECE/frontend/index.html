@@ -471,11 +471,55 @@
       margin-top: 20px;
     }
 
-    /* ── RESPONSIVE ── */
+    /* ── BADGE ACÓRDÃO ── */
+    .badge-acordao {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--success);
+      background: rgba(39,174,96,0.10);
+      border: 1px solid rgba(39,174,96,0.30);
+      border-radius: 2px;
+      padding: 3px 8px;
+      flex-shrink: 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── EMENTA EXPANDÍVEL ── */
+    .btn-expand {
+      display: block;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 11px;
+      cursor: pointer;
+      padding: 6px 0 0;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.3px;
+      opacity: 0.75;
+      transition: opacity 0.15s;
+    }
+    .btn-expand:hover { opacity: 1; }
+
+    /* ── RESPONSIVE 520px ── */
     @media (max-width: 520px) {
       .director-panel { grid-template-columns: repeat(3, 1fr); gap: 8px; }
       .stat-number    { font-size: 18px; }
       .card           { padding: 14px 16px; }
+    }
+
+    /* ── RESPONSIVE 400px — telas 360px (P1) ── */
+    @media (max-width: 400px) {
+      .header-inner   { padding: 14px 14px 12px; gap: 10px; }
+      .ia-badge       { font-size: 9px; padding: 4px 8px; letter-spacing: 0.5px; }
+      main            { padding: 18px 14px; }
+      .director-panel { gap: 6px; padding: 0 14px; }
+      .stat-card      { padding: 10px 6px; }
+      .stat-number    { font-size: 15px; }
+      .stat-label     { font-size: 9px; }
+      .card           { padding: 14px 14px; }
+      #searchBtn      { padding: 0 14px; font-size: 12px; }
+      .card-actions   { flex-wrap: wrap; gap: 6px; }
+      .btn-copy       { flex: 1 1 100%; text-align: center; }
     }
   </style>
 </head>
@@ -685,9 +729,13 @@
 
       const card = document.createElement('div');
       card.className = 'card';
+      const shortEmenta = truncate(r.ementa, 280);
+      const hasMore    = r.ementa && r.ementa.length > 280;
+      const stjUrl     = buildSTJUrl(r.tribunal, r.numero_acordao);
       card.innerHTML = `
         <div class="card-header">
           <span class="badge-tribunal">${r.tribunal}</span>
+          <span class="badge-acordao">ACÓRDÃO</span>
           <span class="badge-recente ${isRecente ? 'visible' : ''}">● RECENTE</span>
           <span class="badge-tema">${tema}</span>
           ${isTatico ? '<span class="badge-modo visible">⚔ Contra-arg.</span>' : ''}
@@ -697,11 +745,15 @@
           </div>
         </div>
         <div class="card-number">${r.numero_acordao || 'N/A'}</div>
-        <div class="card-ementa">${truncate(r.ementa, 220)}</div>
+        <div class="card-ementa">
+          <span class="ementa-short">${shortEmenta}</span>
+          ${hasMore ? `<span class="ementa-full" style="display:none">${r.ementa}</span>
+          <button class="btn-expand" data-expanded="false">▼ Ver completo</button>` : ''}
+        </div>
         <div class="card-footer">
           <span class="card-date">${dataFmt}</span>
           <div class="card-actions">
-            ${r.link ? `<a class="btn-link" href="${r.link}" target="_blank" rel="noopener">Ver íntegra ↗</a>` : ''}
+            <a class="btn-link" href="${stjUrl}" target="_blank" rel="noopener">Buscar no ${r.tribunal} ↗</a>
             <button class="btn-feedback" data-id="${r.id}" data-val="up" title="Relevante">👍</button>
             <button class="btn-feedback" data-id="${r.id}" data-val="down" title="Não relevante">👎</button>
             <button class="btn-copy" data-copy="${encodeURIComponent(buildCopyText(r))}">Copiar ABNT</button>
@@ -717,6 +769,20 @@
         btn.textContent = 'Copiado ✓';
         btn.classList.add('copied');
         setTimeout(() => { btn.textContent = 'Copiar ABNT'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+
+    // Fix 3 — expandir ementa completa
+    resultsEl.querySelectorAll('.btn-expand').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrap     = btn.closest('.card-ementa');
+        const short    = wrap.querySelector('.ementa-short');
+        const full     = wrap.querySelector('.ementa-full');
+        const expanded = btn.dataset.expanded === 'true';
+        short.style.display = expanded ? '' : 'none';
+        full.style.display  = expanded ? 'none' : '';
+        btn.textContent     = expanded ? '▼ Ver completo' : '▲ Recolher';
+        btn.dataset.expanded = String(!expanded);
       });
     });
 
@@ -755,6 +821,15 @@
   function truncate(str, max) {
     if (!str) return '';
     return str.length > max ? str.slice(0, max) + '…' : str;
+  }
+
+  // Fix 1 — URL de busca estável no STJ/STF (links diretos quebram fora do site)
+  function buildSTJUrl(tribunal, numero) {
+    const q = encodeURIComponent(numero || '');
+    if (tribunal === 'STF') {
+      return `https://jurisprudencia.stf.jus.br/pages/search?base=acordaos&pesquisa_tipo=ementa&query=${q}`;
+    }
+    return `https://scon.stj.jus.br/SCON/pesquisar.jsp?b=ACOR&livre=${q}`;
   }
 
   function getSessionId() {
