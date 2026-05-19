@@ -24,24 +24,28 @@ Auditor, você opera no Pentalateral IAH — 5 membros ativos: Diretor, Músculo
 
 ## FONTES A CARREGAR NO NOTEBOOKLM (nesta ordem — respeitar os prefixos numericos)
 
+> Geradas pelo script preparar_notebooklm_projeto.ps1 -cliente VALDECE
+> Arrastar em ordem crescente. Fatos do passado (01-11) ANTES das ideias novas (12-17).
+
   --- BASE QUADRILATERAL (01-08) ---
-  01_SKILL_PROTOCOLO_VANGUARD.txt         -- ancora o Auditor nos padroes do Quadrilateral
-  02_MEMORANDO_QUADRILATERAL_UNIVERSAL.txt -- constituicao e valores
-  03_MANUAL_DIRETOR.txt                   -- como o Diretor opera
-  04_INTELLIGENCE_LEDGER.txt              -- principios ativos (P-001 a P-058)
-  05_MEMORIA_V24.txt                      -- contexto historico universal (ciclos anteriores)
-  06_RELATORIO_V24.txt                    -- historico evolutivo universal
+  01_SKILL_PROTOCOLO_VANGUARD.md          -- ancora o Auditor nos padroes do Quadrilateral
+  02_MEMORANDO_QUADRILATERAL_UNIVERSAL.md -- constituicao e valores
+  03_MANUAL_DIRETOR.md                    -- como o Diretor opera
+  04_INTELLIGENCE_LEDGER.md               -- principios ativos (P-001 a P-045+)
+  05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md  -- como o loop funciona
+  06_TEMPLATES_COMUNICACAO_QUADRILATERAL.md -- formatos obrigatorios dos membros
   07_WIP_BOARD.txt                        -- estado atual de todos os projetos
   08_ANALISE_SOCIO_ATUAL.txt              -- visao de negocio mais recente
 
-  --- PROJETO VALDECE (11+) ---
-  11_BRIEFING_DISCOVERY_VALDECE.txt       -- dor real do cliente + escopo original
-  14_ALERTA_CONFLITO_PROTOCOLO.txt        -- gatilho de calibracao se necessario
-  15_VANGUARD_TIMELINE.txt                -- historico completo da Vanguard
-  16_MEMORIA_EMBAIXADOR.txt               -- inteligencia acumulada do Embaixador (atualizada 2026-05-19)
-  17_DIRETRIZ_GEMINI_V3.txt               -- ultima DIRETRIZ do Estrategista
-  19_MEMORIA_V1_VALDECE.txt               -- estado tecnico e dividas do projeto
-  20_RELATORIO_V1_VALDECE.txt             -- SWOT + 5 ideias do ciclo anterior
+  --- PROJETO VALDECE (09-17) ---
+  09_BRIEFING_DISCOVERY.txt               -- dor real do cliente + escopo original
+  10_MEMORIA_RECENTE.md                   -- MEMORIA mais recente do projeto (estado tecnico)
+  11_RELATORIO_EVOLUTIVO.md               -- relatorio evolutivo mais recente (SWOT + 5 ideias)
+  12_DIRETRIZ_GEMINI_PLACEHOLDER.txt      -- DIRETRIZ V5 do Estrategista ← substituir pelo arquivo real
+  13_PASSO5_NOTEBOOKLM.md                 -- este arquivo (missao do Auditor) ← ja nas fontes
+  14_MEMORIA_EMBAIXADOR.md                -- inteligencia acumulada do Embaixador sobre o Valdece
+  16_ALERTA_CONFLITO.md                   -- gatilho de calibracao (se Auditor alucinar)
+  17_VANGUARD_TIMELINE.md                 -- historico completo da Vanguard
 
   EXTRA (se existir): DIVIDAS_TECNICAS_AUDITOR.md -- carregar como fonte adicional
   quando houver entradas novas (gerado pelo session_close.ps1)
