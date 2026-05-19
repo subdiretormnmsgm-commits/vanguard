@@ -81,11 +81,14 @@ Não siga o momentum da conversa. Se o Diretor ou o Músculo propuseram algo que
 - Dia 4 (commit e9afb36): gate_stj.py validado, citacao ABNT NBR 6023:2018, Busca Precisa / Ampla, redesign Toga Digital Navy+Ouro
 - Dia 5 (commit 5da58f8): Corpus 61 acordaos reais STF/STJ, 22 temas, SECURITY DEFINER, threshold 0.45, top 3
 
-**Estado atual (2026-05-19):**
-- Sistema IMPLANTADO no Supabase do Valdece (credenciais dele, conta dele)
-- Corpus: 61 acordaos reais — sim 0.67-0.78 — latencia 2-3s — TESTADO E VERDE
-- Demo: PENDENTE 2026-05-20 — janela de encantamento intacta
+**Estado atual (2026-05-20 — pré-demo):**
+- Sistema rodando no Supabase da VANGUARD — gate de teste P-038 pendente antes da migração
+- Corpus: 61 acordaos reais — sim 0.67-0.78 — latencia 2-3s — TESTADO E VERDE (na Vanguard)
+- Credenciais do Valdece: obtidas no presencial 2026-05-19 — Eduardo com elas
+- Migração para conta do Valdece: BLOQUEADA até gate de teste aprovado (P-038)
+- Demo: 2026-05-20 — janela de encantamento intacta — Valdece ainda não testou o sistema
 - Contrato: PENDENTE — aguarda demo + encantamento
+- P-038 registrado: nada sai da Vanguard sem gate de teste aprovado
 - P-056 registrado: corpus e pre-requisito — pergunta obrigatoria de Discovery
 - P-057: Vanguard Tech entrega o melhor produto
 - P-058: verificar escopo inicial E final — sempre

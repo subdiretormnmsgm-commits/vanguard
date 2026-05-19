@@ -908,3 +908,30 @@ Diretor — veredito
 **Posição no loop:** Passo 5.5 — após Embaixador (Passo 5), antes do veredito do Diretor (Passo 6).
 
 **Por que importa:** O Diretor é o único que não tem substituto no Pentalateral. Seu tempo e atenção são o recurso mais escasso do sistema. A Síntese Final garante que ele gasta esse recurso em decisão, não em curadoria de informação — que é função do Músculo.
+
+---
+
+### [FALHA-PROCESSO-2026-05-19] WIP_BOARD e MEMORIA_EMBAIXADOR com estado incorreto de entrega
+**Detectado por:** Eduardo (Diretor)
+**Contexto:** PROJ-001 Valdece. A MEMORIA_EMBAIXADOR.md e o WIP_BOARD.json indicavam "Sistema configurado no Supabase do Valdece — pronto para demo" e "credenciais_obtidas: 2026-05-19". Na realidade, o sistema ainda roda no Supabase da Vanguard — nenhuma migração foi executada porque o sistema não passou por gate de teste antes do envio. Músculo registrou estado de entrega projetado como estado real.
+**Princípio violado:** P-010 (nenhuma etapa avança por assumição) + Deficiência 2 do Músculo (Momentum de Execução).
+**Custo do erro:** Documentos de relacionamento com cliente (MEMORIA_EMBAIXADOR) refletem realidade falsa. Se o Embaixador operar com esses documentos, tomará decisões baseadas em premissa incorreta — o sistema não está na conta do Valdece.
+**Correção imediata:** Atualizar MEMORIA_EMBAIXADOR e WIP_BOARD com estado real: sistema na Vanguard, gate de teste pendente, envio ao Valdece bloqueado até aprovação do gate.
+**Regra derivada:** Nunca registrar "sistema configurado em [conta do cliente]" sem evidência de execução real (log, output CLI, print de tela). Estado projetado ≠ estado real.
+
+---
+
+### [P-039] Leitura das últimas conversas é obrigatória após a primeira interação de cada sessão
+**Descoberto:** 2026-05-20 | **Mandato direto do Diretor**
+**Fricção:** Músculo retomou o projeto Valdece sem verificar o que havia sido discutido na sessão anterior — operou com documentos incorretos que diziam "sistema implantado no Supabase do Valdece" quando na realidade o sistema ainda estava na Vanguard.
+**Regra:** Após a primeira interação de qualquer sessão com projeto ativo, o Músculo verifica proativamente: (a) commits recentes do projeto, (b) MEMORIA_EMBAIXADOR e documentos de estado, (c) inconsistências entre documentos e realidade. Se houver conflito → corrigir antes de qualquer outra ação. Músculo que não lê as últimas conversas opera com contexto defasado — e produz orientações baseadas em premissas erradas.
+**Aplica-se a:** toda sessão com projeto cliente ativo em BUILD ou CHECK.
+
+---
+
+### [P-038] Nada sai da Vanguard sem gate de teste aprovado
+**Descoberto:** 2026-05-19 | **Sessão:** Retomada PROJ-001 Valdece
+**Fricção:** Eduardo precisou corrigir o Músculo: o sistema de busca do Valdece não foi enviado/configurado na conta dele porque não passou por gate de teste. O princípio já havia sido estabelecido no PROJ-002 Ingrid mas não foi registrado formalmente no LEDGER.
+**Princípio:** Nenhum sistema, código ou configuração sai do ambiente Vanguard para o ambiente do cliente sem gate de teste aprovado explicitamente pelo Diretor. Estado "pronto" ≠ estado "aprovado para envio". O gate de teste é o único que autoriza a migração.
+**Aplica-se a:** todo projeto cliente — migração de Supabase, deploy de frontend, configuração de credenciais na conta do cliente.
+**Consequência do não-cumprimento:** Cliente recebe sistema não testado → falha na demo → janela de encantamento destruída → contrato perdido.

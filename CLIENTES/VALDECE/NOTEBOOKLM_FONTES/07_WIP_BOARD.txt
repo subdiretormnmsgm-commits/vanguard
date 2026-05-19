@@ -188,9 +188,10 @@
                                         "path":  "CLIENTES/VALDECE/Contrato_Toga_Digital_Valdece_19052026.pdf"
                                     },
                                     "credenciais_obtidas":  "2026-05-19 — Eduardo com credenciais do Valdece",
+                                    "sistema_ambiente":  "VANGUARD — não migrado para conta do Valdece (P-038: gate de teste obrigatório antes do envio)",
                                     "demo_realizada":  false,
                                     "contrato_assinado":  false,
-                                    "proximo_passo":  "DEMO 2026-05-20 — 3-temas question no minuto 0 → demo → contrato. Pós-contrato: Auth Supabase + dataset público STF/STJ + Sovereign Upload V2",
+                                    "proximo_passo":  "Gate de teste final na Vanguard → migração para conta do Valdece → DEMO 2026-05-20. Pós-contrato: Auth Supabase + dataset público STF/STJ + Sovereign Upload V2",
                                     "v2_pipeline":  {
                                                         "features":  [
                                                                          "Sovereign Upload",

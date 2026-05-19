@@ -44,12 +44,13 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | Demo real | **PENDENTE — 2026-05-20 — janela de encantamento intacta** |
 | Contrato | **PENDENTE** — aguarda demo + encantamento |
 
-**Sistema configurado no Supabase do Valdece — pronto para demo:**
-- Schema vector(768) + HNSW + SECURITY DEFINER ✅
+**Sistema rodando no Supabase da VANGUARD — gate de teste pendente antes do envio:**
+- Schema vector(768) + HNSW + SECURITY DEFINER ✅ (ambiente Vanguard)
 - 61 acórdãos: HC · preventiva · tráfico · dosimetria · nulidade · homicídio · estupro ·
   violência doméstica · execução penal · prescrição · legítima defesa · org criminosa ·
   porte arma · corrupção · concurso crimes · sursis · estelionato · extorsão · ECA +
-- Busca testada: threshold 0.45 · top 3 · latência 2-3s · similaridade 0.73-0.78
+- Busca testada na Vanguard: threshold 0.45 · top 3 · latência 2-3s · similaridade 0.73-0.78
+- **BLOQUEANTE P-038:** gate de teste obrigatório antes de migrar para conta do Valdece
 
 **Pós-contrato (não bloqueia demo):**
 - Auth Supabase single-user

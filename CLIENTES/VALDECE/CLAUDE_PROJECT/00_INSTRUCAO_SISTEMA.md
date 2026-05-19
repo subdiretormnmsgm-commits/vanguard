@@ -62,8 +62,8 @@ Em julgamentos e audiências, segundos importam. Google entrega ruído. Westlaw 
 
 ## BLOCO 3 — ESTADO ATUAL DO PROJETO
 
-**Build:** Concluído — 5 commits entregues + sistema implantado no Supabase do Valdece
-**Gate crítico:** DEMO **2026-05-20** — janela de encantamento intacta
+**Build:** Concluído — 5 commits entregues · sistema rodando no Supabase da VANGUARD
+**Gate crítico:** Gate de teste P-038 → migração → DEMO **2026-05-20** — janela de encantamento intacta
 **Deadline contratual:** 2026-05-23
 
 **O que foi entregue (build completo — 5 dias):**
@@ -73,20 +73,20 @@ Em julgamentos e audiências, segundos importam. Google entrega ruído. Westlaw 
 - `commit e9afb36` — Gate ABNT NBR6023 + busca precisa/ampla + redesign Navy/Ouro
 - `commit 5da58f8` — Corpus 61 acórdãos reais STF/STJ · 22 temas · SECURITY DEFINER · threshold 0.45
 
-**Estado do sistema (2026-05-19 — pós-presencial):**
-- Sistema implantado no Supabase do Valdece — credenciais dele, conta dele
-- Corpus: 61 acórdãos · 22 temas · similaridade 0.67–0.78 · latência 2–3s
+**Estado do sistema (2026-05-20 — pré-demo):**
+- Sistema rodando no Supabase da **VANGUARD** — gate de teste pendente antes da migração (P-038)
+- Corpus: 61 acórdãos · 22 temas · similaridade 0.67–0.78 · latência 2–3s · TESTADO E VERDE na Vanguard
 - Temas cobertos: HC · preventiva · tráfico · dosimetria · nulidade · homicídio · estupro ·
   violência doméstica · execução penal · prescrição · legítima defesa · org criminosa ·
   porte arma · corrupção · concurso crimes · sursis · estelionato · extorsão · ECA ·
   lesão corporal VD · tentativa · tráfico internacional
-- Busca testada e VERDE — Eduardo testou 20+ acórdãos em 2026-05-19
 - Valdece ainda NÃO testou — primeira impressão real = DEMO 2026-05-20
+- **BLOQUEANTE:** rodar gate de teste + `seed_demo.py` nas credenciais do Valdece antes da demo
 
 **Presencial 2026-05-19 — o que aconteceu:**
 - Eduardo foi ao escritório do Valdece
-- Credenciais do Supabase + Google AI Studio obtidas
-- Sistema configurado na conta do Valdece
+- Credenciais do Supabase + Google AI Studio obtidas (Eduardo está com elas)
+- Sistema **NÃO migrado** — aguarda gate de teste obrigatório (P-038: nada sai da Vanguard sem teste)
 - Demo agendada para 2026-05-20
 
 **Contrato:** `Contrato_Toga_Digital_Valdece_19052026.pdf` — **PENDENTE — aguarda demo + encantamento**

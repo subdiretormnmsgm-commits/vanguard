@@ -566,14 +566,14 @@
 <script type="module">
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-  // ── Config ── substituído na entrega com credenciais de Valdece
-  const SUPABASE_URL  = '__SUPABASE_URL__';
-  const SUPABASE_ANON = '__SUPABASE_ANON_KEY__';
-  const GEMINI_KEY    = '__GEMINI_API_KEY__';
+  // ── Config ──
+  const SUPABASE_URL  = 'https://hqqxzecftkvtrlpkhvnc.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcXh6ZWNmdGt2dHJscGtodm5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzg5NjYsImV4cCI6MjA5NDcxNDk2Nn0.AFWbk2oi7zKDu7Q922CqS-cc-pG_VJNYMqqH2BeouxA';
+  const GEMINI_KEY    = 'AIzaSyBkrrCZINFNnC66wjpwld15TOmGyYLlrEw';
 
   const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
-  const EMBED_URL   = `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${GEMINI_KEY}`;
+  const EMBED_URL   = `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${GEMINI_KEY}`;
   const RECENTE_MS  = 180 * 24 * 60 * 60 * 1000;
   let   currentThreshold = 0.60; // Busca Precisa (default)
 
@@ -618,9 +618,10 @@
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'models/text-embedding-004',
+        model: 'models/gemini-embedding-001',
         content: { parts: [{ text: text.slice(0, 2048) }] },
         taskType: 'RETRIEVAL_QUERY',
+        outputDimensionality: 768,
       }),
     });
     if (!res.ok) throw new Error('Falha ao gerar embedding da busca');
