@@ -142,7 +142,25 @@ Como apresentar o ROI ao cliente com números reais. Como posicionar o que vem d
 **BLOCO 3 — DIRETRIZ TÉCNICA**
 Três sub-blocos obrigatórios:
 
-→ **[PARA O NOTEBOOKLM]:** O que você quer que o Auditor conecte do histórico. Qual risco auditar. O que deve estar na Skill que ele vai gerar para o Músculo.
+→ **[PARA O NOTEBOOKLM]:** Gerar `valdece-v4.md` — Skill de Elite para a fase Demo → Encantamento → Contrato.
+
+Auditor, conecte o histórico nestes pontos críticos:
+1. Projetos anteriores em que a demo ao vivo falhou ou perdeu o encantamento — o que causou? Corpus incompleto? Script não testado nas queries certas? Demonstração no computador de Eduardo (não do cliente)?
+2. Padrão de fechamento de contrato em projetos de entrega personalizada — quando o histórico mostra que é o momento certo? Qual é o gatilho (frase do cliente, reação silenciosa, pergunta espontânea)?
+3. P-023 ativo: contrato não assinado antes da entrega. Quais projetos da Vanguard operaram sem contrato e o que aconteceu ao escopo?
+
+Riscos a auditar com evidência histórica:
+- Janela de encantamento intacta: Valdece AINDA NÃO testou o sistema. A primeira busca ao vivo é o momento mais crítico do projeto. O que pode dar errado nos 3 temas confirmados (crimes contra a vida, patrimônio, administração pública)?
+- Corpus de 61 acórdãos: é suficiente para surpresa positiva em demo ao vivo? Ou há gap que aparece justamente nos temas que Valdece vai pedir?
+- RLS pendente: API key Gemini exposta no frontend — qual o risco real antes da migração para a conta do Valdece?
+- Scope creep pós-encantamento: cliente satisfeito pede feature nova antes de assinar. Como o Músculo responde sem perder o momentum do contrato?
+
+O que a Skill `valdece-v4.md` DEVE conter obrigatoriamente (não genérico — dados reais):
+- Script de demo testado: queries dos 3 temas com sim scores reais, sequência dos 30-90 min, o que fazer se resultado não aparecer em <10s
+- Protocolo de fechamento de contrato: quando falar, quando silenciar, a linha de fechamento validada ("O sistema é seu. Isso aqui só formaliza.")
+- Semente V2: quando plantar ("quando seu corpus chegar em 500 decisões..."), como plantar sem parecer pitch prematuro
+- O que NÃO construir: nenhuma feature nova antes do contrato assinado — qualquer pedido do Valdece vira V2
+- Gate de demo: aprovado quando Valdece diz "é isso" em <10s no sistema DELE (não no de Eduardo)
 
 → **[PARA O MÚSCULO]:** A intenção estratégica desta entrega em uma frase — não a lista de features, o porquê. Prioridades em ordem com razão para cada. O que não construir. Alertas de risco a monitorar. Gates de verificação por dia de build.
 
