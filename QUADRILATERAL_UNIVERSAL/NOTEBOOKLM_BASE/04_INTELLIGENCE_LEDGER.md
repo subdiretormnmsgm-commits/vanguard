@@ -1073,3 +1073,21 @@ Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup s
 **Princípio:** Pesquisa de mercado externa (Reddit, App Store reviews, comunidades profissionais, benchmarks de concorrência) é mandato do Estrategista na Etapa 1 de cada Perfil. Produz material em 0-30%. A partir de 30%, toda atualização de Perfil requer evidência de cliente real — capturada verbatim em CAMADA_FATOS. Nenhum dado de Estrategista substitui verbatim do cliente.
 **Coordenação:** Estrategista entrega `PESQUISA_BRUTA_<NICHO>.md`. Embaixador transforma em Perfil hipotético. Auditor cruza com LEDGER. Músculo estima viabilidade técnica. Diretor decide GO/NO-GO.
 **Aplica-se a:** toda expansão para nicho novo.
+
+---
+
+### [P-051] Fragmentação de nicho detectada → pausa obrigatória antes de construir Perfil
+**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador — COMANDO_PROPAGACAO_CONSELHO | **Sessão:** Nicho Medicina — Loop 3.5
+**Evidência:** Estrategista entregou PESQUISA_BRUTA_MEDICINA v1 e detectou que "Medicina" = 4 sub-nichos (R1/R3/Revalida/TE) com economias e comportamentos distintos. Sem a pausa, o Embaixador teria construído PERFIL_MEDICINA sobre premissa monolítica — invalidado pelo primeiro cliente real.
+**Princípio:** Quando o Estrategista detecta fragmentação de nicho durante Etapa 1 (4+ sub-nichos com tickets, dores ou canais distintos), o Embaixador pausa construção do Perfil e devolve ao Diretor lista de sub-nichos para escolha explícita. Build sobre nicho não-segmentado = Perfil contaminado.
+**Rotina operacional:** PESQUISA_BRUTA com alerta de fragmentação → Embaixador emite lista de sub-nichos → Diretor escolhe → Embaixador constrói Perfil do sub-nicho escolhido. Nunca pular a etapa de escolha.
+**Aplica-se a:** toda Etapa 1 de pesquisa de nicho com potencial de fragmentação.
+
+---
+
+### [P-052] Vanguard compete por precisão cirúrgica — não por aquisição de tráfego massivo
+**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador — COMANDO_PROPAGACAO_CONSELHO | **Sessão:** Nicho Medicina — Loop 3.5
+**Evidência:** Nicho R1 Medicina (oceano vermelho — Medway + Estratégia MED com >70% do mercado) foi explicitamente excluído do portfólio Vanguard. Sub-nicho R3 (menor volume, alto ticket, mercado desatendido) foi escolhido. Esta é a primeira decisão formal de "fora do escopo" por princípio — não por incapacidade técnica.
+**Princípio:** Sub-nichos com baixo volume + alto ticket + problema mal resolvido pelos players dominantes têm prioridade sobre sub-nichos com alto volume + baixo ticket + competição saturada. Vanguard não compete onde o dinheiro de marketing decide. Compete onde a profundidade técnica decide.
+**Rotina operacional:** Ao avaliar GO/NO-GO de nicho, verificar: (a) competição por tráfego pago — alta = penalidade; (b) problema mal resolvido pelos líderes — confirmado = bônus; (c) método Vanguard entrega diferencial irreproduzível — sim = prosseguir.
+**Aplica-se a:** toda decisão GO/NO-GO de entrada em nicho novo.
