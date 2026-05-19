@@ -1039,3 +1039,37 @@ Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup s
 **Princípio:** O primeiro feedback espontâneo de um piloto vale mais que qualquer pesquisa de mercado ou análise interna. Deve ser: (a) capturado verbatim imediatamente com timestamp e canal (P-042), (b) processado pelos 4 membros do Pentalateral, (c) incorporado ao produto em 24h quando se tratar de bug, (d) preservado como âncora de narrativa comercial. Músculo trata primeiro feedback espontâneo como alerta crítico de produto — não como sugestão opcional.
 **Artefato:** entrada em `FALAS_CLIENTE.md` (P-042) + atualização de `MEMORIA_EMBAIXADOR.md` (P-032) na mesma sessão.
 **Aplica-se a:** toda fase de piloto de qualquer projeto. Captura obrigatória na mesma sessão em que o feedback chega.
+
+---
+
+### [P-047] Perfil de Nicho é trade secret — nunca em proposta, contrato ou pitch externo
+**Descoberto:** 2026-05-18 | **Proposto por:** Embaixador (Relatório Autoral + METODOLOGIA_PERFIS_VANGUARD) | **Sessão:** PROJ-002 Ingrid — Loop 3
+**Evidência:** M-2 propôs Perfis de Nicho como ativo comercializável. Embaixador ALERTOU: vender o Perfil entrega ao concorrente o conhecimento que custou 15 dias de campo. Analogia: Apple licenciando o silício M-series em vez de vender o Mac. O Perfil é a infraestrutura cognitiva que reduz o custo do próximo build em 50-70%.
+**Princípio:** Perfis de Nicho acumulados via clientes reais são o moat competitivo da Vanguard — não um produto. Nunca mencionar, citar ou entregar Perfis em: (a) propostas comerciais, (b) contratos com clientes, (c) materiais de marketing externo, (d) pitches para parceiros. Perfil que aparece em pitch deixa de ser moat.
+**Artefato:** pasta `QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/` com `.gitignore` bloqueando PERFIL_*.md de repositório público.
+**Aplica-se a:** todo Perfil de Nicho da Vanguard, de todos os projetos.
+
+---
+
+### [P-048] Perfil avança de maturidade só com evidência de cliente real
+**Descoberto:** 2026-05-18 | **Proposto por:** Embaixador (METODOLOGIA_PERFIS_VANGUARD) | **Sessão:** PROJ-002 Ingrid — Loop 3
+**Evidência:** A tentação de extrapolação por pesquisa de mercado produz Perfil hipotético que contamina decisões de build como se fosse fato. PROJ-002 mostrou que comportamento real de Ingrid (sem comparar TEC, feedback técnico preciso, leitura literal do enunciado) divergiu de 3 hipóteses iniciais.
+**Princípio:** Escala de maturidade do Perfil: 0-30% (hipótese de mercado) → 30-60% (primeiro cliente em discovery) → 60-80% (primeiro cliente entregue) → 80-100% (três+ clientes com 60+ dias). Perfil abaixo de 60% não dirige decisão de build — apenas captação. Pesquisa de mercado alimenta 0-30%, nunca eleva o Perfil além disso sem dado de cliente real.
+**Aplica-se a:** toda construção e revisão de Perfil de Nicho.
+
+---
+
+### [P-049] Cada Perfil novo declara explicitamente como difere dos Perfis vizinhos
+**Descoberto:** 2026-05-18 | **Proposto por:** Embaixador (METODOLOGIA_PERFIS_VANGUARD) | **Sessão:** PROJ-002 Ingrid — Loop 3
+**Evidência:** EdTech-Concurso e Legal-Tech-Criminal têm o mesmo substrate (software personalizado para profissional sob pressão) mas motivação, modo de decisão e ritmo de uso completamente diferentes. Confundir os dois no build ou no pitch é o erro mais provável ao escalar. PERFIL_EDTECH_CONCURSO documenta a seção "Diferenciação Estrutural vs. Outros Perfis" como item obrigatório.
+**Princípio:** Todo Perfil de Nicho inclui seção obrigatória "Diferenciação Estrutural" com tabela comparando os eixos críticos (motivação, modo de decisão, ritmo de uso, sensibilidade a bugs) vs. os Perfis vizinhos. Não declarar diferença = aceitar que o Conselho trate os dois como equivalentes.
+**Aplica-se a:** toda criação de Perfil novo e toda atualização de Perfil existente quando novo Perfil vizinho for adicionado.
+
+---
+
+### [P-050] Pesquisa de mercado externa é insumo do Estrategista, não substituto da captura verbatim
+**Descoberto:** 2026-05-18 | **Proposto por:** Embaixador (METODOLOGIA_PERFIS_VANGUARD) | **Sessão:** PROJ-002 Ingrid — Loop 3
+**Evidência:** Gemini pode gerar análise de nicho médico via pesquisa externa (Medway, Sanar, perfil de R1-R3) em 2-3 dias. Mas o PERFIL_MEDICINA só sobe de 0-30% para 30-60% quando o primeiro médico real compartilha comportamento em sessão de discovery. Pesquisa de Estrategista alimenta hipóteses; hipóteses precisam de validação de campo.
+**Princípio:** Pesquisa de mercado externa (Reddit, App Store reviews, comunidades profissionais, benchmarks de concorrência) é mandato do Estrategista na Etapa 1 de cada Perfil. Produz material em 0-30%. A partir de 30%, toda atualização de Perfil requer evidência de cliente real — capturada verbatim em CAMADA_FATOS. Nenhum dado de Estrategista substitui verbatim do cliente.
+**Coordenação:** Estrategista entrega `PESQUISA_BRUTA_<NICHO>.md`. Embaixador transforma em Perfil hipotético. Auditor cruza com LEDGER. Músculo estima viabilidade técnica. Diretor decide GO/NO-GO.
+**Aplica-se a:** toda expansão para nicho novo.

@@ -1,0 +1,5 @@
+# PERFIS_NICHO — Proteção de trade secret
+# PERFIL_*.md contêm dados de clientes reais — nunca publicar no repositório público.
+# METODOLOGIA_PERFIS_VANGUARD.md pode ser comitada (framework, sem dados de cliente).
+# Ver P-047: Perfil de Nicho é trade secret — nunca em proposta, contrato ou pitch externo.
+PERFIL_*.md

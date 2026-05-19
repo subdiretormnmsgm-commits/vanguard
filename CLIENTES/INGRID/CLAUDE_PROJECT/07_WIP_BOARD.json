@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-05-19",
+    "atualizado_em":  "2026-05-18",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -105,28 +105,16 @@
                                     "pendente_diretor":  [
                                                              "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
                                                          ],
-                                    "loop_atual":  "Loop #3 — Build (Dias 6-8) — Gate Dia 8 em andamento",
-                                    "url_publica":  "https://subdiretormnmsgm-commits.github.io/vanguard/",
-                                    "url_status":  "ATIVA — GitHub Pages gh-pages branch — 2026-05-18",
+                                    "loop_atual":  "Loop #3 — Build (Dias 6-8)",
                                     "formalizador":  {
                                         "termo_uso":  "Termo_Uso_Ingrid_PROJ002_30052026.pdf",
-                                        "status":  "ASSINADO — 2026-05-18 (data no PDF incorreta: 30/05/2026 — reassinatura pendente com PDF corrigido)",
+                                        "status":  "minuta — aguarda assinatura",
                                         "gerado_em":  "2026-05-16",
                                         "path":  "CLIENTES/INGRID/Termo_Uso_Ingrid_PROJ002_30052026.pdf"
                                     },
                                     "diretriz_gemini_v2":  true,
-                                    "diretriz_gemini_v4":  "pendente — Loop 4",
-                                    "skill_notebooklm_v2":  "pendente — NotebookLM Loop 3",
-                                    "banco_questoes":  "460 validadas — expansao para 1000+ aguarda creditos Anthropic",
-                                    "gate_dia8":  {
-                                        "status":  "em andamento",
-                                        "primeira_sessao":  "2026-05-18",
-                                        "questoes_alcancadas":  ">=18",
-                                        "feedback_verbatim":  "Gostou muito do aplicativo — questao 18 sem negrito (bug corrigido commit da9887a)",
-                                        "temperatura_cliente":  "QUENTE",
-                                        "pendente":  "confirmacao de 10 questoes completas + progresso salvo + fallback testado"
-                                    },
-                                    "proximo_passo":  "Confirmar Gate Dia 8 (10 questoes completas + progresso salvo) + Wipe & Sync NotebookLM + Loop 4: Gemini DIRETRIZ V4 + NotebookLM Skill ingrid-v4 + Build Dias 9-11 (heatmap + simulado) + novo seed (banco 460 → 1000+)"
+                                    "skill_notebooklm_v2":  "pendente — NotebookLM em execucao",
+                                    "proximo_passo":  "DIRETRIZ V2 recebida. NotebookLM gerando Skill ingrid-v2.md. Amanha: Musculo delibera + Build Dias 6-8"
                                 },
                                 {
                                     "id":  "PROJ-001",
@@ -198,44 +186,6 @@
 
                                ]
               },
-    "perfis_nicho":  {
-        "atualizado_em":  "2026-05-19",
-        "metodologia":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/METODOLOGIA_PERFIS_VANGUARD.md",
-        "perfis_ativos":  [
-            {
-                "nicho":  "EdTech-Concurso",
-                "arquivo":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/EDTECH_CONCURSO.md",
-                "maturidade":  "60%",
-                "cliente_referencia":  "PROJ-002 Ingrid",
-                "status":  "consolidado parcial"
-            },
-            {
-                "nicho":  "Legal-Tech-Criminal",
-                "arquivo":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/LEGALTECH_PENAL.md",
-                "maturidade":  "50%",
-                "cliente_referencia":  "PROJ-001 Valdece",
-                "status":  "consolidado parcial"
-            }
-        ],
-        "perfis_em_discovery":  [
-            {
-                "nicho":  "Médico-Prova-Especialidade",
-                "status":  "GO aprovado 2026-05-19 — Embaixador gerando PASSO3 para Gemini",
-                "responsavel_pesquisa":  "Estrategista (Gemini)"
-            },
-            {
-                "nicho":  "Contabilidade-PME",
-                "status":  "GO aprovado 2026-05-19 — Embaixador gerando PASSO3 para Gemini",
-                "responsavel_pesquisa":  "Estrategista (Gemini)"
-            },
-            {
-                "nicho":  "Psicólogo-Clínico-Autônomo",
-                "status":  "GO aprovado 2026-05-19 — Embaixador gerando PASSO3 para Gemini",
-                "responsavel_pesquisa":  "Estrategista (Gemini)"
-            }
-        ],
-        "proximos_passos":  "Aguardar PESQUISA_BRUTA de Estrategista para Medicina + Contabilidade + Psicologia. Após receber, Embaixador constrói Perfis hipotéticos (0-30%). Auditor valida. Diretor decide captação ativa."
-    },
     "politica_explicita":  {
                                "regra_1":  "Nada entra em BUILD sem Briefing aprovado pelo Diretor",
                                "regra_2":  "Nada sai de BUILD sem check_leis.ps1 aprovado",

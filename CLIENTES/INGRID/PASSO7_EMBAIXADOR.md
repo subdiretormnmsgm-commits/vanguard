@@ -70,7 +70,7 @@ Modo: [FLASH / COMPLETO]
 **Camada:** 2 — Produto | **Loop atual:** 4 (Dias 9–11)
 **Temperatura atual:** VERDE (Termo assinado + App no ar — 2026-05-18)
 **App:** https://subdiretormnmsgm-commits.github.io/vanguard/ — LIVE
-**Gates aprovados:** Dia 2 + Dia 5 + Dia 8
+**Gates aprovados:** Dia 2 + Dia 5 | **Gate em andamento:** Dia 8 (primeira sessão ocorreu 2026-05-18 — 10 questões completas + progresso salvo + fallback pendentes)
 
 **Perfil do Candidato (P-038 — atualizado com vetores do Embaixador):**
 - Perfil A — Candidato Sistemático: 30–50 questões/dia reais (pico: até 100 no fim de semana)

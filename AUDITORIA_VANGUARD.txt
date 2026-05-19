@@ -1,0 +1,261 @@
+
+De Diretor ao Músculo - Estrategista - Embaixador
+
+Auditoria Vanguard
+
+Músculo, boa tarde. Leia com muita atenção essa mensagem. Faremos uma atividade importante agora.
+
+Inicialmente, fizemos uma estrutura substancial na Vanguard ontem. a tremenda mudança que fizemos ontem na Vanguard
+============================================================
+
+Resumo das Deliberações de ontem
+
+
+**Assunto:** FECHAMENTO 2026-05-18 — Análise Pentalateral + Sistema de Alertas + P-032
+
+============================================================
+FECHAMENTO DE SESSÃO — Quadrilateral IAH · 2026-05-18
+============================================================
+
+DIRETOR, este é o resumo executivo da sessão mais intensa do ciclo.
+Duas coisas grandes aconteceram: o sistema virou Pentalateral e você nunca mais vai esquecer uma ação de cliente.
+
+────────────────────────────────────────────────────────────
+A. ENTREGAS DO DIA — STATUS
+────────────────────────────────────────────────────────────
+
+[ENTREGUE] vanguard-protocolo.md → v6.0
+  Atualizado: loop completo com 10 passos + Passo 0 (Embaixador) + 8.5 (debrief)
+  P-031 com seção dedicada: Embaixador como filtro de realidade
+  [PARA O EMBAIXADOR] cobrindo reação a [M]+[G]+[N] com CONFIRMA/EXPANDE/ALERTA
+  20 ideias/ciclo: [M+E+G+N × 5]
+
+[ENTREGUE] CLIENTES/WIP_BOARD.md — NOVO
+  Versão markdown do JSON para o NotebookLM processar (Auditor rejeitava JSON)
+
+[ENTREGUE] skill_calibracao_estrutural_v25.1.md
+  Skill completa com 4 blocos obrigatórios + [N-1 a N-5] deliberados
+
+[ENTREGUE] INTELLIGENCE_LEDGER.md
+  P-032 registrado: MEMORIA_EMBAIXADOR automática pelo Músculo
+  [FALHA-PROCESSO-2026-05-18] documentada
+
+[ENTREGUE] MEMORIA_EMBAIXADOR.md (Ingrid)
+  H-1 → MAIS PROVÁVEL | H-2 → IMPROVÁVEL
+  TEMPERATURA_CLIENTE: AMARELO (override após 7 dias de uso real)
+  Ingrid como piloto do protocolo N-4
+
+[ENTREGUE] WIP_BOARD.md (Ingrid Loop 3)
+  E-1 a E-5 aprovados e registrados como decisões do ciclo
+  E-3 promovido a gate formal obrigatório toda segunda-feira
+
+[ENTREGUE] scripts/alerta_telegram.ps1
+  Bot @Eduardo431Vanguardbot ativo · chat_id 8895733647
+  Alertas com contexto + mensagem exata para copiar no WhatsApp
+
+[ENTREGUE] scripts/briefing_diario.ps1
+  Lê WIP_BOARD.json + MEMORIA_EMBAIXADOR de cada projeto
+  Envia e-mail 7h + Telegram com alertas críticos do dia
+
+[ENTREGUE] scripts/alerta_whatsapp.ps1
+  Gera mensagem calibrada → copia clipboard → abre WhatsApp Web
+  (CallMeBot descartado — não funcionava)
+
+[ENTREGUE] scripts/registrar_briefing_agendado.ps1
+  Setup único para agendar briefing_diario.ps1 às 7h no Task Scheduler
+
+[ENTREGUE] memory/ — 6 novos registros
+  reference_telegram_bot · feedback_p032 · project_pentalateral
+  project_automation_alerts · project_diretriz_v3_pendente
+
+────────────────────────────────────────────────────────────
+B. ALERTAS EMITIDOS
+────────────────────────────────────────────────────────────
+
+[ALERTA ATIVO] VALDECE — Presencial AMANHÃ 2026-05-19
+  → Leia MEMORIA_EMBAIXADOR antes de sair
+  → Ao voltar: debrief com Embaixador (7 campos)
+  → Mensagem de confirmação já enviada via Telegram
+
+[ALERTA ATIVO] INGRID — Termo PENDENTE (gate bloqueado)
+  → Mensagem B1 disponível no Telegram para copiar agora
+  → Nenhuma entrega de ferramenta antes da assinatura
+
+[ALERTA ESTRUTURAL] P-032 detectado e corrigido
+  → Músculo não estava atualizando MEMORIA_EMBAIXADOR automaticamente
+  → Corrigido + ferramenta de prevenção: regra de fechamento de resposta
+
+────────────────────────────────────────────────────────────
+C. PRÓXIMOS GATES E PRAZOS
+────────────────────────────────────────────────────────────
+
+PROJ-001 Valdece:
+  → 2026-05-19: Presencial — leia MEMORIA_EMBAIXADOR antes de sair
+  → 2026-05-19 (noite): Debrief com Embaixador Valdece obrigatório
+  → Gate: Copiloto funcionando na máquina do Valdece
+
+PROJ-002 Ingrid (Loop 3):
+  → HOJE À NOITE: enviar B1 (Telegram → WhatsApp)
+  → Dias 6-8: implementar E-1 (frase âncora) + E-3 (relatório semanal formal)
+  → E-4 (check-in pós-sessão): candidato a P-033 após 1ª coleta real
+  → Próxima segunda: E-3 gate formal — coletar métricas Supabase
+
+────────────────────────────────────────────────────────────
+D. O QUE O DIRETOR FAZ ANTES DA PRÓXIMA SESSÃO
+────────────────────────────────────────────────────────────
+
+URGENTE — HOJE À NOITE:
+  1. Telegram → copie a mensagem B1 para Ingrid → cole no WhatsApp dela
+     (Alerta já enviado — só copiar e colar)
+
+AMANHÃ — ANTES DE SAIR:
+  2. Abra CLIENTES/INGRID/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md
+     Leia a seção WATCHDOG e o STATUS ATUAL antes do presencial Valdece
+  3. Presencial Valdece — demonstre o copiloto, colete feedback real
+
+AMANHÃ — AO VOLTAR:
+  4. Debrief com Embaixador Valdece: "ir_ao_embaixador.ps1 -cliente VALDECE"
+     Relate o que aconteceu (Valdece reagiu, usou, resistiu?) — Embaixador extrai inteligência
+
+SETUP (1 vez, qualquer dia):
+  5. Rode como Administrador: .\scripts\registrar_briefing_agendado.ps1
+     Ativa o briefing diário automático às 7h
+  6. Preencha os números em scripts\alert_config.ps1:
+     $CONTATOS = @{ INGRID = "5561XXXXXXXXX"; VALDECE = "5561XXXXXXXXX" }
+     (Para WhatsApp Web abrir direto na conversa certa)
+
+QUANDO TIVER:
+  7. Envie a DIRETRIZ V3 do Estrategista → Músculo delibera e gera plano de build
+
+────────────────────────────────────────────────────────────
+NOTA DO MÚSCULO
+────────────────────────────────────────────────────────────
+
+
+*Assunto:** Quadrilateral IAH V25 — Embaixador Ativado + Loop 3 Ingrid Pronto
+
+Eduardo,
+
+Sessão V25 encerrada. Quadrilateral agora opera com 4 membros plenos.
+
+---
+
+ENTREGAS DO DIA (2026-05-17)
+
+1. ingrid-v2.md COMPLETA — Skill Loop 3 com 4 partes obrigatórias + 8 ideias aprovadas (A-1 a A-8)
+2. VANGUARD_TIMELINE.md — Linha do tempo V1-V25 com princípios P-001 a P-025, história completa e argumento "impossível de copiar"
+3. Embaixador (Claude Projects) — 4º membro ativado com mandato proativo e 6 blocos de instrução para INGRID e VALDECE
+4. MENSAGEM_INTERACAO_INICIAL.md — Ativação do Embaixador para cada projeto (colável no chat)
+5. COMANDO_GEMINI_EMBAIXADOR.md — Diretriz para o Estrategista sobre o Embaixador (5 pontos estratégicos)
+6. MISSAO_NOTEBOOKLM_EMBAIXADOR.md — Missão dupla para o Auditor (Skill Loop 3 + auditoria do Embaixador)
+7. Scripts master criados:
+   - scripts\ir_ao_gemini.ps1 — ancora + browser + lista de arquivos a anexar
+   - scripts\ir_ao_notebooklm.ps1 — 16 fontes + browser + instruções de ativação
+   - scripts\ir_ao_embaixador.ps1 — browser claude.ai/projects + Explorer + ativação
+
+Commit: 1a7e505 — 13 arquivos, 1621 inserções
+
+---
+
+ALERTAS ATIVOS
+
+- P-023: Contratos sem assinatura — Ingrid (Termo_Uso) e Valdece (Contrato_Toga_Digital). Embaixador deve pressionar proativamente.
+- Entrega presencial Valdece: 2026-05-19 — roteiro de 60-90 min pronto em CLAUDE_PROJECT/00_INSTRUCAO_SISTEMA.md
+- Loop 3 Ingrid (Dias 6-8): aguardando deliberação completa com Skill ingrid-v2.md + DIRETRIZ Gemini
+
+---
+
+PRÓXIMAS AÇÕES (em ordem)
+
+1. Me peça para rodar: scripts\ir_ao_embaixador.ps1 -cliente INGRID
+   → Abrir claude.ai/projects → criar/configurar Project INGRID
+   → Colar 00_INSTRUCAO_SISTEMA.md nas Instructions
+   → Colar MENSAGEM_INTERACAO_INICIAL.md no chat para ativar o Embaixador
+
+2. Me peça para rodar: scripts\ir_ao_embaixador.ps1 -cliente VALDECE
+   → Mesmo processo para VALDECE
+
+3. Me peça para rodar: scripts\ir_ao_gemini.ps1
+   → Leva CONTEXTO_GEMINI.md + COMANDO_GEMINI_EMBAIXADOR.md para o Estrategista
+   → Receber DIRETRIZ com reação ao Embaixador + ideias para Loop 3
+
+4. Me peça para rodar: scripts\ir_ao_notebooklm.ps1 -cliente INGRID
+   → Usa MISSAO_NOTEBOOKLM_EMBAIXADOR.md como missão dupla
+   → Receber Skill ingrid-v2.md atualizada + Auditoria do Embaixador
+
+5. Trazer a DIRETRIZ + Skill aqui → Músculo delibera e inicia build Dias 6-8
+
+---
+
+Quadrilateral IAH | 4 membros operacionais | V25 encerrada
+
+Músculo (Claude Code)
+
+============================================================
+
+Nesse contexto, verifiquei as pastas que criamos e vi que elas precisam de análise e auditagem, de modo a deixá-las totalmente atualizadas, pois o fluxo do nosso processo evoluiu muito.
+
+Mande uma mensagem que faça com que o Auditor, o Estrategista e o Embaixador possam contribuir para tal atividade.
+
+1) Documentos a cerca das 25 versões que criamos devem estar em um determinado local, com as respectivas atualizações realizadas recentemente, para a eventual versão 26. Elas são nosso caminho para chegarmos até aqui.
+
+2) Existem documentos que dizem a mesma coisa, vamos condensar e atualizar, conforme as diretrizes exaradas no dia de ontem.
+
+3) Todos os documentos fora das pastas devem ser auditados, atualizados e organizados nas pastas aderentes aos assuntos. 
+
+4) Após o conhecimento das documentos a serem auditados, exponha os documentos que você fará a auditagem e me consulte para ver se você identificou todos os documentos a serem verificados 
+
+5) Documentos a serem atualizados. Esses são os principais, não se limite a isso, pois esses eu já vi que estão desatualizados, mas outros precisam de auditoria e análise também
+
+Pastas: 
+
+Constituição 
+
+	◦	Empresa Vanguard
+	◦	Inteligência Artificial Humana
+	◦	Memorial Quadrilateral Humano e Cliente
+	◦	Protocolo Quadrilateral
+	◦	Vanguard Business Rules
+
+Diretrizes Templates 
+
+NotebookLM
+
+	◦	Documentos que serão base para os próximos projetos)
+
+Operação 
+
+	◦	Todos os documentos devem ser atualizados, missão do Embaixador 
+	◦	Alerta_Conflito 
+	◦	Aviso_Arquiteto (temos que ter Aviso Embaixador)
+	◦	Discovery_Card (incluir Embaixador na atividade)
+	◦	Manual_Diretor
+	◦	Passo3_GEMINI_TEMPLATE, Passo5_NOTEBOOKLM_TEMPLATE,Passo6_Musculo_TEMPLATE,, Criar PASSO7_EMBAIXADOR_TEMPLATE.
+	◦	Protocolo interativo 
+	◦	Repositorio Estrutura
+	◦	SOP Vanguard Master
+	◦	Vanguard Innovation Audit
+	◦	Vanguard Knowlodge Graph
+	◦	Vanguard Performance Ledger 
+
+CLAUDE MD
+
+Lembre-se, inclua as ### DEFICIÊNCIAS DO EMBAIXADOR (CLAUDE PROJECTS), com seu AUTO-CHECKLIST OBRIGATÓRIO. Ele inclui suas deficiências e medidas para saná-las. Atualize o Claude MD, tendo em vista o novo status quo da Vanguard. Reveja tudo
+
+
+Templates (todos os documentos)
+
+Documentos fora das pastas (todos os documentos) ==> Intelligence_Ledger, Vanguard_Timeline, e todos os outros
+
+
+Músculo, quero uma análise criteriosa e detalhada do processo. Reveja todas as pastas. Demore o tempo que julgar necessário, mas faça um excelente trabalho.
+
+Ao final do processo, quero que crie uma skill para auditoria e análise da documentação da Vanguard, que será determinada pelo Diretor, conforme o status quo da nossa Vanguard, de forma que esses documentos sempre estejam prontos a serem empregados, quando preciso.
+
+Como forma de ajuda, existe uma skill, na pasta C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\.claude\skills, chamada SKILL universal.md que é um modelo para se criar qualquer skill. Ela pode contribuir para a criação da skill para auditoria e analise, contando que ela deverá sempre executar tudo o que foi executado hoje.
+
+Lembrando, quaisquer ações a serem executadas a partir de agora contam com a participação disruptiva do Embaixador. Ainda, destaco que todos os sócios devem ter comportamento proativo
+
+Isso é um processo que está amparado no PDCA. 
+
+**"A inteligência é o nosso maior ativo. Ela sempre evolutiva a cada processo, a cada atividade, mas o rigor dos processos é o nosso firewall."**
