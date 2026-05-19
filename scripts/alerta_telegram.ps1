@@ -74,6 +74,30 @@ Me manda mensagem depois que testar? Quero saber como foi! 😊
 Apos testar: acionar Embaixador -> iniciar.ps1 [E] -> Secao B (Debrief)
 "@
         }
+        "VALDECE_DEMO" {
+            $mensagem = @"
+VALDECE - DEMO HOJE (2026-05-20)
+Momento mais critico do projeto — primeira busca dele.
+
+CHECKLIST PRE-SAIDA:
+[ ] Leu MEMORIA_EMBAIXADOR (30 seg)
+[ ] Anotou os 3 temas que ele mais usa
+[ ] search_cli.py testado (threshold 0.45, top 3)
+[ ] Rascunho WhatsApp salvo: "Dr. Valdece, valor unico R$5k. Sem mensalidade."
+[ ] Contrato em mao (Contrato_Toga_Digital_Valdece_19052026.pdf)
+
+ROTEIRO (60-90 min):
+[0-5 min]  "Valdece, quais 3 temas voce mais pesquisou essa semana?"
+[5-25 min] Busca 1,2,3 nos temas que ELE nomeou — SILENCIO total
+[25-40 min] Deixar ELE digitar a 4a busca sozinho — momento de virada
+[40-55 min] Sovereign Playbook: "resolve em 3 passos sem me ligar"
+[55-70 min] Contrato — nao forcar — deixar o entusiasmo fechar
+LINHA FECHAMENTO: "O sistema e seu. Isso aqui so formaliza."
+
+SE NAO ENCONTRAR: "Esse entra no proximo ciclo" — redirecionar para outro dos 3 temas.
+AO VOLTAR: debrief com Embaixador (7 campos) obrigatorio.
+"@
+        }
         "VALDECE_PRESENCIAL" {
             $mensagem = @"
 VALDECE - Presencial hoje

@@ -106,10 +106,28 @@ foreach ($proj in $projetos) {
     # ── Ações do dia ──
     $linhas += "AÇÕES DE HOJE:"
 
-    # Presencial amanhã (Valdece)
+    # Demo Valdece (detecta demo_realizada=false e data no proximo_passo)
+    if ($cliente -eq "Valdece") {
+        $demoData = $null
+        if ($proximo -match "DEMO (\d{4}-\d{2}-\d{2})") { $demoData = $matches[1] }
+        if (-not $demoData -and $proj.PSObject.Properties["demo_realizada"] -and -not $proj.demo_realizada) {
+            $demoData = $dataStr  # fallback: se demo nao realizada, assume hoje
+        }
+        if ($demoData -and ($demoData -eq $dataStr -or $demoData -eq $amanha)) {
+            $quando = if ($demoData -eq $dataStr) { "HOJE" } else { "AMANHA" }
+            $linhas += "  → 🔴 DEMO VALDECE $quando ($demoData) — MOMENTO CRITICO DO PROJETO"
+            $linhas += "  → Leia MEMORIA_EMBAIXADOR (30 seg) antes de sair"
+            $linhas += "  → Roteiro: 3-temas question → busca → ele digita 4a sozinho → contrato"
+            $linhas += "  → Linha de fechamento: 'O sistema e seu. Isso aqui so formaliza.'"
+            $alertasCriticos += "[Valdece] DEMO $quando — primeira busca dele e o momento de virada"
+            $acoesDia += "Valdece: DEMO $quando — leia MEMORIA_EMBAIXADOR + roteiro 3-temas"
+        }
+    }
+
+    # Presencial amanhã (Valdece — fallback para presenciais sem demo flag)
     if ($proj.deadline_anterior -or ($deadline -eq $amanha)) {
         if ($cliente -eq "Valdece" -and $status -match "presencial") {
-            $linhas += "  → PRESENCIAL AMANHÃ — Leia MEMORIA_EMBAIXADOR antes de sair"
+            $linhas += "  → PRESENCIAL AMANHA — Leia MEMORIA_EMBAIXADOR antes de sair"
             $linhas += "  → Leve WATCHDOG_TEMPLATE preenchido"
             $linhas += "  → Ao voltar: preencher protocolo de debrief (7 campos) e relatar ao Embaixador"
             $acoesDia += "Valdece: PRESENCIAL — leia MEMORIA_EMBAIXADOR e prepare o debrief"
