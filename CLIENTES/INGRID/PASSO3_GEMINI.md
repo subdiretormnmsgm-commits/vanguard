@@ -1,6 +1,7 @@
 # PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 4
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
 > Atualizado pelo Músculo em 2026-05-18 após Síntese Final do Loop 3.
+> Versão expandida: inclui novas questões estratégicas do Diretor (P-038 a P-040 + V26).
 > Usar após Gate Dia 8 aprovado + relatorio_evolutivo_V3 gerado.
 
 ---
@@ -81,6 +82,40 @@ Embaixador → Músculo (Síntese Final P-037) → Diretor (veredito).
 [2026-05-18] Adições:
 4. Síntese Final do Músculo sempre antes do veredito do Diretor [P-037]
 5. Embaixador ativo antes e depois de toda entrega ao cliente [P-031]
+6. Perfil de candidato/cliente é pré-requisito de qualquer projeto EdTech [P-038]
+7. Modelo de testes 3 camadas (Técnica + Usuário + Regressão) antes de qualquer entrega [P-039]
+8. Perfis de Nicho são o ativo proprietário central da Vanguard — acumulam com cada projeto [P-040]
+
+---
+
+## 🧠 [COMO EDUARDO PENSA] — LEITURA OBRIGATÓRIA PARA OS SÓCIOS
+
+> Esta seção não é protocolo — é a visão do Diretor.
+> O Estrategista reage a ela no BLOCO 0 (Diagnóstico).
+> O Auditor ancora nela ao auditar coerência histórica.
+
+**O modelo mental do Diretor Eduardo:**
+
+Eduardo não constrói features. Eduardo constrói **ativos que ficam mais valiosos a cada projeto**.
+
+Três princípios que guiam como ele pensa — não como regras, mas como instinto operacional:
+
+**1. O dado gerado pelo cliente vale mais do que a ferramenta**
+O app da Ingrid não é o produto final. O produto final é a curva de erro/distrator de 500 candidatas Quadrix que ele permite documentar. O app é o meio. O dado é o ativo. Quando o Estrategista propõe features, Eduardo pergunta: "isso gera dado proprietário ou só entrega experiência?"
+
+**2. Cada projeto deve deixar o próximo projeto mais fácil no mesmo nicho**
+Ingrid é o Projeto 1 de EdTech-Concurso. Com os dados dela, o Projeto 2 começa com banco calibrado, perfil de candidato documentado e pitch testado. O Estrategista que propõe features genéricas está pensando em 1 cliente. Eduardo está pensando em 50.
+
+**3. A busca por perfis de nicho é incessante — todos os 4 membros contribuem**
+O Embaixador observa comportamento real. O Gemini encontra padrões de escala. O NotebookLM audita consistência histórica. O Músculo valida viabilidade técnica. Nenhum membro espera ser acionado para buscar padrões de nicho — é comportamento padrão de cada ciclo.
+
+**Decisão estratégica registrada em 2026-05-18:**
+V26 da Vanguard terá como núcleo central os Perfis de Nicho como produto.
+Timing: após fechamento de PROJ-001 (Valdece) + coleta de dados reais de PROJ-002 (Ingrid).
+Dois nichos inaugurais documentados: EdTech-Concurso + LegalTech-Penal.
+
+**O que o Estrategista deve fazer com esta informação:**
+Gerar DIRETRIZ V5 com pelo menos 2 ideias [G-X] específicas sobre como acelerar a construção dos Perfis de Nicho dentro do ciclo atual do Projeto Ingrid — sem esperar a V26.
 
 ---
 

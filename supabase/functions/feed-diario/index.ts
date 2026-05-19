@@ -7,6 +7,12 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin":  "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization, apikey",
+};
+
 const CONCURSO_ID = "sedes_df_2026";
 const TOTAL_DIA = 20;
 const QTD_PESO2 = 14; // 70%
@@ -40,8 +46,15 @@ interface FeedPayload {
 }
 
 serve(async (req: Request) => {
+  if (req.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: CORS_HEADERS });
+  }
+
   if (req.method !== "POST") {
-    return new Response(JSON.stringify({ error: "Método não permitido" }), { status: 405 });
+    return new Response(JSON.stringify({ error: "Método não permitido" }), {
+      status: 405,
+      headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
+    });
   }
 
   const supabase = createClient(
@@ -53,7 +66,10 @@ serve(async (req: Request) => {
   const { user_id, modo = "normal" } = payload;
 
   if (!user_id) {
-    return new Response(JSON.stringify({ error: "user_id obrigatorio" }), { status: 400 });
+    return new Response(JSON.stringify({ error: "user_id obrigatorio" }), {
+      status: 400,
+      headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
+    });
   }
 
   const hoje = new Date().toISOString().split("T")[0];
@@ -160,7 +176,7 @@ serve(async (req: Request) => {
         data: hoje,
       },
     }),
-    { status: 200, headers: { "Content-Type": "application/json" } }
+    { status: 200, headers: { ...CORS_HEADERS, "Content-Type": "application/json" } }
   );
 });
 

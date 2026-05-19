@@ -25,7 +25,8 @@
 #   - Deploy sempre do diretorio raiz do projeto, nunca de outro diretorio
 
 param(
-    [int]$QuantidadePorDisciplina = 50
+    [int]$QuantidadePorDisciplina = 50,
+    [switch]$AutoConfirm
 )
 
 $SUPABASE_URL     = $env:SUPABASE_URL
@@ -79,14 +80,18 @@ Write-Host ("  Custo estimado : ~`${0:F2}" -f $custoEstimado)                  -
 Write-Host "  Burn rate limit: `$5.00/dia"                                     -ForegroundColor White
 Write-Host ""
 
-if ($custoEstimado -gt 4.50) {
-    Write-Host "  AVISO: custo estimado proximo do limite diario." -ForegroundColor Red
-    Write-Host "  Considere rodar com -QuantidadePorDisciplina 30" -ForegroundColor Yellow
-    $resp = Read-Host "  Continuar mesmo assim? (s/N)"
-    if ($resp -ne "s" -and $resp -ne "S") { exit 0 }
+if (-not $AutoConfirm) {
+    if ($custoEstimado -gt 4.50) {
+        Write-Host "  AVISO: custo estimado proximo do limite diario." -ForegroundColor Red
+        Write-Host "  Considere rodar com -QuantidadePorDisciplina 30" -ForegroundColor Yellow
+        $resp = Read-Host "  Continuar mesmo assim? (s/N)"
+        if ($resp -ne "s" -and $resp -ne "S") { exit 0 }
+    } else {
+        $resp = Read-Host "  Confirma geracao? (s/N)"
+        if ($resp -ne "s" -and $resp -ne "S") { exit 0 }
+    }
 } else {
-    $resp = Read-Host "  Confirma geracao? (s/N)"
-    if ($resp -ne "s" -and $resp -ne "S") { exit 0 }
+    Write-Host "  [AUTO] Confirmacao automatica ativada." -ForegroundColor DarkGray
 }
 
 Write-Host ""

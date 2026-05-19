@@ -24,20 +24,42 @@ Write-Host "  [DIR] OK - $((Get-Location).Path)" -ForegroundColor Green
 
 # ---------------------------------------------------------
 # PASSO 2 - Configurar variaveis de ambiente
+# Carrega automaticamente de .env.local se existir (P-039 fix)
 # ---------------------------------------------------------
 $env:SUPABASE_URL = $SUPABASE_URL
 Write-Host "  [ENV] SUPABASE_URL configurada." -ForegroundColor Green
 
+$envLocalPath = Join-Path $PSScriptRoot ".env.local"
+if (Test-Path $envLocalPath) {
+    $linhas = Get-Content $envLocalPath | Where-Object { $_ -match "^[^#]" -and $_ -match "=" }
+    foreach ($linha in $linhas) {
+        $partes = $linha -split "=", 2
+        $nome   = $partes[0].Trim()
+        $valor  = $partes[1].Trim()
+        if ($nome -and $valor -and $valor -ne "COLE_AQUI_A_SERVICE_ROLE_KEY") {
+            Set-Item -Path "Env:\$nome" -Value $valor
+        }
+    }
+    Write-Host "  [ENV] .env.local carregado automaticamente." -ForegroundColor Green
+}
+
 if (-not $env:SUPABASE_SERVICE_ROLE_KEY) {
     Write-Host ""
     Write-Host "  [ENV] SUPABASE_SERVICE_ROLE_KEY nao encontrada." -ForegroundColor Yellow
-    Write-Host "  Supabase Dashboard -> Settings -> API -> service_role -> Reveal" -ForegroundColor White
+    Write-Host "  Opcao 1 (permanente): edite CLIENTES\INGRID\.env.local" -ForegroundColor Cyan
+    Write-Host "  Opcao 2 (temporaria): cole a chave agora" -ForegroundColor White
+    Write-Host "  Supabase Dashboard -> Settings -> API -> service_role -> Reveal" -ForegroundColor DarkGray
     $chave = Read-Host "  Cole a service_role key"
     if (-not $chave) {
         Write-Host "  Chave nao fornecida. Encerrando." -ForegroundColor Red
         exit 1
     }
     $env:SUPABASE_SERVICE_ROLE_KEY = $chave
+    $salvar = Read-Host "  Salvar no .env.local para proximas sessoes? (s/N)"
+    if ($salvar -eq "s" -or $salvar -eq "S") {
+        "SUPABASE_SERVICE_ROLE_KEY=$chave" | Out-File -FilePath $envLocalPath -Encoding UTF8
+        Write-Host "  [ENV] Salvo em .env.local. Proxima sessao carrega automaticamente." -ForegroundColor Green
+    }
 }
 Write-Host "  [ENV] SUPABASE_SERVICE_ROLE_KEY configurada." -ForegroundColor Green
 
