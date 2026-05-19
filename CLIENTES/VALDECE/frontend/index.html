@@ -483,6 +483,18 @@
       flex-shrink: 0;
       letter-spacing: 0.5px;
     }
+    .badge-uf {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #c8a84b;
+      background: rgba(200,168,75,0.12);
+      border: 1px solid rgba(200,168,75,0.35);
+      border-radius: 2px;
+      padding: 3px 8px;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
 
     /* ── EMENTA EXPANDÍVEL ── */
     .btn-expand {
@@ -699,6 +711,20 @@
     return { results: data || [], elapsed };
   }
 
+  // Boost monocrático: decisões monocráticas/liminares sobem no ranking (+0.15)
+  const MONO_KEYWORDS = ['habeas corpus', 'decisão monocrática', 'liminar', 'medida liminar', 'provimento monocrático'];
+  function boostMonocratica(results) {
+    return results
+      .map(r => {
+        const ementa = (r.ementa || '').toLowerCase();
+        if (MONO_KEYWORDS.some(k => ementa.includes(k))) {
+          return { ...r, similarity: Math.min(1.0, (r.similarity || 0) + 0.15) };
+        }
+        return r;
+      })
+      .sort((a, b) => b.similarity - a.similarity);
+  }
+
   // ── Render results ──
   function renderResults(results, elapsed, isTatico) {
     resultsEl.innerHTML = '';
@@ -729,12 +755,14 @@
 
       const card = document.createElement('div');
       card.className = 'card';
-      const shortEmenta = truncate(r.ementa, 280);
-      const hasMore    = r.ementa && r.ementa.length > 280;
-      const stjUrl     = buildSTJUrl(r.tribunal, r.numero_acordao);
+      const uf     = extractUF(r.numero_acordao);
+      const stjUrl = buildSTJUrl(r.tribunal, r.numero_acordao);
+      const ementaText = r.ementa || '';
+      const ementaLonga = ementaText.length > 700;
       card.innerHTML = `
         <div class="card-header">
           <span class="badge-tribunal">${r.tribunal}</span>
+          ${uf ? `<span class="badge-uf">${uf}</span>` : ''}
           <span class="badge-acordao">ACÓRDÃO</span>
           <span class="badge-recente ${isRecente ? 'visible' : ''}">● RECENTE</span>
           <span class="badge-tema">${tema}</span>
@@ -746,9 +774,9 @@
         </div>
         <div class="card-number">${r.numero_acordao || 'N/A'}</div>
         <div class="card-ementa">
-          <span class="ementa-short">${shortEmenta}</span>
-          ${hasMore ? `<span class="ementa-full" style="display:none">${r.ementa}</span>
-          <button class="btn-expand" data-expanded="false">▼ Ver completo</button>` : ''}
+          <span class="ementa-short">${ementaLonga ? truncate(ementaText, 600) : ementaText}</span>
+          ${ementaLonga ? `<span class="ementa-full" style="display:none">${ementaText}</span>
+          <button class="btn-expand" data-expanded="false">▼ Ver ementa completa</button>` : ''}
         </div>
         <div class="card-footer">
           <span class="card-date">${dataFmt}</span>
@@ -826,6 +854,13 @@
 
   // Fix 1 — URL de busca estável no STJ/STF (links diretos quebram fora do site)
   // @NUM filtra exatamente pelo número do processo no SCON — retorna 1 resultado direto
+  // Extrai UF do número do acórdão (ex: "HC 512.290/RJ" → "RJ")
+  function extractUF(numero) {
+    if (!numero) return null;
+    const m = numero.match(/\/([A-Z]{2})(?:\s|$)/);
+    return m ? m[1] : null;
+  }
+
   function buildSTJUrl(tribunal, numero) {
     if (tribunal === 'STF') {
       const q = encodeURIComponent(numero || '');
@@ -887,7 +922,7 @@
 
     try {
       const { results, elapsed } = await search(query);
-      renderResults(results, elapsed, modoToggle.checked);
+      renderResults(boostMonocratica(results), elapsed, modoToggle.checked);
       loadStats();
     } catch (err) {
       resultsEl.innerHTML = `<div style="color:var(--danger);padding:20px;text-align:center">Erro na busca: ${err.message}</div>`;
