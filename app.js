@@ -1,6 +1,17 @@
 ﻿// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
 // Loop 3 · Dias 6-8: Clickwrap + Tutor Socrático + Telemetria TTI + Fallback
 
+// ── UTILS ─────────────────────────────────────────────────────────────────────
+// Converte **texto** para <strong>texto</strong> com escape seguro de HTML
+function md2html(text) {
+  if (!text) return "";
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
 // ── CONFIG ────────────────────────────────────────────────────────────────────
 const SUPABASE_URL      = "https://ehyaecxqijgyuuiorzcj.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoeWFlY3hxaWpneXV1aW9yemNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyODMzNTAsImV4cCI6MjA5Mzg1OTM1MH0.xZfcEe2Av5Fn9BKEkNRIi5CQkPD6C6ADSNzMfh3DGPo";
@@ -227,14 +238,14 @@ function renderizarQuestao(indice) {
 
   card.querySelector(".questao-numero").textContent = `${indice + 1}/${feed.length}`;
   card.querySelector(".barra-fill").style.width     = `${((indice + 1) / feed.length) * 100}%`;
-  card.querySelector(".questao-enunciado").textContent = q.enunciado;
+  card.querySelector(".questao-enunciado").innerHTML = md2html(q.enunciado);
 
   const contAlts = card.querySelector(".alternativas");
   (q.alternativas ?? []).forEach((alt) => {
     const tplAlt = document.getElementById("tpl-alternativa").content.cloneNode(true);
     const btn    = tplAlt.querySelector(".alternativa");
     btn.querySelector(".letra").textContent = alt.letra + ".";
-    btn.querySelector(".texto").textContent = alt.texto;
+    btn.querySelector(".texto").innerHTML = md2html(alt.texto);
     btn.dataset.letra   = alt.letra;
     btn.addEventListener("click", () => processarResposta(q, alt.letra, card));
     contAlts.appendChild(btn);
@@ -285,7 +296,7 @@ async function processarResposta(questao, letraEscolhida, card) {
   const nivelDiv = expDiv.querySelector(".explicacao-nivel");
 
   // Fallback imediato: explicacao_base da questão
-  bodyDiv.textContent = questao.explicacao ?? "";
+  bodyDiv.innerHTML = md2html(questao.explicacao ?? "");
   card.appendChild(expDiv);
 
   // Tutor e save em paralelo
@@ -296,7 +307,7 @@ async function processarResposta(questao, letraEscolhida, card) {
 
   // Atualiza com explicação do Tutor se veio algo melhor
   if (tutorData.explicacao && tutorData.explicacao !== questao.explicacao) {
-    bodyDiv.textContent = tutorData.explicacao;
+    bodyDiv.innerHTML = md2html(tutorData.explicacao);
   }
 
   if (!acertou && tutorData.cacheHit !== null) {
