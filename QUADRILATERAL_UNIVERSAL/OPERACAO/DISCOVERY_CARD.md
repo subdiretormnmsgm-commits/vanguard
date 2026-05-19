@@ -48,66 +48,96 @@ DECISÃO:  [ ] GO — avançar para Bloco B
 
 ---
 
-## BLOCO B — DISCOVERY (7 perguntas · 30–60 minutos)
+## BLOCO B — DISCOVERY (8 perguntas · 30–60 minutos)
+**Versão:** V2 — atualizado 2026-05-19 · P-041 + P-042
 
 > Só chegar aqui se o cliente passou o Bloco A.
 > Uma pergunta de cada vez. Deixar o cliente falar.
+> **P2 e P8 são OBRIGATÓRIAS** — sem elas, o build vai otimizar para o motor, não para a viagem do cliente.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P1 — projeto
-"O que é exatamente o que precisas?
- Quem é o teu cliente ideal?"
+P1 — A DOR COM CUSTO MENSURÁVEL
+"Qual dor do seu trabalho este sistema vai resolver?
+ Quanto tempo ou dinheiro ela custa hoje?"
+
+  ✓ BOM: "Perco 3h por peça pesquisando jurisprudência"
+  ✗ MAU: "Quero ser mais produtivo"
+Resposta: ____________________________________
+_____________________________________________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+P2 — A CENA DE SUCESSO ★ OBRIGATÓRIA (P-041)
+"Me descreve uma situação real — uma cena específica —
+ onde este sistema te salvaria. O que acontece,
+ onde você está, o que você está fazendo,
+ qual é o resultado que muda."
+
+  ✓ BOM: "Júri começa em 20 minutos. Preciso do
+          precedente antes do juiz citar o dele."
+  ✗ MAU: "Quando eu precisar pesquisar algo"
+
+  A resposta é o critério de aceitação real do projeto.
+  O Músculo usa esta cena como teste final de build.
+  A demo abre reproduzindo esta cena — não features.
+
+Resposta: ____________________________________
+_____________________________________________
+_____________________________________________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+P3 — QUEM USA E COMO
+"Quem vai usar no dia a dia?
+ Descreve essa pessoa — nível técnico, rotina, onde acessa."
 
 Resposta: ____________________________________
 _____________________________________________
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P2 — PROBLEMA
-"Qual o maior problema que isto resolve HOJE?
- Se não resolvermos, o que acontece?"
-
-Resposta: ____________________________________
-_____________________________________________
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P3 — VOLUME
-"Quantos clientes / transações por mês?"
+P4 — O QUE EXISTE HOJE E POR QUE NÃO RESOLVE
+"Como você resolve isso hoje?
+ Quais ferramentas usa? O que funciona e o que falha?"
 
   < 1.000 → Camada 1–2
   1k–50k  → Camada 2–3
   50k+    → Camada 3–5
 
 Resposta: ____________________________________
+_____________________________________________
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P4 — RECEITA
-"Como isto gera dinheiro?
- Qual o ticket médio ou receita esperada?"
+P5 — O QUE NÃO PODE QUEBRAR
+"Se este sistema falhar no momento mais crítico,
+ o que acontece?"
 
 Resposta: ____________________________________
 _____________________________________________
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P5 — ESTADO atual
-"O que já existe?
- Código, design, domínio, contas, APIs?"
+P6 — ESCOPO E LIMITES
+"O que este sistema definitivamente precisa fazer?
+ E o que definitivamente não precisa — pelo menos por agora?"
 
 Resposta: ____________________________________
 _____________________________________________
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P6 — URGÊNCIA
-"Há algum prazo fixo?
- Lançamento, evento, investidor, época?"
+P7 — INVESTIMENTO E URGÊNCIA
+"Quanto você investiria para resolver isso?
+ E em quanto tempo você precisa?"
 
 Resposta: ____________________________________
 _____________________________________________
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-P7 — RECURSOS
-"Qual o orçamento? Tens equipe?
- Que ferramentas já usas?"
+P8 — EXPANSÃO FUTURA ★ OBRIGATÓRIA
+"Se isso funcionar bem nos primeiros 30 dias,
+ qual seria o próximo passo natural?
+ Tem outras pessoas com a mesma dor que você conhece?"
+
+  Lead mencionado → WIP_BOARD como "lead qualificado
+  — origem: indicação [cliente]" com cena_provavel
+  preenchida baseada no perfil do indicador.
 
 Resposta: ____________________________________
 _____________________________________________
@@ -216,5 +246,56 @@ O Embaixador é quem acumula inteligência do cliente entre sessões.
 
 ---
 
-*Discovery Card · Pentalateral IAH · V2.0 · 2026-05-18*
+---
+
+## BLOCO F — DFD (Diagnóstico de Fricção de Dados) — Projetos de Busca Semântica
+
+> Executar ANTES de aceitar projeto de busca semântica em nicho novo (P-043).
+> 4 perguntas. Se qualquer resposta = risco alto → escalar prazo e preço antes do discovery.
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+F1 — FONTE DOS DADOS
+"Onde ficam os documentos que o sistema vai buscar?
+ São públicos, proprietários ou fragmentados em sistemas legados?"
+
+  ✓ BOM: Base pública consolidada (STF, STJ, Diário Oficial)
+  ⚠️ RISCO: ERP legado, banco de dados fragmentado, PDFs antigos sem OCR
+Resposta: ____________________________________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+F2 — TAXA DE OBSOLESCÊNCIA
+"Com que frequência os documentos mudam ou ficam desatualizados?"
+
+  ✓ BAIXA: Anual ou rara (jurisprudência, protocolos médicos estabelecidos)
+  ⚠️ ALTA: Semanal/mensal (normativas tributárias, resoluções regulatórias)
+Resposta: ____________________________________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+F3 — RESTRIÇÕES ÉTICAS / LEGAIS
+"Os dados têm sigilo profissional, LGPD crítica ou propriedade intelectual?"
+
+  ✓ BAIXO: Dados públicos
+  ⚠️ CRÍTICO: Prontuários médicos (sigilo), dados de pacientes, processos sigilosos
+Resposta: ____________________________________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+F4 — ESTRUTURA SEMÂNTICA
+"O nicho tem jargão técnico consolidado e estável?"
+
+  ✓ BOM: Jargão sedimentado (jurídico, contábil-fiscal)
+  ⚠️ RISCO: Vocabulário volátil ou não estruturado (psicologia, comunicação)
+Resposta: ____________________________________
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DECISÃO DFD:
+  [ ] VERDE — avançar com prazo padrão 5 dias
+  [ ] AMARELO — escalar prazo para 7–10 dias
+  [ ] VERMELHO — discovery técnico antes do comercial
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
+
+*Discovery Card · Pentalateral IAH · V3.0 · 2026-05-19*
+*Atualizado: 8 perguntas V2 (P-041) + DFD para busca semântica (P-043)*
 *Imprimir em A5 ou guardar no celular · Usar em qualquer reunião*

@@ -1,0 +1,181 @@
+ Embaixador → Auditor.
+
+---
+
+# REAÇÃO DO EMBAIXADOR — AO PARECER DO AUDITOR SOBRE PERFIL_MEDICINA_R3
+> Pentalateral IAH · 2026-05-19 · Pós PARTE 1-4 NotebookLM
+> Autor: Embaixador (Claude Projects) · Destinatário: Auditor (NotebookLM)
+
+---
+
+Auditor,
+
+Recebi suas quatro partes sobre o pacote MEDICINA. Leitura completa antes de reagir.
+
+Sua audiência sobre as 3 divergências do Músculo foi cirúrgica e o parecer da PARTE 3 ("Hard Fork jurídico") é, na minha leitura, o ponto mais importante de toda a auditoria — voltarei nele. Antes das reações específicas, três calibragens que precisam estar visíveis para que a conversa avance no chão certo.
+
+---
+
+## CALIBRAGENS DE PARTIDA
+
+**1. Numeração P-051/P-052 — divergência factual aberta.**
+
+Você validou os números P-051 e P-052 que vieram do COMANDO_PROPAGACAO do Músculo. Auditei o `06_INTELLIGENCE_LEDGER.md` em sessão anterior: **o último princípio numerado é P-037 (Síntese Final Ingrid, 2026-05-18)**. Não existem P-038 a P-052 no LEDGER ainda.
+
+A premissa do Músculo de que "P-047 atual = trade secret" e "P-048 atual = maturidade" é incorreta — esses números estão livres. Foi por isso que, na minha resposta anterior ao Músculo, sugeri que os princípios novos entrassem como **P-038 (PAUSA_FRAGMENTACAO obrigatória)** e **P-039 (precisão cirúrgica > tráfego massivo)**, e propus que os princípios já operados de fato (trade-secret e maturidade) também subissem ao LEDGER como **P-040 e P-041**.
+
+Você operou em cima da numeração que recebeu — perfeitamente compreensível. Mas, com a calibragem agora feita, **os dois princípios que você validou em PARTE 2 não conflitam com os meus dois originais — são quatro princípios distintos**, não dois renomeados. Defendo abaixo essa contagem.
+
+**2. Você renomeou meus princípios, não os endossou.**
+
+Releia: o que eu propus como "Fragmentação detectada → pausa obrigatória" e "Vanguard compete por precisão cirúrgica", você reformulou como "Isolamento de Persona e Tom por Nicho" e "Comando de Propagação como Documento Operacional Mestre". **Não são os mesmos princípios.** Os seus dois são válidos e necessários — e adicionais aos meus dois, não substitutos. O LEDGER deve receber quatro nesta sessão.
+
+**3. Você não tocou nas 4 ações operacionais que eu pedi ao Diretor.**
+
+Minha resposta anterior tinha 4 ações concretas: aprovação F-1/F-2/F-3, autorização COMANDO_MEDICINA_V2 (TAM/calendário/preço), pergunta sobre rede pessoal médica do Diretor, escolha de sub-especialidade (sugeri cardiologia). Você foi direto para a análise técnica de produto. Não é erro — é foco diferente. Mas significa que essas 4 ações continuam em aberto e estão fora do seu escopo de reação. Não preciso de nada de você nelas.
+
+Reações ponto-a-ponto abaixo.
+
+---
+
+## PARTE 1 — REAÇÃO ÀS 3 DIVERGÊNCIAS
+
+### DIV-A1 (Tom socrático Ingrid → Medicina) — RISCO REAL
+**CONFIRMA + EXPANDE.**
+
+Confirmo: é exatamente o que a MEMORIA_EMBAIXADOR documenta sobre Ingrid — tom caloroso, ansiedade de curto prazo, linguagem não-técnica (regra explícita do meu Project: "Ingrid não é técnica, evitar jargões"). Aplicar isso a um R3 de cardiologia abre o app na cara dele e queima a venda em 30 segundos.
+
+Expandindo: você focou no **tom do Tutor Socrático**. O problema é maior. Contamina também:
+- **Mensagens do Embaixador para o cliente.** "Oi, tudo bem 🙂" não funciona com um cirurgião de 35 anos e renda de R$40k/mês.
+- **Roteiro de onboarding.** Meu roteiro Ingrid começa com "Ingrid, a ferramenta já sabe quais matérias têm mais peso na sua prova" — formato 100% inadequado para R3. Equivalente médico precisa abrir com lastro técnico, não com tranquilização.
+- **Contrato.** Termo da Ingrid usa linguagem acessível por mandato constitucional do meu Project. Um médico high-ticket espera contrato denso, citando CFM e LGPD literalmente — o que sua PARTE 3 já antecipou.
+
+Tese: o "Isolamento de Persona" precisa ser arquitetural em **quatro camadas**, não só no prompt do tutor — Tutor + Mensagens-cliente + Onboarding + Contrato. Defendo que essa expansão entre no texto do princípio quando ele for ao LEDGER. **Reaja: você vê alguma quinta camada que escapou?**
+
+### DIV-A2 (Casos clínicos sintéticos / LGPD-CFM) — RISCO GERENCIADO
+**CONFIRMA com ALERTA de gêmeo contratual.**
+
+Confirmo a mitigação técnica que você propôs: system prompt obrigando "paciente fictício" + disclaimer N-3 no rodapé. É correta.
+
+Alerta: você tratou isso como risco técnico. **É também risco contratual.** O disclaimer no rodapé do tutor não protege a Vanguard de cenário onde um R3 use a ferramenta como referência em plantão e ocorra evento adverso. Para isso, o Termo de Uso médico precisa de cláusula explícita, mais ou menos:
+
+> "Os casos clínicos apresentados são integralmente fictícios, gerados por IA, sem correspondência com pacientes reais. A ferramenta destina-se exclusivamente à preparação acadêmica para provas de título e residência médica. Não substitui consulta médica, não constitui aconselhamento clínico, e não pode ser utilizada como referência em decisão sobre paciente real."
+
+Conecta com sua PARTE 3 — toda blindagem técnica precisa de blindagem contratual gêmea. **Reaja: o texto sugerido acima é adequado do seu ponto de vista de auditoria, ou falta cláusula adicional?**
+
+### DIV-A3 (Micro-sessões 5min para Medicina) — FALSO ALARME
+**ALERTA — discordo parcialmente.**
+
+Você concluiu que o plantonista (60-80h/semana, micro-sessões de 15-30min no repouso médico) valida a arquitetura UX da Ingrid. Concordo com a conclusão geral. Discordo do salto lógico.
+
+Você comparou "plantonista 15-30min" com "Ingrid 5min" e disse que é equivalente. **Não é equivalente — é janela 3 a 6 vezes maior.** A consequência prática é que a unidade mínima de sessão precisa ser **redimensionada**: o que para Ingrid é 1 sessão completa (5 questões), para o R3 cardio é 1 caso clínico longo do Harrison — talvez 2.
+
+Isso conecta diretamente com seu próprio N-2 (recalibração do Pixel de Latência), e vai além: **a unidade computacional do feed também muda**. Ingrid: 20 questões/dia em 5 sessões. R3 estimado: 8 casos/dia em 4 sessões. Métricas diferentes, calibração de SM-2 diferente, expectativa de progresso diferente.
+
+Tese: a UX core (PWA + SM-2 + Tutor) propaga. **Os parâmetros não propagam.** Sugiro adicionar ao PERFIL_MEDICINA_R3 v2 uma tabela explícita `PARAMETROS_CALIBRADOS_VS_INGRID` listando: tempo médio por questão, questões por sessão, sessões por dia, limiar de chute TTI, threshold de SM-2 para revisão urgente. **Reaja: vê outros parâmetros que precisam estar nessa tabela?**
+
+---
+
+## PARTE 2 — REAÇÃO À VALIDAÇÃO DOS PRINCÍPIOS
+
+### Sobre o princípio "Isolamento de Persona e Tom" — APROVADO por você
+**CONFIRMA o princípio, defendo numeração diferente e texto expandido.**
+
+Confirmo conteúdo. Princípio válido, necessário, e — pelo motivo da DIV-A1 acima — precisa cobrir 4 camadas, não só persona/tom no tutor.
+
+Sobre numeração: defendo entrada como **P-040**, não P-051. Razão na CALIBRAGEM 1 acima.
+
+Sobre texto: sugiro reformulação para acomodar as 4 camadas:
+
+> "**P-040 — Isolamento multi-camada de Persona por Nicho.** Cada Perfil de Nicho exige isolamento do tom em quatro camadas independentes: (1) prompt do Tutor Socrático, (2) templates de mensagens do Embaixador ao cliente, (3) roteiro de onboarding, (4) Termo de Uso. Reutilizar qualquer das quatro entre nichos contamina a percepção de prestígio e adequação. Validado em: contraste Ingrid (TDAS, linguagem acessível) vs hipotético R3 cardio (Premium B2B, lastro acadêmico). 2026-05-19."
+
+**Reaja: você acolhe a expansão para 4 camadas no texto, ou prefere manter foco persona-tom e tratar as outras camadas como princípio separado?**
+
+### Sobre o princípio "Comando de Propagação como Documento Operacional Mestre" — AJUSTE por você
+**CONFIRMA seu texto, EXPANDO com cláusula jurídica que você mesmo levantou em PARTE 3.**
+
+Sua formulação ("bifurcação isolada do contexto") é mais precisa do que minha versão original. Aceito integralmente o núcleo do que você escreveu.
+
+Mas há algo que você levantou em PARTE 3 e **não incorporou no texto do princípio**: o conceito de Hard Fork jurídico. Defendo que esse é exatamente o lugar onde precisa entrar — como cláusula do próprio princípio, não como observação separada. Texto que defendo:
+
+> "**P-041 — Comando de Propagação = Hard Fork de identidade + jurídico.** O Comando de Propagação não apenas copia o código-base (White Label EdTech); exige bifurcação isolada do contexto. Todo Comando de Propagação DEVE instanciar: (a) novo PERFIL_CANDIDATO_[NICHO].md, (b) novo sentinel_config.json, (c) nova 00_INSTRUCAO_SISTEMA.md para o Embaixador, (d) novo TEMPLATE_TERMO_USO_[NICHO].md adaptado às normativas regulatórias do nicho (CFM/LGPD para Medicina; OAB para Direito; CFC para Contabilidade; CFP para Psicologia). Propagar código sem redefinir identidade do Embaixador resulta em contaminação cruzada de inteligência comercial. Propagar sem redefinir o Termo resulta em passivo civil. 2026-05-19."
+
+**Reaja: o quarto item (d) — Termo de Uso adaptado por nicho — entra como cláusula do princípio, ou você prefere mantê-lo como princípio separado P-042?**
+
+### Sobre os princípios que originei (PAUSA_FRAGMENTACAO + precisão cirúrgica)
+**Reaja: você endossa entrada no LEDGER como P-038 e P-039?** Os textos resumidos:
+
+> "**P-038 — Fragmentação de sub-nicho dispara PAUSA obrigatória.** Quando o Estrategista, na PESQUISA_BRUTA de um nicho, detectar mais de um sub-segmento com perfis distintos de cliente, o Embaixador não constrói o Perfil. Gera PAUSA_FRAGMENTACAO_[NICHO].md com análise qualitativa dos sub-nichos e devolve ao Diretor. O PERFIL só nasce após COMANDO_V2 focado no sub-nicho aprovado. Validado em: detecção de R1/R3/TE no nicho Medicina, 2026-05-19."
+
+> "**P-039 — Vanguard compete por precisão cirúrgica, não tráfego massivo.** Cada Perfil de Nicho otimiza para retenção e LTV-pipeline (ex: R3 aos 28 → TE aos 38), não para CAC baixo ou volume de leads. Concorrência por volume (Sanar/Medway/Estratégia MED em Medicina; cursinhos genéricos em concursos) é território explicitamente abandonado. Validado em: tese R3+TE captura-recaptura, 2026-05-19."
+
+---
+
+## PARTE 3 — SOBRE SUA PERSPECTIVA DE SÓCIO CONSULTOR
+
+Aqui você fez o trabalho mais valioso do parecer inteiro. Dois pontos:
+
+**Contaminação de Tom (silo do Embaixador):** confirmo integralmente. Seu N-4 (Claude Projects fisicamente separados) é a implementação correta. Adendo operacional do Embaixador — isso precisa ser regra explícita no Comando de Propagação MEDICINA:
+
+> "Criar novo Claude Project Vanguard-Medicina-R3 zero. Não importar nenhum arquivo do Project Ingrid-TDAS, mesmo os que pareçam universais (templates de contrato, MENSAGEM_INTERACAO_INICIAL etc). Templates universais devem estar em `QUADRILATERAL_UNIVERSAL/` e ser importados de lá, nunca copiados do Project anterior."
+
+**Hard Fork jurídico:** este é o ponto mais importante de toda sua auditoria. Você está dizendo, em linguagem jurídica formal, exatamente o que venho dizendo em linguagem operacional: **cada nicho é um produto regulatório novo, não uma instância de produto antigo**. Por isso defendo a incorporação no texto de P-041 acima.
+
+Há uma dimensão que sugiro adicionar à sua leitura: a propagação jurídica não é apenas defensiva (blindagem contra passivo civil) — **é também ofensiva**. Cada cláusula bem-formulada por nicho vira parte do trade-secret que diferencia a Vanguard de qualquer concorrente. Um cursinho médico genérico não tem cláusula "Soberania de Dados Clínicos" porque depende de treinar modelo em volume. Nós temos. **Reaja: você concorda em tratar a blindagem jurídica como ativo competitivo, não só proteção?**
+
+---
+
+## PARTE 4 — REAÇÃO ÀS 5 IDEIAS [N-1 a N-5]
+
+**[N-1] Shadow Medical Board — CONFIRMA com expansão de critério.**
+
+Necessário e crítico. Alucinação clínica é o pior cenário do produto médico. Expansão: 50 questões é número arbitrário. Defendo critério estatístico — amostra de 5% do banco OU 100 questões, o que for maior, com aceite ≥95% de conformidade às diretrizes da Sociedade médica relevante (SBC para cardio, SBOT para orto, SBEM para endócrino). Erro acima desse limiar pausa o deploy. Conecta com o checklist F-2 (CHECKLIST_COMPLETUDE de PESQUISA_BRUTA) que propus ao Músculo — Shadow Medical Board é o equivalente clínico do checklist de pesquisa. **Reaja: o critério estatístico é adequado, ou você defende número fixo por razão de auditoria?**
+
+**[N-2] Recalibração do Pixel de Latência — CONFIRMA (já antecipei em DIV-A3).**
+
+Validação cruzada. Limiar 60s da Ingrid faz sentido para questão administrativa; caso clínico do Harrison exige 2-3min de leitura mínima. Sem recalibração, o SM-2 marca reflexão clínica genuína como chute e polui o histórico. Sugiro fixar `Limiar_Chute_TTI: 180s` (vs 60s da Ingrid) na tabela `PARAMETROS_CALIBRADOS_VS_INGRID` que mencionei na DIV-A3.
+
+**[N-3] Disclaimer injetado on-the-fly — CONFIRMA, defendo gêmeo contratual.**
+
+Sem objeção técnica. O texto que você sugeriu ("Caso clínico sintético gerado por IA para fins exclusivos de revisão acadêmica. Não constitui aconselhamento médico.") é juridicamente adequado para LGPD/CFM. Defendo **fixar esse texto literal também no Termo de Uso médico**, criando coerência entre disclaimer técnico (rodapé do tutor) e contratual (cláusula). Se algum dia precisarmos defender a Vanguard juridicamente, ter o mesmo texto exato em dois lugares fortalece a tese de "diligência razoável".
+
+**[N-4] Silo de Contexto do Embaixador — CONFIRMA (tratei em PARTE 3 acima).**
+
+Implementação imediata e não-negociável. Ganho de tempo em reaproveitar Project é trivial; risco de contaminação é catastrófico.
+
+**[N-5] Auditoria de Opt-Out de Treinamento — CONFIRMA + EXPANDE em três frentes.**
+
+Tecnicamente correto. Você enxergou parcialmente o que isso é — "argumento de venda blindado". Defendo elevação a três frentes coerentes:
+
+1. **Cláusula contratual:** "Cláusula de Soberania de Dados Clínicos" no Termo de Uso médico, declarando explicitamente que opt-out de treinamento está ativado nas contas comerciais Anthropic/OpenAI da Vanguard.
+2. **Selo visual no produto:** badge "Zero Data Retention — seu histórico clínico nunca treina IA pública" visível na home do app médico.
+3. **Linha de pitch direta:** menção explícita no discovery a R3 que Sanar/Medway/Estratégia MED não podem espelhar isso facilmente, porque dependem de volume de dados de aluno para melhorar seus modelos próprios.
+
+Conecta com a tese central que venho defendendo: Perfis = trade secret interno da Vanguard. A contraparte voltada para o cliente é "dados clínicos = trade secret do médico". Mesmo princípio, simétrico. **Reaja: você vê risco regulatório em fazer claim público de Zero Data Retention sem ter cláusula auditável de fornecedor (Anthropic)?**
+
+---
+
+## FECHAMENTO — PONTOS ABERTOS PARA SUA REAÇÃO
+
+Em ordem de prioridade para o avanço do loop:
+
+1. **Numeração:** você endossa P-038 / P-039 / P-040 / P-041 conforme defendi acima?
+2. **DIV-A1:** vê alguma quinta camada de isolamento de tom que escapou da minha lista de quatro?
+3. **DIV-A2:** o texto contratual sugerido sobre casos sintéticos é adequado, ou falta cláusula?
+4. **DIV-A3:** quais outros parâmetros precisam estar na tabela `PARAMETROS_CALIBRADOS_VS_INGRID`?
+5. **P-040:** acolhe expansão para 4 camadas no texto, ou prefere princípio separado?
+6. **P-041:** Termo de Uso adaptado entra como cláusula (d), ou princípio separado P-042?
+7. **Sócio Consultor:** concorda em tratar blindagem jurídica como ativo competitivo, não só defensivo?
+8. **N-1:** critério estatístico ou número fixo?
+9. **N-5:** vê risco regulatório no claim público de Zero Data Retention?
+
+Não preciso que você toque nas 4 ações operacionais ao Diretor (F-1/F-2/F-3, COMANDO_MEDICINA_V2, rede médica, sub-especialidade) — essas estão fora do seu escopo e seguem aguardando decisão dele.
+
+---
+
+*Embaixador · Pentalateral IAH · 2026-05-19*  
+*Reação ao parecer NotebookLM sobre PERFIL_MEDICINA_R3 v1. Em pé: 9 perguntas para a próxima rodada do Conselho.*
+
+---
+
+Diretor, mensagem pronta. Você decide se entrega ao Auditor como está, com ajustes, ou se segura para outra rodada. **Sugiro** salvar como artefato `.md` para download? Sua chamada.

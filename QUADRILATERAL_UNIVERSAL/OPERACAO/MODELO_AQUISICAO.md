@@ -105,11 +105,71 @@ MÊS 4+         → Meta Ads + parcerias → escala consistente
 
 ---
 
+---
+
+## AQUISIÇÃO POR NICHO PROFISSIONAL — BUSCA SEMÂNTICA
+
+> Modelo validado em PROJ-001 Valdece (2026-05-19). Replicável para Contabilidade, Médico, Psicologia.
+
+### O Produto — "Cérebro Soberano Vanguard"
+
+Não vendemos software como serviço. Vendemos **propriedade intelectual automatizada**:
+- A infra fica na conta do cliente (Opção A — soberania total)
+- O cliente não paga mensalidade de uso — paga pelo setup e pelo monitoramento opcional
+- Argumento central: "Se você quiser nos demitir em 30 minutos, pode — está escrito aqui."
+
+**Posicionamento:** "Testamos 12 queries antes de sentar com você."
+
+### Processo de Venda — "Protocolo de Garantia Soberana"
+
+O gate de validação semântica (P-042) **é o argumento de fechamento**, não documentação técnica:
+
+1. **Discovery** → capturar a cena de sucesso (P-041): "Me descreve o momento onde este sistema te salvaria"
+2. **Build** → gate de validação com 12 queries do nicho real — documentado como artefato
+3. **Demo** → abrir reproduzindo a cena do cliente; não demonstrar features
+4. **Proposta** → apresentar o Sovereign Playbook antes do contrato: "Você pode nos demitir em 30 minutos"
+5. **Entrega** → gate documentado entregue fisicamente como "Protocolo de Garantia Soberana"
+
+### Pricing por Segmento (validado PROJ-001)
+
+| Segmento | Setup | Manutenção | V2 |
+|---|---|---|---|
+| Profissional autônomo (1º cliente do nicho) | R$5.000–9.500 | R$350/mês opcional | R$8.500–12.000 |
+| Replicação (2º+ cliente mesmo nicho) | R$9.500–14.000 | R$350/mês opcional | R$8.500–12.000 |
+| Escritório pequeno (2–5 usuários) | R$14.000–22.000 | R$350–700/mês | A definir |
+
+**Manutenção inclui:** Sentinel Report mensal + monitoramento de endpoints + suporte técnico.  
+**Zero Churn cláusula:** testar com o cliente de nicho por 30 dias antes de incluir no contrato padrão.
+
+### Estratégia de Indicação — "Crédito de Expansão entre Pares"
+
+Ativar no **Dia 15 pós-entrega** (Sentinel Report + café):
+
+> *"[Cliente], o seu sistema está isolado na sua infraestrutura — garantia de sigilo. Se você indicar dois colegas com a mesma dor que fechem o próprio Cérebro Soberano conosco, absorvemos o custo de engenharia e instalamos [feature V2 do nicho] sem cobrar nada."*
+
+Resultado: cliente vira guardião do produto porque a indicação amplia o poder da sua própria ferramenta.
+
+**Gatilho passivo (durante a demo):** qualquer menção de colega → registrar no WIP_BOARD com `cena_provavel`.  
+**Gatilho ativo (Dia 15):** Crédito de Expansão apresentado formalmente.
+
+### O Corpus_gap como Argumento de V2
+
+O Sentinel Report entregue em 14 dias inclui obrigatoriamente:
+- Temas cobertos com sim ≥ 0.70
+- **Temas com baixa similaridade** (corpus_gap) ← o argumento de V2 pronto
+
+"Os 22 temas que o sistema não cobriu ainda" é a venda da V2 documentada matematicamente.
+
+---
+
 ## O MAIOR ATIVO DE MARKETING
 
 Não é verba. É o processo do Quadrilateral mostrado funcionando em público.
 As pessoas compram o que conseguem ver acontecendo — não o que é prometido.
 
+O segundo maior ativo: **o gate documentado de um projeto real**. "Testamos 12 queries antes de sentar com você" vale mais que qualquer campanha.
+
 ---
 
 *Atualizar após cada cliente: o que funcionou no canal de aquisição, qual abordagem converteu melhor, qual nicho respondeu mais rápido.*
+*Última atualização: 2026-05-19 — PROJ-001 Valdece (case fundacional LegalTech)*

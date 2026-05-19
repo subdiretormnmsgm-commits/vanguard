@@ -62,15 +62,43 @@ Nível de confiança: [Alto / Médio / Baixo] — porque: [razão]
 
 ---
 
+## CENA DE SUCESSO DO CLIENTE (P-041 — obrigatório)
+
+> Copiar da P2 do discovery. O Músculo relê esta cena antes de cada dia de build.
+> Toda decisão técnica é avaliada: "Esta decisão aproxima ou afasta da cena do cliente?" (P-044)
+
+**Cena descrita pelo cliente:**
+_______________________________________________
+
+**Como a demo abre reproduzindo esta cena:**
+_______________________________________________
+
+---
+
+## GATE DE VALIDAÇÃO — PROTOCOLO DE GARANTIA SOBERANA (P-042)
+
+> Executar ANTES da demo. Documentar como artefato formal de entrega.
+
+| Área | Query testada | Melhor sim | Latência | Status |
+|---|---|---|---|---|
+| [área 1] | [query] | 0.__ | __s | 🟢/🟡/🔴 |
+| [área 2] | [query] | 0.__ | __s | 🟢/🟡/🔴 |
+| Coringa | [query] | 0.__ | __s | 🟢/🟡/🔴 |
+
+**Threshold aprovação:** sim ≥ 0.67 | **Latência alvo:** < 3s | **Top:** 3  
+**Artefato:** `GATE_[NICHO]_[DATA].md` — entregue ao cliente no handoff como "Protocolo de Garantia Soberana"
+
+---
+
 ## SEQUÊNCIA DE BUILD RECOMENDADA
 
 ```
 MÓDULO 0 — INJECÇÕES SOBERANAS (sempre primeiro)
   0.1 Sovereign Pixel + FIRE Event: [success_event]
-  0.2 Burn Rate Shield
+  0.2 Burn Rate Shield (hard-limit diário de API)
   0.3 Kill-Switch Soberano
   0.4 LGPD/GDPR
-  0.5 Ticket Médio Wizard
+  0.5 Região Supabase: sa-east-1 (São Paulo) — obrigatório para clientes BR
 
 Módulo 1: [nome] — [porquê prioritário]
 Módulo 2: [nome] — [dependência do Módulo 1]
@@ -96,5 +124,32 @@ Módulo 3: [nome] — [risco: SIM/NÃO — se SIM: qual]
 
 ---
 
+---
+
+## ROTEIRO DA DEMO (P-041 — estruturada na cena, não nas features)
+
+```
+Abertura: "[Cena descrita pelo cliente na P2]." — reproduzir verbalmente
+Busca 1 e 2: Eduardo conduz — silêncio total durante o resultado
+Busca 3: mostrar funcionalidade diferencial do nicho
+Busca 4 (H-2): cliente digita sozinho — Eduardo não toca no teclado
+Sovereign Playbook: "Se eu sumir, você opera em 3 passos."
+Corpus_gap: "Estes [N] temas ainda não estão cobertos — V2 resolve."
+Contrato: "O sistema é seu. Isso aqui só formaliza."
+```
+
+---
+
+## CORPUS_GAP COMO SLA DO SENTINEL REPORT
+
+> Documentar antes da demo. Entregue ao cliente como argumento de V2.
+
+**Temas cobertos:** [N]  
+**Temas pendentes (corpus_gap):** [M]  
+**Gatilho de V2:** corpus ≥ 500 docs ou 30 dias de uso ativo
+
+---
+
 *Skill gerada pelo NotebookLM (Auditor) · Quadrilateral IAH · V[X]*
+*Atualizado 2026-05-19: P-041 (cena de sucesso) + P-042 (gate como artefato) + P-044 (demo na cena)*
 *atualizar ao fechar a iteração com novos padrões identificados*

@@ -39,11 +39,12 @@ ACT   → relatorio_evolutivo + próxima iteração
 ### FINANCEIRO
 | KPI | Meta | Real | Status |
 |-----|------|------|--------|
-| Receita no mês (projetos) | R$8.500+/projeto | R$___ | 🟢🟡🔴 |
-| Retainers ativos | 3 no mês 6 | ___ | 🟢🟡🔴 |
-| Receita recorrente mensal (MRR) | R$7.500 no mês 6 | R$___ | 🟢🟡🔴 |
+| Receita no mês (projetos) | R$5.000–14.000/projeto | R$___ | 🟢🟡🔴 |
+| Manutenções ativas (R$350/mês cada) | 3 no mês 6 | ___ | 🟢🟡🔴 |
+| Receita recorrente mensal (MRR) | R$1.050+ no mês 6 (3× R$350) | R$___ | 🟢🟡🔴 |
 | Custo operacional IAH | ≤ R$500/mês | R$___ | 🟢🟡🔴 |
 | Margem operacional | ≥ 90% | ___% | 🟢🟡🔴 |
+| Gates executados (Protocolo de Garantia Soberana) | 1 por projeto | ___ | 🟢🟡🔴 |
 
 ### QUALIDADE
 | KPI | Meta | Real | Status |

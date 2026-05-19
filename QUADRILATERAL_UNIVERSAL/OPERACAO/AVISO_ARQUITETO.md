@@ -86,6 +86,26 @@ Resultado enviado por email ao Diretor
 
 ---
 
+## ANTI-PADRÃO 6 — Replicação Semântica sem DFD (P-043)
+
+**Gatilho:** Estrategista propõe replicar sistema de busca semântica para novo nicho sem diagnóstico prévio do corpus.
+
+**Risco — P-043 (Falácia da Homogeneidade dos Nichos):** "Replicação não é trocar a URL dos dados." Nichos diferentes têm fontes diferentes, taxas de obsolescência diferentes, restrições éticas/legais diferentes. Um nicho com documentos em papel/oral não tem corpus semântico viável.
+
+**DFD obrigatório (4 perguntas):**
+```
+DFD-1. FONTE: documentos em formato digital estruturado? VERDE/AMARELO/VERMELHO
+DFD-2. OBSOLESCÊNCIA: frequência de atualização do corpus? VERDE/AMARELO/VERMELHO
+DFD-3. RESTRIÇÕES: limitações éticas/legais/licença? VERDE/AMARELO/VERMELHO
+DFD-4. ESTRUTURA: vocabulário técnico consolidado? VERDE/AMARELO/VERMELHO
+2+ VERMELHOS = não replicar sem solução de corpus
+```
+
+**Ação obrigatória do Músculo:**
+> "⚠️ ALERTA ARQUITETO P-043: Replicação semântica proposta para [NICHO]. DFD obrigatório antes de qualquer build. Executando diagnóstico... [resultado]. Eduardo, veredito antes de avançar?"
+
+---
+
 ## CONSTITUIÇÃO DE PROCESSO — VETO DO MÚSCULO (V24)
 
 > Aprovado pelo Diretor Eduardo em 2026-05-12.

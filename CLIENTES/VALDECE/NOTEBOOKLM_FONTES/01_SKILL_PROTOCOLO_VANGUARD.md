@@ -1,9 +1,9 @@
 ﻿---
 name: protocolo-vanguard
-description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
+description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
 ---
 
-# PROTOCOLO VANGUARD — Modelo Pentalateral IAH
+# PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
 **Versão da Skill:** 6.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **4º Membro: Embaixador + P-031 Filtro de Realidade (2026-05-18)**
 
 ---
@@ -321,7 +321,7 @@ QUADRILATERAL IAH — EDUARDO → GEMINI
 projeto: [nome] | ITERAÇÃO: V[X] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Pentalateral IAH — agora com 5 membros.
+Gemini, somos o Quadrilateral IAH — agora com 4 membros.
 Estrategista (tu) | Diretor (eu) | Auditor (NotebookLM) | Músculo (Claude Code) | Embaixador (Claude Projects)
 
 [SE ITERAÇÃO INICIAL — colar briefing do cliente:]
@@ -392,7 +392,7 @@ QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
 projeto: [nome] | ITERAÇÃO: V[X]
 ════════════════════════════════════════════════════════════
 
-NotebookLM, actuas como Sócio Consultor do Pentalateral IAH.
+NotebookLM, actuas como Sócio Consultor do Quadrilateral IAH.
 Não apenas arquivo — consultor ativo com memória longa.
 
 ANALISA O projeto [NICHO/TIPO] COM 4 objetivos:
@@ -1064,42 +1064,52 @@ porque construir a coisa errada com perfeição é o maior desperdício possíve
 
 ---
 
-## FASE 0 — DISCOVERY (7 Perguntas Universais)
+## FASE 0 — DISCOVERY (8 Perguntas V3 — P-041)
 
 > 💡 Usar o `DISCOVERY_CARD.md` como guia de reunião — tem as 3 perguntas de qualificação
-> e as 7 perguntas de Discovery formatadas para anotação direta no celular ou papel.
+> e as 8 perguntas de Discovery V3 formatadas para anotação direta no celular ou papel.
 > O Bloco D do Discovery Card alimenta diretamente o `PERFIL_CLIENTE_TEMPLATE.md`.
+> **P-041:** P2 (Cena de Sucesso) e P8 (Expansão Futura) são OBRIGATÓRIAS — sem elas a demo falha.
 
-Perguntar **uma de cada vez**. Não avançar para Fase 1 sem as 7 respostas.
+Perguntar **uma de cada vez**. Não avançar para Fase 1 sem as 8 respostas.
 
 ```
-1. projeto
+1. PROJETO
    O que é? (ecommerce, app, site, SaaS, automação, modelo de negócio, outro?)
    Quem é o cliente ideal? Qual o mercado?
 
-2. PROBLEMA
+2. CENA DE SUCESSO ★ OBRIGATÓRIA (P-041)
+   "Daqui a 6 meses, como é um dia perfeito com este sistema funcionando?"
+   Descrever a cena em detalhe: o que o cliente faz, o que vê, o que sente.
+   → Esta cena é o script da demo. O sistema é aprovado se reproduzir a cena.
+   → Registrar em BRIEFING_DISCOVERY → campo cena_sucesso_descrita.
+
+3. PROBLEMA
    Qual o maior problema que este projeto resolve HOJE?
    Sem este projeto, o que acontece? Qual a dor concreta?
 
-3. VOLUME
+4. VOLUME
    Quantos utilizadores / clientes / transações por mês?
    Pequeno: <1.000 | Médio: 1k–50k | Grande: 50k+
 
-4. RECEITA
+5. RECEITA
    Como o projeto gera dinheiro?
    (venda direta, subscrição, comissão, publicidade, freemium, serviço?)
    Qual o ticket médio ou revenue esperado?
 
-5. ESTADO atual
+6. ESTADO ATUAL
    O que já existe? (código, design, domínio, contas, APIs?)
    Qual a stack atual, se existir?
 
-6. URGÊNCIA
+7. URGÊNCIA
    Há um prazo, evento ou pressão que define a entrega?
    (lançamento, apresentação, investidor, sazonalidade?)
 
-7. RECURSOS
-   Orçamento aproximado, tempo disponível, equipe, ferramentas já pagas?
+8. EXPANSÃO FUTURA ★ OBRIGATÓRIA (P-041 / P-008)
+   "Se isto funcionar, quem mais neste setor deveria ter?"
+   Coletar nomes e contatos de outros profissionais mencionados pelo cliente.
+   → Alimenta pipeline de "Crédito de Expansão entre Pares" (P-008).
+   → Registrar em BRIEFING_DISCOVERY → campo leads_indicados[].
 ```
 
 **8. FIRE EVENT MAPPING (Obrigatório — alimenta o Sentinel e a telemetria)**
@@ -1124,13 +1134,37 @@ Perguntar **uma de cada vez**. Não avançar para Fase 1 sem as 7 respostas.
    A telemetria é pré-configurada para este evento no **Módulo 0** do Plano de Build —
    antes de qualquer funcionalidade pedida pelo cliente.
 
-**Checklist de Discovery:**
-- [ ] As 8 perguntas foram respondidas (incluindo FIRE Event Mapping)
+**DFD — Diagnóstico de Fricção de Dados (P-043 — obrigatório para projetos de busca semântica)**
+
+Antes de propor motor semântico para qualquer nicho:
+
+```
+DFD-1. FONTE: Os documentos do nicho existem em formato digital estruturado?
+       VERDE = PDF/Word/sistema próprio | AMARELO = misto | VERMELHO = papel/oral
+
+DFD-2. OBSOLESCÊNCIA: Com que frequência os documentos ficam desatualizados?
+       VERDE = anual ou raramente | AMARELO = mensal | VERMELHO = semanal+
+
+DFD-3. RESTRIÇÕES: Há limitações éticas, legais ou de licença no corpus?
+       VERDE = domínio público / próprio | AMARELO = uso interno | VERMELHO = scraping externo
+
+DFD-4. ESTRUTURA SEMÂNTICA: O vocabulário do nicho tem termos técnicos consolidados?
+       VERDE = linguagem técnica estabelecida | VERMELHO = jargão variável por região/autor
+```
+
+2+ VERMELHOS → não replicar busca semântica neste nicho sem solução de corpus.
+→ P-043: "Falácia da Homogeneidade dos Nichos — replicação não é trocar a URL dos dados."
+
+**Checklist de Discovery V3:**
+- [ ] As 8 perguntas foram respondidas (P2 cena de sucesso + P8 expansão futura OBRIGATÓRIAS)
+- [ ] Cena de sucesso documentada em campo `cena_sucesso_descrita`
+- [ ] Leads de indicação registrados em `leads_indicados[]`
 - [ ] Ticket médio ou revenue declarado
 - [ ] Problema principal identificado em 1 frase
 - [ ] Camada estimada (1–5)
 - [ ] Urgência documentada
 - [ ] FIRE Event mapeado e código `success_event` definido
+- [ ] DFD executado (se projeto envolve busca semântica)
 
 ---
 
@@ -1221,7 +1255,7 @@ Confirmas para avançar? →
 projeto CLIENTE — DIRETRIZ ESTRATÉGICA V1
 ════════════════════════════════════════════════════════════
 
-Somos o Pentalateral IAH. Novo projeto de cliente.
+Somos o Quadrilateral IAH. Novo projeto de cliente.
 Analisa o briefing e gera a Diretriz com 5 blocos.
 
 --- BRIEFING ---
@@ -1380,7 +1414,7 @@ Inclui obrigatoriamente: 5 ideias disruptivas para a próxima iteração.
 **Comando Padrão para o Auditor:**
 
 ```
-Actuas como Auditor do Pentalateral IAH.
+Actuas como Auditor do Quadrilateral IAH.
 
 Analisa o projeto [NICHO/TIPO] com estes objetivos:
 
@@ -1921,6 +1955,12 @@ ALTER TABLE tenant_config
 
 ### LEI 4 — ZERO SUPORTE HUMANO (Sovereign Playbook)
 
+> **P-042 — Protocolo de Garantia Soberana:**
+> O Sovereign Playbook é apresentado ao cliente ANTES da assinatura do contrato — não no handoff.
+> É o argumento comercial mais poderoso: "Se você quiser nos demitir em 30 minutos, pode — está aqui."
+> Destrói a objeção de vendor lock-in antes que ela seja formulada.
+> Após assinatura, cópia física/digital é entregue como parte do "Protocolo de Garantia Soberana".
+
 Gerar o Sovereign Playbook personalizado na clonagem de cada projeto.
 
 ```
@@ -1999,7 +2039,7 @@ Adicionar ao Checklist de Handoff ao Cliente:
 - [ ] **L1** — Sovereign Pixel integrado e testado (CNAME preferencial ou snippet verificado)
 - [ ] **L2** — Banner de cookies funcional + tabela `user_consents` com registo de teste
 - [ ] **L3** — `sentinel_config.json` + Ticket Médio Wizard configurado + report testado em staging
-- [ ] **L4** — Sovereign Playbook gerado e entregue ao cliente (PDF confirmado)
+- [ ] **L4** — Sovereign Playbook gerado e apresentado ANTES do contrato (P-042) + entregue no handoff (PDF)
 - [ ] **L5** — Variáveis Burn Rate no `.env` + alerta de 75% testado
 - [ ] **L6** — Kill-Switch ativo + grace period 72h + ToS/contrato cobre degradação
 - [ ] **L7** — `feature_flags.json` no boilerplate + teasers das Camadas superiores testados
@@ -2282,7 +2322,7 @@ Traz-me o problema. Entregamos a solução.
 
 ---
 
-*Skill criada pelo Músculo · Pentalateral IAH · V4.5*
+*Skill criada pelo Músculo · Quadrilateral IAH · V4.5*
 *Universal: ecommerce, app, site, SaaS, modelo de negócio, automação, IA*
 *Portátil: copiar para qualquer projeto, preencher CONFIGURAÇÃO DO OPERADOR, ativar*
 *ativa sempre que o Diretor disser: PROTOCOLO VANGUARD*
@@ -2393,4 +2433,3 @@ Decisões fixas: sem scraping TEC Concursos (P-003), auth single-user, sem Strip
 ---
 
 *V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid*
-

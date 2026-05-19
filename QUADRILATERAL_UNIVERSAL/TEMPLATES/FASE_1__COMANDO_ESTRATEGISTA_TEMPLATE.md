@@ -4,13 +4,13 @@
 > ─────────────────────────────────────────────────────────────────────────
 
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → GEMINI
+PENTALATERAL IAH — EDUARDO → GEMINI
 projeto: [nome] | ITERAÇÃO: V[X+1] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH.
+Gemini, somos o Pentalateral IAH.
 Tu és o Estrategista. Eu sou o Diretor. O NotebookLM é o Auditor.
-O Claude Code é o Músculo.
+O Claude Code é o Músculo. O Claude Projects é o Embaixador — tem memória persistente do cliente.
 
 A iteração V[X] foi concluída. Analisa o que foi construído,
 reage às ideias do Músculo, e cria a DIRETRIZ V[X+1].
@@ -36,6 +36,7 @@ MRR / Revenue atual: [valor ou "pré-lançamento"]
 Clientes ativos: [N ou "0 — a prospectar"]
 Próximo objetivo de negócio: [o que o Diretor quer atingir em V[X+1]]
 FIRE Event ativo: `[success_event]` — [N] eventos registados na última semana
+Cena de sucesso do cliente (P-041): "[resposta literal do cliente à P2 do Discovery]"
 
 ────────────────────────────────────────────
 [REAGE A ESTAS IDEIAS DO MÚSCULO]

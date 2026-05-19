@@ -1,6 +1,6 @@
-﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
-**O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
-**Versão:** 1.1 · 2026-05-11 · Organismo Vivo — atualizar após cada projeto
+﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO QUADRILATERAL IAH
+**O guia completo de Eduardo para coordenar Gemini, NotebookLM e Claude Code**
+**Versão:** 1.2 · 2026-05-14 · Organismo Vivo — atualizar após cada projeto
 
 ---
 
@@ -40,7 +40,7 @@
       │                     │                     │                    │
  [PASSO 2]                  │                     │                    │
  Discovery                  │                     │                    │
- 7 perguntas                │                     │                    │
+ 9 perguntas V3             │                     │                    │
       │                     │                     │                    │
  [PASSO 3]                  │                     │                    │
  ──── COMANDO 1 ──────────► │                     │                    │
@@ -101,7 +101,62 @@
 
 ---
 
-## PARTE 0 — SECRETÁRIO VIRTUAL (opera antes de você)
+## PARTE 0 — CARTÃO DE ATIVAÇÃO RÁPIDA — ANTES DE CADA LOOP
+
+> Imprima ou deixe aberto. Antes de ir a qualquer membro do Conselho, passe por este card.
+
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║          CHECKLIST DO DIRETOR — INÍCIO DE LOOP                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  ANTES DE IR AO GEMINI (Passo 3):                                   ║
+║  [ ] Abrir CLIENTES/[PROJETO]/PASSO3_GEMINI.md                      ║
+║  [ ] Atualizar bloco "CONTEXTO DO PROJETO":                         ║
+║      → O que foi construído (dias e outputs reais)                  ║
+║      → O que falta (dias restantes e o que cada um produz)          ║
+║      → Maior risco atual                                            ║
+║      → Decisões fixadas no projeto (não reverter)                   ║
+║      → As 5 ideias do Músculo do último relatorio_evolutivo         ║
+║  [ ] Enviar ao Gemini NESTA ORDEM:                                  ║
+║      1. MEMORIA_V[X].md                                              ║
+║      2. relatorio_evolutivo_V[X].md                                  ║
+║      3. PASSO3_GEMINI.md ← por último                               ║
+║                                                                      ║
+║  ANTES DE IR AO NOTEBOOKLM (Passo 5):                              ║
+║  [ ] Abrir CLIENTES/[PROJETO]/PASSO5_NOTEBOOKLM.md                 ║
+║  [ ] Carregar fontes NO NOTEBOOKLM NESTA ORDEM (antes de colar):   ║
+║      1. MEMORIA_V[X].md                                              ║
+║      2. relatorio_evolutivo_V[X].md                                  ║
+║      3. INTELLIGENCE_LEDGER.md                                       ║
+║      4. SKILL_PROTOCOLO_VANGUARD.md                                  ║
+║      5. BRIEFING_DISCOVERY.md do cliente                             ║
+║      6. DIRETRIZ do Gemini (recém-recebida)                          ║
+║  [ ] Atualizar bloco "CONTEXTO DO PROJETO" do PASSO5               ║
+║  [ ] Colar o PASSO5_NOTEBOOKLM.md no chat do NotebookLM            ║
+║                                                                      ║
+║  ANTES DE ACIONAR O MÚSCULO (Passo 6):                             ║
+║  [ ] Salvar a Skill do NotebookLM em .claude/skills/[projeto].md   ║
+║  [ ] Dizer: "PROTOCOLO VANGUARD — [projeto]. Leia tudo e delibere." ║
+║  [ ] Trazer: Skill + DIRETRIZ (o Músculo lê o PASSO6 internamente) ║
+║  [ ] Aguardar deliberação — não aprovar build antes do plano        ║
+║                                                                      ║
+║  AO FECHAR O LOOP (Passo 9–10):                                    ║
+║  [ ] Receber MEMORIA + relatorio_evolutivo + COMANDO_ESTRATEGISTA   ║
+║  [ ] Validar os 3 entregáveis (checklists no Passo 9)              ║
+║  [ ] Aprovar commit                                                  ║
+║  [ ] Colar COMANDO_ESTRATEGISTA no Gemini → loop recomeça           ║
+║  [ ] Atualizar INTELLIGENCE_LEDGER com fricções da sessão           ║
+╚══════════════════════════════════════════════════════════════════════╝
+```
+
+> **Regra crítica:** Os arquivos PASSO3_GEMINI.md, PASSO5_NOTEBOOKLM.md e PASSO6_MUSCULO.md
+> existem UM POR PROJETO — não um por loop. Eduardo atualiza apenas o bloco de CONTEXTO
+> antes de cada loop. Os protocolos anti-deficiência são permanentes e nunca são editados.
+
+---
+
+## PARTE 0.5 — SECRETÁRIO VIRTUAL (opera antes de você)
 
 > Se o Secretário Virtual estiver ativo (`SECRETARIO_VIRTUAL/`), os Passos 1 e 2 são automáticos.
 > O cliente preenche o formulário → você recebe o briefing por email → vai direto para o Passo 3.
@@ -190,13 +245,20 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 8 PERGUNTAS DE DISCOVERY — ANOTAR AS RESPOSTAS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. projeto
+1. PROJETO
    "O que é exatamente o que precisas?"
    (ecommerce, app, site, SaaS, automação, modelo de negócio, outro?)
    "Quem é o teu cliente ideal? Qual o teu mercado?"
    → Resposta: _______________________________________________
 
-2. PROBLEMA (em números)
+2. CENA DE SUCESSO ★ OBRIGATÓRIA (P-041)
+   "Daqui a 6 meses, como é um dia perfeito com este sistema funcionando?"
+   "Descreve: o que você faz, o que vê, o que sente quando funciona do jeito certo."
+   → Resposta: _______________________________________________
+   → Esta cena é o script da demo. O sistema é aprovado se a reproduzir.
+   → Guardar em BRIEFING_DISCOVERY → campo cena_sucesso_descrita
+
+3. PROBLEMA (em números)
    "Qual o maior problema que este projeto resolve HOJE?"
    "Dá-me um número — horas/semana, clientes perdidos, quanto deixas de faturar?"
    "Se não resolvermos isso, o que acontece concretamente?"
@@ -233,6 +295,13 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 8. RECURSOS E ORÇAMENTO
    "Qual é o orçamento aproximado? Tens equipe? Que ferramentas já usas?"
    → Resposta: _______________________________________________
+
+9. EXPANSÃO FUTURA ★ OBRIGATÓRIA (P-041 / P-008)
+   "Se isto funcionar, quem mais no seu setor deveria ter?"
+   "Tem colegas, parceiros ou conhecidos que teriam o mesmo problema?"
+   → Nomes mencionados: _______________________________________________
+   → Esta informação alimenta o "Crédito de Expansão entre Pares" (P-008)
+   → Guardar em BRIEFING_DISCOVERY → campo leads_indicados[]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -247,13 +316,40 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 
 ---
 
-### PASSO 3 — Você ativa o Gemini (COMANDO 1)
+### PASSO 3 — Você ativa o Gemini
 
 **Onde:** Chat do Gemini Advanced
-**Tempo:** 5 minutos seus + 5–15 minutos do Gemini
-**Output:** DIRETRIZ com 5 blocos
+**Tempo:** 5 minutos seus (preencher contexto) + 5–15 minutos do Gemini
+**Output:** DIRETRIZ com 7 blocos obrigatórios + 5 ideias disruptivas
 
-Copiar o comando abaixo, preencher os campos `[entre colchetes]` com as respostas do Discovery, e enviar:
+**Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO3_GEMINI.md`
+- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md`
+- Projeto existente → abrir o arquivo, atualizar só o bloco `## 📋 CONTEXTO DO PROJETO`
+
+**O que Eduardo atualiza no bloco de contexto (5 min):**
+```
+Loop atual:         Loop [N]
+Construído até aqui: [dias entregues e outputs reais]
+O que falta:        [dias restantes e o que cada um produz]
+Maior risco agora:  [risco técnico ou comercial mais urgente]
+Decisões fixadas:   [ex: Opção A, PWA, STJ adicionado — não reverter]
+5 ideias do Músculo: [do último relatorio_evolutivo — copiar por nome]
+```
+
+**Ordem de envio ao Gemini (obrigatória — nunca inverter):**
+```
+1º → MEMORIA_V[X].md
+2º → relatorio_evolutivo_V[X].md
+3º → PASSO3_GEMINI.md  ← por último (o contexto carrega antes da nova ideia)
+```
+
+> O PASSO3_GEMINI.md já contém o Protocolo Anti-Deriva (4 contra-ataques ao Gemini)
+> e as instruções para o Gemini compensar as deficiências do Músculo na DIRETRIZ.
+> Eduardo não precisa escrever nada disso — já está no arquivo.
+
+**Para projetos novos (primeira iteração) — usar o comando direto abaixo:**
+
+Copiar o comando, preencher os campos `[entre colchetes]` com as respostas do Discovery, e enviar:
 
 ```
 ════════════════════════════════════════════════════════════
@@ -261,7 +357,7 @@ QUADRILATERAL IAH — EDUARDO → GEMINI
 projeto: [nome do projeto] | ITERAÇÃO: V1 | DATA: [data de hoje]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Pentalateral IAH.
+Gemini, somos o Quadrilateral IAH.
 Tu és o Estrategista. Eu sou o Diretor.
 O NotebookLM é o Auditor. O Claude Code é o Músculo.
 
@@ -347,20 +443,28 @@ O problema central é [descrever em 1 frase o que você entendeu]."
 
 ---
 
-### PASSO 5 — Você ativa o NotebookLM (COMANDO 2)
+### PASSO 5 — Você ativa o NotebookLM
 
 **Quando usar:** Camada 2 ou superior, OU quando há projetos anteriores com módulos reutilizáveis.
 **Quando saltar:** Primeiro projeto de sempre (sem histórico), OU Camada 1 simples.
 
 **Onde:** Interface do NotebookLM
-**Tempo:** 10 minutos seus + 10–20 minutos do NotebookLM
+**Tempo:** 10 minutos seus (carregar fontes + atualizar contexto) + 10–20 minutos do NotebookLM
 
-**ANTES de colar o comando, carregar estas fontes no NotebookLM:**
+**Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO5_NOTEBOOKLM.md`
+- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md`
+- Projeto existente → abrir o arquivo, atualizar só o bloco `## 📋 CONTEXTO DO PROJETO`
+
+> O PASSO5_NOTEBOOKLM.md já contém o Protocolo Anti-Alucinação (4 contra-ataques ao NotebookLM)
+> e as instruções para o Auditor compensar as deficiências do Músculo na Skill.
+> Eduardo não precisa escrever nada disso — já está no arquivo.
+
+**ANTES de colar o PASSO5_NOTEBOOKLM.md, carregar estas fontes no NotebookLM NESTA ORDEM:**
 
 ```
 FONTES A CARREGAR (na ordem):
 1. DIRETRIZ_V1_ESTRATEGISTA.txt    ← output do Gemini (Passo 3)
-2. BRIEFING_DISCOVERY.txt          ← as 7 respostas (Passo 2)
+2. BRIEFING_DISCOVERY.txt          ← as 9 respostas V3 — P-041 (Passo 2)
 3. MEMORIA_V[X].md                 ← se existirem MEMORIAs anteriores
 4. relatorio_evolutivo_v[X].md     ← se existirem relatórios anteriores
 5. skill-v[X].md anterior          ← se existir Skill de iteração anterior
@@ -377,7 +481,7 @@ QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
 projeto: [nome] | ITERAÇÃO: V1
 ════════════════════════════════════════════════════════════
 
-NotebookLM, actuas como Sócio Consultor do Pentalateral IAH.
+NotebookLM, actuas como Sócio Consultor do Quadrilateral IAH.
 Não apenas arquivo — consultor ativo com memória longa.
 
 ANALISA O projeto [NICHO/TIPO] COM 4 objetivos:
@@ -451,33 +555,36 @@ Fontes carregadas: [listar os arquivos que carregou]
 
 ---
 
-### PASSO 6 — Você ativa o Claude Code
+### PASSO 6 — Você ativa o Músculo (Claude Code)
 
 **Onde:** Terminal com Claude Code instalado
-**O que escrever (primeiro comando):**
+**Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO6_MUSCULO.md`
+- O Músculo lê este arquivo internamente antes de deliberar
+- Eduardo não precisa colar o PASSO6 — ele é o guia interno do Músculo
+- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md`
 
+**O que Eduardo diz para ativar:**
 ```
-PROTOCOLO VANGUARD
-
-projeto: [nome] — [tipo: ecommerce / app / SaaS / etc.] — Camada estimada: [X]
-```
-
-**O Claude vai confirmar a ativação. Em seguida, colar nesta ordem:**
-
-**1º — A Skill do NotebookLM** (se foi ao Passo 5):
-```
-[colar o conteúdo completo do arquivo .claude/skills/[nome]-v1.md]
+PROTOCOLO VANGUARD — [nome do projeto]. Leia tudo e delibere.
 ```
 
-**2º — O Bloco 3 da DIRETRIZ do Gemini** (DIRETRIZ TÉCNICA):
+**Em seguida, trazer nesta ordem:**
+
+**1º — A Skill do NotebookLM** (salvar em `.claude/skills/[projeto].md` antes):
 ```
-[colar o Bloco 3 completo da DIRETRIZ_V1_ESTRATEGISTA.txt]
+[O Músculo lê o arquivo .claude/skills/[projeto].md automaticamente via PROTOCOLO VANGUARD]
 ```
 
-**3º — O Briefing do cliente:**
+**2º — A DIRETRIZ completa do Gemini:**
 ```
-[colar as 7 respostas do BRIEFING_DISCOVERY.txt]
+[colar a DIRETRIZ completa recebida no Passo 3]
 ```
+
+**O que o Músculo faz antes de responder (PASSO6_MUSCULO.md — automático):**
+- Executa o Checklist de Imunidade (5 defesas internas)
+- Lê Skill + DIRETRIZ completas antes de qualquer palavra
+- Delibera no formato de 7 pontos para cada prioridade
+- Apresenta plano de build — aguarda Veredito do Diretor antes de construir
 
 **O que esperar do Claude:**
 O Claude vai processar tudo e apresentar, nesta sequência:
@@ -925,7 +1032,7 @@ CLIENTES/
 | Passo | Você faz | Para quem | Output esperado |
 |-------|----------|-----------|-----------------|
 | 1 | Qualifica cliente | — (você sozinho) | GO / NO-GO |
-| 2 | Discovery | Cliente | Briefing com 7 respostas |
+| 2 | Discovery | Cliente | Briefing com 9 respostas V3 (P-041) |
 | 3 | Envia COMANDO 1 | **Gemini** | DIRETRIZ com 5 blocos |
 | 4 | Valida DIRETRIZ | — (você sozinho) | Score de validação |
 | 5 | Envia COMANDO 2 | **NotebookLM** | Skill técnica do Claude |
@@ -1201,9 +1308,10 @@ Incrementa a versão para [X.X]."
 |--------|------|------------|
 | 1.0 | 2026-05-11 | Criação — 10 passos completos, MAPA do loop, troubleshooting, referência rápida, avaliação |
 | 1.1 | 2026-05-11 | Adicionado protocolo de organismo vivo, protocolo de atualização, histórico de versões, diagrama evolutivo V1→V5, diálogo Gemini↔Claude ilustrado |
+| 1.2 | 2026-05-14 | PASSO 3/5/6 atualizados para referenciar arquivos PASSO_*.md por projeto. Arquitetura loop-agnóstica: um arquivo por passo por projeto, atualizado a cada loop (não por iteração). Cartão de ativação rápida adicionado (PARTE 0). Protocolos anti-deficiência integrados aos passos. |
 
 ---
 
-*Manual do diretor · Pentalateral IAH · V1.1*
+*Manual do diretor · Quadrilateral IAH · V1.1*
 *Criado pelo Músculo para o Diretor Eduardo*
 *atualizar após cada projeto — este documento é tão vivo quanto o sistema que descreve*

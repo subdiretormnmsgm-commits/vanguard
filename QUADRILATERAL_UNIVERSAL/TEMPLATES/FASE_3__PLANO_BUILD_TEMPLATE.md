@@ -3,6 +3,20 @@
 
 ---
 
+## CHECK P-044 — RELEITURA DA CENA DE SUCESSO ANTES DE CODIFICAR
+
+> *"P-044: Momentum Tecnológico do Músculo — o motor ≠ a viagem do cliente."*
+> Antes de cada dia de build, o Músculo relê a cena abaixo.
+> Toda decisão técnica do dia é avaliada: "Esta decisão aproxima ou afasta da cena do cliente?"
+
+**Cena de sucesso declarada pelo cliente:**
+> "[Copiar literalmente da P2 do BRIEFING_DISCOVERY — campo cena_sucesso_descrita]"
+
+**Como a demo reproduz esta cena:**
+> "[Descrever: qual busca abre, o que o cliente vê, o que sente — deve mapear a cena acima]"
+
+---
+
 ## STACK CONFIRMADA
 
 ```
@@ -25,6 +39,7 @@ Extras:    [Cloudflare Workers / Stripe / n8n / Vapi / outro]
 | 0.3 Kill-Switch | tenant_subscriptions + grace period 72h + webhook Stripe | [X]h | [ ] |
 | 0.4 LGPD/GDPR | Banner cookies + tabela user_consents + vp_consent flag | [X]h | [ ] |
 | 0.5 Ticket Médio Wizard | 3 perguntas onboarding no tenant_config | [X]h | [ ] |
+| 0.6 Região Supabase | sa-east-1 (São Paulo) — OBRIGATÓRIO para clientes BR | 0h | [ ] |
 
 **Est. Módulo 0:** [X]h | Módulo 0 aprovado? → [ ] SIM → [ ] NÃO (não avançar)
 

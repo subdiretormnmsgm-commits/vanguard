@@ -91,11 +91,15 @@ Não siga o momentum da conversa. Se o Diretor ou o Músculo propuseram algo que
 
 [NOME_DO_CLIENTE] — [NOME_DO_PROJETO]
 
+**Cena de sucesso do cliente (P-041 — OBRIGATÓRIA):**
+"[Resposta literal do cliente à P2 do Discovery: em 6 meses, como é um dia perfeito?]"
+→ O Estrategista usa esta cena como bússola do BLOCO 2 (Proposta Comercial)
+
 **Momento atual:**
 [DESCREVER: dia do build, o que foi entregue, o que falta, prazo restante, maior risco agora]
 
 **O que o cliente precisa sentir no handoff:**
-[DESCREVER: o que o cliente deve perceber, sentir e decidir ao receber a entrega]
+[DESCREVER: o que o cliente deve perceber, sentir e decidir ao receber a entrega — deve conectar com a cena de sucesso acima]
 
 **As 5 ideias do Músculo para reagir [M-1 a M-5]:**
 [LISTAR AS 5 IDEIAS com nome, descrição de 2 linhas e impacto estimado]

@@ -646,4 +646,60 @@ P_032
 Total: 20 ideias por ciclo — filtradas pelo Embaixador via P-031
 ```
 
-*Atualizado por Claude Sonnet 4.6 — Pentalateral IAH — 2026-05-18*
+---
+
+## 17. PROJ-001 Valdece — Case Fundacional (2026-05-19)
+
+### Contexto
+Primeiro projeto cliente real do Pentalateral IAH. LegalTech — Direito Penal (Defesa Criminal).
+Advogado criminalista autônomo · OAB-DF · 15+ anos de experiência.
+
+### Stack Técnica
+| Componente | Tecnologia | Detalhe |
+|---|---|---|
+| Backend | Supabase pgvector | SECURITY DEFINER + RLS + anon key |
+| Embeddings | Gemini `gemini-embedding-001` | outputDimensionality=768 |
+| Frontend | Vanilla JS | Netlify deploy |
+| Auth | Supabase Auth single-user | |
+| Corpus | 61 acórdãos STF/STJ | 22 temas · JSON estático |
+| Deploy URL | https://toga-digital-valdece.netlify.app | Ativo 2026-05-19 |
+
+### Gate P-038 — Resultado (12/12 verde)
+| Query | sim | Latência |
+|---|---|---|
+| "homicídio qualificado tribunal do júri" | 0.818 | ~2.1s |
+| "roubo com arma de fogo dosimetria" | 0.792 | ~2.3s |
+| "corrupção peculato lavagem de dinheiro" | 0.780 | ~2.5s |
+| "habeas corpus prisão preventiva" (coringa) | 0.804 | ~2.2s |
+Threshold aprovado: sim ≥ 0.67 | Latência máx: 3.4s (servidor US) | sa-east-1 pós-contrato
+
+### Princípios Extraídos
+| Princípio | Descoberto | Conteúdo |
+|---|---|---|
+| P-040 | 2026-05-19 | Gate de nicho é template de replicação |
+| P-041 | 2026-05-19 | Discovery deve capturar a cena de sucesso, não só o problema declarado |
+| P-042 | 2026-05-19 | Gate semântico é ativo de nicho ("Protocolo de Garantia Soberana") |
+| P-043 | 2026-05-19 | Falácia da Homogeneidade dos Nichos — DFD obrigatório antes de novo nicho |
+| P-044 | 2026-05-19 | Momentum Tecnológico do Músculo — build otimiza para o motor, cliente compra a viagem |
+
+### Timeline
+| Marco | Data | Status |
+|---|---|---|
+| Discovery | 2026-05-14 | ✅ |
+| Build (5 dias) | 2026-05-14→19 | ✅ |
+| Gate P-038 (12/12) | 2026-05-19 | ✅ |
+| Deploy Netlify | 2026-05-19 | ✅ |
+| Demo presencial | 2026-05-20 | Pendente |
+| Contrato | 2026-05-20 | Pendente — aguarda demo |
+| Sentinel Report #1 | 2026-06-02 | Programar pós-contrato |
+| V2 (Sovereign Upload) | 2026-06-19 | Gatilho: 30 dias ou corpus ≥ 500 |
+
+### V2 Natural
+- Sovereign Upload (PDF petições próprias) → R$8.500–12.000
+- Radar de Divergência (alertas de nova jurisprudência)
+- Botão "Solicitar Expansão Semântica" na UI (sim < 0.60)
+
+---
+
+*Atualizado por Claude Sonnet 4.6 — Pentalateral IAH — 2026-05-19*
+*Adição: PROJ-001 Valdece (case fundacional) · P-040 a P-044 · Discovery V2 · Protocolo de Garantia Soberana*

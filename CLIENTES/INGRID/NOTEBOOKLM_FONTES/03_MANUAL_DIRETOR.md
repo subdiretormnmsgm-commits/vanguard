@@ -40,7 +40,7 @@
       │                     │                     │                    │
  [PASSO 2]                  │                     │                    │
  Discovery                  │                     │                    │
- 7 perguntas                │                     │                    │
+ 9 perguntas V3             │                     │                    │
       │                     │                     │                    │
  [PASSO 3]                  │                     │                    │
  ──── COMANDO 1 ──────────► │                     │                    │
@@ -245,13 +245,20 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 8 PERGUNTAS DE DISCOVERY — ANOTAR AS RESPOSTAS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. projeto
+1. PROJETO
    "O que é exatamente o que precisas?"
    (ecommerce, app, site, SaaS, automação, modelo de negócio, outro?)
    "Quem é o teu cliente ideal? Qual o teu mercado?"
    → Resposta: _______________________________________________
 
-2. PROBLEMA (em números)
+2. CENA DE SUCESSO ★ OBRIGATÓRIA (P-041)
+   "Daqui a 6 meses, como é um dia perfeito com este sistema funcionando?"
+   "Descreve: o que você faz, o que vê, o que sente quando funciona do jeito certo."
+   → Resposta: _______________________________________________
+   → Esta cena é o script da demo. O sistema é aprovado se a reproduzir.
+   → Guardar em BRIEFING_DISCOVERY → campo cena_sucesso_descrita
+
+3. PROBLEMA (em números)
    "Qual o maior problema que este projeto resolve HOJE?"
    "Dá-me um número — horas/semana, clientes perdidos, quanto deixas de faturar?"
    "Se não resolvermos isso, o que acontece concretamente?"
@@ -288,6 +295,13 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 8. RECURSOS E ORÇAMENTO
    "Qual é o orçamento aproximado? Tens equipe? Que ferramentas já usas?"
    → Resposta: _______________________________________________
+
+9. EXPANSÃO FUTURA ★ OBRIGATÓRIA (P-041 / P-008)
+   "Se isto funcionar, quem mais no seu setor deveria ter?"
+   "Tem colegas, parceiros ou conhecidos que teriam o mesmo problema?"
+   → Nomes mencionados: _______________________________________________
+   → Esta informação alimenta o "Crédito de Expansão entre Pares" (P-008)
+   → Guardar em BRIEFING_DISCOVERY → campo leads_indicados[]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -450,7 +464,7 @@ O problema central é [descrever em 1 frase o que você entendeu]."
 ```
 FONTES A CARREGAR (na ordem):
 1. DIRETRIZ_V1_ESTRATEGISTA.txt    ← output do Gemini (Passo 3)
-2. BRIEFING_DISCOVERY.txt          ← as 7 respostas (Passo 2)
+2. BRIEFING_DISCOVERY.txt          ← as 9 respostas V3 — P-041 (Passo 2)
 3. MEMORIA_V[X].md                 ← se existirem MEMORIAs anteriores
 4. relatorio_evolutivo_v[X].md     ← se existirem relatórios anteriores
 5. skill-v[X].md anterior          ← se existir Skill de iteração anterior
@@ -1018,7 +1032,7 @@ CLIENTES/
 | Passo | Você faz | Para quem | Output esperado |
 |-------|----------|-----------|-----------------|
 | 1 | Qualifica cliente | — (você sozinho) | GO / NO-GO |
-| 2 | Discovery | Cliente | Briefing com 7 respostas |
+| 2 | Discovery | Cliente | Briefing com 9 respostas V3 (P-041) |
 | 3 | Envia COMANDO 1 | **Gemini** | DIRETRIZ com 5 blocos |
 | 4 | Valida DIRETRIZ | — (você sozinho) | Score de validação |
 | 5 | Envia COMANDO 2 | **NotebookLM** | Skill técnica do Claude |

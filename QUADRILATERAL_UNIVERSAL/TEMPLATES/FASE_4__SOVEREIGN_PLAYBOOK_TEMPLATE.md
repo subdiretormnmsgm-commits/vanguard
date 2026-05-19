@@ -4,6 +4,14 @@
 
 ---
 
+> **NOTA OPERACIONAL (P-041 / P-042):**
+> O Sovereign Playbook é apresentado ao cliente ANTES da assinatura do contrato — não no handoff.
+> É o argumento comercial mais poderoso: "Se você quiser nos demitir em 30 minutos, pode — está escrito aqui."
+> Destrói a objeção de vendor lock-in antes que ela seja formulada.
+> Após a assinatura, uma cópia física/digital é entregue como parte do "Protocolo de Garantia Soberana".
+
+---
+
 > Este guia foi criado especificamente para o seu negócio ([nicho]).
 > Aqui encontra tudo o que precisa para operar o sistema no dia-a-dia,
 > resolver os problemas mais comuns, e tirar o máximo proveito da plataforma.

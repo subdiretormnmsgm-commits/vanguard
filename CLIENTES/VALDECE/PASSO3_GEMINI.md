@@ -70,46 +70,57 @@ Não siga o momentum da conversa. Se o Diretor ou o Músculo propuseram algo que
 
 ## CONTEXTO DO PROJETO — ATUALIZAR ANTES DE CADA LOOP
 > Eduardo preenche esta secao antes de levar ao Gemini. Sempre com dados reais — nunca placeholders.
-> Ultima atualizacao: 2026-05-19 · Loop 4 (pos-demo)
+> Ultima atualizacao: 2026-05-19 · Loop 4 — pós loop evolutivo (Gate P-038 APROVADO · Deploy live)
 
-**Loop atual:** Loop 4 — pos-demo + contrato + V2
+**Loop atual:** Loop 4 — pós loop evolutivo · aguarda demo real + assinatura contrato + V2
 
-**O que foi construido ate aqui:**
+**Cena de sucesso do cliente (P-041 — OBRIGATÓRIA):**
+"Estou num julgamento, o promotor cita um precedente que eu não conheço. Abro o Toga Digital,
+ digito o nome do crime, e em 10 segundos tenho o acórdão com mais peso — citação pronta em ABNT."
+→ A demo é aprovada quando Valdece encontra um precedente real em <10s e diz "é isso".
+
+**O que foi construido e entregue:**
 - Dia 1 (commit ef3f1cd): Infraestrutura — Supabase pgvector, schema SQL, burn_rate_shield.js, kill_switch.js
-- Dia 2 (commit 996b40d): Corpus pipeline — ingest.py com Token Rate Shield, embeddings Gemini, CLI de busca semantica
-- Dia 3 (commit 18c617f): STJ adicionado ao corpus + motor semantico + UI base + Gate STJ (GO/NO-GO)
-- Dia 4 (commit e9afb36): gate_stj.py validado, citacao ABNT NBR 6023:2018, Busca Precisa / Ampla, redesign Toga Digital Navy+Ouro
-- Dia 5 (commit 5da58f8): Corpus 61 acordaos reais STF/STJ, 22 temas, SECURITY DEFINER, threshold 0.45, top 3
+- Dia 2 (commit 996b40d): Corpus pipeline — ingest.py com Token Rate Shield, embeddings Gemini, CLI semântica
+- Dia 3 (commit 18c617f): STJ adicionado ao corpus + motor semântico + UI base
+- Dia 4 (commit e9afb36): gate_stj.py, citação ABNT NBR 6023:2018, Busca Precisa/Ampla, redesign Toga Digital
+- Dia 5 (commit 5da58f8): Corpus 61 acórdãos reais STF/STJ, 22 temas, SECURITY DEFINER, top 3
+- GATE P-038 APROVADO: 12/12 verde · sim 0.67-0.818 · latência 2.1-3.4s ✅
+- DEPLOY LIVE: https://toga-digital-valdece.netlify.app ✅
+- LOOP EVOLUTIVO 2026-05-19: 3 membros deliberaram · 4 princípios extraídos (P-041/P-042/P-043/P-044)
 
-**Estado atual (2026-05-20 — pré-demo):**
-- Sistema rodando no Supabase da VANGUARD — gate de teste P-038 pendente antes da migração
-- Corpus: 61 acordaos reais — sim 0.67-0.78 — latencia 2-3s — TESTADO E VERDE (na Vanguard)
-- Credenciais do Valdece: obtidas no presencial 2026-05-19 — Eduardo com elas
-- Migração para conta do Valdece: BLOQUEADA até gate de teste aprovado (P-038)
-- Demo: 2026-05-20 — janela de encantamento intacta — Valdece ainda não testou o sistema
+**Estado atual (2026-05-19 — pós presencial e pós loop evolutivo):**
+- Sistema live no Netlify — Supabase Vanguard (migrar sa-east-1 pós-contrato)
+- Sovereign Playbook apresentado antes do contrato (P-042) — objeção vendor lock-in destruída
+- Credenciais do Valdece: obtidas no presencial — Eduardo com elas
+- Demo real: PRÓXIMA — Valdece ainda não testou no sistema dele — janela de encantamento intacta
 - Contrato: PENDENTE — aguarda demo + encantamento
-- P-038 registrado: nada sai da Vanguard sem gate de teste aprovado
-- P-056 registrado: corpus e pre-requisito — pergunta obrigatoria de Discovery
-- P-057: Vanguard Tech entrega o melhor produto
-- P-058: verificar escopo inicial E final — sempre
+- ATUALIZAÇÕES DO PROCESSO (informar ao Gemini — P-041 a P-044 são novos):
+  * P-041: Discovery V3 — cena de sucesso (P2) e expansão futura (P8) OBRIGATÓRIAS. 9 perguntas.
+  * P-042: Gate semântico documentado = "Protocolo de Garantia Soberana" — apresentar antes do contrato
+  * P-043: DFD obrigatório antes de replicar busca semântica em novo nicho
+  * P-044: Releitura da cena de sucesso antes de cada dia de build — motor ≠ viagem do cliente
 
 **Falhas registradas neste projeto (nao repetir):**
-- APIs STF/STJ nao acessiveis programaticamente sem auth — corpus foi seed manual
+- APIs STF/STJ não acessíveis programaticamente sem auth — corpus foi seed manual
 - Corpus de 20 casos era insuficiente para escopo "Google melhor para jurisprudencia penal"
-  Solucao: expandir para 61 + plano para dataset publico pos-contrato
+- Escopo silencioso (R$900/mês inserido sem aprovação) — FALHA-PROCESSO-2026-05-16-B
 
 **Decisoes fixadas (nao reverter sem justificativa explicita):**
-- Opcao A: produto na infra do Valdece, sem MRR, ~R$1,20/mes na conta dele
+- Opção A: produto na infra do Valdece, sem MRR, ~R$1,20/mês na conta dele
 - Stack: Vanilla JS + Supabase pgvector + gemini-embedding-001 outputDimensionality 768
-- Corpus: 61 acordaos · threshold 0.45 · top 3 resultados
+- Corpus: 61 acórdãos · threshold 0.67 · top 3 resultados
 - Design Toga Digital: Navy #0B1420 + Ouro #C9A84C
-- Soberania total: dados e chaves no ambiente do cliente
+- RLS: P1 pós-contrato (não bloqueia demo atual — API key pública muda ao migrar para conta Valdece)
+- "Garantia Zero Churn": em teste 30 dias — NÃO incluir no contrato V1
 
-**Pendente pos-contrato (nao antes da demo):**
-- Auth Supabase single-user
-- Dataset publico STF/STJ — corpus de milhares de casos
-- Sovereign Upload V2 — ingestao PDF/Word do acervo do Valdece
-- Slider de Criatividade — toggle Precisao/Exploracao na UI
+**V2 pipeline (gatilho: corpus ≥ 500 docs ou 30 dias de uso ativo):**
+- Sovereign Upload (ingestão PDFs próprios do Valdece)
+- Radar de Divergência (STJ vs STF)
+- Citação DOCX export
+- Botão "Solicitar Expansão Semântica" quando sim < 0.60
+- Migração sa-east-1 São Paulo
+- Contabilidade como 2º nicho (após entrega Ingrid)
 
 **As 5 ideias do Musculo para voce reagir:**
 [Eduardo: colar aqui as 5 ideias do relatorio_evolutivo mais recente antes de enviar ao Gemini]

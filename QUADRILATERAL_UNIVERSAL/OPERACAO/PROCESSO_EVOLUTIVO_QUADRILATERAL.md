@@ -66,7 +66,7 @@ Músculo (5 ideias técnicas) + Estrategista (5 ideias estratégicas) + Auditor 
 |---|---|---|
 | **0** | **Embaixador** | **PRÉ-PROCESSO: Briefer de reunião — Eduardo recebe roteiro antes de qualquer contato com cliente** |
 | 1 | Diretor | Qualificação BLOCO A — GO/NO-GO (3 perguntas de filtro) |
-| 2 | Diretor | Discovery — 7 perguntas universais + perfil do cliente → Embaixador atualiza MEMORIA_EMBAIXADOR |
+| 2 | Diretor | Discovery V2 — **8 perguntas** (P-041): **P2 (cena de sucesso) e P8 (expansão futura) OBRIGATÓRIAS** + perfil do cliente → Embaixador atualiza MEMORIA_EMBAIXADOR com `cena_provavel` + leads indicados |
 | 3 | Diretor → Gemini | COMANDO 1 (inclui LOG_CLIENTE + 5 ideias do Embaixador) → receber DIRETRIZ estratégica |
 | 4 | Diretor | Validar DIRETRIZ — aprovar ou pedir revisão |
 | 5 | Diretor → NotebookLM | COMANDO 2 + fontes (inclui LOG_CLIENTE do Embaixador) → receber SKILL |

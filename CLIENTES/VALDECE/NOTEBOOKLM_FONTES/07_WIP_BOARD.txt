@@ -189,9 +189,12 @@
                                     },
                                     "credenciais_obtidas":  "2026-05-19 — Eduardo com credenciais do Valdece",
                                     "sistema_ambiente":  "VANGUARD — não migrado para conta do Valdece (P-038: gate de teste obrigatório antes do envio)",
+                                    "deploy_netlify":  "https://toga-digital-valdece.netlify.app",
+                                    "deploy_netlify_data":  "2026-05-19",
+                                    "link_enviado_valdece":  true,
                                     "demo_realizada":  false,
                                     "contrato_assinado":  false,
-                                    "proximo_passo":  "Gate de teste final na Vanguard → migração para conta do Valdece → DEMO 2026-05-20. Pós-contrato: Auth Supabase + dataset público STF/STJ + Sovereign Upload V2",
+                                    "proximo_passo":  "DEMO 2026-05-20 (link Netlify já enviado a Valdece). Pós-contrato: migração Supabase do Valdece + Auth + dataset público STF/STJ + Sovereign Upload V2",
                                     "v2_pipeline":  {
                                                         "features":  [
                                                                          "Sovereign Upload",
@@ -227,9 +230,17 @@
             {
                 "nicho":  "Legal-Tech-Criminal",
                 "arquivo":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/LEGALTECH_PENAL.md",
-                "maturidade":  "50%",
+                "maturidade":  "75%",
                 "cliente_referencia":  "PROJ-001 Valdece",
-                "status":  "consolidado parcial"
+                "status":  "gate aprovado — demo 2026-05-20 — contrato pendente",
+                "para_100pct":  "demo executada + contrato assinado + 14 dias uso real + Sentinel Report",
+                "benchmark_gate":  {
+                    "threshold":  0.45,
+                    "top":  3,
+                    "queries_coringa":  ["habeas corpus constrangimento ilegal prisão preventiva (sim=0.804)", "tráfico privilegiado requisitos quantidade droga (sim=0.767)"],
+                    "latencia_media_s":  "2.1-3.4",
+                    "gate_arquivo":  "CLIENTES/VALDECE/CONSELHO/GATE_P038_RESULTADO_FINAL.md"
+                }
             }
         ],
         "perfis_em_discovery":  [

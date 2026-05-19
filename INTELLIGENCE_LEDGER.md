@@ -963,6 +963,24 @@ Diretor — veredito
 
 ---
 
+### [P-043] Falácia da Homogeneidade dos Nichos — replicação não é trocar a URL dos dados
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise Estrategista + Auditor pós-gate
+**Evidência:** O Estrategista alertou e o Auditor confirmou: o risco silencioso da replicação para outros nichos não é técnico — é epistemológico. Assumir que "Médico funciona como LegalTech mas com dados de medicina" é a falácia. Cada nicho tem vocabulário semântico diferente (jurídico usa "STJ", médico usa "CID-10", contábil usa "IN RFB"), ontologia de busca diferente (criminalista busca por precedente, médico por protocolo, contador por normativa), e critério de sucesso diferente (sim ≥ 0.67 adequado para jurídico pode ser inadequado para médico).
+**Princípio:** Antes de replicar para novo nicho, o Músculo executa discovery semântico específico: (1) qual vocabulário de busca o profissional usa naturalmente, (2) qual é o corpus mínimo viável para o nicho, (3) qual threshold de similaridade é adequado, (4) qual é a "cena de sucesso" do nicho (P-041 aplicado ao novo nicho). Replicação sem discovery semântico = sistema com corpus errado, queries inadequadas e demo que não encanta.
+**Corolário de build:** O seed_demo.py do Valdece é ponto de partida — não template final. Cada nicho exige calibração de embeddings e validação de queries antes do primeiro cliente.
+**Corolário comercial:** O gate de nicho (P-042) precisa ser recalibrado por nicho — não apenas "rodar o mesmo gate com dados diferentes".
+**Aplica-se a:** qualquer proposta de replicação do modelo de busca semântica para novos nichos profissionais.
+
+---
+
+### [P-044] Momentum Tecnológico do Músculo — o motor ≠ a viagem do cliente
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise Estrategista pós-gate
+**Evidência:** O Músculo otimiza para métricas intrínsecas do sistema (threshold, latência, embedding dimensions) porque oferecem recompensas de engenharia claras e mensuráveis. O cliente, contudo, otimiza para alívio temático em cenários de alta pressão — a cena do "júri em 20 minutos". O distanciamento do PROJ-001 Valdece nasceu exatamente aqui: o Músculo construiu um motor impecável; o cliente compra a viagem, não o motor.
+**Princípio:** Ao iniciar cada dia de build, o Músculo relê a cena de sucesso descrita pelo cliente no discovery (P-041). Toda decisão técnica é avaliada com uma pergunta: "Esta decisão aproxima ou afasta o sistema da cena do cliente?" Se afasta → justificar explicitamente ou descartar. Se aproxima → executar. O gate final não testa apenas se o sistema funciona — testa se reproduz a cena do cliente.
+**Aplica-se a:** todo projeto cliente, todo dia de build, toda decisão arquitetural.
+
+---
+
 ### [P-038] Nada sai da Vanguard sem gate de teste aprovado
 **Descoberto:** 2026-05-19 | **Sessão:** Retomada PROJ-001 Valdece
 **Fricção:** Eduardo precisou corrigir o Músculo: o sistema de busca do Valdece não foi enviado/configurado na conta dele porque não passou por gate de teste. O princípio já havia sido estabelecido no PROJ-002 Ingrid mas não foi registrado formalmente no LEDGER.

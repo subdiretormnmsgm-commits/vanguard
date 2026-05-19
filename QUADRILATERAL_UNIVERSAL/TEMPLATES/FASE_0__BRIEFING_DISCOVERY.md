@@ -46,14 +46,34 @@ _______________________________________________
 
 ---
 
-## BLOCO 3 — O MOMENTO MÁGICO (FIRE Event)
+## BLOCO 3 — A CENA DE SUCESSO ★ OBRIGATÓRIA (P-041)
+
+> A cena específica que o cliente imagina quando pensa no sistema funcionando.
+> Esta cena é o critério de aceitação real do projeto — não o threshold técnico.
+> O Músculo usa esta cena como teste final. A demo abre reproduzindo esta cena.
+
+**"Me descreve uma situação real — uma cena específica — onde este sistema te salvaria.
+O que acontece, onde você está, o que você está fazendo, qual é o resultado que muda."**
+
+_______________________________________________
+_______________________________________________
+_______________________________________________
+
+**Elementos capturados da cena:**
+- Cenário (onde / quando): _______________________________________________
+- Ação do sistema: _______________________________________________
+- Resultado que muda: _______________________________________________
+
+---
+
+## BLOCO 3B — O MOMENTO MÁGICO (FIRE Event)
 
 > A ação mais importante que acontece no sistema — indica que o negócio funcionou.
 
 **FIRE Event:**
 [ ] Compra realizada         [ ] Agendamento confirmado   [ ] Orçamento pedido
 [ ] contato WhatsApp        [ ] Registo / conta criada   [ ] Subscrição assinada
-[ ] Outro: _______________________________________________
+[ ] Busca semântica bem-sucedida   [ ] Outro: _______________________________________________
 
 **`success_event` para sentinel_config.json:** `_____________________`
 
@@ -105,6 +125,22 @@ _______________________________________________
 **Receita mensal estimada:** R$ __________ /mês
 
 → *Correr `scripts/calculadora_precificacao.py` com estes dados antes de gerar proposta*
+
+---
+
+## BLOCO 7B — EXPANSÃO FUTURA ★ OBRIGATÓRIA (P-041 / P-008)
+
+> Lead mencionado → WIP_BOARD como "lead qualificado — origem: indicação [cliente]".
+
+**"Se isso funcionar bem nos primeiros 30 dias, qual seria o próximo passo natural?
+Tem outras pessoas com a mesma dor que você conhece?"**
+
+_______________________________________________
+_______________________________________________
+
+**Leads identificados:**
+- Nome/perfil 1: _______________ · cena_provavel: _______________
+- Nome/perfil 2: _______________ · cena_provavel: _______________
 
 ---
 

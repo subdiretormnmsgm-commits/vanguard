@@ -824,6 +824,29 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ---
 
+### [P-034] Análise Cirúrgica do Músculo é pré-requisito antes do Embaixador
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — deliberação Passo 6
+**Fricção:** O fluxo original enviava ideias cruas do Estrategista e do Auditor diretamente ao Embaixador. O Embaixador é expert no perfil comportamental do cliente — mas não no histórico técnico de build. Validava ou alertava com base no que não podia ver.
+
+**Regra:** Antes de levar qualquer conjunto de ideias [G + N] ao Embaixador, o Músculo executa análise cirúrgica de cada uma: (a) é viável no prazo real? (b) contradiz decisão técnica já tomada? (c) precisa de ajuste antes de chegar ao filtro de cliente? O Embaixador recebe ideias já qualificadas tecnicamente — não ideias cruas.
+
+**Fluxo correto:**
+```
+Gemini [G-1 a G-5] + Auditor [N-1 a N-5]
+        ↓
+Músculo — Análise Cirúrgica (filtro técnico + histórico de build)
+        ↓
+Embaixador — CONFIRMA / EXPANDE / ALERTA com filtro de realidade do cliente
+        ↓
+Diretor — veredito
+```
+
+**Por que importa:** O Músculo está a mais tempo no projeto. Conhece cada decisão técnica, cada veto, cada dívida. O Embaixador é insubstituível no comportamento do cliente — mas opera cego ao histórico técnico. A análise cirúrgica do Músculo protege o Embaixador de validar o que já foi descartado por razão técnica objetiva.
+
+**Alerta ao Embaixador:** Ao receber ideias do Músculo, elas já passaram pelo filtro técnico. Foque no que o Músculo não pode ver: como o cliente vai reagir na prática.
+
+---
+
 ### [FALHA-PROCESSO-2026-05-18-D] Documentação desatualizada bloqueou sessão completa
 **Data:** 2026-05-18 | **Detectado por:** Diretor Eduardo
 **Impacto:** ~2 horas de sessão consumidas em auditoria e correção de documentação. Objetivo principal da sessão (gerar Skill ingrid-v2.md via NotebookLM Loop 3) não concluído.
@@ -847,323 +870,120 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ---
 
-### [P-034] Análise Cirúrgica do Músculo antes do Embaixador
-**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo (intervenção direta do Diretor)
-**Evidência:** Sem filtro técnico, o Embaixador recebia ideias brutas de [G+N] com inviabilidades de prazo e contradições com decisões já tomadas. O Embaixador não tem competência técnica para filtrar — só competência relacional. Músculo com histórico de build resolve isso antes de passar o pacote.
-**Princípio:** Antes de enviar qualquer conjunto de ideias [G+N] ao Embaixador, o Músculo executa análise cirúrgica: (a) o que é inviável no prazo real, (b) o que contradiz decisões já tomadas no build, (c) o que precisa ajuste antes de chegar ao cliente. Gera [M'-1 a M'-5] como saída desta análise. Embaixador recebe o pacote qualificado — nunca as ideias brutas.
-**Aplica-se a:** todo ciclo completo do Pentalateral a partir do Loop 3.
+### [P-035] Embaixador opera em amplitude total — não apenas comportamento do cliente
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — revisão do fluxo Pentalateral
+**Fricção:** O P-031 limitava o Embaixador ao filtro de comportamento do cliente. Na prática, o Embaixador tem mandatos mais amplos: estratégia comercial, precificação, pipeline de leads, business case, portfolio management. Limitar ao comportamento subutiliza a inteligência acumulada.
+
+**Regra:** O Embaixador CONFIRMA/EXPANDE/ALERTA com base no cliente — mas pode e deve atuar em outras dimensões quando tiver perspectiva relevante: (a) oportunidades comerciais que o Músculo não vê por estar focado no build, (b) riscos de relacionamento que o Gemini não vê por ser estratégico, (c) padrões de nicho que o Auditor não vê por ancorar no histórico. Amplitude = mais valor por ciclo.
+
+**Fluxo:** O Músculo prepara a mensagem para o Embaixador ao concluir a Análise Cirúrgica (P-034). A mensagem contém: ideias qualificadas [G+N+M'] + contexto do que foi construído + perguntas específicas para o Embaixador responder. O Embaixador não recebe dump de informação — recebe briefing estruturado.
+
+**Por que importa:** Embaixador com briefing cirúrgico do Músculo = respostas de amplitude real. Embaixador com dump crú = filtro de comportamento apenas. A diferença é 5× o valor gerado por ciclo.
 
 ---
 
-### [P-035] Embaixador opera em amplitude total — não só comportamento do cliente
-**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo (expansão de mandato)
-**Evidência:** Embaixador estava sendo usado apenas como filtro de comportamento do cliente. Eduardo identificou que sua inteligência acumulada pode e deve atuar em: estratégia comercial, precificação, pipeline de leads, business case, portfolio. Restrição era artificial — não técnica.
-**Princípio:** O Embaixador recebe o pacote qualificado pelo Músculo (P-034) e confirma/expande/alerta em amplitude total: comportamento do cliente + estratégia comercial + precificação por nicho + pipeline de leads + business case. Mandatos 1–11 ativos simultaneamente.
-**Aplica-se a:** toda interação do Embaixador a partir de 2026-05-18.
+### [P-036] Músculo prepara mensagem estruturada para o Embaixador ao fim de cada análise cirúrgica
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — processo Passo 4
+**Fricção:** O fluxo previa "ir ao Embaixador" mas sem formato definido. Embaixador recebia ideias cruas ou resumo informal. Resultado: respostas genéricas de comportamento sem amplitude estratégica.
+
+**Regra:** Ao concluir o Passo 4 (Análise Cirúrgica), o Músculo gera automaticamente a mensagem para o Embaixador. Formato obrigatório:
+1. Contexto do loop: o que foi construído, o que está em jogo
+2. Ideias qualificadas: [G aprovadas/modificadas/vetadas] + [N aprovadas/modificadas/vetadas] + [M' novas]
+3. Perguntas específicas: o que o Músculo precisa que o Embaixador confirme, expanda ou alerte
+4. Alerta de prazo: deadline e impacto se o Embaixador não tiver a informação
+
+**Por que importa:** O Embaixador não tem contexto técnico do build. Sem briefing estruturado do Músculo, ele opera no escuro e produz alertas genéricos. Com o briefing, ele opera com precisão cirúrgica sobre o que realmente importa para o cliente.
 
 ---
 
-### [P-036] Músculo prepara mensagem estruturada para o Embaixador
-**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo
-**Evidência:** Embaixador recebia contexto fragmentado — parte do relato do Diretor, parte de docs. Resultado: análise superficial. Com mensagem estruturada em 4 blocos, análise ganhou profundidade e precisão.
-**Princípio:** Ao ativar o Embaixador, o Músculo prepara mensagem com 4 blocos obrigatórios: (a) contexto do loop — o que foi construído, o que está em jogo; (b) ideias qualificadas — aprovadas/modificadas/vetadas com razão técnica; (c) perguntas específicas — o que precisa de confirmação/alerta do Embaixador; (d) prazo e próximos gates. O Embaixador que recebe mensagem estruturada entrega 3× mais inteligência que o que recebe relato livre.
-**Aplica-se a:** toda ativação do Embaixador por projeto ativo.
+### [P-037] Músculo faz Síntese Final com TODOS os 25 inputs antes da decisão do Diretor
+**Descoberto:** 2026-05-18 | **Sessão:** Loop 3 Ingrid — após resposta do Embaixador
+**Fricção:** Após o Embaixador responder com [E-1 a E-5], o Diretor recebia 25 inputs brutos de 5 fontes diferentes para decidir sozinho o que entra no build. Carga de síntese desnecessária sobre quem deveria apenas dar o veredito.
+
+**Regra:** Após a resposta do Embaixador, o Músculo executa a Síntese Final (Passo 5.5 do loop):
+1. Consolida TODOS os 25 inputs: [M] + [G] + [N] + [M'] + [E]
+2. Produz plano único com 4 colunas: ENTRA AGORA (custo + prazo) · V2 · DESCARTADO (razão) · ALERTAS ABERTOS
+3. O Diretor recebe 1 plano para vetar ou aprovar — nunca 25 inputs para sintetizar
+
+**Posição no loop:** Passo 5.5 — após Embaixador (Passo 5), antes do veredito do Diretor (Passo 6).
+
+**Por que importa:** O Diretor é o único que não tem substituto no Pentalateral. Seu tempo e atenção são o recurso mais escasso do sistema. A Síntese Final garante que ele gasta esse recurso em decisão, não em curadoria de informação — que é função do Músculo.
 
 ---
 
-### [P-037] Síntese Final do Músculo — Diretor recebe 1 plano, não 25 inputs
-**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo (princípio de liderança)
-**Evidência:** Ciclo completo gera até 25 ideias: [M+M'+G+N+E]. Sem síntese, o Diretor precisa processar 25 inputs para tomar 1 decisão — isso é carga do sistema sobre o Diretor, não pelo Diretor. Eduardo definiu: sistema gera, Diretor delibera.
-**Princípio:** Após receber [E-1 a E-5] do Embaixador, o Músculo produz Síntese Final única com: ENTRA AGORA (lista fechada com custo e prazo), V2 (qualificado mas fora do escopo corrente), DESCARTADO (vetado com 1 linha de razão), ALERTAS ABERTOS (exige decisão do Diretor). O Diretor vê 1 plano — nunca os 25 inputs brutos.
-**Aplica-se a:** todo ciclo completo do Pentalateral onde Embaixador participou.
+### [FALHA-PROCESSO-2026-05-19] WIP_BOARD e MEMORIA_EMBAIXADOR com estado incorreto de entrega
+**Detectado por:** Eduardo (Diretor)
+**Contexto:** PROJ-001 Valdece. A MEMORIA_EMBAIXADOR.md e o WIP_BOARD.json indicavam "Sistema configurado no Supabase do Valdece — pronto para demo" e "credenciais_obtidas: 2026-05-19". Na realidade, o sistema ainda roda no Supabase da Vanguard — nenhuma migração foi executada porque o sistema não passou por gate de teste antes do envio. Músculo registrou estado de entrega projetado como estado real.
+**Princípio violado:** P-010 (nenhuma etapa avança por assumição) + Deficiência 2 do Músculo (Momentum de Execução).
+**Custo do erro:** Documentos de relacionamento com cliente (MEMORIA_EMBAIXADOR) refletem realidade falsa. Se o Embaixador operar com esses documentos, tomará decisões baseadas em premissa incorreta — o sistema não está na conta do Valdece.
+**Correção imediata:** Atualizar MEMORIA_EMBAIXADOR e WIP_BOARD com estado real: sistema na Vanguard, gate de teste pendente, envio ao Valdece bloqueado até aprovação do gate.
+**Regra derivada:** Nunca registrar "sistema configurado em [conta do cliente]" sem evidência de execução real (log, output CLI, print de tela). Estado projetado ≠ estado real.
 
 ---
 
-### [P-038] Perfil de Candidato/Cliente é pré-requisito de qualquer projeto EdTech
-**Descoberto:** 2026-05-18 | **Detectado por:** Eduardo | **Sessão:** PROJ-002 Ingrid — Loop 3
-**Evidência:** O banco de questões do PROJ-002 foi dimensionado com 460 questões por critério técnico (SM-2 + 25/disciplina). Eduardo identificou que um candidato sistêmico típico faz 50–100 questões/dia em plataformas abertas. Com 20/dia e 460 no banco, o candidato esgota questões novas em 23 dias — risco de abandono no dia 24 quando o feed vira só revisão. O Perfil de Candidato deveria ter definido o volume mínimo antes do build.
-**Princípio:** Em qualquer projeto EdTech de concurso, documentar o Perfil de Candidato ANTES do dimensionamento do banco com 5 variáveis obrigatórias: (1) volume diário típico, (2) padrão de sessão (mobile/desktop, curta/longa), (3) gatilho de abandono documentado, (4) referência de mercado com que vai comparar, (5) definição pessoal de progresso. Banco mínimo: 600 questões para MVP 30 dias, 1.000+ para ciclo completo.
-**Banco mínimo por ciclo:**
-- MVP (30 dias): 600 questões únicas
-- Produto completo (111 dias): 1.000 questões únicas
-- Plataforma escalável: 1.500+ questões únicas
-**Aplica-se a:** todo projeto EdTech de concurso. Executar no Dia 0 junto com P-024.
+### [P-039] Leitura das últimas conversas é obrigatória após a primeira interação de cada sessão
+**Descoberto:** 2026-05-20 | **Mandato direto do Diretor**
+**Fricção:** Músculo retomou o projeto Valdece sem verificar o que havia sido discutido na sessão anterior — operou com documentos incorretos que diziam "sistema implantado no Supabase do Valdece" quando na realidade o sistema ainda estava na Vanguard.
+**Regra:** Após a primeira interação de qualquer sessão com projeto ativo, o Músculo verifica proativamente: (a) commits recentes do projeto, (b) MEMORIA_EMBAIXADOR e documentos de estado, (c) inconsistências entre documentos e realidade. Se houver conflito → corrigir antes de qualquer outra ação. Músculo que não lê as últimas conversas opera com contexto defasado — e produz orientações baseadas em premissas erradas.
+**Aplica-se a:** toda sessão com projeto cliente ativo em BUILD ou CHECK.
 
 ---
 
-### [P-039] Modelo de Testes com Registro de Erro e Atitude Corretiva
-**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo | **Sessão:** PROJ-002 Ingrid — Loop 3
-**Evidência:** CORS no `feed-diario` não foi detectado antes do deploy porque o Gate Dia 5 rodou via CLI Node.js (que ignora CORS). Quando Eduardo testou no browser, o app travou. A falha era detectável com 5 minutos de teste browser antes do deploy. Sem protocolo de teste, a descoberta dependeu do cliente/usuário — não do Músculo.
-**Princípio:** Antes de qualquer entrega ao cliente, executar checklist de 3 camadas:
-  **Camada 1 — Técnica (Músculo):** a função roda? CORS ok? Banco responde? Edge Functions deployadas? Testar no browser antes do deploy — não só via CLI.
-  **Camada 2 — Usuário (Diretor):** Eduardo simula ser o cliente sem saber o fluxo esperado. Mínimo 5 minutos de uso real. Registrar o que travou, o que confundiu, o que não funcionou.
-  **Camada 3 — Regressão (Músculo):** o que funcionava antes ainda funciona? Checklist fixo por projeto.
-**Registro obrigatório:** cada erro encontrado → (a) registrar no LEDGER, (b) documentar atitude corretiva, (c) adicionar ao checklist de regressão para não repetir.
-**Aplica-se a:** toda entrega de feature a cliente ativo. Executar antes de enviar qualquer link.
+### [P-040] Gate de nicho é template de replicação — não documentação de projeto
+**Descoberto:** 2026-05-20 | **Extraído do GATE_P038 — PROJ-001 Valdece**
+**Origem:** O gate de 12 queries do Embaixador para a demo do Valdece revelou um padrão replicável para qualquer projeto de nicho profissional com motor semântico.
+**Princípio:** O gate de teste de um projeto de nicho não é checklist de entrega — é o DNA do próximo projeto no mesmo nicho. Estrutura obrigatória do template:
+  - (1) **Categorias reais do cliente** (3+ queries por área de atuação real, confirmadas por ele mesmo)
+  - (2) **Coringa universal** (1-2 queries de alta sim que funcionam em qualquer subárea do nicho)
+  - (3) **Threshold explícito** com semáforo GO/AMARELO/NO-GO (não passar no GO não é falha — é dado para calibrar corpus antes da demo)
+  - (4) **Latência monitorada** por query (sinaliza região do banco e edge cases de performance)
+  - (5) **Decisão binária documentada**: APROVADO com evidência numérica ou BLOQUEADO com ação corretiva
+**Para o próximo projeto de nicho jurídico** (criminalista, tributarista, trabalhista): copiar estrutura do GATE_P038 Valdece, substituir apenas as categorias e as queries. O threshold, a lógica de semáforo e o coringa são universais.
+**Aplica-se a:** todo projeto com motor semântico vetorial — jurídico, médico, contábil, educacional.
 
 ---
 
-### [P-040] Perfis de Nicho como Ativo Proprietário da Vanguard
-**Descoberto:** 2026-05-18 | **Proposto por:** Eduardo | **Sessão:** PROJ-002 Ingrid — Loop 3
-**Evidência:** Eduardo identificou que o Perfil de Candidato criado para o PROJ-002 (concurseira administrativa) e o perfil futuro para PROJ-001 (advogado penal) são ativos de inteligência que nenhum concorrente tem — porque vêm de projetos reais, não de teoria de mercado. A cada projeto novo no mesmo nicho, o perfil fica mais preciso. Com 3 clientes no mesmo nicho, a Vanguard tem vantagem irreproduzível.
-**Princípio:** Ao fechar qualquer projeto, o Músculo cria ou atualiza o Perfil de Nicho correspondente em `QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/[nicho].md`. O perfil acumula: (a) comportamento real documentado do cliente, (b) gatilhos de abandono confirmados em campo, (c) definição de progresso validada, (d) objeções de preço reais, (e) referências de mercado citadas espontaneamente. Este ativo cresce a cada projeto e nunca pode ser copiado — é construído com dados reais de campo, não inferência.
-**Nichos iniciais a documentar:** EdTech-Concurso, LegalTech-Penal, [próximos clientes].
-**Os 4 LLMs do Pentalateral buscam ativamente** padrões dentro do nicho a cada ciclo — o Embaixador com comportamento de campo, o Gemini com visão de escala, o NotebookLM com consistência histórica, o Músculo com viabilidade técnica.
-**Aplica-se a:** fechamento de qualquer projeto cliente, obrigatório.
+### [P-041] Discovery deve capturar a cena de sucesso, não apenas o problema declarado
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise do Embaixador pós-gate
+**Fricção:** Valdece declarou "busca de jurisprudência consome horas". O build otimizou para corpus e threshold — correto tecnicamente. Mas o cliente imaginava uma cena específica: "júri começa em 20 minutos, encontro o precedente antes do juiz." Sem capturar essa cena no discovery, o build pode ser tecnicamente impecável e emocionalmente irrelevante para o cliente. O distanciamento detectado pelo Diretor durante o PROJ-001 tem origem aqui.
+**Princípio:** No Passo 2 (Discovery), além das perguntas de problema e escopo, incluir obrigatoriamente a P2: *"Me descreve uma situação real — uma cena específica — onde este sistema te salvaria. O que acontece, onde você está, o que você está fazendo, qual é o resultado que muda."* A resposta é o critério de aceitação real do projeto — não o spec técnico.
+**Corolário de build:** O Músculo usa a cena descrita como teste de aceitação final. Antes do handoff, rodar a cena exata no sistema real. Se funcionar → demo confiante. Se não → corrigir antes de sentar com o cliente.
+**Corolário de demo:** A abertura da demo reproduz a cena do cliente, não demonstra features. "Você me disse que precisava do precedente antes do juiz — vamos fazer isso agora."
+**Aplica-se a:** todo projeto cliente, todo nicho, toda camada.
 
 ---
 
-### [SESSÃO 2026-05-18] — PROJ-002 Ingrid / Loop 3 Build Dias 6-8 + P-038 a P-040
-
-**Direção da sessão:** Build completo Dias 6-8 (Clickwrap + Tutor Socrático + Telemetria TTI + Fallback) + correção CORS + deploy Edge Functions + criação de documentação de entrega para Ingrid.
-
-**GATES CONCLUÍDOS:**
-- Termo de Uso assinado (2026-05-18) — P-023 resolvido
-- Migração SQL Dias 6-8 executada — 3 tabelas novas + 5 colunas + RPC
-- `feed-diario` CORS corrigido e redeploy — app funcional no browser
-- `tutor-socratico` deployado pela primeira vez
-- Gate Dia 6: app carrega questões no browser ✓
-
-**O QUE DEU CERTO:**
-
-`[CONFIRMADO]` **SM-2 + Tutor Socrático funcionando no browser:** app carrega feed, aceita clickwrap, salva termos_aceitos, exibe questões.
-
-`[CONFIRMADO]` **CORS resolve browser vs. CLI:** Edge Functions construídas apenas com teste CLI falham no browser. Preflight OPTIONS + `Access-Control-Allow-Origin: *` são obrigatórios em qualquer Edge Function chamada do browser.
-
-`[CONFIRMADO]` **tutor-socratico precisa estar em `supabase/functions/` raiz:** CLI do Supabase não aceita caminhos alternativos. Copiar para raiz antes de deploy.
-
-**ERROS E FRICÇÕES:**
-
-`[FRICÇÃO]` **CORS não testado no browser antes do deploy:** Gate Dia 5 rodou via Node.js CLI (ignora CORS). Browser bloqueia sem `Access-Control-Allow-Origin`. Fix: teste browser obrigatório antes de declarar gate aprovado. → P-039 criado.
-
-`[FRICÇÃO]` **Banco de questões subdimensionado (460 vs. 1.000+ necessário):** Perfil de candidato não foi documentado antes do dimensionamento do banco. Candidato sistêmico esgota 460 questões em 23 dias. → P-038 criado. Banco em expansão para 1.000+.
-
-`[FRICÇÃO]` **gh-pages deploy falhou:** `npx gh-pages` com erro `TypeError: path argument must be string`. PWA ainda não tem URL pública. Deploy público pendente.
-
-`[PRINCÍPIO]` **P-038 gerado:** Perfil de Candidato é pré-requisito de EdTech.
-`[PRINCÍPIO]` **P-039 gerado:** Modelo de testes 3 camadas antes de qualquer entrega.
-`[PRINCÍPIO]` **P-040 gerado:** Perfis de nicho como ativo proprietário acumulado por projeto.
-
-**Documentos criados nesta sessão:**
-- `CLIENTES/INGRID/RELATORIO_ENTREGA_INGRID.md` — documento de entrega para Ingrid
-- `CLIENTES/INGRID/MANUAL_INSTRUCOES_INGRID.md` — manual de uso passo a passo
-- `CLIENTES/INGRID/METODOLOGIA_VANGUARD.md` — documento de metodologia/propaganda
-- `CLIENTES/INGRID/PERFIL_CANDIDATO_SEDES_DF.md` — P-038 aplicado ao concurso
-
-**Pendentes desta sessão:**
-1. Expandir banco para 1.000+ questões (seed 50/disciplina — aguarda créditos Anthropic)
-2. Deploy público do PWA (gh-pages branch pronto — aguarda ativação manual no GitHub Pages)
-3. PDF dos 3 documentos de entrega
-
-**Concluídos após o log inicial:**
-- CLIENTES/INGRID/PASSO7_EMBAIXADOR.md criado (falha detectada pelo Diretor — corrigido)
+### [P-042] Gate de validação semântica é ativo de nicho, não burocracia de entrega
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — gate P-038
+**Fricção:** O gate P-038 emergiu durante o build como proteção de demo. Mas ao documentar 12 queries + resultados + similaridades + latências, gerou algo mais valioso: um protocolo replicável para qualquer sistema de busca semântica jurídica. O segundo cliente do mesmo nicho custa 30 minutos de gate — não horas de fricção.
+**Princípio:** O gate de validação semântica de qualquer sistema de busca deve ser documentado como artefato formal do projeto. Estrutura mínima: área coberta + query testada + melhor similaridade + latência + status verde/amarelo/vermelho. Este documento é entregue ao cliente como parte do handoff e alimenta o perfil de nicho no WIP_BOARD.
+**Corolário de escala:** A cada cliente no mesmo nicho, o gate fica mais preciso e o tempo de validação cai. Em 5 clientes LegalTech-Criminal, a Vanguard tem benchmark de performance que nenhum concorrente possui.
+**Corolário comercial:** O gate documentado é argumento de proposta. "Testamos 12 queries antes de sentar com você" é diferencial de processo — não de produto.
+**Aplica-se a:** todo sistema de busca semântica por nicho profissional. Candidatos imediatos: médico, tributário, trabalhista.
 
 ---
 
-### [FALHA-PROCESSO-2026-05-18-E] PASSO7_EMBAIXADOR não instanciado para projetos ativos
-
-**Detectado por:** Diretor Eduardo
-**Contexto:** PASSO3, PASSO5 e PASSO6 foram instanciados para o projeto Ingrid no momento da criação. PASSO7_EMBAIXADOR_TEMPLATE.md foi criado em QUADRILATERAL_UNIVERSAL/OPERACAO/ mas não foi instanciado como PASSO7_EMBAIXADOR.md em CLIENTES/INGRID/. O Embaixador ficou sem formato de resposta definido por toda a duração do Loop 3. Diretor identificou ao perguntar sobre documentos para as mensagens.
-
-**Regra gerada — Checklist de Criação de Projeto (P-041):**
-Ao criar qualquer projeto novo, o Músculo verifica antes de declarar projeto pronto:
-- [ ] PASSO3_GEMINI.md instanciado com dados do cliente
-- [ ] PASSO5_NOTEBOOKLM.md instanciado com dados do cliente
-- [ ] PASSO6_MUSCULO.md instanciado com dados do cliente
-- [ ] PASSO7_EMBAIXADOR.md instanciado com dados do cliente
-- [ ] 00_INSTRUCAO_SISTEMA.md criado em CLAUDE_PROJECT/
-- [ ] MEMORIA_EMBAIXADOR.md inicializado em CLAUDE_PROJECT/
-Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup sem esta checagem.
-
-**Correção aplicada:** CLIENTES/INGRID/PASSO7_EMBAIXADOR.md criado em 2026-05-18.
+### [P-043] Falácia da Homogeneidade dos Nichos — replicação não é trocar a URL dos dados
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise Estrategista + Auditor pós-gate
+**Evidência:** O Estrategista alertou e o Auditor confirmou: o risco silencioso da replicação para outros nichos não é técnico — é epistemológico. Assumir que "Médico funciona como LegalTech mas com dados de medicina" é a falácia. Cada nicho tem vocabulário semântico diferente (jurídico usa "STJ", médico usa "CID-10", contábil usa "IN RFB"), ontologia de busca diferente (criminalista busca por precedente, médico por protocolo, contador por normativa), e critério de sucesso diferente (sim ≥ 0.67 adequado para jurídico pode ser inadequado para médico).
+**Princípio:** Antes de replicar para novo nicho, o Músculo executa discovery semântico específico: (1) qual vocabulário de busca o profissional usa naturalmente, (2) qual é o corpus mínimo viável para o nicho, (3) qual threshold de similaridade é adequado, (4) qual é a "cena de sucesso" do nicho (P-041 aplicado ao novo nicho). Replicação sem discovery semântico = sistema com corpus errado, queries inadequadas e demo que não encanta.
+**Corolário de build:** O seed_demo.py do Valdece é ponto de partida — não template final. Cada nicho exige calibração de embeddings e validação de queries antes do primeiro cliente.
+**Corolário comercial:** O gate de nicho (P-042) precisa ser recalibrado por nicho — não apenas "rodar o mesmo gate com dados diferentes".
+**Aplica-se a:** qualquer proposta de replicação do modelo de busca semântica para novos nichos profissionais.
 
 ---
 
-### [FALHA-PROCESSO-2026-05-18-F] Créditos Anthropic sem monitoramento — bloqueio silencioso
-
-**Detectado por:** Músculo (diagnóstico pós-falha do seed)
-**Contexto:** seed_questoes.ps1 rodou todas as 13 disciplinas e reportou apenas "ERRO - 500 Internal Server Error" sem diagnóstico do motivo. A causa real ("Your credit balance is too low") só foi identificada com uma chamada de diagnóstico manual. O seed consumiu tempo de execução e não entregou valor — e o Diretor só soube do bloqueio real após investigação.
-
-**Regra gerada:** seed_questoes.ps1 deve capturar o texto do erro da Edge Function e exibir o motivo real, não apenas o código HTTP. Erros de crédito da Anthropic são BLOQUEIO_CRITICO — parar imediatamente com mensagem clara: "BLOQUEIO: Créditos Anthropic esgotados. Acesse console.anthropic.com → Plans & Billing."
-
-**Ferramenta preventiva:** Adicionar ao checklist pré-seed: "Verificar saldo Anthropic em console.anthropic.com antes de rodar seed > 50 questões."
+### [P-044] Momentum Tecnológico do Músculo — o motor ≠ a viagem do cliente
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise Estrategista pós-gate
+**Evidência:** O Músculo otimiza para métricas intrínsecas do sistema (threshold, latência, embedding dimensions) porque oferecem recompensas de engenharia claras e mensuráveis. O cliente, contudo, otimiza para alívio temático em cenários de alta pressão — a cena do "júri em 20 minutos". O distanciamento do PROJ-001 Valdece nasceu exatamente aqui: o Músculo construiu um motor impecável; o cliente compra a viagem, não o motor.
+**Princípio:** Ao iniciar cada dia de build, o Músculo relê a cena de sucesso descrita pelo cliente no discovery (P-041). Toda decisão técnica é avaliada com uma pergunta: "Esta decisão aproxima ou afasta o sistema da cena do cliente?" Se afasta → justificar explicitamente ou descartar. Se aproxima → executar. O gate final não testa apenas se o sistema funciona — testa se reproduz a cena do cliente.
+**Aplica-se a:** todo projeto cliente, todo dia de build, toda decisão arquitetural.
 
 ---
 
-### [P-041] Checklist de Setup de Projeto — 6 artefatos obrigatórios antes de declarar pronto
-**Descoberto:** 2026-05-18 | **Detectado por:** Diretor Eduardo
-**Evidência:** PASSO7_EMBAIXADOR não foi instanciado para PROJ-002 Ingrid. O Embaixador ficou sem formato de resposta definido durante o Loop 3. Diretor detectou ao revisar documentos para as mensagens.
-**Princípio:** Todo projeto novo só está pronto quando os 6 artefatos abaixo existem com dados reais (não placeholders): PASSO3_GEMINI.md + PASSO5_NOTEBOOKLM.md + PASSO6_MUSCULO.md + PASSO7_EMBAIXADOR.md + 00_INSTRUCAO_SISTEMA.md + MEMORIA_EMBAIXADOR.md. Músculo verifica ao criar projeto e ao iniciar cada loop.
-**Aplica-se a:** criação de qualquer projeto cliente. Executar após BRIEFING_DISCOVERY.
-
----
-
-### [P-042] FALAS_CLIENTE — repositório único por projeto
-**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
-**Evidência:** Fala verbatim de Ingrid sobre a questão 18 foi relatada pelo Diretor ao Músculo e ao Embaixador em momentos diferentes, com risco de interpretação diferente em cada captura. Sem repositório único, a mesma fala pode ser processada com filtros distintos por cada membro — gerando inteligência contaminada.
-**Princípio:** Em cada projeto ativo, um único arquivo `FALAS_CLIENTE.md` captura toda fala verbatim do cliente com timestamp, canal e contexto. Qualquer membro que precise da fala original lê deste arquivo — nunca recria a captura. Captura única, extração múltipla. Músculo cria o arquivo no kickoff; Embaixador e Diretor alimentam em campo.
-**Formato obrigatório:** `| Data | Canal | Fala exata (entre aspas) | Quem capturou | Contexto |`
-**Artefato:** `CLIENTES/[NOME]/FALAS_CLIENTE.md` — criado no kickoff, atualizado a cada contato real.
-**Aplica-se a:** todo projeto cliente a partir do primeiro contato real com o cliente.
-
----
-
-### [P-043] Acusação de viés metodológico exige evidência verbatim
-**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
-**Evidência:** Debate entre Músculo e Embaixador sobre CAMADA_FATOS: Embaixador alegou que separar fatos de inferências era "restrição artificial" — Músculo contra-argumentou com dados reais de análise de risco. A resolução correta não foi quem ganhou o debate, mas quem produziu evidência objetiva vs. quem produziu argumento.
-**Princípio:** Quando um membro do Conselho acusa outro de viés metodológico, a acusação só é válida com evidência verbatim apontada — não com conclusão sintética. "O Embaixador está sendo otimista" sem citar o trecho específico = argumento fraco. "O Embaixador disse X [verbatim] enquanto o dado real é Y" = argumento auditável. O Músculo não aceita acusação de viés sem evidência.
-**Aplica-se a:** toda deliberação do Conselho onde um membro questiona a análise de outro.
-
----
-
-### [P-044] Princípio do LEDGER sem rotina operacional é prosa
-**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
-**Evidência:** P-042 (FALAS_CLIENTE) foi proposto mas não tinha arquivo criado, nome declarado, nem instrução de quando e quem cria. Um princípio que descreve a intenção sem especificar o mecanismo de execução não muda comportamento — fica registrado mas não é aprendizado ativo.
-**Princípio:** Todo princípio extraído para o LEDGER que descreve uma prática operacional deve incluir: (a) o artefato que implementa a prática (arquivo, script, checklist), (b) quem cria/mantém, (c) quando é criado/atualizado. Sem estes três elementos, o princípio é prosa — documenta a intenção mas não muda o processo.
-**Aplica-se a:** toda entrada nova no LEDGER que descreve prática operacional. Retroativo: P-001 a P-041 sem artefato declarado são candidatos à revisão na próxima auditoria.
-
----
-
-### [P-045] URL pública só em piloto — auth real antes do primeiro cliente pagante
-**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
-**Evidência:** App do PROJ-002 está em `https://subdiretormnmsgm-commits.github.io/vanguard/` — URL pública sem autenticação. Qualquer pessoa com o link acessa. Aceitável para piloto com 1 usuário controlado. Inaceitável para primeiro cliente pagante: (a) dados do cliente expostos sem controle, (b) qualquer concorrente pode acessar e clonar a UX, (c) violação de LGPD com dados de progresso sem consent rastreável.
-**Princípio:** URL pública (GitHub Pages, Netlify sem auth) é aceita apenas em fase de piloto com usuário único controlado. Antes do primeiro cliente pagante: auth real implementado (Supabase Auth + RLS por user_id), URL privada ou com token de acesso, audit log de acesso ativo. Transição é gate bloqueante — sem auth real, não há venda.
-**Artefato:** item no OFFBOARDING_RUNBOOK + gate bloqueante no SaaS Readiness Audit (Dia 14-15).
-**Aplica-se a:** todo projeto com dados de usuário real. Gate obrigatório antes de qualquer cobrança.
-
----
-
-### [P-046] Primeiro feedback espontâneo de piloto é o ativo mais valioso do projeto
-**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador (debrief Gate Dia 8) | **Sessão:** PROJ-002 Ingrid
-**Evidência:** Ingrid, na primeira sessão real do app, reportou espontaneamente: "Na questão 18, não houve palavra destacada em negrito, como informava o enunciado." — feedback de QA técnico preciso, sem ser solicitado. Este único dado revelou: (a) bug real de renderização, (b) padrão de leitura literal da candidata (H-7), (c) prova de engajamento real (leu o enunciado até o fim), (d) postura de parceira do produto, não usuária passiva.
-**Princípio:** O primeiro feedback espontâneo de um piloto vale mais que qualquer pesquisa de mercado ou análise interna. Deve ser: (a) capturado verbatim imediatamente com timestamp e canal (P-042), (b) processado pelos 4 membros do Pentalateral, (c) incorporado ao produto em 24h quando se tratar de bug, (d) preservado como âncora de narrativa comercial. Músculo trata primeiro feedback espontâneo como alerta crítico de produto — não como sugestão opcional.
-**Artefato:** entrada em `FALAS_CLIENTE.md` (P-042) + atualização de `MEMORIA_EMBAIXADOR.md` (P-032) na mesma sessão.
-**Aplica-se a:** toda fase de piloto de qualquer projeto. Captura obrigatória na mesma sessão em que o feedback chega.
-
----
-
-### [P-047] Perfil de Nicho é trade secret — nunca em proposta, contrato ou pitch externo
-**Descoberto:** 2026-05-18 | **Proposto por:** Embaixador (Relatório Autoral + METODOLOGIA_PERFIS_VANGUARD) | **Sessão:** PROJ-002 Ingrid — Loop 3
-**Evidência:** M-2 propôs Perfis de Nicho como ativo comercializável. Embaixador ALERTOU: vender o Perfil entrega ao concorrente o conhecimento que custou 15 dias de campo. Analogia: Apple licenciando o silício M-series em vez de vender o Mac. O Perfil é a infraestrutura cognitiva que reduz o custo do próximo build em 50-70%.
-**Princípio:** Perfis de Nicho acumulados via clientes reais são o moat competitivo da Vanguard — não um produto. Nunca mencionar, citar ou entregar Perfis em: (a) propostas comerciais, (b) contratos com clientes, (c) materiais de marketing externo, (d) pitches para parceiros. Perfil que aparece em pitch deixa de ser moat.
-**Artefato:** pasta `QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/` com `.gitignore` bloqueando PERFIL_*.md de repositório público.
-**Aplica-se a:** todo Perfil de Nicho da Vanguard, de todos os projetos.
-
----
-
-### [P-048] Perfil avança de maturidade só com evidência de cliente real
-**Descoberto:** 2026-05-18 | **Proposto por:** Embaixador (METODOLOGIA_PERFIS_VANGUARD) | **Sessão:** PROJ-002 Ingrid — Loop 3
-**Evidência:** A tentação de extrapolação por pesquisa de mercado produz Perfil hipotético que contamina decisões de build como se fosse fato. PROJ-002 mostrou que comportamento real de Ingrid (sem comparar TEC, feedback técnico preciso, leitura literal do enunciado) divergiu de 3 hipóteses iniciais.
-**Princípio:** Escala de maturidade do Perfil: 0-30% (hipótese de mercado) → 30-60% (primeiro cliente em discovery) → 60-80% (primeiro cliente entregue) → 80-100% (três+ clientes com 60+ dias). Perfil abaixo de 60% não dirige decisão de build — apenas captação. Pesquisa de mercado alimenta 0-30%, nunca eleva o Perfil além disso sem dado de cliente real.
-**Aplica-se a:** toda construção e revisão de Perfil de Nicho.
-
----
-
-### [P-049] Cada Perfil novo declara explicitamente como difere dos Perfis vizinhos
-**Descoberto:** 2026-05-18 | **Proposto por:** Embaixador (METODOLOGIA_PERFIS_VANGUARD) | **Sessão:** PROJ-002 Ingrid — Loop 3
-**Evidência:** EdTech-Concurso e Legal-Tech-Criminal têm o mesmo substrate (software personalizado para profissional sob pressão) mas motivação, modo de decisão e ritmo de uso completamente diferentes. Confundir os dois no build ou no pitch é o erro mais provável ao escalar. PERFIL_EDTECH_CONCURSO documenta a seção "Diferenciação Estrutural vs. Outros Perfis" como item obrigatório.
-**Princípio:** Todo Perfil de Nicho inclui seção obrigatória "Diferenciação Estrutural" com tabela comparando os eixos críticos (motivação, modo de decisão, ritmo de uso, sensibilidade a bugs) vs. os Perfis vizinhos. Não declarar diferença = aceitar que o Conselho trate os dois como equivalentes.
-**Aplica-se a:** toda criação de Perfil novo e toda atualização de Perfil existente quando novo Perfil vizinho for adicionado.
-
----
-
-### [P-050] Pesquisa de mercado externa é insumo do Estrategista, não substituto da captura verbatim
-**Descoberto:** 2026-05-18 | **Proposto por:** Embaixador (METODOLOGIA_PERFIS_VANGUARD) | **Sessão:** PROJ-002 Ingrid — Loop 3
-**Evidência:** Gemini pode gerar análise de nicho médico via pesquisa externa (Medway, Sanar, perfil de R1-R3) em 2-3 dias. Mas o PERFIL_MEDICINA só sobe de 0-30% para 30-60% quando o primeiro médico real compartilha comportamento em sessão de discovery. Pesquisa de Estrategista alimenta hipóteses; hipóteses precisam de validação de campo.
-**Princípio:** Pesquisa de mercado externa (Reddit, App Store reviews, comunidades profissionais, benchmarks de concorrência) é mandato do Estrategista na Etapa 1 de cada Perfil. Produz material em 0-30%. A partir de 30%, toda atualização de Perfil requer evidência de cliente real — capturada verbatim em CAMADA_FATOS. Nenhum dado de Estrategista substitui verbatim do cliente.
-**Coordenação:** Estrategista entrega `PESQUISA_BRUTA_<NICHO>.md`. Embaixador transforma em Perfil hipotético. Auditor cruza com LEDGER. Músculo estima viabilidade técnica. Diretor decide GO/NO-GO.
-**Aplica-se a:** toda expansão para nicho novo.
-
----
-
-### [P-051] Fragmentação de nicho detectada → pausa obrigatória antes de construir Perfil
-**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador — COMANDO_PROPAGACAO_CONSELHO | **Sessão:** Nicho Medicina — Loop 3.5
-**Evidência:** Estrategista entregou PESQUISA_BRUTA_MEDICINA v1 e detectou que "Medicina" = 4 sub-nichos (R1/R3/Revalida/TE) com economias e comportamentos distintos. Sem a pausa, o Embaixador teria construído PERFIL_MEDICINA sobre premissa monolítica — invalidado pelo primeiro cliente real.
-**Princípio:** Quando o Estrategista detecta fragmentação de nicho durante Etapa 1 (4+ sub-nichos com tickets, dores ou canais distintos), o Embaixador pausa construção do Perfil e devolve ao Diretor lista de sub-nichos para escolha explícita. Build sobre nicho não-segmentado = Perfil contaminado.
-**Rotina operacional:** PESQUISA_BRUTA com alerta de fragmentação → Embaixador emite lista de sub-nichos → Diretor escolhe → Embaixador constrói Perfil do sub-nicho escolhido. Nunca pular a etapa de escolha.
-**Aplica-se a:** toda Etapa 1 de pesquisa de nicho com potencial de fragmentação.
-
----
-
-### [P-052] Vanguard compete por precisão cirúrgica — não por aquisição de tráfego massivo
-**Descoberto:** 2026-05-19 | **Proposto por:** Embaixador — COMANDO_PROPAGACAO_CONSELHO | **Sessão:** Nicho Medicina — Loop 3.5
-**Evidência:** Nicho R1 Medicina (oceano vermelho — Medway + Estratégia MED com >70% do mercado) foi explicitamente excluído do portfólio Vanguard. Sub-nicho R3 (menor volume, alto ticket, mercado desatendido) foi escolhido. Esta é a primeira decisão formal de "fora do escopo" por princípio — não por incapacidade técnica.
-**Princípio:** Sub-nichos com baixo volume + alto ticket + problema mal resolvido pelos players dominantes têm prioridade sobre sub-nichos com alto volume + baixo ticket + competição saturada. Vanguard não compete onde o dinheiro de marketing decide. Compete onde a profundidade técnica decide.
-**Rotina operacional:** Ao avaliar GO/NO-GO de nicho, verificar: (a) competição por tráfego pago — alta = penalidade; (b) problema mal resolvido pelos líderes — confirmado = bônus; (c) método Vanguard entrega diferencial irreproduzível — sim = prosseguir.
-**Aplica-se a:** toda decisão GO/NO-GO de entrada em nicho novo.
-
----
-
-### [P-053] Isolamento multi-camada de Persona por Nicho — 5 camadas independentes
-**Descoberto:** 2026-05-19 | **Proposto por:** Auditor (NotebookLM) — AUDITORIA_MEDICINA_V2 [DIV-A] · **Expandido por:** Embaixador — REACAO_EMBAIXADOR_AO_AUDITOR (4 camadas) + Auditor — resposta final (5ª camada) | **Sessão:** Nicho Medicina — Loop 3.5
-**Evidência:** PERFIL_EDTECH_CONCURSO (Ingrid) = tom caloroso, motivacional, linguagem não-técnica — "Oi, tudo bem 🙂", onboarding motivacional, relatórios com troféus. PERFIL_MEDICINA_R3 = tom austero, técnico-clínico, sem encorajamento. O mesmo motor SM-2 + Tutor Socrático subjaz a ambos. A contaminação de tom alcança 5 camadas distintas. Aplicar configuração Ingrid a médico R3 = churn no Dia 1 em múltiplas frentes.
-**Princípio:** Cada novo nicho com perfil comportamental distinto exige isolamento de tom em **cinco camadas independentes**: (1) system prompt do Tutor Socrático — tom do produto, (2) templates de mensagens do Embaixador ao cliente — tom relacional, (3) roteiro de onboarding — linguagem de apresentação do produto, (4) Termo de Uso — linguagem jurídica adequada ao perfil (CFM/LGPD para Medicina; OAB para Direito; CFC para Contabilidade), (5) relatórios de performance automáticos — R3 não recebe "Relatório Semanal com Troféus"; recebe "Dashboard de Performance Clínica" focado em precisão técnica e lacunas de especialidade. Reutilizar qualquer das cinco entre nichos contamina a percepção de prestígio e adequação.
-**Rotina operacional:** Checklist de Comando de Propagação: □ novo system prompt criado (não copiado) □ sentinel_config.json bifurcado com parâmetros do nicho □ Claude Project do Embaixador criado do zero □ templates de mensagens reescritos para tom do nicho □ Termo de Uso forkado com cláusulas regulatórias do nicho □ template de relatório de performance adaptado ao perfil do nicho.
-**Aplica-se a:** toda propagação de produto Vanguard para novo nicho com tom, ticket ou perfil de uso distintos.
-
----
-
-### [P-054] Hard Fork de identidade e jurídico no Comando de Propagação — 4 artefatos obrigatórios
-**Descoberto:** 2026-05-19 | **Proposto por:** Auditor (NotebookLM) — AUDITORIA_MEDICINA_V2 · **Expandido por:** Embaixador — REACAO_EMBAIXADOR_AO_AUDITOR (Hard Fork jurídico como ativo competitivo) | **Sessão:** Nicho Medicina — Loop 3.5
-**Evidência:** PERFIL_MEDICINA_R3 v1 está sobre base documental de Medicina geral (não R3), e Termo de Uso foi construído para EdTech-Concurso (Ingrid) sem cláusulas CFM/LGPD. Propagar código sem redefinir identidade do Embaixador = contaminação cruzada de inteligência comercial. Propagar sem redefinir o Termo = passivo civil real. A blindagem jurídica não é só defensiva — cada cláusula bem-formulada por nicho é parte do trade-secret que diferencia a Vanguard de concorrentes que dependem de volume de dados.
-**Princípio:** Todo Comando de Propagação para novo nicho DEVE instanciar 4 artefatos novos: (a) PERFIL_CANDIDATO_[NICHO].md — nunca copiar de nicho anterior, (b) sentinel_config.json com parâmetros específicos do nicho (ex: Limiar_Chute_TTI=180s para Medicina vs. 60s para EdTech), (c) 00_INSTRUCAO_SISTEMA.md nova para o Embaixador — resetar contexto, não herdar memória de nicho anterior, (d) TEMPLATE_TERMO_USO_[NICHO].md adaptado às normativas regulatórias do nicho (CFM/LGPD para Medicina; OAB para Direito; CFC para Contabilidade; CFP para Psicologia).
-**Rotina operacional:** Antes do build de qualquer novo nicho → verificar que os 4 artefatos são novas criações, não cópias. Comando de Propagação inclui checklist de bifurcação como pré-requisito obrigatório de release. Termo adaptado por nicho é argumento de pitch (Sanar/Medway não têm cláusula de Soberania de Dados Clínicos porque dependem de volume de dados de aluno).
-**Aplica-se a:** toda expansão de produto Vanguard para nicho novo após o primeiro nicho operacional.
-
----
-
-### [FALHA-PROCESSO-2026-05-19] Corpus de sistema dependente de API não verificada no Discovery
-**Data:** 2026-05-19 | **Projeto:** PROJ-001 Valdece — Toga Digital
-**O que aconteceu:** O sistema foi construído assumindo que as APIs públicas do STF (jurisprudencia.stf.jus.br) e STJ (dadosabertos.stj.jus.br / scon.stj.jus.br) seriam acessíveis para ingestão automática de corpus. Na migração para o Supabase do Valdece, ambas as APIs falharam: STF retorna 202 com corpo vazio (sem autenticação), STJ retorna 403 e DNS falha. Adicionalmente, o modelo de embedding foi renomeado (text-embedding-004 → gemini-embedding-001) e mudou de dimensão (768 → 3072), invalidando o schema.
-**Impacto:** Sistema sem corpus = sistema sem utilidade. O Valdece poderia ter recebido uma demo com banco vazio.
-**Causa-raiz:** A pergunta "como o corpus entra no sistema?" não foi feita ao Valdece no Discovery. Assumiu-se que as APIs públicas funcionariam. Nenhuma pergunta sobre os documentos disponíveis, formato, volume ou origem foi levantada antes do build.
-**Princípio extraído:** [P-056] abaixo.
-**Regra imediata:** Antes de qualquer build que dependa de corpus externo → verificar acesso à fonte em ambiente real. Testar o endpoint antes de escrever a primeira linha de código.
-
----
-
-### [P-056] Corpus é pré-requisito — fonte deve ser verificada antes do build
-**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — migração pós-presencial
-**Evidência:** Sistema Toga Digital construído com sucesso técnico (schema, busca semântica, UI) mas sem corpus funcional ao fazer a migração para o Supabase real do Valdece. APIs do STF/STJ não são acessíveis programaticamente sem autenticação. Falha detectada na tentativa de popular o banco para a demo — não no Discovery.
-**Princípio:** Todo sistema que depende de corpus externo tem uma pergunta obrigatória de Discovery: "De onde vêm os documentos e como eles entram no sistema?" Essa pergunta deve ser feita ao cliente e testada tecnicamente ANTES do primeiro commit de build. Sistema sem corpus = produto sem valor, independente da qualidade técnica do código.
-**Perguntas obrigatórias para projetos de busca semântica:**
-1. O cliente tem os documentos? Em que formato? (PDF, Word, site)
-2. Os documentos são públicos ou privados?
-3. Se públicos: a API/fonte é acessível programaticamente? Testar antes de assumir.
-4. Se privados: qual o mecanismo de upload? Quem autoriza?
-5. Qual o volume inicial mínimo para o sistema ter utilidade na primeira demo?
-**Aplica-se a:** qualquer projeto com motor de busca, RAG, ou corpus semântico.
-
----
-
-### [P-057] Vanguard Tech entrega o melhor produto — qualidade sem se importar com o preço
-**Descoberto:** 2026-05-19 | **Origem:** Diretor Eduardo — princípio fundador declarado
-**Evidência:** Durante a construção do corpus do Toga Digital (Valdece), o Músculo parou em 29 acórdãos por considerar "suficiente para a demo". O Diretor corrigiu: Vanguard Tech não entrega o suficiente — entrega o melhor. Corpus de 29 casos é seed de emergência, não produto final.
-**Princípio:** A Vanguard Tech não calibra qualidade pelo preço cobrado nem pelo prazo disponível. O produto entregue ao cliente é sempre o melhor possível dentro do escopo — não o mínimo viável. "Suficiente para passar" não é padrão Vanguard. O Músculo que detecta uma lacuna de qualidade e não corrige por ser "boa o suficiente" está violando este princípio.
-**Como aplica:** Ao detectar qualquer gap de qualidade (corpus raso, cobertura parcial, UI com bug visual menor, documentação incompleta), o Músculo corrige imediatamente — não agenda para V2, não documenta como "melhoria futura", não espera o cliente reclamar. Se cabe no escopo: entra agora. Se não cabe: é explicitamente declarado ao Diretor com prazo, não silenciado.
-**O que NÃO é este princípio:** não é perfeccionismo paralisante. É excelência com entrega. A diferença: perfeccionismo adia. Excelência entrega e depois melhora.
-**Lema:** *"A Vanguard Tech sempre entregará o melhor produto. Qualidade, sem se importar com o preço."*
-
----
-
-### [P-055] Ciclo de nicho tem máximo 3 rounds — perguntas abertas classificadas, não acumuladas
-**Descoberto:** 2026-05-19 | **Proposto por:** Músculo — análise do ciclo Medicina (6 documentos, 9 perguntas abertas para um Perfil em 25-30%) | **Sessão:** Nicho Medicina — Loop 3.5
-**Evidência:** O ciclo Medicina gerou 6 documentos de deliberação e encerrou com 9 perguntas abertas ao Auditor, sem critério de encerramento declarado antes de começar. Resultado: loop sem gate de fechamento, débito de perguntas acumulado que inicia o próximo ciclo já sobrecarregado. Overhead desproporcional para um Perfil ainda hipotético.
-**Princípio:** Todo ciclo de exploração de nicho tem estrutura fixa: (1) máximo 3 rounds de deliberação (Estrategista → Embaixador + Auditor → Síntese Final), (2) máximo 4 documentos (PESQUISA_BRUTA + PERFIL + documento consolidado + Síntese Final), (3) perguntas abertas classificadas obrigatoriamente como BLOQUEIA_BUILD / BLOQUEIA_CAPTACAO / INFORMATIVO — apenas perguntas BLOQUEIA_ impedem encerramento do ciclo, INFORMATIVO são registradas no LEDGER e não bloqueiam. Após o Round 3, o ciclo encerra com o estado em que estiver.
-**Rotina operacional:** Antes de iniciar qualquer ciclo → `ciclo_nicho_init.ps1 -nicho [NICHO]` gera CICLO_GATE.md com critérios declarados. Ao encerrar → `perguntas_abertas_gate.ps1 -nicho [NICHO]` classifica o que bloqueia e o que não bloqueia. Perguntas INFORMATIVO em aberto → LEDGER. Ciclo nunca espera resposta de INFORMATIVO para fechar.
-**Scripts:** `scripts/ciclo_nicho_init.ps1` · `scripts/perguntas_abertas_gate.ps1`
-**Aplica-se a:** todo ciclo de exploração de nicho novo a partir de Contabilidade e Psicologia.
-
----
-
-### [P-058] Verificar escopo inicial E escopo final antes de qualquer entrega
-**Descoberto:** 2026-05-19 | **Origem:** Diretor Eduardo — princípio declarado explicitamente
-**Evidência:** Na construção do Toga Digital (Valdece), o corpus foi expandido iterativamente (20 → 24 → 29 → 57 casos) sem confrontar o que foi prometido no BRIEFING_DISCOVERY com o que estava sendo entregue. O BRIEFING dizia "busca de jurisprudência STF/STJ para Direito Penal" — o corpus de 29 casos cobria 15 temas de 50+. A lacuna não foi identificada até o Diretor questionar.
-**Princípio:** Ao iniciar qualquer build e ao fechar qualquer entrega, o Músculo compara explicitamente: (1) o que o cliente pediu no BRIEFING_DISCOVERY, (2) o que está sendo entregue agora. Essa comparação deve ser verbalmente declarada ao Diretor — não assumida. A pergunta obrigatória ao fechar: *"O que estou entregando cobre o que foi prometido no escopo inicial?"*
-**Como aplica:**
-- Início do build → ler BRIEFING_DISCOVERY e declarar "o que prometemos" antes de começar
-- Ao fechar qualquer gate → confrontar entrega com o escopo e declarar qualquer gap
-- Se houver gap: declarar explicitamente, não silenciar, não deixar para V2 sem comunicar
-- Não confundir "funciona tecnicamente" com "cobre o que foi prometido"
-**Diferença de P-057:** P-057 é sobre qualidade intrínseca do produto. P-058 é sobre fidelidade ao compromisso feito com o cliente. Os dois juntos: entrega de qualidade que honra o escopo.
-**Lema:** *"Sempre verificar o pedido inicial e o final. Sempre."*
+### [P-038] Nada sai da Vanguard sem gate de teste aprovado
+**Descoberto:** 2026-05-19 | **Sessão:** Retomada PROJ-001 Valdece
+**Fricção:** Eduardo precisou corrigir o Músculo: o sistema de busca do Valdece não foi enviado/configurado na conta dele porque não passou por gate de teste. O princípio já havia sido estabelecido no PROJ-002 Ingrid mas não foi registrado formalmente no LEDGER.
+**Princípio:** Nenhum sistema, código ou configuração sai do ambiente Vanguard para o ambiente do cliente sem gate de teste aprovado explicitamente pelo Diretor. Estado "pronto" ≠ estado "aprovado para envio". O gate de teste é o único que autoriza a migração.
+**Aplica-se a:** todo projeto cliente — migração de Supabase, deploy de frontend, configuração de credenciais na conta do cliente.
+**Consequência do não-cumprimento:** Cliente recebe sistema não testado → falha na demo → janela de encantamento destruída → contrato perdido.

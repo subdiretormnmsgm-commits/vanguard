@@ -1,4 +1,4 @@
-﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
+# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
 > Criado: 2026-05-17 | Última atualização: 2026-05-17
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
@@ -249,7 +249,7 @@ V25 não é uma versão de produto. É a versão do processo.
 Três alavancas ativadas simultaneamente:
 1. **PROJ-001 Valdece** — primeiro cliente real, primeiro build com processo formal
 2. **PROJ-002 Ingrid** — segundo cliente, primeiro projeto EdTech, validação do método em nicho diferente
-3. **Pentalateral IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
+3. **Quadrilateral IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
 
 Eduardo: *"Fizemos 23 versões até chegar nisso. Não posso arriscar perder esse trabalho de noites e noites."*
 O trabalho não se perdeu. Está em git history. Está no LEDGER. Está nesta linha do tempo.
@@ -280,13 +280,21 @@ O que a Vanguard entregou: um copiloto de defesa criminal que busca, cita em ABN
 | 2026-05-14 | **Build Dia 4 — commit `e9afb36`** | Gate ABNT NBR6023. Busca precisa/ampla com threshold configurável. Redesign completo. |
 | 2026-05-16 | **Formalizador gera contrato** | Contrato_Toga_Digital_Valdece_19052026.pdf — minuta. Formalizador ativado como 4º membro. |
 | 2026-05-16 | **Escopo silencioso detectado pelo Diretor** | Manutenção Soberana R$900/mês inserida sem aprovação. Corrigido imediatamente. FALHA-PROCESSO-2026-05-16-B registrada. |
-| 2026-05-19 | **Entrega presencial** | Eduardo vai ao cliente: onboarding técnico + handoff soberano. |
+| 2026-05-19 | **Gate P-038 APROVADO — 12/12 verde** | sim 0.67–0.818 · latência 2.1–3.4s · corpus 61 acórdãos · modelo gemini-embedding-001 · Supabase US (latência aceitável — migrar sa-east-1 pós-contrato) |
+| 2026-05-19 | **Deploy: https://toga-digital-valdece.netlify.app** | UI Toga Digital (Navy + Ouro) instalável como PWA. Corpus 61 acórdãos depth coverage. |
+| 2026-05-19 | **Entrega presencial** | Eduardo vai ao cliente: Sovereign Playbook pré-contrato (P-042) + onboarding técnico + handoff soberano. Pricing: R$5k setup + R$350/mês manutenção. |
+| 2026-05-19 | **Loop evolutivo pós-entrega** | 3 membros do Conselho deliberaram: Estrategista (DIRETRIZ), Auditor (2 sessões de Skill), Embaixador (filtro de realidade). P-041/P-042/P-043/P-044 extraídos. |
 
 ### O que este projeto provou
-- O Mágico de Oz Gate funciona: CLI validou busca semântica antes de qualquer UI
-- P-008: primeiro cliente de nicho é canal de distribuição — "com o melhor sistema, ele será nossa propaganda"
+- O Mágico de Oz Gate funciona: CLI validou busca semântica antes de qualquer UI — **Protocolo de Garantia Soberana** nasce aqui
+- P-008: primeiro cliente de nicho é canal de distribuição — "Crédito de Expansão entre Pares" operacional
 - Escopo silencioso é a deficiência mais perigosa do Músculo — e o Diretor detectou antes do commit
-- V2 pipeline mapeado: Sovereign Upload + Radar de Divergência + Citação DOCX (gatilho: corpus ≥ 500 docs)
+- **P-041:** Discovery sem capturar a cena de sucesso gera demo tecnicamente perfeita que não emociona o cliente. 8 perguntas obrigatórias agora.
+- **P-042:** Gate semântico documentado = ativo de nicho. "Protocolo de Garantia Soberana" destrói objeção de vendor lock-in antes de formulada.
+- **P-043:** Falácia da Homogeneidade dos Nichos — replicação semântica não é trocar URL dos dados. DFD obrigatório antes de novo nicho.
+- **P-044:** Momentum Tecnológico do Músculo — motor ≠ viagem do cliente. Releitura de cena antes de cada dia de build.
+- corpus_gap como SLA do Sentinel Report — V2 natural ao atingir ≥500 docs
+- V2 pipeline mapeado: Sovereign Upload + Radar de Divergência + Citação DOCX + botão "Solicitar Expansão Semântica" (sim < 0.60)
 
 ---
 
@@ -425,6 +433,10 @@ O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas 
 | P-025 | 7 panes Supabase+Claude | 2026-05-17 | Seed falhou 13/13 — 3h de debugging | Documento de troubleshooting: próximo projeto resolve cada pane em <5 min |
 | P-031 | Embaixador = filtro de realidade | 2026-05-18 | **Ideia do Diretor** — silo do Embaixador identificado | Embaixador CONFIRMA/EXPANDE/ALERTA cada ideia de [M]+[G]+[N] com comportamento real do cliente. Reage a 15 ideias/ciclo. |
 | P-032 | MEMORIA_EMBAIXADOR automática | 2026-05-18 | Diretor detectou que Músculo não atualizou após deliberação N-4 | Toda deliberação que afeta cliente ativo = atualização imediata de MEMORIA_EMBAIXADOR. Sem intervenção do Diretor. |
+| P-041 | Cena de sucesso = script da demo | 2026-05-19 | PROJ-001 Valdece — loop evolutivo pós-entrega | Discovery captura obrigatoriamente a cena de sucesso em 6 meses (P2). Demo aprovada se reproduzir a cena. 8 perguntas agora. |
+| P-042 | Gate semântico = Protocolo de Garantia Soberana | 2026-05-19 | PROJ-001 Valdece — Embaixador identificou oportunidade comercial | Gate documentado = ativo de nicho. Apresentado ANTES do contrato. Destrói vendor lock-in antes de formulado. |
+| P-043 | Falácia da Homogeneidade dos Nichos | 2026-05-19 | PROJ-001 Valdece — análise de replicabilidade | DFD obrigatório: fonte + obsolescência + restrições + estrutura semântica. 2+ vermelhos = não replicar sem solução de corpus. |
+| P-044 | Momentum Tecnológico do Músculo | 2026-05-19 | PROJ-001 Valdece — Auditor identificou risco de deriva | Releitura obrigatória da cena de sucesso antes de cada dia de build. Gate final testa se reproduz a cena — não apenas o motor. |
 
 **Velocidade de aprendizado por fase:**
 - V1–V23 (pré-LEDGER): ~0 princípios formalizados por sessão
@@ -442,12 +454,12 @@ O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas 
 | 2026-05-12 | Primeiro valor fechado (Valdece) | R$5.000 | Pendente entrega |
 | 2026-05-15 | Segundo projeto ativo (Ingrid) | Piloto interno | Em build |
 | 2026-05-16 | Primeiros contratos gerados | Minutas | Aguardando assinatura |
-| 2026-05-19 | Primeira entrega presencial (Valdece) | — | Meta |
+| 2026-05-19 | Primeira entrega presencial (Valdece) | R$5.000 setup + R$350/mês | Gate P-038 aprovado · 61 acórdãos · Netlify deploy |
 | 2026-05-30 | Entrega final PROJ-002 Ingrid | — | Meta |
 | 2026-09-06 | Prova da Ingrid — validação real do produto | — | Meta |
 
 **Receita faturada até 2026-05-17:** R$ 0
-**Receita comprometida:** R$ 5.000 (Valdece — entrega pendente)
+**Receita comprometida:** R$ 5.000 (Valdece — entregue 2026-05-19) + R$ 350/mês MRR
 **Potencial SaaS PROJ-002:** R$ 194.000 (500 usuários × R$97/mês × 4 meses — ciclo Sedes-DF 2026)
 **Pipeline V2 Valdece:** R$ 8.500–12.000 (Sovereign Upload + Radar de Divergência + Citação DOCX)
 

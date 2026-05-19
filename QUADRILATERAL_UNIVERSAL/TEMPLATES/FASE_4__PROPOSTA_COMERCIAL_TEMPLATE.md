@@ -82,6 +82,22 @@ Fase 5:  Entrega + Handoff + Playbook
 
 ---
 
+## PROTOCOLO DE GARANTIA SOBERANA (P-042)
+
+> *"Se você quiser nos demitir em 30 minutos, pode — está tudo documentado aqui."*
+
+O Sovereign Playbook é entregue nesta proposta — não apenas no handoff.
+Ele contém tudo o que você precisa para operar o sistema sem nós:
+- Como acessar, operar e resolver os problemas mais comuns
+- Custos mensais reais de infraestrutura (sem margem nossa)
+- Como pedir a próxima evolução via formulário — mesmo que seja com outro fornecedor
+
+**Por que mostramos isso antes de assinar?**
+Porque quem tem soberania total sobre o que recebe decide com clareza — não com pressão.
+E porque sistemas que o cliente consegue operar sozinho são sistemas que o cliente usa por anos.
+
+---
+
 ## PRÓXIMOS PASSOS
 
 Para avançar com a **Opção [A/B]:**

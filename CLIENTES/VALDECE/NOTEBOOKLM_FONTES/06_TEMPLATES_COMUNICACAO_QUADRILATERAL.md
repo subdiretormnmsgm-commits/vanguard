@@ -62,8 +62,9 @@ Tu és o Estrategista. Eu sou o Diretor.
 O NotebookLM é o Auditor. O Claude Code é o Músculo.
 O Claude Projects é o Embaixador — tem memória persistente do cliente.
 
-[SE PROJETO NOVO — preencher com dados do Discovery:]
+[SE PROJETO NOVO — preencher com dados do Discovery V3 (P-041):]
 NICHO/SETOR: [resposta]
+CENA DE SUCESSO ★ OBRIGATÓRIA: "[resposta literal do cliente à pergunta P2 — em 6 meses, como é um dia perfeito?]"
 PROBLEMA PRINCIPAL: [resposta]
 VOLUME/ESCALA: [resposta]
 RECEITA / TICKET MÉDIO: [resposta]
@@ -71,6 +72,9 @@ ESTADO ATUAL: [resposta]
 URGÊNCIA: [resposta]
 ORÇAMENTO / RECURSOS: [resposta]
 CAMADA ESTIMADA: [1–5]
+LEADS INDICADOS (P-008): [nomes mencionados pelo cliente para Crédito de Expansão entre Pares]
+[SE BUSCA SEMÂNTICA — incluir resultado do DFD (P-043):]
+DFD: VERDE/AMARELO/VERMELHO — [itens com problema se houver]
 
 [SE ITERAÇÃO SEGUINTE — preencher com reação às ideias do Músculo e do Embaixador:]
 O Músculo propôs [M-1 a M-5]:

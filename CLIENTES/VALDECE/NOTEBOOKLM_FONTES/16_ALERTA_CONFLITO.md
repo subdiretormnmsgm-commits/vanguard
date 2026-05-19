@@ -1,4 +1,4 @@
-﻿# ALERTA DE CONFLITO TÉCNICO
+# ALERTA DE CONFLITO TÉCNICO
 **Emitido por:** Músculo (Claude Code) — Poder de Veto Soberano
 **Protocolo:** Sovereign Veto — Camada 2 (Hard Block)
 **Status:** ⛔ PROCESSO PARALISADO

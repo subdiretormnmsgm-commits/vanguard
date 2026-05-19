@@ -1,10 +1,17 @@
-﻿# TEMPLATES DE COMUNICAÇÃO — QUADRILATERAL IAH
-**Protocolo padronizado de input e output entre todos os membros**
+# TEMPLATES DE COMUNICAÇÃO — PENTALATERAL IAH
+**Referência interna do Músculo — não colar diretamente em nenhuma IA**
 **Organismo vivo — atualizar quando o processo evoluir**
-**Versão:** 1.0 | Data: 2026-05-13
+**Versão:** 2.0 | Data: 2026-05-18
 
-> Nenhum membro improvisa o formato. Cada documento tem estrutura fixa.
-> Quando o formato muda, o loop quebra. Quando o formato é respeitado, o sistema aprende.
+> ⚠️ REGRA FUNDAMENTAL — LER ANTES DE USAR
+>
+> Estes templates são referência para o **Músculo escrever** — não scripts para colar no Gemini ou NotebookLM.
+>
+> IA com template vazio alucina: preenche os campos mecanicamente sem pensar no problema real.
+> IA com documento escrito pelo Músculo delibera: recebe contexto real e produz estratégia real.
+>
+> **O Músculo lê o template → lê o contexto do projeto → escreve o documento completo → Eduardo leva o documento pronto.**
+> Nunca o contrário.
 
 ---
 
@@ -13,18 +20,23 @@
 ```
 DIRETOR
   │
-  ├──[COMANDO 1]──► GEMINI ──[DIRETRIZ]──► DIRETOR
-  │                                              │
-  ├──[COMANDO 2 + fontes]──► NOTEBOOKLM ──[SKILL]──► DIRETOR
-  │                                                        │
-  └──[PROTOCOLO VANGUARD + Skill + Diretriz]──► MÚSCULO
-                                                     │
-                                    ┌────────────────┤
-                                    │                │
-                               [MEMORIA]      [RELATORIO]
-                               [COMANDO_ESTRATEGISTA]
-                                    │
-                                    └──► DIRETOR ──► (volta ao GEMINI)
+  ├──[COMANDO 1 + M-1..5 + E-1..5]──► GEMINI ──[DIRETRIZ]──► DIRETOR
+  │                                                                 │
+  ├──[COMANDO 2 + fontes + MEMORIA_EMBAIXADOR]──► NOTEBOOKLM ──[SKILL]──► DIRETOR
+  │                                                                             │
+  └──[PROTOCOLO VANGUARD + Skill + Diretriz + MEMORIA_EMBAIXADOR]──► MÚSCULO
+                                                                          │
+                                               ┌────────────────────────┤
+                                               │                        │
+                                          [MEMORIA]              [RELATORIO]
+                                          [COMANDO_ESTRATEGISTA]
+                                          [MEMORIA_EMBAIXADOR atualizada]
+                                               │
+                                               └──► EMBAIXADOR (CONFIRMA/EXPANDE/ALERTA)
+                                                         │
+                                                    [E-1 a E-5]
+                                                         │
+                                                    ──► DIRETOR ──► (volta ao GEMINI)
 ```
 
 ---
@@ -32,22 +44,27 @@ DIRETOR
 # TEMPLATE 1 — COMANDO 1
 ## Eduardo → Gemini | Como pedir a DIRETRIZ
 
+> Pentalateral IAH: o Gemini recebe [M-1 a M-5] do Músculo E [E-1 a E-5] do Embaixador
+> (quando disponíveis). Reage a ambos os conjuntos na DIRETRIZ.
+
 **Quando usar:** Ao iniciar projeto novo ou nova iteração após receber MEMORIA + relatorio do Músculo.
 
 **O que colar antes do comando:** MEMORIA_V[X] + relatorio_evolutivo_V[X] (nessa ordem, no mesmo chat).
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → GEMINI
+PENTALATERAL IAH — EDUARDO → GEMINI
 projeto: [NOME DO PROJETO] | ITERAÇÃO: V[X] | DATA: [DD-MM-AAAA]
 ════════════════════════════════════════════════════════════
 
 Gemini, somos o Pentalateral IAH.
 Tu és o Estrategista. Eu sou o Diretor.
 O NotebookLM é o Auditor. O Claude Code é o Músculo.
+O Claude Projects é o Embaixador — tem memória persistente do cliente.
 
-[SE PROJETO NOVO — preencher com dados do Discovery:]
+[SE PROJETO NOVO — preencher com dados do Discovery V3 (P-041):]
 NICHO/SETOR: [resposta]
+CENA DE SUCESSO ★ OBRIGATÓRIA: "[resposta literal do cliente à pergunta P2 — em 6 meses, como é um dia perfeito?]"
 PROBLEMA PRINCIPAL: [resposta]
 VOLUME/ESCALA: [resposta]
 RECEITA / TICKET MÉDIO: [resposta]
@@ -55,15 +72,27 @@ ESTADO ATUAL: [resposta]
 URGÊNCIA: [resposta]
 ORÇAMENTO / RECURSOS: [resposta]
 CAMADA ESTIMADA: [1–5]
+LEADS INDICADOS (P-008): [nomes mencionados pelo cliente para Crédito de Expansão entre Pares]
+[SE BUSCA SEMÂNTICA — incluir resultado do DFD (P-043):]
+DFD: VERDE/AMARELO/VERMELHO — [itens com problema se houver]
 
-[SE ITERAÇÃO SEGUINTE — preencher com reação às ideias do Músculo:]
-O Músculo propôs para esta iteração:
+[SE ITERAÇÃO SEGUINTE — preencher com reação às ideias do Músculo e do Embaixador:]
+O Músculo propôs [M-1 a M-5]:
 1. [ideia 1 do Músculo]
 2. [ideia 2 do Músculo]
 3. [ideia 3 do Músculo]
 4. [ideia 4 do Músculo]
 5. [ideia 5 do Músculo]
 Analisa cada uma. Aprova, transforma ou descarta — com razão.
+
+O Embaixador propôs [E-1 a E-5] com base em comportamento real do cliente:
+1. [ideia 1 do Embaixador]
+2. [ideia 2 do Embaixador]
+3. [ideia 3 do Embaixador]
+4. [ideia 4 do Embaixador]
+5. [ideia 5 do Embaixador]
+Para cada uma: CONFIRMA / EXPANDE / ALERTA — com razão estratégica.
+(As ideias do Embaixador têm peso de evidência de campo — não ignorar.)
 
 ESTADO ATUAL DO PROJETO:
 Camada: [X] | Valor/MRR: [R$X] | Próximo objetivo: [1 frase]
@@ -76,7 +105,8 @@ BLOCO 3 — DIRETRIZ TÉCNICA (com [PARA O NOTEBOOKLM] e [PARA O MÚSCULO])
 BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR
 
 + 5 IDEIAS DISRUPTIVAS para o Músculo reagir.
-+ [RESPOSTA ÀS IDEIAS DO MÚSCULO] no Bloco 3 se for iteração seguinte.
++ [RESPOSTA ÀS IDEIAS DO MÚSCULO M-1..5] no Bloco 3 se for iteração seguinte.
++ [RESPOSTA ÀS IDEIAS DO EMBAIXADOR E-1..5] no Bloco 3 se foram incluídas.
 ════════════════════════════════════════════════════════════
 ```
 
@@ -89,7 +119,7 @@ BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR
 
 ```
 ════════════════════════════════════════════════════════════
-DIRETRIZ ESTRATÉGICA — [NOME DO PROJETO] — V[X]
+DIRETRIZ ESTRATÉGICA — PENTALATERAL IAH — [NOME DO PROJETO] — V[X]
 Data: [DD-MM-AAAA] | Estrategista: Gemini
 ════════════════════════════════════════════════════════════
 
@@ -146,12 +176,19 @@ Alertas de risco a monitorar: [lista]
 Em 3 iterações: [onde o projeto deve estar]
 Decisão arquitetural crítica agora: [o que seria difícil de mudar depois]
 
-[RESPOSTA ÀS IDEIAS DO MÚSCULO] — obrigatório em iteração seguinte
-Ideia 1 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
-Ideia 2 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
-Ideia 3 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
-Ideia 4 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
-Ideia 5 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
+[RESPOSTA ÀS IDEIAS DO MÚSCULO M-1..5] — obrigatório em iteração seguinte
+M-1 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
+M-2 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
+M-3 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
+M-4 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
+M-5 — [título]: [APROVADA / MODIFICADA: nova versão / DESCARTADA: razão]
+
+[RESPOSTA ÀS IDEIAS DO EMBAIXADOR E-1..5] — obrigatório se foram incluídas no contexto
+E-1 — [título]: [CONFIRMA / EXPANDE: como / ALERTA: risco estratégico]
+E-2 — [título]: [CONFIRMA / EXPANDE: como / ALERTA: risco estratégico]
+E-3 — [título]: [CONFIRMA / EXPANDE: como / ALERTA: risco estratégico]
+E-4 — [título]: [CONFIRMA / EXPANDE: como / ALERTA: risco estratégico]
+E-5 — [título]: [CONFIRMA / EXPANDE: como / ALERTA: risco estratégico]
 
 ---
 
@@ -202,7 +239,7 @@ Complementares (adicionar quando disponíveis):
 **Mensagem a colar após carregar as fontes:**
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
+PENTALATERAL IAH — EDUARDO → NOTEBOOKLM
 projeto: [NOME] | ITERAÇÃO: V[X] | DATA: [DD-MM-AAAA]
 ════════════════════════════════════════════════════════════
 
@@ -463,6 +500,190 @@ Ver TEMPLATE 1 (COMANDO 1) para o formato exato.
 
 ---
 
+---
+
+# TEMPLATE 8 — EMBAIXADOR
+## Músculo → Eduardo (para acionar o Embaixador) | Formatos do 4º Membro Ativo
+
+> O Embaixador (Claude Projects) é o único membro com memória persistente do cliente entre sessões.
+> Tem 4 documentos de comunicação: MENSAGEM_INTERACAO_INICIAL, LOG_CLIENTE, [E-1 a E-5] e reação P-031.
+> Script de acionamento: `.\scripts\ir_ao_embaixador.ps1 -cliente [NOME]`
+
+---
+
+## TEMPLATE 8A — MENSAGEM_INTERACAO_INICIAL
+### Músculo → Eduardo (para colar no Claude Projects ao abrir projeto)
+
+**Quando usar:** Passo 0 — ao criar o Claude Project de um cliente novo. Colar como primeira mensagem após configurar as instruções do sistema.
+
+```
+════════════════════════════════════════════════════════════
+PENTALATERAL IAH — ATIVAÇÃO DO EMBAIXADOR
+Cliente: [NOME DO CLIENTE] | Projeto: [NOME DO PROJETO]
+Data de ativação: [DD-MM-AAAA] | Passo 0 do Protocolo Vanguard
+════════════════════════════════════════════════════════════
+
+Embaixador, você está sendo ativado como 4º membro do Pentalateral IAH
+para o projeto [NOME DO PROJETO] com o cliente [NOME DO CLIENTE].
+
+Contexto inicial que o Músculo fornece:
+
+NICHO/SETOR: [resposta do Discovery]
+DOR PRINCIPAL DO CLIENTE: [dor declarada no briefing]
+PERFIL DO CLIENTE: [cargo, empresa, experiência com tecnologia]
+PRIMEIRO CONTATO: [data e contexto]
+CAMADA ESTIMADA: [1–5]
+TICKET / MRR: [R$X]
+PRAZO COMBINADO: [X dias/semanas]
+
+Hipóteses iniciais para você confirmar ou refutar ao longo do projeto:
+[H-1]: [hipótese sobre comportamento/expectativa do cliente]
+[H-2]: [hipótese sobre risco de relacionamento]
+[H-3]: [hipótese sobre como o cliente percebe valor]
+
+Sua missão neste projeto:
+1. Acumular inteligência sobre este cliente a cada interação
+2. Gerar [E-1 a E-5] ao final de cada ciclo com base em comportamento real
+3. Reagir com CONFIRMA/EXPANDE/ALERTA às ideias dos outros membros (P-031)
+4. Alertar o Diretor sobre sinais de churn, scope creep ou insatisfação
+
+Responda confirmando ativação e listando o que precisa para começar.
+════════════════════════════════════════════════════════════
+```
+
+---
+
+## TEMPLATE 8B — LOG_CLIENTE
+### Embaixador → Eduardo | Relatório pós-interação com cliente (Passo 8.5)
+
+**Quando usar:** Após toda reunião, ligação ou troca significativa com o cliente. Eduardo relata ao Embaixador → Embaixador gera este LOG.
+
+```
+════════════════════════════════════════════════════════════
+LOG_CLIENTE — [NOME DO CLIENTE] — [DD-MM-AAAA]
+Gerado por: Embaixador (Claude Projects)
+Tipo de interação: [Reunião / Ligação / WhatsApp / E-mail]
+════════════════════════════════════════════════════════════
+
+RESUMO DA INTERAÇÃO
+[2–3 parágrafos — o que aconteceu, em que contexto, quem disse o quê]
+
+SINAIS DE ENGAJAMENTO
+· [POSITIVO] [o que o cliente demonstrou de interesse, comprometimento, entusiasmo]
+· [NEUTRO]   [o que ficou sem reação clara — zona de atenção]
+· [NEGATIVO] [sinais de hesitação, objeção velada, distância ou silêncio relevante]
+
+HIPÓTESES ATUALIZADAS
+[H-1]: [confirmada / refutada / revisada — com evidência do que foi dito]
+[H-2]: [confirmada / refutada / revisada]
+[H-3]: [confirmada / refutada / revisada]
+
+TEMPERATURA DO CLIENTE
+[QUENTE / MORNO / FRIO — com justificativa de 1 linha]
+
+ALERTAS PARA O CONSELHO
+· [ALERTA P-023 se detectado — cliente menciona colega/lead]
+· [ALERTA DE CHURN se detectado — sinal de distanciamento]
+· [ALERTA DE SCOPE CREEP se detectado — cliente expandindo escopo sem aprovar custo]
+
+PRÓXIMA AÇÃO DO EMBAIXADOR
+[O que monitorar / perguntar / preparar para a próxima interação]
+
+PRÓXIMA AÇÃO DO DIRETOR (sugerida)
+[O que Eduardo deve fazer ou dizer antes da próxima interação com este cliente]
+════════════════════════════════════════════════════════════
+```
+
+---
+
+## TEMPLATE 8C — [E-1 a E-5] DO EMBAIXADOR
+### Embaixador → Eduardo (para levar ao Gemini e ao NotebookLM) | 5 ideias baseadas em comportamento real do cliente
+
+**Quando usar:** Ao fechar cada ciclo do loop. O Embaixador gera estas 5 ideias que alimentam o próximo ciclo junto com as [M-1 a M-5] do Músculo. Formam os 10 inputs de campo do Pentalateral.
+
+```
+════════════════════════════════════════════════════════════
+[E-1 a E-5] — IDEIAS DO EMBAIXADOR — [NOME DO CLIENTE] — V[X]
+Gerado por: Embaixador (Claude Projects)
+Base: comportamento real observado em [N] interações com o cliente
+════════════════════════════════════════════════════════════
+
+E-1 — [TÍTULO EM MAIÚSCULAS]
+O que observei: [comportamento concreto do cliente que origina esta ideia]
+A ideia: [o que fazer a partir disso]
+Por que agora: [por que esta janela de oportunidade existe hoje]
+Pergunta para o Gemini reagir: [?]
+
+E-2 — [TÍTULO]
+[mesma estrutura]
+
+E-3 — [TÍTULO]
+[mesma estrutura]
+
+E-4 — [TÍTULO]
+[mesma estrutura]
+
+E-5 — [TÍTULO]
+[mesma estrutura]
+
+Nota: estas ideias têm peso de evidência de campo. O Gemini e o NotebookLM devem
+reagir com CONFIRMA / EXPANDE / ALERTA — não ignorar.
+════════════════════════════════════════════════════════════
+```
+
+---
+
+## TEMPLATE 8D — REAÇÃO P-031 (CONFIRMA / EXPANDE / ALERTA)
+### Embaixador → Eduardo | Como reagir às ideias dos outros membros com filtro de realidade do cliente
+
+**Quando usar:** Após receber as ideias do Músculo [M-1 a M-5], do Gemini ou do Auditor. O Embaixador filtra cada uma com base no comportamento real do cliente observado.
+
+```
+════════════════════════════════════════════════════════════
+FILTRO DE REALIDADE P-031 — [NOME DO CLIENTE] — V[X]
+Embaixador reagindo às ideias do [MÚSCULO / GEMINI / AUDITOR]
+════════════════════════════════════════════════════════════
+
+[Ideia 1 — título]:
+CONFIRMA — Esta ideia alinha com o que observei: [evidência de comportamento]
+[OU]
+EXPANDE — O cliente vai além disso: [o que o comportamento real sugere como extensão]
+[OU]
+ALERTA — Risco real: [o cliente demonstrou comportamento que contradiz esta ideia]
+Evidência: [o que foi dito ou feito que gera este alerta]
+Recomendação: [como ajustar a ideia para o cliente real]
+
+[Ideia 2 — título]:
+[mesma estrutura]
+
+[continuar para todas as ideias recebidas]
+
+SÍNTESE DO EMBAIXADOR:
+[1 parágrafo — o que o conjunto das reações revela sobre o estado atual do cliente
+ e o que o Conselho deve priorizar nas próximas ações]
+════════════════════════════════════════════════════════════
+```
+
+---
+
+## TABELA GERAL DE TEMPLATES — PENTALATERAL IAH
+
+| Template | De → Para | Quando usar |
+|---|---|---|
+| **COMANDO 1** | Eduardo → Gemini | Iniciar projeto novo ou nova iteração |
+| **DIRETRIZ** | Gemini → Eduardo | Resposta do Gemini — sempre 5 blocos + 5 ideias |
+| **COMANDO 2** | Eduardo → NotebookLM | Após receber DIRETRIZ do Gemini |
+| **SKILL** | NotebookLM → Eduardo | Resposta do NotebookLM — sempre com [SÓCIO CONSULTOR] + 5 ideias |
+| **MEMORIA** | Músculo → Eduardo | Ao fechar iteração — contexto técnico completo |
+| **RELATORIO** | Músculo → Eduardo | Ao fechar iteração — análise de negócio + 5 ideias |
+| **COMANDO_ESTRATEGISTA** | Músculo → Eduardo (→ Gemini) | Fecha o loop — aciona o próximo ciclo |
+| **MENSAGEM_INTERACAO_INICIAL** | Músculo → Eduardo (→ Embaixador) | Passo 0 — ativar Embaixador no início de projeto |
+| **LOG_CLIENTE** | Embaixador → Eduardo | Passo 8.5 — após toda interação significativa com cliente |
+| **[E-1 a E-5]** | Embaixador → Eduardo (→ Gemini/NotebookLM) | Ao fechar ciclo — 5 ideias de campo para o próximo loop |
+| **FILTRO P-031** | Embaixador → Eduardo | Reação CONFIRMA/EXPANDE/ALERTA às ideias dos outros membros |
+
+---
+
 ## REGRAS GERAIS DE COMUNICAÇÃO
 
 ```
@@ -472,6 +693,9 @@ Ver TEMPLATE 1 (COMANDO 1) para o formato exato.
 4. Quando um membro sair do formato: citar o template e pedir para refazer
 5. Cada documento tem "Para [MEMBRO]" no corpo — o destinatário lê e age
 6. Dúvida sobre o formato? Consultar este documento antes de improvisar
+7. O Embaixador reage SEMPRE com CONFIRMA/EXPANDE/ALERTA — nunca com aprovação genérica
+8. As ideias [E-1 a E-5] têm peso de evidência de campo — não são especulação
+9. MEMORIA_EMBAIXADOR é atualizada pelo Músculo automaticamente após toda deliberação (P-032)
 ```
 
 ---
@@ -483,3 +707,9 @@ Quando o processo evoluir e revelar um formato melhor:
 2. Commitar: `docs(templates): [qual template] — [o que mudou e por quê]`
 3. Sincronizar para NOTEBOOKLM_FONTES do projeto ativo
 4. O Músculo notifica o Diretor: "Template [X] atualizado — novo padrão: [descrição]"
+
+---
+
+*Templates do Pentalateral IAH — 5 atores: Músculo + Estrategista + Auditor + Embaixador + Diretor*
+*20 ideias/ciclo: [M-1..5] + [E-1..5] + [G-1..5] + [N-1..5]*
+*Versão 2.0 · 2026-05-18*
