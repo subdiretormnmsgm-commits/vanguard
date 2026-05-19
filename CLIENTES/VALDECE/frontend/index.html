@@ -599,16 +599,16 @@
   async function loadStats() {
     const today = new Date().toISOString().slice(0, 10);
     try {
-      const [searches, cost, corpus] = await Promise.all([
+      const [searches, cost, corpusConfig] = await Promise.all([
         sb.from('search_logs').select('id', { count: 'exact', head: true })
           .gte('created_at', today + 'T00:00:00'),
         sb.from('token_usage').select('cost_usd').gte('date', today),
-        sb.from('documents').select('id', { count: 'exact', head: true }),
+        sb.from('config').select('value').eq('key', 'corpus_count').single(),
       ]);
       document.getElementById('stat-searches').textContent = searches.count ?? 0;
       const totalCost = (cost.data || []).reduce((s, r) => s + parseFloat(r.cost_usd), 0);
       document.getElementById('stat-cost').textContent = `R$${(totalCost * 5.8).toFixed(3)}`;
-      document.getElementById('stat-corpus').textContent = corpus.count ?? 0;
+      document.getElementById('stat-corpus').textContent = corpusConfig.data?.value ?? '—';
     } catch { /* painel não crítico */ }
   }
 
