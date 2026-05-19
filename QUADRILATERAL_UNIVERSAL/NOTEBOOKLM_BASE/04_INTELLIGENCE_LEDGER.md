@@ -1112,6 +1112,30 @@ Projeto sem qualquer um destes = projeto incompleto. Músculo não fecha setup s
 
 ---
 
+### [FALHA-PROCESSO-2026-05-19] Corpus de sistema dependente de API não verificada no Discovery
+**Data:** 2026-05-19 | **Projeto:** PROJ-001 Valdece — Toga Digital
+**O que aconteceu:** O sistema foi construído assumindo que as APIs públicas do STF (jurisprudencia.stf.jus.br) e STJ (dadosabertos.stj.jus.br / scon.stj.jus.br) seriam acessíveis para ingestão automática de corpus. Na migração para o Supabase do Valdece, ambas as APIs falharam: STF retorna 202 com corpo vazio (sem autenticação), STJ retorna 403 e DNS falha. Adicionalmente, o modelo de embedding foi renomeado (text-embedding-004 → gemini-embedding-001) e mudou de dimensão (768 → 3072), invalidando o schema.
+**Impacto:** Sistema sem corpus = sistema sem utilidade. O Valdece poderia ter recebido uma demo com banco vazio.
+**Causa-raiz:** A pergunta "como o corpus entra no sistema?" não foi feita ao Valdece no Discovery. Assumiu-se que as APIs públicas funcionariam. Nenhuma pergunta sobre os documentos disponíveis, formato, volume ou origem foi levantada antes do build.
+**Princípio extraído:** [P-056] abaixo.
+**Regra imediata:** Antes de qualquer build que dependa de corpus externo → verificar acesso à fonte em ambiente real. Testar o endpoint antes de escrever a primeira linha de código.
+
+---
+
+### [P-056] Corpus é pré-requisito — fonte deve ser verificada antes do build
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — migração pós-presencial
+**Evidência:** Sistema Toga Digital construído com sucesso técnico (schema, busca semântica, UI) mas sem corpus funcional ao fazer a migração para o Supabase real do Valdece. APIs do STF/STJ não são acessíveis programaticamente sem autenticação. Falha detectada na tentativa de popular o banco para a demo — não no Discovery.
+**Princípio:** Todo sistema que depende de corpus externo tem uma pergunta obrigatória de Discovery: "De onde vêm os documentos e como eles entram no sistema?" Essa pergunta deve ser feita ao cliente e testada tecnicamente ANTES do primeiro commit de build. Sistema sem corpus = produto sem valor, independente da qualidade técnica do código.
+**Perguntas obrigatórias para projetos de busca semântica:**
+1. O cliente tem os documentos? Em que formato? (PDF, Word, site)
+2. Os documentos são públicos ou privados?
+3. Se públicos: a API/fonte é acessível programaticamente? Testar antes de assumir.
+4. Se privados: qual o mecanismo de upload? Quem autoriza?
+5. Qual o volume inicial mínimo para o sistema ter utilidade na primeira demo?
+**Aplica-se a:** qualquer projeto com motor de busca, RAG, ou corpus semântico.
+
+---
+
 ### [P-055] Ciclo de nicho tem máximo 3 rounds — perguntas abertas classificadas, não acumuladas
 **Descoberto:** 2026-05-19 | **Proposto por:** Músculo — análise do ciclo Medicina (6 documentos, 9 perguntas abertas para um Perfil em 25-30%) | **Sessão:** Nicho Medicina — Loop 3.5
 **Evidência:** O ciclo Medicina gerou 6 documentos de deliberação e encerrou com 9 perguntas abertas ao Auditor, sem critério de encerramento declarado antes de começar. Resultado: loop sem gate de fechamento, débito de perguntas acumulado que inicia o próximo ciclo já sobrecarregado. Overhead desproporcional para um Perfil ainda hipotético.
