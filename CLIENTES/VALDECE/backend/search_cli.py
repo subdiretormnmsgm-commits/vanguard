@@ -48,7 +48,7 @@ def embed_query(query: str) -> list[float]:
     return resp.json()["embedding"]["values"]
 
 
-def search(query: str, top_k: int = 5, threshold: float = 0.45) -> list[dict]:
+def search(query: str, top_k: int = 3, threshold: float = 0.45) -> list[dict]:
     supabase = create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
     embedding = embed_query(query)
 
@@ -94,7 +94,7 @@ def display(results: list[dict], query: str, elapsed: float) -> None:
 def main():
     parser = argparse.ArgumentParser(description="Busca semântica jurisprudencial — CLI")
     parser.add_argument("query", help="Consulta em linguagem natural")
-    parser.add_argument("--top", type=int, default=5, help="Número de resultados (padrão: 5)")
+    parser.add_argument("--top", type=int, default=3, help="Número de resultados (padrão: 3)")
     parser.add_argument("--threshold", type=float, default=0.45, help="Similaridade mínima (padrão: 0.45 — corpus pequeno)")
     args = parser.parse_args()
 

@@ -141,6 +141,30 @@ ACORDAOS = [
         "ementa": "RECURSO ESPECIAL. FEMINICÍDIO. VIOLÊNCIA DOMÉSTICA. QUALIFICADORA. MOTIVAÇÃO. CONDIÇÃO DE MULHER. O feminicídio é qualificadora de natureza objetiva, incidindo sempre que o homicídio é praticado contra a mulher em razão da condição de sexo feminino, nos contextos de violência doméstica e familiar ou de menosprezo à condição de mulher.",
         "link": "https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201601539887"
     },
+    {
+        "tribunal": "STJ", "numero_acordao": "REsp 1480881",
+        "tema": "sexual",
+        "ementa": "RECURSO ESPECIAL. ESTUPRO DE VULNERÁVEL. PRESUNÇÃO DE VIOLÊNCIA. ABSOLUTA. MENOR DE 14 ANOS. A presunção de vulnerabilidade do menor de 14 anos nos crimes sexuais é absoluta, sendo irrelevante o consentimento da vítima ou sua experiência sexual anterior para a configuração do delito de estupro de vulnerável previsto no art. 217-A do Código Penal.",
+        "link": "https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201201774204"
+    },
+    {
+        "tribunal": "STJ", "numero_acordao": "HC 280027",
+        "tema": "violencia_domestica",
+        "ementa": "HABEAS CORPUS. LEI MARIA DA PENHA. MEDIDAS PROTETIVAS. DESCUMPRIMENTO. PRISÃO PREVENTIVA. CABIMENTO. O descumprimento de medida protetiva imposta com base na Lei Maria da Penha autoriza a decretação da prisão preventiva do agressor, nos termos do art. 313, III, do CPP, independentemente da pena cominada ao crime praticado.",
+        "link": "https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201301395630"
+    },
+    {
+        "tribunal": "STJ", "numero_acordao": "HC 511556",
+        "tema": "trafico",
+        "ementa": "HABEAS CORPUS. ASSOCIAÇÃO PARA O TRÁFICO. ART. 35 DA LEI 11.343/2006. ELEMENTO SUBJETIVO. ESTABILIDADE E PERMANÊNCIA. Para a configuração do crime de associação para o tráfico de drogas é imprescindível a demonstração de estabilidade e permanência do vínculo associativo, não sendo suficiente a simples co-autoria eventual no crime de tráfico de entorpecentes.",
+        "link": "https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201901225682"
+    },
+    {
+        "tribunal": "STF", "numero_acordao": "HC 102087",
+        "tema": "violencia_domestica",
+        "ementa": "HABEAS CORPUS. VIOLÊNCIA DOMÉSTICA. LEI MARIA DA PENHA. AÇÃO PENAL PÚBLICA INCONDICIONADA. LEGITIMIDADE DO MINISTÉRIO PÚBLICO. Nos crimes praticados com violência doméstica e familiar contra a mulher, a ação penal é pública incondicionada, cabendo ao Ministério Público a titularidade da ação, sendo irrelevante a retratação da ofendida.",
+        "link": "https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=AC&docID=612474"
+    },
 ]
 
 
