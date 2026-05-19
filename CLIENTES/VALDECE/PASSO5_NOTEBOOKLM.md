@@ -1,7 +1,7 @@
 # PASSO 5 — PARA O NOTEBOOKLM · Instancia: Projeto Valdece
 # Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md
 # ORGANISMO VIVO: atualizar contexto e lista de fontes antes de CADA loop.
-# Ultima atualizacao: 2026-05-19 · Loop 4 (pós-demo)
+# Ultima atualizacao: 2026-05-19 · Loop 5 — pré-demo ao vivo · skill esperada: valdece-v5.md
 
 ## ANTES DE ABRIR O NOTEBOOKLM — EXECUTAR OBRIGATORIAMENTE
 
@@ -37,9 +37,9 @@
 
 ## AO RECEBER A SKILL DO AUDITOR
 
-1. Salvar o conteudo em: .claude\skills\valdece-v4.md
+1. Salvar o conteudo em: .claude\skills\valdece-v5.md
 2. Validar no terminal:
-   .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\valdece-v4.md"
+   .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\valdece-v5.md"
 3. Se REJEITADO: retornar ao NotebookLM com o Gatilho de Calibracao:
    "Auditor, sua Skill foi rejeitada pelo gate de qualidade. Faltam: [listar blocos].
     Reprocesse com dados reais do projeto Valdece. Nao seja generico."
@@ -71,6 +71,13 @@ Para Valdece especificamente: o contrato está ausente. O onboarding presencial 
 [INTERVENÇÃO-Eduardo-2026-05-16] Necessidade do contrato formal antes de entrega Camada 1 (P-023)
 [INTERVENÇÃO-Eduardo-2026-05-16] NotebookLM como advogado do processo (P-022)
 [INTERVENÇÃO-Eduardo-2026-05-16] Manutenção Soberana como pré-requisito, não upsell
+[INTERVENÇÃO-Eduardo-2026-05-19] P-041 — Discovery V3 com 9 perguntas; Cena de Sucesso é obrigatória
+[INTERVENÇÃO-Eduardo-2026-05-19] P-042 — Gate semântico = "Protocolo de Garantia Soberana"; apresentar antes do contrato
+[INTERVENÇÃO-Eduardo-2026-05-19] P-043 — DFD obrigatório antes de replicar busca semântica em novo nicho
+[INTERVENÇÃO-Eduardo-2026-05-19] P-044 — Releitura da cena de sucesso antes de cada dia de build
+[INTERVENÇÃO-Eduardo-2026-05-19] Próximo nicho: Contabilidade (pós-Ingrid; DFD antes da proposta)
+[INTERVENÇÃO-Eduardo-2026-05-19] RLS exposta = P1 pós-contrato; NÃO mencionar ao cliente antes da assinatura
+[INTERVENÇÃO-Eduardo-2026-05-19] Garantia Zero Churn: teste 30 dias interno; NÃO incluir no contrato V1
 
 **Ordem de leitura obrigatória (não inverter):**
 MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este COMANDO
@@ -80,17 +87,29 @@ Fatos do passado carregam antes da nova ideia. Sempre.
 
 NotebookLM, você atua como Sócio Consultor do Pentalateral IAH — não como arquivo passivo.
 
-Você tem memória de todos os projetos anteriores da Vanguard. Você vê o que o Gemini e o Músculo não veem porque você conhece o histórico completo. Sua função agora é gerar a Skill que o Músculo vai ler antes do Dia 5 do projeto Valdece.
+Você tem memória de todos os projetos anteriores da Vanguard. Você vê o que o Gemini e o Músculo não veem porque você conhece o histórico completo. Sua função agora é gerar a Skill `valdece-v5.md` que o Músculo vai executar antes de deliberar sobre a demo ao vivo do projeto Valdece.
 
-CONTEXTO ATUAL (Loop 4 — 2026-05-19):
-Entregamos uma ferramenta de busca semântica de jurisprudências STF/STJ para um advogado
-criminalista (Valdece). Stack: Vanilla JS + Supabase pgvector + gemini-embedding-001 (768 dims).
-5 dias de build concluídos — sistema implantado no Supabase do Valdece (credenciais dele).
-Corpus: 61 acórdãos reais · 22 temas · threshold 0.45 · top 3 · similaridade 0.67-0.78 · VERDE.
-Presencial 2026-05-19 realizado — credenciais obtidas — demo PENDENTE para 2026-05-20.
-Contrato R$5.000 pendente — aguarda demo + encantamento.
-O maior risco agora: a PRIMEIRA BUSCA do Valdece nos temas que ELE nomear ao vivo.
-Se encontrar → contrato fecha sozinho. Se não encontrar → "esse entra no próximo ciclo".
+CONTEXTO ATUAL (Loop 5 — pós loop evolutivo 2026-05-19):
+Ferramenta de busca semântica de jurisprudências STF/STJ para advogado criminalista (Valdece).
+Stack: Vanilla JS + Supabase pgvector + gemini-embedding-001 (768 dims). 5 dias de build concluídos.
+Corpus: 61 acórdãos reais · 22 temas · threshold 0.67 · top 3 · GATE P-038 APROVADO (12/12 verde).
+Deploy live: https://toga-digital-valdece.netlify.app
+Presencial 2026-05-19 realizado — Sovereign Playbook apresentado — credenciais obtidas.
+Demo real: PENDENTE — Valdece ainda não testou no sistema DELE. Janela de encantamento INTACTA.
+Contrato R$5.000 pendente — aguarda demo + encantamento + assinatura.
+
+NOVOS PRINCÍPIOS DESTE LOOP (P-041 a P-044) — auditar coerência com DIRETRIZ:
+- P-041: Cena de Sucesso documentada é obrigatória. Demo aprovada = reproduz a cena.
+- P-042: Gate semântico documentado = "Protocolo de Garantia Soberana" (apresentar antes do contrato).
+- P-043: DFD obrigatório antes de novo nicho semântico.
+- P-044: Músculo relê a cena antes de cada dia de build.
+
+Cena de sucesso (P-041 — ÂNCORA):
+"Estou num julgamento, o promotor cita um precedente que não conheço. Abro o Toga Digital,
+ digito o nome do crime, e em 10 segundos tenho o acórdão com mais peso — citação pronta em ABNT."
+Gate da demo: Valdece diz "é isso" em <10s no sistema DELE — não no computador do Eduardo.
+
+Skill esperada: `valdece-v5.md`
 
 COMO DESCREVER A DIRETRIZ DO GEMINI PARA O AUDITOR REAGIR CRITICAMENTE:
 "Auditor, o Estrategista gerou a DIRETRIZ V3 para o projeto Valdece (Dia 5).
@@ -122,7 +141,7 @@ Primeiro: auditoria de coerência. A DIRETRIZ do Gemini contradiz alguma coisa q
 
 Segundo: perspectiva do sócio consultor. Com base em tudo que você conhece de projetos anteriores da Vanguard — o que sistematicamente funciona em projetos de Legal Tech ou busca semântica? O que sistematicamente falha? O que este projeto tem de diferente que pode mudar o padrão? O que o Gemini e o Músculo não estão vendo? Seja específico — cite projetos ou padrões do histórico quando puder.
 
-Terceiro: a Skill propriamente dita. Escreva em formato copiável direto para .claude/skills/valdece-v4.md com os seguintes blocos obrigatórios: contexto do projeto, conexão histórica com localização exata do que reutilizar, padrão de sucesso, padrão de falha, perspectiva do sócio, sequência de build recomendada para os Dias 3-4-5, alertas críticos com severidade, o que não construir nesta entrega, e o que deve ser promovido ao SKILL_PROTOCOLO_VANGUARD como padrão universal.
+Terceiro: a Skill propriamente dita. Escreva em formato copiável direto para .claude/skills/valdece-v5.md com os seguintes blocos obrigatórios: contexto do projeto, conexão histórica com localização exata do que reutilizar, padrão de sucesso, padrão de falha, perspectiva do sócio, sequência de build recomendada para os Dias 3-4-5, alertas críticos com severidade, o que não construir nesta entrega, e o que deve ser promovido ao SKILL_PROTOCOLO_VANGUARD como padrão universal.
 
 Quarto: suas 5 ideias disruptivas como Auditor. Não as ideias do Gemini nem as do Músculo — as suas, fundamentadas no que você vê no histórico completo. O que nenhum dos outros membros está vendo.
 

@@ -1,7 +1,7 @@
 # PASSO 3 — PARA O GEMINI · Projeto Valdece
 # Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md
 # ORGANISMO VIVO: atualizar o bloco "CONTEXTO DO PROJETO" antes de CADA loop.
-# Ultima atualizacao: 2026-05-19 · Loop 4 (pós-demo)
+# Ultima atualizacao: 2026-05-19 · Loop 5 — pré-demo ao vivo · skill esperada: valdece-v5.md
 
 ## ANTES DE ABRIR O GEMINI — EXECUTAR OBRIGATORIAMENTE
 
@@ -19,15 +19,45 @@
 ---
 
 ## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — PRIORIDADE CRÍTICA ANCORADA
-> Gerado automaticamente por session_close.ps1. Estrategista: proibido de suavizar ou ignorar.
+> Gerado em 2026-05-19 — Loop Evolutivo Pentalateral. Estrategista: proibido de suavizar ou ignorar.
 > O Bloco 1 da DIRETRIZ deve endereçar obrigatoriamente cada mandato abaixo.
 
-[2026-05-16] Eduardo declarou diretamente:
-1. Contrato formal é pré-requisito antes de qualquer projeto Camada 1+ [P-023]
-   → Valdece não tem contrato. Endereçar no Dia 5 (presencial segunda-feira 2026-05-19).
-2. NotebookLM atua como advogado do processo — objeções com base em precedentes [P-022]
-3. Manutenção Soberana (R$900/mês) deve ser apresentada como pré-requisito de estabilidade,
-   não como upsell — ancorando no ROI do Hypercare de 30 dias.
+[2026-05-19] Eduardo declarou diretamente — DECISÕES FIXADAS (não reverter):
+
+1. P-041 — DISCOVERY V3 — 9 PERGUNTAS OBRIGATÓRIAS
+   P2 (Cena de Sucesso) e P8/P9 (Expansão Futura) são OBRIGATÓRIAS.
+   Sem cena de sucesso documentada = Discovery inválido.
+   A demo é aprovada quando reproduz a cena — não quando o motor funciona.
+
+2. P-042 — PROTOCOLO DE GARANTIA SOBERANA
+   O gate semântico documentado É O ARGUMENTO COMERCIAL MAIS PODEROSO.
+   Apresentar ANTES do contrato, não no handoff.
+   Nome comercial: "Protocolo de Garantia Soberana".
+   Instrução para o Estrategista: incluir no BLOCO 2 de toda DIRETRIZ de nicho semântico.
+
+3. P-043 — DFD OBRIGATÓRIO ANTES DE NOVO NICHO SEMÂNTICO
+   Falácia da Homogeneidade dos Nichos — replicação não é trocar a URL dos dados.
+   DFD = 4 perguntas: fonte + obsolescência + restrições + estrutura semântica.
+   2+ VERMELHOS = proposta de nicho VETADA até solução de corpus definida.
+
+4. P-044 — RELEITURA DA CENA ANTES DE CADA DIA DE BUILD
+   O Músculo relê a cena de sucesso antes de escrever qualquer código.
+   Motor técnico que não reproduz a cena = motor errado.
+   Gate final testa se reproduz a cena — não apenas o sim score.
+
+5. PRÓXIMO NICHO — CONTABILIDADE
+   2º nicho confirmado pelo Diretor: Contabilidade.
+   Timing: após semana de entrega do projeto Ingrid.
+   DFD deve ser executado antes da proposta comercial.
+
+6. RLS EXPOSTA — P1 PÓS-CONTRATO
+   A chave Gemini exposta no frontend é risco real — mas não bloqueia a demo.
+   A exposição acontece APÓS migração para conta do Valdece (pós-contrato).
+   Registrar como P1 pós-contrato. Não mencionar ao cliente antes da assinatura.
+
+7. GARANTIA ZERO CHURN — EM TESTE 30 DIAS
+   O conceito foi alertado pelo Auditor e vetado parcialmente pelo Músculo.
+   Decisão do Diretor: testar 30 dias internamente. NÃO incluir no contrato V1.
 
 ---
 
@@ -122,8 +152,32 @@ Não siga o momentum da conversa. Se o Diretor ou o Músculo propuseram algo que
 - Migração sa-east-1 São Paulo
 - Contabilidade como 2º nicho (após entrega Ingrid)
 
-**As 5 ideias do Musculo para voce reagir:**
-[Eduardo: colar aqui as 5 ideias do relatorio_evolutivo mais recente antes de enviar ao Gemini]
+**As 5 ideias do Musculo para voce reagir [M-1 a M-5 — Loop Evolutivo 2026-05-19]:**
+
+[M-1] DEMO SCRIPT VALIDADO POR TEMA ANTES DO AO VIVO
+Antes da demo, o Músculo gera um script com as queries exatas por tema (crimes contra a vida, patrimônio, adm. pública) e valida os sim scores reais no corpus atual. Se algum tema retornar sim < 0.65, Eduardo sabe antes — não ao vivo na frente do Valdece.
+Impacto: elimina o maior risco da demo (resultado fraco no tema que o cliente vai escolher).
+Custo: 1h de preparação. Pergunta ao Estrategista: isso vira checklist pré-demo obrigatório em todo nicho semântico?
+
+[M-2] PROTOCOLO DE GARANTIA SOBERANA — DOCUMENTO VISUAL PARA O VALDECE
+O gate P-038 (12/12 verde) existe mas é texto técnico. Criar um PDF de 1 página com o "Protocolo de Garantia Soberana": resultados reais, sim scores, latência, corpus documentado — para Eduardo mostrar antes de assinar e Valdece guardar como prova.
+Impacto: transforma dado técnico em argumento comercial tangível (P-042 aplicado).
+Custo: 30min de build (PDF simples). Pergunta ao Estrategista: qual o formato ideal — durante a demo ou antes?
+
+[M-3] DFD CONTABILIDADE EXECUTADO AGORA (PRÉ-ENTREGA)
+O 2º nicho confirmado é Contabilidade. Se o Músculo executa as 4 perguntas do DFD agora, tem a resposta antes que o timing chegue. Corpus de jurisprudência contábil: STF/STJ têm decisões fiscais acessíveis? Ou depende de fontes pagas?
+Impacto: acelera Loop 1 de Contabilidade em 2-3 semanas ao já ter o corpus source mapeado.
+Custo: 1h de pesquisa. Pergunta ao Estrategista: DFD vira entregável consultivo ou documento interno?
+
+[M-4] BOTÃO "SOLICITAR EXPANSÃO SEMÂNTICA" QUANDO SIM < 0.60
+Ao invés de mostrar resultado com sim fraco, exibir: "Não encontrei precedentes relevantes — solicitar expansão do corpus para este tema." O Valdece clica → Eduardo recebe o alerta → gap vira oportunidade de upsell (expansão manual R$X).
+Impacto: transforma falha do produto em serviço consultivo — sem esconder o gap.
+Custo: 2h de build (V2 — não bloqueia contrato). Pergunta ao Estrategista: isso entra no pitch de V2 ou no contrato V1?
+
+[M-5] ABNT VALIDATOR PRÉ-DEMO
+O formato ABNT NBR 6023:2018 foi implementado no Dia 4. Antes da demo ao vivo, executar validação manual dos 3-5 acórdãos mais prováveis de aparecer na busca do Valdece — garantir que o formato está correto para os casos do corpus atual.
+Impacto: se ABNT errado aparece ao vivo = morte silenciosa do encantamento.
+Custo: 30min de teste. Pergunta ao Estrategista: validar ABNT vira gate pré-demo em todo nicho semântico?
 
 ---
 
@@ -142,7 +196,7 @@ Como apresentar o ROI ao cliente com números reais. Como posicionar o que vem d
 **BLOCO 3 — DIRETRIZ TÉCNICA**
 Três sub-blocos obrigatórios:
 
-→ **[PARA O NOTEBOOKLM]:** Gerar `valdece-v4.md` — Skill de Elite para a fase Demo → Encantamento → Contrato.
+→ **[PARA O NOTEBOOKLM]:** Gerar `valdece-v5.md` — Skill de Elite para a fase Demo → Encantamento → Contrato → V2.
 
 Auditor, conecte o histórico nestes pontos críticos:
 1. Projetos anteriores em que a demo ao vivo falhou ou perdeu o encantamento — o que causou? Corpus incompleto? Script não testado nas queries certas? Demonstração no computador de Eduardo (não do cliente)?
@@ -164,7 +218,7 @@ O que a Skill `valdece-v4.md` DEVE conter obrigatoriamente (não genérico — d
 
 → **[PARA O MÚSCULO]:** A intenção estratégica desta entrega: converter a demo em contrato — o sistema já funciona, o próximo passo é encantamento, não build.
   MANDATÓRIO:
-  (0) Executar `/valdece-v4` antes de qualquer deliberação.
+  (0) Executar `/valdece-v5` antes de qualquer deliberação.
       Nome idêntico ao definido em [PARA O NOTEBOOKLM]. Sem rodar a Skill = deliberação inválida.
   (a) Reagir a cada [G-1 a G-5] do Estrategista nos 7 pontos: Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação
   (b) Reagir a cada [N-1 a N-5] do Auditor com razão técnica
