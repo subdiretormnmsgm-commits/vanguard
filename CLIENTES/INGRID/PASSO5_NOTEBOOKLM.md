@@ -1,13 +1,13 @@
 ﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 4
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Atualizado pelo Músculo em 2026-05-19 (Loop 4 / Diretriz V4)
+> Atualizado pelo Músculo em 2026-05-19 (Loop 4 / Diretriz V5)
 
 ---
 
 ## 📌 ANTES DE IR AO NOTEBOOKLM — checklist obrigatório
 
 ```
-[x] 1. DIRETRIZ_GEMINI_V4.txt recebida e salva em CLIENTES\INGRID\
+[x] 1. DIRETRIZ_GEMINI_V5.txt recebida e salva em CLIENTES\INGRID\
 [x] 2. Rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
 [x] 3. Explorer abre automaticamente — Ctrl+A → arrastar TUDO ao NotebookLM
 [x] 4. Fazer Wipe & Sync das fontes (apagar antigas antes de subir as novas)
@@ -20,7 +20,7 @@
 ### 💬 COMANDO CURTO — colar no chat do NotebookLM (Ctrl+V)
 
 ```
-Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha a cliente Ingrid em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Missão principal: gerar a Skill ingrid-v5.md — o Músculo não inicia o Loop 4 sem ela.
+Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha a cliente Ingrid em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Missão principal: gerar a Skill ingrid-v6.md — o Músculo não inicia o Loop 4 sem ela.
 ```
 
 > O arquivo já está nas fontes — não colar o conteúdo inteiro no chat.
@@ -59,10 +59,10 @@ Ao gerar a Skill, compense ativamente:
 **Projeto:** Ingrid — Ferramenta de Estudo Sedes-DF
 **Nicho:** EdTech / Concursos Públicos
 **Camada:** 2 — Produto (15 dias)
-**Loop:** #3 — Dias 6–8 (Interface + Tutor Socrático + Fallback Fadiga)
-**Gates aprovados:** Dia 2 (qualidade das questões) + Dia 5 (feed 70/30, 7 dias, 0 erros)
+**Loop:** #4 — Dias 9–11 (Heatmap + Micro-Simulado + SaaS Readiness)
+**Gates aprovados:** Dia 2 (qualidade das questões) + Dia 5 (feed 70/30, 7 dias, 0 erros) + Dia 8 (PWA completo: Clickwrap + Tutor 3 níveis + Fallback + TTI — APROVADO 2026-05-19)
 **Banco de questões:** 460 questões no Supabase — 13 disciplinas Cargo 202
-**Próximo gate:** Dia 8 — Ingrid responde 10 questões reais, progresso salvo, fallback testado
+**Próximo gate:** Dia 11 — Heatmap correto por disciplina + micro-simulado completo funcional
 
 **Estado técnico atual (MEMORIA_V2_INGRID.md):**
 - Edge Functions gerar-questoes + feed-diario deployadas e validadas
@@ -70,8 +70,8 @@ Ao gerar a Skill, compense ativamente:
 - Recalibração de cargo executada (P-024): Cargo 202, não TDAS área social
 
 **Missão do Auditor neste loop:**
-> "Auditor, você recebeu a DIRETRIZ_GEMINI_V4 para o Loop 3 do Projeto Ingrid.
-> O Músculo vai deliberar e construir a interface mobile, o Tutor Socrático e o fallback de fadiga.
+> "Auditor, você recebeu a DIRETRIZ_GEMINI_V5 para o Loop 4 do Projeto Ingrid.
+> O Músculo vai deliberar e construir o Heatmap de disciplinas, o Micro-Simulado e o SaaS Readiness Audit.
 > Sua missão: auditar a DIRETRIZ cruzando com o histórico real das fontes.
 > Identifique: (1) o que contradiz princípios ativos do LEDGER ou decisões já tomadas,
 > (2) o que já falhou em projetos anteriores,
@@ -80,13 +80,13 @@ Ao gerar a Skill, compense ativamente:
 
 ---
 
-## 🎯 MISSÃO CRÍTICA — GERAR A SKILL ingrid-v5.md
+## 🎯 MISSÃO CRÍTICA — GERAR A SKILL ingrid-v6.md
 
 **Após processar as fontes e a missão acima, gere a Skill completa em 4 partes obrigatórias.**
 
-O nome exato da Skill: **`ingrid-v5.md`**
+O nome exato da Skill: **`ingrid-v6.md`**
 
-O Músculo vai executar `/ingrid-v5` antes de qualquer deliberação do Loop 4.
+O Músculo vai executar `/ingrid-v6` antes de qualquer deliberação do Loop 4.
 Skill sem os 4 blocos com dados reais = Skill rejeitada. Músculo não inicia o build sem Skill válida.
 
 ---
@@ -95,7 +95,7 @@ Skill sem os 4 blocos com dados reais = Skill rejeitada. Músculo não inicia o 
 
 ```
 PARTE 1 — AUDITORIA DE COERÊNCIA
-  A DIRETRIZ V4 contradiz algo já construído ou decidido nos Loops 1, 2 ou 3?
+  A DIRETRIZ V5 contradiz algo já construído ou decidido nos Loops 1, 2, 3 ou 4?
   Citar: fonte exata (arquivo, princípio, versão). Sem dado real = bloco inválido.
   Verificar especificamente:
     - Arquitetura de batch (1 Claude call/invocação — nunca reverter)
@@ -109,14 +109,14 @@ PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
   O que este projeto tem de diferente que muda o padrão.
   O que Gemini e Músculo não estão vendo — discordância fundamentada.
 
-PARTE 3 — A SKILL (em formato ```skill ... ``` copiável para .claude/skills/ingrid-v5.md)
+PARTE 3 — A SKILL (em formato ```skill ... ``` copiável para .claude/skills/ingrid-v6.md)
   Incluir obrigatoriamente:
     - Contexto do projeto (cargo, banco, stack, decisões fixadas)
-    - Conexão histórica (o que os Loops 1 e 2 provaram)
+    - Conexão histórica (o que os Loops 1, 2 e 3 provaram)
     - Padrão de sucesso validado (o que funcionou)
     - Padrão de falha documentado (7 panes — ver TROUBLESHOOTING)
     - Perspectiva do Sócio (o que o Auditor vê que os outros não veem)
-    - Sequência de build Dias 6-8 com gates verificáveis
+    - Sequência de build Dias 9-11 com gates verificáveis
     - O que NÃO construir neste loop (com razão objetiva)
     - Alertas ativos (P-006, P-010, P-024, P-025)
 
@@ -127,7 +127,7 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 ```
 
 **Validação antes de entregar:**
-- [ ] Skill tem nome exato `ingrid-v5.md` declarado na PARTE 3
+- [ ] Skill tem nome exato `ingrid-v6.md` declarado na PARTE 3
 - [ ] PARTE 1 cita fontes reais (não genéricas)
 - [ ] PARTE 4 tem 5 ideias exclusivas do Auditor
 - [ ] Skill é copiável diretamente para `.claude/skills/`
@@ -158,12 +158,12 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 
 --- PROJETO INGRID ---
 09_BRIEFING_DISCOVERY.txt          ← dor real da cliente
-10_MEMORIA_RECENTE.md              ← MEMORIA_V2_INGRID.md (Loop 2)
-11_RELATORIO_EVOLUTIVO.md          ← relatorio_evolutivo_V2_INGRID.md (Loop 2)
-12_DIRETRIZ_GEMINI.txt             ← DIRETRIZ_GEMINI_V4 do Gemini ← OBRIGATÓRIO
+10_MEMORIA_RECENTE.md              ← MEMORIA_V3_INGRID.md (Loop 3)
+11_RELATORIO_EVOLUTIVO.md          ← relatorio_evolutivo_V3_INGRID.md (Loop 3)
+12_DIRETRIZ_GEMINI.txt             ← DIRETRIZ_GEMINI_V5 do Gemini ← OBRIGATÓRIO
 13_PASSO5_NOTEBOOKLM.md            ← este arquivo (missão do Auditor)
 14_MEMORIA_EMBAIXADOR.md           ← inteligência Embaixador sobre Ingrid ← FILTRO DE REALIDADE
-15_SKILL_ANTERIOR.md               ← Skill ingrid-v1.md do Loop anterior (se existir)
+15_SKILL_ANTERIOR.md               ← Skill ingrid-v5.md do Loop anterior
 16_ALERTA_CONFLITO.md              ← gatilho de calibração
 17_VANGUARD_TIMELINE.md            ← histórico completo da Vanguard
 ```

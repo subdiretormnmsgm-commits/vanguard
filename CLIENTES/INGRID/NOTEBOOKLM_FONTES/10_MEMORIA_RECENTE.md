@@ -1,6 +1,6 @@
 # MEMORIA_V3 — PROJ-002 INGRID · Loop 3 · Fechamento
 > **Gerada em:** 2026-05-19 | **Por:** Músculo (Claude Code)
-> **Cobre:** Loop 3 completo — Gate Dia 8 (em andamento) + Entrega Embaixador + PERFIS_NICHO
+> **Cobre:** Loop 3 completo — Gate Dia 8 APROVADO 2026-05-19 + Entrega Embaixador + PERFIS_NICHO
 
 ---
 
@@ -28,7 +28,7 @@
 |---|---|---|
 | Gate Dia 2 (10 questões CLI ≥ 4/5) | APROVADO | Dia 2 da sessão anterior |
 | Gate Dia 5 (feed 7 dias, 0 erros) | APROVADO | 2026-05-17 |
-| Gate Dia 8 (10q + progresso salvo + fallback) | EM ANDAMENTO | Ingrid usou o app 2026-05-18, chegou até Q18, reportou bug (corrigido). Critérios formais pendentes de confirmação com Eduardo. |
+| Gate Dia 8 (10q + progresso salvo + fallback) | APROVADO — 2026-05-19 | Ingrid respondeu 10+ questões. Bug negrito Q18 corrigido (commit d00c2c1 → gh-pages). Gate confirmado pelo Diretor. |
 
 ---
 

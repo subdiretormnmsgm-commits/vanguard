@@ -70,7 +70,7 @@ Modo: [FLASH / COMPLETO]
 **Camada:** 2 — Produto | **Loop atual:** 4 (Dias 9–11)
 **Temperatura atual:** VERDE (Termo assinado + App no ar — 2026-05-18)
 **App:** https://subdiretormnmsgm-commits.github.io/vanguard/ — LIVE
-**Gates aprovados:** Dia 2 + Dia 5 | **Gate em andamento:** Dia 8 (primeira sessão ocorreu 2026-05-18 — 10 questões completas + progresso salvo + fallback pendentes)
+**Gates aprovados:** Dia 2 + Dia 5 + Dia 8 (APROVADO — 2026-05-19: PWA completo + Tutor 3 níveis + Fallback + TTI + bold rendering fix) | **Gate em andamento:** Dia 11 (Heatmap + Micro-Simulado)
 
 **Perfil do Candidato (P-038 — atualizado com vetores do Embaixador):**
 - Perfil A — Candidato Sistemático: 30–50 questões/dia reais (pico: até 100 no fim de semana)
@@ -347,8 +347,9 @@ Razão: [por que esta ação agora e não outra]
 
 | Momento | Seção | Urgência |
 |---|---|---|
-| Gate Dia 8 — antes do contato | SEÇÃO A (briefing) | ALTA |
-| Gate Dia 8 — após o contato | SEÇÃO B (debrief) | ALTA — prazo 24h |
+| Gate Dia 8 — APROVADO 2026-05-19 | — | CONCLUÍDO |
+| Gate Dia 11 — antes do contato | SEÇÃO A (briefing) | ALTA |
+| Gate Dia 11 — após o contato | SEÇÃO B (debrief) | ALTA — prazo 24h |
 | Se Ingrid mencionar alguém | SEÇÃO C (pipeline) | IMEDIATA |
 | Após Gemini + NotebookLM no Loop 4 | SEÇÃO D (reação) | NORMAL |
 | 2026-05-23 — se sem uso do app | SEÇÃO B (debrief) | [CHURN-WATCH] |

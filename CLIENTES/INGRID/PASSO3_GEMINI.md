@@ -154,7 +154,7 @@ Gerar DIRETRIZ V5 com pelo menos 2 ideias [G-X] específicas sobre como acelerar
 **Prova:** 2026-09-06
 **Prazo do projeto:** 2026-05-30
 **Camada:** 2 — Produto
-**Loop atual:** #4 — Pós-entrega (uso real + dados + SaaS Readiness)
+**Loop atual:** #4 — SaaS Readiness + Heatmap + Simulado + Handoff (Dias 9-15)
 
 ### GATES CONCLUÍDOS
 
@@ -162,7 +162,7 @@ Gerar DIRETRIZ V5 com pelo menos 2 ideias [G-X] específicas sobre como acelerar
 |---|---|---|
 | Dia 2 | 10 questões CLI avaliadas (rubrica ≥ 4/5) | APROVADO |
 | Dia 5 | Feed 70/30 · 7 dias simulados · SM-2 · 0 erros | APROVADO |
-| Dia 8 | PWA completo: Clickwrap + Tutor 3 níveis + Fallback + TTI + Telemetria | [GATE PENDENTE] |
+| Dia 8 | PWA completo: Clickwrap + Tutor 3 níveis + Fallback + TTI + Telemetria | APROVADO — 2026-05-19 |
 
 ### DECISÕES FIXADAS (não reverter)
 
@@ -257,7 +257,7 @@ BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
 BLOCO 3 — DIRETRIZ TÉCNICA (3 sub-blocos obrigatórios)
 
   [PARA O AUDITOR] — MANDATÓRIO:
-  1. Nome exato da Skill: `ingrid-v4.md`
+  1. Nome exato da Skill: `ingrid-v6.md`
   2. Gerar em 4 partes obrigatórias:
      PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ V5 contradiz no histórico real
      PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
@@ -268,7 +268,7 @@ BLOCO 3 — DIRETRIZ TÉCNICA (3 sub-blocos obrigatórios)
   [PARA O MÚSCULO]:
   Intenção estratégica + prioridades + o que NÃO construir + gates verificáveis.
   MANDATÓRIO:
-    (0) Executar `/ingrid-v4` antes de qualquer deliberação.
+    (0) Executar `/ingrid-v6` antes de qualquer deliberação.
     (a) Reagir a cada [G-1 a G-5] do Estrategista nos 7 pontos.
     (b) Reagir a cada [N-1 a N-5] do Auditor com razão técnica.
     (c) Reagir a cada [E-1 a E-5] do Embaixador (comportamento real tem peso de evidência).

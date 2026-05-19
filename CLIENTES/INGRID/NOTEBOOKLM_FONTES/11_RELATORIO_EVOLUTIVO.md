@@ -22,7 +22,7 @@
 | Fraqueza | Risco associado |
 |---|---|
 | Banco com 460 questões | Candidato sistemático esgota em 23 dias (P-038) — urgente |
-| Gate Dia 8 não formalmente aprovado | Loop 4 não pode iniciar até confirmação dos 3 critérios |
+| Gate Dia 8 APROVADO — 2026-05-19 | Ingrid respondeu 10+ questões; bug negrito Q18 corrigido no mesmo dia. Loop 4 desbloqueado. |
 | PDF Termo com data errada (30/05 vs 18/05) | Vulnerabilidade jurídica aberta |
 | Auth pública (GitHub Pages sem login) | Inaceitável para primeiro pagante — P-045 |
 | AUDITORIA_VANGUARD.txt pendente | Risco de documentação defasada contaminando Auditor |

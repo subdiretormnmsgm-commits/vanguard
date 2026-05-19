@@ -18,8 +18,8 @@
    └──────────────────────────────────────────────────────────────┘
 
 3. DIZER:
-   "PROTOCOLO VANGUARD — INGRID. Loop 4. Diretriz V4.
-    Execute /ingrid-v5 antes de deliberar.
+   "PROTOCOLO VANGUARD — INGRID. Loop 4. Diretriz V5.
+    Execute /ingrid-v6 antes de deliberar.
     Trago a Skill do Auditor e a DIRETRIZ do Estrategista.
     Leia tudo e delibere nos 7 pontos antes de qualquer build."
 ```
