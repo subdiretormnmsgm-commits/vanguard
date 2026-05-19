@@ -139,7 +139,7 @@
                                     "deadline":  "2026-05-23",
                                     "deadline_anterior":  "2026-05-17",
                                     "motivo_slip":  "Cliente com dificuldades no Supabase e Google AI Studio — reunião presencial agendada segunda-feira 2026-05-19",
-                                    "status":  "Build concluído (Dia 4/5) — Diretor vai presencialmente na segunda 2026-05-19 para onboarding técnico",
+                                    "status":  "Presencial realizado 2026-05-19 — credenciais obtidas — configuração + demo pendentes",
                                     "modelo_entrega":  "Opção A — infra Valdece, sem MRR, R$1,20/mês no API dele",
                                     "loop_atual":  "Loop 2 concluído — DIRETRIZ V3 + Quick Audit NotebookLM executados | Loop 3 no Dia 5",
                                     "discovery_completo":  true,
@@ -176,7 +176,10 @@
                                         "gerado_em":  "2026-05-16",
                                         "path":  "CLIENTES/VALDECE/Contrato_Toga_Digital_Valdece_19052026.pdf"
                                     },
-                                    "proximo_passo":  "Dia 5 — Eduardo vai presencialmente: Auth Supabase (single-user) + Edge Function cron blindado + Auto-Heal pg_net + view last_activity + Sovereign Playbook + migração infra Valdece",
+                                    "credenciais_obtidas":  "2026-05-19 — Eduardo com credenciais do Valdece",
+                                    "demo_realizada":  false,
+                                    "contrato_assinado":  false,
+                                    "proximo_passo":  "Configurar sistema com credenciais do Valdece (Auth Supabase + Edge Function + migração) → testar antes da demo → Demo real → Contrato",
                                     "v2_pipeline":  {
                                                         "features":  [
                                                                          "Sovereign Upload",

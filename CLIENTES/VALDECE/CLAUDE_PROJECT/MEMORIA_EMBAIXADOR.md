@@ -33,19 +33,23 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 
 | Campo | Status |
 |---|---|
-| Gate atual | Build completo — 4 commits entregues |
+| Gate atual | **Credenciais obtidas — configuração pendente** |
 | commit ef3f1cd | Schema Supabase + ingest.py + kill_switch.js ✅ |
 | commit 996b40d | Corpus pipeline Python + Mágico de Oz Gate ✅ |
 | commit 18c617f | STJ por Tema + busca semântica threshold + UI Toga Digital ✅ |
 | commit e9afb36 | Gate ABNT NBR6023 + busca precisa/ampla + redesign Navy/Ouro ✅ |
+| Presencial 2026-05-19 | Realizado — credenciais do Valdece obtidas por Eduardo |
+| Demo real | **NÃO REALIZADA** — Valdece ainda não testou o sistema |
+| Contrato | **PENDENTE** — aguarda onboarding técnico + demo real |
 
-**Pendente para o presencial:**
-- Auth Supabase single-user (configurar na frente do Valdece)
-- Edge Function cron blindado (auto-atualização do corpus)
+**Pendente para a próxima sessão (com as credenciais em mãos):**
+- Auth Supabase single-user (configurar com credenciais do Valdece)
+- Edge Function cron blindado (auto-atualização do corpus na conta dele)
 - Auto-Heal pg_net (reconexão automática em falhas)
 - View last_activity (Valdece vê quando corpus foi atualizado)
 - Sovereign Playbook (guia impresso)
 - Migração infra → conta Supabase do Valdece (P-013 — soberania)
+- **Demo real** — primeiro teste do Valdece no próprio sistema
 
 ---
 
@@ -53,14 +57,15 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 
 | Campo | Status |
 |---|---|
-| Último contato | Preparação do presencial — Eduardo vai ao escritório amanhã |
-| Próximo contato | AMANHÃ — presencial 2026-05-19 |
+| Último contato | **Presencial realizado — 2026-05-19** |
+| Próximo contato | Próxima sessão — configuração + demo real (credenciais em mãos) |
 | Canal principal | Presencial / WhatsApp |
 | Tom que funciona | Direto, resultado concreto, sem jargão técnico |
 | Tom que não funciona | Técnico, detalhado, longo, com termos de infraestrutura |
 
-**O que Valdece imagina agora:** que Eduardo está preparando a entrega final.
-Não está ansioso — está esperando. A janela de encantamento está intacta.
+**O que Valdece imagina agora:** Eduardo tem as credenciais dele e está configurando o sistema.
+Ainda não testou — aguarda a configuração na conta dele. A janela de encantamento está intacta.
+A primeira impressão real ainda vai acontecer — é a sessão mais crítica do projeto.
 
 ---
 
@@ -81,15 +86,15 @@ Não está ansioso — está esperando. A janela de encantamento está intacta.
 
 ## HIPÓTESES ATIVAS
 
-> Todas marcadas como [HIPÓTESE] — confirmar ou refutar no presencial de amanhã.
+> Aguardam demo real — Valdece ainda não testou o sistema.
 
 | # | Hipótese | Status | Baseada em |
 |---|---|---|---|
-| H-1 | Vai perguntar sobre mensalidade durante ou após a demo | PENDENTE | Perfil orientado a custo + modelo incomum para o nicho |
-| H-2 | A demo no computador DELE (não de Eduardo) é o momento de virada | PENDENTE | Perfil exigente — precisa sentir que o sistema é dele |
-| H-3 | O silêncio durante a primeira busca = aprovação — não interromper | PENDENTE | Perfil orientado a resultado, não a explicação |
-| H-4 | Pode pedir feature não existente depois do encantamento | PENDENTE | Padrão de scope creep em clientes satisfeitos da área jurídica |
-| H-5 | Mencionará colega advogado criminalista se ficar satisfeito | PENDENTE | Advocacia criminal é comunidade densa — 1 satisfeito fala com 50 na OAB |
+| H-1 | Vai perguntar sobre mensalidade durante ou após a demo | **PARCIAL** — modelo sem mensalidade confirmado no presencial | Perfil orientado a custo + modelo incomum para o nicho |
+| H-2 | A demo no computador DELE (não de Eduardo) é o momento de virada | PENDENTE — demo ainda não realizada | Perfil exigente — precisa sentir que o sistema é dele |
+| H-3 | O silêncio durante a primeira busca = aprovação — não interromper | PENDENTE — demo ainda não realizada | Perfil orientado a resultado, não a explicação |
+| H-4 | Pode pedir feature não existente depois do encantamento | PENDENTE — demo ainda não realizada | Padrão de scope creep em clientes satisfeitos da área jurídica |
+| H-5 | Mencionará colega advogado criminalista se ficar satisfeito | PENDENTE — demo ainda não realizada | Advocacia criminal é comunidade densa — 1 satisfeito fala com 50 na OAB |
 
 ---
 
@@ -131,19 +136,25 @@ Não está ansioso — está esperando. A janela de encantamento está intacta.
 
 ## PRÓXIMA AÇÃO CRÍTICA
 
-**AMANHÃ — sequência do presencial (60–90 min):**
+**CONFIGURAÇÃO + DEMO — próxima sessão (com credenciais em mãos):**
 
 ```
-[0–5 min]   ABERTURA: demo no computador DELE, primeira busca com tema que ele usa
-[5–20 min]  CONFIGURAÇÃO SILENCIOSA: Auth Supabase — "estou transferindo o controle para você"
+[ANTES]     Eduardo configura sistema com credenciais do Valdece (Auth Supabase + migração)
+[0–5 min]   ABERTURA: demo no computador DELE — primeira busca com tema que ele usa
+[5–20 min]  CONFIGURAÇÃO SILENCIOSA: "estou transferindo o controle para você"
 [20–40 min] DEMONSTRAÇÃO GUIADA: 3 buscas reais + 1 busca DELE sem ajuda
 [40–55 min] SOVEREIGN PLAYBOOK: "se o sistema travar, você resolve em 3 passos — sem me ligar"
 [55–70 min] CONTRATO: não forçar — deixar o entusiasmo da demo fechar
 [70–90 min] FECHAMENTO + semente do V2 plantada
 ```
 
+**🚨 MOMENTO MAIS CRÍTICO DO PROJETO:** A primeira busca de Valdece no sistema dele.
+Se ele encontrar o precedente que precisava → contrato fecha sozinho.
+Se o sistema travar ou retornar resultado ruim → credibilidade perdida.
+**Testar com as credenciais dele ANTES de qualquer demo.**
+
 **Linha de fechamento validada:** "O sistema é seu. Isso aqui só formaliza."
-**Se perguntar sobre mensalidade:** "não tem — você paga R$1,20/mês direto ao Google."
+**Se perguntar sobre mensalidade:** "não tem — você paga R$1,20/mês direto ao Google." (confirmado)
 **Se pedir desconto:** escalar ao Diretor. Não responder no momento. Mudar assunto.
 
 ---
@@ -164,7 +175,7 @@ não em horas economizadas. O argumento certo é "eu encontrei antes" — não "
 | Data | O que mudou | Quem atualizou |
 |---|---|---|
 | 2026-05-18 | Criação — véspera do presencial | Músculo |
-| 2026-05-19 | [Atualizar após presencial: contrato assinado, hipóteses confirmadas, leads detectados] | Eduardo |
+| 2026-05-19 | Presencial realizado — credenciais obtidas — modelo confirmado (sem mensalidade) — demo pendente | Músculo (P-032) |
 
 ---
 
