@@ -1,0 +1,247 @@
+PENTALATERAL IAH — COMANDO PARA O AUDITOR
+PROJETO: Jurisprudência Semântica Valdece | Case Fundacional | 2026-05-19
+════════════════════════════════════════════════════════════════════════
+
+Auditor, você é o Sócio Consultor com memória de V1 a V24 e agora
+do PROJ-001 Valdece completo. Este é o nosso primeiro case real
+entregue com gate validado. Tudo que gerar aqui alimenta o modelo
+universal e os próximos 3 nichos em discovery.
+
+ESTADO ATUAL AO ENTRAR NESTA SESSÃO:
+- Gate P-038: 12/12 verde (artefato: GATE_P038_RESULTADO_FINAL.md)
+- Deploy Netlify ativo: https://toga-digital-valdece.netlify.app (2026-05-19)
+- Demo presencial: 2026-05-20 — contrato PENDENTE (não assinado)
+- P-041 e P-042 registrados no LEDGER nesta sessão pelo Músculo
+⚠️ SKILL A (Valdece específica) = RETROSPECTIVA — o build está CONCLUÍDO.
+   Dias 4–5 são história — não futuro. Auditar o que foi feito, não planejar.
+⚠️ SKILL B (template universal) = PROSPECTIVA — alimenta os próximos projetos.
+
+Você recebe quatro documentos nesta sessão:
+
+1. ANÁLISE DO EMBAIXADOR — PROJ-001 VALDECE V2
+   (inteligência de relacionamento, discovery V2, [E-1 a E-5])
+
+2. GATE P-038 — MODELO COMPLETO DE TESTE PRÉ-DEMO
+   (12 queries, 12 verdes, benchmark LegalTech-Criminal documentado)
+
+3. DIRETRIZ ESTRATÉGICA V3 (Gemini — Dias 4 e 5)
+   (o que foi planejado vs. o que foi executado)
+
+4. TEMPLATE RELATORIO EVOLUTIVO V2
+   (framework SWOT + PDCA + 5W2H do projeto)
+
+════════════════════════════════════════════════════════════════════════
+O QUE O DIRETOR PRECISA DESTA SESSÃO
+════════════════════════════════════════════════════════════════════════
+
+1. AUDITORIA DO CASE: o que o histórico V1–V24 confirma, contradiz
+   ou expande sobre o PROJ-001 Valdece?
+
+2. SKILL DE REPLICAÇÃO: gerar a Skill que permite ao Músculo
+   replicar este modelo em qualquer nicho profissional
+   (Médico · Contabilidade · Psicologia · Trabalhista · Tributário)
+
+3. ANÁLISE DOS PRINCÍPIOS NOVOS: os dois princípios propostos
+   pelo Embaixador — coerentes com o histórico? Precisam ajuste?
+
+════════════════════════════════════════════════════════════════════════
+ANALISE COM 4 OBJETIVOS
+════════════════════════════════════════════════════════════════════════
+
+1. AUDITORIA DE COERÊNCIA
+· Os dois princípios propostos pelo Embaixador (cena de sucesso no
+  discovery + gate como ativo de nicho) são coerentes com P-001 a P-035?
+· O modelo "Opção A — soberania total + sem MRR" contradiz algum
+  padrão de receita estabelecido no histórico?
+· O distanciamento detectado pelo Diretor (build vs. expectativa
+  do cliente) tem precedente em V1–V24? Como foi resolvido antes?
+· A expansão do discovery de 7 para 8 perguntas está alinhada com
+  o que o histórico mostra sobre projetos bem-sucedidos de Camada 1?
+
+2. PERSPECTIVA DO SÓCIO CONSULTOR
+· O que funciona sistematicamente em projetos de busca semântica
+  com corpus limitado no MVP?
+· O que falha sistematicamente quando o primeiro cliente de nicho
+  é tratado como validação comercial (P-008)?
+· O que o Gemini e o Músculo não estão vendo no processo de
+  replicação para outros nichos profissionais?
+· O corpus_gap como argumento comercial de V2 — o histórico
+  confirma esse padrão em outros projetos de busca semântica?
+
+3. MÓDULOS REUTILIZÁVEIS — O QUE DO PROJ-001 VIRA TEMPLATE
+· Quais artefatos do PROJ-001 são replicáveis diretamente?
+  (seed_demo.py, gate_stj.py, search_cli.py, OFFBOARDING_RUNBOOK.md)
+· O que precisa parametrização para ser genérico?
+· O que é específico de LegalTech e não deve migrar para outros nichos?
+· Quais arquivos devem entrar em QUADRILATERAL_UNIVERSAL/TEMPLATES/?
+
+4. GERAR DUAS SKILLS — FORMATO COPIÁVEL OBRIGATÓRIO
+
+════════════════════════════════════════════════════════════════════════
+SKILL A — JURISPRUDÊNCIA SEMÂNTICA VALDECE V1
+(específica do projeto — complementa a do Embaixador)
+════════════════════════════════════════════════════════════════════════
+SKILL — JURISPRUDÊNCIA SEMÂNTICA VALDECE — V1
+Gerada por: NotebookLM (Auditor / Sócio Consultor)
+════════════════════════════════════════════════════════════════════════
+CONTEXTO: Valdece / Camada 1 / Stack Supabase+Gemini+Vanilla JS
+          / Problema: busca manual STF/STJ / Objetivo: MVP soberano
+
+[AUDITORIA DE COERÊNCIA]
+· DIRETRIZ V3 vs histórico: [confirma/contradiz/expande]
+· Contradições identificadas: [lista ou "nenhuma"]
+· Riscos ignorados por Gemini e Músculo: [lista]
+
+[CONEXÃO HISTÓRICA — Para o Músculo]
+· [módulo reutilizável] — caminho exato — economiza [estimativa]
+
+[PADRÃO DE SUCESSO]
+· [o que funcionou em projetos similares] → resultado: [impacto]
+
+[PADRÃO DE FALHA]
+· [o que falhou antes] — razão: [causa raiz]
+
+[PERSPECTIVA DO SÓCIO CONSULTOR]
+· Funciona sistematicamente: [insight com evidência histórica]
+· Falha sistematicamente: [insight com evidência histórica]
+· Diferencial deste projeto: [o que muda o padrão]
+· Abordagem recomendada: [recomendação fundamentada no histórico]
+· Blind spot Gemini/Músculo: [o que não estão vendo]
+
+SEQUÊNCIA DE BUILD — DIAS 4 E 5
+Dia 4: [módulo] — [razão histórica]
+Dia 5: [módulo] — [razão histórica]
+
+ALERTAS CRÍTICOS
+· [alerta] — severidade: [CRÍTICO/ALTO/MÉDIO]
+
+O QUE NÃO CONSTRUIR AGORA
+· [item] — razão: [por que adiar com base no histórico]
+
+[PARA O SKILL_PROTOCOLO_VANGUARD]
+· [padrão universal que emerge deste projeto]
+════════════════════════════════════════════════════════════════════════
+Salvar como: CLIENTES/VALDECE/SKILL_AUDITOR_VALDECE_V1.md
+════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════
+SKILL B — BUSCA SEMÂNTICA POR NICHO PROFISSIONAL — TEMPLATE UNIVERSAL
+(replicável — alimenta os próximos 3+ projetos de nicho)
+════════════════════════════════════════════════════════════════════════
+SKILL — BUSCA SEMÂNTICA POR NICHO PROFISSIONAL — TEMPLATE V1
+Gerada por: NotebookLM (Auditor / Sócio Consultor)
+Baseada em: PROJ-001 Valdece (case fundacional)
+════════════════════════════════════════════════════════════════════════
+CONTEXTO GENÉRICO
+Nicho: [PREENCHER POR PROJETO] | Tribunal/Base: [PREENCHER]
+Stack: Supabase pgvector + Gemini Embeddings + Vanilla JS/PWA
+Camada: 1 (MVP soberano) | Prazo padrão: 5 dias
+Modelo de entrega: Opção A — infra na conta do cliente
+
+[DISCOVERY — 8 PERGUNTAS OBRIGATÓRIAS]
+P1: Dor com custo mensurável — [exemplo do nicho]
+P2: Cena de sucesso — [exemplo do nicho] ← OBRIGATÓRIA
+P3: Quem usa e como — [perfil técnico típico do nicho]
+P4: O que existe hoje — [ferramentas típicas do nicho]
+P5: O que não pode quebrar — [criticidade típica do nicho]
+P6: Escopo e limites — [o que o nicho tipicamente quer excluir]
+P7: Investimento e urgência — [faixa de valor por nicho]
+P8: Expansão futura — [V2 natural do nicho] ← OBRIGATÓRIA
+
+[GATE DE VALIDAÇÃO — ESTRUTURA PADRÃO]
+Executar ANTES da demo com o cliente:
+· Área 1: [área principal do nicho] — queries tipo: [exemplos]
+· Área 2: [área secundária] — queries tipo: [exemplos]
+· Área 3: [área terciária] — queries tipo: [exemplos]
+· Coringa 1: [query de maior sim histórico do nicho]
+· Coringa 2: [query de menor latência histórica]
+Threshold aprovação: sim ≥ 0.67 | Latência alvo: < 3s | Top: 3
+Artefato: GATE_[NICHO]_[DATA].md — entregue ao cliente no handoff
+
+[CORPUS MÍNIMO VIÁVEL POR NICHO]
+· [nicho]: [N] documentos · [M] temas · fonte: [origem dos dados]
+
+[PADRÃO DE SUCESSO — UNIVERSAL]
+· Gate executado antes da demo → elimina risco de falha na primeira impressão
+· Demo abre com a cena do cliente (P2 do discovery) → taxa de conversão alta
+· Sovereign Playbook apresentado antes do contrato → elimina objeção de dependência
+· Corpus_gap documentado no handoff → argumento matemático de V2
+
+[PADRÃO DE FALHA — UNIVERSAL]
+· STJ/base de dados sem teste em produção antes da demo → Circuit Breaker obrigatório
+· Cron Job sem try/catch blindado → custo incontrolável na conta do cliente
+· Demo apresentando features antes de reproduzir a cena do cliente → impacto reduzido
+· Features de V2 prometidas antes do contrato assinado → scope creep
+
+[SEQUÊNCIA DE BUILD — 5 DIAS — PADRÃO]
+Dia 1: Schema Supabase + pgvector + Burn Rate Shield + Kill Switch
+Dia 2: Pipeline de ingestão (ingest.py) + CLI de teste (search_cli.py)
+Dia 3: Gate semântico com dados do nicho real + UI core + citação/formato padrão
+Dia 4: Busca precisa/ampla + interface final + Circuit Breaker da fonte principal
+Dia 5: Auth + Edge Function cron blindada + seed_demo.py na conta do cliente
+       + Gate P-XXX (12 queries) + Sovereign Playbook + migração + DEMO
+
+[ARTEFATOS ENTREGÁVEIS — TODO PROJETO]
+· seed_demo.py — população inicial do corpus (parametrizado por nicho)
+· search_cli.py — validação de queries pré-demo
+· GATE_[NICHO]_[DATA].md — resultado do gate documentado
+· OFFBOARDING_RUNBOOK.md — 4 passos, 30 minutos
+· Sovereign Playbook — operação soberana sem o Vanguard
+· SENTINEL_REPORT template — Relatório de atividade 14 dias pós-entrega
+
+[V2 NATURAL POR NICHO]
+· LegalTech-Criminal: Sovereign Upload (PDF petições) + Radar de Divergência
+· Médico: Upload de protocolos + Alerta de atualização de guidelines
+· Contabilidade: Upload de pareceres + Radar de mudança de legislação
+· Psicologia: Base de artigos + Alerta de novos DSM/CID
+Gatilho universal: corpus ≥ 500 docs ou 30 dias de uso ativo
+Pricing universal V2: R$8.500–12.000 projeto único + R$300/mês manutenção opcional
+
+[SENTINEL REPORT — ESTRUTURA PADRÃO — 14 DIAS PÓS-ENTREGA]
+Seção 1: Buscas realizadas (total + por área)
+Seção 2: Temas com melhor resultado (sim ≥ 0.70)
+Seção 3: Temas sem resultado adequado (corpus_gap) ← argumento V2
+Seção 4: Economia de tempo estimada vs. método anterior
+Entrega: WhatsApp (texto + screenshot) para perfil não-técnico
+         PDF formal para perfil enterprise
+
+[ALERTAS CRÍTICOS — UNIVERSAIS]
+· [CRÍTICO] Fonte de dados sem teste em produção antes da demo
+· [CRÍTICO] Cron Job sem limite de execução e try/catch
+· [ALTO] Demo sem momento de busca autônoma do cliente (H-2)
+· [ALTO] Corpus_gap não documentado antes do handoff
+
+[PARA O SKILL_PROTOCOLO_VANGUARD]
+· Discovery P2 (cena de sucesso) — obrigatória em todo projeto cliente
+· Discovery P8 (expansão futura) — obrigatória em todo projeto cliente
+· Gate de validação semântica como artefato formal de entrega
+· Corpus_gap como SLA comercial do Sentinel Report
+· Demo estruturada em torno da cena do cliente — nunca em torno das features
+· Sovereign Playbook como argumento de proposta (antes do contrato)
+· Modelo Opção A (soberania total) como padrão para primeiro cliente de nicho
+
+[5 IDEIAS DISRUPTIVAS DO AUDITOR]
+Com base no histórico de V1–V24 e PROJ-001:
+1. [ideia fundamentada no histórico que nenhum membro viu]
+2. [ideia sobre escala do modelo de replicação]
+3. [ideia sobre os 3 nichos em discovery — priorização histórica]
+4. [ideia sobre o Sentinel Report como produto autônomo]
+5. [ideia de longo prazo com impacto exponencial no portfólio]
+════════════════════════════════════════════════════════════════════════
+Salvar como: QUADRILATERAL_UNIVERSAL/TEMPLATES/SKILL_BUSCA_SEMANTICA_NICHO_V1.md
+════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════
+FONTES PARA CARREGAR NO NOTEBOOKLM (caminhos reais):
+Fonte 1:  CLIENTES/VALDECE/CONSELHO/ANALISE_EMBAIXADOR_PROJ001_VALDECE_V2.md   ← nova
+Fonte 2:  CLIENTES/VALDECE/CONSELHO/GATE_P038_RESULTADO_FINAL.md
+Fonte 3:  CLIENTES/VALDECE/HISTORICO/DIRETRIZ ESTRATÉGICA V3.txt
+Fonte 4:  CLIENTES/VALDECE/TEMPLATE_RELATORIO_EVOLUTIVO_V2.md
+Fonte 5:  QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md
+Fonte 6:  INTELLIGENCE_LEDGER.md (raiz do repositório)
+Fonte 7:  QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+Fonte 8:  QUADRILATERAL_UNIVERSAL/OPERACAO/PROCESSO_EVOLUTIVO_QUADRILATERAL.md
+
+NOTA: Carregar fontes 6, 7 e 8 ANTES das fontes 1, 2, 3 e 4.
+      Fatos históricos carregam ANTES das ideias novas — nunca inverter.
+════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,114 @@
+PENTALATERAL IAH — COMANDO PARA O ESTRATEGISTA
+PROJETO: Jurisprudência Semântica Valdece | Case Fundacional | 2026-05-19
+════════════════════════════════════════════════════════════════════════
+
+Estrategista, você recebe três documentos integrados nesta sessão:
+
+1. ANÁLISE DO EMBAIXADOR — PROJ-001 VALDECE V2
+   (inteligência de relacionamento + 8 perguntas de discovery + [E-1 a E-5])
+
+2. GATE P-038 — MODELO COMPLETO DE TESTE PRÉ-DEMO
+   (12 queries validadas, 12 verdes, benchmark LegalTech-Criminal)
+
+3. DIRETRIZ V3 QUE VOCÊ MESMO GEROU
+   (referência para avaliar o que foi executado vs. o que foi planejado)
+
+════════════════════════════════════════════════════════════════════════
+CONTEXTO DO MOMENTO
+════════════════════════════════════════════════════════════════════════
+
+Estado atual:
+- PROJ-001 Valdece: gate aprovado, demo 2026-05-20, contrato PENDENTE
+- Sistema: 61 acórdãos reais STF/STJ · 22 temas · similaridade 0.67–0.80
+- Deploy realizado: https://toga-digital-valdece.netlify.app (2026-05-19)
+- Link enviado a Valdece esta tarde — encantamento antecipado em curso
+- Contrato AINDA NÃO assinado — demo 2026-05-20 é o próximo gatilho
+- Corpus_gap documentado: argumento de V2 com evidência matemática
+- P-041 e P-042 registrados no LEDGER nesta sessão
+- Três nichos em discovery paralelo: Médico · Contabilidade · Psicologia
+⚠️ Timing crítico: recomendações devem considerar a sequência Demo → Contrato → Replicação.
+   Não propor ações de replicação que dependam do contrato do Valdece estar fechado.
+
+O Diretor Eduardo identificou durante o projeto um distanciamento
+entre o que o cliente pediu e o que foi construído em alguns momentos.
+O Embaixador diagnosticou a causa raiz: o discovery capturou o problema
+declarado, não a cena de sucesso imaginada pelo cliente.
+
+O Diretor quer dois resultados desta sessão:
+
+1. SUA ANÁLISE E SUGESTÕES sobre o case Valdece e os princípios extraídos
+2. ESTRATÉGIA DE REPLICAÇÃO: como transformar este projeto em modelo
+   que a Vanguard replica em qualquer cliente de nicho profissional
+
+════════════════════════════════════════════════════════════════════════
+ANALISE COM OS 5 BLOCOS OBRIGATÓRIOS
+════════════════════════════════════════════════════════════════════════
+
+BLOCO 0 — DIAGNÓSTICO
+· O que este case prova sobre o modelo IAH que não estava provado antes?
+· Qual é o risco real que o Embaixador e o Músculo não estão vendo
+  no processo de replicação para outros nichos?
+· O distanciamento detectado pelo Diretor — sua análise de causa raiz
+  confirma, expande ou contradiz a do Embaixador?
+
+BLOCO 1 — PRIORIDADES PARA REPLICAÇÃO
+· Em ordem de impacto: o que precisa estar pronto antes de abordar
+  o segundo cliente de nicho profissional?
+· O que do PROJ-001 é universal e o que é específico de LegalTech?
+· Quais os 3 riscos mais prováveis na replicação que o Músculo
+  não vai ver durante o build?
+
+BLOCO 2 — PROPOSTA COMERCIAL DO MODELO REPLICÁVEL
+· Como empacotar e precificar o "Sistema de Busca Semântica por Nicho"
+  como produto da Vanguard — não como projeto one-off?
+· O gate documentado + sovereign playbook + corpus validado formam
+  um produto vendável como diferencial de processo? Como nomear e precificar?
+· Estratégia de indicação: como ativar P-008 (Valdece como canal OAB)
+  sem parecer oportunista?
+
+BLOCO 3 — DIRETRIZ TÉCNICA
+
+[PARA O NOTEBOOKLM]
+· O que conectar do histórico V1–V24 sobre projetos de busca semântica
+  e replicação de produto para o Auditor auditar?
+· Qual risco verificar com base no que já foi construído?
+· Qual padrão de V1–V24 mais se aplica ao modelo de replicação?
+
+[PARA O MÚSCULO]
+· Intenção estratégica da replicação em 1 frase
+· O que construir primeiro para tornar o modelo replicável
+  (template de discovery? script de seed genérico? gate parametrizável?)
+· O que NÃO construir agora para não travar o PROJ-001
+· Alertas de risco arquitetural na replicação
+
+[VISÃO DE LONGO PRAZO]
+· Em 3 clientes de nicho (Valdece → Médico → Contabilidade),
+  onde a Vanguard deve estar?
+· Qual decisão arquitetural tomada no PROJ-001 abre ou fecha
+  opções para os próximos projetos?
+· O modelo "Opção A — soberania total" é escalável ou gera
+  fricção operacional com volume de clientes?
+
+[RESPOSTA ÀS IDEIAS DO EMBAIXADOR — obrigatório]
+[E-1] Gate como entregável formal do contrato:
+[E-2] Cena de sucesso como abertura obrigatória de demo:
+[E-3] Corpus_gap como SLA informal do Sentinel Report:
+[E-4] Sovereign Playbook como argumento de proposta (não de handoff):
+[E-5] Discovery P8 como mapa de nicho:
+
+BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR (próximas 48h)
+· 3 ações concretas — quem, o quê, quando
+
+[5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA PARA O MÚSCULO E EMBAIXADOR REAGIREM]
+A. [ideia sobre replicação] — tecnicamente viável nesta stack?
+B. [ideia sobre comercialização do modelo] — impacto estimado?
+C. [ideia sobre os 3 nichos em discovery] — priorização?
+D. [ideia sobre o Sentinel Report] — como maximizar o argumento de V2?
+E. [ideia que nenhum membro viu ainda] — o blind spot do Estrategista
+
+════════════════════════════════════════════════════════════════════════
+DOCUMENTOS PARA COLAR ANTES DESTA MENSAGEM (caminhos reais):
+1. CLIENTES/VALDECE/CONSELHO/ANALISE_EMBAIXADOR_PROJ001_VALDECE_V2.md
+2. CLIENTES/VALDECE/CONSELHO/GATE_P038_RESULTADO_FINAL.md
+3. CLIENTES/VALDECE/HISTORICO/DIRETRIZ ESTRATÉGICA V3.txt
+════════════════════════════════════════════════════════════════════════

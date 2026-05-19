@@ -943,6 +943,26 @@ Diretor — veredito
 
 ---
 
+### [P-041] Discovery deve capturar a cena de sucesso, não apenas o problema declarado
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise do Embaixador pós-gate
+**Fricção:** Valdece declarou "busca de jurisprudência consome horas". O build otimizou para corpus e threshold — correto tecnicamente. Mas o cliente imaginava uma cena específica: "júri começa em 20 minutos, encontro o precedente antes do juiz." Sem capturar essa cena no discovery, o build pode ser tecnicamente impecável e emocionalmente irrelevante para o cliente. O distanciamento detectado pelo Diretor durante o PROJ-001 tem origem aqui.
+**Princípio:** No Passo 2 (Discovery), além das perguntas de problema e escopo, incluir obrigatoriamente a P2: *"Me descreve uma situação real — uma cena específica — onde este sistema te salvaria. O que acontece, onde você está, o que você está fazendo, qual é o resultado que muda."* A resposta é o critério de aceitação real do projeto — não o spec técnico.
+**Corolário de build:** O Músculo usa a cena descrita como teste de aceitação final. Antes do handoff, rodar a cena exata no sistema real. Se funcionar → demo confiante. Se não → corrigir antes de sentar com o cliente.
+**Corolário de demo:** A abertura da demo reproduz a cena do cliente, não demonstra features. "Você me disse que precisava do precedente antes do juiz — vamos fazer isso agora."
+**Aplica-se a:** todo projeto cliente, todo nicho, toda camada.
+
+---
+
+### [P-042] Gate de validação semântica é ativo de nicho, não burocracia de entrega
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — gate P-038
+**Fricção:** O gate P-038 emergiu durante o build como proteção de demo. Mas ao documentar 12 queries + resultados + similaridades + latências, gerou algo mais valioso: um protocolo replicável para qualquer sistema de busca semântica jurídica. O segundo cliente do mesmo nicho custa 30 minutos de gate — não horas de fricção.
+**Princípio:** O gate de validação semântica de qualquer sistema de busca deve ser documentado como artefato formal do projeto. Estrutura mínima: área coberta + query testada + melhor similaridade + latência + status verde/amarelo/vermelho. Este documento é entregue ao cliente como parte do handoff e alimenta o perfil de nicho no WIP_BOARD.
+**Corolário de escala:** A cada cliente no mesmo nicho, o gate fica mais preciso e o tempo de validação cai. Em 5 clientes LegalTech-Criminal, a Vanguard tem benchmark de performance que nenhum concorrente possui.
+**Corolário comercial:** O gate documentado é argumento de proposta. "Testamos 12 queries antes de sentar com você" é diferencial de processo — não de produto.
+**Aplica-se a:** todo sistema de busca semântica por nicho profissional. Candidatos imediatos: médico, tributário, trabalhista.
+
+---
+
 ### [P-038] Nada sai da Vanguard sem gate de teste aprovado
 **Descoberto:** 2026-05-19 | **Sessão:** Retomada PROJ-001 Valdece
 **Fricção:** Eduardo precisou corrigir o Músculo: o sistema de busca do Valdece não foi enviado/configurado na conta dele porque não passou por gate de teste. O princípio já havia sido estabelecido no PROJ-002 Ingrid mas não foi registrado formalmente no LEDGER.
