@@ -69,14 +69,14 @@ Está em espera passiva. Não está ansiosa ainda — mas a janela está fechand
 
 | Campo | Status |
 |---|---|
-| Termo de Uso | **PENDENTE** — gerado em 2026-05-16, não assinado |
-| Risco ativo | P-023 — nenhum acesso ao PWA antes da assinatura |
-| Compartilhamento | Sem cobertura jurídica enquanto Termo não for assinado |
-| Clickwrap no PWA | ENTRA no build Dia 6 — resolve P-023 em código |
+| Termo de Uso | **ASSINADO** — 2026-05-18 |
+| Risco P-023 | **RESOLVIDO** — Clickwrap + Termo físico assinados |
+| Compartilhamento | Coberto contratualmente |
+| Clickwrap no PWA | Confirma aceite digital na primeira sessão |
 | Vigência contratual | Até 2026-09-06 (ciclo do concurso) |
 
-**Ação bloqueada:** Eduardo não entrega o link de acesso antes da assinatura.
-**Resolução técnica:** Clickwrap na primeira tela do PWA grava `user_id + timestamp + hash_sha256` na tabela `termos_aceitos`.
+**Bloqueio removido:** Eduardo pode entregar o link de acesso ao PWA.
+**URL pública ativa (2026-05-18):** https://subdiretormnmsgm-commits.github.io/vanguard/
 
 ---
 
@@ -163,7 +163,7 @@ Este é o ativo de negócio que transforma Ingrid de piloto em case de escala.
 
 ## PRÓXIMA AÇÃO CRÍTICA
 
-**M1 — HOJE (antes das 18h):** Enviar mensagem B1 — Ingrid assina o Termo.
+**M1 — CONCLUÍDO (2026-05-18):** Termo assinado. Bloqueio P-023 removido.
 > "Ingrid, tô finalizando os últimos ajustes na sua ferramenta e preciso só de uma coisa antes de liberar o acesso pra você: a assinatura do termo que te mandei. É só isso que falta. Me confirma quando assinar! 🙂"
 
 **M2 — Gate Dia 8 (protocolo obrigatório):**
@@ -191,17 +191,15 @@ R$97/mês, menos que qualquer cursinho, e o sistema já te conhece. Quer continu
 
 ```
 TEMPERATURA_CLIENTE — PROJ-002 INGRID
-Status atual: AMARELA
-Baseado em: hipótese H-1 confirmada pelo Embaixador (dados reais a partir do Gate Dia 8)
-Válido até: próximo contato ou Gate Dia 8
-Override ativo: NÃO — aguarda 7 dias de uso real após entrega
-Última atualização: 2026-05-18 (Músculo — Síntese Final P-037)
+Status atual: VERDE
+Baseado em: Termo assinado 2026-05-18 + PWA pronto para entrega
+Válido até: Gate Dia 15 (7 dias de uso real)
+Override ativo: NÃO
+Última atualização: 2026-05-18 (Músculo — P-032 · Termo assinado)
 ```
 
-**AMARELA porque:** Termo pendente + 2 dias sem contato + gate bloqueado por P-023.
-**Não é VERMELHA porque:** nenhum sinal de resistência — H-1 confirmada: silêncio tem explicação plausível (foco de estudo).
-**Vira VERDE quando:** Termo assinado + primeiros 7 dias de uso com dados reais (E-4).
-**Escalona para AMARELA-ESCURA em:** 2026-05-23 — se nenhuma resposta ao Termo.
+**VERDE — desbloqueada em 2026-05-18:** Termo assinado. P-023 resolvido. PWA pronto para entrega.
+**Próxima avaliação:** após 7 dias de uso real (Gate Dia 15) — dados reais substituem inferências.
 
 ---
 
@@ -241,6 +239,8 @@ Não exceção de caso — regra universal a partir deste projeto.
 |---|---|---|
 | 2026-05-18 | Criação — Loop 3 | Embaixador |
 | 2026-05-18 | Síntese Final P-037: [E-1 a E-5] + H-1 confirmada + H-2 refutada + H-6 adicionada + Pipeline R$150 + Ativo de dados + temperatura com alerta 2026-05-23 + protocolo Gate Dia 8 + decisões Síntese Final | Músculo (P-032) |
+| 2026-05-18 | Termo assinado — temperatura AMARELA → VERDE — P-023 resolvido — bloqueio removido | Músculo (P-032) |
+| 2026-05-18 | URL pública ativa — https://subdiretormnmsgm-commits.github.io/vanguard/ — GitHub Pages gh-pages branch | Músculo (P-032) |
 
 ---
 

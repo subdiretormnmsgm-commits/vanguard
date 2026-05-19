@@ -106,15 +106,19 @@
                                                              "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
                                                          ],
                                     "loop_atual":  "Loop #3 — Build (Dias 6-8)",
+                                    "url_publica":  "https://subdiretormnmsgm-commits.github.io/vanguard/",
+                                    "url_status":  "ATIVA — GitHub Pages gh-pages branch — 2026-05-18",
                                     "formalizador":  {
                                         "termo_uso":  "Termo_Uso_Ingrid_PROJ002_30052026.pdf",
-                                        "status":  "minuta — aguarda assinatura",
+                                        "status":  "ASSINADO — 2026-05-18",
                                         "gerado_em":  "2026-05-16",
                                         "path":  "CLIENTES/INGRID/Termo_Uso_Ingrid_PROJ002_30052026.pdf"
                                     },
                                     "diretriz_gemini_v2":  true,
-                                    "skill_notebooklm_v2":  "pendente — NotebookLM em execucao",
-                                    "proximo_passo":  "DIRETRIZ V2 recebida. NotebookLM gerando Skill ingrid-v2.md. Amanha: Musculo delibera + Build Dias 6-8"
+                                    "diretriz_gemini_v4":  "pendente — Loop 4",
+                                    "skill_notebooklm_v2":  "pendente — NotebookLM Loop 3",
+                                    "banco_questoes":  "460 validadas — expansao para 1000+ aguarda creditos Anthropic",
+                                    "proximo_passo":  "Gate Dia 8 — Ingrid acessa URL publica + responde 10 questoes + feedback 3 frases"
                                 },
                                 {
                                     "id":  "PROJ-001",
