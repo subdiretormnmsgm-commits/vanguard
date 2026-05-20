@@ -36,6 +36,17 @@
             "timeout": 5
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/p033_sync_guardian.ps1",
+            "timeout": 60,
+            "statusMessage": "P-033 — Verificando se sync e necessario..."
+          }
+        ]
       }
     ],
     "Stop": [
