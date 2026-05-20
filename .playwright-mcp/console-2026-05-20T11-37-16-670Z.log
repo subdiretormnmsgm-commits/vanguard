@@ -1,0 +1,4 @@
+[    5250ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://m.stripe.com/6:0
+[   17595ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://secure.gravatar.com/avatar/b48dd880ba23a1d12481233ed446f589?s=64&d=404:0
+[   17613ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://secure.gravatar.com/avatar/b48dd880ba23a1d12481233ed446f589?s=64&d=404:0
+[   19214ms] [ERROR] Failed to load resource: the server responded with a status of 422 () @ https://app.netlify.com/access-control/bb-api/api/v1/escritoriovaldece/billing/credits:0

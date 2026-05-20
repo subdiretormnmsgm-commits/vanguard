@@ -1,0 +1,39 @@
+[    1597ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://toga-digital-valdece.netlify.app/icon-192.png:0
+[    1598ms] [WARNING] Error while trying to use the following icon from the Manifest: https://toga-digital-valdece.netlify.app/icon-192.png (Download error or resource isn't a valid image) @ https://toga-digital-valdece.netlify.app/:0
+[   17467ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs:0
+[ 1873652ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 1873652ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 1873652ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 1887616ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 1887616ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 1887617ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 1895419ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 1895419ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 1895419ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 1911357ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 1911362ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 1911362ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 1921792ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 1922032ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 1922032ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 1922978ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 1923219ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 1923284ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 1925239ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 1927288ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 1927374ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 1929811ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 1931373ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 1933516ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 2040717ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 2040718ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 2040718ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 2041733ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 2041733ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 2041734ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 2043748ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 2043749ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 2043749ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0
+[ 2047766ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/token_usage?select=cost_usd&date=gte.2026-05-19:0
+[ 2047766ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs?select=id&created_at=gte.2026-05-19T00%3A00%3A00:0
+[ 2047766ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/config?select=value&key=eq.corpus_count:0

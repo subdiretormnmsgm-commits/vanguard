@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-18 22:54
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-19 14:57
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-f457e8e docs(ingrid): pacote de entrega — relatório + manual + metodologia + perfil candidato
-ccdddf1 feat(ingrid): CORS fix + perfis de nicho + P-038/039/040
-a9b17ad deploy(ingrid): credenciais + paths relativos para GitHub Pages
+1c2db35 docs(pentalateral): DNA da IAH atualizado com aprendizados do PROJ-001 Valdece
+8793ab1 feat(valdece): P-041 + P-042 LEDGER + análise Embaixador V2 + comandos Conselho atualizados
+55980e1 feat(ledger): P-040 + GATE_P038 resultado final
 
 ================================================================================
 
@@ -142,7 +142,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-05-18",
+    "atualizado_em":  "2026-05-19",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -226,34 +226,34 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ================================================================================
 
 ## MEMORIA MAIS RECENTE
-# MEMORIA_EMBAIXADOR — PROJ-002 INGRID
+# MEMORIA_EMBAIXADOR — PROJ-001 VALDECE
 > Documento vivo. Atualizar a cada gate ou marco de relacionamento.
 > Leitura obrigatória de abertura de sessão — 30 segundos.
-> Versão: Loop 3 · Pós-Síntese Final · 2026-05-18
+> Versão: Pós-Loop Evolutivo · 2026-05-19 (Gate P-038 APROVADO · Deploy live · 4 princípios extraídos)
 
 ---
 
 ## CLIENTE
 
-**Nome:** Ingrid
-**Objetivo real:** Passar no concurso TDAS — Cargo 202 (Técnico Administrativo) — Sedes-DF
-**Banca:** Instituto Quadrix
-**Data da prova:** 2026-09-06 (~111 dias a partir de 2026-05-18)
-**Prazo do projeto:** 2026-05-30 (deadline de entrega)
+**Nome:** Valdece
+**Profissão:** Advogado criminalista — Direito Penal
+**O que ele pediu:** "Quero um Google melhor para jurisprudência penal."
+**O que foi entregue:** Copiloto de defesa criminal — busca semântica STF/STJ com citação ABNT e interface Toga Digital Navy + Ouro.
+**Prazo do projeto:** 2026-05-23 (deadline contratual)
+**Gate crítico:** Entrega presencial 2026-05-19 (AMANHÃ)
 
 ---
 
 ## DOR REAL
 
-Não é falta de material — é excesso de material irrelevante.
-QConcursos e TEC entregam milhões de questões sem priorizar o cargo específico,
-sem explicar por que errou, sem adaptar ao histórico da banca.
+Em julgamentos e audiências, segundos importam.
+Google entrega ruído. Westlaw custa R$3.000/mês.
+O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 
-**O que ela quer sentir:** abrir o celular, responder 20 questões certas em 30 minutos,
-ir dormir confiante de que está no caminho certo.
-
-**O que ela mais teme:** estudar a matéria errada e descobrir tarde demais.
-**O que a motiva:** progresso concreto e mensurável — "estudei 140 questões esta semana."
+**O que ele mais teme:** Sistema que quebra sem suporte ou que exige conhecimento técnico.
+**O que o motiva:** Resultado em audiência — "usei e encontrei o precedente que mudou o julgamento."
+**Canal que funciona:** Presencial (preferencial) / WhatsApp (rápido, objetivo)
+**Tom que não funciona:** Técnico, detalhado em infraestrutura, demorado
 
 ---
 
@@ -261,17 +261,34 @@ ir dormir confiante de que está no caminho certo.
 
 | Campo | Status |
 |---|---|
-| Gate atual | Loop 3 — Build Dias 6-8 APROVADO — build iniciado |
-| Questões no Supabase | 460 validadas — Cargo 202 |
-| Feed diário | 70% Peso 2 / 30% Peso 1 — funcionando |
-| SM-2 | Gate Dia 5 aprovado — 0 erros |
-| Interface PWA | Build em curso (Dia 6: Clickwrap + E-2 + layout mobile) |
-| Tutor Socrático | Em build — 3 níveis + tom austere + cache bidimensional |
-| Fallback Fadiga | Em build — kill-switch 70% cota diária |
-| Custo total até Gate Dia 5 | $1,56 |
+| Gate atual | **GATE P-038 APROVADO — 12/12 verde** ✅ · sim 0.67–0.818 · latência 2.1–3.4s |
+| Deploy | **https://toga-digital-valdece.netlify.app** · PWA instalável ✅ |
+| Corpus Supabase | **61 acórdãos reais STF/STJ · 22 temas · TESTADO E VERDE** ✅ |
+| Modelo embed | gemini-embedding-001 · dimensionalidade 768 · threshold 0.67 |
+| commit ef3f1cd | Schema Supabase + ingest.py + kill_switch.js ✅ |
+| commit 996b40d | Corpus pipeline Python + Mágico de Oz Gate ✅ |
+| commit 18c617f | STJ por Tema + busca semântica threshold + UI Toga Digital ✅ |
+| commit e9afb36 | Gate ABNT NBR6023 + busca precisa/ampla + redesign Navy/Ouro ✅ |
+| commit 5da58f8 | Corpus 61 acórdãos + P-057/P-058 LEDGER ✅ |
+| Loop evolutivo | **4 princípios extraídos (P-041/P-042/P-043/P-044)** · 3 membros deliberaram |
+| Presencial 2026-05-19 | Realizado — credenciais obtidas — Sovereign Playbook apresentado (P-042) |
+| Demo real | **PRÓXIMA** — Valdece ainda não testou no sistema dele — janela de encantamento intacta |
+| Contrato | **PENDENTE** — aguarda demo + encantamento · pricing: R$5k fixo + sem mensalidade |
 
-**Ingrid ainda não viu nada disso.** Não sabe que o backend está pronto.
-**Número visível no app:** Pontos Ponderados — não Score de Sobrevivência (obrigação contratual cláusula 2).
+**Sistema pronto — estado pós-entrega presencial:**
+- Schema vector(768) + HNSW + SECURITY DEFINER ✅ — Supabase US (migrar sa-east-1 pós-V2)
+- 61 acórdãos validados: HC · preventiva · tráfico · dosimetria · nulidade · homicídio · estupro ·
+  violência doméstica · execução penal · prescrição · legítima defesa · org criminosa ·
+  porte arma · corrupção · concurso crimes · sursis · estelionato · extorsão · ECA +
+- Gate P-038: 12/12 queries aprovadas · sim ≥ 0.67 em todas · latência máx 3.4s
+- Sovereign Playbook apresentado antes do contrato (P-042) — objeção vendor lock-in destruída
+
+**V2 pipeline mapeado (gatilho: corpus ≥ 500 docs ou 30 dias de uso ativo):**
+- Sovereign Upload (ingestão PDFs próprios do Valdece)
+- Radar de Divergência (STJ vs STF)
+- Citação DOCX export
+- Botão "Solicitar Expansão Semântica" quando sim < 0.60
+- Migração sa-east-1 São Paulo (latência de 3.4s → ~1.5s estimado)
 
 ---
 
@@ -279,17 +296,15 @@ ir dormir confiante de que está no caminho certo.
 
 | Campo | Status |
 |---|---|
-| Último contato | 2026-05-16 (Termo enviado) |
-| Dias sem contato | ~2 dias |
-| Canal principal | WhatsApp |
-| Tom que funciona | Caloroso, direto, sem jargão técnico |
-| Tom que não funciona | Técnico, formal, muito longo |
+| Último contato | **Presencial realizado — 2026-05-19** |
+| Próximo contato | Próxima sessão — configuração + demo real (credenciais em mãos) |
+| Canal principal | Presencial / WhatsApp |
+| Tom que funciona | Direto, resultado concreto, sem jargão técnico |
+| Tom que não funciona | Técnico, detalhado, longo, com termos de infraestrutura |
 
-**O que ela imagina agora:** que Eduardo ainda está "organizando o material."
-Está em espera passiva. Não está ansiosa ainda — mas a janela está fechando.
-
-**Alerta de deriva:** silêncio > 5 dias úteis a partir de 2026-05-16 → temperatura escalona para AMARELA-ESCURA.
-**Prazo de alerta:** 2026-05-23 — se não houver resposta ao Termo, Eduardo aciona abordagem direta.
+**O que Valdece imagina agora:** Eduardo tem as credenciais dele e está configurando o sistema.
+Ainda não testou — aguarda a configuração na conta dele. A janela de encantamento está intacta.
+A primeira impressão real ainda vai acontecer — é a sessão mais crítica do projeto.
 
 ---
 
@@ -297,68 +312,40 @@ Está em espera passiva. Não está ansiosa ainda — mas a janela está fechand
 
 | Campo | Status |
 |---|---|
-| Termo de Uso | **ASSINADO** — 2026-05-18 |
-| Risco P-023 | **RESOLVIDO** — Clickwrap + Termo físico assinados |
-| Compartilhamento | Coberto contratualmente |
-| Clickwrap no PWA | Confirma aceite digital na primeira sessão |
-| Vigência contratual | Até 2026-09-06 (ciclo do concurso) |
+| Contrato | Contrato_Toga_Digital_Valdece_19052026_v2.docx |
+| Status | **PENDENTE** — assinatura no presencial de 2026-05-19 |
+| Modelo | R$5.000 fixo (Cláusula 4.1) + 20% MRR Revenue Share sobre SaaS derivado (4.2) |
+| Mensalidade | ZERO — infra na conta do Valdece (~R$1,20/mês direto à API dele) |
+| Hypercare | 30 dias inclusos |
 
-**Bloqueio removido:** Eduardo pode entregar o link de acesso ao PWA.
+**CRÍTICO:** Nunca mencionar mensalidade. Se perguntar: "não tem — você paga R$1,20/mês direto ao Google."
+**CRÍTICO:** Revenue Share entra APENAS se Valdece lançar SaaS próprio — não confundir com mensalidade.
 
 ---
 
 ## HIPÓTESES ATIVAS
 
-> Hipóteses confirmadas/refutadas pelo Embaixador em 2026-05-18 marcadas.
+> Aguardam demo real — Valdece ainda não testou o sistema.
 
 | # | Hipótese | Status | Baseada em |
 |---|---|---|---|
-| H-1 | Ingrid não assinou por esquecimento funcional — não por hesitação | **CONFIRMADA** (Embaixador 2026-05-18) | Em modo foco de estudo — Termo é objeto passivo na fila mental |
-| H-2 | Medo financeiro causou hesitação na assinatura | **REFUTADA** (Embaixador 2026-05-18) | Piloto sem custo — sem gatilho financeiro; medo aparece no pitch V2 |
-| H-3 | Vai comparar o app com TEC Concursos na primeira sessão | PENDENTE — confirmar Gate Dia 8 | TEC citado no briefing como ferramenta ativa |
-| H-4 | Primeiras questões parecendo difíceis = reação normal, não abandono | PENDENTE — confirmar Gate Dia 8 | Perfil sistemático + nunca usou spaced repetition |
-| H-5 | Pode compartilhar login com familiar ou colega próxima | PENDENTE — SaaS Readiness Audit (Dias 14-15) | Perfil social — risco ativo de monitorar |
-| H-6 | Teto receptivo de preço é R$97/mês — teto real pode ser R$150 | PENDENTE — registrar reação ao ouvir R$97 | Embaixador [E-3] — monitorar resposta corporal/verbal |
+| H-1 | Vai perguntar sobre mensalidade durante ou após a demo | **PARCIAL** — modelo sem mensalidade confirmado no presencial | Perfil orientado a custo + modelo incomum para o nicho |
+| H-2 | A demo no computador DELE (não de Eduardo) é o momento de virada | PENDENTE — demo ainda não realizada | Perfil exigente — precisa sentir que o sistema é dele |
+| H-3 | O silêncio durante a primeira busca = aprovação — não interromper | PENDENTE — demo ainda não realizada | Perfil orientado a resultado, não a explicação |
+| H-4 | Pode pedir feature não existente depois do encantamento | PENDENTE — demo ainda não realizada | Padrão de scope creep em clientes satisfeitos da área jurídica |
+| H-5 | Mencionará colega advogado criminalista se ficar satisfeito | PENDENTE — demo ainda não realizada | Advocacia criminal é comunidade densa — 1 satisfeito fala com 50 na OAB |
 
 ---
 
 ## PADRÕES OBSERVADOS
 
-> Atualizar com cada interação real. Hoje: baseado em documentos apenas.
+> Baseado em documentos e perfil — atualizar após o presencial com comportamento real.
 
-- Dedicada e sistemática — não é do tipo que desiste no meio do caminho
-- Ansiosa com prazo quando se aproxima — 111 dias parece confortável até não parecer
-- Linguagem acessível, calorosa — responde melhor a resultado concreto do que a explicação técnica
-- Usuária não-técnica — nunca mencionar infraestrutura, custo de API, ou detalhes de backend
-- **Padrão de retenção:** frases E-2 e E-5 são o mecanismo crítico — não são decoração
-- **Reforço de uso:** 1 clique para estudar (P-031) — UI complexa é causa de abandono neste perfil
-
----
-
-## INTELIGÊNCIA DO EMBAIXADOR — Loop 3 [E-1 a E-5]
-> Gerado em 2026-05-18 · Confirmado na Síntese Final · Peso de evidência de campo
-
-| # | Ideia | Ação operacional | Status |
-|---|---|---|---|
-| E-1 | Vanguard como investidor de relacionamento — gerar "Resumo da Entrega" de 1 página para Ingrid no Gate Dia 15 | Eduardo prepara doc de 1 página com evolução, métricas, próximos passos — linguagem dela | PROTOCOLO Eduardo — Gate Dia 15 |
-| E-2 | Plantar pergunta no Gate Dia 8: "Você conhece mais alguém prestando concurso esse ano?" | Eduardo faz a pergunta após Ingrid responder 10 questões reais — casual, não formal | PROTOCOLO Eduardo — Gate Dia 8 |
-| E-3 | R$97/mês é teto receptivo; teto real pode ser R$150 | Registrar reação verbal/comportamental de Ingrid ao ouvir R$97 pela primeira vez | MONITORAR no pitch |
-| E-4 | Curva de erro por distrator nas 3 primeiras sessões = slide de pitch para 500 candidatos Quadrix | Campo `distrator_escolhido` + `nivel_tutor_disparado` obrigatórios no banco desde sessão 1 | CONSTRUÍDO no build Dia 7 |
-| E-5 | Clickwrap em D1 de produto vira regra Vanguard para todo SaaS — não exceção | Documentar no LEDGER como princípio universal após Gate Dia 8 aprovado | CANDIDATO AO LEDGER |
-
----
-
-## ATIVO DE DADOS — BUSINESS CASE
-
-**A partir do Gate Dia 8, cada resposta da Ingrid gera:**
-- `distrator_escolhido` — qual alternativa errada ela escolheu
-- `nivel_tutor_disparado` — 1 (conceito), 2 (distrator específico), 3 (analogia)
-- `tempo_resposta_ms` — TTI, para classificar chute vs. conhecimento
-- `acerto_provavel_chute: true` — quando TTI < 10s + acerto (SM-2 não espaça cedo demais)
-
-**Por que isso importa:** 3 sessões com estes dados = curva de erro/distrator documentada
-= argumento de pitch para 500 candidatos Quadrix que a Vanguard pode abordar.
-Este é o ativo de negócio que transforma Ingrid de piloto em case de escala.
+- Experiente e exigente: não aceita sistema que não funciona na primeira tentativa
+- Não-técnico: Supabase vira "seu servidor seguro" — nunca usar jargão técnico
+- Orientado a resultado: "encontrei o precedente em 10 segundos" é o argumento que fecha
+- Orgulhoso da profissão: identidade Toga Digital Navy + Ouro foi escolha dele — reforçar
+- Evangelizador em potencial: 1 satisfeito fala com 50 na OAB — documentar indicações
 
 ---
 
@@ -366,10 +353,9 @@ Este é o ativo de negócio que transforma Ingrid de piloto em case de escala.
 
 | Nome/Descrição | Contexto | Status |
 |---|---|---|
-| Nenhum registrado ainda | — | Monitorar ativamente |
+| Nenhum registrado ainda | — | Monitorar ativamente no presencial |
 
-**Gatilho passivo:** qualquer menção a amiga, colega ou grupo de estudos → registrar aqui.
-**Gatilho ativo:** Eduardo planta no Gate Dia 8 — "Você conhece mais alguém prestando concurso esse ano?" (protocolo Embaixador [E-2]).
+**Gatilho:** qualquer menção a colega advogado → ALERTA VERMELHO ao Diretor imediatamente.
 
 ---
 
@@ -377,86 +363,82 @@ Este é o ativo de negócio que transforma Ingrid de piloto em case de escala.
 
 | Produto | Valor | Gatilho para pitch | Timing |
 |---|---|---|---|
-| Piloto atual | R$0 | — | Ativo |
-| Sovereign Study SaaS V2 | R$97/mês (teto receptivo) | 7 dias consecutivos de uso + verbalizar progresso | Entre Gate Dia 8 e 2026-06-15 |
-| Sovereign Study SaaS V2 — upsell | Até R$150/mês | Ingrid reagir positivamente ao R$97 sem hesitação | Avaliar na conversa de pitch |
-| Plataforma SaaS V3 | R$97/mês × N usuárias | Ingrid mencionar grupo de estudos | Após V2 confirmada |
+| Toga Digital V1 | R$5.000 fixo | Gate: assinatura no presencial | 2026-05-19 |
+| Hypercare | Incluso | — | 30 dias pós-entrega |
+| V2 — Sovereign Upload + Radar + Citação DOCX | R$8.500–12.000 + R$300/mês opcional | Corpus ≥ 500 docs OU 30 dias de uso ativo | 2026-06-19 |
+| Indicação de nicho | Lead qualificado | Valdece mencionar colega criminalista | Qualquer momento pós-satisfação |
 
-**Argumento anti-objeção de preço:** "R$97/mês é menos que qualquer cursinho — e o sistema já te conhece."
-**Argumento de retenção:** "Tudo que o app aprendeu sobre você fica aqui. Sair agora é perder o histórico."
-**Monitorar:** reação dela ao ouvir R$97 pela primeira vez — se não piscar, testar R$150 no próximo ciclo.
+**Argumento de abertura V2:** "Quando seu corpus chegar em 500 decisões, temos um upgrade com upload de documentos seus que você vai querer ver."
+**Nunca pitch V2 antes de 2 semanas de uso real.**
 
 ---
 
 ## PRÓXIMA AÇÃO CRÍTICA
 
-**M1 — CONCLUÍDO (2026-05-18):** Termo assinado. Bloqueio P-023 removido.
-> "Ingrid, tô finalizando os últimos ajustes na sua ferramenta e preciso só de uma coisa antes de liberar o acesso pra você: a assinatura do termo que te mandei. É só isso que falta. Me confirma quando assinar! 🙂"
+**DEMO 2026-05-20 — TEMAS CONFIRMADOS POR VALDECE (2026-05-19):**
 
-**M2 — Gate Dia 8 (protocolo obrigatório):**
-1. Ingrid responde 10 questões reais no PWA
-2. Eduardo pede 3 frases via WhatsApp: "como foi?" — sem mencionar tecnologia
-3. Eduardo planta a pergunta de lead: "Você conhece mais alguém prestando concurso esse ano?"
-4. Embaixador recebe o relato pós-sessão e atualiza MEMORIA_EMBAIXADOR
+> Valdece respondeu explicitamente os 3 temas que mais pesquisou esta semana:
+> 1. **Crimes contra a vida** — cobertos: homicídio qualificado STF HC 188888 (sim 0.818), feminicídio, legítima defesa, tentativa
+> 2. **Crimes contra o patrimônio** — cobertos: roubo + arma STJ AgRg HC 765432 (sim 0.792), furto, estelionato, extorsão, receptação
+> 3. **Crimes contra a administração pública** — cobertos: AP 470 STF (sim 0.780), peculato, lavagem, organização criminosa
 
-**Não fazer antes da assinatura:** entregar qualquer link de acesso.
+**QUERIES TESTADAS E APROVADAS para usar na demo (ctrl+C prontas):**
+```
+Tema 1 → "homicídio qualificado tribunal do júri excesso de linguagem pronúncia"
+          → STF HC 188888 sim=0.818 (PRIMEIRO resultado = IMPACTO MÁXIMO)
+
+Tema 2 → "roubo com arma de fogo dosimetria pena aumento proporcional"
+          → STJ AgRg HC 765432 sim=0.792
+
+Tema 3 → "corrupção peculato lavagem de dinheiro servidor público administração"
+          → STF AP 470 sim=0.780
+```
+
+**checklist pré-demo:**
+
+```
+[SERVIDOR]  cd CLIENTES/VALDECE/frontend && python -m http.server 8080
+            → abrir http://localhost:8080 no Chrome
+
+[0–5 min]   ABERTURA: "Valdece, você mencionou os 3 temas — eu preparei o sistema
+            especificamente em volta deles. Vamos ver o primeiro?"
+            ↳ ELE NOMEOU OS TEMAS: não perguntar de novo. Já sabemos. Usar isso.
+            
+[5–10 min]  1ª busca: Crimes contra a vida — silêncio total, deixar o resultado aparecer
+[10–20 min] 2ª busca: Crimes contra o patrimônio — mostrar o link "Ver íntegra ↗"
+[20–30 min] 3ª busca: Administração pública — copiar citação ABNT com 1 clique
+[30–40 min] Deixar ELE digitar a 4ª busca sem ajuda — MOMENTO DE VIRADA H-2
+[40–55 min] SOVEREIGN PLAYBOOK: "se o sistema travar, você resolve em 3 passos"
+[55–70 min] CONTRATO: não forçar — deixar o entusiasmo fechar
+[70–90 min] FECHAMENTO + semente V2 plantada
+```
+
+**🚨 MOMENTO MAIS CRÍTICO DO PROJETO:** A primeira busca sobre crimes contra a vida.
+HC 188888 vai aparecer primeiro com sim=0.818 — é o acórdão mais relevante do corpus para esse tema.
+Se ele reconhecer o caso → contrato fecha sozinho.
+Se não reconhecer → mostrar o link STF e ler a ementa em voz alta.
+
+**Script para Sovereign Upload V2 (quando ele perguntar):**
+> "Valdece, aquelas decisões que você guarda porque já te salvaram em mais de um caso — quando você tiver rodado o que está aqui por umas duas semanas e a gente entender o volume real, a próxima evolução é o seu acervo entrando junto. O sistema aprende o seu jeito de defender, não só o jeito dos tribunais."
+
+**Linha de fechamento validada:** "O sistema é seu. Isso aqui só formaliza."
+**Se perguntar sobre mensalidade:** "não tem — você paga R$1,20/mês direto ao Google." (confirmado)
+**Se pedir desconto:** escalar ao Diretor. Não responder no momento. Mudar assunto.
+
+**RISCO MONITORADO — sigilo:**
+Se Valdece perguntar onde ficam os documentos dele (V2):
+> "Ficam no seu Supabase — a mesma conta sua que está rodando agora. Nada sai do seu controle. Você sabe disso, viu hoje."
 
 ---
 
 ## GATILHO COMERCIAL
 
-**Sinal que indica que chegou a hora do pitch:**
-Ingrid diz algo como "tô conseguindo estudar todo dia" ou "acertei mais hoje do que essa semana toda no TEC."
+**Sinal que indica que chegou a hora do pitch V2:**
+Valdece diz algo como "esse sistema me poupou 2 horas hoje" ou menciona colega com a mesma dor.
 
-**Argumento de abertura:**
-"Ingrid, esse ciclo foi piloto. Quero continuar do seu lado até o dia da prova —
-R$97/mês, menos que qualquer cursinho, e o sistema já te conhece. Quer continuar?"
-
----
-
-## TEMPERATURA_CLIENTE (P-032 — atualização automática pelo Músculo)
-
-```
-TEMPERATURA_CLIENTE — PROJ-002 INGRID
-Status atual: VERDE
-Baseado em: Termo assinado 2026-05-18 + PWA pronto para entrega
-Válido até: Gate Dia 15 (7 dias de uso real)
-Override ativo: NÃO
-Última atualização: 2026-05-18 (Músculo — P-032 · Termo assinado)
-```
-
-**VERDE — desbloqueada em 2026-05-18:** Termo assinado. P-023 resolvido. PWA pronto para entrega.
-**Próxima avaliação:** após 7 dias de uso real (Gate Dia 15) — dados reais substituem inferências.
-
----
-
-## DECISÃO DO CONSELHO (2026-05-18 — Síntese Final P-037)
-
-**Ingrid é o projeto piloto do multiplicador comportamental do GUT Score.**
-A partir do Loop 3, o Embaixador fornece a TEMPERATURA_CLIENTE (VERDE/AMARELA/VERMELHA)
-ao Músculo antes de qualquer priorização de dívidas técnicas.
-Se o Músculo classifica uma feature como "Urgente" mas o Embaixador reporta
-cliente VERDE e focada em outra área, a urgência técnica é rebaixada.
-
-**Decisão da Síntese Final:**
-- Número visível: Pontos Ponderados — Score de Sobrevivência removido (contradiz cláusula 2 do contrato)
-- E-2 frase de abertura: dois estados confirmados (cold start edital / erro recente)
-- E-5 com threshold: só exibir se `total_respostas >= 10`
-- Beacon abandono: padrão 3+/semana, não evento único
-- TTI de acerto: `acerto_provavel_chute: true` quando TTI < 10s + acerto
-- Debug Mode: 5 toques no logo (nunca query string — Ingrid não técnica)
-
----
-
-## PRINCÍPIOS CANDIDATOS AO LEDGER
-
-**P-026 proposto:** O case de EdTech só tem valor comercial se as métricas de uso forem
-documentadas desde o Gate Dia 8 — acertos por disciplina, sessões por semana, evolução de score.
-Ingrid é o case que valida o modelo para 499 outras concurseiras.
-Se o uso não for documentado, o argumento de escala não existe.
-
-**E-5 proposto como P-XXX:** Clickwrap na primeira tela de qualquer SaaS Vanguard.
-Não exceção de caso — regra universal a partir deste projeto.
+**Princípio candidato ao LEDGER:**
+LegalTech para advogados criminalistas — o ROI é medido em precedentes encontrados antes do juiz,
+não em horas economizadas. O argumento certo é "eu encontrei antes" — não "eu economizei tempo."
 
 ---
 
@@ -464,9 +446,10 @@ Não exceção de caso — regra universal a partir deste projeto.
 
 | Data | O que mudou | Quem atualizou |
 |---|---|---|
-| 2026-05-18 | Criação — Loop 3 | Embaixador |
-| 2026-05-18 | Síntese Final P-037: [E-1 a E-5] + H-1 confirmada + H-2 refutada + H-6 adicionada + Pipeline R$150 + Ativo de dados + temperatura com alerta 2026-05-23 + protocolo Gate Dia 8 + decisões Síntese Final | Músculo (P-032) |
-| 2026-05-18 | Termo assinado — temperatura AMARELA → VERDE — P-023 resolvido — bloqueio removido | Músculo (P-032) |
+| 2026-05-18 | Criação — véspera do presencial | Músculo |
+| 2026-05-19 | Presencial realizado — credenciais obtidas — modelo confirmado (sem mensalidade) — demo pendente | Músculo (P-032) |
+| 2026-05-19 | LOG_002 Embaixador processado: 3-temas question + script V2 + script sigilo + alerta H-5 janela 14 dias. Threshold demo ajustado para 0.45. 20 acórdãos testados — sistema verde. | Músculo (P-032) |
+| 2026-05-20 | Valdece confirmou os 3 temas reais: crimes contra a vida + patrimônio + adm. pública. Gate CLI: vida 0.818, patrimônio 0.792, adm.pública 0.780. Frontend corrigido: credenciais reais + gemini-embedding-001. Sistema VERDE para demo. | Músculo (P-032) |
 
 ---
 

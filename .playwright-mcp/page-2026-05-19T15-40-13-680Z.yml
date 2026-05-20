@@ -1,0 +1,156 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: ⚖
+      - generic [ref=e5]:
+        - generic [ref=e6]: Jurisprudência Penal
+        - generic [ref=e7]: STF · STJ · Análise Semântica Inteligente
+      - generic [ref=e8]: Motor Jurídico Ativo
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]: "0"
+      - generic [ref=e13]: Buscas hoje
+    - generic [ref=e14]:
+      - generic [ref=e15]: R$0.000
+      - generic [ref=e16]: Custo hoje
+    - generic [ref=e17]:
+      - generic [ref=e18]: "61"
+      - generic [ref=e19]: Decisões
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]: Modo Normal
+      - generic [ref=e23] [cursor=pointer]:
+        - checkbox
+      - generic [ref=e26]: Modo Tático
+    - generic [ref=e27]:
+      - textbox "Campo de busca jurídica" [ref=e28]:
+        - /placeholder: "Buscar jurisprudência... ex: prisão preventiva excesso de prazo"
+        - text: habeas corpus constrangimento ilegal prisão preventiva
+      - button "Pesquisar" [ref=e29] [cursor=pointer]
+    - generic [ref=e30]:
+      - button "Busca Precisa" [ref=e31] [cursor=pointer]
+      - button "Busca Ampla" [ref=e32] [cursor=pointer]
+      - generic [ref=e33]: Alta relevância
+    - generic [ref=e34]: Digite uma questão jurídica em linguagem natural — sem aspas, sem código.
+    - generic [ref=e35]:
+      - generic [ref=e173]: 8 resultados · 0.40s
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - generic [ref=e176]: STJ
+          - generic [ref=e177]: outros
+          - generic [ref=e181]: 80%
+        - generic [ref=e182]: HC 692016
+        - generic [ref=e183]: HABEAS CORPUS. PRISÃO PREVENTIVA. EXCESSO DE PRAZO. DURAÇÃO RAZOÁVEL DO PROCESSO. CONSTRANGIMENTO ILEGAL. A prisão preventiva deve ser mantida apenas enquanto subsistirem os motivos que a ensejaram, sendo ilegal quando n…
+        - generic [ref=e184]:
+          - generic [ref=e185]: Data não informada
+          - generic [ref=e186]:
+            - link "Ver íntegra ↗" [ref=e187] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=202101793130
+            - button "👍" [ref=e188] [cursor=pointer]
+            - button "👎" [ref=e189] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e190] [cursor=pointer]
+      - generic [ref=e191]:
+        - generic [ref=e192]:
+          - generic [ref=e193]: STF
+          - generic [ref=e194]: outros
+          - generic [ref=e198]: 76%
+        - generic [ref=e199]: HC 117767
+        - generic [ref=e200]: HABEAS CORPUS. PRISÃO PREVENTIVA. GARANTIA DA ORDEM PÚBLICA. GRAVIDADE DO DELITO. INSUFICIÊNCIA. A gravidade abstrata do delito e sua repercussão social não constituem fundamento idôneo para a manutenção da prisão preven…
+        - generic [ref=e201]:
+          - generic [ref=e202]: Data não informada
+          - generic [ref=e203]:
+            - link "Ver íntegra ↗" [ref=e204] [cursor=pointer]:
+              - /url: https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=TP&docID=4636940
+            - button "👍" [ref=e205] [cursor=pointer]
+            - button "👎" [ref=e206] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e207] [cursor=pointer]
+      - generic [ref=e208]:
+        - generic [ref=e209]:
+          - generic [ref=e210]: STF
+          - generic [ref=e211]: outros
+          - generic [ref=e215]: 76%
+        - generic [ref=e216]: HC 143.641
+        - generic [ref=e217]: HABEAS CORPUS PREVENTIVO. AMEAÇA CONCRETA À LIBERDADE DE LOCOMOÇÃO. CABIMENTO. O habeas corpus preventivo é cabível quando há ameaça concreta e iminente ao direito de ir e vir, sendo desnecessária a prisão efetiva para s…
+        - generic [ref=e218]:
+          - generic [ref=e219]: Data não informada
+          - generic [ref=e220]:
+            - link "Ver íntegra ↗" [ref=e221] [cursor=pointer]:
+              - /url: https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=TP&docID=748401864
+            - button "👍" [ref=e222] [cursor=pointer]
+            - button "👎" [ref=e223] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e224] [cursor=pointer]
+      - generic [ref=e225]:
+        - generic [ref=e226]:
+          - generic [ref=e227]: STJ
+          - generic [ref=e228]: outros
+          - generic [ref=e232]: 76%
+        - generic [ref=e233]: HC 512083
+        - generic [ref=e234]: HABEAS CORPUS. FLAGRANTE DELITO. RELAXAMENTO. ILEGALIDADE. AUTO DE PRISÃO. O auto de prisão em flagrante somente é válido quando presentes os requisitos legais do art. 302 do CPP. A prisão realizada sem que o agente seja…
+        - generic [ref=e235]:
+          - generic [ref=e236]: Data não informada
+          - generic [ref=e237]:
+            - link "Ver íntegra ↗" [ref=e238] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201901014576
+            - button "👍" [ref=e239] [cursor=pointer]
+            - button "👎" [ref=e240] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e241] [cursor=pointer]
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - generic [ref=e244]: STF
+          - generic [ref=e245]: outros
+          - generic [ref=e249]: 76%
+        - generic [ref=e250]: HC 84078
+        - generic [ref=e251]: HABEAS CORPUS. INCONSTITUCIONALIDADE DA CHAMADA EXECUÇÃO ANTECIPADA DA PENA. ART. 5º, LVII, DA CONSTITUIÇÃO DO BRASIL. DIGNIDADE DA PESSOA HUMANA. ART. 1º, III, DA CONSTITUIÇÃO DO BRASIL. Nenhuma sentença condenatória po…
+        - generic [ref=e252]:
+          - generic [ref=e253]: Data não informada
+          - generic [ref=e254]:
+            - link "Ver íntegra ↗" [ref=e255] [cursor=pointer]:
+              - /url: https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=AC&docID=608531
+            - button "👍" [ref=e256] [cursor=pointer]
+            - button "👎" [ref=e257] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e258] [cursor=pointer]
+      - generic [ref=e259]:
+        - generic [ref=e260]:
+          - generic [ref=e261]: STJ
+          - generic [ref=e262]: outros
+          - generic [ref=e266]: 76%
+        - generic [ref=e267]: HC 280027
+        - generic [ref=e268]: HABEAS CORPUS. LEI MARIA DA PENHA. MEDIDAS PROTETIVAS. DESCUMPRIMENTO. PRISÃO PREVENTIVA. CABIMENTO. O descumprimento de medida protetiva imposta com base na Lei Maria da Penha autoriza a decretação da prisão preventiva …
+        - generic [ref=e269]:
+          - generic [ref=e270]: Data não informada
+          - generic [ref=e271]:
+            - link "Ver íntegra ↗" [ref=e272] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201301395630
+            - button "👍" [ref=e273] [cursor=pointer]
+            - button "👎" [ref=e274] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e275] [cursor=pointer]
+      - generic [ref=e276]:
+        - generic [ref=e277]:
+          - generic [ref=e278]: STF
+          - generic [ref=e279]: outros
+          - generic [ref=e283]: 75%
+        - generic [ref=e284]: HC 104339
+        - generic [ref=e285]: HABEAS CORPUS. LEI DE DROGAS. TRÁFICO DE ENTORPECENTES. LIBERDADE PROVISÓRIA. VEDAÇÃO LEGAL. INCONSTITUCIONALIDADE. A vedação abstrata à concessão de liberdade provisória ao preso em flagrante por tráfico de drogas é inc…
+        - generic [ref=e286]:
+          - generic [ref=e287]: Data não informada
+          - generic [ref=e288]:
+            - link "Ver íntegra ↗" [ref=e289] [cursor=pointer]:
+              - /url: https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=AC&docID=622932
+            - button "👍" [ref=e290] [cursor=pointer]
+            - button "👎" [ref=e291] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e292] [cursor=pointer]
+      - generic [ref=e293]:
+        - generic [ref=e294]:
+          - generic [ref=e295]: STF
+          - generic [ref=e296]: outros
+          - generic [ref=e300]: 74%
+        - generic [ref=e301]: HC 143641
+        - generic [ref=e302]: HABEAS CORPUS COLETIVO. ADMISSIBILIDADE. MULHERES GRÁVIDAS OU COM FILHOS MENORES DE 12 ANOS. PRISÃO PREVENTIVA. SUBSTITUIÇÃO POR PRISÃO DOMICILIAR. O art. 318, IV e V, do CPP deve ser aplicado às mulheres presas preventi…
+        - generic [ref=e303]:
+          - generic [ref=e304]: Data não informada
+          - generic [ref=e305]:
+            - link "Ver íntegra ↗" [ref=e306] [cursor=pointer]:
+              - /url: https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=TP&docID=748401864
+            - button "👍" [ref=e307] [cursor=pointer]
+            - button "👎" [ref=e308] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e309] [cursor=pointer]

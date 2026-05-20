@@ -1,0 +1,156 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: ⚖
+      - generic [ref=e5]:
+        - generic [ref=e6]: Jurisprudência Penal
+        - generic [ref=e7]: STF · STJ · Análise Semântica Inteligente
+      - generic [ref=e8]: Motor Jurídico Ativo
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]: "0"
+      - generic [ref=e13]: Buscas hoje
+    - generic [ref=e14]:
+      - generic [ref=e15]: R$0.000
+      - generic [ref=e16]: Custo hoje
+    - generic [ref=e17]:
+      - generic [ref=e18]: "0"
+      - generic [ref=e19]: Decisões
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]: Modo Normal
+      - generic [ref=e23] [cursor=pointer]:
+        - checkbox
+      - generic [ref=e26]: Modo Tático
+    - generic [ref=e27]:
+      - textbox "Campo de busca jurídica" [ref=e28]:
+        - /placeholder: "Buscar jurisprudência... ex: prisão preventiva excesso de prazo"
+        - text: homicídio qualificado tribunal do júri excesso de linguagem pronúncia
+      - button "Pesquisar" [ref=e29] [cursor=pointer]
+    - generic [ref=e30]:
+      - button "Busca Precisa" [ref=e31] [cursor=pointer]
+      - button "Busca Ampla" [ref=e32] [cursor=pointer]
+      - generic [ref=e33]: Alta relevância
+    - generic [ref=e34]: Digite uma questão jurídica em linguagem natural — sem aspas, sem código.
+    - generic [ref=e35]:
+      - generic [ref=e36]: 8 resultados · 0.80s
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]: STF
+          - generic [ref=e40]: outros
+          - generic [ref=e44]: 82%
+        - generic [ref=e45]: HC 188888
+        - generic [ref=e46]: HABEAS CORPUS. HOMICÍDIO QUALIFICADO. TRIBUNAL DO JÚRI. PRONÚNCIA. EXCESSO DE LINGUAGEM. NULIDADE. O excesso de linguagem na sentença de pronúncia, com alusão às provas de forma aprofundada, constitui nulidade absoluta p…
+        - generic [ref=e47]:
+          - generic [ref=e48]: Data não informada
+          - generic [ref=e49]:
+            - link "Ver íntegra ↗" [ref=e50] [cursor=pointer]:
+              - /url: https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=TP&docID=756232109
+            - button "👍" [ref=e51] [cursor=pointer]
+            - button "👎" [ref=e52] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e53] [cursor=pointer]
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - generic [ref=e56]: STF
+          - generic [ref=e57]: outros
+          - generic [ref=e61]: 69%
+        - generic [ref=e62]: RE 971959
+        - generic [ref=e63]: RECURSO EXTRAORDINÁRIO. TRIBUNAL DO JÚRI. LEGÍTIMA DEFESA. EXCESSO CULPOSO. COMPETÊNCIA. O reconhecimento de legítima defesa com excesso culposo pelos jurados implica condenação pelo crime culposo, quando previsto. A sob…
+        - generic [ref=e64]:
+          - generic [ref=e65]: Data não informada
+          - generic [ref=e66]:
+            - link "Ver íntegra ↗" [ref=e67] [cursor=pointer]:
+              - /url: https://redir.stf.jus.br/paginadorpub/paginador.jsp?docTP=TP&docID=748400953
+            - button "👍" [ref=e68] [cursor=pointer]
+            - button "👎" [ref=e69] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e70] [cursor=pointer]
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - generic [ref=e73]: STJ
+          - generic [ref=e74]: outros
+          - generic [ref=e78]: 66%
+        - generic [ref=e79]: REsp 1636701
+        - generic [ref=e80]: RECURSO ESPECIAL. FEMINICÍDIO. VIOLÊNCIA DOMÉSTICA. QUALIFICADORA. MOTIVAÇÃO. CONDIÇÃO DE MULHER. O feminicídio é qualificadora de natureza objetiva, incidindo sempre que o homicídio é praticado contra a mulher em razão …
+        - generic [ref=e81]:
+          - generic [ref=e82]: Data não informada
+          - generic [ref=e83]:
+            - link "Ver íntegra ↗" [ref=e84] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=201601539887
+            - button "👍" [ref=e85] [cursor=pointer]
+            - button "👎" [ref=e86] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e87] [cursor=pointer]
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]: STJ
+          - generic [ref=e91]: outros
+          - generic [ref=e95]: 65%
+        - generic [ref=e96]: HC 590039
+        - generic [ref=e97]: HABEAS CORPUS. NULIDADE. INTERROGATÓRIO. ÚLTIMO ATO DA INSTRUÇÃO. INOBSERVÂNCIA. PREJUÍZO PRESUMIDO. A realização do interrogatório do réu antes da oitiva das testemunhas de defesa constitui nulidade absoluta, independen…
+        - generic [ref=e98]:
+          - generic [ref=e99]: Data não informada
+          - generic [ref=e100]:
+            - link "Ver íntegra ↗" [ref=e101] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=202001370048
+            - button "👍" [ref=e102] [cursor=pointer]
+            - button "👎" [ref=e103] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e104] [cursor=pointer]
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - generic [ref=e107]: STJ
+          - generic [ref=e108]: outros
+          - generic [ref=e112]: 65%
+        - generic [ref=e113]: REsp 1896440
+        - generic [ref=e114]: RECURSO ESPECIAL. DOSIMETRIA DA PENA. CIRCUNSTÂNCIAS JUDICIAIS. FUNDAMENTAÇÃO INIDÔNEA. NULIDADE. A utilização de elementos integrantes do próprio tipo penal como circunstâncias judiciais desfavoráveis constitui bis in i…
+        - generic [ref=e115]:
+          - generic [ref=e116]: Data não informada
+          - generic [ref=e117]:
+            - link "Ver íntegra ↗" [ref=e118] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=202100108310
+            - button "👍" [ref=e119] [cursor=pointer]
+            - button "👎" [ref=e120] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e121] [cursor=pointer]
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - generic [ref=e124]: STJ
+          - generic [ref=e125]: outros
+          - generic [ref=e129]: 64%
+        - generic [ref=e130]: REsp 1.855.274
+        - generic [ref=e131]: RECURSO ESPECIAL. TENTATIVA. ITER CRIMINIS. REDUÇÃO DA PENA. FRAÇÃO APLICÁVEL. A redução da pena pela tentativa deve ser fundamentada nas circunstâncias concretas do iter criminis percorrido pelo agente. Quanto mais próx…
+        - generic [ref=e132]:
+          - generic [ref=e133]: Data não informada
+          - generic [ref=e134]:
+            - link "Ver íntegra ↗" [ref=e135] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=202000754321
+            - button "👍" [ref=e136] [cursor=pointer]
+            - button "👎" [ref=e137] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e138] [cursor=pointer]
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - generic [ref=e141]: STJ
+          - generic [ref=e142]: outros
+          - generic [ref=e146]: 64%
+        - generic [ref=e147]: HC 621286
+        - generic [ref=e148]: HABEAS CORPUS. CONCURSO FORMAL PRÓPRIO. CRIMES DOLOSOS. CUMULAÇÃO DE PENAS. SISTEMA DA EXASPERAÇÃO. No concurso formal próprio, aplica-se o sistema da exasperação, com a pena do crime mais grave aumentada de 1/6 até meta…
+        - generic [ref=e149]:
+          - generic [ref=e150]: Data não informada
+          - generic [ref=e151]:
+            - link "Ver íntegra ↗" [ref=e152] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=202100143298
+            - button "👍" [ref=e153] [cursor=pointer]
+            - button "👎" [ref=e154] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e155] [cursor=pointer]
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e158]: STJ
+          - generic [ref=e159]: outros
+          - generic [ref=e163]: 64%
+        - generic [ref=e164]: AgRg no HC 765432
+        - generic [ref=e165]: AGRAVO REGIMENTAL EM HABEAS CORPUS. ROUBO CIRCUNSTANCIADO. DOSIMETRIA. EMPREGO DE ARMA. AUMENTO DE PENA. PROPORCIONALIDADE. O aumento de pena pelo emprego de arma de fogo no crime de roubo deve ser fundamentado nas circu…
+        - generic [ref=e166]:
+          - generic [ref=e167]: Data não informada
+          - generic [ref=e168]:
+            - link "Ver íntegra ↗" [ref=e169] [cursor=pointer]:
+              - /url: https://processo.stj.jus.br/processo/pesquisa/?tipoPesquisa=tipoPesquisaNumeroRegistro&termo=202200874123
+            - button "👍" [ref=e170] [cursor=pointer]
+            - button "👎" [ref=e171] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e172] [cursor=pointer]

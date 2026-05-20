@@ -1,0 +1,5 @@
+[     683ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8181/icon-192.png:0
+[     685ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8181/favicon.ico:0
+[     686ms] [WARNING] Error while trying to use the following icon from the Manifest: http://localhost:8181/icon-192.png (Download error or resource isn't a valid image) @ http://localhost:8181/:0
+[   30888ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs:0
+[   59594ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://hqqxzecftkvtrlpkhvnc.supabase.co/rest/v1/search_logs:0

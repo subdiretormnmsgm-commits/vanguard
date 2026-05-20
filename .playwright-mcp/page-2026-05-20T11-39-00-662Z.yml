@@ -1,0 +1,164 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: ⚖
+      - generic [ref=e5]:
+        - generic [ref=e6]: Jurisprudência Penal
+        - generic [ref=e7]: STF · STJ · Análise Semântica Inteligente
+      - generic [ref=e8]: Motor Jurídico Ativo
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]: "0"
+      - generic [ref=e13]: Buscas hoje
+    - generic [ref=e14]:
+      - generic [ref=e15]: R$0.000
+      - generic [ref=e16]: Custo hoje
+    - generic [ref=e17]:
+      - generic [ref=e18]: "61"
+      - generic [ref=e19]: Decisões
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]: Modo Normal
+      - generic [ref=e23] [cursor=pointer]:
+        - checkbox
+      - generic [ref=e26]: Modo Tático
+    - generic [ref=e27]:
+      - textbox "Campo de busca jurídica" [ref=e28]:
+        - /placeholder: "Buscar jurisprudência... ex: prisão preventiva excesso de prazo"
+        - text: prisão preventiva excesso de prazo
+      - button "Pesquisar" [ref=e29] [cursor=pointer]
+    - generic [ref=e30]:
+      - button "Busca Precisa" [ref=e31] [cursor=pointer]
+      - button "Busca Ampla" [ref=e32] [cursor=pointer]
+      - generic [ref=e33]: Alta relevância
+    - generic [ref=e34]: Digite uma questão jurídica em linguagem natural — sem aspas, sem código.
+    - generic [ref=e35]:
+      - generic [ref=e36]: 8 resultados · 1.51s
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]: STJ
+          - generic [ref=e40]: ACÓRDÃO
+          - generic [ref=e41]: outros
+          - generic [ref=e45]: 96%
+        - generic [ref=e46]: HC 692016
+        - generic [ref=e47]: HABEAS CORPUS. PRISÃO PREVENTIVA. EXCESSO DE PRAZO. DURAÇÃO RAZOÁVEL DO PROCESSO. CONSTRANGIMENTO ILEGAL. A prisão preventiva deve ser mantida apenas enquanto subsistirem os motivos que a ensejaram, sendo ilegal quando não fundamentada em elementos concretos e novos que justifiquem sua manutenção.
+        - generic [ref=e48]:
+          - generic [ref=e49]: Data não informada
+          - generic [ref=e50]:
+            - link "Buscar no STJ ↗" [ref=e51] [cursor=pointer]:
+              - /url: https://scon.stj.jus.br/SCON/pesquisar.jsp?b=ACOR&livre=%40NUM%20'HC%20692016'
+            - button "👍" [ref=e52] [cursor=pointer]
+            - button "👎" [ref=e53] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e54] [cursor=pointer]
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: STJ
+          - generic [ref=e58]: ACÓRDÃO
+          - generic [ref=e59]: outros
+          - generic [ref=e63]: 87%
+        - generic [ref=e64]: RHC 138058
+        - generic [ref=e65]: RECURSO ORDINÁRIO EM HABEAS CORPUS. MEDIDAS CAUTELARES DIVERSAS DA PRISÃO. PROPORCIONALIDADE. NECESSIDADE. As medidas cautelares diversas da prisão previstas no art. 319 do CPP devem ser aplicadas preferencialmente à prisão preventiva, obedecendo ao princípio da proporcionalidade e da menor restrição possível à liberdade do acusado. A prisão preventiva só se justifica quando as medidas alternativas se mostrarem insuficientes.
+        - generic [ref=e66]:
+          - generic [ref=e67]: Data não informada
+          - generic [ref=e68]:
+            - link "Buscar no STJ ↗" [ref=e69] [cursor=pointer]:
+              - /url: https://scon.stj.jus.br/SCON/pesquisar.jsp?b=ACOR&livre=%40NUM%20'RHC%20138058'
+            - button "👍" [ref=e70] [cursor=pointer]
+            - button "👎" [ref=e71] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e72] [cursor=pointer]
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]: STF
+          - generic [ref=e76]: ACÓRDÃO
+          - generic [ref=e77]: outros
+          - generic [ref=e81]: 86%
+        - generic [ref=e82]: HC 84078
+        - generic [ref=e83]: HABEAS CORPUS. INCONSTITUCIONALIDADE DA CHAMADA EXECUÇÃO ANTECIPADA DA PENA. ART. 5º, LVII, DA CONSTITUIÇÃO DO BRASIL. DIGNIDADE DA PESSOA HUMANA. ART. 1º, III, DA CONSTITUIÇÃO DO BRASIL. Nenhuma sentença condenatória pode ser executada antes do trânsito em julgado, sob pena de violação ao princípio constitucional da presunção de inocência.
+        - generic [ref=e84]:
+          - generic [ref=e85]: Data não informada
+          - generic [ref=e86]:
+            - link "Buscar no STF ↗" [ref=e87] [cursor=pointer]:
+              - /url: https://jurisprudencia.stf.jus.br/pages/search?base=acordaos&pesquisa_tipo=ementa&query=HC%2084078
+            - button "👍" [ref=e88] [cursor=pointer]
+            - button "👎" [ref=e89] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e90] [cursor=pointer]
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]: STF
+          - generic [ref=e94]: ACÓRDÃO
+          - generic [ref=e95]: outros
+          - generic [ref=e99]: 86%
+        - generic [ref=e100]: HC 126292
+        - generic [ref=e101]: CONSTITUCIONAL. HABEAS CORPUS. PRINCÍPIO CONSTITUCIONAL DA PRESUNÇÃO DE INOCÊNCIA. EXECUÇÃO PROVISÓRIA DA PENA. POSSIBILIDADE. Após o julgamento pelo Tribunal de segundo grau, encerra-se a análise dos fatos e provas e é possível o início da execução da pena imposta, ainda que pendentes recursos às instâncias superiores.
+        - generic [ref=e102]:
+          - generic [ref=e103]: Data não informada
+          - generic [ref=e104]:
+            - link "Buscar no STF ↗" [ref=e105] [cursor=pointer]:
+              - /url: https://jurisprudencia.stf.jus.br/pages/search?base=acordaos&pesquisa_tipo=ementa&query=HC%20126292
+            - button "👍" [ref=e106] [cursor=pointer]
+            - button "👎" [ref=e107] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e108] [cursor=pointer]
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e111]: STJ
+          - generic [ref=e112]: ACÓRDÃO
+          - generic [ref=e113]: outros
+          - generic [ref=e117]: 85%
+        - generic [ref=e118]: HC 280027
+        - generic [ref=e119]: HABEAS CORPUS. LEI MARIA DA PENHA. MEDIDAS PROTETIVAS. DESCUMPRIMENTO. PRISÃO PREVENTIVA. CABIMENTO. O descumprimento de medida protetiva imposta com base na Lei Maria da Penha autoriza a decretação da prisão preventiva do agressor, nos termos do art. 313, III, do CPP, independentemente da pena cominada ao crime praticado.
+        - generic [ref=e120]:
+          - generic [ref=e121]: Data não informada
+          - generic [ref=e122]:
+            - link "Buscar no STJ ↗" [ref=e123] [cursor=pointer]:
+              - /url: https://scon.stj.jus.br/SCON/pesquisar.jsp?b=ACOR&livre=%40NUM%20'HC%20280027'
+            - button "👍" [ref=e124] [cursor=pointer]
+            - button "👎" [ref=e125] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e126] [cursor=pointer]
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - generic [ref=e129]: STF
+          - generic [ref=e130]: ACÓRDÃO
+          - generic [ref=e131]: outros
+          - generic [ref=e135]: 85%
+        - generic [ref=e136]: HC 117767
+        - generic [ref=e137]: HABEAS CORPUS. PRISÃO PREVENTIVA. GARANTIA DA ORDEM PÚBLICA. GRAVIDADE DO DELITO. INSUFICIÊNCIA. A gravidade abstrata do delito e sua repercussão social não constituem fundamento idôneo para a manutenção da prisão preventiva, sendo necessária a indicação de elementos concretos que demonstrem o risco à ordem pública.
+        - generic [ref=e138]:
+          - generic [ref=e139]: Data não informada
+          - generic [ref=e140]:
+            - link "Buscar no STF ↗" [ref=e141] [cursor=pointer]:
+              - /url: https://jurisprudencia.stf.jus.br/pages/search?base=acordaos&pesquisa_tipo=ementa&query=HC%20117767
+            - button "👍" [ref=e142] [cursor=pointer]
+            - button "👎" [ref=e143] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e144] [cursor=pointer]
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - generic [ref=e147]: STF
+          - generic [ref=e148]: ACÓRDÃO
+          - generic [ref=e149]: outros
+          - generic [ref=e153]: 85%
+        - generic [ref=e154]: HC 143641
+        - generic [ref=e155]: HABEAS CORPUS COLETIVO. ADMISSIBILIDADE. MULHERES GRÁVIDAS OU COM FILHOS MENORES DE 12 ANOS. PRISÃO PREVENTIVA. SUBSTITUIÇÃO POR PRISÃO DOMICILIAR. O art. 318, IV e V, do CPP deve ser aplicado às mulheres presas preventivamente que sejam mães de crianças de até 12 anos de idade ou de pessoas com deficiência, independentemente da natureza do crime.
+        - generic [ref=e156]:
+          - generic [ref=e157]: Data não informada
+          - generic [ref=e158]:
+            - link "Buscar no STF ↗" [ref=e159] [cursor=pointer]:
+              - /url: https://jurisprudencia.stf.jus.br/pages/search?base=acordaos&pesquisa_tipo=ementa&query=HC%20143641
+            - button "👍" [ref=e160] [cursor=pointer]
+            - button "👎" [ref=e161] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e162] [cursor=pointer]
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e165]: STF
+          - generic [ref=e166]: ACÓRDÃO
+          - generic [ref=e167]: outros
+          - generic [ref=e171]: 70%
+        - generic [ref=e172]: ADC 43
+        - generic [ref=e173]: AÇÃO DECLARATÓRIA DE CONSTITUCIONALIDADE. ART. 283 DO CÓDIGO DE PROCESSO PENAL. EXECUÇÃO DA PENA PRIVATIVA DE LIBERDADE ANTES DO TRÂNSITO EM JULGADO. PRINCÍPIO CONSTITUCIONAL DA PRESUNÇÃO DE INOCÊNCIA. O art. 283 do CPP, com redação dada pela Lei 12.403/2011, é compatível com o princípio constitucional da presunção de inocência.
+        - generic [ref=e174]:
+          - generic [ref=e175]: Data não informada
+          - generic [ref=e176]:
+            - link "Buscar no STF ↗" [ref=e177] [cursor=pointer]:
+              - /url: https://jurisprudencia.stf.jus.br/pages/search?base=acordaos&pesquisa_tipo=ementa&query=ADC%2043
+            - button "👍" [ref=e178] [cursor=pointer]
+            - button "👎" [ref=e179] [cursor=pointer]
+            - button "Copiar ABNT" [ref=e180] [cursor=pointer]

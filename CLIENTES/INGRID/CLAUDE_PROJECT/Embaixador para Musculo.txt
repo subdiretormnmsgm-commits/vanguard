@@ -1,0 +1,234 @@
+Diretor,
+
+Recebido. Vou primeiro me ambientar com o estado atual do projeto antes de produzir a resposta — preciso confirmar o que está no LEDGER hoje, o que o PERFIL_MEDICINA_R3 v1 contém de fato, e o que já foi formalizado dos princípios P-047 a P-052.Tenho contexto suficiente do projeto Ingrid, mas preciso conferir o estado real do INTELLIGENCE_LEDGER quanto aos P-numbers — a mensagem do Músculo afirma que P-047 e P-048 já estão ocupados com trade-secret e maturidade, e que renumerou os princípios novos para P-051/P-052. Preciso ver o LEDGER.Preciso ver os princípios na faixa P-040 a P-052 especificamente — a mensagem afirma que P-047 está com "trade secret" e P-048 com "maturidade", e que renumeraram para P-051/P-052. Vou confirmar.Vou checar diretamente o ledger por mais princípios na faixa alta (P-031 em diante) para mapear o real estado dos números.Tenho o suficiente. Diagnóstico cristalino do estado real:
+
+**O que confirmei:**
+1. **Maior princípio numerado existente é P-037** (Síntese Final Ingrid, 2026-05-18). NÃO existem P-040, P-047, P-048 com qualquer conteúdo no LEDGER.
+2. A afirmação do Músculo de que "P-047 atual = trade secret" e "P-048 atual = maturidade" **é incorreta** — esses números estão livres.
+3. O Diretor opera o **Pentalateral IAH** (5 membros), não Quadrilateral. O system prompt deste Project ainda chama o Embaixador de "Especialista em Formalização", mas isso é histórico — o Embaixador hoje é membro pleno (P-031, 11 mandatos, P-035 amplitude total).
+4. **Erro de identidade na mensagem:** ela está endereçada ao Embaixador mas eu **sou o Embaixador**. O Músculo me escreveu, não o contrário.
+
+Não vou alertar o Músculo agora — vou cumprir o pedido (resposta nos 6 blocos) e dentro dela registrar a divergência factual de numeração como contribuição. É o que o Embaixador pleno faz: entrega autoral, corrige rota, não é respondente.
+
+Vou produzir a resposta diretamente, com a precisão cirúrgica que o P-052 proposto exige. Sugiro também salvar como artefato — Diretor decide se entra na pasta.
+
+---
+
+Diretor,
+
+Antes da resposta formal: detectei **um erro de identidade no envelope da mensagem do Músculo** e **uma divergência factual numérica** que precisam estar visíveis antes dos 6 blocos.
+
+**Erro de envelope:** a mensagem está dirigida "ao Embaixador" — mas eu sou o Embaixador. Quem escreveu foi o Músculo. Trato a mensagem como o que ela é: briefing do Músculo para mim, com 3 divergências sobre o PERFIL_MEDICINA_R3 v1 que eu construí. Sigo no fluxo correto.
+
+**Divergência factual (DIV-3 reaberta):** o Músculo afirma que P-047 e P-048 "já estão no LEDGER" com trade-secret e maturidade. Auditei o `06_INTELLIGENCE_LEDGER.md` agora — o último princípio numerado é **P-037** (Síntese Final Ingrid, 2026-05-18). **Não existem P-040 a P-052 no LEDGER ainda.** A renumeração para P-051/P-052 que o Músculo propõe parte de premissa incorreta. Trato isso no Bloco 2/3 abaixo — proponho ao Diretor a numeração de fato disponível.
+
+Resposta nos 6 blocos a seguir.
+
+---
+
+# RESPOSTA DO EMBAIXADOR — PÓS PERFIL_MEDICINA_R3 v1
+
+## BLOCO 1 — RECIBO DAS DIVERGÊNCIAS
+
+Recibo confirmado. Li as três divergências e o reconhecimento formal sobre R3+TE como pipeline de carreira. Aceito o reconhecimento — registro de volta que a tese **só fechou porque o Estrategista detectou a fragmentação e parou**. Sem essa pausa, eu teria construído PERFIL_MEDICINA genérico misturando R1, R3 e TE — Perfil inútil.
+
+**Mais crítica para o próximo nicho (Contabilidade ou Psicologia): DIV-2 (TAM ausente).**
+
+Razão: DIV-1 já gerou regra de processo (e foi resolvida pelo Diretor com Caminho A). DIV-3 é numeração — corrigível em 5 minutos. **DIV-2 é a única que pode contaminar a decisão do Diretor em Contabilidade e Psicologia**. Sem critério mínimo de completude de PESQUISA_BRUTA, o Estrategista vai entregar pesquisa qualitativa rica e quantitativamente vazia novamente — e o Diretor vai decidir captação sem dado de tamanho. Em Medicina passou porque o argumento qualitativo R3+TE era excepcional. Em nichos médios, esse efeito não se repete.
+
+---
+
+## BLOCO 2 — PROPOSTA DE FERRAMENTAS [F-1, F-2, F-3]
+
+### [F-1] — GATE_FRAGMENTACAO entre alerta do Estrategista e construção do Perfil
+
+**O que é:** um template de PAUSA formal — arquivo `PAUSA_FRAGMENTACAO_<nicho>.md` que o Embaixador é obrigado a gerar quando o Estrategista ativa a cláusula de fragmentação, ANTES de qualquer construção de PERFIL.
+
+**Quem executa:** Embaixador gera o arquivo; Diretor escolhe; Estrategista recebe o COMANDO V2 focado.
+
+**Quando é ativada:** quando o Estrategista, na seção "Sub-nichos detectados" da PESQUISA_BRUTA, lista mais de um sub-segmento com perfis distintos de cliente.
+
+**Conteúdo obrigatório do PAUSA_FRAGMENTACAO_<nicho>.md (que o Músculo implementa):**
+
+```
+PAUSA_FRAGMENTACAO — <NICHO>
+Data: <data>
+Detectada por: Estrategista (PESQUISA_BRUTA v1)
+Status: AGUARDANDO_DIRETOR
+
+SUB-NICHOS DETECTADOS:
+- <Sub-1>: <1 linha do perfil>
+- <Sub-2>: <1 linha do perfil>
+- <Sub-3>: <1 linha do perfil>
+
+ANÁLISE DO EMBAIXADOR (não escolhe — qualifica):
+- Sub-1: dor mais provável | LTV inferido | concorrência
+- Sub-2: idem
+- Sub-3: idem
+
+RECOMENDAÇÃO DO EMBAIXADOR: <Sub-X> primeiro, porque <razão>.
+                            <Sub-Y> como pipeline cruzado futuro.
+                            <Sub-Z> fora de escopo Vanguard.
+
+PERGUNTA AO DIRETOR:
+Caminho A — foco único em <Sub-X>
+Caminho B — dois Perfis paralelos <Sub-X> + <Sub-Y>
+Caminho C — outro
+
+ASSINATURA DIRETOR: __________  Data: __/__/____
+
+PRÓXIMO PASSO APÓS GO:
+COMANDO_ESTRATEGISTA_<NICHO>_V2.md focado no(s) sub-nicho(s) aprovado(s).
+PERFIL é construído SOMENTE após COMANDO_V2 retornar com pesquisa focada.
+```
+
+**Regra que essa ferramenta enforça:** Perfil de Nicho **nunca** nasce de PESQUISA_BRUTA fragmentada. Sempre nasce de pesquisa direcionada ao sub-nicho que o Diretor escolheu. Foi isso que faltou em MEDICINA_R3 — o Perfil v1 está bom, mas a base documental dele é Medicina geral, não R3 específico.
+
+### [F-2] — CHECKLIST_COMPLETUDE de PESQUISA_BRUTA
+
+**O que é:** checklist de **7 campos obrigatórios** que o Estrategista preenche e o Embaixador valida ANTES de aceitar a PESQUISA_BRUTA como insumo para PERFIL. Análogo ao `skill_parser_gate.ps1` que o Músculo já opera para Skills do Auditor.
+
+**Quem executa:** Estrategista preenche; Embaixador valida com checklist binário; se algum campo crítico = "não encontrado" sem fonte alternativa proposta → pesquisa **rejeitada automaticamente**, COMANDO V2 obrigatório.
+
+**Quando é ativada:** no momento em que o Embaixador recebe `PESQUISA_BRUTA_<NICHO>.md` do Estrategista, antes de abrir editor para construir o Perfil.
+
+**Os 7 campos:**
+
+| # | Campo | Critério de aceite | Crítico? |
+|---|---|---|---|
+| 1 | **TAM (Tamanho de Mercado)** | Número absoluto ou faixa com fonte (órgão regulador, censo profissional, sindicato) | **SIM — bloqueante** |
+| 2 | **Calendário de provas / ciclo de compra** | Datas concretas ou periodicidade documentada | **SIM — bloqueante** |
+| 3 | **Faixa de preço dos concorrentes** | Mínimo 3 players com preço médio mensal/anual | **SIM — bloqueante** |
+| 4 | **Dor principal verbalizada** | Citação textual de fórum, grupo ou entrevista (não inferência) | SIM |
+| 5 | **Sub-segmentação detectada** | Lista explícita de sub-nichos OU declaração de homogeneidade | SIM |
+| 6 | **Canal de aquisição dominante** | Onde o público se concentra (Telegram, Discord, sindicato, evento) | NÃO |
+| 7 | **Janela de vulnerabilidade** | Período do ano em que a dor é máxima | NÃO |
+
+**Regra de rejeição automática:** se qualquer dos 4 campos críticos retorna "não encontrado" SEM proposta de fonte alternativa pelo Estrategista, o Embaixador NÃO constrói o Perfil. Gera `REJEICAO_PESQUISA_<NICHO>.md` apontando os campos faltantes e pede COMANDO V2 focado nesses campos.
+
+**Aplicação retroativa para MEDICINA:** PESQUISA_BRUTA_MEDICINA v1 falha no campo 1 (TAM). Como o Diretor já aprovou Caminho A com argumento qualitativo, **não invalida a decisão atual** — mas autoriza explicitamente o COMANDO_ESTRATEGISTA_MEDICINA_V2 focado em fechar o gap antes de investimento de captação massiva.
+
+### [F-3] — VERIFICACAO_P-NUMBER antes de propor princípio novo
+
+**O que é:** instrução padrão inserida no **template de COMANDO_PROPAGACAO_CONSELHO** que obriga qualquer membro a verificar o último P-number ativo do LEDGER antes de sugerir numeração.
+
+**Quem executa:** o membro que propõe o princípio. Implementação técnica: comando bash/PowerShell de 1 linha que o Músculo embute no template.
+
+**Quando é ativada:** sempre que qualquer membro (Embaixador inclusive) escreve "P-XXX proposto" em qualquer documento.
+
+**Implementação concreta (Músculo embute no template):**
+
+```
+Antes de propor um número de princípio, execute:
+    grep -oE "P-0[0-9]{2}" 06_INTELLIGENCE_LEDGER.md | sort -u | tail -1
+    
+Próximo número disponível = <último> + 1.
+Se o LEDGER tiver gaps (P-011, P-012 estão pulados), NÃO reaproveitar —
+gaps existem por razão histórica e devem permanecer.
+```
+
+**Aplicação imediata à divergência DIV-3:** os princípios que o Músculo propôs renumerar para P-051/P-052 devem, **na verdade**, ser **P-038 e P-039**:
+
+- **P-038** (proposto): Fragmentação detectada na PESQUISA_BRUTA → pausa obrigatória via PAUSA_FRAGMENTACAO antes de construir Perfil. Nasceu de: alerta cirúrgico do Estrategista em MEDICINA, 2026-05-19.
+- **P-039** (proposto): Vanguard compete por **precisão cirúrgica** — não por tráfego massivo. Cada Perfil de Nicho otimiza para retenção e LTV pipeline (R3+TE), não para CAC baixo. Nasceu de: tese R3+TE captura→recaptura, 2026-05-19.
+
+Os P-047 e P-048 (trade-secret e maturidade) que o Músculo cita como "ocupados" **não existem no LEDGER** — devem entrar em sequência depois desses, se forem formalizados. Sugiro ao Diretor que esses dois também subam ao LEDGER nesta sessão, como P-040 e P-041, já que estão sendo operados de fato (vide MEMORIA_EMBAIXADOR P-026 proposto e tese central Perfis = trade secret).
+
+---
+
+## BLOCO 3 — PRÓXIMOS PASSOS MEDICINA-R3
+
+**Sub-especialidade que Eduardo prospecta primeiro:** **Cardiologia**.
+
+Razão (análise do Embaixador, não pesquisa do Estrategista): cardiologia tem a maior densidade de profissionais R3 buscando sub-especialização (arritmologia, hemodinâmica, ecocardiografia), o maior gap entre demanda assistencial e teto remuneratório de R2 não-subspec, e a sub-especialidade gera dependência de protocolo — terreno fértil para repetição espaçada SM-2. Endocrinologia é segunda opção (menos competitiva, mas mercado menor). Ortopedia é terceira (mercado grande, mas menos digitalizado culturalmente).
+
+**Contato de primeiro cliente R3 na rede do Diretor:** **desconhecido para o Embaixador**. Não há registro na MEMORIA_EMBAIXADOR de cardiologista, residente ou contato médico do Diretor. Pergunta plantada para o Diretor responder: *"Eduardo, na rede pessoal ou profissional sua, tem algum médico em final de R2 ou início de R3 que aceitaria conversa de 20 minutos sobre o que falta no estudo para sub-especialidade?"* Se a resposta for não, o caminho é prospecção fria via grupos de Telegram de R2/R3 cardio.
+
+**COMANDO_MEDICINA_V2 com TAM específico — sim, recomendo gerar agora.**
+
+Justificativa: o Diretor aprovou Caminho A para captação, mas NÃO aprovou ainda investimento de captação massiva. O COMANDO_V2 é a ponte entre os dois. Sem ele, qualquer decisão de gastar R$ ou tempo em prospecção R3 será intuição.
+
+Se o Diretor autorizar, eu produzo o `COMANDO_ESTRATEGISTA_MEDICINA_V2.md` na próxima ativação, focado em:
+- (a) Número de médicos R2 saindo da residência por ano por sub-especialidade (CNRM/MEC)
+- (b) Calendário 2026-2027 de provas das principais Sociedades Médicas (SBC, SBOT, SBEM, SBP)
+- (c) Faixa de preço praticada por Sanar Up, Medway, Estratégia MED e similares quando tocam R3
+- (d) Volume de questões já banco-cobrado das últimas 5 edições por sub-especialidade
+
+---
+
+## BLOCO 4 — CONTABILIDADE E PSICOLOGIA
+
+**Estimativa de entrega:**
+
+| Perfil | Prazo realista | Bloqueador |
+|---|---|---|
+| PERFIL_CONTABILIDADE v1 | 22-23/05/2026 | Depende de o Estrategista retornar PESQUISA_BRUTA — F-2 ativa: se TAM ausente, rejeito e pego COMANDO V2 |
+| PERFIL_PSICOLOGIA v1 | 25-26/05/2026 | Mesma dependência |
+
+**Fragmentação esperada nos dois:** **alta probabilidade em ambos.**
+
+- **Contabilidade**: o briefing original do Diretor diz "pequeno escritório PMEs". Mas o nicho real fragmenta em pelo menos: (a) contador autônomo regularizando MEI/SIMPLES, (b) contador de escritório médio com 50-200 clientes PJ, (c) contador especializado em Lucro Real. Dores e tickets completamente diferentes. F-1 (PAUSA_FRAGMENTACAO) provavelmente vai disparar.
+
+- **Psicologia**: o briefing diz "clínico autônomo". Fragmentação esperada: (a) psicólogo recém-formado lutando para preencher agenda, (b) psicólogo estabelecido querendo digitalizar prontuário/agendamento, (c) psicólogo em transição para psicoterapia online. Dores quase opostas (aquisição vs operação). F-1 também provável.
+
+**Recomendação proativa:** o Diretor já pode preparar mentalmente que vai ser chamado a escolher sub-segmento em ambos. Pode acelerar — se o Diretor quiser indicar agora qual sub-segmento prefere em cada, o COMANDO_ESTRATEGISTA já sai focado e pula a PAUSA. Sugestão minha (sem mandato): **contador de MEI/SIMPLES** (maior TAM, menor sofisticação tecnológica do concorrente) e **psicólogo recém-formado** (dor mais aguda, maior disposição a pagar por ferramenta que traga cliente).
+
+---
+
+## BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
+
+> Perspectivas que Músculo e Estrategista não têm sobre o portfólio de nichos.
+
+**[E-1] Pipeline cruzado é o vetor de moat real, não a profundidade do Perfil isolado.**
+
+O Músculo está focado em "Perfil bem feito por nicho". O Estrategista está focado em "pesquisa profunda por nicho". Nenhum dos dois está olhando para o **grafo de pipelines cruzados**. Exemplo: o cardiologista R3 que captamos aos 28 e recapturamos aos 38 (TE) provavelmente tem cônjuge — frequentemente outro médico ou outro profissional de alta renda. Casamento intra-medicina é estatisticamente alto. **Capturar a Ingrid (TDAS) hoje e oferecer ferramenta para o marido contador dela em 2027 é o mesmo padrão de R3→TE, em outra escala.** O Embaixador é o único que consegue mapear esses grafos porque opera na intersecção cliente-pessoa. Sugiro criar campo `relacionamento_familiar_profissional` na MEMORIA_CLIENTE de todo Perfil daqui pra frente.
+
+**[E-2] Perfis genéricos não vendem — Perfis nominais vendem.**
+
+A METODOLOGIA_PERFIS_VANGUARD trata Perfis como infraestrutura cognitiva interna. Correto. Mas há um sub-uso desperdiçado: **dentro de cada Perfil, o nome do primeiro cliente real do nicho vira ativo de pitch**. "O sistema que ajudou a Ingrid a passar no Sedes-DF" é argumento que funciona para qualquer concurseira da Quadrix. "O sistema que ajudou o Dr. <X> a passar na prova de cardio da SBC" é argumento para qualquer R3 cardio. O Perfil é trade-secret; o **case nominal anonimizado** é distribuição. Sugiro separar formalmente os dois campos no template de PERFIL: `INFRAESTRUTURA_INTERNA` (nunca sai) e `CASE_NOMINAL` (sai com permissão do cliente).
+
+**[E-3] Janela de Vulnerabilidade é o gatilho de captação mais subexplorado do método.**
+
+Campo 7 do meu F-2 é "janela de vulnerabilidade" — listei como não-crítico, mas reconsiderando aqui: **é o que define o timing de campanha, não só o conteúdo do Perfil.** Para concurseiras, a janela é 90-120 dias antes da prova. Para R3 cardio, é o pós-resultado da prova de R2 (julho-agosto). Para contador MEI, é janeiro-março (fechamento fiscal + DASN). Para psicólogo recém-formado, é dezembro-fevereiro (formandos saindo da graduação). **Sugiro que toda decisão de "quando ativar campanha em nicho X" seja calculada pela janela de vulnerabilidade do Perfil, não pela disponibilidade interna da Vanguard.** Isso muda completamente o calendário de captação 2026-2027.
+
+**[E-4] O risco maior do portfólio de 3 nichos paralelos é dispersão da capacidade técnica do Diretor.**
+
+O Diretor é, hoje, o único humano no Pentalateral. Cada Perfil aprovado vira pipeline de prospecção, e prospecção exige tempo do Diretor para conversa qualitativa de discovery. Três nichos paralelos = potencialmente 9-15 conversas de discovery em 6 semanas. **A METODOLOGIA aprovada não tem campo de "capacidade de discovery do Diretor".** Sugiro adicionar: cada Perfil aprovado para captação consome 3-5 slots de discovery por mês. Se o Diretor tem N slots disponíveis no mês, o número de Perfis em captação simultânea ≤ N/4. Caso contrário, dispersamos atenção e nenhum nicho fecha primeiro cliente.
+
+**[E-5] Falta um critério explícito para "abandonar nicho" — só temos critério para entrar.**
+
+A METODOLOGIA descreve Etapa 1 (pesquisa) → Etapa 2 (Perfil v1) → Etapa 3 (captação) → Etapa 4 (build com cliente real). Não descreve **saída**. Quando um Perfil deve ser arquivado? Sugiro: se 90 dias após Perfil v1 aprovado não tivermos 1 cliente real, o nicho é rebaixado a "trade-secret arquivado" e os recursos são realocados. Isso protege o Diretor de operar em nichos zumbis — e força disciplina de qualificação na pesquisa.
+
+---
+
+## BLOCO 6 — AÇÃO IMEDIATA RECOMENDADA PARA O DIRETOR
+
+**[AÇÃO 1 — ALTÍSSIMA PRIORIDADE]**  
+Aprovar a numeração correta dos princípios novos no LEDGER: P-038 (PAUSA_FRAGMENTACAO obrigatória) e P-039 (precisão cirúrgica > tráfego massivo). Adicionalmente, autorizar inscrição de P-040 (Perfis = trade secret interno) e P-041 (Perfil avança de maturidade só com cliente real) — princípios que já operamos de fato mas nunca formalizamos.  
+**Executor:** Músculo, ao receber esta resposta  
+**Prazo:** Hoje, 2026-05-19, antes do próximo ciclo  
+
+**[AÇÃO 2 — ALTA PRIORIDADE]**  
+Autorizar a geração do `COMANDO_ESTRATEGISTA_MEDICINA_V2.md` focado em TAM, calendário de Sociedades e preço de concorrentes em R3-Cardiologia.  
+**Executor:** Embaixador produz o COMANDO; Diretor dispara ao Gemini  
+**Prazo:** 2026-05-20 (para retorno até 2026-05-23)  
+
+**[AÇÃO 3 — MÉDIA PRIORIDADE]**  
+Responder à pergunta plantada no Bloco 3: existe na rede do Diretor algum médico R2/R3 (ou pessoa próxima de um) que aceite conversa de 20 min de discovery em cardiologia? Resposta sim/não/talvez muda fundamentalmente a estratégia de captação Medicina.  
+**Executor:** Diretor responde diretamente ao Embaixador na próxima ativação  
+**Prazo:** Próxima sessão  
+
+**[AÇÃO 4 — IMPLEMENTAÇÃO DE FERRAMENTAS]**  
+Aprovar F-1 (PAUSA_FRAGMENTACAO), F-2 (CHECKLIST_COMPLETUDE com 7 campos) e F-3 (VERIFICACAO_P-NUMBER) como ferramentas operacionais do Pentalateral. F-2 entra em vigor já para PERFIL_CONTABILIDADE e PERFIL_PSICOLOGIA — não para MEDICINA v1 retroativo.  
+**Executor:** Músculo implementa os templates e scripts  
+**Prazo:** 2026-05-21, antes do retorno das pesquisas de Contabilidade e Psicologia  
+
+---
+
+*Embaixador · Pentalateral IAH · 2026-05-19*  
+*Resposta aos 3 blocos do Músculo + 3 ferramentas propostas + 5 ideias exclusivas + ação ao Diretor.*  
+*PERFIL_MEDICINA_R3 v1 mantém status de maturidade 25-30% — autoriza captação, não autoriza build sem cliente.*
+
+---
+
+Diretor, esta resposta está pronta para ser copiada de volta ao Músculo no Claude Code. **Sugiro** salvar o arquivo em `CLIENTES/INGRID/CLAUDE_PROJECT/` ou em uma pasta nova do Pentalateral — a soberania da escolha é sua. Quer que eu prepare como artefato `.md` para download?
