@@ -133,6 +133,32 @@
   </div>
 </template>
 
+<template id="tpl-mapa-soberania">
+  <div class="mapa-soberania">
+    <h2 class="mapa-titulo">Mapa de Soberania</h2>
+    <p class="mapa-subtitulo">Disciplinas ordenadas por urgência de estudo</p>
+    <div class="mapa-lista" id="mapa-lista"></div>
+    <button class="btn-novo-dia" id="btn-fechar-mapa">Fechar</button>
+  </div>
+</template>
+
+<template id="tpl-mapa-item">
+  <div class="mapa-item">
+    <div class="mapa-item-header">
+      <span class="mapa-disc-nome"></span>
+      <span class="mapa-nivel-badge"></span>
+    </div>
+    <div class="mapa-barra-container">
+      <div class="mapa-barra-fill"></div>
+    </div>
+    <div class="mapa-item-stats">
+      <span class="mapa-taxa"></span>
+      <span class="mapa-atividade"></span>
+      <span class="mapa-revisoes"></span>
+    </div>
+  </div>
+</template>
+
 <script src="app.js"></script>
 </body>
 </html>

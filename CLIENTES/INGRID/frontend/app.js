@@ -467,6 +467,92 @@ async function mostrarFim() {
   main.appendChild(tpl);
   document.getElementById("progresso-header").textContent = "Concluído";
   document.getElementById("btn-fechar")?.addEventListener("click", () => location.reload());
+
+  // Dia 10: Mapa de Soberania — busca e exibe automaticamente após sessão
+  buscarEExibirMapa(main);
+}
+
+// ── MAPA DE SOBERANIA — Dia 10 ────────────────────────────────────────────────
+async function buscarEExibirMapa(container) {
+  let dados;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_heatmap_disciplinas`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID }),
+    });
+    if (!res.ok) return;
+    dados = await res.json();
+  } catch (_) { return; }
+
+  if (!dados || dados.length === 0) return;
+
+  // Notifica Eduardo com os dados da sessão (M-2)
+  notificarEduardo(dados);
+
+  const tpl  = document.getElementById("tpl-mapa-soberania").content.cloneNode(true);
+  const lista = tpl.getElementById("mapa-lista");
+
+  dados.forEach((d) => {
+    const item = document.getElementById("tpl-mapa-item").content.cloneNode(true);
+    const nome = NOMES_DISCIPLINAS[d.disciplina_id] ?? d.disciplina_id;
+
+    item.querySelector(".mapa-disc-nome").textContent = nome;
+
+    const badge = item.querySelector(".mapa-nivel-badge");
+    badge.textContent  = d.nivel;
+    badge.classList.add(d.nivel);
+
+    const urgenciaCls = d.urgencia >= 0.65 ? "alta" : d.urgencia >= 0.35 ? "media" : "baixa";
+    const fill = item.querySelector(".mapa-barra-fill");
+    fill.classList.add(urgenciaCls);
+    fill.style.width = `${Math.round(d.urgencia * 100)}%`;
+
+    item.querySelector(".mapa-taxa").textContent      = `${d.taxa_acerto_pct}% acerto`;
+    item.querySelector(".mapa-atividade").textContent =
+      d.dias_sem_atividade === 0 ? "estudada hoje"
+      : d.dias_sem_atividade === 1 ? "ontem"
+      : `${d.dias_sem_atividade}d atrás`;
+    item.querySelector(".mapa-revisoes").textContent  =
+      d.revisoes_pendentes > 0 ? `${d.revisoes_pendentes} revisões pendentes` : "";
+
+    lista.appendChild(item);
+  });
+
+  // Substitui a tela de fim pelo mapa ao clicar
+  const btnMapa = document.createElement("button");
+  btnMapa.className   = "btn-proxima";
+  btnMapa.style.margin = "16px 0 0";
+  btnMapa.textContent = "Ver Mapa de Soberania →";
+  btnMapa.addEventListener("click", () => {
+    trocarMain(tpl);
+    document.getElementById("btn-fechar-mapa")
+      ?.addEventListener("click", () => location.reload());
+  });
+  container.appendChild(btnMapa);
+}
+
+// ── NOTIFICAR EDUARDO — M-2 ────────────────────────────────────────────────────
+// Envia resumo da sessão para Edge Function que dispara mensagem ao Eduardo
+async function notificarEduardo(heatmap) {
+  try {
+    const progresso = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_progresso_semanal`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID }),
+    }).then((r) => r.ok ? r.json() : null).catch(() => null);
+
+    await fetch(`${SUPABASE_URL}/functions/v1/notificar-progresso`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        user_id:          USER_ID,
+        sessao_hoje:      { acertos, total: feed.length, pontos: pontosAcumulados },
+        progresso_semanal: progresso,
+        heatmap_top3:     heatmap.slice(0, 3),
+      }),
+    });
+  } catch (_) { /* silencioso — não bloqueia o fluxo */ }
 }
 
 // ── STALE SESSION (N-4) — Dia 8 ──────────────────────────────────────────────

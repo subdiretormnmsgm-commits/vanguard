@@ -537,3 +537,91 @@ main {
   color: #999;
   line-height: 1.8;
 }
+
+/* ── MAPA DE SOBERANIA — Dia 10 ── */
+.mapa-soberania {
+  padding: 24px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mapa-titulo {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--cyan);
+  letter-spacing: -0.02em;
+}
+
+.mapa-subtitulo {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: -10px;
+}
+
+.mapa-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mapa-item {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  border: 1px solid #222;
+}
+
+.mapa-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.mapa-disc-nome {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.mapa-nivel-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mapa-nivel-badge.forte  { background: rgba(0,255,136,0.12); color: var(--green); }
+.mapa-nivel-badge.medio  { background: rgba(255,214,0,0.12);  color: var(--yellow); }
+.mapa-nivel-badge.fraco  { background: rgba(255,59,92,0.12);  color: var(--red); }
+
+.mapa-barra-container {
+  height: 5px;
+  background: #2a2a2a;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.mapa-barra-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* urgencia alta = vermelho, media = amarelo, baixa = verde */
+.mapa-barra-fill.alta  { background: var(--red); }
+.mapa-barra-fill.media { background: var(--yellow); }
+.mapa-barra-fill.baixa { background: var(--green); }
+
+.mapa-item-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.mapa-item-stats span { white-space: nowrap; }
