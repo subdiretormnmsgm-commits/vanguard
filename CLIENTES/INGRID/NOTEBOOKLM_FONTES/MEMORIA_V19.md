@@ -1,0 +1,99 @@
+# MEMÓRIA V19 — Edge Domination & IAH Factory
+**Data:** 2026-05-10  
+**Tema:** Total Disintermediation — Infraestrutura de Edge Middleware invisível
+
+---
+
+## Arquivos Criados
+
+| Arquivo | Função |
+|---------|--------|
+| `cloudflare/federation-proxy.js` | Cloudflare Worker: proxy transparente com HTMLRewriter — injeta Sovereign Pixel + Authority Badge + Exit Intent Modal (só FIRE) |
+| `scripts/iah-clone.ps1` | CLI PowerShell: clona instância Vanguard completa para franqueadoras em 1 comando |
+| `infra/schema_v19.sql` | Migrations Supabase: leads_diagnostico metadata + tenant_subscriptions + tenants + maturity_scores VIEW |
+| `js/burn-rate-shield.js` | Motor Maturity Score: gate §21 — Hermes Voice só activa para score > 8.5 |
+| `VANGUARD_INNOVATION_AUDIT.md` | Actualizado: [ID-006] Edge Domination documentado |
+
+---
+
+## Arquivos Modificados
+
+| Arquivo | Alteração |
+|---------|-----------|
+| `js/supabase.js` | `saveLeadDiagnostico` aceita `metadata` JSONB (scores P/A/C/R + quadrant_weak) |
+| `index.html` | Canvas neural-hero + quiz Quadrilateral™ 7 perguntas + WhatsApp fallback href |
+| `js/quiz.js` | Diagnóstico Quadrilateral™ completo: scoring matrix, preview bloqueado C+R, recomendação por quadrante |
+| `assets/css/v16-elite.css` | Estilos quiz: quad-badge, card-grid, quad-bar com transition 800ms, preview-risk, rec card |
+
+---
+
+## Arquitetura V19
+
+```
+CLOUDFLARE EDGE
+├── federation-proxy.js (Worker)
+│   ├── Custom Hostnames (SSL for SaaS) — CNAME do cliente → Cloudflare
+│   ├── TENANTS_KV — lookup tenant por hostname
+│   ├── HTMLRewriter → injeta em <head>: pixel.js
+│   ├── HTMLRewriter → injeta em <body>: Authority Badge
+│   └── HTMLRewriter → injeta em <body>: Exit Intent Modal (só __vg_intent=FIRE)
+│
+IAH FACTORY
+├── iah-clone.ps1
+│   ├── Gera brand-config.js com CSS variables + tenant config
+│   ├── Provisiona tenant no Supabase (tabela tenants)
+│   ├── Gera instruções CNAME + wrangler kv:key put
+│   └── Commit automático git
+│
+SUPABASE
+├── leads_diagnostico + metadata JSONB + scores P/A/C/R
+├── tenant_subscriptions (paywall Neural Sentinel R$97/mês)
+├── tenants (hierarquia franquia → unidade via parent_id)
+└── maturity_scores VIEW (composite score 0–10 por sessão)
+│
+BURN RATE SHIELD §21
+└── burn-rate-shield.js
+    ├── computeScore(events): 60% intent + 25% depth + 15% recência
+    ├── isVoiceReady(score): score > 8.5 → Hermes Voice autorizado
+    └── renderGate(el): HUD widget com barra de progresso + status
+```
+
+---
+
+## Fundação Reutilizada
+
+| Activo | Origem | Uso V19 |
+|--------|--------|---------|
+| `cloudflare/pixel-worker.js` | V17 | Arquitectura Worker + CORS + Supabase REST |
+| `pixel_events_staging` UNLOGGED | V16 | Fonte de dados maturity_scores VIEW |
+| `brand-config.js` | V5 | Sistema white-label reutilizado no IAH Factory |
+| `prospectar.ps1` | V17 | Modelo PowerShell para iah-clone.ps1 |
+| Ion Gold + Obsidian palette | V16 | Authority Badge + Burn Rate Shield HUD |
+
+---
+
+## Dívidas Técnicas
+
+| Item | Prioridade | Descrição |
+|------|-----------|-----------|
+| Stripe Sentinel Checkout | 🔴 CRÍTICA | Endpoint `/api/stripe/sentinel-checkout` não existe — paywall Neural Sentinel não funciona |
+| Wrangler deploy | 🟡 MÉDIA | `federation-proxy.js` não foi deployed — requer `wrangler deploy` + KV namespace criado |
+| RLS tenants table | 🟡 MÉDIA | Tabela `tenants` sem RLS — qualquer anon pode ler todos os tenants |
+| iah-clone.ps1 SUPABASE_URL | 🟢 BAIXA | Requer env vars configuradas; avisa mas não bloqueia |
+
+---
+
+## Estado Comercial ao Fechar V19
+
+- Tenants activos: 0 (IAH Factory pronta, aguarda primeiro cliente)
+- MRR: R$0 (paywall Sentinel existe no schema, Stripe endpoint em dívida)
+- ARR teórico (V16): R$4,1M (base de cálculo mantida)
+- Lock-in V19: tráfego do cliente passa pela infra Vanguard antes de qualquer decisão de cancelar
+
+---
+
+## Lições Aprendidas
+
+1. **SQL dependencies**: VIEW que depende de tabela de outra migration → incluir sempre `CREATE TABLE IF NOT EXISTS` antes da VIEW na mesma migration
+2. **Column name drift**: schema V16 usa `intent_label`/`session_hash`/`fired_at` — documentar explicitamente para evitar mismatch em views futuras
+3. **Cloudflare script escaping**: template literals com `<script>` em Workers → escapar `<\/script>` para evitar parser HTML quebrar
