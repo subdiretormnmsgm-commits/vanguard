@@ -27,6 +27,23 @@ Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: 
 
 ---
 
+## 📥 AO RECEBER O OUTPUT DO AUDITOR — ANTES DE SAIR DO NOTEBOOKLM (P-049)
+
+O NotebookLM entrega 4 partes. Você vai copiar só a PARTE 3 para o arquivo skill.
+As PARTES 1, 2 e 4 são **irrecuperáveis** depois que você fechar a sessão.
+
+```
+Antes de sair:
+☐ Copiar PARTES 1 + 2 + 4 completas (tudo exceto a Skill)
+☐ Salvar em: CLIENTES/INGRID/HISTORICO/AUDITOR_LOOP_4_INGRID.md
+☐ Copiar PARTE 3 (Skill) para: .claude/skills/ingrid-v4.md
+☐ Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\ingrid-v4.md"
+```
+
+> PARTES 1+2+4 não salvas = Músculo delibera sem [N-1 a N-5] + Auditoria = 20 inputs, não 25.
+
+---
+
 ## 🔍 PROTOCOLO ANTI-ALUCINAÇÃO (ler antes de processar)
 
 Auditor, você opera com 4 deficiências nativas:

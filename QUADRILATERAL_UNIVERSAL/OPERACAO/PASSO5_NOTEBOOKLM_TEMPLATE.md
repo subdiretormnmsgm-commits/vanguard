@@ -33,6 +33,23 @@
 
 > Por que usar o script: ele monta a pasta certa com os 15 documentos na ordem
 > correta. Fatos do passado (01-11) antes das novas ideias (12-15). Nunca inverter.
+
+---
+
+## 📥 AO RECEBER O OUTPUT DO AUDITOR — ANTES DE SAIR DO NOTEBOOKLM (P-049)
+
+O NotebookLM entrega 4 partes. Você vai copiar só a PARTE 3 para o arquivo skill.
+As PARTES 1, 2 e 4 são **irrecuperáveis** depois que você fechar a sessão.
+
+```
+Antes de sair:
+☐ Copiar PARTES 1 + 2 + 4 completas (tudo exceto a Skill)
+☐ Salvar em: CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md
+☐ Copiar PARTE 3 (Skill) para: .claude/skills/[cliente]-v[N].md
+☐ Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"
+```
+
+> PARTES 1+2+4 não salvas = Músculo delibera sem [N-1 a N-5] + Auditoria = 20 inputs, não 25.
 >
 > Sobre a MEMORIA_EMBAIXADOR: se disponível, ela deve ser incluída nas fontes (posição 12
 > ou como fonte complementar). O Embaixador gera [E-1 a E-5] — estas ideias devem ser

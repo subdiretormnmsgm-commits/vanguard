@@ -1049,3 +1049,13 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Ferramenta criada:** PASSO G.5 adicionado em todos os arquivos PASSO6_MUSCULO — gate obrigatório entre deliberação e veredito.
 **Regra de ouro:** Contexto de sessão é RAM — volátil. Arquivo em disco é HD — persistente. Deliberação que não está no HD não aconteceu.
 **Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+---
+
+### [P-049] Output do Auditor é irrecuperável após fechar o NotebookLM
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 pós-compressão de contexto
+**Fricção:** As PARTES 1+2+4 do Auditor (Auditoria de Coerência, Perspectiva do Sócio, [N-1 a N-5]) foram perdidas na compressão de contexto. O Músculo deliberou os [N-1 a N-5] apenas pelos títulos — sem o conteúdo completo. 5 inputs deliberados com informação parcial.
+**Princípio:** Ao receber o output do Auditor, antes de sair do NotebookLM: salvar PARTES 1+2+4 em `CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md`. Só então copiar a PARTE 3 (Skill) para `.claude/skills/`. A sequência correta de cópia é: (1) salvar tudo, (2) copiar Skill, (3) rodar gate.
+**Regra de ouro:** NotebookLM não tem memória entre sessões. Quando você fecha, o output vai junto. O que não está em arquivo não existe.
+**Ferramenta criada:** Gate P-049 adicionado ao final da seção COMANDO CURTO em todos os arquivos PASSO5_NOTEBOOKLM.
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
