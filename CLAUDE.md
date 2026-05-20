@@ -159,6 +159,13 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     Se não existirem → BLOQUEIO: "Diretor, loop [N-1] não tem artefatos de fechamento.
     Gerar MEMORIA_V[N-1] + relatorio_V[N-1] antes de iniciar o Loop [N]."
     session_close.ps1 detecta e alerta automaticamente.
+20. P-033 — SYNC UNIVERSAL OBRIGATÓRIO APÓS QUALQUER MUDANÇA (2026-05-20):
+    Após QUALQUER alteração em QUADRILATERAL_UNIVERSAL/, o Músculo roda imediatamente:
+    .\.claude\skills\files\sync_vanguard_docs.ps1
+    Objetivo: todos os CLIENTES/*/NOTEBOOKLM_FONTES/ sempre sincronizados com o universal.
+    Músculo detecta a mudança e executa — Diretor não roda manualmente.
+    Ao fechar sessão com alterações em QUADRILATERAL_UNIVERSAL/ → confirmar que sync rodou.
+    INTEGRIDADE VERDE = zero falhas de hash. AMARELO = órfãos para veredito. VERMELHO = falha de cópia.
 ```
 
 ---
@@ -314,14 +321,14 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 | Script | Quando executar | O que faz |
 |---|---|---|
 | `scripts/gemini_anchor_generator.ps1` | Antes de abrir o Gemini | Compila LEDGER + WIP + MEMORIA → `CONTEXTO_GEMINI.md` + clipboard |
-| `scripts/atualizar_notebooklm_base.ps1` | Quando doc universal evoluir | Sincroniza QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ com os 8 arquivos-fonte |
-| `scripts/preparar_notebooklm_projeto.ps1 -cliente [NOME]` | Antes de abrir o NotebookLM | Monta CLIENTES/[NOME]/NOTEBOOKLM_FONTES/ com base (01-08) + projeto (09-17) |
+| `.claude/skills/files/sync_vanguard_docs.ps1` | **OBRIGATÓRIO** após qualquer mudança em QUADRILATERAL_UNIVERSAL/ | P-033 — Sincroniza TUDO para CLIENTES/*/NOTEBOOKLM_FONTES/ — 3 rodadas: Inventário → Sync → Integridade SHA-256 |
+| `scripts/preparar_notebooklm_projeto.ps1 -cliente [NOME]` | Antes de abrir o NotebookLM | Monta CLIENTES/[NOME]/NOTEBOOKLM_FONTES/ com base (01-08) + projeto (09-17) — seleciona arquivos para sessão |
 | `scripts/skill_parser_gate.ps1 -skill caminho` | Ao receber Skill do Auditor | Valida 4 blocos obrigatórios + dados reais → APROVADO ou REJEITADO |
 | `scripts/session_close.ps1` | Ao fechar qualquer sessão | Captura FRICÇÕES + PRINCÍPIOS + DÍVIDAS TÉCNICAS + check P-045 (MEMORIA dos loops) |
 | `scripts/ir_ao_embaixador.ps1 -cliente [NOME]` | Ao acionar o Embaixador | Copia MENSAGEM_INTERACAO_INICIAL para clipboard + abre browser + Explorer |
 | `scripts/ir_ao_embaixador.ps1 -cliente [NOME] -AutoSync` | Ao fechar sessão (via session_close) | Sincroniza docs do Embaixador sem abrir browser |
 
-> **Gemini:** `gemini_anchor_generator.ps1` → atualizar PASSO3 (outputs reais + 5 ideias). **NotebookLM:** `preparar_notebooklm_projeto.ps1 -cliente [NOME]` → fontes 01-11 antes de 12-17 → validar `skill_parser_gate.ps1`.
+> **Gemini:** `gemini_anchor_generator.ps1` → atualizar PASSO3 (outputs reais + 5 ideias). **NotebookLM:** `preparar_notebooklm_projeto.ps1 -cliente [NOME]` → fontes 01-11 antes de 12-17 → validar `skill_parser_gate.ps1`. **Sync universal:** `sync_vanguard_docs.ps1` → roda automaticamente após toda mudança em QUADRILATERAL_UNIVERSAL/ (P-033).
 
 ### RITUAL DE FECHAMENTO — EXECUTAR AO FIM DE CADA SESSÃO
 
