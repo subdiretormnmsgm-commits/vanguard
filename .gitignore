@@ -13,3 +13,14 @@ scripts/alert_monitor.log
 .claude/settings.local.json
 CLIENTES/**/Projeto Supabase.txt
 CLIENTES/**/*.zip
+
+# Duplicados com sufixo de hostname (gerados por hooks locais)
+*-DESKTOP-*.ps1
+*-DESKTOP-*.md
+*-DESKTOP-*.txt
+*-DESKTOP-*.py
+*-DESKTOP-*.json
+*-DESKTOP-*.yml
+*-DESKTOP-*.html
+*-DESKTOP-*.log
+*-DESKTOP-*.example
