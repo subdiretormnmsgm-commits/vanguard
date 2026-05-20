@@ -25,11 +25,15 @@
   Leva  : contexto do loop + comportamento de Valdece + perguntas específicas
   Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos outros membros
 
-4. PASSO 7 → Músculo (este arquivo) — colar nesta ordem:
-  1. Skill valdece-v7.md    ← output do NotebookLM
-  2. Diretriz Técnica V7    ← output do Gemini
-  3. PASSO6_MUSCULO.md      ← este arquivo
-  Dizer: "PROTOCOLO VANGUARD — Valdece. Leia tudo e delibere."
+4. PASSO 7 → Músculo (este arquivo)
+  Você terá em mãos ao iniciar:
+    · valdece-v7.md         <- [N-1 a N-5] do Auditor  (PASSO 5)
+    · Diretriz Técnica V7   <- [G-1 a G-5] do Gemini   (PASSO 3)
+    · [E-1 a E-5] do Embaixador <- CONFIRMA/EXPANDE/ALERTA (PASSO 6 ja executado)
+    · PASSO6_MUSCULO.md     <- este arquivo
+  Colar nesta ordem: Skill → DIRETRIZ → PASSO6_MUSCULO.md
+  PRIMEIRA ACAO: executar /valdece-v7 antes de qualquer palavra.
+  Dizer: "PROTOCOLO VANGUARD — VALDECE. Loop 7. Execute /valdece-v7 antes de deliberar."
 ```
 
 > O Embaixador corre ANTES do Músculo deliberar — filtro de realidade (P-031) antes do build.
@@ -95,7 +99,15 @@ AO RECEBER A SKILL DO NOTEBOOKLM E A DIRETRIZ DO GEMINI:
    — O risco identificado (técnico ou comercial)
    — Como torná-la mais forte (enhancement — não substituição)
    — Se há alternativa melhor: propor com trade-offs
-   — Reagir às 5 ideias do Gemini tecnicamente: viável / inviável / modificada — com razão
+   — Reagir às 5 ideias do Gemini [G-1 a G-5] tecnicamente: viável / inviável / modificada — com razão
+   — Reagir às 5 ideias do Auditor [N-1 a N-5] (PARTE 4 da Skill): viável / modificada / descartada + razão
+
+3.b REAGIR ÀS 5 IDEIAS DO EMBAIXADOR [E-1 a E-5] — obrigatório
+   O Embaixador já rodou (PASSO 6). Suas ideias chegam com evidência de comportamento real de Valdece.
+   Para cada [E-1 a E-5]: CONFIRMO a evidência / EXPANDO tecnicamente / ALERTO se inviável.
+   Peso maior que [G] e [N] — baseadas em comportamento real, não inferência de perfil.
+   O que o Embaixador viu em campo que Gemini e Auditor não capturam? Declarar antes de avançar.
+   Atualizar MEMORIA_EMBAIXADOR automaticamente ao final (P-032).
 
 4. APRESENTAR PLANO DE AÇÃO ao Diretor (Loop 7 — foco: V3 schema migration + corpus expandido)
    Com base na deliberação + filtro do Embaixador:

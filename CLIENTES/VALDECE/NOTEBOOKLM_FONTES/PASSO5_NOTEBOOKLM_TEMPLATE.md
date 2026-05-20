@@ -109,19 +109,24 @@ Com base no histórico completo de projetos da Vanguard: o que sistematicamente 
 
 **PARTE 3 — A SKILL PROPRIAMENTE DITA**
 > Nome obrigatório: use EXATAMENTE o nome definido no sub-bloco [PARA O NOTEBOOKLM] da DIRETRIZ do Gemini.
-> Formato: `.claude/skills/[cliente]-v[N].md` (ex: `valdece-v4.md`, `ingrid-v4.md`)
+> Formato: `.claude/skills/[cliente]-v[N].md` (ex: `valdece-v7.md`, `ingrid-v4.md`)
 > Se a DIRETRIZ não especificou o nome → Skill inválida antes de começar. Declarar ao Diretor.
 
-Escreva em formato copiável direto para `.claude/skills/[cliente]-v[N].md` com os seguintes blocos obrigatórios — todos preenchidos com dados reais:
-- Contexto do projeto (stack, cliente, dor real, prazo)
-- Conexão histórica (o que reutilizar e onde encontrar no repositório)
-- Padrão de sucesso (confirmado com evidência deste projeto ou de projetos anteriores)
-- Padrão de falha (com a falha específica e qual projeto a originou)
-- Perspectiva do Sócio Consultor (o que Gemini e Músculo não estão vendo)
-- Sequência de build recomendada (dia a dia, com gates obrigatórios)
-- Alertas críticos com severidade (P0 / P1 / P2)
-- O que NÃO construir nesta entrega (listado por nome)
-- O que deve ser promovido ao SKILL_PROTOCOLO_VANGUARD como padrão universal
+⚠️ GATE OBRIGATÓRIO: a Skill DEVE conter estes 4 títulos de seção EXATOS (sem acentos).
+O script `skill_parser_gate.ps1` verifica esses textos — Skill sem eles = REJEITADA automaticamente:
+
+```
+## [AUDITORIA DE COERENCIA]
+## [CONEXAO HISTORICA]
+## [PADRAO DE SUCESSO/FALHA]
+## [PERSPECTIVA DO SOCIO]
+```
+
+Conteúdo obrigatório por seção — todos preenchidos com dados reais:
+- `[AUDITORIA DE COERENCIA]`  — alertas VETO do LEDGER, princípios P-0XX ativos para este loop
+- `[CONEXAO HISTORICA]`       — o que loops/versões anteriores provaram (decisões fixadas, stack, gates)
+- `[PADRAO DE SUCESSO/FALHA]` — o que funcionou + o que falhou + sequência de build com gates verificáveis
+- `[PERSPECTIVA DO SOCIO]`    — o que Gemini e Músculo não estão vendo + discordância fundamentada
 
 **PARTE 4 — SUAS 5 IDEIAS DISRUPTIVAS COMO AUDITOR**
 Não as ideias do Gemini nem as do Músculo — as suas, fundamentadas no histórico completo. O que nenhum dos outros membros está vendo. Para cada ideia: o que é, qual o impacto estimado, e uma pergunta direta para o Diretor validar.

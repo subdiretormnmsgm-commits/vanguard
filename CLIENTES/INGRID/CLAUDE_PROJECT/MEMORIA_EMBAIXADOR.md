@@ -55,8 +55,8 @@
 |---|---|---|---|
 | H-1 | Não assinou por esquecimento — não por hesitação | **CONFIRMADA** | Assinou em ~48h sem questionamento, negociação ou pedido de desconto |
 | H-2 | Medo financeiro causou hesitação | **REFUTADA** | Piloto R$0 — sem gatilho financeiro presente |
-| H-3 | Compararia o app com TEC Concursos na primeira sessão | **REFUTADA** | Gate Dia 8: não mencionou TEC, não fez comparação |
-| H-4 | Dificuldade = risco de abandono na primeira sessão | **REFUTADA** | Gate Dia 8: chegou até questão 18 e reportou bug com precisão — engajamento confirmado |
+| H-3 | Compararia o app com TEC Concursos na primeira sessão | **PENDENTE** | Q18 sem menção ao TEC — modo imersivo, não avaliativo. Só confirma quando verbalizar. |
+| H-4 | Dificuldade = risco de abandono na primeira sessão | **ATIVA** | Q18 é receptividade, não hábito. Teste real ocorre na sessão 3-5 quando SM-2 começa a cobrar. |
 
 ---
 
@@ -73,11 +73,12 @@
 ### TEMPERATURA DO CLIENTE
 
 ```
-TEMPERATURA: QUENTE (upgrade de VERDE — dado real de engajamento)
-Baseado em: "Gostou muito" espontâneo + persistência até questão 18 + feedback técnico preciso
-CHURN-WATCH: MONITORANDO (desarmado — Ingrid usou o app ativamente)
-Próxima reavaliação: após 3 sessões consecutivas de uso real
-Última atualização: 2026-05-19 (Músculo P-032 — Gate Dia 8)
+TEMPERATURA: VERDE FRÁGIL
+Razão: Q18 na sessão inaugural confirma engajamento real (perfil sistêmico), mas hábito tem < 72h.
+Verde de Primeira Impressão — não Verde Consolidado. Hábito confirma-se na sessão 3-5 quando SM-2 cobra.
+CHURN-WATCH: MONITORANDO — qualquer silêncio > 3 dias ativa AMARELO independente de Q18.
+Próxima reavaliação: sessão 3-5 (SM-2 começa a cobrar) e check-in 2026-05-21
+Última atualização: 2026-05-20 (Músculo P-032 — Loop 4 Deliberação)
 ```
 
 ### PADRÕES INFERIDOS — atualizar com cada sessão real
@@ -88,7 +89,7 @@ Próxima reavaliação: após 3 sessões consecutivas de uso real
 - **Tom que funciona:** caloroso, direto, sem jargão técnico
 - **Tom que não funciona:** formal, técnico, longo
 
-### INTELIGÊNCIA DO EMBAIXADOR — Loop 4 [E-1 a E-5] (Gate Dia 8 · 2026-05-19)
+### INTELIGÊNCIA DO EMBAIXADOR — Loop 4 PRÉ-BUILD [E-1 a E-5] (Gate Dia 8 · 2026-05-19)
 
 | # | Insight | Ação prescrita |
 |---|---|---|
@@ -98,11 +99,29 @@ Próxima reavaliação: após 3 sessões consecutivas de uso real
 | E-4 | KPI do R$194k: timestamp da questão 18 vs. primeiro acesso = primeiro dado real de engajamento EdTech | Músculo: query `progresso_usuario` WHERE `user_id = Ingrid` ORDER BY `created_at` |
 | E-5 | Princípio: primeiro feedback espontâneo de piloto vale mais que qualquer pesquisa de mercado | Candidato P-046 ao LEDGER |
 
+### INTELIGÊNCIA DO EMBAIXADOR — Loop 4 DELIBERAÇÃO [E-1 a E-5] (2026-05-20)
+
+| # | Insight | Ação prescrita |
+|---|---|---|
+| E-1 | Horário de pico de Ingrid desconhecido — Q18 não captura horário. Se estuda às 22h, Simulado Dominical 10h pode ser feature desperdiçada. | Eduardo pergunta no check-in 2026-05-21: "Você estuda mais de manhã, tarde ou noite?" |
+| E-2 | Q18 sem pausa = estado de fluxo. Risco não é login quebrando acesso — é qualquer interrupção técnica visível quebrar a imagem do app. Fallback deve ser invisível para Ingrid. | Músculo: garantir que modo passivo (fallback de fadiga) seja indistinguível do modo ativo. |
+| E-3 | Ingrid precisa de "você está no seu melhor momento hoje" — confirmação de progresso, não alerta de risco. Heatmap de urgência cobre ameaça; falta cobrir conquista. | Músculo: adicionar feedback positivo pós-sequência de acertos ("Você acertou as últimas 4 — esse é seu ritmo"). |
+| E-4 | Campo `horario_inicio_sessao` não existe no schema. Padrão noturno de Ingrid (provável) é argumento de pitch: "feito para quem estuda depois das 20h." | Avaliar antes do Gate Dia 15 se vale incluir timestamp de sessão no schema. |
+| E-5 | Mensagem semanal de Eduardo com número de questões via WhatsApp (não push do app) ativa circuito de responsabilidade social além de progresso pessoal. Custo: 30s/semana. | Diretor autoriza protocolo de envio semanal — Músculo já tem `get_total_respostas`. |
+
+### ALERTAS DO EMBAIXADOR — Loop 4 Deliberação (2026-05-20)
+
+- **VETO [G-3] Persona Sargento:** ALERTA CRÍTICO — confronto verbal por TTI baixo vai gerar estresse que Ingrid não nomeia mas abandona silenciosamente. Ingrid não vai reclamar — vai sumir.
+- **ALERTA [G-2] Distrator Assombração:** adiar para V2 — perfil de Ingrid é de quem quer superar erro, não ser confrontada repetidamente por ele.
+- **CONFIRMA [P-045] veto ao login:** Q18 confirma engajamento real — qualquer atrito de acesso neste momento é risco genuíno.
+- **Heatmap linguagem:** enquadrar disciplinas soberanas como "território conquistado", nunca "baixa prioridade".
+- **Simulado Dominical:** não construir antes de confirmar horário de estudo de Ingrid (check-in 2026-05-21).
+
 ### WATCHDOG
 
 | Flag | Status | Ação se não resolvido |
 |---|---|---|
-| [CHURN-WATCH] | MONITORANDO — Ingrid usou o app | Rearmar se silêncio > 36h a partir de 2026-05-19 |
+| [CHURN-WATCH] | MONITORANDO — Ingrid usou o app | Rearmar se silêncio > 3 dias a partir de 2026-05-20 |
 | [QA-WATCH] negrito questão 18 | RESOLVIDO | Fix deployado 2026-05-19 |
 | [SCOPE-WATCH] H-5 compartilhamento | ATIVO — sem dado | Monitorar na próxima sessão |
 | [LEGAL-WATCH] Termo data | ATIVO | Reassinatura pendente: PDF diz 30/05, assinatura foi em 18/05 |
@@ -160,6 +179,7 @@ Próxima reavaliação: após 3 sessões consecutivas de uso real
 | P-044 | Princípio extraído do LEDGER sem rotina operacional declarada é prosa — não aprendizado | 2026-05-19 |
 | P-045 | URL pública (GitHub Pages) aceita só em piloto — auth real obrigatório antes do primeiro cliente pagante | 2026-05-19 |
 | P-046 | Primeiro feedback espontâneo de piloto é o ativo mais valioso do projeto — captura verbatim com timestamp | 2026-05-19 |
+| P-047 | Engajamento inaugural alto (Q18+) é indicador de receptividade, não hábito formado. Hábito confirma-se na sessão 3-5 quando SM-2 cobra e a novidade foi embora. Temperatura Verde depende da qualidade das sessões 2-5, não da sessão 1. | 2026-05-20 |
 
 ### HISTÓRICO DE ATUALIZAÇÕES
 
@@ -171,6 +191,8 @@ Próxima reavaliação: após 3 sessões consecutivas de uso real
 | 2026-05-19 | Gate Dia 8: "gostou muito" + bug questão 18 — primeiro dado verbatim real | Embaixador (LOG_006) |
 | 2026-05-19 | H-3/H-4 refutadas, H-7 nova, TEMPERATURA QUENTE, fix deployado | Músculo (P-032) |
 | 2026-05-19 | Reestruturação em 3 camadas aprovada pelo Diretor | Músculo (P-032) |
+| 2026-05-20 | Loop 4 Deliberação: E-1 a E-5 + alertas CRÍTICOS (Persona Sargento / Distrator) + temperatura VERDE FRÁGIL | Músculo (P-032) |
+| 2026-05-20 | H-3 revertida para PENDENTE, H-4 mantida ATIVA — engajamento inaugural ≠ hábito formado | Embaixador |
 
 ---
 

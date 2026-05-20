@@ -100,7 +100,7 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este PASSO5
 Fatos do passado carregam antes da nova ideia. Sempre.
 
 **Integração obrigatória com o Estrategista:**
-A DIRETRIZ do Gemini (arquivo `12_DIRETRIZ_GEMINI_V6.txt`) contém um bloco `[PARA O NOTEBOOKLM]`
+A DIRETRIZ do Gemini (arquivo `12_DIRETRIZ_GEMINI_V7.txt`) contém um bloco `[PARA O NOTEBOOKLM]`
 com solicitações específicas do Estrategista sobre o que a Skill deve cobrir.
 Auditor: leia esse bloco e incorpore as solicitações — elas são complementares a este PASSO5, não redundantes.
 Conflito entre DIRETRIZ e PASSO5 → PASSO5 prevalece (é mais recente e específico).
@@ -167,14 +167,32 @@ Auditor, ao gerar a Skill, leve em conta que o Músculo tem 5 deficiências nati
 
 ---
 
-Preciso que você gere a Skill para o Músculo em quatro partes, nesta ordem:
+Gere a Skill para o Músculo em quatro partes obrigatórias, nesta ordem:
 
-Primeiro: auditoria de coerência. A DIRETRIZ do Gemini contradiz alguma coisa que foi construído antes neste projeto ou em projetos anteriores? Há módulos que o Gemini propõe mas que já existem? Há riscos que a DIRETRIZ ignora e que o histórico mostra como recorrentes em projetos similares?
+**PARTE 1 — AUDITORIA DE COERÊNCIA**
+A DIRETRIZ do Gemini contradiz algo que foi construído antes neste projeto ou em projetos anteriores? Há módulos que o Gemini propõe mas que já existem? Há riscos que a DIRETRIZ ignora e que o histórico mostra como recorrentes em projetos similares?
 
-Segundo: perspectiva do sócio consultor. Com base em tudo que você conhece de projetos anteriores da Vanguard — o que sistematicamente funciona em projetos de Legal Tech ou busca semântica? O que sistematicamente falha? O que este projeto tem de diferente que pode mudar o padrão? O que o Gemini e o Músculo não estão vendo? Seja específico — cite projetos ou padrões do histórico quando puder.
+**PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR**
+Com base em tudo que você conhece de projetos anteriores da Vanguard — o que sistematicamente funciona em Legal Tech ou busca semântica? O que sistematicamente falha? O que este projeto tem de diferente? O que o Gemini e o Músculo não estão vendo? Cite projetos ou padrões do histórico.
 
-Terceiro: a Skill propriamente dita. Escreva em formato copiável direto para .claude/skills/valdece-v6.md com os seguintes blocos obrigatórios: contexto do projeto, conexão histórica com localização exata do que reutilizar, padrão de sucesso, padrão de falha, perspectiva do sócio, sequência de build recomendada para os Dias 3-4-5, alertas críticos com severidade, o que não construir nesta entrega, e o que deve ser promovido ao SKILL_PROTOCOLO_VANGUARD como padrão universal.
+**PARTE 3 — A SKILL (copiável para `.claude/skills/valdece-v7.md`)**
+⚠️ GATE OBRIGATÓRIO: a Skill DEVE conter estes 4 títulos de seção EXATOS (sem acentos).
+O script skill_parser_gate.ps1 verifica esses textos — Skill sem eles = REJEITADA automaticamente:
 
-Quarto: suas 5 ideias disruptivas como Auditor. Não as ideias do Gemini nem as do Músculo — as suas, fundamentadas no que você vê no histórico completo. O que nenhum dos outros membros está vendo.
+```
+## [AUDITORIA DE COERENCIA]
+## [CONEXAO HISTORICA]
+## [PADRAO DE SUCESSO/FALHA]
+## [PERSPECTIVA DO SOCIO]
+```
+
+Conteúdo obrigatório por seção:
+- `[AUDITORIA DE COERENCIA]`  — alertas VETO do LEDGER, princípios P-041 a P-046 ativos
+- `[CONEXAO HISTORICA]`       — o que os Loops 1-6 provaram (decisões fixadas, stack, gates aprovados)
+- `[PADRAO DE SUCESSO/FALHA]` — o que funcionou + o que falhou + sequência de build V3 com gates verificáveis
+- `[PERSPECTIVA DO SOCIO]`    — o que o Auditor vê que os outros não veem + discordância fundamentada
+
+**PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR [N-1 a N-5]**
+Suas 5 ideias — não as do Gemini nem as do Músculo. Fundamentadas no histórico completo. O que nenhum dos outros membros está vendo.
 
 Não resuma. Não seja genérico. Se citar padrão histórico, cite de qual projeto ele vem. O Músculo vai ler isso antes de construir — cada linha impacta o que será entregue ao Valdece.

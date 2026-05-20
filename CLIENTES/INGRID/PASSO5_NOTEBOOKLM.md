@@ -109,16 +109,20 @@ PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
   O que este projeto tem de diferente que muda o padrão.
   O que Gemini e Músculo não estão vendo — discordância fundamentada.
 
-PARTE 3 — A SKILL (em formato ```skill ... ``` copiável para .claude/skills/ingrid-v4.md)
-  Incluir obrigatoriamente:
-    - Contexto do projeto (cargo, banco, stack, decisões fixadas)
-    - Conexão histórica (o que os Loops 1, 2 e 3 provaram)
-    - Padrão de sucesso validado (o que funcionou)
-    - Padrão de falha documentado (7 panes — ver TROUBLESHOOTING)
-    - Perspectiva do Sócio (o que o Auditor vê que os outros não veem)
-    - Sequência de build Dias 9-11 com gates verificáveis
-    - O que NÃO construir neste loop (com razão objetiva)
-    - Alertas ativos (P-006, P-010, P-024, P-025)
+PARTE 3 — A SKILL (copiável para .claude/skills/ingrid-v4.md)
+  ⚠️ GATE OBRIGATÓRIO: a Skill DEVE conter estes 4 títulos de seção EXATOS (sem acentos).
+  O script skill_parser_gate.ps1 verifica esses textos — Skill sem eles = REJEITADA:
+
+    ## [AUDITORIA DE COERENCIA]
+    ## [CONEXAO HISTORICA]
+    ## [PADRAO DE SUCESSO/FALHA]
+    ## [PERSPECTIVA DO SOCIO]
+
+  Conteúdo obrigatório por seção:
+    [AUDITORIA DE COERENCIA]  — alertas VETO do LEDGER (P-003, P-006, P-010, P-024, P-025 ativos)
+    [CONEXAO HISTORICA]       — o que os Loops 1-3 provaram (decisões fixadas, stack, gates aprovados)
+    [PADRAO DE SUCESSO/FALHA] — o que funcionou + o que falhou + sequência de build com gates verificáveis
+    [PERSPECTIVA DO SOCIO]    — o que o Auditor vê que os outros não veem + discordância fundamentada
 
 PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
   Ideias que NÃO vieram do Gemini nem do Músculo — perspectiva histórica exclusiva.
@@ -128,6 +132,7 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 
 **Validação antes de entregar:**
 - [ ] Skill tem nome exato `ingrid-v4.md` declarado na PARTE 3
+- [ ] PARTE 3 contém os 4 títulos EXATOS: `[AUDITORIA DE COERENCIA]`, `[CONEXAO HISTORICA]`, `[PADRAO DE SUCESSO/FALHA]`, `[PERSPECTIVA DO SOCIO]`
 - [ ] PARTE 1 cita fontes reais (não genéricas)
 - [ ] PARTE 4 tem 5 ideias exclusivas do Auditor
 - [ ] Skill é copiável diretamente para `.claude/skills/`

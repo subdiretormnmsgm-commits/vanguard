@@ -20,12 +20,12 @@
   Salva : .claude/skills/[cliente]-v[N].md
   Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"
 
-3. PASSO 7 → Embaixador (Claude Projects)
+3. PASSO 6 → Embaixador (Claude Projects)
   Músculo roda automaticamente: .\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
   Leva  : contexto do loop + comportamento do cliente + perguntas específicas
   Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos outros membros
 
-4. PASSO 6 → Músculo (este arquivo) — colar nesta ordem:
+4. PASSO 7 → Músculo (este arquivo) — colar nesta ordem:
   1. Skill [cliente]-v[N].md  ← output do NotebookLM
   2. Diretriz Técnica V[N]    ← output do Gemini
   3. PASSO6_MUSCULO.md        ← este arquivo
