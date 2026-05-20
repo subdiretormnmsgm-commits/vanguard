@@ -542,14 +542,20 @@ async function notificarEduardo(heatmap) {
       body: JSON.stringify({ p_user_id: USER_ID }),
     }).then((r) => r.ok ? r.json() : null).catch(() => null);
 
+    // dia_build: dias desde 15/05 (início do projeto), capped em 1-15
+    const diaAtual = Math.min(Math.max(
+      Math.ceil((Date.now() - new Date("2026-05-15T00:00:00-03:00").getTime()) / 86_400_000),
+      1), 15);
+
     await fetch(`${SUPABASE_URL}/functions/v1/notificar-progresso`, {
       method: "POST",
       headers: { Authorization: `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        user_id:          USER_ID,
-        sessao_hoje:      { acertos, total: feed.length, pontos: pontosAcumulados },
+        user_id:           USER_ID,
+        sessao_hoje:       { acertos, total: feed.length, pontos: pontosAcumulados },
         progresso_semanal: progresso,
-        heatmap_top3:     heatmap.slice(0, 3),
+        heatmap_top3:      heatmap.slice(0, 3),
+        dia_build:         diaAtual,
       }),
     });
   } catch (_) { /* silencioso — não bloqueia o fluxo */ }
