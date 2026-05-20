@@ -25,11 +25,22 @@
   Leva  : contexto do loop + comportamento do cliente + perguntas específicas
   Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos outros membros
 
-4. PASSO 7 → Músculo (este arquivo) — colar nesta ordem:
-  1. Skill [cliente]-v[N].md  ← output do NotebookLM
-  2. Diretriz Técnica V[N]    ← output do Gemini
-  3. PASSO6_MUSCULO.md        ← este arquivo
-  Dizer: "PROTOCOLO VANGUARD — [NOME]. Execute /[cliente]-v[N] antes de deliberar."
+4. PASSO 7 → Músculo (este arquivo)
+  Você terá em mãos ao iniciar:
+    · [cliente]-v[N].md (Skill) <- PARTE 3 copiável do Auditor
+    · Auditor PARTE 1+2+4       <- [N-1 a N-5] NAO estao na Skill — colar SEPARADO
+    · Diretriz Técnica V[N]     <- [G-1 a G-5] do Gemini
+    · Output do Embaixador      <- [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA
+    · PASSO6_MUSCULO.md         <- este arquivo
+  Colar nesta ordem (fatos antes de ideias):
+    1. Skill [cliente]-v[N].md
+    2. Auditor PARTES 1 + 2 + 4 (com [N-1 a N-5])
+    3. Diretriz Técnica V[N]
+    4. Output do Embaixador
+    5. PASSO6_MUSCULO.md
+  PRIMEIRA ACAO: executar /[cliente]-v[N] antes de qualquer palavra.
+  Dizer: "PROTOCOLO VANGUARD — [NOME]. Execute /[cliente]-v[N] antes de deliberar.
+          Trago Skill + Auditor completo + DIRETRIZ + Embaixador. Delibere nos 7 pontos."
 ```
 
 > O Embaixador corre ANTES do Músculo deliberar — filtro de realidade (P-031) antes do build.

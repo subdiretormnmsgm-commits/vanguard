@@ -27,13 +27,20 @@
 
 4. PASSO 7 → Músculo (este arquivo)
   Você terá em mãos ao iniciar:
-    · valdece-v7.md         <- [N-1 a N-5] do Auditor  (PASSO 5)
-    · Diretriz Técnica V7   <- [G-1 a G-5] do Gemini   (PASSO 3)
-    · [E-1 a E-5] do Embaixador <- CONFIRMA/EXPANDE/ALERTA (PASSO 6 ja executado)
-    · PASSO6_MUSCULO.md     <- este arquivo
-  Colar nesta ordem: Skill → DIRETRIZ → PASSO6_MUSCULO.md
+    · valdece-v7.md (Skill)   <- PARTE 3 copiável do Auditor
+    · Auditor PARTE 1+2+4     <- [N-1 a N-5] NAO estao na Skill — colar SEPARADO
+    · Diretriz Técnica V7     <- [G-1 a G-5] do Gemini   (PASSO 3)
+    · Output do Embaixador    <- [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA (PASSO 6)
+    · PASSO6_MUSCULO.md       <- este arquivo
+  Colar nesta ordem (fatos antes de ideias):
+    1. Skill valdece-v7.md
+    2. Auditor PARTES 1 + 2 + 4 (com [N-1 a N-5])
+    3. DIRETRIZ_GEMINI_V7.txt
+    4. Output do Embaixador
+    5. PASSO6_MUSCULO.md
   PRIMEIRA ACAO: executar /valdece-v7 antes de qualquer palavra.
-  Dizer: "PROTOCOLO VANGUARD — VALDECE. Loop 7. Execute /valdece-v7 antes de deliberar."
+  Dizer: "PROTOCOLO VANGUARD — VALDECE. Loop 7. Execute /valdece-v7 antes de deliberar.
+          Trago Skill + Auditor completo + DIRETRIZ + Embaixador. Delibere nos 7 pontos."
 ```
 
 > O Embaixador corre ANTES do Músculo deliberar — filtro de realidade (P-031) antes do build.
