@@ -1,5 +1,5 @@
 # PASSO 5 — TEMPLATE UNIVERSAL: PARA O NOTEBOOKLM (AUDITOR)
-# Versão: Universal v2.0 · 2026-05-18 · QUADRILATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v2.1 · 2026-05-20 · QUADRILATERAL_UNIVERSAL/OPERACAO/
 # Uso: O Músculo preenche os [PLACEHOLDERS] com dados reais antes de enviar.
 
 ---
@@ -20,8 +20,15 @@
    Selecionar todos os arquivos da pasta (Ctrl+A) → arrastar como fontes.
 
 3. NO CHAT DO NOTEBOOKLM:
-   Colar o conteúdo completo deste arquivo (PASSO5_NOTEBOOKLM.md),
-   com a DIRETRIZ do Gemini já inserida no campo indicado abaixo.
+   Digitar apenas o comando curto abaixo — o arquivo 13_PASSO5_NOTEBOOKLM.md
+   já está nas fontes carregadas. Não colar o conteúdo completo.
+
+   ┌──────────────────────────────────────────────────────────┐
+   │  Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill.           │
+   └──────────────────────────────────────────────────────────┘
+
+   Isso é gestão: um comando, zero cópia, zero esquecimento.
+   O Auditor localiza o arquivo nas fontes e executa o protocolo completo.
 ```
 
 > Por que usar o script: ele monta a pasta certa com os 15 documentos na ordem
