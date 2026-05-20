@@ -400,6 +400,21 @@ Write-Host "=============================================="
 Write-Host "  AUTO-PREPARAÇÃO DOS 3 SÓCIOS"
 Write-Host "=============================================="
 
+# Pré-etapa — Sync universal: QUADRILATERAL_UNIVERSAL → NOTEBOOKLM_FONTES de todos os projetos
+$syncScript = Join-Path $BASE ".claude\skills\files\sync_vanguard_docs.ps1"
+if (Test-Path $syncScript) {
+    Write-Host ""
+    Write-Host "  [0/3] Sync universal → NOTEBOOKLM_FONTES..."
+    try {
+        & powershell.exe -NonInteractive -File $syncScript -modo completo 2>$null | Out-Null
+        Write-Host "  [OK]  Sync concluido — P-033 satisfeito" -ForegroundColor Green
+    } catch {
+        Write-Host "  [!!]  Sync falhou — verificar sync_vanguard_docs.ps1" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "  [--]  sync_vanguard_docs.ps1 nao encontrado" -ForegroundColor DarkGray
+}
+
 # Sócio 1 — Gemini: regenerar CONTEXTO_GEMINI.md
 $anchorScript = Join-Path $BASE "scripts\gemini_anchor_generator.ps1"
 if (Test-Path $anchorScript) {
