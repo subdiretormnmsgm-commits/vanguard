@@ -162,11 +162,12 @@ PEDIDO AO EMBAIXADOR:
 > Prazo máximo: 24 horas após o contato.
 
 ```
-Embaixador, debrief pós-demo com VALDECE.
+Embaixador, debrief pós-reunião com VALDECE — 2026-05-19.
 
 O QUE ACONTECEU (Eduardo relata informalmente):
-[DESCREVER: como foi a demo, quais temas Valdece buscou, como reagiu ao resultado,
- pedidos que fez, perguntas que fez, como terminou a reunião, o contrato foi assinado?]
+Contrato assinado presencialmente em 2026-05-19. Deu tudo certo.
+[COMPLETAR: como foi a demo — Valdece operou o sistema no PC dele? Quais temas buscou?
+ Como reagiu ao resultado? Fez perguntas? Mencionou alguém? Algo surpreendente?]
 
 PEDIDO AO EMBAIXADOR:
 Com base neste relato e no histórico do Valdece na MEMORIA_EMBAIXADOR:

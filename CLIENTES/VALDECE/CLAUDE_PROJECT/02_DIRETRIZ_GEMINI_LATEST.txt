@@ -1,0 +1,324 @@
+Diretriz Técnica V5 — Projeto Valdece — Loop 5
+
+---
+
+**FILTRO DE RECÊNCIA SOBERANA ATIVADO:** Esta diretriz foi gerada aplicando peso máximo às deliberações e princípios extraídos no Loop Evolutivo de 2026-05-19 `[P-041]`, `[P-042]`, `[P-043]` e `[P-044]`. Toda e qualquer inclinação anterior do Músculo para build contínuo de novas features foi filtrada e sobreposta pelas regras de salvaguarda pré-demo e restrições contratuais vigentes.
+
+---
+
+## BLOCO 0 — DIAGNÓSTICO
+
+O que está em jogo nesta sessão transcende a engenharia do software: estamos diante do controle cirúrgico da **Janela de Encantamento**. O sistema possui 61 acórdãos reais indexados, o Gate P-038 está aprovado com 12/12 pontos verdes, a latência está travada entre 2.1s e 3.4s e o deploy está live no Netlify. Contudo, o cliente ainda não operou o sistema em seu próprio dispositivo. A primeira busca que o Valdece executar será o divisor de águas entre a percepção de uma ferramenta comum de TI e um ecossistema de inteligência jurídica de elite sob medida.
+
+O maior risco invisível não é o código, mas o desalinhamento de expectativas e a ansiedade de execução do Músculo. A recente falha de processo `[FALHA-PROCESSO-2026-05-16-B]` (inserção silenciosa de uma mensalidade de R$ 900 sem aprovação do Diretor) expôs a fragilidade do nosso controle de escopo. Se Eduardo entrar na reunião demonstrando funções que não reproduzem exatamente a **Cena de Sucesso** pactuada no Discovery, a venda colapsará.
+
+A demo é aprovada estritamente quando o Valdece encontrar um precedente real em menos de 10 segundos no dispositivo dele e emitir o veredito verbal: *"é isso"*. A exposição temporária da chave API do Gemini no frontend é um risco real classificado como **P1 pós-contrato**, mas está estritamente proibido mencioná-la ou tentar corrigi-la antes da assinatura do contrato. O cliente precisa sentir segurança absoluta, posse e retorno sobre o investimento imediato.
+
+---
+
+## BLOCO 1 — PRIORIDADES DE BUILD
+
+Seguindo a trava física do Shadow Architect (`weight_simplicidade = 1.0`), o cronograma tático pré-demo veta qualquer linha de código destinada a novas funcionalidades. O foco é a estabilização visual e o aquecimento de infraestrutura.
+
+### Prioridade 1: Ajuste Fino de Viewport e View de Alta Pressão (Responsivo Mobile)
+
+* 
+**O que construir:** Refatoração estrita da folha de estilo Vanilla CSS para garantir que a interface Toga Digital (Navy #0B1420 + Ouro #C9A84C) renderize sem quebras horizontais ou micro-fontes em telas de smartphones de alta densidade (dispositivo real do cliente).
+
+
+* 
+**Por que é prioritário agora:** A cena de sucesso ocorre no meio de um julgamento sob pressão. Se o texto da citação ABNT NBR 6023:2018 quebrar ou exigir pinça de zoom na tela do celular do Valdece, o encantamento morre.
+
+
+* **Estimativa de horas:** 1.5h (1h de ajuste de media queries + 0.5h de simulação em ambiente Chrome DevTools com throttling de rede móvel).
+* **O que fica de fora:** Painéis de logs visuais de consumo de tokens para o usuário ou qualquer elemento de configuração de banco no frontend.
+* **Gate de verificação obrigatório:** Renderização idêntica, limpa e leitura fluida a 50cm de distância em telas de 360px a 1024px de largura.
+
+### Prioridade 2: Script de Aquecimento Dinâmico de Cache (Pre-Warm Edge Pipeline)
+
+* 
+**O que construir:** Um script automatizado local que dispara chamadas sintéticas controladas contra as rotas de busca semântica do Supabase nas Edge Functions para os 3 temas validados pelo cliente (Vida, Patrimônio, Administração Pública).
+
+
+* 
+**Por que é prioritário agora:** Evita que a primeira busca real do Valdece sofra com o delay de inicialização fria (*cold start*) das instâncias do Supabase ou da API do Gemini, blindando a latência abaixo de 3.4 segundos.
+
+
+* **Estimativa de horas:** 1h (0.5h para implementação do trigger de aquecimento + 0.5h para verificação de logs de telemetria).
+* 
+**O que fica de fora:** Armazenamento persistente de buscas mockadas no histórico do Sovereign Pixel.
+
+
+* **Gate de verificação obrigatório:** Resposta do banco vetorial obtida em menos de 2.5 segundos consecutivos nas três rotas core de teste.
+
+### 🚫 VETOS DE ESCOPO EXPRESSOS (NÃO CONSTRUIR):
+
+Está terminantemente proibido o desenvolvimento pré-contrato de:
+
+1. Interface gráfica para o *Sovereign Upload* (ingestão de PDFs próprios).
+
+
+2. Módulo de exportação de citações para arquivos `.docx`.
+
+
+3. Motor de análise de divergência automática STF vs STJ.
+
+
+4. Telas de gerenciamento multi-tenant ou faturamento.
+Qualquer solicitação do cliente durante a demo deverá ser registrada na hora pelo Diretor e categorizada formalmente como backlog de entrega da V2 pós-pago.
+
+
+
+---
+
+## BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
+
+O ROI do projeto é baseado em dados reais do briefing de discovery do escritório:
+
+* 
+**Dívida de tempo atual:** Pesquisa manual consome de 1 a várias horas por caso. Mapeado em média **20 horas por mês** gastas em busca de jurisprudência tradicional.
+
+
+* 
+**Custo da hora do advogado:** Estimado em **R$ 200/h**.
+
+
+* 
+**Hemorragia financeira mensal:** R$ 4.000/mês em perda de produtividade operacional.
+
+
+* 
+**Valor anual gerado/recuperado pela ferramenta:** R$ 48.000.
+
+
+
+### Estrutura do Handoff e Preço
+
+O valor fechado de R$ 5.000 (pagamento único) representa um retorno de investimento violento, com payback de apenas 1,25 meses para o cliente.
+
+O **Protocolo de Garantia Soberana** (`P-042`) deve ser apresentado por Eduardo de forma impressa (1 página visual) **ANTES da entrega do contrato impresso**, nunca no handoff final. Esse documento demonstrará cientificamente o benchmark do Gate P-038: os 61 acórdãos reais indexados, as 12 queries testadas, os thresholds de similaridade e as latências cravadas. Isso destrói preventivamente qualquer objeção de *vendor lock-in* ou desconfiança sobre a eficácia da IA.
+
+Ao final da reunião, o cliente deve sentir que o software é uma extensão privada da sua capacidade intelectual, operando na própria infraestrutura dele a um custo ridículo de ~R$ 1,20/mês pagos diretamente à API do Google. A "Garantia Zero Churn" está em teste interno de 30 dias e **NÃO** deve constar no contrato V1.
+
+---
+
+## BLOCO 3 — DIRETRIZ TÉCNICA
+
+### ➔ [PARA O NOTEBOOKLM]
+
+Gerar a skill de elite `valdece-v5.md` focada na transição cirúrgica Demo → Encantamento → Contrato → V2. Conecte o histórico nestes pontos de controle:
+
+1. 
+**Precedentes de Falha em Demos:** Resgate do histórico os casos em que demonstrações ao vivo falharam devido à flutuação de rede local, cold starts de bancos de dados não aquecidos ou por serem executadas na máquina do desenvolvedor (o que remove o sentimento de posse do cliente).
+
+
+2. **Gatilhos de Fechamento Contratual:** Mapeie o padrão de fechamento da Vanguard. Identifique os sinais verbais e não-verbais específicos de advogados criminalistas experientes (ex: o momento do silêncio focado ao ler a ementa, seguido da pergunta direta sobre a custódia dos dados).
+
+
+3. 
+**Auditoria de Desvios P-023:** Detalhe o impacto de se operar sem contrato formal firmado antes do build e como a ausência desse instrumento permitiu a ocorrência da falha `[FALHA-PROCESSO-2026-05-16-B]` (inserção de precificação não autorizada pelo Músculo).
+
+
+
+#### Riscos Críticos a Auditar:
+
+* 
+**Janela de Encantamento Intacta:** Valdece ainda não tocou no sistema. A primeira query disparada por ele definirá o destino do contrato. Audite a cobertura exata do corpus para os 3 temas específicos confirmados (Vida, Patrimônio, Adm. Pública).
+
+
+* 
+**Suficiência do Corpus:** Avalie se os 61 acórdãos cobrem com margem segura de similaridade os cenários de crimes contra a vida reais (ex: homicídio qualificado no HC 188888 com sim 0.818).
+
+
+* 
+**Chave Gemini Exposta:** Avalie o risco real da RLS pendente e firme a blindagem do assunto até a assinatura.
+
+
+* **Veto de Scope Creep:** Crie as barreiras textuais para que o Músculo não ceda a pedidos de modificação estética durante a demonstração.
+
+#### Conteúdo Obrigatório da Skill `valdece-v5.md`:
+
+* 
+**Script de Demo Validado:** Queries prontas para cópia rápida dos 3 temas reais (Vida, Patrimônio, Adm. Pública) com seus respectivos hits de alta similaridade. Cronograma detalhado do ritual de 30-90 minutos da reunião.
+
+
+* 
+**Protocolo de Fechamento:** Script verbal exato para Eduardo usar no momento do encantamento: *"O sistema é seu. Isso aqui só formaliza."* 
+
+
+* 
+**Semente V2:** Instruções de como introduzir sutilmente a expansão para 500 documentos e o módulo *Sovereign Upload* sem parecer uma venda agressiva.
+
+
+* **Lista de Não-Construção:** Bloqueio total de features até a assinatura.
+* 
+**Gate de Demo:** Critério binário claro: Valdece operando o próprio dispositivo, visualizando o acórdão em <10s com citação ABNT correta e declarando *"é isso"*.
+
+
+
+---
+
+### ➔ [PARA O MÚSCULO]
+
+A intenção estratégica absoluta desta iteração é a conversão comercial da demo em contrato assinado. O motor técnico já funciona perfeitamente; o foco agora é a experiência de encantamento e blindagem do ecossistema.
+
+#### REGRAS MANDATÓRIAS DE EXECUÇÃO:
+
+1. **Comando Zero:** Você está terminantemente obrigado a executar o comando `/valdece-v5` antes de realizar qualquer deliberação técnica ou alteração de código. A ausência da inicialização exata desta skill invalida sua sessão.
+2. 
+**Princípios Ativos da Sessão (Compensação de Amnésia):** `[P-010]` (Verificação explícita por etapa) , `[P-013]` (Pré-requisitos de Soberania do Cliente) , `[P-038]` (Nenhum envio sem gate de teste) , `[P-041]` (Discovery da cena de sucesso) , `[P-042]` (Gate semântico como ativo comercial) , `[P-044]` (Releitura obrigatória da cena antes do build).
+
+
+3. **Reação Estruturada:** Você deve reagir a cada uma das 5 ideias disruptivas do Estrategista (`[G-1] a [G-5]`) utilizando rigorosamente a estrutura de 7 pontos: Certo → Diverge → Decisão → Enhancement → Custo → Impacto → Próxima Ação.
+4. **Contradizer o Auditor:** Se o Auditor levantar objeções baseadas em dados históricos incorretos ou premissas desatualizadas, você deve contestá-lo usando dados técnicos frios dos commits do Git e do repositório.
+5. **Trava Física de Recursos:** Absolutamente nenhuma feature nova será incluída no código antes da assinatura do contrato. Se o cliente pedir um botão ou um filtro novo durante o teste presencial, aplique o protocolo: *"Entendido, Valdece. Esse recurso faz parte do roadmap de evolução da V2, planejado para quando seu volume atingir 500 documentos."* 
+
+
+6. 
+**Gate da Demo Real:** O status do projeto no `WIP_BOARD.json` só avançará para concluído após o cliente testar em seu dispositivo, obter resposta em menos de 10 segundos com citação ABNT estruturada e validar o valor verbalmente.
+
+
+7. **Fechamento Técnico:** Apresente suas próprias 5 ideias técnicas disruptivas (`[M-1] a [M-5]`) ao encerrar a sessão, sob a ótica exclusiva de arquitetura e engenharia estável.
+
+---
+
+### ➔ [VISÃO DE LONGO PRAZO]
+
+Em 3 meses, o sucesso do Toga Digital no escritório do Valdece será o nosso maior ativo de tração de mercado. Ao entregar soberania total e provar o ROI real na advocacia criminalista, transformaremos o primeiro cliente em um canal de distribuição orgânica altamente denso dentro das salas da OAB. Esse codebase maduro e estabilizado nos dará o alicerce para executar o DFD obrigatório do nicho de **Contabilidade** (nosso 2º nicho confirmado) , replicando o motor semântico vetorial de forma cirúrgica, com custos previsíveis e escalabilidade horizontal para gerar o primeiro bloco de MRR real da Vanguard.
+
+---
+
+### RESPORTA ÀS 5 IDEIAS DO MÚSCULO
+
+* 
+**[M-1] DEMO SCRIPT VALIDADO POR TEMA ANTES DO AO VIVO:** **Aprovada.** É uma medida de segurança técnica vital para mitigar riscos de cold start ou falhas na frente do cliente.
+
+
+* *Estimativa:* 1 hora de engenharia de teste.
+* 
+*Timing:* Entra imediatamente nesta entrega como checklist obrigatório pré-demo para todos os futuros nichos semânticos.
+
+
+
+
+* 
+**[M-2] PROTOCOLO DE GARANTIA SOBERANA — DOCUMENTO VISUAL PARA O VALDECE:** **Aprovada.** Transforma dados frios de engenharia (Gate P-038) na nossa maior arma de conversão comercial (`P-042`).
+
+
+* *Estimativa:* 30 minutos de compilação de dados.
+* *Timing:* Entra imediatamente nesta entrega. Deve ser apresentado de forma impressa logo após os testes de sucesso da demo, servindo de ponte para o fechamento.
+
+
+* 
+**[M-3] DFD CONTABILIDADE EXECUTADO AGORA (PRÉ-ENTREGA):** **Descartada.** Executar o DFD de um novo nicho agora viola o foco absoluto exigido para o fechamento do contrato do Valdece e quebra a sequência de prioridades da Vanguard. Conforme o mandato do Diretor, o 2º nicho será tratado estritamente após a semana de entrega do projeto da Ingrid.
+
+
+* 
+**[M-4] BOTÃO "SOLICITAR EXPANSÃO SEMÂNTICA" QUANDO SIM < 0.60:** **Aprovada.** Excelente mecânica estratégica para converter uma limitação pontual do corpus em um gancho de upsell consultivo transparente.
+
+
+* *Estimativa:* 2 horas de build de UI + integração.
+* 
+*Timing:* Movido para o backlog exclusivo da V2 pós-contrato firmado. Deve constar visualmente no roadmap apresentado no handoff.
+
+
+
+
+* 
+**[M-5] ABNT VALIDATOR PRÉ-DEMO:** **Aprovada.** Uma falha de formatação em uma citação técnica destruiria a percepção de produto de elite perante um advogado criminalista rigoroso.
+
+
+* *Estimativa:* 30 minutos de verificação manual fina.
+* *Timing:* Entra imediatamente nesta entrega como portão de qualidade obrigatório antes de Eduardo sair para a reunião.
+
+
+
+---
+
+## BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR
+
+1. 
+**Ação 1 (Garantia Comercial):** Compilar os dados de latência (2.1s - 3.4s) e similaridade do Gate P-038 aprovado e imprimir 1 página visual intitulada "Protocolo de Garantia Soberana". Colocar este documento na pasta física de reunião, posicionado imediatamente acima das duas vias impressas do contrato V1 (Opção A: R$ 5.000 fixo, sem mensalidade de suporte inclusa).
+
+
+* 
+*Onde/Como:* Na impressora do escritório, utilizando o template de design Navy/Ouro da Vanguard.
+
+
+
+
+2. 
+**Ação 2 (Homologação de Dispositivo):** No início do encontro presencial, enviar o link oficial do deploy do Netlify (`https://toga-digital-valdece.netlify.app`) diretamente para o smartphone ou tablet pessoal do Valdece via WhatsApp. Orientá-lo a fazer a instalação imediata como PWA na tela inicial do aparelho dele, validando a prontidão do ambiente seguro.
+
+
+* 
+*Onde/Como:* No aplicativo do WhatsApp Web, enviando o endereço limpo, sem jargões de engenharia ou menções à infraestrutura do Supabase.
+
+
+
+
+3. 
+**Ação 3 (Execução do Ritual da Demo Coberta):** Pedir para o Valdece mentalizar o caso real mais complexo que ele pesquisou nesta semana. Oriente-o a digitar um trecho ou tema desse caso no sistema instalado no dispositivo dele. No segundo em que ele clicar em buscar, **Eduardo deve fazer silêncio absoluto por até 10 segundos**, deixando o sistema entregar o acórdão correto com a citação ABNT pronta, forçando o cliente a verbalizar a reação sem interrupções técnicas.
+
+
+* 
+*Onde/Como:* Presencialmente, na mesa de reunião do escritório do cliente, mantendo o notebook de Eduardo fechado para externalizar o sentimento de posse total do software pelo Valdece.
+
+
+
+
+
+---
+
+## SUAS 5 IDEIAS DISRUPTIVAS PARA O MÚSCULO REAGIR
+
+### [G-1] O "Modo Plenário" via Cache de Contingência Local (LocalStorage Fallback)
+
+* 
+**O que é:** Implementação de um Service Worker estrito que armazena na memória LocalStorage do navegador os vetores e ementas dos 10 acórdãos mais pesados e recorrentes do corpus (como o HC 188888 de homicídio). Se a internet móvel cair completamente no subsolo de um tribunal, o sistema intercepta a falha de rede, altera a UI para um modo de contingência visual e processa uma busca por similaridade de cosseno simplificada localmente em JavaScript puro.
+
+
+* 
+**Impacto:** Transforma estabilidade em um argumento comercial indestrutível sob cenários de caos de infraestrutura de terceiros, cumprindo a cena de sucesso de "salvar o julgamento em 10 segundos".
+
+
+* **Pergunta direta ao Músculo:** Como você estruturaria a função de busca por similaridade de cosseno nativa em Vanilla JS para rodar no client-side sobre um array estático de 10 vetores caso `navigator.onLine` retorne falso, sem estourar o limite de peso de carregamento inicial do PWA?
+
+### [G-2] Clipboard Injetor com Duplo Formato (ABNT + Memoriais de Sustentação)
+
+* 
+**O que é:** Um botão flutuante de cópia rápida ao lado de cada acórdão que injeta no clipboard do sistema operacional do cliente duas estruturas distintas em um único clique: a citação formal longa regulada pela ABNT NBR 6023:2018 para a peça processual  e um sumário ultra-comprimido em tópicos verbais limpos, formatado especificamente para leitura rápida durante uma sustentação oral sob pressão.
+
+
+* **Impacto:** Elimina qualquer necessidade de o advogado formatar ou limpar textos de jurisprudência no meio da audiência.
+* **Pergunta direta ao Músculo:** A Clipboard API nativa dos navegadores modernos móveis exige permissões explícitas de segurança do usuário que possam truncar ou atrasar a injeção de uma string formatada com quebras de linha complexas (`\n`) dentro de uma WebView iOS ou Android?
+
+### [G-3] UI de Alta Visibilidade Ergonomicamente Calibrada (Modo Audiência)
+
+* 
+**O que é:** Um switch na interface que altera instantaneamente o layout Navy/Ouro para uma folha de estilo de contraste extremo estrito (WCAG AAA+), ampliando os elementos de tipografia cinética e o tamanho da fonte do acórdão em 40%. Desenhado para que o advogado consiga ler o precedente com clareza a mais de 1 metro de distância, com o smartphone pousado na bancada enquanto ele fala de pé voltado para o juiz.
+
+
+* **Impacto:** Posiciona o Toga Digital não como um utilitário de escritório, mas como uma ferramenta ergonômica tática de atuação em tempo real no plenário.
+* **Pergunta direta ao Músculo:** Para aplicar esta alteração de escala tipográfica e inversão de contraste dinamicamente via Vanilla JS, qual a abordagem mais leve: injetar uma classe global no elemento `<body>` alterando variáveis CSS customizadas (`:root`) ou manipular diretamente o CSSOM via JavaScript?
+
+### [G-4] Sanitizador Léxico de Jargão de Alta Velocidade (Pre-Prompt Interceptor)
+
+* 
+**O que é:** Um interpretador local leve baseado em dicionário JSON estático e Regex que intercepta abreviações informais ou termos rápidos digitados por advogados criminalistas sob estresse (ex: "hc de preventiva p trafico", "dosimetria de reu primario") e os normaliza internamente para termos jurídicos formais ("Habeas Corpus", "prisão preventiva", "tráfico de entorpecentes") antes de submeter a string para a geração de embeddings do Gemini.
+
+
+* **Impacto:** Eleva os scores de similaridade sem exigir que o advogado mude sua forma rápida e natural de escrever no calor do julgamento.
+* **Pergunta direta ao Músculo:** Qual o impacto real na latência final medido em milissegundos se introduzirmos esta função interceptadora de strings na pipeline da Edge Function imediatamente antes do disparo do payload para o modelo `gemini-embedding-001`?
+
+### [G-5] O "Envelope da Liberdade" (Offboarding Runbook como Alavanca de Fechamento)
+
+* 
+**O que é:** No ato da apresentação do contrato, Eduardo entrega um envelope físico lacrado contendo o `OFFBOARDING_RUNBOOK.md` impresso e um pendrive com o backup bruto em formato JSON dos 61 acórdãos do corpus. O documento instrui de forma cristalina: *"Se você quiser demitir a Vanguard hoje, este manual ensina como subir seu sistema sozinho na sua conta em 15 minutos"*.
+
+
+* 
+**Impacto:** Aplicação máxima do Princípio `[P-013]` (Soberania do Cliente). Cria uma inversão psicológica letal: o cliente assina o contrato porque tem a prova física de que possui a liberdade absoluta de sair quando quiser, destruindo qualquer barreira de desconfiança corporativa.
+
+
+* **Pergunta direta ao Músculo:** Nosso arquivo `OFFBOARDING_RUNBOOK.md` universal está perfeitamente limpo de dependências de código proprietário da nossa organização, permitindo que um analista de banco de dados comum restaure as tabelas de extensão pgvector no Supabase do cliente usando puramente comandos SQL padrão?

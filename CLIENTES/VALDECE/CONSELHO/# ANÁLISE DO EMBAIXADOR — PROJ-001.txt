@@ -1,0 +1,381 @@
+# ANÁLISE DO EMBAIXADOR — PROJ-001 VALDECE
+**Para:** Músculo (Claude Code)  
+**De:** Embaixador (Claude Projects — PROJ-001)  
+**Data:** 2026-05-19  
+**Fontes:** LEDGER P-001→P-035 · WIP_BOARD · DIRETRIZ V3 · MEMORIA V24 · RELATORIO V24 · TEMPLATE RELATORIO V2 · CALIBRACAO_QUADRILATERAL · COMANDO_AUDITOR_V1  
+**Classificação:** Inteligência acumulada de case fundacional — alimentar loop evolutivo imediatamente
+
+---
+
+## PARTE 1 — O QUE ESTE PROJETO PROVOU
+
+O PROJ-001 Valdece não é o primeiro cliente. É o **primeiro teste real do Pentalateral IAH sob condições de produção**: prazo de 5 dias, cliente não-técnico, nicho especializado, entrega presencial, credenciais reais, demo com resultado binário — contrato ou não.
+
+O organismo saiu mais inteligente. Mas não por acaso — por fricção documentada.
+
+### O que funcionou
+
+**O gate substituiu a fé.** Em V1–V24, a Vanguard construiu sistemas sem cliente. No Valdece, o gate P-038 tornou a demo previsível: 12 queries testadas, 12 verdes, latência mapeada, corpus validado antes de sentar com o cliente. Isso eliminou o maior risco de uma demo: o sistema falhar na primeira impressão.
+
+**A soberania virou argumento comercial.** O OFFBOARDING_RUNBOOK.md (P-013) foi entregue não como documento técnico, mas como prova de confiança. O cliente que vê "como me demitir em 30 minutos" não cancela — porque não se sente preso.
+
+**O corpus_gap virou fechador de negócios.** A DIRETRIZ V3 do Gemini identificou antes do build: o log de buscas com similaridade < 0.50 não é métrica técnica — é a prova matemática dos temas não cobertos. Em 30 dias, esses temas justificam a V2. O Músculo construiu uma feature; o Gemini transformou em argumento comercial.
+
+**P-008 se confirmou na prática.** O primeiro cliente de nicho não é fonte de MRR — é canal de distribuição. Valdece na OAB-DF tem acesso a 50 colegas criminalistas. A demo bem-sucedida com ele vale mais que qualquer campanha de aquisição.
+
+### O que revelou risco
+
+O gate de teste (P-038) não estava no processo original. Emergiu durante o build porque o Músculo percebeu que "funciona na Vanguard" ≠ "funciona na conta do Valdece". Isso deve virar princípio formal — não prática ad hoc.
+
+O distanciamento entre build e expectativa do cliente — detalhado na Parte 2 — foi o risco mais silencioso do projeto.
+
+---
+
+## PARTE 2 — O DISTANCIAMENTO DETECTADO E SUA CAUSA RAIZ
+
+O Diretor identificou durante o projeto que em determinados momentos o que estava sendo construído se distanciou do que o cliente havia pedido.
+
+Este é o risco mais silencioso de qualquer build rápido. O Músculo entra em momentum de execução e o momentum, sem verificação, gera drift — P-010 existe exatamente para isso, mas não cobre a dimensão de expectativa do cliente.
+
+### A causa raiz não foi técnica
+
+O discovery capturou o problema declarado pelo cliente. Não capturou o resultado imaginado.
+
+Valdece disse: *"Busca de jurisprudência no STF e STJ exige muito tempo, às vezes horas."*
+
+O que ele imaginou: estar em audiência, júri começa em 20 minutos, digitar uma frase e encontrar o precedente certo antes do juiz. Resultado = vantagem em julgamento.
+
+O que o build priorizou por alguns ciclos: corpus, threshold, embedding, arquitetura — correto tecnicamente, invisível para o cliente.
+
+A divergência foi corrigida. Mas o mecanismo que a gerou — ausência de uma pergunta específica no discovery — precisa ser endereçado estruturalmente.
+
+A DIRETRIZ V3 do Gemini tocou nisto indiretamente ao identificar que o corpus_gap é "o maior vendedor disfarçado de código" — o Gemini viu o valor comercial do que o Músculo tratou como métrica técnica. Isso é exatamente o padrão: o build otimiza para o sistema, o cliente otimiza para a cena.
+
+---
+
+## PARTE 3 — DOIS PRINCÍPIOS NOVOS PARA O LEDGER
+
+Ambos emergem diretamente do PROJ-001. Numeração sequencial pelo Músculo após verificar o estado atual do LEDGER.
+
+---
+
+### [P-novo-A] Discovery deve capturar a cena de sucesso, não apenas o problema declarado
+
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — análise pós-gate  
+**Evidência:** Valdece declarou "busca de jurisprudência consome horas". O build otimizou para corpus e threshold — correto tecnicamente. Mas o cliente imagina uma cena específica: "júri em 20 minutos, encontro o precedente antes do juiz." Sem capturar essa cena no discovery, o build pode ser tecnicamente impecável e emocionalmente irrelevante para o cliente. O distanciamento detectado pelo Diretor durante o PROJ-001 tem origem aqui.  
+**Princípio:** No Passo 2 (Discovery), além das perguntas de problema e escopo, incluir obrigatoriamente: *"Me descreve uma situação real — uma cena específica — onde este sistema te salvaria. O que acontece, onde você está, qual é o resultado que muda."* A resposta é o critério de aceitação real do projeto — não o spec técnico.  
+**Corolário de build:** O Músculo usa a cena descrita como teste de aceitação final. Antes do handoff, rodar a cena exata no sistema real com o Diretor presente. Se funcionar → demo confiante. Se não → corrigir antes de sentar com o cliente.  
+**Corolário de demo:** A abertura da demo reproduz a cena do cliente, não demonstra features. "Você me disse que precisava do precedente antes do juiz — vamos fazer isso agora."  
+**Aplica-se a:** todo projeto cliente, todo nicho, toda camada.
+
+---
+
+### [P-novo-B] Gate de validação semântica é ativo de nicho, não burocracia de entrega
+
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — gate P-038  
+**Evidência:** O gate P-038 emergiu durante o build como proteção de demo. Mas ao documentar 12 queries + resultados + similaridades + latências, gerou algo mais valioso: um protocolo replicável para qualquer sistema de busca semântica jurídica. O segundo advogado criminalista custa 30 minutos de gate — não horas de fricção.  
+**Princípio:** O gate de validação semântica de qualquer sistema de busca deve ser documentado como artefato formal do projeto (não apenas executado). Estrutura mínima: área coberta + query testada + melhor similaridade + latência + status verde/amarelo/vermelho. Este documento é entregue ao cliente como parte do handoff e alimenta o perfil de nicho no WIP_BOARD.  
+**Corolário de escala:** A cada cliente no mesmo nicho, o gate fica mais preciso e o tempo de validação cai. Em 5 clientes LegalTech-Criminal, a Vanguard tem benchmark de performance que nenhum concorrente possui.  
+**Corolário comercial:** O gate documentado é argumento de proposta. "Testamos 12 queries antes de sentar com você" é diferencial de processo — não de produto.  
+**Aplica-se a:** todo sistema de busca semântica por nicho profissional. Candidatos imediatos: médico (CFM + jurisprudências clínicas), tributário (CARF + STJ), trabalhista (TST).
+
+---
+
+## PARTE 4 — DISCOVERY V2 — 8 PERGUNTAS COM COBERTURA SUBSTANCIAL DE ESCOPO
+
+O discovery atual tem 7 perguntas universais. O PROJ-001 revelou duas ausências críticas que geraram o distanciamento detectado pelo Diretor. Proposta de expansão para 8 perguntas com cobertura substancial:
+
+---
+
+### BLOCO A — O PROBLEMA
+
+**P1 — A dor com custo mensurável**
+> *"Qual dor do seu trabalho este sistema vai resolver? Quanto tempo ou dinheiro ela custa hoje?"*
+
+Por que importa: filtra clientes com dor real de clientes curiosos. P-006: sem custo mensurável, o GUT cai e a precificação por ROI fica especulativa. Registrar o número exato — vira argumento de ROI na proposta.
+
+---
+
+**P2 — A cena de sucesso** ← *nova, obrigatória, razão do distanciamento no Valdece*
+> *"Me descreve uma situação real — uma cena específica — onde este sistema te salvaria. O que acontece, onde você está, o que você está fazendo, qual é o resultado que muda."*
+
+Por que importa: esta é a pergunta que o discovery atual não faz. Ela captura o resultado imaginado pelo cliente, não apenas o problema declarado. É o critério de aceitação real do projeto. Sem ela, o Músculo constrói para o spec — não para a cena.
+
+Exemplo Valdece: *"Júri começa em 20 minutos. Preciso do precedente STJ sobre tráfico privilegiado antes do juiz citar o dele. Hoje levo 40 minutos no Google e às vezes não acho."*
+
+Como usar: a cena entra no briefing, vira teste de aceitação do build, e é a abertura da demo. "Você me disse que precisava do precedente antes do juiz — vamos fazer isso agora."
+
+---
+
+**P3 — Quem usa e como**
+> *"Quem vai usar no dia a dia? Descreve essa pessoa — nível técnico, rotina, onde acessa (celular, computador, em campo, sob pressão)."*
+
+Por que importa: define UX, device, complexidade de onboarding e criticidade. Cliente não-técnico em audiência = interface zero fricção + sovereign playbook completo. Cliente técnico em escritório = mais features, menos tutoriais.
+
+---
+
+**P4 — O que existe hoje e por que não resolve**
+> *"Como você resolve isso hoje? Quais ferramentas usa? O que funciona e o que falha nelas?"*
+
+Por que importa: mapeia concorrentes reais e o que o cliente já testou e rejeitou. Evita reconstruir o que ele descartou. No Valdece: STF portal + SCON + Dizer o Direito + Legislação Integrada — nenhum com busca semântica. Esse gap é o argumento de venda.
+
+---
+
+**P5 — O que não pode quebrar**
+> *"Se este sistema falhar no momento mais crítico, o que acontece? Qual é o pior cenário para o seu trabalho?"*
+
+Por que importa: define criticidade real e requisitos de resiliência. Um advogado em audiência que depende do sistema exige uptime, circuit breaker e sovereign playbook diferentes de um pesquisador eventual. A DIRETRIZ V3 do Gemini já sinalizou isso: o Cron Job deve falhar silenciosamente sem gastar quota — porque o custo vai para a conta do cliente.
+
+---
+
+**P6 — Escopo e limites** ← *expandida — previne scope creep*
+> *"O que este sistema definitivamente precisa fazer para você dizer que valeu o investimento? E o que ele definitivamente não precisa fazer — pelo menos por agora?"*
+
+Por que importa: esta pergunta é a que mais previne scope creep. O cliente que define o que não precisa agora está assinando o escopo implicitamente. Registrar verbatim — vira Cláusula 3 do contrato ("O que não está incluído").
+
+Exemplo Valdece: *"Precisa buscar STF e STJ. Não precisa de TJSP por enquanto. Não precisa gerar peças — só encontrar o precedente."*
+
+---
+
+**P7 — Investimento e urgência**
+> *"Quanto você investiria para resolver isso? E em quanto tempo você precisa?"*
+
+Por que importa: qualificação financeira e urgência real. P-006: calcular ROI antes de aceitar qualquer valor. Se o cliente propôs abaixo de 10% do valor anual gerado → aceitar apenas com contrapartida (% de MRR, cláusula de referência, direito de case público). No Valdece: R$5.000 proposto vs R$12.000–18.000 de valor de mercado → aceito com contrapartida de case fundacional.
+
+---
+
+**P8 — Expansão futura** ← *nova, obrigatória — planta V2 no discovery*
+> *"Se isso funcionar bem nos primeiros 30 dias, qual seria o próximo passo natural? Tem outras pessoas com a mesma dor que você conhece?"*
+
+Por que importa: mapeia V2 no discovery — não após a entrega. Revela se o cliente é canal de distribuição (P-008) ou conta isolada. A DIRETRIZ V3 já antecipou isso: o corpus_gap será o fechador da V2. Esta pergunta planta a semente antes do build começar.
+
+Exemplo Valdece: *"Tenho colegas na OAB que pagariam por isso."* → confirmação de P-008 antes do Dia 1.
+
+---
+
+### POR QUE 8 E NÃO 7
+
+A P2 (cena de sucesso) e a P8 (expansão futura) são as ausências que geraram o distanciamento detectado pelo Diretor e a sub-exploração comercial do caso Valdece.
+
+A P2 previne o drift entre build e expectativa.  
+A P8 planta a semente da V2 antes mesmo do V1 começar.  
+As demais refinam cobertura de escopo sem adicionar sobrecarga — o discovery ainda cabe em 30–45 minutos.
+
+O P6 foi expandido para cobrir limites explicitamente — o que o cliente diz que não precisa agora é tão valioso quanto o que ele pede.
+
+---
+
+## PARTE 5 — SKILL PROJETO VALDECE V1 — VERSÃO EMBAIXADOR
+
+*Complemento à Skill do Auditor (NotebookLM). O Embaixador contribui com a dimensão de relacionamento e comportamento real do cliente — o que o Auditor não pode ver sem memória persistente.*
+
+```
+════════════════════════════════════════════════════════════
+SKILL — JURISPRUDÊNCIA SEMÂNTICA VALDECE — V1
+Complemento do Embaixador ao Auditor
+════════════════════════════════════════════════════════════
+
+CONTEXTO
+Cliente: Valdece | Advogado criminalista autônomo | OAB-DF
+Camada: 1 (MVP soberano) | Stack: Supabase + Gemini + Vanilla JS
+Problema: Busca manual STF/STJ consome horas — especialmente em audiências
+Objetivo V1: Motor semântico funcionando na conta do cliente antes da demo
+
+[CONEXÃO HISTÓRICA — Para o Músculo]
+Burn Rate Shield: burn_rate_shield.js já existe em CLIENTES/VALDECE/backend/
+Kill Switch: kill_switch.js presente na mesma pasta
+Reutilizar diretamente — não recriar.
+Gate STJ: gate_stj.py em backend/ — validado mas sem teste em produção (ALERTA)
+seed_demo.py: população do corpus — rodar nas credenciais do Valdece antes da demo
+search_cli.py: interface de teste — validada com 12 queries, 12 verdes
+
+[PADRÃO DE SUCESSO]
+Gate antes de demo → elimina risco de falha na primeira impressão
+Corpus testado com queries do nicho real (não queries genéricas) → resultado
+Sovereign Playbook entregue no handoff → elimina objeção de dependência técnica
+Soberania total (infra na conta do cliente) → P-008: cliente vira propaganda ativa
+
+[PADRÃO DE FALHA — baseado em DIRETRIZ V3 e fricções do build]
+STJ sem teste em produção → Circuit Breaker obrigatório antes de entregar
+Cron Job sem try/catch blindado → custo no API do cliente pode disparar sem aviso
+Telemetry Heartbeat sem consentimento explícito → risco de confiança com cliente
+Features de V2 prometidas antes do contrato assinado → scope creep e expectativa inflada
+
+[PERSPECTIVA DO EMBAIXADOR — o que o Auditor e o Músculo não veem]
+
+· Funciona sistematicamente em clientes de nicho profissional:
+  Demonstrar a cena que o cliente descreveu no discovery — não as features do sistema.
+  Valdece descreveu "júri em 20 minutos". A demo deve começar por essa cena.
+  O cliente fecha o contrato mentalmente quando vê a sua própria situação acontecer na tela.
+
+· Falha sistematicamente:
+  Explicar o sistema antes de mostrar o resultado.
+  Jargão técnico (Supabase, pgvector, threshold) com clientes não-técnicos.
+  Preencher o silêncio enquanto o resultado aparece — o silêncio é aliado.
+
+· Diferencial deste projeto:
+  O corpus_gap (DIRETRIZ V3) é o fechador de negócios da V2.
+  O Músculo construiu uma métrica; o Gemini transformou em argumento comercial.
+  O Embaixador confirma: Valdece não sabe que o corpus_gap existe —
+  quando Eduardo apresentar os "12 temas que o sistema não cobriu ainda",
+  isso é o argumento mais forte que existe para a compra da V2.
+
+· Blind spot Músculo e Gemini:
+  A demo não termina quando o sistema funciona.
+  Termina quando Valdece digita a própria query sem ajuda e encontra o resultado.
+  O momento de virada é H-2: ele digitando, não Eduardo demonstrando.
+  Qualquer ajuda de Eduardo antes desse momento reduz o impacto.
+
+· Abordagem recomendada:
+  Abertura: "Você me disse que precisava do precedente antes do juiz. Vamos fazer isso."
+  Busca 1 e 2: Eduardo conduz — silêncio total após digitar
+  Busca 3: Eduardo mostra citação ABNT + modo preciso/amplo
+  Busca 4: Valdece digita sozinho — Eduardo não toca no teclado
+  Se encontrar → silêncio → ele fecha o contrato mentalmente
+  Sovereign Playbook: "Se eu sumir, você opera em 3 passos. Sem me ligar."
+  Contrato: "O sistema é seu. Isso aqui só formaliza."
+
+SEQUÊNCIA DE BUILD RECOMENDADA (Dias 4–5)
+Dia 4: Gate STJ em produção → Circuit Breaker → Citação ABNT → Busca Precisa/Ampla
+Dia 5: Auth + Edge Function cron blindada + seed_demo.py na conta do Valdece
+       → Gate P-038 (12 queries, 12 verdes) → Sovereign Playbook → Demo
+
+ALERTAS CRÍTICOS
+· STJ não testado em produção antes do Dia 4 = risco de quebra na demo [CRÍTICO]
+· Cron Job sem limite de execução = custo incontrolável na conta do cliente [CRÍTICO]
+· Demo sem a query que Valdece digita sozinho = janela de encantamento perdida [ALTO]
+· Corpus_gap não documentado antes da entrega = argumento de V2 perdido [ALTO]
+
+O QUE NÃO CONSTRUIR AGORA
+· Sovereign Upload — requer gestão de PDF e UI documental. V2 obrigatória.
+· Modo Audiência Voice — latência inaceitável em fórum. V3 ou descartada.
+· Relatório Mensal Automático — sem MRR, não há fatura a justificar. V2 como upsell.
+· Export DOCX — lib adicional, escopo silencioso. Avaliar no Dia 4 se tempo sobrar.
+· Telemetry Heartbeat — requer consentimento explícito do cliente. Risco de confiança.
+
+[PARA O SKILL_PROTOCOLO_VANGUARD]
+Padrões universais que emergem deste projeto:
+
+· Gate de validação semântica como artefato formal de entrega
+  → Aplicável a todo sistema de busca IA por nicho profissional
+
+· Discovery P2 (cena de sucesso) como critério de aceitação de build
+  → Aplicável a todo projeto cliente de qualquer camada
+
+· Corpus_gap como fechador comercial de V2
+  → Aplicável a todo sistema de busca com corpus limitado no MVP
+
+· Sovereign Playbook como argumento anti-dependência antes do contrato
+  → Aplicável a todo cliente de nicho profissional não-técnico (P-013 expandido)
+
+· Demo estruturada em torno da cena do cliente — não das features
+  → Aplicável a todo projeto onde o cliente descreveu uma situação específica
+════════════════════════════════════════════════════════════
+Salvar como: CLIENTES/VALDECE/SKILL_EMBAIXADOR_VALDECE_V1.md
+```
+
+---
+
+## PARTE 6 — RELATORIO_EVOLUTIVO V2 — SEÇÕES QUE O EMBAIXADOR COMPLETA
+
+*O template do Músculo (TEMPLATE_RELATORIO_EVOLUTIVO_V2.md) já tem a estrutura SWOT + PDCA + 5W2H. O Embaixador completa as seções de relacionamento e inteligência comercial que o Músculo não pode preencher.*
+
+### CHECK — Validações do Embaixador (além das técnicas)
+
+| Validação | Status |
+|---|---|
+| Cena de sucesso testada na demo | A confirmar 2026-05-20 |
+| Valdece digitou a 4ª busca sozinho | A confirmar 2026-05-20 |
+| Sovereign Playbook apresentado antes do contrato | A confirmar 2026-05-20 |
+| Corpus_gap documentado para argumento V2 | ✅ Registrado no gate P-038 |
+| Temas mais buscados identificados para Sentinel Report | Pendente — 14 dias pós-entrega |
+
+### SWOT — Dimensão de Relacionamento
+
+**Forças adicionais (perspectiva do Embaixador):**
+- Valdece é não-técnico e aprecia soberania — modelo Opção A elimina a principal objeção
+- OAB-DF como canal: 1 cliente satisfeito × 50 colegas = pipeline sem custo de aquisição
+- Corpus_gap documentado = argumento de V2 com evidência matemática, não especulação
+
+**Fraquezas adicionais:**
+- Cena de sucesso não foi capturada formalmente no discovery — risco de expectativa não alinhada
+- Sentinel Report não programado — sem dados de uso, argumento de V2 fica anedótico
+
+**Oportunidades adicionais:**
+- Primeiro Sentinel Report em 14 dias (2026-06-02) = argumento de ROI antes que Valdece questione o valor
+- Nicho OAB-DF = 3 outros nichos em discovery agora (Médico, Contabilidade, Psicologia)
+- Gate P-038 documentado = template replicável para todos os próximos sistemas de busca
+
+### ACT — 5 Ideias do Embaixador para o próximo ciclo [E-1 a E-5]
+
+**[E-1] Gate como entregável formal do contrato**
+O GATE_P038_MODELO_COMPLETO.md é o artefato mais replicável gerado neste projeto. Proposta: incluir "Gate de Validação Semântica documentado" como item 6 do escopo entregue em todo contrato de sistema de busca IA. O cliente recebe: sistema + gate + resultado do gate. Nenhuma agência entrega isso. Diferencial imediato de proposta.
+
+**[E-2] Cena de sucesso como abertura obrigatória de qualquer demo**
+A demo mais eficaz começa pela cena que o cliente descreveu no discovery — não pelas features. Proposta: o PROCESSO_EVOLUTIVO inclui no Passo 8 (execução) um sub-passo obrigatório: "Abrir a demo reproduzindo verbalmente a cena descrita pelo cliente na P2 do discovery." Custo de implementação: zero. Impacto na taxa de conversão: alto.
+
+**[E-3] Corpus_gap como SLA informal do Sentinel Report**
+Em 14 dias, o primeiro Sentinel Report mostra a Valdece: "Você buscou X temas, o sistema cobriu Y, Z ficaram sem resultado adequado." Esses Z temas são a V2. Proposta: Sentinel Report inclui obrigatoriamente a seção "Temas descobertos / Temas pendentes" como argumento comercial — não apenas como métrica técnica.
+
+**[E-4] Sovereign Playbook como argumento de proposta, não de handoff**
+Atualmente o Sovereign Playbook é entregue no handoff. Proposta: apresentar o Playbook durante a negociação comercial, antes do contrato. "Você pode me demitir em 30 minutos — isso está escrito aqui." Elimina a objeção de dependência antes que ela seja feita. Clientes de nicho profissional (advogados, médicos) têm alta aversão a lock-in.
+
+**[E-5] Discovery P8 como mapa de nicho, não apenas pergunta de venda**
+Quando Valdece mencionar colegas com a mesma dor, o Embaixador registra: nome, área de atuação, contexto da menção. Proposta: todo lead mencionado por cliente ativo entra no WIP_BOARD como "lead qualificado — origem: indicação [cliente]" com campo `cena_provavel` preenchido baseado no perfil do indicador. O próximo discovery começa já com a P2 (cena) semi-respondida.
+
+---
+
+## PARTE 7 — AÇÕES IMEDIATAS PARA O MÚSCULO
+
+Três ações que dependem do Músculo executar nesta sessão:
+
+**Ação 1 — Registrar os dois princípios no LEDGER**
+P-novo-A (cena de sucesso no discovery) e P-novo-B (gate como ativo de nicho). Numeração sequencial após verificar o estado atual do LEDGER. O Diretor aprova antes do commit.
+
+**Ação 2 — Atualizar o PROCESSO_EVOLUTIVO — Passo 2**
+A seção Discovery deve incluir as 8 perguntas com a P2 e P8 marcadas como obrigatórias. A P6 deve ser expandida para cobrir limites explícitos de escopo. Arquivo: `PROCESSO_EVOLUTIVO_QUADRILATERAL.md`.
+
+**Ação 3 — Atualizar o perfil LegalTech-Criminal no WIP_BOARD**
+Maturidade atual: 50%. Após gate P-038 aprovado: subir para 75%. Para 100%: demo executada + contrato assinado + 14 dias de uso real com Sentinel Report confirmado. Incluir no perfil: as 12 queries do gate + threshold padrão (0.45) + queries coringa (HC + tráfico privilegiado, sim 0.80+).
+
+---
+
+## PARTE 8 — ESTADO DO RELACIONAMENTO E CALENDÁRIO COMERCIAL
+
+| Marco | Data | Status |
+|---|---|---|
+| Gate P-038 | 2026-05-19 | ✅ 12/12 verde |
+| Demo presencial | 2026-05-20 | Pendente |
+| Contrato | 2026-05-20 | Pendente — aguarda demo |
+| Sentinel Report #1 | 2026-06-02 | Programar hoje |
+| Pitch V2 | 2026-06-19 | Gatilho: 30 dias pós-entrega ou corpus ≥ 500 docs |
+| Lead OAB (primeiro indicado) | A definir | Monitorar na demo |
+
+**Ação do Diretor antes da demo:**
+Abrir com a cena — não com a interface. *"Você me disse que precisava do precedente antes do juiz. Vamos fazer isso agora."* Só abrir o notebook depois dessa frase.
+
+---
+
+## DECISÃO DO EMBAIXADOR
+
+```
+🟢 PROJ-001 VALDECE — CASE FUNDACIONAL DOCUMENTADO
+Gate: 12/12 verde
+Inteligência: 2 princípios extraídos, 8 perguntas de discovery expandidas
+Skill: complemento do Embaixador gerado
+[E-1 a E-5]: prontas para COMANDO_ESTRATEGISTA
+
+Próxima ação crítica do Músculo:
+  1. Registrar P-novo-A e P-novo-B no LEDGER
+  2. Atualizar PROCESSO_EVOLUTIVO — Passo 2 com Discovery V2
+  3. Atualizar perfil LegalTech-Criminal → maturidade 75%
+
+Próxima ação crítica do Diretor:
+  Demo 2026-05-20 → Sentinel Report 2026-06-02 → Pitch V2 2026-06-19
+```
+
+---
+
+*Embaixador — Pentalateral IAH · PROJ-001 Valdece · 2026-05-19*  
+*Documento gerado para alimentar o loop evolutivo: Músculo → Estrategista → Auditor*  
+*[E-1 a E-5] prontas para COMANDO_ESTRATEGISTA junto com [M-1 a M-5] do Músculo*

@@ -295,9 +295,6 @@ O que sistematicamente falha — com evidência de projeto real.
 [HV-5] Breaking change em sistema com cliente ativo sem kill-switch
 [HV-6] Infra Prisioneira — build sem: (a) acesso admin do cliente ao próprio Supabase,
         (b) API keys documentadas e transferíveis, (c) OFFBOARDING_RUNBOOK.md no repositório
-[HV-7] Contrato comercial assinado sem Fases 1 e 2 do PROTOCOLO_TESTES_PRE_ASSINATURA
-        concluídas e documentadas. Override requer aprovação explícita do Diretor com
-        justificativa registrada no LEDGER. [ver P-046]
 ```
 
 ### Soft Veto (flag + 1 sessão de cooling antes de executar)
@@ -1014,19 +1011,9 @@ Diretor — veredito
 
 ---
 
-### [P-046] Contrato segue teste — nunca precede
-**Descoberto:** 2026-05-19 | **Sessão:** Formalização pós-entrega presencial PROJ-001 Valdece
-**Fricção:** O contrato do Valdece foi assinado antes da ferramenta ser testada no dispositivo e na rede real do cliente. Na entrega presencial, a ferramenta falhou. O contrato já estava assinado. Trabalho de recuperação foi necessário. Situação inteiramente evitável.
-**Princípio:** A sequência obrigatória é:
-1. **Testar internamente** — no ambiente de produção, no dispositivo equivalente ao do cliente, em rede externa
-2. **Validar com o cliente** — cliente usa a ferramenta antes da reunião de assinatura e confirma funcionamento
-3. **Assinar** — contrato formaliza entrega que já funciona, não promessa de que vai funcionar
-4. **Entregar** — handoff, Sovereign Playbook, credenciais
-
-O contrato é o ponto de chegada do processo de teste — nunca o ponto de partida.
-
-**Causa raiz:** Pressão de timing comercial + confiança no código testado apenas no ambiente de desenvolvimento. "Funciona no meu computador" não é gate de aprovação.
-**Ferramenta criada:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_TESTES_PRE_ASSINATURA.md` — checklist de 8 itens (Fase 1 interna) + script de envio ao cliente (Fase 2) + nova cláusula contratual de validação prévia.
-**Regra de ouro:** Pressão para assinar rápido é sinal de alerta — não de agilidade. Cliente que confia espera 48h de teste. O custo do protocolo é 2h. O custo da falha pós-assinatura é a credibilidade.
-**Responsabilidade:** O Diretor é o único que autoriza o avanço para assinatura. O Músculo não tem autonomia para comprimir este protocolo sob nenhuma circunstância.
-**Aplica-se a:** todo projeto com cliente externo, qualquer valor, qualquer prazo, qualquer nível de confiança no código.
+### [P-046] O contrato formaliza o ciclo de evolução — não o produto finalizado
+**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — pós-feedback 5 áudios
+**Fricção:** O Músculo tratou os feedbacks de Valdece como condição bloqueante para a assinatura do contrato — "produto precisa estar pronto antes de assinar". O Diretor corrigiu: o modelo IAH é iterativo por natureza. O cliente que testa e envia feedback está no centro do processo, não fora dele.
+**Princípio:** O contrato com cliente IAH não formaliza um produto finalizado — formaliza o direito ao ciclo de evolução. O cliente que testa, reporta bugs e envia feedbacks estruturados JÁ ESTÁ no modelo. A assinatura transforma esse engajamento em parceria formal. Tratar feedback pré-contrato como bloqueante é confundir o método com o produto.
+**Corolário:** Feedbacks durante o período de teste são evidência de que o cliente valoriza o produto o suficiente para investir tempo analisando-o — é o sinal mais forte de prontidão para assinar, não o oposto.
+**Aplica-se a:** todo projeto cliente em fase de teste/piloto. O Músculo nunca trata iteração como falha de entrega.

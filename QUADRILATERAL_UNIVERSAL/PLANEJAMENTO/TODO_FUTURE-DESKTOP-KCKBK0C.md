@@ -1,0 +1,196 @@
+# TODO_FUTURE — Backlog Estratégico Vanguard
+> **Actualizado:** V17 — 2026-05-10  
+> **Metodologia:** ideias ordenadas por impacto × viabilidade
+
+---
+
+## 🔮 V18 — VERSÃO ORÁCULO *(Horizonte Estratégico)*
+
+> *"Não vendemos leads. Vendemos certeza."*
+
+A **Versão Oráculo** é a singularidade do ecossistema Vanguard — a transição de plataforma SaaS para **Terminal de Dados Preditivos B2B** com acesso a mercados institucionais (M&A, Banca Comercial, VC).
+
+### Pilares da V18
+
+- **Bolsa de Intenção B2B** — Marketplace privado de sinais de intenção vendidos a Fundos de M&A, Bancos e VCs como instrumentos de dados
+- **Sovereign Credit Score™** — API de scoring preditivo de crédito para PMEs, licenciada a Fintechs e Bancos (modelo SaaS B2B2B)
+- **M&A Target Engine** — Algoritmo de detecção de empresas em pré-momentum de crescimento ou vulnerabilidade estratégica, 6–18 meses de antecedência
+- **Institutional Data Room** — Interface institucional com autenticação dois factores, SLA 99.99%, relatórios auditados e contratos de NDA automatizados
+- **Oráculo API v3** — Endpoint unificado de inteligência preditiva: `POST /v3/oracle/signal` → retorna scoring + contexto + janela temporal de acção
+
+### Dependências Críticas (devem estar prontas antes da V18)
+- [ ] V17: Vanguard Pixel instalado em 10 000+ sites (massa crítica de dados)
+- [ ] V17: Pipeline de anonimização e certificação de dados conforme RGPD/LGPD
+- [ ] V17: Infra de dados com latência < 200ms (BigQuery ou Supabase Analytics)
+- [ ] Certificação legal de comercialização de dados agregados (parecer jurídico)
+- [ ] Partnership com pelo menos 1 banco comercial piloto (PoC fechada antes de build)
+
+### Modelo de Receita Projectado
+| Canal | Modelo | ARR Estimado |
+|---|---|---|
+| Fundos M&A | Subscription €5 000/mês + success fee 0.1% deal | €600K+ |
+| Bancos Comerciais | Licença API €50K/ano por banco | €500K+ |
+| VCs B2B | Dashboard €2 000/mês por fundo | €240K+ |
+| Score™ Metered | €0.50/consulta institucional | Variável |
+
+**Target V18:** €1.5M ARR institucional no primeiro ano de operação.
+
+---
+
+## ✅ IMPLEMENTADO — Histórico Completo
+
+### V1–V10
+- [x] V1: PWA Quiz + Supabase
+- [x] V2: Shadow Closer + Cockpit + Algoritmo Scoring
+- [x] V3: Scraper OSM + Claude Haiku + Score Digital 0-10
+- [x] V5: Docker Mestre + White-Label brand-config.js + UI Awwwards
+- [x] V6: SaaS Multi-Tenant + Stripe Billing + JWT Auth + RLS
+- [x] V7: Marketplace + Stripe Connect 70/30 + Dark Bazaar UI
+- [x] V8: Intelligence API SHA-256 + Fractal WL + Sovereign Glass + Materialized Views
+- [x] V9: Lead Arbitrage + Certifica™ SVG + Hermes Voice Vapi + Score™ Microsite
+- [x] V10: Fortress Health Monitor + IA Firefighter + Stress Test + Dashboard Pixel Perfect
+
+### V11 — The Sovereign Launch
+- [x] Neural V Logo SVG — injectado em site, dashboard e certificados via `data-nv-logo`
+- [x] Rate Limiting nginx — 30r/m geral, 5r/m scraper, 120r/m público
+- [x] Audit Log — tabela `audit_log` com 14 tipos de acção + RLS imutável
+- [x] Predictive Lead Routing MVP — Match Score 4 dimensões + top-3
+- [x] Schema V11 — `predictive_matches` + `audit_log` + `fn_predictive_summary()`
+- [x] Business Rules §16 — Identidade e Presença Digital
+- [x] Deploy EasyPanel — frontend porta 8080, nginx Traefik proxy
+
+### V12 — Sovereign Ignition Cockpit
+- [x] Instant Reality Scanner — URL → Ghost Loader 3.9s → Score 0-10 + Radar 6 eixos + 3 Gargalos
+- [x] Motor determinístico por domínio (djb2 hash-seed) — mesmo domínio = mesmo score sempre
+- [x] `assets/css/hud.css` — Living HUD 580+ linhas: Ghost Holographics, Bento Grid, shimmer, corner brackets
+- [x] Ghost Neural Loader — canvas 20 nodes + edges + glow halos + light sweep (3.9s mínimo)
+- [x] Authority Share Card — html2canvas 2.5x PNG para redes sociais
+- [x] Closer Machine V1 — Hermes chat contextual + jsPDF Cyber-Premium client-side
+- [x] Dashboard Bento Grid — 4 KPIs com status dots pulsantes e bordas animadas
+- [x] Business Rules §17 — Scanner, Parceiros Fundadores 50/50, Selos Pioneiros, Closer Machine
+
+### V13 — Global Domination & Viral Traction
+- [x] `preview/index.html` — HUD Preview personalizado por `?d=domain` — Isca de Autoridade standalone
+- [x] `census/index.html` — Census Engine público: agregação Supabase + ranking sectorial + badge generator
+- [x] `js/outbound-engine.js` — Fila Hermes Outbound: mensagens por nicho/gargalo + WhatsApp 1-click
+- [x] `js/partnerships.js` — Partnership API UI: agências + API keys + revenue share 20%
+- [x] Dashboard V13 — 3 novas secções: Outbound Queue, Censo Global (link), Parcerias
+- [x] Business Rules §18 — Protocolo Expansão & Viralidade completo
+- [x] Knowledge Graph V13 — Arquitectura actualizada com Census Engine e Partnership API
+
+---
+
+## ✅ V17 — SOVEREIGN INTENT ENGINE (CONCLUÍDA)
+
+- [x] **IDEIA 1 — Sovereign Pixel** ✅ IMPLEMENTADO
+  - `js/pixel.js` <3KB — classifica COLD/WARM/HOT/FIRE em tempo real
+  - `cloudflare/pixel-worker.js` — serve pixel com tenant config + persiste no Supabase UNLOGGED
+  - LGPD/GDPR: banner de consentimento automático com `localStorage vp_consent`
+
+- [x] **IDEIA 4 — Neural Audit Trail** ✅ IMPLEMENTADO
+  - `js/neural-audit-trail.js` — PDF 12 páginas Ion Gold + Deep Obsidian
+  - Financial Translation: score → R$/mês perdido (fórmula R$800 ticket médio B2B)
+  - Versão free (3 páginas) → versão paga R$50 via Stripe Connect V16
+  - Primeiro produto unitário da Vanguard com preço definido
+
+- [x] **Motor Comercial (prospectar.ps1)** ✅ IMPLEMENTADO (adicional)
+  - `scripts/prospectar.ps1` — pipeline CSV com funil 6 estados + mensagens WhatsApp
+  - Follow-up automático, métricas de conversão, stats vs metas
+
+- [ ] **IDEIA 2 — Hermes Autonomous** → ADIADO PARA V18
+  - Depende de 30+ dias de dados reais do Pixel activo
+  - Loop: FIRE → Haiku gera msg → WhatsApp → classifica resposta → cadência automática
+
+- [ ] **IDEIA 3 — Vanguard Exchange** → ADIADO PARA V18/V19
+  - Prematura — precisa de massa crítica de tenants (20+) com Pixel activo
+
+- [ ] **IDEIA 5 — Sovereign Playbook** → V18 (implementação rápida ~1 dia)
+  - Haiku + jsPDF (já existe desde V12) — só falta o prompt e o fluxo pós-scan
+
+---
+
+## 🏹 V18 — 5 IDEIAS DISRUPTIVAS (do Sócio-Arquitecto Claude · V17)
+
+- [ ] **IDEIA 1 — Intent Graph: API de Intenção Cross-Tenant**
+  - Agrega dados FIRE de todos os tenants → grafo de intenção nacional B2B
+  - "Quais PMEs em saúde em SP tiveram sessões FIRE nas últimas 72h?" — vendida a bancos/M&A
+  - Ticket mínimo: R$15.000/mês por cliente institucional
+  - **Dependência:** 30+ dias de dados do Sovereign Pixel activo
+
+- [ ] **IDEIA 2 — Neural Sentinel: Subscrição Semanal R$97/mês**
+  - Neural Audit Trail passa a ser recorrente: relatório automático toda segunda com deltas
+  - "Esta semana perdeu R$3.200 a mais vs semana passada" — lock-in por histórico temporal
+  - Stack: cron job + `neural-audit-trail.js` + Stripe subscriptions (V16)
+  - **Impacto:** transforma produto unitário em MRR recorrente
+
+- [ ] **IDEIA 3 — Hermes Autonomous Loop Completo**
+  - FIRE → Haiku gera msg com comportamento real → WhatsApp → classifica resposta → cadência
+  - Custo: R$0,12/lead total · Taxa resposta esperada: +45% vs outbound frio
+  - **Dependência:** Pixel activo com dados reais (30+ dias)
+
+- [ ] **IDEIA 4 — Sovereign Playbook: 90 dias gerado por IA**
+  - Pós-scan: plano de 90 dias onde cada tarefa ancora a módulo Vanguard
+  - Gerado por Haiku (R$0,04/doc) + jsPDF (já existe desde V12)
+  - Isca gratuita pós-diagnóstico → lock-in disfarçado de consultoria
+  - **Implementação:** 1 dia de trabalho — ALTA PRIORIDADE V18
+
+- [ ] **IDEIA 5 — Pixel Federation: Instalação via DNS sem código**
+  - Tenant adiciona CNAME DNS `vpx.seudominio.com → pixel.vanguard.tech`
+  - Worker injeta pixel automaticamente — zero fricção de instalação → adoção 10×
+  - Tecnicamente viável com Cloudflare Snippets (beta 2026)
+  - Elimina barreira técnica para tenants não-técnicos
+
+---
+
+## 🔴 CRÍTICO (V14 — Próximas Operações)
+
+- [ ] **Trojan Outbound Engine** — Envio de vídeo/GIF do HUD personalizado via WhatsApp
+  - Gravar screenshot do `/preview/?d=dominio` como GIF animado (puppeteer server-side)
+  - Enviar via WhatsApp Business API (não wa.me) com thumbnail do score
+  - Taxa de abertura estimada: +35% vs mensagem de texto pura
+  - Stack: Node.js + puppeteer + WABA API + n8n trigger
+
+- [ ] **Census Engine Dashboard** — Integrar o Censo directamente no Cockpit (sem página separada)
+  - Embed do Census iframe no dashboard autenticado
+  - Filtro por data e nicho específico do tenant
+  - Export CSV dos dados sectoriais para relatórios de parceiros
+
+- [ ] **Viral Badge Upgrade** — Clique em badge externo inicia scan automático do visitante
+  - preview/index.html detecta `document.referrer` → sugere scan do site do visitante
+  - Auto-trigger do scanner após 5s de visualização do preview
+  - CTA contextual: "O seu site tem potencial maior que este — analise agora"
+
+- [ ] **Hermes Aprendizado Colectivo** — implementação técnica da Cláusula §18.3
+  - Trigger Supabase: quando `hermes_variants.taxa_resposta` atinge 50+ respostas por nicho
+  - Actualizar `taxa_resposta` global do nicho para todos os tenants
+  - Endpoint `/api/hermes/best-variant/{nicho}` → retorna variante com maior conversão no sector
+
+---
+
+## 🟡 ALTA PRIORIDADE (V14)
+
+- [ ] **pg_cron para Materialized View refresh** — views Intelligence desactualizadas após 1h sem trigger manual
+- [ ] **Sub-tenant isolated login** — sub-tenants (Fractal) acedem com URL dedicada + brand própria
+- [ ] **CORS restrito em produção** — `allow_origins=['*']` deve ser restrito ao domínio em produção
+- [ ] **Score™ API Pública** — `GET /v2/score/{nif}` metered billing €0.05/consulta · SDK JS/Python
+- [ ] **Incident auto-resolve** — quando serviço volta ao ar após DOWN, criar resolução automática
+- [ ] **Vanguard Academy** — tabela `courses`, split 70/30, certificado de conclusão Vanguard™
+
+---
+
+## 🟢 MÉDIA PRIORIDADE (V14–V15)
+
+- [ ] **Predictive Routing — Retreino Automático** — pg_cron semanal recalcula pesos com dados reais
+- [ ] **API Keys rotação** — `POST /v1/intelligence/keys/{id}/rotate` sem downtime
+- [ ] **Webhook idempotência** — tabela `processed_events` para evitar double-processing Stripe
+- [ ] **Audit Log Dashboard** — secção no cockpit com últimos 50 eventos de auditoria do tenant
+- [ ] **Fortress Health check periódico** — n8n → `/api/fortress/health` cada 5min → `health_checks_log`
+
+---
+
+## ⚪ BAIXA PRIORIDADE (V15+)
+
+- [ ] **Score™ webhook** — `POST /v2/score/webhook` — notifica quando score de empresa muda >10%
+- [ ] **Multi-idioma** — dashboard PT/EN/ES (i18n com JSON files)
+- [ ] **Mobile sidebar** — sidebar colapsável em mobile (atualmente `display:none`)
+- [ ] **Live Leaderboard Sectorial** — página pública top 10 empresas por nicho em tempo real

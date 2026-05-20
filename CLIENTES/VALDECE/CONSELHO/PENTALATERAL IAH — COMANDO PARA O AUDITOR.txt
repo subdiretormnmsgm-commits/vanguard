@@ -1,0 +1,188 @@
+PENTALATERAL IAH — COMANDO PARA O AUDITOR
+PROJETO: Valdece · Case Fundacional · Pós-Estrategista
+════════════════════════════════════════════════════════
+
+Auditor, você recebe agora a síntese completa do loop:
+Embaixador [E-1 a E-5] + Estrategista [G-1 a G-5 + DIRETRIZ completa]
++ dois princípios novos (P-039 e P-040) para auditoria.
+
+AUDITE COM 4 OBJETIVOS:
+
+1. AUDITORIA DE COERÊNCIA
+· P-039 (Falácia da Homogeneidade) é coerente com P-001 a P-038?
+· P-040 (Momentum Tecnológico) expande ou contradiz P-010 (Gate = evidência)?
+· O Estrategista priorizou Contabilidade sobre Médico e Psicologia.
+  O histórico V1–V24 confirma ou contradiz essa priorização?
+· O pricing ajustado (R$9.500–14.000) é coerente com P-006 (ROI → preço)?
+
+2. PERSPECTIVA DO SÓCIO CONSULTOR
+· O risco de "Sequestro de Chave de API" tem precedente em V1–V24?
+· O modelo de "Garantia de Zero Churn" (não cobrar mês sem uso)
+  tem risco de receita que o Estrategista não viu?
+· A estratégia "Crédito de Expansão entre Pares" (indicação)
+  alinha com o perfil de Valdece documentado pelo Embaixador?
+
+3. MÓDULOS REUTILIZÁVEIS PARA O BOILERPLATE
+· Quais scripts do PROJ-001 entram diretamente no boilerplate?
+  (seed_demo.py · search_cli.py · ingest.py · gate_stj.py)
+· O que precisa parametrização?
+· O que é específico de LegalTech e não migra?
+
+4. GERAR DUAS SKILLS
+
+SKILL A — JURISPRUDÊNCIA SEMÂNTICA VALDECE V1
+Salvar: CLIENTES/VALDECE/SKILL_AUDITOR_VALDECE_V1.md
+
+SKILL B — BUSCA SEMÂNTICA NICHO PROFISSIONAL — TEMPLATE UNIVERSAL
+Salvar: QUADRILATERAL_UNIVERSAL/TEMPLATES/SKILL_BUSCA_SEMANTICA_NICHO_V1.md
+
+════════════════════════════════════════════════════════
+FONTES — carregar nesta ordem antes de colar este comando:
+Fonte 1: ANALISE_EMBAIXADOR_PROJ001_VALDECE_V2.md
+Fonte 2: GATE_P038_MODELO_COMPLETO.md
+Fonte 3: DIRETRIZ_ESTRATEGICA_V3.txt
+Fonte 4: DIRETRIZ_ESTRATEGISTA_CASO_FUNDACIONAL.txt
+Fonte 5: SINTESE_EMBAIXADOR_POS_ESTRATEGISTA.md
+Fonte 6: SKILL_PROTOCOLO_VANGUARD.md
+Fonte 7: INTELLIGENCE_LEDGER.md
+Fonte 8: MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+Fonte 9: PROCESSO_EVOLUTIVO_QUADRILATERAL.md
+════════════════════════════════════════════════════════
+```
+
+---
+
+## SÍNTESE COMPLETA (colar como Fonte 5 no NotebookLM)
+
+```
+SÍNTESE — RESPOSTA DO ESTRATEGISTA
+Para: Músculo + Diretor Eduardo
+De: Embaixador
+Data: 2026-05-19
+
+════════════════════════════════════════════════════════
+PARTE 1 — O QUE O ESTRATEGISTA CONFIRMOU E EXPANDIU
+════════════════════════════════════════════════════════
+
+[E-1] Gate como entregável formal → APROVADO
+Batizado: "Protocolo de Garantia Soberana"
+Usar esse nome em todas as propostas comerciais daqui para frente.
+
+[E-2] Cena de sucesso como abertura de demo → MANDATÓRIO
+"Conecta a engenharia diretamente ao fator de decisão de compra."
+Obrigatório no processo — não opcional.
+
+[E-3] Corpus_gap como SLA do Sentinel Report → APROVADO + EXPANDIDO
+Estrategista propõe botão "Solicitar Expansão Semântica" na UI
+quando similaridade < 0.60. Corpus_gap vira gatilho ativo de upsell.
+
+[E-4] Sovereign Playbook antes do contrato → APROVADO
+Argumento: "Se você quiser nos demitir em 30 minutos, você pode,
+porque a infraestrutura e a inteligência são inteiramente suas."
+
+[E-5] Discovery P8 como mapa de nicho → APROVADO
+Estratégia nomeada: Crédito de Expansão entre Pares.
+"Indique 2 colegas que fechem o projeto → Radar de Divergência grátis."
+
+════════════════════════════════════════════════════════
+PARTE 2 — ALERTAS CRÍTICOS DO ESTRATEGISTA
+════════════════════════════════════════════════════════
+
+ALERTA 1 — SEGURANÇA (executar HOJE antes da demo)
+Risco: chaves de API do Gemini expostas no Vanilla JS.
+Ação: RLS blindado no Supabase antes da migração para conta do Valdece.
+Consequência se ignorado: usuário extrai chave e consome créditos do cliente.
+
+ALERTA 2 — LATÊNCIA (executar pós-contrato)
+Causa da query 3.45s: banco Supabase nos EUA (~600ms de ping).
+Ação: todos os novos projetos provisionados em sa-east-1 (São Paulo).
+Resultado: latência cai de 3.45s para < 1.5s.
+
+ALERTA 3 — REPLICAÇÃO (antes do próximo discovery)
+Falácia da Homogeneidade dos Nichos: não assumir que replicar =
+trocar o script de raspagem. Cada nicho tem fricção de ingestão diferente.
+Ação: Diagnóstico de Fricção de Dados (DFD) antes de qualquer novo nicho.
+
+════════════════════════════════════════════════════════
+PARTE 3 — DOIS PRINCÍPIOS NOVOS PARA O LEDGER
+════════════════════════════════════════════════════════
+
+[P-039] Falácia da Homogeneidade dos Nichos
+Descoberto: 2026-05-19 | Sessão: PROJ-001 Valdece · Estrategista
+Evidência: Sucesso do corpus jurídico (fontes públicas, jargão sedimentado)
+não se replica automaticamente. Médico tem sigilo ético. Contabilidade tem
+obsolescência acelerada. Psicologia não tem "jurisprudência" central.
+Princípio: Antes de qualquer novo nicho, executar o DFD obrigatório:
+  1. Fonte primária dos dados? (pública/proprietária/fragmentada)
+  2. Taxa de obsolescência? (estável/anual/mensal/diária)
+  3. Restrições éticas/legais? (sigilo médico, LGPD, etc.)
+  4. Estrutura semântica consolidada? (jargão sedimentado ou volátil?)
+Se qualquer resposta = risco alto → escalar prazo e preço antes do discovery.
+Aplica-se a: todo novo projeto de busca semântica em nicho não testado.
+
+[P-040] Momentum Tecnológico do Músculo
+Descoberto: 2026-05-19 | Sessão: PROJ-001 Valdece · Estrategista
+Evidência: O Músculo otimiza para métricas intrínsecas do sistema (threshold,
+latência, embedding) porque oferecem recompensas de engenharia claras.
+O cliente otimiza para alívio temático em cenários de alta pressão.
+"O Músculo constrói um motor; o cliente compra a viagem."
+Princípio: Ao iniciar cada dia de build, o Músculo relê a cena de sucesso
+descrita pelo cliente no discovery. Toda decisão técnica é avaliada:
+"Esta decisão aproxima ou afasta o sistema da cena do cliente?"
+Se afasta → justificar ou descartar. Se aproxima → executar.
+Corolário: O gate final testa se o sistema reproduz a cena — não só se funciona.
+Aplica-se a: todo projeto cliente, todo dia de build, toda decisão arquitetural.
+
+════════════════════════════════════════════════════════
+PARTE 4 — PLANO DE REPLICAÇÃO — 3 ARTEFATOS
+════════════════════════════════════════════════════════
+
+Intenção estratégica (Estrategista):
+"Padronizar a infraestrutura para que novo nicho seja configuração
+de variáveis — não reengenharia de código."
+
+Artefato 1: vanguard-niche-boilerplate/
+Repositório base Vanilla JS + Supabase Vector. Novo corpus =
+mudança de arquivo de configuração. Inclui: schema, RPC, RLS,
+região sa-east-1 como padrão.
+
+Artefato 2: gate_runner.py
+Lê queries_[nicho].json → executa todas → gera GATE_[NICHO]_[DATA].md
+automaticamente. Base: search_cli.py do Valdece. Parametrizável:
+threshold, top, área, status verde/amarelo/vermelho.
+
+Artefato 3: ingest_config_[nicho].json
+Motor de ingestão agnóstico. Muda apenas o arquivo de config por nicho:
+fonte (PDF/API/TXT), chunking, limpeza de ruído semântico.
+Base: ingest.py do Valdece, parametrizado.
+
+O QUE NÃO CONSTRUIR AGORA:
+· Painel administrativo centralizado
+· Autenticação multi-nível
+· Integrações com APIs de Medicina ou Contabilidade
+· Qualquer feature nova para o Valdece antes da demo
+
+════════════════════════════════════════════════════════
+PARTE 5 — PRICING ATUALIZADO
+════════════════════════════════════════════════════════
+
+Setup (one-off): R$9.500–14.000
+Manutenção opcional: R$350/mês
+Cláusula Zero Churn: mês sem uso = mês sem cobrança
+Nome do produto: "Cérebro Soberano Vanguard"
+Nome do processo: "Protocolo de Garantia Soberana"
+
+════════════════════════════════════════════════════════
+PARTE 6 — PRÓXIMAS AÇÕES (48h)
+════════════════════════════════════════════════════════
+
+🔴 P0 | RLS blindado Supabase Valdece | Músculo | HOJE
+🔴 P0 | Registrar P-039 e P-040 no LEDGER | Músculo | HOJE
+🔴 P0 | Demo com Valdece | Eduardo | 2026-05-20
+🟡 P1 | Migração sa-east-1 pós-contrato | Músculo | 2026-05-21
+🟡 P1 | Iniciar vanguard-niche-boilerplate/ | Músculo | 2026-05-21
+🟡 P1 | Iniciar gate_runner.py | Músculo | 2026-05-21
+🟢 P2 | Sentinel Report agendado 2026-06-02 | Eduardo | Esta semana
+🟢 P2 | Discovery Contabilidade | Eduardo | Após demo Valdece
+════════════════════════════════════════════════════════
+```

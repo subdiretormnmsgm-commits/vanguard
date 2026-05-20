@@ -1,0 +1,124 @@
+name: Quadrilateral — Deploy Guard
+
+# O que este workflow resolve:
+# O ALERTA_CONFLITO.md documentou este hook desde a V24 mas nunca foi ativado.
+# "Este hook não está ativo até o pipeline existir em produção."
+# Agora está ativo.
+#
+# Lógica:
+# 1. A cada push em main, verifica se há Hard Veto ativo via API do LEDGER
+# 2. Se houver, bloqueia o deploy com exit 1 e exibe os motivos
+# 3. Se o LEDGER API não estiver rodando, verifica diretamente o ledger_state.json
+# 4. Fallback: verifica ALERTA_CONFLITO.md legado (compatibilidade retroativa)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  PROJETO: ${{ github.event.repository.name }}
+
+jobs:
+  quadrilateral-guard:
+    name: Verificar Vetos do Conselho
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── Verificação primária: ledger_state.json ──────────────────────────────
+      - name: Verificar Hard Vetos no LEDGER
+        id: ledger_check
+        run: |
+          echo "🔍 Verificando Hard Vetos no LEDGER..."
+          
+          if [ ! -f "ledger_state.json" ]; then
+            echo "ledger_state.json não encontrado — verificando ALERTA_CONFLITO.md"
+            echo "ledger_found=false" >> $GITHUB_OUTPUT
+          else
+            echo "ledger_found=true" >> $GITHUB_OUTPUT
+            
+            # Extrai vetos ativos sem override usando Python puro
+            python3 << 'EOF'
+          import json, sys
+
+          with open("ledger_state.json") as f:
+              state = json.load(f)
+
+          vetos = state.get("vetos_ativos", [])
+          hard_vetos_abertos = [
+              v for v in vetos
+              if v.get("tipo", "").startswith("HV-")
+              and not v.get("override_diretor")
+          ]
+
+          if hard_vetos_abertos:
+              print("⛔ HARD VETOS ATIVOS — DEPLOY BLOQUEADO")
+              print()
+              for v in hard_vetos_abertos:
+                  print(f"  {v['tipo']} [{v['projeto']}]: {v['motivo']}")
+              print()
+              print("Como resolver:")
+              print("  POST /ledger/veto/resolver com override assinado pelo Diretor")
+              print("  Ou: python scripts/resolver_veto.py --tipo HV-X --projeto PROJ --motivo 'motivo'")
+              sys.exit(1)
+          else:
+              print("✅ Nenhum Hard Veto ativo — deploy autorizado pelo Conselho")
+          EOF
+          fi
+
+      # ── Fallback: ALERTA_CONFLITO.md legado ─────────────────────────────────
+      - name: Verificar ALERTA_CONFLITO.md (fallback legado)
+        if: steps.ledger_check.outputs.ledger_found == 'false'
+        run: |
+          if [ -f "ALERTA_CONFLITO.md" ]; then
+            if grep -q "⛔ BLOQUEADO\|Status: ⛔" ALERTA_CONFLITO.md; then
+              echo "⛔ DEPLOY BLOQUEADO: ALERTA_CONFLITO.md com status BLOQUEADO"
+              echo ""
+              echo "Resolva o conflito documentado em ALERTA_CONFLITO.md"
+              echo "Ou migre para o sistema de LEDGER: python scripts/migrar_alerta.py"
+              exit 1
+            else
+              echo "✅ ALERTA_CONFLITO.md existe mas não está bloqueado"
+            fi
+          else
+            echo "✅ Sem ALERTA_CONFLITO.md — deploy liberado"
+          fi
+
+      # ── Verificar dívidas P0 ativas ──────────────────────────────────────────
+      - name: Verificar dívidas P0 (HV-4)
+        run: |
+          echo "🔍 Verificando dívidas P0..."
+          
+          # Busca em arquivos de MEMORIA por dívidas P0 sem resolução
+          P0_COUNT=0
+          for f in $(find . -name "MEMORIA_*.md" -not -path "*/node_modules/*" 2>/dev/null); do
+            COUNT=$(grep -c "🔴.*CRÍTICO\|P0 ativa\|DÍVIDA P0" "$f" 2>/dev/null || true)
+            P0_COUNT=$((P0_COUNT + COUNT))
+          done
+          
+          if [ "$P0_COUNT" -gt "0" ]; then
+            echo "⚠️  $P0_COUNT dívidas P0 encontradas em MEMORIAs"
+            echo "Verifique se foram resolvidas antes do deploy (HV-4)"
+            # Soft warning — não bloqueia, mas avisa
+            # Para bloquear: trocar echo por exit 1
+          else
+            echo "✅ Sem dívidas P0 pendentes em MEMORIAs"
+          fi
+
+      # ── Resumo do Conselho ───────────────────────────────────────────────────
+      - name: Resumo do Conselho
+        if: success()
+        run: |
+          echo ""
+          echo "═══════════════════════════════════════"
+          echo "  QUADRILATERAL IAH — DEPLOY AUTORIZADO"
+          echo "═══════════════════════════════════════"
+          echo "  Projeto : ${{ env.PROJETO }}"
+          echo "  Branch  : ${{ github.ref_name }}"
+          echo "  Commit  : ${{ github.sha }}"
+          echo "  Diretor : ${{ github.actor }}"
+          echo "═══════════════════════════════════════"

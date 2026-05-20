@@ -1,0 +1,7 @@
+[PENDENTE — aguarda assinatura formal]
+Contrato: Contrato_Toga_Digital_Valdece_19052026_v2.docx
+Presencial realizado: 2026-05-19
+Modelo confirmado: R$5.000 fixo — SEM mensalidade — infra na conta do Valdece (~R$1,20/mês direto ao Google)
+Credenciais obtidas: 2026-05-19 (Supabase + Google API — Eduardo com elas)
+Assinatura: pendente — aguarda conclusao do onboarding tecnico + demo real
+Sentinel Report agendado: 2026-06-02 (14 dias pos-entrega)
