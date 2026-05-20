@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-19 14:57
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-20 13:33
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-1c2db35 docs(pentalateral): DNA da IAH atualizado com aprendizados do PROJ-001 Valdece
-8793ab1 feat(valdece): P-041 + P-042 LEDGER + análise Embaixador V2 + comandos Conselho atualizados
-55980e1 feat(ledger): P-040 + GATE_P038 resultado final
+fc15595 @ docs(valdece): MEMORIA_V6 + relatorio_evolutivo_V6 — P-045 desbloqueado
+e22efb5 @ docs(p033): sync_vanguard_docs mandatorio em CLAUDE.md + 3 duplicados removidos
+c05fbf2 sync(p033): atualizar_notebooklm_base — 184 arquivos propagados para projetos ativos
 
 ================================================================================
 
@@ -177,7 +177,8 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                     "dias_completos":  [
                                                            "dia1_schema_edge",
                                                            "dia2_gate_questoes",
-                                                           "dia3_5_feed_sm2_pwa"
+                                                           "dia3_5_feed_sm2_pwa",
+                                                           "dia6_8_tutor_fallback"
                                                        ],
                                     "plano_build":  {
                                                         "dia1_2":  "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
@@ -220,242 +221,169 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                                   "gate":  "dia2_questoes",
                                                                   "notebooklm_wipe":  true,
                                                                   "status":  "concluido"
-                                                              },
 ... [truncado -- ver arquivo completo]
 
 ================================================================================
 
 ## MEMORIA MAIS RECENTE
-# MEMORIA_EMBAIXADOR — PROJ-001 VALDECE
-> Documento vivo. Atualizar a cada gate ou marco de relacionamento.
-> Leitura obrigatória de abertura de sessão — 30 segundos.
-> Versão: Pós-Loop Evolutivo · 2026-05-19 (Gate P-038 APROVADO · Deploy live · 4 princípios extraídos)
+# MEMORIA_V6_VALDECE — Estado Técnico Completo · Loop 6
+> Gerado pelo Músculo ao fechar Loop 6 · 2026-05-20
+> Fonte: commits 2b72b9b → 250ff9c + MEMORIA_EMBAIXADOR Loop 6 + WIP_BOARD.json
+> Leitura obrigatória antes de iniciar Loop 7
 
 ---
 
-## CLIENTE
+## 1. O QUE FOI LOOP 6
 
-**Nome:** Valdece
-**Profissão:** Advogado criminalista — Direito Penal
-**O que ele pediu:** "Quero um Google melhor para jurisprudência penal."
-**O que foi entregue:** Copiloto de defesa criminal — busca semântica STF/STJ com citação ABNT e interface Toga Digital Navy + Ouro.
-**Prazo do projeto:** 2026-05-23 (deadline contratual)
-**Gate crítico:** Entrega presencial 2026-05-19 (AMANHÃ)
+**Contexto de entrada:** Loop 5 encerrou com 61 acórdãos no corpus, Gate P-038 aprovado (12/12 queries), deploy netlify ativo, contrato pendente de assinatura, 5 áudios de feedback enviados pelo Valdece.
+
+**Objetivo do Loop 6:** Processar os feedbacks dos áudios + fechar o contrato presencialmente + desbloquear V3.
 
 ---
 
-## DOR REAL
+## 2. O QUE FOI ENTREGUE
 
-Em julgamentos e audiências, segundos importam.
-Google entrega ruído. Westlaw custa R$3.000/mês.
-O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
-
-**O que ele mais teme:** Sistema que quebra sem suporte ou que exige conhecimento técnico.
-**O que o motiva:** Resultado em audiência — "usei e encontrei o precedente que mudou o julgamento."
-**Canal que funciona:** Presencial (preferencial) / WhatsApp (rápido, objetivo)
-**Tom que não funciona:** Técnico, detalhado em infraestrutura, demorado
-
----
-
-## ESTADO DO PRODUTO
-
-| Campo | Status |
-|---|---|
-| Gate atual | **GATE P-038 APROVADO — 12/12 verde** ✅ · sim 0.67–0.818 · latência 2.1–3.4s |
-| Deploy | **https://toga-digital-valdece.netlify.app** · PWA instalável ✅ |
-| Corpus Supabase | **61 acórdãos reais STF/STJ · 22 temas · TESTADO E VERDE** ✅ |
-| Modelo embed | gemini-embedding-001 · dimensionalidade 768 · threshold 0.67 |
-| commit ef3f1cd | Schema Supabase + ingest.py + kill_switch.js ✅ |
-| commit 996b40d | Corpus pipeline Python + Mágico de Oz Gate ✅ |
-| commit 18c617f | STJ por Tema + busca semântica threshold + UI Toga Digital ✅ |
-| commit e9afb36 | Gate ABNT NBR6023 + busca precisa/ampla + redesign Navy/Ouro ✅ |
-| commit 5da58f8 | Corpus 61 acórdãos + P-057/P-058 LEDGER ✅ |
-| Loop evolutivo | **4 princípios extraídos (P-041/P-042/P-043/P-044)** · 3 membros deliberaram |
-| Presencial 2026-05-19 | Realizado — credenciais obtidas — Sovereign Playbook apresentado (P-042) |
-| Demo real | **PRÓXIMA** — Valdece ainda não testou no sistema dele — janela de encantamento intacta |
-| Contrato | **PENDENTE** — aguarda demo + encantamento · pricing: R$5k fixo + sem mensalidade |
-
-**Sistema pronto — estado pós-entrega presencial:**
-- Schema vector(768) + HNSW + SECURITY DEFINER ✅ — Supabase US (migrar sa-east-1 pós-V2)
-- 61 acórdãos validados: HC · preventiva · tráfico · dosimetria · nulidade · homicídio · estupro ·
-  violência doméstica · execução penal · prescrição · legítima defesa · org criminosa ·
-  porte arma · corrupção · concurso crimes · sursis · estelionato · extorsão · ECA +
-- Gate P-038: 12/12 queries aprovadas · sim ≥ 0.67 em todas · latência máx 3.4s
-- Sovereign Playbook apresentado antes do contrato (P-042) — objeção vendor lock-in destruída
-
-**V2 pipeline mapeado (gatilho: corpus ≥ 500 docs ou 30 dias de uso ativo):**
-- Sovereign Upload (ingestão PDFs próprios do Valdece)
-- Radar de Divergência (STJ vs STF)
-- Citação DOCX export
-- Botão "Solicitar Expansão Semântica" quando sim < 0.60
-- Migração sa-east-1 São Paulo (latência de 3.4s → ~1.5s estimado)
-
----
-
-## ESTADO DO RELACIONAMENTO
-
-| Campo | Status |
-|---|---|
-| Último contato | **Presencial realizado — 2026-05-19** |
-| Próximo contato | Próxima sessão — configuração + demo real (credenciais em mãos) |
-| Canal principal | Presencial / WhatsApp |
-| Tom que funciona | Direto, resultado concreto, sem jargão técnico |
-| Tom que não funciona | Técnico, detalhado, longo, com termos de infraestrutura |
-
-**O que Valdece imagina agora:** Eduardo tem as credenciais dele e está configurando o sistema.
-Ainda não testou — aguarda a configuração na conta dele. A janela de encantamento está intacta.
-A primeira impressão real ainda vai acontecer — é a sessão mais crítica do projeto.
-
----
-
-## ESTADO CONTRATUAL
-
-| Campo | Status |
-|---|---|
-| Contrato | Contrato_Toga_Digital_Valdece_19052026_v2.docx |
-| Status | **PENDENTE** — assinatura no presencial de 2026-05-19 |
-| Modelo | R$5.000 fixo (Cláusula 4.1) + 20% MRR Revenue Share sobre SaaS derivado (4.2) |
-| Mensalidade | ZERO — infra na conta do Valdece (~R$1,20/mês direto à API dele) |
-| Hypercare | 30 dias inclusos |
-
-**CRÍTICO:** Nunca mencionar mensalidade. Se perguntar: "não tem — você paga R$1,20/mês direto ao Google."
-**CRÍTICO:** Revenue Share entra APENAS se Valdece lançar SaaS próprio — não confundir com mensalidade.
-
----
-
-## HIPÓTESES ATIVAS
-
-> Aguardam demo real — Valdece ainda não testou o sistema.
-
-| # | Hipótese | Status | Baseada em |
-|---|---|---|---|
-| H-1 | Vai perguntar sobre mensalidade durante ou após a demo | **PARCIAL** — modelo sem mensalidade confirmado no presencial | Perfil orientado a custo + modelo incomum para o nicho |
-| H-2 | A demo no computador DELE (não de Eduardo) é o momento de virada | PENDENTE — demo ainda não realizada | Perfil exigente — precisa sentir que o sistema é dele |
-| H-3 | O silêncio durante a primeira busca = aprovação — não interromper | PENDENTE — demo ainda não realizada | Perfil orientado a resultado, não a explicação |
-| H-4 | Pode pedir feature não existente depois do encantamento | PENDENTE — demo ainda não realizada | Padrão de scope creep em clientes satisfeitos da área jurídica |
-| H-5 | Mencionará colega advogado criminalista se ficar satisfeito | PENDENTE — demo ainda não realizada | Advocacia criminal é comunidade densa — 1 satisfeito fala com 50 na OAB |
-
----
-
-## PADRÕES OBSERVADOS
-
-> Baseado em documentos e perfil — atualizar após o presencial com comportamento real.
-
-- Experiente e exigente: não aceita sistema que não funciona na primeira tentativa
-- Não-técnico: Supabase vira "seu servidor seguro" — nunca usar jargão técnico
-- Orientado a resultado: "encontrei o precedente em 10 segundos" é o argumento que fecha
-- Orgulhoso da profissão: identidade Toga Digital Navy + Ouro foi escolha dele — reforçar
-- Evangelizador em potencial: 1 satisfeito fala com 50 na OAB — documentar indicações
-
----
-
-## LEADS DETECTADOS
-
-| Nome/Descrição | Contexto | Status |
+| Feature | Commit | Status |
 |---|---|---|
-| Nenhum registrado ainda | — | Monitorar ativamente no presencial |
+| URL @NUM STJ corrigida + ementa completa no Copiar ABNT | 2b72b9b | ✅ |
+| 9 áudios Valdece convertidos OGG→FLAC para NotebookLM | 4342064 | ✅ |
+| HC 512.290/RJ corrigido no Supabase (ementa errada → certa + re-embedding) | 1369689 | ✅ |
+| Ementa completa (600 chars vs 280 anterior) | 9709649 | ✅ |
+| Badge UF via regex (numero_acordao → "RJ", "SP", etc.) | 9709649 | ✅ |
+| Boost monocrático: +0.15 similarity para HC/liminar | 9709649 | ✅ |
+| Chave Gemini substituída (quota esgotada — 1ª ocorrência) | 9ab28a6 | ✅ |
+| Contrato assinado presencialmente R$5k · Gate V3 DESBLOQUEADO | 250ff9c | ✅ |
 
-**Gatilho:** qualquer menção a colega advogado → ALERTA VERMELHO ao Diretor imediatamente.
-
----
-
-## PIPELINE COMERCIAL
-
-| Produto | Valor | Gatilho para pitch | Timing |
-|---|---|---|---|
-| Toga Digital V1 | R$5.000 fixo | Gate: assinatura no presencial | 2026-05-19 |
-| Hypercare | Incluso | — | 30 dias pós-entrega |
-| V2 — Sovereign Upload + Radar + Citação DOCX | R$8.500–12.000 + R$300/mês opcional | Corpus ≥ 500 docs OU 30 dias de uso ativo | 2026-06-19 |
-| Indicação de nicho | Lead qualificado | Valdece mencionar colega criminalista | Qualquer momento pós-satisfação |
-
-**Argumento de abertura V2:** "Quando seu corpus chegar em 500 decisões, temos um upgrade com upload de documentos seus que você vai querer ver."
-**Nunca pitch V2 antes de 2 semanas de uso real.**
+**Resultado comercial do Loop 6:** Contrato assinado. R$5.000 fixo. Sem mensalidade. Billing do cliente direto na API dele (~R$1,20/mês). Hypercare 30 dias inclusos.
 
 ---
 
-## PRÓXIMA AÇÃO CRÍTICA
+## 3. ESTADO TÉCNICO FINAL — LOOP 6
 
-**DEMO 2026-05-20 — TEMAS CONFIRMADOS POR VALDECE (2026-05-19):**
+### Supabase
+| Campo | Valor |
+|---|---|
+| Projeto | hqqxzecftkvtrlpkhvnc (Vanguard — migração pendente para conta Valdece) |
+| Schema | `vector(768)` + índice HNSW + `SECURITY DEFINER` |
+| Corpus | **61 acórdãos reais STF/STJ · 22 temas** |
+| Temas cobertos | HC · preventiva · tráfico · dosimetria · nulidade · homicídio · estupro · violência-doméstica · execução-penal · prescrição · legítima-defesa · org-criminosa · porte-arma · corrupção · concurso-crimes · sursis · estelionato · extorsão · ECA · lesão-corporal · tentativa · tráfico-internacional |
+| Função RPC | `search_documents(query_embedding, match_count, similarity_threshold)` |
 
-> Valdece respondeu explicitamente os 3 temas que mais pesquisou esta semana:
-> 1. **Crimes contra a vida** — cobertos: homicídio qualificado STF HC 188888 (sim 0.818), feminicídio, legítima defesa, tentativa
-> 2. **Crimes contra o patrimônio** — cobertos: roubo + arma STJ AgRg HC 765432 (sim 0.792), furto, estelionato, extorsão, receptação
-> 3. **Crimes contra a administração pública** — cobertos: AP 470 STF (sim 0.780), peculato, lavagem, organização criminosa
+### Modelo de Embedding
+| Campo | Valor |
+|---|---|
+| Modelo | `gemini-embedding-001` |
+| Dimensionalidade | 768 |
+| Task type | `RETRIEVAL_QUERY` (busca) / `RETRIEVAL_DOCUMENT` (ingestão) |
+| API endpoint | `generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent` |
+| Chave | Exposta no frontend (HV-1 — fix definitivo = Edge Function no V3) |
 
-**QUERIES TESTADAS E APROVADAS para usar na demo (ctrl+C prontas):**
-```
-Tema 1 → "homicídio qualificado tribunal do júri excesso de linguagem pronúncia"
-          → STF HC 188888 sim=0.818 (PRIMEIRO resultado = IMPACTO MÁXIMO)
+### Frontend
+| Campo | Valor |
+|---|---|
+| Deploy | https://toga-digital-valdece.netlify.app |
+| Threshold Precisa | 0.67 (Busca Precisa) |
+| Threshold Ampla | 0.45 (Busca Ampla) |
+| Top resultados | 3 |
+| Ementa | Completa (600 chars) |
+| Badge UF | Regex via numero_acordao |
+| Boost monocrático | +0.15 similarity para HC/liminar |
+| Modo Tático | Ativo (toggle UI) |
 
-Tema 2 → "roubo com arma de fogo dosimetria pena aumento proporcional"
-          → STJ AgRg HC 765432 sim=0.792
-
-Tema 3 → "corrupção peculato lavagem de dinheiro servidor público administração"
-          → STF AP 470 sim=0.780
-```
-
-**checklist pré-demo:**
-
-```
-[SERVIDOR]  cd CLIENTES/VALDECE/frontend && python -m http.server 8080
-            → abrir http://localhost:8080 no Chrome
-
-[0–5 min]   ABERTURA: "Valdece, você mencionou os 3 temas — eu preparei o sistema
-            especificamente em volta deles. Vamos ver o primeiro?"
-            ↳ ELE NOMEOU OS TEMAS: não perguntar de novo. Já sabemos. Usar isso.
-            
-[5–10 min]  1ª busca: Crimes contra a vida — silêncio total, deixar o resultado aparecer
-[10–20 min] 2ª busca: Crimes contra o patrimônio — mostrar o link "Ver íntegra ↗"
-[20–30 min] 3ª busca: Administração pública — copiar citação ABNT com 1 clique
-[30–40 min] Deixar ELE digitar a 4ª busca sem ajuda — MOMENTO DE VIRADA H-2
-[40–55 min] SOVEREIGN PLAYBOOK: "se o sistema travar, você resolve em 3 passos"
-[55–70 min] CONTRATO: não forçar — deixar o entusiasmo fechar
-[70–90 min] FECHAMENTO + semente V2 plantada
-```
-
-**🚨 MOMENTO MAIS CRÍTICO DO PROJETO:** A primeira busca sobre crimes contra a vida.
-HC 188888 vai aparecer primeiro com sim=0.818 — é o acórdão mais relevante do corpus para esse tema.
-Se ele reconhecer o caso → contrato fecha sozinho.
-Se não reconhecer → mostrar o link STF e ler a ementa em voz alta.
-
-**Script para Sovereign Upload V2 (quando ele perguntar):**
-> "Valdece, aquelas decisões que você guarda porque já te salvaram em mais de um caso — quando você tiver rodado o que está aqui por umas duas semanas e a gente entender o volume real, a próxima evolução é o seu acervo entrando junto. O sistema aprende o seu jeito de defender, não só o jeito dos tribunais."
-
-**Linha de fechamento validada:** "O sistema é seu. Isso aqui só formaliza."
-**Se perguntar sobre mensalidade:** "não tem — você paga R$1,20/mês direto ao Google." (confirmado)
-**Se pedir desconto:** escalar ao Diretor. Não responder no momento. Mudar assunto.
-
-**RISCO MONITORADO — sigilo:**
-Se Valdece perguntar onde ficam os documentos dele (V2):
-> "Ficam no seu Supabase — a mesma conta sua que está rodando agora. Nada sai do seu controle. Você sabe disso, viu hoje."
+### Performance Gate P-038
+| Métrica | Valor |
+|---|---|
+| Queries aprovadas | 12/12 (100%) |
+| Similaridade range | 0.67 – 0.818 |
+| Latência média | 2.1 – 3.4s |
+| Similaridade mínima | 0.67 (todas acima do threshold Precisa) |
 
 ---
 
-## GATILHO COMERCIAL
+## 4. O QUE NÃO ESTÁ PRONTO (V3 — BLOQUEADO ATÉ CONTRATO)
 
-**Sinal que indica que chegou a hora do pitch V2:**
-Valdece diz algo como "esse sistema me poupou 2 horas hoje" ou menciona colega com a mesma dor.
+Estes itens foram identificados pelos áudios do Valdece e bloqueados por P-023 (scope creep) até contrato assinado. **Agora desbloqueados:**
 
-**Princípio candidato ao LEDGER:**
-LegalTech para advogados criminalistas — o ROI é medido em precedentes encontrados antes do juiz,
-não em horas economizadas. O argumento certo é "eu encontrei antes" — não "eu economizei tempo."
-
----
-
-## HISTÓRICO DE ATUALIZAÇÕES
-
-| Data | O que mudou | Quem atualizou |
+| Campo V3 | Tipo | Status |
 |---|---|---|
-| 2026-05-18 | Criação — véspera do presencial | Músculo |
-| 2026-05-19 | Presencial realizado — credenciais obtidas — modelo confirmado (sem mensalidade) — demo pendente | Músculo (P-032) |
-| 2026-05-19 | LOG_002 Embaixador processado: 3-temas question + script V2 + script sigilo + alerta H-5 janela 14 dias. Threshold demo ajustado para 0.45. 20 acórdãos testados — sistema verde. | Músculo (P-032) |
-| 2026-05-20 | Valdece confirmou os 3 temas reais: crimes contra a vida + patrimônio + adm. pública. Gate CLI: vida 0.818, patrimônio 0.792, adm.pública 0.780. Frontend corrigido: credenciais reais + gemini-embedding-001. Sistema VERDE para demo. | Músculo (P-032) |
+| `data_dje` | DATE | Pendente — ALTER TABLE |
+| `repercussao_geral` | BOOLEAN | Pendente — ALTER TABLE |
+| `recurso_repetitivo` | BOOLEAN | Pendente — ALTER TABLE |
+| `turma` | TEXT | Pendente — ALTER TABLE |
+
+**Blueprint pronto:** ALTER TABLE → ingest dry-run (61 acórdãos re-processados) → badges vinculantes no frontend → ABNT atualizado com data DJE.
+
+**Gate V3:** Valdece identifica badge "VINCULANTE" sem explicação de Eduardo — sozinho, intuitivamente.
 
 ---
 
-> **Protocolo de uso:** Cole este arquivo no início de cada sessão do Project.
-> O Embaixador processa e opera com contexto real — não com suposições.
-> Tempo de leitura: 30 segundos. Tempo de atualização: 2 minutos.
+## 5. MIGRAÇÃO DE INFRAESTRUTURA (PENDENTE)
+
+| Item | Status |
+|---|---|
+| Supabase | Vanguard → conta Valdece (sa-east-1) — P-038: gate de teste obrigatório antes da migração |
+| Gemini API Key | Eduardo → conta Google do Valdece (billing ativo no Cloud Console) |
+| Netlify | Redeploy com nova chave Valdece após migração |
+
+**Nota crítica:** O embedding falhou novamente em 2026-05-20 (quota free esgotada — 2ª ocorrência). Fix definitivo = billing ativo na conta Valdece + Edge Function no V3 (chave sai do frontend).
+
+---
+
+## 6. PRINCÍPIOS EXTRAÍDOS NO LOOP 6
+
+| Princípio | Descrição |
+|---|---|
+| P-046 | Contrato formaliza ciclo de evolução, não produto finalizado — V3, V4 são entregas futuras contratualmente previstas |
+| P-023 ativo | 5 áudios = scope creep via WhatsApp em tempo real — filtro funcionou: data_dje e badges vinculantes foram bloqueados até assinatura |
+| HV-1 recorrente | Chave Gemini no frontend = quota free esgota com uso real — 2ª ocorrência em Loop 6 — V3 Edge Function é obrigatória |
+
+---
+
+## 7. [M-1 a M-5] — 5 IDEIAS DISRUPTIVAS DO MÚSCULO PARA LOOP 7
+
+> Estas ideias NÃO vieram do Gemini nem do NotebookLM. São perspectiva técnica exclusiva do Músculo.
+> Alimentam o próximo ciclo do Gemini.
+
+**[M-1] Modo Audiência**
+Interface simplificada para uso em tempo real: texto grande, 1 resultado por vez, botão "Copiar para petição" com 1 toque, sem distrações. Valdece usa o sistema em audiências — a UI atual foi projetada para desktop tranquilo, não para stress de audiência.
+Custo: 4h de frontend. Impacto: diferencial que nenhum concorrente tem para criminalistas.
+
+**[M-2] Detector de Mudança Jurisprudencial**
+Quando uma query já realizada anteriormente retornar resultado diferente (novo acórdão mais relevante), alertar: "ATENÇÃO: o precedente sobre [tema] mudou desde sua última busca." Exige histórico de queries por usuário no Supabase.
+Custo: 6h (tabela query_history + lógica de comparação). Impacto: sistema que pensa junto com o advogado.
+
+**[M-3] Export para Petição em Bloco**
+Selecionar N acórdãos → gerar bloco ABNT numerado pronto para colar em petição DOCX. Hoje o Valdece copia 1 de cada vez. Com 5 acórdãos relevantes, são 5 copias manuais.
+Custo: 3h (seleção multi-card + geração de texto formatado). Impacto: economiza 10 minutos por petição com múltiplas citações.
+
+**[M-4] Watchdog de Corpus por Tema**
+Monitorar frequência de busca por tema → detectar quando um tema recorrente tem < 3 acórdãos relevantes no corpus → alertar Valdece: "Você busca muito sobre [tema X] mas temos poucos acórdãos sobre isso. Quer que eu amplie?". 
+Custo: 2h (analytics simples + alerta UI). Impacto: corpus evolui dirigido pelo uso real, não por intuição.
+
+**[M-5] Sovereign Upload Simplificado (antecipação V2)**
+Permitir que Valdece cole o texto de uma decisão diretamente no sistema → embedding gerado → entra no corpus dele instantaneamente. Sem interface de upload, sem PDF parsing — só texto colado. Gate: billing ativo na conta dele.
+Custo: 4h (Edge Function de ingestão via UI). Impacto: corpus cresce a cada caso que ele atende — vira vantagem competitiva acumulada.
+
+---
+
+## 8. PRÓXIMA AÇÃO — LOOP 7
+
+```
+GATE DE ENTRADA LOOP 7:
+1. Billing ativo na conta Google do Valdece → chave Gemini gerada
+2. Gemini anchor: .\scripts\gemini_anchor_generator.ps1
+3. Levar CONTEXTO_GEMINI.md + PASSO3_GEMINI.md ao Gemini → DIRETRIZ V7
+4. preparar_notebooklm_projeto.ps1 -cliente VALDECE → Wipe & Sync
+5. NotebookLM → skill valdece-v7.md (4 partes obrigatórias)
+6. Músculo executa /valdece-v7 → delibera → plano V3 migration
+
+FOCO LOOP 7:
+- ALTER TABLE ADD COLUMN (data_dje, repercussao_geral, recurso_repetitivo, turma)
+- Re-ingestão dry-run → verificar 61 acórdãos com campos preenchidos
+- Badges vinculantes no frontend (badge VINCULANTE se repercussao_geral=true ou recurso_repetitivo=true)
+- Edge Function Supabase para embedding (HV-1 fix definitivo)
+- Migração Supabase conta Valdece (sa-east-1) após testes
+```
 
 
 ================================================================================

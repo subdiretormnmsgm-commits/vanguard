@@ -20,7 +20,7 @@
 ### 💬 COMANDO CURTO — colar no chat do NotebookLM (Ctrl+V)
 
 ```
-Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha a cliente Ingrid em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Missão principal: gerar a Skill ingrid-v6.md — o Músculo não inicia o Loop 4 sem ela.
+Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha a cliente Ingrid em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Missão principal: gerar a Skill ingrid-v4.md — o Músculo não inicia o Loop 4 sem ela.
 ```
 
 > O arquivo já está nas fontes — não colar o conteúdo inteiro no chat.
@@ -80,13 +80,13 @@ Ao gerar a Skill, compense ativamente:
 
 ---
 
-## 🎯 MISSÃO CRÍTICA — GERAR A SKILL ingrid-v6.md
+## 🎯 MISSÃO CRÍTICA — GERAR A SKILL ingrid-v4.md
 
 **Após processar as fontes e a missão acima, gere a Skill completa em 4 partes obrigatórias.**
 
-O nome exato da Skill: **`ingrid-v6.md`**
+O nome exato da Skill: **`ingrid-v4.md`**
 
-O Músculo vai executar `/ingrid-v6` antes de qualquer deliberação do Loop 4.
+O Músculo vai executar `/ingrid-v4` antes de qualquer deliberação do Loop 4.
 Skill sem os 4 blocos com dados reais = Skill rejeitada. Músculo não inicia o build sem Skill válida.
 
 ---
@@ -109,7 +109,7 @@ PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
   O que este projeto tem de diferente que muda o padrão.
   O que Gemini e Músculo não estão vendo — discordância fundamentada.
 
-PARTE 3 — A SKILL (em formato ```skill ... ``` copiável para .claude/skills/ingrid-v6.md)
+PARTE 3 — A SKILL (em formato ```skill ... ``` copiável para .claude/skills/ingrid-v4.md)
   Incluir obrigatoriamente:
     - Contexto do projeto (cargo, banco, stack, decisões fixadas)
     - Conexão histórica (o que os Loops 1, 2 e 3 provaram)
@@ -127,7 +127,7 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 ```
 
 **Validação antes de entregar:**
-- [ ] Skill tem nome exato `ingrid-v6.md` declarado na PARTE 3
+- [ ] Skill tem nome exato `ingrid-v4.md` declarado na PARTE 3
 - [ ] PARTE 1 cita fontes reais (não genéricas)
 - [ ] PARTE 4 tem 5 ideias exclusivas do Auditor
 - [ ] Skill é copiável diretamente para `.claude/skills/`

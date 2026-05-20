@@ -34,7 +34,8 @@
                                     "dias_completos":  [
                                                            "dia1_schema_edge",
                                                            "dia2_gate_questoes",
-                                                           "dia3_5_feed_sm2_pwa"
+                                                           "dia3_5_feed_sm2_pwa",
+                                                           "dia6_8_tutor_fallback"
                                                        ],
                                     "plano_build":  {
                                                         "dia1_2":  "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
@@ -105,9 +106,9 @@
                                     "pendente_diretor":  [
                                                              "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
                                                          ],
-                                    "loop_atual":  "Loop #3 — Build (Dias 6-8) — Gate Dia 8 em andamento",
+                                    "loop_atual":  "Loop #3 — Build (Dias 9-11) — Gate Dia 8 APROVADO — aguardando skill_notebooklm_v2",
                                     "url_publica":  "https://subdiretormnmsgm-commits.github.io/vanguard/",
-                                    "url_status":  "ATIVA — GitHub Pages gh-pages branch — 2026-05-18",
+                                    "url_status":  "ATIVA — gh-pages d00c2c1 — negrito corrigido 2026-05-19",
                                     "formalizador":  {
                                         "termo_uso":  "Termo_Uso_Ingrid_PROJ002_30052026.pdf",
                                         "status":  "ASSINADO — 2026-05-18 (data no PDF incorreta: 30/05/2026 — reassinatura pendente com PDF corrigido)",
@@ -119,14 +120,16 @@
                                     "skill_notebooklm_v2":  "pendente — NotebookLM Loop 3",
                                     "banco_questoes":  "460 validadas — expansao para 1000+ aguarda creditos Anthropic",
                                     "gate_dia8":  {
-                                        "status":  "em andamento",
+                                        "status":  "APROVADO — 2026-05-19",
                                         "primeira_sessao":  "2026-05-18",
+                                        "data_aprovacao":  "2026-05-19",
                                         "questoes_alcancadas":  ">=18",
-                                        "feedback_verbatim":  "Gostou muito do aplicativo — questao 18 sem negrito (bug corrigido commit da9887a)",
-                                        "temperatura_cliente":  "QUENTE",
-                                        "pendente":  "confirmacao de 10 questoes completas + progresso salvo + fallback testado"
+                                        "evidencia":  "Ingrid respondeu 10+ questoes + progresso salvo + fallback testado",
+                                        "feedback_verbatim":  "Na questao 18 nao houve palavra destacada em negrito, como informava o enunciado",
+                                        "bug_negrito":  "CORRIGIDO — md2html() deployed gh-pages d00c2c1 — 2026-05-19",
+                                        "temperatura_cliente":  "QUENTE"
                                     },
-                                    "proximo_passo":  "Confirmar Gate Dia 8 (10 questoes completas + progresso salvo) + Wipe & Sync NotebookLM + Loop 4: Gemini DIRETRIZ V4 + NotebookLM Skill ingrid-v4 + Build Dias 9-11 (heatmap + simulado) + novo seed (banco 460 → 1000+)"
+                                    "proximo_passo":  "1. Gemini: levar PASSO3_GEMINI.md → receber DIRETRIZ V4 2. preparar_notebooklm_projeto.ps1 -cliente Ingrid → Wipe & Sync 3. NotebookLM: FONTES + DIRETRIZ → gerar skill_notebooklm_v2 (ingrid-v4) 4. Músculo + skill → Build Dias 9-11 (heatmap + Micro-Simulado + Modo Sedes-DF)"
                                 },
                                 {
                                     "id":  "PROJ-001",
@@ -192,9 +195,11 @@
                                     "deploy_netlify":  "https://toga-digital-valdece.netlify.app",
                                     "deploy_netlify_data":  "2026-05-19",
                                     "link_enviado_valdece":  true,
-                                    "demo_realizada":  false,
-                                    "contrato_assinado":  false,
-                                    "proximo_passo":  "DEMO 2026-05-20 (link Netlify já enviado a Valdece). Pós-contrato: migração Supabase do Valdece + Auth + dataset público STF/STJ + Sovereign Upload V2",
+                                    "demo_realizada":  true,
+                                    "contrato_assinado":  true,
+                                    "contrato_assinado_em":  "2026-05-19",
+                                    "gate_v3":  "DESBLOQUEADO",
+                                    "proximo_passo":  "Loop 7 — V3 build: ALTER TABLE ADD COLUMN (data_dje, repercussao_geral, recurso_repetitivo, turma) + re-ingestão dry-run + badges vinculantes frontend + migração Supabase sa-east-1 conta Valdece",
                                     "v2_pipeline":  {
                                                         "features":  [
                                                                          "Sovereign Upload",
@@ -232,7 +237,7 @@
                 "arquivo":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/LEGALTECH_PENAL.md",
                 "maturidade":  "75%",
                 "cliente_referencia":  "PROJ-001 Valdece",
-                "status":  "gate aprovado — demo 2026-05-20 — contrato pendente",
+                "status":  "CONTRATO ASSINADO 2026-05-19 — V3 desbloqueado — Loop 7 iniciando",
                 "para_100pct":  "demo executada + contrato assinado + 14 dias uso real + Sentinel Report",
                 "benchmark_gate":  {
                     "threshold":  0.45,

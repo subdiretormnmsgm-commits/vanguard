@@ -19,16 +19,16 @@
   Salva : .claude/skills/ingrid-v6.md
   Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\ingrid-v6.md"
 
-3. PASSO 7 → Embaixador (Claude Projects)
+3. PASSO 6 → Embaixador (Claude Projects)
   Músculo roda automaticamente: .\scripts\ir_ao_embaixador.ps1 -cliente INGRID
   Leva  : contexto do loop + comportamento de Ingrid + perguntas específicas
   Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos outros membros
 
-4. PASSO 6 → Músculo (este arquivo) — colar nesta ordem:
-  1. Skill ingrid-v6.md   ← output do NotebookLM
+4. PASSO 7 → Músculo (este arquivo) — colar nesta ordem:
+  1. Skill ingrid-v4.md   ← output do NotebookLM
   2. Diretriz Técnica V5  ← output do Gemini
   3. PASSO6_MUSCULO.md    ← este arquivo
-  Dizer: "PROTOCOLO VANGUARD — INGRID. Loop 4. Execute /ingrid-v6 antes de deliberar."
+  Dizer: "PROTOCOLO VANGUARD — INGRID. Loop 4. Execute /ingrid-v4 antes de deliberar."
 ```
 
 > O Embaixador corre ANTES do Músculo deliberar — filtro de realidade (P-031) antes do build.
