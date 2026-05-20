@@ -1,8 +1,8 @@
 # gemini_anchor_generator.ps1
-# Compila contexto atualizado para o Estrategista (Gemini)
-# Previne Deficiencia 1 do Gemini: Amnesia de Contexto e Deriva
+# Compila PAYLOAD COMPLETO para o Gemini: CONTEXTO + MEMORIA + RELATORIO + PASSO3
+# Um arquivo, uma colagem — zero erro de ordem.
 # Uso: .\scripts\gemini_anchor_generator.ps1
-# Output: CONTEXTO_GEMINI.md + clipboard
+# Output: CONTEXTO_GEMINI.md (payload completo) + clipboard
 
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
@@ -29,28 +29,13 @@ Write-Host "  gemini_anchor_generator -- $DATA"
 Write-Host "================================================"
 Write-Host ""
 
-$ledger  = Read-Doc "INTELLIGENCE_LEDGER.md" 120
-$wip     = Read-Doc "CLIENTES\WIP_BOARD.json" 80
-$proto   = Read-Doc ".claude\skills\vanguard-protocolo.md" 60
-
-# Memoria mais recente de qualquer cliente
-$memoriaRecente = Get-ChildItem "$BASE\CLIENTES" -Filter "MEMORIA*.md" -Recurse -ErrorAction SilentlyContinue |
-    Sort-Object LastWriteTime -Descending | Select-Object -First 1
-
-$memoria = if ($memoriaRecente) {
-    Write-Host "  Memoria detectada: $($memoriaRecente.Name)"
-    Get-Content $memoriaRecente.FullName -Encoding UTF8 -Raw
-} else { $null }
-
-# Ultimos 3 commits (payload dinamico — Estrategista nao recebe contexto stale)
-$commits = $null
-try {
-    $gitLog = & git -C $BASE log --oneline -3 2>$null
-    if ($gitLog) { $commits = "ULTIMOS 3 COMMITS:`n" + ($gitLog -join "`n") }
-} catch {}
+$ledger = Read-Doc "INTELLIGENCE_LEDGER.md" 120
+$wip    = Read-Doc "CLIENTES\WIP_BOARD.json" 80
+$proto  = Read-Doc ".claude\skills\vanguard-protocolo.md" 60
 
 $sep = "`n`n" + ("=" * 80) + "`n`n"
 
+# --- BLOCO 1: CABECALHO SOBERANO ---
 $blocos = @()
 $blocos += @"
 ESTRATEGISTA -- CONTEXTO SOBERANO -- $DATA
@@ -61,70 +46,20 @@ Antes de qualquer DIRETRIZ: verifique o WIP_BOARD -- nao proponha
 acoes para etapas ja concluidas.
 "@
 
-if ($commits) { $blocos += "## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO`n$commits" }
-if ($ledger)  { $blocos += "## INTELLIGENCE LEDGER -- PRINCIPIOS ATIVOS`n$ledger" }
-if ($wip)     { $blocos += "## WIP BOARD -- ESTADO DOS PROJETOS`n$wip" }
-if ($memoria) { $blocos += "## MEMORIA MAIS RECENTE`n$memoria" }
-if ($proto)   { $blocos += "## PROTOCOLO VANGUARD (resumo)`n$proto" }
-
-$output = $blocos -join $sep
-
-# Salvar arquivo
-$destFile = Join-Path $BASE "CONTEXTO_GEMINI.md"
-Set-Content $destFile -Value $output -Encoding UTF8
-
-# Copiar para clipboard
+# --- BLOCO 2: COMMITS RECENTES ---
 try {
-    $output | Set-Clipboard
-    $clipMsg = "copiado"
-} catch {
-    $clipMsg = "indisponivel -- use o arquivo"
-}
+    $gitLog = & git -C $BASE log --oneline -3 2>$null
+    if ($gitLog) { $blocos += "## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO`nULTIMOS 3 COMMITS:`n" + ($gitLog -join "`n") }
+} catch {}
 
-Write-Host ""
-Write-Host "Concluido:"
-Write-Host "  Arquivo  : CONTEXTO_GEMINI.md ($($output.Length) chars)"
-Write-Host "  Clipboard: $clipMsg"
-Write-Host ""
-Write-Host "Cole no inicio da sessao do Gemini antes de qualquer DIRETRIZ."
-Write-Host "================================================"
+# --- BLOCO 3: LEDGER + WIP + PROTOCOLO ---
+if ($ledger) { $blocos += "## INTELLIGENCE LEDGER -- PRINCIPIOS ATIVOS`n$ledger" }
+if ($wip)    { $blocos += "## WIP BOARD -- ESTADO DOS PROJETOS`n$wip" }
+if ($proto)  { $blocos += "## PROTOCOLO VANGUARD (resumo)`n$proto" }
 
-# --- LISTA DE ANEXOS OBRIGATORIOS PARA O GEMINI ---
-Write-Host ""
-Write-Host "================================================" -ForegroundColor Cyan
-Write-Host "  ANEXOS OBRIGATORIOS -- ABRIR NO GEMINI"        -ForegroundColor Cyan
-Write-Host "================================================" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "  Anexe estes arquivos ao Gemini (nesta ordem):" -ForegroundColor Yellow
-Write-Host ""
-
-$anexos   = [System.Collections.ArrayList]@()
-$num      = 1
-
-# 1 — INTELLIGENCE_LEDGER
-$ledgerPath = Join-Path $BASE "INTELLIGENCE_LEDGER.md"
-if (Test-Path $ledgerPath) {
-    Write-Host "  [$num] INTELLIGENCE_LEDGER.md" -ForegroundColor Green
-    Write-Host "       $ledgerPath"
-    [void]$anexos.Add($ledgerPath)
-    $num++
-} else {
-    Write-Host "  [!!] INTELLIGENCE_LEDGER.md NAO ENCONTRADO" -ForegroundColor Red
-}
-
-# 2 — WIP_BOARD
-$wipPath = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
-if (Test-Path $wipPath) {
-    Write-Host "  [$num] WIP_BOARD.json" -ForegroundColor Green
-    Write-Host "       $wipPath"
-    [void]$anexos.Add($wipPath)
-    $num++
-} else {
-    Write-Host "  [!!] WIP_BOARD.json NAO ENCONTRADO" -ForegroundColor Red
-}
-
-# Detectar projeto ativo em BUILD
+# --- DETECTAR PROJETO ATIVO ---
 $projetoAtivo = $null
+$wipPath = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
 if (Test-Path $wipPath) {
     try {
         $board = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -132,58 +67,83 @@ if (Test-Path $wipPath) {
     } catch {}
 }
 
+# --- BLOCO 4: MEMORIA + RELATORIO + PASSO3 DO PROJETO ATIVO ---
 if ($projetoAtivo) {
     $clienteUpper = $projetoAtivo.cliente.ToUpper()
     $clienteDir   = Join-Path $BASE "CLIENTES\$clienteUpper"
     $histDir      = Join-Path $clienteDir "HISTORICO"
 
-    # 3 — MEMORIA mais recente do projeto ativo
-    $mem = Get-ChildItem $histDir -Filter "MEMORIA_V*.md" -ErrorAction SilentlyContinue |
-           Sort-Object Name -Descending | Select-Object -First 1
-    if ($mem) {
-        Write-Host "  [$num] $($mem.Name)" -ForegroundColor Green
-        Write-Host "       $($mem.FullName)"
-        [void]$anexos.Add($mem.FullName)
-        $num++
+    Write-Host "  Projeto ativo: $($projetoAtivo.id) - $($projetoAtivo.cliente)"
+    Write-Host "  Loop atual   : $($projetoAtivo.loop_atual)"
+    Write-Host ""
+
+    # MEMORIA mais recente
+    $memFile = Get-ChildItem $histDir -Filter "MEMORIA_V*.md" -ErrorAction SilentlyContinue |
+               Sort-Object Name -Descending | Select-Object -First 1
+    if ($memFile) {
+        Write-Host "  [+] $($memFile.Name)"
+        $memContent = Get-Content $memFile.FullName -Encoding UTF8 -Raw
+        $blocos += "## MEMORIA MAIS RECENTE -- $($memFile.Name)`n$memContent"
     } else {
-        Write-Host "  [--] MEMORIA_V*.md nao encontrada em HISTORICO (normal no Loop 1)" -ForegroundColor DarkGray
+        Write-Host "  [--] MEMORIA_V*.md nao encontrada (normal no Loop 1)"
     }
 
-    # 4 — RELATORIO mais recente do projeto ativo
-    $rel = Get-ChildItem $histDir -Filter "relatorio_evolutivo_V*.md" -ErrorAction SilentlyContinue |
-           Sort-Object Name -Descending | Select-Object -First 1
-    if ($rel) {
-        Write-Host "  [$num] $($rel.Name)" -ForegroundColor Green
-        Write-Host "       $($rel.FullName)"
-        [void]$anexos.Add($rel.FullName)
-        $num++
+    # RELATORIO mais recente
+    $relFile = Get-ChildItem $histDir -Filter "relatorio_evolutivo_V*.md" -ErrorAction SilentlyContinue |
+               Sort-Object Name -Descending | Select-Object -First 1
+    if ($relFile) {
+        Write-Host "  [+] $($relFile.Name)"
+        $relContent = Get-Content $relFile.FullName -Encoding UTF8 -Raw
+        $blocos += "## RELATORIO EVOLUTIVO -- $($relFile.Name)`n$relContent"
     } else {
-        Write-Host "  [--] relatorio_evolutivo_V*.md nao encontrado (normal no Loop 1)" -ForegroundColor DarkGray
+        Write-Host "  [--] relatorio_evolutivo_V*.md nao encontrado (normal no Loop 1)"
     }
 
-    # 5 — PASSO3_GEMINI.md do projeto ativo
-    $passo3 = Join-Path $clienteDir "PASSO3_GEMINI.md"
-    if (Test-Path $passo3) {
-        Write-Host "  [$num] PASSO3_GEMINI.md ($clienteUpper)" -ForegroundColor Green
-        Write-Host "       $passo3"
-        [void]$anexos.Add($passo3)
-        $num++
+    # PASSO3 — MISSAO (sempre por ultimo)
+    $passo3Path = Join-Path $clienteDir "PASSO3_GEMINI.md"
+    if (Test-Path $passo3Path) {
+        Write-Host "  [+] PASSO3_GEMINI.md (MISSAO — ultimo bloco)"
+        $passo3Content = Get-Content $passo3Path -Encoding UTF8 -Raw
+        $blocos += "## MISSAO DESTA SESSAO -- PASSO3_GEMINI ($clienteUpper)`n$passo3Content"
     } else {
         Write-Host "  [!!] PASSO3_GEMINI.md NAO ENCONTRADO para $clienteUpper" -ForegroundColor Red
     }
 
-    Write-Host ""
-    Write-Host "  Projeto ativo: $($projetoAtivo.id) - $($projetoAtivo.cliente)" -ForegroundColor Cyan
-    Write-Host "  Loop atual   : $($projetoAtivo.loop_atual)" -ForegroundColor Cyan
 } else {
+    # Fallback: memoria mais recente de qualquer cliente
+    $memoriaRecente = Get-ChildItem "$BASE\CLIENTES" -Filter "MEMORIA*.md" -Recurse -ErrorAction SilentlyContinue |
+        Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    if ($memoriaRecente) {
+        Write-Host "  [fallback] Memoria detectada: $($memoriaRecente.Name)"
+        $memContent = Get-Content $memoriaRecente.FullName -Encoding UTF8 -Raw
+        $blocos += "## MEMORIA MAIS RECENTE`n$memContent"
+    }
     Write-Host ""
-    Write-Host "  [!!] Nenhum projeto em BUILD detectado no WIP_BOARD." -ForegroundColor Yellow
-    Write-Host "       Anexe manualmente: LEDGER + WIP + PASSO3_GEMINI do projeto." -ForegroundColor Yellow
+    Write-Host "  [!!] Nenhum projeto em BUILD no WIP_BOARD." -ForegroundColor Yellow
+    Write-Host "       Adicione PASSO3_GEMINI manualmente ao final do arquivo gerado." -ForegroundColor Yellow
+}
+
+# --- GERAR ARQUIVO UNICO ---
+$output = $blocos -join $sep
+
+$destFile = Join-Path $BASE "CONTEXTO_GEMINI.md"
+Set-Content $destFile -Value $output -Encoding UTF8
+
+# --- COPIAR PARA CLIPBOARD ---
+try {
+    $output | Set-Clipboard
+    $clipMsg = "copiado"
+} catch {
+    $clipMsg = "indisponivel -- copie o arquivo manualmente"
 }
 
 Write-Host ""
-Write-Host "  Apos receber a DIRETRIZ do Gemini:"                              -ForegroundColor Yellow
-Write-Host '  Salvar como: CLIENTES\[CLIENTE]\DIRETRIZ_GEMINI_V[N].txt'       -ForegroundColor White
-Write-Host '  Depois rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente [CLIENTE]' -ForegroundColor White
+Write-Host "================================================"
+Write-Host "  PAYLOAD GEMINI GERADO -- $DATA"
+Write-Host "================================================"
 Write-Host ""
-Write-Host "================================================" -ForegroundColor Cyan
+Write-Host "  Arquivo : CONTEXTO_GEMINI.md ($($output.Length) chars)"
+Write-Host "  Clipboard: $clipMsg"
+Write-Host ""
+Write-Host "  So isso: Ctrl+V no Gemini. Um arquivo. Zero erro de ordem."
+Write-Host "================================================"
