@@ -144,8 +144,25 @@ Estas 5 ideias alimentam o próximo ciclo do Gemini. Sem elas, o loop para.
 **PASSO G — Apresentar Plano de Build dia a dia**
 Com gates verificáveis + o que foi descartado + estimativa de risco.
 
-**PASSO H — Aguardar Veredito do Diretor**
-Nada é construído antes da aprovação explícita.
+**PASSO G.5 — SALVAR DELIBERAÇÃO ANTES DO VEREDITO (obrigatório — P-048)**
+Antes de apresentar o plano ao Diretor, o Músculo salva a deliberação completa em arquivo:
+→ `CLIENTES/INGRID/HISTORICO/DELIBERACAO_LOOP_4_INGRID.md`
+Conteúdo: PASSO C + PASSO D + PASSO E + PASSO E.b + PASSO F + PASSO G completos.
+Gate: arquivo deve existir no disco antes do PASSO H começar.
+Sem este arquivo o Diretor dará veredito baseado em contexto volátil — deliberação inválida.
+
+**PASSO H — VEREDITO DO DIRETOR**
+Para cada decisão pendente, o Músculo apresenta no formato abaixo.
+Diretor não decide sem análise — análise não vira plano sem veredito.
+
+```
+[N]. [Decisão em 1 linha]
+Análise: [evidência, custo real, risco — por que esta opção]
+Recomendação do Músculo: [APROVADO / V2 / DESCARTADO] — [razão em 1 linha]
+→ Diretor: ___
+```
+
+Nada é construído antes da aprovação explícita do Diretor.
 
 ---
 
