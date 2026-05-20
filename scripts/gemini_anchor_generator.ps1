@@ -1,8 +1,12 @@
 # gemini_anchor_generator.ps1
 # Compila PAYLOAD COMPLETO para o Gemini: CONTEXTO + MEMORIA + RELATORIO + PASSO3
 # Um arquivo, uma colagem -- zero erro de ordem.
-# Uso: .\scripts\gemini_anchor_generator.ps1
-# Output: CONTEXTO_GEMINI.md (payload completo) + clipboard
+# Uso: .\scripts\gemini_anchor_generator.ps1 [-cliente NOME]
+# Output: CLIENTES\[NOME]\CONTEXTO_GEMINI.md (payload completo) + clipboard
+
+param(
+    [string]$cliente = ""
+)
 
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
@@ -63,7 +67,15 @@ $wipPath = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
 if (Test-Path $wipPath) {
     try {
         $board = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
-        $projetoAtivo = @($board.board.build) | Where-Object { $_ } | Select-Object -First 1
+        if ($cliente -ne "") {
+            $projetoAtivo = @($board.board.build) | Where-Object { $_.cliente -eq $cliente } | Select-Object -First 1
+            if (-not $projetoAtivo) {
+                # cliente nao esta em BUILD -- criar entrada minima para gerar o payload
+                $projetoAtivo = [PSCustomObject]@{ id = "MANUAL"; cliente = $cliente; loop_atual = "N/A" }
+            }
+        } else {
+            $projetoAtivo = @($board.board.build) | Where-Object { $_ } | Select-Object -First 1
+        }
     } catch {}
 }
 
