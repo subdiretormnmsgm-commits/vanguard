@@ -15,19 +15,24 @@
 2. PASSO 5 → NotebookLM
   Roda  : .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
   Leva  : NOTEBOOKLM_FONTES/ completo (Wipe & Sync) + COMANDO CURTO do PASSO5
-  Recebe: Skill ingrid-v6.md (4 partes obrigatórias + [N-1 a N-5])
-  Salva : .claude/skills/ingrid-v6.md
-  Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\ingrid-v6.md"
+  Recebe: Skill ingrid-v4.md (4 partes obrigatórias + [N-1 a N-5])
+  Salva : .claude/skills/ingrid-v4.md
+  Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\ingrid-v4.md"
 
 3. PASSO 6 → Embaixador (Claude Projects)
   Músculo roda automaticamente: .\scripts\ir_ao_embaixador.ps1 -cliente INGRID
   Leva  : contexto do loop + comportamento de Ingrid + perguntas específicas
-  Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos outros membros
+  Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos sócios
 
-4. PASSO 7 → Músculo (este arquivo) — colar nesta ordem:
-  1. Skill ingrid-v4.md   ← output do NotebookLM
-  2. Diretriz Técnica V5  ← output do Gemini
-  3. PASSO6_MUSCULO.md    ← este arquivo
+4. PASSO 7 → Músculo (este arquivo)
+  Você terá em mãos ao iniciar:
+    · ingrid-v4.md          <- [N-1 a N-5] do Auditor  (PASSO 5)
+    · Diretriz Técnica V5   <- [G-1 a G-5] do Gemini   (PASSO 3)
+    · [E-1 a E-5] do Embaixador <- CONFIRMA/EXPANDE/ALERTA (PASSO 6 ja executado)
+    · PASSO6_MUSCULO.md     <- este arquivo
+  Colar nesta ordem: Skill → DIRETRIZ → PASSO6_MUSCULO.md
+  PRIMEIRA ACAO: executar /ingrid-v4 antes de qualquer palavra.
+  Depois: seguir SEQUENCIA DE DELIBERACAO abaixo (PASSOS 0 a H).
   Dizer: "PROTOCOLO VANGUARD — INGRID. Loop 4. Execute /ingrid-v4 antes de deliberar."
 ```
 
@@ -52,8 +57,8 @@
 
 3. DIZER:
    "PROTOCOLO VANGUARD — INGRID. Loop 4. Diretriz V5.
-    Execute /ingrid-v6 antes de deliberar.
-    Trago a Skill do Auditor e a DIRETRIZ do Estrategista.
+    Execute /ingrid-v4 antes de deliberar.
+    Trago a Skill do Auditor, a DIRETRIZ do Gemini e as ideias do Embaixador.
     Leia tudo e delibere nos 7 pontos antes de qualquer build."
 ```
 
@@ -92,7 +97,11 @@
 
 ## 📋 SEQUÊNCIA DE DELIBERAÇÃO — NESTA ORDEM EXATA
 
-**PASSO A — Ler a Skill (PARTE 1 a 4) completa antes de qualquer resposta**
+**PASSO 0 — Executar `/ingrid-v4` ANTES DE QUALQUER PALAVRA**
+Esta é a primeira ação do Músculo ao receber os documentos. Sem a Skill rodada, toda deliberação
+é inválida. Se a Skill não existir em `.claude/skills/ingrid-v4.md` → parar e alertar o Diretor.
+
+**PASSO A — Ler a Skill (PARTE 1 a 4) completa**
 - Atenção especial a: AUDITORIA DE COERÊNCIA, ALERTAS CRÍTICOS, PADRÃO DE FALHA
 - Se a Skill contradiz a DIRETRIZ → sinalizar ao Diretor antes de deliberar
 - Se a Skill não tem as 4 partes com dados reais → rejeitar:
@@ -105,16 +114,23 @@
 **PASSO C — Deliberar sobre as prioridades do [PARA O MÚSCULO]**
 Usar os 7 pontos para cada prioridade de build aprovada pelo Estrategista.
 
-**PASSO D — Reagir às 5 ideias do Estrategista (BLOCO 6 da DIRETRIZ) — obrigatório**
+**PASSO D — Reagir às 5 ideias do Estrategista [G-1 a G-5] (BLOCO 6 da DIRETRIZ) — obrigatório**
 Para cada uma das 5 ideias do Gemini, responder nos 7 pontos.
 Nenhuma ideia pode ser ignorada. Silêncio = deliberação inválida.
 
-**PASSO E — Reagir às 5 ideias do Auditor (PARTE 4 da Skill) — obrigatório**
+**PASSO E — Reagir às 5 ideias do Auditor [N-1 a N-5] (PARTE 4 da Skill) — obrigatório**
 Para cada uma das 5 ideias do NotebookLM: viável / modificada / descartada + razão técnica.
 O que o Auditor viu que Gemini e Músculo não viram? Declarar antes de avançar.
 
-**PASSO F — Propor as 5 ideias disruptivas do Músculo — obrigatório**
-Ideias que NÃO vieram do Gemini nem do NotebookLM — perspectiva técnica exclusiva.
+**PASSO E.b — Reagir às 5 ideias do Embaixador [E-1 a E-5] — obrigatório**
+O Embaixador já rodou (PASSO 6). Suas ideias chegam com evidência de comportamento real da Ingrid.
+Para cada [E-1 a E-5]: CONFIRMO a evidência / EXPANDO tecnicamente / ALERTO se inviável.
+Peso maior que [G] e [N] — são baseadas em comportamento real, não inferência de perfil.
+O que o Embaixador viu em campo que Gemini e Auditor não capturam? Declarar antes de avançar.
+Atualizar MEMORIA_EMBAIXADOR automaticamente ao final (P-032).
+
+**PASSO F — Propor as 5 ideias disruptivas do Músculo [M-1 a M-5] — obrigatório**
+Ideias que NÃO vieram do Gemini, Auditor nem Embaixador — perspectiva técnica exclusiva.
 Para cada ideia: o que é + impacto estimado + custo real + pergunta ao Diretor.
 Estas 5 ideias alimentam o próximo ciclo do Gemini. Sem elas, o loop para.
 
