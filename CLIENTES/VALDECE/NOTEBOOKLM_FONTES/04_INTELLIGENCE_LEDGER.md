@@ -295,6 +295,9 @@ O que sistematicamente falha — com evidência de projeto real.
 [HV-5] Breaking change em sistema com cliente ativo sem kill-switch
 [HV-6] Infra Prisioneira — build sem: (a) acesso admin do cliente ao próprio Supabase,
         (b) API keys documentadas e transferíveis, (c) OFFBOARDING_RUNBOOK.md no repositório
+[HV-7] Contrato comercial assinado sem Fases 1 e 2 do PROTOCOLO_TESTES_PRE_ASSINATURA
+        concluídas e documentadas. Override requer aprovação explícita do Diretor com
+        justificativa registrada no LEDGER. [ver P-046]
 ```
 
 ### Soft Veto (flag + 1 sessão de cooling antes de executar)
@@ -987,3 +990,43 @@ Diretor — veredito
 **Princípio:** Nenhum sistema, código ou configuração sai do ambiente Vanguard para o ambiente do cliente sem gate de teste aprovado explicitamente pelo Diretor. Estado "pronto" ≠ estado "aprovado para envio". O gate de teste é o único que autoriza a migração.
 **Aplica-se a:** todo projeto cliente — migração de Supabase, deploy de frontend, configuração de credenciais na conta do cliente.
 **Consequência do não-cumprimento:** Cliente recebe sistema não testado → falha na demo → janela de encantamento destruída → contrato perdido.
+
+---
+
+### [FALHA-PROCESSO-2026-05-19-B] MEMORIA e relatorio ausentes para loops intermediários
+**Detectado por:** Eduardo (Diretor)
+**Evidência:** PROJ-001 Valdece chegou no Loop 4 com MEMORIA_V1 e relatorio_V1 apenas. DIRETRIZ V2 e V3 existem — os loops aconteceram — mas MEMORIA_V2, relatorio_V2, MEMORIA_V3 e relatorio_V3 nunca foram gerados. O Músculo avançou os loops sem fechar o ritual de fechamento obrigatório. Resultado: o NotebookLM do Loop 4 recebe contexto do Loop 1, não do Loop 3.
+**Causa raiz:** Músculo sob pressão de entrega prioriza o próximo loop em vez de fechar o atual. O ritual de fechamento (MEMORIA + relatorio) é percebido como opcional quando o Diretor autoriza o próximo passo sem exigir os artefatos.
+**Regra gerada:** Nenhum loop começa sem que o loop anterior esteja fechado com MEMORIA_VX + relatorio_VX no HISTORICO. Gatilho: ao receber o PASSO3_GEMINI para um novo loop, o Músculo verifica se o loop anterior tem MEMORIA e relatorio em HISTORICO. Se não tiver → bloquear e alertar antes de qualquer deliberação.
+**Ferramenta criada:** verificar_fechamento_loop() implementado em `session_close.ps1` — script avisa quando MEMORIA e relatorio do loop atual estão ausentes no HISTORICO.
+**Aplica-se a:** todo projeto cliente Camada 1+. Loop sem artefatos de fechamento = loop fantasma.
+
+---
+
+### [P-045] Ritual de Fechamento de Loop é bloqueante — não opcional
+**Descoberto:** 2026-05-19 | **Sessão:** Revisão PASSO files — PROJ-001 Valdece
+**Evidência:** PROJ-001 Valdece chegou no Loop 4 sem MEMORIA_V2/V3 e relatorio_V2/V3. Os loops 2 e 3 aconteceram (há DIRETRIZ V2 e V3 no HISTORICO), mas o Músculo não gerou os artefatos de fechamento. O preparar_notebooklm enviou contexto do Loop 1 para o NotebookLM do Loop 4 — o Auditor deliberou com 3 loops de defasagem.
+**Princípio:** Ao receber PASSO3_GEMINI para o loop N, o Músculo PRIMEIRO verifica:
+  `CLIENTES/[CLIENTE]/HISTORICO/MEMORIA_V[N-1]_[CLIENTE].md` — existe?
+  `CLIENTES/[CLIENTE]/HISTORICO/relatorio_evolutivo_V[N-1]_[CLIENTE].md` — existe?
+  Se não existirem → emitir BLOQUEIO: "Diretor, o loop [N-1] não tem artefatos de fechamento. Gerar MEMORIA_V[N-1] + relatorio_V[N-1] antes de iniciar o Loop [N]. Sem esses artefatos, o Auditor do próximo loop delibera com contexto defasado."
+**Aplica-se a:** todo projeto cliente Camada 1+. O loop não começa sem o anterior fechado.
+
+---
+
+### [P-046] Contrato segue teste — nunca precede
+**Descoberto:** 2026-05-19 | **Sessão:** Formalização pós-entrega presencial PROJ-001 Valdece
+**Fricção:** O contrato do Valdece foi assinado antes da ferramenta ser testada no dispositivo e na rede real do cliente. Na entrega presencial, a ferramenta falhou. O contrato já estava assinado. Trabalho de recuperação foi necessário. Situação inteiramente evitável.
+**Princípio:** A sequência obrigatória é:
+1. **Testar internamente** — no ambiente de produção, no dispositivo equivalente ao do cliente, em rede externa
+2. **Validar com o cliente** — cliente usa a ferramenta antes da reunião de assinatura e confirma funcionamento
+3. **Assinar** — contrato formaliza entrega que já funciona, não promessa de que vai funcionar
+4. **Entregar** — handoff, Sovereign Playbook, credenciais
+
+O contrato é o ponto de chegada do processo de teste — nunca o ponto de partida.
+
+**Causa raiz:** Pressão de timing comercial + confiança no código testado apenas no ambiente de desenvolvimento. "Funciona no meu computador" não é gate de aprovação.
+**Ferramenta criada:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_TESTES_PRE_ASSINATURA.md` — checklist de 8 itens (Fase 1 interna) + script de envio ao cliente (Fase 2) + nova cláusula contratual de validação prévia.
+**Regra de ouro:** Pressão para assinar rápido é sinal de alerta — não de agilidade. Cliente que confia espera 48h de teste. O custo do protocolo é 2h. O custo da falha pós-assinatura é a credibilidade.
+**Responsabilidade:** O Diretor é o único que autoriza o avanço para assinatura. O Músculo não tem autonomia para comprimir este protocolo sob nenhuma circunstância.
+**Aplica-se a:** todo projeto com cliente externo, qualquer valor, qualquer prazo, qualquer nível de confiança no código.
