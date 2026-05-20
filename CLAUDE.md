@@ -63,7 +63,8 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
 
 | Instrumento | Onde | O que contém |
 |---|---|---|
-| `INTELLIGENCE_LEDGER.md` | raiz | Princípios extraídos de fricções reais (P-001 a P-045+). O que nunca repetir. |
+| `PENDENTES.md` | **raiz** | **⚠️ PRIMEIRO A LER — tarefas pendentes com atraso em dias. P-048: pendente não registrado aqui não existe.** |
+| `INTELLIGENCE_LEDGER.md` | raiz | Princípios extraídos de fricções reais (P-001 a P-048+). O que nunca repetir. |
 | `CLIENTES/WIP_BOARD.json` | raiz | Estado atual de todos os projetos. O que está em build, check, entregue. |
 | `CONSELHO/NotebookLM/ANALISE_SOCIO_ATUAL.txt` | CONSELHO/ | Análise mais recente do Sócio — contexto de negócio atualizado pelo Diretor. |
 | `.claude/skills/vanguard-protocolo.md` | .claude/skills/ | Processo operacional completo do Pentalateral (v6.0). |

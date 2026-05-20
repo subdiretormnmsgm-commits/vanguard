@@ -143,16 +143,51 @@ $acoesDia        = @()
 # ── Bloco PENDENTES ───────────────────────────────────────
 $pendentesPath = "$BASE\PENDENTES.md"
 if (Test-Path $pendentesPath) {
-    $pendentesRaw  = Get-Content $pendentesPath -Encoding UTF8
+    $pendentesRaw     = Get-Content $pendentesPath -Encoding UTF8
     $pendentesAbertos = $pendentesRaw | Where-Object { $_ -match '^\s*- \[ \]' }
+
     if ($pendentesAbertos.Count -gt 0) {
-        $linhas += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-        $linhas += "📋 PENDENTES ($($pendentesAbertos.Count) abertos)"
-        foreach ($p in $pendentesAbertos) {
-            $texto = $p -replace '^\s*- \[ \]\s*`[^`]+`\s*', '' -replace '\*\*([^*]+)\*\*', '$1'
-            $linhas += "  • $($texto.Trim())"
+        # Parsear data e calcular atraso de cada pendente
+        $parsedPendentes = foreach ($p in $pendentesAbertos) {
+            $dataMatch = [regex]::Match($p, '`(\d{4}-\d{2}-\d{2})`')
+            $dataPend  = if ($dataMatch.Success) { [datetime]$dataMatch.Groups[1].Value } else { $hoje }
+            $atraso    = ($hoje - $dataPend).Days
+            $texto     = $p -replace '^\s*- \[ \]\s*`[^`]+`\s*', '' -replace '\*\*([^*]+)\*\*', '$1'
+            [PSCustomObject]@{ Atraso = $atraso; Data = $dataPend; Texto = $texto.Trim() }
         }
+
+        # Ordenar: mais antigos primeiro
+        $parsedPendentes = $parsedPendentes | Sort-Object Atraso -Descending
+
+        $vencidos = @($parsedPendentes | Where-Object { $_.Atraso -gt 0 })
+        $hoje_pendentes = @($parsedPendentes | Where-Object { $_.Atraso -eq 0 })
+
+        $linhas += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        $titulo = "📋 PENDENTES ($($pendentesAbertos.Count) abertos"
+        if ($vencidos.Count -gt 0) { $titulo += " · $($vencidos.Count) EM ATRASO" }
+        $linhas += "$titulo)"
+
+        if ($vencidos.Count -gt 0) {
+            $linhas += "  ⚠️  EM ATRASO — deveriam ter sido feitos:"
+            foreach ($p in $vencidos) {
+                $label = if ($p.Atraso -eq 1) { "1 dia" } else { "$($p.Atraso) dias" }
+                $linhas += "  🔴 [$label atrasado] $($p.Texto)"
+            }
+        }
+
+        if ($hoje_pendentes.Count -gt 0) {
+            if ($vencidos.Count -gt 0) { $linhas += "  — adicionados hoje:" }
+            foreach ($p in $hoje_pendentes) {
+                $linhas += "  • $($p.Texto)"
+            }
+        }
+
         $linhas += ""
+
+        # Pendentes vencidos viram alerta crítico
+        foreach ($p in $vencidos) {
+            $alertasCriticos += "PENDENTE $($p.Atraso)d — $($p.Texto.Substring(0, [Math]::Min(60, $p.Texto.Length)))"
+        }
     }
 }
 

@@ -118,6 +118,46 @@ function Get-CheckInPrompt {
 
 $checkIn = Get-CheckInPrompt
 
+# --- PENDENTES: alerta de tarefas vencidas ---
+function Get-PendentesAlert {
+    $pendPath = Join-Path $projectDir "PENDENTES.md"
+    if (-not (Test-Path $pendPath)) { return $null }
+    $linhas = Get-Content $pendPath -Encoding UTF8 -ErrorAction SilentlyContinue
+    if (-not $linhas) { return $null }
+
+    $hoje    = Get-Date
+    $abertos = @()
+    foreach ($l in $linhas) {
+        if ($l -notmatch '^\s*- \[ \]') { continue }
+        $dataMatch = [regex]::Match($l, '`(\d{4}-\d{2}-\d{2})`')
+        $dataPend  = if ($dataMatch.Success) { [datetime]$dataMatch.Groups[1].Value } else { $hoje }
+        $atraso    = ($hoje.Date - $dataPend.Date).Days
+        $texto     = $l -replace '^\s*- \[ \]\s*`[^`]+`\s*', '' -replace '\*\*([^*]+)\*\*', '$1'
+        $abertos  += [PSCustomObject]@{ Atraso = $atraso; Texto = $texto.Trim() }
+    }
+    if ($abertos.Count -eq 0) { return $null }
+
+    $abertos   = $abertos | Sort-Object Atraso -Descending
+    $vencidos  = @($abertos | Where-Object { $_.Atraso -gt 0 })
+    $emPrazo   = @($abertos | Where-Object { $_.Atraso -eq 0 })
+
+    $out = @("PENDENTES (P-048) — $($abertos.Count) abertos")
+    if ($vencidos.Count -gt 0) {
+        $out += "⚠️  EM ATRASO — resolver AGORA:"
+        foreach ($p in $vencidos) {
+            $d = if ($p.Atraso -eq 1) { "1 dia" } else { "$($p.Atraso) dias" }
+            $out += "  🔴 [$d atrasado] $($p.Texto)"
+        }
+    }
+    if ($emPrazo.Count -gt 0) {
+        $out += "No prazo — adicionados hoje:"
+        foreach ($p in $emPrazo) { $out += "  • $($p.Texto)" }
+    }
+    return $out -join "`n"
+}
+
+$pendentesAlert = Get-PendentesAlert
+
 # --- Gargalo Ping silencioso (dispara e-mail se Diretor estiver bloqueando) ---
 $pingScript = Join-Path $projectDir "scripts\gargalo_ping.ps1"
 if (Test-Path $pingScript) {
@@ -155,6 +195,7 @@ if (Test-Path $loopScript) {
 }
 
 $sections = @()
+if ($pendentesAlert)     { $sections += "## PENDENTES (P-048) - LER PRIMEIRO`n$pendentesAlert" }
 if ($ledger)             { $sections += "## INTELLIGENCE_LEDGER - PRINCIPIOS ATIVOS`n$ledger" }
 if ($wip)                { $sections += "## WIP_BOARD - PROJETOS ATIVOS`n$wip" }
 if ($socio)              { $sections += "## ANALISE DO SOCIO - CONTEXTO ATUAL`n$socio" }
