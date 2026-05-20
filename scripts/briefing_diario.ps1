@@ -59,8 +59,7 @@ function Get-CalendarioProjeto {
     $daysLeft        = ([datetime]$deadline - $hoje).Days
     $diasPorBloco    = if ($blocosRestantes -gt 0) { [Math]::Ceiling($daysLeft / $blocosRestantes) } else { 1 }
 
-    $linhas += "CALENDARIO DO PROJETO"
-    $linhas += "-" * 55
+    $linhas += "📅 CALENDARIO DO PROJETO"
 
     $primeiroAtivo  = $true
     $blocoFuturoIdx = 0
@@ -75,9 +74,9 @@ function Get-CalendarioProjeto {
         $maxDia = ($nums | Measure-Object -Maximum).Maximum
 
         $diaLabel = if ($minDia -eq $maxDia) {
-            "Dia $minDia   ".PadRight(9)
+            ("Dia $minDia").PadRight(9)
         } else {
-            "Dia $minDia-$maxDia".PadRight(9)
+            ("Dia $minDia-$maxDia").PadRight(9)
         }
 
         if ($maxDiaConcluido -ge $maxDia) {
@@ -92,40 +91,41 @@ function Get-CalendarioProjeto {
                 $dataBloco = ([datetime]$inicio).AddDays([Math]::Round($fracao * $diasUsados))
             }
             $diaAbrev  = $nomesDia[[int]$dataBloco.DayOfWeek]
-            $dataLabel = "$($dataBloco.ToString('dd/MM')) $diaAbrev      "
-            $status    = "[OK]"
+            $dataLabel = ("$($dataBloco.ToString('dd/MM')) $diaAbrev").PadRight(10)
+            $status    = "✅"
         } elseif ($maxDiaConcluido -ge ($minDia - 1) -and $primeiroAtivo) {
-            # Bloco ativo agora
+            # Bloco ativo hoje
             $diaAbrev  = $nomesDia[[int]$hoje.DayOfWeek]
-            $dataLabel = "Hoje $($hoje.ToString('dd/MM')) $diaAbrev"
-            $status    = ">>"
+            $dataLabel = ("$($hoje.ToString('dd/MM')) $diaAbrev").PadRight(10)
+            $status    = "⏳"
             $primeiroAtivo  = $false
             $blocoFuturoIdx++
         } else {
             # Bloco futuro — data estimada
             $estData   = $hoje.AddDays($blocoFuturoIdx * $diasPorBloco)
             $diaAbrev  = $nomesDia[[int]$estData.DayOfWeek]
-            $dataLabel = "~$($estData.ToString('dd/MM')) $diaAbrev      "
-            $status    = "   "
+            $dataLabel = "~$($estData.ToString('dd/MM')) $diaAbrev"
+            $status    = "⬜"
             $blocoFuturoIdx++
         }
 
         $desc = if ($descricao.Length -gt 42) { $descricao.Substring(0, 39) + "..." } else { $descricao }
-        $linhas += "$status  $($dataLabel.PadRight(14)) $diaLabel  $desc"
+        $linhas += "$status  $diaLabel  $dataLabel  $desc"
     }
 
     # Linha de saude do cronograma
     $diasCalendarioGastos = [Math]::Max(1, ($hoje - [datetime]$inicio).Days + 1)
-    $folga         = $daysLeft - ($blocosRestantes * $diasPorBloco)
-    $deadlineLabel = ([datetime]$deadline).ToString("dd/MM")
-    $icone = if ($folga -ge 3) { "[verde] " } elseif ($folga -ge 0) { "[ok]    " } else { "[ATRASO]" }
+    $folga         = $daysLeft - ($maxDiaTotalPlano - $maxDiaConcluido)
+    $dl            = [datetime]$deadline
+    $deadlineLabel = "$($dl.ToString('dd/MM')) $($nomesDia[[int]$dl.DayOfWeek])"
+    $icone = if ($folga -ge 3) { "🟢" } elseif ($folga -ge 0) { "🟡" } else { "🔴" }
 
-    $linhas += "-" * 55
-    $linhas += "$icone  Bloco $blocosConcluidos/$blocosTotais  |  ${diasCalendarioGastos}d usados  |  ${daysLeft}d ate $deadlineLabel"
+    $linhas += "─" * 50
+    $linhas += "📊 Dia $maxDiaConcluido/$maxDiaTotalPlano · ${diasCalendarioGastos}d usados · ${daysLeft}d até $deadlineLabel"
     if ($folga -ge 0) {
-        $linhas += "         $folga dia(s) de folga real"
+        $linhas += "$icone $folga dia(s) de folga real"
     } else {
-        $linhas += "         ATRASADO: $([Math]::Abs($folga)) dia(s) de deficit"
+        $linhas += "$icone ATRASADO — $([Math]::Abs($folga)) dia(s) de déficit"
     }
 
     return ($linhas -join "`n")
