@@ -9,7 +9,7 @@
 ```
 PASSO 3 → Gemini
   Músculo roda automaticamente: .\scripts\gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md
-  Leva  : CONTEXTO_GEMINI.md + PASSO3_GEMINI.md
+  Leva  : CONTEXTO_GEMINI.md (PASSO3 incluído — 1 arquivo, 1 Ctrl+V)
   Recebe: Diretriz Técnica V7 — Projeto Valdece — Loop 7
   Salva : CLIENTES/VALDECE/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V7.txt
 

@@ -1,5 +1,38 @@
 # PASSO 6 — MÚSCULO (CLAUDE) · PROJETO INGRID · LOOP 4
-> Atualizado em 2026-05-19. Eduardo não edita este arquivo — é guia permanente do Músculo.
+> Atualizado em 2026-05-20. Eduardo não edita este arquivo — é guia permanente do Músculo.
+
+---
+
+## 🔁 SEQUÊNCIA COMPLETA DO LOOP — EXECUTAR NESTA ORDEM EXATA
+
+```
+PASSO 3 → Gemini
+  Músculo roda automaticamente: .\scripts\gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md
+  Leva  : CONTEXTO_GEMINI.md (PASSO3 incluído — 1 arquivo, 1 Ctrl+V)
+  Recebe: Diretriz Técnica V5 — Projeto Ingrid — Loop 4
+  Salva : CLIENTES/INGRID/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V5.txt
+
+PASSO 5 → NotebookLM
+  Roda  : .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
+  Leva  : NOTEBOOKLM_FONTES/ completo (Wipe & Sync) + COMANDO CURTO do PASSO5
+  Recebe: Skill ingrid-v6.md (4 partes obrigatórias + [N-1 a N-5])
+  Salva : .claude/skills/ingrid-v6.md
+  Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\ingrid-v6.md"
+
+PASSO 7 → Embaixador (Claude Projects)
+  Músculo roda automaticamente: .\scripts\ir_ao_embaixador.ps1 -cliente INGRID
+  Leva  : contexto do loop + comportamento de Ingrid + perguntas específicas
+  Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos outros membros
+
+PASSO 6 → Músculo (este arquivo) — colar nesta ordem:
+  1. Skill ingrid-v6.md   ← output do NotebookLM
+  2. Diretriz Técnica V5  ← output do Gemini
+  3. PASSO6_MUSCULO.md    ← este arquivo
+  Dizer: "PROTOCOLO VANGUARD — INGRID. Loop 4. Execute /ingrid-v6 antes de deliberar."
+```
+
+> O Embaixador corre ANTES do Músculo deliberar — filtro de realidade (P-031) antes do build.
+> Músculo sem Skill rodada = deliberação inválida. Músculo sem Embaixador = soluções para cliente imaginário.
 
 ---
 

@@ -1,6 +1,39 @@
 # PASSO 6 — TEMPLATE UNIVERSAL: PARA O MÚSCULO (Claude Code)
-# Versão: Universal v2.0 · 2026-05-18 · QUADRILATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v3.0 · 2026-05-20 · QUADRILATERAL_UNIVERSAL/OPERACAO/
 # Uso: 100% universal — sem placeholders. Aplica-se a todo projeto do Pentalateral IAH.
+
+---
+
+## 🔁 SEQUÊNCIA COMPLETA DO LOOP — EXECUTAR NESTA ORDEM EXATA
+
+```
+PASSO 3 → Gemini
+  Músculo roda automaticamente: .\scripts\gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md
+  Leva  : CONTEXTO_GEMINI.md (PASSO3 incluído — 1 arquivo, 1 Ctrl+V)
+  Recebe: Diretriz Técnica V[N] — Projeto [NOME] — Loop [N]
+  Salva : CLIENTES/[NOME]/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V[N].txt
+
+PASSO 5 → NotebookLM
+  Roda  : .\scripts\preparar_notebooklm_projeto.ps1 -cliente [NOME]
+  Leva  : NOTEBOOKLM_FONTES/ completo (Wipe & Sync) + COMANDO CURTO do PASSO5
+  Recebe: Skill [cliente]-v[N].md (4 partes obrigatórias + [N-1 a N-5])
+  Salva : .claude/skills/[cliente]-v[N].md
+  Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"
+
+PASSO 7 → Embaixador (Claude Projects)
+  Músculo roda automaticamente: .\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
+  Leva  : contexto do loop + comportamento do cliente + perguntas específicas
+  Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos outros membros
+
+PASSO 6 → Músculo (este arquivo) — colar nesta ordem:
+  1. Skill [cliente]-v[N].md  ← output do NotebookLM
+  2. Diretriz Técnica V[N]    ← output do Gemini
+  3. PASSO6_MUSCULO.md        ← este arquivo
+  Dizer: "PROTOCOLO VANGUARD — [NOME]. Execute /[cliente]-v[N] antes de deliberar."
+```
+
+> O Embaixador corre ANTES do Músculo deliberar — filtro de realidade (P-031) antes do build.
+> Músculo sem Skill rodada = deliberação inválida. Músculo sem Embaixador = soluções para cliente imaginário.
 
 ---
 
