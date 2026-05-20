@@ -987,33 +987,3 @@ Diretor — veredito
 **Princípio:** Nenhum sistema, código ou configuração sai do ambiente Vanguard para o ambiente do cliente sem gate de teste aprovado explicitamente pelo Diretor. Estado "pronto" ≠ estado "aprovado para envio". O gate de teste é o único que autoriza a migração.
 **Aplica-se a:** todo projeto cliente — migração de Supabase, deploy de frontend, configuração de credenciais na conta do cliente.
 **Consequência do não-cumprimento:** Cliente recebe sistema não testado → falha na demo → janela de encantamento destruída → contrato perdido.
-
----
-
-### [FALHA-PROCESSO-2026-05-19-B] MEMORIA e relatorio ausentes para loops intermediários
-**Detectado por:** Eduardo (Diretor)
-**Evidência:** PROJ-001 Valdece chegou no Loop 4 com MEMORIA_V1 e relatorio_V1 apenas. DIRETRIZ V2 e V3 existem — os loops aconteceram — mas MEMORIA_V2, relatorio_V2, MEMORIA_V3 e relatorio_V3 nunca foram gerados. O Músculo avançou os loops sem fechar o ritual de fechamento obrigatório. Resultado: o NotebookLM do Loop 4 recebe contexto do Loop 1, não do Loop 3.
-**Causa raiz:** Músculo sob pressão de entrega prioriza o próximo loop em vez de fechar o atual. O ritual de fechamento (MEMORIA + relatorio) é percebido como opcional quando o Diretor autoriza o próximo passo sem exigir os artefatos.
-**Regra gerada:** Nenhum loop começa sem que o loop anterior esteja fechado com MEMORIA_VX + relatorio_VX no HISTORICO. Gatilho: ao receber o PASSO3_GEMINI para um novo loop, o Músculo verifica se o loop anterior tem MEMORIA e relatorio em HISTORICO. Se não tiver → bloquear e alertar antes de qualquer deliberação.
-**Ferramenta criada:** verificar_fechamento_loop() implementado em `session_close.ps1` — script avisa quando MEMORIA e relatorio do loop atual estão ausentes no HISTORICO.
-**Aplica-se a:** todo projeto cliente Camada 1+. Loop sem artefatos de fechamento = loop fantasma.
-
----
-
-### [P-045] Ritual de Fechamento de Loop é bloqueante — não opcional
-**Descoberto:** 2026-05-19 | **Sessão:** Revisão PASSO files — PROJ-001 Valdece
-**Evidência:** PROJ-001 Valdece chegou no Loop 4 sem MEMORIA_V2/V3 e relatorio_V2/V3. Os loops 2 e 3 aconteceram (há DIRETRIZ V2 e V3 no HISTORICO), mas o Músculo não gerou os artefatos de fechamento. O preparar_notebooklm enviou contexto do Loop 1 para o NotebookLM do Loop 4 — o Auditor deliberou com 3 loops de defasagem.
-**Princípio:** Ao receber PASSO3_GEMINI para o loop N, o Músculo PRIMEIRO verifica:
-  `CLIENTES/[CLIENTE]/HISTORICO/MEMORIA_V[N-1]_[CLIENTE].md` — existe?
-  `CLIENTES/[CLIENTE]/HISTORICO/relatorio_evolutivo_V[N-1]_[CLIENTE].md` — existe?
-  Se não existirem → emitir BLOQUEIO: "Diretor, o loop [N-1] não tem artefatos de fechamento. Gerar MEMORIA_V[N-1] + relatorio_V[N-1] antes de iniciar o Loop [N]. Sem esses artefatos, o Auditor do próximo loop delibera com contexto defasado."
-**Aplica-se a:** todo projeto cliente Camada 1+. O loop não começa sem o anterior fechado.
-
----
-
-### [P-046] O contrato formaliza o ciclo de evolução — não o produto finalizado
-**Descoberto:** 2026-05-19 | **Sessão:** PROJ-001 Valdece — pós-feedback 5 áudios
-**Fricção:** O Músculo tratou os feedbacks de Valdece como condição bloqueante para a assinatura do contrato — "produto precisa estar pronto antes de assinar". O Diretor corrigiu: o modelo IAH é iterativo por natureza. O cliente que testa e envia feedback está no centro do processo, não fora dele.
-**Princípio:** O contrato com cliente IAH não formaliza um produto finalizado — formaliza o direito ao ciclo de evolução. O cliente que testa, reporta bugs e envia feedbacks estruturados JÁ ESTÁ no modelo. A assinatura transforma esse engajamento em parceria formal. Tratar feedback pré-contrato como bloqueante é confundir o método com o produto.
-**Corolário:** Feedbacks durante o período de teste são evidência de que o cliente valoriza o produto o suficiente para investir tempo analisando-o — é o sinal mais forte de prontidão para assinar, não o oposto.
-**Aplica-se a:** todo projeto cliente em fase de teste/piloto. O Músculo nunca trata iteração como falha de entrega.

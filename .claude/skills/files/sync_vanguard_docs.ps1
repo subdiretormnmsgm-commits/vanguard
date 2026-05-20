@@ -1,4 +1,4 @@
-# sync_vanguard_docs.ps1
+﻿# sync_vanguard_docs.ps1
 # Vanguard Doc Sync — Script do Músculo
 # Versão: 1.0 | 2026-05-19
 # Baseado em: P-033 — Sync universal → projetos é obrigatório e imediato

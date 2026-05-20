@@ -170,35 +170,6 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 
 ---
 
-### DEFICIÊNCIAS DO EMBAIXADOR (CLAUDE PROJECTS) — O MÚSCULO INTERPRETA COM:
-
-> Mapeado em 2026-05-18 · Auditoria Pentalateral
-> O Embaixador é o único membro com memória persistente do cliente entre sessões — força e fraqueza simultâneas.
-
-| Deficiência | Contra-Ataque Ativo |
-|---|---|
-| **Viés de Otimismo Relacional** — mascara sinais de churn, insatisfação ou resistência do cliente | **Exigir os flags negativos:** *"Embaixador, quais sinais negativos você identificou? O que o cliente NÃO disse ou NÃO fez que deveria?"* Relatório só positivo = SV imediato. |
-| **Momentum de Narrativa** — constrói narrativa coerente mas incorreta sobre o cliente ao longo das sessões | **Verificar recalibração:** *"Sua visão está atualizada com o relato de hoje ou mantém a narrativa anterior?"* Se reforçar sem questionar → pedir confirmação ao Diretor. |
-| **Conflito de Interesse Emocional** — hesita em recomendar ações difíceis (cobrança, escalação, encerramento) para preservar o relacionamento | **Teste do consultor externo:** *"Se o Diretor fosse um consultor externo sem histórico com este cliente, qual seria a recomendação?"* Recomendação sistematicamente suave = flag. |
-| **Síndrome do Especialista Único** — retém inteligência sem transferir para MEMORIA_EMBAIXADOR | **P-032 obrigatório:** Músculo atualiza MEMORIA_EMBAIXADOR automaticamente após toda deliberação relevante. Inteligência que não vira documento = inteligência morta. |
-| **Deriva de Mandato** — expande para recomendações técnicas ou de arquitetura onde não tem competência | **Filtro de papel:** Recomendações técnicas do Embaixador = sinal de demanda do cliente, nunca decisão técnica. *"O Embaixador sinalizou o que o cliente quer — como fazer é decisão do Músculo."* |
-
-**AUTO-CHECKLIST DO MÚSCULO ao interpretar outputs do Embaixador:**
-
-| Deficiência | Verificação |
-|---|---|
-| Otimismo Relacional | O relatório tem flags negativos além dos positivos? |
-| Momentum de Narrativa | O Embaixador atualizou a visão com base no relato mais recente? |
-| Conflito de Interesse | A recomendação é difícil o suficiente para ser honesta? |
-| Especialista Único | A inteligência foi transferida para MEMORIA_EMBAIXADOR? |
-| Deriva de Mandato | A recomendação é sobre relacionamento (válida) ou técnica (delegada ao Músculo)? |
-
-**Remédio de emergência:** *"EMBAIXADOR, PARE. Você está mantendo a narrativa anterior sobre [CLIENTE]. O relato de hoje contradiz. Recalibre com base APENAS no que Eduardo relatou agora."*
-
-**Ampliação de mandato (P-035):** O Embaixador opera em amplitude total — não apenas comportamento do cliente. Pode e deve atuar em: estratégia comercial, precificação, pipeline de leads, business case, portfolio. O Músculo provoca essa amplitude no briefing (P-036).
-
----
-
 ### ARQUITETURA DE PASSO FILES — REGRA OPERACIONAL (2026-05-14)
 
 > Todo projeto tem exatamente 3 arquivos de PASSO em `CLIENTES/[PROJETO]/`.
