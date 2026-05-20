@@ -97,11 +97,12 @@ Nada é construído antes da aprovação explícita.
 
 Ao encerrar qualquer iteração de build, gerar obrigatoriamente:
 
-- [ ] `HISTORICO/MEMORIA_V4_INGRID.md` — estado técnico completo
-- [ ] `HISTORICO/relatorio_evolutivo_V4_INGRID.md` — SWOT + 5 ideias disruptivas
-- [ ] `CONSELHO/COMANDO_ESTRATEGISTA_V4_INGRID.md` — pronto para Eduardo colar no Gemini
-- [ ] Atualizar `WIP_BOARD.json` — mover de discovery → build → check
-- [ ] Registrar fricções no `INTELLIGENCE_LEDGER.md` via `session_close.py`
+- [ ] `HISTORICO/MEMORIA_V4_INGRID.md` — estado técnico completo (P-045 gate obrigatório)
+- [ ] `HISTORICO/relatorio_evolutivo_V4_INGRID.md` — SWOT + PDCA + 5 ideias disruptivas
+- [ ] Atualizar `WIP_BOARD.json` — mover de build → check → entregue
+- [ ] Atualizar `CLIENTES/INGRID/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md` (P-032)
+- [ ] Registrar fricções no `INTELLIGENCE_LEDGER.md` via `session_close.ps1`
+- [ ] PASSO3_GEMINI atualizado para Loop 5
 
 **Auto-auditoria ao fim de cada resposta:**
 *"Respondi com base no histórico real do Quadrilateral e nos princípios ativos do LEDGER, ou fui genérico?"*
@@ -117,4 +118,7 @@ Se genérico → reescrever.
 | P-007 | Validar motor via CLI antes de construir UI (Mágico de Oz Gate) |
 | P-010 | Gate verificável em cada dia de build — nenhuma etapa avança por momentum |
 | P-013 | Soberania: Ingrid tem acesso admin ao próprio Supabase desde o Dia 1 |
+| P-024 | Recalibração de cargo: Cargo 202 (Técnico Administrativo), não TDAS |
+| P-031 | Embaixador filtra toda ideia — CONFIRMA/EXPANDE/ALERTA com comportamento real da Ingrid |
+| P-037 | Músculo consolida 25 inputs em 1 plano antes do veredito do Diretor |
 | Lei 5 | Burn Rate Shield: `BURN_RATE_DAILY_LIMIT_USD=5.00` antes de qualquer chamada Claude API |

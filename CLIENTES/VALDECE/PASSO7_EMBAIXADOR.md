@@ -1,5 +1,5 @@
-# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO VALDECE · LOOP 6
-> Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Atualizado em 2026-05-19
+# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO VALDECE · LOOP 7
+> Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Atualizado em 2026-05-20
 > Eduardo não edita este arquivo — é o guia de ativação do Embaixador para este projeto.
 > Músculo atualiza as ideias dos sócios (SEÇÃO D) ao fechar cada loop.
 
@@ -54,56 +54,57 @@ Contra-ataque: Eduardo quer TANTO evidências quanto pensamentos inovadores.
 
 ```
 ATIVAÇÃO DO EMBAIXADOR — VALDECE
-Data: 2026-05-19
-Loop atual: 6 | Fase: REAÇÃO AO PENTALATERAL
-Última ativação: 2026-05-19
+Data: [YYYY-MM-DD]
+Loop atual: 7 | Fase: [PRÉ-REUNIÃO / DEBRIEF / PIPELINE / REAÇÃO AO PENTALATERAL]
+Modo: [FLASH / COMPLETO]
+Última ativação: 2026-05-20
 
 --- ELO DO CICLO ATUAL (obrigatório no cabeçalho) ---
-DIRETRIZ em processo: DIRETRIZ_GEMINI_V6.txt
-Skill gerada pelo Auditor: valdece-v6.md (APROVADA pelo gate)
-Skill executada pelo Músculo: /valdece-v6
-Gate atual: Contrato R$5.000 assinado → V3 desbloqueado (schema migration + badges vinculantes)
+DIRETRIZ em processo: DIRETRIZ_GEMINI_V7.txt
+Skill gerada pelo Auditor: valdece-v7.md
+Skill executada pelo Músculo: /valdece-v7
+Gate atual: V3 schema migration em execução (data_dje, repercussao_geral, recurso_repetitivo, turma)
 ```
 
 ---
 
-## 📋 CONTEXTO ATUALIZADO DO PROJETO — Loop 6
+## 📋 CONTEXTO ATUALIZADO DO PROJETO — Loop 7
 
 **Cliente:** Valdece — Advogado criminalista
 **Projeto:** Toga Digital — busca semântica de jurisprudências STF/STJ
-**Camada:** 1 — MVP (5 dias de build + loop evolutivo concluídos)
-**Loop atual:** 6 — pós-feedback 5 áudios · contrato pendente assinatura presencial
-**Temperatura atual:** QUENTE (sistema live + melhorias entregues hoje + feedback ativo via áudios)
-**App:** https://toga-digital-valdece.netlify.app — LIVE (commit 9709649)
+**Camada:** 2 — Evolução V3 (schema migration + corpus expandido)
+**Loop atual:** 7 — contrato ASSINADO · V3 desbloqueada
+**Temperatura atual:** ENTUSIASMADA (contrato assinado + 5 áudios de feedback + V3 em execução)
+**App:** https://toga-digital-valdece.netlify.app — LIVE (Loop 6 estável)
 **Corpus:** 61 acórdãos · threshold 0.67 (Precisa) / 0.45 (Ampla) · top 3 · GATE P-038 VERDE
 
-**Entregas do Loop 6 (2026-05-19):**
-- Ementa completa no card (não truncada em 280 chars)
-- Badge UF extraído do numero_acordao (ex: HC 512.290/RJ → badge "RJ")
-- Boost monocrático: HC/liminar/monocrática sobem +0.15 no ranking
-- HC 512.290/RJ corrigido no banco (dado errado substituído + re-embedding)
+**Entregas do Loop 6 (concluídas e em produção):**
+- Ementa completa no card (não truncada em 280 chars) ✅
+- Badge UF extraído do numero_acordao (ex: HC 512.290/RJ → badge "RJ") ✅
+- Boost monocrático: HC/liminar/monocrática sobem +0.15 no ranking ✅
+- HC 512.290/RJ corrigido no banco (dado errado substituído + re-embedding) ✅
+- Contrato R$5.000 ASSINADO ✅
 
-**Feedback de Valdece (5 áudios — processados pelo Estrategista):**
-- Ementa completa obrigatória (✅ entregue)
-- Estado de origem (UF) após número do acórdão (✅ entregue)
-- Badge Repercussão Geral STF + Recurso Repetitivo STJ (❌ V3 pós-contrato)
-- Data DJE na citação (❌ V3 pós-contrato)
+**Missão do Loop 7 — V3 (desbloqueada pelo contrato):**
+- Badge Repercussão Geral STF + Recurso Repetitivo STJ
+- Data DJE na citação (campo data_dje)
+- Schema migration segura (4 novos campos)
+- Re-ingestão dos 61 acórdãos com campos preenchidos
 
 **Cena de sucesso (P-041 — âncora do Embaixador):**
 "Estou num julgamento, o promotor cita um precedente que eu não conheço. Abro o Toga Digital,
 digito o nome do crime, e em 10 segundos tenho o acórdão com mais peso — citação pronta em ABNT."
 
-**Estado atual (2026-05-19):**
-- Credenciais do Valdece: obtidas no presencial — Eduardo as tem
-- Sovereign Playbook apresentado — objeção vendor lock-in destruída
-- Valdece enviou 5 áudios com feedback técnico — sinal de comprometimento alto (P-046)
-- Contrato: PENDENTE ASSINATURA — Eduardo vai presencialmente hoje
-- V3 (badges vinculantes): BLOQUEADO até assinatura — P-023 ativo
+**Estado atual (2026-05-20):**
+- Credenciais do Valdece: em posse do Eduardo
+- Contrato: ASSINADO — Gate Loop 6 VERDE — V3 ativa
+- Feedback de 5 áudios processado e entregue (Loop 6)
+- P-046 ativo: feedback pós-contrato = sinal de comprometimento, não bloqueante
 
 **Watchdog ativo:**
-- [SCOPE-WATCH] P-023: teto do V1 atingido — ementa + UF + boost. Nada mais sem assinatura.
+- [V3-WATCH] migration em execução — monitorar estabilidade do pgvector após re-ingestão
 - [PIPELINE] Valdece criminalista ativo — círculo de colegas é lead natural pós-encantamento
-- [V3-WATCH] re-ingestão e schema migration prontos para executar em 4-6h após contrato
+- [SCOPE-WATCH] Loop 7 = apenas os 4 campos do V3. Sem novas features até migration estável.
 
 ---
 

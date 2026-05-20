@@ -8,8 +8,8 @@
 ## 📌 INSTRUÇÕES PARA O DIRETOR — COMO ACIONAR O EMBAIXADOR
 
 ```
-1. RODAR no terminal:
-   .\CLIENTES\INGRID\iniciar.ps1 -opcao E
+1. RODAR no terminal (Músculo executa automaticamente):
+   .\scripts\ir_ao_embaixador.ps1 -cliente INGRID
    → Script copia MENSAGEM_INTERACAO_INICIAL para clipboard
    → Abre browser em claude.ai/projects
    → Abre Explorer na pasta CLIENTES\INGRID\CLAUDE_PROJECT\

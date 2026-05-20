@@ -21,16 +21,17 @@ com mandato de discordância, análise e direção. Você gera direção. O Mús
 
 ## ANTES DE ABRIR O GEMINI — EXECUTAR OBRIGATORIAMENTE
 
-1. Rodar no terminal:
-   .\scripts\gemini_anchor_generator.ps1
-2. Confirmar que CONTEXTO_GEMINI.md foi gerado e esta no clipboard
-3. Abrir nova sessao no Gemini
+1. O Músculo roda automaticamente: .\scripts\gemini_anchor_generator.ps1
+   → Compila LEDGER + WIP_BOARD + MEMORIA → CONTEXTO_GEMINI.md gerado e copiado para clipboard
+   → Diretor não roda manualmente. Músculo detecta intenção de ir ao Gemini e executa.
+2. Confirmar que CONTEXTO_GEMINI.md foi gerado e está no clipboard
+3. Abrir nova sessão no Gemini
 
-## ORDEM DE ENVIO AO GEMINI (nesta sequencia, sem inverter)
+## ORDEM DE ENVIO AO GEMINI (nesta sequência, sem inverter)
 
-1. Colar CONTEXTO_GEMINI.md  -- ancora com LEDGER + WIP_BOARD + MEMORIA mais recente
-2. Colar este arquivo         -- instrucao da iteracao atual
-   (Se existir DIVIDAS_TECNICAS_AUDITOR.md com entradas recentes: colar tambem antes deste)
+1. Colar CONTEXTO_GEMINI.md  — ancora com LEDGER + WIP_BOARD + MEMORIA mais recente
+2. Colar este arquivo         — instrução da iteração atual
+   (Se existir DIVIDAS_TECNICAS_AUDITOR.md com entradas recentes: colar também antes deste)
 
 ---
 

@@ -1,6 +1,6 @@
 # PASSO 6 — PARA O MÚSCULO (Claude Code) · Instância: Projeto Valdece
 # Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md
-# Ultima atualizacao: 2026-05-19 · Loop 6 — contrato pendente · V3 blueprint definido
+# Ultima atualizacao: 2026-05-20 · Loop 7 — contrato ASSINADO · V3 schema migration em execução
 
 ---
 
@@ -8,25 +8,26 @@
 
 ```
 PASSO 3 → Gemini
-  Leva : .\scripts\gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md + PASSO3_GEMINI.md
-  Recebe: Diretriz Técnica V6 — Projeto Valdece — Loop 6
-  Salva : CLIENTES/VALDECE/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt
+  Músculo roda automaticamente: .\scripts\gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md
+  Leva  : CONTEXTO_GEMINI.md + PASSO3_GEMINI.md
+  Recebe: Diretriz Técnica V7 — Projeto Valdece — Loop 7
+  Salva : CLIENTES/VALDECE/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V7.txt
 
 PASSO 5 → NotebookLM
   Roda  : .\scripts\preparar_notebooklm_projeto.ps1 -cliente VALDECE
   Leva  : NOTEBOOKLM_FONTES/ completo (Wipe & Sync) + COMANDO CURTO do PASSO5
-  Recebe: Skill valdece-v6.md (4 partes obrigatórias + [N-1 a N-5])
-  Salva : .claude/skills/valdece-v6.md
-  Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\valdece-v6.md"
+  Recebe: Skill valdece-v7.md (4 partes obrigatórias + [N-1 a N-5])
+  Salva : .claude/skills/valdece-v7.md
+  Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\valdece-v7.md"
 
 PASSO 7 → Embaixador (Claude Projects)
-  Roda  : .\scripts\ir_ao_embaixador.ps1 -cliente VALDECE
+  Músculo roda automaticamente: .\scripts\ir_ao_embaixador.ps1 -cliente VALDECE
   Leva  : contexto do loop + comportamento de Valdece + perguntas específicas
   Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos outros membros
 
 PASSO 6 → Músculo (este arquivo) — colar nesta ordem:
-  1. Skill valdece-v6.md    ← output do NotebookLM
-  2. Diretriz Técnica V6    ← output do Gemini
+  1. Skill valdece-v7.md    ← output do NotebookLM
+  2. Diretriz Técnica V7    ← output do Gemini
   3. PASSO6_MUSCULO.md      ← este arquivo
   Dizer: "PROTOCOLO VANGUARD — Valdece. Leia tudo e delibere."
 ```
@@ -64,7 +65,7 @@ Ao deliberar sobre qualquer ideia, verificar: estou usando os 7 pontos? (Certo �
 ## 💬 COMANDO DE ATIVAÇÃO — colar ao trazer os documentos ao Músculo
 
 ```
-PROTOCOLO VANGUARD — VALDECE. Loop 6. Execute /valdece-v6 antes de deliberar.
+PROTOCOLO VANGUARD — VALDECE. Loop 7. Execute /valdece-v7 antes de deliberar.
 Trago a Skill do Auditor e a Diretriz do Estrategista. Leia tudo e delibere nos 7 pontos.
 ```
 
@@ -75,8 +76,8 @@ Trago a Skill do Auditor e a Diretriz do Estrategista. Leia tudo e delibere nos 
 
 AO RECEBER A SKILL DO NOTEBOOKLM E A DIRETRIZ DO GEMINI:
 
-0. EXECUTAR `/valdece-v6` ANTES DE QUALQUER DELIBERAÇÃO
-   — Nome exato definido no [PARA O NOTEBOOKLM] da DIRETRIZ V6
+0. EXECUTAR `/valdece-v7` ANTES DE QUALQUER DELIBERAÇÃO
+   — Nome exato definido no [PARA O NOTEBOOKLM] da DIRETRIZ V7
    — Músculo sem Skill rodada = deliberação inválida
    — Nenhuma linha de código antes disso
 
@@ -96,20 +97,19 @@ AO RECEBER A SKILL DO NOTEBOOKLM E A DIRETRIZ DO GEMINI:
    — Se há alternativa melhor: propor com trade-offs
    — Reagir às 5 ideias do Gemini tecnicamente: viável / inviável / modificada — com razão
 
-4. APRESENTAR PLANO DE AÇÃO ao Diretor (Loop 6 — foco: contrato → V3 vinculante)
+4. APRESENTAR PLANO DE AÇÃO ao Diretor (Loop 7 — foco: V3 schema migration + corpus expandido)
    Com base na deliberação + filtro do Embaixador:
-   — O que assinar no contrato V1 (escopo fechado) vs. o que fica como roadmap V3
-   — Blueprint V3: schema migration (data_dje, repercussao_geral, recurso_repetitivo) + sequência segura
-   — O que NÃO construir antes do contrato assinado (P-046: contrato formaliza o ciclo, não o produto)
-   — Gate do Loop 6: contrato assinado + Valdece recebe badge VINCULANTE ao vivo
+   — Sequência segura da migration (data_dje, repercussao_geral, recurso_repetitivo, turma)
+   — Re-ingestão dos 61 acórdãos com novos campos preenchidos
+   — O que NÃO construir antes da migration estar estabilizada (P-046: evolução por ciclo)
+   — Gate do Loop 7: Valdece usa os novos filtros em produção + confirma cena de sucesso atualizada
 
 5. AGUARDAR VEREDITO DO DIRETOR
    Nada é construído antes da aprovação explícita.
    O Diretor pode aprovar, pedir ajuste, ou acionar um override.
 
-6. AO FECHAR O LOOP 6 (pós-contrato assinado):
-   — MEMORIA_V6_VALDECE.md com estado completo (contrato, V3 blueprint, schema auditado)
-   — relatorio_evolutivo_V6_VALDECE.md com análise de negócio + [M-1 a M-5] Loop 7
-   — PASSO3_GEMINI atualizado para Loop 7 (gatilho: build V3 — schema migration)
-   — PASSO7 EMBAIXADOR com debrief pós-assinatura
+6. AO FECHAR O LOOP 7:
+   — MEMORIA_V7_VALDECE.md com estado completo (V3 em produção, novos campos, corpus)
+   — relatorio_evolutivo_V7_VALDECE.md com análise de negócio + [M-1 a M-5] Loop 8
+   — PASSO3_GEMINI atualizado para Loop 8
    — O loop recomeça mais rico do que abriu
