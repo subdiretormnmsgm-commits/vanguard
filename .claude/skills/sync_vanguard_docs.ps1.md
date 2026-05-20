@@ -1,7 +1,7 @@
 ### sync_vanguard_docs.ps1
-### Vanguard Doc Sync — Script do Músculo
-### Versão: 2.1 | Atualizado pelo Auditor e Diretor (Varredura Universal Profunda)
-### Baseado em: P-033 — Sync universal → projetos é obrigatório e imediato
+### Vanguard Doc Sync -- Script do Musculo
+### Versao: 2.2 | Exclusao de PERFIS_NICHO e VANGUARD_HISTORICO por padrao
+### Baseado em: P-033 -- Sync universal -> projetos e obrigatorio e imediato
 
 param(
     [string]$cliente = "",
@@ -10,20 +10,22 @@ param(
     [switch]$verbose,
     [string]$promover = "",
     [string]$destino = "",
-    [string]$deletar = ""
+    [string]$deletar = "",
+    [string]$incluirNichos = ""
 )
 
-### ─────────────────────────────────────────────
-### CONFIGURAÇÃO — Estrutura Pentalateral IAH
-### ─────────────────────────────────────────────
-$RAIZ = (Get-Item -Path ".").FullName
-# CORREÇÃO DO DIRETOR: A base agora é toda a pasta QUADRILATERAL_UNIVERSAL
+### Pastas excluidas do sync universal por padrao
+### Para incluir nicho especifico: -incluirNichos MEDICINA | LEGALTECH_PENAL | EDTECH_CONCURSO | CONTABILIDADE | PSICOLOGIA
+$PASTAS_EXCLUIDAS = @("PERFIS_NICHO", "VANGUARD_HISTORICO")
+
+### Configuracao
+$RAIZ           = (Get-Item -Path ".").FullName
 $UNIVERSAL_BASE = Join-Path $RAIZ "QUADRILATERAL_UNIVERSAL"
 $CLIENTES_DIR   = Join-Path $RAIZ "CLIENTES"
 $DATA_HOJE      = Get-Date -Format "yyyyMMdd"
 $RELATORIO_PATH = Join-Path $RAIZ "SYNC_REPORT_$DATA_HOJE.md"
 
-### Arquivos Críticos Dinâmicos na Raiz
+### Arquivos Criticos Dinamicos na Raiz
 $ARQUIVOS_CRITICOS_RAIZ = @(
     "WIP_BOARD.json",
     "INTELLIGENCE_LEDGER.md",
@@ -31,84 +33,97 @@ $ARQUIVOS_CRITICOS_RAIZ = @(
     "CONSELHO\NotebookLM\ANALISE_SOCIO_ATUAL.txt"
 )
 
-### ─────────────────────────────────────────────
-### FUNÇÕES AUXILIARES
-### ─────────────────────────────────────────────
+### Funcoes Auxiliares
 function Get-FileHash256 {
     param([string]$path)
     if (Test-Path $path) { return (Get-FileHash -Path $path -Algorithm SHA256).Hash }
     return $null
 }
-
 function Write-Log {
     param([string]$msg, [string]$cor = "White")
     Write-Host $msg -ForegroundColor $cor
 }
-
 function Write-Relatorio {
     param([string]$linha)
     Add-Content -Path $RELATORIO_PATH -Value $linha -Encoding UTF8
 }
+function Test-PastaExcluida {
+    param([string]$caminho)
+    foreach ($pasta in $PASTAS_EXCLUIDAS) {
+        if ($caminho -like "*\$pasta\*" -or $caminho -like "*\$pasta") { return $true }
+    }
+    return $false
+}
 
-### ─────────────────────────────────────────────
-### AÇÕES ESPECIAIS (ÓRFÃOS)
-### ─────────────────────────────────────────────
+### Acoes Especiais
 if ($promover -ne "") {
-    if ($destino -eq "") { Write-Log "ERRO: -destino é obrigatório ao usar -promover." "Red"; exit 1 }
+    if ($destino -eq "") { Write-Log "ERRO: -destino obrigatorio ao usar -promover." "Red"; exit 1 }
     $destino_completo = Join-Path $RAIZ $destino
     if (-not (Test-Path $destino_completo)) { New-Item -ItemType Directory -Path $destino_completo -Force | Out-Null }
     Copy-Item -Path $promover -Destination $destino_completo -Force
-    Write-Log "✅ PROMOVIDO: $promover → $destino_completo" "Green"
+    Write-Log "PROMOVIDO: $promover -> $destino_completo" "Green"
     exit 0
 }
-
 if ($deletar -ne "") {
     $alvo = Join-Path $RAIZ $deletar
-    if (Test-Path $alvo) {
-        Remove-Item -Path $alvo -Force
-        Write-Log "🗑️  DELETADO: $alvo" "Yellow"
-    } else {
-        Write-Log "⚠️  Arquivo não encontrado: $alvo" "Yellow"
-    }
+    if (Test-Path $alvo) { Remove-Item -Path $alvo -Force; Write-Log "DELETADO: $alvo" "Yellow" }
+    else { Write-Log "Arquivo nao encontrado: $alvo" "Yellow" }
     exit 0
 }
 
-### ─────────────────────────────────────────────
-### VALIDAÇÃO INICIAL E PROJETOS
-### ─────────────────────────────────────────────
-if (-not (Test-Path $UNIVERSAL_BASE)) { Write-Log "❌ BLOQUEIO: Pasta QUADRILATERAL_UNIVERSAL não encontrada." "Red"; exit 1 }
-if (-not (Test-Path $CLIENTES_DIR)) { Write-Log "❌ BLOQUEIO: Pasta CLIENTES não encontrada." "Red"; exit 1 }
+### Validacao
+if (-not (Test-Path $UNIVERSAL_BASE)) { Write-Log "BLOQUEIO: QUADRILATERAL_UNIVERSAL nao encontrada." "Red"; exit 1 }
+if (-not (Test-Path $CLIENTES_DIR))   { Write-Log "BLOQUEIO: CLIENTES nao encontrada." "Red"; exit 1 }
 
 if (Test-Path $RELATORIO_PATH) { Remove-Item $RELATORIO_PATH }
-Write-Relatorio "# VANGUARD DOC SYNC — RELATÓRIO $DATA_HOJE"
-Write-Relatorio "> Princípio: P-033 — Sync universal → projetos é obrigatório e imediato"
+Write-Relatorio "# VANGUARD DOC SYNC -- RELATORIO $DATA_HOJE"
+Write-Relatorio "> P-033 -- Sync universal -> projetos e obrigatorio e imediato"
+Write-Relatorio "> Pastas excluidas: $($PASTAS_EXCLUIDAS -join ', ')"
+if ($incluirNichos -ne "") { Write-Relatorio "> Nicho incluido: $incluirNichos" }
 Write-Relatorio ""
 
 $projetos = @()
 if ($cliente -ne "") {
     $proj_path = Join-Path $CLIENTES_DIR $cliente
-    if (Test-Path $proj_path) { $projetos = @($proj_path) } else { Write-Log "❌ Projeto '$cliente' não encontrado." "Red"; exit 1 }
+    if (Test-Path $proj_path) { $projetos = @($proj_path) }
+    else { Write-Log "Projeto '$cliente' nao encontrado." "Red"; exit 1 }
 } else {
     $projetos = Get-ChildItem -Path $CLIENTES_DIR -Directory | ForEach-Object { $_.FullName }
 }
 
-Write-Log "══════════════════════════════════════════════════" "Cyan"
-Write-Log "  VANGUARD DOC SYNC — $DATA_HOJE (Modo: $modo)" "Cyan"
-Write-Log "══════════════════════════════════════════════════" "Cyan"
+Write-Log "==================================================" "Cyan"
+Write-Log "  VANGUARD DOC SYNC -- $DATA_HOJE (Modo: $modo)" "Cyan"
+if ($incluirNichos -ne "") { Write-Log "  Nicho: $incluirNichos" "Cyan" }
+Write-Log "==================================================" "Cyan"
 
-### ─────────────────────────────────────────────
-### RODADA 1 — INVENTÁRIO (Varredura Recursiva Universal)
-### ─────────────────────────────────────────────
-Write-Log "▶ RODADA 1 — INVENTÁRIO" "Yellow"
+### Rodada 1 -- Inventario
+Write-Log "RODADA 1 -- INVENTARIO" "Yellow"
 
-# CORREÇÃO DO DIRETOR: Busca recursiva (-Recurse) em todas as subpastas da base Universal
-$arquivos_universais = Get-ChildItem -Path $UNIVERSAL_BASE -Recurse -File | Where-Object { $_.Extension -match "\.(md|txt)$" }
+### Coleta de arquivos: exclui PERFIS_NICHO e VANGUARD_HISTORICO por padrao
+$arquivos_universais = Get-ChildItem -Path $UNIVERSAL_BASE -Recurse -File | Where-Object {
+    $_.Extension -match "\.(md|txt)$" -and -not (Test-PastaExcluida $_.FullName)
+}
+
 $lista_fontes_origem = @()
-
 foreach ($arq in $arquivos_universais) {
     $lista_fontes_origem += [PSCustomObject]@{ Nome = $arq.Name; Caminho = $arq.FullName }
 }
 
+### Inclui nicho especifico se solicitado
+if ($incluirNichos -ne "") {
+    $nicho_path = Join-Path $UNIVERSAL_BASE "PERFIS_NICHO\$incluirNichos"
+    if (Test-Path $nicho_path) {
+        $arqs_nicho = Get-ChildItem -Path $nicho_path -Recurse -File | Where-Object { $_.Extension -match "\.(md|txt)$" }
+        foreach ($arq in $arqs_nicho) {
+            $lista_fontes_origem += [PSCustomObject]@{ Nome = $arq.Name; Caminho = $arq.FullName }
+        }
+        Write-Log "  Nicho incluido: $incluirNichos ($($arqs_nicho.Count) arquivos extras)" "Cyan"
+    } else {
+        Write-Log "  AVISO: Nicho '$incluirNichos' nao encontrado em PERFIS_NICHO/" "Yellow"
+    }
+}
+
+### Criticos da raiz
 foreach ($arq_critico in $ARQUIVOS_CRITICOS_RAIZ) {
     $caminho_critico = Join-Path $RAIZ $arq_critico
     if (Test-Path $caminho_critico) {
@@ -117,10 +132,10 @@ foreach ($arq_critico in $ARQUIVOS_CRITICOS_RAIZ) {
 }
 
 $total_universal = $lista_fontes_origem.Count
-Write-Log "  Arquivos fontes a espelhar: $total_universal" "White"
+Write-Log "  Arquivos fontes a espelhar: $total_universal (excluindo: $($PASTAS_EXCLUIDAS -join ', '))" "White"
 
 $inventario = @{}
-$contadores = @{ SYNC=0; DESATUAL=0; AUSENTE=0; ORFAO=0 }
+$contadores  = @{ SYNC=0; DESATUAL=0; AUSENTE=0; ORFAO=0 }
 
 foreach ($proj_path in $projetos) {
     $proj_nome = Split-Path $proj_path -Leaf
@@ -130,7 +145,7 @@ foreach ($proj_path in $projetos) {
     foreach ($fonte in $lista_fontes_origem) {
         $arq_destino = Join-Path $fontes_dir $fonte.Nome
         $chave = "$proj_nome|$($fonte.Nome)"
-        
+
         if (-not (Test-Path $arq_destino)) {
             $inventario[$chave] = "AUSENTE"; $contadores.AUSENTE++
         } else {
@@ -141,8 +156,7 @@ foreach ($proj_path in $projetos) {
             }
         }
     }
-    
-    # Check Orfãos
+
     $arquivos_projeto = Get-ChildItem -Path $fontes_dir -File
     foreach ($arq_proj in $arquivos_projeto) {
         $existe_na_origem = $lista_fontes_origem | Where-Object { $_.Nome -eq $arq_proj.Name }
@@ -153,48 +167,79 @@ foreach ($proj_path in $projetos) {
     }
 }
 
-if ($modo -eq "verificar") { Write-Log "Modo verificar — encerrando."; exit 0 }
+Write-Log ""
+Write-Log "  RESUMO RODADA 1:" "White"
+Write-Log "  SYNC:          $($contadores.SYNC)" "Green"
+Write-Log "  DESATUALIZADO: $($contadores.DESATUAL)" "Yellow"
+Write-Log "  AUSENTE:       $($contadores.AUSENTE)" "Red"
+Write-Log "  ORFAO:         $($contadores.ORFAO)" "Magenta"
 
-### ─────────────────────────────────────────────
-### RODADA 2 E 3 — SINCRONIZAÇÃO E INTEGRIDADE
-### ─────────────────────────────────────────────
-Write-Log "▶ RODADAS 2 & 3 — SYNC E VALIDAÇÃO" "Yellow"
+if ($modo -eq "verificar") {
+    Write-Log ""
+    Write-Log "  Modo 'verificar' - Rodadas 2 e 3 nao executadas." "Gray"
+    Write-Relatorio "## VERIFICACAO"
+    Write-Relatorio "- SYNC: $($contadores.SYNC)"
+    Write-Relatorio "- DESATUALIZADO: $($contadores.DESATUAL)"
+    Write-Relatorio "- AUSENTE: $($contadores.AUSENTE)"
+    Write-Relatorio "- ORFAO: $($contadores.ORFAO)"
+    Write-Log "  Relatorio salvo em: $RELATORIO_PATH" "Cyan"
+    exit 0
+}
+
+### Rodada 2 -- Sincronizacao
+Write-Log ""
+Write-Log "RODADA 2 -- SINCRONIZACAO" "Yellow"
 
 $sincronizados = 0
 $falhas = 0
 
 foreach ($proj_path in $projetos) {
-    $proj_nome = Split-Path $proj_path -Leaf
+    $proj_nome  = Split-Path $proj_path -Leaf
     $fontes_dir = Join-Path $proj_path "NOTEBOOKLM_FONTES"
 
     foreach ($fonte in $lista_fontes_origem) {
-        $chave = "$proj_nome|$($fonte.Nome)"
+        $chave       = "$proj_nome|$($fonte.Nome)"
         $arq_destino = Join-Path $fontes_dir $fonte.Nome
 
         if ($inventario[$chave] -in @("AUSENTE", "DESATUAL")) {
             Copy-Item -Path $fonte.Caminho -Destination $arq_destino -Force
             $sincronizados++
-            
-            # Rodada 3 Embutida:
+            if ($verbose) { Write-Log "  SYNC: $proj_nome\$($fonte.Nome)" "Green" }
             if ((Get-FileHash256 $fonte.Caminho) -ne (Get-FileHash256 $arq_destino)) {
                 $falhas++
-                Write-Log "❌ Falha no hash pós-cópia: $arq_destino" "Red"
+                Write-Log "  FALHA hash pos-copia: $arq_destino" "Red"
             }
         }
     }
 }
 
-$integridade = if ($contadores.ORFAO -gt 0) { "AMARELO" } elseif ($falhas -gt 0) { "VERMELHO" } else { "VERDE" }
-Write-Log "  INTEGRIDADE: $integridade | Sync: $sincronizados | Órfãos: $($contadores.ORFAO)" $(if($integridade -eq 'VERDE'){"Green"}else{"Yellow"})
+Write-Log "  Sincronizados nesta rodada: $sincronizados" "Green"
+Write-Log ""
+Write-Log "RODADA 3 -- VERIFICACAO DE INTEGRIDADE" "Yellow"
+Write-Log "  Verificados: $($contadores.SYNC + $sincronizados) | Falhas: $falhas" "White"
+
+$integridade = if ($falhas -gt 0) { "VERMELHO" } elseif ($contadores.ORFAO -gt 0) { "AMARELO" } else { "VERDE" }
+
+Write-Log ""
+Write-Log "==================================================" "Cyan"
+Write-Log "  SYNC CONCLUIDO -- $DATA_HOJE" "Cyan"
+Write-Log "==================================================" "Cyan"
+Write-Log "  INTEGRIDADE: $integridade" $(if($integridade -eq 'VERDE'){"Green"}elseif($integridade -eq 'AMARELO'){"Yellow"}else{"Red"})
+Write-Log ""
+Write-Log "  Sync:      $sincronizados arquivos" "White"
+Write-Log "  Orfaos:    $($contadores.ORFAO) arquivo(s)" $(if($contadores.ORFAO -gt 0){"Yellow"}else{"Green"})
+Write-Log ""
+Write-Log "  Relatorio: $RELATORIO_PATH" "Cyan"
+Write-Log "==================================================" "Cyan"
 
 Write-Relatorio "## STATUS FINAL"
 Write-Relatorio "- Sincronizados: $sincronizados"
 Write-Relatorio "- Falhas de Integridade: $falhas"
-Write-Relatorio "- Órfãos (Pendentes de Veredito): $($contadores.ORFAO)"
+Write-Relatorio "- Orfaos: $($contadores.ORFAO)"
 
 if ($contadores.ORFAO -gt 0) {
-    Write-Relatorio "## DECISÕES PENDENTES (ÓRFÃOS)"
+    Write-Relatorio "## DECISOES PENDENTES (ORFAOS)"
     foreach ($key in $inventario.Keys | Where-Object { $inventario[$_] -eq "ORFAO" }) {
-        Write-Relatorio "- 🔴 $key"
+        Write-Relatorio "- $key"
     }
 }
