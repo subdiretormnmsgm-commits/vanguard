@@ -1,4 +1,4 @@
-# ============================================================
+﻿# ============================================================
 # BRIEFING_DIARIO.PS1 — Briefing matinal do Diretor
 # Lê estado real dos projetos ativos e envia briefing completo via Telegram + e-mail
 # Agendado para rodar 7h automaticamente (registrar_briefing_agendado.ps1)
@@ -18,6 +18,118 @@ $amanha    = $hoje.AddDays(1).ToString("yyyy-MM-dd")
 $wipPath = "$BASE\CLIENTES\WIP_BOARD.json"
 $wip     = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $projetos = $wip.board.build
+
+# ── Calendário do Projeto ─────────────────────────────────
+# Gera bloco visual com datas reais (dd/MM) por bloco de build
+function Get-CalendarioProjeto {
+    param($proj, $hoje)
+
+    $linhas        = @()
+    $deadline      = $proj.deadline
+    $inicio        = $proj.build_iniciado_em
+    $diasCompletos = @($proj.dias_completos)
+    $planoBuild    = $proj.plano_build
+    $deliveryDates = $proj.delivery_dates
+
+    if (-not $planoBuild -or -not $inicio) { return "" }
+
+    $nomesDia = @("Dom","Seg","Ter","Qua","Qui","Sex","Sab")
+
+    # Máximo dia build concluído
+    $maxDiaConcluido = 0
+    foreach ($dc in $diasCompletos) {
+        $nums = [regex]::Matches($dc, '\d+') | ForEach-Object { [int]$_.Value }
+        foreach ($n in $nums) { if ($n -gt $maxDiaConcluido) { $maxDiaConcluido = $n } }
+    }
+
+    # Conta blocos totais/concluídos e maxDiaTotalPlano
+    $maxDiaTotalPlano = 0
+    $blocosTotais     = 0
+    $blocosConcluidos = 0
+    foreach ($prop in $planoBuild.PSObject.Properties) {
+        $nums = [regex]::Matches($prop.Name, '\d+') | ForEach-Object { [int]$_.Value }
+        if ($nums.Count -eq 0) { continue }
+        $maxB = ($nums | Measure-Object -Maximum).Maximum
+        if ($maxB -gt $maxDiaTotalPlano) { $maxDiaTotalPlano = $maxB }
+        $blocosTotais++
+        if ($maxDiaConcluido -ge $maxB) { $blocosConcluidos++ }
+    }
+
+    $blocosRestantes = $blocosTotais - $blocosConcluidos
+    $daysLeft        = ([datetime]$deadline - $hoje).Days
+    $diasPorBloco    = if ($blocosRestantes -gt 0) { [Math]::Ceiling($daysLeft / $blocosRestantes) } else { 1 }
+
+    $linhas += "CALENDARIO DO PROJETO"
+    $linhas += "-" * 55
+
+    $primeiroAtivo  = $true
+    $blocoFuturoIdx = 0
+
+    foreach ($prop in $planoBuild.PSObject.Properties) {
+        $chave     = $prop.Name
+        $descricao = $prop.Value
+
+        $nums = [regex]::Matches($chave, '\d+') | ForEach-Object { [int]$_.Value }
+        if ($nums.Count -eq 0) { continue }
+        $minDia = ($nums | Measure-Object -Minimum).Minimum
+        $maxDia = ($nums | Measure-Object -Maximum).Maximum
+
+        $diaLabel = if ($minDia -eq $maxDia) {
+            "Dia $minDia   ".PadRight(9)
+        } else {
+            "Dia $minDia-$maxDia".PadRight(9)
+        }
+
+        if ($maxDiaConcluido -ge $maxDia) {
+            # Bloco concluido — usa data real de delivery_dates se disponivel
+            $dataBloco = $null
+            if ($deliveryDates -and $deliveryDates.PSObject.Properties[$chave]) {
+                $dataBloco = [datetime]$deliveryDates.PSObject.Properties[$chave].Value
+            }
+            if (-not $dataBloco) {
+                $fracao    = if ($maxDiaTotalPlano -gt 0) { $maxDia / $maxDiaTotalPlano } else { 0.5 }
+                $diasUsados = ($hoje - [datetime]$inicio).Days
+                $dataBloco = ([datetime]$inicio).AddDays([Math]::Round($fracao * $diasUsados))
+            }
+            $diaAbrev  = $nomesDia[[int]$dataBloco.DayOfWeek]
+            $dataLabel = "$($dataBloco.ToString('dd/MM')) $diaAbrev      "
+            $status    = "[OK]"
+        } elseif ($maxDiaConcluido -ge ($minDia - 1) -and $primeiroAtivo) {
+            # Bloco ativo agora
+            $diaAbrev  = $nomesDia[[int]$hoje.DayOfWeek]
+            $dataLabel = "Hoje $($hoje.ToString('dd/MM')) $diaAbrev"
+            $status    = ">>"
+            $primeiroAtivo  = $false
+            $blocoFuturoIdx++
+        } else {
+            # Bloco futuro — data estimada
+            $estData   = $hoje.AddDays($blocoFuturoIdx * $diasPorBloco)
+            $diaAbrev  = $nomesDia[[int]$estData.DayOfWeek]
+            $dataLabel = "~$($estData.ToString('dd/MM')) $diaAbrev      "
+            $status    = "   "
+            $blocoFuturoIdx++
+        }
+
+        $desc = if ($descricao.Length -gt 42) { $descricao.Substring(0, 39) + "..." } else { $descricao }
+        $linhas += "$status  $($dataLabel.PadRight(14)) $diaLabel  $desc"
+    }
+
+    # Linha de saude do cronograma
+    $diasCalendarioGastos = [Math]::Max(1, ($hoje - [datetime]$inicio).Days + 1)
+    $folga         = $daysLeft - ($blocosRestantes * $diasPorBloco)
+    $deadlineLabel = ([datetime]$deadline).ToString("dd/MM")
+    $icone = if ($folga -ge 3) { "[verde] " } elseif ($folga -ge 0) { "[ok]    " } else { "[ATRASO]" }
+
+    $linhas += "-" * 55
+    $linhas += "$icone  Bloco $blocosConcluidos/$blocosTotais  |  ${diasCalendarioGastos}d usados  |  ${daysLeft}d ate $deadlineLabel"
+    if ($folga -ge 0) {
+        $linhas += "         $folga dia(s) de folga real"
+    } else {
+        $linhas += "         ATRASADO: $([Math]::Abs($folga)) dia(s) de deficit"
+    }
+
+    return ($linhas -join "`n")
+}
 
 # ── Monta corpo do e-mail ──────────────────────────────────
 $linhas = @()
@@ -97,6 +209,13 @@ foreach ($proj in $projetos) {
     if ($diasDeadline -ne $null) {
         $urgencia = if ($diasDeadline -le 2) { "🔴" } elseif ($diasDeadline -le 5) { "🟡" } else { "🟢" }
         $linhas += "Deadline: $deadline ($urgencia $diasDeadline dias)"
+    }
+
+    # ── Calendário do projeto ──
+    $blocoCalendario = Get-CalendarioProjeto -proj $proj -hoje $hoje
+    if ($blocoCalendario) {
+        $linhas += ""
+        $linhas += $blocoCalendario
     }
 
     $linhas += ""

@@ -1,4 +1,4 @@
-# ============================================================
+﻿# ============================================================
 # REGISTRAR_BRIEFING_AGENDADO.PS1 — Setup único
 # Agenda 3 notificações diárias via Telegram + e-mail:
 #   07:00 — Briefing completo (briefing_diario.ps1)
@@ -24,7 +24,6 @@ Register-ScheduledTask -TaskName "Pentalateral_Briefing_Manha" `
     -Action $actionManha `
     -Trigger $triggerManha `
     -Settings $settings `
-    -RunLevel Highest `
     -Force | Out-Null
 
 # ── Tarefa 2: Check-in da tarde 13:00 ─────────────────────
@@ -36,7 +35,6 @@ Register-ScheduledTask -TaskName "Pentalateral_Lembrete_Tarde" `
     -Action $actionTarde `
     -Trigger $triggerTarde `
     -Settings $settings `
-    -RunLevel Highest `
     -Force | Out-Null
 
 Write-Host ""

@@ -35,8 +35,15 @@
                                                            "dia1_schema_edge",
                                                            "dia2_gate_questoes",
                                                            "dia3_5_feed_sm2_pwa",
-                                                           "dia6_8_tutor_fallback"
+                                                           "dia6_8_tutor_fallback",
+                                                           "dia9_11_heatmap_simulado"
                                                        ],
+                                    "delivery_dates":  {
+                                                           "dia1_2":   "2026-05-15",
+                                                           "dia3_5":   "2026-05-17",
+                                                           "dia6_8":   "2026-05-19",
+                                                           "dia9_11":  "2026-05-20"
+                                                       },
                                     "plano_build":  {
                                                         "dia1_2":  "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
                                                         "dia3_5":  "Feed Diario (70/30 Peso 2) + Spaced Repetition SM-2 + Pilula JSON + Explicacao direta ao errar + Contador header",
@@ -93,7 +100,9 @@
                                                                   "nome":  "Gate Dia 11",
                                                                   "gate":  "dia11_heatmap_simulado",
                                                                   "notebooklm_wipe":  true,
-                                                                  "status":  "pendente"
+                                                                  "status":  "concluido",
+                                                                  "concluido_em":  "2026-05-20",
+                                                                  "evidencia":  "Heatmap get_heatmap_disciplinas + Micro-Simulado get_questoes_simulado — Gate 11 APROVADO e6c7ac5"
                                                               },
                                                               {
                                                                   "loop":  4,
@@ -106,7 +115,7 @@
                                     "pendente_diretor":  [
                                                              "5 questoes reais Quadrix para playbook distratores (bloqueante Dia 2)"
                                                          ],
-                                    "loop_atual":  "Loop #3 — Build (Dias 9-11) — Gate Dia 8 APROVADO — aguardando skill_notebooklm_v2",
+                                    "loop_atual":  "Loop #3 — Gate Dia 11 APROVADO 2026-05-20 — Loop #4 — Build Dias 12-13",
                                     "url_publica":  "https://subdiretormnmsgm-commits.github.io/vanguard/",
                                     "url_status":  "ATIVA — gh-pages d00c2c1 — negrito corrigido 2026-05-19",
                                     "formalizador":  {
@@ -157,7 +166,8 @@
                                                            "dia1_infraestrutura",
                                                            "dia2_corpus_pipeline",
                                                            "dia3_stj_tema_ui",
-                                                           "dia4_gate_abnt_threshold_toga"
+                                                           "dia4_gate_abnt_threshold_toga",
+                                                           "dia5_corpus_deploy_demo"
                                                        ],
                                     "commits":  {
                                                     "dia1":  "ef3f1cd",
@@ -176,6 +186,21 @@
                                                     "status":  "TESTADO E VERDE",
                                                     "temas":  "HC · preventiva · trafico · dosimetria · nulidade · homicidio · estupro · violencia-domestica · execucao-penal · prescricao · legitima-defesa · org-criminosa · porte-arma · corrupcao · concurso-crimes · sursis · estelionato · extorsao · ECA · lesao-corporal · tentativa · trafico-internacional"
                                                 },
+                                    "delivery_dates":  {
+                                                           "dia1":  "2026-05-13",
+                                                           "dia2":  "2026-05-14",
+                                                           "dia3":  "2026-05-15",
+                                                           "dia4":  "2026-05-16",
+                                                           "dia5":  "2026-05-19"
+                                                       },
+                                    "plano_build":  {
+                                                        "dia1":  "Infraestrutura + Supabase + deploy base",
+                                                        "dia2":  "Corpus 61 acordaos + Pipeline embeddings",
+                                                        "dia3":  "STJ + Tema processual + Redesign Toga",
+                                                        "dia4":  "Gate ABNT NBR6023 + Threshold + Toga Navy",
+                                                        "dia5":  "Corpus expansao + Deploy Netlify + Demo",
+                                                        "dia6":  "V3: Metadata + Badges + Migracao Supabase"
+                                                    },
                                     "decisoes_pendentes":  "CLIENTES/VALDECE/DECISOES_PENDENTES.md",
                                     "status_decisoes":  "4/4 validadas pelo Gemini DIRETRIZ V3",
                                     "dia4_entregues":  [
