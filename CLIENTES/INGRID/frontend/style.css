@@ -625,3 +625,36 @@ main {
 }
 
 .mapa-item-stats span { white-space: nowrap; }
+
+/* ── MICRO-SIMULADO — Dia 11 ── */
+.badge-simulado {
+  background: rgba(179,102,255,0.12);
+  color: #b366ff;
+  border: 1px solid rgba(179,102,255,0.25);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Timer bar — estados de urgência */
+.barra-fill.timer-ok      { background: var(--cyan); }
+.barra-fill.timer-alerta  { background: var(--yellow); }
+.barra-fill.timer-critico { background: var(--red); }
+
+/* Botão secundário (outline) para iniciar simulado */
+.btn-simulado {
+  padding: 13px 28px;
+  background: transparent;
+  color: var(--cyan);
+  border: 1.5px solid rgba(0,240,255,0.45);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-simulado:hover  { background: rgba(0,240,255,0.07); border-color: var(--cyan); }
+.btn-simulado:active { background: rgba(0,240,255,0.14); }

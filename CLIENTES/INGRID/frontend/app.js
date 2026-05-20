@@ -60,6 +60,17 @@ let acertosConsecutivos   = 0; // E-3: streak de acertos consecutivos
 let sessaoId              = null; // rastreia sessao atual em sessoes_usuario
 const errosPorQuestao     = {};
 
+// ── MICRO-SIMULADO — Dia 11 ───────────────────────────────────────────────────
+const SIMULADO_TOTAL     = 10;
+const SIMULADO_TEMPO_SEG = 90; // segundos por questão
+
+let simuladoQuestoes = [];
+let simuladoIndice   = 0;
+let simuladoAcertos  = 0;
+let simuladoTempos   = []; // ms por questão
+let simuladoTimer    = null;
+let simuladoInicioQ  = 0;
+
 // ── INIT ──────────────────────────────────────────────────────────────────────
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js").catch(() => {});
@@ -468,6 +479,13 @@ async function mostrarFim() {
   document.getElementById("progresso-header").textContent = "Concluído";
   document.getElementById("btn-fechar")?.addEventListener("click", () => location.reload());
 
+  // Botão Micro-Simulado — inserido antes do "Fechar"
+  const btnSim = document.createElement("button");
+  btnSim.className   = "btn-simulado";
+  btnSim.textContent = "⏱ Simular 10 questões";
+  btnSim.addEventListener("click", iniciarMicroSimulado);
+  document.getElementById("btn-fechar")?.before(btnSim);
+
   // Dia 10: Mapa de Soberania — busca e exibe automaticamente após sessão
   buscarEExibirMapa(main);
 }
@@ -652,6 +670,201 @@ async function encerrarSessao() {
       }),
     });
   } catch (_) {}
+}
+
+// ── MICRO-SIMULADO — Dia 11 ───────────────────────────────────────────────────
+
+async function iniciarMicroSimulado() {
+  trocarMain('<div class="estado-vazio"><div class="spinner"></div><p>Preparando simulado…</p></div>');
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_questoes_simulado`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID, p_quantidade: SIMULADO_TOTAL }),
+    });
+    if (!res.ok) throw new Error(`Simulado: ${res.status}`);
+    simuladoQuestoes = await res.json();
+    if (!simuladoQuestoes || simuladoQuestoes.length === 0) {
+      mostrarErro("Sem questões disponíveis para o simulado.");
+      return;
+    }
+  } catch (err) {
+    mostrarErro(err.message);
+    return;
+  }
+
+  simuladoIndice  = 0;
+  simuladoAcertos = 0;
+  simuladoTempos  = [];
+
+  document.getElementById("progresso-header").textContent = "Simulado";
+  renderizarQuestaoSimulado(0);
+}
+
+function renderizarQuestaoSimulado(indice) {
+  simuladoIndice  = indice;
+  simuladoInicioQ = Date.now();
+  const q = simuladoQuestoes[indice];
+
+  clearInterval(simuladoTimer);
+
+  const tpl  = document.getElementById("tpl-questao").content.cloneNode(true);
+  const card = tpl.querySelector(".questao-card");
+
+  const nomeDisc = NOMES_DISCIPLINAS[q.disciplina_id] ?? q.disciplina_id;
+  const badgeDisc = card.querySelector(".badge-disciplina");
+  badgeDisc.textContent = nomeDisc;
+  badgeDisc.className   = q.peso_edital === 2 ? "badge-peso2" : "badge-peso1";
+
+  const badgeTipo = card.querySelector(".badge-tipo");
+  badgeTipo.textContent = "⏱ Simulado";
+  badgeTipo.className   = "badge-simulado";
+
+  const numEl = card.querySelector(".questao-numero");
+  numEl.textContent = `${indice + 1}/${SIMULADO_TOTAL} · ${SIMULADO_TEMPO_SEG}s`;
+
+  const barraFill = card.querySelector(".barra-fill");
+  barraFill.style.transition = "none";
+  barraFill.style.width      = "100%";
+  barraFill.className        = "barra-fill timer-ok";
+
+  card.querySelector(".questao-enunciado").innerHTML = md2html(q.enunciado);
+
+  const contAlts = card.querySelector(".alternativas");
+  (q.alternativas ?? []).forEach((alt) => {
+    const tplAlt = document.getElementById("tpl-alternativa").content.cloneNode(true);
+    const btn    = tplAlt.querySelector(".alternativa");
+    btn.querySelector(".letra").textContent = alt.letra + ".";
+    btn.querySelector(".texto").innerHTML   = md2html(alt.texto);
+    btn.dataset.letra = alt.letra;
+    btn.addEventListener("click", () => processarRespostaSimulado(q, alt.letra, card));
+    contAlts.appendChild(btn);
+  });
+
+  trocarMain(card); // card entra no DOM
+
+  // Reflow + transição linear para o timer
+  void card.offsetWidth;
+  barraFill.style.transition = "width 0.9s linear";
+
+  let segsRestantes = SIMULADO_TEMPO_SEG;
+  simuladoTimer = setInterval(() => {
+    segsRestantes--;
+    numEl.textContent = `${indice + 1}/${SIMULADO_TOTAL} · ${segsRestantes}s`;
+
+    const pct = (segsRestantes / SIMULADO_TEMPO_SEG) * 100;
+    barraFill.style.width = `${pct}%`;
+
+    if (segsRestantes <= 10)      barraFill.className = "barra-fill timer-critico";
+    else if (segsRestantes <= 30) barraFill.className = "barra-fill timer-alerta";
+
+    if (segsRestantes <= 0) {
+      clearInterval(simuladoTimer);
+      processarRespostaSimulado(q, null, card);
+    }
+  }, 1000);
+}
+
+function processarRespostaSimulado(questao, letraEscolhida, card) {
+  clearInterval(simuladoTimer);
+
+  const tti    = Date.now() - simuladoInicioQ;
+  const correta = questao.gabarito;
+  const acertou = letraEscolhida !== null && letraEscolhida === correta;
+  if (acertou) simuladoAcertos++;
+  simuladoTempos.push(tti);
+
+  // Desabilita alternativas
+  const btns = card.querySelectorAll(".alternativa");
+  btns.forEach((b) => { b.disabled = true; });
+
+  // Colorir gabarito
+  btns.forEach((b) => {
+    if (b.dataset.letra === correta)                             b.classList.add("correta");
+    else if (b.dataset.letra === letraEscolhida && !acertou)    b.classList.add("errada");
+  });
+
+  // Feedback mínimo — sem tutor
+  const tplExp = document.getElementById("tpl-explicacao").content.cloneNode(true);
+  const expDiv = tplExp.querySelector(".explicacao");
+  expDiv.classList.add(acertou ? "acerto" : "erro");
+
+  const icone = letraEscolhida === null ? "⏰" : (acertou ? "✅" : "❌");
+  const msgTxt = letraEscolhida === null
+    ? `Tempo esgotado. Gabarito: ${correta}`
+    : acertou ? `Correto! Gabarito: ${correta}` : `Errado. Gabarito: ${correta}`;
+
+  expDiv.querySelector(".icone-resultado").textContent  = icone;
+  expDiv.querySelector(".texto-resultado").textContent  = msgTxt;
+  expDiv.querySelector(".explicacao-body").style.display  = "none";
+  expDiv.querySelector(".explicacao-nivel").style.display = "none";
+
+  card.appendChild(expDiv);
+
+  // Salva progresso apenas quando houve escolha (não timeout)
+  if (letraEscolhida !== null) {
+    salvarProgresso(questao, letraEscolhida, acertou, tti, false, 0);
+  }
+
+  // Botão próxima ou resultado
+  const tplBtn  = document.getElementById("tpl-btn-proxima").content.cloneNode(true);
+  const btnNext = tplBtn.querySelector(".btn-proxima");
+  const ultima  = simuladoIndice === simuladoQuestoes.length - 1;
+  btnNext.textContent = ultima ? "Ver resultado →" : "Próxima →";
+  btnNext.addEventListener("click", () => {
+    if (ultima) mostrarResultadoSimulado();
+    else renderizarQuestaoSimulado(simuladoIndice + 1);
+  });
+  card.appendChild(btnNext);
+}
+
+function mostrarResultadoSimulado() {
+  clearInterval(simuladoTimer);
+
+  const total    = simuladoQuestoes.length;
+  const pct      = Math.round((simuladoAcertos / total) * 100);
+  const medioMs  = simuladoTempos.length > 0
+    ? simuladoTempos.reduce((a, b) => a + b, 0) / simuladoTempos.length
+    : 0;
+  const medioSeg = Math.round(medioMs / 1000);
+
+  const avaliacao = pct >= 70
+    ? { icon: "🟢", msg: "Aprovado no bloco! Ritmo de prova." }
+    : pct >= 50
+    ? { icon: "🟡", msg: "Quase lá — reforçar antes da prova." }
+    : { icon: "🔴", msg: "Reforço urgente antes do dia H." };
+
+  // Quadrix: ~120 questões em 4h ≈ 2 min/questão
+  const ritmoMsg = medioSeg <= 120
+    ? `Ritmo ok — ${medioSeg}s por questão`
+    : `Atenção ao tempo — ${medioSeg}s por questão (limite ≈ 120s)`;
+
+  trocarMain(`
+    <div class="fim-sessao">
+      <div style="font-size:48px">${avaliacao.icon}</div>
+      <h2>Resultado do Simulado</h2>
+      <div class="fim-stats" style="grid-template-columns:1fr 1fr 1fr;max-width:360px">
+        <div class="stat-box">
+          <div class="valor">${simuladoAcertos}/${total}</div>
+          <div class="desc">Acertos</div>
+        </div>
+        <div class="stat-box">
+          <div class="valor">${pct}%</div>
+          <div class="desc">Aproveit.</div>
+        </div>
+        <div class="stat-box">
+          <div class="valor">${medioSeg}s</div>
+          <div class="desc">Tempo médio</div>
+        </div>
+      </div>
+      <p class="frase-encerramento" style="display:block">${avaliacao.msg}</p>
+      <p style="color:var(--muted);font-size:13px;max-width:280px;text-align:center;line-height:1.5">${ritmoMsg}</p>
+      <button class="btn-novo-dia" onclick="location.reload()">Fechar</button>
+    </div>
+  `);
+
+  document.getElementById("progresso-header").textContent = "Simulado";
 }
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
