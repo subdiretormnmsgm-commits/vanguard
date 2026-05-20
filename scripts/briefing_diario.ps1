@@ -140,6 +140,22 @@ $linhas += ""
 $alertasCriticos = @()
 $acoesDia        = @()
 
+# ── Bloco PENDENTES ───────────────────────────────────────
+$pendentesPath = "$BASE\PENDENTES.md"
+if (Test-Path $pendentesPath) {
+    $pendentesRaw  = Get-Content $pendentesPath -Encoding UTF8
+    $pendentesAbertos = $pendentesRaw | Where-Object { $_ -match '^\s*- \[ \]' }
+    if ($pendentesAbertos.Count -gt 0) {
+        $linhas += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        $linhas += "📋 PENDENTES ($($pendentesAbertos.Count) abertos)"
+        foreach ($p in $pendentesAbertos) {
+            $texto = $p -replace '^\s*- \[ \]\s*`[^`]+`\s*', '' -replace '\*\*([^*]+)\*\*', '$1'
+            $linhas += "  • $($texto.Trim())"
+        }
+        $linhas += ""
+    }
+}
+
 foreach ($proj in $projetos) {
     $cliente  = $proj.cliente
     $projId   = $proj.id

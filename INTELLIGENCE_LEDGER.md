@@ -1033,6 +1033,16 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 
 ---
 
+### [P-048] Pendente identificado = registrar imediatamente — não confiar na memória da sessão
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-001 Valdece Loop 7 + revisão de processo
+**Fricção:** O Diretor perguntou "não tínhamos de levar jurisprudências do STF?" — tarefa identificada em sessão anterior mas nunca registrada formalmente. Quando o contexto compactou, o pendente sumiu. Eduardo: "Se eu não lembro, ficaríamos perdidos. Imagina com 30 projetos."
+**Princípio:** Toda tarefa identificada como pendente durante uma sessão → registrar em `PENDENTES.md` na raiz IMEDIATAMENTE, antes de qualquer outra ação. Não esperar `session_close.ps1`. Não confiar na memória da conversa. O `session_close` complementa — não substitui.
+**Ferramenta criada:** `PENDENTES.md` na raiz do repositório — lido pelo `briefing_diario.ps1` toda manhã. Formato: `- [ ] \`YYYY-MM-DD\` **descrição**`. Músculo marca `[x]` ao concluir e remove no `session_close`.
+**Regra de ouro:** Se foi dito "precisa ser feito" e não está no PENDENTES.md ou no `proximo_passo` do WIP_BOARD, não existe. Memória de sessão não é instrumento de gestão — arquivo é.
+**Aplica-se a:** toda sessão, todo projeto, todo processo. Escala para N projetos sem degradação.
+
+---
+
 ### [P-047] Engajamento inaugural alto é receptividade — não hábito formado
 **Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 Gate Dia 8
 **Fricção:** Ingrid chegou à Q18 na sessão inaugural, reportou bug de formatação com precisão cirúrgica. O Músculo e o Embaixador quase rotularam como "VERDE CONSOLIDADO". O Embaixador freou: engajamento inaugural ≠ hábito. SM-2 ainda não cobrou, a novidade não acabou.
