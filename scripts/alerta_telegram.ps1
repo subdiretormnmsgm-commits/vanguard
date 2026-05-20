@@ -133,6 +133,30 @@ Dr. Valdece, tudo bem? Passando para saber como esta sendo a experiencia com o s
 ---
 "@
         }
+        "VALDECE_TESTES" {
+            $mensagem = @"
+VALDECE - Toga Digital - Periodo de Testes (Fase 3)
+Ferramenta restaurada e funcionando.
+P-046: contrato so apos testes confirmados.
+
+COPIE E ENVIE NO WHATSAPP:
+---
+Dr. Valdece, o Toga Digital esta no ar e funcionando normalmente.
+
+Link de acesso: https://toga-digital-valdece.netlify.app
+
+Agora iniciamos a fase de testes - parte do nosso processo antes da assinatura. O senhor tem ate 48 horas para usar com casos reais do trabalho: qualquer pesquisa que faria normalmente, tema de defesa criminal, prazo ou enquadramento que esteja trabalhando agora.
+
+Acessa pelo celular ou computador que usa no trabalho. Na primeira vez pode aparecer a opcao de instalar como aplicativo - e so clicar em Instalar.
+
+Se algo nao funcionar como esperado, me avisa - corrijo na mesma hora.
+
+So apos o senhor confirmar que o Toga Digital atendeu as expectativas e que apresento o contrato definitivo.
+---
+
+AO RECEBER FEEDBACK: acionar Doc4 do KIT_PHTC com dados reais.
+"@
+        }
         "BRIEFING" {
             $mensagem = "Bom dia, Diretor. Briefing completo no e-mail. Abra e execute as acoes do dia."
         }
@@ -156,7 +180,9 @@ $body = @{
 }
 
 try {
-    $r = Invoke-RestMethod -Uri $url -Method POST -Body $body
+    $json  = $body | ConvertTo-Json -Compress
+    $bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
+    $r = Invoke-RestMethod -Uri $url -Method POST -Body $bytes -ContentType "application/json; charset=utf-8"
     if ($r.ok) {
         Write-Host "✅ Alerta enviado ao Diretor via Telegram" -ForegroundColor Green
     }
