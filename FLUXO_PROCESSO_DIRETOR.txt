@@ -1,23 +1,23 @@
 
 +  ---
-  PASSO 3 → Gemini
+  1. PASSO 3 → Gemini
     Leva : gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md + PASSO3_GEMINI.md
     Recebe: Diretriz Técnica V6 — Projeto Valdece — Loop 6
     Salva : NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt
 
-  PASSO 5 → NotebookLM
+  2. PASSO 5 → NotebookLM
     Roda  : preparar_notebooklm_projeto.ps1 -cliente VALDECE
     Leva  : NOTEBOOKLM_FONTES/ completo (Wipe & Sync) + COMANDO CURTO
     Recebe: Skill valdece-v6.md (4 partes + [N-1 a N-5])
     Salva : .claude/skills/valdece-v6.md
     Valida: skill_parser_gate.ps1
 
-  PASSO 7 → Embaixador
+  3. PASSO 6 → Embaixador
     Roda  : ir_ao_embaixador.ps1 -cliente VALDECE
     Leva  : contexto loop + comportamento Valdece + perguntas
     Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA
 
-  PASSO 6 → Músculo — colar nesta ordem:
+  4. PASSO 7 → Músculo — colar nesta ordem:
     1. Skill valdece-v6.md
     2. Diretriz Técnica V6
     3. PASSO6_MUSCULO.md
@@ -27,11 +27,33 @@
             Leia tudo e delibere nos 7 pontos."
 
 
-▎ "PROTOCOLO VANGUARD — VALDECE. Loop 5. Execute /valdece-v5 antes de deliberar. Trago a Skill do Auditor e a Diretriz
-  ▎  do Estrategista. Leia tudo e delibere nos 7 pontos."
+▎ "PROTOCOLO VANGUARD — VALDECE. Loop 5. Execute /skill-v5 antes de deliberar. Trago a Skill do Auditor e a Diretriz
+  do Estrategista. Leia tudo e delibere nos 7 pontos."
 
-  ---
-  O Músculo não delibera antes de ter os dois documentos. Sem Skill = deliberação inválida.
+ 
+● Exato — o Músculo não delibera sem a Skill do Auditor. A ordem é:
+
+  1. ✅ DIRETRIZ V5 recebida
+  2. → Preparar NotebookLM agora (minha parte)
+  3. → Diretor vai ao NotebookLM → gera ingrid-v4.md
+  4. → Embaixador (AutoSync já roda aqui)
+  5. → Diretor traz Skill + DIRETRIZ ao Músculo → deliberação
 
 
-The bRiefing PAss 7 Embaixador
+────────────────────────────────────────────────────────────────┐
+  │  1. Skill:  .claude/skills/ingrid-v4.md          ← PARTE 3     │
+  │  2. Auditor: PARTE 1 + PARTE 2 + PARTE 4 [N-1 a N-5]           │
+  │             (não está na skill — colar separado)                │
+  │  3. DIRETRIZ: DIRETRIZ_GEMINI_V5.txt             ← [G-1 a G-5] │
+  │  4. Embaixador: output completo                  ← [E-1 a E-5] │
+  │             + CONFIRMA/EXPANDE/ALERTA                           │
+  │  5. PASSO6_MUSCULO.md                            ← este arquivo │
+
+
+   PROTOCOLO VANGUARD — INGRID. Loop 4.
+   Execute /ingrid-v4 antes de deliberar.
+   Trago a Skill + Auditor completo + DIRETRIZ + Embaixador.
+   Delibere nos 7 pontos antes de qualquer build
+
+
+

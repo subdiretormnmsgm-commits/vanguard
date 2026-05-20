@@ -1,5 +1,5 @@
 ﻿// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
-// Loop 3 · Dias 6-8: Clickwrap + Tutor Socrático + Telemetria TTI + Fallback
+// Loop 4 · Dia 9: Clickwrap V2 · Sessoes · Streak E-3 · metricas_diarias
 
 // ── UTILS ─────────────────────────────────────────────────────────────────────
 // Converte **texto** para <strong>texto</strong> com escape seguro de HTML
@@ -16,7 +16,7 @@ function md2html(text) {
 const SUPABASE_URL      = "https://ehyaecxqijgyuuiorzcj.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoeWFlY3hxaWpneXV1aW9yemNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyODMzNTAsImV4cCI6MjA5Mzg1OTM1MH0.xZfcEe2Av5Fn9BKEkNRIi5CQkPD6C6ADSNzMfh3DGPo";
 const USER_ID           = "00000000-0000-0000-0000-000000000001";
-const VERSAO_TERMO      = "1.0";
+const VERSAO_TERMO      = "termo_v2_18_05"; // Clickwrap V2 — data real de assinatura 18/05
 const COTA_DIARIA_USD   = 5.00;
 const KILL_SWITCH_PCT   = 0.70;
 const ADMIN_TOKEN_CONF  = "vg-admin-2026-ingrid"; // substituir antes do deploy
@@ -43,20 +43,22 @@ const NOMES_DISCIPLINAS = {
 };
 
 // ── ESTADO ────────────────────────────────────────────────────────────────────
-let feed                = [];
-let indiceAtual         = 0;
-let pontosAcumulados    = 0;
-let acertos             = 0;
-let revisoesPendentes   = 0;
-let questaoStartedAt    = 0;
-let timerAbandono       = null;
-let tapCount            = 0;
-let tapTimer            = null;
-let gastoEstimado       = 0;
-let killSwitchAtivado   = false;
-let totalRespostasGlobal = 0;
-let ultimoCacheStatus   = "—";
-const errosPorQuestao   = {};
+let feed                  = [];
+let indiceAtual           = 0;
+let pontosAcumulados      = 0;
+let acertos               = 0;
+let revisoesPendentes     = 0;
+let questaoStartedAt      = 0;
+let timerAbandono         = null;
+let tapCount              = 0;
+let tapTimer              = null;
+let gastoEstimado         = 0;
+let killSwitchAtivado     = false;
+let totalRespostasGlobal  = 0;
+let ultimoCacheStatus     = "—";
+let acertosConsecutivos   = 0; // E-3: streak de acertos consecutivos
+let sessaoId              = null; // rastreia sessao atual em sessoes_usuario
+const errosPorQuestao     = {};
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 if ("serviceWorker" in navigator) {
@@ -72,6 +74,7 @@ async function iniciar() {
   const aceitou = await verificarClickwrap();
   if (!aceitou) return;
 
+  iniciarSessao(); // fire-and-forget — não bloqueia o feed
   await carregarFeedEIniciar();
 }
 
@@ -79,7 +82,7 @@ async function iniciar() {
 async function verificarClickwrap() {
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/termos_aceitos?user_id=eq.${USER_ID}&limit=1&select=id`,
+      `${SUPABASE_URL}/rest/v1/termos_aceitos?user_id=eq.${USER_ID}&versao_termo=eq.${VERSAO_TERMO}&limit=1&select=id`,
       { headers: headers() }
     );
     const rows = await res.json();
@@ -275,9 +278,11 @@ async function processarResposta(questao, letraEscolhida, card) {
   // Pontos ponderados: Peso 2 = 2pts, Peso 1 = 1pt
   if (acertou) {
     acertos++;
+    acertosConsecutivos++;
     pontosAcumulados += questao.peso_edital;
     document.getElementById("pontos-valor").textContent = pontosAcumulados;
   } else {
+    acertosConsecutivos = 0;
     revisoesPendentes++;
   }
 
@@ -297,6 +302,15 @@ async function processarResposta(questao, letraEscolhida, card) {
 
   // Fallback imediato: explicacao_base da questão
   bodyDiv.innerHTML = md2html(questao.explicacao ?? "");
+
+  // E-3: streak badge após 3+ acertos consecutivos
+  if (acertou && acertosConsecutivos >= 3) {
+    const streakEl = document.createElement("div");
+    streakEl.className   = "streak-badge";
+    streakEl.textContent = `Você acertou as últimas ${acertosConsecutivos} — esse é seu ritmo.`;
+    expDiv.appendChild(streakEl);
+  }
+
   card.appendChild(expDiv);
 
   // Tutor e save em paralelo
@@ -431,6 +445,7 @@ async function salvarProgresso(questao, resposta, acertou, tti, chute, nivelTuto
 
 // ── FIM DE SESSÃO + FRASE E-5 — Dia 6 ────────────────────────────────────────
 async function mostrarFim() {
+  encerrarSessao(); // fire-and-forget
   const tpl = document.getElementById("tpl-fim").content.cloneNode(true);
   const pct = feed.length > 0 ? Math.round((acertos / feed.length) * 100) : 0;
 
@@ -516,6 +531,35 @@ function atualizarDebug(questao, cacheStatus, custo) {
     `Total respostas: ${totalRespostasGlobal}`,
     ADMIN_MODE ? `<b style='color:var(--yellow)'>ADMIN MODE</b>` : "",
   ].filter(Boolean).map((l) => `<div>${l}</div>`).join("");
+}
+
+// ── SESSOES_USUARIO — Dia 9 ───────────────────────────────────────────────────
+async function iniciarSessao() {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/sessoes_usuario`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json", Prefer: "return=representation" },
+      body: JSON.stringify({ user_id: USER_ID }),
+    });
+    if (res.ok) {
+      const rows = await res.json();
+      sessaoId = rows[0]?.id ?? null;
+    }
+  } catch (_) {}
+}
+
+async function encerrarSessao() {
+  if (!sessaoId) return;
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/sessoes_usuario?id=eq.${sessaoId}`, {
+      method: "PATCH",
+      headers: { ...headers(), "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify({
+        encerrada_em:         new Date().toISOString(),
+        questoes_respondidas: feed.length,
+      }),
+    });
+  } catch (_) {}
 }
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────

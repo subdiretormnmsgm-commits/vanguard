@@ -1030,3 +1030,32 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Regra de ouro:** Pressão para assinar rápido é sinal de alerta — não de agilidade. Cliente que confia espera 48h de teste. O custo do protocolo é 2h. O custo da falha pós-assinatura é a credibilidade.
 **Responsabilidade:** O Diretor é o único que autoriza o avanço para assinatura. O Músculo não tem autonomia para comprimir este protocolo sob nenhuma circunstância.
 **Aplica-se a:** todo projeto com cliente externo, qualquer valor, qualquer prazo, qualquer nível de confiança no código.
+
+---
+
+### [P-047] Engajamento inaugural alto é receptividade — não hábito formado
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 Gate Dia 8
+**Fricção:** Ingrid chegou à Q18 na sessão inaugural, reportou bug de formatação com precisão cirúrgica. O Músculo e o Embaixador quase rotularam como "VERDE CONSOLIDADO". O Embaixador freou: engajamento inaugural ≠ hábito. SM-2 ainda não cobrou, a novidade não acabou.
+**Princípio:** O termômetro de retenção real são as sessões 3-5, quando o SM-2 começa a cobrar revisões difíceis e o efeito de novidade evaporou. Sessão 1 excelente = receptividade confirmada. Hábito = padrão repetido sem incentivo externo.
+**Temperatura correta:** VERDE FRÁGIL — não VERDE CONSOLIDADO — até sessão 3-5 com dados de retorno.
+**Aplica-se a:** todo projeto EdTech ou de hábito com usuário piloto.
+
+---
+
+### [P-048] Deliberação do Músculo é documento persistente — nunca contexto volátil
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 Deliberação
+**Fricção:** A deliberação completa (PASSO A-H com 25 inputs analisados nos 7 pontos) foi executada na sessão anterior. O contexto comprimiu antes do Diretor revisar. O veredito foi pedido sem Eduardo ter lido a análise. "Isso sempre acontece."
+**Princípio:** Após PASSO G e antes de PASSO H, o Músculo salva obrigatoriamente a deliberação em `CLIENTES/[NOME]/HISTORICO/DELIBERACAO_LOOP_[N]_[CLIENTE].md`. PASSO H (veredito) só começa com arquivo confirmado no disco. Diretor lê o arquivo — não depende do contexto da sessão.
+**Ferramenta criada:** PASSO G.5 adicionado em todos os arquivos PASSO6_MUSCULO — gate obrigatório entre deliberação e veredito.
+**Regra de ouro:** Contexto de sessão é RAM — volátil. Arquivo em disco é HD — persistente. Deliberação que não está no HD não aconteceu.
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+---
+
+### [P-049] Output do Auditor é irrecuperável após fechar o NotebookLM
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 pós-compressão de contexto
+**Fricção:** As PARTES 1+2+4 do Auditor (Auditoria de Coerência, Perspectiva do Sócio, [N-1 a N-5]) foram perdidas na compressão de contexto. O Músculo deliberou os [N-1 a N-5] apenas pelos títulos — sem o conteúdo completo. 5 inputs deliberados com informação parcial.
+**Princípio:** Ao receber o output do Auditor, antes de sair do NotebookLM: salvar PARTES 1+2+4 em `CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md`. Só então copiar a PARTE 3 (Skill) para `.claude/skills/`. A sequência correta de cópia é: (1) salvar tudo, (2) copiar Skill, (3) rodar gate.
+**Regra de ouro:** NotebookLM não tem memória entre sessões. Quando você fecha, o output vai junto. O que não está em arquivo não existe.
+**Ferramenta criada:** Gate P-049 adicionado ao final da seção COMANDO CURTO em todos os arquivos PASSO5_NOTEBOOKLM.
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
