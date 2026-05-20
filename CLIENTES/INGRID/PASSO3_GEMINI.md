@@ -43,29 +43,6 @@ O Loop 4 começa com Ingrid usando o app de verdade. Os dados chegam. A análise
 
 ---
 
-## 📌 ANTES DE IR AO GEMINI — executar obrigatoriamente
-
-```
-1. O Músculo roda automaticamente: .\scripts\gemini_anchor_generator.ps1
-   → Compila LEDGER + WIP_BOARD + MEMORIA → CONTEXTO_GEMINI.md gerado e copiado
-   → Diretor não roda manualmente. Músculo detecta intenção e executa.
-
-2. Colar no Gemini (nesta ordem):
-   ┌─────────────────────────────────────────────────────────┐
-   │  CONTEXTO_GEMINI.md   ← gerado pelo Músculo (passo 1)  │
-   │  CLIENTES\INGRID\PASSO3_GEMINI.md  ← este arquivo      │
-   └─────────────────────────────────────────────────────────┘
-   Colar também: HISTORICO\MEMORIA_V3.md + relatorio_evolutivo_V3.md
-   (se existir DIVIDAS_TECNICAS_AUDITOR.md com entradas recentes: colar antes deste)
-
-3. Aguardar a DIRETRIZ em 7 blocos.
-   Se vier incompleta → "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
-
-4. Salvar como: CLIENTES\INGRID\DIRETRIZ_GEMINI_V5.txt
-   (nome exato — o script do Passo 5 busca este padrão)
-```
-
----
 
 ## 🆕 ATUALIZAÇÕES DO PROCESSO DESDE LOOP 3
 

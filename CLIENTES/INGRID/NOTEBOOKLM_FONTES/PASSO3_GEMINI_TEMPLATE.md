@@ -46,43 +46,6 @@ Ao detectar conflito entre o que o Diretor quer e o que os dados mostram: declar
 
 ---
 
-## 📌 INSTRUÇÕES PARA O DIRETOR — ANTES DE IR AO GEMINI
-
-**O que fazer (em 4 passos simples):**
-
-```
-1. O Músculo roda automaticamente no terminal:
-   .\scripts\gemini_anchor_generator.ps1
-   → Compila LEDGER + WIP_BOARD + MEMORIA → CONTEXTO_GEMINI.md gerado e copiado
-   → Diretor não roda manualmente — Músculo detecta a intenção e executa
-
-2. COLAR no Gemini (nesta ordem):
-   ┌─────────────────────────────────────────────────────────┐
-   │  CONTEXTO_GEMINI.md   ← gerado pelo Músculo (passo 1)  │
-   │  CLIENTES\[CLIENTE]\PASSO3_GEMINI.md  ← este arquivo   │
-   └─────────────────────────────────────────────────────────┘
-   Loop 2+: colar também:
-   │  HISTORICO\MEMORIA_V[X].md
-   │  HISTORICO\relatorio_evolutivo_V[X].md
-   │  CLIENTES\[CLIENTE]\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md
-
-3. AGUARDAR a DIRETRIZ em 7 blocos.
-   Se vier incompleta ou com mais de 3 prioridades:
-   → "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos."
-
-4. SALVAR a DIRETRIZ como:
-   CLIENTES\[CLIENTE]\DIRETRIZ_GEMINI_V[N].txt
-   (nome exato — o script do Passo 5 busca este padrão automaticamente)
-```
-
-> Por que anexar o INTELLIGENCE_LEDGER: sem ele, o Gemini não conhece os princípios
-> reais do Pentalateral IAH (P-001 a P-032+) e vai inventar regras genéricas.
-> O LEDGER é o antídoto contra a Alucinação Otimista do Estrategista.
-> Por que anexar a MEMORIA_EMBAIXADOR (Loop 2+): ela traz o filtro de realidade do
-> cliente (P-031) — ideias aprovadas pelo Gemini mas alertadas pelo Embaixador são
-> riscos reais, não paranoia. Sem ela, o Gemini estrategiza para um cliente imaginário.
-
----
 
 ## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — PRIORIDADE CRÍTICA ANCORADA
 > Bloco gerado automaticamente por session_close.ps1 quando Eduardo registra intervenção.

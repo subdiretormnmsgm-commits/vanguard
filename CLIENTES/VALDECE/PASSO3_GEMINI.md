@@ -19,21 +19,6 @@ com mandato de discordância, análise e direção. Você gera direção. O Mús
 
 ---
 
-## ANTES DE ABRIR O GEMINI — EXECUTAR OBRIGATORIAMENTE
-
-1. O Músculo roda automaticamente: .\scripts\gemini_anchor_generator.ps1
-   → Compila LEDGER + WIP_BOARD + MEMORIA → CONTEXTO_GEMINI.md gerado e copiado para clipboard
-   → Diretor não roda manualmente. Músculo detecta intenção de ir ao Gemini e executa.
-2. Confirmar que CONTEXTO_GEMINI.md foi gerado e está no clipboard
-3. Abrir nova sessão no Gemini
-
-## ORDEM DE ENVIO AO GEMINI (nesta sequência, sem inverter)
-
-1. Colar CONTEXTO_GEMINI.md  — ancora com LEDGER + WIP_BOARD + MEMORIA mais recente
-2. Colar este arquivo         — instrução da iteração atual
-   (Se existir DIVIDAS_TECNICAS_AUDITOR.md com entradas recentes: colar também antes deste)
-
----
 
 ## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — PRIORIDADE CRÍTICA ANCORADA
 > Gerado em 2026-05-19 — Loop Evolutivo Pentalateral. Estrategista: proibido de suavizar ou ignorar.
@@ -295,7 +280,6 @@ Responda cada ideia pelo nome: aprovada / modificada (com sua versão) / descart
 Três ações concretas para o Diretor executar nas próximas 24 horas. Cada uma com: o quê, onde e como — sem margem para interpretação.
 Ação 1 obrigatória: ir presencialmente assinar o contrato com Valdece hoje.
 Ação 2: ao assinar, mostrar as melhorias de hoje (ementa completa, badge UF) como prova de que o sistema já está evoluindo.
-Ação 3: ao ir ao Gemini com este PASSO3, incluir na ordem: CONTEXTO_GEMINI.md → este arquivo.
 
 **SUAS 5 IDEIAS DISRUPTIVAS PARA O MÚSCULO REAGIR**
 Cinco ideias que o Músculo não propôs mas que você vê do ponto de vista estratégico. Para cada uma: o que é, impacto estimado, e uma pergunta direta que o Músculo deve responder ao analisar tecnicamente.
