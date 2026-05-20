@@ -1,6 +1,6 @@
 # gemini_anchor_generator.ps1
 # Compila PAYLOAD COMPLETO para o Gemini: CONTEXTO + MEMORIA + RELATORIO + PASSO3
-# Um arquivo, uma colagem — zero erro de ordem.
+# Um arquivo, uma colagem -- zero erro de ordem.
 # Uso: .\scripts\gemini_anchor_generator.ps1
 # Output: CONTEXTO_GEMINI.md (payload completo) + clipboard
 
@@ -99,10 +99,10 @@ if ($projetoAtivo) {
         Write-Host "  [--] relatorio_evolutivo_V*.md nao encontrado (normal no Loop 1)"
     }
 
-    # PASSO3 — MISSAO (sempre por ultimo)
+    # PASSO3 -- MISSAO (sempre por ultimo)
     $passo3Path = Join-Path $clienteDir "PASSO3_GEMINI.md"
     if (Test-Path $passo3Path) {
-        Write-Host "  [+] PASSO3_GEMINI.md (MISSAO — ultimo bloco)"
+        Write-Host "  [+] PASSO3_GEMINI.md (MISSAO -- ultimo bloco)"
         $passo3Content = Get-Content $passo3Path -Encoding UTF8 -Raw
         $blocos += "## MISSAO DESTA SESSAO -- PASSO3_GEMINI ($clienteUpper)`n$passo3Content"
     } else {
@@ -123,10 +123,17 @@ if ($projetoAtivo) {
     Write-Host "       Adicione PASSO3_GEMINI manualmente ao final do arquivo gerado." -ForegroundColor Yellow
 }
 
-# --- GERAR ARQUIVO UNICO ---
+# --- GERAR ARQUIVO UNICO (por projeto) ---
 $output = $blocos -join $sep
 
-$destFile = Join-Path $BASE "CONTEXTO_GEMINI.md"
+if ($projetoAtivo) {
+    $clienteUpper = $projetoAtivo.cliente.ToUpper()
+    $destFile = Join-Path $BASE "CLIENTES\$clienteUpper\CONTEXTO_GEMINI.md"
+    $destLabel = "CLIENTES\$clienteUpper\CONTEXTO_GEMINI.md"
+} else {
+    $destFile = Join-Path $BASE "CONTEXTO_GEMINI.md"
+    $destLabel = "CONTEXTO_GEMINI.md (raiz -- fallback sem projeto ativo)"
+}
 Set-Content $destFile -Value $output -Encoding UTF8
 
 # --- COPIAR PARA CLIPBOARD ---
@@ -142,7 +149,7 @@ Write-Host "================================================"
 Write-Host "  PAYLOAD GEMINI GERADO -- $DATA"
 Write-Host "================================================"
 Write-Host ""
-Write-Host "  Arquivo : CONTEXTO_GEMINI.md ($($output.Length) chars)"
+Write-Host "  Arquivo : $destLabel ($($output.Length) chars)"
 Write-Host "  Clipboard: $clipMsg"
 Write-Host ""
 Write-Host "  So isso: Ctrl+V no Gemini. Um arquivo. Zero erro de ordem."
