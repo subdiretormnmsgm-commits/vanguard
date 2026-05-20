@@ -47,6 +47,23 @@ Ao detectar conflito entre o que o Diretor quer e o que os dados mostram: declar
 ---
 
 
+## 🎯 MISSÃO DESTA SESSÃO
+> Preencher pelo Músculo antes de enviar ao Gemini. Nunca deixar vazio — sem MISSÃO, o Gemini alucina.
+
+**Loop atual:** Loop [N] — [NOME DO LOOP]
+
+**Sua missão:**
+
+**Objetivo 1 — [NOME]:**
+[O que construir + qual gate + prazo restante + dias de build]
+
+**Objetivo 2 — [NOME] (se aplicável):**
+[Mudança de processo, evolução do sistema, ou decisão estratégica pendente neste loop]
+
+Use o formato obrigatório de 7 blocos definido no final deste documento.
+
+---
+
 ## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — PRIORIDADE CRÍTICA ANCORADA
 > Bloco gerado automaticamente por session_close.ps1 quando Eduardo registra intervenção.
 > Estrategista: proibido de recalibrar, suavizar ou ignorar estes pontos.
