@@ -1,17 +1,18 @@
 """
-Corpus Pipeline — Dia 3 (atualizado)
+Corpus Pipeline — V3 (Dia 6)
 STF + STJ Open Data → Filtro Penal → tema classification → Gemini embedding-004 → Supabase pgvector
 
-Uso:
-  python ingest.py --source stf --limit 300
-  python ingest.py --source stj --limit 300
-  python ingest.py --source all --limit 300   ← recomendado (STF + STJ)
+Modos:
+  python ingest.py --source all --limit 300          ← ingesta novos acórdãos
+  python ingest.py --mode reingest --dry-run          ← valida classificação V3 dos 61 existentes
+  python ingest.py --mode reingest                    ← aplica campos V3 no Supabase (sem re-embedding)
   python ingest.py --source csv --file acordaos.csv --limit 500
 """
 
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -343,6 +344,261 @@ def classify_tema(ementa: str) -> str:
 
 
 # ──────────────────────────────────────────────────────────────
+# Classificação V3: turma, repercussão geral, recurso repetitivo
+# Estratégia: API fonte (dado oficial) → regex → Gemini Flash
+# ──────────────────────────────────────────────────────────────
+
+def _norm_numero(s: str) -> str:
+    """Normaliza número do processo: remove espaços, pontos, traços e barras."""
+    return re.sub(r'[\s.\-/]', '', s).upper()
+
+
+def _lookup_stf(numero: str) -> dict:
+    """Busca metadados completos do caso na API do STF por número do processo."""
+    try:
+        payload = {"query": numero, "tribunal": "STF", "from": 0, "size": 5}
+        resp = requests.post(STF_SEARCH_URL, json=payload, timeout=15, verify=False)
+        resp.raise_for_status()
+        hits = resp.json().get("hits", {}).get("hits", [])
+        num_norm = _norm_numero(numero)
+        for hit in hits:
+            src = hit.get("_source", {})
+            api_num = str(src.get("numeroAcordao") or src.get("numeroProcesso") or "")
+            if _norm_numero(api_num) == num_norm or num_norm in _norm_numero(api_num):
+                return src
+        return hits[0].get("_source", {}) if hits else {}
+    except Exception:
+        return {}
+
+
+def _extract_stf_v3(src: dict, ementa: str) -> dict:
+    """Extrai turma e repercussão geral dos campos estruturados da API STF."""
+    # Turma — campo orgaoJulgador
+    org = (src.get("orgaoJulgador") or src.get("turma") or src.get("colegiado") or "").strip()
+    turma = None
+    org_l = org.lower()
+    if "primeira" in org_l:   turma = "Primeira Turma"
+    elif "segunda" in org_l:  turma = "Segunda Turma"
+    elif "pleno" in org_l:    turma = "Pleno"
+
+    # Repercussão geral — campo dedicado na API STF
+    rg = src.get("repercussaoGeral") or src.get("repercussao_geral")
+    repercussao = False
+    if rg is not None:
+        if isinstance(rg, bool):
+            repercussao = rg
+        elif isinstance(rg, dict):
+            repercussao = bool(rg.get("possui") or rg.get("reconhecida"))
+        elif isinstance(rg, str):
+            repercussao = rg.lower() not in ("", "nao", "não", "false", "0", "sem repercussao")
+    # Fallback: regex na ementa
+    if not repercussao:
+        repercussao = bool(re.search(r'repercuss[aã]o\s+geral', ementa.lower()))
+
+    return {"turma": turma, "repercussao_geral": repercussao, "recurso_repetitivo": False}
+
+
+def _lookup_stj(numero: str) -> dict:
+    """Busca metadados completos do caso na API aberta do STJ por número do processo."""
+    STJ_OPEN_DATA_URL = "https://dadosabertos.stj.jus.br/api/3/action/datastore_search"
+    RESOURCE_ID = "b4d57ee5-e538-4f74-9b8b-0cfd4ac7a979"
+    try:
+        # Remove prefixo textual (REsp, HC, RHC…) para a busca numérica
+        numero_digits = re.sub(r'^[A-Za-záéíóúãõ\s]+', '', numero).strip()
+        params = {"resource_id": RESOURCE_ID, "q": numero_digits, "limit": 5}
+        resp = requests.get(STJ_OPEN_DATA_URL, params=params, timeout=15, verify=False)
+        resp.raise_for_status()
+        if not resp.json().get("success"):
+            return {}
+        records = resp.json().get("result", {}).get("records", [])
+        num_norm = _norm_numero(numero)
+        for rec in records:
+            api_num = str(rec.get("numero_processo") or rec.get("NUMERO_PROCESSO") or "")
+            if _norm_numero(api_num) == num_norm or num_norm in _norm_numero(api_num):
+                return rec
+        return records[0] if records else {}
+    except Exception:
+        return {}
+
+
+def _extract_stj_v3(rec: dict, ementa: str) -> dict:
+    """Extrai turma e recurso repetitivo dos campos estruturados da API STJ."""
+    TURMAS_STJ = [
+        "Terceira Turma", "Quarta Turma", "Quinta Turma", "Sexta Turma",
+        "Corte Especial", "Órgão Especial",
+        "Primeira Seção", "Segunda Seção", "Terceira Seção",
+    ]
+    org = (rec.get("orgao_julgador") or rec.get("ORGAO_JULGADOR") or
+           rec.get("orgaoJulgador") or "").strip()
+    turma = None
+    if org:
+        for nome in TURMAS_STJ:
+            if nome.lower() in org.lower():
+                turma = nome
+                break
+
+    # Recurso repetitivo — campo dedicado ou campo tipo_recurso
+    rep_raw = str(
+        rec.get("recurso_repetitivo") or rec.get("RECURSO_REPETITIVO") or
+        rec.get("tipo_julgamento") or rec.get("TIPO_JULGAMENTO") or ""
+    )
+    repetitivo = "repetitivo" in rep_raw.lower()
+    # Fallback: regex na ementa
+    if not repetitivo:
+        repetitivo = bool(re.search(r'recurso\s+(especial\s+)?repetitivo', ementa.lower()))
+
+    return {"turma": turma, "repercussao_geral": False, "recurso_repetitivo": repetitivo}
+
+
+def _turma_via_flash(ementa: str, tribunal: str) -> str | None:
+    """Fallback final: identifica a turma via Gemini Flash quando a API não retornou."""
+    if tribunal == "STF":
+        opcoes = "Primeira Turma, Segunda Turma, Pleno"
+    else:
+        opcoes = ("Terceira Turma, Quarta Turma, Quinta Turma, Sexta Turma, "
+                  "Corte Especial, Órgão Especial, Primeira Seção, Segunda Seção, Terceira Seção")
+    prompt = (
+        f"Identifique a turma ou câmara que julgou este acórdão do {tribunal}.\n"
+        f"Responda APENAS com o nome exato dentre as opções, ou 'desconhecido'.\n\n"
+        f"Opções: {opcoes}\n\nEmenta: {ementa[:400]}\n\nTurma:"
+    )
+    try:
+        payload = {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"maxOutputTokens": 20, "temperature": 0},
+        }
+        resp = requests.post(
+            GEMINI_FLASH_URL, json=payload,
+            params={"key": GEMINI_API_KEY}, timeout=15,
+        )
+        resp.raise_for_status()
+        result = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
+        return None if result.lower() == "desconhecido" else result
+    except Exception:
+        return None
+
+
+def classify_composicao(numero: str, tribunal: str) -> str:
+    """
+    Infere a composição colegiada pelo prefixo do número do processo.
+
+    STF — competência originária do Pleno: AP, ADC, ADI, ADPF, RE, MS, MI, IF, ACO, EXT
+    STJ — Seção: EREsp, EAREsp | demais: Turma
+    Retorna 'Pleno', 'Seção' ou 'Turma'.
+    """
+    n = (numero or "").strip().upper()
+
+    if tribunal == "STF":
+        PLENO = ("AP ", "AP/", "ADC ", "ADI ", "ADPF ", "RE ", "RE/",
+                 "MS ", "MI ", "IF ", "ACO ", "EXT ", "PPE ", "PSV ", "RG ")
+        for p in PLENO:
+            if n.startswith(p) or n == p.strip():
+                return "Pleno"
+        return "Turma"
+
+    # STJ
+    if n.startswith("ERESP ") or n.startswith("EARESP "):
+        return "Seção"
+    return "Turma"
+
+
+def classify_v3_fields(ementa: str, tribunal: str, numero: str = "") -> dict:
+    """
+    Classifica campos V3.
+    turma: prefixo do número (confiável) → fallback Gemini Flash.
+    repercussao_geral / recurso_repetitivo: regex na ementa (dado secundário).
+    """
+    turma = classify_composicao(numero, tribunal)
+
+    lower = ementa.lower()
+    repercussao = bool(re.search(r'repercuss[aã]o\s+geral', lower))
+    repetitivo  = bool(re.search(r'recurso\s+(especial\s+)?repetitivo', lower))
+
+    return {
+        "turma":              turma,
+        "repercussao_geral":  repercussao,
+        "recurso_repetitivo": repetitivo,
+        "data_dje":           None,
+    }
+
+
+# ──────────────────────────────────────────────────────────────
+# Modo reingest: atualiza campos V3 nos documentos existentes
+# ──────────────────────────────────────────────────────────────
+
+def reingest_existing(dry_run: bool = False) -> None:
+    """
+    Atualiza os acórdãos existentes com campos V3 sem re-embedding.
+    Regex para repercussao_geral + recurso_repetitivo.
+    Gemini Flash para turma.
+    data_dje permanece NULL (preenchimento manual).
+    """
+    supabase = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
+
+    print("[REINGEST] Buscando documentos existentes no Supabase...")
+    resp = (
+        supabase.table("documents")
+        .select("id,ementa,numero_acordao,tribunal")
+        .execute()
+    )
+    docs = resp.data or []
+    total = len(docs)
+    print(f"[REINGEST] {total} documentos encontrados.")
+
+    if total == 0:
+        print("[REINGEST] Corpus vazio — execute o ingest normal primeiro.")
+        return
+
+    cost_est = (total * 100 / 1000) * COST_PER_1K_FLASH
+    print(f"[CUSTO ESTIMADO] USD ${cost_est:.6f} (~R$ {cost_est * 5.8:.4f})")
+
+    if not dry_run:
+        confirm = input("Confirmar reingestão? (s/N): ").strip().lower()
+        if confirm != "s":
+            print("Abortado.")
+            return
+
+    updated = skipped = errors = 0
+
+    for i, doc in enumerate(docs):
+        doc_id   = doc["id"]
+        ementa   = doc.get("ementa", "")
+        numero   = doc.get("numero_acordao", "?")
+        tribunal = doc.get("tribunal", "?")
+
+        if not ementa:
+            skipped += 1
+            continue
+
+        v3 = classify_v3_fields(ementa, tribunal, numero)
+
+        if dry_run:
+            flags = []
+            if v3["repercussao_geral"]:  flags.append("REPERCUSSÃO GERAL")
+            if v3["recurso_repetitivo"]: flags.append("REPETITIVO")
+            if v3["turma"]:              flags.append(f"Turma: {v3['turma']}")
+            print(f"  [DRY {i+1}/{total}] {tribunal} | {numero} -> {' | '.join(flags) or '-'}")
+            updated += 1
+            continue
+
+        try:
+            supabase.table("documents").update(v3).eq("id", doc_id).execute()
+            updated += 1
+            flags = []
+            if v3["repercussao_geral"]:  flags.append("VINCULANTE")
+            if v3["recurso_repetitivo"]: flags.append("REPETITIVO")
+            if v3["turma"]:              flags.append(v3["turma"])
+            print(f"  [{i+1}/{total}] ✓ {tribunal} · {numero} [{', '.join(flags) or '—'}]")
+        except Exception as e:
+            errors += 1
+            print(f"  [{i+1}/{total}] ✗ {numero}: {e}")
+
+        time.sleep(0.05)
+
+    print(f"\n[REINGEST] Concluído — atualizados: {updated} | pulados: {skipped} | erros: {errors}")
+
+
+# ──────────────────────────────────────────────────────────────
 # Embedding via Gemini text-embedding-004
 # ──────────────────────────────────────────────────────────────
 
@@ -402,8 +658,9 @@ def run(docs: list[dict], dry_run: bool = False) -> None:
             continue
 
         try:
-            # Layer A: classificar tema antes do embedding
+            # Layer A: classificar tema + campos V3 antes do embedding
             tema = classify_tema(doc["ementa"])
+            v3   = classify_v3_fields(doc["ementa"], tribunal, numero)
 
             embedding = embed_text(text)
 
@@ -427,10 +684,17 @@ def run(docs: list[dict], dry_run: bool = False) -> None:
                 "data_julgamento": doc.get("data_julgamento") or None,
                 "link": doc.get("link") or None,
                 "embedding": embedding,
+                "repercussao_geral":  v3["repercussao_geral"],
+                "recurso_repetitivo": v3["recurso_repetitivo"],
+                "turma":    v3["turma"],
+                "data_dje": None,
             }
             supabase.table("documents").insert(payload).execute()
             inserted += 1
-            print(f"  [{i+1}/{len(docs)}] ✓ {tribunal} · {numero} [{tema}]")
+            flags = []
+            if v3["repercussao_geral"]:  flags.append("VINCULANTE")
+            if v3["recurso_repetitivo"]: flags.append("REPETITIVO")
+            print(f"  [{i+1}/{len(docs)}] ✓ {tribunal} · {numero} [{tema}]{' — ' + ', '.join(flags) if flags else ''}")
 
         except Exception as e:
             errors += 1
@@ -447,14 +711,22 @@ def run(docs: list[dict], dry_run: bool = False) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Corpus ingestion pipeline — Valdece")
+    parser.add_argument("--mode", choices=["ingest", "reingest"], default="ingest",
+                        help="ingest = novos docs com embedding | reingest = atualizar campos V3 sem re-embedding")
     parser.add_argument("--source", choices=["stf", "stj", "all", "csv"], default="all",
-                        help="Fonte: stf | stj | all (STF+STJ) | csv")
+                        help="Fonte: stf | stj | all (STF+STJ) | csv  [apenas modo ingest]")
     parser.add_argument("--file", help="Caminho do CSV (apenas quando --source=csv)")
     parser.add_argument("--limit", type=int, default=300,
                         help="Limite por fonte (default: 300)")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
+    # ── Modo reingest: atualiza campos V3 nos 61 acórdãos existentes ──
+    if args.mode == "reingest":
+        reingest_existing(dry_run=args.dry_run)
+        return
+
+    # ── Modo ingest normal ──
     docs = []
 
     if args.source in ("stf", "all"):

@@ -384,6 +384,32 @@
     }
     .badge-modo.visible { display: inline; }
 
+    /* ── BADGES V3: PLENO + COLEGIADA ── */
+    .badge-pleno {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gold-bright);
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.40);
+      border-radius: 3px;
+      padding: 2px 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .badge-colegiada {
+      font-size: 10px;
+      font-weight: 700;
+      color: #2EC4B6;
+      background: rgba(46,196,182,0.10);
+      border: 1px solid rgba(46,196,182,0.30);
+      border-radius: 3px;
+      padding: 2px 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
     .similarity-bar {
       margin-left: auto;
       display: flex;
@@ -623,8 +649,8 @@
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
   // ── Config ──
-  const SUPABASE_URL  = 'https://hqqxzecftkvtrlpkhvnc.supabase.co';
-  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcXh6ZWNmdGt2dHJscGtodm5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzg5NjYsImV4cCI6MjA5NDcxNDk2Nn0.AFWbk2oi7zKDu7Q922CqS-cc-pG_VJNYMqqH2BeouxA';
+  const SUPABASE_URL  = 'https://uslkhnselzmbbnupmfsp.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVzbGtobnNlbHptYmJudXBtZnNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzNTc4NjAsImV4cCI6MjA5NDkzMzg2MH0.BPW5htJk7xZJe6sFr_yrIORSu4OCMhbqQ3BdNLYELQ0';
   const GEMINI_KEY    = 'AIzaSyCXQto62rGcT-co-ytV5Zisan5f3pTeUbg';
 
   const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
@@ -766,6 +792,8 @@
           <span class="badge-acordao">ACÓRDÃO</span>
           <span class="badge-recente ${isRecente ? 'visible' : ''}">● RECENTE</span>
           <span class="badge-tema">${tema}</span>
+          ${r.turma === 'Pleno' || r.turma === 'Seção' ? '<span class="badge-pleno">● PLENO</span>' : ''}
+          ${r.turma && r.turma !== 'Pleno' && r.turma !== 'Seção' ? '<span class="badge-colegiada">● COLEGIADA</span>' : ''}
           ${isTatico ? '<span class="badge-modo visible">⚔ Contra-arg.</span>' : ''}
           <div class="similarity-bar">
             <div class="sim-track"><div class="sim-fill" style="width:${simPct}%"></div></div>
@@ -831,18 +859,21 @@
     const nomeCompleto = r.tribunal === 'STF'
       ? 'Supremo Tribunal Federal'
       : 'Superior Tribunal de Justiça';
-    const dataJulg = r.data_julgamento
-      ? new Date(r.data_julgamento + 'T00:00:00')
+    const fmtDate = iso => iso
+      ? new Date(iso + 'T00:00:00')
           .toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })
           .replace(' de ', ' ')
-      : 'data não informada';
+      : null;
+    const dataJulg   = fmtDate(r.data_julgamento) || 'data não informada';
+    const dataDJE    = fmtDate(r.data_dje);
     const dataAcesso = new Date()
       .toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })
       .replace(' de ', ' ');
     const ementa  = r.ementa || '';
     const relator = r.relator ? `Relator: ${r.relator}. ` : '';
+    const djePart = dataDJE ? `DJe: ${dataDJE}. ` : '';
     const link    = r.link ? `Disponível em: ${r.link}. Acesso em: ${dataAcesso}.` : '';
-    const citacao = `BRASIL. ${nomeCompleto}. ${r.numero_acordao || 'S/N'}. ${relator}Brasília: ${r.tribunal}, ${dataJulg}. ${link}`;
+    const citacao = `BRASIL. ${nomeCompleto}. ${r.numero_acordao || 'S/N'}. ${relator}Brasília: ${r.tribunal}, ${dataJulg}. ${djePart}${link}`;
 
     return ementa ? `${ementa}\n\n${citacao}` : citacao;
   }
