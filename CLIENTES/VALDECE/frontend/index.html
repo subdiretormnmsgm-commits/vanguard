@@ -703,7 +703,7 @@
         model: 'models/gemini-embedding-001',
         content: { parts: [{ text: text.slice(0, 2048) }] },
         taskType: 'RETRIEVAL_QUERY',
-        outputDimensionality: 768,
+        outputDimensionality: 3072,
       }),
     });
     if (!res.ok) throw new Error('Falha ao gerar embedding da busca');
