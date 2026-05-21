@@ -170,6 +170,46 @@ FROM public.search_documents(
 
 ---
 
+## PONTO CEGO CRÍTICO — outputDimensionality no Frontend
+
+**Descoberto:** PROJ-001 Valdece V3 · 2026-05-21
+
+O parâmetro `outputDimensionality` na chamada Gemini do frontend define a dimensão do **query embedding**.
+Se estiver divergindo da dimensão dos **document embeddings** armazenados, a busca falha com "different vector dimensions".
+
+**Sintoma:** banco OK (FIX-C retorna linhas), mas frontend retorna 400.
+**Diagnóstico:** interceptar o fetch do frontend com Playwright:
+
+```js
+// Cole no console do browser ou via Playwright evaluate
+const originalFetch = window.fetch;
+window.fetch = async function(...args) {
+  const result = await originalFetch(...args);
+  const url = typeof args[0] === 'string' ? args[0] : args[0]?.url;
+  if (url && url.includes('embedContent')) {
+    result.clone().json().then(data => {
+      if (data?.embedding?.values)
+        console.log('QUERY DIMS:', data.embedding.values.length);
+    });
+  }
+  return result;
+};
+```
+
+**Fix:** garantir que `outputDimensionality` no frontend = dimensão dos documentos armazenados.
+
+```js
+// ERRADO — query embeddings em 768, documentos em 3072
+body: JSON.stringify({ ..., outputDimensionality: 768 })
+
+// CORRETO
+body: JSON.stringify({ ..., outputDimensionality: 3072 })
+```
+
+**Regra:** `outputDimensionality` do frontend SEMPRE deve ser igual ao `outputDimensionality` (ou ausência dele) do `reembed.py`. Os dois precisam viver no mesmo espaço vetorial.
+
+---
+
 ## MODELOS DE EMBEDDING GEMINI — REFERÊNCIA
 
 | Modelo | Dims | Status |
