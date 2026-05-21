@@ -526,7 +526,7 @@ def classify_v3_fields(ementa: str, tribunal: str, numero: str = "") -> dict:
 # Modo reingest: atualiza campos V3 nos documentos existentes
 # ──────────────────────────────────────────────────────────────
 
-def reingest_existing(dry_run: bool = False) -> None:
+def reingest_existing(dry_run: bool = False, auto_yes: bool = False) -> None:
     """
     Atualiza os acórdãos existentes com campos V3 sem re-embedding.
     Regex para repercussao_geral + recurso_repetitivo.
@@ -552,7 +552,7 @@ def reingest_existing(dry_run: bool = False) -> None:
     cost_est = (total * 100 / 1000) * COST_PER_1K_FLASH
     print(f"[CUSTO ESTIMADO] USD ${cost_est:.6f} (~R$ {cost_est * 5.8:.4f})")
 
-    if not dry_run:
+    if not dry_run and not auto_yes:
         confirm = input("Confirmar reingestão? (s/N): ").strip().lower()
         if confirm != "s":
             print("Abortado.")
@@ -719,11 +719,12 @@ def main():
     parser.add_argument("--limit", type=int, default=300,
                         help="Limite por fonte (default: 300)")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--yes", "-y", action="store_true", help="Auto-confirmar sem prompt interativo")
     args = parser.parse_args()
 
     # ── Modo reingest: atualiza campos V3 nos 61 acórdãos existentes ──
     if args.mode == "reingest":
-        reingest_existing(dry_run=args.dry_run)
+        reingest_existing(dry_run=args.dry_run, auto_yes=args.yes)
         return
 
     # ── Modo ingest normal ──
