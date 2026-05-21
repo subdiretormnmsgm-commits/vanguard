@@ -1069,3 +1069,17 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Regra de ouro:** NotebookLM não tem memória entre sessões. Quando você fecha, o output vai junto. O que não está em arquivo não existe.
 **Ferramenta criada:** Gate P-049 adicionado ao final da seção COMANDO CURTO em todos os arquivos PASSO5_NOTEBOOKLM.
 **Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+### [P-050] Teste integrado ao processo — não etapa final
+**Descoberto:** 2026-05-21 | **Sessão:** PROJ-001 Valdece V3 — pós-deploy
+**Fricção:** Após migração de schema (`vector(768)→3072`), re-embedding completo e deploy no Netlify, o primeiro teste real da busca revelou erro "different vector dimensions 3072 and 768" — a função `search_documents()` ainda tinha a assinatura antiga. O bug existia desde o Dia 1 da migração e só foi detectado no final da sessão, porque nenhum checkpoint de teste foi executado após cada passo.
+**Princípio:** Teste de caminho principal (golden path) é obrigatório após cada passo técnico irreversível — não apenas ao fechar a sessão. A ordem correta é: executar passo → testar imediatamente → só então avançar. Teste postergado = bugs acumulados que chegam juntos no final.
+**Checkpoints obrigatórios em projetos de busca semântica:**
+1. Após aplicar schema → testar INSERT de documento dummy
+2. Após criar função de busca → testar via SQL Editor com embedding fake
+3. Após re-embedding → testar via curl/Postman contra a função
+4. Após deploy de frontend → testar busca real no navegador antes de commitar
+5. Após qualquer mudança de modelo de embedding → verificar se frontend e função têm o mesmo número de dims
+**Ferramenta:** Músculo usa Playwright para abrir o frontend imediatamente após cada deploy e rodar busca de teste. Console errors e erros visuais são tratados na mesma sessão — nunca postergados.
+**Regra de ouro:** "Se funcionou no código mas não testei ao vivo, não funcionou."
+**Aplica-se a:** todo projeto com busca semântica, deploy de frontend, ou migração de schema no Pentalateral IAH.
