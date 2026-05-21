@@ -1,6 +1,25 @@
-# TESTES REMOTOS — Problemas e Soluções
+# TESTES REMOTOS — Prática e Roteiros
 **Vanguard Tech · Knowledge Base**
 **Última atualização:** 2026-05-21
+
+---
+
+## PRINCÍPIO P-051 — O TESTE VALIDA A CENA DO CLIENTE, NÃO A FUNCIONALIDADE GENÉRICA
+
+> Testar com termos técnicos genéricos valida o motor.
+> Testar com os termos do cliente valida a entrega.
+> São coisas diferentes. Só o segundo fecha o ciclo de confiança.
+
+**Três momentos obrigatórios:**
+1. **Pré-entrega (interno)** — Músculo roda queries derivadas do discovery antes do deploy final
+2. **Na interação com o cliente** — Eduardo relata o que o cliente quer buscar → Músculo roda ao vivo → screenshot = evidência
+3. **Pós-sessão (debrief)** — Embaixador registra quais termos o cliente quis testar → alimenta MEMORIA_EMBAIXADOR
+
+**Como montar o roteiro de testes de um projeto:**
+1. Abrir o BRIEFING_DISCOVERY do cliente
+2. Extrair 3-5 cenários de uso descritos pelo próprio cliente (nas palavras dele)
+3. Registrar no `CLIENTES/[NOME]/KNOWLEDGE_BASE/INDEX.md` → seção "ROTEIRO DE TESTES DO CLIENTE"
+4. Usar esses termos — não termos genéricos — em todo teste via Playwright
 
 ---
 

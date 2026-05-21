@@ -1083,3 +1083,20 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Ferramenta:** Músculo usa Playwright para abrir o frontend imediatamente após cada deploy e rodar busca de teste. Console errors e erros visuais são tratados na mesma sessão — nunca postergados.
 **Regra de ouro:** "Se funcionou no código mas não testei ao vivo, não funcionou."
 **Aplica-se a:** todo projeto com busca semântica, deploy de frontend, ou migração de schema no Pentalateral IAH.
+
+### [P-051] Teste remoto valida a cena do cliente — não a funcionalidade genérica
+**Descoberto:** 2026-05-21 | **Sessão:** PROJ-001 Valdece V3 — testes via Playwright
+**Fricção:** Os primeiros testes foram feitos com termos genéricos ("prisão preventiva excesso de prazo"). O correto é testar com os termos e cenários exatos que o cliente descreveu no discovery — é a única forma de confirmar que o sistema entrega o que foi prometido, não apenas que roda.
+**Princípio:** O roteiro de testes remotos de cada projeto é derivado diretamente da cena de sucesso (P-041) e das palavras usadas pelo cliente no discovery. Testar com termos técnicos genéricos valida o motor. Testar com os termos do cliente valida a entrega.
+**Como aplicar:**
+1. Ao criar CLIENTES/[NOME]/KNOWLEDGE_BASE/INDEX.md → incluir seção "ROTEIRO DE TESTES DO CLIENTE" com 3-5 queries derivadas do discovery
+2. Antes de todo deploy → rodar os testes do cliente via Playwright, não apenas queries genéricas
+3. Ao fechar o gate de entrega → screenshot dos resultados com os termos do cliente = evidência da entrega
+**Exemplo Valdece:** cliente descreveu que usa HC, RHC, flagrante ilegal, excesso de prazo, pena reduzida → são esses os termos do roteiro de teste, não "busca semântica funcionando".
+**Nas interações com o cliente:** o teste remoto via Playwright é executado ao vivo durante a sessão com o cliente — Eduardo relata o que o cliente pediu, o Músculo roda a busca com aquele termo exato e captura o screenshot. O cliente vê o sistema respondendo à própria demanda, não a um demo genérico. Isso fecha o ciclo de confiança.
+**Três momentos obrigatórios:**
+1. **Pré-entrega** (interno) — confirmar que os termos do discovery retornam resultados relevantes
+2. **Na entrega** (com o cliente) — rodar ao vivo os termos que o próprio cliente disse no discovery
+3. **Pós-sessão** (debrief) — Embaixador registra quais termos o cliente quis testar na hora → alimentar MEMORIA_EMBAIXADOR
+**Conexão:** P-041 (cena de sucesso), P-044 (toda decisão técnica avaliada contra a cena do cliente), P-050 (teste integrado ao processo).
+**Aplica-se a:** todo projeto com entrega de produto ao cliente no Pentalateral IAH.

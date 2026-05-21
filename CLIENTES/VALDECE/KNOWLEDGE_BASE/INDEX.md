@@ -24,6 +24,21 @@
 
 ---
 
+## ROTEIRO DE TESTES DO CLIENTE (P-051)
+> Derivado do discovery com Valdece. Usar estes termos — nas palavras dele — em todo teste remoto.
+
+| # | Query de teste | O que valida |
+|---|---------------|-------------|
+| 1 | `prisão preventiva excesso de prazo` | Caso mais comum da defesa criminal (termo citado por Valdece) |
+| 2 | `habeas corpus flagrante ilegal` | HC é o instrumento central do dia a dia dele |
+| 3 | `tráfico de drogas pena reduzida privilegiado` | Tese de causa de diminuição — alta frequência |
+| 4 | `execução antecipada pena inconstitucional` | Tema de repercussão geral — filtro V3 |
+| 5 | `medidas cautelares diversas prisão proporcionalidade` | Alternativas à preventiva — pede muito |
+
+**Resultado esperado:** ≥ 5 resultados · score topo ≥ 85% · sem erro no console
+
+---
+
 ## STACK DESTE PROJETO
 
 | Componente | Detalhe |
