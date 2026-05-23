@@ -1,9 +1,9 @@
 ﻿# MEMORANDO PENTALATERAL IAH — MODELO UNIVERSAL
 **IAH — Inteligência Artificial Humana**
 **Classificação:** Operacional · Portátil · Qualquer projeto · Qualquer operador
-**Versão:** 2.2
+**Versão:** 2.3
 **Data de emissão:** 2026-05-11
-**Última atualização:** 2026-05-18 — Evolução para Pentalateral: Embaixador + P-031 + P-032 + 20 ideias/ciclo
+**Última atualização:** 2026-05-23 — Expansão de papéis: 12 novas DEFs (G/N/M/E 5-7) + PARADIGMA v3.2 + 25 ideias/ciclo
 
 ---
 
@@ -105,13 +105,14 @@ PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
   Acumulação exponencial — modelo de negócio progressivamente imbatível.
 ```
 
-**As deficiências documentadas do Conselho:**
+**As deficiências documentadas do Conselho (v6.1 — 2026-05-23):**
 
-| Membro | Deficiências Nativas | Quem contra-ataca |
-|--------|---------------------|-------------------|
-| **Estrategista (Gemini)** | Miopia por Excesso · Alucinação Otimista · Lost-in-the-Middle · Síndrome de Complacência | Músculo (4 contra-ataques ativos) |
-| **Auditor (NotebookLM)** | Amnésia de Contexto · Alucinação Estrutural · Síndrome do Yes-Man · Lost-in-the-Middle | Músculo (4 contra-ataques ativos) |
-| **Músculo (Claude)** | Amnésia de Sessão · Momentum de Execução · Otimismo de Estimativa · Escopo Silencioso · Drift de Formato | Estrategista + Auditor (mensagens cruzadas documentadas) |
+| Membro | Deficiências Nativas (DEF) | Contra-ataques ativos |
+|--------|---------------------------|----------------------|
+| **Estrategista (Gemini)** | DEF-G-1 Alucinação Otimista · DEF-G-2 Complacência · DEF-G-3 Lost-in-Middle · DEF-G-4 Síntese Multidoc · DEF-G-5 Abstração Desconectada · DEF-G-6 Volatilidade de Tese · DEF-G-7 Antena Desligada | REFORMULAÇÃO_DO_PROBLEMA · POSIÇÃO_ADVERSARIAL · ARCO_DE_CONSEQUÊNCIAS · TRADUÇÃO_PARA_AÇÃO · MUDANÇA_DE_TESE · [SINAL_FRACO] · COMANDO_ESTRATEGISTA_MASTER (P-052) |
+| **Auditor (NotebookLM)** | DEF-N-1 Amnésia · DEF-N-2 Alucinação Estrutural · DEF-N-3 Yes-Man · DEF-N-4 Lost-in-Middle · DEF-N-5 Dependência de Qualidade das Fontes · DEF-N-6 Perspectiva Única · DEF-N-7 Latência de Ativação | MANIFESTO_DE_FONTES_ATIVO (P-053) · [RISCO_PRECOCE] · filtro externo obrigatório |
+| **Músculo (Claude Code)** | DEF-M-1 Amnésia de Sessão · DEF-M-2 Momentum de Execução · DEF-M-3 Otimismo de Estimativa · DEF-M-4 Escopo Silencioso · DEF-M-5 Drift de Formato · DEF-M-6 Déficit de Visão Longitudinal · DEF-M-7 Isolamento do Contexto · DEF-M-8 Ausência de Retroalimentação | REGISTRO_DE_PREMISSAS · CANDIDATOS_A_PRINCIPIO · 7 pontos de deliberação · session_close.ps1 |
+| **Embaixador (Claude Projects)** | DEF-E-1 Isolamento · DEF-E-2 Recência · DEF-E-3 Confirmação · DEF-E-4 Literalidade · DEF-E-5 Escalada · DEF-E-6 Silo de Cliente · DEF-E-7 Temperatura Simples | INTELIGENCIA_CRUZADA_NICHO · TEMPERATURA_PONDERADA (score 0-10, CHURN-WATCH < 6) |
 
 **O princípio constitucional:**
 
@@ -120,7 +121,7 @@ PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
 
 **Onde estão os contra-ataques detalhados:**
 - `CLAUDE.md` (Protocolo de Imunidade do Conselho — bloco completo)
-- `SKILL_PROTOCOLO_VANGUARD.md` v5.1 (Protocolo de Imunidade + checklist do Músculo)
+- `SKILL_PROTOCOLO_VANGUARD.md` v6.1 (Protocolo de Imunidade + checklist do Músculo)
 - `PASSO3_GEMINI.md` de cada projeto (contra-ataques do Músculo ao Estrategista)
 - `PASSO5_NOTEBOOKLM.md` de cada projeto (contra-ataques ao Auditor)
 
@@ -145,7 +146,7 @@ PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
   Diretor contribui com opiniões analisadas pelos 3 LLMs.
 
 PARADIGMA v3.1 — Pentalateral com Filtro de Realidade:
-  4 LLMs + Diretor. 20 ideias/ciclo [M+E+G+N × 5].
+  4 LLMs + Diretor. 25 ideias/ciclo [M×2+G+N+E × 5] — análise cirúrgica + amplitude total.
   O Embaixador adiciona a camada que faltava: MEMÓRIA PERSISTENTE DO CLIENTE.
   Cada ideia passa pelo Filtro de Realidade (P-031) antes de chegar ao Diretor.
   CONFIRMA = evidência real alinha com a ideia.

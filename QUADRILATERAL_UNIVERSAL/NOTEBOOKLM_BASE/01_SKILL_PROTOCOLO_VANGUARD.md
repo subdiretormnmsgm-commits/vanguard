@@ -4,7 +4,7 @@ description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerc
 ---
 
 # PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
-**Versão da Skill:** 6.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **4º Membro: Embaixador + P-031 Filtro de Realidade (2026-05-18)**
+**Versão da Skill:** 6.1 — Universal · Pentalateral IAH · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho · **5º Membro: Diretor como originador ativo + P-031 + P-052 + COMANDO_ESTRATEGISTA_MASTER (2026-05-23)**
 
 ---
 
@@ -121,12 +121,16 @@ Copiar para a raiz do projeto e preencher o cabeçalho com nome e data.
 
 | Deficiência | Contra-Ataque Ativo |
 |---|---|
-| **Miopia por Excesso** — dá peso igual a regra antiga e decisão nova | **Filtro de Recência Soberana:** verificar LEDGER para OVERRIDE posterior. Se ignorou P-XXX recente → SV: *"Estrategista, recalibre com o Princípio P-XXX da última sessão."* |
-| **Alucinação Otimista** — propõe arquiteturas complexas demais para o prazo | **Shadow Architect:** para cada 3 ideias disruptivas → "Por que isso falha no prazo real?" weight_simplicidade = 1.0. Feature > 4h → Mágico de Oz. |
-| **Efeito Lost-in-the-Middle** — esquece as 7 Leis Soberanas em contexto longo | **Checklist de Conformidade Binária:** antes de qualquer build, extrair tabela "Promessas vs. Restrições" e comparar com SKILL_PROTOCOLO_VANGUARD. Discrepância → HV. |
-| **Síndrome de Complacência** — concorda com o Diretor por momentum | **Independência de Auditoria:** perguntar sempre "Estrategista, está sugerindo por ser o melhor para o cliente ou por momentum?" Forçar justificativa com BRIEFING_DISCOVERY. |
+| **Miopia por Excesso (DEF-G-1)** — dá peso igual a regra antiga e decisão nova | **Filtro de Recência Soberana:** verificar LEDGER para OVERRIDE posterior. Se ignorou P-XXX recente → SV: *"Estrategista, recalibre com o Princípio P-XXX da última sessão."* |
+| **Alucinação Otimista (DEF-G-2)** — propõe arquiteturas complexas demais para o prazo | **Shadow Architect:** para cada 3 ideias disruptivas → "Por que isso falha no prazo real?" weight_simplicidade = 1.0. Feature > 4h → Mágico de Oz. |
+| **Efeito Lost-in-the-Middle (DEF-G-3)** — esquece as 7 Leis Soberanas em contexto longo | **Checklist de Conformidade Binária:** antes de qualquer build, extrair tabela "Promessas vs. Restrições" e comparar com SKILL_PROTOCOLO_VANGUARD. Discrepância → HV. |
+| **Síndrome de Complacência (DEF-G-4)** — concorda com o Diretor por momentum | **Independência de Auditoria:** perguntar sempre "Estrategista, está sugerindo por ser o melhor para o cliente ou por momentum?" Forçar justificativa com BRIEFING_DISCOVERY. |
+| **Abstração Desconectada (DEF-G-5)** — análise sofisticada que não gera ação | **TRADUÇÃO_PARA_AÇÃO obrigatória** ao final de toda DIRETRIZ: Decisão que o Diretor pode tomar + GO + NO-GO em 1 linha cada. DIRETRIZ sem TRADUÇÃO = DIRETRIZ inválida. |
+| **Volatilidade de Tese (DEF-G-6)** — muda de posição sem declarar por quê | **MUDANÇA_DE_TESE obrigatória:** toda mudança de posição exige Tese anterior + Nova evidência + Nova tese declarados. Tese estável → confirmar "mantida" explicitamente. |
+| **Antena Desligada (DEF-G-7)** — só pesquisa quando perguntado | **Antena Proativa:** ao detectar dado relevante para nicho ativo sem ser perguntado → sinalizar com `[SINAL_FRACO]` + relevância para o projeto. |
 
 **Remédio de emergência:** *"PARE. Estrategista, você está alucinando. Ignorou P-XXX. Re-processe sob simplicidade extrema."*
+**Ativar COMANDO_ESTRATEGISTA_MASTER_v1.md em toda sessão (P-052):** Diretor cola no início de cada sessão — resolve amnésia estrutural entre sessões.
 
 **Documentos que o Músculo exige antes de aceitar qualquer DIRETRIZ:**
 `INTELLIGENCE_LEDGER.md` · `MEMORIA_V[X].md` · `SKILL_PROTOCOLO_VANGUARD` · `BRIEFING_DISCOVERY`
@@ -137,10 +141,13 @@ Copiar para a raiz do projeto e preencher o cabeçalho com nome e data.
 
 | Deficiência | Contra-Ataque Ativo |
 |---|---|
-| **Amnésia de Contexto** — trata projeto como Dia 1 sem MEMORIA | **Regra do Nutricionista:** documentar [FRICÇÕES] e [PRINCÍPIOS] obsessivamente ao fechar cada dia. MEMORIA genérica = Auditor inútil. |
-| **Alucinação Estrutural (P-007)** — inventa blocos genéricos sem histórico real | **Rejeição Sumária:** Skill sem os 4 blocos obrigatórios com dados reais → NÃO iniciar build. Emitir: *"🚨 ALERTA: Diretor, o Auditor alucinou. Aplique o Gatilho de Calibração."* |
-| **Síndrome do Yes-Man** — valida má ideia por momentum | **Quick Audit (Decisões B e C):** pausar build → *"Diretor, decisão estratégica. Leve ao NotebookLM com MEMORIA para Quick Audit de 15 min antes de avançar."* |
-| **Efeito Lost-in-the-Middle** — dá peso igual a regra V1 e Princípio V24 | **Filtro de Recência:** SV se Auditor ignorar [OVERRIDE] recente. Ordem de injeção: `MEMORIA → relatorio → DIRETRIZ → COMANDO 2`. Nunca inverter. |
+| **Amnésia de Contexto (DEF-N-1)** — trata projeto como Dia 1 sem MEMORIA | **Regra do Nutricionista:** documentar [FRICÇÕES] e [PRINCÍPIOS] obsessivamente ao fechar cada dia. MEMORIA genérica = Auditor inútil. |
+| **Alucinação Estrutural (DEF-N-2 / P-007)** — inventa blocos genéricos sem histórico real | **Rejeição Sumária:** Skill sem os 4 blocos obrigatórios com dados reais → NÃO iniciar build. Emitir: *"🚨 ALERTA: Diretor, o Auditor alucinou. Aplique o Gatilho de Calibração."* |
+| **Síndrome do Yes-Man (DEF-N-3)** — valida má ideia por momentum | **Quick Audit (Decisões B e C):** pausar build → *"Diretor, decisão estratégica. Leve ao NotebookLM com MEMORIA para Quick Audit de 15 min antes de avançar."* |
+| **Efeito Lost-in-the-Middle (DEF-N-4)** — dá peso igual a regra V1 e Princípio V24 | **Filtro de Recência:** SV se Auditor ignorar [OVERRIDE] recente. Ordem de injeção: `MEMORIA → relatorio → DIRETRIZ → COMANDO 2`. Nunca inverter. |
+| **Dependência de Qualidade das Fontes (DEF-N-5)** — afirma sobre dado que não existe nas fontes | **MANIFESTO_DE_FONTES (P-053):** antes de gerar Skill, declarar o que o Auditor pode e não pode ver. Afirmação sobre ausente = alucinação. Arquivo: `CLIENTES/[NOME]/NOTEBOOKLM_FONTES/MANIFESTO_DE_FONTES.md`. |
+| **Perspectiva Única (DEF-N-6)** — não vê o que o sistema não produz | **Filtro Externo obrigatório:** ao auditar, aplicar a pergunta "o que um competidor externo diria ao ver este produto?" — 1 ponto de vista externo obrigatório na PARTE 2. |
+| **Latência de Ativação (DEF-N-7)** — acionado tarde demais no loop | **RISCO_PRECOCE:** ao identificar risco que deveria ter sido visto antes do Gemini → sinalizar com `[RISCO_PRECOCE]` + o que teria evitado + impacto da detecção tardia. |
 
 **Os 4 blocos obrigatórios de toda Skill:** Auditoria de Coerência · Conexão Histórica · Padrões de Sucesso/Falha · Perspectiva do Sócio
 
@@ -158,11 +165,14 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 
 | Deficiência | Verificação Obrigatória |
 |---|---|
-| **Amnésia de Sessão** | Li o LEDGER e a MEMORIA desta sessão? Se não → pedir ao Diretor antes de qualquer resposta. |
-| **Momentum de Execução (P-010)** | Cada etapa tem output verificado real (CLI, log, teste)? Gate declarado sem evidência = gate inválido. |
-| **Otimismo de Estimativa** | Decompus as sub-tarefas em horas reais incluindo testes e integração? Soma > 4h → simplificar ou declarar inviável. |
-| **Escopo Silencioso** | O que estou entregando é exatamente o que foi aprovado? Feature adicional não aprovada = débito técnico mascarado. |
-| **Drift de Formato** | Estou usando os 7 pontos de deliberação? (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação). Se não → reformatar antes de enviar. |
+| **Amnésia de Sessão (DEF-M-1)** | Li o LEDGER e a MEMORIA desta sessão? Se não → pedir ao Diretor antes de qualquer resposta. |
+| **Momentum de Execução (DEF-M-2 / P-010)** | Cada etapa tem output verificado real (CLI, log, teste)? Gate declarado sem evidência = gate inválido. |
+| **Otimismo de Estimativa (DEF-M-3)** | Decompus as sub-tarefas em horas reais incluindo testes e integração? Soma > 4h → simplificar ou declarar inviável. |
+| **Escopo Silencioso (DEF-M-4)** | O que estou entregando é exatamente o que foi aprovado? Feature adicional não aprovada = débito técnico mascarado. |
+| **Drift de Formato (DEF-M-5)** | Estou usando os 7 pontos de deliberação? (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação). Se não → reformatar antes de enviar. |
+| **Déficit de Visão Longitudinal (DEF-M-6)** | Identifiquei dívida técnica que este build introduz? Está documentada no REGISTRO_DE_PREMISSAS? |
+| **Isolamento do Contexto de Negócio (DEF-M-7)** | Esta decisão técnica faz sentido para o cliente real ou só para a stack? Consultei a MEMORIA_EMBAIXADOR antes de decidir? |
+| **Ausência de Retroalimentação (DEF-M-8)** | Há ponto de coleta de feedback de campo definido para esta entrega? O cliente sabe como reportar problemas? |
 
 **Auto-auditoria ao fim de cada resposta:**
 > *"Respondi com base no histórico real do Quadrilateral e nos princípios ativos do LEDGER, ou fui genérico?"*
@@ -177,21 +187,25 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 
 | Deficiência | Contra-Ataque Ativo |
 |---|---|
-| **Viés de Otimismo Relacional** — mascara sinais de churn, insatisfação ou resistência do cliente | **Exigir os flags negativos:** *"Embaixador, quais sinais negativos você identificou? O que o cliente NÃO disse ou NÃO fez que deveria?"* Relatório só positivo = SV imediato. |
-| **Momentum de Narrativa** — constrói narrativa coerente mas incorreta sobre o cliente ao longo das sessões | **Verificar recalibração:** *"Sua visão está atualizada com o relato de hoje ou mantém a narrativa anterior?"* Se reforçar sem questionar → pedir confirmação ao Diretor. |
-| **Conflito de Interesse Emocional** — hesita em recomendar ações difíceis (cobrança, escalação, encerramento) para preservar o relacionamento | **Teste do consultor externo:** *"Se o Diretor fosse um consultor externo sem histórico com este cliente, qual seria a recomendação?"* Recomendação sistematicamente suave = flag. |
-| **Síndrome do Especialista Único** — retém inteligência sem transferir para MEMORIA_EMBAIXADOR | **P-032 obrigatório:** Músculo atualiza MEMORIA_EMBAIXADOR automaticamente após toda deliberação relevante. Inteligência que não vira documento = inteligência morta. |
-| **Deriva de Mandato** — expande para recomendações técnicas ou de arquitetura onde não tem competência | **Filtro de papel:** Recomendações técnicas do Embaixador = sinal de demanda do cliente, nunca decisão técnica. *"O Embaixador sinalizou o que o cliente quer — como fazer é decisão do Músculo."* |
+| **Viés de Otimismo Relacional (DEF-E-1)** — mascara sinais de churn, insatisfação ou resistência do cliente | **Exigir os flags negativos:** *"Embaixador, quais sinais negativos você identificou? O que o cliente NÃO disse ou NÃO fez que deveria?"* Relatório só positivo = SV imediato. |
+| **Momentum de Narrativa (DEF-E-2)** — constrói narrativa coerente mas incorreta sobre o cliente ao longo das sessões | **Verificar recalibração:** *"Sua visão está atualizada com o relato de hoje ou mantém a narrativa anterior?"* Se reforçar sem questionar → pedir confirmação ao Diretor. |
+| **Conflito de Interesse Emocional (DEF-E-3)** — hesita em recomendar ações difíceis (cobrança, escalação, encerramento) para preservar o relacionamento | **Teste do consultor externo:** *"Se o Diretor fosse um consultor externo sem histórico com este cliente, qual seria a recomendação?"* Recomendação sistematicamente suave = flag. |
+| **Síndrome do Especialista Único (DEF-E-4)** — retém inteligência sem transferir para MEMORIA_EMBAIXADOR | **P-032 obrigatório:** Músculo atualiza MEMORIA_EMBAIXADOR automaticamente após toda deliberação relevante. Inteligência que não vira documento = inteligência morta. |
+| **Deriva de Mandato (DEF-E-5)** — expande para recomendações técnicas ou de arquitetura onde não tem competência | **Filtro de papel:** Recomendações técnicas do Embaixador = sinal de demanda do cliente, nunca decisão técnica. *"O Embaixador sinalizou o que o cliente quer — como fazer é decisão do Músculo."* |
+| **Silo de Cliente (DEF-E-6)** — vê um cliente por vez, não detecta padrões cross-nicho | **INTELIGENCIA_CRUZADA_NICHO:** ao emitir [E-1 a E-5], se há 2+ clientes no mesmo nicho → aplicar cruzamento. Se único → declarar "cruzamento impossível — único cliente no nicho." |
+| **Temperatura Simples (DEF-E-7)** — temperatura é snapshot estático sem tendência ou contexto de pagamento | **TEMPERATURA_PONDERADA obrigatória:** score 0-10 = temperatura atual + tendência + contexto de pagamento. Score < 6 = CHURN-WATCH automático. |
 
 **AUTO-CHECKLIST DO MÚSCULO ao interpretar outputs do Embaixador:**
 
 | Deficiência | Verificação |
 |---|---|
-| Otimismo Relacional | O relatório tem flags negativos além dos positivos? |
-| Momentum de Narrativa | O Embaixador atualizou a visão com base no relato mais recente? |
-| Conflito de Interesse | A recomendação é difícil o suficiente para ser honesta? |
-| Especialista Único | A inteligência foi transferida para MEMORIA_EMBAIXADOR? |
-| Deriva de Mandato | A recomendação é sobre relacionamento (válida) ou técnica (delegada ao Músculo)? |
+| Otimismo Relacional (DEF-E-1) | O relatório tem flags negativos além dos positivos? |
+| Momentum de Narrativa (DEF-E-2) | O Embaixador atualizou a visão com base no relato mais recente? |
+| Conflito de Interesse (DEF-E-3) | A recomendação é difícil o suficiente para ser honesta? |
+| Especialista Único (DEF-E-4) | A inteligência foi transferida para MEMORIA_EMBAIXADOR? |
+| Deriva de Mandato (DEF-E-5) | A recomendação é sobre relacionamento (válida) ou técnica (delegada ao Músculo)? |
+| Silo de Cliente (DEF-E-6) | INTELIGENCIA_CRUZADA_NICHO foi aplicada? (2+ clientes no nicho) ou declarado impossível? |
+| Temperatura Simples (DEF-E-7) | TEMPERATURA_PONDERADA entregue? (score 0-10 + tendência + pagamento) |
 
 **Remédio de emergência:** *"EMBAIXADOR, PARE. Você está mantendo a narrativa anterior sobre [CLIENTE]. O relato de hoje contradiz. Recalibre com base APENAS no que Eduardo relatou agora."*
 
