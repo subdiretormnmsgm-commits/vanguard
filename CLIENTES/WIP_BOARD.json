@@ -248,18 +248,18 @@
               },
     "perfis_nicho":  {
         "atualizado_em":  "2026-05-19",
-        "metodologia":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/METODOLOGIA_PERFIS_VANGUARD.md",
+        "metodologia":  "PENTALATERAL_UNIVERSAL/PERFIS_NICHO/METODOLOGIA_PERFIS_VANGUARD.md",
         "perfis_ativos":  [
             {
                 "nicho":  "EdTech-Concurso",
-                "arquivo":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/EDTECH_CONCURSO.md",
+                "arquivo":  "PENTALATERAL_UNIVERSAL/PERFIS_NICHO/EDTECH_CONCURSO.md",
                 "maturidade":  "60%",
                 "cliente_referencia":  "PROJ-002 Ingrid",
                 "status":  "consolidado parcial"
             },
             {
                 "nicho":  "Legal-Tech-Criminal",
-                "arquivo":  "QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/LEGALTECH_PENAL.md",
+                "arquivo":  "PENTALATERAL_UNIVERSAL/PERFIS_NICHO/LEGALTECH_PENAL.md",
                 "maturidade":  "75%",
                 "cliente_referencia":  "PROJ-001 Valdece",
                 "status":  "CONTRATO ASSINADO 2026-05-19 — V3 desbloqueado — Loop 7 iniciando",
