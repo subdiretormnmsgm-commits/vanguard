@@ -91,7 +91,16 @@ Use o formato obrigatório de 7 blocos definido no final deste documento.
 **Nicho:** Legal Tech · Direito Penal
 **Camada:** 1 — MVP Alto Impacto
 **Loop:** #7 — V3 Migration + Badges Vinculantes + Migração Infraestrutura
-**Data:** 2026-05-20
+**Data:** 2026-05-23 (atualizado — reingest concluído)
+
+### NOVO DESDE 2026-05-20 — ESTADO ATUALIZADO PARA O ESTRATEGISTA
+
+| Item | Status |
+|---|---|
+| Reingest 61 acórdãos | **CONCLUÍDO 2026-05-23** — campos data_dje, repercussao_geral, recurso_repetitivo, turma populados em 61/61 |
+| sql/v3_migration.sql | Aplicado no Supabase Vanguard |
+| Próximos passos bloqueantes | Badges VINCULANTE/REPETITIVO no frontend + Edge Function (HV-1) + Migração conta Valdece |
+| Deadline original | 2026-05-23 — **VENCIDO** (slip de build, sem impacto contratual) |
 
 ### CENA DE SUCESSO (P-041 — OBRIGATÓRIA)
 "Estou num julgamento, o promotor cita um precedente que eu não conheço. Abro o Toga Digital,
