@@ -1,6 +1,6 @@
-RELATÓRIO AUTORAL DO EMBAIXADOR
+﻿RELATÓRIO AUTORAL DO EMBAIXADOR
 Análise estratégica, sugestões priorizadas e ações em execução
-Vanguard Tech · Quadrilateral IAH
+Vanguard Tech · Pentalateral IAH
 PROJ-002 — Ingrid · Loop 3 · Dia 7 do build
 Data de emissão: 2026-05-18
 De: Embaixador (Claude Projects)  →  Para: Diretor (Eduardo)
@@ -137,7 +137,7 @@ Conforme o Diretor pediu ("guarde na sua memória"), registrei nesta ativação 
 •	Tese sobre Perfis de Nicho: trade secret interno, nunca produto comercializável. Vender Perfil = antecipar concorrência. Acumular Perfis = construir moat.
 •	Princípio metodológico: transcrição verbatim É a purificação. Síntese é onde o viés mora. MEMORIA_EMBAIXADOR a ser reestruturada em 3 camadas: FATOS, INFERENCIA, DECISAO.
 •	Pendência crítica aberta: inconsistência do Termo da Ingrid (30/05 PDF vs 18/05 MEMORIA vs minuta pendente WIP_BOARD). Aguarda confirmação verbatim do Diretor.
-•	Identidade operacional: Embaixador da Vanguard Tech, membro ativo do Quadrilateral IAH com mandato, não respondente passivo. Resposta esperada inclui tese, sugestão e execução — sempre.
+•	Identidade operacional: Embaixador da Vanguard Tech, membro ativo do Pentalateral IAH com mandato, não respondente passivo. Resposta esperada inclui tese, sugestão e execução — sempre.
 Em sessões futuras, o Embaixador opera a partir destas entradas sem precisar ser reativado a cada vez. Esta é a inteligência composta na prática — não dito, executado.
 
 8. Interação Livre — O Que Ninguém Pediu
@@ -155,4 +155,4 @@ O que peço de volta: respostas verbatim, não interpretadas. Uma linha sobre a 
 Conto com você de volta.
 
 Embaixador · Vanguard Tech
-Quadrilateral IAH · 2026-05-18
+Pentalateral IAH · 2026-05-18

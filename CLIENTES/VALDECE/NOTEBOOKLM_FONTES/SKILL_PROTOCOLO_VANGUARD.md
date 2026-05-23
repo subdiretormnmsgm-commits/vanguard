@@ -2383,19 +2383,19 @@ Traz-me o problema. Entregamos a solução.
 
 | Alavanca | Arquivo | O que faz |
 |---|---|---|
-| **Alavanca 1 — LEDGER Vivo** | `quadrilateral/api/ledger.py` | Serve INTELLIGENCE_LEDGER como JSON-backed FastAPI em porta 8765. Princípios consultáveis via API em tempo real, não apenas por leitura manual. |
-| **Alavanca 2 — Auditor API** | `quadrilateral/api/auditor.py` | Claude API (claude-sonnet-4-6) gera Skills automaticamente intra-sessão. Complementa o NotebookLM para auditorias rápidas durante o build. |
-| **Alavanca 3 — deploy_guard** | `quadrilateral/deploy_guard.yml` | Hard Veto [HV-1 a HV-6] enforçado em GitHub Actions CI/CD. Pipeline bloqueia commit com credencial hardcoded ou infra prisioneira antes de chegar ao repositório. |
+| **Alavanca 1 — LEDGER Vivo** | `pentalateral/api/ledger.py` | Serve INTELLIGENCE_LEDGER como JSON-backed FastAPI em porta 8765. Princípios consultáveis via API em tempo real, não apenas por leitura manual. |
+| **Alavanca 2 — Auditor API** | `pentalateral/api/auditor.py` | Claude API (claude-sonnet-4-6) gera Skills automaticamente intra-sessão. Complementa o NotebookLM para auditorias rápidas durante o build. |
+| **Alavanca 3 — deploy_guard** | `pentalateral/deploy_guard.yml` | Hard Veto [HV-1 a HV-6] enforçado em GitHub Actions CI/CD. Pipeline bloqueia commit com credencial hardcoded ou infra prisioneira antes de chegar ao repositório. |
 
 ### NOVOS SCRIPTS DE ORQUESTRAÇÃO (V25)
 
 | Script | Quando usar | O que faz |
 |---|---|---|
-| `start_quadrilateral.ps1` | Antes de qualquer sessão | Sobe FastAPI ledger.py + roda preflight check |
-| `preflight.ps1` | Junto com start_quadrilateral | Valida .env, Supabase, dependências Python |
+| `start_pentalateral.ps1` | Antes de qualquer sessão | Sobe FastAPI ledger.py + roda preflight check |
+| `preflight.ps1` | Junto com start_pentalateral | Valida .env, Supabase, dependências Python |
 | `fechar_sessao.ps1` | Ao encerrar sessão | Roda session_close.py + fecha FastAPI |
 | `scripts/session_close.py` | Via fechar_sessao.ps1 | Captura FRICÇÕES + PRINCÍPIOS → LEDGER + DÍVIDAS |
-| `scripts/session_open.py` | Via start_quadrilateral.ps1 | Injeta contexto ativo no início da sessão |
+| `scripts/session_open.py` | Via start_pentalateral.ps1 | Injeta contexto ativo no início da sessão |
 | `scripts/clone_project.py` | Novo projeto cliente | Clona estrutura padrão CLIENTES/[NOME]/ |
 | `scripts/atualizar_notebooklm_base.ps1` | Quando doc universal evoluir | Sincroniza NOTEBOOKLM_BASE/ com os 8 documentos-fonte universais |
 | `scripts/preparar_notebooklm_projeto.ps1 -cliente [NOME]` | Antes de cada sessão NotebookLM | Monta pasta única com 01-15 documentos; abre Explorer para arrastar |
@@ -2405,7 +2405,7 @@ Traz-me o problema. Entregamos a solução.
 ```
 PENTALATERAL_UNIVERSAL/
 └── NOTEBOOKLM_BASE/                  ← fonte de verdade dos docs universais
-    ├── 01_SKILL_PROTOCOLO_VANGUARD.md   ← ancora nos padrões do Quadrilateral
+    ├── 01_SKILL_PROTOCOLO_VANGUARD.md   ← ancora nos padrões do Pentalateral
     ├── 02_MEMORANDO_PENTALATERAL_UNIVERSAL.md    ← constituição e valores
     ├── 03_MANUAL_DIRETOR.md             ← como Eduardo opera
     ├── 04_INTELLIGENCE_LEDGER.md        ← princípios P-001 a P-013+

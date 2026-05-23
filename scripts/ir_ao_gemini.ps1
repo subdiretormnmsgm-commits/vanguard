@@ -1,5 +1,5 @@
-# ir_ao_gemini.ps1
-# Quadrilateral IAH - V25
+﻿# ir_ao_gemini.ps1
+# Pentalateral IAH - V25
 #
 # QUANDO RODAR: sempre que for iniciar sessao com o Estrategista (Gemini).
 # O Musculo roda este script automaticamente ao detectar intencao de ir ao Gemini.
@@ -18,7 +18,7 @@ $raiz = $PSScriptRoot | Split-Path -Parent
 
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Cyan
-Write-Host "  QUADRILATERAL IAH -- Indo ao Estrategista      " -ForegroundColor Cyan
+Write-Host "  Pentalateral IAH -- Indo ao Estrategista      " -ForegroundColor Cyan
 Write-Host "=================================================" -ForegroundColor Cyan
 Write-Host ""
 

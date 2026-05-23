@@ -1,4 +1,4 @@
-# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
+﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
 > Criado: 2026-05-17 | Última atualização: 2026-05-17
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
@@ -84,8 +84,8 @@ Nenhuma dessas perguntas foi teórica. Cada uma foi respondida com stack funcion
 
 ### V5 — Soberano Digital
 **O que foi construído:** Primeiro "Auditor IA" interno usando Claude Haiku. Docker Mestre para containerização. UI no padrão Awwwards. Sistema White-Label com brand-config.js.
-**O que foi aprendido:** IA como auditor interno — não como gerador de conteúdo — é onde o valor real está. O Haiku avaliando relatórios internos antecipou em meses o papel do NotebookLM como Auditor do Quadrilateral.
-**Legado:** Embrião direto do Auditor (NotebookLM). A ideia de que IA pode ser usada para auditar a própria IA — e não apenas para gerar output — é o que torna o Quadrilateral impossível de copiar.
+**O que foi aprendido:** IA como auditor interno — não como gerador de conteúdo — é onde o valor real está. O Haiku avaliando relatórios internos antecipou em meses o papel do NotebookLM como Auditor do Pentalateral.
+**Legado:** Embrião direto do Auditor (NotebookLM). A ideia de que IA pode ser usada para auditar a própria IA — e não apenas para gerar output — é o que torna o Pentalateral impossível de copiar.
 
 ---
 
@@ -148,7 +148,7 @@ Nenhuma dessas perguntas foi teórica. Cada uma foi respondida com stack funcion
 ### V14 — Sovereign Optimization
 **O que foi construído:** PDCA Ledger embutido no produto, Hive Mind com SQL e UI, Trojan Generator PNG, Dynamic HUD Alerts, 5 correções de escalabilidade.
 **O que foi aprendido:** PDCA embutido no produto gera inteligência acumulada por uso — o sistema melhora enquanto o cliente usa. Mas sem cliente real, o PDCA é exercício teórico. A V14 provou que a arquitetura funciona. A V25 prova que a dor existe.
-**Legado:** A cadência de loops do Quadrilateral (P-009) é a aplicação direta do PDCA Ledger ao processo de desenvolvimento, não ao produto.
+**Legado:** A cadência de loops do Pentalateral (P-009) é a aplicação direta do PDCA Ledger ao processo de desenvolvimento, não ao produto.
 
 ---
 
@@ -192,7 +192,7 @@ Deficiências de cada membro do Conselho mapeadas e documentadas pela primeira v
 - O sistema só é forte quando cada membro combate a deficiência do outro — não quando concordam
 
 **Legado:** Protocolo de Imunidade do CLAUDE.md. Tabela de deficiências e contra-ataques.
-O que torna o Quadrilateral impossível de copiar: não é a tecnologia — é o mapeamento de onde cada IA falha e como as outras compensam.
+O que torna o Pentalateral impossível de copiar: não é a tecnologia — é o mapeamento de onde cada IA falha e como as outras compensam.
 
 ### V23 — The Revenue Strike
 **O que foi construído:** Partner Portal Alpha, Upsell Engine, Tracking Pixel, Design Sovereign Terminal.
@@ -237,7 +237,7 @@ Um sistema que aprende apenas por versão — não por sessão — perde 90% do 
 
 ---
 
-## FASE 3 — PRIMEIROS CLIENTES REAIS + QUADRILATERAL OPERACIONAL (V25+)
+## FASE 3 — PRIMEIROS CLIENTES REAIS + PENTALATERAL OPERACIONAL (V25+)
 > Período: 2026-05-12 → presente
 > O método encontra a dor real. O produto é testado pelo único juiz que importa: o cliente.
 
@@ -249,7 +249,7 @@ V25 não é uma versão de produto. É a versão do processo.
 Três alavancas ativadas simultaneamente:
 1. **PROJ-001 Valdece** — primeiro cliente real, primeiro build com processo formal
 2. **PROJ-002 Ingrid** — segundo cliente, primeiro projeto EdTech, validação do método em nicho diferente
-3. **Quadrilateral IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
+3. **Pentalateral IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
 
 Eduardo: *"Fizemos 23 versões até chegar nisso. Não posso arriscar perder esse trabalho de noites e noites."*
 O trabalho não se perdeu. Está em git history. Está no LEDGER. Está nesta linha do tempo.
@@ -358,7 +358,7 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 
 ---
 
-## EVOLUÇÃO DO QUADRILATERAL IAH
+## EVOLUÇÃO DO Pentalateral IAH
 
 > A história do Conselho — de 1 membro para 4.
 
@@ -373,7 +373,7 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Linha do Tempo** | 2026-05-17 | VANGUARD_TIMELINE.md criada. Fonte histórica obrigatória do Auditor. |
 | **Embaixador** | 2026-05-17 | **Formalizador → Embaixador.** Upgrade de membro passivo (contratos) para 4º conselheiro ativo: memória persistente do cliente, 11 mandatos, pipeline de lead, debrief pós-reunião. |
 | **P-031** | 2026-05-18 | Embaixador como filtro de realidade: CONFIRMA/EXPANDE/ALERTA cada ideia de [M]+[G]+[N] com base em comportamento real do cliente. Ideia do Diretor. |
-| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Quadrilateral para Pentalateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 20 ideias/ciclo: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
+| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema IAH expandido de 4 para 5 atores: Diretor + Músculo + Estrategista + Auditor + Embaixador. 25 ideias/ciclo [M×2+G+N+E × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
 | **Sistema de Alertas Zero-Composição** | 2026-05-18 | Telegram Bot + briefing_diario.ps1 + alerta_whatsapp.ps1 operacionais. Eduardo recebe contexto + mensagem exata para copiar no WhatsApp. Nenhuma composição mental necessária. |
 | **P-032** | 2026-05-18 | MEMORIA_EMBAIXADOR é atualizada automaticamente pelo Músculo após qualquer deliberação que afete cliente ativo. Detectado pelo Diretor — FALHA-PROCESSO-2026-05-18 registrada e corrigida. |
 
@@ -387,7 +387,7 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Embaixador** | Claude Projects | Inteligência persistente do cliente. 11 mandatos. Filtro de realidade P-031: CONFIRMA/EXPANDE/ALERTA ideias de [M]+[G]+[N]. Gera [E-1..5]/ciclo. | Silo: opera em interface fechada sem acesso ao LEDGER. | briefing_diario.ps1 + alerta_telegram.ps1 forçam integração. build_comando_estrategista.ps1 pendente (N-1). |
 | **Diretor** | Eduardo | 5º ator ativo. Gestor Soberano. Originador de inovação estratégica. Veredito final. | — | Único ator humano — sem deficiência estrutural de LLM. |
 
-### A tese central do Quadrilateral
+### A tese central do Pentalateral
 
 > *"A vantagem real não é usar IA — é saber usar a deficiência de cada IA contra a deficiência das outras."*
 > — P-018, 2026-05-16
@@ -481,13 +481,13 @@ Qualquer pessoa pode usar Gemini + NotebookLM + Claude.
 Ninguém mais mapeou onde cada um falha, quando falha e como os outros compensam.
 A Síndrome do Yes-Man do Auditor, a Alucinação Otimista do Estrategista,
 o Momentum de Execução do Músculo — esses mapeamentos levaram meses de fricção para emergir.
-São o que torna o Quadrilateral anti-frágil: cada falha fortalece o sistema, não o enfraquece.
+São o que torna o Pentalateral anti-frágil: cada falha fortalece o sistema, não o enfraquece.
 
 **3. O loop é composto — não linear.**
 Um concorrente que começa hoje tem que percorrer o mesmo arco:
 construir produto (V1–V16), construir método (V17–V24), encontrar cliente (V25+).
 E começar sem os 25 princípios que esse arco gerou.
-Cada ciclo do Quadrilateral nos distancia mais — porque o loop fica mais rico a cada volta.
+Cada ciclo do Pentalateral nos distancia mais — porque o loop fica mais rico a cada volta.
 
 **4. O Diretor é único.**
 P-018 e P-021 provam: as inovações mais importantes do processo vieram de Eduardo.

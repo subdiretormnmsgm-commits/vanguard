@@ -13,7 +13,7 @@ MODELO ANTIGO (fila passiva):
   Cada IA faz a sua parte isolada.
   As melhores combinações de ideias nunca acontecem.
 
-MODELO INTERMEDIÁRIO (conselho quadrilateral):
+MODELO INTERMEDIÁRIO (conselho pentalateral):
   Gemini propõe → NotebookLM enriquece com histórico → Claude expande tecnicamente
   Cada um lê a saída do outro e ADICIONA, não substitui.
   O produto final é mais inteligente do que qualquer IA produziria sozinha.

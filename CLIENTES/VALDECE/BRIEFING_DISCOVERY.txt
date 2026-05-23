@@ -1,4 +1,4 @@
-PROJETO_001 — BRIEFING DISCOVERY
+﻿PROJETO_001 — BRIEFING DISCOVERY
 Cliente: Valdece | Data: 2026-05-12 | Responsável: Eduardo
 ══════════════════════════════════════════════════════════════
 
@@ -105,4 +105,4 @@ DECISÃO RECOMENDADA: aceitar R$5.000 com contrapartida
   → Referência para próximos clientes
 
 ══════════════════════════════════════════════════════════════
-PROJETO_001 · Quadrilateral IAH · 2026-05-12
+PROJETO_001 · Pentalateral IAH · 2026-05-12

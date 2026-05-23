@@ -1,11 +1,11 @@
-# COMANDO ESTRATEGISTA — EMBAIXADOR (Claude Projects)
+﻿# COMANDO ESTRATEGISTA — EMBAIXADOR (Claude Projects)
 > De: Músculo | Para: Estrategista (Gemini)
 > Data: 2026-05-17
 > Enviar: após colar CONTEXTO_GEMINI.md + VANGUARD_TIMELINE.md no chat do Gemini
 
 ---
 
-Estrategista, o Quadrilateral tem agora 4 membros operacionais.
+Estrategista, o Pentalateral tem agora 4 membros operacionais.
 
 O 4º — o **Embaixador (Claude Projects)** — foi ativado em 2026-05-16 e gerou
 os primeiros documentos para PROJ-001 Valdece e PROJ-002 Ingrid.

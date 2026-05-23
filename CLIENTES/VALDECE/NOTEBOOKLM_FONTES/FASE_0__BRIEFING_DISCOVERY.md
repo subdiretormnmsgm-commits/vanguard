@@ -1,5 +1,5 @@
 ﻿# BRIEFING DE IGNIÇÃO — [NOME DO projeto]
-**IAH Factory — Quadrilateral** | Discovery Fase 0
+**IAH Factory — Pentalateral** | Discovery Fase 0
 **Cliente:** [nome] | **Data:** [data] | **Modo:** [Amigo / Cliente Formal]
 
 ---
@@ -188,5 +188,5 @@ _______________________________________________
 
 ---
 
-*FASE_0__BRIEFING_DISCOVERY.md · IAH Factory · Quadrilateral*
+*FASE_0__BRIEFING_DISCOVERY.md · IAH Factory · Pentalateral*
 *Organismo Vivo — atualizar se o cliente mudar de foco a meio do projeto*

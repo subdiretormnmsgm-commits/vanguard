@@ -1,4 +1,4 @@
-# ============================================================
+﻿# ============================================================
 # ALERT_WIP_MONITOR.PS1 -- Monitor do WIP_BOARD (Council Messenger)
 # Roda via Task Scheduler a cada 5 minutos
 # Triggers: novo cliente, slot BUILD liberado, Circuit Breaker, Sentinel FIRE
@@ -26,7 +26,7 @@ if (-not (Test-Path $CONFIG_PATH)) {
 }
 . $CONFIG_PATH
 
-$SENHA_ATIVA = if ($env:QUADRILATERAL_GMAIL_SENHA) { $env:QUADRILATERAL_GMAIL_SENHA } else { $ALERT_SENHA }
+$SENHA_ATIVA = if ($env:PENTALATERAL_GMAIL_SENHA) { $env:PENTALATERAL_GMAIL_SENHA } else { $ALERT_SENHA }
 
 if ($SENHA_ATIVA -eq "COLAR_SENHA_DE_APP_AQUI") {
     Write-Log "AVISO: Senha de app nao configurada."
@@ -110,9 +110,9 @@ foreach ($cliente in $novos) {
     $check_board = if ($wip.board.check.Count -eq 0) { "-- vazio" } else { $wip.board.check -join ", " }
     $entr_board  = if ($wip.board.entregue.Count -eq 0) { "-- vazio" } else { $wip.board.entregue -join ", " }
 
-    $assunto = "[QUADRILATERAL IAH] Musculo -> Novo objeto em ${etapa}: $cliente"
+    $assunto = "[PENTALATERAL IAH] Musculo -> Novo objeto em ${etapa}: $cliente"
     $corpo = @"
-QUADRILATERAL IAH -- DESPACHO DO MUSCULO
+PENTALATERAL IAH -- DESPACHO DO MUSCULO
 =========================================
 
 Diretor Eduardo,
@@ -135,7 +135,7 @@ Board atual:
 Aguardamos seu veredito para avancar.
 
 =========================================
-Musculo (Claude Code) . Quadrilateral IAH
+Musculo (Claude Code) . PENTALATERAL IAH
 "@
 
     if (Send-Email -Assunto $assunto -Corpo $corpo) {
@@ -173,9 +173,9 @@ $saiu_de_build  = $build_anterior | Where-Object { $_ -notin $build_atual }
 foreach ($cliente in $saiu_de_build) {
     $disc_txt  = if ($wip.board.discovery.Count -eq 0) { "-- vazio" } else { $wip.board.discovery -join ", " }
     $build_txt = if ($build_atual.Count -eq 0) { "-- vazio" } else { $build_atual -join ", " }
-    $assunto = "[QUADRILATERAL IAH] Musculo -> Slot BUILD liberado -- pipeline pode avancar"
+    $assunto = "[PENTALATERAL IAH] Musculo -> Slot BUILD liberado -- pipeline pode avancar"
     $corpo = @"
-QUADRILATERAL IAH -- DESPACHO DO MUSCULO
+PENTALATERAL IAH -- DESPACHO DO MUSCULO
 =========================================
 
 Diretor Eduardo,
@@ -189,7 +189,7 @@ BOARD ATUAL:
 Se ha alguem em DISCOVERY aprovado, de o sinal para entrar em BUILD.
 
 =========================================
-Musculo (Claude Code) . Quadrilateral IAH
+Musculo (Claude Code) . PENTALATERAL IAH
 "@
 
     if (Send-Email -Assunto $assunto -Corpo $corpo) {
@@ -244,7 +244,7 @@ Nao adicionar features. Entregar o minimo que gera valor mensuravel.
 [ 3 ] Aguardar Diretor -- WIP entra em pausa.
 ==================================================
 GUT: Gravidade 5 . Urgencia 5 . Tendencia 5 = PRIORIDADE MAXIMA
-Conselho . Quadrilateral IAH
+Conselho . PENTALATERAL IAH
 "@
 
             if (Send-Email -Assunto $assunto -Corpo $corpo) {
@@ -303,7 +303,7 @@ Aplicar correcao minima e proporcional. Remover flag apos validacao.
 [ 3 ] Aguardar Diretor -- WIP entra em pausa.
 ==================================================
 GUT: Gravidade 5 . Urgencia 5 . Tendencia 5 = PRIORIDADE MAXIMA
-Conselho . Quadrilateral IAH
+Conselho . PENTALATERAL IAH
 "@
 
     if (Send-Email -Assunto $assunto -Corpo $corpo) {

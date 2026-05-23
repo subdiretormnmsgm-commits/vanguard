@@ -133,7 +133,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ---
 
 ### [P-007] Template colado em IA = alucinação estrutural
-**Descoberto:** 2026-05-13 | **Sessão:** PROJETO_001 — Valdece / Padronização do Quadrilateral
+**Descoberto:** 2026-05-13 | **Sessão:** PROJETO_001 — Valdece / Padronização do Pentalateral
 **Evidência:** Criamos templates de comunicação com campos `[entre colchetes]`. Diretor identificou que colar isso diretamente no Gemini faz ele preencher os campos mecanicamente sem deliberar sobre o projeto real — alucina na estrutura em vez de pensar no contexto.
 **Princípio:** Templates são referência para o Músculo escrever documentos completos — nunca scripts para colar em IAs. O Músculo lê o template + lê o contexto real + escreve o documento pronto. A IA recebe contexto, não formulário.
 **Aplica-se a:** qualquer comunicação com Gemini, NotebookLM ou qualquer outro modelo — COMANDO 1, COMANDO 2, qualquer prompt estruturado.
@@ -225,7 +225,7 @@ Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do Not
 
 ---
 
-### [P-022] NotebookLM como advogado do processo — auditor jurídico do Quadrilateral
+### [P-022] NotebookLM como advogado do processo — auditor jurídico do Pentalateral
 **Descoberto:** 2026-05-16 | **Proposto por:** Eduardo (intervenção direta do Diretor)
 **Evidência:** Eduardo identificou que o Auditor, ao cruzar histórico com DIRETRIZ atual, opera como um advogado — levanta objeções com base em precedentes, não valida por momentum.
 **Princípio:** O NotebookLM deve ser usado como auditor jurídico em decisões estratégicas de alto risco: (a) contratos com clientes — cruzar com padrões anteriores de entrega, (b) mudanças de arquitetura — verificar se viola decisões fixadas, (c) mudanças de pricing — verificar consistência com modelo de negócio. Auditor como advogado = sistema de precedentes, não de sugestões.

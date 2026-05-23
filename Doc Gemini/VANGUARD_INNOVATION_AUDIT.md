@@ -1,4 +1,4 @@
-[ID-001] (Lock-in)
+﻿[ID-001] (Lock-in)
 
 Qual é a próxima peça do quebra-cabeça para a dominação total do nicho B2B em 2026?
 Onde estamos sendo lentos? Nós estamos dominando a aquisição de clientes (Outbound na V13), o mercado de fechamento (Arbitragem na V9) e pavimentando o rastreamento (Vanguard Pixel para a V17)
@@ -20,16 +20,16 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 ## [ID-012] — Meta-Intelligence Singularity (V24)
 
 **Data:** 2026-05-12
-**Missão:** Transformar o Quadrilateral IAH de fábrica de software em organismo meta-cognitivo. A inteligência acumulada por sessão torna-se o principal ativo competitivo da empresa.
+**Missão:** Transformar o Pentalateral IAH de fábrica de software em organismo meta-cognitivo. A inteligência acumulada por sessão torna-se o principal ativo competitivo da empresa.
 **Transição Estratégica:** De ciclos de versão onde o conhecimento se perdia → para sistema que aprende, registra e evolui com cada sessão — compoundando inteligência operacional de forma permanente.
 
 **O que foi construído:**
 - `INTELLIGENCE_LEDGER.md` — Organismo central de inteligência: 5 princípios ativos (P-001 a P-005), padrões confirmados/refutados, Constituição de Processo com Hard Vetos (HV-1 a HV-5) e Soft Vetos (SV-1 a SV-5), Shadow Architect obrigatório, log de sessões
 - `knowledge_graph.json` — Camada programática: JSON estruturado alimentando scripts e cálculo GUT. Histórico de sessões, princípios, padrões e constituição de processo em formato auditável
 - `.claude/meta/friction.log` — Neural Feedback Loop: 5 eventos de fricção capturados (F-001 a F-005), JSON estruturado com tipo, fonte, problema, ação tomada, princípio gerado, severidade
-- `QUADRILATERAL_UNIVERSAL/TEMPLATES/CONSELHO_SESSAO_TEMPLATE.md` — Template de deliberação síncrona dos 4 membros do Conselho
-- `QUADRILATERAL_UNIVERSAL/OPERACAO/AVISO_ARQUITETO.md` v2.0 — Constituição de Processo: 5 Anti-Padrões + 5 Hard Vetos + 5 Soft Vetos + Session Startup Protocol (Skill-Drift Check)
-- `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` v5.1 — VEREDITO BINÁRIO (v5.0) + Shadow Architect obrigatório + Intelligence Compounding Engine (v5.1)
+- `PENTALATERAL_UNIVERSAL/TEMPLATES/CONSELHO_SESSAO_TEMPLATE.md` — Template de deliberação síncrona dos 4 membros do Conselho
+- `PENTALATERAL_UNIVERSAL/OPERACAO/AVISO_ARQUITETO.md` v2.0 — Constituição de Processo: 5 Anti-Padrões + 5 Hard Vetos + 5 Soft Vetos + Session Startup Protocol (Skill-Drift Check)
+- `PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md` v5.1 — VEREDITO BINÁRIO (v5.0) + Shadow Architect obrigatório + Intelligence Compounding Engine (v5.1)
 - `ALERTA_CONFLITO.md` — Template Sovereign Veto (Camada 2 Hard Block): conflito formal + override documentado + rastreamento de recorrência + hook CI/CD pendente de ativação
 - `PARECER_UNIFICADO.md` — Template Unified Voice: convergência Claude↔Gemini, seções de consenso/contrapropostas/divergências, Veredito do Diretor apenas para o delta irresolvível
 - `PARECER_TECNICO.md` — Parecer Síncrono V24: Role-Swap com 3 falhas identificadas (pgvector YAGNI, CI/CD hook sem pipeline, Haiku auditor sobre-engenheirado), visão expandida das 5 sementes, decisões de build/no-build

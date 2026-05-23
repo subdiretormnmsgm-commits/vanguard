@@ -1,4 +1,4 @@
-# Council Messenger Agent — Design Spec
+﻿# Council Messenger Agent — Design Spec
 **Data:** 2026-05-12  
 **Versão:** 1.0  
 **Status:** Aprovado pelo Diretor
@@ -62,7 +62,7 @@ Sempre envia, com:
 
 ### Trigger 1 — Novo cliente (Músculo)
 ```
-Assunto: [QUADRILATERAL IAH] Músculo → Novo objeto em {ETAPA}: {cliente}
+Assunto: [PENTALATERAL IAH] Músculo → Novo objeto em {ETAPA}: {cliente}
 
 Diretor Eduardo,
 
@@ -86,12 +86,12 @@ O QUE PRECISA DE VOCÊ:
 
 Aguardamos seu veredito para avançar.
 
-— Músculo (Claude Code) · Quadrilateral IAH
+— Músculo (Claude Code) · Pentalateral IAH
 ```
 
 ### Trigger 2 — Slot BUILD liberado (Músculo)
 ```
-Assunto: [QUADRILATERAL IAH] Músculo → Slot BUILD liberado — pipeline pode avançar
+Assunto: [PENTALATERAL IAH] Músculo → Slot BUILD liberado — pipeline pode avançar
 
 Diretor Eduardo,
 
@@ -103,12 +103,12 @@ Board atual:
 
 Se há alguém em DISCOVERY aprovado, dê o sinal para entrar em BUILD.
 
-— Músculo (Claude Code) · Quadrilateral IAH
+— Músculo (Claude Code) · Pentalateral IAH
 ```
 
 ### Trigger 3 — Circuit Breaker (Auditor)
 ```
-Assunto: [QUADRILATERAL IAH] ⚠ AUDITOR → Circuit Breaker: {cliente} — Dia {n} sem MVP
+Assunto: [PENTALATERAL IAH] ⚠ AUDITOR → Circuit Breaker: {cliente} — Dia {n} sem MVP
 
 Diretor,
 
@@ -125,12 +125,12 @@ AÇÃO NECESSÁRIA HOJE:
 
 Sem sua decisão nas próximas 24h, o projeto entra em modo de congelamento.
 
-— Auditor · Quadrilateral IAH
+— Auditor · Pentalateral IAH
 ```
 
 ### Trigger 4 — Sentinel FIRE (Auditor)
 ```
-Assunto: [QUADRILATERAL IAH] ⚠ AUDITOR → FIRE Event detectado: {cliente}
+Assunto: [PENTALATERAL IAH] ⚠ AUDITOR → FIRE Event detectado: {cliente}
 
 Diretor,
 
@@ -145,12 +145,12 @@ AÇÃO NECESSÁRIA:
   → Avaliar o incidente com o Músculo
   → Definir resposta e resetar a flag após resolução
 
-— Auditor · Quadrilateral IAH
+— Auditor · Pentalateral IAH
 ```
 
 ### Trigger 5 — Despacho Matinal (Conselho)
 ```
-Assunto: [QUADRILATERAL IAH] Despacho Matinal — {data}
+Assunto: [PENTALATERAL IAH] Despacho Matinal — {data}
 
 Diretor Eduardo, bom dia.
 
@@ -179,7 +179,7 @@ AÇÕES PENDENTES
 
 O Conselho está de plantão.
 
-— Conselho · Quadrilateral IAH
+— Conselho · Pentalateral IAH
 ```
 
 ---
@@ -197,14 +197,14 @@ O Conselho está de plantão.
 
 ### Task existente (atualizar descrição)
 ```
-Nome    : Quadrilateral — WIP Monitor
+Nome    : Pentalateral — WIP Monitor
 Script  : scripts\alert_wip_monitor.ps1
 Trigger : A cada 5 minutos, 24h/dia
 ```
 
 ### Task nova (criar)
 ```
-Nome    : Quadrilateral — Despacho Matinal
+Nome    : Pentalateral — Despacho Matinal
 Script  : scripts\alert_daily_briefing.ps1
 Trigger : Diariamente às 07:00
 ```

@@ -1,4 +1,4 @@
-# HOOK: PostToolUse (Bash)
+﻿# HOOK: PostToolUse (Bash)
 # Protege contra: Amnesia de Sessao no fechamento + P-010 (verificar cada etapa)
 # Exibe checklist obrigatorio do ritual de fechamento apos git commit
 
@@ -19,7 +19,7 @@ if ($command -notmatch "git commit") { exit 0 }
 
 $checklist = @"
 +----------------------------------------------------------+
-|       RITUAL DE FECHAMENTO -- QUADRILATERAL IAH          |
+|       RITUAL DE FECHAMENTO -- PENTALATERAL IAH          |
 +----------------------------------------------------------+
 |  [ ] MEMORIA_VX.md gerado e commitado                   |
 |  [ ] relatorio_evolutivo_VX.md (SWOT + PDCA + 5W2H)    |

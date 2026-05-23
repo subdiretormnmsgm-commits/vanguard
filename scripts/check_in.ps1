@@ -1,4 +1,4 @@
-# check_in.ps1
+﻿# check_in.ps1
 # Ritual de abertura de sessao: Eduardo declara o que avancou offline.
 # Atualiza WIP_BOARD automaticamente. Dispara e-mail de confirmacao.
 # Uso: .\scripts\check_in.ps1
@@ -121,7 +121,7 @@ try {
     $msg.From          = $ALERT_FROM
     $msg.To.Add($ALERT_TO)
     $msg.Subject       = "Check-in $HOJE — WIP atualizado com progresso offline"
-    $msg.Body          = "Diretor,`n`nCheck-in registrado em $HOJE.`n`nGates marcados como concluidos:`n$linhas`n`nWIP_BOARD atualizado. Musculo ja sabe o estado real ao iniciar a sessao.`n`nMusculo — Quadrilateral IAH"
+    $msg.Body          = "Diretor,`n`nCheck-in registrado em $HOJE.`n`nGates marcados como concluidos:`n$linhas`n`nWIP_BOARD atualizado. Musculo ja sabe o estado real ao iniciar a sessao.`n`nMusculo — Pentalateral IAH"
     $msg.BodyEncoding  = [System.Text.Encoding]::UTF8
     $smtp.Send($msg)
     Write-Host "  E-mail de confirmacao enviado." -ForegroundColor Cyan

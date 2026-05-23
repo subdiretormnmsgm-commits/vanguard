@@ -1,5 +1,5 @@
-# ROADMAP DO SECRETÁRIO VIRTUAL
-**Quadrilateral IAH · Evolução por fases**
+﻿# ROADMAP DO SECRETÁRIO VIRTUAL
+**Pentalateral IAH · Evolução por fases**
 **Versão:** 1.0 · 2026-05-11
 
 ---
@@ -54,8 +54,8 @@ Eduardo → notificação só de leads já qualificados
 - Histórico de todos os leads e clientes numa base de dados
 - Secretária sabe o estado de cada projecto e responde contextualizadamente
 - Dashboard com pipeline de clientes
-- Integração directa com o Quadrilateral (alimenta NotebookLM automaticamente)
+- Integração directa com o Pentalateral (alimenta NotebookLM automaticamente)
 
 ---
 
-*Roadmap · Secretário Virtual · Quadrilateral IAH*
+*Roadmap · Secretário Virtual · Pentalateral IAH*

@@ -1,10 +1,10 @@
-# Teste de confirmacao do sistema de alertas
+﻿# Teste de confirmacao do sistema de alertas
 $BASE = Split-Path -Parent $PSScriptRoot
 . "$BASE\scripts\alert_config.ps1"
 
-$assunto = "Quadrilateral IAH - Sistema de Alertas ATIVO"
+$assunto = "PENTALATERAL IAH - Sistema de Alertas ATIVO"
 
-$corpo = "QUADRILATERAL IAH - CONFIRMACAO DO SISTEMA`r`n"
+$corpo = "PENTALATERAL IAH - CONFIRMACAO DO SISTEMA`r`n"
 $corpo += "==========================================`r`n`r`n"
 $corpo += "Diretor Eduardo,`r`n`r`n"
 $corpo += "O sistema de alertas esta ativo e funcionando.`r`n`r`n"
@@ -14,9 +14,9 @@ $corpo += "STATUS DO SISTEMA`r`n"
 $corpo += "  Monitor   : Ativo (Task Scheduler - a cada 5 minutos)`r`n"
 $corpo += "  Protocolo : V4.5 - 8 frameworks de elite ativos`r`n"
 $corpo += "  Gates     : 10 verificacoes automaticas antes de handoff`r`n`r`n"
-$corpo += "O Quadrilateral esta de plantao. Aguardamos o primeiro cliente.`r`n`r`n"
+$corpo += "o Pentalateral esta de plantao. Aguardamos o primeiro cliente.`r`n`r`n"
 $corpo += "==========================================`r`n"
-$corpo += "Quadrilateral IAH - Musculo (Claude Code) - 2026-05-12`r`n"
+$corpo += "PENTALATERAL IAH - Musculo (Claude Code) - 2026-05-12`r`n"
 
 try {
     $smtp = New-Object Net.Mail.SmtpClient("smtp.gmail.com", 587)

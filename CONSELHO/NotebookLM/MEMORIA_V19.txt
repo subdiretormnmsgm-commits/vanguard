@@ -1,4 +1,4 @@
-# MEMÓRIA V19 — Edge Domination & IAH Factory
+﻿# MEMÓRIA V19 — Edge Domination & IAH Factory
 **Data:** 2026-05-10
 **Tema:** Total Disintermediation — Infraestrutura de Edge Middleware invisível
 
@@ -21,8 +21,8 @@
 | Arquivo | Alteração |
 |---------|-----------|
 | `js/supabase.js` | `saveLeadDiagnostico` aceita `metadata` JSONB (scores P/A/C/R + quadrant_weak) |
-| `index.html` | Canvas neural-hero + quiz Quadrilateral™ 7 perguntas + WhatsApp fallback href |
-| `js/quiz.js` | Diagnóstico Quadrilateral™ completo: scoring matrix, preview bloqueado C+R, recomendação por quadrante |
+| `index.html` | Canvas neural-hero + quiz Pentalateral™ 7 perguntas + WhatsApp fallback href |
+| `js/quiz.js` | Diagnóstico Pentalateral™ completo: scoring matrix, preview bloqueado C+R, recomendação por quadrante |
 | `assets/css/v16-elite.css` | Estilos quiz: quad-badge, card-grid, quad-bar com transition 800ms, preview-risk, rec card |
 
 ---

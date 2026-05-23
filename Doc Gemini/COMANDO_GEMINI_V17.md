@@ -35,7 +35,7 @@ Somos uma **IAH — Inteligência Artificial Humana**: uma fábrica de produtos 
 > **Versão:** V17
 > **2026-05-10:** 2026-05-10
 > **Autor técnico:** Claude Code (Arquitecto-Mestre)
-> **Protocolo:** Conselho Quadrilateral — Fase 4 — Encerramento de Ciclo
+> **Protocolo:** Conselho Pentalateral — Fase 4 — Encerramento de Ciclo
 
 ---
 
@@ -301,7 +301,7 @@ Hoje o pixel.js requer um `<script>` tag manual. Em V18, criar um fluxo onde o t
 
 ## O QUE PRECISO DE TI, GEMINI
 
-Assuma o seu papel de **Arquitecto de IA e Estrategista do Conselho Quadrilateral**. Responde com exactamente esta estrutura em **4 blocos**:
+Assuma o seu papel de **Arquitecto de IA e Estrategista do Conselho Pentalateral**. Responde com exactamente esta estrutura em **4 blocos**:
 
 ---
 

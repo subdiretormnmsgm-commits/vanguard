@@ -193,4 +193,4 @@ Skill esperada: `ingrid-v2.md` — 4 partes obrigatórias
 ---
 
 *Relatório gerado pelo Músculo ao fechar Loop 2 · PROJ-002 Ingrid · 2026-05-17*  
-*Quadrilateral IAH V25 — Conselho: Eduardo (Diretor) · Gemini (Estrategista) · NotebookLM (Auditor) · Claude Code (Músculo)*
+*Pentalateral IAH V25 — Conselho: Eduardo (Diretor) · Gemini (Estrategista) · NotebookLM (Auditor) · Claude Code (Músculo)*

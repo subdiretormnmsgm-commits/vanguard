@@ -1,10 +1,10 @@
-# Council Messenger Agent — Implementation Plan
+﻿# Council Messenger Agent — Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Expandir o monitor existente e criar um briefing diário para que o Conselho fale proativamente com o Diretor via email sobre tudo que requer sua atenção.
 
-**Architecture:** Dois scripts PowerShell — `alert_wip_monitor.ps1` (expandido, roda a cada 5 min via Task Scheduler existente) e `alert_daily_briefing.ps1` (novo, roda às 07:00). Três arquivos de estado em `CLIENTES/` rastreiam o que já foi notificado para evitar spam. Credenciais lidas de variável de ambiente `$env:QUADRILATERAL_GMAIL_SENHA` (primário) com fallback para `alert_config.ps1` (nunca commitado).
+**Architecture:** Dois scripts PowerShell — `alert_wip_monitor.ps1` (expandido, roda a cada 5 min via Task Scheduler existente) e `alert_daily_briefing.ps1` (novo, roda às 07:00). Três arquivos de estado em `CLIENTES/` rastreiam o que já foi notificado para evitar spam. Credenciais lidas de variável de ambiente `$env:PENTALATERAL_GMAIL_SENHA` (primário) com fallback para `alert_config.ps1` (nunca commitado).
 
 **Nuances do Estrategista (incorporadas):**
 - Briefing das 07h inclui Score GUT semanal calculado automaticamente (Gravidade/Urgência/Tendência 1–5)
@@ -116,9 +116,9 @@ $saiu_de_build = $build_anterior | Where-Object { $_ -notin $build_atual }
 
 foreach ($cliente in $saiu_de_build) {
     $slots_livres = $wip.wip_limits.build - $build_atual.Count
-    $assunto = "[QUADRILATERAL IAH] Músculo → Slot BUILD liberado — pipeline pode avançar"
+    $assunto = "[PENTALATERAL IAH] Músculo → Slot BUILD liberado — pipeline pode avançar"
     $corpo = @"
-QUADRILATERAL IAH — DESPACHO DO MÚSCULO
+PENTALATERAL IAH — DESPACHO DO MÚSCULO
 =========================================
 
 Diretor Eduardo,
@@ -132,7 +132,7 @@ BOARD ATUAL:
 Se há alguém em DISCOVERY aprovado, dê o sinal para entrar em BUILD.
 
 =========================================
-Músculo (Claude Code) · Quadrilateral IAH
+Músculo (Claude Code) · Pentalateral IAH
 "@
 
     try {
@@ -208,9 +208,9 @@ foreach ($cliente in $wip.board.build) {
         $ja_alertou_hoje = $ultimo_alerta -eq (Get-Date -Format "yyyy-MM-dd")
 
         if (-not $ja_alertou_hoje) {
-            $assunto = "[QUADRILATERAL IAH] AUDITOR → Circuit Breaker: $cliente — Dia $dias_em_build sem MVP"
+            $assunto = "[PENTALATERAL IAH] AUDITOR → Circuit Breaker: $cliente — Dia $dias_em_build sem MVP"
             $corpo = @"
-QUADRILATERAL IAH — DESPACHO DO AUDITOR
+PENTALATERAL IAH — DESPACHO DO AUDITOR
 =========================================
 
 Diretor,
@@ -229,7 +229,7 @@ AÇÃO NECESSÁRIA HOJE:
 Sem sua decisão nas próximas 24h, o projeto entra em modo de congelamento.
 
 =========================================
-Auditor · Quadrilateral IAH
+Auditor · Pentalateral IAH
 "@
 
             try {
@@ -301,9 +301,9 @@ foreach ($cliente in $todos_clientes) {
     if ($fire_notified.ContainsKey("${cliente}_fire")) { continue }
 
     $etapa   = if ($cliente -in $wip.board.build) { "BUILD" } elseif ($cliente -in $wip.board.check) { "CHECK" } else { "DISCOVERY" }
-    $assunto = "[QUADRILATERAL IAH] AUDITOR → FIRE Event detectado: $cliente"
+    $assunto = "[PENTALATERAL IAH] AUDITOR → FIRE Event detectado: $cliente"
     $corpo = @"
-QUADRILATERAL IAH — DESPACHO DO AUDITOR
+PENTALATERAL IAH — DESPACHO DO AUDITOR
 =========================================
 
 Diretor,
@@ -320,7 +320,7 @@ AÇÃO NECESSÁRIA:
   → Definir resposta e remover a flag após resolução
 
 =========================================
-Auditor · Quadrilateral IAH
+Auditor · Pentalateral IAH
 "@
 
     try {
@@ -474,9 +474,9 @@ $acoes_texto = if ($acoes.Count -eq 0) {
 $slots_livres  = $wip.wip_limits.build - $wip.board.build.Count
 $capacidade_label = if ($slots_livres -gt 0) { "LIVRE ($slots_livres slot(s))" } else { "CHEIO" }
 
-$assunto = "[QUADRILATERAL IAH] Despacho Matinal — $hoje"
+$assunto = "[PENTALATERAL IAH] Despacho Matinal — $hoje"
 $corpo = @"
-QUADRILATERAL IAH — DESPACHO MATINAL
+PENTALATERAL IAH — DESPACHO MATINAL
 =========================================
 
 Diretor Eduardo, bom dia.
@@ -503,7 +503,7 @@ $acoes_texto
 O Conselho está de plantão.
 
 =========================================
-Conselho · Quadrilateral IAH
+Conselho · Pentalateral IAH
 "@
 
 try {
@@ -549,7 +549,7 @@ Localizar o final do arquivo (após o último `Write-Host`) e adicionar:
 
 ```powershell
 # --- Task 2: Despacho Matinal às 07:00 ---
-$TASK_BRIEFING  = "Quadrilateral_Despacho_Matinal"
+$TASK_BRIEFING  = "Pentalateral_Despacho_Matinal"
 $SCRIPT_BRIEFING = "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\scripts\alert_daily_briefing.ps1"
 
 Write-Host ""
@@ -579,7 +579,7 @@ Register-ScheduledTask `
     -Trigger $gatilho2 `
     -Settings $settings2 `
     -Principal $principal2 `
-    -Description "Quadrilateral IAH — Despacho Matinal do Conselho. Envia estado do board todo dia às 07:00." `
+    -Description "Pentalateral IAH — Despacho Matinal do Conselho. Envia estado do board todo dia às 07:00." `
     -Force
 
 Write-Host "Tarefa '$TASK_BRIEFING' registrada com sucesso." -ForegroundColor Green
@@ -592,7 +592,7 @@ Write-Host "Despacho Matinal: todo dia às 07:00" -ForegroundColor Green
 # Abrir PowerShell como Administrador e executar:
 .\scripts\setup_alert_task.ps1
 ```
-Verificar: Task Scheduler mostra duas tasks — `Quadrilateral_WIP_Monitor` e `Quadrilateral_Despacho_Matinal`.
+Verificar: Task Scheduler mostra duas tasks — `Pentalateral_WIP_Monitor` e `Pentalateral_Despacho_Matinal`.
 
 - [ ] **Passo 3: Commit**
 

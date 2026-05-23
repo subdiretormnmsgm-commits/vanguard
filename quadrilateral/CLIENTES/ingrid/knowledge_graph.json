@@ -1,11 +1,11 @@
-{
+﻿{
   "meta": {
     "project": "ingrid",
     "version": "1.0",
     "created": "2026-05-15",
     "last_updated": "2026-05-15",
     "total_sessions": 0,
-    "schema": "quadrilateral-kg-v1"
+    "schema": "pentalateral-kg-v1"
   },
   "principles": [],
   "patterns": {

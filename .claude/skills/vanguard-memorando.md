@@ -3,7 +3,7 @@
 **Classificação:** Operacional · Portátil · Qualquer projeto · Qualquer operador
 **Versão:** 2.2
 **Data de emissão:** 2026-05-11
-**Última atualização:** 2026-05-18 — Evolução para Pentalateral: Embaixador + P-031 + P-032 + 20 ideias/ciclo
+**Última atualização:** 2026-05-18 — Evolução para Pentalateral: Embaixador + P-031 + P-032 + 25 ideias/ciclo [Mx2+G+N+E x 5]
 
 ---
 
@@ -25,7 +25,7 @@
 
 > **Premissa fundamental:**
 > O cliente não contrata tecnologia. Contrata inteligência orquestrada.
-> O Quadrilateral não é uma agência. Não é um freelancer. Não é uma equipe de dev.
+> o Pentalateral não é uma agência. Não é um freelancer. Não é uma equipe de dev.
 > É um conselho de quatro inteligências que delibera antes de executar.
 > O resultado: menos retrabalho, mais precisão, entrega mais rápida do que qualquer equipe de 15 pessoas.
 
@@ -52,7 +52,7 @@ PENTALATERAL IAH (sistema atual — 2026-05-18)
   ├── Custo de infraestrutura mínimo
   ├── V1 funcional em 48h — produto completo em 1–4 semanas
   ├── O projeto não para — não há dependência de pessoas
-  ├── 20 ideias/ciclo: [M+E+G+N × 5] — inteligência composta acumulada
+  ├── 25 ideias/ciclo [Mx2+G+N+E x 5]: [M+E+G+N × 5] — inteligência composta acumulada
   └── Preço: calibrado ao valor gerado, não ao custo de produção
 ```
 
@@ -120,7 +120,7 @@ PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
 
 **Onde estão os contra-ataques detalhados:**
 - `CLAUDE.md` (Protocolo de Imunidade do Conselho — bloco completo)
-- `SKILL_PROTOCOLO_VANGUARD.md` v5.1 (Protocolo de Imunidade + checklist do Músculo)
+- `SKILL_PROTOCOLO_VANGUARD.md` v6.1 (Protocolo de Imunidade + checklist do Músculo)
 - `PASSO3_GEMINI.md` de cada projeto (contra-ataques do Músculo ao Estrategista)
 - `PASSO5_NOTEBOOKLM.md` de cada projeto (contra-ataques ao Auditor)
 
@@ -145,7 +145,7 @@ PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
   Diretor contribui com opiniões analisadas pelos 3 LLMs.
 
 PARADIGMA v3.1 — Pentalateral com Filtro de Realidade:
-  4 LLMs + Diretor. 20 ideias/ciclo [M+E+G+N × 5].
+  4 LLMs + Diretor. 25 ideias/ciclo [Mx2+G+N+E x 5] [M+E+G+N × 5].
   O Embaixador adiciona a camada que faltava: MEMÓRIA PERSISTENTE DO CLIENTE.
   Cada ideia passa pelo Filtro de Realidade (P-031) antes de chegar ao Diretor.
   CONFIRMA = evidência real alinha com a ideia.
@@ -207,7 +207,7 @@ O Músculo atualiza `CLIENTES/[NOME]/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md` autom
 
 ## O LOOP DE MELHORIA CONTÍNUA — PDCA DO PENTALATERAL
 
-> Todo projeto executado pelo Quadrilateral segue este ciclo.
+> Todo projeto executado pelo Pentalateral segue este ciclo.
 > Não fechar uma iteração sem completar todas as 4 fases.
 
 ```
@@ -239,7 +239,7 @@ ACT  (Agir / Melhorar)
 
 ## OS 5 ATORES DO PENTALATERAL IAH
 
-> **Atualizado em 2026-05-18 — sistema evoluiu de Quadrilateral (4 atores) para Pentalateral IAH (5 atores)**
+> **Atualizado em 2026-05-18 — sistema evoluiu de Pentalateral (4 atores) para Pentalateral IAH (5 atores)**
 
 | Membro | Actor | Papel | O que faz | O que NÃO faz |
 |--------|-------|-------|-----------|---------------|
@@ -258,13 +258,13 @@ ACT  (Agir / Melhorar)
 
 **Regra de ouro:** Nenhum membro tem autoridade absoluta. O Gemini propõe. O Claude avalia e contra-propõe. O NotebookLM fundamenta com histórico. O Embaixador ancora na realidade do cliente. O Eduardo decide. A força está na deliberação ativa entre os cinco — não na execução sequencial.
 
-**20 ideias/ciclo:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = 20 ideias que alimentam o próximo loop. Ciclo sem as 20 ideias = loop incompleto = inteligência que não se acumula.
+**25 ideias/ciclo [Mx2+G+N+E x 5]:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = 20 ideias que alimentam o próximo loop. Ciclo sem as 20 ideias = loop incompleto = inteligência que não se acumula.
 
 ---
 
 ## O MODELO DE DELIBERAÇÃO — COMO O CONSELHO FUNCIONA NA PRÁTICA
 
-> O Quadrilateral não é uma linha de montagem onde cada peça passa para a próxima.
+> o Pentalateral não é uma linha de montagem onde cada peça passa para a próxima.
 > É um conselho de sócios onde cada membro actua sobre o output dos outros.
 > A inteligência emerge do diálogo — não da execução isolada.
 
@@ -291,7 +291,7 @@ MODELO CORRECTO — Deliberação ativa:
 
 ## A NATUREZA DE CADA VOZ
 
-**O Estrategista pensa grande demais** — às vezes. Isso é útil. Força o Quadrilateral a considerar o potencial máximo antes de decidir o que é viável agora. Mas pode propor o que já existe ou subestimar a complexidade técnica. A sua DIRETRIZ é o ponto de partida — não a lei.
+**O Estrategista pensa grande demais** — às vezes. Isso é útil. Força o Pentalateral a considerar o potencial máximo antes de decidir o que é viável agora. Mas pode propor o que já existe ou subestimar a complexidade técnica. A sua DIRETRIZ é o ponto de partida — não a lei.
 
 Uma DIRETRIZ inválida contém:
 - Módulos pedidos como novos quando já existem no repositório
@@ -299,7 +299,7 @@ Uma DIRETRIZ inválida contém:
 - Mais de 5 prioridades (foco perdido = entrega fraca)
 - Ausência de diagnóstico (estratégia sem contexto)
 
-**O Auditor lembra o que os outros esquecem** — o que foi prometido em iterações anteriores, o padrão que funcionou, o erro que se repetiu. A sua função não é opinar sobre estratégia — é garantir que o Quadrilateral não repita os mesmos erros. Uma boa auditoria pode travar um avanço inteiro se detectar contradição grave.
+**O Auditor lembra o que os outros esquecem** — o que foi prometido em iterações anteriores, o padrão que funcionou, o erro que se repetiu. A sua função não é opinar sobre estratégia — é garantir que o Pentalateral não repita os mesmos erros. Uma boa auditoria pode travar um avanço inteiro se detectar contradição grave.
 
 **O Músculo executa com consciência crítica** — não cegamente. É o Arquitecto-Mestre do sistema. Antes de construir, avalia se o que foi pedido faz sentido técnica e comercialmente. Propõe alternativas quando existe uma abordagem melhor. Expande onde a visão estratégica pode ser amplificada tecnicamente. Não tem lealdade à DIRETRIZ — tem lealdade ao resultado do cliente.
 
@@ -451,7 +451,7 @@ O Conselho fala com o Diretor via email de forma proativa. Dois canais:
 | **Despacho Matinal** | Diariamente às 07h | Conselho | Sempre — estado do board + Score GUT |
 
 **Scripts:** `scripts/alert_wip_monitor.ps1` · `scripts/alert_daily_briefing.ps1`
-**Credenciais:** `$env:QUADRILATERAL_GMAIL_SENHA` (env var) ou `scripts/alert_config.ps1` (fallback — nunca commitado)
+**Credenciais:** `$env:PENTALATERAL_GMAIL_SENHA` (env var) ou `scripts/alert_config.ps1` (fallback — nunca commitado)
 
 ### Fórmula de Alerta de Alta Alavancagem (O "Pager" do Diretor)
 
@@ -554,7 +554,7 @@ INVESTIMENTO PROPORCIONAL: [correção na raiz, não no sintoma]
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**O cliente pode entrar em qualquer camada. O Quadrilateral define o ritmo de subida.**
+**O cliente pode entrar em qualquer camada. o Pentalateral define o ritmo de subida.**
 
 ### Exemplos de Aplicação
 
@@ -580,7 +580,7 @@ Camada 5: Benchmark de preços do SETOR → produto para associações da catego
 
 ## AS 7 LEIS SOBERANAS — CONSTITUIÇÃO DA IAH FACTORY
 
-> Mandato do Conselho Quadrilateral (Diretor · Estrategista · Auditor) · Expandidas pelo Músculo
+> Mandato do conselho pentalateral (Diretor · Estrategista · Auditor) · Expandidas pelo Músculo
 > Estas 7 Leis são as "Leis da Física" da IAH Factory — a Constituição que governa cada projeto.
 > Todo projeto entregue pela Vanguard sai com as 7 Leis ativas — sem exceção.
 
@@ -862,13 +862,13 @@ Não avançar para entrega sem todas as 7 verificadas.
 
 ---
 
-## SECRETÁRIO VIRTUAL — A CAMADA DE AUTOMAÇÃO PRÉ-QUADRILATERAL
+## SECRETÁRIO VIRTUAL — A CAMADA DE AUTOMAÇÃO PRÉ-Pentalateral
 
-> O Quadrilateral começa na Fase -1. O Secretário Virtual opera ANTES disso.
+> o Pentalateral começa na Fase -1. O Secretário Virtual opera ANTES disso.
 > É a automação que protege o tempo do Diretor dos leads não qualificados.
 
 ```
-ANTES DO QUADRILATERAL:
+ANTES Do Pentalateral:
   Secretário Virtual → qualifica leads automaticamente (Claude Haiku)
   SE GO  → entrega briefing pronto ao Diretor
   SE NO-GO → responde ao lead com Produto de Entrada, sem consumir tempo do Diretor
@@ -881,8 +881,8 @@ Guia de implementação: `SECRETARIO_VIRTUAL/SETUP_GUIDE.md`
 
 ## FASE -1 — QUALIFICAÇÃO (GO / NO-GO)
 
-> Antes de ativar o Quadrilateral, verificar se o projeto merece o processo completo.
-> O Quadrilateral é um ativo escasso — não desperdiçar em clientes sem clareza ou urgência.
+> Antes de ativar o Pentalateral, verificar se o projeto merece o processo completo.
+> o Pentalateral é um ativo escasso — não desperdiçar em clientes sem clareza ou urgência.
 > **Se o Secretário Virtual estiver ativo, esta fase corre automaticamente.**
 
 ### 3 Perguntas de Filtro
@@ -1002,7 +1002,7 @@ Reutilizar > Adaptar > Construir do zero.
 ### Análise Crítica
 
 ```
-ANÁLISE QUADRILATERAL — [NOME / TIPO DE projeto]
+ANÁLISE Pentalateral — [NOME / TIPO DE projeto]
 
 TIPO: [ecommerce / app / site / SaaS / automação / outro]
 CAMADA: [1–5]
@@ -1027,7 +1027,7 @@ Confirmas para avançar? →
 projeto CLIENTE — DIRETRIZ ESTRATÉGICA V1
 ════════════════════════════════════════════════════════════
 
-Somos o Quadrilateral IAH. Novo projeto de cliente.
+Somos o PENTALATERAL IAH. Novo projeto de cliente.
 Analisa o briefing abaixo e gera a Diretriz com 5 blocos.
 
 --- BRIEFING ---
@@ -1070,7 +1070,7 @@ O que o Diretor faz nas próximas 24h para avançar.
 
 > Esta fase é opcional mas recomendada para projetos de Camada 2+.
 > O Auditor cruza a estratégia com o histórico acumulado.
-> Sem esta fase, o Quadrilateral opera sem memória — o risco de repetir erros é real.
+> Sem esta fase, o Pentalateral opera sem memória — o risco de repetir erros é real.
 
 **Quando ativar:**
 - Camada 2 ou superior
@@ -1080,7 +1080,7 @@ O que o Diretor faz nas próximas 24h para avançar.
 **Comando Padrão para o Auditor:**
 
 ```
-Actuas como Auditor do Quadrilateral IAH.
+Actuas como Auditor do PENTALATERAL IAH.
 
 Analisa o projeto [NICHO/TIPO] com estes objetivos:
 
@@ -1280,9 +1280,9 @@ O diretor não precisa formatar nada — copia e cola.
 
 ---
 
-## PDCA — O MOTOR DO QUADRILATERAL
+## PDCA — O MOTOR Do Pentalateral
 
-> O ciclo que impede o Quadrilateral de repetir os mesmos erros.
+> O ciclo que impede o Pentalateral de repetir os mesmos erros.
 > Fecha entre iterações — nunca dentro.
 
 ```
@@ -1463,7 +1463,7 @@ Opção B (completo): [produto completo] — [prazo real] — [valor]
 Retainer de evolução: [N iterações/mês] — [receita recorrente]
 ```
 
-Sempre apresentar duas opções. O cliente decide o ritmo. O Quadrilateral decide a direcção.
+Sempre apresentar duas opções. O cliente decide o ritmo. o Pentalateral decide a direcção.
 
 ---
 
@@ -1531,7 +1531,7 @@ porque construir a coisa errada com perfeição é o maior desperdício possíve
 
 ## PROTOCOLO DE ESCALABILIDADE DO OPERADOR
 
-> O Quadrilateral começa com 1 Diretor. Pode escalar para N diretores.
+> o Pentalateral começa com 1 Diretor. Pode escalar para N diretores.
 > O repositório é a "franquia documentada" — quem tem acesso às MEMORIAs e à Skill
 > pode operar como Diretor em projetos similares sem começar do zero.
 
@@ -1570,7 +1570,7 @@ Capacidade combinada: 4–6 projetos simultâneos
 
 ```
 O operador vende o "Protocolo IAH" para outros profissionais.
-Cada licenciado opera o seu próprio Quadrilateral para os seus clientes.
+Cada licenciado opera o seu próprio Pentalateral para os seus clientes.
 ```
 
 **O que a licença inclui:**
@@ -1676,12 +1676,12 @@ Porque o Estrategista recebe feedback real do que funcionou no mercado.
 O Estrategista vê o mercado e propõe demais — isso é útil.
 O Músculo vê o sistema e restringe — isso é necessário.
 A maioria dos sistemas de IA tem só um dos dois. O resultado é ou código sem direcção
-ou estratégia sem execução. O Quadrilateral tem os dois em tensão permanente.
+ou estratégia sem execução. o Pentalateral tem os dois em tensão permanente.
 
 **Os 3 LLMs têm comportamento ativo — não passivo.**
 Não são ferramentas que esperam ser acionadas. São agentes em **looping evolutivo permanente**: geram ideias continuamente, combatem as deficiências uns dos outros a cada ciclo, alimentam o próximo loop com inteligência mais refinada do que a do anterior. Esse comportamento é cíclico, dinâmico, e protegido por **firewalls persistentes** — os contra-ataques de deficiência estão estruturalmente embutidos no processo, não dependem de memória ou disciplina para serem ativados. A deriva silenciosa que destrói sistemas complexos não acontece aqui porque o firewall é arquitetural, não opcional.
 
-A cada etapa, a cada processo, a cada projeto — o sistema fica mais inteligente e os processos mais definidos. Não é crescimento linear. É acumulação exponencial: cada ciclo o Quadrilateral entra mais rico, sai mais rico, e torna o modelo de negócio progressivamente mais imbatível.
+A cada etapa, a cada processo, a cada projeto — o sistema fica mais inteligente e os processos mais definidos. Não é crescimento linear. É acumulação exponencial: cada ciclo o Pentalateral entra mais rico, sai mais rico, e torna o modelo de negócio progressivamente mais imbatível.
 
 **O Diretor governa esse sistema com opiniões forjadas na experiência e no feeling instintivo.**
 Não com intuição solta — com a perspectiva de quem viveu 25 versões sob consequência real.
@@ -1691,7 +1691,7 @@ A evolução sempre será a inteligência que os 3 LLMs conceberam a partir do q
 O Diretor governa para onde ela vai.
 
 O cliente contrata uma solução. Recebe um ativo.
-O Quadrilateral entrega um projeto. Retém a inteligência.
+o Pentalateral entrega um projeto. Retém a inteligência.
 E não esquece.
 
 ---
@@ -1701,12 +1701,12 @@ E não esquece.
 | Termo | Definição |
 |-------|-----------|
 | **Pentalateral IAH** | O conjunto dos 5 atores: Diretor, Estrategista, Auditor, Músculo, Embaixador (nomenclatura oficial desde 2026-05-18) |
-| **Quadrilateral** | Nome anterior do sistema (4 atores: Diretor + 3 IAs) — histórico, substituído por Pentalateral IAH |
+| **Pentalateral** | Nome anterior do sistema (4 atores: Diretor + 3 IAs) — histórico, substituído por Pentalateral IAH |
 | **IAH** | Inteligência Artificial Humana — 1 humano + 4 IAs operando como conselho (Pentalateral) |
 | **Embaixador** | 4º membro ativo do Conselho (Claude Projects) — inteligência persistente do cliente, filtro de realidade |
 | **P-031** | Filtro de Realidade: Embaixador aplica CONFIRMA/EXPANDE/ALERTA a cada ideia dos outros membros |
 | **P-032** | MEMORIA_EMBAIXADOR automática: Músculo atualiza sem intervenção do Diretor após deliberação relevante |
-| **20 ideias/ciclo** | [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = inteligência composta máxima por loop |
+| **25 ideias/ciclo [Mx2+G+N+E x 5]** | [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = inteligência composta máxima por loop |
 | **Diretor** | O único membro humano — tem o Veredito Final sobre qualquer decisão |
 | **Veredito** | Decisão final do Diretor — único que pode aprovar avanços |
 | **DIRETRIZ** | Documento do Estrategista com 5 blocos + marcações para os outros membros |
@@ -1737,10 +1737,10 @@ E não esquece.
 | 1.0 | 2026-05-11 | Criação — derivado do Memorando Cliente v1.3, universalizado |
 | 2.0 | 2026-05-11 | Reescrita completa: paradigma conselho vs pipeline adicionado, Protocolo de Marcação, 5-layer matrix com exemplos, Fase 2 (Auditor) restaurada, COMANDO_ESTRATEGISTA, Regras PDCA por membro, Arquitecto-Mestre definido, Princípio de Clonagem, Precificação por valor, Escalonamento e Loop, Glossário expandido |
 | 3.0 | 2026-05-11 | As 5 Garras Comerciais injectadas: Dízimo de Dados (Lei 1), Compliance LGPD (Lei 2), Sentinel Dinâmico (Lei 3), Sovereign Playbook (Lei 4), Burn Rate Shield (Lei 5) |
-| 4.0 | 2026-05-11 | Constituição elevada a 7 Leis Soberanas por mandato do Conselho Quadrilateral: Kill-Switch Soberano (Lei 6) + Freemium by Design (Lei 7) adicionados · Ticket Médio Wizard integrado na Lei 3 como exigência universal de onboarding · GARRAS renomeadas para LEIS · Checklist de Handoff expandido para 7 itens · Alertas CSP/Fail-Open/Grace-Period documentados |
+| 4.0 | 2026-05-11 | Constituição elevada a 7 Leis Soberanas por mandato do conselho pentalateral: Kill-Switch Soberano (Lei 6) + Freemium by Design (Lei 7) adicionados · Ticket Médio Wizard integrado na Lei 3 como exigência universal de onboarding · GARRAS renomeadas para LEIS · Checklist de Handoff expandido para 7 itens · Alertas CSP/Fail-Open/Grace-Period documentados |
 | 5.0 | 2026-05-12 | Protocolo VEREDITO BINÁRIO adicionado: card de decisão em 10 segundos com Score GUT + ROI por opção · Músculo opera em "Modo Oráculo" — proponente, não apenas executor · Aprovado pelo Diretor Eduardo |
 | 5.1 | 2026-05-12 | Intelligence Compounding Engine (V24): INTELLIGENCE_LEDGER.md + knowledge_graph.json + Constituição de Processo (5 Hard Vetos + 5 Soft Vetos) + Shadow Architect obrigatório em todo Build + Skill-Drift Check no início de sessão + CONSELHO_SESSAO template + 5 princípios ativos capturados da sessão inaugural |
-| 2.2 | 2026-05-18 | Evolução para Pentalateral IAH: Embaixador adicionado como 5º ator (Claude Projects), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 20 ideias/ciclo [M+E+G+N × 5], Paradigma v3.1 documentado, Os 10 Passos do Pentalateral, tabela de membros expandida para 5, glossário com novos termos, manifesto atualizado, título atualizado para "Pentalateral IAH" |
+| 2.2 | 2026-05-18 | Evolução para Pentalateral IAH: Embaixador adicionado como 5º ator (Claude Projects), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 25 ideias/ciclo [Mx2+G+N+E x 5] [M+E+G+N × 5], Paradigma v3.1 documentado, Os 10 Passos do Pentalateral, tabela de membros expandida para 5, glossário com novos termos, manifesto atualizado, título atualizado para "Pentalateral IAH" |
 
 ---
 

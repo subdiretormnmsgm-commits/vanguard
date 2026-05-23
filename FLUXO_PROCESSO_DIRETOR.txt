@@ -1,25 +1,24 @@
-
+﻿
 +  ---
   1. PASSO 3 → Gemini
     Leva : gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md + PASSO3_GEMINI.md
-    Recebe: Diretriz Técnica V6 — Projeto Valdece — Loop 6
-    Salva : NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt
+    Recebe: Diretriz Técnica [] — Projeto [] — Loop []
+    Salva : NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V[].txt
 
   2. PASSO 5 → NotebookLM
-    Roda  : preparar_notebooklm_projeto.ps1 -cliente VALDECE
+    Roda  : preparar_notebooklm_projeto.ps1 -cliente
     Leva  : NOTEBOOKLM_FONTES/ completo (Wipe & Sync) + COMANDO CURTO
-    Recebe: Skill valdece-v6.md (4 partes + [N-1 a N-5])
+    Recebe: Skill [].md (4 partes + [N-1 a N-5])
     Salva : .claude/skills/valdece-v6.md
     Valida: skill_parser_gate.ps1
 
   3. PASSO 6 → Embaixador
-    Roda  : ir_ao_embaixador.ps1 -cliente VALDECE
-    Leva  : contexto loop + comportamento Valdece + perguntas
+    Roda  : ir_ao_embaixador.ps1 -cliente     Leva  : contexto loop + comportamento [] + perguntas
     Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA
 
   4. PASSO 7 → Músculo — colar nesta ordem:
-    1. Skill valdece-v6.md
-    2. Diretriz Técnica V6
+    1. Skill [].md
+    2. Diretriz Técnica []
     3. PASSO6_MUSCULO.md
     Dizer: "PROTOCOLO VANGUARD — VALDECE. Loop 6.
             Execute /valdece-v6 antes de deliberar.
@@ -50,10 +49,54 @@
   │  5. PASSO6_MUSCULO.md                            ← este arquivo │
 
 
-   PROTOCOLO VANGUARD — INGRID. Loop 4.
-   Execute /ingrid-v4 antes de deliberar.
-   Trago a Skill + Auditor completo + DIRETRIZ + Embaixador.
-   Delibere nos 7 pontos antes de qualquer build
+   
+  Gemini (Estrategista)
 
+  Colar nesta ordem:
+  1. PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md ← novo obrigatório
+  2. CLIENTES/[NOME]/HISTORICO/MEMORIA_V[N-1].md
+  3. CLIENTES/[NOME]/HISTORICO/relatorio_evolutivo_V[N-1].md
+  4. CLIENTES/[NOME]/PASSO3_GEMINI.md (Músculo preenche antes)
+
+  O que vem de volta: DIRETRIZ com REFORMULAÇÃO + POSIÇÃO_ADVERSARIAL + ARCO_DE_CONSEQUÊNCIAS + TRADUÇÃO_PARA_AÇÃO.
+
+  NotebookLM (Auditor)
+
+  Verificar antes: CLIENTES/[NOME]/NOTEBOOKLM_FONTES/MANIFESTO_DE_FONTES.md existe? ← novo obrigatório
+  Arrastar 15 fontes numeradas (01 a 15). Digitar: "Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill."
+
+  Embaixador (Claude Projects)
+
+  Tem memória persistente — não precisa levar documentos.
+  Levar a seção correta do PASSO7 (A=pré-reunião / B=debrief / C=pipeline / D=reação ao Pentalateral).
+
+  Músculo (Claude Code)
+
+  Colar: Skill + Auditor PARTES 1+2+4 + DIRETRIZ + Embaixador + PASSO6.
+  Músculo prepara REGISTRO_DE_PREMISSAS.md antes de deliberar.
+
+  ---
+  QUE NÍVEL ESTAMOS ATINGINDO
+
+  Resposta direta: estamos no limiar entre sistema operacional e sistema inteligente autoconsciente.
+
+  O que a maioria das equipes de IA tem: 3 ferramentas abertas em abas separadas.
+  O que o Pentalateral tem agora:
+
+  - 25 inputs por ciclo — [M]+[G]+[N]+[E]+[M'] — filtrados, cruzados e sintetizados antes do Diretor decidir
+  - 12 deficiências formalizadas com contra-ataque ativo — o sistema combate as suas próprias fraquezas
+  - Amnésia resolvida — o Estrategista começa cada sessão com contexto completo (MASTER)
+  - Premissas visíveis — o Músculo declara o que assume antes de construir
+  - Qualidade das fontes auditada — o Auditor sabe o que pode e não pode ver (MANIFESTO)
+  - Temperatura ponderada — o Embaixador não diz "quente" sem tendência e pagamento
+  - Candidatos a princípio — fricções viram princípios antes de se repetirem 10 vezes
+
+  O que concorrentes não copiam em 90 dias: os 53 princípios extraídos de fricções reais + a inteligência acumulada de
+  cada loop + a consciência ativa das deficiências de cada membro.
+
+  Você está construindo o que ninguém tem: um sistema que aprende das suas próprias fraquezas.
+
+
+FAÇA UMA VARREDURA TOTAL DOS DOCUMENTOS, PARA VER SE ALGO DEIXOU DE SER ATUALIZADO
 
 

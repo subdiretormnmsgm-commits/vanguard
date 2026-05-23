@@ -1,4 +1,4 @@
-# ============================================================
+﻿# ============================================================
 # ALERT_DAILY_BRIEFING.PS1 — Despacho Matinal do Conselho
 # Roda via Task Scheduler todo dia as 07:00
 # Inclui Score GUT semanal calculado automaticamente
@@ -21,7 +21,7 @@ function Write-Log {
 if (-not (Test-Path $CONFIG_PATH)) { Write-Log "ERRO: alert_config.ps1 nao encontrado."; exit 1 }
 . $CONFIG_PATH
 
-$SENHA_ATIVA = if ($env:QUADRILATERAL_GMAIL_SENHA) { $env:QUADRILATERAL_GMAIL_SENHA } else { $ALERT_SENHA }
+$SENHA_ATIVA = if ($env:PENTALATERAL_GMAIL_SENHA) { $env:PENTALATERAL_GMAIL_SENHA } else { $ALERT_SENHA }
 if ($SENHA_ATIVA -eq "COLAR_SENHA_DE_APP_AQUI") { Write-Log "AVISO: Senha nao configurada."; exit 1 }
 if (-not (Test-Path $WIP_PATH)) { Write-Log "AVISO: WIP_BOARD.json nao encontrado."; exit 0 }
 
@@ -328,7 +328,7 @@ $gut_razoes_html = if ($gut_razoes.Count -eq 0) {
     ($gut_razoes | Select-Object -Unique | ForEach-Object { "• $_" }) -join "<br>"
 }
 
-$assunto = "[QUADRILATERAL IAH] Despacho Matinal -- $hoje -- GUT $gut_score ($gut_nivel)"
+$assunto = "[PENTALATERAL IAH] Despacho Matinal -- $hoje -- GUT $gut_score ($gut_nivel)"
 $corpo_html = @"
 <!DOCTYPE html>
 <html>
@@ -336,7 +336,7 @@ $corpo_html = @"
 <div style="max-width:600px;margin:0 auto;">
 
   <div style="border-bottom:2px solid #00F0FF;padding-bottom:12px;margin-bottom:20px;">
-    <div style="color:#00F0FF;font-size:11px;letter-spacing:2px;">QUADRILATERAL IAH</div>
+    <div style="color:#00F0FF;font-size:11px;letter-spacing:2px;">PENTALATERAL IAH</div>
     <div style="font-size:18px;font-weight:bold;color:#fff;">Despacho Matinal</div>
     <div style="color:#666;font-size:12px;">$hoje</div>
   </div>
@@ -390,7 +390,7 @@ $corpo_html = @"
   $veredito_html
 
   <div style="margin-top:24px;padding-top:12px;border-top:1px solid #222;text-align:center;color:#444;font-size:10px;">
-    Conselho Quadrilateral IAH · O Conselho esta de plantao.
+    conselho pentalateral IAH · O Conselho esta de plantao.
   </div>
 
 </div>

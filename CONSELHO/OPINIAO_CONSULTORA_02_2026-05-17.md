@@ -1,10 +1,10 @@
-# OPINIÃO CONSULTORA #02 — 2026-05-17
+﻿# OPINIÃO CONSULTORA #02 — 2026-05-17
 > Emitida pelo Músculo a cada 5 dias de projeto ativo
 > Próxima emissão: 2026-05-22 (5 dias corridos)
 
 ---
 
-## 1. EVOLUÇÃO DO QUADRILATERAL — O QUE ESTÁ CRESCENDO
+## 1. EVOLUÇÃO DO PENTALATERAL — O QUE ESTÁ CRESCENDO
 
 O Loop 3 marcou o primeiro ciclo com 4 membros operacionais simultâneos.
 A qualidade das ideias mudou de camada:
@@ -18,7 +18,7 @@ A qualidade das ideias mudou de camada:
 O sinal mais importante: o Auditor detectou o Escopo Silencioso Reverso no contrato do Valdece.
 Erro de segunda ordem — exige leitura cruzada entre WIP_BOARD, LEDGER e documento final.
 Nenhum processo sem esse sistema detectaria antes da assinatura.
-Isso é o que torna o Quadrilateral impossível de copiar: não é a tecnologia. É o método.
+Isso é o que torna o Pentalateral impossível de copiar: não é a tecnologia. É o método.
 
 ---
 
@@ -102,7 +102,7 @@ O Revenue Share do Valdece, se o SaaS escalar, vale mais que o R$5.000 fixo em 1
 Contratos sem assinatura há mais de 24h (P-023 ativo para os dois).
 Enquanto não assinado, o Músculo está construindo sobre promessa verbal — risco comercial real.
 
-**Risco que o Quadrilateral ainda não endereçou:**
+**Risco que o Pentalateral ainda não endereçou:**
 Se Ingrid não passar na prova em 2026-09-06, qual é o argumento de retenção?
 A ferramenta serve apenas para este concurso ou para toda a jornada de estudos dela?
 Isso define se existe V2 ou se o projeto encerra em setembro.
@@ -115,7 +115,7 @@ Isso não é tecnologia. É posicionamento.
 ---
 
 
-ANÁLISE CONSULTORA — EVOLUÇÃO DO QUADRILATERAL
+ANÁLISE CONSULTORA — EVOLUÇÃO DO PENTALATERAL
 
   Eduardo, você pediu honestidade. Aqui está.
 

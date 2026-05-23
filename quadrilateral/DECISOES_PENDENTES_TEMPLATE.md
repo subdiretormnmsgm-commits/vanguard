@@ -1,4 +1,4 @@
-# DECISOES_PENDENTES — [NOME DO PROJETO] — V[X]
+﻿# DECISOES_PENDENTES — [NOME DO PROJETO] — V[X]
 **Artefato:** Decisões Classe B e C aguardando Veredito do Diretor
 **Criado:** [YYYY-MM-DD] | **Sessão:** [nome da sessão]
 **Responsável:** Músculo (Claude Code)
@@ -109,5 +109,5 @@ Ao iniciar próxima sessão (session_open.py):
 
 ---
 
-*DECISOES_PENDENTES · Quadrilateral IAH · [projeto] · V[X]*
+*DECISOES_PENDENTES · Pentalateral IAH · [projeto] · V[X]*
 *Atualizar em tempo real durante o build — nunca retroativamente*

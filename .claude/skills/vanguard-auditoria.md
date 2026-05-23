@@ -62,13 +62,13 @@ Para cada documento em `PENTALATERAL_UNIVERSAL/CONSTITUICAO/` e `PENTALATERAL_UN
 
 | Critério | O que verificar |
 |---|---|
-| Nomenclatura | Usa "Pentalateral IAH" (correto) ou "Quadrilateral" (desatualizado)? |
+| Nomenclatura | Usa "Pentalateral IAH" (correto) ou "Pentalateral" (desatualizado)? |
 | Contagem de atores | Cita 5 membros ou ainda cita 3 ou 4? |
 | Embaixador presente | Menciona Embaixador, Claude Projects, MEMORIA_EMBAIXADOR? |
 | P-031 e P-032 | Referencia os princípios do Embaixador como filtro de realidade? |
 | Passo 0 e Passo 8.5 | Loop de 10 passos inclui Passo 0 (ativação) e 8.5 (debrief)? |
 | Data | Data do documento é compatível com a última evolução do sistema? |
-| 20 ideias/ciclo | Menciona [M+E+G+N×5] ou ainda cita volume menor? |
+| ciclo < 25 ideias | Menciona [M×2+G+N+E × 5] ou ainda cita volume desatualizado? |
 
 > Critério de conclusão: tabela preenchida para todos os documentos listados abaixo.
 
@@ -80,9 +80,9 @@ PENTALATERAL_UNIVERSAL/
     EMPRESA_VANGUARD.md
     INTELIGENCIA_ARTIFICIAL_HUMANA.md
     MEMORANDO_PENTALATERAL_UNIVERSAL.md
-    MEMORANDO_QUADRILATERAL_CLIENTE.md
+    MEMORANDO_PENTALATERAL_CLIENTE.md
     VANGUARD_BUSINESS_RULES.md
-    O Protocolo Quadrilateral.txt
+    O Protocolo Pentalateral.txt
   OPERACAO/
     SKILL_PROTOCOLO_VANGUARD.md          ← documento mestre
     MANUAL_DIRETOR.md
@@ -97,7 +97,7 @@ PENTALATERAL_UNIVERSAL/
     PASSO6_MUSCULO_TEMPLATE.md
     PASSO7_EMBAIXADOR_TEMPLATE.md        ← criado 2026-05-18; verificar existência
   TEMPLATES/
-    TEMPLATES_COMUNICACAO_QUADRILATERAL.md
+    TEMPLATES_COMUNICACAO_PENTALATERAL.md
 CLAUDE.md                                ← constitution master
 .claude/skills/
     vanguard-protocolo.md               ← deve ser sync de SKILL_PROTOCOLO_VANGUARD.md
@@ -128,8 +128,8 @@ Verificar se estes documentos existem. Se ausentes → marcar como CRÍTICO:
 # Fonte 02: PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md
 # Fonte 03: PENTALATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md
 # Fonte 04: INTELLIGENCE_LEDGER.md (raiz)
-# Fonte 05: PENTALATERAL_UNIVERSAL/OPERACAO/PROCESSO_EVOLUTIVO_QUADRILATERAL.md
-# Fonte 06: PENTALATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_QUADRILATERAL.md
+# Fonte 05: PENTALATERAL_UNIVERSAL/OPERACAO/PROCESSO_EVOLUTIVO_PENTALATERAL.md
+# Fonte 06: PENTALATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_PENTALATERAL.md
 # Fonte 07: CLIENTES/WIP_BOARD.json → renomeado para 07_WIP_BOARD.txt
 # Fonte 08: CONSELHO/NotebookLM/ANALISE_SOCIO_ATUAL.txt
 Get-ChildItem "PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\" | Select-Object Name, LastWriteTime | Sort-Object Name
@@ -276,7 +276,7 @@ A auditoria entrega **sempre** os 6 blocos do Output (Fase 9):
 1. **Nunca** deletar ou mover arquivo sem aprovação explícita do Diretor — sempre propor e aguardar veredito.
 2. **Nunca** declarar documento "EM DIA" sem verificar o conteúdo — data recente não é garantia de coerência.
 3. **Não** auditar projetos-clientes individuais (CLIENTES/[NOME]/) além do PASSO files — isso é escopo do Embaixador.
-4. **Sempre que** encontrar documento com "Quadrilateral" no título mas conteúdo atualizado → marcar como DESATUALIZADO (renomear é obrigatório para coerência).
+4. **Sempre que** encontrar documento com "Pentalateral" no título mas conteúdo atualizado → marcar como DESATUALIZADO (renomear é obrigatório para coerência).
 5. **Sempre que** AVISO_EMBAIXADOR.md ou PASSO7_EMBAIXADOR_TEMPLATE.md estiverem ausentes → marcar como CRÍTICO imediatamente.
 6. **Sempre que** NOTEBOOKLM_BASE divergir das fontes → rodar `atualizar_notebooklm_base.ps1` imediatamente, sem pedir permissão (é operação segura — apenas cópia).
 7. Auditoria sem tabela de coerência preenchida = auditoria inválida — não entregar resumo genérico.
@@ -287,7 +287,7 @@ A auditoria entrega **sempre** os 6 blocos do Output (Fase 9):
 
 | Sintoma | Causa Técnica | Solução Processual |
 |---------|--------------|-------------------|
-| Documento mostra data recente mas ainda usa "Quadrilateral" | Arquivo foi copiado de versão antiga mas não editado | Marcar DESATUALIZADO; verificar seção por seção com Grep antes de reportar EM DIA |
+| Documento mostra data recente mas ainda usa "Pentalateral" | Arquivo foi copiado de versão antiga mas não editado | Marcar DESATUALIZADO; verificar seção por seção com Grep antes de reportar EM DIA |
 | NOTEBOOKLM_BASE tem 7/8 arquivos sincronizados | Fonte 08 (`ANALISE_SOCIO_ATUAL.txt`) não existe em `CONSELHO/NotebookLM/` | Verificar se está em outra pasta; se ausente, alertar Diretor — este arquivo é atualizado pelo Diretor após sessão com NotebookLM |
 | `vanguard-protocolo.md` diverge de `SKILL_PROTOCOLO_VANGUARD.md` | Sync não foi feito após atualização do SKILL | Rodar `Copy-Item "PENTALATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md" ".claude\skills\vanguard-protocolo.md"` |
 | Projeto ativo sem `PASSO3_GEMINI.md` atualizado | Loop não foi iniciado ou arquivo foi sobrescrito sem novo conteúdo | Rodar Passo 0: `ir_ao_embaixador.ps1 -cliente [NOME]` + iniciar novo loop com Gemini |

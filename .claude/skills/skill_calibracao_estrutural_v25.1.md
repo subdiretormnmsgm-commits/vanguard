@@ -1,4 +1,4 @@
-# SKILL: skill_calibracao_estrutural_v25.1.md
+﻿# SKILL: skill_calibracao_estrutural_v25.1.md
 **Camada:** Permanente | **Loop:** Atualização Constitucional (2026-05-18)
 **Autor:** Auditor (NotebookLM) atuando sob [P-022] (Advogado do Processo)
 
@@ -6,7 +6,7 @@
 A integração do Embaixador consolida a arquitetura, mas exige escrutínio severo para não gerar burocracia vazia.
 
 *   **P-031 nos projetos ativos:** O princípio **[P-031]** está plenamente implementado na `00_INSTRUCAO_SISTEMA.md` da Ingrid, exigindo que o Embaixador reaja às ideias dos sócios com CONFIRMA, EXPANDE ou ALERTA baseando-se no perfil real. Para o Valdece (PROJ-001), embora o Embaixador esteja briefado, sua prova de fogo será o *debriefing* presencial de amanhã, momento em que o filtro de realidade será testado fora de um laboratório.
-*   **PROCESSO_EVOLUTIVO reflete os 4 membros?** Sim. O documento `PROCESSO_EVOLUTIVO_QUADRILATERAL.md` foi atualizado com precisão, incluindo a matemática correta do loop: 20 ideias por ciclo (5 de cada membro). A inserção do Passo 0 (Briefer) e do Passo 8.5 (Debriefer) oficializou o ritmo assíncrono do Embaixador.
+*   **PROCESSO_EVOLUTIVO reflete os 4 membros?** Sim. O documento `PROCESSO_EVOLUTIVO_PENTALATERAL.md` foi atualizado com precisão, incluindo a matemática correta do loop: 25 ideias por ciclo [Mx2+G+N+E × 5]. A inserção do Passo 0 (Briefer) e do Passo 8.5 (Debriefer) oficializou o ritmo assíncrono do Embaixador.
 *   **LEDGER P-029, P-030, P-031:** Estes princípios **não são genéricos**, eles nasceram de fricções documentadas do dia 18/05. O **[P-029]** nasceu do "Momento Ômega" ao notar que a ausência de `MEMORIA_EMBAIXADOR.md` e `WATCHDOG` anula a inteligência da IA. O **[P-030]** originou-se de uma correção imposta pelo Diretor Eduardo sobre o excesso de pedidos de confirmação para automações. E o **[P-031]** originou-se da intervenção do Diretor para que o Embaixador atuasse como filtro.
 
 ### [CONEXÃO HISTÓRICA]
@@ -18,7 +18,7 @@ A integração do Embaixador consolida a arquitetura, mas exige escrutínio seve
 *   **Padrão de Falha (Risco Iminente):** Sem o instrumento de continuidade `MEMORIA_EMBAIXADOR.md` sendo atualizado com rigor, o Embaixador sofre de amnésia total. Como documentado no LEDGER, a sessão 50 será tratada com a superficialidade da sessão 1 (P-029).
 
 ### [PERSPECTIVA DO SÓCIO CONSULTOR]
-Como Sócio Consultor, atuo sob o **[P-022]** (Auditor como Advogado). O Músculo e o Estrategista estão subestimando brutalmente a **sobrecarga de tráfego de dados** ("overhead") imposta ao Diretor com a expansão para 4 membros e 20 ideias.
+Como Sócio Consultor, atuo sob o **[P-022]** (Auditor como Advogado). O Músculo e o Estrategista estão subestimando brutalmente a **sobrecarga de tráfego de dados** ("overhead") imposta ao Diretor com a expansão para 5 membros e 25 ideias.
 
 **O que eles não estão vendo:** O maior risco do modelo atual é o Embaixador operar em *silo* porque vive dentro do Claude Projects (interface web fechada). Se o Eduardo tiver que ler, copiar o `LOG_CLIENTE.md`, copiar as 5 ideias [E-1 a E-5] e colar manualmente nos prompts do Gemini e do NotebookLM a cada iteração, o gargalo não será mais a IA, será a tendinite do Diretor. O Diretor se tornará um "transportador de contexto".
 

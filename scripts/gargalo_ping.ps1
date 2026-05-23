@@ -1,4 +1,4 @@
-# gargalo_ping.ps1
+﻿# gargalo_ping.ps1
 # Detecta projetos bloqueados aguardando input do Diretor por mais de 24h
 # e dispara e-mail de alerta com o score GUT do atraso.
 # Rodado pelo wip_guard.ps1 e pelo session_start.ps1 automaticamente.
@@ -128,7 +128,7 @@ O build nao avanca enquanto o input do Diretor nao chegar.
 
 Score GUT do atraso mede: Gravidade (prazo) x Urgencia (horas parado) x Tendencia (sem MRR = sem margem).
 
-Musculo — Quadrilateral IAH
+Musculo — Pentalateral IAH
 "@
 
 try {

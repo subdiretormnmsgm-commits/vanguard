@@ -1,4 +1,4 @@
-# Relatório Evolutivo V18 — Recurrence Singularity Engine
+﻿# Relatório Evolutivo V18 — Recurrence Singularity Engine
 > **Data:** 2026-05-10
 > **Versão:** V18
 > **Status:** Concluída
@@ -13,7 +13,7 @@ A V18 transformou o Vanguard de uma plataforma de diagnóstico num **motor de re
 
 **Neural Sentinel** — Guarda do castelo: analisa o delta semanal de sessões FIRE/HOT/WARM do Sovereign Pixel (V17). Se FIRE cair >15% ou receita estimada em risco ultrapassar R$1.500, dispara alerta vermelho automático. Histórico de 4 semanas bloqueado para não-subscritores — paywall R$97/mês via Stripe subscriptions. Demo com dados seed funciona mesmo sem Pixel instalado — widget sempre visível.
 
-**Diagnóstico Quadrilateral™** — Quiz de 7 perguntas que mapeia o negócio em 4 quadrantes: Presença (P), Aquisição (A), Conversão (C), Retenção (R). Scoring matrix por resposta → quadrante mais fraco identificado → produto Vanguard recomendado automaticamente. Preview com C+R bloqueados cria o gatilho de conversão para entregar o contacto. Supabase guarda scores completos por lead.
+**Diagnóstico Pentalateral™** — Quiz de 7 perguntas que mapeia o negócio em 4 quadrantes: Presença (P), Aquisição (A), Conversão (C), Retenção (R). Scoring matrix por resposta → quadrante mais fraco identificado → produto Vanguard recomendado automaticamente. Preview com C+R bloqueados cria o gatilho de conversão para entregar o contacto. Supabase guarda scores completos por lead.
 
 **Neural Particle Hero** — Canvas de partículas douradas no hero com conexões neurais em tempo real. 80 partículas (42 mobile), pulsos periódicos, pausa automática via IntersectionObserver. Identidade visual futurista — Design Direction 1.
 
@@ -23,7 +23,7 @@ A V18 transformou o Vanguard de uma plataforma de diagnóstico num **motor de re
 
 - `quiz.js` totalmente reescrito: 3 passos → 9 steps com scoring matrix completo
 - `index.html` copy reescrita: zero referências a IA/Claude/n8n/Scraper — linguagem de "especialistas"
-- `supabase.js` aceita `metadata` JSONB por lead — dados quadrilateral completos
+- `supabase.js` aceita `metadata` JSONB por lead — dados pentalateral completos
 - `v16-elite.css` +200 linhas de estilos quiz card, quad-bars, preview-risk, recommendation panel
 - `VANGUARD_INNOVATION_AUDIT.md` [ID-005] processado — Recurrence Singularity Engine documentado
 
@@ -59,7 +59,7 @@ Loop fechado sem intervenção humana: sessão FIRE → Claude Haiku gera mensag
 **Fundação:** `prospectar.ps1` já tem a estrutura de cadência — Haiku substitui o copy manual.
 
 ### IDEIA 4 — SUPABASE MIGRATION: metadata JSONB + tenant_subscriptions
-Dois DDL simples que desbloqueiam funcionalidades críticas: (1) `ALTER TABLE leads_diagnostico ADD COLUMN metadata JSONB` — guarda scores quadrilateral completos, receita em risco e histórico de respostas por lead; (2) `CREATE TABLE tenant_subscriptions (tenant_id, plan, stripe_customer_id, expires_at)` — base do controlo de acesso Neural Sentinel. Sem estas tabelas, os dados quadrilateral são perdidos e o paywall não tem persistência server-side.
+Dois DDL simples que desbloqueiam funcionalidades críticas: (1) `ALTER TABLE leads_diagnostico ADD COLUMN metadata JSONB` — guarda scores pentalateral completos, receita em risco e histórico de respostas por lead; (2) `CREATE TABLE tenant_subscriptions (tenant_id, plan, stripe_customer_id, expires_at)` — base do controlo de acesso Neural Sentinel. Sem estas tabelas, os dados pentalateral são perdidos e o paywall não tem persistência server-side.
 
 **Impacto:** transforma localStorage (frágil) em subscrição server-side auditável.
 
@@ -77,7 +77,7 @@ Ao agregar dados FIRE de todos os tenants (quando existirem 30+), o sistema tem 
 | 1 | Ritual pós-V18: Gemini + NotebookLM + Skill V19 | DIRETRIZ V19 pronta |
 | 1–2 | 20 prospecções Hermes Manual via prospectar.ps1 | 3+ respostas |
 | 2 | V19: Stripe endpoint real + Supabase migration | 1.º pagamento Neural Sentinel possível |
-| 2–3 | 1.ª reunião de vendas com Diagnóstico Quadrilateral™ | 1 cliente R$97/mês |
+| 2–3 | 1.ª reunião de vendas com Diagnóstico Pentalateral™ | 1 cliente R$97/mês |
 | 3–4 | Sentinel Report Card email semanal | Retenção activa |
 
 ---
@@ -88,6 +88,6 @@ Ao agregar dados FIRE de todos os tenants (quando existirem 30+), o sistema tem 
 - **Clientes pagantes:** 0
 - **MRR actual:** R$0
 - **Meta V18:** R$97 (1.º Neural Sentinel) + R$270 (1.º Standard)
-- **Ferramentas prontas para vender:** Diagnóstico Quadrilateral™ · Neural Audit Trail · Sovereign Playbook · Neural Sentinel (demo) · prospectar.ps1
+- **Ferramentas prontas para vender:** Diagnóstico Pentalateral™ · Neural Audit Trail · Sovereign Playbook · Neural Sentinel (demo) · prospectar.ps1
 - **Bloqueador principal:** Stripe endpoint `/api/stripe/sentinel-checkout` não existe → V19 prioridade #1
 - **Próximo milestone:** 1 conversa de venda iniciada

@@ -1,4 +1,4 @@
-{
+﻿{
   "hooks": {
     "SessionStart": [
       {
@@ -8,7 +8,7 @@
             "type": "command",
             "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/session_start.ps1",
             "timeout": 15,
-            "statusMessage": "Carregando instrumentos de memoria do Quadrilateral..."
+            "statusMessage": "Carregando instrumentos de memoria do Pentalateral..."
           }
         ]
       }

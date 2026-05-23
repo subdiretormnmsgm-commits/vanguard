@@ -1,4 +1,4 @@
-# REPOSITÓRIO VANGUARD — Estrutura e Convenções
+﻿# REPOSITÓRIO VANGUARD — Estrutura e Convenções
 > **Propósito:** Como o repositório git é organizado e como usar para projetos de clientes  
 > **Data:** 2026-05-10  
 > **Princípio:** O git é a memória permanente da fábrica. Tudo que não está no git não existe.
@@ -21,7 +21,7 @@ vanguard/                          ← ROOT — este repositório
 ├── 📁 methodology/                ← A metodologia IAH (o produto que vendemos)
 │   ├── INTELIGENCIA_ARTIFICIAL_HUMANA.md
 │   ├── SOP_VANGUARD_MASTER.md
-│   ├── O Protocolo Quadrilateral.txt
+│   ├── O Protocolo Pentalateral.txt
 │   └── EMPRESA_VANGUARD.md
 │
 ├── 📁 knowledge/                  ← Constituição e inteligência institucional

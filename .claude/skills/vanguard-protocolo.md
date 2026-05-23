@@ -1,9 +1,9 @@
 ﻿---
 name: protocolo-vanguard
-description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
+description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
 ---
 
-# PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
+# PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
 **Versão da Skill:** 6.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **4º Membro: Embaixador + P-031 Filtro de Realidade (2026-05-18)**
 
 ---
@@ -23,7 +23,7 @@ description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerc
 > Um ecommerce, uma app mobile, um site, um SaaS, um modelo de negócio, uma API, uma automação.
 > O que muda é o projeto. O que não muda é o processo.
 >
-> O Quadrilateral — Diretor + Estrategista + Auditor + Músculo — é o conselho.
+> o Pentalateral — Diretor + Estrategista + Auditor + Músculo — é o conselho.
 > O cliente traz o problema. O conselho delibera. O Músculo entrega.
 
 ---
@@ -31,11 +31,11 @@ description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerc
 ## CONFIGURAÇÃO DO OPERADOR
 
 > Preencher uma vez por operador. Ao copiar para outro projeto ou outro operador, atualizar esta seção.
-> Os valores abaixo são a configuração ativa deste Quadrilateral.
+> Os valores abaixo são a configuração ativa deste Pentalateral.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-QUADRILATERAL — CONFIGURAÇÃO ativa
+Pentalateral — CONFIGURAÇÃO ativa
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 diretoR:         Eduardo
@@ -75,7 +75,7 @@ DOCS_BASE:
 ```
 
 > **Para outro operador:** substituir Eduardo, Gemini, NotebookLM e Claude Code
-> pelos membros do seu próprio Quadrilateral. A estrutura não muda — os actores sim.
+> pelos membros do seu próprio Pentalateral. A estrutura não muda — os actores sim.
 
 ---
 
@@ -113,7 +113,7 @@ Copiar para a raiz do projeto e preencher o cabeçalho com nome e data.
 > **Adicionado em 2026-05-14 · MÁXIMA IMPORTÂNCIA**
 > Cada membro do Conselho tem deficiências nativas documentadas.
 > O Músculo conhece as suas e as dos sócios — e combate ativamente em toda sessão.
-> Este protocolo é o antivírus do Quadrilateral. Nunca pular. Nunca resumir.
+> Este protocolo é o antivírus do Pentalateral. Nunca pular. Nunca resumir.
 
 ---
 
@@ -165,7 +165,7 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 | **Drift de Formato** | Estou usando os 7 pontos de deliberação? (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação). Se não → reformatar antes de enviar. |
 
 **Auto-auditoria ao fim de cada resposta:**
-> *"Respondi com base no histórico real do Quadrilateral e nos princípios ativos do LEDGER, ou fui genérico?"*
+> *"Respondi com base no histórico real do Pentalateral e nos princípios ativos do LEDGER, ou fui genérico?"*
 > Se genérico → reescrever antes de enviar.
 
 ---
@@ -260,7 +260,7 @@ O Embaixador reage às ideias de TODOS os sócios com um de três vereditos:
 
 ## INTELLIGENCE COMPOUNDING — O ORGANISMO QUE APRENDE
 
-> Todo projeto gerido pelo Quadrilateral acumula inteligência por sessão.
+> Todo projeto gerido pelo Pentalateral acumula inteligência por sessão.
 > Não por versão — por sessão. Cada decisão documentada é um ativo.
 
 ### Artefatos de Inteligência do Projeto
@@ -346,11 +346,11 @@ Avaliação: os 3 argumentos são superados pelo ROI? [SIM / NÃO]
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → GEMINI
+PENTALATERAL IAH — EDUARDO → GEMINI
 projeto: [nome] | ITERAÇÃO: V[X] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH — agora com 4 membros.
+Gemini, somos o PENTALATERAL IAH — agora com 4 membros.
 Estrategista (tu) | Diretor (eu) | Auditor (NotebookLM) | Músculo (Claude Code) | Embaixador (Claude Projects)
 
 [SE ITERAÇÃO INICIAL — colar briefing do cliente:]
@@ -417,11 +417,11 @@ Inclui [RESPOSTA ÀS IDEIAS DO MÚSCULO] no Bloco 3 se for iteração seguinte.
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
+PENTALATERAL IAH — EDUARDO → NOTEBOOKLM
 projeto: [nome] | ITERAÇÃO: V[X]
 ════════════════════════════════════════════════════════════
 
-NotebookLM, actuas como Sócio Consultor do Quadrilateral IAH.
+NotebookLM, actuas como Sócio Consultor do PENTALATERAL IAH.
 Não apenas arquivo — consultor ativo com memória longa.
 
 ANALISA O projeto [NICHO/TIPO] COM 4 objetivos:
@@ -651,7 +651,7 @@ O ciclo continua.
 >      ↓
 > PASSO 10 — Gemini reage a [M]+[E]  |  Embaixador reage a [G]+[N] (CONFIRMA/EXPANDE/ALERTA)
 >      ↓
-> 20 ideias por ciclo: [M-1..5] + [E-1..5] + [G-1..5] + [N-1..5]
+> 25 ideias por ciclo [Mx2+G+N+E x 5]: [M-1..5] + [E-1..5] + [G-1..5] + [N-1..5]
 > O loop fecha mais rico do que abriu. Sempre.
 > ```
 
@@ -988,9 +988,9 @@ Resultado a acompanhar."
 
 ---
 
-## SECRETÁRIO VIRTUAL — AUTOMAÇÃO PRÉ-QUADRILATERAL
+## SECRETÁRIO VIRTUAL — AUTOMAÇÃO PRÉ-Pentalateral
 
-> O Secretário Virtual opera ANTES do Quadrilateral ser ativado.
+> O Secretário Virtual opera ANTES do Pentalateral ser ativado.
 > Qualifica leads automaticamente enquanto o Diretor trabalha.
 > Quando o Diretor recebe a notificação, o briefing já está pronto para colar no Gemini.
 
@@ -1004,7 +1004,7 @@ Claude Haiku avalia GO / NO-GO (30 segundos)
 SE GO  → Eduardo recebe email com BRIEFING pronto para o Gemini
 SE NO-GO → Eduardo recebe informativo · cliente recebe proposta de Produto de Entrada
         ↓
-Eduardo cola o briefing no Gemini → ativa o Quadrilateral completo
+Eduardo cola o briefing no Gemini → ativa o Pentalateral completo
 ```
 
 **Localização do serviço:** `SECRETARIO_VIRTUAL/` na raiz do projeto
@@ -1017,7 +1017,7 @@ Eduardo cola o briefing no Gemini → ativa o Quadrilateral completo
 
 ## FASE -1 — QUALIFICAÇÃO (GO / NO-GO)
 
-> Antes de ativar o Quadrilateral completo, verificar se o projeto merece o processo.
+> Antes de ativar o Pentalateral completo, verificar se o projeto merece o processo.
 > Um cliente mal qualificado consome o recurso mais escasso: o tempo do Diretor.
 > **Se o Secretário Virtual estiver ativo, esta fase já foi feita automaticamente.**
 
@@ -1259,7 +1259,7 @@ Antes de propor build, responder:
 Apresentar ao Diretor:
 
 ```
-ANÁLISE QUADRILATERAL — [NOME / TIPO DE projeto]
+ANÁLISE Pentalateral — [NOME / TIPO DE projeto]
 
 TIPO: [tipo]
 CAMADA: [1–5]
@@ -1284,7 +1284,7 @@ Confirmas para avançar? →
 projeto CLIENTE — DIRETRIZ ESTRATÉGICA V1
 ════════════════════════════════════════════════════════════
 
-Somos o Quadrilateral IAH. Novo projeto de cliente.
+Somos o PENTALATERAL IAH. Novo projeto de cliente.
 Analisa o briefing e gera a Diretriz com 5 blocos.
 
 --- BRIEFING ---
@@ -1443,7 +1443,7 @@ Inclui obrigatoriamente: 5 ideias disruptivas para a próxima iteração.
 **Comando Padrão para o Auditor:**
 
 ```
-Actuas como Auditor do Quadrilateral IAH.
+Actuas como Auditor do PENTALATERAL IAH.
 
 Analisa o projeto [NICHO/TIPO] com estes objetivos:
 
@@ -2080,7 +2080,7 @@ Não avançar para entrega sem todas as 7 verificadas.
 
 ---
 
-## PDCA — O MOTOR DO QUADRILATERAL
+## PDCA — O MOTOR Do Pentalateral
 
 > O ciclo fecha entre iterações — nunca dentro.
 
@@ -2190,7 +2190,7 @@ O Músculo é responsável por converter deliberação em entregável.
 
 > "Se não cabe em 5 dias, não é Camada 1. Reformule o escopo antes de começar."
 
-| Conceito Shape Up | Equivalente no Quadrilateral |
+| Conceito Shape Up | Equivalente no Pentalateral |
 |---|---|
 | Appetite (apetite) | Quanto tempo estamos dispostos a gastar — definido no Discovery |
 | Pitch | BRIEFING_RAPIDO_WHATSAPP — problema + solução + appetite |
@@ -2345,13 +2345,13 @@ ações imediatas:
 Modo ativo: CONSELHO COLABORATIVO
 Papel: ARQUITECTO-MESTRE
 
-O Quadrilateral está pronto.
+o Pentalateral está pronto.
 Traz-me o problema. Entregamos a solução.
 ```
 
 ---
 
-*Skill criada pelo Músculo · Quadrilateral IAH · V4.5*
+*Skill criada pelo Músculo · PENTALATERAL IAH · V4.5*
 *Universal: ecommerce, app, site, SaaS, modelo de negócio, automação, IA*
 *Portátil: copiar para qualquer projeto, preencher CONFIGURAÇÃO DO OPERADOR, ativar*
 *ativa sempre que o Diretor disser: PROTOCOLO VANGUARD*
@@ -2359,7 +2359,7 @@ Traz-me o problema. Entregamos a solução.
 
 ---
 
-## V25 — INFRAESTRUTURA VIVA DO QUADRILATERAL (2026-05-15)
+## V25 — INFRAESTRUTURA VIVA Do Pentalateral (2026-05-15)
 
 > Adição ao processo existente — não substitui nenhuma camada.
 > As 3 Alavancas são complementares ao NotebookLM + Gemini + Claude Code.
@@ -2369,19 +2369,19 @@ Traz-me o problema. Entregamos a solução.
 
 | Alavanca | Arquivo | O que faz |
 |---|---|---|
-| **Alavanca 1 — LEDGER Vivo** | `quadrilateral/api/ledger.py` | Serve INTELLIGENCE_LEDGER como JSON-backed FastAPI em porta 8765. Princípios consultáveis via API em tempo real, não apenas por leitura manual. |
-| **Alavanca 2 — Auditor API** | `quadrilateral/api/auditor.py` | Claude API (claude-sonnet-4-6) gera Skills automaticamente intra-sessão. Complementa o NotebookLM para auditorias rápidas durante o build. |
-| **Alavanca 3 — deploy_guard** | `quadrilateral/deploy_guard.yml` | Hard Veto [HV-1 a HV-6] enforçado em GitHub Actions CI/CD. Pipeline bloqueia commit com credencial hardcoded ou infra prisioneira antes de chegar ao repositório. |
+| **Alavanca 1 — LEDGER Vivo** | `Pentalateral/api/ledger.py` | Serve INTELLIGENCE_LEDGER como JSON-backed FastAPI em porta 8765. Princípios consultáveis via API em tempo real, não apenas por leitura manual. |
+| **Alavanca 2 — Auditor API** | `Pentalateral/api/auditor.py` | Claude API (claude-sonnet-4-6) gera Skills automaticamente intra-sessão. Complementa o NotebookLM para auditorias rápidas durante o build. |
+| **Alavanca 3 — deploy_guard** | `Pentalateral/deploy_guard.yml` | Hard Veto [HV-1 a HV-6] enforçado em GitHub Actions CI/CD. Pipeline bloqueia commit com credencial hardcoded ou infra prisioneira antes de chegar ao repositório. |
 
 ### NOVOS SCRIPTS DE ORQUESTRAÇÃO (V25)
 
 | Script | Quando usar | O que faz |
 |---|---|---|
-| `start_quadrilateral.ps1` | Antes de qualquer sessão | Sobe FastAPI ledger.py + roda preflight check |
-| `preflight.ps1` | Junto com start_quadrilateral | Valida .env, Supabase, dependências Python |
+| `start_Pentalateral.ps1` | Antes de qualquer sessão | Sobe FastAPI ledger.py + roda preflight check |
+| `preflight.ps1` | Junto com start_Pentalateral | Valida .env, Supabase, dependências Python |
 | `fechar_sessao.ps1` | Ao encerrar sessão | Roda session_close.py + fecha FastAPI |
 | `scripts/session_close.py` | Via fechar_sessao.ps1 | Captura FRICÇÕES + PRINCÍPIOS → LEDGER + DÍVIDAS |
-| `scripts/session_open.py` | Via start_quadrilateral.ps1 | Injeta contexto ativo no início da sessão |
+| `scripts/session_open.py` | Via start_Pentalateral.ps1 | Injeta contexto ativo no início da sessão |
 | `scripts/clone_project.py` | Novo projeto cliente | Clona estrutura padrão CLIENTES/[NOME]/ |
 | `scripts/atualizar_notebooklm_base.ps1` | Quando doc universal evoluir | Sincroniza NOTEBOOKLM_BASE/ com os 8 documentos-fonte universais |
 | `scripts/preparar_notebooklm_projeto.ps1 -cliente [NOME]` | Antes de cada sessão NotebookLM | Monta pasta única com 01-15 documentos; abre Explorer para arrastar |
@@ -2391,8 +2391,8 @@ Traz-me o problema. Entregamos a solução.
 ```
 PENTALATERAL_UNIVERSAL/
 └── NOTEBOOKLM_BASE/                  ← fonte de verdade dos docs universais
-    ├── 01_SKILL_PROTOCOLO_VANGUARD.md   ← ancora nos padrões do Quadrilateral
-    ├── 02_MEMORANDO_QUADRILATERAL.md    ← constituição e valores
+    ├── 01_SKILL_PROTOCOLO_VANGUARD.md   ← ancora nos padrões do Pentalateral
+    ├── 02_MEMORANDO_PENTALATERAL_UNIVERSAL.md    ← constituição e valores
     ├── 03_MANUAL_DIRETOR.md             ← como Eduardo opera
     ├── 04_INTELLIGENCE_LEDGER.md        ← princípios P-001 a P-013+
     ├── 05_PROCESSO_EVOLUTIVO.md         ← como o loop funciona

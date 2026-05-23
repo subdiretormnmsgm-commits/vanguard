@@ -1,4 +1,4 @@
-# PASSO 6 — MÚSCULO (CLAUDE) · PROJETO INGRID · LOOP 4
+﻿# PASSO 6 — MÚSCULO (CLAUDE) · PROJETO INGRID · LOOP 4
 > Atualizado em 2026-05-20. Eduardo não edita este arquivo — é guia permanente do Músculo.
 
 ---
@@ -70,7 +70,7 @@
 ```
 
 > O Músculo não delibera sem a Skill + a DIRETRIZ.
-> Sem esses dois documentos, a resposta será genérica — não consultoria do Quadrilateral.
+> Sem esses dois documentos, a resposta será genérica — não consultoria do Pentalateral.
 
 ---
 
@@ -178,7 +178,7 @@ Ao encerrar qualquer iteração de build, gerar obrigatoriamente:
 - [ ] PASSO3_GEMINI atualizado para Loop 5
 
 **Auto-auditoria ao fim de cada resposta:**
-*"Respondi com base no histórico real do Quadrilateral e nos princípios ativos do LEDGER, ou fui genérico?"*
+*"Respondi com base no histórico real do Pentalateral e nos princípios ativos do LEDGER, ou fui genérico?"*
 Se genérico → reescrever.
 
 ---

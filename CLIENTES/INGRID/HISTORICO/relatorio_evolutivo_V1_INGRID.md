@@ -1,4 +1,4 @@
-# RELATÓRIO EVOLUTIVO V1 — PROJ-002 Ingrid
+﻿# RELATÓRIO EVOLUTIVO V1 — PROJ-002 Ingrid
 **Loop:** #1 — Kickoff e Deliberação Completa  
 **Data:** 2026-05-15  
 **Próxima fase:** Build — Dias 1 a 15 (início após Veredito do Diretor)
@@ -173,4 +173,4 @@ Eduardo, o Claude Projects (claude.ai/projects) entra quando você for abrir uma
 ---
 
 *Relatório gerado pelo Músculo (Claude Code) ao fechar Loop 1 · PROJ-002 Ingrid · 2026-05-15*  
-*Quadrilateral IAH V25 — Conselho: Eduardo (Diretor) · Gemini (Estrategista) · NotebookLM (Auditor) · Claude Code (Músculo)*
+*Pentalateral IAH V25 — Conselho: Eduardo (Diretor) · Gemini (Estrategista) · NotebookLM (Auditor) · Claude Code (Músculo)*

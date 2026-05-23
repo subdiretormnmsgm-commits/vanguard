@@ -1,10 +1,10 @@
-# ============================================================
+﻿# ============================================================
 # SETUP_ALERT_TASK.PS1 — Registra o monitor no Task Scheduler
 # Executar UMA VEZ como Administrador
 # Uso: .\scripts\setup_alert_task.ps1
 # ============================================================
 
-$TASK_NAME   = "Quadrilateral_WIP_Monitor"
+$TASK_NAME   = "Pentalateral_WIP_Monitor"
 $SCRIPT_PATH = "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\scripts\alert_wip_monitor.ps1"
 
 Write-Host ""
@@ -40,7 +40,7 @@ Register-ScheduledTask `
     -Trigger $gatilho `
     -Settings $settings `
     -Principal $principal `
-    -Description "Quadrilateral IAH — Monitor do WIP_BOARD. Alerta por email quando novo cliente aparece." `
+    -Description "Pentalateral IAH — Monitor do WIP_BOARD. Alerta por email quando novo cliente aparece." `
     -Force
 
 Write-Host ""
@@ -51,7 +51,7 @@ Write-Host "Monitorando a cada 5 minutos." -ForegroundColor Green
 # TASK 2 — Despacho Matinal (todo dia as 07:00)
 # ============================================================
 
-$TASK_BRIEFING   = "Quadrilateral_Despacho_Matinal"
+$TASK_BRIEFING   = "Pentalateral_Despacho_Matinal"
 $SCRIPT_BRIEFING = "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\scripts\alert_daily_briefing.ps1"
 
 Write-Host ""
@@ -81,7 +81,7 @@ Register-ScheduledTask `
     -Trigger $gatilho2 `
     -Settings $settings2 `
     -Principal $principal2 `
-    -Description "Quadrilateral IAH — Despacho Matinal do Conselho. Score GUT + estado do board todo dia as 07:00." `
+    -Description "Pentalateral IAH — Despacho Matinal do Conselho. Score GUT + estado do board todo dia as 07:00." `
     -Force
 
 Write-Host "Tarefa '$TASK_BRIEFING' registrada com sucesso." -ForegroundColor Green

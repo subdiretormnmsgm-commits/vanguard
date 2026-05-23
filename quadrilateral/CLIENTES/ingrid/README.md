@@ -1,6 +1,6 @@
-# PROJETO — ingrid
+﻿# PROJETO — ingrid
 **Nicho:** outro | **Camada:** 2 — Produto | **Criado:** 2026-05-15
-**Operador:** Eduardo | **Quadrilateral:** V25+
+**Operador:** Eduardo | **Pentalateral:** V25+
 
 ---
 
@@ -68,5 +68,5 @@ CLIENTES/ingrid/
 
 ---
 
-*Projeto clonado pelo `scripts/clone_project.py` · Quadrilateral IAH · V25*
+*Projeto clonado pelo `scripts/clone_project.py` · Pentalateral IAH · V25*
 *Atualizar este README ao fechar cada iteração*

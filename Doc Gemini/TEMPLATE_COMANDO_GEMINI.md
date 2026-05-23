@@ -1,4 +1,4 @@
-# TEMPLATE — Comando Gemini (Reutilizável para Qualquer Versão)
+﻿# TEMPLATE — Comando Gemini (Reutilizável para Qualquer Versão)
 > Use este template para criar o COMANDO_GEMINI_VXX.md de cada nova versão.  
 > Substitua os marcadores `[VXX]`, `[NUMERO]`, `[NOME]` pelos valores corretos.
 
@@ -58,7 +58,7 @@ Somos uma **IAH — Inteligência Artificial Humana**: uma fábrica de produtos 
 
 ## O QUE PRECISO DE TI, GEMINI
 
-Assuma o seu papel de **Arquitecto de IA e Estrategista do Conselho Quadrilateral**. Responde com exactamente esta estrutura em **4 blocos**:
+Assuma o seu papel de **Arquitecto de IA e Estrategista do Conselho Pentalateral**. Responde com exactamente esta estrutura em **4 blocos**:
 
 ---
 

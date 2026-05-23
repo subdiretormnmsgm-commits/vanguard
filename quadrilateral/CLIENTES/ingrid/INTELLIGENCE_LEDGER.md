@@ -1,4 +1,4 @@
----
+﻿---
 cliente: "ingrid"
 versao: "V1"
 data: "2026-05-15"
@@ -7,7 +7,7 @@ sessoes: 0
 ---
 
 # INTELLIGENCE LEDGER — INGRID
-**Organismo:** Memória Viva do Quadrilateral IAH para este projeto
+**Organismo:** Memória Viva do Pentalateral IAH para este projeto
 **Ciclo:** por sessão — atualizar via `python scripts/session_close.py`
 
 > Este documento acumula a inteligência operacional do projeto.

@@ -342,7 +342,7 @@ SEM SECRETÁRIO VIRTUAL:
 
 COM SECRETÁRIO VIRTUAL:
   Cliente → formulário → Claude Haiku → email a você com briefing pronto
-  Você → cola no Gemini → ativa o Quadrilateral
+  Você → cola no Gemini → ativa o Pentalateral
   (5 min do seu tempo)
 ```
 
@@ -391,7 +391,7 @@ P3: "O que acontece se não resolver isso nos próximos 3 meses?"
 **Resultado:**
 - 3 positivos → **GO** — avançar para o Passo 2
 - 1 ou 2 negativos → **NO-GO** — oferecer Produto de Entrada (diagnóstico pago, sem build)
-- 3 negativos → **NO-GO** — não investir tempo do Quadrilateral
+- 3 negativos → **NO-GO** — não investir tempo do Pentalateral
 
 > **Produto de Entrada:** uma sessão de diagnóstico onde você entrega ao cliente
 > um mapa do problema, um roadmap de resolução, e uma proposta comercial.

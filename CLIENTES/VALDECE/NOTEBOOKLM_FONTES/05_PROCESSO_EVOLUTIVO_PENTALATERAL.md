@@ -592,6 +592,6 @@ Status: PENDENTE / VALIDADO / REVERTIDO
 - **Token Rate Shield:** hard-limit diário de API de IA é pré-requisito — antes de qualquer código
 - **Mágico de Oz Gate:** validar motor semântico via CLI antes de construir UI — corpus ruim não melhora com UI
 - **Primeira interação com cliente real:** documentar tudo (GUT, ROI, contrapartida) — vira padrão universal
-- **Calibração do Quadrilateral:** quando Gemini alucinar, colar formato obrigatório antes do próximo prompt
+- **Calibração do Pentalateral:** quando Gemini alucinar, colar formato obrigatório antes do próximo prompt
 - **Ordem de envio ao Gemini:** MEMORIA + relatorio + COMANDO — nessa ordem — sempre
 - **Sempre dizer o próximo passo:** o Músculo instrui explicitamente o que fazer depois de cada entrega

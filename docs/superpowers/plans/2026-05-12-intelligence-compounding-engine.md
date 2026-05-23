@@ -1,8 +1,8 @@
-# Intelligence Compounding Engine — Implementation Plan
+﻿# Intelligence Compounding Engine — Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Transformar o Quadrilateral IAH num organismo que acumula inteligência por sessão — cada decisão, fricção e princípio descoberto vira conhecimento permanente e reutilizável.
+**Goal:** Transformar o Pentalateral IAH num organismo que acumula inteligência por sessão — cada decisão, fricção e princípio descoberto vira conhecimento permanente e reutilizável.
 
 **Architecture:** Camada humana (`INTELLIGENCE_LEDGER.md`) + camada programática (`knowledge_graph.json`) + Constituição de Processo (Hard/Soft Vetos no `AVISO_ARQUITETO.md`) + Shadow Architect obrigatório no MEMORANDO + template `CONSELHO_SESSAO` para deliberação síncrona.
 
@@ -16,9 +16,9 @@
 |---|---|---|
 | `INTELLIGENCE_LEDGER.md` | ✅ Criado | Organismo central — princípios, padrões, log de sessões |
 | `knowledge_graph.json` | ✅ Criado | Camada programática — alimenta scripts e GUT |
-| `QUADRILATERAL_UNIVERSAL/TEMPLATES/CONSELHO_SESSAO_TEMPLATE.md` | ✅ Criado | Template de sessão síncrona |
-| `QUADRILATERAL_UNIVERSAL/OPERACAO/AVISO_ARQUITETO.md` | ✅ Atualizado | Constituição de Processo (Hard/Soft Vetos) |
-| `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | ✅ Atualizado | v5.1 — Shadow Architect + histórico |
+| `PENTALATERAL_UNIVERSAL/TEMPLATES/CONSELHO_SESSAO_TEMPLATE.md` | ✅ Criado | Template de sessão síncrona |
+| `PENTALATERAL_UNIVERSAL/OPERACAO/AVISO_ARQUITETO.md` | ✅ Atualizado | Constituição de Processo (Hard/Soft Vetos) |
+| `PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md` | ✅ Atualizado | v5.1 — Shadow Architect + histórico |
 | `docs/superpowers/specs/2026-05-12-intelligence-compounding-engine-design.md` | ✅ Criado | Design spec aprovado |
 | `scripts/session_close.ps1` | 🔲 A criar | Prompt de fechamento de sessão — força atualização do LEDGER |
 | `scripts/alert_daily_briefing.ps1` | 🔲 A modificar | Integrar contagem de princípios ativos no GUT |
@@ -30,7 +30,7 @@
 **Files:**
 - Verify: `INTELLIGENCE_LEDGER.md`
 - Verify: `knowledge_graph.json`
-- Verify: `QUADRILATERAL_UNIVERSAL/TEMPLATES/CONSELHO_SESSAO_TEMPLATE.md`
+- Verify: `PENTALATERAL_UNIVERSAL/TEMPLATES/CONSELHO_SESSAO_TEMPLATE.md`
 
 - [ ] **Step 1: Verificar existência dos arquivos**
 
@@ -38,8 +38,8 @@
 $arquivos = @(
     "INTELLIGENCE_LEDGER.md",
     "knowledge_graph.json",
-    "QUADRILATERAL_UNIVERSAL\TEMPLATES\CONSELHO_SESSAO_TEMPLATE.md",
-    "QUADRILATERAL_UNIVERSAL\OPERACAO\AVISO_ARQUITETO.md"
+    "PENTALATERAL_UNIVERSAL\TEMPLATES\CONSELHO_SESSAO_TEMPLATE.md",
+    "PENTALATERAL_UNIVERSAL\OPERACAO\AVISO_ARQUITETO.md"
 )
 foreach ($f in $arquivos) {
     $existe = Test-Path $f
@@ -81,9 +81,9 @@ Expected: todos retornam `True`
 
 ```powershell
 git add INTELLIGENCE_LEDGER.md knowledge_graph.json
-git add "QUADRILATERAL_UNIVERSAL\TEMPLATES\CONSELHO_SESSAO_TEMPLATE.md"
-git add "QUADRILATERAL_UNIVERSAL\OPERACAO\AVISO_ARQUITETO.md"
-git add "QUADRILATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_QUADRILATERAL_UNIVERSAL.md"
+git add "PENTALATERAL_UNIVERSAL\TEMPLATES\CONSELHO_SESSAO_TEMPLATE.md"
+git add "PENTALATERAL_UNIVERSAL\OPERACAO\AVISO_ARQUITETO.md"
+git add "PENTALATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_PENTALATERAL_UNIVERSAL.md"
 git add "docs\superpowers\specs\2026-05-12-intelligence-compounding-engine-design.md"
 git add "docs\superpowers\plans\2026-05-12-intelligence-compounding-engine.md"
 git add "scripts\alert_daily_briefing.ps1"
@@ -101,7 +101,7 @@ git commit -m "feat(v24): Intelligence Compounding Engine -- LEDGER + knowledge_
 
 ```powershell
 # scripts/session_close.ps1
-# Executar ao fechar qualquer sessão do Quadrilateral
+# Executar ao fechar qualquer sessão do Pentalateral
 # Prompts obrigatórios para atualizar o INTELLIGENCE_LEDGER
 
 $BASE = Split-Path -Parent $PSScriptRoot
@@ -111,7 +111,7 @@ $DATA   = Get-Date -Format "yyyy-MM-dd"
 
 Write-Host ""
 Write-Host "=============================================="
-Write-Host "  FECHAMENTO DE SESSÃO — Quadrilateral IAH"
+Write-Host "  FECHAMENTO DE SESSÃO — Pentalateral IAH"
 Write-Host "=============================================="
 Write-Host ""
 

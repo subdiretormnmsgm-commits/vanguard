@@ -1,4 +1,4 @@
-# CONFIGURAÇÃO DO AUDITOR — Quadrilateral IAH
+﻿# CONFIGURAÇÃO DO AUDITOR — Pentalateral IAH
 **Decisão:** quando usar Claude API vs NotebookLM como Auditor
 **Versão:** 1.0 · 2026-05-15
 **Origem:** Deliberação V25 — divergência G1 resolvida pelo Diretor Eduardo
@@ -6,7 +6,7 @@
 ---
 
 > **Por que este documento existe:**
-> O Quadrilateral tem dois Auditores disponíveis: NotebookLM (interface visual, 300 fontes)
+> O Pentalateral tem dois Auditores disponíveis: NotebookLM (interface visual, 300 fontes)
 > e Claude API via `POST /auditor/gerar-skill` (raciocínio superior, automatizável).
 > Não são concorrentes — são ferramentas para contextos diferentes.
 > Este documento elimina a ambiguidade sobre qual usar em qual situação.
@@ -48,7 +48,7 @@ Você tem 20 minutos, quer fazer perguntas abertas sobre o histórico e não pre
 
 ### Usar Claude API (`POST /auditor/gerar-skill`) quando:
 
-**1. Fase 2 automatizada no loop do Quadrilateral**
+**1. Fase 2 automatizada no loop do Pentalateral**
 Você recebeu a DIRETRIZ do Gemini e quer a Skill sem troca de ferramenta. Um `curl` ou chamada Python entrega a Skill estruturada e pronta para o Músculo. Zero copy-paste entre abas.
 
 **2. Decisões que exigem raciocínio cruzado**
@@ -154,5 +154,5 @@ O custo do Auditor via API é irrelevante no contexto dos projetos. O gargalo é
 
 ---
 
-*CONFIGURACAO_AUDITOR · Quadrilateral IAH · V1.0*
+*CONFIGURACAO_AUDITOR · Pentalateral IAH · V1.0*
 *Atualizar quando o NotebookLM lançar API pública ou quando Claude API mudar de modelo*

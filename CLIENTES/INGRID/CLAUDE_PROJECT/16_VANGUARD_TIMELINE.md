@@ -1,4 +1,4 @@
-# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
+﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
 > Criado: 2026-05-17 | Última atualização: 2026-05-17
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
@@ -249,7 +249,7 @@ V25 não é uma versão de produto. É a versão do processo.
 Três alavancas ativadas simultaneamente:
 1. **PROJ-001 Valdece** — primeiro cliente real, primeiro build com processo formal
 2. **PROJ-002 Ingrid** — segundo cliente, primeiro projeto EdTech, validação do método em nicho diferente
-3. **Quadrilateral IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
+3. **Pentalateral IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
 
 Eduardo: *"Fizemos 23 versões até chegar nisso. Não posso arriscar perder esse trabalho de noites e noites."*
 O trabalho não se perdeu. Está em git history. Está no LEDGER. Está nesta linha do tempo.
@@ -358,7 +358,7 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 
 ---
 
-## EVOLUÇÃO DO QUADRILATERAL IAH
+## EVOLUÇÃO DO Pentalateral IAH
 
 > A história do Conselho — de 1 membro para 4.
 

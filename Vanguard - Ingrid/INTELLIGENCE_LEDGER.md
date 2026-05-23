@@ -1,4 +1,4 @@
-﻿# INTELLIGENCE LEDGER — Quadrilateral IAH
+﻿# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -70,7 +70,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 **Descoberto:** 2026-05-12 | **Sessão:** V24 Intelligence Engine
 **Evidência:** 23 versões aprenderam, mas o aprendizado ficou preso em MEMORIAs que descrevem "o que foi feito", não "o princípio descoberto". Lag de semanas entre fricção e princípio.
 **Princípio:** Todo ALERTA emitido, toda fricção, todo override do Diretor → capturado imediatamente neste LEDGER. O princípio é extraído na mesma sessão, não na próxima versão.
-**Aplica-se a:** toda sessão do Quadrilateral.
+**Aplica-se a:** toda sessão do Pentalateral.
 
 ---
 
@@ -88,7 +88,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 | 5 — Monopólio | Ativo de setor | 3–6 meses | 20–30 loops | Loop semanal fixo |
 
 **Regra de ouro:** Loop acontece quando há output real para deliberar — gate passado, módulo entregue, decisão de arquitetura tomada, cliente reagindo. Nunca por calendário fixo sem evidência nova.
-**Aplica-se a:** todo projeto gerido pelo Quadrilateral. Definir o número de loops no Passo 7 (aprovação do plano).
+**Aplica-se a:** todo projeto gerido pelo Pentalateral. Definir o número de loops no Passo 7 (aprovação do plano).
 
 ---
 
@@ -115,7 +115,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 | Proposta → execução | Veredito explícito do Diretor — nunca iniciar sem aprovação |
 
 **Por que importa:** Avançar por assumição é o padrão de falha mais comum em build rápido. Uma UI bonita sobre corpus ruim é fachada. Um commit sem review é débito técnico disfarçado de velocidade. O Gate valida — o produto entrega.
-**Aplica-se a:** todo projeto do Quadrilateral, toda etapa de build, toda entrega a cliente.
+**Aplica-se a:** todo projeto do Pentalateral, toda etapa de build, toda entrega a cliente.
 
 ---
 
@@ -133,7 +133,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ---
 
 ### [P-007] Template colado em IA = alucinação estrutural
-**Descoberto:** 2026-05-13 | **Sessão:** PROJETO_001 — Valdece / Padronização do Quadrilateral
+**Descoberto:** 2026-05-13 | **Sessão:** PROJETO_001 — Valdece / Padronização do Pentalateral
 **Evidência:** Criamos templates de comunicação com campos `[entre colchetes]`. Diretor identificou que colar isso diretamente no Gemini faz ele preencher os campos mecanicamente sem deliberar sobre o projeto real — alucina na estrutura em vez de pensar no contexto.
 **Princípio:** Templates são referência para o Músculo escrever documentos completos — nunca scripts para colar em IAs. O Músculo lê o template + lê o contexto real + escreve o documento pronto. A IA recebe contexto, não formulário.
 **Aplica-se a:** qualquer comunicação com Gemini, NotebookLM ou qualquer outro modelo — COMANDO 1, COMANDO 2, qualquer prompt estruturado.
@@ -285,7 +285,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [SESSÃO 2026-05-12] — V24 Intelligence Compounding Engine
 
-**Direção da sessão:** Construção da inteligência evolutiva do Quadrilateral — sistema de acumulação por sessão.
+**Direção da sessão:** Construção da inteligência evolutiva do Pentalateral — sistema de acumulação por sessão.
 
 **Eventos capturados:**
 
@@ -317,7 +317,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 `[FRICÇÃO]` Músculo entrou na Etapa 4 (build) antes da Etapa 2 (Gemini) e Etapa 3 (NotebookLM). Corrigido após sinalização do Diretor.
 
-`[FRICÇÃO]` Processo do Quadrilateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
+`[FRICÇÃO]` Processo do Pentalateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
 
 `[CONFIRMADO]` Algoritmo de qualificação BLOCO A funcionou: 3 respostas fortes = GO imediato. Prazo de 5 dias confirmado como restrição real, não negociável.
 

@@ -44,13 +44,13 @@ Antes de sair:
 > Geradas pelo script preparar_notebooklm_projeto.ps1 -cliente VALDECE
 > Arrastar em ordem crescente. Fatos do passado (01-11) ANTES das ideias novas (12-17).
 
-  --- BASE QUADRILATERAL (01-08) ---
-  01_SKILL_PROTOCOLO_VANGUARD.md          -- ancora o Auditor nos padroes do Quadrilateral
+  --- BASE Pentalateral (01-08) ---
+  01_SKILL_PROTOCOLO_VANGUARD.md          -- ancora o Auditor nos padroes do Pentalateral
   02_MEMORANDO_PENTALATERAL_UNIVERSAL.md -- constituicao e valores
   03_MANUAL_DIRETOR.md                    -- como o Diretor opera
   04_INTELLIGENCE_LEDGER.md               -- principios ativos (P-001 a P-045+)
-  05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md  -- como o loop funciona
-  06_TEMPLATES_COMUNICACAO_QUADRILATERAL.md -- formatos obrigatorios dos membros
+  05_PROCESSO_EVOLUTIVO_PENTALATERAL.md  -- como o loop funciona
+  06_TEMPLATES_COMUNICACAO_PENTALATERAL.md -- formatos obrigatorios dos membros
   07_WIP_BOARD.txt                        -- estado atual de todos os projetos
   08_ANALISE_SOCIO_ATUAL.txt              -- visao de negocio mais recente
 

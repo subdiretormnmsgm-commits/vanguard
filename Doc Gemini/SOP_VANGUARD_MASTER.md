@@ -1,12 +1,12 @@
-# SOP VANGUARD MASTER — Guia Operacional da Venture Builder
+﻿# SOP VANGUARD MASTER — Guia Operacional da Venture Builder
 > **Documento:** Standard Operating Procedure · Versão 1.0 · 2026-05-10
-> **Autores:** Protocolo Quadrilateral — Diretor + Gemini + NotebookLM + Claude
+> **Autores:** Protocolo Pentalateral — Diretor + Gemini + NotebookLM + Claude
 > **Propósito:** O guia completo que opera a máquina. Da captação de cliente ao produto entregue.
 > **Status:** ✅ Documento fundador — base para todos os projetos externos e internos
 
 ---
 
-## PARTE I — A MÁQUINA: O PROTOCOLO QUADRILATERAL
+## PARTE I — A MÁQUINA: O PROTOCOLO PENTALATERAL
 
 ### O que é
 
@@ -18,7 +18,7 @@ A Vanguard (V1–V16) foi o projeto piloto que **provou que a máquina funciona*
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    CONSELHO QUADRILATERAL                    │
+│                    CONSELHO PENTALATERAL                    │
 ├──────────────┬──────────────┬──────────────┬────────────────┤
 │   DIRETOR    │    GEMINI    │  NOTEBOOKLM  │  CLAUDE CODE   │
 │              │              │              │                │
@@ -43,7 +43,7 @@ A Vanguard (V1–V16) foi o projeto piloto que **provou que a máquina funciona*
 
 ### O problema que a DIRETRIZ ZERO resolve
 
-O Protocolo Quadrilateral foi construído para **versões internas** (V12→V16). Mas quando um cliente externo chega com uma necessidade — "quero um app", "preciso de um e-commerce", "quero automatizar isso" — o protocolo não tinha uma entrada formal. A DIRETRIZ ZERO é essa entrada.
+O Protocolo Pentalateral foi construído para **versões internas** (V12→V16). Mas quando um cliente externo chega com uma necessidade — "quero um app", "preciso de um e-commerce", "quero automatizar isso" — o protocolo não tinha uma entrada formal. A DIRETRIZ ZERO é essa entrada.
 
 **Ela é a tradução do idioma do cliente para o idioma da máquina.**
 
@@ -133,7 +133,7 @@ O Diretor leva o output do NotebookLM para o Gemini com este comando:
 ```
 [COMANDO PADRÃO GEMINI — DIRETRIZ ZERO]
 
-Gemini, inicie a Fase 1 do Protocolo Quadrilateral para um projeto de cliente externo.
+Gemini, inicie a Fase 1 do Protocolo Pentalateral para um projeto de cliente externo.
 
 CONTEXTO DO PROJETO (gerado pelo NotebookLM):
 [colar output do passo 0.2 aqui]
@@ -249,7 +249,7 @@ Sua missão:
 
 **Comando para o NotebookLM:**
 ```
-NotebookLM, assuma seu papel de Sócio-Consultor de Inteligência Quadrilateral.
+NotebookLM, assuma seu papel de Sócio-Consultor de Inteligência Pentalateral.
 
 Analise a nova DIRETRIZ:
 [colar DIRETRIZ aqui]
@@ -284,7 +284,7 @@ para dominar este nicho específico?
 **Comando para o Claude:**
 ```
 Claude, entramos na V[NÚMERO] do [PROJETO]. 
-Agora somos um Conselho Quadrilateral.
+Agora somos um Conselho Pentalateral.
 
 Leia a skill .claude/skills/[nome-da-skill.md].
 
@@ -418,7 +418,7 @@ CLIENTE PEDE              →  ENTRA NA CAMADA  →  ENTREGA EM
 | `MASTER_PLAN.md` | Plano de lançamento do negócio | Diretor |
 | `INTELIGENCIA_ARTIFICIAL_HUMANA.md` | Manifesto do modelo de negócio | Diretor |
 | `VANGUARD_OPERATIONAL_COSTS.md` | Custos e projeções em R$ | Claude (a cada versão) |
-| `O Protocolo Quadrilateral.txt` | Documento fundador do método | Gemini (imutável) |
+| `O Protocolo Pentalateral.txt` | Documento fundador do método | Gemini (imutável) |
 
 ### Documentos por Projeto de Cliente
 
@@ -508,7 +508,7 @@ Entregue: código + audit atualizado + relatório + 4 ideias."
 
 ## EPÍLOGO — O QUE ESTA MÁQUINA REALMENTE É
 
-O Protocolo Quadrilateral não é um processo de software. É um sistema de conhecimento distribuído onde cada componente compensa as limitações dos outros:
+O Protocolo Pentalateral não é um processo de software. É um sistema de conhecimento distribuído onde cada componente compensa as limitações dos outros:
 
 - O **Diretor** tem contexto de negócio que nenhuma IA tem
 - O **Gemini** tem visão de mercado e velocidade de síntese estratégica
@@ -524,4 +524,4 @@ O Vanguard V1–V16 é a prova. Qualquer projeto de cliente é a aplicação.
 ---
 
 > *"A máquina não tem ego. Não tem férias. Não pede aumento. Só precisa de um Diretor que saiba dar ordens."*
-> — Protocolo Quadrilateral · 2026
+> — Protocolo Pentalateral · 2026

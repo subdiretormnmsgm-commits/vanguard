@@ -1,4 +1,4 @@
-# VANGUARD BUSINESS RULES — Repositório Central
+﻿# VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
 > **Versão actual:** V14/V15 — Sovereign Optimization & Operational Readiness  
 > **Última actualização:** 2026-05-10  
@@ -965,7 +965,7 @@ Verificação para o plano Agency actual:
 ---
 
 ## §21 — Protocolo de Invasão Soberana e Segurança WABA (V15)
-> *Exigido pelo Conselho Quadrilateral. Leis de Sobrevivência e Expansão Agressiva.*
+> *Exigido pelo Conselho Pentalateral. Leis de Sobrevivência e Expansão Agressiva.*
 
 ### 21.1 Lei do Escudo WABA — Sobrevivência da Operação
 A number de WhatsApp Business (WABA) é o activo mais crítico e mais frágil da operação Hermes. A sua perda por banimento paralisa a prospecção. Esta lei é **imutável e inviolável**:

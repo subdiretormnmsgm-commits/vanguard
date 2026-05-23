@@ -1,4 +1,4 @@
-Diretriz Técnica V6 — Projeto Valdece — Loop 6
+﻿Diretriz Técnica V6 — Projeto Valdece — Loop 6
 
 BLOCO 0 — DIAGNÓSTICO
 Filtro de Recência Soberana ATIVADO (P-023, P-041, P-042, P-043, P-044)
@@ -11,7 +11,7 @@ Gate contra Otimismo e Drift (Deficiências 2 e 3)
 
         O que construir: Absolutamente nada novo. O código atual (commit 9709649) é o teto do V1.
 
-        Por que é prioritário: P-023 dita que não há build de Camada 1+ sem contrato. Continuar codificando transforma o Quadrilateral numa fábrica de favores.
+        Por que é prioritário: P-023 dita que não há build de Camada 1+ sem contrato. Continuar codificando transforma o Pentalateral numa fábrica de favores.
 
         Estimativa: 0 horas de build.
 

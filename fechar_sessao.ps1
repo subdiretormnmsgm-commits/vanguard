@@ -1,4 +1,4 @@
-# QUADRILATERAL IAH — Ritual de Fechamento
+﻿# PENTALATERAL IAH — Ritual de Fechamento
 # Uso: .\fechar_sessao.ps1
 # Uso: .\fechar_sessao.ps1 -Sessao "V25-valdece" -Projeto valdece
 
@@ -7,7 +7,7 @@ param(
     [string]$Projeto = "vanguard"
 )
 
-Set-Location "$PSScriptRoot\quadrilateral"
+Set-Location "$PSScriptRoot\pentalateral"
 if ($Sessao) {
     python scripts\session_close.py --sessao $Sessao --projeto $Projeto
 } else {

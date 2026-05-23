@@ -169,12 +169,12 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 
 ```
 --- UNIVERSAIS ---
-01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Quadrilateral
+01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Pentalateral
 02_MEMORANDO_PENTALATERAL_UNIVERSAL.md  ← constituição e valores
 03_MANUAL_DIRETOR.md                     ← como Eduardo opera
 04_INTELLIGENCE_LEDGER.md               ← princípios ativos P-001 a P-032
-05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md  ← como o loop funciona
-06_TEMPLATES_COMUNICACAO_QUADRILATERAL.md ← formatos obrigatórios
+05_PROCESSO_EVOLUTIVO_PENTALATERAL.md  ← como o loop funciona
+06_TEMPLATES_COMUNICACAO_PENTALATERAL.md ← formatos obrigatórios
 07_WIP_BOARD.txt                   ← estado atual dos projetos (TXT — NotebookLM lê)
 08_ANALISE_SOCIO_ATUAL.txt         ← visão de negócio atualizada
 

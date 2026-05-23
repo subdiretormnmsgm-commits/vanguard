@@ -1,5 +1,5 @@
 ﻿# atualizar_notebooklm.ps1
-# Empacota os documentos atuais do Quadrilateral para o NotebookLM (Auditor)
+# Empacota os documentos atuais do Pentalateral para o NotebookLM (Auditor)
 # Previne Deficiencia 1 do Auditor: Miopia de Contexto / Lost-in-the-Middle
 # Uso: .\scripts\atualizar_notebooklm.ps1
 # Output: pasta NotebookLM\ com arquivos numerados prontos para upload
@@ -33,8 +33,8 @@ $arquivos = @(
 
     # CAMADA 2 -- Inteligencia acumulada (principios e historico)
     @{ src = "INTELLIGENCE_LEDGER.md";                                                        prefix = "04"; nome = "INTELLIGENCE_LEDGER.txt" },
-    @{ src = "PENTALATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md";         prefix = "05"; nome = "PROCESSO_EVOLUTIVO_QUADRILATERAL.txt" },
-    @{ src = "PENTALATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md";     prefix = "06"; nome = "TEMPLATES_COMUNICACAO_QUADRILATERAL.txt" },
+    @{ src = "PENTALATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_PENTALATERAL.md";         prefix = "05"; nome = "PROCESSO_EVOLUTIVO_PENTALATERAL.txt" },
+    @{ src = "PENTALATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_PENTALATERAL.md";     prefix = "06"; nome = "TEMPLATES_COMUNICACAO_PENTALATERAL.txt" },
 
     # CAMADA 3 -- Estado atual dos projetos
     @{ src = "CLIENTES\WIP_BOARD.json";                                                       prefix = "07"; nome = "WIP_BOARD.txt" },

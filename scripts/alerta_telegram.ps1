@@ -1,6 +1,6 @@
-# ============================================================
+﻿# ============================================================
 # ALERTA_TELEGRAM.PS1 — Envia alerta para o Diretor via Telegram
-# Canal de alertas automáticos do Quadrilateral IAH
+# Canal de alertas automáticos do PENTALATERAL IAH
 #
 # Uso: .\scripts\alerta_telegram.ps1 -mensagem "Texto aqui"
 #      .\scripts\alerta_telegram.ps1 -cliente INGRID -tipo SILENCIO

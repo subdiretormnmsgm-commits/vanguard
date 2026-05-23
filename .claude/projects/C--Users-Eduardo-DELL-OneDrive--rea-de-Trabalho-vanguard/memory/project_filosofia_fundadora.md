@@ -1,10 +1,10 @@
----
-name: Filosofia Fundadora — Quadrilateral IAH
+﻿---
+name: Filosofia Fundadora — Pentalateral IAH
 description: Princípio central do negócio declarado pelo Diretor Eduardo — inteligência como ativo principal
 type: project
 ---
 
-O negócio Quadrilateral IAH opera sobre um axioma declarado pelo Diretor:
+O negócio Pentalateral IAH opera sobre um axioma declarado pelo Diretor:
 
 > "A gestão de tudo no nosso negócio deve ser realizada com gestão de processos, evolução e inteligência — este é o nosso maior ativo."
 

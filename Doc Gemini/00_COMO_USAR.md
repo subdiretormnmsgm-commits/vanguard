@@ -1,4 +1,4 @@
-# DOC GEMINI — Como Usar Esta Pasta
+﻿# DOC GEMINI — Como Usar Esta Pasta
 > Esta pasta contém TODOS os documentos que o Gemini precisa para responder bem.  
 > Use-a como fonte de contexto no Gemini e no NotebookLM.
 
@@ -7,7 +7,7 @@
 ## PARA O NOTEBOOKLM — Faça isso UMA VEZ
 
 1. Abra o NotebookLM (notebooklm.google.com)
-2. Crie um notebook: **"Vanguard Tech — Conselho Quadrilateral"**
+2. Crie um notebook: **"Vanguard Tech — Conselho Pentalateral"**
 3. Adicione TODOS os arquivos desta pasta como fontes (upload de arquivos)
 4. O NotebookLM indexará tudo e terá contexto completo do projeto
 

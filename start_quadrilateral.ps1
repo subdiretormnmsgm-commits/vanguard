@@ -1,9 +1,9 @@
-# QUADRILATERAL IAH — Iniciar API do sistema
-# Uso: .\start_quadrilateral.ps1
+﻿# PENTALATERAL IAH — Iniciar API do sistema
+# Uso: .\start_pentalateral.ps1
 
 Write-Host ""
 Write-Host "═══════════════════════════════════════════════" -ForegroundColor Cyan
-Write-Host "  QUADRILATERAL IAH — Iniciando sistema..." -ForegroundColor Cyan
+Write-Host "  PENTALATERAL IAH — Iniciando sistema..." -ForegroundColor Cyan
 Write-Host "═══════════════════════════════════════════════" -ForegroundColor Cyan
 Write-Host ""
 
@@ -22,5 +22,5 @@ Write-Host ""
 Write-Host "   Para parar: Ctrl+C" -ForegroundColor Gray
 Write-Host ""
 
-Set-Location "$PSScriptRoot\quadrilateral"
+Set-Location "$PSScriptRoot\pentalateral"
 uvicorn api.main:app --reload --port 8765

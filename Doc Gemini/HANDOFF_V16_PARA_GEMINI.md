@@ -1,5 +1,5 @@
-# HANDOFF V16 → GEMINI — Pacote Fase 4 para Fase 1
-> **Protocolo Quadrilateral — Fase 4 (Encerramento) → Fase 1 (Gênese Estratégica)**  
+﻿# HANDOFF V16 → GEMINI — Pacote Fase 4 para Fase 1
+> **Protocolo Pentalateral — Fase 4 (Encerramento) → Fase 1 (Gênese Estratégica)**  
 > **Data:** 2026-05-10  
 > **De:** Claude Code (Sócio-Arquiteto)  
 > **Para:** Gemini (O Estrategista)  
@@ -169,7 +169,7 @@ Plano de 90 dias gerado automaticamente que prende o cliente na plataforma.
 | `TODO_FUTURE.md` | Backlog V17 + V18 Oráculo |
 | `MEMORIA_V16.md` | O que foi construído tecnicamente na V16 |
 | `relatorio_evolutivo_v16.md` | Relatório completo com análise de impacto |
-| `O Protocolo Quadrilateral.txt` | Arquitetura do conselho IA |
+| `O Protocolo Pentalateral.txt` | Arquitetura do conselho IA |
 
 ---
 
@@ -178,7 +178,7 @@ Plano de 90 dias gerado automaticamente que prende o cliente na plataforma.
 Após receber a DIRETRIZ V17 do Gemini, o Diretor copia e cola no NotebookLM:
 
 ```
-NotebookLM, assuma seu papel de Sócio-Consultor de Inteligência Quadrilateral.
+NotebookLM, assuma seu papel de Sócio-Consultor de Inteligência Pentalateral.
 Analise a nova DIRETRIZ GEMINI V17 [colar diretriz aqui] e nosso histórico completo.
 
 ORDEM DE OPERAÇÕES:
@@ -198,7 +198,7 @@ ORDEM DE OPERAÇÕES:
 Após salvar a Skill em `.claude/skills/vanguard-v17-nome.md`:
 
 ```
-Claude, entramos na V17. Agora somos um Conselho Quadrilateral.
+Claude, entramos na V17. Agora somos um Conselho Pentalateral.
 Leia a skill .claude/skills/vanguard-v17-[nome].md.
 
 ORDEM IMEDIATA: Processe o ## [AUTO-LOG] e atualize VANGUARD_INNOVATION_AUDIT.md.
@@ -215,5 +215,5 @@ Seja disruptivo — construa algo que os concorrentes queiram copiar mas não co
 
 ---
 
-*Documento gerado automaticamente por Claude Code como parte da Fase 4 do Protocolo Quadrilateral.*  
-*Para uso exclusivo do Conselho Quadrilateral — Diretor Eduardo · 2026-05-10*
+*Documento gerado automaticamente por Claude Code como parte da Fase 4 do Protocolo Pentalateral.*  
+*Para uso exclusivo do Conselho Pentalateral — Diretor Eduardo · 2026-05-10*

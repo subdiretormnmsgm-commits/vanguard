@@ -18,10 +18,10 @@ Meta MRR: R$25.000 até dezembro 2026.
 Estado: 0 clientes pagos. PROJ-001 Valdece = case fundacional.
 
 INFRAESTRUTURA V25:
-- PENTALATERAL IAH V25 implantado: pasta quadrilateral/ com FastAPI
+- PENTALATERAL IAH V25 implantado: pasta pentalateral/ com FastAPI
 - 3 Alavancas: LEDGER Vivo (porta 8765) + Auditor API + deploy_guard CI/CD
 - 17/17 testes passando após fix de encoding UTF-8 no Windows
-- Scripts: start_quadrilateral.ps1, preflight.ps1, fechar_sessao.ps1
+- Scripts: start_pentalateral.ps1, preflight.ps1, fechar_sessao.ps1
 - Processo de 10 passos PRESERVADO — V25 é adição, não substituição
 
 ══════════════════════════════════════════════════════════════════════

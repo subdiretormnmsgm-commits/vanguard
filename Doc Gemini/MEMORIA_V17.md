@@ -1,8 +1,8 @@
-# MEMORIA_V17 — Sovereign Intent Engine
+﻿# MEMORIA_V17 — Sovereign Intent Engine
 > **Versão:** V17
 > **Data:** 2026-05-10
 > **Autor técnico:** Claude Code (Arquitecto-Mestre)
-> **Protocolo:** Conselho Quadrilateral — Fase 4 — Encerramento de Ciclo
+> **Protocolo:** Conselho Pentalateral — Fase 4 — Encerramento de Ciclo
 
 ---
 

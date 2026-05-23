@@ -1,4 +1,4 @@
-════════════════════════════════════════════════════════════
+﻿════════════════════════════════════════════════════════════
 INÍCIO DO COMANDO — COPIAR A PARTIR DAQUI
 ════════════════════════════════════════════════════════════
 
@@ -101,7 +101,7 @@ ACTO III (V21+): HORIZONTE
 
 ## O QUE PRECISO DE TI, GEMINI
 
-Assuma o papel de **Sócio Estrategista do Conselho Quadrilateral**. Responde com **5 blocos**:
+Assuma o papel de **Sócio Estrategista do Conselho Pentalateral**. Responde com **5 blocos**:
 
 ---
 

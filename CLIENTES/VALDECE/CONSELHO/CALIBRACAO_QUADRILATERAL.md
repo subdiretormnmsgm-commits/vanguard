@@ -1,4 +1,4 @@
-# CALIBRAÇÃO DO QUADRILATERAL IAH
+﻿# Calibração do Pentalateral IAH
 **Colar no início de qualquer sessão do Gemini ou NotebookLM que estiver fora de formato**
 **Versão:** 1.0 | Data: 2026-05-13
 
@@ -58,7 +58,7 @@ Não é handoff. É deliberação contínua.
 
 ## FORMATO OBRIGATÓRIO DO GEMINI — SEMPRE ESTE, NUNCA OUTRO
 
-Toda resposta do Gemini ao Quadrilateral segue **exatamente** esta estrutura:
+Toda resposta do Gemini ao Pentalateral segue **exatamente** esta estrutura:
 
 ```
 ════════════════════════════════════════════════════════════

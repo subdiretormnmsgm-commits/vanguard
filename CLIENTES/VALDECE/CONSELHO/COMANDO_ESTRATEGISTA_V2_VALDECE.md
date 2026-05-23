@@ -1,4 +1,4 @@
-# COMANDO_ESTRATEGISTA V2 — PROJETO VALDECE
+﻿# COMANDO_ESTRATEGISTA V2 — PROJETO VALDECE
 **Colar diretamente no Gemini Advanced**
 **Data:** 2026-05-13 | Iteração: V1 → V2
 
@@ -6,12 +6,12 @@
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → GEMINI
+Pentalateral IAH — EDUARDO → GEMINI
 projeto: Ferramenta de Busca Jurisprudência STF/STJ (Valdece)
 ITERAÇÃO: V2 | DATA: 2026-05-13
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH.
+Gemini, somos o Pentalateral IAH.
 Tu és o Estrategista. Eu sou o Diretor.
 O Claude Code (Músculo) construiu os Dias 1 e 2 de 5 do projeto Valdece.
 

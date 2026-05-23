@@ -65,7 +65,7 @@
 
 - [x] `2026-05-23` ~~**Sync universal obrigatório**~~ — `sync_vanguard_docs.ps1` executado: INTEGRIDADE VERDE, 0 falhas de hash ✅
 
-- [x] `2026-05-23` ~~**Rename QUADRILATERAL → PENTALATERAL**~~ — veredito formal do Diretor dado, executado: 234 arquivos via `git mv`, todos os scripts/hooks/skills/docs atualizados ✅
+- [x] `2026-05-23` ~~**Rename PENTALATERAL → PENTALATERAL**~~ — veredito formal do Diretor dado, executado: 234 arquivos via `git mv`, todos os scripts/hooks/skills/docs atualizados ✅
 
 - [x] `2026-05-23` ~~**Varredura total + VANGUARD_TIMELINE**~~ — CONSTITUICAO atualizada (MEMORANDO v2.3), NOTEBOOKLM_BASE sincronizado, TIMELINE com marcos 2026-05-23, tabela de membros v6.1 ✅
 
@@ -92,7 +92,7 @@
 
 - [ ] `2026-05-23` **REGISTRO_DE_PREMISSAS — registrar premissas desta sessão:**
   Premissas silenciosas desta sessão que precisam ser declaradas:
-  - Rename QUADRILATERAL → PENTALATERAL não altera funcionalidade, apenas nomenclatura
+  - Rename PENTALATERAL → PENTALATERAL não altera funcionalidade, apenas nomenclatura
   - 12 deficiências formalizadas são reais — não hipotéticas
   Atualizar: `CLIENTES/VALDECE/REGISTRO_DE_PREMISSAS.md` e `CLIENTES/INGRID/REGISTRO_DE_PREMISSAS.md`
 

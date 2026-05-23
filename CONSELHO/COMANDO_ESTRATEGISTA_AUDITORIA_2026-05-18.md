@@ -1,4 +1,4 @@
-# COMANDO ESTRATEGISTA — AUDITORIA PENTALATERAL DA DOCUMENTAÇÃO VANGUARD
+﻿# COMANDO ESTRATEGISTA — AUDITORIA PENTALATERAL DA DOCUMENTAÇÃO VANGUARD
 **De:** Eduardo (Diretor) → **Para:** Gemini (Estrategista)
 **Data:** 2026-05-18 | **Missão:** Auditoria e atualização completa da documentação Vanguard
 
@@ -10,7 +10,7 @@ Estrategista, o Pentalateral IAH executou uma evolução estrutural ontem (2026-
 
 **O que mudou (contexto obrigatório para esta sessão):**
 
-1. **Quadrilateral → Pentalateral:** O sistema agora opera com 5 atores.
+1. **Pentalateral → Pentalateral:** O sistema agora opera com 5 atores.
    - Músculo (Claude Code) · Estrategista (Gemini) · Auditor (NotebookLM) · **Embaixador (Claude Projects)** · Diretor (Eduardo)
    - 20 ideias/ciclo: [M+E+G+N × 5]
    - Embaixador tem memória persistente por cliente — o único membro que não perde contexto entre sessões
@@ -32,7 +32,7 @@ Estrategista, o Pentalateral IAH executou uma evolução estrutural ontem (2026-
 ### BLOCO 0 — DIAGNÓSTICO ESTRATÉGICO DA DOCUMENTAÇÃO
 
 Olhando a documentação da Vanguard como um todo, responda:
-- A narrativa dos documentos de Constituição reflete o modelo IAH atual ou ainda está na era do Quadrilateral (3 atores)?
+- A narrativa dos documentos de Constituição reflete o modelo IAH atual ou ainda está na era do Pentalateral (3 atores)?
 - Os documentos comunicam o diferencial do Pentalateral de forma que um cliente ou parceiro entenderia?
 - Qual é a fragilidade estratégica maior na documentação atual?
 
@@ -40,14 +40,14 @@ Olhando a documentação da Vanguard como um todo, responda:
 
 Dos documentos listados abaixo, quais são os **3 mais críticos** para atualizar PRIMEIRO, em ordem de impacto:
 
-**Constituição (`QUADRILATERAL_UNIVERSAL/CONSTITUICAO/`):**
+**Constituição (`PENTALATERAL_UNIVERSAL/CONSTITUICAO/`):**
 - EMPRESA_VANGUARD.md (2026-05-10 — era 0 clientes, sem IAH model, sem Embaixador)
 - INTELIGENCIA_ARTIFICIAL_HUMANA.md (2026-05-10 — sem Pentalateral)
-- O Protocolo Quadrilateral.txt (2026-05-10 — nome e conteúdo desatualizados)
+- O Protocolo Pentalateral.txt (2026-05-10 — nome e conteúdo desatualizados)
 - VANGUARD_BUSINESS_RULES.md (2026-05-10 — sem regras do Embaixador)
-- MEMORANDO_QUADRILATERAL_CLIENTE.md (2026-05-11 — sem Embaixador)
+- MEMORANDO_PENTALATERAL_CLIENTE.md (2026-05-11 — sem Embaixador)
 
-**Operação (`QUADRILATERAL_UNIVERSAL/OPERACAO/`):**
+**Operação (`PENTALATERAL_UNIVERSAL/OPERACAO/`):**
 - MANUAL_DIRETOR.md (v1.2, 2026-05-14 — 10 passos não incluem Passo 0/8.5, sem mapa 5 atores)
 - DISCOVERY_CARD.md (2026-05-11 — sem Embaixador)
 - PROTOCOLO_INTERATIVO.md (2026-05-10 — 3 atores)
@@ -67,7 +67,7 @@ O EMPRESA_VANGUARD.md precisa ter esta narrativa atualizada.
 **[PARA O MÚSCULO]:**
 - Qual é a estrutura de documentação que você recomenda para o Pentalateral?
 - Há documentos que deveriam ser consolidados vs. separados?
-- O `O Protocolo Quadrilateral.txt` deve ser renomeado para `PROTOCOLO_PENTALATERAL.md`? Ou manter nomenclatura histórica?
+- O `O Protocolo Pentalateral.txt` deve ser renomeado para `PROTOCOLO_PENTALATERAL.md`? Ou manter nomenclatura histórica?
 
 **[PARA O AUDITOR]:**
 - Quais fontes o NotebookLM deve priorizar para auditar coerência entre os documentos?
@@ -86,11 +86,11 @@ O que Eduardo deve fazer nas próximas 24h para garantir que esta auditoria resu
 ## FONTES PARA CARREGAR ANTES DE RESPONDER
 
 Carregar nesta ordem antes de qualquer análise:
-1. `QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md` (v6.0 — 2026-05-18) ← **mais recente**
+1. `PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md` (v6.0 — 2026-05-18) ← **mais recente**
 2. `INTELLIGENCE_LEDGER.md` (P-001 a P-032, atualizado 2026-05-18)
-3. `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` (v2.1)
+3. `PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md` (v2.1)
 4. `CLIENTES/WIP_BOARD.md` (estado atual dos projetos)
-5. `QUADRILATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md` (linha do tempo V1-V25)
+5. `PENTALATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md` (linha do tempo V1-V25)
 
 ---
 

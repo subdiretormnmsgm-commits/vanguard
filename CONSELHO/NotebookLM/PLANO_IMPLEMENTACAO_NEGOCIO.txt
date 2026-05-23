@@ -1,4 +1,4 @@
-# PLANO DE IMPLEMENTAÇÃO DE NEGÓCIO — VANGUARD / IAH
+﻿# PLANO DE IMPLEMENTAÇÃO DE NEGÓCIO — VANGUARD / IAH
 **Data:** 2026-05-10
 **Objetivo:** Primeiro cliente pagante em 30 dias
 
@@ -6,7 +6,7 @@
 
 | Produto | Preço | Modelo |
 |---------|-------|--------|
-| Diagnóstico Quadrilateral | Grátis | Isca / Captação |
+| Diagnóstico Pentalateral | Grátis | Isca / Captação |
 | Neural Audit Trail (PDF 12 pág.) | R$50 | Unitário via Stripe |
 | Neural Sentinel (monitoramento semanal) | R$97/mês | Recorrente via Stripe |
 | Projeto IAH Completo | R$3.000-R$6.000 | Proposta comercial |

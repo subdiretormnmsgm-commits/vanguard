@@ -1,16 +1,16 @@
 ﻿---
-name: quadrilateral-editor
+name: pentalateral-editor
 description: >
   Use quando o Músculo precisar criar, editar ou promover qualquer documento em
   PENTALATERAL_UNIVERSAL/ ou nos arquivos críticos da raiz (INTELLIGENCE_LEDGER.md,
   WIP_BOARD.json, ANALISE_SOCIO_ATUAL.txt). Triggers: "atualizar o ledger",
   "adicionar princípio", "editar protocolo", "atualizar template", "promover para
-  universal", "modificar QUADRILATERAL", "atualizar documento base".
+  universal", "modificar PENTALATERAL", "atualizar documento base".
   O hook P-033 dispara o sync automaticamente após cada edição — o Músculo nunca
   roda o sync manualmente.
 ---
 
-# Quadrilateral Editor — Protocolo de Modificação de Documentos
+# Pentalateral Editor — Protocolo de Modificação de Documentos
 
 ## Regra Fundamental
 
@@ -42,11 +42,11 @@ para 100% dos projetos ativos na próxima sessão do Auditor.
 |---|---|
 | `00_INSTRUCAO_AUDITOR.md` | Prompt de instrução do Auditor |
 | `01_SKILL_PROTOCOLO_VANGUARD.md` | Processo operacional completo do Pentalateral |
-| `02_MEMORANDO_PENTALATERAL_UNIVERSAL.md` | Constituição e identidade do Quadrilateral |
+| `02_MEMORANDO_PENTALATERAL_UNIVERSAL.md` | Constituição e identidade do Pentalateral |
 | `03_MANUAL_DIRETOR.md` | Manual de operação para o Diretor |
 | `04_INTELLIGENCE_LEDGER.md` | Cópia do LEDGER sincronizada |
-| `05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md` | Loop evolutivo documentado |
-| `06_TEMPLATES_COMUNICACAO_QUADRILATERAL.md` | Templates PASSO3/5/7 e formatos fixos |
+| `05_PROCESSO_EVOLUTIVO_PENTALATERAL.md` | Loop evolutivo documentado |
+| `06_TEMPLATES_COMUNICACAO_PENTALATERAL.md` | Templates PASSO3/5/7 e formatos fixos |
 | `07_WIP_BOARD.txt` | Cópia do WIP_BOARD sincronizada |
 | `08_ANALISE_SOCIO_ATUAL.txt` | Cópia da análise do Sócio sincronizada |
 
@@ -61,7 +61,7 @@ Sincronizados para NOTEBOOKLM_FONTES/ de todos os projetos ativos.
 | `PASSO3_GEMINI_TEMPLATE.md` | Template do PASSO3 evolui |
 | `PASSO5_NOTEBOOKLM_TEMPLATE.md` | Template do PASSO5 evolui |
 | `PASSO7_EMBAIXADOR_TEMPLATE.md` | Template do Embaixador evolui |
-| `TEMPLATES_COMUNICACAO_QUADRILATERAL.md` | Formato de MEMORIA/RELATORIO/DIRETRIZ muda |
+| `TEMPLATES_COMUNICACAO_PENTALATERAL.md` | Formato de MEMORIA/RELATORIO/DIRETRIZ muda |
 | `AVISO_ARQUITETO.md` / `AVISO_EMBAIXADOR.md` | Alertas estruturais dos membros |
 | `BIBLIOTECA_MANAGEMENT.md` | Novos frameworks de gestão identificados |
 | `VANGUARD_BUSINESS_RULES.md` | Regras de negócio da Vanguard mudam |

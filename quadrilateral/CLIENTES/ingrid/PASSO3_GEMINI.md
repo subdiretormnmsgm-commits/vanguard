@@ -1,5 +1,5 @@
-# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 1
-> Quadrilateral IAH V25 — Camada Permanente: não editar blocos de protocolo.
+﻿# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 1
+> Pentalateral IAH V25 — Camada Permanente: não editar blocos de protocolo.
 > Bloco CONTEXTO atualizado por Eduardo em 2026-05-15 (Loop 1 / Kickoff)
 
 ---
@@ -105,7 +105,7 @@ BLOCO 1 — PRIORIDADES DE BUILD (máximo 3)
   Cada uma com: o que construir + por que agora + horas reais + o que fica fora.
 
 BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
-  Como posicionar este projeto como case de validação do Quadrilateral IAH V25.
+  Como posicionar este projeto como case de validação do Pentalateral IAH V25.
   Potencial de replicação para outros concurseiros (nicho de mercado).
 
 BLOCO 3 — DIRETRIZ TÉCNICA (3 sub-blocos obrigatórios)

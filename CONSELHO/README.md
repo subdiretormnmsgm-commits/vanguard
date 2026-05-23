@@ -1,4 +1,4 @@
-# CONSELHO QUADRILATERAL — Pasta Central de Documentos
+﻿# CONSELHO PENTALATERAL — Pasta Central de Documentos
 
 Esta pasta contém TODOS os documentos que o Diretor precisa para o ritual pós-versão.
 Nunca procure em mais nenhum lugar — está tudo aqui.
@@ -52,4 +52,4 @@ Copiar Skill do NotebookLM → guardar em `.claude/skills/vanguard-vXX-[nome].md
 | Plano Negócio | NotebookLM/PLANO_IMPLEMENTACAO_NEGOCIO.txt | Upload NotebookLM |
 | Análise Sócio | ANALISE_SOCIO_ATUAL.md | Actualizado após cada sessão NotebookLM |
 | Comando V23 | Gemini/COMANDO_GEMINI_V23.md | Colar no Gemini |
-| **Memorando Quadrilateral** | NotebookLM/MEMORANDO_QUADRILATERAL_CLIENTE.txt | Upload NotebookLM (fonte permanente) |
+| **Memorando Pentalateral** | NotebookLM/MEMORANDO_PENTALATERAL_CLIENTE.txt | Upload NotebookLM (fonte permanente) |

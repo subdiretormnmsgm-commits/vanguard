@@ -13,7 +13,7 @@
 
 **Princípio central:** Tempo fixo, escopo variável. Nunca o contrário.
 
-**Conceitos-chave adaptados ao Quadrilateral:**
+**Conceitos-chave adaptados ao Pentalateral:**
 
 **Appetite (Apetite):** Quanto tempo estamos DISPOSTOS a gastar — não quanto tempo vai levar. O Discovery define o appetite. Se o escopo não cabe, corta-se o escopo.
 

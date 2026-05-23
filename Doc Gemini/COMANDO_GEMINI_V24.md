@@ -40,7 +40,7 @@ camada: 5
 status: "concluído"
 proxima_acao: "V25 — primeiro cliente ou expansão do modelo"
 dividas_p0: 0
-ultima_entrega: "QUADRILATERAL_UNIVERSAL v5.0 + VANGUARD_HISTORICO"
+ultima_entrega: "PENTALATERAL_UNIVERSAL v5.0 + VANGUARD_HISTORICO"
 roi_estimado_mes1: "indireto — base para franchise e IaaS"
 payback_meses: 1
 ---
@@ -67,7 +67,7 @@ payback_meses: 1
 
 ### Camada 3 — Sovereign Veto (Constituição de Processo)
 - `ALERTA_CONFLITO.md` — template Hard Block com 3 camadas (Soft Signal → Hard Block → Override Documentado) + rastreamento de recorrência + hook CI/CD pendente
-- `QUADRILATERAL_UNIVERSAL/OPERACAO/AVISO_ARQUITETO.md` v2.0 — 5 Anti-Padrões + Hard Vetos (HV-1 a HV-5) + Soft Vetos (SV-1 a SV-5) + Session Startup Protocol
+- `PENTALATERAL_UNIVERSAL/OPERACAO/AVISO_ARQUITETO.md` v2.0 — 5 Anti-Padrões + Hard Vetos (HV-1 a HV-5) + Soft Vetos (SV-1 a SV-5) + Session Startup Protocol
 - Hard Veto HV-5 constitucionalizado: Claude Code ≠ daemon — arquitetura daemon requer Claude API via n8n
 
 ### Camada 4 — Parecer Técnico + Unified Voice
@@ -76,15 +76,15 @@ payback_meses: 1
 - Falhas encontradas no Role-Swap: pgvector YAGNI (friction_count=5) · CI/CD hook sem pipeline · Haiku auditor (complexidade > problema)
 
 ### Camada 5 — Modelo Universal v5.0 + VANGUARD_HISTORICO
-- `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` v5.1 — VEREDITO BINÁRIO + Shadow Architect + Intelligence Compounding Engine
-- `QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md` v5.0 — Session Startup Protocol + Adversarial Review (Role-Swap) + Intelligence Compounding na Fase 5
-- `QUADRILATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md` v1.3 — Ritual de Fechamento de Sessão integrado
-- `QUADRILATERAL_UNIVERSAL/OPERACAO/ALERTA_CONFLITO.md` — protocolo Sovereign Veto para qualquer projeto
-- `QUADRILATERAL_UNIVERSAL/TEMPLATES/CONSELHO_SESSAO_TEMPLATE.md` — deliberação síncrona dos 4 membros
-- `QUADRILATERAL_UNIVERSAL/TEMPLATES/FASE_5__INTELLIGENCE_LEDGER_TEMPLATE.md` — template vazio do organismo
-- `QUADRILATERAL_UNIVERSAL/TEMPLATES/PARECER_UNIFICADO_TEMPLATE.md` — template Unified Voice
-- `QUADRILATERAL_UNIVERSAL/TEMPLATES/knowledge_graph_TEMPLATE.json` — schema programático vazio
-- `QUADRILATERAL_UNIVERSAL/TEMPLATES/friction_log_TEMPLATE.json` — schema de fricção com todos os tipos
+- `PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md` v5.1 — VEREDITO BINÁRIO + Shadow Architect + Intelligence Compounding Engine
+- `PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md` v5.0 — Session Startup Protocol + Adversarial Review (Role-Swap) + Intelligence Compounding na Fase 5
+- `PENTALATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md` v1.3 — Ritual de Fechamento de Sessão integrado
+- `PENTALATERAL_UNIVERSAL/OPERACAO/ALERTA_CONFLITO.md` — protocolo Sovereign Veto para qualquer projeto
+- `PENTALATERAL_UNIVERSAL/TEMPLATES/CONSELHO_SESSAO_TEMPLATE.md` — deliberação síncrona dos 4 membros
+- `PENTALATERAL_UNIVERSAL/TEMPLATES/FASE_5__INTELLIGENCE_LEDGER_TEMPLATE.md` — template vazio do organismo
+- `PENTALATERAL_UNIVERSAL/TEMPLATES/PARECER_UNIFICADO_TEMPLATE.md` — template Unified Voice
+- `PENTALATERAL_UNIVERSAL/TEMPLATES/knowledge_graph_TEMPLATE.json` — schema programático vazio
+- `PENTALATERAL_UNIVERSAL/TEMPLATES/friction_log_TEMPLATE.json` — schema de fricção com todos os tipos
 - `VANGUARD_HISTORICO/` — separação modelo universal vs. jornada Vanguard V1-V24
 
 ### Scripts
@@ -108,7 +108,7 @@ Scripts que já existem e foram atualizados:
 
 ## COMO RODAR / RITUAL DE USO
 
-### Fechar qualquer sessão do Quadrilateral:
+### Fechar qualquer sessão do Pentalateral:
 ```powershell
 .\scripts\session_close.ps1
 # 4 perguntas (30 segundos) → atualiza LEDGER + knowledge_graph
@@ -133,12 +133,12 @@ Write-Host "Última atualização: $($kg.meta.last_updated)"
 
 ### Para o negócio (impacto imediato):
 1. **Intelligence-as-a-Service** — vender LEDGER como entregável. ROI: lock-in + R$2k-5k/projeto
-2. **Franchise Quadrilateral** — licenciar modelo v5.0. Material pronto. ROI: R$4k-10k/mês com 10 franqueados
+2. **Franchise Pentalateral** — licenciar modelo v5.0. Material pronto. ROI: R$4k-10k/mês com 10 franqueados
 3. **Primeiro cliente real** — GUT de prospecção = 125. O organismo está pronto para servir
 
 ### Para o modelo (maturidade):
 4. **Session Replay Protocol** — registrar cadeia de deliberação no friction.log. Base para Auditor V2
-5. **Quadrilateral Health Score** — badge público por cliente. Prova social tangível e auditável
+5. **Pentalateral Health Score** — badge público por cliente. Prova social tangível e auditável
 
 ---
 
@@ -146,7 +146,7 @@ Write-Host "Última atualização: $($kg.meta.last_updated)"
 
 Músculo,
 
-Quando abrires esta memória, o Quadrilateral está em V24 — o momento em que o organismo virou meta-cognitivo.
+Quando abrires esta memória, o Pentalateral está em V24 — o momento em que o organismo virou meta-cognitivo.
 
 O que NÃO está nos arquivos e precisas de saber:
 · O Eduardo quer construir inteligência exponencial — não só entregar projetos. Qualquer V25 deve ter isso em mente
@@ -156,7 +156,7 @@ O que NÃO está nos arquivos e precisas de saber:
 
 O que correu melhor do que esperava:
 · O Role-Swap encontrou 3 falhas reais na DIRETRIZ do Estrategista antes de construirmos qualquer linha de código. Isso é o protocolo funcionando como foi desenhado
-· O QUADRILATERAL_UNIVERSAL v5.0 está genuinamente maduro para licenciamento
+· O PENTALATERAL_UNIVERSAL v5.0 está genuinamente maduro para licenciamento
 
 O que eu faria diferente:
 · Teria corrido o session_close.ps1 ao final da sessão ao vivo com o Eduardo, não apenas criado o script
@@ -190,9 +190,9 @@ O que existe agora que não existia antes:
 
 **O processo tem constituição.** O Músculo (Claude Code) agora tem poder de veto formal com 3 camadas: alerta suave, bloqueio total e override documentado com assinatura do Diretor. Não é retórica — é protocolo constitucionalizado que impede que as mesmas decisões erradas se repitam.
 
-**O modelo é portátil.** O QUADRILATERAL_UNIVERSAL está na versão 5.0 com 10 templates, protocolo completo e manual do operador. Outro profissional pode pegar esse material hoje e operar um Quadrilateral para os clientes dele sem começar do zero.
+**O modelo é portátil.** O PENTALATERAL_UNIVERSAL está na versão 5.0 com 10 templates, protocolo completo e manual do operador. Outro profissional pode pegar esse material hoje e operar um Pentalateral para os clientes dele sem começar do zero.
 
-**A história está organizada.** As 24 versões de jornada foram separadas da metodologia universal. O VANGUARD_HISTORICO guarda o que aprendemos. O QUADRILATERAL_UNIVERSAL guarda o que ensinamos.
+**A história está organizada.** As 24 versões de jornada foram separadas da metodologia universal. O VANGUARD_HISTORICO guarda o que aprendemos. O PENTALATERAL_UNIVERSAL guarda o que ensinamos.
 
 ---
 
@@ -231,7 +231,7 @@ O A- (não A) é pela ausência de contato comercial. O organismo está pronto. 
 | Iniciativa | Investimento | Retorno estimado | Prazo |
 |---|---|---|---|
 | Intelligence-as-a-Service | 0 (já construído) | +R$2k-5k por projeto | 30-60 dias |
-| Franchise Quadrilateral | 20h de formação | R$3k-8k por licença + R$500/projeto royalty | 60-90 dias |
+| Franchise Pentalateral | 20h de formação | R$3k-8k por licença + R$500/projeto royalty | 60-90 dias |
 | Primeiro cliente real | 1 ligação de 30 min | R$3k-15k (Camada 1-2) | 7-14 dias |
 
 Retorno direto da V24 em código: R[COLAR AQUI O CONTEÚDO COMPLETO DE relatorio_evolutivo_vxx.md] (sessão interna).
@@ -246,7 +246,7 @@ Retorno indireto em valor do modelo: estimado em R$50k+ (material de licenciamen
 **1. Intelligence-as-a-Service**
 Vender o INTELLIGENCE_LEDGER como parte do entregável. O cliente recebe o acervo de princípios do negócio dele ao final de cada iteração. Nenhuma agência faz isso. Impacto: lock-in + diferencial de proposta + R$2k-5k de upsell por projeto.
 
-**2. Franchise Quadrilateral**
+**2. Franchise Pentalateral**
 Licenciar o modelo v5.0 para outros profissionais. O material existe. Falta estrutura de formação (4 sessões de 2h) e proposta comercial. Impacto: R$4k-10k/mês com 10 franqueados ativos fazendo 2 projetos/mês. Sem custo operacional adicional para Eduardo.
 
 **3. Friction Intelligence Report**
@@ -255,7 +255,7 @@ Um relatório setorial baseado nos dados reais do friction.log — as falhas mai
 **4. Session Replay Protocol**
 Adicionar `deliberation_chain` ao friction.log: proposta → objeção → decisão → resultado 30 dias depois. Em 100 sessões, o padrão de quando o Músculo deve vetar vs. ceder emerge dos dados. Base para o Auditor V2 com busca semântica real. Implementação: 10 campos adicionais no schema JSON.
 
-**5. Quadrilateral Health Score**
+**5. Pentalateral Health Score**
 Badge público mensal por cliente: nota composta de princípios ativos + tendência GUT + ROI entregue vs. prometido. Clientes com Score alto viram prova social tangível. Concorrentes levam anos para replicar — porque não têm os dados. Requisito técnico: dashboard simples de cálculo do score por projeto.
 
 ---
@@ -291,7 +291,7 @@ Badge público mensal por cliente: nota composta de princípios ativos + tendên
 
 ## O QUE PRECISO DE TI, GEMINI
 
-Assuma o seu papel de **Arquitecto de IA e Estrategista do Conselho Quadrilateral**. Responde com exactamente esta estrutura em **4 blocos**:
+Assuma o seu papel de **Arquitecto de IA e Estrategista do Conselho Pentalateral**. Responde com exactamente esta estrutura em **4 blocos**:
 
 ---
 

@@ -1,4 +1,4 @@
-# VANGUARD BUSINESS RULES — Repositório Central
+﻿# VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
 > **Versão actual:** V17 — Sovereign Intent Engine  
 > **Última actualização:** 2026-05-10  
@@ -965,7 +965,7 @@ Verificação para o plano Agency actual:
 ---
 
 ## §21 — Protocolo de Invasão Soberana e Segurança WABA (V15)
-> *Exigido pelo Conselho Quadrilateral. Leis de Sobrevivência e Expansão Agressiva.*
+> *Exigido pelo Conselho Pentalateral. Leis de Sobrevivência e Expansão Agressiva.*
 
 ### 21.1 Lei do Escudo WABA — Sobrevivência da Operação
 A number de WhatsApp Business (WABA) é o activo mais crítico e mais frágil da operação Hermes. A sua perda por banimento paralisa a prospecção. Esta lei é **imutável e inviolável**:
@@ -1063,7 +1063,7 @@ O cockpit deve exibir permanentemente:
 - **Mensagem de abertura:** obrigatoriamente menciona o domínio analisado, o score e a receita perdida estimada. Mensagens genéricas são proibidas.
 - **Meta por versão:** ≥ 20 novos contactos após cada fechamento de versão.
 
-### 23.5 Protocolo Colaborativo — Regras do Conselho Quadrilateral
+### 23.5 Protocolo Colaborativo — Regras do Conselho Pentalateral
 
 - O Gemini propõe obrigatoriamente **5 ideias disruptivas para a próxima versão** na sua DIRETRIZ. Não é opcional.
 - O Claude avalia as ordens do Gemini com perspectiva técnica antes de executar. Se identificar risco arquitectural, comunica ao Diretor antes de construir.

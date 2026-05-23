@@ -1,4 +1,4 @@
-# Design Spec — Intelligence Compounding Engine (V24)
+﻿# Design Spec — Intelligence Compounding Engine (V24)
 **Data:** 2026-05-12
 **Versão:** 1.0
 **Aprovado por:** Diretor Eduardo
@@ -7,7 +7,7 @@
 
 ## Objetivo
 
-Transformar o Quadrilateral IAH num organismo que acumula inteligência por sessão — não por versão. Cada decisão, fricção e princípio descoberto vira conhecimento permanente e reutilizável na próxima sessão.
+Transformar o Pentalateral IAH num organismo que acumula inteligência por sessão — não por versão. Cada decisão, fricção e princípio descoberto vira conhecimento permanente e reutilizável na próxima sessão.
 
 ## Problema
 
@@ -25,8 +25,8 @@ As 23 versões aprenderam, mas o aprendizado ficou preso no formato errado: MEMO
 | `INTELLIGENCE_LEDGER.md` | raiz do projeto | Músculo — durante e após cada sessão |
 | `knowledge_graph.json` | raiz do projeto | Músculo — ao fechar cada sessão |
 | Constituição de Processo | `AVISO_ARQUITETO.md` | Músculo — Hard/Soft Vetos |
-| Template `CONSELHO_SESSAO` | `QUADRILATERAL_UNIVERSAL/TEMPLATES/` | Diretor — antes de sessões complexas |
-| Shadow Architect section | `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | Músculo — seção nova no PLANO DE BUILD |
+| Template `CONSELHO_SESSAO` | `PENTALATERAL_UNIVERSAL/TEMPLATES/` | Diretor — antes de sessões complexas |
+| Shadow Architect section | `MEMORANDO_PENTALATERAL_UNIVERSAL.md` | Músculo — seção nova no PLANO DE BUILD |
 
 ## Eventos Capturados por Sessão
 

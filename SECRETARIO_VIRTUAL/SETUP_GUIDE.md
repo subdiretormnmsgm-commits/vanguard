@@ -1,5 +1,5 @@
-# SETUP DO SECRETÁRIO VIRTUAL — GUIA COMPLETO
-**Quadrilateral IAH · Fase 1 · Tempo de setup: ~2 horas**
+﻿# SETUP DO SECRETÁRIO VIRTUAL — GUIA COMPLETO
+**Pentalateral IAH · Fase 1 · Tempo de setup: ~2 horas**
 **Versão:** 1.0 · 2026-05-11
 
 ---
@@ -267,5 +267,5 @@ SECRETARIO_VIRTUAL/
 
 ---
 
-*Secretário Virtual · Quadrilateral IAH · Fase 1 · V1.0*
+*Secretário Virtual · Pentalateral IAH · Fase 1 · V1.0*
 *Setup: ~2 horas · Custo: $5–10/mês · Resultado: briefings automáticos no email*

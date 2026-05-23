@@ -84,9 +84,9 @@ foreach ($proj in $projetos) {
         $novo = $c -replace 'P-001 a P-\d{3}', $pRange
         if ($novo -ne $c) { $mudancas += "principios -> $pRange"; $c = $novo }
 
-        # Nomenclatura Quadrilateral -> Pentalateral IAH
-        $novo = $c -replace 'Quadrilateral IAH V\d+', 'Pentalateral IAH'
-        $novo = $novo -replace 'Quadrilateral IAH', 'Pentalateral IAH'
+        # Nomenclatura Pentalateral -> Pentalateral IAH
+        $novo = $c -replace 'Pentalateral IAH V\d+', 'Pentalateral IAH'
+        $novo = $novo -replace 'Pentalateral IAH', 'Pentalateral IAH'
         if ($novo -ne $c) { $mudancas += "nomenclatura -> Pentalateral IAH"; $c = $novo }
 
         # V25 residual em contexto "V25 --" ou "(V25)"
@@ -147,7 +147,7 @@ $socioSrc    = Join-Path $BASE "CONSELHO\NotebookLM\ANALISE_SOCIO_ATUAL.txt"
 
 $baseNomes = @(
     "01_SKILL_PROTOCOLO_VANGUARD",
-    "02_MEMORANDO_QUADRILATERAL",
+    "02_MEMORANDO_PENTALATERAL",
     "03_MANUAL_DIRETOR",
     "04_INTELLIGENCE_LEDGER",
     "05_PROCESSO_EVOLUTIVO",
@@ -173,7 +173,7 @@ foreach ($proj in $projetos) {
         if (-not (Test-Path $srcArq)) { continue }
 
         $conteudo = [System.IO.File]::ReadAllText($srcArq, [System.Text.Encoding]::UTF8)
-        $conteudo = $conteudo.Replace('Quadrilateral IAH', 'Pentalateral IAH')
+        $conteudo = $conteudo.Replace('Pentalateral IAH', 'Pentalateral IAH')
         $conteudo = $conteudo.Replace('agora com 4 membros', 'agora com 5 membros')
 
         $escrever = $true
@@ -209,7 +209,7 @@ foreach ($proj in $projetos) {
     # 08_ANALISE_SOCIO_ATUAL.txt
     if (Test-Path $socioSrc) {
         $socioConteudo = [System.IO.File]::ReadAllText($socioSrc, [System.Text.Encoding]::UTF8)
-        $socioConteudo = $socioConteudo.Replace('Quadrilateral IAH', 'Pentalateral IAH')
+        $socioConteudo = $socioConteudo.Replace('Pentalateral IAH', 'Pentalateral IAH')
         $socioDst = "$fontesDir\08_ANALISE_SOCIO_ATUAL.txt"
         $escrever = $true
         if (Test-Path $socioDst) {
@@ -227,7 +227,7 @@ foreach ($proj in $projetos) {
     # VANGUARD_TIMELINE (arquivo variavel por projeto)
     if (Test-Path $timelineSrc) {
         $tlConteudo = [System.IO.File]::ReadAllText($timelineSrc, [System.Text.Encoding]::UTF8)
-        $tlConteudo = $tlConteudo.Replace('Quadrilateral IAH', 'Pentalateral IAH')
+        $tlConteudo = $tlConteudo.Replace('Pentalateral IAH', 'Pentalateral IAH')
         $tlArqs = Get-ChildItem $fontesDir -Filter "*VANGUARD_TIMELINE*" -ErrorAction SilentlyContinue
         if ($tlArqs) {
             $tlDst = $tlArqs[0].FullName

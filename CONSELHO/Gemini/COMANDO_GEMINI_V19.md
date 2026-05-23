@@ -1,4 +1,4 @@
-════════════════════════════════════════════════════════════
+﻿════════════════════════════════════════════════════════════
 INÍCIO DO COMANDO — COPIAR A PARTIR DAQUI
 ════════════════════════════════════════════════════════════
 
@@ -46,8 +46,8 @@ Somos uma **IAH — Inteligência Artificial Humana**: uma fábrica de produtos 
 | Arquivo | Alteração |
 |---------|-----------|
 | js/supabase.js | saveLeadDiagnostico aceita metadata JSONB (scores P/A/C/R + quadrant_weak) |
-| index.html | Canvas neural-hero + quiz Quadrilateral 7 perguntas + WhatsApp fallback href |
-| js/quiz.js | Diagnóstico Quadrilateral completo: scoring matrix, preview bloqueado C+R, recomendação por quadrante |
+| index.html | Canvas neural-hero + quiz Pentalateral 7 perguntas + WhatsApp fallback href |
+| js/quiz.js | Diagnóstico Pentalateral completo: scoring matrix, preview bloqueado C+R, recomendação por quadrante |
 | assets/css/v16-elite.css | Estilos quiz: quad-badge, card-grid, quad-bar com transition 800ms, preview-risk, rec card |
 
 ## Arquitetura V19
@@ -224,7 +224,7 @@ Antes de responder à DIRETRIZ V20, lê este plano de implementação que o Dire
 
 ## O QUE PRECISO DE TI, GEMINI
 
-Assuma o seu papel de **Sócio Estrategista do Conselho Quadrilateral**. Responde com exactamente esta estrutura em **5 blocos**:
+Assuma o seu papel de **Sócio Estrategista do Conselho Pentalateral**. Responde com exactamente esta estrutura em **5 blocos**:
 
 ---
 

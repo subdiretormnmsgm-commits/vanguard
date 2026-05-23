@@ -1,8 +1,8 @@
-# ANÁLISE DO EMBAIXADOR — PROJ-001 VALDECE
+﻿# ANÁLISE DO EMBAIXADOR — PROJ-001 VALDECE
 **Para:** Músculo (Claude Code)  
 **De:** Embaixador (Claude Projects — PROJ-001)  
 **Data:** 2026-05-19  
-**Fontes:** LEDGER P-001→P-035 · WIP_BOARD · DIRETRIZ V3 · MEMORIA V24 · RELATORIO V24 · TEMPLATE RELATORIO V2 · CALIBRACAO_QUADRILATERAL · COMANDO_AUDITOR_V1  
+**Fontes:** LEDGER P-001→P-035 · WIP_BOARD · DIRETRIZ V3 · MEMORIA V24 · RELATORIO V24 · TEMPLATE RELATORIO V2 · CALIBRACAO_PENTALATERAL · COMANDO_AUDITOR_V1  
 **Classificação:** Inteligência acumulada de case fundacional — alimentar loop evolutivo imediatamente
 
 ---
@@ -333,7 +333,7 @@ Três ações que dependem do Músculo executar nesta sessão:
 P-novo-A (cena de sucesso no discovery) e P-novo-B (gate como ativo de nicho). Numeração sequencial após verificar o estado atual do LEDGER. O Diretor aprova antes do commit.
 
 **Ação 2 — Atualizar o PROCESSO_EVOLUTIVO — Passo 2**
-A seção Discovery deve incluir as 8 perguntas com a P2 e P8 marcadas como obrigatórias. A P6 deve ser expandida para cobrir limites explícitos de escopo. Arquivo: `PROCESSO_EVOLUTIVO_QUADRILATERAL.md`.
+A seção Discovery deve incluir as 8 perguntas com a P2 e P8 marcadas como obrigatórias. A P6 deve ser expandida para cobrir limites explícitos de escopo. Arquivo: `PROCESSO_EVOLUTIVO_PENTALATERAL.md`.
 
 **Ação 3 — Atualizar o perfil LegalTech-Criminal no WIP_BOARD**
 Maturidade atual: 50%. Após gate P-038 aprovado: subir para 75%. Para 100%: demo executada + contrato assinado + 14 dias de uso real com Sentinel Report confirmado. Incluir no perfil: as 12 queries do gate + threshold padrão (0.45) + queries coringa (HC + tráfico privilegiado, sim 0.80+).

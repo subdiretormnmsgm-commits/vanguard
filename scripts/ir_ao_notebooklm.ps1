@@ -1,5 +1,5 @@
-# ir_ao_notebooklm.ps1
-# Quadrilateral IAH - V25
+﻿# ir_ao_notebooklm.ps1
+# Pentalateral IAH - V25
 #
 # QUANDO RODAR: sempre que for iniciar sessao com o Auditor (NotebookLM).
 # O Musculo roda este script automaticamente ao detectar intencao de ir ao NotebookLM.
@@ -24,7 +24,7 @@ $raiz = $PSScriptRoot | Split-Path -Parent
 
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Cyan
-Write-Host "  QUADRILATERAL IAH -- Indo ao Auditor           " -ForegroundColor Cyan
+Write-Host "  Pentalateral IAH -- Indo ao Auditor           " -ForegroundColor Cyan
 Write-Host "=================================================" -ForegroundColor Cyan
 Write-Host ""
 

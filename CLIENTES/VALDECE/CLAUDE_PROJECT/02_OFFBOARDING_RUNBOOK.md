@@ -1,4 +1,4 @@
-# PROTOCOLO DE GARANTIA SOBERANA — DR. VALDECE
+﻿# PROTOCOLO DE GARANTIA SOBERANA — DR. VALDECE
 **Toga Digital · Jurisprudência Semântica STF/STJ**
 **Emitido em:** 2026-05-19 | **Protocolo:** HV-6 — Soberania Absoluta do Cliente
 **Tempo estimado de offboarding completo:** 15 minutos
@@ -125,4 +125,4 @@ Se surgir qualquer dúvida, suporte disponível em: subdiretor.mnmsgm@gmail.com
 ---
 
 *Protocolo de Garantia Soberana — Toga Digital · Vanguard IAH · 2026-05-19*
-*Baseado no HV-6 — Soberania Absoluta do Cliente · Quadrilateral IAH*
+*Baseado no HV-6 — Soberania Absoluta do Cliente · Pentalateral IAH*

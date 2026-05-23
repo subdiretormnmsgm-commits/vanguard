@@ -1,4 +1,4 @@
-# QUADRILATERAL IAH — Sistema de Autonomia
+﻿# PENTALATERAL IAH — Sistema de Autonomia
 
 ## O que foi implementado (3 alavancas)
 
@@ -69,5 +69,5 @@ LEDGER_PATH=ledger_state.json  # opcional, default: ledger_state.json na raiz
 ## Rodar testes
 
 ```bash
-pytest tests/test_quadrilateral.py -v
+pytest tests/test_pentalateral.py -v
 ```

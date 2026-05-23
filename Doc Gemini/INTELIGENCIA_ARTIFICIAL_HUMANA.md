@@ -1,4 +1,4 @@
-# INTELIGÊNCIA ARTIFICIAL HUMANA — Modelo 2.0
+﻿# INTELIGÊNCIA ARTIFICIAL HUMANA — Modelo 2.0
 > **Versão:** 2.0 · Redesenhada em 2026-05-10  
 > **Conceito:** Uma fábrica de produtos digitais operada por 1 humano + 3 IAs  
 > **Propósito:** Transformar qualquer ideia em produto digital — mais rápido e mais barato do que qualquer agência do mercado
@@ -43,7 +43,7 @@ IAH — INTELIGÊNCIA ARTIFICIAL HUMANA
 
 ```
                         ┌─────────────────────────────────┐
-   QUALQUER PROJETO →   │     CONSELHO QUADRILATERAL       │   → PRODUTO REAL
+   QUALQUER PROJETO →   │     CONSELHO PENTALATERAL       │   → PRODUTO REAL
                         │                                 │
    E-commerce?          │  DIRETOR      GEMINI            │   Funcionando.
    App mobile?          │  (Veredito)   (Estrategista)    │   No ar.

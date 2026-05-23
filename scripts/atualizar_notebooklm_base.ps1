@@ -1,5 +1,5 @@
 ﻿# atualizar_notebooklm_base.ps1
-# Quadrilateral IAH - V26
+# PENTALATERAL IAH - V26
 #
 # QUANDO RODAR: sempre que qualquer documento universal evoluir.
 # - Apos atualizar SKILL_PROTOCOLO_VANGUARD.md
@@ -22,7 +22,7 @@ $dest  = "$raiz\PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
 
 Write-Host ""
 Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host " QUADRILATERAL IAH - Atualizar NotebookLM BASE   " -ForegroundColor Cyan
+Write-Host " PENTALATERAL IAH - Atualizar NotebookLM BASE   " -ForegroundColor Cyan
 Write-Host "==================================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -119,8 +119,8 @@ $documentos = @(
     @{ Num = "02"; Nome = "MEMORANDO_PENTALATERAL_UNIVERSAL.md";  Origem = "$raiz\PENTALATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_PENTALATERAL_UNIVERSAL.md" },
     @{ Num = "03"; Nome = "MANUAL_DIRETOR.md";                     Origem = "$raiz\PENTALATERAL_UNIVERSAL\OPERACAO\MANUAL_DIRETOR.md" },
     @{ Num = "04"; Nome = "INTELLIGENCE_LEDGER.md";                Origem = "$raiz\INTELLIGENCE_LEDGER.md" },
-    @{ Num = "05"; Nome = "PROCESSO_EVOLUTIVO_QUADRILATERAL.md";   Origem = "$raiz\PENTALATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md" },
-    @{ Num = "06"; Nome = "TEMPLATES_COMUNICACAO_QUADRILATERAL.md";Origem = "$raiz\PENTALATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md" },
+    @{ Num = "05"; Nome = "PROCESSO_EVOLUTIVO_PENTALATERAL.md";   Origem = "$raiz\PENTALATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_PENTALATERAL.md" },
+    @{ Num = "06"; Nome = "TEMPLATES_COMUNICACAO_PENTALATERAL.md";Origem = "$raiz\PENTALATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_PENTALATERAL.md" },
     @{ Num = "08"; Nome = "ANALISE_SOCIO_ATUAL.txt";               Origem = "$raiz\CONSELHO\NotebookLM\ANALISE_SOCIO_ATUAL.txt" }
 )
 

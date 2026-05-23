@@ -70,7 +70,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 **Descoberto:** 2026-05-12 | **Sessão:** V24 Intelligence Engine
 **Evidência:** 23 versões aprenderam, mas o aprendizado ficou preso em MEMORIAs que descrevem "o que foi feito", não "o princípio descoberto". Lag de semanas entre fricção e princípio.
 **Princípio:** Todo ALERTA emitido, toda fricção, todo override do Diretor → capturado imediatamente neste LEDGER. O princípio é extraído na mesma sessão, não na próxima versão.
-**Aplica-se a:** toda sessão do Quadrilateral.
+**Aplica-se a:** toda sessão do Pentalateral.
 
 ---
 
@@ -88,7 +88,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 | 5 — Monopólio | Ativo de setor | 3–6 meses | 20–30 loops | Loop semanal fixo |
 
 **Regra de ouro:** Loop acontece quando há output real para deliberar — gate passado, módulo entregue, decisão de arquitetura tomada, cliente reagindo. Nunca por calendário fixo sem evidência nova.
-**Aplica-se a:** todo projeto gerido pelo Quadrilateral. Definir o número de loops no Passo 7 (aprovação do plano).
+**Aplica-se a:** todo projeto gerido pelo Pentalateral. Definir o número de loops no Passo 7 (aprovação do plano).
 
 ---
 
@@ -115,7 +115,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 | Proposta → execução | Veredito explícito do Diretor — nunca iniciar sem aprovação |
 
 **Por que importa:** Avançar por assumição é o padrão de falha mais comum em build rápido. Uma UI bonita sobre corpus ruim é fachada. Um commit sem review é débito técnico disfarçado de velocidade. O Gate valida — o produto entrega.
-**Aplica-se a:** todo projeto do Quadrilateral, toda etapa de build, toda entrega a cliente.
+**Aplica-se a:** todo projeto do Pentalateral, toda etapa de build, toda entrega a cliente.
 
 ---
 
@@ -133,7 +133,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ---
 
 ### [P-007] Template colado em IA = alucinação estrutural
-**Descoberto:** 2026-05-13 | **Sessão:** PROJETO_001 — Valdece / Padronização do Quadrilateral
+**Descoberto:** 2026-05-13 | **Sessão:** PROJETO_001 — Valdece / Padronização do Pentalateral
 **Evidência:** Criamos templates de comunicação com campos `[entre colchetes]`. Diretor identificou que colar isso diretamente no Gemini faz ele preencher os campos mecanicamente sem deliberar sobre o projeto real — alucina na estrutura em vez de pensar no contexto.
 **Princípio:** Templates são referência para o Músculo escrever documentos completos — nunca scripts para colar em IAs. O Músculo lê o template + lê o contexto real + escreve o documento pronto. A IA recebe contexto, não formulário.
 **Aplica-se a:** qualquer comunicação com Gemini, NotebookLM ou qualquer outro modelo — COMANDO 1, COMANDO 2, qualquer prompt estruturado.
@@ -177,14 +177,14 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 - `scripts/email_fechamento.ps1` — envia e-mail de fechamento de sessão
 - `scripts/alert_teste_email.ps1` — teste do sistema
 O Músculo aciona `email_fechamento.ps1` ao fechar qualquer sessão. Nunca recriar ou alterar `alert_config.ps1` sem instrução explícita do Diretor.
-**Aplica-se a:** toda sessão do Quadrilateral — qualquer projeto, qualquer cliente.
+**Aplica-se a:** toda sessão do Pentalateral — qualquer projeto, qualquer cliente.
 
 ---
 
 ### [P-018] O Diretor é o 4º LLM — Orquestração Dinâmica de Deficiências como Vantagem Competitiva
 **Descoberto:** 2026-05-16 | **Sessão:** Opinião Consultora #01 — construção colaborativa Diretor + Músculo
-**Evidência:** Ao construir a Ideia Disruptiva da Opinião #01, Eduardo articulou: a vantagem real do Quadrilateral não é usar IA — é saber usar a deficiência de cada IA contra a deficiência das outras. Gemini alucina com otimismo → Claude âncora com custo real. Claude tem amnésia → NotebookLM âncora com histórico. NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos. O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas, não apesar delas.
-**Princípio:** O Quadrilateral tem três funções constitucionais separadas. Os 3 LLMs são a válvula motriz com **comportamento ativo** — não passivo. Estão em looping evolutivo permanente: geram ideias, combatem as deficiências uns dos outros, acumulam padrões ciclo a ciclo, protegidos por firewalls persistentes (contra-ataques de deficiência estruturalmente embutidos, não dependentes de memória). O Diretor contribui com opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 3 LLMs e evoluídas por eles. Ao final, dá o Veredito soberano. A cada etapa, a cada processo, a cada projeto, o sistema fica mais inteligente e os processos mais definidos — acumulação exponencial que torna o modelo de negócio imbatível.
+**Evidência:** Ao construir a Ideia Disruptiva da Opinião #01, Eduardo articulou: a vantagem real do Pentalateral não é usar IA — é saber usar a deficiência de cada IA contra a deficiência das outras. Gemini alucina com otimismo → Claude âncora com custo real. Claude tem amnésia → NotebookLM âncora com histórico. NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos. O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas, não apesar delas.
+**Princípio:** O Pentalateral tem três funções constitucionais separadas. Os 3 LLMs são a válvula motriz com **comportamento ativo** — não passivo. Estão em looping evolutivo permanente: geram ideias, combatem as deficiências uns dos outros, acumulam padrões ciclo a ciclo, protegidos por firewalls persistentes (contra-ataques de deficiência estruturalmente embutidos, não dependentes de memória). O Diretor contribui com opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 3 LLMs e evoluídas por eles. Ao final, dá o Veredito soberano. A cada etapa, a cada processo, a cada projeto, o sistema fica mais inteligente e os processos mais definidos — acumulação exponencial que torna o modelo de negócio imbatível.
 **Aplica-se a:** toda proposta de substituir o processo por execução direta ou reduzir a tensão entre os LLMs. O comportamento ativo e o looping cíclico são a fonte da vantagem composta. Reduzir a tensão é reduzir a inteligência. Os firewalls persistentes não são burocracia — são o que impede a deriva silenciosa que mata sistemas complexos.
 
 ---
@@ -221,11 +221,11 @@ Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do Not
 **Evidência concreta:** Eduardo identificou 5 falhas que o Músculo não detectou. Eduardo originou a necessidade do contrato com clientes. Eduardo propôs o uso do NotebookLM como auditor jurídico (advogado do processo). Todas estas inovações vieram do Diretor, não do Conselho.
 **Princípio:** O Músculo implementa. O Gemini propõe estratégia. O NotebookLM audita o histórico. Mas a **direção estratégica e as inovações de processo** vêm de Eduardo. Quando o Diretor propõe algo novo — contrato, nova função para um membro do Conselho, nova regra — essa proposta tem peso maior do que qualquer saída dos membros. O sistema existe para amplificar a inteligência do Diretor, não substituí-la.
 **Corolário:** O Músculo que não detectou uma falha antes do Diretor deve perguntar: "Por que meu sistema de auto-proteção falhou aqui?" e gerar ferramenta. O Diretor não deve ser o detector primário de falhas de processo — quando é, o sistema falhou.
-**Aplica-se a:** toda interação. O Quadrilateral é um amplificador da inteligência de Eduardo — não uma cadeia autônoma que o Diretor apenas valida.
+**Aplica-se a:** toda interação. O Pentalateral é um amplificador da inteligência de Eduardo — não uma cadeia autônoma que o Diretor apenas valida.
 
 ---
 
-### [P-022] NotebookLM como advogado do processo — auditor jurídico do Quadrilateral
+### [P-022] NotebookLM como advogado do processo — auditor jurídico do Pentalateral
 **Descoberto:** 2026-05-16 | **Proposto por:** Eduardo (intervenção direta do Diretor)
 **Evidência:** Eduardo identificou que o Auditor, ao cruzar histórico com DIRETRIZ atual, opera como um advogado — levanta objeções com base em precedentes, não valida por momentum.
 **Princípio:** O NotebookLM deve ser usado como auditor jurídico em decisões estratégicas de alto risco: (a) contratos com clientes — cruzar com padrões anteriores de entrega, (b) mudanças de arquitetura — verificar se viola decisões fixadas, (c) mudanças de pricing — verificar consistência com modelo de negócio. Auditor como advogado = sistema de precedentes, não de sugestões.
@@ -409,7 +409,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [SESSÃO 2026-05-16] — Evolução Constitucional · Opinião Consultora #01 · P-018
 
-**Direção da sessão:** Sessão inteiramente filosófica e constitucional. Nenhum build executado. Foco em clarificar e documentar a arquitetura de papéis do Quadrilateral IAH com precisão crescente — através de refinamentos sucessivos propostos pelo Diretor.
+**Direção da sessão:** Sessão inteiramente filosófica e constitucional. Nenhum build executado. Foco em clarificar e documentar a arquitetura de papéis do Pentalateral IAH com precisão crescente — através de refinamentos sucessivos propostos pelo Diretor.
 
 **Eventos capturados:**
 
@@ -467,7 +467,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [SESSÃO 2026-05-12] — V24 Intelligence Compounding Engine
 
-**Direção da sessão:** Construção da inteligência evolutiva do Quadrilateral — sistema de acumulação por sessão.
+**Direção da sessão:** Construção da inteligência evolutiva do Pentalateral — sistema de acumulação por sessão.
 
 **Eventos capturados:**
 
@@ -499,7 +499,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 `[FRICÇÃO]` Músculo entrou na Etapa 4 (build) antes da Etapa 2 (Gemini) e Etapa 3 (NotebookLM). Corrigido após sinalização do Diretor.
 
-`[FRICÇÃO]` Processo do Quadrilateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
+`[FRICÇÃO]` Processo do Pentalateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
 
 `[CONFIRMADO]` Algoritmo de qualificação BLOCO A funcionou: 3 respostas fortes = GO imediato. Prazo de 5 dias confirmado como restrição real, não negociável.
 
@@ -776,9 +776,9 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 ### [FALHA-PROCESSO-2026-05-18-B] PASSO files não cobertos pela sincronização de nomenclatura
 
 **Detectado por:** Diretor Eduardo
-**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Quadrilateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem PENTALATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
+**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Pentalateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem PENTALATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
 
-**Regra gerada:** Ao fazer qualquer migração de nomenclatura do sistema, a varredura obrigatória inclui: `CLIENTES/**/PASSO*.md`. Estes arquivos não são gerados por script — são editados manualmente. Criação de ferramenta de varredura: `grep -r "Quadrilateral IAH" CLIENTES/**/*.md` como parte do ritual de migração.
+**Regra gerada:** Ao fazer qualquer migração de nomenclatura do sistema, a varredura obrigatória inclui: `CLIENTES/**/PASSO*.md`. Estes arquivos não são gerados por script — são editados manualmente. Criação de ferramenta de varredura: `grep -r "Pentalateral IAH" CLIENTES/**/*.md` como parte do ritual de migração.
 
 **Arquivos corrigidos:** INGRID/PASSO3, INGRID/PASSO5, INGRID/NOTEBOOKLM_FONTES/13, VALDECE/PASSO5
 
@@ -815,7 +815,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [P-033] Sync universal → projetos é obrigatório e imediato
 **Descoberto:** 2026-05-18 | **Sessão:** Auditoria Pentalateral — preparação NotebookLM
-**Fricção:** Diretor detectou que documentos em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Quadrilateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
+**Fricção:** Diretor detectou que documentos em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Pentalateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
 
 **Regra:** Ao atualizar QUALQUER documento em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/, o Músculo sincroniza imediatamente as cópias em TODOS os projetos ativos (CLIENTES/[NOME]/NOTEBOOKLM_FONTES/). Fonte única de verdade = PENTALATERAL_UNIVERSAL. Cópia no projeto = snapshot para o Auditor. Documento atualizado na universal mas não copiado = Auditor que lê versão velha = loop que começa com inteligência contaminada.
 
@@ -854,7 +854,7 @@ Diretor — veredito
 **Data:** 2026-05-18 | **Detectado por:** Diretor Eduardo
 **Impacto:** ~2 horas de sessão consumidas em auditoria e correção de documentação. Objetivo principal da sessão (gerar Skill ingrid-v2.md via NotebookLM Loop 3) não concluído.
 
-**Causa raiz:** Músculo não executou sync de documentos universais ao iniciar sessão. Nomenclatura "Quadrilateral IAH" estava ativa em 27+ arquivos enquanto o sistema já operava como "Pentalateral IAH" há 2+ dias. PASSO5 de Ingrid indicava DIRETRIZ V5 (futura) quando a corrente era V4. Sem detecção proativa do Músculo — Diretor teve que auditar manualmente arquivo por arquivo.
+**Causa raiz:** Músculo não executou sync de documentos universais ao iniciar sessão. Nomenclatura "Pentalateral IAH" estava ativa em 27+ arquivos enquanto o sistema já operava como "Pentalateral IAH" há 2+ dias. PASSO5 de Ingrid indicava DIRETRIZ V5 (futura) quando a corrente era V4. Sem detecção proativa do Músculo — Diretor teve que auditar manualmente arquivo por arquivo.
 
 **Cadeia de falhas:**
 1. sync_passo_files.ps1 não cobria documentos universais (só PASSOs)
@@ -1121,3 +1121,14 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Impacto:** Skill baseada em fontes declaradas = Skill com rastreabilidade. Auditor que não sabe o que não viu = Skill com ponto cego silencioso.
 **Arquivo template:** `PENTALATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
 **Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+---
+
+### [P-054] Toda operação de substituição em massa exige verificação com grep imediata
+**Descoberto:** 2026-05-23 | **Emitido por:** Falha de processo detectada pelo Diretor — varredura de renomeação do sistema antigo → PENTALATERAL IAH
+**Fricção:** O rename massivo do sistema antigo → PENTALATERAL IAH foi executado (234 arquivos via `git mv`), mas padrões específicos de texto interno (nomenclatura legada, ciclo desatualizado de 20-ideias) não foram capturados na primeira passagem. O Músculo declarou "feito" sem provar. O Diretor teve que fazer auditoria manual — 51 arquivos ainda desatualizados.
+**Princípio:** Após QUALQUER operação de substituição em massa, o Músculo NUNCA declara "concluído" antes de rodar grep e confirmar zero ocorrências do termo antigo. Declarar "feito" sem provar = desinformação de processo.
+**Regra derivada:** `scripts/auditar_consistencia.ps1` roda automaticamente no `session_close.ps1`. VERMELHO bloqueia o encerramento. O gate não depende da disciplina do Músculo — é estrutural.
+**Ferramenta:** `scripts/auditar_consistencia.ps1` — verifica padrões proibidos em todos os arquivos operacionais. VERDE/AMARELO/VERMELHO. Integrado ao `session_close.ps1` como gate obrigatório.
+**Aplica-se a:** qualquer rename, refactor de nomenclatura, atualização de versão, ou substituição de termo em escala — em qualquer projeto ou repositório do Pentalateral.
+

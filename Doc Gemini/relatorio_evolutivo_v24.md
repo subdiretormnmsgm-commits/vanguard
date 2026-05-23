@@ -1,4 +1,4 @@
-# RELATÓRIO EVOLUTIVO V24 — VANGUARD TECH — META-INTELLIGENCE SINGULARITY
+﻿# RELATÓRIO EVOLUTIVO V24 — VANGUARD TECH — META-INTELLIGENCE SINGULARITY
 
 **Data:** 2026-05-12 | **Sessão:** V24 | **Tipo:** Operação Interna — Infraestrutura de Inteligência
 
@@ -14,9 +14,9 @@ O que existe agora que não existia antes:
 
 **O processo tem constituição.** O Músculo (Claude Code) agora tem poder de veto formal com 3 camadas: alerta suave, bloqueio total e override documentado com assinatura do Diretor. Não é retórica — é protocolo constitucionalizado que impede que as mesmas decisões erradas se repitam.
 
-**O modelo é portátil.** O QUADRILATERAL_UNIVERSAL está na versão 5.0 com 10 templates, protocolo completo e manual do operador. Outro profissional pode pegar esse material hoje e operar um Quadrilateral para os clientes dele sem começar do zero.
+**O modelo é portátil.** O PENTALATERAL_UNIVERSAL está na versão 5.0 com 10 templates, protocolo completo e manual do operador. Outro profissional pode pegar esse material hoje e operar um Pentalateral para os clientes dele sem começar do zero.
 
-**A história está organizada.** As 24 versões de jornada foram separadas da metodologia universal. O VANGUARD_HISTORICO guarda o que aprendemos. O QUADRILATERAL_UNIVERSAL guarda o que ensinamos.
+**A história está organizada.** As 24 versões de jornada foram separadas da metodologia universal. O VANGUARD_HISTORICO guarda o que aprendemos. O PENTALATERAL_UNIVERSAL guarda o que ensinamos.
 
 ---
 
@@ -55,7 +55,7 @@ O A- (não A) é pela ausência de contato comercial. O organismo está pronto. 
 | Iniciativa | Investimento | Retorno estimado | Prazo |
 |---|---|---|---|
 | Intelligence-as-a-Service | 0 (já construído) | +R$2k-5k por projeto | 30-60 dias |
-| Franchise Quadrilateral | 20h de formação | R$3k-8k por licença + R$500/projeto royalty | 60-90 dias |
+| Franchise Pentalateral | 20h de formação | R$3k-8k por licença + R$500/projeto royalty | 60-90 dias |
 | Primeiro cliente real | 1 ligação de 30 min | R$3k-15k (Camada 1-2) | 7-14 dias |
 
 Retorno direto da V24 em código: R$0 (sessão interna).
@@ -70,7 +70,7 @@ Retorno indireto em valor do modelo: estimado em R$50k+ (material de licenciamen
 **1. Intelligence-as-a-Service**
 Vender o INTELLIGENCE_LEDGER como parte do entregável. O cliente recebe o acervo de princípios do negócio dele ao final de cada iteração. Nenhuma agência faz isso. Impacto: lock-in + diferencial de proposta + R$2k-5k de upsell por projeto.
 
-**2. Franchise Quadrilateral**
+**2. Franchise Pentalateral**
 Licenciar o modelo v5.0 para outros profissionais. O material existe. Falta estrutura de formação (4 sessões de 2h) e proposta comercial. Impacto: R$4k-10k/mês com 10 franqueados ativos fazendo 2 projetos/mês. Sem custo operacional adicional para Eduardo.
 
 **3. Friction Intelligence Report**
@@ -79,7 +79,7 @@ Um relatório setorial baseado nos dados reais do friction.log — as falhas mai
 **4. Session Replay Protocol**
 Adicionar `deliberation_chain` ao friction.log: proposta → objeção → decisão → resultado 30 dias depois. Em 100 sessões, o padrão de quando o Músculo deve vetar vs. ceder emerge dos dados. Base para o Auditor V2 com busca semântica real. Implementação: 10 campos adicionais no schema JSON.
 
-**5. Quadrilateral Health Score**
+**5. Pentalateral Health Score**
 Badge público mensal por cliente: nota composta de princípios ativos + tendência GUT + ROI entregue vs. prometido. Clientes com Score alto viram prova social tangível. Concorrentes levam anos para replicar — porque não têm os dados. Requisito técnico: dashboard simples de cálculo do score por projeto.
 
 ---

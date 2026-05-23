@@ -1,4 +1,4 @@
-
+﻿
 De Diretor ao Músculo - Estrategista - Embaixador
 
 Auditoria Vanguard
@@ -14,7 +14,7 @@ Resumo das Deliberações de ontem
 **Assunto:** FECHAMENTO 2026-05-18 — Análise Pentalateral + Sistema de Alertas + P-032
 
 ============================================================
-FECHAMENTO DE SESSÃO — Quadrilateral IAH · 2026-05-18
+FECHAMENTO DE SESSÃO — Pentalateral IAH · 2026-05-18
 ============================================================
 
 DIRETOR, este é o resumo executivo da sessão mais intensa do ciclo.
@@ -132,11 +132,11 @@ NOTA DO MÚSCULO
 ────────────────────────────────────────────────────────────
 
 
-*Assunto:** Quadrilateral IAH V25 — Embaixador Ativado + Loop 3 Ingrid Pronto
+*Assunto:** Pentalateral IAH V25 — Embaixador Ativado + Loop 3 Ingrid Pronto
 
 Eduardo,
 
-Sessão V25 encerrada. Quadrilateral agora opera com 4 membros plenos.
+Sessão V25 encerrada. Pentalateral agora opera com 4 membros plenos.
 
 ---
 
@@ -187,7 +187,7 @@ PRÓXIMAS AÇÕES (em ordem)
 
 ---
 
-Quadrilateral IAH | 4 membros operacionais | V25 encerrada
+Pentalateral IAH | 4 membros operacionais | V25 encerrada
 
 Músculo (Claude Code)
 
@@ -213,8 +213,8 @@ Constituição
 
 	◦	Empresa Vanguard
 	◦	Inteligência Artificial Humana
-	◦	Memorial Quadrilateral Humano e Cliente
-	◦	Protocolo Quadrilateral
+	◦	Memorial Pentalateral Humano e Cliente
+	◦	Protocolo Pentalateral
 	◦	Vanguard Business Rules
 
 Diretrizes Templates 

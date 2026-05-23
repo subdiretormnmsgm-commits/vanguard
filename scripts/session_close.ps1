@@ -1,5 +1,5 @@
 ﻿# session_close.ps1
-# Executar ao fechar qualquer sessao do Quadrilateral
+# Executar ao fechar qualquer sessao do Pentalateral
 # Prompts obrigatorios para atualizar o INTELLIGENCE_LEDGER
 
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
@@ -12,7 +12,7 @@ $DATA   = Get-Date -Format "yyyy-MM-dd"
 
 Write-Host ""
 Write-Host "=============================================="
-Write-Host "  FECHAMENTO DE SESSAO -- Quadrilateral IAH"
+Write-Host "  FECHAMENTO DE SESSAO -- Pentalateral IAH"
 Write-Host "=============================================="
 Write-Host ""
 
@@ -323,6 +323,26 @@ if ($mandatos.Count -gt 0) {
             }
         }
     }
+}
+
+# --- P-054: AUDITORIA DE CONSISTÊNCIA TEXTUAL (gate obrigatório pós-operação) ---
+# Roda sempre ao fechar sessão. VERMELHO bloqueia encerramento.
+$auditScript = Join-Path $BASE "scripts\auditar_consistencia.ps1"
+if (Test-Path $auditScript) {
+    Write-Host ""
+    Write-Host "=============================================="
+    Write-Host "  CONSISTÊNCIA TEXTUAL — P-054"
+    Write-Host "=============================================="
+    & powershell.exe -NonInteractive -File $auditScript
+    $exitCode = $LASTEXITCODE
+    if ($exitCode -eq 2) {
+        Write-Host "  [BLOQUEIO] Padrões VERMELHOS detectados — corrigir antes de fechar." -ForegroundColor Red
+        Write-Host "  Execute: .\scripts\auditar_consistencia.ps1 para ver detalhes." -ForegroundColor Yellow
+        Write-Host "  Para ignorar e continuar mesmo assim, pressione ENTER." -ForegroundColor DarkGray
+        Read-Host "  > "
+    }
+} else {
+    Write-Host "  [--] auditar_consistencia.ps1 não encontrado — P-054 não verificado" -ForegroundColor DarkGray
 }
 
 # --- AUDITORIA DE DOCUMENTOS (Regra 11 da Diretriz de Singularidade) ---

@@ -1,4 +1,4 @@
-# PROTOCOLO INTERATIVO — Conselho Quadrilateral
+﻿# PROTOCOLO INTERATIVO — Conselho Pentalateral
 > **Versão:** 2.0 — Modo Colaborativo Ativo  
 > **Princípio:** Os três não trabalham em fila. Trabalham em conjunto, cada um enriquecendo o que o outro propôs.
 

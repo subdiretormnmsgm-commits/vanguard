@@ -1,4 +1,4 @@
-# MEMORIA_V16 — Visual Authority & Sovereign Lock-in
+﻿# MEMORIA_V16 — Visual Authority & Sovereign Lock-in
 > **Versão:** V16  
 > **Data:** 2026-05-10  
 > **Autor técnico:** Claude Code (Sócio-Arquiteto)  
@@ -77,7 +77,7 @@ POST /api/v1/stripe/webhook    → 4 eventos: suspend/reactivate
 
 ### Landing Page (index.html)
 - Terminal: `V16 Elite` (era V5 Soberano)
-- Features badge: `Protocolo Quadrilateral V16` (era Fábrica Autônoma V5)
+- Features badge: `Protocolo Pentalateral V16` (era Fábrica Autônoma V5)
 - Footer: `v16.0 · Visual Authority · Sovereign Intelligence` (era v12.0)
 - **Ion Gold substituiu Cyber Cyan** em: botões primary, status dots, gradientes de texto, números de stats, tags de features, números dos steps, barra de progresso do quiz
 

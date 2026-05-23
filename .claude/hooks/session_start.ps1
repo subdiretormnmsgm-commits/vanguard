@@ -1,6 +1,6 @@
-# HOOK: SessionStart
+﻿# HOOK: SessionStart
 # Protege contra: Amnesia de Sessao do Musculo (Deficiencia 1)
-# Injeta automaticamente os instrumentos de memoria do Quadrilateral IAH
+# Injeta automaticamente os instrumentos de memoria do Pentalateral IAH
 
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
@@ -206,7 +206,7 @@ if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUT
 
 if ($sections.Count -eq 0) { exit 0 }
 
-$context = "=== QUADRILATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +
+$context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +
            ($sections -join "`n`n---`n`n")
 
 $output = [ordered]@{

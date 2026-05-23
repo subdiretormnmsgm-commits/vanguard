@@ -1,4 +1,4 @@
-# MENSAGEM EMBAIXADOR — AUDITORIA PENTALATERAL DA DOCUMENTAÇÃO VANGUARD
+﻿# MENSAGEM EMBAIXADOR — AUDITORIA PENTALATERAL DA DOCUMENTAÇÃO VANGUARD
 **De:** Eduardo (Diretor) → **Para:** Embaixador (Claude Projects — Vanguard IAH)
 **Data:** 2026-05-18 | **Missão:** Contribuição disruptiva à auditoria documental
 
@@ -18,7 +18,7 @@ Você é o único membro do Conselho que sabe como Ingrid e Valdece realmente se
 
 ### Contribuição 1 — VALIDAÇÃO DO DISCOVERY_CARD
 
-O DISCOVERY_CARD (`QUADRILATERAL_UNIVERSAL/OPERACAO/DISCOVERY_CARD.md`) é o cartão que Eduardo usa na primeira reunião com o cliente.
+O DISCOVERY_CARD (`PENTALATERAL_UNIVERSAL/OPERACAO/DISCOVERY_CARD.md`) é o cartão que Eduardo usa na primeira reunião com o cliente.
 
 Baseado no que você sabe de Ingrid e Valdece:
 - As perguntas do Discovery capturaram o que realmente importava para entender o cliente?
