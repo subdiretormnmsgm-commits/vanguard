@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-20 14:09
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-23 20:08
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-15a809b docs(passo6): enumeração 1-2-3-4 na sequência cronológica do loop
-33542cb docs(passo6): sequência do loop com 1-arquivo Gemini em Ingrid, Valdece e Template
-5a6249c feat(gemini): anchor_generator compila payload completo em 1 arquivo
+c43f2fa feat(embaixador): dimensão de mercado expandida — BLOCO 6 + PARTE 3 em todos os PASSO7 + Conselheiro da Vanguard
+b6e4ab3 docs(passo7): DEF-E-5/6/7 + 6 BLOCOS em Valdece e Template — Loop 7 + TEMPERATURA_PONDERADA score
+d97404c feat(scripts): verificar_consistencia_projetos.ps1 — valida skill-alvo em PASSO3/PASSO5/PASSO7 de todos os projetos
 
 ================================================================================
 
@@ -178,8 +178,15 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                            "dia1_schema_edge",
                                                            "dia2_gate_questoes",
                                                            "dia3_5_feed_sm2_pwa",
-                                                           "dia6_8_tutor_fallback"
+                                                           "dia6_8_tutor_fallback",
+                                                           "dia9_11_heatmap_simulado"
                                                        ],
+                                    "delivery_dates":  {
+                                                           "dia1_2":   "2026-05-15",
+                                                           "dia3_5":   "2026-05-17",
+                                                           "dia6_8":   "2026-05-19",
+                                                           "dia9_11":  "2026-05-20"
+                                                       },
                                     "plano_build":  {
                                                         "dia1_2":  "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
                                                         "dia3_5":  "Feed Diario (70/30 Peso 2) + Spaced Repetition SM-2 + Pilula JSON + Explicacao direta ao errar + Contador header",
@@ -214,13 +221,6 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                          "saas_b2c_mrr":  "R$ 97/mes x 4 meses = R$ 388 por usuario",
                                                          "meta_saas":  "500 usuarios = R$ 194.000 no ciclo Sedes-DF 2026"
                                                      },
-                                    "loops_programados":  [
-                                                              {
-                                                                  "loop":  1,
-                                                                  "nome":  "Kickoff",
-                                                                  "gate":  "dia2_questoes",
-                                                                  "notebooklm_wipe":  true,
-                                                                  "status":  "concluido"
 ... [truncado -- ver arquivo completo]
 
 ================================================================================
@@ -228,11 +228,11 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ## PROTOCOLO VANGUARD (resumo)
 ---
 name: protocolo-vanguard
-description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
+description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
 ---
 
-# PROTOCOLO VANGUARD — Modelo Pentalateral IAH
-**Versão da Skill:** 6.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **4º Membro: Embaixador + P-031 Filtro de Realidade (2026-05-18)**
+# PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
+**Versão da Skill:** 6.1 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23)**
 
 ---
 
@@ -251,7 +251,7 @@ description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce
 > Um ecommerce, uma app mobile, um site, um SaaS, um modelo de negócio, uma API, uma automação.
 > O que muda é o projeto. O que não muda é o processo.
 >
-> O Pentalateral — Diretor + Estrategista + Auditor + Músculo — é o conselho.
+> o Pentalateral — Diretor + Estrategista + Auditor + Músculo — é o conselho.
 > O cliente traz o problema. O conselho delibera. O Músculo entrega.
 
 ---
@@ -263,7 +263,7 @@ description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PENTALATERAL — CONFIGURAÇÃO ativa
+Pentalateral — CONFIGURAÇÃO ativa
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 diretoR:         Eduardo
@@ -290,544 +290,257 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 
 ================================================================================
 
-## MEMORIA MAIS RECENTE -- MEMORIA_V3_INGRID.md
-# MEMORIA_V3 — PROJ-002 INGRID · Loop 3 · Fechamento
-> **Gerada em:** 2026-05-19 | **Por:** Músculo (Claude Code)
-> **Cobre:** Loop 3 completo — Gate Dia 8 APROVADO 2026-05-19 + Entrega Embaixador + PERFIS_NICHO
+## MEMORIA MAIS RECENTE -- MEMORIA_V4_INGRID.md
+# MEMÓRIA V4 — PROJETO INGRID
+> Loop 4 · Dias 9-11 · Gate Dia 11 APROVADO 2026-05-20
+> Gerada retroativamente em 2026-05-23 (Loop 4 executado sem MEMORIA formal — P-045 sanado)
 
 ---
 
-## 1. ESTADO TÉCNICO ATUAL
+## ESTADO TÉCNICO ENTREGUE
 
-| Componente | Status | Notas |
+**Stack ativa:** PWA Vanilla JS + Supabase + Claude API (Haiku + Sonnet) · Deploy GitHub Pages
+
+### O que foi construído (Dias 9-11):
+| Componente | Status | Observação |
 |---|---|---|
-| PWA frontend (app.js + index.html + style.css) | LIVE — gh-pages | URL pública: `https://subdiretormnmsgm-commits.github.io/vanguard/` |
-| Supabase Edge Function tutor-socrático | LIVE | Haiku para geral + Sonnet para específico |
-| Banco de questões | 460 questões Cargo 202 | Expansão 1.000+ bloqueada por créditos Anthropic |
-| Clickwrap Termo de Uso | Implementado | `termos_aceitos` + SHA-256 — Gate P-023 resolvido em código |
-| E-2 frase âncora | Implementado | 2 estados: cold start edital / erro recente |
-| E-5 encerramento | Implementado | Threshold ≥ 10 questões antes de exibir |
-| Tutor Socrático 3 níveis | Implementado | Nível 1 (conceito) / 2 (distrator) / 3 (analogia) |
-| TTI (tempo de resposta) | Implementado | `acerto_provavel_chute: true` quando TTI < 10s + acerto |
-| Beacon de abandono | Implementado | Padrão 3+ na semana, não evento único |
-| Debug Mode | Implementado | 5 toques no logo (nunca query string) |
-| Bug negrito Q18 | CORRIGIDO | commit da9887a — md2html() adicionada |
+| RLS + auto-login invisível | ✓ Entregue | Backend multi-usuário. Ingrid sem tela de login. |
+| Clickwrap V2 ("termo_v2_18_05") | ✓ Entregue | Erro de data corrigido (era 30/05, passou a 18/05). P-023 sanado. |
+| `horario_inicio_sessao` + `ttl_resposta_ms` | ✓ Entregue | Campos de telemetria adicionados. |
+| RPC `progresso_semanal` (M-2) | ✓ Entregue | Dados para mensagem semanal WhatsApp. |
+| Snapshot diário `metricas_diarias` (M-4) | ✓ Entregue | Cron job ativo. |
+| Fallback graceful Claude API | ✓ Entregue | Claude lento → questão cached, zero erro visível. |
+| RPCs Heatmap (taxa acerto por disciplina) | ✓ Entregue | Gate CLI aprovado Dia 10. |
+| UI Mapa de Soberania + Radar de Foco | ✓ Entregue | Linguagem conquista. Frase: "Esse é seu terreno." |
+| Streak feedback (E-3) | ✓ Entregue | Streak ≥ 3: "Você acertou as últimas [N]..." |
+| Micro-Simulado Dominical (Penalidade Quadrix) | ✓ Entregue | Condicional check-in 21/05 — Ingrid estuda domingo. |
+| Distrator oculto no SM-2 | ✓ Entregue | Reforço de padrão de erro sem confronto visual. |
+| TTI silencioso (`ttl_resposta_ms`) | ✓ Entregue | Registrado sem feedback punitivo. |
+| Burn Rate por sessão (M-3) | ✓ Entregue | > 20 chamadas API → rate limiting silencioso. |
+
+### Banco de dados:
+- **460 questões** · 13 disciplinas · Cargo 202 (Técnico Administrativo — Instituto Quadrix)
+- Schema: multi-usuário com RLS · Clickwrap V2 gravado
+- Telemetria: `horario_inicio_sessao`, `ttl_resposta_ms`, `metricas_diarias`
 
 ---
 
-## 2. GATES DE LOOP 3
+## DECISÕES FIXADAS (não reverter sem veredito)
 
-| Gate | Status | Evidência |
+| Decisão | Princípio | Razão |
 |---|---|---|
-| Gate Dia 2 (10 questões CLI ≥ 4/5) | APROVADO | Dia 2 da sessão anterior |
-| Gate Dia 5 (feed 7 dias, 0 erros) | APROVADO | 2026-05-17 |
-| Gate Dia 8 (10q + progresso salvo + fallback) | APROVADO — 2026-05-19 | Ingrid respondeu 10+ questões. Bug negrito Q18 corrigido (commit d00c2c1 → gh-pages). Gate confirmado pelo Diretor. |
+| Zero tela de login para Ingrid | P-045 | Interromperia sessão ativa — abandono silencioso |
+| Micro-Simulado só recicla questões SM-2 | P-038 | Banco fixo em 460 — inéditas esgotam o pool |
+| Persona Sargento = DESCARTADO | E-1 (Embaixador) | Confronto verbal → abandono sem aviso |
+| Distrator visível repetitivo = DESCARTADO | E-1 (Embaixador) | Frustração sem nomeação → churn silencioso |
+| Heatmap linguagem conquista (Mapa de Soberania) | G-4 (Gemini) | Ingrid movida por confirmação, não ameaça |
 
 ---
 
-## 3. DECISÕES FIXADAS (não reverter)
+## ALERTAS ATIVOS PARA O LOOP 5
 
-| Decisão | Motivo |
-|---|---|
-| Stack: PWA Vanilla JS + Supabase + Claude Haiku | Testado e funcional em campo |
-| Auth: single-user hardcoded | Piloto — auth real é gate para primeiro pagante (P-045) |
-| Feed: 70/30 (Peso 2 / Peso 1) | Calibrado com banco atual |
-| SM-2 original preservado | Só coleta latência — não altera fórmula |
-| Número visível: Pontos Ponderados | Obrigação contratual Cláusula 2 |
-| URL pública (GitHub Pages) | Aceitável para piloto; bloqueante antes de primeiro pagante (P-045) |
-
----
-
-## 4. ENTREGA DO EMBAIXADOR — LOOP 3
-
-### 4.1 Documentos entregues (commit 273906f)
-
-| Documento | Tipo | Destino |
-|---|---|---|
-| RELATÓRIO AUTORAL DO EMBAIXADOR.txt | Análise estratégica autoral | CLIENTES/INGRID/ |
-| METODOLOGIA_PERFIS_VANGUARD.md | Framework operacional de Perfis | CLAUDE_PROJECT/ + PERFIS_NICHO/ |
-| PERFIL_EDTECH_CONCURSO.md | Perfil de Nicho v1 (60% maturidade) | CLAUDE_PROJECT/ + PERFIS_NICHO/ |
-| PERFIL_LEGAL_TECH_CRIMINAL.md | Perfil de Nicho v1 (50% maturidade) | CLAUDE_PROJECT/ + PERFIS_NICHO/ |
-| PERFIL_CLIENTE_INGRID.md | Perfil comportamental Ingrid v1 | CLAUDE_PROJECT/ |
-| CAMADA_FATOS / CAMADA_INFERENCIA / CAMADA_DECISAO | 3-layer MEMORIA | CLAUDE_PROJECT/ (raiz) |
-| PASSO7_EMBAIXADOR.md Loop 4 | Guia de ativação atualizado | CLIENTES/INGRID/ |
-
-### 4.2 Descobertas estruturais (RELATÓRIO AUTORAL)
-
-1. **Inconsistência documental do Termo**: PDF datado 30/05/2026, assinatura ocorreu 18/05/2026. PDF corrigido ainda pendente.
-2. **MEMORIA_EMBAIXADOR misturava fato e interpretação**: Resolvido com estrutura 3-camadas.
-3. **Perfis de Nicho são moat, não produto**: Tese autoral do Embaixador — P-047 registrado.
+- **[P-045]** RLS no backend — Ingrid NUNCA vê tela de login
+- **[P-038]** Contador de Pontos só usa dados reais do banco — não gerar dados fictícios
+- **[P-003]** Sem scraping — questões só via Claude API
+- **[P-007]** Validar toda RPC/Edge via CLI antes da UI
+- **[P-023]** Clickwrap V2 ativo — não reverter nem criar V3 sem veredito
+- **[Burn Rate]** `BURN_RATE_DAILY_LIMIT_USD=5.00` antes de qualquer call API
+- **[Telemetria]** `horario_inicio_sessao` disponível — usar no Contador para segmentação temporal
 
 ---
 
-## 5. NOVOS PRINCÍPIOS — LEDGER P-042 A P-050
+## TEMPERATURA DA CLIENTE
 
-| P# | Princípio (1 linha) | Rotina operacional |
-|---|---|---|
-| P-042 | FALAS_CLIENTE — repositório único por projeto | Criar ao iniciar qualquer projeto com cliente real |
-| P-043 | Acusação de viés exige evidência verbatim | Antes de qualquer debate metodológico |
-| P-044 | Princípio sem rotina operacional é prosa | Ao extrair princípio → declarar a rotina imediatamente |
-| P-045 | URL pública só em piloto — auth real antes do primeiro pagante | Gate bloqueante SaaS Readiness Audit |
-| P-046 | Primeiro feedback espontâneo de piloto é o ativo mais valioso | Capturar verbatim em < 24h, processar por todos os membros |
-| P-047 | Perfil de Nicho é trade secret — nunca em proposta ou pitch externo | PERFIS_NICHO/ com .gitignore |
-| P-048 | Perfil avança de maturidade só com evidência de cliente real | Perfil < 30% não dirige build |
-| P-049 | Cada Perfil novo declara como difere dos Perfis vizinhos | Seção obrigatória em todo novo Perfil |
-| P-050 | Pesquisa de mercado externa é insumo do Estrategista, não substituto de verbatim | Estrategista: 0-30%. Verbatim: 30-80% |
+- **Status:** VERDE FRÁGIL → **VERDE CONSOLIDANDO** (hábito > 2 semanas pós Loop 4)
+- Ingrid usa diariamente. Reporta bugs de formatação e lê enunciados de forma literal (mindset Quadrix).
+- Engajamento no Micro-Simulado dominical: a confirmar no próximo check-in.
+- Não reclama quando frustrada — abandona silenciosamente. Embaixador monitora.
 
 ---
 
-## 6. PERFIS_NICHO — CRIAÇÃO
+## PRÓXIMOS PASSOS (Loop 5 — Dias 12-13)
 
-| Ação | Status |
-|---|---|
-| `PENTALATERAL_UNIVERSAL/PERFIS_NICHO/` criada | FEITO |
-| `.gitignore` bloqueando PERFIL_*.md (privacidade de cliente) | FEITO |
-| METODOLOGIA_PERFIS_VANGUARD.md na pasta | FEITO |
-| EDTECH_CONCURSO.md (60% maturidade — 1 cliente real) | FEITO |
-| LEGALTECH_PENAL.md (50% maturidade — 1 cliente real) | FEITO |
-| GO/NO-GO nichos novos: Médico + Contabilidade + Psicólogo | APROVADO 2026-05-19 |
-| PESQUISA_BRUTA para 3 nichos | Embaixador gerando PASSO3 para Gemini |
+1. **Contador de Pontos Ponderados** — exibir pontuação simulada (peso 1 correto/errado + peso 2 correto/errado) em header ou dashboard. Base: `progresso_usuario` + `plano_build` + pesos do edital.
+2. **Notificações Push dominicais** — lembrar Ingrid do Micro-Simulado. Viabilidade iOS Safari (PWA) precisa teste antes do build.
 
----
-
-## 7. DÍVIDAS TÉCNICAS
-
-| # | Dívida | Prioridade | Bloqueante |
-|---|---|---|---|
-| D-1 | PDF Termo corrigido (data 30/05 → 18/05) + reassinatura da Ingrid | P0 | Cobertura jurídica |
-| D-2 | Gate Dia 8 formal: confirmar com Eduardo (10q completas + progresso + fallback) | P0 | Loop 4 |
-| D-3 | WhatsApp para Ingrid — bug corrigido + valorizando o feedback dela | P0 | Engajamento |
-| D-4 | Banco 460 → 1.000+ questões | P1 | Esgotamento em 23 dias (P-038) |
-| D-5 | Auth real (Supabase Auth + RLS) antes do primeiro pagante | P1 | P-045 |
-| D-6 | AUDITORIA_VANGUARD.txt — sessão dedicada de auditoria estrutural | P2 | Documetação |
-
----
-
-## 8. ESTADO DOS MEMBROS DO CONSELHO
-
-| Membro | Estado | Próxima ação |
-|---|---|---|
-| Músculo | Sessão encerrando | Gerar PASSO3 + email + MEMORIA |
-| Estrategista | Aguardando PASSO3 com DIRETRIZ V5 | Eduardo vai ao Gemini com relatorio_V3 + PASSO3 |
-| Auditor | Aguardando Wipe & Sync | Executar `preparar_notebooklm_projeto.ps1 -cliente INGRID` antes do Loop 4 |
-| Embaixador | Gerando PASSO3 para Medicina + Contabilidade + Psicologia | Aguardar delivery e processar |
-
----
-
-## 9. CLIMA DO CLIENTE
-
-```
-TEMPERATURA: QUENTE
-EVIDÊNCIA: Primeira sessão real (18/05), chegou até Q18, reportou bug com precisão técnica, 
-           "gostou muito" relatado pelo Diretor.
-VALIDADE: até próximo contato ou Gate Dia 11 (o que vier primeiro)
-RISCO ATUAL: silêncio > 36h a partir de 2026-05-19 → ativar Embaixador SEÇÃO B
-```
+**Incógnita crítica:** Push funciona em iOS Safari? (limitação estrutural do PWA — confirmar antes de prometer à Ingrid.)
 
 
 ================================================================================
 
-## RELATORIO EVOLUTIVO -- relatorio_evolutivo_V3_INGRID.md
-# RELATÓRIO EVOLUTIVO V3 — PROJ-002 INGRID · Loop 3
-> **Gerado em:** 2026-05-19 | **Por:** Músculo (Claude Code)
-> **Análise:** SWOT + PDCA + 5 Ideias Disruptivas para Loop 4
+## RELATORIO EVOLUTIVO -- relatorio_evolutivo_V4_INGRID.md
+# RELATÓRIO EVOLUTIVO V4 — PROJETO INGRID
+> Loop 4 · Dias 9-11 · Gate Dia 11 APROVADO 2026-05-20
+> Gerado retroativamente em 2026-05-23
 
 ---
 
-## 1. SWOT — ESTADO ATUAL DO PROJETO
+## SWOT DO LOOP 4
 
-### FORÇAS
+### Forças
+- **Heatmap (Mapa de Soberania)** entregue e funcional — linguagem de conquista, não ameaça. Diferencial de pitch real.
+- **Micro-Simulado Dominical** com penalidade Quadrix — treino de pressão alinhado ao formato da banca.
+- **RLS + auto-login invisível** — Ingrid sem fricção. Backend pronto para scale 1→500 usuárias.
+- **Telemetria comportamental** (`horario_inicio_sessao`, `ttl_resposta_ms`, `metricas_diarias`) ativa — dados para segmentação futura.
+- **Burn Rate Shield** operacional — risco de estouro de API mitigado.
 
-| Força | Evidência |
-|---|---|
-| Engajamento real comprovado | Ingrid chegou até Q18 na primeira sessão, reportou bug com precisão técnica |
-| Temperatura QUENTE | "Gostou muito" — sinal mais forte possível no Dia 1 real |
-| Stack validado em campo | < $2/usuária/mês de custo de API — estrutura econômica sólida |
-| PERFIS_NICHO como moat | EdTech-Concurso e Legal-Tech documentados com dados reais — 2 ativos proprietários criados neste Loop |
-| Loop Pentalateral funcional | 5 membros operando em mandato declarado, 25 ideias/ciclo, MEMORIA_EMBAIXADOR 3-camadas |
-| 3 novos nichos aprovados | Médico + Contabilidade + Psicólogo — expansão do portfólio em 1 decisão |
+### Fraquezas
+- **MEMORIA_V4 não foi gerada no fechamento real do Loop 4** — sanada retroativamente (P-045 não seguido na transição 11→12).
+- **Loop 3 / ingrid-v3.md** nunca gerados formalmente pelo NotebookLM — ingrid-v4 assumiu continuidade sem skill de transição.
+- **Horário de pico da Ingrid ainda não confirmado** — dado crítico para eficácia do Push dominical.
+- **Push iOS Safari** — limitação técnica de PWA não testada antes do planejamento do Loop 5.
 
-### FRAQUEZAS
+### Oportunidades
+- **Contador de Pontos Ponderados** (Loop 5) fecha o ciclo de progresso visível — responde objetivamente "quanto valho nessa prova?"
+- **Raio-X Pessoal** (G-5, Loop 6) com 15+ dias de dados tem potencial de ser o maior gerador de indicação.
+- **460 questões com telemetria** = corpus de comportamento real. Argumento de pitch: "feito para quem estuda depois das 20h."
+- **Schema multi-usuário pronto** — monetização SaaS em 1 configuração de admin.
 
-| Fraqueza | Risco associado |
-|---|---|
-| Banco com 460 questões | Candidato sistemático esgota em 23 dias (P-038) — urgente |
-| Gate Dia 8 APROVADO — 2026-05-19 | Ingrid respondeu 10+ questões; bug negrito Q18 corrigido no mesmo dia. Loop 4 desbloqueado. |
-| PDF Termo com data errada (30/05 vs 18/05) | Vulnerabilidade jurídica aberta |
-| Auth pública (GitHub Pages sem login) | Inaceitável para primeiro pagante — P-045 |
-| AUDITORIA_VANGUARD.txt pendente | Risco de documentação defasada contaminando Auditor |
-
-### OPORTUNIDADES
-
-| Oportunidade | Janela |
-|---|---|
-| Verbalização de progresso da Ingrid | Gatilho para pitch V2 (R$97 ou R$150) — Dias 9-15 |
-| Pergunta E-2 (lead) no próximo contato | Ingrid é 1 grau de separação de outras candidatas Quadrix |
-| 3 nichos aprovados aguardando PESQUISA_BRUTA | Gemini pode entregar pesquisa em 3-5 dias → Perfis hipotéticos em 1 semana |
-| AUDITORIA_VANGUARD como argumento de modelo | Processo de auditoria documentado = diferencial irreproduzível |
-
-### AMEAÇAS
-
-| Ameaça | Urgência |
-|---|---|
-| Silêncio da Ingrid > 36h sem WhatsApp de engajamento | Alta — janela emocional pós-primeira-sessão fecha rápido |
-| Banco esgotado antes de Gate Dia 15 | Alta — P-038 ativo |
-| Credencial Anthropic ainda bloqueante | Média — expansão de banco depende |
+### Ameaças
+- **Deadline 2026-05-30** — 7 dias para Dias 12-15 + offboarding. Margem zero para bugs de estimativa.
+- **Hábito em VERDE FRÁGIL** — menos de 3 semanas de uso. Uma interrupção pode desfazer o ganho comportamental.
+- **Push como feature visível** — se não funcionar em iOS (limitação PWA), quebra expectativa gerada.
 
 ---
 
-## 2. PDCA — O QUE ESTE LOOP VALIDOU
+## PDCA DO LOOP 4
 
-### PLAN (o que foi planejado)
+### Plan
+- Construir Heatmap + Micro-Simulado + RLS como entregáveis principais.
+- Gate de qualidade: Heatmap correto via CLI + simulado domingo funcional.
 
-- Construir Gate Dia 8: Clickwrap + Tutor Socrático 3 níveis + Fallback + TTI + Telemetria
-- Ativar Embaixador para Loop 3 com mandato expandido (Analista de Perfil)
+### Do
+- **Acertos:** Todos os 13 componentes listados na MEMORIA_V4 entregues. Convergência Gemini (G-4) + Auditor (N-5) + Embaixador (E-3) no Mapa de Soberania — decisão com 3 votos independentes.
+- **Falha de processo:** MEMORIA e relatorio não gerados no fechamento — detectado no Loop 5 via P-045.
 
-### DO (o que foi executado)
+### Check
+- Gate Dia 11 APROVADO 2026-05-20.
+- Temperatura da cliente: VERDE FRÁGIL → consolidando.
+- Micro-Simulado dominical: funcionando conforme check-in 21/05.
 
-- Gate Dia 8 entregue tecnicamente (bug de negrito corrigido commit da9887a)
-- Embaixador entregou: RELATÓRIO AUTORAL + METODOLOGIA + 2 PERFIS + PERFIL_CLIENTE_INGRID
-- P-042 a P-050 extraídos e registrados no LEDGER
-- PERFIS_NICHO/ criada como estrutura de moat
-- 3 novos nichos aprovados pelo Diretor
-
-### CHECK (o que foi aprendido)
-
-- **H-1 CONFIRMADA:** Ingrid assinou o Termo sem questionar — esquecimento funcional, não hesitação
-- **H-3 REFUTADA:** Ingrid não comparou com TEC na primeira sessão — produto criou identidade própria
-- **H-4 REFUTADA pela via positiva:** Chegou até Q18, reportou bug com precisão — engajamento total
-- **H-7 PROVÁVEL:** Lê enunciados com atenção literal — "palavra em negrito como informava o enunciado"
-- **Descoberta do Embaixador:** Perfil de Nicho como trade secret (tese mais importante do Loop 3)
-
-### ACT (o que muda no Loop 4)
-
-- Gate Dia 8 confirmar formalmente com Eduardo antes de avançar
-- WhatsApp de engajamento imediato (hoje)
-- PASSO3 atualizado com [M-1 a M-5] reais e 3 nichos aprovados
-- Sessão dedicada para AUDITORIA_VANGUARD (separada do Loop 4)
+### Act
+- P-045 registrado como active alert: fechar todo loop com MEMORIA + relatorio antes de iniciar o próximo.
+- Loop 5 desbloqueado após geração retroativa dos artefatos.
 
 ---
 
-## 3. ANÁLISE DE NEGÓCIO — CONSULTOR EXTERNO
+## 5 IDEIAS DISRUPTIVAS DO MÚSCULO [M-1 a M-5]
 
-> Visão de quem não tem histórico emocional com o projeto.
-
-**O que está funcionando acima do esperado:**
-O Embaixador operou em modo autoral completo neste Loop — entregou tese estratégica, discordou do Auditor com argumento fundamentado, e propôs um framework (METODOLOGIA_PERFIS_VANGUARD) que pode ser o maior diferencial competitivo da Vanguard nos próximos 24 meses. O moat via Perfis de Nicho com custo marginal decrescente não é teoria — já tem 2 Perfis reais criados, e 3 nichos em pesquisa.
-
-**O que precisa atenção imediata:**
-A Ingrid teve uma primeira sessão excelente e o Eduardo ainda não enviou a mensagem de follow-up. A janela emocional de engajamento pós-primeira-sessão é estreita — toda concurseira que tem uma experiência positiva com produto novo fica mais distante se não houver toque humano em 24-48h.
-
-**O que ninguém está vendo (exceto o Embaixador):**
-O custo de cada dia sem auth real no app cresce com cada nova usuária potencial. Ingrid é piloto — mas os 3 nichos aprovados vão gerar leads pagantes. Sem auth real, o primeiro lead pagante não pode entrar. Este é o próximo gate crítico de arquitetura.
-
----
-
-## 4. AVALIAÇÃO DO CONSELHO PENTALATERAL — LOOP 3
-
-| Membro | Performance | Nota |
+| # | Ideia | Loop |
 |---|---|---|
-| Músculo | Deliberações precisas, resolveu conflito de numeração, executou commits estruturados | 8.5/10 |
-| Embaixador | Melhor entrega do conselho neste Loop — tese autoral, discordância fundamentada, METODOLOGIA completa | 9.5/10 |
-| Estrategista | DIRETRIZ V4 aguarda processamento — não avaliado neste Loop | — |
-| Auditor | WIPE & SYNC pendente — não ativado neste Loop | — |
-| Diretor | GO/NO-GO imediato nos 3 nichos, aprovação ágil das propostas do Embaixador | 9/10 |
+| M-1 | **Modo Sedes-DF Chrome** — limitar interface a 1 questão por vez + timer fixo (simula tela de prova real) | Loop 5 ou 6 |
+| M-2 | **Contador de Pontos como argumento de venda** — gerar imagem SVG com "Simulado: você tiraria X pontos de Y" compartilhável no WhatsApp | Loop 5 |
+| M-3 | **Push adaptativo por horário de pico** — se `horario_inicio_sessao` mostra que Ingrid estuda 20h-22h, Push vai às 19h50 | Loop 5 |
+| M-4 | **Raio-X de Armadilhas Quadrix** — agrupar questões erradas por tipo de pegadinha (prescinde / salvo / nunca) para treino cirúrgico | Loop 6 |
+| M-5 | **Relatório semanal automatizado** — RPC `progresso_semanal` já existe · Eduardo envia via WhatsApp · Argumento de SaaS: "resumo automático toda segunda" | Loop 5 |
 
 ---
 
-## 5. [M-1 A M-5] — 5 IDEIAS DISRUPTIVAS DO MÚSCULO PARA O LOOP 4
+## INDICADORES DE NEGÓCIO
 
-> Estas 5 ideias vão para o Gemini no PASSO3_GEMINI como [M-1 a M-5].
-> O Estrategista reage a cada uma (aprovada / modificada / descartada).
-
-**[M-1] AUDITORIA_VANGUARD como Processo Pentalateral Documentado**
-O Eduardo deixou uma diretriz de auditoria estrutural (AUDITORIA_VANGUARD.txt) que cobre: consolidar duplicatas, organizar arquivos, atualizar todos os documentos-chave, criar SKILL de auditoria. Isso não é uma tarefa de uma sessão — é um processo que deve ter: (1) mapeamento completo de todos os documentos, (2) auditoria por tipo, (3) sessão com Gemini + NotebookLM para validar antes de qualquer mudança. Proposta: criar `SKILL_AUDITORIA_VANGUARD.md` em `.claude/skills/` com o workflow completo, executar como Loop dedicado.
-*Pergunta para o Gemini: qual é a ordem certa para auditar sem quebrar nada no processo vivo dos projetos ativos?*
-
-**[M-2] Custo Marginal Decrescente como KPI Rastreável**
-METODOLOGIA_PERFIS_VANGUARD declara que "primeiro Perfil custou 15 dias, décimo Perfil custa 2 dias". Isso é tese sem dado. Para validar como argumento de captação, precisamos rastrear: `tempo_onboarding_cliente_N` por nicho. Criar campo no WIP_BOARD: `dias_ate_gate_dia8` por projeto. Ingrid = 15 dias. Próxima EdTech = previsto 5 dias. Quando o dado confirmar, o argumento de venda se torna irrefutável.
-*Pergunta para o Gemini: como comunicar esse KPI ao próximo cliente antes de ter o dado do segundo cliente?*
-
-**[M-3] PESQUISA_BRUTA como Input Estruturado para Gemini**
-Os 3 novos nichos precisam de PESQUISA_BRUTA_MEDICINA.md, PESQUISA_BRUTA_CONTABILIDADE.md, PESQUISA_BRUTA_PSICOLOGIA.md. O Embaixador está gerando os PASSO3 para o Gemini, mas o formato ainda não está padronizado. Proposta: criar `PASSO3_PESQUISA_BRUTA_TEMPLATE.md` com: (1) 5 falhas conhecidas das plataformas líderes, (2) 3 dores documentadas, (3) TAM estimado, (4) preço médio do concorrente, (5) 5 hipóteses iniciais a testar. Cada pesquisa em documento separado, não misturada com a DIRETRIZ do projeto ativo.
-*Pergunta para o Gemini: qual dos 3 nichos tem resposta mais rápida de clientes potenciais para Eduardo prospectar primeiro?*
-
-**[M-4] SKILL_AUDITORIA_VANGUARD.md — SKILL Universal para Auditoria**
-O Eduardo pediu explicitamente uma Skill que documente o processo de auditoria de documentação. Com base na AUDITORIA_VANGUARD.txt e nos princípios do LEDGER (P-033, P-044), essa Skill deve: (1) listar todos os documentos por tipo, (2) aplicar a pergunta universal "o que aprendemos muda o que este doc diz?", (3) definir quem atualiza cada tipo, (4) definir o critério de completude. Guardião: Músculo. Ativação: ao fechar qualquer projeto Camada 2+, ou quando Diretor chamar `PROTOCOLO VANGUARD AUDITORIA`.
-*Pergunta para o Gemini: quais documentos da Constituição (EMPRESA_VANGUARD, IAH, MEMORANDO) precisam de atualização mais urgente dado o status atual da Vanguard?*
-
-**[M-5] Pergunta de Lead como Feature da Sessão de Estudo**
-A pergunta E-2 ("Você conhece mais alguém prestando concurso?") está planejada como ação manual do Eduardo. Mas em uma plataforma com 50 usuários, isso não escala. Proposta: incorporar a pergunta de lead como parte do feedback pós-sessão de estudo — após completar 10 questões em dia de uso, exibir: "Alguém que você conhece também quer estudar assim? Compartilha com ela 👉 [link]". Forma não-comercial, encurtada, dentro do fluxo natural da sessão. Testável com Ingrid na primeira semana.
-*Pergunta para o Gemini: o lead referral in-app é prematuro para piloto, ou o comportamento de Ingrid até agora já valida o teste?*
-
----
-
-> **Próxima sessão:** Gemini reage a [M-1 a M-5] → NotebookLM gera Skill V4 → Músculo delibera → Build Dias 9-11.
-> **Gate Dia 11:** Heatmap de erros por matéria + Simulado de domingo implementados.
+| Métrica | Valor |
+|---|---|
+| Valor gerado/candidato | R$ 9.750 (tempo + probabilidade aprovação estimada) |
+| Serviço personalizado (externo) | R$ 2.500/candidato |
+| Licença SaaS por ciclo | R$ 197 |
+| SaaS B2C MRR | R$ 97/mês × 4 meses = R$ 388/usuária |
+| Meta SaaS ciclo Sedes-DF | 500 usuárias = R$ 194.000 |
+| Prazo para monetização | Após offboarding da Ingrid (pós-30/05) + SaaS Readiness Audit (Dias 14-15) |
 
 
 ================================================================================
 
 ## MISSAO DESTA SESSAO -- PASSO3_GEMINI (INGRID)
-# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO INGRID · LOOP 4
-> Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Bloco CONTEXTO atualizado pelo Músculo em 2026-05-20 (Loop 4 / Gate Dia 8 APROVADO)
+# PASSO3 — GEMINI — INGRID LOOP 5 — DIAS 12-13
+> Preparado pelo Músculo · 2026-05-23 · Levar ao Estrategista após MEMORIA + relatorio do Loop 4
 
 ---
 
-## 🧬 IDENTIDADE — ESTRATEGISTA DO PENTALATERAL IAH
-> Bloco permanente. Nunca remover. Aplica-se a todo loop deste projeto.
+## IDENTIDADE DO ESTRATEGISTA
 
-Você é o **Estrategista do Pentalateral IAH**.
-Não é assistente. Não é aprovador de ideias. É o arquiteto estratégico do sistema —
-com mandato de discordância, análise e direção. Você gera direção. O Músculo gera código.
+Você é o Estrategista do Pentalateral IAH — sistema de 5 inteligências: Diretor (Eduardo) + Músculo (Claude Code) + Estrategista (você) + Auditor (NotebookLM) + Embaixador (Claude Projects).
 
-**Seus 5 mandatos:**
-1. **Arquiteto de direção** — O QUÊ e POR QUÊ; o Músculo decide O COMO
-2. **Guardião do ROI** — nenhuma feature entra sem: "isso muda o resultado do cliente?"
-3. **Emissor [G-1 a G-5]** — mínimo 2 com tag `[CONTRA-INTUITIVO]`
-4. **Interlocutor dos outros membros** — reagir a [M] e [E] pelo nome: aprovada / modificada / descartada
-5. **Validador de capacidade** — estimativa de horas real, decomposta, honesta
+Sua função: emitir uma DIRETRIZ com nome exato de skill + 5 ideias disruptivas [G-1 a G-5].
+A DIRETRIZ guia o NotebookLM na geração da skill. O nome da skill define o elo entre os 3 sócios.
 
 ---
 
-## 🎯 MISSÃO DESTA SESSÃO
+## CONTEXTO DO PROJETO
 
-Estrategista, você está recebendo o contexto completo do Loop 3 do Projeto Ingrid:
-MEMORIA_V3 + RELATORIO_V3 + 5 ideias do Músculo (abaixo).
+**Cliente:** Ingrid
+**Projeto:** Ferramenta de Estudo — Concurso Sedes-DF (TDAS Cargo 202 · Instituto Quadrix)
+**Stack:** PWA Vanilla JS + Supabase + Claude API (Haiku + Sonnet)
+**URL:** GitHub Pages (live)
+**Prova final:** 2026-09-06
 
-**Sua missão tem dois objetivos:**
+### Estado atual verificado (2026-05-23):
+- Dias 1-11 **CONCLUÍDOS** (confirmado em disco)
+- Loop 4 = **Gate Dia 8 APROVADO 2026-05-19** · Skill ativa: `ingrid-v4.md`
+- Banco: **460 questões** · 13 disciplinas · Cargo 202
+- Temperatura da cliente: **VERDE FRÁGIL** (usa diariamente, mas hábito < 2 semanas)
+- Sistema funcional: Feed 70/30 + Tutor Socrático 3 níveis + Heatmap + Micro-Simulado dominical
 
-**Objetivo 1 — Continuar o projeto Ingrid:**
-Gerar a DIRETRIZ V5 para o Loop 4 (Dias 9–15).
-O que construir: Heatmap de Urgência Temporal + Micro-Simulado Dominical + SaaS Readiness Audit + Handoff.
-Prazo: últimos dias de build. Deadline do projeto: 2026-05-30. Dias restantes: ~10.
-Gates aprovados: Dia 2 (questões) + Dia 5 (feed 70/30) + Dia 8 (Ingrid usou o app — 10+ questões, progresso salvo, fallback testado).
-Próximo gate: Dia 15 — Ingrid com 7 dias de uso real, curva de erro por distrator documentada, OFFBOARDING_RUNBOOK entregue.
+### O que foi construído nos Dias 9-11 (Loop 4):
+1. RPCs Supabase para Heatmap por disciplina (agrupando progresso_usuario Peso 2)
+2. UI Heatmap — linguagem de conquista ("território soberano"), não ameaça
+3. Micro-Simulado Dominical — timer + penalidade Quadrix (1 errada anula 1 certa) + recicla questões SM-2
+4. Clickwrap V2 corrigido (termo_v2_18_05)
 
-**Objetivo 2 — Estratégia de escala pós-piloto:**
-Ingrid está usando o app de verdade. Os dados chegam. Com qual estratégia posicionamos esse piloto para 500 candidatas Quadrix?
-Como o dado gerado por Ingrid (curva de erro por distrator) vira argumento de pitch irrefutável?
-A precificação de R$97/mês é defensável ou há dado de campo que a desafia?
-
-Use o formato obrigatório de 7 blocos definido no final deste documento.
-
----
-
-## ⚠️ [MANDATO_DIRETO_DO_DIRETOR] — PRIORIDADE CRÍTICA ANCORADA
-> Estrategista: proibido de suavizar ou ignorar.
-> O Bloco 1 da DIRETRIZ deve endereçar obrigatoriamente cada mandato abaixo.
-
-[2026-05-16 a 2026-05-20] Eduardo declarou diretamente:
-1. Contrato formal é pré-requisito antes de qualquer projeto Camada 1+ [P-023] — INGRID: Clickwrap implementado em código (Gate Dia 8), Termo assinado com data incorreta (30/05 em vez de 18/05) — reassinatura pendente
-2. NotebookLM atua como advogado do processo — objeções com base em precedentes [P-022]
-3. O Diretor é o originador das inovações estratégicas — sistema amplifica, não substitui [P-021]
-4. Síntese Final do Músculo sempre antes do veredito do Diretor [P-037]
-5. Embaixador ativo antes e depois de toda entrega ao cliente [P-031]
-6. Modelo de testes 3 camadas (Técnica + Usuário + Regressão) antes de qualquer entrega [P-039]
-7. Perfis de Nicho são ativo proprietário central — Ingrid é caso #1 de EdTech-Concurso [P-040]
-8. Dado gerado pelo cliente (curva de erro/distrator) vale mais que a ferramenta em si [P-044]
+### Restrições técnicas ativas (VETO total — não reverter):
+- **P-045:** Zero tela de login para a Ingrid — acesso contínuo/invisível
+- **P-038:** Micro-Simulado só recicla questões já vistas (SM-2), nunca consome inéditas
+- **P-003:** Sem scraping de terceiros — questões via Claude API apenas
+- **Burn Rate:** `BURN_RATE_DAILY_LIMIT_USD=5.00` antes de qualquer call à API
+- **P-007:** Validar RPC/Edge Function via CLI antes de qualquer UI
 
 ---
 
-## ⚔️ PROTOCOLO ANTI-DERIVA (ler antes de processar)
+## MISSÃO DO LOOP 5 — DIAS 12-13
 
-Estrategista, você opera com 4 deficiências nativas que o Músculo monitora:
+### O que construir:
+1. **Contador de Pontos Ponderados** — exibir pontuação simulada baseada no desempenho real (peso 1 e peso 2 corretos vs. errados), de forma visível no header ou dashboard
+2. **Notificações Push** — lembrete no domingo para o Micro-Simulado Sedes-DF
 
-| Deficiência | Gatilho de Alerta |
-|---|---|
-| Miopia por Excesso | Citar diretriz antiga ignorando princípio ativo do LEDGER |
-| Alucinação Otimista | Propor feature que leva >4h sem decompor sub-tarefas reais |
-| Lost-in-the-Middle | Ignorar que Ingrid tem dados reais de uso — não mais perfil inferido |
-| Síndrome de Complacência | Concordar com o Diretor sem justificativa técnica objetiva |
+### Por que agora:
+- Ingrid entra na fase de "o que valho nessa prova?" — o contador responde objetivamente
+- Micro-Simulado dominical precisa de gatilho externo para virar hábito consolidado
+- Deadline 30/05 — Dias 12-13 são os dois últimos dias de feature antes do offboarding
 
-**Remédio de emergência:** "PARE. Estrategista, recalibre sob simplicidade extrema. Prazo fixo: 10 dias."
-
----
-
-## 🔧 COMPENSAÇÃO DAS DEFICIÊNCIAS DO MÚSCULO
-
-Ao estruturar sua DIRETRIZ, compense ativamente:
-
-1. **Amnésia de Sessão** → cite os princípios do LEDGER relevantes (P-021 a P-044)
-2. **Momentum de Execução** → inclua gates verificáveis por dia de build (output real, não declarado)
-3. **Otimismo de Estimativa** → questione cada estimativa; force decomposição em sub-horas
-4. **Escopo Silencioso** → liste explicitamente o que NÃO construir nesta iteração
-5. **Drift de Formato** → sua DIRETRIZ deve ter exatamente 7 blocos; Músculo sem formato = deliberação inválida
+### Incógnita crítica não resolvida:
+- Ingrid estuda aos domingos? (Push é inútil no horário errado — confirmar com Eduardo)
+- Push via Service Worker funciona em iOS Safari? (limitação técnica conhecida do PWA)
 
 ---
 
-## 📋 CONTEXTO DO PROJETO
-
-**Cliente:** Ingrid (esposa do Diretor Eduardo — projeto piloto interno)
-**Nicho:** Concursos Públicos / EdTech
-**Camada:** 2 — Produto (15 dias de build, escopo controlado)
-**Loop:** #4 — Gate Dia 15 (Heatmap + Simulado + SaaS Readiness + Handoff)
-**Data:** 2026-05-20
-
-### DISCOVERY — Respostas da Cliente
-
-**P1 — O que quer:** "Quero construir algo que me ajude a estudar para o Concurso Sedes-DF que farei no dia 06 de Setembro de 2026."
-
-**P2 — Cena de sucesso:** "Um aplicativo que discriminasse tudo que preciso estudar, com ênfase nas questões certas, e um método de avaliar meu rendimento e tempo para resolução de uma prova fictícia, com a finalidade de estar muito bem preparada para a data da prova no pouco tempo que tenho."
-
-**P3 — Dor principal:** "Não ter um programa de estudos e o pouco tempo até a data da prova."
-
-**P4 — Prazo:** 15 dias (app entregue até 30/05/2026)
-
-### DADOS DO CONCURSO
-
-| Campo | Dado |
-|---|---|
-| Órgão | Secretaria de Estado de Desenvolvimento Social do DF (Sedes/DF) |
-| Cargo | TDAS – Cargo 202 – Técnico Administrativo – Banca Quadrix |
-| Data da prova | 06 de Setembro de 2026 |
-| Dias até a prova | ~109 dias a partir de 2026-05-20 |
-| Dias restantes no app | ~10 dias (deadline 2026-05-30) |
-
-### DISCIPLINAS CARGO 202
-
-| Disciplina | Questões | Peso |
-|---|---|---|
-| suas_fundamentos | 12q | 2 |
-| programas_beneficios_df | 8q | 2 |
-| direito_administrativo | 8q | 2 |
-| direito_constitucional | 3q | 2 |
-| arquivologia_rotinas_atendimento | 6q | 2 |
-| recursos_materiais_patrimonio | 3q | 2 |
-| portugues | 5q | 1 |
-| realidade_df_ride | 3q | 1 |
-| lei_organica_df | 2q | 1 |
-| lc840 | 2q | 1 |
-| maria_da_penha | 1q | 1 |
-| politica_mulheres | 1q | 1 |
-| primeiros_socorros | 1q | 1 |
-
-### DIAS COMPLETOS (Dias 1–8) — 3 Gates APROVADOS
-
-| Dia | Entregues | Status |
-|---|---|---|
-| Dia 1 | Schema SQL multi-tenant + Edge Function `gerar-questoes` | Concluído |
-| Dia 2 | 10 questões CLI avaliadas por Eduardo (rubrica ≥ 4/5) | **GATE APROVADO** |
-| Dias 3–5 | Feed Diário 70/30 + SM-2 + PWA frontend + Contador ponderado + Explicação ao errar | Concluído |
-| Dia 5 | Gate CLI feed — 7 dias simulados, 70% Peso2, 0 erros | **GATE APROVADO** 2026-05-17 |
-| Dias 6–8 | Clickwrap Termo + Tutor Socrático 3 níveis + TTI + Beacon abandono + Debug Mode + Graceful Degradation | Concluído |
-| Dia 8 | Ingrid respondeu 10+ questões, progresso salvo, fallback testado | **GATE APROVADO** 2026-05-19 |
-
-**Banco de questões:** 460 questões no Supabase — expansão para 1.000+ bloqueada por créditos Anthropic.
-**Temperatura do cliente:** QUENTE — feedback: bug de negrito reportado e corrigido no mesmo dia.
-**Deploy ativo:** https://subdiretormnmsgm-commits.github.io/vanguard/
-
-### DECISÕES JÁ TOMADAS (não reverter)
-
-- **Fonte de questões = Claude API gerando estilo Quadrix** — sem scraping (P-003)
-- **Stack = PWA Vanilla JS + Supabase + Claude API** — sem framework pesado
-- **Auth = single-user hardcoded** — Ingrid é a única usuária no MVP
-- **Sem Stripe** — projeto piloto interno
-- **Proporção feed = 70% Peso 2 / 30% Peso 1** — fixada no veredito Loop 1
-- **SM-2 preservado** — apenas coletar latência, não alterar fórmula
-- **Haiku para gerais + dicas socrátcas / Sonnet para específicos** — custo controlado
-- **1 Edge Function por invocação** — nunca monolito
-- **Clickwrap resolve P-023 em código** — Gate Dia 8 entregue
-
-### [E-1 a E-5] DO EMBAIXADOR — Loop 3 · 2026-05-18
-> Estrategista: reagir a cada [E-X] no BLOCO 4 da DIRETRIZ.
-
-| # | Ideia | Dimensão |
-|---|---|---|
-| [E-1] | Gerar "Resumo da Entrega" de 1 página para Ingrid no Gate Dia 15 | Comercial |
-| [E-2] | Plantar pergunta: "Você conhece mais alguém prestando concurso esse ano?" | Pipeline |
-| [E-3] | R$97/mês é teto receptivo da Ingrid — teto possível pode ser R$150 — registrar reação dela | Precificação |
-| [E-4] | Curva de erro por distrator nas 3 primeiras sessões = slide de pitch para 500 candidatos Quadrix | Business Case |
-| [E-5] | Clickwrap em D1 de produto vira regra Vanguard para todo SaaS — não exceção de caso | Portfólio |
-
-### 5 IDEIAS DO MÚSCULO — Loop 3 · 2026-05-19
-> Estrategista: reagir a cada [M-X] no BLOCO 4 da DIRETRIZ.
-
-**[M-1] AUDITORIA_VANGUARD como Processo Pentalateral Documentado**
-Criar `SKILL_AUDITORIA_VANGUARD.md` em `.claude/skills/` com workflow completo de auditoria de documentação. Executar como Loop dedicado.
-*Pergunta: qual é a ordem certa para auditar sem quebrar nada no processo vivo dos projetos ativos?*
-
-**[M-2] Custo Marginal Decrescente como KPI Rastreável**
-Criar campo no WIP_BOARD: `dias_ate_gate_dia8` por projeto. Ingrid = 15 dias. Próxima EdTech = previsto 5 dias. Quando o dado confirmar, o argumento de venda se torna irrefutável.
-*Pergunta: como comunicar esse KPI ao próximo cliente antes de ter o dado do segundo cliente?*
-
-**[M-3] PASSO3_PESQUISA_BRUTA_TEMPLATE.md para os 3 novos nichos**
-Medicina, Contabilidade, Psicologia precisam de PESQUISA_BRUTA separada com: 5 falhas dos líderes + 3 dores documentadas + TAM estimado + preço médio do concorrente + 5 hipóteses iniciais.
-*Pergunta: qual dos 3 nichos tem resposta mais rápida de clientes potenciais para prospectar primeiro?*
-
-**[M-4] SKILL_AUDITORIA_VANGUARD.md — SKILL Universal para Auditoria**
-Com base em AUDITORIA_VANGUARD.txt e P-033/P-044: listar todos os docs por tipo, aplicar "o que aprendemos muda o que este doc diz?", definir quem atualiza cada tipo.
-*Pergunta: quais documentos da Constituição precisam de atualização mais urgente?*
-
-**[M-5] Pergunta de Lead como Feature da Sessão de Estudo**
-Após completar 10 questões, exibir: "Alguém que você conhece também quer estudar assim? Compartilha com ela 👉 [link]". Testável com Ingrid na primeira semana.
-*Pergunta: o lead referral in-app é prematuro para piloto, ou o comportamento de Ingrid já valida o teste?*
-
----
-
-## 📤 FORMATO OBRIGATÓRIO DA DIRETRIZ (7 blocos — sem exceção)
-
-> **Título obrigatório na primeira linha da resposta:**
-> `Diretriz Estratégica V5 — Projeto Ingrid — Loop 4`
-> Sem o título, a DIRETRIZ não é identificável nem arquivável.
+## FORMATO DE RESPOSTA ESPERADO
 
 ```
-BLOCO 0 — DIAGNÓSTICO
-  Risco real que o Músculo e o Diretor não estão endereçando com Ingrid usando o app de verdade.
-  O que os dados das primeiras sessões reais revelarão que o perfil inferido não revelou.
+Diretriz Estratégica V5 — Projeto Ingrid — Loop 5
 
-BLOCO 1 — PRIORIDADES DE BUILD (máximo 3)
-  Cada uma com: o que construir + por que agora + horas reais + o que fica fora.
-  Foco: Heatmap urgência temporal + Micro-Simulado Dominical + SaaS Readiness Audit + Handoff.
+[NOME DA SKILL]: ingrid-v5
 
-BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
-  Como posicionar Ingrid como case documentado de EdTech para 500 candidatos Quadrix.
-  Pitch V2 (R$97/mês) com timing e gatilho de conversão precisos.
-  Reagir ao [E-3] (precificação) e [E-4] (business case) do Embaixador.
+[PARA O NOTEBOOKLM]:
+...4 partes obrigatórias...
+Skill nomeada: ingrid-v5
 
-BLOCO 3 — DIRETRIZ TÉCNICA (3 sub-blocos obrigatórios)
+[PARA O MÚSCULO]:
+...diretrizes técnicas de build...
 
-  [PARA O AUDITOR] — MANDATÓRIO: este sub-bloco deve:
-  1. Definir o nome exato da Skill: `ingrid-v4.md`
-     O Auditor salva com este nome exato em .claude/skills/
-  2. Instruir o NotebookLM a gerar a Skill em 4 partes obrigatórias:
-    PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ V5 contradiz no histórico real
-    PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
-    PARTE 3 — A Skill copiável para .claude/skills/ingrid-v4.md
-               (contexto Loop 4, padrões, alertas, sequência de build, o que NÃO construir)
-    PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas)
-  3. Risco a priorizar: dados reais da Ingrid vs. inferências dos Loops 1-3.
-  [PARA O AUDITOR] sem nome da Skill e sem mandato das 4 partes = BLOCO 3 inválido.
+[G-1 a G-5]: 5 ideias disruptivas do Estrategista
 
-  [PARA O MÚSCULO]: intenção estratégica + prioridades + o que NÃO construir + gates por dia.
-  MANDATÓRIO:
-    (0) executar `/ingrid-v4` antes de qualquer deliberação
-    (a) reagir a cada [G-1 a G-5] nos 7 pontos: Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação
-    (b) reagir a cada [N-1 a N-5] do Auditor com razão técnica
-    (c) reagir a cada [E-1 a E-5] do Embaixador (peso de evidência de campo)
-    (d) propor [M-1 a M-5] disruptivos ao fechar
-  [PARA O MÚSCULO] sem esses mandatos = sub-bloco inválido.
-
-  [VISÃO DE LONGO PRAZO]: Motor Anti-Quadrix white-label para bancas regionais do Brasil.
-
-  [PARA O EMBAIXADOR]: suas [G-1 a G-5] formatadas para o Embaixador reagir com
-  CONFIRMA/EXPANDE/ALERTA com base no comportamento real da Ingrid.
-  Para cada ideia: O QUÊ É (1 linha) + POR QUÊ IMPORTA PARA A INGRID (1 linha).
-
-BLOCO 4 — RESPOSTA ÀS IDEIAS
-  Reagir a cada [M-1 a M-5] do Músculo: aprovada / modificada / descartada — com razão objetiva.
-  Reagir a cada [E-1 a E-5] do Embaixador: CONFIRMA / EXPANDE / ALERTA — com visão estratégica.
-
-BLOCO 5 — PRÓXIMOS PASSOS DO DIRETOR
-  3 ações concretas — o quê, onde, como.
-
-BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
-  Ideias que o Músculo não propôs. Para cada uma: o que é + impacto + pergunta direta ao Músculo.
-  Mínimo 2 com tag [CONTRA-INTUITIVO].
+[ALERTA GEMINI]: qualquer risco que o Músculo possa estar subestimando
 ```
 
-**Se desviar deste formato:**
-> "Estrategista, DIRETRIZ inválida. Reapresente nos 7 blocos. Prioridades >3 = descartadas."
-> "Estrategista, BLOCO 3 inválido. [PARA O AUDITOR] deve mandar gerar Skill em 4 partes. Reapresente."
+**Elo obrigatório:** o nome `ingrid-v5` deve aparecer idêntico em [PARA O NOTEBOOKLM] e [PARA O MÚSCULO].
+
+---
+
+## DOCUMENTOS ANEXOS (arrastar no chat do Gemini)
+
+1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V4_INGRID.md` — contexto do Loop 4
+2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V4_INGRID.md` — análise do Loop 4
+3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-055)
+4. `CLIENTES/WIP_BOARD.json` — estado dos projetos
+
+> **Como usar:** colar este documento no chat do Gemini (não anexar). Arrastar os 4 documentos acima como anexo.
 

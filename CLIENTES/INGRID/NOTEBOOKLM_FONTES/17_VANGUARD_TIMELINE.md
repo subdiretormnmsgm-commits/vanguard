@@ -1,6 +1,6 @@
 ﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-05-17
+> Criado: 2026-05-17 | Última atualização: 2026-05-23
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -148,7 +148,7 @@ Nenhuma dessas perguntas foi teórica. Cada uma foi respondida com stack funcion
 ### V14 — Sovereign Optimization
 **O que foi construído:** PDCA Ledger embutido no produto, Hive Mind com SQL e UI, Trojan Generator PNG, Dynamic HUD Alerts, 5 correções de escalabilidade.
 **O que foi aprendido:** PDCA embutido no produto gera inteligência acumulada por uso — o sistema melhora enquanto o cliente usa. Mas sem cliente real, o PDCA é exercício teórico. A V14 provou que a arquitetura funciona. A V25 prova que a dor existe.
-**Legado:** A cadência de loops do Pentalateral (P-009) é a aplicação direta do PDCA Ledger ao processo de desenvolvimento, não ao produto.
+**Legado:** A cadência de loops DO PENTALATERAL (P-009) é a aplicação direta do PDCA Ledger ao processo de desenvolvimento, não ao produto.
 
 ---
 
@@ -237,7 +237,7 @@ Um sistema que aprende apenas por versão — não por sessão — perde 90% do 
 
 ---
 
-## FASE 3 — PRIMEIROS CLIENTES REAIS + PENTALATERAL OPERACIONAL (V25+)
+## FASE 3 — PRIMEIROS CLIENTES REAIS + Pentalateral OPERACIONAL (V25+)
 > Período: 2026-05-12 → presente
 > O método encontra a dor real. O produto é testado pelo único juiz que importa: o cliente.
 
@@ -249,7 +249,7 @@ V25 não é uma versão de produto. É a versão do processo.
 Três alavancas ativadas simultaneamente:
 1. **PROJ-001 Valdece** — primeiro cliente real, primeiro build com processo formal
 2. **PROJ-002 Ingrid** — segundo cliente, primeiro projeto EdTech, validação do método em nicho diferente
-3. **Pentalateral IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
+3. **PENTALATERAL IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
 
 Eduardo: *"Fizemos 23 versões até chegar nisso. Não posso arriscar perder esse trabalho de noites e noites."*
 O trabalho não se perdeu. Está em git history. Está no LEDGER. Está nesta linha do tempo.
@@ -358,9 +358,9 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 
 ---
 
-## EVOLUÇÃO DO Pentalateral IAH
+## EVOLUÇÃO DO PENTALATERAL IAH
 
-> A história do Conselho — de 1 membro para 4.
+> A história do Conselho — de 1 membro para 5.
 
 | Marco | Data | Evento |
 |---|---|---|
@@ -373,18 +373,22 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Linha do Tempo** | 2026-05-17 | VANGUARD_TIMELINE.md criada. Fonte histórica obrigatória do Auditor. |
 | **Embaixador** | 2026-05-17 | **Formalizador → Embaixador.** Upgrade de membro passivo (contratos) para 4º conselheiro ativo: memória persistente do cliente, 11 mandatos, pipeline de lead, debrief pós-reunião. |
 | **P-031** | 2026-05-18 | Embaixador como filtro de realidade: CONFIRMA/EXPANDE/ALERTA cada ideia de [M]+[G]+[N] com base em comportamento real do cliente. Ideia do Diretor. |
-| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema IAH expandido de 4 para 5 atores: Diretor + Músculo + Estrategista + Auditor + Embaixador. 25 ideias/ciclo [M×2+G+N+E × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
+| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Pentalateral para Pentalateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 25 ideias/ciclo [M×2+G+N+E × 5]: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
 | **Sistema de Alertas Zero-Composição** | 2026-05-18 | Telegram Bot + briefing_diario.ps1 + alerta_whatsapp.ps1 operacionais. Eduardo recebe contexto + mensagem exata para copiar no WhatsApp. Nenhuma composição mental necessária. |
 | **P-032** | 2026-05-18 | MEMORIA_EMBAIXADOR é atualizada automaticamente pelo Músculo após qualquer deliberação que afete cliente ativo. Detectado pelo Diretor — FALHA-PROCESSO-2026-05-18 registrada e corrigida. |
+| **P-033 + Sync Universal** | 2026-05-20 | sync_vanguard_docs.ps1: toda mudança em PENTALATERAL_UNIVERSAL/ sincroniza automaticamente CLIENTES/*/NOTEBOOKLM_FONTES/ via SHA-256. Integridade verde ou alerta automático. |
+| **P-050 + Knowledge Base** | 2026-05-21 | Toda solução técnica documentada em KNOWLEDGE_BASE/ imediatamente. health_check.py testa roteiro do cliente e envia relatório Telegram. |
+| **Expansão Universal de Papéis** | 2026-05-23 | **A maior evolução do Pentalateral desde sua criação.** 12 novas deficiências formalizadas (DEF-G/N/M/E 5-7). COMANDO_ESTRATEGISTA_MASTER (P-052) resolve amnésia estrutural do Gemini. MANIFESTO_DE_FONTES (P-053) declara o que o Auditor pode/não pode ver. REGISTRO_DE_PREMISSAS torna premissas silenciosas visíveis. CANDIDATOS_A_PRINCIPIO captura fricção→princípio em tempo real. 25 ideias/ciclo [M×2+G+N+E × 5]. TEMPERATURA_PONDERADA (score 0-10) substitui temperatura simples. INTELIGENCIA_CRUZADA_NICHO conecta padrões entre clientes do mesmo nicho. |
+| **Rename Pentalateral → PENTALATERAL** | 2026-05-23 | Pasta `PENTALATERAL_UNIVERSAL/` renomeada para `PENTALATERAL_UNIVERSAL/`. 234+ arquivos renomeados via git mv. Todas as referências em scripts, hooks, skills e documentos atualizadas. Decisão formal do Diretor Eduardo. |
 
-### O Papel de Cada Membro — Definição Precisa
+### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
-| Membro | Ferramenta | Papel constitucional | Deficiência estrutural | Contra-ataque |
+| Membro | Ferramenta | Papel constitucional | Deficiências (DEF) | Contra-ataques principais |
 |---|---|---|---|---|
-| **Músculo** | Claude Code | Construtor e executor. Consultor crítico. Guardião dos princípios. | Amnésia de sessão. Momentum de execução. Escopo silencioso. | INTELLIGENCE_LEDGER + MEMORIA + Gates verificáveis |
-| **Estrategista** | Gemini | Diagnóstico estratégico. Prioridades de build. 5 ideias disruptivas por loop. | Alucinação Otimista. Síndrome de Complacência. Lost-in-the-Middle. | Shadow Architect. Filtro de Recência Soberana. Checklist de Conformidade Binária. |
-| **Auditor** | NotebookLM | Auditoria histórica. Advogado do processo. Sócio Consultor. 5 ideias exclusivas. | Amnésia de Contexto. Alucinação Estrutural. Yes-Man. | Regra do Nutricionista. Rejeição Sumária. Quick Audit. Wipe & Sync entre loops. |
-| **Embaixador** | Claude Projects | Inteligência persistente do cliente. 11 mandatos. Filtro de realidade P-031: CONFIRMA/EXPANDE/ALERTA ideias de [M]+[G]+[N]. Gera [E-1..5]/ciclo. | Silo: opera em interface fechada sem acesso ao LEDGER. | briefing_diario.ps1 + alerta_telegram.ps1 forçam integração. build_comando_estrategista.ps1 pendente (N-1). |
+| **Músculo** | Claude Code | Construtor e executor. Consultor crítico. Guardião dos princípios. Análise cirúrgica [G+N]. | DEF-M-1..8 (Amnésia · Momentum · Otimismo · Escopo · Drift · Visão Longitudinal · Isolamento · Retroalimentação) | LEDGER + REGISTRO_DE_PREMISSAS + CANDIDATOS_A_PRINCIPIO + 7 pontos deliberação |
+| **Estrategista** | Gemini | Diagnóstico estratégico. 5 ideias + ARCO_DE_CONSEQUÊNCIAS. REFORMULAÇÃO antes de qualquer solução. | DEF-G-1..7 (Alucinação · Complacência · Lost-in-Middle · Síntese · Abstração · Volatilidade · Antena) | COMANDO_ESTRATEGISTA_MASTER (P-052) + POSIÇÃO_ADVERSARIAL + TRADUÇÃO_PARA_AÇÃO + [SINAL_FRACO] |
+| **Auditor** | NotebookLM | Auditoria histórica. 5 ideias exclusivas. MANIFESTO_DE_FONTES_ATIVO antes de toda sessão. | DEF-N-1..7 (Amnésia · Alucinação · Yes-Man · Lost-in-Middle · Qualidade Fontes · Perspectiva Única · Latência) | MANIFESTO_DE_FONTES (P-053) + [RISCO_PRECOCE] + Wipe & Sync entre loops |
+| **Embaixador** | Claude Projects | Memória persistente do cliente. 11 mandatos. Filtro P-031. TEMPERATURA_PONDERADA. INTELIGENCIA_CRUZADA_NICHO. [E-1..5]/ciclo. | DEF-E-1..7 (Isolamento · Recência · Confirmação · Literalidade · Escalada · Silo · Temperatura Simples) | TEMPERATURA_PONDERADA (score 0-10, CHURN-WATCH <6) + INTELIGENCIA_CRUZADA_NICHO + [PARA O EMBAIXADOR] na DIRETRIZ |
 | **Diretor** | Eduardo | 5º ator ativo. Gestor Soberano. Originador de inovação estratégica. Veredito final. | — | Único ator humano — sem deficiência estrutural de LLM. |
 
 ### A tese central do Pentalateral
@@ -396,8 +400,11 @@ Gemini alucina com otimismo → Claude âncora com custo real e prazo honesto.
 Claude tem amnésia entre sessões → NotebookLM âncora com histórico documentado.
 NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos com dados reais.
 Eduardo não tem visão técnica de todos os trade-offs → o Conselho apresenta opções com evidência.
+Gemini tem amnésia entre sessões → COMANDO_ESTRATEGISTA_MASTER injeta o estado completo na abertura (P-052).
+NotebookLM afirma sobre dado ausente → MANIFESTO_DE_FONTES declara o que pode e não pode ver (P-053).
 
 O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas — não apesar delas.
+Em 2026-05-23, esse princípio foi densificado: 12 novas deficiências mapeadas, 12 novos contra-ataques operacionais.
 
 ---
 
@@ -526,11 +533,15 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 
 | Data | Marco | Tipo |
 |---|---|---|
-| 2026-05-19 | Entrega presencial Valdece — onboarding técnico + handoff soberano | Comercial |
-| 2026-05-23 | Deadline PROJ-001 Valdece | Operacional |
-| 2026-05-30 | Deadline PROJ-002 Ingrid — Gate Dia 15 | Operacional |
-| 2026-05-30 | PROJ-002 Gate Dia 8 — Ingrid responde 10 questões reais | Gate |
-| 2026-06-[?] | Terceiro cliente em discovery | Comercial |
+| ✅ 2026-05-19 | Entrega presencial Valdece — toga-digital-valdece.netlify.app · 61 acórdãos | Comercial |
+| ✅ 2026-05-19 | Contrato Valdece assinado — R$5k setup + R$350/mês MRR | Comercial |
+| ✅ 2026-05-23 | Expansão de papéis do Pentalateral — 12 DEFs + MASTER + MANIFESTO + REGISTRO | Processo |
+| ✅ 2026-05-23 | Rename Pentalateral → PENTALATERAL — decisão formal do Diretor | Identidade |
+| [ ] 2026-05-23 | V3 ENRICHMENT Valdece — `python ingest.py --mode reingest` (quando DNS disponível) | Técnico |
+| [ ] 2026-05-30 | Deadline PROJ-002 Ingrid — Gate Dia 15 | Operacional |
+| [ ] 2026-05-30 | Ingrid Dias 12-13: Contador de Pontos Ponderados + Push Notificações | Build |
+| [ ] 2026-06-[?] | Loop 4 Ingrid — Gemini PASSO3 → NotebookLM → ingrid-v4.md | Loop |
+| [ ] 2026-06-[?] | Terceiro cliente em discovery | Comercial |
 | 2026-06-[?] | Primeiro MRR real confirmado | Comercial — P-019 ativa IAH Retainer |
 | 2026-09-06 | Prova da Ingrid — validação real do produto EdTech | Produto |
 | 2026-[?] | Sovereign Study SaaS — primeiros usuários externos | SaaS |

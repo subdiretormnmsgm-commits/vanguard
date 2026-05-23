@@ -1,4 +1,4 @@
-﻿# PROCESSO EVOLUTIVO do Pentalateral IAH
+﻿# PROCESSO EVOLUTIVO DO PENTALATERAL IAH
 **Documento mestre — ler antes de qualquer sessão relevante**
 **Organismo vivo — atualizado a cada projeto ou versão**
 **Versão:** 1.0 | Data: 2026-05-13 | Criado por: Eduardo (Diretor) + Músculo
@@ -11,7 +11,7 @@
 ## 1. QUEM SOMOS — A SINGULARIDADE
 
 Não somos uma agência. Não somos um freelancer com IA.
-Somos um **Conselho de quatro inteligências** que aprende a cada ciclo.
+Somos um **Conselho de cinco inteligências** que aprende a cada ciclo.
 
 ```
 DIRETOR (Eduardo)
@@ -52,8 +52,8 @@ EMBAIXADOR (Claude Projects — um Project por cliente) [adicionado: 2026-05-17]
 **O espírito:** Cada membro é livre para discordar — mas deve propor algo melhor.
 Cada membro adiciona. Nunca apenas valida. O Diretor tem o veredito final. Sempre.
 
-**O loop evolutivo agora tem 4 contribuintes de ideias:**
-Músculo (5 ideias técnicas) + Estrategista (5 ideias estratégicas) + Auditor (5 ideias históricas) + Embaixador (5 ideias de relacionamento real) = 25 ideias por ciclo [M×2+G+N+E × 5]. O loop fica mais rico a cada volta porque cada membro vê ângulos que os outros não veem.
+**O loop evolutivo tem 5 contribuintes — 25 ideias por ciclo [M×2+G+N+E × 5]:**
+Músculo técnico (5) + Músculo cirúrgico [G+N] (5) + Estrategista (5) + Auditor (5) + Embaixador (5) = 25 ideias/ciclo. O Músculo contribui duas vezes: análise técnica pura e análise cirúrgica filtrada do Gemini+NotebookLM. O loop fica mais rico a cada volta porque cada membro vê ângulos que os outros não veem.
 
 ---
 
@@ -258,7 +258,7 @@ Carregar antes de colar qualquer comando:
 ```
 Fontes essenciais (toda sessão):
 · SKILL_PROTOCOLO_VANGUARD.md     ← processo operacional
-· MEMORANDO_PENTALATERAL_UNIVERSAL.md      ← constituição do Conselho
+· MEMORANDO_PENTALATERAL_UNIVERSAL.md ← constituição do Conselho
 · INTELLIGENCE_LEDGER.md          ← princípios ativos
 · BRIEFING do cliente atual       ← contexto do projeto
 · DIRETRIZ do Gemini (recém gerada) ← o que auditar
@@ -299,7 +299,7 @@ Colar antes do próximo prompt:
 
 ---
 
-## 10. o Pentalateral é UM PDCA VIVO
+## 10. O PENTALATERAL É UM PDCA VIVO
 
 > O loop evolutivo não é coincidência — é PDCA com inteligência distribuída.
 > Cada membro opera numa fase. O ciclo nunca para.

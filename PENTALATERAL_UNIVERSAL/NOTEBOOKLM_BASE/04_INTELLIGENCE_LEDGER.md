@@ -221,7 +221,7 @@ Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do Not
 **Evidência concreta:** Eduardo identificou 5 falhas que o Músculo não detectou. Eduardo originou a necessidade do contrato com clientes. Eduardo propôs o uso do NotebookLM como auditor jurídico (advogado do processo). Todas estas inovações vieram do Diretor, não do Conselho.
 **Princípio:** O Músculo implementa. O Gemini propõe estratégia. O NotebookLM audita o histórico. Mas a **direção estratégica e as inovações de processo** vêm de Eduardo. Quando o Diretor propõe algo novo — contrato, nova função para um membro do Conselho, nova regra — essa proposta tem peso maior do que qualquer saída dos membros. O sistema existe para amplificar a inteligência do Diretor, não substituí-la.
 **Corolário:** O Músculo que não detectou uma falha antes do Diretor deve perguntar: "Por que meu sistema de auto-proteção falhou aqui?" e gerar ferramenta. O Diretor não deve ser o detector primário de falhas de processo — quando é, o sistema falhou.
-**Aplica-se a:** toda interação. o Pentalateral é um amplificador da inteligência de Eduardo — não uma cadeia autônoma que o Diretor apenas valida.
+**Aplica-se a:** toda interação. O Pentalateral é um amplificador da inteligência de Eduardo — não uma cadeia autônoma que o Diretor apenas valida.
 
 ---
 
@@ -776,9 +776,9 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 ### [FALHA-PROCESSO-2026-05-18-B] PASSO files não cobertos pela sincronização de nomenclatura
 
 **Detectado por:** Diretor Eduardo
-**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "PENTALATERAL IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem PENTALATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
+**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Pentalateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem PENTALATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
 
-**Regra gerada:** Ao fazer qualquer migração de nomenclatura do sistema, a varredura obrigatória inclui: `CLIENTES/**/PASSO*.md`. Estes arquivos não são gerados por script — são editados manualmente. Criação de ferramenta de varredura: `grep -r "PENTALATERAL IAH" CLIENTES/**/*.md` como parte do ritual de migração.
+**Regra gerada:** Ao fazer qualquer migração de nomenclatura do sistema, a varredura obrigatória inclui: `CLIENTES/**/PASSO*.md`. Estes arquivos não são gerados por script — são editados manualmente. Criação de ferramenta de varredura: `grep -r "Pentalateral IAH" CLIENTES/**/*.md` como parte do ritual de migração.
 
 **Arquivos corrigidos:** INGRID/PASSO3, INGRID/PASSO5, INGRID/NOTEBOOKLM_FONTES/13, VALDECE/PASSO5
 
@@ -815,7 +815,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [P-033] Sync universal → projetos é obrigatório e imediato
 **Descoberto:** 2026-05-18 | **Sessão:** Auditoria Pentalateral — preparação NotebookLM
-**Fricção:** Diretor detectou que documentos em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "PENTALATERAL IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
+**Fricção:** Diretor detectou que documentos em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Pentalateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
 
 **Regra:** Ao atualizar QUALQUER documento em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/, o Músculo sincroniza imediatamente as cópias em TODOS os projetos ativos (CLIENTES/[NOME]/NOTEBOOKLM_FONTES/). Fonte única de verdade = PENTALATERAL_UNIVERSAL. Cópia no projeto = snapshot para o Auditor. Documento atualizado na universal mas não copiado = Auditor que lê versão velha = loop que começa com inteligência contaminada.
 
@@ -854,7 +854,7 @@ Diretor — veredito
 **Data:** 2026-05-18 | **Detectado por:** Diretor Eduardo
 **Impacto:** ~2 horas de sessão consumidas em auditoria e correção de documentação. Objetivo principal da sessão (gerar Skill ingrid-v2.md via NotebookLM Loop 3) não concluído.
 
-**Causa raiz:** Músculo não executou sync de documentos universais ao iniciar sessão. Nomenclatura "PENTALATERAL IAH" estava ativa em 27+ arquivos enquanto o sistema já operava como "Pentalateral IAH" há 2+ dias. PASSO5 de Ingrid indicava DIRETRIZ V5 (futura) quando a corrente era V4. Sem detecção proativa do Músculo — Diretor teve que auditar manualmente arquivo por arquivo.
+**Causa raiz:** Músculo não executou sync de documentos universais ao iniciar sessão. Nomenclatura "Pentalateral IAH" estava ativa em 27+ arquivos enquanto o sistema já operava como "Pentalateral IAH" há 2+ dias. PASSO5 de Ingrid indicava DIRETRIZ V5 (futura) quando a corrente era V4. Sem detecção proativa do Músculo — Diretor teve que auditar manualmente arquivo por arquivo.
 
 **Cadeia de falhas:**
 1. sync_passo_files.ps1 não cobria documentos universais (só PASSOs)
@@ -1121,3 +1121,22 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Impacto:** Skill baseada em fontes declaradas = Skill com rastreabilidade. Auditor que não sabe o que não viu = Skill com ponto cego silencioso.
 **Arquivo template:** `PENTALATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
 **Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+---
+
+### [P-054] Toda operação de substituição em massa exige verificação com grep imediata
+**Descoberto:** 2026-05-23 | **Emitido por:** Falha de processo detectada pelo Diretor — varredura de renomeação do sistema antigo → PENTALATERAL IAH
+**Fricção:** O rename massivo do sistema antigo → PENTALATERAL IAH foi executado (234 arquivos via `git mv`), mas padrões específicos de texto interno (nomenclatura legada, ciclo desatualizado de 20-ideias) não foram capturados na primeira passagem. O Músculo declarou "feito" sem provar. O Diretor teve que fazer auditoria manual — 51 arquivos ainda desatualizados.
+**Princípio:** Após QUALQUER operação de substituição em massa, o Músculo NUNCA declara "concluído" antes de rodar grep e confirmar zero ocorrências do termo antigo. Declarar "feito" sem provar = desinformação de processo.
+**Regra derivada:** `scripts/auditar_consistencia.ps1` roda automaticamente no `session_close.ps1`. VERMELHO bloqueia o encerramento. O gate não depende da disciplina do Músculo — é estrutural.
+**Ferramenta:** `scripts/auditar_consistencia.ps1` — verifica padrões proibidos em todos os arquivos operacionais. VERDE/AMARELO/VERMELHO. Integrado ao `session_close.ps1` como gate obrigatório.
+**Aplica-se a:** qualquer rename, refactor de nomenclatura, atualização de versão, ou substituição de termo em escala — em qualquer projeto ou repositório do Pentalateral.
+
+### [P-055] Estado real de projeto NUNCA vem do resumo de sessão — vem dos arquivos
+**Descoberto:** 2026-05-23 | **Emitido por:** Falha de processo detectada pelo Diretor — skill number errado propagado de sessão compactada
+**Fricção:** O resumo de sessão dizia "ingrid-v3 NUNCA GERADA — Loop 4 bloqueado." O Músculo repetiu essa afirmação ao Diretor sem verificar os arquivos reais. Na realidade, `ingrid-v4.md` existia com "Gate Dia 8 APROVADO 2026-05-19" e Loop 4 estava concluído. O Diretor identificou o erro ao perceber que o número da skill parecia errado.
+**Princípio:** Ao retomar sessão compactada, o Músculo NUNCA repete afirmações de estado de projeto sem verificar: (a) skills reais em `.claude/skills/`, (b) `dias_completos` no `WIP_BOARD.json`, (c) gates aprovados nos arquivos de skill ativos. Resumo de sessão é ponto de partida, não prova de estado.
+**Regra derivada:** `scripts/verificar_estado_projetos.ps1` roda automaticamente no `session_start.ps1`. Injeta estado real (skills em disco + dias concluídos) antes de qualquer declaração do Músculo.
+**Ferramenta:** `scripts/verificar_estado_projetos.ps1` — lista skills reais por projeto, dias_completos, próximo gate. Injetado no context do session_start como "ESTADO REAL DOS PROJETOS (P-055)".
+**Aplica-se a:** qualquer sessão retomada após compactação — especialmente quando há projetos em BUILD com múltiplos loops.
+

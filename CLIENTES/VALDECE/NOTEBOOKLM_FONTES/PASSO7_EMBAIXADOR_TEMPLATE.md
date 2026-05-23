@@ -232,7 +232,9 @@ CONTEXTO DO CICLO (elo obrigatório — não omitir):
 [N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM):
 [COLAR AS 5 IDEIAS DO NOTEBOOKLM COM NOME E DESCRIÇÃO DE 2 LINHAS CADA]
 
-PEDIDO AO EMBAIXADOR:
+PEDIDO AO EMBAIXADOR — TRÊS PARTES OBRIGATÓRIAS:
+
+PARTE 1 — FILTRO DE REALIDADE
 Para cada ideia acima, responder com:
   CONFIRMA — se o cliente demonstrou comportamento, interesse ou disposição compatível
   EXPANDE  — se o cliente tem contexto que potencializa esta ideia além do que foi proposto
@@ -243,51 +245,65 @@ Formato de resposta para cada ideia:
   Reação: [CONFIRMA / EXPANDE / ALERTA]
   Evidência da MEMORIA_EMBAIXADOR: [citar o que o cliente disse/fez que fundamenta a reação]
   Severidade (apenas para ALERTA): [ALTO / CRÍTICO]
+
+PARTE 2 — ANÁLISE INOVADORA (P-035 — amplitude total)
+"Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição obrigatória.
+- [RISCO PRINCIPAL DO CICLO ATUAL para o cliente]
+- [OPORTUNIDADE DE PIPELINE — o cliente mencionou alguém?]
+- [O QUE O MÚSCULO E O GEMINI NÃO ESTÃO VENDO]
+
+PARTE 3 — INTELIGÊNCIA DE MERCADO (dimensão expandida)
+O que o comportamento real do cliente revela sobre o nicho — não apenas sobre ele individualmente:
+- Padrão confirmado no nicho: [comportamento que provavelmente se repete em outros clientes similares]
+- Padrão específico deste cliente: [o que é dele, não do nicho]
+- Argumento de venda derivado: [o que Eduardo usa como prova social para o próximo cliente do nicho]
+- Risco de nicho: [o que pode impedir a escala de 1 para N clientes]
+- Modelo de precificação: [o nicho suporta MRR / licença única / project-based?]
 ```
 
 ---
 
-## O QUE O EMBAIXADOR ENTREGA
-
-> Seção que o Embaixador preenche ao responder. O Músculo usa para atualizar MEMORIA_EMBAIXADOR.
-
-**[E-1 a E-5] — IDEIAS EXCLUSIVAS DO EMBAIXADOR**
-> Não síntese das ideias dos outros membros. Perspectiva única do relacionamento real com o cliente.
-> Para cada ideia: o que é, por que o cliente específico valorizaria isso, e qual evidência da MEMORIA_EMBAIXADOR fundamenta a ideia.
+## FORMATO OBRIGATÓRIO — 6 BLOCOS DA RESPOSTA DO EMBAIXADOR
 
 ```
-[E-1] [NOME DA IDEIA]
-Descrição: [o que é]
-Por que [NOME_DO_CLIENTE] valorizaria: [razão fundamentada no histórico]
-Evidência: [o que o cliente disse/fez que apoia esta ideia]
+BLOCO 1 — TEMPERATURA_PONDERADA DE [NOME_DO_CLIENTE]
+  Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+  Tendência (últimos 7 dias): [subindo / estável / caindo]
+  Contexto de pagamento: [em dia / próximo vencimento / atrasado / N/A]
+  Score 0-10: [N]  ← Score < 6 = CHURN-WATCH automático
+  Razão: [1-2 linhas com evidência concreta]
 
-[E-2] ...
-[E-3] ...
-[E-4] ...
-[E-5] ...
-```
+BLOCO 2 — HIPÓTESES ATIVAS
+  Para cada hipótese pendente: CONFIRMADA / REFUTADA / PENDENTE + evidência de 1 linha
 
-**TEMPERATURA_PONDERADA DO CLIENTE**
-```
-Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
-Tendência (vs. loop anterior): [↑ subindo / → estável / ↓ caindo]
-Contexto de pagamento: [em dia / próximo vencimento / atrasado / N/A]
-Score composto: [0-10]
-Alerta: [CHURN-WATCH se score < 6]
-Razão: [1-2 linhas explicando o score]
-```
+BLOCO 3 — COMPORTAMENTO DO CLIENTE (3 pontos obrigatórios)
+  O que [NOME] fez que era esperado:
+  O que [NOME] fez que foi surpresa:
+  O que [NOME] NÃO fez que deveria ter feito:
 
-**WATCHDOG — ALERTAS ATIVOS**
-```
-[SCOPE-WATCH] abertos: [LISTAR OU "nenhum"]
-[CHURN-WATCH] ativos: [LISTAR OU "nenhum"]
-Próximo debrief recomendado: [DATA OU "após próxima reunião"]
-```
+BLOCO 4 — WATCHDOG
+  [SCOPE-WATCH] abertos:
+  [CHURN-WATCH] ativos:
+  Próximo debrief recomendado:
 
-**PRÓXIMA AÇÃO RECOMENDADA PELO EMBAIXADOR**
-```
-[AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
-Razão: [por que esta ação agora e não outra]
+BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
+  Perspectiva exclusiva — não síntese das ideias dos outros membros.
+  Para cada ideia:
+    [E-N] [NOME]
+    Descrição: [o que é]
+    Por que [NOME_DO_CLIENTE] valorizaria: [razão fundamentada no histórico]
+    Evidência: [o que o cliente disse/fez]
+
+BLOCO 6 — INTELIGÊNCIA DE MERCADO ([NICHO])
+  O que o comportamento real do cliente revela sobre o nicho — não sobre ele individualmente:
+  Padrão confirmado no nicho: [comportamento que provavelmente se repete em outros clientes similares]
+  Padrão específico deste cliente: [o que é dele, não do nicho]
+  Argumento de venda derivado: [o que Eduardo usa como prova social para o próximo cliente]
+  Risco de nicho: [o que pode impedir a escala de 1 para N clientes]
+
+BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
+  [AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
+  Razão: [por que esta ação agora e não outra]
 ```
 
 ---
