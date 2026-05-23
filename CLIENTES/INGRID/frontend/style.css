@@ -658,3 +658,54 @@ main {
 }
 .btn-simulado:hover  { background: rgba(0,240,255,0.07); border-color: var(--cyan); }
 .btn-simulado:active { background: rgba(0,240,255,0.14); }
+
+/* ── G-3: Vacina Legislação ─────────────────────────────────── */
+.badge-vacina {
+  background: rgba(255,214,0,0.1);
+  color: var(--yellow);
+  border: 1px solid rgba(255,214,0,0.3);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ── G-5: Socrática Pânico ──────────────────────────────────── */
+.panico-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 60vh;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.panico-icon  { font-size: 52px; }
+
+.panico-titulo {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+
+.panico-corpo {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 300px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.panico-foco {
+  font-size: 14px;
+  color: var(--cyan);
+  background: rgba(0,240,255,0.07);
+  border: 1px solid rgba(0,240,255,0.2);
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 0;
+}

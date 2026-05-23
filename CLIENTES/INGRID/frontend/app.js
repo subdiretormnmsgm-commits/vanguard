@@ -1,5 +1,5 @@
 ﻿// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
-// Loop 4 · Dia 9: Clickwrap V2 · Sessoes · Streak E-3 · metricas_diarias
+// Loop 5 · Dia 12: Contador RPC [E-1] · Socrática Pânico G-5 · Vacina Legislação G-3 · Push Circuit Breaker G-1
 
 // ── UTILS ─────────────────────────────────────────────────────────────────────
 // Converte **texto** para <strong>texto</strong> com escape seguro de HTML
@@ -24,6 +24,17 @@ const ADMIN_TOKEN_CONF  = "vg-admin-2026-ingrid"; // substituir antes do deploy
 // Admin override: ?admin=<token>
 const _params   = new URLSearchParams(location.search);
 const ADMIN_MODE = _params.get("admin") === ADMIN_TOKEN_CONF && ADMIN_TOKEN_CONF !== "vg-admin-2026-ingrid";
+
+// ── G-3: VACINA LEGISLAÇÃO — disciplinas que Quadrix sempre cai ───────────────
+const VACINA_DISCIPLINAS = new Set(['lc840', 'maria_da_penha', 'politica_mulheres', 'lei_organica_df']);
+
+// ── G-1: PUSH CIRCUIT BREAKER — detecta iOS Safari (sem suporte a Web Push) ──
+function isIosSafari() {
+  return /iP(hone|od|ad)/.test(navigator.userAgent)
+    && /WebKit/.test(navigator.userAgent)
+    && !window.MSStream;
+}
+const PUSH_SUPORTADO = 'Notification' in window && 'serviceWorker' in navigator && !isIosSafari();
 
 // ── NOMES LEGÍVEIS DAS DISCIPLINAS ────────────────────────────────────────────
 const NOMES_DISCIPLINAS = {
@@ -56,9 +67,11 @@ let gastoEstimado         = 0;
 let killSwitchAtivado     = false;
 let totalRespostasGlobal  = 0;
 let ultimoCacheStatus     = "—";
-let acertosConsecutivos   = 0; // E-3: streak de acertos consecutivos
-let sessaoId              = null; // rastreia sessao atual em sessoes_usuario
-const errosPorQuestao     = {};
+let acertosConsecutivos        = 0;    // E-3: streak de acertos consecutivos
+let errosConsecutivos          = 0;    // G-5: Socrática Pânico após 3 erros seguidos
+let sessaoId                   = null; // rastreia sessao atual em sessoes_usuario
+const errosPorQuestao          = {};
+let simuladoErrosPorDisciplina = {};   // G-5: disciplina mais errática no simulado
 
 // ── MICRO-SIMULADO — Dia 11 ───────────────────────────────────────────────────
 const SIMULADO_TOTAL     = 10;
@@ -241,6 +254,14 @@ function renderizarQuestao(indice) {
   badgeDisc.textContent = nomeDisc;
   badgeDisc.className   = q.peso_edital === 2 ? "badge-peso2" : "badge-peso1";
 
+  // G-3: Vacina Legislação — badge para disciplinas que Quadrix sempre cai
+  if (VACINA_DISCIPLINAS.has(q.disciplina_id)) {
+    const vacinaEl = document.createElement("span");
+    vacinaEl.className   = "badge-vacina";
+    vacinaEl.textContent = "⚡ Cai sempre";
+    card.querySelector(".questao-meta").appendChild(vacinaEl);
+  }
+
   const badgeTipo = card.querySelector(".badge-tipo");
   if (q.revisao) {
     badgeTipo.textContent = "🔁 Revisão";
@@ -290,10 +311,12 @@ async function processarResposta(questao, letraEscolhida, card) {
   if (acertou) {
     acertos++;
     acertosConsecutivos++;
+    errosConsecutivos = 0;
     pontosAcumulados += questao.peso_edital;
     document.getElementById("pontos-valor").textContent = pontosAcumulados;
   } else {
     acertosConsecutivos = 0;
+    errosConsecutivos++;
     revisoesPendentes++;
   }
 
@@ -349,8 +372,14 @@ async function processarResposta(questao, letraEscolhida, card) {
   if (ultima) btn.textContent = "Ver resultado →";
 
   btn.addEventListener("click", () => {
-    if (ultima) mostrarFim();
-    else renderizarQuestao(indiceAtual + 1);
+    if (ultima) {
+      mostrarFim();
+    } else if (errosConsecutivos >= 3) {
+      // G-5: Socrática Pânico — 3 erros seguidos no feed
+      ativarSocraticaPanico("feed");
+    } else {
+      renderizarQuestao(indiceAtual + 1);
+    }
   });
   card.appendChild(btn);
 }
@@ -457,16 +486,36 @@ async function salvarProgresso(questao, resposta, acertou, tti, chute, nivelTuto
 // ── FIM DE SESSÃO + FRASE E-5 — Dia 6 ────────────────────────────────────────
 async function mostrarFim() {
   encerrarSessao(); // fire-and-forget
+
+  // Busca dados em paralelo — RPC de pontos ponderados + total de respostas
+  const [total, dadosPontos] = await Promise.all([
+    buscarTotalRespostas(),
+    calcularPontosCumulativos(),
+  ]);
+
   const tpl = document.getElementById("tpl-fim").content.cloneNode(true);
   const pct = feed.length > 0 ? Math.round((acertos / feed.length) * 100) : 0;
 
   tpl.getElementById("stat-acertos").textContent  = `${acertos}/${feed.length}`;
-  tpl.getElementById("stat-pontos").textContent    = pontosAcumulados;
   tpl.getElementById("stat-pct").textContent       = `${pct}%`;
   tpl.getElementById("stat-revisoes").textContent  = revisoesPendentes;
 
+  // [E-1]: Contador com linguagem de posse + delta semanal (não "sua nota", mas "território conquistado")
+  const pontosEl = tpl.getElementById("stat-pontos");
+  if (dadosPontos && dadosPontos.pontos_total > 0) {
+    pontosEl.textContent = dadosPontos.pontos_total;
+    const delta = dadosPontos.pontos_esta_semana - dadosPontos.pontos_semana_passada;
+    const descEl = pontosEl.nextElementSibling;
+    if (descEl) {
+      descEl.textContent = delta > 0
+        ? `+${delta} pts esta semana`
+        : "pontos conquistados";
+    }
+  } else {
+    pontosEl.textContent = pontosAcumulados;
+  }
+
   // E-5: só exibir se total >= 10 (RPC definitivo)
-  const total = await buscarTotalRespostas();
   if (total >= 10) {
     const fraseEl = tpl.getElementById("frase-encerramento");
     fraseEl.style.display = "block";
@@ -772,7 +821,13 @@ function processarRespostaSimulado(questao, letraEscolhida, card) {
   const tti    = Date.now() - simuladoInicioQ;
   const correta = questao.gabarito;
   const acertou = letraEscolhida !== null && letraEscolhida === correta;
-  if (acertou) simuladoAcertos++;
+  if (acertou) {
+    simuladoAcertos++;
+  } else {
+    // G-5: rastreia disciplina mais errática para a Socrática Pânico
+    const d = questao.disciplina_id;
+    simuladoErrosPorDisciplina[d] = (simuladoErrosPorDisciplina[d] ?? 0) + 1;
+  }
   simuladoTempos.push(tti);
 
   // Desabilita alternativas
@@ -865,6 +920,77 @@ function mostrarResultadoSimulado() {
   `);
 
   document.getElementById("progresso-header").textContent = "Simulado";
+
+  // G-5: Socrática Pânico — pct abaixo de 50% no simulado
+  if (pct < 50) {
+    setTimeout(() => ativarSocraticaPanico("simulado"), 2000);
+  }
+}
+
+// ── G-5: SOCRÁTICA PÂNICO ────────────────────────────────────────────────────
+function ativarSocraticaPanico(tipo) {
+  // Identifica disciplina mais errática para orientar o foco
+  let discFoco = null;
+  if (tipo === "simulado") {
+    const entradas = Object.entries(simuladoErrosPorDisciplina).sort((a, b) => b[1] - a[1]);
+    if (entradas.length > 0) discFoco = NOMES_DISCIPLINAS[entradas[0][0]] ?? entradas[0][0];
+  } else {
+    // feed: agrupa erros por disciplina usando o feed atual
+    const errosPorDisc = {};
+    feed.forEach((q) => {
+      if (errosPorQuestao[q.id]) {
+        errosPorDisc[q.disciplina_id] = (errosPorDisc[q.disciplina_id] ?? 0) + errosPorQuestao[q.id];
+      }
+    });
+    const entradas = Object.entries(errosPorDisc).sort((a, b) => b[1] - a[1]);
+    if (entradas.length > 0) discFoco = NOMES_DISCIPLINAS[entradas[0][0]] ?? entradas[0][0];
+  }
+
+  const titulo = tipo === "simulado"
+    ? "Resultado abaixo de 50%."
+    : "Três erros seguidos.";
+  const corpo = tipo === "simulado"
+    ? "Normal em treino — você está mapeando seus pontos cegos. Esse mapa vai guiar as próximas sessões."
+    : "O cérebro aprende melhor com uma pausa. Respira e continua.";
+  const focoStr = discFoco
+    ? `<p class="panico-foco">Próximo foco: <strong>${discFoco}</strong></p>`
+    : "";
+
+  trocarMain(`
+    <div class="panico-screen">
+      <div class="panico-icon">💙</div>
+      <h2 class="panico-titulo">${titulo}</h2>
+      <p class="panico-corpo">${corpo}</p>
+      ${focoStr}
+      <button class="btn-proxima" id="btn-continuar-panico">Continuar estudando →</button>
+    </div>
+  `);
+
+  document.getElementById("btn-continuar-panico")?.addEventListener("click", () => {
+    errosConsecutivos = 0;
+    simuladoErrosPorDisciplina = {};
+    if (tipo === "simulado") {
+      location.reload();
+    } else {
+      renderizarQuestao(indiceAtual + 1);
+    }
+  });
+}
+
+// ── RPC: CALCULAR PONTOS PONDERADOS CUMULATIVOS ───────────────────────────────
+async function calcularPontosCumulativos() {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/calcular_pontos_ponderados`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID }),
+    });
+    if (!res.ok) return null;
+    const rows = await res.json();
+    return Array.isArray(rows) ? rows[0] : rows;
+  } catch (_) {
+    return null;
+  }
 }
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
