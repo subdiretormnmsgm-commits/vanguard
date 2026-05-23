@@ -1,4 +1,4 @@
-# PROMPT PACIF — QUADRILATERAL IAH
+﻿# PROMPT PACIF — QUADRILATERAL IAH
 **Eduardo · Quadrilateral IAH · Versão 1.0 · 2026-05-13**
 
 ---
@@ -144,7 +144,7 @@ verdade difícil a elogio vazio.
 ---
 
 # ANÁLISE ESTRATÉGICA — EXECUTADA PELO CLAUDE
-*Baseada nos arquivos da pasta QUADRILATERAL_UNIVERSAL + pesquisa de concorrentes*
+*Baseada nos arquivos da pasta PENTALATERAL_UNIVERSAL + pesquisa de concorrentes*
 
 ---
 
@@ -327,5 +327,5 @@ O único erro que pode matar o Quadrilateral antes do tempo é esperar estar "pr
 
 ---
 
-*Análise gerada com base nos arquivos QUADRILATERAL_UNIVERSAL + pesquisa de concorrentes · 2026-05-13*
+*Análise gerada com base nos arquivos PENTALATERAL_UNIVERSAL + pesquisa de concorrentes · 2026-05-13*
 *Atualizar após o V1 publicado com os números reais*

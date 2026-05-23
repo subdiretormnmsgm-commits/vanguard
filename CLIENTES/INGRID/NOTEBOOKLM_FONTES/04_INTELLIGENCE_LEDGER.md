@@ -1,4 +1,4 @@
-# INTELLIGENCE LEDGER — Pentalateral IAH
+﻿# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -368,7 +368,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 `[CONFIRMADO]` **Feed 70/30 preciso:** feed-diario retornou exatamente 14 Peso2 + 6 Peso1 por dia durante 7 dias simulados. SM-2 integrado e funcionando (Revisoes: 0 no teste de gate — correto para banco novo).
 
-`[CONFIRMADO]` **Documento de troubleshooting funciona:** QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md criado com 7 panes + diagrama + sequencia obrigatoria. Proxima vez: diagnose em <5 min.
+`[CONFIRMADO]` **Documento de troubleshooting funciona:** PENTALATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md criado com 7 panes + diagrama + sequencia obrigatoria. Proxima vez: diagnose em <5 min.
 
 **ERROS E FRICÇÕES (para nao repetir):**
 
@@ -391,7 +391,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Custo total da sessao (seed):** $1,56 — dentro do limite diario de $5.
 
 **Documentos criados/atualizados:**
-- `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` — novo
+- `PENTALATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` — novo
 - `CLIENTES/INGRID/seed_questoes.ps1` — cabecalho com sequencia obrigatoria + batch P2/P1
 - `CLIENTES/INGRID/gate_cli_dia5.js` — removido import node-fetch
 - `INTELLIGENCE_LEDGER.md` — P-025 + log desta sessao
@@ -429,7 +429,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 - `CONSELHO/OPINIAO_CONSULTORA_01_2026-05-16.md` — completa, com Ideia Disruptiva e papel constitucional do Diretor
 - `INTELLIGENCE_LEDGER.md` — P-018 extraído e refinado
 - `CLIENTES/INGRID/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md` — sincronizado
-- `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` — PARADIGMA v3.0 + tabela OS 4 MEMBROS + Manifesto atualizados
+- `PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md` — PARADIGMA v3.0 + tabela OS 4 MEMBROS + Manifesto atualizados
 - `.claude/skills/vanguard-memorando.md` — sincronizado
 - `CLIENTES/INGRID/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md` — PARADIGMA v3.0 inserido
 - `CLAUDE.md` — QUEM VOCÊ É: Músculo como Agente Ativo
@@ -542,7 +542,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Documentos atualizados nesta sessão:**
 - `CLIENTES/INGRID/edital_sedes.json` — score incidência + pesquisa + D-5 + achados
 - `CLIENTES/INGRID/PASSO3_GEMINI.md` — mandato Skill explícito
-- `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` — idem universal
+- `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` — idem universal
 - `CLIENTES/INGRID/PASSO6_MUSCULO.md` — sequência A-H formal
 - `CLIENTES/INGRID/DIRETRIZ_GEMINI_V1.txt` — DIRETRIZ completa 7 blocos
 - `CLIENTES/WIP_BOARD.json` — PROJ-002 movido para build
@@ -619,7 +619,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 5. Diagnóstico com `quantidade: 1` ANTES de rodar seed completo
 6. Usar `npx supabase functions deploy` em vez de `supabase` no Windows
 
-**Documento completo:** `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md`
+**Documento completo:** `PENTALATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md`
 **Aplica-se a:** todo projeto com Supabase Edge Functions + Claude API, qualquer nicho.
 
 ---
@@ -705,7 +705,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 - Mandato 10: Ingrid [D2] — recomendou ao Músculo reduzir threshold de dificuldade nas 3 primeiras sessões com base em perfil comportamental
 - Mandato 11: Ingrid [E2] — identificou que métricas de Ingrid são a prova social que valida R$194k de modelo SaaS; sem documentação agora, argumento de escala colapsa
 
-**Template atualizado:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
+**Template atualizado:** `PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
 **Pergunta para o Conselho:** "Com estes 11 mandatos, o que o Embaixador vê que nenhum outro membro pode ver — e como isso se torna moat competitivo da Vanguard?"
 
 ---
@@ -776,7 +776,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 ### [FALHA-PROCESSO-2026-05-18-B] PASSO files não cobertos pela sincronização de nomenclatura
 
 **Detectado por:** Diretor Eduardo
-**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Quadrilateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem QUADRILATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
+**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Quadrilateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem PENTALATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
 
 **Regra gerada:** Ao fazer qualquer migração de nomenclatura do sistema, a varredura obrigatória inclui: `CLIENTES/**/PASSO*.md`. Estes arquivos não são gerados por script — são editados manualmente. Criação de ferramenta de varredura: `grep -r "Quadrilateral IAH" CLIENTES/**/*.md` como parte do ritual de migração.
 
@@ -815,9 +815,9 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [P-033] Sync universal → projetos é obrigatório e imediato
 **Descoberto:** 2026-05-18 | **Sessão:** Auditoria Pentalateral — preparação NotebookLM
-**Fricção:** Diretor detectou que documentos em QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Quadrilateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
+**Fricção:** Diretor detectou que documentos em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Quadrilateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
 
-**Regra:** Ao atualizar QUALQUER documento em QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/, o Músculo sincroniza imediatamente as cópias em TODOS os projetos ativos (CLIENTES/[NOME]/NOTEBOOKLM_FONTES/). Fonte única de verdade = QUADRILATERAL_UNIVERSAL. Cópia no projeto = snapshot para o Auditor. Documento atualizado na universal mas não copiado = Auditor que lê versão velha = loop que começa com inteligência contaminada.
+**Regra:** Ao atualizar QUALQUER documento em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/, o Músculo sincroniza imediatamente as cópias em TODOS os projetos ativos (CLIENTES/[NOME]/NOTEBOOKLM_FONTES/). Fonte única de verdade = PENTALATERAL_UNIVERSAL. Cópia no projeto = snapshot para o Auditor. Documento atualizado na universal mas não copiado = Auditor que lê versão velha = loop que começa com inteligência contaminada.
 
 **Automação:** sync_passo_files.ps1 deve executar este sync em toda sessão de abertura. Músculo não espera Eduardo pedir — executa proativamente.
 
@@ -1026,10 +1026,20 @@ Diretor — veredito
 O contrato é o ponto de chegada do processo de teste — nunca o ponto de partida.
 
 **Causa raiz:** Pressão de timing comercial + confiança no código testado apenas no ambiente de desenvolvimento. "Funciona no meu computador" não é gate de aprovação.
-**Ferramenta criada:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_TESTES_PRE_ASSINATURA.md` — checklist de 8 itens (Fase 1 interna) + script de envio ao cliente (Fase 2) + nova cláusula contratual de validação prévia.
+**Ferramenta criada:** `PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_TESTES_PRE_ASSINATURA.md` — checklist de 8 itens (Fase 1 interna) + script de envio ao cliente (Fase 2) + nova cláusula contratual de validação prévia.
 **Regra de ouro:** Pressão para assinar rápido é sinal de alerta — não de agilidade. Cliente que confia espera 48h de teste. O custo do protocolo é 2h. O custo da falha pós-assinatura é a credibilidade.
 **Responsabilidade:** O Diretor é o único que autoriza o avanço para assinatura. O Músculo não tem autonomia para comprimir este protocolo sob nenhuma circunstância.
 **Aplica-se a:** todo projeto com cliente externo, qualquer valor, qualquer prazo, qualquer nível de confiança no código.
+
+---
+
+### [P-048] Pendente identificado = registrar imediatamente — não confiar na memória da sessão
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-001 Valdece Loop 7 + revisão de processo
+**Fricção:** O Diretor perguntou "não tínhamos de levar jurisprudências do STF?" — tarefa identificada em sessão anterior mas nunca registrada formalmente. Quando o contexto compactou, o pendente sumiu. Eduardo: "Se eu não lembro, ficaríamos perdidos. Imagina com 30 projetos."
+**Princípio:** Toda tarefa identificada como pendente durante uma sessão → registrar em `PENDENTES.md` na raiz IMEDIATAMENTE, antes de qualquer outra ação. Não esperar `session_close.ps1`. Não confiar na memória da conversa. O `session_close` complementa — não substitui.
+**Ferramenta criada:** `PENDENTES.md` na raiz do repositório — lido pelo `briefing_diario.ps1` toda manhã. Formato: `- [ ] \`YYYY-MM-DD\` **descrição**`. Músculo marca `[x]` ao concluir e remove no `session_close`.
+**Regra de ouro:** Se foi dito "precisa ser feito" e não está no PENDENTES.md ou no `proximo_passo` do WIP_BOARD, não existe. Memória de sessão não é instrumento de gestão — arquivo é.
+**Aplica-se a:** toda sessão, todo projeto, todo processo. Escala para N projetos sem degradação.
 
 ---
 
@@ -1058,4 +1068,56 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Princípio:** Ao receber o output do Auditor, antes de sair do NotebookLM: salvar PARTES 1+2+4 em `CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md`. Só então copiar a PARTE 3 (Skill) para `.claude/skills/`. A sequência correta de cópia é: (1) salvar tudo, (2) copiar Skill, (3) rodar gate.
 **Regra de ouro:** NotebookLM não tem memória entre sessões. Quando você fecha, o output vai junto. O que não está em arquivo não existe.
 **Ferramenta criada:** Gate P-049 adicionado ao final da seção COMANDO CURTO em todos os arquivos PASSO5_NOTEBOOKLM.
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+### [P-050] Teste integrado ao processo — não etapa final
+**Descoberto:** 2026-05-21 | **Sessão:** PROJ-001 Valdece V3 — pós-deploy
+**Fricção:** Após migração de schema (`vector(768)→3072`), re-embedding completo e deploy no Netlify, o primeiro teste real da busca revelou erro "different vector dimensions 3072 and 768" — a função `search_documents()` ainda tinha a assinatura antiga. O bug existia desde o Dia 1 da migração e só foi detectado no final da sessão, porque nenhum checkpoint de teste foi executado após cada passo.
+**Princípio:** Teste de caminho principal (golden path) é obrigatório após cada passo técnico irreversível — não apenas ao fechar a sessão. A ordem correta é: executar passo → testar imediatamente → só então avançar. Teste postergado = bugs acumulados que chegam juntos no final.
+**Checkpoints obrigatórios em projetos de busca semântica:**
+1. Após aplicar schema → testar INSERT de documento dummy
+2. Após criar função de busca → testar via SQL Editor com embedding fake
+3. Após re-embedding → testar via curl/Postman contra a função
+4. Após deploy de frontend → testar busca real no navegador antes de commitar
+5. Após qualquer mudança de modelo de embedding → verificar se frontend e função têm o mesmo número de dims
+**Ferramenta:** Músculo usa Playwright para abrir o frontend imediatamente após cada deploy e rodar busca de teste. Console errors e erros visuais são tratados na mesma sessão — nunca postergados.
+**Regra de ouro:** "Se funcionou no código mas não testei ao vivo, não funcionou."
+**Aplica-se a:** todo projeto com busca semântica, deploy de frontend, ou migração de schema no Pentalateral IAH.
+
+### [P-051] Teste remoto valida a cena do cliente — não a funcionalidade genérica
+**Descoberto:** 2026-05-21 | **Sessão:** PROJ-001 Valdece V3 — testes via Playwright
+**Fricção:** Os primeiros testes foram feitos com termos genéricos ("prisão preventiva excesso de prazo"). O correto é testar com os termos e cenários exatos que o cliente descreveu no discovery — é a única forma de confirmar que o sistema entrega o que foi prometido, não apenas que roda.
+**Princípio:** O roteiro de testes remotos de cada projeto é derivado diretamente da cena de sucesso (P-041) e das palavras usadas pelo cliente no discovery. Testar com termos técnicos genéricos valida o motor. Testar com os termos do cliente valida a entrega.
+**Como aplicar:**
+1. Ao criar CLIENTES/[NOME]/KNOWLEDGE_BASE/INDEX.md → incluir seção "ROTEIRO DE TESTES DO CLIENTE" com 3-5 queries derivadas do discovery
+2. Antes de todo deploy → rodar os testes do cliente via Playwright, não apenas queries genéricas
+3. Ao fechar o gate de entrega → screenshot dos resultados com os termos do cliente = evidência da entrega
+**Exemplo Valdece:** cliente descreveu que usa HC, RHC, flagrante ilegal, excesso de prazo, pena reduzida → são esses os termos do roteiro de teste, não "busca semântica funcionando".
+**Nas interações com o cliente:** o teste remoto via Playwright é executado ao vivo durante a sessão com o cliente — Eduardo relata o que o cliente pediu, o Músculo roda a busca com aquele termo exato e captura o screenshot. O cliente vê o sistema respondendo à própria demanda, não a um demo genérico. Isso fecha o ciclo de confiança.
+**Três momentos obrigatórios:**
+1. **Pré-entrega** (interno) — confirmar que os termos do discovery retornam resultados relevantes
+2. **Na entrega** (com o cliente) — rodar ao vivo os termos que o próprio cliente disse no discovery
+3. **Pós-sessão** (debrief) — Embaixador registra quais termos o cliente quis testar na hora → alimentar MEMORIA_EMBAIXADOR
+**Conexão:** P-041 (cena de sucesso), P-044 (toda decisão técnica avaliada contra a cena do cliente), P-050 (teste integrado ao processo).
+**Aplica-se a:** todo projeto com entrega de produto ao cliente no Pentalateral IAH.
+
+---
+
+### [P-052] Estrategista requer MASTER de ativação em toda sessão — a amnésia é estrutural
+**Descoberto:** 2026-05-23 | **Emitido por:** Embaixador + validado pelo Músculo
+**Fricção:** O Estrategista (Gemini) não tem memória persistente entre sessões. Toda sessão começava do zero — o Diretor precisava carregar múltiplos documentos manualmente antes de qualquer interação útil. O overhead de onboarding recaía sobre o recurso mais escasso do sistema (atenção do Diretor).
+**Princípio:** Toda sessão com o Estrategista começa com o `COMANDO_ESTRATEGISTA_MASTER_v[N].md` colado como PRIMEIRA mensagem. O MASTER é o equivalente funcional da memória persistente — compila identidade, estado atual dos projetos, modelo de negócio, princípios relevantes do LEDGER, deficiências conhecidas, formato de entrega e inventário de ferramentas.
+**Manutenção:** O Músculo atualiza o MASTER automaticamente quando atualiza o WIP_BOARD.json — são o mesmo dado. Não há prompts interativos; a manutenção é automática.
+**Decisão deliberada:** Não migrar o Estrategista para Claude Projects — perderia busca na web. O MASTER é a ponte certa para o estágio atual.
+**Arquivo:** `PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md`
+**Aplica-se a:** toda sessão com o Estrategista (Gemini), qualquer projeto, qualquer loop.
+
+---
+
+### [P-053] MANIFESTO_DE_FONTES declara o que o Auditor pode e não pode ver
+**Descoberto:** 2026-05-23 | **Emitido por:** Expansão do Pentalateral IAH — DEF-N-4
+**Fricção:** O Auditor (NotebookLM) auditava com base nas fontes carregadas, mas nunca declarava explicitamente quais fontes estavam presentes nem qual período coberto. Um Auditor que não sabe o que não vê é um Auditor com ponto cego invisível.
+**Princípio:** Em todo loop do Auditor, o NOTEBOOKLM_FONTES/ deve conter um `MANIFESTO_DE_FONTES.md` que declara: (a) quais documentos estão carregados e em qual posição, (b) período coberto (data do mais antigo ao mais recente), (c) o que está ausente e por quê, (d) qual fonte é a mais recente e portanto de maior peso. O Auditor lê o MANIFESTO antes de qualquer análise.
+**Impacto:** Skill baseada em fontes declaradas = Skill com rastreabilidade. Auditor que não sabe o que não viu = Skill com ponto cego silencioso.
+**Arquivo template:** `PENTALATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
 **Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.

@@ -1,5 +1,5 @@
-# PASSO 6 — TEMPLATE UNIVERSAL: PARA O MÚSCULO (Claude Code)
-# Versão: Universal v4.1 · 2026-05-23 · QUADRILATERAL_UNIVERSAL/OPERACAO/
+﻿# PASSO 6 — TEMPLATE UNIVERSAL: PARA O MÚSCULO (Claude Code)
+# Versão: Universal v4.1 · 2026-05-23 · PENTALATERAL_UNIVERSAL/OPERACAO/
 # Uso: Músculo preenche [PLACEHOLDERS] com dados reais ao criar instância por projeto.
 
 ---

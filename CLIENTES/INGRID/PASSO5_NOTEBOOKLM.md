@@ -170,7 +170,7 @@ Ordem dos documentos (fatos do passado primeiro — nunca inverter):
 ```
 --- UNIVERSAIS ---
 01_SKILL_PROTOCOLO_VANGUARD.md     ← ancora nos padrões do Quadrilateral
-02_MEMORANDO_QUADRILATERAL_UNIVERSAL.md  ← constituição e valores
+02_MEMORANDO_PENTALATERAL_UNIVERSAL.md  ← constituição e valores
 03_MANUAL_DIRETOR.md                     ← como Eduardo opera
 04_INTELLIGENCE_LEDGER.md               ← princípios ativos P-001 a P-032
 05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md  ← como o loop funciona

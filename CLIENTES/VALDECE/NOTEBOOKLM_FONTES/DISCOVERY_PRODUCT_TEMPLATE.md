@@ -1,4 +1,4 @@
-# DISCOVERY PRODUCT — DELIBERAÇÃO DO CONSELHO EM 48H
+﻿# DISCOVERY PRODUCT — DELIBERAÇÃO DO CONSELHO EM 48H
 **Template Universal · Vanguard Tech**
 **Valor:** R$ 3.000 – R$ 5.000 · Sem código · Entrega: artefato executivo em PDF/MD
 
@@ -116,7 +116,7 @@ Reunião de entrega:
 ## PROTEÇÃO JURÍDICA — CLÁUSULA OBRIGATÓRIA
 
 > ⚠️ Esta cláusula deve constar em todo contrato de Discovery Product.
-> Ver `QUADRILATERAL_UNIVERSAL/JURIDICO/CLAUSULA_ISENÇÃO_IA.md` (a criar)
+> Ver `PENTALATERAL_UNIVERSAL/JURIDICO/CLAUSULA_ISENÇÃO_IA.md` (a criar)
 
 **Rascunho base:**
 > "As deliberações, diagnósticos e planos de ação entregues pela Vanguard Tech no âmbito deste serviço constituem análise consultiva baseada em inteligência artificial e na experiência do Diretor Responsável. Não configuram consultoria jurídica, financeira, contábil ou médica regulamentada. O cliente é o único responsável pelas decisões tomadas com base neste material. A Vanguard Tech não se responsabiliza por resultados comerciais, perdas financeiras ou danos decorrentes da implementação ou não-implementação das recomendações contidas no artefato entregue."
@@ -169,7 +169,7 @@ Reunião de entrega:
 New-Item -ItemType Directory -Path "CLIENTES\[NOME]\DISCOVERY_PRODUCT"
 
 # 2. Copiar template de briefing
-Copy-Item "QUADRILATERAL_UNIVERSAL\TEMPLATES\FASE_0__BRIEFING_DISCOVERY.md" `
+Copy-Item "PENTALATERAL_UNIVERSAL\TEMPLATES\FASE_0__BRIEFING_DISCOVERY.md" `
           "CLIENTES\[NOME]\BRIEFING_DISCOVERY.md"
 
 # 3. Registrar no WIP_BOARD como tipo "discovery_product"

@@ -1,4 +1,4 @@
-# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO VALDECE · LOOP 7
+﻿# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO VALDECE · LOOP 7
 > Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Atualizado em 2026-05-20
 > Eduardo não edita este arquivo — é o guia de ativação do Embaixador para este projeto.
 > Músculo atualiza as ideias dos sócios (SEÇÃO D) ao fechar cada loop.
@@ -375,4 +375,4 @@ Razão: [por que esta ação agora e não outra]
 ---
 
 *PASSO7 · Projeto Valdece · Loop 6 · Atualizado em 2026-05-19*
-*Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md*
+*Template universal: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md*

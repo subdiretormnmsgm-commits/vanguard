@@ -1,4 +1,4 @@
-# SOP VANGUARD MASTER — Guia Operacional da Venture Builder
+﻿# SOP VANGUARD MASTER — Guia Operacional da Venture Builder
 > **Documento:** Standard Operating Procedure · Versão 2.0 · 2026-05-18
 > **Autores:** Pentalateral IAH — Diretor + Embaixador + Gemini + NotebookLM + Músculo
 > **Propósito:** O guia completo que opera a máquina. Da captação de cliente ao produto entregue.
@@ -73,8 +73,8 @@ O script:
 
 **Após ativar:** briefar o Embaixador com as respostas dos Blocos B e D do Discovery Card.
 
-**Template:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
-**Passo a passo:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md`
+**Template:** `PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
+**Passo a passo:** `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md`
 
 ---
 
@@ -260,7 +260,7 @@ Restante na entrega do V1.
    - Alertas de escopo, prazo ou expectativa divergente
 4. MEMORIA_EMBAIXADOR é atualizada pelo Músculo após a deliberação (P-032)
 
-**Template:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md` → seção DEBRIEF PÓS-REUNIÃO
+**Template:** `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md` → seção DEBRIEF PÓS-REUNIÃO
 
 **Consequência de não fazer:** A inteligência da reunião morre na memória do Diretor, não alimenta o loop do Pentalateral. O próximo ciclo começa sem esse contexto.
 

@@ -1,4 +1,4 @@
-# MANIFESTO_DE_FONTES — [NOME DO PROJETO / LOOP]
+﻿# MANIFESTO_DE_FONTES — [NOME DO PROJETO / LOOP]
 > Criado pelo Músculo antes de cada sessão do NotebookLM.
 > Declara o que o Auditor pode e não pode ver — resolve DEF-N-4 (Dependência de Qualidade das Fontes).
 > Arquivo: CLIENTES/[NOME]/NOTEBOOKLM_FONTES/MANIFESTO_DE_FONTES.md
@@ -24,7 +24,7 @@
 
 ### Documentos Universais (base permanente)
 - [ ] 01_SKILL_PROTOCOLO_VANGUARD.md
-- [ ] 02_MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+- [ ] 02_MEMORANDO_PENTALATERAL_UNIVERSAL.md
 - [ ] 03_MANUAL_DIRETOR.md
 - [ ] 04_INTELLIGENCE_LEDGER.md
 - [ ] 05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md

@@ -1,4 +1,4 @@
-# PROTOCOLO DE TESTES PRÉ-ASSINATURA
+﻿# PROTOCOLO DE TESTES PRÉ-ASSINATURA
 **Vanguard Tech — Documento de Governança de Projetos**
 **Criado:** 2026-05-19 | **Autor:** Formalização IAH
 **Decisão do Diretor:** obrigatório em todo projeto a partir desta data
@@ -186,7 +186,7 @@ REGRA 5: O Diretor é o único que pode decidir avançar para assinatura.
 >
 > **Causa raiz:** Pressão de timing comercial + confiança no código testado apenas no ambiente de desenvolvimento. "Funciona no meu computador" não é gate de aprovação.
 >
-> **Ferramenta criada:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_TESTES_PRE_ASSINATURA.md` — checklist de 8 itens (Fase 1 interna) + script de envio ao cliente (Fase 2) + nova cláusula contratual de validação prévia.
+> **Ferramenta criada:** `PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_TESTES_PRE_ASSINATURA.md` — checklist de 8 itens (Fase 1 interna) + script de envio ao cliente (Fase 2) + nova cláusula contratual de validação prévia.
 >
 > **Regra de ouro:** Pressão para assinar rápido é sinal de alerta — não de agilidade. Cliente que confia espera 48h de teste. O custo do protocolo é 2h. O custo da falha pós-assinatura é a credibilidade.
 >

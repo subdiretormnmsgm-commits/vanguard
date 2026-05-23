@@ -1,4 +1,4 @@
-# KNOWLEDGE BASE — PROJ-002 Ingrid
+﻿# KNOWLEDGE BASE — PROJ-002 Ingrid
 **Problemas e soluções específicos deste projeto**
 **Atualizado:** 2026-05-21
 
@@ -8,7 +8,7 @@
 
 | Assunto | Link |
 |---------|------|
-| Testes remotos de frontend (Playwright) | [TESTES_REMOTOS.md](../../QUADRILATERAL_UNIVERSAL/KNOWLEDGE_BASE/TESTES_REMOTOS.md) |
+| Testes remotos de frontend (Playwright) | [TESTES_REMOTOS.md](../../PENTALATERAL_UNIVERSAL/KNOWLEDGE_BASE/TESTES_REMOTOS.md) |
 
 > Adicionar links aqui conforme o projeto for avançando e novos runbooks forem criados.
 

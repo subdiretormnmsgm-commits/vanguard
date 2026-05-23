@@ -1,4 +1,4 @@
-# INTELLIGENCE LEDGER — Pentalateral IAH
+﻿# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -365,7 +365,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 `[CONFIRMADO]` **Feed 70/30 preciso:** feed-diario retornou exatamente 14 Peso2 + 6 Peso1 por dia durante 7 dias simulados. SM-2 integrado e funcionando (Revisoes: 0 no teste de gate — correto para banco novo).
 
-`[CONFIRMADO]` **Documento de troubleshooting funciona:** QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md criado com 7 panes + diagrama + sequencia obrigatoria. Proxima vez: diagnose em <5 min.
+`[CONFIRMADO]` **Documento de troubleshooting funciona:** PENTALATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md criado com 7 panes + diagrama + sequencia obrigatoria. Proxima vez: diagnose em <5 min.
 
 **ERROS E FRICÇÕES (para nao repetir):**
 
@@ -388,7 +388,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Custo total da sessao (seed):** $1,56 — dentro do limite diario de $5.
 
 **Documentos criados/atualizados:**
-- `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` — novo
+- `PENTALATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` — novo
 - `CLIENTES/INGRID/seed_questoes.ps1` — cabecalho com sequencia obrigatoria + batch P2/P1
 - `CLIENTES/INGRID/gate_cli_dia5.js` — removido import node-fetch
 - `INTELLIGENCE_LEDGER.md` — P-025 + log desta sessao
@@ -426,7 +426,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 - `CONSELHO/OPINIAO_CONSULTORA_01_2026-05-16.md` — completa, com Ideia Disruptiva e papel constitucional do Diretor
 - `INTELLIGENCE_LEDGER.md` — P-018 extraído e refinado
 - `CLIENTES/INGRID/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md` — sincronizado
-- `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md` — PARADIGMA v3.0 + tabela OS 4 MEMBROS + Manifesto atualizados
+- `PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md` — PARADIGMA v3.0 + tabela OS 4 MEMBROS + Manifesto atualizados
 - `.claude/skills/vanguard-memorando.md` — sincronizado
 - `CLIENTES/INGRID/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md` — PARADIGMA v3.0 inserido
 - `CLAUDE.md` — QUEM VOCÊ É: Músculo como Agente Ativo
@@ -539,7 +539,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Documentos atualizados nesta sessão:**
 - `CLIENTES/INGRID/edital_sedes.json` — score incidência + pesquisa + D-5 + achados
 - `CLIENTES/INGRID/PASSO3_GEMINI.md` — mandato Skill explícito
-- `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` — idem universal
+- `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` — idem universal
 - `CLIENTES/INGRID/PASSO6_MUSCULO.md` — sequência A-H formal
 - `CLIENTES/INGRID/DIRETRIZ_GEMINI_V1.txt` — DIRETRIZ completa 7 blocos
 - `CLIENTES/WIP_BOARD.json` — PROJ-002 movido para build
@@ -616,7 +616,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 5. Diagnóstico com `quantidade: 1` ANTES de rodar seed completo
 6. Usar `npx supabase functions deploy` em vez de `supabase` no Windows
 
-**Documento completo:** `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md`
+**Documento completo:** `PENTALATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md`
 **Aplica-se a:** todo projeto com Supabase Edge Functions + Claude API, qualquer nicho.
 
 ---
@@ -702,7 +702,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 - Mandato 10: Ingrid [D2] — recomendou ao Músculo reduzir threshold de dificuldade nas 3 primeiras sessões com base em perfil comportamental
 - Mandato 11: Ingrid [E2] — identificou que métricas de Ingrid são a prova social que valida R$194k de modelo SaaS; sem documentação agora, argumento de escala colapsa
 
-**Template atualizado:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
+**Template atualizado:** `PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
 **Pergunta para o Conselho:** "Com estes 11 mandatos, o que o Embaixador vê que nenhum outro membro pode ver — e como isso se torna moat competitivo da Vanguard?"
 
 ---
@@ -773,7 +773,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 ### [FALHA-PROCESSO-2026-05-18-B] PASSO files não cobertos pela sincronização de nomenclatura
 
 **Detectado por:** Diretor Eduardo
-**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Quadrilateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem QUADRILATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
+**Contexto:** Após auditoria de migração Pentalateral IAH (2026-05-18), os arquivos PASSO3_GEMINI.md e PASSO5_NOTEBOOKLM.md de Ingrid e Valdece continuavam com "Quadrilateral IAH V25". Os scripts de sync (atualizar_notebooklm_base.ps1) cobrem PENTALATERAL_UNIVERSAL/ mas não varrem os arquivos PASSO dos projetos clientes. Eduardo identificou ao revisar o clipboard do PASSO5.
 
 **Regra gerada:** Ao fazer qualquer migração de nomenclatura do sistema, a varredura obrigatória inclui: `CLIENTES/**/PASSO*.md`. Estes arquivos não são gerados por script — são editados manualmente. Criação de ferramenta de varredura: `grep -r "Quadrilateral IAH" CLIENTES/**/*.md` como parte do ritual de migração.
 
@@ -812,9 +812,9 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [P-033] Sync universal → projetos é obrigatório e imediato
 **Descoberto:** 2026-05-18 | **Sessão:** Auditoria Pentalateral — preparação NotebookLM
-**Fricção:** Diretor detectou que documentos em QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Quadrilateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
+**Fricção:** Diretor detectou que documentos em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ estavam com nomenclatura "Quadrilateral IAH" enquanto os projetos já operavam com "Pentalateral IAH". Fontes do Auditor corrompidas por 2+ dias sem que o Músculo detectasse.
 
-**Regra:** Ao atualizar QUALQUER documento em QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/, o Músculo sincroniza imediatamente as cópias em TODOS os projetos ativos (CLIENTES/[NOME]/NOTEBOOKLM_FONTES/). Fonte única de verdade = QUADRILATERAL_UNIVERSAL. Cópia no projeto = snapshot para o Auditor. Documento atualizado na universal mas não copiado = Auditor que lê versão velha = loop que começa com inteligência contaminada.
+**Regra:** Ao atualizar QUALQUER documento em PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/, o Músculo sincroniza imediatamente as cópias em TODOS os projetos ativos (CLIENTES/[NOME]/NOTEBOOKLM_FONTES/). Fonte única de verdade = PENTALATERAL_UNIVERSAL. Cópia no projeto = snapshot para o Auditor. Documento atualizado na universal mas não copiado = Auditor que lê versão velha = loop que começa com inteligência contaminada.
 
 **Automação:** sync_passo_files.ps1 deve executar este sync em toda sessão de abertura. Músculo não espera Eduardo pedir — executa proativamente.
 

@@ -1,4 +1,4 @@
-# KNOWLEDGE BASE — PROJ-001 Valdece (Toga Digital)
+﻿# KNOWLEDGE BASE — PROJ-001 Valdece (Toga Digital)
 **Problemas e soluções específicos deste projeto**
 **Atualizado:** 2026-05-21
 
@@ -8,8 +8,8 @@
 
 | Assunto | Link |
 |---------|------|
-| Busca semântica + pgvector + Supabase | [RUNBOOK_BUSCA_SEMANTICA_SUPABASE.md](../../QUADRILATERAL_UNIVERSAL/OPERACAO/RUNBOOK_BUSCA_SEMANTICA_SUPABASE.md) |
-| Testes remotos de frontend (Playwright) | [TESTES_REMOTOS.md](../../QUADRILATERAL_UNIVERSAL/KNOWLEDGE_BASE/TESTES_REMOTOS.md) |
+| Busca semântica + pgvector + Supabase | [RUNBOOK_BUSCA_SEMANTICA_SUPABASE.md](../../PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_BUSCA_SEMANTICA_SUPABASE.md) |
+| Testes remotos de frontend (Playwright) | [TESTES_REMOTOS.md](../../PENTALATERAL_UNIVERSAL/KNOWLEDGE_BASE/TESTES_REMOTOS.md) |
 
 ---
 

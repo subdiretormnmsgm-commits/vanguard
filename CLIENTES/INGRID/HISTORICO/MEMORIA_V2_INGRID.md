@@ -1,4 +1,4 @@
-# MEMORIA V2 — PROJ-002 Ingrid
+﻿# MEMORIA V2 — PROJ-002 Ingrid
 **Loop:** #2 — Build Dias 3–5 (Feed Diário + Gate)  
 **Data:** 2026-05-17  
 **Próximo loop:** Loop #3 — Dias 6–8 (Interface + Tutor Socrático + Fallback Fadiga)
@@ -66,7 +66,7 @@ O cargo identificado no Loop 1 estava errado.
 | Seed de questões | 460 questões no Supabase | `CLIENTES/INGRID/seed_questoes.ps1` |
 | Gate Dia 5 (CLI) | APROVADO — 7 dias × 20q, 70.0% Peso 2, 0 erros | `CLIENTES/INGRID/gate_cli_dia5.js` |
 | Ponto de entrada único | `iniciar.ps1` — menu, env, banco | `CLIENTES/INGRID/iniciar.ps1` |
-| Troubleshooting | 7 panes documentadas | `QUADRILATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` |
+| Troubleshooting | 7 panes documentadas | `PENTALATERAL_UNIVERSAL/REFERENCIAS/TROUBLESHOOTING_SUPABASE_CLAUDE_API.md` |
 | session_close.ps1 | Auditoria automática de documentos adicionada | `scripts/session_close.ps1` |
 
 ---
@@ -213,7 +213,7 @@ scripts/
 infra/
   schema_v19.sql                        ← schema atualizado
 
-QUADRILATERAL_UNIVERSAL/REFERENCIAS/
+PENTALATERAL_UNIVERSAL/REFERENCIAS/
   TROUBLESHOOTING_SUPABASE_CLAUDE_API.md ← 7 panes documentadas
 
 INTELLIGENCE_LEDGER.md                  ← P-025 + FALHA-PROCESSO-2026-05-17

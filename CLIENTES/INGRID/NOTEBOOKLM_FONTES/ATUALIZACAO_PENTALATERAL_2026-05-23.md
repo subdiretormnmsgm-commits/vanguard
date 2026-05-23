@@ -1,4 +1,4 @@
-# ATUALIZAÇÃO DO PENTALATERAL IAH — 2026-05-23
+﻿# ATUALIZAÇÃO DO PENTALATERAL IAH — 2026-05-23
 > Gerado pelo Músculo · Aprovado pelo Diretor Eduardo
 > Distribuir: colar no início da próxima sessão de cada parceiro + incluir nas fontes do NotebookLM.
 
@@ -114,9 +114,9 @@ Não foi uma mudança de fundamentos — foi uma densificação do protocolo exi
 
 | Documento | Localização | Responsável |
 |---|---|---|
-| `COMANDO_ESTRATEGISTA_MASTER_v1.md` | `QUADRILATERAL_UNIVERSAL/OPERACAO/` | Músculo mantém — Diretor cola no Gemini |
-| `MANIFESTO_DE_FONTES_TEMPLATE.md` | `QUADRILATERAL_UNIVERSAL/TEMPLATES/` | Template universal |
-| `REGISTRO_DE_PREMISSAS_TEMPLATE.md` | `QUADRILATERAL_UNIVERSAL/TEMPLATES/` | Template universal |
+| `COMANDO_ESTRATEGISTA_MASTER_v1.md` | `PENTALATERAL_UNIVERSAL/OPERACAO/` | Músculo mantém — Diretor cola no Gemini |
+| `MANIFESTO_DE_FONTES_TEMPLATE.md` | `PENTALATERAL_UNIVERSAL/TEMPLATES/` | Template universal |
+| `REGISTRO_DE_PREMISSAS_TEMPLATE.md` | `PENTALATERAL_UNIVERSAL/TEMPLATES/` | Template universal |
 | `MANIFESTO_DE_FONTES.md` | `CLIENTES/VALDECE/NOTEBOOKLM_FONTES/` | Músculo cria por projeto |
 | `MANIFESTO_DE_FONTES.md` | `CLIENTES/INGRID/NOTEBOOKLM_FONTES/` | Músculo cria por projeto |
 | `REGISTRO_DE_PREMISSAS.md` | `CLIENTES/VALDECE/` | Músculo mantém |
@@ -147,7 +147,7 @@ Não foi uma mudança de fundamentos — foi uma densificação do protocolo exi
 **[P-053] MANIFESTO_DE_FONTES declara o que o Auditor pode e não pode ver**
 > O Auditor só sabe o que as fontes carregadas revelam.
 > Afirmação sobre dado ausente = alucinação.
-> Template em: `QUADRILATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
+> Template em: `PENTALATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
 
 ---
 

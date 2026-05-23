@@ -1,6 +1,6 @@
-# PASSO 6 — MÚSCULO (CLAUDE) · PROJETO VALDECE · LOOP 7
+﻿# PASSO 6 — MÚSCULO (CLAUDE) · PROJETO VALDECE · LOOP 7
 > Atualizado em 2026-05-20. Eduardo não edita este arquivo — é guia permanente do Músculo.
-> Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md
+> Template universal: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md
 
 ---
 

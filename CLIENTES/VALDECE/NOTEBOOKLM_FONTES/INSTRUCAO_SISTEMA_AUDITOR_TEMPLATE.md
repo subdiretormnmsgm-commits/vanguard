@@ -1,5 +1,5 @@
-# TEMPLATE UNIVERSAL — AUDITOR (NotebookLM)
-# Versao: V1 · QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/
+﻿# TEMPLATE UNIVERSAL — AUDITOR (NotebookLM)
+# Versao: V1 · PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/
 # Uso: adaptar para cada projeto. Substituir [PLACEHOLDERS] com dados reais.
 # Papel duplo: Auditor (critico canonico) + Advogado (defensor rigoroso)
 

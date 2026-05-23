@@ -1,4 +1,4 @@
-# PASSO 5 — AUDITOR (NOTEBOOKLM) · AUDITORIA DE NICHO MEDICINA
+﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · AUDITORIA DE NICHO MEDICINA
 > **Objetivo:** Auditar as deliberações do Pentalateral sobre o nicho Medicina
 > **Quando usar:** Após receber resposta do Embaixador (MENSAGEM_EMBAIXADOR_MEDICINA_V2.md)
 > **Preparado pelo:** Músculo · 2026-05-19
@@ -9,11 +9,11 @@
 
 ```
 1. INTELLIGENCE_LEDGER.md
-   Caminho: vanguard\QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE\04_INTELLIGENCE_LEDGER.md
+   Caminho: vanguard\PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\04_INTELLIGENCE_LEDGER.md
    Motivo: P-047 a P-050 são os princípios que governam PERFIS_NICHO — essenciais para auditoria
 
 2. METODOLOGIA_PERFIS_VANGUARD.md
-   Caminho: vanguard\QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\METODOLOGIA_PERFIS_VANGUARD.md
+   Caminho: vanguard\PENTALATERAL_UNIVERSAL\PERFIS_NICHO\METODOLOGIA_PERFIS_VANGUARD.md
    Motivo: framework que define como construir Perfis de Nicho — auditar se deliberação segue o framework
 
 3. MEMORIA_V3_INGRID.md
@@ -21,7 +21,7 @@
    Motivo: EdTech-Concurso (Ingrid) é o nicho de referência — deliberação de Medicina deve ser comparável
 
 4. PESQUISA_BRUTA_MEDICINA.md
-   Caminho: vanguard\QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\PESQUISA_BRUTA_MEDICINA.md
+   Caminho: vanguard\PENTALATERAL_UNIVERSAL\PERFIS_NICHO\PESQUISA_BRUTA_MEDICINA.md
    Motivo: base da deliberação — Auditor audita a qualidade da pesquisa além das conclusões
 
 5. [Este arquivo — PASSO5_NOTEBOOKLM_MEDICINA.md]
@@ -134,7 +134,7 @@ Se não passou nesta validação — reformular antes de entregar.
 
 ## O QUE FAZER COM O OUTPUT DO AUDITOR
 
-1. Salvar como: `vanguard\QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\AUDITORIA_NICHO_MEDICINA_V1.md`
+1. Salvar como: `vanguard\PENTALATERAL_UNIVERSAL\PERFIS_NICHO\AUDITORIA_NICHO_MEDICINA_V1.md`
 2. Músculo delibera sobre PARTE 1 e 2 — inconsistências viram alerts no LEDGER
 3. Músculo incorpora [N-1 a N-5] na Síntese Final (P-037) com os [E-1 a E-5] do Embaixador
 4. Diretor decide: GO/NO-GO para captação TE + qual especialidade médica inicia o banco

@@ -1,4 +1,4 @@
-# RELATÓRIO EVOLUTIVO V2 — PROJ-002 Ingrid
+﻿# RELATÓRIO EVOLUTIVO V2 — PROJ-002 Ingrid
 **Loop:** #2 — Build Dias 3–5 (Feed Diário + Banco de Questões)  
 **Data:** 2026-05-17  
 **Próxima fase:** Loop #3 — Dias 6–8 (Interface + Tutor Socrático + Fallback)
@@ -146,7 +146,7 @@ Menu `[G]` / `[N]` / `[E]` / `[V]` integrado ao `iniciar.ps1` de cada projeto. D
 EdTech-Concurso e LegalTech-Penal documentados hoje como nichos inaugurais. Cada projeto deixa para trás: perfil do candidato/cliente, troubleshooting proprietário, playbook de distratores e modelo de testes validado. O segundo projeto no mesmo nicho começa 60% mais rápido que o primeiro. V26 da Vanguard tem Perfis de Nicho como núcleo de produto — não apenas repositório interno.
 **Impacto:** diferencial competitivo que acumula a cada projeto; impossível de copiar sem o histórico
 **Custo:** PERFIL_CANDIDATO_SEDES_DF.md e METODOLOGIA_VANGUARD.md já criados — padrão definido
-**Pergunta para o Gemini:** os Perfis de Nicho devem ter uma pasta própria em QUADRILATERAL_UNIVERSAL/ (hoje estão em CLIENTES/[PROJ]/) para que o próximo projeto os herde automaticamente?
+**Pergunta para o Gemini:** os Perfis de Nicho devem ter uma pasta própria em PENTALATERAL_UNIVERSAL/ (hoje estão em CLIENTES/[PROJ]/) para que o próximo projeto os herde automaticamente?
 
 ### M-14 — BLOQUEIO_CRITICO — detecção proativa de dependências externas críticas
 Toda dependência externa com potencial de bloquear o build (crédito Anthropic, cota de API, chave expirada, limite de plano) deve ter detecção automática com mensagem clara e link direto de resolução. Implementado hoje no seed: quando créditos Anthropic esgotam, o processo para imediatamente com `BLOQUEIO_CRITICO` + link para console.anthropic.com. Antes: erro genérico sem diagnóstico — horas de debug.

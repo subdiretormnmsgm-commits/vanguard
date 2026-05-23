@@ -1,4 +1,4 @@
-﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
+# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
 > Criado: 2026-05-17 | Última atualização: 2026-05-23
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
@@ -379,7 +379,7 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **P-033 + Sync Universal** | 2026-05-20 | sync_vanguard_docs.ps1: toda mudança em PENTALATERAL_UNIVERSAL/ sincroniza automaticamente CLIENTES/*/NOTEBOOKLM_FONTES/ via SHA-256. Integridade verde ou alerta automático. |
 | **P-050 + Knowledge Base** | 2026-05-21 | Toda solução técnica documentada em KNOWLEDGE_BASE/ imediatamente. health_check.py testa roteiro do cliente e envia relatório Telegram. |
 | **Expansão Universal de Papéis** | 2026-05-23 | **A maior evolução do Pentalateral desde sua criação.** 12 novas deficiências formalizadas (DEF-G/N/M/E 5-7). COMANDO_ESTRATEGISTA_MASTER (P-052) resolve amnésia estrutural do Gemini. MANIFESTO_DE_FONTES (P-053) declara o que o Auditor pode/não pode ver. REGISTRO_DE_PREMISSAS torna premissas silenciosas visíveis. CANDIDATOS_A_PRINCIPIO captura fricção→princípio em tempo real. 25 ideias/ciclo [M×2+G+N+E × 5]. TEMPERATURA_PONDERADA (score 0-10) substitui temperatura simples. INTELIGENCIA_CRUZADA_NICHO conecta padrões entre clientes do mesmo nicho. |
-| **Rename QUADRILATERAL → PENTALATERAL** | 2026-05-23 | Pasta `PENTALATERAL_UNIVERSAL/` renomeada para `PENTALATERAL_UNIVERSAL/`. 234+ arquivos renomeados via git mv. Todas as referências em scripts, hooks, skills e documentos atualizadas. Decisão formal do Diretor Eduardo. |
+| **Rename QUADRILATERAL → PENTALATERAL** | 2026-05-23 | Pasta `QUADRILATERAL_UNIVERSAL/` renomeada para `PENTALATERAL_UNIVERSAL/`. 234+ arquivos renomeados via git mv. Todas as referências em scripts, hooks, skills e documentos atualizadas. Decisão formal do Diretor Eduardo. |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 

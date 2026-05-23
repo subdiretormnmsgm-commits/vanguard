@@ -1,4 +1,4 @@
-# VISÃO ESTRATÉGICA DE LONGO PRAZO E PLANO DE ESCALA VANGUARD
+﻿# VISÃO ESTRATÉGICA DE LONGO PRAZO E PLANO DE ESCALA VANGUARD
 **Status:** CONGELADO / ARQUIVADO PARA O FUTURO
 **Data da Deliberação:** 2026-05-13
 **Documento Gerado Por:** Estrategista (Gemini)
@@ -22,7 +22,7 @@ Operamos no vácuo entre eles. Com a promessa de "5 dias" ancorada num conselho 
 
 1. **Tese A (Franchise de Nicho):** Replicar o motor de Busca Semântica proprietário para outros nichos (Contabilidade, Medicina, Engenharia). Setup inicial baixo (R$ 5k) + 20% a 30% do MRR do SaaS comercializado pelo parceiro.
 2. **Tese B (Dízimo de Dados):** Usar o Sovereign Pixel para vender o *Oráculo Pulse Report* (tendências de busca) como inteligência B2B.
-3. **Tese C (Licenciamento Vanguard - *IaaS*):** Licenciar o protocolo `QUADRILATERAL_UNIVERSAL v5.0` para agências e devs, cobrando setup + assinatura mensal por updates do modelo operacional.
+3. **Tese C (Licenciamento Vanguard - *IaaS*):** Licenciar o protocolo `PENTALATERAL_UNIVERSAL v5.0` para agências e devs, cobrando setup + assinatura mensal por updates do modelo operacional.
 4. **Tese D (Evolução do Sentinel):** Transformar o Sentinel em um gestor de retenção com scripts anti-churn autogerados.
 
 ---
@@ -60,7 +60,7 @@ O nosso modelo não suportará o licenciamento se o Diretor continuar sendo o ga
 
 ### PARTE III: ROTA DE ESCALA 2 — LICENCIAMENTO VANGUARD
 **(Dias 45 a 90)**
-1. **Embalagem do Protocolo:** Ao batermos 3 cases de sucesso na Tese A, empacotamos o `QUADRILATERAL_UNIVERSAL v5.0`.
+1. **Embalagem do Protocolo:** Ao batermos 3 cases de sucesso na Tese A, empacotamos o `PENTALATERAL_UNIVERSAL v5.0`.
 2. **O Produto (IaaS):** Vendemos a infraestrutura (Templates Supabase/JS), Prompts (NotebookLM/Gemini) e o Manual do Operador.
 3. **Modelo de Negócio:** Setup (R$ 15k a R$ 25k) + Assinatura Mensal de atualização de processos.
 

@@ -1,4 +1,4 @@
-# Perfil de Nicho — EdTech Concurso Público
+﻿# Perfil de Nicho — EdTech Concurso Público
 > Ativo proprietário Vanguard Tech · Acumulado via projetos reais
 > Primeira entrada: PROJ-002 Ingrid · 2026-05-18
 > Atualizar ao fechar cada projeto de candidato a concurso
@@ -141,5 +141,5 @@ Cada resposta da candidata gera:
 
 ---
 
-*EDTECH_CONCURSO.md — Vanguard Tech · QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/*  
+*EDTECH_CONCURSO.md — Vanguard Tech · PENTALATERAL_UNIVERSAL/PERFIS_NICHO/*  
 *Ativo proprietário — acumulado via projetos reais · Não é teoria de mercado*

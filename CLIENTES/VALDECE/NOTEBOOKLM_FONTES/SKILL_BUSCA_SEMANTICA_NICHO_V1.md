@@ -1,4 +1,4 @@
-════════════════════════════════════════════════════════════════════════
+﻿════════════════════════════════════════════════════════════════════════
 SKILL B — BUSCA SEMÂNTICA POR NICHO PROFISSIONAL — TEMPLATE UNIVERSAL
 Gerada por: NotebookLM (Auditor / Sócio Consultor)
 Baseada em: PROJ-001 Valdece (case fundacional)
@@ -100,6 +100,6 @@ Entrega: WhatsApp (texto + screenshot) para perfil não-técnico; PDF formal par
 5. [Modelo Intel Inside]: arquivar benchmarks de latência, taxa de erro e custo real por nicho em VANGUARD_SECTOR_ASSETS.md. Em 3 nichos, transformar em "Bíblia de Consultoria Técnica" licenciável para outras agências (Camada 5 — Licenciamento Vanguard).
 
 ════════════════════════════════════════════════════════════════════════
-Salvo em: QUADRILATERAL_UNIVERSAL/TEMPLATES/SKILL_BUSCA_SEMANTICA_NICHO_V1.md
+Salvo em: PENTALATERAL_UNIVERSAL/TEMPLATES/SKILL_BUSCA_SEMANTICA_NICHO_V1.md
 Versão consolidada: 2026-05-19 | Duas sessões Auditor + Músculo
 ════════════════════════════════════════════════════════════════════════

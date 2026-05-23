@@ -1,4 +1,4 @@
-# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO INGRID · LOOP 4
+﻿# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO INGRID · LOOP 4
 > Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Refatorado em 2026-05-18
 > Eduardo não edita este arquivo — é o guia de ativação do Embaixador para este projeto.
 > Músculo atualiza as ideias dos sócios (SEÇÃO D) ao fechar cada loop.
@@ -211,7 +211,7 @@ Pergunta: [E] deve ser a primeira opção dado que o Embaixador é o filtro de r
 
 M-13: Perfis de Nicho como produto central da Vanguard (P-040).
 EdTech-Concurso + LegalTech-Penal como nichos inaugurais. V26 tem isso como núcleo.
-Pergunta: os Perfis devem ter pasta própria em QUADRILATERAL_UNIVERSAL/ para herança automática?
+Pergunta: os Perfis devem ter pasta própria em PENTALATERAL_UNIVERSAL/ para herança automática?
 
 M-14: BLOQUEIO_CRITICO no seed — detecção proativa de dependências externas críticas.
 Créditos Anthropic esgotados → mensagem clara + link direto de resolução.
@@ -255,7 +255,7 @@ N-2: API Wallet Ping no seed — requisição mínima para checar saldo Anthropi
 Previne BLOQUEIO_CRITICO silencioso (Erro 500 sem diagnóstico).
 
 N-3: Auto-Niche Profiler — script que compila MEMORIA_EMBAIXADOR + LOG_CLIENTE ao fechar projeto.
-Atualiza QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/ automaticamente via Claude API.
+Atualiza PENTALATERAL_UNIVERSAL/PERFIS_NICHO/ automaticamente via Claude API.
 
 N-4: Handoff as Code — gerar_handoff_docs.ps1 lê views Supabase + LEDGER.
 Gera 3 Markdowns com métricas reais da Ingrid — sem redigir manualmente.
@@ -358,4 +358,4 @@ Razão: [por que esta ação agora e não outra]
 
 *PASSO7 · Projeto Ingrid · Loop 4 · Refatorado em 2026-05-18*
 *Correções desta versão: análise inovadora obrigatória + vetores do perfil atualizados + ideias sócios pré-preenchidas*
-*Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md*
+*Template universal: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md*

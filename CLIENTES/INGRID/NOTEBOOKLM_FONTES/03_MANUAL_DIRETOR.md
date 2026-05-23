@@ -1,6 +1,6 @@
-﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO QUADRILATERAL IAH
-**O guia completo de Eduardo para coordenar Gemini, NotebookLM e Claude Code**
-**Versão:** 1.2 · 2026-05-14 · Organismo Vivo — atualizar após cada projeto
+﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
+**O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
+**Versão:** 1.3 · 2026-05-23 · Organismo Vivo — atualizar após cada projeto
 
 ---
 
@@ -156,6 +156,180 @@
 
 ---
 
+## PARTE 0.6 — TABELA DEFINITIVA: EXATAMENTE O QUE ANEXAR EM CADA PARCEIRO
+
+> **Esta seção responde: "Quais documentos devo ter em mãos e em qual ordem?"**
+> Atualizada em 2026-05-23 para incluir Embaixador + MASTER + MANIFESTO_DE_FONTES + REGISTRO_DE_PREMISSAS.
+
+---
+
+### 🔵 GEMINI (ESTRATEGISTA) — o que levar
+
+**Antes de ir ao Gemini, rodar:**
+```powershell
+.\scripts\gemini_anchor_generator.ps1
+# → Gera CONTEXTO_GEMINI.md e copia para clipboard automaticamente
+```
+
+**O que colar no chat do Gemini (nesta ordem exata):**
+
+| # | Documento | Onde fica | Por que vai primeiro |
+|---|---|---|---|
+| 1 | `COMANDO_ESTRATEGISTA_MASTER_v1.md` | `PENTALATERAL_UNIVERSAL/OPERACAO/` | Ativa o Estrategista — resolve amnésia estrutural (P-052) |
+| 2 | `MEMORIA_V[N-1]_[CLIENTE].md` | `CLIENTES/[NOME]/HISTORICO/` | Fatos antes de ideias — estado real do projeto |
+| 3 | `relatorio_evolutivo_V[N-1]_[CLIENTE].md` | `CLIENTES/[NOME]/HISTORICO/` | Análise + [M-1 a M-5] do ciclo anterior para o Gemini reagir |
+| 4 | `PASSO3_GEMINI.md` do projeto | `CLIENTES/[NOME]/` | Missão da sessão + contexto preenchido pelo Músculo |
+
+**Preencher no PASSO3 antes de enviar (Músculo faz — você só verifica):**
+- Loop atual e nome
+- O que foi construído (outputs reais)
+- O que falta e prazo restante
+- [M-1 a M-5] do ciclo anterior
+- [E-1 a E-5] do Embaixador (se disponíveis)
+
+**O que vem de volta:** DIRETRIZ com 8 blocos obrigatórios incluindo REFORMULAÇÃO_DO_PROBLEMA + POSIÇÃO_ADVERSARIAL + TRADUÇÃO_PARA_AÇÃO + ARCO_DE_CONSEQUÊNCIAS nas 5 ideias.
+
+**Salvar imediatamente:** `CLIENTES/[NOME]/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V[N].txt`
+
+---
+
+### 🟡 NOTEBOOKLM (AUDITOR) — o que levar
+
+**Antes de ir ao NotebookLM, verificar:**
+```
+[ ] MANIFESTO_DE_FONTES.md existe em CLIENTES/[NOME]/NOTEBOOKLM_FONTES/?
+    → Se não → pedir ao Músculo para criar ANTES de ir
+[ ] DIRETRIZ_GEMINI_V[N].txt salva como 12_DIRETRIZ_GEMINI_V[N].txt?
+    → Se não → salvar agora antes de rodar o script
+```
+
+**Depois, rodar:**
+```powershell
+.\scripts\preparar_notebooklm_projeto.ps1 -cliente [NOME]
+# → Monta NOTEBOOKLM_FONTES/ com todos os documentos numerados
+# → Abre Explorer com a pasta pronta
+```
+
+**O que arrastar para o NotebookLM (Ctrl+A na pasta):**
+
+| Numeração | Documento | Obrigatório? |
+|---|---|---|
+| 01_ | SKILL_PROTOCOLO_VANGUARD.md | Sim |
+| 02_ | MEMORANDO_PENTALATERAL_UNIVERSAL.md | Sim |
+| 03_ | MANUAL_DIRETOR.md | Sim |
+| 04_ | INTELLIGENCE_LEDGER.md | Sim |
+| 05_ | PROCESSO_EVOLUTIVO_QUADRILATERAL.md | Sim |
+| 06_ | TEMPLATES_COMUNICACAO_QUADRILATERAL.md | Sim |
+| 07_ | WIP_BOARD.txt | Sim |
+| 08_ | ANALISE_SOCIO_ATUAL.txt | Sim |
+| 09_ | BRIEFING_DISCOVERY.txt | Sim |
+| 10_ | MEMORIA_V[N-1].md | Sim — fatos antes de ideias |
+| 11_ | relatorio_evolutivo_V[N-1].md | Sim |
+| 12_ | DIRETRIZ_GEMINI_V[N].txt | Sim — output do Gemini |
+| 13_ | PASSO5_NOTEBOOKLM.md | Sim — o Músculo preencheu |
+| 14_ | MEMORIA_EMBAIXADOR.md | Sim |
+| 15_ | MANIFESTO_DE_FONTES.md | **Novo** — declara o que o Auditor pode ver |
+
+**No chat do NotebookLM, digitar apenas:**
+```
+Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill.
+```
+
+**O que vem de volta (4 partes):**
+- PARTE 1: Auditoria de Coerência (contradições na DIRETRIZ)
+- PARTE 2: Conexão Histórica (padrões de outros projetos)
+- PARTE 3: A Skill copiável → salvar em `.claude/skills/[cliente]-v[N].md`
+- PARTE 4: [N-1 a N-5] — 5 ideias exclusivas do Auditor
+
+**Antes de fechar (irrecuperável depois):**
+```
+[ ] Copiar PARTES 1 + 2 + 4 → salvar em CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md
+[ ] Copiar PARTE 3 → salvar em .claude/skills/[cliente]-v[N].md
+[ ] Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"
+```
+
+---
+
+### 🟢 CLAUDE PROJECTS (EMBAIXADOR) — o que levar
+
+**Antes de ir ao Embaixador, rodar:**
+```powershell
+.\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
+# → Copia mensagem inicial para clipboard
+# → Abre browser em claude.ai/projects
+# → Abre Explorer em CLIENTES/[NOME]/CLAUDE_PROJECT/
+```
+
+**O que o Embaixador já tem (memória persistente — não precisa colar):**
+- Histórico completo de todas as sessões anteriores com o cliente
+- MEMORIA_EMBAIXADOR acumulada
+
+**O que você cola no chat (de acordo com a missão):**
+
+| Missão | O que colar |
+|---|---|
+| PRÉ-REUNIÃO | SEÇÃO A do PASSO7_EMBAIXADOR.md preenchida |
+| DEBRIEF PÓS-REUNIÃO | SEÇÃO B do PASSO7_EMBAIXADOR.md + relato informal |
+| PIPELINE DE LEAD | SEÇÃO C + o que o cliente mencionou |
+| REAÇÃO AO PENTALATERAL | SEÇÃO D + [M-1 a M-5] + [G-1 a G-5] + [N-1 a N-5] |
+
+**O que vem de volta:**
+- [E-1 a E-5] — 5 ideias exclusivas baseadas no comportamento real do cliente
+- CONFIRMA/EXPANDE/ALERTA para cada ideia do ciclo
+- TEMPERATURA_PONDERADA atualizada (atual + tendência + pagamento)
+- Próxima ação recomendada
+
+**Depois da sessão (Músculo faz automaticamente — P-032):**
+- Atualizar `CLIENTES/[NOME]/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md`
+
+---
+
+### 🔴 CLAUDE CODE (MÚSCULO) — o que colar
+
+**No início de sessão, colar nesta ordem exata:**
+
+| # | Documento | Onde fica |
+|---|---|---|
+| 1 | Skill `[cliente]-v[N].md` (PARTE 3 do Auditor) | `.claude/skills/` |
+| 2 | Auditor PARTES 1 + 2 + 4 (com [N-1 a N-5]) | `CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md` |
+| 3 | `DIRETRIZ_GEMINI_V[N].txt` | `CLIENTES/[NOME]/NOTEBOOKLM_FONTES/` |
+| 4 | Output do Embaixador (com [E-1 a E-5]) | Copiado do Claude Projects |
+| 5 | `PASSO6_MUSCULO.md` do projeto | `CLIENTES/[NOME]/` |
+
+**Depois de colar, dizer:**
+```
+PROTOCOLO VANGUARD — [NOME]. Loop [N]. Diretriz V[N].
+Execute /[cliente]-v[N] antes de deliberar.
+Trago a Skill do Auditor, a DIRETRIZ do Gemini e as ideias do Embaixador.
+Leia tudo e delibere nos 7 pontos antes de qualquer build.
+```
+
+**O que o Músculo entrega ao fechar:**
+- `HISTORICO/MEMORIA_V[N]_[CLIENTE].md`
+- `HISTORICO/relatorio_evolutivo_V[N]_[CLIENTE].md`
+- `HISTORICO/DELIBERACAO_LOOP_[N]_[CLIENTE].md`
+- `REGISTRO_DE_PREMISSAS.md` atualizado
+- `COMANDO_ESTRATEGISTA_MASTER_v1.md` atualizado (BLOCO 1)
+- PASSO3_GEMINI preenchido para Loop [N+1]
+
+---
+
+### 📋 RESUMO ULTRA-COMPACTO — O QUE CADA PARCEIRO PRECISA
+
+```
+GEMINI     → MASTER + MEMORIA + relatorio + PASSO3 preenchido
+NOTEBOOKLM → 15 fontes numeradas (01 a 15) + MANIFESTO + comando curto
+EMBAIXADOR → nada (tem memória) + seção relevante do PASSO7
+MÚSCULO    → Skill + Auditor completo + DIRETRIZ + Embaixador + PASSO6
+```
+
+**Sequência correta do loop:**
+```
+MÚSCULO (prepara) → GEMINI (DIRETRIZ) → NOTEBOOKLM (Skill) → EMBAIXADOR (filtro) → MÚSCULO (build)
+```
+
+---
+
 ## PARTE 0.5 — SECRETÁRIO VIRTUAL (opera antes de você)
 
 > Se o Secretário Virtual estiver ativo (`SECRETARIO_VIRTUAL/`), os Passos 1 e 2 são automáticos.
@@ -306,7 +480,7 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 ```
 
 **Guardar como:** `CLIENTES/[NOME_CLIENTE]/BRIEFING_DISCOVERY.md`
-**Template:** `QUADRILATERAL_UNIVERSAL/TEMPLATES/FASE_0__BRIEFING_DISCOVERY.md`
+**Template:** `PENTALATERAL_UNIVERSAL/TEMPLATES/FASE_0__BRIEFING_DISCOVERY.md`
 
 > 💡 **Ferramentas de apoio:**
 > · `OPERACAO/DISCOVERY_CARD.md` — cartão para reuniões (imprimir A5 ou celular)
@@ -323,7 +497,7 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 **Output:** DIRETRIZ com 7 blocos obrigatórios + 5 ideias disruptivas
 
 **Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO3_GEMINI.md`
-- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md`
+- Projeto novo → copiar de `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md`
 - Projeto existente → abrir o arquivo, atualizar só o bloco `## 📋 CONTEXTO DO PROJETO`
 
 **O que Eduardo atualiza no bloco de contexto (5 min):**
@@ -452,7 +626,7 @@ O problema central é [descrever em 1 frase o que você entendeu]."
 **Tempo:** 10 minutos seus (carregar fontes + atualizar contexto) + 10–20 minutos do NotebookLM
 
 **Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO5_NOTEBOOKLM.md`
-- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md`
+- Projeto novo → copiar de `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md`
 - Projeto existente → abrir o arquivo, atualizar só o bloco `## 📋 CONTEXTO DO PROJETO`
 
 > O PASSO5_NOTEBOOKLM.md já contém o Protocolo Anti-Alucinação (4 contra-ataques ao NotebookLM)
@@ -561,7 +735,7 @@ Fontes carregadas: [listar os arquivos que carregou]
 **Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO6_MUSCULO.md`
 - O Músculo lê este arquivo internamente antes de deliberar
 - Eduardo não precisa colar o PASSO6 — ele é o guia interno do Músculo
-- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md`
+- Projeto novo → copiar de `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md`
 
 **O que Eduardo diz para ativar:**
 ```
@@ -1309,6 +1483,7 @@ Incrementa a versão para [X.X]."
 | 1.0 | 2026-05-11 | Criação — 10 passos completos, MAPA do loop, troubleshooting, referência rápida, avaliação |
 | 1.1 | 2026-05-11 | Adicionado protocolo de organismo vivo, protocolo de atualização, histórico de versões, diagrama evolutivo V1→V5, diálogo Gemini↔Claude ilustrado |
 | 1.2 | 2026-05-14 | PASSO 3/5/6 atualizados para referenciar arquivos PASSO_*.md por projeto. Arquitetura loop-agnóstica: um arquivo por passo por projeto, atualizado a cada loop (não por iteração). Cartão de ativação rápida adicionado (PARTE 0). Protocolos anti-deficiência integrados aos passos. |
+| 1.3 | 2026-05-23 | PARTE 0.6 adicionada — tabela definitiva de documentos por parceiro (Gemini/NotebookLM/Embaixador/Músculo). COMANDO_ESTRATEGISTA_MASTER incorporado ao fluxo Gemini. MANIFESTO_DE_FONTES como pré-requisito NotebookLM. REGISTRO_DE_PREMISSAS incorporado ao fechamento Músculo. 12 novas deficiências distribuídas nos templates PASSO. DEF-G/N/M/E expandidos de 4 para 6-7 cada. |
 
 ---
 

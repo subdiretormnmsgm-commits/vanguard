@@ -1,4 +1,4 @@
-# TEMPLATES DE COMUNICAÇÃO — PENTALATERAL IAH
+﻿# TEMPLATES DE COMUNICAÇÃO — PENTALATERAL IAH
 **Referência interna do Músculo — não colar diretamente em nenhuma IA**
 **Organismo vivo — atualizar quando o processo evoluir**
 **Versão:** 2.0 | Data: 2026-05-18
@@ -224,7 +224,7 @@ E. [ideia] — impacto estimado: [X] — pergunta para o Músculo: [?]
 ```
 Obrigatórias:
   ✓ 01_SKILL_PROTOCOLO_VANGUARD.txt
-  ✓ 02_MEMORANDO_QUADRILATERAL_UNIVERSAL.txt
+  ✓ 02_MEMORANDO_PENTALATERAL_UNIVERSAL.txt
   ✓ 04_INTELLIGENCE_LEDGER.txt
   ✓ 11_BRIEFING_DISCOVERY_[CLIENTE].txt
   ✓ 12_DIRETRIZ_GEMINI_V[X].txt  ← recém gerada

@@ -1,5 +1,5 @@
-# PASSO 5 — PARA O NOTEBOOKLM · Instancia: Projeto Valdece
-# Template universal: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md
+﻿# PASSO 5 — PARA O NOTEBOOKLM · Instancia: Projeto Valdece
+# Template universal: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md
 # ORGANISMO VIVO: atualizar contexto e lista de fontes antes de CADA loop.
 # Ultima atualizacao: 2026-05-19 · Loop 6 — pós-feedback 5 áudios Valdece · skill esperada: valdece-v6.md
 
@@ -29,7 +29,7 @@ Auditor, você opera no Pentalateral IAH — 5 membros ativos: Diretor, Músculo
 
   --- BASE QUADRILATERAL (01-08) ---
   01_SKILL_PROTOCOLO_VANGUARD.md          -- ancora o Auditor nos padroes do Quadrilateral
-  02_MEMORANDO_QUADRILATERAL_UNIVERSAL.md -- constituicao e valores
+  02_MEMORANDO_PENTALATERAL_UNIVERSAL.md -- constituicao e valores
   03_MANUAL_DIRETOR.md                    -- como o Diretor opera
   04_INTELLIGENCE_LEDGER.md               -- principios ativos (P-001 a P-045+)
   05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md  -- como o loop funciona

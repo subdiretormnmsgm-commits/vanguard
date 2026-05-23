@@ -10,7 +10,7 @@
 
 | arquivo | Para quê | Quem usa |
 |----------|----------|----------|
-| `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | Metodologia completa: Fases -1 a 5, paradigma conselho vs pipeline, PDCA, Pitch, Anti-padrões, Manifesto, Glossário | Eduardo + Conselho |
+| `MEMORANDO_PENTALATERAL_UNIVERSAL.md` | Metodologia completa: Fases -1 a 5, paradigma conselho vs pipeline, PDCA, Pitch, Anti-padrões, Manifesto, Glossário | Eduardo + Conselho |
 | `SKILL_PROTOCOLO_VANGUARD.md` | Skill de ativação do Claude Code — protocolo operacional completo, todos os comandos, Pré-Mortem, Carta ao Músculo Futuro | Claude Code (interno) |
 | `MANUAL_DIRETOR.md` | Guia passo a passo para Eduardo orquestrar os 4 membros — comandos exatos, quando usar cada um, o loop completo | Eduardo (uso diário) |
 | `DISCOVERY_CARD.md` | Cartão de bolso: 3 perguntas GO/NO-GO + 7 perguntas de Discovery — para usar em reuniões | Eduardo (reuniões) |
@@ -32,7 +32,7 @@ AO ativar o Claude Code
   → SKILL_PROTOCOLO_VANGUARD.md (carregada com "PROTOCOLO VANGUARD")
 
 PARA MOSTRAR ao cliente ou ao Conselho
-  → MEMORANDO_QUADRILATERAL_UNIVERSAL.md (metodologia em linguagem de negócio)
+  → MEMORANDO_PENTALATERAL_UNIVERSAL.md (metodologia em linguagem de negócio)
 
 AO CRIAR o perfil de um cliente (Camada 2+)
   → PERFIL_CLIENTE_TEMPLATE.md (copiar para CLIENTES/[NOME]/PERFIL_CLIENTE.md)
@@ -65,7 +65,7 @@ Ao fechar cada iteração, verificar todos os documentos:
 
 | Documento | Quando atualizar |
 |-----------|-----------------|
-| `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | Novo padrão de sucesso/falha · Estimativa diferente do real · Anti-padrão novo |
+| `MEMORANDO_PENTALATERAL_UNIVERSAL.md` | Novo padrão de sucesso/falha · Estimativa diferente do real · Anti-padrão novo |
 | `SKILL_PROTOCOLO_VANGUARD.md` | Novo módulo construído · Padrão de projeto novo · Regra de build nova |
 | `MANUAL_DIRETOR.md` | Passo mais demorado do que estimado · Situação nova no troubleshooting · Comando que precisou de ajuste |
 | `DISCOVERY_CARD.md` | Pergunta que revelou informação inesperadamente útil · Pergunta que confundiu o cliente |

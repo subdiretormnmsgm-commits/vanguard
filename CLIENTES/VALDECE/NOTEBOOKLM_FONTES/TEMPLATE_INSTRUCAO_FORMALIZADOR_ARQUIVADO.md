@@ -1,5 +1,5 @@
-# TEMPLATE UNIVERSAL — CLAUDE PROJECT (FORMALIZADOR)
-# Versão: Universal · QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/
+﻿# TEMPLATE UNIVERSAL — CLAUDE PROJECT (FORMALIZADOR)
+# Versão: Universal · PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/
 # Uso: duplicar para cada cliente. Substituir [PLACEHOLDERS] com dados reais.
 # Ator: Formalizador — 4º membro do Quadrilateral IAH
 

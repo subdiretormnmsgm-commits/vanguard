@@ -380,7 +380,7 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 
 | Ação | Status |
 |---|---|
-| `QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/` criada | FEITO |
+| `PENTALATERAL_UNIVERSAL/PERFIS_NICHO/` criada | FEITO |
 | `.gitignore` bloqueando PERFIL_*.md (privacidade de cliente) | FEITO |
 | METODOLOGIA_PERFIS_VANGUARD.md na pasta | FEITO |
 | EDTECH_CONCURSO.md (60% maturidade — 1 cliente real) | FEITO |

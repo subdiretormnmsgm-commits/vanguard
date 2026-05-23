@@ -1,4 +1,4 @@
-# MEMORIA_V3 — PROJ-002 INGRID · Loop 3 · Fechamento
+﻿# MEMORIA_V3 — PROJ-002 INGRID · Loop 3 · Fechamento
 > **Gerada em:** 2026-05-19 | **Por:** Músculo (Claude Code)
 > **Cobre:** Loop 3 completo — Gate Dia 8 APROVADO 2026-05-19 + Entrega Embaixador + PERFIS_NICHO
 
@@ -87,7 +87,7 @@
 
 | Ação | Status |
 |---|---|
-| `QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/` criada | FEITO |
+| `PENTALATERAL_UNIVERSAL/PERFIS_NICHO/` criada | FEITO |
 | `.gitignore` bloqueando PERFIL_*.md (privacidade de cliente) | FEITO |
 | METODOLOGIA_PERFIS_VANGUARD.md na pasta | FEITO |
 | EDTECH_CONCURSO.md (60% maturidade — 1 cliente real) | FEITO |

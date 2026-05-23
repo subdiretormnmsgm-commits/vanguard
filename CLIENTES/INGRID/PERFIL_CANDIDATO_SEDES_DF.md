@@ -1,4 +1,4 @@
-# Perfil do Candidato — Concurso Sedes-DF 2026
+﻿# Perfil do Candidato — Concurso Sedes-DF 2026
 > Documento gerado como protocolo universal de EdTech — P-038 Vanguard Tech
 > Todo projeto de educação deve ter este perfil documentado antes do build do banco de questões.
 
@@ -118,4 +118,4 @@
 ---
 
 *PERFIL_CANDIDATO_SEDES_DF.md — Vanguard Tech · PROJ-002 Ingrid · 2026-05-18*  
-*Template universal disponível em: QUADRILATERAL_UNIVERSAL/TEMPLATES/PERFIL_CANDIDATO_TEMPLATE.md*
+*Template universal disponível em: PENTALATERAL_UNIVERSAL/TEMPLATES/PERFIL_CANDIDATO_TEMPLATE.md*

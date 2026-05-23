@@ -1,4 +1,4 @@
-# MANIFESTO_DE_FONTES — Ferramenta de Estudo (Ingrid) — Loop 4
+﻿# MANIFESTO_DE_FONTES — Ferramenta de Estudo (Ingrid) — Loop 4
 > Criado pelo Músculo em 2026-05-23.
 > Atualizar antes de cada sessão do NotebookLM — SEMPRE antes de rodar preparar_notebooklm_projeto.ps1.
 
@@ -20,7 +20,7 @@
 
 ### Documentos Universais
 - [x] 01_SKILL_PROTOCOLO_VANGUARD.md
-- [x] 02_MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+- [x] 02_MEMORANDO_PENTALATERAL_UNIVERSAL.md
 - [x] 03_MANUAL_DIRETOR.md
 - [x] 04_INTELLIGENCE_LEDGER.md
 - [x] 05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md

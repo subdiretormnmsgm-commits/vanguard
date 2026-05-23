@@ -1,4 +1,4 @@
-# REPOSITÓRIO VANGUARD — Estrutura e Convenções
+﻿# REPOSITÓRIO VANGUARD — Estrutura e Convenções
 > **Propósito:** Como o repositório git é organizado e como usar para projetos de clientes  
 > **Data:** 2026-05-18  
 > **Princípio:** O git é a memória permanente da fábrica. Tudo que não está no git não existe.
@@ -101,7 +101,7 @@ vanguard/                          ← ROOT — este repositório
 │   └── MASTER_PLAN.md
 │
 │
-├── 📁 QUADRILATERAL_UNIVERSAL/    ← DNA da IAH (acumula aprendizado de todos os projetos)
+├── 📁 PENTALATERAL_UNIVERSAL/    ← DNA da IAH (acumula aprendizado de todos os projetos)
 │   ├── CONSTITUICAO/              ← Documentos fundadores imutáveis
 │   ├── NOTEBOOKLM_BASE/           ← Fontes 01-08 base do NotebookLM
 │   ├── OPERACAO/                  ← SOPs, templates e protocolos operacionais

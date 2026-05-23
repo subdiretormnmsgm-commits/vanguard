@@ -1,4 +1,4 @@
-PARA: subdiretor.mnmsgm@gmail.com
+﻿PARA: subdiretor.mnmsgm@gmail.com
 ASSUNTO: [PROJ-002 INGRID] Loop 3 fechado — Embaixador entregou, MEMORIA_V3 + PASSO3 prontos
 DATA: 2026-05-19
 
@@ -20,7 +20,7 @@ Loop 3 do Projeto Ingrid encerrado. Resumo executivo abaixo.
    - PERFIL_CLIENTE_INGRID.md — perfil comportamental da candidata
    - CAMADA_FATOS + CAMADA_INFERENCIA + CAMADA_DECISAO — MEMORIA 3 camadas do Embaixador
    - AUDITORIA_VANGUARD.txt — diretriz de auditoria estrutural comprometida no repo
-   - QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/ criada com .gitignore protegendo PERFIL_*.md
+   - PENTALATERAL_UNIVERSAL/PERFIS_NICHO/ criada com .gitignore protegendo PERFIL_*.md
 
 2. **MEMORY_V3_INGRID.md + relatorio_evolutivo_V3_INGRID.md** criados e prontos em HISTORICO/
 

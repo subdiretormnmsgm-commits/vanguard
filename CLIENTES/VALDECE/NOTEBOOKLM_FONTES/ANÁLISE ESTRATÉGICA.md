@@ -1,5 +1,5 @@
-ANÁLISE ESTRATÉGICA — EXECUTADA PELO CLAUDE
-Baseada nos arquivos da pasta QUADRILATERAL_UNIVERSAL + pesquisa de concorrentes · 2026-05-13
+﻿ANÁLISE ESTRATÉGICA — EXECUTADA PELO CLAUDE
+Baseada nos arquivos da pasta PENTALATERAL_UNIVERSAL + pesquisa de concorrentes · 2026-05-13
 
 1. DIAGNÓSTICO
 ✅ Pontos Fortes

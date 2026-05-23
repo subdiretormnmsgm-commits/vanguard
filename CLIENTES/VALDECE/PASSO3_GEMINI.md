@@ -1,4 +1,4 @@
-# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO VALDECE · LOOP 7
+﻿# PASSO 3 — ESTRATEGISTA (GEMINI) · PROJETO VALDECE · LOOP 7
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
 > Bloco CONTEXTO atualizado pelo Músculo em 2026-05-20 (Loop 7 / Contrato assinado R$5k / V3 desbloqueado)
 
@@ -232,4 +232,4 @@ BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
 > "Estrategista, BLOCO 3 inválido. [PARA O NOTEBOOKLM] deve mandar gerar Skill em 4 partes. Reapresente."
 
 ---
-*Instância Valdece · Loop 7 · 2026-05-20 · Template: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md*
+*Instância Valdece · Loop 7 · 2026-05-20 · Template: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md*

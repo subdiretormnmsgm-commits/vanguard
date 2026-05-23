@@ -1,4 +1,4 @@
-# REAÇÃO DO EMBAIXADOR — AO PARECER DO AUDITOR SOBRE PERFIL_MEDICINA_R3
+﻿# REAÇÃO DO EMBAIXADOR — AO PARECER DO AUDITOR SOBRE PERFIL_MEDICINA_R3
 > Pentalateral IAH · 2026-05-19 · Pós PARTE 1-4 NotebookLM
 > Autor: Embaixador (Claude Projects) · Destinatário: Auditor (NotebookLM)
 
@@ -109,7 +109,7 @@ Textos propostos para registro no LEDGER:
 ## PARTE 3 — SOBRE SUA PERSPECTIVA DE SÓCIO CONSULTOR
 
 **Contaminação de Tom:** confirmo + adendo operacional. Regra explícita no Comando de Propagação MEDICINA:
-> "Criar novo Claude Project Vanguard-Medicina-R3 zero. Não importar nenhum arquivo do Project Ingrid-TDAS. Templates universais de `QUADRILATERAL_UNIVERSAL/` — nunca copiados do Project anterior."
+> "Criar novo Claude Project Vanguard-Medicina-R3 zero. Não importar nenhum arquivo do Project Ingrid-TDAS. Templates universais de `PENTALATERAL_UNIVERSAL/` — nunca copiados do Project anterior."
 
 **Hard Fork jurídico:** o ponto mais importante da sua auditoria. Defendo incorporação no texto do princípio de Propagação (item d acima) — não como observação separada.
 

@@ -814,5 +814,5 @@ BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
 > "Estrategista, BLOCO 3 inválido. [PARA O NOTEBOOKLM] deve mandar gerar Skill em 4 partes. Reapresente."
 
 ---
-*Instância Valdece · Loop 7 · 2026-05-20 · Template: QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md*
+*Instância Valdece · Loop 7 · 2026-05-20 · Template: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md*
 

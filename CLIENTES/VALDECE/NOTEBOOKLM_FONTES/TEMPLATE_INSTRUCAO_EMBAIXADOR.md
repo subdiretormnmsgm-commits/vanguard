@@ -1,5 +1,5 @@
-# TEMPLATE UNIVERSAL — EMBAIXADOR (Claude Projects)
-# Versão: V2.0 · 2026-05-20 · QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/
+﻿# TEMPLATE UNIVERSAL — EMBAIXADOR (Claude Projects)
+# Versão: V2.0 · 2026-05-20 · PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/
 # Uso: duplicar para cada cliente. Preencher BLOCOs 7, 8 e 10 com dados reais.
 # Campos marcados ⚠️ são obrigatórios antes de ativar o Project.
 

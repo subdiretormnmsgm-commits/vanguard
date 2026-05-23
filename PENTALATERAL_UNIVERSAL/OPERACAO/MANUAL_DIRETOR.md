@@ -175,7 +175,7 @@
 
 | # | Documento | Onde fica | Por que vai primeiro |
 |---|---|---|---|
-| 1 | `COMANDO_ESTRATEGISTA_MASTER_v1.md` | `QUADRILATERAL_UNIVERSAL/OPERACAO/` | Ativa o Estrategista — resolve amnésia estrutural (P-052) |
+| 1 | `COMANDO_ESTRATEGISTA_MASTER_v1.md` | `PENTALATERAL_UNIVERSAL/OPERACAO/` | Ativa o Estrategista — resolve amnésia estrutural (P-052) |
 | 2 | `MEMORIA_V[N-1]_[CLIENTE].md` | `CLIENTES/[NOME]/HISTORICO/` | Fatos antes de ideias — estado real do projeto |
 | 3 | `relatorio_evolutivo_V[N-1]_[CLIENTE].md` | `CLIENTES/[NOME]/HISTORICO/` | Análise + [M-1 a M-5] do ciclo anterior para o Gemini reagir |
 | 4 | `PASSO3_GEMINI.md` do projeto | `CLIENTES/[NOME]/` | Missão da sessão + contexto preenchido pelo Músculo |
@@ -215,7 +215,7 @@
 | Numeração | Documento | Obrigatório? |
 |---|---|---|
 | 01_ | SKILL_PROTOCOLO_VANGUARD.md | Sim |
-| 02_ | MEMORANDO_QUADRILATERAL_UNIVERSAL.md | Sim |
+| 02_ | MEMORANDO_PENTALATERAL_UNIVERSAL.md | Sim |
 | 03_ | MANUAL_DIRETOR.md | Sim |
 | 04_ | INTELLIGENCE_LEDGER.md | Sim |
 | 05_ | PROCESSO_EVOLUTIVO_QUADRILATERAL.md | Sim |
@@ -480,7 +480,7 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 ```
 
 **Guardar como:** `CLIENTES/[NOME_CLIENTE]/BRIEFING_DISCOVERY.md`
-**Template:** `QUADRILATERAL_UNIVERSAL/TEMPLATES/FASE_0__BRIEFING_DISCOVERY.md`
+**Template:** `PENTALATERAL_UNIVERSAL/TEMPLATES/FASE_0__BRIEFING_DISCOVERY.md`
 
 > 💡 **Ferramentas de apoio:**
 > · `OPERACAO/DISCOVERY_CARD.md` — cartão para reuniões (imprimir A5 ou celular)
@@ -497,7 +497,7 @@ Faça uma pergunta de cada vez. Anote tudo. Não avance sem as 8 respostas.
 **Output:** DIRETRIZ com 7 blocos obrigatórios + 5 ideias disruptivas
 
 **Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO3_GEMINI.md`
-- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md`
+- Projeto novo → copiar de `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md`
 - Projeto existente → abrir o arquivo, atualizar só o bloco `## 📋 CONTEXTO DO PROJETO`
 
 **O que Eduardo atualiza no bloco de contexto (5 min):**
@@ -626,7 +626,7 @@ O problema central é [descrever em 1 frase o que você entendeu]."
 **Tempo:** 10 minutos seus (carregar fontes + atualizar contexto) + 10–20 minutos do NotebookLM
 
 **Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO5_NOTEBOOKLM.md`
-- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md`
+- Projeto novo → copiar de `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md`
 - Projeto existente → abrir o arquivo, atualizar só o bloco `## 📋 CONTEXTO DO PROJETO`
 
 > O PASSO5_NOTEBOOKLM.md já contém o Protocolo Anti-Alucinação (4 contra-ataques ao NotebookLM)
@@ -735,7 +735,7 @@ Fontes carregadas: [listar os arquivos que carregou]
 **Arquivo de referência:** `CLIENTES/[PROJETO]/PASSO6_MUSCULO.md`
 - O Músculo lê este arquivo internamente antes de deliberar
 - Eduardo não precisa colar o PASSO6 — ele é o guia interno do Músculo
-- Projeto novo → copiar de `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md`
+- Projeto novo → copiar de `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO6_MUSCULO_TEMPLATE.md`
 
 **O que Eduardo diz para ativar:**
 ```

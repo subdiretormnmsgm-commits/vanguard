@@ -1,4 +1,4 @@
-# PASSO 5 — AUDITOR (NOTEBOOKLM) · AUDITORIA MEDICINA — V2
+﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · AUDITORIA MEDICINA — V2
 > Atualizado com PERFIL_MEDICINA_R3 v1 + P-051/P-052 + divergências do Músculo
 > Músculo · 2026-05-19
 
@@ -12,7 +12,7 @@
    Motivo: P-047 a P-052 ativos — base da auditoria
 
 2. METODOLOGIA_PERFIS_VANGUARD.md  [framework — carregar SEGUNDO]
-   Caminho: vanguard\QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\METODOLOGIA_PERFIS_VANGUARD.md
+   Caminho: vanguard\PENTALATERAL_UNIVERSAL\PERFIS_NICHO\METODOLOGIA_PERFIS_VANGUARD.md
    Motivo: regras que governam Perfis — auditar se P-051/052 são coerentes com o framework
 
 3. MEMORIA_V3_INGRID.md  [histórico — carregar TERCEIRO]
@@ -20,7 +20,7 @@
    Motivo: EdTech-Concurso (Ingrid) é o Perfil de referência para comparação
 
 4. PESQUISA_BRUTA_MEDICINA.md  [pesquisa nova — carregar QUARTO]
-   Caminho: vanguard\QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\PESQUISA_BRUTA_MEDICINA.md
+   Caminho: vanguard\PENTALATERAL_UNIVERSAL\PERFIS_NICHO\PESQUISA_BRUTA_MEDICINA.md
    Motivo: base documental do PERFIL_MEDICINA_R3 — auditar qualidade e lacunas
 
 5. [Este arquivo]  [instrução — carregar ÚLTIMO]
@@ -148,7 +148,7 @@ Se não passou → reformular antes de entregar.
 
 ## O QUE FAZER COM O OUTPUT
 
-1. Salvar como: `vanguard\QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\AUDITORIA_MEDICINA_V2.md`
+1. Salvar como: `vanguard\PENTALATERAL_UNIVERSAL\PERFIS_NICHO\AUDITORIA_MEDICINA_V2.md`
 2. Se P-051/P-052 aprovados → LEDGER está correto, nenhuma ação adicional
 3. Se ajuste sugerido → Músculo edita LEDGER antes do próximo ciclo
 4. Ideias [N-1 a N-5] entram na Síntese Final (P-037) com [E-1 a E-5] do Embaixador

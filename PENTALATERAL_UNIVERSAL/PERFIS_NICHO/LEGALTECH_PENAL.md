@@ -1,4 +1,4 @@
-# Perfil de Nicho — LegalTech Penal
+﻿# Perfil de Nicho — LegalTech Penal
 > Ativo proprietário Vanguard Tech · Acumulado via projetos reais
 > Primeira entrada: PROJ-001 Valdece · 2026-05-18
 > Atualizar ao fechar cada projeto de advogado no mesmo nicho
@@ -190,5 +190,5 @@ Transformar o cliente em guardião do produto, que promove para ampliar o poder 
 
 ---
 
-*LEGALTECH_PENAL.md — Vanguard Tech · QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/*  
+*LEGALTECH_PENAL.md — Vanguard Tech · PENTALATERAL_UNIVERSAL/PERFIS_NICHO/*  
 *Ativo proprietário — acumulado via projetos reais · Não é teoria de mercado*
