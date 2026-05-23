@@ -1,4 +1,4 @@
-# ir_ao_embaixador.ps1
+﻿# ir_ao_embaixador.ps1
 # Pentalateral IAH - V25
 #
 # QUANDO RODAR: sempre que for interagir com o Embaixador (Claude Projects).
@@ -92,7 +92,7 @@ Sync-Doc "$raiz\INTELLIGENCE_LEDGER.md" `
          "$claude_project_dir\06_INTELLIGENCE_LEDGER.md" `
          "INTELLIGENCE_LEDGER"
 
-Sync-Doc "$raiz\QUADRILATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md" `
+Sync-Doc "$raiz\PENTALATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md" `
          "$claude_project_dir\16_VANGUARD_TIMELINE.md" `
          "VANGUARD_TIMELINE"
 

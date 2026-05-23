@@ -59,10 +59,10 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
   └── Único membro com acesso ao relacionamento real acumulado — o Músculo não tem isso.
   └── Como ativar: ir_ao_embaixador.ps1 -cliente [NOME] → clipboard + browser automáticos.
   └── Contribui ao loop com: 5 IDEIAS DISRUPTIVAS baseadas em comportamento real do cliente.
-  └── Template: QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md
+  └── Template: PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md
 
 TRIGGER:          PROTOCOLO VANGUARD
-MEMORANDO:        MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+MEMORANDO:        MEMORANDO_PENTALATERAL_UNIVERSAL.md
 MOEDA:            BRL
 PRODUTO_ENTRADA:  Sprint Discovery — [preço definido por Eduardo por projeto]
 BURN_RATE_LIMITE: [definido por Eduardo por projeto]
@@ -104,7 +104,7 @@ SKILL-DRIFT CHECK — [PROJETO] — [DATA]
 
 **Se `INTELLIGENCE_LEDGER.md` ainda não existe no projeto:**
 Inicializar agora com o template:
-`QUADRILATERAL_UNIVERSAL/TEMPLATES/FASE_5__INTELLIGENCE_LEDGER_TEMPLATE.md`
+`PENTALATERAL_UNIVERSAL/TEMPLATES/FASE_5__INTELLIGENCE_LEDGER_TEMPLATE.md`
 Copiar para a raiz do projeto e preencher o cabeçalho com nome e data.
 
 ---
@@ -212,7 +212,7 @@ CLIENTES/[PROJETO]/
   PASSO6_MUSCULO.md      ← Músculo lê internamente antes de deliberar (Eduardo não edita)
 ```
 
-Templates universais em: `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` (e análogos)
+Templates universais em: `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` (e análogos)
 
 ---
 
@@ -254,7 +254,7 @@ O Embaixador reage às ideias de TODOS os sócios com um de três vereditos:
 | `LOG_CLIENTE.md` | gerado pelo Embaixador por sessão | Vai para COMANDO 1 (Gemini) + COMANDO 2 (NotebookLM) |
 
 **Script de ativação:** `.\scripts\ir_ao_embaixador.ps1 -cliente [NOME]`
-**Template universal:** `QUADRILATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
+**Template universal:** `PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
 
 ---
 
@@ -661,7 +661,7 @@ O ciclo continua.
 
 Ao ativar este protocolo, ler antes de qualquer resposta:
 
-1. `MEMORANDO_QUADRILATERAL_UNIVERSAL.md` — processo completo Fases -1 a 5
+1. `MEMORANDO_PENTALATERAL_UNIVERSAL.md` — processo completo Fases -1 a 5
 2. Docs base do operador (se definidos em CONFIGURAÇÃO) — regras e contexto
 3. Skill específica do cliente, se existir: `.claude/skills/[nome-skill-cliente].md`
 4. Se o Diretor fornecer DIRETRIZ do Estrategista → ler na íntegra (é o PLAN do ciclo)
@@ -1860,7 +1860,7 @@ O script atualiza automaticamente:
 
 > Ao fechar qualquer projeto ou iteração, executar obrigatoriamente:
 
-**R1 — atualizar `MEMORANDO_QUADRILATERAL_UNIVERSAL.md`:**
+**R1 — atualizar `MEMORANDO_PENTALATERAL_UNIVERSAL.md`:**
 - Se novo padrão de sucesso ou falha → registar
 - Se estimativa muito diferente do real → corrigir tabela de camadas
 - Se novo anti-padrão identificado → adicionar à tabela
@@ -2334,7 +2334,7 @@ Tipo: [detectado ou a confirmar com o Diretor]
 Camada estimada: [1–5 ou "a definir após Discovery"]
 
 ações imediatas:
-1. Ler MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+1. Ler MEMORANDO_PENTALATERAL_UNIVERSAL.md
 2. Ler docs base do operador (CONFIGURAÇÃO DO OPERADOR)
 3. Recolher as 7 perguntas de Discovery — uma a uma
 4. Classificar tipo e camada
@@ -2389,7 +2389,7 @@ Traz-me o problema. Entregamos a solução.
 ### NOTEBOOKLM_BASE — ESTRUTURA DE DOCUMENTOS UNIVERSAIS (V25)
 
 ```
-QUADRILATERAL_UNIVERSAL/
+PENTALATERAL_UNIVERSAL/
 └── NOTEBOOKLM_BASE/                  ← fonte de verdade dos docs universais
     ├── 01_SKILL_PROTOCOLO_VANGUARD.md   ← ancora nos padrões do Quadrilateral
     ├── 02_MEMORANDO_QUADRILATERAL.md    ← constituição e valores

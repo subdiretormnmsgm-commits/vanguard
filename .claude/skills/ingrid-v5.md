@@ -1,4 +1,4 @@
-# SKILL: ingrid-v5.md
+﻿# SKILL: ingrid-v5.md
 **Camada:** 2 (Produto) | **Loop:** #4 | **Stack:** PWA Vanilla JS + Supabase + Claude API
 
 ### PARTE 1 — Auditoria de Coerência
@@ -31,6 +31,6 @@ O App está no ar (GitHub Pages), o Termo foi assinado e a Temperatura da Client
 ### PARTE 4 — 5 Ideias Disruptivas do Auditor
 1.  **wip_guard_soberano.ps1 (O Cão de Guarda do Diretor):** Um script que roda antes do Músculo fechar a sessão. Ele faz um ping simulado na URL pública para checar o CORS, verifica se os arquivos `.env.local` e `PASSO7` existem, e checa se o JSON do banco tem as variáveis do P-038. Se falhar, o Músculo é impedido de chamar o Diretor.
 2.  **API Wallet Ping no Seed:** Adicionar uma função levíssima no início do `seed_questoes.ps1` que dispara uma requisição de custo zero (ou mínimo) para checar o status da conta Anthropic e confirmar créditos antes de iniciar o loop de milhares de tokens.
-3.  **Auditoria Automatizada de Nicho (Auto-Niche Profiler):** Ao fechar o projeto, em vez do Diretor redigir o Perfil de Nicho EdTech, um script compila a `MEMORIA_EMBAIXADOR.md` e o `LOG_CLIENTE.md` e usa o Claude API para atualizar o arquivo `QUADRILATERAL_UNIVERSAL/PERFIS_NICHO/edtech.md` de forma autônoma.
+3.  **Auditoria Automatizada de Nicho (Auto-Niche Profiler):** Ao fechar o projeto, em vez do Diretor redigir o Perfil de Nicho EdTech, um script compila a `MEMORIA_EMBAIXADOR.md` e o `LOG_CLIENTE.md` e usa o Claude API para atualizar o arquivo `PENTALATERAL_UNIVERSAL/PERFIS_NICHO/edtech.md` de forma autônoma.
 4.  **Handoff as Code (Entrega como Código):** Os 3 documentos exigidos hoje (Relatório, Manual, Metodologia) não devem ser digitados. O Músculo cria um script `gerar_handoff_docs.ps1` que lê as views de progresso do Supabase e o LEDGER, cuspindo os Markdowns formatados já com as métricas reais da Ingrid.
 5.  **Telemetria Anti-Abandono Baseada no P-038:** O Perfil do Candidato dita que um usuário sério faz 50-100 questões/dia. O app deve ter um gatilho de banco de dados: se a média móvel de 3 dias da Ingrid cair para menos de 20 questões/dia, o Embaixador gera um alerta de "Risco de Quebra de Hábito" antes que ela abandone o aplicativo definitivamente.

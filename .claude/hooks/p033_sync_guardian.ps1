@@ -1,5 +1,5 @@
 ﻿# Hook: PostToolUse (Write | Edit)
-# P-033 — Auto-sync quando QUADRILATERAL_UNIVERSAL/ ou docs criticos sao modificados
+# P-033 — Auto-sync quando PENTALATERAL_UNIVERSAL/ ou docs criticos sao modificados
 # Garante que CLIENTES/*/NOTEBOOKLM_FONTES/ fica sempre em dia — zero intervencao manual
 
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
@@ -16,9 +16,9 @@ if ([string]::IsNullOrWhiteSpace($filePath)) { exit 0 }
 
 $filePath = $filePath.Replace("/", "\")
 
-# Gatilhos: qualquer arquivo em QUADRILATERAL_UNIVERSAL/ ou docs criticos da raiz
+# Gatilhos: qualquer arquivo em PENTALATERAL_UNIVERSAL/ ou docs criticos da raiz
 $deveSync = (
-    $filePath -match "QUADRILATERAL_UNIVERSAL" -or
+    $filePath -match "PENTALATERAL_UNIVERSAL" -or
     $filePath -match "INTELLIGENCE_LEDGER" -or
     $filePath -match "WIP_BOARD\.json" -or
     $filePath -match "ANALISE_SOCIO_ATUAL"

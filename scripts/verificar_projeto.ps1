@@ -1,4 +1,4 @@
-# verificar_projeto.ps1 -- P-041: Checklist de Setup de Projeto
+﻿# verificar_projeto.ps1 -- P-041: Checklist de Setup de Projeto
 # Valida os 6 artefatos obrigatorios antes de declarar projeto pronto.
 # Uso: .\scripts\verificar_projeto.ps1 -cliente INGRID
 
@@ -67,7 +67,7 @@ if ($faltando -eq 0) {
     Write-Host "  Faltando  : $faltando" -ForegroundColor Red
     Write-Host ""
     Write-Host "  SETUP INCOMPLETO. Musculo deve criar os artefatos faltantes." -ForegroundColor Red
-    Write-Host "  Template: QUADRILATERAL_UNIVERSAL\OPERACAO\PASSO7_EMBAIXADOR_TEMPLATE.md" -ForegroundColor Yellow
+    Write-Host "  Template: PENTALATERAL_UNIVERSAL\OPERACAO\PASSO7_EMBAIXADOR_TEMPLATE.md" -ForegroundColor Yellow
 }
 
 Write-Host ""

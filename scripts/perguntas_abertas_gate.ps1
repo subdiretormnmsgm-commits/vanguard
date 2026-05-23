@@ -1,17 +1,17 @@
-# perguntas_abertas_gate.ps1
+﻿# perguntas_abertas_gate.ps1
 # Varre documentos do ciclo de um nicho, detecta perguntas abertas
 # e classifica como BLOQUEIA_BUILD / BLOQUEIA_CAPTACAO / INFORMATIVO.
 # Impede que o ciclo avance com perguntas bloqueantes sem resposta.
 #
 # Uso: .\scripts\perguntas_abertas_gate.ps1 -nicho Medicina
-# Uso: .\scripts\perguntas_abertas_gate.ps1 -nicho Contabilidade -pasta "QUADRILATERAL_UNIVERSAL\PERFIS_NICHO"
+# Uso: .\scripts\perguntas_abertas_gate.ps1 -nicho Contabilidade -pasta "PENTALATERAL_UNIVERSAL\PERFIS_NICHO"
 
 param(
     [Parameter(Mandatory=$true)]
     [string]$nicho,
 
     [Parameter(Mandatory=$false)]
-    [string]$pasta = "QUADRILATERAL_UNIVERSAL\PERFIS_NICHO",
+    [string]$pasta = "PENTALATERAL_UNIVERSAL\PERFIS_NICHO",
 
     [Parameter(Mandatory=$false)]
     [string]$pastaClaude = "CLIENTES\INGRID\CLAUDE_PROJECT"

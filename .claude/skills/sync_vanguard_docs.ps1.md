@@ -1,4 +1,4 @@
-### sync_vanguard_docs.ps1
+﻿### sync_vanguard_docs.ps1
 ### Vanguard Doc Sync -- Script do Musculo
 ### Versao: 2.2 | Exclusao de PERFIS_NICHO e VANGUARD_HISTORICO por padrao
 ### Baseado em: P-033 -- Sync universal -> projetos e obrigatorio e imediato
@@ -20,7 +20,7 @@ $PASTAS_EXCLUIDAS = @("PERFIS_NICHO", "VANGUARD_HISTORICO")
 
 ### Configuracao
 $RAIZ           = (Get-Item -Path ".").FullName
-$UNIVERSAL_BASE = Join-Path $RAIZ "QUADRILATERAL_UNIVERSAL"
+$UNIVERSAL_BASE = Join-Path $RAIZ "PENTALATERAL_UNIVERSAL"
 $CLIENTES_DIR   = Join-Path $RAIZ "CLIENTES"
 $DATA_HOJE      = Get-Date -Format "yyyyMMdd"
 $RELATORIO_PATH = Join-Path $RAIZ "SYNC_REPORT_$DATA_HOJE.md"
@@ -72,7 +72,7 @@ if ($deletar -ne "") {
 }
 
 ### Validacao
-if (-not (Test-Path $UNIVERSAL_BASE)) { Write-Log "BLOQUEIO: QUADRILATERAL_UNIVERSAL nao encontrada." "Red"; exit 1 }
+if (-not (Test-Path $UNIVERSAL_BASE)) { Write-Log "BLOQUEIO: PENTALATERAL_UNIVERSAL nao encontrada." "Red"; exit 1 }
 if (-not (Test-Path $CLIENTES_DIR))   { Write-Log "BLOQUEIO: CLIENTES nao encontrada." "Red"; exit 1 }
 
 if (Test-Path $RELATORIO_PATH) { Remove-Item $RELATORIO_PATH }

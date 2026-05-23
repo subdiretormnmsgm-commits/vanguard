@@ -2,7 +2,7 @@
 name: quadrilateral-editor
 description: >
   Use quando o Músculo precisar criar, editar ou promover qualquer documento em
-  QUADRILATERAL_UNIVERSAL/ ou nos arquivos críticos da raiz (INTELLIGENCE_LEDGER.md,
+  PENTALATERAL_UNIVERSAL/ ou nos arquivos críticos da raiz (INTELLIGENCE_LEDGER.md,
   WIP_BOARD.json, ANALISE_SOCIO_ATUAL.txt). Triggers: "atualizar o ledger",
   "adicionar princípio", "editar protocolo", "atualizar template", "promover para
   universal", "modificar QUADRILATERAL", "atualizar documento base".
@@ -16,7 +16,7 @@ description: >
 
 **Fluxo obrigatório: UNIVERSAL → PROJETO. Nunca o inverso.**
 
-Editar sempre em `QUADRILATERAL_UNIVERSAL/` ou nos arquivos críticos da raiz.
+Editar sempre em `PENTALATERAL_UNIVERSAL/` ou nos arquivos críticos da raiz.
 O hook `p033_sync_guardian.ps1` detecta a edição e propaga para todos os
 `CLIENTES/*/NOTEBOOKLM_FONTES/` automaticamente. Nenhuma ação manual necessária.
 
@@ -32,7 +32,7 @@ O hook `p033_sync_guardian.ps1` detecta a edição e propaga para todos os
 | `CLIENTES/WIP_BOARD.json` | Status, gates, delivery_dates, loops de qualquer projeto |
 | `CONSELHO/NotebookLM/ANALISE_SOCIO_ATUAL.txt` | Análise do Sócio atualizada pelo Diretor |
 
-### QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE\ — Base do Auditor
+### PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\ — Base do Auditor
 
 Estes 9 arquivos numerados são o que o NotebookLM lê em todo projeto. São a
 fonte de verdade do Conselho. Editar com cuidado — qualquer mudança propaga
@@ -42,7 +42,7 @@ para 100% dos projetos ativos na próxima sessão do Auditor.
 |---|---|
 | `00_INSTRUCAO_AUDITOR.md` | Prompt de instrução do Auditor |
 | `01_SKILL_PROTOCOLO_VANGUARD.md` | Processo operacional completo do Pentalateral |
-| `02_MEMORANDO_QUADRILATERAL_UNIVERSAL.md` | Constituição e identidade do Quadrilateral |
+| `02_MEMORANDO_PENTALATERAL_UNIVERSAL.md` | Constituição e identidade do Quadrilateral |
 | `03_MANUAL_DIRETOR.md` | Manual de operação para o Diretor |
 | `04_INTELLIGENCE_LEDGER.md` | Cópia do LEDGER sincronizada |
 | `05_PROCESSO_EVOLUTIVO_QUADRILATERAL.md` | Loop evolutivo documentado |
@@ -50,7 +50,7 @@ para 100% dos projetos ativos na próxima sessão do Auditor.
 | `07_WIP_BOARD.txt` | Cópia do WIP_BOARD sincronizada |
 | `08_ANALISE_SOCIO_ATUAL.txt` | Cópia da análise do Sócio sincronizada |
 
-### QUADRILATERAL_UNIVERSAL\OPERACAO\ — Templates e Processos
+### PENTALATERAL_UNIVERSAL\OPERACAO\ — Templates e Processos
 
 Documentos operacionais: templates de fase, SOPs, avisos, processos.
 Sincronizados para NOTEBOOKLM_FONTES/ de todos os projetos ativos.
@@ -88,7 +88,7 @@ Sincronizados para NOTEBOOKLM_FONTES/ de todos os projetos ativos.
 
 Nenhum passo adicional. O Diretor não precisa fazer nada.
 
-### Caso 2: Criar novo arquivo em QUADRILATERAL_UNIVERSAL/
+### Caso 2: Criar novo arquivo em PENTALATERAL_UNIVERSAL/
 
 ```
 1. Decidir a subpasta correta (tabela acima)
@@ -106,7 +106,7 @@ Quando um documento criado para um cliente específico deve virar universal:
 
 ```
 1. Obter VEREDITO DO DIRETOR: "este documento serve todos os projetos futuros?"
-2. Copiar para a subpasta correta de QUADRILATERAL_UNIVERSAL/
+2. Copiar para a subpasta correta de PENTALATERAL_UNIVERSAL/
 3. Hook propaga automaticamente
 4. Deletar cópia local do projeto (evitar duplicata)
 ```
@@ -119,7 +119,7 @@ Quando um documento criado para um cliente específico deve virar universal:
 1. Obter veredito do Diretor
 2. Usar: sync_vanguard_docs.ps1 -deletar "CLIENTES\PROJETO\NOTEBOOKLM_FONTES\arquivo.md"
    (para remover das cópias de projetos)
-3. Deletar da QUADRILATERAL_UNIVERSAL/
+3. Deletar da PENTALATERAL_UNIVERSAL/
 ```
 
 ---
@@ -144,7 +144,7 @@ Se aparecer `INTEGRIDADE: VERMELHO` → falha de cópia. Rodar sync completo man
 ## Arquivos que NÃO Disparam Sync
 
 Edições em `CLIENTES/*/CLAUDE_PROJECT/`, `CLIENTES/*/frontend/`, `CLIENTES/*/supabase/`,
-`scripts/`, `.claude/hooks/`, `.claude/skills/` (exceto skills dentro de QUADRILATERAL_UNIVERSAL)
+`scripts/`, `.claude/hooks/`, `.claude/skills/` (exceto skills dentro de PENTALATERAL_UNIVERSAL)
 não disparam P-033. Sync só é necessário quando o conteúdo deve ir para o Auditor.
 
 ---

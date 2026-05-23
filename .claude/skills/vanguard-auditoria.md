@@ -1,11 +1,11 @@
----
+﻿---
 name: vanguard-auditoria
 description: >
   Conduz auditoria completa da documentação Vanguard.
   Use quando o Diretor diz "auditoria de documentação", "auditar docs",
   "quero rodar a auditoria", "documentos desatualizados", ou "sync do sistema".
   Acione também ao detectar proativamente divergência entre CLAUDE.md e documentos
-  em QUADRILATERAL_UNIVERSAL/, ou quando um agente de Conselho reportar inconsistência.
+  em PENTALATERAL_UNIVERSAL/, ou quando um agente de Conselho reportar inconsistência.
   Não acionar para auditorias de código ou de projeto cliente específico.
 ---
 
@@ -41,12 +41,12 @@ Nunca deleta nem move arquivos sem aprovação explícita.
 Execute internamente (via PowerShell) ou inspecione as pastas-alvo:
 
 ```powershell
-# Listar todos os docs em QUADRILATERAL_UNIVERSAL/
-Get-ChildItem "QUADRILATERAL_UNIVERSAL\" -Recurse -File | Select-Object FullName, LastWriteTime
+# Listar todos os docs em PENTALATERAL_UNIVERSAL/
+Get-ChildItem "PENTALATERAL_UNIVERSAL\" -Recurse -File | Select-Object FullName, LastWriteTime
 # Listar .claude/skills/
 Get-ChildItem ".claude\skills\" -File | Select-Object Name, LastWriteTime
 # Verificar NOTEBOOKLM_BASE
-Get-ChildItem "QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE\" | Select-Object Name, LastWriteTime
+Get-ChildItem "PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\" | Select-Object Name, LastWriteTime
 # Verificar scripts
 Get-ChildItem "scripts\" -File | Select-Object Name, LastWriteTime
 ```
@@ -56,7 +56,7 @@ Get-ChildItem "scripts\" -File | Select-Object Name, LastWriteTime
 
 ### Fase 3 — Auditoria de Coerência
 
-Para cada documento em `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/` e `QUADRILATERAL_UNIVERSAL/OPERACAO/`:
+Para cada documento em `PENTALATERAL_UNIVERSAL/CONSTITUICAO/` e `PENTALATERAL_UNIVERSAL/OPERACAO/`:
 
 **Checklist de coerência — aplicar a cada documento:**
 
@@ -75,11 +75,11 @@ Para cada documento em `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/` e `QUADRILATERAL_
 **Documentos-alvo da auditoria de coerência:**
 
 ```
-QUADRILATERAL_UNIVERSAL/
+PENTALATERAL_UNIVERSAL/
   CONSTITUICAO/
     EMPRESA_VANGUARD.md
     INTELIGENCIA_ARTIFICIAL_HUMANA.md
-    MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+    MEMORANDO_PENTALATERAL_UNIVERSAL.md
     MEMORANDO_QUADRILATERAL_CLIENTE.md
     VANGUARD_BUSINESS_RULES.md
     O Protocolo Quadrilateral.txt
@@ -101,7 +101,7 @@ QUADRILATERAL_UNIVERSAL/
 CLAUDE.md                                ← constitution master
 .claude/skills/
     vanguard-protocolo.md               ← deve ser sync de SKILL_PROTOCOLO_VANGUARD.md
-    vanguard-memorando.md               ← deve ser sync de MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+    vanguard-memorando.md               ← deve ser sync de MEMORANDO_PENTALATERAL_UNIVERSAL.md
     vanguard-foundation.md
     vanguard-auditoria.md               ← este arquivo
 ```
@@ -112,9 +112,9 @@ Verificar se estes documentos existem. Se ausentes → marcar como CRÍTICO:
 
 | Documento esperado | Caminho | Se ausente |
 |---|---|---|
-| `AVISO_EMBAIXADOR.md` | `QUADRILATERAL_UNIVERSAL/OPERACAO/` | Criar baseado em `AVISO_ARQUITETO.md` — 5 anti-padrões de relacionamento |
-| `PASSO7_EMBAIXADOR_TEMPLATE.md` | `QUADRILATERAL_UNIVERSAL/OPERACAO/` | Criar com 4 seções: briefing pré-reunião, debrief pós-reunião, pipeline de lead, reação P-031 |
-| `VANGUARD_TIMELINE.md` | `QUADRILATERAL_UNIVERSAL/HISTORICO/` | Verificar em raiz; mover se necessário |
+| `AVISO_EMBAIXADOR.md` | `PENTALATERAL_UNIVERSAL/OPERACAO/` | Criar baseado em `AVISO_ARQUITETO.md` — 5 anti-padrões de relacionamento |
+| `PASSO7_EMBAIXADOR_TEMPLATE.md` | `PENTALATERAL_UNIVERSAL/OPERACAO/` | Criar com 4 seções: briefing pré-reunião, debrief pós-reunião, pipeline de lead, reação P-031 |
+| `VANGUARD_TIMELINE.md` | `PENTALATERAL_UNIVERSAL/HISTORICO/` | Verificar em raiz; mover se necessário |
 | `MEMORIA_EMBAIXADOR.md` por cliente ativo | `CLIENTES/[CLIENTE]/CLAUDE_PROJECT/` | Criar do zero via `ir_ao_embaixador.ps1 -cliente [NOME]` |
 | `INSTRUCAO_SISTEMA.md` por cliente ativo | `CLIENTES/[CLIENTE]/CLAUDE_PROJECT/` | Criar via template universal de Embaixador |
 | `CONSELHO/` com mensagens de auditoria | `CONSELHO/COMANDO_ESTRATEGISTA_AUDITORIA_*.md` etc. | Criar para acionar Gemini, NotebookLM e Embaixador |
@@ -124,15 +124,15 @@ Verificar se estes documentos existem. Se ausentes → marcar como CRÍTICO:
 **Sync NOTEBOOKLM_BASE:**
 ```powershell
 # Comparar datas: cada arquivo em BASE/ deve ser igual ou mais recente que a fonte
-# Fonte 01: QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md
-# Fonte 02: QUADRILATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_QUADRILATERAL_UNIVERSAL.md
-# Fonte 03: QUADRILATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md
+# Fonte 01: PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md
+# Fonte 02: PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md
+# Fonte 03: PENTALATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md
 # Fonte 04: INTELLIGENCE_LEDGER.md (raiz)
-# Fonte 05: QUADRILATERAL_UNIVERSAL/OPERACAO/PROCESSO_EVOLUTIVO_QUADRILATERAL.md
-# Fonte 06: QUADRILATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_QUADRILATERAL.md
+# Fonte 05: PENTALATERAL_UNIVERSAL/OPERACAO/PROCESSO_EVOLUTIVO_QUADRILATERAL.md
+# Fonte 06: PENTALATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_QUADRILATERAL.md
 # Fonte 07: CLIENTES/WIP_BOARD.json → renomeado para 07_WIP_BOARD.txt
 # Fonte 08: CONSELHO/NotebookLM/ANALISE_SOCIO_ATUAL.txt
-Get-ChildItem "QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE\" | Select-Object Name, LastWriteTime | Sort-Object Name
+Get-ChildItem "PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\" | Select-Object Name, LastWriteTime | Sort-Object Name
 ```
 
 Se qualquer arquivo BASE/ for mais antigo que sua fonte → rodar sync:
@@ -143,10 +143,10 @@ Se qualquer arquivo BASE/ for mais antigo que sua fonte → rodar sync:
 **Sync .claude/skills/:**
 ```powershell
 # vanguard-protocolo.md deve ser idêntico a SKILL_PROTOCOLO_VANGUARD.md
-# vanguard-memorando.md deve ser idêntico a MEMORANDO_QUADRILATERAL_UNIVERSAL.md
+# vanguard-memorando.md deve ser idêntico a MEMORANDO_PENTALATERAL_UNIVERSAL.md
 # Se divergentes → comando de sync:
-Copy-Item "QUADRILATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md" ".claude\skills\vanguard-protocolo.md"
-Copy-Item "QUADRILATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_QUADRILATERAL_UNIVERSAL.md" ".claude\skills\vanguard-memorando.md"
+Copy-Item "PENTALATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md" ".claude\skills\vanguard-protocolo.md"
+Copy-Item "PENTALATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_PENTALATERAL_UNIVERSAL.md" ".claude\skills\vanguard-memorando.md"
 ```
 
 **Sync NOTEBOOKLM_FONTES por projeto ativo:**
@@ -186,10 +186,10 @@ Para cada arquivo fora do lugar:
 **Pastas canônicas:**
 | Tipo de documento | Pasta canônica |
 |---|---|
-| Constituição (empresa, IAH, memorando, business rules) | `QUADRILATERAL_UNIVERSAL/CONSTITUICAO/` |
-| Operação (skill, manual, discovery, protocolo, SOP) | `QUADRILATERAL_UNIVERSAL/OPERACAO/` |
-| Templates (comunicação, fases) | `QUADRILATERAL_UNIVERSAL/TEMPLATES/` |
-| Histórico (timeline, versões antigas) | `QUADRILATERAL_UNIVERSAL/HISTORICO/` |
+| Constituição (empresa, IAH, memorando, business rules) | `PENTALATERAL_UNIVERSAL/CONSTITUICAO/` |
+| Operação (skill, manual, discovery, protocolo, SOP) | `PENTALATERAL_UNIVERSAL/OPERACAO/` |
+| Templates (comunicação, fases) | `PENTALATERAL_UNIVERSAL/TEMPLATES/` |
+| Histórico (timeline, versões antigas) | `PENTALATERAL_UNIVERSAL/HISTORICO/` |
 | Clientes (projetos, memória, PASSO files) | `CLIENTES/[NOME]/` |
 | Conselho (mensagens entre membros) | `CONSELHO/` |
 | Scripts | `scripts/` |
@@ -289,7 +289,7 @@ A auditoria entrega **sempre** os 6 blocos do Output (Fase 9):
 |---------|--------------|-------------------|
 | Documento mostra data recente mas ainda usa "Quadrilateral" | Arquivo foi copiado de versão antiga mas não editado | Marcar DESATUALIZADO; verificar seção por seção com Grep antes de reportar EM DIA |
 | NOTEBOOKLM_BASE tem 7/8 arquivos sincronizados | Fonte 08 (`ANALISE_SOCIO_ATUAL.txt`) não existe em `CONSELHO/NotebookLM/` | Verificar se está em outra pasta; se ausente, alertar Diretor — este arquivo é atualizado pelo Diretor após sessão com NotebookLM |
-| `vanguard-protocolo.md` diverge de `SKILL_PROTOCOLO_VANGUARD.md` | Sync não foi feito após atualização do SKILL | Rodar `Copy-Item "QUADRILATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md" ".claude\skills\vanguard-protocolo.md"` |
+| `vanguard-protocolo.md` diverge de `SKILL_PROTOCOLO_VANGUARD.md` | Sync não foi feito após atualização do SKILL | Rodar `Copy-Item "PENTALATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md" ".claude\skills\vanguard-protocolo.md"` |
 | Projeto ativo sem `PASSO3_GEMINI.md` atualizado | Loop não foi iniciado ou arquivo foi sobrescrito sem novo conteúdo | Rodar Passo 0: `ir_ao_embaixador.ps1 -cliente [NOME]` + iniciar novo loop com Gemini |
 | Estrutura de raiz com muitos .md soltos | Crescimento orgânico sem organização — arquivos temporários ou superseded | Comparar com versão em pasta canônica; mover ou deletar após confirmação do Diretor |
 
@@ -297,7 +297,7 @@ A auditoria entrega **sempre** os 6 blocos do Output (Fase 9):
 
 ## Notas de Uso
 
-- **Gatilho proativo**: O Músculo aciona esta skill sem ser solicitado ao detectar divergência entre CLAUDE.md e qualquer documento de QUADRILATERAL_UNIVERSAL/. Não esperar o Diretor pedir.
+- **Gatilho proativo**: O Músculo aciona esta skill sem ser solicitado ao detectar divergência entre CLAUDE.md e qualquer documento de PENTALATERAL_UNIVERSAL/. Não esperar o Diretor pedir.
 - **Frequência recomendada**: A cada versão fechada (ritual de DNA da IAH) e sempre que um novo membro for adicionado ao Conselho.
 - **Interdependência**: Após a auditoria, se ≥3 documentos forem atualizados, rodar `atualizar_notebooklm_base.ps1` e sincronizar `.claude/skills/` — essas duas ações são parte do fechamento da auditoria.
-- **Escopo desta skill**: documentação universal em QUADRILATERAL_UNIVERSAL/ e raiz do sistema. Documentação de projeto cliente (CLIENTES/[NOME]/) é auditada pelo Embaixador, não pelo Músculo.
+- **Escopo desta skill**: documentação universal em PENTALATERAL_UNIVERSAL/ e raiz do sistema. Documentação de projeto cliente (CLIENTES/[NOME]/) é auditada pelo Embaixador, não pelo Músculo.

@@ -1,4 +1,4 @@
-# preparar_notebooklm_projeto.ps1
+﻿# preparar_notebooklm_projeto.ps1
 # Pentalateral IAH - V26
 #
 # O QUE FAZ:
@@ -22,7 +22,7 @@ $ErrorActionPreference = "Stop"
 $cliente = $cliente.ToUpper()
 
 $raiz       = $PSScriptRoot | Split-Path -Parent
-$base_dir   = "$raiz\QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
+$base_dir   = "$raiz\PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
 $proj_dir   = "$raiz\CLIENTES\$cliente"
 $fontes_dir = "$proj_dir\NOTEBOOKLM_FONTES"
 
@@ -133,7 +133,7 @@ if ($skill) {
 }
 
 # 16 - ALERTA_CONFLITO (universal - alerta de calibracao)
-$f = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\ALERTA_CONFLITO.md"
+$f = "$raiz\PENTALATERAL_UNIVERSAL\OPERACAO\ALERTA_CONFLITO.md"
 if (Test-Path $f) {
     Copy-Item $f "$fontes_dir\16_ALERTA_CONFLITO.md" -Force
     Write-Host "  [OK] 16_ALERTA_CONFLITO.md" -ForegroundColor Green
@@ -142,7 +142,7 @@ if (Test-Path $f) {
 }
 
 # 17 - VANGUARD_TIMELINE (historia completa da Vanguard - fonte historica do Auditor)
-$f = "$raiz\QUADRILATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md"
+$f = "$raiz\PENTALATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md"
 if (Test-Path $f) {
     Copy-Item $f "$fontes_dir\17_VANGUARD_TIMELINE.md" -Force
     Write-Host "  [OK] 17_VANGUARD_TIMELINE.md" -ForegroundColor Green

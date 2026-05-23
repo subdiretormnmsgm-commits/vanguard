@@ -7,7 +7,7 @@
 # - Apos Eduardo atualizar ANALISE_SOCIO_ATUAL.txt (pos-NotebooklM)
 # - Apos atualizar WIP_BOARD.json (novo projeto ou mudanca de status)
 #
-# O QUE FAZ: sincroniza QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/
+# O QUE FAZ: sincroniza PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/
 # com os documentos fonte originais. A BASE e sempre espelho atualizado.
 # NOTA: WIP_BOARD.json e convertido para texto legivel (07_WIP_BOARD.txt)
 #       NotebookLM nao processa JSON bruto — extensao .txt nao basta.
@@ -18,7 +18,7 @@
 $ErrorActionPreference = "Stop"
 
 $raiz  = $PSScriptRoot | Split-Path -Parent
-$dest  = "$raiz\QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
+$dest  = "$raiz\PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
 
 Write-Host ""
 Write-Host "==================================================" -ForegroundColor Cyan
@@ -115,12 +115,12 @@ function ConvertTo-WipBoardTxt {
 # Documentos normais (copia direta)
 # ──────────────────────────────────────────────────────────────
 $documentos = @(
-    @{ Num = "01"; Nome = "SKILL_PROTOCOLO_VANGUARD.md";           Origem = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md" },
-    @{ Num = "02"; Nome = "MEMORANDO_QUADRILATERAL_UNIVERSAL.md";  Origem = "$raiz\QUADRILATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_QUADRILATERAL_UNIVERSAL.md" },
-    @{ Num = "03"; Nome = "MANUAL_DIRETOR.md";                     Origem = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\MANUAL_DIRETOR.md" },
+    @{ Num = "01"; Nome = "SKILL_PROTOCOLO_VANGUARD.md";           Origem = "$raiz\PENTALATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md" },
+    @{ Num = "02"; Nome = "MEMORANDO_PENTALATERAL_UNIVERSAL.md";  Origem = "$raiz\PENTALATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_PENTALATERAL_UNIVERSAL.md" },
+    @{ Num = "03"; Nome = "MANUAL_DIRETOR.md";                     Origem = "$raiz\PENTALATERAL_UNIVERSAL\OPERACAO\MANUAL_DIRETOR.md" },
     @{ Num = "04"; Nome = "INTELLIGENCE_LEDGER.md";                Origem = "$raiz\INTELLIGENCE_LEDGER.md" },
-    @{ Num = "05"; Nome = "PROCESSO_EVOLUTIVO_QUADRILATERAL.md";   Origem = "$raiz\QUADRILATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md" },
-    @{ Num = "06"; Nome = "TEMPLATES_COMUNICACAO_QUADRILATERAL.md";Origem = "$raiz\QUADRILATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md" },
+    @{ Num = "05"; Nome = "PROCESSO_EVOLUTIVO_QUADRILATERAL.md";   Origem = "$raiz\PENTALATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md" },
+    @{ Num = "06"; Nome = "TEMPLATES_COMUNICACAO_QUADRILATERAL.md";Origem = "$raiz\PENTALATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md" },
     @{ Num = "08"; Nome = "ANALISE_SOCIO_ATUAL.txt";               Origem = "$raiz\CONSELHO\NotebookLM\ANALISE_SOCIO_ATUAL.txt" }
 )
 

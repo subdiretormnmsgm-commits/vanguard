@@ -1,4 +1,4 @@
-# sync_passo_files.ps1
+﻿# sync_passo_files.ps1
 # Sincroniza automaticamente todos os arquivos PASSO de projetos ativos.
 # Executar antes de qualquer sessao com Gemini ou NotebookLM.
 
@@ -135,13 +135,13 @@ Write-Host "  Sync concluido. PASSOs atualizados." -ForegroundColor Green
 
 # ============================================================
 # 3. SYNC UNIVERSAL -> PROJETOS (P-033)
-#    QUADRILATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ -> CLIENTES/[NOME]/NOTEBOOKLM_FONTES/
+#    PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/ -> CLIENTES/[NOME]/NOTEBOOKLM_FONTES/
 # ============================================================
 Write-Host ""
 Write-Host "  Sincronizando documentos universais -> projetos (P-033)..."
 
-$baseDir     = Join-Path $BASE "QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
-$timelineSrc = Join-Path $BASE "QUADRILATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md"
+$baseDir     = Join-Path $BASE "PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
+$timelineSrc = Join-Path $BASE "PENTALATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md"
 $wipSrc      = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
 $socioSrc    = Join-Path $BASE "CONSELHO\NotebookLM\ANALISE_SOCIO_ATUAL.txt"
 

@@ -1,4 +1,4 @@
-# fechar_versao.ps1 -- Automacao de fechamento de versao Vanguard
+﻿# fechar_versao.ps1 -- Automacao de fechamento de versao Vanguard
 # Uso: .\scripts\fechar_versao.ps1 -versao 17
 # O script faz tudo: atualiza pastas, gera COMANDO_GEMINI, commita
 
@@ -136,8 +136,8 @@ $skillsDir = "$base\.claude\skills"
 New-Item -ItemType Directory -Path $skillsDir -Force | Out-Null
 
 $sincronizar = @(
-    @{src="QUADRILATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md"; dest="vanguard-protocolo.md"},
-    @{src="QUADRILATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_QUADRILATERAL_UNIVERSAL.md"; dest="vanguard-memorando.md"}
+    @{src="PENTALATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md"; dest="vanguard-protocolo.md"},
+    @{src="PENTALATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_PENTALATERAL_UNIVERSAL.md"; dest="vanguard-memorando.md"}
 )
 
 foreach ($item in $sincronizar) {

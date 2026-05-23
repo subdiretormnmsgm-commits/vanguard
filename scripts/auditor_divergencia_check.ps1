@@ -1,11 +1,11 @@
-# auditor_divergencia_check.ps1
+﻿# auditor_divergencia_check.ps1
 # Anti-Lost-in-the-Middle: verifica se o output do Auditor endereça
 # as divergências [DIV-N] solicitadas no PASSO5.
 # Se o Auditor auditou coisas diferentes do que foi pedido → detecta e alerta.
 #
 # Uso: .\scripts\auditor_divergencia_check.ps1 `
 #        -passo5 "CLIENTES\INGRID\PASSO5_NOTEBOOKLM_MEDICINA_V2.md" `
-#        -auditoria "QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\AUDITORIA_MEDICINA_V2.md"
+#        -auditoria "PENTALATERAL_UNIVERSAL\PERFIS_NICHO\AUDITORIA_MEDICINA_V2.md"
 
 param(
     [Parameter(Mandatory=$true)]

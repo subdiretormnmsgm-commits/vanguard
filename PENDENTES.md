@@ -1,4 +1,4 @@
-# PENDENTES — Vanguard IAH
+﻿# PENDENTES — Vanguard IAH
 > Atualizado pelo Músculo em tempo real durante qualquer sessão.
 > O briefing matinal lê este arquivo — tudo aqui aparece às 7h.
 > Regra P-047: qualquer tarefa identificada como pendente → registrar aqui IMEDIATAMENTE.
@@ -60,7 +60,7 @@
 
 - [ ] `2026-05-23` **Sync universal obrigatório** — rodar após confirmação de commit:
   `.\.claude\skills\files\sync_vanguard_docs.ps1`
-  Sincroniza todos os docs QUADRILATERAL_UNIVERSAL atualizados para CLIENTES/*/NOTEBOOKLM_FONTES/
+  Sincroniza todos os docs PENTALATERAL_UNIVERSAL atualizados para CLIENTES/*/NOTEBOOKLM_FONTES/
 
 - [ ] `2026-05-23` **Rename QUADRILATERAL → PENTALATERAL** — aguarda veredito formal do Diretor
   Eduardo sugeriu mas não decidiu formalmente. Impacto: muitos caminhos de arquivo.

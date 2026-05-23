@@ -1,4 +1,4 @@
-# atualizar_notebooklm.ps1
+﻿# atualizar_notebooklm.ps1
 # Empacota os documentos atuais do Quadrilateral para o NotebookLM (Auditor)
 # Previne Deficiencia 1 do Auditor: Miopia de Contexto / Lost-in-the-Middle
 # Uso: .\scripts\atualizar_notebooklm.ps1
@@ -28,13 +28,13 @@ Write-Host ""
 $arquivos = @(
     # CAMADA 1 -- Processo e Constituicao (ancora o Auditor)
     @{ src = ".claude\skills\vanguard-protocolo.md";                                          prefix = "01"; nome = "SKILL_PROTOCOLO_VANGUARD.txt" },
-    @{ src = "QUADRILATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_QUADRILATERAL_UNIVERSAL.md";    prefix = "02"; nome = "MEMORANDO_QUADRILATERAL_UNIVERSAL.txt" },
-    @{ src = "QUADRILATERAL_UNIVERSAL\OPERACAO\MANUAL_DIRETOR.md";                           prefix = "03"; nome = "MANUAL_DIRETOR.txt" },
+    @{ src = "PENTALATERAL_UNIVERSAL\CONSTITUICAO\MEMORANDO_PENTALATERAL_UNIVERSAL.md";    prefix = "02"; nome = "MEMORANDO_PENTALATERAL_UNIVERSAL.txt" },
+    @{ src = "PENTALATERAL_UNIVERSAL\OPERACAO\MANUAL_DIRETOR.md";                           prefix = "03"; nome = "MANUAL_DIRETOR.txt" },
 
     # CAMADA 2 -- Inteligencia acumulada (principios e historico)
     @{ src = "INTELLIGENCE_LEDGER.md";                                                        prefix = "04"; nome = "INTELLIGENCE_LEDGER.txt" },
-    @{ src = "QUADRILATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md";         prefix = "05"; nome = "PROCESSO_EVOLUTIVO_QUADRILATERAL.txt" },
-    @{ src = "QUADRILATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md";     prefix = "06"; nome = "TEMPLATES_COMUNICACAO_QUADRILATERAL.txt" },
+    @{ src = "PENTALATERAL_UNIVERSAL\OPERACAO\PROCESSO_EVOLUTIVO_QUADRILATERAL.md";         prefix = "05"; nome = "PROCESSO_EVOLUTIVO_QUADRILATERAL.txt" },
+    @{ src = "PENTALATERAL_UNIVERSAL\TEMPLATES\TEMPLATES_COMUNICACAO_QUADRILATERAL.md";     prefix = "06"; nome = "TEMPLATES_COMUNICACAO_QUADRILATERAL.txt" },
 
     # CAMADA 3 -- Estado atual dos projetos
     @{ src = "CLIENTES\WIP_BOARD.json";                                                       prefix = "07"; nome = "WIP_BOARD.txt" },
@@ -49,7 +49,7 @@ $arquivos = @(
     @{ src = "CLIENTES\VALDECE\SKILL_PROTOCOLO_VALDECE_V2.md";                               prefix = "14"; nome = "SKILL_PROTOCOLO_VALDECE_V2.txt" },
 
     # CAMADA 5 -- Alertas e calibracao
-    @{ src = "QUADRILATERAL_UNIVERSAL\OPERACAO\ALERTA_CONFLITO.md";                          prefix = "15"; nome = "ALERTA_CONFLITO_PROTOCOLO.txt" }
+    @{ src = "PENTALATERAL_UNIVERSAL\OPERACAO\ALERTA_CONFLITO.md";                          prefix = "15"; nome = "ALERTA_CONFLITO_PROTOCOLO.txt" }
 )
 
 $ok  = 0

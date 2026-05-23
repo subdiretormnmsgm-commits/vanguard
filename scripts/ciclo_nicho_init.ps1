@@ -1,4 +1,4 @@
-# ciclo_nicho_init.ps1
+﻿# ciclo_nicho_init.ps1
 # Inicializa um ciclo de nicho novo com CICLO_GATE.md + documento consolidado.
 # Reduz overhead de 6 documentos separados para 1 documento consolidado.
 # Cria o gate de encerramento com critérios declarados antes de começar.
@@ -19,7 +19,7 @@ param(
 )
 
 $data = Get-Date -Format "yyyy-MM-dd"
-$pasta = "QUADRILATERAL_UNIVERSAL\PERFIS_NICHO"
+$pasta = "PENTALATERAL_UNIVERSAL\PERFIS_NICHO"
 
 # ---- CICLO_GATE.md --------------------------------------------------------
 $gatePath = "$pasta\CICLO_GATE_$nicho.md"

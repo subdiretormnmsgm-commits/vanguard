@@ -1,4 +1,4 @@
-# session_close.ps1
+﻿# session_close.ps1
 # Executar ao fechar qualquer sessao do Quadrilateral
 # Prompts obrigatorios para atualizar o INTELLIGENCE_LEDGER
 
@@ -221,7 +221,7 @@ while ($true) {
 
 if ($padroesProtocolo.Count -gt 0) {
     $protocoloPath  = Join-Path $BASE ".claude\skills\vanguard-protocolo.md"
-    $universalPath  = Join-Path $BASE "QUADRILATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md"
+    $universalPath  = Join-Path $BASE "PENTALATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md"
 
     $blocoEvol  = "`n`n### [EVOLUCAO-$DATA]`n"
     $blocoEvol += "> Capturado via session_close.ps1 — posicionar na secao adequada ao fechar o projeto.`n"
@@ -261,7 +261,7 @@ if ($padroesProtocolo.Count -gt 0) {
     Write-Host ""
     Write-Host "  [OK] $($padroesProtocolo.Count) padrao(oes) registrado(s) em:" -ForegroundColor Green
     Write-Host "       .claude/skills/vanguard-protocolo.md" -ForegroundColor Green
-    Write-Host "       QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md" -ForegroundColor Green
+    Write-Host "       PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md" -ForegroundColor Green
     Write-Host "       INTELLIGENCE_LEDGER.md (tag [PROTOCOLO])" -ForegroundColor Green
     Write-Host "  [!]  Proximo passo: posicionar na secao adequada ao fechar o projeto." -ForegroundColor Cyan
 } else {
@@ -449,7 +449,7 @@ Write-Host "=============================================="
 Write-Host "  AUTO-PREPARAÇÃO DOS 3 SÓCIOS"
 Write-Host "=============================================="
 
-# Pré-etapa — Sync universal: QUADRILATERAL_UNIVERSAL → NOTEBOOKLM_FONTES de todos os projetos
+# Pré-etapa — Sync universal: PENTALATERAL_UNIVERSAL → NOTEBOOKLM_FONTES de todos os projetos
 $syncScript = Join-Path $BASE ".claude\skills\files\sync_vanguard_docs.ps1"
 if (Test-Path $syncScript) {
     Write-Host ""

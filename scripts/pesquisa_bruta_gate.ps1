@@ -1,4 +1,4 @@
-# pesquisa_bruta_gate.ps1
+﻿# pesquisa_bruta_gate.ps1
 # F-2 — Valida completude de PESQUISA_BRUTA antes do Embaixador construir o Perfil
 # 7 campos obrigatórios. 4 bloqueantes (TAM, Calendário, Preço, Dor verbalizada).
 # Se qualquer campo bloqueante ausente → pesquisa rejeitada + REJEICAO_PESQUISA gerado
@@ -15,7 +15,7 @@ param(
 )
 
 if (-not $arquivo) {
-    $arquivo = "QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\PESQUISA_BRUTA_$nicho.md"
+    $arquivo = "PENTALATERAL_UNIVERSAL\PERFIS_NICHO\PESQUISA_BRUTA_$nicho.md"
 }
 
 if (-not (Test-Path $arquivo)) {
@@ -160,7 +160,7 @@ else {
     Write-Host ""
 
     # Gerar arquivo de rejeicao
-    $rejeicaoPath = "QUADRILATERAL_UNIVERSAL\PERFIS_NICHO\REJEICAO_PESQUISA_$nicho.md"
+    $rejeicaoPath = "PENTALATERAL_UNIVERSAL\PERFIS_NICHO\REJEICAO_PESQUISA_$nicho.md"
     $dataHoje = Get-Date -Format "yyyy-MM-dd"
     $camposFaltantes = ($reprovados | ForEach-Object { "- Campo $($_.id): $($_.nome)" }) -join "`n"
 

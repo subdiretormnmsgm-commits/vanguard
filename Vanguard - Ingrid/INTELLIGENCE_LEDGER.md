@@ -1,4 +1,4 @@
-# INTELLIGENCE LEDGER — Quadrilateral IAH
+﻿# INTELLIGENCE LEDGER — Quadrilateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -360,7 +360,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Documentos atualizados nesta sessão:**
 - `CLIENTES/INGRID/edital_sedes.json` — score incidência + pesquisa + D-5 + achados
 - `CLIENTES/INGRID/PASSO3_GEMINI.md` — mandato Skill explícito
-- `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` — idem universal
+- `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` — idem universal
 - `CLIENTES/INGRID/PASSO6_MUSCULO.md` — sequência A-H formal
 - `CLIENTES/INGRID/DIRETRIZ_GEMINI_V1.txt` — DIRETRIZ completa 7 blocos
 - `CLIENTES/WIP_BOARD.json` — PROJ-002 movido para build

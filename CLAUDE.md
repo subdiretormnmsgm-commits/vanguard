@@ -1,4 +1,4 @@
-# 🚀 VANGUARD TECH - CONSTITUIÇÃO MESTRE
+﻿# 🚀 VANGUARD TECH - CONSTITUIÇÃO MESTRE
 - CURRENT_VERSION: 12
 - MODEL: "Venture Builder Autônoma & Holding de Dados SaaS — The Sovereign Launch"
 - SISTEMA: Pentalateral IAH — 5 atores: Diretor + Músculo + Estrategista + Auditor + Embaixador
@@ -135,13 +135,13 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     ─────────────────────────────────────────────────────────────────────────────────────
     P-050 — KNOWLEDGE BASE OBRIGATÓRIA (2026-05-21):
     Ao resolver qualquer problema técnico durante uma sessão, o Músculo documenta
-    imediatamente em QUADRILATERAL_UNIVERSAL/KNOWLEDGE_BASE/ (universal) ou
+    imediatamente em PENTALATERAL_UNIVERSAL/KNOWLEDGE_BASE/ (universal) ou
     CLIENTES/[NOME]/KNOWLEDGE_BASE/ (específico do projeto):
     (a) mensagem de erro exata, (b) causa raiz, (c) solução passo a passo,
     (d) projeto e data de origem.
     Ao fechar sessão → checar: "Algum problema foi resolvido hoje que não está documentado?"
-    Runbooks universais: QUADRILATERAL_UNIVERSAL/OPERACAO/RUNBOOK_*.md
-    Índice: QUADRILATERAL_UNIVERSAL/KNOWLEDGE_BASE/INDEX.md
+    Runbooks universais: PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_*.md
+    Índice: PENTALATERAL_UNIVERSAL/KNOWLEDGE_BASE/INDEX.md
 14. P-031 — EMBAIXADOR COMO FILTRO DE REALIDADE (2026-05-18):
     O Embaixador CONFIRMA, EXPANDE ou ALERTA cada ideia gerada pelos outros membros
     com base em comportamento real do cliente observado em sessões passadas.
@@ -171,11 +171,11 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     Gerar MEMORIA_V[N-1] + relatorio_V[N-1] antes de iniciar o Loop [N]."
     session_close.ps1 detecta e alerta automaticamente.
 20. P-033 — SYNC UNIVERSAL OBRIGATÓRIO APÓS QUALQUER MUDANÇA (2026-05-20):
-    Após QUALQUER alteração em QUADRILATERAL_UNIVERSAL/, o Músculo roda imediatamente:
+    Após QUALQUER alteração em PENTALATERAL_UNIVERSAL/, o Músculo roda imediatamente:
     .\.claude\skills\files\sync_vanguard_docs.ps1
     Objetivo: todos os CLIENTES/*/NOTEBOOKLM_FONTES/ sempre sincronizados com o universal.
     Músculo detecta a mudança e executa — Diretor não roda manualmente.
-    Ao fechar sessão com alterações em QUADRILATERAL_UNIVERSAL/ → confirmar que sync rodou.
+    Ao fechar sessão com alterações em PENTALATERAL_UNIVERSAL/ → confirmar que sync rodou.
     INTEGRIDADE VERDE = zero falhas de hash. AMARELO = órfãos para veredito. VERMELHO = falha de cópia.
 ```
 
@@ -195,7 +195,7 @@ Princípios derivados de projetos cliente → `INTELLIGENCE_LEDGER.md` (fonte ca
 > Executado ao fechar QUALQUER projeto cliente. Antes do commit de arquivamento.
 > O Músculo conduz. O Diretor aprova.
 
-**Varredura obrigatória:** `Get-ChildItem "QUADRILATERAL_UNIVERSAL\" -Recurse -File | Select-Object FullName`
+**Varredura obrigatória:** `Get-ChildItem "PENTALATERAL_UNIVERSAL\" -Recurse -File | Select-Object FullName`
 
 Para cada documento, aplicar: *"O que aprendemos neste projeto muda o que este documento diz?"*
 
@@ -236,7 +236,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 > `vanguard-design-elite.md` → só em projetos com UI premium (Next.js/React).
 > `vanguard-auditoria.md` → para auditorias de documentação completas do repositório.
 
-> **Sync obrigatório ao fechar projeto/versão:** `Copy-Item "QUADRILATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md" ".claude/skills/vanguard-protocolo.md"` · idem MEMORANDO→vanguard-memorando.md · refinar Templates com padrões reais.
+> **Sync obrigatório ao fechar projeto/versão:** `Copy-Item "PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md" ".claude/skills/vanguard-protocolo.md"` · idem MEMORANDO→vanguard-memorando.md · refinar Templates com padrões reais.
 
 ### 2. Seguir ESTA ORDEM de passos. Nunca pular etapas.
 > Músculo NÃO delibera nem propõe plano antes do PASSO 5 (Skill do NotebookLM).
@@ -264,7 +264,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 ## 📐 TEMPLATES DE COMUNICAÇÃO — FORMATOS FIXOS DE CADA MEMBRO
 
 > Nenhum membro improvisa formato. Cada documento tem estrutura obrigatória.
-> Documento completo: `QUADRILATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_QUADRILATERAL.md`
+> Documento completo: `PENTALATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_QUADRILATERAL.md`
 
 | Template | De → Para | Quando usar |
 |---|---|---|
@@ -278,7 +278,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 **Ordem de envio ao Gemini:** MEMORIA → relatorio_evolutivo → PASSO3_GEMINI.md do projeto.
 **Elo obrigatório Gemini→NotebookLM→Músculo:** mesmo nome de skill nos 3 lugares — [PARA O NOTEBOOKLM], [PARA O MÚSCULO] e PASSO7 CABEÇALHO.
-**Templates dos PASSO files:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md`, `PASSO5_NOTEBOOKLM_TEMPLATE.md`, `PASSO7_EMBAIXADOR_TEMPLATE.md`
+**Templates dos PASSO files:** `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md`, `PASSO5_NOTEBOOKLM_TEMPLATE.md`, `PASSO7_EMBAIXADOR_TEMPLATE.md`
 
 ---
 
@@ -312,7 +312,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 > Gatilhos: P-023 ativo → `ir_ao_embaixador.ps1` · pré-reunião → PASSO7-A · debrief → PASSO7-B · lead novo → PASSO7-C.
 
 **Script:** `scripts/ir_ao_embaixador.ps1 -cliente [NOME]`
-**Template universal:** `QUADRILATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md`
+**Template universal:** `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md`
 
 ---
 
@@ -332,14 +332,14 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 | Script | Quando executar | O que faz |
 |---|---|---|
 | `scripts/gemini_anchor_generator.ps1` | Antes de abrir o Gemini | Compila LEDGER + WIP + MEMORIA → `CONTEXTO_GEMINI.md` + clipboard |
-| `.claude/skills/files/sync_vanguard_docs.ps1` | **OBRIGATÓRIO** após qualquer mudança em QUADRILATERAL_UNIVERSAL/ | P-033 — Sincroniza TUDO para CLIENTES/*/NOTEBOOKLM_FONTES/ — 3 rodadas: Inventário → Sync → Integridade SHA-256 |
+| `.claude/skills/files/sync_vanguard_docs.ps1` | **OBRIGATÓRIO** após qualquer mudança em PENTALATERAL_UNIVERSAL/ | P-033 — Sincroniza TUDO para CLIENTES/*/NOTEBOOKLM_FONTES/ — 3 rodadas: Inventário → Sync → Integridade SHA-256 |
 | `scripts/preparar_notebooklm_projeto.ps1 -cliente [NOME]` | Antes de abrir o NotebookLM | Monta CLIENTES/[NOME]/NOTEBOOKLM_FONTES/ com base (01-08) + projeto (09-17) — seleciona arquivos para sessão |
 | `scripts/skill_parser_gate.ps1 -skill caminho` | Ao receber Skill do Auditor | Valida 4 blocos obrigatórios + dados reais → APROVADO ou REJEITADO |
 | `scripts/session_close.ps1` | Ao fechar qualquer sessão | Captura FRICÇÕES + PRINCÍPIOS + DÍVIDAS TÉCNICAS + check P-045 (MEMORIA dos loops) |
 | `scripts/ir_ao_embaixador.ps1 -cliente [NOME]` | Ao acionar o Embaixador | Copia MENSAGEM_INTERACAO_INICIAL para clipboard + abre browser + Explorer |
 | `scripts/ir_ao_embaixador.ps1 -cliente [NOME] -AutoSync` | Ao fechar sessão (via session_close) | Sincroniza docs do Embaixador sem abrir browser |
 
-> **Gemini:** `gemini_anchor_generator.ps1` → atualizar PASSO3 (outputs reais + 5 ideias). **NotebookLM:** `preparar_notebooklm_projeto.ps1 -cliente [NOME]` → fontes 01-11 antes de 12-17 → validar `skill_parser_gate.ps1`. **Sync universal:** `sync_vanguard_docs.ps1` → roda automaticamente após toda mudança em QUADRILATERAL_UNIVERSAL/ (P-033).
+> **Gemini:** `gemini_anchor_generator.ps1` → atualizar PASSO3 (outputs reais + 5 ideias). **NotebookLM:** `preparar_notebooklm_projeto.ps1 -cliente [NOME]` → fontes 01-11 antes de 12-17 → validar `skill_parser_gate.ps1`. **Sync universal:** `sync_vanguard_docs.ps1` → roda automaticamente após toda mudança em PENTALATERAL_UNIVERSAL/ (P-033).
 
 ### RITUAL DE FECHAMENTO — EXECUTAR AO FIM DE CADA SESSÃO
 

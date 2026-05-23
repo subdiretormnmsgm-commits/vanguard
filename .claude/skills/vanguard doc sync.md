@@ -1,4 +1,4 @@
----
+﻿---
 name: vanguard-doc-sync
 description: >
   Use esta skill quando o Músculo ou o Diretor pedir para auditar, atualizar e
@@ -8,7 +8,7 @@ description: >
   global da base de conhecimento do Pentalateral IAH.
 
   Esta skill executa TRÊS rodadas obrigatórias em sequência — nenhuma é pulável.
-  Ao final, todo documento em QUADRILATERAL_UNIVERSAL deve estar espelhado com
+  Ao final, todo documento em PENTALATERAL_UNIVERSAL deve estar espelhado com
   exatidão nos projetos ativos. Dois documentos divergentes = zero documentos
   confiáveis. Acionar sempre que surgir suspeita de desatualização.
 ---
@@ -68,7 +68,7 @@ ao Diretor e aguarda veredito: **deletar** ou **promover para UNIVERSAL**.
 
 ```powershell
 # Após veredito do Diretor — promover órfão para a universal:
-.\scripts\sync_vanguard_docs.ps1 -promover "NOME_DO_ARQUIVO.md" -destino "QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE\"
+.\scripts\sync_vanguard_docs.ps1 -promover "NOME_DO_ARQUIVO.md" -destino "PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\"
 
 # Após veredito do Diretor — deletar órfão:
 .\scripts\sync_vanguard_docs.ps1 -deletar "CLIENTES\PROJETO\NOTEBOOKLM_FONTES\NOME_DO_ARQUIVO.md"
@@ -79,7 +79,7 @@ ao Diretor e aguarda veredito: **deletar** ou **promover para UNIVERSAL**.
 ## ESTRUTURA DE PASTAS ESPERADA
 
 ```
-QUADRILATERAL_UNIVERSAL\
+PENTALATERAL_UNIVERSAL\
 └── NOTEBOOKLM_BASE\              ← Fonte de verdade. Nunca editar aqui sem sync.
     ├── 00_MEMORANDO.md
     ├── 01_SKILL_PROTOCOLO_VANGUARD.md
@@ -114,7 +114,7 @@ CLIENTES\
 O Músculo não orquestra as rodadas manualmente. O script faz tudo.
 
 **Rodada 1 — Inventário (read-only)**
-Varre `QUADRILATERAL_UNIVERSAL\NOTEBOOKLM_BASE\` e todos os projetos em
+Varre `PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\` e todos os projetos em
 `CLIENTES\*\NOTEBOOKLM_FONTES\`. Compara hashes SHA256. Classifica:
 `✅ SYNC` | `⚠️ DESATUALIZADO` | `❌ AUSENTE` | `🔴 ÓRFÃO`
 
@@ -170,7 +170,7 @@ INTEGRIDADE: [VERDE / AMARELO / VERMELHO]
 
 DECISÕES PENDENTES PARA O DIRETOR:
 🔴 CLIENTES\INGRID\NOTEBOOKLM_FONTES\ARQUIVO.md
-   → Não tem correspondente em QUADRILATERAL_UNIVERSAL
+   → Não tem correspondente em PENTALATERAL_UNIVERSAL
    → Ação necessária: deletar | promover para universal
 ```
 
