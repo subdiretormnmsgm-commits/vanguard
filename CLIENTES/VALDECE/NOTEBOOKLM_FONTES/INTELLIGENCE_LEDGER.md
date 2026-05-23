@@ -1033,6 +1033,16 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 
 ---
 
+### [P-048] Pendente identificado = registrar imediatamente — não confiar na memória da sessão
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-001 Valdece Loop 7 + revisão de processo
+**Fricção:** O Diretor perguntou "não tínhamos de levar jurisprudências do STF?" — tarefa identificada em sessão anterior mas nunca registrada formalmente. Quando o contexto compactou, o pendente sumiu. Eduardo: "Se eu não lembro, ficaríamos perdidos. Imagina com 30 projetos."
+**Princípio:** Toda tarefa identificada como pendente durante uma sessão → registrar em `PENDENTES.md` na raiz IMEDIATAMENTE, antes de qualquer outra ação. Não esperar `session_close.ps1`. Não confiar na memória da conversa. O `session_close` complementa — não substitui.
+**Ferramenta criada:** `PENDENTES.md` na raiz do repositório — lido pelo `briefing_diario.ps1` toda manhã. Formato: `- [ ] \`YYYY-MM-DD\` **descrição**`. Músculo marca `[x]` ao concluir e remove no `session_close`.
+**Regra de ouro:** Se foi dito "precisa ser feito" e não está no PENDENTES.md ou no `proximo_passo` do WIP_BOARD, não existe. Memória de sessão não é instrumento de gestão — arquivo é.
+**Aplica-se a:** toda sessão, todo projeto, todo processo. Escala para N projetos sem degradação.
+
+---
+
 ### [P-047] Engajamento inaugural alto é receptividade — não hábito formado
 **Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 Gate Dia 8
 **Fricção:** Ingrid chegou à Q18 na sessão inaugural, reportou bug de formatação com precisão cirúrgica. O Músculo e o Embaixador quase rotularam como "VERDE CONSOLIDADO". O Embaixador freou: engajamento inaugural ≠ hábito. SM-2 ainda não cobrou, a novidade não acabou.
@@ -1058,4 +1068,56 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Princípio:** Ao receber o output do Auditor, antes de sair do NotebookLM: salvar PARTES 1+2+4 em `CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md`. Só então copiar a PARTE 3 (Skill) para `.claude/skills/`. A sequência correta de cópia é: (1) salvar tudo, (2) copiar Skill, (3) rodar gate.
 **Regra de ouro:** NotebookLM não tem memória entre sessões. Quando você fecha, o output vai junto. O que não está em arquivo não existe.
 **Ferramenta criada:** Gate P-049 adicionado ao final da seção COMANDO CURTO em todos os arquivos PASSO5_NOTEBOOKLM.
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+### [P-050] Teste integrado ao processo — não etapa final
+**Descoberto:** 2026-05-21 | **Sessão:** PROJ-001 Valdece V3 — pós-deploy
+**Fricção:** Após migração de schema (`vector(768)→3072`), re-embedding completo e deploy no Netlify, o primeiro teste real da busca revelou erro "different vector dimensions 3072 and 768" — a função `search_documents()` ainda tinha a assinatura antiga. O bug existia desde o Dia 1 da migração e só foi detectado no final da sessão, porque nenhum checkpoint de teste foi executado após cada passo.
+**Princípio:** Teste de caminho principal (golden path) é obrigatório após cada passo técnico irreversível — não apenas ao fechar a sessão. A ordem correta é: executar passo → testar imediatamente → só então avançar. Teste postergado = bugs acumulados que chegam juntos no final.
+**Checkpoints obrigatórios em projetos de busca semântica:**
+1. Após aplicar schema → testar INSERT de documento dummy
+2. Após criar função de busca → testar via SQL Editor com embedding fake
+3. Após re-embedding → testar via curl/Postman contra a função
+4. Após deploy de frontend → testar busca real no navegador antes de commitar
+5. Após qualquer mudança de modelo de embedding → verificar se frontend e função têm o mesmo número de dims
+**Ferramenta:** Músculo usa Playwright para abrir o frontend imediatamente após cada deploy e rodar busca de teste. Console errors e erros visuais são tratados na mesma sessão — nunca postergados.
+**Regra de ouro:** "Se funcionou no código mas não testei ao vivo, não funcionou."
+**Aplica-se a:** todo projeto com busca semântica, deploy de frontend, ou migração de schema no Pentalateral IAH.
+
+### [P-051] Teste remoto valida a cena do cliente — não a funcionalidade genérica
+**Descoberto:** 2026-05-21 | **Sessão:** PROJ-001 Valdece V3 — testes via Playwright
+**Fricção:** Os primeiros testes foram feitos com termos genéricos ("prisão preventiva excesso de prazo"). O correto é testar com os termos e cenários exatos que o cliente descreveu no discovery — é a única forma de confirmar que o sistema entrega o que foi prometido, não apenas que roda.
+**Princípio:** O roteiro de testes remotos de cada projeto é derivado diretamente da cena de sucesso (P-041) e das palavras usadas pelo cliente no discovery. Testar com termos técnicos genéricos valida o motor. Testar com os termos do cliente valida a entrega.
+**Como aplicar:**
+1. Ao criar CLIENTES/[NOME]/KNOWLEDGE_BASE/INDEX.md → incluir seção "ROTEIRO DE TESTES DO CLIENTE" com 3-5 queries derivadas do discovery
+2. Antes de todo deploy → rodar os testes do cliente via Playwright, não apenas queries genéricas
+3. Ao fechar o gate de entrega → screenshot dos resultados com os termos do cliente = evidência da entrega
+**Exemplo Valdece:** cliente descreveu que usa HC, RHC, flagrante ilegal, excesso de prazo, pena reduzida → são esses os termos do roteiro de teste, não "busca semântica funcionando".
+**Nas interações com o cliente:** o teste remoto via Playwright é executado ao vivo durante a sessão com o cliente — Eduardo relata o que o cliente pediu, o Músculo roda a busca com aquele termo exato e captura o screenshot. O cliente vê o sistema respondendo à própria demanda, não a um demo genérico. Isso fecha o ciclo de confiança.
+**Três momentos obrigatórios:**
+1. **Pré-entrega** (interno) — confirmar que os termos do discovery retornam resultados relevantes
+2. **Na entrega** (com o cliente) — rodar ao vivo os termos que o próprio cliente disse no discovery
+3. **Pós-sessão** (debrief) — Embaixador registra quais termos o cliente quis testar na hora → alimentar MEMORIA_EMBAIXADOR
+**Conexão:** P-041 (cena de sucesso), P-044 (toda decisão técnica avaliada contra a cena do cliente), P-050 (teste integrado ao processo).
+**Aplica-se a:** todo projeto com entrega de produto ao cliente no Pentalateral IAH.
+
+---
+
+### [P-052] Estrategista requer MASTER de ativação em toda sessão — a amnésia é estrutural
+**Descoberto:** 2026-05-23 | **Emitido por:** Embaixador + validado pelo Músculo
+**Fricção:** O Estrategista (Gemini) não tem memória persistente entre sessões. Toda sessão começava do zero — o Diretor precisava carregar múltiplos documentos manualmente antes de qualquer interação útil. O overhead de onboarding recaía sobre o recurso mais escasso do sistema (atenção do Diretor).
+**Princípio:** Toda sessão com o Estrategista começa com o `COMANDO_ESTRATEGISTA_MASTER_v[N].md` colado como PRIMEIRA mensagem. O MASTER é o equivalente funcional da memória persistente — compila identidade, estado atual dos projetos, modelo de negócio, princípios relevantes do LEDGER, deficiências conhecidas, formato de entrega e inventário de ferramentas.
+**Manutenção:** O Músculo atualiza o MASTER automaticamente quando atualiza o WIP_BOARD.json — são o mesmo dado. Não há prompts interativos; a manutenção é automática.
+**Decisão deliberada:** Não migrar o Estrategista para Claude Projects — perderia busca na web. O MASTER é a ponte certa para o estágio atual.
+**Arquivo:** `QUADRILATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md`
+**Aplica-se a:** toda sessão com o Estrategista (Gemini), qualquer projeto, qualquer loop.
+
+---
+
+### [P-053] MANIFESTO_DE_FONTES declara o que o Auditor pode e não pode ver
+**Descoberto:** 2026-05-23 | **Emitido por:** Expansão do Pentalateral IAH — DEF-N-4
+**Fricção:** O Auditor (NotebookLM) auditava com base nas fontes carregadas, mas nunca declarava explicitamente quais fontes estavam presentes nem qual período coberto. Um Auditor que não sabe o que não vê é um Auditor com ponto cego invisível.
+**Princípio:** Em todo loop do Auditor, o NOTEBOOKLM_FONTES/ deve conter um `MANIFESTO_DE_FONTES.md` que declara: (a) quais documentos estão carregados e em qual posição, (b) período coberto (data do mais antigo ao mais recente), (c) o que está ausente e por quê, (d) qual fonte é a mais recente e portanto de maior peso. O Auditor lê o MANIFESTO antes de qualquer análise.
+**Impacto:** Skill baseada em fontes declaradas = Skill com rastreabilidade. Auditor que não sabe o que não viu = Skill com ponto cego silencioso.
+**Arquivo template:** `QUADRILATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
 **Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.

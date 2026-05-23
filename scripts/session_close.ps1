@@ -150,6 +150,55 @@ if ($divida) {
     Write-Host "Inclua este arquivo nas fontes do NotebookLM no proximo ciclo."
 }
 
+# --- CANDIDATOS_A_PRINCIPIO: fricção → princípio candidato (P-053) ---
+Write-Host ""
+Write-Host "=============================================="
+Write-Host "  CANDIDATOS A PRINCIPIO (P-053)"
+Write-Host "=============================================="
+Write-Host ""
+Write-Host "  Houve friccao nesta sessao que pode gerar um novo principio?"
+Write-Host "  (diferente de EVOLUCAO DE PROTOCOLO -- aqui é sobre padrões do CLIENTE/PROJETO)"
+Write-Host "  Exemplos: padrao de comportamento do cliente, decisao que se repetiu, risco nao antecipado"
+Write-Host ""
+Write-Host "  Formato sugerido: 'Fricção: [X] / Padrão: [Y] / Candidato: P-XXX'"
+Write-Host "  Liste 1 por linha. Enter em branco para encerrar. Enter direto para pular."
+$candidatos = @()
+while ($true) {
+    $linha = Read-Host "    > "
+    if ([string]::IsNullOrWhiteSpace($linha)) { break }
+    $candidatos += $linha
+}
+
+if ($candidatos.Count -gt 0) {
+    $candidatosPath = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
+    $candidatosFile = Join-Path $BASE "CANDIDATOS_A_PRINCIPIO.md"
+
+    $blocoC  = "`n`n### [CANDIDATOS-$DATA]`n"
+    $blocoC += "> Capturado via session_close.ps1 — revisar e promover ao LEDGER quando padrão se repetir 3x.`n"
+    $num = 1
+    foreach ($c in $candidatos) {
+        $blocoC += "$num. $c`n"
+        $num++
+    }
+
+    $conteudoC = ""
+    if (Test-Path $candidatosFile) {
+        $conteudoC = Get-Content $candidatosFile -Raw -Encoding utf8
+    } else {
+        $conteudoC = "# CANDIDATOS A PRINCIPIO — Vanguard Pentalateral IAH`n"
+        $conteudoC += "> Fricções capturadas que ainda não viraram princípios no LEDGER.`n"
+        $conteudoC += "> Quando um padrão aparecer 3x → promover ao INTELLIGENCE_LEDGER.md com número P-XXX.`n"
+    }
+
+    Set-Content $candidatosFile -Value ($conteudoC + $blocoC) -Encoding utf8
+
+    Write-Host ""
+    Write-Host "  [OK] $($candidatos.Count) candidato(s) registrado(s) em CANDIDATOS_A_PRINCIPIO.md" -ForegroundColor Green
+    Write-Host "  [!]  Quando padrão aparecer 3x → promover ao LEDGER." -ForegroundColor Cyan
+} else {
+    Write-Host "  Nenhum candidato a princípio nesta sessão." -ForegroundColor DarkGray
+}
+
 # --- EVOLUÇÃO DO PROTOCOLO: padrões universais desta sessão ---
 Write-Host ""
 Write-Host "=============================================="

@@ -1100,3 +1100,24 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 3. **Pós-sessão** (debrief) — Embaixador registra quais termos o cliente quis testar na hora → alimentar MEMORIA_EMBAIXADOR
 **Conexão:** P-041 (cena de sucesso), P-044 (toda decisão técnica avaliada contra a cena do cliente), P-050 (teste integrado ao processo).
 **Aplica-se a:** todo projeto com entrega de produto ao cliente no Pentalateral IAH.
+
+---
+
+### [P-052] Estrategista requer MASTER de ativação em toda sessão — a amnésia é estrutural
+**Descoberto:** 2026-05-23 | **Emitido por:** Embaixador + validado pelo Músculo
+**Fricção:** O Estrategista (Gemini) não tem memória persistente entre sessões. Toda sessão começava do zero — o Diretor precisava carregar múltiplos documentos manualmente antes de qualquer interação útil. O overhead de onboarding recaía sobre o recurso mais escasso do sistema (atenção do Diretor).
+**Princípio:** Toda sessão com o Estrategista começa com o `COMANDO_ESTRATEGISTA_MASTER_v[N].md` colado como PRIMEIRA mensagem. O MASTER é o equivalente funcional da memória persistente — compila identidade, estado atual dos projetos, modelo de negócio, princípios relevantes do LEDGER, deficiências conhecidas, formato de entrega e inventário de ferramentas.
+**Manutenção:** O Músculo atualiza o MASTER automaticamente quando atualiza o WIP_BOARD.json — são o mesmo dado. Não há prompts interativos; a manutenção é automática.
+**Decisão deliberada:** Não migrar o Estrategista para Claude Projects — perderia busca na web. O MASTER é a ponte certa para o estágio atual.
+**Arquivo:** `QUADRILATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md`
+**Aplica-se a:** toda sessão com o Estrategista (Gemini), qualquer projeto, qualquer loop.
+
+---
+
+### [P-053] MANIFESTO_DE_FONTES declara o que o Auditor pode e não pode ver
+**Descoberto:** 2026-05-23 | **Emitido por:** Expansão do Pentalateral IAH — DEF-N-4
+**Fricção:** O Auditor (NotebookLM) auditava com base nas fontes carregadas, mas nunca declarava explicitamente quais fontes estavam presentes nem qual período coberto. Um Auditor que não sabe o que não vê é um Auditor com ponto cego invisível.
+**Princípio:** Em todo loop do Auditor, o NOTEBOOKLM_FONTES/ deve conter um `MANIFESTO_DE_FONTES.md` que declara: (a) quais documentos estão carregados e em qual posição, (b) período coberto (data do mais antigo ao mais recente), (c) o que está ausente e por quê, (d) qual fonte é a mais recente e portanto de maior peso. O Auditor lê o MANIFESTO antes de qualquer análise.
+**Impacto:** Skill baseada em fontes declaradas = Skill com rastreabilidade. Auditor que não sabe o que não viu = Skill com ponto cego silencioso.
+**Arquivo template:** `QUADRILATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.

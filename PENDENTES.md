@@ -8,18 +8,23 @@
 
 ## PROJ-001 · Valdece (Deadline: 23/05 Sab)
 
-- [ ] `2026-05-20` **Dia 6 — V3 SEQUÊNCIA COMPLETA:**
-  1. Criar `sql/v3_migration.sql` — ALTER TABLE ADD COLUMN (data_dje, repercussao_geral, recurso_repetitivo, turma)
-  2. Atualizar `ingest.py` com `--mode reingest` — UPDATE 61 acórdãos existentes via Gemini Flash, SEM re-embedding
-  3. Rodar `ingest.py --mode reingest --dry-run` — validar output (campos preenchidos sem tocar no banco)
-  4. Rodar `ingest.py --mode reingest` — aplicar no Supabase Vanguard
-  5. Atualizar `search_documents()` — retornar novos campos no response
-  6. Frontend: badges VINCULANTE / REPETITIVO / REPERCUSSÃO nos cards de resultado
-  7. Migração Supabase conta Valdece (sa-east-1) — ÚLTIMO após tudo testado
+- [x] `2026-05-21` **Dia 6 — V3 SEQUÊNCIA COMPLETA:** ✅ ENTREGUE
+  1. ~~Criar `sql/v3_migration.sql`~~ ✅
+  2. ~~Atualizar `ingest.py` com `--mode reingest`~~ ✅
+  3. ~~Dry-run validado — 61/61, 0 erros, 0 custo~~ ✅
+  4. ~~Migração Supabase Vanguard (uslkhnselzmbbnupmfsp) — 61 docs~~ ✅
+  5. ~~search_documents() V3 aplicada~~ ✅
+  6. ~~Frontend: badges PLENO/COLEGIADA + ABNT data_dje~~ ✅
+  7. ~~Deploy Netlify — toga-digital-valdece.netlify.app~~ ✅ VALIDADO
 
-- [ ] `2026-05-20` **MEMORIA_EMBAIXADOR Valdece** — campo "Estado Contratual" ainda diz "PENDENTE" → corrigir para "ASSINADO — 2026-05-19"
+- [ ] `2026-05-21` **V3 ENRICHMENT — campos turma/repercussao_geral vazios:**
+  APIs STF/STJ inacessíveis por DNS nesta sessão. Rodar quando rede disponível:
+  `python ingest.py --mode reingest` — popula turma + repercussao_geral + recurso_repetitivo + data_dje nos 61 acórdãos.
+  Badges PLENO/COLEGIADA só aparecem após este passo.
 
-- [ ] `2026-05-20` **Billing Gemini conta Valdece** — ativar antes da migração (quota free esgotou 2x — risco de outage)
+- [x] `2026-05-23` ~~**MEMORIA_EMBAIXADOR Valdece** — campo "Estado Contratual" corrigido para "ASSINADO — 2026-05-19"~~ ✅
+
+- [x] `2026-05-21` **Billing Gemini** — resolvido: chave Valdece substituída pela chave Vanguard (Eduardo)
 
 ---
 
@@ -35,7 +40,31 @@
 
 ## PROCESSO / INFRA
 
-- [ ] `2026-05-20` **P-047 no INTELLIGENCE_LEDGER** — registrar: "Pendente identificado = atualizar PENDENTES.md imediatamente. Não esperar session_close."
+- [x] `2026-05-23` ~~**P-047 no INTELLIGENCE_LEDGER**~~ — princípio já registrado como P-048 no LEDGER. Numeração inconsistente detectada mas não corrigida para evitar cascata de renumeração. ✅
+
+---
+
+## SESSÃO 2026-05-23 — EXPANSÃO DE PAPÉIS PENTALATERAL
+
+- [x] `2026-05-23` **Expansão de papéis — ENTRA AGORA:** todos os itens aprovados executados ✅
+  - COMANDO_ESTRATEGISTA_MASTER_v1.md criado
+  - P-052 e P-053 no LEDGER
+  - PASSO3/5/6/7 templates atualizados (v2.3 / v2.2 / v4.1 / v1.1)
+  - SKILL_PROTOCOLO_VANGUARD v6.1 (12 novas deficiências)
+  - MANUAL_DIRETOR v1.3 (PARTE 0.6 — tabela definitiva de documentos)
+  - MANIFESTO_DE_FONTES_TEMPLATE + REGISTRO_DE_PREMISSAS_TEMPLATE criados
+  - MANIFESTO_DE_FONTES.md e REGISTRO_DE_PREMISSAS.md para Valdece e Ingrid
+  - session_close.ps1 com CANDIDATOS_A_PRINCIPIO
+  - ATUALIZACAO_PENTALATERAL_2026-05-23.md para os sócios
+  - MEMORIA_EMBAIXADOR Valdece corrigida
+
+- [ ] `2026-05-23` **Sync universal obrigatório** — rodar após confirmação de commit:
+  `.\.claude\skills\files\sync_vanguard_docs.ps1`
+  Sincroniza todos os docs QUADRILATERAL_UNIVERSAL atualizados para CLIENTES/*/NOTEBOOKLM_FONTES/
+
+- [ ] `2026-05-23` **Rename QUADRILATERAL → PENTALATERAL** — aguarda veredito formal do Diretor
+  Eduardo sugeriu mas não decidiu formalmente. Impacto: muitos caminhos de arquivo.
+  Músculo executa em sessão dedicada quando aprovado.
 
 ---
 

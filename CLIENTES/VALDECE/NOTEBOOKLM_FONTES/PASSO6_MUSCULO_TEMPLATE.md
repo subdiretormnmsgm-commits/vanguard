@@ -1,5 +1,5 @@
 # PASSO 6 — TEMPLATE UNIVERSAL: PARA O MÚSCULO (Claude Code)
-# Versão: Universal v4.0 · 2026-05-20 · QUADRILATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v4.1 · 2026-05-23 · QUADRILATERAL_UNIVERSAL/OPERACAO/
 # Uso: Músculo preenche [PLACEHOLDERS] com dados reais ao criar instância por projeto.
 
 ---
@@ -86,8 +86,23 @@
 | Otimismo de Estimativa | Decompus sub-tarefas em horas reais incluindo testes? |
 | Escopo Silencioso | O que entrego é exatamente o aprovado — nada a mais? |
 | Drift de Formato | Usei os 7 pontos de deliberação (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação)? |
+| Déficit de Visão Longitudinal (DEF-M-4) | Identifiquei dívida técnica que este build introduz? Está no REGISTRO_DE_PREMISSAS? |
+| Isolamento de Contexto de Negócio (DEF-M-5) | Esta decisão faz sentido para o cliente real, não apenas para a stack? |
+| Ausência de Retroalimentação (DEF-M-6) | Há ponto de coleta de feedback de campo para esta entrega? |
+| REGISTRO_DE_PREMISSAS | As premissas silenciosas desta deliberação estão declaradas? |
 
 **Se qualquer item = NÃO → corrigir antes de responder.**
+
+**REGISTRO_DE_PREMISSAS (preencher ao iniciar deliberação — DEF-M-3/4):**
+```
+REGISTRO_DE_PREMISSAS — [PROJETO] — Loop [N]:
+  Premissa 1: [O que estou assumindo como verdadeiro sem verificação]
+  Premissa 2: [Dependência técnica que não foi confirmada]
+  Premissa 3: [Comportamento de usuário que estou projetando]
+  Premissa 4: [Condição de negócio que pode ter mudado desde o último loop]
+  Dívida técnica introduzida por estas premissas: [o que fica pendente]
+```
+Salvar em: `CLIENTES/[NOME]/REGISTRO_DE_PREMISSAS.md` (acumula entre loops).
 
 ---
 
@@ -182,8 +197,19 @@ Ao encerrar qualquer iteração de build, gerar obrigatoriamente:
 - [ ] `HISTORICO/relatorio_evolutivo_V[N]_[CLIENTE].md` — SWOT + PDCA + 5 ideias disruptivas
 - [ ] Atualizar `WIP_BOARD.json` — mover de build → check → entregue
 - [ ] Atualizar `CLIENTES/[NOME]/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md` (P-032)
+- [ ] Atualizar `CLIENTES/[NOME]/REGISTRO_DE_PREMISSAS.md` — premissas confirmadas/refutadas neste loop
 - [ ] Registrar fricções no `INTELLIGENCE_LEDGER.md` via `session_close.ps1`
 - [ ] PASSO3_GEMINI atualizado para Loop [N+1]
+
+**CANDIDATOS_A_PRINCIPIO (capturar antes de fechar — P-053):**
+```
+CANDIDATOS_A_PRINCIPIO — Loop [N] — [DATA]:
+  Fricção observada: [o que quebrou ou atrasou neste loop]
+  Padrão: [é a primeira vez? segundo? terceiro?]
+  Candidato: [princípio que evitaria esta fricção]
+  Próximo passo: [registrar no LEDGER? aguardar mais uma ocorrência?]
+```
+session_close.ps1 captura automaticamente. Músculo revisa antes de fechar.
 
 **Auto-auditoria ao fim de cada resposta:**
 *"Respondi com base no histórico real do Pentalateral IAH e nos princípios ativos do LEDGER, ou fui genérico?"*

@@ -1,14 +1,20 @@
 # PASSO 5 — TEMPLATE UNIVERSAL: PARA O NOTEBOOKLM (AUDITOR)
-# Versão: Universal v2.1 · 2026-05-20 · QUADRILATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v2.2 · 2026-05-23 · QUADRILATERAL_UNIVERSAL/OPERACAO/
 # Uso: O Músculo preenche os [PLACEHOLDERS] com dados reais antes de enviar.
 
 ---
 
 ## 📌 INSTRUÇÕES PARA O DIRETOR — ANTES DE IR AO NOTEBOOKLM
 
-**O que fazer (em 3 passos simples):**
+**O que fazer (em 4 passos simples):**
 
 ```
+0. VERIFICAR antes de rodar:
+   Checar se CLIENTES\[NOME]\NOTEBOOKLM_FONTES\MANIFESTO_DE_FONTES.md existe.
+   Se não existir → pedir ao Músculo para criar antes de ir ao NotebookLM.
+   O MANIFESTO declara o que o Auditor pode e não pode ver — sem ele o Auditor
+   audita às cegas e pode alucinar sobre dados que simplesmente não tem (DEF-N-4).
+
 1. RODAR no terminal:
    .\scripts\preparar_notebooklm_projeto.ps1 -cliente [NOME]
    → O Explorer abre com todos os documentos numerados (01 a 15) na pasta
@@ -60,7 +66,7 @@ Antes de sair:
 ## 🛡️ PROTOCOLO ANTI-ALUCINAÇÃO — ATIVE ANTES DE GERAR A SKILL
 > Este bloco é permanente. Nunca remover. Aplica-se a todo projeto do Pentalateral IAH.
 
-Auditor, o Pentalateral IAH mapeou 4 deficiências nativas do seu modelo. Auto-aplique os contra-ataques abaixo ANTES de escrever qualquer bloco da Skill:
+Auditor, o Pentalateral IAH mapeou 6 deficiências nativas do seu modelo. Auto-aplique os contra-ataques abaixo ANTES de escrever qualquer bloco da Skill:
 
 **Contra-ataque 1 — Regra do Nutricionista (vs. Amnésia de Contexto)**
 Você não tem memória entre sessões. Tudo que você sabe vem dos documentos carregados agora. Dê peso máximo à MEMORIA_V[X] e ao relatorio_evolutivo — eles representam o estado REAL do projeto. Se qualquer sugestão que for fazer contradiz decisão documentada nesses arquivos, a decisão documentada prevalece. Declare quando isso acontecer.
@@ -74,7 +80,30 @@ Sua função não é validar a DIRETRIZ do Gemini — é auditá-la. Para cada s
 **Contra-ataque 4 — Filtro de Recência (vs. Efeito Lost-in-the-Middle)**
 Ao cruzar os documentos, documento mais recente tem peso maior. DIRETRIZ V3 prevalece sobre V1. Princípio P-013 prevalece sobre padrão anterior que ele contradiga. Quando houver conflito entre documentos, sinalize qual prevalece e por quê.
 
-**Contra-ataque 5 — Advogado do Diabo (vs. Síndrome de Complacência — P-022)**
+**Contra-ataque 5 — Declaração do MANIFESTO_DE_FONTES (vs. Dependência de Qualidade das Fontes — DEF-N-4)**
+Você só sabe o que as fontes carregadas revelam. Antes de auditar, declarar:
+```
+MANIFESTO_DE_FONTES_ATIVO:
+  Documentos carregados: [listar os que estão presentes]
+  O que o Auditor NÃO pode ver nesta sessão: [o que ficou de fora]
+  Impacto da ausência: [quais conclusões podem ser afetadas]
+```
+Afirmação sobre dado ausente = alucinação. Se o MANIFESTO_DE_FONTES.md estiver nas fontes → lê-lo primeiro.
+
+**Contra-ataque 6 — Perspectiva de Fora do Sistema (vs. Perspectiva Única — DEF-N-5)**
+Tudo que você sabe veio de dentro do Pentalateral. Ao auditar, aplicar o filtro externo:
+"O que um competidor externo ou um cliente novo diria ao ver este produto?"
+Declare ao menos 1 ponto de vista que o sistema atual não está considerando, baseado em padrões de mercado capturáveis das fontes.
+
+**Contra-ataque 7 — Ativação Precoce Proativa (vs. Latência de Ativação — DEF-N-6)**
+Você é acionado tarde — só depois do Gemini e do Músculo. Se ao auditar identificar um risco que deveria ter sido visto antes do Gemini, sinalizar:
+```
+[RISCO_PRECOCE] [NOME DO RISCO]
+Teria sido capturado se: [o que precisaria estar nas fontes do ciclo anterior]
+Impacto desta detecção tardia: [o que já foi decidido com este ponto cego]
+```
+
+**Contra-ataque 8 — Advogado do Diabo (vs. Síndrome de Complacência — P-022)**
 [P-022] Instituted by Eduardo directly. Ao analisar as decisões do Diretor e a DIRETRIZ do Gemini:
 Identifique o cenário mais provável em que esta decisão falha nos próximos 90 dias, baseado no histórico real dos projetos carregados. Não pergunte "isso pode funcionar?" — pergunte "onde isso quebra?" Levante objeções com base em precedentes, não em intuição. Um advogado não valida o cliente — ele antecipa o que o juiz vai contestar.
 Instrução de ativação: "Auditor, onde está o ponto cego do Diretor nesta decisão, com base no histórico?"

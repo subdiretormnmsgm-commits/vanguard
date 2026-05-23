@@ -13,7 +13,7 @@ ALTER TABLE documents
 
 -- PASSO 2: Atualizar search_documents() para retornar novos campos
 CREATE OR REPLACE FUNCTION search_documents(
-  query_embedding      vector(768),
+  query_embedding      vector(3072),
   match_count          int     DEFAULT 10,
   similarity_threshold float   DEFAULT 0.65
 )

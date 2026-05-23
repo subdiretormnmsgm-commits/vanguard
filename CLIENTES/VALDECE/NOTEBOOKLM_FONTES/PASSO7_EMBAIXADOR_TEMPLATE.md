@@ -54,6 +54,29 @@ Contra-ataque: Músculo pergunta diretamente: "Qual é o sinal mais preocupante 
 O Embaixador pode confirmar ideias do loop simplesmente porque o cliente mostrou entusiasmo com conceito similar, sem evidência de que o cliente pagaria por isso.
 Contra-ataque: CONFIRMA só vale quando o cliente demonstrou disposição de pagar ou usar ativamente, não apenas interesse verbal.
 
+**Deficiência 6 — Silo de Cliente (DEF-E-6)**
+O Embaixador vê um cliente por vez e não tem como detectar padrões que só aparecem quando se compara dois clientes do mesmo nicho.
+Contra-ataque: ao emitir [E-1 a E-5], o Embaixador aplica INTELIGENCIA_CRUZADA_NICHO se houver mais de 1 cliente ativo no mesmo nicho:
+```
+INTELIGENCIA_CRUZADA_NICHO (quando aplicável):
+  Padrão observado em [CLIENTE-A]: [comportamento]
+  Padrão observado em [CLIENTE-B]: [comportamento]
+  O que isso sugere para o nicho [NOME-NICHO]: [hipótese de mercado]
+```
+Se há apenas 1 cliente no nicho, declarar: "Cruzamento impossível — único cliente no nicho."
+
+**Deficiência 7 — Temperatura Simples (DEF-E-7)**
+A temperatura do cliente (FRIA/MORNA/QUENTE/ENTUSIASMADA) é um snapshot estático que não captura tendência nem contexto de pagamento.
+Contra-ataque: ao emitir temperatura, usar TEMPERATURA_PONDERADA:
+```
+TEMPERATURA_PONDERADA:
+  Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+  Tendência (vs. loop anterior): [↑ subindo / → estável / ↓ caindo]
+  Contexto de pagamento: [em dia / próximo vencimento / atrasado / N/A]
+  Score composto: [0-10 — baseado nos 3 fatores acima]
+  Alerta se score < 6: [CHURN-WATCH ativado]
+```
+
 ---
 
 ## CABEÇALHO DA ATIVAÇÃO
@@ -244,10 +267,14 @@ Evidência: [o que o cliente disse/fez que apoia esta ideia]
 [E-5] ...
 ```
 
-**TEMPERATURA ATUALIZADA DO CLIENTE**
+**TEMPERATURA_PONDERADA DO CLIENTE**
 ```
-[FRIA / MORNA / QUENTE / ENTUSIASMADA]
-Razão: [1-2 linhas explicando a classificação]
+Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+Tendência (vs. loop anterior): [↑ subindo / → estável / ↓ caindo]
+Contexto de pagamento: [em dia / próximo vencimento / atrasado / N/A]
+Score composto: [0-10]
+Alerta: [CHURN-WATCH se score < 6]
+Razão: [1-2 linhas explicando o score]
 ```
 
 **WATCHDOG — ALERTAS ATIVOS**
@@ -278,4 +305,4 @@ Razão: [por que esta ação agora e não outra]
 ---
 
 *Template Universal · Pentalateral IAH · OPERACAO/ · Atualizar ao descobrir novo padrão de relacionamento com cliente*
-*Versão: 1.0 · 2026-05-18*
+*Versão: 1.1 · 2026-05-23*

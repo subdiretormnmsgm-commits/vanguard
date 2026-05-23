@@ -90,7 +90,7 @@ Contrato ainda não assinado — Eduardo vai presencialmente hoje fechar.
 | Campo | Status |
 |---|---|
 | Contrato | Contrato_Toga_Digital_Valdece_19052026_v2.docx |
-| Status | **PENDENTE** — assinatura no presencial de 2026-05-19 |
+| Status | **ASSINADO — 2026-05-19** · presencial realizado · contrato em vigor |
 | Modelo | R$5.000 fixo (Cláusula 4.1) + 20% MRR Revenue Share sobre SaaS derivado (4.2) |
 | Mensalidade | ZERO — infra na conta do Valdece (~R$1,20/mês direto à API dele) |
 | Hypercare | 30 dias inclusos |
@@ -258,6 +258,7 @@ NÃO apresentar V3 durante a assinatura. Apresentar DEPOIS da demo, de forma cas
 | 2026-05-19 (Loop 6) | 5 áudios de feedback processados. Entregas: ementa completa + badge UF + boost monocrático (commit 9709649). HC 512.290/RJ corrigido. V3 identificado (data_dje, repercussao_geral, recurso_repetitivo) — BLOQUEADO até contrato (P-023). Eduardo vai presencialmente assinar hoje. Temperatura: QUENTE. | Músculo (P-032) |
 | 2026-05-19 (Embaixador Loop 6) | SEÇÃO D processada. G-3 ALERTA ALTO (cláusula horas contradiz Sovereign Playbook → Change-Orders). E-1 silêncio protocolo. E-2 sinal de encantamento. E-4 argumento do promotor. E-5 Hypercare como escuta. Timing V3: só após demo, nunca durante assinatura. Temperatura QUENTE confirmada. | Músculo (P-032) |
 | 2026-05-19 (GATE LOOP 6) | **CONTRATO ASSINADO.** Deu tudo certo. V3 desbloqueado. Temperatura: ENTUSIASMADA. Loop 7 iniciando. | Músculo (P-032) |
+| 2026-05-21 (Loop 7 — V3 entregue) | Correção crítica: outputDimensionality 768→3072 no frontend. 28 docs re-embeddados. Simulação remota completa: 5/5 queries P-051 OK · score médio 92.2% · topo 98% (medidas cautelares). Mensagem de reativação redigida com Embaixador: "testei agora nos seus 5 temas" + link + frase da audiência. Temperatura: ENTUSIASMADA mantida. | Músculo (P-032) |
 
 ---
 
