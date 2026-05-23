@@ -170,5 +170,19 @@ Esta é uma decisão de grande impacto (muitos caminhos de arquivo).
 O Músculo pode executar o rename em uma sessão dedicada quando aprovado.
 
 ---
+
+## NEXO DE DISTRIBUIÇÃO — QUEM RECEBE, COMO E QUANDO
+
+| Parceiro | Canal | O que entregar | Quando |
+|---|---|---|---|
+| **Gemini** | Texto colado | 1º: `COMANDO_ESTRATEGISTA_MASTER_v1.md` · 2º: este documento | Antes do próximo PASSO3 |
+| **NotebookLM** | Fonte numerada | Adicionar como `08_ATUALIZACAO_PENTALATERAL_2026-05-23.md` nas fontes | No próximo Wipe & Sync |
+| **Embaixador** | Texto colado | Colar este documento como primeira mensagem | Antes da próxima sessão com cliente |
+
+**Ordem de distribuição:**
+1. Embaixador — antes de qualquer reunião com cliente ativo
+2. Gemini — antes do Loop 5 Ingrid (junto com PASSO3)
+3. NotebookLM — no próximo Wipe & Sync
+
+---
 *Documento gerado pelo Músculo · Pentalateral IAH · 2026-05-23*
-*Copiar inteiro para o chat de cada parceiro ao iniciar a próxima sessão.*

@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **4º Membro: Embaixador + P-031 Filtro de Realidade (2026-05-18)**
+**Versão da Skill:** 6.1 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23)**
 
 ---
 
@@ -125,8 +125,29 @@ Copiar para a raiz do projeto e preencher o cabeçalho com nome e data.
 | **Alucinação Otimista** — propõe arquiteturas complexas demais para o prazo | **Shadow Architect:** para cada 3 ideias disruptivas → "Por que isso falha no prazo real?" weight_simplicidade = 1.0. Feature > 4h → Mágico de Oz. |
 | **Efeito Lost-in-the-Middle** — esquece as 7 Leis Soberanas em contexto longo | **Checklist de Conformidade Binária:** antes de qualquer build, extrair tabela "Promessas vs. Restrições" e comparar com SKILL_PROTOCOLO_VANGUARD. Discrepância → HV. |
 | **Síndrome de Complacência** — concorda com o Diretor por momentum | **Independência de Auditoria:** perguntar sempre "Estrategista, está sugerindo por ser o melhor para o cliente ou por momentum?" Forçar justificativa com BRIEFING_DISCOVERY. |
+| **DEF-G-5: Volatilidade de Tese sem Evidência** — muda posição entre sessões sem justificativa documental | **MUDANÇA_DE_TESE obrigatória:** ao inverter posição, declarar `MUDANÇA_DE_TESE: antes [X] → agora [Y] — evidência: [fonte]`. Mudança sem evidência = alucinação de tese. |
+| **DEF-G-6: Abstração Desconectada** — gera análise sofisticada sem ação executável | **TRADUÇÃO_PARA_AÇÃO:** ao fim de toda DIRETRIZ, exigir bloco `TRADUÇÃO_PARA_AÇÃO` com o que o Músculo faz nas próximas 24h. Análise sem ação = deliberação morta. |
+| **DEF-G-7: Antena Desligada** — só pesquisa e compara quando explicitamente perguntado | **[SINAL_FRACO] proativo:** exigir que o Gemini sinalize dados relevantes detectados sem ser pedido. Silêncio sobre sinais externos = ponto cego estrutural. |
 
 **Remédio de emergência:** *"PARE. Estrategista, você está alucinando. Ignorou P-XXX. Re-processe sob simplicidade extrema."*
+
+**Novos instrumentos obrigatórios em toda DIRETRIZ (2026-05-23):**
+
+| Instrumento | Quando usar | DEF que resolve |
+|---|---|---|
+| `REFORMULAÇÃO_DO_PROBLEMA` | Antes do BLOCO 0 | DEF-G-1: Alucinação Otimista |
+| `POSIÇÃO_ADVERSARIAL_OBRIGATÓRIA` | Antes do BLOCO 0 | DEF-G-2: Complacência |
+| `ARCO_DE_CONSEQUÊNCIAS` | Em cada [G-X] ideia | DEF-G-6: Abstração Desconectada |
+| `TRADUÇÃO_PARA_AÇÃO` | Ao final da DIRETRIZ | DEF-G-6: Análise sem ação |
+| `MUDANÇA_DE_TESE` | Ao inverter posição | DEF-G-5: Volatilidade sem evidência |
+| `[SINAL_FRACO]` | Dado relevante não solicitado | DEF-G-7: Antena Desligada |
+
+**P-052 — MASTER de ativação obrigatório:**
+Colar `COMANDO_ESTRATEGISTA_MASTER_v1.md` como primeira mensagem de TODA sessão Gemini.
+O Gemini não tem memória entre sessões — sessão sem MASTER = Estrategista às cegas.
+
+**BLOCO 3 da DIRETRIZ agora tem 4 sub-blocos (era 3):**
+`[PARA O NOTEBOOKLM]` + `[PARA O MÚSCULO]` + `[VISÃO DE LONGO PRAZO]` + **`[PARA O EMBAIXADOR]`** (novo)
 
 **Documentos que o Músculo exige antes de aceitar qualquer DIRETRIZ:**
 `INTELLIGENCE_LEDGER.md` · `MEMORIA_V[X].md` · `SKILL_PROTOCOLO_VANGUARD` · `BRIEFING_DISCOVERY`
@@ -138,11 +159,19 @@ Copiar para a raiz do projeto e preencher o cabeçalho com nome e data.
 | Deficiência | Contra-Ataque Ativo |
 |---|---|
 | **Amnésia de Contexto** — trata projeto como Dia 1 sem MEMORIA | **Regra do Nutricionista:** documentar [FRICÇÕES] e [PRINCÍPIOS] obsessivamente ao fechar cada dia. MEMORIA genérica = Auditor inútil. |
-| **Alucinação Estrutural (P-007)** — inventa blocos genéricos sem histórico real | **Rejeição Sumária:** Skill sem os 4 blocos obrigatórios com dados reais → NÃO iniciar build. Emitir: *"🚨 ALERTA: Diretor, o Auditor alucinou. Aplique o Gatilho de Calibração."* |
+| **Alucinação Estrutural (P-007)** — inventa blocos genéricos sem histórico real | **Rejeição Sumária:** Skill sem os 4 blocos obrigatórios com dados reais → NÃO iniciar build. Emitir: *"ALERTA: Diretor, o Auditor alucinou. Aplique o Gatilho de Calibração."* |
 | **Síndrome do Yes-Man** — valida má ideia por momentum | **Quick Audit (Decisões B e C):** pausar build → *"Diretor, decisão estratégica. Leve ao NotebookLM com MEMORIA para Quick Audit de 15 min antes de avançar."* |
 | **Efeito Lost-in-the-Middle** — dá peso igual a regra V1 e Princípio V24 | **Filtro de Recência:** SV se Auditor ignorar [OVERRIDE] recente. Ordem de injeção: `MEMORIA → relatorio → DIRETRIZ → COMANDO 2`. Nunca inverter. |
+| **DEF-N-5: Dependência de Qualidade das Fontes** — afirma sobre dados que não estão nas fontes carregadas | **MANIFESTO_DE_FONTES (P-053):** carregar `MANIFESTO_DE_FONTES.md` como fonte posição 15. O Auditor declara no início: documentos carregados + ausências + impacto. Afirmação sem fonte = alucinação. |
+| **DEF-N-6: Perspectiva Única** — analisa só dentro do sistema, sem visão externa | **Exigir comparação trans-projeto:** "O Auditor vê padrão similar em outro projeto do LEDGER?" Se não verificar → SV: *"Auditor, o que projetos anteriores mostram sobre isso?"* |
+| **DEF-N-7: Latência de Ativação** — acionado tarde demais, quando o erro já está commitado | **[RISCO_PRECOCE] proativo:** ao detectar risco que deveria ter sido visto antes do Gemini, emitir `[RISCO_PRECOCE]: [risco] deveria ter sido sinalizando em [etapa anterior]`. Silêncio sobre riscos tardios = mandato não cumprido. |
 
 **Os 4 blocos obrigatórios de toda Skill:** Auditoria de Coerência · Conexão Histórica · Padrões de Sucesso/Falha · Perspectiva do Sócio
+
+**P-053 — MANIFESTO_DE_FONTES obrigatório:**
+Carregar `MANIFESTO_DE_FONTES.md` como fonte 15 em toda sessão NotebookLM.
+Declara o que o Auditor pode e não pode ver — elimina afirmações sobre dados ausentes.
+Template: `PENTALATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
 
 **Ordem obrigatória de injeção de documentos no Auditor:**
 ```
@@ -163,6 +192,13 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 | **Otimismo de Estimativa** | Decompus as sub-tarefas em horas reais incluindo testes e integração? Soma > 4h → simplificar ou declarar inviável. |
 | **Escopo Silencioso** | O que estou entregando é exatamente o que foi aprovado? Feature adicional não aprovada = débito técnico mascarado. |
 | **Drift de Formato** | Estou usando os 7 pontos de deliberação? (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação). Se não → reformatar antes de enviar. |
+| **DEF-M-6: Déficit de Visão Longitudinal** | Dívida técnica desta decisão está documentada no REGISTRO_DE_PREMISSAS? Se não → registrar antes de fechar o loop. |
+| **DEF-M-7: Isolamento do Contexto de Negócio** | Esta decisão técnica faz sentido para o cliente real (comportamento documentado na MEMORIA_EMBAIXADOR)? Se não cruzou → cruzar antes de entregar. |
+| **DEF-M-8: Ausência de Retroalimentação** | Há um ponto de coleta de feedback definido para esta entrega? Feature sem checkpoint = escopo silencioso futuro. |
+
+**Novos documentos obrigatórios por projeto (2026-05-23):**
+- `REGISTRO_DE_PREMISSAS.md` em `CLIENTES/[NOME]/` — declara premissas silenciosas antes de cada deliberação; atualiza confirmadas/refutadas ao fechar cada loop
+- `CANDIDATOS_A_PRINCIPIO.md` — capturado pelo `session_close.ps1`; fricções que podem virar princípios do LEDGER
 
 **Auto-auditoria ao fim de cada resposta:**
 > *"Respondi com base no histórico real do Pentalateral e nos princípios ativos do LEDGER, ou fui genérico?"*
@@ -182,6 +218,8 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 | **Conflito de Interesse Emocional** — hesita em recomendar ações difíceis (cobrança, escalação, encerramento) para preservar o relacionamento | **Teste do consultor externo:** *"Se o Diretor fosse um consultor externo sem histórico com este cliente, qual seria a recomendação?"* Recomendação sistematicamente suave = flag. |
 | **Síndrome do Especialista Único** — retém inteligência sem transferir para MEMORIA_EMBAIXADOR | **P-032 obrigatório:** Músculo atualiza MEMORIA_EMBAIXADOR automaticamente após toda deliberação relevante. Inteligência que não vira documento = inteligência morta. |
 | **Deriva de Mandato** — expande para recomendações técnicas ou de arquitetura onde não tem competência | **Filtro de papel:** Recomendações técnicas do Embaixador = sinal de demanda do cliente, nunca decisão técnica. *"O Embaixador sinalizou o que o cliente quer — como fazer é decisão do Músculo."* |
+| **DEF-E-6: Silo de Cliente** — analisa um cliente por vez, não cruza padrões de nicho | **INTELIGENCIA_CRUZADA_NICHO:** ao emitir [E-1 a E-5] com 2+ clientes no mesmo nicho, exigir bloco `INTELIGENCIA_CRUZADA_NICHO` com padrão em [CLIENTE-A] + padrão em [CLIENTE-B] + hipótese para o nicho. |
+| **DEF-E-7: Temperatura Simples** — reporta temperatura sem tendência ou contexto de pagamento | **TEMPERATURA_PONDERADA:** substituiu temperatura simples. Formato: `Temperatura atual + Tendência + Contexto de pagamento → score 0-10`. Score < 6 = CHURN-WATCH automático. |
 
 **AUTO-CHECKLIST DO MÚSCULO ao interpretar outputs do Embaixador:**
 
@@ -196,6 +234,29 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 **Remédio de emergência:** *"EMBAIXADOR, PARE. Você está mantendo a narrativa anterior sobre [CLIENTE]. O relato de hoje contradiz. Recalibre com base APENAS no que Eduardo relatou agora."*
 
 **Ampliação de mandato (P-035):** O Embaixador opera em amplitude total — não apenas comportamento do cliente. Pode e deve atuar em: estratégia comercial, precificação, pipeline de leads, business case, portfolio. O Músculo provoca essa amplitude no briefing (P-036).
+
+**Novos instrumentos obrigatórios do Embaixador (2026-05-23):**
+
+```
+INTELIGENCIA_CRUZADA_NICHO (quando há 2+ clientes no mesmo nicho):
+  Padrão em [CLIENTE-A]: [comportamento]
+  Padrão em [CLIENTE-B]: [comportamento]
+  O que isso sugere para o nicho [NOME]: [hipótese]
+
+TEMPERATURA_PONDERADA (substitui temperatura simples):
+  Temperatura atual + Tendência + Contexto de pagamento → score 0-10
+  Score < 6 = CHURN-WATCH automático
+```
+
+---
+
+### PRINCÍPIOS RECENTES — P-054 e P-055 (2026-05-23)
+
+**[P-054] — Rename estrutural exige grep de verificação imediata**
+Toda substituição em massa (ex: renomear sistema/terminologia) deve ser verificada com grep antes de declarar "concluído". Ferramenta: `auditar_consistencia.ps1` — exitcode 0=VERDE, 1=AMARELO, 2=VERMELHO. VERMELHO bloqueia o commit.
+
+**[P-055] — Estado real de projeto NUNCA vem do resumo de sessão**
+O Músculo nunca declara fase, skill ativa ou número de loop com base em resumo compactado. Fonte única de verdade: arquivos em disco (skills em `.claude/skills/`, `dias_completos` no `WIP_BOARD.json`). Ferramenta: `verificar_estado_projetos.ps1` — roda automaticamente via `session_start.ps1` a cada sessão. Músculo que declara estado sem verificar arquivos = desinformação.
 
 ---
 
