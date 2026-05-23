@@ -1132,3 +1132,11 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Ferramenta:** `scripts/auditar_consistencia.ps1` — verifica padrões proibidos em todos os arquivos operacionais. VERDE/AMARELO/VERMELHO. Integrado ao `session_close.ps1` como gate obrigatório.
 **Aplica-se a:** qualquer rename, refactor de nomenclatura, atualização de versão, ou substituição de termo em escala — em qualquer projeto ou repositório do Pentalateral.
 
+### [P-055] Estado real de projeto NUNCA vem do resumo de sessão — vem dos arquivos
+**Descoberto:** 2026-05-23 | **Emitido por:** Falha de processo detectada pelo Diretor — skill number errado propagado de sessão compactada
+**Fricção:** O resumo de sessão dizia "ingrid-v3 NUNCA GERADA — Loop 4 bloqueado." O Músculo repetiu essa afirmação ao Diretor sem verificar os arquivos reais. Na realidade, `ingrid-v4.md` existia com "Gate Dia 8 APROVADO 2026-05-19" e Loop 4 estava concluído. O Diretor identificou o erro ao perceber que o número da skill parecia errado.
+**Princípio:** Ao retomar sessão compactada, o Músculo NUNCA repete afirmações de estado de projeto sem verificar: (a) skills reais em `.claude/skills/`, (b) `dias_completos` no `WIP_BOARD.json`, (c) gates aprovados nos arquivos de skill ativos. Resumo de sessão é ponto de partida, não prova de estado.
+**Regra derivada:** `scripts/verificar_estado_projetos.ps1` roda automaticamente no `session_start.ps1`. Injeta estado real (skills em disco + dias concluídos) antes de qualquer declaração do Músculo.
+**Ferramenta:** `scripts/verificar_estado_projetos.ps1` — lista skills reais por projeto, dias_completos, próximo gate. Injetado no context do session_start como "ESTADO REAL DOS PROJETOS (P-055)".
+**Aplica-se a:** qualquer sessão retomada após compactação — especialmente quando há projetos em BUILD com múltiplos loops.
+

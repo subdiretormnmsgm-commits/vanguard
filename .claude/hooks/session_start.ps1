@@ -194,8 +194,21 @@ if (Test-Path $loopScript) {
     } catch {}
 }
 
+# --- P-055: Estado real dos projetos (verifica skills em disco, nao apenas WIP_BOARD) ---
+$estadoRealOutput = ""
+$estadoRealScript = Join-Path $projectDir "scripts\verificar_estado_projetos.ps1"
+if (Test-Path $estadoRealScript) {
+    try {
+        $erLines = & powershell.exe -NonInteractive -File $estadoRealScript 2>$null
+        if ($erLines) {
+            $estadoRealOutput = ($erLines | Where-Object { $_ -ne $null }) -join "`n"
+        }
+    } catch {}
+}
+
 $sections = @()
 if ($pendentesAlert)     { $sections += "## PENDENTES (P-048) - LER PRIMEIRO`n$pendentesAlert" }
+if ($estadoRealOutput)   { $sections += "## ESTADO REAL DOS PROJETOS (P-055) - VERIFICADO EM DISCO`n$estadoRealOutput" }
 if ($ledger)             { $sections += "## INTELLIGENCE_LEDGER - PRINCIPIOS ATIVOS`n$ledger" }
 if ($wip)                { $sections += "## WIP_BOARD - PROJETOS ATIVOS`n$wip" }
 if ($socio)              { $sections += "## ANALISE DO SOCIO - CONTEXTO ATUAL`n$socio" }
