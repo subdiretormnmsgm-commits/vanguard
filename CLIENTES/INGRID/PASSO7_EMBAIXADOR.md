@@ -223,13 +223,46 @@ M-5: Relatório semanal automatizado — RPC progresso_semanal · WhatsApp toda 
 
 ---
 
-[G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI · DIRETRIZ V6):
-[A PREENCHER após receber DIRETRIZ V6 do Gemini]
+[G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI · DIRETRIZ V5):
+
+G-1: Disjuntor Técnico de UI Automático (Push Circuit Breaker)
+     Handler proativo no Service Worker: se push falhar 2x no iOS Safari, oculta botões de notificação e ativa fallback silencioso no painel do Diretor. Protege percepção de estabilidade para usuária não-técnica.
+
+G-2: Interface "Espelho do Diário Oficial do DF" (DODF Mirror)
+     Widget de Pontos Ponderados formatado como folha do DODF, com nome "INGRID" acima da linha de corte. Gatilho psicológico de motivação baseado em P-041 (cena de sucesso).
+
+G-3: Algoritmo de Vacina de Pegadinhas de Legislação Recente do GDF
+     Multiplicador de peso temporário sobre questões que cobram alterações recentes da LC 840 e Lei Orgânica do DF. Tag `recente_2026` no JSON + prioridade no feed SM-2 sem quebrar proporção 70/30.
+
+G-4: Widget Clickwrap "Unclog-Jurídico" no Dashboard
+     Se termo de uso pendente: widget do Contador exibe aviso estético pedindo confirmação de licença, coleta hash SHA-256 no Supabase. Saneia pendência de compliance sem fricção.
+
+G-5: Botão de Intervenção Socrática de Pânico Pós-Simulado
+     Ativo apenas se nota líquida < meta mínima. Aciona Claude API (Haiku) isolando 3 erros estruturais mais crônicos → minitreino socrático de 3 passos. Intercepta momento de maior vulnerabilidade emocional.
 
 ---
 
 [N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM · ingrid-v5.md):
-[A PREENCHER após receber Skill ingrid-v5.md do NotebookLM]
+
+N-1: Gatilho de Envio por Telemetria Temporal Passiva
+     Notificação dominical via WhatsApp disparada 15 min antes do horário_inicio_sessao modal das últimas 2 semanas — não às 09h fixo.
+     Pergunta: Ingrid tem horário fixo de estudo dominical?
+
+N-2: Reconciliação Contratual Criptográfica
+     Destravamento do Score Ponderado condicional à confirmação do termo_v2_18_05, gerando log de IP + timestamp no Supabase.
+     Pergunta: Ingrid reagiria bem a um banner de "confirmar licença" antes de ver sua nota?
+
+N-3: Linha de Corte Fantasma (P-041)
+     Interface exibe linha pontilhada horizontal com "Nota de Corte Estimada Histórica" (68 pts). Ingrid vê sua barra vs a linha.
+     Pergunta: Ingrid é movida por metas visuais concretas ou a comparação gera ansiedade?
+
+N-4: Rótulo "Simulado Misto" — Ilusão Estatística
+     Tag visual no Score informando que a nota contém questões recicladas (P-038). Previne excesso de confiança.
+     Pergunta: Ingrid percebe a diferença entre questões novas e recicladas no feed?
+
+N-5: Card SVG Compartilhável (Prova Social)
+     Score Quadrix convertido em card visual (SVG/PNG) compartilhável. Diretor usa anonimizado no pitch B2C.
+     Pergunta: Ingrid compartilha conquistas de estudo ou prefere manter para si?
 
 ---
 
@@ -254,6 +287,14 @@ Operar em amplitude total (P-035):
 - Contador de Pontos: pode criar ansiedade em vez de motivação? Como calibrar a linguagem?
 - Deadline 2026-05-30: o que Ingrid precisará ter consolidado para não sentir abandono no offboarding?
 - Pipeline: há sinal de que Ingrid mencionou ou vai mencionar outras candidatas?
+
+PARTE 3 — INTELIGÊNCIA DE MERCADO (dimensão expandida)
+O que o comportamento da Ingrid diz sobre o nicho EdTech-Concurso — não apenas sobre ela:
+- Padrão de engajamento: candidatas deste perfil estudam sozinhas ou em grupo? A ferramenta serve ao isolamento ou ao social?
+- Padrão de pagamento: o que Ingrid pagou sem questionar vs. o que hesitaria a pagar em escala B2C?
+- Padrão de churn: o silêncio da Ingrid quando insatisfeita é padrão de nicho ou individual?
+- Validação de produto: o que a Ingrid usa todo dia é o core do produto ou uma feature secundária?
+- Argumento de venda: qual experiência da Ingrid Eduardo usaria como prova social para a próxima candidata?
 ```
 
 ---
@@ -289,7 +330,14 @@ BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
     Descrição: [o que é]
     Por que vale agora: [razão fundamentada]
 
-BLOCO 6 — PRÓXIMA AÇÃO RECOMENDADA
+BLOCO 6 — INTELIGÊNCIA DE MERCADO (EdTech-Concurso)
+  O que o comportamento real da Ingrid revela sobre o nicho — não sobre ela individualmente:
+  Padrão confirmado no nicho: [comportamento que provavelmente se repete em outras candidatas]
+  Padrão específico da Ingrid: [o que é dela, não do nicho]
+  Argumento de venda derivado: [o que Eduardo usa como prova social para a próxima candidata]
+  Risco de nicho: [o que pode matar o produto na escala de 500 usuárias]
+
+BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
   [AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
   Razão: [por que esta ação agora e não outra]
 ```

@@ -232,7 +232,9 @@ CONTEXTO DO CICLO (elo obrigatório — não omitir):
 [N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM):
 [COLAR AS 5 IDEIAS DO NOTEBOOKLM COM NOME E DESCRIÇÃO DE 2 LINHAS CADA]
 
-PEDIDO AO EMBAIXADOR:
+PEDIDO AO EMBAIXADOR — TRÊS PARTES OBRIGATÓRIAS:
+
+PARTE 1 — FILTRO DE REALIDADE
 Para cada ideia acima, responder com:
   CONFIRMA — se o cliente demonstrou comportamento, interesse ou disposição compatível
   EXPANDE  — se o cliente tem contexto que potencializa esta ideia além do que foi proposto
@@ -243,6 +245,20 @@ Formato de resposta para cada ideia:
   Reação: [CONFIRMA / EXPANDE / ALERTA]
   Evidência da MEMORIA_EMBAIXADOR: [citar o que o cliente disse/fez que fundamenta a reação]
   Severidade (apenas para ALERTA): [ALTO / CRÍTICO]
+
+PARTE 2 — ANÁLISE INOVADORA (P-035 — amplitude total)
+"Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição obrigatória.
+- [RISCO PRINCIPAL DO CICLO ATUAL para o cliente]
+- [OPORTUNIDADE DE PIPELINE — o cliente mencionou alguém?]
+- [O QUE O MÚSCULO E O GEMINI NÃO ESTÃO VENDO]
+
+PARTE 3 — INTELIGÊNCIA DE MERCADO (dimensão expandida)
+O que o comportamento real do cliente revela sobre o nicho — não apenas sobre ele individualmente:
+- Padrão confirmado no nicho: [comportamento que provavelmente se repete em outros clientes similares]
+- Padrão específico deste cliente: [o que é dele, não do nicho]
+- Argumento de venda derivado: [o que Eduardo usa como prova social para o próximo cliente do nicho]
+- Risco de nicho: [o que pode impedir a escala de 1 para N clientes]
+- Modelo de precificação: [o nicho suporta MRR / licença única / project-based?]
 ```
 
 ---
@@ -278,7 +294,14 @@ BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
     Por que [NOME_DO_CLIENTE] valorizaria: [razão fundamentada no histórico]
     Evidência: [o que o cliente disse/fez]
 
-BLOCO 6 — PRÓXIMA AÇÃO RECOMENDADA
+BLOCO 6 — INTELIGÊNCIA DE MERCADO ([NICHO])
+  O que o comportamento real do cliente revela sobre o nicho — não sobre ele individualmente:
+  Padrão confirmado no nicho: [comportamento que provavelmente se repete em outros clientes similares]
+  Padrão específico deste cliente: [o que é dele, não do nicho]
+  Argumento de venda derivado: [o que Eduardo usa como prova social para o próximo cliente]
+  Risco de nicho: [o que pode impedir a escala de 1 para N clientes]
+
+BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
   [AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
   Razão: [por que esta ação agora e não outra]
 ```

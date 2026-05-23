@@ -338,6 +338,14 @@ ANÁLISE INOVADORA OBRIGATÓRIA (P-035 — amplitude total):
 - Pipeline: há outros advogados criminais no círculo do Valdece que o sistema já serviria?
 - Business case: quais dados do uso atual (buscas, sim scores) validam escala para outros escritórios criminais?
 - Risco não endereçado: o que o Músculo e o Gemini não estão vendo sobre o perfil de Valdece como "Coautor Soberano"?
+
+PARTE 3 — INTELIGÊNCIA DE MERCADO (dimensão expandida)
+O que o comportamento real do Valdece revela sobre o nicho Legal-Tech-Criminal — não apenas sobre ele:
+- Padrão confirmado no nicho: o que um advogado criminalista usa todo dia vs. o que pede mas não usa?
+- Padrão específico do Valdece: o que é dele, não do nicho (ex: preferência por dado STF vs. STJ)?
+- Argumento de venda derivado: qual experiência do Valdece Eduardo usa como prova social para o próximo advogado?
+- Risco de nicho: o que pode impedir a escala de 1 para 50 escritórios criminais?
+- Modelo de precificação: Valdece pagou R$5k por produto. O nicho Legal-Tech suporta MRR ou prefere licença única?
 ```
 
 ---
@@ -374,7 +382,14 @@ BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
     Por que Valdece valorizaria: [razão fundamentada no histórico]
     Evidência: [o que Valdece disse/fez]
 
-BLOCO 6 — PRÓXIMA AÇÃO RECOMENDADA
+BLOCO 6 — INTELIGÊNCIA DE MERCADO (Legal-Tech-Criminal)
+  O que o comportamento real do Valdece revela sobre o nicho — não sobre ele individualmente:
+  Padrão confirmado no nicho: [comportamento que provavelmente se repete em outros advogados criminais]
+  Padrão específico do Valdece: [o que é dele, não do nicho]
+  Argumento de venda derivado: [o que Eduardo usa como prova social para o próximo escritório]
+  Risco de nicho: [o que pode impedir escala de 1 para 50 escritórios]
+
+BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
   [AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
   Razão: [por que esta ação agora e não outra]
 ```
