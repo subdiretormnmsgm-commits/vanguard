@@ -24,3 +24,17 @@ CLIENTES/**/*.zip
 *-DESKTOP-*.html
 *-DESKTOP-*.log
 *-DESKTOP-*.example
+
+# Credenciais e arquivos sensiveis -- NUNCA commitar (HV-1)
+**/Detalhes da chave de API.txt
+**/Detalhes da chave*.txt
+**/reembed.py
+**/test_key.py
+CLIENTES/**/*.flac
+
+# Logs do Playwright MCP
+.playwright-mcp/
+
+# Screenshots avulsas na raiz
+query*.png
+*.screenshot.png
