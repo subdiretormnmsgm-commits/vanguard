@@ -208,8 +208,9 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 
 ### DEFICIÊNCIAS DO EMBAIXADOR (CLAUDE PROJECTS) — O MÚSCULO INTERPRETA COM:
 
-> Mapeado em 2026-05-18 · Auditoria Pentalateral
-> O Embaixador é o único membro com memória persistente do cliente entre sessões — força e fraqueza simultâneas.
+> Mapeado em 2026-05-18 · Ampliado em 2026-05-23 (3 dimensões)
+> O Embaixador opera em 3 dimensões: (1) cliente individual, (2) mercado/nicho, (3) Vanguard como empresa.
+> É o único membro com memória persistente entre sessões — força e fraqueza simultâneas.
 
 | Deficiência | Contra-Ataque Ativo |
 |---|---|
@@ -233,7 +234,11 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 
 **Remédio de emergência:** *"EMBAIXADOR, PARE. Você está mantendo a narrativa anterior sobre [CLIENTE]. O relato de hoje contradiz. Recalibre com base APENAS no que Eduardo relatou agora."*
 
-**Ampliação de mandato (P-035):** O Embaixador opera em amplitude total — não apenas comportamento do cliente. Pode e deve atuar em: estratégia comercial, precificação, pipeline de leads, business case, portfolio. O Músculo provoca essa amplitude no briefing (P-036).
+**Ampliação de mandato (P-035 + 2026-05-23):** O Embaixador opera em 3 dimensões simultâneas:
+- **Dimensão 1 — Cliente:** comportamento real, temperatura, churn, pipeline de leads
+- **Dimensão 2 — Mercado:** o que o cliente revela sobre o nicho — padrões, risco de escala, argumento de venda
+- **Dimensão 3 — Vanguard:** o que o projeto diz sobre a saúde da empresa, modelo de pricing, aprendizado de produto
+O Músculo provoca as 3 dimensões no briefing (P-036). Embaixador que responde só a Dimensão 1 = DEF-E-6.
 
 **Novos instrumentos obrigatórios do Embaixador (2026-05-23):**
 

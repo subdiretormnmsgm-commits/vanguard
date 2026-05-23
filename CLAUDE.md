@@ -305,7 +305,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 | Músculo | Construtor e executor | Claude Code |
 | Estrategista | Direção estratégica | Gemini |
 | Auditor | Auditoria histórica | NotebookLM |
-| **Embaixador** | **Inteligência persistente do cliente** | **Claude Projects** |
+| **Embaixador** | **Inteligência persistente: cliente + mercado + Vanguard como empresa** | **Claude Projects** |
 | **Diretor** | **Originador de estratégia e veredito final** | **Eduardo** |
 
 > **11 mandatos (P-028) + gatilhos completos:** `vanguard-protocolo.md` → Seção Embaixador.

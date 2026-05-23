@@ -83,11 +83,14 @@ Auditor, você opera no Pentalateral IAH — 5 membros ativos: Diretor, Músculo
 
 > O Embaixador tem memória persistente — não precisa de anexos. Só texto colado.
 
-**O que o Embaixador entrega:**
-- Para cada ideia [G] e [N]: CONFIRMA / EXPANDE / ALERTA com base em comportamento real
-- [E-1 a E-5] — 5 ideias exclusivas do Embaixador
-- TEMPERATURA_PONDERADA atualizada do cliente
-- Flags negativos (o que o cliente NÃO disse ou NÃO fez)
+**O que o Embaixador entrega (7 blocos):**
+- BLOCO 1: TEMPERATURA_PONDERADA (score 0-10 — score < 6 = CHURN-WATCH)
+- BLOCO 2: Hipóteses ativas (CONFIRMADA / REFUTADA / PENDENTE)
+- BLOCO 3: Comportamento do cliente — esperado / surpresa / ausente
+- BLOCO 4: WATCHDOG — SCOPE-WATCH + CHURN-WATCH
+- BLOCO 5: [E-1 a E-5] — 5 ideias exclusivas (não síntese dos outros membros)
+- BLOCO 6: Inteligência de mercado — o que o cliente revela sobre o nicho
+- BLOCO 7: Próxima ação recomendada
 
 ---
 
