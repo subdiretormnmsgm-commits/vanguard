@@ -20,7 +20,7 @@
 > **Para que serve este documento:**
 > Para que Eduardo nunca precise de improvisar.
 > Cada fase tem uma ação clara. Cada membro recebe um comando exato.
-> O Quadrilateral corre por si — você decide, não inventa o processo.
+> O Pentalateral corre por si — você decide, não inventa o processo.
 
 ---
 
@@ -763,7 +763,7 @@ PROTOCOLO VANGUARD — [nome do projeto]. Leia tudo e delibere.
 **O que esperar do Claude:**
 O Claude vai processar tudo e apresentar, nesta sequência:
 1. **Confirmação de leitura** — confirma que leu Skill, DIRETRIZ e Briefing
-2. **Análise Quadrilateral** — tipo detectado, camada, stack recomendada, ROI, o que não construir
+2. **ANÁLISE PENTALATERAL** — tipo detectado, camada, stack recomendada, ROI, o que não construir
 3. **Score de Confiança da DIRETRIZ** (0–10) — avalia a solidez da estratégia do Gemini
 4. **Deliberação** — se houver propostas do Gemini que mereçam debate, o Claude analisa antes de construir
 5. **Pedido de confirmação** para avançar para o Plano de Build
@@ -956,7 +956,7 @@ No **COMANDO_ESTRATEGISTA_V1:**
 
 ### RITUAL DE FECHAMENTO DE SESSÃO — Intelligence Compounding
 
-> **Executar ao fechar QUALQUER sessão do Quadrilateral — não só ao fechar versão.**
+> **Executar ao fechar QUALQUER sessão do Pentalateral — não só ao fechar versão.**
 > Este ritual garante que a inteligência da sessão não se perde.
 
 ```powershell
@@ -1048,7 +1048,7 @@ A deliberação sobre a DIRETRIZ fica mais afinada porque o Claude conhece a arq
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ITERAÇÃO V1 — O QUADRILATERAL NASCE
+ITERAÇÃO V1 — O PENTALATERAL NASCE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Gemini        → Analisa com base em conhecimento geral
 NotebookLM    → Pouco histórico (ou nenhum)
@@ -1096,7 +1096,7 @@ Resultado     → Produto no mercado. Código de qualidade. Cliente independente
 
 ## PARTE 4 — O DIÁLOGO ENTRE GEMINI E CLAUDE
 
-Este é o coração do Quadrilateral — o debate que ninguém vê mas que produz os melhores resultados.
+Este é o coração do Pentalateral — o debate que ninguém vê mas que produz os melhores resultados.
 
 ### Como funciona na prática
 
@@ -1323,12 +1323,12 @@ REGRA 1 — O VEREDITO É SEU
   Nenhum membro avança sem a sua aprovação.
   O Músculo não constrói sem plano aprovado.
   O commit não acontece sem o seu "Aprovado".
-  O Quadrilateral tem poder máximo — mas o veredito é sempre seu.
+  O Pentalateral tem poder máximo — mas o veredito é sempre seu.
 
 REGRA 2 — O COMANDO_ESTRATEGISTA É SAGRADO
   Ao fechar cada iteração: copiar → colar no Gemini.
   É o que fecha o loop e garante que o próximo ciclo começa mais inteligente.
-  Saltar isto é quebrar o Quadrilateral.
+  Saltar isto é quebrar o Pentalateral.
 
 REGRA 3 — CLAUDE SEM SKILL (CAMADA 2+) É CLAUDE SEM MEMÓRIA
   O NotebookLM existe para dar contexto histórico ao Claude.
@@ -1350,7 +1350,7 @@ REGRA 6 — O CLIENTE VÊ O RELATÓRIO, NÃO A ESTRATÉGIA
 REGRA 7 — CADA ITERAÇÃO ENTREGUE É UM ativo
   Não é só um projeto concluído.
   É uma MEMORIA, um padrão validado, um boilerplate que acelera o próximo.
-  O valor do Quadrilateral cresce de forma não-linear — exponencial.
+  O valor do Pentalateral cresce de forma não-linear — exponencial.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -1387,7 +1387,7 @@ O Gemini sugere. O Claude constrói. O NotebookLM arquiva.
 Três ferramentas poderosas — mas sem conversa entre elas.
 O resultado é a soma das partes.
 
-O que o Quadrilateral faz:
+O que o Pentalateral faz:
 cria um protocolo de troca entre ferramentas que normalmente não se comunicam.
 O COMANDO_ESTRATEGISTA leva as 5 ideias do Claude para o Gemini.
 O Gemini reage e enriquece.
@@ -1419,7 +1419,7 @@ O próximo ciclo começa do zero em vez de começar mais inteligente.
 **A qualidade do Gemini depende da qualidade das perguntas.**
 Um COMANDO 1 vago produz uma DIRETRIZ vaga.
 Um COMANDO 1 com dados reais produz uma DIRETRIZ accionável.
-O Quadrilateral não compensa um briefing mal feito — amplifica o que recebe.
+O Pentalateral não compensa um briefing mal feito — amplifica o que recebe.
 
 **O NotebookLM fica mais valioso com o tempo — mas precisa de fontes.**
 Nos primeiros 2–3 projetos, o valor do Auditor é limitado.
@@ -1432,7 +1432,7 @@ A maioria das metodologias de IA para negócios trata cada sessão como isolada.
 Você começa uma conversa com o Claude. Ela termina. A próxima começa do zero.
 O conhecimento fica na cabeça de quem operou — não no sistema.
 
-O Quadrilateral trata cada sessão como um elo de uma cadeia.
+O Pentalateral trata cada sessão como um elo de uma cadeia.
 O que foi aprendido em V1 alimenta V2.
 O que foi debatido entre Gemini e Claude em V2 fica documentado para V3.
 O sistema cresce. A velocidade aumenta. O custo de erro diminui.

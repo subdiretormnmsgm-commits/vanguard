@@ -38,7 +38,7 @@ Analise o modelo de negócio do Pentalateral IAH e execute as seguintes ações:
 4. Proponha 5 sugestões concretas e acionáveis para aumentar a taxa de conversão e
    acelerar a chegada ao primeiro cliente pagante
 5. Sugira 3 ajustes de posicionamento ou oferta que possam diferenciar ainda mais
-   o Quadrilateral dos concorrentes
+   o Pentalateral dos concorrentes
 6. Recomende uma sequência de ações prioritárias para os próximos 30 dias
 ```
 

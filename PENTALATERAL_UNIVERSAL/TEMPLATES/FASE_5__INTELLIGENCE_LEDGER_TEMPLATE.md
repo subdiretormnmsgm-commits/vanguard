@@ -89,7 +89,7 @@ Se qualquer resposta for "não" ou "talvez" → emitir Soft Veto antes de prosse
 
 ## GLOSSÁRIO DO PROJETO
 
-> Termos técnicos ou de negócio específicos deste cliente que o Quadrilateral deve conhecer.
+> Termos técnicos ou de negócio específicos deste cliente que o Pentalateral deve conhecer.
 
 | Termo | Significado no contexto deste cliente |
 |---|---|

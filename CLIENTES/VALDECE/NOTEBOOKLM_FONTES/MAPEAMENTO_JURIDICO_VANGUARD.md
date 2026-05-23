@@ -41,7 +41,7 @@
 **Artigos:** Art. 195, XI e XII (LPI - Concorrencia desleal e segredo de negocio); Art. 16 (MCI - Retencao de dados)
 **O que regula:** Protecao de informacoes confidenciais e algoritmos (segredo de negocio) e regras para armazenamento de registros.
 **Risco se ignorado:** Vazamento da Intelligence Compounding Engine e apropriacao do Intelligence Ledger por concorrentes sem amparo legal.
-**Oportunidade:** Classificar formalmente o Intelligence Ledger e os prompts do Quadrilateral como Segredo Industrial com NDAs robustos.
+**Oportunidade:** Classificar formalmente o Intelligence Ledger e os prompts do Pentalateral como Segredo Industrial com NDAs robustos.
 
 ---
 

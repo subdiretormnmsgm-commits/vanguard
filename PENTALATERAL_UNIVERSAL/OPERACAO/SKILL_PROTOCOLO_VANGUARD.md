@@ -23,7 +23,7 @@ description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce
 > Um ecommerce, uma app mobile, um site, um SaaS, um modelo de negócio, uma API, uma automação.
 > O que muda é o projeto. O que não muda é o processo.
 >
-> O Quadrilateral — Diretor + Estrategista + Auditor + Músculo — é o conselho.
+> O Pentalateral — Diretor + Estrategista + Auditor + Músculo — é o conselho.
 > O cliente traz o problema. O conselho delibera. O Músculo entrega.
 
 ---
@@ -31,11 +31,11 @@ description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce
 ## CONFIGURAÇÃO DO OPERADOR
 
 > Preencher uma vez por operador. Ao copiar para outro projeto ou outro operador, atualizar esta seção.
-> Os valores abaixo são a configuração ativa deste Quadrilateral.
+> Os valores abaixo são a configuração ativa deste Pentalateral.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-QUADRILATERAL — CONFIGURAÇÃO ativa
+PENTALATERAL — CONFIGURAÇÃO ativa
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 diretoR:         Eduardo
@@ -75,7 +75,7 @@ DOCS_BASE:
 ```
 
 > **Para outro operador:** substituir Eduardo, Gemini, NotebookLM e Claude Code
-> pelos membros do seu próprio Quadrilateral. A estrutura não muda — os actores sim.
+> pelos membros do seu próprio Pentalateral. A estrutura não muda — os actores sim.
 
 ---
 
@@ -175,7 +175,7 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 | **Ausência de Retroalimentação (DEF-M-8)** | Há ponto de coleta de feedback de campo definido para esta entrega? O cliente sabe como reportar problemas? |
 
 **Auto-auditoria ao fim de cada resposta:**
-> *"Respondi com base no histórico real do Quadrilateral e nos princípios ativos do LEDGER, ou fui genérico?"*
+> *"Respondi com base no histórico real do Pentalateral e nos princípios ativos do LEDGER, ou fui genérico?"*
 > Se genérico → reescrever antes de enviar.
 
 ---
@@ -274,7 +274,7 @@ O Embaixador reage às ideias de TODOS os sócios com um de três vereditos:
 
 ## INTELLIGENCE COMPOUNDING — O ORGANISMO QUE APRENDE
 
-> Todo projeto gerido pelo Quadrilateral acumula inteligência por sessão.
+> Todo projeto gerido pelo Pentalateral acumula inteligência por sessão.
 > Não por versão — por sessão. Cada decisão documentada é um ativo.
 
 ### Artefatos de Inteligência do Projeto
@@ -1002,9 +1002,9 @@ Resultado a acompanhar."
 
 ---
 
-## SECRETÁRIO VIRTUAL — AUTOMAÇÃO PRÉ-QUADRILATERAL
+## SECRETÁRIO VIRTUAL — AUTOMAÇÃO PRÉ-PENTALATERAL
 
-> O Secretário Virtual opera ANTES do Quadrilateral ser ativado.
+> O Secretário Virtual opera ANTES do Pentalateral ser ativado.
 > Qualifica leads automaticamente enquanto o Diretor trabalha.
 > Quando o Diretor recebe a notificação, o briefing já está pronto para colar no Gemini.
 
@@ -1018,7 +1018,7 @@ Claude Haiku avalia GO / NO-GO (30 segundos)
 SE GO  → Eduardo recebe email com BRIEFING pronto para o Gemini
 SE NO-GO → Eduardo recebe informativo · cliente recebe proposta de Produto de Entrada
         ↓
-Eduardo cola o briefing no Gemini → ativa o Quadrilateral completo
+Eduardo cola o briefing no Gemini → ativa o Pentalateral completo
 ```
 
 **Localização do serviço:** `SECRETARIO_VIRTUAL/` na raiz do projeto
@@ -1031,7 +1031,7 @@ Eduardo cola o briefing no Gemini → ativa o Quadrilateral completo
 
 ## FASE -1 — QUALIFICAÇÃO (GO / NO-GO)
 
-> Antes de ativar o Quadrilateral completo, verificar se o projeto merece o processo.
+> Antes de ativar o Pentalateral completo, verificar se o projeto merece o processo.
 > Um cliente mal qualificado consome o recurso mais escasso: o tempo do Diretor.
 > **Se o Secretário Virtual estiver ativo, esta fase já foi feita automaticamente.**
 
@@ -1273,7 +1273,7 @@ Antes de propor build, responder:
 Apresentar ao Diretor:
 
 ```
-ANÁLISE QUADRILATERAL — [NOME / TIPO DE projeto]
+ANÁLISE PENTALATERAL — [NOME / TIPO DE projeto]
 
 TIPO: [tipo]
 CAMADA: [1–5]
@@ -2094,7 +2094,7 @@ Não avançar para entrega sem todas as 7 verificadas.
 
 ---
 
-## PDCA — O MOTOR DO QUADRILATERAL
+## PDCA — O MOTOR DO PENTALATERAL
 
 > O ciclo fecha entre iterações — nunca dentro.
 
@@ -2359,7 +2359,7 @@ ações imediatas:
 Modo ativo: CONSELHO COLABORATIVO
 Papel: ARQUITECTO-MESTRE
 
-O Quadrilateral está pronto.
+O Pentalateral está pronto.
 Traz-me o problema. Entregamos a solução.
 ```
 
@@ -2373,7 +2373,7 @@ Traz-me o problema. Entregamos a solução.
 
 ---
 
-## V25 — INFRAESTRUTURA VIVA DO QUADRILATERAL (2026-05-15)
+## V25 — INFRAESTRUTURA VIVA DO PENTALATERAL (2026-05-15)
 
 > Adição ao processo existente — não substitui nenhuma camada.
 > As 3 Alavancas são complementares ao NotebookLM + Gemini + Claude Code.

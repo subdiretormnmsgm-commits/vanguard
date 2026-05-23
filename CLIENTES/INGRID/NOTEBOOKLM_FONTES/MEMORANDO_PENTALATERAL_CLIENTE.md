@@ -37,9 +37,9 @@
 
 ---
 
-## O QUADRILATERAL EM DEBATE — INTERAÇÕES DINÂMICAS
+## O Pentalateral EM DEBATE — INTERAÇÕES DINÂMICAS
 
-> Esta é a secção mais importante do Memorando. A força do Quadrilateral não está na execução sequencial — está na tensão produtiva entre os membros. Gemini propõe. Claude avalia. NotebookLM audita. Eduardo decide. Nenhum membro tem autoridade absoluta sobre os outros.
+> Esta é a secção mais importante do Memorando. A força do Pentalateral não está na execução sequencial — está na tensão produtiva entre os membros. Gemini propõe. Claude avalia. NotebookLM audita. Eduardo decide. Nenhum membro tem autoridade absoluta sobre os outros.
 
 ### A Natureza de Cada Voz
 
@@ -105,14 +105,14 @@ O Veredito do Diretor prevalece sempre.
 Quando Eduardo override uma recomendação unânime dos outros 3,
 o Claude documenta o override na MEMORIA_Vx:
 
-"[OVERRIDE DO DIRETOR]: A proposta do Quadrilateral era [X].
+"[OVERRIDE DO DIRETOR]: A proposta do Pentalateral era [X].
 O Diretor decidiu [Y] porque [razão declarada].
 Resultado a acompanhar nas próximas iterações."
 ```
 
 ---
 
-### Exemplos Reais de Debates do Quadrilateral (V1–V23)
+### Exemplos Reais de Debates DO PENTALATERAL (V1–V23)
 
 | Versão | Quem propôs | O que propôs | Quem contestou | Resultado |
 |--------|------------|--------------|---------------|-----------|
@@ -129,11 +129,11 @@ Resultado a acompanhar nas próximas iterações."
 
 ---
 
-## PDCA INSTITUCIONAL — O MOTOR DO QUADRILATERAL
+## PDCA INSTITUCIONAL — O MOTOR DO PENTALATERAL
 
-> O PDCA não é um ritual burocrático. É o mecanismo pelo qual o Quadrilateral aprende, corrige e escala. Cada iteração de cliente passa por um ciclo completo.
+> O PDCA não é um ritual burocrático. É o mecanismo pelo qual o Pentalateral aprende, corrige e escala. Cada iteração de cliente passa por um ciclo completo.
 
-### O Ciclo PDCA do Quadrilateral (§19 + §23 das Business Rules)
+### O Ciclo PDCA DO PENTALATERAL (§19 + §23 das Business Rules)
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -252,7 +252,7 @@ Módulos sem feedback loop = dívida P2 automática.
 
 ## CAMADAS DE MATURIDADE (5-Layer Matrix)
 
-O Quadrilateral aplica-se a projectos de qualquer camada. Antes de iniciar, classificar o cliente:
+O Pentalateral aplica-se a projectos de qualquer camada. Antes de iniciar, classificar o cliente:
 
 | Camada | Âmbito | Serviço Típico | Ticket Base |
 |--------|--------|---------------|-------------|
@@ -271,7 +271,7 @@ O Quadrilateral aplica-se a projectos de qualquer camada. Antes de iniciar, clas
 
 ## FASE -1 — QUALIFICAÇÃO DO CLIENTE (GO / NO-GO)
 
-> Antes de activar o Quadrilateral, verificar se o cliente é qualificado.
+> Antes de activar o PENTALATERAL, verificar se o cliente é qualificado.
 > o Pentalateral é um activo escasso — não desperdiçar em clientes sem clareza, sem urgência ou sem budget.
 
 ### 3 Perguntas de Filtro Rápido
@@ -405,7 +405,7 @@ O script copia a MENSAGEM_INTERACAO_INICIAL para o clipboard, abre o browser e o
 
 ### 0.2 — Checklist de Discovery Completo
 
-Antes de convocar o Quadrilateral, confirmar:
+Antes de convocar o PENTALATERAL, confirmar:
 
 - [ ] As 7 perguntas foram respondidas
 - [ ] Ticket médio declarado (mesmo que estimativa)
@@ -450,7 +450,7 @@ CAMADA CLASSIFICADA: [1 / 2 / 3 / 4 / 5]
 
 --- CONTEXTO IAH ---
 
-O Quadrilateral opera com 4 membros:
+O Pentalateral opera com 4 membros:
 - Gemini (você): Estrategista
 - NotebookLM: Auditor de Memória
 - Claude Code: Músculo de Execução
@@ -599,7 +599,7 @@ REGRAS:
 - Ao terminar: cria MEMORIA_V1_[CLIENTE].md + relatorio_evolutivo_v1_[CLIENTE].md
 - Não commits sem aprovação do Diretor
 
-Vanguard Quadrilateral — começa.
+Vanguard Pentalateral — começa.
 ```
 
 ### 3.2 — Estrutura de Pastas para Projecto de Cliente
@@ -850,12 +850,12 @@ PRÓXIMO PASSO:
 
 ---
 
-## REGRAS OPERACIONAIS DO QUADRILATERAL
+## REGRAS OPERACIONAIS DO PENTALATERAL
 
 ### Regras para o Diretor (Eduardo)
 
 1. **Nunca saltara Fase 0** — sem as 7 perguntas, o Gemini produz estratégia genérica
-2. **Veredito é inegociável** — se o Diretor não valida, o Quadrilateral não avança
+2. **Veredito é inegociável** — se o Diretor não valida, o Pentalateral não avança
 3. **Ticket médio sempre documentado** — mesmo que estimado, é obrigatório para o ROI
 4. **Nenhuma promise ao cliente antes do Veredito da Fase 1**
 5. **Feedback ao Claude em cada iteração** — o músculo melhora com contexto
@@ -930,7 +930,7 @@ PRÓXIMA ITERAÇÃO
 
 ## O LOOP QUE NUNCA PARA — CADÊNCIA DE INTERAÇÕES ENTRE ITERAÇÕES
 
-> O Quadrilateral não tem fim. Cada iteração entregue alimenta a próxima. O cliente cresce em camadas — e o Quadrilateral cresce com ele.
+> O Pentalateral não tem fim. Cada iteração entregue alimenta a próxima. O cliente cresce em camadas — e o Pentalateral cresce com ele.
 
 ### Cadência Padrão de Interações (por projecto activo)
 
@@ -1083,7 +1083,7 @@ Gera Skill V[X+1] actualizada.
 | Termo | Definição |
 |-------|-----------|
 | **IAH** | Inteligência Artificial Humana — o modelo de 4 inteligências coordenadas |
-| **Quadrilateral** | O conjunto dos 4 membros: Diretor, Gemini, NotebookLM, Claude |
+| **PENTALATERAL** | O conjunto dos 4 membros: Diretor, Gemini, NotebookLM, Claude |
 | **Diretriz Zero** | O protocolo de Discovery antes de qualquer estratégia |
 | **Veredito** | Decisão final do Diretor — único que pode aprovar avanços |
 | **Skill** | Ficheiro `.md` que instrui o Claude sobre o contexto específico do projecto |
@@ -1100,7 +1100,7 @@ Gera Skill V[X+1] actualizada.
 
 ## CORPUS DE CONHECIMENTO — 23 VERSÕES DE APRENDIZAGEM
 
-> O Quadrilateral tem memória. Cada versão gerou documentação que alimenta as seguintes.
+> O Pentalateral tem memória. Cada versão gerou documentação que alimenta as seguintes.
 > Antes de construir qualquer coisa, consultar os documentos abaixo.
 
 ### Memórias Técnicas (verdade arquitectural)
@@ -1146,29 +1146,29 @@ INTELIGENCIA_ARTIFICIAL_HUMANA.md            → Manifesto IAH + como explicar a
 
 ---
 
-## MANIFESTO — POR QUE O QUADRILATERAL VENCE
+## MANIFESTO — POR QUE O Pentalateral VENCE
 
 As agências têm criativos. Os freelancers têm código. As consultorias têm apresentações.
 
 **A Vanguard tem memória e debate.**
 
-A maioria dos sistemas de IA funciona como um empregado: recebe uma ordem, executa, entrega. O Quadrilateral funciona como um conselho: propõe, questiona, audita, decide.
+A maioria dos sistemas de IA funciona como um empregado: recebe uma ordem, executa, entrega. O Pentalateral funciona como um conselho: propõe, questiona, audita, decide.
 
-**O Gemini pensa grande demais** — às vezes. Isso é útil. Força o Quadrilateral a considerar o potencial máximo antes de decidir o que é viável agora.
+**O Gemini pensa grande demais** — às vezes. Isso é útil. Força o Pentalateral a considerar o potencial máximo antes de decidir o que é viável agora.
 
 **O Claude pensa de forma crítica** — sempre. Não por desafio, mas porque construir algo errado é mais caro do que não construir. A contenção técnica do Claude compensa o optimismo estratégico do Gemini.
 
-**O NotebookLM lembra o que os outros esquecem** — o que foi prometido em V3 e ainda não foi entregue, o template que funcionou em V11, o padrão de falha que se repetiu em V14 e V17. Sem memória, o Quadrilateral repetiria os mesmos erros.
+**O NotebookLM lembra o que os outros esquecem** — o que foi prometido em V3 e ainda não foi entregue, o template que funcionou em V11, o padrão de falha que se repetiu em V14 e V17. Sem memória, o Pentalateral repetiria os mesmos erros.
 
 **Eduardo decide com informação real** — não com intuição, não com pressão do cliente, não com entusiasmo do Gemini. Com o diagnóstico do NotebookLM, a avaliação técnica do Claude e a estratégia do Gemini — integrados, contrapostos, filtrados.
 
 Cada cliente que entra no sistema alimenta o Oráculo. Cada lead classificado pelo FIRE Scoring refina o modelo. Cada debate entre Gemini e Claude torna a próxima entrega mais precisa.
 
-O Quadrilateral não executa projectos — constrói inteligência colectiva que se valoriza com cada iteração.
+O Pentalateral não executa projectos — constrói inteligência colectiva que se valoriza com cada iteração.
 
 O cliente contrata uma solução. Recebe um activo.
 A Vanguard entrega um projecto. Retém a inteligência.
-O Quadrilateral aprende. E não esquece.
+O Pentalateral aprende. E não esquece.
 
 ---
 
@@ -1184,6 +1184,6 @@ O Quadrilateral aprende. E não esquece.
 
 ---
 
-*Documento emitido por Claude Code (Músculo) · Vanguard Quadrilateral · V23*
+*Documento emitido por Claude Code (Músculo) · Vanguard Pentalateral · V23*
 *Para uso exclusivo do Diretor Eduardo e do Conselho IAH*
 *Próxima revisão: após o primeiro cliente Neural Sentinel activo*

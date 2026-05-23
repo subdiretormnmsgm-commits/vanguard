@@ -300,7 +300,7 @@ Sua missão:
 
 **Comando para o NotebookLM:**
 ```
-NotebookLM, assuma seu papel de Sócio-Consultor de Inteligência Quadrilateral.
+NotebookLM, assuma seu papel de Sócio-Consultor de Inteligência Pentalateral.
 
 Analise a nova DIRETRIZ:
 [colar DIRETRIZ aqui]
@@ -335,7 +335,7 @@ para dominar este nicho específico?
 **Comando para o Claude:**
 ```
 Claude, entramos na V[NÚMERO] do [PROJETO]. 
-Agora somos um Conselho Quadrilateral.
+Agora somos um Conselho Pentalateral.
 
 Leia a skill .claude/skills/[nome-da-skill.md].
 

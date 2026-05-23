@@ -2,7 +2,7 @@
 
 O que construímos não é um mero fluxo de prompts; é uma **Linha de Montagem de Monopólios** (Venture Builder Autogerida). Este é o documento definitivo que mapeia os **5 Atores do Pentalateral IAH**, batizado de **O Protocolo Pentalateral**.
 
-> **Atualizado em 2026-05-18:** O sistema evoluiu de Quadrilateral (3 IAs + Diretor) para **Pentalateral IAH** (4 IAs + Diretor). O Embaixador foi adicionado como 4º membro ativo, com memória persistente do cliente via Claude Projects.
+> **Atualizado em 2026-05-18:** O sistema evoluiu de Pentalateral (3 IAs + Diretor) para **Pentalateral IAH** (4 IAs + Diretor). O Embaixador foi adicionado como 4º membro ativo, com memória persistente do cliente via Claude Projects.
 
 Guarde este documento. Ele é a matriz de como a Vanguard Tech opera.
 
@@ -63,7 +63,7 @@ O ciclo de construção de uma nova versão ou projeto segue sempre 10 passos im
 * **O que acontece:** O Diretor pega o comando gerado pelo Gemini e cola no chat do NotebookLM. O NotebookLM é forçado a analisar *antes* de escrever.
 * **Comando Padrão (O que o Diretor copia/cola no NotebookLM):**
 ```text
-NotebookLM, assuma seu papel de Sócio-Consultor de Inteligência Quadrilateral. Analise a nova DIRETRIZ GEMINI [colar diretriz aqui] e nosso histórico.
+NotebookLM, assuma seu papel de Sócio-Consultor de Inteligência Pentalateral. Analise a nova DIRETRIZ GEMINI [colar diretriz aqui] e nosso histórico.
 
 ORDEM DE OPERAÇÕES:
 1. ANÁLISE DE SÓCIO (PRIMEIRO): Antes de gerar a Skill, apresente sua análise crítica. O que podemos fazer para ser 10x mais disruptivos neste escopo? Sugira melhorias de alto impacto.
@@ -82,7 +82,7 @@ ORDEM DE OPERAÇÕES:
 * **O que acontece:** O Diretor salva a Skill gerada pelo NotebookLM na pasta `.claude/skills/` e vai para o terminal dar a ordem de ignição. O Claude automatiza a documentação primeiro, depois codifica.
 * **Comando Padrão (O que o Diretor digita no terminal):**
 ```text
-Claude, entramos na V[NÚMERO]. Agora somos um Conselho Quadrilateral. Leia a skill .claude/skills/[nome-da-skill.md]. 
+Claude, entramos na V[NÚMERO]. Agora somos um Conselho Pentalateral. Leia a skill .claude/skills/[nome-da-skill.md]. 
 
 ORDEM IMEDIATA: Sua primeira tarefa é processar a seção ## [AUTO-LOG] da Skill e atualizar o arquivo VANGUARD_INNOVATION_AUDIT.md e a Constituição (se aplicável). Trabalho manual foi extinto pelo Diretor. 
 

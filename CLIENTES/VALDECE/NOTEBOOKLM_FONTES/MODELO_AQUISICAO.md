@@ -73,7 +73,7 @@ Página de vendas dedicada ao serviço IAH — simples, focada em conversão:
 ```
 HERO:    "Seu negócio no digital em 5 dias."
 PROVA:   Caso de estudo V1 com números reais
-MÉTODO:  Como o Quadrilateral funciona (sem jargão técnico)
+MÉTODO:  Como o Pentalateral funciona (sem jargão técnico)
 OFERTA:  Discovery Sprint → R$[X] → CTA direto para WhatsApp
 ```
 
@@ -164,7 +164,7 @@ O Sentinel Report entregue em 14 dias inclui obrigatoriamente:
 
 ## O MAIOR ATIVO DE MARKETING
 
-Não é verba. É o processo do Quadrilateral mostrado funcionando em público.
+Não é verba. É o processo do Pentalateral mostrado funcionando em público.
 As pessoas compram o que conseguem ver acontecendo — não o que é prometido.
 
 O segundo maior ativo: **o gate documentado de um projeto real**. "Testamos 12 queries antes de sentar com você" vale mais que qualquer campanha.

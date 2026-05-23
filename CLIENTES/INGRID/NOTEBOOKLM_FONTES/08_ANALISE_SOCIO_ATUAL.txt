@@ -7,7 +7,7 @@ Este ficheiro é lido pelo Músculo ao iniciar qualquer sessão Vanguard.
 Atualizar após cada sessão com NotebookLM.
 
 ══════════════════════════════════════════════════════════════════════
-ESTADO ATUAL DO QUADRILATERAL — 2026-05-15
+ESTADO ATUAL DO Pentalateral — 2026-05-15
 ══════════════════════════════════════════════════════════════════════
 
 MODELO DE NEGÓCIO ATIVO:

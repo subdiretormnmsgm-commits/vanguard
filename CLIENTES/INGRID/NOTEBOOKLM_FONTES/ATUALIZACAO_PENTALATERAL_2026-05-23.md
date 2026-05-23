@@ -164,7 +164,7 @@ Não foi uma mudança de fundamentos — foi uma densificação do protocolo exi
 
 ## NOTA SOBRE RENAME PENDENTE
 
-Eduardo sugeriu renomear QUADRILATERAL → PENTALATERAL.
+Eduardo sugeriu renomear Pentalateral → PENTALATERAL.
 Esta é uma decisão de grande impacto (muitos caminhos de arquivo).
 **Aguarda veredito formal do Diretor antes de executar.**
 O Músculo pode executar o rename em uma sessão dedicada quando aprovado.

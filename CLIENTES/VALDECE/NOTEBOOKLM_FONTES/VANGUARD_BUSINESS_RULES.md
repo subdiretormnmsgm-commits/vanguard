@@ -965,7 +965,7 @@ Verificação para o plano Agency actual:
 ---
 
 ## §21 — Protocolo de Invasão Soberana e Segurança WABA (V15)
-> *Exigido pelo Conselho Quadrilateral. Leis de Sobrevivência e Expansão Agressiva.*
+> *Exigido pelo Conselho Pentalateral. Leis de Sobrevivência e Expansão Agressiva.*
 
 ### 21.1 Lei do Escudo WABA — Sobrevivência da Operação
 A number de WhatsApp Business (WABA) é o activo mais crítico e mais frágil da operação Hermes. A sua perda por banimento paralisa a prospecção. Esta lei é **imutável e inviolável**:
@@ -1112,7 +1112,7 @@ O Diretor **nunca** precisa preencher a MEMORIA_EMBAIXADOR manualmente. Se o Mú
 
 | Termo antigo | Termo novo (oficial) |
 |---|---|
-| Quadrilateral | Pentalateral IAH |
+| Pentalateral | Pentalateral IAH |
 | "3 IAs + Diretor" | "4 IAs + Diretor" (5 atores) |
 | Loop de 3 LLMs | Loop de 4 LLMs = 25 ideias/ciclo [M×2+G+N+E × 5] |
 

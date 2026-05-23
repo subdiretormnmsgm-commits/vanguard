@@ -3,7 +3,7 @@
 > Pastas excluidas: PERFIS_NICHO, VANGUARD_HISTORICO
 
 ## STATUS FINAL
-- Sincronizados: 2
+- Sincronizados: 64
 - Falhas de Integridade: 0
 - Orfaos: 31
 ## DECISOES PENDENTES (ORFAOS)

@@ -106,7 +106,7 @@ PROBLEMA QUE PAGA AS CONTAS (dor real):
 [o problema que, se não resolver, causa dano financeiro ou operacional real]
 
 OPORTUNIDADE QUE ELE AINDA NÃO VIU:
-[o que o Quadrilateral percebeu que o cliente ainda não articulou]
+[o que o Pentalateral percebeu que o cliente ainda não articulou]
 
 CONCORRENTES QUE O PREOCUPAM:
 [quem ele menciona quando fala em pressão de mercado]
@@ -150,15 +150,15 @@ ITERAÇÃO V2 — [data]
 
 ```
 BLIND SPOT DO CLIENTE:
-[o que ele não percebe sobre o seu próprio negócio — e que afecta as decisões do Quadrilateral]
+[o que ele não percebe sobre o seu próprio negócio — e que afecta as decisões do PENTALATERAL]
 
 RISCO QUE ELE SUBESTIMA:
 [o risco técnico, comercial ou de mercado que ele minimiza mas que é real]
 
-OPORTUNIDADE QUE ELE PERDERIA SEM O QUADRILATERAL:
+OPORTUNIDADE QUE ELE PERDERIA SEM O PENTALATERAL:
 [o que só é visível com a perspectiva de fora]
 
-O QUE O QUADRILATERAL PROTEGE (sem ele saber):
+O QUE O Pentalateral PROTEGE (sem ele saber):
 [as decisões que o Músculo tomou silenciosamente para proteger o cliente de si próprio]
 ```
 

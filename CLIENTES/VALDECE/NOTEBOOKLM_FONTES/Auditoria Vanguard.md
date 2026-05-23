@@ -272,7 +272,7 @@ Eduardo,
 
 
 
-Sessão V25 encerrada. Quadrilateral agora opera com 4 membros plenos.
+Sessão V25 encerrada. Pentalateral agora opera com 4 membros plenos.
 
 
 
@@ -426,7 +426,7 @@ Constituição
 
 &#x09;◦	Inteligência Artificial Humana
 
-&#x09;◦	Memorial Quadrilateral Humano e Cliente
+&#x09;◦	Memorial Pentalateral Humano e Cliente
 
 &#x09;◦	Protocolo Pentalateral
 

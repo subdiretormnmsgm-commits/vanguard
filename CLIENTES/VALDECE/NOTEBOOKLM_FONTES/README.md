@@ -1,4 +1,4 @@
-﻿# QUADRILATERAL UNIVERSAL — Modelo Portátil
+﻿# Pentalateral UNIVERSAL — Modelo Portátil
 
 > Esta pasta contém os documentos universais do Modelo Pentalateral IAH.
 > Copiar para qualquer projeto de cliente — funcionam independentemente da Vanguard.
@@ -45,7 +45,7 @@ AO CRIAR o perfil de um cliente (Camada 2+)
 
 ## Como Usar num projeto Novo
 
-1. Copiar esta pasta para `CLIENTES/[NOME_CLIENTE]/QUADRILATERAL/`
+1. Copiar esta pasta para `CLIENTES/[NOME_CLIENTE]/PENTALATERAL/`
 2. Abrir `MANUAL_DIRETOR.md` — seguir os passos 1 a 10
 3. Levar `DISCOVERY_CARD.md` para a primeira reunião com o cliente
 4. Criar `PERFIL_CLIENTE.md` com base no template (Camada 2+)
@@ -78,7 +78,7 @@ O Claude pode atualizar qualquer destes documentos diretamente — basta pedir a
 
 ## Secretário Virtual
 
-O Secretário Virtual é um serviço separado que opera ANTES do Quadrilateral:
+O Secretário Virtual é um serviço separado que opera ANTES DO PENTALATERAL:
 qualifica leads automaticamente e entrega briefings prontos ao Diretor.
 
 **Localização:** `../SECRETARIO_VIRTUAL/` (raiz do projeto)

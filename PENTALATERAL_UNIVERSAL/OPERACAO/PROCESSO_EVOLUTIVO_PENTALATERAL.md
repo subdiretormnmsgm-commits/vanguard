@@ -229,7 +229,7 @@ Lidos ao iniciar qualquer sessão relevante:
 | `INTELLIGENCE_LEDGER.md` | raiz | Princípios extraídos de fricções reais — o que nunca repetir |
 | `CLIENTES/WIP_BOARD.json` | raiz | Estado atual de todos os projetos ativos |
 | `CONSELHO/NotebookLM/ANALISE_SOCIO_ATUAL.txt` | CONSELHO/ | Análise mais recente do Sócio — contexto de negócio atualizado |
-| `.claude/skills/vanguard-protocolo.md` | .claude/skills/ | Processo operacional completo do Quadrilateral |
+| `.claude/skills/vanguard-protocolo.md` | .claude/skills/ | Processo operacional completo do Pentalateral |
 | Skill do cliente ativo | `.claude/skills/[cliente].md` | Padrões, alertas e histórico do projeto em curso |
 
 **Regra:** Se não leu estes instrumentos, não delibera.

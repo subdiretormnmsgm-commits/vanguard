@@ -38,7 +38,7 @@ Analise o modelo de negócio do Pentalateral IAH e execute as seguintes ações:
 4. Proponha 5 sugestões concretas e acionáveis para aumentar a taxa de conversão e
    acelerar a chegada ao primeiro cliente pagante
 5. Sugira 3 ajustes de posicionamento ou oferta que possam diferenciar ainda mais
-   o PENTALATERAL dos concorrentes
+   o Pentalateral dos concorrentes
 6. Recomende uma sequência de ações prioritárias para os próximos 30 dias
 ```
 
@@ -158,7 +158,7 @@ verdade difícil a elogio vazio.
 
 **Metodologia proprietária como fosso.** O Protocolo Pentalateral (5 fases, conselho deliberativo, memória acumulada, PDCA com aprendizado documentado) é genuinamente difícil de copiar — não porque seja secreto, mas porque requer orquestração humana de qualidade. Cada projeto entregue torna o sistema mais inteligente. Concorrente que aparecer amanhã começa do zero.
 
-**Posicionamento no vácuo certo.** O espaço entre freelancer e agência é real e mal-servido no Brasil. Empresas que precisam de produto digital profissional mas não têm R$ 50k e 6 meses para esperar não têm para onde ir. O PENTALATERAL preenche esse buraco.
+**Posicionamento no vácuo certo.** O espaço entre freelancer e agência é real e mal-servido no Brasil. Empresas que precisam de produto digital profissional mas não têm R$ 50k e 6 meses para esperar não têm para onde ir. O Pentalateral preenche esse buraco.
 
 ### VULNERABILIDADES
 
@@ -184,7 +184,7 @@ verdade difícil a elogio vazio.
 | **Solo IA operator** | Solopreneurs emergentes BR | R$ 2-8k | 1-3 semanas | Sem metodologia formal, sem garantia de processo |
 | **PENTALATERAL IAH** | — | R$ 8.500 | 1-5 dias | Dependência 1 pessoa, sem case publicado ainda |
 
-**Conclusão do mapa:** o PENTALATERAL compete diretamente com freelancers qualificados (por preço) e agências boutique (por resultado), mas entrega em prazo que nenhum dos dois consegue. O diferencial de velocidade é real e não está sendo entregue por nenhum concorrente mapeado no Brasil com metodologia documentada.
+**Conclusão do mapa:** o Pentalateral compete diretamente com freelancers qualificados (por preço) e agências boutique (por resultado), mas entrega em prazo que nenhum dos dois consegue. O diferencial de velocidade é real e não está sendo entregue por nenhum concorrente mapeado no Brasil com metodologia documentada.
 
 ---
 
@@ -204,7 +204,7 @@ verdade difícil a elogio vazio.
 
 ### SUGESTÃO 2 — Criar a "Calculadora de Hemorragia Digital" Como Isca de Qualificação
 
-**O que fazer:** Construir (o próprio PENTALATERAL pode fazer em 1 dia) uma ferramenta simples: o cliente responde 5 perguntas sobre o negócio dele e recebe uma estimativa de quanto está perdendo por não ter presença digital estruturada. Ao final: CTA para o Discovery via WhatsApp.
+**O que fazer:** Construir (o próprio Pentalateral pode fazer em 1 dia) uma ferramenta simples: o cliente responde 5 perguntas sobre o negócio dele e recebe uma estimativa de quanto está perdendo por não ter presença digital estruturada. Ao final: CTA para o Discovery via WhatsApp.
 
 **Por que funciona:** Transforma o problema abstrato ("preciso de presença digital") em número concreto ("você está perdendo ~R$ X/mês"). Ninguém discute número. E o lead que preenche já fez metade do Discovery por conta própria — Eduardo chega à reunião com contexto.
 
@@ -254,7 +254,7 @@ verdade difícil a elogio vazio.
 
 ### AJUSTE 1 — Substituir "Produto Digital em 5 Dias" por "O Sistema Que Devia Existir, No Ar em 5 Dias"
 
-**Raciocínio:** "Produto digital em 5 dias" fala sobre velocidade. "O sistema que devia existir" fala sobre inteligência e compreensão do problema. A segunda versão sugere que o PENTALATERAL entende o negócio do cliente melhor do que a agência que ele contratou antes.
+**Raciocínio:** "Produto digital em 5 dias" fala sobre velocidade. "O sistema que devia existir" fala sobre inteligência e compreensão do problema. A segunda versão sugere que o Pentalateral entende o negócio do cliente melhor do que a agência que ele contratou antes.
 
 **Linguagem para pitch:**
 > "A maioria das agências constrói o que o cliente pede. Nós construímos o que o negócio precisa — e entregamos em 5 dias."
@@ -321,9 +321,9 @@ SEMANA 4
 
 O modelo Pentalateral IAH tem fundamentos sólidos. O risco não está no produto — está na lacuna entre "metodologia excelente no papel" e "primeiro cliente pagante na conta". Essa lacuna se fecha com uma única coisa: evidência real funcionando em público.
 
-O V1 não é só um projeto para um amigo. É o ativo de marketing mais importante que o PENTALATERAL vai ter nos próximos 6 meses. Documentar cada passo, publicar os números reais e usar isso como alavanca de aquisição é o movimento que separa um negócio que decola de um negócio que fica em potencial.
+O V1 não é só um projeto para um amigo. É o ativo de marketing mais importante que o Pentalateral vai ter nos próximos 6 meses. Documentar cada passo, publicar os números reais e usar isso como alavanca de aquisição é o movimento que separa um negócio que decola de um negócio que fica em potencial.
 
-O único erro que pode matar o PENTALATERAL antes do tempo é esperar estar "pronto" para começar a vender.
+O único erro que pode matar o Pentalateral antes do tempo é esperar estar "pronto" para começar a vender.
 
 ---
 

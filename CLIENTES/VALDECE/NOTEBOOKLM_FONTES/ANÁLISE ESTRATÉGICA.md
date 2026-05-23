@@ -10,7 +10,7 @@ Custo operacional absurdamente baixo.
 Metodologia proprietária como fosso competitivo.
 O Protocolo Pentalateral — 5 fases, conselho deliberativo, memória acumulada, PDCA com aprendizado documentado — é genuinamente difícil de copiar. Não porque seja secreto, mas porque exige orquestração humana de qualidade. Cada projeto entregue torna o sistema mais inteligente. Concorrente que aparecer amanhã começa do zero.
 Posicionamento no vácuo certo do mercado.
-O espaço entre freelancer (sem metodologia) e agência tradicional (lento, caro, 70% de falha) é real e mal-servido no Brasil. Empresas que precisam de produto digital profissional mas não têm R$ 50k e 6 meses para esperar não têm para onde ir. O Quadrilateral preenche esse espaço com um modelo que os dois lados não conseguem replicar.
+O espaço entre freelancer (sem metodologia) e agência tradicional (lento, caro, 70% de falha) é real e mal-servido no Brasil. Empresas que precisam de produto digital profissional mas não têm R$ 50k e 6 meses para esperar não têm para onde ir. O Pentalateral preenche esse espaço com um modelo que os dois lados não conseguem replicar.
 
 ⚠️ Vulnerabilidades
 Dependência total de 1 pessoa.
@@ -25,7 +25,7 @@ Ausência de especialização por nicho.
 2. MAPA DE CONCORRENTES
 TipoExemplos no BrasilPreço estimadoPrazoPonto fracoAgência tradicionalAgências médias SP/RJR$ 30–150k3–12 mesesCusto fixo alto, burocracia, taxa de falha 70%Agência IA boutiqueElevenmind, Intelecta.digitalR$ 15–80k4–12 semanasAinda operam como agência — processo lentoFreelancer qualificadoWorkana, Upwork BR, indicaçãoR$ 3–15k2–8 semanasSem visão de negócio, sem metodologia, risco de abandonoMicro SaaS / White LabelPlataformas prontasR$ 300–2k/mêsImediatoGenérico, sem personalização realMVP shops internacionaisHouseofMVPs, Altar.ioUSD 15–60k4–16 semanasPreço em dólar, barreira cultural e de idiomaSolo IA operatorSolopreneurs emergentes BRR$ 2–8k1–3 semanasSem metodologia formal, sem garantia de processoPENTALATERAL IAH—R$ 8.5001–5 diasDependência de 1 pessoa, sem case publicado ainda
 
-Conclusão: O Quadrilateral compete por preço com freelancers e por resultado com agências boutique — mas entrega em prazo que nenhum dos dois consegue. O diferencial de velocidade é real e não está sendo entregue por nenhum concorrente mapeado no Brasil com metodologia documentada.
+Conclusão: O Pentalateral compete por preço com freelancers e por resultado com agências boutique — mas entrega em prazo que nenhum dos dois consegue. O diferencial de velocidade é real e não está sendo entregue por nenhum concorrente mapeado no Brasil com metodologia documentada.
 
 
 3. SUGESTÕES PRIORITÁRIAS
@@ -41,7 +41,7 @@ Prazo: Começa agora, durante o build do V1.
 
 💡 Sugestão 2 — Criar a Calculadora de Hemorragia Digital
 O que fazer
-Construir uma ferramenta simples — o próprio Quadrilateral pode entregar em 1 dia: o lead responde 5 perguntas sobre o negócio e recebe uma estimativa de quanto está perdendo por não ter presença digital estruturada. Ao final: CTA direto para o Discovery via WhatsApp.
+Construir uma ferramenta simples — o próprio Pentalateral pode entregar em 1 dia: o lead responde 5 perguntas sobre o negócio e recebe uma estimativa de quanto está perdendo por não ter presença digital estruturada. Ao final: CTA direto para o Discovery via WhatsApp.
 Por que funciona
 Transforma problema abstrato em número concreto. Ninguém discute número. O lead que preenche já fez metade do Discovery por conta própria — Eduardo chega à reunião com contexto real em vez de começar do zero.
 Como executar
@@ -79,7 +79,7 @@ Prazo: Script pronto na semana 1.
 
 🎯 Ajuste 1 — De Velocidade Para Inteligência
 AntesDepois"Produto digital em 5 dias""O sistema que devia existir, no ar em 5 dias"
-Raciocínio: A primeira versão fala sobre velocidade. A segunda fala sobre compreensão do problema. Sugere que o Quadrilateral entende o negócio do cliente melhor do que a agência que ele contratou antes.
+Raciocínio: A primeira versão fala sobre velocidade. A segunda fala sobre compreensão do problema. Sugere que o Pentalateral entende o negócio do cliente melhor do que a agência que ele contratou antes.
 Linguagem para pitch:
 
 "A maioria das agências constrói o que o cliente pede. Nós construímos o que o negócio precisa — e entregamos em 5 dias."
@@ -138,6 +138,6 @@ SEMANA 4
 NOTA FINAL
 O modelo Pentalateral IAH tem fundamentos sólidos. O risco não está no produto — está na lacuna entre "metodologia excelente no papel" e "primeiro cliente pagante na conta".
 Essa lacuna se fecha com uma única coisa: evidência real funcionando em público.
-O V1 não é só um projeto para um amigo. É o ativo de marketing mais importante que o Quadrilateral vai ter nos próximos 6 meses. Documentar cada passo, publicar os números reais e usar isso como alavanca de aquisição é o movimento que separa um negócio que decola de um que fica em potencial.
+O V1 não é só um projeto para um amigo. É o ativo de marketing mais importante que o Pentalateral vai ter nos próximos 6 meses. Documentar cada passo, publicar os números reais e usar isso como alavanca de aquisição é o movimento que separa um negócio que decola de um que fica em potencial.
 
-O único erro que pode matar o Quadrilateral antes do tempo é esperar estar "pronto" para começar a vender.
+O único erro que pode matar o Pentalateral antes do tempo é esperar estar "pronto" para começar a vender.

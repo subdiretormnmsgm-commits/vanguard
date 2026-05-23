@@ -79,7 +79,7 @@
 
 **Princípio central:** O serviço é a experiência inteira — não só o produto entregue.
 
-**Jornada do Cliente Quadrilateral (adaptada):**
+**Jornada do Cliente Pentalateral (adaptada):**
 
 ```
 PRÉ-SERVIÇO
@@ -195,7 +195,7 @@ Após cada projeto:
 
 **Princípio central:** Visualize o trabalho. Limite o trabalho em progresso. Gerencie o fluxo.
 
-**Board Kanban do Quadrilateral (quando houver múltiplos clientes):**
+**Board Kanban DO PENTALATERAL (quando houver múltiplos clientes):**
 
 ```
 DISCOVERY    → BUILD      → CHECK      → ENTREGUE   → RETAINER
@@ -224,7 +224,7 @@ WIP limit: máximo 2 em BUILD simultâneos
 
 ## SÍNTESE — AS 8 REGRAS DE ELITE
 
-| Framework | Regra de Ouro para o Quadrilateral |
+| Framework | Regra de Ouro para o Pentalateral |
 |---|---|
 | Shape Up | "Se não cabe em 5 dias, corta escopo. Prazo não move." |
 | Running Lean | "Hemorragia sem número = hipótese não validada. Não buildamos." |

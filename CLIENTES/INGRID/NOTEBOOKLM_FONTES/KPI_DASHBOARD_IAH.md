@@ -4,7 +4,7 @@
 
 ---
 
-## CICLO PDCA DO QUADRILATERAL
+## CICLO PDCA DO PENTALATERAL
 
 ```
 PLAN  → Discovery + DIRETRIZ do Gemini

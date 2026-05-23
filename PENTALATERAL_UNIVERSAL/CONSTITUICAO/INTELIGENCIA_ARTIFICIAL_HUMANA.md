@@ -63,7 +63,7 @@ IAH — INTELIGÊNCIA ARTIFICIAL HUMANA (Pentalateral)
 
 ## PARTE 2 — O CONSELHO: PAPÉIS IMUTÁVEIS (PENTALATERAL)
 
-> **Atualizado em 2026-05-18 — Sistema evoluiu de Quadrilateral para Pentalateral IAH**
+> **Atualizado em 2026-05-18 — Sistema evoluiu de Pentalateral para Pentalateral IAH**
 > O Embaixador é o 4º membro ativo — incorporado formalmente em 2026-05-17.
 
 | Membro | Papel | O que faz | O que NÃO faz |

@@ -1,4 +1,4 @@
-PLNEJAMENTO_ESTRATEGICO_VANGUARD_90D
+﻿PLNEJAMENTO_ESTRATEGICO_VANGUARD_90D
 
 Este é o **Planejamento Estratégico Vanguard (Ciclo de 90 Dias)**. Ele é implacável, detalhado e focado puramente em construir o nosso "Fosso Competitivo" (Moat) e alavancar receita.
 
@@ -90,7 +90,7 @@ Como vamos multiplicar o faturamento sem multiplicar o esforço? Este é o nosso
  * **O que é:** Uma vez que tenhamos um módulo perfeito para um nicho (ex: Motor de Busca Semântica para Advogados), paramos de vendê-lo um a um.
  * **Como funciona:** Licenciamos a arquitetura para "Parceiros Master" (ex: uma grande firma de contabilidade ou uma ordem profissional). Eles revendem aos seus clientes.
  * **Ticket:** Setup de R$ 5.000 + 30% de comissão sobre todas as mensalidades que o parceiro cobrar.
- * **Objetivo:** Escala exponencial. O Quadrilateral passa a ser a "Intel Inside" (o motor invisível) de dezenas de outros negócios.
+ * **Objetivo:** Escala exponencial. O Pentalateral passa a ser a "Intel Inside" (o motor invisível) de dezenas de outros negócios.
 
 ### ⏳ FASE 7: A ROTINA SOBERANA DO DIRETOR (O Relógio de Ponto)
 

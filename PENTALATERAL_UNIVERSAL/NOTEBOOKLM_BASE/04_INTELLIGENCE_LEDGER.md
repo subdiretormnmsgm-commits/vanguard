@@ -88,7 +88,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 | 5 — Monopólio | Ativo de setor | 3–6 meses | 20–30 loops | Loop semanal fixo |
 
 **Regra de ouro:** Loop acontece quando há output real para deliberar — gate passado, módulo entregue, decisão de arquitetura tomada, cliente reagindo. Nunca por calendário fixo sem evidência nova.
-**Aplica-se a:** todo projeto gerido pelo Quadrilateral. Definir o número de loops no Passo 7 (aprovação do plano).
+**Aplica-se a:** todo projeto gerido pelo Pentalateral. Definir o número de loops no Passo 7 (aprovação do plano).
 
 ---
 
@@ -177,14 +177,14 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 - `scripts/email_fechamento.ps1` — envia e-mail de fechamento de sessão
 - `scripts/alert_teste_email.ps1` — teste do sistema
 O Músculo aciona `email_fechamento.ps1` ao fechar qualquer sessão. Nunca recriar ou alterar `alert_config.ps1` sem instrução explícita do Diretor.
-**Aplica-se a:** toda sessão do Quadrilateral — qualquer projeto, qualquer cliente.
+**Aplica-se a:** toda sessão do Pentalateral — qualquer projeto, qualquer cliente.
 
 ---
 
 ### [P-018] O Diretor é o 4º LLM — Orquestração Dinâmica de Deficiências como Vantagem Competitiva
 **Descoberto:** 2026-05-16 | **Sessão:** Opinião Consultora #01 — construção colaborativa Diretor + Músculo
-**Evidência:** Ao construir a Ideia Disruptiva da Opinião #01, Eduardo articulou: a vantagem real do Quadrilateral não é usar IA — é saber usar a deficiência de cada IA contra a deficiência das outras. Gemini alucina com otimismo → Claude âncora com custo real. Claude tem amnésia → NotebookLM âncora com histórico. NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos. O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas, não apesar delas.
-**Princípio:** O Quadrilateral tem três funções constitucionais separadas. Os 3 LLMs são a válvula motriz com **comportamento ativo** — não passivo. Estão em looping evolutivo permanente: geram ideias, combatem as deficiências uns dos outros, acumulam padrões ciclo a ciclo, protegidos por firewalls persistentes (contra-ataques de deficiência estruturalmente embutidos, não dependentes de memória). O Diretor contribui com opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 3 LLMs e evoluídas por eles. Ao final, dá o Veredito soberano. A cada etapa, a cada processo, a cada projeto, o sistema fica mais inteligente e os processos mais definidos — acumulação exponencial que torna o modelo de negócio imbatível.
+**Evidência:** Ao construir a Ideia Disruptiva da Opinião #01, Eduardo articulou: a vantagem real do Pentalateral não é usar IA — é saber usar a deficiência de cada IA contra a deficiência das outras. Gemini alucina com otimismo → Claude âncora com custo real. Claude tem amnésia → NotebookLM âncora com histórico. NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos. O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas, não apesar delas.
+**Princípio:** O Pentalateral tem três funções constitucionais separadas. Os 3 LLMs são a válvula motriz com **comportamento ativo** — não passivo. Estão em looping evolutivo permanente: geram ideias, combatem as deficiências uns dos outros, acumulam padrões ciclo a ciclo, protegidos por firewalls persistentes (contra-ataques de deficiência estruturalmente embutidos, não dependentes de memória). O Diretor contribui com opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 3 LLMs e evoluídas por eles. Ao final, dá o Veredito soberano. A cada etapa, a cada processo, a cada projeto, o sistema fica mais inteligente e os processos mais definidos — acumulação exponencial que torna o modelo de negócio imbatível.
 **Aplica-se a:** toda proposta de substituir o processo por execução direta ou reduzir a tensão entre os LLMs. O comportamento ativo e o looping cíclico são a fonte da vantagem composta. Reduzir a tensão é reduzir a inteligência. Os firewalls persistentes não são burocracia — são o que impede a deriva silenciosa que mata sistemas complexos.
 
 ---
@@ -467,7 +467,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [SESSÃO 2026-05-12] — V24 Intelligence Compounding Engine
 
-**Direção da sessão:** Construção da inteligência evolutiva do Quadrilateral — sistema de acumulação por sessão.
+**Direção da sessão:** Construção da inteligência evolutiva do Pentalateral — sistema de acumulação por sessão.
 
 **Eventos capturados:**
 
@@ -499,7 +499,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 `[FRICÇÃO]` Músculo entrou na Etapa 4 (build) antes da Etapa 2 (Gemini) e Etapa 3 (NotebookLM). Corrigido após sinalização do Diretor.
 
-`[FRICÇÃO]` Processo do Quadrilateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
+`[FRICÇÃO]` Processo do Pentalateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
 
 `[CONFIRMADO]` Algoritmo de qualificação BLOCO A funcionou: 3 respostas fortes = GO imediato. Prazo de 5 dias confirmado como restrição real, não negociável.
 

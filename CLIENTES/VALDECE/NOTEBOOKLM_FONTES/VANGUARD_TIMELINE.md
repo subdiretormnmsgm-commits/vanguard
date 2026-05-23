@@ -85,7 +85,7 @@ Nenhuma dessas perguntas foi teórica. Cada uma foi respondida com stack funcion
 ### V5 — Soberano Digital
 **O que foi construído:** Primeiro "Auditor IA" interno usando Claude Haiku. Docker Mestre para containerização. UI no padrão Awwwards. Sistema White-Label com brand-config.js.
 **O que foi aprendido:** IA como auditor interno — não como gerador de conteúdo — é onde o valor real está. O Haiku avaliando relatórios internos antecipou em meses o papel do NotebookLM como Auditor do Pentalateral.
-**Legado:** Embrião direto do Auditor (NotebookLM). A ideia de que IA pode ser usada para auditar a própria IA — e não apenas para gerar output — é o que torna o Quadrilateral impossível de copiar.
+**Legado:** Embrião direto do Auditor (NotebookLM). A ideia de que IA pode ser usada para auditar a própria IA — e não apenas para gerar output — é o que torna o Pentalateral impossível de copiar.
 
 ---
 
@@ -148,7 +148,7 @@ Nenhuma dessas perguntas foi teórica. Cada uma foi respondida com stack funcion
 ### V14 — Sovereign Optimization
 **O que foi construído:** PDCA Ledger embutido no produto, Hive Mind com SQL e UI, Trojan Generator PNG, Dynamic HUD Alerts, 5 correções de escalabilidade.
 **O que foi aprendido:** PDCA embutido no produto gera inteligência acumulada por uso — o sistema melhora enquanto o cliente usa. Mas sem cliente real, o PDCA é exercício teórico. A V14 provou que a arquitetura funciona. A V25 prova que a dor existe.
-**Legado:** A cadência de loops do Quadrilateral (P-009) é a aplicação direta do PDCA Ledger ao processo de desenvolvimento, não ao produto.
+**Legado:** A cadência de loops DO PENTALATERAL (P-009) é a aplicação direta do PDCA Ledger ao processo de desenvolvimento, não ao produto.
 
 ---
 
@@ -192,7 +192,7 @@ Deficiências de cada membro do Conselho mapeadas e documentadas pela primeira v
 - O sistema só é forte quando cada membro combate a deficiência do outro — não quando concordam
 
 **Legado:** Protocolo de Imunidade do CLAUDE.md. Tabela de deficiências e contra-ataques.
-O que torna o Quadrilateral impossível de copiar: não é a tecnologia — é o mapeamento de onde cada IA falha e como as outras compensam.
+O que torna o Pentalateral impossível de copiar: não é a tecnologia — é o mapeamento de onde cada IA falha e como as outras compensam.
 
 ### V23 — The Revenue Strike
 **O que foi construído:** Partner Portal Alpha, Upsell Engine, Tracking Pixel, Design Sovereign Terminal.
@@ -237,7 +237,7 @@ Um sistema que aprende apenas por versão — não por sessão — perde 90% do 
 
 ---
 
-## FASE 3 — PRIMEIROS CLIENTES REAIS + QUADRILATERAL OPERACIONAL (V25+)
+## FASE 3 — PRIMEIROS CLIENTES REAIS + Pentalateral OPERACIONAL (V25+)
 > Período: 2026-05-12 → presente
 > O método encontra a dor real. O produto é testado pelo único juiz que importa: o cliente.
 
@@ -373,13 +373,13 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Linha do Tempo** | 2026-05-17 | VANGUARD_TIMELINE.md criada. Fonte histórica obrigatória do Auditor. |
 | **Embaixador** | 2026-05-17 | **Formalizador → Embaixador.** Upgrade de membro passivo (contratos) para 4º conselheiro ativo: memória persistente do cliente, 11 mandatos, pipeline de lead, debrief pós-reunião. |
 | **P-031** | 2026-05-18 | Embaixador como filtro de realidade: CONFIRMA/EXPANDE/ALERTA cada ideia de [M]+[G]+[N] com base em comportamento real do cliente. Ideia do Diretor. |
-| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Quadrilateral para Pentalateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 25 ideias/ciclo [M×2+G+N+E × 5]: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
+| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Pentalateral para Pentalateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 25 ideias/ciclo [M×2+G+N+E × 5]: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
 | **Sistema de Alertas Zero-Composição** | 2026-05-18 | Telegram Bot + briefing_diario.ps1 + alerta_whatsapp.ps1 operacionais. Eduardo recebe contexto + mensagem exata para copiar no WhatsApp. Nenhuma composição mental necessária. |
 | **P-032** | 2026-05-18 | MEMORIA_EMBAIXADOR é atualizada automaticamente pelo Músculo após qualquer deliberação que afete cliente ativo. Detectado pelo Diretor — FALHA-PROCESSO-2026-05-18 registrada e corrigida. |
 | **P-033 + Sync Universal** | 2026-05-20 | sync_vanguard_docs.ps1: toda mudança em PENTALATERAL_UNIVERSAL/ sincroniza automaticamente CLIENTES/*/NOTEBOOKLM_FONTES/ via SHA-256. Integridade verde ou alerta automático. |
 | **P-050 + Knowledge Base** | 2026-05-21 | Toda solução técnica documentada em KNOWLEDGE_BASE/ imediatamente. health_check.py testa roteiro do cliente e envia relatório Telegram. |
 | **Expansão Universal de Papéis** | 2026-05-23 | **A maior evolução do Pentalateral desde sua criação.** 12 novas deficiências formalizadas (DEF-G/N/M/E 5-7). COMANDO_ESTRATEGISTA_MASTER (P-052) resolve amnésia estrutural do Gemini. MANIFESTO_DE_FONTES (P-053) declara o que o Auditor pode/não pode ver. REGISTRO_DE_PREMISSAS torna premissas silenciosas visíveis. CANDIDATOS_A_PRINCIPIO captura fricção→princípio em tempo real. 25 ideias/ciclo [M×2+G+N+E × 5]. TEMPERATURA_PONDERADA (score 0-10) substitui temperatura simples. INTELIGENCIA_CRUZADA_NICHO conecta padrões entre clientes do mesmo nicho. |
-| **Rename QUADRILATERAL → PENTALATERAL** | 2026-05-23 | Pasta `PENTALATERAL_UNIVERSAL/` renomeada para `PENTALATERAL_UNIVERSAL/`. 234+ arquivos renomeados via git mv. Todas as referências em scripts, hooks, skills e documentos atualizadas. Decisão formal do Diretor Eduardo. |
+| **Rename Pentalateral → PENTALATERAL** | 2026-05-23 | Pasta `PENTALATERAL_UNIVERSAL/` renomeada para `PENTALATERAL_UNIVERSAL/`. 234+ arquivos renomeados via git mv. Todas as referências em scripts, hooks, skills e documentos atualizadas. Decisão formal do Diretor Eduardo. |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
@@ -488,13 +488,13 @@ Qualquer pessoa pode usar Gemini + NotebookLM + Claude.
 Ninguém mais mapeou onde cada um falha, quando falha e como os outros compensam.
 A Síndrome do Yes-Man do Auditor, a Alucinação Otimista do Estrategista,
 o Momentum de Execução do Músculo — esses mapeamentos levaram meses de fricção para emergir.
-São o que torna o Quadrilateral anti-frágil: cada falha fortalece o sistema, não o enfraquece.
+São o que torna o Pentalateral anti-frágil: cada falha fortalece o sistema, não o enfraquece.
 
 **3. O loop é composto — não linear.**
 Um concorrente que começa hoje tem que percorrer o mesmo arco:
 construir produto (V1–V16), construir método (V17–V24), encontrar cliente (V25+).
 E começar sem os 25 princípios que esse arco gerou.
-Cada ciclo do Quadrilateral nos distancia mais — porque o loop fica mais rico a cada volta.
+Cada ciclo do Pentalateral nos distancia mais — porque o loop fica mais rico a cada volta.
 
 **4. O Diretor é único.**
 P-018 e P-021 provam: as inovações mais importantes do processo vieram de Eduardo.
@@ -536,7 +536,7 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 | ✅ 2026-05-19 | Entrega presencial Valdece — toga-digital-valdece.netlify.app · 61 acórdãos | Comercial |
 | ✅ 2026-05-19 | Contrato Valdece assinado — R$5k setup + R$350/mês MRR | Comercial |
 | ✅ 2026-05-23 | Expansão de papéis do Pentalateral — 12 DEFs + MASTER + MANIFESTO + REGISTRO | Processo |
-| ✅ 2026-05-23 | Rename QUADRILATERAL → PENTALATERAL — decisão formal do Diretor | Identidade |
+| ✅ 2026-05-23 | Rename Pentalateral → PENTALATERAL — decisão formal do Diretor | Identidade |
 | [ ] 2026-05-23 | V3 ENRICHMENT Valdece — `python ingest.py --mode reingest` (quando DNS disponível) | Técnico |
 | [ ] 2026-05-30 | Deadline PROJ-002 Ingrid — Gate Dia 15 | Operacional |
 | [ ] 2026-05-30 | Ingrid Dias 12-13: Contador de Pontos Ponderados + Push Notificações | Build |
