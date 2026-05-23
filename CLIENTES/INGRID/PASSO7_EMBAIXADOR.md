@@ -1,11 +1,11 @@
-﻿# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO INGRID · LOOP 4
-> Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Refatorado em 2026-05-18
+# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO INGRID · LOOP 5
+> Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Atualizado em 2026-05-23
 > Eduardo não edita este arquivo — é o guia de ativação do Embaixador para este projeto.
-> Músculo atualiza as ideias dos sócios (SEÇÃO D) ao fechar cada loop.
+> Músculo atualiza a SEÇÃO D com ideias dos sócios ao fechar cada loop.
 
 ---
 
-## 📌 INSTRUÇÕES PARA O DIRETOR — COMO ACIONAR O EMBAIXADOR
+## INSTRUÇÕES PARA O DIRETOR — COMO ACIONAR O EMBAIXADOR
 
 ```
 1. RODAR no terminal (Músculo executa automaticamente):
@@ -15,76 +15,101 @@
    → Abre Explorer na pasta CLIENTES\INGRID\CLAUDE_PROJECT\
 
 2. NO CLAUDE PROJECTS:
-   Fazer upload de MEMORIA_EMBAIXADOR.md (sempre — é a memória viva do cliente)
-   Marcar a SEÇÃO correspondente ao tipo de ativação
-   Colar o bloco da SEÇÃO no chat
+   Colar o bloco da SEÇÃO correspondente ao tipo de ativação no chat
+   (Embaixador tem memória persistente — não precisa de anexos)
 
 3. AGUARDAR resposta do Embaixador (6 blocos obrigatórios).
    Músculo atualiza MEMORIA_EMBAIXADOR.md automaticamente via P-032.
 ```
 
 > O Embaixador é o único membro com memória persistente da Ingrid entre sessões.
-> Sem ele, cada gate começa do zero. Com ele, cada gate começa onde o anterior terminou.
 
 ---
 
-## 🛡️ PROTOCOLO ANTI-DEFICIÊNCIAS DO EMBAIXADOR
+## PROTOCOLO ANTI-DEFICIÊNCIAS DO EMBAIXADOR
 
 **Deficiência 1 — Viés de Afinidade**
-Ingrid é gentil. O Embaixador pode suavizar alertas negativos.
-Contra-ataque: ao emitir ALERTA, exigir evidência concreta da MEMORIA_EMBAIXADOR — não intuição.
+Ingrid é gentil e não reclama quando frustrada — abandona silenciosamente.
+Contra-ataque: exigir flags negativos concretos. Relatório só positivo = SV imediato.
 
 **Deficiência 2 — Excesso de Otimismo de Engajamento**
-Pode interpretar silêncio como "focada nos estudos" quando pode ser abandono emocional.
-Contra-ataque: sem resposta da Ingrid há 5+ dias → [CHURN-WATCH] obrigatório.
-Prazo ativo: se Ingrid não usar o app até 2026-05-23, temperatura sobe para AMARELA-ESCURA.
+Pode interpretar uso diário como consolidação quando ainda é hábito frágil (<3 semanas).
+Contra-ataque: sem uso do app por 3+ dias → [CHURN-WATCH] obrigatório. VERDE FRÁGIL ≠ VERDE.
 
 **Deficiência 3 — Omissão de Flags Desconfortáveis**
-Pode focar no positivo e omitir hipóteses pendentes (H-3, H-4, H-5).
-Contra-ataque: Músculo pergunta diretamente: "Qual é o sinal mais preocupante sobre Ingrid agora?"
+Pode suavizar risco de push iOS (limitação técnica real que afeta a expectativa da Ingrid).
+Contra-ataque: Músculo pergunta diretamente: "Qual o sinal mais preocupante sobre Ingrid agora?"
 
 **Deficiência 4 — Limitação a Evidências**
-O Embaixador pode responder apenas com o que Ingrid disse/fez, ignorando análise inovadora.
-Contra-ataque: Eduardo quer TANTO evidências quanto pensamentos inovadores.
 "Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição obrigatória.
-Nunca dizer ou pensar "o Diretor pediu evidências, não opinião" — sempre as duas coisas.
+Nunca limitar a citar o que Ingrid fez — contribuir com o que nenhum outro membro viu.
+
+**DEF-E-6 — Silo de Cliente**
+Vê Ingrid isoladamente. Ao emitir [E-1 a E-5], aplicar INTELIGENCIA_CRUZADA_NICHO se houver outro cliente EdTech:
+```
+INTELIGENCIA_CRUZADA_NICHO (quando aplicável):
+  Padrão em [CLIENTE-A]: [comportamento]
+  Padrão em [CLIENTE-B]: [comportamento]
+  O que isso sugere para o nicho EdTech-Concurso: [hipótese]
+```
+
+**DEF-E-7 — Temperatura Simples**
+Usar sempre TEMPERATURA_PONDERADA:
+```
+TEMPERATURA_PONDERADA:
+  Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+  Tendência (últimos 7 dias): [subindo / estável / caindo]
+  Contexto de pagamento: [pago / pendente / risco]
+  Score 0-10: [N]  ← Score < 6 = CHURN-WATCH automático
+```
 
 ---
 
-## 📋 CABEÇALHO DA ATIVAÇÃO
+## CABEÇALHO DA ATIVAÇÃO
 
 ```
 ATIVAÇÃO DO EMBAIXADOR — INGRID
 Data: [YYYY-MM-DD]
-Loop: 4 | Fase: [PRÉ-REUNIÃO / DEBRIEF / PIPELINE / REAÇÃO AO PENTALATERAL]
+Loop: 5 | Fase: [PRÉ-REUNIÃO / DEBRIEF / PIPELINE / REAÇÃO AO PENTALATERAL]
 Modo: [FLASH / COMPLETO]
 ```
 
 ---
 
-## 📋 CONTEXTO ATUALIZADO DO PROJETO — Loop 4
+## CONTEXTO ATUALIZADO DO PROJETO — Loop 5
 
 **Cliente:** Ingrid
 **Projeto:** Ferramenta de Estudo Sedes-DF — Cargo 202 (Técnico Administrativo)
 **Banca:** Instituto Quadrix | **Data prova:** 2026-09-06 | **Deadline entrega:** 2026-05-30
-**Camada:** 2 — Produto | **Loop atual:** 4 (Dias 9–11)
-**Temperatura atual:** VERDE (Termo assinado + App no ar — 2026-05-18)
+**Camada:** 2 — Produto | **Loop atual:** 5 (Dias 12–13)
+**Temperatura atual:** VERDE FRÁGIL → VERDE CONSOLIDANDO (hábito ~2 semanas)
 **App:** https://subdiretormnmsgm-commits.github.io/vanguard/ — LIVE
-**Gates aprovados:** Dia 2 + Dia 5 + Dia 8 (APROVADO — 2026-05-19: PWA completo + Tutor 3 níveis + Fallback + TTI + bold rendering fix) | **Gate em andamento:** Dia 11 (Heatmap + Micro-Simulado)
 
-**Perfil do Candidato (P-038 — atualizado com vetores do Embaixador):**
-- Perfil A — Candidato Sistemático: 30–50 questões/dia reais (pico: até 100 no fim de semana)
-- Risco de esgotamento do banco: 460 questões ÷ 80/dia = 23 dias → expansão urgente para 1.000+
-- Gatilho de abandono: "Não estou vendo questão nova" — banco estático = churn silencioso
-- Vetor de motivação: PROVA SOCIAL ("estudei 140 questões esta semana") — não orientação
-- Vetor de silêncio: silêncio de Ingrid = foco, não desinteresse — distinguir por duração
-- Fase atual do ciclo do concurso: pré-prova (111 dias) — modo sistemático ativo
+**Gates aprovados:**
+- Dia 2: qualidade das questões
+- Dia 5: feed 70/30 funcional (7 dias, 0 erros)
+- Dia 8: PWA completo — Clickwrap + Tutor 3 níveis + Fallback + TTI (APROVADO 2026-05-19)
+- Dia 11: Heatmap (Mapa de Soberania) + Micro-Simulado Dominical (APROVADO 2026-05-20)
+
+**Banco:** 460 questões · 13 disciplinas · Cargo 202
+
+**Missão Loop 5 (Dias 12-13):**
+- Contador de Pontos Ponderados — "quanto valho nessa prova?"
+- Notificações Push dominicais — lembrete do Micro-Simulado
+- Incógnita crítica: Push via PWA funciona em iOS Safari?
+
+**Perfil comportamental confirmado:**
+- Usa o app diariamente — hábito em formação, não consolidado
+- Lê enunciados de forma literal (mindset Quadrix — não generaliza)
+- Não reclama quando frustrada — abandona silenciosamente
+- Motivação: confirmação de progresso concreto ("seu terreno")
+- Micro-Simulado dominical: engajamento a confirmar no próximo check-in
+- Horário de pico: dado disponível em `horario_inicio_sessao` — ainda não confirmado verbalmente
 
 **Watchdog ativo:**
-- [CHURN-WATCH] silêncio > 5 dias a partir de 2026-05-16 → alerta 2026-05-23
-- [SCOPE-WATCH] H-5: compartilhamento de login pendente — verificar Gate Dia 8
-- [PIPELINE] pergunta [E-2] no Gate Dia 8: "Você conhece mais alguém prestando concurso?"
-- [TELEMETRIA] KPI crítico: tempo entre assinatura → primeiro acesso → primeira questão respondida
+- [CHURN-WATCH] se sem uso >3 dias a partir de 2026-05-23
+- [SCOPE-WATCH] compartilhamento de login — endereçar no SaaS Readiness Audit (Dias 14-15)
+- [PIPELINE] Ingrid conhece outras candidatas prestando Sedes-DF?
 
 ---
 
@@ -93,71 +118,56 @@ Modo: [FLASH / COMPLETO]
 - [ ] SEÇÃO A — BRIEFING PRÉ-REUNIÃO (gate ou entrega se aproximando)
 - [ ] SEÇÃO B — DEBRIEF PÓS-REUNIÃO (após qualquer contato real com Ingrid)
 - [ ] SEÇÃO C — PIPELINE DE LEAD (Ingrid mencionou alguém)
-- [ ] SEÇÃO D — REAÇÃO AO PENTALATERAL (Músculo + Gemini + NotebookLM geraram ideias)
+- [ ] SEÇÃO D — REAÇÃO AO PENTALATERAL (após receber DIRETRIZ V6 + Skill ingrid-v5.md)
 
 ---
 
 ## SEÇÃO A — BRIEFING PRÉ-REUNIÃO
 
-> Usar antes do Gate Dia 8 ou qualquer contato significativo com Ingrid.
+> Usar antes de qualquer contato significativo com Ingrid (check-in, gate, entrega).
 
 ```
-Embaixador, briefing pré-gate para INGRID.
+Embaixador, briefing pré-contato com INGRID.
 
-O QUE SABEMOS SOBRE INGRID (MEMORIA_EMBAIXADOR):
-- Perfil Sistemático — 30–50 questões/dia, orientada por resultado concreto
-- Silêncio pós-assinatura: dado neutro (foco), não sinal negativo — ainda
-- Tom que funciona: caloroso, direto, sem jargão técnico
-- Motivação central: número concreto ("estudei 140 questões esta semana")
-- Primeira sessão precisa entregar 10 questões em < 5 minutos do primeiro clique
-
-O QUE ESTE GATE PRECISA ENTREGAR:
-- Ingrid abre o app, responde 10 questões reais, salva progresso
-- Eduardo colhe 3 frases de feedback via WhatsApp (sem mencionar tecnologia)
-- Pergunta de lead plantada casualmente: "Você conhece mais alguém prestando concurso?"
-- Temperatura validada com dados reais (até aqui: inferida)
-
-O QUE QUEREMOS DESCOBRIR:
-- H-3: primeira reação ao app vs. TEC Concursos?
-- H-4: se questões parecerem difíceis, vai persistir ou abandonar?
-- H-5: estudará no celular ou notebook? (revela uso pretendido sem perguntar diretamente)
-- H-6: como vai reagir ao ouvir R$97/mês? (monitorar no futuro)
+ESTADO ATUAL (2026-05-23):
+- Loop 5 em andamento — Dias 12-13: Contador de Pontos + Push dominical
+- Temperatura: VERDE FRÁGIL → consolidando. Hábito ~2 semanas.
+- Gate Dia 11 APROVADO — Mapa de Soberania entregue, Micro-Simulado ativo
+- Deadline do projeto: 2026-05-30 (7 dias restantes)
+- Incógnita: Push funciona em iOS Safari? (confirmar antes de prometer à Ingrid)
 
 PEDIDO AO EMBAIXADOR:
-1. Quais pontos Eduardo deve abordar com cuidado neste gate?
-2. Qual pergunta vai revelar o estado emocional real da Ingrid?
-3. O que Eduardo NÃO deve mencionar no Gate Dia 8?
-4. Análise inovadora: há algo que nenhum outro membro está vendo sobre este momento específico?
+1. Qual o risco de engajamento mais urgente para os próximos 7 dias?
+2. O que Eduardo NÃO deve prometer sobre notificações Push (limitação iOS)?
+3. Como apresentar o Contador de Pontos sem criar ansiedade em vez de motivação?
+4. Análise inovadora: há algo que nenhum outro membro está vendo sobre este momento?
 ```
 
 ---
 
 ## SEÇÃO B — DEBRIEF PÓS-REUNIÃO (Passo 8.5)
 
-> Usar após qualquer interação com Ingrid — Gate, WhatsApp, visita.
-> Prazo máximo: 24 horas após o contato.
+> Usar após qualquer interação com Ingrid — Gate, WhatsApp, check-in.
 
 ```
-Embaixador, debrief pós-gate com INGRID.
+Embaixador, debrief pós-contato com INGRID.
 
 O QUE ACONTECEU (Eduardo relata):
-[DESCREVER: como foi o gate, quais questões ela viu, como reagiu ao app,
- comentários que fez, dificuldades aparentes, como terminou a sessão]
+[DESCREVER: o que foi discutido, como ela reagiu ao app,
+ comentários sobre o Micro-Simulado dominical, horário de uso, etc.]
 
 PEDIDO AO EMBAIXADOR:
-Com base neste relato e no histórico da Ingrid na MEMORIA_EMBAIXADOR:
-
-1. Quais hipóteses (H-1 a H-6) foram CONFIRMADAS ou REFUTADAS?
-2. Há sinais de [SCOPE-WATCH]? (compartilhamento, expectativa além do contrato)
-3. Há sinais de [CHURN-WATCH]? (frustração, comparação negativa, desistência)
-4. Ingrid mencionou alguém? → acionar SEÇÃO C se sim
-5. Temperatura atual: FRIA / MORNA / QUENTE / ENTUSIASMADA?
-6. Qual próximo passo maximiza uso + avanço comercial?
+1. Ingrid usa o app aos domingos? (crítico para a feature Push)
+2. Qual é o horário de uso real (manhã / tarde / noite)?
+3. Há sinais de [CHURN-WATCH]? (comparação negativa, frustração, silêncio prolongado)
+4. Há sinais de [SCOPE-WATCH]? (compartilhamento de login, expectativa além do contrato)
+5. Ingrid mencionou alguém? → acionar SEÇÃO C se sim
+6. TEMPERATURA_PONDERADA atualizada (formato obrigatório acima)
 7. Análise inovadora: o que não foi dito neste relato que o perfil da Ingrid sugere?
 
 ATUALIZAR MEMORIA_EMBAIXADOR com:
 - Data + resumo de 3 linhas
-- Hipóteses confirmadas/refutadas
+- Confirmações sobre uso dominical e horário de pico
 - Alertas ativos
 - Temperatura atualizada
 - Próxima ação recomendada
@@ -167,7 +177,7 @@ ATUALIZAR MEMORIA_EMBAIXADOR com:
 
 ## SEÇÃO C — PIPELINE DE LEAD
 
-> Usar quando Ingrid mencionar alguém que possa ser lead.
+> Usar quando Ingrid mencionar outra candidata prestando Sedes-DF ou concurso similar.
 
 ```
 Embaixador, pipeline de lead detectado a partir de INGRID.
@@ -177,91 +187,49 @@ O QUE INGRID DISSE:
 
 PEDIDO AO EMBAIXADOR:
 1. Perfil mais provável deste lead (cargo, banca, fase do ciclo)?
-2. Qual é a dor mais provável inferida pelo contexto?
-3. Qual pergunta casual Eduardo planta na Ingrid para saber mais?
-4. Em qual momento natural da próxima conversa essa pergunta cabe?
-5. Se qualificado, qual seria o "Choque de Valor Imediato" mais impactante?
-6. Análise inovadora: como este lead muda a estratégia de escala do EdTech-Concurso?
-
-GATILHO PLANEJADO (Gate Dia 8):
-Eduardo planta: "Você conhece mais alguém prestando concurso esse ano?"
-Registrar resposta aqui para o Embaixador processar.
+2. Qual pergunta casual Eduardo planta na Ingrid para qualificar sem parecer comercial?
+3. INTELIGENCIA_CRUZADA_NICHO: o padrão de Ingrid sugere algo sobre este nicho?
+4. Business case: a plataforma suporta uma segunda candidata sem mudança de código?
+   (RLS já ativo — resposta técnica é sim, confirmar com Embaixador)
 ```
 
 ---
 
 ## SEÇÃO D — REAÇÃO AO PENTALATERAL (P-031)
 
-> Usar quando Músculo + Gemini + NotebookLM geraram ideias e precisam do filtro de realidade.
-> As ideias abaixo são do Loop 3 (2026-05-18). Músculo atualiza a cada loop.
+> Usar após receber DIRETRIZ V6 do Gemini + Skill ingrid-v5.md do NotebookLM.
+> [G-1 a G-5] e [N-1 a N-5]: preencher com as ideias reais recebidas antes de enviar.
 
 ```
 Embaixador, reação ao ciclo atual do Pentalateral — INGRID.
-Loop 3 · Sessão 2026-05-18 · App no ar · pré-Gate Dia 8
+Loop 5 · Sessão 2026-05-23 · Dias 12-13: Contador de Pontos + Push
 
-[M-11 a M-15] — IDEIAS DO MÚSCULO (Loop 3):
+[M-1 a M-5] — IDEIAS DO MÚSCULO (Loop 4 · relatorio_V4):
 
-M-11: verificar_projeto.ps1 (P-041) — checklist de 6 artefatos obrigatórios.
-Falha detectada: PASSO7 não instanciado para Ingrid sem que o Músculo detectasse.
-Pergunta: P-041 deve entrar no BLOCO 0 da DIRETRIZ como verificação obrigatória?
+M-1: Modo Sedes-DF Chrome — limitar interface a 1 questão por vez + timer fixo.
+     Simula tela de prova real. Pergunta: Ingrid treinaria nesse modo ou evitaria a pressão?
 
-M-12: G/N/E/V no iniciar.ps1 — acesso cirúrgico ao Conselho com 1 letra.
-Elimina dependência de memória do Diretor sobre qual script rodar.
-Pergunta: [E] deve ser a primeira opção dado que o Embaixador é o filtro de realidade?
+M-2: Contador de Pontos como argumento de venda — SVG compartilhável no WhatsApp.
+     "Simulado: você tiraria X pontos de Y." Pergunta: Ingrid compartilha conquistas ou é discreta?
 
-M-13: Perfis de Nicho como produto central da Vanguard (P-040).
-EdTech-Concurso + LegalTech-Penal como nichos inaugurais. V26 tem isso como núcleo.
-Pergunta: os Perfis devem ter pasta própria em PENTALATERAL_UNIVERSAL/ para herança automática?
+M-3: Push adaptativo por horário de pico — horario_inicio_sessao disponível.
+     Se Ingrid estuda 20h-22h, Push vai às 19h50. Pergunta: Ingrid usa o app no horário fixo?
 
-M-14: BLOQUEIO_CRITICO no seed — detecção proativa de dependências externas críticas.
-Créditos Anthropic esgotados → mensagem clara + link direto de resolução.
-Pergunta: deve gerar alerta Telegram além de exibir no terminal?
+M-4: Raio-X de Armadilhas Quadrix — agrupar erros por tipo de pegadinha (prescinde/salvo/nunca).
+     Treino cirúrgico por padrão de erro. Pergunta: Ingrid percebe os padrões de erro ou só vê "errei"?
 
-M-15: PASSO7_EMBAIXADOR com 6 blocos como padrão universal para todos os clientes.
-Instanciado hoje para Ingrid pela primeira vez.
-Pergunta: deve ser gerado automaticamente ao criar qualquer novo projeto?
+M-5: Relatório semanal automatizado — RPC progresso_semanal · WhatsApp toda segunda.
+     Pergunta: Ingrid responderia bem a uma mensagem automática ou prefere silêncio?
 
 ---
 
-[G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI · Loop 3):
-
-G-1: wip_guard_soberano.ps1 — script de validação obrigatório antes de acionar o Diretor.
-4 checks: crédito Anthropic + URL app + setup P-041 + banco questões.
-Regra: Músculo só aciona Diretor após "ALL CHECKS PASSED".
-
-G-2: Documentos de entrega automáticos via session_close.ps1 do último loop.
-Relatório + Manual + Metodologia em Markdown — entrega técnica vira Ativo Soberano.
-Transforma produto de R$3.000 em consultoria percebida de R$15.000.
-
-G-3: GovTech como 3º nicho estratégico — motor de análise de editais de licitação.
-Dor: empresas perdem contratos por não lerem cláusulas obscuras de editais.
-Produto: ingestão de edital → match de produtos da empresa + alertas de cláusulas críticas.
-
-G-4: Perfis de Nicho como argumento de venda irresistível para o 2º cliente EdTech.
-Pitch: "Já mapeamos onde seus concorrentes perdem alunos — construímos a vacina antes do código."
-Muda conversa de "sabemos programar IA" para "conhecemos seu usuário há 3 projetos".
-
-G-5: Auditor (NotebookLM) como guardião dos Perfis de Nicho.
-Visão onisciente do histórico, cruza fracasso de retenção com sucesso de engajamento.
+[G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI · DIRETRIZ V6):
+[A PREENCHER após receber DIRETRIZ V6 do Gemini]
 
 ---
 
-[N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM · ingrid-v5.md · Loop 3):
-
-N-1: wip_guard_soberano.ps1 — trava intransponível antes do Diretor ser acionado.
-Ping URL pública + verifica .env.local e PASSO7 + checa banco com variáveis do P-038.
-
-N-2: API Wallet Ping no seed — requisição mínima para checar saldo Anthropic antes do loop.
-Previne BLOQUEIO_CRITICO silencioso (Erro 500 sem diagnóstico).
-
-N-3: Auto-Niche Profiler — script que compila MEMORIA_EMBAIXADOR + LOG_CLIENTE ao fechar projeto.
-Atualiza PENTALATERAL_UNIVERSAL/PERFIS_NICHO/ automaticamente via Claude API.
-
-N-4: Handoff as Code — gerar_handoff_docs.ps1 lê views Supabase + LEDGER.
-Gera 3 Markdowns com métricas reais da Ingrid — sem redigir manualmente.
-
-N-5: Telemetria Anti-Abandono — gatilho de banco baseado no P-038.
-Média móvel 3 dias < 20 questões/dia → alerta Embaixador antes do abandono definitivo.
+[N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM · ingrid-v5.md):
+[A PREENCHER após receber Skill ingrid-v5.md do NotebookLM]
 
 ---
 
@@ -280,82 +248,80 @@ Formato por ideia:
   Severidade (só ALERTA): [ALTO / CRÍTICO]
 
 PARTE 2 — ANÁLISE INOVADORA E PENSAMENTOS CONTRIBUTIVOS
-O Diretor quer TANTO evidências quanto pensamentos inovadores.
-Se não houver evidência comportamental mas houver uma ideia valiosa — dizê-la é obrigatório.
-"Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição legítima.
-Nunca se limitar a citar o que Ingrid fez — contribuir com o que nenhum outro membro viu.
-
+"Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição obrigatória.
 Operar em amplitude total (P-035):
-- Estratégia comercial: quando e como fazer o pitch V2? Abrir em R$150 ou R$97?
-- Pipeline: como qualificar o lead do Gate Dia 8 sem parecer comercial?
-- Business case: quais dados das primeiras 3 sessões já validam escala para 500 candidatas?
-- Risco não endereçado: URL pública indexável — quando se torna vetor de pirataria?
+- Push iOS: qual é o impacto real se não funcionar no Safari? Ingrid usa iOS?
+- Contador de Pontos: pode criar ansiedade em vez de motivação? Como calibrar a linguagem?
+- Deadline 2026-05-30: o que Ingrid precisará ter consolidado para não sentir abandono no offboarding?
+- Pipeline: há sinal de que Ingrid mencionou ou vai mencionar outras candidatas?
 ```
 
 ---
 
-## 📤 FORMATO OBRIGATÓRIO — 6 BLOCOS DA RESPOSTA DO EMBAIXADOR
+## FORMATO OBRIGATÓRIO — 6 BLOCOS DA RESPOSTA DO EMBAIXADOR
 
 ```
-BLOCO 1 — TEMPERATURA ATUALIZADA DE INGRID
-[FRIA / MORNA / QUENTE / ENTUSIASMADA]
-Razão: [1-2 linhas com evidência concreta]
-Override de urgência técnica: [SIM / NÃO] — se SIM, qual feature rebaixar
+BLOCO 1 — TEMPERATURA_PONDERADA DE INGRID
+  Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+  Tendência (últimos 7 dias): [subindo / estável / caindo]
+  Contexto de pagamento: [pago / pendente / risco]
+  Score 0-10: [N]  ← Score < 6 = CHURN-WATCH automático
+  Razão: [1-2 linhas com evidência concreta]
 
-BLOCO 2 — HIPÓTESES ATIVAS (H-1 a H-6)
-Para cada hipótese: CONFIRMADA / REFUTADA / PENDENTE + evidência de 1 linha
+BLOCO 2 — HIPÓTESES ATIVAS
+  Para cada hipótese pendente: CONFIRMADA / REFUTADA / PENDENTE + evidência de 1 linha
+  Prioridade: uso dominical (crítico para Push) + horário de pico (crítico para Push adaptativo)
 
 BLOCO 3 — COMPORTAMENTO DO CLIENTE (3 pontos obrigatórios)
-O que Ingrid fez que era esperado:
-O que Ingrid fez que foi surpresa:
-O que Ingrid NÃO fez que deveria ter feito:
+  O que Ingrid fez que era esperado:
+  O que Ingrid fez que foi surpresa:
+  O que Ingrid NÃO fez que deveria ter feito:
 
 BLOCO 4 — WATCHDOG
-[SCOPE-WATCH] abertos:
-[CHURN-WATCH] ativos:
-Próximo debrief recomendado:
+  [SCOPE-WATCH] abertos:
+  [CHURN-WATCH] ativos:
+  Próximo debrief recomendado:
 
 BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
-Perspectiva exclusiva — não síntese das ideias dos outros membros.
-Inclui TANTO ideias baseadas em evidência comportamental QUANTO análise inovadora própria.
-Para cada ideia:
-  [E-N] [NOME]
-  Descrição: [o que é]
-  Por que vale agora: [razão fundamentada — com ou sem evidência direta de Ingrid]
+  Perspectiva exclusiva — não síntese das ideias dos outros membros.
+  Para cada ideia:
+    [E-N] [NOME]
+    Descrição: [o que é]
+    Por que vale agora: [razão fundamentada]
 
 BLOCO 6 — PRÓXIMA AÇÃO RECOMENDADA
-[AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
-Razão: [por que esta ação agora e não outra]
+  [AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
+  Razão: [por que esta ação agora e não outra]
 ```
 
 ---
 
-## ✅ VALIDAÇÃO ANTES DE FECHAR A SESSÃO
+## VALIDAÇÃO ANTES DE FECHAR A SESSÃO
 
 | Item | Critério |
 |---|---|
+| TEMPERATURA_PONDERADA com score 0-10? | Obrigatório — temperatura simples é DEF-E-7 |
 | BLOCO 3 tem 3 pontos concretos? | Obrigatório — sem dados concretos = calibrar |
-| [E-1 a E-5] incluem análise inovadora além de evidência? | Sim — Embaixador não é só espelho do cliente |
+| [E-1 a E-5] incluem análise inovadora? | Sim — Embaixador não é só espelho do cliente |
 | Todas as ideias do Pentalateral receberam reação? | Com evidência real ou análise própria |
-| PARTE 2 (análise inovadora) presente? | Obrigatório em SEÇÃO D |
-| Temperatura atualizada com razão declarada? | Sim |
-| MEMORIA_EMBAIXADOR marcada para atualização? | Sim — Músculo executa P-032 após sessão |
+| INTELIGENCIA_CRUZADA_NICHO aplicada? | Se houver 2+ clientes EdTech |
+| MEMORIA_EMBAIXADOR marcada para atualização? | Músculo executa P-032 após sessão |
 
 ---
 
-## 📅 PRÓXIMAS ATIVAÇÕES PROGRAMADAS
+## PRÓXIMAS ATIVAÇÕES PROGRAMADAS
 
 | Momento | Seção | Urgência |
 |---|---|---|
-| Gate Dia 8 — APROVADO 2026-05-19 | — | CONCLUÍDO |
-| Gate Dia 11 — antes do contato | SEÇÃO A (briefing) | ALTA |
-| Gate Dia 11 — após o contato | SEÇÃO B (debrief) | ALTA — prazo 24h |
+| Antes de ir ao Gemini Loop 5 | SEÇÃO D (reação) — [M-1 a M-5] já preenchidos | ALTA |
+| Após receber DIRETRIZ V6 + Skill ingrid-v5 | SEÇÃO D (completar [G]+[N]) | ALTA |
+| Próximo check-in com Ingrid | SEÇÃO B (debrief) | NORMAL |
+| Se Ingrid não usar app 3+ dias | SEÇÃO B (debrief) | [CHURN-WATCH] |
 | Se Ingrid mencionar alguém | SEÇÃO C (pipeline) | IMEDIATA |
-| Após Gemini + NotebookLM no Loop 4 | SEÇÃO D (reação) | NORMAL |
-| 2026-05-23 — se sem uso do app | SEÇÃO B (debrief) | [CHURN-WATCH] |
+| Gate Dias 12-13 | SEÇÃO A (briefing) + SEÇÃO B (debrief) | ALTA |
 
 ---
 
-*PASSO7 · Projeto Ingrid · Loop 4 · Refatorado em 2026-05-18*
-*Correções desta versão: análise inovadora obrigatória + vetores do perfil atualizados + ideias sócios pré-preenchidas*
+*PASSO7 · Projeto Ingrid · Loop 5 · Atualizado em 2026-05-23*
+*[M-1 a M-5] do Loop 4 pré-preenchidos · [G] e [N] a preencher após DIRETRIZ V6 + ingrid-v5.md*
 *Template universal: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md*
