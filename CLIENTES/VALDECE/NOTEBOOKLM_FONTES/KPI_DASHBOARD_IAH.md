@@ -1,4 +1,4 @@
-# KPI DASHBOARD — QUADRILATERAL IAH
+﻿# KPI DASHBOARD — PENTALATERAL IAH
 **Preencher toda segunda-feira. 5 minutos. Sem isso, o negócio opera no escuro.**
 **Versão:** 1.0 | **Início:** 2026-05-12
 
@@ -89,5 +89,5 @@ _______________________________________________
 
 ---
 
-*KPI_DASHBOARD_IAH.md · Quadrilateral IAH · Atualizar toda segunda-feira*
+*KPI_DASHBOARD_IAH.md · PENTALATERAL IAH · Atualizar toda segunda-feira*
 *Organismo Vivo — adicionar KPIs conforme o negócio evolui*

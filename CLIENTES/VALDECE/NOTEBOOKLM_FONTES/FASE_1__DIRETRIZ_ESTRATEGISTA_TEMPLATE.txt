@@ -1,5 +1,5 @@
 ﻿════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — DIRETRIZ ESTRATÉGICA
+Pentalateral IAH — DIRETRIZ ESTRATÉGICA
 projeto: [nome] | ITERAÇÃO: V[X] | DATA: [data]
 ════════════════════════════════════════════════════════════
 

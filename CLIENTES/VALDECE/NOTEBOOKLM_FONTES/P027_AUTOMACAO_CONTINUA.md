@@ -1,4 +1,4 @@
-# P-027 — AUTOMAÇÃO CONTÍNUA
+﻿# P-027 — AUTOMAÇÃO CONTÍNUA
 > Status: CONFIRMADO pelo Diretor · 2026-05-18
 > Registrado por: Embaixador
 
@@ -19,7 +19,7 @@ de julgamento humano — criando fricção desnecessária no processo.
 - O Embaixador propõe, constrói e apresenta com máxima velocidade
 - O sistema não para por burocracia interna — para pelo veredito do Diretor
 
-**Impacto no Quadrilateral:**
+**Impacto no Pentalateral:**
 O Diretor é o único com veredito. O sistema entrega mais rápido para que
 o Diretor delibere com mais informação e menos espera.
 

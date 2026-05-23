@@ -1,4 +1,4 @@
-# BIBLIOTECA DE MANAGEMENT — QUADRILATERAL IAH
+﻿# BIBLIOTECA DE MANAGEMENT — PENTALATERAL IAH
 **Classificação:** Conhecimento de Elite · Atualizar com novos frameworks
 **Versão:** 1.0 | **Data:** 2026-05-12
 **Uso:** Carregar no NotebookLM como fonte permanente do Auditor
@@ -25,7 +25,7 @@
 
 **Circuit Breaker:** Se no dia 4 o MVP não está aterrissando → corta escopo para o núcleo mínimo e deploya o que existe. O prazo não se move.
 
-**Regra Shape Up no Quadrilateral:**
+**Regra Shape Up no Pentalateral:**
 > "Se não cabe em 5 dias, não é Camada 1. Reformule o escopo antes de começar."
 
 ---
@@ -46,9 +46,9 @@
 | Fluxo de receita | R$8.500 build + R$2.500/mês retainer |
 | Estrutura de custos | R$330/mês (3 IAs) |
 | Métricas-chave | FIRE Event capturado pelo Sentinel |
-| Vantagem injusta | Protocolo Quadrilateral + memória acumulada |
+| Vantagem injusta | Protocolo Pentalateral + memória acumulada |
 
-**Regra Running Lean no Quadrilateral:**
+**Regra Running Lean no Pentalateral:**
 > "Hemorragia sem número = problema não validado. Não buildamos hipóteses."
 
 ---
@@ -57,7 +57,7 @@
 
 **Princípio central:** Todo sistema tem UM gargalo que limita o throughput total. Identifique-o, explore-o ao máximo, subordine todo o resto a ele.
 
-**Os 5 Passos de Focalização no Quadrilateral:**
+**Os 5 Passos de Focalização no Pentalateral:**
 
 1. **IDENTIFICAR o gargalo:** Eduardo é o único canal entre as IAs. Seu tempo é o gargalo do sistema.
 2. **EXPLORAR o gargalo:** Maximizar o output por hora do Eduardo — templates completos, comandos copy-paste, zero improvisação.
@@ -70,7 +70,7 @@
 - Inventário: projetos em espera (manter próximo de zero)
 - Despesa operacional: R$330/mês fixo
 
-**Regra TOC no Quadrilateral:**
+**Regra TOC no Pentalateral:**
 > "Nunca otimize o que não é gargalo. Só o tempo do Diretor importa agora."
 
 ---
@@ -105,7 +105,7 @@ PÓS-SERVIÇO
 - Preview do dia 4 (antecipação)
 - Playbook físico/PDF (tangibilidade do intangível)
 
-**Regra Service Design no Quadrilateral:**
+**Regra Service Design no Pentalateral:**
 > "O cliente paga pelo produto. Ele indica pelo como foi tratado durante o processo."
 
 ---
@@ -114,11 +114,11 @@ PÓS-SERVIÇO
 
 **Princípio central:** Uma meta por trimestre. Duas a três métricas que provam que você chegou lá. Foco brutal.
 
-**OKRs do Quadrilateral IAH — Q2/2026:**
+**OKRs do Pentalateral IAH — Q2/2026:**
 
 ```
 OBJETIVO (qualitativo, inspirador):
-"Provar que o Quadrilateral IAH entrega resultado
+"Provar que o Pentalateral IAH entrega resultado
  real mais rápido do que qualquer alternativa do mercado."
 
 KEY RESULTS (quantitativos, binários):
@@ -132,7 +132,7 @@ KR3: 1 parceiro ativo (contador ou coach) com lead gerado
 - Se confiança < 5 → o que mudou? O que faremos diferente?
 - Não editar os OKRs durante o trimestre — só no fechamento
 
-**Regra OKR no Quadrilateral:**
+**Regra OKR no Pentalateral:**
 > "Se não está medindo os 3 KRs toda semana, os OKRs são decoração."
 
 ---
@@ -163,7 +163,7 @@ Toda deliberação do Conselho vira arquivo. Se não foi documentado, não acont
 - Reescrever documentos que já têm template
 - Resolver problemas técnicos que são papel do Músculo
 
-**Regra Grove no Quadrilateral:**
+**Regra Grove no Pentalateral:**
 > "O Diretor só faz o que só o Diretor pode fazer."
 
 ---
@@ -172,7 +172,7 @@ Toda deliberação do Conselho vira arquivo. Se não foi documentado, não acont
 
 **Princípio central:** Melhoria contínua, pequena e diária. O oposto de grandes reformulações.
 
-**Kaizen no Quadrilateral — o que significa na prática:**
+**Kaizen no Pentalateral — o que significa na prática:**
 
 Após cada projeto:
 - 1 coisa que melhorou no processo → registrar no relatorio_evolutivo
@@ -186,7 +186,7 @@ Após cada projeto:
 - **Seiketsu (Padronizar):** YAML no cabeçalho de toda MEMORIA
 - **Shitsuke (Sustentar):** check_leis.ps1 roda em todo fechamento
 
-**Regra Kaizen no Quadrilateral:**
+**Regra Kaizen no Pentalateral:**
 > "Cada entrega deve deixar o protocolo um pouco melhor do que o encontrou."
 
 ---
@@ -217,7 +217,7 @@ WIP limit: máximo 2 em BUILD simultâneos
 - Cycle time: do BUILD ao Entregue (meta: ≤ 4 dias)
 - Throughput: projetos entregues por mês (meta: 2–3/mês)
 
-**Regra Kanban no Quadrilateral:**
+**Regra Kanban no Pentalateral:**
 > "Termine antes de começar. Um projeto entregue vale mais do que três em andamento."
 
 ---
@@ -237,5 +237,5 @@ WIP limit: máximo 2 em BUILD simultâneos
 
 ---
 
-*BIBLIOTECA_MANAGEMENT.md · Quadrilateral IAH · Organismo Vivo*
+*BIBLIOTECA_MANAGEMENT.md · PENTALATERAL IAH · Organismo Vivo*
 *Adicionar novo framework sempre que identificar princípio acionável*

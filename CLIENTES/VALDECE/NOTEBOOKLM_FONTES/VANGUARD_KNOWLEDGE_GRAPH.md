@@ -1,4 +1,4 @@
-# VANGUARD KNOWLEDGE GRAPH — Mapa Mestre da Arquitectura
+﻿# VANGUARD KNOWLEDGE GRAPH — Mapa Mestre da Arquitectura
 > **Versão:** V17+ — Pentalateral IAH  
 > **Última actualização:** 2026-05-18  
 > **Propósito:** Verdade absoluta sobre a arquitectura para NotebookLM e sessões futuras.  
@@ -643,7 +643,7 @@ P_032
 [G-1 a G-5]  — Estrategista (perspectiva de mercado)
 [N-1 a N-5]  — Auditor (perspectiva histórica e de auditoria)
 ─────────────────────────────────────────────────────
-Total: 20 ideias por ciclo — filtradas pelo Embaixador via P-031
+Total: 25 ideias por ciclo [M×2+G+N+E × 5] — filtradas pelo Embaixador via P-031
 ```
 
 ---

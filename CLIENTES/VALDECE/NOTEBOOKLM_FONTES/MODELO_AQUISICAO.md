@@ -1,4 +1,4 @@
-# MODELO DE AQUISIÇÃO — QUADRILATERAL IAH
+﻿# MODELO DE AQUISIÇÃO — PENTALATERAL IAH
 **Classificação:** Operacional · Eduardo · Atualizar com cada aprendizado real
 **Versão:** 1.0 | **Data:** 2026-05-11
 

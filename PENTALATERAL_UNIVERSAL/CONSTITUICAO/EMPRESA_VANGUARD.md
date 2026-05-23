@@ -1,4 +1,4 @@
-# EMPRESA VANGUARD — Estrutura, Legal e Comercial
+﻿# EMPRESA VANGUARD — Estrutura, Legal e Comercial
 > **Documento:** Guia de abertura e operação da empresa  
 > **Data:** 2026-05-18  
 > **Status:** Em operação — 2 clientes ativos (PROJ-001 Valdece · PROJ-002 Ingrid)
@@ -179,7 +179,7 @@ Outros profissionais de tecnologia compram o direito de usar o Protocolo IAH nos
 | PROJ-001 | Valdece | Advocacia Criminal | Build ativo · reunião presencial em andamento | R$5.000 + 20% MRR |
 | PROJ-002 | Ingrid | Assistente Social / Concurso | Loop 3 ativo | Retainer |
 
-**Lição validada:** O Pentalateral IAH (sistema com 5 atores: Músculo + Estrategista + Auditor + Embaixador + Diretor) opera com 20 ideias/ciclo. O Embaixador — 4º membro ativo (Claude Projects) — é o único com memória persistente do cliente entre sessões, e funciona como filtro de realidade: CONFIRMA, EXPANDE ou ALERTA cada ideia dos outros membros com base no comportamento real observado do cliente.
+**Lição validada:** O Pentalateral IAH (sistema com 5 atores: Músculo + Estrategista + Auditor + Embaixador + Diretor) opera com 25 ideias/ciclo [M×2+G+N+E × 5]. O Embaixador — 4º membro ativo (Claude Projects) — é o único com memória persistente do cliente entre sessões, e funciona como filtro de realidade: CONFIRMA, EXPANDE ou ALERTA cada ideia dos outros membros com base no comportamento real observado do cliente.
 
 ---
 

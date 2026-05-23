@@ -1,5 +1,5 @@
 ﻿# PERFIL DO CLIENTE — [NOME / EMPRESA]
-**Quadrilateral IAH · Segundo Cérebro do Cliente**
+**PENTALATERAL IAH · Segundo Cérebro do Cliente**
 **Versão:** 1.0 · Data de criação: [data]
 **Última atualização:** [data] · Iteração atual: V[X]
 
@@ -182,5 +182,5 @@ O diagnóstico do Gemini fica muito mais preciso com este contexto.
 
 ---
 
-*Perfil do Cliente · Quadrilateral IAH · V1.0*
+*Perfil do Cliente · PENTALATERAL IAH · V1.0*
 *Confidencial — nunca compartilhar com o cliente · Carregar sempre no NotebookLM*

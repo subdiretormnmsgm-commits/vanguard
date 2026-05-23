@@ -1,4 +1,4 @@
-Auditoria Vanguard
+﻿Auditoria Vanguard
 
 
 
@@ -28,7 +28,7 @@ Resumo das Deliberações de ontem
 
 ============================================================
 
-FECHAMENTO DE SESSÃO — Quadrilateral IAH · 2026-05-18
+FECHAMENTO DE SESSÃO — PENTALATERAL IAH · 2026-05-18
 
 ============================================================
 
@@ -56,7 +56,7 @@ A. ENTREGAS DO DIA — STATUS
 
 &#x20; \[PARA O EMBAIXADOR] cobrindo reação a \[M]+\[G]+\[N] com CONFIRMA/EXPANDE/ALERTA
 
-&#x20; 20 ideias/ciclo: \[M+E+G+N × 5]
+&#x20; 25 ideias/ciclo [M×2+G+N+E × 5]: \[M+E+G+N × 5]
 
 
 
@@ -264,7 +264,7 @@ NOTA DO MÚSCULO
 
 
 
-\*Assunto:\*\* Quadrilateral IAH V25 — Embaixador Ativado + Loop 3 Ingrid Pronto
+\*Assunto:\*\* PENTALATERAL IAH V25 — Embaixador Ativado + Loop 3 Ingrid Pronto
 
 
 
@@ -374,7 +374,7 @@ PRÓXIMAS AÇÕES (em ordem)
 
 
 
-Quadrilateral IAH | 4 membros operacionais | V25 encerrada
+PENTALATERAL IAH | 4 membros operacionais | V25 encerrada
 
 
 
@@ -428,7 +428,7 @@ Constituição
 
 &#x09;◦	Memorial Quadrilateral Humano e Cliente
 
-&#x09;◦	Protocolo Quadrilateral
+&#x09;◦	Protocolo Pentalateral
 
 &#x09;◦	Vanguard Business Rules
 

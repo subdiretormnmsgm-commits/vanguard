@@ -1,5 +1,5 @@
 ﻿# ROI TRACKER — VERIFICAÇÃO 30 DIAS PÓS-LANÇAMENTO
-**Quadrilateral IAH · Template Universal**
+**PENTALATERAL IAH · Template Universal**
 **Versão:** 1.0 · 2026-05-11
 
 ---
@@ -167,7 +167,7 @@ Recomendo porque [razão específica]."
 
 ## ACUMULADOR DE RESULTADOS (atualizar após cada check)
 
-> Manter este registo atualizado — é a prova social real do Quadrilateral.
+> Manter este registo atualizado — é a prova social real do Pentalateral.
 
 | projeto | Tipo | Camada | ROI Prometido | ROI Real 30d | Desvio | Testemunho |
 |----------|------|--------|--------------|-------------|--------|-----------|
@@ -175,5 +175,5 @@ Recomendo porque [razão específica]."
 
 ---
 
-*ROI Tracker · Quadrilateral IAH · V1.0*
+*ROI Tracker · PENTALATERAL IAH · V1.0*
 *Usar em todos os projetos, sem exceção · Os dados acumulados aqui são o ativo mais valioso do sistema*

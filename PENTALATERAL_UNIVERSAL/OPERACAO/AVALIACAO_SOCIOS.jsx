@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 
 const C = {
   navy: "#0D1B2A", navyMid: "#1A2E45", navyLight: "#243B55",
@@ -116,7 +116,7 @@ export default function AvaliacaoSocios() {
       <div style={{ background: "#050A10", borderBottom: "1px solid rgba(201,168,76,0.2)", padding: "24px 32px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ ...mono, fontSize: 9, letterSpacing: 4, color: C.gold, marginBottom: 8 }}>
-            QUADRILATERAL IAH · PENTALATERAL · AVALIAÇÃO DO CONSELHO
+            PENTALATERAL IAH · PENTALATERAL · AVALIAÇÃO DO CONSELHO
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16 }}>
             <div>
@@ -467,7 +467,7 @@ export default function AvaliacaoSocios() {
 
       {/* FOOTER */}
       <div style={{ borderTop: "1px solid rgba(201,168,76,0.1)", padding: "14px 32px", display: "flex", justifyContent: "space-between" }}>
-        <div style={{ ...mono, fontSize: 10, color: "rgba(255,255,255,0.2)", letterSpacing: 1 }}>QUADRILATERAL IAH · AVALIAÇÃO DOS SÓCIOS · PENTALATERAL</div>
+        <div style={{ ...mono, fontSize: 10, color: "rgba(255,255,255,0.2)", letterSpacing: 1 }}>PENTALATERAL IAH · AVALIAÇÃO DOS SÓCIOS · PENTALATERAL</div>
         <div style={{ ...mono, fontSize: 10, color: "rgba(255,255,255,0.2)", letterSpacing: 1 }}>ARQUIVAR COM MEMORIA DO LOOP</div>
       </div>
     </div>

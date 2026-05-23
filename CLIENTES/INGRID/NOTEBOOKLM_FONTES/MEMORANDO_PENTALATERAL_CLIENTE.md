@@ -1,4 +1,4 @@
-# MEMORANDO PENTALATERAL IAH — PROTOCOLO MESTRE PARA PROJETOS DE CLIENTE
+﻿# MEMORANDO PENTALATERAL IAH — PROTOCOLO MESTRE PARA PROJETOS DE CLIENTE
 **Vanguard Tech · IAH — Inteligência Artificial Humana**
 **Classificação:** Confidencial Operacional
 **Versão:** 1.4 — atualizado para Pentalateral (5 atores)
@@ -272,7 +272,7 @@ O Quadrilateral aplica-se a projectos de qualquer camada. Antes de iniciar, clas
 ## FASE -1 — QUALIFICAÇÃO DO CLIENTE (GO / NO-GO)
 
 > Antes de activar o Quadrilateral, verificar se o cliente é qualificado.
-> O Quadrilateral é um activo escasso — não desperdiçar em clientes sem clareza, sem urgência ou sem budget.
+> o Pentalateral é um activo escasso — não desperdiçar em clientes sem clareza, sem urgência ou sem budget.
 
 ### 3 Perguntas de Filtro Rápido
 
@@ -515,7 +515,7 @@ O que Eduardo faz nas próximas 24h para avançar este projecto.
 - `VANGUARD_BUSINESS_RULES.md` (ou `.txt`)
 - `VANGUARD_INNOVATION_AUDIT.md` (ou `.txt`)
 - `INTELIGENCIA_ARTIFICIAL_HUMANA.md` (ou `.txt`)
-- `MEMORANDO_QUADRILATERAL_CLIENTE.md` (este documento)
+- `MEMORANDO_PENTALATERAL_UNIVERSAL_CLIENTE.md` (este documento)
 
 **Fontes do Projecto Anterior (contexto evolutivo):**
 - `MEMORIA_VXX.txt` (última versão interna)
@@ -530,7 +530,7 @@ O que Eduardo faz nas próximas 24h para avançar este projecto.
 > Após carregar as fontes, colar no chat do NotebookLM:
 
 ```
-Com base em todas as fontes carregadas, és o Auditor do Quadrilateral IAH.
+Com base em todas as fontes carregadas, és o Auditor do Pentalateral IAH.
 
 Analisa o projecto do cliente [NOME/NICHO] com os seguintes objectivos:
 

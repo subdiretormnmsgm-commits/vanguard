@@ -53,7 +53,7 @@ A próxima peça letal do quebra-cabeça é empacotar essa inteligência predat�
 ## [ID-012] — Meta-Intelligence Singularity (V24)
 
 **Data:** 2026-05-12
-**Missão:** Transformar o Quadrilateral IAH de fábrica de software em organismo meta-cognitivo. A inteligência acumulada por sessão torna-se o principal ativo competitivo da empresa.
+**Missão:** Transformar o Pentalateral IAH de fábrica de software em organismo meta-cognitivo. A inteligência acumulada por sessão torna-se o principal ativo competitivo da empresa.
 **Transição Estratégica:** De ciclos de versão onde o conhecimento se perdia → para sistema que aprende, registra e evolui com cada sessão — compoundando inteligência operacional de forma permanente.
 
 **O que foi construído:**

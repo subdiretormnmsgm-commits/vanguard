@@ -28,7 +28,7 @@
 
 ```
 ════════════════════════════════════════════════════════════════════════
-                    QUADRILATERAL IAH — O LOOP QUE NUNCA PARA
+                    Pentalateral IAH — O LOOP QUE NUNCA PARA
 ════════════════════════════════════════════════════════════════════════
 
   EDUARDO                GEMINI               NOTEBOOKLM          CLAUDE CODE
@@ -218,8 +218,8 @@
 | 02_ | MEMORANDO_PENTALATERAL_UNIVERSAL.md | Sim |
 | 03_ | MANUAL_DIRETOR.md | Sim |
 | 04_ | INTELLIGENCE_LEDGER.md | Sim |
-| 05_ | PROCESSO_EVOLUTIVO_QUADRILATERAL.md | Sim |
-| 06_ | TEMPLATES_COMUNICACAO_QUADRILATERAL.md | Sim |
+| 05_ | PROCESSO_EVOLUTIVO_PENTALATERAL.md | Sim |
+| 06_ | TEMPLATES_COMUNICACAO_PENTALATERAL.md | Sim |
 | 07_ | WIP_BOARD.txt | Sim |
 | 08_ | ANALISE_SOCIO_ATUAL.txt | Sim |
 | 09_ | BRIEFING_DISCOVERY.txt | Sim |
@@ -527,11 +527,11 @@ Copiar o comando, preencher os campos `[entre colchetes]` com as respostas do Di
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → GEMINI
+Pentalateral IAH — EDUARDO → GEMINI
 projeto: [nome do projeto] | ITERAÇÃO: V1 | DATA: [data de hoje]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH.
+Gemini, somos o Pentalateral IAH.
 Tu és o Estrategista. Eu sou o Diretor.
 O NotebookLM é o Auditor. O Claude Code é o Músculo.
 
@@ -651,11 +651,11 @@ FONTES A CARREGAR (na ordem):
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
+Pentalateral IAH — EDUARDO → NOTEBOOKLM
 projeto: [nome] | ITERAÇÃO: V1
 ════════════════════════════════════════════════════════════
 
-NotebookLM, actuas como Sócio Consultor do Quadrilateral IAH.
+NotebookLM, actuas como Sócio Consultor do Pentalateral IAH.
 Não apenas arquivo — consultor ativo com memória longa.
 
 ANALISA O projeto [NICHO/TIPO] COM 4 objetivos:
@@ -1080,7 +1080,7 @@ Claude        → Tem arquitectura de 2 iterações para reutilizar
 Resultado     → Velocidade 2x de V1. Custo de erros perto de zero.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ITERAÇÃO V5+ — O QUADRILATERAL É IMPOSSÍVEL DE COPIAR
+ITERAÇÃO V5+ — o Pentalateral é IMPOSSÍVEL DE COPIAR
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Gemini        → Debate com o Claude como sócio experiente
               → Sabe o que é viável nesta stack específica
@@ -1405,7 +1405,7 @@ O que não se copia em semanas é o que o sistema acumula:
 - As estimativas calibradas com a sua realidade (não com benchmarks genéricos)
 - O diálogo estabelecido entre Gemini e Claude ao longo de ciclos
 
-Em V1, o Quadrilateral é um bom processo.
+Em V1, o Pentalateral é um bom processo.
 Em V5, é uma vantagem competitiva real.
 Em V10, é um ativo que vale muito mais do que a soma das ferramentas.
 
@@ -1487,6 +1487,6 @@ Incrementa a versão para [X.X]."
 
 ---
 
-*Manual do diretor · Quadrilateral IAH · V1.1*
+*Manual do diretor · PENTALATERAL IAH · V1.1*
 *Criado pelo Músculo para o Diretor Eduardo*
 *atualizar após cada projeto — este documento é tão vivo quanto o sistema que descreve*

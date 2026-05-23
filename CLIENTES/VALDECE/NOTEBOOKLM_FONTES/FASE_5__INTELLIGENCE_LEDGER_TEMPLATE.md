@@ -1,4 +1,4 @@
----
+﻿---
 cliente: "[nome do cliente ou projeto]"
 versao: "V1"
 data: "YYYY-MM-DD"
@@ -7,7 +7,7 @@ sessoes: 0
 ---
 
 # INTELLIGENCE LEDGER — [NOME DO PROJETO]
-**Organismo:** Memória Viva do Quadrilateral IAH para este projeto
+**Organismo:** Memória Viva do Pentalateral IAH para este projeto
 **Ciclo:** por sessão — atualizar via `scripts/session_close.ps1` ao fechar cada sessão
 
 > Este documento acumula a inteligência operacional do projeto. Cada princípio aqui

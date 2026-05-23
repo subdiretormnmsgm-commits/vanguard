@@ -12,7 +12,7 @@
 
 ## BLOCO A — QUALIFICAÇÃO (3 perguntas · 10 minutos)
 
-> Fazer antes de investir tempo do Quadrilateral.
+> Fazer antes de investir tempo do Pentalateral.
 > **1 resposta fraca = sinal de alerta. 2 fracas = NO-GO.**
 
 ```

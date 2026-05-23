@@ -1,4 +1,4 @@
-# CONTRATO DE PRESTAÇÃO DE SERVIÇOS DIGITAIS
+﻿# CONTRATO DE PRESTAÇÃO DE SERVIÇOS DIGITAIS
 **[NOME DO PROJETO]**
 *Vanguard Tech — v3.0 — 2026-05-16 — 20 cláusulas em 6 blocos temáticos*
 
@@ -132,7 +132,7 @@ A CONTRATADA preserva titularidade exclusiva sobre bibliotecas, frameworks e mó
 ## CLÁUSULA 9 — SEGREDO INDUSTRIAL E METODOLOGIA PROPRIETÁRIA
 *Base legal: Lei nº 9.279/1996 (LPI), Art. 195, incisos XI e XII*
 
-A CONTRATANTE reconhece que o método operacional da CONTRATADA — denominado "Quadrilateral IAH" —, seus prompts de inteligência artificial, estruturas de ledger e orquestração de modelos de linguagem constituem Segredo de Negócio e propriedade industrial protegida por lei.
+A CONTRATANTE reconhece que o método operacional da CONTRATADA — denominado "PENTALATERAL IAH" —, seus prompts de inteligência artificial, estruturas de ledger e orquestração de modelos de linguagem constituem Segredo de Negócio e propriedade industrial protegida por lei.
 
 É proibido realizar engenharia reversa, replicar a metodologia de orquestração ou compartilhar os processos internos da CONTRATADA com terceiros, sob pena de caracterização de concorrência desleal e reparação por perdas e danos.
 

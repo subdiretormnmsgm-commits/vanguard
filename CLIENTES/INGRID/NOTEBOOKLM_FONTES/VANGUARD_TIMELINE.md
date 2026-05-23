@@ -1,4 +1,4 @@
-# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
+﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
 > Criado: 2026-05-17 | Última atualização: 2026-05-23
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
@@ -84,7 +84,7 @@ Nenhuma dessas perguntas foi teórica. Cada uma foi respondida com stack funcion
 
 ### V5 — Soberano Digital
 **O que foi construído:** Primeiro "Auditor IA" interno usando Claude Haiku. Docker Mestre para containerização. UI no padrão Awwwards. Sistema White-Label com brand-config.js.
-**O que foi aprendido:** IA como auditor interno — não como gerador de conteúdo — é onde o valor real está. O Haiku avaliando relatórios internos antecipou em meses o papel do NotebookLM como Auditor do Quadrilateral.
+**O que foi aprendido:** IA como auditor interno — não como gerador de conteúdo — é onde o valor real está. O Haiku avaliando relatórios internos antecipou em meses o papel do NotebookLM como Auditor do Pentalateral.
 **Legado:** Embrião direto do Auditor (NotebookLM). A ideia de que IA pode ser usada para auditar a própria IA — e não apenas para gerar output — é o que torna o Quadrilateral impossível de copiar.
 
 ---
@@ -249,7 +249,7 @@ V25 não é uma versão de produto. É a versão do processo.
 Três alavancas ativadas simultaneamente:
 1. **PROJ-001 Valdece** — primeiro cliente real, primeiro build com processo formal
 2. **PROJ-002 Ingrid** — segundo cliente, primeiro projeto EdTech, validação do método em nicho diferente
-3. **Quadrilateral IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
+3. **PENTALATERAL IAH V25** — processo com scripts de orquestração, hooks automáticos e 4 membros formais
 
 Eduardo: *"Fizemos 23 versões até chegar nisso. Não posso arriscar perder esse trabalho de noites e noites."*
 O trabalho não se perdeu. Está em git history. Está no LEDGER. Está nesta linha do tempo.
@@ -373,13 +373,13 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Linha do Tempo** | 2026-05-17 | VANGUARD_TIMELINE.md criada. Fonte histórica obrigatória do Auditor. |
 | **Embaixador** | 2026-05-17 | **Formalizador → Embaixador.** Upgrade de membro passivo (contratos) para 4º conselheiro ativo: memória persistente do cliente, 11 mandatos, pipeline de lead, debrief pós-reunião. |
 | **P-031** | 2026-05-18 | Embaixador como filtro de realidade: CONFIRMA/EXPANDE/ALERTA cada ideia de [M]+[G]+[N] com base em comportamento real do cliente. Ideia do Diretor. |
-| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Quadrilateral para Pentalateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 20 ideias/ciclo: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
+| **Pentalateral IAH** | 2026-05-18 | **O Diretor entra como 5º ator ativo.** Sistema renomeado de Quadrilateral para Pentalateral: Diretor + Músculo + Estrategista + Auditor + Embaixador. 25 ideias/ciclo [M×2+G+N+E × 5]: [M+E+G+N × 5]. Eduardo: *"Que ideia louca foi essa minha."* |
 | **Sistema de Alertas Zero-Composição** | 2026-05-18 | Telegram Bot + briefing_diario.ps1 + alerta_whatsapp.ps1 operacionais. Eduardo recebe contexto + mensagem exata para copiar no WhatsApp. Nenhuma composição mental necessária. |
 | **P-032** | 2026-05-18 | MEMORIA_EMBAIXADOR é atualizada automaticamente pelo Músculo após qualquer deliberação que afete cliente ativo. Detectado pelo Diretor — FALHA-PROCESSO-2026-05-18 registrada e corrigida. |
 | **P-033 + Sync Universal** | 2026-05-20 | sync_vanguard_docs.ps1: toda mudança em PENTALATERAL_UNIVERSAL/ sincroniza automaticamente CLIENTES/*/NOTEBOOKLM_FONTES/ via SHA-256. Integridade verde ou alerta automático. |
 | **P-050 + Knowledge Base** | 2026-05-21 | Toda solução técnica documentada em KNOWLEDGE_BASE/ imediatamente. health_check.py testa roteiro do cliente e envia relatório Telegram. |
 | **Expansão Universal de Papéis** | 2026-05-23 | **A maior evolução do Pentalateral desde sua criação.** 12 novas deficiências formalizadas (DEF-G/N/M/E 5-7). COMANDO_ESTRATEGISTA_MASTER (P-052) resolve amnésia estrutural do Gemini. MANIFESTO_DE_FONTES (P-053) declara o que o Auditor pode/não pode ver. REGISTRO_DE_PREMISSAS torna premissas silenciosas visíveis. CANDIDATOS_A_PRINCIPIO captura fricção→princípio em tempo real. 25 ideias/ciclo [M×2+G+N+E × 5]. TEMPERATURA_PONDERADA (score 0-10) substitui temperatura simples. INTELIGENCIA_CRUZADA_NICHO conecta padrões entre clientes do mesmo nicho. |
-| **Rename QUADRILATERAL → PENTALATERAL** | 2026-05-23 | Pasta `QUADRILATERAL_UNIVERSAL/` renomeada para `PENTALATERAL_UNIVERSAL/`. 234+ arquivos renomeados via git mv. Todas as referências em scripts, hooks, skills e documentos atualizadas. Decisão formal do Diretor Eduardo. |
+| **Rename QUADRILATERAL → PENTALATERAL** | 2026-05-23 | Pasta `PENTALATERAL_UNIVERSAL/` renomeada para `PENTALATERAL_UNIVERSAL/`. 234+ arquivos renomeados via git mv. Todas as referências em scripts, hooks, skills e documentos atualizadas. Decisão formal do Diretor Eduardo. |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 

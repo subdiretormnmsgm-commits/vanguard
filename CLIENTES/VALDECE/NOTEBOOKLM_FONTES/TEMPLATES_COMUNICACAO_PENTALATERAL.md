@@ -233,7 +233,7 @@ Complementares (adicionar quando disponíveis):
   + MEMORIA das últimas 2–3 iterações
   + relatorios_evolutivos das últimas 2–3 iterações
   + Skill anterior do cliente (se existir)
-  + 13_PROCESSO_EVOLUTIVO_QUADRILATERAL.txt
+  + 13_PROCESSO_EVOLUTIVO_PENTALATERAL.txt
 ```
 
 **Mensagem a colar após carregar as fontes:**
@@ -711,5 +711,5 @@ Quando o processo evoluir e revelar um formato melhor:
 ---
 
 *Templates do Pentalateral IAH — 5 atores: Músculo + Estrategista + Auditor + Embaixador + Diretor*
-*20 ideias/ciclo: [M-1..5] + [E-1..5] + [G-1..5] + [N-1..5]*
+*25 ideias/ciclo [M×2+G+N+E × 5]: [M×2 técnico+cirúrgico] + [E] + [G] + [N] × 5 cada*
 *Versão 2.0 · 2026-05-18*

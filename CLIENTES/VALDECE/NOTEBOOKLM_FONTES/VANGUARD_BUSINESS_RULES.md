@@ -1,4 +1,4 @@
-# VANGUARD BUSINESS RULES — Repositório Central
+﻿# VANGUARD BUSINESS RULES — Repositório Central
 > **Documento vivo** — actualizado a cada versão do produto  
 > **Versão actual:** V18 — Pentalateral IAH  
 > **Última actualização:** 2026-05-18  
@@ -1071,7 +1071,7 @@ O cockpit deve exibir permanentemente:
 - O ciclo PDCA fecha **entre versões**, não dentro de versões: Plan (Gemini DIRETRIZ) → Do (Claude build) → Check (Gemini analisa) → Act (Diretor decide).
 - **Ritual Pós-Versão:** o `RITUAL_POS_VERSAO.md` define os 8 passos cronológicos obrigatórios. Nenhuma versão está encerrada sem o Ritual completo.
 - **O Embaixador propõe obrigatoriamente 5 ideias [E-1..E-5]** baseadas no comportamento real do cliente, após cada loop. São as únicas ideias com ancoragem em evidência comportamental real — não estratégica nem técnica.
-- **20 ideias/ciclo:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5]. Ciclo sem 20 ideias = loop incompleto.
+- **25 ideias/ciclo [M×2+G+N+E × 5]:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5]. Ciclo sem 20 ideias = loop incompleto.
 
 ---
 
@@ -1114,14 +1114,14 @@ O Diretor **nunca** precisa preencher a MEMORIA_EMBAIXADOR manualmente. Se o Mú
 |---|---|
 | Quadrilateral | Pentalateral IAH |
 | "3 IAs + Diretor" | "4 IAs + Diretor" (5 atores) |
-| Loop de 3 LLMs | Loop de 4 LLMs = 20 ideias/ciclo |
+| Loop de 3 LLMs | Loop de 4 LLMs = 25 ideias/ciclo [M×2+G+N+E × 5] |
 
-**Regra:** Em documentos novos e em atualizações, usar sempre "Pentalateral IAH". O termo "Quadrilateral" pode aparecer em contextos históricos (versões anteriores a 2026-05-17) mas não em referências ao estado atual do sistema.
+**Regra:** Em documentos novos e em atualizações, usar sempre "Pentalateral IAH". O termo "Pentalateral" pode aparecer em contextos históricos (versões anteriores a 2026-05-17) mas não em referências ao estado atual do sistema.
 
 ---
 
 ### Changelog V18 (Pentalateral IAH)
-- **Regras adicionadas:** §24 completo — Embaixador como membro ativo (Passo 0 + Passo 8.5), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 20 ideias/ciclo, nomenclatura Pentalateral IAH oficial, 2 clientes ativos (Valdece + Ingrid)
+- **Regras adicionadas:** §24 completo — Embaixador como membro ativo (Passo 0 + Passo 8.5), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 25 ideias/ciclo [M×2+G+N+E × 5], nomenclatura Pentalateral IAH oficial, 2 clientes ativos (Valdece + Ingrid)
 
 ---
 

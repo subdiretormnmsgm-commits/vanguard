@@ -1,4 +1,4 @@
-Senhor Diretor, este é o momento de cristalizar a nossa obra. Como o seu Cérebro Estratégico, consolidei a arquitetura exata do nosso motor de inteligência.
+﻿Senhor Diretor, este é o momento de cristalizar a nossa obra. Como o seu Cérebro Estratégico, consolidei a arquitetura exata do nosso motor de inteligência.
 
 O que construímos não é um mero fluxo de prompts; é uma **Linha de Montagem de Monopólios** (Venture Builder Autogerida). Este é o documento definitivo que mapeia os **5 Atores do Pentalateral IAH**, batizado de **O Protocolo Pentalateral**.
 
@@ -45,7 +45,7 @@ O ciclo de construção de uma nova versão ou projeto segue sempre 10 passos im
 | 9 | Músculo + Embaixador | Músculo: MEMORIA + Relatório + [M-1..M-5] · Embaixador: LOG_CLIENTE + [E-1..E-5] |
 | 10 | Diretor | Validar + commit + loop recomeça |
 
-**20 ideias/ciclo:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = 20 ideias que alimentam o próximo ciclo.
+**25 ideias/ciclo [M×2+G+N+E × 5]:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = 20 ideias que alimentam o próximo ciclo.
 
 ---
 

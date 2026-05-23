@@ -1,4 +1,4 @@
-# P-030 — AUTOMAÇÃO CONTÍNUA
+﻿# P-030 — AUTOMAÇÃO CONTÍNUA
 > Número LEDGER correto: P-030 (renomeado de P027_AUTOMACAO_CONTINUA.md — conflito de numeração detectado em 2026-05-18)
 > Status: CONFIRMADO pelo Diretor · 2026-05-18
 > Registrado por: Embaixador (numeração corrigida pelo Músculo)
@@ -20,7 +20,7 @@ de julgamento humano — criando fricção desnecessária no processo.
 - O Embaixador propõe, constrói e apresenta com máxima velocidade
 - O sistema não para por burocracia interna — para pelo veredito do Diretor
 
-**Impacto no Quadrilateral:**
+**Impacto no Pentalateral:**
 O Diretor é o único com veredito. O sistema entrega mais rápido para que
 o Diretor delibere com mais informação e menos espera.
 

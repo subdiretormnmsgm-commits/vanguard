@@ -113,5 +113,5 @@ ROI 6 meses             = (R$[receita_6m] - R$[investimento]) ÷ R$[investimento
 
 ---
 
-*Relatório gerado pelo Músculo (Claude Code) · Quadrilateral IAH · V[X]*
+*Relatório gerado pelo Músculo (Claude Code) · PENTALATERAL IAH · V[X]*
 *Alimentar o NotebookLM com este relatório antes da próxima iteração*

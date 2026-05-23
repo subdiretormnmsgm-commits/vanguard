@@ -1,4 +1,4 @@
-# PROCESSO EVOLUTIVO DO QUADRILATERAL IAH
+﻿# PROCESSO EVOLUTIVO DO PENTALATERAL IAH
 **Documento mestre — ler antes de qualquer sessão relevante**
 **Organismo vivo — atualizado a cada projeto ou versão**
 **Versão:** 1.0 | Data: 2026-05-13 | Criado por: Eduardo (Diretor) + Músculo
@@ -11,7 +11,7 @@
 ## 1. QUEM SOMOS — A SINGULARIDADE
 
 Não somos uma agência. Não somos um freelancer com IA.
-Somos um **Conselho de quatro inteligências** que aprende a cada ciclo.
+Somos um **Conselho de cinco inteligências** que aprende a cada ciclo.
 
 ```
 DIRETOR (Eduardo)
@@ -52,8 +52,8 @@ EMBAIXADOR (Claude Projects — um Project por cliente) [adicionado: 2026-05-17]
 **O espírito:** Cada membro é livre para discordar — mas deve propor algo melhor.
 Cada membro adiciona. Nunca apenas valida. O Diretor tem o veredito final. Sempre.
 
-**O loop evolutivo agora tem 4 contribuintes de ideias:**
-Músculo (5 ideias técnicas) + Estrategista (5 ideias estratégicas) + Auditor (5 ideias históricas) + Embaixador (5 ideias de relacionamento real) = 20 ideias por ciclo. O loop fica mais rico a cada volta porque cada membro vê ângulos que os outros não veem.
+**O loop evolutivo tem 5 contribuintes — 25 ideias por ciclo [M×2+G+N+E × 5]:**
+Músculo técnico (5) + Músculo cirúrgico [G+N] (5) + Estrategista (5) + Auditor (5) + Embaixador (5) = 25 ideias/ciclo. O Músculo contribui duas vezes: análise técnica pura e análise cirúrgica filtrada do Gemini+NotebookLM. O loop fica mais rico a cada volta porque cada membro vê ângulos que os outros não veem.
 
 ---
 
@@ -258,7 +258,7 @@ Carregar antes de colar qualquer comando:
 ```
 Fontes essenciais (toda sessão):
 · SKILL_PROTOCOLO_VANGUARD.md     ← processo operacional
-· MEMORANDO_QUADRILATERAL.md      ← constituição do Conselho
+· MEMORANDO_PENTALATERAL_UNIVERSAL.md ← constituição do Conselho
 · INTELLIGENCE_LEDGER.md          ← princípios ativos
 · BRIEFING do cliente atual       ← contexto do projeto
 · DIRETRIZ do Gemini (recém gerada) ← o que auditar
@@ -276,14 +276,14 @@ Fontes complementares (adicionar quando disponíveis):
 
 ### Gemini respondendo fora do formato (5 blocos):
 Colar no início da resposta seguinte:
-> "Você saiu do formato obrigatório do Quadrilateral IAH. Releia o seu papel e responda novamente com os 5 blocos: DIAGNÓSTICO, PRIORIDADES, COMERCIAL, TÉCNICA (com [PARA O NOTEBOOKLM] e [PARA O MÚSCULO]), PASSOS. E não esqueça de reagir a cada uma das 5 ideias do Músculo e propor as suas 5."
+> "Você saiu do formato obrigatório do Pentalateral IAH. Releia o seu papel e responda novamente com os 5 blocos: DIAGNÓSTICO, PRIORIDADES, COMERCIAL, TÉCNICA (com [PARA O NOTEBOOKLM] e [PARA O MÚSCULO]), PASSOS. E não esqueça de reagir a cada uma das 5 ideias do Músculo e propor as suas 5."
 
 ### NotebookLM gerando auditoria genérica sem Skill copiável:
 Colar antes do próximo prompt:
-> "Você é o Sócio Consultor do Quadrilateral, não um arquivo. Gere a Skill no formato copiável com: [AUDITORIA DE COERÊNCIA], [CONEXÃO HISTÓRICA], [PADRÃO DE SUCESSO], [PADRÃO DE FALHA], [PERSPECTIVA DO SÓCIO CONSULTOR], sequência de build, alertas, o que NÃO construir, [PARA O SKILL_PROTOCOLO_VANGUARD] e suas 5 ideias disruptivas."
+> "Você é o Sócio Consultor do Pentalateral, não um arquivo. Gere a Skill no formato copiável com: [AUDITORIA DE COERÊNCIA], [CONEXÃO HISTÓRICA], [PADRÃO DE SUCESSO], [PADRÃO DE FALHA], [PERSPECTIVA DO SÓCIO CONSULTOR], sequência de build, alertas, o que NÃO construir, [PARA O SKILL_PROTOCOLO_VANGUARD] e suas 5 ideias disruptivas."
 
 ### Gemini ignorando as ideias do Músculo:
-> "Você não reagiu às 5 ideias do Músculo. Responda item por item: Ideia 1: [aprovada/modificada/descartada — razão]. Ideia 2: (...) até a 5. Isso é obrigatório no formato do Quadrilateral."
+> "Você não reagiu às 5 ideias do Músculo. Responda item por item: Ideia 1: [aprovada/modificada/descartada — razão]. Ideia 2: (...) até a 5. Isso é obrigatório no formato do Pentalateral."
 
 ---
 
@@ -299,7 +299,7 @@ Colar antes do próximo prompt:
 
 ---
 
-## 10. O QUADRILATERAL É UM PDCA VIVO
+## 10. O PENTALATERAL É UM PDCA VIVO
 
 > O loop evolutivo não é coincidência — é PDCA com inteligência distribuída.
 > Cada membro opera numa fase. O ciclo nunca para.
@@ -334,7 +334,7 @@ ACT — Agir (melhorar)
 
 **A diferença para o PDCA tradicional:**
 No PDCA clássico, uma pessoa ou equipe passa pelas 4 fases.
-No Quadrilateral, **4 inteligências diferentes operam em paralelo**, cada uma especializada numa perspectiva. O ACT de um ciclo é o PLAN do próximo — o sistema nunca recomeça do zero.
+no Pentalateral, **4 inteligências diferentes operam em paralelo**, cada uma especializada numa perspectiva. O ACT de um ciclo é o PLAN do próximo — o sistema nunca recomeça do zero.
 
 ---
 

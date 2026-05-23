@@ -1,4 +1,4 @@
-# MAPEAMENTO JURIDICO COMPLETO — VANGUARD TECH
+﻿# MAPEAMENTO JURIDICO COMPLETO — VANGUARD TECH
 **Compilado pelo Estrategista (Gemini) — 2026-05-16**
 **Escopo:** Venture Builder + Holding de Dados + Conselho IAH
 **Destino:** Equipar o Auditor (NotebookLM) como advogado especializado da Vanguard
@@ -75,12 +75,12 @@
 
 ---
 
-## 8. PROPRIEDADE INTELECTUAL DO QUADRILATERAL IAH
+## 8. PROPRIEDADE INTELECTUAL do Pentalateral IAH
 
 **Lei:** Lei da Propriedade Industrial (Lei n. 9.279/1996) e Lei de Direitos Autorais (Lei n. 9.610/1998)
 **Artigos:** Art. 10, I e II da LPI (O que nao e patenteavel - metodos puramente intelectuais/comerciais); Art. 7 da LDA (Obras protegidas)
 **O que regula:** O que pode ser registrado no INPI (marcas) e o que recai sobre direitos autorais (textos, diagramas, manuais).
-**Risco se ignorado:** Nao poder patentear o metodo Quadrilateral, permitindo que ex-clientes o repliquem legalmente.
+**Risco se ignorado:** Nao poder patentear o metodo Pentalateral, permitindo que ex-clientes o repliquem legalmente.
 **Oportunidade:** Registrar marcas e logotipos no INPI e proteger documentacao do processo sob Direitos Autorais.
 
 ---

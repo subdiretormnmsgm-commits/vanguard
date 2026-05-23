@@ -1,4 +1,4 @@
-# INTELIGÊNCIA ARTIFICIAL HUMANA — Modelo 3.0
+﻿# INTELIGÊNCIA ARTIFICIAL HUMANA — Modelo 3.0
 > **Versão:** 3.0 · Atualizada em 2026-05-18  
 > **Conceito:** Uma fábrica de produtos digitais operada por 1 humano + 4 IAs (Pentalateral IAH)
 > **Propósito:** Transformar qualquer ideia em produto digital — mais rápido e mais barato do que qualquer agência do mercado
@@ -36,7 +36,7 @@ IAH — INTELIGÊNCIA ARTIFICIAL HUMANA (Pentalateral)
   ├── Custo fixo: R$350/mês (infraestrutura completa)
   ├── Prazo: V1 em 48h, produto completo em 1–4 semanas
   ├── Taxa de sucesso: 100% (o projeto não para)
-  ├── 20 ideias/ciclo: [M+E+G+N × 5] — inteligência composta acumulada
+  ├── 25 ideias/ciclo [M×2+G+N+E × 5]: [M+E+G+N × 5] — inteligência composta acumulada
   └── Preço: calibrado ao valor gerado, não ao custo de produção
 ```
 
@@ -78,7 +78,7 @@ IAH — INTELIGÊNCIA ARTIFICIAL HUMANA (Pentalateral)
 
 **Singularidade do Embaixador:** É o único membro com **memória persistente por cliente** — acumula inteligência a cada ativação (sessão 50 sabe 50x mais que sessão 1). Aplica o **Filtro de Realidade (P-031)**: CONFIRMA, EXPANDE ou ALERTA cada ideia gerada pelos outros membros com base no comportamento real observado do cliente. Opera em Claude Projects com memória nativa.
 
-**20 ideias/ciclo:** Músculo [M-1..M-5] + Embaixador [E-1..E-5] + Estrategista [G-1..G-5] + Auditor [N-1..N-5]. Cada ciclo completo gera 20 ideias que alimentam o próximo loop — inteligência composta que se acumula exponencialmente.
+**25 ideias/ciclo [M×2+G+N+E × 5]:** Músculo [M-1..M-5] + Embaixador [E-1..E-5] + Estrategista [G-1..G-5] + Auditor [N-1..N-5]. Cada ciclo completo gera 20 ideias que alimentam o próximo loop — inteligência composta que se acumula exponencialmente.
 
 ---
 
@@ -361,7 +361,7 @@ Estrutura do repositório: ver `REPOSITORIO_ESTRUTURA.md`.
 > A IAH 3.0 é o terceiro salto de paradigma.  
 > V1.0 documentou o que fizemos. V2.0 documentou o que somos.  
 > V3.0 documenta o que nos tornamos com o Pentalateral:  
-> **uma fábrica de produtos digitais operada por 5 atores (1 humano + 4 IAs), gerando 20 ideias por ciclo, com o Embaixador como inteligência persistente do cliente — o único ator que nunca esquece quem é o cliente de verdade.**
+> **uma fábrica de produtos digitais operada por 5 atores (1 humano + 4 IAs), gerando 25 ideias por ciclo [M×2+G+N+E × 5], com o Embaixador como inteligência persistente do cliente — o único ator que nunca esquece quem é o cliente de verdade.**
 > 
 > O Embaixador (P-031) filtra a realidade: cada ideia brilhante do Conselho passa pelo teste da experiência real do cliente.  
 > A MEMORIA_EMBAIXADOR (P-032) é atualizada automaticamente pelo Músculo após cada deliberação relevante.  

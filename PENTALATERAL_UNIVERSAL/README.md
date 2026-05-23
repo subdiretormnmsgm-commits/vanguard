@@ -1,6 +1,6 @@
 ﻿# QUADRILATERAL UNIVERSAL — Modelo Portátil
 
-> Esta pasta contém os documentos universais do Modelo Quadrilateral IAH.
+> Esta pasta contém os documentos universais do Modelo Pentalateral IAH.
 > Copiar para qualquer projeto de cliente — funcionam independentemente da Vanguard.
 > **Todos os documentos são organismos vivos — atualizar após cada projeto.**
 

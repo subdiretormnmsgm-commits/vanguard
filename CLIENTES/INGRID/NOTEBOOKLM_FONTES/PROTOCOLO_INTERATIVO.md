@@ -1,4 +1,4 @@
-# PROTOCOLO INTERATIVO — Conselho Pentalateral IAH
+﻿# PROTOCOLO INTERATIVO — Conselho Pentalateral IAH
 > **Versão:** 3.0 — Pentalateral Ativo · 2026-05-18  
 > **Princípio:** Os cinco não trabalham em fila. Trabalham em conjunto, cada um enriquecendo o que o outro propôs.
 
@@ -26,7 +26,7 @@ MODELO ATUAL (conselho pentalateral — 5 atores):
   Embaixador CONFIRMA/EXPANDE/ALERTA com base na realidade do cliente
   Diretor origina a direção estratégica e decide
 
-  20 ideias por ciclo: [M+E+G+N × 5]
+  25 ideias por ciclo [M×2+G+N+E × 5]: [M+E+G+N × 5]
   O Embaixador é o filtro de realidade — nenhuma ideia llega ao build sem passar pelo cliente real.
 ```
 
@@ -249,4 +249,4 @@ Cada ciclo entregue tem a inteligência de cinco perspectivas integradas:
 - A direção soberana do Diretor (originação)
 
 Nenhuma dessas perspectivas sozinha chega ao mesmo resultado.
-Juntas, com 20 ideias por ciclo filtradas pela realidade, produzem algo que nenhuma agência com 30 pessoas consegue replicar.
+Juntas, com 25 ideias por ciclo [M×2+G+N+E × 5] filtradas pela realidade, produzem algo que nenhuma agência com 30 pessoas consegue replicar.

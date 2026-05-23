@@ -1,4 +1,4 @@
-# PLANO DE ATUAÇÃO — QUADRILATERAL IAH V1
+﻿# PLANO DE ATUAÇÃO — PENTALATERAL IAH V1
 **Status:** APROVADO pelo Diretor Eduardo · 2026-05-11
 **Próxima revisão:** após entrega do Case V1
 

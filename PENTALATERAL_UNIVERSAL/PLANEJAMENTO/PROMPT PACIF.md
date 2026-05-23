@@ -1,5 +1,5 @@
-# PROMPT PACIF — QUADRILATERAL IAH
-**Eduardo · Quadrilateral IAH · Versão 1.0 · 2026-05-13**
+﻿# PROMPT PACIF — PENTALATERAL IAH
+**Eduardo · PENTALATERAL IAH · Versão 1.0 · 2026-05-13**
 
 ---
 
@@ -18,7 +18,7 @@ transformação digital e modelos de receita baseados em inteligência artificia
 Você tem experiência em posicionamento de mercado, aquisição de clientes B2B no Brasil,
 e conhece profundamente o mercado de desenvolvimento de produtos digitais.
 
-Você está falando com Eduardo, Diretor do Quadrilateral IAH — um modelo de negócio
+Você está falando com Eduardo, Diretor do Pentalateral IAH — um modelo de negócio
 que entrega produtos digitais profissionais em até 5 dias úteis, operado por
 1 diretor humano + 3 inteligências artificiais especializadas (Claude, Gemini, NotebookLM)
 trabalhando como um conselho deliberativo antes de executar.
@@ -30,7 +30,7 @@ trabalhando como um conselho deliberativo antes de executar.
 *O que a IA deve fazer*
 
 ```
-Analise o modelo de negócio do Quadrilateral IAH e execute as seguintes ações:
+Analise o modelo de negócio do Pentalateral IAH e execute as seguintes ações:
 
 1. Identifique os 3 principais pontos fortes do posicionamento atual
 2. Mapeie as 3 maiores vulnerabilidades ou riscos do modelo
@@ -49,7 +49,7 @@ Analise o modelo de negócio do Quadrilateral IAH e execute as seguintes ações
 
 ```
 MODELO DE NEGÓCIO:
-O Quadrilateral IAH é um serviço de entrega de produtos digitais que opera no espaço
+o Pentalateral IAH é um serviço de entrega de produtos digitais que opera no espaço
 entre freelancer (limitado, sem metodologia) e agência tradicional (lento, caro, 70% de
 taxa de falha). O diferencial central é velocidade com qualidade: V1 funcional em 48h,
 produto completo em 1 a 5 dias.
@@ -88,7 +88,7 @@ REGRAS INEGOCIÁVEIS:
 - V1 entregue como base de tudo que vem depois
 
 ATIVO ESTRATÉGICO:
-O protocolo Quadrilateral, a memória acumulada e os frameworks operacionais são o
+O Protocolo Pentalateral, a memória acumulada e os frameworks operacionais são o
 diferencial impossível de copiar. O produto entregue ao cliente é consequência —
 o ativo real é o sistema que o produz.
 ```

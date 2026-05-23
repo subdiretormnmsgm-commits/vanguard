@@ -21,7 +21,7 @@ vanguard/                          ← ROOT — este repositório
 ├── 📁 methodology/                ← A metodologia IAH (o produto que vendemos)
 │   ├── INTELIGENCIA_ARTIFICIAL_HUMANA.md
 │   ├── SOP_VANGUARD_MASTER.md
-│   ├── O Protocolo Quadrilateral.txt
+│   ├── O Protocolo Pentalateral.txt
 │   └── EMPRESA_VANGUARD.md
 │
 ├── 📁 knowledge/                  ← Constituição e inteligência institucional
@@ -67,7 +67,7 @@ vanguard/                          ← ROOT — este repositório
 │   │   │
 │   │   ├── NOTEBOOKLM_FONTES/     ← Fontes numeradas para o NotebookLM
 │   │   │   ├── 01_SKILL_PROTOCOLO_VANGUARD.md
-│   │   │   ├── 02_MEMORANDO_QUADRILATERAL.md
+│   │   │   ├── 02_MEMORANDO_PENTALATERAL_UNIVERSAL.md
 │   │   │   ├── ... (01-11: histórico, 12-15: ideias novas)
 │   │   │   └── 15_PASSO5_NOTEBOOKLM.md
 │   │   │

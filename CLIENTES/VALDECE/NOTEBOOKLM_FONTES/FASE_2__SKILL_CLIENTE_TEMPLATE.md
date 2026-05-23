@@ -150,6 +150,6 @@ Contrato: "O sistema é seu. Isso aqui só formaliza."
 
 ---
 
-*Skill gerada pelo NotebookLM (Auditor) · Quadrilateral IAH · V[X]*
+*Skill gerada pelo NotebookLM (Auditor) · PENTALATERAL IAH · V[X]*
 *Atualizado 2026-05-19: P-041 (cena de sucesso) + P-042 (gate como artefato) + P-044 (demo na cena)*
 *atualizar ao fechar a iteração com novos padrões identificados*

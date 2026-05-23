@@ -8,7 +8,7 @@ Velocidade como promessa verificável.
 Custo operacional absurdamente baixo.
 ~R$ 330/mês de infraestrutura com margem potencial acima de 90% é uma vantagem estrutural. Permite praticar preços menores que agências com estrutura pesada, ou margens muito maiores na mesma faixa — sem depender de volume para ser lucrativo.
 Metodologia proprietária como fosso competitivo.
-O protocolo Quadrilateral — 5 fases, conselho deliberativo, memória acumulada, PDCA com aprendizado documentado — é genuinamente difícil de copiar. Não porque seja secreto, mas porque exige orquestração humana de qualidade. Cada projeto entregue torna o sistema mais inteligente. Concorrente que aparecer amanhã começa do zero.
+O Protocolo Pentalateral — 5 fases, conselho deliberativo, memória acumulada, PDCA com aprendizado documentado — é genuinamente difícil de copiar. Não porque seja secreto, mas porque exige orquestração humana de qualidade. Cada projeto entregue torna o sistema mais inteligente. Concorrente que aparecer amanhã começa do zero.
 Posicionamento no vácuo certo do mercado.
 O espaço entre freelancer (sem metodologia) e agência tradicional (lento, caro, 70% de falha) é real e mal-servido no Brasil. Empresas que precisam de produto digital profissional mas não têm R$ 50k e 6 meses para esperar não têm para onde ir. O Quadrilateral preenche esse espaço com um modelo que os dois lados não conseguem replicar.
 
@@ -23,7 +23,7 @@ Ausência de especialização por nicho.
 "Produto digital para negócio que não pode esperar 6 meses" é uma proposta de valor, não um nicho. Quanto mais específico o vertical — ex: "sistema de agendamento para clínicas odontológicas" — mais fácil localizar o cliente certo e mais rápido se acumula reputação dentro daquele setor.
 
 2. MAPA DE CONCORRENTES
-TipoExemplos no BrasilPreço estimadoPrazoPonto fracoAgência tradicionalAgências médias SP/RJR$ 30–150k3–12 mesesCusto fixo alto, burocracia, taxa de falha 70%Agência IA boutiqueElevenmind, Intelecta.digitalR$ 15–80k4–12 semanasAinda operam como agência — processo lentoFreelancer qualificadoWorkana, Upwork BR, indicaçãoR$ 3–15k2–8 semanasSem visão de negócio, sem metodologia, risco de abandonoMicro SaaS / White LabelPlataformas prontasR$ 300–2k/mêsImediatoGenérico, sem personalização realMVP shops internacionaisHouseofMVPs, Altar.ioUSD 15–60k4–16 semanasPreço em dólar, barreira cultural e de idiomaSolo IA operatorSolopreneurs emergentes BRR$ 2–8k1–3 semanasSem metodologia formal, sem garantia de processoQUADRILATERAL IAH—R$ 8.5001–5 diasDependência de 1 pessoa, sem case publicado ainda
+TipoExemplos no BrasilPreço estimadoPrazoPonto fracoAgência tradicionalAgências médias SP/RJR$ 30–150k3–12 mesesCusto fixo alto, burocracia, taxa de falha 70%Agência IA boutiqueElevenmind, Intelecta.digitalR$ 15–80k4–12 semanasAinda operam como agência — processo lentoFreelancer qualificadoWorkana, Upwork BR, indicaçãoR$ 3–15k2–8 semanasSem visão de negócio, sem metodologia, risco de abandonoMicro SaaS / White LabelPlataformas prontasR$ 300–2k/mêsImediatoGenérico, sem personalização realMVP shops internacionaisHouseofMVPs, Altar.ioUSD 15–60k4–16 semanasPreço em dólar, barreira cultural e de idiomaSolo IA operatorSolopreneurs emergentes BRR$ 2–8k1–3 semanasSem metodologia formal, sem garantia de processoPENTALATERAL IAH—R$ 8.5001–5 diasDependência de 1 pessoa, sem case publicado ainda
 
 Conclusão: O Quadrilateral compete por preço com freelancers e por resultado com agências boutique — mas entrega em prazo que nenhum dos dois consegue. O diferencial de velocidade é real e não está sendo entregue por nenhum concorrente mapeado no Brasil com metodologia documentada.
 
@@ -70,7 +70,7 @@ Prazo: Iniciar contatos nas semanas 3–4.
 O que fazer
 Para clientes que gostam da proposta mas travam no preço ou no risco, posicionar o Discovery Sprint como oferta de entrada explícita: "R$ 2.500 por 1 sessão — você entra com o problema, sai com o plano detalhado e o protótipo navegável. Se quiser construir, o valor já desconta no build."
 Por que funciona
-R$ 2.500 para uma sessão com plano detalhado é uma compra de risco muito menor do que R$ 8.500 para um produto que o cliente ainda não viu funcionar. Uma vez que o cliente vê o plano e o protótipo, a decisão de construir é muito mais simples — ele já investiu tempo e dinheiro, e o sunk cost trabalha a favor do Quadrilateral.
+R$ 2.500 para uma sessão com plano detalhado é uma compra de risco muito menor do que R$ 8.500 para um produto que o cliente ainda não viu funcionar. Uma vez que o cliente vê o plano e o protótipo, a decisão de construir é muito mais simples — ele já investiu tempo e dinheiro, e o sunk cost trabalha a favor do Pentalateral.
 Como executar
 O Discovery Sprint já existe no menu. Falta criar o script de apresentação específico para usá-lo como "porta de entrada" para clientes hesitantes — e não apenas como fase obrigatória de projetos já avançados.
 Prazo: Script pronto na semana 1.
@@ -136,7 +136,7 @@ SEMANA 4
   ✅ Atualizar o KPI Dashboard com os números reais da semana
 
 NOTA FINAL
-O modelo Quadrilateral IAH tem fundamentos sólidos. O risco não está no produto — está na lacuna entre "metodologia excelente no papel" e "primeiro cliente pagante na conta".
+O modelo Pentalateral IAH tem fundamentos sólidos. O risco não está no produto — está na lacuna entre "metodologia excelente no papel" e "primeiro cliente pagante na conta".
 Essa lacuna se fecha com uma única coisa: evidência real funcionando em público.
 O V1 não é só um projeto para um amigo. É o ativo de marketing mais importante que o Quadrilateral vai ter nos próximos 6 meses. Documentar cada passo, publicar os números reais e usar isso como alavanca de aquisição é o movimento que separa um negócio que decola de um que fica em potencial.
 

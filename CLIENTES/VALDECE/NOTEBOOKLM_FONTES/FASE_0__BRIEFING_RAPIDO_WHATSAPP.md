@@ -1,5 +1,5 @@
-# BRIEFING V1 — [NOME DO AMIGO / PROJETO]
-**Data:** _____ | **Modo:** Piloto Gratuito · Quadrilateral IAH
+﻿# BRIEFING V1 — [NOME DO AMIGO / PROJETO]
+**Data:** _____ | **Modo:** Piloto Gratuito · PENTALATERAL IAH
 
 > Regra de ouro: se hemorragia ou FIRE Event estiver vazio,
 > voltar ao WhatsApp antes de avançar.

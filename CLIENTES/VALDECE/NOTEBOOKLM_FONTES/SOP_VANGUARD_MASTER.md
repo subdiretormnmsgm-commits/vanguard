@@ -36,7 +36,7 @@ A Vanguard (V1–V16) foi o projeto piloto que **provou que a máquina funciona*
 
 **Regra de ouro:** Nenhum membro faz o papel do outro. O Diretor não escreve código. O Músculo não define estratégia. O Gemini não audita código. O NotebookLM não toma decisões. O Embaixador não executa — filtra pela realidade do cliente.
 
-**20 ideias por ciclo:** [M-1 a M-5] + [E-1 a E-5] + [G-1 a G-5] + [N-1 a N-5]
+**25 ideias por ciclo [M×2+G+N+E × 5]:** [M técnico] + [M' cirúrgico] + [E] + [G] + [N] × 5 ideias cada
 
 ---
 
@@ -46,7 +46,7 @@ A Vanguard (V1–V16) foi o projeto piloto que **provou que a máquina funciona*
 
 ### O problema que a DIRETRIZ ZERO resolve
 
-O Protocolo Quadrilateral foi construído para **versões internas** (V12→V16). Mas quando um cliente externo chega com uma necessidade — "quero um app", "preciso de um e-commerce", "quero automatizar isso" — o protocolo não tinha uma entrada formal. A DIRETRIZ ZERO é essa entrada.
+O Protocolo Pentalateral foi construído para **versões internas** (V12→V16). Mas quando um cliente externo chega com uma necessidade — "quero um app", "preciso de um e-commerce", "quero automatizar isso" — o protocolo não tinha uma entrada formal. A DIRETRIZ ZERO é essa entrada.
 
 **Ela é a tradução do idioma do cliente para o idioma da máquina.**
 
@@ -162,7 +162,7 @@ O Diretor leva o output do NotebookLM para o Gemini com este comando:
 ```
 [COMANDO PADRÃO GEMINI — DIRETRIZ ZERO]
 
-Gemini, inicie a Fase 1 do Protocolo Quadrilateral para um projeto de cliente externo.
+Gemini, inicie a Fase 1 do Protocolo Pentalateral para um projeto de cliente externo.
 
 CONTEXTO DO PROJETO (gerado pelo NotebookLM):
 [colar output do passo 0.2 aqui]
@@ -469,7 +469,7 @@ CLIENTE PEDE              →  ENTRA NA CAMADA  →  ENTREGA EM
 | `MASTER_PLAN.md` | Plano de lançamento do negócio | Diretor |
 | `INTELIGENCIA_ARTIFICIAL_HUMANA.md` | Manifesto do modelo de negócio | Diretor |
 | `VANGUARD_OPERATIONAL_COSTS.md` | Custos e projeções em R$ | Claude (a cada versão) |
-| `O Protocolo Quadrilateral.txt` | Documento fundador do método | Gemini (imutável) |
+| `O Protocolo Pentalateral.txt` | Documento fundador do método | Gemini (imutável) |
 
 ### Documentos por Projeto de Cliente
 
@@ -567,7 +567,7 @@ O Protocolo Pentalateral IAH não é um processo de software. É um sistema de c
 - O **NotebookLM** tem memória perfeita dos documentos e auditoria crítica — impede que repetamos os mesmos erros
 - O **Músculo** tem capacidade de execução técnica completa e raciocínio de longo prazo — o único que vive no terminal
 
-Juntos, com 20 ideias por ciclo e o filtro de realidade do Embaixador, produzem em dias o que equipes de 30 pessoas produzem em meses.
+Juntos, com 25 ideias por ciclo [M×2+G+N+E × 5] e o filtro de realidade do Embaixador, produzem em dias o que equipes de 30 pessoas produzem em meses.
 
 O Vanguard V1–V16 provou que 4 atores funcionam. O Pentalateral IAH — com o Embaixador — é a evolução que torna o sistema impossível de copiar.
 

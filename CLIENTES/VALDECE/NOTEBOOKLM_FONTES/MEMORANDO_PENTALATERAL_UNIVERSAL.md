@@ -52,7 +52,7 @@ PENTALATERAL IAH (sistema atual — 2026-05-18)
   ├── Custo de infraestrutura mínimo
   ├── V1 funcional em 48h — produto completo em 1–4 semanas
   ├── O projeto não para — não há dependência de pessoas
-  ├── 20 ideias/ciclo: [M+E+G+N × 5] — inteligência composta acumulada
+  ├── 25 ideias/ciclo [M×2+G+N+E × 5]: [M+E+G+N × 5] — inteligência composta acumulada
   └── Preço: calibrado ao valor gerado, não ao custo de produção
 ```
 
@@ -259,7 +259,7 @@ ACT  (Agir / Melhorar)
 
 **Regra de ouro:** Nenhum membro tem autoridade absoluta. O Gemini propõe. O Claude avalia e contra-propõe. O NotebookLM fundamenta com histórico. O Embaixador ancora na realidade do cliente. O Eduardo decide. A força está na deliberação ativa entre os cinco — não na execução sequencial.
 
-**20 ideias/ciclo:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = 20 ideias que alimentam o próximo loop. Ciclo sem as 20 ideias = loop incompleto = inteligência que não se acumula.
+**25 ideias/ciclo [M×2+G+N+E × 5]:** [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = 20 ideias que alimentam o próximo loop. Ciclo sem as 20 ideias = loop incompleto = inteligência que não se acumula.
 
 ---
 
@@ -883,7 +883,7 @@ Guia de implementação: `SECRETARIO_VIRTUAL/SETUP_GUIDE.md`
 ## FASE -1 — QUALIFICAÇÃO (GO / NO-GO)
 
 > Antes de ativar o Quadrilateral, verificar se o projeto merece o processo completo.
-> O Quadrilateral é um ativo escasso — não desperdiçar em clientes sem clareza ou urgência.
+> o Pentalateral é um ativo escasso — não desperdiçar em clientes sem clareza ou urgência.
 > **Se o Secretário Virtual estiver ativo, esta fase corre automaticamente.**
 
 ### 3 Perguntas de Filtro
@@ -1028,7 +1028,7 @@ Confirmas para avançar? →
 projeto CLIENTE — DIRETRIZ ESTRATÉGICA V1
 ════════════════════════════════════════════════════════════
 
-Somos o Quadrilateral IAH. Novo projeto de cliente.
+Somos o Pentalateral IAH. Novo projeto de cliente.
 Analisa o briefing abaixo e gera a Diretriz com 5 blocos.
 
 --- BRIEFING ---
@@ -1081,7 +1081,7 @@ O que o Diretor faz nas próximas 24h para avançar.
 **Comando Padrão para o Auditor:**
 
 ```
-Actuas como Auditor do Quadrilateral IAH.
+Actuas como Auditor do Pentalateral IAH.
 
 Analisa o projeto [NICHO/TIPO] com estes objetivos:
 
@@ -1707,7 +1707,7 @@ E não esquece.
 | **Embaixador** | 4º membro ativo do Conselho (Claude Projects) — inteligência persistente do cliente, filtro de realidade |
 | **P-031** | Filtro de Realidade: Embaixador aplica CONFIRMA/EXPANDE/ALERTA a cada ideia dos outros membros |
 | **P-032** | MEMORIA_EMBAIXADOR automática: Músculo atualiza sem intervenção do Diretor após deliberação relevante |
-| **20 ideias/ciclo** | [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = inteligência composta máxima por loop |
+| **25 ideias/ciclo [M×2+G+N+E × 5]** | [M-1..M-5] + [E-1..E-5] + [G-1..G-5] + [N-1..N-5] = inteligência composta máxima por loop |
 | **Diretor** | O único membro humano — tem o Veredito Final sobre qualquer decisão |
 | **Veredito** | Decisão final do Diretor — único que pode aprovar avanços |
 | **DIRETRIZ** | Documento do Estrategista com 5 blocos + marcações para os outros membros |
@@ -1741,7 +1741,7 @@ E não esquece.
 | 4.0 | 2026-05-11 | Constituição elevada a 7 Leis Soberanas por mandato do Conselho Quadrilateral: Kill-Switch Soberano (Lei 6) + Freemium by Design (Lei 7) adicionados · Ticket Médio Wizard integrado na Lei 3 como exigência universal de onboarding · GARRAS renomeadas para LEIS · Checklist de Handoff expandido para 7 itens · Alertas CSP/Fail-Open/Grace-Period documentados |
 | 5.0 | 2026-05-12 | Protocolo VEREDITO BINÁRIO adicionado: card de decisão em 10 segundos com Score GUT + ROI por opção · Músculo opera em "Modo Oráculo" — proponente, não apenas executor · Aprovado pelo Diretor Eduardo |
 | 5.1 | 2026-05-12 | Intelligence Compounding Engine (V24): INTELLIGENCE_LEDGER.md + knowledge_graph.json + Constituição de Processo (5 Hard Vetos + 5 Soft Vetos) + Shadow Architect obrigatório em todo Build + Skill-Drift Check no início de sessão + CONSELHO_SESSAO template + 5 princípios ativos capturados da sessão inaugural |
-| 2.2 | 2026-05-18 | Evolução para Pentalateral IAH: Embaixador adicionado como 5º ator (Claude Projects), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 20 ideias/ciclo [M+E+G+N × 5], Paradigma v3.1 documentado, Os 10 Passos do Pentalateral, tabela de membros expandida para 5, glossário com novos termos, manifesto atualizado, título atualizado para "Pentalateral IAH" |
+| 2.2 | 2026-05-18 | Evolução para Pentalateral IAH: Embaixador adicionado como 5º ator (Claude Projects), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 25 ideias/ciclo [M×2+G+N+E × 5] [M+E+G+N × 5], Paradigma v3.1 documentado, Os 10 Passos do Pentalateral, tabela de membros expandida para 5, glossário com novos termos, manifesto atualizado, título atualizado para "Pentalateral IAH" |
 
 ---
 

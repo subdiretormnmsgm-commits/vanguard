@@ -1,9 +1,9 @@
 ﻿---
 name: protocolo-vanguard
-description: ativa o Modelo Quadrilateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
+description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
 ---
 
-# PROTOCOLO VANGUARD — Modelo Quadrilateral IAH
+# PROTOCOLO VANGUARD — Modelo Pentalateral IAH
 **Versão da Skill:** 6.1 — Universal · Pentalateral IAH · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho · **5º Membro: Diretor como originador ativo + P-031 + P-052 + COMANDO_ESTRATEGISTA_MASTER (2026-05-23)**
 
 ---
@@ -113,7 +113,7 @@ Copiar para a raiz do projeto e preencher o cabeçalho com nome e data.
 > **Adicionado em 2026-05-14 · MÁXIMA IMPORTÂNCIA**
 > Cada membro do Conselho tem deficiências nativas documentadas.
 > O Músculo conhece as suas e as dos sócios — e combate ativamente em toda sessão.
-> Este protocolo é o antivírus do Quadrilateral. Nunca pular. Nunca resumir.
+> Este protocolo é o antivírus do Pentalateral. Nunca pular. Nunca resumir.
 
 ---
 
@@ -360,11 +360,11 @@ Avaliação: os 3 argumentos são superados pelo ROI? [SIM / NÃO]
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → GEMINI
+Pentalateral IAH — EDUARDO → GEMINI
 projeto: [nome] | ITERAÇÃO: V[X] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o Quadrilateral IAH — agora com 4 membros.
+Gemini, somos o Pentalateral IAH — agora com 4 membros.
 Estrategista (tu) | Diretor (eu) | Auditor (NotebookLM) | Músculo (Claude Code) | Embaixador (Claude Projects)
 
 [SE ITERAÇÃO INICIAL — colar briefing do cliente:]
@@ -431,11 +431,11 @@ Inclui [RESPOSTA ÀS IDEIAS DO MÚSCULO] no Bloco 3 se for iteração seguinte.
 
 ```
 ════════════════════════════════════════════════════════════
-QUADRILATERAL IAH — EDUARDO → NOTEBOOKLM
+Pentalateral IAH — EDUARDO → NOTEBOOKLM
 projeto: [nome] | ITERAÇÃO: V[X]
 ════════════════════════════════════════════════════════════
 
-NotebookLM, actuas como Sócio Consultor do Quadrilateral IAH.
+NotebookLM, actuas como Sócio Consultor do Pentalateral IAH.
 Não apenas arquivo — consultor ativo com memória longa.
 
 ANALISA O projeto [NICHO/TIPO] COM 4 objetivos:
@@ -665,7 +665,7 @@ O ciclo continua.
 >      ↓
 > PASSO 10 — Gemini reage a [M]+[E]  |  Embaixador reage a [G]+[N] (CONFIRMA/EXPANDE/ALERTA)
 >      ↓
-> 20 ideias por ciclo: [M-1..5] + [E-1..5] + [G-1..5] + [N-1..5]
+> 25 ideias por ciclo [M×2+G+N+E × 5]: [M×2 técnico+cirúrgico] + [E] + [G] + [N] × 5 cada
 > O loop fecha mais rico do que abriu. Sempre.
 > ```
 
@@ -1298,7 +1298,7 @@ Confirmas para avançar? →
 projeto CLIENTE — DIRETRIZ ESTRATÉGICA V1
 ════════════════════════════════════════════════════════════
 
-Somos o Quadrilateral IAH. Novo projeto de cliente.
+Somos o Pentalateral IAH. Novo projeto de cliente.
 Analisa o briefing e gera a Diretriz com 5 blocos.
 
 --- BRIEFING ---
@@ -1457,7 +1457,7 @@ Inclui obrigatoriamente: 5 ideias disruptivas para a próxima iteração.
 **Comando Padrão para o Auditor:**
 
 ```
-Actuas como Auditor do Quadrilateral IAH.
+Actuas como Auditor do Pentalateral IAH.
 
 Analisa o projeto [NICHO/TIPO] com estes objetivos:
 
@@ -2204,7 +2204,7 @@ O Músculo é responsável por converter deliberação em entregável.
 
 > "Se não cabe em 5 dias, não é Camada 1. Reformule o escopo antes de começar."
 
-| Conceito Shape Up | Equivalente no Quadrilateral |
+| Conceito Shape Up | Equivalente no Pentalateral |
 |---|---|
 | Appetite (apetite) | Quanto tempo estamos dispostos a gastar — definido no Discovery |
 | Pitch | BRIEFING_RAPIDO_WHATSAPP — problema + solução + appetite |
@@ -2365,7 +2365,7 @@ Traz-me o problema. Entregamos a solução.
 
 ---
 
-*Skill criada pelo Músculo · Quadrilateral IAH · V4.5*
+*Skill criada pelo Músculo · PENTALATERAL IAH · V4.5*
 *Universal: ecommerce, app, site, SaaS, modelo de negócio, automação, IA*
 *Portátil: copiar para qualquer projeto, preencher CONFIGURAÇÃO DO OPERADOR, ativar*
 *ativa sempre que o Diretor disser: PROTOCOLO VANGUARD*
@@ -2406,7 +2406,7 @@ Traz-me o problema. Entregamos a solução.
 PENTALATERAL_UNIVERSAL/
 └── NOTEBOOKLM_BASE/                  ← fonte de verdade dos docs universais
     ├── 01_SKILL_PROTOCOLO_VANGUARD.md   ← ancora nos padrões do Quadrilateral
-    ├── 02_MEMORANDO_QUADRILATERAL.md    ← constituição e valores
+    ├── 02_MEMORANDO_PENTALATERAL_UNIVERSAL.md    ← constituição e valores
     ├── 03_MANUAL_DIRETOR.md             ← como Eduardo opera
     ├── 04_INTELLIGENCE_LEDGER.md        ← princípios P-001 a P-013+
     ├── 05_PROCESSO_EVOLUTIVO.md         ← como o loop funciona

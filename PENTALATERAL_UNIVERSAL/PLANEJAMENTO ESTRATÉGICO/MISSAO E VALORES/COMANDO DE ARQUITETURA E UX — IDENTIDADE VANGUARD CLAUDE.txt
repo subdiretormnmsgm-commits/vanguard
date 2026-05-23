@@ -1,8 +1,8 @@
-
+﻿
 ════════════════════════════════════════════════════════════
 **COMANDO DE ARQUITETURA E UX — IDENTIDADE VANGUARD**
 ════════════════════════════════════════════════════════════
-Claude, assuma a sua posição de Músculo e Sócio-Arquiteto do Quadrilateral IAH. O Conselho acaba de aprovar a nossa nova Missão, Visão e Valores Fundamentais. Não vamos mais vender "IA" de forma explícita. Vamos vender um processo deliberativo de elite, velocidade verificável e foco absoluto em ROI.
+Claude, assuma a sua posição de Músculo e Sócio-Arquiteto do Pentalateral IAH. O Conselho acaba de aprovar a nossa nova Missão, Visão e Valores Fundamentais. Não vamos mais vender "IA" de forma explícita. Vamos vender um processo deliberativo de elite, velocidade verificável e foco absoluto em ROI.
 **Texto Base:**
 ### 🎯 A Nossa Missão
 **"Orquestrar inteligência estratégica e engenharia de precisão para resolver problemas complexos de negócio com extrema velocidade e foco absoluto no Retorno sobre o Investimento (ROI)."**
@@ -11,7 +11,7 @@ Claude, assuma a sua posição de Músculo e Sócio-Arquiteto do Quadrilateral I
 **"Tornar-nos o padrão irreversível na orquestração de soluções tecnológicas e de negócios, consolidando uma metodologia proprietária que torna o nosso modelo impossível de ser copiado."**
 **O que isto significa na prática (para o mercado):** Ambicionamos ditar as novas regras do mercado de tecnologia. A nossa visão é construir um fosso competitivo (*moat*) sustentado pelo nosso acervo de sabedoria operacional e frameworks próprios. Qualquer concorrente que tente replicar a nossa velocidade e precisão amanhã estará, irremediavelmente, anos atrás da nossa capacidade de execução.
 ### 🛡️ Os Nossos Valores e Pilares Estratégicos
-Estes são os 4 pilares que ditam a cultura da empresa, moldados para apresentar a estrutura do "Quadrilateral" como uma metodologia de negócios humana e de alta performance:
+Estes são os 4 pilares que ditam a cultura da empresa, moldados para apresentar a estrutura do "Pentalateral" como uma metodologia de negócios humana e de alta performance:
  1. **O Conhecimento é o Maior Ativo (*Compounding*):** O software que entregamos ao cliente é apenas o subproduto de um processo maior. O nosso verdadeiro diferencial é a inteligência operacional acumulada. Cada erro mapeado, cada fricção resolvida e cada sucesso documentado retroalimentam a nossa metodologia, garantindo que a nossa operação de amanhã seja sempre mais rápida e letal que a de hoje.
  2. **Soberania Absoluta do Cliente:** Construímos ecossistemas onde o cliente é o verdadeiro dono. Através de leis rigorosas de projeto (como escudos de proteção de custos e travas de segurança estruturais), garantimos que o cliente tenha controle total sobre os seus dados, sem jamais ficar refém da nossa infraestrutura.
  3. **Conselho Deliberativo, Não Linha de Montagem:** Acreditamos no rigor antes da execução. A nossa estrutura interna opera através de painéis de estratégia, auditoria implacável e validação técnica. Nenhuma solução avança sem ser questionada e testada ao limite. Nunca executamos uma ordem sem antes provar o seu impacto real no negócio do cliente.
