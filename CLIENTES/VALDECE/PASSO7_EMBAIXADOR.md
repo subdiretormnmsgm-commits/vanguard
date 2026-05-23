@@ -48,6 +48,29 @@ O Embaixador pode responder apenas com o que Valdece disse/fez, ignorando análi
 Contra-ataque: Eduardo quer TANTO evidências quanto pensamentos inovadores.
 "Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição obrigatória.
 
+**DEF-E-5 — Scope Creep Validado por Entusiasmo**
+Pode confirmar ideias do loop porque Valdece mostrou entusiasmo com conceito similar, sem evidência de que pagaria.
+Contra-ataque: CONFIRMA só vale quando Valdece demonstrou disposição de pagar ou usar ativamente, não apenas interesse verbal.
+
+**DEF-E-6 — Silo de Cliente**
+Vê Valdece isoladamente. Ao emitir [E-1 a E-5], aplicar INTELIGENCIA_CRUZADA_NICHO se houver outro cliente Legal-Tech:
+```
+INTELIGENCIA_CRUZADA_NICHO (quando aplicável):
+  Padrão em [CLIENTE-A]: [comportamento]
+  Padrão em [CLIENTE-B]: [comportamento]
+  O que isso sugere para o nicho Legal-Tech-Criminal: [hipótese]
+```
+
+**DEF-E-7 — Temperatura Simples**
+Usar sempre TEMPERATURA_PONDERADA:
+```
+TEMPERATURA_PONDERADA:
+  Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+  Tendência (últimos 7 dias): [subindo / estável / caindo]
+  Contexto de pagamento: [em dia / próximo vencimento / atrasado]
+  Score 0-10: [N]  ← Score < 6 = CHURN-WATCH automático
+```
+
 ---
 
 ## 📋 CABEÇALHO DA ATIVAÇÃO
@@ -221,14 +244,14 @@ PEDIDO AO EMBAIXADOR:
 
 ```
 Embaixador, reação ao ciclo atual do Pentalateral — VALDECE.
-Loop 6 · pós-áudios Valdece · 3 features entregues (ementa + UF + boost) · contrato pendente assinatura
+Loop 7 · Contrato ASSINADO R$5k · Reingest 61/61 CONCLUÍDO 2026-05-23 · Badges + Edge Function + Migração
 
 CONTEXTO DO CICLO (elo obrigatório — não omitir):
-- DIRETRIZ em execução: DIRETRIZ_GEMINI_V6.txt
-- Skill que o Músculo vai executar: /valdece-v6
-- O que a Skill define como prioridade: assinar o contrato R$5.000 → liberar V3 (badges vinculantes)
-- O que a Skill proíbe de construir: qualquer campo V3 (data_dje, repercussao_geral, recurso_repetitivo) antes do contrato
-- Teto atual: ementa completa + badge UF + boost monocrático — nada mais sem assinatura (P-023)
+- DIRETRIZ em execução: DIRETRIZ_GEMINI_V7.txt
+- Skill que o Músculo vai executar: /valdece-v7
+- O que a Skill define como prioridade: Badges VINCULANTE/REPETITIVO + Edge Function (HV-1) + Migração conta Valdece
+- O que a Skill proíbe de construir: Sovereign Upload antes do V3 estável; nada sem gate 12/12 queries (P-038)
+- Estado atual: reingest 61/61 concluído · badges e Edge Function são os últimos bloqueantes
 
 [M-1 a M-5] — IDEIAS DO MÚSCULO (Loop 6 · 2026-05-19):
 
@@ -319,32 +342,41 @@ ANÁLISE INOVADORA OBRIGATÓRIA (P-035 — amplitude total):
 
 ---
 
-## 📤 FORMATO OBRIGATÓRIO — O QUE O EMBAIXADOR ENTREGA
+## FORMATO OBRIGATÓRIO — 6 BLOCOS DA RESPOSTA DO EMBAIXADOR
 
 ```
-[E-1 a E-5] — IDEIAS EXCLUSIVAS DO EMBAIXADOR
-Perspectiva exclusiva do relacionamento real com o Valdece.
-Para cada ideia: o que é + por que Valdece valorizaria + evidência da MEMORIA_EMBAIXADOR.
+BLOCO 1 — TEMPERATURA_PONDERADA DE VALDECE
+  Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+  Tendência (últimos 7 dias): [subindo / estável / caindo]
+  Contexto de pagamento: [em dia / próximo vencimento / atrasado]
+  Score 0-10: [N]  ← Score < 6 = CHURN-WATCH automático
+  Razão: [1-2 linhas com evidência concreta]
 
-[E-1] [NOME DA IDEIA]
-Descrição: [o que é]
-Por que Valdece valorizaria: [razão fundamentada no histórico]
-Evidência: [o que Valdece disse/fez que apoia esta ideia]
+BLOCO 2 — HIPÓTESES ATIVAS
+  Para cada hipótese pendente: CONFIRMADA / REFUTADA / PENDENTE + evidência de 1 linha
+  Prioridade: uso real do app + percepção dos badges + pipeline de indicação
 
-[E-2] ... [E-3] ... [E-4] ... [E-5] ...
+BLOCO 3 — COMPORTAMENTO DO CLIENTE (3 pontos obrigatórios)
+  O que Valdece fez que era esperado:
+  O que Valdece fez que foi surpresa:
+  O que Valdece NÃO fez que deveria ter feito:
 
-TEMPERATURA ATUALIZADA DO CLIENTE
-[FRIA / MORNA / QUENTE / ENTUSIASMADA]
-Razão: [1-2 linhas com evidência concreta]
+BLOCO 4 — WATCHDOG
+  [SCOPE-WATCH] abertos:
+  [CHURN-WATCH] ativos:
+  Próximo debrief recomendado:
 
-WATCHDOG — ALERTAS ATIVOS
-[SCOPE-WATCH] abertos: [LISTAR OU "nenhum"]
-[CHURN-WATCH] ativos: [LISTAR OU "nenhum"]
-Próximo debrief recomendado: [DATA OU "após a demo"]
+BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
+  Perspectiva exclusiva — não síntese das ideias dos outros membros.
+  Para cada ideia:
+    [E-N] [NOME]
+    Descrição: [o que é]
+    Por que Valdece valorizaria: [razão fundamentada no histórico]
+    Evidência: [o que Valdece disse/fez]
 
-PRÓXIMA AÇÃO RECOMENDADA PELO EMBAIXADOR
-[AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
-Razão: [por que esta ação agora e não outra]
+BLOCO 6 — PRÓXIMA AÇÃO RECOMENDADA
+  [AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
+  Razão: [por que esta ação agora e não outra]
 ```
 
 ---

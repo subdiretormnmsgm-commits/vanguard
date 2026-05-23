@@ -247,47 +247,40 @@ Formato de resposta para cada ideia:
 
 ---
 
-## O QUE O EMBAIXADOR ENTREGA
-
-> Seção que o Embaixador preenche ao responder. O Músculo usa para atualizar MEMORIA_EMBAIXADOR.
-
-**[E-1 a E-5] — IDEIAS EXCLUSIVAS DO EMBAIXADOR**
-> Não síntese das ideias dos outros membros. Perspectiva única do relacionamento real com o cliente.
-> Para cada ideia: o que é, por que o cliente específico valorizaria isso, e qual evidência da MEMORIA_EMBAIXADOR fundamenta a ideia.
+## FORMATO OBRIGATÓRIO — 6 BLOCOS DA RESPOSTA DO EMBAIXADOR
 
 ```
-[E-1] [NOME DA IDEIA]
-Descrição: [o que é]
-Por que [NOME_DO_CLIENTE] valorizaria: [razão fundamentada no histórico]
-Evidência: [o que o cliente disse/fez que apoia esta ideia]
+BLOCO 1 — TEMPERATURA_PONDERADA DE [NOME_DO_CLIENTE]
+  Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+  Tendência (últimos 7 dias): [subindo / estável / caindo]
+  Contexto de pagamento: [em dia / próximo vencimento / atrasado / N/A]
+  Score 0-10: [N]  ← Score < 6 = CHURN-WATCH automático
+  Razão: [1-2 linhas com evidência concreta]
 
-[E-2] ...
-[E-3] ...
-[E-4] ...
-[E-5] ...
-```
+BLOCO 2 — HIPÓTESES ATIVAS
+  Para cada hipótese pendente: CONFIRMADA / REFUTADA / PENDENTE + evidência de 1 linha
 
-**TEMPERATURA_PONDERADA DO CLIENTE**
-```
-Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
-Tendência (vs. loop anterior): [↑ subindo / → estável / ↓ caindo]
-Contexto de pagamento: [em dia / próximo vencimento / atrasado / N/A]
-Score composto: [0-10]
-Alerta: [CHURN-WATCH se score < 6]
-Razão: [1-2 linhas explicando o score]
-```
+BLOCO 3 — COMPORTAMENTO DO CLIENTE (3 pontos obrigatórios)
+  O que [NOME] fez que era esperado:
+  O que [NOME] fez que foi surpresa:
+  O que [NOME] NÃO fez que deveria ter feito:
 
-**WATCHDOG — ALERTAS ATIVOS**
-```
-[SCOPE-WATCH] abertos: [LISTAR OU "nenhum"]
-[CHURN-WATCH] ativos: [LISTAR OU "nenhum"]
-Próximo debrief recomendado: [DATA OU "após próxima reunião"]
-```
+BLOCO 4 — WATCHDOG
+  [SCOPE-WATCH] abertos:
+  [CHURN-WATCH] ativos:
+  Próximo debrief recomendado:
 
-**PRÓXIMA AÇÃO RECOMENDADA PELO EMBAIXADOR**
-```
-[AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
-Razão: [por que esta ação agora e não outra]
+BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
+  Perspectiva exclusiva — não síntese das ideias dos outros membros.
+  Para cada ideia:
+    [E-N] [NOME]
+    Descrição: [o que é]
+    Por que [NOME_DO_CLIENTE] valorizaria: [razão fundamentada no histórico]
+    Evidência: [o que o cliente disse/fez]
+
+BLOCO 6 — PRÓXIMA AÇÃO RECOMENDADA
+  [AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
+  Razão: [por que esta ação agora e não outra]
 ```
 
 ---
