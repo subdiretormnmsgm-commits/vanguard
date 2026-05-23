@@ -58,13 +58,11 @@
   - ATUALIZACAO_PENTALATERAL_2026-05-23.md para os sócios
   - MEMORIA_EMBAIXADOR Valdece corrigida
 
-- [ ] `2026-05-23` **Sync universal obrigatório** — rodar após confirmação de commit:
-  `.\.claude\skills\files\sync_vanguard_docs.ps1`
-  Sincroniza todos os docs PENTALATERAL_UNIVERSAL atualizados para CLIENTES/*/NOTEBOOKLM_FONTES/
+- [x] `2026-05-23` ~~**Sync universal obrigatório**~~ — `sync_vanguard_docs.ps1` executado: INTEGRIDADE VERDE, 0 falhas de hash ✅
 
-- [ ] `2026-05-23` **Rename QUADRILATERAL → PENTALATERAL** — aguarda veredito formal do Diretor
-  Eduardo sugeriu mas não decidiu formalmente. Impacto: muitos caminhos de arquivo.
-  Músculo executa em sessão dedicada quando aprovado.
+- [x] `2026-05-23` ~~**Rename QUADRILATERAL → PENTALATERAL**~~ — veredito formal do Diretor dado, executado: 234 arquivos via `git mv`, todos os scripts/hooks/skills/docs atualizados ✅
+
+- [x] `2026-05-23` ~~**Varredura total + VANGUARD_TIMELINE**~~ — CONSTITUICAO atualizada (MEMORANDO v2.3), NOTEBOOKLM_BASE sincronizado, TIMELINE com marcos 2026-05-23, tabela de membros v6.1 ✅
 
 ---
 
