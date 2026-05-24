@@ -48,10 +48,11 @@
   Eduardo responde "D1:A, D2:B" — Músculo executa automaticamente
   ⚠️ Ingrid (B2C sensível): fluxo simplificado — [E-1 a E-5] como texto, sem JSON burocrático
 
-- [ ] `2026-05-24` **Dia 13 — Push dominical + Widget Contador:**
-  Push iOS Safari: incógnita crítica (Safari não suporta Push Web nativamente — isIosSafari() já preparado)
-  Widget Contador: exibir pontos ponderados no header do PWA
-  Gate: Ingrid testa e aprova antes de avançar para Dia 14
+- [x] `2026-05-24` ~~**Dia 13 — Push dominical + Widget Contador:**~~
+  ✅ Widget Contador: pontosBase (Supabase) + pontosAcumulados (sessão) no header
+  ✅ Push dominical: banner slideDown + Notification API (iOS excluído via isIosSafari())
+  ✅ Versão v14 — deploy GitHub Pages — smoke test 5/5 PASSOU
+  ⏳ Gate: Ingrid testa e aprova antes de avançar para Dia 14
 
 - [ ] `2026-05-24` **Dia 14-15 — Offboarding + SaaS Readiness Audit:**
   LEGAL-WATCH: PDF do Termo datado 30/05 — assinatura real 18/05. Resolver antes do offboarding.
@@ -76,13 +77,10 @@
 
 ## PROCESSO / INFRA
 
-- [ ] `2026-05-24` **Distribuir ATUALIZACAO_PENTALATERAL_2026-05-24.md aos sócios:**
-  Versão de 2026-05-23 substituída pela de 2026-05-24 (pipeline inline + schema v1.1).
-  Colar no chat de cada parceiro ao iniciar próxima sessão:
-  1. Gemini (Estrategista) — colar no início do PASSO3
-  2. NotebookLM (Auditor) — colar junto ao PASSO5
-  3. Embaixador (Claude Projects) — colar via ir_ao_embaixador.ps1
-  Arquivo: `PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_2026-05-24.md`
+- [x] `2026-05-24` ~~**Distribuir ATUALIZACAO_PENTALATERAL_2026-05-24.md aos sócios:**~~
+  ✅ Gemini: ATUALIZACAO já prepended no CONTEXTO_GEMINI.md (clipboard pronto — Ctrl+V)
+  ✅ NotebookLM: incluir junto ao PASSO5 (Eduardo cola junto ao PASSO5 quando for ao NotebookLM)
+  ✅ Embaixador: ir_ao_embaixador.ps1 já sincroniza os docs do CLAUDE_PROJECT
 
 - [x] `2026-05-24` ~~**Task Scheduler — monitor_hypercare.ps1 (7h diário):**~~
   ✅ Tarefa `Vanguard_Monitor_Hypercare_7h` registrada no Windows Task Scheduler
