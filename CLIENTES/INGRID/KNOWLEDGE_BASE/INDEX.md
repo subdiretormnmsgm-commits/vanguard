@@ -1,6 +1,6 @@
 ﻿# KNOWLEDGE BASE — PROJ-002 Ingrid
 **Problemas e soluções específicos deste projeto**
-**Atualizado:** 2026-05-21
+**Atualizado:** 2026-05-23
 
 ---
 
@@ -18,7 +18,7 @@
 
 | Problema | Solução | Data |
 |----------|---------|------|
-| *(sem registros ainda — adicionar ao resolver o primeiro problema)* | — | — |
+| Deploy GitHub Pages não chegava ao usuário — gh-pages desatualizada | [KB_DEPLOY_GHPAGES.md](KB_DEPLOY_GHPAGES.md) | 2026-05-23 |
 
 ---
 
@@ -26,7 +26,10 @@
 
 | Componente | Detalhe |
 |-----------|---------|
-| *(preencher ao iniciar o build)* | — |
+| Frontend | JS Vanilla — `CLIENTES/INGRID/frontend/` |
+| Deploy produção | GitHub Pages — branch `gh-pages` (flat, raiz) |
+| Backend | Supabase (`ehyaecxqijgyuuiorzcj`) |
+| URL produção | `https://subdiretormnmsgm-commits.github.io/vanguard/` |
 
 ---
 

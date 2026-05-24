@@ -1140,3 +1140,18 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Ferramenta:** `scripts/verificar_estado_projetos.ps1` — lista skills reais por projeto, dias_completos, próximo gate. Injetado no context do session_start como "ESTADO REAL DOS PROJETOS (P-055)".
 **Aplica-se a:** qualquer sessão retomada após compactação — especialmente quando há projetos em BUILD com múltiplos loops.
 
+### [P-056] Deploy GitHub Pages exige sync explícito master → gh-pages
+**Descoberto:** 2026-05-23 | **Emitido por:** PROJ-002 Ingrid — Dia 12 Loop 5 — 4h de diagnóstico
+**Fricção:** Commits de Loop 4 e Loop 5 foram para `master`. GitHub Pages serve da branch `gh-pages`. O app em produção ficou parado no Loop 3 por semanas. Usuário (Ingrid) recebia código antigo. O Músculo declarou features "deployadas" sem verificar a branch que o GitHub Pages serve. Cache, SW, Ctrl+Shift+R — nada funcionou porque o arquivo errado estava em produção.
+**Princípio:** Ao usar GitHub Pages com branch `gh-pages` separada, o Músculo NUNCA declara deploy concluído sem provar que o conteúdo correto está na branch que o GH Pages serve. Verificação: `git show gh-pages:app.js | head -3` — confirma a versão em produção.
+**Regra derivada:** Ao fechar qualquer sessão com mudanças em frontend Ingrid → rodar o script de sync:
+```bash
+git checkout gh-pages
+git show master:CLIENTES/INGRID/frontend/app.js > app.js
+# ... (demais arquivos)
+git commit -m "deploy(gh-pages): ..." && git push origin gh-pages
+git checkout master
+```
+**Ferramenta:** Criar `scripts/deploy_ingrid_ghpages.ps1` — automatiza o sync master → gh-pages com um comando.
+**Aplica-se a:** PROJ-002 Ingrid e qualquer outro projeto que use GitHub Pages com branch separada.
+
