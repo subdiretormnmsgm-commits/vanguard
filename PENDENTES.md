@@ -84,11 +84,9 @@
   3. Embaixador (Claude Projects) — colar via ir_ao_embaixador.ps1
   Arquivo: `PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_2026-05-24.md`
 
-- [ ] `2026-05-24` **Task Scheduler — monitor_hypercare.ps1 (7h diário):**
-  Configurar tarefa agendada no Windows para rodar diariamente:
-  Programa: `powershell.exe`
-  Argumentos: `-NonInteractive -File "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\scripts\monitor_hypercare.ps1"`
-  Gatilho: diário às 07:00 (dias úteis)
+- [x] `2026-05-24` ~~**Task Scheduler — monitor_hypercare.ps1 (7h diário):**~~
+  ✅ Tarefa `Vanguard_Monitor_Hypercare_7h` registrada no Windows Task Scheduler
+  ✅ Gatilho: segunda a sexta às 07:00 — Estado: Ready
 
 - [x] `2026-05-23` ~~**NotebookLM Wipe & Sync — Músculo preparou fontes (scripts rodados):**~~
   ✅ `preparar_notebooklm_projeto.ps1 -cliente VALDECE` — 18 docs prontos

@@ -72,6 +72,50 @@ header {
   white-space: nowrap;
 }
 
+/* ── BANNER DOMINICAL ── */
+#banner-dominical {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, rgba(26,11,46,0.98) 0%, rgba(0,240,255,0.08) 100%);
+  border-bottom: 1px solid rgba(0,240,255,0.35);
+  font-size: 13px;
+  color: var(--text);
+  animation: slideDown 0.3s ease;
+}
+#banner-dominical span {
+  flex: 1;
+  font-weight: 500;
+}
+#btn-banner-simulado {
+  padding: 5px 14px;
+  background: var(--cyan);
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+#btn-banner-fechar {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
 /* ── MAIN ── */
 main {
   flex: 1;

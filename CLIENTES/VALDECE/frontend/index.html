@@ -805,13 +805,26 @@
         <div class="card-footer">
           <span class="card-date">${dataFmt}</span>
           <div class="card-actions">
-            <a class="btn-link" href="${stjUrl}" target="_blank" rel="noopener">Buscar no ${r.tribunal} ↗</a>
+            <a class="btn-link btn-stf" href="${stjUrl}" target="_blank" rel="noopener" data-numero="${r.numero_acordao || ''}">Buscar no ${r.tribunal} ↗</a>
             <button class="btn-feedback" data-id="${r.id}" data-val="up" title="Relevante">👍</button>
             <button class="btn-feedback" data-id="${r.id}" data-val="down" title="Não relevante">👎</button>
             <button class="btn-copy" data-copy="${encodeURIComponent(buildCopyText(r))}">Copiar ABNT</button>
           </div>
         </div>`;
       resultsEl.appendChild(card);
+    });
+
+    // Buscar no STF/STJ — copia número para clipboard antes de abrir
+    resultsEl.querySelectorAll('.btn-stf').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const numero = btn.dataset.numero;
+        if (numero) {
+          navigator.clipboard.writeText(numero).catch(() => {});
+          const orig = btn.textContent;
+          btn.textContent = numero + ' copiado ✓';
+          setTimeout(() => { btn.textContent = orig; }, 2000);
+        }
+      });
     });
 
     // Event listeners

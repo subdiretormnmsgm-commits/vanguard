@@ -1,0 +1,36 @@
+{
+  "site": "https://subdiretormnmsgm-commits.github.io",
+  "tests": [
+    {
+      "name": "Frontend carregando",
+      "endpoint": "/vanguard/",
+      "method": "GET",
+      "expect_status": 200,
+      "expect_contains": "Sedes-DF 2026"
+    },
+    {
+      "name": "app.js v14 carregando",
+      "endpoint": "/vanguard/app.js",
+      "method": "GET",
+      "expect_status": 200
+    },
+    {
+      "name": "style.css v14 carregando",
+      "endpoint": "/vanguard/style.css",
+      "method": "GET",
+      "expect_status": 200
+    },
+    {
+      "name": "Service Worker presente",
+      "endpoint": "/vanguard/sw.js",
+      "method": "GET",
+      "expect_status": 200
+    },
+    {
+      "name": "Manifest PWA presente",
+      "endpoint": "/vanguard/manifest.json",
+      "method": "GET",
+      "expect_status": 200
+    }
+  ]
+}

@@ -1251,6 +1251,20 @@ git checkout master
 
 ---
 
+### [P-064] Smoke test obrigatório antes de chamar o Diretor — deploy sem evidência é inválido
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — "Imagine com 20 projetos? Se eu não testasse, ficaríamos perdidos"
+**Fricção:** Músculo fez push do proxy Netlify e declarou "pronto". Eduardo testou e encontrou erro (Edge Function syntax no lugar de Serverless Function). O Diretor não deve ser o testador primário de deploys — esse papel é do Músculo.
+**Princípio:** Nenhum deploy é declarado "pronto" sem smoke test automatizado executado pelo Músculo. O Diretor testa apenas o golden path após o smoke test passar. Com 20 projetos simultâneos, o Diretor seria consumido por testes manuais se o Músculo não validar antes.
+**Regra operacional:**
+- Após todo `git push` para projeto com `smoke_tests.json`: rodar `scripts/smoke_test_deploy.ps1 -cliente [NOME]`
+- Se PASSOU: "Deploy validado. Diretor pode testar o golden path."
+- Se FALHOU: Músculo resolve antes de avisar Eduardo — nunca o contrário
+- Arquivo de config por projeto: `CLIENTES/[NOME]/smoke_tests.json`
+- Template universal: `scripts/smoke_tests_template.json`
+**Aplica-se a:** todo deploy de produto cliente (Netlify, GitHub Pages, qualquer hospedagem).
+
+---
+
 ### [CANDIDATO_A_PRINCIPIO] O cliente que sinaliza escopo por áudio antes de assinar vai sinalizar por mensagem depois de assinar
 **Proposto por:** Embaixador Valdece — 2026-05-24 | **Aguarda:** numeração do Diretor
 **Fricção:** Valdece enviou 5 áudios sobre V3 (data_dje, turma, repercussao_geral) antes de assinar. O mesmo padrão se repete pós-contrato via mensagem. Pipeline sem travamento de escopo antes do primeiro uso = Eduardo respondendo a scope creep sem perceber que é scope creep.

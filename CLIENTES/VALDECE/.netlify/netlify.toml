@@ -1,15 +1,14 @@
+functionsDirectory = "C:\\Users\\Eduardo DELL\\OneDrive\\Área de Trabalho\\vanguard\\CLIENTES\\VALDECE\\netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
+headersOrigin = "config"
 plugins = []
-headers = []
 redirects = []
 
-[functions]
-
-[functions."*"]
-
 [build]
-publish = "C:\\Users\\Eduardo DELL\\OneDrive\\Área de Trabalho\\vanguard\\CLIENTES\\VALDECE"
-publishOrigin = "default"
+publish = "C:\\Users\\Eduardo DELL\\OneDrive\\Área de Trabalho\\vanguard\\CLIENTES\\VALDECE\\frontend"
+publishOrigin = "config"
 base = "C:\\Users\\Eduardo DELL\\OneDrive\\Área de Trabalho\\vanguard\\CLIENTES\\VALDECE"
+functions = "C:\\Users\\Eduardo DELL\\OneDrive\\Área de Trabalho\\vanguard\\CLIENTES\\VALDECE\\netlify\\functions"
 
 [build.environment]
 
@@ -24,3 +23,16 @@ base = "C:\\Users\\Eduardo DELL\\OneDrive\\Área de Trabalho\\vanguard\\CLIENTES
 [build.processing.js]
 
 [build.services]
+
+[functions]
+
+[functions."*"]
+node_bundler = "esbuild"
+
+[[headers]]
+for = "/.netlify/functions/*"
+
+[headers.values]
+Access-Control-Allow-Origin = "https://toga-digital-valdece.netlify.app"
+Access-Control-Allow-Methods = "POST, OPTIONS"
+Access-Control-Allow-Headers = "Content-Type"

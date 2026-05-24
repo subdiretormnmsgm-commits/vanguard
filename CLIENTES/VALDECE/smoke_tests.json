@@ -1,0 +1,19 @@
+{
+  "site": "https://toga-digital-valdece.netlify.app",
+  "tests": [
+    {
+      "name": "Frontend carregando",
+      "endpoint": "/",
+      "method": "GET",
+      "expect_status": 200
+    },
+    {
+      "name": "Proxy Gemini Embedding",
+      "endpoint": "/.netlify/functions/embed",
+      "method": "POST",
+      "body": { "text": "teste de conectividade P-064" },
+      "expect_status": 200,
+      "expect_field": "embedding"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_comentario": "Template smoke_tests.json — copiar para CLIENTES/[NOME]/smoke_tests.json",
+  "site": "https://[site].netlify.app",
+  "tests": [
+    {
+      "name": "Frontend carregando",
+      "endpoint": "/",
+      "method": "GET",
+      "expect_status": 200
+    },
+    {
+      "name": "Exemplo: endpoint POST com validacao de campo",
+      "endpoint": "/.netlify/functions/[nome]",
+      "method": "POST",
+      "body": { "campo": "valor de teste" },
+      "expect_status": 200,
+      "expect_field": "resultado"
+    },
+    {
+      "name": "Exemplo: pagina com conteudo esperado",
+      "endpoint": "/pagina",
+      "method": "GET",
+      "expect_status": 200,
+      "expect_contains": "texto esperado"
+    }
+  ]
+}

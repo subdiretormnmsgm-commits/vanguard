@@ -19,7 +19,7 @@ $clienteUpper = $cliente.ToUpper()
 # --- 1. Ler WIP_BOARD para obter loop atual POR CLIENTE ---
 $wipPath = "$raiz\CLIENTES\WIP_BOARD.json"
 if (-not (Test-Path $wipPath)) {
-    Write-Host "  [AVISO] WIP_BOARD.json nao encontrado — verificacao de DIRETRIZ ignorada." -ForegroundColor Yellow
+    Write-Host "  [AVISO] WIP_BOARD.json nao encontrado -- verificacao de DIRETRIZ ignorada." -ForegroundColor Yellow
     exit 0
 }
 
@@ -79,7 +79,7 @@ if ($encontrado) {
 # DIRETRIZ ausente
 Write-Host ""
 Write-Host "  +----------------------------------------------------------+" -ForegroundColor Red
-Write-Host "  |  BLOQUEIO — DIRETRIZ_GEMINI_V${loopNum}.txt nao encontrada  |" -ForegroundColor Red
+Write-Host "  |  BLOQUEIO -- DIRETRIZ_GEMINI_V${loopNum}.txt nao encontrada  |" -ForegroundColor Red
 Write-Host "  +----------------------------------------------------------+" -ForegroundColor Red
 Write-Host "  Cliente : $clienteUpper" -ForegroundColor Yellow
 Write-Host "  Loop    : $loopNum ($loopAtual)" -ForegroundColor Yellow
@@ -102,7 +102,7 @@ if (Test-Path $alertScript) {
 }
 
 if ($Silencioso) {
-    Write-Host "  (-Silencioso ativo — bloqueio ignorado, continuando)" -ForegroundColor DarkGray
+    Write-Host "  (-Silencioso ativo -- bloqueio ignorado, continuando)" -ForegroundColor DarkGray
     exit 0
 }
 

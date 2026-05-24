@@ -19,7 +19,8 @@
 
 param(
     [string]$cliente = "",
-    [switch]$AutoSync   # Modo silencioso: sincroniza docs sem abrir browser/Explorer
+    [switch]$AutoSync,        # Modo silencioso: sincroniza docs sem abrir browser/Explorer
+    [switch]$ApenasAtivacao   # Bypass do gate DIRETRIZ -- uso exclusivo para "nova sistematica"
 )
 
 $ErrorActionPreference = "Stop"
@@ -197,11 +198,16 @@ if (Test-Path $mensagem) {
 # CHECK DIRETRIZ -- Verificar se DIRETRIZ_GEMINI do loop atual existe antes de abrir
 $checkDiretrizScript = "$raiz\scripts\check_diretriz_embaixador.ps1"
 if (Test-Path $checkDiretrizScript) {
-    & $checkDiretrizScript -cliente $cliente
-    if ($LASTEXITCODE -eq 1) {
-        Write-Host ""
-        Write-Host "  Browser NAO aberto. Resolva o bloqueio acima e rode novamente." -ForegroundColor Red
-        exit 1
+    if ($ApenasAtivacao) {
+        & $checkDiretrizScript -cliente $cliente -Silencioso
+        Write-Host "  (-ApenasAtivacao: gate DIRETRIZ ignorado -- so ativar nova sistematica)" -ForegroundColor DarkGray
+    } else {
+        & $checkDiretrizScript -cliente $cliente
+        if ($LASTEXITCODE -eq 1) {
+            Write-Host ""
+            Write-Host "  Browser NAO aberto. Resolva o bloqueio acima e rode novamente." -ForegroundColor Red
+            exit 1
+        }
     }
 }
 
