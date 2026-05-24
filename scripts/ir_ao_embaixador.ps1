@@ -33,20 +33,46 @@ if (-not $AutoSync) {
     Write-Host ""
 }
 
-# PASSO 0 -- Auto-detectar cliente
+# PASSO 0 -- Auto-detectar cliente (P-059: nunca auto-selecionar quando >1 projeto ativo)
 if (-not $cliente) {
-    Write-Host "[0/4] Detectando cliente ativo no WIP_BOARD..." -ForegroundColor Yellow
+    Write-Host "[0/4] Detectando projetos ativos no WIP_BOARD..." -ForegroundColor Yellow
     $wip = Get-Content "$raiz\CLIENTES\WIP_BOARD.json" -Raw | ConvertFrom-Json
-    $projeto = @($wip.board.build) | Where-Object { $_ } | Select-Object -First 1
-    if ($projeto) {
+    $projetosAtivos = @($wip.board.build) | Where-Object { $_ }
+
+    if (-not $projetosAtivos -or $projetosAtivos.Count -eq 0) {
+        Write-Host "  [ERRO] Nenhum projeto em BUILD no WIP_BOARD." -ForegroundColor Red
+        Write-Host "         Informe o cliente: -cliente INGRID" -ForegroundColor Yellow
+        exit 1
+    }
+
+    if ($projetosAtivos.Count -eq 1) {
+        # Apenas 1 projeto — auto-detectar com confirmacao visual
+        $projeto = $projetosAtivos[0]
         $cliente = $projeto.cliente.ToUpper()
         $projetoId = $projeto.id
         $projetoNome = $projeto.projeto
         Write-Host "  Cliente detectado: $cliente ($projetoId - $projetoNome)" -ForegroundColor Green
     } else {
-        Write-Host "  [ERRO] Nenhum projeto em BUILD no WIP_BOARD." -ForegroundColor Red
-        Write-Host "         Informe o cliente: -cliente INGRID" -ForegroundColor Yellow
-        exit 1
+        # P-059: >1 projeto ativo — NUNCA auto-selecionar. Listar e aguardar escolha.
+        Write-Host ""
+        Write-Host "  [P-059] $($projetosAtivos.Count) projetos em BUILD. Escolha o cliente:" -ForegroundColor Yellow
+        $i = 1
+        foreach ($p in $projetosAtivos) {
+            Write-Host "  [$i] $($p.cliente.ToUpper()) — $($p.id) — $($p.projeto)" -ForegroundColor White
+            $i++
+        }
+        Write-Host ""
+        $escolha = Read-Host "  Numero do projeto"
+        $idx = [int]$escolha - 1
+        if ($idx -lt 0 -or $idx -ge $projetosAtivos.Count) {
+            Write-Host "  [ERRO] Escolha invalida. Informe -cliente [NOME] diretamente." -ForegroundColor Red
+            exit 1
+        }
+        $projeto = $projetosAtivos[$idx]
+        $cliente = $projeto.cliente.ToUpper()
+        $projetoId = $projeto.id
+        $projetoNome = $projeto.projeto
+        Write-Host "  Cliente confirmado: $cliente ($projetoId)" -ForegroundColor Green
     }
 } else {
     $cliente = $cliente.ToUpper()
@@ -167,6 +193,34 @@ if (Test-Path $mensagem) {
     Write-Host "       $mensagem" -ForegroundColor DarkGray
 }
 
+
+# CHECK DIRETRIZ -- Verificar se DIRETRIZ_GEMINI do loop atual existe antes de abrir
+$checkDiretrizScript = "$raiz\scripts\check_diretriz_embaixador.ps1"
+if (Test-Path $checkDiretrizScript) {
+    & $checkDiretrizScript -cliente $cliente
+    if ($LASTEXITCODE -eq 1) {
+        Write-Host ""
+        Write-Host "  Browser NAO aberto. Resolva o bloqueio acima e rode novamente." -ForegroundColor Red
+        exit 1
+    }
+}
+
+# CHECK VEREDITOS_RESUMO -- Verificar memoria do Embaixador antes de abrir o Project
+$resumoDir = "$raiz\CLIENTES\$cliente\CLAUDE_PROJECT"
+$resumosExistentes = Get-ChildItem "$resumoDir\VEREDITOS_RESUMO_*.md" -ErrorAction SilentlyContinue |
+                     Sort-Object LastWriteTime -Descending
+if ($resumosExistentes -and $resumosExistentes.Count -gt 0) {
+    $ultimoResumo = $resumosExistentes[0]
+    $dataResumo = $ultimoResumo.BaseName -replace "VEREDITOS_RESUMO_${cliente}_", ""
+    Write-Host ""
+    Write-Host "  [OK] Resumo de vereditos $dataResumo incluido." -ForegroundColor Green
+    Write-Host "       Carregar $($ultimoResumo.Name) como Knowledge Document antes de iniciar." -ForegroundColor DarkGray
+} else {
+    Write-Host ""
+    Write-Host "  [ATENCAO] Nenhum resumo de vereditos encontrado." -ForegroundColor Yellow
+    Write-Host "  Verificar AutoSync antes de continuar -- Embaixador abre sem rastreabilidade de decisoes." -ForegroundColor Yellow
+    Write-Host "  Eduardo decide se abre o Project mesmo assim ou resolve o sync primeiro." -ForegroundColor White
+}
 # PASSO 2 -- Abrir browser no Claude Projects
 Write-Host ""
 Write-Host "[2/4] Abrindo Claude Projects no browser..." -ForegroundColor Yellow
@@ -239,10 +293,25 @@ Write-Host ""
 Write-Host "  O Embaixador vai entregar SEM voce pedir:" -ForegroundColor Yellow
 Write-Host "  [A] Diagnostico cruzado -- so ele pode ver (memoria persistente)" -ForegroundColor White
 Write-Host "  [B] CONFIRMA/EXPANDE/ALERTA nas 25 ideias do loop" -ForegroundColor White
-Write-Host "  [C] Comportamento real da Ingrid (frases E-2 e E-5)" -ForegroundColor White
+Write-Host "  [C] Comportamento real de $projetoNome (frases E-2 e E-5)" -ForegroundColor White
 Write-Host "  [D] Amplitude Pentalateral -- [E-1 a E-5] (comercial, pipeline, business case)" -ForegroundColor White
 Write-Host "  [E] Artefatos prontos -- mensagens WhatsApp para uso imediato" -ForegroundColor White
-Write-Host "  [F] LOG_CLIENTE desta sessao (fonte do Auditor no proximo loop)" -ForegroundColor White
+Write-Host "  [F] DECISOES_${cliente}_[DATA].json -- salvar LOCAL em CLAUDE_PROJECT/DECISOES/ (NAO subir ao Projects -- JSON nao e lido como Knowledge Document)" -ForegroundColor White
+Write-Host "  [G] LOG_CLIENTE desta sessao (fonte do Auditor no proximo loop)" -ForegroundColor White
+Write-Host ""
+Write-Host "  PRE-REQUISITO (se ainda nao fez):" -ForegroundColor Yellow
+  Write-Host "  Subir DIRETRIZ_GEMINI_V[N].txt no Claude Project (Knowledge Documents)" -ForegroundColor Magenta
+  Write-Host "  Embaixador precisa da DIRETRIZ completa -- nao so [G-1 a G-5] da SECAO D" -ForegroundColor White
+  Write-Host ""
+  Write-Host "  APOS RECEBER (Eduardo so delibera — Musculo faz o resto):" -ForegroundColor Yellow
+Write-Host "  Cole o output completo do Embaixador no Claude Code." -ForegroundColor Cyan
+Write-Host "  Musculo extrai DECISOES.json + lista: 'D1: [titulo] — A: [opcao] | B: [opcao]'" -ForegroundColor Cyan
+Write-Host "  Eduardo responde: 'D1:A, D2:B' → Musculo executa tudo automaticamente." -ForegroundColor Cyan
+Write-Host "  DECISOES.json fica LOCAL em CLAUDE_PROJECT/DECISOES/ — NAO sobe ao Projects." -ForegroundColor DarkGray
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Magenta
 Write-Host ""
+
+
+
+

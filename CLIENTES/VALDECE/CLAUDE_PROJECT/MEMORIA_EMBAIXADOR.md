@@ -126,6 +126,70 @@ Contrato ainda não assinado — Eduardo vai presencialmente hoje fechar.
 
 ---
 
+## INTELIGÊNCIA DE MERCADO — D2 (Legal-Tech-Criminal)
+
+> Mandato 12 do Embaixador. Última atualização: 2026-05-23 (Loop 7).
+
+#### SUBSTITUTOS DIRETOS
+
+| Produto | Preço | O que faz | Ponto fraco |
+|---|---|---|---|
+| Google | R$0 | Busca textual genérica | Ruído — retorna notícias, blogs, sites sem autoridade; sem filtro penal; sem ABNT |
+| JusBrasil (gratuito) | R$0–R$150/mês | Busca por número de processo e texto exato | Sem busca semântica; sem threshold de relevância; sem citação automática |
+| Westlaw Brasil | ~R$3.000/mês | Base completa STF/STJ + doutrina + busca avançada | Preço proibitivo para escritório pequeno; interface complexa; cobre tudo, não Direito Penal especificamente |
+| LexisNexis | ~R$2.000–4.000/mês | Idem Westlaw — amplitude total | Idem — genérico demais para quem quer precisão penal |
+| PesquisaJuris | ~R$200–400/mês | Busca jurisprudencial nacional | Sem personalização por tema penal; sem citação ABNT automática |
+
+**Diferencial defensável da Vanguard:**
+- Busca semântica real (embedding) — encontra por significado, não por palavra exata
+- Threshold configurável (Precisa 0.67 / Ampla 0.45) — Valdece controla a precisão
+- Corpus curado STF/STJ penal — sem ruído de outras áreas do Direito
+- Citação ABNT automática — 1 clique; nenhum concorrente na faixa de preço oferece isso
+- Sem mensalidade — infra na conta do próprio Valdece (~R$1,20/mês)
+- Corpus vai crescer com acórdãos do próprio Valdece (V2)
+
+#### DADOS DE MERCADO CAPTURADOS
+
+| Data | Evento | Dado de mercado inferido |
+|---|---|---|
+| 2026-05-19 (Gate Discovery) | Valdece usava Google para pesquisa — pediu "um Google melhor para jurisprudência penal" | Segmento não tem alternativa acessível entre R$0 (Google ruim) e R$3k/mês (Westlaw) — gap de mercado confirmado |
+| 2026-05-19 (5 áudios feedback) | Valdece enviou feedback técnico detalhado (ementa, UF, data DJE) sem ser solicitado | Usuário engajado a ponto de fazer QA espontâneo = produto é relevante para o workflow real dele |
+| 2026-05-19 (Presencial) | Contrato R$5k aceito sem barganhar — H-1 parcialmente confirmada | Teto de preço para proposta única (não mensalidade) pode estar acima de R$5k para o próximo cliente |
+
+#### POSICIONAMENTO VANGUARD NO MERCADO
+
+```
+ARGUMENTO DE PREÇO para próximo cliente advogado criminalista:
+"R$5.000 uma vez. Westlaw cobra R$3.000 por mês — você paga R$36.000/ano.
+Aqui é R$5k e acabou. E o sistema é seu, fica no seu servidor."
+
+ARGUMENTO DIFERENCIAL:
+"Google não filtra por Direito Penal. Westlaw custa R$3k/mês.
+Esse sistema encontra o precedente penal em 10 segundos com citação ABNT pronta.
+O promotor não tem isso."
+
+ARGUMENTO URGÊNCIA:
+"Seu adversário encontra o mesmo precedente 20 minutos depois, no Google.
+Você encontra em 10 segundos, com a citação pronta. Assimetria é isso."
+```
+
+#### OPORTUNIDADE DE PREÇO
+
+| Hipótese | Base | Status |
+|---|---|---|
+| Próximo cliente advogado criminalista aceita R$6–8k fixo | Valdece não barganha no R$5k; percebe ROI em audiência, não em horas | HIPÓTESE ATIVA |
+| V2 (Sovereign Upload) pode ser R$8.500–12.000 | Feature de corpus próprio resolve dor específica que Valdece já nomeou | ATIVO — gatilho: 30 dias de uso + corpus ≥ 500 docs |
+| Modelo por escritório (3 advogados) pode triplicar ticket | Criminalista trabalha em escritório, não solo — expandir horizontalmente | IDENTIFICADA (D3) |
+
+#### RISCO DE ESCALA (Mandato 13 — Sentinela)
+
+| Risco | Detalhe | Severidade |
+|---|---|---|
+| Corpus STF/STJ exige curadoria manual | Cada 10 acórdãos novos = tempo de ingest + validação; não automatiza a zero | ALTO |
+| Dependência de embedding Gemini | Se API mudar preço ou modelo, corpus existente precisa re-embedding — já aconteceu (768→3072) | ALTO |
+| Diferencial vs Westlaw pode encolher | Se Westlaw lançar plano R$500/mês para advocacia de pequeno porte, proposta de valor enfraquece | MÉDIO |
+| Mercado penal é comunidade densa | Boca-a-boca pode escalar positivamente (H-5) ou negativamente (1 falha vira história na OAB) | VIGILÂNCIA |
+
 ## LEADS DETECTADOS
 
 | Nome/Descrição | Contexto | Status |

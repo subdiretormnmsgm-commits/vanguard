@@ -3,7 +3,7 @@
 > **CAMADA_FATOS:** dado bruto e verbatim. Zero interpretação. Auditor lê esta camada diretamente.
 > **CAMADA_INFERENCIA:** análise do Embaixador. Ler sabendo que é opinião fundamentada.
 > **CAMADA_DECISAO:** deliberações formais do Conselho. Verdades acordadas do projeto.
-> Versão: Loop 4 · Gate Dia 8 · 2026-05-19
+> Versão: Loop 5 · Dia 12 · 2026-05-23
 
 ---
 
@@ -24,6 +24,7 @@
 | 2026-05-16 | WhatsApp | Termo enviado para assinatura | Diretor |
 | 2026-05-18 | WhatsApp | Termo assinado por Ingrid | Diretor (confirmado 2026-05-19) |
 | 2026-05-18 | App (PWA) | Primeira sessão real — Gate Dia 8 | Ingrid |
+| 2026-05-23 | WhatsApp (via Diretor) | Link do app reenviado — reengajamento pós-Loop 5 | Diretor |
 
 ### FALAS VERBATIM DE INGRID
 
@@ -44,10 +45,14 @@
 
 | Campo | Estado | Data |
 |---|---|---|
-| Gate atual | Loop 4 — Build Dias 6-8 em execução | 2026-05-19 |
+| Gate atual | Loop 5 — Dias 9-12 concluídos | 2026-05-23 |
 | Questões no banco | 460 — Cargo 202 SEDES-DF | 2026-05-18 |
 | App no ar | https://subdiretormnmsgm-commits.github.io/vanguard/ | 2026-05-18 |
 | Fix renderização negrito | Deployado | 2026-05-19 |
+| G-5 Socrática Pânico | Deployado (bug de ordem de lógica corrigido) | 2026-05-23 |
+| G-3 Badge Vacina | Deployado (passivo — aparece quando feed inclui questão vacina) | 2026-05-23 |
+| Contador de Erros Cumulativo | Deployado (gauge visual ativo) | 2026-05-23 |
+| Deploy pipeline (P-056) | gh-pages branch sincronizada — script `deploy_ingrid_ghpages.ps1` ativo | 2026-05-23 |
 
 ### HIPÓTESES RESOLVIDAS — evidência factual
 
@@ -73,12 +78,14 @@
 ### TEMPERATURA DO CLIENTE
 
 ```
-TEMPERATURA: VERDE FRÁGIL
-Razão: Q18 na sessão inaugural confirma engajamento real (perfil sistêmico), mas hábito tem < 72h.
-Verde de Primeira Impressão — não Verde Consolidado. Hábito confirma-se na sessão 3-5 quando SM-2 cobra.
-CHURN-WATCH: MONITORANDO — qualquer silêncio > 3 dias ativa AMARELO independente de Q18.
-Próxima reavaliação: sessão 3-5 (SM-2 começa a cobrar) e check-in 2026-05-21
-Última atualização: 2026-05-20 (Músculo P-032 — Loop 4 Deliberação)
+TEMPERATURA: VERDE FRÁGIL — REENGAJAMENTO NECESSÁRIO
+Razão: Última sessão real registrada: Gate Dia 8 (2026-05-18). App ficou 5 dias sem atualização visível
+(gh-pages branch congelada no Loop 3 sem que Ingrid soubesse). Novas features de Loop 5 chegaram
+em 2026-05-23 — Ingrid ainda não testou G-5, G-3 e Contador. Link reenviado hoje para reengajamento.
+CHURN-WATCH: MONITORANDO — silêncio confirmado de 2026-05-18 a 2026-05-23 (5 dias).
+Risco baixo: silêncio era do produto (deploy quebrado), não da Ingrid.
+Próxima reavaliação: após primeiro contato com features Loop 5 (G-5, G-3, Contador)
+Última atualização: 2026-05-23 (Músculo P-032 — Loop 5 Dia 12)
 ```
 
 ### PADRÕES INFERIDOS — atualizar com cada sessão real
@@ -121,10 +128,12 @@ Próxima reavaliação: sessão 3-5 (SM-2 começa a cobrar) e check-in 2026-05-2
 
 | Flag | Status | Ação se não resolvido |
 |---|---|---|
-| [CHURN-WATCH] | MONITORANDO — Ingrid usou o app | Rearmar se silêncio > 3 dias a partir de 2026-05-20 |
+| [CHURN-WATCH] | MONITORANDO — link reenviado 2026-05-23 | Rearmar se silêncio > 3 dias sem resposta ao reenvio |
 | [QA-WATCH] negrito questão 18 | RESOLVIDO | Fix deployado 2026-05-19 |
 | [SCOPE-WATCH] H-5 compartilhamento | ATIVO — sem dado | Monitorar na próxima sessão |
 | [LEGAL-WATCH] Termo data | ATIVO | Reassinatura pendente: PDF diz 30/05, assinatura foi em 18/05 |
+| [DEPLOY-WATCH] gh-pages branch | RESOLVIDO — P-056 documentado | Script deploy_ingrid_ghpages.ps1 ativo — rodar ao fim de cada sessão de build |
+| [TESTE-WATCH] Features Loop 5 | ATIVO | Ingrid ainda não testou G-5, G-3, Contador — aguardar feedback pós-reenvio do link |
 
 ### PIPELINE COMERCIAL
 
@@ -135,6 +144,63 @@ Próxima reavaliação: sessão 3-5 (SM-2 começa a cobrar) e check-in 2026-05-2
 | SaaS V2 upsell | R$150/mês | Ingrid não piscar no R$97 | Avaliar no momento do pitch |
 
 **Abertura do pitch:** *"Ingrid, esse ciclo foi piloto. Quero continuar do seu lado até o dia da prova — R$97/mês, menos que qualquer cursinho, e o sistema já te conhece. Quer continuar?"*
+
+### INTELIGÊNCIA DE MERCADO — D2 (EdTech-Concurso)
+
+> Mandato 12 do Embaixador. Última atualização: 2026-05-23 (Loop 5).
+
+#### SUBSTITUTOS DIRETOS
+
+| Produto | Preço estimado | O que faz | Ponto fraco |
+|---|---|---|---|
+| TEC Concursos | ~R$50–90/mês | Questões por filtro manual + gabarito | Sem repetição espaçada; sem adaptação por banca; questões genéricas por cargo |
+| QConcursos | ~R$50–80/mês | Simulados + estatísticas de acerto | Sem personalização SM-2; sem feed dinâmico por peso |
+| Gran Cursos Online | ~R$70–130/mês | Videoaulas + questões | Foco em conteúdo, não em prática adaptativa |
+| Estratégia Concursos | ~R$90–150/mês | Videoaulas + resolução comentada | Idem Gran — conteúdo, não prática |
+
+**Diferencial defensável da Vanguard:**
+- SM-2 real — cada questão tem intervalo de revisão calculado por acerto/erro pessoal da Ingrid
+- Feed ponderado (Peso 2 = disciplinas críticas para o cargo) — nenhum concorrente faz isso por cargo
+- G-5 Socrática Pânico — intervenção pedagógica em crise de erros, não punição
+- Corpus curado Quadrix SEDES-DF 2026 — nenhum concorrente tem esse recorte
+
+#### DADOS DE MERCADO CAPTURADOS
+
+| Data | Evento | Dado de mercado inferido |
+|---|---|---|
+| 2026-05-18 (Gate Dia 8) | Ingrid não mencionou TEC Concursos em nenhum momento da sessão | App criou identidade própria — ausência de comparação é sinal de posicionamento conquistado |
+| 2026-05-18 | Ingrid reportou bug de negrito com precisão técnica | Perfil exigente — não vai tolerar produto que regride; bar de qualidade alto para manter o posicionamento |
+
+#### POSICIONAMENTO VANGUARD NO MERCADO
+
+```
+ARGUMENTO DE PREÇO (quando chegar a hora do pitch):
+"R$97/mês é menos que uma plataforma genérica. A diferença: esse sistema
+já sabe qual disciplina te custa mais pontos no Quadrix. Nenhum TEC faz isso."
+
+ARGUMENTO DIFERENCIAL:
+"O TEC te dá questões. Esse sistema te diz qual questão estudar agora,
+com base no que você errou — e te cobra de volta no momento certo."
+
+MOMENTO DO PITCH:
+Quando Ingrid verbalizar "tô conseguindo estudar todo dia"
+ou "achei que ia perder tempo aqui e não — é diferente"
+```
+
+#### OPORTUNIDADE DE PREÇO
+
+| Hipótese | Base | Status |
+|---|---|---|
+| Teto receptivo real é R$150/mês | Ingrid não regateou no piloto; perfil de quem "espera e não barganha" | PENDENTE — confirmar na hora do pitch |
+| R$97/mês é abaixo do teto mas acima da ancora psicológica de concurseiro | Concurseiros pagam R$50–90 nos genéricos; R$97 está acima porém com diferencial claro | HIPÓTESE ATIVA |
+
+#### RISCO DE ESCALA (Mandato 13 — Sentinela)
+
+| Risco | Detalhe | Severidade |
+|---|---|---|
+| Personalização por cargo = gargalo de curadoria | Cada novo cargo exige coletar e ponderar questões específicas — não escala automaticamente | ALTO |
+| SM-2 depende de volume de interações | Com menos de 20 sessões, os intervalos são estimativas — Ingrid está na janela crítica | MÉDIO |
+| Ingrid compartilhar login (H-5) | Uma conta shared dilui os dados de SM-2 — algoritmo passa a ser inútil | MÉDIO |
 
 ### LEADS DETECTADOS
 
@@ -193,6 +259,7 @@ Próxima reavaliação: sessão 3-5 (SM-2 começa a cobrar) e check-in 2026-05-2
 | 2026-05-19 | Reestruturação em 3 camadas aprovada pelo Diretor | Músculo (P-032) |
 | 2026-05-20 | Loop 4 Deliberação: E-1 a E-5 + alertas CRÍTICOS (Persona Sargento / Distrator) + temperatura VERDE FRÁGIL | Músculo (P-032) |
 | 2026-05-20 | H-3 revertida para PENDENTE, H-4 mantida ATIVA — engajamento inaugural ≠ hábito formado | Embaixador |
+| 2026-05-23 | Loop 5 Dia 12: G-5 + G-3 + Contador deployados. Deploy pipeline (P-056) corrigido. Link reenviado a Ingrid. Temperatura atualizada para VERDE FRÁGIL REENGAJAMENTO. Watchdog DEPLOY-WATCH + TESTE-WATCH criados. | Músculo (P-032) |
 
 ---
 

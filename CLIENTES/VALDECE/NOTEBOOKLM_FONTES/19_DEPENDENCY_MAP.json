@@ -1,0 +1,90 @@
+{
+  "version": "1.0",
+  "updated": "2026-05-24",
+  "description": "Mapa de dependencias do Pentalateral IAH. Quando um arquivo-fonte muda, todos os destinos devem ser atualizados automaticamente pelo Musculo via propagate_changes.ps1. Eduardo nunca gerencia propagacao manualmente.",
+  "rules": [
+    {
+      "id": "R-001",
+      "trigger": "INTELLIGENCE_LEDGER.md",
+      "description": "LEDGER vai para todos os clientes e Embaixadores",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md", "action": "copy_to_all_clients" },
+        { "pattern": "CLIENTES/*/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md", "action": "copy_to_all_clients_claude_project" }
+      ]
+    },
+    {
+      "id": "R-002",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md",
+      "description": "Template do Embaixador vai para todas as NOTEBOOKLM_FONTES",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/13_PASSO7_EMBAIXADOR_TEMPLATE.md", "action": "copy_to_all_clients" }
+      ]
+    },
+    {
+      "id": "R-003",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md",
+      "description": "Manual do Diretor vai para todas as NOTEBOOKLM_FONTES",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/03_MANUAL_DIRETOR.md", "action": "copy_to_all_clients" }
+      ]
+    },
+    {
+      "id": "R-004",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md",
+      "description": "Skill Protocolo vai para NOTEBOOKLM_FONTES e para .claude/skills",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md", "action": "copy_to_all_clients" },
+        { "pattern": ".claude/skills/vanguard-protocolo.md", "action": "copy_fixed" }
+      ]
+    },
+    {
+      "id": "R-005",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+      "description": "Memorando vai para NOTEBOOKLM_FONTES",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md", "action": "copy_to_all_clients" }
+      ]
+    },
+    {
+      "id": "R-006",
+      "trigger": "CLIENTES/WIP_BOARD.json",
+      "description": "WIP_BOARD vai para todos os CLAUDE_PROJECT",
+      "destinations": [
+        { "pattern": "CLIENTES/*/CLAUDE_PROJECT/07_WIP_BOARD.json", "action": "copy_to_all_clients_claude_project" }
+      ]
+    },
+    {
+      "id": "R-007",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_",
+      "description": "Arquivo de atualizacao do ciclo vai para todas as NOTEBOOKLM_FONTES como slot 18",
+      "action_type": "prefix_match",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/18_ATUALIZACAO_PENTALATERAL_{filename}", "action": "copy_to_all_clients_named" }
+      ]
+    },
+    {
+      "id": "R-008",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md",
+      "description": "MASTER vai para NOTEBOOKLM_FONTES como slot 09 de operacao",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/09_COMANDO_ESTRATEGISTA_MASTER.md", "action": "copy_to_all_clients" }
+      ]
+    },
+    {
+      "id": "R-009",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md",
+      "description": "Template PASSO3 vai para NOTEBOOKLM_FONTES",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/14_PASSO3_GEMINI_TEMPLATE.md", "action": "copy_to_all_clients" }
+      ]
+    },
+    {
+      "id": "R-010",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md",
+      "description": "Template PASSO5 vai para NOTEBOOKLM_FONTES",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/15_PASSO5_NOTEBOOKLM_TEMPLATE.md", "action": "copy_to_all_clients" }
+      ]
+    }
+  ]
+}

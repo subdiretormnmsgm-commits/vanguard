@@ -1,5 +1,5 @@
 ﻿WIP BOARD — PENTALATERAL IAH
-Atualizado em: 2026-05-19
+Atualizado em: 2026-05-24
 WIP Limits: BUILD=2  CHECK=1
 
 ==============================
@@ -13,9 +13,9 @@ PROJETO: PROJ-002 — Ingrid
   Camada    : 2 (Produto — 15 dias)
   Stack     : PWA + Supabase + Claude API
   Deadline  : 2026-05-30
-  Status    : VEREDITO APROVADO — build liberado. Iniciando Dia 1.
-  Loop atual: Loop #3 — Gate Dia 11 APROVADO 2026-05-20 — Loop #4 — Build Dias 12-13
-  Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado
+  Status    : EM BUILD — Loop 5 ativo — Deadline 2026-05-30 (6 dias)
+  Loop atual: Loop 5 — Dias 12-13 — Contador Pontos Ponderados + Push dominical
+  Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado, dia12_contador_socratica_vacina_push_cb
   Gates bloqueantes:
     dia2: 10 questoes avaliadas por Eduardo — rubrica media >= 4/5
     dia5: Feed exibe plano correto 7 dias com proporcao correta
@@ -33,7 +33,7 @@ PROJETO: PROJ-002 — Ingrid
     spaced_repetition: SM-2 intervalo variavel
     push_vs_email: push no MVP / email com tracking no Loop 2
     comentario_erro: Opcao A (Dias 3-5): explicacao direta do banco + Opcao B (Dias 6-8): Tutor Socratico Haiku
-  Proximo passo: 1. Gemini: levar PASSO3_GEMINI.md → receber DIRETRIZ V4 2. preparar_notebooklm_projeto.ps1 -cliente Ingrid → Wipe & Sync 3. NotebookLM: FONTES + DIRETRIZ → gerar skill_notebooklm_v2 (ingrid-v4) 4. Músculo + skill → Build Dias 9-11 (heatmap + Micro-Simulado + Modo Sedes-DF)
+  Proximo passo: Músculo: build Dia 13 (Push dominical + Widget Contador no header) · Deploy gh-pages via deploy_ingrid_ghpages.ps1 · Deadline: 2026-05-30 (6 dias)
   Loops programados:
     Loop 1 (Kickoff): concluido
     Loop 2 (Gate Dia 5): concluido
@@ -47,8 +47,8 @@ PROJETO: PROJ-001 — Valdece
   Camada    : 1 (MVP Alto Impacto)
   Stack     : 
   Deadline  : 2026-05-23
-  Status    : Sistema VERDE — corpus 61 acórdãos testado — demo 2026-05-20
-  Loop atual: Loop 2 concluído — DIRETRIZ V3 + Quick Audit NotebookLM executados | Loop 3 no Dia 5
+  Status    : Sistema LIVE · Contrato ASSINADO 2026-05-19 · R · V3 pipeline desbloqueado
+  Loop atual: Loop 6 CONCLUÍDO (commit 9709649) — Loop 7 (V3: data_dje + badges vinculantes) aguardando seed nas credenciais do Valdece
   Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui, dia4_gate_abnt_threshold_toga, dia5_corpus_deploy_demo
   Proximo passo: Loop 7 — Dia 6 — SEQUÊNCIA OBRIGATÓRIA: (1) sql/v3_migration.sql — ALTER TABLE ADD COLUMN data_dje/repercussao_geral/recurso_repetitivo/turma (2) ingest.py --mode reingest --dry-run — atualiza 61 acórdãos existentes com novos campos via Gemini Flash, SEM re-embedding (3) validar output dry-run — confirmar campos preenchidos (4) ingest.py --mode reingest — aplicar no Supabase Vanguard (5) badges VINCULANTE/REPETITIVO no frontend (6) search_documents() retornar novos campos (7) migração Supabase conta Valdece sa-east-1 — ÚLTIMO PASSO após tudo testado
 

@@ -578,13 +578,21 @@ HIPÓTESES ATUALIZADAS
 [H-2]: [confirmada / refutada / revisada]
 [H-3]: [confirmada / refutada / revisada]
 
-TEMPERATURA DO CLIENTE
-[QUENTE / MORNO / FRIO — com justificativa de 1 linha]
+TEMPERATURA_PONDERADA DO CLIENTE
+  Temperatura: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+  Tendência (últimos 7 dias): [subindo / estável / caindo]
+  Contexto de pagamento: [em dia / próximo vencimento / atrasado / N/A]
+  Score 0-10: [N]  ← Score < 6 = CHURN-WATCH automático
 
 ALERTAS PARA O CONSELHO
 · [ALERTA P-023 se detectado — cliente menciona colega/lead]
 · [ALERTA DE CHURN se detectado — sinal de distanciamento]
 · [ALERTA DE SCOPE CREEP se detectado — cliente expandindo escopo sem aprovar custo]
+
+INTELIGÊNCIA DE MERCADO (dimensão expandida — 2026-05-23)
+· Padrão de nicho observado: [o que este cliente revela sobre outros clientes similares]
+· Argumento de venda derivado: [o que Eduardo usa como prova social para o próximo cliente]
+· Risco de nicho detectado: [o que pode impedir a escala]
 
 PRÓXIMA AÇÃO DO EMBAIXADOR
 [O que monitorar / perguntar / preparar para a próxima interação]

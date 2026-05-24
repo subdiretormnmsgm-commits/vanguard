@@ -150,6 +150,17 @@ if (Test-Path $f) {
     Write-Host "  [--] 17_VANGUARD_TIMELINE.md (nao encontrado)" -ForegroundColor Yellow
 }
 
+# 18 - ATUALIZACAO_PENTALATERAL mais recente (mudancas de processo do ciclo atual)
+$atualizacoes = Get-ChildItem "$raiz\PENTALATERAL_UNIVERSAL\OPERACAO" -Filter "ATUALIZACAO_PENTALATERAL_*.md" -ErrorAction SilentlyContinue | Sort-Object Name -Descending
+if ($atualizacoes.Count -gt 0) {
+    $fAtual = $atualizacoes[0].FullName
+    $nomeAtual = $atualizacoes[0].Name
+    Copy-Item $fAtual "$fontes_dir\18_$nomeAtual" -Force
+    Write-Host "  [OK] 18_$nomeAtual" -ForegroundColor Green
+} else {
+    Write-Host "  [--] 18_ATUALIZACAO_PENTALATERAL (nao encontrado)" -ForegroundColor Yellow
+}
+
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Cyan
 

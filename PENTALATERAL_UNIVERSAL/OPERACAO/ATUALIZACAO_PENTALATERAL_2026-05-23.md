@@ -104,6 +104,16 @@ Não foi uma mudança de fundamentos — foi uma densificação do protocolo exi
   Score < 6 = CHURN-WATCH automático
   ```
 
+**Embaixador V2.0 — 17 Mandatos em 3 Dimensões (atualizado em 2026-05-23):**
+- 3 dimensões operacionais: D1 (Cliente) · D2 (Mercado) · D3 (Vanguard como empresa)
+- Mandatos 15/16/17 de sistema (disparo automático):
+  - M15: Guardião de Contexto do Sistema — briefing pré-gerado antes de sessão com Músculo/Gemini
+  - M16: Curador de Princípios por Contexto — entrega top-3 LEDGER relevantes ao detectar decisão de arquitetura
+  - M17: Guardião da Identidade Estratégica — detecta decisões Classe C e registra implicação de longo prazo
+- Output estruturado em **7 blocos** (antes eram 6): BLOCO 6 = D2 Inteligência de Mercado
+- **Painel de Deliberação** automático ao fechar toda ativação significativa
+- Fontes: `INSTRUCAO_SISTEMA_EMBAIXADOR_TEMPLATE.md` + `INSTRUCAO_SISTEMA_UNIVERSAL.md`
+
 **[PARA O EMBAIXADOR] agora está no BLOCO 3 da DIRETRIZ do Gemini:**
 - O Gemini prepara as ideias [G-1 a G-5] já formatadas para o Embaixador reagir
 - Inclui: "qual hipótese da MEMORIA_EMBAIXADOR esta ideia confirma ou desafia?"

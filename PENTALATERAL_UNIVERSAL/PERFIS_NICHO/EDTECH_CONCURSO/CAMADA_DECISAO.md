@@ -48,7 +48,7 @@ Conselho deliberou em síntese final do Loop 3:
 - **Debug Mode:** ativação por 5 toques no logo (nunca query string, porque Ingrid não é técnica).
 
 ### 2026-05-18 — Promoção Formal de Embaixador
-Especialista em Formalização (passivo) promovido a Embaixador (mandato ativo, 11 mandatos). Memória persistente entre sessões formalizada como mecanismo do Conselho.
+Especialista em Formalização (passivo) promovido a Embaixador (mandato ativo, 17 mandatos V2.0 com D1/D2/D3). Memória persistente entre sessões formalizada como mecanismo do Conselho.
 
 ### 2026-05-18 — Ingrid Designada como Piloto do Multiplicador Comportamental do GUT Score
 A partir do Loop 3, o Embaixador fornece a TEMPERATURA_CLIENTE ao Músculo antes de qualquer priorização de dívidas técnicas. Urgência técnica é rebaixada se TEMPERATURA contradisser.

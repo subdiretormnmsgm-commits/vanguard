@@ -592,7 +592,7 @@ renderDynamicAlerts(leads)
 | Nó | Tipo | Descrição |
 |---|---|---|
 | `Pentalateral_IAH` | Sistema | 5 atores: Músculo + Estrategista + Auditor + Embaixador + Diretor |
-| `Embaixador` | Ator | Claude Projects — memória persistente do cliente, 11 mandatos |
+| `Embaixador` | Ator | Claude Projects — memória persistente do cliente, 17 mandatos V2.0 (D1/D2/D3) |
 | `MEMORIA_EMBAIXADOR` | Documento | Inteligência acumulada do cliente entre sessões; em CLIENTES/[NOME]/CLAUDE_PROJECT/ |
 | `P_031` | Princípio | Embaixador CONFIRMA/EXPANDE/ALERTA cada ideia com base no comportamento real do cliente |
 | `P_032` | Princípio | MEMORIA_EMBAIXADOR atualizada automaticamente pelo Músculo após deliberação relevante |

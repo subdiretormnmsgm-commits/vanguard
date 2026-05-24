@@ -7,11 +7,20 @@
 ## 🔁 SEQUÊNCIA COMPLETA DO LOOP — EXECUTAR NESTA ORDEM EXATA
 
 ```
+⓪. PASSO ⓪ → Músculo prepara (ANTES do Gemini)
+  Roda  : .\scripts\gemini_anchor_generator.ps1 -cliente [NOME]
+           → CONTEXTO_GEMINI.md (LEDGER + WIP + MEMORIA consolidados)
+  Gate  : P-045 — MEMORIA_V[N-1] + relatorio_V[N-1] existem?
+           Se não → BLOQUEIO: fechar loop técnico antes de ir ao Gemini (P-058)
+  Prepara: PASSO3_GEMINI.md com orientações do Diretor
+
 1. PASSO 3 → Gemini
-  Músculo roda automaticamente: .\scripts\gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md
-  Leva  : CONTEXTO_GEMINI.md (PASSO3 incluído — 1 arquivo, 1 Ctrl+V)
+  Leva  : COMANDO_ESTRATEGISTA_MASTER_v1.md + PASSO3_GEMINI.md (colados)
+           + MEMORIA_V[N-1] + relatorio_V[N-1] + INTELLIGENCE_LEDGER + WIP_BOARD (anexados)
   Recebe: Diretriz Técnica V[N] — Projeto [NOME] — Loop [N]
   Salva : CLIENTES/[NOME]/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V[N].txt
+  Sobe  : DIRETRIZ_GEMINI_V[N].txt no Claude Project do cliente (Knowledge Documents)
+           → Embaixador precisa da DIRETRIZ completa, não só dos [G-1 a G-5] da SEÇÃO D
 
 2. PASSO 5 → NotebookLM
   Roda  : .\scripts\preparar_notebooklm_projeto.ps1 -cliente [NOME]
@@ -20,32 +29,72 @@
   Salva : .claude/skills/[cliente]-v[N].md
   Valida: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"
 
-3. PASSO 6 → Embaixador (Claude Projects)
+3. PASSO 7 → Embaixador (Claude Projects)
   Músculo roda automaticamente: .\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
-  Leva  : contexto do loop + comportamento do cliente + perguntas específicas
-  Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA das ideias dos sócios
+  Leva  : PASSO7_EMBAIXADOR.md SEÇÃO D + [M-1 a M-5] + [G-1 a G-5] + [N-1 a N-5]
+  Recebe: [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA + DECISOES_[PROJ]_[DATA].json
 
-4. PASSO 7 → Músculo (este arquivo)
+3.5. PIPELINE DECISOES → VEREDITOS (Eduardo só delibera — fluxo 100% inline)
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │ Diretor cola output completo do Embaixador no chat do Claude Code. │
+  │ Tudo abaixo é automático — Eduardo não salva arquivo nem abre nada. │
+  └─────────────────────────────────────────────────────────────────────┘
+  Músculo: extrai DECISOES.json do texto colado → salva em CLIENTES/[NOME]/DECISOES/
+  Músculo: apresenta decisões no chat:
+    D1: [título] — [A] ação A / [B] ação B
+    D2: [título] — [A] ação A / [B] ação B
+  Diretor responde no chat: "D1:A, D2:B" — isso é tudo.
+
+  ⚠️ GATE OBRIGATÓRIO — artefato_editavel:
+  Antes de executar qualquer decisão com artefato_editavel: true →
+  Músculo exibe o texto completo e aguarda "ok" ou edição do Diretor.
+  Eduardo NÃO confirma nenhuma mensagem para cliente sem ler o texto antes.
+  Só após a revisão o Músculo executa copiar_clipboard.
+
+  Músculo: gera VEREDITOS.json → roda executar_vereditos.ps1
+  → clipboard, MEMORIA, LEDGER, PENDENTES atualizados automaticamente
+  → gera VEREDITOS_RESUMO_[PROJ]_[DATA].md em CLIENTES/[NOME]/CLAUDE_PROJECT/
+    (formato .md para o Embaixador ler como Knowledge Document no próximo ciclo)
+  render_painel.ps1 = ferramenta OPCIONAL para visualização — não é o fluxo principal.
+
+  ⚠️ CRITÉRIO DE ATIVAÇÃO (corrigido pelo Embaixador Ingrid + Valdece — 2026-05-24):
+  NÃO é B2C vs B2B. O critério correto é:
+    · Decisão relacional (timing, tom, quando mandar) → fluxo simples, qualquer cliente
+    · Decisão com consequência formal (inscrever_ledger, criar_nota_regerar_pdf,
+      LEGAL-WATCH, pitch formal) → registro DECISOES.json obrigatório, qualquer cliente
+    · artefato_editavel: true em janela Hypercare (dias 1–30) → gate de leitura
+      obrigatório independente de ser formal ou relacional — tom errado em Hypercare
+      tem risco igual a decisão contratual errada (Embaixador Valdece — 2026-05-24)
+  Ingrid no LEGAL-WATCH do PDF → registro formal.
+  Valdece no "mandar áudio de bom dia" durante Hypercare → gate obrigatório.
+  Valdece no "mandar áudio de bom dia" fora de Hypercare → fluxo simples.
+
+  ⚠️ FLAG requer_uso_confirmado (Embaixador Valdece — 2026-05-24):
+  Decisões com requer_uso_confirmado: true (features V2/V3) → Músculo alerta ao
+  apresentar as opções: "⚠️ Esta opção requer uso ativo confirmado antes de executar."
+  Opção plantar_hoje bloqueada se uso ainda não foi confirmado pelo cliente.
+  Impede scope creep invertido — Eduardo não sinaliza "tem mais" antes de cliente pedir.
+
+4. PASSO 6/7 → Músculo delibera (este arquivo)
   Você terá em mãos ao iniciar:
-    · [cliente]-v[N].md (Skill)  <- PARTE 3 copiável do Auditor
-    · Auditor PARTE 1+2+4        <- [N-1 a N-5] NAO estao na Skill — colar SEPARADO
-    · Diretriz Técnica V[N]      <- [G-1 a G-5] do Gemini   (PASSO 3)
-    · Output do Embaixador       <- [E-1 a E-5] + CONFIRMA/EXPANDE/ALERTA (PASSO 6)
-    · PASSO6_MUSCULO.md          <- este arquivo
+    · [cliente]-v[N].md (Skill)          <- PARTE 3 copiável do Auditor
+    · Auditor PARTE 1+2+4                <- [N-1 a N-5] NÃO estão na Skill — colar SEPARADO
+    · Diretriz Técnica V[N]              <- [G-1 a G-5] do Gemini (PASSO 3)
+    · Output do Embaixador               <- [E-1 a E-5] + DECISOES.json (PASSO 7)
+    · VEREDITOS.json confirmados         <- após executar_vereditos.ps1
+    · PASSO6_MUSCULO.md                  <- este arquivo
   Colar nesta ordem (fatos antes de ideias):
     1. Skill [cliente]-v[N].md
     2. Auditor PARTES 1 + 2 + 4 (com [N-1 a N-5])
     3. DIRETRIZ_GEMINI_V[N].txt
-    4. Output do Embaixador
+    4. Output do Embaixador (com vereditos já confirmados)
     5. PASSO6_MUSCULO.md
   PRIMEIRA ACAO: executar /[cliente]-v[N] antes de qualquer palavra.
   Depois: seguir SEQUENCIA DE DELIBERACAO abaixo (PASSOS 0 a H).
-  Dizer: "PROTOCOLO VANGUARD — [NOME]. Loop [N]. Execute /[cliente]-v[N] antes de deliberar.
-          Trago Skill + Auditor completo + DIRETRIZ + Embaixador. Delibere nos 7 pontos."
 ```
 
-> O Embaixador corre ANTES do Músculo deliberar — filtro de realidade (P-031) antes do build.
-> Músculo sem Skill rodada = deliberação inválida. Músculo sem Embaixador = soluções para cliente imaginário.
+> O Embaixador corre ANTES do Músculo deliberar — filtro de realidade (P-031) + DECISOES.json antes do build.
+> Músculo sem Skill rodada = deliberação inválida. Músculo sem vereditos confirmados = delibera no vácuo.
 
 ---
 

@@ -1,0 +1,40 @@
+  ---
+  Task Scheduler — monitor_hypercare.ps1
+
+  Faça amanhã em 3 minutos, como administrador:
+
+  1. Abrir Task Scheduler como Admin
+  Win+S → "Agendador de Tarefas" → clique direito → "Executar como administrador"
+
+  2. Criar tarefa básica
+  - Clique em Criar Tarefa (não "Criar Tarefa Básica" — é a opção completa à direita)
+
+  3. Aba Geral
+  Nome: Vanguard Hypercare Monitor
+  Descrição: Alerta Telegram se cliente em Hypercare ficar >= 3 dias sem contato
+  [ x ] Executar independentemente de usuário estar conectado
+  [ x ] Executar com privilégios mais altos
+  Configurar para: Windows 10
+
+  4. Aba Gatilhos → Novo
+  Iniciar a tarefa: Em uma agenda
+  Diário · Recorrência: 1 dia
+  Iniciar: (data de amanhã) às 07:00:00
+  [ x ] Habilitado
+
+  5. Aba Ações → Novo
+  Ação: Iniciar um programa
+  Programa/script: powershell.exe
+  Adicionar argumentos:
+  -NonInteractive -ExecutionPolicy Bypass -File "C:\Users\Eduardo DELL\OneDrive\Área de
+  Trabalho\vanguard\scripts\monitor_hypercare.ps1"
+
+  6. Aba Configurações
+  [ x ] Executar a tarefa assim que possível se uma execução agendada for perdida
+  [ x ] Se a tarefa falhar, reiniciar a cada: 5 minutos · Tentativas: 3
+
+  7. OK → digitar senha do Windows quando solicitado
+
+  Para testar imediatamente após criar:
+  Localizar a tarefa → clique direito → Executar
+  Se chegar alerta no Telegram = funcionou.

@@ -753,6 +753,8 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 **Por que é disruptivo:** Antes deste princípio, as 5 ideias de cada membro iam direto para o Gemini sem validação de realidade de cliente. Com este princípio, o loop tem um checkpoint de mercado real antes de qualquer decisão de produto. O cliente não é entrevistado — está representado no loop por inteligência acumulada.
 
+**Evidência de campo (2026-05-24):** Embaixadores Ingrid e Valdece corrigiram 5 decisões de arquitetura do pipeline DECISOES — critério B2C/B2B, gate Hypercare, requer_uso_confirmado, resumo_para_cliente, VEREDITOS_RESUMO. Nenhuma correção veio de Gemini, Auditor ou Músculo — vieram do comportamento real dos clientes interpretado pelos Embaixadores. P-031 funcionando como filtro de arquitetura, não só de relacionamento.
+
 **Loop com P-031 ativo:**
 - Músculo [M-1 a M-5] + Embaixador [E-1 a E-5] → Gemini
 - Gemini [G-1 a G-5] + Auditor [N-1 a N-5] → Embaixador reage (CONFIRMA / EXPANDE / ALERTA)
@@ -1139,4 +1141,54 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Regra derivada:** `scripts/verificar_estado_projetos.ps1` roda automaticamente no `session_start.ps1`. Injeta estado real (skills em disco + dias concluídos) antes de qualquer declaração do Músculo.
 **Ferramenta:** `scripts/verificar_estado_projetos.ps1` — lista skills reais por projeto, dias_completos, próximo gate. Injetado no context do session_start como "ESTADO REAL DOS PROJETOS (P-055)".
 **Aplica-se a:** qualquer sessão retomada após compactação — especialmente quando há projetos em BUILD com múltiplos loops.
+
+### [P-056] Deploy GitHub Pages exige sync explícito master → gh-pages
+**Descoberto:** 2026-05-23 | **Emitido por:** PROJ-002 Ingrid — Dia 12 Loop 5 — 4h de diagnóstico
+**Fricção:** Commits de Loop 4 e Loop 5 foram para `master`. GitHub Pages serve da branch `gh-pages`. O app em produção ficou parado no Loop 3 por semanas. Usuário (Ingrid) recebia código antigo. O Músculo declarou features "deployadas" sem verificar a branch que o GitHub Pages serve. Cache, SW, Ctrl+Shift+R — nada funcionou porque o arquivo errado estava em produção.
+**Princípio:** Ao usar GitHub Pages com branch `gh-pages` separada, o Músculo NUNCA declara deploy concluído sem provar que o conteúdo correto está na branch que o GH Pages serve. Verificação: `git show gh-pages:app.js | head -3` — confirma a versão em produção.
+**Regra derivada:** Ao fechar qualquer sessão com mudanças em frontend Ingrid → rodar o script de sync:
+```bash
+git checkout gh-pages
+git show master:CLIENTES/INGRID/frontend/app.js > app.js
+# ... (demais arquivos)
+git commit -m "deploy(gh-pages): ..." && git push origin gh-pages
+git checkout master
+```
+**Ferramenta:** Criar `scripts/deploy_ingrid_ghpages.ps1` — automatiza o sync master → gh-pages com um comando.
+**Aplica-se a:** PROJ-002 Ingrid e qualquer outro projeto que use GitHub Pages com branch separada.
+
+---
+
+### [P-057] Abandono em EdTech ocorre no pico — não no vale
+**Descoberto:** 2026-05-24 | **Emitido por:** PROJ-002 Ingrid — Loop 5 — observação do Embaixador
+**Fricção:** Ingrid obteve resultado acima da média no primeiro simulado e sumiu por 3 dias. Expectativa era que resultado positivo gerasse hábito. Na realidade, resultado positivo gera sensação de "missão cumprida" e reduz urgência de retorno.
+**Princípio:** O momento de maior vulnerabilidade de abandono em produto EdTech é imediatamente após o primeiro resultado positivo — o aluno sente que "já aprendeu" e reduz frequência antes de formar hábito. Resultado acima da média sem engajamento nos 3 dias seguintes é sinal de churn em formação, não sinal de satisfação.
+**Regra derivada:** CHURN-WATCH deve ser acionado automaticamente quando engajamento cai após resultado acima da média. A mensagem de retenção não celebra o resultado — ela reacende a urgência do próximo gap.
+**Aplica-se a:** Todos os produtos EdTech/SaaS com ciclo de aprendizado por repetição.
+
+---
+
+### [P-058] Ir ao Gemini com loop técnico incompleto é presentear o Estrategista com estado truncado
+**Descoberto:** 2026-05-24 | **Emitido por:** Músculo — deliberação de processo Loop 5 Ingrid
+**Fricção:** Ao planejar ir ao Gemini antes de fechar o Dia 13, o Músculo identificou que o Estrategista responderia com base em estado incompleto — sem o output técnico do dia, sem os gates aprovados, sem os artefatos reais.
+**Princípio:** Ir ao Gemini antes de fechar o loop técnico é presentear o Estrategista com estado incompleto. O Estrategista é stateless — responde exatamente com o que recebe. Contexto truncado → DIRETRIZ truncada → Skill errada → Loop perdido. A sequência correta é: fechar dia técnico → commit → ir ao Gemini com estado completo.
+**Regra derivada:** `gemini_anchor_generator.ps1` só deve ser rodado após o último commit do loop corrente. O gate P-045 (MEMORIA + relatorio) reforça esta regra: se não existem → loop não fechou → Gemini ainda não recebe.
+**Aplica-se a:** O loop técnico do projeto ESPECÍFICO em andamento. Não trava projetos paralelos — se o Dia 13 de Ingrid está aberto, isso não impede ir ao Gemini para Valdece ou para Discovery de novo nicho.
+**Escopo explícito:** P-058 é por-projeto, não por-sistema. Correção inscrita após Auditor Ingrid detectar risco de "Blackout Estratégico" em 2026-05-24.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO] O cliente que sinaliza escopo por áudio antes de assinar vai sinalizar por mensagem depois de assinar
+**Proposto por:** Embaixador Valdece — 2026-05-24 | **Aguarda:** numeração do Diretor
+**Fricção:** Valdece enviou 5 áudios sobre V3 (data_dje, turma, repercussao_geral) antes de assinar. O mesmo padrão se repete pós-contrato via mensagem. Pipeline sem travamento de escopo antes do primeiro uso = Eduardo respondendo a scope creep sem perceber que é scope creep.
+**Princípio candidato:** O cliente que sinaliza escopo antes de assinar vai sinalizar depois de assinar. O pipeline precisa estar travado (flag `requer_uso_confirmado`) antes do primeiro uso, não depois do primeiro pedido. Reativo é sempre mais caro que preventivo.
+**Gate implementado:** `requer_uso_confirmado: true` no DECISOES.json bloqueia opção `plantar_hoje` para features V2/V3 até uso ativo confirmado.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO] Automação que falha silenciosamente é pior que ausência de automação
+**Proposto por:** Embaixador Ingrid — 2026-05-24 | **Aguarda:** 1 ocorrência adicional ou aprovação direta do Diretor
+**Fricção:** VEREDITOS_RESUMO.md gerado mas não sincronizado → Embaixador abre sessão sem rastreabilidade de decisões sem saber que perdeu o contexto. A falha invisível é mais perigosa que a falha explícita — o operador age convicto de ter contexto completo quando não tem.
+**Princípio candidato:** Toda automação que carrega dados críticos entre sessões deve emitir confirmação explícita de sucesso antes de prosseguir. Ausência de confirmação = falha assumida, não sucesso assumido.
+**Gate implementado:** `ir_ao_embaixador.ps1` exibe "Resumo de vereditos [DATA] incluído" antes de abrir o browser. Se ausente → alerta vermelho → Eduardo decide se prossegue.
 

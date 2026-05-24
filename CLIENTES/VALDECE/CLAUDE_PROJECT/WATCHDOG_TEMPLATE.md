@@ -7,7 +7,7 @@
 
 ## COMO USAR
 
-1. Abra o Claude Project da Ingrid
+1. Abra o Claude Project do Valdece
 2. Cole o bloco WATCHDOG abaixo — preenchido
 3. O Embaixador processa e entrega o alerta antes de qualquer pergunta
 4. Depois do Watchdog: faça o que precisar
@@ -17,19 +17,19 @@
 ## BLOCO WATCHDOG — COPIAR E COLAR
 
 ```
-WATCHDOG — [18/05/2026]
+WATCHDOG — [data de hoje]
 
 ESTADO_ATUAL:
-- Termo: [PENDENTE / VALDECE ESTÁ EM VIAGEM. JÁ ACEITOU O ATRASO DO PROJETO. NÃO TEREMOS PROBLEMAS]
-- Gate: [AGUARDANDO VALDECE PASSAR AS CREDENCIAIS]
-- Último contato Ingrid: [hoje — o que aconteceu em 1 linha]
-- Risco: [VERDE / AMARELO / VERMELHO] = PONTUE O RISCO
+- Contrato: [ASSINADO em DD/MM / PENDENTE]
+- Gate: [Loop X / o que está em build ou aguardando agora]
+- Último contato Valdece: [quando — o que aconteceu em 1 linha]
+- TEMPERATURA_PONDERADA: [score 0-10 — ex: 7.5/10]
 
 DESDE A ÚLTIMA SESSÃO:
-[INGRID ASSINOIU O TERMO DE ENTREGA.]
+[o que aconteceu desde a última ativação — ou "nenhum evento relevante"]
 
 PERGUNTA DESTA SESSÃO:
-[CONTINUAR O PROCESSO DE MONTAGEM DO PROCESSO DE INGRID E AGUARDAR OS DADOIS DE VALDECE]
+[o que Eduardo precisa deliberar ou saber nesta sessão]
 ```
 
 ---
@@ -43,7 +43,7 @@ ESTADO_ATUAL:
 - Termo: ASSINADO em 19/05
 - Gate: Dia 8 — interface PWA pronta, Tutor Socrático em teste
 - Último contato Ingrid: ontem — confirmou que assinou o Termo, perguntou quando recebe o link
-- Risco: VERDE
+- TEMPERATURA_PONDERADA: 8.0/10
 
 DESDE A ÚLTIMA SESSÃO:
 Ingrid assinou. Eduardo não entregou o link ainda — esperando Gate Dia 8 aprovado.
@@ -83,16 +83,18 @@ SEMPRE subir LOG_CLIENTE no NotebookLM a cada gate fechado
 
 ---
 
-## GATILHOS QUE MUDAM O NÍVEL DE RISCO
+## GATILHOS — IMPACTO NA TEMPERATURA_PONDERADA
 
-| Evento | Nível |
+| Evento | Impacto no Score |
 |---|---|
-| Termo assinado + Gate no prazo + contato recente | VERDE |
-| Termo pendente OU sem contato há 2+ dias | AMARELO |
-| Termo pendente + sem contato há 3+ dias | VERMELHO |
-| Ingrid mencionou compartilhar login | VERMELHO |
-| Ingrid não usou o app por 3+ dias após entrega | VERMELHO |
-| Ingrid respondeu em monossílabos por 2 interações | AMARELO → monitorar |
+| Contrato assinado + uso ativo do sistema + contato recente | +2 → score ≥ 8 |
+| Valdece reportou resultado positivo ou solicitou expansão | +1.5 |
+| Sem contato há 3+ dias + sem uso do sistema | -1 |
+| Sem contato há 5+ dias | -2 → CHURN-WATCH |
+| Valdece questiona custo ou menciona concorrente | -1.5 + SCOPE-WATCH |
+| Valdece não usou o sistema por 7+ dias após entrega | -2 → CHURN-WATCH |
+| Valdece respondeu em monossílabos por 2 interações | -1 → monitorar |
+| Score < 6 → CHURN-WATCH automático + reengajamento proativo | |
 
 ---
 

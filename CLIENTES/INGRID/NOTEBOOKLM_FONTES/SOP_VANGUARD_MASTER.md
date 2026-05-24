@@ -30,7 +30,7 @@ A Vanguard (V1–V16) foi o projeto piloto que **provou que a máquina funciona*
 │ final.       │ CONFIRMA/    │ tática.      │ tática.      │ Escreve o  │
 │ Decide e     │ EXPANDE/     │ Escreve a    │ Gera a Skill.│ código.    │
 │ comita.      │ ALERTA.      │ DIRETRIZ.    │              │ Entrega.   │
-│              │ 11 mandatos. │ 5 ideias.    │ 5 ideias.    │ 5 ideias.  │
+│              │ 17 mandatos. │ 5 ideias.    │ 5 ideias.    │ 5 ideias.  │
 └──────────────┴──────────────┴──────────────┴──────────────┴────────────┘
 ```
 

@@ -48,7 +48,7 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | fix HC 512.290/RJ | Dado errado corrigido no banco + re-embedding executado ✅ |
 | 5 áudios Valdece | Feedback técnico processado: ementa ✅ UF ✅ data_dje ❌V3 repercussão ❌V3 |
 | Temperatura | **QUENTE** — sistema live + 3 melhorias entregues + feedback ativo por áudio |
-| Contrato | **PENDENTE ASSINATURA** — Eduardo vai presencialmente hoje · R$5k fixo + sem mensalidade |
+| Contrato | **ASSINADO — 2026-05-19** · R$5k fixo + sem mensalidade · Gate V3 DESBLOQUEADO |
 
 **Sistema pronto — estado Loop 6 (2026-05-19):**
 - Schema vector(768) + HNSW + SECURITY DEFINER ✅ — Supabase Vanguard (migra pós-contrato)
@@ -90,7 +90,7 @@ Contrato ainda não assinado — Eduardo vai presencialmente hoje fechar.
 | Campo | Status |
 |---|---|
 | Contrato | Contrato_Toga_Digital_Valdece_19052026_v2.docx |
-| Status | **PENDENTE** — assinatura no presencial de 2026-05-19 |
+| Status | **ASSINADO — 2026-05-19** · presencial realizado · contrato em vigor |
 | Modelo | R$5.000 fixo (Cláusula 4.1) + 20% MRR Revenue Share sobre SaaS derivado (4.2) |
 | Mensalidade | ZERO — infra na conta do Valdece (~R$1,20/mês direto à API dele) |
 | Hypercare | 30 dias inclusos |
@@ -125,6 +125,70 @@ Contrato ainda não assinado — Eduardo vai presencialmente hoje fechar.
 - Evangelizador em potencial: 1 satisfeito fala com 50 na OAB — documentar indicações
 
 ---
+
+## INTELIGÊNCIA DE MERCADO — D2 (Legal-Tech-Criminal)
+
+> Mandato 12 do Embaixador. Última atualização: 2026-05-23 (Loop 7).
+
+#### SUBSTITUTOS DIRETOS
+
+| Produto | Preço | O que faz | Ponto fraco |
+|---|---|---|---|
+| Google | R$0 | Busca textual genérica | Ruído — retorna notícias, blogs, sites sem autoridade; sem filtro penal; sem ABNT |
+| JusBrasil (gratuito) | R$0–R$150/mês | Busca por número de processo e texto exato | Sem busca semântica; sem threshold de relevância; sem citação automática |
+| Westlaw Brasil | ~R$3.000/mês | Base completa STF/STJ + doutrina + busca avançada | Preço proibitivo para escritório pequeno; interface complexa; cobre tudo, não Direito Penal especificamente |
+| LexisNexis | ~R$2.000–4.000/mês | Idem Westlaw — amplitude total | Idem — genérico demais para quem quer precisão penal |
+| PesquisaJuris | ~R$200–400/mês | Busca jurisprudencial nacional | Sem personalização por tema penal; sem citação ABNT automática |
+
+**Diferencial defensável da Vanguard:**
+- Busca semântica real (embedding) — encontra por significado, não por palavra exata
+- Threshold configurável (Precisa 0.67 / Ampla 0.45) — Valdece controla a precisão
+- Corpus curado STF/STJ penal — sem ruído de outras áreas do Direito
+- Citação ABNT automática — 1 clique; nenhum concorrente na faixa de preço oferece isso
+- Sem mensalidade — infra na conta do próprio Valdece (~R$1,20/mês)
+- Corpus vai crescer com acórdãos do próprio Valdece (V2)
+
+#### DADOS DE MERCADO CAPTURADOS
+
+| Data | Evento | Dado de mercado inferido |
+|---|---|---|
+| 2026-05-19 (Gate Discovery) | Valdece usava Google para pesquisa — pediu "um Google melhor para jurisprudência penal" | Segmento não tem alternativa acessível entre R$0 (Google ruim) e R$3k/mês (Westlaw) — gap de mercado confirmado |
+| 2026-05-19 (5 áudios feedback) | Valdece enviou feedback técnico detalhado (ementa, UF, data DJE) sem ser solicitado | Usuário engajado a ponto de fazer QA espontâneo = produto é relevante para o workflow real dele |
+| 2026-05-19 (Presencial) | Contrato R$5k aceito sem barganhar — H-1 parcialmente confirmada | Teto de preço para proposta única (não mensalidade) pode estar acima de R$5k para o próximo cliente |
+
+#### POSICIONAMENTO VANGUARD NO MERCADO
+
+```
+ARGUMENTO DE PREÇO para próximo cliente advogado criminalista:
+"R$5.000 uma vez. Westlaw cobra R$3.000 por mês — você paga R$36.000/ano.
+Aqui é R$5k e acabou. E o sistema é seu, fica no seu servidor."
+
+ARGUMENTO DIFERENCIAL:
+"Google não filtra por Direito Penal. Westlaw custa R$3k/mês.
+Esse sistema encontra o precedente penal em 10 segundos com citação ABNT pronta.
+O promotor não tem isso."
+
+ARGUMENTO URGÊNCIA:
+"Seu adversário encontra o mesmo precedente 20 minutos depois, no Google.
+Você encontra em 10 segundos, com a citação pronta. Assimetria é isso."
+```
+
+#### OPORTUNIDADE DE PREÇO
+
+| Hipótese | Base | Status |
+|---|---|---|
+| Próximo cliente advogado criminalista aceita R$6–8k fixo | Valdece não barganha no R$5k; percebe ROI em audiência, não em horas | HIPÓTESE ATIVA |
+| V2 (Sovereign Upload) pode ser R$8.500–12.000 | Feature de corpus próprio resolve dor específica que Valdece já nomeou | ATIVO — gatilho: 30 dias de uso + corpus ≥ 500 docs |
+| Modelo por escritório (3 advogados) pode triplicar ticket | Criminalista trabalha em escritório, não solo — expandir horizontalmente | IDENTIFICADA (D3) |
+
+#### RISCO DE ESCALA (Mandato 13 — Sentinela)
+
+| Risco | Detalhe | Severidade |
+|---|---|---|
+| Corpus STF/STJ exige curadoria manual | Cada 10 acórdãos novos = tempo de ingest + validação; não automatiza a zero | ALTO |
+| Dependência de embedding Gemini | Se API mudar preço ou modelo, corpus existente precisa re-embedding — já aconteceu (768→3072) | ALTO |
+| Diferencial vs Westlaw pode encolher | Se Westlaw lançar plano R$500/mês para advocacia de pequeno porte, proposta de valor enfraquece | MÉDIO |
+| Mercado penal é comunidade densa | Boca-a-boca pode escalar positivamente (H-5) ou negativamente (1 falha vira história na OAB) | VIGILÂNCIA |
 
 ## LEADS DETECTADOS
 
@@ -219,6 +283,34 @@ não em horas economizadas. O argumento certo é "eu encontrei antes" — não "
 
 ---
 
+## INSIGHTS DO EMBAIXADOR — Loop 6 (2026-05-19)
+
+**[E-1] Silêncio como protocolo técnico**
+Durante a demo, Eduardo entrega o teclado e não fala enquanto Valdece opera a primeira busca. Qualquer explicação técnica durante a busca cria ruído e mata o encantamento.
+
+**[E-2] Pergunta que revela encantamento**
+Se Valdece perguntar "isso salva para usar depois?" ou "dá pra pesquisar pelo celular?" = encantamento aconteceu. Contrato pode ser colocado na mesa imediatamente.
+
+**[E-3] Toga Digital como linha de nicho, não produto único**
+Cada decisão tomada para Valdece é replicável para o próximo criminalista. Documentar antes do próximo cliente chegar.
+
+**[E-4] Argumento do promotor**
+O fechamento mais forte: "o promotor não tem isso." Assimetria de ferramenta em audiência é o que Valdece entende visceralmente. Usar exatamente esse frame.
+
+**[E-5] Hypercare como janela de escuta**
+Os 30 dias não são suporte — são captura das queries sem resultado. Cada falha é evidência do V2. Risco: satisfação estável sem expansão após 30 dias.
+
+**ALERTA G-3 — Cláusula de Evolução Dinâmica**
+NÃO incluir "2h técnicas mensais" no contrato — contradiz o Sovereign Playbook (modelo sem dependência). Substituto correto: pedidos fora do escopo = Change-Orders formais. Severidade: ALTO.
+
+**ALERTA G-1 — Nomenclatura**
+Não chamar de "boleto" — usar "comprovante de formalização" ou "recibo". Advogado tem relação específica com o termo.
+
+**Timing V3 na assinatura**
+NÃO apresentar V3 durante a assinatura. Apresentar DEPOIS da demo, de forma casual: "quando seu corpus crescer, tem um próximo passo interessante." Assinatura é de fechamento, não de expansão.
+
+---
+
 ## HISTÓRICO DE ATUALIZAÇÕES
 
 | Data | O que mudou | Quem atualizou |
@@ -228,6 +320,9 @@ não em horas economizadas. O argumento certo é "eu encontrei antes" — não "
 | 2026-05-19 | LOG_002 Embaixador processado: 3-temas question + script V2 + script sigilo + alerta H-5 janela 14 dias. Threshold demo ajustado para 0.45. 20 acórdãos testados — sistema verde. | Músculo (P-032) |
 | 2026-05-20 | Valdece confirmou os 3 temas reais: crimes contra a vida + patrimônio + adm. pública. Gate CLI: vida 0.818, patrimônio 0.792, adm.pública 0.780. Frontend corrigido: credenciais reais + gemini-embedding-001. Sistema VERDE para demo. | Músculo (P-032) |
 | 2026-05-19 (Loop 6) | 5 áudios de feedback processados. Entregas: ementa completa + badge UF + boost monocrático (commit 9709649). HC 512.290/RJ corrigido. V3 identificado (data_dje, repercussao_geral, recurso_repetitivo) — BLOQUEADO até contrato (P-023). Eduardo vai presencialmente assinar hoje. Temperatura: QUENTE. | Músculo (P-032) |
+| 2026-05-19 (Embaixador Loop 6) | SEÇÃO D processada. G-3 ALERTA ALTO (cláusula horas contradiz Sovereign Playbook → Change-Orders). E-1 silêncio protocolo. E-2 sinal de encantamento. E-4 argumento do promotor. E-5 Hypercare como escuta. Timing V3: só após demo, nunca durante assinatura. Temperatura QUENTE confirmada. | Músculo (P-032) |
+| 2026-05-19 (GATE LOOP 6) | **CONTRATO ASSINADO.** Deu tudo certo. V3 desbloqueado. Temperatura: ENTUSIASMADA. Loop 7 iniciando. | Músculo (P-032) |
+| 2026-05-21 (Loop 7 — V3 entregue) | Correção crítica: outputDimensionality 768→3072 no frontend. 28 docs re-embeddados. Simulação remota completa: 5/5 queries P-051 OK · score médio 92.2% · topo 98% (medidas cautelares). Mensagem de reativação redigida com Embaixador: "testei agora nos seus 5 temas" + link + frase da audiência. Temperatura: ENTUSIASMADA mantida. | Músculo (P-032) |
 
 ---
 

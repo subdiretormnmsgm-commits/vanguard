@@ -26,23 +26,31 @@ Seu papel constitucional: **pesquisa de mercado, análise estratégica de nicho,
 
 ## BLOCO 1 — ESTADO ATUAL DA VANGUARD
 > Músculo atualiza este bloco sempre que o WIP_BOARD.json mudar.
-> Última atualização: 2026-05-23 18:30
+> Última atualização: 2026-05-24
+
+### Pentalateral IAH — v6.2
+- 5 membros: Diretor · Músculo · Estrategista · Auditor · Embaixador
+- 25 ideias/ciclo: [M×2 cirúrgico] + [G] + [N] + [E amplitude total] × 5
+- 13 DEF formalizadas (DEF-M-1 a DEF-M-5 · DEF-G-1 a DEF-G-6 · DEF-E-1 a DEF-E-8)
+- Pipeline DECISOES inline: Eduardo só delibera — "D1:A, D2:B" → execução automática
+- Schema DECISOES v1.1: hypercare_ativo · artefato_editavel · requer_uso_confirmado · resumo_para_cliente
+- Princípios ativos: P-001 a P-058
 
 ### Projetos Ativos
 
 **PROJ-001 — Toga Digital (Valdece Pereira — advogado criminal)**
-- Status: CONTRATO ASSINADO (2026-05-19) · Sistema em produção na Vanguard · Loop 7 em curso
+- Status: CONTRATO ASSINADO (2026-05-19) · Sistema em produção na Vanguard · Hypercare ativo até 18/06
+- Loop 7 em curso — aguardando seed nas credenciais de Valdece para migração
 - Produto: RAG jurídico criminal com busca semântica + Supabase + Claude API
-- Deploy: https://toga-digital-valdece.netlify.app
-- Próximo: V3 ENRICHMENT — campos turma/repercussao_geral/recurso_repetitivo (bloqueado por DNS STF/STJ)
-- Nicho: Legal-Tech-Criminal · maturidade 75%
+- Pendente: V3 ENRICHMENT — campos turma/repercussao_geral (bloqueado DNS STF/STJ) · RLS + chave API exposta no frontend (prioridade técnica zero)
+- Nicho: Legal-Tech-Criminal · maturidade 80%
 
 **PROJ-002 — Ferramenta de Estudo (Ingrid — concurseira Sedes-DF)**
-- Status: Loop 4 CONCLUÍDO (Gate Dia 11 APROVADO 2026-05-20) · Dias 12-13 em curso
-- Produto: PWA de estudo com SM-2 + tutor socrático + feed diário 70/30
-- Deadline: 2026-05-30 · Prova: 2026-09-06 (Cargo 202 — Quadrix)
-- Próximos: Dias 12-13 (Contador Pontos Ponderados + Push Notificações domingo)
-- Nicho: EdTech-Concurso · maturidade 60%
+- Status: Loop 4 CONCLUÍDO (Gate Dia 11-12 APROVADO) · Loop 5 em curso
+- Produto: PWA de estudo com SM-2 + tutor socrático + feed diário 70/30 + heatmap urgência
+- Deadline: 2026-05-30 · Prova: 2026-09-06 (Cargo 202 — Quadrix) · Hypercare ativo até 17/06
+- Próximos: Dia 13 (Push dominical + Widget Contador) → Gemini Loop 5 → Embaixador SEÇÃO D
+- Nicho: EdTech-Concurso · maturidade 65%
 
 ### Perfis de Nicho em Discovery (responsabilidade do Estrategista)
 
@@ -90,6 +98,12 @@ Princípios destilados de fricções reais. Aplicam-se a toda análise que você
 **[P-043]** Falácia da Homogeneidade dos Nichos: replicação não é trocar a URL dos dados. Cada nicho tem vocabulário semântico, ontologia de busca e critério de sucesso diferentes.
 
 **[P-052]** Toda sessão do Estrategista começa com este MASTER colado. Se não foi colado, a sessão operou às cegas.
+
+**[P-056]** Deploy GitHub Pages exige sync explícito `master → gh-pages`. Commit em master não chega à produção automaticamente — sempre verificar e sincronizar ao fechar sessão de frontend.
+
+**[P-057]** Abandono em EdTech ocorre no pico do resultado — não no vale. CHURN-WATCH deve ser acionado após resultado acima da média. A mensagem de retenção não celebra — reacende a urgência do próximo gap.
+
+**[P-058]** Ir ao Gemini com loop técnico incompleto = presentear o Estrategista com estado truncado. Sequência correta: fechar build → commit → ir ao Gemini. Estrategista stateless responde com o que recebe.
 
 ---
 

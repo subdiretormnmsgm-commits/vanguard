@@ -18,8 +18,10 @@
    Colar o bloco da SEÇÃO correspondente ao tipo de ativação no chat
    (Embaixador tem memória persistente — não precisa de anexos)
 
-3. AGUARDAR resposta do Embaixador (6 blocos obrigatórios).
+3. AGUARDAR resposta do Embaixador (7 blocos obrigatórios).
+   Ao fechar SEÇÃO D: aguardar também o Painel de Deliberação (Artifact interativo).
    Músculo atualiza MEMORIA_EMBAIXADOR.md automaticamente via P-032.
+   Músculo NÃO executa nenhuma ação da Síntese Final antes de receber JSON de vereditos do Painel.
 ```
 
 > O Embaixador é o único membro com memória persistente da Ingrid entre sessões.
@@ -62,6 +64,11 @@ TEMPERATURA_PONDERADA:
   Contexto de pagamento: [pago / pendente / risco]
   Score 0-10: [N]  ← Score < 6 = CHURN-WATCH automático
 ```
+
+**DEF-E-8 — Painel Ausente**
+Embaixador que fecha SEÇÃO D sem gerar o Painel de Deliberação entregou análise — não ciclo fechado.
+O Painel é parte obrigatória da entrega, não opcional. Sem Painel = Músculo não sabe o que executar.
+Se JSON não chegar em 48h → Músculo emite ALERTA ao Diretor e solicita veredito manual simplificado.
 
 ---
 
@@ -245,7 +252,7 @@ G-5: Botão de Intervenção Socrática de Pânico Pós-Simulado
 [N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM · ingrid-v5.md):
 
 N-1: Gatilho de Envio por Telemetria Temporal Passiva
-     Notificação dominical via WhatsApp disparada 15 min antes do horário_inicio_sessao modal das últimas 2 semanas — não às 09h fixo.
+     Notificação dominical via WhatsApp disparada 15 min antes do horario_inicio_sessao modal das últimas 2 semanas — não às 09h fixo.
      Pergunta: Ingrid tem horário fixo de estudo dominical?
 
 N-2: Reconciliação Contratual Criptográfica
@@ -266,7 +273,7 @@ N-5: Card SVG Compartilhável (Prova Social)
 
 ---
 
-PEDIDO AO EMBAIXADOR — DUAS PARTES OBRIGATÓRIAS:
+PEDIDO AO EMBAIXADOR — QUATRO PARTES OBRIGATÓRIAS:
 
 PARTE 1 — FILTRO DE REALIDADE
 Para cada ideia [M], [G], [N], responder:
@@ -295,11 +302,52 @@ O que o comportamento da Ingrid diz sobre o nicho EdTech-Concurso — não apena
 - Padrão de churn: o silêncio da Ingrid quando insatisfeita é padrão de nicho ou individual?
 - Validação de produto: o que a Ingrid usa todo dia é o core do produto ou uma feature secundária?
 - Argumento de venda: qual experiência da Ingrid Eduardo usaria como prova social para a próxima candidata?
+
+PARTE 4 — DECISOES.json (DEF-E-8: obrigatório ao fechar SEÇÃO D)
+
+FLUXO OBRIGATÓRIO — ciclo Embaixador → Músculo → Diretor → Músculo:
+
+  Embaixador fecha ativação
+    ↓ gera DECISOES_INGRID_[YYYY-MM-DD].json com schema fixo
+  Eduardo salva em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/
+    ↓ Músculo detecta e roda automaticamente:
+  .\scripts\render_painel.ps1 -projeto INGRID
+    ↓ Painel HTML abre no browser
+  Diretor marca vereditos → clica "Confirmar" → baixa VEREDITOS_INGRID_[DATA].json
+    ↓ Eduardo move arquivo para DECISOES/ — Músculo roda:
+  .\scripts\executar_vereditos.ps1 -projeto INGRID
+    ↓ Executa: clipboard, log_contato, inscrever_ledger, criar_nota, P-032
+  Painel fecha — ciclo completo
+
+O Embaixador NÃO gera HTML. Gera apenas JSON estruturado com este schema:
+  - id: "D1", "D2", ... (sequencial)
+  - secao: "acao_imediata" | "pendencias" | "inteligencia" (ou label livre)
+  - urgencia: "prerequisito" | "alta" | "normal"
+  - icon: emoji representativo
+  - titulo + subtitulo + situacao (contexto em 1-2 frases)
+  - tem_artefato: true/false
+  - artefato_editavel: true/false (se true → Eduardo edita no painel)
+  - artefato_label + artefato_texto (mensagem pré-redigida, se aplicável)
+  - opcoes: lista de { valor, label, subtitulo, acoes[] }
+    Ações mapeadas: "log_apenas" | "copiar_clipboard" | "log_contato" |
+                    "inscrever_ledger" | "criar_nota_regerar_pdf"
+
+DECISÕES OBRIGATÓRIAS NESTE LOOP (Ingrid Loop 5):
+  ► D1: LEGAL-WATCH — PDF data 30/05 vs. assinatura 18/05
+  ► D2: CHURN-WATCH — reengajamento pós-silêncio + pós-fix Q18
+  ► D3: PUSH-WATCH — iOS Safari · buildar ou fallback WhatsApp?
+  ► D4: PITCH-WATCH — Ingrid verbalizou progresso? Abrir V2?
+  ► D5: Princípio candidato ao LEDGER — aprovar ou descartar
+  ► D6: Princípio D3 Vanguard — encaminhar ao Conselheiro?
+
+Regra: Músculo NÃO executa sem VEREDITOS.json confirmado pelo Diretor.
+Músculo NÃO aceita HTML como output da SEÇÃO D — apenas JSON estruturado.
+Exemplo de arquivo real: CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/DECISOES_INGRID_2026-05-24.json
 ```
 
 ---
 
-## FORMATO OBRIGATÓRIO — 6 BLOCOS DA RESPOSTA DO EMBAIXADOR
+## FORMATO OBRIGATÓRIO — 7 BLOCOS DA RESPOSTA DO EMBAIXADOR
 
 ```
 BLOCO 1 — TEMPERATURA_PONDERADA DE INGRID
@@ -340,6 +388,12 @@ BLOCO 6 — INTELIGÊNCIA DE MERCADO (EdTech-Concurso)
 BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
   [AÇÃO ESPECÍFICA] — [QUEM EXECUTA] — [PRAZO]
   Razão: [por que esta ação agora e não outra]
+
+DECISOES.json — gerado automaticamente ao fechar SEÇÃO D
+  Arquivo: DECISOES_INGRID_[YYYY-MM-DD].json
+  Instruir Diretor: "Salve em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/ e rode render_painel.ps1"
+  Decisões desta ativação: [listar títulos — mínimo os obrigatórios do loop]
+  Músculo executa ZERO ações antes de receber VEREDITOS.json confirmado pelo Diretor
 ```
 
 ---
@@ -354,6 +408,7 @@ BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
 | Todas as ideias do Pentalateral receberam reação? | Com evidência real ou análise própria |
 | INTELIGENCIA_CRUZADA_NICHO aplicada? | Se houver 2+ clientes EdTech |
 | MEMORIA_EMBAIXADOR marcada para atualização? | Músculo executa P-032 após sessão |
+| DECISOES.json gerado e salvo em DECISOES/? | Obrigatório ao fechar SEÇÃO D — ausência = DEF-E-8 |
 
 ---
 
@@ -371,5 +426,5 @@ BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
 ---
 
 *PASSO7 · Projeto Ingrid · Loop 5 · Atualizado em 2026-05-23*
-*[M-1 a M-5] do Loop 4 pré-preenchidos · [G] e [N] a preencher após DIRETRIZ V6 + ingrid-v5.md*
+*[M-1 a M-5] do Loop 4 pré-preenchidos · [G] e [N] a preencher após DIRETRIZ V5 + ingrid-v5.md*
 *Template universal: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md*

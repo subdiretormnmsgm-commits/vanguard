@@ -115,7 +115,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 | Proposta → execução | Veredito explícito do Diretor — nunca iniciar sem aprovação |
 
 **Por que importa:** Avançar por assumição é o padrão de falha mais comum em build rápido. Uma UI bonita sobre corpus ruim é fachada. Um commit sem review é débito técnico disfarçado de velocidade. O Gate valida — o produto entrega.
-**Aplica-se a:** todo projeto do Quadrilateral, toda etapa de build, toda entrega a cliente.
+**Aplica-se a:** todo projeto do Pentalateral, toda etapa de build, toda entrega a cliente.
 
 ---
 
@@ -183,8 +183,8 @@ O Músculo aciona `email_fechamento.ps1` ao fechar qualquer sessão. Nunca recri
 
 ### [P-018] O Diretor é o 4º LLM — Orquestração Dinâmica de Deficiências como Vantagem Competitiva
 **Descoberto:** 2026-05-16 | **Sessão:** Opinião Consultora #01 — construção colaborativa Diretor + Músculo
-**Evidência:** Ao construir a Ideia Disruptiva da Opinião #01, Eduardo articulou: a vantagem real do Quadrilateral não é usar IA — é saber usar a deficiência de cada IA contra a deficiência das outras. Gemini alucina com otimismo → Claude âncora com custo real. Claude tem amnésia → NotebookLM âncora com histórico. NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos. O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas, não apesar delas.
-**Princípio:** O Quadrilateral tem três funções constitucionais separadas. Os 3 LLMs são a válvula motriz com **comportamento ativo** — não passivo. Estão em looping evolutivo permanente: geram ideias, combatem as deficiências uns dos outros, acumulam padrões ciclo a ciclo, protegidos por firewalls persistentes (contra-ataques de deficiência estruturalmente embutidos, não dependentes de memória). O Diretor contribui com opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 3 LLMs e evoluídas por eles. Ao final, dá o Veredito soberano. A cada etapa, a cada processo, a cada projeto, o sistema fica mais inteligente e os processos mais definidos — acumulação exponencial que torna o modelo de negócio imbatível.
+**Evidência:** Ao construir a Ideia Disruptiva da Opinião #01, Eduardo articulou: a vantagem real do Pentalateral não é usar IA — é saber usar a deficiência de cada IA contra a deficiência das outras. Gemini alucina com otimismo → Claude âncora com custo real. Claude tem amnésia → NotebookLM âncora com histórico. NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos. O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas, não apesar delas.
+**Princípio:** O Pentalateral tem três funções constitucionais separadas. Os 3 LLMs são a válvula motriz com **comportamento ativo** — não passivo. Estão em looping evolutivo permanente: geram ideias, combatem as deficiências uns dos outros, acumulam padrões ciclo a ciclo, protegidos por firewalls persistentes (contra-ataques de deficiência estruturalmente embutidos, não dependentes de memória). O Diretor contribui com opiniões nascidas da experiência acumulada e do feeling instintivo — analisadas pelos 3 LLMs e evoluídas por eles. Ao final, dá o Veredito soberano. A cada etapa, a cada processo, a cada projeto, o sistema fica mais inteligente e os processos mais definidos — acumulação exponencial que torna o modelo de negócio imbatível.
 **Aplica-se a:** toda proposta de substituir o processo por execução direta ou reduzir a tensão entre os LLMs. O comportamento ativo e o looping cíclico são a fonte da vantagem composta. Reduzir a tensão é reduzir a inteligência. Os firewalls persistentes não são burocracia — são o que impede a deriva silenciosa que mata sistemas complexos.
 
 ---
@@ -221,11 +221,11 @@ Prevenção: incluir MEMORIA mais recente como fonte 10 no próximo ciclo do Not
 **Evidência concreta:** Eduardo identificou 5 falhas que o Músculo não detectou. Eduardo originou a necessidade do contrato com clientes. Eduardo propôs o uso do NotebookLM como auditor jurídico (advogado do processo). Todas estas inovações vieram do Diretor, não do Conselho.
 **Princípio:** O Músculo implementa. O Gemini propõe estratégia. O NotebookLM audita o histórico. Mas a **direção estratégica e as inovações de processo** vêm de Eduardo. Quando o Diretor propõe algo novo — contrato, nova função para um membro do Conselho, nova regra — essa proposta tem peso maior do que qualquer saída dos membros. O sistema existe para amplificar a inteligência do Diretor, não substituí-la.
 **Corolário:** O Músculo que não detectou uma falha antes do Diretor deve perguntar: "Por que meu sistema de auto-proteção falhou aqui?" e gerar ferramenta. O Diretor não deve ser o detector primário de falhas de processo — quando é, o sistema falhou.
-**Aplica-se a:** toda interação. O Quadrilateral é um amplificador da inteligência de Eduardo — não uma cadeia autônoma que o Diretor apenas valida.
+**Aplica-se a:** toda interação. O Pentalateral é um amplificador da inteligência de Eduardo — não uma cadeia autônoma que o Diretor apenas valida.
 
 ---
 
-### [P-022] NotebookLM como advogado do processo — auditor jurídico do Quadrilateral
+### [P-022] NotebookLM como advogado do processo — auditor jurídico do Pentalateral
 **Descoberto:** 2026-05-16 | **Proposto por:** Eduardo (intervenção direta do Diretor)
 **Evidência:** Eduardo identificou que o Auditor, ao cruzar histórico com DIRETRIZ atual, opera como um advogado — levanta objeções com base em precedentes, não valida por momentum.
 **Princípio:** O NotebookLM deve ser usado como auditor jurídico em decisões estratégicas de alto risco: (a) contratos com clientes — cruzar com padrões anteriores de entrega, (b) mudanças de arquitetura — verificar se viola decisões fixadas, (c) mudanças de pricing — verificar consistência com modelo de negócio. Auditor como advogado = sistema de precedentes, não de sugestões.
@@ -467,7 +467,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 ### [SESSÃO 2026-05-12] — V24 Intelligence Compounding Engine
 
-**Direção da sessão:** Construção da inteligência evolutiva do Quadrilateral — sistema de acumulação por sessão.
+**Direção da sessão:** Construção da inteligência evolutiva do Pentalateral — sistema de acumulação por sessão.
 
 **Eventos capturados:**
 
@@ -499,7 +499,7 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 `[FRICÇÃO]` Músculo entrou na Etapa 4 (build) antes da Etapa 2 (Gemini) e Etapa 3 (NotebookLM). Corrigido após sinalização do Diretor.
 
-`[FRICÇÃO]` Processo do Quadrilateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
+`[FRICÇÃO]` Processo do Pentalateral não estava claro para o Diretor — revisão completa feita e documentada em sessão.
 
 `[CONFIRMADO]` Algoritmo de qualificação BLOCO A funcionou: 3 respostas fortes = GO imediato. Prazo de 5 dias confirmado como restrição real, não negociável.
 
@@ -752,6 +752,8 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 **Formulação:** O Embaixador é o único membro do Conselho que pode validar ideias pelo comportamento real do cliente. Cada ideia dos outros membros deve passar pelo filtro de relacionamento antes de entrar no produto. CONFIRMA / EXPANDE / ALERTA — com base no que só o Embaixador pode ver.
 
 **Por que é disruptivo:** Antes deste princípio, as 5 ideias de cada membro iam direto para o Gemini sem validação de realidade de cliente. Com este princípio, o loop tem um checkpoint de mercado real antes de qualquer decisão de produto. O cliente não é entrevistado — está representado no loop por inteligência acumulada.
+
+**Evidência de campo (2026-05-24):** Embaixadores Ingrid e Valdece corrigiram 5 decisões de arquitetura do pipeline DECISOES — critério B2C/B2B, gate Hypercare, requer_uso_confirmado, resumo_para_cliente, VEREDITOS_RESUMO. Nenhuma correção veio de Gemini, Auditor ou Músculo — vieram do comportamento real dos clientes interpretado pelos Embaixadores. P-031 funcionando como filtro de arquitetura, não só de relacionamento.
 
 **Loop com P-031 ativo:**
 - Músculo [M-1 a M-5] + Embaixador [E-1 a E-5] → Gemini
@@ -1030,3 +1032,204 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 **Regra de ouro:** Pressão para assinar rápido é sinal de alerta — não de agilidade. Cliente que confia espera 48h de teste. O custo do protocolo é 2h. O custo da falha pós-assinatura é a credibilidade.
 **Responsabilidade:** O Diretor é o único que autoriza o avanço para assinatura. O Músculo não tem autonomia para comprimir este protocolo sob nenhuma circunstância.
 **Aplica-se a:** todo projeto com cliente externo, qualquer valor, qualquer prazo, qualquer nível de confiança no código.
+
+---
+
+### [P-048] Pendente identificado = registrar imediatamente — não confiar na memória da sessão
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-001 Valdece Loop 7 + revisão de processo
+**Fricção:** O Diretor perguntou "não tínhamos de levar jurisprudências do STF?" — tarefa identificada em sessão anterior mas nunca registrada formalmente. Quando o contexto compactou, o pendente sumiu. Eduardo: "Se eu não lembro, ficaríamos perdidos. Imagina com 30 projetos."
+**Princípio:** Toda tarefa identificada como pendente durante uma sessão → registrar em `PENDENTES.md` na raiz IMEDIATAMENTE, antes de qualquer outra ação. Não esperar `session_close.ps1`. Não confiar na memória da conversa. O `session_close` complementa — não substitui.
+**Ferramenta criada:** `PENDENTES.md` na raiz do repositório — lido pelo `briefing_diario.ps1` toda manhã. Formato: `- [ ] \`YYYY-MM-DD\` **descrição**`. Músculo marca `[x]` ao concluir e remove no `session_close`.
+**Regra de ouro:** Se foi dito "precisa ser feito" e não está no PENDENTES.md ou no `proximo_passo` do WIP_BOARD, não existe. Memória de sessão não é instrumento de gestão — arquivo é.
+**Aplica-se a:** toda sessão, todo projeto, todo processo. Escala para N projetos sem degradação.
+
+---
+
+### [P-047] Engajamento inaugural alto é receptividade — não hábito formado
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 Gate Dia 8
+**Fricção:** Ingrid chegou à Q18 na sessão inaugural, reportou bug de formatação com precisão cirúrgica. O Músculo e o Embaixador quase rotularam como "VERDE CONSOLIDADO". O Embaixador freou: engajamento inaugural ≠ hábito. SM-2 ainda não cobrou, a novidade não acabou.
+**Princípio:** O termômetro de retenção real são as sessões 3-5, quando o SM-2 começa a cobrar revisões difíceis e o efeito de novidade evaporou. Sessão 1 excelente = receptividade confirmada. Hábito = padrão repetido sem incentivo externo.
+**Temperatura correta:** VERDE FRÁGIL — não VERDE CONSOLIDADO — até sessão 3-5 com dados de retorno.
+**Aplica-se a:** todo projeto EdTech ou de hábito com usuário piloto.
+
+---
+
+### [P-048] Deliberação do Músculo é documento persistente — nunca contexto volátil
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 Deliberação
+**Fricção:** A deliberação completa (PASSO A-H com 25 inputs analisados nos 7 pontos) foi executada na sessão anterior. O contexto comprimiu antes do Diretor revisar. O veredito foi pedido sem Eduardo ter lido a análise. "Isso sempre acontece."
+**Princípio:** Após PASSO G e antes de PASSO H, o Músculo salva obrigatoriamente a deliberação em `CLIENTES/[NOME]/HISTORICO/DELIBERACAO_LOOP_[N]_[CLIENTE].md`. PASSO H (veredito) só começa com arquivo confirmado no disco. Diretor lê o arquivo — não depende do contexto da sessão.
+**Ferramenta criada:** PASSO G.5 adicionado em todos os arquivos PASSO6_MUSCULO — gate obrigatório entre deliberação e veredito.
+**Regra de ouro:** Contexto de sessão é RAM — volátil. Arquivo em disco é HD — persistente. Deliberação que não está no HD não aconteceu.
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+---
+
+### [P-049] Output do Auditor é irrecuperável após fechar o NotebookLM
+**Descoberto:** 2026-05-20 | **Sessão:** PROJ-002 Ingrid Loop 4 pós-compressão de contexto
+**Fricção:** As PARTES 1+2+4 do Auditor (Auditoria de Coerência, Perspectiva do Sócio, [N-1 a N-5]) foram perdidas na compressão de contexto. O Músculo deliberou os [N-1 a N-5] apenas pelos títulos — sem o conteúdo completo. 5 inputs deliberados com informação parcial.
+**Princípio:** Ao receber o output do Auditor, antes de sair do NotebookLM: salvar PARTES 1+2+4 em `CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md`. Só então copiar a PARTE 3 (Skill) para `.claude/skills/`. A sequência correta de cópia é: (1) salvar tudo, (2) copiar Skill, (3) rodar gate.
+**Regra de ouro:** NotebookLM não tem memória entre sessões. Quando você fecha, o output vai junto. O que não está em arquivo não existe.
+**Ferramenta criada:** Gate P-049 adicionado ao final da seção COMANDO CURTO em todos os arquivos PASSO5_NOTEBOOKLM.
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+### [P-050] Teste integrado ao processo — não etapa final
+**Descoberto:** 2026-05-21 | **Sessão:** PROJ-001 Valdece V3 — pós-deploy
+**Fricção:** Após migração de schema (`vector(768)→3072`), re-embedding completo e deploy no Netlify, o primeiro teste real da busca revelou erro "different vector dimensions 3072 and 768" — a função `search_documents()` ainda tinha a assinatura antiga. O bug existia desde o Dia 1 da migração e só foi detectado no final da sessão, porque nenhum checkpoint de teste foi executado após cada passo.
+**Princípio:** Teste de caminho principal (golden path) é obrigatório após cada passo técnico irreversível — não apenas ao fechar a sessão. A ordem correta é: executar passo → testar imediatamente → só então avançar. Teste postergado = bugs acumulados que chegam juntos no final.
+**Checkpoints obrigatórios em projetos de busca semântica:**
+1. Após aplicar schema → testar INSERT de documento dummy
+2. Após criar função de busca → testar via SQL Editor com embedding fake
+3. Após re-embedding → testar via curl/Postman contra a função
+4. Após deploy de frontend → testar busca real no navegador antes de commitar
+5. Após qualquer mudança de modelo de embedding → verificar se frontend e função têm o mesmo número de dims
+**Ferramenta:** Músculo usa Playwright para abrir o frontend imediatamente após cada deploy e rodar busca de teste. Console errors e erros visuais são tratados na mesma sessão — nunca postergados.
+**Regra de ouro:** "Se funcionou no código mas não testei ao vivo, não funcionou."
+**Aplica-se a:** todo projeto com busca semântica, deploy de frontend, ou migração de schema no Pentalateral IAH.
+
+### [P-051] Teste remoto valida a cena do cliente — não a funcionalidade genérica
+**Descoberto:** 2026-05-21 | **Sessão:** PROJ-001 Valdece V3 — testes via Playwright
+**Fricção:** Os primeiros testes foram feitos com termos genéricos ("prisão preventiva excesso de prazo"). O correto é testar com os termos e cenários exatos que o cliente descreveu no discovery — é a única forma de confirmar que o sistema entrega o que foi prometido, não apenas que roda.
+**Princípio:** O roteiro de testes remotos de cada projeto é derivado diretamente da cena de sucesso (P-041) e das palavras usadas pelo cliente no discovery. Testar com termos técnicos genéricos valida o motor. Testar com os termos do cliente valida a entrega.
+**Como aplicar:**
+1. Ao criar CLIENTES/[NOME]/KNOWLEDGE_BASE/INDEX.md → incluir seção "ROTEIRO DE TESTES DO CLIENTE" com 3-5 queries derivadas do discovery
+2. Antes de todo deploy → rodar os testes do cliente via Playwright, não apenas queries genéricas
+3. Ao fechar o gate de entrega → screenshot dos resultados com os termos do cliente = evidência da entrega
+**Exemplo Valdece:** cliente descreveu que usa HC, RHC, flagrante ilegal, excesso de prazo, pena reduzida → são esses os termos do roteiro de teste, não "busca semântica funcionando".
+**Nas interações com o cliente:** o teste remoto via Playwright é executado ao vivo durante a sessão com o cliente — Eduardo relata o que o cliente pediu, o Músculo roda a busca com aquele termo exato e captura o screenshot. O cliente vê o sistema respondendo à própria demanda, não a um demo genérico. Isso fecha o ciclo de confiança.
+**Três momentos obrigatórios:**
+1. **Pré-entrega** (interno) — confirmar que os termos do discovery retornam resultados relevantes
+2. **Na entrega** (com o cliente) — rodar ao vivo os termos que o próprio cliente disse no discovery
+3. **Pós-sessão** (debrief) — Embaixador registra quais termos o cliente quis testar na hora → alimentar MEMORIA_EMBAIXADOR
+**Conexão:** P-041 (cena de sucesso), P-044 (toda decisão técnica avaliada contra a cena do cliente), P-050 (teste integrado ao processo).
+**Aplica-se a:** todo projeto com entrega de produto ao cliente no Pentalateral IAH.
+
+---
+
+### [P-052] Estrategista requer MASTER de ativação em toda sessão — a amnésia é estrutural
+**Descoberto:** 2026-05-23 | **Emitido por:** Embaixador + validado pelo Músculo
+**Fricção:** O Estrategista (Gemini) não tem memória persistente entre sessões. Toda sessão começava do zero — o Diretor precisava carregar múltiplos documentos manualmente antes de qualquer interação útil. O overhead de onboarding recaía sobre o recurso mais escasso do sistema (atenção do Diretor).
+**Princípio:** Toda sessão com o Estrategista começa com o `COMANDO_ESTRATEGISTA_MASTER_v[N].md` colado como PRIMEIRA mensagem. O MASTER é o equivalente funcional da memória persistente — compila identidade, estado atual dos projetos, modelo de negócio, princípios relevantes do LEDGER, deficiências conhecidas, formato de entrega e inventário de ferramentas.
+**Manutenção:** O Músculo atualiza o MASTER automaticamente quando atualiza o WIP_BOARD.json — são o mesmo dado. Não há prompts interativos; a manutenção é automática.
+**Decisão deliberada:** Não migrar o Estrategista para Claude Projects — perderia busca na web. O MASTER é a ponte certa para o estágio atual.
+**Arquivo:** `PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md`
+**Aplica-se a:** toda sessão com o Estrategista (Gemini), qualquer projeto, qualquer loop.
+
+---
+
+### [P-053] MANIFESTO_DE_FONTES declara o que o Auditor pode e não pode ver
+**Descoberto:** 2026-05-23 | **Emitido por:** Expansão do Pentalateral IAH — DEF-N-4
+**Fricção:** O Auditor (NotebookLM) auditava com base nas fontes carregadas, mas nunca declarava explicitamente quais fontes estavam presentes nem qual período coberto. Um Auditor que não sabe o que não vê é um Auditor com ponto cego invisível.
+**Princípio:** Em todo loop do Auditor, o NOTEBOOKLM_FONTES/ deve conter um `MANIFESTO_DE_FONTES.md` que declara: (a) quais documentos estão carregados e em qual posição, (b) período coberto (data do mais antigo ao mais recente), (c) o que está ausente e por quê, (d) qual fonte é a mais recente e portanto de maior peso. O Auditor lê o MANIFESTO antes de qualquer análise.
+**Impacto:** Skill baseada em fontes declaradas = Skill com rastreabilidade. Auditor que não sabe o que não viu = Skill com ponto cego silencioso.
+**Arquivo template:** `PENTALATERAL_UNIVERSAL/TEMPLATES/MANIFESTO_DE_FONTES_TEMPLATE.md`
+**Aplica-se a:** todo loop de todo projeto do Pentalateral IAH.
+
+---
+
+### [P-054] Toda operação de substituição em massa exige verificação com grep imediata
+**Descoberto:** 2026-05-23 | **Emitido por:** Falha de processo detectada pelo Diretor — varredura de renomeação do sistema antigo → PENTALATERAL IAH
+**Fricção:** O rename massivo do sistema antigo → PENTALATERAL IAH foi executado (234 arquivos via `git mv`), mas padrões específicos de texto interno (nomenclatura legada, ciclo desatualizado de 20-ideias) não foram capturados na primeira passagem. O Músculo declarou "feito" sem provar. O Diretor teve que fazer auditoria manual — 51 arquivos ainda desatualizados.
+**Princípio:** Após QUALQUER operação de substituição em massa, o Músculo NUNCA declara "concluído" antes de rodar grep e confirmar zero ocorrências do termo antigo. Declarar "feito" sem provar = desinformação de processo.
+**Regra derivada:** `scripts/auditar_consistencia.ps1` roda automaticamente no `session_close.ps1`. VERMELHO bloqueia o encerramento. O gate não depende da disciplina do Músculo — é estrutural.
+**Ferramenta:** `scripts/auditar_consistencia.ps1` — verifica padrões proibidos em todos os arquivos operacionais. VERDE/AMARELO/VERMELHO. Integrado ao `session_close.ps1` como gate obrigatório.
+**Aplica-se a:** qualquer rename, refactor de nomenclatura, atualização de versão, ou substituição de termo em escala — em qualquer projeto ou repositório do Pentalateral.
+
+### [P-055] Estado real de projeto NUNCA vem do resumo de sessão — vem dos arquivos
+**Descoberto:** 2026-05-23 | **Emitido por:** Falha de processo detectada pelo Diretor — skill number errado propagado de sessão compactada
+**Fricção:** O resumo de sessão dizia "ingrid-v3 NUNCA GERADA — Loop 4 bloqueado." O Músculo repetiu essa afirmação ao Diretor sem verificar os arquivos reais. Na realidade, `ingrid-v4.md` existia com "Gate Dia 8 APROVADO 2026-05-19" e Loop 4 estava concluído. O Diretor identificou o erro ao perceber que o número da skill parecia errado.
+**Princípio:** Ao retomar sessão compactada, o Músculo NUNCA repete afirmações de estado de projeto sem verificar: (a) skills reais em `.claude/skills/`, (b) `dias_completos` no `WIP_BOARD.json`, (c) gates aprovados nos arquivos de skill ativos. Resumo de sessão é ponto de partida, não prova de estado.
+**Regra derivada:** `scripts/verificar_estado_projetos.ps1` roda automaticamente no `session_start.ps1`. Injeta estado real (skills em disco + dias concluídos) antes de qualquer declaração do Músculo.
+**Ferramenta:** `scripts/verificar_estado_projetos.ps1` — lista skills reais por projeto, dias_completos, próximo gate. Injetado no context do session_start como "ESTADO REAL DOS PROJETOS (P-055)".
+**Aplica-se a:** qualquer sessão retomada após compactação — especialmente quando há projetos em BUILD com múltiplos loops.
+
+### [P-056] Deploy GitHub Pages exige sync explícito master → gh-pages
+**Descoberto:** 2026-05-23 | **Emitido por:** PROJ-002 Ingrid — Dia 12 Loop 5 — 4h de diagnóstico
+**Fricção:** Commits de Loop 4 e Loop 5 foram para `master`. GitHub Pages serve da branch `gh-pages`. O app em produção ficou parado no Loop 3 por semanas. Usuário (Ingrid) recebia código antigo. O Músculo declarou features "deployadas" sem verificar a branch que o GitHub Pages serve. Cache, SW, Ctrl+Shift+R — nada funcionou porque o arquivo errado estava em produção.
+**Princípio:** Ao usar GitHub Pages com branch `gh-pages` separada, o Músculo NUNCA declara deploy concluído sem provar que o conteúdo correto está na branch que o GH Pages serve. Verificação: `git show gh-pages:app.js | head -3` — confirma a versão em produção.
+**Regra derivada:** Ao fechar qualquer sessão com mudanças em frontend Ingrid → rodar o script de sync:
+```bash
+git checkout gh-pages
+git show master:CLIENTES/INGRID/frontend/app.js > app.js
+# ... (demais arquivos)
+git commit -m "deploy(gh-pages): ..." && git push origin gh-pages
+git checkout master
+```
+**Ferramenta:** Criar `scripts/deploy_ingrid_ghpages.ps1` — automatiza o sync master → gh-pages com um comando.
+**Aplica-se a:** PROJ-002 Ingrid e qualquer outro projeto que use GitHub Pages com branch separada.
+
+---
+
+### [P-057] Abandono em EdTech ocorre no pico — não no vale
+**Descoberto:** 2026-05-24 | **Emitido por:** PROJ-002 Ingrid — Loop 5 — observação do Embaixador
+**Fricção:** Ingrid obteve resultado acima da média no primeiro simulado e sumiu por 3 dias. Expectativa era que resultado positivo gerasse hábito. Na realidade, resultado positivo gera sensação de "missão cumprida" e reduz urgência de retorno.
+**Princípio:** O momento de maior vulnerabilidade de abandono em produto EdTech é imediatamente após o primeiro resultado positivo — o aluno sente que "já aprendeu" e reduz frequência antes de formar hábito. Resultado acima da média sem engajamento nos 3 dias seguintes é sinal de churn em formação, não sinal de satisfação.
+**Regra derivada:** CHURN-WATCH deve ser acionado automaticamente quando engajamento cai após resultado acima da média. A mensagem de retenção não celebra o resultado — ela reacende a urgência do próximo gap.
+**Aplica-se a:** Todos os produtos EdTech/SaaS com ciclo de aprendizado por repetição.
+
+---
+
+### [P-058] Ir ao Gemini com loop técnico incompleto é presentear o Estrategista com estado truncado
+**Descoberto:** 2026-05-24 | **Emitido por:** Músculo — deliberação de processo Loop 5 Ingrid
+**Fricção:** Ao planejar ir ao Gemini antes de fechar o Dia 13, o Músculo identificou que o Estrategista responderia com base em estado incompleto — sem o output técnico do dia, sem os gates aprovados, sem os artefatos reais.
+**Princípio:** Ir ao Gemini antes de fechar o loop técnico é presentear o Estrategista com estado incompleto. O Estrategista é stateless — responde exatamente com o que recebe. Contexto truncado → DIRETRIZ truncada → Skill errada → Loop perdido. A sequência correta é: fechar dia técnico → commit → ir ao Gemini com estado completo.
+**Regra derivada:** `gemini_anchor_generator.ps1` só deve ser rodado após o último commit do loop corrente. O gate P-045 (MEMORIA + relatorio) reforça esta regra: se não existem → loop não fechou → Gemini ainda não recebe.
+**Aplica-se a:** O loop técnico do projeto ESPECÍFICO em andamento. Não trava projetos paralelos — se o Dia 13 de Ingrid está aberto, isso não impede ir ao Gemini para Valdece ou para Discovery de novo nicho.
+**Escopo explícito:** P-058 é por-projeto, não por-sistema. Correção inscrita após Auditor Ingrid detectar risco de "Blackout Estratégico" em 2026-05-24.
+
+---
+
+### [P-059] Isolamento de Contexto por Cliente é Lei — 20 Projetos Simultâneos Exigem Controle Rígido
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — alerta arquitetural ao prever escala de 20 projetos
+**Fricção:** Com 2 projetos, selecionar "primeiro em BUILD" é tolerável. Com 20, auto-seleção silenciosa é risco direto: veredito executado no cliente errado, mensagem de WhatsApp enviada para destinatário errado, LEDGER contaminado com contexto de projeto diferente. O incidente com contexto errado em escala é irrecuperável sem rastreabilidade explícita.
+**Regras derivadas:**
+- Todo script que toca um cliente DEVE exigir `-cliente [NOME]` explícito OU listar opções e aguardar escolha — nunca auto-selecionar quando há mais de 1 projeto ativo
+- DECISOES.json DEVE conter `"cliente"` e `"loop"` como primeiros campos (schema v1.1+) — Músculo valida antes de listar qualquer decisão
+- Quando Eduardo cola output do Embaixador no Claude Code, a primeira resposta do Músculo é sempre: `CLIENTE DETECTADO: [NOME] · Loop [N] · confirmar? (s/não)` — sem exceção
+- Nenhuma execução de veredito começa sem confirmar que o `cliente` do JSON corresponde ao projeto que Eduardo indicou
+- Qualquer script de automação (monitor_hypercare, sync, session_close) deve logar explicitamente "Processando [CLIENTE]" para cada projeto — logs misturados = diagnóstico impossível
+**Aplica-se a:** todos os scripts de orquestração, ao comportamento do Músculo ao interpretar DECISOES.json, e a qualquer feature nova que precise identificar o cliente ativo.
+
+---
+
+### [P-060] Músculo é responsável por toda propagação — zero intervenção do Diretor
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — alerta sistêmico após sessão com múltiplas atualizações manuais
+**Fricção:** Em uma única sessão, Eduardo precisou apontar: SKILL_PROTOCOLO desatualizado, MASTER desatualizado, bug em `ir_ao_embaixador.ps1`, schema sem campos de isolamento, LEDGER sem P-059, documentos não propagados para todos os clientes. O Músculo corrigiu tudo — mas só depois de Eduardo detectar. Com 20 projetos, isso é inviável. O Diretor delibera e decide. Não gerencia documentos.
+**Regras derivadas:**
+- Após qualquer mudança em arquivo-fonte → `propagate_changes.ps1` roda automaticamente (DEPENDENCY_MAP.json define o cascade)
+- Após criar ou editar qualquer `.ps1` → `validate_scripts.ps1` roda antes de reportar "concluído"
+- O Músculo nunca diz "lembre de atualizar X" — ele atualiza e reporta o que fez
+- Se Eduardo apontou um documento desatualizado → DEF-M-6 ativada → Músculo registra a falha e fortalece o cascade
+- Sessão encerra somente após `session_close.ps1` confirmar propagação verde
+**Ferramentas criadas:** `scripts/propagate_changes.ps1` · `scripts/validate_scripts.ps1` · `PENTALATERAL_UNIVERSAL/OPERACAO/DEPENDENCY_MAP.json`
+**Aplica-se a:** toda sessão de build, toda criação de script, toda atualização de documento universal, toda mudança de schema.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO — ARQUITETURAL] LEDGER por índice semântico + compactação cíclica (P-059+ escala)
+**Proposto por:** Diretor Eduardo — 2026-05-24 | **Contexto:** P-058 inscritos · 20 projetos previstos
+**Fricção prevista:** Com 20 projetos e 3-4 princípios/sessão, o LEDGER ultrapassa 300 entradas em 6 meses (~15.000 linhas). Lost-in-the-Middle (DEF-G-3/DEF-N-3) vai degradar a leitura dos princípios intermediários. O Protocolo de Imunidade se torna o próprio gargalo.
+**Decisão arquitetural proposta:**
+- `LEDGER_INDEX.md` — índice curto (1 linha/princípio + tags de categoria e nicho) — lido em toda sessão
+- `LEDGER_[CATEGORIA].md` — detalhe por categoria (Legal-Tech / EdTech / Processo / Universal) — lido sob demanda
+- Compactação cíclica a cada 90 dias: Músculo mescla princípios redundantes, arquiva superseded, mantém ≤60 ativos por arquivo
+- Skills de cliente contêm os princípios específicos do nicho — LEDGER universal é fonte-mãe, não operação diária
+**Gate para implementação:** ativar quando houver ≥10 projetos simultâneos ou ≥80 princípios no LEDGER.
+**Responsável pela execução:** Músculo — sem intervenção do Diretor.
+**Aguarda:** aprovação formal do Diretor quando gate for atingido.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO] O cliente que sinaliza escopo por áudio antes de assinar vai sinalizar por mensagem depois de assinar
+**Proposto por:** Embaixador Valdece — 2026-05-24 | **Aguarda:** numeração do Diretor
+**Fricção:** Valdece enviou 5 áudios sobre V3 (data_dje, turma, repercussao_geral) antes de assinar. O mesmo padrão se repete pós-contrato via mensagem. Pipeline sem travamento de escopo antes do primeiro uso = Eduardo respondendo a scope creep sem perceber que é scope creep.
+**Princípio candidato:** O cliente que sinaliza escopo antes de assinar vai sinalizar depois de assinar. O pipeline precisa estar travado (flag `requer_uso_confirmado`) antes do primeiro uso, não depois do primeiro pedido. Reativo é sempre mais caro que preventivo.
+**Gate implementado:** `requer_uso_confirmado: true` no DECISOES.json bloqueia opção `plantar_hoje` para features V2/V3 até uso ativo confirmado.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO] Automação que falha silenciosamente é pior que ausência de automação
+**Proposto por:** Embaixador Ingrid — 2026-05-24 | **Aguarda:** 1 ocorrência adicional ou aprovação direta do Diretor
+**Fricção:** VEREDITOS_RESUMO.md gerado mas não sincronizado → Embaixador abre sessão sem rastreabilidade de decisões sem saber que perdeu o contexto. A falha invisível é mais perigosa que a falha explícita — o operador age convicto de ter contexto completo quando não tem.
+**Princípio candidato:** Toda automação que carrega dados críticos entre sessões deve emitir confirmação explícita de sucesso antes de prosseguir. Ausência de confirmação = falha assumida, não sucesso assumido.
+**Gate implementado:** `ir_ao_embaixador.ps1` exibe "Resumo de vereditos [DATA] incluído" antes de abrir o browser. Se ausente → alerta vermelho → Eduardo decide se prossegue.
+

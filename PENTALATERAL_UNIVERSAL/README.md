@@ -12,7 +12,7 @@
 |----------|----------|----------|
 | `MEMORANDO_PENTALATERAL_UNIVERSAL.md` | Metodologia completa: Fases -1 a 5, paradigma conselho vs pipeline, PDCA, Pitch, Anti-padrões, Manifesto, Glossário | Eduardo + Conselho |
 | `SKILL_PROTOCOLO_VANGUARD.md` | Skill de ativação do Claude Code — protocolo operacional completo, todos os comandos, Pré-Mortem, Carta ao Músculo Futuro | Claude Code (interno) |
-| `MANUAL_DIRETOR.md` | Guia passo a passo para Eduardo orquestrar os 4 membros — comandos exatos, quando usar cada um, o loop completo | Eduardo (uso diário) |
+| `MANUAL_DIRETOR.md` | Guia passo a passo para Eduardo orquestrar os 5 atores — comandos exatos, quando usar cada um, o loop completo | Eduardo (uso diário) |
 | `DISCOVERY_CARD.md` | Cartão de bolso: 3 perguntas GO/NO-GO + 7 perguntas de Discovery — para usar em reuniões | Eduardo (reuniões) |
 | `PERFIL_CLIENTE_TEMPLATE.md` | Template do segundo cérebro do cliente — o que diz vs. o que quer, estilo de decisão, histórico da relação | Eduardo + NotebookLM |
 | `ROI_TRACKER_TEMPLATE.md` | Verificação 30 dias pós-lançamento — mensagem ao cliente, formulário interno, acumulador de resultados | Eduardo (30 dias após go-live) |

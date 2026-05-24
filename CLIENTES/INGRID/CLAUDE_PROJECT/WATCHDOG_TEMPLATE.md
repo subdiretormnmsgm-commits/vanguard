@@ -17,19 +17,19 @@
 ## BLOCO WATCHDOG — COPIAR E COLAR
 
 ```
-WATCHDOG — [18/05/2026]
+WATCHDOG — [data de hoje]
 
 ESTADO_ATUAL:
-- Termo: [TERMO ASSINADO POR INGRID]
-- Gate: [Dia X / o que está em build agora] - NÃO ME RECORDO DO DIA
+- Termo: [ASSINADO em DD/MM / PENDENTE]
+- Gate: [Dia X / o que está em build agora]
 - Último contato Ingrid: [hoje — o que aconteceu em 1 linha]
-- Risco: [VERDE / AMARELO / VERMELHO]
+- TEMPERATURA_PONDERADA: [score 0-10 — ex: 7.0/10]
 
 DESDE A ÚLTIMA SESSÃO:
-[INGRID ASSINOU O TERMO, CONTINUEMOS COM O PROCESSO.]
+[o que aconteceu desde a última ativação — ou "nenhum evento relevante"]
 
 PERGUNTA DESTA SESSÃO:
-[CONTINUAR O PROCESSO, CONFORME PLANEJADO.]
+[o que Eduardo precisa deliberar ou saber nesta sessão]
 ```
 
 ---
@@ -43,7 +43,7 @@ ESTADO_ATUAL:
 - Termo: ASSINADO em 19/05
 - Gate: Dia 8 — interface PWA pronta, Tutor Socrático em teste
 - Último contato Ingrid: ontem — confirmou que assinou o Termo, perguntou quando recebe o link
-- Risco: VERDE
+- TEMPERATURA_PONDERADA: 8.0/10
 
 DESDE A ÚLTIMA SESSÃO:
 Ingrid assinou. Eduardo não entregou o link ainda — esperando Gate Dia 8 aprovado.
@@ -83,16 +83,18 @@ SEMPRE subir LOG_CLIENTE no NotebookLM a cada gate fechado
 
 ---
 
-## GATILHOS QUE MUDAM O NÍVEL DE RISCO
+## GATILHOS — IMPACTO NA TEMPERATURA_PONDERADA
 
-| Evento | Nível |
+| Evento | Impacto no Score |
 |---|---|
-| Termo assinado + Gate no prazo + contato recente | VERDE |
-| Termo pendente OU sem contato há 2+ dias | AMARELO |
-| Termo pendente + sem contato há 3+ dias | VERMELHO |
-| Ingrid mencionou compartilhar login | VERMELHO |
-| Ingrid não usou o app por 3+ dias após entrega | VERMELHO |
-| Ingrid respondeu em monossílabos por 2 interações | AMARELO → monitorar |
+| Termo assinado + Gate no prazo + contato recente | +2 → score ≥ 8 |
+| Ingrid usou o app + perguntou sobre próxima etapa | +1.5 |
+| Termo pendente OU sem contato há 2+ dias | -1 |
+| Termo pendente + sem contato há 3+ dias | -2 → CHURN-WATCH |
+| Ingrid mencionou compartilhar login | -1.5 + SCOPE-WATCH |
+| Ingrid não usou o app por 3+ dias após entrega | -2 → CHURN-WATCH |
+| Ingrid respondeu em monossílabos por 2 interações | -1 → monitorar |
+| Score < 6 → CHURN-WATCH automático + reengajamento proativo | |
 
 ---
 

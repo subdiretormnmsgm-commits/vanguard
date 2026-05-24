@@ -1,3 +1,6 @@
-[PENDENTE]
+[ASSINADO — 2026-05-18]
 Termo: Termo_Uso_Ingrid_PROJ002_30052026.pdf
-Assinatura pendente desde: 2026-05-16
+Assinatura: 2026-05-18 (presencial)
+Gate: DESBLOQUEADO — build continuado após assinatura
+LEGAL-WATCH ATIVO: PDF gerado com data 30/05/2026 — data real da assinatura foi 18/05/2026.
+Divergência: documento não vai a terceiros até veredito do Diretor sobre nova versão.

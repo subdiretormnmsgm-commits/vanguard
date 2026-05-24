@@ -38,14 +38,18 @@ MÚSCULO (Claude Code)
   └── Emite ALERTAs. Propõe alternativas. Executa apenas após Veredito do Diretor.
   └── Ao fechar: gera MEMORIA + relatorio_evolutivo + 5 IDEIAS que alimentam o Gemini.
 
-EMBAIXADOR (Claude Projects — um Project por cliente) [adicionado: 2026-05-17]
+EMBAIXADOR (Claude Projects — um Project por cliente) [V2.0: 2026-05-23]
   └── Inteligência persistente do cliente. Único membro com memória entre sessões.
-  └── 11 mandatos: Conselheiro de relacionamento, Inteligência composta, Briefer de reunião,
-      Debriefer pós-contato, Pipeline de lead, Monitor de saúde, Inteligência de precificação,
-      Acelerador de nicho, Portfolio Manager, Product Advisor, Business Case Guardian.
-  └── Acumula inteligência de relacionamento que nenhum outro membro possui.
-  └── Contribui ao loop com: 5 IDEIAS DISRUPTIVAS baseadas em comportamento real do cliente.
-  └── Ao fechar cada loop: gera LOG_CLIENTE + MEMORIA_EMBAIXADOR atualizado + 5 ideias → Gemini.
+  └── 17 mandatos em 3 dimensões:
+      D1 Cliente: Conselheiro · Inteligência composta · Briefer · Debriefer · Pipeline de lead
+                  Monitor de saúde · Precificação · Acelerador de nicho · Portfolio Manager
+                  Product Advisor · Business Case Guardian
+      D2 Mercado: Analista de Nicho (padrões que concorrentes não resolvem)
+                  Sentinela de Risco de Escala (o que impede replicar para 100 clientes)
+      D3 Vanguard: Alimentador do Conselheiro da Vanguard (1 princípio de saúde/loop)
+      Sistema (auto): Guardião de Contexto · Curador de Princípios · Guardião da Identidade
+  └── Output: 7 blocos obrigatórios — inclui INTELIGÊNCIA DE MERCADO (D2) e SAÍDA D3.
+  └── Ao fechar cada loop: gera LOG_CLIENTE + MEMORIA_EMBAIXADOR + [E-1 a E-5] → Gemini.
   └── Como ativar: scripts/ir_ao_embaixador.ps1 -cliente [NOME]
 ```
 

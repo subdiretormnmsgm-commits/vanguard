@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.1 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23)**
+**Versão da Skill:** 6.2 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24)**
 
 ---
 
@@ -55,7 +55,7 @@ MÚSCULO:          Claude Code (este protocolo)
   └── Como ativar: PROTOCOLO VANGUARD + descrição do projeto.
 
 EMBAIXADOR:       Claude Projects (um Project por cliente)
-  └── Papel: Inteligência persistente do cliente. Memória entre sessões. 11 mandatos.
+  └── Papel: Inteligência persistente do cliente. Memória entre sessões. 17 mandatos V2.0 (D1/D2/D3).
   └── Único membro com acesso ao relacionamento real acumulado — o Músculo não tem isso.
   └── Como ativar: ir_ao_embaixador.ps1 -cliente [NOME] → clipboard + browser automáticos.
   └── Contribui ao loop com: 5 IDEIAS DISRUPTIVAS baseadas em comportamento real do cliente.
@@ -220,8 +220,13 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 | **Deriva de Mandato** — expande para recomendações técnicas ou de arquitetura onde não tem competência | **Filtro de papel:** Recomendações técnicas do Embaixador = sinal de demanda do cliente, nunca decisão técnica. *"O Embaixador sinalizou o que o cliente quer — como fazer é decisão do Músculo."* |
 | **DEF-E-6: Silo de Cliente** — analisa um cliente por vez, não cruza padrões de nicho | **INTELIGENCIA_CRUZADA_NICHO:** ao emitir [E-1 a E-5] com 2+ clientes no mesmo nicho, exigir bloco `INTELIGENCIA_CRUZADA_NICHO` com padrão em [CLIENTE-A] + padrão em [CLIENTE-B] + hipótese para o nicho. |
 | **DEF-E-7: Temperatura Simples** — reporta temperatura sem tendência ou contexto de pagamento | **TEMPERATURA_PONDERADA:** substituiu temperatura simples. Formato: `Temperatura atual + Tendência + Contexto de pagamento → score 0-10`. Score < 6 = CHURN-WATCH automático. |
+| **DEF-E-8: Ciclo Fechado Sem Ação** — entrega [E-1 a E-5] e análise excelente, mas não gera DECISOES.json → o Diretor recebe inteligência sem mecanismo de execução | **Gate DECISOES_JSON obrigatório (2026-05-24):** ao fechar SEÇÃO D do PASSO7, o Embaixador SEMPRE gera `DECISOES_[PROJETO]_[DATA].json`. Análise sem JSON = ciclo incompleto. O Músculo rejeita e solicita o arquivo antes de renderizar o painel. |
 
 **AUTO-CHECKLIST DO MÚSCULO ao interpretar outputs do Embaixador:**
+
+> **DEF-E-8 Check:** O Embaixador entregou DECISOES.json junto com [E-1 a E-5]?
+> Se não → solicitar antes de renderizar o painel. Ciclo só fecha com JSON.
+
 
 | Deficiência | Verificação |
 |---|---|
@@ -250,6 +255,19 @@ TEMPERATURA_PONDERADA (substitui temperatura simples):
 
 ---
 
+### PRINCÍPIOS RECENTES — P-056 / P-057 / P-058 (2026-05-24)
+
+**[P-056] — Deploy GitHub Pages exige sync explícito master → gh-pages**
+Commits em `master` não chegam ao GitHub Pages automaticamente quando a branch de serving é `gh-pages`. Ao fechar qualquer sessão com mudanças em frontend hospedado no GH Pages: verificar e sincronizar com `deploy_ingrid_ghpages.ps1`.
+
+**[P-057] — Abandono em EdTech ocorre no pico — não no vale**
+Resultado acima da média sem engajamento nos 3 dias seguintes = sinal de churn em formação. CHURN-WATCH deve ser acionado automaticamente após resultado positivo — a mensagem de retenção não celebra, reacende a urgência do próximo gap.
+
+**[P-058] — Ir ao Gemini com loop técnico incompleto é presentear o Estrategista com estado truncado**
+O Gemini é stateless — responde com o que recebe. Sequência correta: fechar dia técnico → commit → gemini_anchor_generator.ps1 → ir ao Gemini. Gate P-045 (MEMORIA + relatorio) reforça: sem eles, loop não fechou, Gemini não recebe.
+
+---
+
 ### PRINCÍPIOS RECENTES — P-054 e P-055 (2026-05-23)
 
 **[P-054] — Rename estrutural exige grep de verificação imediata**
@@ -268,9 +286,24 @@ O Músculo nunca declara fase, skill ativa ou número de loop com base em resumo
 
 ```
 CLIENTES/[PROJETO]/
-  PASSO3_GEMINI.md       ← Eduardo envia ao Gemini (atualiza contexto antes de cada loop)
-  PASSO5_NOTEBOOKLM.md   ← Eduardo envia ao NotebookLM (idem)
+  PASSO3_GEMINI.md       ← Eduardo envia ao Gemini (Músculo prepara no Passo ⓪)
+  PASSO5_NOTEBOOKLM.md   ← Eduardo envia ao NotebookLM (atualiza contexto antes de cada loop)
+  PASSO7_EMBAIXADOR.md   ← Eduardo leva ao Embaixador (SEÇÃO D = [M]+[G]+[N] → recebe [E]+DECISOES.json)
   PASSO6_MUSCULO.md      ← Músculo lê internamente antes de deliberar (Eduardo não edita)
+
+CLIENTES/[PROJETO]/CLAUDE_PROJECT/DECISOES/
+  DECISOES_[PROJ]_[DATA].json   ← gerado pelo Embaixador ao fechar SEÇÃO D
+  VEREDITOS_[PROJ]_[DATA].json  ← gerado pelo Painel após vereditos do Diretor
+  PAINEL_[PROJ]_[DATA].html     ← gerado pelo render_painel.ps1 (abre no browser)
+```
+
+**Passo ⓪ do Músculo (antes de ir ao Gemini):**
+```
+1. Rodar: .\scripts\gemini_anchor_generator.ps1 -cliente [NOME]
+   → Gera CONTEXTO_GEMINI.md com LEDGER + WIP + MEMORIA consolidados
+2. Verificar P-045: MEMORIA_V[N-1] + relatorio_V[N-1] existem?
+   → Se não → BLOQUEIO: fechar loop técnico antes de ir ao Gemini
+3. Atualizar PASSO3_GEMINI.md com orientações do Diretor sobre o que enfatizar
 ```
 
 Templates universais em: `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md` (e análogos)
@@ -313,9 +346,20 @@ O Embaixador reage às ideias de TODOS os sócios com um de três vereditos:
 | `WATCHDOG_TEMPLATE.md` | `CLIENTES/[NOME]/CLAUDE_PROJECT/` | Eduardo preenche 60s → Embaixador retorna 4 linhas de alerta |
 | `MENSAGEM_INTERACAO_INICIAL.md` | `CLIENTES/[NOME]/CLAUDE_PROJECT/` | Script copia para clipboard → Eduardo cola no primeiro contato |
 | `LOG_CLIENTE.md` | gerado pelo Embaixador por sessão | Vai para COMANDO 1 (Gemini) + COMANDO 2 (NotebookLM) |
+| `DECISOES/DECISOES_[PROJ]_[DATA].json` | `CLIENTES/[NOME]/CLAUDE_PROJECT/DECISOES/` | Gerado pelo Embaixador ao fechar SEÇÃO D — alimenta o pipeline de vereditos |
 
 **Script de ativação:** `.\scripts\ir_ao_embaixador.ps1 -cliente [NOME]`
 **Template universal:** `PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
+**Template MENSAGEM:** `PENTALATERAL_UNIVERSAL/OPERACAO/MENSAGEM_INTERACAO_INICIAL_TEMPLATE.md`
+
+**Pipeline DECISOES → VEREDITOS (2026-05-24):**
+```
+Embaixador → DECISOES_[PROJ]_[DATA].json
+Músculo    → .\scripts\render_painel.ps1 -projeto [NOME]
+Diretor    → abre Painel HTML → marca vereditos (3 min) → baixa VEREDITOS.json
+Músculo    → .\scripts\executar_vereditos.ps1 -projeto [NOME]
+           → executa automaticamente: clipboard / MEMORIA / LEDGER / PENDENTES
+```
 
 ---
 
@@ -411,7 +455,7 @@ PENTALATERAL IAH — EDUARDO → GEMINI
 projeto: [nome] | ITERAÇÃO: V[X] | DATA: [data]
 ════════════════════════════════════════════════════════════
 
-Gemini, somos o PENTALATERAL IAH — agora com 4 membros.
+Gemini, somos o PENTALATERAL IAH — 5 atores: Estrategista + Diretor + Auditor + Músculo + Embaixador.
 Estrategista (tu) | Diretor (eu) | Auditor (NotebookLM) | Músculo (Claude Code) | Embaixador (Claude Projects)
 
 [SE ITERAÇÃO INICIAL — colar briefing do cliente:]

@@ -1,0 +1,194 @@
+{
+  "schema_versao": "1.0",
+  "projeto": "PROJ002_INGRID",
+  "projeto_label": "Ingrid",
+  "cliente_label": "INGRID",
+  "data": "2026-05-24",
+  "loop": 5,
+  "gerado_por": "Embaixador",
+  "instrucao_musculo": "Rodar: .\\scripts\\render_painel.ps1 -projeto INGRID",
+  "secoes": [
+    { "id": "acao_imediata",   "label": "Ação imediata" },
+    { "id": "pendencias",      "label": "Pendências contratuais e técnicas" },
+    { "id": "inteligencia",    "label": "Inteligência acumulada" }
+  ],
+  "decisoes": [
+    {
+      "id": "D1",
+      "secao": "acao_imediata",
+      "urgencia": "prerequisito",
+      "icon": "⚠️",
+      "titulo": "Mensagem pós-fix Q18",
+      "subtitulo": "Confirmar antes do reengajamento",
+      "situacao": "Ingrid reportou bug em 18/05. Fix deployado em 19/05. Se o reconhecimento não foi enviado, ela reportou algo e ouviu silêncio por 5 dias.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Mensagem para enviar (WhatsApp):",
+      "artefato_texto": "Ingrid, que bom que gostou — fico feliz mesmo. E olha, valeu demais por ter notado aquilo da questão 18 com o negrito. Era um bug de formatação chato, já corrigi. Esse tipo de olho fino é exatamente o que a banca da Quadrix cobra na prova, viu? Continua estudando assim 👊",
+      "opcoes": [
+        {
+          "valor": "ja_enviada",
+          "label": "Já foi enviada",
+          "subtitulo": "Avançar para reengajamento",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "enviar_agora",
+          "label": "Ainda não — enviar agora",
+          "subtitulo": "Enviar antes de qualquer outra mensagem",
+          "acoes": ["copiar_clipboard", "log_contato"]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "secao": "acao_imediata",
+      "urgencia": "alta",
+      "icon": "📡",
+      "titulo": "Reengajamento — CHURN-WATCH ativado",
+      "subtitulo": "5 dias sem sessão — hoje é o dia do alerta",
+      "situacao": "CHURN-WATCH dispara em silêncio > 5 dias a partir de 18/05. Hoje é 24/05. Ingrid não reclama — some. Link reenviado em 23/05 — sem resposta confirmada ainda.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Mensagem sugerida (após pós-fix Q18):",
+      "artefato_texto": "Ingrid, como tá o estudo essa semana? 🎯 Só checando se tá tudo certo no app — qualquer coisa me fala!",
+      "opcoes": [
+        {
+          "valor": "enviar",
+          "label": "Enviar esta mensagem",
+          "subtitulo": "WhatsApp — hoje, após pós-fix Q18",
+          "acoes": ["copiar_clipboard", "log_contato"]
+        },
+        {
+          "valor": "ajustar",
+          "label": "Ajustei o texto acima e quero enviar",
+          "subtitulo": "Edite o campo antes de confirmar",
+          "acoes": ["copiar_clipboard", "log_contato"]
+        },
+        {
+          "valor": "ignorar",
+          "label": "Ignorar por agora",
+          "subtitulo": "Risco sobe para Vermelho se silêncio continuar",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "secao": "pendencias",
+      "urgencia": "alta",
+      "icon": "📄",
+      "titulo": "Pendência contratual — data do Termo diverge",
+      "subtitulo": "PDF: 30/05/2026 · Assinatura real: 18/05/2026",
+      "situacao": "Vulnerabilidade jurídica ativa. Documento não pode ir a terceiros enquanto divergência não for resolvida.",
+      "tem_artefato": false,
+      "opcoes": [
+        {
+          "valor": "regerar",
+          "label": "Regerar PDF com data 18/05/2026",
+          "subtitulo": "Ingrid assina novamente — \"corrigi uma data rapidinho\"",
+          "acoes": ["criar_nota_regerar_pdf", "log_apenas"]
+        },
+        {
+          "valor": "registrar",
+          "label": "Registrar formalmente a divergência",
+          "subtitulo": "Aditivo declarando data real — sem reassinatura",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "adiar",
+          "label": "Adiar para após Gate Dia 15",
+          "subtitulo": "Não interromper o fluxo agora",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "secao": "pendencias",
+      "urgencia": "normal",
+      "icon": "📲",
+      "titulo": "Push dominical — iOS Safari não suporta Web Push",
+      "subtitulo": "Incógnita crítica do Gate Dia 13",
+      "situacao": "Push Circuit Breaker deployado no Dia 12 (isIosSafari() + PUSH_SUPORTADO flag). Dia 13 = build do push real. Se iOS Safari negar permissão, fallback é WhatsApp manual ou automação via script.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Mensagem de fallback (WhatsApp dominical se Push não funcionar):",
+      "artefato_texto": "Ingrid, domingo chegou! 📚 Hora do Simulado Sedes-DF — abre o app e vai nessa. Você estudou X questões essa semana — hoje fecha a conta.",
+      "opcoes": [
+        {
+          "valor": "buildar_push_tentar",
+          "label": "Buildar Push — testar no Safari — fallback WhatsApp se falhar",
+          "subtitulo": "Circuit Breaker já preparado no Dia 12",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "pular_push_whatsapp",
+          "label": "Pular Push neste loop — usar WhatsApp como canal dominical",
+          "subtitulo": "Mais confiável — Ingrid provavelmente usa iOS",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "secao": "inteligencia",
+      "urgencia": "normal",
+      "icon": "📚",
+      "titulo": "Princípio candidato ao LEDGER",
+      "subtitulo": "Gerado pelo Embaixador nesta ativação",
+      "situacao": "Candidato a novo princípio extraído do comportamento real de Ingrid e do risco de abandono silencioso.",
+      "tem_artefato": true,
+      "artefato_editavel": false,
+      "artefato_label": "Texto do princípio:",
+      "artefato_texto": "O momento de maior vulnerabilidade de abandono em produto EdTech não é quando o app é difícil — é quando o app está funcionando e o usuário não recebe sinal de que seu esforço foi registrado. Silêncio do sistema após comportamento de qualidade do usuário é interpretado como indiferença, não como estabilidade.",
+      "opcoes": [
+        {
+          "valor": "aprovar",
+          "label": "Aprovar — Músculo numera e inscreve no LEDGER",
+          "subtitulo": "Entra no INTELLIGENCE_LEDGER.md",
+          "acoes": ["inscrever_ledger"]
+        },
+        {
+          "valor": "descartar",
+          "label": "Descartar",
+          "subtitulo": "",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "secao": "inteligencia",
+      "urgencia": "normal",
+      "icon": "🏢",
+      "titulo": "Princípio D3 — Vanguard como empresa",
+      "subtitulo": "Para o Conselheiro da Vanguard",
+      "situacao": "Princípio sobre saúde do produto como sistema — extraído desta ativação do Embaixador.",
+      "tem_artefato": true,
+      "artefato_editavel": false,
+      "artefato_label": "Princípio D3:",
+      "artefato_texto": "Uma empresa de produto que depende do fundador para enviar mensagens de reengajamento não tem produto — tem serviço disfarçado de produto. O teste real de produto é: o ciclo de retenção roda sem o fundador lembrar de acionar.",
+      "opcoes": [
+        {
+          "valor": "encaminhar",
+          "label": "Encaminhar ao Conselheiro da Vanguard",
+          "subtitulo": "Diretor aciona o Project separado",
+          "acoes": ["copiar_clipboard", "log_apenas"]
+        },
+        {
+          "valor": "guardar",
+          "label": "Guardar — encaminhar depois",
+          "subtitulo": "",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "descartar",
+          "label": "Descartar",
+          "subtitulo": "",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    }
+  ]
+}

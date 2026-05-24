@@ -1,4 +1,4 @@
-﻿# PENDENTES — Vanguard IAH
+# PENDENTES — Vanguard IAH
 > Atualizado pelo Músculo em tempo real durante qualquer sessão.
 > O briefing matinal lê este arquivo — tudo aqui aparece às 7h.
 > Regra P-047: qualquer tarefa identificada como pendente → registrar aqui IMEDIATAMENTE.
@@ -6,89 +6,91 @@
 
 ---
 
-## PROJ-001 · Valdece (Deadline: 23/05 Sab)
-
-- [x] `2026-05-21` **Dia 6 — V3 SEQUÊNCIA COMPLETA:** ✅ ENTREGUE
-  1. ~~Criar `sql/v3_migration.sql`~~ ✅
-  2. ~~Atualizar `ingest.py` com `--mode reingest`~~ ✅
-  3. ~~Dry-run validado — 61/61, 0 erros, 0 custo~~ ✅
-  4. ~~Migração Supabase Vanguard (uslkhnselzmbbnupmfsp) — 61 docs~~ ✅
-  5. ~~search_documents() V3 aplicada~~ ✅
-  6. ~~Frontend: badges PLENO/COLEGIADA + ABNT data_dje~~ ✅
-  7. ~~Deploy Netlify — toga-digital-valdece.netlify.app~~ ✅ VALIDADO
+## PROJ-001 · Valdece (Deadline: Hypercare até 18/06)
 
 - [ ] `2026-05-21` **V3 ENRICHMENT — campos turma/repercussao_geral vazios:**
   APIs STF/STJ inacessíveis por DNS nesta sessão. Rodar quando rede disponível:
   `python ingest.py --mode reingest` — popula turma + repercussao_geral + recurso_repetitivo + data_dje nos 61 acórdãos.
   Badges PLENO/COLEGIADA só aparecem após este passo.
 
-- [x] `2026-05-23` ~~**MEMORIA_EMBAIXADOR Valdece** — campo "Estado Contratual" corrigido para "ASSINADO — 2026-05-19"~~ ✅
+- [ ] `2026-05-24` **Embaixador Valdece — ativar com nova sistemática:**
+  1. Cole no Claude Project Valdece: mensagem de ativação do novo papel (DECISOES.json)
+  2. Cole: MENSAGEM_INTERACAO_INICIAL.md V2.0 (via clipboard do ir_ao_embaixador.ps1 -cliente VALDECE)
+  3. Suba arquivos atualizados: INTELLIGENCE_LEDGER + WIP_BOARD + MEMORIA_EMBAIXADOR (feito pelo script)
 
-- [x] `2026-05-21` **Billing Gemini** — resolvido: chave Valdece substituída pela chave Vanguard (Eduardo)
+- [ ] `2026-05-24` **Sentinel Report — gerar em 2026-06-02:**
+  Relatório de Hypercare para Valdece. Template em CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md.
 
 ---
 
-## PROJ-002 · Ingrid (Deadline: 30/05 Sab)
+## PROJ-002 · Ingrid (Deadline: 30/05 Sab — 6 dias)
 
-- [ ] `2026-05-23` **⚠️ P-045 BLOQUEANTE — ingrid-v3.md NUNCA GERADA:**
-  Loop 4 não pode começar sem artefatos de fechamento do Loop 3.
-  Sequência: MEMORIA_V3_INGRID existe ✅ → gerar ingrid-v3.md no NotebookLM → só então Loop 4.
-  Rodar: `preparar_notebooklm_projeto.ps1 -cliente INGRID` → NotebookLM → skill nomeada ingrid-v3.
+- [ ] `2026-05-24` **Embaixador Ingrid — ativar com nova sistemática:**
+  1. Cole no Claude Project Ingrid: mensagem de ativação do novo papel (DECISOES.json)
+  2. Cole: MENSAGEM_INTERACAO_INICIAL.md V2.0 (via clipboard do ir_ao_embaixador.ps1 -cliente INGRID)
+  3. Suba arquivos atualizados: INTELLIGENCE_LEDGER + WIP_BOARD + MEMORIA_EMBAIXADOR (feito pelo script)
 
-- [ ] `2026-05-20` **Dias 12-13:**
-  1. Contador de Pontos Ponderados (header ou dashboard)
-  2. Notificações Push — domingo = Micro-Simulado Sedes-DF
+- [ ] `2026-05-24` **Loop 5 — Gemini (PASSO 3):**
+  Passo ⓪ Músculo: ✅ gemini_anchor_generator.ps1 + P-045 verificado (MEMORIA_V4 existe)
+  1. Cole: COMANDO_ESTRATEGISTA_MASTER_v1.md
+  2. Cole: PASSO3_GEMINI.md (Ingrid Loop 5)
+  3. Anexe: MEMORIA_V4_INGRID.md + relatorio_evolutivo_V4_INGRID.md + INTELLIGENCE_LEDGER.md + WIP_BOARD.json
+  Salvar: DIRETRIZ V6 → NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt
 
-- [ ] `2026-05-20` **Loop 4** — após ingrid-v3.md gerada + Dias 12-13: ir ao Gemini com PASSO3 → DIRETRIZ V4 → NotebookLM → ingrid-v4.md → Músculo executa skill
+- [ ] `2026-05-24` **Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:**
+  Rodar: preparar_notebooklm_projeto.ps1 -cliente INGRID → Wipe & Sync → COMANDO CURTO
+  Salvar: ingrid-v5.md → .claude/skills/ingrid-v5.md
+  Validar: skill_parser_gate.ps1
+
+- [ ] `2026-05-24` **Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:**
+  Preencher PASSO7_EMBAIXADOR.md SEÇÃO D com [M-1 a M-5] + [G-1 a G-5] + [N-1 a N-5]
+  Colar output completo do Embaixador no Claude Code — Músculo extrai JSON + apresenta decisões
+  Eduardo responde "D1:A, D2:B" — Músculo executa automaticamente
+  ⚠️ Ingrid (B2C sensível): fluxo simplificado — [E-1 a E-5] como texto, sem JSON burocrático
+
+- [ ] `2026-05-24` **Dia 13 — Push dominical + Widget Contador:**
+  Push iOS Safari: incógnita crítica (Safari não suporta Push Web nativamente — isIosSafari() já preparado)
+  Widget Contador: exibir pontos ponderados no header do PWA
+  Gate: Ingrid testa e aprova antes de avançar para Dia 14
+
+- [ ] `2026-05-24` **Dia 14-15 — Offboarding + SaaS Readiness Audit:**
+  LEGAL-WATCH: PDF do Termo datado 30/05 — assinatura real 18/05. Resolver antes do offboarding.
+
+---
+
+## ALERTAS CRÍTICOS DOS AUDITORES — 2026-05-24
+
+- [ ] `2026-05-24` **🔴 RLS + Chave API exposta no frontend (Auditor Valdece — prioridade técnica zero):**
+  Chave de API e RLS expostas no frontend do app Valdece. Requer proxy reverso no backend Supabase.
+  Mais urgente que qualquer nova feature. Risco contratual real se explorado.
+  
+- [ ] `2026-05-24` **🔴 CANDIDATO_A_PRINCIPIO — Fuga do MRR pela Burocracia (Auditor Ingrid):**
+  Pentalateral produz infraestrutura de excelência enquanto o primeiro MRR (Manutenção Soberana Valdece)
+  está pendente. DEF-M-5 coletiva detectada. Veredito do Diretor: aprovar princípio?
+  Proposta: "Nenhum script de orquestração novo enquanto houver contrato de MRR não fechado em projeto ativo."
 
 ---
 
 ## PROCESSO / INFRA
 
-- [x] `2026-05-23` ~~**P-047 no INTELLIGENCE_LEDGER**~~ — princípio já registrado como P-048 no LEDGER. Numeração inconsistente detectada mas não corrigida para evitar cascata de renumeração. ✅
-
----
-
-## SESSÃO 2026-05-23 — EXPANSÃO DE PAPÉIS PENTALATERAL
-
-- [x] `2026-05-23` **Expansão de papéis — ENTRA AGORA:** todos os itens aprovados executados ✅
-  - COMANDO_ESTRATEGISTA_MASTER_v1.md criado
-  - P-052 e P-053 no LEDGER
-  - PASSO3/5/6/7 templates atualizados (v2.3 / v2.2 / v4.1 / v1.1)
-  - SKILL_PROTOCOLO_VANGUARD v6.1 (12 novas deficiências)
-  - MANUAL_DIRETOR v1.3 (PARTE 0.6 — tabela definitiva de documentos)
-  - MANIFESTO_DE_FONTES_TEMPLATE + REGISTRO_DE_PREMISSAS_TEMPLATE criados
-  - MANIFESTO_DE_FONTES.md e REGISTRO_DE_PREMISSAS.md para Valdece e Ingrid
-  - session_close.ps1 com CANDIDATOS_A_PRINCIPIO
-  - ATUALIZACAO_PENTALATERAL_2026-05-23.md para os sócios
-  - MEMORIA_EMBAIXADOR Valdece corrigida
-
-- [x] `2026-05-23` ~~**Sync universal obrigatório**~~ — `sync_vanguard_docs.ps1` executado: INTEGRIDADE VERDE, 0 falhas de hash ✅
-
-- [x] `2026-05-23` ~~**Rename PENTALATERAL → PENTALATERAL**~~ — veredito formal do Diretor dado, executado: 234 arquivos via `git mv`, todos os scripts/hooks/skills/docs atualizados ✅
-
-- [x] `2026-05-23` ~~**Varredura total + VANGUARD_TIMELINE**~~ — CONSTITUICAO atualizada (MEMORANDO v2.3), NOTEBOOKLM_BASE sincronizado, TIMELINE com marcos 2026-05-23, tabela de membros v6.1 ✅
-
----
-
-## PRÓXIMA SESSÃO — OBRIGATÓRIOS PÓS-EXPANSÃO PENTALATERAL
-
-- [ ] `2026-05-23` **Distribuir ATUALIZACAO_PENTALATERAL_2026-05-23.md aos sócios:**
+- [ ] `2026-05-24` **Distribuir ATUALIZACAO_PENTALATERAL_2026-05-24.md aos sócios:**
+  Versão de 2026-05-23 substituída pela de 2026-05-24 (pipeline inline + schema v1.1).
   Colar no chat de cada parceiro ao iniciar próxima sessão:
   1. Gemini (Estrategista) — colar no início do PASSO3
   2. NotebookLM (Auditor) — colar junto ao PASSO5
   3. Embaixador (Claude Projects) — colar via ir_ao_embaixador.ps1
-  Arquivo: `PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_2026-05-23.md`
+  Arquivo: `PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_2026-05-24.md`
+
+- [ ] `2026-05-24` **Task Scheduler — monitor_hypercare.ps1 (7h diário):**
+  Configurar tarefa agendada no Windows para rodar diariamente:
+  Programa: `powershell.exe`
+  Argumentos: `-NonInteractive -File "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\scripts\monitor_hypercare.ps1"`
+  Gatilho: diário às 07:00 (dias úteis)
 
 - [ ] `2026-05-23` **NotebookLM Wipe & Sync — AMBOS os projetos:**
   Rename massivo alterou nomes de fontes. Executar antes da próxima sessão NotebookLM:
   - `.\scripts\preparar_notebooklm_projeto.ps1 -cliente VALDECE` → Wipe & Sync no NotebookLM
   - `.\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID` → Wipe & Sync no NotebookLM
-
-- [ ] `2026-05-23` **MEMORIA_EMBAIXADOR Ingrid — atualizar:**
-  Não atualizada nesta sessão (apenas Valdece foi corrigida).
-  Atualizar: hipóteses confirmadas/refutadas desta sessão + temperatura atual + próxima ação do Embaixador.
-  Arquivo: `CLIENTES/INGRID/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md`
 
 - [ ] `2026-05-23` **REGISTRO_DE_PREMISSAS — registrar premissas desta sessão:**
   Premissas silenciosas desta sessão que precisam ser declaradas:
@@ -96,15 +98,13 @@
   - 12 deficiências formalizadas são reais — não hipotéticas
   Atualizar: `CLIENTES/VALDECE/REGISTRO_DE_PREMISSAS.md` e `CLIENTES/INGRID/REGISTRO_DE_PREMISSAS.md`
 
-- [ ] `2026-05-23` **CANDIDATOS_A_PRINCIPIO — capturar via session_close.ps1:**
-  Esta sessão gerou pelo menos 1 candidato a princípio não formalizado:
-  "Rename massivo de pasta exige Wipe & Sync imediato em todos os projetos ativos do NotebookLM."
-  Rodar: `.\scripts\session_close.ps1` → bloco CANDIDATOS_A_PRINCIPIO
-
 - [ ] `2026-05-23` **COMANDO_ESTRATEGISTA_MASTER — atualizar BLOCO 1 (estado atual):**
   O estado pós-expansão não está refletido no BLOCO 1 do MASTER.
-  Atualizar: versão SKILL_PROTOCOLO (v6.1), 25 ideias/ciclo, 12 novas deficiências, P-052/P-053.
+  Atualizar: versão SKILL_PROTOCOLO (v6.2), 25 ideias/ciclo, 13 DEF (nova DEF-E-8), P-056/P-057/P-058.
   Arquivo: `PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md`
+
+- [ ] `2026-05-24` **scripts/deploy_ingrid_ghpages.ps1 — criar (P-056):**
+  Automatizar sync master → gh-pages para o projeto Ingrid.
 
 ---
 

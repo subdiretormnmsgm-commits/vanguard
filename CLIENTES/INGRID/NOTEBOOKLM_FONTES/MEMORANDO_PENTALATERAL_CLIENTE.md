@@ -450,10 +450,11 @@ CAMADA CLASSIFICADA: [1 / 2 / 3 / 4 / 5]
 
 --- CONTEXTO IAH ---
 
-O Pentalateral opera com 4 membros:
+O Pentalateral opera com 5 atores:
 - Gemini (você): Estrategista
 - NotebookLM: Auditor de Memória
 - Claude Code: Músculo de Execução
+- Embaixador (Claude Projects): Inteligência Persistente do Cliente
 - Eduardo (Diretor): Veredito Final
 
 --- O QUE PRECISO DE TI ---
@@ -1082,8 +1083,8 @@ Gera Skill V[X+1] actualizada.
 
 | Termo | Definição |
 |-------|-----------|
-| **IAH** | Inteligência Artificial Humana — o modelo de 4 inteligências coordenadas |
-| **PENTALATERAL** | O conjunto dos 4 membros: Diretor, Gemini, NotebookLM, Claude |
+| **IAH** | Inteligência Artificial Humana — o modelo de 5 atores coordenados |
+| **PENTALATERAL** | O conjunto dos 5 atores: Diretor, Gemini, NotebookLM, Claude, Embaixador |
 | **Diretriz Zero** | O protocolo de Discovery antes de qualquer estratégia |
 | **Veredito** | Decisão final do Diretor — único que pode aprovar avanços |
 | **Skill** | Ficheiro `.md` que instrui o Claude sobre o contexto específico do projecto |

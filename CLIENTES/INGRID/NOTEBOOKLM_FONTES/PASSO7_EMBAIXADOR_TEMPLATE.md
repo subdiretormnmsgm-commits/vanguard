@@ -11,18 +11,24 @@
 ```
 1. RODAR no terminal:
    .\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
-   → Script copia MENSAGEM_INTERACAO_INICIAL para clipboard
+   → Script verifica se VEREDITOS_RESUMO da sessão anterior existe
+   → Copia MENSAGEM_INTERACAO_INICIAL para clipboard
    → Abre browser em claude.ai/projects
    → Abre Explorer na pasta CLIENTES\[NOME]\CLAUDE_PROJECT\
 
 2. NO CLAUDE PROJECTS:
    Se primeiro acesso: colar 00_INSTRUCAO_SISTEMA.md em Settings > Instructions
+   PRÉ-REQUISITO: subir DIRETRIZ_GEMINI_V[N].txt em Knowledge Documents (Settings > Knowledge)
+   → sem a DIRETRIZ, o Embaixador reage ao Pentalateral sem o plano real do Músculo
    Em qualquer acesso: colar o conteúdo da seção relevante deste template no chat
 
 3. AGUARDAR resposta do Embaixador.
-   O Embaixador entrega: [E-1 a E-5] + alertas + temperatura do cliente
-   Salvar output em: CLIENTES\[NOME]\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md
-   (o Músculo atualiza automaticamente via P-032 após a sessão)
+   O Embaixador entrega: [E-1 a E-5] + alertas + temperatura do cliente + DECISOES.json
+   APÓS RECEBER (Eduardo só delibera — Músculo faz o resto):
+   → Colar o output completo do Embaixador no Claude Code (chat do Músculo)
+   → Músculo extrai JSON + lista decisões: "D1: [título] — A: [opção] | B: [opção]"
+   → Eduardo responde apenas: "D1:A, D2:B" — Músculo executa automaticamente
+   MEMORIA_EMBAIXADOR: atualizada automaticamente pelo Músculo via P-032
 ```
 
 > Por que usar o Embaixador: ele é o único membro com memória persistente do cliente.
@@ -259,6 +265,63 @@ O que o comportamento real do cliente revela sobre o nicho — não apenas sobre
 - Argumento de venda derivado: [o que Eduardo usa como prova social para o próximo cliente do nicho]
 - Risco de nicho: [o que pode impedir a escala de 1 para N clientes]
 - Modelo de precificação: [o nicho suporta MRR / licença única / project-based?]
+
+PARTE 4 — DECISOES.json (DEF-E-8: obrigatório ao fechar SEÇÃO D)
+
+CRITÉRIO DE ATIVAÇÃO (schema v1.1 — 2026-05-24):
+  JSON obrigatório → decisões com consequência formal:
+    inscrever_ledger | criar_nota_regerar_pdf | LEGAL-WATCH | pitch/Change-Order | SCOPE com compromisso
+  JSON dispensável → decisões relacionais puras:
+    tom de mensagem WhatsApp sem novo compromisso | escolha de horário de check-in
+  Critério: consequência formal — NÃO B2C vs. B2B (ambos os perfis têm decisões formais)
+
+FLUXO OBRIGATÓRIO — Eduardo só delibera (schema v1.1 — 2026-05-24):
+
+  Embaixador fecha ativação → gera DECISOES_[CLIENTE]_[YYYY-MM-DD].json
+  Eduardo cola output completo do Embaixador no Claude Code (chat do Músculo)
+    ↓ Músculo extrai JSON + lista decisões numeradas:
+      "D1: [título] — A: [ação A] | B: [ação B]"
+  Eduardo responde apenas: "D1:A, D2:B"
+    ↓ [Gate D1 — Hypercare] Se hypercare_ativo: true + artefato_editavel: true:
+        Músculo exibe artefato_texto + aguarda "ok" antes de executar copiar_clipboard
+    ↓ [Flag D2 — uso] Se requer_uso_confirmado: true + opção plantar_hoje selecionada:
+        AVISO: Músculo registra risco e aguarda confirmação de uso ativo pelo Diretor
+    ↓ [Flag D3 — cliente] Se resumo_para_cliente: true:
+        executar_vereditos.ps1 gera VEREDITOS_RESUMO_[CLIENTE]_[DATA]_CLIENTE.md
+    ↓ executar_vereditos.ps1 gera VEREDITOS_RESUMO_[CLIENTE]_[DATA].md automaticamente
+       → salvo em CLIENTES/[NOME]/CLAUDE_PROJECT/ → carregar no Projects na próxima ativação
+  Ciclo completo — Eduardo não move nenhum arquivo
+
+SCHEMA v1.1 — campos obrigatórios:
+{
+  "schema_version": "1.1",
+  "cliente": "[NOME_CLIENTE_UPPER]",  ← P-059: OBRIGATÓRIO — Músculo confirma identidade antes de listar decisões
+  "loop": N,                          ← P-059: OBRIGATÓRIO — validação dupla cliente+loop antes de qualquer execução
+  "projeto_label": "[NOME_CLIENTE]",
+  "data_decisoes": "[YYYY-MM-DD]",
+  "hypercare_ativo": true,           ← true nos dias 1–30 do contrato
+  "vereditos": [{
+    "id": "D1",
+    "titulo": "[decisão]",
+    "urgencia": "ALTA|MEDIA|BAIXA",
+    "situacao": "[contexto]",
+    "artefato_editavel": false,        ← true → gate D1 obrigatório se hypercare_ativo
+    "requer_uso_confirmado": false,    ← true → bloqueia plantar_hoje até uso confirmado
+    "resumo_para_cliente": false,      ← true → aparece no VEREDITOS_RESUMO_CLIENTE (Sentinel)
+    "opcoes": [
+      {"valor": "A", "label": "[ação A]", "acoes": ["copiar_clipboard"]},
+      {"valor": "B", "label": "[ação B]", "acoes": ["log_apenas"]}
+    ],
+    "artefato_texto": "[texto — obrigatório se artefato_editavel: true]"
+  }]
+}
+
+DECISOES.json NÃO sobe ao Claude Projects — JSON não é lido como Knowledge Document.
+VEREDITOS_RESUMO_[DATA].md (.md) É carregado no Claude Project na próxima ativação.
+Ações mapeadas: "log_apenas" | "copiar_clipboard" | "log_contato" |
+                "inscrever_ledger" | "criar_nota_regerar_pdf"
+
+Regra: Músculo NÃO executa sem resposta "D1:A, D2:B" do Diretor.
 ```
 
 ---
@@ -317,8 +380,12 @@ BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
 | SCOPE-WATCH atualizado? | Sim — novos itens adicionados se detectados |
 | Temperatura do cliente atualizada? | Sim — com razão declarada |
 | MEMORIA_EMBAIXADOR marcada para atualização (P-032)? | Sim — Músculo atualiza após sessão |
+| DIRETRIZ_GEMINI_V[N].txt subida ao Claude Project? | Obrigatório antes de ativar SEÇÃO D |
+| DECISOES.json gerado pelo Embaixador (schema v1.1)? | Obrigatório ao fechar SEÇÃO D — ausência = DEF-E-8 |
+| DECISOES.json salvo LOCAL em DECISOES/? | NÃO sobe ao Projects — JSON não é Knowledge Document |
+| VEREDITOS_RESUMO.md gerado automaticamente? | via executar_vereditos.ps1 — carregar no Projects |
 
 ---
 
 *Template Universal · Pentalateral IAH · OPERACAO/ · Atualizar ao descobrir novo padrão de relacionamento com cliente*
-*Versão: 1.1 · 2026-05-23*
+*Versão: 1.3 · 2026-05-24 — Pipeline inline (Eduardo só delibera) · Schema v1.1 · Gate Hypercare · DIRETRIZ upload obrigatório*

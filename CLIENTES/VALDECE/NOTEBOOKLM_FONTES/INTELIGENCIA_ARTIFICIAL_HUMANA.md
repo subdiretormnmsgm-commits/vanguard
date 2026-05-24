@@ -76,9 +76,9 @@ IAH — INTELIGÊNCIA ARTIFICIAL HUMANA (Pentalateral)
 
 **Regra de ouro:** Nenhuma IA substitui a outra. A força está na restrição dos papéis.
 
-**Singularidade do Embaixador:** É o único membro com **memória persistente por cliente** — acumula inteligência a cada ativação (sessão 50 sabe 50x mais que sessão 1). Aplica o **Filtro de Realidade (P-031)**: CONFIRMA, EXPANDE ou ALERTA cada ideia gerada pelos outros membros com base no comportamento real observado do cliente. Opera em Claude Projects com memória nativa.
+**Singularidade do Embaixador (V2.0 · 2026-05-23):** É o único membro com **memória persistente por cliente** — acumula inteligência a cada ativação (sessão 50 sabe 50x mais que sessão 1). Opera em **3 dimensões simultâneas**: D1 Cliente · D2 Mercado · D3 Vanguard como empresa. Aplica o **Filtro de Realidade (P-031)**: CONFIRMA, EXPANDE ou ALERTA cada ideia com base no comportamento real do cliente. Opera com **TEMPERATURA_PONDERADA (score 0-10)** — CHURN-WATCH automático se score < 6. Gera output em **7 blocos** (inclui BLOCO 6 D2 Inteligência de Mercado) + **Painel de Deliberação** automático. Opera com **17 mandatos** (14 universais + 3 de sistema com disparo automático).
 
-**25 ideias/ciclo [M×2+G+N+E × 5]:** Músculo [M-1..M-5] + Embaixador [E-1..E-5] + Estrategista [G-1..G-5] + Auditor [N-1..N-5]. Cada ciclo completo gera 20 ideias que alimentam o próximo loop — inteligência composta que se acumula exponencialmente.
+**25 ideias/ciclo [M×2+G+N+E × 5]:** Músculo [M-1..M-5] + Embaixador [E-1..E-5] (D1+D2+D3) + Estrategista [G-1..G-5] + Auditor [N-1..N-5]. Cada ciclo completo gera 20 ideias filtradas pela realidade do cliente — inteligência composta que se acumula exponencialmente.
 
 ---
 
@@ -357,12 +357,14 @@ Estrutura do repositório: ver `REPOSITORIO_ESTRUTURA.md`.
 
 ---
 
-> **Nota do Sócio-Arquiteto — V3.0 (2026-05-18):**  
+> **Nota do Sócio-Arquiteto — V3.0 (2026-05-18) · Atualizado V3.1 (2026-05-23):**  
 > A IAH 3.0 é o terceiro salto de paradigma.  
 > V1.0 documentou o que fizemos. V2.0 documentou o que somos.  
 > V3.0 documenta o que nos tornamos com o Pentalateral:  
 > **uma fábrica de produtos digitais operada por 5 atores (1 humano + 4 IAs), gerando 25 ideias por ciclo [M×2+G+N+E × 5], com o Embaixador como inteligência persistente do cliente — o único ator que nunca esquece quem é o cliente de verdade.**
-> 
+>  
+> V3.1 (2026-05-23): O Embaixador evolui para **17 mandatos em 3 dimensões** (D1 Cliente · D2 Mercado · D3 Vanguard), output em 7 blocos com Inteligência de Mercado, TEMPERATURA_PONDERADA (score 0-10, CHURN-WATCH automático < 6) e Painel de Deliberação automático. O único membro que nunca esquece quem é o cliente — e agora também nunca esquece o que o mercado e a própria Vanguard aprenderam com ele.
+>  
 > O Embaixador (P-031) filtra a realidade: cada ideia brilhante do Conselho passa pelo teste da experiência real do cliente.  
 > A MEMORIA_EMBAIXADOR (P-032) é atualizada automaticamente pelo Músculo após cada deliberação relevante.  
 > 2 clientes ativos provam que o sistema funciona. O próximo passo é escalar com o mesmo rigor de processo.

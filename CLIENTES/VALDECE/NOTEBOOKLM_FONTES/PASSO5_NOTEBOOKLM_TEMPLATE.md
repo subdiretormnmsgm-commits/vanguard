@@ -1,5 +1,6 @@
 ﻿# PASSO 5 — TEMPLATE UNIVERSAL: PARA O NOTEBOOKLM (AUDITOR)
-# Versão: Universal v2.2 · 2026-05-23 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v2.3 · 2026-05-24 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Atualização 2026-05-24: Auditor agora recebe DECISOES.json como contexto de vereditos do loop anterior.
 # Uso: O Músculo preenche os [PLACEHOLDERS] com dados reais antes de enviar.
 
 ---
@@ -103,7 +104,10 @@ Teria sido capturado se: [o que precisaria estar nas fontes do ciclo anterior]
 Impacto desta detecção tardia: [o que já foi decidido com este ponto cego]
 ```
 
-**Contra-ataque 8 — Advogado do Diabo (vs. Síndrome de Complacência — P-022)**
+**Contra-ataque 8 — Gate DEF-E-8 (vs. Ciclo Fechado Sem Ação)**
+Se nas fontes houver output do Embaixador do loop anterior: verificar se o `DECISOES_[PROJ]_[DATA].json` está presente. Se análise do Embaixador existe mas o JSON está ausente → sinalizar `[DEF-E-8 DETECTADA]: Embaixador entregou análise sem pipeline de vereditos`. Ciclo incompleto reduz capacidade de execução automática.
+
+**Contra-ataque 9 — Advogado do Diabo (vs. Síndrome de Complacência — P-022)**
 [P-022] Instituted by Eduardo directly. Ao analisar as decisões do Diretor e a DIRETRIZ do Gemini:
 Identifique o cenário mais provável em que esta decisão falha nos próximos 90 dias, baseado no histórico real dos projetos carregados. Não pergunte "isso pode funcionar?" — pergunte "onde isso quebra?" Levante objeções com base em precedentes, não em intuição. Um advogado não valida o cliente — ele antecipa o que o juiz vai contestar.
 Instrução de ativação: "Auditor, onde está o ponto cego do Diretor nesta decisão, com base no histórico?"

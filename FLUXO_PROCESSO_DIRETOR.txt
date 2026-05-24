@@ -54,7 +54,22 @@
 
 
 
+ ① Você → Gemini (PASSO 3)
+  ② Gemini → entrega DIRETRIZ V6
 
+  ③ Você → NotebookLM (PASSO 5)
+  ④ NotebookLM → entrega ingrid-v5.md
+
+  ⑤ Você → Embaixador (SEÇÃO D com [G]+[N] ideias)
+  ⑥ Embaixador → entrega [E-1 a E-5] + DECISOES.json
+
+  ⑥.5 Músculo → render_painel + você clica + executar_vereditos
+  ⑦ Músculo → delibera com: ingrid-v5.md + DIRETRIZ V6 + [E-1 a E-5] + vereditos
+  ⑧ Músculo → executa build (Dia 13, etc.)
+
+  Gemini continua no mesmo lugar — Passo 3, primeira parada. Não mudou nada da posição dele. O que mudou foi apenas o
+  que o Embaixador entrega (além dos [E-1 a E-5], agora também o DECISOES.json) e que existe um ⑥.5 entre Embaixador e
+  Músculo deliberar.
 
 
 

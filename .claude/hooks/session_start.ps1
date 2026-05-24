@@ -164,6 +164,13 @@ if (Test-Path $pingScript) {
     try { & $pingScript 2>$null | Out-Null } catch {}
 }
 
+# --- Ledger Sync silencioso (INTELLIGENCE_LEDGER sempre fresco em NOTEBOOKLM_FONTES) ---
+$ledgerSyncScript = Join-Path $projectDir ".claude\hooks\pre_session_ledger_sync.ps1"
+if (Test-Path $ledgerSyncScript) {
+    try { $lsOut = & powershell.exe -NonInteractive -File $ledgerSyncScript 2>$null
+          if ($lsOut) { Write-Host $lsOut } } catch {}
+}
+
 # --- Gemini Anchor silencioso (CONTEXTO_GEMINI.md sempre atualizado) ---
 $anchorScript = Join-Path $projectDir "scripts\gemini_anchor_generator.ps1"
 if (Test-Path $anchorScript) {

@@ -753,6 +753,8 @@ Avaliação: APROVADO / REQUER AJUSTE / BLOQUEADO
 
 **Por que é disruptivo:** Antes deste princípio, as 5 ideias de cada membro iam direto para o Gemini sem validação de realidade de cliente. Com este princípio, o loop tem um checkpoint de mercado real antes de qualquer decisão de produto. O cliente não é entrevistado — está representado no loop por inteligência acumulada.
 
+**Evidência de campo (2026-05-24):** Embaixadores Ingrid e Valdece corrigiram 5 decisões de arquitetura do pipeline DECISOES — critério B2C/B2B, gate Hypercare, requer_uso_confirmado, resumo_para_cliente, VEREDITOS_RESUMO. Nenhuma correção veio de Gemini, Auditor ou Músculo — vieram do comportamento real dos clientes interpretado pelos Embaixadores. P-031 funcionando como filtro de arquitetura, não só de relacionamento.
+
 **Loop com P-031 ativo:**
 - Músculo [M-1 a M-5] + Embaixador [E-1 a E-5] → Gemini
 - Gemini [G-1 a G-5] + Auditor [N-1 a N-5] → Embaixador reage (CONFIRMA / EXPANDE / ALERTA)
@@ -1154,4 +1156,80 @@ git checkout master
 ```
 **Ferramenta:** Criar `scripts/deploy_ingrid_ghpages.ps1` — automatiza o sync master → gh-pages com um comando.
 **Aplica-se a:** PROJ-002 Ingrid e qualquer outro projeto que use GitHub Pages com branch separada.
+
+---
+
+### [P-057] Abandono em EdTech ocorre no pico — não no vale
+**Descoberto:** 2026-05-24 | **Emitido por:** PROJ-002 Ingrid — Loop 5 — observação do Embaixador
+**Fricção:** Ingrid obteve resultado acima da média no primeiro simulado e sumiu por 3 dias. Expectativa era que resultado positivo gerasse hábito. Na realidade, resultado positivo gera sensação de "missão cumprida" e reduz urgência de retorno.
+**Princípio:** O momento de maior vulnerabilidade de abandono em produto EdTech é imediatamente após o primeiro resultado positivo — o aluno sente que "já aprendeu" e reduz frequência antes de formar hábito. Resultado acima da média sem engajamento nos 3 dias seguintes é sinal de churn em formação, não sinal de satisfação.
+**Regra derivada:** CHURN-WATCH deve ser acionado automaticamente quando engajamento cai após resultado acima da média. A mensagem de retenção não celebra o resultado — ela reacende a urgência do próximo gap.
+**Aplica-se a:** Todos os produtos EdTech/SaaS com ciclo de aprendizado por repetição.
+
+---
+
+### [P-058] Ir ao Gemini com loop técnico incompleto é presentear o Estrategista com estado truncado
+**Descoberto:** 2026-05-24 | **Emitido por:** Músculo — deliberação de processo Loop 5 Ingrid
+**Fricção:** Ao planejar ir ao Gemini antes de fechar o Dia 13, o Músculo identificou que o Estrategista responderia com base em estado incompleto — sem o output técnico do dia, sem os gates aprovados, sem os artefatos reais.
+**Princípio:** Ir ao Gemini antes de fechar o loop técnico é presentear o Estrategista com estado incompleto. O Estrategista é stateless — responde exatamente com o que recebe. Contexto truncado → DIRETRIZ truncada → Skill errada → Loop perdido. A sequência correta é: fechar dia técnico → commit → ir ao Gemini com estado completo.
+**Regra derivada:** `gemini_anchor_generator.ps1` só deve ser rodado após o último commit do loop corrente. O gate P-045 (MEMORIA + relatorio) reforça esta regra: se não existem → loop não fechou → Gemini ainda não recebe.
+**Aplica-se a:** O loop técnico do projeto ESPECÍFICO em andamento. Não trava projetos paralelos — se o Dia 13 de Ingrid está aberto, isso não impede ir ao Gemini para Valdece ou para Discovery de novo nicho.
+**Escopo explícito:** P-058 é por-projeto, não por-sistema. Correção inscrita após Auditor Ingrid detectar risco de "Blackout Estratégico" em 2026-05-24.
+
+---
+
+### [P-059] Isolamento de Contexto por Cliente é Lei — 20 Projetos Simultâneos Exigem Controle Rígido
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — alerta arquitetural ao prever escala de 20 projetos
+**Fricção:** Com 2 projetos, selecionar "primeiro em BUILD" é tolerável. Com 20, auto-seleção silenciosa é risco direto: veredito executado no cliente errado, mensagem de WhatsApp enviada para destinatário errado, LEDGER contaminado com contexto de projeto diferente. O incidente com contexto errado em escala é irrecuperável sem rastreabilidade explícita.
+**Regras derivadas:**
+- Todo script que toca um cliente DEVE exigir `-cliente [NOME]` explícito OU listar opções e aguardar escolha — nunca auto-selecionar quando há mais de 1 projeto ativo
+- DECISOES.json DEVE conter `"cliente"` e `"loop"` como primeiros campos (schema v1.1+) — Músculo valida antes de listar qualquer decisão
+- Quando Eduardo cola output do Embaixador no Claude Code, a primeira resposta do Músculo é sempre: `CLIENTE DETECTADO: [NOME] · Loop [N] · confirmar? (s/não)` — sem exceção
+- Nenhuma execução de veredito começa sem confirmar que o `cliente` do JSON corresponde ao projeto que Eduardo indicou
+- Qualquer script de automação (monitor_hypercare, sync, session_close) deve logar explicitamente "Processando [CLIENTE]" para cada projeto — logs misturados = diagnóstico impossível
+**Aplica-se a:** todos os scripts de orquestração, ao comportamento do Músculo ao interpretar DECISOES.json, e a qualquer feature nova que precise identificar o cliente ativo.
+
+---
+
+### [P-060] Músculo é responsável por toda propagação — zero intervenção do Diretor
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — alerta sistêmico após sessão com múltiplas atualizações manuais
+**Fricção:** Em uma única sessão, Eduardo precisou apontar: SKILL_PROTOCOLO desatualizado, MASTER desatualizado, bug em `ir_ao_embaixador.ps1`, schema sem campos de isolamento, LEDGER sem P-059, documentos não propagados para todos os clientes. O Músculo corrigiu tudo — mas só depois de Eduardo detectar. Com 20 projetos, isso é inviável. O Diretor delibera e decide. Não gerencia documentos.
+**Regras derivadas:**
+- Após qualquer mudança em arquivo-fonte → `propagate_changes.ps1` roda automaticamente (DEPENDENCY_MAP.json define o cascade)
+- Após criar ou editar qualquer `.ps1` → `validate_scripts.ps1` roda antes de reportar "concluído"
+- O Músculo nunca diz "lembre de atualizar X" — ele atualiza e reporta o que fez
+- Se Eduardo apontou um documento desatualizado → DEF-M-6 ativada → Músculo registra a falha e fortalece o cascade
+- Sessão encerra somente após `session_close.ps1` confirmar propagação verde
+**Ferramentas criadas:** `scripts/propagate_changes.ps1` · `scripts/validate_scripts.ps1` · `PENTALATERAL_UNIVERSAL/OPERACAO/DEPENDENCY_MAP.json`
+**Aplica-se a:** toda sessão de build, toda criação de script, toda atualização de documento universal, toda mudança de schema.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO — ARQUITETURAL] LEDGER por índice semântico + compactação cíclica (P-059+ escala)
+**Proposto por:** Diretor Eduardo — 2026-05-24 | **Contexto:** P-058 inscritos · 20 projetos previstos
+**Fricção prevista:** Com 20 projetos e 3-4 princípios/sessão, o LEDGER ultrapassa 300 entradas em 6 meses (~15.000 linhas). Lost-in-the-Middle (DEF-G-3/DEF-N-3) vai degradar a leitura dos princípios intermediários. O Protocolo de Imunidade se torna o próprio gargalo.
+**Decisão arquitetural proposta:**
+- `LEDGER_INDEX.md` — índice curto (1 linha/princípio + tags de categoria e nicho) — lido em toda sessão
+- `LEDGER_[CATEGORIA].md` — detalhe por categoria (Legal-Tech / EdTech / Processo / Universal) — lido sob demanda
+- Compactação cíclica a cada 90 dias: Músculo mescla princípios redundantes, arquiva superseded, mantém ≤60 ativos por arquivo
+- Skills de cliente contêm os princípios específicos do nicho — LEDGER universal é fonte-mãe, não operação diária
+**Gate para implementação:** ativar quando houver ≥10 projetos simultâneos ou ≥80 princípios no LEDGER.
+**Responsável pela execução:** Músculo — sem intervenção do Diretor.
+**Aguarda:** aprovação formal do Diretor quando gate for atingido.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO] O cliente que sinaliza escopo por áudio antes de assinar vai sinalizar por mensagem depois de assinar
+**Proposto por:** Embaixador Valdece — 2026-05-24 | **Aguarda:** numeração do Diretor
+**Fricção:** Valdece enviou 5 áudios sobre V3 (data_dje, turma, repercussao_geral) antes de assinar. O mesmo padrão se repete pós-contrato via mensagem. Pipeline sem travamento de escopo antes do primeiro uso = Eduardo respondendo a scope creep sem perceber que é scope creep.
+**Princípio candidato:** O cliente que sinaliza escopo antes de assinar vai sinalizar depois de assinar. O pipeline precisa estar travado (flag `requer_uso_confirmado`) antes do primeiro uso, não depois do primeiro pedido. Reativo é sempre mais caro que preventivo.
+**Gate implementado:** `requer_uso_confirmado: true` no DECISOES.json bloqueia opção `plantar_hoje` para features V2/V3 até uso ativo confirmado.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO] Automação que falha silenciosamente é pior que ausência de automação
+**Proposto por:** Embaixador Ingrid — 2026-05-24 | **Aguarda:** 1 ocorrência adicional ou aprovação direta do Diretor
+**Fricção:** VEREDITOS_RESUMO.md gerado mas não sincronizado → Embaixador abre sessão sem rastreabilidade de decisões sem saber que perdeu o contexto. A falha invisível é mais perigosa que a falha explícita — o operador age convicto de ter contexto completo quando não tem.
+**Princípio candidato:** Toda automação que carrega dados críticos entre sessões deve emitir confirmação explícita de sucesso antes de prosseguir. Ausência de confirmação = falha assumida, não sucesso assumido.
+**Gate implementado:** `ir_ao_embaixador.ps1` exibe "Resumo de vereditos [DATA] incluído" antes de abrir o browser. Se ausente → alerta vermelho → Eduardo decide se prossegue.
 

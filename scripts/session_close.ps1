@@ -469,11 +469,47 @@ Write-Host "=============================================="
 Write-Host "  AUTO-PREPARAÇÃO DOS 3 SÓCIOS"
 Write-Host "=============================================="
 
+# Pré-etapa P-060 — Propagacao automatica de mudancas (DEPENDENCY_MAP) ─────────────────
+# P-060: Eduardo nunca gerencia propagacao. Musculo detecta e propaga antes de reportar.
+$propagateScript = Join-Path $BASE "scripts\propagate_changes.ps1"
+if (Test-Path $propagateScript) {
+    Write-Host ""
+    Write-Host "  [0a/3] P-060 — Propagando mudancas via DEPENDENCY_MAP..." -ForegroundColor Cyan
+    try {
+        & powershell.exe -NonInteractive -File $propagateScript 2>$null
+        Write-Host "  [OK]  Propagacao concluida — zero intervencao do Diretor" -ForegroundColor Green
+    } catch {
+        Write-Host "  [!!]  propagate_changes.ps1 falhou — verificar DEPENDENCY_MAP.json" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "  [--]  propagate_changes.ps1 nao encontrado — propagacao manual necessaria" -ForegroundColor Yellow
+}
+
+# Pré-etapa P-060 — Validacao estatica de scripts criados/editados hoje ─────────────────
+$validateScript = Join-Path $BASE "scripts\validate_scripts.ps1"
+if (Test-Path $validateScript) {
+    Write-Host ""
+    Write-Host "  [0b/3] P-060 — Validando scripts editados hoje..." -ForegroundColor Cyan
+    try {
+        $scriptsMod = & git -C $BASE diff --name-only HEAD 2>$null |
+                      Where-Object { $_ -match '\.ps1$' }
+        if ($scriptsMod) {
+            foreach ($s in $scriptsMod) {
+                & powershell.exe -NonInteractive -File $validateScript -Script $s 2>$null
+            }
+        } else {
+            Write-Host "  [OK]  Nenhum .ps1 modificado detectado no git diff" -ForegroundColor DarkGray
+        }
+    } catch {
+        Write-Host "  [!!]  validate_scripts.ps1 falhou" -ForegroundColor Yellow
+    }
+}
+
 # Pré-etapa — Sync universal: PENTALATERAL_UNIVERSAL → NOTEBOOKLM_FONTES de todos os projetos
 $syncScript = Join-Path $BASE ".claude\skills\files\sync_vanguard_docs.ps1"
 if (Test-Path $syncScript) {
     Write-Host ""
-    Write-Host "  [0/3] Sync universal → NOTEBOOKLM_FONTES..."
+    Write-Host "  [0c/3] Sync universal → NOTEBOOKLM_FONTES..."
     try {
         & powershell.exe -NonInteractive -File $syncScript -modo completo 2>$null | Out-Null
         Write-Host "  [OK]  Sync concluido — P-033 satisfeito" -ForegroundColor Green
@@ -482,6 +518,33 @@ if (Test-Path $syncScript) {
     }
 } else {
     Write-Host "  [--]  sync_vanguard_docs.ps1 nao encontrado" -ForegroundColor DarkGray
+}
+
+# Pré-etapa 1 — Sync arquivos compartilhados → CLAUDE_PROJECT de cada projeto ativo
+# Impede que LEDGER, WIP_BOARD e TIMELINE fiquem defasados no Claude Projects (falha de processo 2026-05-23)
+Write-Host ""
+Write-Host "  [0.5] CLAUDE_PROJECT — sincronizando arquivos compartilhados..."
+$ledgerFonte    = "$BASE\INTELLIGENCE_LEDGER.md"
+$wipFonte       = "$BASE\CLIENTES\WIP_BOARD.json"
+$timelineFonte  = "$BASE\PENTALATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md"
+
+if (Test-Path $wipFonte) {
+    $boardSync = Get-Content $wipFonte -Raw -Encoding utf8 | ConvertFrom-Json
+    $projetosSync = @($boardSync.board.build)
+    foreach ($proj in $projetosSync) {
+        $cli = $proj.cliente.ToUpper()
+        $cpDir = "$BASE\CLIENTES\$cli\CLAUDE_PROJECT"
+        if (Test-Path $cpDir) {
+            if (Test-Path $ledgerFonte)   { Copy-Item $ledgerFonte   "$cpDir\06_INTELLIGENCE_LEDGER.md" -Force }
+            if (Test-Path $wipFonte)      { Copy-Item $wipFonte       "$cpDir\07_WIP_BOARD.json"         -Force }
+            if (Test-Path $timelineFonte) { Copy-Item $timelineFonte  "$cpDir\16_VANGUARD_TIMELINE.md"   -Force }
+            Write-Host "  [OK]  CLAUDE_PROJECT/$cli — LEDGER + WIP + TIMELINE sincronizados" -ForegroundColor Green
+        } else {
+            Write-Host "  [!!]  CLAUDE_PROJECT/$cli nao encontrado" -ForegroundColor Yellow
+        }
+    }
+} else {
+    Write-Host "  [!!]  WIP_BOARD.json nao encontrado — sync CLAUDE_PROJECT ignorado" -ForegroundColor Yellow
 }
 
 # Sócio 1 — Gemini: regenerar CONTEXTO_GEMINI.md

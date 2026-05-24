@@ -1,6 +1,6 @@
 ﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
 **O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
-**Versão:** 1.3 · 2026-05-23 · Organismo Vivo — atualizar após cada projeto
+**Versão:** 1.4 · 2026-05-24 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1
 
 ---
 
@@ -31,19 +31,23 @@
                     Pentalateral IAH — O LOOP QUE NUNCA PARA
 ════════════════════════════════════════════════════════════════════════
 
-  EDUARDO                GEMINI               NOTEBOOKLM          CLAUDE CODE
-  (Diretor)           (Estrategista)           (Auditor)         (Músculo/Arq.)
-      │                     │                     │                    │
- [PASSO 1]                  │                     │                    │
- Qualifica cliente          │                     │                    │
- GO / NO-GO                 │                     │                    │
-      │                     │                     │                    │
- [PASSO 2]                  │                     │                    │
- Discovery                  │                     │                    │
- 9 perguntas V3             │                     │                    │
-      │                     │                     │                    │
- [PASSO 3]                  │                     │                    │
- ──── COMANDO 1 ──────────► │                     │                    │
+  EDUARDO                GEMINI               NOTEBOOKLM          CLAUDE CODE         EMBAIXADOR
+  (Diretor)           (Estrategista)           (Auditor)         (Músculo/Arq.)    (Claude Projects)
+      │                     │                     │                    │                   │
+ [PASSO 1]                  │                     │                    │                   │
+ Qualifica cliente          │                     │                    │                   │
+ GO / NO-GO                 │                     │                    │                   │
+      │                     │                     │                    │                   │
+ [PASSO 2]                  │                     │                    │                   │
+ Discovery                  │                     │                    │                   │
+ 9 perguntas V3             │                     │                    │                   │
+      │                     │                     │          [PASSO ⓪ — MÚSCULO]           │
+      │                     │                     │          gemini_anchor_generator.ps1    │
+      │                     │                     │          Prepara PASSO3_GEMINI          │
+      │                     │                     │          Verifica P-045                 │
+      │                     │                     │                    │                   │
+ [PASSO 3]                  │                     │                    │                   │
+ ──── COMANDO 1 ──────────► │                     │                    │                   │
       │                  analisa                  │                    │
       │                  e cria                   │                    │
       │                  DIRETRIZ                 │                    │
@@ -109,6 +113,11 @@
 ╔══════════════════════════════════════════════════════════════════════╗
 ║          CHECKLIST DO DIRETOR — INÍCIO DE LOOP                      ║
 ╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  PASSO ⓪ — MÚSCULO PREPARA (antes do Gemini):                       ║
+║  [ ] Músculo roda: gemini_anchor_generator.ps1 -cliente [NOME]      ║
+║  [ ] Músculo verifica P-045: MEMORIA_V[N-1] + relatorio_V[N-1]?    ║
+║  [ ] Músculo atualiza PASSO3_GEMINI.md com orientações do Diretor   ║
 ║                                                                      ║
 ║  ANTES DE IR AO GEMINI (Passo 3):                                   ║
 ║  [ ] Abrir CLIENTES/[PROJETO]/PASSO3_GEMINI.md                      ║
@@ -255,9 +264,18 @@ Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill.
 **Antes de ir ao Embaixador, rodar:**
 ```powershell
 .\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
-# → Copia mensagem inicial para clipboard
+# → Verifica se VEREDITOS_RESUMO da sessão anterior existe (alerta se ausente)
+# → Copia mensagem de ativação para clipboard
 # → Abre browser em claude.ai/projects
 # → Abre Explorer em CLIENTES/[NOME]/CLAUDE_PROJECT/
+```
+
+**PRÉ-REQUISITO antes de ativar SEÇÃO D:**
+```
+[ ] DIRETRIZ_GEMINI_V[N].txt subida em Knowledge Documents (Settings > Knowledge)
+    → sem a DIRETRIZ, o Embaixador reage ao Pentalateral sem o plano real do Músculo
+[ ] VEREDITOS_RESUMO_[CLIENTE]_[DATA].md da sessão anterior carregado no Project
+    → garante memória das decisões executadas no ciclo anterior
 ```
 
 **O que o Embaixador já tem (memória persistente — não precisa colar):**
@@ -273,11 +291,40 @@ Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill.
 | PIPELINE DE LEAD | SEÇÃO C + o que o cliente mencionou |
 | REAÇÃO AO PENTALATERAL | SEÇÃO D + [M-1 a M-5] + [G-1 a G-5] + [N-1 a N-5] |
 
-**O que vem de volta:**
-- [E-1 a E-5] — 5 ideias exclusivas baseadas no comportamento real do cliente
-- CONFIRMA/EXPANDE/ALERTA para cada ideia do ciclo
-- TEMPERATURA_PONDERADA atualizada (atual + tendência + pagamento)
-- Próxima ação recomendada
+**O que vem de volta (7 blocos · V2.1 · schema DECISOES v1.1):**
+- TEMPERATURA_PONDERADA — score 0-10 com evidência concreta (CHURN-WATCH automático se < 6)
+- Hipóteses — CONFIRMADA / REFUTADA / PENDENTE com evidência de 1 linha
+- Comportamento Observado — esperado vs. surpresa vs. o que não aconteceu
+- Watchdog — CHURN/SCOPE/LEGAL/GATE watches + mensagem sugerida ao cliente
+- [E-1 a E-5] — 5 ideias exclusivas baseadas em comportamento real (não síntese de outros membros)
+- **D2 — INTELIGÊNCIA DE MERCADO** — sinal de nicho, risco de escala, argumento diferencial
+- SAÍDA_EMBAIXADOR — atualização sugerida da MEMORIA + princípio candidato ao LEDGER
+- CONFIRMA/EXPANDE/ALERTA para cada ideia do ciclo (quando missão = REAÇÃO AO PENTALATERAL)
+- **DECISOES_[PROJETO]_[DATA].json (schema v1.1)** — pipeline de vereditos inline
+
+**PIPELINE INLINE — Eduardo só delibera (2026-05-24):**
+```
+Embaixador entrega DECISOES.json (schema v1.1)
+  ↓
+Eduardo cola o output completo no Claude Code (chat do Músculo)
+  ↓
+Músculo lista as decisões: "D1: [título] — A: [opção] | B: [opção]"
+  ↓
+Eduardo responde apenas: "D1:A, D2:B"
+  ↓
+[Gate D1] Se hypercare_ativo + artefato_editavel:
+  Músculo exibe texto da mensagem + aguarda "ok" antes de copiar_clipboard
+[Flag D2] Se requer_uso_confirmado + plantar_hoje:
+  AVISO registrado + espera confirmação de uso ativo
+[Flag D3] Se resumo_para_cliente: true:
+  Gera VEREDITOS_RESUMO_CLIENTE.md (mostrável ao cliente como Sentinel Report)
+  ↓
+executar_vereditos.ps1 gera VEREDITOS_RESUMO_[CLIENTE]_[DATA].md automaticamente
+→ Carregar no Claude Project na próxima ativação
+```
+
+**DECISOES.json NÃO sobe ao Claude Projects** — JSON não é lido como Knowledge Document.
+**VEREDITOS_RESUMO_[DATA].md** É carregado no Claude Project na próxima ativação.
 
 **Depois da sessão (Músculo faz automaticamente — P-032):**
 - Atualizar `CLIENTES/[NOME]/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md`
@@ -318,14 +365,20 @@ Leia tudo e delibere nos 7 pontos antes de qualquer build.
 
 ```
 GEMINI     → MASTER + MEMORIA + relatorio + PASSO3 preenchido
-NOTEBOOKLM → 15 fontes numeradas (01 a 15) + MANIFESTO + comando curto
-EMBAIXADOR → nada (tem memória) + seção relevante do PASSO7
-MÚSCULO    → Skill + Auditor completo + DIRETRIZ + Embaixador + PASSO6
+NOTEBOOKLM → 15-18 fontes numeradas (01-08 base + 09-18 projeto) + comando curto
+EMBAIXADOR → DIRETRIZ_V[N].txt (Knowledge) + VEREDITOS_RESUMO anterior + seção do PASSO7
+MÚSCULO    → Skill + Auditor completo + DIRETRIZ + output do Embaixador + PASSO6
 ```
 
 **Sequência correta do loop:**
 ```
 MÚSCULO (prepara) → GEMINI (DIRETRIZ) → NOTEBOOKLM (Skill) → EMBAIXADOR (filtro) → MÚSCULO (build)
+```
+
+**Pipeline de decisões (inline — Eduardo só delibera):**
+```
+Embaixador → DECISOES.json → Eduardo cola no Claude Code → Músculo lista → Eduardo: "D1:A, D2:B"
+→ Músculo executa tudo → VEREDITOS_RESUMO.md gerado → Embaixador carrega na próxima ativação
 ```
 
 ---
@@ -1484,6 +1537,7 @@ Incrementa a versão para [X.X]."
 | 1.1 | 2026-05-11 | Adicionado protocolo de organismo vivo, protocolo de atualização, histórico de versões, diagrama evolutivo V1→V5, diálogo Gemini↔Claude ilustrado |
 | 1.2 | 2026-05-14 | PASSO 3/5/6 atualizados para referenciar arquivos PASSO_*.md por projeto. Arquitetura loop-agnóstica: um arquivo por passo por projeto, atualizado a cada loop (não por iteração). Cartão de ativação rápida adicionado (PARTE 0). Protocolos anti-deficiência integrados aos passos. |
 | 1.3 | 2026-05-23 | PARTE 0.6 adicionada — tabela definitiva de documentos por parceiro (Gemini/NotebookLM/Embaixador/Músculo). COMANDO_ESTRATEGISTA_MASTER incorporado ao fluxo Gemini. MANIFESTO_DE_FONTES como pré-requisito NotebookLM. REGISTRO_DE_PREMISSAS incorporado ao fechamento Músculo. 12 novas deficiências distribuídas nos templates PASSO. DEF-G/N/M/E expandidos de 4 para 6-7 cada. |
+| 1.4 | 2026-05-24 | Seção Embaixador: pipeline inline (Eduardo só delibera). Schema DECISOES v1.1 (hypercare_ativo, artefato_editavel, requer_uso_confirmado, resumo_para_cliente). DECISOES.json não sobe ao Projects. VEREDITOS_RESUMO.md gerado automaticamente. DIRETRIZ_GEMINI_V[N].txt obrigatória como Knowledge Document. Slot 18 ATUALIZACAO auto-incluído no NotebookLM. |
 
 ---
 

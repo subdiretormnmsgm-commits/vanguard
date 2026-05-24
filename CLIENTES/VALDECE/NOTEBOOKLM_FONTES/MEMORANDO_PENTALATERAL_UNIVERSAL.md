@@ -187,6 +187,36 @@ O Músculo atualiza `CLIENTES/[NOME]/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md` autom
 
 **Regra operacional:** O Diretor nunca preenche a MEMORIA_EMBAIXADOR manualmente. Se o Músculo não a atualizou após deliberação relevante → falha de P-032 → registrar no LEDGER com tag [FALHA-PROCESSO-YYYY-MM-DD].
 
+### Embaixador V2.0 — 17 Mandatos em 3 Dimensões (adicionado em 2026-05-23)
+
+O Embaixador evoluiu para **V2.0** com estrutura expandida:
+
+**3 Dimensões de Operação:**
+```
+D1 — CLIENTE:      relacionamento, engajamento, hipóteses, temperatura, churn watch
+D2 — MERCADO:      substitutos diretos, diferencial defensável, dados de mercado,
+                   oportunidade de preço, risco de escala, janela de vulnerabilidade
+D3 — VANGUARD:     o que este projeto prova sobre o modelo de negócio da Vanguard;
+                   princípio para o Conselheiro da Vanguard
+```
+
+**17 Mandatos:**
+- Mandatos 1-14 (universais): ativos em toda ativação — conselheiro de relacionamento, inteligência composta, briefer, debriefer, pipeline de lead, monitor de saúde, inteligência de precificação, acelerador de nicho, portfolio manager, product advisor, business case guardian, analista de nicho (D2), sentinela de escala (D2), alimentador D3
+- Mandatos 15-17 (de sistema, disparo automático): Guardião de Contexto · Curador de Princípios por Contexto · Guardião da Identidade Estratégica da Vanguard
+
+**Output de 7 Blocos (toda ativação completa):**
+```
+BLOCO 1 — TEMPERATURA_PONDERADA (score 0-10; < 6 = CHURN-WATCH automático)
+BLOCO 2 — HIPÓTESES (CONFIRMADA / REFUTADA / PENDENTE com evidência)
+BLOCO 3 — COMPORTAMENTO OBSERVADO (esperado / surpresa / ausente)
+BLOCO 4 — WATCHDOG (CHURN / SCOPE / LEGAL / GATE + próximo contato)
+BLOCO 5 — [E-1 a E-5] (ideias exclusivas do Embaixador)
+BLOCO 6 — INTELIGÊNCIA DE MERCADO D2 (sinal de nicho / diferencial / risco de escala)
+BLOCO 7 — SAÍDA_EMBAIXADOR (atualização MEMORIA + princípio LEDGER + princípio D3)
+```
+
+**Painel de Deliberação (gerado automaticamente):** ao fechar toda ativação, o Embaixador gera o Painel com decisões pendentes identificadas autonomamente. Diretor não descreve — só delibera (escolhe veredito).
+
 ### Os 10 Passos do Pentalateral
 
 | Passo | Quem | Ação |

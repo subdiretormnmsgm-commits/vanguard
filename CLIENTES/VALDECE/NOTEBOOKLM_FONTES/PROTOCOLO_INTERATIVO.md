@@ -85,13 +85,20 @@ MODELO ATUAL (conselho pentalateral — 5 atores):
 
 ### Embaixador — O Guardião do Cliente (Claude Projects)
 - Único membro com memória persistente do cliente entre sessões
+- Opera em **3 dimensões simultâneas**:
+  - **D1 — Cliente:** relacionamento, engajamento, hipóteses, temperatura do cliente
+  - **D2 — Mercado:** inteligência de nicho, substitutos diretos, diferencial defensável, janela de vulnerabilidade
+  - **D3 — Vanguard como empresa:** o que o projeto prova sobre o modelo de negócio da Vanguard
 - Recebe as 15 ideias dos outros membros [M+G+N × 5] e reage com:
   - CONFIRMA: o cliente validou algo similar em conversa real
   - EXPANDE: o cliente tem contexto que potencializa esta ideia
   - ALERTA: comportamento real do cliente contradiz esta direção
 - Conduz briefing pré-reunião e debrief pós-reunião (Passo 8.5)
 - Detecta scope creep, churn silencioso e divergências de expectativa
-- Gera 5 ideias próprias [E-1 a E-5] fundamentadas no perfil real do cliente
+- Opera com **TEMPERATURA_PONDERADA (score 0-10)**: score < 6 = CHURN-WATCH automático
+- Opera com **17 mandatos**: 14 universais (sempre ativos) + 3 de sistema (disparo automático)
+- Gera output estruturado em **7 blocos** (inclui D2 Inteligência de Mercado no Bloco 6)
+- Gera **Painel de Deliberação** automático ao fechar cada ativação significativa
 - Atualiza MEMORIA_EMBAIXADOR após cada deliberação relevante (P-032)
 
 ---
@@ -236,6 +243,27 @@ ALERTA — "Comportamento real do cliente contradiz esta direção"
 ```
 
 **Regra de ouro:** Nenhuma ideia que receber ALERTA CRÍTICO do Embaixador avança para build sem veredito explícito do Diretor.
+
+---
+
+## PAINEL DE DELIBERAÇÃO AUTOMÁTICO — EMBAIXADOR V2.0
+
+Ao fechar toda ativação significativa, o Embaixador gera o **Painel de Deliberação** automaticamente — sem que o Diretor descreva nada. O Diretor apenas delibera.
+
+```
+PAINEL DE DELIBERAÇÃO — [data]
+
+Decisão 1 [tipo]:
+  Evidência: [o que gerou esta decisão — comportamento real ou watchdog ativo]
+  Texto pré-redigido: [rascunho editável — ex: mensagem de reengajamento]
+  Veredito: [ ] APROVAR  [ ] AJUSTAR  [ ] DESCARTAR  [ ] ADIAR
+  Ação mapeada para o Músculo: [o que executa após o veredito]
+
+Tipos de decisão: WATCHDOG | LEGAL_WATCH | GATE_WATCH | PRINCIPIO | D3_VANGUARD | SCOPE_WATCH
+```
+
+**Regra:** Todo input ao Painel é gerado pelo Embaixador — o Diretor escolhe, não escreve.
+**Velocidade:** Decisão em 30 segundos por item, não em 15 minutos de deliberação.
 
 ---
 
