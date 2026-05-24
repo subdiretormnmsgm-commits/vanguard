@@ -1,5 +1,5 @@
 ﻿// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
-// Loop 3 · Dias 6-8: Clickwrap + Tutor Socrático + Telemetria TTI + Fallback
+// Loop 5 · Dia 12 fix: G-5 lógica corrigida (errosConsecutivos precede ultima) · debug panel expandido
 
 // ── UTILS ─────────────────────────────────────────────────────────────────────
 // Converte **texto** para <strong>texto</strong> com escape seguro de HTML
@@ -16,7 +16,7 @@ function md2html(text) {
 const SUPABASE_URL      = "https://ehyaecxqijgyuuiorzcj.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoeWFlY3hxaWpneXV1aW9yemNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyODMzNTAsImV4cCI6MjA5Mzg1OTM1MH0.xZfcEe2Av5Fn9BKEkNRIi5CQkPD6C6ADSNzMfh3DGPo";
 const USER_ID           = "00000000-0000-0000-0000-000000000001";
-const VERSAO_TERMO      = "1.0";
+const VERSAO_TERMO      = "termo_v2_18_05"; // Clickwrap V2 — data real de assinatura 18/05
 const COTA_DIARIA_USD   = 5.00;
 const KILL_SWITCH_PCT   = 0.70;
 const ADMIN_TOKEN_CONF  = "vg-admin-2026-ingrid"; // substituir antes do deploy
@@ -24,6 +24,17 @@ const ADMIN_TOKEN_CONF  = "vg-admin-2026-ingrid"; // substituir antes do deploy
 // Admin override: ?admin=<token>
 const _params   = new URLSearchParams(location.search);
 const ADMIN_MODE = _params.get("admin") === ADMIN_TOKEN_CONF && ADMIN_TOKEN_CONF !== "vg-admin-2026-ingrid";
+
+// ── G-3: VACINA LEGISLAÇÃO — disciplinas que Quadrix sempre cai ───────────────
+const VACINA_DISCIPLINAS = new Set(['lc840', 'maria_da_penha', 'politica_mulheres', 'lei_organica_df']);
+
+// ── G-1: PUSH CIRCUIT BREAKER — detecta iOS Safari (sem suporte a Web Push) ──
+function isIosSafari() {
+  return /iP(hone|od|ad)/.test(navigator.userAgent)
+    && /WebKit/.test(navigator.userAgent)
+    && !window.MSStream;
+}
+const PUSH_SUPORTADO = 'Notification' in window && 'serviceWorker' in navigator && !isIosSafari();
 
 // ── NOMES LEGÍVEIS DAS DISCIPLINAS ────────────────────────────────────────────
 const NOMES_DISCIPLINAS = {
@@ -43,20 +54,35 @@ const NOMES_DISCIPLINAS = {
 };
 
 // ── ESTADO ────────────────────────────────────────────────────────────────────
-let feed                = [];
-let indiceAtual         = 0;
-let pontosAcumulados    = 0;
-let acertos             = 0;
-let revisoesPendentes   = 0;
-let questaoStartedAt    = 0;
-let timerAbandono       = null;
-let tapCount            = 0;
-let tapTimer            = null;
-let gastoEstimado       = 0;
-let killSwitchAtivado   = false;
-let totalRespostasGlobal = 0;
-let ultimoCacheStatus   = "—";
-const errosPorQuestao   = {};
+let feed                  = [];
+let indiceAtual           = 0;
+let pontosAcumulados      = 0;
+let acertos               = 0;
+let revisoesPendentes     = 0;
+let questaoStartedAt      = 0;
+let timerAbandono         = null;
+let tapCount              = 0;
+let tapTimer              = null;
+let gastoEstimado         = 0;
+let killSwitchAtivado     = false;
+let totalRespostasGlobal  = 0;
+let ultimoCacheStatus     = "—";
+let acertosConsecutivos        = 0;    // E-3: streak de acertos consecutivos
+let errosConsecutivos          = 0;    // G-5: Socrática Pânico após 3 erros seguidos
+let sessaoId                   = null; // rastreia sessao atual em sessoes_usuario
+const errosPorQuestao          = {};
+let simuladoErrosPorDisciplina = {};   // G-5: disciplina mais errática no simulado
+
+// ── MICRO-SIMULADO — Dia 11 ───────────────────────────────────────────────────
+const SIMULADO_TOTAL     = 10;
+const SIMULADO_TEMPO_SEG = 90; // segundos por questão
+
+let simuladoQuestoes = [];
+let simuladoIndice   = 0;
+let simuladoAcertos  = 0;
+let simuladoTempos   = []; // ms por questão
+let simuladoTimer    = null;
+let simuladoInicioQ  = 0;
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 if ("serviceWorker" in navigator) {
@@ -72,6 +98,7 @@ async function iniciar() {
   const aceitou = await verificarClickwrap();
   if (!aceitou) return;
 
+  iniciarSessao(); // fire-and-forget — não bloqueia o feed
   await carregarFeedEIniciar();
 }
 
@@ -79,7 +106,7 @@ async function iniciar() {
 async function verificarClickwrap() {
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/termos_aceitos?user_id=eq.${USER_ID}&limit=1&select=id`,
+      `${SUPABASE_URL}/rest/v1/termos_aceitos?user_id=eq.${USER_ID}&versao_termo=eq.${VERSAO_TERMO}&limit=1&select=id`,
       { headers: headers() }
     );
     const rows = await res.json();
@@ -227,6 +254,14 @@ function renderizarQuestao(indice) {
   badgeDisc.textContent = nomeDisc;
   badgeDisc.className   = q.peso_edital === 2 ? "badge-peso2" : "badge-peso1";
 
+  // G-3: Vacina Legislação — badge para disciplinas que Quadrix sempre cai
+  if (VACINA_DISCIPLINAS.has(q.disciplina_id)) {
+    const vacinaEl = document.createElement("span");
+    vacinaEl.className   = "badge-vacina";
+    vacinaEl.textContent = "⚡ Cai sempre";
+    card.querySelector(".questao-meta").appendChild(vacinaEl);
+  }
+
   const badgeTipo = card.querySelector(".badge-tipo");
   if (q.revisao) {
     badgeTipo.textContent = "🔁 Revisão";
@@ -275,9 +310,13 @@ async function processarResposta(questao, letraEscolhida, card) {
   // Pontos ponderados: Peso 2 = 2pts, Peso 1 = 1pt
   if (acertou) {
     acertos++;
+    acertosConsecutivos++;
+    errosConsecutivos = 0;
     pontosAcumulados += questao.peso_edital;
     document.getElementById("pontos-valor").textContent = pontosAcumulados;
   } else {
+    acertosConsecutivos = 0;
+    errosConsecutivos++;
     revisoesPendentes++;
   }
 
@@ -297,6 +336,15 @@ async function processarResposta(questao, letraEscolhida, card) {
 
   // Fallback imediato: explicacao_base da questão
   bodyDiv.innerHTML = md2html(questao.explicacao ?? "");
+
+  // E-3: streak badge após 3+ acertos consecutivos
+  if (acertou && acertosConsecutivos >= 3) {
+    const streakEl = document.createElement("div");
+    streakEl.className   = "streak-badge";
+    streakEl.textContent = `Você acertou as últimas ${acertosConsecutivos} — esse é seu ritmo.`;
+    expDiv.appendChild(streakEl);
+  }
+
   card.appendChild(expDiv);
 
   // Tutor e save em paralelo
@@ -324,8 +372,14 @@ async function processarResposta(questao, letraEscolhida, card) {
   if (ultima) btn.textContent = "Ver resultado →";
 
   btn.addEventListener("click", () => {
-    if (ultima) mostrarFim();
-    else renderizarQuestao(indiceAtual + 1);
+    if (errosConsecutivos >= 3) {
+      // G-5: Socrática Pânico — 3 erros seguidos (verifica antes de ultima para não perder o trigger)
+      ativarSocraticaPanico("feed");
+    } else if (ultima) {
+      mostrarFim();
+    } else {
+      renderizarQuestao(indiceAtual + 1);
+    }
   });
   card.appendChild(btn);
 }
@@ -431,16 +485,37 @@ async function salvarProgresso(questao, resposta, acertou, tti, chute, nivelTuto
 
 // ── FIM DE SESSÃO + FRASE E-5 — Dia 6 ────────────────────────────────────────
 async function mostrarFim() {
+  encerrarSessao(); // fire-and-forget
+
+  // Busca dados em paralelo — RPC de pontos ponderados + total de respostas
+  const [total, dadosPontos] = await Promise.all([
+    buscarTotalRespostas(),
+    calcularPontosCumulativos(),
+  ]);
+
   const tpl = document.getElementById("tpl-fim").content.cloneNode(true);
   const pct = feed.length > 0 ? Math.round((acertos / feed.length) * 100) : 0;
 
   tpl.getElementById("stat-acertos").textContent  = `${acertos}/${feed.length}`;
-  tpl.getElementById("stat-pontos").textContent    = pontosAcumulados;
   tpl.getElementById("stat-pct").textContent       = `${pct}%`;
   tpl.getElementById("stat-revisoes").textContent  = revisoesPendentes;
 
+  // [E-1]: Contador com linguagem de posse + delta semanal (não "sua nota", mas "território conquistado")
+  const pontosEl = tpl.getElementById("stat-pontos");
+  if (dadosPontos && dadosPontos.pontos_total > 0) {
+    pontosEl.textContent = dadosPontos.pontos_total;
+    const delta = dadosPontos.pontos_esta_semana - dadosPontos.pontos_semana_passada;
+    const descEl = pontosEl.nextElementSibling;
+    if (descEl) {
+      descEl.textContent = delta > 0
+        ? `+${delta} pts esta semana`
+        : "pontos conquistados";
+    }
+  } else {
+    pontosEl.textContent = pontosAcumulados;
+  }
+
   // E-5: só exibir se total >= 10 (RPC definitivo)
-  const total = await buscarTotalRespostas();
   if (total >= 10) {
     const fraseEl = tpl.getElementById("frase-encerramento");
     fraseEl.style.display = "block";
@@ -452,6 +527,105 @@ async function mostrarFim() {
   main.appendChild(tpl);
   document.getElementById("progresso-header").textContent = "Concluído";
   document.getElementById("btn-fechar")?.addEventListener("click", () => location.reload());
+
+  // Botão Micro-Simulado — inserido antes do "Fechar"
+  const btnSim = document.createElement("button");
+  btnSim.className   = "btn-simulado";
+  btnSim.textContent = "⏱ Simular 10 questões";
+  btnSim.addEventListener("click", iniciarMicroSimulado);
+  document.getElementById("btn-fechar")?.before(btnSim);
+
+  // Dia 10: Mapa de Soberania — busca e exibe automaticamente após sessão
+  buscarEExibirMapa(main);
+}
+
+// ── MAPA DE SOBERANIA — Dia 10 ────────────────────────────────────────────────
+async function buscarEExibirMapa(container) {
+  let dados;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_heatmap_disciplinas`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID }),
+    });
+    if (!res.ok) return;
+    dados = await res.json();
+  } catch (_) { return; }
+
+  if (!dados || dados.length === 0) return;
+
+  // Notifica Eduardo com os dados da sessão (M-2)
+  notificarEduardo(dados);
+
+  const tpl  = document.getElementById("tpl-mapa-soberania").content.cloneNode(true);
+  const lista = tpl.getElementById("mapa-lista");
+
+  dados.forEach((d) => {
+    const item = document.getElementById("tpl-mapa-item").content.cloneNode(true);
+    const nome = NOMES_DISCIPLINAS[d.disciplina_id] ?? d.disciplina_id;
+
+    item.querySelector(".mapa-disc-nome").textContent = nome;
+
+    const badge = item.querySelector(".mapa-nivel-badge");
+    badge.textContent  = d.nivel;
+    badge.classList.add(d.nivel);
+
+    const urgenciaCls = d.urgencia >= 0.65 ? "alta" : d.urgencia >= 0.35 ? "media" : "baixa";
+    const fill = item.querySelector(".mapa-barra-fill");
+    fill.classList.add(urgenciaCls);
+    fill.style.width = `${Math.round(d.urgencia * 100)}%`;
+
+    item.querySelector(".mapa-taxa").textContent      = `${d.taxa_acerto_pct}% acerto`;
+    item.querySelector(".mapa-atividade").textContent =
+      d.dias_sem_atividade === 0 ? "estudada hoje"
+      : d.dias_sem_atividade === 1 ? "ontem"
+      : `${d.dias_sem_atividade}d atrás`;
+    item.querySelector(".mapa-revisoes").textContent  =
+      d.revisoes_pendentes > 0 ? `${d.revisoes_pendentes} revisões pendentes` : "";
+
+    lista.appendChild(item);
+  });
+
+  // Substitui a tela de fim pelo mapa ao clicar
+  const btnMapa = document.createElement("button");
+  btnMapa.className   = "btn-proxima";
+  btnMapa.style.margin = "16px 0 0";
+  btnMapa.textContent = "Ver Mapa de Soberania →";
+  btnMapa.addEventListener("click", () => {
+    trocarMain(tpl);
+    document.getElementById("btn-fechar-mapa")
+      ?.addEventListener("click", () => location.reload());
+  });
+  container.appendChild(btnMapa);
+}
+
+// ── NOTIFICAR EDUARDO — M-2 ────────────────────────────────────────────────────
+// Envia resumo da sessão para Edge Function que dispara mensagem ao Eduardo
+async function notificarEduardo(heatmap) {
+  try {
+    const progresso = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_progresso_semanal`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID }),
+    }).then((r) => r.ok ? r.json() : null).catch(() => null);
+
+    // dia_build: dias desde 15/05 (início do projeto), capped em 1-15
+    const diaAtual = Math.min(Math.max(
+      Math.ceil((Date.now() - new Date("2026-05-15T00:00:00-03:00").getTime()) / 86_400_000),
+      1), 15);
+
+    await fetch(`${SUPABASE_URL}/functions/v1/notificar-progresso`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        user_id:           USER_ID,
+        sessao_hoje:       { acertos, total: feed.length, pontos: pontosAcumulados },
+        progresso_semanal: progresso,
+        heatmap_top3:      heatmap.slice(0, 3),
+        dia_build:         diaAtual,
+      }),
+    });
+  } catch (_) { /* silencioso — não bloqueia o fluxo */ }
 }
 
 // ── STALE SESSION (N-4) — Dia 8 ──────────────────────────────────────────────
@@ -492,7 +666,7 @@ function configurarLogoDeTap() {
     tapCount++;
     clearTimeout(tapTimer);
     tapTimer = setTimeout(() => { tapCount = 0; }, 2000);
-    if (tapCount >= 5) { tapCount = 0; toggleDebug(); }
+    if (tapCount >= 3) { tapCount = 0; toggleDebug(); }
   });
 }
 
@@ -506,16 +680,325 @@ function atualizarDebug(questao, cacheStatus, custo) {
   if (!el) return;
 
   ultimoCacheStatus = cacheStatus ?? ultimoCacheStatus;
+  const isVacina = VACINA_DISCIPLINAS.has(questao?.disciplina_id);
   el.innerHTML = [
     `ID: <b>${questao?.id ?? "—"}</b>`,
-    `Disciplina: ${questao?.disciplina_id ?? "—"}`,
-    `Peso SM-2: ${questao?.peso_edital ?? "—"}`,
+    `Disciplina: ${questao?.disciplina_id ?? "—"}${isVacina ? " <b style='color:#FFD600'>⚡vacina</b>" : ""}`,
+    `Peso SM-2: ${questao?.peso_edital ?? "—"} · Feed: ${feed.length}q`,
+    `Erros consec.: <b>${errosConsecutivos}</b> (G-5 dispara em 3)`,
     `Cache: ${ultimoCacheStatus}`,
     `Gasto est.: $${gastoEstimado.toFixed(4)} / $${(COTA_DIARIA_USD * KILL_SWITCH_PCT).toFixed(2)}`,
     `Kill-switch: ${killSwitchAtivado ? "<b style='color:var(--red)'>ATIVO</b>" : "off"}`,
     `Total respostas: ${totalRespostasGlobal}`,
     ADMIN_MODE ? `<b style='color:var(--yellow)'>ADMIN MODE</b>` : "",
   ].filter(Boolean).map((l) => `<div>${l}</div>`).join("");
+}
+
+// ── SESSOES_USUARIO — Dia 9 ───────────────────────────────────────────────────
+async function iniciarSessao() {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/sessoes_usuario`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json", Prefer: "return=representation" },
+      body: JSON.stringify({ user_id: USER_ID }),
+    });
+    if (res.ok) {
+      const rows = await res.json();
+      sessaoId = rows[0]?.id ?? null;
+    }
+  } catch (_) {}
+}
+
+async function encerrarSessao() {
+  if (!sessaoId) return;
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/sessoes_usuario?id=eq.${sessaoId}`, {
+      method: "PATCH",
+      headers: { ...headers(), "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify({
+        encerrada_em:         new Date().toISOString(),
+        questoes_respondidas: feed.length,
+      }),
+    });
+  } catch (_) {}
+}
+
+// ── MICRO-SIMULADO — Dia 11 ───────────────────────────────────────────────────
+
+async function iniciarMicroSimulado() {
+  trocarMain('<div class="estado-vazio"><div class="spinner"></div><p>Preparando simulado…</p></div>');
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_questoes_simulado`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID, p_quantidade: SIMULADO_TOTAL }),
+    });
+    if (!res.ok) throw new Error(`Simulado: ${res.status}`);
+    simuladoQuestoes = await res.json();
+    if (!simuladoQuestoes || simuladoQuestoes.length === 0) {
+      mostrarErro("Sem questões disponíveis para o simulado.");
+      return;
+    }
+  } catch (err) {
+    mostrarErro(err.message);
+    return;
+  }
+
+  simuladoIndice  = 0;
+  simuladoAcertos = 0;
+  simuladoTempos  = [];
+
+  document.getElementById("progresso-header").textContent = "Simulado";
+  renderizarQuestaoSimulado(0);
+}
+
+function renderizarQuestaoSimulado(indice) {
+  simuladoIndice  = indice;
+  simuladoInicioQ = Date.now();
+  const q = simuladoQuestoes[indice];
+
+  clearInterval(simuladoTimer);
+
+  const tpl  = document.getElementById("tpl-questao").content.cloneNode(true);
+  const card = tpl.querySelector(".questao-card");
+
+  const nomeDisc = NOMES_DISCIPLINAS[q.disciplina_id] ?? q.disciplina_id;
+  const badgeDisc = card.querySelector(".badge-disciplina");
+  badgeDisc.textContent = nomeDisc;
+  badgeDisc.className   = q.peso_edital === 2 ? "badge-peso2" : "badge-peso1";
+
+  const badgeTipo = card.querySelector(".badge-tipo");
+  badgeTipo.textContent = "⏱ Simulado";
+  badgeTipo.className   = "badge-simulado";
+
+  const numEl = card.querySelector(".questao-numero");
+  numEl.textContent = `${indice + 1}/${SIMULADO_TOTAL} · ${SIMULADO_TEMPO_SEG}s`;
+
+  const barraFill = card.querySelector(".barra-fill");
+  barraFill.style.transition = "none";
+  barraFill.style.width      = "100%";
+  barraFill.className        = "barra-fill timer-ok";
+
+  card.querySelector(".questao-enunciado").innerHTML = md2html(q.enunciado);
+
+  const contAlts = card.querySelector(".alternativas");
+  (q.alternativas ?? []).forEach((alt) => {
+    const tplAlt = document.getElementById("tpl-alternativa").content.cloneNode(true);
+    const btn    = tplAlt.querySelector(".alternativa");
+    btn.querySelector(".letra").textContent = alt.letra + ".";
+    btn.querySelector(".texto").innerHTML   = md2html(alt.texto);
+    btn.dataset.letra = alt.letra;
+    btn.addEventListener("click", () => processarRespostaSimulado(q, alt.letra, card));
+    contAlts.appendChild(btn);
+  });
+
+  trocarMain(card); // card entra no DOM
+
+  // Reflow + transição linear para o timer
+  void card.offsetWidth;
+  barraFill.style.transition = "width 0.9s linear";
+
+  let segsRestantes = SIMULADO_TEMPO_SEG;
+  simuladoTimer = setInterval(() => {
+    segsRestantes--;
+    numEl.textContent = `${indice + 1}/${SIMULADO_TOTAL} · ${segsRestantes}s`;
+
+    const pct = (segsRestantes / SIMULADO_TEMPO_SEG) * 100;
+    barraFill.style.width = `${pct}%`;
+
+    if (segsRestantes <= 10)      barraFill.className = "barra-fill timer-critico";
+    else if (segsRestantes <= 30) barraFill.className = "barra-fill timer-alerta";
+
+    if (segsRestantes <= 0) {
+      clearInterval(simuladoTimer);
+      processarRespostaSimulado(q, null, card);
+    }
+  }, 1000);
+}
+
+function processarRespostaSimulado(questao, letraEscolhida, card) {
+  clearInterval(simuladoTimer);
+
+  const tti    = Date.now() - simuladoInicioQ;
+  const correta = questao.gabarito;
+  const acertou = letraEscolhida !== null && letraEscolhida === correta;
+  if (acertou) {
+    simuladoAcertos++;
+  } else {
+    // G-5: rastreia disciplina mais errática para a Socrática Pânico
+    const d = questao.disciplina_id;
+    simuladoErrosPorDisciplina[d] = (simuladoErrosPorDisciplina[d] ?? 0) + 1;
+  }
+  simuladoTempos.push(tti);
+
+  // Desabilita alternativas
+  const btns = card.querySelectorAll(".alternativa");
+  btns.forEach((b) => { b.disabled = true; });
+
+  // Colorir gabarito
+  btns.forEach((b) => {
+    if (b.dataset.letra === correta)                             b.classList.add("correta");
+    else if (b.dataset.letra === letraEscolhida && !acertou)    b.classList.add("errada");
+  });
+
+  // Feedback mínimo — sem tutor
+  const tplExp = document.getElementById("tpl-explicacao").content.cloneNode(true);
+  const expDiv = tplExp.querySelector(".explicacao");
+  expDiv.classList.add(acertou ? "acerto" : "erro");
+
+  const icone = letraEscolhida === null ? "⏰" : (acertou ? "✅" : "❌");
+  const msgTxt = letraEscolhida === null
+    ? `Tempo esgotado. Gabarito: ${correta}`
+    : acertou ? `Correto! Gabarito: ${correta}` : `Errado. Gabarito: ${correta}`;
+
+  expDiv.querySelector(".icone-resultado").textContent  = icone;
+  expDiv.querySelector(".texto-resultado").textContent  = msgTxt;
+  expDiv.querySelector(".explicacao-body").style.display  = "none";
+  expDiv.querySelector(".explicacao-nivel").style.display = "none";
+
+  card.appendChild(expDiv);
+
+  // Salva progresso apenas quando houve escolha (não timeout)
+  if (letraEscolhida !== null) {
+    salvarProgresso(questao, letraEscolhida, acertou, tti, false, 0);
+  }
+
+  // Botão próxima ou resultado
+  const tplBtn  = document.getElementById("tpl-btn-proxima").content.cloneNode(true);
+  const btnNext = tplBtn.querySelector(".btn-proxima");
+  const ultima  = simuladoIndice === simuladoQuestoes.length - 1;
+  btnNext.textContent = ultima ? "Ver resultado →" : "Próxima →";
+  btnNext.addEventListener("click", () => {
+    if (ultima) mostrarResultadoSimulado();
+    else renderizarQuestaoSimulado(simuladoIndice + 1);
+  });
+  card.appendChild(btnNext);
+}
+
+function mostrarResultadoSimulado() {
+  clearInterval(simuladoTimer);
+
+  const total    = simuladoQuestoes.length;
+  const pct      = Math.round((simuladoAcertos / total) * 100);
+  const medioMs  = simuladoTempos.length > 0
+    ? simuladoTempos.reduce((a, b) => a + b, 0) / simuladoTempos.length
+    : 0;
+  const medioSeg = Math.round(medioMs / 1000);
+
+  const avaliacao = pct >= 70
+    ? { icon: "🟢", msg: "Aprovado no bloco! Ritmo de prova." }
+    : pct >= 50
+    ? { icon: "🟡", msg: "Quase lá — reforçar antes da prova." }
+    : { icon: "🔴", msg: "Reforço urgente antes do dia H." };
+
+  // Quadrix: ~120 questões em 4h ≈ 2 min/questão
+  const ritmoMsg = medioSeg <= 120
+    ? `Ritmo ok — ${medioSeg}s por questão`
+    : `Atenção ao tempo — ${medioSeg}s por questão (limite ≈ 120s)`;
+
+  trocarMain(`
+    <div class="fim-sessao">
+      <div style="font-size:48px">${avaliacao.icon}</div>
+      <h2>Resultado do Simulado</h2>
+      <div class="fim-stats" style="grid-template-columns:1fr 1fr 1fr;max-width:360px">
+        <div class="stat-box">
+          <div class="valor">${simuladoAcertos}/${total}</div>
+          <div class="desc">Acertos</div>
+        </div>
+        <div class="stat-box">
+          <div class="valor">${pct}%</div>
+          <div class="desc">Aproveit.</div>
+        </div>
+        <div class="stat-box">
+          <div class="valor">${medioSeg}s</div>
+          <div class="desc">Tempo médio</div>
+        </div>
+      </div>
+      <p class="frase-encerramento" style="display:block">${avaliacao.msg}</p>
+      <p style="color:var(--muted);font-size:13px;max-width:280px;text-align:center;line-height:1.5">${ritmoMsg}</p>
+      <button class="btn-novo-dia" onclick="location.reload()">Fechar</button>
+    </div>
+  `);
+
+  document.getElementById("progresso-header").textContent = "Simulado";
+
+  // G-5: Socrática Pânico — pct abaixo de 50% no simulado
+  if (pct < 50) {
+    setTimeout(() => ativarSocraticaPanico("simulado"), 2000);
+  }
+}
+
+// Debug: força G-5 para testes — acessível via botão no debug panel
+window._testG5 = () => { errosConsecutivos = 3; ativarSocraticaPanico("feed"); };
+
+// ── G-5: SOCRÁTICA PÂNICO ────────────────────────────────────────────────────
+function ativarSocraticaPanico(tipo) {
+  // Identifica disciplina mais errática para orientar o foco
+  let discFoco = null;
+  if (tipo === "simulado") {
+    const entradas = Object.entries(simuladoErrosPorDisciplina).sort((a, b) => b[1] - a[1]);
+    if (entradas.length > 0) discFoco = NOMES_DISCIPLINAS[entradas[0][0]] ?? entradas[0][0];
+  } else {
+    // feed: agrupa erros por disciplina usando o feed atual
+    const errosPorDisc = {};
+    feed.forEach((q) => {
+      if (errosPorQuestao[q.id]) {
+        errosPorDisc[q.disciplina_id] = (errosPorDisc[q.disciplina_id] ?? 0) + errosPorQuestao[q.id];
+      }
+    });
+    const entradas = Object.entries(errosPorDisc).sort((a, b) => b[1] - a[1]);
+    if (entradas.length > 0) discFoco = NOMES_DISCIPLINAS[entradas[0][0]] ?? entradas[0][0];
+  }
+
+  const titulo = tipo === "simulado"
+    ? "Resultado abaixo de 50%."
+    : "Três erros seguidos.";
+  const corpo = tipo === "simulado"
+    ? "Normal em treino — você está mapeando seus pontos cegos. Esse mapa vai guiar as próximas sessões."
+    : "O cérebro aprende melhor com uma pausa. Respira e continua.";
+  const focoStr = discFoco
+    ? `<p class="panico-foco">Próximo foco: <strong>${discFoco}</strong></p>`
+    : "";
+
+  trocarMain(`
+    <div class="panico-screen">
+      <div class="panico-icon">💙</div>
+      <h2 class="panico-titulo">${titulo}</h2>
+      <p class="panico-corpo">${corpo}</p>
+      ${focoStr}
+      <button class="btn-proxima" id="btn-continuar-panico">Continuar estudando →</button>
+    </div>
+  `);
+
+  document.getElementById("btn-continuar-panico")?.addEventListener("click", () => {
+    errosConsecutivos = 0;
+    simuladoErrosPorDisciplina = {};
+    if (tipo === "simulado") {
+      location.reload();
+    } else if (indiceAtual >= feed.length - 1) {
+      // G-5 disparou na última questão — vai para resultado em vez de próxima
+      mostrarFim();
+    } else {
+      renderizarQuestao(indiceAtual + 1);
+    }
+  });
+}
+
+// ── RPC: CALCULAR PONTOS PONDERADOS CUMULATIVOS ───────────────────────────────
+async function calcularPontosCumulativos() {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/calcular_pontos_ponderados`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID }),
+    });
+    if (!res.ok) return null;
+    const rows = await res.json();
+    return Array.isArray(rows) ? rows[0] : rows;
+  } catch (_) {
+    return null;
+  }
 }
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
