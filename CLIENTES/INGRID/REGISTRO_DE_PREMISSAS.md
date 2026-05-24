@@ -15,6 +15,17 @@
 
 ---
 
+## REGISTRO ATIVO — Loop 5 (2026-05-24 — atualizado)
+
+**Premissas de processo adicionadas (sessão 2026-05-24):**
+
+| # | Premissa | Tipo | Status |
+|---|---|---|---|
+| 7 | Rename massivo PENTALATERAL_UNIVERSAL/ não altera funcionalidade — apenas nomenclatura dos arquivos e pastas | processo / infra | declarada — nenhuma função Python/PS1 depende do nome do diretório |
+| 8 | As 12 deficiências formalizadas do sistema (Gemini × 6, NotebookLM × 6) são deficiências reais e observadas — não hipotéticas nem teóricas | sistema / processo | declarada — registradas a partir de fricções reais em sessões anteriores |
+
+---
+
 ## REGISTRO ATIVO — Loop 4 (2026-05-23)
 
 **Premissas declaradas:**

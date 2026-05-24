@@ -14,6 +14,22 @@
 
 ---
 
+## REGISTRO ATIVO — Loop 7 (2026-05-24 — atualizado)
+
+**Premissas de processo adicionadas (sessão 2026-05-24):**
+
+| # | Premissa | Tipo | Status |
+|---|---|---|---|
+| 6 | Rename massivo PENTALATERAL_UNIVERSAL/ não altera funcionalidade — apenas nomenclatura dos arquivos e pastas | processo / infra | declarada — nenhuma função Python/PS1 depende do nome do diretório |
+| 7 | As 12 deficiências formalizadas do sistema (Gemini × 6, NotebookLM × 6) são deficiências reais e observadas — não hipotéticas nem teóricas | sistema / processo | declarada — registradas a partir de fricções reais em sessões anteriores |
+| 8 | GEMINI_KEY exposta no frontend Valdece era a chave ativa em produção — anon Supabase é aceitável, API key externa nunca | segurança | corrigida — proxy `netlify/functions/embed.js` criado, chave removida do frontend |
+
+**Dívida técnica introduzida:**
+- Netlify ainda não tem a variável de ambiente `GEMINI_API_KEY` configurada → Eduardo deve acessar Netlify Dashboard → Site Settings → Environment Variables → adicionar `GEMINI_API_KEY` com o valor da chave
+- Até configurar, buscas ficam indisponíveis (502)
+
+---
+
 ## REGISTRO ATIVO — Loop 7 (2026-05-23)
 
 **Premissas declaradas:**

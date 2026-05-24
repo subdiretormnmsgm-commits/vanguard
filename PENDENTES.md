@@ -60,14 +60,17 @@
 
 ## ALERTAS CRÍTICOS DOS AUDITORES — 2026-05-24
 
-- [ ] `2026-05-24` **🔴 RLS + Chave API exposta no frontend (Auditor Valdece — prioridade técnica zero):**
-  Chave de API e RLS expostas no frontend do app Valdece. Requer proxy reverso no backend Supabase.
-  Mais urgente que qualquer nova feature. Risco contratual real se explorado.
-  
-- [ ] `2026-05-24` **🔴 CANDIDATO_A_PRINCIPIO — Fuga do MRR pela Burocracia (Auditor Ingrid):**
-  Pentalateral produz infraestrutura de excelência enquanto o primeiro MRR (Manutenção Soberana Valdece)
-  está pendente. DEF-M-5 coletiva detectada. Veredito do Diretor: aprovar princípio?
-  Proposta: "Nenhum script de orquestração novo enquanto houver contrato de MRR não fechado em projeto ativo."
+- [x] `2026-05-24` ~~**🔴 RLS + Chave API exposta no frontend (Auditor Valdece):**~~
+  ✅ GEMINI_KEY removida do frontend (era o real problema — não a anon key Supabase)
+  ✅ Proxy criado: `CLIENTES/VALDECE/netlify/functions/embed.js`
+  ✅ `netlify.toml` criado com config de functions + headers
+  ✅ Frontend atualizado: `embedQuery()` agora chama `/.netlify/functions/embed`
+  ✅ P-061 registrado no LEDGER
+  ⏳ AÇÃO DO DIRETOR: Netlify Dashboard → Site Settings → Environment Variables → adicionar `GEMINI_API_KEY`
+  ⏳ AÇÃO DO DIRETOR: git commit + `netlify deploy` para ativar o proxy em produção
+
+- [x] `2026-05-24` ~~**🔴 CANDIDATO_A_PRINCIPIO — Fuga do MRR pela Burocracia:**~~
+  ✅ Registrado como P-062 no INTELLIGENCE_LEDGER.md
 
 ---
 
@@ -87,19 +90,17 @@
   Argumentos: `-NonInteractive -File "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\scripts\monitor_hypercare.ps1"`
   Gatilho: diário às 07:00 (dias úteis)
 
-- [ ] `2026-05-23` **NotebookLM Wipe & Sync — AMBOS os projetos:**
-  Rename massivo alterou nomes de fontes. Executar antes da próxima sessão NotebookLM:
-  - `.\scripts\preparar_notebooklm_projeto.ps1 -cliente VALDECE` → Wipe & Sync no NotebookLM
-  - `.\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID` → Wipe & Sync no NotebookLM
+- [x] `2026-05-23` ~~**NotebookLM Wipe & Sync — Músculo preparou fontes (scripts rodados):**~~
+  ✅ `preparar_notebooklm_projeto.ps1 -cliente VALDECE` — 18 docs prontos
+  ✅ `preparar_notebooklm_projeto.ps1 -cliente INGRID` — 18 docs prontos
+  ⏳ AÇÃO DO DIRETOR: ir ao NotebookLM → Wipe & Sync das fontes (arrastar os arquivos)
 
-- [ ] `2026-05-23` **REGISTRO_DE_PREMISSAS — registrar premissas desta sessão:**
-  Premissas silenciosas desta sessão que precisam ser declaradas:
-  - Rename PENTALATERAL → PENTALATERAL não altera funcionalidade, apenas nomenclatura
-  - 12 deficiências formalizadas são reais — não hipotéticas
-  Atualizar: `CLIENTES/VALDECE/REGISTRO_DE_PREMISSAS.md` e `CLIENTES/INGRID/REGISTRO_DE_PREMISSAS.md`
+- [x] `2026-05-23` ~~**REGISTRO_DE_PREMISSAS — registrado (sessão 2026-05-24):**~~
+  ✅ CLIENTES/VALDECE/REGISTRO_DE_PREMISSAS.md — premissas 6, 7, 8 adicionadas
+  ✅ CLIENTES/INGRID/REGISTRO_DE_PREMISSAS.md — premissas 7, 8 adicionadas
 
-- [ ] `2026-05-24` **scripts/deploy_ingrid_ghpages.ps1 — criar (P-056):**
-  Automatizar sync master → gh-pages para o projeto Ingrid.
+- [x] `2026-05-24` ~~**scripts/deploy_ingrid_ghpages.ps1 — JÁ EXISTE (P-056 resolvido):**~~
+  ✅ Script completo em `scripts/deploy_ingrid_ghpages.ps1` — criado na sessão anterior
 
 ---
 

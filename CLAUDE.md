@@ -2,7 +2,7 @@
 - CURRENT_VERSION: 12
 - MODEL: "Venture Builder Autônoma & Holding de Dados SaaS — The Sovereign Launch"
 - SISTEMA: Pentalateral IAH — 5 atores: Diretor + Músculo + Estrategista + Auditor + Embaixador
-- ÚLTIMA_ATUALIZAÇÃO: 2026-05-19 — Enxugamento CLAUDE.md (PARTE A-D → vanguard-protocolo.md)
+- ÚLTIMA_ATUALIZAÇÃO: 2026-05-24 — P-063: leitura obrigatória do PENDENTES.md completo ao iniciar sessão
 
 ---
 
@@ -204,6 +204,21 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
         silenciosamente. (ir_ao_embaixador.ps1 já implementa este gate.)
     (e) Logs de scripts de automação (monitor_hypercare, sync) devem prefixar "[CLIENTE]" em cada linha
         de operação — logs misturados tornam diagnóstico impossível em escala.
+23. PRIMEIRO ATO DE TODA SESSÃO: LER PENDENTES.md COMPLETO — P-063 (2026-05-24):
+    O hook injeta apenas os TÍTULOS das tarefas pendentes. As instruções detalhadas —
+    arquivos exatos, sequência de passos, o que colar onde — estão NO CORPO do PENDENTES.md.
+    Músculo que não lê o arquivo completo age só com títulos e inventa como executar
+    em vez de seguir o que já está escrito. "Já está escrito" vence sobre "minha análise".
+    AÇÃO OBRIGATÓRIA (BLOQUEANTE):
+    → Usar Read("PENDENTES.md") como PRIMEIRA FERRAMENTA da sessão — antes de qualquer
+      resposta ao Diretor, antes de check-in, antes de qualquer deliberação.
+    REANÁLISE ANTES DE EXECUTAR:
+    → Após ler PENDENTES, verificar: "O que estou prestes a fazer já está descrito aqui?"
+      Se sim → seguir as instruções escritas, não inventar nova abordagem.
+      Se não → deliberar e registrar o novo passo no PENDENTES antes de executar.
+    FALHA DESTA REGRA = Músculo operando com contexto de títulos, não de instruções.
+    Evidência da falha: Eduardo teve que dizer "Veja o arquivo PENDENTES" em 2026-05-24.
+    ─────────────────────────────────────────────────────────────────────────────────────
 22. PROTOCOLO DE ENCERRAMENTO VAI AO EMBAIXADOR — SEMPRE (2026-05-24):
     Ao fechar qualquer sessão, o Músculo gera automaticamente o PAINEL_ATIVIDADES via
     `scripts/generate_protocolo_encerramento.ps1` (integrado ao session_close.ps1).

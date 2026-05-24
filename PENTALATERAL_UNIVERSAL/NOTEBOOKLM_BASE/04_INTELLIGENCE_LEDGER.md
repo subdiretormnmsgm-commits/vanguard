@@ -1178,6 +1178,47 @@ git checkout master
 
 ---
 
+### [P-059] Isolamento de Contexto por Cliente é Lei — 20 Projetos Simultâneos Exigem Controle Rígido
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — alerta arquitetural ao prever escala de 20 projetos
+**Fricção:** Com 2 projetos, selecionar "primeiro em BUILD" é tolerável. Com 20, auto-seleção silenciosa é risco direto: veredito executado no cliente errado, mensagem de WhatsApp enviada para destinatário errado, LEDGER contaminado com contexto de projeto diferente. O incidente com contexto errado em escala é irrecuperável sem rastreabilidade explícita.
+**Regras derivadas:**
+- Todo script que toca um cliente DEVE exigir `-cliente [NOME]` explícito OU listar opções e aguardar escolha — nunca auto-selecionar quando há mais de 1 projeto ativo
+- DECISOES.json DEVE conter `"cliente"` e `"loop"` como primeiros campos (schema v1.1+) — Músculo valida antes de listar qualquer decisão
+- Quando Eduardo cola output do Embaixador no Claude Code, a primeira resposta do Músculo é sempre: `CLIENTE DETECTADO: [NOME] · Loop [N] · confirmar? (s/não)` — sem exceção
+- Nenhuma execução de veredito começa sem confirmar que o `cliente` do JSON corresponde ao projeto que Eduardo indicou
+- Qualquer script de automação (monitor_hypercare, sync, session_close) deve logar explicitamente "Processando [CLIENTE]" para cada projeto — logs misturados = diagnóstico impossível
+**Aplica-se a:** todos os scripts de orquestração, ao comportamento do Músculo ao interpretar DECISOES.json, e a qualquer feature nova que precise identificar o cliente ativo.
+
+---
+
+### [P-060] Músculo é responsável por toda propagação — zero intervenção do Diretor
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — alerta sistêmico após sessão com múltiplas atualizações manuais
+**Fricção:** Em uma única sessão, Eduardo precisou apontar: SKILL_PROTOCOLO desatualizado, MASTER desatualizado, bug em `ir_ao_embaixador.ps1`, schema sem campos de isolamento, LEDGER sem P-059, documentos não propagados para todos os clientes. O Músculo corrigiu tudo — mas só depois de Eduardo detectar. Com 20 projetos, isso é inviável. O Diretor delibera e decide. Não gerencia documentos.
+**Regras derivadas:**
+- Após qualquer mudança em arquivo-fonte → `propagate_changes.ps1` roda automaticamente (DEPENDENCY_MAP.json define o cascade)
+- Após criar ou editar qualquer `.ps1` → `validate_scripts.ps1` roda antes de reportar "concluído"
+- O Músculo nunca diz "lembre de atualizar X" — ele atualiza e reporta o que fez
+- Se Eduardo apontou um documento desatualizado → DEF-M-6 ativada → Músculo registra a falha e fortalece o cascade
+- Sessão encerra somente após `session_close.ps1` confirmar propagação verde
+**Ferramentas criadas:** `scripts/propagate_changes.ps1` · `scripts/validate_scripts.ps1` · `PENTALATERAL_UNIVERSAL/OPERACAO/DEPENDENCY_MAP.json`
+**Aplica-se a:** toda sessão de build, toda criação de script, toda atualização de documento universal, toda mudança de schema.
+
+---
+
+### [CANDIDATO_A_PRINCIPIO — ARQUITETURAL] LEDGER por índice semântico + compactação cíclica (P-059+ escala)
+**Proposto por:** Diretor Eduardo — 2026-05-24 | **Contexto:** P-058 inscritos · 20 projetos previstos
+**Fricção prevista:** Com 20 projetos e 3-4 princípios/sessão, o LEDGER ultrapassa 300 entradas em 6 meses (~15.000 linhas). Lost-in-the-Middle (DEF-G-3/DEF-N-3) vai degradar a leitura dos princípios intermediários. O Protocolo de Imunidade se torna o próprio gargalo.
+**Decisão arquitetural proposta:**
+- `LEDGER_INDEX.md` — índice curto (1 linha/princípio + tags de categoria e nicho) — lido em toda sessão
+- `LEDGER_[CATEGORIA].md` — detalhe por categoria (Legal-Tech / EdTech / Processo / Universal) — lido sob demanda
+- Compactação cíclica a cada 90 dias: Músculo mescla princípios redundantes, arquiva superseded, mantém ≤60 ativos por arquivo
+- Skills de cliente contêm os princípios específicos do nicho — LEDGER universal é fonte-mãe, não operação diária
+**Gate para implementação:** ativar quando houver ≥10 projetos simultâneos ou ≥80 princípios no LEDGER.
+**Responsável pela execução:** Músculo — sem intervenção do Diretor.
+**Aguarda:** aprovação formal do Diretor quando gate for atingido.
+
+---
+
 ### [CANDIDATO_A_PRINCIPIO] O cliente que sinaliza escopo por áudio antes de assinar vai sinalizar por mensagem depois de assinar
 **Proposto por:** Embaixador Valdece — 2026-05-24 | **Aguarda:** numeração do Diretor
 **Fricção:** Valdece enviou 5 áudios sobre V3 (data_dje, turma, repercussao_geral) antes de assinar. O mesmo padrão se repete pós-contrato via mensagem. Pipeline sem travamento de escopo antes do primeiro uso = Eduardo respondendo a scope creep sem perceber que é scope creep.

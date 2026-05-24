@@ -118,7 +118,8 @@ function Get-CheckInPrompt {
 
 $checkIn = Get-CheckInPrompt
 
-# --- PENDENTES: alerta de tarefas vencidas ---
+# --- PENDENTES: alerta completo com instruções detalhadas (P-063) ---
+# Injeta título + sub-bullets de cada tarefa aberta para o Músculo ter as instruções exatas
 function Get-PendentesAlert {
     $pendPath = Join-Path $projectDir "PENDENTES.md"
     if (-not (Test-Path $pendPath)) { return $null }
@@ -127,31 +128,57 @@ function Get-PendentesAlert {
 
     $hoje    = Get-Date
     $abertos = @()
-    foreach ($l in $linhas) {
-        if ($l -notmatch '^\s*- \[ \]') { continue }
-        $dataMatch = [regex]::Match($l, '`(\d{4}-\d{2}-\d{2})`')
-        $dataPend  = if ($dataMatch.Success) { [datetime]$dataMatch.Groups[1].Value } else { $hoje }
-        $atraso    = ($hoje.Date - $dataPend.Date).Days
-        $texto     = $l -replace '^\s*- \[ \]\s*`[^`]+`\s*', '' -replace '\*\*([^*]+)\*\*', '$1'
-        $abertos  += [PSCustomObject]@{ Atraso = $atraso; Texto = $texto.Trim() }
+    $i = 0
+    while ($i -lt $linhas.Count) {
+        $l = $linhas[$i]
+        if ($l -match '^\s*- \[ \]') {
+            $dataMatch = [regex]::Match($l, '`(\d{4}-\d{2}-\d{2})`')
+            $dataPend  = if ($dataMatch.Success) { [datetime]$dataMatch.Groups[1].Value } else { $hoje }
+            $atraso    = ($hoje.Date - $dataPend.Date).Days
+            $titulo    = $l -replace '^\s*- \[ \]\s*`[^`]+`\s*', '' -replace '\*\*([^*]+)\*\*', '$1'
+
+            # Captura sub-bullets logo abaixo (linhas indentadas que não são outra tarefa)
+            $subs = @()
+            $j = $i + 1
+            while ($j -lt $linhas.Count) {
+                $next = $linhas[$j]
+                if ($next -match '^\s*- \[') { break }   # próxima tarefa
+                if ($next -match '^#{1,3} ')  { break }   # novo heading
+                if ($next.Trim() -eq '')       { $j++; continue }  # linha vazia: pular mas continuar
+                $subs += "    " + $next.Trim()
+                $j++
+                if ($subs.Count -ge 6) { break }  # máx 6 sub-linhas por tarefa
+            }
+
+            $abertos += [PSCustomObject]@{
+                Atraso = $atraso
+                Titulo = $titulo.Trim()
+                Subs   = $subs
+            }
+        }
+        $i++
     }
     if ($abertos.Count -eq 0) { return $null }
 
-    $abertos   = $abertos | Sort-Object Atraso -Descending
-    $vencidos  = @($abertos | Where-Object { $_.Atraso -gt 0 })
-    $emPrazo   = @($abertos | Where-Object { $_.Atraso -eq 0 })
+    $abertos  = $abertos | Sort-Object Atraso -Descending
+    $vencidos = @($abertos | Where-Object { $_.Atraso -gt 0 })
+    $emPrazo  = @($abertos | Where-Object { $_.Atraso -eq 0 })
 
-    $out = @("PENDENTES (P-048) — $($abertos.Count) abertos")
+    $out = @("PENDENTES (P-048) — $($abertos.Count) abertos — LEIA AS INSTRUCOES, NAO SO OS TITULOS")
     if ($vencidos.Count -gt 0) {
         $out += "⚠️  EM ATRASO — resolver AGORA:"
         foreach ($p in $vencidos) {
             $d = if ($p.Atraso -eq 1) { "1 dia" } else { "$($p.Atraso) dias" }
-            $out += "  🔴 [$d atrasado] $($p.Texto)"
+            $out += "  🔴 [$d atrasado] $($p.Titulo)"
+            foreach ($s in $p.Subs) { $out += $s }
         }
     }
     if ($emPrazo.Count -gt 0) {
         $out += "No prazo — adicionados hoje:"
-        foreach ($p in $emPrazo) { $out += "  • $($p.Texto)" }
+        foreach ($p in $emPrazo) {
+            $out += "  • $($p.Titulo)"
+            foreach ($s in $p.Subs) { $out += $s }
+        }
     }
     return $out -join "`n"
 }

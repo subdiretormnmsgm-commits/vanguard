@@ -651,11 +651,12 @@
   // ── Config ──
   const SUPABASE_URL  = 'https://uslkhnselzmbbnupmfsp.supabase.co';
   const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVzbGtobnNlbHptYmJudXBtZnNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzNTc4NjAsImV4cCI6MjA5NDkzMzg2MH0.BPW5htJk7xZJe6sFr_yrIORSu4OCMhbqQ3BdNLYELQ0';
-  const GEMINI_KEY    = 'AIzaSyCOZk4cjms9_u3N3fPc-wK0V4ha3TRH0Wc';
+  // GEMINI_KEY removida do frontend — agora via proxy Netlify (embed.js)
+  // Nunca colocar API keys de terceiros no frontend — P-061
 
   const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
-  const EMBED_URL   = `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${GEMINI_KEY}`;
+  const EMBED_PROXY = '/.netlify/functions/embed';
   const RECENTE_MS  = 180 * 24 * 60 * 60 * 1000;
   let   currentThreshold = 0.60; // Busca Precisa (default)
 
@@ -694,21 +695,16 @@
     } catch { /* painel não crítico */ }
   }
 
-  // ── Embed query ──
+  // ── Embed query — via proxy Netlify (GEMINI_KEY nunca no frontend) ──
   async function embedQuery(text) {
-    const res = await fetch(EMBED_URL, {
+    const res = await fetch(EMBED_PROXY, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'models/gemini-embedding-001',
-        content: { parts: [{ text: text.slice(0, 2048) }] },
-        taskType: 'RETRIEVAL_QUERY',
-        outputDimensionality: 3072,
-      }),
+      body: JSON.stringify({ text }),
     });
     if (!res.ok) throw new Error('Falha ao gerar embedding da busca');
     const data = await res.json();
-    return data.embedding.values;
+    return data.embedding;
   }
 
   // ── Search ──
