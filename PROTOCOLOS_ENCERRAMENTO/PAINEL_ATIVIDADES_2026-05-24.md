@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Atualizado em 2026-05-24 03:07
+### Pentalateral IAH - Atualizado em 2026-05-24 03:17
 
 ---
 
@@ -14,8 +14,8 @@ Valdece    [BUILD    ]  Loop 6 CONCLUÍDO (commit 9709649) — Loop 7 (V3: data_
 
 ## COMMIT DA SESSAO
 
-Commit : f8a66a0 - 176 arquivo(s) alterado(s)
-Mensagem: feat(pentalateral-v6.2): P-059/P-060 + pipeline inline + 5 ferramentas de automacao
+Commit : 70fb851 - 1 arquivo(s) alterado(s)
+Mensagem: docs(singularidade): regra 22 — protocolo de encerramento vai ao Embaixador
 
 ---
 
@@ -35,31 +35,31 @@ Mensagem: feat(pentalateral-v6.2): P-059/P-060 + pipeline inline + 5 ferramentas
 
 ### PROJ-001 · Valdece (Deadline: Hypercare até 18/06)
 
-[!!!] V3 ENRICHMENT — campos turma/repercussao_geral vazios:
-[!!!] Embaixador Valdece — ativar com nova sistemática:
-[ ! ] Sentinel Report — gerar em 2026-06-02:
+🔴 V3 ENRICHMENT — campos turma/repercussao_geral vazios:
+🔴 Embaixador Valdece — ativar com nova sistemática:
+🟡 Sentinel Report — gerar em 2026-06-02:
 
 ### PROJ-002 · Ingrid (Deadline: 30/05 Sab — 6 dias)
 
-[!!!] Embaixador Ingrid — ativar com nova sistemática:
-[!!!] Loop 5 — Gemini (PASSO 3):
-[ ! ] Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:
-[ ! ] Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:
-[   ] Dia 13 — Push dominical + Widget Contador:
-[   ] Dia 14-15 — Offboarding + SaaS Readiness Audit:
+🔴 Embaixador Ingrid — ativar com nova sistemática:
+🔴 Loop 5 — Gemini (PASSO 3):
+🟡 Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:
+🟡 Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:
+⚪ Dia 13 — Push dominical + Widget Contador:
+⚪ Dia 14-15 — Offboarding + SaaS Readiness Audit:
 
 ### ALERTAS CRÍTICOS DOS AUDITORES — 2026-05-24
 
-[!!!] 🔴 RLS + Chave API exposta no frontend (Auditor Valdece — prioridade técnica ...
-[!!!] 🔴 CANDIDATO_A_PRINCIPIO — Fuga do MRR pela Burocracia (Auditor Ingrid):
+🔴 🔴 RLS + Chave API exposta no frontend (Auditor Valdece — prioridade técnica ...
+🔴 🔴 CANDIDATO_A_PRINCIPIO — Fuga do MRR pela Burocracia (Auditor Ingrid):
 
 ### PROCESSO / INFRA
 
-[!!!] Distribuir ATUALIZACAO_PENTALATERAL_2026-05-24.md aos sócios:
-[!!!] Task Scheduler — monitor_hypercare.ps1 (7h diário):
-[ ! ] NotebookLM Wipe & Sync — AMBOS os projetos:
-[ ! ] REGISTRO_DE_PREMISSAS — registrar premissas desta sessão:
-[   ] scripts/deploy_ingrid_ghpages.ps1 — criar (P-056):
+🔴 Distribuir ATUALIZACAO_PENTALATERAL_2026-05-24.md aos sócios:
+🔴 Task Scheduler — monitor_hypercare.ps1 (7h diário):
+🟡 NotebookLM Wipe & Sync — AMBOS os projetos:
+🟡 REGISTRO_DE_PREMISSAS — registrar premissas desta sessão:
+⚪ scripts/deploy_ingrid_ghpages.ps1 — criar (P-056):
 
 Total pendentes abertos: 16
 

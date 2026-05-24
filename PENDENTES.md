@@ -98,11 +98,6 @@
   - 12 deficiências formalizadas são reais — não hipotéticas
   Atualizar: `CLIENTES/VALDECE/REGISTRO_DE_PREMISSAS.md` e `CLIENTES/INGRID/REGISTRO_DE_PREMISSAS.md`
 
-- [ ] `2026-05-23` **COMANDO_ESTRATEGISTA_MASTER — atualizar BLOCO 1 (estado atual):**
-  O estado pós-expansão não está refletido no BLOCO 1 do MASTER.
-  Atualizar: versão SKILL_PROTOCOLO (v6.2), 25 ideias/ciclo, 13 DEF (nova DEF-E-8), P-056/P-057/P-058.
-  Arquivo: `PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md`
-
 - [ ] `2026-05-24` **scripts/deploy_ingrid_ghpages.ps1 — criar (P-056):**
   Automatizar sync master → gh-pages para o projeto Ingrid.
 

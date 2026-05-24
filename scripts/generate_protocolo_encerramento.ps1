@@ -86,9 +86,15 @@ if (Test-Path $pendentesPath) {
 }
 
 # --- Construir lista de pendentes (emoji via Unicode escape - PS1 ASCII-safe) ---
-$eVermelho = [string][char]0x1F534  # vermelho
-$eAmarelo  = [string][char]0x1F7E1  # amarelo
-$eBranco   = [string][char]0x26AA   # cinza/branco
+# PS5.1 nao suporta [char] acima de 0xFFFF — usar surrogate pair para emoji SMP
+function Get-Emoji([int]$codepoint) {
+    $hi = [char](0xD800 + (($codepoint - 0x10000) -shr 10))
+    $lo = [char](0xDC00 + (($codepoint - 0x10000) -band 0x3FF))
+    return "$hi$lo"
+}
+$eVermelho = Get-Emoji 0x1F534  # 🔴
+$eAmarelo  = Get-Emoji 0x1F7E1  # 🟡
+$eBranco   = [string][char]0x26AA   # ⚪ (BMP — funciona direto)
 $prioEmoji = @($eVermelho, $eVermelho, $eAmarelo, $eAmarelo, $eBranco)
 
 $pendentesLinhas = [System.Collections.Generic.List[string]]::new()
