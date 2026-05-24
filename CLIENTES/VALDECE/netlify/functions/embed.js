@@ -1,47 +1,49 @@
-// embed.js — Netlify Edge Function
-// Proxy para Gemini Embedding API — remove GEMINI_KEY do frontend
-// Deploy: Netlify env var GEMINI_API_KEY obrigatória
+// embed.js — Netlify Serverless Function
+// Proxy para Gemini Embedding API — GEMINI_API_KEY fica server-side
+// Variável de ambiente obrigatória: GEMINI_API_KEY (Netlify Dashboard)
 
-export default async function handler(req) {
-  // CORS preflight
-  if (req.method === 'OPTIONS') {
-    return new Response(null, {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
-    });
+exports.handler = async function (event) {
+  const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+
+  if (event.httpMethod === 'OPTIONS') {
+    return { statusCode: 200, headers: corsHeaders, body: '' };
   }
 
-  if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 });
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, headers: corsHeaders, body: 'Method not allowed' };
   }
 
   let body;
   try {
-    body = await req.json();
+    body = JSON.parse(event.body);
   } catch {
-    return new Response(JSON.stringify({ error: 'JSON inválido' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return {
+      statusCode: 400,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'JSON inválido' }),
+    };
   }
 
   const { text } = body;
   if (!text || typeof text !== 'string') {
-    return new Response(JSON.stringify({ error: 'Campo "text" obrigatório' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return {
+      statusCode: 400,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Campo "text" obrigatório' }),
+    };
   }
 
-  const apiKey = Netlify.env.get('GEMINI_API_KEY');
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'Serviço indisponível' }), {
-      status: 503,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return {
+      statusCode: 503,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Serviço indisponível' }),
+    };
   }
 
   const EMBED_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${apiKey}`;
@@ -58,27 +60,27 @@ export default async function handler(req) {
         outputDimensionality: 3072,
       }),
     });
-  } catch {
-    return new Response(JSON.stringify({ error: 'Falha ao contatar Gemini' }), {
-      status: 502,
-      headers: { 'Content-Type': 'application/json' },
-    });
+  } catch (err) {
+    return {
+      statusCode: 502,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Falha ao contatar Gemini' }),
+    };
   }
 
   if (!geminiRes.ok) {
-    return new Response(JSON.stringify({ error: 'Gemini retornou erro' }), {
-      status: 502,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    const detail = await geminiRes.text().catch(() => '');
+    return {
+      statusCode: 502,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Gemini retornou erro', detail }),
+    };
   }
 
   const data = await geminiRes.json();
-  return new Response(JSON.stringify({ embedding: data.embedding.values }), {
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
-  });
-}
-
-export const config = { path: '/.netlify/functions/embed' };
+  return {
+    statusCode: 200,
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ embedding: data.embedding.values }),
+  };
+};
