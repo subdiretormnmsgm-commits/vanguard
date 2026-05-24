@@ -666,7 +666,7 @@ function configurarLogoDeTap() {
     tapCount++;
     clearTimeout(tapTimer);
     tapTimer = setTimeout(() => { tapCount = 0; }, 2000);
-    if (tapCount >= 5) { tapCount = 0; toggleDebug(); }
+    if (tapCount >= 3) { tapCount = 0; toggleDebug(); }
   });
 }
 
