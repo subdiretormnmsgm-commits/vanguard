@@ -91,12 +91,26 @@ if ("serviceWorker" in navigator) {
 
 document.addEventListener("DOMContentLoaded", iniciar);
 
+// Pontos acumulados de sessões anteriores (carregados do DB no init)
+let pontosBase = 0;
+
 async function iniciar() {
   configurarLogoDeTap();
   configurarStaleSession();
 
   const aceitou = await verificarClickwrap();
   if (!aceitou) return;
+
+  // Dia 13: Widget Contador — carregar pontos cumulativos do DB antes de exibir feed
+  calcularPontosCumulativos().then(dados => {
+    if (dados && dados.pontos_total > 0) {
+      pontosBase = dados.pontos_total;
+      document.getElementById("pontos-valor").textContent = pontosBase;
+    }
+  });
+
+  // Dia 13: Lembrete dominical
+  verificarDominical();
 
   iniciarSessao(); // fire-and-forget — não bloqueia o feed
   await carregarFeedEIniciar();
@@ -313,7 +327,7 @@ async function processarResposta(questao, letraEscolhida, card) {
     acertosConsecutivos++;
     errosConsecutivos = 0;
     pontosAcumulados += questao.peso_edital;
-    document.getElementById("pontos-valor").textContent = pontosAcumulados;
+    document.getElementById("pontos-valor").textContent = pontosBase + pontosAcumulados;
   } else {
     acertosConsecutivos = 0;
     errosConsecutivos++;
@@ -629,6 +643,40 @@ async function notificarEduardo(heatmap) {
 }
 
 // ── STALE SESSION (N-4) — Dia 8 ──────────────────────────────────────────────
+// ── DIA 13: LEMBRETE DOMINICAL ────────────────────────────────────────────────
+function verificarDominical() {
+  const hoje = new Date();
+  if (hoje.getDay() !== 0) return; // só domingo
+
+  // Banner in-app — funciona em todos os dispositivos incluindo iOS Safari
+  const banner = document.createElement("div");
+  banner.id = "banner-dominical";
+  banner.innerHTML = `
+    <span>⏱ Domingo de estudo — hora do Micro-Simulado!</span>
+    <button id="btn-banner-simulado">Simular agora</button>
+    <button id="btn-banner-fechar" aria-label="Fechar">✕</button>`;
+  document.body.prepend(banner);
+
+  document.getElementById("btn-banner-fechar").addEventListener("click", () => banner.remove());
+  document.getElementById("btn-banner-simulado").addEventListener("click", () => {
+    banner.remove();
+    iniciarMicroSimulado();
+  });
+
+  // Notificação do browser para não-iOS (sem servidor — dispara ao abrir o app)
+  if (PUSH_SUPORTADO) {
+    Notification.requestPermission().then(perm => {
+      if (perm === "granted") {
+        new Notification("Sedes-DF 2026", {
+          body: "Domingo de estudo! Micro-Simulado de 10 questões te espera.",
+          icon: "/vanguard/icon-192.png",
+          tag: "dominical",
+        });
+      }
+    });
+  }
+}
+
 function configurarStaleSession() {
   let hiddenEm = 0;
 
