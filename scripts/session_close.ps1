@@ -632,3 +632,21 @@ try {
 } catch {
     Write-Host "  [!!] Telegram: $($_.Exception.Message)" -ForegroundColor Yellow
 }
+
+# --- Gerar PAINEL_ATIVIDADES para o Embaixador (P-060 Protocolo de Encerramento) ─────────
+$painelScript = Join-Path $BASE "scripts\generate_protocolo_encerramento.ps1"
+if (Test-Path $painelScript) {
+    Write-Host ""
+    Write-Host "=============================================="
+    Write-Host "  PAINEL DE ATIVIDADES — EMBAIXADOR"
+    Write-Host "=============================================="
+    $painelFile = & powershell.exe -NonInteractive -File $painelScript 2>$null
+    if ($painelFile -and (Test-Path $painelFile)) {
+        Write-Host ""
+        Write-Host "  [PAINEL] Arquivo pronto para upload ao Embaixador:" -ForegroundColor Cyan
+        Write-Host "  $painelFile" -ForegroundColor White
+        Write-Host ""
+        Write-Host "  Instrucao: abrir Claude Projects + fazer upload deste arquivo." -ForegroundColor Yellow
+        Write-Host "  O Embaixador cria/atualiza o PAINEL_ATIVIDADES automaticamente." -ForegroundColor Yellow
+    }
+}
