@@ -1,5 +1,5 @@
 ﻿// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
-// Loop 5 · Dia 12: Contador RPC [E-1] · Socrática Pânico G-5 · Vacina Legislação G-3 · Push Circuit Breaker G-1
+// Loop 5 · Dia 12 fix: G-5 lógica corrigida (errosConsecutivos precede ultima) · debug panel expandido
 
 // ── UTILS ─────────────────────────────────────────────────────────────────────
 // Converte **texto** para <strong>texto</strong> com escape seguro de HTML
@@ -372,11 +372,11 @@ async function processarResposta(questao, letraEscolhida, card) {
   if (ultima) btn.textContent = "Ver resultado →";
 
   btn.addEventListener("click", () => {
-    if (ultima) {
-      mostrarFim();
-    } else if (errosConsecutivos >= 3) {
-      // G-5: Socrática Pânico — 3 erros seguidos no feed
+    if (errosConsecutivos >= 3) {
+      // G-5: Socrática Pânico — 3 erros seguidos (verifica antes de ultima para não perder o trigger)
       ativarSocraticaPanico("feed");
+    } else if (ultima) {
+      mostrarFim();
     } else {
       renderizarQuestao(indiceAtual + 1);
     }
@@ -680,10 +680,12 @@ function atualizarDebug(questao, cacheStatus, custo) {
   if (!el) return;
 
   ultimoCacheStatus = cacheStatus ?? ultimoCacheStatus;
+  const isVacina = VACINA_DISCIPLINAS.has(questao?.disciplina_id);
   el.innerHTML = [
     `ID: <b>${questao?.id ?? "—"}</b>`,
-    `Disciplina: ${questao?.disciplina_id ?? "—"}`,
-    `Peso SM-2: ${questao?.peso_edital ?? "—"}`,
+    `Disciplina: ${questao?.disciplina_id ?? "—"}${isVacina ? " <b style='color:#FFD600'>⚡vacina</b>" : ""}`,
+    `Peso SM-2: ${questao?.peso_edital ?? "—"} · Feed: ${feed.length}q`,
+    `Erros consec.: <b>${errosConsecutivos}</b> (G-5 dispara em 3)`,
     `Cache: ${ultimoCacheStatus}`,
     `Gasto est.: $${gastoEstimado.toFixed(4)} / $${(COTA_DIARIA_USD * KILL_SWITCH_PCT).toFixed(2)}`,
     `Kill-switch: ${killSwitchAtivado ? "<b style='color:var(--red)'>ATIVO</b>" : "off"}`,
@@ -971,6 +973,9 @@ function ativarSocraticaPanico(tipo) {
     simuladoErrosPorDisciplina = {};
     if (tipo === "simulado") {
       location.reload();
+    } else if (indiceAtual >= feed.length - 1) {
+      // G-5 disparou na última questão — vai para resultado em vez de próxima
+      mostrarFim();
     } else {
       renderizarQuestao(indiceAtual + 1);
     }

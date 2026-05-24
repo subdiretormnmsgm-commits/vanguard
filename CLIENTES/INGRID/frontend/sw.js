@@ -1,5 +1,5 @@
 // Service Worker — Sedes-DF 2026 Ingrid
-const CACHE = "sedes-df-v12";
+const CACHE = "sedes-df-v13";
 const STATIC = ["/", "/index.html", "/app.js", "/style.css", "/manifest.json"];
 
 self.addEventListener("install", (e) => {
