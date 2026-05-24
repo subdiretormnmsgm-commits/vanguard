@@ -929,6 +929,9 @@ function mostrarResultadoSimulado() {
   }
 }
 
+// Debug: força G-5 para testes — acessível via botão no debug panel
+window._testG5 = () => { errosConsecutivos = 3; ativarSocraticaPanico("feed"); };
+
 // ── G-5: SOCRÁTICA PÂNICO ────────────────────────────────────────────────────
 function ativarSocraticaPanico(tipo) {
   // Identifica disciplina mais errática para orientar o foco
