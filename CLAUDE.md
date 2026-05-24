@@ -204,6 +204,14 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
         silenciosamente. (ir_ao_embaixador.ps1 já implementa este gate.)
     (e) Logs de scripts de automação (monitor_hypercare, sync) devem prefixar "[CLIENTE]" em cada linha
         de operação — logs misturados tornam diagnóstico impossível em escala.
+22. PROTOCOLO DE ENCERRAMENTO VAI AO EMBAIXADOR — SEMPRE (2026-05-24):
+    Ao fechar qualquer sessão, o Músculo gera automaticamente o PAINEL_ATIVIDADES via
+    `scripts/generate_protocolo_encerramento.ps1` (integrado ao session_close.ps1).
+    O arquivo gerado fica em `PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_[DATA].md`.
+    Eduardo faz upload do arquivo ao Embaixador (Claude Projects) — zero cópia manual.
+    O Embaixador cria/atualiza o artefato PAINEL_ATIVIDADES com semáforo visual de pendentes.
+    O Diretor gerencia todas as atividades a partir deste painel.
+    Regra: "Eu não vou copiar. Quero o documento pronto." — declaração do Diretor 2026-05-24.
 ```
 
 ---
