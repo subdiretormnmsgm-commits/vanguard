@@ -54,6 +54,17 @@ function Test-PastaExcluida {
     }
     return $false
 }
+function Get-NumeradoDestino {
+    # Retorna o caminho do arquivo ##_<nome> se existir; caso contrario, retorna caminho bare.
+    # Evita criar copias bare quando ja existe versao numerada para o NotebookLM.
+    param([string]$fontes_dir, [string]$nome)
+    $pattern = '^[0-9]{2}_' + [regex]::Escape($nome) + '$'
+    $numerado = Get-ChildItem $fontes_dir -ErrorAction SilentlyContinue |
+                Where-Object { $_.Name -match $pattern } |
+                Select-Object -First 1
+    if ($numerado) { return $numerado.FullName }
+    return (Join-Path $fontes_dir $nome)
+}
 
 ### Acoes Especiais
 if ($promover -ne "") {
@@ -143,7 +154,7 @@ foreach ($proj_path in $projetos) {
     if (-not (Test-Path $fontes_dir)) { New-Item -ItemType Directory -Path $fontes_dir -Force | Out-Null }
 
     foreach ($fonte in $lista_fontes_origem) {
-        $arq_destino = Join-Path $fontes_dir $fonte.Nome
+        $arq_destino = Get-NumeradoDestino $fontes_dir $fonte.Nome
         $chave = "$proj_nome|$($fonte.Nome)"
 
         if (-not (Test-Path $arq_destino)) {
@@ -159,7 +170,9 @@ foreach ($proj_path in $projetos) {
 
     $arquivos_projeto = Get-ChildItem -Path $fontes_dir -File
     foreach ($arq_proj in $arquivos_projeto) {
-        $existe_na_origem = $lista_fontes_origem | Where-Object { $_.Nome -eq $arq_proj.Name }
+        # Strip prefixo ##_ para comparar com nome da fonte original
+        $nomeBase = $arq_proj.Name -replace '^[0-9]{2}_', ''
+        $existe_na_origem = $lista_fontes_origem | Where-Object { $_.Nome -eq $arq_proj.Name -or $_.Nome -eq $nomeBase }
         if (-not $existe_na_origem) {
             $chave = "$proj_nome|$($arq_proj.Name)"
             $inventario[$chave] = "ORFAO"; $contadores.ORFAO++
@@ -199,9 +212,10 @@ foreach ($proj_path in $projetos) {
 
     foreach ($fonte in $lista_fontes_origem) {
         $chave       = "$proj_nome|$($fonte.Nome)"
-        $arq_destino = Join-Path $fontes_dir $fonte.Nome
+        $arq_destino = Get-NumeradoDestino $fontes_dir $fonte.Nome
 
-        if ($inventario[$chave] -in @("AUSENTE", "DESATUAL")) {
+        if ($inventario[$chave] -in @("DESATUAL")) {
+            # AUSENTE e ignorado: NOTEBOOKLM_FONTES so recebe novos arquivos via preparar_notebooklm_projeto.ps1
             Copy-Item -Path $fonte.Caminho -Destination $arq_destino -Force
             $sincronizados++
             if ($verbose) { Write-Log "  SYNC: $proj_nome\$($fonte.Nome)" "Green" }
