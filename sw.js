@@ -1,4 +1,4 @@
-// Service Worker — Sedes-DF 2026 Ingrid
+﻿// Service Worker — Sedes-DF 2026 Ingrid
 const CACHE = "sedes-df-v14";
 const BASE   = "/vanguard/";
 const STATIC = [BASE, BASE + "index.html", BASE + "app.js?v=13", BASE + "style.css?v=13", BASE + "manifest.json"];
