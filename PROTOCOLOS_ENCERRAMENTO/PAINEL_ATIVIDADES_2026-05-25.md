@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Atualizado em 2026-05-25 00:31
+### Pentalateral IAH - Segunda-feira, 2026-05-25 00:42
 
 ---
 
@@ -7,15 +7,15 @@
 
 ```
 Ingrid     [BUILD    ]  Loop 5 — Dias 12-13 — Contador Pontos Ponderados + Push dominical  Deadline: 2026-05-30
-Valdece    [BUILD    ]  Loop 7 CONCLUíDO (V3 entregue) — DIA A+B+C. Deploy Netlify pendente (Diretor)  Deadline: 2026-05-23
+Valdece    [BUILD    ]  Loop 7 CONCLUíDO (V3 entregue + Deploy Netlify OK) — toga-digital-valdece.netlify.app ativo  Deadline: 2026-05-23
 ```
 
 ---
 
 ## COMMIT DA SESSAO
 
-Commit : 4791a4d - 1 arquivo(s) alterado(s)
-Mensagem: feat(valdece-v3): deploy Netlify produção — proxy embed 200 · vetor 3072 · smoke test OK
+Commit : ab32bd0 - 20 arquivo(s) alterado(s)
+Mensagem: chore(session-close): P-066 + 3 sócios preparados + sync completo + destino PAINEL corrigido
 
 ---
 
@@ -25,13 +25,15 @@ VALDECE V3 — ENTREGUE E EM PRODUÇÃO (2026-05-25):
   - DIA A: reingest 61 acórdãos + gate_v3 pos APROVADO (vinculantes=3 · pleno=5 · turma=56)
   - DIA B: badges VINCULANTE/REPETITIVO + ABNT garantido + 23 sinônimos penais + sw.js cache offline
   - DIA C: infra confirmada no Supabase de Eduardo (toga-digital-valdece) — sem migração
-  - Deploy Netlify: toga-digital-valdece.netlify.app — proxy embed 200 OK · 3072 dim
+  - Deploy Netlify: toga-digital-valdece.netlify.app — proxy embed 200 OK · 3072 dim · smoke test OK
   - view_diretor_roi validada em produção: total_acordaos=61 · vinculantes=3 · dias_em_uso=4
-  - Commits: ec1619f · 8178e7f · de50c70 · b64fe23 · 4791a4d
 
-INGRID — Loop 5 Gemini (sessão anterior):
-  - DIRETRIZ V6 confirmada: CLIENTES/INGRID/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt (15KB)
-  - PENDENTES.md atualizado: Loop 5 Gemini marcado [x]
+INGRID — Loop 5 Gemini confirmado (sessão anterior):
+  - DIRETRIZ V6: NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt (15KB) — Loop 5 Gemini [x]
+
+INFRA — Protocolo de encerramento:
+  - Criado projeto 'Embaixador — Diretor' no Claude.ai (destino fixo do PAINEL_ATIVIDADES)
+  - P-066 registrado no LEDGER — destino do PAINEL agora explícito e permanente
 
 ---
 

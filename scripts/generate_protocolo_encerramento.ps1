@@ -13,6 +13,8 @@ param(
 $raiz = Split-Path -Parent $PSScriptRoot
 $data = Get-Date -Format "yyyy-MM-dd"
 $hora = Get-Date -Format "HH:mm"
+$diaSemana = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+$diaSemana = $diaSemana.Substring(0,1).ToUpper() + $diaSemana.Substring(1)
 
 # --- Diretorio de saida ---
 $outputDir = "$raiz\PROTOCOLOS_ENCERRAMENTO"
@@ -128,7 +130,7 @@ $tri = '```'
 
 $linhasDoc = [System.Collections.Generic.List[string]]::new()
 $linhasDoc.Add("# PAINEL DE ATIVIDADES - DIRETOR EDUARDO")
-$linhasDoc.Add("### Pentalateral IAH - Atualizado em $data $hora")
+$linhasDoc.Add("### Pentalateral IAH - $diaSemana, $data $hora")
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
 $linhasDoc.Add("")
