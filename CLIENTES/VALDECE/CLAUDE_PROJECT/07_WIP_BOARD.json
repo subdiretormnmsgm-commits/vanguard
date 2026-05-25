@@ -1,5 +1,5 @@
 {
-    "atualizado_em":  "2026-05-24",
+    "atualizado_em":  "2026-05-25",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -162,7 +162,7 @@
                                     "motivo_slip":  "Cliente com dificuldades no Supabase e Google AI Studio — reunião presencial agendada segunda-feira 2026-05-19",
                                     "status":  "Sistema LIVE · Contrato ASSINADO 2026-05-19 · R · V3 pipeline desbloqueado",
                                     "modelo_entrega":  "Opção A — infra Valdece, sem MRR, R$1,20/mês no API dele",
-                                    "loop_atual":  "Loop 6 CONCLUÍDO (commit 9709649) — Loop 7 (V3: data_dje + badges vinculantes) aguardando seed nas credenciais do Valdece",
+                                    "loop_atual":  "Loop 7 CONCLUíDO (V3 entregue) — DIA A+B+C. Deploy Netlify pendente (Diretor)",
                                     "discovery_completo":  true,
                                     "diretriz_gemini_v3":  true,
                                     "skill_notebooklm_v2":  true,
@@ -233,7 +233,7 @@
                                     "contrato_assinado":  true,
                                     "contrato_assinado_em":  "2026-05-19",
                                     "gate_v3":  "DESBLOQUEADO",
-                                    "proximo_passo":  "Loop 7 — Dia 6 — SEQUÊNCIA OBRIGATÓRIA: (1) sql/v3_migration.sql — ALTER TABLE ADD COLUMN data_dje/repercussao_geral/recurso_repetitivo/turma (2) ingest.py --mode reingest --dry-run — atualiza 61 acórdãos existentes com novos campos via Gemini Flash, SEM re-embedding (3) validar output dry-run — confirmar campos preenchidos (4) ingest.py --mode reingest — aplicar no Supabase Vanguard (5) badges VINCULANTE/REPETITIVO no frontend (6) search_documents() retornar novos campos (7) migração Supabase conta Valdece sa-east-1 — ÚLTIMO PASSO após tudo testado",
+                                    "proximo_passo":  "V3 ENTREGUE — Deploy Netlify (Diretor) + Sentinel Report 2026-06-02",
                                     "v2_pipeline":  {
                                                         "features":  [
                                                                          "Sovereign Upload",
@@ -246,10 +246,10 @@
                                     "loop_fase_atual":  {
                                                             "loop":  7,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "PENDENTE",
-                                                            "embaixador":  "PENDENTE",
+                                                            "notebooklm":  "OK",
+                                                            "embaixador":  "OK",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -\u003e Skill valdece-v7.md"
+                                                            "proximo":  "Músculo deliberar Skill valdece-v7.md + executar vereditos D1-D6"
                                                         }
                                 }
                             ],

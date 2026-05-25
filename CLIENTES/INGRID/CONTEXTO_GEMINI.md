@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-25 00:16
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-25 00:41
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-b64fe23 docs(valdece-v3): schema_v3_completo.sql — referência para projeto futuro
-de50c70 feat(valdece-v3/dia-b): sinônimos penais + service worker + cache offline
-8178e7f feat(valdece-v3/dia-b): badges VINCULANTE + REPETITIVO + ABNT link garantido
+59b2d2e chore(encerramento): PAINEL_ATIVIDADES 2026-05-25 — V3 Valdece entregue + deploy OK
+4791a4d feat(valdece-v3): deploy Netlify produção — proxy embed 200 · vetor 3072 · smoke test OK
+e6f094b chore(encerramento): PENDENTES Loop5-Gemini [x] + WIP_BOARD Valdece loop_atual V3
 
 ================================================================================
 

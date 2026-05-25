@@ -1,5 +1,5 @@
 ﻿WIP BOARD — PENTALATERAL IAH
-Atualizado em: 2026-05-24
+Atualizado em: 2026-05-25
 WIP Limits: BUILD=2  CHECK=1
 
 ==============================
@@ -48,9 +48,9 @@ PROJETO: PROJ-001 — Valdece
   Stack     : 
   Deadline  : 2026-05-23
   Status    : Sistema LIVE · Contrato ASSINADO 2026-05-19 · R · V3 pipeline desbloqueado
-  Loop atual: Loop 6 CONCLUÍDO (commit 9709649) — Loop 7 (V3: data_dje + badges vinculantes) aguardando seed nas credenciais do Valdece
+  Loop atual: Loop 7 CONCLUíDO (V3 entregue) — DIA A+B+C. Deploy Netlify pendente (Diretor)
   Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui, dia4_gate_abnt_threshold_toga, dia5_corpus_deploy_demo
-  Proximo passo: Loop 7 — Dia 6 — SEQUÊNCIA OBRIGATÓRIA: (1) sql/v3_migration.sql — ALTER TABLE ADD COLUMN data_dje/repercussao_geral/recurso_repetitivo/turma (2) ingest.py --mode reingest --dry-run — atualiza 61 acórdãos existentes com novos campos via Gemini Flash, SEM re-embedding (3) validar output dry-run — confirmar campos preenchidos (4) ingest.py --mode reingest — aplicar no Supabase Vanguard (5) badges VINCULANTE/REPETITIVO no frontend (6) search_documents() retornar novos campos (7) migração Supabase conta Valdece sa-east-1 — ÚLTIMO PASSO após tudo testado
+  Proximo passo: V3 ENTREGUE — Deploy Netlify (Diretor) + Sentinel Report 2026-06-02
 
 ==============================
 PERFIS DE NICHO

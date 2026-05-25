@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 # generate_protocolo_encerramento.ps1 - Gera PAINEL_ATIVIDADES preenchido para o Embaixador
 # Chamado pelo session_close.ps1 ao encerrar qualquer sessao.
 # Output: PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_[DATA].md
@@ -188,7 +188,7 @@ $linhasDoc -join "`n" | Out-File -FilePath $outputFile -Encoding UTF8
 
 Write-Host ""
 Write-Host "  [PAINEL] Gerado: PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$data.md" -ForegroundColor Cyan
-Write-Host "  [PAINEL] Fazer upload ao Embaixador (Claude Projects)." -ForegroundColor Yellow
+Write-Host "  [PAINEL] Fazer upload ao projeto: Embaixador — Diretor (claude.ai/projects)" -ForegroundColor Yellow
 Write-Host ""
 
 return $outputFile

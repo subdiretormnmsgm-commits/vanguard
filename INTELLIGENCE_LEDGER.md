@@ -1323,3 +1323,9 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 - `CLIENTES/VALDECE/HISTORICO/AUDITOR_LOOP_7_VALDECE.md` — criado
 - `CLIENTES/VALDECE/DIRETRIZ_GEMINI_V7.txt` — salvo em localização permanente
 - `CLIENTES/VALDECE/CLAUDE_PROJECT/DECISOES/VEREDITOS_RESUMO_VALDECE_2026-05-24.md` — gerado
+
+
+### [SESSAO 2026-05-25]
+
+`[FRICCAO]` Protocolo de encerramento definia destino do PAINEL como "Claude Project do Diretor" mas o projeto nao existia — Musculo inventou destino sem verificar
+`[PRINCIPIO]` P-066: PAINEL_ATIVIDADES vai ao projeto "Embaixador — Diretor" no Claude.ai — destino fixo, explícito, criado pelo Diretor em 2026-05-25
