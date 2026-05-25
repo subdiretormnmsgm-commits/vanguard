@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-05-25 00:47
+### Pentalateral IAH - Segunda-feira, 2026-05-25 00:52
 
 ---
 
@@ -14,8 +14,8 @@ Valdece    [BUILD    ]  Loop 7 CONCLUíDO (V3 entregue + Deploy Netlify OK) — 
 
 ## COMMIT DA SESSAO
 
-Commit : fcd7194 - 1 arquivo(s) alterado(s)
-Mensagem: chore(ingrid): PENDENTES com datas + dias da semana — Dias 14/15 explícitos
+Commit : 9a8a8f0 - 3 arquivo(s) alterado(s)
+Mensagem: fix(painel): regex pendentes aceita data com dia semana + PAINEL final com cronograma Ingrid
 
 ---
 
@@ -75,11 +75,7 @@ CRONOGRAMA INGRID — 5 dias até deadline 30/05:
 
 ## INSTRUCAO PARA O EMBAIXADOR
 
-Ao receber este painel, criar ou substituir o artefato PAINEL_ATIVIDADES no Claude Project do Diretor.
-(a) Resumo executivo em 3 bullets: o que avancou, o que esta em risco, o que o Diretor decide
-(b) Semaforo visual de pendentes por projeto (vermelho/amarelo/verde)
-(c) Proxima acao do Diretor em destaque - unica, clara, com prazo
-O artefato e cumulativo. Substituir o anterior.
+Gerar o artefato PAINEL_ATIVIDADES com base neste arquivo.
 
 ---
 
