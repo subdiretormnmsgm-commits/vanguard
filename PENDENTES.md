@@ -21,11 +21,10 @@
   ✅ MEMORIA_EMBAIXADOR atualizada (Loop 7 · Score 6.5 · Hypercare ativo)
   ✅ WIP_BOARD: notebooklm=OK · embaixador=OK
 
-- [ ] `2026-05-25` **Deploy Netlify — ativar V3 em produção:**
-  1. Netlify Dashboard → Site Settings → Environment Variables → `GEMINI_API_KEY` = chave ativa
-  2. `netlify deploy --prod --dir=CLIENTES/VALDECE/frontend --functions=CLIENTES/VALDECE/netlify/functions`
-  3. Smoke test: badge ● VINCULANTE nos 3 REs · ABNT com link · embed proxy 200
-  ⚠️ Sem este deploy os badges V3 não aparecem para Valdece.
+- [x] `2026-05-25` ~~**Deploy Netlify — ativar V3 em produção:**~~
+  ✅ deploy em 11s — toga-digital-valdece.netlify.app — 2026-05-25
+  ✅ Proxy embed: 200 OK · vetor 3072 dimensões · GEMINI_API_KEY server-side
+  ✅ GEMINI_API_KEY já estava configurada (Builds + Functions + Runtime)
 
 - [ ] `2026-05-24` **Sentinel Report — gerar em 2026-06-02:**
   Relatório de Hypercare para Valdece. Template em CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md.
