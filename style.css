@@ -671,6 +671,18 @@ main {
 .mapa-item-stats span { white-space: nowrap; }
 
 /* ── MICRO-SIMULADO — Dia 11 ── */
+/* N-4: SM-2 revisão — badge dourado para questões de Fixação */
+.badge-sm2 {
+  background: rgba(255,214,0,0.12);
+  color: var(--yellow);
+  border: 1px solid rgba(255,214,0,0.3);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
 .badge-simulado {
   background: rgba(179,102,255,0.12);
   color: #b366ff;
@@ -714,6 +726,132 @@ main {
   font-weight: 700;
   letter-spacing: 0.04em;
 }
+
+/* ── N-3: Linha de Corte — Dia 14 ───────────────────────────── */
+.meta-corte {
+  width: 100%;
+  max-width: 320px;
+  background: var(--surface);
+  border: 1px solid rgba(0,240,255,0.12);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meta-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.meta-valores {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.meta-barra-bg {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.meta-barra-fill {
+  height: 100%;
+  background: var(--cyan);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+  opacity: 0.7;
+}
+
+.meta-barra-fill.meta-ok {
+  background: var(--green);
+  opacity: 1;
+}
+
+.meta-rodape {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ── N-1 + N-3: Dashboard (painel admin) — Dia 14 ───────────── */
+.dash-section {
+  padding: 10px 14px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.dash-section:last-child { border-bottom: none; }
+
+.dash-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+
+.dash-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.dash-input {
+  width: 72px;
+  background: rgba(0,0,0,0.5);
+  color: var(--cyan);
+  border: 1px solid rgba(0,240,255,0.3);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  text-align: center;
+}
+
+.dash-unit {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.dash-btn {
+  padding: 4px 10px;
+  background: rgba(0,240,255,0.1);
+  color: var(--cyan);
+  border: 1px solid rgba(0,240,255,0.3);
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dash-btn:hover { background: rgba(0,240,255,0.18); }
+
+.dash-status {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.dash-info {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 6px;
+  font-family: 'Courier New', monospace;
+}
+
+.dash-debug-wrap .debug-content { padding: 6px 0 4px; }
 
 /* ── G-5: Socrática Pânico ──────────────────────────────────── */
 .panico-screen {
