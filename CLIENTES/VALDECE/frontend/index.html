@@ -667,6 +667,11 @@
   <!-- Results -->
   <div id="results"></div>
 
+  <!-- Cache offline banner -->
+  <div id="cache-banner" style="display:none;margin:12px 0;padding:10px 14px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.30);border-radius:6px;font-size:12px;color:var(--muted);">
+    Modo offline — exibindo última busca: "<span id="cache-query" style="color:var(--gold)"></span>"
+  </div>
+
 </main>
 
 <script type="module">
@@ -989,10 +994,19 @@
 
     try {
       const { results, elapsed } = await search(query);
+      saveLastSearch(query, results, elapsed);
+      cacheBannerEl.style.display = 'none';
       renderResults(boostMonocratica(results), elapsed, modoToggle.checked);
       loadStats();
     } catch (err) {
-      resultsEl.innerHTML = `<div style="color:var(--danger);padding:20px;text-align:center">Erro na busca: ${err.message}</div>`;
+      const cached = loadLastSearch();
+      if (cached) {
+        renderResults(boostMonocratica(cached.results), cached.elapsed, modoToggle.checked);
+        cacheQueryEl.textContent  = cached.query;
+        cacheBannerEl.style.display = 'block';
+      } else {
+        resultsEl.innerHTML = `<div style="color:var(--danger);padding:20px;text-align:center">Erro na busca: ${err.message}</div>`;
+      }
     } finally {
       statusEl.style.display = 'none';
       searchBtn.disabled = false;
@@ -1004,9 +1018,28 @@
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSearch(); }
   });
 
+  const cacheBannerEl  = document.getElementById('cache-banner');
+  const cacheQueryEl   = document.getElementById('cache-query');
+  const CACHE_KEY      = 'toga_last_search';
+
+  function saveLastSearch(query, results, elapsed) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ query, results, elapsed }));
+    } catch (e) {}
+  }
+
+  function loadLastSearch() {
+    try { return JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); } catch (e) { return null; }
+  }
+
   // ── Init ──
   loadStats();
   setInterval(loadStats, 60000);
+
+  // ── Service Worker ──
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  }
 </script>
 </body>
 </html>

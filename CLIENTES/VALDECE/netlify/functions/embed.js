@@ -2,6 +2,49 @@
 // Proxy para Gemini Embedding API — GEMINI_API_KEY fica server-side
 // Variável de ambiente obrigatória: GEMINI_API_KEY (Netlify Dashboard)
 
+// Expansão lexical de termos penais — melhora recall sem custo de API
+const SINONIMOS = {
+  'prisao preventiva':   'prisão preventiva cautelar medida restritiva liberdade prisão provisória',
+  'prisão preventiva':   'prisão preventiva cautelar medida restritiva liberdade prisão provisória',
+  'habeas corpus':       'habeas corpus liberdade locomoção writ coação constrangimento ilegal',
+  'hc ':                 'habeas corpus liberdade locomoção writ',
+  'nulidade':            'nulidade processual invalidade ato processual vício cerceamento defesa',
+  'flagrante':           'prisão em flagrante delito ilegal relaxamento',
+  'trafico':             'tráfico drogas entorpecentes Lei 11.343 narcotráfico',
+  'tráfico':             'tráfico drogas entorpecentes Lei 11.343 narcotráfico',
+  'peculato':            'peculato apropriação indébita crime funcional funcionário público',
+  'corrupcao':           'corrupção passiva ativa suborno propina crime funcional',
+  'corrupção':           'corrupção passiva ativa suborno propina crime funcional',
+  'roubo':               'roubo furto qualificado patrimônio violência grave ameaça',
+  'homicidio':           'homicídio doloso culposo crime vida júri plenário',
+  'homicídio':           'homicídio doloso culposo crime vida júri plenário',
+  'dosimetria':          'dosimetria pena fixação aplicação sanção circunstâncias judiciais',
+  'revisao criminal':    'revisão criminal rescisória condenação injusta absolvição',
+  'revisão criminal':    'revisão criminal rescisória condenação injusta absolvição',
+  'execucao penal':      'execução penal pena cumprimento regime progressão remição',
+  'execução penal':      'execução penal pena cumprimento regime progressão remição',
+  'excesso de prazo':    'excesso prazo constrangimento ilegal prisão provisória razoável duração',
+  'lavagem':             'lavagem dinheiro ocultação dissimulação produtos crime Lei 9.613',
+  'estelionato':         'estelionato fraude engano vantagem ilícita prejuízo alheio',
+  'legitima defesa':     'legítima defesa excludente ilicitude proporcionalidade moderação',
+  'legítima defesa':     'legítima defesa excludente ilicitude proporcionalidade moderação',
+  'reincidencia':        'reincidência agravante pena antecedentes criminais',
+  'reincidência':        'reincidência agravante pena antecedentes criminais',
+  'concurso de crimes':  'concurso material formal continuado exasperação cumulação penas',
+};
+
+function expandQuery(text) {
+  const lower = text.toLowerCase();
+  const added = new Set();
+  for (const [term, expansion] of Object.entries(SINONIMOS)) {
+    if (lower.includes(term) && !added.has(expansion)) {
+      added.add(expansion);
+    }
+  }
+  if (!added.size) return text;
+  return `${text} ${[...added].join(' ')}`.slice(0, 2048);
+}
+
 exports.handler = async function (event) {
   const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
@@ -37,6 +80,8 @@ exports.handler = async function (event) {
     };
   }
 
+  const expandedText = expandQuery(text);
+
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return {
@@ -55,7 +100,7 @@ exports.handler = async function (event) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'models/gemini-embedding-001',
-        content: { parts: [{ text: text.slice(0, 2048) }] },
+        content: { parts: [{ text: expandedText }] },
         taskType: 'RETRIEVAL_QUERY',
         outputDimensionality: 3072,
       }),
