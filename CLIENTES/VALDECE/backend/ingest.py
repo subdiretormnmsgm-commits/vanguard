@@ -506,13 +506,25 @@ def classify_v3_fields(ementa: str, tribunal: str, numero: str = "") -> dict:
     """
     Classifica campos V3.
     turma: prefixo do número (confiável) → fallback Gemini Flash.
-    repercussao_geral / recurso_repetitivo: regex na ementa (dado secundário).
+    repercussao_geral: RE/ARE no STF → True por exigência constitucional (EC 45/2004);
+                       fallback: regex na ementa.
+    recurso_repetitivo: regex na ementa (dado secundário).
     """
     turma = classify_composicao(numero, tribunal)
 
     lower = ementa.lower()
-    repercussao = bool(re.search(r'repercuss[aã]o\s+geral', lower))
-    repetitivo  = bool(re.search(r'recurso\s+(especial\s+)?repetitivo', lower))
+    n_upper = numero.upper().strip()
+    trib_upper = tribunal.upper()
+
+    # RE e ARE no STF exigem repercussão geral como requisito de admissibilidade
+    stf_re_prefixes = ("RE ", "RE.", "ARE ", "ARE.", "RE-", "ARE-")
+    repercussao = (
+        trib_upper == "STF" and any(n_upper.startswith(p) for p in stf_re_prefixes)
+    )
+    if not repercussao:
+        repercussao = bool(re.search(r'repercuss[aã]o\s+geral', lower))
+
+    repetitivo = bool(re.search(r'recurso\s+(especial\s+)?repetitivo', lower))
 
     return {
         "turma":              turma,

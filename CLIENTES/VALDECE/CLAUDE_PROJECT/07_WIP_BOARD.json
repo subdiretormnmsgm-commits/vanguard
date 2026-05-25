@@ -1,4 +1,4 @@
-﻿{
+{
     "atualizado_em":  "2026-05-24",
     "wip_limits":  {
                        "build":  2,
@@ -139,7 +139,15 @@
                                                       "bug_negrito":  "CORRIGIDO — md2html() deployed gh-pages d00c2c1 — 2026-05-19",
                                                       "temperatura_cliente":  "QUENTE"
                                                   },
-                                    "proximo_passo":  "Músculo: build Dia 13 (Push dominical + Widget Contador no header) · Deploy gh-pages via deploy_ingrid_ghpages.ps1 · Deadline: 2026-05-30 (6 dias)"
+                                    "proximo_passo":  "Músculo: build Dia 13 (Push dominical + Widget Contador no header) · Deploy gh-pages via deploy_ingrid_ghpages.ps1 · Deadline: 2026-05-30 (6 dias)",
+                                    "loop_fase_atual":  {
+                                                            "loop":  5,
+                                                            "gemini":  "OK",
+                                                            "notebooklm":  "PENDENTE",
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "PENDENTE",
+                                                            "proximo":  "NotebookLM -\u003e Skill ingrid-v5.md"
+                                                        }
                                 },
                                 {
                                     "id":  "PROJ-001",
@@ -234,7 +242,15 @@
                                                                      ],
                                                         "gatilho":  "corpus ≥ 500 docs ou 30 dias pós-entrega",
                                                         "pricing":  "R$8.500–12.000 projeto único + R$300/mês manutenção opcional"
-                                                    }
+                                                    },
+                                    "loop_fase_atual":  {
+                                                            "loop":  7,
+                                                            "gemini":  "OK",
+                                                            "notebooklm":  "PENDENTE",
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "PENDENTE",
+                                                            "proximo":  "NotebookLM -\u003e Skill valdece-v7.md"
+                                                        }
                                 }
                             ],
                   "check":  [

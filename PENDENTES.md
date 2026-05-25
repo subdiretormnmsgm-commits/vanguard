@@ -13,10 +13,12 @@
   `python ingest.py --mode reingest` — popula turma + repercussao_geral + recurso_repetitivo + data_dje nos 61 acórdãos.
   Badges PLENO/COLEGIADA só aparecem após este passo.
 
-- [ ] `2026-05-24` **Embaixador Valdece — ativar com nova sistemática:**
-  1. Cole no Claude Project Valdece: mensagem de ativação do novo papel (DECISOES.json)
-  2. Cole: MENSAGEM_INTERACAO_INICIAL.md V2.0 (via clipboard do ir_ao_embaixador.ps1 -cliente VALDECE)
-  3. Suba arquivos atualizados: INTELLIGENCE_LEDGER + WIP_BOARD + MEMORIA_EMBAIXADOR (feito pelo script)
+- [x] `2026-05-24` ~~**Embaixador Valdece — ativar com nova sistemática:**~~
+  ✅ Embaixador ativado — LOG_002 processado — blocos A–H completos
+  ✅ DECISOES_VALDECE_2026-05-24.json → VEREDITOS_VALDECE_2026-05-24.json → executar_vereditos.ps1 (automático)
+  ✅ D1 clipboard · D3 scope-watch · D5 P-065 LEDGER · D6 pipeline OAB
+  ✅ MEMORIA_EMBAIXADOR atualizada (Loop 7 · Score 6.5 · Hypercare ativo)
+  ✅ WIP_BOARD: notebooklm=OK · embaixador=OK
 
 - [ ] `2026-05-24` **Sentinel Report — gerar em 2026-06-02:**
   Relatório de Hypercare para Valdece. Template em CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md.

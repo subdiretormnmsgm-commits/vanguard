@@ -1,0 +1,71 @@
+{
+  "schema_versao": "1.0",
+  "projeto": "PROJ001_VALDECE",
+  "projeto_label": "Valdece",
+  "data_decisoes": "2026-05-24",
+  "data_veredito": "2026-05-25T01:40:58.259Z",
+  "loop": 7,
+  "vereditos": [
+    {
+      "id": "D1",
+      "titulo": "Mensagem Hypercare — Dia 5",
+      "valor_selecionado": "enviar_agora",
+      "label_selecionado": "Enviar agora",
+      "texto_final": "Valdece, como tá funcionando o sistema essa semana? Só checando se tá fluindo bem — qualquer dúvida ou travamento me fala que resolvo na hora.",
+      "acoes": [
+        "copiar_clipboard",
+        "log_contato"
+      ]
+    },
+    {
+      "id": "D2",
+      "titulo": "Plantar semente da migração",
+      "valor_selecionado": "plantar_separado",
+      "label_selecionado": "Plantar em mensagem separada — amanhã",
+      "texto_final": "As credenciais são nossas. Não enviarei essa mesagem",
+      "acoes": [
+        "log_apenas"
+      ]
+    },
+    {
+      "id": "D3",
+      "titulo": "Scope creep — risco de pedidos pós-assinatura",
+      "valor_selecionado": "protocolo_ativo",
+      "label_selecionado": "Ativar protocolo — qualquer pedido novo = Change-Order",
+      "texto_final": "Boa ideia — vou registrar aqui como próxima etapa. Isso entra na V2 que já temos planejada, com valor acordado separado. Posso te passar o detalhamento quando fecharmos o ciclo atual.",
+      "acoes": [
+        "log_apenas"
+      ]
+    },
+    {
+      "id": "D4",
+      "titulo": "Sentinel Report — Dia 14 (2026-06-02)",
+      "valor_selecionado": "whatsapp_curto",
+      "label_selecionado": "WhatsApp curto — canal de confiança",
+      "texto_final": "Valdece, primeiro mês do sistema. Aqui está o que o seu tempo valeu — em buscas que você não precisou fazer à mão.",
+      "acoes": [
+        "log_apenas"
+      ]
+    },
+    {
+      "id": "D5",
+      "titulo": "Princípio candidato ao LEDGER — Nicho Advocacia",
+      "valor_selecionado": "aprovar",
+      "label_selecionado": "Aprovar — Músculo numera e inscreve no LEDGER",
+      "texto_final": "Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.",
+      "acoes": [
+        "inscrever_ledger"
+      ]
+    },
+    {
+      "id": "D6",
+      "titulo": "Pipeline OAB — capturar nomes de colegas",
+      "valor_selecionado": "protocolo_ativo",
+      "label_selecionado": "Ativar protocolo — Eduardo usa esta pergunta ao ouvir qualquer menção",
+      "texto_final": "Que legal! Ele também é criminalista? Se precisar de uma ferramenta parecida, me avisa — a gente faz uma demo rápida.",
+      "acoes": [
+        "log_apenas"
+      ]
+    }
+  ]
+}

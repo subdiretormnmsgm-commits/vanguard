@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-20 14:12
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-24 21:50
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-9d9aead fix(gemini): output por projeto + corrige encoding em-dash no ps1
-15a809b docs(passo6): enumeração 1-2-3-4 na sequência cronológica do loop
-33542cb docs(passo6): sequência do loop com 1-arquivo Gemini em Ingrid, Valdece e Template
+bd5c8c9 chore(pendentes): Dia 13 [x] + ATUALIZACAO prepended no CONTEXTO_GEMINI + dist marcada
+3c9e00b feat(dia13+p064): Widget Contador cumulativo + Push dominical + Smoke Test Protocol
+aa9642b fix(valdece/proxy): corrigir embed.js -- Edge Function -> Serverless Function
 
 ================================================================================
 
@@ -142,7 +142,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-05-19",
+    "atualizado_em":  "2026-05-24",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -162,11 +162,11 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                     "tipo":  "Projeto Piloto Interno — Validação V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "VEREDITO APROVADO — build liberado. Iniciando Dia 1.",
+                                    "status":  "EM BUILD — Loop 5 ativo — Deadline 2026-05-30 (6 dias)",
                                     "cargo":  "TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop #2 — Build (Dias 3-5)",
+                                    "loop_atual":  "Loop 5 — Dias 12-13 — Contador Pontos Ponderados + Push dominical",
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -178,8 +178,17 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                            "dia1_schema_edge",
                                                            "dia2_gate_questoes",
                                                            "dia3_5_feed_sm2_pwa",
-                                                           "dia6_8_tutor_fallback"
+                                                           "dia6_8_tutor_fallback",
+                                                           "dia9_11_heatmap_simulado",
+                                                           "dia12_contador_socratica_vacina_push_cb"
                                                        ],
+                                    "delivery_dates":  {
+                                                           "dia1_2":  "2026-05-15",
+                                                           "dia3_5":  "2026-05-17",
+                                                           "dia6_8":  "2026-05-19",
+                                                           "dia9_11":  "2026-05-20",
+                                                           "dia12":  "2026-05-23"
+                                                       },
                                     "plano_build":  {
                                                         "dia1_2":  "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
                                                         "dia3_5":  "Feed Diario (70/30 Peso 2) + Spaced Repetition SM-2 + Pilula JSON + Explicacao direta ao errar + Contador header",
@@ -212,15 +221,6 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                          "servico_personalizado":  "R$ 2.500 por candidato externo",
                                                          "licenca_acesso_saas":  "R$ 197 por ciclo do concurso",
                                                          "saas_b2c_mrr":  "R$ 97/mes x 4 meses = R$ 388 por usuario",
-                                                         "meta_saas":  "500 usuarios = R$ 194.000 no ciclo Sedes-DF 2026"
-                                                     },
-                                    "loops_programados":  [
-                                                              {
-                                                                  "loop":  1,
-                                                                  "nome":  "Kickoff",
-                                                                  "gate":  "dia2_questoes",
-                                                                  "notebooklm_wipe":  true,
-                                                                  "status":  "concluido"
 ... [truncado -- ver arquivo completo]
 
 ================================================================================
@@ -228,11 +228,11 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ## PROTOCOLO VANGUARD (resumo)
 ---
 name: protocolo-vanguard
-description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
+description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce, app, site, SaaS, modelo de negócio, automação, IA, API. O Músculo opera como Arquitecto-Mestre e membro ativo do Conselho colaborativo. Executar sempre que o Diretor disser PROTOCOLO VANGUARD.
 ---
 
-# PROTOCOLO VANGUARD — Modelo Pentalateral IAH
-**Versão da Skill:** 6.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **4º Membro: Embaixador + P-031 Filtro de Realidade (2026-05-18)**
+# PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
+**Versão da Skill:** 6.2 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24)**
 
 ---
 
@@ -251,7 +251,7 @@ description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce
 > Um ecommerce, uma app mobile, um site, um SaaS, um modelo de negócio, uma API, uma automação.
 > O que muda é o projeto. O que não muda é o processo.
 >
-> O Pentalateral — Diretor + Estrategista + Auditor + Músculo — é o conselho.
+> o Pentalateral — Diretor + Estrategista + Auditor + Músculo — é o conselho.
 > O cliente traz o problema. O conselho delibera. O Músculo entrega.
 
 ---
@@ -263,7 +263,7 @@ description: ativa o Modelo Pentalateral IAH para QUALQUER projeto — ecommerce
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PENTALATERAL — CONFIGURAÇÃO ativa
+Pentalateral — CONFIGURAÇÃO ativa
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 diretoR:         Eduardo
@@ -283,7 +283,7 @@ MÚSCULO:          Claude Code (este protocolo)
   └── Como ativar: PROTOCOLO VANGUARD + descrição do projeto.
 
 EMBAIXADOR:       Claude Projects (um Project por cliente)
-  └── Papel: Inteligência persistente do cliente. Memória entre sessões. 11 mandatos.
+  └── Papel: Inteligência persistente do cliente. Memória entre sessões. 17 mandatos V2.0 (D1/D2/D3).
   └── Único membro com acesso ao relacionamento real acumulado — o Músculo não tem isso.
   └── Como ativar: ir_ao_embaixador.ps1 -cliente [NOME] → clipboard + browser automáticos.
 ... [truncado -- ver arquivo completo]
@@ -673,7 +673,16 @@ Use o formato obrigatório de 7 blocos definido no final deste documento.
 **Nicho:** Legal Tech · Direito Penal
 **Camada:** 1 — MVP Alto Impacto
 **Loop:** #7 — V3 Migration + Badges Vinculantes + Migração Infraestrutura
-**Data:** 2026-05-20
+**Data:** 2026-05-23 (atualizado — reingest concluído)
+
+### NOVO DESDE 2026-05-20 — ESTADO ATUALIZADO PARA O ESTRATEGISTA
+
+| Item | Status |
+|---|---|
+| Reingest 61 acórdãos | **CONCLUÍDO 2026-05-23** — campos data_dje, repercussao_geral, recurso_repetitivo, turma populados em 61/61 |
+| sql/v3_migration.sql | Aplicado no Supabase Vanguard |
+| Próximos passos bloqueantes | Badges VINCULANTE/REPETITIVO no frontend + Edge Function (HV-1) + Migração conta Valdece |
+| Deadline original | 2026-05-23 — **VENCIDO** (slip de build, sem impacto contratual) |
 
 ### CENA DE SUCESSO (P-041 — OBRIGATÓRIA)
 "Estou num julgamento, o promotor cita um precedente que eu não conheço. Abro o Toga Digital,

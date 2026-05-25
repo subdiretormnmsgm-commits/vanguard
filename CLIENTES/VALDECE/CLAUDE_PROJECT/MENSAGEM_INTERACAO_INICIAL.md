@@ -1,6 +1,6 @@
 # MENSAGEM DE ATIVAÇÃO — EMBAIXADOR · PROJ-001 VALDECE
 > Loop 7 · Pós-assinatura · Hypercare ativo (dias 1–30 · até 18/06) · Atualizado: 2026-05-24
-> Versão anterior arquivada — substituída por esta (V2.1)
+> Versão anterior arquivada — substituída por esta (V3.0)
 > Compatível com: System Prompt V[N] · PASSO7 v1.3 · MEMORIA_EMBAIXADOR Loop 7 · Schema DECISOES v1.1
 
 > PRÉ-REQUISITO: subir DIRETRIZ_GEMINI_V[N].txt em Knowledge Documents antes de ativar SEÇÃO D.
@@ -40,6 +40,15 @@ Com base no perfil do Valdece (exigente, não-técnico, orientado a resultado) e
 
 Entregue: diagnóstico em 3 parágrafos concretos. Sem genérico.
 
+**[NOVO V3.0] TEMPERATURA_PONDERADA — entregar obrigatoriamente ao final do bloco [A]:**
+```
+Temperatura atual: [FRIA / MORNA / QUENTE / ENTUSIASMADA]
+Tendência (últimos 7 dias): [subindo / estável / caindo]
+Contexto de pagamento: [pago / pendente / risco]
+Score 0-10: [N]   <- Score < 6 = declarar CHURN-WATCH ativo obrigatoriamente
+Razão: [evidência concreta de comportamento real — não impressão]
+```
+
 ---
 
 **[B] ARTEFATOS PRONTOS — entregue, não descreva**
@@ -78,6 +87,15 @@ Risco 3: [...]
 
 Inclua obrigatoriamente: risco de Valdece reabrir o escopo de V3 agora que o contrato
 está assinado e ele sente que "pode pedir mais" — e como Eduardo registra sem travar o relacionamento.
+
+**[NOVO V3.0] WATCHDOG estruturado — declarar ao final do bloco [C]:**
+```
+[CHURN-WATCH]  ativo / inativo — condição de disparo: [critério concreto]
+[SCOPE-WATCH]  abertos: [listar pedidos fora de escopo ou "nenhum"]
+[LEGAL-WATCH]  pendências contratuais: [listar ou "nenhum"]
+[GATE-WATCH]   Loop 7 bloqueado em credenciais — risco de prazo: [avaliação]
+Próximo contato recomendado: [data + canal + motivo]
+```
 
 ---
 

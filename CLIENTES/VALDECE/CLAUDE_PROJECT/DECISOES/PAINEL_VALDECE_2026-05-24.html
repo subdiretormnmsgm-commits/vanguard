@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Deliberação — Valdece · 2026-05-24</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;padding:2rem 1rem}
+.container{max-width:640px;margin:0 auto}
+.header{margin-bottom:1.5rem}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+h1{font-size:17px;font-weight:500}
+.meta{font-size:13px;color:#888;margin-top:2px}
+.prog-bar{height:3px;background:#e0dfd8;border-radius:2px;margin-top:12px}
+.prog-fill{height:3px;background:#1D9E75;border-radius:2px;transition:width .3s}
+.section-label{font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.06em;margin:1.5rem 0 8px}
+.card{background:#fff;border:1px solid #e8e7e0;border-radius:12px;padding:1.25rem;margin-bottom:10px}
+.card-hdr{display:flex;align-items:flex-start;gap:10px;margin-bottom:1rem}
+.icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.ic-pre{background:#FCEBEB;color:#A32D2D}
+.ic-alt{background:#FAEEDA;color:#854F0B}
+.ic-nor{background:#E6F1FB;color:#185FA5}
+.ic-int{background:#F1EFE8;color:#5F5E5A}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:100px;margin-left:8px;vertical-align:middle}
+.b-pre{background:#FCEBEB;color:#A32D2D}
+.b-alt{background:#FAEEDA;color:#854F0B}
+.b-nor{background:#E6F1FB;color:#185FA5}
+.ctitle{font-size:12px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.cdesc{font-size:14px;color:#1a1a18;font-weight:500}
+.ev{background:#f5f4f0;border-radius:8px;padding:10px 12px;font-size:13px;color:#666;margin-bottom:1rem;line-height:1.5}
+.arte-label{font-size:13px;color:#888;margin-bottom:6px;margin-top:12px}
+.arte-text{background:#f5f4f0;border-left:2px solid #185FA5;border-radius:0 8px 8px 0;padding:10px 12px;font-size:13px;color:#1a1a18;line-height:1.6;margin-bottom:1rem;white-space:pre-wrap}
+.arte-edit{width:100%;border:1px solid #d0cfc8;border-radius:8px;padding:10px 12px;font-size:13px;font-family:inherit;color:#1a1a18;background:#fff;resize:none;margin-bottom:1rem;line-height:1.6;min-height:80px}
+.arte-edit:focus{outline:none;border-color:#888}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid #e8e7e0;border-radius:8px;cursor:pointer;transition:all .15s;-webkit-user-select:none;user-select:none}
+.opt:hover{border-color:#aaa;background:#fafaf8}
+.opt.sel{border-color:#1D9E75;background:#E1F5EE}
+.oc{width:18px;height:18px;border:1.5px solid #ccc;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.opt.sel .oc{border-color:#1D9E75;background:#1D9E75}
+.opt.sel .oc::after{content:'';width:6px;height:6px;background:white;border-radius:50%;display:block}
+.ol{font-size:14px;color:#1a1a18;font-weight:500}
+.os{font-size:12px;color:#888;margin-top:2px}
+.footer{margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ftr-s{font-size:13px;color:#888;flex:1}
+.btn{background:#1a1a18;color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .15s;white-space:nowrap}
+.btn:hover{opacity:.85}
+.btn:disabled{opacity:.35;cursor:default}
+.done{text-align:center;padding:3rem 1rem}
+.done-ic{font-size:40px;margin-bottom:12px}
+.done-t{font-size:17px;font-weight:500;margin-bottom:6px}
+.done-sub{font-size:13px;color:#888;margin-bottom:16px}
+.done-s{font-size:13px;color:#1a1a18;white-space:pre-line;line-height:1.9;text-align:left;background:#f5f4f0;border-radius:8px;padding:1rem;margin-top:1rem}
+.done-cmd{background:#1a1a18;color:#00F0FF;border-radius:8px;padding:10px 14px;font-size:12px;font-family:monospace;margin-top:12px;text-align:left;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-top">
+      <h1>Deliberação do Diretor</h1>
+      <span class="meta" id="counter">0 de N decididas</span>
+    </div>
+    <div class="meta" id="meta-linha"></div>
+    <div class="prog-bar"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+  </div>
+
+  <div id="cards"></div>
+
+  <div id="done" style="display:none">
+    <div class="done">
+      <div class="done-ic">✅</div>
+      <div class="done-t">Vereditos confirmados</div>
+      <div class="done-sub">Arquivo JSON gerado. Siga as instruções abaixo.</div>
+      <div class="done-s" id="done-text"></div>
+      <div class="done-cmd" id="done-cmd"></div>
+    </div>
+  </div>
+
+  <div class="footer" id="footer">
+    <div class="ftr-s" id="ftr-s">Marque todas as decisões para confirmar</div>
+    <button class="btn" id="btn" disabled onclick="confirmar()">Confirmar vereditos</button>
+  </div>
+</div>
+
+<script>
+const D = {
+  "schema_versao": "1.0",
+  "projeto": "PROJ001_VALDECE",
+  "projeto_label": "Valdece",
+  "cliente_label": "VALDECE",
+  "data": "2026-05-24",
+  "loop": 7,
+  "gerado_por": "Embaixador",
+  "instrucao_musculo": "Rodar: .\\scripts\\render_painel.ps1 -projeto VALDECE",
+  "secoes": [
+    { "id": "acao_imediata",   "label": "Ação imediata — Hypercare Dia 5" },
+    { "id": "migracao",        "label": "Migração e Loop 7" },
+    { "id": "inteligencia",    "label": "Inteligência e pipeline" }
+  ],
+  "decisoes": [
+    {
+      "id": "D1",
+      "secao": "acao_imediata",
+      "urgencia": "alta",
+      "icon": "📡",
+      "titulo": "Mensagem Hypercare — Dia 5",
+      "subtitulo": "5 dias desde a assinatura — verificar uso real",
+      "situacao": "Contrato assinado 2026-05-19. Hoje é 2026-05-24. Valdece enviou 5 áudios de feedback antes de assinar — engajamento alto. Sem registro de uso real confirmado desde a assinatura. Hipercare ativo.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Mensagem WhatsApp (tom de parceiro, máx 3 linhas):",
+      "artefato_texto": "Valdece, como tá funcionando o sistema essa semana? Só checando se tá fluindo bem — qualquer dúvida ou travamento me fala que resolvo na hora.",
+      "opcoes": [
+        {
+          "valor": "enviar_agora",
+          "label": "Enviar agora",
+          "subtitulo": "Colher sinal de uso sem pressão",
+          "acoes": ["copiar_clipboard", "log_contato"]
+        },
+        {
+          "valor": "ajustar_enviar",
+          "label": "Ajustei o texto acima e quero enviar",
+          "subtitulo": "Edite o campo antes de confirmar",
+          "acoes": ["copiar_clipboard", "log_contato"]
+        },
+        {
+          "valor": "adiar_amanha",
+          "label": "Adiar para amanhã",
+          "subtitulo": "Aguardar momento mais estratégico",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "secao": "acao_imediata",
+      "urgencia": "normal",
+      "icon": "🌱",
+      "titulo": "Plantar semente da migração",
+      "subtitulo": "Loop 7 depende das credenciais dele",
+      "situacao": "Loop 7 (V3: data_dje + badges vinculantes) está bloqueado aguardando seed nas credenciais do Valdece. Quanto mais cedo ele engajar, mais cedo a funcionalidade mais impactante é entregue.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Pergunta casual para abrir o tema (WhatsApp, máx 2 linhas):",
+      "artefato_texto": "Inclusive, tenho uma melhoria pronta que coloca a data do acórdão direto nos resultados — quando você tiver 10 minutinhos, a gente configura rápido no seu servidor.",
+      "opcoes": [
+        {
+          "valor": "plantar_hoje",
+          "label": "Plantar na mesma mensagem do D1",
+          "subtitulo": "Natural — aproveita o flow da conversa",
+          "acoes": ["copiar_clipboard", "log_apenas"]
+        },
+        {
+          "valor": "plantar_separado",
+          "label": "Plantar em mensagem separada — amanhã",
+          "subtitulo": "Não sobrecarregar o primeiro contato",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "aguardar_resposta",
+          "label": "Aguardar resposta do D1 antes",
+          "subtitulo": "Confirmar que está usando antes de falar de melhoria",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "secao": "migracao",
+      "urgencia": "alta",
+      "icon": "⚠️",
+      "titulo": "Scope creep — risco de pedidos pós-assinatura",
+      "subtitulo": "Valdece sente que pode pedir mais agora",
+      "situacao": "Padrão detectado: Valdece fez 5 pedidos fora do escopo antes de assinar. Pós-assinatura, clientes satisfeitos sentem que a relação é mais aberta. Qualquer pedido novo entra como Change-Order — não como cortesia.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Resposta se Valdece pedir algo fora do escopo:",
+      "artefato_texto": "Boa ideia — vou registrar aqui como próxima etapa. Isso entra na V2 que já temos planejada, com valor acordado separado. Posso te passar o detalhamento quando fecharmos o ciclo atual.",
+      "opcoes": [
+        {
+          "valor": "protocolo_ativo",
+          "label": "Ativar protocolo — qualquer pedido novo = Change-Order",
+          "subtitulo": "Músculo prepara template de Change-Order V2",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "avaliar_caso_a_caso",
+          "label": "Avaliar caso a caso — só formalizar se for grande",
+          "subtitulo": "Menos burocrático — mais risco",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "secao": "migracao",
+      "urgencia": "normal",
+      "icon": "📊",
+      "titulo": "Sentinel Report — Dia 14 (2026-06-02)",
+      "subtitulo": "Construir o argumento de ROI agora",
+      "situacao": "Em 9 dias, Eduardo envia o primeiro relatório de atividade ao Valdece. O formato e as métricas precisam ser escolhidas agora para coletar os dados certos.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Frase de abertura do Sentinel Report (linguagem de advogado):",
+      "artefato_texto": "Valdece, primeiro mês do sistema. Aqui está o que o seu tempo valeu — em buscas que você não precisou fazer à mão.",
+      "opcoes": [
+        {
+          "valor": "whatsapp_curto",
+          "label": "WhatsApp curto — canal de confiança",
+          "subtitulo": "3-5 linhas + 3 métricas de impacto",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "pdf_formal",
+          "label": "PDF formal — credibilidade de parceiro técnico",
+          "subtitulo": "Músculo gera template agora",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "secao": "inteligencia",
+      "urgencia": "normal",
+      "icon": "📚",
+      "titulo": "Princípio candidato ao LEDGER — Nicho Advocacia",
+      "subtitulo": "Gerado pelo Embaixador nesta ativação",
+      "situacao": "Padrão de Valdece revela algo sobre o nicho advocacia criminal que generaliza para o próximo cliente.",
+      "tem_artefato": true,
+      "artefato_editavel": false,
+      "artefato_label": "Texto do princípio:",
+      "artefato_texto": "Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.",
+      "opcoes": [
+        {
+          "valor": "aprovar",
+          "label": "Aprovar — Músculo numera e inscreve no LEDGER",
+          "subtitulo": "Entra no INTELLIGENCE_LEDGER.md",
+          "acoes": ["inscrever_ledger"]
+        },
+        {
+          "valor": "descartar",
+          "label": "Descartar",
+          "subtitulo": "",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "secao": "inteligencia",
+      "urgencia": "normal",
+      "icon": "🏢",
+      "titulo": "Pipeline OAB — capturar nomes de colegas",
+      "subtitulo": "Gatilho H-5: Valdece menciona colega se satisfeito",
+      "situacao": "H-5 está PENDENTE. A ida à OAB que o Embaixador antecipou é o gatilho natural para H-5 se confirmar. Se Valdece mencionar colegas, Eduardo precisa de um protocolo de captura discreto.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Pergunta casual se Valdece mencionar colega:",
+      "artefato_texto": "Que legal! Ele também é criminalista? Se precisar de uma ferramenta parecida, me avisa — a gente faz uma demo rápida.",
+      "opcoes": [
+        {
+          "valor": "protocolo_ativo",
+          "label": "Ativar protocolo — Eduardo usa esta pergunta ao ouvir qualquer menção",
+          "subtitulo": "Músculo registra como [PIPELINE-WATCH] no PASSO7",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "aguardar_organico",
+          "label": "Aguardar que surja organicamente",
+          "subtitulo": "Não antecipar — confiar no timing de Valdece",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    }
+  ]
+}
+;
+const total = D.decisoes.length;
+const selecionados = {};
+const textosEditados = {};
+
+const urgBadge = {
+  prerequisito: ['ic-pre','b-pre','Pré-requisito'],
+  alta:         ['ic-alt','b-alt','Atenção'],
+  normal:       ['ic-nor','b-nor','Normal']
+};
+const urgDefault = ['ic-nor','b-nor','Normal'];
+
+function build() {
+  document.getElementById('meta-linha').textContent =
+    D.projeto_label + ' · Loop ' + D.loop + ' · ' + D.data + ' · Gerado pelo Embaixador';
+  document.getElementById('counter').textContent = '0 de ' + total + ' decididas';
+
+  const container = document.getElementById('cards');
+  const sections = {};
+  D.decisoes.forEach(d => { sections[d.secao] = sections[d.secao] || []; sections[d.secao].push(d); });
+
+  const secOrder = D.secoes.map(s => s.id);
+  const secLabels = {};
+  D.secoes.forEach(s => { secLabels[s.id] = s.label; });
+
+  secOrder.forEach(sid => {
+    if (!sections[sid]) return;
+    const lbl = document.createElement('div');
+    lbl.className = 'section-label';
+    lbl.textContent = secLabels[sid] || sid;
+    container.appendChild(lbl);
+
+    sections[sid].forEach(d => {
+      const [icClass, bClass, bLabel] = urgBadge[d.urgencia] || urgDefault;
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      let arteHtml = '';
+      if (d.tem_artefato && d.artefato_texto) {
+        if (d.artefato_editavel) {
+          arteHtml = '<div class="arte-label">' + (d.artefato_label || 'Texto:') + '</div>' +
+            '<textarea class="arte-edit" id="arte-' + d.id + '" rows="3" onchange="editarArte(\'' + d.id + '\')">' + escHtml(d.artefato_texto) + '</textarea>';
+        } else {
+          arteHtml = '<div class="arte-label">' + (d.artefato_label || 'Texto:') + '</div>' +
+            '<div class="arte-text">' + escHtml(d.artefato_texto) + '</div>';
+        }
+      }
+
+      const optsHtml = d.opcoes.map(o =>
+        '<div class="opt" onclick="sel(\'' + d.id + '\',\'' + o.valor + '\')">' +
+        '<div class="oc"></div><div>' +
+        '<div class="ol">' + escHtml(o.label) + '</div>' +
+        (o.subtitulo ? '<div class="os">' + escHtml(o.subtitulo) + '</div>' : '') +
+        '</div></div>'
+      ).join('');
+
+      card.innerHTML =
+        '<div class="card-hdr"><div class="icon ' + icClass + '">' + (d.icon || '🔹') + '</div>' +
+        '<div><div class="ctitle">' + escHtml(d.titulo) +
+        '<span class="badge ' + bClass + '">' + bLabel + '</span></div>' +
+        '<div class="cdesc">' + escHtml(d.subtitulo) + '</div></div></div>' +
+        '<div class="ev">' + escHtml(d.situacao) + '</div>' +
+        arteHtml +
+        '<div class="opts" id="opts-' + d.id + '">' + optsHtml + '</div>';
+
+      container.appendChild(card);
+    });
+  });
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function editarArte(id) {
+  const el = document.getElementById('arte-' + id);
+  if (el) textosEditados[id] = el.value;
+}
+
+function sel(cardId, valor) {
+  selecionados[cardId] = valor;
+  const el = document.getElementById('arte-' + cardId);
+  if (el) textosEditados[cardId] = el.value;
+  document.querySelectorAll('#opts-' + cardId + ' .opt').forEach(o => o.classList.remove('sel'));
+  const opts = document.querySelectorAll('#opts-' + cardId + ' .opt');
+  const d = D.decisoes.find(x => x.id === cardId);
+  if (d) {
+    const idx = d.opcoes.findIndex(o => o.valor === valor);
+    if (idx >= 0 && opts[idx]) opts[idx].classList.add('sel');
+  }
+  upd();
+}
+
+function upd() {
+  const done = Object.keys(selecionados).length;
+  document.getElementById('counter').textContent = done + ' de ' + total + ' decididas';
+  document.getElementById('prog').style.width = (done / total * 100) + '%';
+  const btn = document.getElementById('btn');
+  btn.disabled = done < total;
+  document.getElementById('ftr-s').textContent = done === total
+    ? 'Pronto para confirmar'
+    : (total - done) + ' decisão(ões) pendente(s)';
+}
+
+function confirmar() {
+  const ts = new Date().toISOString();
+  const vereditos = {
+    schema_versao: '1.0',
+    projeto: D.projeto,
+    projeto_label: D.projeto_label,
+    data_decisoes: D.data,
+    data_veredito: ts,
+    loop: D.loop,
+    vereditos: D.decisoes.map(d => {
+      const val = selecionados[d.id];
+      const opcao = d.opcoes.find(o => o.valor === val) || {};
+      const textoFinal = textosEditados[d.id] !== undefined ? textosEditados[d.id]
+        : (d.artefato_texto || '');
+      return {
+        id: d.id,
+        titulo: d.titulo,
+        valor_selecionado: val,
+        label_selecionado: opcao.label || val,
+        texto_final: textoFinal,
+        acoes: opcao.acoes || []
+      };
+    })
+  };
+
+  const json = JSON.stringify(vereditos, null, 2);
+  const fn = 'VEREDITOS_' + D.cliente_label + '_' + D.data + '.json';
+
+  // Download
+  const blob = new Blob([json], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = fn;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  // Done screen
+  document.getElementById('cards').style.display = 'none';
+  document.getElementById('done').style.display = 'block';
+  document.getElementById('footer').style.display = 'none';
+
+  const linhas = vereditos.vereditos.map(v => '· ' + v.titulo + ': ' + v.label_selecionado).join('\n');
+  document.getElementById('done-text').textContent = linhas;
+  document.getElementById('done-cmd').innerHTML =
+    '1. Mova <strong>' + fn + '</strong> para:<br>' +
+    'CLIENTES\\' + D.projeto_label.toUpperCase() + '\\CLAUDE_PROJECT\\DECISOES\\<br><br>' +
+    '2. Rode no terminal:<br>' +
+    '.\\scripts\\executar_vereditos.ps1 -projeto ' + D.projeto_label.toUpperCase();
+}
+
+build();
+</script>
+</body>
+</html>

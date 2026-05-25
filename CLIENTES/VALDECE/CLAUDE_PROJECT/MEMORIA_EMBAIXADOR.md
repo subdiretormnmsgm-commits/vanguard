@@ -1,7 +1,7 @@
 # MEMORIA_EMBAIXADOR — PROJ-001 VALDECE
 > Documento vivo. Atualizar a cada gate ou marco de relacionamento.
 > Leitura obrigatória de abertura de sessão — 30 segundos.
-> Versão: Loop 6 · 2026-05-19 (5 áudios Valdece processados · 3 features entregues · contrato pendente assinatura presencial hoje)
+> Versão: Loop 7 · 2026-05-24 (Hypercare ativo · 5 dias pós-assinatura · NotebookLM + Embaixador processados)
 
 ---
 
@@ -47,7 +47,7 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | commit 9709649 | **Loop 6:** ementa completa (600 chars) + badge UF + boost monocrático (+0.15) ✅ |
 | fix HC 512.290/RJ | Dado errado corrigido no banco + re-embedding executado ✅ |
 | 5 áudios Valdece | Feedback técnico processado: ementa ✅ UF ✅ data_dje ❌V3 repercussão ❌V3 |
-| Temperatura | **QUENTE** — sistema live + 3 melhorias entregues + feedback ativo por áudio |
+| Temperatura | **QUENTE** — Score 6.5 · 5 dias pós-assinatura · pagamento pago · dado de uso real pendente (sem check-in desde assinatura) |
 | Contrato | **ASSINADO — 2026-05-19** · R$5k fixo + sem mensalidade · Gate V3 DESBLOQUEADO |
 
 **Sistema pronto — estado Loop 6 (2026-05-19):**
@@ -323,6 +323,7 @@ NÃO apresentar V3 durante a assinatura. Apresentar DEPOIS da demo, de forma cas
 | 2026-05-19 (Embaixador Loop 6) | SEÇÃO D processada. G-3 ALERTA ALTO (cláusula horas contradiz Sovereign Playbook → Change-Orders). E-1 silêncio protocolo. E-2 sinal de encantamento. E-4 argumento do promotor. E-5 Hypercare como escuta. Timing V3: só após demo, nunca durante assinatura. Temperatura QUENTE confirmada. | Músculo (P-032) |
 | 2026-05-19 (GATE LOOP 6) | **CONTRATO ASSINADO.** Deu tudo certo. V3 desbloqueado. Temperatura: ENTUSIASMADA. Loop 7 iniciando. | Músculo (P-032) |
 | 2026-05-21 (Loop 7 — V3 entregue) | Correção crítica: outputDimensionality 768→3072 no frontend. 28 docs re-embeddados. Simulação remota completa: 5/5 queries P-051 OK · score médio 92.2% · topo 98% (medidas cautelares). Mensagem de reativação redigida com Embaixador: "testei agora nos seus 5 temas" + link + frase da audiência. Temperatura: ENTUSIASMADA mantida. | Músculo (P-032) |
+| 2026-05-24 (Loop 7 — Embaixador) | Embaixador processou ativação Loop 7 completa (blocos A–H). TEMPERATURA_PONDERADA: QUENTE · Score 6.5 · tendência estável · contexto pagamento: PAGO. CHURN-WATCH: inativo. Risco principal: 5 dias sem check-in pós-assinatura — uso real não confirmado. H-4 CONFIRMADA (scope creep logo na assinatura: personalização de logo para OAB). H-5 aquecendo — menção a colegas na OAB iminente. Ação imediata D1: mensagem Hypercare Dia 5 + plantio semente migração (D2). Próximo Sentinel Report: 2026-06-02. Watchdog: SCOPE-WATCH aberto (personalização logo). GATE-WATCH: migração bloqueada em build, não em credenciais — Eduardo TEM as credenciais do Valdece (obtidas 2026-05-19). | Músculo (P-032) |
 
 ---
 
