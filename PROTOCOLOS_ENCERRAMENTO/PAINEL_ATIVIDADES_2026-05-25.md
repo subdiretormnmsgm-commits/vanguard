@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-05-25 00:52
+### Pentalateral IAH - Terça-feira, 2026-05-27
 
 ---
 
@@ -14,31 +14,34 @@ Valdece    [BUILD    ]  Loop 7 CONCLUíDO (V3 entregue + Deploy Netlify OK) — 
 
 ## COMMIT DA SESSAO
 
-Commit : 9a8a8f0 - 3 arquivo(s) alterado(s)
-Mensagem: fix(painel): regex pendentes aceita data com dia semana + PAINEL final com cronograma Ingrid
+Commit : 41684a4 - 2 arquivo(s) alterado(s)
+Mensagem: chore(encerramento): instrucao Embaixador simplificada + PAINEL regenerado
 
 ---
 
 ## ENTREGAS DO DIA
 
-VALDECE V3 — ENTREGUE E EM PRODUÇÃO (2026-05-25):
-  - DIA A: reingest 61 acórdãos + gate_v3 APROVADO (vinculantes=3 · pleno=5 · turma=56)
-  - DIA B: badges VINCULANTE/REPETITIVO + ABNT garantido + 23 sinônimos penais + sw.js cache offline
-  - DIA C: infra no Supabase de Eduardo (toga-digital-valdece) — sem migração
-  - Deploy Netlify: toga-digital-valdece.netlify.app — proxy 200 OK · smoke test badge VINCULANTE OK
-  - view_diretor_roi: total_acordaos=61 · vinculantes=3 · validada em produção
-
-INFRA — Protocolo de encerramento:
-  - Projeto 'Embaixador — Diretor' criado no Claude.ai (P-066)
-  - PAINEL_ATIVIDADES agora com dia da semana no cabeçalho
+✅ Loop 5 INGRID — ciclo Pentalateral completo: Gemini ✅ + NotebookLM ✅ + Embaixador ✅ + Músculo ✅
+✅ ingrid-v5.md — Skill gerada pelo Auditor e APROVADA pelo gate (7364 chars)
+✅ Síntese P-037 — 25 ideias analisadas (M+G+N+E) com deliberação em 7 pontos
+✅ Vereditos D1:A D2:A D3:A D4:A D5:B recebidos e executados
+✅ MEMORIA_EMBAIXADOR — atualizada com SEÇÃO D + vereditos (P-032)
+✅ INTELLIGENCE_LEDGER — P-066 (formal) + P-067 (gate Embaixador) + P-068 (síntese antes do Painel) registrados
+✅ Termo_Uso_Ingrid_18052026.html — gerado com data correta (18/05) e cargo correto (Cargo 202)
+✅ PENDENTES.md — atualizado: 2 tarefas concluídas, plano Dia 14 adicionado
+✅ Sync P-033: 3 sócios preparados, Telegram enviado
 
 ---
 
 ## ALERTAS DO MUSCULO
 
-⚠️  LEGAL-WATCH Ingrid (URGENTE antes do Dia 14):
-    PDF do Termo datado 30/05 — assinatura real foi 18/05.
-    Resolver ANTES do Dia 14 (2026-05-28 Qui).
+🔴 D1:A BLOQUEANTE: enviar WhatsApp + PDF a Ingrid ANTES de iniciar o Dia 14 (28/05)
+   PDF pronto: CLIENTES/INGRID/CLAUDE_PROJECT/Termo_Uso_Ingrid_18052026.html
+   Mensagem: "Ingrid, tudo bem? Precisei corrigir uma datinha no documento. É rapidinho — vou mandar o arquivo agora 😊"
+
+🟡 D4:A PIPELINE: plantar "Conhece alguém prestando concurso?" na próxima mensagem a Ingrid
+
+🟡 P-045: MEMORIA_V5_INGRID ausente — gerar ao fechar o Loop 5 (após Dia 15)
 
 ---
 
@@ -46,30 +49,25 @@ INFRA — Protocolo de encerramento:
 
 ### PROJ-001 · Valdece (Deadline: Hypercare até 18/06)
 
-🔴 Sentinel Report — gerar em 2026-06-02:
+🔴 Sentinel Report — gerar em 2026-06-02 (prazo: 6 dias)
 
-### PROJ-002 · Ingrid (Deadline: 30/05 Sab — 6 dias)
+### PROJ-002 · Ingrid (Deadline: 30/05 Sab — 3 dias)
 
-🔴 Embaixador Ingrid — ativar com nova sistemática:
-🔴 Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:
-🟡 Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:
-🟡 Dia 14 — Offboarding + SaaS Readiness Audit:
-⚪ Dia 15 — P-013 Soberania + gate admin Supabase:
+🔴 [HOJE] D1:A — WhatsApp + PDF 18/05 para Ingrid (PDF gerado, pronto para enviar)
+🟡 [HOJE] D4:A — Plantar "Conhece alguém?" na próxima mensagem a Ingrid
+🟡 [28/05] Dia 14 — Build: N-4 (15min) + N-3 (45min) + N-1 (1h) + N-5 (3-4h)
+⚪ [29/05] Dia 15 — Offboarding + SaaS Readiness Audit + P-013 gate admin Supabase
 
-Total pendentes abertos: 6
+Total pendentes abertos: 5
 
 ---
 
 ## PROXIMA ACAO DO DIRETOR
 
-CRONOGRAMA INGRID — 5 dias até deadline 30/05:
-
-  Hoje   Dom 25/05 → Embaixador Ingrid: ativar com nova sistemática
-  Seg    26/05     → Loop 5 NotebookLM: Wipe & Sync → COMANDO CURTO → ingrid-v5.md
-  Ter    27/05     → Loop 5 Embaixador: Seção D → DECISOES inline
-  Qui    28/05     → Dia 14: Offboarding + SaaS Readiness Audit
-  Sex    29/05     → Dia 15: P-013 soberania + gate admin Supabase (Ingrid)
-  Sab    30/05     → DEADLINE — entrega final
+1. Abrir Termo_Uso_Ingrid_18052026.html → Ctrl+P → Salvar como PDF
+2. Enviar WhatsApp a Ingrid com PDF (mensagem pronta nos alertas acima)
+3. Plantar pergunta de lead na mesma conversa ou na próxima
+4. Dia 28/05: iniciar Build Dia 14 com o Músculo
 
 ---
 

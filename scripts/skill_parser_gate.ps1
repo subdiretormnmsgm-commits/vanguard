@@ -98,7 +98,6 @@ Write-Host ""
 if ($aprovado) {
     Write-Host "RESULTADO: APROVADO"
     Write-Host "  A Skill passou em todos os criterios obrigatorios."
-    Write-Host "  Pode iniciar o build com base nesta Skill."
 } else {
     Write-Host "RESULTADO: REJEITADO -- O AUDITOR ALUCINOU"
     Write-Host ""
@@ -120,7 +119,61 @@ if ($avisos.Count -gt 0) {
     $avisos | ForEach-Object { Write-Host "  [!] $_" }
 }
 
-Write-Host ""
-Write-Host "================================================"
+# P-067: GATE AUTOMATICO DO EMBAIXADOR - skill aprovada nao libera o Musculo diretamente
+if ($aprovado) {
+    # Detectar cliente pelo nome do arquivo (ex: ingrid-v5.md -> INGRID)
+    $skillNome = [System.IO.Path]::GetFileNameWithoutExtension($skill)
+    $clienteDetectado = ""
+    if ($skillNome -match "^([a-zA-Z]+)-v\d+") {
+        $clienteDetectado = $matches[1].ToUpper()
+    }
+
+    Write-Host ""
+    Write-Host "================================================"
+    Write-Host "  PROXIMO PASSO BLOQUEANTE -- P-067"
+    Write-Host "================================================"
+    Write-Host ""
+    Write-Host "  MUSCULO BLOQUEADO ate o Embaixador reagir."
+    Write-Host ""
+    Write-Host "  ORDEM INVIOLAVEL DO CICLO:"
+    Write-Host "    [OK] Gemini  -> DIRETRIZ"
+    Write-Host "    [OK] NotebookLM -> Skill aprovada"
+    Write-Host "    [ ] Embaixador -> SECAO D  <-- AGORA"
+    Write-Host "    [ ] Musculo -> sintese P-037"
+    Write-Host ""
+    Write-Host "  ACAO OBRIGATORIA:"
+
+    if ($clienteDetectado -ne "") {
+        Write-Host "    Atualizar [N-1 a N-5] no PASSO7_EMBAIXADOR.md SECAO D"
+        Write-Host "    Depois rodar:"
+        Write-Host ""
+        Write-Host "    .\scripts\ir_ao_embaixador.ps1 -cliente $clienteDetectado"
+        Write-Host ""
+
+        # Verificar se sessao e interativa antes de usar Read-Host
+        $isInteractive = [Environment]::UserInteractive -and $Host.Name -ne "Default Host"
+        if ($isInteractive) {
+            try {
+                $resposta = Read-Host "  Rodar ir_ao_embaixador.ps1 -cliente $clienteDetectado agora? (S/N)"
+                if ($resposta -match "^[Ss]") {
+                    Write-Host ""
+                    Write-Host "  Ativando Embaixador para $clienteDetectado ..."
+                    & "$BASE\scripts\ir_ao_embaixador.ps1" -cliente $clienteDetectado
+                }
+            } catch {
+                # Modo nao-interativo — mostrar instrucao
+            }
+        }
+        Write-Host ""
+        Write-Host "  Colar SECAO D no Claude Projects antes de"
+        Write-Host "  trazer qualquer output ao Musculo."
+    } else {
+        Write-Host "    .\scripts\ir_ao_embaixador.ps1 -cliente [NOME_DO_CLIENTE]"
+        Write-Host "    Colar SECAO D no Claude Projects."
+        Write-Host "    So depois trazer output do Embaixador ao Musculo."
+    }
+    Write-Host ""
+    Write-Host "================================================"
+}
 
 exit $(if ($aprovado) { 0 } else { 2 })

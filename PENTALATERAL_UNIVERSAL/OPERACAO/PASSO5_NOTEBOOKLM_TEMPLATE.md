@@ -189,4 +189,25 @@ Para cada ideia do Embaixador (baseada em comportamento real do cliente):
 O Embaixador tem contexto de cliente. O Auditor tem contexto de todos os projetos. Juntos cobrindo os dois ângulos é inteligência composta real.
 
 ---
+
+## ⛔ ORDEM INVIOLÁVEL PÓS-OUTPUT — P-067 (2026-05-26)
+
+```
+MÚSCULO NÃO DELIBERA SEM OS 3 SÓCIOS:
+
+  Gemini → DIRETRIZ     ← 1º sócio
+  NotebookLM → Skill    ← 2º sócio  (você está aqui)
+  Embaixador → [E-1..5] ← 3º sócio  ← NUNCA PULAR
+
+APÓS RECEBER A SKILL:
+  1. Salvar PARTES 1+2+4 em CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[NOME].md
+  2. Salvar PARTE 3 em .claude/skills/[cliente]-v[N].md
+  3. Rodar skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"
+  4. Atualizar [N-1 a N-5] no PASSO7_EMBAIXADOR.md SEÇÃO D
+  5. Ativar Embaixador: .\scripts\ir_ao_embaixador.ps1 -cliente [NOME]
+  6. Colar SEÇÃO D (com [M]+[G]+[N] completos) no Claude Projects
+  SÓ DEPOIS trazer o output do Embaixador ao Músculo.
+```
+
+---
 *Template Universal · Pentalateral IAH · OPERACAO/ · Atualizar ao descobrir novo padrão*

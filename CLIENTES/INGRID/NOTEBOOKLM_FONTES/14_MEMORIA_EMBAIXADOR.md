@@ -3,7 +3,7 @@
 > **CAMADA_FATOS:** dado bruto e verbatim. Zero interpretação. Auditor lê esta camada diretamente.
 > **CAMADA_INFERENCIA:** análise do Embaixador. Ler sabendo que é opinião fundamentada.
 > **CAMADA_DECISAO:** deliberações formais do Conselho. Verdades acordadas do projeto.
-> Versão: Loop 5 · Dia 12 · 2026-05-23
+> Versão: Loop 5 · Dia 13 · 2026-05-25 — SEÇÃO D executada
 
 ---
 
@@ -108,6 +108,27 @@ Próxima reavaliação: após Eduardo informar feedback de Ingrid sobre Contador
 | E-3 | Não comparou com TEC → argumento comparativo não precisa aparecer no pitch | Revisar 04_PROPOSTA_COMERCIAL.md: retirar tabela comparativa do bloco principal |
 | E-4 | KPI do R$194k: timestamp da questão 18 vs. primeiro acesso = primeiro dado real de engajamento EdTech | Músculo: query `progresso_usuario` WHERE `user_id = Ingrid` ORDER BY `created_at` |
 | E-5 | Princípio: primeiro feedback espontâneo de piloto vale mais que qualquer pesquisa de mercado | Candidato P-046 ao LEDGER |
+
+### INTELIGÊNCIA DO EMBAIXADOR — Loop 5 SEÇÃO D (2026-05-25)
+
+**PAINEL DE DELIBERAÇÃO — 5 decisões geradas pelo Embaixador (veredito do Diretor pendente):**
+
+| Código | Tema | Opção A | Opção B | Opção C | Recomendação Embaixador |
+|---|---|---|---|---|---|
+| D1 | LEGAL-WATCH | WhatsApp + novo PDF datado 18/05 | Clickwrap UI — bloqueia Contador | Registro formal via Músculo | **A** — B vetado: Ingrid ignora modal ou abandona. A é invisível para ela. |
+| D2 | GATE-WATCH | Deploy completo + offboarding 28-29/05 | Escopo reduzido para caber | Extensão do deadline | **A** — Ingrid em VERDE; momento de fechar forte. Deadline é real. |
+| D3 | PRODUTO G-1+G-3 | VETO total ambas → backlog V2 | G-3 suave sem punição | Aguardar TTL de dados | **A** — Ingrid em VERDE FRÁGIL; qualquer feature punitiva ou especulativa é risco de churn silencioso. |
+| D4 | PIPELINE | Plantar "conhece alguém?" na próxima mensagem | Esperar orgânico | Já foi mencionado | **A** — temperatura VERDE antes do pitch de cobrança = momento ideal para plantio de lead. |
+| D5 | N-3 LINHA DE CORTE | Validar 72 pts com histórico → build | Faixa estimada (65-80) | Não implementar | **A** com ressalva: validar o número real antes de commitar no código. |
+
+**Vetoes e alertas críticos do Embaixador — Loop 5 SEÇÃO D:**
+- VETO G-1 (Badge Vacina): feature de compliance disfarçada de gamificação — Ingrid não vai entender o meta
+- VETO G-3 (Bloqueio por desatenção): confirmado de Loop 4 — churn garantido para perfil Ingrid
+- VETO Horário fixo 09h push: sem base empírica; horário real de Ingrid = noturno (~20h conforme fala verbatim)
+- ALERTA iOS Web Push: Apple bloqueia nativamente; fallback WhatsApp é mais confiável que qualquer Service Worker
+- CONFIRMA N-2 Clickwrap-Unclog: mata passivo jurídico sem atrito visível — melhor que B de D1
+- CONFIRMA N-3 Linha de Corte: aversão à perda converte número frio em caça à vaga — alinha P-041
+- CONFIRMA N-5 html2canvas: SVG no cliente sem token de backend — custo zero, pitch SaaS
 
 ### INTELIGÊNCIA DO EMBAIXADOR — Loop 4 DELIBERAÇÃO [E-1 a E-5] (2026-05-20)
 
@@ -224,6 +245,11 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 | 2026-05-18 | Debug mode: 5 toques no logo — nunca query string (Ingrid não é técnica) | Conselho — Síntese Final P-037 |
 | 2026-05-18 | Perfis de Nicho: trade secret interno — nunca produto comercializável externamente | Embaixador ALERTA + Músculo — Síntese Final |
 | 2026-05-19 | MEMORIA_EMBAIXADOR reestruturada em 3 camadas (FATOS / INFERENCIA / DECISAO) | Diretor — aprovação explícita |
+| 2026-05-27 | **D1:A** LEGAL-WATCH — WhatsApp + novo PDF datado 18/05. Ingrid assina sem drama. | Diretor — Veredito Loop 5 |
+| 2026-05-27 | **D2:A** GATE-WATCH — Deploy completo + offboarding real nos Dias 14-15 (28-29/05) | Diretor — Veredito Loop 5 |
+| 2026-05-27 | **D3:A** VETO G-1 + G-3 total — backlog V2. Ingrid em VERDE FRÁGIL: zero risco desnecessário | Diretor — Veredito Loop 5 |
+| 2026-05-27 | **D4:A** Pipeline — plantar "Conhece alguém prestando concurso?" na próxima mensagem a Ingrid | Diretor — Veredito Loop 5 |
+| 2026-05-27 | **D5:B** N-3 Linha de Corte — campo configurável no DASHBOARD interno. Eduardo define o número quando tiver dados reais. SEDES-DF 2026 é primeiro concurso Quadrix no órgão — sem corte histórico verificável. | Diretor — Veredito Loop 5 |
 
 ### PROTOCOLOS ATIVOS
 
@@ -263,6 +289,7 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 | 2026-05-20 | Loop 4 Deliberação: E-1 a E-5 + alertas CRÍTICOS (Persona Sargento / Distrator) + temperatura VERDE FRÁGIL | Músculo (P-032) |
 | 2026-05-20 | H-3 revertida para PENDENTE, H-4 mantida ATIVA — engajamento inaugural ≠ hábito formado | Embaixador |
 | 2026-05-23 | Loop 5 Dia 12: G-5 + G-3 + Contador deployados. Deploy pipeline (P-056) corrigido. Link reenviado a Ingrid. Temperatura atualizada para VERDE FRÁGIL REENGAJAMENTO. Watchdog DEPLOY-WATCH + TESTE-WATCH criados. | Músculo (P-032) |
+| 2026-05-25 | Loop 5 SEÇÃO D: Embaixador executou reação completa a [M+G+N] (15 inputs). Painel de Deliberação D1-D5 gerado. VETO G-1+G-3 confirmado. N-2+N-3+N-5 confirmados. Veredito de Eduardo pendente. | Músculo (P-032) |
 
 ---
 

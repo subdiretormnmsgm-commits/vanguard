@@ -33,24 +33,26 @@
 
 ## PROJ-002 · Ingrid (Deadline: 30/05 Sab — 6 dias)
 
-- [ ] `2026-05-25 Dom` **Embaixador Ingrid — ativar com nova sistemática:**
-  1. Cole no Claude Project Ingrid: mensagem de ativação do novo papel (DECISOES.json)
-  2. Cole: MENSAGEM_INTERACAO_INICIAL.md V2.0 (via clipboard do ir_ao_embaixador.ps1 -cliente INGRID)
-  3. Suba arquivos atualizados: INTELLIGENCE_LEDGER + WIP_BOARD + MEMORIA_EMBAIXADOR (feito pelo script)
+- [x] `2026-05-25 Dom` ~~**Embaixador Ingrid — ativar com nova sistemática:**~~
+  ✅ SEÇÃO D executada em 2026-05-27 — 15 inputs reais [M+G+N] processados
+  ✅ Painel D1-D5 gerado pelo Embaixador
+  ✅ Vereditos do Diretor: D1:A D2:A D3:A D4:A D5:A
+  ✅ MEMORIA_EMBAIXADOR atualizada (P-032) · P-067 + P-068 registrados no LEDGER
 
 - [x] `2026-05-25 Dom` ~~**Loop 5 — Gemini (PASSO 3):**~~
   ✅ DIRETRIZ V6 gerada — salva em CLIENTES/INGRID/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt (2026-05-25)
 
-- [ ] `2026-05-26 Seg` **Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:**
-  Rodar: preparar_notebooklm_projeto.ps1 -cliente INGRID → Wipe & Sync → COMANDO CURTO
-  Salvar: ingrid-v5.md → .claude/skills/ingrid-v5.md
-  Validar: skill_parser_gate.ps1
+- [x] `2026-05-26 Seg` ~~**Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:**~~
+  ✅ DIRETRIZ V6 recuperada do git e salva em CLIENTES/INGRID/DIRETRIZ_GEMINI_V6.txt
+  ✅ PASSO5_NOTEBOOKLM.md atualizado para Loop 5 com bloqueio Embaixador (P-067)
+  ✅ Template universal PASSO5_NOTEBOOKLM_TEMPLATE.md atualizado com P-067
+  ✅ skill_parser_gate.ps1 atualizado: gate automático Embaixador pós-APROVADO
+  ✅ ingrid-v5.md gerada pelo Auditor + headers corrigidos → APROVADO no gate
 
-- [ ] `2026-05-27 Ter` **Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:**
-  Preencher PASSO7_EMBAIXADOR.md SEÇÃO D com [M-1 a M-5] + [G-1 a G-5] + [N-1 a N-5]
-  Colar output completo do Embaixador no Claude Code — Músculo extrai JSON + apresenta decisões
-  Eduardo responde "D1:A, D2:B" — Músculo executa automaticamente
-  ⚠️ Ingrid (B2C sensível): fluxo simplificado — [E-1 a E-5] como texto, sem JSON burocrático
+- [x] `2026-05-27 Ter` ~~**Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:**~~
+  ✅ Vereditos executados: D1:A D2:A D3:A D4:A D5:A
+  ✅ P-037 síntese completa (25 ideias analisadas)
+  ✅ P-067 + P-068 registrados no LEDGER
 
 - [x] `2026-05-23 Sex` ~~**Dia 13 — Push dominical + Widget Contador:**~~
   ✅ Widget Contador: pontosBase (Supabase) + pontosAcumulados (sessão) no header
@@ -58,8 +60,28 @@
   ✅ Versão v14 — deploy GitHub Pages — smoke test 5/5 PASSOU
   ⏳ Gate: Ingrid testa e aprova antes de avançar para Dia 14
 
-- [ ] `2026-05-28 Qui` **Dia 14 — Offboarding + SaaS Readiness Audit:**
-  LEGAL-WATCH: PDF do Termo datado 30/05 — assinatura real 18/05. Resolver ANTES de iniciar.
+- [ ] `2026-05-27 Ter` **[AÇÃO IMEDIATA] D1:A — WhatsApp + novo PDF para Ingrid:**
+  Eduardo envia: "Corrigi uma data no documento, precisa assinar rapidinho de novo 😊"
+  Músculo gera PDF template com data 18/05/2026 → Eduardo imprime/assina digitalmente
+  ⚠️ Fazer ANTES do Dia 14 para destravar o offboarding
+
+- [ ] `2026-05-27 Ter` **[AÇÃO IMEDIATA] D4:A — Plantar lead na próxima mensagem:**
+  Na próxima mensagem a Ingrid (qualquer assunto): "Você conhece mais alguém prestando concurso esse ano?"
+  Simples, casual, sem pitch
+
+- [ ] `2026-05-27 Ter` **[VALIDAR] D5:A — Confirmar corte histórico Quadrix SEDES:**
+  Músculo: query nos dados históricos Quadrix para confirmar se 72 pts é o corte real
+  Se confirmado → Linha de Corte Fantasma entra no build Dia 14
+
+- [ ] `2026-05-28 Qui` **Dia 14 — Build Loop 5 + Offboarding + SaaS Readiness Audit:**
+  Ordem de build (5-6h total):
+  1. N-4 Rótulo SM-2 (15min) — tag [Simulado de Fixação] no domingo
+  2. N-3 Linha de Corte configurável (45min) — campo no DASHBOARD interno + linha na UI de Ingrid
+     D5:B: Eduardo define o número (ex: 72) no dashboard; Ingrid vê a linha na tela
+  3. N-1 Push adaptativo Mágico de Oz (1h) — query horario_inicio_sessao + mensagem WhatsApp pré-formatada
+  4. N-5 html2canvas export (3-4h) — card SVG no cliente, sem backend; unifica M-2+G-4+N-5
+  5. M-5 protocolo manual (sem build) — instrução para Eduardo enviar relatório semanal
+  ⚠️ D1:A (WhatsApp + PDF 18/05) deve estar resolvido ANTES deste dia
 
 - [ ] `2026-05-29 Sex` **Dia 15 — P-013 Soberania + gate admin Supabase:**
   Gate bloqueante: Ingrid com acesso admin ao próprio Supabase

@@ -1329,3 +1329,30 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 `[FRICCAO]` Protocolo de encerramento definia destino do PAINEL como "Claude Project do Diretor" mas o projeto nao existia — Musculo inventou destino sem verificar
 `[PRINCIPIO]` P-066: PAINEL_ATIVIDADES vai ao projeto "Embaixador — Diretor" no Claude.ai — destino fixo, explícito, criado pelo Diretor em 2026-05-25
+
+---
+
+### [P-066] PAINEL_ATIVIDADES tem destino fixo — "Embaixador — Diretor" no Claude.ai
+**Descoberto:** 2026-05-25 | **Sessão:** Protocolo de Encerramento
+**Fricção:** Músculo inventou destino ("Claude Project do Diretor") que não existia. Eduardo apontou: o projeto correto é "Embaixador — Diretor" — criado explicitamente para este fim.
+**Princípio:** O PAINEL_ATIVIDADES gerado por `generate_protocolo_encerramento.ps1` vai SEMPRE para o Claude Project "Embaixador — Diretor". Destino fixo, sem inferência. Músculo não decide destino — executa destino declarado pelo Diretor.
+**Aplica-se a:** todo ritual de fechamento de sessão.
+
+---
+
+### [P-067] Músculo bloqueado até Embaixador reagir — gate automático pós-Skill aprovada
+**Descoberto:** 2026-05-26 | **Sessão:** Loop 5 Ingrid — PASSO5 NotebookLM
+**Fricção:** Músculo disse "quando trouxer o output do Auditor, o Músculo delibera" — pulando o Embaixador. Eduardo: "Nãooooo!!!!! Tem o embaixador!!!!" Falha identificada: compactação de contexto apagou a distinção entre "Skill aprovada" e "ciclo completo".
+**Princípio:** Após Skill APROVADA pelo gate, o ciclo não está completo. Ordem inviolável: Gemini → NotebookLM → **Embaixador** → Músculo. O gate `skill_parser_gate.ps1` exibe bloco P-067 bloqueante após todo APROVADO e oferece auto-run de `ir_ao_embaixador.ps1`. Músculo que delibera sem Embaixador entrega análise de 20 inputs, não 25 — e ignora o único membro com memória real do cliente.
+**Gate implementado:** `skill_parser_gate.ps1` — bloco "PRÓXIMO PASSO BLOQUEANTE — P-067" após todo resultado APROVADO.
+**Aplica-se a:** todo loop de todo projeto — sem exceção.
+
+---
+
+### [P-068] Síntese P-037 antes do Painel é bloqueante — Diretor decide, não processa
+**Descoberto:** 2026-05-27 | **Sessão:** Loop 5 Ingrid — Síntese pós-Embaixador
+**Fricção:** Músculo apresentou o Painel de Deliberação (D1–D5 com opções A/B/C) sem fazer a síntese P-037 das 25 ideias. Eduardo perguntou "As ideias dos sócios, sua análise e sugestão estão aí?" — resposta foi NÃO. O Diretor recebeu decisões sem contexto analítico: exatamente o que P-037 proíbe.
+**Causa raiz:** compactação de contexto apagou distinção entre "apresentar Painel" e "apresentar síntese P-037". O sumário dizia "apresentar as 5 decisões" — Músculo executou literalmente.
+**Princípio:** Antes de qualquer Painel de Deliberação chegar ao Diretor, o Músculo executa obrigatoriamente a Síntese P-037: (a) analisar cada ideia [M+G+N+E] com os 7 pontos, (b) VETO ou ENTRA ou MERGE ou V2, (c) build order com estimativas. Diretor vê 1 plano consolidado — não 25 inputs brutos para processar. Painel sem síntese = Músculo transferiu trabalho para o Diretor.
+**Verificação ao retomar sessão compactada:** antes de apresentar qualquer decisão, perguntar: "A síntese P-037 já foi feita?" Se não → fazer primeiro.
+**Aplica-se a:** todo ciclo do Pentalateral, pós-Embaixador, antes do veredito do Diretor.

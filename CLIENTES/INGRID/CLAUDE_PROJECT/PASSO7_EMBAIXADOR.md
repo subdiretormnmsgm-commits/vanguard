@@ -230,46 +230,51 @@ M-5: Relatório semanal automatizado — RPC progresso_semanal · WhatsApp toda 
 
 ---
 
-[G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI · DIRETRIZ V5):
+[G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI · DIRETRIZ V6):
 
-G-1: Disjuntor Técnico de UI Automático (Push Circuit Breaker)
-     Handler proativo no Service Worker: se push falhar 2x no iOS Safari, oculta botões de notificação e ativa fallback silencioso no painel do Diretor. Protege percepção de estabilidade para usuária não-técnica.
+G-1: Simulador de Invalidação Parcial — Gatilho Quadrix
+     A cada 2 erros, 1 acerto anterior é deletado do contador visual do dia. Força leitura milimétrica dos enunciados. Elimina ilusão de avanço rápido.
+     Pergunta: Ingrid suportaria a frustração inicial ou abandonaria a sessão?
 
-G-2: Interface "Espelho do Diário Oficial do DF" (DODF Mirror)
-     Widget de Pontos Ponderados formatado como folha do DODF, com nome "INGRID" acima da linha de corte. Gatilho psicológico de motivação baseado em P-041 (cena de sucesso).
+G-2: Badge Vacina de Anacronismo Legislativo
+     Ícone de vacina/seringa nos enunciados de LC 840 e LODF com alterações recentes. Alerta visual para pegadinhas baseadas em leis revogadas.
+     Pergunta: Ingrid percebe quando a questão cobra texto antigo ou confia na própria memória?
 
-G-3: Algoritmo de Vacina de Pegadinhas de Legislação Recente do GDF
-     Multiplicador de peso temporário sobre questões que cobram alterações recentes da LC 840 e Lei Orgânica do DF. Tag `recente_2026` no JSON + prioridade no feed SM-2 sem quebrar proporção 70/30.
+G-3: Bloqueio Temporário por Leitura Dinâmica Negligente
+     Se TTL de resposta < 12 segundos em 3 itens consecutivos (Direito Admin / Constitucional), app congela 45 segundos exibindo o artigo violado. Força desaceleração compulsória.
+     Pergunta: Ingrid estuda com cansaço físico no final do dia — isso seria frustrante ou útil?
 
-G-4: Widget Clickwrap "Unclog-Jurídico" no Dashboard
-     Se termo de uso pendente: widget do Contador exibe aviso estético pedindo confirmação de licença, coleta hash SHA-256 no Supabase. Saneia pendência de compliance sem fricção.
+G-4: Emissão do Brasão de Estabilidade Semanal
+     String de certificado gerada toda noite de domingo na aba Raio-X: "Sua teia jurídica atingiu X% nesta semana. Zona de Classificação Atingida." Ativo compartilhável e combustível psicológico.
+     Pergunta: Ingrid compartilha conquistas ou guarda para si?
 
-G-5: Botão de Intervenção Socrática de Pânico Pós-Simulado
-     Ativo apenas se nota líquida < meta mínima. Aciona Claude API (Haiku) isolando 3 erros estruturais mais crônicos → minitreino socrático de 3 passos. Intercepta momento de maior vulnerabilidade emocional.
+G-5: Algoritmo de Distração Vingativa
+     Ao errar por armadilha literal (prescinde/salvo/exclusivamente), o sistema injeta essa palavra-chave nas próximas 3 questões de matérias distintas. Neutraliza o gatilho semântico da banca.
+     Pergunta: Ingrid identifica quando erra por pegadinha ou acha que não entendeu o conteúdo?
 
 ---
 
-[N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM · ingrid-v5.md):
+[N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM · ingrid-v5.md — output real 2026-05-26):
 
-N-1: Gatilho de Envio por Telemetria Temporal Passiva
-     Notificação dominical via WhatsApp disparada 15 min antes do horario_inicio_sessao modal das últimas 2 semanas — não às 09h fixo.
+N-1: Gatilho Temporal Autônomo
+     Query sobre horario_inicio_sessao das últimas 2 semanas → link WhatsApp ou notificação disparado 15 min antes do pico modal natural de Ingrid. Não às 09h fixo.
      Pergunta: Ingrid tem horário fixo de estudo dominical?
 
 N-2: Reconciliação Contratual Criptográfica
-     Destravamento do Score Ponderado condicional à confirmação do termo_v2_18_05, gerando log de IP + timestamp no Supabase.
+     Clickwrap-Unclog: Contador Ponderado bloqueado até Ingrid confirmar termo com data correta (18/05). Clique grava hash SHA-256 no Supabase. Mata passivo jurídico sem atrito.
      Pergunta: Ingrid reagiria bem a um banner de "confirmar licença" antes de ver sua nota?
 
-N-3: Linha de Corte Fantasma (P-041)
-     Interface exibe linha pontilhada horizontal com "Nota de Corte Estimada Histórica" (68 pts). Ingrid vê sua barra vs a linha.
-     Pergunta: Ingrid é movida por metas visuais concretas ou a comparação gera ansiedade?
+N-3: Linha de Corte Fantasma (P-041 aplicado)
+     Linha pontilhada estática de "Nota de Corte Histórica Estimada" (72 pts) na interface. Ingrid vê sua barra vs a linha. Aversão à Perda converte número em caça à vaga.
+     Pergunta: Ingrid é movida por metas visuais ou a comparação gera ansiedade?
 
-N-4: Rótulo "Simulado Misto" — Ilusão Estatística
-     Tag visual no Score informando que a nota contém questões recicladas (P-038). Previne excesso de confiança.
-     Pergunta: Ingrid percebe a diferença entre questões novas e recicladas no feed?
+N-4: Rótulo "Ilusão Estatística" do SM-2
+     Tag visual [Simulado de Fixação] informa que nota tem viés de repetição (P-038). Previne complacência — nota sobe por memória fotográfica, não por domínio real.
+     Pergunta: Ingrid percebe a diferença entre questões novas e recicladas?
 
-N-5: Card SVG Compartilhável (Prova Social)
-     Score Quadrix convertido em card visual (SVG/PNG) compartilhável. Diretor usa anonimizado no pitch B2C.
-     Pergunta: Ingrid compartilha conquistas de estudo ou prefere manter para si?
+N-5: Raio-X SVG Export via html2canvas
+     Painel convertido em card motivacional pelo cliente JS puro (html2canvas) — sem token de back-end. Ingrid vê conquista, Vanguard colhe anonimizado para pitch SaaS 500 usuárias.
+     Pergunta: Ingrid compartilha conquistas ou mantém para si?
 
 ---
 
