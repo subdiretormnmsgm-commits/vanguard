@@ -1205,6 +1205,29 @@ git checkout master
 
 ---
 
+### [P-061] Nenhuma API key de terceiro pertence ao frontend — proxy obrigatório
+**Descoberto:** 2026-05-24 | **Emitido por:** Auditor Valdece — segurança contratual
+**Fricção:** `GEMINI_KEY` exposta em `index.html` no repo público. Qualquer pessoa com acesso ao código-fonte podia usar a chave de API do Google AI Studio a custo do Valdece/Vanguard. O risco só foi detectado em auditoria de segurança, não antes do deploy.
+**Princípio:** Toda chave de API de serviço externo (Google, OpenAI, Anthropic, Stripe, etc.) é removida do frontend e movida para variável de ambiente do servidor. O frontend chama um proxy interno — Netlify Function, Supabase Edge Function ou backend próprio — que executa a chamada à API de forma segura.
+**Regra derivada:** `hv1_credential_guard.ps1` detecta padrões de chave em arquivos `.html`, `.js`, `.ts`. Hook de commit bloqueia se encontrar `AIzaSy` (Google) ou `sk-` (OpenAI) fora de arquivos `.env.*`. O padrão Supabase anon key é aceitável no frontend apenas se RLS estiver ativo na tabela.
+**Ferramenta criada:** `CLIENTES/VALDECE/netlify/functions/embed.js` — proxy Netlify que serve embeddings Gemini sem expor a chave. Chave configurada em Netlify → Site Settings → Environment Variables → `GEMINI_API_KEY`.
+**Aplica-se a:** todo projeto com chamadas a APIs pagas de terceiros — Valdece, Ingrid, qualquer projeto futuro da Vanguard.
+
+---
+
+### [P-063] Músculo lê PENDENTES.md completo como primeiro ato de qualquer sessão
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — falha de processo recorrente confirmada
+**Fricção:** O hook injeta apenas TÍTULOS das tarefas (ex: "Loop 5 — Gemini PASSO 3"). As instruções detalhadas — arquivos exatos, sequência, o que colar onde — estão no corpo do PENDENTES.md. O Músculo via os títulos e inventava a execução em vez de seguir o que estava escrito. Eduardo teve que dizer explicitamente "Veja o arquivo PENDENTES" — falha de processo confirmada.
+**Princípio:** O PENDENTES.md é o roteiro da sessão. Músculo que age apenas com os títulos do hook está improvisando sobre um roteiro que já existe. "Já está escrito" vence sobre "minha análise". Leitura do arquivo completo não é opcional — é o pré-requisito para qualquer deliberação.
+**Regras derivadas:**
+- `Read("PENDENTES.md")` é a PRIMEIRA ferramenta chamada em qualquer sessão — antes de qualquer resposta ao Diretor
+- Antes de executar qualquer tarefa: verificar se o PENDENTES já descreve como fazê-la. Se sim, seguir. Se não, deliberar e registrar antes de executar.
+- Hook atualizado: `Get-PendentesAlert` agora injeta título + sub-bullets de cada tarefa (máx 6 linhas por item) para o Músculo ter as instruções no contexto
+- CLAUDE.md atualizado: item 23 do bloco "O QUE VOCÊ NUNCA ESQUECE"
+**Aplica-se a:** toda sessão do Pentalateral IAH — sem exceção de projeto ou urgência.
+
+---
+
 ### [CANDIDATO_A_PRINCIPIO — ARQUITETURAL] LEDGER por índice semântico + compactação cíclica (P-059+ escala)
 **Proposto por:** Diretor Eduardo — 2026-05-24 | **Contexto:** P-058 inscritos · 20 projetos previstos
 **Fricção prevista:** Com 20 projetos e 3-4 princípios/sessão, o LEDGER ultrapassa 300 entradas em 6 meses (~15.000 linhas). Lost-in-the-Middle (DEF-G-3/DEF-N-3) vai degradar a leitura dos princípios intermediários. O Protocolo de Imunidade se torna o próprio gargalo.
@@ -1216,6 +1239,29 @@ git checkout master
 **Gate para implementação:** ativar quando houver ≥10 projetos simultâneos ou ≥80 princípios no LEDGER.
 **Responsável pela execução:** Músculo — sem intervenção do Diretor.
 **Aguarda:** aprovação formal do Diretor quando gate for atingido.
+
+---
+
+### [P-062] Nenhum script de orquestração novo enquanto houver MRR não fechado em projeto ativo
+**Descoberto:** 2026-05-24 | **Emitido por:** Auditor Ingrid — alerta DEF-M-5 coletiva
+**Fricção:** O Pentalateral produziu infraestrutura de excelência (22+ scripts de orquestração) enquanto o primeiro MRR (Manutenção Soberana Valdece) permanecia sem data de fechamento. Sistema mais sofisticado que o negócio que sustenta. A sofisticação técnica mascarou a ausência de receita.
+**Princípio:** Nenhum script de orquestração novo é criado enquanto houver contrato de MRR ou renovação não fechado em projeto ativo. A métrica de saúde do sistema é MRR fechado, não scripts funcionando.
+**Regra derivada:** Ao iniciar qualquer sessão: verificar WIP_BOARD → campo `retainer`. Se vazio e há projeto em `entregue` → bloquear criação de script novo e alertar o Diretor. A deliberação de processo vem depois da deliberação comercial, não antes.
+**Aplica-se a:** todo projeto do Pentalateral IAH com entrega concluída. Bloqueante para PROJ-001 Valdece enquanto Manutenção Soberana não for assinada.
+
+---
+
+### [P-064] Smoke test obrigatório antes de chamar o Diretor — deploy sem evidência é inválido
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — "Imagine com 20 projetos? Se eu não testasse, ficaríamos perdidos"
+**Fricção:** Músculo fez push do proxy Netlify e declarou "pronto". Eduardo testou e encontrou erro (Edge Function syntax no lugar de Serverless Function). O Diretor não deve ser o testador primário de deploys — esse papel é do Músculo.
+**Princípio:** Nenhum deploy é declarado "pronto" sem smoke test automatizado executado pelo Músculo. O Diretor testa apenas o golden path após o smoke test passar. Com 20 projetos simultâneos, o Diretor seria consumido por testes manuais se o Músculo não validar antes.
+**Regra operacional:**
+- Após todo `git push` para projeto com `smoke_tests.json`: rodar `scripts/smoke_test_deploy.ps1 -cliente [NOME]`
+- Se PASSOU: "Deploy validado. Diretor pode testar o golden path."
+- Se FALHOU: Músculo resolve antes de avisar Eduardo — nunca o contrário
+- Arquivo de config por projeto: `CLIENTES/[NOME]/smoke_tests.json`
+- Template universal: `scripts/smoke_tests_template.json`
+**Aplica-se a:** todo deploy de produto cliente (Netlify, GitHub Pages, qualquer hospedagem).
 
 ---
 

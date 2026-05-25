@@ -220,12 +220,12 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → COMANDO 2
 | **Deriva de Mandato** — expande para recomendações técnicas ou de arquitetura onde não tem competência | **Filtro de papel:** Recomendações técnicas do Embaixador = sinal de demanda do cliente, nunca decisão técnica. *"O Embaixador sinalizou o que o cliente quer — como fazer é decisão do Músculo."* |
 | **DEF-E-6: Silo de Cliente** — analisa um cliente por vez, não cruza padrões de nicho | **INTELIGENCIA_CRUZADA_NICHO:** ao emitir [E-1 a E-5] com 2+ clientes no mesmo nicho, exigir bloco `INTELIGENCIA_CRUZADA_NICHO` com padrão em [CLIENTE-A] + padrão em [CLIENTE-B] + hipótese para o nicho. |
 | **DEF-E-7: Temperatura Simples** — reporta temperatura sem tendência ou contexto de pagamento | **TEMPERATURA_PONDERADA:** substituiu temperatura simples. Formato: `Temperatura atual + Tendência + Contexto de pagamento → score 0-10`. Score < 6 = CHURN-WATCH automático. |
-| **DEF-E-8: Ciclo Fechado Sem Ação** — entrega [E-1 a E-5] e análise excelente, mas não gera DECISOES.json → o Diretor recebe inteligência sem mecanismo de execução | **Gate DECISOES_JSON obrigatório (2026-05-24):** ao fechar SEÇÃO D do PASSO7, o Embaixador SEMPRE gera `DECISOES_[PROJETO]_[DATA].json`. Análise sem JSON = ciclo incompleto. O Músculo rejeita e solicita o arquivo antes de renderizar o painel. |
+| **DEF-E-8: Ciclo Fechado Sem Ação** — entrega [E-1 a E-5] e análise excelente, mas não gera DECISOES.json → o Diretor recebe inteligência sem mecanismo de execução | **Gate DECISOES_JSON obrigatório (2026-05-24):** ao fechar SEÇÃO D do PASSO7, o Embaixador SEMPRE gera `DECISOES_[PROJETO]_[DATA].json` (schema v1.1). Análise sem JSON = ciclo incompleto. Eduardo cola o output no Claude Code → Músculo lista as decisões → Eduardo responde "D1:A, D2:B" → execução automática. JSON fica LOCAL — não sobe ao Claude Projects. |
 
 **AUTO-CHECKLIST DO MÚSCULO ao interpretar outputs do Embaixador:**
 
 > **DEF-E-8 Check:** O Embaixador entregou DECISOES.json junto com [E-1 a E-5]?
-> Se não → solicitar antes de renderizar o painel. Ciclo só fecha com JSON.
+> Se não → solicitar antes de listar as decisões. Eduardo cola o JSON no Claude Code — Músculo extrai e apresenta. Ciclo só fecha com JSON.
 
 
 | Deficiência | Verificação |
@@ -291,10 +291,9 @@ CLIENTES/[PROJETO]/
   PASSO7_EMBAIXADOR.md   ← Eduardo leva ao Embaixador (SEÇÃO D = [M]+[G]+[N] → recebe [E]+DECISOES.json)
   PASSO6_MUSCULO.md      ← Músculo lê internamente antes de deliberar (Eduardo não edita)
 
-CLIENTES/[PROJETO]/CLAUDE_PROJECT/DECISOES/
-  DECISOES_[PROJ]_[DATA].json   ← gerado pelo Embaixador ao fechar SEÇÃO D
-  VEREDITOS_[PROJ]_[DATA].json  ← gerado pelo Painel após vereditos do Diretor
-  PAINEL_[PROJ]_[DATA].html     ← gerado pelo render_painel.ps1 (abre no browser)
+CLIENTES/[PROJETO]/CLAUDE_PROJECT/
+  DECISOES_[PROJ]_[DATA].json       ← gerado pelo Embaixador (schema v1.1) — fica LOCAL, não sobe ao Projects
+  VEREDITOS_RESUMO_[PROJ]_[DATA].md ← gerado pelo executar_vereditos.ps1 — CARREGAR no Claude Project
 ```
 
 **Passo ⓪ do Músculo (antes de ir ao Gemini):**
@@ -352,13 +351,18 @@ O Embaixador reage às ideias de TODOS os sócios com um de três vereditos:
 **Template universal:** `PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md`
 **Template MENSAGEM:** `PENTALATERAL_UNIVERSAL/OPERACAO/MENSAGEM_INTERACAO_INICIAL_TEMPLATE.md`
 
-**Pipeline DECISOES → VEREDITOS (2026-05-24):**
+**Pipeline DECISOES inline — Eduardo só delibera (schema v1.1 · 2026-05-24):**
 ```
-Embaixador → DECISOES_[PROJ]_[DATA].json
-Músculo    → .\scripts\render_painel.ps1 -projeto [NOME]
-Diretor    → abre Painel HTML → marca vereditos (3 min) → baixa VEREDITOS.json
-Músculo    → .\scripts\executar_vereditos.ps1 -projeto [NOME]
-           → executa automaticamente: clipboard / MEMORIA / LEDGER / PENDENTES
+Embaixador → DECISOES_[PROJ]_[DATA].json ao fechar SEÇÃO D
+Eduardo    → cola output completo do Embaixador no Claude Code
+Músculo    → extrai JSON + lista: "D1: [título] — A: [opção A] | B: [opção B]"
+Eduardo    → responde apenas: "D1:A, D2:B"
+  [Gate D1] hypercare_ativo + artefato_editavel → Músculo exibe texto + aguarda "ok"
+  [Flag D2] requer_uso_confirmado + plantar_hoje → AVISO antes de executar
+  [Flag D3] resumo_para_cliente → gera VEREDITOS_RESUMO_CLIENTE.md filtrado
+Músculo    → .\scripts\executar_vereditos.ps1 — executa tudo automaticamente
+           → gera VEREDITOS_RESUMO_[PROJ]_[DATA].md (carregar no Claude Project)
+DECISOES.json fica LOCAL — JSON não é lido como Knowledge Document no Claude Projects
 ```
 
 ---
@@ -2490,6 +2494,9 @@ Traz-me o problema. Entregamos a solução.
 | `scripts/clone_project.py` | Novo projeto cliente | Clona estrutura padrão CLIENTES/[NOME]/ |
 | `scripts/atualizar_notebooklm_base.ps1` | Quando doc universal evoluir | Sincroniza NOTEBOOKLM_BASE/ com os 8 documentos-fonte universais |
 | `scripts/preparar_notebooklm_projeto.ps1 -cliente [NOME]` | Antes de cada sessão NotebookLM | Monta pasta única com 01-15 documentos; abre Explorer para arrastar |
+| `scripts/check_diretriz_embaixador.ps1 -cliente [NOME]` | Automático via ir_ao_embaixador.ps1 | Bloqueia abertura do browser se DIRETRIZ_GEMINI_V[N].txt ausente para o loop atual do cliente |
+| `scripts/monitor_hypercare.ps1` | Task Scheduler · 7h diário | Detecta ≥ 3 dias sem contato em projeto com Hypercare ativo (dias 1-30) → alerta Telegram |
+| `.claude/hooks/pre_session_ledger_sync.ps1` | Automático via session_start.ps1 | Sincroniza INTELLIGENCE_LEDGER.md em todos os NOTEBOOKLM_FONTES/ e CLAUDE_PROJECT/ se a fonte for mais recente |
 
 ### NOTEBOOKLM_BASE — ESTRUTURA DE DOCUMENTOS UNIVERSAIS (V25)
 
