@@ -1,4 +1,5 @@
-﻿
+﻿Preciso de orientação, pois estou confuso. Aonde entrar o painel interativo que o Diretor delibera? Preciso saber para ter na minhamente
+ 
 +  ---
   1. PASSO 3 → Gemini
     Leva : gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md + PASSO3_GEMINI.md
@@ -23,30 +24,57 @@
 
 
  ① VOCÊ ENVIA AO GEMINI
-  1. Cole: COMANDO_ESTRATEGISTA_MASTER_v1.md
+  1. Cole: CONTEXTO_GEMINI.md
   2. Cole: PASSO3_GEMINI.md
-  3. Anexe: MEMORIA_V4_INGRID.md
-  4. Anexe: relatorio_evolutivo_V4_INGRID.md
+  3. Anexe: MEMORIA_V[]_[].md
+  4. Anexe: relatorio_evolutivo_V[]_[].md
   5. Anexe: INTELLIGENCE_LEDGER.md
   6. Anexe: WIP_BOARD.json
 
   ② GEMINI ENTREGA
-  7. DIRETRIZ V6 → salvar como 12_DIRETRIZ_GEMINI_V6.txt
+  7. DIRETRIZ V[] → salvar como 12_DIRETRIZ_GEMINI_[].txt
 
   ③ VOCÊ ENVIA AO NOTEBOOKLM
   8. Rodar script + Wipe & Sync + Cole COMANDO CURTO
 
   ④ NOTEBOOKLM ENTREGA
-  9. Skill ingrid-v5.md + [N-1 a N-5]
+  9. Skill [].md + [N-1 a N-5]
 
   ⑤ VOCÊ ENVIA AO EMBAIXADOR
   10. Cole: PASSO7_EMBAIXADOR.md com as ideias [G-1 a G-5] e [N-1 a N-5]
-
   ⑥ EMBAIXADOR ENTREGA
-  11. [E-1 a E-5] — CONFIRMA / EXPANDE / ALERTA cada ideia com base no comportamento real da Ingrid
+  11. [E-1 a E-5] — CONFIRMA / EXPANDE / ALERTA cada ideia com
+ base no comportamento real de []
+
+O embaixador não entrega o painel?Que momento ele é gerado? Me ajude
+
+  12. Você baixa VEREDITOS_[].json do painel e salva em: CLIENTES\[]\CLAUDE_PROJECT\DECISOES\
+  13. Você roda: .\scripts\executar_vereditos.ps1 -projeto []
+  14. O script gera VEREDITOS_RESUMO_[]_2[].md
+  15. Esse .md (não o JSON) vai para o Claude Project na próxima ativação
+
+  ---
+ 
+  ┌──────────────────────────────────┬────────────────────────────────────────────┐
+  │              Etapa               │                   Status                   │
+  ├──────────────────────────────────┼────────────────────────────────────────────┤
+  │ Gemini (DIRETRIZ [])             │ OK                                         │
+  ├──────────────────────────────────┼────────────────────────────────────────────┤
+  │ NotebookLM (Skill [].md) │ OK                                         │
+  ├──────────────────────────────────┼────────────────────────────────────────────┤
+  │ Embaixador (LOG_[])             │ OK                                         │
+  ├──────────────────────────────────┼────────────────────────────────────────────┤
+  │ Músculo                          │ OK — aguarda seus vereditos Diretor │
+  └──────────────────────────────────┴────────────────────────────────────────────
 
   ⑦ VOCÊ TRAZ PARA MIM
   12. Skill + [N-1 a N-5] + [E-1 a E-5] → deliberação + plano de build
+
+
+
+
+
+Supabase tenm dois projetos. toga-digital-valdece e vanguard. Creio que o primeiro é de Valdece e o Segundo é de Ingrid
 
 
 

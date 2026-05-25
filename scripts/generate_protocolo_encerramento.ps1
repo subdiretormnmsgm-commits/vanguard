@@ -79,7 +79,7 @@ if (Test-Path $pendentesPath) {
         if (-not $ignorandoSecao -and $l -match "^\- \[ \]") {
             $totalPendentes++
             if (-not $secoes.Contains($secaoAtual)) { $secoes[$secaoAtual] = [System.Collections.Generic.List[string]]::new() }
-            $descricao = $l -replace "^\- \[ \] ``\d{4}-\d{2}-\d{2}`` \*\*", ""
+            $descricao = $l -replace "^\- \[ \] ``[^``]+`` \*\*", ""
             $descricao = ($descricao -replace "\*\*.*", "").Trim()
             if ($descricao.Length -gt 80) { $descricao = $descricao.Substring(0, 77) + "..." }
             $secoes[$secaoAtual].Add($descricao)

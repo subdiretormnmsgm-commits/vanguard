@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-05-25 00:42
+### Pentalateral IAH - Segunda-feira, 2026-05-25 00:47
 
 ---
 
@@ -14,34 +14,31 @@ Valdece    [BUILD    ]  Loop 7 CONCLUíDO (V3 entregue + Deploy Netlify OK) — 
 
 ## COMMIT DA SESSAO
 
-Commit : ab32bd0 - 20 arquivo(s) alterado(s)
-Mensagem: chore(session-close): P-066 + 3 sócios preparados + sync completo + destino PAINEL corrigido
+Commit : fcd7194 - 1 arquivo(s) alterado(s)
+Mensagem: chore(ingrid): PENDENTES com datas + dias da semana — Dias 14/15 explícitos
 
 ---
 
 ## ENTREGAS DO DIA
 
 VALDECE V3 — ENTREGUE E EM PRODUÇÃO (2026-05-25):
-  - DIA A: reingest 61 acórdãos + gate_v3 pos APROVADO (vinculantes=3 · pleno=5 · turma=56)
+  - DIA A: reingest 61 acórdãos + gate_v3 APROVADO (vinculantes=3 · pleno=5 · turma=56)
   - DIA B: badges VINCULANTE/REPETITIVO + ABNT garantido + 23 sinônimos penais + sw.js cache offline
-  - DIA C: infra confirmada no Supabase de Eduardo (toga-digital-valdece) — sem migração
-  - Deploy Netlify: toga-digital-valdece.netlify.app — proxy embed 200 OK · 3072 dim · smoke test OK
-  - view_diretor_roi validada em produção: total_acordaos=61 · vinculantes=3 · dias_em_uso=4
-
-INGRID — Loop 5 Gemini confirmado (sessão anterior):
-  - DIRETRIZ V6: NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt (15KB) — Loop 5 Gemini [x]
+  - DIA C: infra no Supabase de Eduardo (toga-digital-valdece) — sem migração
+  - Deploy Netlify: toga-digital-valdece.netlify.app — proxy 200 OK · smoke test badge VINCULANTE OK
+  - view_diretor_roi: total_acordaos=61 · vinculantes=3 · validada em produção
 
 INFRA — Protocolo de encerramento:
-  - Criado projeto 'Embaixador — Diretor' no Claude.ai (destino fixo do PAINEL_ATIVIDADES)
-  - P-066 registrado no LEDGER — destino do PAINEL agora explícito e permanente
+  - Projeto 'Embaixador — Diretor' criado no Claude.ai (P-066)
+  - PAINEL_ATIVIDADES agora com dia da semana no cabeçalho
 
 ---
 
 ## ALERTAS DO MUSCULO
 
-⚠️  LEGAL-WATCH Ingrid:
+⚠️  LEGAL-WATCH Ingrid (URGENTE antes do Dia 14):
     PDF do Termo datado 30/05 — assinatura real foi 18/05.
-    Resolver ANTES do offboarding (Dia 14-15).
+    Resolver ANTES do Dia 14 (2026-05-28 Qui).
 
 ---
 
@@ -56,20 +53,23 @@ INFRA — Protocolo de encerramento:
 🔴 Embaixador Ingrid — ativar com nova sistemática:
 🔴 Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:
 🟡 Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:
-🟡 Dia 14-15 — Offboarding + SaaS Readiness Audit:
+🟡 Dia 14 — Offboarding + SaaS Readiness Audit:
+⚪ Dia 15 — P-013 Soberania + gate admin Supabase:
 
-Total pendentes abertos: 5
+Total pendentes abertos: 6
 
 ---
 
 ## PROXIMA ACAO DO DIRETOR
 
-IMEDIATA — Ingrid Loop 5 NotebookLM (deadline 30/05 — 5 dias):
-  1. Abrir NotebookLM do projeto Ingrid
-  2. Wipe & Sync: 18 arquivos já preparados em CLIENTES/INGRID/NOTEBOOKLM_FONTES/
-  3. Colar o COMANDO CURTO (arquivo 13_PASSO5_NOTEBOOKLM.md)
-  4. Salvar output como ingrid-v5.md → .claude/skills/ingrid-v5.md
-  5. Músculo valida com skill_parser_gate.ps1
+CRONOGRAMA INGRID — 5 dias até deadline 30/05:
+
+  Hoje   Dom 25/05 → Embaixador Ingrid: ativar com nova sistemática
+  Seg    26/05     → Loop 5 NotebookLM: Wipe & Sync → COMANDO CURTO → ingrid-v5.md
+  Ter    27/05     → Loop 5 Embaixador: Seção D → DECISOES inline
+  Qui    28/05     → Dia 14: Offboarding + SaaS Readiness Audit
+  Sex    29/05     → Dia 15: P-013 soberania + gate admin Supabase (Ingrid)
+  Sab    30/05     → DEADLINE — entrega final
 
 ---
 
