@@ -8,10 +8,11 @@
 
 ## PROJ-001 · Valdece (Deadline: Hypercare até 18/06)
 
-- [ ] `2026-05-21` **V3 ENRICHMENT — campos turma/repercussao_geral vazios:**
-  APIs STF/STJ inacessíveis por DNS nesta sessão. Rodar quando rede disponível:
-  `python ingest.py --mode reingest` — popula turma + repercussao_geral + recurso_repetitivo + data_dje nos 61 acórdãos.
-  Badges PLENO/COLEGIADA só aparecem após este passo.
+- [x] `2026-05-21` ~~**V3 ENRICHMENT — campos turma/repercussao_geral vazios:**~~
+  ✅ reingest aplicado 2026-05-25 — 61/61 atualizados · 0 erros
+  ✅ fix classify_v3_fields: RE/ARE STF → repercussao_geral=True (EC 45/2004)
+  ✅ gate_v3 --check pos APROVADO: vinculantes=3 · pleno=5 · turma=56
+  ✅ view_diretor_roi validada no Supabase: total_acordaos=61 · vinculantes=3
 
 - [x] `2026-05-24` ~~**Embaixador Valdece — ativar com nova sistemática:**~~
   ✅ Embaixador ativado — LOG_002 processado — blocos A–H completos
@@ -19,6 +20,12 @@
   ✅ D1 clipboard · D3 scope-watch · D5 P-065 LEDGER · D6 pipeline OAB
   ✅ MEMORIA_EMBAIXADOR atualizada (Loop 7 · Score 6.5 · Hypercare ativo)
   ✅ WIP_BOARD: notebooklm=OK · embaixador=OK
+
+- [ ] `2026-05-25` **Deploy Netlify — ativar V3 em produção:**
+  1. Netlify Dashboard → Site Settings → Environment Variables → `GEMINI_API_KEY` = chave ativa
+  2. `netlify deploy --prod --dir=CLIENTES/VALDECE/frontend --functions=CLIENTES/VALDECE/netlify/functions`
+  3. Smoke test: badge ● VINCULANTE nos 3 REs · ABNT com link · embed proxy 200
+  ⚠️ Sem este deploy os badges V3 não aparecem para Valdece.
 
 - [ ] `2026-05-24` **Sentinel Report — gerar em 2026-06-02:**
   Relatório de Hypercare para Valdece. Template em CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md.
