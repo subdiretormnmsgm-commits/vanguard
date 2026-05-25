@@ -39,12 +39,8 @@
   2. Cole: MENSAGEM_INTERACAO_INICIAL.md V2.0 (via clipboard do ir_ao_embaixador.ps1 -cliente INGRID)
   3. Suba arquivos atualizados: INTELLIGENCE_LEDGER + WIP_BOARD + MEMORIA_EMBAIXADOR (feito pelo script)
 
-- [ ] `2026-05-24` **Loop 5 — Gemini (PASSO 3):**
-  Passo ⓪ Músculo: ✅ gemini_anchor_generator.ps1 + P-045 verificado (MEMORIA_V4 existe)
-  1. Cole: COMANDO_ESTRATEGISTA_MASTER_v1.md
-  2. Cole: PASSO3_GEMINI.md (Ingrid Loop 5)
-  3. Anexe: MEMORIA_V4_INGRID.md + relatorio_evolutivo_V4_INGRID.md + INTELLIGENCE_LEDGER.md + WIP_BOARD.json
-  Salvar: DIRETRIZ V6 → NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt
+- [x] `2026-05-24` ~~**Loop 5 — Gemini (PASSO 3):**~~
+  ✅ DIRETRIZ V6 gerada — salva em CLIENTES/INGRID/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt (2026-05-25)
 
 - [ ] `2026-05-24` **Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:**
   Rodar: preparar_notebooklm_projeto.ps1 -cliente INGRID → Wipe & Sync → COMANDO CURTO
