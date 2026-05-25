@@ -60,28 +60,25 @@
   ✅ Versão v14 — deploy GitHub Pages — smoke test 5/5 PASSOU
   ⏳ Gate: Ingrid testa e aprova antes de avançar para Dia 14
 
-- [ ] `2026-05-27 Ter` **[AÇÃO IMEDIATA] D1:A — WhatsApp + novo PDF para Ingrid:**
-  Eduardo envia: "Corrigi uma data no documento, precisa assinar rapidinho de novo 😊"
-  Músculo gera PDF template com data 18/05/2026 → Eduardo imprime/assina digitalmente
-  ⚠️ Fazer ANTES do Dia 14 para destravar o offboarding
+- [x] `2026-05-27 Ter` ~~**[AÇÃO IMEDIATA] D1:A — WhatsApp + novo PDF para Ingrid:**~~
+  ✅ Enviado por Eduardo em 2026-05-25 — gate desbloqueado para Dia 14
 
 - [ ] `2026-05-27 Ter` **[AÇÃO IMEDIATA] D4:A — Plantar lead na próxima mensagem:**
   Na próxima mensagem a Ingrid (qualquer assunto): "Você conhece mais alguém prestando concurso esse ano?"
   Simples, casual, sem pitch
 
-- [ ] `2026-05-27 Ter` **[VALIDAR] D5:A — Confirmar corte histórico Quadrix SEDES:**
-  Músculo: query nos dados históricos Quadrix para confirmar se 72 pts é o corte real
-  Se confirmado → Linha de Corte Fantasma entra no build Dia 14
+- [x] `2026-05-27 Ter` ~~**[VALIDAR] D5:A — Confirmar corte histórico Quadrix SEDES:**~~
+  ✅ Query executada em 2026-05-25 — SEDES-DF 2026 é inédito para Quadrix, sem corte verificável
+  ✅ SEDEST 2019 (predecessor/IBRAE): eliminatório 60 pts — não comparável diretamente
+  ✅ Conclusão: D5:B (campo configurável) confirmado correto — default sugerido 67 pts
 
-- [ ] `2026-05-28 Qui` **Dia 14 — Build Loop 5 + Offboarding + SaaS Readiness Audit:**
-  Ordem de build (5-6h total):
-  1. N-4 Rótulo SM-2 (15min) — tag [Simulado de Fixação] no domingo
-  2. N-3 Linha de Corte configurável (45min) — campo no DASHBOARD interno + linha na UI de Ingrid
-     D5:B: Eduardo define o número (ex: 72) no dashboard; Ingrid vê a linha na tela
-  3. N-1 Push adaptativo Mágico de Oz (1h) — query horario_inicio_sessao + mensagem WhatsApp pré-formatada
-  4. N-5 html2canvas export (3-4h) — card SVG no cliente, sem backend; unifica M-2+G-4+N-5
-  5. M-5 protocolo manual (sem build) — instrução para Eduardo enviar relatório semanal
-  ⚠️ D1:A (WhatsApp + PDF 18/05) deve estar resolvido ANTES deste dia
+- [x] `2026-05-28 Qui` ~~**Dia 14 — Build Loop 5 + Offboarding + SaaS Readiness Audit:**~~
+  ✅ N-4: badge [Simulado de Fixação] em questões SM-2 (q.revisao=true) — classe badge-sm2 amarela
+  ✅ N-3: Linha de Corte configurável — Dashboard (3 toques no logo) + barra meta na tela de fim
+  ✅ N-1: Push Mágico de Oz — Dashboard mostra última sessão + botão "Copiar mensagem"
+  ✅ N-5: html2canvas export — botão "📱 Salvar progresso" gera PNG do card
+  ✅ M-5: protocolo manual descrito abaixo (sem build)
+  ✅ v15 deployed em gh-pages (commit 9d87043)
 
 - [ ] `2026-05-29 Sex` **Dia 15 — P-013 Soberania + gate admin Supabase:**
   Gate bloqueante: Ingrid com acesso admin ao próprio Supabase

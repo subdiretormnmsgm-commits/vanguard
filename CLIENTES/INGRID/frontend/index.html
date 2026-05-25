@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#00F0FF" />
   <title>Sedes-DF 2026</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=15" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
@@ -21,11 +21,34 @@
   <span class="progresso-pill" id="progresso-header">–</span>
 </header>
 
-<!-- Debug Panel (5 toques no logo) -->
+<!-- Dashboard / Debug Panel (3 toques no logo — Eduardo only) -->
 <div id="debug-panel" class="debug-panel" style="display:none">
-  <div class="debug-header">🔧 Debug · <span style="color:#00F0FF">v13</span></div>
-  <div id="debug-content" class="debug-content">v13 · aguardando questão…</div>
-  <button onclick="window._testG5()" style="margin-top:8px;padding:6px 12px;background:#1A0B2E;color:#00F0FF;border:1px solid #00F0FF;border-radius:6px;cursor:pointer;font-size:12px">⚡ TESTAR G-5 agora</button>
+  <div class="debug-header">⚙️ Dashboard · <span style="color:#00F0FF">v15</span></div>
+
+  <!-- N-3: Linha de Corte configurável -->
+  <div class="dash-section">
+    <div class="dash-label">📊 Linha de Corte (N-3)</div>
+    <div class="dash-row">
+      <input type="number" id="dash-corte-input" value="67" min="1" max="200" class="dash-input" />
+      <span class="dash-unit">pts</span>
+      <button id="dash-corte-save" class="dash-btn">Salvar</button>
+    </div>
+    <div id="dash-corte-status" class="dash-status">–</div>
+  </div>
+
+  <!-- N-1: Push Mágico de Oz -->
+  <div class="dash-section">
+    <div class="dash-label">💬 Push Mágico de Oz (N-1)</div>
+    <div id="dash-push-info" class="dash-info">Carregando…</div>
+    <button id="dash-push-copy" class="dash-btn">Copiar mensagem</button>
+  </div>
+
+  <!-- Debug técnico -->
+  <div class="dash-section dash-debug-wrap">
+    <div class="dash-label">🔧 Debug</div>
+    <div id="debug-content" class="debug-content">v15 · aguardando questão…</div>
+    <button onclick="window._testG5()" style="margin-top:6px;padding:5px 10px;background:#1A0B2E;color:#00F0FF;border:1px solid rgba(0,240,255,0.4);border-radius:6px;cursor:pointer;font-size:11px">⚡ TESTAR G-5</button>
+  </div>
 </div>
 
 <main id="main-content">
@@ -160,6 +183,7 @@
   </div>
 </template>
 
-<script src="app.js?v=14"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script src="app.js?v=15"></script>
 </body>
 </html>

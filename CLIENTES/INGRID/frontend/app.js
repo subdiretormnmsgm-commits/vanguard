@@ -20,6 +20,8 @@ const VERSAO_TERMO      = "termo_v2_18_05"; // Clickwrap V2 — data real de ass
 const COTA_DIARIA_USD   = 5.00;
 const KILL_SWITCH_PCT   = 0.70;
 const ADMIN_TOKEN_CONF  = "vg-admin-2026-ingrid"; // substituir antes do deploy
+const LINHA_CORTE_DEFAULT = 67;   // N-3 — Eduardo ajusta no Dashboard (3 toques no logo)
+const INGRID_WHATSAPP     = "";   // N-1 — preencher: "55619..." (usado no push Mágico de Oz)
 
 // Admin override: ?admin=<token>
 const _params   = new URLSearchParams(location.search);
@@ -549,6 +551,19 @@ async function mostrarFim() {
   btnSim.addEventListener("click", iniciarMicroSimulado);
   document.getElementById("btn-fechar")?.before(btnSim);
 
+  // N-3: Linha de Corte — barra de progresso vs meta configurada no Dashboard
+  const metaPts  = carregarLinhaCorte();
+  const ptsTotal = dadosPontos && dadosPontos.pontos_total > 0 ? dadosPontos.pontos_total : pontosAcumulados;
+  inserirMetaBarra(main, ptsTotal, metaPts);
+
+  // N-5: Exportar card de progresso como PNG
+  const btnExport = document.createElement("button");
+  btnExport.className   = "btn-simulado";
+  btnExport.style.marginTop = "0";
+  btnExport.textContent = "📱 Salvar progresso";
+  btnExport.addEventListener("click", exportarCardProgresso);
+  document.getElementById("btn-fechar")?.before(btnExport);
+
   // Dia 10: Mapa de Soberania — busca e exibe automaticamente após sessão
   buscarEExibirMapa(main);
 }
@@ -720,7 +735,10 @@ function configurarLogoDeTap() {
 
 function toggleDebug() {
   const panel = document.getElementById("debug-panel");
-  if (panel) panel.style.display = panel.style.display === "none" ? "block" : "none";
+  if (!panel) return;
+  const abrindo = panel.style.display === "none";
+  panel.style.display = abrindo ? "block" : "none";
+  if (abrindo) carregarDashboard(); // N-3 + N-1: popula controles ao abrir
 }
 
 function atualizarDebug(questao, cacheStatus, custo) {
@@ -817,8 +835,13 @@ function renderizarQuestaoSimulado(indice) {
   badgeDisc.className   = q.peso_edital === 2 ? "badge-peso2" : "badge-peso1";
 
   const badgeTipo = card.querySelector(".badge-tipo");
-  badgeTipo.textContent = "⏱ Simulado";
-  badgeTipo.className   = "badge-simulado";
+  if (q.revisao) {
+    badgeTipo.textContent = "[Simulado de Fixação]"; // N-4: SM-2 — questão já vista antes
+    badgeTipo.className   = "badge-sm2";
+  } else {
+    badgeTipo.textContent = "⏱ Simulado";
+    badgeTipo.className   = "badge-simulado";
+  }
 
   const numEl = card.querySelector(".questao-numero");
   numEl.textContent = `${indice + 1}/${SIMULADO_TOTAL} · ${SIMULADO_TEMPO_SEG}s`;
@@ -1082,5 +1105,137 @@ function mostrarErro(msg) {
       <p>${msg}</p>
       <button class="btn-novo-dia" onclick="location.reload()">Tentar novamente</button>
     </div>`);
+}
+
+// ── N-3: LINHA DE CORTE — Dia 14 ─────────────────────────────────────────────
+function carregarLinhaCorte() {
+  return parseInt(localStorage.getItem("linhaCorte_pts") || LINHA_CORTE_DEFAULT, 10);
+}
+
+function salvarLinhaCorte(pts) {
+  localStorage.setItem("linhaCorte_pts", String(pts));
+}
+
+function inserirMetaBarra(container, pts, meta) {
+  const pct   = Math.min(Math.round((pts / Math.max(meta, 1)) * 100), 100);
+  const acima = pts >= meta;
+  const div   = document.createElement("div");
+  div.className = "meta-corte";
+  div.innerHTML = `
+    <div class="meta-header">
+      <span class="meta-label">Território conquistado</span>
+      <span class="meta-valores">${pts} pts</span>
+    </div>
+    <div class="meta-barra-bg">
+      <div class="meta-barra-fill${acima ? " meta-ok" : ""}" style="width:${pct}%"></div>
+    </div>
+    <div class="meta-rodape">${acima ? "✅ Acima da linha de corte!" : "Meta estimada: " + meta + " pts (" + pct + "% atingido)"}</div>
+  `;
+  const btnFechar = container.querySelector("#btn-fechar");
+  if (btnFechar) btnFechar.before(div);
+  else container.appendChild(div);
+}
+
+// ── N-1 + N-3: DASHBOARD (painel 3-toques no logo) — Dia 14 ─────────────────
+async function carregarDashboard() {
+  // N-3: Linha de Corte
+  const linhaAtual  = carregarLinhaCorte();
+  const inputCorte  = document.getElementById("dash-corte-input");
+  const statusCorte = document.getElementById("dash-corte-status");
+  const btnSave     = document.getElementById("dash-corte-save");
+
+  if (inputCorte)  inputCorte.value = linhaAtual;
+  if (statusCorte) statusCorte.textContent = "Atual: " + linhaAtual + " pts";
+
+  if (btnSave) {
+    btnSave.onclick = () => {
+      const v = parseInt(inputCorte ? inputCorte.value : "", 10);
+      if (!isNaN(v) && v > 0) {
+        salvarLinhaCorte(v);
+        if (statusCorte) statusCorte.textContent = "✅ Salvo: " + v + " pts";
+      }
+    };
+  }
+
+  // N-1: Buscar última sessão de Ingrid → gerar mensagem de push
+  const pushInfo = document.getElementById("dash-push-info");
+  const pushCopy = document.getElementById("dash-push-copy");
+
+  if (!pushInfo) return;
+
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/sessoes_usuario?user_id=eq.${USER_ID}&order=horario_inicio_sessao.desc&limit=1&select=horario_inicio_sessao`,
+      { headers: headers() }
+    );
+    const rows = await res.json();
+
+    if (rows.length > 0 && rows[0].horario_inicio_sessao) {
+      const dt   = new Date(rows[0].horario_inicio_sessao);
+      const hora = dt.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+      const dia  = dt.toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "2-digit" });
+      pushInfo.textContent = "Última sessão: " + hora + " (" + dia + ")";
+
+      const msgTexto = "Ingrid, vi que você estudou hoje às " + hora + "! Como tá indo? Me conta um acerto que você teve hoje 💪";
+
+      if (pushCopy) {
+        pushCopy.onclick = () => {
+          navigator.clipboard.writeText(msgTexto)
+            .then(() => {
+              pushCopy.textContent = "✅ Copiado!";
+              setTimeout(() => { pushCopy.textContent = "Copiar mensagem"; }, 2000);
+            })
+            .catch(() => window.prompt("Copie a mensagem:", msgTexto));
+        };
+      }
+    } else {
+      pushInfo.textContent = "Nenhuma sessão registrada ainda.";
+    }
+  } catch (_) {
+    pushInfo.textContent = "Erro ao buscar sessão.";
+  }
+}
+
+// ── N-5: EXPORTAR CARD DE PROGRESSO — Dia 14 ─────────────────────────────────
+async function exportarCardProgresso() {
+  if (typeof html2canvas === "undefined") {
+    window.alert("Exportação indisponível — verifique a conexão e tente novamente.");
+    return;
+  }
+
+  const meta = carregarLinhaCorte();
+  const pts  = pontosBase + pontosAcumulados;
+  const pct  = Math.min(Math.round((pts / Math.max(meta, 1)) * 100), 100);
+  const data = new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+
+  const card = document.createElement("div");
+  card.style.cssText =
+    "position:fixed;top:-9999px;left:0;width:320px;padding:28px 24px;background:#0A0A0A;" +
+    "border:1px solid rgba(0,240,255,0.25);border-radius:16px;font-family:Inter,sans-serif;" +
+    "color:#E8E8E8;box-sizing:border-box;";
+  card.innerHTML =
+    '<div style="font-size:10px;color:#00F0FF;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px">Sedes-DF 2026</div>' +
+    '<div style="font-size:12px;color:#555;margin-bottom:20px">' + data + '</div>' +
+    '<div style="font-size:52px;font-weight:800;color:#00F0FF;line-height:1">' + pts + '</div>' +
+    '<div style="font-size:12px;color:#555;margin-top:4px;margin-bottom:16px">pontos · meta ' + meta + '</div>' +
+    '<div style="height:6px;background:#1a1a1a;border-radius:3px;overflow:hidden;margin-bottom:16px">' +
+      '<div style="height:100%;background:#00F0FF;border-radius:3px;width:' + pct + '%"></div>' +
+    '</div>' +
+    '<div style="font-size:13px;color:#B0F0FF;font-weight:600">' + acertos + ' acertos hoje · ' + feed.length + ' questões respondidas</div>' +
+    '<div style="font-size:10px;color:#333;margin-top:20px;letter-spacing:.05em">VANGUARD TECH · SEDES-DF 2026</div>';
+
+  document.body.appendChild(card);
+
+  try {
+    const canvas = await html2canvas(card, { scale: 2, backgroundColor: "#0A0A0A", useCORS: true, logging: false });
+    const link = document.createElement("a");
+    link.download = "sedes-progresso-" + new Date().toISOString().slice(0, 10) + ".png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  } catch (_) {
+    window.alert("Não foi possível exportar. Tente novamente.");
+  } finally {
+    card.remove();
+  }
 }
 
