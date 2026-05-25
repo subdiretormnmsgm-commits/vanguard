@@ -25,12 +25,14 @@
 | 2026-05-18 | WhatsApp | Termo assinado por Ingrid | Diretor (confirmado 2026-05-19) |
 | 2026-05-18 | App (PWA) | Primeira sessão real — Gate Dia 8 | Ingrid |
 | 2026-05-23 | WhatsApp (via Diretor) | Link do app reenviado — reengajamento pós-Loop 5 | Diretor |
+| 2026-05-24 | WhatsApp | Ingrid enviou mensagem espontânea — usou simulado, sinalizou retorno amanhã | Ingrid |
 
 ### FALAS VERBATIM DE INGRID
 
 | Data | Canal | Fala exata | Contexto |
 |---|---|---|---|
 | 2026-05-18 | Via Diretor | *"Gostou muito do aplicativo, só fez essa ressalva: Na questão 18, não houve palavra destacada em negrito, como informava o enunciado."* | Primeira sessão real — Gate Dia 8 |
+| 2026-05-24 | WhatsApp direto | *"Boa noite, Eduardo! Fiz um simulado agora e gostei bastante. Amanhã volto ao app para atacar mais um pouco das questões!"* | Pós-reenvio do link (2026-05-23) — contato espontâneo noturno |
 
 ### EVENTOS OBSERVÁVEIS
 
@@ -78,14 +80,15 @@
 ### TEMPERATURA DO CLIENTE
 
 ```
-TEMPERATURA: VERDE FRÁGIL — REENGAJAMENTO NECESSÁRIO
-Razão: Última sessão real registrada: Gate Dia 8 (2026-05-18). App ficou 5 dias sem atualização visível
-(gh-pages branch congelada no Loop 3 sem que Ingrid soubesse). Novas features de Loop 5 chegaram
-em 2026-05-23 — Ingrid ainda não testou G-5, G-3 e Contador. Link reenviado hoje para reengajamento.
-CHURN-WATCH: MONITORANDO — silêncio confirmado de 2026-05-18 a 2026-05-23 (5 dias).
-Risco baixo: silêncio era do produto (deploy quebrado), não da Ingrid.
-Próxima reavaliação: após primeiro contato com features Loop 5 (G-5, G-3, Contador)
-Última atualização: 2026-05-23 (Músculo P-032 — Loop 5 Dia 12)
+TEMPERATURA: VERDE — ENGAJAMENTO ATIVO CONFIRMADO
+Razão: Ingrid enviou mensagem espontânea em 2026-05-24 (noite). Usou o simulado, declarou que
+"gostei bastante" e sinalizou retorno no dia seguinte. Contato iniciado por ela — sem estímulo
+direto do Diretor no dia. Score estimado: 7/10 (de 5 para 7 — subindo).
+CHURN-WATCH: DESATIVADO — risco de abandono não confirmado.
+Padrão observado: estuda à noite (mensagem às ~20h). Confirmação parcial de horário noturno.
+Simulado (Micro-Simulado Dia 11) testado e aprovado. Contador e Push: amanhã.
+Próxima reavaliação: após Eduardo informar feedback de Ingrid sobre Contador (Dia 13)
+Última atualização: 2026-05-24 (Músculo P-032 — contato espontâneo Ingrid)
 ```
 
 ### PADRÕES INFERIDOS — atualizar com cada sessão real
@@ -128,12 +131,12 @@ Próxima reavaliação: após primeiro contato com features Loop 5 (G-5, G-3, Co
 
 | Flag | Status | Ação se não resolvido |
 |---|---|---|
-| [CHURN-WATCH] | MONITORANDO — link reenviado 2026-05-23 | Rearmar se silêncio > 3 dias sem resposta ao reenvio |
+| [CHURN-WATCH] | **DESATIVADO** — Ingrid retornou espontaneamente em 2026-05-24 | Rearmar se silêncio > 3 dias a partir de agora |
 | [QA-WATCH] negrito questão 18 | RESOLVIDO | Fix deployado 2026-05-19 |
 | [SCOPE-WATCH] H-5 compartilhamento | ATIVO — sem dado | Monitorar na próxima sessão |
 | [LEGAL-WATCH] Termo data | ATIVO | Reassinatura pendente: PDF diz 30/05, assinatura foi em 18/05 |
 | [DEPLOY-WATCH] gh-pages branch | RESOLVIDO — P-056 documentado | Script deploy_ingrid_ghpages.ps1 ativo — rodar ao fim de cada sessão de build |
-| [TESTE-WATCH] Features Loop 5 | ATIVO | Ingrid ainda não testou G-5, G-3, Contador — aguardar feedback pós-reenvio do link |
+| [TESTE-WATCH] Features Loop 5 | **PARCIAL** — Simulado testado e aprovado (2026-05-24). Contador + Push: amanhã (2026-05-25) | Aguardar feedback de Ingrid sobre Contador após visita ao app |
 
 ### PIPELINE COMERCIAL
 

@@ -1251,6 +1251,20 @@ git checkout master
 
 ---
 
+### [P-064] Smoke test obrigatório antes de chamar o Diretor — deploy sem evidência é inválido
+**Descoberto:** 2026-05-24 | **Emitido por:** Diretor — "Imagine com 20 projetos? Se eu não testasse, ficaríamos perdidos"
+**Fricção:** Músculo fez push do proxy Netlify e declarou "pronto". Eduardo testou e encontrou erro (Edge Function syntax no lugar de Serverless Function). O Diretor não deve ser o testador primário de deploys — esse papel é do Músculo.
+**Princípio:** Nenhum deploy é declarado "pronto" sem smoke test automatizado executado pelo Músculo. O Diretor testa apenas o golden path após o smoke test passar. Com 20 projetos simultâneos, o Diretor seria consumido por testes manuais se o Músculo não validar antes.
+**Regra operacional:**
+- Após todo `git push` para projeto com `smoke_tests.json`: rodar `scripts/smoke_test_deploy.ps1 -cliente [NOME]`
+- Se PASSOU: "Deploy validado. Diretor pode testar o golden path."
+- Se FALHOU: Músculo resolve antes de avisar Eduardo — nunca o contrário
+- Arquivo de config por projeto: `CLIENTES/[NOME]/smoke_tests.json`
+- Template universal: `scripts/smoke_tests_template.json`
+**Aplica-se a:** todo deploy de produto cliente (Netlify, GitHub Pages, qualquer hospedagem).
+
+---
+
 ### [CANDIDATO_A_PRINCIPIO] O cliente que sinaliza escopo por áudio antes de assinar vai sinalizar por mensagem depois de assinar
 **Proposto por:** Embaixador Valdece — 2026-05-24 | **Aguarda:** numeração do Diretor
 **Fricção:** Valdece enviou 5 áudios sobre V3 (data_dje, turma, repercussao_geral) antes de assinar. O mesmo padrão se repete pós-contrato via mensagem. Pipeline sem travamento de escopo antes do primeiro uso = Eduardo respondendo a scope creep sem perceber que é scope creep.
@@ -1265,3 +1279,47 @@ git checkout master
 **Princípio candidato:** Toda automação que carrega dados críticos entre sessões deve emitir confirmação explícita de sucesso antes de prosseguir. Ausência de confirmação = falha assumida, não sucesso assumido.
 **Gate implementado:** `ir_ao_embaixador.ps1` exibe "Resumo de vereditos [DATA] incluído" antes de abrir o browser. Se ausente → alerta vermelho → Eduardo decide se prossegue.
 
+
+---
+
+### [P-065] Advogado que testa antes de assinar já se vendeu — fechamento é confirmação, não persuasão (2026-05-24)
+**Origem:** Valdece · Loop 7 · Embaixador
+**Fricção:** Valdece enviou 5 áudios de feedback técnico antes de assinar. O comportamento de teste ativo indica decisão interna já tomada — o contrato é formalização, não gatilho. O risco não é o fechamento: é o pós-assinatura, quando ele passa de prospect para usuário real com expectativa elevada.
+**Princípio:** Cliente exigente que testa ativamente antes de assinar já tomou a decisão de compra internamente. O esforço de retenção deve começar no dia da assinatura — não 30 dias depois. A régua sobe imediatamente.
+**Aplica-se a:** Perfis exigentes + pré-compra engajada em qualquer nicho (LegalTech, EdTech, SaaS). Hypercare ativo no dia 1, não no dia do churn.
+
+---
+
+### [SESSÃO 2026-05-24] — PROJ-001 Valdece / Loop 7 · Pipeline DECISOES executado automaticamente (P-060)
+
+**Direção da sessão:** Loop 7 completo — Gemini ✅ NotebookLM ✅ Embaixador ✅ Músculo delibera pendente · DECISOES pipeline executado sem intervenção do Diretor.
+
+**VALIDAÇÃO P-060 — EXECUÇÃO AUTOMÁTICA REGISTRADA:**
+```
+Eduardo salvou: VEREDITOS_VALDECE_2026-05-24.json em CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\
+Eduardo disse: "Feito"
+Músculo executou imediatamente: executar_vereditos.ps1 -projeto VALDECE
+Zero prompts adicionais do Diretor. Zero intervenção manual. Pipeline funcionou.
+```
+
+**O QUE EXECUTOU:**
+`[D1]` Mensagem Hypercare Dia 5 → copiada para clipboard (enviar_agora)
+`[D2]` Semente de migração → log_apenas (Eduardo confirmou: credenciais já são nossas)
+`[D3]` Protocolo scope creep → ativado (qualquer pedido novo = Change-Order formal)
+`[D4]` Sentinel Report 2026-06-02 → WhatsApp curto confirmado
+`[D5]` P-065 inscrito no LEDGER (erro de numeração automática corrigido manualmente pelo Músculo)
+`[D6]` Pipeline OAB → protocolo ativo (pergunta pronta ao ouvir menção a colega)
+
+**BUG IDENTIFICADO — executar_vereditos.ps1 linha ~145:**
+`$pNum = "P-{0:D3}" -f $proximo` falha quando `$proximo` é string. Fix: `[int]$proximo` ou usar regex para extrair número. Pendente de correção no cluster.
+
+**RESOLUÇÃO IMPORTANTE (D2):**
+WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirmou: credenciais obtidas no presencial 2026-05-19. O V3 build pode iniciar imediatamente. Sem dependência de Valdece.
+
+**Documentos criados/atualizados:**
+- `CLIENTES/VALDECE/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md` — Loop 7 + P-065 + temperatura score 6.5
+- `CLIENTES/WIP_BOARD.json` — VALDECE loop_fase_atual: notebooklm=OK, embaixador=OK
+- `INTELLIGENCE_LEDGER.md` — P-065 inscrito
+- `CLIENTES/VALDECE/HISTORICO/AUDITOR_LOOP_7_VALDECE.md` — criado
+- `CLIENTES/VALDECE/DIRETRIZ_GEMINI_V7.txt` — salvo em localização permanente
+- `CLIENTES/VALDECE/CLAUDE_PROJECT/DECISOES/VEREDITOS_RESUMO_VALDECE_2026-05-24.md` — gerado
