@@ -409,6 +409,30 @@
       text-transform: uppercase;
       flex-shrink: 0;
     }
+    .badge-vinculante {
+      font-size: 10px;
+      font-weight: 700;
+      color: #FF6B6B;
+      background: rgba(255,107,107,0.12);
+      border: 1px solid rgba(255,107,107,0.42);
+      border-radius: 3px;
+      padding: 2px 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .badge-repetitivo {
+      font-size: 10px;
+      font-weight: 700;
+      color: #FFA94D;
+      background: rgba(255,169,77,0.12);
+      border: 1px solid rgba(255,169,77,0.35);
+      border-radius: 3px;
+      padding: 2px 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
 
     .similarity-bar {
       margin-left: auto;
@@ -790,6 +814,8 @@
           <span class="badge-tema">${tema}</span>
           ${r.turma === 'Pleno' || r.turma === 'Seção' ? '<span class="badge-pleno">● PLENO</span>' : ''}
           ${r.turma && r.turma !== 'Pleno' && r.turma !== 'Seção' ? '<span class="badge-colegiada">● COLEGIADA</span>' : ''}
+          ${r.repercussao_geral ? '<span class="badge-vinculante">● VINCULANTE</span>' : ''}
+          ${r.recurso_repetitivo ? '<span class="badge-repetitivo">● REPETITIVO</span>' : ''}
           ${isTatico ? '<span class="badge-modo visible">⚔ Contra-arg.</span>' : ''}
           <div class="similarity-bar">
             <div class="sim-track"><div class="sim-fill" style="width:${simPct}%"></div></div>
@@ -881,7 +907,8 @@
     const ementa  = r.ementa || '';
     const relator = r.relator ? `Relator: ${r.relator}. ` : '';
     const djePart = dataDJE ? `DJe: ${dataDJE}. ` : '';
-    const link    = r.link ? `Disponível em: ${r.link}. Acesso em: ${dataAcesso}.` : '';
+    const officialUrl = r.link || buildSTJUrl(r.tribunal, r.numero_acordao);
+    const link    = `Disponível em: ${officialUrl}. Acesso em: ${dataAcesso}.`;
     const citacao = `BRASIL. ${nomeCompleto}. ${r.numero_acordao || 'S/N'}. ${relator}Brasília: ${r.tribunal}, ${dataJulg}. ${djePart}${link}`;
 
     return ementa ? `${ementa}\n\n${citacao}` : citacao;
