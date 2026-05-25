@@ -33,33 +33,37 @@
 
 ## PROJ-002 · Ingrid (Deadline: 30/05 Sab — 6 dias)
 
-- [ ] `2026-05-24` **Embaixador Ingrid — ativar com nova sistemática:**
+- [ ] `2026-05-25 Dom` **Embaixador Ingrid — ativar com nova sistemática:**
   1. Cole no Claude Project Ingrid: mensagem de ativação do novo papel (DECISOES.json)
   2. Cole: MENSAGEM_INTERACAO_INICIAL.md V2.0 (via clipboard do ir_ao_embaixador.ps1 -cliente INGRID)
   3. Suba arquivos atualizados: INTELLIGENCE_LEDGER + WIP_BOARD + MEMORIA_EMBAIXADOR (feito pelo script)
 
-- [x] `2026-05-24` ~~**Loop 5 — Gemini (PASSO 3):**~~
+- [x] `2026-05-25 Dom` ~~**Loop 5 — Gemini (PASSO 3):**~~
   ✅ DIRETRIZ V6 gerada — salva em CLIENTES/INGRID/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt (2026-05-25)
 
-- [ ] `2026-05-24` **Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:**
+- [ ] `2026-05-26 Seg` **Loop 5 — NotebookLM (PASSO 5) → ingrid-v5.md:**
   Rodar: preparar_notebooklm_projeto.ps1 -cliente INGRID → Wipe & Sync → COMANDO CURTO
   Salvar: ingrid-v5.md → .claude/skills/ingrid-v5.md
   Validar: skill_parser_gate.ps1
 
-- [ ] `2026-05-24` **Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:**
+- [ ] `2026-05-27 Ter` **Loop 5 — Embaixador (SEÇÃO D) → DECISOES inline:**
   Preencher PASSO7_EMBAIXADOR.md SEÇÃO D com [M-1 a M-5] + [G-1 a G-5] + [N-1 a N-5]
   Colar output completo do Embaixador no Claude Code — Músculo extrai JSON + apresenta decisões
   Eduardo responde "D1:A, D2:B" — Músculo executa automaticamente
   ⚠️ Ingrid (B2C sensível): fluxo simplificado — [E-1 a E-5] como texto, sem JSON burocrático
 
-- [x] `2026-05-24` ~~**Dia 13 — Push dominical + Widget Contador:**~~
+- [x] `2026-05-23 Sex` ~~**Dia 13 — Push dominical + Widget Contador:**~~
   ✅ Widget Contador: pontosBase (Supabase) + pontosAcumulados (sessão) no header
   ✅ Push dominical: banner slideDown + Notification API (iOS excluído via isIosSafari())
   ✅ Versão v14 — deploy GitHub Pages — smoke test 5/5 PASSOU
   ⏳ Gate: Ingrid testa e aprova antes de avançar para Dia 14
 
-- [ ] `2026-05-24` **Dia 14-15 — Offboarding + SaaS Readiness Audit:**
-  LEGAL-WATCH: PDF do Termo datado 30/05 — assinatura real 18/05. Resolver antes do offboarding.
+- [ ] `2026-05-28 Qui` **Dia 14 — Offboarding + SaaS Readiness Audit:**
+  LEGAL-WATCH: PDF do Termo datado 30/05 — assinatura real 18/05. Resolver ANTES de iniciar.
+
+- [ ] `2026-05-29 Sex` **Dia 15 — P-013 Soberania + gate admin Supabase:**
+  Gate bloqueante: Ingrid com acesso admin ao próprio Supabase
+  Deadline: 2026-05-30 Sab (1 dia de margem)
 
 ---
 
