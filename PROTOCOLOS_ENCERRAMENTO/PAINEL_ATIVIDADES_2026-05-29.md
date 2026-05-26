@@ -3,6 +3,29 @@
 
 ---
 
+## MENSAGEM PARA COLAR NO CHAT DO EMBAIXADOR
+
+> Copiar o bloco abaixo e colar no Claude Projects junto com o upload deste arquivo.
+
+```
+Embaixador, fechamento de sessão — 29-05-2026.
+
+Faço upload do PAINEL_ATIVIDADES desta sessão.
+Com base nele, gerar o artefato publicável com:
+
+1. SEMÁFORO — status visual de cada projeto (🔴 bloqueante / 🟡 atenção / 🟢 saudável)
+2. DIAGNÓSTICO DO DIA — saúde dos projetos ativos
+3. PREVISÃO DOS PRÓXIMOS DIAS — data a data com checklist de ações do Diretor
+4. ANÁLISE GERENCIAL — replicar e amplificar a análise do Músculo que está no PAINEL,
+   com sua perspectiva: o que o comportamento real do cliente confirma ou contradiz?
+   O que você vê que o Músculo não vê?
+5. PRÓXIMA AÇÃO DO DIRETOR — máximo 3 itens, em ordem de prioridade
+
+O artefato deve ser autossuficiente: abro e sei exatamente o que fazer.
+```
+
+---
+
 ## DECISOES E MANDATOS DA SESSAO — LER PRIMEIRO
 
 > Estas decisões foram declaradas pelo Diretor nesta sessão e são permanentes.
