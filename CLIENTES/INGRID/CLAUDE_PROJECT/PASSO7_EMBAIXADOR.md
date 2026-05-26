@@ -470,12 +470,24 @@ PREVISÃO DOS PRÓXIMOS DIAS:
 02-06-2026 terça    — Gerar Sentinel Report Valdece (template PASSO7_EMBAIXADOR Valdece)
 03-06-2026 em diante — Loop 6 Ingrid: PASSO3_GEMINI + nova DIRETRIZ V7
 
+ANÁLISE GERENCIAL DO MÚSCULO:
+O projeto Ingrid está tecnicamente sólido — v17 funcional, 11 gates aprovados em 15 dias
+previstos. O único risco real agora não é técnico: é a dependência de uma ação da Ingrid
+(criar conta Supabase) para desbloquear o gate final. Eduardo já contatou. Se Ingrid não
+responder até amanhã, o projeto não atrasa — há alternativa clara (Eduardo cria, convida
+depois). A intel D4:A revela isolamento: Ingrid estuda sozinha, sem rede, sem indicações.
+Isso significa que a prova de outubro é o único gatilho de referral — e só funciona se
+ela for aprovada. O foco do Embaixador deve ser: como manter engajamento e temperatura
+QUENTE nos 4 meses que faltam até setembro, sem visitas frequentes de Eduardo.
+
 PEDIDO AO EMBAIXADOR:
 Gerar o PAINEL DE ATIVIDADES como artefato publicável com:
 1. Semáforo visual de pendências (🔴 bloqueante / 🟡 atenção / 🟢 saudável)
 2. Seção DIAGNÓSTICO DO DIA — saúde de PROJ-002 Ingrid e PROJ-001 Valdece
 3. Seção PREVISÃO — data a data com checklist de ações do Diretor (30/05, 02/06, 03/06+)
-4. Seção PRÓXIMA AÇÃO DO DIRETOR — P-013 hoje + Sentinel Report 02/06
+4. Seção ANÁLISE GERENCIAL — replicar e amplificar a análise do Músculo acima com
+   perspectiva do Embaixador: o que o comportamento real da Ingrid confirma ou contradiz?
+5. Seção PRÓXIMA AÇÃO DO DIRETOR — P-013 hoje + Sentinel Report 02/06
 
 O artefato deve ser autossuficiente: o Diretor abre o PAINEL e sabe exatamente
 o que fazer, sem precisar ler esta conversa.
