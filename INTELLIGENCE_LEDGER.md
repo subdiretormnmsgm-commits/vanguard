@@ -1371,6 +1371,10 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 **Regra operacional:** Todo PENDENTES.md, WIP_BOARD e PASSO file deve conter o mapeamento `dia_projeto → data_calendário`. O briefing diário (7h) organiza por data, não por projeto. Músculo que avança Projeto A ignorando pendência do dia em Projeto B = falha de gestão, não de execução. Músculo que bypassa gate bloqueado sem autorização do Diretor = violação de processo.
 
+**Padrão de formato obrigatório (declarado pelo Diretor em 2026-05-29):** Todo documento — PENDENTES.md, WIP_BOARD, PASSO files, PAINEL, e-mail — deve registrar dias de projeto no formato **"Dia X (DD-MM-YYYY dia-da-semana)"**. Exemplo: "Dia 15 (29-05-2026 sexta-feira)". Esta notação elimina a ambiguidade entre dia interno do projeto e data calendário. Nunca escrever apenas "Dia 15" ou apenas "2026-05-29" — sempre juntos. O mapa diário (mapa_diario_pendencias.ps1) exibe a data no RESUMO ao lado de cada item. Ferramenta de verificação: ao criar qualquer item em PENDENTES.md com "Dia X", verificar que inclui "(DD-MM-YYYY dia-da-semana)" no título.
+
 **Por que é mandatório:** Em escala de 20 projetos, gestão por dia interno cria projetos adiantados com débito calendário acumulado invisível. A data calendário é a única unidade de medida que o Diretor e o cliente enxergam — tudo mais é ilusão operacional. Eduardo declarou: "Deve ser bloqueado, só com autorização do Diretor, que deve ser alertado. Mas temos que pensar nas pendências de todos os projetos em execução."
 
 **Aplica-se a:** toda sessão com mais de 1 projeto ativo. Implementar: campo `calendario` no WIP_BOARD mapeando dias do projeto para datas reais.
+
+**Mandato de assessoria permanente (declarado pelo Diretor em 2026-05-29):** "Não vou avançar em projeto algum com pendência no outro. Sempre devo ser assessorado." O Músculo apresenta o mapa completo de TODOS os projetos antes de qualquer proposta de avanço. O Diretor decide onde alocar atenção — o Músculo não seleciona por ele. Músculo que propõe avanço em Projeto A sem verificar Projeto B = falha de assessoria.

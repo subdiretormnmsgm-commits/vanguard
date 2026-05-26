@@ -26,7 +26,7 @@
   ✅ Proxy embed: 200 OK · vetor 3072 dimensões · GEMINI_API_KEY server-side
   ✅ GEMINI_API_KEY já estava configurada (Builds + Functions + Runtime)
 
-- [ ] `2026-05-24` **Sentinel Report — gerar em 2026-06-02:**
+- [ ] `2026-06-02` **Sentinel Report (02-06-2026 terça-feira) — Hypercare Valdece:**
   Relatório de Hypercare para Valdece. Template em CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md.
 
 ---
@@ -63,9 +63,9 @@
 - [x] `2026-05-27 Ter` ~~**[AÇÃO IMEDIATA] D1:A — WhatsApp + novo PDF para Ingrid:**~~
   ✅ Enviado por Eduardo em 2026-05-25 — gate desbloqueado para Dia 14
 
-- [ ] `2026-05-27 Ter` **[AÇÃO IMEDIATA] D4:A — Plantar lead na próxima mensagem:**
-  Na próxima mensagem a Ingrid (qualquer assunto): "Você conhece mais alguém prestando concurso esse ano?"
-  Simples, casual, sem pitch
+- [x] `2026-05-27` ~~**[AÇÃO IMEDIATA] D4:A (27-05-2026 terça-feira) — Plantar lead na próxima mensagem:**~~
+  ✅ Plantado em 2026-05-29 — Ingrid respondeu: não conhece ninguém prestando concurso
+  Pipeline de indicação = zero no curto prazo. Inteligência registrada em MEMORIA_EMBAIXADOR.
 
 - [x] `2026-05-27 Ter` ~~**[VALIDAR] D5:A — Confirmar corte histórico Quadrix SEDES:**~~
   ✅ Query executada em 2026-05-25 — SEDES-DF 2026 é inédito para Quadrix, sem corte verificável
@@ -77,12 +77,16 @@
   ✅ N-3: Linha de Corte configurável — Dashboard (3 toques no logo) + barra meta na tela de fim
   ✅ N-1: Push Mágico de Oz — Dashboard mostra última sessão + botão "Copiar mensagem"
   ✅ N-5: html2canvas export — botão "📱 Salvar progresso" gera PNG do card
-  ✅ M-5: protocolo manual descrito abaixo (sem build)
-  ✅ v15 deployed em gh-pages (commit 9d87043)
+  ✅ Nota Simulada de Prova (estatística) — get_heatmap_disciplinas × EDITAL_DIST 13 disciplinas
+  ✅ v17 deployed — encoding UTF-8 corrigido no deploy script — 2026-05-29
+  ✅ Bug fixes: disciplina_id · iniciada_em · migration sessoes_usuario aplicada no Supabase
 
-- [ ] `2026-05-29 Sex` **Dia 15 — P-013 Soberania + gate admin Supabase:**
+- [ ] `2026-05-29` **Dia 15 (29-05-2026 sexta-feira) — P-013 Soberania + gate admin Supabase:**
   Gate bloqueante: Ingrid com acesso admin ao próprio Supabase
-  Deadline: 2026-05-30 Sab (1 dia de margem)
+  Deadline: 30-05-2026 sábado (1 dia de margem)
+  Runbook: CLIENTES/INGRID/OFFBOARDING_RUNBOOK.md
+  SQL de migração: CLIENTES/INGRID/sql/migrate_ingrid_supabase_v1.sql
+  Após gate APROVADO: atualizar app.js linhas 16-17 + deploy v18
 
 ---
 

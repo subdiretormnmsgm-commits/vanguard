@@ -24,10 +24,11 @@ function Test-Script {
     $avisos = @()
     $linhas = $conteudo -split "`n"
 
-    # --- Regra 0: Parse AST real (detecta aspas curvas e qualquer erro de sintaxe) ---
+    # --- Regra 0: Parse AST real (usa ParseInput+UTF8 para evitar falso positivo de em dash) ---
     $parseErros = $null
     $parseTokens = $null
-    [System.Management.Automation.Language.Parser]::ParseFile($caminho, [ref]$parseTokens, [ref]$parseErros) | Out-Null
+    $conteudoUtf8 = [System.IO.File]::ReadAllText($caminho, [System.Text.Encoding]::UTF8)
+    [System.Management.Automation.Language.Parser]::ParseInput($conteudoUtf8, [ref]$parseTokens, [ref]$parseErros) | Out-Null
     foreach ($pe in $parseErros) {
         $erros += ("Linha " + $pe.Extent.StartLineNumber + " [PARSE]: " + $pe.Message)
     }

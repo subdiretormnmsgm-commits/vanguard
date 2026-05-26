@@ -205,3 +205,33 @@ TRADUÇÃO_PARA_AÇÃO:
 > **Como usar:** COLAR este documento no chat do Gemini (não anexar).
 > Arrastar os 4 documentos acima como anexo.
 > Salvar output do Gemini como: `CLIENTES/INGRID/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V6.txt`
+
+---
+
+## ATUALIZAÇÕES DO PROCESSO — SESSÃO 29-05-2026
+
+**[P-069 EXPANDIDO — FORMATO DE DATA MANDATÓRIO]**
+Todo item de projeto que referencie um "Dia X" usa agora o formato obrigatório:
+"Dia X (DD-MM-YYYY dia-da-semana)" — ex: "Dia 15 (29-05-2026 sexta-feira)".
+Aplica-se a PASSO files, WIP_BOARD, PENDENTES, PAINEL e e-mails. Nunca apenas "Dia 15".
+Ferramenta `mapa_diario_pendencias.ps1` atualizada — exibe data completa em todas as seções.
+
+**[P-013 PROJ-002 INGRID — GATE AUTORIZADO PELO DIRETOR]**
+Opção B aprovada: Ingrid cria próprio projeto Supabase (soberania total do cliente).
+Artefatos criados: `OFFBOARDING_RUNBOOK.md` (6 passos) + `migrate_ingrid_supabase_v1.sql` (schema completo).
+Eduardo já contatou Ingrid. Gate deadline: 30-05-2026 sábado.
+Sequência de desbloqueio: Ingrid envia URL + anon key → Eduardo roda SQL → deploy Edge Functions → Músculo atualiza app.js → v18 → gate dia15 APROVADO.
+Quando gate APROVADO: gerar MEMORIA_V5_INGRID + relatorio_evolutivo_V5_INGRID + Wipe & Sync NotebookLM.
+
+**[INTEL INGRID — PIPELINE DE REFERRAL]**
+D4:A executado em 29-05-2026: Ingrid não conhece ninguém prestando concurso.
+Pipeline de indicação = zero no curto prazo. Candidata estuda em isolamento.
+Próximo gatilho de pipeline: pós-aprovação (rede de servidores empossados).
+[SCOPE-WATCH] compartilhamento de login: revisado para IMPROVÁVEL com base neste intel.
+
+**[STATUS v17 — DEPLOY CONFIRMADO]**
+- Deploy GitHub Pages: funcional
+- Nota Simulada de Prova: 7.6/100 · 2/13 disciplinas (correto — Ingrid precisa usar mais)
+- N-1 Última Sessão Dashboard: "Última sessão: 21:46 (segunda-feira, 25/05)"
+- Emojis no header: corrigidos (encoding PS5.1 fix com WriteAllText UTF8NoBOM)
+- sessoes_usuario migration: aplicada em Supabase

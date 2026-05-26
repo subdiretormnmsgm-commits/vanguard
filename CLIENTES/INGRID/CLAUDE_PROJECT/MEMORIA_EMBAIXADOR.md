@@ -26,6 +26,8 @@
 | 2026-05-18 | App (PWA) | Primeira sessão real — Gate Dia 8 | Ingrid |
 | 2026-05-23 | WhatsApp (via Diretor) | Link do app reenviado — reengajamento pós-Loop 5 | Diretor |
 | 2026-05-24 | WhatsApp | Ingrid enviou mensagem espontânea — usou simulado, sinalizou retorno amanhã | Ingrid |
+| 2026-05-29 | WhatsApp | Ingrid viu documento (Termo 18/05) — confirmado recebido | Diretor |
+| 2026-05-29 | WhatsApp | Eduardo plantou lead D4:A — Ingrid respondeu "não conhece ninguém prestando concurso" | Diretor |
 
 ### FALAS VERBATIM DE INGRID
 
@@ -33,6 +35,7 @@
 |---|---|---|---|
 | 2026-05-18 | Via Diretor | *"Gostou muito do aplicativo, só fez essa ressalva: Na questão 18, não houve palavra destacada em negrito, como informava o enunciado."* | Primeira sessão real — Gate Dia 8 |
 | 2026-05-24 | WhatsApp direto | *"Boa noite, Eduardo! Fiz um simulado agora e gostei bastante. Amanhã volto ao app para atacar mais um pouco das questões!"* | Pós-reenvio do link (2026-05-23) — contato espontâneo noturno |
+| 2026-05-29 | WhatsApp (via Diretor) | *"[não conhece ninguém que esteja fazendo concurso]"* | Resposta ao plantio de lead D4:A — "Você conhece mais alguém prestando concurso esse ano?" |
 
 ### EVENTOS OBSERVÁVEIS
 
@@ -73,7 +76,7 @@
 
 | # | Hipótese | Status | Base de inferência |
 |---|---|---|---|
-| H-5 | Pode compartilhar login com familiar ou colega | PENDENTE | Perfil social — sem dado ainda |
+| H-5 | Pode compartilhar login com familiar ou colega | **IMPROVÁVEL — REVISADA** | D4:A: não conhece ninguém prestando concurso → rede social de concurso = zero por enquanto |
 | H-6 | Teto receptivo real pode ser R$150/mês, não R$97 | PENDENTE | Embaixador: "esperança não regateia" |
 | H-7 | Lê enunciados com atenção literal — Quadrix mindset nativo | **NOVA — confirmar nas próximas 2 sessões** | Notou discrepância entre o que o enunciado "informava" e o que a UI entregou |
 
@@ -168,6 +171,13 @@ Próxima reavaliação: após Eduardo informar feedback de Ingrid sobre Contador
 | SaaS V2 upsell | R$150/mês | Ingrid não piscar no R$97 | Avaliar no momento do pitch |
 
 **Abertura do pitch:** *"Ingrid, esse ciclo foi piloto. Quero continuar do seu lado até o dia da prova — R$97/mês, menos que qualquer cursinho, e o sistema já te conhece. Quer continuar?"*
+
+**Inteligência de pipeline — D4:A (2026-05-29):**
+- Eduardo plantou: *"Você conhece mais alguém prestando concurso esse ano?"*
+- Ingrid respondeu: não conhece ninguém
+- **Implicação:** Ingrid estuda em isolamento — sem grupo de estudo, sem rede de concurso. Pipeline de indicação = zero no curto prazo.
+- **Contra-intuição:** ausência de rede é também ausência de concorrente social (ninguém para comparar o app com ela). Ela não vai ouvir "TEC é melhor" de colega.
+- **Próximo gatilho de pipeline:** avaliar após aprovação — momento de expansão de rede em comunidades de servidores (pós-nomeação = momento de maior vaidade e compartilhamento).
 
 ### INTELIGÊNCIA DE MERCADO — D2 (EdTech-Concurso)
 

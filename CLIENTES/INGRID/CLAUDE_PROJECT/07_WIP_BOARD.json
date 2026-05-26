@@ -1,5 +1,5 @@
-﻿{
-    "atualizado_em":  "2026-05-28",
+{
+    "atualizado_em":  "2026-05-25",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -19,11 +19,11 @@
                                     "tipo":  "Projeto Piloto Interno — Validação V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "EM BUILD — Loop 5 ativo — Dia 14 CONCLUIDO — v15 em producao — Deadline 2026-05-30 (2 dias)",
+                                    "status":  "EM BUILD — Loop 5 ativo — Deadline 2026-05-30 (6 dias)",
                                     "cargo":  "TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop 5 — Dia 14 CONCLUIDO — N-4 SM-2 + N-3 Linha de Corte + N-1 Push Oz + N-5 html2canvas — v15 deployed",
+                                    "loop_atual":  "Loop 5 — Dias 12-13 — Contador Pontos Ponderados + Push dominical",
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -37,9 +37,7 @@
                                                            "dia3_5_feed_sm2_pwa",
                                                            "dia6_8_tutor_fallback",
                                                            "dia9_11_heatmap_simulado",
-                                                           "dia12_contador_socratica_vacina_push_cb",
-                                                           "dia13_contador_ponderado_dominical",
-                                                           "dia14_n4_n3_n1_n5_dashboard_v15"
+                                                           "dia12_contador_socratica_vacina_push_cb"
                                                        ],
                                     "delivery_dates":  {
                                                            "dia1_2":  "2026-05-15",
@@ -141,14 +139,14 @@
                                                       "bug_negrito":  "CORRIGIDO — md2html() deployed gh-pages d00c2c1 — 2026-05-19",
                                                       "temperatura_cliente":  "QUENTE"
                                                   },
-                                    "proximo_passo":  "Dia 15 — Offboarding + SaaS Readiness Audit + Gate P-013 (Ingrid com acesso admin proprio Supabase) · Deadline: 2026-05-30",
+                                    "proximo_passo":  "Músculo: build Dia 13 (Push dominical + Widget Contador no header) · Deploy gh-pages via deploy_ingrid_ghpages.ps1 · Deadline: 2026-05-30 (6 dias)",
                                     "loop_fase_atual":  {
                                                             "loop":  5,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "OK",
-                                                            "embaixador":  "OK",
-                                                            "musculo":  "OK - Dia 14 concluido v15 deployed 2026-05-28",
-                                                            "proximo":  "Dia 15 - Offboarding + SaaS Readiness Audit"
+                                                            "notebooklm":  "PENDENTE",
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "PENDENTE",
+                                                            "proximo":  "NotebookLM -\u003e Skill ingrid-v5.md"
                                                         }
                                 },
                                 {

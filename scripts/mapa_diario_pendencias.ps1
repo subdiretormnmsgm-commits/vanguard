@@ -84,10 +84,11 @@ if ($vencidas.Count -gt 0) {
     $linhasOut += ""
     $linhasOut += "VENCIDAS ($($vencidas.Count)) — resolver PRIMEIRO:"
     foreach ($p in $vencidas) {
-        $quem = if ($p.PrecisaDiretor) { "[GATE -> Diretor]" } else { "[Musculo executa]" }
-        $d    = if ($p.Atraso -eq 1) { "1 dia atraso" } else { "$($p.Atraso) dias atraso" }
+        $quem    = if ($p.PrecisaDiretor) { "[GATE -> Diretor]" } else { "[Musculo executa]" }
+        $d       = if ($p.Atraso -eq 1) { "1 dia atraso" } else { "$($p.Atraso) dias atraso" }
+        $diaSemV = $p.Data.ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
         $linhasOut += "  [!!] $($p.Projeto) | $($p.Titulo)"
-        $linhasOut += "       $quem | $d | Data: $($p.Data.ToString('dd/MM'))"
+        $linhasOut += "       $quem | $d | $($p.Data.ToString('dd-MM-yyyy')) $diaSemV"
     }
 }
 
@@ -96,9 +97,10 @@ if ($hoje_items.Count -gt 0) {
     $linhasOut += ""
     $linhasOut += "HOJE — $(Get-Date -Format 'dd/MM') ($diaSemana) ($($hoje_items.Count) item(ns)):"
     foreach ($p in $hoje_items) {
-        $quem = if ($p.PrecisaDiretor) { "[GATE -> Diretor]" } else { "[Musculo executa]" }
+        $quem    = if ($p.PrecisaDiretor) { "[GATE -> Diretor]" } else { "[Musculo executa]" }
+        $diaSemH = $p.Data.ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
         $linhasOut += "  [>>] $($p.Projeto) | $($p.Titulo)"
-        $linhasOut += "       $quem"
+        $linhasOut += "       $quem | $($p.Data.ToString('dd-MM-yyyy')) $diaSemH"
     }
 } else {
     $linhasOut += ""
@@ -113,7 +115,7 @@ if ($proximas7.Count -gt 0) {
     foreach ($p in $proximas7 | Sort-Object Data) {
         $diaSem = $p.Data.ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
         $quem   = if ($p.PrecisaDiretor) { "[GATE -> Diretor]" } else { "[Musculo executa]" }
-        $linhasOut += "  [  ] $($p.Data.ToString('dd/MM')) $diaSem | $($p.Projeto) | $($p.Titulo)"
+        $linhasOut += "  [  ] $($p.Data.ToString('dd-MM-yyyy')) $diaSem | $($p.Projeto) | $($p.Titulo)"
         $linhasOut += "       $quem"
     }
 }
@@ -132,14 +134,16 @@ $linhasOut += "RESUMO: $totalHoje pendencia(s) imediata(s) em $( ($vencidas + $h
 if ($musculoHoje.Count -gt 0) {
     $linhasOut += "  Musculo executa agora ($($musculoHoje.Count)):"
     foreach ($m in $musculoHoje) {
-        $linhasOut += "    -> $($m.Projeto): $($m.Titulo)"
+        $diaSemM = $m.Data.ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+        $linhasOut += "    -> $($m.Projeto): $($m.Titulo) [$($m.Data.ToString('dd-MM-yyyy')) $diaSemM]"
     }
 }
 
 if ($diretorHoje.Count -gt 0) {
     $linhasOut += "  Aguarda deliberacao do Diretor ($($diretorHoje.Count)):"
     foreach ($d in $diretorHoje) {
-        $linhasOut += "    -> $($d.Projeto): $($d.Titulo)"
+        $diaSemD = $d.Data.ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+        $linhasOut += "    -> $($d.Projeto): $($d.Titulo) [$($d.Data.ToString('dd-MM-yyyy')) $diaSemD]"
     }
     $linhasOut += ""
     $linhasOut += "  PERGUNTA AO DIRETOR: Ha $($diretorHoje.Count) gate(s) bloqueado(s) aguardando sua deliberacao."

@@ -433,3 +433,34 @@ DECISOES.json — gerado automaticamente ao fechar SEÇÃO D
 *PASSO7 · Projeto Ingrid · Loop 5 · Atualizado em 2026-05-23*
 *[M-1 a M-5] do Loop 4 pré-preenchidos · [G] e [N] a preencher após DIRETRIZ V5 + ingrid-v5.md*
 *Template universal: PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md*
+
+---
+
+## NOTAS PÓS-SESSÃO — 29-05-2026
+
+**[D4:A — RESULTADO CONFIRMADO]**
+Eduardo plantou a pergunta: "Você conhece mais alguém prestando concurso esse ano?"
+Resposta da Ingrid: não conhece ninguém prestando concurso.
+Pipeline de referral = zero no curto prazo. Candidata estuda em isolamento.
+Hipótese H-5 (compartilhamento de login) revisada para IMPROVÁVEL — Ingrid usa sozinha.
+Próximo gatilho de pipeline: pós-aprovação (rede de servidores empossados).
+
+**[P-013 — GATE EM ANDAMENTO]**
+Diretor autorizou Opção B: Ingrid cria próprio projeto Supabase (soberania do cliente).
+Eduardo já contatou Ingrid. Aguarda ela enviar URL + anon key do projeto criado.
+Deadline: 30-05-2026 sábado.
+Sequência quando Ingrid enviar credenciais:
+  1. Eduardo roda `migrate_ingrid_supabase_v1.sql` no SQL Editor dela
+  2. Eduardo exporta questões (CSV) do Supabase Vanguard → importa no projeto dela
+  3. Eduardo deploya Edge Functions via Supabase CLI
+  4. Músculo atualiza app.js com novas credenciais → v18 → Eduardo testa → gate APROVADO
+
+**[WATCHDOG ATUALIZADO — 29-05-2026]**
+- [PIPELINE] D4:A FECHADO — Ingrid não tem referral. Remover da lista de pendências ativas.
+- [SCOPE-WATCH] compartilhamento de login: IMPROVÁVEL (revisado após intel D4:A)
+- [LEGAL-WATCH] Termo de Uso data 30/05 vs assinatura 18/05: endereçar em Dia 14 (28-05-2026 quinta-feira)
+- [CHURN-WATCH] ativo se sem uso >3 dias a partir de 2026-05-23
+
+**[TEMPERATURA ESTIMADA — 29-05-2026]**
+Ingrid respondeu ao contato sobre Supabase: comportamento cooperativo, sem resistência.
+Score estimado: 7/10. Tendência: estável. Contexto de pagamento: pago.

@@ -216,6 +216,14 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     Ferramenta: `scripts/mapa_diario_pendencias.ps1` — injetado automaticamente no hook de sessão.
     Músculo que avança Projeto A ignorando pendência do dia em Projeto B = falha de gestão.
     ─────────────────────────────────────────────────────────────────────────────────────
+    FORMATO DE DATA OBRIGATÓRIO EM TODOS OS DOCUMENTOS (declarado pelo Diretor em 2026-05-29):
+    Todo item de projeto que referencie um "Dia X" DEVE incluir a data no formato
+    "Dia X (DD-MM-YYYY dia-da-semana)" — Exemplo: "Dia 15 (29-05-2026 sexta-feira)".
+    Aplica-se a: PENDENTES.md · WIP_BOARD · PASSO files · PAINEL_ATIVIDADES · e-mails.
+    NUNCA escrever só "Dia 15" ou só "29/05" — sempre o par completo.
+    O mapa diário exibe "(DD-MM-YYYY dia-da-semana)" ao lado de cada item no RESUMO.
+    Músculo que cria item sem este formato = violação — corrigir imediatamente.
+    ─────────────────────────────────────────────────────────────────────────────────────
 23. PRIMEIRO ATO DE TODA SESSÃO: LER PENDENTES.md COMPLETO — P-063 (2026-05-24):
     O hook injeta apenas os TÍTULOS das tarefas pendentes. As instruções detalhadas —
     arquivos exatos, sequência de passos, o que colar onde — estão NO CORPO do PENDENTES.md.

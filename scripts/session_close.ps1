@@ -640,7 +640,7 @@ if (Test-Path $painelScript) {
     Write-Host "=============================================="
     Write-Host "  PAINEL DE ATIVIDADES — EMBAIXADOR"
     Write-Host "=============================================="
-    $painelFile = & powershell.exe -NonInteractive -File $painelScript 2>$null
+    $painelFile = (& powershell.exe -NonInteractive -File $painelScript 2>$null) | Select-Object -Last 1
     if ($painelFile -and (Test-Path $painelFile)) {
         Write-Host ""
         Write-Host "  [PAINEL] Arquivo pronto para upload ao Embaixador:" -ForegroundColor Cyan

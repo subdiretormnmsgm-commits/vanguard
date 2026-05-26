@@ -48,7 +48,7 @@ PROJETO: PROJ-001 — Valdece
   Stack     : 
   Deadline  : 2026-05-23
   Status    : Sistema LIVE · Contrato ASSINADO 2026-05-19 · R · V3 pipeline desbloqueado
-  Loop atual: Loop 7 CONCLUíDO (V3 entregue) — DIA A+B+C. Deploy Netlify pendente (Diretor)
+  Loop atual: Loop 7 CONCLUíDO (V3 entregue + Deploy Netlify OK) — toga-digital-valdece.netlify.app ativo
   Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui, dia4_gate_abnt_threshold_toga, dia5_corpus_deploy_demo
   Proximo passo: V3 ENTREGUE — Deploy Netlify (Diretor) + Sentinel Report 2026-06-02
 

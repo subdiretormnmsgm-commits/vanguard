@@ -142,3 +142,31 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 
 O script monta `CLIENTES/INGRID/NOTEBOOKLM_FONTES/` e abre o Explorer automaticamente.
 Selecionar tudo (Ctrl+A) → arrastar ao NotebookLM → Wipe & Sync → colar COMANDO CURTO.
+
+---
+
+## ATUALIZAÇÕES DO PROCESSO — SESSÃO 29-05-2026
+
+**[P-069 EXPANDIDO — FORMATO DE DATA MANDATÓRIO]**
+Todo item de projeto que referencie um "Dia X" usa agora o formato obrigatório:
+"Dia X (DD-MM-YYYY dia-da-semana)" — ex: "Dia 15 (29-05-2026 sexta-feira)".
+A Skill gerada pelo Auditor deve usar este formato em toda menção de dia interno do projeto.
+Nunca apenas "Dia 15" — sempre o par completo com data e dia da semana.
+
+**[P-013 PROJ-002 INGRID — GATE AUTORIZADO]**
+Ingrid criará próprio projeto Supabase (Opção B — soberania do cliente).
+O Auditor deve considerar este gate ao avaliar o cronograma Dias 12-15:
+- Dia 15 (29-05-2026 sexta-feira): gate P-013 em andamento — aguarda Ingrid enviar credenciais
+- Gate deadline: 30-05-2026 sábado
+- SQL de migração completo já criado: `migrate_ingrid_supabase_v1.sql`
+- Loop 5 não fecha enquanto gate dia15 não for APROVADO pelo Diretor
+
+**[INTEL INGRID — PIPELINE DE REFERRAL]**
+D4:A executado: Ingrid não conhece ninguém prestando concurso. Pipeline = zero.
+Hipótese H-5 (compartilhamento de login) revisada para IMPROVÁVEL.
+Este dado deve informar a análise de mercado do Auditor em PARTE 2 e as ideias disruptivas em PARTE 4.
+
+**[STATUS v17 — DEPLOY CONFIRMADO EM 29-05-2026]**
+- App live: https://subdiretormnmsgm-commits.github.io/vanguard/
+- Gates aprovados até Dia 11: schema, questões, feed SM-2, PWA, clickwrap, tutor, heatmap, micro-simulado
+- Pendente: Dias 12-13 (Contador Pontos Ponderados + Push dominical) + Dias 14-15 (P-013 + SaaS Readiness)
