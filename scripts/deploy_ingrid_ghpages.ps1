@@ -3,6 +3,11 @@
 # Uso: .\scripts\deploy_ingrid_ghpages.ps1
 
 $ErrorActionPreference = "Stop"
+
+# PS5.1: forcar leitura do output de git como UTF-8 (sem isso emojis ficam corrompidos)
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding           = [System.Text.Encoding]::UTF8
+
 $root = Split-Path $PSScriptRoot -Parent
 $src  = "CLIENTES/INGRID/frontend"
 
@@ -21,9 +26,12 @@ git -C $root stash | Out-Null
 git -C $root checkout gh-pages | Out-Null
 Write-Host "`n[1/3] Branch gh-pages ativa" -ForegroundColor Green
 
-# Copiar arquivos
+# Copiar arquivos preservando UTF-8 sem BOM
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 @("app.js", "index.html", "style.css", "sw.js", "manifest.json") | ForEach-Object {
-    git -C $root show "master:$src/$_" | Set-Content "$root\$_" -Encoding UTF8
+    $lines   = git -C $root show "master:$src/$_"
+    $content = $lines -join "`n"
+    [System.IO.File]::WriteAllText("$root\$_", $content, $utf8NoBom)
     Write-Host "      Copiado: $_" -ForegroundColor Gray
 }
 Write-Host "[2/3] Arquivos copiados" -ForegroundColor Green
@@ -41,4 +49,4 @@ git -C $root stash pop 2>$null | Out-Null
 
 Write-Host "`n[OK] Deploy concluido. Aguarde 1-2 min para GitHub Pages propagar." -ForegroundColor Cyan
 Write-Host "  URL: https://subdiretormnmsgm-commits.github.io/vanguard/" -ForegroundColor Gray
-Write-Host "  Confirmar: debug panel (3 toques no logo) -> checar versao v15"
+Write-Host "  Confirmar: debug panel (3 toques no logo) -> checar versao v17"
