@@ -21,6 +21,23 @@ const COTA_DIARIA_USD   = 5.00;
 const KILL_SWITCH_PCT   = 0.70;
 const ADMIN_TOKEN_CONF  = "vg-admin-2026-ingrid"; // substituir antes do deploy
 const LINHA_CORTE_DEFAULT = 67;   // N-3 — Eduardo ajusta no Dashboard (3 toques no logo)
+
+// Distribuição real do edital Sedes-DF 2026 (questoes × peso = 100 pts máx)
+const EDITAL_DIST = {
+  portugues:               { questoes: 7,  peso: 1 },
+  realidade_df_ride:       { questoes: 4,  peso: 1 },
+  lei_organica_df:         { questoes: 3,  peso: 1 },
+  lc840:                   { questoes: 3,  peso: 1 },
+  maria_da_penha:          { questoes: 1,  peso: 1 },
+  politica_mulheres:       { questoes: 1,  peso: 1 },
+  primeiros_socorros:      { questoes: 1,  peso: 1 },
+  suas_fundamentos:        { questoes: 12, peso: 2 },
+  programas_beneficios_df: { questoes: 8,  peso: 2 },
+  direito_administrativo:  { questoes: 8,  peso: 2 },
+  arquivologia:            { questoes: 6,  peso: 2 },
+  direito_constitucional:  { questoes: 3,  peso: 2 },
+  recursos_materiais:      { questoes: 3,  peso: 2 },
+};
 const INGRID_WHATSAPP     = "";   // N-1 — preencher: "55619..." (usado no push Mágico de Oz)
 
 // Admin override: ?admin=<token>
@@ -1165,13 +1182,13 @@ async function carregarDashboard() {
 
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/sessoes_usuario?user_id=eq.${USER_ID}&order=horario_inicio_sessao.desc&limit=1&select=horario_inicio_sessao`,
+      `${SUPABASE_URL}/rest/v1/sessoes_usuario?user_id=eq.${USER_ID}&order=created_at.desc&limit=1&select=created_at`,
       { headers: headers() }
     );
     const rows = await res.json();
 
-    if (rows.length > 0 && rows[0].horario_inicio_sessao) {
-      const dt   = new Date(rows[0].horario_inicio_sessao);
+    if (rows.length > 0 && rows[0].created_at) {
+      const dt   = new Date(rows[0].created_at);
       const hora = dt.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
       const dia  = dt.toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "2-digit" });
       pushInfo.textContent = "Última sessão: " + hora + " (" + dia + ")";
@@ -1193,6 +1210,65 @@ async function carregarDashboard() {
     }
   } catch (_) {
     pushInfo.textContent = "Erro ao buscar sessão.";
+  }
+
+  // Nota Simulada de Prova (estatística)
+  calcularNotaSimulada();
+}
+
+// ── NOTA SIMULADA DE PROVA (estatística) — Dia 15 ────────────────────────────
+async function calcularNotaSimulada() {
+  const notaEl = document.getElementById("dash-nota-valor");
+  const fillEl = document.getElementById("dash-nota-fill");
+  const infoEl = document.getElementById("dash-nota-info");
+  if (!notaEl) return;
+
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/rpc/get_heatmap_disciplinas`,
+      {
+        method: "POST",
+        headers: { ...headers(), "Content-Type": "application/json" },
+        body: JSON.stringify({ p_user_id: USER_ID })
+      }
+    );
+    const dados = await res.json();
+    if (!Array.isArray(dados) || dados.length === 0) {
+      notaEl.textContent = "–";
+      if (infoEl) infoEl.textContent = "Sem dados suficientes ainda.";
+      return;
+    }
+
+    const taxaMap = {};
+    for (const row of dados) taxaMap[row.disciplina] = row.taxa_acerto_pct ?? 0;
+
+    let notaProjetada = 0;
+    let discCobertas  = 0;
+    for (const [disc, e] of Object.entries(EDITAL_DIST)) {
+      notaProjetada += ((taxaMap[disc] ?? 0) / 100) * e.questoes * e.peso;
+      if (taxaMap[disc] !== undefined) discCobertas++;
+    }
+    notaProjetada = Math.round(notaProjetada * 10) / 10;
+
+    const pct     = Math.min(Math.round(notaProjetada), 100);
+    const atingiu = notaProjetada >= 67;
+
+    notaEl.textContent = notaProjetada.toFixed(1) + " / 100";
+    notaEl.style.color = atingiu ? "#4ade80" : "var(--cyan)";
+    if (fillEl) {
+      fillEl.style.width = pct + "%";
+      fillEl.className   = "meta-barra-fill" + (atingiu ? " meta-ok" : "");
+    }
+    if (infoEl) {
+      const statusTxt = atingiu
+        ? "Acima do corte estimado (67 pts)"
+        : "Abaixo do corte estimado (67 pts)";
+      infoEl.textContent = (atingiu ? "✅ " : "⚠️ ") + statusTxt
+        + " · " + discCobertas + "/" + Object.keys(EDITAL_DIST).length + " disciplinas";
+    }
+  } catch (_) {
+    if (notaEl) notaEl.textContent = "–";
+    if (infoEl) infoEl.textContent = "Erro ao calcular nota simulada.";
   }
 }
 

@@ -853,6 +853,14 @@ main {
 
 .dash-debug-wrap .debug-content { padding: 6px 0 4px; }
 
+.dash-nota-valor {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--cyan);
+  line-height: 1;
+  margin: 2px 0 4px;
+}
+
 /* ── G-5: Socrática Pânico ──────────────────────────────────── */
 .panico-screen {
   display: flex;
