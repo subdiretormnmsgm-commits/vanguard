@@ -1356,3 +1356,21 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Princípio:** Antes de qualquer Painel de Deliberação chegar ao Diretor, o Músculo executa obrigatoriamente a Síntese P-037: (a) analisar cada ideia [M+G+N+E] com os 7 pontos, (b) VETO ou ENTRA ou MERGE ou V2, (c) build order com estimativas. Diretor vê 1 plano consolidado — não 25 inputs brutos para processar. Painel sem síntese = Músculo transferiu trabalho para o Diretor.
 **Verificação ao retomar sessão compactada:** antes de apresentar qualquer decisão, perguntar: "A síntese P-037 já foi feita?" Se não → fazer primeiro.
 **Aplica-se a:** todo ciclo do Pentalateral, pós-Embaixador, antes do veredito do Diretor.
+
+---
+
+### [P-069] Data calendário rege a ordem de ação — não o dia interno do projeto
+**Descoberto:** 2026-05-29 | **Declarado pelo Diretor**
+**Fricção:** Com múltiplos projetos ativos, o Músculo avançava projetos por ordem de contexto da conversa — não por data de vencimento calendário. Resultado: um projeto avança enquanto outro acumula pendências do mesmo dia. Em escala de 20 projetos, isso cria cinco projetos adiantados e três com débito do dia.
+**Princípio:** O dia interno do projeto (ex: "Dia 16") deve ter correspondência explícita com uma data calendário (ex: 2026-05-25). A data calendário é a unidade de prioridade — mandatória, sem exceção. Ao iniciar qualquer sessão, o Músculo pergunta: "O que está pendente HOJE por data calendário em TODOS os projetos ativos?" e apresenta o mapa completo ao Diretor antes de qualquer ação.
+
+**Modelo de execução:**
+- Gates bloqueados por decisão do Diretor → MANTER o bloqueio + alertar o Diretor com ação específica necessária. Nunca bypassar, nunca fingir que não existe.
+- Enquanto gate bloqueado aguarda Diretor → trabalhar nas pendências do mesmo dia de OUTROS projetos ativos.
+- O Diretor vê o mapa completo do dia (todos os projetos) — não um projeto de cada vez. É ele quem decide onde colocar a atenção.
+
+**Regra operacional:** Todo PENDENTES.md, WIP_BOARD e PASSO file deve conter o mapeamento `dia_projeto → data_calendário`. O briefing diário (7h) organiza por data, não por projeto. Músculo que avança Projeto A ignorando pendência do dia em Projeto B = falha de gestão, não de execução. Músculo que bypassa gate bloqueado sem autorização do Diretor = violação de processo.
+
+**Por que é mandatório:** Em escala de 20 projetos, gestão por dia interno cria projetos adiantados com débito calendário acumulado invisível. A data calendário é a única unidade de medida que o Diretor e o cliente enxergam — tudo mais é ilusão operacional. Eduardo declarou: "Deve ser bloqueado, só com autorização do Diretor, que deve ser alertado. Mas temos que pensar nas pendências de todos os projetos em execução."
+
+**Aplica-se a:** toda sessão com mais de 1 projeto ativo. Implementar: campo `calendario` no WIP_BOARD mapeando dias do projeto para datas reais.

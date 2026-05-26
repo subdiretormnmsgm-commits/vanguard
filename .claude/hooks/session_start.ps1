@@ -185,6 +185,18 @@ function Get-PendentesAlert {
 
 $pendentesAlert = Get-PendentesAlert
 
+# --- P-069: Mapa Diario de Pendencias (visibilidade cruzada por data em todos os projetos) ---
+$mapaDiarioOutput = ""
+$mapaDiarioScript = Join-Path $projectDir "scripts\mapa_diario_pendencias.ps1"
+if (Test-Path $mapaDiarioScript) {
+    try {
+        $mdLines = & powershell.exe -NonInteractive -File $mapaDiarioScript -Silencioso 2>$null
+        if ($mdLines) {
+            $mapaDiarioOutput = ($mdLines | Where-Object { $_ -ne $null }) -join "`n"
+        }
+    } catch {}
+}
+
 # --- Gargalo Ping silencioso (dispara e-mail se Diretor estiver bloqueando) ---
 $pingScript = Join-Path $projectDir "scripts\gargalo_ping.ps1"
 if (Test-Path $pingScript) {
@@ -251,6 +263,7 @@ if ($checkIn)            { $sections += "## CHECK-IN OBRIGATORIO - PERGUNTAR AO 
 if ($formalizadorOutput) { $sections += "## FORMALIZADOR - CONFLITO COMERCIAL DETECTADO`n$formalizadorOutput" }
 if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }
 
+if ($mapaDiarioOutput) { $sections = @("## MAPA DIARIO — P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +

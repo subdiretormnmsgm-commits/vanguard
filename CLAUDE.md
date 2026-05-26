@@ -204,6 +204,18 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
         silenciosamente. (ir_ao_embaixador.ps1 já implementa este gate.)
     (e) Logs de scripts de automação (monitor_hypercare, sync) devem prefixar "[CLIENTE]" em cada linha
         de operação — logs misturados tornam diagnóstico impossível em escala.
+24. P-069 — DATA CALENDÁRIO REGE A ORDEM DE AÇÃO (2026-05-29) — MANDATÓRIO:
+    Todo dia interno de projeto (ex: "Dia 15 Ingrid") tem uma data calendário correspondente.
+    A data calendário é a única unidade de prioridade. Ao iniciar a sessão, o Músculo:
+    (a) Apresenta o MAPA DIÁRIO ao Diretor: "DATA — N pendências em Projeto X, M em Projeto Y"
+    (b) Classifica cada item: [Músculo executa] ou [GATE → aguarda deliberação do Diretor]
+    (c) Pergunta: "Diretor, temos N pendências. Sugiro agir assim: [lista priorizada]"
+    (d) Aguarda deliberação antes de avançar qualquer item de gate bloqueante
+    Gates bloqueados por decisão do Diretor → MANTER bloqueio + alertar. Nunca bypassar.
+    Enquanto gate aguarda Diretor → trabalhar pendências do mesmo dia em outros projetos.
+    Ferramenta: `scripts/mapa_diario_pendencias.ps1` — injetado automaticamente no hook de sessão.
+    Músculo que avança Projeto A ignorando pendência do dia em Projeto B = falha de gestão.
+    ─────────────────────────────────────────────────────────────────────────────────────
 23. PRIMEIRO ATO DE TODA SESSÃO: LER PENDENTES.md COMPLETO — P-063 (2026-05-24):
     O hook injeta apenas os TÍTULOS das tarefas pendentes. As instruções detalhadas —
     arquivos exatos, sequência de passos, o que colar onde — estão NO CORPO do PENDENTES.md.
