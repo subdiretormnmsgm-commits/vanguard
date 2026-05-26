@@ -1240,7 +1240,7 @@ async function calcularNotaSimulada() {
     }
 
     const taxaMap = {};
-    for (const row of dados) taxaMap[row.disciplina] = row.taxa_acerto_pct ?? 0;
+    for (const row of dados) taxaMap[row.disciplina_id] = row.taxa_acerto_pct ?? 0;
 
     let notaProjetada = 0;
     let discCobertas  = 0;
