@@ -436,6 +436,53 @@ DECISOES.json — gerado automaticamente ao fechar SEÇÃO D
 
 ---
 
+## SEÇÃO E — FECHAMENTO + PAINEL PUBLICÁVEL (colar no Embaixador após session_close)
+
+```
+Embaixador, fechamento de sessão — INGRID · 29-05-2026.
+
+ENTREGAS DO DIA:
+- P-069 operacionalizado: formato "Dia X (DD-MM-YYYY dia-da-semana)" em TODOS os documentos
+- P-013 Opção B autorizada: Ingrid cria próprio Supabase — OFFBOARDING_RUNBOOK + SQL de migração criados
+- v17 deploy confirmado: GitHub Pages funcional, nota simulada 7.6/100, último acesso correto
+- D4:A fechado: Ingrid não conhece ninguém prestando concurso (pipeline de referral = zero)
+- H-5 (compartilhamento de login) revisada para IMPROVÁVEL
+
+ALERTAS ATIVOS:
+🔴 P-013 bloqueante: deadline 30-05-2026 sábado — aguarda Ingrid enviar URL + anon key do Supabase
+🟡 MEMORIA_V5_INGRID ausente: loop 5 não fechou — gate dia15 ainda aberto
+🟡 LEGAL-WATCH: Termo de Uso data 30/05 vs assinatura 18/05 — endereçar no Dia 14
+
+PRÓXIMO GATE:
+Gate Dia 15 (30-05-2026 sábado) — P-013 Soberania
+Sequência de desbloqueio:
+  1. Ingrid envia URL + anon key do Supabase dela
+  2. Eduardo roda migrate_ingrid_supabase_v1.sql no SQL Editor dela
+  3. Eduardo exporta questões CSV do Vanguard → importa no projeto da Ingrid
+  4. Eduardo deploya Edge Functions via Supabase CLI
+  5. Músculo atualiza app.js linhas 16-17 → v18 → Eduardo testa → gate APROVADO
+  Ao fechar: MEMORIA_V5_INGRID + relatorio_evolutivo_V5_INGRID + Wipe & Sync NotebookLM
+
+PREVISÃO DOS PRÓXIMOS DIAS:
+30-05-2026 sábado   — DEADLINE: Ingrid envia credenciais Supabase → executar sequência P-013
+                      Se sim: build v18 + deploy + gate dia15 APROVADO + fechar Loop 5
+                      Se não: Eduardo cria projeto e convida Ingrid como admin depois
+02-06-2026 terça    — Gerar Sentinel Report Valdece (template PASSO7_EMBAIXADOR Valdece)
+03-06-2026 em diante — Loop 6 Ingrid: PASSO3_GEMINI + nova DIRETRIZ V7
+
+PEDIDO AO EMBAIXADOR:
+Gerar o PAINEL DE ATIVIDADES como artefato publicável com:
+1. Semáforo visual de pendências (🔴 bloqueante / 🟡 atenção / 🟢 saudável)
+2. Seção DIAGNÓSTICO DO DIA — saúde de PROJ-002 Ingrid e PROJ-001 Valdece
+3. Seção PREVISÃO — data a data com checklist de ações do Diretor (30/05, 02/06, 03/06+)
+4. Seção PRÓXIMA AÇÃO DO DIRETOR — P-013 hoje + Sentinel Report 02/06
+
+O artefato deve ser autossuficiente: o Diretor abre o PAINEL e sabe exatamente
+o que fazer, sem precisar ler esta conversa.
+```
+
+---
+
 ## NOTAS PÓS-SESSÃO — 29-05-2026
 
 **[D4:A — RESULTADO CONFIRMADO]**
