@@ -81,12 +81,13 @@
   ✅ v17 deployed — encoding UTF-8 corrigido no deploy script — 2026-05-29
   ✅ Bug fixes: disciplina_id · iniciada_em · migration sessoes_usuario aplicada no Supabase
 
-- [ ] `2026-05-29` **Dia 15 (29-05-2026 sexta-feira) — P-013 Soberania + gate admin Supabase:**
-  Gate bloqueante: Ingrid com acesso admin ao próprio Supabase
-  Deadline: 30-05-2026 sábado (1 dia de margem)
-  Runbook: CLIENTES/INGRID/OFFBOARDING_RUNBOOK.md
-  SQL de migração: CLIENTES/INGRID/sql/migrate_ingrid_supabase_v1.sql
-  Após gate APROVADO: atualizar app.js linhas 16-17 + deploy v18
+- [x] `2026-05-26` ~~**Dia 15 (26-05-2026 segunda-feira) — P-013 Soberania + gate admin Supabase:**~~
+  ✅ SQL migração executado — 12 tabelas · 9 funções · 13 linhas cache
+  ✅ 460 questões + 470 respostas migradas
+  ✅ Edge Functions deployadas: feed-diario · tutor-socratico · notificar-progresso
+  ✅ Secrets configurados via CLI: ANTHROPIC_API_KEY · TELEGRAM_BOT_TOKEN · TELEGRAM_CHAT_ID
+  ✅ app.js v18: SUPABASE_URL + ANON_KEY → yjqvjhezwhepwomukudt
+  ✅ deploy v18 GitHub Pages — gate aprovado: Total respostas:1 · Gasto:$0.0001
 
 ---
 
