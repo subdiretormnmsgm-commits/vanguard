@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#00F0FF" />
   <title>Sedes-DF 2026</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link rel="stylesheet" href="style.css?v=16" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
@@ -18,62 +18,72 @@
     <span class="label">pts</span>
     <span id="pontos-valor">0</span>
   </div>
-  <span class="progresso-pill" id="progresso-header">–</span>
+  <span class="progresso-pill" id="progresso-header">ÔÇô</span>
 </header>
 
-<!-- Dashboard / Debug Panel (3 toques no logo — Eduardo only) -->
+<!-- Dashboard / Debug Panel (3 toques no logo ÔÇö Eduardo only) -->
 <div id="debug-panel" class="debug-panel" style="display:none">
-  <div class="debug-header">⚙️ Dashboard · <span style="color:#00F0FF">v15</span></div>
+  <div class="debug-header">ÔÜÖ´©Å Dashboard ┬À <span style="color:#00F0FF">v16</span></div>
 
-  <!-- N-3: Linha de Corte configurável -->
+  <!-- N-3: Linha de Corte configur├ível -->
   <div class="dash-section">
-    <div class="dash-label">📊 Linha de Corte (N-3)</div>
+    <div class="dash-label">­ƒôè Linha de Corte (N-3)</div>
     <div class="dash-row">
       <input type="number" id="dash-corte-input" value="67" min="1" max="200" class="dash-input" />
       <span class="dash-unit">pts</span>
       <button id="dash-corte-save" class="dash-btn">Salvar</button>
     </div>
-    <div id="dash-corte-status" class="dash-status">–</div>
+    <div id="dash-corte-status" class="dash-status">ÔÇô</div>
   </div>
 
-  <!-- N-1: Push Mágico de Oz -->
+  <!-- Nota Simulada de Prova (estat├¡stica) ÔÇö Dia 15 -->
   <div class="dash-section">
-    <div class="dash-label">💬 Push Mágico de Oz (N-1)</div>
-    <div id="dash-push-info" class="dash-info">Carregando…</div>
+    <div class="dash-label">­ƒÄ» Nota Simulada de Prova</div>
+    <div id="dash-nota-valor" class="dash-nota-valor">ÔÇô</div>
+    <div class="meta-barra-bg" style="margin:6px 0 4px">
+      <div id="dash-nota-fill" class="meta-barra-fill" style="width:0%"></div>
+    </div>
+    <div id="dash-nota-info" class="dash-info">CalculandoÔÇª</div>
+  </div>
+
+  <!-- N-1: Push M├ígico de Oz -->
+  <div class="dash-section">
+    <div class="dash-label">­ƒÆ¼ Push M├ígico de Oz (N-1)</div>
+    <div id="dash-push-info" class="dash-info">CarregandoÔÇª</div>
     <button id="dash-push-copy" class="dash-btn">Copiar mensagem</button>
   </div>
 
-  <!-- Debug técnico -->
+  <!-- Debug t├®cnico -->
   <div class="dash-section dash-debug-wrap">
-    <div class="dash-label">🔧 Debug</div>
-    <div id="debug-content" class="debug-content">v15 · aguardando questão…</div>
-    <button onclick="window._testG5()" style="margin-top:6px;padding:5px 10px;background:#1A0B2E;color:#00F0FF;border:1px solid rgba(0,240,255,0.4);border-radius:6px;cursor:pointer;font-size:11px">⚡ TESTAR G-5</button>
+    <div class="dash-label">­ƒöº Debug</div>
+    <div id="debug-content" class="debug-content">v16 ┬À aguardando quest├úoÔÇª</div>
+    <button onclick="window._testG5()" style="margin-top:6px;padding:5px 10px;background:#1A0B2E;color:#00F0FF;border:1px solid rgba(0,240,255,0.4);border-radius:6px;cursor:pointer;font-size:11px">ÔÜí TESTAR G-5</button>
   </div>
 </div>
 
 <main id="main-content">
   <div class="estado-vazio">
     <div class="spinner"></div>
-    <p>Carregando…</p>
+    <p>CarregandoÔÇª</p>
   </div>
 </main>
 
-<!-- ── TEMPLATES ──────────────────────────────────────────────────────── -->
+<!-- ÔöÇÔöÇ TEMPLATES ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ -->
 
 <template id="tpl-clickwrap">
   <div class="clickwrap-screen">
     <div class="clickwrap-logo">Sedes-DF 2026</div>
-    <h1 class="clickwrap-titulo">Sua ferramenta de estudo está pronta.</h1>
+    <h1 class="clickwrap-titulo">Sua ferramenta de estudo est├í pronta.</h1>
     <div class="clickwrap-corpo">
-      <p>Antes de começar, precisamos de uma confirmação rápida.</p>
+      <p>Antes de come├ºar, precisamos de uma confirma├º├úo r├ípida.</p>
       <div class="clickwrap-box">
-        <p>Esta ferramenta foi desenvolvida exclusivamente para você.
-           O acesso é pessoal e intransferível. Ao clicar em Iniciar,
-           você declara que leu e concorda com os Termos de Uso.</p>
+        <p>Esta ferramenta foi desenvolvida exclusivamente para voc├¬.
+           O acesso ├® pessoal e intransfer├¡vel. Ao clicar em Iniciar,
+           voc├¬ declara que leu e concorda com os Termos de Uso.</p>
       </div>
     </div>
     <button class="btn-iniciar" id="btn-aceitar-termo">
-      Aceito os Termos — Iniciar
+      Aceito os Termos ÔÇö Iniciar
     </button>
     <p class="clickwrap-rodape">Seu progresso fica salvo automaticamente.</p>
   </div>
@@ -87,7 +97,7 @@
 
 <template id="tpl-pilula">
   <div class="pilula">
-    <span class="pilula-icon">💡</span>
+    <span class="pilula-icon">­ƒÆí</span>
     <span class="pilula-texto"></span>
   </div>
 </template>
@@ -124,13 +134,13 @@
 </template>
 
 <template id="tpl-btn-proxima">
-  <button class="btn-proxima">Próxima questão →</button>
+  <button class="btn-proxima">Pr├│xima quest├úo ÔåÆ</button>
 </template>
 
 <template id="tpl-fim">
   <div class="fim-sessao">
-    <div style="font-size:48px">🎯</div>
-    <h2>Sessão concluída!</h2>
+    <div style="font-size:48px">­ƒÄ»</div>
+    <h2>Sess├úo conclu├¡da!</h2>
     <div class="fim-stats">
       <div class="stat-box">
         <div class="valor" id="stat-acertos">0</div>
@@ -151,7 +161,7 @@
     </div>
     <p id="frase-encerramento" class="frase-encerramento" style="display:none"></p>
     <p style="color:var(--muted);font-size:13px;max-width:280px;line-height:1.5">
-      Volte amanhã. O SM-2 já agendou suas revisões.
+      Volte amanh├ú. O SM-2 j├í agendou suas revis├Áes.
     </p>
     <button class="btn-novo-dia" id="btn-fechar">Fechar</button>
   </div>
@@ -160,7 +170,7 @@
 <template id="tpl-mapa-soberania">
   <div class="mapa-soberania">
     <h2 class="mapa-titulo">Mapa de Soberania</h2>
-    <p class="mapa-subtitulo">Disciplinas ordenadas por urgência de estudo</p>
+    <p class="mapa-subtitulo">Disciplinas ordenadas por urg├¬ncia de estudo</p>
     <div class="mapa-lista" id="mapa-lista"></div>
     <button class="btn-novo-dia" id="btn-fechar-mapa">Fechar</button>
   </div>
@@ -184,6 +194,6 @@
 </template>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
-<script src="app.js?v=15"></script>
+<script src="app.js?v=16"></script>
 </body>
 </html>
