@@ -8,7 +8,7 @@
 > Copiar o bloco abaixo e colar no Claude Projects junto com o upload deste arquivo.
 
 ```
-Embaixador, fechamento de sessão — 29-05-2026.
+Embaixador, fechamento de sessão — 25-05-2026.
 
 Faço upload do PAINEL_ATIVIDADES desta sessão.
 Com base nele, gerar o artefato publicável com:
