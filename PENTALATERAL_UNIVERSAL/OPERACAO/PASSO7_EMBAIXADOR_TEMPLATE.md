@@ -371,52 +371,6 @@ BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
 
 ---
 
-## SEÇÃO E — FECHAMENTO DE SESSÃO + PAINEL PUBLICÁVEL
-
-> Usar ao fechar qualquer sessão de trabalho — independente do projeto.
-> Inclui obrigatoriamente a PREVISÃO DOS PRÓXIMOS DIAS para que o Embaixador
-> gere um artefato publicável que o Diretor usa como painel de gestão.
-
-```
-Embaixador, fechamento de sessão — [NOME_DO_CLIENTE] · [YYYY-MM-DD].
-
-ENTREGAS DO DIA:
-[LISTA: (a) o que foi construído/decidido, (b) gates abertos/fechados, (c) status do projeto]
-
-ALERTAS ATIVOS:
-[LISTA: semáforo vermelho/amarelo/verde por item — o que está bloqueado e por quê]
-
-PRÓXIMO GATE:
-[Gate name] — deadline [DD-MM-YYYY dia-da-semana]
-Sequência de desbloqueio: [passos numerados para o Diretor executar]
-
-PREVISÃO DOS PRÓXIMOS DIAS:
-[DD-MM-YYYY dia-da-semana] — [o que está previsto / o que o Diretor faz]
-[DD-MM-YYYY dia-da-semana] — [o que está previsto / o que o Diretor faz]
-[DD-MM-YYYY dia-da-semana] — [o que está previsto / o que o Diretor faz]
-[incluir todos os dias relevantes até o próximo marco ou deadline]
-
-ANÁLISE GERENCIAL DO MÚSCULO:
-[Perspectiva consultora — não lista de fatos. O que esta sessão revela sobre o estado real
- do projeto? Qual o risco principal que o Diretor precisa ter no radar? Qual oportunidade
- está sendo subutilizada? O que mudaria se o gate não for desbloqueado no prazo?
- Mínimo 3 linhas. Máximo 6 linhas. Linguagem de consultor sênior, não de técnico.]
-
-PEDIDO AO EMBAIXADOR:
-Gerar o PAINEL DE ATIVIDADES como artefato publicável com:
-1. Semáforo visual de pendências (🔴 bloqueante / 🟡 atenção / 🟢 saudável)
-2. Seção DIAGNÓSTICO DO DIA — saúde dos projetos ativos
-3. Seção PREVISÃO — data a data com checklist de ações do Diretor
-4. Seção ANÁLISE GERENCIAL — replicar e amplificar a análise do Músculo com perspectiva
-   do Embaixador sobre o cliente (comportamento real + intel acumulada)
-5. Seção PRÓXIMA AÇÃO DO DIRETOR — 1-3 itens em ordem de prioridade
-
-O artefato deve ser autossuficiente: o Diretor abre o PAINEL e sabe exatamente
-o que fazer, sem precisar ler esta conversa.
-```
-
----
-
 ## VALIDAÇÃO ANTES DE FECHAR A SESSÃO DO EMBAIXADOR
 
 | Item | Critério |

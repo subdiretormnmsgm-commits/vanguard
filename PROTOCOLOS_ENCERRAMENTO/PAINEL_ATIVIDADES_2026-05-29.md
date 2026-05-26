@@ -135,13 +135,42 @@ PROJ-001 Valdece  🟢 SAUDÁVEL          — Hypercare ativo. Sem pendência ho
 
 ---
 
+## ANÁLISE GERENCIAL DO MÚSCULO — 29-05-2026
+
+O projeto Ingrid está tecnicamente sólido: v17 funcional, 11 gates aprovados em 15 dias
+previstos. O único risco real não é técnico — é a dependência de uma ação da Ingrid
+(criar conta Supabase) para desbloquear o gate final. Eduardo já contatou. Se ela não
+responder até amanhã, há alternativa clara: Eduardo cria o projeto e a convida como admin.
+
+A intel D4:A revela isolamento: Ingrid estuda sozinha, sem rede, sem indicações. O referral
+só ocorre pós-aprovação. Isso significa que os próximos 4 meses (até setembro) são de
+retenção — não de aquisição. O risco não é churn técnico, é churn por fadiga de estudo.
+O Embaixador deve responder: como manter a temperatura QUENTE sem visitas frequentes?
+
+Valdece está saudável — Hypercare ativo, sem pendência imediata. O próximo ato é o
+Sentinel Report em 02-06-2026: primeira leitura de 30 dias de uso real. Oportunidade
+de coletar prova social antes de abrir pipeline V2.
+
+---
+
 ## INSTRUCAO PARA O EMBAIXADOR
 
-Gerar o artefato PAINEL_ATIVIDADES com base neste arquivo. Incluir semáforo visual das pendências.
+Com base neste PAINEL, gerar artefato publicável com os seguintes blocos:
+
+1. **SEMÁFORO** — status visual de cada projeto (🔴 bloqueante / 🟡 atenção / 🟢 saudável)
+2. **DIAGNÓSTICO DO DIA** — saúde de PROJ-002 Ingrid e PROJ-001 Valdece
+3. **PREVISÃO DOS PRÓXIMOS DIAS** — data a data com checklist de ações do Diretor
+4. **ANÁLISE GERENCIAL** — replicar e amplificar a análise do Músculo acima com perspectiva
+   do Embaixador: o que o comportamento real da Ingrid confirma ou contradiz?
+   O que o Embaixador vê que o Músculo não vê?
+5. **PRÓXIMA AÇÃO DO DIRETOR** — máximo 3 itens, em ordem de prioridade
+
+O artefato deve ser autossuficiente: o Diretor abre e sabe exatamente o que fazer.
+
 Contexto crítico:
-- P-013 autorizado e em execução (Eduardo contactou Ingrid). Deadline: 30-05-2026 sábado.
+- P-013 autorizado, em execução. Deadline: 30-05-2026 sábado.
 - Formato de data mandatório: "Dia X (DD-MM-YYYY dia-da-semana)" em todos os documentos.
-- Mandato do Diretor: não avança em projeto algum com pendência em outro.
+- Mandato permanente: Músculo não avança em projeto algum com pendência aberta em outro.
 
 ---
 
