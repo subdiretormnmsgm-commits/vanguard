@@ -1182,13 +1182,13 @@ async function carregarDashboard() {
 
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/sessoes_usuario?user_id=eq.${USER_ID}&order=created_at.desc&limit=1&select=created_at`,
+      `${SUPABASE_URL}/rest/v1/sessoes_usuario?user_id=eq.${USER_ID}&order=iniciada_em.desc&limit=1&select=iniciada_em`,
       { headers: headers() }
     );
     const rows = await res.json();
 
-    if (rows.length > 0 && rows[0].created_at) {
-      const dt   = new Date(rows[0].created_at);
+    if (rows.length > 0 && rows[0].iniciada_em) {
+      const dt   = new Date(rows[0].iniciada_em);
       const hora = dt.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
       const dia  = dt.toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "2-digit" });
       pushInfo.textContent = "Última sessão: " + hora + " (" + dia + ")";
@@ -1240,7 +1240,7 @@ async function calcularNotaSimulada() {
     }
 
     const taxaMap = {};
-    for (const row of dados) taxaMap[row.disciplina] = row.taxa_acerto_pct ?? 0;
+    for (const row of dados) taxaMap[row.disciplina_id] = row.taxa_acerto_pct ?? 0;
 
     let notaProjetada = 0;
     let discCobertas  = 0;
