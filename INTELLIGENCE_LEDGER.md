@@ -1378,3 +1378,13 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Aplica-se a:** toda sessão com mais de 1 projeto ativo. Implementar: campo `calendario` no WIP_BOARD mapeando dias do projeto para datas reais.
 
 **Mandato de assessoria permanente (declarado pelo Diretor em 2026-05-29):** "Não vou avançar em projeto algum com pendência no outro. Sempre devo ser assessorado." O Músculo apresenta o mapa completo de TODOS os projetos antes de qualquer proposta de avanço. O Diretor decide onde alocar atenção — o Músculo não seleciona por ele. Músculo que propõe avanço em Projeto A sem verificar Projeto B = falha de assessoria.
+
+### [SESSAO 2026-05-29]
+
+`[FRICCAO]` session_close.ps1 usa Read-Host — falha em modo non-interativo do Claude Code. Entradas de sessao (friccao, principio, deriva) nao sao capturadas automaticamente. Fix necessario: aceitar parametros via -Friccao/-Principio/-Deriva ou ler de arquivo pre-gerado pelo Musculo.
+
+`[PRINCIPIO]` P-069 operacionalizado: formato "Dia X (DD-MM-YYYY dia-da-semana)" gravado em PENDENTES, WIP_BOARD, CLAUDE.md, LEDGER e PAINEL. mapa_diario_pendencias.ps1 atualizado para exibir data completa em todas as secoes.
+
+`[MANDATO]` "Mensagens aos socios sempre por projeto, contextos diferentes. Eles vao alucinar. Sempre e para sempre." — declarado pelo Diretor em 2026-05-29 com enfase dupla. Cada PASSO file contem apenas informacao do projeto correspondente. Zero mistura entre Ingrid e Valdece.
+
+`[MANDATO]` P-013 Opcao B autorizada: Ingrid cria proprio Supabase. Eduardo ja contatou Ingrid. Deadline 30-05-2026. OFFBOARDING_RUNBOOK.md + migrate_ingrid_supabase_v1.sql criados e commitados.

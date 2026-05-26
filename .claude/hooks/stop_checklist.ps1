@@ -5,10 +5,25 @@
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
+$painelRecente = Get-ChildItem "PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_*.md" -ErrorAction SilentlyContinue |
+    Sort-Object LastWriteTime -Descending | Select-Object -First 1
+
+$painelLinha = if ($painelRecente) {
+    "|  [ ] UPLOAD PAINEL AO EMBAIXADOR (Claude Projects):    |`n" +
+    "|      Arquivo: $($painelRecente.Name)  |`n" +
+    "|      Abrir claude.ai/projects -> projeto do cliente     |`n" +
+    "|      Fazer upload do arquivo acima -- OBRIGATORIO       |"
+} else {
+    "|  [ ] UPLOAD PAINEL AO EMBAIXADOR -- nenhum arquivo     |`n" +
+    "|      Rodar session_close.ps1 para gerar o PAINEL        |"
+}
+
 $checklist = @"
 +----------------------------------------------------------+
 |       RITUAL DE FECHAMENTO -- PENTALATERAL IAH           |
 |       (sessao encerrando -- verifique antes de sair)     |
++----------------------------------------------------------+
+$painelLinha
 +----------------------------------------------------------+
 |  [ ] E-MAIL gerado pelo Musculo e enviado pelo Diretor  |
 |      (subdiretor.mnmsgm@gmail.com) -- OBRIGATORIO        |
