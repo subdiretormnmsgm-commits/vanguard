@@ -1,4 +1,4 @@
-﻿// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
+// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
 // Loop 5 · Dia 12 fix: G-5 lógica corrigida (errosConsecutivos precede ultima) · debug panel expandido
 
 // ── UTILS ─────────────────────────────────────────────────────────────────────
@@ -1314,4 +1314,3 @@ async function exportarCardProgresso() {
     card.remove();
   }
 }
-

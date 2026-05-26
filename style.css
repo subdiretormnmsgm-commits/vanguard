@@ -1,4 +1,4 @@
-﻿/* Sedes-DF 2026 ÔÇö Design System Vanguard (Cyber-Premium) */
+/* Sedes-DF 2026 — Design System Vanguard (Cyber-Premium) */
 :root {
   --bg: #0A0A0A;
   --surface: #141414;
@@ -24,7 +24,7 @@ body {
   flex-direction: column;
 }
 
-/* ÔöÇÔöÇ HEADER ÔöÇÔöÇ */
+/* ── HEADER ── */
 header {
   position: sticky; top: 0; z-index: 10;
   background: rgba(10,10,10,0.9);
@@ -72,7 +72,7 @@ header {
   white-space: nowrap;
 }
 
-/* ÔöÇÔöÇ BANNER DOMINICAL ÔöÇÔöÇ */
+/* ── BANNER DOMINICAL ── */
 #banner-dominical {
   position: sticky;
   top: 0;
@@ -116,7 +116,7 @@ header {
   to   { transform: translateY(0);     opacity: 1; }
 }
 
-/* ÔöÇÔöÇ MAIN ÔöÇÔöÇ */
+/* ── MAIN ── */
 main {
   flex: 1;
   padding: 16px;
@@ -128,7 +128,7 @@ main {
   gap: 12px;
 }
 
-/* ÔöÇÔöÇ LOADING / VAZIO ÔöÇÔöÇ */
+/* ── LOADING / VAZIO ── */
 .estado-vazio {
   display: flex;
   flex-direction: column;
@@ -144,7 +144,7 @@ main {
 .estado-vazio h2 { font-size: 16px; color: var(--text); }
 .estado-vazio p { font-size: 14px; line-height: 1.5; }
 
-/* ÔöÇÔöÇ PILULA DO DIA ÔöÇÔöÇ */
+/* ── PILULA DO DIA ── */
 .pilula {
   background: linear-gradient(135deg, rgba(0,240,255,0.06), rgba(26,11,46,0.8));
   border: 1px solid rgba(0,240,255,0.2);
@@ -160,7 +160,7 @@ main {
 
 .pilula-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
-/* ÔöÇÔöÇ CARD DE QUESTAO ÔöÇÔöÇ */
+/* ── CARD DE QUESTAO ── */
 .questao-card {
   background: var(--surface);
   border: 1px solid rgba(255,255,255,0.06);
@@ -224,7 +224,7 @@ main {
   color: var(--text);
 }
 
-/* ÔöÇÔöÇ ALTERNATIVAS ÔöÇÔöÇ */
+/* ── ALTERNATIVAS ── */
 .alternativas {
   display: flex;
   flex-direction: column;
@@ -263,7 +263,7 @@ main {
   min-width: 16px;
 }
 
-/* Estados ap├│s resposta */
+/* Estados após resposta */
 .alternativa.correta {
   border-color: var(--green);
   background: rgba(0,255,136,0.08);
@@ -276,7 +276,7 @@ main {
 }
 .alternativa.errada .letra { color: var(--red); }
 
-/* ÔöÇÔöÇ EXPLICACAO (aparece ap├│s resposta) ÔöÇÔöÇ */
+/* ── EXPLICACAO (aparece após resposta) ── */
 .explicacao {
   margin: 0 14px 14px;
   border-radius: 8px;
@@ -318,7 +318,7 @@ main {
   color: #C8C8C8;
 }
 
-/* ÔöÇÔöÇ STREAK BADGE E-3 ÔöÇÔöÇ */
+/* ── STREAK BADGE E-3 ── */
 .streak-badge {
   margin: 0 13px 4px;
   padding: 7px 12px;
@@ -331,7 +331,7 @@ main {
   letter-spacing: 0.03em;
 }
 
-/* ÔöÇÔöÇ BOTAO PROXIMA ÔöÇÔöÇ */
+/* ── BOTAO PROXIMA ── */
 .btn-proxima {
   margin: 0 14px 14px;
   width: calc(100% - 28px);
@@ -349,7 +349,7 @@ main {
 .btn-proxima:hover { opacity: 0.88; }
 .btn-proxima:active { opacity: 0.75; }
 
-/* ÔöÇÔöÇ FIM DE SESSAO ÔöÇÔöÇ */
+/* ── FIM DE SESSAO ── */
 .fim-sessao {
   text-align: center;
   padding: 40px 20px;
@@ -406,7 +406,7 @@ main {
   margin-top: 8px;
 }
 
-/* ÔöÇÔöÇ BARRA DE PROGRESSO ÔöÇÔöÇ */
+/* ── BARRA DE PROGRESSO ── */
 .barra-progresso {
   height: 3px;
   background: rgba(255,255,255,0.06);
@@ -421,7 +421,7 @@ main {
   transition: width 0.3s ease;
 }
 
-/* ÔöÇÔöÇ SPINNER ÔöÇÔöÇ */
+/* ── SPINNER ── */
 .spinner {
   width: 32px; height: 32px;
   border: 3px solid rgba(0,240,255,0.15);
@@ -434,7 +434,7 @@ main {
   to { transform: rotate(360deg); }
 }
 
-/* ÔöÇÔöÇ CLICKWRAP ÔÇö Dia 6 ÔöÇÔöÇ */
+/* ── CLICKWRAP — Dia 6 ── */
 .clickwrap-screen {
   display: flex;
   flex-direction: column;
@@ -513,7 +513,7 @@ main {
   color: var(--muted);
 }
 
-/* ÔöÇÔöÇ FRASE DE ABERTURA (E-2) ÔÇö Dia 6 ÔöÇÔöÇ */
+/* ── FRASE DE ABERTURA (E-2) — Dia 6 ── */
 .frase-abertura {
   background: linear-gradient(135deg, rgba(0,240,255,0.07), rgba(26,11,46,0.9));
   border: 1px solid rgba(0,240,255,0.2);
@@ -529,7 +529,7 @@ main {
   line-height: 1.55;
 }
 
-/* ÔöÇÔöÇ FRASE DE ENCERRAMENTO (E-5) ÔöÇÔöÇ */
+/* ── FRASE DE ENCERRAMENTO (E-5) ── */
 .frase-encerramento {
   color: #B0F0FF;
   font-size: 15px;
@@ -539,7 +539,7 @@ main {
   letter-spacing: 0.01em;
 }
 
-/* ÔöÇÔöÇ NIVEL DO TUTOR ÔöÇÔöÇ */
+/* ── NIVEL DO TUTOR ── */
 .explicacao-nivel {
   padding: 5px 13px 8px;
   font-size: 10px;
@@ -548,7 +548,7 @@ main {
   color: var(--muted);
 }
 
-/* ÔöÇÔöÇ DEBUG PANEL ÔÇö Dia 6 ÔöÇÔöÇ */
+/* ── DEBUG PANEL — Dia 6 ── */
 .debug-panel {
   position: fixed;
   bottom: 16px;
@@ -582,7 +582,7 @@ main {
   line-height: 1.8;
 }
 
-/* ÔöÇÔöÇ MAPA DE SOBERANIA ÔÇö Dia 10 ÔöÇÔöÇ */
+/* ── MAPA DE SOBERANIA — Dia 10 ── */
 .mapa-soberania {
   padding: 24px 16px 32px;
   display: flex;
@@ -670,8 +670,8 @@ main {
 
 .mapa-item-stats span { white-space: nowrap; }
 
-/* ÔöÇÔöÇ MICRO-SIMULADO ÔÇö Dia 11 ÔöÇÔöÇ */
-/* N-4: SM-2 revis├úo ÔÇö badge dourado para quest├Áes de Fixa├º├úo */
+/* ── MICRO-SIMULADO — Dia 11 ── */
+/* N-4: SM-2 revisão — badge dourado para questões de Fixação */
 .badge-sm2 {
   background: rgba(255,214,0,0.12);
   color: var(--yellow);
@@ -694,12 +694,12 @@ main {
   letter-spacing: 0.05em;
 }
 
-/* Timer bar ÔÇö estados de urg├¬ncia */
+/* Timer bar — estados de urgência */
 .barra-fill.timer-ok      { background: var(--cyan); }
 .barra-fill.timer-alerta  { background: var(--yellow); }
 .barra-fill.timer-critico { background: var(--red); }
 
-/* Bot├úo secund├írio (outline) para iniciar simulado */
+/* Botão secundário (outline) para iniciar simulado */
 .btn-simulado {
   padding: 13px 28px;
   background: transparent;
@@ -715,7 +715,7 @@ main {
 .btn-simulado:hover  { background: rgba(0,240,255,0.07); border-color: var(--cyan); }
 .btn-simulado:active { background: rgba(0,240,255,0.14); }
 
-/* ÔöÇÔöÇ G-3: Vacina Legisla├º├úo ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+/* ── G-3: Vacina Legislação ─────────────────────────────────── */
 .badge-vacina {
   background: rgba(255,214,0,0.1);
   color: var(--yellow);
@@ -727,7 +727,7 @@ main {
   letter-spacing: 0.04em;
 }
 
-/* ÔöÇÔöÇ N-3: Linha de Corte ÔÇö Dia 14 ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+/* ── N-3: Linha de Corte — Dia 14 ───────────────────────────── */
 .meta-corte {
   width: 100%;
   max-width: 320px;
@@ -785,7 +785,7 @@ main {
   color: var(--muted);
 }
 
-/* ÔöÇÔöÇ N-1 + N-3: Dashboard (painel admin) ÔÇö Dia 14 ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+/* ── N-1 + N-3: Dashboard (painel admin) — Dia 14 ───────────── */
 .dash-section {
   padding: 10px 14px 8px;
   border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -861,7 +861,7 @@ main {
   margin: 2px 0 4px;
 }
 
-/* ÔöÇÔöÇ G-5: Socr├ítica P├ónico ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+/* ── G-5: Socrática Pânico ──────────────────────────────────── */
 .panico-screen {
   display: flex;
   flex-direction: column;
