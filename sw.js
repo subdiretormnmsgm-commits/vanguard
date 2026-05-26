@@ -1,42 +1,36 @@
-const CACHE_VERSION = 'v3';
-const CACHE_NAME = `vanguard-${CACHE_VERSION}`;
-const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/assets/css/style.css',
-  '/js/supabase-lib.js',
-  '/js/supabase.js',
-  '/js/quiz.js',
-  '/js/main.js',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
-];
+﻿// Service Worker — Sedes-DF 2026 Ingrid
+const CACHE = "sedes-df-v18";
+const BASE   = "/vanguard/";
+const STATIC = [BASE, BASE + "index.html", BASE + "app.js?v=18", BASE + "style.css?v=18", BASE + "manifest.json"];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(ASSETS))
-      .then(() => self.skipWaiting())
+self.addEventListener("install", (e) => {
+  // Tenta pré-cachear, mas não bloqueia o install se algum asset falhar
+  e.waitUntil(
+    caches.open(CACHE).then((c) => c.addAll(STATIC).catch(() => {}))
   );
+  self.skipWaiting();
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))
-      .then(() => self.clients.claim())
-  );
+self.addEventListener("activate", (e) => {
+  e.waitUntil(caches.keys().then((keys) =>
+    Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
+  ));
+  self.clients.claim();
 });
 
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
-  event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
-      return fetch(event.request).catch(() => {
-        if (event.request.mode === 'navigate') return caches.match('/index.html');
-      });
-    })
+self.addEventListener("fetch", (e) => {
+  if (e.request.url.includes("supabase.co")) return;
+
+  // Navegações HTML: sempre rede primeiro — garante que novos deploys chegam imediatamente
+  if (e.request.mode === "navigate") {
+    e.respondWith(
+      fetch(e.request).catch(() => caches.match(BASE + "index.html"))
+    );
+    return;
+  }
+
+  // Assets estáticos (JS, CSS): cache-first com fallback de rede
+  e.respondWith(
+    caches.match(e.request).then((cached) => cached ?? fetch(e.request))
   );
 });

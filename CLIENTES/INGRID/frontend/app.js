@@ -13,8 +13,8 @@ function md2html(text) {
 }
 
 // ── CONFIG ────────────────────────────────────────────────────────────────────
-const SUPABASE_URL      = "https://ehyaecxqijgyuuiorzcj.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoeWFlY3hxaWpneXV1aW9yemNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyODMzNTAsImV4cCI6MjA5Mzg1OTM1MH0.xZfcEe2Av5Fn9BKEkNRIi5CQkPD6C6ADSNzMfh3DGPo";
+const SUPABASE_URL      = "https://yjqvjhezwhepwomukudt.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqcXZqaGV6d2hlcHdvbXVrdWR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3NjExNzksImV4cCI6MjA5NTMzNzE3OX0.Mb6KxtJ3iECl_3ApWUl6zozxa93pJatLwNOZ7zAdhx4";
 const USER_ID           = "00000000-0000-0000-0000-000000000001";
 const VERSAO_TERMO      = "termo_v2_18_05"; // Clickwrap V2 — data real de assinatura 18/05
 const COTA_DIARIA_USD   = 5.00;
