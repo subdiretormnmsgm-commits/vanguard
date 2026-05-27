@@ -60,6 +60,11 @@
 - [x] `2026-05-27` ~~**[BLOQUEANTE] ChurnWatch_Vanguard NAO registrado no Task Scheduler:**~~
   ✅ Registrado pelo Músculo em 2026-05-27 (sem Admin necessário). Próxima execução: 28-05-2026 08:00.
 
+- [ ] `2026-05-27` **C4 — Confirmar watchers rodando com EncodedCommand (próxima sessão):**
+  Fix Start-Process aplicado (EncodedCommand resolve path com acento "Área de Trabalho").
+  **AÇÃO DO MÚSCULO:** Ao abrir próxima sessão, verificar: `Test-Path scripts\decisoes_watcher.log` e `Test-Path scripts\skill_watcher.log`.
+  Se logs existem e têm conteúdo → C4 VERDE. Se ausentes → investigar Start-Process no hook.
+
 - [ ] `2026-05-27` **Confirmar detect_canonical_violation.ps1 funcionando:**
   Testar PASSO 0c: simular edição em cópia de projeto e confirmar BLOQUEIO.
 
