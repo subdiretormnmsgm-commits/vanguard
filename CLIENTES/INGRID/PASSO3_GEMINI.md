@@ -1,4 +1,4 @@
-# PASSO3 — GEMINI — INGRID LOOP 5 — DIAS 12-13
+﻿# PASSO3 — GEMINI — INGRID LOOP 5 — DIAS 12-13
 > Preparado pelo Músculo · 2026-05-23 · Levar ao Estrategista após MEMORIA + relatorio do Loop 4
 
 ---
@@ -86,7 +86,8 @@ Skill nomeada: ingrid-v5
 
 1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V4_INGRID.md` — contexto do Loop 4
 2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V4_INGRID.md` — análise do Loop 4
-3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-055)
+3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-076)
 4. `CLIENTES/WIP_BOARD.json` — estado dos projetos
 
 > **Como usar:** colar este documento no chat do Gemini (não anexar). Arrastar os 4 documentos acima como anexo.
+

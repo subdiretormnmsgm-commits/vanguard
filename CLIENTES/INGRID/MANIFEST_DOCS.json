@@ -1,6 +1,6 @@
-﻿{
+{
     "projeto":  "INGRID",
-    "ultima_sincronizacao":  "2026-05-26T23:41:16",
+    "ultima_sincronizacao":  "2026-05-27T08:23:18",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -28,8 +28,8 @@
                      },
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
-                         "hash_universal":  "2EFADC20ACA247C38CCA2BE1B086900471106C032E6F223CF2ECEA12E84F2495",
-                         "hash_local":  "2EFADC20ACA247C38CCA2BE1B086900471106C032E6F223CF2ECEA12E84F2495",
+                         "hash_universal":  "C4A9847EC90BD4E9E529D94516DAD3DDACCF94FA5CC8200D66670E2A18ADE741",
+                         "hash_local":  "C4A9847EC90BD4E9E529D94516DAD3DDACCF94FA5CC8200D66670E2A18ADE741",
                          "status":  "SYNC"
                      },
                      {
@@ -57,10 +57,10 @@
                          "status":  "SYNC"
                      },
                      {
-                         "nome":  "14_MEMORIA_EMBAIXADOR.md",
-                         "hash_universal":  "N/A",
-                         "hash_local":  "2B2E7FA92811A53F843D7FA293CB8DE84861D6C5B4811FA96C27ACD916907314",
-                         "status":  "CLIENT-ONLY"
+                         "nome":  "LEDGER_INDEX.md",
+                         "hash_universal":  "2D8D46785E9EF6BC1FC4E5D17F13C441A92B8B4CC7EC992A4D793C76E27B5B0D",
+                         "hash_local":  "2D8D46785E9EF6BC1FC4E5D17F13C441A92B8B4CC7EC992A4D793C76E27B5B0D",
+                         "status":  "SYNC"
                      }
                  ],
     "status_geral":  "VERDE",

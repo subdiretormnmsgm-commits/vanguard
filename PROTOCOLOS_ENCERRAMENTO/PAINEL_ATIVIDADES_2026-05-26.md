@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Terça-feira, 2026-05-26 23:31
+### Pentalateral IAH - Terça-feira, 2026-05-26 23:41
 
 ---
 
@@ -65,8 +65,8 @@ Valdece    [BUILD    ]  Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â
 
 ## COMMIT DA SESSAO
 
-Commit : 6a5c3e9 - 2 arquivo(s) alterado(s)
-Mensagem: fix(sync): propagar Template 9 para NOTEBOOKLM_FONTES de Ingrid e Valdece
+Commit : f8eaf52 - 30 arquivo(s) alterado(s)
+Mensagem: feat(osv-001+002): P-071 — propagacao autonoma + manifest + session_close sem Read-Host
 
 ---
 

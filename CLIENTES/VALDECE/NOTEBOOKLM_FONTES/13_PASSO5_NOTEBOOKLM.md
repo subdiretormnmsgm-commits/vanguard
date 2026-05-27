@@ -17,7 +17,7 @@
 ### 💬 COMANDO CURTO — colar no chat do NotebookLM (Ctrl+V)
 
 ```
-Auditor, você opera no Pentalateral IAH — 5 membros ativos: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha o cliente Valdece em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Leia também a DIRETRIZ do Estrategista no arquivo 12_DIRETRIZ_GEMINI_V7.txt e incorpore as solicitações do bloco [PARA O NOTEBOOKLM] ao gerar a Skill. Missão principal: gerar a Skill valdece-v7.md — o Músculo não inicia o Loop 7 sem ela.
+Auditor, você opera no Pentalateral IAH — 5 membros ativos: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha o cliente Valdece em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Leia também a DIRETRIZ do Estrategista no arquivo 12_DIRETRIZ_GEMINI_V8.txt e incorpore as solicitações do bloco [PARA O NOTEBOOKLM] ao gerar a Skill. Missão principal: gerar a Skill valdece-v7.md — o Músculo não inicia o Loop 7 sem ela.
 ```
 
 > O arquivo já está nas fontes — não colar o conteúdo inteiro no chat.
@@ -48,7 +48,7 @@ Antes de sair:
   01_SKILL_PROTOCOLO_VANGUARD.md          -- ancora o Auditor nos padroes do Pentalateral
   02_MEMORANDO_PENTALATERAL_UNIVERSAL.md -- constituicao e valores
   03_MANUAL_DIRETOR.md                    -- como o Diretor opera
-  04_INTELLIGENCE_LEDGER.md               -- principios ativos (P-001 a P-045+)
+  04_INTELLIGENCE_LEDGER.md               -- principios ativos (P-001 a P-076+)
   05_PROCESSO_EVOLUTIVO_PENTALATERAL.md  -- como o loop funciona
   06_TEMPLATES_COMUNICACAO_PENTALATERAL.md -- formatos obrigatorios dos membros
   07_WIP_BOARD.txt                        -- estado atual de todos os projetos
@@ -58,7 +58,7 @@ Antes de sair:
   09_BRIEFING_DISCOVERY.txt               -- dor real do cliente + escopo original
   10_MEMORIA_RECENTE.md                   -- MEMORIA mais recente do projeto (estado tecnico)
   11_RELATORIO_EVOLUTIVO.md               -- relatorio evolutivo mais recente (SWOT + 5 ideias)
-  12_DIRETRIZ_GEMINI_V7.txt               -- DIRETRIZ V7 do Estrategista ← substituir pelo arquivo real após receber do Gemini
+  12_DIRETRIZ_GEMINI_V8.txt               -- DIRETRIZ V7 do Estrategista ← substituir pelo arquivo real após receber do Gemini
   13_PASSO5_NOTEBOOKLM.md                 -- este arquivo (missao do Auditor) ← ja nas fontes
   14_MEMORIA_EMBAIXADOR.md                -- inteligencia acumulada do Embaixador sobre o Valdece
   16_ALERTA_CONFLITO.md                   -- gatilho de calibracao (se Auditor alucinar)
@@ -117,7 +117,7 @@ MEMORIA_V[X] → relatorio_evolutivo_V[X] → DIRETRIZ do Gemini → este PASSO5
 Fatos do passado carregam antes da nova ideia. Sempre.
 
 **Integração obrigatória com o Estrategista:**
-A DIRETRIZ do Gemini (arquivo `12_DIRETRIZ_GEMINI_V7.txt`) contém um bloco `[PARA O NOTEBOOKLM]`
+A DIRETRIZ do Gemini (arquivo `12_DIRETRIZ_GEMINI_V8.txt`) contém um bloco `[PARA O NOTEBOOKLM]`
 com solicitações específicas do Estrategista sobre o que a Skill deve cobrir.
 Auditor: leia esse bloco e incorpore as solicitações — elas são complementares a este PASSO5, não redundantes.
 Conflito entre DIRETRIZ e PASSO5 → PASSO5 prevalece (é mais recente e específico).
@@ -213,3 +213,4 @@ Conteúdo obrigatório por seção:
 Suas 5 ideias — não as do Gemini nem as do Músculo. Fundamentadas no histórico completo. O que nenhum dos outros membros está vendo.
 
 Não resuma. Não seja genérico. Se citar padrão histórico, cite de qual projeto ele vem. O Músculo vai ler isso antes de construir — cada linha impacta o que será entregue ao Valdece.
+

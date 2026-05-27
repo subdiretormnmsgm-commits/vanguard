@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Quarta-feira, 2026-05-27 08:08
+### Pentalateral IAH - Quarta-feira, 2026-05-27 08:24
 
 ---
 
@@ -67,21 +67,20 @@ Valdece    [BUILD    ]  Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â
 
 ## COMMIT DA SESSAO
 
-Commit : 25317f5 - 14 arquivo(s) alterado(s)
-Mensagem: feat(ledger+docs): Ordens 4+5 — LEDGER saneado + docs correlatos + verificacao por projeto
+Commit : 7d130ec - 10 arquivo(s) alterado(s)
+Mensagem: chore(session-close): LEDGER_INDEX propagado + PAINEL_2026-05-27 gerado
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao 2026-05-27 -- 15 arquivo(s) modificado(s). MANIFEST: VERMELHO. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-05-27.md.
+Sessao 2026-05-27 -- 15 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-05-27.md.
 
 ---
 
 ## ALERTAS DO MUSCULO
 
-- [VALDECE] MANIFEST: VERMELHO
-- [INGRID] MANIFEST: VERMELHO
+Nenhum alerta ativo.
 
 ---
 
@@ -122,7 +121,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto INGRID encerrou sessao com 10 pendente(s) aberto(s) e 3 gargalo(s) de gate. Status documental: VERMELHO. Deadline 2026-05-30 -- 3 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto INGRID encerrou sessao com 10 pendente(s) aberto(s) e 3 gargalo(s) de gate. Status documental: VERDE. Deadline 2026-05-30 -- 3 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 

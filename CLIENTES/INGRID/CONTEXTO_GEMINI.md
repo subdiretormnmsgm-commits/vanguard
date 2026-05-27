@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-26 23:36
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-27 08:23
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-6a5c3e9 fix(sync): propagar Template 9 para NOTEBOOKLM_FONTES de Ingrid e Valdece
-ca74055 feat(p070): Onboarding Invisivel + LEDGER atualizado + Claude Project docs em dia
-fa10db6 docs(pendentes): limpar [x] concluidos + novos pendentes da sessao 2026-05-26
+7d130ec chore(session-close): LEDGER_INDEX propagado + PAINEL_2026-05-27 gerado
+25317f5 feat(ledger+docs): Ordens 4+5 — LEDGER saneado + docs correlatos + verificacao por projeto
+a0d44ad feat(osv-003): P-075 — Diretor delibera, nao transporta — 4 scripts autonomos
 
 ================================================================================
 
@@ -41,6 +41,11 @@ Antes de qualquer deliberação, o Músculo executa:
 ## PRINCÍPIOS ATIVOS
 
 Princípios extraídos de fricções reais. Cada um tem evidência — não é teoria.
+
+> **GAPS NUMÉRICOS — RESERVADOS:**
+> P-011 e P-012 **não existem**. Foram descartados na origem (pré-V24) antes do LEDGER ser formalizado.
+> NÃO reaproveitar esses números — gaps são parte da história do sistema.
+> Qualquer referência a P-011 ou P-012 em documentos = erro de numeração.
 
 ---
 
@@ -131,11 +136,6 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 | Entrega → cliente | Teste com dado real do cliente, não dado de mock |
 | Iteração → loop | MEMORIA + relatorio_evolutivo gerados e revisados |
 | Proposta → execução | Veredito explícito do Diretor — nunca iniciar sem aprovação |
-
-**Por que importa:** Avançar por assumição é o padrão de falha mais comum em build rápido. Uma UI bonita sobre corpus ruim é fachada. Um commit sem review é débito técnico disfarçado de velocidade. O Gate valida — o produto entrega.
-**Aplica-se a:** todo projeto do Pentalateral, toda etapa de build, toda entrega a cliente.
-
----
 ... [truncado -- ver arquivo completo]
 
 ================================================================================
@@ -586,8 +586,9 @@ Skill nomeada: ingrid-v5
 
 1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V4_INGRID.md` — contexto do Loop 4
 2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V4_INGRID.md` — análise do Loop 4
-3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-055)
+3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-076)
 4. `CLIENTES/WIP_BOARD.json` — estado dos projetos
 
 > **Como usar:** colar este documento no chat do Gemini (não anexar). Arrastar os 4 documentos acima como anexo.
+
 
