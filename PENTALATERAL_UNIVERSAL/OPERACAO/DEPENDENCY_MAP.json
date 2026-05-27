@@ -1,6 +1,8 @@
 {
-  "version": "1.0",
-  "updated": "2026-05-24",
+  "version": "1.1",
+  "updated": "2026-05-27",
+  "projetos_ativos": ["INGRID", "VALDECE"],
+  "ultima_atualizacao": "2026-05-27",
   "description": "Mapa de dependencias do Pentalateral IAH. Quando um arquivo-fonte muda, todos os destinos devem ser atualizados automaticamente pelo Musculo via propagate_changes.ps1. Eduardo nunca gerencia propagacao manualmente.",
   "rules": [
     {

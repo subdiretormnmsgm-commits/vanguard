@@ -1,15 +1,11 @@
 #Requires -Version 5.1
 # session_close.ps1 — Fechamento de sessao Pentalateral IAH
-# P-071: sessao encerrada e fato tecnico, nao intencao. Zero Read-Host.
-#
-# Uso:
-#   .\scripts\session_close.ps1
-#   .\scripts\session_close.ps1 -Friccao "..." -Principio "..." -Deriva "..."
-#
-# Todos os parametros sao opcionais. Se omitidos, o campo fica em branco no log.
-# O script roda ate o fim sem nenhuma interacao manual.
+# P-071: sessao encerrada e fato tecnico, nao intencao.
+# 9 gates sequenciais — Gates 1 e 5 sao BLOQUEANTES (exit 1).
+# Uso: .\scripts\session_close.ps1 [-cliente NOME] [-Friccao "..."] etc.
 
 param(
+    [string]$cliente   = "",
     [string]$Friccao   = "",
     [string]$Principio = "",
     [string]$Override  = "",
@@ -23,669 +19,765 @@ param(
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-$BASE  = Split-Path -Parent $PSScriptRoot
+$BASE   = Split-Path -Parent $PSScriptRoot
 $LEDGER = "$BASE\INTELLIGENCE_LEDGER.md"
 $KG     = "$BASE\knowledge_graph.json"
 $DATA   = Get-Date -Format "yyyy-MM-dd"
 $HORA   = Get-Date -Format "yyyy-MM-ddTHH:mm:ss"
+$HORA_EXIB = Get-Date -Format "HH:mm:ss"
+
+# Resolver projetos ativos
+$wipPath = "$BASE\CLIENTES\WIP_BOARD.json"
+$projetosEmBuild = @()
+if (Test-Path $wipPath) {
+    try {
+        $board = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $projetosEmBuild = @($board.board.build)
+    } catch { }
+}
+
+# Cliente principal da sessao
+if ($cliente -eq "" -and $projetosEmBuild.Count -gt 0) {
+    $cliente = $projetosEmBuild[0].cliente.ToUpper()
+}
+$loopAtualLabel = ""
+if ($projetosEmBuild.Count -gt 0) {
+    $proj0 = $projetosEmBuild | Where-Object { $_.cliente.ToUpper() -eq $cliente } | Select-Object -First 1
+    if ($proj0 -and $proj0.loop_atual) { $loopAtualLabel = $proj0.loop_atual }
+}
+
+# Status por gate
+$gateStatus = [ordered]@{
+    G1  = "PENDENTE"
+    G2  = "PENDENTE"
+    G3  = "PENDENTE"
+    G4  = "PENDENTE"
+    G5  = "PENDENTE"
+    G6  = "PENDENTE"
+    G7  = "PENDENTE"
+    G8e = "PENDENTE"
+    G8t = "PENDENTE"
+    G9  = "PENDENTE"
+}
+$manifestStatus = @{}
+$logPath = ""
+$acoesSessao = [System.Collections.ArrayList]@()
 
 Write-Host ""
-Write-Host "=============================================="
-Write-Host "  FECHAMENTO DE SESSAO -- Pentalateral IAH"
-Write-Host "  $DATA"
-Write-Host "=============================================="
+Write-Host "======================================================="
+Write-Host "  SESSION CLOSE -- Pentalateral IAH"
+Write-Host "  $DATA $HORA_EXIB"
+if ($cliente) { Write-Host "  Cliente: $cliente$(if ($loopAtualLabel) { ' -- ' + $loopAtualLabel })" }
+Write-Host "======================================================="
 Write-Host ""
 
-# --------------------------------------------------------------------------
-# [0a] P-060: Propagacao automatica via DEPENDENCY_MAP
-# --------------------------------------------------------------------------
-$propagateScript = Join-Path $BASE "scripts\propagate_changes.ps1"
-$propOK = $false
+# ==========================================================================
+# GATE 1 — auditar_consistencia.ps1 (BLOQUEANTE — exit 1 se VERMELHO)
+# ==========================================================================
+Write-Host "  [GATE 1] Auditoria de consistencia..." -ForegroundColor Cyan
+$auditScript = "$BASE\scripts\auditar_consistencia.ps1"
+if (Test-Path $auditScript) {
+    & powershell.exe -NonInteractive -File $auditScript 2>$null
+    $auditExit = $LASTEXITCODE
+    if ($auditExit -eq 2) {
+        Write-Host "  [GATE 1] VERMELHO -- Padroes criticos detectados." -ForegroundColor Red
+        Write-Host "           Resolver divergencias antes de encerrar a sessao." -ForegroundColor Red
+        Write-Host "           Sessao nao pode ser declarada encerrada. (P-071)" -ForegroundColor Red
+        $gateStatus.G1 = "VERMELHO"
+        exit 1
+    } elseif ($auditExit -eq 1) {
+        Write-Host "  [GATE 1] AMARELO -- Avisos detectados. Prosseguindo." -ForegroundColor Yellow
+        $gateStatus.G1 = "AMARELO"
+    } else {
+        Write-Host "  [GATE 1] VERDE" -ForegroundColor Green
+        $gateStatus.G1 = "VERDE"
+    }
+} else {
+    Write-Host "  [GATE 1] auditar_consistencia.ps1 nao encontrado -- IGNORADO" -ForegroundColor DarkGray
+    $gateStatus.G1 = "N/A"
+}
+
+# ==========================================================================
+# GATE 2 — sync_passo_files.ps1 + sync_vanguard_docs.ps1
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 2] Sync documentos..." -ForegroundColor Cyan
+
+$syncPassoScript  = "$BASE\scripts\sync_passo_files.ps1"
+$syncUnivScript   = "$BASE\.claude\skills\files\sync_vanguard_docs.ps1"
+$g2ok = $true
+
+if (Test-Path $syncPassoScript) {
+    try {
+        & powershell.exe -NonInteractive -File $syncPassoScript 2>$null | Out-Null
+        if ($LASTEXITCODE -ne 0) { $g2ok = $false; Write-Host "  [GATE 2] sync_passo_files -- aviso" -ForegroundColor Yellow }
+        else { Write-Host "  [GATE 2] sync_passo_files -- OK" -ForegroundColor Green }
+    } catch { $g2ok = $false }
+} else {
+    Write-Host "  [GATE 2] sync_passo_files nao encontrado" -ForegroundColor DarkGray
+}
+
+if (Test-Path $syncUnivScript) {
+    try {
+        & powershell.exe -NonInteractive -File $syncUnivScript -modo completo 2>$null | Out-Null
+        if ($LASTEXITCODE -ne 0) { $g2ok = $false; Write-Host "  [GATE 2] sync_vanguard -- aviso" -ForegroundColor Yellow }
+        else { Write-Host "  [GATE 2] sync_vanguard (P-033) -- OK" -ForegroundColor Green }
+    } catch { $g2ok = $false }
+} else {
+    Write-Host "  [GATE 2] sync_vanguard_docs nao encontrado" -ForegroundColor DarkGray
+}
+
+$gateStatus.G2 = if ($g2ok) { "VERDE" } else { "AMARELO" }
+
+# ==========================================================================
+# GATE 3 — propagate_changes.ps1 (P-060)
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 3] Propagacao via DEPENDENCY_MAP (P-060)..." -ForegroundColor Cyan
+$propagateScript = "$BASE\scripts\propagate_changes.ps1"
 if (Test-Path $propagateScript) {
-    Write-Host "  [0a] P-060 -- Propagando via DEPENDENCY_MAP..." -ForegroundColor Cyan
     try {
         & powershell.exe -NonInteractive -File $propagateScript 2>$null
-        $propOK = ($LASTEXITCODE -eq 0)
-        if ($propOK) {
-            Write-Host "  [OK] Propagacao concluida -- zero intervencao do Diretor" -ForegroundColor Green
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "  [GATE 3] Propagacao -- VERDE" -ForegroundColor Green
+            $gateStatus.G3 = "VERDE"
         } else {
-            Write-Host "  [!!] Propagacao reportou erros -- verificar DEPENDENCY_MAP.json" -ForegroundColor Yellow
+            Write-Host "  [GATE 3] Propagacao -- avisos (verificar DEPENDENCY_MAP)" -ForegroundColor Yellow
+            $gateStatus.G3 = "AMARELO"
         }
     } catch {
-        Write-Host "  [!!] propagate_changes.ps1 falhou: $_" -ForegroundColor Yellow
+        Write-Host "  [GATE 3] propagate_changes.ps1 falhou: $_" -ForegroundColor Yellow
+        $gateStatus.G3 = "AMARELO"
     }
 } else {
-    Write-Host "  [--] propagate_changes.ps1 nao encontrado" -ForegroundColor DarkGray
+    Write-Host "  [GATE 3] propagate_changes.ps1 nao encontrado" -ForegroundColor DarkGray
+    $gateStatus.G3 = "N/A"
 }
 
-# --------------------------------------------------------------------------
-# [0b] P-060: Validacao de scripts .ps1 editados hoje
-# --------------------------------------------------------------------------
-$validateScript = Join-Path $BASE "scripts\validate_scripts.ps1"
-if (Test-Path $validateScript) {
-    Write-Host ""
-    Write-Host "  [0b] Validando scripts editados hoje..." -ForegroundColor Cyan
-    try {
-        $scriptsMod = @(& git -C $BASE diff --name-only HEAD 2>$null | Where-Object { $_ -match '\.ps1$' })
-        if ($scriptsMod.Count -gt 0) {
-            foreach ($s in $scriptsMod) {
-                & powershell.exe -NonInteractive -File $validateScript -Script $s 2>$null
-            }
-            Write-Host "  [OK] $($scriptsMod.Count) script(s) validado(s)" -ForegroundColor Green
-        } else {
-            Write-Host "  [OK] Nenhum .ps1 modificado detectado" -ForegroundColor DarkGray
-        }
-    } catch {
-        Write-Host "  [!!] validate_scripts.ps1 falhou" -ForegroundColor Yellow
-    }
-}
-
-# --------------------------------------------------------------------------
-# [0c] P-033: Sync universal PENTALATERAL_UNIVERSAL -> NOTEBOOKLM_FONTES
-# --------------------------------------------------------------------------
-$syncScript = Join-Path $BASE ".claude\skills\files\sync_vanguard_docs.ps1"
-$syncOK = $false
-if (Test-Path $syncScript) {
-    Write-Host ""
-    Write-Host "  [0c] P-033 -- Sync universal -> NOTEBOOKLM_FONTES..." -ForegroundColor Cyan
-    try {
-        & powershell.exe -NonInteractive -File $syncScript -modo completo 2>$null | Out-Null
-        $syncOK = ($LASTEXITCODE -eq 0)
-        if ($syncOK) {
-            Write-Host "  [OK] Sync concluido -- P-033 satisfeito" -ForegroundColor Green
-        } else {
-            Write-Host "  [!!] Sync relatou problemas -- verificar sync_vanguard_docs.ps1" -ForegroundColor Yellow
-        }
-    } catch {
-        Write-Host "  [!!] sync_vanguard_docs.ps1 falhou" -ForegroundColor Yellow
-    }
-} else {
-    Write-Host "  [--] sync_vanguard_docs.ps1 nao encontrado" -ForegroundColor DarkGray
-}
-
-# --------------------------------------------------------------------------
-# [0.5] CLAUDE_PROJECT: sync byte-level para todos os projetos ativos
-# Byte-level (ReadAllBytes/WriteAllBytes) evita problemas de encoding UTF-8/UTF-16
-# --------------------------------------------------------------------------
+# ==========================================================================
+# GATE 4 — CLAUDE_PROJECT byte-level sync (ledger_sync)
+# ==========================================================================
 Write-Host ""
-Write-Host "  [0.5] CLAUDE_PROJECT -- sync byte-level..." -ForegroundColor Cyan
-$wipPath       = "$BASE\CLIENTES\WIP_BOARD.json"
+Write-Host "  [GATE 4] CLAUDE_PROJECT sync..." -ForegroundColor Cyan
 $ledgerFonte   = $LEDGER
 $wipFonte      = $wipPath
 $timelineFonte = "$BASE\PENTALATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md"
-$projetosEmBuild = @()
-$cpSyncOK = $true
+$g4ok = $true
 
-if (Test-Path $wipFonte) {
-    $board = Get-Content $wipFonte -Raw -Encoding utf8 | ConvertFrom-Json
-    $projetosEmBuild = @($board.board.build)
-    foreach ($proj in $projetosEmBuild) {
-        $cli   = $proj.cliente.ToUpper()
-        $cpDir = "$BASE\CLIENTES\$cli\CLAUDE_PROJECT"
-        if (Test-Path $cpDir) {
-            $copias = @(
-                @{ src = $ledgerFonte;   dst = "$cpDir\06_INTELLIGENCE_LEDGER.md" },
-                @{ src = $wipFonte;      dst = "$cpDir\07_WIP_BOARD.json" },
-                @{ src = $timelineFonte; dst = "$cpDir\16_VANGUARD_TIMELINE.md" }
-            )
-            foreach ($c in $copias) {
-                if (Test-Path $c.src) {
-                    try {
-                        [System.IO.File]::WriteAllBytes($c.dst, [System.IO.File]::ReadAllBytes($c.src))
-                    } catch {
-                        Write-Host "  [!!] Falha ao copiar $(Split-Path $c.src -Leaf) -> $cli" -ForegroundColor Yellow
-                        $cpSyncOK = $false
-                    }
+foreach ($proj in $projetosEmBuild) {
+    $cli   = $proj.cliente.ToUpper()
+    $cpDir = "$BASE\CLIENTES\$cli\CLAUDE_PROJECT"
+    if (Test-Path $cpDir) {
+        $copias = @(
+            @{ src = $ledgerFonte;   dst = "$cpDir\06_INTELLIGENCE_LEDGER.md" },
+            @{ src = $wipFonte;      dst = "$cpDir\07_WIP_BOARD.json" },
+            @{ src = $timelineFonte; dst = "$cpDir\16_VANGUARD_TIMELINE.md" }
+        )
+        foreach ($c in $copias) {
+            if (Test-Path $c.src) {
+                try {
+                    [System.IO.File]::WriteAllBytes($c.dst, [System.IO.File]::ReadAllBytes($c.src))
+                } catch {
+                    Write-Host "  [GATE 4] Falha: $(Split-Path $c.src -Leaf) -> $cli" -ForegroundColor Yellow
+                    $g4ok = $false
                 }
             }
-            Write-Host "  [OK] CLAUDE_PROJECT/$cli -- LEDGER + WIP + TIMELINE" -ForegroundColor Green
-        } else {
-            Write-Host "  [!!] CLAUDE_PROJECT/$cli nao encontrado" -ForegroundColor Yellow
-            $cpSyncOK = $false
         }
+        Write-Host "  [GATE 4] $cli -- LEDGER + WIP + TIMELINE -- OK" -ForegroundColor Green
+    } else {
+        Write-Host "  [GATE 4] CLAUDE_PROJECT/$cli nao encontrado" -ForegroundColor Yellow
+        $g4ok = $false
+    }
+}
+$gateStatus.G4 = if ($g4ok) { "VERDE" } else { "AMARELO" }
+
+# ==========================================================================
+# GATE 5 — validate_scripts.ps1 (BLOQUEANTE — exit 1 se VERMELHO)
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 5] Validacao de scripts editados..." -ForegroundColor Cyan
+$validateScript = "$BASE\scripts\validate_scripts.ps1"
+if (Test-Path $validateScript) {
+    try {
+        $scriptsMod = @(& git -C $BASE diff --name-only HEAD 2>$null | Where-Object { $_ -match '\.ps1$' })
+        if ($scriptsMod.Count -gt 0) {
+            $g5errors = $false
+            foreach ($s in $scriptsMod) {
+                & powershell.exe -NonInteractive -File $validateScript -Script $s 2>$null
+                if ($LASTEXITCODE -ne 0) { $g5errors = $true }
+            }
+            if ($g5errors) {
+                Write-Host "  [GATE 5] VERMELHO -- Scripts com erros de sintaxe. (P-060)" -ForegroundColor Red
+                Write-Host "           Corrigir antes de encerrar a sessao. (P-071)" -ForegroundColor Red
+                $gateStatus.G5 = "VERMELHO"
+                exit 1
+            }
+            Write-Host "  [GATE 5] $($scriptsMod.Count) script(s) validado(s) -- VERDE" -ForegroundColor Green
+            $gateStatus.G5 = "VERDE"
+        } else {
+            Write-Host "  [GATE 5] Nenhum .ps1 modificado detectado" -ForegroundColor DarkGray
+            $gateStatus.G5 = "VERDE"
+        }
+    } catch {
+        Write-Host "  [GATE 5] validate_scripts.ps1 falhou -- aviso" -ForegroundColor Yellow
+        $gateStatus.G5 = "AMARELO"
     }
 } else {
-    Write-Host "  [!!] WIP_BOARD.json nao encontrado -- sync CLAUDE_PROJECT ignorado" -ForegroundColor Yellow
-    $cpSyncOK = $false
+    Write-Host "  [GATE 5] validate_scripts.ps1 nao encontrado -- IGNORADO" -ForegroundColor DarkGray
+    $gateStatus.G5 = "N/A"
 }
 
-# --------------------------------------------------------------------------
-# [LEDGER] Registrar eventos da sessao (sem Read-Host -- via params)
-# --------------------------------------------------------------------------
+# ==========================================================================
+# GATE 6 — Artefatos: LEDGER + WIP + MANIFEST + P-045 + knowledge_graph
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 6] Artefatos de sessao e loop..." -ForegroundColor Cyan
+
+# --- LEDGER ---
 if (-not (Test-Path $LEDGER)) {
-    Write-Host "ERRO: INTELLIGENCE_LEDGER.md nao encontrado." -ForegroundColor Red
-    exit 1
-}
-
-$entradaLedger = ""
-if ($Friccao)   { $entradaLedger += "`n``[FRICCAO]`` $Friccao" }
-if ($Principio) { $entradaLedger += "`n``[PRINCIPIO]`` $Principio" }
-if ($Override)  { $entradaLedger += "`n``[OVERRIDE]`` $Override" }
-if ($Deriva)    { $entradaLedger += "`n``[DERIVA]`` $Deriva" }
-
-if ($entradaLedger) {
-    $blocoLedger = "`n`n### [SESSAO $DATA]`n$entradaLedger"
-    $conteudoLed = Get-Content $LEDGER -Raw -Encoding utf8
-    if ($conteudoLed -match "## GLOSSARIO") {
-        $conteudoLed = $conteudoLed -replace "(?m)^## GLOSSARIO", "$blocoLedger`n`n## GLOSSARIO"
-    } else {
-        $conteudoLed = $conteudoLed + $blocoLedger
-    }
-    Set-Content $LEDGER -Value $conteudoLed -Encoding utf8
-    $numEventos = @($Friccao, $Principio, $Override, $Deriva) | Where-Object { $_ }
-    Write-Host ""
-    Write-Host "  [LEDGER] $($numEventos.Count) evento(s) registrado(s)" -ForegroundColor Green
+    Write-Host "  [GATE 6] ERRO: INTELLIGENCE_LEDGER.md nao encontrado." -ForegroundColor Red
 } else {
-    Write-Host ""
-    Write-Host "  [LEDGER] Nenhum evento registrado nesta sessao" -ForegroundColor DarkGray
-}
-
-# --------------------------------------------------------------------------
-# Loop Continuity Check (nao bloqueante)
-# --------------------------------------------------------------------------
-$comandoGerado = Get-ChildItem "$BASE\CLIENTES" -Filter "COMANDO_ESTRATEGISTA*.md" -Recurse -ErrorAction SilentlyContinue |
-    Where-Object { $_.LastWriteTime.Date -eq (Get-Date).Date } |
-    Select-Object -First 1
-if (-not $comandoGerado) {
-    Write-Host ""
-    Write-Host "  [!!] LOOP CONTINUITY: COMANDO_ESTRATEGISTA nao detectado hoje." -ForegroundColor Yellow
-    Write-Host "       O loop Musculo->Gemini quebra sem este documento." -ForegroundColor Yellow
-} else {
-    Write-Host "  [OK] Loop Continuity: $($comandoGerado.Name)" -ForegroundColor Green
-}
-
-# --------------------------------------------------------------------------
-# knowledge_graph.json
-# --------------------------------------------------------------------------
-if (Test-Path $KG) {
-    $kg = Get-Content $KG -Raw -Encoding utf8 | ConvertFrom-Json
-    $nova_sessao = [PSCustomObject]@{
-        date                 = $DATA
-        label                = "Sessao $DATA"
-        friction_events      = if ($Friccao)   { 1 } else { 0 }
-        principles_generated = if ($Principio) { @("novo") } else { @() }
-        overrides            = if ($Override)  { @([PSCustomObject]@{ description = $Override }) } else { @() }
-        drift_detected       = if ($Deriva)    { $true } else { $false }
+    $entradaLedger = ""
+    if ($Friccao)   { $entradaLedger += "`n``[FRICCAO]`` $Friccao" }
+    if ($Principio) { $entradaLedger += "`n``[PRINCIPIO]`` $Principio" }
+    if ($Override)  { $entradaLedger += "`n``[OVERRIDE]`` $Override" }
+    if ($Deriva)    { $entradaLedger += "`n``[DERIVA]`` $Deriva" }
+    if ($entradaLedger) {
+        $blocoL = "`n`n### [SESSAO $DATA]`n$entradaLedger"
+        $cL = Get-Content $LEDGER -Raw -Encoding UTF8
+        if ($cL -match "## GLOSSARIO") {
+            $cL = $cL -replace "(?m)^## GLOSSARIO", "$blocoL`n`n## GLOSSARIO"
+        } else { $cL = $cL + $blocoL }
+        Set-Content $LEDGER -Value $cL -Encoding UTF8
+        $nEv = @($Friccao, $Principio, $Override, $Deriva) | Where-Object { $_ }
+        Write-Host "  [GATE 6] LEDGER: $($nEv.Count) evento(s) registrado(s)" -ForegroundColor Green
     }
-    $sessoes = [System.Collections.ArrayList]@()
-    if ($kg.sessions) { foreach ($s in $kg.sessions) { [void]$sessoes.Add($s) } }
-    $sessoes.Insert(0, $nova_sessao)
-    if ($sessoes.Count -gt 20) { $sessoes = $sessoes[0..19] }
-    $kg.sessions = $sessoes
-    $kg.meta.last_updated   = $DATA
-    $kg.meta.total_sessions = $sessoes.Count
-    $kgJson = $kg | ConvertTo-Json -Depth 10
-    [System.IO.File]::WriteAllText($KG, $kgJson, [System.Text.Encoding]::UTF8)
-    Write-Host "  [OK] knowledge_graph.json atualizado" -ForegroundColor DarkGray
 }
 
-# --------------------------------------------------------------------------
-# Dividas Tecnicas para o Auditor
-# --------------------------------------------------------------------------
+# --- Dividas Tecnicas ---
 if ($Divida) {
-    $divArquivo  = "$BASE\DIVIDAS_TECNICAS_AUDITOR.md"
-    $divConteudo = if (Test-Path $divArquivo) { Get-Content $divArquivo -Raw -Encoding utf8 } else { "" }
-    $novaDiv     = "`n`n### [DIVIDAS TECNICAS -- $DATA]`n**Sessao:** $DATA`n**Dividas:**`n$Divida`n"
-    Set-Content $divArquivo -Value ($divConteudo + $novaDiv) -Encoding utf8
-    Write-Host "  [OK] DIVIDAS_TECNICAS_AUDITOR.md atualizado" -ForegroundColor Green
+    $divArq = "$BASE\DIVIDAS_TECNICAS_AUDITOR.md"
+    $divC   = if (Test-Path $divArq) { Get-Content $divArq -Raw -Encoding UTF8 } else { "" }
+    Set-Content $divArq -Value ($divC + "`n`n### [DIVIDAS-$DATA]`n$Divida`n") -Encoding UTF8
+    Write-Host "  [GATE 6] DIVIDAS_TECNICAS -- OK" -ForegroundColor Green
 }
 
-# --------------------------------------------------------------------------
-# Candidatos a Principio (P-053)
-# --------------------------------------------------------------------------
+# --- Candidatos a Principio ---
 if ($Candidato) {
-    $candidatosFile = "$BASE\CANDIDATOS_A_PRINCIPIO.md"
-    $conteudoC = if (Test-Path $candidatosFile) {
-        Get-Content $candidatosFile -Raw -Encoding utf8
-    } else {
-        "# CANDIDATOS A PRINCIPIO -- Vanguard Pentalateral IAH`n> Promover ao LEDGER quando padrao aparecer 3x.`n"
-    }
-    $blocoC = "`n`n### [CANDIDATOS-$DATA]`n> Capturado via session_close.ps1`n$Candidato`n"
-    Set-Content $candidatosFile -Value ($conteudoC + $blocoC) -Encoding utf8
-    Write-Host "  [OK] CANDIDATOS_A_PRINCIPIO.md atualizado" -ForegroundColor Green
+    $candArq = "$BASE\CANDIDATOS_A_PRINCIPIO.md"
+    $candC   = if (Test-Path $candArq) { Get-Content $candArq -Raw -Encoding UTF8 } else { "# CANDIDATOS A PRINCIPIO`n> Promover ao LEDGER quando padrao aparecer 3x.`n" }
+    Set-Content $candArq -Value ($candC + "`n`n### [CANDIDATOS-$DATA]`n$Candidato`n") -Encoding UTF8
+    Write-Host "  [GATE 6] CANDIDATOS_A_PRINCIPIO -- OK" -ForegroundColor Green
 }
 
-# --------------------------------------------------------------------------
-# Evolucao do Protocolo Vanguard
-# --------------------------------------------------------------------------
+# --- Evolucao do Protocolo ---
 if ($Padrao) {
-    $protocoloPath = Join-Path $BASE ".claude\skills\vanguard-protocolo.md"
-    $universalPath = Join-Path $BASE "PENTALATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md"
-    if (Test-Path $protocoloPath) {
-        $conteudoProt = Get-Content $protocoloPath -Raw -Encoding utf8
-        $blocoEvol    = "`n`n### [EVOLUCAO-$DATA]`n> Capturado via session_close.ps1`n$Padrao`n"
-        if ($conteudoProt -match "## EVOLUCOES DE PROCESSO EM CURSO") {
-            $conteudoProt = $conteudoProt + $blocoEvol
-        } else {
-            $secaoEvol    = "`n`n---`n`n## EVOLUCOES DE PROCESSO EM CURSO`n"
-            $secaoEvol   += "> Capturadas pelo Musculo via session_close.ps1.`n"
-            $conteudoProt = $conteudoProt + $secaoEvol + $blocoEvol
+    $protPath  = "$BASE\.claude\skills\vanguard-protocolo.md"
+    $univPath  = "$BASE\PENTALATERAL_UNIVERSAL\OPERACAO\SKILL_PROTOCOLO_VANGUARD.md"
+    if (Test-Path $protPath) {
+        $protC = Get-Content $protPath -Raw -Encoding UTF8
+        $blocoE = "`n`n### [EVOLUCAO-$DATA]`n$Padrao`n"
+        if ($protC -notmatch "## EVOLUCOES DE PROCESSO EM CURSO") {
+            $protC += "`n`n---`n`n## EVOLUCOES DE PROCESSO EM CURSO`n"
         }
-        Set-Content $protocoloPath -Value $conteudoProt -Encoding utf8
-        if (Test-Path (Split-Path $universalPath)) {
-            Copy-Item $protocoloPath $universalPath -Force
-        }
-        # Tambem registrar no LEDGER com tag [PROTOCOLO]
-        $entradaProt  = "`n`n### [SESSAO $DATA -- PROTOCOLO]`n``[PROTOCOLO]`` $Padrao`n"
-        $conteudoLed2 = Get-Content $LEDGER -Raw -Encoding utf8
-        if ($conteudoLed2 -match "## GLOSSARIO") {
-            $conteudoLed2 = $conteudoLed2 -replace "(?m)^## GLOSSARIO", "$entradaProt`n`n## GLOSSARIO"
-        } else {
-            $conteudoLed2 = $conteudoLed2 + $entradaProt
-        }
-        Set-Content $LEDGER -Value $conteudoLed2 -Encoding utf8
-        Write-Host "  [OK] Padrao de protocolo registrado em vanguard-protocolo.md + LEDGER" -ForegroundColor Green
+        $protC += $blocoE
+        Set-Content $protPath -Value $protC -Encoding UTF8
+        if (Test-Path (Split-Path $univPath)) { Copy-Item $protPath $univPath -Force }
+        Write-Host "  [GATE 6] PROTOCOLO VANGUARD -- OK" -ForegroundColor Green
     }
 }
 
-# --------------------------------------------------------------------------
-# Mandato Direto do Diretor -> PASSO3_GEMINI.md do projeto ativo
-# --------------------------------------------------------------------------
+# --- Mandato Direto ---
 if ($Mandato) {
     if (Test-Path $wipPath) {
-        $boardM = Get-Content $wipPath -Raw -Encoding utf8 | ConvertFrom-Json
-        $projetoAtivo = @($boardM.board.build) | Select-Object -First 1
-        if ($projetoAtivo) {
-            $clienteDirM = Join-Path $BASE "CLIENTES\$($projetoAtivo.cliente.ToUpper())"
-            $passo3Path  = Join-Path $clienteDirM "PASSO3_GEMINI.md"
-            if (Test-Path $passo3Path) {
-                $blocoMandato  = "`n## [!!] [MANDATO_DIRETO_DO_DIRETOR] -- $DATA`n"
-                $blocoMandato += "> Eduardo declarou diretamente. Estrategista: proibido de suavizar ou ignorar.`n`n"
-                $blocoMandato += "$Mandato`n`n---`n"
-                $conteudoM = Get-Content $passo3Path -Raw -Encoding utf8
-                if ($conteudoM -match "\[MANDATO_DIRETO_DO_DIRETOR\]") {
-                    $conteudoM = $conteudoM -replace "(?s)## \[!!\] \[MANDATO_DIRETO_DO_DIRETOR\].*?---`r?`n", $blocoMandato
-                } else {
-                    $conteudoM = $blocoMandato + "`n" + $conteudoM
-                }
-                Set-Content $passo3Path -Value $conteudoM -Encoding utf8
-                Write-Host "  [OK] Mandato injetado em PASSO3_GEMINI.md -- $($projetoAtivo.cliente)" -ForegroundColor Green
-            } else {
-                Write-Host "  [!!] PASSO3_GEMINI.md nao encontrado para $($projetoAtivo.cliente)" -ForegroundColor Yellow
+        $bM   = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $p0   = @($bM.board.build) | Select-Object -First 1
+        if ($p0) {
+            $passo3 = "$BASE\CLIENTES\$($p0.cliente.ToUpper())\PASSO3_GEMINI.md"
+            if (Test-Path $passo3) {
+                $blocoM = "`n## [!!] [MANDATO_DIRETO_DO_DIRETOR] -- $DATA`n> Eduardo declarou diretamente.`n`n$Mandato`n`n---`n"
+                $cM = Get-Content $passo3 -Raw -Encoding UTF8
+                if ($cM -match "\[MANDATO_DIRETO_DO_DIRETOR\]") {
+                    $cM = $cM -replace "(?s)## \[!!\] \[MANDATO_DIRETO_DO_DIRETOR\].*?---`r?`n", $blocoM
+                } else { $cM = $blocoM + "`n" + $cM }
+                Set-Content $passo3 -Value $cM -Encoding UTF8
+                Write-Host "  [GATE 6] Mandato -> PASSO3_GEMINI ($($p0.cliente)) -- OK" -ForegroundColor Green
             }
         }
     }
 }
 
-# --------------------------------------------------------------------------
-# P-054: AUDITORIA DE CONSISTENCIA TEXTUAL (nao bloqueante)
-# --------------------------------------------------------------------------
-$auditScript = Join-Path $BASE "scripts\auditar_consistencia.ps1"
-if (Test-Path $auditScript) {
-    Write-Host ""
-    Write-Host "  [P-054] Consistencia textual..." -ForegroundColor Cyan
-    & powershell.exe -NonInteractive -File $auditScript
-    if ($LASTEXITCODE -eq 2) {
-        Write-Host "  [!!] Padroes VERMELHOS detectados -- verificar antes do proximo ciclo." -ForegroundColor Yellow
-    }
-}
-
-# --------------------------------------------------------------------------
-# AUDITORIA DE DOCUMENTOS + P-045 (nao bloqueante)
-# --------------------------------------------------------------------------
-Write-Host ""
-Write-Host "=============================================="
-Write-Host "  AUDITORIA DE DOCUMENTOS"
-Write-Host "=============================================="
-
+# --- P-045: Artefatos de loop anterior ---
 foreach ($proj in $projetosEmBuild) {
-    $cliente    = $proj.cliente.ToUpper()
-    $clienteDir = Join-Path $BASE "CLIENTES\$cliente"
-    Write-Host ""
-    Write-Host "  Projeto: $($proj.id) -- $($proj.cliente)" -ForegroundColor Cyan
-
-    # P-045: MEMORIA + relatorio do loop anterior
-    $historico = Join-Path $clienteDir "HISTORICO"
-    if (Test-Path $historico) {
-        $diretrizes = Get-ChildItem $clienteDir -Filter "DIRETRIZ_GEMINI_V*.txt" -ErrorAction SilentlyContinue |
-                      Sort-Object Name -Descending
-        if (-not $diretrizes) {
-            $diretrizes = Get-ChildItem $historico -Filter "DIRETRIZ*.txt" -ErrorAction SilentlyContinue |
-                          Sort-Object Name -Descending
+    $cli      = $proj.cliente.ToUpper()
+    $cliDir   = "$BASE\CLIENTES\$cli"
+    $hist     = "$cliDir\HISTORICO"
+    if (Test-Path $hist) {
+        $dirs   = @(Get-ChildItem $cliDir -Filter "DIRETRIZ_GEMINI_V*.txt" -ErrorAction SilentlyContinue |
+                    Sort-Object Name -Descending)
+        if (-not $dirs) {
+            $dirs = @(Get-ChildItem $hist -Filter "DIRETRIZ*.txt" -ErrorAction SilentlyContinue |
+                      Sort-Object Name -Descending)
         }
-        if ($diretrizes) {
-            $numLoopDiretriz = 0
-            if (($diretrizes | Select-Object -First 1).Name -match "V(\d+)") { $numLoopDiretriz = [int]$Matches[1] }
-            $memorias = Get-ChildItem $historico -Filter "MEMORIA_V*.md" -ErrorAction SilentlyContinue |
-                        Sort-Object Name -Descending
-            $numMemoria = 0
-            if ($memorias) {
-                if (($memorias | Select-Object -First 1).Name -match "V(\d+)") { $numMemoria = [int]$Matches[1] }
-            }
-            if ($numMemoria -lt ($numLoopDiretriz - 1)) {
-                Write-Host "  [P-045] ALERTA: DIRETRIZ V$numLoopDiretriz existe -- MEMORIA mais recente: V$numMemoria" -ForegroundColor Red
-                Write-Host "         Gerar MEMORIA + relatorio_evolutivo antes do proximo loop." -ForegroundColor Yellow
+        if ($dirs) {
+            $numD = 0
+            if (($dirs | Select-Object -First 1).Name -match "V(\d+)") { $numD = [int]$Matches[1] }
+            $mems = @(Get-ChildItem $hist -Filter "MEMORIA_V*.md" -ErrorAction SilentlyContinue |
+                      Sort-Object Name -Descending)
+            $numM = 0
+            if ($mems -and ($mems | Select-Object -First 1).Name -match "V(\d+)") { $numM = [int]$Matches[1] }
+            if ($numM -lt ($numD - 1)) {
+                Write-Host "  [GATE 6] P-045 ALERTA [$cli]: DIRETRIZ V$numD -- MEMORIA mais recente V$numM" -ForegroundColor Red
+                Write-Host "           Gerar MEMORIA + relatorio antes do proximo loop." -ForegroundColor Yellow
             } else {
-                Write-Host "  [P-045] Artefatos OK -- MEMORIA V$numMemoria" -ForegroundColor Green
+                Write-Host "  [GATE 6] P-045 [$cli]: Artefatos OK (V$numM)" -ForegroundColor Green
             }
-        }
-    }
-
-    # Verificar NOTEBOOKLM_FONTES
-    $fontes = Join-Path $clienteDir "NOTEBOOKLM_FONTES"
-    if (-not (Test-Path $fontes)) {
-        Write-Host "  [!!] NOTEBOOKLM_FONTES/ ausente -- rodar preparar_notebooklm_projeto.ps1" -ForegroundColor Red
-    } else {
-        $ultimaFonte = Get-ChildItem $fontes -File | Sort-Object LastWriteTime -Descending | Select-Object -First 1
-        if ($ultimaFonte -and $ultimaFonte.LastWriteTime.Date -eq (Get-Date).Date) {
-            Write-Host "  [OK] NOTEBOOKLM_FONTES/ sincronizado hoje" -ForegroundColor Green
-        } else {
-            $dataFonte = if ($ultimaFonte) { $ultimaFonte.LastWriteTime.ToString("yyyy-MM-dd") } else { "nunca" }
-            Write-Host "  [!!] NOTEBOOKLM_FONTES/ ultima sync: $dataFonte" -ForegroundColor Yellow
-        }
-    }
-
-    # Wipe & Sync reminder se loop encerrou hoje
-    $loopAtual = $proj.loop_atual
-    if ($loopAtual -and $loopAtual -match "Loop #(\d+)") {
-        $numLoop = [int]$Matches[1]
-        $loopAnterior = $proj.loops_programados | Where-Object {
-            $_.loop -eq ($numLoop - 1) -and $_.status -eq "concluido" -and $_.concluido_em -eq $DATA
-        }
-        if ($loopAnterior) {
-            Write-Host ""
-            Write-Host "  [!!] LOOP $($numLoop - 1) ENCERRADO HOJE -- Wipe & Sync antes do Loop $numLoop" -ForegroundColor Magenta
-            Write-Host "       .\scripts\preparar_notebooklm_projeto.ps1 -cliente $cliente" -ForegroundColor Cyan
         }
     }
 }
 
-Write-Host ""
-Write-Host "  Auditoria concluida." -ForegroundColor Green
+# --- Loop Continuity ---
+$cmdGerado = Get-ChildItem "$BASE\CLIENTES" -Filter "COMANDO_ESTRATEGISTA*.md" -Recurse -ErrorAction SilentlyContinue |
+    Where-Object { $_.LastWriteTime.Date -eq (Get-Date).Date } | Select-Object -First 1
+if (-not $cmdGerado) {
+    Write-Host "  [GATE 6] Loop Continuity: COMANDO_ESTRATEGISTA nao detectado hoje." -ForegroundColor Yellow
+} else {
+    Write-Host "  [GATE 6] Loop Continuity: $($cmdGerado.Name) -- OK" -ForegroundColor Green
+}
 
-# --------------------------------------------------------------------------
-# MANIFEST_DOCS.json — atualizar para cada projeto ativo
-# Compara hashes SHA-256 source (NOTEBOOKLM_BASE) vs destino (NOTEBOOKLM_FONTES)
-# --------------------------------------------------------------------------
-Write-Host ""
-Write-Host "=============================================="
-Write-Host "  MANIFEST_DOCS -- ATUALIZANDO"
-Write-Host "=============================================="
-
-$manifestStatus = @{}
-$baseUniversal  = "$BASE\PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
-
+# --- MANIFEST_DOCS ---
+$baseUniversal = "$BASE\PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE"
 foreach ($proj in $projetosEmBuild) {
-    $cliente    = $proj.cliente.ToUpper()
-    $clienteDir = Join-Path $BASE "CLIENTES\$cliente"
-    $fontesDir  = Join-Path $clienteDir "NOTEBOOKLM_FONTES"
-
+    $cli      = $proj.cliente.ToUpper()
+    $cliDir   = "$BASE\CLIENTES\$cli"
+    $fontesDir = "$cliDir\NOTEBOOKLM_FONTES"
     if (-not (Test-Path $fontesDir)) {
-        $manifestStatus[$cliente] = "VERMELHO"
-        Write-Host "  [XX] $cliente -- NOTEBOOKLM_FONTES/ ausente" -ForegroundColor Red
+        $manifestStatus[$cli] = "VERMELHO"
+        Write-Host "  [GATE 6] MANIFEST [$cli]: NOTEBOOKLM_FONTES/ ausente" -ForegroundColor Red
         continue
     }
-
-    $arquivosManifest = [System.Collections.ArrayList]@()
-    $statusGeral      = "VERDE"
-    $driftCount       = 0
-    $ausenteCount     = 0
-
-    # Comparar arquivos universais
-    $arquivosSource = @(Get-ChildItem $baseUniversal -File -ErrorAction SilentlyContinue)
-    $arquivosLocal  = @(Get-ChildItem $fontesDir -File -ErrorAction SilentlyContinue)
-
-    foreach ($srcFile in $arquivosSource) {
-        $localMatch = $arquivosLocal | Where-Object {
-            $_.Name -eq $srcFile.Name -or
-            $_.Name -match ("^\d{2}_" + [regex]::Escape($srcFile.Name) + "$")
+    $arqsMani  = [System.Collections.ArrayList]@()
+    $stGeral   = "VERDE"
+    $driftCnt  = 0
+    $ausCnt    = 0
+    $srcFiles  = @(Get-ChildItem $baseUniversal -File -ErrorAction SilentlyContinue)
+    $locFiles  = @(Get-ChildItem $fontesDir -File -ErrorAction SilentlyContinue)
+    foreach ($sf in $srcFiles) {
+        $lm = $locFiles | Where-Object {
+            $_.Name -eq $sf.Name -or $_.Name -match ("^\d{2}_" + [regex]::Escape($sf.Name) + "$")
         } | Select-Object -First 1
-
-        if ($localMatch) {
-            $hashSrc   = (Get-FileHash $srcFile.FullName   -Algorithm SHA256).Hash
-            $hashLocal = (Get-FileHash $localMatch.FullName -Algorithm SHA256).Hash
-            $status    = if ($hashSrc -eq $hashLocal) { "SYNC" } else { "DRIFT" }
-            if ($status -eq "DRIFT") { $statusGeral = "AMARELO"; $driftCount++ }
-            [void]$arquivosManifest.Add([PSCustomObject]@{
-                nome           = $localMatch.Name
-                hash_universal = $hashSrc
-                hash_local     = $hashLocal
-                status         = $status
-            })
+        if ($lm) {
+            $hSrc = (Get-FileHash $sf.FullName  -Algorithm SHA256).Hash
+            $hLoc = (Get-FileHash $lm.FullName  -Algorithm SHA256).Hash
+            $st   = if ($hSrc -eq $hLoc) { "SYNC" } else { "DRIFT"; $stGeral = "AMARELO"; $driftCnt++ }
+            [void]$arqsMani.Add([PSCustomObject]@{ nome=$lm.Name; hash_universal=$hSrc; hash_local=$hLoc; status=$st })
         } else {
-            $hashSrc = (Get-FileHash $srcFile.FullName -Algorithm SHA256).Hash
-            $statusGeral = "VERMELHO"; $ausenteCount++
-            [void]$arquivosManifest.Add([PSCustomObject]@{
-                nome           = $srcFile.Name
-                hash_universal = $hashSrc
-                hash_local     = ""
-                status         = "AUSENTE"
-            })
+            $hSrc = (Get-FileHash $sf.FullName -Algorithm SHA256).Hash
+            $stGeral = "VERMELHO"; $ausCnt++
+            [void]$arqsMani.Add([PSCustomObject]@{ nome=$sf.Name; hash_universal=$hSrc; hash_local=""; status="AUSENTE" })
         }
     }
-
-    # Arquivos apenas do projeto (sem universal correspondente)
-    $nomesClienteOnly = @("DIRETRIZ_GEMINI_LATEST.txt", "MEMORIA_EMBAIXADOR.md", "PASSO7_EMBAIXADOR.md")
-    foreach ($nomeEsp in $nomesClienteOnly) {
-        $found = $arquivosLocal | Where-Object { $_.Name -match [regex]::Escape($nomeEsp) } | Select-Object -First 1
-        if ($found) {
-            $hashLocal = (Get-FileHash $found.FullName -Algorithm SHA256).Hash
-            [void]$arquivosManifest.Add([PSCustomObject]@{
-                nome           = $found.Name
-                hash_universal = "N/A"
-                hash_local     = $hashLocal
-                status         = "CLIENT-ONLY"
-            })
-        }
+    $manifest  = [PSCustomObject]@{
+        projeto=$cli; ultima_sincronizacao=$HORA
+        arquivos=$arqsMani.ToArray(); status_geral=$stGeral
+        total=$arqsMani.Count; drift_count=$driftCnt; ausente_count=$ausCnt
     }
-
-    $manifest = [PSCustomObject]@{
-        projeto              = $cliente
-        ultima_sincronizacao = $HORA
-        arquivos             = $arquivosManifest.ToArray()
-        status_geral         = $statusGeral
-        total                = $arquivosManifest.Count
-        drift_count          = $driftCount
-        ausente_count        = $ausenteCount
-    }
-
-    $manifestPath = Join-Path $clienteDir "MANIFEST_DOCS.json"
-    $manifestJson = $manifest | ConvertTo-Json -Depth 5
-    [System.IO.File]::WriteAllText($manifestPath, $manifestJson, [System.Text.Encoding]::UTF8)
-    $manifestStatus[$cliente] = $statusGeral
-
-    $cor = if ($statusGeral -eq "VERDE") { "Green" } elseif ($statusGeral -eq "AMARELO") { "Yellow" } else { "Red" }
-    Write-Host "  [$statusGeral] $cliente -- $($arquivosManifest.Count) arqs · $driftCount drift · $ausenteCount ausente" -ForegroundColor $cor
+    $mPath = "$cliDir\MANIFEST_DOCS.json"
+    $mBytes = [System.Text.Encoding]::UTF8.GetBytes(($manifest | ConvertTo-Json -Depth 5))
+    [System.IO.File]::WriteAllBytes($mPath, $mBytes)
+    $manifestStatus[$cli] = $stGeral
+    $cor = if ($stGeral -eq "VERDE") {"Green"} elseif ($stGeral -eq "AMARELO") {"Yellow"} else {"Red"}
+    Write-Host "  [GATE 6] MANIFEST [$cli]: $stGeral -- $($arqsMani.Count) arqs, $driftCnt drift, $ausCnt ausente" -ForegroundColor $cor
 }
 
-# --------------------------------------------------------------------------
-# AUTO-PREPARACAO DOS 3 SOCIOS
-# --------------------------------------------------------------------------
-Write-Host ""
-Write-Host "=============================================="
-Write-Host "  AUTO-PREPARACAO DOS 3 SOCIOS"
-Write-Host "=============================================="
-
-# Socio 1 — Gemini
-$anchorScript = Join-Path $BASE "scripts\gemini_anchor_generator.ps1"
-if (Test-Path $anchorScript) {
-    Write-Host ""
-    Write-Host "  [1/3] Gemini -- atualizando CONTEXTO_GEMINI.md..." -ForegroundColor Cyan
+# --- knowledge_graph ---
+if (Test-Path $KG) {
     try {
-        & powershell.exe -NonInteractive -File $anchorScript 2>$null | Out-Null
-        Write-Host "  [OK] Gemini pronto" -ForegroundColor Green
-    } catch {
-        Write-Host "  [!!] Gemini -- falha ao gerar CONTEXTO_GEMINI.md" -ForegroundColor Yellow
-    }
-}
-
-# Socio 2 — NotebookLM
-$prepScript = Join-Path $BASE "scripts\preparar_notebooklm_projeto.ps1"
-if (Test-Path $prepScript) {
-    Write-Host ""
-    Write-Host "  [2/3] NotebookLM -- preparando NOTEBOOKLM_FONTES..." -ForegroundColor Cyan
-    foreach ($proj in $projetosEmBuild) {
-        $cli = $proj.cliente.ToUpper()
-        try {
-            & powershell.exe -NonInteractive -File $prepScript -cliente $cli 2>$null | Out-Null
-            Write-Host "  [OK] NotebookLM/$cli -- fontes prontas" -ForegroundColor Green
-        } catch {
-            Write-Host "  [!!] NotebookLM/$cli -- falha" -ForegroundColor Yellow
+        $kg = Get-Content $KG -Raw -Encoding UTF8 | ConvertFrom-Json
+        $ns = [PSCustomObject]@{
+            date=$DATA; label="Sessao $DATA"
+            friction_events=if($Friccao){1}else{0}
+            principles_generated=if($Principio){@("novo")}else{@()}
+            overrides=if($Override){@([PSCustomObject]@{description=$Override})}else{@()}
+            drift_detected=if($Deriva){$true}else{$false}
         }
-    }
-} else {
-    Write-Host "  [--] preparar_notebooklm_projeto.ps1 nao encontrado" -ForegroundColor DarkGray
+        $sess = [System.Collections.ArrayList]@()
+        if ($kg.sessions) { foreach ($s in $kg.sessions) { [void]$sess.Add($s) } }
+        $sess.Insert(0, $ns)
+        if ($sess.Count -gt 20) { $sess = $sess[0..19] }
+        $kg.sessions = $sess
+        $kg.meta.last_updated = $DATA
+        $kg.meta.total_sessions = $sess.Count
+        $kgBytes = [System.Text.Encoding]::UTF8.GetBytes(($kg | ConvertTo-Json -Depth 10))
+        [System.IO.File]::WriteAllBytes($KG, $kgBytes)
+    } catch { }
 }
 
-# Socio 3 — Embaixador
-$embScript = Join-Path $BASE "scripts\ir_ao_embaixador.ps1"
-if (Test-Path $embScript) {
-    Write-Host ""
-    Write-Host "  [3/3] Embaixador -- AutoSync..." -ForegroundColor Cyan
-    foreach ($proj in $projetosEmBuild) {
-        $cli = $proj.cliente.ToUpper()
-        try {
-            & powershell.exe -NonInteractive -File $embScript -cliente $cli -AutoSync 2>$null | Out-Null
-            Write-Host "  [OK] Embaixador/$cli -- docs sincronizados" -ForegroundColor Green
-        } catch {
-            Write-Host "  [!!] Embaixador/$cli -- falha" -ForegroundColor Yellow
-        }
-    }
-} else {
-    Write-Host "  [--] ir_ao_embaixador.ps1 nao encontrado" -ForegroundColor DarkGray
-}
+$g6ok = -not ($manifestStatus.Values -contains "VERMELHO")
+$gateStatus.G6 = if ($g6ok) { "VERDE" } else { "AMARELO" }
 
+# ==========================================================================
+# GATE 7 — LOG_EXECUCAO_DIARIA
+# ==========================================================================
 Write-Host ""
-Write-Host "  Instrucoes para o proximo ciclo:"
-Write-Host "  . Gemini    -- CONTEXTO_GEMINI.md atualizado + PASSO3 do projeto" -ForegroundColor White
-Write-Host "  . NotebookLM -- Wipe & Sync no Projects + colar PASSO5" -ForegroundColor White
-Write-Host "  . Embaixador -- .\scripts\ir_ao_embaixador.ps1 (abre browser + clipboard)" -ForegroundColor White
+Write-Host "  [GATE 7] Gerando LOG_EXECUCAO_DIARIA..." -ForegroundColor Cyan
 
-# --------------------------------------------------------------------------
-# PAINEL DE ATIVIDADES para o Embaixador
-# --------------------------------------------------------------------------
-$painelScript = Join-Path $BASE "scripts\generate_protocolo_encerramento.ps1"
-if (Test-Path $painelScript) {
-    Write-Host ""
-    Write-Host "=============================================="
-    Write-Host "  PAINEL DE ATIVIDADES"
-    Write-Host "=============================================="
-    $painelFile = (& powershell.exe -NonInteractive -File $painelScript 2>$null) | Select-Object -Last 1
-    if ($painelFile -and (Test-Path $painelFile)) {
-        Write-Host ""
-        Write-Host "  [PAINEL] Pronto para upload ao Embaixador:" -ForegroundColor Cyan
-        Write-Host "  $painelFile" -ForegroundColor White
-        Write-Host "  Instrucao: abrir Claude Projects + fazer upload deste arquivo." -ForegroundColor Yellow
+$arquivosMod = @(& git -C $BASE diff --name-only HEAD 2>$null | Where-Object { $_ })
+$arquivosMod += @(& git -C $BASE diff --name-only --cached 2>$null | Where-Object { $_ })
+$arquivosMod = @($arquivosMod | Select-Object -Unique)
+
+$pendentesAbertos    = [System.Collections.ArrayList]@()
+$pendentesConcluidos = [System.Collections.ArrayList]@()
+$pendentesPath = "$BASE\PENDENTES.md"
+if (Test-Path $pendentesPath) {
+    $linhasPend = Get-Content $pendentesPath -Encoding UTF8
+    foreach ($l in $linhasPend) {
+        if ($l -match "^\- \[ \]") {
+            $desc = ($l -replace "^\- \[ \] ``[^``]+``\s*\*\*", "") -replace "\*\*.*", ""
+            [void]$pendentesAbertos.Add($desc.Trim())
+        } elseif ($l -match "^\- \[x\]") {
+            $desc = ($l -replace "^\- \[x\]", "").Trim()
+            [void]$pendentesConcluidos.Add($desc)
+        }
     }
 }
 
-# --------------------------------------------------------------------------
-# Telegram: resumo da sessao
-# --------------------------------------------------------------------------
-$alertConfig = Join-Path $BASE "scripts\alert_config.ps1"
-if (Test-Path $alertConfig) {
-    . $alertConfig
-    $resumoTelegram  = "SESSAO ENCERRADA -- $DATA`n"
-    $resumoTelegram += "Pentalateral IAH . Musculo`n`n"
-    if ($Friccao)   { $resumoTelegram += "Friccao: $Friccao`n" }
-    if ($Principio) { $resumoTelegram += "Principio: $Principio`n" }
-    if ($Override)  { $resumoTelegram += "Override: $Override`n" }
-    if ($Deriva)    { $resumoTelegram += "Deriva: $Deriva`n" }
-    if ($Mandato)   { $resumoTelegram += "Mandato: $Mandato`n" }
-
-    # Adicionar status do manifest
-    $resumoTelegram += "`nSync:"
-    foreach ($kv in $manifestStatus.GetEnumerator()) {
-        $resumoTelegram += " $($kv.Key)=$($kv.Value)"
-    }
-    $resumoTelegram += "`n`nProximo: PASSO3 + Gemini para fechar o loop."
-
-    $urlTelegram = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
-    try {
-        Invoke-RestMethod -Uri $urlTelegram -Method POST -Body @{
-            chat_id = $TELEGRAM_CHAT_ID
-            text    = $resumoTelegram
-        } | Out-Null
-        Write-Host ""
-        Write-Host "  [OK] Resumo da sessao enviado ao Telegram." -ForegroundColor Cyan
-    } catch {
-        Write-Host "  [!!] Telegram: $($_.Exception.Message)" -ForegroundColor Yellow
-    }
+# Sync por projeto
+$syncLinhas = "| Projeto | Status MANIFEST |`n|---------|----------------|"
+foreach ($kv in $manifestStatus.GetEnumerator()) {
+    $syncLinhas += "`n| $($kv.Key) | $($kv.Value) |"
 }
 
-# --------------------------------------------------------------------------
-# SESSION CLOSE REPORT — Entregavel 1 do Diretor
-# --------------------------------------------------------------------------
+$logConteudo = @"
+# LOG DE EXECUCAO DIARIA -- $cliente . $DATA
+> Gerado automaticamente por session_close.ps1
+> Sessao encerrada: $HORA_EXIB
+
+---
+
+## 1. ARQUIVOS MODIFICADOS
+$( if ($arquivosMod.Count -gt 0) { $arquivosMod | ForEach-Object { "- $_" } | Out-String } else { "Nenhum arquivo modificado detectado." } )
+
+## 2. SINCRONIZACAO NOTEBOOKLM
+$syncLinhas
+
+## 3. PENDENTES ABERTOS ($(($pendentesAbertos).Count) itens)
+$( if ($pendentesAbertos.Count -gt 0) { $pendentesAbertos | ForEach-Object { "- $_" } | Out-String } else { "Nenhum pendente aberto." } )
+
+## 4. PENDENTES CONCLUIDOS NESTA SESSAO
+$( if ($pendentesConcluidos.Count -gt 0) { $pendentesConcluidos | ForEach-Object { "+ $_" } | Out-String } else { "Nenhum pendente concluido." } )
+
+## 5. STATUS GERAL
+$( $statusGeral7 = "VERDE"
+   foreach ($s in $manifestStatus.Values) {
+       if ($s -eq "VERMELHO") { $statusGeral7 = "VERMELHO"; break }
+       if ($s -eq "AMARELO" -and $statusGeral7 -ne "VERMELHO") { $statusGeral7 = "AMARELO" }
+   }
+   $statusGeral7 )
+"@
+
+if ($cliente -and $projetosEmBuild.Count -gt 0) {
+    $histDir = "$BASE\CLIENTES\$cliente\HISTORICO"
+    if (-not (Test-Path $histDir)) { New-Item -ItemType Directory -Path $histDir -Force | Out-Null }
+    $logPath = "$histDir\LOG_EXECUCAO_DIARIA_$DATA.md"
+    $logBytes = [System.Text.Encoding]::UTF8.GetBytes($logConteudo)
+    [System.IO.File]::WriteAllBytes($logPath, $logBytes)
+    Write-Host "  [GATE 7] LOG gerado: CLIENTES\$cliente\HISTORICO\LOG_EXECUCAO_DIARIA_$DATA.md" -ForegroundColor Green
+    $gateStatus.G7 = "VERDE"
+} else {
+    Write-Host "  [GATE 7] Cliente nao identificado -- LOG nao gerado" -ForegroundColor Yellow
+    $gateStatus.G7 = "AMARELO"
+}
+
+# ==========================================================================
+# GATE 8 — Notificacao: e-mail + Telegram + Auto-preparacao dos 3 socios
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 8] Notificacao e auto-preparacao..." -ForegroundColor Cyan
+
+# --- Determinar status geral ---
 $statusFinal = "VERDE"
 foreach ($s in $manifestStatus.Values) {
     if ($s -eq "VERMELHO") { $statusFinal = "VERMELHO"; break }
     if ($s -eq "AMARELO" -and $statusFinal -ne "VERMELHO") { $statusFinal = "AMARELO" }
 }
-
-$arquivosModificados = @(& git -C $BASE diff --name-only HEAD 2>$null | Where-Object { $_ })
-
-Write-Host ""
-Write-Host "=============================================="
-Write-Host "  SESSION CLOSE REPORT -- $DATA"
-Write-Host "=============================================="
-Write-Host ""
-Write-Host ("  Arquivos modificados nesta sessao : " + $arquivosModificados.Count) -ForegroundColor White
-
-foreach ($proj in $projetosEmBuild) {
-    $cli = $proj.cliente.ToUpper()
-    $st  = if ($manifestStatus.ContainsKey($cli)) { $manifestStatus[$cli] } else { "?" }
-    $cor = if ($st -eq "VERDE") { "Green" } elseif ($st -eq "AMARELO") { "Yellow" } else { "Red" }
-    Write-Host ("  Manifest " + $cli.PadRight(26) + ": " + $st) -ForegroundColor $cor
+if ($gateStatus.G1 -eq "AMARELO" -or $gateStatus.G2 -eq "AMARELO") {
+    if ($statusFinal -eq "VERDE") { $statusFinal = "AMARELO" }
 }
 
-Write-Host ""
-$corFinal = if ($statusFinal -eq "VERDE") { "Green" } elseif ($statusFinal -eq "AMARELO") { "Yellow" } else { "Red" }
-Write-Host ("  STATUS GERAL                      : " + $statusFinal) -ForegroundColor $corFinal
-
-if ($statusFinal -eq "VERMELHO") {
-    Write-Host ""
-    Write-Host "  [AVISO] Arquivos AUSENTES detectados em um ou mais projetos." -ForegroundColor Red
-    Write-Host "  Consultar MANIFEST_DOCS.json em CLIENTES/[PROJ]/" -ForegroundColor Red
-    Write-Host "  Rodar: .\scripts\session_close.ps1 novamente apos corrigir." -ForegroundColor Yellow
-} elseif ($statusFinal -eq "AMARELO") {
-    Write-Host ""
-    Write-Host "  [AVISO] Drift detectado. Rodar sync_vanguard_docs.ps1 para corrigir." -ForegroundColor Yellow
+# --- Socio 1: Gemini ---
+$anchorScript = "$BASE\scripts\gemini_anchor_generator.ps1"
+if (Test-Path $anchorScript) {
+    try {
+        & powershell.exe -NonInteractive -File $anchorScript 2>$null | Out-Null
+        Write-Host "  [GATE 8] Gemini -- CONTEXTO_GEMINI.md -- OK" -ForegroundColor Green
+    } catch {
+        Write-Host "  [GATE 8] Gemini -- falha" -ForegroundColor Yellow
+    }
 }
 
-Write-Host ""
-Write-Host "=============================================="
-Write-Host "  Sessao encerrada. Proximo: git commit."
-Write-Host "=============================================="
+# --- Socio 2: NotebookLM ---
+$prepScript = "$BASE\scripts\preparar_notebooklm_projeto.ps1"
+if (Test-Path $prepScript) {
+    foreach ($proj in $projetosEmBuild) {
+        $cli = $proj.cliente.ToUpper()
+        try {
+            & powershell.exe -NonInteractive -File $prepScript -cliente $cli 2>$null | Out-Null
+            Write-Host "  [GATE 8] NotebookLM/$cli -- fontes -- OK" -ForegroundColor Green
+        } catch {
+            Write-Host "  [GATE 8] NotebookLM/$cli -- falha" -ForegroundColor Yellow
+        }
+    }
+}
 
-# --------------------------------------------------------------------------
-# ENTREGAVEL 4 — Aviso de sincronizacao manual do Claude Projects
-# O Embaixador opera em Claude Projects sem API de upload. O Diretor
-# precisa re-arrastar manualmente os arquivos que mudaram nesta sessao.
-# --------------------------------------------------------------------------
-$todosModificados = @(
+# --- Socio 3: Embaixador ---
+$embScript = "$BASE\scripts\ir_ao_embaixador.ps1"
+if (Test-Path $embScript) {
+    foreach ($proj in $projetosEmBuild) {
+        $cli = $proj.cliente.ToUpper()
+        try {
+            & powershell.exe -NonInteractive -File $embScript -cliente $cli -AutoSync 2>$null | Out-Null
+            Write-Host "  [GATE 8] Embaixador/$cli -- AutoSync -- OK" -ForegroundColor Green
+        } catch {
+            Write-Host "  [GATE 8] Embaixador/$cli -- falha" -ForegroundColor Yellow
+        }
+    }
+}
+
+# --- E-mail (email_fechamento.ps1) ---
+$emailScript = "$BASE\scripts\email_fechamento.ps1"
+$emailBodyPath = "$BASE\scripts\.email_body.txt"
+$emailEnviado = $false
+if (Test-Path $emailScript) {
+    # Montar corpo do e-mail estruturado (ARTEFATO B)
+    $listaMod = if ($arquivosMod.Count -gt 0) {
+        ($arquivosMod | Select-Object -First 5 | ForEach-Object { "- $_" }) -join "`n"
+    } else { "Nenhum arquivo modificado detectado." }
+    $listaAlerta = @()
+    foreach ($kv in $manifestStatus.GetEnumerator()) {
+        if ($kv.Value -ne "VERDE") { $listaAlerta += "- [$($kv.Key)] MANIFEST: $($kv.Value)" }
+    }
+    $alertaBloco = if ($listaAlerta.Count -gt 0) { $listaAlerta -join "`n" } else { "Nenhum alerta ativo." }
+    $pendBloco   = if ($pendentesAbertos.Count -gt 0) {
+        ($pendentesAbertos | Select-Object -First 5 | ForEach-Object { "- $_" }) -join "`n"
+    } else { "Nenhum pendente em aberto." }
+
+    $emailBody = @"
+Diretor,
+
+Sessao de $DATA encerrada as $HORA_EXIB.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESUMO DA SESSAO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Cliente ativo:   $cliente$(if ($loopAtualLabel) { " -- $loopAtualLabel" })
+Status geral:    $statusFinal
+Arquivos mod.:   $($arquivosMod.Count) arquivo(s)
+
+MODIFICADOS:
+$listaMod
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ALERTAS ATIVOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$alertaBloco
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PENDENTES ABERTOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$pendBloco
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LOG completo: CLIENTES\$cliente\HISTORICO\LOG_EXECUCAO_DIARIA_$DATA.md
+PAINEL: Claude Project "Embaixador -- Diretor"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Musculo . Pentalateral IAH . $DATA $HORA_EXIB
+"@
+
+    $emailBytes = [System.Text.Encoding]::UTF8.GetBytes($emailBody)
+    [System.IO.File]::WriteAllBytes($emailBodyPath, $emailBytes)
+
+    try {
+        & powershell.exe -NonInteractive -File $emailScript 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "  [GATE 8] E-mail -- enviado -- OK" -ForegroundColor Green
+            $emailEnviado = $true
+            $gateStatus.G8e = "VERDE"
+        } else {
+            Write-Host "  [GATE 8] E-mail -- falha de envio" -ForegroundColor Yellow
+            $gateStatus.G8e = "AMARELO"
+            Add-Content "$BASE\CLIENTES\$cliente\HISTORICO\ERROS_EMAIL.log" -Value "[$DATA $HORA_EXIB] Falha no envio" -Encoding UTF8
+        }
+    } catch {
+        Write-Host "  [GATE 8] E-mail -- excecao: $_" -ForegroundColor Yellow
+        $gateStatus.G8e = "AMARELO"
+    }
+} else {
+    Write-Host "  [GATE 8] email_fechamento.ps1 nao encontrado" -ForegroundColor DarkGray
+    $gateStatus.G8e = "N/A"
+}
+
+# --- Telegram ---
+$alertConfig = "$BASE\scripts\alert_config.ps1"
+if (Test-Path $alertConfig) {
+    . $alertConfig
+    $statusEmoji = if ($statusFinal -eq "VERDE") {"VERDE"} elseif ($statusFinal -eq "AMARELO") {"AMARELO"} else {"VERMELHO"}
+    $resumoTg  = "SESSAO ENCERRADA -- $DATA $HORA_EXIB`n"
+    $resumoTg += "Cliente: $cliente$(if ($loopAtualLabel) { ' -- ' + $loopAtualLabel })`n"
+    $resumoTg += "Status: $statusEmoji`n`n"
+    $resumoTg += "Arquivos: $($arquivosMod.Count) modificados`n"
+    if ($Friccao)   { $resumoTg += "Friccao: $Friccao`n" }
+    if ($Principio) { $resumoTg += "Principio: $Principio`n" }
+    $resumoTg += "`nSync:"
+    foreach ($kv in $manifestStatus.GetEnumerator()) { $resumoTg += " $($kv.Key)=$($kv.Value)" }
+    $resumoTg += "`nPendentes abertos: $($pendentesAbertos.Count)"
+    $urlTg = "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
+    try {
+        Invoke-RestMethod -Uri $urlTg -Method POST -Body @{chat_id=$TELEGRAM_CHAT_ID; text=$resumoTg} | Out-Null
+        Write-Host "  [GATE 8] Telegram -- OK" -ForegroundColor Green
+        $gateStatus.G8t = "VERDE"
+    } catch {
+        Write-Host "  [GATE 8] Telegram -- $($_.Exception.Message)" -ForegroundColor Yellow
+        $gateStatus.G8t = "AMARELO"
+        Add-Content "$BASE\CLIENTES\$cliente\HISTORICO\ERROS_TELEGRAM.log" -Value "[$DATA $HORA_EXIB] $($_.Exception.Message)" -Encoding UTF8
+    }
+}
+
+# ==========================================================================
+# GATE 9 — PAINEL_ATIVIDADES para o Embaixador
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 9] Gerando PAINEL_ATIVIDADES..." -ForegroundColor Cyan
+$painelScript = "$BASE\scripts\generate_protocolo_encerramento.ps1"
+if (Test-Path $painelScript) {
+    # Montar ANALISE GERENCIAL automatica
+    $totalPend     = $pendentesAbertos.Count
+    $gargaloCnt    = 0
+    $deadlineInfo  = ""
+    if ($projetosEmBuild.Count -gt 0) {
+        $p0 = $projetosEmBuild | Where-Object { $_.cliente.ToUpper() -eq $cliente } | Select-Object -First 1
+        if ($p0 -and $p0.deadline) {
+            $dlDate = [datetime]::Parse($p0.deadline)
+            $diasRest = ($dlDate - (Get-Date).Date).Days
+            $deadlineInfo = "Deadline $($p0.deadline) -- $diasRest dia(s) restante(s)."
+        }
+        if ($p0 -and $p0.gates_bloqueantes) {
+            $inicio = [datetime]::Parse($p0.build_iniciado_em)
+            $p0.gates_bloqueantes | Get-Member -MemberType NoteProperty | ForEach-Object {
+                $num = [int]($_.Name -replace '\D','')
+                $gDate = $inicio.AddDays($num-1)
+                if ($gDate.Date -le (Get-Date).Date) {
+                    $conc = $false
+                    if ($p0.dias_completos) { foreach ($d in $p0.dias_completos) { if ($d -match "^dia$num") { $conc = $true } } }
+                    if (-not $conc) { $gargaloCnt++ }
+                }
+            }
+        }
+    }
+    $analise  = "Projeto $cliente encerrou sessao com $totalPend pendente(s) aberto(s) e $gargaloCnt gargalo(s) de gate. "
+    $analise += "Status documental: $statusFinal. $deadlineInfo "
+    $analise += "Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini."
+
+    $entregasTexto = "Sessao $DATA -- $($arquivosMod.Count) arquivo(s) modificado(s). "
+    $entregasTexto += "MANIFEST: $(($manifestStatus.Values | Select-Object -Unique) -join ', '). "
+    if ($logPath) { $entregasTexto += "LOG: $logPath." }
+
+    $painelFile = (& powershell.exe -NonInteractive -File $painelScript `
+        -EntregasTexto $entregasTexto `
+        -AlertasTexto  $alertaBloco `
+        -AnaliseTexto  $analise `
+        2>$null) | Select-Object -Last 1
+
+    if ($painelFile -and (Test-Path $painelFile)) {
+        Write-Host "  [GATE 9] PAINEL gerado: $painelFile" -ForegroundColor Cyan
+        Write-Host "  [GATE 9] Upload ao Claude Projects: Embaixador -- Diretor" -ForegroundColor Yellow
+        $gateStatus.G9 = "VERDE"
+    } else {
+        Write-Host "  [GATE 9] PAINEL nao gerado -- verificar generate_protocolo_encerramento.ps1" -ForegroundColor Yellow
+        $gateStatus.G9 = "AMARELO"
+    }
+} else {
+    Write-Host "  [GATE 9] generate_protocolo_encerramento.ps1 nao encontrado" -ForegroundColor DarkGray
+    $gateStatus.G9 = "N/A"
+}
+
+# ==========================================================================
+# POS-GATE — Claude Projects: arquivos para re-arrastar
+# ==========================================================================
+$todosArqs = @(
     (& git -C $BASE diff --name-only HEAD 2>$null)
     (& git -C $BASE diff --name-only --cached 2>$null)
 ) | Where-Object { $_ } | Select-Object -Unique
 
 $padroesClaude = @(
-    "MEMORIA_EMBAIXADOR\.md",
-    "INTELLIGENCE_LEDGER\.md",
-    "WIP_BOARD\.(json|txt)",
-    "PERFIL_CLIENTE_.*\.md",
-    "CLIENTES[\\/][A-Z]+[\\/]CLAUDE_PROJECT[\\/]",
-    "DIRETRIZ_GEMINI.*\.txt",
-    "PASSO7_EMBAIXADOR.*\.md"
+    "MEMORIA_EMBAIXADOR\.md", "INTELLIGENCE_LEDGER\.md", "WIP_BOARD\.(json|txt)",
+    "PERFIL_CLIENTE_.*\.md", "CLIENTES[\\/][A-Z]+[\\/]CLAUDE_PROJECT[\\/]",
+    "DIRETRIZ_GEMINI.*\.txt", "PASSO7_EMBAIXADOR.*\.md", "PAINEL_ATIVIDADES.*\.md"
 )
-
-$arquivosClaude = @($todosModificados | Where-Object {
-    $caminho = $_
-    $padroesClaude | Where-Object { $caminho -match $_ } | Select-Object -First 1
+$arqsClaude = @($todosArqs | Where-Object {
+    $cam = $_
+    $padroesClaude | Where-Object { $cam -match $_ } | Select-Object -First 1
 })
 
-if ($arquivosClaude.Count -gt 0) {
-    Write-Host ""
-    Write-Host "=============================================="  -ForegroundColor Magenta
-    Write-Host "  ACAO MANUAL -- CLAUDE PROJECTS (EMBAIXADOR)" -ForegroundColor Magenta
-    Write-Host "=============================================="  -ForegroundColor Magenta
-    Write-Host ""
-    Write-Host "  Os arquivos abaixo foram modificados nesta sessao." -ForegroundColor White
-    Write-Host "  Re-arraste-os ao Claude Projects do cliente correspondente." -ForegroundColor White
-    Write-Host ""
-    foreach ($arq in $arquivosClaude) {
-        Write-Host "  -> $arq" -ForegroundColor Yellow
-    }
-    Write-Host ""
-    Write-Host "  INSTRUCAO: Abrir Claude Projects -> cliente -> Add content" -ForegroundColor Cyan
-    Write-Host "  -> selecionar arquivo acima -> Upload"                      -ForegroundColor Cyan
-    Write-Host "=============================================="                 -ForegroundColor Magenta
+# ==========================================================================
+# RELATORIO FINAL — 9 gates
+# ==========================================================================
+Write-Host ""
+Write-Host "======================================================="
+Write-Host "  SESSION CLOSE REPORT -- $DATA $HORA_EXIB"
+Write-Host "  Cliente: $cliente$(if ($loopAtualLabel) { ' -- ' + $loopAtualLabel })"
+Write-Host "======================================================="
+Write-Host ""
+
+$gateLabels = [ordered]@{
+    G1  = "GATE 1  auditoria"
+    G2  = "GATE 2  sync_docs"
+    G3  = "GATE 3  propagate"
+    G4  = "GATE 4  ledger_sync"
+    G5  = "GATE 5  validate"
+    G6  = "GATE 6  artefatos"
+    G7  = "GATE 7  LOG"
+    G8e = "GATE 8e e-mail"
+    G8t = "GATE 8t Telegram"
+    G9  = "GATE 9  PAINEL"
 }
+foreach ($k in $gateStatus.Keys) {
+    $st  = $gateStatus[$k]
+    $lbl = $gateLabels[$k]
+    $cor = if ($st -eq "VERDE") {"Green"} elseif ($st -eq "AMARELO") {"Yellow"} elseif ($st -eq "VERMELHO") {"Red"} else {"DarkGray"}
+    Write-Host ("  " + $lbl.PadRight(22) + ": " + $st) -ForegroundColor $cor
+}
+
+$corFinal = if ($statusFinal -eq "VERDE") {"Green"} elseif ($statusFinal -eq "AMARELO") {"Yellow"} else {"Red"}
+Write-Host ""
+Write-Host ("  STATUS GERAL                  : " + $statusFinal) -ForegroundColor $corFinal
+Write-Host ""
+
+$integridadeOK = ($gateStatus.G1 -ne "VERMELHO") -and ($gateStatus.G5 -ne "VERMELHO")
+if ($integridadeOK) {
+    Write-Host "  Sessao encerrada com integridade: SIM" -ForegroundColor Green
+} else {
+    Write-Host "  Sessao encerrada com integridade: NAO (gates bloqueantes falharam)" -ForegroundColor Red
+}
+Write-Host ""
+
+# --- Aviso Claude Projects ---
+if ($arqsClaude.Count -gt 0) {
+    Write-Host "=======================================================" -ForegroundColor Magenta
+    Write-Host "  ACAO MANUAL -- CLAUDE PROJECTS (EMBAIXADOR)"         -ForegroundColor Magenta
+    Write-Host "=======================================================" -ForegroundColor Magenta
+    Write-Host "  Re-arrastar ao Claude Projects do cliente:"            -ForegroundColor White
+    foreach ($a in $arqsClaude) {
+        Write-Host "  -> $a" -ForegroundColor Yellow
+    }
+    Write-Host "=======================================================" -ForegroundColor Magenta
+    Write-Host ""
+} else {
+    Write-Host "  Nenhuma acao necessaria no Claude Projects." -ForegroundColor DarkGray
+    Write-Host ""
+}
+
+Write-Host "======================================================="
+Write-Host "  Proximo: git commit -- depois PASSO3 + Gemini."
+Write-Host "======================================================="

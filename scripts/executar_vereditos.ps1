@@ -5,7 +5,6 @@
 
 param(
     [Parameter(Mandatory=$true)]
-    [ValidateSet("INGRID","VALDECE")]
     [string]$projeto,
 
     [string]$data = ""
@@ -142,7 +141,8 @@ foreach ($vrd_item in $vrd.vereditos) {
                         } else {
                             $proximo = 57
                         }
-                        $pNum     = "P-{0:D3}" -f [int]$proximo
+                        $proximoInt = [int]($proximo.ToString() -replace '[^0-9]', '')
+                        $pNum = "P-{0:D3}" -f $proximoInt
                         $dataHoje = Get-Date -Format "yyyy-MM-dd"
                         $entradaLedger = ("`n---`n`n## " + $pNum + " - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (" + $dataHoje + ")`n" +
                             "**Origem:** " + $projetoLabel + " . Loop " + $vrd.loop + " . Embaixador`n" +

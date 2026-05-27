@@ -7,7 +7,8 @@
 param(
     [string]$EntregasTexto = "",
     [string]$AlertasTexto  = "",
-    [string]$AcoesTexto    = ""
+    [string]$AcoesTexto    = "",
+    [string]$AnaliseTexto  = ""
 )
 
 $raiz = Split-Path -Parent $PSScriptRoot
@@ -171,15 +172,59 @@ foreach ($secao in $secoes.Keys) {
 }
 $pendentesBloco = $pendentesLinhas -join "`n"
 
-# --- Blocos opcionais ---
-$entregasBloco = if ($EntregasTexto) { $EntregasTexto } else {
-    "(entregas serao preenchidas pelo Musculo ao rodar session_close.ps1)"
+# --- Blocos opcionais: auto-preencher se nao passados como parametro ---
+# ENTREGAS: usar git log do dia se nao fornecido
+$entregasAuto = ""
+try {
+    $commits = & git -C $raiz log --since="$($data)T00:00:00" --format="%h %s" 2>$null
+    if ($commits) {
+        $entregasAuto = ($commits | ForEach-Object { "- $_" }) -join "`n"
+    }
+} catch { }
+$entregasBloco = if ($EntregasTexto) { $EntregasTexto } elseif ($entregasAuto) {
+    "Commits do dia:`n$entregasAuto"
+} else {
+    "Sessao de $data. Nenhum commit registrado hoje."
 }
-$alertasBloco = if ($AlertasTexto) { $AlertasTexto } else {
-    "(nenhum alerta registrado ou pendente de preenchimento)"
+
+# ALERTAS: auto-detectar manifest VERMELHO/AMARELO se nao fornecido
+$alertasAuto = [System.Collections.ArrayList]@()
+if (-not $AlertasTexto) {
+    $wipAuto = $null
+    if (Test-Path "$raiz\CLIENTES\WIP_BOARD.json") {
+        try { $wipAuto = Get-Content "$raiz\CLIENTES\WIP_BOARD.json" -Raw -Encoding UTF8 | ConvertFrom-Json } catch { }
+    }
+    if ($wipAuto -and $wipAuto.board.build) {
+        foreach ($p in $wipAuto.board.build) {
+            $cli  = $p.cliente.ToUpper()
+            $mPth = "$raiz\CLIENTES\$cli\MANIFEST_DOCS.json"
+            if (Test-Path $mPth) {
+                try {
+                    $m = Get-Content $mPth -Raw -Encoding UTF8 | ConvertFrom-Json
+                    if ($m.status_geral -ne "VERDE") {
+                        [void]$alertasAuto.Add("[$cli] MANIFEST: $($m.status_geral) -- $($m.drift_count) drift, $($m.ausente_count) ausente")
+                    }
+                } catch { }
+            }
+        }
+    }
 }
+$alertasBloco = if ($AlertasTexto) { $AlertasTexto } elseif ($alertasAuto.Count -gt 0) {
+    $alertasAuto -join "`n"
+} else {
+    "Nenhum alerta ativo detectado nesta sessao."
+}
+
 $acoesBloco = if ($AcoesTexto) { $AcoesTexto } else {
-    "(acoes do Diretor serao listadas ao fechar a sessao)"
+    "Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor."
+}
+
+# ANALISE GERENCIAL: auto-gerar se nao fornecido
+$analiseBloco = if ($AnaliseTexto) { $AnaliseTexto } else {
+    $nPend = $totalPendentes
+    "Sessao de $data encerrada com $nPend pendente(s). " +
+    "Verificar itens VERMELHOS na secao ATIVIDADES EM DEFICIT antes de iniciar proxima sessao. " +
+    "Musculo: priorizar gates que bloqueiam Gemini ou entrega ao cliente."
 }
 
 # --- Montar documento ---
@@ -305,10 +350,7 @@ $linhasDoc.Add($separador)
 $linhasDoc.Add("")
 $linhasDoc.Add("## ANALISE GERENCIAL DO MUSCULO")
 $linhasDoc.Add("")
-$linhasDoc.Add("[O Musculo preenche esta secao antes de enviar o PAINEL ao Embaixador.]")
-$linhasDoc.Add("[Perspectiva consultora: estado real do projeto, risco principal, oportunidade")
-$linhasDoc.Add(" subutilizada, impacto se o gate nao for desbloqueado no prazo.]")
-$linhasDoc.Add("[Minimo 3 linhas. Linguagem de consultor senior, nao de tecnico.]")
+$linhasDoc.Add($analiseBloco)
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
 $linhasDoc.Add("")

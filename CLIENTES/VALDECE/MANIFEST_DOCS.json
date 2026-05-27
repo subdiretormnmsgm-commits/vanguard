@@ -1,0 +1,70 @@
+﻿{
+    "projeto":  "VALDECE",
+    "ultima_sincronizacao":  "2026-05-26T23:41:16",
+    "arquivos":  [
+                     {
+                         "nome":  "00_INSTRUCAO_AUDITOR.md",
+                         "hash_universal":  "1363C01A7EF6A0D94A36C006D059FC29A185D07782B738B436428C98164D943D",
+                         "hash_local":  "1363C01A7EF6A0D94A36C006D059FC29A185D07782B738B436428C98164D943D",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "01_SKILL_PROTOCOLO_VANGUARD.md",
+                         "hash_universal":  "1BD6E1485BB41847D023FC2B6AF87CCFA6AB71BFCF5FB0A52A5D6A4B843C2A88",
+                         "hash_local":  "1BD6E1485BB41847D023FC2B6AF87CCFA6AB71BFCF5FB0A52A5D6A4B843C2A88",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+                         "hash_universal":  "60AAAEE1497FD92C9F03EFF1C7AB00BE4C004AAB262086A2308F6497A2653B9D",
+                         "hash_local":  "60AAAEE1497FD92C9F03EFF1C7AB00BE4C004AAB262086A2308F6497A2653B9D",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "03_MANUAL_DIRETOR.md",
+                         "hash_universal":  "828F095E0475187F6925182C9B712DC3369BF6B284D7A3F63B381C40CB544FD3",
+                         "hash_local":  "828F095E0475187F6925182C9B712DC3369BF6B284D7A3F63B381C40CB544FD3",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "04_INTELLIGENCE_LEDGER.md",
+                         "hash_universal":  "2EFADC20ACA247C38CCA2BE1B086900471106C032E6F223CF2ECEA12E84F2495",
+                         "hash_local":  "2EFADC20ACA247C38CCA2BE1B086900471106C032E6F223CF2ECEA12E84F2495",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
+                         "hash_universal":  "6C7BD2164ADE956C4C2E294067772534E3E3C0582DDB870971613CD7931855A6",
+                         "hash_local":  "6C7BD2164ADE956C4C2E294067772534E3E3C0582DDB870971613CD7931855A6",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "06_TEMPLATES_COMUNICACAO_PENTALATERAL.md",
+                         "hash_universal":  "596BB7265F65D481188E4CA6F23A54982430AA4C8EE25E7652CBE3C8AFB56ECC",
+                         "hash_local":  "596BB7265F65D481188E4CA6F23A54982430AA4C8EE25E7652CBE3C8AFB56ECC",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "07_WIP_BOARD.txt",
+                         "hash_universal":  "8F85AB656C3CF62683B3BA830455A6B7C51D17FACC1D4458146057F2BBE42428",
+                         "hash_local":  "8F85AB656C3CF62683B3BA830455A6B7C51D17FACC1D4458146057F2BBE42428",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "08_ANALISE_SOCIO_ATUAL.txt",
+                         "hash_universal":  "8A1658A03C597C56493F67FDFBEFFFADAD60C8532050AC160483B033F5D17C91",
+                         "hash_local":  "8A1658A03C597C56493F67FDFBEFFFADAD60C8532050AC160483B033F5D17C91",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "14_MEMORIA_EMBAIXADOR.md",
+                         "hash_universal":  "N/A",
+                         "hash_local":  "2B2E7FA92811A53F843D7FA293CB8DE84861D6C5B4811FA96C27ACD916907314",
+                         "status":  "CLIENT-ONLY"
+                     }
+                 ],
+    "status_geral":  "VERDE",
+    "total":  10,
+    "drift_count":  0,
+    "ausente_count":  0
+}
