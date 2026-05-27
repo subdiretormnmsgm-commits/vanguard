@@ -1400,6 +1400,21 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Runbook:** `PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_ONBOARDING_INVISÍVEL.md`
 **Aplica-se a:** todo projeto cliente, sem exceção, desde o kickoff.
 
+### [P-071] Processo que depende de disciplina humana falha com 2 projetos e colapsa com 20
+**Descoberto:** 2026-05-26 | **Sessão:** OSV-001 + Ordem do Diretor
+**Fricção:** [FALHA-PROCESSO-2026-05-18-D] — 2h de auditoria manual. [P-047] — 51 arquivos desatualizados declarados "feitos". [P-060] — em uma sessão, Eduardo apontou manualmente: SKILL_PROTOCOLO desatualizado, MASTER desatualizado, bug em script, documentos não propagados. Com 20 projetos, isso colapsa.
+**Princípio:** A solução correta torna o comportamento certo o único caminho disponível — não o mais recomendado. Processo que depende de disciplina do Músculo falhará. A automação é a única solução.
+**Implementação:**
+- `session_close.ps1` reescrito sem nenhum `Read-Host` — roda não-interativamente em qualquer contexto
+- Parâmetros opcionais `-Friccao`, `-Principio`, `-Deriva`, `-Override`, `-Divida`, `-Candidato`, `-Padrao`, `-Mandato`
+- `MANIFEST_DOCS.json` por projeto — hashes SHA-256 source vs destino, lido por `session_start.ps1` na abertura
+- `.git/hooks/post-commit` — propaga via DEPENDENCY_MAP após cada commit, sem intervenção
+- `session_start.ps1` exibe estado VERDE/AMARELO/VERMELHO de cada projeto na abertura
+- `propagate_changes.ps1` expandido com ação `copy_to_all_clients_verbatim` (byte-level)
+- `DEPENDENCY_MAP.json` R-011/R-012/R-013 — VANGUARD_TIMELINE, 06_TEMPLATES e MEMORANDO agora têm regras de cascade
+**Derivado de:** P-033, P-047, P-060, [FALHA-PROCESSO-2026-05-18-D]
+**Aplica-se a:** todo processo operacional do Pentalateral — sync, propagação, encerramento, abertura.
+
 ---
 
 ### [SESSAO 2026-05-26]

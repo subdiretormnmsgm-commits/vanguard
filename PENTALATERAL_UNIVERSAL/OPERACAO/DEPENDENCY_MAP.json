@@ -85,6 +85,31 @@
       "destinations": [
         { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/15_PASSO5_NOTEBOOKLM_TEMPLATE.md", "action": "copy_to_all_clients" }
       ]
+    },
+    {
+      "id": "R-011",
+      "trigger": "PENTALATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md",
+      "description": "Timeline vai para NOTEBOOKLM_FONTES/17 e CLAUDE_PROJECT/16 de todos os clientes",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/17_VANGUARD_TIMELINE.md", "action": "copy_to_all_clients" },
+        { "pattern": "CLIENTES/*/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md", "action": "copy_to_all_clients_claude_project" }
+      ]
+    },
+    {
+      "id": "R-012",
+      "trigger": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/06_TEMPLATES_COMUNICACAO_PENTALATERAL.md",
+      "description": "Templates de comunicacao vao para NOTEBOOKLM_FONTES de todos os clientes (nome verbatim)",
+      "destinations": [
+        { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/06_TEMPLATES_COMUNICACAO_PENTALATERAL.md", "action": "copy_to_all_clients_verbatim" }
+      ]
+    },
+    {
+      "id": "R-013",
+      "trigger": "PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+      "description": "Memorando canonico vai para NOTEBOOKLM_BASE e depois propaga via R-005",
+      "destinations": [
+        { "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md", "action": "copy_fixed" }
+      ]
     }
   ]
 }

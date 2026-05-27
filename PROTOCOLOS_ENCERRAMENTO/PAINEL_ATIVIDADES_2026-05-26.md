@@ -1,5 +1,30 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Terça-feira, 2026-05-26 20:09
+### Pentalateral IAH - Terça-feira, 2026-05-26 23:31
+
+---
+
+## ATIVIDADES EM DEFICIT -- GESTAO DO DIRETOR
+
+> O Diretor delibera a ordem de acao. O Musculo nunca decide a prioridade.
+> Abaixo: todas as atividades vencidas ou que vencem hoje, ordenadas por dias de atraso.
+
+| # | Projeto | Tarefa | Prazo | Dias em atraso |
+|---|---------|--------|-------|---------------|
+| 1 | PROJ-002 · Ingrid (Loop 6 em andamento) | Deploy GitHub Pages — Ingrid v18 (Dia 15 concluído): | 2026-05-26 | HOJE |
+| 2 | PROCESSO / INFRA | PROTOCOLO_ONBOARDING_INVISÍVEL.md — decidir destino: | 2026-05-26 | HOJE |
+| 3 | PROJ-002 · Ingrid (Loop 6 em andamento) | Ingrid — Assinatura física do Termo de Uso: | 2026-05-26 | HOJE |
+| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | 🔴 TOKEN SUPABASE EXPOSTO — deletar HOJE: | 2026-05-26 | HOJE |
+| 5 | PROJ-001 · Valdece (Hypercare até 18/06/2026) | NotebookLM Wipe & Sync — Valdece: | 2026-05-26 | HOJE |
+
+---
+
+## ALERTA GARGALO -- GATES VENCIDOS
+
+| Projeto | Gate | Descricao | Prazo | Dias vencido |
+|---------|------|-----------|-------|-------------|
+| Ingrid | dia5 | Feed exibe plano correto 7 dias com proporcao c... | 2026-05-19 | 7d |
+| Ingrid | dia8 | Ingrid responde 10 questoes â€” progresso salvo... | 2026-05-22 | 4d |
+| Ingrid | dia11 | Heatmap correto + simulado domingo completo | 2026-05-25 | 1d |
 
 ---
 
@@ -14,14 +39,17 @@ Faco upload do PAINEL_ATIVIDADES desta sessao.
 Com base nele, gerar o artefato publicavel com:
 
 1. SEMAFORO -- status visual de cada projeto (bloqueante / atencao / saudavel)
-2. DIAGNOSTICO DO DIA -- saude dos projetos ativos
-3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor
-4. ANALISE GERENCIAL -- replicar e amplificar a analise do Musculo no PAINEL,
-   com sua perspectiva: o que o comportamento real do cliente confirma ou contradiz?
+2. ATIVIDADES EM DEFICIT -- validar a lista acima e comentar o que voce ve de comportamental
+3. ALERTA GARGALO -- validar os gates vencidos com contexto do cliente real
+4. DIAGNOSTICO DO DIA -- saude dos projetos ativos
+5. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor
+6. ANALISE GERENCIAL -- amplificar a analise do Musculo com perspectiva do Embaixador:
+   o que o comportamento real do cliente confirma ou contradiz?
    O que voce ve que o Musculo nao ve?
-5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens, em ordem de prioridade
+7. PARA DELIBERACAO DO DIRETOR -- opcoes para o Diretor deliberar a ordem,
+   nunca lista de comandos. O Embaixador nao decide a prioridade — o Diretor sim.
 
-O artefato deve ser autossuficiente: abro e sei exatamente o que fazer.
+O artefato deve ser autossuficiente: o Diretor abre e decide, nao executa.
 ```
 
 ---
@@ -29,75 +57,70 @@ O artefato deve ser autossuficiente: abro e sei exatamente o que fazer.
 ## PROJETOS ATIVOS
 
 ```
-Ingrid     [LOOP 5 CONCLUIDO]  Gate Dia 15 APROVADO — App v18 live — Soberania P-013 entregue  Deadline: 2026-05-30 ✅ (4 dias antes)
-Valdece    [HYPERCARE       ]  V3 entregue + Deploy Netlify OK — Sentinel Report em 02-06-2026  Deadline: Hypercare até 18/06
+Ingrid     [BUILD    ]  Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3  Deadline: 2026-05-30
+Valdece    [BUILD    ]  Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â€” toga-digital-valdece.netlify.app ativo  Deadline: 2026-05-23
 ```
 
 ---
 
 ## COMMIT DA SESSAO
 
-Commit : 85f3d49 - 7 arquivo(s) alterado(s)
-Mensagem: docs(ingrid): fechamento Loop 5 — MEMORIA_V5 + relatorio_V5 + PENDENTES
+Commit : 6a5c3e9 - 2 arquivo(s) alterado(s)
+Mensagem: fix(sync): propagar Template 9 para NOTEBOOKLM_FONTES de Ingrid e Valdece
 
 ---
 
 ## ENTREGAS DO DIA
 
-| Entrega | Status |
-|---|---|
-| P-013 Soberania — Ingrid com Supabase próprio | ✅ ENTREGUE |
-| SQL schema migrado (12 tabelas · 9 RPCs · 13 cache) | ✅ ENTREGUE |
-| 460 questões migradas para projeto Ingrid | ✅ ENTREGUE |
-| 470 respostas históricas migradas | ✅ ENTREGUE |
-| Edge Functions deployadas via CLI (feed-diario · tutor-socratico · notificar-progresso) | ✅ ENTREGUE |
-| Secrets configurados: ANTHROPIC_API_KEY · TELEGRAM_BOT_TOKEN · TELEGRAM_CHAT_ID | ✅ ENTREGUE |
-| App v18 — SUPABASE_URL apontando para projeto da Ingrid | ✅ ENTREGUE |
-| Deploy GitHub Pages — gate Dia 15 verificado (Total respostas: 1 · Gasto: $0.0001) | ✅ ENTREGUE |
-| MEMORIA_V5_INGRID.md gerada | ✅ ENTREGUE |
-| relatorio_evolutivo_V5_INGRID.md gerado (SWOT + PDCA + 5W2H + 5 ideias [M-1 a M-5]) | ✅ ENTREGUE |
-| NotebookLM — 18 fontes preparadas para Wipe & Sync | ✅ PRONTO (Eduardo arrasta) |
-| PENDENTES.md — Dia 15 marcado [x] | ✅ ENTREGUE |
+(entregas serao preenchidas pelo Musculo ao rodar session_close.ps1)
 
 ---
 
 ## ALERTAS DO MUSCULO
 
-| Alerta | Severidade | Ação |
-|---|---|---|
-| Token Supabase CLI `REVOKED_TOKEN...` exposto no chat | 🔴 CRÍTICO | Eduardo deve deletar em supabase.com/dashboard/account/tokens |
-| 470 respostas migradas podem estar sob user_id diferente | 🟡 MÉDIO | Investigar no Loop 6 — histórico SM-2 pode não carregar |
-| NotebookLM Wipe & Sync — fontes prontas, upload pendente | 🟡 MÉDIO | Eduardo abre NotebookLM → arrasta 18 arquivos de CLIENTES/INGRID/NOTEBOOKLM_FONTES/ |
+(nenhum alerta registrado ou pendente de preenchimento)
 
 ---
 
 ## PENDENTES POR PROJETO
 
-### PROJ-001 · Valdece (Deadline: Hypercare até 18/06)
+### 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR
+
+🔴 🔴 TOKEN SUPABASE EXPOSTO — deletar HOJE:
+
+### PROJ-001 · Valdece (Hypercare até 18/06/2026)
 
 🔴 Sentinel Report (02-06-2026 terça-feira) — Hypercare Valdece:
+🔴 NotebookLM Wipe & Sync — Valdece:
 
-Total pendentes abertos: 1
+### PROJ-002 · Ingrid (Loop 6 em andamento)
+
+🔴 Ingrid — Assinatura física do Termo de Uso:
+🔴 Deploy GitHub Pages — Ingrid v18 (Dia 15 concluído):
+🟡 Loop 6 Ingrid — Ir ao Gemini (Passo 3):
+
+### PROCESSO / INFRA
+
+🔴 PROTOCOLO_ONBOARDING_INVISÍVEL.md — decidir destino:
+
+Total pendentes abertos: 7
 
 ---
 
-## PROXIMA ACAO DO DIRETOR
+## PARA DELIBERACAO DO DIRETOR
 
-1. 🔴 **URGENTE** — Deletar token Supabase exposto: supabase.com/dashboard/account/tokens → revogar `REVOKED_TOKEN...`
-2. 📂 **NotebookLM Wipe & Sync** — Abrir NotebookLM Ingrid → deletar fontes antigas → arrastar 18 arquivos de `CLIENTES/INGRID/NOTEBOOKLM_FONTES/`
-3. 📋 **Sentinel Report Valdece** — Próxima segunda (02-06-2026) — usar template `CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md`
+> O Musculo apresenta. O Diretor decide a ordem. Nunca o contrario.
+
+(acoes do Diretor serao listadas ao fechar a sessao)
 
 ---
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-**PROJ-002 Ingrid — Loop 5 entregue 4 dias antes do prazo.** Este é o maior milestone de confiança do projeto: Ingrid agora tem soberania real sobre seus dados — banco, funções, histórico — sem depender da infra Vanguard. O produto saiu de protótipo funcional para entregável com responsabilidade legal clara.
-
-**Risco principal:** Os 470 registros de respostas migrados podem estar sob um user_id diferente do hardcoded (`000...0001`), o que pode fazer o histórico SM-2 da Ingrid não carregar. Este bug é silencioso — ela não vê erro, simplesmente recebe questões aleatórias em vez de revisões agendadas. Deve ser investigado antes da primeira sessão real de uso intenso.
-
-**Oportunidade subutilizada:** Ingrid completou 15 dias de build sem reportar abandono ou reclamação. Isso é um dado de mercado valioso: o produto tem tração real com cliente não-técnico estudando concurso. As 5 ideias [M-1 a M-5] do Loop 6 — especialmente M-4 (Relatório Semanal via WhatsApp gerado por IA) — têm potencial de ser o argumento central para o próximo cliente Quadrix.
-
-**Estado Valdece:** Em Hypercare. Sem movimentação de Eduardo em 3+ dias. Sentinel Report em 02-06-2026 é o próximo gate obrigatório — não pode escorregar.
+[O Musculo preenche esta secao antes de enviar o PAINEL ao Embaixador.]
+[Perspectiva consultora: estado real do projeto, risco principal, oportunidade
+ subutilizada, impacto se o gate nao for desbloqueado no prazo.]
+[Minimo 3 linhas. Linguagem de consultor senior, nao de tecnico.]
 
 ---
 
@@ -105,13 +128,13 @@ Total pendentes abertos: 1
 
 Com base neste PAINEL, gerar artefato publicavel com os seguintes blocos:
 
-1. SEMAFORO — status visual de cada projeto (bloqueante / atencao / saudavel)
-2. DIAGNOSTICO DO DIA — saude dos projetos ativos
-3. PREVISAO DOS PROXIMOS DIAS — data a data com checklist de acoes do Diretor
-4. ANALISE GERENCIAL — replicar e amplificar a analise do Musculo acima
-   com perspectiva do Embaixador: o que o comportamento real do cliente
-   confirma ou contradiz? O que o Embaixador ve que o Musculo nao ve?
-5. PROXIMA ACAO DO DIRETOR — maximo 3 itens, em ordem de prioridade
+1. SEMAFORO -- status visual de cada projeto (bloqueante / atencao / saudavel)
+2. ATIVIDADES EM DEFICIT -- validar com contexto do cliente real
+3. ALERTA GARGALO -- gates vencidos com perspectiva comportamental do cliente
+4. DIAGNOSTICO DO DIA -- saude dos projetos ativos
+5. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor
+6. ANALISE GERENCIAL -- amplificar a analise do Musculo com perspectiva do Embaixador
+7. PARA DELIBERACAO DO DIRETOR -- opcoes para deliberar, nunca lista de comandos
 
 O artefato deve ser autossuficiente: o Diretor abre e sabe exatamente o que fazer.
 

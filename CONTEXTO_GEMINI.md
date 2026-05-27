@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-26 22:22
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-26 23:25
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-85f3d49 docs(ingrid): fechamento Loop 5 — MEMORIA_V5 + relatorio_V5 + PENDENTES
-8e9ac55 feat(ingrid): P-013 soberania — Supabase proprio da Ingrid (v18)
-eeef815 fix(painel): data da mensagem de upload corrigida para 25-05-2026
+6a5c3e9 fix(sync): propagar Template 9 para NOTEBOOKLM_FONTES de Ingrid e Valdece
+ca74055 feat(p070): Onboarding Invisivel + LEDGER atualizado + Claude Project docs em dia
+fa10db6 docs(pendentes): limpar [x] concluidos + novos pendentes da sessao 2026-05-26
 
 ================================================================================
 

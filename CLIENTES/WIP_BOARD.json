@@ -108,7 +108,12 @@
                                                               },
                                                               {
                                                                   "loop":  4,
-                                                                  "nome":  "Handoff Dia 15",\r\n                                                                  "gate":  "dia15_admin_supabase",\r\n                                                                  "notebooklm_wipe":  true,\r\n                                                                  "status":  "concluido",\r\n                                                                  "concluido_em":  "2026-05-26",\r\n                                                                  "evidencia":  "Gate Dia 15 APROVADO - Ingrid admin Supabase - commit 85f3d49"
+                                                                  "nome":  "Handoff Dia 15",
+                                                                  "gate":  "dia15_admin_supabase",
+                                                                  "notebooklm_wipe":  true,
+                                                                  "status":  "concluido",
+                                                                  "concluido_em":  "2026-05-26",
+                                                                  "evidencia":  "Gate Dia 15 APROVADO - Ingrid admin Supabase - commit 85f3d49"
                                                               }
                                                           ],
                                     "pendente_diretor":  [
@@ -139,7 +144,11 @@
                                     "proximo_passo":  "Loop 5 CONCLUIDO Â· Loop 6: Gemini PASSO3 â†’ ingrid-v6.md â†’ Embaixador â†’ build Â· Sentinel CHURN-WATCH ativo Â· Pitch SaaS R$97/mÃªs ao verbalizar uso ativo",
                                     "loop_fase_atual":  {
                                                             "loop":  6,
-                                                            "gemini":  "PENDENTE",\r\n                                                            "notebooklm":  "PENDENTE",\r\n                                                            "embaixador":  "PENDENTE",\r\n                                                            "musculo":  "PENDENTE",\r\n                                                            "proximo":  "Loop 5 CONCLUIDO - Gate Dia 15 APROVADO 2026-05-26 - Loop 6: Gemini PASSO3"
+                                                            "gemini":  "PENDENTE",
+                                                            "notebooklm":  "PENDENTE",
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "PENDENTE",
+                                                            "proximo":  "Loop 5 CONCLUIDO - Gate Dia 15 APROVADO 2026-05-26 - Loop 6: Gemini PASSO3"
                                                         }
                                 },
                                 {

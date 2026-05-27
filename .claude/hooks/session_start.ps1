@@ -210,6 +210,42 @@ if (Test-Path $ledgerSyncScript) {
           if ($lsOut) { Write-Host $lsOut } } catch {}
 }
 
+# --- MANIFEST_DOCS: estado de sincronizacao por projeto (P-071) ---
+function Get-ManifestStatus {
+    $wipPath = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
+    if (-not (Test-Path $wipPath)) { return $null }
+    $board    = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $projetos = @($board.board.build)
+    if ($projetos.Count -eq 0) { return $null }
+    $linhas    = @("MANIFEST SYNC -- $(Get-Date -Format 'yyyy-MM-dd')")
+    $temAlerta = $false
+    foreach ($proj in $projetos) {
+        $cli          = $proj.cliente.ToUpper()
+        $manifestPath = Join-Path $projectDir "CLIENTES\$cli\MANIFEST_DOCS.json"
+        if (-not (Test-Path $manifestPath)) {
+            $linhas   += "  $cli -- SEM MANIFEST (rodar session_close.ps1 para criar)"
+            $temAlerta = $true
+            continue
+        }
+        $manifest = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $status   = $manifest.status_geral
+        $ultima   = if ($manifest.ultima_sincronizacao) { $manifest.ultima_sincronizacao.Substring(0, 10) } else { "?" }
+        $total    = $manifest.total
+        $drift    = $manifest.drift_count
+        $ausente  = $manifest.ausente_count
+        $icone    = if ($status -eq "VERDE") { "[OK]" } elseif ($status -eq "AMARELO") { "[!!]" } else { "[XX]" }
+        $linhas  += "  $icone $cli -- $status . $total arqs . $drift drift . $ausente ausente . sync: $ultima"
+        if ($status -ne "VERDE") { $temAlerta = $true }
+    }
+    if ($temAlerta) {
+        $linhas += ""
+        $linhas += "[!!] Um ou mais projetos fora de sync -- session_close.ps1 corrige automaticamente."
+    }
+    return $linhas -join "`n"
+}
+
+$manifestStatus = Get-ManifestStatus
+
 # --- Gemini Anchor silencioso (CONTEXTO_GEMINI.md sempre atualizado) ---
 $anchorScript = Join-Path $projectDir "scripts\gemini_anchor_generator.ps1"
 if (Test-Path $anchorScript) {
@@ -263,7 +299,8 @@ if ($checkIn)            { $sections += "## CHECK-IN OBRIGATORIO - PERGUNTAR AO 
 if ($formalizadorOutput) { $sections += "## FORMALIZADOR - CONFLITO COMERCIAL DETECTADO`n$formalizadorOutput" }
 if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }
 
-if ($mapaDiarioOutput) { $sections = @("## MAPA DIARIO — P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
+if ($manifestStatus)   { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
+if ($mapaDiarioOutput) { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +

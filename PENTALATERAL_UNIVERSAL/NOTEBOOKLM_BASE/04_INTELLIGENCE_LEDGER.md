@@ -1379,33 +1379,6 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 **Mandato de assessoria permanente (declarado pelo Diretor em 2026-05-25):** "Não vou avançar em projeto algum com pendência no outro. Sempre devo ser assessorado." O Músculo apresenta o mapa completo de TODOS os projetos antes de qualquer proposta de avanço. O Diretor decide onde alocar atenção — o Músculo não seleciona por ele. Músculo que propõe avanço em Projeto A sem verificar Projeto B = falha de assessoria.
 
----
-
-### [P-070] Onboarding Invisível — o cliente nunca cria conta
-**Descoberto:** 2026-05-26 | **Sessão:** Decisão do Diretor + Embaixador
-**Fricção:** Clientes avessos à tecnologia abandonam o projeto antes do kickoff quando solicitados a criar contas no Supabase, Google AI Studio ou GitHub. Evidência operacional: PROJ-002 Ingrid — atrito real gerado pelo setup técnico antes do primeiro uso.
-**Princípio:** A Vanguard absorve toda fricção técnica de cadastro no kickoff. O cliente nunca cria conta. A Vanguard cria caixas de e-mail `[nome]@vanguardtech.cloud` no hPanel da Hostinger (caixa separada por cliente — não alias redirect) e usa essa identidade para criar todas as contas necessárias (Supabase, Google, GitHub, Google AI Studio). O cliente recebe um único WhatsApp com login e senha — nunca mencionar as plataformas subjacentes.
-**Infraestrutura:** Domínio `vanguardtech.cloud` (Hostinger). Custo: R$ 6/mês por caixa (plano Starter). Custo por cliente novo: R$ 6/mês adicionais. Custo fixo operacional: 2 caixas (diretor@ + projetos@) = R$ 12/mês.
-**Pré-requisitos obrigatórios antes de criar contas de cliente:**
-1. Termo de Uso assinado com cláusula de autorização de criação de contas em nome do cliente (LGPD + ToS das plataformas)
-2. Cofre de senhas definido e ativo (Bitwarden recomendado — plano gratuito)
-3. Checklist P-010 executada ao fim do onboarding (verificar cada conta criada antes de entregar)
-**Nota de aplicação:** Ingrid e Valdece foram resolvidos com abordagem anterior (pré-protocolo). Aplicar P-070 a partir do próximo cliente.
-**Runbook completo:** `PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_ONBOARDING_INVISÍVEL.md`
-**Aplica-se a:** todo projeto cliente, sem exceção, a partir do kickoff.
-
----
-
-### [SESSAO 2026-05-26]
-
-`[PRINCIPIO]` P-070 — Onboarding Invisível registrado. Cliente nunca cria conta — Vanguard cria caixas `@vanguardtech.cloud` e toda infraestrutura no kickoff. Protocolo em PENTALATERAL_UNIVERSAL/OPERACAO/.
-
-`[PROCESSO]` P-059 compliance concluída: 18_ATUALIZACAO_PENTALATERAL + 16_ALERTA_CONFLITO isolados por cliente (Ingrid + Valdece). VEREDITOS_RESUMO_INGRID_2026-05-26.md criado — Loop 5 executado informalmente, DEF-E-8 registrado para Loop 6.
-
-`[PRINCIPIO]` DEF-E-8 — Embaixador que fecha SEÇÃO D sem DECISOES.json = ciclo incompleto. Registrado no MEMORANDO v2.4.
-
----
-
 ### [SESSAO 2026-05-25]
 
 `[FRICCAO]` session_close.ps1 usa Read-Host — falha em modo non-interativo do Claude Code. Entradas de sessao (friccao, principio, deriva) nao sao capturadas automaticamente. Fix necessario: aceitar parametros via -Friccao/-Principio/-Deriva ou ler de arquivo pre-gerado pelo Musculo.
@@ -1415,3 +1388,39 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 `[MANDATO]` "Mensagens aos socios sempre por projeto, contextos diferentes. Eles vao alucinar. Sempre e para sempre." — declarado pelo Diretor em 2026-05-25 com enfase dupla. Cada PASSO file contem apenas informacao do projeto correspondente. Zero mistura entre Ingrid e Valdece.
 
 `[MANDATO]` P-013 Opcao B autorizada: Ingrid cria proprio Supabase. Eduardo ja contatou Ingrid. Deadline 30-05-2026. OFFBOARDING_RUNBOOK.md + migrate_ingrid_supabase_v1.sql criados e commitados.
+
+---
+
+### [P-070] Onboarding Invisível — o cliente nunca cria conta
+**Descoberto:** 2026-05-26 | **Sessão:** Decisão do Diretor + Embaixador
+**Fricção:** Clientes avessos à tecnologia abandonam o projeto antes do kickoff quando solicitados a criar contas no Supabase, Google AI Studio ou GitHub. Evidência operacional: PROJ-002 Ingrid — atrito real gerado pelo setup técnico antes do primeiro uso.
+**Princípio:** A Vanguard absorve toda fricção técnica de cadastro no kickoff. O cliente nunca cria conta. A Vanguard cria caixas de e-mail `[nome]@vanguardtech.cloud` no hPanel da Hostinger e usa essa identidade para criar todas as contas necessárias. Modo MVP (até ~5 clientes): aliases redirect para `projetos@`. Modo Escala (5+ clientes): caixas separadas por cliente. O cliente recebe um único WhatsApp com login e senha — nunca mencionar as plataformas subjacentes.
+**Pré-requisitos:** (1) Termo de Uso assinado no kickoff com cláusula de autorização de criação de contas · (2) Cofre de senhas ativo (Bitwarden recomendado)
+**Nota de aplicação:** Ingrid e Valdece resolvidos com abordagem pré-protocolo. Aplicar a partir do próximo cliente.
+**Runbook:** `PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_ONBOARDING_INVISÍVEL.md`
+**Aplica-se a:** todo projeto cliente, sem exceção, desde o kickoff.
+
+### [P-071] Processo que depende de disciplina humana falha com 2 projetos e colapsa com 20
+**Descoberto:** 2026-05-26 | **Sessão:** OSV-001 + Ordem do Diretor
+**Fricção:** [FALHA-PROCESSO-2026-05-18-D] — 2h de auditoria manual. [P-047] — 51 arquivos desatualizados declarados "feitos". [P-060] — em uma sessão, Eduardo apontou manualmente: SKILL_PROTOCOLO desatualizado, MASTER desatualizado, bug em script, documentos não propagados. Com 20 projetos, isso colapsa.
+**Princípio:** A solução correta torna o comportamento certo o único caminho disponível — não o mais recomendado. Processo que depende de disciplina do Músculo falhará. A automação é a única solução.
+**Implementação:**
+- `session_close.ps1` reescrito sem nenhum `Read-Host` — roda não-interativamente em qualquer contexto
+- Parâmetros opcionais `-Friccao`, `-Principio`, `-Deriva`, `-Override`, `-Divida`, `-Candidato`, `-Padrao`, `-Mandato`
+- `MANIFEST_DOCS.json` por projeto — hashes SHA-256 source vs destino, lido por `session_start.ps1` na abertura
+- `.git/hooks/post-commit` — propaga via DEPENDENCY_MAP após cada commit, sem intervenção
+- `session_start.ps1` exibe estado VERDE/AMARELO/VERMELHO de cada projeto na abertura
+- `propagate_changes.ps1` expandido com ação `copy_to_all_clients_verbatim` (byte-level)
+- `DEPENDENCY_MAP.json` R-011/R-012/R-013 — VANGUARD_TIMELINE, 06_TEMPLATES e MEMORANDO agora têm regras de cascade
+**Derivado de:** P-033, P-047, P-060, [FALHA-PROCESSO-2026-05-18-D]
+**Aplica-se a:** todo processo operacional do Pentalateral — sync, propagação, encerramento, abertura.
+
+---
+
+### [SESSAO 2026-05-26]
+
+`[PRINCIPIO]` P-070 — Onboarding Invisível registrado. Cliente nunca cria conta — Vanguard cria aliases/caixas @vanguardtech.cloud e toda infraestrutura no kickoff. MVP: aliases redirect. Escala: caixas separadas. Protocolo em PENTALATERAL_UNIVERSAL/OPERACAO/.
+
+`[PROCESSO]` P-059 compliance concluída: 18_ATUALIZACAO_PENTALATERAL + 16_ALERTA_CONFLITO isolados por cliente (Ingrid + Valdece). VEREDITOS_RESUMO_INGRID_2026-05-26.md criado — Loop 5 executado informalmente.
+
+`[CORRECAO]` SESSAO 2026-05-29 era data futura incorreta — corrigida para 2026-05-25 no LEDGER raiz e no NOTEBOOKLM_BASE/04.

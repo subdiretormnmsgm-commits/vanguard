@@ -129,6 +129,19 @@ foreach ($regra in $map.rules) {
                 $log += $lbl
                 $propagados++
             }
+        } elseif ($acao -eq "copy_to_all_clients_verbatim") {
+            # Copia mantendo o nome exato do arquivo-fonte (sem renumerar)
+            $nomeExato = Split-Path $origemPath -Leaf
+            foreach ($c in $clientes) {
+                $destPath = "$raiz\$($dest.pattern -replace '\*', $c)"
+                $destDir  = Split-Path $destPath
+                if (-not (Test-Path $destDir)) { continue }
+                [System.IO.File]::WriteAllBytes($destPath, [System.IO.File]::ReadAllBytes($origemPath))
+                $lbl = "$c\$(Split-Path $destPath -Leaf)"
+                Write-Host "    [OK] $lbl" -ForegroundColor Green
+                $log += $lbl
+                $propagados++
+            }
         }
     }
 }

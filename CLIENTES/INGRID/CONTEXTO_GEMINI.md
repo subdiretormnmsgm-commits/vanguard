@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-26 20:37
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-26 23:36
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-85f3d49 docs(ingrid): fechamento Loop 5 — MEMORIA_V5 + relatorio_V5 + PENDENTES
-8e9ac55 feat(ingrid): P-013 soberania — Supabase proprio da Ingrid (v18)
-eeef815 fix(painel): data da mensagem de upload corrigida para 25-05-2026
+6a5c3e9 fix(sync): propagar Template 9 para NOTEBOOKLM_FONTES de Ingrid e Valdece
+ca74055 feat(p070): Onboarding Invisivel + LEDGER atualizado + Claude Project docs em dia
+fa10db6 docs(pendentes): limpar [x] concluidos + novos pendentes da sessao 2026-05-26
 
 ================================================================================
 
@@ -142,7 +142,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-05-25",
+    "atualizado_em":  "2026-05-26",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -155,18 +155,18 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                 {
                                     "id":  "PROJ-002",
                                     "cliente":  "Ingrid",
-                                    "projeto":  "Ferramenta de Estudo — Concurso Sedes-DF",
-                                    "area":  "EdTech · Concursos Públicos",
-                                    "camada":  "2 (Produto — 15 dias)",
+                                    "projeto":  "Ferramenta de Estudo â€” Concurso Sedes-DF",
+                                    "area":  "EdTech Â· Concursos PÃºblicos",
+                                    "camada":  "2 (Produto â€” 15 dias)",
                                     "valor_fechado":  0,
-                                    "tipo":  "Projeto Piloto Interno — Validação V25",
+                                    "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "EM BUILD — Loop 5 ativo — Deadline 2026-05-30 (6 dias)",
-                                    "cargo":  "TDAS – Técnico em Desenvolvimento e Assistência Social – Especialidade: Técnico Administrativo (Cargo 202)",
+                                    "status":  "Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 â€” OFFBOARDING_RUNBOOK entregue Â· Loop 6 PENDENTE",
+                                    "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop 5 — Dias 12-13 — Contador Pontos Ponderados + Push dominical",
+                                    "loop_atual":  "Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3",
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -198,8 +198,8 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                         "dia14_15":  "OFFBOARDING_RUNBOOK + SaaS Readiness Audit + P-013 soberania"
                                                     },
                                     "decisoes_fixadas":  {
-                                                             "fonte_questoes":  "Claude API — sem scraping (P-003)",
-                                                             "auth":  "single-user — sem login complexo",
+                                                             "fonte_questoes":  "Claude API â€” sem scraping (P-003)",
+                                                             "auth":  "single-user â€” sem login complexo",
                                                              "cache":  "gerar lote 50 quando \u003c 30 questoes disponiveis",
                                                              "proporcao_feed":  "70% Peso 2 / 30% Peso 1",
                                                              "modelos_api":  "Haiku (gerais + dicas socraticas) / Sonnet (especificos)",
@@ -210,9 +210,9 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                              "comentario_erro":  "Opcao A (Dias 3-5): explicacao direta do banco + Opcao B (Dias 6-8): Tutor Socratico Haiku"
                                                          },
                                     "gates_bloqueantes":  {
-                                                              "dia2":  "10 questoes avaliadas por Eduardo — rubrica media \u003e= 4/5",
+                                                              "dia2":  "10 questoes avaliadas por Eduardo â€” rubrica media \u003e= 4/5",
                                                               "dia5":  "Feed exibe plano correto 7 dias com proporcao correta",
-                                                              "dia8":  "Ingrid responde 10 questoes — progresso salvo — fallback testado",
+                                                              "dia8":  "Ingrid responde 10 questoes â€” progresso salvo â€” fallback testado",
                                                               "dia11":  "Heatmap correto + simulado domingo completo",
                                                               "dia15":  "Ingrid com acesso admin proprio Supabase"
                                                           },

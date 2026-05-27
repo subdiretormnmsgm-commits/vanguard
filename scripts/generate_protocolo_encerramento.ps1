@@ -61,6 +61,11 @@ $pendentesPath = "$raiz\PENDENTES.md"
 $totalPendentes = 0
 $secoes = [ordered]@{}
 $secaoAtual = "GERAL"
+$hoje = (Get-Date).Date
+
+# Estrutura para deficit (atividades vencidas com dias de atraso)
+$deficitItens = [System.Collections.Generic.List[object]]::new()
+
 if (Test-Path $pendentesPath) {
     $linhas = Get-Content $pendentesPath -Encoding UTF8
     $secoesIgnorar = @("COMO USAR", "INSTRUCOES", "LEGENDA")
@@ -83,9 +88,62 @@ if (Test-Path $pendentesPath) {
             $descricao = ($descricao -replace "\*\*.*", "").Trim()
             if ($descricao.Length -gt 80) { $descricao = $descricao.Substring(0, 77) + "..." }
             $secoes[$secaoAtual].Add($descricao)
+
+            # Calcular deficit: data da tarefa vs hoje
+            $dataMatch = [regex]::Match($l, '`(\d{4}-\d{2}-\d{2})`')
+            if ($dataMatch.Success) {
+                $dataTarefa = [datetime]::ParseExact($dataMatch.Groups[1].Value, "yyyy-MM-dd", $null)
+                $diasAtraso = ($hoje - $dataTarefa.Date).Days
+                if ($diasAtraso -ge 0) {
+                    # tarefa vencida ou vence hoje
+                    $deficitItens.Add([PSCustomObject]@{
+                        Projeto    = $secaoAtual
+                        Descricao  = $descricao
+                        Prazo      = $dataTarefa.ToString("yyyy-MM-dd")
+                        DiasAtraso = $diasAtraso
+                    })
+                }
+            }
         }
     }
 }
+
+# Ordenar deficit: mais atrasados primeiro
+$deficitOrdenado = @($deficitItens | Sort-Object DiasAtraso -Descending)
+
+# --- Gargalos: gates vencidos no WIP_BOARD ---
+$gargaloItens = [System.Collections.Generic.List[object]]::new()
+if ($wip -and $wip.board -and $wip.board.build) {
+    foreach ($proj in $wip.board.build) {
+        if (-not $proj.gates_bloqueantes -or -not $proj.build_iniciado_em) { continue }
+        $inicio = [datetime]::Parse($proj.build_iniciado_em)
+        $gates  = $proj.gates_bloqueantes | Get-Member -MemberType NoteProperty |
+                  Select-Object -ExpandProperty Name |
+                  Sort-Object { [int]($_ -replace '\D', '') }
+        foreach ($g in $gates) {
+            $num      = [int]($g -replace '\D', '')
+            $gateDate = $inicio.AddDays($num - 1)
+            if ($gateDate.Date -gt $hoje) { continue }
+            $concluido = $false
+            if ($proj.dias_completos) {
+                foreach ($d in $proj.dias_completos) {
+                    if ($d -match "^dia$num") { $concluido = $true; break }
+                }
+            }
+            if (-not $concluido) {
+                $diasGargalo = ($hoje - $gateDate.Date).Days
+                $gargaloItens.Add([PSCustomObject]@{
+                    Projeto      = if ($proj.cliente) { $proj.cliente } else { "?" }
+                    Gate         = $g
+                    Prazo        = $gateDate.ToString("yyyy-MM-dd")
+                    DiasVencido  = $diasGargalo
+                    Descricao    = $proj.gates_bloqueantes.$g
+                })
+            }
+        }
+    }
+}
+$gargaloOrdenado = @($gargaloItens | Sort-Object DiasVencido -Descending)
 
 # --- Construir lista de pendentes (emoji via Unicode escape - PS1 ASCII-safe) ---
 # PS5.1 nao suporta [char] acima de 0xFFFF — usar surrogate pair para emoji SMP
@@ -134,6 +192,49 @@ $linhasDoc.Add("### Pentalateral IAH - $diaSemana, $data $hora")
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
 $linhasDoc.Add("")
+
+# --- SECAO A: ATIVIDADES EM DEFICIT (gestao do Diretor) ---
+$linhasDoc.Add("## ATIVIDADES EM DEFICIT -- GESTAO DO DIRETOR")
+$linhasDoc.Add("")
+$linhasDoc.Add("> O Diretor delibera a ordem de acao. O Musculo nunca decide a prioridade.")
+$linhasDoc.Add("> Abaixo: todas as atividades vencidas ou que vencem hoje, ordenadas por dias de atraso.")
+$linhasDoc.Add("")
+
+if ($deficitOrdenado.Count -eq 0) {
+    $linhasDoc.Add("Nenhuma atividade em deficit nesta sessao.")
+} else {
+    $linhasDoc.Add("| # | Projeto | Tarefa | Prazo | Dias em atraso |")
+    $linhasDoc.Add("|---|---------|--------|-------|---------------|")
+    $idx = 1
+    foreach ($it in $deficitOrdenado) {
+        $diasLabel = if ($it.DiasAtraso -eq 0) { "HOJE" } else { "$($it.DiasAtraso)d" }
+        $tarefa = if ($it.Descricao.Length -gt 60) { $it.Descricao.Substring(0, 57) + "..." } else { $it.Descricao }
+        $linhasDoc.Add("| $idx | $($it.Projeto) | $tarefa | $($it.Prazo) | $diasLabel |")
+        $idx++
+    }
+}
+$linhasDoc.Add("")
+$linhasDoc.Add($separador)
+$linhasDoc.Add("")
+
+# --- SECAO B: ALERTA GARGALO (gates vencidos) ---
+$linhasDoc.Add("## ALERTA GARGALO -- GATES VENCIDOS")
+$linhasDoc.Add("")
+if ($gargaloOrdenado.Count -eq 0) {
+    $linhasDoc.Add("Nenhum gate vencido detectado.")
+} else {
+    $linhasDoc.Add("| Projeto | Gate | Descricao | Prazo | Dias vencido |")
+    $linhasDoc.Add("|---------|------|-----------|-------|-------------|")
+    foreach ($g in $gargaloOrdenado) {
+        $diasLabel = if ($g.DiasVencido -eq 0) { "HOJE" } else { "$($g.DiasVencido)d" }
+        $desc = if ($g.Descricao.Length -gt 50) { $g.Descricao.Substring(0, 47) + "..." } else { $g.Descricao }
+        $linhasDoc.Add("| $($g.Projeto) | $($g.Gate) | $desc | $($g.Prazo) | $diasLabel |")
+    }
+}
+$linhasDoc.Add("")
+$linhasDoc.Add($separador)
+$linhasDoc.Add("")
+
 $linhasDoc.Add("## MENSAGEM PARA COLAR NO CHAT DO EMBAIXADOR")
 $linhasDoc.Add("")
 $linhasDoc.Add("> Copiar o bloco abaixo e colar no Claude Projects junto com o upload deste arquivo.")
@@ -145,14 +246,17 @@ $linhasDoc.Add("Faco upload do PAINEL_ATIVIDADES desta sessao.")
 $linhasDoc.Add("Com base nele, gerar o artefato publicavel com:")
 $linhasDoc.Add("")
 $linhasDoc.Add("1. SEMAFORO -- status visual de cada projeto (bloqueante / atencao / saudavel)")
-$linhasDoc.Add("2. DIAGNOSTICO DO DIA -- saude dos projetos ativos")
-$linhasDoc.Add("3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor")
-$linhasDoc.Add("4. ANALISE GERENCIAL -- replicar e amplificar a analise do Musculo no PAINEL,")
-$linhasDoc.Add("   com sua perspectiva: o que o comportamento real do cliente confirma ou contradiz?")
+$linhasDoc.Add("2. ATIVIDADES EM DEFICIT -- validar a lista acima e comentar o que voce ve de comportamental")
+$linhasDoc.Add("3. ALERTA GARGALO -- validar os gates vencidos com contexto do cliente real")
+$linhasDoc.Add("4. DIAGNOSTICO DO DIA -- saude dos projetos ativos")
+$linhasDoc.Add("5. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor")
+$linhasDoc.Add("6. ANALISE GERENCIAL -- amplificar a analise do Musculo com perspectiva do Embaixador:")
+$linhasDoc.Add("   o que o comportamento real do cliente confirma ou contradiz?")
 $linhasDoc.Add("   O que voce ve que o Musculo nao ve?")
-$linhasDoc.Add("5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens, em ordem de prioridade")
+$linhasDoc.Add("7. PARA DELIBERACAO DO DIRETOR -- opcoes para o Diretor deliberar a ordem,")
+$linhasDoc.Add("   nunca lista de comandos. O Embaixador nao decide a prioridade — o Diretor sim.")
 $linhasDoc.Add("")
-$linhasDoc.Add("O artefato deve ser autossuficiente: abro e sei exatamente o que fazer.")
+$linhasDoc.Add("O artefato deve ser autossuficiente: o Diretor abre e decide, nao executa.")
 $linhasDoc.Add($tri)
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
@@ -191,7 +295,9 @@ $linhasDoc.Add("Total pendentes abertos: $totalPendentes")
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
 $linhasDoc.Add("")
-$linhasDoc.Add("## PROXIMA ACAO DO DIRETOR")
+$linhasDoc.Add("## PARA DELIBERACAO DO DIRETOR")
+$linhasDoc.Add("")
+$linhasDoc.Add("> O Musculo apresenta. O Diretor decide a ordem. Nunca o contrario.")
 $linhasDoc.Add("")
 $linhasDoc.Add($acoesBloco)
 $linhasDoc.Add("")
@@ -210,13 +316,13 @@ $linhasDoc.Add("## INSTRUCAO PARA O EMBAIXADOR")
 $linhasDoc.Add("")
 $linhasDoc.Add("Com base neste PAINEL, gerar artefato publicavel com os seguintes blocos:")
 $linhasDoc.Add("")
-$linhasDoc.Add("1. SEMAFORO — status visual de cada projeto (bloqueante / atencao / saudavel)")
-$linhasDoc.Add("2. DIAGNOSTICO DO DIA — saude dos projetos ativos")
-$linhasDoc.Add("3. PREVISAO DOS PROXIMOS DIAS — data a data com checklist de acoes do Diretor")
-$linhasDoc.Add("4. ANALISE GERENCIAL — replicar e amplificar a analise do Musculo acima")
-$linhasDoc.Add("   com perspectiva do Embaixador: o que o comportamento real do cliente")
-$linhasDoc.Add("   confirma ou contradiz? O que o Embaixador ve que o Musculo nao ve?")
-$linhasDoc.Add("5. PROXIMA ACAO DO DIRETOR — maximo 3 itens, em ordem de prioridade")
+$linhasDoc.Add("1. SEMAFORO -- status visual de cada projeto (bloqueante / atencao / saudavel)")
+$linhasDoc.Add("2. ATIVIDADES EM DEFICIT -- validar com contexto do cliente real")
+$linhasDoc.Add("3. ALERTA GARGALO -- gates vencidos com perspectiva comportamental do cliente")
+$linhasDoc.Add("4. DIAGNOSTICO DO DIA -- saude dos projetos ativos")
+$linhasDoc.Add("5. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor")
+$linhasDoc.Add("6. ANALISE GERENCIAL -- amplificar a analise do Musculo com perspectiva do Embaixador")
+$linhasDoc.Add("7. PARA DELIBERACAO DO DIRETOR -- opcoes para deliberar, nunca lista de comandos")
 $linhasDoc.Add("")
 $linhasDoc.Add("O artefato deve ser autossuficiente: o Diretor abre e sabe exatamente o que fazer.")
 $linhasDoc.Add("")

@@ -1,158 +1,150 @@
-# MEMORIA_V6_VALDECE — Estado Técnico Completo · Loop 6
-> Gerado pelo Músculo ao fechar Loop 6 · 2026-05-20
-> Fonte: commits 2b72b9b → 250ff9c + MEMORIA_EMBAIXADOR Loop 6 + WIP_BOARD.json
-> Leitura obrigatória antes de iniciar Loop 7
+# MEMORIA_V7_VALDECE — Estado Técnico Completo · Loop 7
+> Gerado pelo Músculo ao fechar Loop 7 · 2026-05-26
+> Fonte: PENDENTES.md + MEMORIA_EMBAIXADOR Loop 7 + WIP_BOARD.json + commits 2026-05-21 a 2026-05-25
+> Leitura obrigatória antes de iniciar Loop 8
 
 ---
 
-## 1. O QUE FOI LOOP 6
+## 1. O QUE FOI O LOOP 7
 
-**Contexto de entrada:** Loop 5 encerrou com 61 acórdãos no corpus, Gate P-038 aprovado (12/12 queries), deploy netlify ativo, contrato pendente de assinatura, 5 áudios de feedback enviados pelo Valdece.
+**Contexto de entrada:** Loop 6 encerrou com contrato assinado (R$5k fixo · 2026-05-19), V3 desbloqueado, GEMINI_KEY exposta no frontend (HV-1 pendente), 61 acórdãos no corpus com campos data_dje / repercussao_geral / turma VAZIOS.
 
-**Objetivo do Loop 6:** Processar os feedbacks dos áudios + fechar o contrato presencialmente + desbloquear V3.
+**Objetivo do Loop 7:** Entregar V3 ENRICHMENT — preencher campos V3 em todos os acórdãos, ativar badges vinculantes no frontend, corrigir HV-1 (chave no proxy), fazer deploy de produção com V3 ativo.
 
 ---
 
 ## 2. O QUE FOI ENTREGUE
 
-| Feature | Commit | Status |
+| Feature | Data | Status |
 |---|---|---|
-| URL @NUM STJ corrigida + ementa completa no Copiar ABNT | 2b72b9b | ✅ |
-| 9 áudios Valdece convertidos OGG→FLAC para NotebookLM | 4342064 | ✅ |
-| HC 512.290/RJ corrigido no Supabase (ementa errada → certa + re-embedding) | 1369689 | ✅ |
-| Ementa completa (600 chars vs 280 anterior) | 9709649 | ✅ |
-| Badge UF via regex (numero_acordao → "RJ", "SP", etc.) | 9709649 | ✅ |
-| Boost monocrático: +0.15 similarity para HC/liminar | 9709649 | ✅ |
-| Chave Gemini substituída (quota esgotada — 1ª ocorrência) | 9ab28a6 | ✅ |
-| Contrato assinado presencialmente R$5k · Gate V3 DESBLOQUEADO | 250ff9c | ✅ |
+| V3 ENRICHMENT — classify_v3_fields em 61 acórdãos | 2026-05-21 | ✅ |
+| Fix classify_v3_fields: RE/ARE STF → repercussao_geral=True (EC 45/2004) | 2026-05-25 | ✅ |
+| reingest aplicado: 61/61 atualizados · 0 erros | 2026-05-25 | ✅ |
+| gate_v3 --check pos APROVADO: vinculantes=3 · pleno=5 · turma=56 | 2026-05-25 | ✅ |
+| view_diretor_roi validada no Supabase: total_acordaos=61 · vinculantes=3 | 2026-05-25 | ✅ |
+| HV-1 fix: GEMINI_API_KEY movida do frontend → proxy Netlify Function | 2026-05-25 | ✅ |
+| netlify/functions/embed.js criado | 2026-05-25 | ✅ |
+| netlify.toml criado com config de functions + headers | 2026-05-25 | ✅ |
+| Frontend: embedQuery() chama /.netlify/functions/embed (não mais API direta) | 2026-05-25 | ✅ |
+| Deploy Netlify V3: toga-digital-valdece.netlify.app (11s) | 2026-05-25 | ✅ |
+| Proxy embed: 200 OK · vetor 3072 dimensões · GEMINI_API_KEY server-side | 2026-05-25 | ✅ |
+| GEMINI_API_KEY configurada: Builds + Functions + Runtime | 2026-05-25 | ✅ |
+| Embaixador Loop 7 processado: DECISOES D1-D6 executados | 2026-05-24 | ✅ |
+| MEMORIA_EMBAIXADOR atualizada: Score 6.5 · Hypercare ativo | 2026-05-24 | ✅ |
 
-**Resultado comercial do Loop 6:** Contrato assinado. R$5.000 fixo. Sem mensalidade. Billing do cliente direto na API dele (~R$1,20/mês). Hypercare 30 dias inclusos.
+**Decisões do Embaixador executadas (D1–D6):**
+
+| Decisão | Conteúdo | Status |
+|---|---|---|
+| D1 | Mensagem Hypercare Dia 5 copiada para clipboard | ✅ Executado |
+| D3 | Scope-watch ativo: qualquer pedido novo = Change-Order formal | ✅ Ativo |
+| D5 | P-065 inscrito no LEDGER | ✅ Inscrito |
+| D4 | Sentinel Report 2026-06-02 confirmado · WhatsApp curto | ✅ Agendado |
+| D6 | Pipeline OAB: protocolo ativo (pergunta pronta ao ouvir menção a colega) | ✅ Ativo |
+| D2 | Semente de migração: log_apenas (credenciais já são nossas) | ✅ Registrado |
 
 ---
 
-## 3. ESTADO TÉCNICO FINAL — LOOP 6
+## 3. ESTADO TÉCNICO FINAL — LOOP 7
 
 ### Supabase
 | Campo | Valor |
 |---|---|
 | Projeto | hqqxzecftkvtrlpkhvnc (Vanguard — migração pendente para conta Valdece) |
-| Schema | `vector(768)` + índice HNSW + `SECURITY DEFINER` |
 | Corpus | **61 acórdãos reais STF/STJ · 22 temas** |
-| Temas cobertos | HC · preventiva · tráfico · dosimetria · nulidade · homicídio · estupro · violência-doméstica · execução-penal · prescrição · legítima-defesa · org-criminosa · porte-arma · corrupção · concurso-crimes · sursis · estelionato · extorsão · ECA · lesão-corporal · tentativa · tráfico-internacional |
-| Função RPC | `search_documents(query_embedding, match_count, similarity_threshold)` |
+| Campos V3 preenchidos | data_dje · repercussao_geral · turma (via classify_v3_fields) |
+| Distribuição V3 | vinculantes=3 · pleno=5 · turma=56 |
+| Modelo de Embedding | gemini-embedding-001 · 3072 dimensões (outputDimensionality: 3072) |
+| view_diretor_roi | total_acordaos=61 · vinculantes=3 |
 
-### Modelo de Embedding
+### Frontend / Netlify
 | Campo | Valor |
 |---|---|
-| Modelo | `gemini-embedding-001` |
-| Dimensionalidade | 768 |
-| Task type | `RETRIEVAL_QUERY` (busca) / `RETRIEVAL_DOCUMENT` (ingestão) |
-| API endpoint | `generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent` |
-| Chave | Exposta no frontend (HV-1 — fix definitivo = Edge Function no V3) |
+| URL produção | https://toga-digital-valdece.netlify.app |
+| Deploy data | 2026-05-25 (11s) |
+| Proxy embed | /.netlify/functions/embed · 200 OK · vetor 3072 dim |
+| GEMINI_API_KEY | Server-side (Netlify env vars: Builds + Functions + Runtime) |
+| HV-1 status | **RESOLVIDO** — chave fora do frontend |
 
-### Frontend
+### Relacionamento / Comercial
 | Campo | Valor |
 |---|---|
-| Deploy | https://toga-digital-valdece.netlify.app |
-| Threshold Precisa | 0.67 (Busca Precisa) |
-| Threshold Ampla | 0.45 (Busca Ampla) |
-| Top resultados | 3 |
-| Ementa | Completa (600 chars) |
-| Badge UF | Regex via numero_acordao |
-| Boost monocrático | +0.15 similarity para HC/liminar |
-| Modo Tático | Ativo (toggle UI) |
-
-### Performance Gate P-038
-| Métrica | Valor |
-|---|---|
-| Queries aprovadas | 12/12 (100%) |
-| Similaridade range | 0.67 – 0.818 |
-| Latência média | 2.1 – 3.4s |
-| Similaridade mínima | 0.67 (todas acima do threshold Precisa) |
+| Temperatura | QUENTE · Score 6.5 · Hypercare ativo |
+| Contrato | ASSINADO 2026-05-19 · R$5k fixo · 30 dias Hypercare |
+| Uso real | Não confirmado desde assinatura — CHURN-WATCH inativo |
+| Próximo gate | Sentinel Report 2026-06-02 (segunda-feira) |
 
 ---
 
-## 4. O QUE NÃO ESTÁ PRONTO (V3 — BLOQUEADO ATÉ CONTRATO)
+## 4. DECISÕES FIXADAS (não reverter sem veredito)
 
-Estes itens foram identificados pelos áudios do Valdece e bloqueados por P-023 (scope creep) até contrato assinado. **Agora desbloqueados:**
-
-| Campo V3 | Tipo | Status |
+| Decisão | Princípio | Razão |
 |---|---|---|
-| `data_dje` | DATE | Pendente — ALTER TABLE |
-| `repercussao_geral` | BOOLEAN | Pendente — ALTER TABLE |
-| `recurso_repetitivo` | BOOLEAN | Pendente — ALTER TABLE |
-| `turma` | TEXT | Pendente — ALTER TABLE |
-
-**Blueprint pronto:** ALTER TABLE → ingest dry-run (61 acórdãos re-processados) → badges vinculantes no frontend → ABNT atualizado com data DJE.
-
-**Gate V3:** Valdece identifica badge "VINCULANTE" sem explicação de Eduardo — sozinho, intuitivamente.
+| GEMINI_API_KEY no proxy Netlify, nunca no frontend | P-061 | HV-1: chave exposta em frontend público = quota a custo do cliente |
+| Scope-watch ativo: novas features = Change-Order | P-023 | H-4 confirmada: Valdece pede scope creep via WhatsApp (logo OAB) |
+| Sentinel Report via WhatsApp em 02-06-2026 | D4 | Hypercare: monitorar temperatura sem criar dependência de suporte |
+| Pipeline OAB: "Você conhece colega com o mesmo problema?" | D6 | H-5: comunidade criminalista densa — evangelizador em potencial |
 
 ---
 
-## 5. MIGRAÇÃO DE INFRAESTRUTURA (PENDENTE)
+## 5. ALERTAS ATIVOS
 
-| Item | Status |
-|---|---|
-| Supabase | Vanguard → conta Valdece (sa-east-1) — P-038: gate de teste obrigatório antes da migração |
-| Gemini API Key | Eduardo → conta Google do Valdece (billing ativo no Cloud Console) |
-| Netlify | Redeploy com nova chave Valdece após migração |
-
-**Nota crítica:** O embedding falhou novamente em 2026-05-20 (quota free esgotada — 2ª ocorrência). Fix definitivo = billing ativo na conta Valdece + Edge Function no V3 (chave sai do frontend).
+| Alert | Severidade | Status |
+|---|---|---|
+| Uso real de Valdece não confirmado — 5+ dias sem check-in | 🟡 Médio | Monitorar no Sentinel Report |
+| Migração Supabase (Vanguard → conta Valdece) ainda pendente | 🟡 Médio | Gatilho: Sentinel Report + dados reais confirmados |
+| Scope creep via WhatsApp (personalização logo OAB) | 🟡 Médio | Scope-watch ativo · Change-Order se persistir |
 
 ---
 
-## 6. PRINCÍPIOS EXTRAÍDOS NO LOOP 6
+## 6. PRINCÍPIOS EXTRAÍDOS NO LOOP 7
 
 | Princípio | Descrição |
 |---|---|
-| P-046 | Contrato formaliza ciclo de evolução, não produto finalizado — V3, V4 são entregas futuras contratualmente previstas |
-| P-023 ativo | 5 áudios = scope creep via WhatsApp em tempo real — filtro funcionou: data_dje e badges vinculantes foram bloqueados até assinatura |
-| HV-1 recorrente | Chave Gemini no frontend = quota free esgota com uso real — 2ª ocorrência em Loop 6 — V3 Edge Function é obrigatória |
+| P-061 | Nenhuma API key de terceiro pertence ao frontend — proxy obrigatório |
+| P-065 | Advogado que testa antes de assinar já se vendeu — Hypercare começa no dia 1 |
+| P-066 | PAINEL_ATIVIDADES tem destino fixo — "Embaixador - Diretor" no Claude.ai |
+| P-067 | Músculo bloqueado até Embaixador reagir — gate automático pós-Skill aprovada |
 
 ---
 
-## 7. [M-1 a M-5] — 5 IDEIAS DISRUPTIVAS DO MÚSCULO PARA LOOP 7
+## 7. [M-1 a M-5] — 5 IDEIAS DISRUPTIVAS DO MÚSCULO PARA LOOP 8
 
-> Estas ideias NÃO vieram do Gemini nem do NotebookLM. São perspectiva técnica exclusiva do Músculo.
-> Alimentam o próximo ciclo do Gemini.
+**[M-1] Modo Audiência (retomada de M-1 do Loop 6)**
+V3 agora tem badge VINCULANTE. Modo Audiência fica ainda mais poderoso: texto grande + 1 resultado vinculante em destaque + botão "Copiar para petição" com 1 toque. Custo: 4h. Impacto: diferencial que nenhum concorrente tem para criminalistas em sala de audiência.
 
-**[M-1] Modo Audiência**
-Interface simplificada para uso em tempo real: texto grande, 1 resultado por vez, botão "Copiar para petição" com 1 toque, sem distrações. Valdece usa o sistema em audiências — a UI atual foi projetada para desktop tranquilo, não para stress de audiência.
-Custo: 4h de frontend. Impacto: diferencial que nenhum concorrente tem para criminalistas.
+**[M-2] Relatório Mensal Automático para Valdece**
+No dia 1 de cada mês: "Você fez N buscas. Seus temas mais buscados foram X, Y, Z. Sua jurisprudência mais usada foi [acórdão]." Gerado por Edge Function + enviado por email. Eduardo não digita nada. Custo: 3h. Impacto: retenção + argumento para V2 ("olha o que você já acumulou").
 
-**[M-2] Detector de Mudança Jurisprudencial**
-Quando uma query já realizada anteriormente retornar resultado diferente (novo acórdão mais relevante), alertar: "ATENÇÃO: o precedente sobre [tema] mudou desde sua última busca." Exige histórico de queries por usuário no Supabase.
-Custo: 6h (tabela query_history + lógica de comparação). Impacto: sistema que pensa junto com o advogado.
+**[M-3] Detector de Lacuna no Corpus**
+Se Valdece busca "tentativa de homicídio + dolo eventual" e similaridade máxima < 0.45 → alerta automático: "Esse tema não está bem coberto no seu corpus. Quer que eu adicione acórdãos?" Custo: 2h (lógica de threshold + alerta UI). Impacto: corpus evolui dirigido pelo uso real de Valdece.
 
-**[M-3] Export para Petição em Bloco**
-Selecionar N acórdãos → gerar bloco ABNT numerado pronto para colar em petição DOCX. Hoje o Valdece copia 1 de cada vez. Com 5 acórdãos relevantes, são 5 copias manuais.
-Custo: 3h (seleção multi-card + geração de texto formatado). Impacto: economiza 10 minutos por petição com múltiplas citações.
+**[M-4] Export DOCX em Bloco (retomada de M-3 do Loop 6)**
+Agora que badges V3 estão ativos, o export DOCX pode incluir a classificação: "[VINCULANTE] HC 188.888/SP — STF — Pleno." Custo: 4h (html2pdf ou docx-js). Impacto: economiza 10+ minutos por petição com múltiplas citações.
 
-**[M-4] Watchdog de Corpus por Tema**
-Monitorar frequência de busca por tema → detectar quando um tema recorrente tem < 3 acórdãos relevantes no corpus → alertar Valdece: "Você busca muito sobre [tema X] mas temos poucos acórdãos sobre isso. Quer que eu amplie?". 
-Custo: 2h (analytics simples + alerta UI). Impacto: corpus evolui dirigido pelo uso real, não por intuição.
-
-**[M-5] Sovereign Upload Simplificado (antecipação V2)**
-Permitir que Valdece cole o texto de uma decisão diretamente no sistema → embedding gerado → entra no corpus dele instantaneamente. Sem interface de upload, sem PDF parsing — só texto colado. Gate: billing ativo na conta dele.
-Custo: 4h (Edge Function de ingestão via UI). Impacto: corpus cresce a cada caso que ele atende — vira vantagem competitiva acumulada.
+**[M-5] Prova Social Interna (Portfólio de Uso)**
+Após 30 dias de uso real: gerar um card visual para Valdece — "N buscas · M acórdãos encontrados · X temas cobertos." Serve como argumento de negociação para V2 e como prova social para o próximo cliente LegalTech-Penal. Custo: 2h. Impacto: date visual da jornada = engajamento emocional com o produto.
 
 ---
 
-## 8. PRÓXIMA AÇÃO — LOOP 7
+## 8. PRÓXIMA AÇÃO — LOOP 8
 
 ```
-GATE DE ENTRADA LOOP 7:
-1. Billing ativo na conta Google do Valdece → chave Gemini gerada
-2. Gemini anchor: .\scripts\gemini_anchor_generator.ps1
-3. Levar CONTEXTO_GEMINI.md + PASSO3_GEMINI.md ao Gemini → DIRETRIZ V7
-4. preparar_notebooklm_projeto.ps1 -cliente VALDECE → Wipe & Sync
-5. NotebookLM → skill valdece-v7.md (4 partes obrigatórias)
-6. Músculo executa /valdece-v7 → delibera → plano V3 migration
+GATE DE ENTRADA LOOP 8:
+1. Sentinel Report 2026-06-02 (D4) — whatsapp + análise de temperatura
+2. Confirmar uso real de Valdece: quantas buscas fez? qual tema?
+3. Gemini anchor: .\scripts\gemini_anchor_generator.ps1
+4. Levar CONTEXTO_GEMINI.md + PASSO3_GEMINI.md ao Gemini → DIRETRIZ V8
+5. preparar_notebooklm_projeto.ps1 -cliente VALDECE → Wipe & Sync
+6. NotebookLM → skill valdece-v8.md (4 partes obrigatórias)
+7. Músculo executa /valdece-v8 → delibera → plano
 
-FOCO LOOP 7:
-- ALTER TABLE ADD COLUMN (data_dje, repercussao_geral, recurso_repetitivo, turma)
-- Re-ingestão dry-run → verificar 61 acórdãos com campos preenchidos
-- Badges vinculantes no frontend (badge VINCULANTE se repercussao_geral=true ou recurso_repetitivo=true)
-- Edge Function Supabase para embedding (HV-1 fix definitivo)
-- Migração Supabase conta Valdece (sa-east-1) após testes
+FOCO LOOP 8 (sugerido, pendente DIRETRIZ V8):
+- Migração Supabase (Vanguard → conta Valdece)
+- Modo Audiência (M-1) — após confirmar uso ativo
+- Sentinel de 30 dias → pitch V2 se sinais certos
 ```
+
+---
+
+*Músculo — Pentalateral IAH — 2026-05-26*

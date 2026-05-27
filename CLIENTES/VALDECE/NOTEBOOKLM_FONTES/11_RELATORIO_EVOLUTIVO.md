@@ -1,121 +1,112 @@
-# RELATÓRIO EVOLUTIVO V6 — PROJ-001 VALDECE · Loop 6
-> Gerado pelo Músculo · 2026-05-20
-> Framework: SWOT (estado atual) + PDCA (Loop 6) + 5W2H (Loop 7)
-> Leitura recomendada antes de ir ao Gemini com PASSO3 Loop 7
+# RELATÓRIO EVOLUTIVO V7 — PROJETO VALDECE
+> Loop 7 · V3 ENRICHMENT + Deploy Netlify + Hypercare · Fechamento 2026-05-26
+> Análise de negócio + 5 ideias disruptivas para Loop 8
 
 ---
 
-## SWOT — ESTADO AO FECHAR LOOP 6
+## RESUMO EXECUTIVO
 
-### FORÇAS
-- **Contrato assinado** — R$5.000 fixo, modelo sem mensalidade validado comercialmente
-- **Sistema em produção real** — netlify live, 61 acórdãos, Gate P-038 100% aprovado
-- **Cliente engajado ativamente** — 5 áudios de feedback técnico enviados espontaneamente
-- **Interface validada pelo cliente** — Toga Digital Navy + Ouro foi escolha do Valdece
-- **Corpus testado em 22 temas criminais** — cobertura para 80% dos casos típicos de criminalista
-- **Loop evolutivo funcionando** — 4 princípios extraídos (P-041 a P-046), 3 membros deliberaram
-
-### FRAQUEZAS
-- **HV-1 recorrente** — chave Gemini exposta no frontend; quota free esgotou 2x — risco real de sistema offline para cliente pagante
-- **Infra em conta Vanguard** — Supabase não migrado para conta Valdece (P-038 pendente)
-- **Corpus pequeno** — 61 acórdãos cobre temas principais mas não profundidade (< 5 por tema em média)
-- **Sem filtragem V3** — Valdece não consegue filtrar por data, vinculante ou turma — demanda declarada nos áudios
-- **Zero analytics de uso** — não sabemos quais temas Valdece busca mais, em qual horário, com qual taxa de sucesso
-
-### OPORTUNIDADES
-- **V3 desbloqueada** — 4 campos novos (data_dje, repercussao_geral, recurso_repetitivo, turma) aumentam utilidade 3x
-- **Pipeline de indicação** — advocacia criminal é comunidade densa; 1 satisfeito fala com 50 na OAB
-- **V2 em 30 dias** — corpus ≥ 500 docs ou uso ativo → Sovereign Upload + Radar de Divergência + Citação DOCX (R$8.500–12.000)
-- **Nicho Legal-Tech-Criminal a 75% maturidade** — Valdece é cliente referência; próximo cliente do nicho tem blueprint pronto
-- **3 nichos em discovery** — Medicina, Contabilidade, Psicologia aprovados para pesquisa
-
-### AMEAÇAS
-- **Instabilidade de API** — quota free esgotada 2x em Loop 6; billing não ativo = risco de outage para cliente pagante
-- **Perda de confiança por outage** — Valdece pagou R$5k; sistema offline é quebra de confiança imediata
-- **Corpus desatualizado** — jurisprudência muda; sem mecanismo de atualização, corpus envelhece
-- **Concorrência implícita** — Westlaw (R$3k/mês) e Jusbrasil (gratuito/limitado) definem o benchmark de comparação
+Loop 7 entregou a **soberania jurídica do corpus** (V3 ENRICHMENT) — os 61 acórdãos agora têm classificação vinculante/pleno/turma, o que permite a Valdece filtrar por autoridade do precedente além do tema. Adicionalmente, a chave Gemini saiu do frontend (HV-1 resolvido), o deploy V3 está em produção e o Embaixador processou os vereditos D1–D6. O projeto está em Hypercare com sistema operando em produção.
 
 ---
 
-## PDCA — ANÁLISE DO LOOP 6
+## SWOT — ESTADO ATUAL (pós-Loop 7)
+
+### Forças
+- **Corpus classificado:** 3 acórdãos vinculantes identificados — argumento jurídico mais forte é agora filtrado automaticamente.
+- **Segurança de produção:** GEMINI_API_KEY no proxy server-side. Chave do cliente protegida.
+- **Sistema maduro:** 61 acórdãos · 22 temas · embedding 3072 dim · threshold duplo (Precisa/Ampla) · Deploy Netlify em produção.
+- **Scope-watch ativo:** qualquer pedido novo = Change-Order formal. Proteção de receita documentada.
+
+### Fraquezas
+- **Uso real não confirmado:** 5+ dias desde assinatura sem check-in de Valdece. Sabemos que o sistema funciona, não que ele usa.
+- **Migração Supabase pendente:** ainda no projeto Vanguard — dependência de infra compartilhada que não deveria existir em Hypercare.
+- **Corpus sem curadoria ativa:** sem mecanismo para Valdece sinalizar buscas sem resultado.
+
+### Oportunidades
+- **Badge VINCULANTE como argumento de venda:** "Você vai encontrar os 3 acórdãos que o STF considera obrigatórios para o caso." Nenhum concorrente na faixa de preço oferece isso.
+- **Pipeline OAB (D6 ativo):** ao ouvir menção a colega criminalista → pitch de indicação imediato. Comunidade densa = multiplicação de receita sem custo de aquisição.
+- **V2 (Sovereign Upload):** gatilho em 30 dias de uso ativo. Loop 8 deve confirmar sinais antes do pitch.
+
+### Ameaças
+- **Churn silencioso:** Valdece pode não usar sem saber que poderia. 30 dias de Hypercare sem dado de uso = Loop 8 com nenhuma inteligência real.
+- **Scope creep via WhatsApp:** personalização de logo OAB já foi sinalizada. Sem Change-Order formalizado, erosão de margem silenciosa.
+- **Embedding Gemini:** modelo pode mudar dimensionalidade novamente (já aconteceu: 768→3072). Re-embedding de 61 acórdãos = custo não nulo.
+
+---
+
+## PDCA — AVALIAÇÃO DO LOOP 7
 
 ### PLAN (o que foi planejado)
-- Processar feedbacks dos 5 áudios do Valdece: ementa completa, badge UF, data_dje, badges vinculantes
-- Priorizar: ementa + UF (melhorias V1 imediatas) · data_dje + vinculantes (V3 — bloqueados por P-023)
-- Fechar contrato presencialmente em 2026-05-19
-- Desbloquear V3 mediante assinatura
+- V3 ENRICHMENT: ALTER TABLE + classify_v3_fields + reingest 61 acórdãos
+- Fix HV-1: GEMINI_API_KEY para proxy Netlify
+- Deploy Netlify V3 em produção
+- Embaixador Loop 7: DECISOES D1–D6
 
 ### DO (o que foi executado)
-- ✅ URL STJ corrigida + ementa completa no Copiar ABNT (2b72b9b)
-- ✅ 9 áudios convertidos OGG→FLAC para NotebookLM (4342064)
-- ✅ HC 512.290/RJ corrigido no banco + re-embedding (1369689)
-- ✅ Ementa completa (600 chars) + badge UF + boost monocrático +0.15 (9709649)
-- ✅ Chave Gemini substituída após quota esgotada — 1ª ocorrência (9ab28a6)
-- ✅ Presencial realizado — credenciais Valdece obtidas — deploy netlify apresentado
-- ✅ Contrato assinado R$5k · Gate V3 DESBLOQUEADO (250ff9c)
-- ❌ data_dje e badges vinculantes → corretamente bloqueados por P-023 até assinatura
+- ✅ Todos os itens planejados entregues
+- ✅ reingest 61/61 · 0 erros · gate_v3 APROVADO (vinculantes=3 · pleno=5 · turma=56)
+- ✅ HV-1 resolvido: proxy embed.js + netlify.toml + env vars configuradas
+- ✅ Deploy 11s: proxy 200 OK · vetor 3072 dim
+- ✅ Embaixador: DECISOES D1–D6 executados · MEMORIA_EMBAIXADOR atualizada
+- ⚠️ Descoberta: classify_v3_fields inicial classificava RE/ARE STF incorretamente → fix aplicado (EC 45/2004)
 
-### CHECK (o que o gate revelou)
-- **Gate comercial:** APROVADO — contrato assinado com modelo correto (sem mensalidade)
-- **Gate técnico:** P-038 mantido (12/12) após ementa + badge UF + boost
-- **Surpresa positiva:** Valdece enviou feedback por áudio (não WhatsApp texto) — nível de engajamento acima do esperado
-- **Surpresa negativa:** Quota Gemini esgotou 2x — o modelo free tier não suporta nem o volume de testes de desenvolvimento
-- **P-023 funcionou:** scope creep via áudio (data_dje, vinculantes) foi bloqueado até contrato — correto
+### CHECK (o que funcionou e o que não funcionou)
+- **Funcionou:** pipeline reingest automatizado (61/61 sem erro)
+- **Funcionou:** proxy Netlify resolveu HV-1 sem afetar UX do Valdece
+- **Funcionou:** view_diretor_roi como gate de validação do enrichment
+- **Não funcionou:** classify_v3_fields não contemplava a regra EC 45/2004 para RE/ARE → corrigido na mesma sessão
+- **A investigar:** Valdece ainda não confirmou uso real após receber o sistema V3
 
-### ACT (o que muda no Loop 7)
-- V3 agora é prioridade #1: 4 campos novos + re-ingestão + badges vinculantes
-- Billing Gemini obrigatório antes de qualquer coisa (previne 3ª ocorrência de outage)
-- Edge Function para embedding (HV-1 fix definitivo — chave sai do frontend)
-- Migração Supabase para conta Valdece após testes (P-013 soberania)
-- Analytics básicos de uso para alimentar Loop 8 com dados reais
+### ACT (o que muda no próximo loop)
+- Confirmar uso real como gate mandatório para Loop 8 (sem dado = Loop 8 sem contexto real)
+- Incluir teste de threshold no Sentinel Report (query Valdece mais recente → similaridade medida)
+- Documentar regra EC 45/2004 no runbook de ingestão para novos acórdãos RE/ARE
 
 ---
 
-## 5W2H — LOOP 7
+## 5W2H — PRÓXIMO LOOP (Loop 8)
 
 | Dimensão | Resposta |
 |---|---|
-| **What** | V3 schema migration: 4 campos novos + re-ingestão 61 acórdãos + badges vinculantes frontend + Edge Function embedding + migração infra Valdece |
-| **Why** | Aumentar utilidade (filtrar vinculantes em 1 clique = demanda explícita do cliente) + soberania (P-013) + HV-1 fix definitivo |
-| **Who** | Músculo executa · Diretor aprova cada gate · Valdece valida badge "VINCULANTE" em produção |
-| **When** | 2026-05-20 a 2026-05-23 (deadline contratual) |
-| **Where** | Supabase Vanguard (migration segura) → migração final para sa-east-1 conta Valdece |
-| **How** | ALTER TABLE → dry-run script → validar 61 acórdãos com novos campos → redeploy → migração → Valdece testa |
-| **How much** | R$0 adicional · billing Gemini ~R$1,20/mês na conta do Valdece |
+| **What** | Sentinel Report + confirmação de uso real + pitch V2 se sinais certos + migração Supabase |
+| **Why** | Hypercare termina em 30 dias — sem dado de uso, não há argumento para V2 nem para indicação OAB |
+| **Who** | Eduardo + Músculo · Valdece (passivo — recebe Sentinel Report) |
+| **When** | Sentinel em 02-06-2026 (terça-feira) · Loop 8 build a partir de 03-06-2026 |
+| **Where** | toga-digital-valdece.netlify.app · Supabase Vanguard (pré-migração) |
+| **How** | Sentinel via WhatsApp curto → aguardar resposta → análise de temperatura → deliberação |
+| **How much** | ~1h Sentinel · ~4h migração Supabase · $0 custo adicional de infra |
 
 ---
 
-## ANÁLISE COMERCIAL — POSIÇÃO AO FECHAR LOOP 6
+## 5 IDEIAS DISRUPTIVAS [M-1 a M-5] — Para o Gemini processar
 
-### Receita gerada
-| Item | Valor |
-|---|---|
-| Contrato Toga Digital V1 | R$5.000 fixo |
-| Hypercare incluso (30 dias) | Sem custo adicional |
-| MRR do cliente | R$0 (modelo sem mensalidade — Valdece paga R$1,20/mês direto ao Google) |
+**[M-1] Modo Audiência com Destaque de Vinculantes**
+Interface simplificada para uso em tempo real: texto grande + badge VINCULANTE em vermelho destacado + botão "Copiar para petição" com 1 toque. Agora que V3 está ativo, esse modo fica exponencialmente mais poderoso. Valdece usa o sistema em audiências — o badge VINCULANTE resolve objeções do juiz antes de serem feitas.
 
-### Pipeline imediato
-| Produto | Valor estimado | Gatilho | Prazo |
-|---|---|---|---|
-| V2 (Sovereign Upload + Radar + DOCX) | R$8.500–12.000 | 30 dias de uso ativo ou corpus ≥ 500 | 2026-06-19 |
-| Indicação OAB | Novo contrato ~R$5.000 | Valdece mencionar colega criminalista | Qualquer momento |
-| Expansão nicho Legal-Tech-Criminal | Blueprint reutilizável | 2º cliente do nicho | 2026-07 |
+**[M-2] Relatório Mensal Automático**
+No dia 1 de cada mês: "Você fez N buscas. Seus temas favoritos foram X, Y, Z. Seu acórdão mais buscado foi [título]." Gerado por Edge Function + enviado por email. Eduardo não digita nada. Impacto: retenção emocional + argumento quantitativo para V2.
 
-### Avaliação de consultor
-O Loop 6 entregou o que importa: contrato assinado, cliente usando o sistema ativamente, V3 desbloqueada. O modelo sem mensalidade foi um risco calculado que se provou certo — Valdece não teria assinado com mensalidade (H-1 confirmada). O risco real agora é operacional: sistema offline por quota esgotada. Se o Valdece ligar para dizer que o sistema está fora no dia de uma audiência, perde-se a confiança que o presencial construiu. Billing precisa estar ativo antes do Valdece usar o sistema seriamente.
+**[M-3] Detector de Lacuna no Corpus**
+Se similaridade máxima < 0.40 em qualquer busca → alerta automático ao Valdece: "Esse tema não está bem coberto. Quer que eu adicione acórdãos?" Eduardo recebe o alerta no Telegram antes de Valdece. Impacto: corpus evolui por uso real, não por intuição.
+
+**[M-4] Export DOCX em Bloco com Classificação V3**
+Selecionar N resultados → gerar DOCX com blocos ABNT numerados + tag [VINCULANTE] onde aplicável. Hoje Valdece copia 1 de cada vez. Com 3 acórdãos vinculantes numa petição, são 3 copias manuais. Economiza 10+ minutos por petição complexa.
+
+**[M-5] Portfólio de Uso pós-Hypercare**
+Após 30 dias: gerar PDF — "Valdece realizou N buscas · M temas cobertos · 3 acórdãos vinculantes utilizados." Serve como prova social para o próximo cliente LegalTech-Penal e como argumento emocional de renovação/V2: "Olha o que você construiu."
 
 ---
 
-## [M-1 a M-5] — 5 IDEIAS DISRUPTIVAS PARA LOOP 7
+## ANÁLISE COMERCIAL
 
-> Alimentar o Gemini no próximo PASSO3. Sem elas, o loop para.
+**O que este loop significou para o negócio:**
+Loop 7 elevou o produto de "buscador de jurisprudência" para "filtro de precedentes com classificação de autoridade." A distinção vinculante/pleno/turma não é cosmética — é a diferença entre um precedente que o juiz pode ignorar e um que ele é obrigado a seguir. Para criminalistas, isso é argumento de defesa, não feature de software.
 
-**[M-1] Edge Function de Embedding** — mover a chamada Gemini do frontend para Supabase Edge Function. Chave sai do HTML, quota fica no servidor, rate limiting controlado. Fix HV-1 definitivo. Custo: 3h. Impacto: sistema nunca fica offline por chave exposta ou quota de browser.
+**Risco principal:** 5+ dias sem check-in pós-assinatura. O produto está em produção mas sem evidência de uso. Sentinel Report 02-06 é o único ponto de contato controlado antes do fim do Hypercare. Se Valdece não tiver usado, o pitch V2 não tem fundamento.
 
-**[M-2] Modo Audiência** — toggle UI que simplifica a interface para uso em tempo real: texto grande, 1 resultado, copiar em 1 toque, sem distrações. Valdece usa durante audiências — a UI atual é boa para desktop calmo, não para stress de tribunal. Custo: 4h. Impacto: diferencial que nenhum Westlaw tem.
+**Oportunidade imediata:** Pipeline OAB (D6) está ativo. A próxima vez que Valdece mencionar um colega criminalista → pergunta pronta, sem fricção, sem improv. A indicação certa vem de uso genuíno — confirmar isso no Sentinel é pré-requisito.
 
-**[M-3] Analytics de Uso** — tabela `query_log(user_id, query_text, resultado_count, threshold_usado, timestamp)` no Supabase. Painel simples para Eduardo: quais temas Valdece busca mais, quando, com qual taxa de resultado. Alimenta Loop 8 com dados reais. Custo: 2h. Impacto: corpus evolui dirigido por uso, não intuição.
+---
 
-**[M-4] Export para Petição em Bloco** — selecionar N cards de resultado → gerar texto ABNT numerado formatado para colar em DOCX. Hoje é 1 cópia por acórdão. Com 5 citações por petição, são 5 copias manuais. Custo: 3h. Impacto: economiza 10 minutos por petição — Valdece faz 10+ petições/semana.
-
-**[M-5] Watchdog de Corpus** — detectar quando tema frequentemente buscado tem < 3 resultados relevantes → alertar no painel: "Você busca muito sobre [tema X] — temos cobertura fraca nesse tema. Deseja ampliar?" Direciona a expansão do corpus por prioridade real. Custo: 2h. Impacto: corpus de 61 → 200 acórdãos nos temas certos, não aleatoriamente.
+*Músculo — Pentalateral IAH — 2026-05-26*
