@@ -345,8 +345,16 @@ function Get-EmbaixadorStatus {
         $cli = $proj.cliente.ToUpper()
         $embPath = Join-Path $projectDir "CLIENTES\$cli\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
         if (-not (Test-Path $embPath)) {
+            # DECISAO SOBERANA: se flag existir e for recente (< 7 dias), suprimir alerta
+            $soberanaPath = Join-Path $projectDir "CLIENTES\$cli\CLAUDE_PROJECT\SOBERANA_EMBAIXADOR.flag"
+            if (Test-Path $soberanaPath) {
+                $flagAge = (Get-Date) - (Get-Item $soberanaPath).LastWriteTime
+                if ($flagAge.TotalDays -lt 7) { continue }
+            }
             $alertas += "  [!!] $cli -- MEMORIA_EMBAIXADOR.md ausente -- Embaixador NAO ativo para este projeto"
             $alertas += "       Rodar: .\scripts\ir_ao_embaixador.ps1 -cliente $cli"
+            $alertas += "       Para suprimir (projeto novo, Embaixador ainda nao ativado por design):"
+            $alertas += "       Musculo cria: CLIENTES\$cli\CLAUDE_PROJECT\SOBERANA_EMBAIXADOR.flag"
         }
     }
     if ($alertas.Count -eq 0) { return $null }
@@ -364,6 +372,19 @@ $watcherScript = Join-Path $projectDir "scripts\decisoes_watcher.ps1"
 if (Test-Path $watcherScript) {
     try {
         Start-Process powershell -ArgumentList "-NonInteractive -WindowStyle Hidden -File `"$watcherScript`"" -WindowStyle Hidden -ErrorAction SilentlyContinue
+    } catch {}
+}
+
+# --- Lançar skill_watcher.ps1 por projeto em BUILD (P-075: Diretor nao move Skill manualmente) ---
+$wipForSkill = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
+$swScript    = Join-Path $projectDir "scripts\skill_watcher.ps1"
+if ((Test-Path $wipForSkill) -and (Test-Path $swScript)) {
+    try {
+        $boardSw = Get-Content $wipForSkill -Raw -Encoding UTF8 | ConvertFrom-Json
+        foreach ($projSw in @($boardSw.board.build)) {
+            $cliSw = $projSw.cliente
+            Start-Process powershell -ArgumentList "-NonInteractive -WindowStyle Hidden -File `"$swScript`" -cliente $cliSw" -WindowStyle Hidden -ErrorAction SilentlyContinue
+        }
     } catch {}
 }
 

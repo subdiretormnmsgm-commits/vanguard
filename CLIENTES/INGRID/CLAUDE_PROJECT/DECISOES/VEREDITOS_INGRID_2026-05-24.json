@@ -1,0 +1,51 @@
+{
+  "schema_versao": "1.0",
+  "projeto": "PROJ002_INGRID",
+  "data_decisoes": "2026-05-24",
+  "data_veredito": "2026-05-27",
+  "deliberado_por": "Diretor Eduardo",
+  "metodo": "Deliberacao manual em sessao Claude Code (DECISAO A — D1/D2 obsoletas + D3/D5/D6 deliberados)",
+  "vereditos": [
+    {
+      "id": "D1",
+      "titulo": "Mensagem pos-fix Q18",
+      "status": "ARQUIVADA_OBSOLETA",
+      "nota": "3 dias passados desde 24/05. Acao ja realizada ou contexto superado."
+    },
+    {
+      "id": "D2",
+      "titulo": "Reengajamento CHURN-WATCH",
+      "status": "ARQUIVADA_OBSOLETA",
+      "nota": "3 dias passados. ChurnWatch registrado e ativo. Loop 5 concluido."
+    },
+    {
+      "id": "D3",
+      "titulo": "Pendencia contratual — data do Termo diverge",
+      "status": "APROVADO",
+      "opcao_selecionada": "regerar",
+      "acao": "Regerar PDF do Termo com data 18/05/2026 (data real da assinatura). Ingrid reassina.",
+      "nota": "Registrado em PENDENTES.md 2026-05-27 como tarefa ativa."
+    },
+    {
+      "id": "D4",
+      "titulo": "Push dominical — iOS Safari",
+      "status": "PENDENTE_BUILD",
+      "nota": "Nao deliberado. Gate Dia 13 (27-05-2026 quarta-feira) — decisao tomada no contexto do build."
+    },
+    {
+      "id": "D5",
+      "titulo": "Principio candidato ao LEDGER",
+      "status": "APROVADO",
+      "opcao_selecionada": "aprovar",
+      "acao": "Inscrito no INTELLIGENCE_LEDGER.md como P-078 em 2026-05-27.",
+      "nota": "Principio: abandono silencioso em EdTech ocorre quando sistema funciona mas nao registra o esforco do usuario."
+    },
+    {
+      "id": "D6",
+      "titulo": "Principio D3 Vanguard",
+      "status": "DESCARTADO",
+      "opcao_selecionada": "descartar",
+      "nota": "Diretor optou por descartar em 2026-05-27."
+    }
+  ]
+}

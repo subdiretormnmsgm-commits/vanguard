@@ -57,6 +57,37 @@ Write-Host ("Loop    : " + $loop)
 Write-Host ("Decisoes: " + $nDecisoes)
 Write-Host ""
 
+# --- P-037 GATE: sintese do Musculo deve existir antes de abrir Painel de vereditos ---
+$historicoDirP037 = Join-Path $raiz "CLIENTES\$projeto\HISTORICO"
+$sinteseFlagPath  = Join-Path $raiz "CLIENTES\$projeto\CLAUDE_PROJECT\SOBERANA_P037.flag"
+$sinteseArquivo   = Get-ChildItem "$historicoDirP037\DELIBERACAO_LOOP_*.md" -ErrorAction SilentlyContinue |
+    Where-Object { $_.LastWriteTime -gt (Get-Date).AddHours(-4) } |
+    Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if (-not $sinteseArquivo) {
+    # DECISAO SOBERANA: flag suprime o gate (Musculo ja sintetizou offline na sessao)
+    $soberanaRecente = $false
+    if (Test-Path $sinteseFlagPath) {
+        $soberanaRecente = ((Get-Date) - (Get-Item $sinteseFlagPath).LastWriteTime).TotalHours -lt 4
+    }
+    if (-not $soberanaRecente) {
+        Write-Host "=== P-037 GATE -- BLOQUEADO ===" -ForegroundColor Red
+        Write-Host "DECISOES.json deve ser renderizado APOS a sintese P-037 do Musculo." -ForegroundColor Red
+        Write-Host "Nenhum arquivo DELIBERACAO_LOOP_*.md encontrado (ultimas 4h) em:" -ForegroundColor Yellow
+        Write-Host "  $historicoDirP037" -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host "ACAO: pedir ao Musculo para executar sintese P-037 e gerar" -ForegroundColor Yellow
+        Write-Host "      DELIBERACAO_LOOP_V[N]_$projeto.md antes de abrir o Painel." -ForegroundColor Yellow
+        Write-Host "Para declarar sintese feita na sessao atual (DECISAO SOBERANA):" -ForegroundColor DarkGray
+        Write-Host "  New-Item '$sinteseFlagPath' -ItemType File -Force" -ForegroundColor DarkGray
+        Write-Host ""
+        exit 2
+    }
+    Write-Host "  [P-037] DECISAO SOBERANA ativa -- sintese declarada na sessao atual." -ForegroundColor DarkYellow
+} else {
+    Write-Host ("  [P-037] Sintese OK: " + $sinteseArquivo.Name) -ForegroundColor Green
+}
+Write-Host ""
+
 # --- 3. Ler template HTML ---
 if (-not (Test-Path $templatePath)) {
     Write-Error ("Template nao encontrado: " + $templatePath)

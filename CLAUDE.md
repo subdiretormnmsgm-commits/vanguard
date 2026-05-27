@@ -272,6 +272,14 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     loop_fase_atual.gemini = "OK" · loop_fase_atual.proximo = "NotebookLM → Skill ingrid-v6.md"
     Músculo que atualiza WIP_BOARD só no session_close = lembrete de loop desatualizado.
     Aplica-se a: todo projeto, todo loop, todo sócio.
+28. DECISOES.json É O ÚLTIMO PASSO — P-037 GATE OBRIGATÓRIO (2026-05-27):
+    DECISOES.json é gerado pelo Músculo APENAS após a síntese P-037 completa.
+    Sequência inviolável: Gemini→DIRETRIZ · NotebookLM→Skill · Embaixador→Seção D · Músculo→P-037 · DECISOES.json.
+    O Músculo documenta a síntese em CLIENTES/[PROJ]/HISTORICO/DELIBERACAO_LOOP_V[N]_[CLIENTE].md
+    ANTES de gerar o DECISOES.json. render_painel.ps1 verifica este arquivo (P-037 gate) — exit 2 se ausente.
+    DECISÃO SOBERANA: se síntese foi feita na sessão mas sem arquivo, Músculo cria
+    CLIENTES/[PROJ]/CLAUDE_PROJECT/SOBERANA_P037.flag — suprime o gate por 4 horas.
+    Músculo que gera DECISOES.json sem síntese = cortocircuito no processo — P-037 nulo.
 ```
 
 ---

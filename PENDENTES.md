@@ -36,6 +36,12 @@
   Termo enviado via WhatsApp 2026-05-26 (LEGAL-WATCH PARCIAL). Assinatura física ainda pendente.
   **AÇÃO DO DIRETOR:** Confirmar recebimento físico + data de assinatura com Ingrid.
 
+- [ ] `2026-05-27` **Ingrid — Regerar PDF do Termo com data correta (D3 DECISOES_INGRID):**
+  Veredito D3 do Diretor em 27/05: regerar PDF com data 18/05/2026 (data real da assinatura).
+  PDF atual tem 30/05/2026 — vulnerabilidade jurídica ativa.
+  **AÇÃO DO MÚSCULO:** Localizar script/template de geração do PDF do Termo de Uso de Ingrid e regerar com data 18-05-2026.
+  **AÇÃO DO DIRETOR:** Apresentar PDF atualizado a Ingrid: "corrigi uma data rapidinho" → reassinatura.
+
 - [ ] `2026-05-26` **Deploy GitHub Pages — Ingrid v18 (Dia 15 concluído):**
   v18 funcional em produção com Edge Functions + Supabase yjqvjhezwhepwomukudt.
   **GATE:** Eduardo testa localmente antes → aprovação → `.\scripts\deploy_ingrid_ghpages.ps1`

@@ -128,6 +128,22 @@ if ($aprovado) {
         $clienteDetectado = $matches[1].ToUpper()
     }
 
+    # DECISAO SOBERANA: flag suprime P-067 (Embaixador ja reagiu offline na sessao atual)
+    $soberanaP067 = $false
+    if ($clienteDetectado -ne "") {
+        $soberanaPath = Join-Path $BASE "CLIENTES\$clienteDetectado\CLAUDE_PROJECT\SOBERANA_P067.flag"
+        if (Test-Path $soberanaPath) {
+            $soberanaAge = (Get-Date) - (Get-Item $soberanaPath).LastWriteTime
+            if ($soberanaAge.TotalHours -lt 48) {
+                Write-Host ""
+                Write-Host "  [P-067] DECISAO SOBERANA ativa -- Embaixador ja reagiu offline." -ForegroundColor DarkYellow
+                Write-Host "  Musculo liberado para sintese P-037." -ForegroundColor DarkYellow
+                $soberanaP067 = $true
+            }
+        }
+    }
+
+    if (-not $soberanaP067) {
     Write-Host ""
     Write-Host "================================================"
     Write-Host "  PROXIMO PASSO BLOQUEANTE -- P-067"
@@ -174,6 +190,7 @@ if ($aprovado) {
     }
     Write-Host ""
     Write-Host "================================================"
+    } # closes if (-not $soberanaP067)
 }
 
 exit $(if ($aprovado) { 0 } else { 2 })

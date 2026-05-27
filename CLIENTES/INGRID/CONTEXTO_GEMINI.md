@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-27 08:23
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-27 19:24
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
+a451cbd feat(osv-006): Consolidacao sistemica -- 5 correcoes + P-077 + ChurnWatch registrado
+df63673 chore(session-close): protocolo de fechamento 2026-05-27 — STATUS VERDE 9/9 gates
 7d130ec chore(session-close): LEDGER_INDEX propagado + PAINEL_2026-05-27 gerado
-25317f5 feat(ledger+docs): Ordens 4+5 — LEDGER saneado + docs correlatos + verificacao por projeto
-a0d44ad feat(osv-003): P-075 — Diretor delibera, nao transporta — 4 scripts autonomos
 
 ================================================================================
 
