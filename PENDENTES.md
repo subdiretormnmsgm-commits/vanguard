@@ -51,9 +51,8 @@
 
 ## PROCESSO / INFRA
 
-- [ ] `2026-05-27` **Confirmar Task Scheduler CHURN-WATCH registrado:**
-  Rodar `session_start.ps1` como Administrador uma vez para registrar a Task `ChurnWatch_Vanguard` (08:00 diário).
-  Ou testar manualmente: `.\scripts\churn_watch_autonomo.ps1 -simular`
+- [x] `2026-05-27` ~~**[BLOQUEANTE] ChurnWatch_Vanguard NAO registrado no Task Scheduler:**~~
+  ✅ Registrado pelo Músculo em 2026-05-27 (sem Admin necessário). Próxima execução: 28-05-2026 08:00.
 
 - [ ] `2026-05-27` **Confirmar detect_canonical_violation.ps1 funcionando:**
   Testar PASSO 0c: simular edição em cópia de projeto e confirmar BLOQUEIO.

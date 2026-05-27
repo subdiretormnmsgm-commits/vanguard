@@ -288,6 +288,85 @@ if (Test-Path $estadoRealScript) {
     } catch {}
 }
 
+# --- Verificar DECISOES.json sem VEREDITOS (P-071: painel abre antes da agenda) ---
+function Get-DecisoesPendentes {
+    $clDir = Join-Path $projectDir "CLIENTES"
+    if (-not (Test-Path $clDir)) { return $null }
+    $alertas = @()
+    $pastas = Get-ChildItem "$clDir\*\CLAUDE_PROJECT\DECISOES" -Directory -ErrorAction SilentlyContinue
+    foreach ($pasta in $pastas) {
+        $decisoes = Get-ChildItem $pasta.FullName -Filter "DECISOES_*.json" -ErrorAction SilentlyContinue
+        foreach ($d in $decisoes) {
+            $sufixo = $d.BaseName -replace "^DECISOES_",""
+            $veredito = Join-Path $pasta.FullName "VEREDITOS_$sufixo.json"
+            if (-not (Test-Path $veredito)) {
+                $partes = $pasta.FullName -split [regex]::Escape("\CLIENTES\")
+                $cli = if ($partes.Count -gt 1) { ($partes[1] -split "\\")[0] } else { "?" }
+                $alertas += "  [!!] $cli -- $($d.Name) sem VEREDITOS -- Diretor delibera antes de qualquer acao"
+            }
+        }
+    }
+    if ($alertas.Count -eq 0) { return $null }
+    $linhas = @(
+        "DECISOES PENDENTES DE VEREDITO -- $(Get-Date -Format 'yyyy-MM-dd')",
+        "Rodar: .\scripts\render_painel.ps1 -projeto [CLIENTE] para deliberar.",
+        "Agenda esta bloqueada ate o veredito do Diretor.",
+        ""
+    )
+    $linhas += $alertas
+    return $linhas -join "`n"
+}
+
+# --- Verificar ChurnWatch_Vanguard no Task Scheduler (Ponto 5) ---
+function Get-ChurnWatchStatus {
+    $task = Get-ScheduledTask -TaskName "ChurnWatch_Vanguard" -ErrorAction SilentlyContinue
+    if ($task) { return $null }
+    $linhas = @(
+        "CHURN-WATCH INATIVO -- ChurnWatch_Vanguard nao registrado no Task Scheduler",
+        "IMPACTO: silencio de cliente passa sem alerta automatico.",
+        "",
+        "ACAO (terminal normal, sem Admin):",
+        "  Rodar: .\scripts\registrar_churnwatch.ps1",
+        "  Ou: Register-ScheduledTask via PowerShell com RunLevel Limited",
+        "  Confirmacao: Get-ScheduledTask -TaskName ChurnWatch_Vanguard"
+    )
+    return $linhas -join "`n"
+}
+
+# --- Verificar MEMORIA_EMBAIXADOR por projeto em BUILD (RISCO C) ---
+function Get-EmbaixadorStatus {
+    $wipPath = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
+    if (-not (Test-Path $wipPath)) { return $null }
+    $board = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $projs = @($board.board.build)
+    if ($projs.Count -eq 0) { return $null }
+    $alertas = @()
+    foreach ($proj in $projs) {
+        $cli = $proj.cliente.ToUpper()
+        $embPath = Join-Path $projectDir "CLIENTES\$cli\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
+        if (-not (Test-Path $embPath)) {
+            $alertas += "  [!!] $cli -- MEMORIA_EMBAIXADOR.md ausente -- Embaixador NAO ativo para este projeto"
+            $alertas += "       Rodar: .\scripts\ir_ao_embaixador.ps1 -cliente $cli"
+        }
+    }
+    if ($alertas.Count -eq 0) { return $null }
+    $linhas = @("EMBAIXADOR INATIVO -- PROJETO(S) SEM MEMORIA_EMBAIXADOR (RISCO C)", "")
+    $linhas += $alertas
+    return $linhas -join "`n"
+}
+
+$decisoesPendentes = Get-DecisoesPendentes
+$churnWatchStatus  = Get-ChurnWatchStatus
+$embaixadorStatus  = Get-EmbaixadorStatus
+
+# --- Lançar decisoes_watcher.ps1 como background silencioso (P-071) ---
+$watcherScript = Join-Path $projectDir "scripts\decisoes_watcher.ps1"
+if (Test-Path $watcherScript) {
+    try {
+        Start-Process powershell -ArgumentList "-NonInteractive -WindowStyle Hidden -File `"$watcherScript`"" -WindowStyle Hidden -ErrorAction SilentlyContinue
+    } catch {}
+}
+
 $sections = @()
 if ($pendentesAlert)     { $sections += "## PENDENTES (P-048) - LER PRIMEIRO`n$pendentesAlert" }
 if ($estadoRealOutput)   { $sections += "## ESTADO REAL DOS PROJETOS (P-055) - VERIFICADO EM DISCO`n$estadoRealOutput" }
@@ -295,12 +374,15 @@ if ($ledger)             { $sections += "## INTELLIGENCE_LEDGER - PRINCIPIOS ATI
 if ($wip)                { $sections += "## WIP_BOARD - PROJETOS ATIVOS`n$wip" }
 if ($socio)              { $sections += "## ANALISE DO SOCIO - CONTEXTO ATUAL`n$socio" }
 if ($gateAlert)          { $sections += "## GATE ALERT - STATUS DOS PROJETOS`n$gateAlert" }
+if ($embaixadorStatus)   { $sections += "## EMBAIXADOR INATIVO (RISCO C) -- ACAO NECESSARIA`n$embaixadorStatus" }
 if ($checkIn)            { $sections += "## CHECK-IN OBRIGATORIO - PERGUNTAR AO DIRETOR`n$checkIn" }
+if ($churnWatchStatus)   { $sections += "## CHURN-WATCH INATIVO -- ACAO DO DIRETOR NECESSARIA`n$churnWatchStatus" }
 if ($formalizadorOutput) { $sections += "## FORMALIZADOR - CONFLITO COMERCIAL DETECTADO`n$formalizadorOutput" }
 if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }
 
-if ($manifestStatus)   { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
-if ($mapaDiarioOutput) { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
+if ($manifestStatus)    { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
+if ($mapaDiarioOutput)  { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
+if ($decisoesPendentes) { $sections = @("## DECISOES PENDENTES -- AGENDA BLOQUEADA ATE VEREDITO`n$decisoesPendentes") + $sections }
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +

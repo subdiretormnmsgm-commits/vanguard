@@ -192,4 +192,20 @@ Write-Host " NOTA: o arquivo 12 com PLACEHOLDER deve ser substituido pela" -Fore
 Write-Host "       DIRETRIZ real do Gemini antes de ir ao NotebookLM." -ForegroundColor Yellow
 Write-Host ""
 
+# RISCO A -- Atualizar loop_fase_atual.notebooklm = "OK" automaticamente (P-077)
+$wipPath2 = "$raiz\CLIENTES\WIP_BOARD.json"
+try {
+    $wipData = Get-Content $wipPath2 -Raw -Encoding UTF8 | ConvertFrom-Json
+    $proj2   = @($wipData.board.build) | Where-Object { $_.cliente.ToUpper() -eq $cliente } | Select-Object -First 1
+    if ($proj2 -and $proj2.loop_fase_atual) {
+        $proj2.loop_fase_atual.notebooklm = "OK"
+        $loopN = if ($proj2.loop_fase_atual.loop) { $proj2.loop_fase_atual.loop } else { "?" }
+        $proj2.loop_fase_atual.proximo = "Embaixador -- PASSO7 Secao D antes do Musculo"
+        $wipData | ConvertTo-Json -Depth 15 | Set-Content $wipPath2 -Encoding UTF8
+        Write-Host " [LOOP] loop_fase_atual.notebooklm = OK -- WIP_BOARD atualizado" -ForegroundColor Green
+    }
+} catch {
+    Write-Host " [WARN] Nao foi possivel atualizar loop_fase_atual.notebooklm" -ForegroundColor Yellow
+}
+
 Start-Process explorer.exe $fontes_dir

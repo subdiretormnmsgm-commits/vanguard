@@ -260,6 +260,23 @@ if (Test-Path $contratoStatus) {
 # --------------------------------------------------------------------------
 # INSTRUCOES FINAIS
 # --------------------------------------------------------------------------
+# RISCO A -- Atualizar loop_fase_atual.embaixador = "OK" automaticamente (P-077)
+if (-not $AutoSync) {
+    $wipPath2 = "$raiz\CLIENTES\WIP_BOARD.json"
+    try {
+        $wipData = Get-Content $wipPath2 -Raw -Encoding UTF8 | ConvertFrom-Json
+        $proj2   = @($wipData.board.build) | Where-Object { $_.cliente.ToUpper() -eq $cliente } | Select-Object -First 1
+        if ($proj2 -and $proj2.loop_fase_atual) {
+            $proj2.loop_fase_atual.embaixador = "OK"
+            $proj2.loop_fase_atual.proximo = "Musculo -- sintese P-037 e deliberacao"
+            $wipData | ConvertTo-Json -Depth 15 | Set-Content $wipPath2 -Encoding UTF8
+            Write-Host "  [LOOP] loop_fase_atual.embaixador = OK -- WIP_BOARD atualizado" -ForegroundColor Green
+        }
+    } catch {
+        Write-Host "  [WARN] Nao foi possivel atualizar loop_fase_atual.embaixador" -ForegroundColor Yellow
+    }
+}
+
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Magenta
 Write-Host "  INSTRUCOES -- O QUE FAZER NO CLAUDE PROJECTS  " -ForegroundColor Magenta

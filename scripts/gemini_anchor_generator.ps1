@@ -193,4 +193,24 @@ try {
 } catch {
     Write-Host "  Abrir manualmente: https://gemini.google.com" -ForegroundColor Yellow
 }
+
+# RISCO A -- Atualizar loop_fase_atual.gemini = "OK" automaticamente (P-077)
+if ($projetoAtivo -and $projetoAtivo.id -ne "MANUAL") {
+    try {
+        $wipPath2 = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
+        $wipData  = Get-Content $wipPath2 -Raw -Encoding UTF8 | ConvertFrom-Json
+        $proj2    = @($wipData.board.build) | Where-Object { $_.cliente -eq $projetoAtivo.cliente } | Select-Object -First 1
+        if ($proj2 -and $proj2.loop_fase_atual) {
+            $proj2.loop_fase_atual.gemini = "OK"
+            $loopN = if ($proj2.loop_fase_atual.loop) { $proj2.loop_fase_atual.loop } else { "?" }
+            $cliLow = $proj2.cliente.ToLower()
+            $proj2.loop_fase_atual.proximo = "NotebookLM -- Skill $cliLow-v$loopN.md"
+            $wipData | ConvertTo-Json -Depth 15 | Set-Content $wipPath2 -Encoding UTF8
+            Write-Host "  [LOOP] loop_fase_atual.gemini = OK -- WIP_BOARD atualizado" -ForegroundColor Green
+        }
+    } catch {
+        Write-Host "  [WARN] Nao foi possivel atualizar loop_fase_atual.gemini" -ForegroundColor Yellow
+    }
+}
+
 Write-Host "================================================"
