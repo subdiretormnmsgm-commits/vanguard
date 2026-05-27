@@ -1,6 +1,6 @@
 ﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-05-23
+> Criado: 2026-05-17 | Última atualização: 2026-05-26
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -327,6 +327,9 @@ O que a Vanguard está construindo: um professor particular que sabe exatamente 
 | 2026-05-18 | **Análise Pentálateral — Embaixador delibera** | Embaixador processou E-1 a E-5 de Ingrid: frase âncora (E-1), encerramento numérico (E-2), E-3 elevado a gate formal toda segunda, E-4 como candidato P-033. |
 | 2026-05-18 | **TEMPERATURA_CLIENTE — Piloto N-4** | Ingrid escolhida como piloto do protocolo. TEMPERATURA: AMARELO. Override do GUT Score após 7 dias de uso real. H-1 → MAIS PROVÁVEL \| H-2 → IMPROVÁVEL. |
 | 2026-05-18 | **Sistema de alertas ativo** | Telegram Bot @Eduardo431Vanguardbot + briefing 7h + WhatsApp clipboard. Eduardo recebe mensagem exata. Zero composição mental. |
+| 2026-05-24 | **Loop 5 iniciado — DIRETRIZ ingrid-v5.md** | Dias 12-13: Contador de Pontos Ponderados + Push dominical. P-059: isolamento de contexto por cliente ativado. |
+| 2026-05-26 | **Gate Dia 15 (29-05-2026 sexta) APROVADO (antecipado)** | Ingrid com acesso admin Supabase próprio. Termo de Uso confirmado recebido (assinatura pendente). Loop 5 CONCLUIDO. |
+| 2026-05-26 | **D4:A executado** | Lead pipeline: Ingrid não conhece candidatos. Resultado frio — H-4 não confirmada. |
 
 ### Ideias disruptivas geradas neste projeto (por membro)
 
@@ -381,6 +384,10 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **P-050 + Knowledge Base** | 2026-05-21 | Toda solução técnica documentada em KNOWLEDGE_BASE/ imediatamente. health_check.py testa roteiro do cliente e envia relatório Telegram. |
 | **Expansão Universal de Papéis** | 2026-05-23 | **A maior evolução do Pentalateral desde sua criação.** 12 novas deficiências formalizadas (DEF-G/N/M/E 5-7). COMANDO_ESTRATEGISTA_MASTER (P-052) resolve amnésia estrutural do Gemini. MANIFESTO_DE_FONTES (P-053) declara o que o Auditor pode/não pode ver. REGISTRO_DE_PREMISSAS torna premissas silenciosas visíveis. CANDIDATOS_A_PRINCIPIO captura fricção→princípio em tempo real. 25 ideias/ciclo [M×2+G+N+E × 5]. TEMPERATURA_PONDERADA (score 0-10) substitui temperatura simples. INTELIGENCIA_CRUZADA_NICHO conecta padrões entre clientes do mesmo nicho. |
 | **Rename Pentalateral → PENTALATERAL** | 2026-05-23 | Pasta `PENTALATERAL_UNIVERSAL/` renomeada para `PENTALATERAL_UNIVERSAL/`. 234+ arquivos renomeados via git mv. Todas as referências em scripts, hooks, skills e documentos atualizadas. Decisão formal do Diretor Eduardo. |
+| **P-059 — Isolamento de Contexto** | 2026-05-24 | Lei: cada IA vê só o seu projeto. Arquivos NOTEBOOKLM_FONTES (07, 08, 18) agora gerados por cliente. Zero cross-contamination. |
+| **P-060 — Propagação pelo Músculo** | 2026-05-24 | Músculo responsável por toda propagação — Diretor não gerencia documentos. propagate_changes.ps1 automático. |
+| **P-069 — Data Calendário Soberana** | 2026-05-29 | "Dia X" sempre com (DD-MM-YYYY dia-da-semana). Pendência do dia bloqueia avanço em qualquer projeto. |
+| **VEREDITOS_RESUMO informal** | 2026-05-26 | Gate Dia 15 Ingrid executado sem pipeline DECISOES.json. Documentado como "executado informalmente". VEREDITOS_RESUMO gerado como registro honesto. DEF-E-8 ativo para Loop 6. |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
@@ -463,7 +470,9 @@ Em 2026-05-23, esse princípio foi densificado: 12 novas deficiências mapeadas,
 | 2026-05-15 | Segundo projeto ativo (Ingrid) | Piloto interno | Em build |
 | 2026-05-16 | Primeiros contratos gerados | Minutas | Aguardando assinatura |
 | 2026-05-19 | Primeira entrega presencial (Valdece) | R$5.000 setup + R$350/mês | Gate P-038 aprovado · 61 acórdãos · Netlify deploy |
-| 2026-05-30 | Entrega final PROJ-002 Ingrid | — | Meta |
+| 2026-05-25 | V3 ENRICHMENT Valdece em produção | R$5.000 setup + R$350/mês MRR | Contrato ativo · Hypercare até 2026-06-18 |
+| 2026-05-26 | Gate Dia 15 APROVADO — Loop 5 Ingrid CONCLUIDO | — | Acesso admin Supabase · Termo recebido · Loop 6 desbloqueado |
+| 2026-05-30 | Deadline original PROJ-002 Ingrid | — | Loop 6 em andamento |
 | 2026-09-06 | Prova da Ingrid — validação real do produto | — | Meta |
 
 **Receita faturada até 2026-05-17:** R$ 0
@@ -539,10 +548,11 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 | ✅ 2026-05-23 | Rename Pentalateral → PENTALATERAL — decisão formal do Diretor | Identidade |
 | ✅ 2026-05-23 | Embaixador V2.0 — 17 mandatos (D1/D2/D3) + 7 blocos + Painel de Deliberação automático | Processo |
 | ✅ 2026-05-23 | INSTRUCAO_SISTEMA_EMBAIXADOR_TEMPLATE.md v1.0 — template universal para duplicar Embaixador | Processo |
-| [ ] 2026-05-23 | V3 ENRICHMENT Valdece — `python ingest.py --mode reingest` (quando DNS disponível) | Técnico |
-| [ ] 2026-05-30 | Deadline PROJ-002 Ingrid — Gate Dia 15 | Operacional |
-| [ ] 2026-05-30 | Ingrid Dias 12-13: Contador de Pontos Ponderados + Push Notificações | Build |
-| [ ] 2026-06-[?] | Loop 4 Ingrid — Gemini PASSO3 → NotebookLM → ingrid-v4.md | Loop |
+| ✅ 2026-05-25 | V3 ENRICHMENT Valdece — toga-digital-valdece.netlify.app · 61 acórdãos · threshold 0.62 | Técnico |
+| ✅ 2026-05-24 | Ingrid Dias 12-13: Contador de Pontos Ponderados + Push dominical | Build |
+| ✅ 2026-05-26 | Gate Dia 15 (29-05-2026 sexta) APROVADO (antecipado) — Ingrid admin Supabase · Termo recebido · Loop 5 CONCLUIDO | Operacional |
+| [ ] 2026-06-02 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
+| [ ] 2026-06-[?] | Loop 6 Ingrid — Gemini PASSO3 → ingrid-v6.md | Loop |
 | [ ] 2026-06-[?] | Terceiro cliente em discovery | Comercial |
 | 2026-06-[?] | Primeiro MRR real confirmado | Comercial — P-019 ativa IAH Retainer |
 | 2026-09-06 | Prova da Ingrid — validação real do produto EdTech | Produto |
@@ -550,6 +560,6 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 
 ---
 
-*Atualizado em: 2026-05-23*
-*Próxima atualização obrigatória: Gate Dia 12-13 PROJ-002 Ingrid (2026-05-30) + ingrid-v5.md gerada*
+*Atualizado em: 2026-05-26*
+*Próxima atualização obrigatória: Sentinel Report Valdece (2026-06-02) + Loop 6 Ingrid iniciado*
 *Responsável pela atualização: Músculo (Claude Code) ao fechar cada gate ou marco comercial*

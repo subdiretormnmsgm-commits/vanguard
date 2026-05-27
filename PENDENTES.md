@@ -29,9 +29,8 @@
 
 ## PROJ-002 · Ingrid (Loop 6 em andamento)
 
-- [ ] `2026-05-26` **NotebookLM Wipe & Sync — Ingrid:**
-  Arquivos 02, 06, 07, 08, 16, 17, 18 atualizados nesta sessão (P-059 + Template 9 + Memorando v2.4).
-  **AÇÃO DO DIRETOR:** NotebookLM Ingrid → deletar todas as fontes → arrastar CLIENTES/INGRID/NOTEBOOKLM_FONTES/ (18 arquivos).
+- [x] `2026-05-26` ~~**NotebookLM Wipe & Sync — Ingrid:**~~
+  ✅ Fontes antigas deletadas → 18 arquivos de CLIENTES/INGRID/NOTEBOOKLM_FONTES/ carregados — 2026-05-26
 
 - [ ] `2026-05-26` **Ingrid — Assinatura física do Termo de Uso:**
   Termo enviado via WhatsApp 2026-05-26 (LEGAL-WATCH PARCIAL). Assinatura física ainda pendente.

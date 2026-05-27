@@ -1360,7 +1360,7 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 ---
 
 ### [P-069] Data calendário rege a ordem de ação — não o dia interno do projeto
-**Descoberto:** 2026-05-29 | **Declarado pelo Diretor**
+**Descoberto:** 2026-05-25 | **Declarado pelo Diretor**
 **Fricção:** Com múltiplos projetos ativos, o Músculo avançava projetos por ordem de contexto da conversa — não por data de vencimento calendário. Resultado: um projeto avança enquanto outro acumula pendências do mesmo dia. Em escala de 20 projetos, isso cria cinco projetos adiantados e três com débito do dia.
 **Princípio:** O dia interno do projeto (ex: "Dia 16") deve ter correspondência explícita com uma data calendário (ex: 2026-05-25). A data calendário é a unidade de prioridade — mandatória, sem exceção. Ao iniciar qualquer sessão, o Músculo pergunta: "O que está pendente HOJE por data calendário em TODOS os projetos ativos?" e apresenta o mapa completo ao Diretor antes de qualquer ação.
 
@@ -1371,20 +1371,47 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 **Regra operacional:** Todo PENDENTES.md, WIP_BOARD e PASSO file deve conter o mapeamento `dia_projeto → data_calendário`. O briefing diário (7h) organiza por data, não por projeto. Músculo que avança Projeto A ignorando pendência do dia em Projeto B = falha de gestão, não de execução. Músculo que bypassa gate bloqueado sem autorização do Diretor = violação de processo.
 
-**Padrão de formato obrigatório (declarado pelo Diretor em 2026-05-29):** Todo documento — PENDENTES.md, WIP_BOARD, PASSO files, PAINEL, e-mail — deve registrar dias de projeto no formato **"Dia X (DD-MM-YYYY dia-da-semana)"**. Exemplo: "Dia 15 (29-05-2026 sexta-feira)". Esta notação elimina a ambiguidade entre dia interno do projeto e data calendário. Nunca escrever apenas "Dia 15" ou apenas "2026-05-29" — sempre juntos. O mapa diário (mapa_diario_pendencias.ps1) exibe a data no RESUMO ao lado de cada item. Ferramenta de verificação: ao criar qualquer item em PENDENTES.md com "Dia X", verificar que inclui "(DD-MM-YYYY dia-da-semana)" no título.
+**Padrão de formato obrigatório (declarado pelo Diretor em 2026-05-25):** Todo documento — PENDENTES.md, WIP_BOARD, PASSO files, PAINEL, e-mail — deve registrar dias de projeto no formato **"Dia X (DD-MM-YYYY dia-da-semana)"**. Exemplo: "Dia 15 (29-05-2026 sexta-feira)". Esta notação elimina a ambiguidade entre dia interno do projeto e data calendário. Nunca escrever apenas "Dia 15" ou apenas "2026-05-29" — sempre juntos. O mapa diário (mapa_diario_pendencias.ps1) exibe a data no RESUMO ao lado de cada item. Ferramenta de verificação: ao criar qualquer item em PENDENTES.md com "Dia X", verificar que inclui "(DD-MM-YYYY dia-da-semana)" no título.
 
 **Por que é mandatório:** Em escala de 20 projetos, gestão por dia interno cria projetos adiantados com débito calendário acumulado invisível. A data calendário é a única unidade de medida que o Diretor e o cliente enxergam — tudo mais é ilusão operacional. Eduardo declarou: "Deve ser bloqueado, só com autorização do Diretor, que deve ser alertado. Mas temos que pensar nas pendências de todos os projetos em execução."
 
 **Aplica-se a:** toda sessão com mais de 1 projeto ativo. Implementar: campo `calendario` no WIP_BOARD mapeando dias do projeto para datas reais.
 
-**Mandato de assessoria permanente (declarado pelo Diretor em 2026-05-29):** "Não vou avançar em projeto algum com pendência no outro. Sempre devo ser assessorado." O Músculo apresenta o mapa completo de TODOS os projetos antes de qualquer proposta de avanço. O Diretor decide onde alocar atenção — o Músculo não seleciona por ele. Músculo que propõe avanço em Projeto A sem verificar Projeto B = falha de assessoria.
+**Mandato de assessoria permanente (declarado pelo Diretor em 2026-05-25):** "Não vou avançar em projeto algum com pendência no outro. Sempre devo ser assessorado." O Músculo apresenta o mapa completo de TODOS os projetos antes de qualquer proposta de avanço. O Diretor decide onde alocar atenção — o Músculo não seleciona por ele. Músculo que propõe avanço em Projeto A sem verificar Projeto B = falha de assessoria.
 
-### [SESSAO 2026-05-29]
+---
+
+### [P-070] Onboarding Invisível — o cliente nunca cria conta
+**Descoberto:** 2026-05-26 | **Sessão:** Decisão do Diretor + Embaixador
+**Fricção:** Clientes avessos à tecnologia abandonam o projeto antes do kickoff quando solicitados a criar contas no Supabase, Google AI Studio ou GitHub. Evidência operacional: PROJ-002 Ingrid — atrito real gerado pelo setup técnico antes do primeiro uso.
+**Princípio:** A Vanguard absorve toda fricção técnica de cadastro no kickoff. O cliente nunca cria conta. A Vanguard cria caixas de e-mail `[nome]@vanguardtech.cloud` no hPanel da Hostinger (caixa separada por cliente — não alias redirect) e usa essa identidade para criar todas as contas necessárias (Supabase, Google, GitHub, Google AI Studio). O cliente recebe um único WhatsApp com login e senha — nunca mencionar as plataformas subjacentes.
+**Infraestrutura:** Domínio `vanguardtech.cloud` (Hostinger). Custo: R$ 6/mês por caixa (plano Starter). Custo por cliente novo: R$ 6/mês adicionais. Custo fixo operacional: 2 caixas (diretor@ + projetos@) = R$ 12/mês.
+**Pré-requisitos obrigatórios antes de criar contas de cliente:**
+1. Termo de Uso assinado com cláusula de autorização de criação de contas em nome do cliente (LGPD + ToS das plataformas)
+2. Cofre de senhas definido e ativo (Bitwarden recomendado — plano gratuito)
+3. Checklist P-010 executada ao fim do onboarding (verificar cada conta criada antes de entregar)
+**Nota de aplicação:** Ingrid e Valdece foram resolvidos com abordagem anterior (pré-protocolo). Aplicar P-070 a partir do próximo cliente.
+**Runbook completo:** `PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_ONBOARDING_INVISÍVEL.md`
+**Aplica-se a:** todo projeto cliente, sem exceção, a partir do kickoff.
+
+---
+
+### [SESSAO 2026-05-26]
+
+`[PRINCIPIO]` P-070 — Onboarding Invisível registrado. Cliente nunca cria conta — Vanguard cria caixas `@vanguardtech.cloud` e toda infraestrutura no kickoff. Protocolo em PENTALATERAL_UNIVERSAL/OPERACAO/.
+
+`[PROCESSO]` P-059 compliance concluída: 18_ATUALIZACAO_PENTALATERAL + 16_ALERTA_CONFLITO isolados por cliente (Ingrid + Valdece). VEREDITOS_RESUMO_INGRID_2026-05-26.md criado — Loop 5 executado informalmente, DEF-E-8 registrado para Loop 6.
+
+`[PRINCIPIO]` DEF-E-8 — Embaixador que fecha SEÇÃO D sem DECISOES.json = ciclo incompleto. Registrado no MEMORANDO v2.4.
+
+---
+
+### [SESSAO 2026-05-25]
 
 `[FRICCAO]` session_close.ps1 usa Read-Host — falha em modo non-interativo do Claude Code. Entradas de sessao (friccao, principio, deriva) nao sao capturadas automaticamente. Fix necessario: aceitar parametros via -Friccao/-Principio/-Deriva ou ler de arquivo pre-gerado pelo Musculo.
 
 `[PRINCIPIO]` P-069 operacionalizado: formato "Dia X (DD-MM-YYYY dia-da-semana)" gravado em PENDENTES, WIP_BOARD, CLAUDE.md, LEDGER e PAINEL. mapa_diario_pendencias.ps1 atualizado para exibir data completa em todas as secoes.
 
-`[MANDATO]` "Mensagens aos socios sempre por projeto, contextos diferentes. Eles vao alucinar. Sempre e para sempre." — declarado pelo Diretor em 2026-05-29 com enfase dupla. Cada PASSO file contem apenas informacao do projeto correspondente. Zero mistura entre Ingrid e Valdece.
+`[MANDATO]` "Mensagens aos socios sempre por projeto, contextos diferentes. Eles vao alucinar. Sempre e para sempre." — declarado pelo Diretor em 2026-05-25 com enfase dupla. Cada PASSO file contem apenas informacao do projeto correspondente. Zero mistura entre Ingrid e Valdece.
 
 `[MANDATO]` P-013 Opcao B autorizada: Ingrid cria proprio Supabase. Eduardo ja contatou Ingrid. Deadline 30-05-2026. OFFBOARDING_RUNBOOK.md + migrate_ingrid_supabase_v1.sql criados e commitados.
