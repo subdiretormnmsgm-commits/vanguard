@@ -1,15 +1,70 @@
 {
-  "version": "1.1",
+  "schema_version": "2.0",
+  "version": "2.0",
   "updated": "2026-05-27",
   "projetos_ativos": ["INGRID", "VALDECE"],
   "ultima_atualizacao": "2026-05-27",
-  "description": "Mapa de dependencias do Pentalateral IAH. Quando um arquivo-fonte muda, todos os destinos devem ser atualizados automaticamente pelo Musculo via propagate_changes.ps1. Eduardo nunca gerencia propagacao manualmente.",
+  "description": "Mapa de dependencias do Pentalateral IAH v2.0. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060).",
+  "fonte_canonica_base": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE",
+  "documentos": {
+    "UNIVERSAL_PURO": {
+      "descricao": "Arquivos editados apenas na fonte canonica. NUNCA editar em CLIENTES/*/NOTEBOOKLM_FONTES/. Deteccao de violacao ativa via detect_canonical_violation.ps1 (Gate 0c session_start).",
+      "deteccao_violacao": true,
+      "arquivos": [
+        { "slot": "00", "nome": "00_INSTRUCAO_AUDITOR.md",               "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/00_INSTRUCAO_AUDITOR.md" },
+        { "slot": "01", "nome": "01_SKILL_PROTOCOLO_VANGUARD.md",         "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/01_SKILL_PROTOCOLO_VANGUARD.md" },
+        { "slot": "02", "nome": "02_MEMORANDO_PENTALATERAL_UNIVERSAL.md", "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md" },
+        { "slot": "03", "nome": "03_MANUAL_DIRETOR.md",                   "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/03_MANUAL_DIRETOR.md" },
+        { "slot": "04", "nome": "04_INTELLIGENCE_LEDGER.md",              "canonical": "INTELLIGENCE_LEDGER.md",
+          "nota": "Fonte raiz eh INTELLIGENCE_LEDGER.md na raiz do repo. NOTEBOOKLM_BASE eh espelho intermediario. R-001 propaga raiz -> NOTEBOOKLM_BASE -> CLIENTES." },
+        { "slot": "05", "nome": "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",  "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/05_PROCESSO_EVOLUTIVO_PENTALATERAL.md" },
+        { "slot": "06", "nome": "06_TEMPLATES_COMUNICACAO_PENTALATERAL.md","canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/06_TEMPLATES_COMUNICACAO_PENTALATERAL.md" },
+        { "slot": "17", "nome": "17_VANGUARD_TIMELINE.md",                "canonical": "PENTALATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md" },
+        { "slot": "18", "nome": "18_ATUALIZACAO_PENTALATERAL_*.md",        "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_*.md",
+          "padrao": true }
+      ]
+    },
+    "TEMPLATE_COM_INSTANCIA": {
+      "descricao": "Templates universais que geram instancias por projeto via campos de contexto. Template nunca editado diretamente no projeto.",
+      "arquivos": [
+        { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md",   "instancia_padrao": "PASSO3_GEMINI_[CLIENTE].md",   "campos_contexto": ["cliente", "loop", "missao"] },
+        { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md","instancia_padrao": "PASSO5_NOTEBOOKLM_[CLIENTE].md","campos_contexto": ["cliente", "loop", "skill_nome"] },
+        { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md","instancia_padrao": "PASSO7_EMBAIXADOR_[CLIENTE].md","campos_contexto": ["cliente", "reuniao", "temperatura"] }
+      ]
+    },
+    "PROJECT_ONLY": {
+      "descricao": "Arquivos gerados por processo para cada projeto. NAO existem em UNIVERSAL. NAO sao orfaos no sync_vanguard_docs.ps1. Nunca copiar de UNIVERSAL para instancia de projeto.",
+      "padroes": [
+        "07_WIP_BOARD.txt",
+        "08_ANALISE_SOCIO_ATUAL.txt",
+        "09_BRIEFING_DISCOVERY.*",
+        "09_BRIEFING_DISCOVERY.txt",
+        "10_MEMORIA_RECENTE.md",
+        "10_MEMORIA_RECENTE.*",
+        "11_RELATORIO_EVOLUTIVO.md",
+        "11_RELATORIO_EVOLUTIVO.*",
+        "12_DIRETRIZ_GEMINI.txt",
+        "12_DIRETRIZ_GEMINI.*",
+        "13_PASSO5_NOTEBOOKLM.md",
+        "13_PASSO5_NOTEBOOKLM.*",
+        "14_MEMORIA_EMBAIXADOR.md",
+        "14_PASSO3_GEMINI_TEMPLATE.md",
+        "15_PASSO5_NOTEBOOKLM_TEMPLATE.md",
+        "16_ALERTA_CONFLITO.md",
+        "PASSO3_GEMINI_*.md",
+        "PASSO5_NOTEBOOKLM_*.md",
+        "PASSO7_EMBAIXADOR_*.md",
+        "PASSO7_*.md"
+      ]
+    }
+  },
   "rules": [
     {
       "id": "R-001",
       "trigger": "INTELLIGENCE_LEDGER.md",
-      "description": "LEDGER vai para todos os clientes e Embaixadores",
+      "description": "LEDGER (raiz) -> NOTEBOOKLM_BASE (espelho) -> todos os clientes (P-073: fonte raiz e unica editavel)",
       "destinations": [
+        { "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/04_INTELLIGENCE_LEDGER.md", "action": "copy_fixed" },
         { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md", "action": "copy_to_all_clients" },
         { "pattern": "CLIENTES/*/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md", "action": "copy_to_all_clients_claude_project" }
       ]
@@ -25,16 +80,18 @@
     {
       "id": "R-003",
       "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md",
-      "description": "Manual do Diretor vai para todas as NOTEBOOKLM_FONTES",
+      "description": "Manual do Diretor vai para todas as NOTEBOOKLM_FONTES e NOTEBOOKLM_BASE",
       "destinations": [
+        { "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/03_MANUAL_DIRETOR.md", "action": "copy_fixed" },
         { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/03_MANUAL_DIRETOR.md", "action": "copy_to_all_clients" }
       ]
     },
     {
       "id": "R-004",
       "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md",
-      "description": "Skill Protocolo vai para NOTEBOOKLM_FONTES e para .claude/skills",
+      "description": "Skill Protocolo vai para NOTEBOOKLM_BASE, NOTEBOOKLM_FONTES e .claude/skills",
       "destinations": [
+        { "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/01_SKILL_PROTOCOLO_VANGUARD.md", "action": "copy_fixed" },
         { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md", "action": "copy_to_all_clients" },
         { "pattern": ".claude/skills/vanguard-protocolo.md", "action": "copy_fixed" }
       ]
@@ -42,8 +99,9 @@
     {
       "id": "R-005",
       "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md",
-      "description": "Memorando vai para NOTEBOOKLM_FONTES",
+      "description": "Memorando vai para NOTEBOOKLM_BASE e NOTEBOOKLM_FONTES",
       "destinations": [
+        { "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md", "action": "copy_fixed" },
         { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md", "action": "copy_to_all_clients" }
       ]
     },
@@ -91,8 +149,9 @@
     {
       "id": "R-011",
       "trigger": "PENTALATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md",
-      "description": "Timeline vai para NOTEBOOKLM_FONTES/17 e CLAUDE_PROJECT/16 de todos os clientes",
+      "description": "Timeline vai para NOTEBOOKLM_BASE, NOTEBOOKLM_FONTES/17 e CLAUDE_PROJECT/16 de todos os clientes",
       "destinations": [
+        { "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/17_VANGUARD_TIMELINE.md", "action": "copy_fixed" },
         { "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/17_VANGUARD_TIMELINE.md", "action": "copy_to_all_clients" },
         { "pattern": "CLIENTES/*/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md", "action": "copy_to_all_clients_claude_project" }
       ]

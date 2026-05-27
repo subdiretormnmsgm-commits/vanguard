@@ -1434,3 +1434,23 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 `[PROCESSO]` P-059 compliance concluída: 18_ATUALIZACAO_PENTALATERAL + 16_ALERTA_CONFLITO isolados por cliente (Ingrid + Valdece). VEREDITOS_RESUMO_INGRID_2026-05-26.md criado — Loop 5 executado informalmente.
 
 `[CORRECAO]` SESSAO 2026-05-29 era data futura incorreta — corrigida para 2026-05-25 no LEDGER raiz e no NOTEBOOKLM_BASE/04.
+
+---
+
+### [P-073] Documento editado fora da fonte canônica é uma duplicata — não uma versão
+**Descoberto:** 2026-05-27 (LEDGER NOTEBOOKLM_BASE 23:16 vs raiz 06:35 — hashes divergentes) | **Inscrito:** 2026-05-27
+**Emitido por:** Músculo — Ordem Integridade Documental
+**Fricção:** `PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/04_INTELLIGENCE_LEDGER.md` tinha timestamp 23:16 de 26/05 (130.725 bytes) enquanto o LEDGER raiz tinha 06:35 de 27/05 (132.435 bytes). Diferença: P-071 e P-072 ausentes no espelho. Causa: R-001 do DEPENDENCY_MAP não incluía NOTEBOOKLM_BASE como destino — propagate_changes.ps1 atualizava CLIENTES/*/NOTEBOOKLM_FONTES/ mas não o espelho intermediário.
+**Princípio:** Toda edição acontece NA FONTE CANÔNICA. Derivados são gerados, nunca editados. Se um derivado tem hash diferente do canonical E timestamp mais novo → violação confirmada. `detect_canonical_violation.ps1` detecta e bloqueia no PASSO 0c do `session_start.ps1`. R-001 do DEPENDENCY_MAP foi corrigido para incluir `PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/04_INTELLIGENCE_LEDGER.md` como primeiro destino da propagação.
+**Aplica-se a:** INTELLIGENCE_LEDGER.md, SKILL_PROTOCOLO_VANGUARD.md, MEMORANDO, MANUAL_DIRETOR, todos os docs UNIVERSAL_PURO classificados no DEPENDENCY_MAP v2.0.
+**Ferramentas:** `detect_canonical_violation.ps1` (Gate 0c) + `DEPENDENCY_MAP.json v2.0` (classificação UNIVERSAL_PURO) + `propagate_changes.ps1` (propagação R-001 atualizado).
+
+---
+
+### [P-074] Propagação de decisão é total ou não é propagação — parcial é pior que zero
+**Descoberto:** 2026-05-27 (10 orfãos falsos no SYNC_REPORT + R-001 sem destino para NOTEBOOKLM_BASE) | **Inscrito:** 2026-05-27
+**Emitido por:** Músculo — Ordem Integridade Documental
+**Fricção:** `sync_vanguard_docs.ps1` reportava 10 arquivos PROJECT_ONLY como ORFAO — causando falso AMARELO no SYNC_REPORT e distraindo o Diretor com decisões desnecessárias. Simultaneamente, R-001 propagava LEDGER para CLIENTES/ mas não para NOTEBOOKLM_BASE — propagação parcial gerava a duplicata do P-073. Dois problemas, mesma causa raiz: DEPENDENCY_MAP incompleto.
+**Princípio:** Propagação incompleta é mais perigosa que ausência de propagação — cria falsa sensação de integridade. `decision_impact.ps1` expõe cascata ANTES de commitar: mostra SYNC / DESATUAL / AUSENTE por destino. `sync_vanguard_docs.ps1 v2.3` distingue ORFAO real de PROJECT_ONLY — lido dinamicamente do DEPENDENCY_MAP v2.0. `declare 'propagação concluída'` só após `decision_impact.ps1` confirmar ZERO desatualizados.
+**Aplica-se a:** toda sessão onde um arquivo-fonte do DEPENDENCY_MAP é editado. NUNCA declarar propagação concluída sem evidência instrumental.
+**Ferramentas:** `decision_impact.ps1` (impacto pré-commit) + `sync_vanguard_docs.ps1 v2.3` (PROJECT_ONLY) + `DEPENDENCY_MAP.json v2.0` (regras completas R-001 a R-013).

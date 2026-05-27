@@ -1400,20 +1400,30 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Runbook:** `PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_ONBOARDING_INVISÍVEL.md`
 **Aplica-se a:** todo projeto cliente, sem exceção, desde o kickoff.
 
-### [P-071] Processo que depende de disciplina humana falha com 2 projetos e colapsa com 20
-**Descoberto:** 2026-05-26 | **Sessão:** OSV-001 + Ordem do Diretor
-**Fricção:** [FALHA-PROCESSO-2026-05-18-D] — 2h de auditoria manual. [P-047] — 51 arquivos desatualizados declarados "feitos". [P-060] — em uma sessão, Eduardo apontou manualmente: SKILL_PROTOCOLO desatualizado, MASTER desatualizado, bug em script, documentos não propagados. Com 20 projetos, isso colapsa.
-**Princípio:** A solução correta torna o comportamento certo o único caminho disponível — não o mais recomendado. Processo que depende de disciplina do Músculo falhará. A automação é a única solução.
-**Implementação:**
-- `session_close.ps1` reescrito sem nenhum `Read-Host` — roda não-interativamente em qualquer contexto
-- Parâmetros opcionais `-Friccao`, `-Principio`, `-Deriva`, `-Override`, `-Divida`, `-Candidato`, `-Padrao`, `-Mandato`
-- `MANIFEST_DOCS.json` por projeto — hashes SHA-256 source vs destino, lido por `session_start.ps1` na abertura
-- `.git/hooks/post-commit` — propaga via DEPENDENCY_MAP após cada commit, sem intervenção
-- `session_start.ps1` exibe estado VERDE/AMARELO/VERMELHO de cada projeto na abertura
-- `propagate_changes.ps1` expandido com ação `copy_to_all_clients_verbatim` (byte-level)
-- `DEPENDENCY_MAP.json` R-011/R-012/R-013 — VANGUARD_TIMELINE, 06_TEMPLATES e MEMORANDO agora têm regras de cascade
-**Derivado de:** P-033, P-047, P-060, [FALHA-PROCESSO-2026-05-18-D]
-**Aplica-se a:** todo processo operacional do Pentalateral — sync, propagação, encerramento, abertura.
+### [P-071] Sessão encerrada é fato técnico, não intenção — gate bloqueante obrigatório
+**Descoberto:** 2026-05-26 | **Consolidado:** 2026-05-27 | **Emitido por:** Diretor Eduardo via Embaixador (OSV-001)
+**Fricção:** [FALHA-PROCESSO-2026-05-18-D] — 2h de auditoria manual. [P-047] — 51 arquivos desatualizados declarados "feitos". [P-060] — Eduardo apontou manualmente documentos desatualizados. Com 2 projetos ativos, documentos encontrados desatualizados após encerramento recorrente. Causa raiz: `session_close.ps1` não bloqueava se sync não ocorria. Disciplina não escala — arquitetura escala.
+**Princípio:** O script `session_close.ps1` é o ÚNICO ponto de saída de qualquer sessão. Executa 9 gates em sequência: auditoria → sync_docs → propagate → ledger_sync → validate → artefatos → LOG → e-mail/Telegram → PAINEL. Gates 1 (auditar_consistencia) e 5 (validate_scripts) com VERMELHO = `exit 1`. Músculo que declara "sessão encerrada" sem os 9 gates = dado falso ao Diretor.
+**Princípio relacionado:** "Processo que depende de disciplina humana falha com 2 projetos e colapsa com 20. A solução é tornar o comportamento correto o único caminho disponível — não o mais recomendado."
+**Implementação 2026-05-27:**
+- `session_close.ps1` — 9 gates sequenciais, Gates 1 e 5 bloqueantes com `exit 1`
+- `session_start.ps1` — criado do zero: AGENDA DO DIA + bloqueio DECISOES pendente + P-059
+- `decisoes_watcher.ps1` — FileSystemWatcher monitora DECISOES/ e abre render_painel automaticamente
+- `generate_protocolo_encerramento.ps1` — ANALISE GERENCIAL e ENTREGAS DO DIA preenchidos automaticamente
+- `executar_vereditos.ps1` — bug linha ~145 corrigido; ValidateSet removido (qualquer projeto)
+- `DEPENDENCY_MAP.json` — campo `projetos_ativos` adicionado (v1.1)
+**Antecedentes:** P-033, P-047, P-060, [FALHA-PROCESSO-2026-05-18-D]
+**Aplica-se a:** toda sessão do Pentalateral — com 1, 2 ou 20 projetos ativos. Sem exceção.
+
+---
+
+### [P-072] Deliberação é ato formal, não conversa — painel HTML é o único canal de veredito
+**Descoberto:** 2026-05-26 (Loop 5 Ingrid executado informalmente) | **Inscrito:** 2026-05-27
+**Emitido por:** Diretor Eduardo via Embaixador (OSV-001 + VEREDITOS_RESUMO_INGRID_2026-05-26.md)
+**Fricção:** Gate Dia 15 da Ingrid decidido verbalmente antes do painel HTML ser aberto. VEREDITOS_RESUMO registra como "irregularidade formal". Causa raiz: nenhum mecanismo impede o Diretor de tomar decisões fora do painel. O pipeline dependia de disciplina — não de arquitetura.
+**Princípio:** Decisão verbal não registrada no `DECISOES.json` = decisão que não existiu para o sistema. O painel HTML é o ÚNICO canal de deliberação formal. `session_start.ps1` detecta `DECISOES_*.json` sem `VEREDITOS_*.json` correspondente e bloqueia a sessão até deliberação formal. `decisoes_watcher.ps1` detecta novos `DECISOES_*.json` e abre o painel automaticamente. O Diretor NUNCA decide verbalmente quando existe `DECISOES.json` pendente.
+**Aplica-se a:** todo loop de qualquer projeto — INGRID, VALDECE, todos os futuros. Sem exceção.
+**Ferramentas:** `session_start.ps1` (bloqueio) + `decisoes_watcher.ps1` (detecção) + `render_painel.ps1` (único canal) + `executar_vereditos.ps1` (execução automática).
 
 ---
 
@@ -1424,3 +1434,23 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 `[PROCESSO]` P-059 compliance concluída: 18_ATUALIZACAO_PENTALATERAL + 16_ALERTA_CONFLITO isolados por cliente (Ingrid + Valdece). VEREDITOS_RESUMO_INGRID_2026-05-26.md criado — Loop 5 executado informalmente.
 
 `[CORRECAO]` SESSAO 2026-05-29 era data futura incorreta — corrigida para 2026-05-25 no LEDGER raiz e no NOTEBOOKLM_BASE/04.
+
+---
+
+### [P-073] Documento editado fora da fonte canônica é uma duplicata — não uma versão
+**Descoberto:** 2026-05-27 (LEDGER NOTEBOOKLM_BASE 23:16 vs raiz 06:35 — hashes divergentes) | **Inscrito:** 2026-05-27
+**Emitido por:** Músculo — Ordem Integridade Documental
+**Fricção:** `PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/04_INTELLIGENCE_LEDGER.md` tinha timestamp 23:16 de 26/05 (130.725 bytes) enquanto o LEDGER raiz tinha 06:35 de 27/05 (132.435 bytes). Diferença: P-071 e P-072 ausentes no espelho. Causa: R-001 do DEPENDENCY_MAP não incluía NOTEBOOKLM_BASE como destino — propagate_changes.ps1 atualizava CLIENTES/*/NOTEBOOKLM_FONTES/ mas não o espelho intermediário.
+**Princípio:** Toda edição acontece NA FONTE CANÔNICA. Derivados são gerados, nunca editados. Se um derivado tem hash diferente do canonical E timestamp mais novo → violação confirmada. `detect_canonical_violation.ps1` detecta e bloqueia no PASSO 0c do `session_start.ps1`. R-001 do DEPENDENCY_MAP foi corrigido para incluir `PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/04_INTELLIGENCE_LEDGER.md` como primeiro destino da propagação.
+**Aplica-se a:** INTELLIGENCE_LEDGER.md, SKILL_PROTOCOLO_VANGUARD.md, MEMORANDO, MANUAL_DIRETOR, todos os docs UNIVERSAL_PURO classificados no DEPENDENCY_MAP v2.0.
+**Ferramentas:** `detect_canonical_violation.ps1` (Gate 0c) + `DEPENDENCY_MAP.json v2.0` (classificação UNIVERSAL_PURO) + `propagate_changes.ps1` (propagação R-001 atualizado).
+
+---
+
+### [P-074] Propagação de decisão é total ou não é propagação — parcial é pior que zero
+**Descoberto:** 2026-05-27 (10 orfãos falsos no SYNC_REPORT + R-001 sem destino para NOTEBOOKLM_BASE) | **Inscrito:** 2026-05-27
+**Emitido por:** Músculo — Ordem Integridade Documental
+**Fricção:** `sync_vanguard_docs.ps1` reportava 10 arquivos PROJECT_ONLY como ORFAO — causando falso AMARELO no SYNC_REPORT e distraindo o Diretor com decisões desnecessárias. Simultaneamente, R-001 propagava LEDGER para CLIENTES/ mas não para NOTEBOOKLM_BASE — propagação parcial gerava a duplicata do P-073. Dois problemas, mesma causa raiz: DEPENDENCY_MAP incompleto.
+**Princípio:** Propagação incompleta é mais perigosa que ausência de propagação — cria falsa sensação de integridade. `decision_impact.ps1` expõe cascata ANTES de commitar: mostra SYNC / DESATUAL / AUSENTE por destino. `sync_vanguard_docs.ps1 v2.3` distingue ORFAO real de PROJECT_ONLY — lido dinamicamente do DEPENDENCY_MAP v2.0. `declare 'propagação concluída'` só após `decision_impact.ps1` confirmar ZERO desatualizados.
+**Aplica-se a:** toda sessão onde um arquivo-fonte do DEPENDENCY_MAP é editado. NUNCA declarar propagação concluída sem evidência instrumental.
+**Ferramentas:** `decision_impact.ps1` (impacto pré-commit) + `sync_vanguard_docs.ps1 v2.3` (PROJECT_ONLY) + `DEPENDENCY_MAP.json v2.0` (regras completas R-001 a R-013).

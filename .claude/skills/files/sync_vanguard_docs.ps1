@@ -1,7 +1,8 @@
 ﻿### sync_vanguard_docs.ps1
 ### Vanguard Doc Sync -- Script do Musculo
-### Versao: 2.2 | Exclusao de PERFIS_NICHO e VANGUARD_HISTORICO por padrao
+### Versao: 2.3 | Exclusao de PERFIS_NICHO e VANGUARD_HISTORICO por padrao
 ### Baseado em: P-033 -- Sync universal -> projetos e obrigatorio e imediato
+### Fix P-073: PROJECT_ONLY nao sao orfaos -- lidos do DEPENDENCY_MAP v2.0
 
 param(
     [string]$cliente = "",
@@ -24,6 +25,38 @@ $UNIVERSAL_BASE = Join-Path $RAIZ "PENTALATERAL_UNIVERSAL"
 $CLIENTES_DIR   = Join-Path $RAIZ "CLIENTES"
 $DATA_HOJE      = Get-Date -Format "yyyyMMdd"
 $RELATORIO_PATH = Join-Path $RAIZ "SYNC_REPORT_$DATA_HOJE.md"
+$DEPENDENCY_MAP = Join-Path $RAIZ "PENTALATERAL_UNIVERSAL\OPERACAO\DEPENDENCY_MAP.json"
+
+### Carregar padroes PROJECT_ONLY do DEPENDENCY_MAP v2.0
+$PADROES_PROJECT_ONLY = @()
+if (Test-Path $DEPENDENCY_MAP) {
+    try {
+        $mapObj = Get-Content $DEPENDENCY_MAP -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($mapObj.documentos -and $mapObj.documentos.PROJECT_ONLY -and $mapObj.documentos.PROJECT_ONLY.padroes) {
+            $PADROES_PROJECT_ONLY = @($mapObj.documentos.PROJECT_ONLY.padroes)
+        }
+    } catch { }
+}
+if ($PADROES_PROJECT_ONLY.Count -eq 0) {
+    ### Fallback hardcoded se DEPENDENCY_MAP v2.0 nao disponivel
+    $PADROES_PROJECT_ONLY = @(
+        "07_WIP_BOARD.txt","08_ANALISE_SOCIO_ATUAL.txt",
+        "09_BRIEFING_DISCOVERY.txt","09_BRIEFING_DISCOVERY.md",
+        "10_MEMORIA_RECENTE.md","11_RELATORIO_EVOLUTIVO.md",
+        "12_DIRETRIZ_GEMINI.txt","12_DIRETRIZ_GEMINI.md",
+        "13_PASSO5_NOTEBOOKLM.md","14_MEMORIA_EMBAIXADOR.md",
+        "14_PASSO3_GEMINI_TEMPLATE.md","15_PASSO5_NOTEBOOKLM_TEMPLATE.md",
+        "16_ALERTA_CONFLITO.md"
+    )
+}
+
+function Test-ProjectOnly {
+    param([string]$nomeArquivo)
+    foreach ($padrao in $PADROES_PROJECT_ONLY) {
+        if ($nomeArquivo -like $padrao) { return $true }
+    }
+    return $false
+}
 
 ### Arquivos Criticos Dinamicos na Raiz
 $ARQUIVOS_CRITICOS_RAIZ = @(
@@ -146,7 +179,7 @@ $total_universal = $lista_fontes_origem.Count
 Write-Log "  Arquivos fontes a espelhar: $total_universal (excluindo: $($PASTAS_EXCLUIDAS -join ', '))" "White"
 
 $inventario = @{}
-$contadores  = @{ SYNC=0; DESATUAL=0; AUSENTE=0; ORFAO=0 }
+$contadores  = @{ SYNC=0; DESATUAL=0; AUSENTE=0; ORFAO=0; PROJECT_ONLY=0 }
 
 foreach ($proj_path in $projetos) {
     $proj_nome = Split-Path $proj_path -Leaf
@@ -175,7 +208,12 @@ foreach ($proj_path in $projetos) {
         $existe_na_origem = $lista_fontes_origem | Where-Object { $_.Nome -eq $arq_proj.Name -or $_.Nome -eq $nomeBase }
         if (-not $existe_na_origem) {
             $chave = "$proj_nome|$($arq_proj.Name)"
-            $inventario[$chave] = "ORFAO"; $contadores.ORFAO++
+            # PROJECT_ONLY nao sao orfaos -- gerados por processo, nao tem origem em UNIVERSAL
+            if ((Test-ProjectOnly $arq_proj.Name) -or (Test-ProjectOnly $nomeBase)) {
+                $inventario[$chave] = "PROJECT_ONLY"; $contadores.PROJECT_ONLY++
+            } else {
+                $inventario[$chave] = "ORFAO"; $contadores.ORFAO++
+            }
         }
     }
 }
@@ -186,6 +224,7 @@ Write-Log "  SYNC:          $($contadores.SYNC)" "Green"
 Write-Log "  DESATUALIZADO: $($contadores.DESATUAL)" "Yellow"
 Write-Log "  AUSENTE:       $($contadores.AUSENTE)" "Red"
 Write-Log "  ORFAO:         $($contadores.ORFAO)" "Magenta"
+Write-Log "  PROJECT_ONLY:  $($contadores.PROJECT_ONLY) (gerados por processo -- nao sao orfaos)" "DarkGray"
 
 if ($modo -eq "verificar") {
     Write-Log ""
@@ -250,10 +289,18 @@ Write-Relatorio "## STATUS FINAL"
 Write-Relatorio "- Sincronizados: $sincronizados"
 Write-Relatorio "- Falhas de Integridade: $falhas"
 Write-Relatorio "- Orfaos: $($contadores.ORFAO)"
+Write-Relatorio "- Project_Only (nao sao orfaos): $($contadores.PROJECT_ONLY)"
 
 if ($contadores.ORFAO -gt 0) {
-    Write-Relatorio "## DECISOES PENDENTES (ORFAOS)"
+    Write-Relatorio "## DECISOES PENDENTES (ORFAOS REAIS)"
     foreach ($key in $inventario.Keys | Where-Object { $inventario[$_] -eq "ORFAO" }) {
+        Write-Relatorio "- $key"
+    }
+}
+
+if ($contadores.PROJECT_ONLY -gt 0 -and $verbose) {
+    Write-Relatorio "## PROJECT_ONLY (gerados por processo -- sem acao necessaria)"
+    foreach ($key in $inventario.Keys | Where-Object { $inventario[$_] -eq "PROJECT_ONLY" }) {
         Write-Relatorio "- $key"
     }
 }

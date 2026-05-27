@@ -180,7 +180,39 @@ if ($painelAnter) {
 }
 
 # ==========================================================================
-# PASSO 1 — Ler PENDENTES.md completo (P-063 BLOQUEANTE)
+# PASSO 0c -- Violacao canonical (P-073) -- BLOQUEANTE se VERMELHO
+# ==========================================================================
+Write-Host ""
+Write-Host "  [PASSO 0c] Verificando integridade canonical (P-073)..." -ForegroundColor Cyan
+$detectScript = "$BASE\scripts\detect_canonical_violation.ps1"
+if (Test-Path $detectScript) {
+    $outViolacao = & powershell -NonInteractive -File $detectScript 2>&1
+    $exitViolacao = $LASTEXITCODE
+    if ($exitViolacao -ne 0) {
+        Write-Host "  [VERMELHO] Violacoes canonicas detectadas:" -ForegroundColor Red
+        $outViolacao | Where-Object { $_ -match 'VIOLACAO|BLOQUEIO' } | ForEach-Object {
+            Write-Host "    * $_" -ForegroundColor Red
+        }
+        [void]$bloqueios.Add("P-073: arquivo editado fora da fonte canonical -- resolver antes de continuar")
+        Set-StatusVermelho
+        Write-Host "  Acao: edite apenas a fonte canonical. Execute propagate_changes.ps1." -ForegroundColor Yellow
+    } else {
+        $temAmarelo = $outViolacao | Where-Object { $_ -match 'AMARELO|DRIFT' }
+        if ($temAmarelo) {
+            Write-Host "  [AMARELO] Drift detectado (sync pendente -- nao eh violacao)" -ForegroundColor Yellow
+            [void]$avisos.Add("P-073: drift em documentos universais -- rodar sync_vanguard_docs.ps1")
+            Set-StatusAmarclo
+        } else {
+            Write-Host "  [OK] Integridade canonical VERDE" -ForegroundColor Green
+        }
+    }
+} else {
+    Write-Host "  [AVISO] detect_canonical_violation.ps1 nao encontrado -- gate ignorado" -ForegroundColor Yellow
+    Set-StatusAmarclo
+}
+
+# ==========================================================================
+# PASSO 1 -- Ler PENDENTES.md completo (P-063 BLOQUEANTE)
 # ==========================================================================
 Write-Host ""
 Write-Host "  [PASSO 1] Lendo PENDENTES.md (P-063)..." -ForegroundColor Cyan
