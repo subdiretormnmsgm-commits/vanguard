@@ -26,8 +26,8 @@
 | 2026-05-18 | App (PWA) | Primeira sessão real — Gate Dia 8 | Ingrid |
 | 2026-05-23 | WhatsApp (via Diretor) | Link do app reenviado — reengajamento pós-Loop 5 | Diretor |
 | 2026-05-24 | WhatsApp | Ingrid enviou mensagem espontânea — usou simulado, sinalizou retorno amanhã | Ingrid |
-| 2026-05-29 | WhatsApp | Ingrid viu documento (Termo 18/05) — confirmado recebido | Diretor |
-| 2026-05-29 | WhatsApp | Eduardo plantou lead D4:A — Ingrid respondeu "não conhece ninguém prestando concurso" | Diretor |
+| 2026-05-26 | WhatsApp | Ingrid viu documento (Termo 18/05) — confirmado recebido | Diretor |
+| 2026-05-26 | WhatsApp | Eduardo plantou lead D4:A — Ingrid respondeu "não conhece ninguém prestando concurso" | Diretor |
 
 ### FALAS VERBATIM DE INGRID
 
@@ -35,7 +35,7 @@
 |---|---|---|---|
 | 2026-05-18 | Via Diretor | *"Gostou muito do aplicativo, só fez essa ressalva: Na questão 18, não houve palavra destacada em negrito, como informava o enunciado."* | Primeira sessão real — Gate Dia 8 |
 | 2026-05-24 | WhatsApp direto | *"Boa noite, Eduardo! Fiz um simulado agora e gostei bastante. Amanhã volto ao app para atacar mais um pouco das questões!"* | Pós-reenvio do link (2026-05-23) — contato espontâneo noturno |
-| 2026-05-29 | WhatsApp (via Diretor) | *"[não conhece ninguém que esteja fazendo concurso]"* | Resposta ao plantio de lead D4:A — "Você conhece mais alguém prestando concurso esse ano?" |
+| 2026-05-26 | WhatsApp (via Diretor) | *"[não conhece ninguém que esteja fazendo concurso]"* | Resposta ao plantio de lead D4:A — "Você conhece mais alguém prestando concurso esse ano?" |
 
 ### EVENTOS OBSERVÁVEIS
 
@@ -157,8 +157,8 @@ Próxima reavaliação: após Eduardo informar feedback de Ingrid sobre Contador
 |---|---|---|
 | [CHURN-WATCH] | **DESATIVADO** — Ingrid retornou espontaneamente em 2026-05-24 | Rearmar se silêncio > 3 dias a partir de agora |
 | [QA-WATCH] negrito questão 18 | RESOLVIDO | Fix deployado 2026-05-19 |
-| [SCOPE-WATCH] H-5 compartilhamento | ATIVO — sem dado | Monitorar na próxima sessão |
-| [LEGAL-WATCH] Termo data | ATIVO | Reassinatura pendente: PDF diz 30/05, assinatura foi em 18/05 |
+| [SCOPE-WATCH] H-5 compartilhamento | DESATIVADO — D4:A: Ingrid não conhece ninguém prestando concurso. Pipeline indicação = zero. H-5 revisada para IMPROVÁVEL. | Rearmar apenas se Ingrid mencionar colega ou amigo usando o app |
+| [LEGAL-WATCH] Termo data | PARCIAL — Ingrid confirmou recebimento do novo PDF (18/05) em 2026-05-26. Reassinatura formal pendente. | Confirmar assinatura na próxima interação |
 | [DEPLOY-WATCH] gh-pages branch | RESOLVIDO — P-056 documentado | Script deploy_ingrid_ghpages.ps1 ativo — rodar ao fim de cada sessão de build |
 | [TESTE-WATCH] Features Loop 5 | **PARCIAL** — Simulado testado e aprovado (2026-05-24). Contador + Push: amanhã (2026-05-25) | Aguardar feedback de Ingrid sobre Contador após visita ao app |
 
@@ -172,7 +172,7 @@ Próxima reavaliação: após Eduardo informar feedback de Ingrid sobre Contador
 
 **Abertura do pitch:** *"Ingrid, esse ciclo foi piloto. Quero continuar do seu lado até o dia da prova — R$97/mês, menos que qualquer cursinho, e o sistema já te conhece. Quer continuar?"*
 
-**Inteligência de pipeline — D4:A (2026-05-29):**
+**Inteligência de pipeline — D4:A (2026-05-26):**
 - Eduardo plantou: *"Você conhece mais alguém prestando concurso esse ano?"*
 - Ingrid respondeu: não conhece ninguém
 - **Implicação:** Ingrid estuda em isolamento — sem grupo de estudo, sem rede de concurso. Pipeline de indicação = zero no curto prazo.
@@ -240,7 +240,7 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 
 | Nome | Contexto | Status |
 |---|---|---|
-| Nenhum registrado | — | Plantar pergunta na próxima sessão: *"Você conhece mais alguém prestando concurso esse ano?"* |
+| — | D4:A executado 2026-05-26: "Você conhece alguém prestando concurso?" | Ingrid respondeu: não conhece ninguém — pipeline de indicação = zero no curto prazo |
 
 ---
 
@@ -300,6 +300,7 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 | 2026-05-20 | H-3 revertida para PENDENTE, H-4 mantida ATIVA — engajamento inaugural ≠ hábito formado | Embaixador |
 | 2026-05-23 | Loop 5 Dia 12: G-5 + G-3 + Contador deployados. Deploy pipeline (P-056) corrigido. Link reenviado a Ingrid. Temperatura atualizada para VERDE FRÁGIL REENGAJAMENTO. Watchdog DEPLOY-WATCH + TESTE-WATCH criados. | Músculo (P-032) |
 | 2026-05-25 | Loop 5 SEÇÃO D: Embaixador executou reação completa a [M+G+N] (15 inputs). Painel de Deliberação D1-D5 gerado. VETO G-1+G-3 confirmado. N-2+N-3+N-5 confirmados. Veredito de Eduardo pendente. | Músculo (P-032) |
+| 2026-05-26 | Gate Dia 15 APROVADO — Loop 5 CONCLUIDO. D4:A executado (lead plantado, Ingrid confirmou não ter rede de concurso). Novo PDF Termo recebido e confirmado por Ingrid. Datas 2026-05-29 → 2026-05-26 corrigidas. SCOPE-WATCH H-5 desativado. LEGAL-WATCH parcial (recebimento confirmado, assinatura pendente). | Músculo (P-032) |
 
 ---
 

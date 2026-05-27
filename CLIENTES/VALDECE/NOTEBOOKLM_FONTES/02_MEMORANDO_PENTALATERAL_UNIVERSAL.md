@@ -1,9 +1,9 @@
 ﻿# MEMORANDO PENTALATERAL IAH — MODELO UNIVERSAL
 **IAH — Inteligência Artificial Humana**
 **Classificação:** Operacional · Portátil · Qualquer projeto · Qualquer operador
-**Versão:** 2.3
+**Versão:** 2.4
 **Data de emissão:** 2026-05-11
-**Última atualização:** 2026-05-23 — Expansão de papéis: 12 novas DEFs (G/N/M/E 5-7) + PARADIGMA v3.2 + 25 ideias/ciclo
+**Última atualização:** 2026-05-26 — P-059/P-060/P-069 + DEF-E-8 + PROTOCOLO DE ENCERRAMENTO / PAINEL_ATIVIDADES
 
 ---
 
@@ -112,7 +112,7 @@ PARADIGMA v3.0 — Conselho em Looping Evolutivo Ativo:
 | **Estrategista (Gemini)** | DEF-G-1 Alucinação Otimista · DEF-G-2 Complacência · DEF-G-3 Lost-in-Middle · DEF-G-4 Síntese Multidoc · DEF-G-5 Abstração Desconectada · DEF-G-6 Volatilidade de Tese · DEF-G-7 Antena Desligada | REFORMULAÇÃO_DO_PROBLEMA · POSIÇÃO_ADVERSARIAL · ARCO_DE_CONSEQUÊNCIAS · TRADUÇÃO_PARA_AÇÃO · MUDANÇA_DE_TESE · [SINAL_FRACO] · COMANDO_ESTRATEGISTA_MASTER (P-052) |
 | **Auditor (NotebookLM)** | DEF-N-1 Amnésia · DEF-N-2 Alucinação Estrutural · DEF-N-3 Yes-Man · DEF-N-4 Lost-in-Middle · DEF-N-5 Dependência de Qualidade das Fontes · DEF-N-6 Perspectiva Única · DEF-N-7 Latência de Ativação | MANIFESTO_DE_FONTES_ATIVO (P-053) · [RISCO_PRECOCE] · filtro externo obrigatório |
 | **Músculo (Claude Code)** | DEF-M-1 Amnésia de Sessão · DEF-M-2 Momentum de Execução · DEF-M-3 Otimismo de Estimativa · DEF-M-4 Escopo Silencioso · DEF-M-5 Drift de Formato · DEF-M-6 Déficit de Visão Longitudinal · DEF-M-7 Isolamento do Contexto · DEF-M-8 Ausência de Retroalimentação | REGISTRO_DE_PREMISSAS · CANDIDATOS_A_PRINCIPIO · 7 pontos de deliberação · session_close.ps1 |
-| **Embaixador (Claude Projects)** | DEF-E-1 Isolamento · DEF-E-2 Recência · DEF-E-3 Confirmação · DEF-E-4 Literalidade · DEF-E-5 Escalada · DEF-E-6 Silo de Cliente · DEF-E-7 Temperatura Simples | INTELIGENCIA_CRUZADA_NICHO · TEMPERATURA_PONDERADA (score 0-10, CHURN-WATCH < 6) |
+| **Embaixador (Claude Projects)** | DEF-E-1 Isolamento · DEF-E-2 Recência · DEF-E-3 Confirmação · DEF-E-4 Literalidade · DEF-E-5 Escalada · DEF-E-6 Silo de Cliente · DEF-E-7 Temperatura Simples · **DEF-E-8 Pipeline Incompleto** (fechar SEÇÃO D sem DECISOES.json = ciclo incompleto) | INTELIGENCIA_CRUZADA_NICHO · TEMPERATURA_PONDERADA (score 0-10, CHURN-WATCH < 6) · DECISOES.json schema v1.1 obrigatório ao fechar SEÇÃO D |
 
 **O princípio constitucional:**
 
@@ -1772,10 +1772,12 @@ E não esquece.
 | 5.0 | 2026-05-12 | Protocolo VEREDITO BINÁRIO adicionado: card de decisão em 10 segundos com Score GUT + ROI por opção · Músculo opera em "Modo Oráculo" — proponente, não apenas executor · Aprovado pelo Diretor Eduardo |
 | 5.1 | 2026-05-12 | Intelligence Compounding Engine (V24): INTELLIGENCE_LEDGER.md + knowledge_graph.json + Constituição de Processo (5 Hard Vetos + 5 Soft Vetos) + Shadow Architect obrigatório em todo Build + Skill-Drift Check no início de sessão + CONSELHO_SESSAO template + 5 princípios ativos capturados da sessão inaugural |
 | 2.2 | 2026-05-18 | Evolução para Pentalateral IAH: Embaixador adicionado como 5º ator (Claude Projects), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 25 ideias/ciclo [M×2+G+N+E × 5] [M+E+G+N × 5], Paradigma v3.1 documentado, Os 10 Passos do Pentalateral, tabela de membros expandida para 5, glossário com novos termos, manifesto atualizado, título atualizado para "Pentalateral IAH" |
+| 2.3 | 2026-05-23 | Expansão de papéis: 12 novas DEFs (G/N/M/E 5-7) + PARADIGMA v3.2 + 25 ideias/ciclo formalizadas + INSTRUCAO_SISTEMA_EMBAIXADOR_TEMPLATE.md v1.0 + Embaixador V2.0 (17 mandatos D1/D2/D3) |
+| 2.4 | 2026-05-26 | P-059 (Isolamento de contexto por cliente — Lei) + P-060 (Músculo responsável por toda propagação) + P-069 (Data Calendário Soberana) + DEF-E-8 (Pipeline Incompleto) + PROTOCOLO DE ENCERRAMENTO via PAINEL_ATIVIDADES integrado ao session_close.ps1 + Template 9 adicionado em TEMPLATES_COMUNICACAO_PENTALATERAL |
 
 ---
 
-*Documento do Pentalateral IAH · Modelo Universal v2.2*
+*Documento do Pentalateral IAH · Modelo Universal v2.4*
 *Portátil: funciona independentemente do operador, das ferramentas e da empresa*
 *Pode ser apresentado ao cliente como metodologia — não revela detalhes operacionais*
 *Próxima revisão: ao fechar PROJ-001 Valdece ou PROJ-002 Ingrid (primeiros projetos com Pentalateral completo)*
