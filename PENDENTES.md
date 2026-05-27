@@ -30,14 +30,11 @@
 - [x] `2026-05-26` ~~**NotebookLM Wipe & Sync — Ingrid:**~~
   ✅ Fontes antigas deletadas → 18 arquivos de CLIENTES/INGRID/NOTEBOOKLM_FONTES/ carregados — 2026-05-26
 
-- [ ] `2026-05-26` **Ingrid — Assinatura física do Termo de Uso:**
-  Termo enviado via WhatsApp 2026-05-26 (LEGAL-WATCH PARCIAL). Assinatura física ainda pendente.
-  **AÇÃO DO DIRETOR:** Confirmar recebimento físico + data de assinatura com Ingrid.
+- [x] `2026-05-26` ~~**Ingrid — Assinatura física do Termo de Uso — RESOLVIDO:**~~
+  ✅ Reassinatura física confirmada pelo Diretor em 2026-05-27. LEGAL-WATCH VERDE.
 
-- [ ] `2026-05-27` **Ingrid — Apresentar PDF do Termo (data 18/05/2026) para reassinatura:**
-  ✅ PDF gerado: `CLIENTES/INGRID/CLAUDE_PROJECT/Termo de Uso — PROJ-002 Ingrid — 18_05_2026.pdf`
-  Data interna confirmada: 18/05/2026. HTML fonte: `Termo_Uso_Ingrid_18052026.html`.
-  **AÇÃO DO DIRETOR:** Enviar PDF a Ingrid — "corrigi uma data rapidinho" → reassinatura física.
+- [x] `2026-05-27` ~~**Ingrid — Termo de Uso — RESOLVIDO:**~~
+  ✅ PDF 18/05/2026 enviado + reassinatura física obtida — confirmado pelo Diretor em 2026-05-27. LEGAL-WATCH VERDE.
 
 - [ ] `2026-05-26` **Deploy GitHub Pages — Ingrid v18 (Dia 15 concluído):**
   v18 funcional em produção com Edge Functions + Supabase yjqvjhezwhepwomukudt.
