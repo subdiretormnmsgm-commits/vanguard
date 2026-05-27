@@ -89,6 +89,30 @@ if ($projetoAtivo) {
     Write-Host "  Loop atual   : $($projetoAtivo.loop_atual)"
     Write-Host ""
 
+    # P-045 GATE: artefatos do loop anterior obrigatorios antes de ir ao Gemini
+    $loopNum = 0
+    if ($projetoAtivo.loop_fase_atual -and $projetoAtivo.loop_fase_atual.loop) {
+        try { $loopNum = [int]$projetoAtivo.loop_fase_atual.loop } catch {}
+    }
+    if ($loopNum -gt 1) {
+        $loopAnterior = $loopNum - 1
+        $memAnterior = Get-ChildItem $histDir -Filter "MEMORIA_V${loopAnterior}*.md" -ErrorAction SilentlyContinue | Select-Object -First 1
+        $relAnterior = Get-ChildItem $histDir -Filter "relatorio_evolutivo_V${loopAnterior}*.md" -ErrorAction SilentlyContinue | Select-Object -First 1
+        $faltando = @()
+        if (-not $memAnterior) { $faltando += "MEMORIA_V${loopAnterior}_$clienteUpper.md" }
+        if (-not $relAnterior) { $faltando += "relatorio_evolutivo_V${loopAnterior}_$clienteUpper.md" }
+        if ($faltando.Count -gt 0) {
+            Write-Host "=== P-045 GATE -- BLOQUEADO ===" -ForegroundColor Red
+            Write-Host "Artefatos do Loop $loopAnterior ausentes em: $histDir" -ForegroundColor Red
+            $faltando | ForEach-Object { Write-Host "  FALTANDO: $_" -ForegroundColor Yellow }
+            Write-Host ""
+            Write-Host "ACAO: Musculo gera MEMORIA_V${loopAnterior} + relatorio_V${loopAnterior} antes de ir ao Gemini." -ForegroundColor Yellow
+            Write-Host "Loop sem fechamento = proximo loop sem contexto (P-045)." -ForegroundColor Yellow
+            exit 1
+        }
+        Write-Host "  [P-045] Artefatos Loop $loopAnterior -- OK" -ForegroundColor Green
+    }
+
     # MEMORIA mais recente
     $memFile = Get-ChildItem $histDir -Filter "MEMORIA_V*.md" -ErrorAction SilentlyContinue |
                Sort-Object Name -Descending | Select-Object -First 1

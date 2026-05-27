@@ -363,15 +363,47 @@ function Get-EmbaixadorStatus {
     return $linhas -join "`n"
 }
 
+# --- Lembrete de Loop: fase atual por projeto em BUILD (ITEM 1 / C1) ---
+function Get-LembreteDeLoop {
+    $wipPath = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
+    if (-not (Test-Path $wipPath)) { return $null }
+    try {
+        $board = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $projs = @($board.board.build)
+        if ($projs.Count -eq 0) { return $null }
+        $linhas = @("FASES DO LOOP ATIVO -- $(Get-Date -Format 'yyyy-MM-dd')", "")
+        $temDado = $false
+        foreach ($proj in $projs) {
+            $lfa = $proj.loop_fase_atual
+            if (-not $lfa) { continue }
+            $temDado = $true
+            $linhas += "[$($proj.id)] $($proj.cliente) -- Loop $($lfa.loop)"
+            foreach ($socio in @("gemini","notebooklm","embaixador","musculo")) {
+                $st = $lfa.$socio
+                $icon = if ($st -eq "OK") { "[OK]" } else { "[--]" }
+                $linhas += "  $icon $($socio.PadRight(11)): $st"
+            }
+            $linhas += "  PROXIMO      : $($lfa.proximo)"
+            $linhas += ""
+        }
+        if (-not $temDado) { return $null }
+        return $linhas -join "`n"
+    } catch { return $null }
+}
+
 $decisoesPendentes = Get-DecisoesPendentes
 $churnWatchStatus  = Get-ChurnWatchStatus
 $embaixadorStatus  = Get-EmbaixadorStatus
+$loopLembrete      = Get-LembreteDeLoop
 
 # --- Lançar decisoes_watcher.ps1 como background silencioso (P-071) ---
+# ITEM 4A: EncodedCommand evita corrupcao de path com acentos (Area de Trabalho)
 $watcherScript = Join-Path $projectDir "scripts\decisoes_watcher.ps1"
 if (Test-Path $watcherScript) {
     try {
-        Start-Process powershell -ArgumentList "-NonInteractive -WindowStyle Hidden -File `"$watcherScript`"" -WindowStyle Hidden -ErrorAction SilentlyContinue
+        $wCmd = "& '$watcherScript'"
+        $wEnc = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($wCmd))
+        Start-Process powershell -ArgumentList "-NonInteractive -WindowStyle Hidden -EncodedCommand $wEnc" -WindowStyle Hidden -ErrorAction SilentlyContinue
     } catch {}
 }
 
@@ -383,7 +415,9 @@ if ((Test-Path $wipForSkill) -and (Test-Path $swScript)) {
         $boardSw = Get-Content $wipForSkill -Raw -Encoding UTF8 | ConvertFrom-Json
         foreach ($projSw in @($boardSw.board.build)) {
             $cliSw = $projSw.cliente
-            Start-Process powershell -ArgumentList "-NonInteractive -WindowStyle Hidden -File `"$swScript`" -cliente $cliSw" -WindowStyle Hidden -ErrorAction SilentlyContinue
+            $swCmd = "& '$swScript' -cliente $cliSw"
+            $swEnc = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($swCmd))
+            Start-Process powershell -ArgumentList "-NonInteractive -WindowStyle Hidden -EncodedCommand $swEnc" -WindowStyle Hidden -ErrorAction SilentlyContinue
         }
     } catch {}
 }
@@ -403,6 +437,7 @@ if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUT
 
 if ($manifestStatus)    { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
 if ($mapaDiarioOutput)  { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
+if ($loopLembrete)      { $sections = @("## LEMBRETE DE LOOP -- FASES ATIVAS (P-077)`n$loopLembrete") + $sections }
 if ($decisoesPendentes) { $sections = @("## DECISOES PENDENTES -- AGENDA BLOQUEADA ATE VEREDITO`n$decisoesPendentes") + $sections }
 if ($sections.Count -eq 0) { exit 0 }
 

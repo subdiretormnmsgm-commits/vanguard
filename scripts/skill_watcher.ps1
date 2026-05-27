@@ -106,6 +106,29 @@ $acaoSkill = {
         Remove-Item $arquivo -Force -ErrorAction SilentlyContinue
         Add-Content -Path $logPath -Value "[$ts] [SKILL_WATCHER] [$cli] Arquivo removido do DROP apos instalacao" -Encoding UTF8
 
+        # P-077: Atualizar WIP_BOARD loop_fase_atual.notebooklm = "OK"
+        try {
+            $wipBoardPath = Join-Path $basePath "CLIENTES\WIP_BOARD.json"
+            if (Test-Path $wipBoardPath) {
+                $boardData = Get-Content $wipBoardPath -Raw -Encoding UTF8 | ConvertFrom-Json
+                foreach ($projEntry in @($boardData.board.build)) {
+                    if ($projEntry.cliente -eq $cli) {
+                        if ($projEntry.loop_fase_atual) {
+                            $projEntry.loop_fase_atual.notebooklm = "OK"
+                            $projEntry.loop_fase_atual.proximo = "Embaixador -- PASSO7 com [N-1 a N-5] + [G-1 a G-5]"
+                        }
+                        break
+                    }
+                }
+                $boardData.atualizado_em = (Get-Date -Format "yyyy-MM-dd")
+                $jsonOut = $boardData | ConvertTo-Json -Depth 20
+                [System.IO.File]::WriteAllText($wipBoardPath, $jsonOut, [System.Text.Encoding]::UTF8)
+                Add-Content -Path $logPath -Value "[$ts] [SKILL_WATCHER] [$cli] WIP_BOARD: loop_fase_atual.notebooklm = OK" -Encoding UTF8
+            }
+        } catch {
+            Add-Content -Path $logPath -Value "[$ts] [SKILL_WATCHER] [$cli] AVISO: falha ao atualizar WIP_BOARD: $_" -Encoding UTF8
+        }
+
     } else {
         $msg = "Skill REJEITADA pelo gate (exit $exitCode) -- verificar criterios"
         Add-Content -Path $logPath -Value "[$ts] [SKILL_WATCHER] [$cli] $msg" -Encoding UTF8
