@@ -63,7 +63,7 @@ Auditor, você opera com 4 deficiências nativas:
 
 Ao gerar a Skill, compense ativamente:
 
-1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-076) que o Músculo deve citar ao deliberar
+1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-078) que o Músculo deve citar ao deliberar
 2. **Momentum de Execução** → gates verificáveis por dia — sem output real = gate inválido
 3. **Otimismo de Estimativa** → comparar estimativas com loops anteriores; Circuit Breaker preventivo se subestimar
 4. **Escopo Silencioso** → listar explicitamente o que NÃO construir neste loop
@@ -231,4 +231,5 @@ Ordem dos documentos:
 17_VANGUARD_TIMELINE.md
 18_ATUALIZACAO_PENTALATERAL_2026-05-24.md
 ```
+
 

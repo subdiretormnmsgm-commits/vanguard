@@ -48,7 +48,7 @@ Antes de sair:
   01_SKILL_PROTOCOLO_VANGUARD.md          -- ancora o Auditor nos padroes do Pentalateral
   02_MEMORANDO_PENTALATERAL_UNIVERSAL.md -- constituicao e valores
   03_MANUAL_DIRETOR.md                    -- como o Diretor opera
-  04_INTELLIGENCE_LEDGER.md               -- principios ativos (P-001 a P-076+)
+  04_INTELLIGENCE_LEDGER.md               -- principios ativos (P-001 a P-078+)
   05_PROCESSO_EVOLUTIVO_PENTALATERAL.md  -- como o loop funciona
   06_TEMPLATES_COMUNICACAO_PENTALATERAL.md -- formatos obrigatorios dos membros
   07_WIP_BOARD.txt                        -- estado atual de todos os projetos
@@ -213,4 +213,5 @@ Conteúdo obrigatório por seção:
 Suas 5 ideias — não as do Gemini nem as do Músculo. Fundamentadas no histórico completo. O que nenhum dos outros membros está vendo.
 
 Não resuma. Não seja genérico. Se citar padrão histórico, cite de qual projeto ele vem. O Músculo vai ler isso antes de construir — cada linha impacta o que será entregue ao Valdece.
+
 

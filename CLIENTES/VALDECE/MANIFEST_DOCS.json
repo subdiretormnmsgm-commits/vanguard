@@ -1,6 +1,6 @@
 {
     "projeto":  "VALDECE",
-    "ultima_sincronizacao":  "2026-05-27T08:23:18",
+    "ultima_sincronizacao":  "2026-05-27T20:14:33",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -29,8 +29,8 @@
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
                          "hash_universal":  "C4A9847EC90BD4E9E529D94516DAD3DDACCF94FA5CC8200D66670E2A18ADE741",
-                         "hash_local":  "C4A9847EC90BD4E9E529D94516DAD3DDACCF94FA5CC8200D66670E2A18ADE741",
-                         "status":  "SYNC"
+                         "hash_local":  "9F630340B033C81F93FD7B83CA86C7703ADF3ACF4991D0BD5020717DEE5B90C5",
+                         "status":  "DRIFT"
                      },
                      {
                          "nome":  "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
@@ -63,8 +63,8 @@
                          "status":  "SYNC"
                      }
                  ],
-    "status_geral":  "VERDE",
+    "status_geral":  "AMARELO",
     "total":  10,
-    "drift_count":  0,
+    "drift_count":  1,
     "ausente_count":  0
 }

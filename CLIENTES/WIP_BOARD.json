@@ -145,10 +145,10 @@
                                     "loop_fase_atual":  {
                                                             "loop":  6,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "PENDENTE",
+                                                            "notebooklm":  "OK",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -- Skill ingrid-v6.md"
+                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
                                                         },
                                     "churn_watch_threshold":  5
                                 },
@@ -252,7 +252,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "MÃºsculo deliberar Skill valdece-v7.md + executar vereditos D1-D6"
+                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
                                                         },
                                     "churn_watch_threshold":  3
                                 }

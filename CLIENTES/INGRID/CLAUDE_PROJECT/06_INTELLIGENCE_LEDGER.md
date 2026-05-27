@@ -1476,6 +1476,8 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 `[PRINCIPIO]` P-076 (ex-P-048 duplicado) registrado. P-011/P-012 gaps formalizados. LEDGER_INDEX.md gerado (74 principios). OSV-001/002/003/004/005 concluidas.
 `[PROCESSO]` Numeracao de principios: Musculo apresenta ao Diretor (numero proposto + conteudo) e aguarda veredito antes de inscrever. Nunca inscreve ou renumera autonomamente. Confirmado pelo Diretor em 2026-05-27.
 `[PRINCIPIO]` P-077 inscrito -- loop_fase_atual atualizado automaticamente pelos scripts do socio. Confirmado pelo Diretor em 2026-05-27.
+`[PRINCIPIO]` P-078 inscrito -- abandono silencioso em EdTech ocorre quando app funciona mas nao registra o esforco do usuario. Veredito do Diretor em 2026-05-27 (DECISOES_INGRID D5).
+`[DECISAO]` DECISOES_INGRID_2026-05-24: D1/D2 arquivadas (obsoletas 3 dias). D3 veredito Regerar PDF 18/05. D5 aprovado LEDGER. D6 descartado. VEREDITOS_INGRID_2026-05-24.json gerado.
 
 ---
 
@@ -1486,3 +1488,13 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Ferramenta criada:** bloco de atualizacao em cada um dos 3 scripts — ConvertFrom-Json + campo direto + ConvertTo-Json + Set-Content.
 **Regra de ouro:** O LEMBRETE DE LOOP no session_start reflete o estado real do loop no momento em que e lido — nao o estado do fim da ultima sessao. WIP_BOARD e a fonte de verdade viva, nao o relatorio de fechamento.
 **Aplica-se a:** todo projeto, todo loop, todo socio. Escala para N projetos sem disciplina adicional do Musculo.
+
+---
+
+### [P-078] Abandono silencioso em EdTech ocorre quando sistema funciona mas nao registra o esforco do usuario
+**Descoberto:** 2026-05-24 (Embaixador — ativacao INGRID Loop 5) | **Inscrito:** 2026-05-27
+**Emitido por:** Embaixador — DECISOES_INGRID_2026-05-24.json, D5 aprovado pelo Diretor
+**Fricção:** Ingrid reportou bug em 18/05. Fix deployado em 19/05. Sem reconhecimento da plataforma, 5 dias de silêncio após comportamento de qualidade da usuária. Churn-Watch disparou em 24/05.
+**Princípio:** O momento de maior vulnerabilidade de abandono em produto EdTech nao e quando o app e dificil — e quando o app esta funcionando e o usuario nao recebe sinal de que seu esforco foi registrado. Silencio do sistema apos comportamento de qualidade do usuario e interpretado como indiferenca, nao como estabilidade.
+**Aplica-se a:** todo produto EdTech com loop de retencao. O ciclo de reconhecimento deve ser automatizado — a plataforma confirma o esforco do usuario sem depender do Diretor lembrar de enviar mensagem. ChurnWatch + mensagens de reengajamento automaticas sao a resposta sistêmica.
+**Ferramenta criada:** `churn_watch_autonomo.ps1` (alerta Telegram 08:00) + DECISOES.json com mensagens de reengajamento prontas para veredito do Diretor.
