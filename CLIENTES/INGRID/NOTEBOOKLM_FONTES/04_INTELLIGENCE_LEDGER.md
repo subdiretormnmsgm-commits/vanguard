@@ -1469,3 +1469,8 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Princípio:** O Diretor é o originador da estratégia e o emissor do veredito — nunca o transportador de arquivos entre membros. Todo contexto é preparado, compilado e entregue automaticamente pelo Músculo antes que o Diretor precise agir. O Diretor recebe o payload pronto e decide. `gemini_anchor_generator.ps1` compila e abre o browser. `skill_watcher.ps1` instala a Skill assim que chega. `agenda_scheduler.ps1` alerta os gates sem consulta manual. `churn_watch_autonomo.ps1` monitora clientes sem dependência do Diretor.
 **Aplica-se a:** toda transição entre membros do Pentalateral (Músculo→Gemini, Gemini→NotebookLM, NotebookLM→Músculo, qualquer membro→Embaixador). Se o Diretor precisar copiar ou arrastar algo manualmente, o Músculo falhou em preparar o contexto.
 **Ferramentas:** `gemini_anchor_generator.ps1` (payload + browser) + `skill_watcher.ps1` (FileSystemWatcher DROP) + `agenda_scheduler.ps1` (gates automáticos) + `churn_watch_autonomo.ps1` (Task Scheduler 08:00).
+
+### [SESSAO 2026-05-27]
+
+`[FRICCAO]` P-048 duplicado existia desde 2026-05-20 -- dois principios com mesmo numero. Detectado por auditoria do Embaixador 2026-05-27. Causa: principio novo inscrito sem verificar unicidade do numero.
+`[PRINCIPIO]` P-076 (ex-P-048 duplicado) registrado. P-011/P-012 gaps formalizados. LEDGER_INDEX.md gerado (74 principios). OSV-001/002/003/004/005 concluidas.
