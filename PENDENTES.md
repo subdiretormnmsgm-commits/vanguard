@@ -8,10 +8,10 @@
 
 ## 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR
 
-- [ ] `2026-05-26` **🔴 TOKEN SUPABASE EXPOSTO — deletar HOJE:**
-  O token `REVOKED_TOKEN` foi exposto em sessão anterior.
-  **AÇÃO:** Acessar supabase.com/dashboard/account/tokens → encontrar token → deletar.
-  Enquanto não deletado, qualquer pessoa com acesso ao histórico pode usar o token.
+- [ ] `2026-05-26` **🔴 TOKEN SUPABASE EXPOSTO — REVOGAR NO DASHBOARD (arquivos redatados, git history persiste):**
+  Token `[REDATADO]` exposto em sessão anterior. Arquivos: redatados. Git history: PERMANENTE.
+  **ÚNICA ação que invalida o token:** supabase.com/dashboard/account/tokens → encontrar → Delete.
+  Após revogação → marcar [x] e remover este alerta.
 
 ---
 
