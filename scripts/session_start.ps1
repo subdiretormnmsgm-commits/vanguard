@@ -412,6 +412,83 @@ if (Test-Path $watcherScript) {
 }
 
 # ==========================================================================
+# PASSO 8b — Iniciar skill_watcher.ps1 em background (OSV-003)
+# ==========================================================================
+Write-Host ""
+Write-Host "  [PASSO 8b] Iniciando SKILL_WATCHER em background..." -ForegroundColor Cyan
+$skillWatcherScript = "$BASE\scripts\skill_watcher.ps1"
+if (Test-Path $skillWatcherScript) {
+    if ($clienteLabel -ne "") {
+        Start-Process powershell -ArgumentList "-NonInteractive -File `"$skillWatcherScript`" -cliente $clienteLabel" -WindowStyle Hidden
+        Write-Host "  [OK] skill_watcher.ps1 ativo -- monitorando NOTEBOOKLM_DROP/$clienteLabel/" -ForegroundColor Green
+        [void]$infoLinhas.Add("SkillWatcher: ATIVO para $clienteLabel")
+    } else {
+        Write-Host "  [--] skill_watcher: nenhum cliente ativo -- ignorado" -ForegroundColor DarkGray
+        [void]$infoLinhas.Add("SkillWatcher: N/A (sem cliente)")
+    }
+} else {
+    Write-Host "  [--] skill_watcher.ps1 nao encontrado" -ForegroundColor DarkGray
+    [void]$infoLinhas.Add("SkillWatcher: nao encontrado")
+}
+
+# ==========================================================================
+# PASSO 8c — Agenda de gates calculada automaticamente (OSV-003)
+# ==========================================================================
+Write-Host ""
+Write-Host "  [PASSO 8c] Computando agenda de gates..." -ForegroundColor Cyan
+$agendaScript = "$BASE\scripts\agenda_scheduler.ps1"
+if (Test-Path $agendaScript) {
+    try {
+        & powershell -NonInteractive -File $agendaScript 2>&1 | ForEach-Object { Write-Host "  $_" }
+        [void]$infoLinhas.Add("AgendaScheduler: OK")
+    } catch {
+        Write-Host "  [AVISO] agenda_scheduler.ps1 falhou: $_" -ForegroundColor Yellow
+        [void]$avisos.Add("AgendaScheduler: falha de execucao")
+        Set-StatusAmarclo
+    }
+} else {
+    Write-Host "  [--] agenda_scheduler.ps1 nao encontrado" -ForegroundColor DarkGray
+    [void]$infoLinhas.Add("AgendaScheduler: nao encontrado")
+}
+
+# ==========================================================================
+# PASSO 8d — Registrar churn_watch_autonomo.ps1 no Task Scheduler (OSV-003)
+# ==========================================================================
+Write-Host ""
+Write-Host "  [PASSO 8d] Verificando Task Scheduler -- CHURN-WATCH..." -ForegroundColor Cyan
+$churnScript  = "$BASE\scripts\churn_watch_autonomo.ps1"
+$churnTask    = "ChurnWatch_Vanguard"
+$existeTask   = Get-ScheduledTask -TaskName $churnTask -ErrorAction SilentlyContinue
+if ($existeTask) {
+    Write-Host "  [OK] Task Scheduler: $churnTask ja registrado (08:00 diario)" -ForegroundColor Green
+    [void]$infoLinhas.Add("ChurnWatch Task: JA EXISTE")
+} elseif (Test-Path $churnScript) {
+    try {
+        $action   = New-ScheduledTaskAction -Execute "powershell.exe" `
+                        -Argument "-NonInteractive -File `"$churnScript`""
+        $trigger  = New-ScheduledTaskTrigger -Daily -At "08:00"
+        $settings = New-ScheduledTaskSettingsSet `
+                        -ExecutionTimeLimit (New-TimeSpan -Hours 1) `
+                        -RunOnlyIfNetworkAvailable $false
+        Register-ScheduledTask -TaskName $churnTask -Action $action `
+            -Trigger $trigger -Settings $settings `
+            -Description "Vanguard CHURN-WATCH diario (OSV-003)" `
+            -RunLevel Highest -Force | Out-Null
+        Write-Host "  [OK] Task Scheduler: $churnTask registrado (08:00 diario)" -ForegroundColor Green
+        [void]$infoLinhas.Add("ChurnWatch Task: REGISTRADO")
+    } catch {
+        Write-Host "  [AVISO] Task Scheduler requer execucao elevada para registrar." -ForegroundColor Yellow
+        Write-Host "  Execute session_start.ps1 como Administrador uma vez para registrar a task." -ForegroundColor DarkGray
+        Write-Host "  Alternativa manual: .\scripts\churn_watch_autonomo.ps1" -ForegroundColor DarkGray
+        [void]$avisos.Add("ChurnWatch_Vanguard: nao registrado -- elevar permissoes (executar como Admin uma vez)")
+        Set-StatusAmarclo
+    }
+} else {
+    Write-Host "  [--] churn_watch_autonomo.ps1 nao encontrado" -ForegroundColor DarkGray
+    [void]$infoLinhas.Add("ChurnWatch Task: script nao encontrado")
+}
+
+# ==========================================================================
 # AGENDA DO DIA — formato visual
 # ==========================================================================
 function Format-AgendaItem([string]$item, [int]$max = 52) {
@@ -492,6 +569,9 @@ foreach ($proj in $projetosEmBuild) {
 Write-Host ("  P-045 artefatos  : " + (if ($artefatosOK) {"OK"} else {"BLOQUEIO"})) -ForegroundColor (if ($artefatosOK) {"Green"} else {"Red"})
 Write-Host ("  P-059 contexto   : $clienteLabel confirmado")
 Write-Host ("  Watcher DECISOES : ativo")
+Write-Host ("  Watcher SKILLS   : " + (if ($clienteLabel -ne "") { "ativo para $clienteLabel" } else { "N/A" }))
+Write-Host ("  Agenda Gates     : computada (PASSO 8c)")
+Write-Host ("  CHURN-WATCH Task : " + (if (Get-ScheduledTask -TaskName "ChurnWatch_Vanguard" -ErrorAction SilentlyContinue) { "agendado 08:00" } else { "pendente (elevar permissoes)" }))
 Write-Host ""
 
 if ($bloqueios.Count -gt 0) {

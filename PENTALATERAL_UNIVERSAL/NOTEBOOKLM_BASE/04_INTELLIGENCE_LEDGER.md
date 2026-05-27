@@ -1454,3 +1454,13 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Princípio:** Propagação incompleta é mais perigosa que ausência de propagação — cria falsa sensação de integridade. `decision_impact.ps1` expõe cascata ANTES de commitar: mostra SYNC / DESATUAL / AUSENTE por destino. `sync_vanguard_docs.ps1 v2.3` distingue ORFAO real de PROJECT_ONLY — lido dinamicamente do DEPENDENCY_MAP v2.0. `declare 'propagação concluída'` só após `decision_impact.ps1` confirmar ZERO desatualizados.
 **Aplica-se a:** toda sessão onde um arquivo-fonte do DEPENDENCY_MAP é editado. NUNCA declarar propagação concluída sem evidência instrumental.
 **Ferramentas:** `decision_impact.ps1` (impacto pré-commit) + `sync_vanguard_docs.ps1 v2.3` (PROJECT_ONLY) + `DEPENDENCY_MAP.json v2.0` (regras completas R-001 a R-013).
+
+---
+
+### [P-075] O Diretor delibera — não transporta contexto entre membros do Pentalateral
+**Descoberto:** 2026-05-27 (OSV-003 — análise do loop de trabalho atual) | **Inscrito:** 2026-05-27
+**Emitido por:** Músculo — Ordem OSV-003 aprovada pelo Diretor
+**Fricção:** Em cada ciclo do Pentalateral, o Diretor copiava manualmente: LEDGER + WIP + MEMORIA + output do Gemini para o NotebookLM, e resultado do NotebookLM de volta para o Claude Code. Cada transporte manual é um ponto de erro (esqueceu arquivo, ordem errada, versão errada). O loop perdia velocidade e inteligência a cada fricção de transporte.
+**Princípio:** O Diretor é o originador da estratégia e o emissor do veredito — nunca o transportador de arquivos entre membros. Todo contexto é preparado, compilado e entregue automaticamente pelo Músculo antes que o Diretor precise agir. O Diretor recebe o payload pronto e decide. `gemini_anchor_generator.ps1` compila e abre o browser. `skill_watcher.ps1` instala a Skill assim que chega. `agenda_scheduler.ps1` alerta os gates sem consulta manual. `churn_watch_autonomo.ps1` monitora clientes sem dependência do Diretor.
+**Aplica-se a:** toda transição entre membros do Pentalateral (Músculo→Gemini, Gemini→NotebookLM, NotebookLM→Músculo, qualquer membro→Embaixador). Se o Diretor precisar copiar ou arrastar algo manualmente, o Músculo falhou em preparar o contexto.
+**Ferramentas:** `gemini_anchor_generator.ps1` (payload + browser) + `skill_watcher.ps1` (FileSystemWatcher DROP) + `agenda_scheduler.ps1` (gates automáticos) + `churn_watch_autonomo.ps1` (Task Scheduler 08:00).

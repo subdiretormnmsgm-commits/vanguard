@@ -96,8 +96,10 @@ if ($projetoAtivo) {
         Write-Host "  [+] $($memFile.Name)"
         $memContent = Get-Content $memFile.FullName -Encoding UTF8 -Raw
         $blocos += "## MEMORIA MAIS RECENTE -- $($memFile.Name)`n$memContent"
+        $script:arq1Arrastar = $memFile.FullName
     } else {
         Write-Host "  [--] MEMORIA_V*.md nao encontrada (normal no Loop 1)"
+        $script:arq1Arrastar = $null
     }
 
     # RELATORIO mais recente
@@ -107,8 +109,10 @@ if ($projetoAtivo) {
         Write-Host "  [+] $($relFile.Name)"
         $relContent = Get-Content $relFile.FullName -Encoding UTF8 -Raw
         $blocos += "## RELATORIO EVOLUTIVO -- $($relFile.Name)`n$relContent"
+        $script:arq2Arrastar = $relFile.FullName
     } else {
         Write-Host "  [--] relatorio_evolutivo_V*.md nao encontrado (normal no Loop 1)"
+        $script:arq2Arrastar = $null
     }
 
     # PASSO3 -- MISSAO (sempre por ultimo)
@@ -161,8 +165,32 @@ Write-Host "================================================"
 Write-Host "  PAYLOAD GEMINI GERADO -- $DATA"
 Write-Host "================================================"
 Write-Host ""
-Write-Host "  Arquivo : $destLabel ($($output.Length) chars)"
+Write-Host "  Arquivo  : $destLabel ($($output.Length) chars)"
 Write-Host "  Clipboard: $clipMsg"
 Write-Host ""
-Write-Host "  So isso: Ctrl+V no Gemini. Um arquivo. Zero erro de ordem."
+
+# Arquivos para arrastar no Gemini
+$arq3Arrastar = Join-Path $BASE "PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\04_INTELLIGENCE_LEDGER.md"
+$arq4Arrastar = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
+
+Write-Host "  =============================================="
+Write-Host "  PROTOCOLO GEMINI -- EXECUTAR AGORA" -ForegroundColor Cyan
+Write-Host "  =============================================="
+Write-Host "  [ ] 1. Ctrl+V no Gemini (payload ja no clipboard)"
+Write-Host "  [ ] 2. Arrastar os 4 arquivos:"
+if ($script:arq1Arrastar) { Write-Host "         -> $($script:arq1Arrastar)" -ForegroundColor Yellow } else { Write-Host "         -> [sem MEMORIA -- Loop 1]" -ForegroundColor DarkGray }
+if ($script:arq2Arrastar) { Write-Host "         -> $($script:arq2Arrastar)" -ForegroundColor Yellow } else { Write-Host "         -> [sem RELATORIO -- Loop 1]" -ForegroundColor DarkGray }
+Write-Host "         -> $arq3Arrastar" -ForegroundColor Yellow
+Write-Host "         -> $arq4Arrastar" -ForegroundColor Yellow
+Write-Host "  [ ] 3. Enviar"
+Write-Host "  =============================================="
+Write-Host ""
+
+# Abrir Gemini no browser automaticamente
+try {
+    Start-Process "https://gemini.google.com"
+    Write-Host "  Gemini aberto no browser. Cole (Ctrl+V) e arraste os arquivos." -ForegroundColor Green
+} catch {
+    Write-Host "  Abrir manualmente: https://gemini.google.com" -ForegroundColor Yellow
+}
 Write-Host "================================================"
