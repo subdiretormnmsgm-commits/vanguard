@@ -8,10 +8,8 @@
 
 ## 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR
 
-- [ ] `2026-05-26` **🔴 TOKEN SUPABASE EXPOSTO — REVOGAR NO DASHBOARD (arquivos redatados, git history persiste):**
-  Token `[REDATADO]` exposto em sessão anterior. Arquivos: redatados. Git history: PERMANENTE.
-  **ÚNICA ação que invalida o token:** supabase.com/dashboard/account/tokens → encontrar → Delete.
-  Após revogação → marcar [x] e remover este alerta.
+- [x] `2026-05-26` ~~**TOKEN SUPABASE EXPOSTO — RESOLVIDO:**~~
+  ✅ Token revogado no dashboard Supabase — confirmado pelo Diretor em 2026-05-27. Arquivos redatados.
 
 ---
 
