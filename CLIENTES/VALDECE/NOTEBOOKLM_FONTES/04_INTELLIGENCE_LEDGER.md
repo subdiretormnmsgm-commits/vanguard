@@ -24,6 +24,11 @@ Antes de qualquer deliberação, o Músculo executa:
 
 Princípios extraídos de fricções reais. Cada um tem evidência — não é teoria.
 
+> **GAPS NUMÉRICOS — RESERVADOS:**
+> P-011 e P-012 **não existem**. Foram descartados na origem (pré-V24) antes do LEDGER ser formalizado.
+> NÃO reaproveitar esses números — gaps são parte da história do sistema.
+> Qualquer referência a P-011 ou P-012 em documentos = erro de numeração.
+
 ---
 
 ### [P-001] Claude Code ≠ Daemon Autônomo
@@ -1035,8 +1040,8 @@ O contrato é o ponto de chegada do processo de teste — nunca o ponto de parti
 
 ---
 
-### [P-048] Pendente identificado = registrar imediatamente — não confiar na memória da sessão
-**Descoberto:** 2026-05-20 | **Sessão:** PROJ-001 Valdece Loop 7 + revisão de processo
+### [P-076] Pendente identificado = registrar imediatamente — não confiar na memória da sessão
+**Descoberto:** 2026-05-20 | **Renumerado:** 2026-05-27 (era P-048 duplicado — P-048 correto é "Deliberação do Músculo") | **Sessão:** PROJ-001 Valdece Loop 7 + revisão de processo
 **Fricção:** O Diretor perguntou "não tínhamos de levar jurisprudências do STF?" — tarefa identificada em sessão anterior mas nunca registrada formalmente. Quando o contexto compactou, o pendente sumiu. Eduardo: "Se eu não lembro, ficaríamos perdidos. Imagina com 30 projetos."
 **Princípio:** Toda tarefa identificada como pendente durante uma sessão → registrar em `PENDENTES.md` na raiz IMEDIATAMENTE, antes de qualquer outra ação. Não esperar `session_close.ps1`. Não confiar na memória da conversa. O `session_close` complementa — não substitui.
 **Ferramenta criada:** `PENDENTES.md` na raiz do repositório — lido pelo `briefing_diario.ps1` toda manhã. Formato: `- [ ] \`YYYY-MM-DD\` **descrição**`. Músculo marca `[x]` ao concluir e remove no `session_close`.

@@ -63,8 +63,9 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
 
 | Instrumento | Onde | O que contém |
 |---|---|---|
-| `PENDENTES.md` | **raiz** | **⚠️ PRIMEIRO A LER — tarefas pendentes com atraso em dias. P-048: pendente não registrado aqui não existe.** |
-| `INTELLIGENCE_LEDGER.md` | raiz | Princípios extraídos de fricções reais (P-001 a P-048+). O que nunca repetir. |
+| `PENDENTES.md` | **raiz** | **⚠️ PRIMEIRO A LER — tarefas pendentes com atraso em dias. P-076: pendente não registrado aqui não existe.** |
+| `INTELLIGENCE_LEDGER.md` | raiz | Princípios extraídos de fricções reais (P-001 a P-076+). O que nunca repetir. |
+| `CLIENTES/[PROJETO]/NOTEBOOKLM_DROP/` | CLIENTES/ | Pasta de drop da Skill do NotebookLM — `skill_watcher.ps1` valida e instala automaticamente. |
 | `CLIENTES/WIP_BOARD.json` | raiz | Estado atual de todos os projetos. O que está em build, check, entregue. |
 | `CONSELHO/NotebookLM/ANALISE_SOCIO_ATUAL.txt` | CONSELHO/ | Análise mais recente do Sócio — contexto de negócio atualizado pelo Diretor. |
 | `.claude/skills/vanguard-protocolo.md` | .claude/skills/ | Processo operacional completo do Pentalateral (v6.0). |
@@ -249,6 +250,28 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     O Embaixador cria/atualiza o artefato PAINEL_ATIVIDADES com semáforo visual de pendentes.
     O Diretor gerencia todas as atividades a partir deste painel.
     Regra: "Eu não vou copiar. Quero o documento pronto." — declaração do Diretor 2026-05-24.
+25. CLASSIFICAÇÃO DE DOCUMENTOS É LEI — P-073/P-074 (2026-05-27):
+    Todo documento do sistema pertence a um de três tipos:
+    TIPO 1 UNIVERSAL_PURO: editar APENAS em PENTALATERAL_UNIVERSAL/ — nunca na cópia do projeto
+    TIPO 2 TEMPLATE_COM_INSTANCIA: template mestre gera instância com contexto — nunca copiar direto (P-007)
+    TIPO 3 PROJECT_ONLY: existe só no projeto — invisível para sync, nunca é órfão
+    detect_canonical_violation.ps1 detecta TIPO 1 editado fora da fonte — bloqueia sessão (PASSO 0c).
+    decision_impact.ps1 executa cascade completo após qualquer mudança em TIPO 1 ou TIPO 2.
+    DEPENDENCY_MAP.json v2.0 é a fonte de verdade da classificação — nunca inferir o tipo.
+26. O DIRETOR DELIBERA — NÃO TRANSPORTA — P-075 (2026-05-27):
+    gemini_anchor_generator.ps1 gera prompt completo + abre Gemini + copia para clipboard.
+    skill_watcher.ps1 instala Skill automaticamente quando salva em NOTEBOOKLM_DROP/.
+    churn_watch_autonomo.ps1 alerta Telegram diariamente sem depender do Embaixador ser ativado.
+    agenda_scheduler.ps1 alerta gates e deadlines do WIP_BOARD sem consulta manual.
+    Músculo que pede ao Diretor para "montar o PASSO3" ou "mover a Skill" = falha de automação.
+27. LOOP_FASE_ATUAL É ATUALIZADO IMEDIATAMENTE — não ao fechar sessão (2026-05-27):
+    Ao concluir QUALQUER etapa do loop com um sócio, o Músculo atualiza
+    WIP_BOARD.json → campo loop_fase_atual → campo do sócio concluído → "OK"
+    e campo "proximo" → próximo passo em linguagem humana.
+    Exemplo: Gemini entregou DIRETRIZ V6 para Ingrid →
+    loop_fase_atual.gemini = "OK" · loop_fase_atual.proximo = "NotebookLM → Skill ingrid-v6.md"
+    Músculo que atualiza WIP_BOARD só no session_close = lembrete de loop desatualizado.
+    Aplica-se a: todo projeto, todo loop, todo sócio.
 ```
 
 ---

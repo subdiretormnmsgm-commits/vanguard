@@ -51,6 +51,13 @@
 
 ## PROCESSO / INFRA
 
+- [ ] `2026-05-27` **Confirmar Task Scheduler CHURN-WATCH registrado:**
+  Rodar `session_start.ps1` como Administrador uma vez para registrar a Task `ChurnWatch_Vanguard` (08:00 diário).
+  Ou testar manualmente: `.\scripts\churn_watch_autonomo.ps1 -simular`
+
+- [ ] `2026-05-27` **Confirmar detect_canonical_violation.ps1 funcionando:**
+  Testar PASSO 0c: simular edição em cópia de projeto e confirmar BLOQUEIO.
+
 - [ ] `2026-05-26` **PROTOCOLO_ONBOARDING_INVISÍVEL.md — decidir destino:**
   Arquivo untracked na raiz. Commitar em PENTALATERAL_UNIVERSAL/OPERACAO/ ou descartar?
   **AÇÃO DO DIRETOR:** veredito de onde colocar ou se descarta.

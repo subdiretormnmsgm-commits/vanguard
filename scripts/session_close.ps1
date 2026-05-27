@@ -251,6 +251,18 @@ if (-not (Test-Path $LEDGER)) {
         Set-Content $LEDGER -Value $cL -Encoding UTF8
         $nEv = @($Friccao, $Principio, $Override, $Deriva) | Where-Object { $_ }
         Write-Host "  [GATE 6] LEDGER: $($nEv.Count) evento(s) registrado(s)" -ForegroundColor Green
+
+        # --- GATE LEDGER_SPLIT: dispara ao atingir 80 principios ---
+        $ledgerAtual     = Get-Content $LEDGER -Raw -Encoding UTF8
+        $totalPrincipios = ([regex]::Matches($ledgerAtual, '### \[P-\d+\]')).Count
+        Write-Host "  [GATE 6] LEDGER: $totalPrincipios principio(s) ativos" -ForegroundColor DarkGray
+        if ($totalPrincipios -ge 80) {
+            Write-Host "  [GATE 6] LEDGER atingiu $totalPrincipios principios -- executando ledger_split.ps1..." -ForegroundColor Cyan
+            $splitScript = "$BASE\scripts\ledger_split.ps1"
+            if (Test-Path $splitScript) {
+                & powershell -NonInteractive -File $splitScript -Force 2>&1 | ForEach-Object { Write-Host "    $_" }
+            }
+        }
     }
 }
 

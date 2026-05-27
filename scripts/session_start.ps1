@@ -489,6 +489,56 @@ if ($existeTask) {
 }
 
 # ==========================================================================
+# LEMBRETE DE LOOP — ONDE ESTAMOS (OSV-004, P-027)
+# Exibir ANTES da AGENDA DO DIA — Músculo nao pode ignorar
+# ==========================================================================
+Write-Host ""
+Write-Host "  +====================================================+" -ForegroundColor Cyan
+Write-Host "  |  ONDE ESTAMOS NO LOOP -- LER ANTES DE QUALQUER ACAO  |" -ForegroundColor Cyan
+Write-Host "  +====================================================+" -ForegroundColor Cyan
+
+$loopMostrouAlgo = $false
+foreach ($proj in $projetosEmBuild) {
+    $fase = $proj.loop_fase_atual
+    if (-not $fase) { continue }
+    $loopMostrouAlgo = $true
+
+    $g = if ($fase.gemini     -eq "OK") { "OK" } else { "PENDENTE" }
+    $n = if ($fase.notebooklm -eq "OK") { "OK" } else { "PENDENTE" }
+    $e = if ($fase.embaixador -eq "OK") { "OK" } else { "PENDENTE" }
+    $m = if ($fase.musculo    -eq "OK") { "OK" } else { "PENDENTE" }
+
+    $corG = if ($g -eq "OK") { "Green" } else { "Yellow" }
+    $corN = if ($n -eq "OK") { "Green" } else { "Yellow" }
+    $corE = if ($e -eq "OK") { "Green" } else { "Yellow" }
+    $corM = if ($m -eq "OK") { "Green" } else { "Yellow" }
+
+    $projetoLabel = "$($proj.cliente.ToUpper()) -- Loop $($fase.loop)"
+    Write-Host ("  |  " + $projetoLabel.PadRight(49) + "|") -ForegroundColor White
+    Write-Host "  |    Gemini      : " -NoNewline
+    Write-Host ($g.PadRight(34) + "|") -ForegroundColor $corG
+    Write-Host "  |    NotebookLM  : " -NoNewline
+    Write-Host ($n.PadRight(34) + "|") -ForegroundColor $corN
+    Write-Host "  |    Embaixador  : " -NoNewline
+    Write-Host ($e.PadRight(34) + "|") -ForegroundColor $corE
+    Write-Host "  |    Musculo     : " -NoNewline
+    Write-Host ($m.PadRight(34) + "|") -ForegroundColor $corM
+
+    $proximo = if ($fase.proximo) { $fase.proximo } else { "nao definido" }
+    $proxLabel = if ($proximo.Length -gt 47) { $proximo.Substring(0, 44) + "..." } else { $proximo }
+    Write-Host ("  |  -> " + $proxLabel.PadRight(47) + "|") -ForegroundColor Yellow
+    Write-Host "  +----------------------------------------------------+" -ForegroundColor Cyan
+}
+
+if (-not $loopMostrouAlgo) {
+    Write-Host "  |  Nenhum loop_fase_atual no WIP_BOARD -- atualizar   |" -ForegroundColor DarkGray
+    Write-Host "  +----------------------------------------------------+" -ForegroundColor Cyan
+}
+Write-Host "  |  Pular etapa = loop contaminado. Confirmar o passo.   |" -ForegroundColor Red
+Write-Host "  +====================================================+" -ForegroundColor Cyan
+Write-Host ""
+
+# ==========================================================================
 # AGENDA DO DIA — formato visual
 # ==========================================================================
 function Format-AgendaItem([string]$item, [int]$max = 52) {
