@@ -19,16 +19,14 @@ function Write-Log {
     Write-Host $line
 }
 
-# --- Projetos ativos: DEPENDENCY_MAP primeiro, WIP_BOARD como fallback ---
+# --- Projetos ativos: Get-ProjetosAtivos (dinamico) com fallback WIP_BOARD direto ---
 $projetos = @()
-if (Test-Path $DEPENDENCY_MAP) {
-    try {
-        $map = Get-Content $DEPENDENCY_MAP -Raw -Encoding UTF8 | ConvertFrom-Json
-        if ($map.projetos_ativos -and $map.projetos_ativos.Count -gt 0) {
-            $projetos = @($map.projetos_ativos | ForEach-Object { $_.ToUpper() })
-        }
-    } catch { }
+$getProjetosScript = "$BASE\utils\Get-ProjetosAtivos.ps1"
+if (Test-Path $getProjetosScript) {
+    . $getProjetosScript
+    $projetos = @(Get-ProjetosAtivos -WipPath $WIP_BOARD)
 }
+# Fallback direto ao WIP_BOARD se utils nao disponivel
 if ($projetos.Count -eq 0 -and (Test-Path $WIP_BOARD)) {
     try {
         $board = Get-Content $WIP_BOARD -Raw -Encoding UTF8 | ConvertFrom-Json

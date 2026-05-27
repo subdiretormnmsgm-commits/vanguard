@@ -29,9 +29,15 @@ if ($simular) { Write-Host "  MODO: SIMULACAO (Telegram nao sera disparado)" -Fo
 Write-Host "======================================================="
 Write-Host ""
 
-# Carregar projetos ativos do DEPENDENCY_MAP
+# Carregar projetos ativos do WIP_BOARD (dinamico -- Get-ProjetosAtivos)
 $projetos = @()
-if (Test-Path $DEPENDENCY_MAP) {
+$getProjetosScript = "$BASE\utils\Get-ProjetosAtivos.ps1"
+if (Test-Path $getProjetosScript) {
+    . $getProjetosScript
+    $projetos = @(Get-ProjetosAtivos -WipPath "$BASE\CLIENTES\WIP_BOARD.json")
+}
+# Fallback: DEPENDENCY_MAP (DEPRECATED -- manter ate todos os projetos migrarem)
+if ($projetos.Count -eq 0 -and (Test-Path $DEPENDENCY_MAP)) {
     try {
         $map = Get-Content $DEPENDENCY_MAP -Raw -Encoding UTF8 | ConvertFrom-Json
         if ($map.projetos_ativos -and $map.projetos_ativos.Count -gt 0) {
@@ -40,7 +46,7 @@ if (Test-Path $DEPENDENCY_MAP) {
     } catch { }
 }
 if ($projetos.Count -eq 0) {
-    Write-Host "  [AVISO] Nenhum projeto ativo no DEPENDENCY_MAP -- verificar projetos_ativos" -ForegroundColor Yellow
+    Write-Host "  [AVISO] Nenhum projeto ativo no WIP_BOARD -- verificar board.build" -ForegroundColor Yellow
     exit 0
 }
 

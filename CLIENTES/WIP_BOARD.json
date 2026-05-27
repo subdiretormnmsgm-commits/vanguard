@@ -148,7 +148,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
+                                                            "proximo":  "NotebookLM -- Skill ingrid-v6.md"
                                                         },
                                     "churn_watch_threshold":  5
                                 },
@@ -322,5 +322,10 @@
                                "regra_3":  "Nada vai para ENTREGUE sem Sovereign Playbook gerado",
                                "regra_4":  "Sentinel do cliente atual validado antes de novo projeto entrar em BUILD",
                                "regra_5":  "Retainer so apos 30 dias de dados reais do Sentinel"
-                           }
+                           },
+    "meta":  {
+                 "loops_desde_ultimo_checkup":  1,
+                 "data_ultimo_checkup":  "2026-05-27",
+                 "checkup_recomendado":  false
+             }
 }

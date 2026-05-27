@@ -3,6 +3,7 @@
   "version": "2.0",
   "updated": "2026-05-27",
   "projetos_ativos": ["INGRID", "VALDECE"],
+  "projetos_ativos_DEPRECATED": "Usar utils/Get-ProjetosAtivos.ps1 -- le dinamicamente do WIP_BOARD.board.build/check/retainer. Este campo sera removido em versao futura. Adicionar projeto novo = criar pasta CLIENTES/[NOME]/ + entrada WIP_BOARD + preparar_notebooklm.",
   "ultima_atualizacao": "2026-05-27",
   "description": "Mapa de dependencias do Pentalateral IAH v2.0. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060).",
   "fonte_canonica_base": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE",
@@ -21,7 +22,9 @@
         { "slot": "06", "nome": "06_TEMPLATES_COMUNICACAO_PENTALATERAL.md","canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/06_TEMPLATES_COMUNICACAO_PENTALATERAL.md" },
         { "slot": "17", "nome": "17_VANGUARD_TIMELINE.md",                "canonical": "PENTALATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md" },
         { "slot": "18", "nome": "18_ATUALIZACAO_PENTALATERAL_*.md",        "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_*.md",
-          "padrao": true }
+          "padrao": true },
+        { "slot": "OPS-01", "nome": "COMANDO_VERIFICACAO_SISTEMICA_FINAL.md", "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md",
+          "nota": "Verificacao dos 12 cenarios do sistema -- universal. Executar a cada 3 loops (session_close alerta). Resetar com reset_checkup.ps1 apos responder ao Embaixador." }
       ]
     },
     "TEMPLATE_COM_INSTANCIA": {

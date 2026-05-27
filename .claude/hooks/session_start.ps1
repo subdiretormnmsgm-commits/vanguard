@@ -391,10 +391,31 @@ function Get-LembreteDeLoop {
     } catch { return $null }
 }
 
+# --- Discovery: detectar projeto novo em board.discovery (ENTREGAVEL 3 — OSV-007) ---
+function Get-DiscoveryAlert {
+    $wipPath = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
+    if (-not (Test-Path $wipPath)) { return $null }
+    try {
+        $board = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $projetosNovos = @($board.board.discovery) | Where-Object { $_ }
+        if ($projetosNovos.Count -eq 0) { return $null }
+        $linhas = @("PROJETO NOVO EM DISCOVERY -- verificar sistema antes de onboarding", "")
+        foreach ($novo in $projetosNovos) {
+            $nome = if ($novo.cliente) { $novo.cliente } elseif ($novo.id) { $novo.id } else { "?" }
+            $linhas += "  -> $nome (DISCOVERY)"
+        }
+        $linhas += ""
+        $linhas += "  Confirmar VERDE antes de onboarding:"
+        $linhas += "  C1 (LEMBRETE LOOP) . C4 (watcher logs) . C7 (churn threshold) . C8 (ROTEIRO UNIVERSAL)"
+        return $linhas -join "`n"
+    } catch { return $null }
+}
+
 $decisoesPendentes = Get-DecisoesPendentes
 $churnWatchStatus  = Get-ChurnWatchStatus
 $embaixadorStatus  = Get-EmbaixadorStatus
 $loopLembrete      = Get-LembreteDeLoop
+$discoveryAlert    = Get-DiscoveryAlert
 
 # --- Lançar decisoes_watcher.ps1 como background silencioso (P-071) ---
 # ITEM 4A: EncodedCommand evita corrupcao de path com acentos (Area de Trabalho)
@@ -434,6 +455,7 @@ if ($checkIn)            { $sections += "## CHECK-IN OBRIGATORIO - PERGUNTAR AO 
 if ($churnWatchStatus)   { $sections += "## CHURN-WATCH INATIVO -- ACAO DO DIRETOR NECESSARIA`n$churnWatchStatus" }
 if ($formalizadorOutput) { $sections += "## FORMALIZADOR - CONFLITO COMERCIAL DETECTADO`n$formalizadorOutput" }
 if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }
+if ($discoveryAlert)     { $sections += "## PROJETO NOVO EM DISCOVERY -- VERIFICAR ANTES DE ONBOARDING`n$discoveryAlert" }
 
 if ($manifestStatus)    { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
 if ($mapaDiarioOutput)  { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }

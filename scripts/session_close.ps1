@@ -715,6 +715,60 @@ if (Test-Path $painelScript) {
 }
 
 # ==========================================================================
+# CHECK-UP SISTEMICO — contador de loops (ENTREGAVEL 2 — OSV-007)
+# ==========================================================================
+try {
+    $boardCheckup = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    if (-not $boardCheckup.meta) {
+        $boardCheckup | Add-Member -NotePropertyName "meta" -NotePropertyValue ([PSCustomObject]@{
+            loops_desde_ultimo_checkup = 0
+            data_ultimo_checkup        = $DATA
+            checkup_recomendado        = $false
+        }) -Force
+    }
+    $meta = $boardCheckup.meta
+
+    # Detectar loop fechado hoje via DELIBERACAO_LOOP_*.md criado hoje
+    $deliberacaoHoje = Get-ChildItem "$BASE\CLIENTES\*\HISTORICO\DELIBERACAO_LOOP_*.md" -ErrorAction SilentlyContinue |
+        Where-Object {
+            $_.LastWriteTime.Date -eq (Get-Date).Date -and
+            -not ((Get-Content $_.FullName -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) -match "retroativo|retroactivo")
+        }
+    if ($deliberacaoHoje -and $deliberacaoHoje.Count -gt 0) {
+        $novoValor = [int]$meta.loops_desde_ultimo_checkup + $deliberacaoHoje.Count
+        $meta.loops_desde_ultimo_checkup = $novoValor
+        Write-Host "  [CHECK-UP] $($deliberacaoHoje.Count) loop(s) fechado(s) -- contador: $novoValor/3" -ForegroundColor DarkGray
+    }
+
+    # Gatilho a cada 3 loops
+    if ([int]$meta.loops_desde_ultimo_checkup -ge 3) {
+        $meta.checkup_recomendado = $true
+        Write-Host ""
+        Write-Host "  ============================================================" -ForegroundColor Yellow
+        Write-Host "  CHECK-UP SISTEMICO RECOMENDADO" -ForegroundColor Yellow
+        Write-Host "  ============================================================" -ForegroundColor Yellow
+        Write-Host "  $([int]$meta.loops_desde_ultimo_checkup) loops desde o ultimo check-up ($($meta.data_ultimo_checkup))" -ForegroundColor Yellow
+        Write-Host "  Na proxima sessao -- ANTES de qualquer build:" -ForegroundColor White
+        Write-Host "  PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md" -ForegroundColor Cyan
+        Write-Host "  Responder ao Embaixador. Depois rodar: .\scripts\reset_checkup.ps1" -ForegroundColor White
+        Write-Host "  ============================================================" -ForegroundColor Yellow
+        Write-Host ""
+        # Registrar em PENDENTES.md
+        $dataProx = (Get-Date).AddDays(1).ToString("yyyy-MM-dd")
+        $pendEntry = "- [ ] ``$dataProx`` **CHECK-UP SISTEMICO (3 loops) -- verificar 12 cenarios antes de qualquer build**"
+        $pendEntry += "`n  Rodar PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md + responder ao Embaixador + rodar .\scripts\reset_checkup.ps1"
+        Add-Content "$BASE\PENDENTES.md" "`n$pendEntry" -Encoding UTF8
+    } else {
+        Write-Host "  [CHECK-UP] $([int]$meta.loops_desde_ultimo_checkup)/3 loops -- proximo em $(3 - [int]$meta.loops_desde_ultimo_checkup) loop(s)" -ForegroundColor DarkGray
+    }
+
+    $boardCheckup.atualizado_em = $DATA
+    [System.IO.File]::WriteAllText($wipPath, ($boardCheckup | ConvertTo-Json -Depth 20), [System.Text.Encoding]::UTF8)
+} catch {
+    Write-Host "  [CHECK-UP] Falha ao atualizar contador: $_" -ForegroundColor DarkGray
+}
+
+# ==========================================================================
 # POS-GATE — Claude Projects: arquivos para re-arrastar
 # ==========================================================================
 $todosArqs = @(

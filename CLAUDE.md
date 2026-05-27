@@ -280,6 +280,14 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     DECISÃO SOBERANA: se síntese foi feita na sessão mas sem arquivo, Músculo cria
     CLIENTES/[PROJ]/CLAUDE_PROJECT/SOBERANA_P037.flag — suprime o gate por 4 horas.
     Músculo que gera DECISOES.json sem síntese = cortocircuito no processo — P-037 nulo.
+29. CHECK-UP SISTÊMICO É PROTOCOLO — não evento único (2026-05-27):
+    A cada 3 loops concluídos: session_close exibe aviso automático (WIP_BOARD.meta.loops_desde_ultimo_checkup).
+    Ação: rodar `PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md`
+    na próxima sessão ANTES de qualquer build. Responder ao Embaixador para análise.
+    Ao detectar projeto novo em board.discovery: verificar C1, C4, C7 e C8 antes de onboarding.
+    Ao concluir o check-up: rodar `scripts/reset_checkup.ps1` — reseta contador no WIP_BOARD.meta.
+    Músculo que pula o check-up quando aviso aparece = sistema degradando silenciosamente.
+    Ferramenta de reset: `scripts/reset_checkup.ps1`.
 ```
 
 ---
