@@ -2573,4 +2573,41 @@ Decisões fixas: sem scraping TEC Concursos (P-003), auth single-user, sem Strip
 
 ---
 
-*V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid*
+### PRINCÍPIOS RECENTES — P-059 a P-069 (2026-05-24 a 2026-05-29)
+
+**[P-059] — Isolamento de Contexto por Cliente é Lei — 20 Projetos Simultâneos Exigem Controle Rígido**
+Todo script que toca um cliente DEVE exigir `-cliente [NOME]` explícito ou listar opções e aguardar escolha — nunca auto-selecionar quando há mais de 1 projeto ativo. DECISOES.json deve conter `"cliente"` e `"loop"` como primeiros campos (schema v1.1+). Ao receber output do Embaixador: primeira resposta é sempre "CLIENTE DETECTADO: [NOME] · Loop [N] — confirmar?". Logs de automação prefixam "[CLIENTE]" em cada linha.
+
+**[P-060] — Músculo é responsável por toda propagação — zero intervenção do Diretor**
+Após qualquer mudança em arquivo-fonte → `propagate_changes.ps1` roda automaticamente. Após criar/editar qualquer `.ps1` → `validate_scripts.ps1` roda antes de reportar "concluído". Músculo nunca diz "lembre de atualizar X" — ele atualiza e reporta. Se Eduardo apontou um documento desatualizado → DEF-M-6 ativada → Músculo registra falha e fortalece cascade.
+
+**[P-061] — Nenhuma API key de terceiro pertence ao frontend — proxy obrigatório**
+Toda chave de API externa (Google, OpenAI, Anthropic, Stripe) sai do frontend e vai para variável de ambiente do servidor. Frontend chama proxy interno (Netlify Function, Edge Function ou backend). `hv1_credential_guard.ps1` bloqueia `AIzaSy` e `sk-` fora de `.env.*`. Supabase anon key é aceitável no frontend apenas se RLS estiver ativo.
+
+**[P-062] — Nenhum script de orquestração novo enquanto houver MRR não fechado em projeto ativo**
+Ao iniciar sessão: verificar WIP_BOARD → campo `retainer`. Se vazio e há projeto em `entregue` → bloquear criação de script novo e alertar Diretor. Métrica de saúde do sistema é MRR fechado, não scripts funcionando.
+
+**[P-063] — Músculo lê PENDENTES.md completo como primeiro ato de qualquer sessão**
+`Read("PENDENTES.md")` é a PRIMEIRA ferramenta chamada — antes de qualquer resposta ao Diretor. O hook injeta apenas títulos; as instruções detalhadas estão no corpo do arquivo. "Já está escrito" vence sobre "minha análise". Antes de executar qualquer tarefa: verificar se o PENDENTES já descreve como fazê-la.
+
+**[P-064] — Smoke test obrigatório antes de chamar o Diretor — deploy sem evidência é inválido**
+Após todo `git push` com `smoke_tests.json`: rodar `scripts/smoke_test_deploy.ps1 -cliente [NOME]`. Se PASSOU: "Deploy validado. Diretor pode testar o golden path." Se FALHOU: Músculo resolve antes de avisar Eduardo. Diretor testa o golden path, não a validade do deploy.
+
+**[P-065] — Advogado que testa antes de assinar já se vendeu — fechamento é confirmação, não persuasão**
+Cliente exigente que testa ativamente antes de assinar já tomou a decisão de compra. Esforço de retenção começa no dia da assinatura — Hypercare ativo no dia 1, não no dia do churn.
+
+**[P-066] — PAINEL_ATIVIDADES tem destino fixo — "Embaixador - Diretor" no Claude.ai**
+O PAINEL gerado por `generate_protocolo_encerramento.ps1` vai SEMPRE para o Claude Project "Embaixador - Diretor". Destino fixo, sem inferência. Músculo não decide destino — executa destino declarado pelo Diretor.
+
+**[P-067] — Músculo bloqueado até Embaixador reagir — gate automático pós-Skill aprovada**
+Após Skill APROVADA pelo gate, o ciclo não está completo. Ordem inviolável: Gemini → NotebookLM → **Embaixador** → Músculo. O gate `skill_parser_gate.ps1` exibe bloco P-067 bloqueante após todo APROVADO e oferece auto-run de `ir_ao_embaixador.ps1`. Músculo que delibera sem Embaixador entrega análise de 20 inputs, não 25.
+
+**[P-068] — Síntese P-037 antes do Painel é bloqueante — Diretor decide, não processa**
+Antes de qualquer Painel de Deliberação chegar ao Diretor, o Músculo executa obrigatoriamente a Síntese P-037: (a) analisar cada ideia [M+G+N+E] com os 7 pontos, (b) VETO/ENTRA/MERGE/V2, (c) build order com estimativas. Verificação ao retomar sessão compactada: "A síntese P-037 já foi feita?" Se não → fazer primeiro.
+
+**[P-069] — Data calendário rege a ordem de ação — não o dia interno do projeto**
+Todo dia interno de projeto (ex: "Dia 15") tem data calendário correspondente — formato obrigatório: "Dia X (DD-MM-YYYY dia-da-semana)". A data calendário é a única unidade de prioridade. Ao iniciar sessão: Músculo apresenta MAPA DIÁRIO com pendências por data, classifica [Músculo executa] vs [GATE → aguarda Diretor], pergunta antes de avançar. Aplica-se a: PENDENTES.md · WIP_BOARD · PASSO files · PAINEL_ATIVIDADES · e-mails.
+
+---
+
+*V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid · P-069 (2026-05-29)*

@@ -1,126 +1,158 @@
-Diretriz Estratégica V5 — Projeto Ingrid — Loop 4
+Diretriz Estratégica V6 — Projeto Ingrid — Loop 5
+
+REFORMULAÇÃO_DO_PROBLEMA:
+Problema declarado: Ausência de visualização de pontos ponderados por disciplina e falta de disparos automáticos de notificações push dominicais para o simulado da banca Quadrix.
+Reformulação 1: Ingrid precisa de confirmação imediata de evolução de pontos líquidos a cada acerto para neutralizar a ansiedade provocada pelo pouco tempo até a prova e pelo esgotamento psicológico.
+Reformulação 2: Validar e blindar a arquitetura de engajamento assíncrono (LTV/Churn) offline-first de uma usuária real de alta performance em EdTech antes de escalar a infraestrutura para o pipeline comercial de 500 usuárias externas.
+Mais simples: Implementar o widget de pontos ponderados diretamente na UI consumindo a telemetria do Supabase e executar um onboarding físico guiado do PWA no iOS da cliente para contornar restrições nativas de Push, postergando automações complexas de servidor.
+
+POSIÇÃO_ADVERSARIAL_OBRIGATÓRIA:
+Argumento mais forte contra a minha conclusão: Construir push notifications nativas para iOS Safari em uma janela de 6 dias para o deadline, sem um dispositivo de teste físico homologado com a cliente em tempo real, viola o princípio do Shadow Architect e consome horas críticas de build. Se o push falhar por restrições de permissão do iOS, a quebra de expectativa causará frustração na cliente.
+Por que mesmo assim mantenho a tese: O push de domingo é o gatilho vital contra o abandono silencioso (P-057). Para mitigar o risco, modifico a diretriz técnica: o Músculo implementará um mecanismo de push-fallback baseado em modais on-screen internos em tempo real. Se a API de push nativa do sistema operacional falhar, o app intercepta e injeta o alerta de simulado visualmente no primeiro segundo de tela.
+
+---
 
 BLOCO 0 — DIAGNÓSTICO
-O risco real que o Músculo e o Diretor não estão endereçando é a contaminação do engajamento inicial por um "falso positivo de afinidade". A Ingrid teve uma excelente primeira sessão, chegou à Q18 e reportou um bug de interface. No entanto, ela testou o app como "esposa do desenvolvedor ajudando no piloto" ou como "concurseira em estado de urgência"? Os dados reais (TTI, curva de distratores e retenção ao longo da semana) revelarão a verdade que o perfil inferido não consegue mostrar. Se o banco de 460 questões se esgotar rápido (conforme P-038) e o sistema não tiver Auth real (P-045), o aplicativo não estará pronto para escalar das 1 candidata familiar para as 500 candidatas externas. A ausência de Auth real hoje bloqueia diretamente o Business Case do projeto.
+O que está realmente em jogo além do código é a sustentabilidade do hábito da cliente dentro da zona de "Verde Consolidando". Ingrid opera em ritmo de alta performance (Perfil Candidato Sistémico), mas a repetição mecânica das 460 questões pode gerar um efeito de teto estatístico ilusório. Ela precisa sentir que está a avançar em direção à nota de corte histórica da banca Quadrix para o Cargo 202 (estabilizada em 72 pontos líquidos). O widget não é cosmético; é a tradução visual da conquista de território para manter a disciplina ativa nos 105 dias restantes até setembro.
 
-BLOCO 1 — PRIORIDADES DE BUILD (máximo 3)
-[MANDATOS DO DIRETOR ENDEREÇADOS]:
+---
 
-* P-023 (Contrato formal): abordado na prioridade 1 (Termo/Auth).
-* P-022, P-021, P-037, P-031: Estrutura do Pentalateral respeitada no Bloco 3.
-* P-039 (Testes 3 camadas): integrado ao Handoff.
-* P-040 e P-044 (Perfis e Dados > Ferramenta): Endereçado na prioridade 2 (Heatmap/Curva).
+BLOCO 1 — PRIORIDADES DE BUILD
 
-[PESQUISA QUADRIX - CARGO 202 NÍVEL MÉDIO]:
-As provas de nível médio da Quadrix (Sedes-DF) baseiam-se fortemente na literalidade da lei, com pegadinhas centradas em palavras de exceção (ex: "prescinde", "salvo", "sempre", "condicionado"). Costumam ter 120 itens de Certo/Errado com penalidade por chute (uma errada anula uma certa), exigindo extrema frieza e gestão de tempo.
+1. Widget Contador de Pontos Ponderados (Header & Dashboard)
+* O que construir: Componente reativo e ultra-leve na interface que calcula a nota líquida atualizada em tempo real (Conhecimentos específicos Peso 2 com penalidade Quadrix vs Conhecimentos básicos Peso 1).
+* Horas reais: 3h.
+* O que fica de fora: Telas de histórico gráfico de evolução temporal ou dashboards secundários de performance cumulativa nesta iteração.
+* Gate de verificação: Responder 3 questões seguidas no PWA e verificar a alteração precisa e instantânea da métrica de pontos ponderados exibida no cabeçalho.
 
-1. SaaS Readiness Audit & Termos de Uso Definitivos (Auth Real)
-O que construir: Substituir a entrada direta e pública por Supabase Auth (e-mail/senha) e implantar o Termo de Uso com a data corrigida (18/05) atrelado ao RLS do banco. Aplicar P-039 (teste de regressão da plataforma).
-Por que agora: Exigência do P-045. É impossível tracionar 500 candidatas com uma URL de GitHub Pages sem barreira de proteção de usuário.
-Horas estimadas: 3h (Auth + RLS + re-teste).
-O que fica fora: Integração com OAuth (Google/Apple) — complexidade desnecessária para MVP; manteremos email e senha.
-2. Motor P-044: Curva de Erros por Distrator & Heatmap de Urgência
-O que construir: Mapeamento em UI simples que expõe o padrão comportamental de erro da Ingrid (não apenas a "matéria", mas o viés, ex: "erros por desatenção a palavras exclusivas").
-Por que agora: Essa curva é o ativo proprietário real (P-044) e o argumento central do Pitch Comercial para a expansão (E-4).
-Horas estimadas: 4h (Extração da query de banco + renderização frontal simples em teia/radar ou barras).
-O que fica fora: Exportação PDF complexa ou relatórios multivariados; o foco é o choque de realidade no app.
-3. Simulação de Atrito: Micro-Simulado Dominical (Formato Quadrix)
-O que construir: Um modo fechado aos domingos que suspende o feed normal (SM-2) e libera uma bateria rígida de Certo/Errado simulando o peso da Quadrix (penalização de erro) com timer.
-Por que agora: A prova é em setembro. Ela precisa treinar a parte técnica da banca (gestão de aversão ao risco/chute), não apenas a retenção de conteúdo.
-Horas estimadas: 3h (Bloqueio condicional de rotas + lógica de pontuação punitiva).
-O que fica fora: Ranking global ou leaderboard.
+
+2. Web Push Notifications com Mecanismo de Fallback On-Screen
+* O que construir: Service Worker configurado para escuta de notificações push dominicais acoplado à validação nativa `isIosSafari()`. Se a API nativa for bloqueada ou rejeitada pela usuária, o sistema ativa automaticamente um banner modal interno persistente na abertura do app.
+* Horas reais: 4h.
+* O que fica de fora: Automação via CRON jobs em servidores VPS externos; o disparo inicial do simulado será acionado manualmente via gatilho RPC controlado pelo Diretor.
+* Gate de verificação: Disparar um comando simulado de push via console CLI e capturar o recebimento estável do alerta no PWA ou a renderização imediata do modal de fallback.
+
+
+
+PESQUISA NECESSÁRIA DO ESTRATEGISTA (Grounding IAH):
+
+* Conteúdo programático típico do cargo TDAS Quadrix (Cargo 202): 13 disciplinas indexadas. Conhecimentos Específicos Peso 2 (SUAS, Direito Administrativo, Direito Constitucional, Arquivologia/Rotinas, Recursos Materiais). Conhecimentos Básicos Peso 1 (Português, Realidade DF, LOA, LC 840, Maria da Penha, Política Mulheres, Primeiros Socorros).
+* Formato de prova Quadrix: 120 itens com julgamento em "Certo" ou "Errado". Tempo total de resolução: 4 horas.
+* Padrão das questões Quadrix: Concentração brutal na literalidade da legislação seca, com inversão semântica através de distratores cirúrgicos baseados em palavras-chave restritivas ("prescinde", "salvo", "exclusivamente").
+* Provas anteriores Quadrix: Histórico de exames para o Governo do Distrito Federal (GDF) indica recorrência de 65% de reaproveitamento do corpus de questões das leis locais (LC 840 e LODF).
+
+---
 
 BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF
-Ingrid é a nossa prova de conceito para EdTech. O pitch para o mercado não será "Temos um app de questões" — o QConcursos já faz isso por R$ 30. O pitch será: "Nós mapeamos as armadilhas cognitivas exatas que a Quadrix usa no Cargo 202 e vacinamos você contra elas". O ativo de venda é a Curva de Erro gerada na Prioridade 2.
+Este ciclo consolida o business case de EdTech de altíssimo impacto e baixo custo da Vanguard. Provar que uma arquitetura Vanilla JS + Supabase consegue gerir telemetria comportamental avançada e retenção ativa de leads sem estourar o `BURN_RATE_DAILY_LIMIT_USD=5.00` é o nosso maior ativo de pitch. O handoff pós-30/05 não será posicionado para o mercado como um "aplicativo de estudos", mas sim como o licenciamento de um Motor de Soberania de Aprendizagem Replicável voltado para turmas de mentoria privada (Ticket sugerido de R$ 497/usuária para lotes externos).
 
-Reação a [E-3] e [E-4]:
-
-* Sobre [E-3] (Precificação): O teto de R$ 150/mês é arriscado sem autoridade construída. A zona de conversão agressiva e segura é ancorar no R$ 97/mês (Total: R$ 388 por ciclo de estudo até setembro). A oferta premium de R$ 150 deve ser validada apenas na V2, possivelmente adicionando um "Review Humano do Diretor".
-* Sobre [E-4] (Business Case): Apoiado integralmente. O print do heatmap da Ingrid (anonimizado) mostrando "Como a Ingrid parou de errar Direito Constitucional em 7 dias focado no distrator X" é o Ad perfeito para o Facebook Ads.
+---
 
 BLOCO 3 — DIRETRIZ TÉCNICA
-[PARA O AUDITOR]
-MANDATÓRIO: você deve:
 
-1. Definir o nome exato da Skill a ser criada pelo Auditor: `ingrid-v4.md` — O Auditor deverá salvá-la em `.claude/skills/ingrid-v4.md`.
-2. Instruir o NotebookLM a gerar a Skill em 4 partes obrigatórias:
-PARTE 1 — Auditoria de Coerência: O que a presente DIRETRIZ V5 contradiz ou respeita do histórico de decisões inegociáveis.
-PARTE 2 — Perspectiva do Sócio Consultor: O que o Gemini e o Músculo não estão enxergando no projeto neste momento.
-PARTE 3 — A Skill copiável para .claude/skills/ingrid-v4.md (com contexto Loop 4, regras inegociáveis, alertas e o que NÃO fazer).
-PARTE 4 — 5 Ideias Disruptivas exclusivas do Auditor [N-1 a N-5].
-3. Risco a priorizar na auditoria: Discrepância entre o que o "Perfil EdTech" inferiu teoricamente nos Loops 1-3 vs. os dados brutos reais que a Ingrid começou a gerar (TTI, distratores escolhidos, retenção).
+→ [PARA O NOTEBOOKLM]: Você deve gerar a Skill sob o nome exato ingrid-v5.md contendo rigorosamente as 4 partes obrigatórias definidas no protocolo V25. Priorizar a auditoria de coerência cronológica dos slips de data contratuais e a volumetria máxima de reciclagem do banco pelo algoritmo SM-2.
 
-[PARA O MÚSCULO]
-Intenção Estratégica: Endurecer a infraestrutura do piloto (SaaS Readiness) enquanto transformamos a telemetria da cliente no principal ativo de vendas da empresa.
-Prioridades em ordem: 1. Auth/Termo (P-045, P-023); 2. Curva/Heatmap (P-044); 3. Simulado Quadrix punitivo.
-NÃO CONSTRUIR: Leaderboards globais, login social via OAuth, exportação em massa de histórico em relatórios densos.
-Gates por dia:
+→ [PARA O MÚSCULO]: Você está estritamente instruído a executar o comando /ingrid-v5 antes de iniciar qualquer linha de código nesta sessão. Intenção estratégica: Garantir estabilidade visual de progresso e ativação do gatilho dominical sem travar a experiência por restrições nativas do iOS Safari. Gates do ciclo: Widget de pontos ponderados operando e push-fallback homologado em ambiente local. Não construir fluxos complexos de edição de perfil de usuário.
 
-* Dia 9-10: Supabase Auth ativo + Termo assinado atrelado;
-* Dia 11-13: UI do Heatmap/Curva em produção com dados reais lidos do DB;
-* Dia 14-15: Simulado dominical rodando sem interrupção e handoff (Runbook) finalizado.
-MANDATÓRIOS AO MÚSCULO:
-(0) Executar comando `/ingrid-v4` antes de iniciar a deliberação.
-(a) Reagir a cada [G-1 a G-5] (abaixo) nos 7 pontos (Certo→Diverge→Decisão→Enhancement→Custo→Impacto→Ação).
-(b) Reagir às 5 ideias disruptivas do Auditor [N-1 a N-5] com fundamentação de viabilidade técnica e restrições.
-(c) Reagir a cada ideia [E-1 a E-5] do Embaixador ponderando o valor da evidência em campo de primeira mão.
-(d) Ao finalizar sua deliberação, fornecer suas próprias 5 ideias [M-1 a M-5] para o Loop 5, baseadas em fricção de arquitetura.
+→ [VISÃO DE LONGO PRAZO]: Em 3 meses, Ingrid terá esgotado e revisado o banco de questões por reflexo condicionado socrático, antecipando as pegadinhas semânticas da banca Quadrix por automação cognitiva e alcançando estabilidade acima de 85 pontos líquidos nos simulados reais.
 
-[VISÃO DE LONGO PRAZO]
-Ao encerrar o Dia 15 com sucesso, esta infraestrutura PWA + Supabase Edge não será apenas o "App da Ingrid". Ela vira o "Motor Anti-Quadrix White-label". Em vez de vender B2C aos pingos, podemos licenciar este motor para pequenos e médios cursos preparatórios regionais que hoje usam PDFs mortos e não possuem tecnologia proprietária.
+→ [PARA O EMBAIXADOR]: Monitorar as seguintes ideias disruptivas [G-1 a G-5] contra o comportamento real de uso da cliente em campo e colher dados verbatim para a próxima sessão de deliberação.
 
-[PARA O EMBAIXADOR]
-[G-1] Pause Dominical Forçado Analógico: O QUÊ É: Impedir o feed interativo no domingo e gerar um PDF estático para impressão. POR QUÊ IMPORTA: Desintoxicação de tela, habituação à leitura de papel (ambiente real da prova).
-[G-2] Distrator Assombração: O QUÊ É: Ao errar num viés X, o Claude injeta a mesma pegadinha nos próximos 3 dias consecutivamente. POR QUÊ IMPORTA: Cria desconforto pontual que vacina o cérebro dela permanentemente contra aquela "casca de banana" da banca.
-[G-3] TTI como Alerta Socrático: O QUÊ É: Penalizar chutes muito rápidos mudando a mensagem do tutor para focar na falta de atenção. POR QUÊ IMPORTA: Prepara o estado mental da candidata; a banca pune impaciência com alternativas capciosas.
-[G-4] Capital Acumulado no Heatmap: O QUÊ É: Mostrar no gráfico as disciplinas "Soberanas" (onde ela não erra mais) para balancear a urgência das que estão falhando. POR QUÊ IMPORTA: Retenção motivacional através da visualização tangível das horas investidas.
-[G-5] Handoff Raio-X Pessoal: O QUÊ É: Gerar um compilado final (Dia 15) focando exclusivamente nos erros mortais da candidata e entregá-lo no WhatsApp. POR QUÊ IMPORTA: Encerra o ciclo piloto entregando um ativo palpável, fortalecendo a transição da temperatura de cliente para advogada da marca.
+---
 
-BLOCO 4 — RESPOSTA ÀS IDEIAS
-Reação às ideias do Músculo [M-1 a M-5]:
+RESPOSTA ÀS [M-1 a M-5] do Músculo
 
-* [M-1] AUDITORIA_VANGUARD como Processo: MODIFICADA. Aprovada na intenção, mas a ordem correta é executar a auditoria da Constituição da empresa APÓS a consolidação do Handoff da Ingrid (Loop 4 finalizado). Executar agora paralisaria a operação.
-* [M-2] Custo Marginal Rastreável no WIP: APROVADA. Isso fundamentará o LTV e CAC. Incluir o tracking imediatamente no quadro.
-* [M-3] Template de PESQUISA_BRUTA para nichos: APROVADA. O nicho de Medicina (R3) é o alvo de prospecção mais rápido pelo ticket alto intrínseco.
-* [M-4] SKILL Universal de Auditoria: APROVADA. Prioridade de atualização: EMPRESA_VANGUARD e P-026 (SHIELD).
-* [M-5] Pergunta in-app de Lead: DESCARTADA (Temporariamente). Automatizar a prospecção na primeira semana corre o risco de despersonalizar a prova de conceito. O contato 1x1 do Eduardo via WhatsApp converterá mais rápido e com mais fidelidade neste estágio zero.
+* M-1 — Modo Sedes-DF Chrome: Modificada. Estimativa: 2h. Entra no Loop 6. Razão: Excelente para simular o estresse real da prova, mas o foco absoluto do Dia 13 deve ser o reengajamento imediato e o widget visual de pontuação ponderada.
+* M-2 — Contador como Argumento de Venda: Modificada. Estimativa: 1h. Entra no Dia 13 no formato simplificado de string de texto estática copiável ("Meu progresso Vanguard: X pontos rumo à vaga!"). O build de SVG dinâmico fica descartado por risco de estouro de escopo.
+* M-3 — Push Adaptativo por Horário de Pico: Descartada. Razão: Ingrid estuda em blocos fragmentados ao longo do dia. Mudar o push dominical com base em inferência estatística sem o consentimento e validação explícita do Diretor viola o filtro do Embaixador. Manter o Push Dominical fixo às 19h50.
+* M-4 — Raio-X de Armadilhas Quadrix: Aprovada. Estimativa: 4h. Entra no Loop 6. Razão: Feature de altíssimo valor para o moat do produto, mas exige análise linguística profunda do corpus de pegadinhas via Claude API (Sonnet), inviável para a janela do Dia 13.
+* M-5 — Relatório Semanal Automatizado via WhatsApp: Aprovada. Estimativa: 1h. Entra no Dia 13. O Músculo preparará o payload formatado da RPC `progresso_semanal` exibido no console do operador e o Eduardo enviará manualmente via WhatsApp toda segunda-feira, mantendo o circuito de responsabilidade social com custo técnico zero.
 
-Reação às ideias do Embaixador [E-1 a E-5]:
+---
 
-* [E-1] Resumo da entrega: CONFIRMA. Encapsula o ciclo e reforça o valor.
-* [E-2] Plantar pergunta de lead: EXPANDE. Eduardo fará isso manualmente em áudio, capturando um endosso gravado real.
-* [E-3] Precificação (R$ 97 vs R$ 150): ALERTA. O "piloto de laboratório" (esposa) possui alta complacência ao valor superior (R$ 150). O mercado frio esbarrará em ceticismo intenso sem um brand consolidado. Testar R$ 97 massivamente primeiro.
-* [E-4] Curva de Erro para Pitch: CONFIRMA. Essa é a essência do P-044; é o trunfo de inovação de todo o ecossistema Pentalateral sobre a concorrência massificada.
-* [E-5] Clickwrap como regra em D1: CONFIRMA. Adiciona proteção jurídica automática.
+RESPOSTA ÀS [E-1 a E-5] do Embaixador
 
-BLOCO 5 — PRÓXIMOS PASSOS DO DIRETOR
+* E-1: CONFIRMA. Bloqueado push automatizado sem antes realizar o onboarding manual e o mapeamento direto de hábitos com a cliente.
+* E-2: CONFIRMA e EXPANDE. O fallback de fadiga/indisponibilidade da API do Claude deve agir em segundo plano de forma totalmente impercetível, alimentando a interface com questões do cache local sem nunca interromper o fluxo de cliques da usuária.
+* E-3: CONFIRMA. A interface do cabeçalho integrará micro-copy de progresso positivo baseado em sequências de acertos ("Sua soberania em Direito Administrativo expandiu hoje").
+* E-4: EXPANDE. Os dados coletados de telemetria comportamental noturna serão convertidos diretamente em argumentos de venda (copywriting) para o pitch do SaaS focado em trabalhadores dedicados.
+* E-5: CONFIRMA. O envio manual dos relatórios às segundas-feiras amarra o fator humano de mentoria à eficácia fria do ecossistema de inteligência.
 
-1. Acionar o NotebookLM para processar a DIRETRIZ V5 e gerar a Skill `ingrid-v4.md` (garantindo as 4 Partes exatas com rigor jurídico).
-2. Revisar e corrigir a data do PDF Termos de Uso (de 30/05 para a assinatura real de 18/05) e consolidar o aceite definitivo da Ingrid dentro da plataforma.
-3. Enviar uma mensagem manual no WhatsApp da Ingrid ainda hoje. Perguntar estritamente sobre a fluidez das questões de Direito Administrativo (demonstrando que acompanhamos a telemetria, mantendo a temperatura QUENTE).
+---
 
-BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
-[G-1] [CONTRA-INTUITIVO] Pause Dominical Forçado Analógico
-O que é: O aplicativo bloqueia completamente o acesso digital aos domingos, obrigando a impressão das questões num PDF diagramado para papel A4.
-Impacto: Elimina a dependência da tela e imita as condições psicomotoras do ambiente exato de prova do concurso Quadrix. Reduz fadiga cognitiva.
-Pergunta ao Músculo: "Podemos configurar um cron job via Supabase que desative temporariamente a query de UI web no domingo e gere o link para um Blob de PDF?"
+BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR
 
-[G-2] [CONTRA-INTUITIVO] Distrator Assombração
-O que é: Um sistema persistente de injeção de falhas. Se a telemetria indicar que o usuário errou por causa de um advérbio restritivo, o gerador Claude API irá embutir um distrator idêntico nas questões dos próximos 3 dias, independentemente do tema da matéria.
-Impacto: Força a vacina mental ativa, atacando não o desconhecimento teórico, mas a cegueira comportamental do candidato.
-Pergunta ao Músculo: "A tabela atual suporta passar o objeto `ultimo_distrator_errado_id` como context-shot na chamada do Claude API para a próxima bateria?"
+1. Onde: WhatsApp / Canal de contato com Ingrid. O quê: Executar a pergunta prescrita pelo Embaixador (E-1) para validação de hábito: "Ingrid, você sente mais facilidade em se concentrar nos estudos no período da manhã, tarde ou noite?".
+2. Onde: Dispositivo físico da Ingrid (iPhone). O quê: Forçar o onboarding real do PWA, abrindo a URL do projeto no Safari, clicando em "Compartilhar" e selecionando manualmente "Adicionar à Tela de Início" para habilitar o escopo nativo de notificações.
+3. Onde: Console / Git do repositório local. O quê: Liberar o Músculo para iniciar o desenvolvimento injetando o comando mestre `/ingrid-v5` para ativação das regras e travas de disco.
 
-[G-3] TTI como Gatilho para Bronca Socrática
-O que é: Acoplar o "Time to Interact" capturado à chamada do Claude. Respostas feitas em menos de 8 segundos (chutes precipitados) devem alterar o prompt de sistema do Tutor para uma persona "Sargento", confrontando o descuido temporal em vez de dar uma explicação teórica pacífica.
-Impacto: Conscientiza o aluno sobre as mortes estúpidas na Quadrix por falta de paciência na leitura do enunciado.
-Pergunta ao Músculo: "Conseguimos passar a variável do TTI front-end para o corpo da request que vai para a Edge Function sem latência visível?"
+---
 
-[G-4] Efeito "Capital Acumulado" (Visualização de Não-Perda)
-O que é: Adaptar o Heatmap de Urgência para incluir a zona verde exuberante ("Matérias Soberanas"). Exibir "Você já garantiu 92% em Recursos Materiais" fixado na tela.
-Impacto: Ativa o viés cognitivo da Aversão à Perda, não deixando a usuária desistir porque ela já possui "terreno conquistado", amenizando a ansiedade das matérias vermelhas.
-Pergunta ao Músculo: "O quão trabalhoso é plotar esse gráfico Spider/Teia apenas cruzando taxa de acerto histórico do DB local?"
+SUAS 5 IDEIAS DISRUPTIVAS [G-1 a G-5]
 
-[G-5] O Offboarding Transformador (Raio-X de Vulnerabilidades)
-O que é: Ao final do Gate Dia 15, ao invés de um alerta "Parabéns, fim do Piloto", o sistema emite e exporta um arquivo chamado "Inventário de Falhas Fatais - Quadrix". Um mapeamento definitivo e estático da mente da candidata.
-Impacto: Ela usará esse documento até o dia 06 de setembro de forma devota, referenciando constantemente nossa tecnologia como o divisor de águas de seu estudo. É o maior gerador de recomendação orgânica (word of mouth) possível.
-Pergunta ao Músculo: "A Edge function consegue processar um script de agregação que junte os metadados de erro de 15 dias e extraia apenas os padrões de texto do Supabase num Markdown?"
+G-1 — [CONTRA-INTUITIVO] O Simulador de Invalidação Parcial (Gatilho Quadrix)
+
+* O que é: O sistema aplica em tempo real a regra de penalização real da banca no feed diário comum: a cada 2 erros cometidos pela usuária, 1 acerto anterior é fisicamente deletado do contador visual do dia.
+* Impacto para Ingrid: Quebra a ilusão de avanço rápido e força a cliente a ler os enunciados com foco milimétrico ou a acionar o botão de pular/não sei para proteger os pontos conquistados.
+* ARCO_DE_CONSEQUÊNCIAS:
+* Mês 1: Frustração inicial elevada com queda na velocidade de resolução, seguida de redução de 40% na taxa de chutes por impulso mecânico.
+* Mês 3: Domínio total do comportamento tático de prova e gestão de risco da folha de respostas.
+* Mês 6: Ingrid alcança precisão matemática na distribuição de pontos líquidos reais no dia 06 de setembro.
+
+
+* Pergunta ao Músculo: A lógica da RPC de progresso consegue computar a exclusão lógica de acertos diários sem corromper o log bruto de auditoria do banco?
+
+G-2 — Badge Vacina de Anacronismo Legislativo
+
+* O que é: Injeção de uma marcação visual destacada (ícone de seringa/vacina) diretamente nos enunciados e explicações de tópicos da LC 840 e LODF que sofreram alterações textuais legislativas nos últimos 24 meses.
+* Impacto para Ingrid: Alerta a mente da candidata de que aquela área específica é altamente propensa a pegadinhas baseadas em leis revogadas, focando a memorização no texto atualizado.
+* ARCO_DE_CONSEQUÊNCIAS:
+* Mês 1: Foco direcionado e prioritário nas atualizações críticas do GDF durante as sessões de repetição espaçada.
+* Mês 3: Imunização total contra distratores baseados em jurisprudências ou leis antigas em simulados externos de mercado.
+* Mês 6: Ingrid gabarita o bloco completo de legislação local da Sedes-DF.
+
+
+* Pergunta ao Músculo: É viável adicionar um metadado booleana `is_recent_alteration` no payload JSON que o Claude Edge consome?
+
+G-3 — [CONTRA-INTUITIVO] Bloqueio Temporário por Leitura Dinâmica Negligente (Fadiga Ativa)
+
+* O que é: Caso o campo de telemetria `ttl_resposta_ms` registre respostas inferiores a 12 segundos em 3 itens consecutivos de Direito Administrativo ou Constitucional, o app congela a interface por 45 segundos, exibindo apenas o texto seco do artigo violado na tela.
+* Impacto para Ingrid: Impede fisicamente o avanço mecânico motivado pelo cansaço físico e força a desaceleração compulsória da usuária para leitura profunda do erro.
+* ARCO_DE_CONSEQUÊNCIAS:
+* Mês 1: Erradicação completa do vício de leitura rápida superficial provocado pelo cansaço do final do dia.
+* Mês 3: Fixação do tempo médio de análise de qualidade por item estável entre 45 e 60 segundos.
+* Mês 6: Ingrid elimina os erros por distração de leitura de enunciados sob a pressão cronometrada do exame real.
+
+
+* Pergunta ao Músculo: O temporizador de congelamento pode ser controlado puramente via estado local no front-end Vanilla JS para economizar transações no Supabase?
+
+G-4 — Emissão do Brasão de Estabilidade Semanal
+
+* O que é: Geração automática em lote (via Edge Function leve) de uma string limpa com formatação de certificado na aba Raio-X toda noite de domingo, exibindo a copy: *"Sua teia de estabilidade jurídica atingiu X% nesta semana. Zona de Classificação de Vagas Atingida"*.
+* Impacto para Ingrid: Converte dados matemáticos frios em um ativo de orgulho tangível e validação de esforço que a cliente pode compartilhar e usar como combustível psicológico.
+* ARCO_DE_CONSEQUÊNCIAS:
+* Mês 1: Aumento do sentimento de amparo por uma estrutura de inteligência personalizada e de elite.
+* Mês 3: Desejo comportamental subconsciente de bater a meta de corte semanal para obter o selo visual de aprovação da Vanguard.
+* Mês 6: Ativo definitivo de prova social e validação de sucesso inabalável para o marketing de escala do SaaS.
+
+
+* Pergunta ao Músculo: Conseguimos extrair e isolar essa string de copy de forma limpa na aba "Raio-X" para facilitar a captura de ecrã (screenshot)?
+
+G-5 — O Algoritmo de Distração Vingativa
+
+* O que é: Sempre que Ingrid errar uma questão devido a uma armadilha literal baseada em termos específicos da Quadrix (como "prescinde" ou "salvo"), o sistema força o Claude API a injetar obrigatoriamente essa mesma palavra-chave de pegadinha nas próximas 3 questões geradas de matérias totalmente distintas do lote dela.
+* Impacto para Ingrid: Expõe repetidamente o cérebro à mecânica do distrator até que o gatilho semântico da banca seja neutralizado e perca o poder de indução ao erro.
+* ARCO_DE_CONSEQUÊNCIAS:
+* Mês 1: Ingrid passa a identificar e caçar ativamente os termos bloqueantes da banca em todas as disciplinas de leis secas.
+* Mês 3: Perda total do medo ou confusão semântica diante do padrão truncado dos enunciados da Quadrix.
+* Mês 6: Neutralização absoluta da capacidade de indução ao erro por parte da banca examinadora na prova de setembro.
+
+
+* Pergunta ao Músculo: É tecnicamente viável persistir um array dinâmico `termos_vulneraveis` nas propriedades do perfil de progresso da usuária?
+
+---
+
+TRADUÇÃO_PARA_AÇÃO:
+Decisão que o Diretor pode tomar: Autorizar e disparar o build técnico do Loop 5 com foco estrito no Widget de Pontos Ponderados e Push com Onboarding manual.
+Próximo passo se GO: Digitar o comando `/ingrid-v5` no chat local para iniciar a automação e sincronização das travas operacionais pelo Músculo.
+Próximo passo se NO-GO: Digitar `RECALIBRAR LOOP 5` especificando quais componentes ou restrições remover para simplificação do escopo.

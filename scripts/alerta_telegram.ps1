@@ -1,4 +1,4 @@
-﻿# ============================================================
+# ============================================================
 # ALERTA_TELEGRAM.PS1 — Envia alerta para o Diretor via Telegram
 # Canal de alertas automáticos do PENTALATERAL IAH
 #
@@ -24,7 +24,7 @@ if ($mensagem -eq "" -and $cliente -ne "" -and $tipo -ne "") {
 
         "INGRID_SILENCIO" {
             $mensagem = @"
-INGRID - Silencio ativo (2+ dias)
+INGRID - Silêncio ativo (2+ dias)
 P-023 ativo - gate bloqueado
 
 COPIE E ENVIE NO WHATSAPP:
@@ -36,7 +36,7 @@ Ingrid, tô por aqui. Como tá o estudo?
         "INGRID_TERMO" {
             $mensagem = @"
 INGRID - Termo pendente
-Nenhuma acao ate assinar. Gate bloqueado.
+Nenhuma ação até assinar. Gate bloqueado.
 
 COPIE E ENVIE NO WHATSAPP:
 ---
@@ -46,13 +46,38 @@ Ingrid! Tô quase liberando seu acesso — só falta sua assinatura no termo que
         }
         "INGRID_RELATORIO" {
             $mensagem = @"
-INGRID - Relatorio semanal (gate formal E-3)
-Abrir Supabase, copiar metricas, enviar.
+INGRID - Relatório semanal (gate formal E-3)
+Abrir Supabase, copiar métricas, enviar.
 
 COPIE E ENVIE NO WHATSAPP:
 ---
 Ingrid, semana encerrada! Me conta: quantas questões você respondeu essa semana? Quero atualizar seu relatório de progresso.
 ---
+"@
+        }
+        "INGRID_REASSINATURA" {
+            $mensagem = @"
+INGRID - D1:A BLOQUEANTE - Reassinatura do Termo (data corrigida: 18/05/2026)
+PDF pronto: CLIENTES/INGRID/CLAUDE_PROJECT/Termo_Uso_Ingrid_18052026.html
+Abrir -> Ctrl+P -> Salvar como PDF -> Anexar abaixo.
+
+COPIE E ENVIE NO TELEGRAM/WHATSAPP:
+---
+Ingrid, tudo bem? Precisei corrigir uma datinha no documento que você assinou — nada importante, só um ajuste mesmo. Vou te mandar o arquivo agora para assinar rapidinho de novo! 😊
+---
+Após receber assinatura: marcar D1:A como feito no PENDENTES.md
+"@
+        }
+        "INGRID_LEAD" {
+            $mensagem = @"
+INGRID - D4:A PIPELINE - Plantar pergunta de lead
+
+COPIE E ENVIE NO TELEGRAM/WHATSAPP (na mesma conversa ou na próxima):
+---
+Ah, aproveitando — você conhece mais alguém prestando concurso esse ano? 😊
+---
+Simples, casual, sem pitch. Deixar a pergunta no ar.
+Após enviar: marcar D4:A como feito no PENDENTES.md
 "@
         }
         "INGRID_GATE_DIA8" {
@@ -71,31 +96,31 @@ Na primeira vez que abrir vai aparecer um termo rápido pra confirmar — é só
 
 Me manda mensagem depois que testar? Quero saber como foi! 😊
 ---
-Apos testar: acionar Embaixador -> iniciar.ps1 [E] -> Secao B (Debrief)
+Após testar: acionar Embaixador -> iniciar.ps1 [E] -> Seção B (Debrief)
 "@
         }
         "VALDECE_DEMO" {
             $mensagem = @"
 VALDECE - DEMO HOJE (2026-05-20)
-Momento mais critico do projeto — primeira busca dele.
+Momento mais crítico do projeto — primeira busca dele.
 
-CHECKLIST PRE-SAIDA:
+CHECKLIST PRÉ-SAÍDA:
 [ ] Leu MEMORIA_EMBAIXADOR (30 seg)
 [ ] Anotou os 3 temas que ele mais usa
 [ ] search_cli.py testado (threshold 0.45, top 3)
-[ ] Rascunho WhatsApp salvo: "Dr. Valdece, valor unico R$5k. Sem mensalidade."
-[ ] Contrato em mao (Contrato_Toga_Digital_Valdece_19052026.pdf)
+[ ] Rascunho WhatsApp salvo: "Dr. Valdece, valor único R$5k. Sem mensalidade."
+[ ] Contrato em mão (Contrato_Toga_Digital_Valdece_19052026.pdf)
 
 ROTEIRO (60-90 min):
-[0-5 min]  "Valdece, quais 3 temas voce mais pesquisou essa semana?"
-[5-25 min] Busca 1,2,3 nos temas que ELE nomeou — SILENCIO total
-[25-40 min] Deixar ELE digitar a 4a busca sozinho — momento de virada
+[0-5 min]  "Valdece, quais 3 temas você mais pesquisou essa semana?"
+[5-25 min] Busca 1,2,3 nos temas que ELE nomeou — SILÊNCIO total
+[25-40 min] Deixar ELE digitar a 4ª busca sozinho — momento de virada
 [40-55 min] Sovereign Playbook: "resolve em 3 passos sem me ligar"
-[55-70 min] Contrato — nao forcar — deixar o entusiasmo fechar
-LINHA FECHAMENTO: "O sistema e seu. Isso aqui so formaliza."
+[55-70 min] Contrato — não forçar — deixar o entusiasmo fechar
+LINHA FECHAMENTO: "O sistema é seu. Isso aqui só formaliza."
 
-SE NAO ENCONTRAR: "Esse entra no proximo ciclo" — redirecionar para outro dos 3 temas.
-AO VOLTAR: debrief com Embaixador (7 campos) obrigatorio.
+SE NÃO ENCONTRAR: "Esse entra no próximo ciclo" — redirecionar para outro dos 3 temas.
+AO VOLTAR: debrief com Embaixador (7 campos) obrigatório.
 "@
         }
         "VALDECE_PRESENCIAL" {
@@ -105,7 +130,7 @@ VALDECE - Presencial hoje
 2. Leve WATCHDOG preenchido
 3. Ao voltar: debrief 7 campos no Embaixador
 
-COPIE E ENVIE NO WHATSAPP (confirmacao):
+COPIE E ENVIE NO WHATSAPP (confirmação):
 ---
 Dr. Valdece, só confirmando nosso encontro de hoje. Estarei aí no horário combinado. Qualquer coisa me chama!
 ---
@@ -113,7 +138,7 @@ Dr. Valdece, só confirmando nosso encontro de hoje. Estarei aí no horário com
         }
         "VALDECE_POS_PRESENCIAL" {
             $mensagem = @"
-VALDECE - Pos-presencial
+VALDECE - Pós-presencial
 Acionar Embaixador com debrief agora.
 
 COPIE E ENVIE NO WHATSAPP:
@@ -124,12 +149,12 @@ Dr. Valdece, foi ótimo hoje! O sistema tá no ar na sua máquina. Qualquer dúv
         }
         "VALDECE_SILENCIO" {
             $mensagem = @"
-VALDECE - Silencio ativo
+VALDECE - Silêncio ativo
 Verificar estado do sistema + reativar.
 
 COPIE E ENVIE NO WHATSAPP:
 ---
-Dr. Valdece, tudo bem? Passando para saber como esta sendo a experiencia com o sistema.
+Dr. Valdece, tudo bem? Passando para saber como está sendo a experiência com o sistema.
 ---
 "@
         }
@@ -138,7 +163,7 @@ Dr. Valdece, tudo bem? Passando para saber como esta sendo a experiencia com o s
             $mensagem = [System.IO.File]::ReadAllText($msgFile, [System.Text.Encoding]::UTF8)
         }
         "BRIEFING" {
-            $mensagem = "Bom dia, Diretor. Briefing completo no e-mail. Abra e execute as acoes do dia."
+            $mensagem = "Bom dia, Diretor. Briefing completo no e-mail. Abra e execute as ações do dia."
         }
         default {
             Write-Host "❌ Tipo '$tipo' não reconhecido para '$cliente'." -ForegroundColor Red

@@ -440,16 +440,42 @@ foreach ($proj in $projetosEmBuild) {
                 }
 
                 if ($numMemoria -lt ($numLoopDiretriz - 1)) {
-                    Write-Host "  [P-045] AVISO: loops sem MEMORIA/relatorio detectados!" -ForegroundColor Red
-                    Write-Host "          DIRETRIZ V$numLoopDiretriz existe -- MEMORIA mais recente: V$numMemoria" -ForegroundColor Red
+                    Write-Host ""
+                    Write-Host "  ============================================================" -ForegroundColor Red
+                    Write-Host "  [P-045] BLOQUEIO: loops sem MEMORIA/relatorio detectados!" -ForegroundColor Red
+                    Write-Host "  ============================================================" -ForegroundColor Red
+                    Write-Host "  DIRETRIZ V$numLoopDiretriz existe -- MEMORIA mais recente: V$numMemoria" -ForegroundColor Red
+                    Write-Host ""
+                    $ausentes = @()
                     for ($v = ($numMemoria + 1); $v -le $numLoopDiretriz; $v++) {
                         $mPath = Join-Path $historico "MEMORIA_V${v}_${cliente}.md"
                         $rPath = Join-Path $historico "relatorio_evolutivo_V${v}_${cliente}.md"
-                        if (-not (Test-Path $mPath))  { Write-Host "          [AUSENTE] MEMORIA_V${v}_${cliente}.md" -ForegroundColor Red }
-                        if (-not (Test-Path $rPath))  { Write-Host "          [AUSENTE] relatorio_evolutivo_V${v}_${cliente}.md" -ForegroundColor Red }
+                        if (-not (Test-Path $mPath))  {
+                            Write-Host "  [AUSENTE] MEMORIA_V${v}_${cliente}.md" -ForegroundColor Red
+                            $ausentes += "MEMORIA_V${v}_${cliente}.md"
+                        }
+                        if (-not (Test-Path $rPath))  {
+                            Write-Host "  [AUSENTE] relatorio_evolutivo_V${v}_${cliente}.md" -ForegroundColor Red
+                            $ausentes += "relatorio_evolutivo_V${v}_${cliente}.md"
+                        }
                     }
-                    Write-Host "          Gere os artefatos ausentes antes de iniciar o proximo loop." -ForegroundColor Yellow
-                    Write-Host "          (P-045: loop sem artefatos = Auditor com contexto defasado)" -ForegroundColor Yellow
+                    Write-Host ""
+                    Write-Host "  MANDATO: gerar artefatos ausentes ANTES de encerrar a sessao." -ForegroundColor Yellow
+                    Write-Host "  (P-045: MEMORIA + relatorio sao obrigatorios ao fechar qualquer loop)" -ForegroundColor Yellow
+                    Write-Host "  (DEF-M-6: Musculo que omite artefatos transfere contexto defasado ao Auditor)" -ForegroundColor Yellow
+                    Write-Host ""
+                    Write-Host "  Pressione ENTER apenas apos gerar os artefatos acima." -ForegroundColor Cyan
+                    Read-Host "  > [aguardando geracao dos artefatos]"
+                    Write-Host ""
+                    # Re-verificar apos pressionar ENTER
+                    $aindaAusentes = $ausentes | Where-Object { -not (Test-Path (Join-Path $historico $_)) }
+                    if ($aindaAusentes.Count -gt 0) {
+                        Write-Host "  [!!] Ainda ausentes apos confirmacao:" -ForegroundColor Red
+                        $aindaAusentes | ForEach-Object { Write-Host "       $_" -ForegroundColor Red }
+                        Write-Host "  Continuando mesmo assim -- P-045 nao satisfeito nesta sessao." -ForegroundColor DarkGray
+                    } else {
+                        Write-Host "  [OK] Artefatos gerados -- P-045 satisfeito." -ForegroundColor Green
+                    }
                 } else {
                     Write-Host "  [P-045] Artefatos de loop OK — MEMORIA V$numMemoria em dia" -ForegroundColor Green
                 }
