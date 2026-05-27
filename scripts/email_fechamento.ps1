@@ -29,11 +29,21 @@ try {
     $smtp.Credentials = New-Object Net.NetworkCredential($ALERT_FROM, $ALERT_SENHA)
 
     $msg = New-Object Net.Mail.MailMessage
-    $msg.From    = $ALERT_FROM
+    $msg.From              = $ALERT_FROM
     $msg.To.Add($ALERT_TO)
-    $msg.Subject = $assunto
-    $msg.Body    = $corpo
-    $msg.BodyEncoding = [System.Text.Encoding]::UTF8
+    $msg.Subject           = $assunto
+    $msg.SubjectEncoding   = [System.Text.Encoding]::UTF8
+    $msg.IsBodyHtml        = $false
+
+    # AlternateView garante Content-Type: text/plain; charset=utf-8
+    # com Content-Transfer-Encoding: quoted-printable (compativel com todos os clientes)
+    $view = [System.Net.Mail.AlternateView]::CreateAlternateViewFromString(
+        $corpo,
+        [System.Text.Encoding]::UTF8,
+        "text/plain"
+    )
+    $view.TransferEncoding = [System.Net.Mime.TransferEncoding]::QuotedPrintable
+    $msg.AlternateViews.Add($view)
 
     $smtp.Send($msg)
     Write-Host "✅ E-mail de fechamento enviado para $ALERT_TO" -ForegroundColor Green
