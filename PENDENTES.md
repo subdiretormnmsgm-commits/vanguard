@@ -67,8 +67,8 @@
 - [x] `2026-05-27` ~~**C4 — Watchers EncodedCommand — VERDE:**~~
   ✅ decisoes_watcher.log: OK (20:30). skill_watcher: OK (teste manual 20:46). EncodedCommand funciona com path acentuado.
 
-- [ ] `2026-05-27` **Confirmar detect_canonical_violation.ps1 funcionando:**
-  Testar PASSO 0c: simular edição em cópia de projeto e confirmar BLOQUEIO.
+- [x] `2026-05-27` ~~**Confirmar detect_canonical_violation.ps1 funcionando:**~~
+  ✅ PASSO 0c validado em 2026-05-27: violação injetada em NOTEBOOKLM_FONTES/INGRID → VERMELHO exit 1 detectado. Restaurado → VERDE exit 0. NOTEBOOKLM_BASE sync corrigido.
 
 - [x] `2026-05-26` ~~**PROTOCOLO_ONBOARDING_INVISÍVEL.md — decidir destino:**~~
   ✅ Veredito do Diretor em 2026-05-27: ENTRA AGORA. Movido para PENTALATERAL_UNIVERSAL/OPERACAO/. P-085 inscrito no LEDGER.

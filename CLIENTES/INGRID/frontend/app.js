@@ -88,6 +88,7 @@ let totalRespostasGlobal  = 0;
 let ultimoCacheStatus     = "—";
 let acertosConsecutivos        = 0;    // E-3: streak de acertos consecutivos
 let errosConsecutivos          = 0;    // G-5: Socrática Pânico após 3 erros seguidos
+let g5DiscAlvo                 = null; // G-5 F-2: disciplina que disparou os 3 erros
 let sessaoId                   = null; // rastreia sessao atual em sessoes_usuario
 const errosPorQuestao          = {};
 let simuladoErrosPorDisciplina = {};   // G-5: disciplina mais errática no simulado
@@ -363,6 +364,7 @@ async function processarResposta(questao, letraEscolhida, card) {
     acertosConsecutivos = 0;
     errosConsecutivos++;
     revisoesPendentes++;
+    if (errosConsecutivos >= 3 && !g5DiscAlvo) g5DiscAlvo = questao.disciplina_id ?? null;
   }
 
   const nivelTutor = determinarNivelTutor(questao.id, acertou, tti);
@@ -1074,13 +1076,38 @@ function ativarSocraticaPanico(tipo) {
     </div>
   `);
 
-  document.getElementById("btn-continuar-panico")?.addEventListener("click", () => {
+  document.getElementById("btn-continuar-panico")?.addEventListener("click", async () => {
     errosConsecutivos = 0;
     simuladoErrosPorDisciplina = {};
+    const disc = g5DiscAlvo;
+    g5DiscAlvo = null;
+
     if (tipo === "simulado") {
       location.reload();
-    } else if (indiceAtual >= feed.length - 1) {
-      // G-5 disparou na última questão — vai para resultado em vez de próxima
+      return;
+    }
+
+    // F-2: G-5 Distração Vingativa Silenciosa — injetar 2 pegadinhas da disciplina-alvo
+    if (disc) {
+      try {
+        const idsVistos = feed.map((q) => q.id);
+        const params = new URLSearchParams({
+          disciplina_id: `eq.${disc}`,
+          select: "id,enunciado,alternativas,gabarito,explicacao_base,disciplina_id,peso_edital,tipo_pegadinha",
+          limit: "6",
+          order: "random()",
+        });
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/questoes_quadrix?${params}`, {
+          headers: { ...headers() },
+        });
+        if (res.ok) {
+          const extras = (await res.json()).filter((q) => !idsVistos.includes(q.id)).slice(0, 2);
+          if (extras.length > 0) feed.splice(indiceAtual + 1, 0, ...extras);
+        }
+      } catch (_) {}
+    }
+
+    if (indiceAtual >= feed.length - 1) {
       mostrarFim();
     } else {
       renderizarQuestao(indiceAtual + 1);
