@@ -19,9 +19,8 @@
   Relatório de Hypercare para Valdece. Template em CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md.
   Músculo gera PASSO7-C (debrief) antes do Sentinel.
 
-- [ ] `2026-05-26` **NotebookLM Wipe & Sync — Valdece:**
-  Arquivos 02, 07, 08, 16, 17, 18 atualizados com P-059 compliance.
-  **AÇÃO DO DIRETOR:** NotebookLM Valdece → deletar todas as fontes → arrastar CLIENTES/VALDECE/NOTEBOOKLM_FONTES/ (18 arquivos).
+- [x] `2026-05-26` ~~**NotebookLM Wipe & Sync — Valdece:**~~
+  ✅ Confirmado pelo Diretor em 2026-05-27. (PENDENTES não foi atualizado na sessão anterior — falha do Músculo.)
 
 ---
 
@@ -36,11 +35,9 @@
 - [x] `2026-05-27` ~~**Ingrid — Termo de Uso — RESOLVIDO:**~~
   ✅ PDF 18/05/2026 enviado + reassinatura física obtida — confirmado pelo Diretor em 2026-05-27. LEGAL-WATCH VERDE.
 
-- [ ] `2026-05-26` **Deploy GitHub Pages — Ingrid v18 (Dia 15 concluído):**
-  v18 funcional. DADOS-WATCH RESOLVIDO: 102 respostas migradas para Supabase Ingrid (yjqvjhezwhepwomukudt).
-  SM-2 íntegro: 103 respostas disponíveis no novo projeto.
-  **GATE:** Eduardo testa v18 localmente → confirma → Músculo executa `.\scripts\deploy_ingrid_ghpages.ps1`
-  Músculo não executa deploy sem gate de teste explícito.
+- [x] `2026-05-26` ~~**Deploy GitHub Pages — Ingrid v19 — GATE TESTE:**~~
+  ✅ Eduardo confirmou v19 funcionando no celular em 2026-05-27. Dashboard, SM-2, saudação, debug — VERDE.
+  Gate desbloqueado: Músculo pode iniciar F-2 + F-4 + F-6 (backend Loop 6).
 
 - [x] `2026-05-30` ~~**Loop 6 Ingrid — Gemini PASSO3:**~~
   ✅ DIRETRIZ V6 recebida · ingrid-v6.md instalada — confirmado pelo Diretor 2026-05-27.
@@ -50,6 +47,12 @@
 
 - [x] `2026-05-30` ~~**Loop 6 Ingrid — Músculo /ingrid-v6 + síntese P-037:**~~
   ✅ ingrid-v6.md lida · DELIBERACAO_LOOP_V6_INGRID.md gerado · MEMORIA_EMBAIXADOR atualizada (P-032) — 2026-05-27
+
+- [ ] `2026-05-30` **Loop 6 Ingrid — Backend F-2 + F-4 + F-6 (após gate v19):**
+  F-2: G-5 Distração Vingativa Silenciosa — Edge Function feed-diario, filtro "errou 3x nos últimos 7 dias"
+  F-4: N-1 Gatilho Temporal 19h45 — cron Edge Function + fallback WhatsApp via Telegram bot
+  F-6: M-4 + E-3 Relatório Semanal — Claude API Haiku + cron domingo + push WhatsApp
+  **GATE BLOQUEANTE:** Eduardo confirma v19 funcionando no celular antes do Músculo iniciar backend.
 
 - [x] `2026-05-27` ~~**Loop 6 Ingrid — PAINEL DE DELIBERAÇÃO:**~~
   ✅ P0-A (DADOS-WATCH VERDE: 102 respostas migradas) · P1-A (aguardar até 31/05) · PRINCIPIO-A (P-079 inscrito) · D3_VANGUARD-A (registrado) — 2026-05-27
@@ -67,9 +70,8 @@
 - [ ] `2026-05-27` **Confirmar detect_canonical_violation.ps1 funcionando:**
   Testar PASSO 0c: simular edição em cópia de projeto e confirmar BLOQUEIO.
 
-- [ ] `2026-05-26` **PROTOCOLO_ONBOARDING_INVISÍVEL.md — decidir destino:**
-  Arquivo untracked na raiz. Commitar em PENTALATERAL_UNIVERSAL/OPERACAO/ ou descartar?
-  **AÇÃO DO DIRETOR:** veredito de onde colocar ou se descarta.
+- [x] `2026-05-26` ~~**PROTOCOLO_ONBOARDING_INVISÍVEL.md — decidir destino:**~~
+  ✅ Veredito do Diretor em 2026-05-27: ENTRA AGORA. Movido para PENTALATERAL_UNIVERSAL/OPERACAO/. P-085 inscrito no LEDGER.
 
 ---
 

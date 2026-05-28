@@ -1551,6 +1551,16 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 ---
 
+## P-085 - ONBOARDING INVISÍVEL — CLIENTE NUNCA CRIA CONTA (2026-05-27)
+**Origem:** Vanguard Operações · Decisão do Diretor · Fricção real com Ingrid e Valdece
+**Veredito:** Inscrito — protocolo aprovado e commitado em PENTALATERAL_UNIVERSAL/OPERACAO/
+
+> O cliente nunca cria conta em nenhum serviço. Toda fricção técnica de cadastro (Supabase, GitHub, Google, AI Studio) é absorvida pela Vanguard no kickoff. Aliases `[nome]@vanguardtech.cloud` são a identidade técnica do cliente — profissional, rastreável, custo fixo de R$ 6/mês independente do volume de clientes. Criar conta afasta cliente. Entregar conta pronta fecha projeto.
+
+**Aplicacao:** Todo projeto cliente, desde o kickoff, sem exceção. Runbook completo: PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_ONBOARDING_INVISÍVEL.md — 5 passos obrigatórios: alias → contas → cofre → mensagem WhatsApp → checklist P-010. Offboarding em 30 min via OFFBOARDING_RUNBOOK.md (P-013).
+
+---
+
 ## P-084 - PIPELINE COM ARQUIVO DE SAIDA DEVE CHECAR EXISTENCIA ANTES DE REPROCESSAR (2026-05-27)
 **Origem:** INGRID . Loop 6 . Fricção real — render_painel.ps1 reprocessava DECISOES Loop 5 por tres sessoes consecutivas
 **Veredito:** Inscrito — Embaixador identificou causa raiz, Músculo aplicou gate [FALHA-PROCESSO-2026-05-27]
