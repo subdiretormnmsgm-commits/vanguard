@@ -8,7 +8,9 @@ param(
     [ValidateSet("INGRID","VALDECE")]
     [string]$projeto,
 
-    [string]$data = ""
+    [string]$data = "",
+
+    [switch]$forcar
 )
 
 $raiz = Split-Path -Parent $PSScriptRoot
@@ -17,26 +19,29 @@ Set-Location $raiz
 $decisoesDir = "CLIENTES\$projeto\CLAUDE_PROJECT\DECISOES"
 $templatePath = "scripts\painel_template.html"
 
-# --- 1. Localizar arquivo DECISOES (ignora ARQUIVADO/) ---
+# --- 1. Localizar arquivo DECISOES (ignora _ARQUIVADO/) ---
 if ($data -eq "") {
-    # Busca apenas na raiz do diretório — exclui subpasta ARQUIVADO/
-    $files = Get-ChildItem "$decisoesDir\DECISOES_*.json" -ErrorAction SilentlyContinue |
-             Sort-Object LastWriteTime -Descending
+    $decisoesItem = Get-ChildItem "$decisoesDir\DECISOES_${projeto}_*.json" -ErrorAction SilentlyContinue |
+        Where-Object { $_.DirectoryName -notmatch "_ARQUIVADO" } |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
 
-    # Filtrar: pular arquivos que já têm VEREDITOS correspondente
-    $pendentes = $files | Where-Object {
-        $dataExtraida = $_.BaseName -replace "^DECISOES_${projeto}_", ""
-        $vereditos    = "$decisoesDir\VEREDITOS_${projeto}_${dataExtraida}.json"
-        -not (Test-Path $vereditos)
-    }
-
-    if (-not $pendentes) {
-        Write-Host "[render_painel] Nenhum DECISOES pendente para $projeto." -ForegroundColor Green
-        Write-Host "Todos os paineis ja foram respondidos (VEREDITOS encontrados para cada DECISOES)."
+    if (-not $decisoesItem) {
+        Write-Host "[render_painel] Nenhum DECISOES pendente encontrado para $projeto. Nada a deliberar." -ForegroundColor Green
         exit 0
     }
-    $decisoesFile = $pendentes[0].FullName
-    Write-Host ("Usando arquivo pendente: " + $pendentes[0].Name)
+
+    $dataExtraida = $decisoesItem.BaseName -replace "^DECISOES_${projeto}_", ""
+    $vereditos    = Get-ChildItem "$decisoesDir\VEREDITOS_${projeto}_${dataExtraida}.json" -ErrorAction SilentlyContinue
+
+    if ($vereditos) {
+        Write-Host ("DECISOES de " + $dataExtraida + " ja tem VEREDITOS correspondente.") -ForegroundColor Yellow
+        Write-Host "    Se quiser reabrir: rode com -forcar" -ForegroundColor DarkGray
+        if (-not $forcar) { exit 0 }
+    }
+
+    $decisoesFile = $decisoesItem.FullName
+    Write-Host ("Usando arquivo: " + $decisoesItem.Name)
 } else {
     $decisoesFile = "$decisoesDir\DECISOES_${projeto}_${data}.json"
     if (-not (Test-Path $decisoesFile)) {
