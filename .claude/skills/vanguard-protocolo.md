@@ -382,6 +382,19 @@ DECISOES.json fica LOCAL — JSON não é lido como Knowledge Document no Claude
 
 ### Ritual de Fechamento de Sessão (obrigatório)
 
+**ORDEM CANONICA — nunca improvisar (P-086):**
+
+```
+[1] AUDITORIA DE DOCS     — MANIFEST: Desatualizado | Ausente | Em dia
+[2] PENDENTES ABERTOS     — lista completa, sem corte
+[3] PAINEL DE ATIVIDADES  — caminho do arquivo + instrução de upload ao Embaixador
+[4] PROXIMA SESSAO        — Prioridade 1 nomeada antes de encerrar
+[5] session_close.ps1     — 9 gates automáticos (inclui e-mail + Telegram)
+```
+
+O bloco [1]-[4] é exibido automaticamente pelo script ao final dos gates.
+Músculo não encerra sessão sem apresentar os 4 itens ao Diretor — nessa ordem.
+
 ```powershell
 # Executar ao fechar QUALQUER sessão — mesmo que pequena
 .\scripts\session_close.ps1

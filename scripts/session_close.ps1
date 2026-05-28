@@ -848,6 +848,51 @@ if ($arqsClaude.Count -gt 0) {
     Write-Host ""
 }
 
+# ==========================================================================
+# APRESENTACAO AO DIRETOR — ordem canonica obrigatoria (P-086)
+# ==========================================================================
+Write-Host ""
+Write-Host "=======================================================" -ForegroundColor Cyan
+Write-Host "  APRESENTACAO AO DIRETOR — RITUAL DE FECHAMENTO"       -ForegroundColor Cyan
+Write-Host "=======================================================" -ForegroundColor Cyan
+Write-Host ""
+
+# 1. AUDITORIA DE DOCS (proxy: MANIFEST)
+Write-Host "  [1] AUDITORIA DE DOCUMENTOS" -ForegroundColor White
+foreach ($kv in $manifestStatus.GetEnumerator()) {
+    $cor = if ($kv.Value -eq "VERDE") {"Green"} elseif ($kv.Value -eq "AMARELO") {"Yellow"} else {"Red"}
+    Write-Host ("      " + $kv.Key.PadRight(12) + ": " + $kv.Value) -ForegroundColor $cor
+}
+Write-Host ""
+
+# 2. PENDENTES ABERTOS
+Write-Host "  [2] PENDENTES ABERTOS ($($pendentesAbertos.Count) item(ns))" -ForegroundColor White
+if ($pendentesAbertos.Count -gt 0) {
+    $pendentesAbertos | ForEach-Object { Write-Host "      - $_" -ForegroundColor Yellow }
+} else {
+    Write-Host "      Nenhum pendente em aberto." -ForegroundColor Green
+}
+Write-Host ""
+
+# 3. PAINEL DE ATIVIDADES
+Write-Host "  [3] PAINEL DE ATIVIDADES" -ForegroundColor White
+Write-Host "      Arquivo : PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$DATA.md" -ForegroundColor Cyan
+Write-Host "      Acao    : arrastar ao Claude Projects (Embaixador -- Diretor)" -ForegroundColor Yellow
+Write-Host ""
+
+# 4. PROXIMA SESSAO
+Write-Host "  [4] PROXIMA SESSAO" -ForegroundColor White
+$proximoDesc = ""
+if ($pendentesAbertos.Count -gt 0) { $proximoDesc = $pendentesAbertos[0] }
+if ($proximoDesc) {
+    Write-Host "      Prioridade 1: $proximoDesc" -ForegroundColor Cyan
+} else {
+    Write-Host "      Ver PAINEL para prioridades da proxima sessao." -ForegroundColor DarkGray
+}
+Write-Host ""
+Write-Host "=======================================================" -ForegroundColor Cyan
+Write-Host ""
+
 Write-Host "======================================================="
 Write-Host "  Proximo: git commit -- depois PASSO3 + Gemini."
 Write-Host "======================================================="
