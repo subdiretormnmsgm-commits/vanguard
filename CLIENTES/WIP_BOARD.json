@@ -148,7 +148,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -- Skill ingrid-v6.md"
+                                                            "proximo":  "Embaixador -- PASSO7 Secao D com [G-1 a G-5] da DIRETRIZ V6"
                                                         },
                                     "churn_watch_threshold":  5
                                 },
@@ -324,7 +324,7 @@
                                "regra_5":  "Retainer so apos 30 dias de dados reais do Sentinel"
                            },
     "meta":  {
-                 "loops_desde_ultimo_checkup":  1,
+                 "loops_desde_ultimo_checkup":  0,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false
              }

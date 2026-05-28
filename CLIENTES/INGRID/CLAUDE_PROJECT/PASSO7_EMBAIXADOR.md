@@ -1,5 +1,5 @@
-# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO INGRID · LOOP 5
-> Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Atualizado em 2026-05-23
+# PASSO 7 — EMBAIXADOR (CLAUDE PROJECTS) · PROJETO INGRID · LOOP 6
+> Instância do PASSO7_EMBAIXADOR_TEMPLATE.md · Atualizado em 2026-05-27
 > Eduardo não edita este arquivo — é o guia de ativação do Embaixador para este projeto.
 > Músculo atualiza a SEÇÃO D com ideias dos sócios ao fechar cada loop.
 
@@ -76,47 +76,51 @@ Se JSON não chegar em 48h → Músculo emite ALERTA ao Diretor e solicita vered
 
 ```
 ATIVAÇÃO DO EMBAIXADOR — INGRID
-Data: [YYYY-MM-DD]
-Loop: 5 | Fase: [PRÉ-REUNIÃO / DEBRIEF / PIPELINE / REAÇÃO AO PENTALATERAL]
-Modo: [FLASH / COMPLETO]
+Data: 2026-05-27
+Loop: 6 | Fase: REAÇÃO AO PENTALATERAL
+Modo: COMPLETO
 ```
 
 ---
 
-## CONTEXTO ATUALIZADO DO PROJETO — Loop 5
+## CONTEXTO ATUALIZADO DO PROJETO — Loop 6
 
 **Cliente:** Ingrid
 **Projeto:** Ferramenta de Estudo Sedes-DF — Cargo 202 (Técnico Administrativo)
-**Banca:** Instituto Quadrix | **Data prova:** 2026-09-06 | **Deadline entrega:** 2026-05-30
-**Camada:** 2 — Produto | **Loop atual:** 5 (Dias 12–13)
-**Temperatura atual:** VERDE FRÁGIL → VERDE CONSOLIDANDO (hábito ~2 semanas)
-**App:** https://subdiretormnmsgm-commits.github.io/vanguard/ — LIVE
+**Banca:** Instituto Quadrix | **Data prova:** 2026-09-06 | **Dias até a prova:** ~102
+**Camada:** 2 — Produto | **Loop atual:** 6 (pós-entrega, uso real)
+**Temperatura atual:** VERDE — engajamento ativo confirmado (Score 7/10)
+**App:** https://subdiretormnmsgm-commits.github.io/vanguard/ — LIVE v18
 
-**Gates aprovados:**
-- Dia 2: qualidade das questões
-- Dia 5: feed 70/30 funcional (7 dias, 0 erros)
-- Dia 8: PWA completo — Clickwrap + Tutor 3 níveis + Fallback + TTI (APROVADO 2026-05-19)
-- Dia 11: Heatmap (Mapa de Soberania) + Micro-Simulado Dominical (APROVADO 2026-05-20)
+**Gates aprovados (todos os 15 dias):**
+- Dia 2: qualidade das questões ✅
+- Dia 5: feed 70/30 funcional ✅
+- Dia 8: PWA + Tutor + Fallback (APROVADO 2026-05-19) ✅
+- Dia 11: Heatmap + Micro-Simulado Dominical (APROVADO 2026-05-20) ✅
+- Dia 15: Soberania P-013 — Ingrid admin Supabase própria (APROVADO 2026-05-26) ✅
 
-**Banco:** 460 questões · 13 disciplinas · Cargo 202
+**Banco:** 460 questões · 13 disciplinas · Cargo 202 · Supabase da Ingrid (yjqvjhezwhepwomukudt)
 
-**Missão Loop 5 (Dias 12-13):**
-- Contador de Pontos Ponderados — "quanto valho nessa prova?"
-- Notificações Push dominicais — lembrete do Micro-Simulado
-- Incógnita crítica: Push via PWA funciona em iOS Safari?
+**Estado pós-entrega (Loop 6):**
+- v18 live — Badge SM-2 + Linha de Corte + Push Mágico de Oz + Export PNG + Nota Simulada
+- Soberania real: Ingrid tem projeto Supabase próprio com controle total
+- Edge Functions deployadas: feed-diario + tutor-socratico + notificar-progresso
+- LEGAL-WATCH: VERDE — Termo 18/05/2026 reassinado por Ingrid (confirmado 2026-05-27)
+- Token CLI exposto: REVOGADO (confirmado 2026-05-27)
+- Deploy GitHub Pages pendente: aguarda teste do Diretor
 
 **Perfil comportamental confirmado:**
-- Usa o app diariamente — hábito em formação, não consolidado
-- Lê enunciados de forma literal (mindset Quadrix — não generaliza)
+- Usa o app de forma espontânea (mensagem noturna 2026-05-24: "Gostei bastante")
+- Lê enunciados de forma literal (mindset Quadrix — notou negrito ausente na Q18)
 - Não reclama quando frustrada — abandona silenciosamente
-- Motivação: confirmação de progresso concreto ("seu terreno")
-- Micro-Simulado dominical: engajamento a confirmar no próximo check-in
-- Horário de pico: dado disponível em `horario_inicio_sessao` — ainda não confirmado verbalmente
+- Motivação: confirmação de progresso + senso de conquista ("seu terreno")
+- Horário de pico: noturno (~20h — confirmado verbatim 2026-05-24)
+- Pipeline: respondeu "não conhece ninguém prestando concurso" (2026-05-26)
 
 **Watchdog ativo:**
-- [CHURN-WATCH] se sem uso >3 dias a partir de 2026-05-23
-- [SCOPE-WATCH] compartilhamento de login — endereçar no SaaS Readiness Audit (Dias 14-15)
-- [PIPELINE] Ingrid conhece outras candidatas prestando Sedes-DF?
+- [CHURN-WATCH]: DESATIVADO — contato espontâneo 2026-05-24 confirma engajamento
+- [SCOPE-WATCH]: IMPROVÁVEL — sem rede de colegas candidatos confirmada
+- [USER-ID-WATCH]: 470 respostas migradas podem não estar no user_id correto — investigar Loop 6
 
 ---
 
@@ -125,7 +129,7 @@ Modo: [FLASH / COMPLETO]
 - [ ] SEÇÃO A — BRIEFING PRÉ-REUNIÃO (gate ou entrega se aproximando)
 - [ ] SEÇÃO B — DEBRIEF PÓS-REUNIÃO (após qualquer contato real com Ingrid)
 - [ ] SEÇÃO C — PIPELINE DE LEAD (Ingrid mencionou alguém)
-- [ ] SEÇÃO D — REAÇÃO AO PENTALATERAL (após receber DIRETRIZ V6 + Skill ingrid-v5.md)
+- [x] SEÇÃO D — REAÇÃO AO PENTALATERAL (DIRETRIZ V6 + ingrid-v6.md — Loop 6 · 2026-05-27)
 
 ---
 
@@ -204,29 +208,42 @@ PEDIDO AO EMBAIXADOR:
 
 ## SEÇÃO D — REAÇÃO AO PENTALATERAL (P-031)
 
-> Usar após receber DIRETRIZ V6 do Gemini + Skill ingrid-v5.md do NotebookLM.
-> [G-1 a G-5] e [N-1 a N-5]: preencher com as ideias reais recebidas antes de enviar.
+> DIRETRIZ V6 (Gemini) + ingrid-v6.md (NotebookLM) · Loop 6 · 2026-05-27
+> Contexto: Loop 5 concluído (Gate Dia 15 APROVADO 2026-05-26) · App v18 live · Ingrid em uso real.
 
 ```
 Embaixador, reação ao ciclo atual do Pentalateral — INGRID.
-Loop 5 · Sessão 2026-05-23 · Dias 12-13: Contador de Pontos + Push
+Loop 6 · Sessão 2026-05-27 · Pós-entrega: Soberania confirmada · Ingrid em uso real do app
 
-[M-1 a M-5] — IDEIAS DO MÚSCULO (Loop 4 · relatorio_V4):
+ESTADO ATUAL:
+- 15 dias entregues. Gate Dia 15 aprovado 2026-05-26. App v18 live com Supabase da Ingrid.
+- LEGAL-WATCH VERDE: Termo 18/05/2026 reassinado. Token CLI revogado.
+- Ingrid enviou mensagem espontânea 2026-05-24: "Gostei bastante. Amanhã volto para atacar mais."
+- Pipeline: respondeu "não conhece ninguém prestando concurso" em 2026-05-26.
+- Horário de uso confirmado: noturno (~20h).
+- Investigação pendente: 470 respostas migradas podem estar sob user_id incorreto.
 
-M-1: Modo Sedes-DF Chrome — limitar interface a 1 questão por vez + timer fixo.
-     Simula tela de prova real. Pergunta: Ingrid treinaria nesse modo ou evitaria a pressão?
+[M-1 a M-5] — IDEIAS DO MÚSCULO (Loop 5 · relatorio_V5_INGRID):
 
-M-2: Contador de Pontos como argumento de venda — SVG compartilhável no WhatsApp.
-     "Simulado: você tiraria X pontos de Y." Pergunta: Ingrid compartilha conquistas ou é discreta?
+M-1: Sistema de Streak com Risco Real
+     Ingrid acumula "dias de fogo". Se perder 2 dias seguidos, o simulado dominical é bloqueado — exige 10 questões de recuperação antes. Pressão positiva sem punição visível.
+     Pergunta: Ingrid reagiria com motivação ou com sensação de punição?
 
-M-3: Push adaptativo por horário de pico — horario_inicio_sessao disponível.
-     Se Ingrid estuda 20h-22h, Push vai às 19h50. Pergunta: Ingrid usa o app no horário fixo?
+M-2: Termômetro da Aprovação (tela inicial)
+     Barra de progresso: "se a prova fosse hoje, você aprovaria?" — calculada com Nota Simulada vs. Linha de Corte em tempo real. Diagnóstico honesto, não gamificação vazia.
+     Pergunta: Ingrid suportaria ver que ainda não aprovaria ou prefere foco no progresso incremental?
 
-M-4: Raio-X de Armadilhas Quadrix — agrupar erros por tipo de pegadinha (prescinde/salvo/nunca).
-     Treino cirúrgico por padrão de erro. Pergunta: Ingrid percebe os padrões de erro ou só vê "errei"?
+M-3: Modo Véspera (ativado 7 dias antes da prova)
+     Feed muda: só revisões SM-2 das disciplinas mais fracas + simulado completo todo dia. Eduardo ativa com 1 clique no Push Mágico de Oz. Ingrid não percebe a transição.
+     Pergunta: Ingrid teria disciplina para o modo mais intenso ou precisaria de comunicação explícita?
 
-M-5: Relatório semanal automatizado — RPC progresso_semanal · WhatsApp toda segunda.
-     Pergunta: Ingrid responderia bem a uma mensagem automática ou prefere silêncio?
+M-4: Relatório Semanal para Ingrid (não só para Eduardo)
+     Todo domingo: Ingrid recebe no WhatsApp "você estudou X questões, sua disciplina mais forte é Y, está a N pontos da aprovação." Texto gerado por IA — Eduardo não digita.
+     Pergunta: Ingrid prefere receber dados de progresso diretamente ou pelo filtro do Eduardo?
+
+M-5: Exportação do Histórico como Portfólio de Estudo
+     Ao final do projeto: PDF — "Ingrid estudou X questões em Y dias, taxa de acerto Z%, disciplina mais forte W." Prova social para o próximo cliente.
+     Pergunta: Ingrid se sentiria orgulhosa de um documento assim ou desconfortável com exposição?
 
 ---
 
@@ -295,10 +312,11 @@ Formato por ideia:
 PARTE 2 — ANÁLISE INOVADORA E PENSAMENTOS CONTRIBUTIVOS
 "Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição obrigatória.
 Operar em amplitude total (P-035):
-- Push iOS: qual é o impacto real se não funcionar no Safari? Ingrid usa iOS?
-- Contador de Pontos: pode criar ansiedade em vez de motivação? Como calibrar a linguagem?
-- Deadline 2026-05-30: o que Ingrid precisará ter consolidado para não sentir abandono no offboarding?
-- Pipeline: há sinal de que Ingrid mencionou ou vai mencionar outras candidatas?
+- Pós-entrega: Ingrid sabe que o build acabou? Vai sentir abandono ou continuidade natural?
+- 470 respostas migradas: se o histórico SM-2 não carregar, Ingrid notará? Qual o impacto no engajamento?
+- Pipeline: respondeu "não conhece ninguém" — é definitivo ou abertura para revisitar em 30 dias?
+- Setembro está chegando (~102 dias): Ingrid está na intensidade certa ou subestimando o prazo?
+- Temperatura pós-entrega: o engajamento espontâneo de 24/05 confirma consolidação ou foi pico isolado?
 
 PARTE 3 — INTELIGÊNCIA DE MERCADO (dimensão expandida)
 O que o comportamento da Ingrid diz sobre o nicho EdTech-Concurso — não apenas sobre ela:
