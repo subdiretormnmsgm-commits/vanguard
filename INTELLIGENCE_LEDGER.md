@@ -1478,6 +1478,8 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 `[PRINCIPIO]` P-077 inscrito -- loop_fase_atual atualizado automaticamente pelos scripts do socio. Confirmado pelo Diretor em 2026-05-27.
 `[PRINCIPIO]` P-078 inscrito -- abandono silencioso em EdTech ocorre quando app funciona mas nao registra o esforco do usuario. Veredito do Diretor em 2026-05-27 (DECISOES_INGRID D5).
 `[DECISAO]` DECISOES_INGRID_2026-05-24: D1/D2 arquivadas (obsoletas 3 dias). D3 veredito Regerar PDF 18/05. D5 aprovado LEDGER. D6 descartado. VEREDITOS_INGRID_2026-05-24.json gerado.
+`[PRINCIPIO]` P-079 inscrito -- shift de "estudante ansioso" para "player atacando o placar" e o sinal de pre-comprometimento em EdTech-Concurso. Vocabulario de ataque = janela de pitch. D3_VANGUARD registrado. Veredito Diretor PRINCIPIO-A + D3_VANGUARD-A em 2026-05-27 (Ingrid Loop 6).
+`[DADOS-WATCH]` 102 respostas de Ingrid migradas do projeto antigo (ehyaecxqijgyuuiorzcj) para o novo (yjqvjhezwhepwomukudt) via migrate_progresso_supabase.ps1. SM-2 integro. DADOS-WATCH VERDE.
 
 ---
 
@@ -1490,6 +1492,14 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Aplica-se a:** todo projeto, todo loop, todo socio. Escala para N projetos sem disciplina adicional do Musculo.
 
 ---
+
+### [P-079] Shift de "estudante ansioso" para "player atacando o placar" e o sinal mais preciso de pre-comprometimento com aprovacao
+**Descoberto:** 2026-05-27 (Embaixador — INGRID Loop 6 SECAO D) | **Inscrito:** 2026-05-27
+**Emitido por:** Embaixador — Loop 6 SECAO D · PRINCIPIO-A aprovado pelo Diretor
+**Fricção:** Ingrid enviou mensagem espontânea: "Amanhã volto para atacar mais." O verbo "atacar" (não "estudar", não "tentar") marcou o shift de mindset: de quem tenta sobreviver ao material para quem caça uma posição no placar. Nenhum prompt do Diretor induziu esse shift — ele emergiu do contato com o produto.
+**Princípio:** Em EdTech-Concurso, o sinal de conversão para cliente pagante não é o uso diário — é a mudança de vocabulário do usuário. Quando o candidato passa a usar linguagem de competição ("atacar", "vencer", "avançar") em vez de linguagem de sobrevivência ("tentar", "ver se consigo", "tenho que estudar"), o produto ativou o modo player. Esse estado é a janela ideal de pitch — não antes, não depois.
+**Aplica-se a:** todo produto EdTech com engajamento autônomo. Monitorar vocabulário espontâneo do usuário como KPI de conversão. Timing de pitch = primeira mensagem com linguagem de ataque.
+**D3_VANGUARD:** A Vanguard deve priorizar usuárias que demonstram autonomia de engajamento (retorno sem prompt) como clientes-âncora do pitch SaaS. Candidata que volta sozinha vale mais como prova social do que qualquer testemunhal solicitado.
 
 ### [P-078] Abandono silencioso em EdTech ocorre quando sistema funciona mas nao registra o esforco do usuario
 **Descoberto:** 2026-05-24 (Embaixador — ativacao INGRID Loop 5) | **Inscrito:** 2026-05-27

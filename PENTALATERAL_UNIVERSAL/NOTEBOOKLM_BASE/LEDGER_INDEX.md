@@ -75,4 +75,8 @@
 | P-073 | Documento editado fora da fonte canônica é uma duplicata ... | PROCESSO | 2026-05-27 (LEDGER NOTEBOOKLM_BASE 23:16 vs raiz 06:35 — hashes divergentes) |
 | P-074 | Propagação de decisão é total ou não é propagação — parci... | PROCESSO | 2026-05-27 (10 orfãos falsos no SYNC_REPORT + R-001 sem destino para NOTEBOOKLM_BASE) |
 | P-075 | O Diretor delibera — não transporta contexto entre membro... | CLIENTE | 2026-05-27 (OSV-003 — análise do loop de trabalho atual) |
+| P-076 | Pendente identificado = registrar imediatamente no PENDENT... | PROCESSO | 2026-05-20 |
+| P-077 | loop_fase_atual é atualizado pelo script do sócio — não p... | PROCESSO | 2026-05-27 |
+| P-078 | Abandono silencioso em EdTech ocorre quando sistema funcio... | EDTECH | 2026-05-27 (INGRID Loop 5 — Embaixador) |
+| P-079 | Shift vocabular "estudar" → "atacar" é sinal de pré-compr... | EDTECH | 2026-05-27 (INGRID Loop 6 — Embaixador SECAO D) |
 | P-076 | Pendente identificado = registrar imediatamente — não con... | PROCESSO | 2026-05-20 |

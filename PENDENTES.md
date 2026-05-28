@@ -37,8 +37,9 @@
   ✅ PDF 18/05/2026 enviado + reassinatura física obtida — confirmado pelo Diretor em 2026-05-27. LEGAL-WATCH VERDE.
 
 - [ ] `2026-05-26` **Deploy GitHub Pages — Ingrid v18 (Dia 15 concluído):**
-  v18 funcional em produção com Edge Functions + Supabase yjqvjhezwhepwomukudt.
-  **GATE:** Eduardo testa localmente antes → aprovação → `.\scripts\deploy_ingrid_ghpages.ps1`
+  v18 funcional. DADOS-WATCH RESOLVIDO: 102 respostas migradas para Supabase Ingrid (yjqvjhezwhepwomukudt).
+  SM-2 íntegro: 103 respostas disponíveis no novo projeto.
+  **GATE:** Eduardo testa v18 localmente → confirma → Músculo executa `.\scripts\deploy_ingrid_ghpages.ps1`
   Músculo não executa deploy sem gate de teste explícito.
 
 - [x] `2026-05-30` ~~**Loop 6 Ingrid — Gemini PASSO3:**~~
