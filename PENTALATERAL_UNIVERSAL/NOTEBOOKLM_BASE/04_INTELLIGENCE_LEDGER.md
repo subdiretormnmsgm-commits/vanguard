@@ -1478,6 +1478,8 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 `[PRINCIPIO]` P-077 inscrito -- loop_fase_atual atualizado automaticamente pelos scripts do socio. Confirmado pelo Diretor em 2026-05-27.
 `[PRINCIPIO]` P-078 inscrito -- abandono silencioso em EdTech ocorre quando app funciona mas nao registra o esforco do usuario. Veredito do Diretor em 2026-05-27 (DECISOES_INGRID D5).
 `[DECISAO]` DECISOES_INGRID_2026-05-24: D1/D2 arquivadas (obsoletas 3 dias). D3 veredito Regerar PDF 18/05. D5 aprovado LEDGER. D6 descartado. VEREDITOS_INGRID_2026-05-24.json gerado.
+`[PRINCIPIO]` P-079 inscrito -- shift de "estudante ansioso" para "player atacando o placar" e o sinal de pre-comprometimento em EdTech-Concurso. Vocabulario de ataque = janela de pitch. D3_VANGUARD registrado. Veredito Diretor PRINCIPIO-A + D3_VANGUARD-A em 2026-05-27 (Ingrid Loop 6).
+`[DADOS-WATCH]` 102 respostas de Ingrid migradas do projeto antigo (ehyaecxqijgyuuiorzcj) para o novo (yjqvjhezwhepwomukudt) via migrate_progresso_supabase.ps1. SM-2 integro. DADOS-WATCH VERDE.
 
 ---
 
@@ -1491,6 +1493,14 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 ---
 
+### [P-079] Shift de "estudante ansioso" para "player atacando o placar" e o sinal mais preciso de pre-comprometimento com aprovacao
+**Descoberto:** 2026-05-27 (Embaixador — INGRID Loop 6 SECAO D) | **Inscrito:** 2026-05-27
+**Emitido por:** Embaixador — Loop 6 SECAO D · PRINCIPIO-A aprovado pelo Diretor
+**Fricção:** Ingrid enviou mensagem espontânea: "Amanhã volto para atacar mais." O verbo "atacar" (não "estudar", não "tentar") marcou o shift de mindset: de quem tenta sobreviver ao material para quem caça uma posição no placar. Nenhum prompt do Diretor induziu esse shift — ele emergiu do contato com o produto.
+**Princípio:** Em EdTech-Concurso, o sinal de conversão para cliente pagante não é o uso diário — é a mudança de vocabulário do usuário. Quando o candidato passa a usar linguagem de competição ("atacar", "vencer", "avançar") em vez de linguagem de sobrevivência ("tentar", "ver se consigo", "tenho que estudar"), o produto ativou o modo player. Esse estado é a janela ideal de pitch — não antes, não depois.
+**Aplica-se a:** todo produto EdTech com engajamento autônomo. Monitorar vocabulário espontâneo do usuário como KPI de conversão. Timing de pitch = primeira mensagem com linguagem de ataque.
+**D3_VANGUARD:** A Vanguard deve priorizar usuárias que demonstram autonomia de engajamento (retorno sem prompt) como clientes-âncora do pitch SaaS. Candidata que volta sozinha vale mais como prova social do que qualquer testemunhal solicitado.
+
 ### [P-078] Abandono silencioso em EdTech ocorre quando sistema funciona mas nao registra o esforco do usuario
 **Descoberto:** 2026-05-24 (Embaixador — ativacao INGRID Loop 5) | **Inscrito:** 2026-05-27
 **Emitido por:** Embaixador — DECISOES_INGRID_2026-05-24.json, D5 aprovado pelo Diretor
@@ -1498,3 +1508,63 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Princípio:** O momento de maior vulnerabilidade de abandono em produto EdTech nao e quando o app e dificil — e quando o app esta funcionando e o usuario nao recebe sinal de que seu esforco foi registrado. Silencio do sistema apos comportamento de qualidade do usuario e interpretado como indiferenca, nao como estabilidade.
 **Aplica-se a:** todo produto EdTech com loop de retencao. O ciclo de reconhecimento deve ser automatizado — a plataforma confirma o esforco do usuario sem depender do Diretor lembrar de enviar mensagem. ChurnWatch + mensagens de reengajamento automaticas sao a resposta sistêmica.
 **Ferramenta criada:** `churn_watch_autonomo.ps1` (alerta Telegram 08:00) + DECISOES.json com mensagens de reengajamento prontas para veredito do Diretor.
+
+---
+
+## P-080 - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (2026-05-27)
+**Origem:** Valdece . Loop 7 . Embaixador
+**Veredito:** Aprovar — Músculo numera e inscreve no LEDGER
+
+> Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
+
+**Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.
+
+---
+
+## P-081 - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (2026-05-27)
+**Origem:** Valdece . Loop 7 . Embaixador
+**Veredito:** Aprovar — Músculo numera e inscreve no LEDGER
+
+> Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
+
+**Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.
+
+---
+
+## P-082 - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (2026-05-27)
+**Origem:** Valdece . Loop 7 . Embaixador
+**Veredito:** Aprovar — Músculo numera e inscreve no LEDGER
+
+> Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
+
+**Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.
+
+---
+
+## P-083 - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (2026-05-27)
+**Origem:** Valdece . Loop 7 . Embaixador
+**Veredito:** Aprovar — Músculo numera e inscreve no LEDGER
+
+> Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
+
+**Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.
+
+---
+
+## P-085 - ONBOARDING INVISÍVEL — CLIENTE NUNCA CRIA CONTA (2026-05-27)
+**Origem:** Vanguard Operações · Decisão do Diretor · Fricção real com Ingrid e Valdece
+**Veredito:** Inscrito — protocolo aprovado e commitado em PENTALATERAL_UNIVERSAL/OPERACAO/
+
+> O cliente nunca cria conta em nenhum serviço. Toda fricção técnica de cadastro (Supabase, GitHub, Google, AI Studio) é absorvida pela Vanguard no kickoff. Aliases `[nome]@vanguardtech.cloud` são a identidade técnica do cliente — profissional, rastreável, custo fixo de R$ 6/mês independente do volume de clientes. Criar conta afasta cliente. Entregar conta pronta fecha projeto.
+
+**Aplicacao:** Todo projeto cliente, desde o kickoff, sem exceção. Runbook completo: PENTALATERAL_UNIVERSAL/OPERACAO/PROTOCOLO_ONBOARDING_INVISÍVEL.md — 5 passos obrigatórios: alias → contas → cofre → mensagem WhatsApp → checklist P-010. Offboarding em 30 min via OFFBOARDING_RUNBOOK.md (P-013).
+
+---
+
+## P-084 - PIPELINE COM ARQUIVO DE SAIDA DEVE CHECAR EXISTENCIA ANTES DE REPROCESSAR (2026-05-27)
+**Origem:** INGRID . Loop 6 . Fricção real — render_painel.ps1 reprocessava DECISOES Loop 5 por tres sessoes consecutivas
+**Veredito:** Inscrito — Embaixador identificou causa raiz, Músculo aplicou gate [FALHA-PROCESSO-2026-05-27]
+
+> Pipeline que depende de arquivo de saída para avançar deve checar a existência desse arquivo antes de reprocessar a entrada. DECISOES sem VEREDITOS correspondente pode ser dado pendente ou dado deliberado fora do pipeline formal — o script precisa distinguir os dois estados, ou reprocessa o passado indefinidamente.
+
+**Aplicacao:** Ao construir qualquer script de orquestração que consome JSONs ou arquivos de entrada: sempre checar se o arquivo de saída esperado já existe antes de processar. Adicionar parâmetro -forcar para casos de reabertura intencional. Arquivos deliberados fora do pipeline formal devem ir para pasta com prefixo _ (ex: _ARQUIVADO/) para que filtros os excluam automaticamente.
