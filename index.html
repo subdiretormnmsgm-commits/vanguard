@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#00F0FF" />
   <title>Sedes-DF 2026</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=19" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
@@ -23,7 +23,7 @@
 
 <!-- Dashboard / Debug Panel (3 toques no logo — Eduardo only) -->
 <div id="debug-panel" class="debug-panel" style="display:none">
-  <div class="debug-header">⚙️ Dashboard · <span style="color:#00F0FF">v18</span></div>
+  <div class="debug-header">⚙️ Dashboard · <span style="color:#00F0FF">v19</span></div>
 
   <!-- N-3: Linha de Corte configurável -->
   <div class="dash-section">
@@ -44,6 +44,16 @@
       <div id="dash-nota-fill" class="meta-barra-fill" style="width:0%"></div>
     </div>
     <div id="dash-nota-info" class="dash-info">Calculando…</div>
+  </div>
+
+  <!-- F-5: Modo Véspera — ativar 7 dias antes da prova (2026-08-30) -->
+  <div class="dash-section">
+    <div class="dash-label">🌙 Modo Véspera (M-3)</div>
+    <div class="dash-row" style="align-items:center;gap:10px">
+      <label class="dash-toggle-label" for="dash-vespera-toggle">Só revisões SM-2</label>
+      <input type="checkbox" id="dash-vespera-toggle" class="dash-toggle" />
+    </div>
+    <div class="dash-info" style="margin-top:4px">Ativar ~2026-08-30 · Prova: 2026-09-06</div>
   </div>
 
   <!-- N-1: Push Mágico de Oz -->
@@ -194,6 +204,6 @@
 </template>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
-<script src="app.js?v=18"></script>
+<script src="app.js?v=19"></script>
 </body>
 </html>
