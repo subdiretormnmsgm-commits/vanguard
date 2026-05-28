@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 # session_close.ps1 — Fechamento de sessao Pentalateral IAH
 # P-071: sessao encerrada e fato tecnico, nao intencao.
 # 9 gates sequenciais — Gates 1 e 5 sao BLOQUEANTES (exit 1).
@@ -866,7 +866,7 @@ foreach ($kv in $manifestStatus.GetEnumerator()) {
 Write-Host ""
 
 # 2. PENDENTES ABERTOS
-Write-Host "  [2] PENDENTES ABERTOS ($($pendentesAbertos.Count) item(ns))" -ForegroundColor White
+Write-Host ("  [2] PENDENTES ABERTOS (" + $pendentesAbertos.Count + " itens)") -ForegroundColor White
 if ($pendentesAbertos.Count -gt 0) {
     $pendentesAbertos | ForEach-Object { Write-Host "      - $_" -ForegroundColor Yellow }
 } else {
