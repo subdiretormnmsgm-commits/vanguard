@@ -1,5 +1,5 @@
 ﻿// app.js — Sedes-DF 2026 — PROJ-002 Ingrid
-// Loop 5 · Dia 12 fix: G-5 lógica corrigida (errosConsecutivos precede ultima) · debug panel expandido
+// v19 · Loop 6: F-1 Saudação Noturna (E-5) · F-8 Termômetro da Aprovação · F-5 Modo Véspera · G-4 Brasão SVG
 
 // ── UTILS ─────────────────────────────────────────────────────────────────────
 // Converte **texto** para <strong>texto</strong> com escape seguro de HTML
@@ -116,6 +116,7 @@ let pontosBase = 0;
 async function iniciar() {
   configurarLogoDeTap();
   configurarStaleSession();
+  exibirBannerModoVespera();
 
   const aceitou = await verificarClickwrap();
   if (!aceitou) return;
@@ -216,10 +217,12 @@ async function carregarFeedEIniciar() {
 }
 
 async function buscarFeed() {
+  const body = { user_id: USER_ID };
+  if (carregarModoVespera()) body.modo_vespera = true;
   const res = await fetch(`${SUPABASE_URL}/functions/v1/feed-diario`, {
     method: "POST",
     headers: { Authorization: `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ user_id: USER_ID }),
+    body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error(`Feed: ${res.status}`);
   return res.json();
@@ -253,14 +256,23 @@ async function buscarUltimoErro() {
   }
 }
 
-// ── FRASE DE ABERTURA (E-2) — Dia 6 ──────────────────────────────────────────
+// ── FRASE DE ABERTURA — E-5 Saudação Noturna · F-1 Loop 6 ────────────────────
 function renderizarFraseAbertura(total, ultimoErroDisciplinaId) {
+  const hora = new Date().getHours();
+  let saudacao;
+  if (hora >= 5 && hora < 12)       saudacao = "Bom dia";
+  else if (hora >= 12 && hora < 18) saudacao = "Boa tarde";
+  else                               saudacao = "Boa noite";
+
   let texto;
-  if (total === 0 || !ultimoErroDisciplinaId) {
-    texto = "Hoje começamos pelo Peso 2 — Direito Administrativo cai mais que qualquer outra.";
+  if (hora >= 18) {
+    // E-5: âncora de hábito noturno — ancora o ritual de estudo às ~19h45
+    texto = `${saudacao} — ${feed.length} questões te esperam.`;
+  } else if (total === 0 || !ultimoErroDisciplinaId) {
+    texto = `${saudacao} — hoje começamos pelo Peso 2. Direito Administrativo cai mais que qualquer outra.`;
   } else {
     const nome = NOMES_DISCIPLINAS[ultimoErroDisciplinaId] ?? ultimoErroDisciplinaId;
-    texto = `Hoje atacamos o que travou você ontem: ${nome}.`;
+    texto = `${saudacao} — hoje atacamos o que travou você ontem: ${nome}.`;
   }
 
   const tpl = document.getElementById("tpl-frase-abertura").content.cloneNode(true);
@@ -580,6 +592,9 @@ async function mostrarFim() {
   btnExport.textContent = "📱 Salvar progresso";
   btnExport.addEventListener("click", exportarCardProgresso);
   document.getElementById("btn-fechar")?.before(btnExport);
+
+  // F-8 M-2: Termômetro da Aprovação — "se a prova fosse hoje, aprovaria?"
+  inserirTermometroAprovacao(main);
 
   // Dia 10: Mapa de Soberania — busca e exibe automaticamente após sessão
   buscarEExibirMapa(main);
@@ -1214,6 +1229,21 @@ async function carregarDashboard() {
 
   // Nota Simulada de Prova (estatística)
   calcularNotaSimulada();
+
+  // F-5: Modo Véspera — toggle Eduardo ativa 7 dias antes da prova (2026-08-30)
+  const toggleVespera = document.getElementById("dash-vespera-toggle");
+  if (toggleVespera) {
+    toggleVespera.checked = carregarModoVespera();
+    toggleVespera.onchange = () => {
+      salvarModoVespera(toggleVespera.checked);
+      const banner = document.getElementById("banner-vespera");
+      if (toggleVespera.checked) {
+        if (!banner) exibirBannerModoVespera();
+      } else {
+        banner?.remove();
+      }
+    };
+  }
 }
 
 // ── NOTA SIMULADA DE PROVA (estatística) — Dia 15 ────────────────────────────
@@ -1272,6 +1302,86 @@ async function calcularNotaSimulada() {
   }
 }
 
+// ── F-8 M-2: TERMÔMETRO DA APROVAÇÃO — Loop 6 ────────────────────────────────
+async function inserirTermometroAprovacao(container) {
+  const linhaCorte = carregarLinhaCorte();
+  let notaProjetada = null;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_heatmap_disciplinas`, {
+      method: "POST",
+      headers: { ...headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: USER_ID }),
+    });
+    const dados = await res.json();
+    if (Array.isArray(dados) && dados.length > 0) {
+      const taxaMap = {};
+      for (const row of dados) taxaMap[row.disciplina_id] = row.taxa_acerto_pct ?? 0;
+      let soma = 0;
+      for (const [disc, e] of Object.entries(EDITAL_DIST)) {
+        soma += ((taxaMap[disc] ?? 0) / 100) * e.questoes * e.peso;
+      }
+      notaProjetada = Math.round(soma * 10) / 10;
+    }
+  } catch (_) {}
+
+  if (notaProjetada === null) return;
+  const passaria = notaProjetada >= linhaCorte;
+  const pct = Math.min(Math.round((notaProjetada / 100) * 100), 100);
+
+  const div = document.createElement("div");
+  div.className = "termometro-aprovacao";
+
+  const titulo = document.createElement("div");
+  titulo.className = "termometro-titulo";
+  titulo.textContent = "Se a prova fosse hoje…";
+
+  const nota = document.createElement("div");
+  nota.className = "termometro-nota " + (passaria ? "aprovado" : "reprovado");
+  nota.textContent = notaProjetada.toFixed(1) + " pts";
+
+  const barraBg = document.createElement("div");
+  barraBg.className = "meta-barra-bg";
+  barraBg.style.cssText = "margin:6px 0 4px";
+  const barraFill = document.createElement("div");
+  barraFill.className = "meta-barra-fill" + (passaria ? " meta-ok" : "");
+  barraFill.style.width = pct + "%";
+  barraBg.appendChild(barraFill);
+
+  const status = document.createElement("div");
+  status.className = "termometro-status";
+  status.textContent = passaria
+    ? "✅ Acima do corte — meta " + linhaCorte + " pts"
+    : "⚠️ Meta: " + linhaCorte + " pts · " + pct + "% atingido";
+
+  div.appendChild(titulo);
+  div.appendChild(nota);
+  div.appendChild(barraBg);
+  div.appendChild(status);
+
+  const btnFechar = container.querySelector("#btn-fechar");
+  if (btnFechar) btnFechar.before(div);
+  else container.appendChild(div);
+}
+
+// ── F-5 M-3: MODO VÉSPERA — Loop 6 ───────────────────────────────────────────
+function carregarModoVespera() {
+  return localStorage.getItem("modoVespera") === "1";
+}
+
+function salvarModoVespera(ativo) {
+  localStorage.setItem("modoVespera", ativo ? "1" : "0");
+}
+
+function exibirBannerModoVespera() {
+  if (!carregarModoVespera()) return;
+  if (document.getElementById("banner-vespera")) return;
+  const banner = document.createElement("div");
+  banner.id = "banner-vespera";
+  banner.className = "banner-vespera";
+  banner.textContent = "🌙 Modo Véspera ativo — só revisões SM-2";
+  document.body.prepend(banner);
+}
+
 // ── N-5: EXPORTAR CARD DE PROGRESSO — Dia 14 ─────────────────────────────────
 async function exportarCardProgresso() {
   if (typeof html2canvas === "undefined") {
@@ -1283,6 +1393,10 @@ async function exportarCardProgresso() {
   const pts  = pontosBase + pontosAcumulados;
   const pct  = Math.min(Math.round((pts / Math.max(meta, 1)) * 100), 100);
   const data = new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+  // G-4: Brasão — semana de estudo + status de aprovação
+  const semanasEstudo = Math.max(1, Math.ceil((Date.now() - new Date("2026-05-15T00:00:00-03:00").getTime()) / (7 * 86_400_000)));
+  const passaria = pts >= meta;
+  const brasaoLabel = passaria ? "✅ APROVADA" : "📈 EM PROGRESSO";
 
   const card = document.createElement("div");
   card.style.cssText =
@@ -1290,8 +1404,11 @@ async function exportarCardProgresso() {
     "border:1px solid rgba(0,240,255,0.25);border-radius:16px;font-family:Inter,sans-serif;" +
     "color:#E8E8E8;box-sizing:border-box;";
   card.innerHTML =
-    '<div style="font-size:10px;color:#00F0FF;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px">Sedes-DF 2026</div>' +
-    '<div style="font-size:12px;color:#555;margin-bottom:20px">' + data + '</div>' +
+    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">' +
+      '<div style="font-size:10px;color:#00F0FF;letter-spacing:.1em;text-transform:uppercase">Sedes-DF 2026</div>' +
+      '<div style="font-size:9px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.25);border-radius:20px;padding:2px 8px;color:#00F0FF;letter-spacing:.05em">' + brasaoLabel + ' · Sem ' + semanasEstudo + '</div>' +
+    '</div>' +
+    '<div style="font-size:11px;color:#555;margin-bottom:16px">' + data + '</div>' +
     '<div style="font-size:52px;font-weight:800;color:#00F0FF;line-height:1">' + pts + '</div>' +
     '<div style="font-size:12px;color:#555;margin-top:4px;margin-bottom:16px">pontos · meta ' + meta + '</div>' +
     '<div style="height:6px;background:#1a1a1a;border-radius:3px;overflow:hidden;margin-bottom:16px">' +
