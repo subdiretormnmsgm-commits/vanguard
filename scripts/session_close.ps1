@@ -571,13 +571,19 @@ if (Test-Path $emailScript) {
     }
     $alertaBloco = if ($listaAlerta.Count -gt 0) { $listaAlerta -join "`n" } else { "Nenhum alerta ativo." }
     $pendBloco   = if ($pendentesAbertos.Count -gt 0) {
-        ($pendentesAbertos | Select-Object -First 5 | ForEach-Object { "- $_" }) -join "`n"
+        ($pendentesAbertos | ForEach-Object { "- $_" }) -join "`n"
     } else { "Nenhum pendente em aberto." }
 
     $emailBody = @"
 Diretor,
 
 Sessao de $DATA encerrada as $HORA_EXIB.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PAINEL DE ATIVIDADES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Arquivo: PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$DATA.md
+Acao: arrastar ao Claude Projects (Embaixador -- Diretor)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 RESUMO DA SESSAO
@@ -601,14 +607,12 @@ $pendBloco
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 LOG completo: CLIENTES\$cliente\HISTORICO\LOG_EXECUCAO_DIARIA_$DATA.md
-PAINEL: Claude Project "Embaixador -- Diretor"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Musculo . Pentalateral IAH . $DATA $HORA_EXIB
 "@
 
-    $emailBytes = [System.Text.Encoding]::UTF8.GetBytes($emailBody)
-    [System.IO.File]::WriteAllBytes($emailBodyPath, $emailBytes)
+    $emailBody | Out-File -FilePath $emailBodyPath -Encoding utf8 -Force
 
     try {
         & powershell.exe -NonInteractive -File $emailScript 2>$null
