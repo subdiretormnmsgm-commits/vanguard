@@ -1528,3 +1528,33 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 > Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
 
 **Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.
+
+---
+
+## P-082 - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (2026-05-27)
+**Origem:** Valdece . Loop 7 . Embaixador
+**Veredito:** Aprovar — Músculo numera e inscreve no LEDGER
+
+> Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
+
+**Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.
+
+---
+
+## P-083 - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (2026-05-27)
+**Origem:** Valdece . Loop 7 . Embaixador
+**Veredito:** Aprovar — Músculo numera e inscreve no LEDGER
+
+> Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
+
+**Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.
+
+---
+
+## P-084 - PIPELINE COM ARQUIVO DE SAIDA DEVE CHECAR EXISTENCIA ANTES DE REPROCESSAR (2026-05-27)
+**Origem:** INGRID . Loop 6 . Fricção real — render_painel.ps1 reprocessava DECISOES Loop 5 por tres sessoes consecutivas
+**Veredito:** Inscrito — Embaixador identificou causa raiz, Músculo aplicou gate [FALHA-PROCESSO-2026-05-27]
+
+> Pipeline que depende de arquivo de saída para avançar deve checar a existência desse arquivo antes de reprocessar a entrada. DECISOES sem VEREDITOS correspondente pode ser dado pendente ou dado deliberado fora do pipeline formal — o script precisa distinguir os dois estados, ou reprocessa o passado indefinidamente.
+
+**Aplicacao:** Ao construir qualquer script de orquestração que consome JSONs ou arquivos de entrada: sempre checar se o arquivo de saída esperado já existe antes de processar. Adicionar parâmetro -forcar para casos de reabertura intencional. Arquivos deliberados fora do pipeline formal devem ir para pasta com prefixo _ (ex: _ARQUIVADO/) para que filtros os excluam automaticamente.
