@@ -44,14 +44,19 @@
 - [x] `2026-05-30` ~~**Loop 6 Ingrid — Gemini PASSO3:**~~
   ✅ DIRETRIZ V6 recebida · ingrid-v6.md instalada — confirmado pelo Diretor 2026-05-27.
 
-- [ ] `2026-05-30` **Loop 6 Ingrid — Embaixador PASSO7 Seção D (PRÓXIMO PASSO):**
-  Gemini + NotebookLM concluídos. Próximo: levar ao Embaixador para filtro de realidade.
-  **AÇÃO DO MÚSCULO:** Gerar PASSO7_EMBAIXADOR Seção D com [G-1 a G-5] da DIRETRIZ V6 + contexto Loop 6.
-  **AÇÃO DO DIRETOR:** Colar no Claude Project da Ingrid e aguardar [E-1 a E-5].
+- [x] `2026-05-30` ~~**Loop 6 Ingrid — Embaixador PASSO7 Seção D:**~~
+  ✅ SEÇÃO D executada — Embaixador retornou TEMPERATURA 7.5/10 + [E-1 a E-5] + PAINEL — 2026-05-27
 
-- [ ] `2026-05-30` **Loop 6 Ingrid — Músculo /ingrid-v6 + síntese P-037:**
-  Após Embaixador retornar [E-1 a E-5] → Músculo executa /ingrid-v6 + deliberação + DECISOES.json.
-  **GATE P-067:** Embaixador precede o Músculo. Sem [E-1 a E-5] → bloqueio.
+- [x] `2026-05-30` ~~**Loop 6 Ingrid — Músculo /ingrid-v6 + síntese P-037:**~~
+  ✅ ingrid-v6.md lida · DELIBERACAO_LOOP_V6_INGRID.md gerado · MEMORIA_EMBAIXADOR atualizada (P-032) — 2026-05-27
+
+- [ ] `2026-05-27` **Loop 6 Ingrid — PAINEL DE DELIBERAÇÃO (GATE DIRETOR):**
+  Embaixador gerou 4 decisões. Diretor delibera P0/P1/PRINCIPIO/D3_VANGUARD.
+  P0 [DADOS-WATCH]: A) Músculo verifica user_id agora / B) Suspender comunicação / C) Diretor declara confiáveis
+  P1 [LEGAL-WATCH pós]: A) Aguardar Ingrid assinar impressão / B) Avançar pitch V2 / C) Contato antes 31/05
+  PRINCIPIO: A) APROVADO / B) COM AJUSTE / C) ADIADO
+  D3_VANGUARD: Registrar ou descartar
+  **AÇÃO DO MÚSCULO após veredito:** gerar DECISOES.json → executar_vereditos.ps1 → build Loop 6
 
 ---
 

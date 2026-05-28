@@ -146,9 +146,9 @@
                                                             "loop":  6,
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
-                                                            "embaixador":  "PENDENTE",
-                                                            "musculo":  "PENDENTE",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D com [G-1 a G-5] da DIRETRIZ V6"
+                                                            "embaixador":  "OK",
+                                                            "musculo":  "OK -- P-037 DELIBERACAO_LOOP_V6 gerada 2026-05-27",
+                                                            "proximo":  "PAINEL DE DELIBERACAO -- Diretor veredita P0/P1/PRINCIPIO/D3 -- apos: build Loop 6"
                                                         },
                                     "churn_watch_threshold":  5
                                 },
