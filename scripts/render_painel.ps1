@@ -17,17 +17,26 @@ Set-Location $raiz
 $decisoesDir = "CLIENTES\$projeto\CLAUDE_PROJECT\DECISOES"
 $templatePath = "scripts\painel_template.html"
 
-# --- 1. Localizar arquivo DECISOES ---
+# --- 1. Localizar arquivo DECISOES (ignora ARQUIVADO/) ---
 if ($data -eq "") {
+    # Busca apenas na raiz do diretório — exclui subpasta ARQUIVADO/
     $files = Get-ChildItem "$decisoesDir\DECISOES_*.json" -ErrorAction SilentlyContinue |
              Sort-Object LastWriteTime -Descending
-    if (-not $files) {
-        Write-Error "Nenhum arquivo DECISOES_*.json encontrado em: $decisoesDir"
-        Write-Host "O Embaixador deve gerar o arquivo DECISOES e Eduardo salvar nessa pasta."
-        exit 1
+
+    # Filtrar: pular arquivos que já têm VEREDITOS correspondente
+    $pendentes = $files | Where-Object {
+        $dataExtraida = $_.BaseName -replace "^DECISOES_${projeto}_", ""
+        $vereditos    = "$decisoesDir\VEREDITOS_${projeto}_${dataExtraida}.json"
+        -not (Test-Path $vereditos)
     }
-    $decisoesFile = $files[0].FullName
-    Write-Host ("Usando arquivo mais recente: " + $files[0].Name)
+
+    if (-not $pendentes) {
+        Write-Host "[render_painel] Nenhum DECISOES pendente para $projeto." -ForegroundColor Green
+        Write-Host "Todos os paineis ja foram respondidos (VEREDITOS encontrados para cada DECISOES)."
+        exit 0
+    }
+    $decisoesFile = $pendentes[0].FullName
+    Write-Host ("Usando arquivo pendente: " + $pendentes[0].Name)
 } else {
     $decisoesFile = "$decisoesDir\DECISOES_${projeto}_${data}.json"
     if (-not (Test-Path $decisoesFile)) {

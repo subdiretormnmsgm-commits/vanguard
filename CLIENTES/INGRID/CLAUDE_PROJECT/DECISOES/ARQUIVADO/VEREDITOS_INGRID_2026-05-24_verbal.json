@@ -1,0 +1,17 @@
+{
+  "schema_versao": "1.0",
+  "projeto": "PROJ002_INGRID",
+  "decisoes_ref": "DECISOES_INGRID_2026-05-24.json",
+  "loop": 5,
+  "data_veredito": "2026-05-27",
+  "metodo": "verbal_bypass",
+  "nota": "Diretor respondeu verbalmente no chat em 2026-05-27. Sem painel HTML formal.",
+  "vereditos": [
+    { "id": "D1", "opcao": "ja_enviada",          "nota": "Mensagem pós-fix Q18 confirmada como enviada pelo Diretor." },
+    { "id": "D2", "opcao": "enviar",               "nota": "Reengajamento executado — Ingrid retornou em 2026-05-24 20h com shift 'atacar'." },
+    { "id": "D3", "opcao": "regerar",              "nota": "Termo regerado e reassinado fisicamente — LEGAL-WATCH VERDE 2026-05-27." },
+    { "id": "D4", "opcao": "pular_push_whatsapp", "nota": "Push iOS ignorado neste loop — WhatsApp como canal dominical." },
+    { "id": "D5", "opcao": "aprovar",              "nota": "Princípio inscrito como P-078 no INTELLIGENCE_LEDGER.md." },
+    { "id": "D6", "opcao": "encaminhar",           "nota": "D3_VANGUARD registrado — Músculo inscreveu em 2026-05-27 no LEDGER." }
+  ]
+}
