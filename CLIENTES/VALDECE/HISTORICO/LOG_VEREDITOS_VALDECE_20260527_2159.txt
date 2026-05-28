@@ -1,0 +1,16 @@
+LOG DE EXECUCAO - VEREDITOS
+Projeto  : Valdece
+Data     : 2026-05-24
+Executado: 2026-05-27 21:59
+
+VEREDITOS PROCESSADOS:
+[D1] Mensagem Hypercare — Dia 5: Enviar agora
+[D2] Plantar semente da migração: Plantar em mensagem separada — amanhã
+[D3] Scope creep — risco de pedidos pós-assinatura: Ativar protocolo — qualquer pedido novo = Change-Order
+[D4] Sentinel Report — Dia 14 (2026-06-02): WhatsApp curto — canal de confiança
+[D5] Princípio candidato ao LEDGER — Nicho Advocacia: Aprovar — Músculo numera e inscreve no LEDGER
+[D6] Pipeline OAB — capturar nomes de colegas: Ativar protocolo — Eduardo usa esta pergunta ao ouvir qualquer menção
+
+ACOES EXECUTADAS:
+[D1] Mensagem copiada para clipboard
+[D5] Principio inscrito no LEDGER como P-081

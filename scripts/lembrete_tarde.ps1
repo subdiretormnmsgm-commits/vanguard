@@ -1,8 +1,22 @@
-# ============================================================
+﻿# ============================================================
 # LEMBRETE_TARDE.PS1 — Check-in da tarde do Diretor (13h)
 # Envia via Telegram: gates pendentes + ações da tarde + alertas
 # Agendado por registrar_briefing_agendado.ps1 para 13h diário
 # ============================================================
+
+$ErrorActionPreference = "Stop"
+
+trap {
+    $ts = (Get-Date).ToString("dd/MM HH:mm")
+    $errMsg = "⚠️ FALHA — Pentalateral Tarde ${ts}: $($_.Exception.Message)"
+    try {
+        Invoke-RestMethod -Uri "https://api.telegram.org/bot8146192723:AAHVZJzzV0R_jp2sAaSE3T2AFFjnzMWuOgE/sendMessage" -Method POST -Body @{
+            chat_id = "8895733647"
+            text    = $errMsg
+        } | Out-Null
+    } catch {}
+    break
+}
 
 $BASE = Split-Path -Parent $PSScriptRoot
 . "$BASE\scripts\alert_config.ps1"

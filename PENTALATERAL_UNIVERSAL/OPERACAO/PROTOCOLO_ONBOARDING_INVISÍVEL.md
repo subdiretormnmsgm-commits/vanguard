@@ -1,136 +1,102 @@
 # PROTOCOLO_ONBOARDING_INVISÍVEL
-> Vanguard Tech · Operações Universais
-> Versão: 1.1 · Criado: 2026-05-26 · Princípio: P-070
-> **Aplica-se a:** todo projeto cliente, sem exceção, a partir do kickoff.
-> **Nota:** Ingrid e Valdece foram resolvidos com abordagem pré-protocolo. Aplicar a partir do próximo cliente.
+> Vanguard Tech · Operações Internas
+> Versão: 1.0 · Criado: 2026-05-26
+> Princípio base: o cliente nunca cria conta. A Vanguard absorve toda fricção técnica no kickoff.
 
 ---
 
-## PRINCÍPIO BASE (P-070)
+## CONTEXTO E PROPÓSITO
 
-O cliente nunca cria conta. A Vanguard absorve toda fricção técnica no kickoff.
+Clientes da Vanguard são avessos à tecnologia. Pedir que criem conta no Supabase, Google AI Studio ou qualquer outra plataforma gera fricção, atraso e risco de abandono antes do projeto começar.
 
-**Por quê:** Clientes avessos à tecnologia abandonam o projeto antes do primeiro uso quando solicitados a criar contas no Supabase, Google AI Studio ou GitHub. Entregar a conta pronta fecha o projeto — pedir para criar afasta o cliente.
+Este protocolo elimina esse problema. A Vanguard cria tudo. O cliente recebe tudo pronto.
 
----
-
-## INFRAESTRUTURA DE E-MAIL — DOIS MODOS
-
-### MODO MVP (até ~5 clientes) — Aliases no hPanel
-Custo adicional: R$ 0/mês.
-
-```
-projetos@vanguardtech.cloud     → caixa master (Eduardo)
-ingrid@vanguardtech.cloud       → alias → projetos@
-valdece@vanguardtech.cloud      → alias → projetos@
-[proximo]@vanguardtech.cloud    → alias → projetos@
-```
-
-**Estado atual (2026-05-26):**
-- `ingrid@vanguardtech.cloud` → criado como alias (sem conta de serviço associada — Ingrid já resolvida)
-- `valdece@vanguardtech.cloud` → criado como alias (sem conta de serviço associada — Valdece já resolvido)
-
-**Como criar alias no hPanel:**
-1. hpanel.hostinger.com → E-mails → Aliases
-2. Alias: `[nome]@vanguardtech.cloud` → aponta para: `projetos@vanguardtech.cloud`
-3. Teste obrigatório (P-010): enviar e-mail de teste para o alias → confirmar recebimento em `projetos@`
-
-**Limitação:** Todas as confirmações de todos os clientes chegam em `projetos@`. Funciona até ~5 clientes ativos. Acima disso → migrar para MODO ESCALA.
+**Infraestrutura central:**
+- Domínio: `vanguardtech.cloud` (Hostinger)
+- Caixa principal: `projetos@vanguardtech.cloud`
+- Aliases por cliente: `[nome]@vanguardtech.cloud` → redirecionam para `projetos@`
 
 ---
 
-### MODO ESCALA (5+ clientes) — Caixas separadas no hPanel
-Custo: R$ 6/mês por caixa adicional (plano Starter · 10 GB).
+## PASSO 1 — CRIAR ALIAS DO CLIENTE (30 segundos)
 
+**Quando executar:** imediatamente após contrato assinado.
+
+**Onde:** hpanel.hostinger.com → E-mails → Aliases
+
+**Ação:**
 ```
-diretor@vanguardtech.cloud      → caixa Eduardo (R$ 6/mês)
-projetos@vanguardtech.cloud     → caixa operacional (R$ 6/mês)
-ingrid@vanguardtech.cloud       → caixa da Ingrid (R$ 6/mês)
-valdece@vanguardtech.cloud      → caixa do Valdece (R$ 6/mês)
+Alias:   [nome]@vanguardtech.cloud
+Aponta para: projetos@vanguardtech.cloud
 ```
 
-Eduardo acessa todas via webmail da Hostinger ou Gmail (IMAP/SMTP).
-Benefício: cada cliente tem sua caixa → sem mistura de e-mails de verificação.
+**Exemplos:**
+```
+ingrid@vanguardtech.cloud   → projetos@vanguardtech.cloud
+valdece@vanguardtech.cloud  → projetos@vanguardtech.cloud
+joao@vanguardtech.cloud     → projetos@vanguardtech.cloud
+```
 
-**Quando migrar:** ao atingir 5 clientes ativos ou ao detectar confusão entre e-mails de verificação no inbox de `projetos@`.
+**Teste obrigatório (P-010):** enviar e-mail de teste para o alias recém-criado e confirmar recebimento em `projetos@` antes de prosseguir.
 
 ---
 
-## PASSO A PASSO — ONBOARDING DE NOVO CLIENTE
+## PASSO 2 — CRIAR CONTAS NOS SERVIÇOS (ordem obrigatória)
 
-> **Pré-requisito bloqueante:** Termo de Uso assinado com cláusula de autorização de contas (ver Passo 0).
+Usar sempre o e-mail `[nome]@vanguardtech.cloud` como identidade do cliente em cada serviço.
+Todas as confirmações chegam em `projetos@vanguardtech.cloud`.
 
-### PASSO 0 — Autorização (antes de qualquer conta)
+### 2.1 Google Account
+**Por que primeiro:** desbloqueia Google AI Studio, Google Drive, Gmail, e qualquer serviço Google que o projeto precisar.
 
-O Termo de Uso do cliente DEVE conter cláusula:
-
-```
-"O cliente autoriza expressamente a [Vanguard Tech / razão social] a criar e gerenciar
-contas técnicas nos serviços necessários ao projeto (Supabase, Google, GitHub, etc.)
-utilizando o endereço [nome]@vanguardtech.cloud como identidade operacional.
-As credenciais são gerenciadas pela Vanguard e entregues ao cliente ao final do projeto
-ou mediante solicitação de encerramento (Runbook de Offboarding)."
-```
-
-Sem assinatura com esta cláusula → não criar nenhuma conta. Ponto.
-
----
-
-### PASSO 1 — Criar alias/caixa (30 segundos)
-
-Imediatamente após assinatura do Termo.
-
-**MODO MVP:** hPanel → E-mails → Aliases → `[nome]@vanguardtech.cloud` → `projetos@`
-**MODO ESCALA:** hPanel → E-mails → Criar conta → `[nome]@vanguardtech.cloud`
-
-Teste P-010: enviar e-mail de teste → confirmar recebimento.
-
----
-
-### PASSO 2 — Criar contas nos serviços (ordem obrigatória)
-
-Usar sempre `[nome]@vanguardtech.cloud` como identidade do cliente.
-Todas as confirmações chegam em `projetos@` (MODO MVP) ou `[nome]@` (MODO ESCALA).
-
-#### 2.1 Google Account (primeiro — desbloqueia tudo Google)
 ```
 Acesse:   accounts.google.com/signup
 E-mail:   [nome]@vanguardtech.cloud
 Nome:     [nome completo do cliente]
-Senha:    [gerar no cofre — ver Passo 3]
+Senha:    [gerar senha forte — registrar no cofre interno]
 ```
-Confirmar e-mail de verificação. Desbloqueia: Google AI Studio, Drive, Gmail.
 
-#### 2.2 Supabase (projetos com banco de dados / Edge Functions)
+Confirmar e-mail de verificação que chega em `projetos@`.
+
+### 2.2 Supabase
+**Quando:** projetos que usam banco de dados ou Edge Functions.
+
 ```
 Acesse:   supabase.com → Sign Up
 E-mail:   [nome]@vanguardtech.cloud
-Senha:    [gerar no cofre]
-Projeto:  [PROJ-XXX]-[nome]
+Senha:    [gerar senha forte — registrar no cofre interno]
 ```
-Após criar: convidar `[nome]@vanguardtech.cloud` como Owner. Registrar URL + anon key.
-Criar `OFFBOARDING_RUNBOOK.md` no repositório (P-013 — transferência de ownership).
 
-#### 2.3 GitHub (projetos com deploy via GitHub Pages)
+Após criar conta:
+1. Criar novo projeto com nome `[PROJ-XXX]-[nome]`
+2. Convidar `[nome]@vanguardtech.cloud` como **Owner** do projeto
+3. Registrar URL e anon key no arquivo de configuração do projeto
+4. Criar `OFFBOARDING_RUNBOOK.md` no repositório (P-013)
+
+### 2.3 GitHub
+**Quando:** projetos com deploy via GitHub Pages ou repositório do cliente.
+
 ```
 Acesse:   github.com/signup
 E-mail:   [nome]@vanguardtech.cloud
-Username: [nome]-vanguard
-Senha:    [gerar no cofre]
+Username: [nome]-vanguard (ou definir padrão)
+Senha:    [gerar senha forte — registrar no cofre interno]
 ```
 
-#### 2.4 Google AI Studio (projetos com Gemini API)
+### 2.4 Google AI Studio
+**Quando:** projetos com integração Gemini API.
+
 ```
 Acesse:   aistudio.google.com
-Login:    conta Google criada no Passo 2.1
-Gerar:    API Key → registrar no cofre + no arquivo de configuração do projeto
+Login:    usar conta Google criada no Passo 2.1
+Gerar:    API Key → registrar no arquivo de configuração
 ```
 
 ---
 
-### PASSO 3 — Registrar credenciais no cofre
+## PASSO 3 — REGISTRAR CREDENCIAIS
 
-**Cofre:** Bitwarden (plano gratuito — recomendado). Nunca planilha, nunca txt solto.
+Toda credencial criada deve ser registrada imediatamente no cofre interno.
 
 ```
 CLIENTE:     [nome completo]
@@ -146,54 +112,57 @@ SUPABASE
   Senha:     [senha]
   URL:       https://[hash].supabase.co
   Anon key:  [chave]
-  Service key: [chave — NUNCA vai ao frontend]
 
 GITHUB
-  Username:  [nome]-vanguard
+  Username:  [username]
   Senha:     [senha]
 
 GOOGLE AI STUDIO
-  API Key:   [chave — NUNCA vai ao frontend]
+  API Key:   [chave]
 ```
 
 ---
 
-### PASSO 4 — Entrega ao cliente (única interação técnica)
+## PASSO 4 — ENTREGA AO CLIENTE (única interação necessária)
 
-**Modelo de WhatsApp:**
+O cliente recebe **uma única mensagem** via WhatsApp com tudo pronto. Sem jargão técnico. Sem instrução de como criar conta. Sem link de confirmação para clicar.
+
+**Modelo de mensagem:**
 
 ```
 [Nome], tudo pronto para começarmos!
 
-Preparei o seu acesso. Quando precisar entrar no sistema:
+Preparei o seu acesso ao projeto. Quando precisar entrar:
 
 📧 Seu e-mail: [nome]@vanguardtech.cloud
-🔑 Sua senha: [senha — ou "envio em outra mensagem por segurança"]
+🔑 Sua senha: [senha — ou "envio separado por segurança"]
 
 Qualquer dúvida, é só me chamar aqui.
 ```
 
-**Regras absolutas:**
+**Regras de entrega:**
 - Nunca enviar senha e e-mail na mesma mensagem se o canal não for seguro
-- Nunca mencionar Supabase, GitHub, Google AI Studio ao cliente
-- O cliente só precisa de e-mail + senha — o resto é invisível
+- Nunca mencionar Supabase, GitHub ou qualquer plataforma técnica ao cliente
+- O cliente só precisa saber que tem um e-mail e uma senha — o resto é invisível
 
 ---
 
-### PASSO 5 — Checklist de kickoff (gate obrigatório P-010)
+## PASSO 5 — CHECKLIST DE KICKOFF (gate obrigatório — P-010)
+
+Antes de considerar o onboarding concluído, verificar cada item:
 
 ```
-[ ] Alias/caixa [nome]@vanguardtech.cloud criado no hPanel
-[ ] E-mail de teste recebido em projetos@ (confirmar)
+[ ] Alias [nome]@vanguardtech.cloud criado no hPanel
+[ ] E-mail de teste recebido em projetos@
 [ ] Conta Google criada e verificada
 [ ] Conta Supabase criada (se aplicável)
-[ ] Projeto Supabase criado — cliente como Owner (se aplicável)
+[ ] Projeto Supabase criado com cliente como Owner (se aplicável)
 [ ] OFFBOARDING_RUNBOOK.md no repositório (P-013)
 [ ] Conta GitHub criada (se aplicável)
 [ ] API Key Google AI Studio gerada (se aplicável)
-[ ] Todas as credenciais registradas no cofre (Bitwarden)
+[ ] Todas as credenciais registradas no cofre interno
 [ ] Mensagem de entrega enviada ao cliente
-[ ] WIP_BOARD.json atualizado: onboarding_status → "concluido"
+[ ] WIP_BOARD.json atualizado: status ONBOARDING → ATIVO
 ```
 
 ---
@@ -210,24 +179,23 @@ O cliente que sabe como sair não sai — porque sente confiança, não prisão.
 
 | Item | Custo |
 |---|---|
-| Domínio `vanguardtech.cloud` | já existente (Hostinger) |
-| Caixa `diretor@` + `projetos@` | R$ 12/mês (2 × Starter) |
-| Alias de cliente (MODO MVP) | R$ 0 (não cria caixa) |
-| Caixa de cliente (MODO ESCALA) | R$ 6/mês por cliente |
-| Cofre Bitwarden (gratuito) | R$ 0 |
-| **Total por cliente novo (MVP)** | **R$ 0** |
-| **Total por cliente novo (Escala)** | **R$ 6/mês** |
-| **Total fixo mínimo** | **R$ 12/mês** |
+| Domínio `vanguardtech.cloud` | já existente |
+| Caixa `projetos@vanguardtech.cloud` | R$ 6/mês (Hostinger Starter) |
+| Aliases adicionais | R$ 0 (ilimitados no mesmo plano) |
+| **Total por cliente novo** | **R$ 0** |
+| **Total fixo mensal** | **R$ 6/mês** |
 
 ---
 
-## PENDENTE DO DIRETOR
+## REGISTRO NO INTELLIGENCE LEDGER
 
-- [ ] Setup do cofre Bitwarden antes do próximo cliente
-- [ ] Cláusula de autorização no Termo de Uso (Músculo adiciona quando solicitado)
-- [ ] Decidir MODO MVP ou MODO ESCALA para o próximo cliente
+> **P-[NNN] (candidato) — Onboarding Invisível**
+> O cliente nunca cria conta. Toda fricção técnica de cadastro em serviços externos é absorvida pela Vanguard no kickoff. Aliases `[nome]@vanguardtech.cloud` são a identidade técnica do cliente dentro da infraestrutura Vanguard — profissional, rastreável, custo fixo de R$ 6/mês independente do volume de clientes. Criar conta afasta cliente. Entregar conta pronta fecha projeto.
+>
+> **Descoberto:** 2026-05-26 | **Sessão:** Decisão operacional do Diretor
+> **Aplica-se a:** todo projeto cliente, sem exceção, desde o kickoff
 
 ---
 
-*Vanguard Tech · Protocolo Universal P-070 · Não compartilhar com clientes*
-*Revisão obrigatória: ao integrar novo serviço recorrente ou ao atingir 10 clientes ativos*
+*Vanguard Tech · Protocolo interno · Não compartilhar com clientes*
+*Próxima revisão: ao integrar novo serviço recorrente ou ao atingir 10 clientes ativos*

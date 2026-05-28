@@ -1508,3 +1508,23 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Princípio:** O momento de maior vulnerabilidade de abandono em produto EdTech nao e quando o app e dificil — e quando o app esta funcionando e o usuario nao recebe sinal de que seu esforco foi registrado. Silencio do sistema apos comportamento de qualidade do usuario e interpretado como indiferenca, nao como estabilidade.
 **Aplica-se a:** todo produto EdTech com loop de retencao. O ciclo de reconhecimento deve ser automatizado — a plataforma confirma o esforco do usuario sem depender do Diretor lembrar de enviar mensagem. ChurnWatch + mensagens de reengajamento automaticas sao a resposta sistêmica.
 **Ferramenta criada:** `churn_watch_autonomo.ps1` (alerta Telegram 08:00) + DECISOES.json com mensagens de reengajamento prontas para veredito do Diretor.
+
+---
+
+## P-080 - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (2026-05-27)
+**Origem:** Valdece . Loop 7 . Embaixador
+**Veredito:** Aprovar — Músculo numera e inscreve no LEDGER
+
+> Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
+
+**Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.
+
+---
+
+## P-081 - PRINCIPIO EXTRAIDO DE PROJETO CLIENTE (2026-05-27)
+**Origem:** Valdece . Loop 7 . Embaixador
+**Veredito:** Aprovar — Músculo numera e inscreve no LEDGER
+
+> Advogado criminalista que testa ferramenta antes de assinar contrato já vendeu a ferramenta para si mesmo — o fechamento é confirmação, não persuasão. O risco real é o pós-fechamento: ele passou de potencial usuário para usuário real, e a régua sobe imediatamente.
+
+**Aplicacao:** Usar como filtro em decisoes de produto e retencao em projetos EdTech/SaaS.

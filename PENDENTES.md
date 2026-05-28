@@ -51,13 +51,8 @@
 - [x] `2026-05-30` ~~**Loop 6 Ingrid — Músculo /ingrid-v6 + síntese P-037:**~~
   ✅ ingrid-v6.md lida · DELIBERACAO_LOOP_V6_INGRID.md gerado · MEMORIA_EMBAIXADOR atualizada (P-032) — 2026-05-27
 
-- [ ] `2026-05-27` **Loop 6 Ingrid — PAINEL DE DELIBERAÇÃO (GATE DIRETOR):**
-  Embaixador gerou 4 decisões. Diretor delibera P0/P1/PRINCIPIO/D3_VANGUARD.
-  P0 [DADOS-WATCH]: A) Músculo verifica user_id agora / B) Suspender comunicação / C) Diretor declara confiáveis
-  P1 [LEGAL-WATCH pós]: A) Aguardar Ingrid assinar impressão / B) Avançar pitch V2 / C) Contato antes 31/05
-  PRINCIPIO: A) APROVADO / B) COM AJUSTE / C) ADIADO
-  D3_VANGUARD: Registrar ou descartar
-  **AÇÃO DO MÚSCULO após veredito:** gerar DECISOES.json → executar_vereditos.ps1 → build Loop 6
+- [x] `2026-05-27` ~~**Loop 6 Ingrid — PAINEL DE DELIBERAÇÃO:**~~
+  ✅ P0-A (DADOS-WATCH VERDE: 102 respostas migradas) · P1-A (aguardar até 31/05) · PRINCIPIO-A (P-079 inscrito) · D3_VANGUARD-A (registrado) — 2026-05-27
 
 ---
 
