@@ -1035,7 +1035,11 @@ function mostrarResultadoSimulado() {
 }
 
 // Debug: força G-5 para testes — acessível via botão no debug panel
-window._testG5 = () => { errosConsecutivos = 3; ativarSocraticaPanico("feed"); };
+window._testG5 = () => {
+  errosConsecutivos = 3;
+  if (feed[indiceAtual]) g5DiscAlvo = feed[indiceAtual].disciplina_id ?? null;
+  ativarSocraticaPanico("feed");
+};
 
 // ── G-5: SOCRÁTICA PÂNICO ────────────────────────────────────────────────────
 function ativarSocraticaPanico(tipo) {
@@ -1094,14 +1098,16 @@ function ativarSocraticaPanico(tipo) {
         const params = new URLSearchParams({
           disciplina_id: `eq.${disc}`,
           select: "id,enunciado,alternativas,gabarito,explicacao_base,disciplina_id,peso_edital,tipo_pegadinha",
-          limit: "6",
-          order: "random()",
+          limit: "10",
         });
         const res = await fetch(`${SUPABASE_URL}/rest/v1/questoes_quadrix?${params}`, {
           headers: { ...headers() },
         });
         if (res.ok) {
-          const extras = (await res.json()).filter((q) => !idsVistos.includes(q.id)).slice(0, 2);
+          const extras = (await res.json())
+            .filter((q) => !idsVistos.includes(q.id))
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 2);
           if (extras.length > 0) feed.splice(indiceAtual + 1, 0, ...extras);
         }
       } catch (_) {}

@@ -12,17 +12,16 @@
 
 
 -- F-4: N-1 Gatilho Temporal — 19h45 BRT = 22h45 UTC (todo dia)
--- Chama a Edge Function via net.http_post (requer extensão http ou pg_net)
 -- ─────────────────────────────────────────────────────────────
 SELECT cron.schedule(
   'gatilho_temporal_ingrid',
   '45 22 * * *',
   $$
   SELECT net.http_post(
-    url     := current_setting('app.supabase_url') || '/functions/v1/gatilho-temporal',
+    url     := 'https://yjqvjhezwhepwomukudt.supabase.co/functions/v1/gatilho-temporal',
     headers := jsonb_build_object(
       'Content-Type',  'application/json',
-      'Authorization', 'Bearer ' || current_setting('app.supabase_anon_key')
+      'Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqcXZqaGV6d2hlcHdvbXVrdWR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3NjExNzksImV4cCI6MjA5NTMzNzE3OX0.Mb6KxtJ3iECl_3ApWUl6zozxa93pJatLwNOZ7zAdhx4'
     ),
     body    := '{}'::jsonb
   )
@@ -37,10 +36,10 @@ SELECT cron.schedule(
   '0 13 * * 0',
   $$
   SELECT net.http_post(
-    url     := current_setting('app.supabase_url') || '/functions/v1/relatorio-semanal',
+    url     := 'https://yjqvjhezwhepwomukudt.supabase.co/functions/v1/relatorio-semanal',
     headers := jsonb_build_object(
       'Content-Type',  'application/json',
-      'Authorization', 'Bearer ' || current_setting('app.supabase_anon_key')
+      'Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqcXZqaGV6d2hlcHdvbXVrdWR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3NjExNzksImV4cCI6MjA5NTMzNzE3OX0.Mb6KxtJ3iECl_3ApWUl6zozxa93pJatLwNOZ7zAdhx4'
     ),
     body    := '{}'::jsonb
   )
