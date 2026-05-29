@@ -51,6 +51,11 @@
 - [x] `2026-05-30` ~~**Loop 6 Ingrid — Backend F-2 + F-4 + F-6 (após gate v19):**~~
   ✅ Commits 86e112b + a2b42f5 confirmam — backend completo em 2026-05-28 00:24. PENDENTES não foi atualizado na sessão anterior — falha do Músculo corrigida agora.
 
+- [x] `2026-05-30` **Ingrid — Dia 13 (29-05-2026 sexta-feira) — Contador Pontos Ponderados + Notificação push domingo:**
+  Contador Pontos Ponderados: exibir no header/dashboard a pontuação ponderada acumulada da Ingrid.
+  Notificação push domingo: acionar notificação automática aos domingos para lembrar do Micro-Simulado.
+  Referência: plano_build dia12_13 do WIP_BOARD + skill ingrid-v6.md.
+
 - [x] `2026-05-27` ~~**Loop 6 Ingrid — PAINEL DE DELIBERAÇÃO:**~~
   ✅ P0-A (DADOS-WATCH VERDE: 102 respostas migradas) · P1-A (aguardar até 31/05) · PRINCIPIO-A (P-079 inscrito) · D3_VANGUARD-A (registrado) — 2026-05-27
 
