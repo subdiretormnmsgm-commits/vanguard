@@ -1253,13 +1253,12 @@ if ($paineisPorCliente -and $paineisPorCliente.Count -gt 0) {
         Write-Host ""
         Write-Host "  [$cliKey] Embaixador -- Claude Projects"          -ForegroundColor White
         Write-Host "  Arrastar: $pRel"                                  -ForegroundColor Yellow
-        Write-Host "  Colar no chat:"                                   -ForegroundColor White
+        Write-Host "  Colar no chat (texto fixo -- sempre igual):"       -ForegroundColor White
         Write-Host "  -----------------------------------------------"  -ForegroundColor DarkGray
-        Write-Host "  Embaixador de $cliKey, fechamento -- $DATA."      -ForegroundColor Cyan
-        Write-Host "  Upload do PAINEL_ATIVIDADES_${cliKey}_$DATA.md."  -ForegroundColor Cyan
-        Write-Host "  Gerar artefato com: SEMAFORO | DEFICIT |"         -ForegroundColor Cyan
-        Write-Host "  GARGALO | DIAGNOSTICO | PREVISAO |"               -ForegroundColor Cyan
-        Write-Host "  ANALISE GERENCIAL | PARA DELIBERACAO DO DIRETOR." -ForegroundColor Cyan
+        Write-Host "  PAINEL de fechamento em anexo. Gerar artefato"    -ForegroundColor Cyan
+        Write-Host "  atualizado com: SEMAFORO | DEFICIT | GARGALO |"   -ForegroundColor Cyan
+        Write-Host "  DIAGNOSTICO | PREVISAO | ANALISE GERENCIAL |"     -ForegroundColor Cyan
+        Write-Host "  PARA DELIBERACAO DO DIRETOR."                     -ForegroundColor Cyan
         Write-Host "  -----------------------------------------------"  -ForegroundColor DarkGray
     }
 } else {
