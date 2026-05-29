@@ -1253,12 +1253,21 @@ if ($paineisPorCliente -and $paineisPorCliente.Count -gt 0) {
         Write-Host ""
         Write-Host "  [$cliKey] Embaixador -- Claude Projects"          -ForegroundColor White
         Write-Host "  Arrastar: $pRel"                                  -ForegroundColor Yellow
-        Write-Host "  Colar no chat (texto fixo -- sempre igual):"       -ForegroundColor White
+        Write-Host "  Colar no chat:"                                   -ForegroundColor White
         Write-Host "  -----------------------------------------------"  -ForegroundColor DarkGray
-        Write-Host "  PAINEL de fechamento em anexo. Gerar artefato"    -ForegroundColor Cyan
-        Write-Host "  atualizado com: SEMAFORO | DEFICIT | GARGALO |"   -ForegroundColor Cyan
-        Write-Host "  DIAGNOSTICO | PREVISAO | ANALISE GERENCIAL |"     -ForegroundColor Cyan
-        Write-Host "  PARA DELIBERACAO DO DIRETOR."                     -ForegroundColor Cyan
+        Write-Host "  Embaixador, fechamento de sessao -- $DATA."       -ForegroundColor Cyan
+        Write-Host "  Faco upload do PAINEL_ATIVIDADES desta sessao."   -ForegroundColor Cyan
+        Write-Host "  Com base nele, gerar o artefato publicavel com:"  -ForegroundColor Cyan
+        Write-Host ""
+        Write-Host "  SEMAFORO -- status visual (BLOQUEANTE/ATENCAO/SAUDAVEL)" -ForegroundColor Cyan
+        Write-Host "  DIAGNOSTICO DO DIA -- saude dos projetos ativos"  -ForegroundColor Cyan
+        Write-Host "  PREVISAO DOS PROXIMOS DIAS -- data a data com"    -ForegroundColor Cyan
+        Write-Host "    checklist de acoes do Diretor"                  -ForegroundColor Cyan
+        Write-Host "  ANALISE GERENCIAL -- ampliar analise do Musculo:" -ForegroundColor Cyan
+        Write-Host "    comportamento real confirma ou contradiz?"       -ForegroundColor Cyan
+        Write-Host "    O que voce ve que o Musculo nao ve?"             -ForegroundColor Cyan
+        Write-Host "  PROXIMA ACAO DO DIRETOR -- max 3 itens em ordem." -ForegroundColor Cyan
+        Write-Host "  Artefato autossuficiente: abro e sei o que fazer."-ForegroundColor Cyan
         Write-Host "  -----------------------------------------------"  -ForegroundColor DarkGray
     }
 } else {
