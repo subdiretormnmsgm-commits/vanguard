@@ -8,7 +8,8 @@ param(
     [string]$EntregasTexto = "",
     [string]$AlertasTexto  = "",
     [string]$AcoesTexto    = "",
-    [string]$AnaliseTexto  = ""
+    [string]$AnaliseTexto  = "",
+    [string]$Cliente       = ""   # se passado: gera PAINEL filtrado por projeto
 )
 
 $raiz = Split-Path -Parent $PSScriptRoot
@@ -20,7 +21,12 @@ $diaSemana = $diaSemana.Substring(0,1).ToUpper() + $diaSemana.Substring(1)
 # --- Diretorio de saida ---
 $outputDir = "$raiz\PROTOCOLOS_ENCERRAMENTO"
 if (-not (Test-Path $outputDir)) { New-Item -ItemType Directory -Path $outputDir -Force | Out-Null }
-$outputFile = "$outputDir\PAINEL_ATIVIDADES_$data.md"
+$clienteLabel = if ($Cliente) { $Cliente.ToUpper() } else { "" }
+$outputFile   = if ($clienteLabel) {
+    "$outputDir\PAINEL_ATIVIDADES_${clienteLabel}_$data.md"
+} else {
+    "$outputDir\PAINEL_ATIVIDADES_$data.md"
+}
 
 # --- Ler WIP_BOARD ---
 $wipPath = "$raiz\CLIENTES\WIP_BOARD.json"
@@ -30,6 +36,7 @@ if (Test-Path $wipPath) {
 }
 
 # --- Projetos ativos (estrutura: wip.board.build / check / retainer) ---
+# Se -Cliente passado, inclui apenas aquele projeto no bloco
 $linhasProjetos = @()
 $colunas = @("build", "check", "retainer")
 if ($wip -and $wip.board) {
@@ -37,10 +44,11 @@ if ($wip -and $wip.board) {
         $lista = $wip.board.$col
         if (-not $lista) { continue }
         foreach ($proj in $lista) {
+            $nome = if ($proj.cliente) { $proj.cliente } else { "?" }
+            if ($clienteLabel -and $nome.ToUpper() -ne $clienteLabel) { continue }
             $deadline = if ($proj.deadline) { $proj.deadline } else { "sem prazo" }
             $loop     = if ($proj.loop_atual) { $proj.loop_atual } else { "Loop ?" }
             $colLabel = $col.ToUpper().PadRight(9)
-            $nome     = if ($proj.cliente) { $proj.cliente } else { "?" }
             $linhasProjetos += "$($nome.PadRight(10)) [$colLabel]  $loop  Deadline: $deadline"
         }
     }
@@ -144,7 +152,9 @@ if ($wip -and $wip.board -and $wip.board.build) {
         }
     }
 }
-$gargaloOrdenado = @($gargaloItens | Sort-Object DiasVencido -Descending)
+$gargaloOrdenado = @($gargaloItens |
+    Where-Object { -not $clienteLabel -or $_.Projeto.ToUpper() -eq $clienteLabel } |
+    Sort-Object DiasVencido -Descending)
 
 # --- Construir lista de pendentes (emoji via Unicode escape - PS1 ASCII-safe) ---
 # PS5.1 nao suporta [char] acima de 0xFFFF — usar surrogate pair para emoji SMP
@@ -162,6 +172,12 @@ $pendentesLinhas = [System.Collections.Generic.List[string]]::new()
 foreach ($secao in $secoes.Keys) {
     $itens = $secoes[$secao]
     if ($itens.Count -eq 0) { continue }
+    # Se -Cliente passado: incluir secoes que contenham o nome do cliente ou secoes universais
+    if ($clienteLabel) {
+        $ehCliente   = $secao.ToUpper() -match $clienteLabel
+        $ehUniversal = $secao -match "PROCESSO|INFRA|GERAL|CRITICO"
+        if (-not $ehCliente -and -not $ehUniversal) { continue }
+    }
     $pendentesLinhas.Add("")
     $pendentesLinhas.Add("### $secao")
     $pendentesLinhas.Add("")
@@ -232,7 +248,8 @@ $separador = "---"
 $tri = '```'
 
 $linhasDoc = [System.Collections.Generic.List[string]]::new()
-$linhasDoc.Add("# PAINEL DE ATIVIDADES - DIRETOR EDUARDO")
+$tituloCliente = if ($clienteLabel) { " - $clienteLabel" } else { "" }
+$linhasDoc.Add("# PAINEL DE ATIVIDADES$tituloCliente - DIRETOR EDUARDO")
 $linhasDoc.Add("### Pentalateral IAH - $diaSemana, $data $hora")
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
@@ -285,7 +302,8 @@ $linhasDoc.Add("")
 $linhasDoc.Add("> Copiar o bloco abaixo e colar no Claude Projects junto com o upload deste arquivo.")
 $linhasDoc.Add("")
 $linhasDoc.Add($tri)
-$linhasDoc.Add("Embaixador, fechamento de sessao -- $data.")
+$msgCliente = if ($clienteLabel) { "Embaixador de $clienteLabel, fechamento de sessao -- $data." } else { "Embaixador, fechamento de sessao -- $data." }
+$linhasDoc.Add($msgCliente)
 $linhasDoc.Add("")
 $linhasDoc.Add("Faco upload do PAINEL_ATIVIDADES desta sessao.")
 $linhasDoc.Add("Com base nele, gerar o artefato publicavel com:")
@@ -374,9 +392,11 @@ $linhasDoc.Add("Musculo - Pentalateral IAH - $data")
 
 $linhasDoc -join "`n" | Out-File -FilePath $outputFile -Encoding UTF8
 
+$nomeArq = if ($clienteLabel) { "PAINEL_ATIVIDADES_${clienteLabel}_$data.md" } else { "PAINEL_ATIVIDADES_$data.md" }
+$destLabel = if ($clienteLabel) { "Claude Projects: Embaixador $clienteLabel" } else { "Claude Projects: Embaixador - Diretor" }
 Write-Host ""
-Write-Host "  [PAINEL] Gerado: PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$data.md" -ForegroundColor Cyan
-Write-Host "  [PAINEL] Fazer upload ao projeto: Embaixador — Diretor (claude.ai/projects)" -ForegroundColor Yellow
+Write-Host "  [PAINEL] Gerado: PROTOCOLOS_ENCERRAMENTO\$nomeArq" -ForegroundColor Cyan
+Write-Host "  [PAINEL] Fazer upload ao projeto: $destLabel (claude.ai/projects)" -ForegroundColor Yellow
 Write-Host ""
 
 return $outputFile

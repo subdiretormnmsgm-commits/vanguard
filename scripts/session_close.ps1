@@ -699,20 +699,52 @@ if (Test-Path $painelScript) {
     $entregasTexto += "MANIFEST: $(($manifestStatus.Values | Select-Object -Unique) -join ', '). "
     if ($logPath) { $entregasTexto += "LOG: $logPath." }
 
-    $painelFile = (& powershell.exe -NonInteractive -File $painelScript `
-        -EntregasTexto $entregasTexto `
-        -AlertasTexto  $alertaBloco `
-        -AnaliseTexto  $analise `
-        2>$null) | Select-Object -Last 1
+    # Gerar PAINEL separado por projeto ativo
+    $paineisPorCliente = [ordered]@{}
+    $clientesAtivos = @($projetosEmBuild | ForEach-Object { $_.cliente } | Where-Object { $_ })
+    if ($clientesAtivos.Count -eq 0) { $clientesAtivos = @($cliente) }
 
-    if ($painelFile -and (Test-Path $painelFile)) {
-        Write-Host "  [GATE 9] PAINEL gerado: $painelFile" -ForegroundColor Cyan
-        Write-Host "  [GATE 9] Upload ao Claude Projects: Embaixador -- Diretor" -ForegroundColor Yellow
-        $gateStatus.G9 = "VERDE"
-    } else {
-        Write-Host "  [GATE 9] PAINEL nao gerado -- verificar generate_protocolo_encerramento.ps1" -ForegroundColor Yellow
-        $gateStatus.G9 = "AMARELO"
+    foreach ($cli in $clientesAtivos) {
+        $cliUpper = $cli.ToUpper()
+        $p0 = $projetosEmBuild | Where-Object { $_.cliente.ToUpper() -eq $cliUpper } | Select-Object -First 1
+        $dlInfo = ""
+        $gCnt   = 0
+        if ($p0 -and $p0.deadline) {
+            $dlDate  = [datetime]::Parse($p0.deadline)
+            $diasR   = ($dlDate - (Get-Date).Date).Days
+            $dlInfo  = "Deadline $($p0.deadline) -- $diasR dia(s) restante(s)."
+        }
+        if ($p0 -and $p0.gates_bloqueantes) {
+            $inicio = [datetime]::Parse($p0.build_iniciado_em)
+            $p0.gates_bloqueantes | Get-Member -MemberType NoteProperty | ForEach-Object {
+                $num = [int]($_.Name -replace '\D','')
+                $gDate = $inicio.AddDays($num-1)
+                if ($gDate.Date -le (Get-Date).Date) {
+                    $conc = $false
+                    if ($p0.dias_completos) { foreach ($d in $p0.dias_completos) { if ($d -match "^dia$num") { $conc = $true } } }
+                    if (-not $conc) { $gCnt++ }
+                }
+            }
+        }
+        $analise  = "Projeto $cliUpper encerrou sessao com $totalPend pendente(s) e $gCnt gargalo(s). "
+        $analise += "Status documental: $statusFinal. $dlInfo "
+        $analise += "Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini."
+
+        $painelFile = (& powershell.exe -NonInteractive -File $painelScript `
+            -Cliente       $cli `
+            -EntregasTexto $entregasTexto `
+            -AlertasTexto  $alertaBloco `
+            -AnaliseTexto  $analise `
+            2>$null) | Select-Object -Last 1
+
+        if ($painelFile -and (Test-Path $painelFile)) {
+            $paineisPorCliente[$cliUpper] = $painelFile
+            Write-Host "  [GATE 9] PAINEL $cliUpper gerado: $(Split-Path $painelFile -Leaf)" -ForegroundColor Cyan
+        } else {
+            Write-Host "  [GATE 9] PAINEL $cliUpper -- falha na geracao" -ForegroundColor Yellow
+        }
     }
+    if ($paineisPorCliente.Count -gt 0) { $gateStatus.G9 = "VERDE" } else { $gateStatus.G9 = "AMARELO" }
 } else {
     Write-Host "  [GATE 9] generate_protocolo_encerramento.ps1 nao encontrado" -ForegroundColor DarkGray
     $gateStatus.G9 = "N/A"
@@ -832,27 +864,31 @@ if ($integridadeOK) {
 }
 Write-Host ""
 
-# --- Aviso Claude Projects — P-022: PAINEL e' o unico upload ao Embaixador ---
-$painelRelativo = "PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$DATA.md"
+# --- Aviso Claude Projects — P-022: PAINEL por projeto ---
 Write-Host "=======================================================" -ForegroundColor Magenta
 Write-Host "  ACAO AO EMBAIXADOR (Claude Projects) -- P-022"       -ForegroundColor Magenta
 Write-Host "=======================================================" -ForegroundColor Magenta
-Write-Host "  Arrastar ao Claude Projects -- zero copia manual:"    -ForegroundColor White
-Write-Host "  -> $painelRelativo"                                   -ForegroundColor Yellow
+if ($paineisPorCliente -and $paineisPorCliente.Count -gt 0) {
+    foreach ($cliKey in $paineisPorCliente.Keys) {
+        $pFile = $paineisPorCliente[$cliKey]
+        $pRel  = "PROTOCOLOS_ENCERRAMENTO\" + (Split-Path $pFile -Leaf)
+        Write-Host ""
+        Write-Host "  [$cliKey] Embaixador -- Claude Projects"          -ForegroundColor White
+        Write-Host "  Arrastar: $pRel"                                  -ForegroundColor Yellow
+        Write-Host "  Colar no chat:"                                   -ForegroundColor White
+        Write-Host "  -----------------------------------------------"  -ForegroundColor DarkGray
+        Write-Host "  Embaixador de $cliKey, fechamento -- $DATA."      -ForegroundColor Cyan
+        Write-Host "  Upload do PAINEL_ATIVIDADES_${cliKey}_$DATA.md."  -ForegroundColor Cyan
+        Write-Host "  Gerar artefato com: SEMAFORO | DEFICIT |"         -ForegroundColor Cyan
+        Write-Host "  GARGALO | DIAGNOSTICO | PREVISAO |"               -ForegroundColor Cyan
+        Write-Host "  ANALISE GERENCIAL | PARA DELIBERACAO DO DIRETOR." -ForegroundColor Cyan
+        Write-Host "  -----------------------------------------------"  -ForegroundColor DarkGray
+    }
+} else {
+    $pFallback = "PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$DATA.md"
+    Write-Host "  Arrastar: $pFallback"                                 -ForegroundColor Yellow
+}
 Write-Host ""
-Write-Host "  Colar no chat junto com o upload:"                    -ForegroundColor White
-Write-Host "  -------------------------------------------------------" -ForegroundColor DarkGray
-Write-Host "  Embaixador, fechamento de sessao -- $DATA."           -ForegroundColor Cyan
-Write-Host "  Faco upload do PAINEL_ATIVIDADES desta sessao."       -ForegroundColor Cyan
-Write-Host "  Gerar artefato publicavel com:"                       -ForegroundColor Cyan
-Write-Host "  1. SEMAFORO -- status visual de cada projeto"         -ForegroundColor Cyan
-Write-Host "  2. ATIVIDADES EM DEFICIT -- perspectiva comportamental" -ForegroundColor Cyan
-Write-Host "  3. ALERTA GARGALO -- gates vencidos com contexto real" -ForegroundColor Cyan
-Write-Host "  4. DIAGNOSTICO DO DIA -- saude dos projetos ativos"   -ForegroundColor Cyan
-Write-Host "  5. PREVISAO DOS PROXIMOS DIAS -- checklist do Diretor" -ForegroundColor Cyan
-Write-Host "  6. ANALISE GERENCIAL -- o que o Musculo nao ve?"      -ForegroundColor Cyan
-Write-Host "  7. PARA DELIBERACAO DO DIRETOR -- opcoes, nunca ordens" -ForegroundColor Cyan
-Write-Host "  -------------------------------------------------------" -ForegroundColor DarkGray
 Write-Host "=======================================================" -ForegroundColor Magenta
 Write-Host ""
 
@@ -882,10 +918,18 @@ if ($pendentesAbertos.Count -gt 0) {
 }
 Write-Host ""
 
-# 3. PAINEL DE ATIVIDADES
+# 3. PAINEL DE ATIVIDADES (por projeto)
 Write-Host "  [3] PAINEL DE ATIVIDADES" -ForegroundColor White
-Write-Host "      Arquivo : PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$DATA.md" -ForegroundColor Cyan
-Write-Host "      Acao    : arrastar ao Claude Projects (Embaixador -- Diretor)" -ForegroundColor Yellow
+if ($paineisPorCliente -and $paineisPorCliente.Count -gt 0) {
+    foreach ($cliKey in $paineisPorCliente.Keys) {
+        $pLeaf = Split-Path $paineisPorCliente[$cliKey] -Leaf
+        Write-Host "      [$cliKey] PROTOCOLOS_ENCERRAMENTO\$pLeaf" -ForegroundColor Cyan
+        Write-Host "              -> arrastar ao Claude Projects do Embaixador $cliKey" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "      Arquivo : PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$DATA.md" -ForegroundColor Cyan
+    Write-Host "      Acao    : arrastar ao Claude Projects (Embaixador -- Diretor)" -ForegroundColor Yellow
+}
 Write-Host ""
 
 # 4. PROXIMA SESSAO
