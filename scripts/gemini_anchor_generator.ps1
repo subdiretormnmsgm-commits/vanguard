@@ -142,8 +142,18 @@ if ($projetoAtivo) {
     # PASSO3 -- MISSAO (sempre por ultimo)
     $passo3Path = Join-Path $clienteDir "PASSO3_GEMINI.md"
     if (Test-Path $passo3Path) {
-        Write-Host "  [+] PASSO3_GEMINI.md (MISSAO -- ultimo bloco)"
         $passo3Content = Get-Content $passo3Path -Encoding UTF8 -Raw
+        # P-GATE-PASSO3: bloqueia se MISSAO nao foi preenchida (placeholder ativo)
+        if ($passo3Content -match '\[M.SCULO:') {
+            Write-Host "" -ForegroundColor Red
+            Write-Host "=== BLOQUEADO -- PASSO3 NAO PREENCHIDO ===" -ForegroundColor Red
+            Write-Host "  PASSO3_GEMINI.md contem placeholders [MUSCULO: ...]" -ForegroundColor Red
+            Write-Host "  O Musculo deve preencher a secao MISSAO antes de ir ao Gemini." -ForegroundColor Yellow
+            Write-Host "  Arquivo: $passo3Path" -ForegroundColor Yellow
+            Write-Host "" -ForegroundColor Red
+            exit 1
+        }
+        Write-Host "  [+] PASSO3_GEMINI.md (MISSAO -- ultimo bloco)"
         $blocos += "## MISSAO DESTA SESSAO -- PASSO3_GEMINI ($clienteUpper)`n$passo3Content"
     } else {
         Write-Host "  [!!] PASSO3_GEMINI.md NAO ENCONTRADO para $clienteUpper" -ForegroundColor Red
@@ -232,7 +242,8 @@ if ($projetoAtivo -and $projetoAtivo.id -ne "MANUAL") {
             $wipData | ConvertTo-Json -Depth 15 | Set-Content $wipPath2 -Encoding UTF8
             Write-Host "  [LOOP] loop_fase_atual.gemini = OK -- WIP_BOARD atualizado" -ForegroundColor Green
 
-            # P-089: PASSO3_GEMINI.md regenerado automaticamente -- P-088: codigo ASCII, conteudo no template .txt
+            # P-089: PASSO3_GEMINI.md regenerado para PROXIMO loop (N+1) -- nao sobrescreve o loop ativo
+            # Fix 2026-05-29: loopNum3 = N+1 para nao destruir o PASSO3 preenchido do loop atual
             $p3tmpl = Join-Path $BASE "PENTALATERAL_UNIVERSAL\TEMPLATES\scripts\passo3_template.txt"
             $cliUpper3 = $projetoAtivo.cliente.ToUpper()
             # P-059: gate de isolamento -- nunca tocar pasta de outro cliente
@@ -241,8 +252,9 @@ if ($projetoAtivo -and $projetoAtivo.id -ne "MANUAL") {
                 Write-Host "  [PASSO3] ERRO P-059: pasta CLIENTES\$cliUpper3 nao encontrada -- abortando regeneracao" -ForegroundColor Red
             } elseif (Test-Path $p3tmpl) {
                 $cliLower3  = $projetoAtivo.cliente.ToLower()
-                $loopNum3   = [string]$loopN
-                $loopPrev3  = if ($loopN -is [int] -and $loopN -gt 1) { [string]($loopN - 1) } else { "anterior" }
+                # P-089 FIX: gera para proximo loop (N+1), nao para o loop atual (N)
+                $loopNum3   = if ($loopN -is [int]) { [string]($loopN + 1) } else { [string]$loopN }
+                $loopPrev3  = [string]$loopN
                 $diasFeitos3 = if ($proj2.dias_completos) { ($proj2.dias_completos -join " | ") } else { "nao informado" }
                 $statusAsc3  = if ($proj2.status) { ($proj2.status -replace '[^\x00-\x7F]', '?').Substring(0, [Math]::Min(120, $proj2.status.Length)) } else { "em andamento" }
                 $gateAsc3   = if ($proj2.loop_fase_atual.proximo) { $proj2.loop_fase_atual.proximo } else { "ver WIP_BOARD" }

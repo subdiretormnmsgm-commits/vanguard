@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-05-28",
+    "atualizado_em":  "2026-05-29",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -145,10 +145,10 @@
                                     "loop_fase_atual":  {
                                                             "loop":  7,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "PENDENTE",
+                                                            "notebooklm":  "OK",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -- Skill ingrid-v7.md"
+                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
                                                         },
                                     "churn_watch_threshold":  5
                                 },

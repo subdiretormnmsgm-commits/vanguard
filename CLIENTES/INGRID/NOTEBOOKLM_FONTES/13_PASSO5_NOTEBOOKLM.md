@@ -1,6 +1,6 @@
-﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 5
+﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 6
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Atualizado pelo Musculo em 2026-05-28 (Loop 5 / Diretriz V6)
+> Atualizado pelo Musculo em 2026-05-29 (Loop 6 / Diretriz V7)
 
 ---
 
@@ -14,13 +14,13 @@
 [ ] 5. Colar o COMANDO CURTO no chat (não o arquivo inteiro — ele já está nas fontes)
 ```
 
-> Sem o Wipe & Sync, o Auditor mistura contexto do Loop 4 com o Loop 5.
+> Sem o Wipe & Sync, o Auditor mistura contexto do Loop 5 com o Loop 6.
 > Auditor com fontes velhas = Skill que contradiz o que já foi construído.
 
 ### COMANDO CURTO — colar no chat do NotebookLM
 
 ```
-Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha a cliente Ingrid em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Missão principal: gerar a Skill ingrid-v5.md — o Músculo não inicia o Loop 5 sem ela.
+Auditor, você opera no Pentalateral IAH — 5 membros ativos desde 2026-05-18: Diretor, Músculo, Estrategista, Auditor e Embaixador. O Embaixador (Claude Projects) acompanha a cliente Ingrid em tempo real e suas hipóteses sobre comportamento e perfil estão no arquivo 14_MEMORIA_EMBAIXADOR.md — leia-o como filtro de realidade antes de validar qualquer sugestão. Leia o arquivo 13_PASSO5_NOTEBOOKLM.md das fontes carregadas detalhadamente e execute todas as instruções contidas nele. Missão principal: gerar a Skill ingrid-v7.md — o Músculo não inicia o Loop 6 sem ela.
 ```
 
 > O arquivo já está nas fontes — não colar o conteúdo inteiro no chat.
@@ -35,9 +35,9 @@ As PARTES 1, 2 e 4 são **irrecuperáveis** depois que você fechar a sessão.
 ```
 Antes de sair:
 ☐ Copiar PARTES 1 + 2 + 4 completas (tudo exceto a Skill)
-☐ Salvar em: CLIENTES/INGRID/HISTORICO/AUDITOR_LOOP_5_INGRID.md
-☐ Copiar PARTE 3 (Skill) para: .claude/skills/ingrid-v5.md
-☐ Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\ingrid-v5.md"
+☐ Salvar em: CLIENTES/INGRID/HISTORICO/AUDITOR_LOOP_6_INGRID.md
+☐ Copiar PARTE 3 (Skill) para: .claude/skills/ingrid-v7.md
+☐ Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\ingrid-v7.md"
 ```
 
 > PARTES 1+2+4 não salvas = Músculo delibera sem [N-1 a N-5] + Auditoria = 20 inputs, não 25.
@@ -76,54 +76,57 @@ Ao gerar a Skill, compense ativamente:
 **Projeto:** Ingrid — Ferramenta de Estudo Sedes-DF
 **Nicho:** EdTech / Concursos Públicos
 **Stack:** PWA Vanilla JS + Supabase + Claude API (Haiku + Sonnet) · GitHub Pages
-**Prova final:** 2026-09-06 · **Deadline do projeto:** 2026-05-30 (2 dias restantes)
+**Prova final:** 2026-09-06 · **Deadline do projeto:** 2026-05-30 (1 dias restantes)
 
-**Loop:** #5 — Dias 12-13 — CONCLUÍDO (build feito em 2026-05-23)
-**O que foi entregue:**
-- Widget Contador: pontosBase (Supabase) + pontosAcumulados (sessão) no header
-- Push dominical: banner slideDown + Notification API (iOS excluído via isIosSafari())
-- Deploy v14 GitHub Pages — smoke test 5/5 PASSOU
-- Gate Dia 13: aguardando aprovação de Ingrid
+**Loop:** #6 — SaaS Readiness + Pipeline Comercial — EM ANDAMENTO (2026-05-29)
+**O que foi entregue no Loop 5 (V6):**
+- F-1 Saudação Noturna Dinâmica (v19)
+- F-2 Distração Vingativa Silenciosa — pegadinhas sem label
+- F-4 Gatilho Temporal 19h45 + pg_cron (deploy CLI pendente)
+- F-5 Modo Véspera — ativar 2026-08-30
+- F-6 Relatório Semanal WhatsApp Haiku (deploy CLI pendente)
+- F-7 Raio-X SVG + Brasão Semanal
+- F-8 Termômetro da Aprovação
 
-**Gates aprovados:**
-- Dia 2: qualidade das questões
-- Dia 5: feed 70/30 funcional (7 dias, 0 erros)
-- Dia 8: PWA completo — Clickwrap + Tutor 3 níveis + Fallback + TTI (APROVADO 2026-05-19)
-- Dia 11: Heatmap + Micro-Simulado funcional (APROVADO 2026-05-20)
-- Dia 13: Widget Contador + Push dominical — DEPLOY OK · aprovação cliente pendente
+**DADOS-WATCH:** VERDE — 102 registros · 1 user_id · SM-2/Heatmap/Termômetro íntegros
+**LEGAL-WATCH:** VERDE — Termo de Uso reassinado 2026-05-27
 
-**Próximo gate:** Dia 15 — Ingrid com acesso admin ao próprio Supabase (2026-05-30)
+**Gates aprovados (todos os 15 dias):** Loop 1 a Loop 5 APROVADOS (último: 2026-05-26)
+
+**Próximos gates (Loop 6):**
+- GATE 01: supabase login + deploy F-4/F-6 (BLOQUEANTE)
+- GATE 02: GitHub Pages push unblock
+- GATE 03: Script E-4 WhatsApp Ingrid
 
 **Banco:** 460 questões · 13 disciplinas · Cargo 202 (Instituto Quadrix)
-**Temperatura da cliente:** VERDE CONSOLIDANDO
+**Prova final:** 2026-09-06 · **Temperatura da cliente:** VERDE SUSTENTADO 7.5/10
 
 **Restrições ativas (VETO absoluto):**
-- P-045: zero tela de login para Ingrid
-- P-038: Micro-Simulado só recicla questões SM-2 (já vistas)
-- P-003: sem scraping — questões via Claude API apenas
-- Burn Rate: `BURN_RATE_DAILY_LIMIT_USD=5.00`
-- P-007: validar toda RPC/Edge via CLI antes da UI
-- LEGAL-WATCH: PDF do Termo datado 30/05 mas assinado em 18/05 — resolver antes do Dia 14
+- NUNCA alterar SM-2 ou Heatmap sem nova validação (HV-1)
+- NUNCA nova UI antes de auditar RLS multi-tenant (HV-2 · P-059)
+- NUNCA telas de configuração, recuperação de senha ou cadastros externos (P-070)
+- NUNCA gateway de pagamento real (Stripe/Asaas) neste repositório
+- NUNCA reconstituir F-1 a F-8 — DADOS-WATCH VERDE é prova de integridade
 
 **Missão do Auditor neste loop:**
-> "Auditor, você recebeu a DIRETRIZ_GEMINI_V6 para o Loop 5 do Projeto Ingrid.
-> O Músculo construiu o Widget de Pontos Ponderados e as Notificações Push (Dias 12-13).
-> Sua missão: auditar a DIRETRIZ cruzando com o histórico real das fontes.
-> Identifique: (1) o que contradiz princípios ativos do LEDGER ou decisões já tomadas,
-> (2) o que já falhou em projetos anteriores,
-> (3) o que o Estrategista está ignorando — especialmente o risco legal do Termo mal datado.
-> Ponto crítico: Push via Service Worker em iOS Safari — limitação estrutural ou foi contornada?
+> "Auditor, você recebeu a DIRETRIZ_GEMINI_V7 para o Loop 6 do Projeto Ingrid.
+> O Músculo deve executar os 3 GATES antes de qualquer feature nova.
+> Sua missão: auditar as 5 ideias aprovadas (M-1 a M-5) cruzando com o histórico.
+> Identifique: (1) o que contradiz princípios do LEDGER ou decisões fixadas,
+> (2) qual das 5 ideias tem maior impacto comercial para o segundo cliente,
+> (3) o que o Estrategista pode ter ignorado sobre o comportamento real da Ingrid.
+> Ponto crítico: F-4 e F-6 operando manualmente — GATE 01 antes de qualquer feature.
 > Não valide por momentum. Discorde quando tiver evidência histórica."
 
 ---
 
-## MISSÃO CRÍTICA — GERAR A SKILL ingrid-v5.md
+## MISSÃO CRÍTICA — GERAR A SKILL ingrid-v7.md
 
 **Após processar as fontes e a missão acima, gere a Skill completa em 4 partes obrigatórias.**
 
-O nome exato da Skill: **`ingrid-v5.md`**
+O nome exato da Skill: **`ingrid-v7.md`**
 
-O Músculo vai executar `/ingrid-v5` antes de qualquer deliberação do Loop 5.
+O Músculo vai executar `/ingrid-v7` antes de qualquer deliberação do Loop 6.
 Skill sem os 4 blocos com dados reais = Skill rejeitada. Músculo não inicia o build sem Skill válida.
 
 ---
@@ -138,7 +141,7 @@ PARTE 1 — AUDITORIA DE COERÊNCIA
     - P-045: zero login para Ingrid (NUNCA reverter)
     - P-038: Micro-Simulado só recicla SM-2 (já vistas)
     - Burn Rate $5/dia (P-006)
-    - Deadline 2026-05-30 (2 dias restantes)
+    - Deadline 2026-05-30 (1 dias restantes)
     - LEGAL-WATCH: Termo datado 30/05 / assinado 18/05 — risco antes do Dia 14
     - Push iOS: isIosSafari() excluída — confirmado ou fallback modal ativo?
 
@@ -148,7 +151,7 @@ PARTE 2 — PERSPECTIVA DO SÓCIO CONSULTOR
   O que este projeto tem de diferente que muda o padrão.
   O que Gemini e Músculo não estão vendo — discordância fundamentada.
 
-PARTE 3 — A SKILL (copiável para .claude/skills/ingrid-v5.md)
+PARTE 3 — A SKILL (copiável para .claude/skills/ingrid-v7.md)
   ⚠️ GATE OBRIGATÓRIO: a Skill DEVE conter estes 4 títulos de seção EXATOS (sem acentos).
   O script skill_parser_gate.ps1 verifica esses textos — Skill sem eles = REJEITADA:
 
@@ -170,7 +173,7 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 ```
 
 **Validação antes de entregar:**
-- [ ] Skill tem nome exato `ingrid-v5.md` declarado na PARTE 3
+- [ ] Skill tem nome exato `ingrid-v7.md` declarado na PARTE 3
 - [ ] PARTE 3 contém os 4 títulos EXATOS: `[AUDITORIA DE COERENCIA]`, `[CONEXAO HISTORICA]`, `[PADRAO DE SUCESSO/FALHA]`, `[PERSPECTIVA DO SOCIO]`
 - [ ] PARTE 1 cita fontes reais (não genéricas)
 - [ ] PARTE 4 tem 5 ideias exclusivas do Auditor
@@ -183,7 +186,7 @@ PARTE 4 — 5 IDEIAS DISRUPTIVAS DO AUDITOR
 ```
 ORDEM INVIOLÁVEL — MÚSCULO NÃO DELIBERA SEM OS 3 SÓCIOS:
 
-  1. NotebookLM → ingrid-v5.md        ← você está aqui
+  1. NotebookLM → ingrid-v7.md        ← você está aqui
   2. Embaixador → SEÇÃO D             ← OBRIGATÓRIO ANTES DO MÚSCULO
   3. Músculo → síntese P-037          ← só depois dos dois acima
 
@@ -221,8 +224,8 @@ Ordem dos documentos:
 
 --- PROJETO INGRID ---
 09_BRIEFING_DISCOVERY.txt          ← dor real da cliente
-10_MEMORIA_RECENTE.md              ← MEMORIA_V4_INGRID.md (Loop 4)
-11_RELATORIO_EVOLUTIVO.md          ← relatorio_evolutivo_V4_INGRID.md (Loop 4)
+10_MEMORIA_RECENTE.md              ← MEMORIA_V4_INGRID.md (Loop 5)
+11_RELATORIO_EVOLUTIVO.md          ← relatorio_evolutivo_V4_INGRID.md (Loop 5)
 12_DIRETRIZ_GEMINI.txt             ← DIRETRIZ_GEMINI_V6 ← OBRIGATÓRIO
 13_PASSO5_NOTEBOOKLM.md            ← este arquivo (missão do Auditor)
 14_MEMORIA_EMBAIXADOR.md           ← inteligência Embaixador sobre Ingrid ← FILTRO DE REALIDADE
@@ -231,6 +234,7 @@ Ordem dos documentos:
 17_VANGUARD_TIMELINE.md
 18_ATUALIZACAO_PENTALATERAL_2026-05-24.md
 ```
+
 
 
 

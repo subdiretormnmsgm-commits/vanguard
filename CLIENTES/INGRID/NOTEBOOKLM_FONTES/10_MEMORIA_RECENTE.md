@@ -1,40 +1,35 @@
-# MEMÓRIA V5 — PROJETO INGRID
-> Loop 5 · Dias 12-15 · Gate Dia 15 APROVADO 2026-05-26
-> Gerada em 2026-05-26 — encerramento do Loop 5
+# MEMÓRIA V6 — PROJETO INGRID
+> Diretriz V6 · Loop 5 (Gemini) / Loop 6 (interno) · Engajamento Pós-Entrega
+> Gerada em 2026-05-28 — encerramento do ciclo DIRETRIZ V6
 
 ---
 
 ## ESTADO TÉCNICO ENTREGUE
 
-**Stack ativa:** PWA Vanilla JS + Supabase (projeto próprio da Ingrid) + Claude API (Haiku) · Deploy GitHub Pages
-**Versão:** v18 · Commit: 8e9ac55
+**Stack ativa:** PWA Vanilla JS + Supabase (projeto próprio Ingrid yjqvjhezwhepwomukudt) + Claude API (Haiku) · Deploy GitHub Pages
+**Versão:** v20 · Commits: 14e041f (v19) + a2b42f5 + 86e112b (v20)
 **URL produção:** https://subdiretormnmsgm-commits.github.io/vanguard/
-**Supabase Ingrid:** https://yjqvjhezwhepwomukudt.supabase.co
 
-### O que foi construído (Dias 12-15):
+### Features entregues neste ciclo (DIRETRIZ V6):
 
-| Componente | Status | Observação |
-|---|---|---|
-| Badge SM-2 [Simulado de Fixação] | ✓ Entregue | Questões com `revisao=true` recebem badge amarelo |
-| N-3 Linha de Corte configurável | ✓ Entregue | Dashboard admin (3 toques no logo) · default 67 pts · barra meta na tela de fim |
-| N-1 Push Mágico de Oz | ✓ Entregue | Dashboard mostra última sessão + botão "Copiar mensagem" para Ingrid |
-| N-5 html2canvas export PNG | ✓ Entregue | Botão "📱 Salvar progresso" gera card PNG da sessão |
-| Nota Simulada de Prova | ✓ Entregue | Estatística ponderada: `get_heatmap_disciplinas × EDITAL_DIST` (13 disciplinas) |
-| Bug fix disciplina_id + iniciada_em | ✓ Entregue | Campos nulos corrigidos no registro de sessão |
-| Migration `sessoes_usuario` | ✓ Entregue | Aplicada no Supabase Vanguard antes da migração |
-| **P-013 Soberania — Supabase própria** | ✓ **Entregue** | Ingrid tem projeto Supabase próprio com controle total dos dados |
-| Migração 460 questões | ✓ Entregue | Export CSV Vanguard → Import Ingrid (+ coluna `pilula_do_dia` adicionada) |
-| Migração 470 respostas | ✓ Entregue | Histórico de progresso migrado |
-| Edge Functions deployadas | ✓ Entregue | `feed-diario` · `tutor-socratico` · `notificar-progresso` |
-| Secrets configurados via CLI | ✓ Entregue | `ANTHROPIC_API_KEY` · `TELEGRAM_BOT_TOKEN` · `TELEGRAM_CHAT_ID` |
-| v18 deploy GitHub Pages | ✓ Entregue | Cache `sedes-df-v18` · assets `?v=18` · service worker renovado |
+| Feature | Status | Commit | Observação |
+|---|---|---|---|
+| F-1 Saudação Noturna Dinâmica (E-5) | Entregue | 14e041f | `getHours()` → Bom dia/tarde/noite. Após 18h: "N questões te esperam" |
+| F-2 G-5 Distração Vingativa Silenciosa | Entregue | a2b42f5 | Pegadinhas injetadas no feed sem label visível — Ingrid não percebe o padrão |
+| F-4 Gatilho Temporal 19h45 + pg_cron | Entregue | a2b42f5 | Edge Function `notificar-progresso` + cron job Supabase. Fallback: Push Mágico de Oz |
+| F-5 Modo Véspera (M-3) | Entregue | 14e041f | Toggle no Dashboard Eduardo · `modo_vespera:true` enviado ao `feed-diario` · ativar 2026-08-30 |
+| F-6 Relatório Semanal WhatsApp (M-4 + E-3) | Entregue | a2b42f5 | Edge Function `relatorio-semanal` · Haiku API · template semanal + % acerto Quadrix 7 dias |
+| F-7 Raio-X SVG + G-4 Brasão Semanal | Entregue | 14e041f | html2canvas export PNG · brasão calculado (semanas desde 2026-05-15) |
+| F-8 Termômetro da Aprovação (M-2) | Entregue | 14e041f | Widget fim de sessão: `Nota Projetada vs Linha de Corte` · reusa `get_heatmap_disciplinas` |
 
-### Banco de dados (projeto da Ingrid — yjqvjhezwhepwomukudt):
-- **460 questões** · 13 disciplinas · Cargo 202 (Técnico Administrativo — Quadrix)
-- **12 tabelas** criadas · **9 funções** (RPCs) · **13 linhas** controle_cache
-- RLS ativo em todas as tabelas
-- Edge Functions ativas: feed-diario · tutor-socratico · notificar-progresso
-- USER_ID hardcoded: `00000000-0000-0000-0000-000000000001`
+### DADOS-WATCH — VERDE (2026-05-28):
+- 1 user_id distinto: `00000000-0000-0000-0000-000000000001`
+- 102 registros em `progresso_usuario` · nenhuma contaminação
+- SM-2, Heatmap e Termômetro lendo dados corretos
+
+### LEGAL-WATCH — VERDE (2026-05-27):
+- Reassinatura física do Termo de Uso confirmada
+- Token Supabase CLI exposto revogado pelo Diretor
 
 ---
 
@@ -42,47 +37,57 @@
 
 | Decisão | Princípio | Razão |
 |---|---|---|
-| P-013 Opção B: Ingrid cria próprio Supabase | P-013 | Soberania do cliente sobre seus dados — aprovado pelo Diretor |
-| USER_ID hardcoded `000...0001` | P-045 | Zero login visível — Ingrid nunca vê tela de autenticação |
-| Edge Functions no projeto da Ingrid | Soberania | Funções no projeto dela = sem dependência da infra Vanguard |
-| `pilula_do_dia` como coluna TEXT nullable | P-056 | Campo novo identificado no export — adicionado sem quebrar schema |
-| Linha de Corte default 67 pts | Runbook | SEDES-DF 2026 sem corte verificável (concurso inédito Quadrix) |
+| G-5 Silenciosa sem label | P-031 Embaixador | "Vingativa" visível = ansiedade para Ingrid (H-7 lê com atenção literal) |
+| Modo Véspera ativado por Eduardo, não Ingrid | P-031 Embaixador | Transição invisível — Ingrid não percebe mudança de mode |
+| F-8 aguarda DADOS-WATCH | DELIBERAÇÃO V6 | Nota projetada inválida se user_id errado — verde confirmado |
+| Gatilho às 19h45 | N-1 validado | Horário modal de sessão noturno (~20h) confirmado verbatim |
+
+### VETADOS PERMANENTEMENTE (não reabrir):
+- G-3 Bloqueio TTL — churn silencioso garantido
+- G-1 Simulador Invalidação Parcial — frustração artificial
+- M-1 Streak com Punição — abandono sem reclamação
 
 ---
 
 ## ALERTAS ATIVOS
 
-| Alert | Severidade | Status |
+| Alerta | Severidade | Ação |
 |---|---|---|
-| 470 respostas migradas podem estar sob user_id diferente do hardcoded | 🟡 Médio | A investigar no Loop 6 |
-| Token Supabase CLI `REVOKED_TOKEN...` exposto no chat | 🔴 Crítico | Eduardo deve deletar em supabase.com/dashboard/account/tokens |
-| Histórico SM-2 pode não carregar (user_id discrepância) | 🟡 Médio | Monitorar na primeira sessão real da Ingrid |
+| GitHub Pages push bloqueado (secret no histórico — já revogado) | Amarelo | Eduardo: link de desbloqueio no GitHub Security |
+| Edge Functions Supabase não deployadas via CLI (auth pendente) | Amarelo | `! supabase login` + `deploy --project-ref yjqvjhezwhepwomukudt` |
+| Ingrid não conhece candidatos — indicação = zero curto prazo | Pipeline | Pitch SaaS ao verbalizar uso ativo — janela: após DADOS-WATCH + LEGAL-WATCH |
+| Sentinel Report Valdece | 2026-06-02 | Separado de Ingrid — não contaminar contextos |
 
 ---
 
 ## ESTADO DOS GATES
 
-| Gate | Dia | Status |
-|---|---|---|
-| gate_qualidade (questões reais Quadrix) | Dia 2 | ✅ APROVADO |
-| gate_feed_sm2 (feed 70/30 + SM-2) | Dia 5 | ✅ APROVADO |
-| gate_pwa (PWA completo + tutor + fallback) | Dia 8 | ✅ APROVADO |
-| gate_heatmap (Heatmap + Micro-Simulado) | Dia 11 | ✅ APROVADO |
-| gate_dia13 (Pontos Ponderados + Push domingo) | Dia 13 | ✅ APROVADO |
-| **gate_dia15 (Soberania P-013 + v18)** | **Dia 15** | ✅ **APROVADO 2026-05-26** |
+| Gate | Status |
+|---|---|
+| Dias 1-15 completos | Todos APROVADOS (último: 2026-05-26) |
+| DADOS-WATCH user_id | VERDE 2026-05-28 |
+| LEGAL-WATCH | VERDE 2026-05-27 |
+| v20 em produção | Deploy ativo GitHub Pages |
 
 ---
 
-## PRÓXIMO LOOP (Loop 6)
+## PRÓXIMO LOOP (Loop 6 — Gemini V7)
 
-**Triggers:** Primeira semana de uso real da Ingrid · Feedback de campo
-**Foco sugerido:** SaaS Readiness Audit · Onboarding de segundo cliente · Upsell plano mensal
+**Triggers:** DADOS-WATCH VERDE confirmado · Ingrid usando diariamente · "Gostei bastante. Amanhã volto para atacar mais" (2026-05-24)
+**Temperatura:** 7.5/10 — VERDE SUSTENTADO
+**Foco sugerido Loop 6:**
+- SaaS Readiness Audit completo — readiness para segundo cliente
+- Pitch plano mensal R$97/mês quando Ingrid verbalizar progresso
+- Semente pós-aprovação E-4: "quando você passar, vou ter o sistema pronto para quem você indicar"
+- Monitorar engajamento com F-6 (Relatório Semanal WhatsApp)
 
-**Pendências antes do Loop 6:**
-- [ ] Wipe & Sync NotebookLM (Eduardo arrasta fontes)
-- [ ] Investigar discrepância user_id nas 470 respostas migradas
-- [ ] Deletar token Supabase exposto
+**Pendências antes do Loop 7:**
+- [ ] Deploy Edge Functions via `supabase login + deploy`
+- [ ] Desbloquear GitHub Pages push
+- [ ] Eduardo: script E-4 ("quando você passar...") na próxima mensagem pós-DADOS-WATCH
+- [ ] Eduardo identifica qual feature trouxe Ingrid de volta (E-1) — pergunta casual
+- [ ] Wipe & Sync NotebookLM antes do Loop 7
 
 ---
 
-*Músculo — Pentalateral IAH — 2026-05-26*
+*Músculo — Pentalateral IAH — 2026-05-28*
