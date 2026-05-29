@@ -1561,6 +1561,16 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 ---
 
+## P-086 - SESSÃO GASTA EM CORREÇÃO = FALHA DO MÚSCULO, NÃO DO SISTEMA (2026-05-28)
+**Origem:** INGRID · Loop 6 · Sessão inteira consumida corrigindo protocolos e memórias em vez de construir
+**Veredito:** Inscrito — DEF-M-6 ativo — [FALHA-PROCESSO-2026-05-28]
+
+> Quando Eduardo chega ao final de uma sessão dizendo "ficamos o dia corrigindo tudo", o Músculo falhou na função primária: proteger o tempo do Diretor. O Diretor delibera e decide — não depura, não lembra protocolo, não aponta o que está desatualizado. Qualquer minuto de Eduardo gasto em correção que o Músculo deveria ter antecipado é tempo roubado do Diretor. DEF-M-6 não é aceitável como estado permanente — é uma falha que o próprio sistema deve detectar e eliminar.
+
+**Aplicacao:** Ao iniciar sessão: varredura proativa de protocolos pendentes (e-mail, encoding, painel, PENDENTES.md). Ao fechar sessão: não encerrar sem confirmar que cada protocolo obrigatório do CLAUDE.md foi executado. Se algum falhou — registrar causa raiz antes de fechar, não na próxima sessão.
+
+---
+
 ## P-084 - PIPELINE COM ARQUIVO DE SAIDA DEVE CHECAR EXISTENCIA ANTES DE REPROCESSAR (2026-05-27)
 **Origem:** INGRID . Loop 6 . Fricção real — render_painel.ps1 reprocessava DECISOES Loop 5 por tres sessoes consecutivas
 **Veredito:** Inscrito — Embaixador identificou causa raiz, Músculo aplicou gate [FALHA-PROCESSO-2026-05-27]
