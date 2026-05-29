@@ -48,11 +48,8 @@
 - [x] `2026-05-30` ~~**Loop 6 Ingrid — Músculo /ingrid-v6 + síntese P-037:**~~
   ✅ ingrid-v6.md lida · DELIBERACAO_LOOP_V6_INGRID.md gerado · MEMORIA_EMBAIXADOR atualizada (P-032) — 2026-05-27
 
-- [ ] `2026-05-30` **Loop 6 Ingrid — Backend F-2 + F-4 + F-6 (após gate v19):**
-  F-2: G-5 Distração Vingativa Silenciosa — Edge Function feed-diario, filtro "errou 3x nos últimos 7 dias"
-  F-4: N-1 Gatilho Temporal 19h45 — cron Edge Function + fallback WhatsApp via Telegram bot
-  F-6: M-4 + E-3 Relatório Semanal — Claude API Haiku + cron domingo + push WhatsApp
-  **GATE BLOQUEANTE:** Eduardo confirma v19 funcionando no celular antes do Músculo iniciar backend.
+- [x] `2026-05-30` ~~**Loop 6 Ingrid — Backend F-2 + F-4 + F-6 (após gate v19):**~~
+  ✅ Commits 86e112b + a2b42f5 confirmam — backend completo em 2026-05-28 00:24. PENDENTES não foi atualizado na sessão anterior — falha do Músculo corrigida agora.
 
 - [x] `2026-05-27` ~~**Loop 6 Ingrid — PAINEL DE DELIBERAÇÃO:**~~
   ✅ P0-A (DADOS-WATCH VERDE: 102 respostas migradas) · P1-A (aguardar até 31/05) · PRINCIPIO-A (P-079 inscrito) · D3_VANGUARD-A (registrado) — 2026-05-27
@@ -74,6 +71,8 @@
   ✅ Veredito do Diretor em 2026-05-27: ENTRA AGORA. Movido para PENTALATERAL_UNIVERSAL/OPERACAO/. P-085 inscrito no LEDGER.
 
 ---
+
+- [ ] `2026-05-28` **[TESTE-HOOK]** Item temporario para validar P-087 hook auto-resolve
 
 ## COMO USAR
 
