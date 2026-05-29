@@ -29,8 +29,9 @@
     {
       "id": "D4",
       "titulo": "Push dominical — iOS Safari",
-      "status": "PENDENTE_BUILD",
-      "nota": "Nao deliberado. Gate Dia 13 (27-05-2026 quarta-feira) — decisao tomada no contexto do build."
+      "status": "EXECUTADO",
+      "data_execucao": "2026-05-28",
+      "nota": "Entregue no Dia 13 (28-05-2026). Banner dominical + Notification API com iOS circuit breaker (isIosSafari() + PUSH_SUPORTADO flag). Web Push background impossivel no iOS — G-1 implementado. Commit f154ead."
     },
     {
       "id": "D5",
