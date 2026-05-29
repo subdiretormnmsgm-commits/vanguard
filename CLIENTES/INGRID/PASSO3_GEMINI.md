@@ -1,5 +1,5 @@
-﻿# PASSO3 — GEMINI — INGRID LOOP 5 — DIAS 12-13
-> Preparado pelo Músculo · 2026-05-23 · Levar ao Estrategista após MEMORIA + relatorio do Loop 4
+﻿# PASSO3 — GEMINI — INGRID LOOP 7
+> Preparado automaticamente pelo Músculo · 2026-05-28 · Levar ao Estrategista após MEMORIA + relatorio do Loop 6
 
 ---
 
@@ -14,61 +14,40 @@ A DIRETRIZ guia o NotebookLM na geração da skill. O nome da skill define o elo
 
 ## CONTEXTO DO PROJETO
 
-**Cliente:** Ingrid
-**Projeto:** Ferramenta de Estudo — Concurso Sedes-DF (TDAS Cargo 202 · Instituto Quadrix)
-**Stack:** PWA Vanilla JS + Supabase + Claude API (Haiku + Sonnet)
-**URL:** GitHub Pages (live)
-**Prova final:** 2026-09-06
+**Cliente:** INGRID
+**Status atual:** Loop 6 (Gemini V7) -- iniciando -- SaaS Readiness + pipeline comercial
+**Dias concluídos:** dia1_schema_edge | dia2_gate_questoes | dia3_5_feed_sm2_pwa | dia6_8_tutor_fallback | dia9_11_heatmap_simulado | dia12_contador_socratica_vacina_push_cb
+**Próximo gate:** NotebookLM -- Skill ingrid-v7.md
 
-### Estado atual verificado (2026-05-23):
-- Dias 1-11 **CONCLUÍDOS** (confirmado em disco)
-- Loop 4 = **Gate Dia 8 APROVADO 2026-05-19** · Skill ativa: `ingrid-v4.md`
-- Banco: **460 questões** · 13 disciplinas · Cargo 202
-- Temperatura da cliente: **VERDE FRÁGIL** (usa diariamente, mas hábito < 2 semanas)
-- Sistema funcional: Feed 70/30 + Tutor Socrático 3 níveis + Heatmap + Micro-Simulado dominical
-
-### O que foi construído nos Dias 9-11 (Loop 4):
-1. RPCs Supabase para Heatmap por disciplina (agrupando progresso_usuario Peso 2)
-2. UI Heatmap — linguagem de conquista ("território soberano"), não ameaça
-3. Micro-Simulado Dominical — timer + penalidade Quadrix (1 errada anula 1 certa) + recicla questões SM-2
-4. Clickwrap V2 corrigido (termo_v2_18_05)
-
-### Restrições técnicas ativas (VETO total — não reverter):
-- **P-045:** Zero tela de login para a Ingrid — acesso contínuo/invisível
-- **P-038:** Micro-Simulado só recicla questões já vistas (SM-2), nunca consome inéditas
-- **P-003:** Sem scraping de terceiros — questões via Claude API apenas
-- **Burn Rate:** `BURN_RATE_DAILY_LIMIT_USD=5.00` antes de qualquer call à API
-- **P-007:** Validar RPC/Edge Function via CLI antes de qualquer UI
+> ⚠️ Este PASSO3 foi regenerado automaticamente. O Músculo deve revisar e completar a seção MISSÃO abaixo com as decisões específicas do Loop 7.
 
 ---
 
-## MISSÃO DO LOOP 5 — DIAS 12-13
+## MISSÃO DO LOOP 7
+
+> [MÚSCULO: completar esta seção com as features aprovadas na DELIBERAÇÃO_LOOP_V7 antes de enviar ao Gemini]
 
 ### O que construir:
-1. **Contador de Pontos Ponderados** — exibir pontuação simulada baseada no desempenho real (peso 1 e peso 2 corretos vs. errados), de forma visível no header ou dashboard
-2. **Notificações Push** — lembrete no domingo para o Micro-Simulado Sedes-DF
+[MÚSCULO: listar features aprovadas na P-037 para este loop]
 
 ### Por que agora:
-- Ingrid entra na fase de "o que valho nessa prova?" — o contador responde objetivamente
-- Micro-Simulado dominical precisa de gatilho externo para virar hábito consolidado
-- Deadline 30/05 — Dias 12-13 são os dois últimos dias de feature antes do offboarding
+[MÚSCULO: contexto de urgência — deadline, comportamento do cliente, gate desbloqueado]
 
 ### Incógnita crítica não resolvida:
-- Ingrid estuda aos domingos? (Push é inútil no horário errado — confirmar com Eduardo)
-- Push via Service Worker funciona em iOS Safari? (limitação técnica conhecida do PWA)
+[MÚSCULO: listar perguntas abertas que o Estrategista deve endereçar]
 
 ---
 
 ## FORMATO DE RESPOSTA ESPERADO
 
 ```
-Diretriz Estratégica V5 — Projeto Ingrid — Loop 5
+Diretriz Estratégica V7 — Projeto INGRID — Loop 7
 
-[NOME DA SKILL]: ingrid-v5
+[NOME DA SKILL]: ingrid-v7
 
 [PARA O NOTEBOOKLM]:
 ...4 partes obrigatórias...
-Skill nomeada: ingrid-v5
+Skill nomeada: ingrid-v7
 
 [PARA O MÚSCULO]:
 ...diretrizes técnicas de build...
@@ -78,18 +57,16 @@ Skill nomeada: ingrid-v5
 [ALERTA GEMINI]: qualquer risco que o Músculo possa estar subestimando
 ```
 
-**Elo obrigatório:** o nome `ingrid-v5` deve aparecer idêntico em [PARA O NOTEBOOKLM] e [PARA O MÚSCULO].
+**Elo obrigatório:** o nome `ingrid-v7` deve aparecer idêntico em [PARA O NOTEBOOKLM] e [PARA O MÚSCULO].
 
 ---
 
 ## DOCUMENTOS ANEXOS (arrastar no chat do Gemini)
 
-1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V4_INGRID.md` — contexto do Loop 4
-2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V4_INGRID.md` — análise do Loop 4
-3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-079)
+1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V6_INGRID.md` — contexto do Loop 6
+2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V6_INGRID.md` — análise do Loop 6
+3. `INTELLIGENCE_LEDGER.md` — princípios ativos
 4. `CLIENTES/WIP_BOARD.json` — estado dos projetos
 
 > **Como usar:** colar este documento no chat do Gemini (não anexar). Arrastar os 4 documentos acima como anexo.
-
-
 

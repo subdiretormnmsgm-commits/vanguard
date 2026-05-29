@@ -19,7 +19,7 @@
                                     "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "Loop 6 DELIBERACAO CONCLUIDA (P-037 2026-05-27) -- DADOS-WATCH VERDE -- BUILD iniciando",
+                                    "status":  "Loop 6 (Gemini V7) -- iniciando -- SaaS Readiness + pipeline comercial",
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
@@ -143,12 +143,12 @@
                                                   },
                                     "proximo_passo":  "Loop 5 CONCLUIDO Â· Loop 6: Gemini PASSO3 â†’ ingrid-v6.md â†’ Embaixador â†’ build Â· Sentinel CHURN-WATCH ativo Â· Pitch SaaS R$97/mÃªs ao verbalizar uso ativo",
                                     "loop_fase_atual":  {
-                                                            "loop":  6,
+                                                            "loop":  7,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "OK",
-                                                            "embaixador":  "OK",
-                                                            "musculo":  "OK -- P-037 DELIBERACAO_LOOP_V6 gerada 2026-05-27",
-                                                            "proximo":  "BUILD Loop 6 -- render_painel.ps1 -\u003e DECISOES.json -\u003e features F-1 a F-8"
+                                                            "notebooklm":  "PENDENTE",
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "PENDENTE",
+                                                            "proximo":  "NotebookLM -- Skill ingrid-v7.md"
                                                         },
                                     "churn_watch_threshold":  5
                                 },
