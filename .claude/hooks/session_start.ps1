@@ -361,7 +361,20 @@ function Get-EmbaixadorStatus {
             $soberanaPath = Join-Path $projectDir "CLIENTES\$cli\CLAUDE_PROJECT\SOBERANA_EMBAIXADOR.flag"
             if (Test-Path $soberanaPath) {
                 $flagAge = (Get-Date) - (Get-Item $soberanaPath).LastWriteTime
-                if ($flagAge.TotalDays -lt 7) { continue }
+                if ($flagAge.TotalDays -lt 7) {
+                # FIX C8: registrar bypass em PENDENTES.md com formato P-069
+                $dtSob   = Get-Date -Format "dd-MM-yyyy"
+                $dsSob   = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+                $pendSob = Join-Path $projectDir "PENDENTES.md"
+                $entrSob = "- [SOBERANA ($dtSob $dsSob)] $cli -- SOBERANA_EMBAIXADOR ativa -- verificar se Embaixador reagiu"
+                if (Test-Path $pendSob) {
+                    $exSob = Get-Content $pendSob -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
+                    if (-not ($exSob -match ("SOBERANA.*" + $dtSob + ".*" + $cli))) {
+                        Add-Content $pendSob "`n$entrSob" -Encoding UTF8
+                    }
+                }
+                continue
+            }
             }
             $alertas += "  [!!] $cli -- MEMORIA_EMBAIXADOR.md ausente -- Embaixador NAO ativo para este projeto"
             $alertas += "       Rodar: .\scripts\ir_ao_embaixador.ps1 -cliente $cli"
@@ -472,8 +485,8 @@ if ($discoveryAlert)     { $sections += "## PROJETO NOVO EM DISCOVERY -- VERIFIC
 
 if ($manifestStatus)    { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
 if ($mapaDiarioOutput)  { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
-if ($loopLembrete)      { $sections = @("## LEMBRETE DE LOOP -- FASES ATIVAS (P-077)`n$loopLembrete") + $sections }
 if ($decisoesPendentes) { $sections = @("## DECISOES PENDENTES -- AGENDA BLOQUEADA ATE VEREDITO`n$decisoesPendentes") + $sections }
+if ($loopLembrete)      { $sections = @("## LEMBRETE DE LOOP -- FASES ATIVAS (P-077)`n$loopLembrete") + $sections }
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +

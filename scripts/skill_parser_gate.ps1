@@ -139,6 +139,18 @@ if ($aprovado) {
                 Write-Host "  [P-067] DECISAO SOBERANA ativa -- Embaixador ja reagiu offline." -ForegroundColor DarkYellow
                 Write-Host "  Musculo liberado para sintese P-037." -ForegroundColor DarkYellow
                 $soberanaP067 = $true
+                # FIX C8: registrar bypass em PENDENTES.md com formato P-069
+                $dtP067   = Get-Date -Format "dd-MM-yyyy"
+                $dsP067   = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+                $pendP067 = "$BASE\PENDENTES.md"
+                $entrP067 = "- [SOBERANA ($dtP067 $dsP067)] $clienteDetectado -- P-067 suprimida -- verificar se Embaixador reagiu"
+                if (Test-Path $pendP067) {
+                    $exP067 = Get-Content $pendP067 -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
+                    if (-not ($exP067 -match ("SOBERANA.*" + $dtP067 + ".*" + $clienteDetectado))) {
+                        Add-Content $pendP067 "`n$entrP067" -Encoding UTF8
+                        Write-Host "  [P-069] PENDENTES.md -- registro SOBERANA P-067 adicionado" -ForegroundColor DarkYellow
+                    }
+                }
             }
         }
     }

@@ -1,0 +1,68 @@
+﻿[2026-05-27 20:30:35] [WATCHER] Iniciando pipeline DECISOES -- projetos: INGRID, VALDECE
+[2026-05-27 20:30:35] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-27 20:30:35] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-27 20:30:35] [WATCHER] Pipeline ativo para 2 projeto(s). Aguardando eventos...
+[2026-05-27 21:59:29] [DECISOES] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\DECISOES_INGRID_2026-05-24.json
+[2026-05-27 21:59:29] [DECISOES] Painel aberto para INGRID
+[2026-05-27 21:59:29] [DECISOES] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\DECISOES_INGRID_2026-05-24.json
+[2026-05-27 21:59:29] [DECISOES] Painel aberto para INGRID
+[2026-05-27 21:59:29] [VEREDITOS] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\VEREDITOS_INGRID_2026-05-24.json
+[2026-05-27 21:59:29] [VEREDITOS] Executando pipeline para INGRID...
+[2026-05-27 21:59:29] [VEREDITOS] Pipeline concluido para INGRID
+[2026-05-27 21:59:33] [VEREDITOS] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\VEREDITOS_INGRID_2026-05-24.json
+[2026-05-27 21:59:33] [VEREDITOS] Executando pipeline para INGRID...
+[2026-05-27 21:59:33] [VEREDITOS] Pipeline concluido para INGRID
+[2026-05-27 21:59:42] [DECISOES] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\DECISOES_VALDECE_2026-05-24.json
+[2026-05-27 21:59:42] [DECISOES] Painel aberto para VALDECE
+[2026-05-27 21:59:42] [DECISOES] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\DECISOES_VALDECE_2026-05-24.json
+[2026-05-27 21:59:42] [DECISOES] Painel aberto para VALDECE
+[2026-05-27 21:59:42] [VEREDITOS] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\VEREDITOS_VALDECE_2026-05-24.json
+[2026-05-27 21:59:42] [VEREDITOS] Executando pipeline para VALDECE...
+[2026-05-27 21:59:42] [VEREDITOS] Pipeline concluido para VALDECE
+[2026-05-27 21:59:46] [VEREDITOS] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\VEREDITOS_VALDECE_2026-05-24.json
+[2026-05-27 21:59:46] [VEREDITOS] Executando pipeline para VALDECE...
+[2026-05-27 21:59:46] [VEREDITOS] Pipeline concluido para VALDECE
+[2026-05-27 22:35:42] [DECISOES] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\DECISOES_INGRID_2026-05-24.json
+[2026-05-27 22:35:42] [DECISOES] Painel aberto para INGRID
+[2026-05-27 22:35:42] [DECISOES] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\DECISOES_INGRID_2026-05-24.json
+[2026-05-27 22:35:42] [DECISOES] Painel aberto para INGRID
+[2026-05-27 22:35:42] [VEREDITOS] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\VEREDITOS_INGRID_2026-05-24.json
+[2026-05-27 22:35:42] [VEREDITOS] Executando pipeline para INGRID...
+[2026-05-27 22:35:42] [VEREDITOS] Pipeline concluido para INGRID
+[2026-05-27 22:35:45] [VEREDITOS] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\VEREDITOS_INGRID_2026-05-24.json
+[2026-05-27 22:35:45] [VEREDITOS] Executando pipeline para INGRID...
+[2026-05-27 22:35:45] [VEREDITOS] Pipeline concluido para INGRID
+[2026-05-27 22:35:53] [DECISOES] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\DECISOES_VALDECE_2026-05-24.json
+[2026-05-27 22:35:53] [DECISOES] Painel aberto para VALDECE
+[2026-05-27 22:35:53] [DECISOES] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\DECISOES_VALDECE_2026-05-24.json
+[2026-05-27 22:35:53] [DECISOES] Painel aberto para VALDECE
+[2026-05-27 22:35:53] [VEREDITOS] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\VEREDITOS_VALDECE_2026-05-24.json
+[2026-05-27 22:35:53] [VEREDITOS] Executando pipeline para VALDECE...
+[2026-05-27 22:35:53] [VEREDITOS] Pipeline concluido para VALDECE
+[2026-05-27 22:35:57] [VEREDITOS] Detectado: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VALDECE\CLAUDE_PROJECT\DECISOES\VEREDITOS_VALDECE_2026-05-24.json
+[2026-05-27 22:35:57] [VEREDITOS] Executando pipeline para VALDECE...
+[2026-05-27 22:35:57] [VEREDITOS] Pipeline concluido para VALDECE
+[2026-05-28 20:52:46] [WATCHER] Iniciando pipeline DECISOES -- projetos: INGRID, VALDECE
+[2026-05-28 20:52:47] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-28 20:52:47] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-28 20:52:47] [WATCHER] Pipeline ativo para 2 projeto(s). Aguardando eventos...
+[2026-05-28 21:26:38] [WATCHER] Iniciando pipeline DECISOES -- projetos: INGRID, VALDECE
+[2026-05-28 21:26:38] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-28 21:26:38] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-28 21:26:38] [WATCHER] Pipeline ativo para 2 projeto(s). Aguardando eventos...
+[2026-05-28 22:05:09] [WATCHER] Iniciando pipeline DECISOES -- projetos: INGRID, VALDECE
+[2026-05-28 22:05:09] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-28 22:05:09] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-28 22:05:09] [WATCHER] Pipeline ativo para 2 projeto(s). Aguardando eventos...
+[2026-05-28 22:57:04] [WATCHER] Iniciando pipeline DECISOES -- projetos: INGRID, VALDECE
+[2026-05-28 22:57:04] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-28 22:57:04] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-28 22:57:04] [WATCHER] Pipeline ativo para 2 projeto(s). Aguardando eventos...
+[2026-05-29 01:10:05] [WATCHER] Iniciando pipeline DECISOES -- projetos: INGRID, VALDECE
+[2026-05-29 01:10:05] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-29 01:10:05] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-29 01:10:05] [WATCHER] Pipeline ativo para 2 projeto(s). Aguardando eventos...
+[2026-05-29 01:51:48] [WATCHER] Iniciando pipeline DECISOES -- projetos: INGRID, VALDECE
+[2026-05-29 01:51:48] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-29 01:51:48] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-05-29 01:51:48] [WATCHER] Pipeline ativo para 2 projeto(s). Aguardando eventos...

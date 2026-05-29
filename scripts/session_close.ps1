@@ -878,6 +878,107 @@ try {
 }
 
 # ==========================================================================
+# GATE 9.5 — ALERTAS DE GARGALO + COUNTDOWN DE GATES (P-032/2026-05-29)
+# Funciona para QUALQUER projeto -- usa $projetosEmBuild dinamico
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 9.5] Alertas de Gargalo + Countdown..." -ForegroundColor Cyan
+$alertasGargalo = @()
+
+# 1. ChurnWatch_Vanguard no Task Scheduler (global)
+try {
+    $cwTask = Get-ScheduledTask -TaskName "ChurnWatch_Vanguard" -ErrorAction Stop
+    if ($cwTask.State -notin @("Ready","Running")) {
+        $alertasGargalo += "CHURN-WATCH INATIVO (state: $($cwTask.State)) -- clientes sem monitoramento autonomo"
+    }
+} catch {
+    $alertasGargalo += "CHURN-WATCH INATIVO -- task nao registrada no Task Scheduler"
+}
+
+# 2, 3, 5: por projeto ativo
+foreach ($projG in $projetosEmBuild) {
+    $cliUpG  = $projG.cliente.ToUpper()
+    $cliLowG = $projG.cliente.ToLower()
+
+    # 2. PASSO3_GEMINI.md com placeholder
+    $passo3G = "$BASE\CLIENTES\$cliUpG\PASSO3_GEMINI.md"
+    if (Test-Path $passo3G) {
+        $p3G = Get-Content $passo3G -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
+        if ($p3G -match '\[M.SCULO:') {
+            $alertasGargalo += "[$cliUpG] PASSO3 com placeholder -- Gemini recebera instrucao vazia (P-090)"
+        }
+    }
+
+    # 3. Artefatos do loop atual (P-045)
+    $loopNG = 0
+    if ($projG.loop_fase_atual -and $projG.loop_fase_atual.loop) {
+        try { $loopNG = [int]$projG.loop_fase_atual.loop } catch {}
+    }
+    if ($loopNG -gt 0) {
+        if (-not (Test-Path "$BASE\CLIENTES\$cliUpG\HISTORICO\MEMORIA_V${loopNG}_${cliLowG}.md")) {
+            $alertasGargalo += "[$cliUpG] MEMORIA_V${loopNG} ausente -- NotebookLM misturara versoes (P-045)"
+        }
+        if (-not (Test-Path "$BASE\CLIENTES\$cliUpG\HISTORICO\relatorio_evolutivo_V${loopNG}_${cliLowG}.md")) {
+            $alertasGargalo += "[$cliUpG] relatorio_evolutivo_V${loopNG} ausente (P-045)"
+        }
+    }
+
+    # 5. SOBERANA_EMBAIXADOR.flag ativo
+    $sobG = "$BASE\CLIENTES\$cliUpG\CLAUDE_PROJECT\SOBERANA_EMBAIXADOR.flag"
+    if (Test-Path $sobG) {
+        $sobAgeG = (Get-Date) - (Get-Item $sobG).LastWriteTime
+        if ($sobAgeG.TotalDays -lt 7) {
+            $alertasGargalo += "[$cliUpG] SOBERANA_EMBAIXADOR ativo -- confirmar se Embaixador reagiu"
+        }
+    }
+}
+
+# 4. decisoes_watcher.log (global)
+$dwLogG = "$BASE\scripts\decisoes_watcher.log"
+if (-not (Test-Path $dwLogG) -or (Get-Item $dwLogG -ErrorAction SilentlyContinue).Length -eq 0) {
+    $alertasGargalo += "decisoes_watcher.log vazio ou ausente -- watcher pode estar parado"
+}
+
+if ($alertasGargalo.Count -eq 0) {
+    Write-Host "  [GATE 9.5] Nenhum alerta de gargalo. Sistema OK." -ForegroundColor Green
+} else {
+    Write-Host ""
+    Write-Host "  === ALERTAS DE GARGALO ===" -ForegroundColor Yellow
+    foreach ($ag in $alertasGargalo) { Write-Host "  [!] $ag" -ForegroundColor Yellow }
+}
+
+# --- COUNTDOWN DE GATES (proximos 7 dias) ---
+$hoje95    = [datetime]::Today
+$gatesAlert = @()
+foreach ($projG in $projetosEmBuild) {
+    $cliUpG   = $projG.cliente.ToUpper()
+    $gatesWip = $projG.gates_programados
+    if (-not $gatesWip) { continue }
+    $gatesProx = @()
+    foreach ($gate in $gatesWip) {
+        try {
+            $delta = ([datetime]$gate.data - $hoje95).Days
+            if ($delta -ge 0 -and $delta -le 7) {
+                $diaSemG = ([datetime]$gate.data).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+                $gatesProx += "    $($gate.nome.PadRight(42)) +${delta}d ($($gate.data) $diaSemG)"
+            }
+        } catch { continue }
+    }
+    if ($gatesProx.Count -gt 0) {
+        $gatesAlert += ""
+        $gatesAlert += "  GATES EM ALERTA -- $cliUpG"
+        $gatesAlert += $gatesProx
+    }
+}
+if ($gatesAlert.Count -gt 0) {
+    Write-Host ""
+    Write-Host "  === COUNTDOWN DE GATES (proximos 7 dias) ===" -ForegroundColor Cyan
+    $gatesAlert | ForEach-Object { Write-Host $_ -ForegroundColor Cyan }
+} else {
+    Write-Host "  [GATE 9.5] Nenhum gate a <= 7 dias. Silencio." -ForegroundColor DarkGray
+}
+
+# ==========================================================================
 # POS-GATE — Claude Projects: arquivos para re-arrastar
 # ==========================================================================
 $todosArqs = @(

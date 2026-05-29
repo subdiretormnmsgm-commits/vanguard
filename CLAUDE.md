@@ -305,6 +305,14 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     de qualquer outra coisa — Write tool, não narração.
     Gate de proteção: gemini_anchor_generator.ps1 bloqueia (exit 1) se detectar [MUSCULO: no arquivo.
     Músculo que deixa placeholder no arquivo = Gemini faz análise livre = DIRETRIZ inválida.
+32. VERIFICACAO CONDICIONAL NO FECHAMENTO — NAO E RITUAL, E SINAL (2026-05-29):
+    Inicio de sessao: session_start automatico — nao adicionar nada.
+    Fim de sessao: session_close automatico — nao adicionar nada.
+    Apos BUILD significativo: TESTE_PROCESSO_COMPLETO.md Bloco A (5 min).
+    A cada 3 loops (aviso automatico): COMANDO_VERIFICACAO_SISTEMICA_FINAL.md (20 min).
+    Ao iniciar projeto novo: TESTE_PROCESSO_COMPLETO.md completo (40 min).
+    Verificacao sem deteccao em 5 rodadas = frequencia errada, nao processo saudavel.
+    Detalhe completo: RITUAL DE FECHAMENTO em PENTALATERAL_UNIVERSAL/OPERACAO/WATCHDOG_TEMPLATE_V2.md.
 ```
 
 ---
