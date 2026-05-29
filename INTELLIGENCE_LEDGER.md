@@ -1590,3 +1590,15 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 > Pipeline que depende de arquivo de saída para avançar deve checar a existência desse arquivo antes de reprocessar a entrada. DECISOES sem VEREDITOS correspondente pode ser dado pendente ou dado deliberado fora do pipeline formal — o script precisa distinguir os dois estados, ou reprocessa o passado indefinidamente.
 
 **Aplicacao:** Ao construir qualquer script de orquestração que consome JSONs ou arquivos de entrada: sempre checar se o arquivo de saída esperado já existe antes de processar. Adicionar parâmetro -forcar para casos de reabertura intencional. Arquivos deliberados fora do pipeline formal devem ir para pasta com prefixo _ (ex: _ARQUIVADO/) para que filtros os excluam automaticamente.
+
+---
+
+## P-088 - PS5.1 CODIGO-FONTE ASCII-ONLY -- CONTEUDO RICO VAI PARA TEMPLATE EXTERNO (2026-05-28)
+**Origem:** INGRID · Loop 6 · [FALHA-PROCESSO-2026-05-28] — gerar_artefato_embaixador.ps1 com here-string contendo em-dashes e acentos causou falha silenciosa de parsing no PS5.1
+**Veredito:** Inscrito — Opção 2 implementada — template externo .txt com placeholders {TOKEN}
+
+> Here-strings em PS5.1 com Unicode silenciosamente corrompem o script. O operador `--` (decremento) é lido quando `---` aparece dentro de `@"..."@`. Em-dashes (U+2014), aspas curvas e qualquer caractere não-ASCII causam falha de parsing sem mensagem de erro clara. A solução correta é separar completamente: código PS5.1 fica ASCII-only; conteúdo rico (acentos, em-dashes, markdown) vai para arquivo .txt externo lido com `Get-Content -Raw -Encoding UTF8`. Substituição de placeholders `{TOKEN}` com `-replace` é o único padrão seguro.
+
+**Regra derivada:** Nunca here-string com Unicode em PS5.1. Nunca. Sem exceção. Todo script .ps1 que gere texto rico deve: (a) manter código-fonte 100% ASCII, (b) ler template externo .txt via Get-Content UTF8, (c) usar -replace '\{TOKEN\}', $valor para substituição. Validação obrigatória: `[Parser]::ParseFile()` após criar ou editar qualquer .ps1. O validate_scripts.ps1 aplica esta regra automaticamente (P-060).
+
+**Ferramentas:** `PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/` (pasta de templates externos) · `scripts/validate_scripts.ps1` · DEPENDENCY_MAP TIPO 2 para cada template .txt que gera instância.

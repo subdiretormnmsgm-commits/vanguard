@@ -32,7 +32,8 @@
       "arquivos": [
         { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md",   "instancia_padrao": "PASSO3_GEMINI_[CLIENTE].md",   "campos_contexto": ["cliente", "loop", "missao"] },
         { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md","instancia_padrao": "PASSO5_NOTEBOOKLM_[CLIENTE].md","campos_contexto": ["cliente", "loop", "skill_nome"] },
-        { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md","instancia_padrao": "PASSO7_EMBAIXADOR_[CLIENTE].md","campos_contexto": ["cliente", "reuniao", "temperatura"] }
+        { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md","instancia_padrao": "PASSO7_EMBAIXADOR_[CLIENTE].md","campos_contexto": ["cliente", "reuniao", "temperatura"] },
+        { "template": "PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/gerar_artefato_embaixador_prompt.txt","instancia_padrao": "RELATORIOS_EMBAIXADOR/ARTEFATO_EMBAIXADOR_[CLIENTE]_[DATA].md","campos_contexto": ["CLIENTE", "DATA", "MEMORIA", "PAINEL"], "nota": "P-088: template externo ASCII-safe. Codigo PS5.1 le este .txt e substitui {TOKEN}. Nunca editar instancia -- editar apenas este template." }
       ]
     },
     "PROJECT_ONLY": {
