@@ -72,7 +72,7 @@
 
 ---
 
-- [ ] `2026-05-28` **[TESTE-HOOK]** Item temporario para validar P-087 hook auto-resolve
+- [x] `2026-05-28` **[TESTE-HOOK]** Item temporario para validar P-087 hook auto-resolve
 
 ## COMO USAR
 
