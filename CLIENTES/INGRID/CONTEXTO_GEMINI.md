@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-27 22:02
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-28 22:06
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-c73adb1 feat(ingrid-loop6): vereditos P0-A/P1-A/PRINCIPIO-A/D3A + DADOS-WATCH VERDE
-1676e89 feat(ingrid-loop6): P-032 + P-037 -- MEMORIA_EMBAIXADOR + DELIBERACAO_LOOP_V6 gerados
-24d3dba feat(ingrid-loop6): PASSO7 Embaixador Secao D atualizado para Loop 6
+8c82ab9 chore(sync): P-087 ledger+passo+wip propagados -- sessao 2026-05-28
+09f37b8 chore(pendentes): [AUTO-RESOLVE] Dia 13
+f154ead feat(ingrid-dia13): delta semanal header + CTA Micro-Simulado + sw.js v19 [RESOLVE: Dia 13]
 
 ================================================================================
 
@@ -142,7 +142,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-05-27",
+    "atualizado_em":  "2026-05-28",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -586,10 +586,11 @@ Skill nomeada: ingrid-v5
 
 1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V4_INGRID.md` — contexto do Loop 4
 2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V4_INGRID.md` — análise do Loop 4
-3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-078)
+3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-079)
 4. `CLIENTES/WIP_BOARD.json` — estado dos projetos
 
 > **Como usar:** colar este documento no chat do Gemini (não anexar). Arrastar os 4 documentos acima como anexo.
+
 
 
 

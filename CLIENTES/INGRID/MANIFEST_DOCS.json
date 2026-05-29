@@ -1,6 +1,6 @@
 {
     "projeto":  "INGRID",
-    "ultima_sincronizacao":  "2026-05-27T20:14:33",
+    "ultima_sincronizacao":  "2026-05-28T22:06:33",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -28,8 +28,8 @@
                      },
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
-                         "hash_universal":  "C4A9847EC90BD4E9E529D94516DAD3DDACCF94FA5CC8200D66670E2A18ADE741",
-                         "hash_local":  "9F630340B033C81F93FD7B83CA86C7703ADF3ACF4991D0BD5020717DEE5B90C5",
+                         "hash_universal":  "D025439A0D36258BD25AEDCC623F0D1B846F88DCE5CD799C9E9EE5E7BBE6BC52",
+                         "hash_local":  "D7FC4A715EABA73FB5A22342082CC1812AEC85A03FB20361AC92070E0DFCDB6C",
                          "status":  "DRIFT"
                      },
                      {
@@ -46,8 +46,8 @@
                      },
                      {
                          "nome":  "07_WIP_BOARD.txt",
-                         "hash_universal":  "8F85AB656C3CF62683B3BA830455A6B7C51D17FACC1D4458146057F2BBE42428",
-                         "hash_local":  "8F85AB656C3CF62683B3BA830455A6B7C51D17FACC1D4458146057F2BBE42428",
+                         "hash_universal":  "4B55A3D0E63CE850077D9D9A938A03540A9F607E6892E3A57E64760C6AEABD97",
+                         "hash_local":  "4B55A3D0E63CE850077D9D9A938A03540A9F607E6892E3A57E64760C6AEABD97",
                          "status":  "SYNC"
                      },
                      {
@@ -58,8 +58,8 @@
                      },
                      {
                          "nome":  "LEDGER_INDEX.md",
-                         "hash_universal":  "2D8D46785E9EF6BC1FC4E5D17F13C441A92B8B4CC7EC992A4D793C76E27B5B0D",
-                         "hash_local":  "2D8D46785E9EF6BC1FC4E5D17F13C441A92B8B4CC7EC992A4D793C76E27B5B0D",
+                         "hash_universal":  "F683043801A94C071E14988A385225B61534C4693932081DCA0E99463EAC7E5D",
+                         "hash_local":  "F683043801A94C071E14988A385225B61534C4693932081DCA0E99463EAC7E5D",
                          "status":  "SYNC"
                      }
                  ],
