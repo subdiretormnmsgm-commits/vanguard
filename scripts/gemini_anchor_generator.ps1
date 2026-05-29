@@ -173,6 +173,21 @@ if ($projetoAtivo) {
     Write-Host "       Adicione PASSO3_GEMINI manualmente ao final do arquivo gerado." -ForegroundColor Yellow
 }
 
+# ENTREGAVEL 8 (P-052) -- MASTER em sincronia com WIP_BOARD
+$masterPath8 = "$BASE\PENTALATERAL_UNIVERSAL\OPERACAO\COMANDO_ESTRATEGISTA_MASTER_v1.md"
+if ((Test-Path $masterPath8) -and (Test-Path $wipPath)) {
+    $wipMod8    = (Get-Item $wipPath).LastWriteTime
+    $masterMod8 = (Get-Item $masterPath8).LastWriteTime
+    if ($wipMod8 -gt $masterMod8) {
+        $deltaH8 = [int]($wipMod8 - $masterMod8).TotalHours
+        Write-Host ""
+        Write-Host "  [!] COMANDO_ESTRATEGISTA_MASTER desatualizado." -ForegroundColor Yellow
+        Write-Host "      WIP_BOARD modificado ha ${deltaH8}h -- MASTER pode precisar de update (P-052)." -ForegroundColor Yellow
+        Write-Host "      Atualizar MASTER antes de ir ao Gemini se houve mudancas de projeto." -ForegroundColor Yellow
+        Write-Host "      Arquivo: PENTALATERAL_UNIVERSAL\OPERACAO\COMANDO_ESTRATEGISTA_MASTER_v1.md" -ForegroundColor DarkGray
+    }
+}
+
 # --- GERAR ARQUIVO UNICO (por projeto) ---
 $output = $blocos -join $sep
 

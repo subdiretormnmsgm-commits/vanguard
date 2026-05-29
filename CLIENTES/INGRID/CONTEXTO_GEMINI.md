@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-28 23:39
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-29 01:09
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
+e418b37 chore(ingrid-v6): fechamento Loop V6 -- MEMORIA + relatorio + PASSO3 para V7
 e46d42e feat(p089): PASSO3 regenerado automaticamente pelo gemini_anchor_generator
 bb9350c feat(embaixador): artefato automatico via API Haiku + fix gargalo dias compostos
-fbd8620 feat(embaixador): artefato automatico via API Haiku + fix gargalo dias compostos
 
 ================================================================================
 
@@ -514,8 +514,8 @@ A DIRETRIZ V6 transformou o produto em um sistema que **trabalha mesmo quando ni
 ================================================================================
 
 ## MISSAO DESTA SESSAO -- PASSO3_GEMINI (INGRID)
-# PASSO3 — GEMINI — INGRID LOOP 6
-> Preparado pelo Músculo · 2026-05-28 · Levar ao Estrategista com MEMORIA_V6 + relatorio_V6
+# PASSO3 — GEMINI — INGRID LOOP 7
+> Preparado automaticamente pelo Músculo · 2026-05-28 · Levar ao Estrategista após MEMORIA + relatorio do Loop 6
 
 ---
 
@@ -530,79 +530,34 @@ A DIRETRIZ guia o NotebookLM na geração da skill. O nome da skill define o elo
 
 ## CONTEXTO DO PROJETO
 
-**Cliente:** Ingrid
-**Projeto:** Ferramenta de Estudo — Concurso Sedes-DF (TDAS Cargo 202 · Instituto Quadrix)
-**Stack:** PWA Vanilla JS + Supabase (projeto próprio da Ingrid) + Claude API (Haiku/Sonnet)
-**URL:** GitHub Pages (live · v20)
-**Prova final:** 2026-09-06
+**Cliente:** INGRID
+**Status atual:** Loop 6 (Gemini V7) -- iniciando -- SaaS Readiness + pipeline comercial
+**Dias concluídos:** dia1_schema_edge | dia2_gate_questoes | dia3_5_feed_sm2_pwa | dia6_8_tutor_fallback | dia9_11_heatmap_simulado | dia12_contador_socratica_vacina_push_cb
+**Próximo gate:** NotebookLM -- Skill ingrid-v7.md
 
-### Estado atual verificado (2026-05-28):
-- Dias 1-15 **CONCLUÍDOS** — Gate Dia 15 APROVADO 2026-05-26
-- DIRETRIZ V6 executada — 7 features de engajamento entregues (v19 + v20)
-- DADOS-WATCH **VERDE** — 102 registros, 1 user_id correto
-- LEGAL-WATCH **VERDE** — reassinatura física confirmada 2026-05-27
-- Temperatura da cliente: **VERDE SUSTENTADO** 7.5/10 — "Gostei bastante. Amanhã volto para atacar mais"
-
-### O que foi construído no ciclo V6 (F-1 a F-8):
-1. **F-1** Saudação Noturna Dinâmica — "Boa noite — N questões te esperam" a partir das 18h
-2. **F-2** Distração Vingativa Silenciosa (G-5) — pegadinhas injetadas sem label visível
-3. **F-4** Gatilho Temporal 19h45 + pg_cron — Edge Function `notificar-progresso` com cron job
-4. **F-5** Modo Véspera — toggle Dashboard para Eduardo ativar em 2026-08-30
-5. **F-6** Relatório Semanal WhatsApp — Haiku gera texto todo domingo, entrega automática
-6. **F-7** Raio-X SVG + Brasão de Estabilidade — html2canvas export PNG sem backend adicional
-7. **F-8** Termômetro da Aprovação — "se a prova fosse hoje, aprovaria?" na tela de sessão
-8. **F-3** Linha de Corte Fantasma — já entregue em V5, reutilizada por F-8
-
-### Bloqueios técnicos ativos:
-- Edge Functions F-4 e F-6 operam via Push Mágico de Oz enquanto `supabase login` pendente
-- GitHub Pages push bloqueado — secret revogado, unblock pendente no GitHub Security
-
-### Restrições técnicas ativas (VETO total — não reverter):
-- **P-045:** Zero tela de login para a Ingrid — acesso contínuo/invisível
-- **P-038:** Micro-Simulado só recicla questões já vistas (SM-2), nunca consome inéditas
-- **P-003:** Sem scraping de terceiros — questões via Claude API apenas
-- **Burn Rate:** `BURN_RATE_DAILY_LIMIT_USD=5.00` — hard limit ativo
-- **G-3/M-1-punição/G-1 VETADOS PERMANENTES** — churn silencioso garantido
+> ⚠️ Este PASSO3 foi regenerado automaticamente. O Músculo deve revisar e completar a seção MISSÃO abaixo com as decisões específicas do Loop 7.
 
 ---
 
-## MISSÃO DO LOOP 6 — SaaS Readiness + Pipeline Comercial
+## MISSÃO DO LOOP 7
 
-### O que construir — 5 ideias disruptivas [M-1 a M-5] aprovadas pelo Diretor:
+> [MÚSCULO: completar esta seção com as features aprovadas na DELIBERAÇÃO_LOOP_V7 antes de enviar ao Gemini]
 
-**[M-1] Painel de Uso Real para Eduardo**
-Dashboard interno (3 toques no logo, igual ao admin atual) que mostra: Ingrid abriu hoje? Qual feature tocou? Tempo por sessão? Cliques em F-7 (export) e F-8 (termômetro)? Eduardo enxerga o comportamento real — sabe quando acionar WhatsApp de reativação antes do churn.
-
-**[M-2] Gatilho de Reativação após 5 dias sem sessão**
-Se Ingrid não abre em 5 dias, sistema envia 1 mensagem automática: "Você estava indo muito bem — faltam N dias para a prova. Só 10 questões hoje." Uma mensagem, sem sequência. Reativação passiva — Eduardo não monitora.
-
-**[M-3] Score de Consistência Semanal**
-Métrica alternativa: quantos dias da semana Ingrid fez pelo menos 5 questões? Exibido no relatório semanal como "Você foi consistente em X/7 dias." Consistência prevê aprovação melhor do que % de acerto isolado.
-
-**[M-4] Modo Apresentação SaaS — Portfólio Público**
-Link de 1 página (sem login, somente leitura) com dashboard anonimizado de Ingrid: Eduardo envia para prospectos. "Veja como funciona para um candidato real." Custo zero — dados já existem.
-
-**[M-5] Audit Trail Churn Risk no Telegram**
-Alerta automático: se 3 dias sem sessão + push falhou + relatório não enviou → Telegram Eduardo: "CHURN RISK — Ingrid · 3 dias sem sessão." Stack de risco passivo — sem dashboard extra.
+### O que construir:
+[MÚSCULO: listar features aprovadas na P-037 para este loop]
 
 ### Por que agora:
-- Temperatura VERDE SUSTENTADO — janela ideal para fidelização ativa antes que urgência da prova erodir
-- F-4 e F-6 operam manualmente — loop de engajamento incompleto sem deploy CLI
-- Pitch SaaS (R$97/mês) aberto: Ingrid está engajada e verbalizou satisfação
-- Semente E-4 ("quando você passar...") deve ser plantada na próxima mensagem de Eduardo
+[MÚSCULO: contexto de urgência — deadline, comportamento do cliente, gate desbloqueado]
 
-### Incógnitas críticas para o Estrategista endereçar:
-- Qual das features V6 Ingrid efetivamente tocou? (sem analytics, cego)
-- M-4 (portfólio público) tem risco de privacidade mesmo anonimizado?
-- M-2 (gatilho reativação) pode ser percebido como spam se disparar muito cedo?
-- Como fazer SaaS Readiness Audit sem interromper a experiência atual da Ingrid?
+### Incógnita crítica não resolvida:
+[MÚSCULO: listar perguntas abertas que o Estrategista deve endereçar]
 
 ---
 
 ## FORMATO DE RESPOSTA ESPERADO
 
 ```
-Diretriz Estratégica V7 — Projeto Ingrid — Loop 6
+Diretriz Estratégica V7 — Projeto INGRID — Loop 7
 
 [NOME DA SKILL]: ingrid-v7
 
@@ -624,10 +579,11 @@ Skill nomeada: ingrid-v7
 
 ## DOCUMENTOS ANEXOS (arrastar no chat do Gemini)
 
-1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V6_INGRID.md` — contexto do ciclo V6
-2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V6_INGRID.md` — análise + 5 ideias aprovadas
-3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-089)
+1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V6_INGRID.md` — contexto do Loop 6
+2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V6_INGRID.md` — análise do Loop 6
+3. `INTELLIGENCE_LEDGER.md` — princípios ativos
 4. `CLIENTES/WIP_BOARD.json` — estado dos projetos
 
 > **Como usar:** colar este documento no chat do Gemini (não anexar). Arrastar os 4 documentos acima como anexo.
+
 

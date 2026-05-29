@@ -185,6 +185,45 @@ function Get-PendentesAlert {
 
 $pendentesAlert = Get-PendentesAlert
 
+# ENTREGAVEL 12 -- Pendentes vencidos formato P-069 (DD-MM-YYYY dia-da-semana)
+# Complementa Get-PendentesAlert (que detecta formato backtick ISO) com o formato P-069
+$pendentesVencidosP069 = ""
+try {
+    $pendPathV = Join-Path $projectDir "PENDENTES.md"
+    if (Test-Path $pendPathV) {
+        $linhasV  = Get-Content $pendPathV -Encoding UTF8 -ErrorAction SilentlyContinue
+        $hojeV    = [datetime]::Today
+        $vencP069 = [System.Collections.ArrayList]@()
+        foreach ($linhaV in $linhasV) {
+            # Formato P-069: - [KEYWORD (DD-MM-YYYY dia-da-semana)] descricao
+            if ($linhaV -match '^\s*-\s*\[.+?\((\d{2}-\d{2}-\d{4})\s') {
+                try {
+                    $dataPV  = [datetime]::ParseExact($matches[1], "dd-MM-yyyy", $null)
+                    $diasV   = ($hojeV - $dataPV).Days
+                    if ($diasV -gt 0) {
+                        [void]$vencP069.Add([PSCustomObject]@{
+                            Linha       = $linhaV.Trim()
+                            DiasVencido = $diasV
+                        })
+                    }
+                } catch { continue }
+            }
+        }
+        if ($vencP069.Count -gt 0) {
+            $lnsV069 = @("PENDENTES VENCIDOS (P-069) -- $($vencP069.Count) item(ns) -- resolver antes de avancar", "")
+            $topV069 = @($vencP069 | Sort-Object DiasVencido -Descending | Select-Object -First 5)
+            foreach ($pv069 in $topV069) {
+                $truncado = $pv069.Linha.Substring(0, [Math]::Min(80, $pv069.Linha.Length))
+                $lnsV069 += "  [$($pv069.DiasVencido)d atrasado] $truncado"
+            }
+            if ($vencP069.Count -gt 5) {
+                $lnsV069 += "  ... e mais $($vencP069.Count - 5) item(ns)"
+            }
+            $pendentesVencidosP069 = $lnsV069 -join "`n"
+        }
+    }
+} catch {}
+
 # --- PENDENTES-WATCH: fallback P-087 -- commits recentes vs itens abertos sem [x] ---
 $pendentesWatchOutput = ""
 $reconcileScript = Join-Path $projectDir "scripts\reconcile_pendentes.ps1"
@@ -468,6 +507,13 @@ if ((Test-Path $wipForSkill) -and (Test-Path $swScript)) {
     } catch {}
 }
 
+# ADD-A1 -- Commits recentes (ultimos 10) para contexto de sessao
+$ultimosCommits = ""
+try {
+    $cl = & git -C $projectDir log --oneline -10 2>$null
+    if ($cl) { $ultimosCommits = ($cl -join "`n") }
+} catch {}
+
 $sections = @()
 if ($pendentesAlert)     { $sections += "## PENDENTES (P-048) - LER PRIMEIRO`n$pendentesAlert" }
 if ($pendentesWatchOutput) { $sections += "## PENDENTES-WATCH (P-087) -- CONFIRMAR MARCACAO`n$pendentesWatchOutput" }
@@ -482,9 +528,11 @@ if ($churnWatchStatus)   { $sections += "## CHURN-WATCH INATIVO -- ACAO DO DIRET
 if ($formalizadorOutput) { $sections += "## FORMALIZADOR - CONFLITO COMERCIAL DETECTADO`n$formalizadorOutput" }
 if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }
 if ($discoveryAlert)     { $sections += "## PROJETO NOVO EM DISCOVERY -- VERIFICAR ANTES DE ONBOARDING`n$discoveryAlert" }
+if ($ultimosCommits)     { $sections += "## COMMITS RECENTES (ultimos 10)`n$ultimosCommits" }
 
-if ($manifestStatus)    { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
-if ($mapaDiarioOutput)  { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
+if ($manifestStatus)       { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
+if ($mapaDiarioOutput)     { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
+if ($pendentesVencidosP069) { $sections = @("## PENDENTES VENCIDOS (P-069) -- ATENCAO IMEDIATA`n$pendentesVencidosP069") + $sections }
 if ($decisoesPendentes) { $sections = @("## DECISOES PENDENTES -- AGENDA BLOQUEADA ATE VEREDITO`n$decisoesPendentes") + $sections }
 if ($loopLembrete)      { $sections = @("## LEMBRETE DE LOOP -- FASES ATIVAS (P-077)`n$loopLembrete") + $sections }
 if ($sections.Count -eq 0) { exit 0 }

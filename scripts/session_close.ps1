@@ -444,6 +444,26 @@ if (Test-Path $KG) {
 $g6ok = -not ($manifestStatus.Values -contains "VERMELHO")
 $gateStatus.G6 = if ($g6ok) { "VERDE" } else { "AMARELO" }
 
+# ADD-F1 -- AUDITOR_LOOP verificado explicitamente no Gate 6 (P-049)
+foreach ($projF1 in $projetosEmBuild) {
+    $cliF1    = $projF1.cliente.ToUpper()
+    $cliLowF1 = $projF1.cliente.ToLower()
+    $loopF1   = 0
+    if ($projF1.loop_fase_atual -and $projF1.loop_fase_atual.loop) {
+        try { $loopF1 = [int]$projF1.loop_fase_atual.loop } catch {}
+    }
+    if ($loopF1 -gt 0) {
+        $audPathF1 = "$BASE\CLIENTES\$cliF1\HISTORICO\AUDITOR_LOOP_V${loopF1}_${cliLowF1}.md"
+        if (-not (Test-Path $audPathF1)) {
+            Write-Host "  [!] [GATE 6] $cliF1 -- AUDITOR_LOOP_V${loopF1} ausente (P-049)" -ForegroundColor Yellow
+        } elseif ((Get-Content $audPathF1 -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) -match '\[colar aqui\]') {
+            Write-Host "  [!] [GATE 6] $cliF1 -- AUDITOR_LOOP_V${loopF1} tem placeholders -- colar output NotebookLM" -ForegroundColor Yellow
+        } else {
+            Write-Host "  [OK] [GATE 6] $cliF1 -- AUDITOR_LOOP_V${loopF1} preenchido" -ForegroundColor Green
+        }
+    }
+}
+
 # ==========================================================================
 # GATE 6.5 — P-089 FIX: gerar PASSO3 do proximo loop SOMENTE ao fechar loop completo
 # Timing correto: todos os 4 socios OK = loop fechado = gerar esqueleto N+1
@@ -556,6 +576,51 @@ if ($cliente -and $projetosEmBuild.Count -gt 0) {
 } else {
     Write-Host "  [GATE 7] Cliente nao identificado -- LOG nao gerado" -ForegroundColor Yellow
     $gateStatus.G7 = "AMARELO"
+}
+
+# ENTREGAVEL 13 -- captura de falhas da sessao (Gate 7 -- P-LEDGER)
+# Arquivos modificados com padroes de falha -> PENDENTES para extracao de principio
+$novasFalhasG7 = @($arquivosMod | Where-Object { $_ -match "RELATO_FALHAS|[Ff][Aa][Ll][Hh][Aa]" })
+if ($novasFalhasG7.Count -gt 0 -or $env:FALHA_SESSAO) {
+    $dtG7 = Get-Date -Format "dd-MM-yyyy"
+    $dsG7 = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+    Write-Host "  [GATE 7] Falha detectada nesta sessao -- registrar principio no LEDGER." -ForegroundColor Yellow
+    Write-Host "           Musculo: extrair principio candidato antes de fechar." -ForegroundColor Yellow
+    $pendFalhaEntry = "- [LEDGER ($dtG7 $dsG7)] Extrair principio da falha detectada nesta sessao"
+    $exFalha = if (Test-Path $pendentesPath) { Get-Content $pendentesPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue } else { "" }
+    if ($null -eq $exFalha) { $exFalha = "" }
+    if (-not ($exFalha -match ("LEDGER.*Extrair.*falha.*" + [regex]::Escape($dtG7)))) {
+        Add-Content $pendentesPath "`n$pendFalhaEntry" -Encoding UTF8
+        Write-Host "  [PENDENTES] Registro LEDGER-falha adicionado automaticamente." -ForegroundColor Green
+    }
+}
+
+# ADD-F2 -- KNOWLEDGE_BASE (P-050) + CANDIDATOS_A_PRINCIPIO pendentes
+$kbPath = "$BASE\PENTALATERAL_UNIVERSAL\KNOWLEDGE_BASE\INDEX.md"
+if (Test-Path $kbPath) {
+    $kbAge = ([datetime]::Today - (Get-Item $kbPath).LastWriteTime.Date).Days
+    if ($kbAge -gt 7) {
+        Write-Host "  [GATE 7] KNOWLEDGE_BASE INDEX sem atualizacao ha ${kbAge} dias (P-050)" -ForegroundColor Yellow
+        $dtF2 = Get-Date -Format "dd-MM-yyyy"
+        $dsF2 = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+        $exF2 = if (Test-Path $pendentesPath) { Get-Content $pendentesPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue } else { "" }
+        if ($null -eq $exF2) { $exF2 = "" }
+        if (-not ($exF2 -match ("KNOWLEDGE_BASE.*" + [regex]::Escape($dtF2)))) {
+            Add-Content $pendentesPath "`n- [KNOWLEDGE_BASE ($dtF2 $dsF2)] Algum problema resolvido nesta sessao nao documentado? (P-050)" -Encoding UTF8
+        }
+    } else {
+        Write-Host "  [GATE 7] KNOWLEDGE_BASE INDEX -- OK (${kbAge}d)" -ForegroundColor Green
+    }
+} else {
+    Write-Host "  [GATE 7] KNOWLEDGE_BASE\INDEX.md nao encontrado -- criar apos resolver problema (P-050)" -ForegroundColor DarkGray
+}
+$candidatosPath = "$BASE\PENTALATERAL_UNIVERSAL\KNOWLEDGE_BASE\CANDIDATOS_A_PRINCIPIO.md"
+if (Test-Path $candidatosPath) {
+    $candContent  = Get-Content $candidatosPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
+    $candPend     = if ($candContent) { ([regex]::Matches($candContent, '\[ \]')).Count } else { 0 }
+    if ($candPend -gt 0) {
+        Write-Host "  [GATE 7] $candPend candidato(s) a principio aguardando validacao -- promover ao LEDGER" -ForegroundColor Yellow
+    }
 }
 
 # ==========================================================================
@@ -717,6 +782,20 @@ if (Test-Path $alertConfig) {
     }
 }
 
+# ADD-F3 -- COMANDO_ESTRATEGISTA_MASTER sincronia com WIP_BOARD (P-052 / Gate 8)
+$masterPathF3 = "$BASE\PENTALATERAL_UNIVERSAL\OPERACAO\COMANDO_ESTRATEGISTA_MASTER_v1.md"
+if ((Test-Path $masterPathF3) -and (Test-Path $wipPath)) {
+    $wMF3 = (Get-Item $wipPath).LastWriteTime
+    $mMF3 = (Get-Item $masterPathF3).LastWriteTime
+    if ($wMF3 -gt $mMF3) {
+        $dhF3 = [int]($wMF3 - $mMF3).TotalHours
+        Write-Host "  [GATE 8] COMANDO_ESTRATEGISTA_MASTER desatualizado ${dhF3}h vs WIP_BOARD (P-052)" -ForegroundColor Yellow
+        Write-Host "           Atualizar antes do proximo Gemini: PENTALATERAL_UNIVERSAL\OPERACAO\COMANDO_ESTRATEGISTA_MASTER_v1.md" -ForegroundColor Yellow
+    } else {
+        Write-Host "  [GATE 8] COMANDO_ESTRATEGISTA_MASTER -- OK (em sincronia com WIP_BOARD)" -ForegroundColor Green
+    }
+}
+
 # ==========================================================================
 # GATE 9 — PAINEL_ATIVIDADES para o Embaixador
 # ==========================================================================
@@ -823,6 +902,29 @@ if (Test-Path $painelScript) {
     $gateStatus.G9 = "N/A"
 }
 
+# ADD-F4 -- Regenerar MANIFESTO_DE_FONTES para cada projeto ativo (P-053)
+foreach ($projF4 in $projetosEmBuild) {
+    $cliF4    = $projF4.cliente.ToUpper()
+    $fontesF4 = "$BASE\CLIENTES\$cliF4\NOTEBOOKLM_FONTES"
+    if (Test-Path $fontesF4) {
+        $manifestoF4 = "$fontesF4\00_MANIFESTO_DE_FONTES.md"
+        $arquivosF4  = Get-ChildItem $fontesF4 -File | Sort-Object Name
+        $linhasF4    = [System.Collections.ArrayList]@()
+        [void]$linhasF4.Add("# MANIFESTO DE FONTES -- $cliF4")
+        [void]$linhasF4.Add("# Gerado por session_close.ps1 Gate 9 (P-053)")
+        [void]$linhasF4.Add("# Total: $($arquivosF4.Count) arquivos")
+        [void]$linhasF4.Add("")
+        foreach ($arqF4 in $arquivosF4) {
+            $szF4 = [math]::Round($arqF4.Length / 1KB, 1)
+            $dtF4 = $arqF4.LastWriteTime.ToString("yyyy-MM-dd")
+            [void]$linhasF4.Add("- $($arqF4.Name) ($szF4 KB, $dtF4)")
+        }
+        $utf8nbF4 = [System.Text.UTF8Encoding]::new($false)
+        [System.IO.File]::WriteAllLines($manifestoF4, $linhasF4.ToArray(), $utf8nbF4)
+        Write-Host "  [GATE 9] MANIFESTO_DE_FONTES -- $cliF4 -- $($arquivosF4.Count) arqs regenerado" -ForegroundColor Green
+    }
+}
+
 # ==========================================================================
 # CHECK-UP SISTEMICO — contador de loops (ENTREGAVEL 2 — OSV-007)
 # ==========================================================================
@@ -875,6 +977,43 @@ try {
     [System.IO.File]::WriteAllText($wipPath, ($boardCheckup | ConvertTo-Json -Depth 20), [System.Text.Encoding]::UTF8)
 } catch {
     Write-Host "  [CHECK-UP] Falha ao atualizar contador: $_" -ForegroundColor DarkGray
+}
+
+# ==========================================================================
+# DETECTOR DE BUILD SIGNIFICATIVO (ENTREGAVEL 1 -- 2026-05-29)
+# Commits desta sessao com arquivos de codigo fora de scripts/ = build real
+# ==========================================================================
+$dataInicioSessao = (Get-Date -Format "yyyy-MM-dd") + " 00:00"
+try {
+    $commitsSessao = @(& git -C $BASE log "--since=$dataInicioSessao" `
+        --name-only --pretty=format: 2>$null |
+        Where-Object { $_ -match '\.(js|ts|html|css|jsx|tsx|py|sql)$' } |
+        Where-Object { $_ -notmatch '^scripts/' })
+} catch { $commitsSessao = @() }
+
+if ($commitsSessao.Count -gt 0) {
+    Write-Host ""
+    Write-Host "  ======================================================" -ForegroundColor Cyan
+    Write-Host "  BUILD SIGNIFICATIVO DETECTADO NESTA SESSAO" -ForegroundColor Cyan
+    Write-Host "  $($commitsSessao.Count) arquivo(s) de codigo modificado(s)." -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "  ACAO OBRIGATORIA antes de fechar:" -ForegroundColor Yellow
+    Write-Host "  -> TESTE_PROCESSO_COMPLETO.md -- Bloco A (5 min)" -ForegroundColor White
+    Write-Host "     PENTALATERAL_UNIVERSAL\OPERACAO\TESTE_PROCESSO_COMPLETO.md" -ForegroundColor White
+    Write-Host ""
+    Write-Host "  Arquivos detectados:" -ForegroundColor DarkGray
+    $commitsSessao | Select-Object -First 5 | ForEach-Object { Write-Host "    . $_" -ForegroundColor DarkGray }
+    if ($commitsSessao.Count -gt 5) { Write-Host "    ... e mais $($commitsSessao.Count - 5) arquivo(s)" -ForegroundColor DarkGray }
+    Write-Host "  ======================================================" -ForegroundColor Cyan
+    # Registrar em PENDENTES.md automaticamente (dedup por data)
+    $dtBuild = Get-Date -Format "dd-MM-yyyy"
+    $dsBuild = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+    $pendBuildPath = "$BASE\PENDENTES.md"
+    $exBuild = if (Test-Path $pendBuildPath) { Get-Content $pendBuildPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue } else { "" }
+    if (-not ($exBuild -match ("TESTE_PROCESSO.*" + $dtBuild))) {
+        Add-Content $pendBuildPath "`n- [BUILD ($dtBuild $dsBuild)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado" -Encoding UTF8
+        Write-Host "  [PENDENTES] Registro BUILD adicionado automaticamente." -ForegroundColor Green
+    }
 }
 
 # ==========================================================================
@@ -931,6 +1070,38 @@ foreach ($projG in $projetosEmBuild) {
             $alertasGargalo += "[$cliUpG] SOBERANA_EMBAIXADOR ativo -- confirmar se Embaixador reagiu"
         }
     }
+
+    # M2 (ENTREGAVEL 2) -- gates_programados ausente ou vazio
+    if (-not $projG.gates_programados -or @($projG.gates_programados).Count -eq 0) {
+        $alertasGargalo += "[$cliUpG] gates_programados ausente -- countdown inativo. Preencher no WIP_BOARD ou rodar onboarding_projeto.ps1."
+    }
+
+    # M3 (ENTREGAVEL 3) -- churn_watch_threshold ausente
+    if (-not $projG.churn_watch_threshold) {
+        $alertasGargalo += "[$cliUpG] churn_watch_threshold ausente -- usando fallback silencioso. Definir via .\scripts\onboarding_projeto.ps1 -cliente $cliUpG."
+    }
+
+    # M4/M10 (ENTREGAVEIS 4+10) -- AUDITOR_LOOP ausente ou com placeholder
+    if ($loopNG -gt 0) {
+        $auditorPathG = "$BASE\CLIENTES\$cliUpG\HISTORICO\AUDITOR_LOOP_V${loopNG}_${cliLowG}.md"
+        if (-not (Test-Path $auditorPathG)) {
+            $alertasGargalo += "[$cliUpG] AUDITOR_LOOP_V${loopNG} ausente -- output do NotebookLM nao salvo (P-049)"
+        } else {
+            $audConteudoG = Get-Content $auditorPathG -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
+            if ($audConteudoG -match '\[colar aqui\]') {
+                $alertasGargalo += "[$cliUpG] AUDITOR_LOOP_V${loopNG} com placeholders -- colar output do NotebookLM antes de fechar"
+            }
+        }
+    }
+
+    # M6 (ENTREGAVEL 6) -- MEMORIA_EMBAIXADOR sem atualizacao > 7 dias
+    $memoriaEmbPathG = "$BASE\CLIENTES\$cliUpG\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
+    if (Test-Path $memoriaEmbPathG) {
+        $memoriaEmbAgeG = ([datetime]::Today - (Get-Item $memoriaEmbPathG).LastWriteTime.Date).Days
+        if ($memoriaEmbAgeG -gt 7) {
+            $alertasGargalo += "[$cliUpG] MEMORIA_EMBAIXADOR sem atualizacao ha ${memoriaEmbAgeG} dias -- verificar P-032"
+        }
+    }
 }
 
 # 4. decisoes_watcher.log (global)
@@ -976,6 +1147,39 @@ if ($gatesAlert.Count -gt 0) {
     $gatesAlert | ForEach-Object { Write-Host $_ -ForegroundColor Cyan }
 } else {
     Write-Host "  [GATE 9.5] Nenhum gate a <= 7 dias. Silencio." -ForegroundColor DarkGray
+}
+
+# ADD-F5 -- P-032 trigger: VEREDITOS do dia detectados + MASTER sincronia pos-COUNTDOWN
+foreach ($projF5 in $projetosEmBuild) {
+    $cliF5  = $projF5.cliente.ToUpper()
+    $decF5  = "$BASE\CLIENTES\$cliF5\CLAUDE_PROJECT\DECISOES"
+    if (Test-Path $decF5) {
+        $decHoje = Get-ChildItem $decF5 -Filter "DECISOES_*.json" -ErrorAction SilentlyContinue |
+            Where-Object { $_.LastWriteTime.Date -eq [datetime]::Today }
+        foreach ($dH in $decHoje) {
+            $sufF5 = $dH.BaseName -replace "^DECISOES_", ""
+            $verF5 = Join-Path $decF5 "VEREDITOS_$sufF5.json"
+            if (Test-Path $verF5) {
+                Write-Host "  [GATE 9.5] P-032 -- $cliF5 VEREDITO executado hoje -- MEMORIA_EMBAIXADOR deve ser atualizada" -ForegroundColor Yellow
+                $dtF5 = Get-Date -Format "dd-MM-yyyy"
+                $dsF5 = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+                $exF5 = if (Test-Path $pendentesPath) { Get-Content $pendentesPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue } else { "" }
+                if ($null -eq $exF5) { $exF5 = "" }
+                if (-not ($exF5 -match ("P-032.*" + [regex]::Escape($cliF5) + ".*" + [regex]::Escape($dtF5)))) {
+                    Add-Content $pendentesPath "`n- [P-032 ($dtF5 $dsF5)] $cliF5 -- Atualizar MEMORIA_EMBAIXADOR apos VEREDITO (ADD-F5)" -Encoding UTF8
+                }
+            }
+        }
+    }
+}
+$masterF5 = "$BASE\PENTALATERAL_UNIVERSAL\OPERACAO\COMANDO_ESTRATEGISTA_MASTER_v1.md"
+if ((Test-Path $masterF5) -and (Test-Path $wipPath)) {
+    $wMF5 = (Get-Item $wipPath).LastWriteTime
+    $mMF5 = (Get-Item $masterF5).LastWriteTime
+    if ($wMF5 -gt $mMF5) {
+        $dhF5 = [int]($wMF5 - $mMF5).TotalHours
+        Write-Host "  [GATE 9.5] MASTER desatualizado ${dhF5}h -- atualizar antes do proximo Gemini (P-052)" -ForegroundColor Yellow
+    }
 }
 
 # ==========================================================================

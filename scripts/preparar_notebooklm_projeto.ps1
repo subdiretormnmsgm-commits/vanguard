@@ -62,6 +62,31 @@ if ($projCheck -and $projCheck.loop_fase_atual -and $projCheck.loop_fase_atual.l
         exit 1
     }
     Write-Host "[GATE VERSAO] Artefatos Loop $loopAtual confirmados." -ForegroundColor Green
+
+    # ENTREGAVEL 4 (P-049) -- pre-criar AUDITOR_LOOP antes da sessao NotebookLM
+    $auditorLoopPath = "$raiz\CLIENTES\$cliente\HISTORICO\AUDITOR_LOOP_V${loopAtual}_${clienteLow}.md"
+    if (-not (Test-Path $auditorLoopPath)) {
+        $auditorLinhas = @(
+            "# AUDITOR LOOP $loopAtual -- $cliente",
+            "# Salvar output do NotebookLM aqui ANTES de fechar (P-049)",
+            "# Output perdido ao fechar = dado perdido permanentemente",
+            "",
+            "## PARTE 1 -- Auditoria de Coerencia",
+            "[colar aqui]",
+            "",
+            "## PARTE 2 -- Perspectiva do Socio",
+            "[colar aqui]",
+            "",
+            "## PARTE 4 -- N-1 a N-5",
+            "[colar aqui]"
+        )
+        $utf8nbAud = [System.Text.UTF8Encoding]::new($false)
+        [System.IO.File]::WriteAllLines($auditorLoopPath, $auditorLinhas, $utf8nbAud)
+        Write-Host "[P-049] AUDITOR_LOOP_V${loopAtual}_${clienteLow}.md pre-criado." -ForegroundColor Green
+        Write-Host "        Colar output do NotebookLM neste arquivo antes de fechar." -ForegroundColor Yellow
+    } else {
+        Write-Host "[P-049] AUDITOR_LOOP_V${loopAtual} ja existe." -ForegroundColor DarkGray
+    }
 }
 
 # Limpar ou criar pasta NOTEBOOKLM_FONTES
@@ -192,6 +217,35 @@ Write-Host "=================================================" -ForegroundColor 
 $total = (Get-ChildItem $fontes_dir).Count
 Write-Host " $total documentos prontos em:" -ForegroundColor Green
 Write-Host " CLIENTES\$cliente\NOTEBOOKLM_FONTES\" -ForegroundColor White
+
+# ENTREGAVEL 9 (P-053) -- MANIFESTO_DE_FONTES gerado automaticamente
+$loopMfst = if ($loopAtual -gt 0) { [string]$loopAtual } else { "N/A" }
+$manifestoPath   = "$fontes_dir\00_MANIFESTO_DE_FONTES.md"
+$arquivosFontes  = Get-ChildItem $fontes_dir -File | Sort-Object Name
+$linhasManifesto = [System.Collections.ArrayList]@()
+[void]$linhasManifesto.Add("# MANIFESTO DE FONTES -- $cliente -- Loop $loopMfst")
+[void]$linhasManifesto.Add("# Gerado automaticamente por preparar_notebooklm_projeto.ps1")
+[void]$linhasManifesto.Add("# Data: $(Get-Date -Format 'dd-MM-yyyy HH:mm')")
+[void]$linhasManifesto.Add("")
+[void]$linhasManifesto.Add("## FONTES CARREGADAS ($($arquivosFontes.Count) arquivos)")
+[void]$linhasManifesto.Add("")
+foreach ($arqF in $arquivosFontes) {
+    $dataArqF = $arqF.LastWriteTime.ToString("dd-MM-yyyy")
+    $kbF      = [math]::Round($arqF.Length / 1KB, 1)
+    [void]$linhasManifesto.Add("- $($arqF.Name) | $dataArqF | $kbF KB")
+}
+[void]$linhasManifesto.Add("")
+[void]$linhasManifesto.Add("## PERIODO COBERTO")
+$maisAntigoF  = $arquivosFontes | Sort-Object LastWriteTime | Select-Object -First 1
+$maisRecenteF = $arquivosFontes | Sort-Object LastWriteTime | Select-Object -Last 1
+if ($maisAntigoF)  { [void]$linhasManifesto.Add("De:  $($maisAntigoF.LastWriteTime.ToString('dd-MM-yyyy'))") }
+if ($maisRecenteF) { [void]$linhasManifesto.Add("Ate: $($maisRecenteF.LastWriteTime.ToString('dd-MM-yyyy'))") }
+[void]$linhasManifesto.Add("")
+[void]$linhasManifesto.Add("## O QUE ESTA AUSENTE")
+[void]$linhasManifesto.Add("[Musculo: declarar o que nao esta nestas fontes se relevante]")
+$utf8nb9 = [System.Text.UTF8Encoding]::new($false)
+[System.IO.File]::WriteAllLines($manifestoPath, $linhasManifesto.ToArray(), $utf8nb9)
+Write-Host "[P-053] MANIFESTO_DE_FONTES.md gerado -- $($arquivosFontes.Count) fontes declaradas." -ForegroundColor Green
 
 # Extrair e copiar COMANDO CURTO automaticamente para o clipboard
 $passo5 = "$fontes_dir\13_PASSO5_NOTEBOOKLM.md"

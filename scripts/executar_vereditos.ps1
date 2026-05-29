@@ -175,6 +175,34 @@ foreach ($vrd_item in $vrd.vereditos) {
     Write-Host ""
 }
 
+# P-032 -- TRIGGER: atualizar MEMORIA_EMBAIXADOR apos execucao de vereditos (ENTREGAVEL 11)
+Write-Host ""
+Write-Host "=================================================="
+Write-Host "  P-032 -- MEMORIA_EMBAIXADOR"                       -ForegroundColor Cyan
+Write-Host "=================================================="
+Write-Host "  Deliberacao executada para: $projeto"
+Write-Host "  Campos que provavelmente mudaram:"
+Write-Host "    . Estado atual do loop"
+Write-Host "    . Gates aprovados/pendentes"
+Write-Host "    . Hipoteses confirmadas/refutadas"
+Write-Host "    . Proxima acao recomendada"
+Write-Host ""
+Write-Host "  Musculo: atualizar CLIENTES\$projeto\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md" -ForegroundColor Yellow
+Write-Host "  antes de declarar sessao encerrada."                -ForegroundColor Yellow
+Write-Host "=================================================="
+
+$dtP032 = Get-Date -Format "dd-MM-yyyy"
+$dsP032 = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+$pendP032 = Join-Path $raiz "PENDENTES.md"
+if (Test-Path $pendP032) {
+    $exP032 = Get-Content $pendP032 -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
+    if ($null -eq $exP032) { $exP032 = "" }
+    if (-not ($exP032 -match ("P-032.*" + [regex]::Escape($projeto) + ".*" + [regex]::Escape($dtP032)))) {
+        Add-Content $pendP032 "`n- [P-032 ($dtP032 $dsP032)] $projeto -- Atualizar MEMORIA_EMBAIXADOR apos deliberacao" -Encoding UTF8
+        Write-Host "  [PENDENTES] P-032 registrado automaticamente." -ForegroundColor Green
+    }
+}
+
 # --- 3. Arquivar LOG ---
 if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Force $logDir | Out-Null }
 $logPath = Join-Path $raiz ($logDir + "\LOG_VEREDITOS_" + $projeto + "_" + (Get-Date -Format 'yyyyMMdd_HHmm') + ".txt")

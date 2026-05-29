@@ -110,6 +110,23 @@ Executar conforme o gatilho -- nao a cada sessao:
 
 ---
 
+## ACOES HUMANAS INSUBSTITUIVEIS — limites reais do sistema
+
+Estas 4 acoes nao podem ser automatizadas por limitacao de API.
+Sao o unico trabalho manual obrigatorio do Diretor por loop.
+
+| Acao | Por que nao automatiza | Tempo |
+|---|---|---|
+| Arrastar 4 arquivos ao Gemini | Gemini nao tem API de upload | 30s |
+| Salvar Skill em NOTEBOOKLM_DROP | NotebookLM nao tem API | 30s |
+| Clicar nas opcoes do Painel HTML | Deliberacao e humana por design | 2-5 min |
+| Upload do PAINEL ao Embaixador | Claude Projects sem API de upload | 30s |
+
+Total de trabalho manual insubstituivel por loop: ~4-6 minutos.
+Todo o resto detecta, alerta, bloqueia ou executa automaticamente.
+
+---
+
 ## VERIFICACAO DE INTEGRIDADE — antes de fechar
 
   LEMBRETE DE LOOP aparece antes da AGENDA DO DIA?  SIM / NAO (registrar)
