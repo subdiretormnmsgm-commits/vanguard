@@ -832,21 +832,29 @@ if ($integridadeOK) {
 }
 Write-Host ""
 
-# --- Aviso Claude Projects ---
-if ($arqsClaude.Count -gt 0) {
-    Write-Host "=======================================================" -ForegroundColor Magenta
-    Write-Host "  ACAO MANUAL -- CLAUDE PROJECTS (EMBAIXADOR)"         -ForegroundColor Magenta
-    Write-Host "=======================================================" -ForegroundColor Magenta
-    Write-Host "  Re-arrastar ao Claude Projects do cliente:"            -ForegroundColor White
-    foreach ($a in $arqsClaude) {
-        Write-Host "  -> $a" -ForegroundColor Yellow
-    }
-    Write-Host "=======================================================" -ForegroundColor Magenta
-    Write-Host ""
-} else {
-    Write-Host "  Nenhuma acao necessaria no Claude Projects." -ForegroundColor DarkGray
-    Write-Host ""
-}
+# --- Aviso Claude Projects — P-022: PAINEL e' o unico upload ao Embaixador ---
+$painelRelativo = "PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$DATA.md"
+Write-Host "=======================================================" -ForegroundColor Magenta
+Write-Host "  ACAO AO EMBAIXADOR (Claude Projects) -- P-022"       -ForegroundColor Magenta
+Write-Host "=======================================================" -ForegroundColor Magenta
+Write-Host "  Arrastar ao Claude Projects -- zero copia manual:"    -ForegroundColor White
+Write-Host "  -> $painelRelativo"                                   -ForegroundColor Yellow
+Write-Host ""
+Write-Host "  Colar no chat junto com o upload:"                    -ForegroundColor White
+Write-Host "  -------------------------------------------------------" -ForegroundColor DarkGray
+Write-Host "  Embaixador, fechamento de sessao -- $DATA."           -ForegroundColor Cyan
+Write-Host "  Faco upload do PAINEL_ATIVIDADES desta sessao."       -ForegroundColor Cyan
+Write-Host "  Gerar artefato publicavel com:"                       -ForegroundColor Cyan
+Write-Host "  1. SEMAFORO -- status visual de cada projeto"         -ForegroundColor Cyan
+Write-Host "  2. ATIVIDADES EM DEFICIT -- perspectiva comportamental" -ForegroundColor Cyan
+Write-Host "  3. ALERTA GARGALO -- gates vencidos com contexto real" -ForegroundColor Cyan
+Write-Host "  4. DIAGNOSTICO DO DIA -- saude dos projetos ativos"   -ForegroundColor Cyan
+Write-Host "  5. PREVISAO DOS PROXIMOS DIAS -- checklist do Diretor" -ForegroundColor Cyan
+Write-Host "  6. ANALISE GERENCIAL -- o que o Musculo nao ve?"      -ForegroundColor Cyan
+Write-Host "  7. PARA DELIBERACAO DO DIRETOR -- opcoes, nunca ordens" -ForegroundColor Cyan
+Write-Host "  -------------------------------------------------------" -ForegroundColor DarkGray
+Write-Host "=======================================================" -ForegroundColor Magenta
+Write-Host ""
 
 # ==========================================================================
 # APRESENTACAO AO DIRETOR — ordem canonica obrigatoria (P-086)
