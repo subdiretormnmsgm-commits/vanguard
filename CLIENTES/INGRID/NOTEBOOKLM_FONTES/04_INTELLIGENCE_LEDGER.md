@@ -1602,3 +1602,15 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Regra derivada:** Nunca here-string com Unicode em PS5.1. Nunca. Sem exceção. Todo script .ps1 que gere texto rico deve: (a) manter código-fonte 100% ASCII, (b) ler template externo .txt via Get-Content UTF8, (c) usar -replace '\{TOKEN\}', $valor para substituição. Validação obrigatória: `[Parser]::ParseFile()` após criar ou editar qualquer .ps1. O validate_scripts.ps1 aplica esta regra automaticamente (P-060).
 
 **Ferramentas:** `PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/` (pasta de templates externos) · `scripts/validate_scripts.ps1` · DEPENDENCY_MAP TIPO 2 para cada template .txt que gera instância.
+
+---
+
+## P-089 - DOCUMENTO DE CONTEXTO DO SOCIO E REGENERADO PELO SCRIPT DO SOCIO ANTERIOR (2026-05-28)
+**Origem:** INGRID · Loop 6 · [FALHA-PROCESSO-2026-05-28] — PASSO3_GEMINI.md ficou na versão Loop 5 porque a regeneração não estava acoplada à conclusão do Gemini. Diretor tentou ir ao Gemini quando o Loop 6 já tinha DIRETRIZ aprovada.
+**Veredito:** Inscrito — Embaixador identificou causa raiz — gemini_anchor_generator.ps1 regenera PASSO3_GEMINI.md automaticamente ao marcar gemini=OK
+
+> Documento de contexto desatualizado faz o Pentalateral operar em loop errado. O Músculo assume que "já foi feito" e o Diretor assume que "ainda falta fazer" — ambos corretos para loops diferentes. O acoplamento resolve: o script que avança o WIP_BOARD regenera o PASSO3 na mesma execução, sem etapa separada, sem disciplina humana.
+
+**Regra derivada:** gemini_anchor_generator.ps1 regenera PASSO3_GEMINI.md ao concluir. preparar_notebooklm_projeto.ps1 deve regenerar PASSO5_NOTEBOOKLM.md ao concluir. ir_ao_embaixador.ps1 deve regenerar PASSO7_EMBAIXADOR.md ao concluir. Cada script de sócio é responsável pelo documento de contexto do sócio seguinte — nunca o Músculo manualmente depois. Template externo .txt (P-088) com placeholders: {CLIENTE}, {LOOP_NUM}, {LOOP_PREV}, {DATA}, {GATE_PROXIMO}.
+
+**Ferramentas:** `PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/passo3_template.txt` · `scripts/gemini_anchor_generator.ps1` (bloco P-089 ao final) · DEPENDENCY_MAP TIPO 2.

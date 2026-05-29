@@ -19,7 +19,7 @@
                                     "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 â€” OFFBOARDING_RUNBOOK entregue Â· Loop 6 PENDENTE",
+                                    "status":  "Loop 6 DELIBERACAO CONCLUIDA (P-037 2026-05-27) -- DADOS-WATCH VERDE -- BUILD iniciando",
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
@@ -148,7 +148,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "OK -- P-037 DELIBERACAO_LOOP_V6 gerada 2026-05-27",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
+                                                            "proximo":  "BUILD Loop 6 -- render_painel.ps1 -\u003e DECISOES.json -\u003e features F-1 a F-8"
                                                         },
                                     "churn_watch_threshold":  5
                                 },

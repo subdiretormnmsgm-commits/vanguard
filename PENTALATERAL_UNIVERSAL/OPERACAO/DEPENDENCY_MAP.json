@@ -33,7 +33,8 @@
         { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md",   "instancia_padrao": "PASSO3_GEMINI_[CLIENTE].md",   "campos_contexto": ["cliente", "loop", "missao"] },
         { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md","instancia_padrao": "PASSO5_NOTEBOOKLM_[CLIENTE].md","campos_contexto": ["cliente", "loop", "skill_nome"] },
         { "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md","instancia_padrao": "PASSO7_EMBAIXADOR_[CLIENTE].md","campos_contexto": ["cliente", "reuniao", "temperatura"] },
-        { "template": "PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/gerar_artefato_embaixador_prompt.txt","instancia_padrao": "RELATORIOS_EMBAIXADOR/ARTEFATO_EMBAIXADOR_[CLIENTE]_[DATA].md","campos_contexto": ["CLIENTE", "DATA", "MEMORIA", "PAINEL"], "nota": "P-088: template externo ASCII-safe. Codigo PS5.1 le este .txt e substitui {TOKEN}. Nunca editar instancia -- editar apenas este template." }
+        { "template": "PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/gerar_artefato_embaixador_prompt.txt","instancia_padrao": "RELATORIOS_EMBAIXADOR/ARTEFATO_EMBAIXADOR_[CLIENTE]_[DATA].md","campos_contexto": ["CLIENTE", "DATA", "MEMORIA", "PAINEL"], "nota": "P-088: template externo ASCII-safe. Codigo PS5.1 le este .txt e substitui {TOKEN}. Nunca editar instancia -- editar apenas este template." },
+        { "template": "PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/passo3_template.txt","instancia_padrao": "CLIENTES/[CLIENTE]/PASSO3_GEMINI.md","campos_contexto": ["CLIENTE", "CLIENTE_LOWER", "LOOP_NUM", "LOOP_PREV", "DATA", "DIRETRIZ_NUM", "DIAS_COMPLETOS", "ESTADO_ATUAL", "GATE_PROXIMO"], "nota": "P-089: regenerado automaticamente pelo gemini_anchor_generator.ps1 ao marcar gemini=OK. Musculo completa secao MISSAO antes de enviar ao Gemini." }
       ]
     },
     "PROJECT_ONLY": {

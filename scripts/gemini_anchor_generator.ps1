@@ -231,9 +231,42 @@ if ($projetoAtivo -and $projetoAtivo.id -ne "MANUAL") {
             $proj2.loop_fase_atual.proximo = "NotebookLM -- Skill $cliLow-v$loopN.md"
             $wipData | ConvertTo-Json -Depth 15 | Set-Content $wipPath2 -Encoding UTF8
             Write-Host "  [LOOP] loop_fase_atual.gemini = OK -- WIP_BOARD atualizado" -ForegroundColor Green
+
+            # P-089: PASSO3_GEMINI.md regenerado automaticamente -- P-088: codigo ASCII, conteudo no template .txt
+            $p3tmpl = Join-Path $BASE "PENTALATERAL_UNIVERSAL\TEMPLATES\scripts\passo3_template.txt"
+            $cliUpper3 = $projetoAtivo.cliente.ToUpper()
+            # P-059: gate de isolamento -- nunca tocar pasta de outro cliente
+            $p3clientDir = Join-Path $BASE "CLIENTES\$cliUpper3"
+            if (-not (Test-Path $p3clientDir)) {
+                Write-Host "  [PASSO3] ERRO P-059: pasta CLIENTES\$cliUpper3 nao encontrada -- abortando regeneracao" -ForegroundColor Red
+            } elseif (Test-Path $p3tmpl) {
+                $cliLower3  = $projetoAtivo.cliente.ToLower()
+                $loopNum3   = [string]$loopN
+                $loopPrev3  = if ($loopN -is [int] -and $loopN -gt 1) { [string]($loopN - 1) } else { "anterior" }
+                $diasFeitos3 = if ($proj2.dias_completos) { ($proj2.dias_completos -join " | ") } else { "nao informado" }
+                $statusAsc3  = if ($proj2.status) { ($proj2.status -replace '[^\x00-\x7F]', '?').Substring(0, [Math]::Min(120, $proj2.status.Length)) } else { "em andamento" }
+                $gateAsc3   = if ($proj2.loop_fase_atual.proximo) { $proj2.loop_fase_atual.proximo } else { "ver WIP_BOARD" }
+
+                $p3content = Get-Content $p3tmpl -Raw -Encoding UTF8
+                $p3content = $p3content -replace '\{CLIENTE\}',       $cliUpper3
+                $p3content = $p3content -replace '\{CLIENTE_LOWER\}', $cliLower3
+                $p3content = $p3content -replace '\{LOOP_NUM\}',      $loopNum3
+                $p3content = $p3content -replace '\{LOOP_PREV\}',     $loopPrev3
+                $p3content = $p3content -replace '\{DATA\}',          (Get-Date -Format "yyyy-MM-dd")
+                $p3content = $p3content -replace '\{DIRETRIZ_NUM\}',  $loopNum3
+                $p3content = $p3content -replace '\{DIAS_COMPLETOS\}', $diasFeitos3
+                $p3content = $p3content -replace '\{ESTADO_ATUAL\}',  $statusAsc3
+                $p3content = $p3content -replace '\{GATE_PROXIMO\}',  $gateAsc3
+
+                $p3out = Join-Path $BASE "CLIENTES\$cliUpper3\PASSO3_GEMINI.md"
+                $p3content | Out-File -FilePath $p3out -Encoding UTF8
+                Write-Host "  [PASSO3] PASSO3_GEMINI.md regenerado -- Loop $loopNum3" -ForegroundColor Green
+            } else {
+                Write-Host "  [PASSO3] Template ausente -- gerar PASSO3 manualmente" -ForegroundColor Yellow
+            }
         }
     } catch {
-        Write-Host "  [WARN] Nao foi possivel atualizar loop_fase_atual.gemini" -ForegroundColor Yellow
+        Write-Host "  [WARN] Nao foi possivel atualizar loop_fase_atual.gemini: $($_.Exception.Message)" -ForegroundColor Yellow
     }
 }
 
