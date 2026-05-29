@@ -19,6 +19,22 @@ param(
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
+# Verifica se gate N esta coberto por dias_completos compostos (ex: "dia3_5_feed" cobre 3,4,5)
+function Test-GateCoberto([object[]]$diasCompletos, [int]$gateNum) {
+    foreach ($d in $diasCompletos) {
+        $stripped = ($d -replace '^dia', '') -split '_'
+        $nums = @()
+        foreach ($p in $stripped) {
+            if ($p -match '^\d+$') { $nums += [int]$p } else { break }
+        }
+        if ($nums.Count -eq 0) { continue }
+        $minN = ($nums | Measure-Object -Minimum).Minimum
+        $maxN = ($nums | Measure-Object -Maximum).Maximum
+        if ($gateNum -ge $minN -and $gateNum -le $maxN) { return $true }
+    }
+    return $false
+}
+
 $BASE   = Split-Path -Parent $PSScriptRoot
 $LEDGER = "$BASE\INTELLIGENCE_LEDGER.md"
 $KG     = "$BASE\knowledge_graph.json"
@@ -685,7 +701,7 @@ if (Test-Path $painelScript) {
                 $gDate = $inicio.AddDays($num-1)
                 if ($gDate.Date -le (Get-Date).Date) {
                     $conc = $false
-                    if ($p0.dias_completos) { foreach ($d in $p0.dias_completos) { if ($d -match "^dia$num") { $conc = $true } } }
+                    if ($p0.dias_completos) { $conc = Test-GateCoberto -diasCompletos $p0.dias_completos -gateNum $num }
                     if (-not $conc) { $gargaloCnt++ }
                 }
             }
@@ -699,8 +715,11 @@ if (Test-Path $painelScript) {
     $entregasTexto += "MANIFEST: $(($manifestStatus.Values | Select-Object -Unique) -join ', '). "
     if ($logPath) { $entregasTexto += "LOG: $logPath." }
 
-    # Gerar PAINEL separado por projeto ativo
-    $paineisPorCliente = [ordered]@{}
+    # Gerar PAINEL + Artefato Embaixador separado por projeto ativo
+    $paineisPorCliente   = [ordered]@{}
+    $artefatosPorCliente = [ordered]@{}
+    $artefatoScript      = "$BASE\scripts\gerar_artefato_embaixador.ps1"
+
     $clientesAtivos = @($projetosEmBuild | ForEach-Object { $_.cliente } | Where-Object { $_ })
     if ($clientesAtivos.Count -eq 0) { $clientesAtivos = @($cliente) }
 
@@ -721,7 +740,7 @@ if (Test-Path $painelScript) {
                 $gDate = $inicio.AddDays($num-1)
                 if ($gDate.Date -le (Get-Date).Date) {
                     $conc = $false
-                    if ($p0.dias_completos) { foreach ($d in $p0.dias_completos) { if ($d -match "^dia$num") { $conc = $true } } }
+                    if ($p0.dias_completos) { $conc = Test-GateCoberto -diasCompletos $p0.dias_completos -gateNum $num }
                     if (-not $conc) { $gCnt++ }
                 }
             }
@@ -740,6 +759,19 @@ if (Test-Path $painelScript) {
         if ($painelFile -and (Test-Path $painelFile)) {
             $paineisPorCliente[$cliUpper] = $painelFile
             Write-Host "  [GATE 9] PAINEL $cliUpper gerado: $(Split-Path $painelFile -Leaf)" -ForegroundColor Cyan
+
+            # Gerar Artefato Embaixador via API automaticamente
+            if (Test-Path $artefatoScript) {
+                Write-Host "  [GATE 9] Chamando Embaixador $cliUpper via API..." -ForegroundColor Cyan
+                $artefatoFile = (& powershell.exe -NonInteractive -File $artefatoScript `
+                    -Cliente $cli 2>$null) | Select-Object -Last 1
+                if ($artefatoFile -and (Test-Path $artefatoFile)) {
+                    $artefatosPorCliente[$cliUpper] = $artefatoFile
+                    Write-Host "  [GATE 9] Artefato $cliUpper OK: $(Split-Path $artefatoFile -Leaf)" -ForegroundColor Green
+                } else {
+                    Write-Host "  [GATE 9] Artefato $cliUpper -- API indisponivel ou erro" -ForegroundColor Yellow
+                }
+            }
         } else {
             Write-Host "  [GATE 9] PAINEL $cliUpper -- falha na geracao" -ForegroundColor Yellow
         }

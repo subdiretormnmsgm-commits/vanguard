@@ -120,6 +120,23 @@ if (Test-Path $pendentesPath) {
 # Ordenar deficit: mais atrasados primeiro
 $deficitOrdenado = @($deficitItens | Sort-Object DiasAtraso -Descending)
 
+# Verifica se um numero de gate esta coberto por dias_completos compostos
+# Ex: "dia3_5_feed" cobre gates 3,4,5 — "dia9_11_heatmap" cobre 9,10,11
+function Test-GateCoberto([object[]]$diasCompletos, [int]$gateNum) {
+    foreach ($d in $diasCompletos) {
+        $stripped = ($d -replace '^dia', '') -split '_'
+        $nums = @()
+        foreach ($p in $stripped) {
+            if ($p -match '^\d+$') { $nums += [int]$p } else { break }
+        }
+        if ($nums.Count -eq 0) { continue }
+        $minN = ($nums | Measure-Object -Minimum).Minimum
+        $maxN = ($nums | Measure-Object -Maximum).Maximum
+        if ($gateNum -ge $minN -and $gateNum -le $maxN) { return $true }
+    }
+    return $false
+}
+
 # --- Gargalos: gates vencidos no WIP_BOARD ---
 $gargaloItens = [System.Collections.Generic.List[object]]::new()
 if ($wip -and $wip.board -and $wip.board.build) {
@@ -135,9 +152,7 @@ if ($wip -and $wip.board -and $wip.board.build) {
             if ($gateDate.Date -gt $hoje) { continue }
             $concluido = $false
             if ($proj.dias_completos) {
-                foreach ($d in $proj.dias_completos) {
-                    if ($d -match "^dia$num") { $concluido = $true; break }
-                }
+                $concluido = Test-GateCoberto -diasCompletos $proj.dias_completos -gateNum $num
             }
             if (-not $concluido) {
                 $diasGargalo = ($hoje - $gateDate.Date).Days
