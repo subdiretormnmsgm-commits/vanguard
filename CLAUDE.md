@@ -297,6 +297,14 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     O hook cria commit separado [AUTO-RESOLVE] -- nao amend -- sem risco de loop infinito.
     Fallback: reconcile_pendentes.ps1 no session_start alerta via PENDENTES-WATCH residuais.
     Músculo que omite [RESOLVE:] = violação P-087 — o fallback alerta na próxima sessão.
+31. P-090 — PASSO3 É ESCRITO NO ARQUIVO, NÃO NO CHAT (2026-05-29):
+    Conteúdo gerado no chat (M-1 a M-5, MISSÃO do loop) é RASCUNHO — invisível ao Gemini.
+    O Gemini lê PASSO3_GEMINI.md — não o chat. Músculo que escreve M-1 a M-5 e não usa
+    Write tool para gravar em CLIENTES/[CLIENTE]/PASSO3_GEMINI.md enviou placeholder ao Gemini.
+    AÇÃO OBRIGATÓRIA: ao gerar qualquer conteúdo para PASSO3, escrever no arquivo ANTES
+    de qualquer outra coisa — Write tool, não narração.
+    Gate de proteção: gemini_anchor_generator.ps1 bloqueia (exit 1) se detectar [MUSCULO: no arquivo.
+    Músculo que deixa placeholder no arquivo = Gemini faz análise livre = DIRETRIZ inválida.
 ```
 
 ---

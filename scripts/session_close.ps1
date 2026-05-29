@@ -445,6 +445,47 @@ $g6ok = -not ($manifestStatus.Values -contains "VERMELHO")
 $gateStatus.G6 = if ($g6ok) { "VERDE" } else { "AMARELO" }
 
 # ==========================================================================
+# GATE 6.5 — P-089 FIX: gerar PASSO3 do proximo loop SOMENTE ao fechar loop completo
+# Timing correto: todos os 4 socios OK = loop fechado = gerar esqueleto N+1
+# ==========================================================================
+$p3tmpl = Join-Path $BASE "PENTALATERAL_UNIVERSAL\TEMPLATES\scripts\passo3_template.txt"
+if (Test-Path $p3tmpl) {
+    foreach ($pBuild in $projetosEmBuild) {
+        $pCli = $pBuild.cliente
+        if (-not $pCli) { continue }
+        $fase = $pBuild.loop_fase_atual
+        if (-not $fase) { continue }
+        $loopFechado = ($fase.gemini -eq "OK") -and ($fase.notebooklm -eq "OK") -and
+                       ($fase.embaixador -eq "OK") -and ($fase.musculo -eq "OK")
+        if ($loopFechado) {
+            $loopN       = try { [int]$fase.loop } catch { 0 }
+            $proximoLoop = $loopN + 1
+            $cliUp       = $pCli.ToUpper()
+            $cliLow      = $pCli.ToLower()
+            $p3out       = Join-Path $BASE "CLIENTES\$cliUp\PASSO3_GEMINI.md"
+            # P-059: gate de isolamento
+            if (-not (Test-Path (Split-Path $p3out))) { continue }
+            $p3c = Get-Content $p3tmpl -Raw -Encoding UTF8
+            $diasF = if ($pBuild.dias_completos) { ($pBuild.dias_completos -join " | ") } else { "nao informado" }
+            $stAsc = if ($pBuild.status) { ($pBuild.status -replace '[^\x00-\x7F]','?').Substring(0,[Math]::Min(120,$pBuild.status.Length)) } else { "em andamento" }
+            $gtNext = "Gemini -- DIRETRIZ V$proximoLoop"
+            $p3c = $p3c -replace '\{CLIENTE\}',        $cliUp
+            $p3c = $p3c -replace '\{CLIENTE_LOWER\}',  $cliLow
+            $p3c = $p3c -replace '\{LOOP_NUM\}',       [string]$proximoLoop
+            $p3c = $p3c -replace '\{LOOP_PREV\}',      [string]$loopN
+            $p3c = $p3c -replace '\{DATA\}',            (Get-Date -Format "yyyy-MM-dd")
+            $p3c = $p3c -replace '\{DIRETRIZ_NUM\}',   [string]$proximoLoop
+            $p3c = $p3c -replace '\{DIAS_COMPLETOS\}', $diasF
+            $p3c = $p3c -replace '\{ESTADO_ATUAL\}',   $stAsc
+            $p3c = $p3c -replace '\{GATE_PROXIMO\}',   $gtNext
+            $utf8nob = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText($p3out, $p3c, $utf8nob)
+            Write-Host "  [GATE 6.5] PASSO3 $cliUp Loop $proximoLoop gerado (loop $loopN fechado)" -ForegroundColor Green
+        }
+    }
+}
+
+# ==========================================================================
 # GATE 7 — LOG_EXECUCAO_DIARIA
 # ==========================================================================
 Write-Host ""

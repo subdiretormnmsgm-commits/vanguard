@@ -1590,3 +1590,39 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 > Pipeline que depende de arquivo de saída para avançar deve checar a existência desse arquivo antes de reprocessar a entrada. DECISOES sem VEREDITOS correspondente pode ser dado pendente ou dado deliberado fora do pipeline formal — o script precisa distinguir os dois estados, ou reprocessa o passado indefinidamente.
 
 **Aplicacao:** Ao construir qualquer script de orquestração que consome JSONs ou arquivos de entrada: sempre checar se o arquivo de saída esperado já existe antes de processar. Adicionar parâmetro -forcar para casos de reabertura intencional. Arquivos deliberados fora do pipeline formal devem ir para pasta com prefixo _ (ex: _ARQUIVADO/) para que filtros os excluam automaticamente.
+
+---
+
+## P-088 - PS5.1 CODIGO-FONTE ASCII-ONLY -- CONTEUDO RICO VAI PARA TEMPLATE EXTERNO (2026-05-28)
+**Origem:** INGRID · Loop 6 · [FALHA-PROCESSO-2026-05-28] — gerar_artefato_embaixador.ps1 com here-string contendo em-dashes e acentos causou falha silenciosa de parsing no PS5.1
+**Veredito:** Inscrito — Opção 2 implementada — template externo .txt com placeholders {TOKEN}
+
+> Here-strings em PS5.1 com Unicode silenciosamente corrompem o script. O operador `--` (decremento) é lido quando `---` aparece dentro de `@"..."@`. Em-dashes (U+2014), aspas curvas e qualquer caractere não-ASCII causam falha de parsing sem mensagem de erro clara. A solução correta é separar completamente: código PS5.1 fica ASCII-only; conteúdo rico (acentos, em-dashes, markdown) vai para arquivo .txt externo lido com `Get-Content -Raw -Encoding UTF8`. Substituição de placeholders `{TOKEN}` com `-replace` é o único padrão seguro.
+
+**Regra derivada:** Nunca here-string com Unicode em PS5.1. Nunca. Sem exceção. Todo script .ps1 que gere texto rico deve: (a) manter código-fonte 100% ASCII, (b) ler template externo .txt via Get-Content UTF8, (c) usar -replace '\{TOKEN\}', $valor para substituição. Validação obrigatória: `[Parser]::ParseFile()` após criar ou editar qualquer .ps1. O validate_scripts.ps1 aplica esta regra automaticamente (P-060).
+
+**Ferramentas:** `PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/` (pasta de templates externos) · `scripts/validate_scripts.ps1` · DEPENDENCY_MAP TIPO 2 para cada template .txt que gera instância.
+
+---
+
+## P-089 - DOCUMENTO DE CONTEXTO DO SOCIO E REGENERADO PELO SCRIPT DO SOCIO ANTERIOR (2026-05-28)
+**Origem:** INGRID · Loop 6 · [FALHA-PROCESSO-2026-05-28] — PASSO3_GEMINI.md ficou na versão Loop 5 porque a regeneração não estava acoplada à conclusão do Gemini. Diretor tentou ir ao Gemini quando o Loop 6 já tinha DIRETRIZ aprovada.
+**Veredito:** Inscrito — Embaixador identificou causa raiz — gemini_anchor_generator.ps1 regenera PASSO3_GEMINI.md automaticamente ao marcar gemini=OK
+
+> Documento de contexto desatualizado faz o Pentalateral operar em loop errado. O Músculo assume que "já foi feito" e o Diretor assume que "ainda falta fazer" — ambos corretos para loops diferentes. O acoplamento resolve: o script que avança o WIP_BOARD regenera o PASSO3 na mesma execução, sem etapa separada, sem disciplina humana.
+
+**Regra derivada:** gemini_anchor_generator.ps1 regenera PASSO3_GEMINI.md ao concluir. preparar_notebooklm_projeto.ps1 deve regenerar PASSO5_NOTEBOOKLM.md ao concluir. ir_ao_embaixador.ps1 deve regenerar PASSO7_EMBAIXADOR.md ao concluir. Cada script de sócio é responsável pelo documento de contexto do sócio seguinte — nunca o Músculo manualmente depois. Template externo .txt (P-088) com placeholders: {CLIENTE}, {LOOP_NUM}, {LOOP_PREV}, {DATA}, {GATE_PROXIMO}.
+
+**Ferramentas:** `PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/passo3_template.txt` · `scripts/gemini_anchor_generator.ps1` (bloco P-089 ao final) · DEPENDENCY_MAP TIPO 2.
+
+---
+
+## P-090 - PASSO3 É ESCRITO NO ARQUIVO — NÃO NO CHAT (2026-05-29)
+**Origem:** INGRID · Loop 6 · [FALHA-PROCESSO-2026-05-29] — Músculo gerou M-1 a M-5 no chat mas não escreveu em PASSO3_GEMINI.md. gemini_anchor_generator.ps1 leu o esqueleto vazio com `[MÚSCULO: completar]`. Gemini recebeu placeholder e fez análise livre em vez de DIRETRIZ estruturada.
+**Veredito:** Inscrito — Embaixador identificou causa raiz e propôs a ferramenta de prevenção.
+
+> Conteúdo gerado no chat é rascunho. Conteúdo no arquivo é real. O chat não persiste entre sessões, o arquivo sim. O Gemini recebe o arquivo — nunca o chat. Músculo que escreve apenas no chat está executando para si mesmo, não para o sistema.
+
+**Regra derivada:** Ao gerar M-1 a M-5 ou qualquer conteúdo destinado ao PASSO3, o Músculo escreve IMEDIATAMENTE no arquivo `CLIENTES/[CLIENTE]/PASSO3_GEMINI.md` usando Write tool. gemini_anchor_generator.ps1 bloqueia com exit 1 se encontrar `[MUSCULO:` no arquivo antes de ir ao Gemini.
+
+**Ferramentas:** Gate 0 em `scripts/gemini_anchor_generator.ps1` · Gate de versão em `scripts/preparar_notebooklm_projeto.ps1` · Gate 6.5 em `scripts/session_close.ps1` (gera PASSO3 N+1 ao fechar loop completo).

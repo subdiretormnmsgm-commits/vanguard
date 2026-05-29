@@ -39,6 +39,31 @@ if (-not (Test-Path $proj_dir)) {
     exit 1
 }
 
+# GATE DE VERSAO -- verificar artefatos do loop atual antes do Wipe & Sync
+# Previne NotebookLM receber arquivos do loop anterior misturados com o atual
+$wipCheck = Get-Content "$raiz\CLIENTES\WIP_BOARD.json" -Raw -Encoding UTF8 | ConvertFrom-Json
+$projCheck = @($wipCheck.board.build) | Where-Object { $_.cliente.ToUpper() -eq $cliente } | Select-Object -First 1
+if ($projCheck -and $projCheck.loop_fase_atual -and $projCheck.loop_fase_atual.loop) {
+    $loopAtual  = [int]$projCheck.loop_fase_atual.loop
+    $clienteLow = $cliente.ToLower()
+    $memAtual   = "$raiz\CLIENTES\$cliente\HISTORICO\MEMORIA_V${loopAtual}_${clienteLow}.md"
+    $relAtual   = "$raiz\CLIENTES\$cliente\HISTORICO\relatorio_evolutivo_V${loopAtual}_${clienteLow}.md"
+    $gvFaltando = @()
+    if (-not (Test-Path $memAtual))   { $gvFaltando += "MEMORIA_V${loopAtual}_${clienteLow}.md" }
+    if (-not (Test-Path $relAtual))   { $gvFaltando += "relatorio_evolutivo_V${loopAtual}_${clienteLow}.md" }
+    if ($gvFaltando.Count -gt 0) {
+        Write-Host ""
+        Write-Host "=== GATE VERSAO -- BLOQUEADO ===" -ForegroundColor Red
+        Write-Host "  Artefatos do Loop $loopAtual ausentes -- NotebookLM receberia versao anterior." -ForegroundColor Red
+        Write-Host "  Faltando:" -ForegroundColor Yellow
+        $gvFaltando | ForEach-Object { Write-Host "    -> $_" -ForegroundColor Yellow }
+        Write-Host ""
+        Write-Host "  Musculo deve gerar MEMORIA_V$loopAtual + relatorio_V$loopAtual antes do NotebookLM." -ForegroundColor Yellow
+        exit 1
+    }
+    Write-Host "[GATE VERSAO] Artefatos Loop $loopAtual confirmados." -ForegroundColor Green
+}
+
 # Limpar ou criar pasta NOTEBOOKLM_FONTES
 if (Test-Path $fontes_dir) {
     Remove-Item "$fontes_dir\*" -Force -Recurse
