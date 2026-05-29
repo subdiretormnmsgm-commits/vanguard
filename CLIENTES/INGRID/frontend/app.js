@@ -122,11 +122,19 @@ async function iniciar() {
   const aceitou = await verificarClickwrap();
   if (!aceitou) return;
 
-  // Dia 13: Widget Contador — carregar pontos cumulativos do DB antes de exibir feed
+  // Dia 13: Widget Contador — carregar pontos cumulativos + delta semanal
   calcularPontosCumulativos().then(dados => {
-    if (dados && dados.pontos_total > 0) {
+    if (!dados) return;
+    if (dados.pontos_total > 0) {
       pontosBase = dados.pontos_total;
       document.getElementById("pontos-valor").textContent = pontosBase;
+    }
+    if (dados.pontos_esta_semana > 0) {
+      const delta = document.getElementById("pontos-delta");
+      if (delta) {
+        delta.textContent = `+${dados.pontos_esta_semana}`;
+        delta.style.display = "inline";
+      }
     }
   });
 

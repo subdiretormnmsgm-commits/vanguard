@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-05-27",
+    "atualizado_em":  "2026-05-28",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -37,14 +37,16 @@
                                                            "dia3_5_feed_sm2_pwa",
                                                            "dia6_8_tutor_fallback",
                                                            "dia9_11_heatmap_simulado",
-                                                           "dia12_contador_socratica_vacina_push_cb"
+                                                           "dia12_contador_socratica_vacina_push_cb",
+                                                           "dia13_pontos_ponderados_push_dominical"
                                                        ],
                                     "delivery_dates":  {
                                                            "dia1_2":  "2026-05-15",
                                                            "dia3_5":  "2026-05-17",
                                                            "dia6_8":  "2026-05-19",
                                                            "dia9_11":  "2026-05-20",
-                                                           "dia12":  "2026-05-23"
+                                                           "dia12":  "2026-05-23",
+                                                           "dia13":  "2026-05-28"
                                                        },
                                     "plano_build":  {
                                                         "dia1_2":  "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
@@ -146,8 +148,8 @@
                                                             "loop":  6,
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
-                                                            "embaixador":  "PENDENTE",
-                                                            "musculo":  "PENDENTE",
+                                                            "embaixador":  "OK",
+                                                            "musculo":  "OK -- P-037 DELIBERACAO_LOOP_V6 gerada 2026-05-27",
                                                             "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
                                                         },
                                     "churn_watch_threshold":  5
@@ -322,5 +324,10 @@
                                "regra_3":  "Nada vai para ENTREGUE sem Sovereign Playbook gerado",
                                "regra_4":  "Sentinel do cliente atual validado antes de novo projeto entrar em BUILD",
                                "regra_5":  "Retainer so apos 30 dias de dados reais do Sentinel"
-                           }
+                           },
+    "meta":  {
+                 "loops_desde_ultimo_checkup":  0,
+                 "data_ultimo_checkup":  "2026-05-27",
+                 "checkup_recomendado":  false
+             }
 }

@@ -66,6 +66,13 @@ header {
   letter-spacing: 0.06em;
 }
 
+.pontos-delta {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--green);
+  display: none;
+}
+
 .progresso-pill {
   font-size: 12px;
   color: var(--muted);

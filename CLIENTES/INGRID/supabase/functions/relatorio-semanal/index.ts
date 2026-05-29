@@ -130,6 +130,8 @@ serve(async (req) => {
       `💪 Forte: ${discForte} · ⚠️ Fraca: ${discFraca}`,
       `⏳ ${semanasRestantes} semanas até 06/09/2026`,
       ``,
+      `🎯 *Domingo de estudo!* Abra o app e faça o Micro-Simulado de 10 questões cronometradas.`,
+      ``,
       `_Copie e envie para Ingrid no WhatsApp._`,
     ].join("\n");
 

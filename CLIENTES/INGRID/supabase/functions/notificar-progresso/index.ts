@@ -22,7 +22,7 @@ const GATES = [
   { dia: 5,  data: "17/05", desc: "Feed 70/30 · SM-2 · 7 dias",      status: "✅" },
   { dia: 8,  data: "19/05", desc: "PWA completo · Tutor · Fallback",  status: "✅" },
   { dia: 11, data: "22/05", desc: "Heatmap + Micro-Simulado",         status: "✅" },
-  { dia: 13, data: "24/05", desc: "Pontos Ponderados + Push domingo", status: "🔜" },
+  { dia: 13, data: "28/05", desc: "Pontos Ponderados + Push domingo", status: "✅" },
   { dia: 15, data: "30/05", desc: "Entrega final + SaaS Readiness",   status: "⬜" },
 ];
 
