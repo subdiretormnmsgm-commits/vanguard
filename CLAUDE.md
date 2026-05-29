@@ -288,6 +288,15 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     Ao concluir o check-up: rodar `scripts/reset_checkup.ps1` — reseta contador no WIP_BOARD.meta.
     Músculo que pula o check-up quando aviso aparece = sistema degradando silenciosamente.
     Ferramenta de reset: `scripts/reset_checkup.ps1`.
+30. P-087 — [RESOLVE:] OBRIGATÓRIO EM COMMIT QUE CONCLUI PENDENTE (2026-05-28):
+    Todo commit que conclui tarefa do PENDENTES.md DEVE incluir [RESOLVE: keyword] na mensagem.
+    Formato: <tipo>(<escopo>): <descricao> [RESOLVE: <keyword-do-pendente>]
+    Exemplos: "feat(ingrid): F-2 backend [RESOLVE: F-2]" · "fix(ingrid): bug [RESOLVE: bug-negrito]"
+    Keyword: substring presente na linha do PENDENTES.md (match parcial, case-sensitive).
+    Hook .git/hooks/post-commit detecta a tag e chama auto_resolve_pendentes.ps1 automaticamente.
+    O hook cria commit separado [AUTO-RESOLVE] -- nao amend -- sem risco de loop infinito.
+    Fallback: reconcile_pendentes.ps1 no session_start alerta via PENDENTES-WATCH residuais.
+    Músculo que omite [RESOLVE:] = violação P-087 — o fallback alerta na próxima sessão.
 ```
 
 ---

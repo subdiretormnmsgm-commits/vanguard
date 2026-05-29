@@ -1571,6 +1571,18 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 ---
 
+## P-087 - MARCAÇÃO DE CONCLUSÃO DESACOPLADA DO ATO DE CONCLUIR É DÍVIDA TÉCNICA DE PROCESSO (2026-05-28)
+**Origem:** INGRID · Loop 6 · [FALHA-PROCESSO-2026-05-28] — commits 86e112b e a2b42f5 concluíram F-2/F-4/F-6 sem marcar [x] no PENDENTES.md
+**Veredito:** Inscrito — hook + fallback deployados — P-033 aplicado em arquitetura
+
+> Marcação de conclusão que depende de etapa separada do ato de concluir sempre ficará desatualizada. O session_close.ps1 usa leitura passiva do PENDENTES — quando o Músculo commita trabalho após o script de fechamento, a marcação não ocorre. A solução correta é o acoplamento: o commit que resolve a tarefa é o mesmo artefato que a marca como concluída, via tag [RESOLVE:] no commit message + post-commit hook que executa a marcação sem intervenção humana.
+
+**Regra derivada:** toda mensagem de commit que conclui tarefa do PENDENTES.md carrega `[RESOLVE: keyword]` ao final. Formato: `<tipo>(<escopo>): <descricao> [RESOLVE: <keyword>]`. O hook `.git/hooks/post-commit` detecta a tag e chama `auto_resolve_pendentes.ps1` automaticamente — commit separado, não amend, sem loop infinito. Fallback: `reconcile_pendentes.ps1` roda no session_start e alerta discrepâncias residuais via seção PENDENTES-WATCH. Processo que depende de disciplina humana falha (P-033) — a tag [RESOLVE:] torna o comportamento correto o único caminho disponível.
+
+**Ferramentas:** `scripts/auto_resolve_pendentes.ps1` · `scripts/reconcile_pendentes.ps1` · `.git/hooks/post-commit` (Etapa 3) · `.claude/hooks/session_start.ps1` (PENDENTES-WATCH).
+
+---
+
 ## P-084 - PIPELINE COM ARQUIVO DE SAIDA DEVE CHECAR EXISTENCIA ANTES DE REPROCESSAR (2026-05-27)
 **Origem:** INGRID . Loop 6 . Fricção real — render_painel.ps1 reprocessava DECISOES Loop 5 por tres sessoes consecutivas
 **Veredito:** Inscrito — Embaixador identificou causa raiz, Músculo aplicou gate [FALHA-PROCESSO-2026-05-27]

@@ -185,6 +185,18 @@ function Get-PendentesAlert {
 
 $pendentesAlert = Get-PendentesAlert
 
+# --- PENDENTES-WATCH: fallback P-087 -- commits recentes vs itens abertos sem [x] ---
+$pendentesWatchOutput = ""
+$reconcileScript = Join-Path $projectDir "scripts\reconcile_pendentes.ps1"
+if (Test-Path $reconcileScript) {
+    try {
+        $pwLines = & powershell.exe -NonInteractive -File $reconcileScript 2>$null
+        if ($pwLines) {
+            $pendentesWatchOutput = ($pwLines | Where-Object { $_ -ne $null }) -join "`n"
+        }
+    } catch {}
+}
+
 # --- P-069: Mapa Diario de Pendencias (visibilidade cruzada por data em todos os projetos) ---
 $mapaDiarioOutput = ""
 $mapaDiarioScript = Join-Path $projectDir "scripts\mapa_diario_pendencias.ps1"
@@ -445,6 +457,7 @@ if ((Test-Path $wipForSkill) -and (Test-Path $swScript)) {
 
 $sections = @()
 if ($pendentesAlert)     { $sections += "## PENDENTES (P-048) - LER PRIMEIRO`n$pendentesAlert" }
+if ($pendentesWatchOutput) { $sections += "## PENDENTES-WATCH (P-087) -- CONFIRMAR MARCACAO`n$pendentesWatchOutput" }
 if ($estadoRealOutput)   { $sections += "## ESTADO REAL DOS PROJETOS (P-055) - VERIFICADO EM DISCO`n$estadoRealOutput" }
 if ($ledger)             { $sections += "## INTELLIGENCE_LEDGER - PRINCIPIOS ATIVOS`n$ledger" }
 if ($wip)                { $sections += "## WIP_BOARD - PROJETOS ATIVOS`n$wip" }
