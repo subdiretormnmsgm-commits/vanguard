@@ -112,7 +112,7 @@ Executar conforme o gatilho -- nao a cada sessao:
 
 ## ACOES HUMANAS INSUBSTITUIVEIS — limites reais do sistema
 
-Estas 4 acoes nao podem ser automatizadas por limitacao de API.
+Estas 5 acoes nao podem ser automatizadas por limitacao de API.
 Sao o unico trabalho manual obrigatorio do Diretor por loop.
 
 | Acao | Por que nao automatiza | Tempo |
@@ -121,8 +121,12 @@ Sao o unico trabalho manual obrigatorio do Diretor por loop.
 | Salvar Skill em NOTEBOOKLM_DROP | NotebookLM nao tem API | 30s |
 | Clicar nas opcoes do Painel HTML | Deliberacao e humana por design | 2-5 min |
 | Upload do PAINEL ao Embaixador | Claude Projects sem API de upload | 30s |
+| Upload MEMORIA + LEDGER ao Claude Projects | Claude Projects sem API de upload | 1 min |
 
-Total de trabalho manual insubstituivel por loop: ~4-6 minutos.
+Gate 9B (session_close) lista quais arquivos fazer upload e em qual prioridade.
+CRITICO = obrigatorio antes de ir ao Embaixador. ALTO = mesma sessao. MEDIO = pode aguardar.
+
+Total de trabalho manual insubstituivel por loop: ~5-7 minutos.
 Todo o resto detecta, alerta, bloqueia ou executa automaticamente.
 
 ---
@@ -138,8 +142,9 @@ Todo o resto detecta, alerta, bloqueia ou executa automaticamente.
   PAINEL_ATIVIDADES enviado ao Embaixador -- Diretor? SIM / NAO (registrar)
   Alertas de gargalo verificados?                    SIM / NAO (registrar)
   Countdown de gates exibido?                        SIM / NAO (registrar)
+  Claude Projects sincronizado (MEMORIA + LEDGER)?   SIM / NAO (Gate 9B lista automaticamente)
 
-Nove SIM = sessao fechada com integridade.
+Dez SIM = sessao fechada com integridade.
 Qualquer NAO = pendencia aberta -> registrar em PENDENTES.md antes de fechar.
 
 ---

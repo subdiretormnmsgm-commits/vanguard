@@ -448,6 +448,13 @@ function Get-LembreteDeLoop {
                 $linhas += "  $icon $($socio.PadRight(11)): $st"
             }
             $linhas += "  PROXIMO      : $($lfa.proximo)"
+            # claude_projects_pendente -- flag de upload pendente
+            $cpPend = $false
+            try { $cpPend = [bool]$board.meta.claude_projects_pendente } catch {}
+            $cpStatus = if ($cpPend) {
+                "DESATUALIZADO -- fazer upload antes de ir ao Embaixador"
+            } else { "OK" }
+            $linhas += "  Claude Proj  : $cpStatus"
             $linhas += ""
         }
         if (-not $temDado) { return $null }

@@ -1279,6 +1279,40 @@ Write-Host "=======================================================" -Foreground
 Write-Host ""
 
 # ==========================================================================
+# GATE 9B — SINCRONIZACAO CLAUDE PROJECTS (P-032)
+# Nivel 1: alerta imediato se VEREDITO executado hoje sem MEMORIA atualizada
+# Nivel 2: lista priorizada de uploads necessarios
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 9B] Sincronizacao Claude Projects..." -ForegroundColor Cyan
+
+# Nivel 1 -- alerta P-032 por projeto
+foreach ($projScp in $projetosEmBuild) {
+    $cliScp      = $projScp.cliente.ToUpper()
+    $memoriaScpP = "$BASE\CLIENTES\$cliScp\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
+    if (Test-Path $memoriaScpP) {
+        $minScp = ([datetime]::Now - (Get-Item $memoriaScpP).LastWriteTime).TotalMinutes
+        $decPastaScp = "$BASE\CLIENTES\$cliScp\CLAUDE_PROJECT\DECISOES"
+        $veredHoje = @(Get-ChildItem "$decPastaScp\VEREDITOS_*.json" -ErrorAction SilentlyContinue |
+                       Where-Object { $_.LastWriteTime.Date -eq [datetime]::Today })
+        if ($veredHoje.Count -gt 0 -and $minScp -gt 120) {
+            Write-Host "  [GATE 9B] $cliScp -- P-032 VIOLADO: VEREDITO executado hoje mas MEMORIA_EMBAIXADOR nao atualizada." -ForegroundColor Red
+            Write-Host "             Atualizar MEMORIA_EMBAIXADOR antes de fazer upload ao Claude Projects." -ForegroundColor Red
+        }
+    }
+}
+
+# Nivel 2 -- script estrutural de uploads
+$scpScript = "$BASE\scripts\sincronizar_claude_projects.ps1"
+$nomesProjScp = @($projetosEmBuild | ForEach-Object { $_.cliente.ToUpper() })
+if ((Test-Path $scpScript) -and $nomesProjScp.Count -gt 0) {
+    & powershell.exe -NonInteractive -File $scpScript -projetos $nomesProjScp 2>$null
+    if ($LASTEXITCODE -eq 0) { $gateStatus["G9B"] = "VERDE" } else { $gateStatus["G9B"] = "AMARELO" }
+} else {
+    Write-Host "  [GATE 9B] sincronizar_claude_projects.ps1 nao encontrado -- ignorado" -ForegroundColor DarkGray
+}
+
+# ==========================================================================
 # APRESENTACAO AO DIRETOR — ordem canonica obrigatoria (P-086)
 # ==========================================================================
 Write-Host ""
