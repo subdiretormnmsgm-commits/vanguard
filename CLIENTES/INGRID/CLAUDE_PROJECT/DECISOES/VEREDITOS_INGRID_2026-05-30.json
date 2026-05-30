@@ -1,54 +1,71 @@
 {
-  "schema_versao": "1.1",
+  "schema_versao": "1.0",
   "projeto": "PROJ002_INGRID",
+  "projeto_label": "INGRID",
   "data_decisoes": "2026-05-30",
-  "data_veredito": "2026-05-30",
-  "deliberado_por": "Diretor Eduardo",
-  "metodo": "Aceito sugestões do Músculo — veredito direto (sem painel HTML)",
-  "cliente": "INGRID",
+  "data_veredito": "2026-05-30T15:13:29.574Z",
   "loop": 7,
   "vereditos": [
     {
       "id": "D1",
       "titulo": "DEPLOY-WATCH — F-4 e F-6 em produção",
-      "status": "APROVADO",
-      "valor_selecionado": "executar_deploy",
-      "nota": "Músculo executa supabase login + deploy F-4 e F-6 + smoke test"
+      "valor_selecionado": "aguardar_github",
+      "label_selecionado": "Aguardar desbloqueio GitHub Pages primeiro",
+      "texto_final": "",
+      "acoes": [
+        "log_apenas"
+      ]
     },
     {
       "id": "D2",
       "titulo": "RLS-WATCH — test_tenant_isolation.ps1",
-      "status": "APROVADO",
-      "valor_selecionado": "rodar_dry_run",
-      "nota": "Músculo roda dry-run de isolamento de tenant — Gate 7.2"
-    },
-    {
-      "id": "D3",
-      "titulo": "PITCH-WATCH — debrief casual 31/05",
-      "status": "APROVADO",
-      "valor_selecionado": "enviar_debrief_amanha",
-      "nota": "Eduardo envia mensagem casual amanhã — gate informal antes do pitch"
+      "valor_selecionado": "aguardar_loop8",
+      "label_selecionado": "Registrar como pendência Loop 8",
+      "texto_final": "",
+      "acoes": [
+        "log_apenas"
+      ]
     },
     {
       "id": "D4",
-      "titulo": "GITHUB-WATCH — Pages push bloqueado",
-      "status": "APROVADO",
-      "valor_selecionado": "seguir_link_security",
-      "nota": "Eduardo segue link GitHub Security hoje — ação exclusivamente humana"
+      "titulo": "GITHUB-WATCH — Pages push bloqueado por token no histórico",
+      "valor_selecionado": "registrar_pendencia",
+      "label_selecionado": "Registrar como pendência e continuar com deploy manual",
+      "texto_final": "",
+      "acoes": [
+        "log_apenas"
+      ]
     },
     {
-      "id": "D5",
-      "titulo": "M-4 AJUSTE — Link demo bloqueado até segunda usuária",
-      "status": "APROVADO",
-      "valor_selecionado": "bloquear_m4",
-      "nota": "M-4 bloqueado — anonimato fictício com 1 usuária. Liberar quando segunda usuária entrar."
+      "id": "D3",
+      "titulo": "PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado",
+      "valor_selecionado": "enviar_debrief_amanha",
+      "label_selecionado": "Enviar debrief casual amanhã — coletar temperatura real",
+      "texto_final": "Ingrid! Aquela configuração que fizemos hoje ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚",
+      "acoes": [
+        "copiar_clipboard",
+        "log_contato"
+      ]
     },
     {
       "id": "D6",
-      "titulo": "E-4 TIMING — Plantar semente pós-aprovação",
-      "status": "APROVADO",
-      "valor_selecionado": "plantar_esta_semana",
-      "nota": "Eduardo planta no debrief D3 desta semana. Frase pronta para clipboard."
+      "titulo": "E-4 TIMING — Plantar semente pós-aprovação esta semana",
+      "valor_selecionado": "aguardar_mais_proxima",
+      "label_selecionado": "Aguardar sessão com mais engajamento verbal",
+      "texto_final": "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄",
+      "acoes": [
+        "log_apenas"
+      ]
+    },
+    {
+      "id": "D5",
+      "titulo": "M-4 AJUSTE — Link demo: aprovar restrição a gráficos apenas",
+      "valor_selecionado": "bloquear_m4",
+      "label_selecionado": "Bloquear M-4 até segunda usuária — confirmar restrição",
+      "texto_final": "",
+      "acoes": [
+        "log_apenas"
+      ]
     }
   ]
 }

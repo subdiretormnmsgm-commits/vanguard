@@ -21,6 +21,7 @@
 
 | Data | Canal | Evento objetivo | Fonte |
 |---|---|---|---|
+| 2026-05-30 | WhatsApp | Veredito: Enviar debrief casual amanhã — coletar temperatura real (PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado) | VEREDITOS_INGRID_2026-05-30.json |
 | 2026-05-16 | WhatsApp | Termo enviado para assinatura | Diretor |
 | 2026-05-18 | WhatsApp | Termo assinado por Ingrid | Diretor (confirmado 2026-05-19) |
 | 2026-05-18 | App (PWA) | Primeira sessão real — Gate Dia 8 | Ingrid |
