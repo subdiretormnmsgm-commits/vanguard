@@ -22,11 +22,11 @@
 #### Loop Fase Atual (Loop 7)
 | Sócio | Status |
 |---|---|
-| Gemini | PENDENTE — DIRETRIZ V7 não gerada (confirmado 2026-05-30) |
+| Gemini | OK — DIRETRIZ V7 recebida · 12_DIRETRIZ_GEMINI_V7.txt salvo em NOTEBOOKLM_FONTES |
 | NotebookLM | PENDENTE |
 | Embaixador | PENDENTE |
 | Músculo | PENDENTE |
-| Próximo | Gemini — PASSO3 pronto — Diretor leva ao Gemini |
+| Próximo | NotebookLM — PASSO5 pronto — Wipe & Sync — Skill ingrid-v7.md |
 
 #### Dias Concluídos
 - dia1_schema_edge ✅
