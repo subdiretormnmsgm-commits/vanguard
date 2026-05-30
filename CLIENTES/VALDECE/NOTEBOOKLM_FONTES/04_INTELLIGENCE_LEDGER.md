@@ -1617,6 +1617,31 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 ---
 
+## P-091 — WIP_BOARD REFLETE REALIDADE, NÃO INTENÇÃO (2026-05-30)
+**Origem:** Embaixador Ingrid · Via: Diretor Eduardo · 2026-05-30
+**Veredito:** AJUSTADO e inscrito pelo Diretor em 2026-05-30.
+
+> P-091: WIP_BOARD reflete realidade — não intenção. socio=OK sem
+> artefato correspondente em disco é dado falso. Regra dupla:
+> (1) auditar_consistencia.ps1 cruza WIP_BOARD com disco a cada
+> fechamento — divergência = exit 2 bloqueante; (2) Músculo verifica
+> artefato em disco antes de reportar qualquer socio=OK como verdade —
+> nunca confiar no documento sem evidência física. corrigir_wip.ps1
+> reverte sócio para PENDENTE quando divergência detectada.
+
+**Artefatos verificados por sócio:**
+- `gemini=OK` → `CLIENTES\[CLIENTE]\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI_V[N].txt`
+- `notebooklm=OK` → `.claude\skills\[cliente]-v[N].md`
+- `musculo=OK` → `CLIENTES\[CLIENTE]\HISTORICO\DELIBERACAO_LOOP_V[N]_[cliente].md`
+
+**Ferramentas:**
+- `scripts/auditar_consistencia.ps1` Gate 0 — exit 2 bloqueante se divergência
+- `scripts/corrigir_wip.ps1 -cliente X -socio Y -loop N` — reverte para PENDENTE com log
+
+**Aplica-se a:** toda leitura de WIP_BOARD que declare estado de sócio como OK. Todo projeto, todo loop.
+
+---
+
 ## P-090 - PASSO3 É ESCRITO NO ARQUIVO — NÃO NO CHAT (2026-05-29)
 **Origem:** INGRID · Loop 6 · [FALHA-PROCESSO-2026-05-29] — Músculo gerou M-1 a M-5 no chat mas não escreveu em PASSO3_GEMINI.md. gemini_anchor_generator.ps1 leu o esqueleto vazio com `[MÚSCULO: completar]`. Gemini recebeu placeholder e fez análise livre em vez de DIRETRIZ estruturada.
 **Veredito:** Inscrito — Embaixador identificou causa raiz e propôs a ferramenta de prevenção.

@@ -144,11 +144,11 @@
                                     "proximo_passo":  "Loop 5 CONCLUIDO Â· Loop 6: Gemini PASSO3 â†’ ingrid-v6.md â†’ Embaixador â†’ build Â· Sentinel CHURN-WATCH ativo Â· Pitch SaaS R$97/mÃªs ao verbalizar uso ativo",
                                     "loop_fase_atual":  {
                                                             "loop":  7,
-                                                            "gemini":  "OK",
-                                                            "notebooklm":  "OK",
+                                                            "gemini":  "PENDENTE",
+                                                            "notebooklm":  "PENDENTE",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
+                                                            "proximo":  "Gemini -- PASSO3 Ingrid Loop 7 (Diretriz V7 nao gerada -- confirmado pelo Diretor 2026-05-30)"
                                                         },
                                     "churn_watch_threshold":  5
                                 },

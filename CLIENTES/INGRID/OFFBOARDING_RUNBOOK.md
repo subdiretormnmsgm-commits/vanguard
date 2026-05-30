@@ -168,10 +168,10 @@ git commit -m "feat(ingrid): P-013 soberania — Supabase proprio da Ingrid"
 
 | Gate | Requisito | Status |
 |------|-----------|--------|
-| dia15 | Ingrid com acesso admin ao próprio Supabase | ⏳ PENDENTE |
+| dia15 | Ingrid com acesso admin ao próprio Supabase | ✅ APROVADO — 2026-05-30 |
 
-**Data limite:** 30-05-2026 sábado
-**Quem desbloqueia:** Eduardo + Ingrid (presencial ou chamada)
+**Data aprovação:** 30-05-2026 sábado — confirmado pelo Diretor
+**P-013 soberania:** app.js já aponta para projeto Ingrid (yjqvjhezwhepwomukudt) — v20 em produção
 
 ---
 

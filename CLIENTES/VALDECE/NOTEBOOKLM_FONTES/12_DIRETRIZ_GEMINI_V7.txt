@@ -1,0 +1,140 @@
+Diretriz Estratégica V7 — Projeto Valdece — Loop 7
+
+Recalibrando a bússola imediatamente, Diretor. O Conselho absorveu o comando e o Estrategista assume o controle analítico para entregar a rota exata do Loop 7, expurgando qualquer deriva de formato anterior. Vamos direto ao plano de ataque estruturado.
+
+---
+
+### BLOCO 0 — DIAGNÓSTICO
+
+O risco crítico invisível que Músculo e Diretor estão ignorando nesta transição de infraestrutura é o **Apagão Administrativo de Billing**. Transferir a API Key do Gemini para a conta do Valdece sem um espelhamento de contingência cria uma dependência cega: se o cartão corporativo do cliente falhar na validação do Google Cloud, o sistema cai em produção instantaneamente.
+
+Além disso, a migração para a região `sa-east-1` (São Paulo) pode alterar sutilmente o comportamento de roteamento da API. Executar a migração sem rodar o freeze técnico prévio no banco Vanguard viola o princípio `[P-038]` e pode mascarar incompatibilidades latentes no script `v3_migration.sql`.
+
+---
+
+### BLOCO 1 — PRIORIDADES DE BUILD (MÁXIMO 3)
+
+1. **Isolamento da API Key via Supabase Edge Function (HV-1 Fix)**
+* *O que construir:* Mover a lógica de geração de embeddings do frontend vanilla para uma Edge Function dedicada no Supabase, utilizando o token armazenado com segurança no Vault do servidor.
+* *Por que agora:* A cota free tier já estourou 2 vezes. O cliente pagou R$ 5.000 e o sistema não pode sofrer outages por exposição de credenciais em ambiente live.
+* *Horas reais:* 3,5 horas (desenvolvimento da função + refatoração do `app.js` + testes de interceptação de rede).
+* *O que fica fora:* Logs avançados de consumo e painel de controle de tokens por usuário.
+
+
+2. **Renderização dos Badges Vinculantes e Atualização da Citação ABNT**
+* *O que construir:* Injetar na UI as tags visuais dinâmicas "● VINCULANTE" e "● REPETITIVO" baseadas nos novos campos booleanos povoados na reingestão, além de plugar a coluna `data_dje` no gerador de citações de um clique.
+* *Por que agora:* É o cerne da entrega da V3 contratada. O valor percebido pelo advogado penalista escala drasticamente ao bater o olho no peso do precedente durante a pressão de uma audiência.
+* *Horas reais:* 2,5 horas (ajuste de CSS no tema Navy/Ouro + manipulação de string na função de cópia ABNT).
+* *O que fica fora:* Seleção múltipla de cards ou exportação de blocos de acórdãos de uma só vez.
+
+
+3. **Migração Soberana de Infraestrutura para sa-east-1 (P-013)**
+* *O que construir:* Provisionamento do novo projeto Supabase na conta limpa do cliente, aplicação do DDL estrutural e transporte seguro dos 61 acórdãos reindexados.
+* *Por que agora:* Contrato assinado exige a entrega da soberania total do ecossistema e o encerramento do uso de servidores internos da Vanguard.
+* *Horas reais:* 4 horas (configuração do tenant + dump/restore + execução completa do checklist P-038 com as 12 queries de validação técnica).
+* *O que fica fora:* Interface de gerenciamento de banco para o cliente (ele receberá acesso admin direto via Supabase Console).
+
+
+
+---
+
+### BLOCO 2 — PROPOSTA COMERCIAL
+
+O badge "VINCULANTE" será o cavalo de Troia para a consolidação da V2. Durante o handoff da V3, Eduardo deve demonstrar como o sistema diferencia o ruído comum de um precedente obrigatório em menos de 10 segundos.
+
+O gatilho para a próxima venda (Sovereign Upload + Radar de Divergência por R$ 8.500–12.000) será plantado no Dia 30 do Hypercare. O argumento comercial não será focado em tecnologia, mas na expansão do poder de fogo:
+
+> "Valdece, o Toga Digital estabilizou e agora blinda suas teses com acórdãos vinculantes automáticos. O próximo passo lógico é fazer o sistema aprender com o banco de dados privado das suas próprias petições vitoriosas, sem que nenhum dado saia do seu controle."
+
+---
+
+### BLOCO 3 — DIRETRIZ TÉCNICA
+
+#### [PARA O NOTEBOOKLM]
+
+Gerar a skill `valdece-v7.md` dividida rigorosamente em 4 partes:
+
+* **PARTE 1 — Auditoria de Coerência:** Confrontar o escopo do Loop 7 contra qualquer tentativa do Músculo de inflar o build com automações de ingestão não mapeadas contratualmente (`[P-046]`).
+* **PARTE 2 — Perspectiva do Sócio Consultor:** Avaliar o trade-off de latência geográfica ao mover o banco para `sa-east-1` mantendo as requisições da API do Gemini nos servidores norte-americanos.
+* **PARTE 3 — Skill Copiável:** Matriz técnica para `.claude/skills/valdece-v7.md` detalhando a ordem imutável de build (Edge Function → Badges → Migração) e o travamento de segurança contra o vírus do ground flexível.
+* **PARTE 4 — 5 Ideias Disruptivas do Auditor:** Insights baseados estritamente na engenharia reversa das fricções de banco de dados coletadas no repositório.
+
+#### [PARA O MÚSCULO]
+
+Sua intenção estratégica é a estabilização e a blindagem de credenciais.
+
+* **Mandatos Mandatórios:**
+1. Executar o comando `/valdece-v7` no terminal antes de alterar qualquer linha de código.
+2. Reagir a cada diretriz do Estrategista (`[G-1 a G-5]`) destrinchando a análise nos 7 pontos obrigatórios: *Certo → Diverge → Decisão → Enhancement → Custo → Impacto → Ação*. Não compactar.
+3. Reagir com justificativa técnica a cada uma das 5 ideias disruptivas do Auditor e do Embaixador.
+4. **O que NÃO construir:** Bloquear sumariamente o desenvolvimento de interfaces de upload ou rotinas de scraping neste ciclo.
+
+
+* **Gates por Dia de Build:**
+* *Dia 1:* Edge Function respondendo localmente com ocultação total da Gemini API Key no payload do cliente.
+* *Dia 2:* Badges visuais integrados e string ABNT injetando a data correta do DJe.
+* *Dia 3:* Homologação do ambiente sa-east-1 com 100% de sucesso (12/12 verde) no protocolo P-038.
+
+
+
+#### [VISÃO DE LONGO PRAZO]
+
+Em 3 meses, o Toga Digital será um ativo isolado e auto-atualizável rodando a R$ 1,20/mês na infraestrutura do cliente, servindo como o benchmark definitivo da Vanguard no setor de Legal Tech. A decisão de isolar a lógica de busca e embeddings em uma Edge Function neste loop é o que viabiliza a replicação imediata do ecossistema para o 2º nicho (Contabilidade). Para clonar o produto para normas da Receita Federal, bastará alterar o dataset de ingestão e a ontologia dos badges no frontend, mantendo o motor estrutural intacto.
+
+#### [PARA O EMBAIXADOR]
+
+Reagir no painel com base no perfil comportamental do Valdece para as seguintes diretrizes:
+
+* `[G-1]` **Badge Visual de Impacto Imediato:** Exibição explícita do peso da jurisprudência na tela para uso sob stress de tribunal.
+* `[G-2]` **Estabilidade Dry-Run de Infraestrutura:** Executar o reingest sem quebrar a UI ativa do cliente durante o horário comercial.
+
+---
+
+### BLOCO 4 — RESPOSTA ÀS IDEIAS DO MÚSCULO
+
+* **`[M-1]` Modo Audiência:** **Modificada.** A ideia é excelente, mas o custo de 4h de frontend põe em risco a estabilização da infraestrutura. Fica congelada como roadmap de engajamento para o fechamento do ciclo de Hypercare.
+* **`[M-2]` Detector de Mudança Jurisprudencial:** **Descartada.** Exige a criação de tabelas de histórico de busca e lógica de diff vetorial que consomem 6h de build. Inviável no escopo fechado da V3.
+* **`[M-3]` Export para Petição em Bloco:** **Modificada.** Não entra na V3. Será guardada e apresentada formalmente como funcionalidade nativa da V2 de alto ticket durante o pitch de renovação.
+* **`[M-4]` Watchdog de Corpus por Tema:** **Modificada.** Em vez de uma interface visual para o cliente, o Músculo deverá apenas preparar a tabela de logs silenciosa no Supabase neste loop, coletando os dados brutos que alimentarão o dashboard de ROI do Diretor no Loop 8.
+* **`[M-5]` Sovereign Upload Simplificado (Antecipação V2):** **Descartada.** Violação direta do princípio `[P-046]`. Trazer escopo de dados dinâmicos para um MVP de banco estático sem a infraestrutura de validação semântica pronta quebrará a consistência do corpus de 61 acórdãos homologados.
+
+---
+
+### BLOCO 5 — PRÓXIMOS PASSOS DO DIRETOR
+
+1. **Validação de Faturamento:** Entrar no Google Cloud Console do Valdece e forçar a ativação do billing com o cartão corporativo do cliente, gerando a nova API Key de produção.
+2. **Abertura do Tenant:** Criar a organização dedicada no Supabase em nome do Valdece na região `sa-east-1` (São Paulo) e extrair as strings de conexão para o Músculo.
+3. **Handoff de Soberania:** Imprimir o documento `OFFBOARDING_RUNBOOK.md` para entrega física no encerramento do Hypercare, tangibilizando a garantia anti-lock-in da Vanguard.
+
+---
+
+### BLOCO 6 — 5 IDEIAS DISRUPTIVAS DO ESTRATEGISTA
+
+* **`[G-1]` `[CONTRA-INTUITIVO]` Cache Estratégico de Embeddings na Edge Function:** Salvar no Supabase os embeddings das 20 queries mais realizadas pelo Valdece. Quando ele repetir uma busca em plenário, o sistema intercepta e entrega o resultado em < 100ms, sem gastar processamento na API do Gemini e gerando um efeito de velocidade absurda diante do juiz.
+* *Pergunta ao Músculo:* Qual o impacto estrutural de criar uma tabela `query_cache` para interceptar a requisição antes do disparo da Edge Function?
+
+
+* **`[G-2]` `[CONTRA-INTUITIVO]` Demonstração Oculta de Resiliência (Fail-Open Guard):** Injetar um script de simulação que desconecte a API por 5 segundos durante os testes de homologação. O sistema deve falhar de forma elegante, exibindo os últimos resultados salvos em cache local no dispositivo do cliente, provando que o Toga Digital não deixa o advogado estagnado se a internet do tribunal cair.
+* *Pergunta ao Músculo:* O service worker atual do PWA consegue sustentar a exibição dos cards de resultado offline baseando-se no LocalStorage?
+
+
+* **`[G-3]` Citação ABNT com Link de Validação Soberana:** Modificar a string copiada pelo botão "Copiar ABNT" para incluir uma URL curta e pública apontando para a ementa completa hospedada no Supabase do próprio cliente (ex: `valdece.toga.digital/v/hc-512290`). O juiz ou assessor poderá clicar na petição e abrir o acórdão validado diretamente na infraestrutura do escritório.
+* *Pergunta ao Músculo:* Conseguimos criar uma rota dinâmica simples no frontend vanilla para renderizar o card isolado do acórdão a partir do ID da URL?
+
+
+* **`[G-4]` Indexador Automático de Peso por Turma Julgadora:** Utilizar o campo `turma` adicionado no schema V3 para injetar um multiplicador de relevância silencioso. Se o Valdece estiver buscando uma tese e houver um acórdão da Turma específica perante a qual ele vai sustentar oralmente, esse card ganha um acréscimo de `+0.10` no score de similaridade.
+* *Pergunta ao Músculo:* É possível passar o parâmetro da Turma alvo na chamada da RPC para modular o cálculo do cosseno em tempo real?
+
+
+* **`[G-5]` Painel Minimalista de Telemetria de ROI para o Diretor:** Criar uma view SQL protegida (`view_diretor_roi`) que calcule automaticamente: (número de buscas realizadas pelo cliente × R$ 200 de valor/hora economizada). Eduardo terá o dado numérico exato extraído do banco para usar como argumento irrefutável na hora de cobrar indicações para novos advogados da OAB.
+* *Pergunta ao Músculo:* Conseguimos estruturar essa view agregando os dados da tabela `search_logs` sem gerar impacto de escrita no banco de produção?
+
+
+
+---
+
+### INTERAÇÃO LIVRE
+
+1. **O Risco Oculto do Slip de Prazo**: O fato de a reingestão ter sido concluída com atraso em 2026-05-23 indica que o ritmo do projeto está sofrendo fricção invisível com o tempo de resposta das chaves do cliente. É preciso blindar o cronograma para que o setup da Ingrid (PROJ-002) não seja canibalizado pela cauda longa do Hypercare do Valdece.
+2. **O Perigo de Ingestões Manuais Duplicadas**: Como o script `v3_migration.sql` já foi aplicado na base Vanguard e os 61 acórdãos foram populados com os novos campos, qualquer nova alteração manual na tabela antiga gerará inconsistência crônica no momento do dump para a infraestrutura `sa-east-1`. O banco Vanguard deve ser colocado em modo *Read-Only* imediatamente.
+3. **Blindagem Sintática contra cp1252 no Windows**: Relembro ao Músculo a regra permanente de encoding do LEDGER. Ao manipular scripts automáticos de dump e migração de dados entre os tenants do Supabase utilizando PowerShell ou Python no ambiente de desenvolvimento, a omissão explícita de `encoding='utf-8'` corromperá os caracteres especiais das ementas jurídicas (como as marcações de parágrafos e o símbolo `≠`), quebrando o threshold semântico da busca.

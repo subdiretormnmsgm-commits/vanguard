@@ -305,6 +305,18 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     de qualquer outra coisa — Write tool, não narração.
     Gate de proteção: gemini_anchor_generator.ps1 bloqueia (exit 1) se detectar [MUSCULO: no arquivo.
     Músculo que deixa placeholder no arquivo = Gemini faz análise livre = DIRETRIZ inválida.
+33. WIP_BOARD REFLETE REALIDADE — NAO INTENCAO (2026-05-30):
+    Ao ler WIP_BOARD com socio=OK, cruzar com artefato em disco ANTES de reportar como verdade.
+    gemini=OK     → verificar CLIENTES\[CLIENTE]\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI_V[N].txt
+    notebooklm=OK → verificar .claude\skills\[cliente]-v[N].md
+    musculo=OK    → verificar CLIENTES\[CLIENTE]\HISTORICO\DELIBERACAO_LOOP_V[N]_[cliente].md
+    Se artefato ausente: "INCONSISTENCIA — WIP_BOARD declara OK sem evidencia em disco."
+    Nunca reportar socio=OK sem evidencia em disco.
+    auditar_consistencia.ps1 (Gate 0) detecta automaticamente — exit 2 se divergencia.
+    corrigir_wip.ps1 -cliente X -socio Y -loop N reverte para PENDENTE com log.
+    Origem: WIP_BOARD declarou gemini=OK para Loop 7 Ingrid sem DIRETRIZ V7 existir em disco.
+    Detectado pelo Embaixador em 2026-05-30. P-091 no LEDGER.
+    ─────────────────────────────────────────────────────────────────────────────────────
 32. VERIFICACAO CONDICIONAL NO FECHAMENTO — NAO E RITUAL, E SINAL (2026-05-29):
     Inicio de sessao: session_start automatico — nao adicionar nada.
     Fim de sessao: session_close automatico — nao adicionar nada.

@@ -14,6 +14,53 @@ param(
 $BASE = Split-Path -Parent $PSScriptRoot
 $DATA = Get-Date -Format "yyyy-MM-dd HH:mm"
 
+# --- GATE 0: WIP_BOARD vs artefatos reais (P-091) ---
+# WIP_BOARD reflete realidade -- nao intencao.
+# socio=OK sem artefato em disco = dado falso. Bloqueante.
+$gate0Inconsist = [System.Collections.ArrayList]@()
+$wipPath0 = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
+if (Test-Path $wipPath0) {
+    try {
+        $board0    = Get-Content $wipPath0 -Raw -Encoding UTF8 | ConvertFrom-Json
+        $projetos0 = @($board0.board.build)
+        foreach ($proj0 in $projetos0) {
+            $cli0        = $proj0.cliente.ToUpper()
+            $clienteLow0 = $proj0.cliente.ToLower()
+            $fase0       = $proj0.loop_fase_atual
+            if (-not $fase0) { continue }
+            $loopAtual0  = $fase0.loop
+
+            if ($fase0.gemini -eq "OK") {
+                $art0 = Join-Path $BASE "CLIENTES\$cli0\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI_V${loopAtual0}.txt"
+                if (-not (Test-Path $art0)) {
+                    [void]$gate0Inconsist.Add([PSCustomObject]@{
+                        Proj = $cli0; Loop = $loopAtual0; Socio = "gemini"
+                        Path = "CLIENTES\$cli0\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI_V${loopAtual0}.txt"
+                    })
+                }
+            }
+            if ($fase0.notebooklm -eq "OK") {
+                $art0 = Join-Path $BASE ".claude\skills\${clienteLow0}-v${loopAtual0}.md"
+                if (-not (Test-Path $art0)) {
+                    [void]$gate0Inconsist.Add([PSCustomObject]@{
+                        Proj = $cli0; Loop = $loopAtual0; Socio = "notebooklm"
+                        Path = ".claude\skills\${clienteLow0}-v${loopAtual0}.md"
+                    })
+                }
+            }
+            if ($fase0.musculo -eq "OK") {
+                $art0 = Join-Path $BASE "CLIENTES\$cli0\HISTORICO\DELIBERACAO_LOOP_V${loopAtual0}_${clienteLow0}.md"
+                if (-not (Test-Path $art0)) {
+                    [void]$gate0Inconsist.Add([PSCustomObject]@{
+                        Proj = $cli0; Loop = $loopAtual0; Socio = "musculo"
+                        Path = "CLIENTES\$cli0\HISTORICO\DELIBERACAO_LOOP_V${loopAtual0}_${clienteLow0}.md"
+                    })
+                }
+            }
+        }
+    } catch {}
+}
+
 # --- PADROES PROIBIDOS ---
 $padroesProibidos = @(
     [PSCustomObject]@{ Padrao = 'QUADRILATERAL';                    Severidade = 'VERMELHO'; Msg = 'Nomenclatura obsoleta -- deve ser PENTALATERAL' },
@@ -99,10 +146,26 @@ $amarelos  = @($ocorrencias | Where-Object { $_.Severidade -eq 'AMARELO' })
 if (-not $Silencioso) {
     Write-Host ""
     Write-Host "==============================================" -ForegroundColor Cyan
-    Write-Host "  AUDITORIA DE CONSISTENCIA TEXTUAL -- P-054" -ForegroundColor Cyan
+    Write-Host "  AUDITORIA DE CONSISTENCIA -- P-054 + P-091" -ForegroundColor Cyan
     Write-Host "  $DATA | Arquivos: $($arquivos.Count)"        -ForegroundColor Cyan
     Write-Host "==============================================" -ForegroundColor Cyan
     Write-Host ""
+
+    # Gate 0 output -- WIP_BOARD vs disco
+    Write-Host "  [GATE 0] WIP_BOARD vs artefatos em disco (P-091):" -ForegroundColor Cyan
+    if ($gate0Inconsist.Count -gt 0) {
+        Write-Host "  [VERMELHO] $($gate0Inconsist.Count) inconsistencia(s) -- WIP_BOARD declara OK sem artefato:" -ForegroundColor Red
+        foreach ($gi in $gate0Inconsist) {
+            Write-Host "    Projeto : $($gi.Proj) Loop $($gi.Loop)" -ForegroundColor Red
+            Write-Host "    Socio   : $($gi.Socio) = OK (WIP_BOARD)" -ForegroundColor DarkRed
+            Write-Host "    Artefato: $($gi.Path) AUSENTE" -ForegroundColor DarkRed
+            Write-Host "    Acao    : .\scripts\corrigir_wip.ps1 -cliente $($gi.Proj) -socio $($gi.Socio) -loop $($gi.Loop)"
+            Write-Host ""
+        }
+    } else {
+        Write-Host "  [OK] WIP_BOARD consistente com disco." -ForegroundColor Green
+        Write-Host ""
+    }
 
     if ($vermelhos.Count -gt 0) {
         Write-Host "  [VERMELHO] $($vermelhos.Count) ocorrencia(s) bloqueante(s):" -ForegroundColor Red
@@ -132,7 +195,7 @@ if (-not $Silencioso) {
     }
 
     Write-Host "==============================================" -ForegroundColor Cyan
-    if ($vermelhos.Count -gt 0) {
+    if ($gate0Inconsist.Count -gt 0 -or $vermelhos.Count -gt 0) {
         Write-Host "  INTEGRIDADE: VERMELHO -- corrigir antes de fechar sessao" -ForegroundColor Red
     } elseif ($amarelos.Count -gt 0) {
         Write-Host "  INTEGRIDADE: AMARELO -- revisar e decidir"                -ForegroundColor Yellow
@@ -143,6 +206,6 @@ if (-not $Silencioso) {
     Write-Host ""
 }
 
-if ($vermelhos.Count -gt 0) { exit 2 }
-if ($amarelos.Count -gt 0)  { exit 1 }
+if ($gate0Inconsist.Count -gt 0 -or $vermelhos.Count -gt 0) { exit 2 }
+if ($amarelos.Count -gt 0)                                   { exit 1 }
 exit 0
