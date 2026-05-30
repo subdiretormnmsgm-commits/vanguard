@@ -116,3 +116,13 @@
 ```
 
 **Remover concluídos:** Músculo limpa os `[x]` ao rodar `session_close.ps1`.
+
+- [ ] `2026-05-31` **PAINEL_ATIVIDADES — enviar ao Embaixador (Ingrid + Valdece):**
+  Arrastar ao Claude Projects de cada Embaixador:
+  `PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_INGRID_2026-05-30.md` → Embaixador Ingrid
+  `PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_VALDECE_2026-05-30.md` → Embaixador Valdece
+  Colar mensagem padrão de fechamento de sessão no chat.
+
+- [ ] `2026-05-31` **MEMORIA_EMBAIXADOR Ingrid — upload no Claude Projects:**
+  Gate 9B detectou: CRITICO — atualizada nesta sessão.
+  Arrastar: `CLIENTES\INGRID\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md`

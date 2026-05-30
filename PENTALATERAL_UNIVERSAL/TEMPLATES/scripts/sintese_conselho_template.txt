@@ -1,0 +1,124 @@
+# SINTESE DO CONSELHO -- {CLIENTE} -- Loop {LOOP}
+# Data: {DATA} ({DIA_SEMANA})
+# Gerado por: gerar_sintese_conselho.ps1
+# P-037 + P-031 + P-068 -- obrigatorio antes de qualquer veredito do Diretor
+
+---
+
+## PARTE 1 -- INPUTS RECEBIDOS (25 total)
+
+### [M-1 a M-5] -- Musculo
+M-1: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA]
+M-2: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA]
+M-3: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA]
+M-4: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA]
+M-5: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA]
+
+### [G-1 a G-5] -- Gemini (Estrategista)
+G-1: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+G-2: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+G-3: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+G-4: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+G-5: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+
+### [N-1 a N-5] -- Auditor (NotebookLM)
+N-1: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+N-2: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+N-3: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+N-4: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+N-5: [titulo] | Embaixador: [CONFIRMA/EXPANDE/ALERTA/VETO]
+
+### [E-1 a E-5] -- Embaixador
+E-1: [titulo] | Origem: relacionamento real
+E-2: [titulo] | Origem: relacionamento real
+E-3: [titulo] | Origem: relacionamento real
+E-4: [titulo] | Origem: relacionamento real
+E-5: [titulo] | Origem: relacionamento real
+
+### [M'-1 a M'-5] -- Musculo Cirurgico (pos-Gemini+Auditor)
+M-1: [titulo] | Analise cirurgica pos-[G+N]
+M-2: [titulo] | Analise cirurgica pos-[G+N]
+M-3: [titulo] | Analise cirurgica pos-[G+N]
+M-4: [titulo] | Analise cirurgica pos-[G+N]
+M-5: [titulo] | Analise cirurgica pos-[G+N]
+
+---
+
+## PARTE 2 -- ANALISE DO MUSCULO (inputs qualificados)
+
+> Aplicar os 7 pontos apenas aos inputs com CONFIRMA ou EXPANDE do Embaixador.
+> Inputs com VETO do Embaixador vao direto para DESCARTADO na PARTE 3.
+
+Para cada input qualificado:
+
+[CODIGO] -- [TITULO]
+1. Resolve dor real do cliente? [SIM/NAO/PARCIAL -- evidencia]
+2. Custo de implementacao: [horas estimadas]
+3. Risco tecnico: [BAIXO/MEDIO/ALTO -- razao]
+4. Dependencia de outros inputs: [lista ou "nenhuma"]
+5. Reversivel se der errado? [SIM/NAO]
+6. O Embaixador disse: [CONFIRMA/EXPANDE + razao especifica]
+7. Recomendacao do Musculo: [ENTRA AGORA / V2 / DESCARTADO]
+
+---
+
+## PARTE 3 -- PLANO CONSOLIDADO (P-037)
+
+> 1 plano. O Diretor veta ou aprova -- nunca sintetiza 25 inputs.
+
+### ENTRA AGORA -- Loop {LOOP_NEXT}
+
+| Input | Titulo | Custo (h) | Dependencia |
+|-------|--------|-----------|-------------|
+| [codigo] | [titulo] | [h] | [ou "nenhuma"] |
+
+Build order sugerido:
+1. [primeiro -- razao]
+2. [segundo -- razao]
+3. [terceiro -- razao]
+
+Impacto esperado para {CLIENTE}: [resultado concreto e mensuravel]
+
+### V2 -- Proximos loops
+
+| Input | Titulo | Por que nao agora | Quando revisar |
+|-------|--------|--------------------|----------------|
+| [codigo] | [titulo] | [razao tecnica ou comercial] | [gate ou condicao] |
+
+### DESCARTADO
+
+| Input | Titulo | Razao | Quem vetou |
+|-------|--------|-------|------------|
+| [codigo] | [titulo] | [razao objetiva] | [Embaixador/Musculo/ambos] |
+
+### ALERTAS ABERTOS
+
+| Codigo | Alerta | Severidade | Acao necessaria |
+|--------|--------|------------|-----------------|
+| [codigo] | [descricao] | ALTO/CRITICO | [o que o Diretor precisa decidir] |
+
+---
+
+## PARTE 4 -- RECOMENDACAO DO MUSCULO
+
+> Esta secao e a posicao do Musculo -- nao do Conselho.
+> O Diretor pode discordar. O Musculo nao pode omitir.
+
+Caminho recomendado: [OPCAO A / OPCAO B / OPCAO C]
+
+Razao em uma frase: [Por que este caminho maximiza o resultado para {CLIENTE} neste loop]
+
+O que muda se o Diretor escolher diferente: [Consequencia objetiva -- sem dramatizar]
+
+Pergunta para o Diretor: [Uma pergunta -- a mais importante para tomar a decisao correta]
+
+---
+
+## VEREDITO DO DIRETOR
+
+ENTRA AGORA: [confirmar ou ajustar lista]
+V2:          [confirmar ou ajustar]
+DESCARTADO:  [confirmar ou ajustar]
+ALERTAS:     [deliberar ou adiar]
+
+Observacao: _______________

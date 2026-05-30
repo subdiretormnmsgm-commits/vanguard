@@ -186,3 +186,19 @@ Supabase tenm dois projetos. toga-digital-valdece e vanguard. Creio que o primei
 FAÇA UMA VARREDURA TOTAL DOS DOCUMENTOS, PARA VER SE ALGO DEIXOU DE SER ATUALIZADO
 
 
+Regra do pipeline de DECISOES
+
+  Cada loop gera novos arquivos — nunca atualiza os antigos:
+
+  Loop 5  →  DECISOES_INGRID_2026-05-24.json  →  PAINEL  →  VEREDITOS_2026-05-24.json  ← imutável
+  Loop 7  →  DECISOES_INGRID_2026-05-30.json  →  PAINEL  →  VEREDITOS_2026-05-30.json  ← vai ser criado
+
+  Os arquivos de maio/24 documentam o que foi decidido naquele momento — corretos e encerrados.
+
+  ---
+  O que vem agora para fechar o Loop 7: o Embaixador entrega a SEÇÃO D com [E-1 a E-5] + DECISOES.json novo (data de
+  hoje) → Músculo faz P-037 → render painel → Diretor delibera → VEREDITOS_2026-05-30.json é gerado. Os arquivos antigos
+  ficam intactos no histórico.
+
+
+

@@ -1651,3 +1651,8 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Regra derivada:** Ao gerar M-1 a M-5 ou qualquer conteúdo destinado ao PASSO3, o Músculo escreve IMEDIATAMENTE no arquivo `CLIENTES/[CLIENTE]/PASSO3_GEMINI.md` usando Write tool. gemini_anchor_generator.ps1 bloqueia com exit 1 se encontrar `[MUSCULO:` no arquivo antes de ir ao Gemini.
 
 **Ferramentas:** Gate 0 em `scripts/gemini_anchor_generator.ps1` · Gate de versão em `scripts/preparar_notebooklm_projeto.ps1` · Gate 6.5 em `scripts/session_close.ps1` (gera PASSO3 N+1 ao fechar loop completo).
+
+
+### [SESSAO 2026-05-30]
+
+`[PRINCIPIO]` P-091: WIP_BOARD reflete realidade nao intencao. render_painel injeta campos ausentes automaticamente. gerar_sintese_conselho.ps1 criado.

@@ -1,13 +1,13 @@
-# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 7
+﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 7
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Atualizado pelo Músculo em 2026-05-30 (Loop 7 / Diretriz V7)
+> Atualizado pelo Musculo em 2026-05-30 (Loop 7 / Diretriz V7)
 
 ---
 
 ## ANTES DE IR AO NOTEBOOKLM — checklist obrigatório
 
 ```
-[x] 1. DIRETRIZ_GEMINI_V7.txt recebida e salva em CLIENTES\INGRID\NOTEBOOKLM_FONTES\
+[ ] 1. DIRETRIZ_GEMINI_V7.txt recebida e salva em CLIENTES\INGRID\NOTEBOOKLM_FONTES\
 [ ] 2. Rodar: .\scripts\preparar_notebooklm_projeto.ps1 -cliente INGRID
 [ ] 3. Explorer abre automaticamente — Ctrl+A → arrastar TUDO ao NotebookLM
 [ ] 4. Fazer Wipe & Sync das fontes (apagar antigas antes de subir as novas)
@@ -63,7 +63,7 @@ Auditor, você opera com 4 deficiências nativas:
 
 Ao gerar a Skill, compense ativamente:
 
-1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-091) que o Músculo deve citar ao deliberar
+1. **Amnésia de Sessão** → listar princípios do LEDGER (P-001 a P-079) que o Músculo deve citar ao deliberar
 2. **Momentum de Execução** → gates verificáveis por dia — sem output real = gate inválido
 3. **Otimismo de Estimativa** → comparar estimativas com loops anteriores; Circuit Breaker preventivo se subestimar
 4. **Escopo Silencioso** → listar explicitamente o que NÃO construir neste loop
@@ -236,3 +236,4 @@ Fontes principais para este Loop 7:
 17_VANGUARD_TIMELINE.md
 18_ATUALIZACAO_PENTALATERAL_2026-05-24.md
 ```
+

@@ -1,6 +1,6 @@
 {
     "projeto":  "INGRID",
-    "ultima_sincronizacao":  "2026-05-29T02:57:04",
+    "ultima_sincronizacao":  "2026-05-30T12:22:54",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -28,8 +28,8 @@
                      },
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
-                         "hash_universal":  "FD14AA8AD69BEE102F23694537C53BF09076896178822B1750C2EF6EB16E7A92",
-                         "hash_local":  "FD14AA8AD69BEE102F23694537C53BF09076896178822B1750C2EF6EB16E7A92",
+                         "hash_universal":  "DCCF29D043C50F962687FD25ABB59756C1D8A48CCD06FAC41B2937E7E8E83011",
+                         "hash_local":  "DCCF29D043C50F962687FD25ABB59756C1D8A48CCD06FAC41B2937E7E8E83011",
                          "status":  "SYNC"
                      },
                      {

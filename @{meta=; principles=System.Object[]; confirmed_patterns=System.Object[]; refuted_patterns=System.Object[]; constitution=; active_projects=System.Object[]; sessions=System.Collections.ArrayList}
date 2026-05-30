@@ -1,0 +1,311 @@
+{
+    "meta":  {
+                 "version":  "1.0",
+                 "created":  "2026-05-12",
+                 "last_updated":  "2026-05-30",
+                 "total_principles":  6,
+                 "total_sessions":  4,
+                 "total_friction_events":  5,
+                 "description":  "Camada programática do INTELLIGENCE_LEDGER.md — alimenta scripts, GUT e briefing matinal"
+             },
+    "principles":  [
+                       {
+                           "id":  "P-001",
+                           "title":  "Claude Code não é daemon autônomo",
+                           "discovered":  "2026-05-12",
+                           "session":  "V24-setup",
+                           "category":  "arquitetura",
+                           "applies_to":  [
+                                              "automação",
+                                              "daemon",
+                                              "monitoramento contínuo",
+                                              "execução autônoma"
+                                          ],
+                           "veto_trigger":  "SV-5",
+                           "confidence":  "high"
+                       },
+                       {
+                           "id":  "P-002",
+                           "title":  "VEREDITO BINÁRIO apenas em divergência real",
+                           "discovered":  "2026-05-12",
+                           "session":  "V24-setup",
+                           "category":  "processo",
+                           "applies_to":  [
+                                              "deliberação",
+                                              "decisão técnica",
+                                              "plano de build"
+                                          ],
+                           "veto_trigger":  null,
+                           "confidence":  "high"
+                       },
+                       {
+                           "id":  "P-003",
+                           "title":  "Scraping de terceiros é dependência, não ativo",
+                           "discovered":  "2026-05-12",
+                           "session":  "V24-setup",
+                           "category":  "estratégia",
+                           "applies_to":  [
+                                              "scraping",
+                                              "integração não-oficial",
+                                              "dados externos"
+                                          ],
+                           "veto_trigger":  "SV-1",
+                           "confidence":  "high"
+                       },
+                       {
+                           "id":  "P-004",
+                           "title":  "Primeiro cliente vem de ligação, não do site",
+                           "discovered":  "2026-05-12",
+                           "session":  "V24-setup",
+                           "category":  "comercial",
+                           "applies_to":  [
+                                              "redesign",
+                                              "branding",
+                                              "funil",
+                                              "site",
+                                              "design"
+                                          ],
+                           "condition":  "0 clientes ativos",
+                           "veto_trigger":  null,
+                           "confidence":  "high"
+                       },
+                       {
+                           "id":  "P-005",
+                           "title":  "Inteligência acumula por sessão, não por versão",
+                           "discovered":  "2026-05-12",
+                           "session":  "V24-setup",
+                           "category":  "meta-processo",
+                           "applies_to":  [
+                                              "toda sessão"
+                                          ],
+                           "veto_trigger":  null,
+                           "confidence":  "high"
+                       },
+                       {
+                           "id":  "P-006",
+                           "title":  "Precificação calculada por ROI do cliente, não por feeling",
+                           "discovered":  "2026-05-12",
+                           "session":  "PROJ-001-Valdece",
+                           "category":  "comercial",
+                           "applies_to":  [
+                                              "precificação",
+                                              "proposta comercial",
+                                              "negociação com cliente"
+                                          ],
+                           "algoritmo":  {
+                                             "formula":  "(horas_perdidas_mes × valor_hora_cliente) × 12 = valor_anual_gerado",
+                                             "preco_justo":  "10-25% do valor_anual_gerado",
+                                             "contrapartida_se_abaixo":  "% MRR ou direito de case público"
+                                         },
+                           "caso_evidencia":  {
+                                                  "cliente":  "Valdece",
+                                                  "preco_proposto":  5000,
+                                                  "roi_calculado_ano1_pct":  860,
+                                                  "preco_justo_mercado_min":  12000,
+                                                  "preco_justo_mercado_max":  18000,
+                                                  "gut_score_aceitar":  75
+                                              },
+                           "veto_trigger":  null,
+                           "confidence":  "high"
+                       }
+                   ],
+    "confirmed_patterns":  [
+                               {
+                                   "pattern":  "Schema granular desde Dia 1",
+                                   "confirmed_in":  [
+                                                        "V13",
+                                                        "V23"
+                                                    ],
+                                   "condition":  "projetos com dados comportamentais"
+                               },
+                               {
+                                   "pattern":  "Burn Rate Shield antes de features IA",
+                                   "confirmed_in":  [
+                                                        "V15",
+                                                        "V23"
+                                                    ],
+                                   "condition":  "custo variável de API"
+                               },
+                               {
+                                   "pattern":  "Kill-Switch 72h grace period",
+                                   "confirmed_in":  [
+                                                        "V6",
+                                                        "V23"
+                                                    ],
+                                   "condition":  "SaaS com billing"
+                               },
+                               {
+                                   "pattern":  "COMANDO_ESTRATEGISTA fecha loop Gemini↔Claude",
+                                   "confirmed_in":  [
+                                                        "V12",
+                                                        "V23"
+                                                    ],
+                                   "condition":  "ciclo PDCA completo"
+                               },
+                               {
+                                   "pattern":  "Freemium by Design desde Camada 1",
+                                   "confirmed_in":  [
+                                                        "V16",
+                                                        "V23"
+                                                    ],
+                                   "condition":  "projeto com camadas de upgrade"
+                               }
+                           ],
+    "refuted_patterns":  [
+                             {
+                                 "pattern":  "Build de feature antes de billing",
+                                 "refuted_in":  [
+                                                    "V1",
+                                                    "V5"
+                                                ],
+                                 "failure_reason":  "Refatoração pesada ao plugar Stripe depois"
+                             },
+                             {
+                                 "pattern":  "Marketplace com split manual",
+                                 "refuted_in":  [
+                                                    "V7"
+                                                ],
+                                 "failure_reason":  "Compliance, IOF, responsabilidade legal"
+                             },
+                             {
+                                 "pattern":  "Automação sem logs estruturados",
+                                 "refuted_in":  [
+                                                    "V9",
+                                                    "V11"
+                                                ],
+                                 "failure_reason":  "Falha silenciosa — impossível auditar"
+                             },
+                             {
+                                 "pattern":  "Parceria sem case documentado",
+                                 "refuted_in":  [
+                                                    "V23"
+                                                ],
+                                 "failure_reason":  "Argumento fraco — parceiro arrisca relação com cliente"
+                             }
+                         ],
+    "constitution":  {
+                         "hard_vetos":  [
+                                            {
+                                                "id":  "HV-1",
+                                                "rule":  "Credencial hardcoded no código"
+                                            },
+                                            {
+                                                "id":  "HV-2",
+                                                "rule":  "PII sem consentimento auditável (LGPD/GDPR)"
+                                            },
+                                            {
+                                                "id":  "HV-3",
+                                                "rule":  "Custo acima de BURN_RATE_DAILY_LIMIT sem aprovação"
+                                            },
+                                            {
+                                                "id":  "HV-4",
+                                                "rule":  "Dívida P0 ativa sem plano de resolução na sessão"
+                                            },
+                                            {
+                                                "id":  "HV-5",
+                                                "rule":  "Breaking change em sistema com cliente ativo sem kill-switch"
+                                            }
+                                        ],
+                         "soft_vetos":  [
+                                            {
+                                                "id":  "SV-1",
+                                                "rule":  "Stack nova sem inventário de soluções existentes"
+                                            },
+                                            {
+                                                "id":  "SV-2",
+                                                "rule":  "Feature que contradiz princípio ativo no LEDGER"
+                                            },
+                                            {
+                                                "id":  "SV-3",
+                                                "rule":  "Acumulação de \u003e3 dívidas P1 no mesmo componente"
+                                            },
+                                            {
+                                                "id":  "SV-4",
+                                                "rule":  "DIRETRIZ com \u003e5 prioridades"
+                                            },
+                                            {
+                                                "id":  "SV-5",
+                                                "rule":  "Claude Code proposto como daemon autônomo [P-001]"
+                                            }
+                                        ]
+                     },
+    "active_projects":  [
+                            {
+                                "id":  "PROJ-001",
+                                "cliente":  "Valdece",
+                                "projeto":  "Ferramenta Jurisprudência STF/STJ",
+                                "status":  "discovery",
+                                "camada":  "2-3",
+                                "deadline":  "2026-05-17",
+                                "valor":  5000,
+                                "gut_score":  75,
+                                "iniciado_em":  "2026-05-12"
+                            }
+                        ],
+    "sessions":  [
+                     {
+                         "date":  "2026-05-30",
+                         "label":  "Sessao 2026-05-30",
+                         "friction_events":  0,
+                         "principles_generated":  "novo",
+                         "overrides":  {
+
+                                       },
+                         "drift_detected":  false
+                     },
+                     {
+                         "date":  "2026-05-25",
+                         "label":  "Sessao 2026-05-25",
+                         "friction_events":  1,
+                         "principles_generated":  [
+                                                      "P-066: PAINEL destino fixo Embaixador-Diretor"
+                                                  ],
+                         "overrides":  [
+
+                                       ],
+                         "drift_detected":  false
+                     },
+                     {
+                         "date":  "2026-05-12",
+                         "label":  "V24 Intelligence Compounding Engine",
+                         "friction_events":  3,
+                         "principles_generated":  [
+                                                      "P-001",
+                                                      "P-002",
+                                                      "P-003",
+                                                      "P-004",
+                                                      "P-005"
+                                                  ],
+                         "overrides":  [
+                                           {
+                                               "type":  "DIRETOR OVERRIDE",
+                                               "rule":  "V24 antes do primeiro cliente",
+                                               "justification":  "Construção de inteligência é o maior ativo",
+                                               "risk":  "Mais código sem validação comercial"
+                                           }
+                                       ],
+                         "drift_detected":  true,
+                         "drift_description":  "Sessão quase divergiu para redesign do site (GUT 12) — Músculo sinalizou — Diretor manteve foco"
+                     },
+                     {
+                         "date":  "2026-05-12",
+                         "label":  "PROJ-001 · Primeiro Case Real · Valdece",
+                         "friction_events":  2,
+                         "principles_generated":  [
+                                                      "P-006"
+                                                  ],
+                         "overrides":  [
+
+                                       ],
+                         "drift_detected":  false,
+                         "drift_description":  null,
+                         "marcos":  [
+                                        "Primeiro cliente qualificado via DISCOVERY_CARD",
+                                        "P-006 extraído: precificação por ROI calculado",
+                                        "WIP_BOARD atualizado com PROJ-001",
+                                        "CLIENTES/VALDECE/ criado com BRIEFING_DISCOVERY.txt",
+                                        "COMANDO 1 gerado para Gemini"
+                                    ]
+                     }
+                 ]
+}

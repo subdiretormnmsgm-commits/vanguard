@@ -1,5 +1,5 @@
-﻿# PAINEL DE ATIVIDADES - VALDECE - DIRETOR EDUARDO
-### Pentalateral IAH - Sexta-feira, 2026-05-29 03:01
+﻿# PAINEL DE ATIVIDADES - INGRID - DIRETOR EDUARDO
+### Pentalateral IAH - Sábado, 2026-05-30 12:23
 
 ---
 
@@ -14,7 +14,9 @@ Nenhuma atividade em deficit nesta sessao.
 
 ## ALERTA GARGALO -- GATES VENCIDOS
 
-Nenhum gate vencido detectado.
+| Projeto | Gate | Descricao | Prazo | Dias vencido |
+|---------|------|-----------|-------|-------------|
+| Ingrid | dia15 | Ingrid com acesso admin proprio Supabase | 2026-05-29 | 1d |
 
 ---
 
@@ -23,7 +25,7 @@ Nenhum gate vencido detectado.
 > Copiar o bloco abaixo e colar no Claude Projects junto com o upload deste arquivo.
 
 ```
-Embaixador de VALDECE, fechamento de sessao -- 2026-05-29.
+Embaixador de INGRID, fechamento de sessao -- 2026-05-30.
 
 Faco upload do PAINEL_ATIVIDADES desta sessao.
 Com base nele, gerar o artefato publicavel com:
@@ -47,21 +49,21 @@ O artefato deve ser autossuficiente: o Diretor abre e decide, nao executa.
 ## PROJETOS ATIVOS
 
 ```
-Valdece    [BUILD    ]  Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â€” toga-digital-valdece.netlify.app ativo  Deadline: 2026-05-23
+Ingrid     [BUILD    ]  Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3  Deadline: 2026-05-30
 ```
 
 ---
 
 ## COMMIT DA SESSAO
 
-Commit : 0215dcf - 24 arquivo(s) alterado(s)
-Mensagem: feat(automacao): ADD-A1+F1-F5 — commits na abertura + 5 gates no fechamento ancorados
+Commit : d597c11 - 6 arquivo(s) alterado(s)
+Mensagem: feat(ingrid): Loop 7 CONCLUIDO -- vereditos D1-D6 oficiais + WIP musculo=OK
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao 2026-05-29 -- 7 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-05-29.md.
+Sessao 2026-05-30 -- 23 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-05-30.md.
 
 ---
 
@@ -73,11 +75,16 @@ Nenhum alerta ativo.
 
 ## PENDENTES POR PROJETO
 
-### PROJ-001 · Valdece (Hypercare até 18/06/2026)
+### PROJ-002 · Ingrid (Loop 7 CONCLUÍDO · Loop 8 aguarda)
 
-🔴 Sentinel Report (02-06-2026 terça-feira) — Hypercare Valdece:
+🔴 Ingrid — D4: GitHub Security — Pages push bloqueado (pré-requisito de tudo):
+🔴 Ingrid — D1: Deploy CLI F-4 + F-6 (Gate 7.1) — aguarda D4:
+🟡 Ingrid — D3: Debrief casual Ingrid (gate informal pitch):
+🟡 Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:
+⚪ Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:
+⚪ Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:
 
-Total pendentes abertos: 1
+Total pendentes abertos: 7
 
 ---
 
@@ -91,7 +98,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto VALDECE encerrou sessao com 2 pendente(s) e 0 gargalo(s). Status documental: VERDE. Deadline 2026-05-23 -- -6 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto INGRID encerrou sessao com 8 pendente(s) e 1 gargalo(s). Status documental: VERDE. Deadline 2026-05-30 -- 0 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 
@@ -111,4 +118,4 @@ O artefato deve ser autossuficiente: o Diretor abre e sabe exatamente o que faze
 
 ---
 
-Musculo - Pentalateral IAH - 2026-05-29
+Musculo - Pentalateral IAH - 2026-05-30
