@@ -3,7 +3,7 @@
 > **CAMADA_FATOS:** dado bruto e verbatim. Zero interpretação. Auditor lê esta camada diretamente.
 > **CAMADA_INFERENCIA:** análise do Embaixador. Ler sabendo que é opinião fundamentada.
 > **CAMADA_DECISAO:** deliberações formais do Conselho. Verdades acordadas do projeto.
-> Versão: Loop 6 · 2026-05-27 — SEÇÃO D executada · P-032 atualizado pelo Músculo
+> Versão: Loop 7 · 2026-05-30 — P-032 atualizado pelo Músculo
 
 ---
 
@@ -51,8 +51,9 @@
 
 | Campo | Estado | Data |
 |---|---|---|
-| Gate atual | Loop 5 — Dias 9-12 concluídos | 2026-05-23 |
-| Questões no banco | 460 — Cargo 202 SEDES-DF | 2026-05-18 |
+| Gate atual | Loop 7 — Todos os 15 dias aprovados · Gate dia15 APROVADO 2026-05-30 | 2026-05-30 |
+| Versão em produção | v20 — F-1/F-2/F-5/F-7/F-8 ativos · F-4/F-6 deploy CLI pendente | 2026-05-28 |
+| Questões no banco | 460+ — Cargo 202 SEDES-DF | 2026-05-18 |
 | App no ar | https://subdiretormnmsgm-commits.github.io/vanguard/ | 2026-05-18 |
 | Fix renderização negrito | Deployado | 2026-05-19 |
 | G-5 Socrática Pânico | Deployado (bug de ordem de lógica corrigido) | 2026-05-23 |
@@ -86,19 +87,16 @@
 
 ```
 TEMPERATURA_PONDERADA: 7.5/10 — VERDE SUSTENTADO
-Embaixador Loop 6: score subiu de 7 para 7.5 por contato espontâneo noturno ("atacar").
-Ingrid passou de "tentando sobreviver ao material" para "atacando o placar".
-Estado de pré-comprometimento com aprovação — momento ideal para conversão V2.
-CHURN-WATCH: DESATIVADO — risco de abandono não confirmado.
-SCOPE-WATCH: DESATIVADO — Ingrid não conhece ninguém prestando concurso.
-LEGAL-WATCH: VERDE — reassinatura física confirmada 2026-05-27.
-[DADOS-WATCH]: ATIVO — 470 respostas migradas podem estar sob user_id diferente.
-  Impacto: SM-2 pode estar calibrado para usuário errado. Verificar antes de comunicar progresso.
-  Gate: verificação técnica pendente (Músculo) antes de qualquer mensagem de progresso a Ingrid.
-Padrão confirmado: estuda à noite (~20h). "Boa noite" como gatilho de saudação noturna validado.
-Próxima reavaliação: após resolução do DADOS-WATCH + feedback de Ingrid sobre features Loop 6.
-Próximo contato: 2026-05-29 — somente após resolução do DADOS-WATCH (E-1 do Embaixador).
-Última atualização: 2026-05-27 (Músculo P-032 — Loop 6 SEÇÃO D Embaixador)
+Ingrid passou de "tentando sobreviver ao material" para "atacando o placar" (P-079).
+Estado de pré-comprometimento com aprovação — janela de pitch R$97/mês aberta.
+CHURN-WATCH: DESATIVADO.
+SCOPE-WATCH: DESATIVADO — sem rede de concurso.
+LEGAL-WATCH: VERDE — reassinatura física confirmada 2026-05-27. P-013 VERDE 2026-05-30.
+[DADOS-WATCH]: VERDE — 102 respostas · 1 user_id correto · SM-2/Heatmap/Termômetro íntegros (verificado 2026-05-28).
+[DEPLOY-WATCH]: ATIVO — F-4 (cron 19h45) e F-6 (relatório semanal) pendentes de deploy CLI. Risco: falha no domingo.
+[GITHUB-WATCH]: ATIVO — GitHub Pages push bloqueado por token no histórico. Eduardo: seguir link GitHub Security.
+Padrão confirmado: estuda à noite (~20h). Pitch SaaS aguarda verbalização de progresso.
+Última atualização: 2026-05-30 (Músculo P-032 — Loop 7 PASSO7 preparado)
 ```
 
 ### PADRÕES INFERIDOS — atualizar com cada sessão real
@@ -193,7 +191,10 @@ Próximo contato: 2026-05-29 — somente após resolução do DADOS-WATCH (E-1 d
 | [LEGAL-WATCH] Termo data | **VERDE** — Reassinatura física confirmada pelo Diretor em 2026-05-27 | Encerrado |
 | [DEPLOY-WATCH] gh-pages branch | RESOLVIDO — P-056 documentado | Script deploy_ingrid_ghpages.ps1 ativo |
 | [TESTE-WATCH] Features Loop 5 | RESOLVIDO — Ingrid retornou e usou o simulado espontaneamente (2026-05-24) | Encerrado |
-| [DADOS-WATCH] user_id 470 respostas | **ATIVO — CRÍTICO** — 470 respostas migradas podem estar sob user_id incorreto. SM-2 pode estar calibrado para usuário errado. | Gate bloqueante: Músculo verifica antes de qualquer contato com Ingrid |
+| [DADOS-WATCH] user_id | **VERDE** — 102 registros · 1 user_id correto · verificado 2026-05-28 | Encerrado |
+| [DEPLOY-WATCH] F-4/F-6 | **ATIVO** — deploy CLI pendente · risco de falha no domingo | Gate 7.1 bloqueante |
+| [GITHUB-WATCH] push bloqueado | **ATIVO** — token no histórico · Eduardo: seguir link GitHub Security | Gate 7.4 |
+| [Gate dia15] Supabase Ingrid | **APROVADO** 2026-05-30 — Ingrid admin do próprio Supabase (P-013 VERDE) | Encerrado |
 
 ### PIPELINE COMERCIAL
 
@@ -294,7 +295,10 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 | 2026-05-27 | **D4:A** Pipeline — plantar "Conhece alguém prestando concurso?" na próxima mensagem a Ingrid | Diretor — Veredito Loop 5 |
 | 2026-05-27 | **D5:B** N-3 Linha de Corte — campo configurável no DASHBOARD interno. Eduardo define o número quando tiver dados reais. SEDES-DF 2026 é primeiro concurso Quadrix no órgão — sem corte histórico verificável. | Diretor — Veredito Loop 5 |
 | 2026-05-27 | **LEGAL-WATCH VERDE** — Reassinatura física do Termo confirmada. Ingrid reassinou presencialmente. | Diretor — Confirmação 2026-05-27 |
-| 2026-05-27 | **Loop 6 · P0/P1/PRINCIPIO/D3_VANGUARD** — PAINEL DE DELIBERAÇÃO gerado pelo Embaixador. **VEREDITO PENDENTE.** | Embaixador — Loop 6 SEÇÃO D |
+| 2026-05-27 | **Loop 6 · P0/P1/PRINCIPIO/D3_VANGUARD** — PAINEL DE DELIBERAÇÃO gerado pelo Embaixador. VEREDITOS confirmados pelo Diretor. | Embaixador — Loop 6 SEÇÃO D |
+| 2026-05-28 | **DADOS-WATCH VERDE** — 102 respostas · 1 user_id correto · SM-2 íntegro | Músculo — verificação técnica |
+| 2026-05-30 | **Gate dia15 APROVADO** — Ingrid tem acesso admin ao próprio Supabase (P-013 VERDE) | Diretor — confirmação presencial |
+| 2026-05-30 | **Loop 7 iniciado** — Gemini DIRETRIZ V7 + ingrid-v7.md APROVADA · PASSO7 pronto para Embaixador | Músculo P-032 |
 
 ### PROTOCOLOS ATIVOS
 
