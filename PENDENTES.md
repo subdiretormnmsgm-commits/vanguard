@@ -24,7 +24,31 @@
 
 ---
 
-## PROJ-002 · Ingrid (Loop 6 em andamento)
+## PROJ-002 · Ingrid (Loop 7 em andamento)
+
+- [ ] `2026-05-30` **Ingrid — D1: Deploy CLI F-4 + F-6 (Gate 7.1):**
+  Eduardo roda `! supabase login` no terminal (abre browser para auth).
+  Depois: Músculo faz link + deploy `notificar-progresso` e `relatorio-semanal` no projeto Ingrid (yjqvjhezwhepwomukudt).
+
+- [ ] `2026-05-30` **Ingrid — D2: Gate 7.2 RLS dry-run (test_tenant_isolation.ps1):**
+  Definir `$env:SUPABASE_SERVICE_ROLE_KEY = 'sua-key'` no terminal.
+  Depois: `.\scripts\test_tenant_isolation.ps1` — deve retornar VERDE.
+
+- [ ] `2026-05-30` **Ingrid — D4: GitHub Security — Pages push bloqueado:**
+  Eduardo segue link no e-mail do GitHub Security → revogar token sbp_ do histórico.
+  Sem isto, deploy automático está comprometido.
+
+- [ ] `2026-05-31` **Ingrid — D3: Debrief casual Ingrid (gate informal pitch):**
+  Mensagem no clipboard (D3): "Ingrid! Aquela configuração que fizemos hoje ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚"
+  Eduardo ajusta e envia no WhatsApp. Resultado informa se pitch R$97/mês pode avançar.
+
+- [ ] `2026-05-31` **Ingrid — D6: Plantar semente E-4 pós-aprovação (no debrief D3):**
+  Frase: "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄"
+  Integrar naturalmente — não como anúncio.
+
+- [ ] `2026-06-XX` **Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:**
+  Com 1 usuária, anonimato é fictício. Liberar apenas quando segunda usuária ativa.
+  Quando liberar: só gráficos e Heatmap — NUNCA conteúdo das questões.
 
 - [x] `2026-05-26` ~~**NotebookLM Wipe & Sync — Ingrid:**~~
   ✅ Fontes antigas deletadas → 18 arquivos de CLIENTES/INGRID/NOTEBOOKLM_FONTES/ carregados — 2026-05-26
@@ -90,3 +114,7 @@
 ```
 
 **Remover concluídos:** Músculo limpa os `[x]` ao rodar `session_close.ps1`.
+
+- [CLAUDE_PROJECTS (30-05-2026 sábado)] INGRID -- upload: MEMORIA_EMBAIXADOR.md
+
+- [P-032 (30-05-2026 sábado)] INGRID -- Atualizar MEMORIA_EMBAIXADOR apos deliberacao

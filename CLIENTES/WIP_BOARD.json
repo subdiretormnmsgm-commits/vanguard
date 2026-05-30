@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-05-29",
+    "atualizado_em":  "2026-05-30",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -146,9 +146,9 @@
                                                             "loop":  7,
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
-                                                            "embaixador":  "PENDENTE",
+                                                            "embaixador":  "OK",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D -- [M]+[G]+[N] completos"
+                                                            "proximo":  "Diretor delibera PAINEL (D1-D6) -- VEREDITOS.json -- Musculo executa build"
                                                         },
                                     "churn_watch_threshold":  5
                                 },
@@ -326,6 +326,7 @@
     "meta":  {
                  "loops_desde_ultimo_checkup":  0,
                  "data_ultimo_checkup":  "2026-05-27",
-                 "checkup_recomendado":  false
+                 "checkup_recomendado":  false,
+                 "claude_projects_pendente":  true
              }
 }

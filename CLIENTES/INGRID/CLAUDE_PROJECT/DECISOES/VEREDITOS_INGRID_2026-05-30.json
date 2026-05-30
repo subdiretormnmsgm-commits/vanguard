@@ -1,0 +1,54 @@
+{
+  "schema_versao": "1.1",
+  "projeto": "PROJ002_INGRID",
+  "data_decisoes": "2026-05-30",
+  "data_veredito": "2026-05-30",
+  "deliberado_por": "Diretor Eduardo",
+  "metodo": "Aceito sugestões do Músculo — veredito direto (sem painel HTML)",
+  "cliente": "INGRID",
+  "loop": 7,
+  "vereditos": [
+    {
+      "id": "D1",
+      "titulo": "DEPLOY-WATCH — F-4 e F-6 em produção",
+      "status": "APROVADO",
+      "valor_selecionado": "executar_deploy",
+      "nota": "Músculo executa supabase login + deploy F-4 e F-6 + smoke test"
+    },
+    {
+      "id": "D2",
+      "titulo": "RLS-WATCH — test_tenant_isolation.ps1",
+      "status": "APROVADO",
+      "valor_selecionado": "rodar_dry_run",
+      "nota": "Músculo roda dry-run de isolamento de tenant — Gate 7.2"
+    },
+    {
+      "id": "D3",
+      "titulo": "PITCH-WATCH — debrief casual 31/05",
+      "status": "APROVADO",
+      "valor_selecionado": "enviar_debrief_amanha",
+      "nota": "Eduardo envia mensagem casual amanhã — gate informal antes do pitch"
+    },
+    {
+      "id": "D4",
+      "titulo": "GITHUB-WATCH — Pages push bloqueado",
+      "status": "APROVADO",
+      "valor_selecionado": "seguir_link_security",
+      "nota": "Eduardo segue link GitHub Security hoje — ação exclusivamente humana"
+    },
+    {
+      "id": "D5",
+      "titulo": "M-4 AJUSTE — Link demo bloqueado até segunda usuária",
+      "status": "APROVADO",
+      "valor_selecionado": "bloquear_m4",
+      "nota": "M-4 bloqueado — anonimato fictício com 1 usuária. Liberar quando segunda usuária entrar."
+    },
+    {
+      "id": "D6",
+      "titulo": "E-4 TIMING — Plantar semente pós-aprovação",
+      "status": "APROVADO",
+      "valor_selecionado": "plantar_esta_semana",
+      "nota": "Eduardo planta no debrief D3 desta semana. Frase pronta para clipboard."
+    }
+  ]
+}

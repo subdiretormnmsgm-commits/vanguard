@@ -1,0 +1,178 @@
+{
+  "projeto": "INGRID",
+  "data": "2026-05-30",
+  "gerado_por": "Embaixador",
+  "loop": 7,
+  "instrucao_diretor": "Salve em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/ e rode render_painel.ps1",
+  "instrucao_musculo": "Músculo executa ZERO ações antes de receber VEREDITOS.json confirmado pelo Diretor",
+  "decisoes": [
+    {
+      "id": "D1",
+      "secao": "prerequisito",
+      "urgencia": "prerequisito",
+      "icon": "🚀",
+      "titulo": "DEPLOY-WATCH — F-4 e F-6 em produção",
+      "subtitulo": "Cron 19h45 e Relatório Semanal WhatsApp ainda não deployados",
+      "situacao": "Código entregue no Loop 6 mas deploy CLI pendente. Ingrid estuda ~20h — F-4 e F-6 são os mecanismos de retenção e o coração do argumento de pitch. Cada dia sem deploy é um dia de retenção não instrumentalizada.",
+      "tem_artefato": false,
+      "artefato_editavel": false,
+      "artefato_label": null,
+      "artefato_texto": null,
+      "opcoes": [
+        {
+          "valor": "executar_deploy",
+          "label": "Executar deploy CLI agora",
+          "subtitulo": "Músculo executa supabase login + deploy F-4 e F-6 + smoke test",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "aguardar_github",
+          "label": "Aguardar desbloqueio GitHub Pages primeiro",
+          "subtitulo": "Resolver D4 antes de avançar aqui",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "secao": "prerequisito",
+      "urgencia": "prerequisito",
+      "icon": "🔒",
+      "titulo": "RLS-WATCH — test_tenant_isolation.ps1",
+      "subtitulo": "Gate 7.2 desbloqueado sem evidência de dry-run",
+      "situacao": "A segunda usuária não pode entrar sem RLS validado fisicamente. O business case de escala (R$97/mês × 500) depende de multi-tenant íntegro. Dry-run pendente.",
+      "tem_artefato": false,
+      "artefato_editavel": false,
+      "artefato_label": null,
+      "artefato_texto": null,
+      "opcoes": [
+        {
+          "valor": "rodar_dry_run",
+          "label": "Músculo roda test_tenant_isolation.ps1 agora",
+          "subtitulo": "Resultado passa para Gate 7.2 — segunda usuária liberada",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "aguardar_loop8",
+          "label": "Registrar como pendência Loop 8",
+          "subtitulo": "Manter Gate 7.2 bloqueado formalmente",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "secao": "acao_imediata",
+      "urgencia": "alta",
+      "icon": "🎯",
+      "titulo": "PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado",
+      "subtitulo": "Ingrid verbalizou progresso em 24/05 — mas sem debrief desta semana",
+      "situacao": "O gatilho de pitch exige 7 dias consecutivos de uso + progresso verbalizado. Temos verbalização (24/05) mas não temos confirmação de uso nos últimos 6 dias. Debrief casual amanhã é o gate informal antes de ensaiar o pitch.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Mensagem sugerida para amanhã (WhatsApp)",
+      "artefato_texto": "Ingrid! Aquela configuração que fizemos hoje ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚",
+      "opcoes": [
+        {
+          "valor": "enviar_debrief_amanha",
+          "label": "Enviar debrief casual amanhã — coletar temperatura real",
+          "subtitulo": "Eduardo copia mensagem sugerida, ajusta e envia",
+          "acoes": ["copiar_clipboard", "log_contato"]
+        },
+        {
+          "valor": "aguardar_f6",
+          "label": "Aguardar F-6 chegar para Ingrid antes de contatar",
+          "subtitulo": "Deixar o sistema quebrar o silêncio primeiro",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "abrir_pitch_agora",
+          "label": "Abrir pitch R$97/mês esta semana",
+          "subtitulo": "DECISÃO SOBERANA recomendada — Embaixador considera gatilho não acionado",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "secao": "prerequisito",
+      "urgencia": "prerequisito",
+      "icon": "⚠️",
+      "titulo": "GITHUB-WATCH — Pages push bloqueado por token no histórico",
+      "subtitulo": "Deploy automático comprometido — hotfixes urgentes impossíveis",
+      "situacao": "Token sbp_ no histórico do Git bloqueia push para GitHub Pages. Eduardo deve seguir link GitHub Security para revogar e limpar. N-3 (auditoria de secrets no hook) é a prevenção prospectiva.",
+      "tem_artefato": false,
+      "artefato_editavel": false,
+      "artefato_label": null,
+      "artefato_texto": null,
+      "opcoes": [
+        {
+          "valor": "seguir_link_security",
+          "label": "Eduardo segue link GitHub Security hoje",
+          "subtitulo": "Revogar token, limpar histórico, desbloquear Pages push",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "registrar_pendencia",
+          "label": "Registrar como pendência e continuar com deploy manual",
+          "subtitulo": "Manter GITHUB-WATCH ativo até resolução",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "secao": "inteligencia",
+      "urgencia": "normal",
+      "icon": "🔗",
+      "titulo": "M-4 AJUSTE — Link demo: aprovar restrição a gráficos apenas",
+      "subtitulo": "Com 1 usuária, anonimato é fictício — bloquear até segunda usuária",
+      "situacao": "M-4 propõe link demo com dados anonimizados de Ingrid. Com uma única usuária, ela reconheceria os números imediatamente. Embaixador recomenda: M-4 bloqueado até haver segunda usuária. Quando liberar: apenas gráficos e Heatmap — nunca conteúdo das questões.",
+      "tem_artefato": false,
+      "artefato_editavel": false,
+      "artefato_label": null,
+      "artefato_texto": null,
+      "opcoes": [
+        {
+          "valor": "bloquear_m4",
+          "label": "Bloquear M-4 até segunda usuária — confirmar restrição",
+          "subtitulo": "Embaixador recomenda fortemente esta opção",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "pedir_consentimento_ingrid",
+          "label": "Pedir consentimento explícito a Ingrid antes",
+          "subtitulo": "Permite avançar com M-4 se Ingrid autorizar",
+          "acoes": ["log_contato"]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "secao": "acao_imediata",
+      "urgencia": "alta",
+      "icon": "🌱",
+      "titulo": "E-4 TIMING — Plantar semente pós-aprovação esta semana",
+      "subtitulo": "Pipeline de referral é pós-empossamento — mas a intenção se planta agora",
+      "situacao": "Ingrid não tem rede de concurso agora, mas a rede de servidores empossados pós-aprovação é o público mais qualificado do produto. A semente se planta antes da aprovação, não depois. Momento certo: quando Eduardo fizer o debrief de D3.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Frase para plantar na conversa (casual, não comercial)",
+      "artefato_texto": "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄",
+      "opcoes": [
+        {
+          "valor": "plantar_esta_semana",
+          "label": "Eduardo planta esta semana — no debrief de D3",
+          "subtitulo": "Integrar naturalmente na conversa, não como anúncio",
+          "acoes": ["copiar_clipboard", "log_contato"]
+        },
+        {
+          "valor": "aguardar_mais_proxima",
+          "label": "Aguardar sessão com mais engajamento verbal",
+          "subtitulo": "Plantar quando temperatura estiver ENTUSIASMADA",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    }
+  ]
+}

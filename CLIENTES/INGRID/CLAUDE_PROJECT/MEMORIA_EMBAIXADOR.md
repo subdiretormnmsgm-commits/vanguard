@@ -67,8 +67,8 @@
 |---|---|---|---|
 | H-1 | Não assinou por esquecimento — não por hesitação | **CONFIRMADA** | Assinou em ~48h sem questionamento, negociação ou pedido de desconto |
 | H-2 | Medo financeiro causou hesitação | **REFUTADA** | Piloto R$0 — sem gatilho financeiro presente |
-| H-3 | Compararia o app com TEC Concursos na primeira sessão | **PENDENTE** | Q18 sem menção ao TEC — modo imersivo, não avaliativo. Só confirma quando verbalizar. |
-| H-4 | Dificuldade = risco de abandono na primeira sessão | **ATIVA** | Q18 é receptividade, não hábito. Teste real ocorre na sessão 3-5 quando SM-2 começa a cobrar. |
+| H-3 | Compararia o app com TEC Concursos na primeira sessão | **REFUTADA** — encerrada 2026-05-30 | TEC nunca mencionado em nenhuma sessão documentada. Hipótese encerrada definitivamente. |
+| H-4 estendida | SM-2 nas sessões 3-5 — dificuldade crescente = abandono? | **ATIVA — LACUNA CRÍTICA** | 102 respostas registradas, Ingrid provavelmente já viu repetições difíceis. Sem debrief desta experiência. Debrief 31/05 deve investigar. |
 
 ---
 
@@ -86,17 +86,18 @@
 ### TEMPERATURA DO CLIENTE
 
 ```
-TEMPERATURA_PONDERADA: 7.5/10 — VERDE SUSTENTADO
-Ingrid passou de "tentando sobreviver ao material" para "atacando o placar" (P-079).
-Estado de pré-comprometimento com aprovação — janela de pitch R$97/mês aberta.
-CHURN-WATCH: DESATIVADO.
-SCOPE-WATCH: DESATIVADO — sem rede de concurso.
-LEGAL-WATCH: VERDE — reassinatura física confirmada 2026-05-27. P-013 VERDE 2026-05-30.
-[DADOS-WATCH]: VERDE — 102 respostas · 1 user_id correto · SM-2/Heatmap/Termômetro íntegros (verificado 2026-05-28).
-[DEPLOY-WATCH]: ATIVO — F-4 (cron 19h45) e F-6 (relatório semanal) pendentes de deploy CLI. Risco: falha no domingo.
-[GITHUB-WATCH]: ATIVO — GitHub Pages push bloqueado por token no histórico. Eduardo: seguir link GitHub Security.
-Padrão confirmado: estuda à noite (~20h). Pitch SaaS aguarda verbalização de progresso.
-Última atualização: 2026-05-30 (Músculo P-032 — Loop 7 PASSO7 preparado)
+TEMPERATURA_PONDERADA: 7.5/10 — VERDE SUSTENTADO (validar no debrief 31/05 — 6 dias sem registro de uso)
+Ingrid passou de "tentando sobreviver ao material" para "atacando o placar" (P-079). H-8 CONFIRMADA.
+Estado de pré-comprometimento com aprovação — janela de pitch R$97/mês aberta mas gatilho não acionado.
+Pitch só após: debrief 31/05 confirmar temperatura + 7 dias consecutivos de uso verbalizado.
+CHURN-WATCH: DESATIVADO. [DATA-GAP-WATCH]: ATIVO — uso 24/05 a 30/05 não confirmado. Debrief 31/05 fecha.
+SCOPE-WATCH: DESATIVADO — sem rede de concurso no curto prazo. Pipeline pós-aprovação.
+LEGAL-WATCH: VERDE — P-013 VERDE 2026-05-30. P-023 VERDE.
+[DADOS-WATCH]: VERDE — 102 respostas · 1 user_id correto.
+[DEPLOY-WATCH]: ATIVO — F-4 e F-6 deploy CLI pendente. Gate 7.1 aguarda supabase login (Eduardo).
+[GITHUB-WATCH]: ATIVO — Eduardo: seguir link GitHub Security. Gate 7.4.
+Padrão: estuda à noite (~20h). F-6 relatório semanal = coração do argumento R$97/mês.
+Última atualização: 2026-05-30 (Músculo P-032 — Loop 7 SEÇÃO D Embaixador + vereditos executados)
 ```
 
 ### PADRÕES INFERIDOS — atualizar com cada sessão real
