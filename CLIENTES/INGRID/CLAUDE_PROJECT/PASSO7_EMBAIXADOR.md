@@ -294,17 +294,23 @@ N-5: Pulse Check Analógico Pós-Automático
 
 PEDIDO AO EMBAIXADOR — QUATRO PARTES OBRIGATÓRIAS:
 
-PARTE 1 — FILTRO DE REALIDADE
-Para cada ideia [M], [G], [N], responder:
+PARTE 1 — FILTRO DE REALIDADE (MANDATO TOTAL — 15 IDEIAS OBRIGATÓRIAS)
+⚠️ REAGIR INDIVIDUALMENTE A CADA UMA DAS 15 IDEIAS.
+   Nenhuma ideia pode ser omitida. Silêncio sobre uma ideia = entrega incompleta.
+   Sequência obrigatória: M-1 → M-2 → M-3 → M-4 → M-5 → G-1 → G-2 → G-3 → G-4 → G-5 → N-1 → N-2 → N-3 → N-4 → N-5
+
+Para cada uma das 15 ideias, responder:
   CONFIRMA — Ingrid demonstrou comportamento/interesse compatível
   EXPANDE  — Ingrid tem contexto que potencializa além do proposto
   ALERTA   — comportamento real contradiz ou torna a ideia arriscada
 
-Formato por ideia:
+Formato obrigatório por ideia (sem exceção):
   [M/G/N]-[N]: [NOME DA IDEIA]
   Reação: [CONFIRMA / EXPANDE / ALERTA]
   Evidência: [o que Ingrid disse/fez — ou "sem evidência direta ainda, mas..."]
   Severidade (só ALERTA): [ALTO / CRÍTICO]
+
+Após as 15 reações individuais → PARTE 2 → PARTE 3 → PARTE 4.
 
 PARTE 2 — ANÁLISE INOVADORA E PENSAMENTOS CONTRIBUTIVOS
 "Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição obrigatória.

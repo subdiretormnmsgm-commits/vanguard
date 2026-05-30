@@ -238,19 +238,26 @@ CONTEXTO DO CICLO (elo obrigatório — não omitir):
 [N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM):
 [COLAR AS 5 IDEIAS DO NOTEBOOKLM COM NOME E DESCRIÇÃO DE 2 LINHAS CADA]
 
-PEDIDO AO EMBAIXADOR — TRÊS PARTES OBRIGATÓRIAS:
+PEDIDO AO EMBAIXADOR — QUATRO PARTES OBRIGATÓRIAS:
 
-PARTE 1 — FILTRO DE REALIDADE
-Para cada ideia acima, responder com:
+PARTE 1 — FILTRO DE REALIDADE (MANDATO TOTAL — 15 IDEIAS OBRIGATÓRIAS)
+⚠️ REAGIR INDIVIDUALMENTE A CADA UMA DAS 15 IDEIAS SEM EXCEÇÃO.
+   Sequência obrigatória: M-1 → M-2 → M-3 → M-4 → M-5 → G-1 → G-2 → G-3 → G-4 → G-5 → N-1 → N-2 → N-3 → N-4 → N-5
+   Nenhuma ideia pode ser omitida. Silêncio sobre uma ideia = entrega incompleta = retornar ao Embaixador.
+   Omitir não é resumir — é uma ideia por bloco, mesmo que a reação seja de 2 linhas.
+
+Para cada uma das 15 ideias, responder com:
   CONFIRMA — se o cliente demonstrou comportamento, interesse ou disposição compatível
   EXPANDE  — se o cliente tem contexto que potencializa esta ideia além do que foi proposto
   ALERTA   — se o comportamento real do cliente contradiz ou torna esta ideia arriscada
 
-Formato de resposta para cada ideia:
+Formato obrigatório por ideia (sem exceção):
   [M/G/N]-[N]: [NOME DA IDEIA]
   Reação: [CONFIRMA / EXPANDE / ALERTA]
-  Evidência da MEMORIA_EMBAIXADOR: [citar o que o cliente disse/fez que fundamenta a reação]
+  Evidência da MEMORIA_EMBAIXADOR: [citar o que o cliente disse/fez — ou "sem evidência direta, mas..."]
   Severidade (apenas para ALERTA): [ALTO / CRÍTICO]
+
+Após as 15 reações individuais → PARTE 2 → PARTE 3 → PARTE 4.
 
 PARTE 2 — ANÁLISE INOVADORA (P-035 — amplitude total)
 "Não tenho evidência direta, mas vejo este risco/oportunidade" é contribuição obrigatória.
@@ -376,7 +383,7 @@ BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
 | Item | Critério |
 |---|---|
 | [E-1 a E-5] foram geradas? | Sim — exclusivas, não síntese |
-| Todas as ideias do Pentalateral receberam reação? | Sim — CONFIRMA/EXPANDE/ALERTA com evidência |
+| Todas as 15 ideias receberam reação individual? | Sim — M-1 a M-5 + G-1 a G-5 + N-1 a N-5 com CONFIRMA/EXPANDE/ALERTA. Zero omissões. |
 | SCOPE-WATCH atualizado? | Sim — novos itens adicionados se detectados |
 | Temperatura do cliente atualizada? | Sim — com razão declarada |
 | MEMORIA_EMBAIXADOR marcada para atualização (P-032)? | Sim — Músculo atualiza após sessão |
