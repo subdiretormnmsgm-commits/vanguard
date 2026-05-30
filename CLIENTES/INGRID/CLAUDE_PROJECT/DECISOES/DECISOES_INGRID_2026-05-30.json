@@ -1,10 +1,18 @@
 {
-  "projeto": "INGRID",
+  "schema_versao": "1.1",
+  "projeto": "PROJ002_INGRID",
+  "projeto_label": "INGRID",
+  "cliente_label": "INGRID",
   "data": "2026-05-30",
   "gerado_por": "Embaixador",
   "loop": 7,
   "instrucao_diretor": "Salve em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/ e rode render_painel.ps1",
   "instrucao_musculo": "Músculo executa ZERO ações antes de receber VEREDITOS.json confirmado pelo Diretor",
+  "secoes": [
+    { "id": "prerequisito",  "label": "Pré-requisitos (executar primeiro)" },
+    { "id": "acao_imediata", "label": "Ação Imediata" },
+    { "id": "inteligencia",  "label": "Inteligência e Ajustes" }
+  ],
   "decisoes": [
     {
       "id": "D1",
@@ -61,6 +69,33 @@
       ]
     },
     {
+      "id": "D4",
+      "secao": "prerequisito",
+      "urgencia": "prerequisito",
+      "icon": "⚠️",
+      "titulo": "GITHUB-WATCH — Pages push bloqueado por token no histórico",
+      "subtitulo": "Deploy automático comprometido — hotfixes urgentes impossíveis",
+      "situacao": "Token sbp_ no histórico do Git bloqueia push para GitHub Pages. Eduardo deve seguir link GitHub Security para revogar e limpar. N-3 (auditoria de secrets no hook) é a prevenção prospectiva.",
+      "tem_artefato": false,
+      "artefato_editavel": false,
+      "artefato_label": null,
+      "artefato_texto": null,
+      "opcoes": [
+        {
+          "valor": "seguir_link_security",
+          "label": "Eduardo segue link GitHub Security hoje",
+          "subtitulo": "Revogar token, limpar histórico, desbloquear Pages push",
+          "acoes": ["log_apenas"]
+        },
+        {
+          "valor": "registrar_pendencia",
+          "label": "Registrar como pendência e continuar com deploy manual",
+          "subtitulo": "Manter GITHUB-WATCH ativo até resolução",
+          "acoes": ["log_apenas"]
+        }
+      ]
+    },
+    {
       "id": "D3",
       "secao": "acao_imediata",
       "urgencia": "alta",
@@ -88,34 +123,34 @@
         {
           "valor": "abrir_pitch_agora",
           "label": "Abrir pitch R$97/mês esta semana",
-          "subtitulo": "DECISÃO SOBERANA recomendada — Embaixador considera gatilho não acionado",
+          "subtitulo": "Embaixador considera gatilho não acionado — risco de rejeição",
           "acoes": ["log_apenas"]
         }
       ]
     },
     {
-      "id": "D4",
-      "secao": "prerequisito",
-      "urgencia": "prerequisito",
-      "icon": "⚠️",
-      "titulo": "GITHUB-WATCH — Pages push bloqueado por token no histórico",
-      "subtitulo": "Deploy automático comprometido — hotfixes urgentes impossíveis",
-      "situacao": "Token sbp_ no histórico do Git bloqueia push para GitHub Pages. Eduardo deve seguir link GitHub Security para revogar e limpar. N-3 (auditoria de secrets no hook) é a prevenção prospectiva.",
-      "tem_artefato": false,
-      "artefato_editavel": false,
-      "artefato_label": null,
-      "artefato_texto": null,
+      "id": "D6",
+      "secao": "acao_imediata",
+      "urgencia": "alta",
+      "icon": "🌱",
+      "titulo": "E-4 TIMING — Plantar semente pós-aprovação esta semana",
+      "subtitulo": "Pipeline de referral é pós-empossamento — mas a intenção se planta agora",
+      "situacao": "Ingrid não tem rede de concurso agora, mas a rede de servidores empossados pós-aprovação é o público mais qualificado do produto. A semente se planta antes da aprovação, não depois. Momento certo: quando Eduardo fizer o debrief de D3.",
+      "tem_artefato": true,
+      "artefato_editavel": true,
+      "artefato_label": "Frase para plantar na conversa (casual, não comercial)",
+      "artefato_texto": "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄",
       "opcoes": [
         {
-          "valor": "seguir_link_security",
-          "label": "Eduardo segue link GitHub Security hoje",
-          "subtitulo": "Revogar token, limpar histórico, desbloquear Pages push",
-          "acoes": ["log_apenas"]
+          "valor": "plantar_esta_semana",
+          "label": "Eduardo planta esta semana — no debrief de D3",
+          "subtitulo": "Integrar naturalmente na conversa, não como anúncio",
+          "acoes": ["copiar_clipboard", "log_contato"]
         },
         {
-          "valor": "registrar_pendencia",
-          "label": "Registrar como pendência e continuar com deploy manual",
-          "subtitulo": "Manter GITHUB-WATCH ativo até resolução",
+          "valor": "aguardar_mais_proxima",
+          "label": "Aguardar sessão com mais engajamento verbal",
+          "subtitulo": "Plantar quando temperatura estiver ENTUSIASMADA",
           "acoes": ["log_apenas"]
         }
       ]
@@ -144,33 +179,6 @@
           "label": "Pedir consentimento explícito a Ingrid antes",
           "subtitulo": "Permite avançar com M-4 se Ingrid autorizar",
           "acoes": ["log_contato"]
-        }
-      ]
-    },
-    {
-      "id": "D6",
-      "secao": "acao_imediata",
-      "urgencia": "alta",
-      "icon": "🌱",
-      "titulo": "E-4 TIMING — Plantar semente pós-aprovação esta semana",
-      "subtitulo": "Pipeline de referral é pós-empossamento — mas a intenção se planta agora",
-      "situacao": "Ingrid não tem rede de concurso agora, mas a rede de servidores empossados pós-aprovação é o público mais qualificado do produto. A semente se planta antes da aprovação, não depois. Momento certo: quando Eduardo fizer o debrief de D3.",
-      "tem_artefato": true,
-      "artefato_editavel": true,
-      "artefato_label": "Frase para plantar na conversa (casual, não comercial)",
-      "artefato_texto": "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄",
-      "opcoes": [
-        {
-          "valor": "plantar_esta_semana",
-          "label": "Eduardo planta esta semana — no debrief de D3",
-          "subtitulo": "Integrar naturalmente na conversa, não como anúncio",
-          "acoes": ["copiar_clipboard", "log_contato"]
-        },
-        {
-          "valor": "aguardar_mais_proxima",
-          "label": "Aguardar sessão com mais engajamento verbal",
-          "subtitulo": "Plantar quando temperatura estiver ENTUSIASMADA",
-          "acoes": ["log_apenas"]
         }
       ]
     }

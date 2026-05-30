@@ -59,6 +59,35 @@ try {
     exit 1
 }
 
+# --- Injetar campos obrigatorios ausentes (tolerancia a JSON do Embaixador sem esses campos) ---
+if (-not $decisoesObj.projeto_label) {
+    $decisoesObj | Add-Member -NotePropertyName "projeto_label" `
+        -NotePropertyValue $projeto -Force
+}
+if (-not $decisoesObj.cliente_label) {
+    $decisoesObj | Add-Member -NotePropertyName "cliente_label" `
+        -NotePropertyValue $projeto -Force
+}
+if (-not $decisoesObj.secoes) {
+    # Derivar secoes unicas a partir das decisoes existentes
+    $secoesMap = [ordered]@{
+        "prerequisito"  = "Pre-requisitos (executar primeiro)"
+        "acao_imediata" = "Acao Imediata"
+        "inteligencia"  = "Inteligencia e Ajustes"
+        "pendencias"    = "Pendencias"
+    }
+    $secoesUnicas = @($decisoesObj.decisoes | ForEach-Object { $_.secao } | Select-Object -Unique)
+    $secoesArr = @($secoesUnicas | ForEach-Object {
+        $sid = $_
+        $slabel = if ($secoesMap[$sid]) { $secoesMap[$sid] } else { $sid }
+        [PSCustomObject]@{ id = $sid; label = $slabel }
+    })
+    $decisoesObj | Add-Member -NotePropertyName "secoes" -NotePropertyValue $secoesArr -Force
+}
+# Regravar JSON com campos injetados para o embed no HTML
+$decisoesRaw = $decisoesObj | ConvertTo-Json -Depth 15
+# --- Fim injecao de campos ---
+
 $dataStr      = $decisoesObj.data
 $projetoLabel = $decisoesObj.projeto_label
 $loop         = $decisoesObj.loop
