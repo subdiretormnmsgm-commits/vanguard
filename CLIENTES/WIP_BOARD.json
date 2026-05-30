@@ -145,10 +145,10 @@
                                     "loop_fase_atual":  {
                                                             "loop":  7,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "PENDENTE",
+                                                            "notebooklm":  "OK",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -- PASSO5 pronto -- Wipe & Sync -- Skill ingrid-v7.md"
+                                                            "proximo":  "Embaixador -- PASSO7 Secao D -- [M]+[G]+[N] completos"
                                                         },
                                     "churn_watch_threshold":  5
                                 },

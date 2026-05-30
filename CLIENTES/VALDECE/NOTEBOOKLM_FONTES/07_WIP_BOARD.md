@@ -22,11 +22,11 @@
 #### Loop Fase Atual (Loop 7)
 | Sócio | Status |
 |---|---|
-| Gemini | OK — DIRETRIZ V7 recebida · 12_DIRETRIZ_GEMINI_V7.txt salvo em NOTEBOOKLM_FONTES |
-| NotebookLM | PENDENTE |
+| Gemini | OK — DIRETRIZ V7 · 12_DIRETRIZ_GEMINI_V7.txt |
+| NotebookLM | OK — ingrid-v7.md APROVADA pelo skill_parser_gate |
 | Embaixador | PENDENTE |
 | Músculo | PENDENTE |
-| Próximo | NotebookLM — PASSO5 pronto — Wipe & Sync — Skill ingrid-v7.md |
+| Próximo | Embaixador — PASSO7 SEÇÃO D pronta — colar no Claude Projects |
 
 #### Dias Concluídos
 - dia1_schema_edge ✅

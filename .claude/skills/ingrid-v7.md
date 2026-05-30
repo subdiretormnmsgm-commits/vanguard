@@ -1,29 +1,21 @@
-# SKILL: ingrid-v7 · SaaS Readiness & Commercial Pipeline
-# Status: Ativa · Guardião: Músculo · Protocolo: Pentalateral IAH
-# Gerada: NotebookLM 2026-05-29 · Loop 6 (Gemini V7)
+SKILL: ingrid-v7.md
+**Camada:** 3 (SaaS Readiness) | **Loop:** #7 | **Stack:** PWA Vanilla JS + Supabase + CLI GitHub/Deploy
 
-## 1. CONTEXTO OPERACIONAL
-- **Cliente:** Ingrid | Projeto Piloto — Concurso Sedes-DF (Cargo 202 · Quadrix)
-- **Escopo Ativo:** Loop 6 — SaaS Readiness + Ativação do Pipeline Comercial
-- **Estado do app:** v20 live — GitHub Pages ativo · 7 features Loop V6 entregues (F-1 a F-8)
-- **Stack Tecnológica:** PWA Vanilla JS + Supabase próprio (yjqvjhezwhepwomukudt) + Claude API (Haiku)
-- **Temperatura:** VERDE SUSTENTADO 7.5/10 · "Gostei bastante. Amanhã volto para atacar mais"
-- **DADOS-WATCH:** VERDE — 102 registros · 1 user_id · SM-2/Heatmap/Termômetro íntegros
-- **Prova final:** 2026-09-06
+## [AUDITORIA DE COERENCIA]
+A transição para o estado de "SaaS Readiness" (Camada 3) é integralmente suportada pelo *DADOS-WATCH* em estado VERDE SUSTENTADO (102 respostas e telemetria isolada para 1 `user_id`) [4, 5]. No entanto, a execução manual das *Edge Functions* F-4 e F-6 viola a premissa de um sistema autônomo e de baixa fricção para o operador. A DIRETRIZ V7 exige o deploy imediato via CLI para sanar este débito [6-8]. O *dry-run* de isolamento de *tenant* (ideia G-2) garante a obediência cega ao princípio **[P-059]** (Isolamento de Contexto) antes de darmos o *GO* para novos usuários [9-11].
 
-## 2. GATES DE VALIDAÇÃO SEQUENCIAL
-- **[GATE 01 — INFRA BLOQUEANTE]:** Execução de `! supabase login` + `supabase functions deploy --project-ref yjqvjhezwhepwomukudt`. F-4 (cron 19h45) e F-6 (relatório semanal WhatsApp) devem rodar em nuvem — eliminar Mágico de Oz manual de Eduardo.
-- **[GATE 02 — CI/CD]:** Desbloqueio do push no GitHub Security (secret revogado, unblock pendente) para normalizar fluxo deploy gh-pages.
-- **[GATE 03 — COMERCIAL]:** Injeção do Script E-4 pelo Diretor no WhatsApp da Ingrid: "Quando você passar, vou ter o sistema pronto para quem você indicar." Plantar agora — colher quando ela passar.
+## [CONEXAO HISTORICA]
+O histórico do PROJ-001 (Valdece) documentou no princípio **[P-046]** que a formalização e a escala comercial não podem preceder a validação técnica impecável no ambiente real [12, 13]. Ao exigir o "SaaS Readiness Audit" agora [7, 8], o sistema previne o erro agudo de tentar embarcar um segundo cliente B2C sem comprovar o bloqueio de RLS. A estratégia inicial de operar com "Mágico de Oz" para notificações dominicais replicou o sucesso do *Mágico de Oz Gate CLI* validado nos primeiros dias da Vanguard [14], mas precisa ser superada técnica e definitivamente neste loop [7, 8].
 
-## 3. ALERTAS ATIVOS E CIRCUIT BREAKERS
-- **[ALERTA-CRON-MANUAL]:** F-4 e F-6 operam via Push Mágico de Oz manual enquanto GATE 01 não for executado. Eduardo envia relatório e push manualmente toda semana — risco de falha silenciosa.
-- **[ALERTA-DRIFT-PAGES]:** Cada deploy requer workaround enquanto GATE 02 pendente. Feature construída pode não estar em produção sem evidência.
-- **[CIRCUIT-BREAKER-SM2]:** Proibido alterar manualmente tabelas do Supabase fora dos scripts de migração homologados — quebrará o motor SM-2 dos 102 registros íntegros.
+## [PADRAO DE SUCESSO/FALHA]
+*   **Sucesso:** A manutenção da restrição **[P-045]**, proibindo a implementação de telas de login multifator no MVP, manteve a fricção da cliente próxima a zero, resultando no engajamento necessário para consolidar 102 registros limpos de progresso [4, 15, 16].
+*   **Falha:** O bloqueio da branch `gh-pages` por vazamento de token no histórico e a ausência de autenticação do Supabase via CLI evidenciaram uma negligência com a governança de credenciais, o que fere a autonomia de deploy do Músculo e cria vulnerabilidade processual [6, 7, 17].
 
-## 4. RESTRIÇÕES RÍGIDAS (O QUE NÃO CONSTRUIR)
-- NUNCA alterar threshold matemático do SM-2 ou do Heatmap sem nova validação de dados brutos (HV-1).
-- NUNCA construir nova interface visual para Ingrid antes de auditar RLS multi-tenant no Supabase (HV-2 · P-059).
-- NUNCA construir telas de configuração, fluxos de recuperação de senha ou cadastros externos — onboarding permanece invisível (P-070).
-- NUNCA implementar gateway de pagamento real (Stripe/Asaas) neste repositório.
-- NUNCA reconstituir lógicas já entregues (F-1 a F-8) — DADOS-WATCH VERDE é prova de integridade.
+## [PERSPECTIVA DO SOCIO]
+Como Sócio-Consultor e Advogado, alerto: o painel interno de telemetria e o gatilho de reativação de 5 dias são apenas meios, não fins [7, 8, 18]. A Vanguard Tech possui, neste exato momento, um MRR (Receita Recorrente Mensal) projetado, mas de saldo faturado igual a R$ 0 [19, 20]. O objetivo final deste ciclo não é admirar um painel local brilhante; é pavimentar a execução do *pitch* comercial "Sovereign Study SaaS" de R$ 97/mês, disparando a isca E-4 ("quando você passar...") exatamente nesta janela temporal onde a "temperatura" da cliente está aferida como VERDE SUSTENTADO [21-24].
+
+## ⚙️ SEQUÊNCIA DE BUILD E RESTRIÇÕES (Dias 14-15)
+*   **Desbloqueio de Infra (P0):** Executar login via `supabase login` e despachar deploy em `yjqvjhezwhepwomukudt` [7, 8]. Liberar acesso de push no GitHub contornando a trava de segurança de vazamento [7, 8].
+*   **RLS e Isolamento:** Auditar as tabelas `progresso_usuario` e `evento_uso` contra injeção maliciosa via `test_tenant_isolation.ps1` [7, 8, 10].
+*   **Monitoramento e Vendas:** Criar painel interno restrito a Eduardo. Parametrizar alarme no Telegram: `(Inatividade > 3 dias) && (Falha no Cron) && (Relatório não enviado)` [7, 8, 10].
+*   **O que NÃO construir:** Algoritmo Safe-Horizon para 2027 (foco inegociável na prova em 2026-09-06) [10, 15, 16]. UI analíticas extensas no painel interno de uso; foque puramente na leitura de texto limpo para o Diretor [7, 8].
