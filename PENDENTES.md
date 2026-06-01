@@ -18,7 +18,7 @@
 - [x] `2026-06-02` ~~**Sentinel Report — PASSO7-C preparado pelo Músculo:**~~
   ✅ PASSO7_SECAO_B_SENTINEL_2026-06-01.md gerado · Embaixador processou · texto pronto.
 
-- [ ] `2026-06-02` **Sentinel Report — Eduardo ENVIA WhatsApp ao Valdece (02-06-2026 terça-feira):**
+- [ ] `2026-06-02` **Sentinel Report — Eduardo ENVIA WhatsApp ao Valdece (02-06-2026 terça-feira):** [diretor]
   Texto exato (não improvisar):
   "Dr. Valdece, duas semanas rodando. Sistemas assim costumam poupar entre 40 e 90 minutos de pesquisa por caso — dependendo da urgência da consulta. Como tem sido na prática? Algum tema que o sistema trouxe que valeu a pena?"
   Após resposta: abrir conversa de migração de infra (D2). Janela V2: 2026-06-18.
@@ -40,15 +40,15 @@
 - [x] `2026-05-31` ~~**Ingrid — D3: Debrief casual Ingrid (gate informal pitch):**~~
   ✅ Mensagem enviada pelo Diretor — 2026-06-01. Aguardar resposta de Ingrid.
 
-- [ ] `2026-06-XX` **Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:**
+- [ ] `2026-06-XX` **Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:** [diretor]
   Veredito do Diretor 2026-05-30: registrar como pendência Loop 8.
   Quando: `$env:SUPABASE_SERVICE_ROLE_KEY = 'sua-key'` → `.\scripts\test_tenant_isolation.ps1`
 
-- [ ] `2026-06-XX` **Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:**
+- [ ] `2026-06-XX` **Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:** [diretor]
   Veredito do Diretor 2026-05-30: aguardar sessão com mais engajamento verbal de Ingrid.
   Frase pronta: "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄"
 
-- [ ] `2026-06-XX` **Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:**
+- [ ] `2026-06-XX` **Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:** [musculo]
   Com 1 usuária, anonimato é fictício. Liberar quando segunda usuária ativa.
   Quando liberar: só gráficos e Heatmap — NUNCA conteúdo das questões.
 
@@ -117,14 +117,8 @@
 
 **Remover concluídos:** Músculo limpa os `[x]` ao rodar `session_close.ps1`.
 
-- [ ] `2026-05-31` **PAINEL_ATIVIDADES — enviar ao Embaixador (Ingrid + Valdece):**
-  Arrastar ao Claude Projects de cada Embaixador:
-  `PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_INGRID_2026-05-30.md` → Embaixador Ingrid
-  `PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_VALDECE_2026-05-30.md` → Embaixador Valdece
-  Colar mensagem padrão de fechamento de sessão no chat.
+- [x] `2026-05-31` ~~**PAINEL_ATIVIDADES — enviar ao Embaixador (Ingrid + Valdece):**~~
+  ✅ Confirmado pelo Diretor 2026-06-01 — ambos os arquivos enviados aos respectivos Embaixadores.
 
-- [ ] `2026-05-31` **MEMORIA_EMBAIXADOR Ingrid — upload no Claude Projects:**
-  Gate 9B detectou: CRITICO — atualizada nesta sessão.
-  Arrastar: `CLIENTES\INGRID\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md`
-
-- [CLAUDE_PROJECTS (01-06-2026 segunda-feira)] INGRID -- upload: MEMORIA_EMBAIXADOR.md
+- [x] `2026-05-31` ~~**MEMORIA_EMBAIXADOR Ingrid — upload no Claude Projects:**~~
+  ✅ Confirmado pelo Diretor 2026-06-01 — carregada no Claude Projects Ingrid.

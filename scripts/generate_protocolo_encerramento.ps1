@@ -55,14 +55,28 @@ if ($wip -and $wip.board) {
 }
 $projetosBloco = if ($linhasProjetos.Count -gt 0) { $linhasProjetos -join "`n" } else { "Nenhum projeto ativo detectado" }
 
-# --- Git (ultimo commit) ---
+# --- Git (commit filtrado por projeto - item 1c) ---
 $gitHash  = "sem-commit"
 $gitMsg   = "sem-commit"
 $gitFiles = 0
 try {
-    $gitHash  = (& git -C $raiz log -1 --format="%h" 2>$null).Trim()
-    $gitMsg   = (& git -C $raiz log -1 --format="%s" 2>$null).Trim()
-    $gitFiles = [int](& git -C $raiz diff --name-only HEAD~1 HEAD 2>$null | Measure-Object).Count
+    if ($clienteLabel) {
+        # Filtrar por arquivos do projeto especifico
+        $gitHashProj = (& git -C $raiz log -1 --format="%h" -- "CLIENTES/$clienteLabel/" 2>$null).Trim()
+        if ($gitHashProj) {
+            $gitHash  = $gitHashProj
+            $gitMsg   = (& git -C $raiz log -1 --format="%s" -- "CLIENTES/$clienteLabel/" 2>$null).Trim()
+            $gitFiles = [int](& git -C $raiz diff --name-only "$gitHash~1" "$gitHash" -- "CLIENTES/$clienteLabel/" 2>$null | Measure-Object).Count
+        } else {
+            $gitHash  = (& git -C $raiz log -1 --format="%h" 2>$null).Trim()
+            $gitMsg   = "(sem commit neste projeto hoje) " + (& git -C $raiz log -1 --format="%s" 2>$null).Trim()
+            $gitFiles = 0
+        }
+    } else {
+        $gitHash  = (& git -C $raiz log -1 --format="%h" 2>$null).Trim()
+        $gitMsg   = (& git -C $raiz log -1 --format="%s" 2>$null).Trim()
+        $gitFiles = [int](& git -C $raiz diff --name-only HEAD~1 HEAD 2>$null | Measure-Object).Count
+    }
 } catch {}
 
 # --- Pendentes por projeto ---
@@ -102,9 +116,22 @@ if (Test-Path $pendentesPath) {
                 $secaoVisivel = $ehCliente -or $ehUniversal
             }
 
+            # Extrair descricao, tag de origem e dependencia inline (itens 3b e 2)
             $descricao = $l -replace "^\- \[ \] ``[^``]+`` \*\*", ""
             $descricao = ($descricao -replace "\*\*.*", "").Trim()
-            if ($descricao.Length -gt 80) { $descricao = $descricao.Substring(0, 77) + "..." }
+
+            # Tag de origem: [diretor] [cliente] [musculo] apos o negrito
+            $tagOrigem = ""
+            $tagMatch = [regex]::Match($l, '\[(diretor|cliente|musculo)\]')
+            if ($tagMatch.Success) { $tagOrigem = "[$($tagMatch.Groups[1].Value)]" }
+
+            # Dependencia inline: texto apos "← depende:"
+            $dependencia = ""
+            $depMatch = [regex]::Match($l, '<-\s*depende:\s*(.+?)(\[|$)')
+            if (-not $depMatch.Success) { $depMatch = [regex]::Match($l, 'depende:\s*(.+?)(\[|$)') }
+            if ($depMatch.Success) { $dependencia = "← depende: " + $depMatch.Groups[1].Value.Trim() }
+
+            if ($descricao.Length -gt 70) { $descricao = $descricao.Substring(0, 67) + "..." }
 
             # Determinar se e futuro (data parseable posterior a hoje, ou placeholder XX) ou urgente
             $dataMatch  = [regex]::Match($l, '`(\d{4}-\d{2}-\d{2})`')
@@ -137,11 +164,16 @@ if (Test-Path $pendentesPath) {
             if ($isFuturo) {
                 if ($secaoVisivel) { $totalAgendados++ }
                 if (-not $secoesFuturas.Contains($secaoAtual)) { $secoesFuturas[$secaoAtual] = [System.Collections.Generic.List[object]]::new() }
-                $secoesFuturas[$secaoAtual].Add([PSCustomObject]@{ Descricao = $descricao; Data = $dataLabel })
+                $secoesFuturas[$secaoAtual].Add([PSCustomObject]@{
+                    Descricao   = $descricao
+                    Data        = $dataLabel
+                    Tag         = $tagOrigem
+                    Dependencia = $dependencia
+                })
             } else {
                 if ($secaoVisivel) { $totalUrgentes++ }
-                if (-not $secoes.Contains($secaoAtual)) { $secoes[$secaoAtual] = [System.Collections.Generic.List[string]]::new() }
-                $secoes[$secaoAtual].Add($descricao)
+                if (-not $secoes.Contains($secaoAtual)) { $secoes[$secaoAtual] = [System.Collections.Generic.List[object]]::new() }
+                $secoes[$secaoAtual].Add([PSCustomObject]@{ Descricao = $descricao; Tag = $tagOrigem })
             }
         }
     }
@@ -218,7 +250,6 @@ $pendentesLinhas = [System.Collections.Generic.List[string]]::new()
 foreach ($secao in $secoes.Keys) {
     $itens = $secoes[$secao]
     if ($itens.Count -eq 0) { continue }
-    # Se -Cliente passado: incluir secoes que contenham o nome do cliente ou secoes universais
     if ($clienteLabel) {
         $ehCliente   = $secao.ToUpper() -match $clienteLabel
         $ehUniversal = $secao -match "PROCESSO|INFRA|GERAL|CRITICO"
@@ -229,12 +260,14 @@ foreach ($secao in $secoes.Keys) {
     $pendentesLinhas.Add("")
     for ($i = 0; $i -lt $itens.Count; $i++) {
         $emoji = if ($i -lt $prioEmoji.Count) { $prioEmoji[$i] } else { $eBranco }
-        $pendentesLinhas.Add("$emoji $($itens[$i])")
+        $item  = $itens[$i]
+        $sufixo = if ($item.Tag) { " $($item.Tag)" } else { "" }
+        $pendentesLinhas.Add("$emoji $($item.Descricao)$sufixo")
     }
 }
 $pendentesBloco = $pendentesLinhas -join "`n"
 
-# --- Construir bloco de pendentes futuros (agendados - sem semaforo de urgencia) ---
+# --- Construir bloco de pendentes futuros com tag e dependencia (itens 2 e 3b) ---
 $futurosLinhas = [System.Collections.Generic.List[string]]::new()
 foreach ($secao in $secoesFuturas.Keys) {
     $itens = $secoesFuturas[$secao]
@@ -245,10 +278,41 @@ foreach ($secao in $secoesFuturas.Keys) {
         if (-not $ehCliente -and -not $ehUniversal) { continue }
     }
     foreach ($item in $itens) {
-        $futurosLinhas.Add("- [$($item.Data)] $($item.Descricao)")
+        $sufixo = ""
+        if ($item.Dependencia) { $sufixo += " $($item.Dependencia)" }
+        if ($item.Tag)         { $sufixo += " $($item.Tag)" }
+        $futurosLinhas.Add("- [$($item.Data)] $($item.Descricao)$sufixo")
     }
 }
 $futurosBloco = $futurosLinhas -join "`n"
+
+# --- Ultimo contato com o cliente (item 3a) - ler MEMORIA_EMBAIXADOR ---
+$ultimoContato = ""
+if ($clienteLabel) {
+    $memPath = "$raiz\CLIENTES\$clienteLabel\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
+    if (Test-Path $memPath) {
+        try {
+            $memLinhas = Get-Content $memPath -Encoding UTF8
+            $emTabela  = $false
+            $ultimaLinha = $null
+            foreach ($ml in $memLinhas) {
+                if ($ml -match "\|\s*Data\s*\|\s*Canal") { $emTabela = $true; continue }
+                if ($emTabela -and $ml -match "^\|---")  { continue }
+                if ($emTabela -and $ml -match "^\|\s*(\d{4}-\d{2}-\d{2})\s*\|" -and -not $ultimaLinha) {
+                    $ultimaLinha = $ml  # tabela em ordem decrescente -- primeira linha = mais recente
+                }
+                if ($emTabela -and $ml -match "^##") { break }
+            }
+            if ($ultimaLinha) {
+                $cols = $ultimaLinha -split '\|' | ForEach-Object { $_.Trim() } | Where-Object { $_ }
+                if ($cols.Count -ge 3) {
+                    $ultimoContato = "$($cols[0]) ($($cols[1]) — $($cols[2]))"
+                }
+            }
+        } catch { }
+    }
+    if (-not $ultimoContato) { $ultimoContato = "sem registro" }
+}
 
 # --- Blocos opcionais: auto-preencher se nao passados como parametro ---
 # ENTREGAS: usar git log do dia se nao fornecido
@@ -315,11 +379,16 @@ $analiseBloco = if ($AnaliseTexto) { $AnaliseTexto } else {
             } catch { }
         }
     }
-    $deadlineInfo = if ($wipProj -and $wipProj.deadline) {
+    # Status de deadline inferido (item 1b)
+    $deadlineInfo = ""
+    if ($wipProj -and $wipProj.deadline) {
         $dl = [datetime]::Parse($wipProj.deadline)
         $diasRestantes = ($dl.Date - $hoje).Days
-        "Deadline $($wipProj.deadline) -- $diasRestantes dia(s) restante(s)."
-    } else { "" }
+        $dlStatus = if ($diasRestantes -lt 0) { "ABSORVIDO -- prazo vencido, projeto continua" }
+                    elseif ($diasRestantes -eq 0) { "VENCE HOJE" }
+                    else { "ATIVO -- $diasRestantes dia(s) restante(s)" }
+        $deadlineInfo = "Deadline $($wipProj.deadline) [$dlStatus]."
+    }
     $detalheAgendados = if ($totalAgendados -gt 0) { " -- $totalUrgentes urgente(s) + $totalAgendados agendado(s)" } else { "" }
     "$projLabel encerrou sessao com $nPend pendente(s)$detalheAgendados e $nGarg gargalo(s). Status documental: $statusDoc. $deadlineInfo Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini."
 }
@@ -428,10 +497,27 @@ $linhasDoc.Add($separador)
 $linhasDoc.Add("")
 $linhasDoc.Add("## ALERTAS DO MUSCULO")
 $linhasDoc.Add("")
+$linhasDoc.Add("> Escopo: anomalias de sistema (manifesto hash, canonical violation). Pendentes e gargalos estao nas secoes ATIVIDADES EM DEFICIT e ALERTA GARGALO acima.")
+$linhasDoc.Add("")
 $linhasDoc.Add($alertasBloco)
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
 $linhasDoc.Add("")
+# Bloco de contexto do projeto (ultimo contato + deadline status - itens 1b e 3a)
+if ($clienteLabel) {
+    $linhasDoc.Add("## CONTEXTO DO PROJETO")
+    $linhasDoc.Add("")
+    if ($ultimoContato) {
+        $linhasDoc.Add("**Ultimo contato com o cliente:** $ultimoContato")
+    }
+    if ($deadlineInfo) {
+        $linhasDoc.Add("**Deadline:** $deadlineInfo")
+    }
+    $linhasDoc.Add("")
+    $linhasDoc.Add($separador)
+    $linhasDoc.Add("")
+}
+
 $linhasDoc.Add("## PENDENTES POR PROJETO")
 $corpoUrgentes = if ($pendentesBloco.Trim()) { $pendentesBloco } else { "`nNenhum pendente urgente neste ciclo." }
 $linhasDoc.Add($corpoUrgentes)

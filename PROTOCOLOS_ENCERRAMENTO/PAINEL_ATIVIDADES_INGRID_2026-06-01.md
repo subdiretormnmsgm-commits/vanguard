@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - INGRID - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-06-01 19:11
+### Pentalateral IAH - Segunda-feira, 2026-06-01 19:26
 
 ---
 
@@ -56,14 +56,15 @@ Ingrid     [BUILD    ]  Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-2
 
 ## COMMIT DA SESSAO
 
-Commit : bd6030e - 3 arquivo(s) alterado(s)
-Mensagem: fix(painel): causa-raiz-2 -- pendentes futuros visiveis com secao propria e rodape urgentes/agendados
+Commit : e664c4b - 4 arquivo(s) alterado(s)
+Mensagem: chore(session-close): artefatos finais 2026-06-01 -- VERDE
 
 ---
 
 ## ENTREGAS DO DIA
 
 Commits do dia:
+- 23e4feb feat(painel): validate_painel.ps1 -- gate de consistencia automatico pos-geracao
 - bd6030e fix(painel): causa-raiz-2 -- pendentes futuros visiveis com secao propria e rodape urgentes/agendados
 - 18f289a fix(painel): total pendentes filtrado por cliente -- corrige contador global vazando para PAINEL filtrado [RESOLVE: pendentes-painel-bug]
 - e664c4b chore(session-close): artefatos finais 2026-06-01 -- VERDE
@@ -85,7 +86,16 @@ Commits do dia:
 
 ## ALERTAS DO MUSCULO
 
+> Escopo: anomalias de sistema (manifesto hash, canonical violation). Pendentes e gargalos estao nas secoes ATIVIDADES EM DEFICIT e ALERTA GARGALO acima.
+
 Nenhum alerta ativo detectado nesta sessao.
+
+---
+
+## CONTEXTO DO PROJETO
+
+**Ultimo contato com o cliente:** 2026-06-01 (WhatsApp — **D3 respondido** — Ingrid confirmou: está realizando o acesso e está gostando. Cenário A confirmado (engajada, ativa, não desengajada).)
+**Deadline:** Deadline 2026-05-30 [ABSORVIDO -- prazo vencido, projeto continua].
 
 ---
 
@@ -95,9 +105,9 @@ Nenhum pendente urgente neste ciclo.
 
 ## PENDENTES FUTUROS (nao urgentes)
 
-- [sem data definida] Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:
-- [sem data definida] Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:
-- [sem data definida] Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:
+- [sem data definida] Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8: [diretor]
+- [sem data definida] Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento: [diretor]
+- [sem data definida] Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária: [musculo]
 
 Total pendentes abertos: 3 (0 urgente(s) + 3 agendado(s))
 
@@ -113,7 +123,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto INGRID encerrou sessao com 3 pendente(s) -- 0 urgente(s) + 3 agendado(s) e 1 gargalo(s). Status documental: VERDE. Deadline 2026-05-30 -- -2 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto INGRID encerrou sessao com 3 pendente(s) -- 0 urgente(s) + 3 agendado(s) e 1 gargalo(s). Status documental: VERDE. Deadline 2026-05-30 [ABSORVIDO -- prazo vencido, projeto continua]. Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 
