@@ -1690,3 +1690,22 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 ### [SESSAO 2026-06-01]
 
 `[PRINCIPIO]` P-092: pergunta aberta "o que avançou?" e falha de design. verificar_estado_autonomo.ps1 classifica pendentes em AUTO-VERDE / AUTO-AMARELO / DIRETOR-CONFIRMAR. session_start atualizado. marcar_confirmados.ps1 criado.
+
+`[PRINCIPIO]` P-093: ferramenta profissional que funciona bem desaparece na rotina antes de criar ROI percebido. primeiro contato pos-entrega nao e verificacao de uso — e criacao de consciencia de valor. Origem: Embaixador Valdece Hypercare Dia 13.
+
+---
+
+## P-093 — FERRAMENTA NORMALIZADA ANTES DO ROI PERCEBIDO (2026-06-01)
+**Origem:** Embaixador Valdece · Hypercare Dia 13 · 2026-06-01
+**Veredito:** Inscrito pelo Músculo (P-032 automático).
+
+> Ferramenta profissional que funciona bem desaparece na rotina antes de criar ROI percebido.
+> O primeiro contato pós-entrega não é verificação de uso — é criação de consciência de valor.
+> Sem esse evento intencional, o cliente usa e esquece quanto pagou.
+>
+> Corolário: "Produto silencioso não é produto aprovado — é produto normalizado.
+> A diferença define se o cliente renova, indica ou esquece."
+
+**Regra derivada:** O Sentinel Report não é relatório de atividade — é o primeiro evento de consciência de ROI. A pergunta "como tem sido na prática?" força avaliação ativa onde antes havia uso passivo. Sem ela, a janela de memória fecha (14 dias) e o cliente responde sobre um sistema que "usa há um mês" sem memória dos primeiros casos específicos.
+
+**Aplica-se a:** todo projeto de ferramenta profissional com usuário B2B que paga upfront e usa sem reportar. Especialmente LegalTech, EdTech, qualquer nicho onde o profissional incorpora a ferramenta à rotina silenciosamente.
