@@ -444,31 +444,41 @@ if (Test-Path $KG) {
 $g6ok = -not ($manifestStatus.Values -contains "VERMELHO")
 $gateStatus.G6 = if ($g6ok) { "VERDE" } else { "AMARELO" }
 
-# ADD-F1 / GATE 6C -- AUDITOR_LOOP + vanguard-doc-sync verificados (P-049)
-foreach ($projF1 in $projetosEmBuild) {
-    $cliF1    = $projF1.cliente.ToUpper()
-    $cliLowF1 = $projF1.cliente.ToLower()
-    $loopF1   = 0
-    if ($projF1.loop_fase_atual -and $projF1.loop_fase_atual.loop) {
-        try { $loopF1 = [int]$projF1.loop_fase_atual.loop } catch {}
-    }
-    if ($loopF1 -gt 0) {
-        $audPathF1 = "$BASE\CLIENTES\$cliF1\HISTORICO\AUDITOR_LOOP_V${loopF1}_${cliLowF1}.md"
-        if (-not (Test-Path $audPathF1)) {
-            # So alertar se notebooklm=OK (loop encerrado pelo Auditor)
-            $faseF1 = $projF1.loop_fase_atual
-            if ($faseF1 -and $faseF1.notebooklm -eq "OK") {
-                Write-Host "  [!] [GATE 6C] $cliF1 -- notebooklm=OK mas AUDITOR_LOOP_V${loopF1} ausente -- salvar output NotebookLM (P-049)" -ForegroundColor Yellow
-            } else {
-                Write-Host "  [!] [GATE 6C] $cliF1 -- AUDITOR_LOOP_V${loopF1} ausente (P-049)" -ForegroundColor Yellow
-            }
-        } elseif ((Get-Content $audPathF1 -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) -match '\[colar aqui\]') {
-            Write-Host "  [!] [GATE 6C] $cliF1 -- AUDITOR_LOOP_V${loopF1} tem placeholders -- vanguard-doc-sync pendente" -ForegroundColor Yellow
-        } else {
-            Write-Host "  [OK] [GATE 6C] $cliF1 -- AUDITOR_LOOP_V${loopF1} preenchido" -ForegroundColor Green
-        }
+# ==========================================================================
+# GATE 6C -- vanguard-doc-sync BLOQUEANTE (P-049)
+# notebooklm=PENDENTE -> ignora. notebooklm=OK sem AUDITOR preenchido -> exit 1
+# Universal: usa $projetosEmBuild (objetos completos do WIP_BOARD.board.build)
+# ==========================================================================
+$gate6CFalhou = $false
+foreach ($projC in $projetosEmBuild) {
+    $cliC    = $projC.cliente.ToUpper()
+    $cliLowC = $projC.cliente.ToLower()
+    $faseC   = $projC.loop_fase_atual
+    if (-not $faseC) { continue }
+
+    # notebooklm=PENDENTE -> ignora silenciosamente
+    if ($faseC.notebooklm -ne "OK") { continue }
+
+    $loopC = try { [int]$faseC.loop } catch { 0 }
+    if ($loopC -eq 0) { continue }
+
+    $audPathC = "$BASE\CLIENTES\$cliC\HISTORICO\AUDITOR_LOOP_V${loopC}_${cliLowC}.md"
+
+    if (-not (Test-Path $audPathC)) {
+        Write-Host "  [BLOQUEIO P-049] $cliC -- AUDITOR_LOOP_V$loopC ausente." -ForegroundColor Red
+        $gate6CFalhou = $true
+    } elseif ((Get-Content $audPathC -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) -match '\[colar aqui\]') {
+        Write-Host "  [BLOQUEIO P-049] $cliC -- AUDITOR_LOOP_V$loopC tem placeholders." -ForegroundColor Red
+        $gate6CFalhou = $true
+    } else {
+        Write-Host "  [OK] [GATE 6C] $cliC -- AUDITOR_LOOP_V$loopC preenchido." -ForegroundColor Green
     }
 }
+if ($gate6CFalhou) {
+    Write-Host "  [GATE 6C] FALHOU -- P-049 violado. Colar output NotebookLM antes de fechar sessao." -ForegroundColor Red
+    exit 1
+}
+Write-Host "  [GATE 6C] P-049 doc-sync -- OK" -ForegroundColor Green
 
 # ==========================================================================
 # GATE 6B -- P-032 BLOQUEANTE: MEMORIA_EMBAIXADOR atualizada apos vereditos?
