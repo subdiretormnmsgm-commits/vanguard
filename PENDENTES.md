@@ -15,7 +15,7 @@
 
 ## PROJ-001 · Valdece (Hypercare até 18/06/2026)
 
-- [ ] `2026-06-02` **Sentinel Report (02-06-2026 terça-feira) — Hypercare Valdece:**
+- [x] `2026-06-02` **Sentinel Report (02-06-2026 terça-feira) — Hypercare Valdece:**
   Relatório de Hypercare para Valdece. Template em CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md.
   Músculo gera PASSO7-C (debrief) antes do Sentinel.
 
