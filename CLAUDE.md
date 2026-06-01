@@ -320,6 +320,15 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     Origem: WIP_BOARD declarou gemini=OK para Loop 7 Ingrid sem DIRETRIZ V7 existir em disco.
     Detectado pelo Embaixador em 2026-05-30. P-091 no LEDGER.
     ─────────────────────────────────────────────────────────────────────────────────────
+36. P-032 É BLOQUEANTE NO FECHAMENTO — NÃO APENAS ALERTA (2026-06-01):
+    Gate 6B do session_close.ps1 verifica por projeto:
+    se VEREDITOS executados hoje mas MEMORIA_EMBAIXADOR não atualizada hoje → exit 1 bloqueante.
+    Músculo que executa vereditos sem atualizar MEMORIA = P-032 violado = sessão não fecha.
+    Evidência em disco: LastWriteTime da MEMORIA >= data dos VEREDITOS (mesmo dia).
+    vanguard-doc-sync: executada pelo Auditor no NotebookLM a cada loop.
+    Evidência: AUDITOR_LOOP_V[N] preenchido sem placeholders.
+    Gate 6C verifica no fechamento. LEMBRETE DE LOOP mostra Doc-Sync status na abertura.
+    ─────────────────────────────────────────────────────────────────────────────────────
 35. GET-CHECKINPROMPT NAO DUPLICA O SESSION_START (2026-05-30):
     session_start ja cobre: LEMBRETE DE LOOP, DECISOES bloqueantes, PENDENTES completo,
     WIP_BOARD, MEMORIA_EMBAIXADOR, ChurnWatch, detect_canonical, watchers, commits.

@@ -524,6 +524,15 @@ function Get-LembreteDeLoop {
                 "DESATUALIZADO -- fazer upload antes de ir ao Embaixador"
             } else { "OK" }
             $linhas += "  Claude Proj  : $cpStatus"
+            # Doc-Sync (Auditor): AUDITOR_LOOP preenchido sem placeholders?
+            $cliLow3  = $proj.cliente.ToLower()
+            $loopN3   = try { [int]$lfa.loop } catch { 0 }
+            $audPath3 = Join-Path $projectDir "CLIENTES\$($proj.cliente.ToUpper())\HISTORICO\AUDITOR_LOOP_V${loopN3}_${cliLow3}.md"
+            $docSync3 = if (-not (Test-Path $audPath3)) { "PENDENTE" }
+                        elseif ((Get-Content $audPath3 -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) -match '\[colar aqui\]') { "INCOMPLETO" }
+                        else { "OK" }
+            $cor3 = if ($docSync3 -eq "OK") { "[OK]" } elseif ($docSync3 -eq "INCOMPLETO") { "[!!]" } else { "[--]" }
+            $linhas += "  $cor3 Doc-Sync     : $docSync3  (AUDITOR_LOOP_V$loopN3)"
             $linhas += ""
         }
         if (-not $temDado) { return $null }

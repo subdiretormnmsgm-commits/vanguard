@@ -444,7 +444,7 @@ if (Test-Path $KG) {
 $g6ok = -not ($manifestStatus.Values -contains "VERMELHO")
 $gateStatus.G6 = if ($g6ok) { "VERDE" } else { "AMARELO" }
 
-# ADD-F1 -- AUDITOR_LOOP verificado explicitamente no Gate 6 (P-049)
+# ADD-F1 / GATE 6C -- AUDITOR_LOOP + vanguard-doc-sync verificados (P-049)
 foreach ($projF1 in $projetosEmBuild) {
     $cliF1    = $projF1.cliente.ToUpper()
     $cliLowF1 = $projF1.cliente.ToLower()
@@ -455,14 +455,56 @@ foreach ($projF1 in $projetosEmBuild) {
     if ($loopF1 -gt 0) {
         $audPathF1 = "$BASE\CLIENTES\$cliF1\HISTORICO\AUDITOR_LOOP_V${loopF1}_${cliLowF1}.md"
         if (-not (Test-Path $audPathF1)) {
-            Write-Host "  [!] [GATE 6] $cliF1 -- AUDITOR_LOOP_V${loopF1} ausente (P-049)" -ForegroundColor Yellow
+            # So alertar se notebooklm=OK (loop encerrado pelo Auditor)
+            $faseF1 = $projF1.loop_fase_atual
+            if ($faseF1 -and $faseF1.notebooklm -eq "OK") {
+                Write-Host "  [!] [GATE 6C] $cliF1 -- notebooklm=OK mas AUDITOR_LOOP_V${loopF1} ausente -- salvar output NotebookLM (P-049)" -ForegroundColor Yellow
+            } else {
+                Write-Host "  [!] [GATE 6C] $cliF1 -- AUDITOR_LOOP_V${loopF1} ausente (P-049)" -ForegroundColor Yellow
+            }
         } elseif ((Get-Content $audPathF1 -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) -match '\[colar aqui\]') {
-            Write-Host "  [!] [GATE 6] $cliF1 -- AUDITOR_LOOP_V${loopF1} tem placeholders -- colar output NotebookLM" -ForegroundColor Yellow
+            Write-Host "  [!] [GATE 6C] $cliF1 -- AUDITOR_LOOP_V${loopF1} tem placeholders -- vanguard-doc-sync pendente" -ForegroundColor Yellow
         } else {
-            Write-Host "  [OK] [GATE 6] $cliF1 -- AUDITOR_LOOP_V${loopF1} preenchido" -ForegroundColor Green
+            Write-Host "  [OK] [GATE 6C] $cliF1 -- AUDITOR_LOOP_V${loopF1} preenchido" -ForegroundColor Green
         }
     }
 }
+
+# ==========================================================================
+# GATE 6B -- P-032 BLOQUEANTE: MEMORIA_EMBAIXADOR atualizada apos vereditos?
+# Se VEREDITOS executados hoje + MEMORIA nao atualizada hoje -> exit 1
+# ==========================================================================
+$gate6BFalhou = $false
+foreach ($projB in $projetosEmBuild) {
+    $cliB        = $projB.cliente.ToUpper()
+    $memoriaB    = "$BASE\CLIENTES\$cliB\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
+    $vereditos   = Get-ChildItem "$BASE\CLIENTES\$cliB\CLAUDE_PROJECT\DECISOES\VEREDITOS_*.json" `
+                       -ErrorAction SilentlyContinue |
+                   Where-Object { $_.LastWriteTime.Date -eq [datetime]::Today }
+    if ($vereditos.Count -gt 0 -and (Test-Path $memoriaB)) {
+        $memoriaHoje = (Get-Item $memoriaB).LastWriteTime.Date -eq [datetime]::Today
+        if (-not $memoriaHoje) {
+            Write-Host ""
+            Write-Host "  [BLOQUEIO P-032] $cliB" -ForegroundColor Red
+            Write-Host "  Vereditos executados hoje mas MEMORIA_EMBAIXADOR nao atualizada." -ForegroundColor Red
+            Write-Host "  Atualizar antes de fechar a sessao." -ForegroundColor Red
+            try {
+                $lc = & git -C $BASE log -1 --format="%h %ar -- %s" `
+                    -- "CLIENTES\$cliB\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md" 2>$null
+                if ($lc) { Write-Host "  Ultimo commit: $lc" -ForegroundColor Yellow }
+            } catch {}
+            Write-Host ""
+            $gate6BFalhou = $true
+        } else {
+            Write-Host "  [OK] [GATE 6B] $cliB MEMORIA_EMBAIXADOR atualizada hoje (P-032)" -ForegroundColor Green
+        }
+    }
+}
+if ($gate6BFalhou) {
+    Write-Host "  [GATE 6B] FALHOU -- P-032 violado. Corrigir e rodar session_close novamente." -ForegroundColor Red
+    exit 1
+}
+Write-Host "  [GATE 6B] P-032 -- OK" -ForegroundColor Green
 
 # ==========================================================================
 # GATE 6.5 — P-089 FIX: gerar PASSO3 do proximo loop SOMENTE ao fechar loop completo
