@@ -26,15 +26,12 @@
 
 ## PROJ-002 · Ingrid (Loop 7 CONCLUÍDO · Loop 8 aguarda)
 
-- [ ] `2026-06-01` **Ingrid — D4: GitHub Security — Pages push bloqueado (pré-requisito de tudo):**
-  Eduardo segue link no e-mail do GitHub Security → revogar token sbp_ do histórico.
-  Veredito do Diretor 2026-05-30: registrar pendência · continuar com deploy manual por ora.
-  Desbloqueado este → libera D1 (deploy CLI).
+- [x] `2026-06-01` ~~**Ingrid — D4: GitHub Security — Pages push bloqueado (pré-requisito de tudo):**~~
+  ✅ Token sbp_ revogado + alerta GitHub dispensado — confirmado pelo Diretor 2026-06-01.
 
-- [ ] `2026-06-01` **Ingrid — D1: Deploy CLI F-4 + F-6 (Gate 7.1) — aguarda D4:**
-  Após GitHub Security resolvido: Eduardo roda `! supabase login` no terminal.
-  Músculo faz link + deploy `notificar-progresso` e `relatorio-semanal` no projeto Ingrid.
-  Veredito do Diretor 2026-05-30: aguardar desbloqueio GitHub Pages primeiro.
+- [x] `2026-06-01` ~~**Ingrid — D1: Deploy CLI F-4 + F-6 (Gate 7.1) — aguarda D4:**~~
+  ✅ 3 Edge Functions deployadas em yjqvjhezwhepwomukudt + pg_cron VERDE — 2026-06-01.
+  gatilho_temporal_ingrid (45 22 * * *) + relatorio_semanal_ingrid (0 13 * * 0) ativos.
 
 - [ ] `2026-05-31` **Ingrid — D3: Debrief casual Ingrid (gate informal pitch):**
   Mensagem no clipboard: "Ingrid! Aquela configuração que fizemos hoje ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚"
