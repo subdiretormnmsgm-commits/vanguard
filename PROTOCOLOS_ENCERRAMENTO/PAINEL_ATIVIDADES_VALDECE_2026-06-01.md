@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - VALDECE - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-06-01 19:28
+### Pentalateral IAH - Segunda-feira, 2026-06-01 20:50
 
 ---
 
@@ -54,14 +54,14 @@ Valdece    [BUILD    ]  Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â
 
 ## COMMIT DA SESSAO
 
-Commit : e664c4b - 1 arquivo(s) alterado(s)
-Mensagem: chore(session-close): artefatos finais 2026-06-01 -- VERDE
+Commit : 592efd6 - 6 arquivo(s) alterado(s)
+Mensagem: chore(session-close): artefatos finais 2026-06-01 -- AMARELO (AUDITOR_LOOP_V7 placeholder + MANIFEST drift)
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao 2026-06-01 -- 15 arquivo(s) modificado(s). MANIFEST: AMARELO. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
+Sessao 2026-06-01 -- 4 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
 
 ---
 
@@ -69,8 +69,7 @@ Sessao 2026-06-01 -- 15 arquivo(s) modificado(s). MANIFEST: AMARELO. LOG: C:\Use
 
 > Escopo: anomalias de sistema (manifesto hash, canonical violation). Pendentes e gargalos estao nas secoes ATIVIDADES EM DEFICIT e ALERTA GARGALO acima.
 
-- [VALDECE] MANIFEST: AMARELO
-- [INGRID] MANIFEST: AMARELO
+Nenhum alerta ativo.
 
 ---
 
@@ -84,11 +83,7 @@ Sessao 2026-06-01 -- 15 arquivo(s) modificado(s). MANIFEST: AMARELO. LOG: C:\Use
 
 Nenhum pendente urgente neste ciclo.
 
-## PENDENTES FUTUROS (nao urgentes)
-
-- [2026-06-02] Sentinel Report — Eduardo ENVIA WhatsApp ao Valdece (02-06-2026 ter... [diretor]
-
-Total pendentes abertos: 1 (0 urgente(s) + 1 agendado(s))
+Total pendentes abertos: 0
 
 ---
 
@@ -102,7 +97,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto VALDECE encerrou sessao com 5 pendente(s) e 0 gargalo(s). Status documental: AMARELO. Deadline 2026-05-23 -- -9 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto VALDECE encerrou sessao com 4 pendente(s) e 0 gargalo(s). Status documental: VERDE. Deadline 2026-05-23 -- -9 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 

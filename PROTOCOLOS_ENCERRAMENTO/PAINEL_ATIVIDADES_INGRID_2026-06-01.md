@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - INGRID - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-06-01 19:28
+### Pentalateral IAH - Segunda-feira, 2026-06-01 20:50
 
 ---
 
@@ -56,14 +56,14 @@ Ingrid     [BUILD    ]  Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-2
 
 ## COMMIT DA SESSAO
 
-Commit : e664c4b - 4 arquivo(s) alterado(s)
-Mensagem: chore(session-close): artefatos finais 2026-06-01 -- VERDE
+Commit : 592efd6 - 9 arquivo(s) alterado(s)
+Mensagem: chore(session-close): artefatos finais 2026-06-01 -- AMARELO (AUDITOR_LOOP_V7 placeholder + MANIFEST drift)
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao 2026-06-01 -- 15 arquivo(s) modificado(s). MANIFEST: AMARELO. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
+Sessao 2026-06-01 -- 4 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
 
 ---
 
@@ -71,8 +71,7 @@ Sessao 2026-06-01 -- 15 arquivo(s) modificado(s). MANIFEST: AMARELO. LOG: C:\Use
 
 > Escopo: anomalias de sistema (manifesto hash, canonical violation). Pendentes e gargalos estao nas secoes ATIVIDADES EM DEFICIT e ALERTA GARGALO acima.
 
-- [VALDECE] MANIFEST: AMARELO
-- [INGRID] MANIFEST: AMARELO
+Nenhum alerta ativo.
 
 ---
 
@@ -106,7 +105,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto INGRID encerrou sessao com 5 pendente(s) e 1 gargalo(s). Status documental: AMARELO. Deadline 2026-05-30 -- -2 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto INGRID encerrou sessao com 4 pendente(s) e 1 gargalo(s). Status documental: VERDE. Deadline 2026-05-30 -- -2 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 

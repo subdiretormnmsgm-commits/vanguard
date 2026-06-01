@@ -1,35 +1,23 @@
 # LOG DE EXECUCAO DIARIA -- INGRID . 2026-06-01
 > Gerado automaticamente por session_close.ps1
-> Sessao encerrada: 19:27:42
+> Sessao encerrada: 20:50:24
 
 ---
 
 ## 1. ARQUIVOS MODIFICADOS
-- CLIENTES/INGRID/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
-- CLIENTES/INGRID/CLAUDE_PROJECT/07_WIP_BOARD.json
-- CLIENTES/INGRID/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md
 - CLIENTES/INGRID/MANIFEST_DOCS.json
-- CLIENTES/INGRID/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md
 - CLIENTES/INGRID/NOTEBOOKLM_FONTES/14_MEMORIA_EMBAIXADOR.md
-- CLIENTES/VALDECE/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
-- CLIENTES/VALDECE/CLAUDE_PROJECT/07_WIP_BOARD.json
 - CLIENTES/VALDECE/MANIFEST_DOCS.json
-- CLIENTES/VALDECE/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md
 - CLIENTES/VALDECE/NOTEBOOKLM_FONTES/14_MEMORIA_EMBAIXADOR.md
-- CLIENTES/WIP_BOARD.json
-- SYNC_REPORT_20260601.md
-- scripts/decisoes_watcher.log
-- scripts/skill_watcher.log
 
 
 ## 2. SINCRONIZACAO NOTEBOOKLM
 | Projeto | Status MANIFEST |
 |---------|----------------|
-| VALDECE | AMARELO |
-| INGRID | AMARELO |
+| VALDECE | VERDE |
+| INGRID | VERDE |
 
-## 3. PENDENTES ABERTOS (5 itens)
-- Sentinel Report — Eduardo ENVIA WhatsApp ao Valdece (02-06-2026 terça-feira):
+## 3. PENDENTES ABERTOS (4 itens)
 - Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:
 - Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:
 - Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:
@@ -39,6 +27,7 @@
 ## 4. PENDENTES CONCLUIDOS NESTA SESSAO
 + `2026-05-26` ~~**TOKEN SUPABASE EXPOSTO — RESOLVIDO:**~~
 + `2026-06-02` ~~**Sentinel Report — PASSO7-C preparado pelo Músculo:**~~
++ `2026-06-02` ~~**Sentinel Report — Eduardo ENVIA WhatsApp ao Valdece (02-06-2026 terça-feira):**~~
 + `2026-05-26` ~~**NotebookLM Wipe & Sync — Valdece:**~~
 + `2026-06-01` ~~**Ingrid — D4: GitHub Security — Pages push bloqueado (pré-requisito de tudo):**~~
 + `2026-06-01` ~~**Ingrid — D1: Deploy CLI F-4 + F-6 (Gate 7.1) — aguarda D4:**~~
@@ -63,4 +52,4 @@
 
 
 ## 5. STATUS GERAL
-AMARELO
+VERDE
