@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - INGRID - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-06-01 19:10
+### Pentalateral IAH - Segunda-feira, 2026-06-01 19:11
 
 ---
 
@@ -56,14 +56,15 @@ Ingrid     [BUILD    ]  Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-2
 
 ## COMMIT DA SESSAO
 
-Commit : 18f289a - 1 arquivo(s) alterado(s)
-Mensagem: fix(painel): total pendentes filtrado por cliente -- corrige contador global vazando para PAINEL filtrado [RESOLVE: pendentes-painel-bug]
+Commit : bd6030e - 3 arquivo(s) alterado(s)
+Mensagem: fix(painel): causa-raiz-2 -- pendentes futuros visiveis com secao propria e rodape urgentes/agendados
 
 ---
 
 ## ENTREGAS DO DIA
 
 Commits do dia:
+- bd6030e fix(painel): causa-raiz-2 -- pendentes futuros visiveis com secao propria e rodape urgentes/agendados
 - 18f289a fix(painel): total pendentes filtrado por cliente -- corrige contador global vazando para PAINEL filtrado [RESOLVE: pendentes-painel-bug]
 - e664c4b chore(session-close): artefatos finais 2026-06-01 -- VERDE
 - 4389111 fix(gate6c): bloqueia so se AUDITOR criado HOJE com placeholder -- nao sessoes anteriores

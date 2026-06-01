@@ -488,6 +488,18 @@ $nomeArq = if ($clienteLabel) { "PAINEL_ATIVIDADES_${clienteLabel}_$data.md" } e
 $destLabel = if ($clienteLabel) { "Claude Projects: Embaixador $clienteLabel" } else { "Claude Projects: Embaixador - Diretor" }
 Write-Host ""
 Write-Host "  [PAINEL] Gerado: PROTOCOLOS_ENCERRAMENTO\$nomeArq" -ForegroundColor Cyan
+
+# Validacao automatica de consistencia antes de informar que esta pronto
+$validateScript = "$PSScriptRoot\validate_painel.ps1"
+if (Test-Path $validateScript) {
+    & $validateScript -PainelPath $outputFile
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "  [PAINEL] BLOQUEADO -- corrigir inconsistencia antes de enviar ao Embaixador." -ForegroundColor Red
+        Write-Host ""
+        return $null
+    }
+}
+
 Write-Host "  [PAINEL] Fazer upload ao projeto: $destLabel (claude.ai/projects)" -ForegroundColor Yellow
 Write-Host ""
 
