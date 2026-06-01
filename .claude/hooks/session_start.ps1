@@ -73,50 +73,17 @@ function Get-GateSummary {
 
 $gateAlert = Get-GateSummary
 
-# --- Check-In integrado: lista gates pendentes para o Musculo perguntar ao Diretor ---
-function Get-CheckInPrompt {
-    $wipPath = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
-    if (-not (Test-Path $wipPath)) { return $null }
-    $board    = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
-    $projetos = @($board.board.build)
-    if ($projetos.Count -eq 0) { return $null }
-    $hoje       = Get-Date
-    $pendentes  = @()
-    foreach ($proj in $projetos) {
-        if (-not $proj.gates_bloqueantes) { continue }
-        $inicio = if ($proj.build_iniciado_em) { [datetime]::Parse($proj.build_iniciado_em) } else { $hoje }
-        $gates  = $proj.gates_bloqueantes | Get-Member -MemberType NoteProperty |
-                  Select-Object -ExpandProperty Name |
-                  Sort-Object { [int]($_ -replace '\D', '') }
-        foreach ($g in $gates) {
-            $num  = [int]($g -replace '\D', '')
-            $gateDate = $inicio.AddDays($num - 1)
-            if ($gateDate.Date -gt $hoje.Date) { continue }  # nao venceu ainda
-            $concluido = $false
-            if ($proj.dias_completos) {
-                foreach ($d in $proj.dias_completos) {
-                    if ($d -match "^dia$num") { $concluido = $true; break }
-                }
-            }
-            if (-not $concluido) {
-                $pendentes += "  [$($proj.id)/$($proj.cliente)] Gate $g ($($gateDate.ToString('dd/MM'))): $($proj.gates_bloqueantes.$g)"
-            }
-        }
-    }
-    if ($pendentes.Count -eq 0) { return $null }
-    $linhas = @(
-        "CHECK-IN OBRIGATORIO — $(Get-Date -Format 'yyyy-MM-dd')",
-        "Os gates abaixo constam como PENDENTES no WIP_BOARD.",
-        "Antes de declarar o estado de qualquer projeto, o Musculo DEVE perguntar:",
-        "  'Algum destes gates foi concluido offline desde a ultima sessao?'",
-        "Atualizar WIP_BOARD somente apos confirmacao explicita do Diretor.",
-        ""
-    )
-    $linhas += $pendentes
-    return $linhas -join "`n"
+# --- P-092: Verificacao autonoma de estado -- substitui "perguntar ao Diretor" ---
+# Musculo verifica o que pode via git+disco. Para acoes externas: lista SIM/NAO compacta.
+# NUNCA gerar pergunta aberta "o que aconteceu?" -- isso e falha de design (P-092).
+$checkIn = $null
+$autoVerifScript = Join-Path $projectDir "scripts\verificar_estado_autonomo.ps1"
+if (Test-Path $autoVerifScript) {
+    try {
+        $avLines = & powershell.exe -NonInteractive -File $autoVerifScript 2>$null
+        if ($avLines) { $checkIn = ($avLines | Where-Object { $_ -ne $null }) -join "`n" }
+    } catch {}
 }
-
-$checkIn = Get-CheckInPrompt
 
 # --- PENDENTES: alerta completo com instruções detalhadas (P-063) ---
 # Injeta título + sub-bullets de cada tarefa aberta para o Músculo ter as instruções exatas
@@ -530,7 +497,7 @@ if ($wip)                { $sections += "## WIP_BOARD - PROJETOS ATIVOS`n$wip" }
 if ($socio)              { $sections += "## ANALISE DO SOCIO - CONTEXTO ATUAL`n$socio" }
 if ($gateAlert)          { $sections += "## GATE ALERT - STATUS DOS PROJETOS`n$gateAlert" }
 if ($embaixadorStatus)   { $sections += "## EMBAIXADOR INATIVO (RISCO C) -- ACAO NECESSARIA`n$embaixadorStatus" }
-if ($checkIn)            { $sections += "## CHECK-IN OBRIGATORIO - PERGUNTAR AO DIRETOR`n$checkIn" }
+if ($checkIn)            { $sections += "## VERIFICACAO AUTONOMA (P-092) -- CONFIRMAR APENAS ACOES EXTERNAS`n$checkIn" }
 if ($churnWatchStatus)   { $sections += "## CHURN-WATCH INATIVO -- ACAO DO DIRETOR NECESSARIA`n$churnWatchStatus" }
 if ($formalizadorOutput) { $sections += "## FORMALIZADOR - CONFLITO COMERCIAL DETECTADO`n$formalizadorOutput" }
 if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }

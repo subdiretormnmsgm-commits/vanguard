@@ -1656,3 +1656,37 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 ### [SESSAO 2026-05-30]
 
 `[PRINCIPIO]` P-091: WIP_BOARD reflete realidade nao intencao. render_painel injeta campos ausentes automaticamente. gerar_sintese_conselho.ps1 criado.
+
+---
+
+## P-092 — PERGUNTA ABERTA É FALHA DE DESIGN — VERIFICAÇÃO AUTÔNOMA (2026-06-01)
+**Origem:** Diretor Eduardo · 2026-06-01 · [FALHA-PROCESSO-2026-06-01]
+**Veredito:** Inscrito e corrigido na mesma sessão.
+
+> "O que avançou desde a última sessão?" é uma pergunta aberta — falha estrutural do sistema.
+> O Músculo tem acesso a git log, arquivos em disco, e PENDENTES.md. Perguntar o que está
+> escrito ou visível = DEF-M-6 (Músculo Reativo). O design correto distingue:
+>
+> [AUTO-VERDE]        → evidência [RESOLVE:] em commit (P-087) → marcar [x] sem perguntar
+> [AUTO-AMARELO]      → tarefa do Músculo sem evidência → executar agora
+> [DIRETOR-CONFIRMAR] → ação externa sem artefato verificável → lista SIM/NÃO numerada
+>
+> A função Get-CheckInPrompt (session_start.ps1) gerava o texto "Musculo DEVE perguntar".
+> Isso é instrução de falha hardcoded no sistema. Causa raiz: confundir "não sei" com "devo perguntar".
+
+**Regras derivadas:**
+- NUNCA gerar pergunta aberta "o que aconteceu?" — sempre classificar primeiro
+- Para ações externas: lista numerada SIM/NÃO — Diretor responde em 2 segundos
+- Para artefatos/código: verificar via git log + disco — nunca perguntar
+- marcar_confirmados.ps1 processa a resposta e fecha PENDENTES automaticamente
+
+**Ferramentas:**
+- `scripts/verificar_estado_autonomo.ps1` — classifica todos os pendentes em 3 categorias
+- `scripts/marcar_confirmados.ps1 -Resposta "1-SIM 2-NÃO"` — fecha os confirmados
+- Integrado ao `session_start.ps1` — substitui Get-CheckInPrompt
+
+**Aplica-se a:** abertura de TODA sessão. Zero exceções.
+
+### [SESSAO 2026-06-01]
+
+`[PRINCIPIO]` P-092: pergunta aberta "o que avançou?" e falha de design. verificar_estado_autonomo.ps1 classifica pendentes em AUTO-VERDE / AUTO-AMARELO / DIRETOR-CONFIRMAR. session_start atualizado. marcar_confirmados.ps1 criado.
