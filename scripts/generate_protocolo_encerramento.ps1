@@ -91,7 +91,14 @@ if (Test-Path $pendentesPath) {
             }
         }
         if (-not $ignorandoSecao -and $l -match "^\- \[ \]") {
-            $totalPendentes++
+            # Verificar se esta secao pertence ao cliente filtrado (ou e universal)
+            $secaoVisivel = $true
+            if ($clienteLabel) {
+                $ehCliente   = $secaoAtual.ToUpper() -match $clienteLabel
+                $ehUniversal = $secaoAtual -match "PROCESSO|INFRA|GERAL|CRITICO"
+                $secaoVisivel = $ehCliente -or $ehUniversal
+            }
+            if ($secaoVisivel) { $totalPendentes++ }
             if (-not $secoes.Contains($secaoAtual)) { $secoes[$secaoAtual] = [System.Collections.Generic.List[string]]::new() }
             $descricao = $l -replace "^\- \[ \] ``[^``]+`` \*\*", ""
             $descricao = ($descricao -replace "\*\*.*", "").Trim()
@@ -253,9 +260,27 @@ $acoesBloco = if ($AcoesTexto) { $AcoesTexto } else {
 # ANALISE GERENCIAL: auto-gerar se nao fornecido
 $analiseBloco = if ($AnaliseTexto) { $AnaliseTexto } else {
     $nPend = $totalPendentes
-    "Sessao de $data encerrada com $nPend pendente(s). " +
-    "Verificar itens VERMELHOS na secao ATIVIDADES EM DEFICIT antes de iniciar proxima sessao. " +
-    "Musculo: priorizar gates que bloqueiam Gemini ou entrega ao cliente."
+    $nGarg = $gargaloOrdenado.Count
+    $projLabel = if ($clienteLabel) { "Projeto $clienteLabel" } else { "Sessao de $data" }
+    $wipProj = if ($clienteLabel -and $wip -and $wip.board.build) {
+        $wip.board.build | Where-Object { $_.cliente.ToUpper() -eq $clienteLabel } | Select-Object -First 1
+    } else { $null }
+    $statusDoc = "VERDE"
+    if ($wipProj -and $wipProj.cliente) {
+        $mPth = "$raiz\CLIENTES\$clienteLabel\MANIFEST_DOCS.json"
+        if (Test-Path $mPth) {
+            try {
+                $m = Get-Content $mPth -Raw -Encoding UTF8 | ConvertFrom-Json
+                $statusDoc = $m.status_geral
+            } catch { }
+        }
+    }
+    $deadlineInfo = if ($wipProj -and $wipProj.deadline) {
+        $dl = [datetime]::Parse($wipProj.deadline)
+        $diasRestantes = ($dl.Date - $hoje).Days
+        "Deadline $($wipProj.deadline) -- $diasRestantes dia(s) restante(s)."
+    } else { "" }
+    "$projLabel encerrou sessao com $nPend pendente(s) e $nGarg gargalo(s). Status documental: $statusDoc. $deadlineInfo Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini."
 }
 
 # --- Montar documento ---
