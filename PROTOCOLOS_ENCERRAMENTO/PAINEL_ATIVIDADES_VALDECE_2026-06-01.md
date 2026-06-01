@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - VALDECE - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-06-01 08:01
+### Pentalateral IAH - Segunda-feira, 2026-06-01 08:27
 
 ---
 
@@ -54,21 +54,20 @@ Valdece    [BUILD    ]  Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â
 
 ## COMMIT DA SESSAO
 
-Commit : eabaaeb - 3 arquivo(s) alterado(s)
-Mensagem: feat(checkin): protocolo cirurgico Embaixador -- Get-CheckInPrompt refatorado
+Commit : 4389111 - 1 arquivo(s) alterado(s)
+Mensagem: fix(gate6c): bloqueia so se AUDITOR criado HOJE com placeholder -- nao sessoes anteriores
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao 2026-06-01 -- 20 arquivo(s) modificado(s). MANIFEST: AMARELO. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
+Sessao 2026-06-01 -- 5 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
 
 ---
 
 ## ALERTAS DO MUSCULO
 
-- [VALDECE] MANIFEST: AMARELO
-- [INGRID] MANIFEST: AMARELO
+Nenhum alerta ativo.
 
 ---
 
@@ -92,7 +91,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto VALDECE encerrou sessao com 7 pendente(s) e 0 gargalo(s). Status documental: AMARELO. Deadline 2026-05-23 -- -9 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto VALDECE encerrou sessao com 7 pendente(s) e 0 gargalo(s). Status documental: VERDE. Deadline 2026-05-23 -- -9 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 

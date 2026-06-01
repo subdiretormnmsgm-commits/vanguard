@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-05-30",
+    "atualizado_em":  "2026-06-01",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -327,6 +327,7 @@
                  "loops_desde_ultimo_checkup":  1,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
+                 "data_ultima_sessao":  "2026-06-01",
                  "claude_projects_pendente":  true
              }
 }

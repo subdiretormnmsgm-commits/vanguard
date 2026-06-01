@@ -126,3 +126,5 @@
 - [ ] `2026-05-31` **MEMORIA_EMBAIXADOR Ingrid — upload no Claude Projects:**
   Gate 9B detectou: CRITICO — atualizada nesta sessão.
   Arrastar: `CLIENTES\INGRID\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md`
+
+- [CLAUDE_PROJECTS (01-06-2026 segunda-feira)] INGRID -- upload: MEMORIA_EMBAIXADOR.md
