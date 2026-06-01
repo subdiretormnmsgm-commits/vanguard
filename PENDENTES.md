@@ -122,3 +122,5 @@
 
 - [x] `2026-05-31` ~~**MEMORIA_EMBAIXADOR Ingrid — upload no Claude Projects:**~~
   ✅ Confirmado pelo Diretor 2026-06-01 — carregada no Claude Projects Ingrid.
+
+- [CLAUDE_PROJECTS (01-06-2026 segunda-feira)] INGRID -- upload: MEMORIA_EMBAIXADOR.md

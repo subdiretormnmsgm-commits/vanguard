@@ -21,7 +21,8 @@
 
 | Data | Canal | Evento objetivo | Fonte |
 |---|---|---|---|
-| 2026-06-01 | WhatsApp | **D3 enviado** — debrief casual: "Aquela configuração ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚" — aguardar resposta | Diretor |
+| 2026-06-01 | WhatsApp | **D3 respondido** — Ingrid confirmou: está realizando o acesso e está gostando. Cenário A confirmado (engajada, ativa, não desengajada). | Ingrid via Diretor |
+| 2026-06-01 | WhatsApp | **D3 enviado** — debrief casual: "Aquela configuração ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚" | Diretor |
 | 2026-05-30 | WhatsApp | Veredito: Enviar debrief casual amanhã — coletar temperatura real (PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado) | VEREDITOS_INGRID_2026-05-30.json |
 | 2026-05-16 | WhatsApp | Termo enviado para assinatura | Diretor |
 | 2026-05-18 | WhatsApp | Termo assinado por Ingrid | Diretor (confirmado 2026-05-19) |
@@ -70,7 +71,7 @@
 | H-1 | Não assinou por esquecimento — não por hesitação | **CONFIRMADA** | Assinou em ~48h sem questionamento, negociação ou pedido de desconto |
 | H-2 | Medo financeiro causou hesitação | **REFUTADA** | Piloto R$0 — sem gatilho financeiro presente |
 | H-3 | Compararia o app com TEC Concursos na primeira sessão | **REFUTADA** — encerrada 2026-05-30 | TEC nunca mencionado em nenhuma sessão documentada. Hipótese encerrada definitivamente. |
-| H-4 estendida | SM-2 nas sessões 3-5 — dificuldade crescente = abandono? | **ATIVA — LACUNA CRÍTICA** | 102 respostas registradas, Ingrid provavelmente já viu repetições difíceis. Sem debrief desta experiência. Debrief 31/05 deve investigar. |
+| H-4 estendida | SM-2 nas sessões 3-5 — dificuldade crescente = abandono? | **REVISADA — BAIXO RISCO** | D3 respondido 2026-06-01: Ingrid confirma acesso ativo e que está gostando. SM-2 crescente não causou abandono. Engajamento sustentado confirmado. |
 
 ---
 
@@ -88,19 +89,20 @@
 ### TEMPERATURA DO CLIENTE
 
 ```
-TEMPERATURA_PONDERADA: 7.5/10 — VERDE SUSTENTADO (validar no debrief 31/05 — 6 dias sem registro de uso)
+TEMPERATURA_PONDERADA: 8.5/10 — VERDE FORTE (D3 respondido 2026-06-01 — Ingrid confirmou acesso ativo e que está gostando)
 Ingrid passou de "tentando sobreviver ao material" para "atacando o placar" (P-079). H-8 CONFIRMADA.
-Estado de pré-comprometimento com aprovação — janela de pitch R$97/mês aberta mas gatilho não acionado.
-Pitch só após: debrief 31/05 confirmar temperatura + 7 dias consecutivos de uso verbalizado.
-CHURN-WATCH: DESATIVADO. [DATA-GAP-WATCH]: ATIVO — uso 24/05 a 30/05 não confirmado. Debrief 31/05 fecha.
+H-4 REVISADA: SM-2 crescente não causou abandono. Engajamento sustentado pós-dificuldade = produto validado.
+Cenário A CONFIRMADO: silêncio era confiança no processo, não desengajamento. Cliente ativa, não fugindo.
+Janela de pitch R$97/mês: AQUECIDA — Ingrid verbalizou satisfação com o produto. Próximo gatilho: uso 7 dias consecutivos verbalizado ou Eduardo propõe formalmente.
+CHURN-WATCH: DESATIVADO. [DATA-GAP-WATCH]: ENCERRADO — uso confirmado verbalmente.
 SCOPE-WATCH: DESATIVADO — sem rede de concurso no curto prazo. Pipeline pós-aprovação.
 LEGAL-WATCH: VERDE — P-013 VERDE 2026-05-30. P-023 VERDE.
 [DADOS-WATCH]: VERDE — 102 respostas · 1 user_id correto.
-[DEPLOY-WATCH]: **VERDE** — Gate 7.1 APROVADO 2026-06-01. 3 Edge Functions em produção: notificar-progresso + gatilho-temporal (19h45 BRT diário) + relatorio-semanal (domingo 10h). pg_cron ativo em yjqvjhezwhepwomukudt.
-[GITHUB-WATCH]: **VERDE** — token sbp_ revogado + alerta GitHub dispensado — 2026-06-01.
-[PITCH-WATCH]: ABERTO — D3 debrief casual enviado 2026-06-01. Aguardar resposta de Ingrid para avaliar temperatura.
+[DEPLOY-WATCH]: VERDE — Gate 7.1 APROVADO 2026-06-01. 3 Edge Functions em produção: notificar-progresso + gatilho-temporal (19h45 BRT diário) + relatorio-semanal (domingo 10h). pg_cron ativo em yjqvjhezwhepwomukudt.
+[GITHUB-WATCH]: VERDE — token sbp_ revogado + alerta GitHub dispensado — 2026-06-01.
+[PITCH-WATCH]: AQUECIDO — D3 respondido 2026-06-01. Ingrid ativa e satisfeita. Missão de apropriação recomendada antes do Loop 8.
 Padrão: estuda à noite (~20h). F-6 relatório semanal = coração do argumento R$97/mês.
-Última atualização: 2026-06-01 (Músculo P-032 — Gate 7.1 VERDE + D3 enviado)
+Última atualização: 2026-06-01 (Músculo P-032 — D3 respondido · Cenário A confirmado · Temperatura 8.5)
 ```
 
 ### PADRÕES INFERIDOS — atualizar com cada sessão real
@@ -198,7 +200,7 @@ Padrão: estuda à noite (~20h). F-6 relatório semanal = coração do argumento
 | [DADOS-WATCH] user_id | **VERDE** — 102 registros · 1 user_id correto · verificado 2026-05-28 | Encerrado |
 | [DEPLOY-WATCH] F-4/F-6 | **VERDE** — 3 Edge Functions ativas em produção + pg_cron ativo (2026-06-01) | Encerrado |
 | [GITHUB-WATCH] push bloqueado | **VERDE** — token revogado + alerta dispensado (2026-06-01) | Encerrado |
-| [PITCH-WATCH] R$97/mês | **ABERTO** — D3 debrief enviado 2026-06-01 · aguardar resposta de Ingrid | Ativo |
+| [PITCH-WATCH] R$97/mês | **AQUECIDO** — D3 respondido 2026-06-01: Ingrid ativa e satisfeita · Cenário A confirmado · janela aberta para formalização | Ativo |
 | [Gate dia15] Supabase Ingrid | **APROVADO** 2026-05-30 — Ingrid admin do próprio Supabase (P-013 VERDE) | Encerrado |
 
 ### PIPELINE COMERCIAL
@@ -346,6 +348,7 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 | 2026-05-25 | Loop 5 SEÇÃO D: Embaixador executou reação completa a [M+G+N] (15 inputs). Painel de Deliberação D1-D5 gerado. VETO G-1+G-3 confirmado. N-2+N-3+N-5 confirmados. Veredito de Eduardo pendente. | Músculo (P-032) |
 | 2026-05-26 | Gate Dia 15 APROVADO — Loop 5 CONCLUIDO. D4:A executado (lead plantado, Ingrid confirmou não ter rede de concurso). Novo PDF Termo recebido e confirmado por Ingrid. SCOPE-WATCH H-5 desativado. LEGAL-WATCH parcial (recebimento confirmado, assinatura pendente). | Músculo (P-032) |
 | 2026-05-27 | Loop 6 SEÇÃO D executada: Embaixador retornou TEMPERATURA 7.5/10, [E-1 a E-5], PAINEL DE DELIBERAÇÃO (P0/P1/PRINCIPIO/D3). LEGAL-WATCH VERDE (reassinatura física confirmada). [DADOS-WATCH] ATIVO (470 respostas — user_id a verificar). H-7 CONFIRMADA. H-8 NOVA. Vereditos do Painel pendentes. | Músculo (P-032) |
+| 2026-06-01 | D3 RESPONDIDO — Ingrid confirmou acesso ativo e que está gostando. Cenário A confirmado. H-4 revisada para BAIXO RISCO. Temperatura elevada para 8.5/10. PITCH-WATCH AQUECIDO. Loop 8 liberado para avançar. | Músculo (P-032) |
 
 ---
 

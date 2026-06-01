@@ -1709,3 +1709,19 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **Regra derivada:** O Sentinel Report não é relatório de atividade — é o primeiro evento de consciência de ROI. A pergunta "como tem sido na prática?" força avaliação ativa onde antes havia uso passivo. Sem ela, a janela de memória fecha (14 dias) e o cliente responde sobre um sistema que "usa há um mês" sem memória dos primeiros casos específicos.
 
 **Aplica-se a:** todo projeto de ferramenta profissional com usuário B2B que paga upfront e usa sem reportar. Especialmente LegalTech, EdTech, qualquer nicho onde o profissional incorpora a ferramenta à rotina silenciosamente.
+
+---
+
+## P-094 — VALIDAÇÃO NO MOMENTO DA ESCRITA SUPERA DOCUMENTAÇÃO (2026-06-01)
+**Origem:** Embaixador — feedback sobre dependência inline no PAINEL · 2026-06-01
+**Veredito:** Inscrito pelo Músculo.
+
+> Documentação não garante preenchimento. O que garante é validação no momento da escrita.
+> Um aviso durante a geração do PAINEL ("2 pendentes futuros sem dependência declarada") cria
+> o incentivo certo sem custo de processo — o campo vazio se torna visível na hora em que importa.
+
+**Regra derivada:** Toda convenção de preenchimento manual que depende só de disciplina vai degradar. O sistema precisa de um mecanismo que torna a ausência do campo visível — não punição, mas fricção mínima no momento correto. Aviso sem bloqueio é o ponto ótimo: informa sem interromper.
+
+**V2 planejado:** `validate_painel.ps1` emitir aviso (`⚠ N pendentes futuros sem dependência declarada`) durante geração. Não bloqueia — registra. Junto com histórico de recorrência (pendentes que reaparecem em PAINEIs consecutivos), compõe o P-094 completo.
+
+**Aplica-se a:** qualquer campo de preenchimento opcional em documentos gerados automaticamente — dependência de pendente, tag de origem, link de gate. Se é opcional e importante, precisa de visibilidade de ausência.

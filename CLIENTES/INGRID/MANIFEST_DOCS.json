@@ -1,6 +1,6 @@
 {
     "projeto":  "INGRID",
-    "ultima_sincronizacao":  "2026-06-01T08:26:54",
+    "ultima_sincronizacao":  "2026-06-01T19:27:42",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -29,8 +29,8 @@
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
                          "hash_universal":  "FB14A42EB9B8B04DFB11510CD224C15CD198C7B11F8D649E20B94E727C3BE84B",
-                         "hash_local":  "FB14A42EB9B8B04DFB11510CD224C15CD198C7B11F8D649E20B94E727C3BE84B",
-                         "status":  "SYNC"
+                         "hash_local":  "3A60574CA867ED96DB77E09BC11D3E98F4095021C1B84B63DE455CA763BB77ED",
+                         "status":  "DRIFT"
                      },
                      {
                          "nome":  "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
@@ -63,8 +63,8 @@
                          "status":  "SYNC"
                      }
                  ],
-    "status_geral":  "VERDE",
+    "status_geral":  "AMARELO",
     "total":  10,
-    "drift_count":  0,
+    "drift_count":  1,
     "ausente_count":  0
 }

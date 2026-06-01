@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - VALDECE - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-06-01 19:26
+### Pentalateral IAH - Segunda-feira, 2026-06-01 19:28
 
 ---
 
@@ -61,24 +61,7 @@ Mensagem: chore(session-close): artefatos finais 2026-06-01 -- VERDE
 
 ## ENTREGAS DO DIA
 
-Commits do dia:
-- 23e4feb feat(painel): validate_painel.ps1 -- gate de consistencia automatico pos-geracao
-- bd6030e fix(painel): causa-raiz-2 -- pendentes futuros visiveis com secao propria e rodape urgentes/agendados
-- 18f289a fix(painel): total pendentes filtrado por cliente -- corrige contador global vazando para PAINEL filtrado [RESOLVE: pendentes-painel-bug]
-- e664c4b chore(session-close): artefatos finais 2026-06-01 -- VERDE
-- 4389111 fix(gate6c): bloqueia so se AUDITOR criado HOJE com placeholder -- nao sessoes anteriores
-- 5e81fdf fix(auditar): Gate 0 aceita 12_DIRETRIZ_GEMINI.txt ou _VN.txt -- fix falso-positivo
-- 5dac9e8 feat(gate6c): vanguard-doc-sync BLOQUEANTE -- notebooklm=OK sem AUDITOR = exit 1
-- 0482f3a feat(p032): Gate 6B bloqueante + Gate 6C + Doc-Sync no LEMBRETE
-- 3241294 fix(ingrid): MEMORIA_EMBAIXADOR atualizada 2026-06-01 -- Gate 7.1 VERDE + D3 + watches
-- 85ba94a feat(session-close): sessao 2026-06-01 encerrada -- AMARELO VERDE
-- eabaaeb feat(checkin): protocolo cirurgico Embaixador -- Get-CheckInPrompt refatorado
-- b15b98a chore(pendentes): Sentinel Report split -- preparacao OK + envio WhatsApp pendente amanhã
-- 5e03a3d chore(pendentes): [AUTO-RESOLVE] Sentinel
-- 7ec1159 feat(valdece): Hypercare Dia 13 -- Embaixador processado + P-093 inscrito [RESOLVE: Sentinel]
-- 3bbaccb feat(ingrid): D3 debrief casual enviado [RESOLVE: D3]
-- 520c065 feat(ingrid): Gate 7.1 VERDE -- D4+D1 concluidos [RESOLVE: D4] [RESOLVE: D1]
-- d079aeb feat(p092): verificacao autonoma de estado -- fim da pergunta aberta ao Diretor
+Sessao 2026-06-01 -- 15 arquivo(s) modificado(s). MANIFEST: AMARELO. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
 
 ---
 
@@ -86,14 +69,14 @@ Commits do dia:
 
 > Escopo: anomalias de sistema (manifesto hash, canonical violation). Pendentes e gargalos estao nas secoes ATIVIDADES EM DEFICIT e ALERTA GARGALO acima.
 
-Nenhum alerta ativo detectado nesta sessao.
+- [VALDECE] MANIFEST: AMARELO
+- [INGRID] MANIFEST: AMARELO
 
 ---
 
 ## CONTEXTO DO PROJETO
 
 **Ultimo contato com o cliente:** sem registro
-**Deadline:** Deadline 2026-05-23 [ABSORVIDO -- prazo vencido, projeto continua].
 
 ---
 
@@ -119,7 +102,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto VALDECE encerrou sessao com 1 pendente(s) -- 0 urgente(s) + 1 agendado(s) e 0 gargalo(s). Status documental: VERDE. Deadline 2026-05-23 [ABSORVIDO -- prazo vencido, projeto continua]. Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto VALDECE encerrou sessao com 5 pendente(s) e 0 gargalo(s). Status documental: AMARELO. Deadline 2026-05-23 -- -9 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 
