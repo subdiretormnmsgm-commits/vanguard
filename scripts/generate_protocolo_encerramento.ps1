@@ -67,8 +67,10 @@ try {
 
 # --- Pendentes por projeto ---
 $pendentesPath = "$raiz\PENDENTES.md"
-$totalPendentes = 0
-$secoes = [ordered]@{}
+$totalUrgentes  = 0   # vencidos + hoje + sem data
+$totalAgendados = 0   # data futura
+$secoes        = [ordered]@{}   # urgentes — aparecem no corpo principal com semaforo
+$secoesFuturas = [ordered]@{}   # agendados — aparecem em secao propria sem semaforo
 $secaoAtual = "GERAL"
 $hoje = (Get-Date).Date
 
@@ -87,7 +89,8 @@ if (Test-Path $pendentesPath) {
             } else {
                 $ignorandoSecao = $false
                 $secaoAtual = $candidato
-                if (-not $secoes.Contains($secaoAtual)) { $secoes[$secaoAtual] = [System.Collections.Generic.List[string]]::new() }
+                if (-not $secoes.Contains($secaoAtual))        { $secoes[$secaoAtual]        = [System.Collections.Generic.List[string]]::new() }
+                if (-not $secoesFuturas.Contains($secaoAtual)) { $secoesFuturas[$secaoAtual] = [System.Collections.Generic.List[object]]::new() }
             }
         }
         if (-not $ignorandoSecao -and $l -match "^\- \[ \]") {
@@ -98,31 +101,52 @@ if (Test-Path $pendentesPath) {
                 $ehUniversal = $secaoAtual -match "PROCESSO|INFRA|GERAL|CRITICO"
                 $secaoVisivel = $ehCliente -or $ehUniversal
             }
-            if ($secaoVisivel) { $totalPendentes++ }
-            if (-not $secoes.Contains($secaoAtual)) { $secoes[$secaoAtual] = [System.Collections.Generic.List[string]]::new() }
+
             $descricao = $l -replace "^\- \[ \] ``[^``]+`` \*\*", ""
             $descricao = ($descricao -replace "\*\*.*", "").Trim()
             if ($descricao.Length -gt 80) { $descricao = $descricao.Substring(0, 77) + "..." }
-            $secoes[$secaoAtual].Add($descricao)
 
-            # Calcular deficit: data da tarefa vs hoje
-            $dataMatch = [regex]::Match($l, '`(\d{4}-\d{2}-\d{2})`')
-            if ($dataMatch.Success) {
+            # Determinar se e futuro (data parseable posterior a hoje, ou placeholder XX) ou urgente
+            $dataMatch  = [regex]::Match($l, '`(\d{4}-\d{2}-\d{2})`')
+            $dataXX     = [regex]::Match($l, '`(\d{4}-\d{2}-XX)`')  # placeholder sem data definida
+            $isFuturo   = $false
+            $dataLabel  = "sem data"
+            if ($dataXX.Success) {
+                # placeholder XX = agendado sem data definida — trata como futuro
+                $isFuturo  = $true
+                $dataLabel = "sem data definida"
+            } elseif ($dataMatch.Success) {
                 $dataTarefa = [datetime]::ParseExact($dataMatch.Groups[1].Value, "yyyy-MM-dd", $null)
-                $diasAtraso = ($hoje - $dataTarefa.Date).Days
-                if ($diasAtraso -ge 0) {
-                    # tarefa vencida ou vence hoje
-                    $deficitItens.Add([PSCustomObject]@{
-                        Projeto    = $secaoAtual
-                        Descricao  = $descricao
-                        Prazo      = $dataTarefa.ToString("yyyy-MM-dd")
-                        DiasAtraso = $diasAtraso
-                    })
+                $dataLabel  = $dataTarefa.ToString("yyyy-MM-dd")
+                if ($dataTarefa.Date -gt $hoje) {
+                    $isFuturo = $true
+                } else {
+                    # urgente ou vencido — calcular deficit
+                    $diasAtraso = ($hoje - $dataTarefa.Date).Days
+                    if ($secaoVisivel) {
+                        $deficitItens.Add([PSCustomObject]@{
+                            Projeto    = $secaoAtual
+                            Descricao  = $descricao
+                            Prazo      = $dataLabel
+                            DiasAtraso = $diasAtraso
+                        })
+                    }
                 }
+            }
+
+            if ($isFuturo) {
+                if ($secaoVisivel) { $totalAgendados++ }
+                if (-not $secoesFuturas.Contains($secaoAtual)) { $secoesFuturas[$secaoAtual] = [System.Collections.Generic.List[object]]::new() }
+                $secoesFuturas[$secaoAtual].Add([PSCustomObject]@{ Descricao = $descricao; Data = $dataLabel })
+            } else {
+                if ($secaoVisivel) { $totalUrgentes++ }
+                if (-not $secoes.Contains($secaoAtual)) { $secoes[$secaoAtual] = [System.Collections.Generic.List[string]]::new() }
+                $secoes[$secaoAtual].Add($descricao)
             }
         }
     }
 }
+$totalPendentes = $totalUrgentes + $totalAgendados
 
 # Ordenar deficit: mais atrasados primeiro
 $deficitOrdenado = @($deficitItens | Sort-Object DiasAtraso -Descending)
@@ -210,6 +234,22 @@ foreach ($secao in $secoes.Keys) {
 }
 $pendentesBloco = $pendentesLinhas -join "`n"
 
+# --- Construir bloco de pendentes futuros (agendados - sem semaforo de urgencia) ---
+$futurosLinhas = [System.Collections.Generic.List[string]]::new()
+foreach ($secao in $secoesFuturas.Keys) {
+    $itens = $secoesFuturas[$secao]
+    if ($itens.Count -eq 0) { continue }
+    if ($clienteLabel) {
+        $ehCliente   = $secao.ToUpper() -match $clienteLabel
+        $ehUniversal = $secao -match "PROCESSO|INFRA|GERAL|CRITICO"
+        if (-not $ehCliente -and -not $ehUniversal) { continue }
+    }
+    foreach ($item in $itens) {
+        $futurosLinhas.Add("- [$($item.Data)] $($item.Descricao)")
+    }
+}
+$futurosBloco = $futurosLinhas -join "`n"
+
 # --- Blocos opcionais: auto-preencher se nao passados como parametro ---
 # ENTREGAS: usar git log do dia se nao fornecido
 $entregasAuto = ""
@@ -280,7 +320,8 @@ $analiseBloco = if ($AnaliseTexto) { $AnaliseTexto } else {
         $diasRestantes = ($dl.Date - $hoje).Days
         "Deadline $($wipProj.deadline) -- $diasRestantes dia(s) restante(s)."
     } else { "" }
-    "$projLabel encerrou sessao com $nPend pendente(s) e $nGarg gargalo(s). Status documental: $statusDoc. $deadlineInfo Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini."
+    $detalheAgendados = if ($totalAgendados -gt 0) { " -- $totalUrgentes urgente(s) + $totalAgendados agendado(s)" } else { "" }
+    "$projLabel encerrou sessao com $nPend pendente(s)$detalheAgendados e $nGarg gargalo(s). Status documental: $statusDoc. $deadlineInfo Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini."
 }
 
 # --- Montar documento ---
@@ -392,9 +433,20 @@ $linhasDoc.Add("")
 $linhasDoc.Add($separador)
 $linhasDoc.Add("")
 $linhasDoc.Add("## PENDENTES POR PROJETO")
-$linhasDoc.Add($pendentesBloco)
+$corpoUrgentes = if ($pendentesBloco.Trim()) { $pendentesBloco } else { "`nNenhum pendente urgente neste ciclo." }
+$linhasDoc.Add($corpoUrgentes)
 $linhasDoc.Add("")
-$linhasDoc.Add("Total pendentes abertos: $totalPendentes")
+if ($futurosLinhas.Count -gt 0) {
+    $linhasDoc.Add("## PENDENTES FUTUROS (nao urgentes)")
+    $linhasDoc.Add("")
+    $linhasDoc.Add($futurosBloco)
+    $linhasDoc.Add("")
+}
+$rodapeTotal = "Total pendentes abertos: $totalPendentes"
+if ($totalAgendados -gt 0) {
+    $rodapeTotal += " ($totalUrgentes urgente(s) + $totalAgendados agendado(s))"
+}
+$linhasDoc.Add($rodapeTotal)
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
 $linhasDoc.Add("")

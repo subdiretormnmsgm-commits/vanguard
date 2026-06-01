@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - INGRID - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-06-01 08:27
+### Pentalateral IAH - Segunda-feira, 2026-06-01 19:10
 
 ---
 
@@ -56,32 +56,49 @@ Ingrid     [BUILD    ]  Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-2
 
 ## COMMIT DA SESSAO
 
-Commit : 4389111 - 1 arquivo(s) alterado(s)
-Mensagem: fix(gate6c): bloqueia so se AUDITOR criado HOJE com placeholder -- nao sessoes anteriores
+Commit : 18f289a - 1 arquivo(s) alterado(s)
+Mensagem: fix(painel): total pendentes filtrado por cliente -- corrige contador global vazando para PAINEL filtrado [RESOLVE: pendentes-painel-bug]
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao 2026-06-01 -- 5 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
+Commits do dia:
+- 18f289a fix(painel): total pendentes filtrado por cliente -- corrige contador global vazando para PAINEL filtrado [RESOLVE: pendentes-painel-bug]
+- e664c4b chore(session-close): artefatos finais 2026-06-01 -- VERDE
+- 4389111 fix(gate6c): bloqueia so se AUDITOR criado HOJE com placeholder -- nao sessoes anteriores
+- 5e81fdf fix(auditar): Gate 0 aceita 12_DIRETRIZ_GEMINI.txt ou _VN.txt -- fix falso-positivo
+- 5dac9e8 feat(gate6c): vanguard-doc-sync BLOQUEANTE -- notebooklm=OK sem AUDITOR = exit 1
+- 0482f3a feat(p032): Gate 6B bloqueante + Gate 6C + Doc-Sync no LEMBRETE
+- 3241294 fix(ingrid): MEMORIA_EMBAIXADOR atualizada 2026-06-01 -- Gate 7.1 VERDE + D3 + watches
+- 85ba94a feat(session-close): sessao 2026-06-01 encerrada -- AMARELO VERDE
+- eabaaeb feat(checkin): protocolo cirurgico Embaixador -- Get-CheckInPrompt refatorado
+- b15b98a chore(pendentes): Sentinel Report split -- preparacao OK + envio WhatsApp pendente amanhã
+- 5e03a3d chore(pendentes): [AUTO-RESOLVE] Sentinel
+- 7ec1159 feat(valdece): Hypercare Dia 13 -- Embaixador processado + P-093 inscrito [RESOLVE: Sentinel]
+- 3bbaccb feat(ingrid): D3 debrief casual enviado [RESOLVE: D3]
+- 520c065 feat(ingrid): Gate 7.1 VERDE -- D4+D1 concluidos [RESOLVE: D4] [RESOLVE: D1]
+- d079aeb feat(p092): verificacao autonoma de estado -- fim da pergunta aberta ao Diretor
 
 ---
 
 ## ALERTAS DO MUSCULO
 
-Nenhum alerta ativo.
+Nenhum alerta ativo detectado nesta sessao.
 
 ---
 
 ## PENDENTES POR PROJETO
 
-### PROJ-002 · Ingrid (Loop 7 CONCLUÍDO · Loop 8 aguarda)
+Nenhum pendente urgente neste ciclo.
 
-🔴 Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:
-🔴 Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:
-🟡 Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:
+## PENDENTES FUTUROS (nao urgentes)
 
-Total pendentes abertos: 4
+- [sem data definida] Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:
+- [sem data definida] Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:
+- [sem data definida] Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:
+
+Total pendentes abertos: 3 (0 urgente(s) + 3 agendado(s))
 
 ---
 
@@ -95,7 +112,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto INGRID encerrou sessao com 7 pendente(s) e 1 gargalo(s). Status documental: VERDE. Deadline 2026-05-30 -- -2 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto INGRID encerrou sessao com 3 pendente(s) -- 0 urgente(s) + 3 agendado(s) e 1 gargalo(s). Status documental: VERDE. Deadline 2026-05-30 -- -2 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 
