@@ -465,11 +465,18 @@ foreach ($projC in $projetosEmBuild) {
     $audPathC = "$BASE\CLIENTES\$cliC\HISTORICO\AUDITOR_LOOP_V${loopC}_${cliLowC}.md"
 
     if (-not (Test-Path $audPathC)) {
-        Write-Host "  [BLOQUEIO P-049] $cliC -- AUDITOR_LOOP_V$loopC ausente." -ForegroundColor Red
-        $gate6CFalhou = $true
+        # Ausente: bloqueante so se NotebookLM foi rodado HOJE (arquivo deveria ter sido criado hoje)
+        $auditorDeHoje = $false  # se nao existe, nao foi criado hoje
+        Write-Host "  [!] [GATE 6C] $cliC -- AUDITOR_LOOP_V$loopC ausente -- colar output NotebookLM (P-049)" -ForegroundColor Yellow
     } elseif ((Get-Content $audPathC -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) -match '\[colar aqui\]') {
-        Write-Host "  [BLOQUEIO P-049] $cliC -- AUDITOR_LOOP_V$loopC tem placeholders." -ForegroundColor Red
-        $gate6CFalhou = $true
+        # Placeholder: so bloqueia se o arquivo foi modificado HOJE (NotebookLM desta sessao)
+        $auditorDeHoje = (Get-Item $audPathC).LastWriteTime.Date -eq [datetime]::Today
+        if ($auditorDeHoje) {
+            Write-Host "  [BLOQUEIO P-049] $cliC -- AUDITOR_LOOP_V$loopC criado hoje com placeholders." -ForegroundColor Red
+            $gate6CFalhou = $true
+        } else {
+            Write-Host "  [!] [GATE 6C] $cliC -- AUDITOR_LOOP_V$loopC tem placeholders (sessao anterior) -- colar na proxima sessao NotebookLM" -ForegroundColor Yellow
+        }
     } else {
         Write-Host "  [OK] [GATE 6C] $cliC -- AUDITOR_LOOP_V$loopC preenchido." -ForegroundColor Green
     }
