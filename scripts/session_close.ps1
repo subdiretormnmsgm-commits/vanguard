@@ -974,6 +974,8 @@ try {
     }
 
     $boardCheckup.atualizado_em = $DATA
+    # P-CHECKIN: gravar data desta sessao para Get-CheckInPrompt usar na proxima
+    $boardCheckup.meta.data_ultima_sessao = (Get-Date -Format "yyyy-MM-dd")
     [System.IO.File]::WriteAllText($wipPath, ($boardCheckup | ConvertTo-Json -Depth 20), [System.Text.Encoding]::UTF8)
 } catch {
     Write-Host "  [CHECK-UP] Falha ao atualizar contador: $_" -ForegroundColor DarkGray

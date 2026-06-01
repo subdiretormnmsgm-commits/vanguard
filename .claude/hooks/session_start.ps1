@@ -73,17 +73,119 @@ function Get-GateSummary {
 
 $gateAlert = Get-GateSummary
 
-# --- P-092: Verificacao autonoma de estado -- substitui "perguntar ao Diretor" ---
-# Musculo verifica o que pode via git+disco. Para acoes externas: lista SIM/NAO compacta.
-# NUNCA gerar pergunta aberta "o que aconteceu?" -- isso e falha de design (P-092).
-$checkIn = $null
-$autoVerifScript = Join-Path $projectDir "scripts\verificar_estado_autonomo.ps1"
-if (Test-Path $autoVerifScript) {
-    try {
-        $avLines = & powershell.exe -NonInteractive -File $autoVerifScript 2>$null
-        if ($avLines) { $checkIn = ($avLines | Where-Object { $_ -ne $null }) -join "`n" }
-    } catch {}
+# --- P-092 + Embaixador 2026-05-30: Get-CheckInPrompt cirurgico ---
+# Cobre APENAS o que os blocos 1-6 do session_start NAO cobrem:
+#   A1: coerencia loop_fase_atual.proximo vs socio pendente (auto-corrige)
+#   A2: DELIBERACAO_LOOP existe quando musculo=OK (P-091)
+#   B:  gates externos vencidos -- lista SIM/NAO (so em ALTO/MAXIMO)
+# NORMAL sem problema = string vazia = silencio total
+function Get-CheckInPrompt {
+    $wipPath2 = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
+    if (-not (Test-Path $wipPath2)) { return "" }
+    $hoje  = [datetime]::Today
+    try { $wip2 = Get-Content $wipPath2 -Raw -Encoding UTF8 | ConvertFrom-Json }
+    catch { return "" }
+    $projetos = @($wip2.board.build)
+    if ($projetos.Count -eq 0) { return "" }
+
+    # Dias desde ultima sessao (gravado pelo session_close Gate 9.5)
+    $diasDesde = 999
+    if ($wip2.meta -and $wip2.meta.data_ultima_sessao) {
+        try { $diasDesde = ($hoje - [datetime]$wip2.meta.data_ultima_sessao).Days } catch {}
+    }
+
+    $todasSaidas  = [System.Collections.ArrayList]@()
+    $wipModificado = $false
+
+    foreach ($proj in $projetos) {
+        $cUp  = $proj.cliente.ToUpper()
+        $cLow = $proj.cliente.ToLower()
+        $fase = $proj.loop_fase_atual
+        if (-not $fase) { continue }
+        $loopN = $fase.loop
+
+        # Nivel
+        $loopRecem = ($fase.gemini     -eq "PENDENTE") -and
+                     ($fase.notebooklm -eq "PENDENTE") -and
+                     ($fase.embaixador -eq "PENDENTE") -and
+                     ($fase.musculo    -eq "PENDENTE")
+        $nivel = if ($loopRecem) { "MAXIMO" } elseif ($diasDesde -ge 2) { "ALTO" } else { "NORMAL" }
+
+        $verificados    = [System.Collections.ArrayList]@()
+        $acoesExternas  = [System.Collections.ArrayList]@()
+
+        # A1 -- coerencia proximo
+        $allOK = ($fase.gemini -eq "OK") -and ($fase.notebooklm -eq "OK") -and
+                 ($fase.embaixador -eq "OK") -and ($fase.musculo -eq "OK")
+        if ($allOK) {
+            $proxEsp = "Gemini -- PASSO3 Loop $($loopN + 1)"
+            if ($fase.proximo -ne $proxEsp) {
+                $fase.proximo  = $proxEsp
+                $wipModificado = $true
+                [void]$verificados.Add("[AUTO-FIX] $cUp loop_fase_atual.proximo -> $proxEsp")
+            }
+        } else {
+            $socPend = if ($fase.gemini     -ne "OK") { "Gemini" }
+                       elseif ($fase.notebooklm -ne "OK") { "NotebookLM" }
+                       elseif ($fase.embaixador -ne "OK") { "Embaixador" }
+                       else { "Musculo" }
+            if ($fase.proximo -and $fase.proximo -notmatch $socPend) {
+                [void]$verificados.Add("[INCONSISTENCIA] $cUp proximo='$($fase.proximo)' mas pendente=$socPend")
+            }
+        }
+
+        # A2 -- DELIBERACAO_LOOP vs musculo=OK (P-091)
+        if ($fase.musculo -eq "OK") {
+            $deliberPath = Join-Path $projectDir "CLIENTES\$cUp\HISTORICO\DELIBERACAO_LOOP_V${loopN}_${cLow}.md"
+            if (-not (Test-Path $deliberPath)) {
+                [void]$verificados.Add("[INCONSISTENCIA] $cUp musculo=OK sem DELIBERACAO_LOOP_V$loopN (P-091)")
+            }
+        }
+
+        # B -- gates externos vencidos (so ALTO ou MAXIMO)
+        if ($nivel -ne "NORMAL" -and $proj.gates_programados) {
+            foreach ($gate in $proj.gates_programados) {
+                try {
+                    $dg    = [datetime]$gate.data
+                    $delta = ($hoje - $dg).Days
+                    if ($dg -le $hoje -and $gate.status -ne "APROVADO") {
+                        [void]$acoesExternas.Add("[ ] '$($gate.nome)' ($($dg.ToString('dd-MM-yyyy')), ha ${delta}d): APROVADO offline?")
+                    }
+                } catch { continue }
+            }
+        }
+
+        # Silencio se nada a reportar
+        if ($nivel -eq "NORMAL" -and $verificados.Count -eq 0 -and $acoesExternas.Count -eq 0) { continue }
+
+        $hdr = switch ($nivel) {
+            "NORMAL" { "CHECK-IN [$cUp - NORMAL]" }
+            "ALTO"   { "CHECK-IN [$cUp - ALTO -- $diasDesde dia(s) desde ultima sessao]" }
+            "MAXIMO" { "CHECK-IN [$cUp - MAXIMO -- loop recem aberto]" }
+        }
+        $s = "`n=== $hdr ===`n"
+        if ($verificados.Count -gt 0) {
+            $s += "`n-- VERIFICADO AUTOMATICAMENTE --`n"
+            foreach ($v in $verificados) { $s += "  $v`n" }
+        }
+        if ($acoesExternas.Count -gt 0) {
+            $s += "`n-- SO O DIRETOR SABE (substituir [ ] por [S] ou [N]) --`n"
+            foreach ($a in $acoesExternas) { $s += "  $a`n" }
+            $s += "`n  Colar de volta para o Musculo processar`n"
+        }
+        $s += "$("=" * 50)`n"
+        [void]$todasSaidas.Add($s)
+    }
+
+    if ($wipModificado) {
+        try { [System.IO.File]::WriteAllText($wipPath2, ($wip2 | ConvertTo-Json -Depth 20), [System.Text.Encoding]::UTF8) } catch {}
+    }
+
+    return $todasSaidas -join ""
 }
+
+$checkIn = Get-CheckInPrompt
+if (-not $checkIn) { $checkIn = $null }  # string vazia vira null -- silencio total
 
 # --- PENDENTES: alerta completo com instruções detalhadas (P-063) ---
 # Injeta título + sub-bullets de cada tarefa aberta para o Músculo ter as instruções exatas

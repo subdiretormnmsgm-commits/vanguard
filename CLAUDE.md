@@ -320,6 +320,17 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     Origem: WIP_BOARD declarou gemini=OK para Loop 7 Ingrid sem DIRETRIZ V7 existir em disco.
     Detectado pelo Embaixador em 2026-05-30. P-091 no LEDGER.
     ─────────────────────────────────────────────────────────────────────────────────────
+35. GET-CHECKINPROMPT NAO DUPLICA O SESSION_START (2026-05-30):
+    session_start ja cobre: LEMBRETE DE LOOP, DECISOES bloqueantes, PENDENTES completo,
+    WIP_BOARD, MEMORIA_EMBAIXADOR, ChurnWatch, detect_canonical, watchers, commits.
+    Get-CheckInPrompt cobre APENAS o que esses blocos nao cobrem:
+    A1: coerencia loop_fase_atual.proximo vs socio pendente (auto-corrige WIP_BOARD)
+    A2: DELIBERACAO_LOOP existe quando musculo=OK (P-091)
+    B:  gates externos com data vencida -- lista SIM/NAO (nivel ALTO >= 2 dias / MAXIMO = loop novo)
+    Nivel detectado via meta.data_ultima_sessao gravado pelo session_close Gate 9.5.
+    NORMAL sem problema = string vazia = silencio total — nao exibir secao.
+    NUNCA duplicar o que PENDENTES.md, WIP_BOARD ou commits ja mostram.
+    ─────────────────────────────────────────────────────────────────────────────────────
 32. VERIFICACAO CONDICIONAL NO FECHAMENTO — NAO E RITUAL, E SINAL (2026-05-29):
     Inicio de sessao: session_start automatico — nao adicionar nada.
     Fim de sessao: session_close automatico — nao adicionar nada.
