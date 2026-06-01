@@ -33,9 +33,8 @@
   ✅ 3 Edge Functions deployadas em yjqvjhezwhepwomukudt + pg_cron VERDE — 2026-06-01.
   gatilho_temporal_ingrid (45 22 * * *) + relatorio_semanal_ingrid (0 13 * * 0) ativos.
 
-- [ ] `2026-05-31` **Ingrid — D3: Debrief casual Ingrid (gate informal pitch):**
-  Mensagem no clipboard: "Ingrid! Aquela configuração que fizemos hoje ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚"
-  Eduardo ajusta e envia. Resposta define se pitch R$97/mês pode avançar.
+- [x] `2026-05-31` ~~**Ingrid — D3: Debrief casual Ingrid (gate informal pitch):**~~
+  ✅ Mensagem enviada pelo Diretor — 2026-06-01. Aguardar resposta de Ingrid.
 
 - [ ] `2026-06-XX` **Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:**
   Veredito do Diretor 2026-05-30: registrar como pendência Loop 8.
