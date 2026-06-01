@@ -3,7 +3,7 @@
 > **CAMADA_FATOS:** dado bruto e verbatim. Zero interpretação. Auditor lê esta camada diretamente.
 > **CAMADA_INFERENCIA:** análise do Embaixador. Ler sabendo que é opinião fundamentada.
 > **CAMADA_DECISAO:** deliberações formais do Conselho. Verdades acordadas do projeto.
-> Versão: Loop 7 · 2026-05-30 — P-032 atualizado pelo Músculo
+> Versão: Loop 7 · 2026-06-01 — P-032 atualizado pelo Músculo
 
 ---
 
@@ -21,6 +21,7 @@
 
 | Data | Canal | Evento objetivo | Fonte |
 |---|---|---|---|
+| 2026-06-01 | WhatsApp | **D3 enviado** — debrief casual: "Aquela configuração ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚" — aguardar resposta | Diretor |
 | 2026-05-30 | WhatsApp | Veredito: Enviar debrief casual amanhã — coletar temperatura real (PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado) | VEREDITOS_INGRID_2026-05-30.json |
 | 2026-05-16 | WhatsApp | Termo enviado para assinatura | Diretor |
 | 2026-05-18 | WhatsApp | Termo assinado por Ingrid | Diretor (confirmado 2026-05-19) |
@@ -95,10 +96,11 @@ CHURN-WATCH: DESATIVADO. [DATA-GAP-WATCH]: ATIVO — uso 24/05 a 30/05 não conf
 SCOPE-WATCH: DESATIVADO — sem rede de concurso no curto prazo. Pipeline pós-aprovação.
 LEGAL-WATCH: VERDE — P-013 VERDE 2026-05-30. P-023 VERDE.
 [DADOS-WATCH]: VERDE — 102 respostas · 1 user_id correto.
-[DEPLOY-WATCH]: ATIVO — F-4 e F-6 deploy CLI pendente. Gate 7.1 aguarda supabase login (Eduardo).
-[GITHUB-WATCH]: ATIVO — Eduardo: seguir link GitHub Security. Gate 7.4.
+[DEPLOY-WATCH]: **VERDE** — Gate 7.1 APROVADO 2026-06-01. 3 Edge Functions em produção: notificar-progresso + gatilho-temporal (19h45 BRT diário) + relatorio-semanal (domingo 10h). pg_cron ativo em yjqvjhezwhepwomukudt.
+[GITHUB-WATCH]: **VERDE** — token sbp_ revogado + alerta GitHub dispensado — 2026-06-01.
+[PITCH-WATCH]: ABERTO — D3 debrief casual enviado 2026-06-01. Aguardar resposta de Ingrid para avaliar temperatura.
 Padrão: estuda à noite (~20h). F-6 relatório semanal = coração do argumento R$97/mês.
-Última atualização: 2026-05-30 (Músculo P-032 — Loop 7 SEÇÃO D Embaixador + vereditos executados)
+Última atualização: 2026-06-01 (Músculo P-032 — Gate 7.1 VERDE + D3 enviado)
 ```
 
 ### PADRÕES INFERIDOS — atualizar com cada sessão real
@@ -194,8 +196,9 @@ Padrão: estuda à noite (~20h). F-6 relatório semanal = coração do argumento
 | [DEPLOY-WATCH] gh-pages branch | RESOLVIDO — P-056 documentado | Script deploy_ingrid_ghpages.ps1 ativo |
 | [TESTE-WATCH] Features Loop 5 | RESOLVIDO — Ingrid retornou e usou o simulado espontaneamente (2026-05-24) | Encerrado |
 | [DADOS-WATCH] user_id | **VERDE** — 102 registros · 1 user_id correto · verificado 2026-05-28 | Encerrado |
-| [DEPLOY-WATCH] F-4/F-6 | **ATIVO** — deploy CLI pendente · risco de falha no domingo | Gate 7.1 bloqueante |
-| [GITHUB-WATCH] push bloqueado | **ATIVO** — token no histórico · Eduardo: seguir link GitHub Security | Gate 7.4 |
+| [DEPLOY-WATCH] F-4/F-6 | **VERDE** — 3 Edge Functions ativas em produção + pg_cron ativo (2026-06-01) | Encerrado |
+| [GITHUB-WATCH] push bloqueado | **VERDE** — token revogado + alerta dispensado (2026-06-01) | Encerrado |
+| [PITCH-WATCH] R$97/mês | **ABERTO** — D3 debrief enviado 2026-06-01 · aguardar resposta de Ingrid | Ativo |
 | [Gate dia15] Supabase Ingrid | **APROVADO** 2026-05-30 — Ingrid admin do próprio Supabase (P-013 VERDE) | Encerrado |
 
 ### PIPELINE COMERCIAL
