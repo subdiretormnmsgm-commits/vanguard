@@ -1,6 +1,6 @@
 {
     "projeto":  "INGRID",
-    "ultima_sincronizacao":  "2026-05-30T12:22:54",
+    "ultima_sincronizacao":  "2026-06-01T08:01:38",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -28,9 +28,9 @@
                      },
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
-                         "hash_universal":  "DCCF29D043C50F962687FD25ABB59756C1D8A48CCD06FAC41B2937E7E8E83011",
-                         "hash_local":  "DCCF29D043C50F962687FD25ABB59756C1D8A48CCD06FAC41B2937E7E8E83011",
-                         "status":  "SYNC"
+                         "hash_universal":  "08359FA45E970B00D6C2D28D6134ACCAA0B97D1090BEA6A8604A31D3464178A9",
+                         "hash_local":  "FB14A42EB9B8B04DFB11510CD224C15CD198C7B11F8D649E20B94E727C3BE84B",
+                         "status":  "DRIFT"
                      },
                      {
                          "nome":  "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
@@ -46,8 +46,8 @@
                      },
                      {
                          "nome":  "07_WIP_BOARD.txt",
-                         "hash_universal":  "1B74EDB0EE220779911021838D76E9AAB017DB8B303D4989C7F2B7545495BEA0",
-                         "hash_local":  "1B74EDB0EE220779911021838D76E9AAB017DB8B303D4989C7F2B7545495BEA0",
+                         "hash_universal":  "2028744BE6681DE171B5400A4B9AEEC9A97FF25E3B40F07263360F40210AA9E0",
+                         "hash_local":  "2028744BE6681DE171B5400A4B9AEEC9A97FF25E3B40F07263360F40210AA9E0",
                          "status":  "SYNC"
                      },
                      {
@@ -63,8 +63,8 @@
                          "status":  "SYNC"
                      }
                  ],
-    "status_geral":  "VERDE",
+    "status_geral":  "AMARELO",
     "total":  10,
-    "drift_count":  0,
+    "drift_count":  1,
     "ausente_count":  0
 }

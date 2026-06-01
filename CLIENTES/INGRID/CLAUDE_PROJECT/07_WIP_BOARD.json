@@ -324,7 +324,7 @@
                                "regra_5":  "Retainer so apos 30 dias de dados reais do Sentinel"
                            },
     "meta":  {
-                 "loops_desde_ultimo_checkup":  0,
+                 "loops_desde_ultimo_checkup":  1,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
                  "claude_projects_pendente":  true

@@ -1,6 +1,6 @@
 ﻿# PASSO 5 — AUDITOR (NOTEBOOKLM) · PROJETO INGRID · LOOP 7
 > Pentalateral IAH — Camada Permanente: não editar blocos de protocolo.
-> Atualizado pelo Musculo em 2026-05-30 (Loop 7 / Diretriz V7)
+> Atualizado pelo Musculo em 2026-06-01 (Loop 7 / Diretriz V7)
 
 ---
 
@@ -236,4 +236,5 @@ Fontes principais para este Loop 7:
 17_VANGUARD_TIMELINE.md
 18_ATUALIZACAO_PENTALATERAL_2026-05-24.md
 ```
+
 

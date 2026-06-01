@@ -47,7 +47,7 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | commit 9709649 | **Loop 6:** ementa completa (600 chars) + badge UF + boost monocrático (+0.15) ✅ |
 | fix HC 512.290/RJ | Dado errado corrigido no banco + re-embedding executado ✅ |
 | 5 áudios Valdece | Feedback técnico processado: ementa ✅ UF ✅ data_dje ❌V3 repercussão ❌V3 |
-| Temperatura | **QUENTE** — Score 6.5 · 5 dias pós-assinatura · pagamento pago · dado de uso real pendente (sem check-in desde assinatura) |
+| Temperatura | **QUENTE** — Score 6.8 · 13 dias Hypercare · uso ativo confirmado · silêncio = uso operacional (H-3 CONFIRMADA) · CHURN-WATCH INATIVO |
 | Contrato | **ASSINADO — 2026-05-19** · R$5k fixo + sem mensalidade · Gate V3 DESBLOQUEADO |
 
 **Sistema pronto — estado Loop 6 (2026-05-19):**
@@ -72,8 +72,8 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 
 | Campo | Status |
 |---|---|
-| Último contato | **5 áudios de feedback — 2026-05-19** (Valdece usa o sistema e avalia ativamente) |
-| Próximo contato | Presencial hoje — Eduardo leva contrato + OFFBOARDING_RUNBOOK impresso |
+| Último contato | **2026-06-01** — uso ativo confirmado · zero mensagens em 13 dias · H-3 CONFIRMADA |
+| Próximo contato | **2026-06-02 — Sentinel Report Dia 14** — WhatsApp — texto pronto abaixo |
 | Canal principal | Presencial / WhatsApp |
 | Tom que funciona | Direto, resultado concreto, sem jargão técnico |
 | Tom que não funciona | Técnico, detalhado, longo, com termos de infraestrutura |
@@ -108,9 +108,9 @@ Contrato ainda não assinado — Eduardo vai presencialmente hoje fechar.
 |---|---|---|---|
 | H-1 | Vai perguntar sobre mensalidade durante ou após a demo | **PARCIAL** — modelo sem mensalidade confirmado no presencial | Perfil orientado a custo + modelo incomum para o nicho |
 | H-2 | A demo no computador DELE (não de Eduardo) é o momento de virada | PENDENTE — demo ainda não realizada | Perfil exigente — precisa sentir que o sistema é dele |
-| H-3 | O silêncio durante a primeira busca = aprovação — não interromper | PENDENTE — demo ainda não realizada | Perfil orientado a resultado, não a explicação |
+| H-3 | O silêncio durante a primeira busca = aprovação — não interromper | **CONFIRMADA** — 13 dias silêncio com uso ativo = comportamento operacional, não fricção | Advogado criminalista incorpora ferramenta que funciona sem cerimônia |
 | H-4 | Pode pedir feature não existente depois do encantamento | **CONFIRMADA** — 5 áudios pedindo V3 (data_dje, badges vinculantes) | Scope creep via áudio já em curso — P-023 ativo |
-| H-5 | Mencionará colega advogado criminalista se ficar satisfeito | PENDENTE — demo ainda não realizada | Advocacia criminal é comunidade densa — 1 satisfeito fala com 50 na OAB |
+| H-5 | Mencionará colega advogado criminalista se ficar satisfeito | **AQUECENDO** — janela esperada Dia 14–30 após primeira vitória em audiência | 13 dias de uso ativo · gatilho = caso real + precedente encontrado |
 
 ---
 
@@ -206,7 +206,7 @@ Você encontra em 10 segundos, com a citação pronta. Assimetria é isso."
 |---|---|---|---|
 | Toga Digital V1 | R$5.000 fixo | Gate: assinatura no presencial | 2026-05-19 |
 | Hypercare | Incluso | — | 30 dias pós-entrega |
-| V2 — Sovereign Upload + Radar + Citação DOCX | R$8.500–12.000 + R$300/mês opcional | Corpus ≥ 500 docs OU 30 dias de uso ativo | 2026-06-19 |
+| V2 — Sovereign Upload + Radar + Citação DOCX | R$8.500–12.000 + R$300/mês opcional | Corpus ≥ 500 docs OU 30 dias de uso ativo | **2026-06-18** |
 | Indicação de nicho | Lead qualificado | Valdece mencionar colega criminalista | Qualquer momento pós-satisfação |
 
 **Argumento de abertura V2:** "Quando seu corpus chegar em 500 decisões, temos um upgrade com upload de documentos seus que você vai querer ver."
@@ -216,7 +216,22 @@ Você encontra em 10 segundos, com a citação pronta. Assimetria é isso."
 
 ## PRÓXIMA AÇÃO CRÍTICA
 
-**DEMO 2026-05-20 — TEMAS CONFIRMADOS POR VALDECE (2026-05-19):**
+**SENTINEL REPORT DIA 14 — 2026-06-02 (AMANHÃ)**
+
+Texto exato para WhatsApp (validado pelo Embaixador · não improvisar):
+> "Dr. Valdece, duas semanas rodando. Sistemas assim costumam poupar entre 40 e 90 minutos de pesquisa por caso — dependendo da urgência da consulta. Como tem sido na prática? Algum tema que o sistema trouxe que valeu a pena?"
+
+**Simulação adversarial:**
+- Valdece Receptivo (65%): responde com caso → colher depoimento → argumento V2
+- Valdece Resistente (20%): "ainda não precisei muito" → aceitar sem pressionar
+- Valdece Silencioso (15%): não responde → aguardar 48h → reenviar versão ainda mais curta
+
+**Após resposta do Sentinel Report:** abrir conversa de migração de infra (D2).
+**Janela V2:** 2026-06-18 (30 dias pós-entrega).
+
+---
+
+**DEMO 2026-05-20 — TEMAS CONFIRMADOS POR VALDECE (2026-05-19) [histórico]:**
 
 > Valdece respondeu explicitamente os 3 temas que mais pesquisou esta semana:
 > 1. **Crimes contra a vida** — cobertos: homicídio qualificado STF HC 188888 (sim 0.818), feminicídio, legítima defesa, tentativa
@@ -324,6 +339,7 @@ NÃO apresentar V3 durante a assinatura. Apresentar DEPOIS da demo, de forma cas
 | 2026-05-19 (GATE LOOP 6) | **CONTRATO ASSINADO.** Deu tudo certo. V3 desbloqueado. Temperatura: ENTUSIASMADA. Loop 7 iniciando. | Músculo (P-032) |
 | 2026-05-21 (Loop 7 — V3 entregue) | Correção crítica: outputDimensionality 768→3072 no frontend. 28 docs re-embeddados. Simulação remota completa: 5/5 queries P-051 OK · score médio 92.2% · topo 98% (medidas cautelares). Mensagem de reativação redigida com Embaixador: "testei agora nos seus 5 temas" + link + frase da audiência. Temperatura: ENTUSIASMADA mantida. | Músculo (P-032) |
 | 2026-05-24 (Loop 7 — Embaixador) | Embaixador processou ativação Loop 7 completa (blocos A–H). TEMPERATURA_PONDERADA: QUENTE · Score 6.5 · tendência estável · contexto pagamento: PAGO. CHURN-WATCH: inativo. Risco principal: 5 dias sem check-in pós-assinatura — uso real não confirmado. H-4 CONFIRMADA (scope creep logo na assinatura: personalização de logo para OAB). H-5 aquecendo — menção a colegas na OAB iminente. Ação imediata D1: mensagem Hypercare Dia 5 + plantio semente migração (D2). Próximo Sentinel Report: 2026-06-02. Watchdog: SCOPE-WATCH aberto (personalização logo). GATE-WATCH: migração bloqueada em build, não em credenciais — Eduardo TEM as credenciais do Valdece (obtidas 2026-05-19). | Músculo (P-032) |
+| 2026-06-01 (Hypercare Dia 13 — Embaixador) | Embaixador processou SEÇÃO B Sentinel Report. Score 6.8 QUENTE · tendência estável. H-3 CONFIRMADA: silêncio 13 dias + uso ativo = comportamento operacional (não fricção). H-5 AQUECENDO — janela Dia 14–30. CHURN-WATCH: INATIVO · threshold ajustado 7 dias (não 48h). [LEGAL-WATCH] AMARELO: infra ainda na Vanguard · migração pendente · abrir após Sentinel Report. Risco central: normalização precoce sem ROI percebido. Sentinel Report texto pronto (seção acima). Princípio P-093 candidato ao LEDGER. | Músculo (P-032) |
 
 ---
 
