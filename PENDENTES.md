@@ -15,9 +15,13 @@
 
 ## PROJ-001 · Valdece (Hypercare até 18/06/2026)
 
-- [x] `2026-06-02` **Sentinel Report (02-06-2026 terça-feira) — Hypercare Valdece:**
-  Relatório de Hypercare para Valdece. Template em CLIENTES/VALDECE/CLAUDE_PROJECT/PASSO7_EMBAIXADOR.md.
-  Músculo gera PASSO7-C (debrief) antes do Sentinel.
+- [x] `2026-06-02` ~~**Sentinel Report — PASSO7-C preparado pelo Músculo:**~~
+  ✅ PASSO7_SECAO_B_SENTINEL_2026-06-01.md gerado · Embaixador processou · texto pronto.
+
+- [ ] `2026-06-02` **Sentinel Report — Eduardo ENVIA WhatsApp ao Valdece (02-06-2026 terça-feira):**
+  Texto exato (não improvisar):
+  "Dr. Valdece, duas semanas rodando. Sistemas assim costumam poupar entre 40 e 90 minutos de pesquisa por caso — dependendo da urgência da consulta. Como tem sido na prática? Algum tema que o sistema trouxe que valeu a pena?"
+  Após resposta: abrir conversa de migração de infra (D2). Janela V2: 2026-06-18.
 
 - [x] `2026-05-26` ~~**NotebookLM Wipe & Sync — Valdece:**~~
   ✅ Confirmado pelo Diretor em 2026-05-27. (PENDENTES não foi atualizado na sessão anterior — falha do Músculo.)
