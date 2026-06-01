@@ -31,11 +31,14 @@ if (Test-Path $wipPath0) {
             $loopAtual0  = $fase0.loop
 
             if ($fase0.gemini -eq "OK") {
-                $art0 = Join-Path $BASE "CLIENTES\$cli0\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI_V${loopAtual0}.txt"
-                if (-not (Test-Path $art0)) {
+                # Aceita versionado (12_DIRETRIZ_GEMINI_V7.txt) ou sem versao (12_DIRETRIZ_GEMINI.txt)
+                $art0v = Join-Path $BASE "CLIENTES\$cli0\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI_V${loopAtual0}.txt"
+                $art0u = Join-Path $BASE "CLIENTES\$cli0\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI.txt"
+                $art0  = if (Test-Path $art0v) { $art0v } elseif (Test-Path $art0u) { $art0u } else { $null }
+                if (-not $art0) {
                     [void]$gate0Inconsist.Add([PSCustomObject]@{
                         Proj = $cli0; Loop = $loopAtual0; Socio = "gemini"
-                        Path = "CLIENTES\$cli0\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI_V${loopAtual0}.txt"
+                        Path = "CLIENTES\$cli0\NOTEBOOKLM_FONTES\12_DIRETRIZ_GEMINI_V${loopAtual0}.txt (ou sem versao)"
                     })
                 }
             }
