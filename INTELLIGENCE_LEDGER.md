@@ -1725,3 +1725,26 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **V2 planejado:** `validate_painel.ps1` emitir aviso (`⚠ N pendentes futuros sem dependência declarada`) durante geração. Não bloqueia — registra. Junto com histórico de recorrência (pendentes que reaparecem em PAINEIs consecutivos), compõe o P-094 completo.
 
 **Aplica-se a:** qualquer campo de preenchimento opcional em documentos gerados automaticamente — dependência de pendente, tag de origem, link de gate. Se é opcional e importante, precisa de visibilidade de ausência.
+
+---
+
+## P-095 — GATE CHECKER DEVE CRUZAR TODAS AS FONTES DE EVIDÊNCIA (2026-06-01)
+**Origem:** Bug no `generate_protocolo_encerramento.ps1` — gate dia15 declarado vencido apesar de `loops_programados` registrar `status: "concluido"` com evidência de commit · 2026-06-01
+**Veredito:** Inscrito pelo Músculo após fricção detectada pelo Diretor e confirmada pelo Embaixador.
+
+> Um gate não é aberto ou fechado por um único campo. É fechado quando qualquer fonte canônica confirma conclusão.
+> O script checava apenas `dias_completos` — e declarava vencido o que `loops_programados` já marcava concluído.
+> O Embaixador recebeu um PAINEL com "Gate Dia 15 vencido há 3 dias" e o Diretor teve que investigar.
+> A fricção custou uma sessão inteira de diagnóstico.
+
+**Regra derivada:** Todo gate checker que consulta apenas UMA fonte é incompleto por design. A evidência de conclusão pode estar em qualquer campo canônico do WIP_BOARD: `dias_completos`, `loops_programados`, `gates_bloqueantes` com flag de resolução. O checker deve percorrer todas antes de declarar vencido.
+
+**Corolário — campo stale é ruído com autoridade:** `loop_atual` (string legada) divergia de `loop_fase_atual` (objeto estruturado) porque o script atualizava um e ignorava o outro. Dois campos paralelos com o mesmo semântico são uma bomba de inconsistência. Quando existirem, o script deve preferir o mais estruturado e manter o legado sincronizado.
+
+**Fix aplicado:**
+- `generate_protocolo_encerramento.ps1` — `Test-GateCoberto` agora cruza `loops_programados` antes de declarar gate vencido
+- `generate_protocolo_encerramento.ps1` — bloco PROJETOS ATIVOS prefere `loop_fase_atual` com fallback para `loop_atual`
+- `WIP_BOARD.json` — `loop_atual` Ingrid atualizado para Loop 7 e sincronizado com `loop_fase_atual`
+- Commit: `433a368`
+
+**Aplica-se a:** qualquer script que avalia estado de conclusão a partir do WIP_BOARD — session_close, render_painel, validate_painel, check_diretriz_embaixador. Se o script consulta apenas um campo para declarar bloqueio ou conclusão, revisar.
