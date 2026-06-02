@@ -23,7 +23,7 @@
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3",
+                                    "loop_atual":  "Loop 7 CONCLUIDO â€” MEMORIA_V7 + relatorio_V7 + DELIBERACAO_V7 gerados Â· Loop 8 PENDENTE â€” aguarda Gemini PASSO3",
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -148,7 +148,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "OK",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
+                                                            "proximo":  "Gemini -- PASSO3 Loop 8"
                                                         },
                                     "churn_watch_threshold":  5
                                 },

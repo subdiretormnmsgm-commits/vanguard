@@ -47,7 +47,11 @@ if ($wip -and $wip.board) {
             $nome = if ($proj.cliente) { $proj.cliente } else { "?" }
             if ($clienteLabel -and $nome.ToUpper() -ne $clienteLabel) { continue }
             $deadline = if ($proj.deadline) { $proj.deadline } else { "sem prazo" }
-            $loop     = if ($proj.loop_atual) { $proj.loop_atual } else { "Loop ?" }
+            # Preferir loop_fase_atual (objeto estruturado) sobre loop_atual (string legada)
+            $lfa = $proj.loop_fase_atual
+            $loop = if ($lfa) {
+                "Loop $($lfa.loop) -- Gemini:$($lfa.gemini) NBook:$($lfa.notebooklm) Embaixador:$($lfa.embaixador) Musculo:$($lfa.musculo) -- Proximo: $($lfa.proximo)"
+            } elseif ($proj.loop_atual) { $proj.loop_atual } else { "Loop ?" }
             $colLabel = $col.ToUpper().PadRight(9)
             $linhasProjetos += "$($nome.PadRight(10)) [$colLabel]  $loop  Deadline: $deadline"
         }
@@ -216,6 +220,15 @@ if ($wip -and $wip.board -and $wip.board.build) {
             $concluido = $false
             if ($proj.dias_completos) {
                 $concluido = Test-GateCoberto -diasCompletos $proj.dias_completos -gateNum $num
+            }
+            # Checar tambem loops_programados (gate pode estar concluido sem estar em dias_completos)
+            if (-not $concluido -and $proj.loops_programados) {
+                foreach ($lp in $proj.loops_programados) {
+                    if ($lp.gate -match "dia$num" -and $lp.status -eq "concluido") {
+                        $concluido = $true
+                        break
+                    }
+                }
             }
             if (-not $concluido) {
                 $diasGargalo = ($hoje - $gateDate.Date).Days

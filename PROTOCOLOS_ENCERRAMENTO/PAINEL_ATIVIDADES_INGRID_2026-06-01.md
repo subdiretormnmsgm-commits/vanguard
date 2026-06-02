@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - INGRID - DIRETOR EDUARDO
-### Pentalateral IAH - Segunda-feira, 2026-06-01 20:50
+### Pentalateral IAH - Segunda-feira, 2026-06-01 21:11
 
 ---
 
@@ -14,9 +14,7 @@ Nenhuma atividade em deficit nesta sessao.
 
 ## ALERTA GARGALO -- GATES VENCIDOS
 
-| Projeto | Gate | Descricao | Prazo | Dias vencido |
-|---------|------|-----------|-------|-------------|
-| Ingrid | dia15 | Ingrid com acesso admin proprio Supabase | 2026-05-29 | 3d |
+Nenhum gate vencido detectado.
 
 ---
 
@@ -49,21 +47,43 @@ O artefato deve ser autossuficiente: o Diretor abre e decide, nao executa.
 ## PROJETOS ATIVOS
 
 ```
-Ingrid     [BUILD    ]  Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3  Deadline: 2026-05-30
+Ingrid     [BUILD    ]  Loop 7 -- Gemini:OK NBook:OK Embaixador:OK Musculo:OK -- Proximo: Gemini -- PASSO3 Loop 8  Deadline: 2026-05-30
 ```
 
 ---
 
 ## COMMIT DA SESSAO
 
-Commit : 592efd6 - 9 arquivo(s) alterado(s)
-Mensagem: chore(session-close): artefatos finais 2026-06-01 -- AMARELO (AUDITOR_LOOP_V7 placeholder + MANIFEST drift)
+Commit : 9380385 - 2 arquivo(s) alterado(s)
+Mensagem: chore(session-close): artefatos finais 2026-06-01 -- VERDE
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao 2026-06-01 -- 4 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\INGRID\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-01.md.
+Commits do dia:
+- 9380385 chore(session-close): artefatos finais 2026-06-01 -- VERDE
+- e7ba7b7 chore(pendentes): Sentinel WhatsApp Valdece enviado [RESOLVE: Sentinel-WhatsApp]
+- 592efd6 chore(session-close): artefatos finais 2026-06-01 -- AMARELO (AUDITOR_LOOP_V7 placeholder + MANIFEST drift)
+- e513a31 docs(ledger): P-094 -- validacao no momento da escrita supera documentacao
+- 3df2635 feat(painel): 6 itens V1 -- contexto projeto, deadline-status, commit por projeto, tags origem, ultimo contato, nota escopo alertas
+- 23e4feb feat(painel): validate_painel.ps1 -- gate de consistencia automatico pos-geracao
+- bd6030e fix(painel): causa-raiz-2 -- pendentes futuros visiveis com secao propria e rodape urgentes/agendados
+- 18f289a fix(painel): total pendentes filtrado por cliente -- corrige contador global vazando para PAINEL filtrado [RESOLVE: pendentes-painel-bug]
+- e664c4b chore(session-close): artefatos finais 2026-06-01 -- VERDE
+- 4389111 fix(gate6c): bloqueia so se AUDITOR criado HOJE com placeholder -- nao sessoes anteriores
+- 5e81fdf fix(auditar): Gate 0 aceita 12_DIRETRIZ_GEMINI.txt ou _VN.txt -- fix falso-positivo
+- 5dac9e8 feat(gate6c): vanguard-doc-sync BLOQUEANTE -- notebooklm=OK sem AUDITOR = exit 1
+- 0482f3a feat(p032): Gate 6B bloqueante + Gate 6C + Doc-Sync no LEMBRETE
+- 3241294 fix(ingrid): MEMORIA_EMBAIXADOR atualizada 2026-06-01 -- Gate 7.1 VERDE + D3 + watches
+- 85ba94a feat(session-close): sessao 2026-06-01 encerrada -- AMARELO VERDE
+- eabaaeb feat(checkin): protocolo cirurgico Embaixador -- Get-CheckInPrompt refatorado
+- b15b98a chore(pendentes): Sentinel Report split -- preparacao OK + envio WhatsApp pendente amanh├ú
+- 5e03a3d chore(pendentes): [AUTO-RESOLVE] Sentinel
+- 7ec1159 feat(valdece): Hypercare Dia 13 -- Embaixador processado + P-093 inscrito [RESOLVE: Sentinel]
+- 3bbaccb feat(ingrid): D3 debrief casual enviado [RESOLVE: D3]
+- 520c065 feat(ingrid): Gate 7.1 VERDE -- D4+D1 concluidos [RESOLVE: D4] [RESOLVE: D1]
+- d079aeb feat(p092): verificacao autonoma de estado -- fim da pergunta aberta ao Diretor
 
 ---
 
@@ -71,13 +91,14 @@ Sessao 2026-06-01 -- 4 arquivo(s) modificado(s). MANIFEST: VERDE. LOG: C:\Users\
 
 > Escopo: anomalias de sistema (manifesto hash, canonical violation). Pendentes e gargalos estao nas secoes ATIVIDADES EM DEFICIT e ALERTA GARGALO acima.
 
-Nenhum alerta ativo.
+Nenhum alerta ativo detectado nesta sessao.
 
 ---
 
 ## CONTEXTO DO PROJETO
 
 **Ultimo contato com o cliente:** 2026-06-01 (WhatsApp — **D3 respondido** — Ingrid confirmou: está realizando o acesso e está gostando. Cenário A confirmado (engajada, ativa, não desengajada).)
+**Deadline:** Deadline 2026-05-30 [ABSORVIDO -- prazo vencido, projeto continua].
 
 ---
 
@@ -105,7 +126,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto INGRID encerrou sessao com 4 pendente(s) e 1 gargalo(s). Status documental: VERDE. Deadline 2026-05-30 -- -2 dia(s) restante(s). Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto INGRID encerrou sessao com 3 pendente(s) -- 0 urgente(s) + 3 agendado(s) e 0 gargalo(s). Status documental: VERDE. Deadline 2026-05-30 [ABSORVIDO -- prazo vencido, projeto continua]. Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 
