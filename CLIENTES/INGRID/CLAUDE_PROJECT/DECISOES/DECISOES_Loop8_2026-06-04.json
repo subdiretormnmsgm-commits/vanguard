@@ -1,0 +1,107 @@
+{
+    "data":  "2026-06-04",
+    "vetoes":  [
+                   {
+                       "id":  "G-3",
+                       "razao":  "Perfil ansioso de Ingrid -- reducao punitiva = churn silencioso. VETO PERMANENTE para este perfil."
+                   },
+                   {
+                       "id":  "G-5",
+                       "razao":  "Discordancia formal do Embaixador -- janela 8.5/10 nao e garantida. Pitch agora."
+                   }
+               ],
+    "cliente":  "INGRID",
+    "loop":  8,
+    "sintese_musculo":  "15 inputs processados. Pitch janela fecha 04/07. G-3 e G-5 vetados. D4 (presenca humana) urgente esta semana.",
+    "decisoes":  [
+                     {
+                         "texto_preredigido":  "Ingrid, fico feliz que voce esteja gostando do sistema. Vejo que voce esta usando de verdade e os dados mostram que o metodo esta funcionando pro seu perfil. Quero conversar com voce sobre continuar com isso de forma mais estruturada ate a prova -- posso te mandar os detalhes?",
+                         "opcoes":  [
+                                        {
+                                            "id":  "A",
+                                            "descricao":  "Executar pitch neste loop -- antes de 2026-06-14"
+                                        },
+                                        {
+                                            "id":  "B",
+                                            "descricao":  "Aguardar mais uma semana de dados de F-6"
+                                        },
+                                        {
+                                            "id":  "C",
+                                            "descricao":  "Adiar para julho -- Embaixador veta (fora da janela)"
+                                        }
+                                    ],
+                         "titulo":  "PITCH_WATCH: executar pitch R\\/mes neste loop?",
+                         "id":  "D1",
+                         "recomendacao_embaixador":  "A"
+                     },
+                     {
+                         "opcoes":  [
+                                        {
+                                            "id":  "A",
+                                            "descricao":  "Incluir contexto de progresso relativo ao edital -- semana fraca em volume pode ser boa se focada nos topicos certos"
+                                        },
+                                        {
+                                            "id":  "B",
+                                            "descricao":  "Manter formato atual (volume + acerto) sem ajuste de framing"
+                                        }
+                                    ],
+                         "titulo":  "F-6 FRAMING: relatorio semanal com progresso absoluto ou relativo?",
+                         "id":  "D2",
+                         "recomendacao_embaixador":  "A"
+                     },
+                     {
+                         "texto_preredigido":  "Ingrid, uma coisa rapida: voce toparia que eu usasse seus dados de estudo -- de forma anonima -- para ajudar outras candidatas que vierem depois de voce? Nada que identifique voce. So a jornada de alguem que estudou assim e chegou la.",
+                         "opcoes":  [
+                                        {
+                                            "id":  "A",
+                                            "descricao":  "No mesmo momento do pitch V2 (co-fundadora simbolica)"
+                                        },
+                                        {
+                                            "id":  "B",
+                                            "descricao":  "Separado, apos pitch aceito -- nao misturar com decisao financeira (48-72h depois)"
+                                        }
+                                    ],
+                         "titulo":  "OPT-IN DATASET: quando apresentar a Ingrid?",
+                         "id":  "D3",
+                         "recomendacao_embaixador":  "B"
+                     },
+                     {
+                         "id":  "D4",
+                         "texto_preredigido":  "Ingrid, o sistema me avisou que voce tem estudado. Queria saber: como voce esta se sentindo em relacao a prova agora? O ritmo esta fazendo sentido?",
+                         "urgencia":  "ESTA SEMANA -- 11 dias sem contato humano e muito perto da janela do pitch",
+                         "recomendacao_embaixador":  "A",
+                         "opcoes":  [
+                                        {
+                                            "id":  "A",
+                                            "descricao":  "Enviar mensagem ESTA SEMANA recolocando componente humano -- Eduardo viu os dados e entrou em contato"
+                                        },
+                                        {
+                                            "id":  "B",
+                                            "descricao":  "Deixar F-4/F-6 fazerem o trabalho e so entrar no momento do pitch"
+                                        }
+                                    ],
+                         "titulo":  "VISIBILIDADE DO EDUARDO: tornar componente humano visivel antes do pitch?"
+                     },
+                     {
+                         "opcoes":  [
+                                        {
+                                            "id":  "A",
+                                            "descricao":  "M-3 (RLS dry-run) -\u003e N-4 (TTL expurgo) -\u003e N-3 (Heartbeat) -\u003e M-1 (telemetria) -- fundacao antes de construcao"
+                                        },
+                                        {
+                                            "id":  "B",
+                                            "descricao":  "N-3 -\u003e M-1 em paralelo -- acelera entrega mas sem isolamento confirmado"
+                                        }
+                                    ],
+                         "titulo":  "TELEMETRIA/RLS: sequencia de build Loop 8",
+                         "id":  "D5",
+                         "recomendacao_embaixador":  "A"
+                     }
+                 ],
+    "alertas_embaixador":  [
+                               "Janela de pitch fecha ~04-07 de julho. Apos essa data, Ingrid entra em modo bunker.",
+                               "11 dias sem contato humano de Eduardo -- D4 urgente antes do pitch.",
+                               "Fluxo operacional de aceite do pitch nao existe ainda: contrato V2, forma de pagamento, onboarding. Desenhar antes de enviar a mensagem.",
+                               "H-6 (teto R\\/mes): NAO testar com Ingrid. Confirmar com segundo ou terceiro cliente."
+                           ]
+}

@@ -3,7 +3,7 @@
 > **CAMADA_FATOS:** dado bruto e verbatim. Zero interpretação. Auditor lê esta camada diretamente.
 > **CAMADA_INFERENCIA:** análise do Embaixador. Ler sabendo que é opinião fundamentada.
 > **CAMADA_DECISAO:** deliberações formais do Conselho. Verdades acordadas do projeto.
-> Versão: Loop 7 · 2026-06-01 — P-032 atualizado pelo Músculo
+> Versão: Loop 8 · 2026-06-04 — P-032 atualizado pelo Músculo
 
 ---
 
@@ -21,6 +21,7 @@
 
 | Data | Canal | Evento objetivo | Fonte |
 |---|---|---|---|
+| 2026-06-04 | Embaixador | **Loop 8 processado** — Temperatura 8.5/10 QUENTE. Pitch janela fecha ~04/07. 5 decisões D1-D5 pendentes de veredito do Diretor. D4 urgente: 11 dias sem contato humano. | Embaixador Loop 8 |
 | 2026-06-01 | WhatsApp | **D3 respondido** — Ingrid confirmou: está realizando o acesso e está gostando. Cenário A confirmado (engajada, ativa, não desengajada). | Ingrid via Diretor |
 | 2026-06-01 | WhatsApp | **D3 enviado** — debrief casual: "Aquela configuração ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚" | Diretor |
 | 2026-05-30 | WhatsApp | Veredito: Enviar debrief casual amanhã — coletar temperatura real (PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado) | VEREDITOS_INGRID_2026-05-30.json |

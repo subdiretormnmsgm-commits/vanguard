@@ -145,10 +145,10 @@
                                     "loop_fase_atual":  {
                                                             "loop":  8,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "PENDENTE",
-                                                            "embaixador":  "PENDENTE",
+                                                            "notebooklm":  "OK",
+                                                            "embaixador":  "OK",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -- PASSO5 -- gerar ingrid-v8.md"
+                                                            "proximo":  "Musculo -- sintese P-037 -- aguarda veredito Diretor D1-D5"
                                                         },
                                     "churn_watch_threshold":  5,
                                     "relatorio_semanal":  true
