@@ -126,3 +126,7 @@
 - [KNOWLEDGE_BASE (04-06-2026 quinta-feira)] Algum problema resolvido nesta sessao nao documentado? (P-050)
 
 - [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
+
+- [ ] `2026-07-XX` **Ingrid — Gate 7.2 RLS refactor — pré-requisito multi-tenant:** [musculo]
+  Sistema atual é single-user por design (USING true). Para 2ª candidata: adicionar Supabase Auth + substituir UUID localStorage por auth.uid() em todas as tabelas.
+  Não bloqueia nada até decisão de onboarding multi-tenant.
