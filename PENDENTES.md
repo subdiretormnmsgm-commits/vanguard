@@ -38,9 +38,8 @@
 - [x] `2026-05-31` ~~**Ingrid — D3: Debrief casual Ingrid (gate informal pitch):**~~
   ✅ Mensagem enviada pelo Diretor — 2026-06-01. Aguardar resposta de Ingrid.
 
-- [ ] `2026-06-XX` **Ingrid — D2: Gate 7.2 RLS dry-run — Loop 8:** [diretor]
-  Veredito do Diretor 2026-05-30: registrar como pendência Loop 8.
-  Quando: `$env:SUPABASE_SERVICE_ROLE_KEY = 'sua-key'` → `.\scripts\test_tenant_isolation.ps1`
+- [x] `2026-06-04` ~~**Ingrid — D2: Gate 7.2 RLS dry-run — encerrado:**~~
+  ✅ Registrado como dívida técnica (single-user by design). Multi-tenant requer refatoração futura.
 
 - [ ] `2026-06-XX` **Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:** [diretor]
   Veredito do Diretor 2026-05-30: aguardar sessão com mais engajamento verbal de Ingrid.
@@ -134,8 +133,8 @@
 - [x] `2026-06-04` ~~**NotebookLM Wipe & Sync — Valdece:**~~
   ✅ Realizado pelo Diretor em 2026-06-04.
 
-- [ ] `2026-06-04` **NotebookLM Wipe & Sync — Ingrid:** [diretor]
-  Fontes atualizadas pelo Músculo (MEMORIA_V8 + relatorio_V8). Diretor abre notebook Ingrid → deleta fontes → arrasta CLIENTES/INGRID/NOTEBOOKLM_FONTES/.
+- [x] `2026-06-04` ~~**NotebookLM Wipe & Sync — Ingrid:**~~
+  ✅ Executado pelo Diretor em 2026-06-04.
 
 - [ ] `2026-06-XX` **Capturar depoimento de Ingrid — antes de mover para RETAINER:** [diretor]
   Ingrid está feliz com a ferramenta (temperatura 8.5/10 · D4 respondida · confirmou uso ativo).
