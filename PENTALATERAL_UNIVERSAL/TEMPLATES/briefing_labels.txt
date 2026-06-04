@@ -1,0 +1,19 @@
+# briefing_labels.txt -- P-088: labels e icones do briefing_diario.ps1
+# Formato: CHAVE=VALOR
+# O codigo (.ps1) e 100% ASCII -- os icones vivem aqui (dados, nao codigo)
+# Carregado pelo briefing_diario.ps1 no inicio da execucao
+
+ICONE_OK=✅
+ICONE_ATIVO=⏳
+ICONE_FUTURO=⬜
+ICONE_VERDE=🟢
+ICONE_AMARELO=🟡
+ICONE_VERMELHO=🔴
+ICONE_CALENDARIO=📅
+ICONE_DADOS=📊
+ICONE_TELEGRAM=📱
+ICONE_EMAIL=✉️
+ICONE_ERRO=❌
+ICONE_ALERTA=⚠️
+SEP_LINHA=━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SEP_DADOS=─────────────────────────────────────────────────────────────

@@ -1,10 +1,10 @@
 {
-  "schema_version": "2.0",
-  "version": "2.0",
-  "updated": "2026-05-27",
+  "schema_version": "2.1",
+  "version": "2.1",
+  "updated": "2026-06-04",
   "projetos_ativos": ["INGRID", "VALDECE"],
   "projetos_ativos_DEPRECATED": "Usar utils/Get-ProjetosAtivos.ps1 -- le dinamicamente do WIP_BOARD.board.build/check/retainer. Este campo sera removido em versao futura. Adicionar projeto novo = criar pasta CLIENTES/[NOME]/ + entrada WIP_BOARD + preparar_notebooklm.",
-  "ultima_atualizacao": "2026-05-27",
+  "ultima_atualizacao": "2026-06-04",
   "description": "Mapa de dependencias do Pentalateral IAH v2.0. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060).",
   "fonte_canonica_base": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE",
   "documentos": {
@@ -24,7 +24,26 @@
         { "slot": "18", "nome": "18_ATUALIZACAO_PENTALATERAL_*.md",        "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_*.md",
           "padrao": true },
         { "slot": "OPS-01", "nome": "COMANDO_VERIFICACAO_SISTEMICA_FINAL.md", "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md",
-          "nota": "Verificacao dos 12 cenarios do sistema -- universal. Executar a cada 3 loops (session_close alerta). Resetar com reset_checkup.ps1 apos responder ao Embaixador." }
+          "nota": "Verificacao dos 12 cenarios do sistema -- universal. Executar a cada 3 loops (session_close alerta). Resetar com reset_checkup.ps1 apos responder ao Embaixador." },
+        { "slot": "TPL-01", "nome": "briefing_labels.txt", "canonical": "PENTALATERAL_UNIVERSAL/TEMPLATES/briefing_labels.txt",
+          "tipo": "UNIVERSAL_PURO",
+          "nota": "P-088: labels e icones do briefing_diario.ps1. Codigo ASCII -- Unicode vive aqui. Nao distribuir para NOTEBOOKLM_FONTES. Scripts leem diretamente de PENTALATERAL_UNIVERSAL/TEMPLATES/." }
+      ]
+    },
+    "SCRIPTS_CANONICOS": {
+      "descricao": "Scripts de orquestracao do Pentalateral. Fonte canonica em PENTALATERAL_UNIVERSAL/scripts/. Wrappers em scripts/ chamam o universal via @args. NUNCA editar diretamente o wrapper -- editar o canonico e rodar validate_scripts.ps1 (P-096).",
+      "scripts": [
+        { "nome": "session_close.ps1", "canonical": "PENTALATERAL_UNIVERSAL/scripts/session_close.ps1",
+          "wrapper": "scripts/session_close.ps1",
+          "legado": "scripts/session_close_LEGADO_2026-06-04.ps1",
+          "nota": "P-096 + P-097. Parametros: -Projeto, -DryRun, -Friccao, -Principio, etc. Gates: 1,2,3,4,5,6,6B,6C,6.5,7,8,8B,9,9.5,9B (14 gates). Bloqueantes: 1,5,6B,6C." },
+        { "nome": "briefing_diario.ps1", "canonical": "PENTALATERAL_UNIVERSAL/scripts/briefing_diario.ps1",
+          "wrapper": "scripts/briefing_diario.ps1",
+          "legado": "scripts/briefing_diario_LEGADO_2026-06-04.ps1",
+          "nota": "P-096 + P-088. Labels em TEMPLATES/briefing_labels.txt. Logica hardcoded Valdece/Ingrid removida -- usa campos WIP_BOARD (demo_realizada, relatorio_semanal)." },
+        { "nome": "testar_gates_criticos.ps1", "canonical": "PENTALATERAL_UNIVERSAL/scripts/testar_gates_criticos.ps1",
+          "wrapper": null,
+          "nota": "P-097. Testa regressao dos gates bloqueantes. Rodar a cada 3 loops via meta.loops_desde_ultimo_checkup. Sem wrapper -- chamar diretamente." }
       ]
     },
     "TEMPLATE_COM_INSTANCIA": {

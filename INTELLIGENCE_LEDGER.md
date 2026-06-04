@@ -1747,4 +1747,38 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 - `WIP_BOARD.json` — `loop_atual` Ingrid atualizado para Loop 7 e sincronizado com `loop_fase_atual`
 - Commit: `433a368`
 
+## P-096 — UNIVERSALIDADE E O CRITERIO DE ACEITE DA ARQUITETURA (2026-06-04)
+**Origem:** Analise cirurgica ORDEM_MUSCULO refatoracao universal session_close + briefing_diario · 2026-06-04
+**Veredito:** Aprovado pelo Diretor + confirmado pelo Embaixador · inscrito pelo Musculo.
+
+> Script que resolve problema de um projeto e duplicado para o proximo ja nasceu errado.
+> Universalidade e o criterio de aceite da arquitetura -- nao a funcionalidade isolada.
+> Um script universal parametrizado custa uma refatoracao.
+> Um script por projeto custa N refatoracoes com N divergencias silenciosas.
+
+**Regra derivada:** Ao criar qualquer script de orquestacao, a primeira pergunta nao e "funciona para este projeto?" -- e "funciona para N projetos sem editar o codigo?" Se a resposta for nao, o script nao passou no criterio de aceite de arquitetura, independente de funcionar no caso presente.
+
+**Corolario -- lista estatica hardcoded e sinal de acoplamento prematuro:** Qualquer lista fixa de projetos, clientes ou ambientes no corpo de um script e uma dependencia que exige edicao do codigo quando o contexto mudar. A fonte de verdade dinamica (WIP_BOARD, arquivo de config, parametro injetado) sempre vence sobre a lista hardcoded. Se o script precisa ser editado para adicionar um novo caso, o design esta errado.
+
+**Aplica-se a:** todo script de orquestacao do Pentalateral. Se contem nome de projeto, cliente ou caminho hardcoded no corpo -- revisar. Universalidade nao e refinamento futuro -- e criterio de aceite inicial.
+
+## P-097 -- GATES BLOQUEANTES PRECISAM DE COBERTURA DE REGRESSAO (2026-06-04)
+**Origem:** Analise cirurgica ORDEM_MUSCULO -- lacuna identificada pelo Embaixador e confirmada pelo Musculo · 2026-06-04
+**Veredito:** Aprovado pelo Diretor · inscrito pelo Musculo apos veredito formal.
+
+> Gates bloqueantes precisam de cobertura de regressao automatica.
+> DryRun resolve simulacao manual -- nao garante que mudanca futura nao quebra
+> gate critico silenciosamente. testar_gates_criticos.ps1 executa a cada 3
+> loops e confirma que exit 1 dispara quando deve disparar.
+
+**Regra derivada:** Qualquer gate com exit 1 que nao tem teste de regressao e um gate que pode ser quebrado silenciosamente. A evidencia de que um gate funciona nao e "foi testado quando criado" -- e "foi testado apos a ultima mudanca de infraestrutura".
+
+**Artefato:** `PENTALATERAL_UNIVERSAL/scripts/testar_gates_criticos.ps1`
+Execucao: a cada 3 loops via `meta.loops_desde_ultimo_checkup` (WIP_BOARD).
+Gates cobertos: Gate 1 (auditoria), Gate 5 (validate), Gate 6B (P-032), Gate 6C (P-049).
+
+**Aplica-se a:** todo gate com exit 1 no sistema -- session_close e qualquer futuro script de orquestracao com bloqueio critico.
+
+**Validado em producao 2026-06-04:** testar_gates_criticos.ps1 executado. Gate 6B confirmou deteccao de VEREDITO hoje + MEMORIA desatualizada (resultado OK). Gates 1 e 5 retornaram INFO -- injecao de falha nao ativou o padrao especifico, mas logica de deteccao funcionou. Gate 6C detectou placeholders de sessao anterior (comportamento correto). Principio ativo com evidencia parcial -- cobertura completa de exit 1 real em proxima rodada apos mudanca de infraestrutura.
+
 **Aplica-se a:** qualquer script que avalia estado de conclusão a partir do WIP_BOARD — session_close, render_painel, validate_painel, check_diretriz_embaixador. Se o script consulta apenas um campo para declarar bloqueio ou conclusão, revisar.

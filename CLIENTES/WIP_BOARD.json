@@ -150,7 +150,8 @@
                                                             "musculo":  "OK",
                                                             "proximo":  "Gemini -- PASSO3 Loop 8"
                                                         },
-                                    "churn_watch_threshold":  5
+                                    "churn_watch_threshold":  5,
+                                    "relatorio_semanal":  true
                                 },
                                 {
                                     "id":  "PROJ-001",
@@ -252,7 +253,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
+                                                            "proximo":  "Musculo -- P-037 sintese Loop 7 Valdece -- DELIBERACAO_LOOP_V7_VALDECE.md"
                                                         },
                                     "churn_watch_threshold":  3
                                 }
