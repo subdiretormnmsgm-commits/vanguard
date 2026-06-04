@@ -6,20 +6,20 @@
 
 $ErrorActionPreference = "Stop"
 
+$BASE = Split-Path -Parent $PSScriptRoot
+. "$BASE\scripts\alert_config.ps1"
+
 trap {
-    $ts = (Get-Date).ToString("dd/MM HH:mm")
-    $errMsg = "⚠️ FALHA — Pentalateral Tarde ${ts}: $($_.Exception.Message)"
+    $ts     = (Get-Date).ToString("dd/MM HH:mm")
+    $errMsg = "FALHA -- Pentalateral Tarde ${ts}: $($_.Exception.Message)"
     try {
-        Invoke-RestMethod -Uri "https://api.telegram.org/bot8146192723:AAHVZJzzV0R_jp2sAaSE3T2AFFjnzMWuOgE/sendMessage" -Method POST -Body @{
-            chat_id = "8895733647"
+        Invoke-RestMethod -Uri ("https://api.telegram.org/bot" + $TELEGRAM_TOKEN + "/sendMessage") -Method POST -Body @{
+            chat_id = $TELEGRAM_CHAT_ID
             text    = $errMsg
         } | Out-Null
     } catch {}
     break
 }
-
-$BASE = Split-Path -Parent $PSScriptRoot
-. "$BASE\scripts\alert_config.ps1"
 
 $hoje    = Get-Date
 $dataStr = $hoje.ToString("yyyy-MM-dd")
