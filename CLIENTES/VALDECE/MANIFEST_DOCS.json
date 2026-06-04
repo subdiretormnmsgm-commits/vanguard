@@ -1,6 +1,6 @@
 {
     "projeto":  "VALDECE",
-    "ultima_sincronizacao":  "2026-06-01T20:50:24",
+    "ultima_sincronizacao":  "2026-06-04T10:49:08",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -29,8 +29,8 @@
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
                          "hash_universal":  "3A60574CA867ED96DB77E09BC11D3E98F4095021C1B84B63DE455CA763BB77ED",
-                         "hash_local":  "3A60574CA867ED96DB77E09BC11D3E98F4095021C1B84B63DE455CA763BB77ED",
-                         "status":  "SYNC"
+                         "hash_local":  "D414CDA3A3EFADD1BAF2F857C5365B3EBFDAD84C80DC468F5E579B39D4889EBD",
+                         "status":  "DRIFT"
                      },
                      {
                          "nome":  "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
@@ -46,8 +46,8 @@
                      },
                      {
                          "nome":  "07_WIP_BOARD.txt",
-                         "hash_universal":  "23ADBB63A2AEB63584D28C24DDBEB0DC55FB5BCF32DBF925DFC8C0E694165F62",
-                         "hash_local":  "23ADBB63A2AEB63584D28C24DDBEB0DC55FB5BCF32DBF925DFC8C0E694165F62",
+                         "hash_universal":  "63E0E4F2A9E2CA282A98EE335A8594D35BAB57E56E9B3406720D25A3C8378CB7",
+                         "hash_local":  "63E0E4F2A9E2CA282A98EE335A8594D35BAB57E56E9B3406720D25A3C8378CB7",
                          "status":  "SYNC"
                      },
                      {
@@ -63,8 +63,8 @@
                          "status":  "SYNC"
                      }
                  ],
-    "status_geral":  "VERDE",
+    "status_geral":  "AMARELO",
     "total":  10,
-    "drift_count":  0,
+    "drift_count":  1,
     "ausente_count":  0
 }

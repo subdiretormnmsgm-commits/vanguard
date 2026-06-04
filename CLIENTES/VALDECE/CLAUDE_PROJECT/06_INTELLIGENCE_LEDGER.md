@@ -1725,3 +1725,73 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 **V2 planejado:** `validate_painel.ps1` emitir aviso (`⚠ N pendentes futuros sem dependência declarada`) durante geração. Não bloqueia — registra. Junto com histórico de recorrência (pendentes que reaparecem em PAINEIs consecutivos), compõe o P-094 completo.
 
 **Aplica-se a:** qualquer campo de preenchimento opcional em documentos gerados automaticamente — dependência de pendente, tag de origem, link de gate. Se é opcional e importante, precisa de visibilidade de ausência.
+
+---
+
+## P-095 — GATE CHECKER DEVE CRUZAR TODAS AS FONTES DE EVIDÊNCIA (2026-06-01)
+**Origem:** Bug no `generate_protocolo_encerramento.ps1` — gate dia15 declarado vencido apesar de `loops_programados` registrar `status: "concluido"` com evidência de commit · 2026-06-01
+**Veredito:** Inscrito pelo Músculo após fricção detectada pelo Diretor e confirmada pelo Embaixador.
+
+> Um gate não é aberto ou fechado por um único campo. É fechado quando qualquer fonte canônica confirma conclusão.
+> O script checava apenas `dias_completos` — e declarava vencido o que `loops_programados` já marcava concluído.
+> O Embaixador recebeu um PAINEL com "Gate Dia 15 vencido há 3 dias" e o Diretor teve que investigar.
+> A fricção custou uma sessão inteira de diagnóstico.
+
+**Regra derivada:** Todo gate checker que consulta apenas UMA fonte é incompleto por design. A evidência de conclusão pode estar em qualquer campo canônico do WIP_BOARD: `dias_completos`, `loops_programados`, `gates_bloqueantes` com flag de resolução. O checker deve percorrer todas antes de declarar vencido.
+
+**Corolário — campo stale é ruído com autoridade:** `loop_atual` (string legada) divergia de `loop_fase_atual` (objeto estruturado) porque o script atualizava um e ignorava o outro. Dois campos paralelos com o mesmo semântico são uma bomba de inconsistência. Quando existirem, o script deve preferir o mais estruturado e manter o legado sincronizado.
+
+**Fix aplicado:**
+- `generate_protocolo_encerramento.ps1` — `Test-GateCoberto` agora cruza `loops_programados` antes de declarar gate vencido
+- `generate_protocolo_encerramento.ps1` — bloco PROJETOS ATIVOS prefere `loop_fase_atual` com fallback para `loop_atual`
+- `WIP_BOARD.json` — `loop_atual` Ingrid atualizado para Loop 7 e sincronizado com `loop_fase_atual`
+- Commit: `433a368`
+
+## P-096 — UNIVERSALIDADE E O CRITERIO DE ACEITE DA ARQUITETURA (2026-06-04)
+**Origem:** Analise cirurgica ORDEM_MUSCULO refatoracao universal session_close + briefing_diario · 2026-06-04
+**Veredito:** Aprovado pelo Diretor + confirmado pelo Embaixador · inscrito pelo Musculo.
+
+> Script que resolve problema de um projeto e duplicado para o proximo ja nasceu errado.
+> Universalidade e o criterio de aceite da arquitetura -- nao a funcionalidade isolada.
+> Um script universal parametrizado custa uma refatoracao.
+> Um script por projeto custa N refatoracoes com N divergencias silenciosas.
+
+**Regra derivada:** Ao criar qualquer script de orquestacao, a primeira pergunta nao e "funciona para este projeto?" -- e "funciona para N projetos sem editar o codigo?" Se a resposta for nao, o script nao passou no criterio de aceite de arquitetura, independente de funcionar no caso presente.
+
+**Corolario -- lista estatica hardcoded e sinal de acoplamento prematuro:** Qualquer lista fixa de projetos, clientes ou ambientes no corpo de um script e uma dependencia que exige edicao do codigo quando o contexto mudar. A fonte de verdade dinamica (WIP_BOARD, arquivo de config, parametro injetado) sempre vence sobre a lista hardcoded. Se o script precisa ser editado para adicionar um novo caso, o design esta errado.
+
+**Aplica-se a:** todo script de orquestacao do Pentalateral. Se contem nome de projeto, cliente ou caminho hardcoded no corpo -- revisar. Universalidade nao e refinamento futuro -- e criterio de aceite inicial.
+
+## P-097 -- GATES BLOQUEANTES PRECISAM DE COBERTURA DE REGRESSAO (2026-06-04)
+**Origem:** Analise cirurgica ORDEM_MUSCULO -- lacuna identificada pelo Embaixador e confirmada pelo Musculo · 2026-06-04
+**Veredito:** Aprovado pelo Diretor · inscrito pelo Musculo apos veredito formal.
+
+> Gates bloqueantes precisam de cobertura de regressao automatica.
+> DryRun resolve simulacao manual -- nao garante que mudanca futura nao quebra
+> gate critico silenciosamente. testar_gates_criticos.ps1 executa a cada 3
+> loops e confirma que exit 1 dispara quando deve disparar.
+
+**Regra derivada:** Qualquer gate com exit 1 que nao tem teste de regressao e um gate que pode ser quebrado silenciosamente. A evidencia de que um gate funciona nao e "foi testado quando criado" -- e "foi testado apos a ultima mudanca de infraestrutura".
+
+**Artefato:** `PENTALATERAL_UNIVERSAL/scripts/testar_gates_criticos.ps1`
+Execucao: a cada 3 loops via `meta.loops_desde_ultimo_checkup` (WIP_BOARD).
+Gates cobertos: Gate 1 (auditoria), Gate 5 (validate), Gate 6B (P-032), Gate 6C (P-049).
+
+**Aplica-se a:** todo gate com exit 1 no sistema -- session_close e qualquer futuro script de orquestracao com bloqueio critico.
+
+**Validado em producao 2026-06-04:** testar_gates_criticos.ps1 executado. Gate 6B confirmou deteccao de VEREDITO hoje + MEMORIA desatualizada (resultado OK). Gates 1 e 5 retornaram INFO -- injecao de falha nao ativou o padrao especifico, mas logica de deteccao funcionou. Gate 6C detectou placeholders de sessao anterior (comportamento correto). Principio ativo com evidencia parcial -- cobertura completa de exit 1 real em proxima rodada apos mudanca de infraestrutura.
+
+**Aplica-se a:** qualquer script que avalia estado de conclusão a partir do WIP_BOARD — session_close, render_painel, validate_painel, check_diretriz_embaixador. Se o script consulta apenas um campo para declarar bloqueio ou conclusão, revisar.
+
+
+## DECISAO ESTRATEGICA — PROJ-002 INGRID (2026-06-04)
+**Diretor Eduardo · Veredito D1 Loop 8 · Irrevogavel neste ciclo.**
+
+Ingrid nao sera cobrada. A ferramenta sera entregue gratuitamente.
+Ingrid e a fundadora simbolica do produto Pentalateral EdTech -- seus dados anonimizados
+sao o argumento comercial para as proximas candidatas que poderao pagar R\/mes.
+O produto prova valor em Ingrid; escala nos proximos clientes.
+
+Regra derivada: o primeiro cliente piloto pode ter valor estrategico superior ao valor comercial.
+Cobrar Ingrid agora poderia contaminar a natureza da relacao e enfraquecer a narrativa de fundadora.
+Ingrid que passa no concurso e indica o proximo cliente vale mais que R\/mes.

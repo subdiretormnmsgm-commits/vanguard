@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-26 23:25
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-04 13:32
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-6a5c3e9 fix(sync): propagar Template 9 para NOTEBOOKLM_FONTES de Ingrid e Valdece
-ca74055 feat(p070): Onboarding Invisivel + LEDGER atualizado + Claude Project docs em dia
-fa10db6 docs(pendentes): limpar [x] concluidos + novos pendentes da sessao 2026-05-26
+589f6dc feat(ingrid): Loop 8 CONCLUIDO -- DELIBERACAO + MEMORIA + relatorio V8 + WIP atualizado [RESOLVE: Loop8-fechamento]
+d484360 chore(ingrid): commit artefatos Loop 8 nao rastreados -- ingrid-v8 + VEREDITOS + DIRETRIZ_V8
+26a119b fix(security): redatar JWT e ANON_KEY em runbook + memorias
 
 ================================================================================
 
@@ -41,6 +41,11 @@ Antes de qualquer deliberação, o Músculo executa:
 ## PRINCÍPIOS ATIVOS
 
 Princípios extraídos de fricções reais. Cada um tem evidência — não é teoria.
+
+> **GAPS NUMÉRICOS — RESERVADOS:**
+> P-011 e P-012 **não existem**. Foram descartados na origem (pré-V24) antes do LEDGER ser formalizado.
+> NÃO reaproveitar esses números — gaps são parte da história do sistema.
+> Qualquer referência a P-011 ou P-012 em documentos = erro de numeração.
 
 ---
 
@@ -131,18 +136,13 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 | Entrega → cliente | Teste com dado real do cliente, não dado de mock |
 | Iteração → loop | MEMORIA + relatorio_evolutivo gerados e revisados |
 | Proposta → execução | Veredito explícito do Diretor — nunca iniciar sem aprovação |
-
-**Por que importa:** Avançar por assumição é o padrão de falha mais comum em build rápido. Uma UI bonita sobre corpus ruim é fachada. Um commit sem review é débito técnico disfarçado de velocidade. O Gate valida — o produto entrega.
-**Aplica-se a:** todo projeto do Pentalateral, toda etapa de build, toda entrega a cliente.
-
----
 ... [truncado -- ver arquivo completo]
 
 ================================================================================
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-05-26",
+    "atualizado_em":  "2026-06-01",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -162,11 +162,11 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                     "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 â€” OFFBOARDING_RUNBOOK entregue Â· Loop 6 PENDENTE",
+                                    "status":  "Loop 8 CONCLUIDO -- F-A F-B F-E F-G N-3 N-4 D2 -- MEMORIA_V8 + relatorio_V8 + DELIBERACAO_V8 gerados",
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3",
+                                    “loop_atual”:  “Loop 8 CONCLUIDO -- MEMORIA_V8 + relatorio_V8 + DELIBERACAO_V8 gerados -- Loop 9 PENDENTE: Gate 7.2 + captacao 2a candidata”,
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -296,7 +296,7 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 > **CAMADA_FATOS:** dado bruto e verbatim. Zero interpretação. Auditor lê esta camada diretamente.
 > **CAMADA_INFERENCIA:** análise do Embaixador. Ler sabendo que é opinião fundamentada.
 > **CAMADA_DECISAO:** deliberações formais do Conselho. Verdades acordadas do projeto.
-> Versão: Loop 5 · Dia 13 · 2026-05-25 — SEÇÃO D executada
+> Versão: Loop 8 · 2026-06-04 — P-032 atualizado pelo Músculo
 
 ---
 
@@ -314,6 +314,12 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 
 | Data | Canal | Evento objetivo | Fonte |
 |---|---|---|---|
+| 2026-06-04 | Diretor | **VEREDITO D1** — Ferramenta gratuita para Ingrid. Sem cobrança R$97/mês. Ingrid é caso piloto — dados anonimizados são argumento comercial para próximas candidatas. Ingrid não é cliente pagante: é fundadora simbólica do produto. | Veredito Diretor |
+| 2026-06-04 | Diretor | **VEREDITO D4** — Mensagem de presença humana esta semana. Eduardo entra em contato sem mencionar pitch ou cobrança. | Veredito Diretor |
+| 2026-06-04 | Embaixador | **Loop 8 processado** — Temperatura 8.5/10 QUENTE. 5 decisões D1-D5: D1 descartado, D2/D4/D5 aprovados, D3 descartado. | Embaixador Loop 8 |
+| 2026-06-01 | WhatsApp | **D3 respondido** — Ingrid confirmou: está realizando o acesso e está gostando. Cenário A confirmado (engajada, ativa, não desengajada). | Ingrid via Diretor |
+| 2026-06-01 | WhatsApp | **D3 enviado** — debrief casual: "Aquela configuração ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚" | Diretor |
+| 2026-05-30 | WhatsApp | Veredito: Enviar debrief casual amanhã — coletar temperatura real (PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado) | VEREDITOS_INGRID_2026-05-30.json |
 | 2026-05-16 | WhatsApp | Termo enviado para assinatura | Diretor |
 | 2026-05-18 | WhatsApp | Termo assinado por Ingrid | Diretor (confirmado 2026-05-19) |
 | 2026-05-18 | App (PWA) | Primeira sessão real — Gate Dia 8 | Ingrid |
@@ -321,6 +327,7 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 | 2026-05-24 | WhatsApp | Ingrid enviou mensagem espontânea — usou simulado, sinalizou retorno amanhã | Ingrid |
 | 2026-05-26 | WhatsApp | Ingrid viu documento (Termo 18/05) — confirmado recebido | Diretor |
 | 2026-05-26 | WhatsApp | Eduardo plantou lead D4:A — Ingrid respondeu "não conhece ninguém prestando concurso" | Diretor |
+| 2026-05-27 | WhatsApp | Reassinatura física do Termo confirmada pelo Diretor — LEGAL-WATCH VERDE | Diretor |
 
 ### FALAS VERBATIM DE INGRID
 
@@ -343,8 +350,9 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 
 | Campo | Estado | Data |
 |---|---|---|
-| Gate atual | Loop 5 — Dias 9-12 concluídos | 2026-05-23 |
-| Questões no banco | 460 — Cargo 202 SEDES-DF | 2026-05-18 |
+| Gate atual | Loop 7 — Todos os 15 dias aprovados · Gate dia15 APROVADO 2026-05-30 | 2026-05-30 |
+| Versão em produção | v20 — F-1/F-2/F-5/F-7/F-8 ativos · F-4/F-6 deploy CLI pendente | 2026-05-28 |
+| Questões no banco | 460+ — Cargo 202 SEDES-DF | 2026-05-18 |
 | App no ar | https://subdiretormnmsgm-commits.github.io/vanguard/ | 2026-05-18 |
 | Fix renderização negrito | Deployado | 2026-05-19 |
 | G-5 Socrática Pânico | Deployado (bug de ordem de lógica corrigido) | 2026-05-23 |
@@ -358,8 +366,8 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 |---|---|---|---|
 | H-1 | Não assinou por esquecimento — não por hesitação | **CONFIRMADA** | Assinou em ~48h sem questionamento, negociação ou pedido de desconto |
 | H-2 | Medo financeiro causou hesitação | **REFUTADA** | Piloto R$0 — sem gatilho financeiro presente |
-| H-3 | Compararia o app com TEC Concursos na primeira sessão | **PENDENTE** | Q18 sem menção ao TEC — modo imersivo, não avaliativo. Só confirma quando verbalizar. |
-| H-4 | Dificuldade = risco de abandono na primeira sessão | **ATIVA** | Q18 é receptividade, não hábito. Teste real ocorre na sessão 3-5 quando SM-2 começa a cobrar. |
+| H-3 | Compararia o app com TEC Concursos na primeira sessão | **REFUTADA** — encerrada 2026-05-30 | TEC nunca mencionado em nenhuma sessão documentada. Hipótese encerrada definitivamente. |
+| H-4 estendida | SM-2 nas sessões 3-5 — dificuldade crescente = abandono? | **REVISADA — BAIXO RISCO** | D3 respondido 2026-06-01: Ingrid confirma acesso ativo e que está gostando. SM-2 crescente não causou abandono. Engajamento sustentado confirmado. |
 
 ---
 
@@ -371,20 +379,26 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 |---|---|---|---|
 | H-5 | Pode compartilhar login com familiar ou colega | **IMPROVÁVEL — REVISADA** | D4:A: não conhece ninguém prestando concurso → rede social de concurso = zero por enquanto |
 | H-6 | Teto receptivo real pode ser R$150/mês, não R$97 | PENDENTE | Embaixador: "esperança não regateia" |
-| H-7 | Lê enunciados com atenção literal — Quadrix mindset nativo | **NOVA — confirmar nas próximas 2 sessões** | Notou discrepância entre o que o enunciado "informava" e o que a UI entregou |
+| H-7 | Lê enunciados com atenção literal — Quadrix mindset nativo | **CONFIRMADA — Loop 6** | Notou discrepância Q18 + espontaneamente retornou para "atacar mais questões" — mindset concurseiro nativo sem que o app precisasse induzir |
+| H-8 | "Atacar" = shift de player — pré-comprometimento com aprovação | **NOVA — Loop 6** | Fala espontânea 2026-05-24: "Amanhã volto para atacar mais" — verbo ativo, não ansioso. Embaixador: shift de "sobreviver ao material" para "atacar o placar" |
 
 ### TEMPERATURA DO CLIENTE
 
 ```
-TEMPERATURA: VERDE — ENGAJAMENTO ATIVO CONFIRMADO
-Razão: Ingrid enviou mensagem espontânea em 2026-05-24 (noite). Usou o simulado, declarou que
-"gostei bastante" e sinalizou retorno no dia seguinte. Contato iniciado por ela — sem estímulo
-direto do Diretor no dia. Score estimado: 7/10 (de 5 para 7 — subindo).
-CHURN-WATCH: DESATIVADO — risco de abandono não confirmado.
-Padrão observado: estuda à noite (mensagem às ~20h). Confirmação parcial de horário noturno.
-Simulado (Micro-Simulado Dia 11) testado e aprovado. Contador e Push: amanhã.
-Próxima reavaliação: após Eduardo informar feedback de Ingrid sobre Contador (Dia 13)
-Última atualização: 2026-05-24 (Músculo P-032 — contato espontâneo Ingrid)
+TEMPERATURA_PONDERADA: 8.5/10 — VERDE FORTE (D3 respondido 2026-06-01 — Ingrid confirmou acesso ativo e que está gostando)
+Ingrid passou de "tentando sobreviver ao material" para "atacando o placar" (P-079). H-8 CONFIRMADA.
+H-4 REVISADA: SM-2 crescente não causou abandono. Engajamento sustentado pós-dificuldade = produto validado.
+Cenário A CONFIRMADO: silêncio era confiança no processo, não desengajamento. Cliente ativa, não fugindo.
+Janela de pitch R$97/mês: AQUECIDA — Ingrid verbalizou satisfação com o produto. Próximo gatilho: uso 7 dias consecutivos verbalizado ou Eduardo propõe formalmente.
+CHURN-WATCH: DESATIVADO. [DATA-GAP-WATCH]: ENCERRADO — uso confirmado verbalmente.
+SCOPE-WATCH: DESATIVADO — sem rede de concurso no curto prazo. Pipeline pós-aprovação.
+LEGAL-WATCH: VERDE — P-013 VERDE 2026-05-30. P-023 VERDE.
+[DADOS-WATCH]: VERDE — 102 respostas · 1 user_id correto.
+[DEPLOY-WATCH]: VERDE — Gate 7.1 APROVADO 2026-06-01. 3 Edge Functions em produção: notificar-progresso + gatilho-temporal (19h45 BRT diário) + relatorio-semanal (domingo 10h). pg_cron ativo em yjqvjhezwhepwomukudt.
+[GITHUB-WATCH]: VERDE — token sbp_ revogado + alerta GitHub dispensado — 2026-06-01.
+[PITCH-WATCH]: AQUECIDO — D3 respondido 2026-06-01. Ingrid ativa e satisfeita. Missão de apropriação recomendada antes do Loop 8.
+Padrão: estuda à noite (~20h). F-6 relatório semanal = coração do argumento R$97/mês.
+Última atualização: 2026-06-01 (Músculo P-032 — D3 respondido · Cenário A confirmado · Temperatura 8.5)
 ```
 
 ### PADRÕES INFERIDOS — atualizar com cada sessão real
@@ -426,6 +440,31 @@ Próxima reavaliação: após Eduardo informar feedback de Ingrid sobre Contador
 - CONFIRMA N-3 Linha de Corte: aversão à perda converte número frio em caça à vaga — alinha P-041
 - CONFIRMA N-5 html2canvas: SVG no cliente sem token de backend — custo zero, pitch SaaS
 
+### INTELIGÊNCIA DO EMBAIXADOR — Loop 6 SEÇÃO D (2026-05-27) · REAÇÃO AO PENTALATERAL
+
+| # | Insight | Ação prescrita |
+|---|---|---|
+| E-1 | Contato espontâneo é o dado de maior valor — o que fez Ingrid voltar? Provavelmente o Contador de Pontos (novo). Identificar qual feature ativou o retorno antes do próximo contato. | Gate: verificar dados antes de contato. Após DADOS-WATCH resolvido → Eduardo pergunta casualmente "o que você achou do contador de pontos?" |
+| E-2 | "Atacar" = shift de player — pré-comprometimento com aprovação. Timing ideal para pitch V2 quando chegar o momento. Não queimar agora — DADOS-WATCH bloqueia. | Aguardar DADOS-WATCH + LEGAL-WATCH VERDE confirmado antes de pitch V2. |
+| E-3 | Ingrid precisa de espelho confirmando trajetória — Sentinel Report parcial é a peça ausente. Um número real ("você acertou X% das questões Quadrix nos últimos 7 dias") vale mais que qualquer mensagem motivacional. | Músculo: gerar Sentinel Report parcial com dados reais de Ingrid após resolução do DADOS-WATCH. |
+| E-4 | Semente de indicação pós-aprovação — plantar agora, colher depois: "Quando você passar, vou ter o sistema pronto para quem você indicar." Zero pressão agora, aciona circuito de antecipação. | Eduardo planta frase na próxima mensagem após DADOS-WATCH resolvido. |
+| E-5 | Saudação noturna personalizada: "Boa noite — 20 questões te esperam" = âncora de hábito. Uma linha de código. Ativa o circuito certo (ritual noturno) sem push nativo (Apple bloqueia). | Músculo: implementar saudação dinâmica por horário de acesso ao app — Loop 6 build. |
+
+**PAINEL DE DELIBERAÇÃO — Loop 6 (veredito do Diretor pendente):**
+
+| Código | Tema | Opções | Recomendação Embaixador |
+|---|---|---|---|
+| P0 | DADOS-WATCH | A) Músculo verifica user_id das 470 respostas agora \| B) Suspender comunicação até próxima sessão \| C) Diretor declara dados confiáveis | **A** — resolver antes de qualquer contato com Ingrid |
+| P1 | LEGAL-WATCH | A) Aguardar Ingrid imprimir e assinar (disse que faria) \| B) Avançar pitch V2 \| C) Novo contato antes de 31/05 | **A** com prazo — se não assinar até 31/05, acionar C |
+| PRINCIPIO | Candidato ao LEDGER | A) APROVADO — inscrever LEDGER \| B) APROVADO COM AJUSTE \| C) ADIADO | Pendente veredito |
+| D3_VANGUARD | Insight sobre a empresa | A) Diretor registra \| B) Descarta | Pendente veredito |
+
+**Alertas do Embaixador — Loop 6:**
+- [DADOS-WATCH] ATIVO: 470 respostas migradas podem estar sob user_id incorreto — SM-2 pode estar calibrado para usuário fantasma. Gate bloqueante antes de qualquer comunicação de progresso.
+- CONFIRMA shift de player: "atacar" ≠ linguagem ansiosa. Momento de pré-comprometimento, não de cobrança.
+- CONFIRMA saudação noturna como âncora de hábito (E-5 — feature de baixo custo, alto impacto).
+- ALERTA pitch V2: não queimar agora — DADOS-WATCH + LEGAL-WATCH precisam estar VERDES primeiro.
+
 ### INTELIGÊNCIA DO EMBAIXADOR — Loop 4 DELIBERAÇÃO [E-1 a E-5] (2026-05-20)
 
 | # | Insight | Ação prescrita |
@@ -448,12 +487,17 @@ Próxima reavaliação: após Eduardo informar feedback de Ingrid sobre Contador
 
 | Flag | Status | Ação se não resolvido |
 |---|---|---|
-| [CHURN-WATCH] | **DESATIVADO** — Ingrid retornou espontaneamente em 2026-05-24 | Rearmar se silêncio > 3 dias a partir de agora |
+| [CHURN-WATCH] | **DESATIVADO** — Ingrid retornou espontaneamente em 2026-05-24 | Rearmar se silêncio > 3 dias |
 | [QA-WATCH] negrito questão 18 | RESOLVIDO | Fix deployado 2026-05-19 |
-| [SCOPE-WATCH] H-5 compartilhamento | DESATIVADO — D4:A: Ingrid não conhece ninguém prestando concurso. Pipeline indicação = zero. H-5 revisada para IMPROVÁVEL. | Rearmar apenas se Ingrid mencionar colega ou amigo usando o app |
-| [LEGAL-WATCH] Termo data | PARCIAL — Ingrid confirmou recebimento do novo PDF (18/05) em 2026-05-26. Reassinatura formal pendente. | Confirmar assinatura na próxima interação |
-| [DEPLOY-WATCH] gh-pages branch | RESOLVIDO — P-056 documentado | Script deploy_ingrid_ghpages.ps1 ativo — rodar ao fim de cada sessão de build |
-| [TESTE-WATCH] Features Loop 5 | **PARCIAL** — Simulado testado e aprovado (2026-05-24). Contador + Push: amanhã (2026-05-25) | Aguardar feedback de Ingrid sobre Contador após visita ao app |
+| [SCOPE-WATCH] H-5 compartilhamento | DESATIVADO — Ingrid não conhece ninguém prestando concurso. H-5 = IMPROVÁVEL. | Rearmar se Ingrid mencionar colega usando o app |
+| [LEGAL-WATCH] Termo data | **VERDE** — Reassinatura física confirmada pelo Diretor em 2026-05-27 | Encerrado |
+| [DEPLOY-WATCH] gh-pages branch | RESOLVIDO — P-056 documentado | Script deploy_ingrid_ghpages.ps1 ativo |
+| [TESTE-WATCH] Features Loop 5 | RESOLVIDO — Ingrid retornou e usou o simulado espontaneamente (2026-05-24) | Encerrado |
+| [DADOS-WATCH] user_id | **VERDE** — 102 registros · 1 user_id correto · verificado 2026-05-28 | Encerrado |
+| [DEPLOY-WATCH] F-4/F-6 | **VERDE** — 3 Edge Functions ativas em produção + pg_cron ativo (2026-06-01) | Encerrado |
+| [GITHUB-WATCH] push bloqueado | **VERDE** — token revogado + alerta dispensado (2026-06-01) | Encerrado |
+| [PITCH-WATCH] R$97/mês | **AQUECIDO** — D3 respondido 2026-06-01: Ingrid ativa e satisfeita · Cenário A confirmado · janela aberta para formalização | Ativo |
+| [Gate dia15] Supabase Ingrid | **APROVADO** 2026-05-30 — Ingrid admin do próprio Supabase (P-013 VERDE) | Encerrado |
 
 ### PIPELINE COMERCIAL
 
@@ -553,6 +597,11 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 | 2026-05-27 | **D3:A** VETO G-1 + G-3 total — backlog V2. Ingrid em VERDE FRÁGIL: zero risco desnecessário | Diretor — Veredito Loop 5 |
 | 2026-05-27 | **D4:A** Pipeline — plantar "Conhece alguém prestando concurso?" na próxima mensagem a Ingrid | Diretor — Veredito Loop 5 |
 | 2026-05-27 | **D5:B** N-3 Linha de Corte — campo configurável no DASHBOARD interno. Eduardo define o número quando tiver dados reais. SEDES-DF 2026 é primeiro concurso Quadrix no órgão — sem corte histórico verificável. | Diretor — Veredito Loop 5 |
+| 2026-05-27 | **LEGAL-WATCH VERDE** — Reassinatura física do Termo confirmada. Ingrid reassinou presencialmente. | Diretor — Confirmação 2026-05-27 |
+| 2026-05-27 | **Loop 6 · P0/P1/PRINCIPIO/D3_VANGUARD** — PAINEL DE DELIBERAÇÃO gerado pelo Embaixador. VEREDITOS confirmados pelo Diretor. | Embaixador — Loop 6 SEÇÃO D |
+| 2026-05-28 | **DADOS-WATCH VERDE** — 102 respostas · 1 user_id correto · SM-2 íntegro | Músculo — verificação técnica |
+| 2026-05-30 | **Gate dia15 APROVADO** — Ingrid tem acesso admin ao próprio Supabase (P-013 VERDE) | Diretor — confirmação presencial |
+| 2026-05-30 | **Loop 7 iniciado** — Gemini DIRETRIZ V7 + ingrid-v7.md APROVADA · PASSO7 pronto para Embaixador | Músculo P-032 |
 
 ### PROTOCOLOS ATIVOS
 
@@ -593,7 +642,9 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 | 2026-05-20 | H-3 revertida para PENDENTE, H-4 mantida ATIVA — engajamento inaugural ≠ hábito formado | Embaixador |
 | 2026-05-23 | Loop 5 Dia 12: G-5 + G-3 + Contador deployados. Deploy pipeline (P-056) corrigido. Link reenviado a Ingrid. Temperatura atualizada para VERDE FRÁGIL REENGAJAMENTO. Watchdog DEPLOY-WATCH + TESTE-WATCH criados. | Músculo (P-032) |
 | 2026-05-25 | Loop 5 SEÇÃO D: Embaixador executou reação completa a [M+G+N] (15 inputs). Painel de Deliberação D1-D5 gerado. VETO G-1+G-3 confirmado. N-2+N-3+N-5 confirmados. Veredito de Eduardo pendente. | Músculo (P-032) |
-| 2026-05-26 | Gate Dia 15 APROVADO — Loop 5 CONCLUIDO. D4:A executado (lead plantado, Ingrid confirmou não ter rede de concurso). Novo PDF Termo recebido e confirmado por Ingrid. Datas 2026-05-29 → 2026-05-26 corrigidas. SCOPE-WATCH H-5 desativado. LEGAL-WATCH parcial (recebimento confirmado, assinatura pendente). | Músculo (P-032) |
+| 2026-05-26 | Gate Dia 15 APROVADO — Loop 5 CONCLUIDO. D4:A executado (lead plantado, Ingrid confirmou não ter rede de concurso). Novo PDF Termo recebido e confirmado por Ingrid. SCOPE-WATCH H-5 desativado. LEGAL-WATCH parcial (recebimento confirmado, assinatura pendente). | Músculo (P-032) |
+| 2026-05-27 | Loop 6 SEÇÃO D executada: Embaixador retornou TEMPERATURA 7.5/10, [E-1 a E-5], PAINEL DE DELIBERAÇÃO (P0/P1/PRINCIPIO/D3). LEGAL-WATCH VERDE (reassinatura física confirmada). [DADOS-WATCH] ATIVO (470 respostas — user_id a verificar). H-7 CONFIRMADA. H-8 NOVA. Vereditos do Painel pendentes. | Músculo (P-032) |
+| 2026-06-01 | D3 RESPONDIDO — Ingrid confirmou acesso ativo e que está gostando. Cenário A confirmado. H-4 revisada para BAIXO RISCO. Temperatura elevada para 8.5/10. PITCH-WATCH AQUECIDO. Loop 8 liberado para avançar. | Músculo (P-032) |
 
 ---
 

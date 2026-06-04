@@ -13,8 +13,8 @@ PROJETO: PROJ-002 — Ingrid
   Camada    : 2 (Produto â€” 15 dias)
   Stack     : PWA + Supabase + Claude API
   Deadline  : 2026-05-30
-  Status    : Loop 6 (Gemini V7) -- iniciando -- SaaS Readiness + pipeline comercial
-  Loop atual: Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3
+  Status    : Loop 8 -- iniciando -- Telemetria + RLS + Monetizacao
+  Loop atual: Loop 7 CONCLUIDO â€” MEMORIA_V7 + relatorio_V7 + DELIBERACAO_V7 gerados Â· Loop 8 PENDENTE â€” aguarda Gemini PASSO3
   Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado, dia12_contador_socratica_vacina_push_cb
   Gates bloqueantes:
     dia2: 10 questoes avaliadas por Eduardo â€” rubrica media >= 4/5

@@ -122,3 +122,7 @@
   ✅ Confirmado pelo Diretor 2026-06-01 — carregada no Claude Projects Ingrid.
 
 - [CLAUDE_PROJECTS (01-06-2026 segunda-feira)] INGRID -- upload: MEMORIA_EMBAIXADOR.md
+
+- [KNOWLEDGE_BASE (04-06-2026 quinta-feira)] Algum problema resolvido nesta sessao nao documentado? (P-050)
+
+- [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado

@@ -202,3 +202,17 @@ Regra do pipeline de DECISOES
 
 
 
+
+  O fluxo é:
+
+  Embaixador entrega Painel de Deliberação
+          ↓
+  Músculo extrai → DECISOES.json (local em CLIENTES\INGRID\CLAUDE_PROJECT\DECISOES\)
+          ↓
+  render_painel.ps1 abre HTML → Diretor clica as opções (D1:A, D2:B)
+          ↓
+  VEREDITOS.json gerado localmente
+          ↓
+  executar_vereditos.ps1 executa os vereditos
+
+

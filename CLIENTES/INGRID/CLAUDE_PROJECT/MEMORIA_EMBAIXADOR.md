@@ -21,7 +21,9 @@
 
 | Data | Canal | Evento objetivo | Fonte |
 |---|---|---|---|
-| 2026-06-04 | Embaixador | **Loop 8 processado** — Temperatura 8.5/10 QUENTE. Pitch janela fecha ~04/07. 5 decisões D1-D5 pendentes de veredito do Diretor. D4 urgente: 11 dias sem contato humano. | Embaixador Loop 8 |
+| 2026-06-04 | Diretor | **VEREDITO D1** — Ferramenta gratuita para Ingrid. Sem cobrança R$97/mês. Ingrid é caso piloto — dados anonimizados são argumento comercial para próximas candidatas. Ingrid não é cliente pagante: é fundadora simbólica do produto. | Veredito Diretor |
+| 2026-06-04 | Diretor | **VEREDITO D4** — Mensagem de presença humana esta semana. Eduardo entra em contato sem mencionar pitch ou cobrança. | Veredito Diretor |
+| 2026-06-04 | Embaixador | **Loop 8 processado** — Temperatura 8.5/10 QUENTE. 5 decisões D1-D5: D1 descartado, D2/D4/D5 aprovados, D3 descartado. | Embaixador Loop 8 |
 | 2026-06-01 | WhatsApp | **D3 respondido** — Ingrid confirmou: está realizando o acesso e está gostando. Cenário A confirmado (engajada, ativa, não desengajada). | Ingrid via Diretor |
 | 2026-06-01 | WhatsApp | **D3 enviado** — debrief casual: "Aquela configuração ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚" | Diretor |
 | 2026-05-30 | WhatsApp | Veredito: Enviar debrief casual amanhã — coletar temperatura real (PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado) | VEREDITOS_INGRID_2026-05-30.json |

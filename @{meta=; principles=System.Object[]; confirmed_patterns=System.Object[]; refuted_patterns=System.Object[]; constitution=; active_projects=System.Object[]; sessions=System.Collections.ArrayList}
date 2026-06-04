@@ -2,7 +2,7 @@
     "meta":  {
                  "version":  "1.0",
                  "created":  "2026-05-12",
-                 "last_updated":  "2026-06-01",
+                 "last_updated":  "2026-06-04",
                  "total_principles":  6,
                  "total_sessions":  4,
                  "total_friction_events":  5,
@@ -244,8 +244,8 @@
                         ],
     "sessions":  [
                      {
-                         "date":  "2026-06-01",
-                         "label":  "Sessao 2026-06-01",
+                         "date":  "2026-06-04",
+                         "label":  "Sessao 2026-06-04",
                          "friction_events":  0,
                          "principles_generated":  {
 

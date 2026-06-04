@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-05-30 11:19
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-04 13:17
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-b849149 feat(gate9b): sincronizar_claude_projects + Gate9B session_close + Lembrete start
-857b530 fix(ingrid): MEMORIA_EMBAIXADOR + LEDGER Claude Projects atualizados (P-032)
-7f1b50b feat(ingrid): skill ingrid-v7 APROVADA + PASSO7 Loop 7 pronto para Embaixador
+26a119b fix(security): redatar JWT e ANON_KEY em runbook + memorias
+4238f87 fix(security): redatar todos os tokens sbp_ em historico -- F-G validado
+0fc729c fix(security): redatar token sbp_ em MEMORIA_V5 -- F-G bloqueou push corretamente
 
 ================================================================================
 
@@ -142,7 +142,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-05-29",
+    "atualizado_em":  "2026-06-01",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -162,11 +162,11 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                     "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "Loop 6 (Gemini V7) -- iniciando -- SaaS Readiness + pipeline comercial",
+                                    "status":  "Loop 8 -- iniciando -- Telemetria + RLS + Monetizacao",
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3",
+                                    "loop_atual":  "Loop 7 CONCLUIDO â€” MEMORIA_V7 + relatorio_V7 + DELIBERACAO_V7 gerados Â· Loop 8 PENDENTE â€” aguarda Gemini PASSO3",
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -290,374 +290,359 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 
 ================================================================================
 
-## MEMORIA MAIS RECENTE -- MEMORIA_V6_INGRID.md
-# MEMÓRIA V6 — PROJETO INGRID
-> Diretriz V6 · Loop 5 (Gemini) / Loop 6 (interno) · Engajamento Pós-Entrega
-> Gerada em 2026-05-28 — encerramento do ciclo DIRETRIZ V6
+## MEMORIA MAIS RECENTE -- MEMORIA_V7_INGRID.md
+# MEMÓRIA V7 — PROJETO INGRID
+> Diretriz V7 · Loop 7 · SaaS Readiness + Pipeline Comercial
+> Gerada em 2026-05-30 — encerramento do ciclo Loop 7
 
 ---
 
-## ESTADO TÉCNICO ENTREGUE
+## ESTADO TÉCNICO AO ENCERRAR LOOP 7
 
-**Stack ativa:** PWA Vanilla JS + Supabase (projeto próprio Ingrid yjqvjhezwhepwomukudt) + Claude API (Haiku) · Deploy GitHub Pages
-**Versão:** v20 · Commits: 14e041f (v19) + a2b42f5 + 86e112b (v20)
-**URL produção:** https://subdiretormnmsgm-commits.github.io/vanguard/
+**Stack ativa:** PWA Vanilla JS + Supabase próprio da Ingrid (yjqvjhezwhepwomukudt) + Claude API · GitHub Pages
+**Versão:** v20 · URL: https://subdiretormnmsgm-commits.github.io/vanguard/
 
-### Features entregues neste ciclo (DIRETRIZ V6):
+### Features ativas em produção (v20):
 
-| Feature | Status | Commit | Observação |
-|---|---|---|---|
-| F-1 Saudação Noturna Dinâmica (E-5) | Entregue | 14e041f | `getHours()` → Bom dia/tarde/noite. Após 18h: "N questões te esperam" |
-| F-2 G-5 Distração Vingativa Silenciosa | Entregue | a2b42f5 | Pegadinhas injetadas no feed sem label visível — Ingrid não percebe o padrão |
-| F-4 Gatilho Temporal 19h45 + pg_cron | Entregue | a2b42f5 | Edge Function `notificar-progresso` + cron job Supabase. Fallback: Push Mágico de Oz |
-| F-5 Modo Véspera (M-3) | Entregue | 14e041f | Toggle no Dashboard Eduardo · `modo_vespera:true` enviado ao `feed-diario` · ativar 2026-08-30 |
-| F-6 Relatório Semanal WhatsApp (M-4 + E-3) | Entregue | a2b42f5 | Edge Function `relatorio-semanal` · Haiku API · template semanal + % acerto Quadrix 7 dias |
-| F-7 Raio-X SVG + G-4 Brasão Semanal | Entregue | 14e041f | html2canvas export PNG · brasão calculado (semanas desde 2026-05-15) |
-| F-8 Termômetro da Aprovação (M-2) | Entregue | 14e041f | Widget fim de sessão: `Nota Projetada vs Linha de Corte` · reusa `get_heatmap_disciplinas` |
-
-### DADOS-WATCH — VERDE (2026-05-28):
-- 1 user_id distinto: `00000000-0000-0000-0000-000000000001`
-- 102 registros em `progresso_usuario` · nenhuma contaminação
-- SM-2, Heatmap e Termômetro lendo dados corretos
-
-### LEGAL-WATCH — VERDE (2026-05-27):
-- Reassinatura física do Termo de Uso confirmada
-- Token Supabase CLI exposto revogado pelo Diretor
-
----
-
-## DECISÕES FIXADAS (não reverter sem veredito)
-
-| Decisão | Princípio | Razão |
-|---|---|---|
-| G-5 Silenciosa sem label | P-031 Embaixador | "Vingativa" visível = ansiedade para Ingrid (H-7 lê com atenção literal) |
-| Modo Véspera ativado por Eduardo, não Ingrid | P-031 Embaixador | Transição invisível — Ingrid não percebe mudança de mode |
-| F-8 aguarda DADOS-WATCH | DELIBERAÇÃO V6 | Nota projetada inválida se user_id errado — verde confirmado |
-| Gatilho às 19h45 | N-1 validado | Horário modal de sessão noturno (~20h) confirmado verbatim |
-
-### VETADOS PERMANENTEMENTE (não reabrir):
-- G-3 Bloqueio TTL — churn silencioso garantido
-- G-1 Simulador Invalidação Parcial — frustração artificial
-- M-1 Streak com Punição — abandono sem reclamação
-
----
-
-## ALERTAS ATIVOS
-
-| Alerta | Severidade | Ação |
-|---|---|---|
-| GitHub Pages push bloqueado (secret no histórico — já revogado) | Amarelo | Eduardo: link de desbloqueio no GitHub Security |
-| Edge Functions Supabase não deployadas via CLI (auth pendente) | Amarelo | `! supabase login` + `deploy --project-ref yjqvjhezwhepwomukudt` |
-| Ingrid não conhece candidatos — indicação = zero curto prazo | Pipeline | Pitch SaaS ao verbalizar uso ativo — janela: após DADOS-WATCH + LEGAL-WATCH |
-| Sentinel Report Valdece | 2026-06-02 | Separado de Ingrid — não contaminar contextos |
-
----
-
-## ESTADO DOS GATES
-
-| Gate | Status |
+| Feature | Status |
 |---|---|
-| Dias 1-15 completos | Todos APROVADOS (último: 2026-05-26) |
-| DADOS-WATCH user_id | VERDE 2026-05-28 |
-| LEGAL-WATCH | VERDE 2026-05-27 |
-| v20 em produção | Deploy ativo GitHub Pages |
+| F-1 Saudação Noturna Dinâmica | Ativo — "Boa noite, N questões te esperam" |
+| F-2 Distração Vingativa Silenciosa | Ativo — sem label visível |
+| F-4 Gatilho Temporal 19h45 + pg_cron | Código entregue — **deploy CLI PENDENTE** |
+| F-5 Modo Véspera | Ativo — ativar em 2026-08-30 |
+| F-6 Relatório Semanal WhatsApp | Código entregue — **deploy CLI PENDENTE** |
+| F-7 Raio-X SVG + Brasão Semanal | Ativo — html2canvas export PNG |
+| F-8 Termômetro da Aprovação | Ativo — Nota Projetada vs Linha de Corte |
+| SM-2 + Heatmap | Ativos — 102 respostas · 1 user_id correto |
+
+### Loop 7 — o que foi planejado mas NÃO construído (bloqueado por D1/D4):
+
+| Feature | Por que não construída |
+|---|---|
+| F-A Telemetria passiva (evento_uso) | Aguarda deploy CLI (D1 → pós-D4) |
+| F-B Painel de uso Eduardo (M-1) | Aguarda F-A (evento_uso) |
+| F-C Interceptor RLS silencioso (N-2) | Aguarda deploy CLI |
+| F-D View SQL snapshot_ingrid_loop6_golden (N-4) | Pode fazer offline — próxima sessão |
+| F-E Alerta Compound Telegram (M-5) | Aguarda F-4/F-6 autônomos |
+| F-F Pulse Check Analógico (N-5) | Aguarda F-B (Painel Eduardo) |
+| F-G Git Hook pre-push (G-5 + N-3) | Próxima sessão |
+| F-H LEGAL-WATCH visual (N-1) | Aguarda F-B (Painel Eduardo) |
+
+### O que foi entregue neste ciclo (ferramentas do processo):
+
+| Ferramenta | Arquivo |
+|---|---|
+| Gate 0 WIP_BOARD vs disco | `scripts/auditar_consistencia.ps1` |
+| Correção rápida WIP_BOARD | `scripts/corrigir_wip.ps1` |
+| Gate 9B sync Claude Projects | `scripts/sincronizar_claude_projects.ps1` |
+| Dry-run isolamento de tenant | `scripts/test_tenant_isolation.ps1` |
+| Síntese do Conselho (estrutura) | `scripts/gerar_sintese_conselho.ps1` |
+| Template síntese | `PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/sintese_conselho_template.txt` |
+| P-091 inscrito | `INTELLIGENCE_LEDGER.md` linha 1620 |
+| Render painel bug fix | `scripts/render_painel.ps1` — injeção automática de campos ausentes |
+| WIP_BOARD.md distribuído | `CLIENTES/WIP_BOARD.md` + NOTEBOOKLM_FONTES de cada projeto |
 
 ---
 
-## PRÓXIMO LOOP (Loop 6 — Gemini V7)
+## DECISÕES FIXADAS LOOP 7 (não reverter sem novo veredito)
 
-**Triggers:** DADOS-WATCH VERDE confirmado · Ingrid usando diariamente · "Gostei bastante. Amanhã volto para atacar mais" (2026-05-24)
-**Temperatura:** 7.5/10 — VERDE SUSTENTADO
-**Foco sugerido Loop 6:**
-- SaaS Readiness Audit completo — readiness para segundo cliente
-- Pitch plano mensal R$97/mês quando Ingrid verbalizar progresso
-- Semente pós-aprovação E-4: "quando você passar, vou ter o sistema pronto para quem você indicar"
-- Monitorar engajamento com F-6 (Relatório Semanal WhatsApp)
-
-**Pendências antes do Loop 7:**
-- [ ] Deploy Edge Functions via `supabase login + deploy`
-- [ ] Desbloquear GitHub Pages push
-- [ ] Eduardo: script E-4 ("quando você passar...") na próxima mensagem pós-DADOS-WATCH
-- [ ] Eduardo identifica qual feature trouxe Ingrid de volta (E-1) — pergunta casual
-- [ ] Wipe & Sync NotebookLM antes do Loop 7
+| Veredito | Decisão |
+|---|---|
+| D1 | Deploy F-4 + F-6 aguarda resolução D4 (GitHub Security) |
+| D2 | RLS dry-run → Loop 8 (não urgente neste ciclo) |
+| D3 | Debrief casual 31/05 — mensagem no clipboard |
+| D4 | GitHub Security — pendência próxima sessão |
+| D5 | M-4 Link Demo BLOQUEADO até segunda usuária |
+| D6 | Semente E-4 aguarda sessão com maior engajamento verbal de Ingrid |
 
 ---
 
-*Músculo — Pentalateral IAH — 2026-05-28*
+## BLOQUEIOS ATIVOS
+
+| Bloqueio | Causa | Desbloqueio |
+|---|---|---|
+| Deploy F-4/F-6 (Gate 7.1) | GitHub Security pendente → `supabase login` interativo | Eduardo: link GitHub Security → Músculo deploya |
+| GitHub Pages push | Token sbp_ no histórico | Eduardo: link GitHub Security |
+| Gate 7.2 RLS dry-run | Movido para Loop 8 | `$env:SUPABASE_SERVICE_ROLE_KEY` + `test_tenant_isolation.ps1` |
+| Loop 8 build | Bloqueado por Gate 7.1 | Resolver D4 → D1 em ordem |
+
+---
+
+## ESTADO DOS GATES E WATCHES
+
+| Gate/Watch | Status |
+|---|---|
+| Todos os dias 1–15 | ✅ APROVADOS — último: dia15 2026-05-30 |
+| DADOS-WATCH user_id | ✅ VERDE — 102 respostas · 1 user_id |
+| LEGAL-WATCH | ✅ VERDE — reassinatura 2026-05-27 |
+| P-013 soberania | ✅ VERDE — Ingrid admin Supabase própria |
+| DEPLOY-WATCH F-4/F-6 | ⚠️ ATIVO |
+| GITHUB-WATCH | ⚠️ ATIVO |
+| DATA-GAP-WATCH | ⚠️ ATIVO — uso 24/05 a 30/05 não confirmado |
+
+---
+
+## TEMPERATURA E PIPELINE
+
+| Campo | Estado |
+|---|---|
+| Temperatura | 7.5/10 VERDE SUSTENTADO — validar no debrief 31/05 |
+| Shift confirmado | H-8: "atacar" = player mindset (P-079) |
+| Pitch R$97/mês | Janela aberta — gatilho: 7 dias consecutivos + progresso verbalizado |
+| Pipeline de referral | Zero no curto prazo — semear pós-aprovação (D6 aguardando) |
+| CHURN-WATCH | DESATIVADO |
+
+---
+
+## PRÓXIMO LOOP (Loop 8)
+
+**Ordem de execução obrigatória:**
+1. Eduardo: GitHub Security → desbloqueia push Pages
+2. Músculo: `supabase login` + deploy F-4 + F-6 (Gate 7.1)
+3. Músculo: `test_tenant_isolation.ps1` (Gate 7.2)
+4. Build F-A a F-H em sequência (telemetria → painel → alertas → hooks)
+5. Eduardo: debrief casual Ingrid 31/05 (mensagem no clipboard)
+
+**Skill do Loop 8:** `ingrid-v8.md` — gerada após Gemini PASSO3
+
+---
+
+*Músculo — Pentalateral IAH — 2026-05-30*
 
 
 ================================================================================
 
-## RELATORIO EVOLUTIVO -- relatorio_evolutivo_V6_INGRID.md
-# RELATÓRIO EVOLUTIVO V6 — PROJETO INGRID
-> Diretriz V6 · Loop 5 (Gemini) / Loop 6 (interno) · Fechamento 2026-05-28
-> Análise de negócio + 5 ideias disruptivas para Loop 6 (Gemini V7)
+## RELATORIO EVOLUTIVO -- relatorio_evolutivo_V7_INGRID.md
+# RELATÓRIO EVOLUTIVO V7 — PROJETO INGRID
+> Loop 7 · SaaS Readiness + Pipeline Comercial · Fechamento 2026-05-30
+> SWOT + PDCA + 5W2H + [M-1 a M-5] para Loop 8
 
 ---
 
 ## RESUMO EXECUTIVO
 
-O ciclo da DIRETRIZ V6 transformou o app de uma ferramenta de entrega em um **sistema de engajamento autônomo**. Sete features novas (F-1 a F-8) foram implementadas sem intervenção da Ingrid — ela simplesmente continuou usando e o sistema passou a responder de forma mais inteligente. O DADOS-WATCH confirmou integridade total dos dados (102 registros, 1 user_id). O maior risco do ciclo — churn silencioso entre entrega e aprovação — foi endereçado com ferramentas passivas que não exigem disciplina da usuária.
+O Loop 7 foi um ciclo de deliberação, não de build. A barreira técnica (GitHub Security + deploy CLI) bloqueou a construção das features aprovadas, mas o ciclo produziu três ativos estratégicos de alto valor: (1) o Painel de Deliberação com 6 decisões formalizadas pelos 4 sócios, (2) ferramentas de processo que tornam o sistema mais robusto (Gate 0, Gate 9B, render_painel corrigido, P-091), e (3) inteligência do Embaixador que revelou um gap crítico de dados (24/05–30/05 sem registro de uso) antes que se tornasse churn silencioso.
 
 ---
 
-## SWOT — ESTADO ATUAL (pós-DIRETRIZ V6)
+## SWOT — ESTADO AO FECHAR LOOP 7
 
 ### Forças
-- **Sistema autônomo de engajamento:** push 19h45, relatório semanal WhatsApp, saudação noturna e distração vingativa operam sem que Eduardo ou Ingrid façam nada.
-- **Termômetro objetivo:** F-8 responde "se a prova fosse hoje, você aprovaria?" — converte dados frios em urgência real.
-- **Modo Véspera pronto:** flag no Dashboard aguarda ativação em 2026-08-30 — zero build adicional na véspera.
-- **Export visual:** Raio-X PNG + Brasão SVG = prova social para segundo cliente e motivação interna para Ingrid.
-- **Integridade de dados confirmada:** DADOS-WATCH VERDE — SM-2, Heatmap e Termômetro lendo dados corretos.
+- **Sistema autônomo em produção:** F-1, F-2, F-5, F-7, F-8 operam sem intervenção — "o app trabalha mesmo quando ninguém trabalha"
+- **Soberania confirmada:** Ingrid admin do próprio Supabase (P-013 VERDE 2026-05-30)
+- **Temperatura sustentada:** 7.5/10 sem intervenção ativa do Eduardo — H-8 confirmada (shift de player)
+- **Processo mais robusto:** P-091 + Gate 0 + Gate 9B + render_painel bug fix — o sistema detecta suas próprias inconsistências
+- **Inteligência do Embaixador consolidada:** 15 inputs deliberados individualmente — novo padrão estabelecido
 
 ### Fraquezas
-- **Edge Functions não deployadas via CLI:** F-4 (cron 19h45) e F-6 (relatório semanal) dependem de `supabase login` pendente. Enquanto isso, operam via Push Mágico de Oz manual.
-- **GitHub Pages push bloqueado:** secret revogado mas unblock pendente no GitHub Security — cada deploy exige workaround.
-- **Ausência de analytics de comportamento:** sabemos que Ingrid usa, mas não sabemos quais features ela efetivamente toca. F-7 (export) e F-8 (termômetro) podem ter zero cliques.
-- **Pipeline de indicação inexistente:** Ingrid não conhece candidatos relevantes — upsell depende 100% do progresso dela, não de rede.
+- **Deploy CLI bloqueado:** F-4 (cron 19h45) e F-6 (relatório semanal) ainda manuais — risco real no primeiro domingo
+- **GitHub Pages comprometido:** cada deploy exige workaround — velocidade de resposta a bugs reduzida
+- **Telemetria ausente:** sem `evento_uso`, Eduardo voa às cegas sobre o que Ingrid efetivamente usa
+- **Gap de dados 24/05–30/05:** 6 dias sem registro de uso confirmado — temperatura pode estar desatualizada
 
 ### Oportunidades
-- **Janela de pitch SaaS aberta:** "Gostei bastante. Amanhã volto para atacar mais" (2026-05-24) = temperatura suficiente para proposta R$97/mês quando ela verbalizar progresso.
-- **Semente pós-aprovação (E-4):** uma linha no próximo WhatsApp de Eduardo — "quando você passar, vou ter o sistema pronto para quem você indicar" — planta o pipeline sem custo.
-- **Motor replicável em 3 dias:** o próximo concurso Quadrix pode ser onboardado com o mesmo stack. O tempo de setup caiu de 15 dias para 3. Ingrid é o caso de sucesso documentável.
-- **Relatório semanal como vitrine:** o WhatsApp automático que Ingrid recebe pode virar argumento de venda para próximo cliente ("ela recebe isso toda semana, sem você fazer nada").
+- **F-6 como argumento de pitch:** relatório semanal autônomo é o melhor argumento para R$97/mês — cada semana de operação autônoma é evidência do produto
+- **Debrief 31/05 como gate informal de pitch:** resposta de Ingrid ao check-in define se pitch pode avançar
+- **View SQL golden:** 102 registros = business case concreto — "X% em Direito Administrativo, SM-2 calibrado para você"
+- **Motor replicável em 3 dias:** onboarding de segunda usuária depende só de RLS validado (Gate 7.2 → Loop 8)
 
 ### Ameaças
-- **Churn por platô de motivação:** features de engajamento passivas funcionam para manter, não para reativar. Se Ingrid parar por 5+ dias, o app não tem gatilho de reativação ativo.
-- **Concurso sem data confirmada:** SEDES-DF 2026 ainda inédito — urgência pode erodir se a data atrasar para 2027.
-- **Dependência de WhatsApp manual (curto prazo):** F-4 e F-6 operam via Mágico de Oz até deploy CLI — cada domingo Eduardo precisa enviar manualmente se o cron falhar.
+- **Apagão dominical:** se F-4/F-6 não deployados antes do próximo domingo, primeiro relatório semanal falha — pior momento para a percepção de sistema instável
+- **Churn silencioso pós-entrega técnica:** Gate Dia 15 foi tarefa administrativa — Ingrid pode ter sentido abandono sem que Eduardo perceba
+- **DATA-GAP:** 6 dias sem registro obrigam debrief antes de qualquer decisão comercial
 
 ---
 
-## PDCA — AVALIAÇÃO DO CICLO DIRETRIZ V6
+## PDCA — AVALIAÇÃO DO LOOP 7
 
 ### PLAN (o que foi planejado)
-- 8 features baseadas em P-037 DELIBERAÇÃO V6 (2026-05-27): F-1 a F-8
-- Gate bloqueante: DADOS-WATCH antes de qualquer build (user_id correto?)
-- Sequência: F-1 → F-3 → F-8 → F-2 → F-7 → F-6 → F-4 → F-5
+- Resolver bloqueios técnicos: deploy CLI + GitHub Security
+- SaaS Readiness Audit: RLS, telemetria, painel de uso
+- Pipeline comercial: debrief casual + semente E-4
+- 8 features (F-A a F-H) aprovadas na DELIBERAÇÃO P-037
 
 ### DO (o que foi executado)
-- F-1 Saudação Noturna: entregue (v19 · commit 14e041f)
-- F-2 Distração Vingativa Silenciosa: entregue (v20 · commit a2b42f5)
-- F-4 Gatilho Temporal 19h45 + pg_cron: entregue (commit a2b42f5) — deploy CLI pendente
-- F-5 Modo Véspera: entregue (14e041f) — ativação agendada 2026-08-30
-- F-6 Relatório Semanal WhatsApp Haiku: entregue (a2b42f5) — deploy CLI pendente
-- F-7 Raio-X SVG + Brasão: entregue (14e041f)
-- F-8 Termômetro da Aprovação: entregue (14e041f) — dependia de DADOS-WATCH
-- DADOS-WATCH: executado e VERDE (102 registros, 1 user_id)
-- F-3 Linha de Corte Fantasma: já estava em V5 — reutilizada por F-8
+- DELIBERAÇÃO P-037 completa com 25 inputs + filtro do Embaixador
+- Vereditos formalizados via Painel HTML
+- Gate 0 (P-091) + Gate 9B + render_painel corrigido
+- test_tenant_isolation.ps1 criado (Gate 7.2 pronto para Loop 8)
+- D3 mensagem no clipboard (debrief 31/05)
+- D1/D2/D4/D6 registrados como pendências — Diretor saiu antes de executar
 
 ### CHECK (o que funcionou e o que não funcionou)
-- **Funcionou:** DELIBERAÇÃO P-037 como plano de build — sequência inviolável executada sem desvio
-- **Funcionou:** F-2 (distração silenciosa) — Ingrid não percebe o padrão, sem label, sem ansiedade
-- **Funcionou:** F-8 Termômetro — reusa infraestrutura existente (get_heatmap_disciplinas + EDITAL_DIST), custo zero
-- **Funcionou:** P-088 (template externo) — gerar_artefato_embaixador.ps1 sem falha de parsing PS5.1
-- **Funcionou:** P-089 (PASSO3 auto-regenerado) — bug de documento desatualizado resolvido estruturalmente
-- **Não funcionou:** Deploy Edge Functions via CLI — `supabase login` pendente, F-4 e F-6 operam manualmente
-- **Não funcionou:** PASSO3_GEMINI.md estava em Loop 5 — causou tentativa de ir ao Gemini quando não era necessário
-- **Não funcionou:** Conflito WIP_BOARD (`status` desatualizado vs `loop_fase_atual` atualizado) — Diretor viu estado errado
+- **Funcionou:** Painel de deliberação — 6 decisões formalizadas em 1 fluxo
+- **Funcionou:** Embaixador deliberou todos os 15 inputs individualmente — novo padrão validado
+- **Funcionou:** render_painel bug fix — campos ausentes injetados automaticamente (problema detectado e resolvido na mesma sessão)
+- **Funcionou:** P-091 detectou inconsistência WIP_BOARD vs disco antes de comprometer o processo
+- **Não funcionou:** deploy CLI — supabase login interativo bloqueou execução autônoma
+- **Não funcionou:** GitHub Security — requer presença física do Diretor no browser
 
 ### ACT (o que muda no próximo loop)
-- Deploy CLI Supabase antes de qualquer feature que dependa de Edge Function ou cron
-- P-089 acoplado: PASSO3 nunca mais desatualizado
-- WIP_BOARD: campo `status` atualizado pelo script, não manualmente
+- Loop 8 começa com D4 (GitHub Security) → D1 (deploy) → build F-A a F-H
+- `gerar_sintese_conselho.ps1` disponível para acelerar P-037
+- Gate 0 e Gate 9B protegem o processo de inconsistências silenciosas
 
 ---
 
-## 5W2H — PRÓXIMO LOOP (Loop 6 — Gemini V7)
+## 5W2H — LOOP 8
 
 | Dimensão | Resposta |
 |---|---|
-| **What** | SaaS Readiness Audit + resolver bloqueios técnicos + ativar pipeline comercial |
-| **Why** | F-4 e F-6 operam manualmente enquanto deploy CLI pendente. Pitch SaaS aberto — temperatura da Ingrid sustentada. |
-| **Who** | Eduardo (WhatsApp E-4 + E-1) · Músculo (deploy CLI + audit) · Embaixador (temperatura + pipeline) |
-| **When** | 2026-05-29 a 2026-06-01 (antes do Sentinel Valdece em 02-06) |
-| **Where** | Terminal local (`supabase login`) · GitHub Security (unblock Pages) · Chat Ingrid (WhatsApp E-4) |
-| **How** | `! supabase login` → `supabase functions deploy` → GitHub unblock → audit RLS + uso real |
-| **How much** | 2h técnico · $0 infra · Pitch: R$97/mês → MRR potencial |
+| **What** | Deploy F-4+F-6 · GitHub Security · Telemetria · Painel Eduardo · Git Hook · View SQL golden |
+| **Why** | F-4/F-6 manuais = risco de falha no domingo · Telemetria = decisão informada no pitch · Painel = Eduardo vê sem perguntar |
+| **Who** | Eduardo (GitHub Security + debrief) · Músculo (deploy + build F-A a F-H) |
+| **When** | Próxima sessão disponível — urgência: antes do próximo domingo |
+| **Where** | Terminal (`supabase login`) · GitHub Security · app.js · Edge Functions |
+| **How** | D4 → D1 → F-A → F-B → F-C → F-D → F-E → F-F → F-G → F-H → v21 |
+| **How much** | ~4h build · $0 infra adicional · supabase login: 5 min Eduardo |
 
 ---
 
-## 5 IDEIAS DISRUPTIVAS [M-1 a M-5] — Para o Gemini V7 processar
+## 5 IDEIAS DISRUPTIVAS [M-1 a M-5] — Para o Gemini V8 processar
 
-**[M-1] Painel de Uso Real para Eduardo (não para Ingrid)**
-Dashboard interno que mostra: Ingrid abriu o app hoje? Qual feature tocou? Quanto tempo ficou? F-7 (export) teve cliques? Eduardo enxerga o comportamento real sem perguntar — e sabe quando acionar o WhatsApp de reativação antes que o churn aconteça.
+**[M-1] Dashboard de Ritmo de Aprovação — não de acerto**
+Painel Eduardo mostra: "No ritmo atual, Ingrid chegará à prova com X questões estudadas e Y% de consistência semanal." Não é nota — é trajetória. Eduardo vê se Ingrid vai chegar ou não sem perguntar. Feature de 2h que transforma dados brutos em argumento de pitch concreto.
 
-**[M-2] Gatilho de Reativação após 5 dias sem sessão**
-Se Ingrid não abre o app por 5 dias, o sistema envia automaticamente: "Você estava indo muito bem — faltam N dias para a prova. Só 10 questões hoje." Uma mensagem, sem sequência. Reativação passiva — Eduardo não precisa monitorar.
+**[M-2] Certificado de Consistência Semanal (não de aprovação)**
+Todo domingo: Ingrid recebe card visual PNG com "7/7 dias esta semana — você não parou." Diferente do Brasão já implementado (baseado em semanas desde início), este é semanal e binário — ou fez ou não fez. Mais urgente, mais visceral. Custo: extensão do F-6 existente.
 
-**[M-3] Score de Consistência Semanal (não de acertos)**
-Métrica alternativa ao % de acerto: quantos dias da semana Ingrid abriu o app e fez pelo menos 5 questões? Exibido no relatório semanal como "Você foi consistente em X/7 dias." Consistência é mais previsível de aprovação do que acerto isolado.
+**[M-3] Modo Silêncio — 3 dias sem sessão aciona série de mensagens progressivas**
+Dia 3: "Boa noite, sentimos sua falta." Dia 5: "Faltam N dias — 10 questões agora?" Dia 7: "Eduardo enviou um recado." (aciona Pulse Check manual). Progressivo, não agressivo. Complementa M-5 do Loop 7 (alerta compound do Telegram) com ação do lado do app.
 
-**[M-4] Modo Apresentação — Portfólio SaaS**
-Um link de 1 página (sem login, somente leitura) que Eduardo envia para prospectos: mostra o dashboard anonimizado de Ingrid com números reais. "Veja como funciona para um candidato real." Custo zero — o banco já tem os dados.
+**[M-4] Benchmark de Candidatas Similares (anônimo)**
+Quando a segunda usuária entrar: "Candidatas no seu ritmo acertam em média X% em Direito Administrativo na reta final." Ingrid compara com par invisível, não com nota genérica. Requer segunda usuária (Gate 7.2 desbloqueado). Custo: query simples quando multi-tenant ativo.
 
-**[M-5] Audit Trail de Churn Risk — Alerta Automático no Telegram**
-Se Ingrid não abre em 3 dias E o cron de notificação falhou E o relatório semanal não foi enviado — o Telegram do Eduardo recebe: "CHURN RISK — Ingrid · 3 dias sem sessão · Push falhou." Radar de churn ativo sem dashboard extra.
+**[M-5] Página de Apresentação do Produto — SaaS Readiness Comercial**
+Uma página pública (sem login) com: o que é o produto, como funciona, o que uma candidata recebe. Não exibe dados da Ingrid — é landing page para a próxima candidata. Eduardo envia o link em vez de explicar. Custo: 2h HTML estático, zero backend.
 
 ---
 
 ## ANÁLISE COMERCIAL
 
 **O que este ciclo significou para o negócio:**
-A DIRETRIZ V6 transformou o produto em um sistema que **trabalha mesmo quando ninguém trabalha**. Isso é o argumento de venda definitivo: "O app acompanha a Ingrid 24h. Você não precisa fazer nada — só receber o relatório no domingo." Para o segundo cliente, o onboarding é 3 dias. Para o terceiro, 1 dia. A inteligência acumulada nos LEDGER e nas Skills é o diferencial que nenhum concorrente tem.
+O Loop 7 não entregou features para Ingrid, mas entregou algo mais valioso: clareza sobre o que bloqueia o pitch e o que o desbloqueia. O debrief de 31/05 é o gate informal — se Ingrid confirmar uso nos últimos 6 dias e verbalizar progresso, a janela de R$97/mês está aberta. Se não confirmar, o sistema detecta silêncio antes do churn.
 
-**Risco de MRR no curto prazo:** Baixo — Ingrid está usando e engajada. O risco real é o cron não disparar (F-4 + F-6 pendentes de deploy CLI) e Ingrid não receber o relatório no primeiro domingo — primeira impressão de "sistema que falha."
+**O bloqueio técnico como revelação estratégica:**
+D1 não pôde ser executado porque exige `supabase login` interativo. Isso revelou uma dependência oculta: todo deploy de Edge Function requer presença do Diretor no terminal. Para escala de 500 usuárias, este modelo não funciona. Loop 8 deve incluir automação de deploy via CI/CD ou service account — antes que a dependência trave o crescimento.
 
-**Janela comercial aberta:** A fala "Amanhã volto para atacar mais" + DADOS-WATCH VERDE + todas as features ativas = momento ideal para o script E-4. Eduardo planta agora, colhe quando ela passar.
+**Próxima janela comercial:**
+- Pitch R$97/mês: debrief 31/05 → se temperatura confirmada → pitch na semana de 02/06
+- Semente E-4: aguarda sessão com engajamento verbal mais alto (decisão soberana do Diretor)
 
 ---
 
-*Músculo — Pentalateral IAH — 2026-05-28*
+*Músculo — Pentalateral IAH — 2026-05-30*
 
 
 ================================================================================
 
 ## MISSAO DESTA SESSAO -- PASSO3_GEMINI (INGRID)
-# PASSO3 — GEMINI — INGRID LOOP 7
-> Preparado pelo Músculo · 2026-05-30 · Levar ao Estrategista após MEMORIA_V6 + relatorio_evolutivo_V6
+# PASSO3 — INGRID LOOP 8
+> Colar no Gemini. Arrastar APENAS os 3 documentos listados no final. NAO anexar o LEDGER.
 
 ---
 
-## IDENTIDADE DO ESTRATEGISTA
+Voce e um consultor estrategico analisando um projeto de software educacional.
 
-Você é o Estrategista do Pentalateral IAH — sistema de 5 inteligências: Diretor (Eduardo) + Músculo (Claude Code) + Estrategista (você) + Auditor (NotebookLM) + Embaixador (Claude Projects).
-
-Sua função: emitir uma DIRETRIZ com nome exato de skill + 5 ideias disruptivas [G-1 a G-5].
-A DIRETRIZ guia o NotebookLM na geração da skill. O nome da skill define o elo entre os 3 sócios.
+Preciso que voce analise o contexto abaixo e emita uma DIRETRIZ no formato especificado.
 
 ---
 
-## CONTEXTO DO PROJETO
+## PROJETO
 
-**Cliente:** INGRID · Cargo 202 — Técnico Administrativo · Concurso SEDES-DF 2026 (banca Quadrix)
-**Data da prova:** 2026-09-06 · **Dias até a prova:** ~99 dias
-**Stack:** PWA Vanilla JS · Supabase próprio da Ingrid (yjqvjhezwhepwomukudt) · Claude API Haiku/Sonnet · GitHub Pages
-**Versão em produção:** v20 · URL: https://subdiretormnmsgm-commits.github.io/vanguard/
-**Temperatura da cliente:** 7.5/10 — VERDE SUSTENTADO · "Gostei bastante. Amanhã volto para atacar mais" (2026-05-24)
-
-### Estado técnico atual (pós-Loop 6 / DIRETRIZ V6):
-
-| Feature | Status |
-|---|---|
-| F-1 Saudação Noturna Dinâmica | Ativa — "Boa noite, N questões te esperam" após 18h |
-| F-2 Distração Vingativa Silenciosa | Ativa — pegadinhas injetadas sem label visível |
-| F-4 Gatilho Temporal 19h45 + pg_cron | Código entregue — deploy CLI PENDENTE |
-| F-5 Modo Véspera | Ativo — ativar em 2026-08-30 |
-| F-6 Relatório Semanal WhatsApp | Código entregue — deploy CLI PENDENTE |
-| F-7 Raio-X SVG + Brasão Semanal | Ativo — html2canvas export PNG |
-| F-8 Termômetro da Aprovação | Ativo — Nota Projetada vs Linha de Corte |
-| SM-2 Spaced Repetition | Ativo — 102 respostas com 1 user_id correto |
-| Banco de questões | 460+ questões Quadrix Cargo 202 |
-
-### Bloqueios técnicos ativos:
-1. **Edge Functions não deployadas via CLI** — F-4 (cron) e F-6 (relatório) operam via Mágico de Oz manual. Ingrid pode não receber o primeiro relatório domingo se o cron falhar.
-2. **GitHub Pages push bloqueado** — secret revogado mas link de unblock pendente no GitHub Security. Cada deploy requer workaround.
-
-### Decisões fixadas (não reverter sem veredito):
-- G-5 Distração silenciosa sem label (punição visível = churn)
-- Gatilho às 19h45 (horário modal de sessão noturno confirmado)
-- Modo Véspera ativado por Eduardo, não por Ingrid
-- G-3 Bloqueio TTL VETADO PERMANENTE
-- G-1 Simulador Invalidação VETADO PERMANENTE
+**Cliente:** Ingrid — candidata ao concurso SEDES-DF (prova 06/09/2026, 94 dias)
+**Produto:** PWA de estudos com SM-2, heatmap, tutor socratico, questoes geradas por IA
+**Stack:** Vanilla JS + Supabase + Claude API + GitHub Pages
+**Contexto completo:** ver documentos anexos
 
 ---
 
-## MISSÃO DO LOOP 7
+## O QUE FOI ENTREGUE (Loop 7)
 
-### O que construir neste loop:
-
-**Prioridade 1 — Resolver bloqueios técnicos (desbloqueiam o que já está construído):**
-- Deploy Edge Functions via `supabase login + supabase functions deploy` no projeto da Ingrid
-- Desbloquear GitHub Pages push (Eduardo segue link GitHub Security)
-
-**Prioridade 2 — SaaS Readiness Audit:**
-- Verificar isolamento de dados: RLS ativo no projeto Supabase da Ingrid?
-- Verificar que zero dados Vanguard vazam para o projeto dela
-- Documentar o que seria necessário para onboardar um segundo cliente em 3 dias
-- Identificar o que impediria escala para 10 usuários simultâneos
-
-**Prioridade 3 — Pipeline comercial ativo:**
-- Painel de uso real para Eduardo: Ingrid abriu hoje? Qual feature tocou? Quanto tempo?
-- Gatilho de reativação após 5 dias sem sessão
-- Script E-4 pronto para Eduardo plantar: "Quando você passar, vou ter o sistema pronto para quem você indicar"
-
-**Prioridade 4 — Audit Trail de churn:**
-- Alerta Telegram quando: 3+ dias sem sessão + cron falhou + relatório não enviado
-
-### Por que agora:
-
-- **Bloqueio de deploy** cria risco real no próximo domingo (F-4 + F-6 não autônomos ainda)
-- **Temperatura sustentada** de Ingrid (7.5/10) é a janela de pitch — se cair antes do E-4, a semente se perde
-- **Sentinel Report Valdece** vence em 2026-06-02 — Loop 7 de Ingrid precisa estar em build antes disso para não perder o ritmo
-- **Motor replicável:** o próximo cliente Quadrix pode ser onboardado em 3 dias. O SaaS Readiness Audit documenta isso agora, enquanto o produto está fresco
-
-### Incógnitas críticas que o Estrategista deve endereçar:
-
-1. **Analytics de uso real:** Ingrid efetivamente tocou F-7 (export) e F-8 (termômetro)? Sem dados de comportamento, o painel de deliberação do próximo loop é cego.
-2. **Data da prova:** SEDES-DF 2026 inédito — e se a data mudar para 2027? O Modo Véspera e o Relatório Semanal perdem urgência. O Estrategista propõe como o sistema se adapta a esse cenário?
-3. **Segundo cliente:** qual é o próximo nicho Quadrix mais provável? O motor está pronto — o cliente potencial existe?
+- 3 Edge Functions deployadas em producao (gatilho temporal, relatorio semanal, RLS)
+- pg_cron ativo (cron 45 22 * * * + 0 13 * * 0)
+- GitHub Security resolvido — push Pages desbloqueado
+- Ingrid confirmou engajamento ativo: "esta realizando o acesso e esta gostando" (2026-06-01)
+- Temperatura: QUENTE
 
 ---
 
-## IDEIAS DO MÚSCULO [M-1 a M-5]
+## O QUE PRECISA SER FEITO (Loop 8)
 
-**[M-1] Painel de Uso Real para Eduardo — não para Ingrid**
-Dashboard interno (acesso só de Eduardo) que mostra: Ingrid abriu hoje? Qual feature tocou? Tempo de sessão? F-7 teve cliques? F-8 foi visualizado? Eduardo enxerga o comportamento real sem perguntar — sabe o momento certo de acionar o WhatsApp de reativação antes do churn acontecer. Custo: 1 Edge Function simples + tabela `evento_uso`.
+**Bloco A — Seguranca e isolamento:**
+- Gate 7.2: RLS dry-run via test_tenant_isolation.ps1 — confirmar isolamento de tenant antes de telemetria
+- F-G: Git Hook pre-push — barreira contra vazamento de credenciais
 
-**[M-2] Gatilho de Reativação Silenciosa após 5 dias sem sessão**
-Se Ingrid não abre o app por 5 dias corridos, o sistema envia automaticamente uma mensagem: "Você estava indo muito bem — faltam N dias para a prova. Só 10 questões hoje." Uma mensagem, sem sequência, sem pressão. Reativação passiva — Eduardo não monitora, o sistema age. Diferente da notificação diária (19h45) — esta é o gatilho de emergência.
+**Bloco B — Telemetria (desbloqueado com Edge Functions ativas):**
+- F-A: registrar evento_uso em Supabase — batch nao-bloqueante, nao por evento individual
+- F-D: View SQL snapshot_ingrid_loop6_golden — baseline historico para comparacao entre loops
 
-**[M-3] Score de Consistência Semanal — não de acerto**
-Métrica alternativa ao % de acerto: quantos dias da semana Ingrid fez pelo menos 5 questões? Exibido no relatório semanal como "Você foi consistente em X/7 dias esta semana." Consistência prediz aprovação melhor que acerto isolado. Para o pitch SaaS: "Ela manteve consistência de 6/7 dias nas últimas 3 semanas com o sistema."
+**Bloco C — Visibilidade e alertas (depende de F-A):**
+- F-B: Painel Eduardo — tabela HTML limpa mostrando dias de uso, questoes, horario
+- F-E: Alerta Telegram — 3 dias sem uso dispara notificacao para Eduardo
 
-**[M-4] Link de Demonstração Anônimo para Prospects**
-URL de leitura pública (sem login) que Eduardo envia para prospectos: mostra dashboard anonimizado de Ingrid com números reais — questões respondidas, % acerto, streak, Raio-X. "Veja como funciona para um candidato real." Custo zero — o banco já tem os dados. Argumento de venda: prova social com números reais, não mockup.
-
-**[M-5] Audit Trail de Churn Risk — Alerta Compound no Telegram**
-Se as 3 condições acontecem juntas: Ingrid não abre em 3 dias + cron 19h45 falhou + relatório semanal não foi enviado → Telegram do Eduardo: "CHURN RISK — Ingrid · 3 dias sem sessão · Push falhou · Relatório não enviado." Três sinais simultâneos = risco real, não falso positivo. Eduardo age com 1 WhatsApp antes do abandono silencioso.
+**Bloco D — Monetizacao:**
+- SaaS Readiness Audit — documentar custo por usuario adicional e tempo de onboarding
+- Pitch R$97/mes: janela aberta — Ingrid disse que gosta, ainda nao verbalizou progresso especifico
 
 ---
 
-## FORMATO DE RESPOSTA ESPERADO
+## MINHAS 5 IDEIAS — REAJA A CADA UMA (aprovada / modificada / descartada + razao)
+
+M-1: F-A como primeiro dataset comercial — "estudou X horas, acertou Y% das questoes dificeis" vira argumento de venda para o proximo candidato
+M-2: F-E como diferencial invisivel — Eduardo e o produto, nao o software; nenhum concorrente alerta o coach quando o candidato para de usar
+M-3: RLS dry-run agora como prova de multi-tenant para o pitch ao candidato 2
+M-4: SaaS Readiness Audit como ferramenta de venda ativa, nao apenas artefato de fechamento
+M-5: F-F (Pulse Check — pergunta semanal de 30s) como dado qualitativo que o Supabase nao captura
+
+---
+
+## INCOGNITAS QUE PRECISO QUE VOCE ENDERECE
+
+1. Custo real de F-A + F-E em producao com 1 usuario diario — o Musculo nao tem esse numero
+2. Timing do pitch R$97/mes — gatilho por dias, por uso ou por metrica de aprovacao?
+3. Nivel minimo do Painel Eduardo — terminal + View SQL e suficiente ou precisa de UI?
+4. M-1 (telemetria como dataset comercial): ha algum risco legal de usar dados da Ingrid como argumento de venda para terceiros sem consentimento explicito?
+
+---
+
+## FORMATO DA RESPOSTA
+
+Responda exatamente assim — sem adicionar secoes extras:
 
 ```
-Diretriz Estratégica V7 — Projeto INGRID — Loop 7
+Diretriz Estrategica V8 -- Projeto INGRID -- Loop 8
 
-[NOME DA SKILL]: ingrid-v7
+[NOME DA SKILL]: ingrid-v8
 
-[PARA O NOTEBOOKLM]:
-Você é o Auditor do Pentalateral IAH.
-Gerar a skill nomeada exatamente: ingrid-v7
-A skill tem 4 partes obrigatórias:
-PARTE 1 — Contexto operacional e stack atual
-PARTE 2 — Gates de validação sequencial para este loop
-PARTE 3 — Alertas ativos e Circuit Breakers
-PARTE 4 — Restrições rígidas (o que NÃO construir)
-Use apenas dados dos documentos anexos. Zero alucinação estrutural.
-Skill nomeada: ingrid-v7
+[PARA O MUSCULO]:
+[diretrizes tecnicas: o que executar, em que ordem, o que NAO construir, gates por dia de build]
 
-[PARA O MÚSCULO]:
-...diretrizes técnicas de build para Loop 7...
-...decisões fixadas que não reverter...
-...sequência de execução...
+REACAO AS MINHAS IDEIAS:
+M-1: [aprovada / modificada / descartada — razao em 1 linha]
+M-2: [aprovada / modificada / descartada — razao em 1 linha]
+M-3: [aprovada / modificada / descartada — razao em 1 linha]
+M-4: [aprovada / modificada / descartada — razao em 1 linha]
+M-5: [aprovada / modificada / descartada — razao em 1 linha]
 
-[G-1 a G-5]: 5 ideias disruptivas do Estrategista para Loop 7
+5 IDEIAS DISRUPTIVAS (suas — o que eu nao vi):
+[G-1]: [ideia disruptiva 1]
+[G-2]: [ideia disruptiva 2]
+[G-3]: [CONTRA-INTUITIVO] [ideia que vai contra o obvio]
+[G-4]: [ideia disruptiva 4]
+[G-5]: [CONTRA-INTUITIVO] [segunda ideia contra-intuitiva]
 
-[ALERTA GEMINI]: risco que o Músculo pode estar subestimando
+[ALERTA]:
+[riscos que estamos subestimando]
 ```
 
-**Elo obrigatório:** o nome `ingrid-v7` deve aparecer idêntico em [PARA O NOTEBOOKLM] e [PARA O MÚSCULO].
+Minimo 2 ideias marcadas [CONTRA-INTUITIVO] — ideias que vao contra o que parece obvio fazer agora.
 
 ---
 
-## DOCUMENTOS ANEXOS (arrastar no chat do Gemini)
+## DOCUMENTOS PARA ARRASTAR (apenas estes 3 — nao o LEDGER)
 
-1. `CLIENTES/INGRID/HISTORICO/MEMORIA_V6_INGRID.md` — contexto completo do Loop 6
-2. `CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V6_INGRID.md` — SWOT + PDCA + 5W2H + [M-1 a M-5]
-3. `INTELLIGENCE_LEDGER.md` — princípios ativos (P-001 a P-079)
-4. `CLIENTES/WIP_BOARD.json` — estado atual dos projetos
-
-> **Como usar:** colar este documento no chat do Gemini (não anexar). Arrastar os 4 documentos acima como anexo.
-
+1. CLIENTES/INGRID/HISTORICO/MEMORIA_V7_INGRID.md
+2. CLIENTES/INGRID/HISTORICO/relatorio_evolutivo_V7_INGRID.md
+3. CLIENTES/WIP_BOARD.json
 
