@@ -1,62 +1,68 @@
-﻿WIP BOARD — PENTALATERAL IAH
-Atualizado em: 2026-06-01
-WIP Limits: BUILD=2  CHECK=1
+WIP BOARD — PENTALATERAL IAH
+Atualizado: 2026-06-05 | Fonte: CLIENTES/WIP_BOARD.json
 
-==============================
-COLUNA: BUILD
-==============================
+==================================================
+PROJETOS ATIVOS
+==================================================
 
--------------------------------
-PROJETO: PROJ-002 — Ingrid
-  Descricao : Ferramenta de Estudo â€” Concurso Sedes-DF
-  Area      : EdTech Â· Concursos PÃºblicos
-  Camada    : 2 (Produto â€” 15 dias)
-  Stack     : PWA + Supabase + Claude API
-  Deadline  : 2026-05-30
-  Status    : Loop 8 -- iniciando -- Telemetria + RLS + Monetizacao
-  Loop atual: Loop 7 CONCLUIDO â€” MEMORIA_V7 + relatorio_V7 + DELIBERACAO_V7 gerados Â· Loop 8 PENDENTE â€” aguarda Gemini PASSO3
-  Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado, dia12_contador_socratica_vacina_push_cb
-  Gates bloqueantes:
-    dia2: 10 questoes avaliadas por Eduardo â€” rubrica media >= 4/5
-    dia5: Feed exibe plano correto 7 dias com proporcao correta
-    dia8: Ingrid responde 10 questoes â€” progresso salvo â€” fallback testado
-    dia11: Heatmap correto + simulado domingo completo
-    dia15: Ingrid com acesso admin proprio Supabase
-  Decisoes fixadas:
-    fonte_questoes: Claude API â€” sem scraping (P-003)
-    auth: single-user â€” sem login complexo
-    cache: gerar lote 50 quando < 30 questoes disponiveis
-    proporcao_feed: 70% Peso 2 / 30% Peso 1
-    modelos_api: Haiku (gerais + dicas socraticas) / Sonnet (especificos)
-    burn_rate: BURN_RATE_DAILY_LIMIT_USD=5.00
-    fallback: trigger 70% da cota diaria
-    spaced_repetition: SM-2 intervalo variavel
-    push_vs_email: push no MVP / email com tracking no Loop 2
-    comentario_erro: Opcao A (Dias 3-5): explicacao direta do banco + Opcao B (Dias 6-8): Tutor Socratico Haiku
-  Proximo passo: Loop 5 CONCLUIDO Â· Loop 6: Gemini PASSO3 â†’ ingrid-v6.md â†’ Embaixador â†’ build Â· Sentinel CHURN-WATCH ativo Â· Pitch SaaS R$97/mÃªs ao verbalizar uso ativo
-  Loops programados:
-    Loop 1 (Kickoff): concluido
-    Loop 2 (Gate Dia 5): concluido
-    Loop 3 (Gate Dia 11): concluido
-    Loop 4 (Handoff Dia 15): concluido
+--- PROJ-001 · VALDECE ---
+Status: HYPERCARE ate 18-06-2026
+Produto: Sistema Juridico Soberano (corpus penal auto-atualizavel)
+Stack: PWA + Supabase (hqqxzecf) + Claude API
+Valor: R$5.000 fixo — zero mensalidade (P-008 / P-062 NAO se aplica)
+Sentinel Reports: ativos — Dia 16 gerado em 2026-06-04
+Ping Supabase: ativo (P-099)
+Proximo gate: Hypercare encerra 18-06-2026 — sem loops de build previstos
 
--------------------------------
-PROJETO: PROJ-001 — Valdece
-  Descricao : Ferramenta de Busca JurisprudÃªncia STF/STJ
-  Area      : Legal Tech Â· Direito Penal
-  Camada    : 1 (MVP Alto Impacto)
-  Stack     : 
-  Deadline  : 2026-05-23
-  Status    : Sistema LIVE Â· Contrato ASSINADO 2026-05-19 Â· R Â· V3 pipeline desbloqueado
-  Loop atual: Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â€” toga-digital-valdece.netlify.app ativo
-  Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui, dia4_gate_abnt_threshold_toga, dia5_corpus_deploy_demo
-  Proximo passo: V3 ENTREGUE â€” Deploy Netlify (Diretor) + Sentinel Report 2026-06-02
+--- PROJ-002 · INGRID ---
+Status: RETAINER — Loop 8 CONCLUIDO
+Produto: Ferramenta de Estudo — Concurso SEDES-DF 2026 (Cargo 202 — Quadrix)
+Stack: PWA + Supabase (yjqvjhezwhepwomukudt) + Claude API
+Valor: R$0 (piloto — fundadora simbolica do produto)
+Prova: 2026-09-06 (~92 dias)
+Temperatura cliente: 8.5/10 VERDE FORTE (Ingrid confirmou acesso ativo e que gostou muito)
+Loop atual: Loop 8 CONCLUIDO — MEMORIA_V8 + relatorio_V8 + DELIBERACAO_V8 gerados
+Proximo: Loop 9 bloqueado ate decisao multi-tenant (Gate 7.2 RLS) + captacao 2a candidata
+Depoimento: capturado em 2026-06-04 (Ingrid: gostou muito da ferramenta)
+Edge Functions ativas: notificar-progresso + gatilho-temporal (19h45 BRT) + relatorio-semanal (dom 10h)
 
-==============================
-PERFIS DE NICHO
-==============================
-  EdTech-Concurso: maturidade=60% status=consolidado parcial
-  Legal-Tech-Criminal: maturidade=75% status=CONTRATO ASSINADO 2026-05-19 â€” V3 desbloqueado â€” Loop 7 iniciando
-  MÃ©dico-Prova-Especialidade [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini
-  Contabilidade-PME [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini
-  PsicÃ³logo-ClÃ­nico-AutÃ´nomo [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini
+--- INFRA INTERNA · PENTALATERAL ---
+Status: PLANEJAMENTO — FASE 0 CONCLUIDA
+n8n FASE 1: desbloqueado apos 18-06-2026 (Hypercare Valdece)
+  4 workflows planejados: check-ins 7h/13h/20h + monitor Supabase + webhook GitHub + formulario->MEMORIA
+Notion: aprovado como cockpit interno (ARQ-1 — exclusivamente interno, zero visibilidade cliente)
+OpenClaw: V2 — gateway AI multi-canal (WhatsApp/Telegram/Discord) — apos n8n estabilizar 30 dias
+Arquitetura V2: toda mensagem externa passa pelo n8n antes de Claude API (G-3 aprovado)
+Data inicio build: 19-06-2026
+Diretriz: Diretriz Estrategica V1 — Stack Interno Pentalateral — 2026-06-05
+Skill gerada: pentalateral-stack-v1.md (NotebookLM — 2026-06-05)
+
+==================================================
+PENDENTES ABERTOS (resumo)
+==================================================
+
+VALDECE:
+  - Nenhum pendente urgente. Hypercare ate 18-06-2026.
+
+INGRID:
+  - D6: Semente E-4 pos-aprovacao — aguardar engajamento verbal [DIRETOR — sem data]
+  - D5: Link Demo — bloqueado ate 2a usuaria [MUSCULO — bloqueado]
+  - Gate 7.2 RLS refactor — multi-tenant — 2026-07-XX [MUSCULO — bloqueado]
+
+INFRA:
+  - n8n FASE 1: build apos 18-06-2026 [MUSCULO]
+  - OpenClaw V2: apos n8n estavel 30 dias [MUSCULO]
+
+==================================================
+PRINCIPIOS CRITICOS ATIVOS (do INTELLIGENCE_LEDGER)
+==================================================
+
+P-001: Claude Code nao e daemon autonomo — automacao exige Claude API + n8n
+P-003: Scraping de terceiros e dependencia, nao ativo
+P-008: Primeiro cliente de nicho e canal de distribuicao, nao MRR
+P-099: Ping Supabase obrigatorio no onboarding de cliente — previne pausa free tier
+P-059: Isolamento de contexto por cliente e lei — nunca confundir projetos
+
+==================================================
+FIM DO WIP BOARD
+==================================================
