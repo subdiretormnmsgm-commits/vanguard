@@ -151,3 +151,5 @@
   DECISOES registradas em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/DECISOES_N8N_NOTION_2026-06-04.json
 
 - [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
+
+- [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado

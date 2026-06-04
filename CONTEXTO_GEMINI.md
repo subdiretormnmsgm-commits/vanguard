@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-04 16:33
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-04 16:39
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-4077df7 chore(pendentes): atualizar quadro sessao 04-06 -- Wipe&Sync + depoimento Ingrid + Sentinel + n8n FASE1
-3e7a880 chore(ingrid): Gate 7.2 registrado como divida tecnica -- single-user by design -- multi-tenant futuro
-8302a51 feat(infra): FASE 0 CONCLUIDA -- ARQ-2 gate removido (sem MRR Valdece) + ARQ-3 Sentinel pronto
+5a7afc7 chore(ingrid): RETAINER -- depoimento capturado + Sentinel Valdece enviado + pendentes limpos
+a402c0f chore(pendentes): marcar concluidos -- Gate7.2 divida tecnica + Wipe&Sync Ingrid + D4 Ingrid
+4ffe3b8 chore(session-close): artefatos finais 04-06-2026 -- VERDE -- Loop8 + Valdece + n8n FASE0
 
 ================================================================================
 
@@ -162,7 +162,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                     "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "Loop 8 CONCLUIDO -- F-A F-B F-E F-G N-3 N-4 D2 -- MEMORIA_V8 + relatorio_V8 + DELIBERACAO_V8 gerados",
+                                    "status":  "RETAINER -- Loop 8 CONCLUIDO -- produto entregue -- depoimento capturado (Ingrid: gostou muito) -- sem novos loops",
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
