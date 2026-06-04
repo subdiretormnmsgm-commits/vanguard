@@ -130,3 +130,25 @@
 - [ ] `2026-07-XX` **Ingrid — Gate 7.2 RLS refactor — pré-requisito multi-tenant:** [musculo]
   Sistema atual é single-user por design (USING true). Para 2ª candidata: adicionar Supabase Auth + substituir UUID localStorage por auth.uid() em todas as tabelas.
   Não bloqueia nada até decisão de onboarding multi-tenant.
+
+- [x] `2026-06-04` ~~**NotebookLM Wipe & Sync — Valdece:**~~
+  ✅ Realizado pelo Diretor em 2026-06-04.
+
+- [ ] `2026-06-04` **NotebookLM Wipe & Sync — Ingrid:** [diretor]
+  Fontes atualizadas pelo Músculo (MEMORIA_V8 + relatorio_V8). Diretor abre notebook Ingrid → deleta fontes → arrasta CLIENTES/INGRID/NOTEBOOKLM_FONTES/.
+
+- [ ] `2026-06-XX` **Capturar depoimento de Ingrid — antes de mover para RETAINER:** [diretor]
+  Ingrid está feliz com a ferramenta (temperatura 8.5/10 · D4 respondida · confirmou uso ativo).
+  Mensagem sugerida: "Ingrid, você toparia me dar um feedback rápido sobre como o app tem te ajudado nos estudos? Pode ser por áudio mesmo."
+  Depoimento vira argumento comercial para a 2ª candidata.
+
+- [ ] `2026-06-XX` **Ingrid — mover para RETAINER no WIP_BOARD após depoimento:** [musculo]
+  Aguarda confirmação do Diretor após capturar depoimento. Sem mais loops de build.
+
+- [ ] `2026-06-04` **Sentinel Report Valdece — enviar WhatsApp:** [diretor]
+  Mensagem pronta em CLIENTES/VALDECE/HISTORICO/SENTINEL_REPORT_DIA16_2026-06-04.md
+
+- [ ] `2026-06-18+` **n8n FASE 1 — build EasyPanel após Hypercare Valdece:** [musculo]
+  4 workflows: check-ins 7h/13h/20h + monitor Supabase horário + webhook GitHub + formulário campo→MEMORIA.
+  Desbloqueado após: Hypercare Valdece encerrar (18-06-2026).
+  DECISOES registradas em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/DECISOES_N8N_NOTION_2026-06-04.json
