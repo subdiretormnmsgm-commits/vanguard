@@ -1,4 +1,4 @@
-# KB_SUPABASE_DEPLOY_CLIENTE.md
+﻿# KB_SUPABASE_DEPLOY_CLIENTE.md
 > Criado após: FALHA Loop 6 Build 2026-05-28 — PROJ-002 Ingrid
 > Proxima revisao: se ocorrer nova falha de deploy Supabase
 
@@ -24,7 +24,7 @@ Set-Location "C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES
 
 # 2. Setar token do Owner da org (obtido no browser da conta correta)
 #    Account → Access Tokens → Generate new token → copie o sbp_...
-$env:SUPABASE_ACCESS_TOKEN = "REVOKED_TOKEN"
+$env:SUPABASE_ACCESS_TOKEN = "[REDACTED-sbp]_DO_OWNER_AQUI"
 
 # 3. Deploy (um por vez — nao concatenar com &&)
 npx supabase functions deploy [nome-da-funcao] --project-ref [ref] --use-api

@@ -1,4 +1,4 @@
-# RELATÓRIO EVOLUTIVO V5 — PROJETO INGRID
+﻿# RELATÓRIO EVOLUTIVO V5 — PROJETO INGRID
 > Loop 5 · Dias 12-15 · Fechamento 2026-05-26
 > Análise de negócio + 5 ideias disruptivas para Loop 6
 
@@ -31,7 +31,7 @@ Loop 5 entregou a **soberania total da Ingrid sobre seus dados** (P-013) — o m
 ### Ameaças
 - **Churn por fadiga:** Ingrid estuda sozinha, sem rede. 4 meses até setembro = risco de abandono silencioso.
 - **Concurso pode adiar:** SEDES-DF 2026 ainda sem data confirmada — Ingrid pode perder motivação.
-- **Token exposto no chat:** `REVOKED_TOKEN...` precisa ser revogado imediatamente.
+- **Token exposto no chat:** `[REDACTED-sbp]...` precisa ser revogado imediatamente.
 
 ---
 
