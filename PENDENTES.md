@@ -152,3 +152,5 @@
   4 workflows: check-ins 7h/13h/20h + monitor Supabase horário + webhook GitHub + formulário campo→MEMORIA.
   Desbloqueado após: Hypercare Valdece encerrar (18-06-2026).
   DECISOES registradas em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/DECISOES_N8N_NOTION_2026-06-04.json
+
+- [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado

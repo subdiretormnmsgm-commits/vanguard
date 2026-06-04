@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-04 13:32
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-04 16:33
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-589f6dc feat(ingrid): Loop 8 CONCLUIDO -- DELIBERACAO + MEMORIA + relatorio V8 + WIP atualizado [RESOLVE: Loop8-fechamento]
-d484360 chore(ingrid): commit artefatos Loop 8 nao rastreados -- ingrid-v8 + VEREDITOS + DIRETRIZ_V8
-26a119b fix(security): redatar JWT e ANON_KEY em runbook + memorias
+4077df7 chore(pendentes): atualizar quadro sessao 04-06 -- Wipe&Sync + depoimento Ingrid + Sentinel + n8n FASE1
+3e7a880 chore(ingrid): Gate 7.2 registrado como divida tecnica -- single-user by design -- multi-tenant futuro
+8302a51 feat(infra): FASE 0 CONCLUIDA -- ARQ-2 gate removido (sem MRR Valdece) + ARQ-3 Sentinel pronto
 
 ================================================================================
 

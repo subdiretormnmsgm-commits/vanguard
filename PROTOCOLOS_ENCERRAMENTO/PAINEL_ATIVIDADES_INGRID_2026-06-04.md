@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - INGRID - DIRETOR EDUARDO
-### Pentalateral IAH - Quinta-feira, 2026-06-04 13:42
+### Pentalateral IAH - Quinta-feira, 2026-06-04 16:33
 
 ---
 
@@ -54,14 +54,28 @@ Nenhum projeto ativo detectado
 
 ## COMMIT DA SESSAO
 
-Commit : 4415ec1 - 1 arquivo(s) alterado(s)
-Mensagem: fix(canonical): propagar LEDGER D1-Loop8 + remover arquivo hook -- violacao P-073 resolvida
+Commit : 8302a51 - 1 arquivo(s) alterado(s)
+Mensagem: feat(infra): FASE 0 CONCLUIDA -- ARQ-2 gate removido (sem MRR Valdece) + ARQ-3 Sentinel pronto
 
 ---
 
 ## ENTREGAS DO DIA
 
 Commits do dia:
+- 4077df7 chore(pendentes): atualizar quadro sessao 04-06 -- Wipe&Sync + depoimento Ingrid + Sentinel + n8n FASE1
+- 3e7a880 chore(ingrid): Gate 7.2 registrado como divida tecnica -- single-user by design -- multi-tenant futuro
+- 8302a51 feat(infra): FASE 0 CONCLUIDA -- ARQ-2 gate removido (sem MRR Valdece) + ARQ-3 Sentinel pronto
+- 6481849 docs(valdece): Sentinel Report Dia 16 -- Hypercare 04-06-2026 -- incidente Supabase + monitor ativo
+- d71f09a feat(infra): FASE 0 ARQ-1 -- Notion exclusivamente interno -- veredito Diretor
+- 82550d9 chore(notebooklm): atualizar FONTES Ingrid V8 + MEMORIA_EMBAIXADOR ambos projetos -- prep Wipe & Sync
+- afa6d53 fix(session-close): GATE 9Z -- garantir PAINEL por cliente sem depender do GATE 9 principal
+- 92efd37 docs(valdece): PAINEL_ATIVIDADES_VALDECE_2026-06-04 -- fechamento sessao
+- d0c93d8 fix(security): remover token Telegram hardcoded do trap em lembrete_tarde/noite
+- a3c53d8 feat(briefing): check-in noturno 20h + email em tarde e noite -- 3 check-ins Telegram+email
+- c3eec46 docs(ledger): P-099 -- ping Supabase obrigatorio no onboarding de cliente + fix URL Valdece
+- f8676c1 feat(infra): ping universal Supabase 4 projetos + fix URL Valdece -- previne pausa free tier
+- 2d771b0 fix(valdece): atualizar Supabase URL+ANON para projeto valdece-juridico (hqqxzecf) + ping automatico
+- ef96b31 docs(ingrid): PAINEL_ATIVIDADES_INGRID_2026-06-04 -- fechamento Loop 8
 - 1d72851 fix(canonical): sincronizar LEDGER D1-Loop8 nas 3 copias NOTEBOOKLM -- P-033
 - 4415ec1 fix(canonical): propagar LEDGER D1-Loop8 + remover arquivo hook -- violacao P-073 resolvida
 - 1f74350 chore(session-close): artefatos finais Loop 8 -- VERDE -- 2026-06-04
