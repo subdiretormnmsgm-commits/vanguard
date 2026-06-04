@@ -1403,6 +1403,32 @@ Write-Host "=======================================================" -Foreground
 Write-Host ""
 
 # ==========================================================================
+# GATE 9Z -- VERIFICACAO PAINEL POR CLIENTE (bloqueante)
+# Garante PAINEL_ATIVIDADES para TODOS os projetos ativos -- sem excecao.
+# Nao depende do GATE 9 principal ter funcionado.
+# ==========================================================================
+Write-Host "  [GATE 9Z] Verificando PAINELs por cliente..." -ForegroundColor Cyan
+if ($painelScript -and (Test-Path $painelScript)) {
+    foreach ($projZ in $projetosEmBuild) {
+        $cliZ           = $projZ.cliente
+        $cliZUpper      = $cliZ.ToUpper()
+        $painelEsperado = "$BASE\PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_${cliZUpper}_$DATA.md"
+        if (-not (Test-Path $painelEsperado)) {
+            Write-Host "  [GATE 9Z] PAINEL $cliZUpper ausente -- gerando..." -ForegroundColor Yellow
+            $gerado = (& powershell.exe -NonInteractive -File $painelScript -Cliente $cliZ 2>$null) | Select-Object -Last 1
+            if ($gerado -and (Test-Path $gerado)) {
+                Write-Host "  [GATE 9Z] PAINEL $cliZUpper gerado: $(Split-Path $gerado -Leaf)" -ForegroundColor Green
+            } else {
+                Write-Host "  [GATE 9Z] FALHA $cliZUpper -- rodar: .\scripts\generate_protocolo_encerramento.ps1 -Cliente $cliZ" -ForegroundColor Red
+            }
+        } else {
+            Write-Host "  [GATE 9Z] PAINEL $cliZUpper ja existe: $(Split-Path $painelEsperado -Leaf)" -ForegroundColor Green
+        }
+    }
+}
+Write-Host ""
+
+# ==========================================================================
 # GATE 9B -- SINCRONIZACAO CLAUDE PROJECTS (P-032)
 # Nivel 1: alerta imediato se VEREDITO executado hoje sem MEMORIA atualizada
 # Nivel 2: lista priorizada de uploads necessarios
