@@ -1,66 +1,64 @@
-# MEMÓRIA V7 — PROJETO INGRID
-> Diretriz V7 · Loop 7 · SaaS Readiness + Pipeline Comercial
-> Gerada em 2026-05-30 — encerramento do ciclo Loop 7
+# MEMÓRIA V8 — PROJETO INGRID
+> Diretriz V8 · Loop 8 · Telemetria + RLS + Monetização
+> Gerada em 2026-06-04 — encerramento do ciclo Loop 8
 
 ---
 
-## ESTADO TÉCNICO AO ENCERRAR LOOP 7
+## ESTADO TÉCNICO AO ENCERRAR LOOP 8
 
 **Stack ativa:** PWA Vanilla JS + Supabase próprio da Ingrid (yjqvjhezwhepwomukudt) + Claude API · GitHub Pages
-**Versão:** v20 · URL: https://subdiretormnmsgm-commits.github.io/vanguard/
+**Versão em produção:** v20 · URL: https://subdiretormnmsgm-commits.github.io/vanguard/
+**Nota:** app.js atualizado com F-A + N-3 — deploy GitHub Pages pendente para esta versão
 
-### Features ativas em produção (v20):
+### Features ativas em produção (pós-Loop 8):
 
 | Feature | Status |
 |---|---|
-| F-1 Saudação Noturna Dinâmica | Ativo — "Boa noite, N questões te esperam" |
-| F-2 Distração Vingativa Silenciosa | Ativo — sem label visível |
-| F-4 Gatilho Temporal 19h45 + pg_cron | Código entregue — **deploy CLI PENDENTE** |
-| F-5 Modo Véspera | Ativo — ativar em 2026-08-30 |
-| F-6 Relatório Semanal WhatsApp | Código entregue — **deploy CLI PENDENTE** |
-| F-7 Raio-X SVG + Brasão Semanal | Ativo — html2canvas export PNG |
-| F-8 Termômetro da Aprovação | Ativo — Nota Projetada vs Linha de Corte |
-| SM-2 + Heatmap | Ativos — 102 respostas · 1 user_id correto |
+| F-1 Saudação Noturna Dinâmica | Ativo |
+| F-2 Distração Vingativa Silenciosa | Ativo |
+| F-4 Gatilho Temporal 19h45 + pg_cron | ✅ AUTÔNOMO — Gate 7.1 APROVADO 2026-06-01 |
+| F-5 Modo Véspera | Ativo — acionar em 2026-08-30 |
+| F-6 Relatório Semanal WhatsApp | ✅ AUTÔNOMO — domingo 10h BRT · framing relativo ao edital (D2 Loop 8) |
+| F-7 Raio-X SVG + Brasão Semanal | Ativo |
+| F-8 Termômetro da Aprovação | Ativo |
+| SM-2 + Heatmap | Ativos — 102+ respostas |
+| **F-A Telemetria evento_uso** | ✅ NOVO Loop 8 — batch assíncrono · IndexedDB fallback |
+| **F-B Painel Eduardo** | ✅ NOVO Loop 8 — painel_eduardo.html · threshold visual 3d/5d |
+| **F-E Alerta Telegram 3 dias** | ✅ NOVO Loop 8 — alerta-inatividade Edge Function |
+| **F-G Git Hook pre-push** | ✅ NOVO Loop 8 — bloqueou token sbp_ em 13:12 na própria sessão |
+| **N-3 Heartbeat + fallback batch** | ✅ NOVO Loop 8 — integrado ao app.js |
+| **N-4 TTL expurgo LGPD** | ✅ NOVO Loop 8 — dados sintéticos purgados a cada 24h |
 
-### Loop 7 — o que foi planejado mas NÃO construído (bloqueado por D1/D4):
+### Loop 8 — o que NÃO foi construído (bloqueado ou adiado):
 
 | Feature | Por que não construída |
 |---|---|
-| F-A Telemetria passiva (evento_uso) | Aguarda deploy CLI (D1 → pós-D4) |
-| F-B Painel de uso Eduardo (M-1) | Aguarda F-A (evento_uso) |
-| F-C Interceptor RLS silencioso (N-2) | Aguarda deploy CLI |
-| F-D View SQL snapshot_ingrid_loop6_golden (N-4) | Pode fazer offline — próxima sessão |
-| F-E Alerta Compound Telegram (M-5) | Aguarda F-4/F-6 autônomos |
-| F-F Pulse Check Analógico (N-5) | Aguarda F-B (Painel Eduardo) |
-| F-G Git Hook pre-push (G-5 + N-3) | Próxima sessão |
-| F-H LEGAL-WATCH visual (N-1) | Aguarda F-B (Painel Eduardo) |
-
-### O que foi entregue neste ciclo (ferramentas do processo):
-
-| Ferramenta | Arquivo |
-|---|---|
-| Gate 0 WIP_BOARD vs disco | `scripts/auditar_consistencia.ps1` |
-| Correção rápida WIP_BOARD | `scripts/corrigir_wip.ps1` |
-| Gate 9B sync Claude Projects | `scripts/sincronizar_claude_projects.ps1` |
-| Dry-run isolamento de tenant | `scripts/test_tenant_isolation.ps1` |
-| Síntese do Conselho (estrutura) | `scripts/gerar_sintese_conselho.ps1` |
-| Template síntese | `PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/sintese_conselho_template.txt` |
-| P-091 inscrito | `INTELLIGENCE_LEDGER.md` linha 1620 |
-| Render painel bug fix | `scripts/render_painel.ps1` — injeção automática de campos ausentes |
-| WIP_BOARD.md distribuído | `CLIENTES/WIP_BOARD.md` + NOTEBOOKLM_FONTES de cada projeto |
+| Gate 7.2 RLS dry-run | Ação do Diretor — requer `SUPABASE_SERVICE_ROLE_KEY` |
+| M-4 Link demo anônimo | Bloqueado até 2ª usuária ativa |
+| N-1 Clickwrap Opt-In Dataset | Loop 9 — necessário antes de pitch B2C |
+| N-5 Pulse Check dominical | Loop 9 |
+| Fluxo aceite do pitch | Loop 9 — contrato V2 + onboarding 2ª candidata |
 
 ---
 
-## DECISÕES FIXADAS LOOP 7 (não reverter sem novo veredito)
+## DECISÃO ESTRATÉGICA CENTRAL — NÃO REVERTER SEM DELIBERAÇÃO
+
+> **Ingrid não é cliente pagante. É fundadora simbólica.**
+> Ferramenta gratuita para ela.
+> Dados anonimizados do uso dela = argumento comercial para 2ª candidata.
+> Eixo comercial: vender para próximas candidatas usando jornada da Ingrid como prova.
+
+---
+
+## DECISÕES FIXADAS LOOP 8 (não reverter sem novo veredito)
 
 | Veredito | Decisão |
 |---|---|
-| D1 | Deploy F-4 + F-6 aguarda resolução D4 (GitHub Security) |
-| D2 | RLS dry-run → Loop 8 (não urgente neste ciclo) |
-| D3 | Debrief casual 31/05 — mensagem no clipboard |
-| D4 | GitHub Security — pendência próxima sessão |
-| D5 | M-4 Link Demo BLOQUEADO até segunda usuária |
-| D6 | Semente E-4 aguarda sessão com maior engajamento verbal de Ingrid |
+| D1 DESCARTADO | Ferramenta gratuita para Ingrid — sem cobrança R$/mês |
+| D2 A | Framing relativo ao edital ativo no F-6 |
+| D3 DESCARTADO | Sem transação comercial com Ingrid — opt-in dataset com 2ª candidata |
+| D4 A | Eduardo envia mensagem de presença humana esta semana (texto pronto na DELIBERAÇÃO) |
+| D5 A | Sequência RLS → TTL → Heartbeat → Telemetria |
 
 ---
 
@@ -68,50 +66,68 @@
 
 | Bloqueio | Causa | Desbloqueio |
 |---|---|---|
-| Deploy F-4/F-6 (Gate 7.1) | GitHub Security pendente → `supabase login` interativo | Eduardo: link GitHub Security → Músculo deploya |
-| GitHub Pages push | Token sbp_ no histórico | Eduardo: link GitHub Security |
-| Gate 7.2 RLS dry-run | Movido para Loop 8 | `$env:SUPABASE_SERVICE_ROLE_KEY` + `test_tenant_isolation.ps1` |
-| Loop 8 build | Bloqueado por Gate 7.1 | Resolver D4 → D1 em ordem |
+| Deploy GitHub Pages | app.js Loop 8 não pushado para gh-pages | `.\scripts\deploy_ingrid_ghpages.ps1` |
+| Gate 7.2 RLS dry-run | Requer chave service role do Diretor | `$env:SUPABASE_SERVICE_ROLE_KEY = 'sua-key'` + `test_tenant_isolation.ps1` |
+| 2ª candidata | Loop 8 validou fundações — pré-requisito: Gate 7.2 VERDE | Eduardo + Embaixador identificam próxima candidata |
+| Pitch | D4 mensagem de presença humana precisa ir ANTES | Texto pronto — Diretor envia esta semana |
 
 ---
 
 ## ESTADO DOS GATES E WATCHES
 
-| Gate/Watch | Status |
+| Gate/Watch | Status | Data |
+|---|---|---|
+| Gate Dia 15 | ✅ APROVADO | 2026-05-30 |
+| Gate 7.1 Deploy CLI | ✅ APROVADO — F-4 + F-6 autônomos | 2026-06-01 |
+| Gate 7.2 RLS dry-run | ⏳ PENDENTE — ação do Diretor | Loop 9 |
+| LEGAL-WATCH | ✅ VERDE — Termo assinado 18/05 | 2026-05-27 |
+| DADOS-WATCH | ✅ VERDE — 102 respostas · 1 user_id | 2026-05-30 |
+| GITHUB-WATCH | ✅ VERDE — token sbp_ revogado · F-G ativo | 2026-06-04 |
+| DEPLOY-WATCH | ✅ VERDE — 3 Edge Functions + pg_cron ativos | 2026-06-01 |
+| CHURN-WATCH | ✅ DESATIVADO — Ingrid ativa e engajada | 2026-06-01 |
+| PITCH-WATCH | 🔥 AQUECIDO — D4 urgente · janela fecha ~04-07/julho | 2026-06-04 |
+| LGPD-WATCH | ⚠️ ATENÇÃO — N-1 Clickwrap pendente para Loop 9 | Loop 9 |
+| P-013 Soberania | ✅ VERDE — Ingrid admin Supabase próprio | 2026-05-30 |
+
+---
+
+## ESTADO DO SUPABASE (yjqvjhezwhepwomukudt)
+
+| Componente | Estado |
 |---|---|
-| Todos os dias 1–15 | ✅ APROVADOS — último: dia15 2026-05-30 |
-| DADOS-WATCH user_id | ✅ VERDE — 102 respostas · 1 user_id |
-| LEGAL-WATCH | ✅ VERDE — reassinatura 2026-05-27 |
-| P-013 soberania | ✅ VERDE — Ingrid admin Supabase própria |
-| DEPLOY-WATCH F-4/F-6 | ⚠️ ATIVO |
-| GITHUB-WATCH | ⚠️ ATIVO |
-| DATA-GAP-WATCH | ⚠️ ATIVO — uso 24/05 a 30/05 não confirmado |
+| pg_cron `gatilho_temporal_ingrid` | ✅ ATIVO — 22:45 UTC (19h45 BRT) diário |
+| pg_cron `relatorio_semanal_ingrid` | ✅ ATIVO — 13h UTC (10h BRT) domingos |
+| Edge Function `notificar-progresso` | ✅ ATIVO |
+| Edge Function `alerta-inatividade` | ✅ ATIVO Loop 8 — 3 dias sem uso → Telegram |
+| Edge Function `relatorio-semanal` | ✅ ATIVO — framing relativo ao edital |
+| Migration `evento_uso` | ✅ APLICADA 2026-06-04 |
+| Migration `ttl_expurgo` | ✅ APLICADA 2026-06-04 |
+| View `snapshot_ingrid_loop6_golden` | ✅ CRIADA E CORRIGIDA 2026-06-04 |
+| RLS isolamento tenant | ⏳ PENDENTE Gate 7.2 |
 
 ---
 
-## TEMPERATURA E PIPELINE
+## INTELIGÊNCIA ACUMULADA — NÃO REPETIR
 
-| Campo | Estado |
-|---|---|
-| Temperatura | 7.5/10 VERDE SUSTENTADO — validar no debrief 31/05 |
-| Shift confirmado | H-8: "atacar" = player mindset (P-079) |
-| Pitch R$97/mês | Janela aberta — gatilho: 7 dias consecutivos + progresso verbalizado |
-| Pipeline de referral | Zero no curto prazo — semear pós-aprovação (D6 aguardando) |
-| CHURN-WATCH | DESATIVADO |
-
----
-
-## PRÓXIMO LOOP (Loop 8)
-
-**Ordem de execução obrigatória:**
-1. Eduardo: GitHub Security → desbloqueia push Pages
-2. Músculo: `supabase login` + deploy F-4 + F-6 (Gate 7.1)
-3. Músculo: `test_tenant_isolation.ps1` (Gate 7.2)
-4. Build F-A a F-H em sequência (telemetria → painel → alertas → hooks)
-5. Eduardo: debrief casual Ingrid 31/05 (mensagem no clipboard)
-
-**Skill do Loop 8:** `ingrid-v8.md` — gerada após Gemini PASSO3
+- **G-3 VETO PERMANENTE** — redução punitiva de cota SM-2 causa churn silencioso com perfil ansioso
+- **Pitch com Ingrid ENCERRADO** — ela é fundadora, não cliente. Monetizar com próximas candidatas
+- **H-6 (teto de preço)** — nunca testar com Ingrid. Testar com 2º/3º cliente
+- **SaaS Readiness Audit** — segredo interno de franquia. Nunca expor engrenagens para cliente
+- **Tom que funciona:** caloroso, direto, sem jargão técnico
+- **Padrão de uso:** estuda à noite (~20h). F-4 cron 19h45 calibrado para este padrão
 
 ---
 
-*Músculo — Pentalateral IAH — 2026-05-30*
+## PRÓXIMA AÇÃO DO DIRETOR
+
+1. **ESTA SEMANA:** Enviar D4 — mensagem de presença humana (texto na DELIBERAÇÃO_V8)
+2. **Antes de 2ª candidata:** Gate 7.2 RLS dry-run (`test_tenant_isolation.ps1`)
+3. **Próxima sessão:** Deploy GitHub Pages com app.js Loop 8
+
+---
+
+## REGISTRO
+
+- **MEMÓRIA criada:** 2026-06-04
+- **Músculo responsável:** Claude Sonnet 4.6
+- **Loops anteriores:** V1 → V7 em `CLIENTES/INGRID/HISTORICO/`
