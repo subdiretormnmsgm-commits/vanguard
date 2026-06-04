@@ -76,10 +76,16 @@ serve(async (req) => {
     const semanasRestantes = Math.ceil((prova.getTime() - Date.now()) / (7 * 86_400_000));
 
     // 4. Gerar texto via Claude Haiku
+    // D2 Loop 8: framing relativo ao edital (nao absoluto)
+    // Semana com poucas questoes mas foco em Peso 2 = semana boa
     const promptContexto = [
       `Você é um assistente de estudos conciso. Escreva um relatório semanal de 4 linhas para Ingrid,`,
-      `uma candidata de concurso público que estuda pelo app de questões da Vanguard.`,
-      `Tom: encorajador, direto, sem exagero.`,
+      `uma candidata de concurso público (Sedes-DF 2026, banca Quadrix, Cargo 202).`,
+      `Tom: encorajador, direto, sem exagero. NUNCA enquadre uma semana de volume baixo como fracasso.`,
+      ``,
+      `REGRA DE FRAMING (D2 Loop 8): avalie o progresso em relação ao edital, não ao volume absoluto.`,
+      `Uma semana com 10 questões de SUAS Fundamentos (Peso 2, 12 questões no edital) vale mais`,
+      `que 30 questões de Português (Peso 1, 7 questões). Reflita isso no relatório.`,
       ``,
       `Dados da semana:`,
       `- Questões respondidas: ${totalQuestoes}`,
@@ -90,10 +96,10 @@ serve(async (req) => {
       `- Semanas restantes até a prova (06/09/2026): ${semanasRestantes}`,
       ``,
       `Formato obrigatório (max 4 linhas, sem emojis excessivos):`,
-      `Linha 1: resumo numérico da semana`,
-      `Linha 2: ponto forte`,
-      `Linha 3: ponto a melhorar`,
-      `Linha 4: motivação curta para a próxima semana`,
+      `Linha 1: progresso desta semana nos tópicos críticos do Quadrix (nao só volume)`,
+      `Linha 2: ponto forte relativo ao edital`,
+      `Linha 3: tópico de maior peso que merece atenção na próxima semana`,
+      `Linha 4: motivação curta conectada à data da prova`,
     ].join("\n");
 
     const claudeRes = await fetch("https://api.anthropic.com/v1/messages", {

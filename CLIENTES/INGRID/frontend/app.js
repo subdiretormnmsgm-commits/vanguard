@@ -513,6 +513,7 @@ async function buscarTutor(questao, letraEscolhida, nivel, acertou) {
 
 // ── SALVAR PROGRESSO (SM-2 + Telemetria) — Dia 7 ─────────────────────────────
 async function salvarProgresso(questao, resposta, acertou, tti, chute, nivelTutor) {
+  tel_enqueue('questao_respondida', { disciplina: questao.disciplina_id, acertou, tti_ms: tti }); // F-A Loop 8
   const hoje          = new Date();
   const diasRevisao   = acertou ? 7 : 2;
   const proximaRev    = new Date(hoje.getTime() + diasRevisao * 86400000).toISOString().split("T")[0];
@@ -804,6 +805,7 @@ function atualizarDebug(questao, cacheStatus, custo) {
 
 // ── SESSOES_USUARIO — Dia 9 ───────────────────────────────────────────────────
 async function iniciarSessao() {
+  tel_enqueue('sessao_inicio'); // F-A Loop 8
   try {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/sessoes_usuario`, {
       method: "POST",
@@ -818,6 +820,7 @@ async function iniciarSessao() {
 }
 
 async function encerrarSessao() {
+  tel_enqueue('sessao_fim', { questoes_respondidas: feed ? feed.length : 0 }); // F-A Loop 8
   if (!sessaoId) return;
   try {
     await fetch(`${SUPABASE_URL}/rest/v1/sessoes_usuario?id=eq.${sessaoId}`, {
@@ -1472,4 +1475,102 @@ async function exportarCardProgresso() {
     card.remove();
   }
 }
+
+// ── F-A + N-3: TELEMETRIA BATCH + INDEXEDDB FALLBACK (Loop 8) ─────────────────
+// Nao-bloqueante: nunca atrasa UI. Falha silenciosamente.
+// IndexedDB = buffer offline (N-3). Flush automatico ao reconectar.
+
+const TEL_DB    = 'ingrid_telemetria_v1';
+const TEL_STORE = 'eventos_queue';
+const TEL_BATCH = 10;
+
+function tel_abrirDB() {
+  return new Promise((resolve, reject) => {
+    if (!window.indexedDB) { reject(new Error('no-idb')); return; }
+    const req = indexedDB.open(TEL_DB, 1);
+    req.onupgradeneeded = e => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains(TEL_STORE)) {
+        db.createObjectStore(TEL_STORE, { autoIncrement: true });
+      }
+    };
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror   = ()  => reject(new Error('idb-error'));
+  });
+}
+
+function tel_enqueue(tipo, dados) {
+  const evt = {
+    user_id:   USER_ID,
+    tipo,
+    dados:     dados || null,
+    criado_em: new Date().toISOString(),
+  };
+  tel_abrirDB().then(db => {
+    const tx    = db.transaction(TEL_STORE, 'readwrite');
+    const store = tx.objectStore(TEL_STORE);
+    store.add(evt);
+    tx.oncomplete = () => { db.close(); tel_flushSeAtingirBatch(db); };
+  }).catch(() => {
+    // IndexedDB indisponivel: envio direto nao-bloqueante
+    tel_enviarDireto([evt]);
+  });
+}
+
+function tel_flushSeAtingirBatch() {
+  tel_abrirDB().then(db => {
+    const tx    = db.transaction(TEL_STORE, 'readonly');
+    const store = tx.objectStore(TEL_STORE);
+    const req   = store.count();
+    req.onsuccess = e => {
+      db.close();
+      if (e.target.result >= TEL_BATCH) tel_flush();
+    };
+  }).catch(() => {});
+}
+
+function tel_flush() {
+  if (!navigator.onLine) return;
+  tel_abrirDB().then(db => {
+    const tx    = db.transaction(TEL_STORE, 'readwrite');
+    const store = tx.objectStore(TEL_STORE);
+    const rKeys = store.getAllKeys();
+    rKeys.onsuccess = ek => {
+      const keys = ek.target.result;
+      if (!keys.length) { db.close(); return; }
+      const rAll = store.getAll();
+      rAll.onsuccess = ea => {
+        const batch  = ea.target.result;
+        const agora  = new Date().toISOString();
+        const payload = batch.map(ev => ({ ...ev, enviado_em: agora }));
+        tel_enviarDireto(payload).then(ok => {
+          if (!ok) { db.close(); return; }
+          const tx2  = db.transaction(TEL_STORE, 'readwrite');
+          const st2  = tx2.objectStore(TEL_STORE);
+          keys.forEach(k => st2.delete(k));
+          tx2.oncomplete = () => { db.close(); };
+        });
+      };
+    };
+  }).catch(() => {});
+}
+
+async function tel_enviarDireto(batch) {
+  if (!batch || !batch.length) return true;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/evento_uso`, {
+      method:  'POST',
+      headers: { ...headers(), 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+      body:    JSON.stringify(batch),
+    });
+    return res.ok;
+  } catch (_) {
+    return false;
+  }
+}
+
+// N-3: flush ao reconectar apos offline
+window.addEventListener('online',        () => tel_flush());
+// Flush best-effort ao fechar app
+window.addEventListener('beforeunload',  () => tel_flush());
 

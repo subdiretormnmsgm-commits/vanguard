@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Eduardo — INGRID</title>
+  <style>
+    body { font-family: monospace; background: #0a0a0a; color: #e0e0e0; padding: 20px; max-width: 700px; margin: 0 auto; }
+    h1 { color: #00f0ff; font-size: 1rem; border-bottom: 1px solid #333; padding-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.85rem; }
+    th { text-align: left; color: #888; padding: 4px 8px; border-bottom: 1px solid #222; }
+    td { padding: 4px 8px; border-bottom: 1px solid #111; }
+    .verde   { color: #00ff88; }
+    .amarelo { color: #ffcc00; }
+    .vermelho { color: #ff4444; }
+    .badge { background: #111; border: 1px solid #333; border-radius: 4px; padding: 2px 6px; font-size: 0.75rem; }
+    #status { color: #555; font-size: 0.8rem; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<h1>PAINEL EDUARDO · PROJ-002 Ingrid · F-B Loop 8</h1>
+
+<div id="painel">Carregando...</div>
+<div id="status"></div>
+
+<script>
+const SUPABASE_URL      = 'https://yjqvjhezwhepwomukudt.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqcXZqaGV6d2hlcHdvbXVrdWR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3NjExNzksImV4cCI6MjA5NTMzNzE3OX0.Mb6KxtJ3iECl_3ApWUl6zozxa93pJatLwNOZ7zAdhx4';
+const USER_ID           = '00000000-0000-0000-0000-000000000001';
+
+const H = {
+  'apikey': SUPABASE_ANON_KEY,
+  'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+};
+
+async function carregarPainel() {
+  const painel = document.getElementById('painel');
+  const status = document.getElementById('status');
+
+  try {
+    // Sessoes dos ultimos 14 dias
+    const limite14d = new Date(Date.now() - 14 * 86400000).toISOString();
+
+    const [rSessoes, rEventos, rProgresso] = await Promise.all([
+      fetch(`${SUPABASE_URL}/rest/v1/sessoes_usuario?user_id=eq.${USER_ID}&criado_em=gte.${limite14d}&order=criado_em.desc&limit=14`, { headers: H }),
+      fetch(`${SUPABASE_URL}/rest/v1/evento_uso?user_id=eq.${USER_ID}&criado_em=gte.${limite14d}&order=criado_em.desc&limit=100`, { headers: H }),
+      fetch(`${SUPABASE_URL}/rest/v1/progresso_usuario?user_id=eq.${USER_ID}&order=respondida_em.desc&limit=200`, { headers: H }),
+    ]);
+
+    const sessoes   = rSessoes.ok   ? await rSessoes.json()   : [];
+    const eventos   = rEventos.ok   ? await rEventos.json()   : [];
+    const progresso = rProgresso.ok ? await rProgresso.json() : [];
+
+    // Calcular metricas
+    const diasAtivos = new Set(
+      eventos.filter(e => e.tipo === 'sessao_inicio')
+             .map(e => e.criado_em.slice(0, 10))
+    ).size;
+
+    const totalQuestoes = progresso.length;
+    const acertos       = progresso.filter(p => p.correta).length;
+    const pctAcerto     = totalQuestoes ? Math.round(acertos / totalQuestoes * 100) : 0;
+
+    const ultimaAtiv = eventos.length
+      ? new Date(eventos[0].criado_em).toLocaleDateString('pt-BR')
+      : sessoes.length
+        ? new Date(sessoes[0].criado_em).toLocaleDateString('pt-BR')
+        : 'sem dados';
+
+    const diasSemUso = eventos.length
+      ? Math.floor((Date.now() - new Date(eventos[0].criado_em).getTime()) / 86400000)
+      : 99;
+
+    const churnClass  = diasSemUso >= 3 ? 'vermelho' : diasSemUso >= 2 ? 'amarelo' : 'verde';
+    const acertoClass = pctAcerto >= 65  ? 'verde'    : pctAcerto >= 50  ? 'amarelo' : 'vermelho';
+
+    // Progresso por disciplina (ultimas 50 respostas)
+    const porDisciplina = {};
+    progresso.slice(0, 50).forEach(p => {
+      if (!porDisciplina[p.disciplina_id]) porDisciplina[p.disciplina_id] = { total: 0, acertos: 0 };
+      porDisciplina[p.disciplina_id].total++;
+      if (p.correta) porDisciplina[p.disciplina_id].acertos++;
+    });
+
+    const discRows = Object.entries(porDisciplina)
+      .sort((a, b) => b[1].total - a[1].total)
+      .slice(0, 8)
+      .map(([disc, d]) => {
+        const pct = Math.round(d.acertos / d.total * 100);
+        const cls = pct >= 65 ? 'verde' : pct >= 50 ? 'amarelo' : 'vermelho';
+        return `<tr><td>${disc.replace(/_/g,' ')}</td><td>${d.total}</td><td class="${cls}">${pct}%</td></tr>`;
+      }).join('');
+
+    painel.innerHTML = `
+      <table>
+        <tr><th>Métrica</th><th>Valor</th></tr>
+        <tr><td>Última atividade</td><td><span class="${churnClass}">${ultimaAtiv}</span></td></tr>
+        <tr><td>Dias sem uso</td><td><span class="${churnClass}">${diasSemUso}d ${diasSemUso >= 3 ? '⚠️ CHURN-WATCH' : ''}</span></td></tr>
+        <tr><td>Dias ativos (14d)</td><td>${diasAtivos}/14</td></tr>
+        <tr><td>Total questões</td><td>${totalQuestoes}</td></tr>
+        <tr><td>Acerto geral</td><td><span class="${acertoClass}">${pctAcerto}%</span></td></tr>
+        <tr><td>Temperatura</td><td class="badge">${diasSemUso >= 3 ? '🔴 CHURN-WATCH' : diasSemUso >= 1 ? '🟡 MONITORAR' : '🟢 ATIVA'}</td></tr>
+      </table>
+
+      <table>
+        <tr><th>Disciplina</th><th>Questões</th><th>Acerto</th></tr>
+        ${discRows || '<tr><td colspan="3">Sem dados</td></tr>'}
+      </table>
+    `;
+
+    status.textContent = `Atualizado: ${new Date().toLocaleString('pt-BR')} | ${totalQuestoes} questões | ${eventos.length} eventos telemetria`;
+
+  } catch (err) {
+    painel.innerHTML = `<p class="vermelho">Erro: ${err.message}</p>`;
+  }
+}
+
+carregarPainel();
+setInterval(carregarPainel, 60000); // refresh automatico a cada 60s
+</script>
+</body>
+</html>
