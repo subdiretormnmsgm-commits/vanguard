@@ -1,7 +1,7 @@
 // Service Worker — Sedes-DF 2026 Ingrid
-const CACHE = "sedes-df-v14";
+const CACHE = "sedes-df-v19";
 const BASE   = "/vanguard/";
-const STATIC = [BASE, BASE + "index.html", BASE + "app.js?v=13", BASE + "style.css?v=13", BASE + "manifest.json"];
+const STATIC = [BASE, BASE + "index.html", BASE + "app.js?v=19", BASE + "style.css?v=19", BASE + "manifest.json"];
 
 self.addEventListener("install", (e) => {
   // Tenta pré-cachear, mas não bloqueia o install se algum asset falhar
