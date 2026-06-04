@@ -1,5 +1,5 @@
 ﻿# ============================================================
-# LEMBRETE_TARDE.PS1 — Check-in da tarde do Diretor (13h)
+# LEMBRETE_NOITE.PS1 — Check-in da noite do Diretor (13h)
 # Envia via Telegram: gates pendentes + ações da tarde + alertas
 # Agendado por registrar_briefing_agendado.ps1 para 13h diário
 # ============================================================
@@ -33,7 +33,7 @@ $linhas          = @()
 $gatesPendentes  = @()
 $alertasCriticos = @()
 
-$linhas += "CHECK-IN DA TARDE — $hora"
+$linhas += "Check-in da noite — $hora"
 $linhas += "Pentalateral IAH · $dataStr"
 $linhas += ""
 
@@ -124,13 +124,13 @@ try {
         chat_id = $TELEGRAM_CHAT_ID
         text    = $corpo
     } | Out-Null
-    Write-Host "Check-in da tarde enviado ao Telegram" -ForegroundColor Cyan
+    Write-Host "Check-in da noite enviado ao Telegram" -ForegroundColor Cyan
 } catch {
     Write-Host "ERRO Telegram tarde: $($_.Exception.Message)" -ForegroundColor Red
 }
 
 # ── Envia por e-mail (canal remoto -- recebido no celular sem app aberto)
-$assuntoTarde = 'Pentalateral IAH -- Check-in Tarde ' + (Get-Date -Format 'dd/MM HH:mm')
+$assuntoTarde = 'Pentalateral IAH -- Check-in Noite ' + (Get-Date -Format 'dd/MM HH:mm')
 try {
     $smtp = New-Object Net.Mail.SmtpClient('smtp.gmail.com', 587)
     $smtp.EnableSsl    = $true
@@ -147,3 +147,4 @@ try {
 } catch {
     Write-Host "ERRO e-mail tarde: $($_.Exception.Message)" -ForegroundColor Red
 }
+

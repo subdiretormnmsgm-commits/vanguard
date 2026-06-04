@@ -9,6 +9,7 @@
 $BASE         = Split-Path -Parent $PSScriptRoot
 $scriptManha  = "$BASE\scripts\briefing_diario.ps1"
 $scriptTarde  = "$BASE\scripts\lembrete_tarde.ps1"
+$scriptNoite  = "$BASE\scripts\lembrete_noite.ps1"
 
 $settings = New-ScheduledTaskSettingsSet `
     -ExecutionTimeLimit (New-TimeSpan -Minutes 3) `
@@ -37,15 +38,28 @@ Register-ScheduledTask -TaskName "Pentalateral_Lembrete_Tarde" `
     -Settings $settings `
     -Force | Out-Null
 
+# ── Tarefa 3: Check-in da noite 20:00 ─────────────────────
+$actionNoite  = New-ScheduledTaskAction -Execute "powershell.exe" `
+                -Argument ('-NonInteractive -WindowStyle Hidden -File "' + $scriptNoite + '"')
+$triggerNoite = New-ScheduledTaskTrigger -Daily -At "20:00"
+
+Register-ScheduledTask -TaskName "Pentalateral_Lembrete_Noite" `
+    -Action $actionNoite `
+    -Trigger $triggerNoite `
+    -Settings $settings `
+    -Force | Out-Null
+
 Write-Host ""
-Write-Host "✅ Notificações diárias registradas no Task Scheduler:" -ForegroundColor Green
-Write-Host "   07:00 — Pentalateral_Briefing_Manha  (briefing_diario.ps1)"   -ForegroundColor White
-Write-Host "   13:00 — Pentalateral_Lembrete_Tarde  (lembrete_tarde.ps1)"    -ForegroundColor White
+Write-Host "[OK] 3 check-ins diarios registrados (Telegram + E-mail):" -ForegroundColor Green
+Write-Host "   07:00 -- Pentalateral_Briefing_Manha  (briefing_diario.ps1)" -ForegroundColor White
+Write-Host "   13:00 -- Pentalateral_Lembrete_Tarde  (lembrete_tarde.ps1)"  -ForegroundColor White
+Write-Host "   20:00 -- Pentalateral_Lembrete_Noite  (lembrete_noite.ps1)"  -ForegroundColor White
 Write-Host ""
-Write-Host "Ambas enviam via Telegram + e-mail. Telegram garante entrega" -ForegroundColor Gray
-Write-Host "mesmo se o computador estiver desligado na hora agendada." -ForegroundColor Gray
+Write-Host "NOTA: o computador precisa estar ligado na hora agendada." -ForegroundColor Yellow
+Write-Host "O e-mail e o canal principal -- chega no celular mesmo sem o Telegram aberto." -ForegroundColor Gray
 Write-Host ""
 Write-Host "Para testar agora:" -ForegroundColor Yellow
 Write-Host "  Start-ScheduledTask -TaskName 'Pentalateral_Briefing_Manha'" -ForegroundColor White
-Write-Host "  Start-ScheduledTask -TaskName 'Pentalateral_Lembrete_Tarde'" -ForegroundColor White
+Write-Host "  Start-ScheduledTask -TaskName 'Pentalateral_Lembrete_Tarde'"  -ForegroundColor White
+Write-Host "  Start-ScheduledTask -TaskName 'Pentalateral_Lembrete_Noite'"  -ForegroundColor White
 Write-Host ""
