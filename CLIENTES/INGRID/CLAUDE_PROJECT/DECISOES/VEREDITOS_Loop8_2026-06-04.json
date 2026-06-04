@@ -1,0 +1,33 @@
+{
+    "cliente":  "INGRID",
+    "loop":  8,
+    "data":  "2026-06-04",
+    "nota_diretor":  "D1 DESCARTADO: ferramenta gratuita para Ingrid. Mudanca estrategica: Ingrid nao e cliente pagante, e fundadora do produto.",
+    "vereditos":  [
+                      {
+                          "veredito":  "DESCARTADO",
+                          "detalhe":  "Ferramenta sera dada gratuitamente a Ingrid. Sem cobranca R\\/mes. Ingrid permanece caso piloto -- dados anonimizados sao argumento comercial para proximas candidatas.",
+                          "id":  "D1"
+                      },
+                      {
+                          "veredito":  "A",
+                          "detalhe":  "Framing relativo ao edital -- implementar no template F-6 durante build Loop 8.",
+                          "id":  "D2"
+                      },
+                      {
+                          "veredito":  "DESCARTADO",
+                          "detalhe":  "Nao se aplica -- sem transacao comercial com Ingrid.",
+                          "id":  "D3"
+                      },
+                      {
+                          "veredito":  "A",
+                          "detalhe":  "Enviar mensagem de presenca humana esta semana. Nao mencionar pitch.",
+                          "id":  "D4"
+                      },
+                      {
+                          "veredito":  "A",
+                          "detalhe":  "Sequencia: M-3 (RLS dry-run) -\u003e N-4 (TTL expurgo) -\u003e N-3 (Heartbeat) -\u003e M-1 (telemetria)",
+                          "id":  "D5"
+                      }
+                  ]
+}
