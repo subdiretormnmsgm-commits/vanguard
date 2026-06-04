@@ -55,7 +55,7 @@
 | Alert | Severidade | Status |
 |---|---|---|
 | 470 respostas migradas podem estar sob user_id diferente do hardcoded | 🟡 Médio | A investigar no Loop 6 |
-| Token Supabase CLI `REVOKED_TOKEN...` exposto no chat | 🔴 Crítico | Eduardo deve deletar em supabase.com/dashboard/account/tokens |
+| Token Supabase CLI `[REDACTED]` exposto no chat | 🔴 Crítico — REVOGADO 2026-05-27 | Confirmado revogado pelo Diretor |
 | Histórico SM-2 pode não carregar (user_id discrepância) | 🟡 Médio | Monitorar na primeira sessão real da Ingrid |
 
 ---
