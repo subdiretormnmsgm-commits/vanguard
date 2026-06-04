@@ -38,3 +38,10 @@ CLIENTES/**/*.flac
 # Screenshots avulsas na raiz
 query*.png
 *.screenshot.png
+
+# n8n — exports de workflow podem conter credenciais (N-4 / HV-1)
+*.n8n.json
+n8n_exports/
+n8n_backups/
+.env.n8n
+scripts/n8n_config.ps1

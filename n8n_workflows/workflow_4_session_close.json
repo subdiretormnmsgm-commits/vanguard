@@ -1,0 +1,113 @@
+{
+  "name": "04 -- Session Close MEMORIA Update",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "session-close-vanguard",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhook-session",
+      "name": "Webhook Session Close",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "session-close-vanguard"
+    },
+    {
+      "parameters": {
+        "functionCode": "const payload = $input.item.json;\n\nconst cliente = payload.cliente || 'GERAL';\nconst principios = payload.principios || [];\nconst friccoes = payload.friccoes || [];\nconst dividas = payload.dividas || [];\nconst data = payload.data || new Date().toISOString().substring(0, 10);\nconst hora = payload.hora || new Date().toTimeString().substring(0, 5);\n\nconst resumoPrincipios = principios.length > 0 \n  ? principios.map((p, i) => `${i+1}. ${p}`).join('\\n')\n  : 'Nenhum principio novo esta sessao';\n\nconst resumoFriccoes = friccoes.length > 0\n  ? friccoes.map((f, i) => `${i+1}. ${f}`).join('\\n')\n  : 'Nenhuma friccao registrada';\n\nreturn [{\n  json: {\n    cliente,\n    principios,\n    friccoes,\n    dividas,\n    data,\n    hora,\n    resumoPrincipios,\n    resumoFriccoes,\n    totalPrincipios: principios.length,\n    totalFriccoes: friccoes.length,\n    totalDividas: dividas.length\n  }\n}];"
+      },
+      "id": "code-processar",
+      "name": "Processar Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "telegramApi",
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "CONFIGURE: ID do chat Telegram do Diretor",
+        "text": "Sessao encerrada -- {{ $json.data }} {{ $json.hora }}\nCliente ativo: {{ $json.cliente }}\n\nPrincipios (+{{ $json.totalPrincipios }}):\n{{ $json.resumoPrincipios }}\n\nFriccoes (+{{ $json.totalFriccoes }}):\n{{ $json.resumoFriccoes }}\n\nDividas tecnicas: {{ $json.totalDividas }}\n\nLEDGER atualizado localmente.",
+        "additionalFields": {}
+      },
+      "id": "telegram-sessao",
+      "name": "Telegram -- Resumo Sessao",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [680, 200],
+      "credentials": {
+        "telegramApi": {
+          "id": "CONFIGURE: ID da credencial Telegram",
+          "name": "Telegram Vanguard"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "pageId": "CONFIGURE: ID da pagina Notion de log de sessoes",
+        "properties": {
+          "values": [
+            {
+              "key": "Data",
+              "type": "title",
+              "titleValue": "={{ $json.data + ' ' + $json.hora + ' -- ' + $json.cliente }}"
+            },
+            {
+              "key": "Principios",
+              "type": "richText",
+              "textContent": "={{ $json.resumoPrincipios }}"
+            },
+            {
+              "key": "Friccoes",
+              "type": "richText",
+              "textContent": "={{ $json.resumoFriccoes }}"
+            },
+            {
+              "key": "Dividas",
+              "type": "number",
+              "numberValue": "={{ $json.totalDividas }}"
+            }
+          ]
+        }
+      },
+      "id": "notion-log",
+      "name": "Notion -- Log de Sessao",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [680, 420],
+      "credentials": {
+        "notionApi": {
+          "id": "CONFIGURE: ID da credencial Notion",
+          "name": "Notion Vanguard"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "connections": {
+    "Webhook Session Close": {
+      "main": [[{"node": "Processar Payload", "type": "main", "index": 0}]]
+    },
+    "Processar Payload": {
+      "main": [
+        [
+          {"node": "Telegram -- Resumo Sessao", "type": "main", "index": 0},
+          {"node": "Notion -- Log de Sessao", "type": "main", "index": 0}
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["vanguard", "session-close", "webhook", "fase1"],
+  "notes": "N-3: este webhook e chamado pelo session_close.ps1 em fire-and-forget. O PowerShell nao aguarda resposta. CONFIGURE: chatId Telegram + pageId Notion para log de sessoes."
+}

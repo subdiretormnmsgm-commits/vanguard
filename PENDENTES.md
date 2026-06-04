@@ -1,4 +1,4 @@
-# PENDENTES — Vanguard IAH
+﻿# PENDENTES — Vanguard IAH
 > Atualizado pelo Músculo em tempo real durante qualquer sessão.
 > O briefing matinal lê este arquivo — tudo aqui aparece às 7h.
 > Regra P-047: qualquer tarefa identificada como pendente → registrar aqui IMEDIATAMENTE.
@@ -147,3 +147,28 @@
   Desbloqueado após: Hypercare Valdece encerrar (18-06-2026).
   DECISOES registradas em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/DECISOES_N8N_NOTION_2026-06-04.json
 
+## PROCESSO / INFRA -- n8n FASE 1 (adicionado 2026-06-04)
+
+- [ ] `2026-06-18+` **n8n -- Criar 4 JSONs de workflow prontos para importar:** [musculo]
+  Workflow 1: check-in 7h/13h/20h via cron + Notion + Telegram.
+  Workflow 2: monitor Supabase horario (ping HTTP + alerta Telegram se falhar).
+  Workflow 3: webhook GitHub push (recebe payload + atualiza Notion).
+  Workflow 4: session_close webhook (recebe principios LEDGER + grava no Notion).
+  Diretor NAO digita codigo -- importa JSON via interface visual do n8n.
+  Gate: criar antes de 18-06-2026 para entregar pronto no Dia 1.
+
+- [ ] `2026-06-18+` **n8n -- Roteiro de instalacao EasyPanel (para Diretor):** [musculo]
+  Documento visual passo a passo: onde clicar, o que digitar, como verificar.
+  Inclui: instalar n8n no EasyPanel + variaveis de ambiente + gate de RAM.
+  Nivel: Diretor sem experiencia tecnica consegue seguir sozinho.
+  Gate: criar antes de 18-06-2026.
+
+- [ ] `2026-06-18+` **n8n -- Roteiro de configuracao de credenciais (para Diretor):** [musculo]
+  Guia de como preencher cada credencial no n8n (interface visual -- sem codigo).
+  Campos: Telegram token, Supabase URL/key, GitHub PAT, Notion API key.
+  Gate: criar antes de 18-06-2026.
+
+- [ ] `2026-06-04` **Embaixador V4.0 -- Mandato 19: solicitar Perfis de Nicho EdTech e LegalTech V1:** [diretor]
+  Eduardo abre Claude Projects e cola o bloco abaixo no Embaixador Ingrid (nicho EdTech) e Embaixador Valdece (nicho LegalTech):
+  "Estou construindo o segundo cliente do nicho [EdTech-Concurso / LegalTech-Criminal]. Com base no que voce sabe sobre [Ingrid / Valdece], crie o Perfil de Nicho V1: (a) perfil psicografico do cliente-tipo, (b) objecoes mais previstas, (c) sinal de churn a monitorar, (d) diferencial mais valorizado neste nicho. Formato: 4 blocos nomeados."
+  Resultado: Musculo recebe, valida via protocolo M-21 e inscreve principios aprovados.

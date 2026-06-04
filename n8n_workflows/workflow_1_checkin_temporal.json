@@ -1,0 +1,83 @@
+{
+  "name": "01 -- Check-in Temporal 7h 13h 20h",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {"field": "hours", "hoursInterval": 1}
+          ]
+        }
+      },
+      "id": "cron-trigger-1",
+      "name": "Cron -- 7h 13h 20h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7,
+              "triggerAtMinute": 0
+            },
+            {
+              "triggerAtHour": 13,
+              "triggerAtMinute": 0
+            },
+            {
+              "triggerAtHour": 20,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "const hora = new Date().getHours();\nlet periodo = 'TARDE';\nif (hora >= 5 && hora < 12) periodo = 'MANHA';\nif (hora >= 18) periodo = 'NOITE';\n\nconst saudacoes = {\n  MANHA: 'Bom dia, Diretor.',\n  TARDE: 'Boa tarde, Diretor.',\n  NOITE: 'Boa noite, Diretor.'\n};\n\nreturn [{\n  json: {\n    periodo: periodo,\n    saudacao: saudacoes[periodo],\n    hora: hora,\n    data: new Date().toLocaleDateString('pt-BR'),\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "code-periodo",
+      "name": "Detectar Periodo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "telegramApi",
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "CONFIGURE: ID do chat Telegram do Diretor",
+        "text": "={{ $json.saudacao }}\n\nCheck-in Vanguard IAH -- {{ $json.data }}\n\nStatus dos projetos:\n- Ingrid: ver PENDENTES\n- Valdece: Hypercare ate 18/06\n\nUse /status para ver detalhes.",
+        "additionalFields": {}
+      },
+      "id": "telegram-checkin",
+      "name": "Telegram -- Enviar Check-in",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [680, 300],
+      "credentials": {
+        "telegramApi": {
+          "id": "CONFIGURE: ID da credencial Telegram criada",
+          "name": "Telegram Vanguard"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cron -- 7h 13h 20h": {
+      "main": [[{"node": "Detectar Periodo", "type": "main", "index": 0}]]
+    },
+    "Detectar Periodo": {
+      "main": [[{"node": "Telegram -- Enviar Check-in", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["vanguard", "checkin", "fase1"],
+  "notes": "CONFIGURE antes de ativar: (1) chatId do Telegram, (2) ID da credencial Telegram. Ativar toggle apos configurar."
+}

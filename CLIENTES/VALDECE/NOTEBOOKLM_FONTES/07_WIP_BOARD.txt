@@ -1,105 +1,62 @@
-﻿WIP BOARD -- PENTALATERAL IAH
-Atualizado: 2026-06-04 | Script: atualizar_wip_board_txt.ps1
-Referencia base: 2026-06-04 (ultima atualizacao manual)
+﻿WIP BOARD — PENTALATERAL IAH
+Atualizado em: 2026-06-01
+WIP Limits: BUILD=2  CHECK=1
 
-==================================================
-PROJETOS ATIVOS
-==================================================
+==============================
+COLUNA: BUILD
+==============================
 
---- PROJ-002 - Ingrid ---
-Status: RETAINER -- Loop 8 CONCLUIDO -- produto entregue -- depoimento capturado
-Stack: PWA + Supabase + Claude API
-Prova cliente: 2026-09-06
-Loop 8: Gemini=OK | NotebookLM=OK | Embaixador=OK | Musculo=OK
-Proximo: Loop 9 -- Gate 7.2 RLS + captacao 2a candidata antes 04-07-2026
-Decisoes fixadas:
-  fonte_questoes: Claude API -- sem scraping (P-003)
-  auth: single-user -- sem login complexo
-  modelos_api: Haiku (gerais + dicas socraticas) / Sonnet (especificos)
-  burn_rate: BURN_RATE_DAILY_LIMIT_USD=5.00
-Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa,
-                dia6_8_tutor_fallback, dia9_11_heatmap_simulado,
-                dia12_contador_socratica_vacina_push_cb
-URL publica: https://subdiretormnmsgm-commits.github.io/vanguard/
-Churn watch threshold: 5 dias
-Formalizador: Termo_Uso_Ingrid_PROJ002_30052026.pdf -- ASSINADO 2026-05-18
+-------------------------------
+PROJETO: PROJ-002 — Ingrid
+  Descricao : Ferramenta de Estudo â€” Concurso Sedes-DF
+  Area      : EdTech Â· Concursos PÃºblicos
+  Camada    : 2 (Produto â€” 15 dias)
+  Stack     : PWA + Supabase + Claude API
+  Deadline  : 2026-05-30
+  Status    : Loop 8 -- iniciando -- Telemetria + RLS + Monetizacao
+  Loop atual: Loop 7 CONCLUIDO â€” MEMORIA_V7 + relatorio_V7 + DELIBERACAO_V7 gerados Â· Loop 8 PENDENTE â€” aguarda Gemini PASSO3
+  Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado, dia12_contador_socratica_vacina_push_cb
+  Gates bloqueantes:
+    dia2: 10 questoes avaliadas por Eduardo â€” rubrica media >= 4/5
+    dia5: Feed exibe plano correto 7 dias com proporcao correta
+    dia8: Ingrid responde 10 questoes â€” progresso salvo â€” fallback testado
+    dia11: Heatmap correto + simulado domingo completo
+    dia15: Ingrid com acesso admin proprio Supabase
+  Decisoes fixadas:
+    fonte_questoes: Claude API â€” sem scraping (P-003)
+    auth: single-user â€” sem login complexo
+    cache: gerar lote 50 quando < 30 questoes disponiveis
+    proporcao_feed: 70% Peso 2 / 30% Peso 1
+    modelos_api: Haiku (gerais + dicas socraticas) / Sonnet (especificos)
+    burn_rate: BURN_RATE_DAILY_LIMIT_USD=5.00
+    fallback: trigger 70% da cota diaria
+    spaced_repetition: SM-2 intervalo variavel
+    push_vs_email: push no MVP / email com tracking no Loop 2
+    comentario_erro: Opcao A (Dias 3-5): explicacao direta do banco + Opcao B (Dias 6-8): Tutor Socratico Haiku
+  Proximo passo: Loop 5 CONCLUIDO Â· Loop 6: Gemini PASSO3 â†’ ingrid-v6.md â†’ Embaixador â†’ build Â· Sentinel CHURN-WATCH ativo Â· Pitch SaaS R$97/mÃªs ao verbalizar uso ativo
+  Loops programados:
+    Loop 1 (Kickoff): concluido
+    Loop 2 (Gate Dia 5): concluido
+    Loop 3 (Gate Dia 11): concluido
+    Loop 4 (Handoff Dia 15): concluido
 
---- PROJ-001 - Valdece ---
-Status: HYPERCARE ate 18-06-2026 -- Sistema LIVE -- Sentinel ativo
-Stack: PWA + Supabase + Claude API
-Valor: R
-Loop 7: Gemini=OK | NotebookLM=OK | Embaixador=OK | Musculo=PENDENTE
-Proximo: Musculo -- P-037 sintese Loop 7 Valdece -- DELIBERACAO_LOOP_V7_VALDECE.md
-Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui,
-                dia4_gate_abnt_threshold_toga, dia5_corpus_deploy_demo
-Deploy: https://toga-digital-valdece.netlify.app
-Corpus: 61 acordaos -- 22 temas -- threshold 0.45 -- latencia 2.1-3.4s
-Formalizador: Contrato_Toga_Digital_Valdece_19052026.pdf -- ASSINADO 2026-05-19
-Sentinel Report previsto: 2026-06-02
-Churn watch threshold: 3 dias
+-------------------------------
+PROJETO: PROJ-001 — Valdece
+  Descricao : Ferramenta de Busca JurisprudÃªncia STF/STJ
+  Area      : Legal Tech Â· Direito Penal
+  Camada    : 1 (MVP Alto Impacto)
+  Stack     : 
+  Deadline  : 2026-05-23
+  Status    : Sistema LIVE Â· Contrato ASSINADO 2026-05-19 Â· R Â· V3 pipeline desbloqueado
+  Loop atual: Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â€” toga-digital-valdece.netlify.app ativo
+  Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui, dia4_gate_abnt_threshold_toga, dia5_corpus_deploy_demo
+  Proximo passo: V3 ENTREGUE â€” Deploy Netlify (Diretor) + Sentinel Report 2026-06-02
 
-==================================================
-INFRA INTERNA -- PENTALATERAL
-==================================================
-
-Status: PLANEJAMENTO -- FASE 0 CONCLUIDA
-n8n FASE 1: desbloqueado apos 18-06-2026 (Hypercare Valdece encerra)
-  4 workflows: check-ins 7h/13h/20h + monitor Supabase horario + webhook GitHub + formulario->MEMORIA
-Notion: cockpit interno (ARQ-1) -- zero visibilidade de cliente
-OpenClaw: V2 -- gateway AI multi-canal -- apos n8n estabilizar 30 dias
-Data inicio build: 19-06-2026
-Skill gerada: pentalateral-stack-v1.md (NotebookLM -- 2026-06-05)
-
-Gates bloqueantes FASE 1:
-  Gate Prefixos: lista Telegram (/mem, /status, /alerta) deve estar definida antes do 1o workflow
-  Gate Hardware: verificar RAM livre no EasyPanel antes de qualquer deploy n8n
-
-PROIBIDO na FASE 1:
-  - Interface de login proprietaria ou espelhamento externo
-  - Permissao de edicao manual no Notion para o Diretor
-  - Acoplar OpenClaw antes de 30 dias de uptime n8n
-  - Refatorar CLAUDE.md ou session_close.ps1
-
-==================================================
+==============================
 PERFIS DE NICHO
-==================================================
-
-EdTech-Concurso:      maturidade=60% | status=consolidado parcial | ref=PROJ-002 Ingrid
-Legal-Tech-Criminal:  maturidade=75% | status=CONTRATO ASSINADO 2026-05-19 | ref=PROJ-001 Valdece
-Medico-Prova-Especialidade: GO aprovado 2026-05-19 -- aguarda Gemini PASSO3
-Contabilidade-PME:    GO aprovado 2026-05-19 -- aguarda Gemini PASSO3
-Psicologo-Clinico:    GO aprovado 2026-05-19 -- aguarda Gemini PASSO3
-
-==================================================
-POLITICA DO BOARD
-==================================================
-
-regra_1: Nada entra em BUILD sem Briefing aprovado pelo Diretor
-regra_2: Nada sai de BUILD sem check_leis.ps1 aprovado
-regra_3: Nada vai para ENTREGUE sem Sovereign Playbook gerado
-regra_4: Sentinel do cliente atual validado antes de novo projeto entrar em BUILD
-regra_5: Retainer so apos 30 dias de dados reais do Sentinel
-
-==================================================
-PRINCIPIOS CRITICOS ATIVOS
-==================================================
-
-P-001: Claude Code nao e daemon autonomo -- automacao exige Claude API + n8n
-P-003: Scraping de terceiros e dependencia, nao ativo
-P-008: Primeiro cliente de nicho e canal de distribuicao, nao MRR
-P-059: Isolamento de contexto por cliente e lei -- nunca confundir projetos
-P-060: Musculo e responsavel por toda propagacao -- zero intervencao do Diretor
-P-099: Ping Supabase obrigatorio no onboarding -- previne pausa free tier
-P-100: Embaixador opera por RAG -- design do PASSO7 deve usar termos exatos e nomes de secao
-
-==================================================
-META
-==================================================
-
-data_ultima_sessao: 2026-06-04
-loops_desde_ultimo_checkup: 1
-data_ultimo_checkup: 2026-05-27
-
-==================================================
-FIM DO WIP BOARD
-==================================================
+==============================
+  EdTech-Concurso: maturidade=60% status=consolidado parcial
+  Legal-Tech-Criminal: maturidade=75% status=CONTRATO ASSINADO 2026-05-19 â€” V3 desbloqueado â€” Loop 7 iniciando
+  MÃ©dico-Prova-Especialidade [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini
+  Contabilidade-PME [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini
+  PsicÃ³logo-ClÃ­nico-AutÃ´nomo [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini

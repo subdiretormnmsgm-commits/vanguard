@@ -1,0 +1,48 @@
+n8n 2
+O QUE MUDA DE FATO
+
+  Camada operacional — do manual para o automático:
+
+  ┌─────────────────────────────────────────┬──────────────────────────────────────────────────┐
+  │              Hoje (manual)              │             Com o stack (automático)             │
+  ├─────────────────────────────────────────┼──────────────────────────────────────────────────┤
+  │ WIP_BOARD.json editado pelo Músculo     │ Notion database escrito pelo n8n                 │
+  ├─────────────────────────────────────────┼──────────────────────────────────────────────────┤
+  │ PENDENTES.md em Markdown                │ Tasks no Notion atualizadas por webhook          │
+  ├─────────────────────────────────────────┼──────────────────────────────────────────────────┤
+  │ Check-in Telegram manual                │ n8n dispara às 7h/13h/20h sem ação do Diretor    │
+  ├─────────────────────────────────────────┼──────────────────────────────────────────────────┤
+  │ MEMORIA_EMBAIXADOR atualizada na sessão │ Formulário → n8n → atualiza Supabase/Notion      │
+  ├─────────────────────────────────────────┼──────────────────────────────────────────────────┤
+  │ Diretor abre terminal para ver estado   │ Diretor abre URL do Notion                       │
+  ├─────────────────────────────────────────┼──────────────────────────────────────────────────┤
+  │ Eduardo fala com Claude pelo terminal   │ Eduardo fala com Claude pelo WhatsApp (OpenClaw) │
+  └─────────────────────────────────────────┴──────────────────────────────────────────────────┘
+
+  Documentos que precisam ser reescritos:
+  - session_close.ps1 — parte do ritual vira automação n8n
+  - session_start.ps1 — check-in de estado vem do Notion, não de leitura de arquivos
+  - CLAUDE.md — protocolo operacional muda de "ler PENDENTES.md" para "consultar estado no Notion"
+  - PENDENTES.md — pode deixar de existir como arquivo
+  - Scripts de alerta Telegram — substituídos por n8n workflows
+
+  O QUE NÃO MUDA
+
+  O núcleo do Pentalateral é deliberação + inteligência acumulada — isso não automatiza:
+  - INTELLIGENCE_LEDGER — continua sendo a fonte de princípios
+  - O ciclo Gemini → NotebookLM → Embaixador → Músculo
+  - O Veredito do Diretor — continua sendo humano por design
+  - As Skills — continuam sendo o DNA do processo
+  - O CLAUDE.md como constituição — muda o como opera, não o por que existe
+
+  ---
+  O ALERTA DO MÚSCULO
+
+  O risco de "nova era" sem planejamento: construir o stack e os documentos não acompanharem. O sistema fica híbrido —
+  metade em Markdown, metade em Notion, ninguém sabe onde está a verdade.
+
+  A decisão que o Gemini precisa responder — e que já está no PASSO3 que escrevemos — é exatamente essa: qual é o plano
+  de migração? O que vira Notion primeiro? O que fica em Markdown até a V2?
+
+  A grandeza da mudança confirma que a decisão de ir ao Gemini antes de construir qualquer coisa foi a certa. O
+  Estrategista precisa ver o escopo real antes de você virar uma chave que muda o sistema inteiro.

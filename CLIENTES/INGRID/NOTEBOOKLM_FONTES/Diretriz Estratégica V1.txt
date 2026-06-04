@@ -1,0 +1,164 @@
+ Diretriz Estratégica V1 — Stack Interno Pentalateral — 2026-06-05
+
+`MUDANÇA_DE_TESE`: A introdução do OpenClaw altera a premissa de isolamento do terminal, pois introduz uma camada gateway multi-canal auto-hospedada. Contudo, mantém-se o veto de implementação imediata na FASE 1 para mitigar riscos de infraestrutura interna e sobrecarga de memória no EasyPanel, movendo o WhatsApp bidirecional estrategicamente para a V2.
+
+---
+
+```
+REFORMULAÇÃO_DO_PROBLEMA:
+  Problema declarado: qual stack mínimo entre n8n, OpenClaw e Notion para o Pentalateral?
+  Reformulação 1: Como unificar a visualização operacional do Diretor sem transformá-lo em administrador de infraestrutura de múltiplos servidores e conexões de mensageria.
+  Reformulação 2: Qual arquitetura de automação mitiga o risco de competição por memória RAM no EasyPanel, protegendo a estabilidade dos ambientes de Ingrid e Valdece.
+  Reformulação mais simples: O n8n, isoladamente, atende a 80% das demandas de orquestração e check-in automáticos na FASE 1, consolidando dados diretamente no Notion.
+
+```
+
+```
+POSIÇÃO_ADVERSARIAL_OBRIGATÓRIA:
+  Argumento mais forte contra a minha própria conclusão: A inclusão imediata do OpenClaw na FASE 1 liberaria o Diretor do terminal de forma instantânea, permitindo deliberações com o Claude via WhatsApp durante compromissos externos.
+  Por que mesmo assim mantenho a tese: O setup de gateways de mensageria auto-hospedados excede o limite estrito de 4 horas, adiciona risco de bloqueio de contas por uso de APIs não-oficiais de WhatsApp [SINAL_FRACO] e degrada os recursos de hardware do EasyPanel antes da estabilização do Hypercare do Valdece.
+
+```
+
+---
+
+## BLOCO 0 — DIAGNÓSTICO
+
+O risco real desta decisão reside na fragmentação da infraestrutura interna e no consumo prematuro de recursos do EasyPanel. Por conseguinte, a pressa em implementar o OpenClaw antes da consolidação do n8n criará colisões de escopo nos canais de notificação, gerando loops duplicados no Telegram. Adicionalmente, caso a sequência de setup seja invertida, o Pentalateral perderá a centralização lógica no Notion, forçando o Diretor a gerenciar estados operacionais brutos em arquivos JSON locais enquanto tenta depurar conexões instáveis de mensageria em tempo real.
+
+---
+
+## BLOCO 1 — PRIORIDADES DE SETUP (MÁXIMO 3)
+
+### 1. n8n Core Orchestrator
+
+* **O que configura:** Implantação do n8n via Docker no EasyPanel com os 4 workflows essenciais: check-ins programados (7h/13h/20h), monitoramento horário de status do Supabase, recebimento de webhooks do GitHub e o formulário estruturado para injeção direta de dados na MEMORIA.
+* **Por que é prioritária:** Centraliza a camada lógica de eventos e substitui os disparos manuais do Diretor sem criar dependências externas complexas.
+* **Estimativa de horas:** 3 horas de setup real decompostas (1h deploy da imagem e variáveis de ambiente no EasyPanel + 2h desenvolvimento e amarração das credenciais de APIs dos 4 workflows planejados).
+
+### 2. Notion Visual Dashboard (ARQ-1)
+
+* **O que configura:** Estruturação das bases de dados internas do Notion para o WIP_BOARD visual e centralização das atualizações da MEMORIA_EMBAIXADOR.
+* **Por que é prioritária:** Elimina a necessidade de abertura do terminal para leitura de arquivos JSON locais, cumprindo a meta de centralização visual.
+* **Estimativa de horas:** 1 hora de setup real (30min modelagem das propriedades das tabelas relacionais + 30min homologação de tokens de integração integrados ao nó nativo do n8n).
+
+> **O que fica de fora da FASE 1:** O OpenClaw é inteiramente postergado para a V2. Esta decisão é mandatória porque o tempo de provisionamento de sessões multi-canal e a homologação de instâncias de WhatsApp superam o teto de 4 horas de setup da primeira fase, apresentando risco de instabilidade na RAM do servidor compartilhado com os clientes ativos.
+
+---
+
+## BLOCO 2 — ARQUITETURA DE RESPONSABILIDADE
+
+* **Check-in 7h** $\rightarrow$ O n8n dispara o gatilho temporal, consome o estado atualizado do Notion e envia o briefing consolidado diretamente para o Telegram bot ativo.
+* **Supabase alarme** $\rightarrow$ O n8n monitora as instâncias via requisição HTTP horária e aciona o Telegram bot imediatamente em caso de indisponibilidade de algum projeto.
+* **GitHub push** $\rightarrow$ O webhook do repositório intercepta o commit e envia o payload para o n8n, que atualiza automaticamente o status da tarefa correspondente no Notion.
+* **Diretor fala no WhatsApp** $\rightarrow$ *[FASE 1]* Rota indisponível; o Diretor utiliza o Telegram bot ativo para pings ou o terminal local. *[V2]* O OpenClaw intercepta a mensagem, gerencia o sessionamento, aciona a Claude API e devolve o texto formatado no WhatsApp.
+* **Sessão fecha $\rightarrow$ MEMORIA atualiza** $\rightarrow$ O script local `session_close.ps1` aciona um webhook do n8n que empacota os novos princípios do LEDGER e escreve na base de dados do Notion.
+* **WIP_BOARD muda $\rightarrow$ Notion atualiza** $\rightarrow$ O script local `executar_vereditos.ps1` atualiza o repositório Git e envia uma chamada HTTP para o n8n sincronizar o estado visual no Notion.
+
+---
+
+## BLOCO 3 — DIRETRIZ TÉCNICA
+
+### $\rightarrow$ [PARA O MÚSCULO]:
+
+Executar a criação do arquivo de especificação técnica `/pentalateral-stack-v1.md` adotando estritamente a ordem determinada no BLOCO 1. Adicionalmente, proíbe-se o build de qualquer interface de login ou espelhamento externo na FASE 1, mantendo o ecossistema protegido pela infraestrutura interna do EasyPanel. O Músculo deve estruturar gates de verificação rígidos ao término de cada hora de configuração, monitorando ativamente o consumo de memória do servidor para evitar degradação de performance nos ambientes ativos da Ingrid e do Valdece. Diante de qualquer sinal de fadiga de hardware ou travamento de containers, o Músculo interromperá o processo imediatamente, reportando os logs estruturados ao Diretor.
+
+### $\rightarrow$ [VISÃO DE LONGO PRAZO]:
+
+Em 3 meses, o Pentalateral operará com zero manutenção manual de estado, consolidando o Notion como a torre de controle executiva do Diretor. Por consequência, a arquitetura de orquestração isolada permitirá o onboarding imediato do 3º cliente sem custos adicionais de engenharia, visto que os fluxos de monitoramento do Supabase e webhooks de repositórios estarão parametrizados de forma universal.
+
+### $\rightarrow$ [PARA O EMBAIXADOR]:
+
+O Embaixador deverá monitorar o comportamento do Diretor nos primeiros 30 dias de n8n operacional para mensurar a taxa de adoção do cockpit visual. É imperativo observar se as tomadas de decisão comercial ocorrem diretamente através do espelho do Notion ou se ainda há recorrência excessiva a comandos manuais de terminal. Essa métrica de fricção de usabilidade é fundamental para justificar o momento exato de ativação da V2 com o OpenClaw no WhatsApp.
+
+---
+
+### RESPOSTA ÀS 5 IDEIAS DO MÚSCULO [M-1 a M-5]
+
+* **M-1 (n8n na FASE 1, OpenClaw na V2):** **APROVADA**. Garante a entrega previsível das automações críticas sem expor a infraestrutura a riscos de mensageria instável no curto prazo. *Estimativa: 3 horas.*
+* **M-2 (Notion como destino via n8n):** **APROVADA**. Sincroniza o ecossistema e elimina a duplicidade de digitação ao converter o JSON local em registros visuais estruturados de forma nativa. *Estimativa: 1 hora.*
+* **M-3 (OpenClaw para WhatsApp bidirecional):** **MODIFICADA**. Ideia conceitualmente válida, mas integralmente realocada para o backlog da V2 devido às restrições de tempo de setup e risco iminente de bloqueio de números sem provedor oficial [SINAL_FRACO]. *Estimativa: 0 horas na FASE 1.*
+* **M-4 (Matriz de responsabilidade por evento):** **APROVADA**. Essencial para blindar o sistema contra loops redundantes de notificações nos canais de comunicação corporativa. *Estimativa: 30 minutos (incorporada ao setup do n8n).*
+* **M-5 (EasyPanel como fator de restrição):** **APROVADA**. Diagnóstico cirúrgico correto; a preservação da memória RAM para os projetos clientes ativos sobrepõe-se à vaidade tecnológica de ferramentas internas sofisticadas. *Estimativa: 30 minutos (configuração de limits nos containers).*
+
+---
+
+## BLOCO 4 — PRÓXIMOS PASSOS DO DIRETOR
+
+1. **Aprovar o orçamento de recursos no EasyPanel:** Acessar o dashboard do EasyPanel, verificar a disponibilidade de memória RAM livre e autorizar a reserva de 512MB para o container do n8n.
+2. **Criar credenciais de integração do Notion:** Acessar `notion.so/my-integrations`, gerar um novo token interno de API com permissões de escrita e compartilhá-lo no arquivo de configuração do Pentalateral.
+3. **Determinar a data limite para o início do setup:** Fixar o dia 19-06-2026 como o marco definitivo para o Músculo iniciar o build dos 4 workflows do n8n, respeitando o encerramento do Hypercare do Valdece.
+
+---
+
+## SUAS 5 IDEIAS DISRUPTIVAS [G-1 a G-5]
+
+### [G-1] [CONTRA-INTUITIVO] Notion como Espelho Stateless Volátil
+
+* **O que é:** Configurar as tabelas do Notion sem permissão de edição para o usuário, atuando estritamente como um terminal visual passivo atualizado exclusivamente por webhooks estruturados vindos do n8n.
+* **Impacto estimado:** Elimina o risco de corrupção de dados por cliques acidentais do Diretor na interface web, forçando o cumprimento estrito do fluxo onde scripts locais geram a verdade factual.
+* **Pergunta ao Músculo:** O nó nativo do n8n possui suporte para travar a edição de blocos via API após a escrita inicial?
+* **ARCO_DE_CONSEQUÊNCIAS:**
+* Mês 1: O Diretor visualiza o progresso sem o risco de desalinhar os status operacionais com o repositório Git local.
+* Mês 3: Consolidação absoluta da integridade dos dados, eliminando discrepâncias entre o disco e a interface visual.
+* Mês 6: Capacidade de expor painéis de portfólio para parceiros estratégicos sem expor a lógica interna de arquivos JSON.
+
+
+
+### [G-2] O Comando de Contingência via Telegram Ativo
+
+* **O que é:** Reaproveitar a estrutura do bot do Telegram que já está funcionando hoje para injetar inputs rápidos na MEMORIA, contornando a ausência temporária do WhatsApp/OpenClaw na FASE 1.
+* **Impacto estimado:** Fornece mobilidade operacional imediata ao Diretor para interagir com o ecossistema via celular sem demandar uma nova infraestrutura de mensageria.
+* **Pergunta ao Músculo:** Como o n8n pode escutar o bot do Telegram atual sem criar colisão com os scripts locais que já realizam disparos ativos?
+* **ARCO_DE_CONSEQUÊNCIAS:**
+* Mês 1: Deliberações rápidas de rua são executadas via Telegram, salvando insights no Notion em tempo real.
+* Mês 3: Histórico de comandos padronizado, facilitando a migração para qualquer outro canal de mensageria na V2.
+* Mês 6: Estrutura estável que permite delegar pings operacionais para assistentes sem dar acesso ao repositório de código.
+
+
+
+### [G-3] [CONTRA-INTUITIVO] Bloqueio de Entrada Direta de Prompt no Gateway
+
+* **O que é:** Vetar a conexão direta do OpenClaw com a Claude API na V2; toda mensagem recebida deve ser enfileirada no n8n como um payload de evento para análise de segurança antes da execução do LLM.
+* **Impacto estimado:** Protege o Pentalateral contra custos ocultos de loops infinitos de mensagens e tentativas de injeção de prompt via canais externos públicos.
+* **Pergunta ao Músculo:** Qual a latência adicional introduzida ao rotear uma mensagem do OpenClaw através de um webhook do n8n antes de atingir a Anthropic API?
+* **ARCO_DE_CONSEQUÊNCIAS:**
+* Mês 1: Segurança total contra mensagens duplicadas ou disparos fantasmas de instâncias de WhatsApp de terceiros.
+* Mês 3: Auditoria centralizada de custos de tokens diretamente na fila do n8n antes do consumo real da API.
+* Mês 6: Governança robusta que viabiliza a criação de assistentes comerciais externos blindados contra abusos de requisições.
+
+
+
+### [G-4] O Watchdog de Hardware do EasyPanel
+
+* **O que é:** Um workflow secundário de baixa prioridade no n8n que consome a API do EasyPanel para monitorar o uso de RAM e CPU de todos os containers ativos no servidor da Vanguard.
+* **Impacto estimado:** Transforma o sistema interno em uma sentinela proativa, notificando o Diretor antes que uma sobrecarga de hardware derrube as aplicações de Ingrid ou Valdece.
+* **Pergunta ao Músculo:** O EasyPanel disponibiliza endpoints nativos de telemetria de hardware acessíveis via autenticação por API token?
+* **ARCO_DE_CONSEQUÊNCIAS:**
+* Mês 1: Mitigação total de quedas silenciosas por falta de memória no servidor compartilhado.
+* Mês 3: Histórico de consumo mapeado, gerando dados empíricos para determinar o momento exato de upgrade do VPS.
+* Mês 6: Infraestrutura interna operando com previsibilidade matemática, suportando dezenas de instâncias de clientes em ambiente isolado.
+
+
+
+### [G-5] O Buffer de Notificação Soberana
+
+* **O que é:** Agrupador lógico no n8n que retém alertas não-urgentes de GitHub e Supabase, compilando-os em um único boletim unificado a cada 4 horas no Telegram, em vez de disparar pings isolados contínuos.
+* **Impacto estimado:** Protege o foco e o tempo de atenção do Diretor, eliminando a fadiga de notificações sem perder a rastreabilidade dos eventos operacionais.
+* **Pergunta ao Músculo:** Como estruturar o nó de armazenamento temporário no n8n para acumular payloads de webhooks antes do disparo consolidado?
+* **ARCO_DE_CONSEQUÊNCIAS:**
+* Mês 1: Redução drástica do ruído de comunicação diário; o Diretor recupera o controle do timing de leitura das atualizações.
+* Mês 3: Padrões de commits limpos e organizados por blocos de entrega visual no painel do Notion.
+* Mês 6: Capacidade de gerenciar múltiplos projetos simultâneos sem que o volume de notificações de deploy inviabilize a rotina do Diretor.
+
+
+
+---
+
+```
+TRADUÇÃO_PARA_AÇÃO:
+  Decisão que o Diretor pode tomar com esta DIRETRIZ: Aprovar o adiamento do OpenClaw para a V2 e autorizar o n8n + Notion como o stack mínimo exclusivo da FASE 1 após 18-06-2026.
+  Próximo passo se GO: O Músculo cria a especificação técnica pentalateral-stack-v1.md e bloqueia o backlog interno até o fim do Hypercare do Valdece.
+  Próximo passo se NO-GO: O Diretor redefine as prioridades de canais móveis e apresenta nova evidência para justificar o overhead de setup do OpenClaw.
+
+```

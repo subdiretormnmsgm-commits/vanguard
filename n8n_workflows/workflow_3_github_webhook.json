@@ -1,0 +1,66 @@
+{
+  "name": "03 -- GitHub Webhook Push",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "github-vanguard",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhook-github",
+      "name": "Webhook GitHub Push",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "github-vanguard-push"
+    },
+    {
+      "parameters": {
+        "functionCode": "const payload = $input.item.json;\n\nconst commits = payload.commits || [];\nconst repoName = payload.repository?.full_name || 'desconhecido';\nconst branch = payload.ref?.replace('refs/heads/', '') || 'main';\nconst pusher = payload.pusher?.name || 'Musculo';\n\nconst ultimoCommit = commits[commits.length - 1];\nconst mensagem = ultimoCommit?.message || 'sem mensagem';\nconst sha = ultimoCommit?.id?.substring(0, 7) || '0000000';\n\n// Detectar RESOLVE\nconst temResolve = mensagem.includes('[RESOLVE:');\nconst pendente = temResolve ? mensagem.match(/\\[RESOLVE:\\s*([^\\]]+)\\]/)?.[1] : null;\n\nreturn [{\n  json: {\n    repoName,\n    branch,\n    pusher,\n    mensagem,\n    sha,\n    totalCommits: commits.length,\n    temResolve,\n    pendente,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "code-extrair",
+      "name": "Extrair Dados do Push",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "telegramApi",
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "CONFIGURE: ID do chat Telegram do Diretor",
+        "text": "Commit detectado -- {{ $json.repoName }}\n\n{{ $json.sha }} | {{ $json.branch }}\n{{ $json.mensagem }}\n\n{{ $json.temResolve ? 'RESOLVE: ' + $json.pendente : 'sem RESOLVE' }}\n\n{{ $json.timestamp.substring(0, 10) }} {{ $json.timestamp.substring(11, 16) }}",
+        "additionalFields": {}
+      },
+      "id": "telegram-commit",
+      "name": "Telegram -- Notificar Commit",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [680, 300],
+      "credentials": {
+        "telegramApi": {
+          "id": "CONFIGURE: ID da credencial Telegram",
+          "name": "Telegram Vanguard"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook GitHub Push": {
+      "main": [[{"node": "Extrair Dados do Push", "type": "main", "index": 0}]]
+    },
+    "Extrair Dados do Push": {
+      "main": [[{"node": "Telegram -- Notificar Commit", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["vanguard", "github", "webhook", "fase1"],
+  "notes": "APOS IMPORTAR: (1) Ativar workflow para gerar URL do webhook. (2) Copiar URL gerada pelo n8n. (3) No GitHub, ir em Settings > Webhooks > Add webhook > colar URL + secret. (4) Configurar chatId Telegram."
+}
