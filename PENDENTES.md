@@ -1,4 +1,4 @@
-﻿# PENDENTES — Vanguard IAH
+# PENDENTES — Vanguard IAH
 > Atualizado pelo Músculo em tempo real durante qualquer sessão.
 > O briefing matinal lê este arquivo — tudo aqui aparece às 7h.
 > Regra P-047: qualquer tarefa identificada como pendente → registrar aqui IMEDIATAMENTE.
@@ -142,7 +142,7 @@
 - [x] `2026-06-04` ~~**Sentinel Report Valdece — WhatsApp enviado:**~~
   ✅ Enviado pelo Diretor em 2026-06-04.
 
-- [ ] `2026-06-18+` **n8n FASE 1 — build EasyPanel após Hypercare Valdece:** [musculo]
+- [x] `2026-06-18+` **n8n FASE 1 — build EasyPanel após Hypercare Valdece:** [musculo]
   4 workflows: check-ins 7h/13h/20h + monitor Supabase horário + webhook GitHub + formulário campo→MEMORIA.
   Desbloqueado após: Hypercare Valdece encerrar (18-06-2026).
   DECISOES registradas em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/DECISOES_N8N_NOTION_2026-06-04.json
