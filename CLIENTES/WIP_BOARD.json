@@ -19,7 +19,7 @@
                                     "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "Loop 6 (Gemini V7) -- iniciando -- SaaS Readiness + pipeline comercial",
+                                    "status":  "Loop 8 -- iniciando -- Telemetria + RLS + Monetizacao",
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
@@ -143,12 +143,12 @@
                                                   },
                                     "proximo_passo":  "Loop 5 CONCLUIDO Â· Loop 6: Gemini PASSO3 â†’ ingrid-v6.md â†’ Embaixador â†’ build Â· Sentinel CHURN-WATCH ativo Â· Pitch SaaS R$97/mÃªs ao verbalizar uso ativo",
                                     "loop_fase_atual":  {
-                                                            "loop":  7,
+                                                            "loop":  8,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "OK",
-                                                            "embaixador":  "OK",
-                                                            "musculo":  "OK",
-                                                            "proximo":  "Gemini -- PASSO3 Loop 8"
+                                                            "notebooklm":  "PENDENTE",
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "PENDENTE",
+                                                            "proximo":  "NotebookLM -- PASSO5 -- gerar ingrid-v8.md"
                                                         },
                                     "churn_watch_threshold":  5,
                                     "relatorio_semanal":  true
