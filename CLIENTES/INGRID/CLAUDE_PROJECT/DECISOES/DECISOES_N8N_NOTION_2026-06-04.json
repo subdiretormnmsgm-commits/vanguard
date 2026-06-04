@@ -1,7 +1,7 @@
 {
     "iniciativa": "n8n + Notion no Pentalateral IAH",
     "data": "2026-06-04",
-    "status": "FASE_0_EM_ANDAMENTO",
+    "status": "FASE_0_CONCLUIDA",
     "decisoes": [
         {
             "id": "ARQ-1",
@@ -10,12 +10,29 @@
             "detalhe": "O cliente nunca sabe das ferramentas. A Vanguard e especialista — o produto entregue e o resultado, nao o processo. Zero views publicas. Zero acesso de cliente ao Notion.",
             "impacto_build": "Build simplificado — sem camada de permissoes nem views compartilhaveis. Notion e cockpit do Diretor, nada mais.",
             "data_veredito": "2026-06-04"
+        },
+        {
+            "id": "ARQ-2",
+            "tema": "Manutencao Soberana Valdece — gate removido",
+            "veredito": "NAO SE APLICA",
+            "detalhe": "Contrato Valdece: R$5k fixo + ZERO mensalidade. MEMORIA_EMBAIXADOR marca CRITICO: nunca mencionar mensalidade para este projeto. O numero R$900/mes citado pelos socios nao existe em nenhum contrato — foi erro de analise. P-062 nao se aplica: nao ha MRR proposto nem pendente para Valdece.",
+            "impacto_build": "Gate removido. FASE 0 liberada sem este requisito.",
+            "data_veredito": "2026-06-04"
+        },
+        {
+            "id": "ARQ-3",
+            "tema": "Sentinel Report Valdece",
+            "veredito": "CONCLUIDO",
+            "detalhe": "Sentinel Report Dia 16 gerado e pronto para envio. WhatsApp preparado para o Dr. Valdece. Arquivo: CLIENTES/VALDECE/HISTORICO/SENTINEL_REPORT_DIA16_2026-06-04.md",
+            "impacto_build": "Gate FASE 0 concluido.",
+            "data_veredito": "2026-06-04"
         }
     ],
     "gates_fase0": {
         "ARQ-1_decisao_notion": "CONCLUIDO",
-        "MRR_valdece_assinado": "PENDENTE",
-        "sentinel_valdece_entregue": "PENDENTE"
+        "ARQ-2_manutencao_valdece": "REMOVIDO — nao se aplica",
+        "ARQ-3_sentinel_valdece": "CONCLUIDO — aguarda envio pelo Diretor"
     },
-    "proximo_gate": "MRR_valdece_assinado"
+    "proximo_passo": "FASE 1 — apos 18-06-2026 — construir n8n no EasyPanel (4 workflows)",
+    "condicao_desbloqueio": "Hypercare Valdece encerra 18-06-2026. Apos essa data, Musculo inicia FASE 1."
 }
