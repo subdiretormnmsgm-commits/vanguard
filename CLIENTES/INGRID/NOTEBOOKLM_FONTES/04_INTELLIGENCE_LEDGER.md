@@ -1782,3 +1782,16 @@ Gates cobertos: Gate 1 (auditoria), Gate 5 (validate), Gate 6B (P-032), Gate 6C 
 **Validado em producao 2026-06-04:** testar_gates_criticos.ps1 executado. Gate 6B confirmou deteccao de VEREDITO hoje + MEMORIA desatualizada (resultado OK). Gates 1 e 5 retornaram INFO -- injecao de falha nao ativou o padrao especifico, mas logica de deteccao funcionou. Gate 6C detectou placeholders de sessao anterior (comportamento correto). Principio ativo com evidencia parcial -- cobertura completa de exit 1 real em proxima rodada apos mudanca de infraestrutura.
 
 **Aplica-se a:** qualquer script que avalia estado de conclusão a partir do WIP_BOARD — session_close, render_painel, validate_painel, check_diretriz_embaixador. Se o script consulta apenas um campo para declarar bloqueio ou conclusão, revisar.
+
+
+## DECISAO ESTRATEGICA — PROJ-002 INGRID (2026-06-04)
+**Diretor Eduardo · Veredito D1 Loop 8 · Irrevogavel neste ciclo.**
+
+Ingrid nao sera cobrada. A ferramenta sera entregue gratuitamente.
+Ingrid e a fundadora simbolica do produto Pentalateral EdTech -- seus dados anonimizados
+sao o argumento comercial para as proximas candidatas que poderao pagar R\/mes.
+O produto prova valor em Ingrid; escala nos proximos clientes.
+
+Regra derivada: o primeiro cliente piloto pode ter valor estrategico superior ao valor comercial.
+Cobrar Ingrid agora poderia contaminar a natureza da relacao e enfraquecer a narrativa de fundadora.
+Ingrid que passa no concurso e indica o proximo cliente vale mais que R\/mes.
