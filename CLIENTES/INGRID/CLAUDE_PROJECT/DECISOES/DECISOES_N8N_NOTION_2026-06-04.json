@@ -1,0 +1,21 @@
+{
+    "iniciativa": "n8n + Notion no Pentalateral IAH",
+    "data": "2026-06-04",
+    "status": "FASE_0_EM_ANDAMENTO",
+    "decisoes": [
+        {
+            "id": "ARQ-1",
+            "tema": "Notion — visibilidade para o cliente",
+            "veredito": "EXCLUSIVAMENTE INTERNO",
+            "detalhe": "O cliente nunca sabe das ferramentas. A Vanguard e especialista — o produto entregue e o resultado, nao o processo. Zero views publicas. Zero acesso de cliente ao Notion.",
+            "impacto_build": "Build simplificado — sem camada de permissoes nem views compartilhaveis. Notion e cockpit do Diretor, nada mais.",
+            "data_veredito": "2026-06-04"
+        }
+    ],
+    "gates_fase0": {
+        "ARQ-1_decisao_notion": "CONCLUIDO",
+        "MRR_valdece_assinado": "PENDENTE",
+        "sentinel_valdece_entregue": "PENDENTE"
+    },
+    "proximo_gate": "MRR_valdece_assinado"
+}
