@@ -120,11 +120,8 @@
 - [x] `2026-05-31` ~~**MEMORIA_EMBAIXADOR Ingrid — upload no Claude Projects:**~~
   ✅ Confirmado pelo Diretor 2026-06-01 — carregada no Claude Projects Ingrid.
 
-- [CLAUDE_PROJECTS (01-06-2026 segunda-feira)] INGRID -- upload: MEMORIA_EMBAIXADOR.md
-
-- [KNOWLEDGE_BASE (04-06-2026 quinta-feira)] Algum problema resolvido nesta sessao nao documentado? (P-050)
-
-- [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
+- [x] `2026-06-05` ~~**TESTE_PROCESSO_COMPLETO.md Bloco A — executado:**~~
+  ✅ Arquivo criado (fantasma resolvido) · A1 VERDE · A2 VERDE · A3 VERDE · A4 VERDE · P-050 VERDE (P-099 no LEDGER)
 
 - [ ] `2026-07-XX` **Ingrid — Gate 7.2 RLS refactor — pré-requisito multi-tenant:** [musculo]
   Sistema atual é single-user por design (USING true). Para 2ª candidata: adicionar Supabase Auth + substituir UUID localStorage por auth.uid() em todas as tabelas.
@@ -150,6 +147,3 @@
   Desbloqueado após: Hypercare Valdece encerrar (18-06-2026).
   DECISOES registradas em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/DECISOES_N8N_NOTION_2026-06-04.json
 
-- [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
-
-- [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
