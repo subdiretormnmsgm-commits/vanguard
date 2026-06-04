@@ -1784,22 +1784,6 @@ Gates cobertos: Gate 1 (auditoria), Gate 5 (validate), Gate 6B (P-032), Gate 6C 
 **Aplica-se a:** qualquer script que avalia estado de conclusão a partir do WIP_BOARD — session_close, render_painel, validate_painel, check_diretriz_embaixador. Se o script consulta apenas um campo para declarar bloqueio ou conclusão, revisar.
 
 
-## P-099 — PING SUPABASE OBRIGATORIO NO ONBOARDING DE QUALQUER CLIENTE (2026-06-04)
-**Origem:** PROJ-001 Valdece -- projeto pausado sem alerta -- busca retornando "TypeError: Load failed" em producao.
-**Evidencia:** 2 projetos Vanguard + 1 projeto Valdece pausados simultaneamente. Detectado pelo Diretor, nao pelo sistema.
-
-Todo projeto Supabase entregue a cliente DEVE ter ping automatico registrado no Task Scheduler antes do handoff:
-1. `scripts/ping_supabase_universal.ps1` -- adicionar o projeto ao array $PROJETOS
-2. `scripts/registrar_ping_universal.ps1` -- rodar para atualizar o agendamento
-3. Intervalo: 5 dias (free tier pausa apos 7 dias de inatividade)
-4. Alerta: Telegram + log em `scripts/ping_universal.log`
-
-Sem ping registrado = cliente pode perder acesso sem aviso. Dado permanece 90 dias apos pausa -- apos isso, DELETADO.
-Regra operacional: onboarding de qualquer cliente com Supabase e BLOQUEANTE ate ping registrado e testado VERDE.
-Ferramenta: `scripts/ping_supabase_universal.ps1` + `scripts/registrar_ping_universal.ps1`
-
----
-
 ## DECISAO ESTRATEGICA — PROJ-002 INGRID (2026-06-04)
 **Diretor Eduardo · Veredito D1 Loop 8 · Irrevogavel neste ciclo.**
 

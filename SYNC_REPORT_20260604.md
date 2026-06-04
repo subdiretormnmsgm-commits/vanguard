@@ -5,9 +5,10 @@
 ## STATUS FINAL
 - Sincronizados: 2
 - Falhas de Integridade: 0
-- Orfaos: 3
+- Orfaos: 4
 - Project_Only (nao sao orfaos): 10
 ## DECISOES PENDENTES (ORFAOS REAIS)
 - VALDECE|00_MANIFESTO_DE_FONTES.md
-- INGRID|12_DIRETRIZ_GEMINI_V8.txt
 - INGRID|00_MANIFESTO_DE_FONTES.md
+- INGRID|12_DIRETRIZ_GEMINI_V8.txt
+- INGRID|Diretriz Estratégica V1.txt
