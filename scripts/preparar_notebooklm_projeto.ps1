@@ -39,29 +39,38 @@ if (-not (Test-Path $proj_dir)) {
     exit 1
 }
 
-# GATE DE VERSAO -- verificar artefatos do loop atual antes do Wipe & Sync
-# Previne NotebookLM receber arquivos do loop anterior misturados com o atual
+# GATE DE VERSAO -- verificar artefatos do loop ANTERIOR antes do PASSO5
+# Logica: loop atual = N (iniciando) -- verificar MEMORIA + relatorio de N-1
+# Se gemini=OK e notebooklm=PENDENTE: estamos na fase PASSO5 -- checar loop N-1
+# Se notebooklm=OK: estamos no Wipe&Sync pos-build -- checar loop N
 $wipCheck = Get-Content "$raiz\CLIENTES\WIP_BOARD.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 $projCheck = @($wipCheck.board.build) | Where-Object { $_.cliente.ToUpper() -eq $cliente } | Select-Object -First 1
 if ($projCheck -and $projCheck.loop_fase_atual -and $projCheck.loop_fase_atual.loop) {
     $loopAtual  = [int]$projCheck.loop_fase_atual.loop
     $clienteLow = $cliente.ToLower()
-    $memAtual   = "$raiz\CLIENTES\$cliente\HISTORICO\MEMORIA_V${loopAtual}_${clienteLow}.md"
-    $relAtual   = "$raiz\CLIENTES\$cliente\HISTORICO\relatorio_evolutivo_V${loopAtual}_${clienteLow}.md"
-    $gvFaltando = @()
-    if (-not (Test-Path $memAtual))   { $gvFaltando += "MEMORIA_V${loopAtual}_${clienteLow}.md" }
-    if (-not (Test-Path $relAtual))   { $gvFaltando += "relatorio_evolutivo_V${loopAtual}_${clienteLow}.md" }
-    if ($gvFaltando.Count -gt 0) {
-        Write-Host ""
-        Write-Host "=== GATE VERSAO -- BLOQUEADO ===" -ForegroundColor Red
-        Write-Host "  Artefatos do Loop $loopAtual ausentes -- NotebookLM receberia versao anterior." -ForegroundColor Red
-        Write-Host "  Faltando:" -ForegroundColor Yellow
-        $gvFaltando | ForEach-Object { Write-Host "    -> $_" -ForegroundColor Yellow }
-        Write-Host ""
-        Write-Host "  Musculo deve gerar MEMORIA_V$loopAtual + relatorio_V$loopAtual antes do NotebookLM." -ForegroundColor Yellow
-        exit 1
+    $fasAtual   = $projCheck.loop_fase_atual
+
+    # Determinar qual loop verificar: PASSO5 = verificar loop anterior; pos-build = verificar loop atual
+    $emPasso5 = ($fasAtual.gemini -eq "OK" -and $fasAtual.notebooklm -ne "OK")
+    $loopVerificar = if ($emPasso5) { $loopAtual - 1 } else { $loopAtual }
+
+    if ($loopVerificar -gt 0) {
+        $memCheck = "$raiz\CLIENTES\$cliente\HISTORICO\MEMORIA_V${loopVerificar}_${clienteLow}.md"
+        $relCheck = "$raiz\CLIENTES\$cliente\HISTORICO\relatorio_evolutivo_V${loopVerificar}_${clienteLow}.md"
+        $gvFaltando = @()
+        if (-not (Test-Path $memCheck)) { $gvFaltando += "MEMORIA_V${loopVerificar}_${clienteLow}.md" }
+        if (-not (Test-Path $relCheck)) { $gvFaltando += "relatorio_evolutivo_V${loopVerificar}_${clienteLow}.md" }
+        if ($gvFaltando.Count -gt 0) {
+            Write-Host ""
+            Write-Host "=== GATE VERSAO -- BLOQUEADO ===" -ForegroundColor Red
+            Write-Host "  Artefatos do Loop $loopVerificar ausentes -- NotebookLM receberia contexto incompleto." -ForegroundColor Red
+            Write-Host "  Faltando:" -ForegroundColor Yellow
+            $gvFaltando | ForEach-Object { Write-Host "    -> $_" -ForegroundColor Yellow }
+            exit 1
+        }
+        $fase = if ($emPasso5) { "PASSO5 (loop $loopAtual iniciando)" } else { "Wipe&Sync (loop $loopAtual concluido)" }
+        Write-Host "[GATE VERSAO] $fase -- Artefatos Loop $loopVerificar confirmados." -ForegroundColor Green
     }
-    Write-Host "[GATE VERSAO] Artefatos Loop $loopAtual confirmados." -ForegroundColor Green
 
     # ENTREGAVEL 4 (P-049) -- pre-criar AUDITOR_LOOP antes da sessao NotebookLM
     $auditorLoopPath = "$raiz\CLIENTES\$cliente\HISTORICO\AUDITOR_LOOP_V${loopAtual}_${clienteLow}.md"

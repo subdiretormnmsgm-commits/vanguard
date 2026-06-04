@@ -22,6 +22,12 @@
             "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/hv1_credential_guard.ps1",
             "timeout": 5,
             "statusMessage": "Verificando HV-1 (credencial hardcoded)..."
+          },
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/file_protection_guard.ps1",
+            "timeout": 5,
+            "statusMessage": "P-098 -- Verificando protecao de arquivo de processo..."
           }
         ]
       }
