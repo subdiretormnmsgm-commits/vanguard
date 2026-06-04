@@ -1,141 +1,96 @@
 # PASSO 7 — EMBAIXADOR · Seção D · Stack Interno Pentalateral
 # Sessão: 2026-06-05 · Músculo preparou · Diretor cola no Claude Projects Ingrid
-# Colar este texto no chat do Embaixador (Claude Projects Ingrid).
+#
+# DOCUMENTOS A ANEXAR ANTES DE COLAR ESTE TEXTO:
+#   1. CLIENTES/INGRID/NOTEBOOKLM_FONTES/07_WIP_BOARD.txt  (estado de todos os projetos)
+#   2. PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_STACK_INFRA_2026-06-05.md (análise técnica)
+#
+# O Embaixador já tem memória de Ingrid. Os documentos acima adicionam:
+#   - Estado atual de Valdece (segundo cliente, perfil completamente diferente)
+#   - Decisões técnicas desta sessão (o que o Pentalateral aprovou para a infraestrutura)
 
 ---
 
-Você é o **Embaixador do Pentalateral IAH** — o único membro com memória persistente do cliente, do nicho de mercado e da Vanguard como empresa.
+Você é o Embaixador do Pentalateral IAH — inteligência persistente de clientes, nichos e da Vanguard como empresa.
 
-Este ciclo tem uma natureza diferente de todos os anteriores. Preciso que você reconheça isso antes de responder.
-
----
-
-## ⚡ O QUE TORNA ESTE CICLO ESPECIAL
-
-Nos ciclos anteriores, seu papel era observar Ingrid e reportar para que o Pentalateral reagisse.
-
-**Neste ciclo, o papel é triplo:**
-
-1. **Como guardião do cliente:** projetar como a mudança interna do Pentalateral vai afetar Ingrid especificamente — não o que aconteceu, mas o que vai acontecer.
-2. **Como analista de nicho:** avaliar o que esta infraestrutura significa para o nicho EdTech-Concurso como um todo — Ingrid é a referência de um mercado de 500+ candidatos potenciais.
-3. **Como estrategista da Vanguard:** identificar o que esta automação abre ou fecha para a empresa — o que fica mais fácil de vender, o que fica mais difícil de entregar, o que cria moat.
-
-Você é o único membro que opera nessas três camadas ao mesmo tempo. É aqui que você é insubstituível.
+Neste ciclo, o Pentalateral tomou decisões sobre **infraestrutura interna** que afetam como a Vanguard serve **qualquer** cliente — não apenas Ingrid. Preciso da sua análise com a Vanguard inteira em mente.
 
 ---
 
-## CONTEXTO: O QUE O PENTALATERAL DECIDIU FAZER
+## DECISÕES APROVADAS NESTA SESSÃO
 
-Ciclo completo: Gemini → NotebookLM → você.
+O Pentalateral aprovou (ciclo Gemini + NotebookLM concluído):
 
-**Decisões aprovadas:**
+- **n8n** como orquestrador central: check-ins automáticos 7h/13h/20h · monitor Supabase por cliente · webhook GitHub · session_close → MEMORIA atualiza sem ação manual
+- **Notion** como cockpit visual: WIP_BOARD de todos os projetos em interface visual · view-only para o Diretor · escrita exclusiva via n8n
+- **OpenClaw V2** (após 30 dias de n8n estável): gateway AI multi-canal — WhatsApp/Telegram/Discord/iMessage bidirecional com Claude para qualquer cliente
 
-1. **n8n como orquestrador** (build após 18-06-2026)
-   - Automatiza check-ins diários às 7h, 13h e 20h para o Diretor via Telegram
-   - Monitor automático do Supabase de cada cliente a cada hora
-   - Webhook GitHub → atualiza estado do projeto automaticamente
-   - Ao fechar sessão → MEMORIA atualiza sem ação manual do Diretor
-
-2. **Notion como cockpit visual** — WIP_BOARD vira interface visual (view-only para o Diretor)
-
-3. **OpenClaw V2** — desbloqueado após 30 dias de n8n estável
-   - Gateway AI multi-canal: WhatsApp, Telegram, Discord, iMessage
-   - Toda mensagem externa passa pelo n8n antes de chegar ao Claude API
-
-**Contexto atual de Ingrid:**
-- Temperatura: 8.5/10 — VERDE FORTE — "gostou muito da ferramenta"
-- Edge Function ativa: gatilho às 19h45 BRT diariamente
-- Prova: 06-09-2026 (92 dias)
-- Status: RETAINER — piloto fundadora do nicho EdTech-Concurso SEDES-DF
-
-**Contexto do nicho EdTech-Concurso:**
-- Meta SaaS: 500 usuários no ciclo Sedes-DF 2026 = R$194.000
-- Ingrid é cliente referência (0% → maturidade do nicho)
-- Segunda candidata ainda não captada — gate bloqueante para multi-tenant
+**Data de início do build: 19-06-2026** (após Hypercare Valdece)
 
 ---
 
-## AS 15 IDEIAS — FILTRO DE REALIDADE EM TRÊS CAMADAS
+## SEÇÃO D — FILTRO DE REALIDADE
 
-**REGRA:** Para cada ideia, aplique as três camadas — **CLIENTE** (Ingrid específica), **NICHO** (EdTech-Concurso amplo), **VANGUARD** (empresa). Use CONFIRMA / EXPANDE / ALERTA em cada camada se tiver evidência. Se não tiver, diga claramente.
+Você tem dois clientes reais como referência: **Ingrid** (que você conhece em profundidade) e **Valdece** (perfil nos documentos anexados — advogado, sistema de jurisprudência, R$5.000, perfil completamente diferente).
 
-### Do Estrategista [G-1 a G-5]:
+Para cada uma das ideias abaixo, avalie nas **três camadas do seu mandato**:
+- **CLIENTES ATUAIS** — o que Ingrid e Valdece revelam sobre essa ideia (com evidência; se não tiver, diga)
+- **NICHO** — o que essa ideia significa para os diferentes perfis de cliente que a Vanguard quer atender (EdTech-Concurso · Legal Tech · Médico · Contabilidade · Psicólogo)
+- **VANGUARD** — o que muda para a empresa: posicionamento, escala, diferencial, risco
 
-- **G-1 (Notion Stateless):** Notion como cockpit visual — WIP_BOARD visual, view-only para o Diretor, escrita exclusiva via n8n.
-- **G-2 (CLI Telegram):** Bot com prefixos (/mem, /status, /alerta) — Diretor gerencia todos os projetos pelo celular.
-- **G-3 (Bloqueio Gateway):** Toda mensagem externa passa pelo n8n antes do Claude — sistema deixa de ser acessado diretamente.
-- **G-4 (Watchdog EasyPanel):** Monitor de saúde do servidor — detecta queda antes que o cliente perceba.
-- **G-5 (Buffer Notificação):** CRÍTICO (imediato) vs. INFORMATIVO (buffer 4h) — Diretor não é inundado de alertas.
+Use CONFIRMA / EXPANDE / ALERTA em cada camada.
 
-### Do Músculo [M-1 a M-5]:
+### [G-1 a G-5] — Ideias do Estrategista:
+- G-1: Notion como cockpit visual — WIP_BOARD de todos os projetos, view-only para o Diretor
+- G-2: Bot Telegram com prefixos (/mem, /status, /alerta) — Diretor gerencia todos os projetos pelo celular
+- G-3: Toda mensagem externa passa pelo n8n antes do Claude — nenhum cliente acessa o modelo diretamente
+- G-4: Watchdog do servidor — detecta queda antes do cliente perceber
+- G-5: Buffer de notificação — CRÍTICO imediato vs. INFORMATIVO buffer 4h
 
-- **M-1:** Protocolo de prefixos Telegram é gate bloqueante — sem lista definida, build não começa.
-- **M-2:** Verificar Docker socket antes do watchdog — se EasyPanel não expõe socket, arquitetura muda.
-- **M-3:** Migração gradual — PENDENTES.md continua em FASE 1. Notion recebe só WIP_BOARD no primeiro mês.
-- **M-4:** Novo princípio: "mensagem externa → n8n → Claude, nunca direto." Toda interação passa por uma camada de orquestração.
-- **M-5:** CLAUDE.md e session_close.ps1 não mudam na FASE 1 — estabilidade operacional antes de "nova era" documental.
+### [M-1 a M-5] — Ideias do Músculo:
+- M-1: Protocolo de prefixos Telegram é gate — sem lista definida, build não começa
+- M-2: Verificar Docker socket antes do watchdog — se EasyPanel não expõe socket, arquitetura muda
+- M-3: Migração gradual — PENDENTES.md continua na FASE 1, Notion só recebe WIP_BOARD
+- M-4: Princípio novo: "mensagem externa → n8n → Claude, nunca direto"
+- M-5: CLAUDE.md e session_close.ps1 não mudam na FASE 1
 
-### Do Auditor [N-1 a N-5]:
-
-- **N-1:** Lock manual no Notion — qualquer edição manual do Diretor em card cria conflito de edição concorrente com n8n.
-- **N-2:** Watchdog no mesmo servidor é ponto cego — exige ping externo independente (UptimeRobot ou equivalente).
-- **N-3:** session_close.ps1 deve disparar webhook em fire-and-forget — resposta síncrona congela o terminal e cria fricção de ritual.
-- **N-4:** Exports de workflow n8n para repositório podem expor credenciais — hook pré-push precisa ser calibrado.
-- **N-5:** LEDGER.md deve ser gravado localmente ANTES de qualquer sync para Notion — Notion não substitui o disco.
-
----
-
-## PERGUNTAS ESPECÍFICAS — SUA INTELIGÊNCIA EXCLUSIVA
-
-### Camada Cliente (Ingrid):
-
-**[Q-1] Automação vs. Calor Humano:**
-Com n8n automatizando check-ins e atualizações, o Diretor terá mais tempo — mas menos toques manuais no projeto de Ingrid.
-A temperatura 8.5/10 de Ingrid é resultado da ferramenta ou do relacionamento com o Diretor?
-Se o Diretor "desaparecer" por estar automatizado, Ingrid percebe e esfria — ou ela valoriza mais a ferramenta funcionando do que o contato direto?
-
-**[Q-2] OpenClaw e canal preferido:**
-OpenClaw V2 habilitaria WhatsApp bidirecional com Claude. Ingrid poderia falar com a ferramenta via WhatsApp antes da prova.
-Você tem sinais do canal de comunicação que Ingrid prefere?
-Adotar um canal automatizado com IA seria percebido como evolução do produto — ou como o Diretor se escondendo atrás da automação?
-
-### Camada Nicho (EdTech-Concurso):
-
-**[Q-3] Escalabilidade do modelo de atenção:**
-O modelo atual (Diretor acompanha manualmente cada candidata) não escala para 500 usuárias.
-A automação (n8n + monitor Supabase + alertas automáticos) é o que torna o SaaS viável — mas também reduz o diferencial de atenção individual.
-O nicho EdTech-Concurso compra ferramenta ou compra atenção personalizada?
-Se for atenção, a automação mata o produto. Se for ferramenta, a automação libera o Diretor para focar em produto.
-
-**[Q-4] OpenClaw como feature de nicho:**
-WhatsApp bidirecional com Claude como tutor de concurso — disponível 24h, sem esperar o Diretor responder — é uma feature que candidatas do nicho pagariam mais para ter?
-Ou o nicho EdTech-Concurso prefere self-service e não valoriza canal de comunicação direta com IA?
-
-### Camada Vanguard (empresa):
-
-**[Q-5] Moat ou commodity:**
-A combinação n8n + Notion + OpenClaw (quando V2 chegar) cria um diferencial real de operação que concorrentes não replicam facilmente — ou qualquer agência com n8n tem o mesmo?
-O que desta infraestrutura é moat de verdade para a Vanguard?
-
-**[Q-6] Janela antes da prova de Ingrid:**
-O gate de 30 dias para OpenClaw significa disponibilidade ~meados de agosto.
-A prova de Ingrid é 06-09-2026 — canal WhatsApp com Claude estaria disponível ~3 semanas antes da prova.
-Do ponto de vista estratégico: vale acelerar o OpenClaw para estar disponível na reta final antes da prova de Ingrid — como teste de nicho real — ou o risco de instabilidade seria pior do que o benefício?
+### [N-1 a N-5] — Alertas do Auditor:
+- N-1: Lock manual no Notion — qualquer edição manual do Diretor conflita com n8n
+- N-2: Watchdog no mesmo servidor é ponto cego — se o servidor cair, o alerta cai junto
+- N-3: session_close.ps1 deve disparar webhook em fire-and-forget (assíncrono)
+- N-4: Exports de workflow n8n para repositório podem expor credenciais de todos os clientes
+- N-5: LEDGER.md deve ser gravado localmente ANTES de qualquer sync para Notion
 
 ---
 
-## O QUE ENTREGAR
+## PERGUNTAS ESTRATÉGICAS
 
-**SEÇÃO D — Filtro de Realidade (3 camadas):**
-Para cada uma das 15 ideias: avalie nas camadas CLIENTE / NICHO / VANGUARD.
-Use CONFIRMA / EXPANDE / ALERTA onde tiver evidência. Declare ausência de evidência onde não tiver.
+**[Q-1] O que a Vanguard realmente vende — ferramenta ou atenção?**
+Com automação total, o Diretor passa a gerenciar 20 clientes com o esforço de hoje para 2.
+Com Ingrid e Valdece como referência: o valor percebido veio da ferramenta entregue ou do acompanhamento do processo?
+Se for acompanhamento, a automação escala receita mas pode matar o diferencial. Se for ferramenta, a automação é o produto.
 
-**RESPOSTAS Q-1 a Q-6:** Direto, com base no histórico observado — sem especulação genérica.
+**[Q-2] OpenClaw por perfil de cliente — quem quer WhatsApp com IA?**
+Canal bidirecional via WhatsApp com Claude a qualquer hora — valor diferente por nicho.
+Uma candidata de concurso sob pressão antes da prova usa de forma diferente de um advogado que precisa de resposta técnica formal.
+Qual nicho mais se beneficia? Qual nicho pode ver isso como impessoal demais?
 
-**[E-1 a E-5] — Observações exclusivas do Embaixador:**
-5 pontos que os outros membros não têm acesso.
-Para cada um: O QUE OBSERVOU + POR QUE IMPORTA PARA A DECISÃO DE INFRAESTRUTURA.
-Priorize observações que cruzem duas ou mais camadas (ex: comportamento de Ingrid que revela algo sobre o nicho como um todo).
+**[Q-3] Moat real ou commodity?**
+Qualquer agência com n8n pode replicar check-ins automáticos e cockpit Notion.
+O que desta infraestrutura é diferencial real que concorrentes não copiam facilmente?
+E o que é apenas eficiência operacional — valiosa internamente, mas invisível para o cliente?
+
+**[Q-4] Risco de dependência e plano B:**
+Com n8n + EasyPanel como coluna vertebral de todos os projetos, uma falha afeta todos os clientes simultaneamente.
+O que o Embaixador recomenda como gate de segurança antes de chegar em 10 clientes nesta infraestrutura?
+
+---
+
+## ENTREGÁVEIS
+
+1. **Seção D completa:** CONFIRMA / EXPANDE / ALERTA para cada uma das 15 ideias nas 3 camadas (cliente / nicho / Vanguard)
+2. **Respostas Q-1 a Q-4:** direto, com evidência onde tiver — inferência declarada onde inferir
+3. **[E-1 a E-5]:** 5 observações exclusivas do Embaixador — o que os outros membros não têm acesso. Priorize cruzamentos entre camadas (ex: comportamento de cliente que revela algo sobre o nicho ou sobre o posicionamento da Vanguard)
 
 ---
 
