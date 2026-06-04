@@ -136,16 +136,14 @@
 - [x] `2026-06-04` ~~**NotebookLM Wipe & Sync — Ingrid:**~~
   ✅ Executado pelo Diretor em 2026-06-04.
 
-- [ ] `2026-06-XX` **Capturar depoimento de Ingrid — antes de mover para RETAINER:** [diretor]
-  Ingrid está feliz com a ferramenta (temperatura 8.5/10 · D4 respondida · confirmou uso ativo).
-  Mensagem sugerida: "Ingrid, você toparia me dar um feedback rápido sobre como o app tem te ajudado nos estudos? Pode ser por áudio mesmo."
-  Depoimento vira argumento comercial para a 2ª candidata.
+- [x] `2026-06-04` ~~**Capturar depoimento de Ingrid:**~~
+  ✅ Ingrid enviou mensagem ao Diretor dizendo que gostou muito da ferramenta. Depoimento capturado.
 
-- [ ] `2026-06-XX` **Ingrid — mover para RETAINER no WIP_BOARD após depoimento:** [musculo]
-  Aguarda confirmação do Diretor após capturar depoimento. Sem mais loops de build.
+- [x] `2026-06-04` ~~**Ingrid — mover para RETAINER no WIP_BOARD:**~~
+  ✅ Depoimento capturado. Ingrid move para RETAINER — sem mais loops de build.
 
-- [ ] `2026-06-04` **Sentinel Report Valdece — enviar WhatsApp:** [diretor]
-  Mensagem pronta em CLIENTES/VALDECE/HISTORICO/SENTINEL_REPORT_DIA16_2026-06-04.md
+- [x] `2026-06-04` ~~**Sentinel Report Valdece — WhatsApp enviado:**~~
+  ✅ Enviado pelo Diretor em 2026-06-04.
 
 - [ ] `2026-06-18+` **n8n FASE 1 — build EasyPanel após Hypercare Valdece:** [musculo]
   4 workflows: check-ins 7h/13h/20h + monitor Supabase horário + webhook GitHub + formulário campo→MEMORIA.
