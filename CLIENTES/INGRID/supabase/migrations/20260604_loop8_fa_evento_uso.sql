@@ -39,14 +39,13 @@ create or replace view snapshot_ingrid_loop6_golden as
 select
   user_id,
   questao_id,
-  acertou,
-  created_at,
-  disciplina,
-  peso,
-  tti_ms
+  correta,
+  respondida_em,
+  disciplina_id,
+  tempo_resposta_ms
 from progresso_usuario
 where user_id = '00000000-0000-0000-0000-000000000001'
-  and created_at < '2026-06-04 00:00:00+00';
+  and respondida_em < '2026-06-04 00:00:00+00';
 
 comment on view snapshot_ingrid_loop6_golden is
   'F-D Loop 8: golden copy dos 102 registros de Ingrid pre-Loop8. Imutavel. Baseline comercial para SaaS pitch.';
