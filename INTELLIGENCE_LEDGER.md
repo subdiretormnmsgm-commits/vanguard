@@ -1811,3 +1811,31 @@ O produto prova valor em Ingrid; escala nos proximos clientes.
 Regra derivada: o primeiro cliente piloto pode ter valor estrategico superior ao valor comercial.
 Cobrar Ingrid agora poderia contaminar a natureza da relacao e enfraquecer a narrativa de fundadora.
 Ingrid que passa no concurso e indica o proximo cliente vale mais que R\/mes.
+
+---
+
+## P-100 — EMBAIXADOR OPERA POR RAG — DESIGN DO PASSO7 DEVE RESPEITAR ISSO (2026-06-05)
+**Origem:** Analise das capacidades do Claude Projects na sessao 2026-06-05 (stack infra Pentalateral).
+**Evidencia:** Claude Projects usa recuperacao semantica (RAG interno) -- nao carrega todos os documentos do projeto de uma vez. Secoes relevantes sao puxadas para o contexto ativo baseadas nas perguntas da conversa.
+
+Tres regras obrigatorias ao preparar PASSO7 para o Embaixador:
+
+1. PERGUNTAS DEVEM USAR TERMOS EXATOS DA MEMORIA_EMBAIXADOR
+   Pergunta vaga ("como o cliente reage?") retrieve trecho impreciso.
+   Pergunta especifica ("sinais de churn observados" / "temperatura do cliente" / "canal de contato preferido") retrieve o trecho correto.
+   O Musculo deve escrever Q-X com os mesmos termos que usa ao escrever a MEMORIA_EMBAIXADOR.
+
+2. CONTEXTO NOVO (session-specific) VAI COMO ATTACHMENT, NAO COMO ARQUIVO DO PROJETO
+   WIP_BOARD atualizado, PASSO3 desta sessao, decisoes recentes -- sempre como attachment direto no chat.
+   Attachment direto = contexto ativo (lido integralmente). Arquivo do projeto = RAG (retrieved parcialmente).
+   Nunca depender que o RAG do projeto encontre contexto que mudou hoje.
+
+3. MEMORIA_EMBAIXADOR DEVE TER SECOES NOMEADAS PARA RETRIEVAL CIRURGICO
+   Formato obrigatorio: ## Temperatura do cliente / ## Sinais de churn observados / ## Canal de contato preferido / ## Contexto de nicho / ## Hipoteses ativas.
+   Bloco monolitico = retrieve impreciso = resposta generica. Secao nomeada = retrieve cirurgico = insight real.
+
+Limite de upload por sessao: 20 arquivos max, 30 MB cada. Plano Pro: 200K tokens de contexto de chat.
+Regra operacional: PASSO7 lean + termos precisos + attachments de sessao = Embaixador respondendo com profundidade maxima.
+Ferramenta de verificacao: ao revisar qualquer PASSO7, checar se Q-X usa vocabulario da MEMORIA_EMBAIXADOR.
+
+---
