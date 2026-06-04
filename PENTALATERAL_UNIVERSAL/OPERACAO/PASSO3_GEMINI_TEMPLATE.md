@@ -1,6 +1,12 @@
-﻿# PASSO 3 — TEMPLATE UNIVERSAL: PARA O GEMINI (ESTRATEGISTA)
-# Versão: Universal v2.3 · 2026-05-23 · PENTALATERAL_UNIVERSAL/OPERACAO/
-# Uso: O Músculo preenche os [PLACEHOLDERS] com dados reais do projeto antes de enviar.
+﻿# PASSO 3 -- TEMPLATE UNIVERSAL: PARA O GEMINI (ESTRATEGISTA)
+# Versao: Universal v2.4 · 2026-06-04 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Uso: O Musculo preenche os [PLACEHOLDERS] com dados reais do projeto antes de enviar.
+#
+# AVISO CRITICO -- LER ANTES DE QUALQUER OUTPUT:
+# O Estrategista NUNCA gera a skill. NUNCA escreve [PARA O NOTEBOOKLM].
+# O Estrategista gera APENAS a DIRETRIZ: [G-1 a G-5] + [PARA O MUSCULO] + [ALERTA GEMINI].
+# O Musculo recebe a DIRETRIZ, sintetiza com [M-1 a M-5] e prepara o PASSO5 para o Auditor.
+# Auditor (NotebookLM) gera a skill -- nao o Estrategista.
 
 ---
 
@@ -190,44 +196,21 @@ Máximo 3 prioridades em ordem de impacto. Para cada uma: o que construir, por q
 **BLOCO 2 — PROPOSTA COMERCIAL E HANDOFF**
 Como apresentar o ROI ao cliente com números reais. Como posicionar o que vem depois (MRR, roadmap, V2) sem parecer venda forçada. O que o cliente deve sentir ao sair da reunião de entrega.
 
-**BLOCO 3 — DIRETRIZ TÉCNICA**
-Três sub-blocos obrigatórios:
+**BLOCO 3 -- DIRETRIZ TECNICA**
+Tres sub-blocos obrigatorios. O Estrategista NAO escreve [PARA O NOTEBOOKLM] -- o Musculo prepara o PASSO5 para o Auditor.
 
-→ **[PARA O NOTEBOOKLM]:** MANDATÓRIO — este sub-bloco deve:
-  1. **Definir o nome exato da Skill** a ser criada pelo Auditor:
-     formato obrigatório → `[cliente]-v[N].md` (ex: `valdece-v4.md`, `ingrid-v4.md`)
-     ⚠️ Este nome DEVE aparecer também em [PARA O MÚSCULO] — o mesmo nome, sem variação.
-     O Auditor salva com este nome exato em `.claude/skills/`
-  2. Lê a DIRETRIZ pelo nome completo: `DIRETRIZ_GEMINI_V[N].txt`
-     Instrução ao Auditor: "Você está lendo a DIRETRIZ_GEMINI_V[N]. Gere `[cliente]-v[N].md`."
-  3. Instruir o NotebookLM a gerar a Skill em 4 partes obrigatórias:
-     - PARTE 1 — Auditoria de Coerência: o que a DIRETRIZ contradiz no histórico real
-     - PARTE 2 — Perspectiva do Sócio Consultor: o que Gemini e Músculo não estão vendo
-     - PARTE 3 — A Skill copiável para `.claude/skills/[cliente]-v[N].md` (contexto, padrões, alertas, sequência de build, o que NÃO construir)
-     - PARTE 4 — 5 Ideias Disruptivas do Auditor (exclusivas — não as do Gemini nem do Músculo)
-  4. Especificar o que auditar neste projeto e qual risco priorizar.
-  **[PARA O NOTEBOOKLM] sem nome da Skill, sem referência à DIRETRIZ pelo nome, e sem mandato das 4 partes = BLOCO 3 inválido.**
+→ **[PARA O MUSCULO]:** A intencao estrategica desta entrega em uma frase. Prioridades em ordem com razao para cada. O que nao construir. Alertas de risco. Gates de verificacao por dia de build.
+  MANDATORIO -- instruir o Musculo a:
+  (0) executar **`/[cliente]-v[N]`** (nome exato da skill) antes de qualquer deliberacao
+  (a) reagir a cada [G-1 a G-5] nos 7 pontos: Certo->Diverge->Decisao->Enhancement->Custo->Impacto->Acao
+  (b) reagir a cada [N-1 a N-5] do Auditor com razao tecnica (apos Auditor gerar a skill)
+  (c) propor [M-1 a M-5] proprios ao fechar -- perspectiva tecnica exclusiva do construtor
+  **[PARA O MUSCULO] sem nome exato da Skill = sub-bloco invalido.**
 
-→ **[PARA O MÚSCULO]:** A intenção estratégica desta entrega em uma frase — não a lista de features, o porquê. Prioridades em ordem com razão para cada. O que não construir. Alertas de risco a monitorar. Gates de verificação por dia de build.
-  MANDATÓRIO — instruir o Músculo a:
-  (0) executar **`/[cliente]-v[N]`** (nome exato) antes de qualquer deliberação
-      ⚠️ O nome aqui DEVE ser idêntico ao definido em [PARA O NOTEBOOKLM].
-      Músculo sem Skill rodada = deliberação inválida — nenhuma linha de código antes disso.
-  (a) reagir a cada uma das suas 5 ideias disruptivas (BLOCO 6) nos 7 pontos obrigatórios
-  (b) reagir a cada uma das 5 ideias do Auditor (PARTE 4 da Skill) com razão técnica
-  (c) propor as suas próprias 5 ideias disruptivas ao fechar — perspectiva técnica exclusiva
-      do construtor, não síntese das ideias dos outros membros
-  **[PARA O MÚSCULO] sem nome exato da Skill = sub-bloco inválido.**
+→ **[VISAO DE LONGO PRAZO]:** Onde este projeto estara em 3 meses. Qual decisao tomada agora abre ou fecha portas para escala.
 
-→ **[VISÃO DE LONGO PRAZO]:** Onde este projeto estará em 3 meses se tudo correr bem. Qual decisão que o Músculo toma agora abre ou fecha portas para escala.
-
-→ **[PARA O EMBAIXADOR]:** As suas [G-1 a G-5] e a intenção estratégica desta entrega —
-  formatadas para que o Embaixador possa reagir com CONFIRMA/EXPANDE/ALERTA com base
-  no comportamento real do cliente. O Embaixador não conhece código — conhece o cliente.
-  Formatar cada ideia em 2 linhas: O QUÊ É + POR QUÊ ISSO IMPORTA PARA ESTE CLIENTE.
-  Incluir também: qual hipótese da MEMORIA_EMBAIXADOR esta ideia confirma ou desafia.
-  **[PARA O EMBAIXADOR] ausente ou genérico = ideia estratégica sem filtro de realidade.**
-  **BLOCO 3 tem 4 sub-blocos obrigatórios: [PARA O NOTEBOOKLM] + [PARA O MÚSCULO] + [VISÃO DE LONGO PRAZO] + [PARA O EMBAIXADOR].**
+→ **[PARA O EMBAIXADOR]:** As [G-1 a G-5] formatadas para o Embaixador reagir com CONFIRMA/EXPANDE/ALERTA com base no comportamento real do cliente. Para cada ideia: O QUE E + POR QUE IMPORTA PARA ESTE CLIENTE. Qual hipotese da MEMORIA_EMBAIXADOR esta ideia confirma ou desafia.
+  **BLOCO 3 tem 3 sub-blocos: [PARA O MUSCULO] + [VISAO DE LONGO PRAZO] + [PARA O EMBAIXADOR]. Sem [PARA O NOTEBOOKLM] -- o Musculo cuida disso.**
 
 **RESPOSTA ÀS 5 IDEIAS DO MÚSCULO [M-1 a M-5]**
 Responda cada ideia pelo nome: aprovada / modificada (com sua versão) / descartada (com razão objetiva). Não ignore nenhuma. Para cada aprovada: estimativa de horas e quando entra (esta entrega / V2 / V3).
@@ -271,12 +254,10 @@ Antes de finalizar, o Estrategista verifica:
 |---|---|
 | REFORMULAÇÃO_DO_PROBLEMA presente? | Sim — 3 ângulos + escolha — antes do BLOCO 0 |
 | POSIÇÃO_ADVERSARIAL_OBRIGATÓRIA presente? | Sim — argumento contra + razão para manter a tese |
-| BLOCO 3 tem 4 sub-blocos? | [PARA O NOTEBOOKLM] + [PARA O MÚSCULO] + [VISÃO DE LONGO PRAZO] + [PARA O EMBAIXADOR] |
-| [PARA O NOTEBOOKLM] define nome exato da Skill? | `[cliente]-v[N].md` — sem variação |
-| [PARA O NOTEBOOKLM] cita a DIRETRIZ pelo nome? | `DIRETRIZ_GEMINI_V[N].txt` — explícito |
-| [PARA O NOTEBOOKLM] manda gerar Skill em 4 partes? | Sim — com PARTE 1, 2, 3 e 4 nomeadas |
-| [PARA O MÚSCULO] repete o nome EXATO da Skill? | Sim — idêntico ao de [PARA O NOTEBOOKLM] |
-| [PARA O MÚSCULO] instrui a executar `/[cliente]-v[N]` antes de deliberar? | Sim — obrigatório |
+| BLOCO 3 tem 3 sub-blocos? | [PARA O MUSCULO] + [VISAO DE LONGO PRAZO] + [PARA O EMBAIXADOR] |
+| BLOCO 3 NAO contem [PARA O NOTEBOOKLM]? | Correto -- Musculo prepara o PASSO5 para o Auditor |
+| [PARA O MUSCULO] define nome exato da Skill? | `[cliente]-v[N].md` -- sem variacao |
+| [PARA O MUSCULO] instrui a executar `/[cliente]-v[N]` antes de deliberar? | Sim -- obrigatorio |
 | BLOCO 1 tem gates verificáveis por dia? | Sim — output real definido |
 | Número de prioridades no BLOCO 1 > 3? | Não — máximo 3 |
 | BLOCO 6 tem exatamente 5 ideias disruptivas? | Sim — todas com ARCO_DE_CONSEQUÊNCIAS |
