@@ -1,10 +1,29 @@
-﻿WIP BOARD -- PENTALATERAL IAH
-Atualizado: 2026-06-04 | Script: atualizar_wip_board_txt.ps1
+# atualizar_wip_board_txt.ps1
+# Gera 07_WIP_BOARD.txt e propaga para CLIENTES/*/NOTEBOOKLM_FONTES/
+# Nao depende de ConvertFrom-Json -- imune a encoding do WIP_BOARD.json
+# P-060: Musculo atualiza o bloco $CONTEUDO neste script quando WIP_BOARD muda
+# Uso: .\scripts\atualizar_wip_board_txt.ps1
+
+param(
+    [string]$Raiz = (Split-Path $PSScriptRoot -Parent),
+    [switch]$Verbose
+)
+
+$hoje = (Get-Date).ToString("yyyy-MM-dd")
+$sep  = "=================================================="
+
+# ============================================================
+# CONTEUDO DO WIP_BOARD -- atualizado pelo Musculo por sessao
+# Ultima atualizacao: 2026-06-04
+# ============================================================
+$CONTEUDO = @"
+WIP BOARD -- PENTALATERAL IAH
+Atualizado: $hoje | Script: atualizar_wip_board_txt.ps1
 Referencia base: 2026-06-04 (ultima atualizacao manual)
 
-==================================================
+$sep
 PROJETOS ATIVOS
-==================================================
+$sep
 
 --- PROJ-002 - Ingrid ---
 Status: RETAINER -- Loop 8 CONCLUIDO -- produto entregue -- depoimento capturado
@@ -27,7 +46,7 @@ Formalizador: Termo_Uso_Ingrid_PROJ002_30052026.pdf -- ASSINADO 2026-05-18
 --- PROJ-001 - Valdece ---
 Status: HYPERCARE ate 18-06-2026 -- Sistema LIVE -- Sentinel ativo
 Stack: PWA + Supabase + Claude API
-Valor: R
+Valor: R$5000
 Loop 7: Gemini=OK | NotebookLM=OK | Embaixador=OK | Musculo=PENDENTE
 Proximo: Musculo -- P-037 sintese Loop 7 Valdece -- DELIBERACAO_LOOP_V7_VALDECE.md
 Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui,
@@ -38,9 +57,9 @@ Formalizador: Contrato_Toga_Digital_Valdece_19052026.pdf -- ASSINADO 2026-05-19
 Sentinel Report previsto: 2026-06-02
 Churn watch threshold: 3 dias
 
-==================================================
+$sep
 INFRA INTERNA -- PENTALATERAL
-==================================================
+$sep
 
 Status: PLANEJAMENTO -- FASE 0 CONCLUIDA
 n8n FASE 1: desbloqueado apos 18-06-2026 (Hypercare Valdece encerra)
@@ -60,9 +79,9 @@ PROIBIDO na FASE 1:
   - Acoplar OpenClaw antes de 30 dias de uptime n8n
   - Refatorar CLAUDE.md ou session_close.ps1
 
-==================================================
+$sep
 PERFIS DE NICHO
-==================================================
+$sep
 
 EdTech-Concurso:      maturidade=60% | status=consolidado parcial | ref=PROJ-002 Ingrid
 Legal-Tech-Criminal:  maturidade=75% | status=CONTRATO ASSINADO 2026-05-19 | ref=PROJ-001 Valdece
@@ -70,9 +89,9 @@ Medico-Prova-Especialidade: GO aprovado 2026-05-19 -- aguarda Gemini PASSO3
 Contabilidade-PME:    GO aprovado 2026-05-19 -- aguarda Gemini PASSO3
 Psicologo-Clinico:    GO aprovado 2026-05-19 -- aguarda Gemini PASSO3
 
-==================================================
+$sep
 POLITICA DO BOARD
-==================================================
+$sep
 
 regra_1: Nada entra em BUILD sem Briefing aprovado pelo Diretor
 regra_2: Nada sai de BUILD sem check_leis.ps1 aprovado
@@ -80,9 +99,9 @@ regra_3: Nada vai para ENTREGUE sem Sovereign Playbook gerado
 regra_4: Sentinel do cliente atual validado antes de novo projeto entrar em BUILD
 regra_5: Retainer so apos 30 dias de dados reais do Sentinel
 
-==================================================
+$sep
 PRINCIPIOS CRITICOS ATIVOS
-==================================================
+$sep
 
 P-001: Claude Code nao e daemon autonomo -- automacao exige Claude API + n8n
 P-003: Scraping de terceiros e dependencia, nao ativo
@@ -92,14 +111,43 @@ P-060: Musculo e responsavel por toda propagacao -- zero intervencao do Diretor
 P-099: Ping Supabase obrigatorio no onboarding -- previne pausa free tier
 P-100: Embaixador opera por RAG -- design do PASSO7 deve usar termos exatos e nomes de secao
 
-==================================================
+$sep
 META
-==================================================
+$sep
 
 data_ultima_sessao: 2026-06-04
 loops_desde_ultimo_checkup: 1
 data_ultimo_checkup: 2026-05-27
 
-==================================================
+$sep
 FIM DO WIP BOARD
-==================================================
+$sep
+"@
+
+# Propaga para CLIENTES/*/NOTEBOOKLM_FONTES/07_WIP_BOARD.txt
+$clientesDir = Join-Path $Raiz "CLIENTES"
+if (-not (Test-Path $clientesDir)) {
+    Write-Host "[ATUALIZAR_WIP] ERRO: $clientesDir nao encontrado" -ForegroundColor Red
+    exit 1
+}
+
+$fontesDirs = Get-ChildItem $clientesDir -Directory | ForEach-Object {
+    $fp = Join-Path $_.FullName "NOTEBOOKLM_FONTES"
+    if (Test-Path $fp) { $fp }
+} | Where-Object { $_ }
+
+if (-not $fontesDirs) {
+    Write-Host "[ATUALIZAR_WIP] Nenhuma pasta NOTEBOOKLM_FONTES encontrada." -ForegroundColor Yellow
+    exit 0
+}
+
+$atualizados = 0
+foreach ($fontesDir in $fontesDirs) {
+    $destino = Join-Path $fontesDir "07_WIP_BOARD.txt"
+    [System.IO.File]::WriteAllText($destino, $CONTEUDO, [System.Text.Encoding]::UTF8)
+    $atualizados++
+    if ($Verbose) { Write-Host "[ATUALIZAR_WIP] OK: $destino" -ForegroundColor Green }
+}
+
+Write-Host "[ATUALIZAR_WIP] $atualizados pasta(s) sincronizadas em $hoje. Modo: direto (sem JSON)." -ForegroundColor Cyan
+exit 0
