@@ -19,11 +19,11 @@
                                     "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "Loop 6 (Gemini V7) -- iniciando -- SaaS Readiness + pipeline comercial",
+                                    "status":  "Loop 8 -- iniciando -- Telemetria + RLS + Monetizacao",
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop 5 CONCLUIDO â€” Gate Dia 15 APROVADO 2026-05-26 Â· Loop 6 PENDENTE â€” aguarda Gemini PASSO3",
+                                    "loop_atual":  "Loop 7 CONCLUIDO â€” MEMORIA_V7 + relatorio_V7 + DELIBERACAO_V7 gerados Â· Loop 8 PENDENTE â€” aguarda Gemini PASSO3",
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -143,14 +143,15 @@
                                                   },
                                     "proximo_passo":  "Loop 5 CONCLUIDO Â· Loop 6: Gemini PASSO3 â†’ ingrid-v6.md â†’ Embaixador â†’ build Â· Sentinel CHURN-WATCH ativo Â· Pitch SaaS R$97/mÃªs ao verbalizar uso ativo",
                                     "loop_fase_atual":  {
-                                                            "loop":  7,
+                                                            "loop":  8,
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "OK",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
+                                                            "proximo":  "Loop 9 -- Gate 7.2 RLS + N-1 Clickwrap + captacao 2a candidata antes 04-07-2026"
                                                         },
-                                    "churn_watch_threshold":  5
+                                    "churn_watch_threshold":  5,
+                                    "relatorio_semanal":  true
                                 },
                                 {
                                     "id":  "PROJ-001",
@@ -252,7 +253,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
+                                                            "proximo":  "Musculo -- P-037 sintese Loop 7 Valdece -- DELIBERACAO_LOOP_V7_VALDECE.md"
                                                         },
                                     "churn_watch_threshold":  3
                                 }

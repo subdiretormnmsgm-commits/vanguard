@@ -19,11 +19,11 @@
                                     "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
                                     "deadline":  "2026-05-30",
                                     "prova_cliente":  "2026-09-06",
-                                    "status":  "Loop 8 -- iniciando -- Telemetria + RLS + Monetizacao",
+                                    "status":  "Loop 8 CONCLUIDO -- F-A F-B F-E F-G N-3 N-4 D2 -- MEMORIA_V8 + relatorio_V8 + DELIBERACAO_V8 gerados",
                                     "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
                                     "banca":  "Instituto Quadrix",
                                     "stack":  "PWA + Supabase + Claude API",
-                                    "loop_atual":  "Loop 7 CONCLUIDO â€” MEMORIA_V7 + relatorio_V7 + DELIBERACAO_V7 gerados Â· Loop 8 PENDENTE â€” aguarda Gemini PASSO3",
+                                    “loop_atual”:  “Loop 8 CONCLUIDO -- MEMORIA_V8 + relatorio_V8 + DELIBERACAO_V8 gerados -- Loop 9 PENDENTE: Gate 7.2 + captacao 2a candidata”,
                                     "diretriz_gemini_v1":  true,
                                     "skill_notebooklm_v1":  true,
                                     "deliberacao_musculo":  true,
@@ -147,8 +147,8 @@
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
-                                                            "musculo":  "PENDENTE",
-                                                            "proximo":  "Musculo -- sintese P-037 -- aguarda veredito Diretor D1-D5"
+                                                            "musculo":  "OK",
+                                                            "proximo":  "Loop 9 -- Gate 7.2 RLS + captacao 2a candidata antes 04-07-2026"
                                                         },
                                     "churn_watch_threshold":  5,
                                     "relatorio_semanal":  true
