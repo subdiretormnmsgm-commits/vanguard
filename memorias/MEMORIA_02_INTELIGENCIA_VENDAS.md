@@ -1,4 +1,4 @@
-# MEMORIA_02_INTELIGENCIA_VENDAS — Vanguard Tech V2
+﻿# MEMORIA_02_INTELIGENCIA_VENDAS — Vanguard Tech V2
 
 **Data:** 2026-05-09
 **Versão do Projecto:** 2
@@ -148,7 +148,7 @@ Click "Enviar" →
 ```bash
 # Windows PowerShell
 $env:SUPABASE_URL = "https://ehyaecxqijgyuuiorzcj.supabase.co"
-$env:SUPABASE_ANON_KEY = "eyJ..."
+$env:SUPABASE_ANON_KEY = "[REDACTED]"
 python shadow_closer_v2.py
 ```
 

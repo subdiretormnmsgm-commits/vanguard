@@ -1,4 +1,4 @@
-# OFFBOARDING RUNBOOK — INGRID
+﻿# OFFBOARDING RUNBOOK — INGRID
 ## Soberania Total — P-013 | Dia 15 (29-05-2026 sexta-feira)
 
 ---
@@ -130,11 +130,11 @@ O Músculo atualiza as linhas 16-17 do `CLIENTES/INGRID/frontend/app.js`:
 ```javascript
 // ANTES (projeto Vanguard)
 const SUPABASE_URL      = "https://ehyaecxqijgyuuiorzcj.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6...";
+const SUPABASE_ANON_KEY = "[REDACTED]";
 
 // DEPOIS (projeto da Ingrid)
 const SUPABASE_URL      = "https://[REF_INGRID].supabase.co";
-const SUPABASE_ANON_KEY = "[ANON_KEY_INGRID]";
+const SUPABASE_ANON_KEY = "[REDACTED]";
 ```
 
 Depois, bump de versão e deploy:
