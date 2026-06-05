@@ -162,3 +162,5 @@
 - [ ] `2026-06-18` **Segurança -- webhooks n8n sem autenticação:** [musculo]
   Workflows 3 e 4 aceitam POST de qualquer origem. Adicionar shared secret no header antes de abrir o n8n para outros casos de uso.
   Impacto atual: baixo (URL não pública). Gate: antes de usar n8n em produção com dados sensíveis.
+
+- [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado

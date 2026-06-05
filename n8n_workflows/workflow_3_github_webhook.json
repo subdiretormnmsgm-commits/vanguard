@@ -17,7 +17,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const payload = $input.item.json.body || $input.item.json;\nconst commits = payload.commits || [];\nconst repoName = payload.repository ? payload.repository.full_name : 'vanguard';\nconst branch = payload.ref ? payload.ref.replace('refs/heads/', '') : 'main';\nconst ultimoCommit = commits[commits.length - 1];\nconst mensagem = ultimoCommit ? ultimoCommit.message : 'sem mensagem';\nconst sha = ultimoCommit ? ultimoCommit.id.substring(0, 7) : '0000000';\nconst temResolve = mensagem.includes('[RESOLVE:');\nconst resolveMatch = mensagem.match(/\\[RESOLVE:\\s*([^\\]]+)\\]/);\nconst pendente = resolveMatch ? resolveMatch[1] : '';\nconst resolveTexto = temResolve ? 'RESOLVE: ' + pendente : 'sem RESOLVE';\nconst texto = 'Commit -- ' + repoName + '\\n' + sha + ' | ' + branch + '\\n' + mensagem + '\\n' + resolveTexto;\nreturn [{ json: { repoName: repoName, branch: branch, sha: sha, mensagem: mensagem, temResolve: temResolve, pendente: pendente, texto: texto } }];"
+        "jsCode": "const payload = $input.item.json.body || $input.item.json;\nconst commits = payload.commits || [];\nconst repoName = payload.repository ? payload.repository.full_name : 'vanguard';\nconst branch = payload.ref ? payload.ref.replace('refs/heads/', '') : 'main';\nconst ultimoCommit = commits[commits.length - 1];\nconst mensagem = ultimoCommit ? ultimoCommit.message : 'sem mensagem';\nconst sha = ultimoCommit ? ultimoCommit.id.substring(0, 7) : '0000000';\nconst temResolve = mensagem.includes('[RESOLVE:');\nconst resolveMatch = mensagem.match(/\\[RESOLVE:\\s*([^\\]]+)\\]/);\nconst pendente = resolveMatch ? resolveMatch[1].trim() : '';\nconst resolveTexto = temResolve ? '✅ RESOLVE: ' + pendente : '';\nconst linhas = ['📦 Commit -- ' + repoName, sha + ' | ' + branch, mensagem];\nif (temResolve) linhas.push(resolveTexto);\nconst texto = linhas.join('\\n');\nreturn [{ json: { repoName: repoName, branch: branch, sha: sha, mensagem: mensagem, temResolve: temResolve, pendente: pendente, texto: texto } }];"
       },
       "id": "code-extrair",
       "name": "Extrair Dados do Push",
@@ -28,7 +28,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.telegram.org/bot8146192723:AAHVZJzzV0R_jp2sAaSE3T2AFFjnzMWuOgE/sendMessage",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendMessage' }}",
         "sendBody": true,
         "contentType": "json",
         "bodyParameters": {
