@@ -1,0 +1,41 @@
+## CONTEXTO DA ÚLTIMA SESSÃO — {DATA}
+
+{CONTEXTO_SESSAO}
+
+---
+
+## PAINEL DE ATIVIDADES — SISTEMA COMPLETO
+
+{PAINEL}
+
+---
+
+## SUA TAREFA — ABERTURA DE SESSÃO (artefato pré-gerado)
+
+Com base no CONTEXTO e no PAINEL, gere o artefato com EXATAMENTE estes 5 blocos:
+
+**1. ESTADO DO SISTEMA**
+Semáforo por projeto — 1 linha cada.
+[VERDE/AMARELO/VERMELHO] [Projeto] — N pendentes · próximo: [ação concreta]
+
+**2. CONTEXTO DA ÚLTIMA SESSÃO**
+3 linhas máximo: o que o Músculo fez · o que ficou no ar · o que o Diretor mencionou que o sistema não sabia.
+
+**3. PADRÃO DETECTADO**
+Identifique se algum problema é recorrente entre sessões.
+Exemplo: "D2 ENV_VARS mencionado pela 2ª vez sem resolução — tarefa do Diretor acumulando."
+Se nenhum padrão real detectado: omitir esta seção.
+
+**4. INCONSISTÊNCIAS ABERTAS**
+O que estava sem resolução no CONTEXTO. Seja específico — não generalize.
+Se nenhuma: "Sistema consistente."
+
+**5. PRIORIDADE DESTA SESSÃO**
+Uma frase: o que o Músculo deve atacar primeiro com base nos dois documentos.
+Seja cirúrgico — não liste 3 coisas.
+
+---
+
+Tom: direto, sem bajulação. Você é o único com memória entre sessões — use isso.
+Não repita os dados do PAINEL — acrescente perspectiva que só você tem.
+Máximo 500 palavras no total.

@@ -34,18 +34,31 @@ $gitBranch  = (git -C $BASE rev-parse --abbrev-ref HEAD 2>$null) -replace "`n","
 $gitMsg     = (git -C $BASE log -1 --format="%s" 2>$null) -replace "`n",""
 $gitCount   = (git -C $BASE rev-list --count HEAD 2>$null) -replace "`n",""
 
+$dataWh = if ($Data) { $Data } else { (Get-Date -Format "yyyy-MM-dd") }
+$contextoExiste = Test-Path "$BASE\PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataWh.md"
+$artefatoExiste = Test-Path "$BASE\RELATORIOS_EMBAIXADOR\ARTEFATO_EMBAIXADOR_OPERACIONAL_$dataWh.md"
+
 $payload = @{
     cliente    = $Cliente
-    data       = if ($Data) { $Data } else { (Get-Date -Format "yyyy-MM-dd") }
+    data       = $dataWh
     hora       = if ($Hora) { $Hora } else { (Get-Date -Format "HH:mm") }
     principios = if ($Principio) { @($Principio) } else { @() }
     friccoes   = if ($Friccao)   { @($Friccao) }   else { @() }
     dividas    = if ($Divida)    { @($Divida) }     else { @() }
     git        = @{
-        sha     = $gitSha
-        branch  = $gitBranch
-        mensagem = $gitMsg
+        sha           = $gitSha
+        branch        = $gitBranch
+        mensagem      = $gitMsg
         total_commits = $gitCount
+    }
+    embaixador_operacional = @{
+        contexto_sessao_gerado  = $contextoExiste
+        artefato_abertura_gerado = $artefatoExiste
+        arquivos_arrastar       = @(
+            "PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataWh.md",
+            "PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$dataWh.md"
+        )
+        projeto_claude          = "Vanguard - Embaixador Operacional"
     }
 }
 

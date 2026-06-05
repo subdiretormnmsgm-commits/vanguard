@@ -29,18 +29,69 @@ if ($exitCode -eq 0) {
     }
 }
 
-# POS-CLOSE: lembrete de upload ao Embaixador (A4 -- acao insubstituivel do Diretor)
+# ARTEFATO OPERACIONAL -- Haiku via API (gate: ANTHROPIC_API_KEY disponivel -- D2 ENV_VARS)
 if ($exitCode -eq 0) {
-    $dataFim = Get-Date -Format "yyyy-MM-dd"
-    $contextoFimPath = "$baseDir\PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md"
-    if (Test-Path $contextoFimPath) {
+    $artefatoOpScript = Join-Path $PSScriptRoot "gerar_artefato_operacional.ps1"
+    if (Test-Path $artefatoOpScript) {
         Write-Host ""
-        Write-Host "  [A4 -- ACAO DO DIRETOR]" -ForegroundColor Cyan
-        Write-Host "  Arrastar para Claude Projects (Embaixador):" -ForegroundColor Cyan
-        Write-Host "  PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md" -ForegroundColor White
-        Write-Host "  O Embaixador processa na proxima ativacao e abre com contexto completo." -ForegroundColor Cyan
-        Write-Host ""
+        Write-Host "  [OPER] Gerando ABERTURA DE SESSAO pre-gerada (Haiku)..." -ForegroundColor Cyan
+        & powershell.exe -NonInteractive -File $artefatoOpScript 2>$null
     }
 }
+
+# POS-CLOSE: bloco Embaixador Operacional (A4 -- acao insubstituivel do Diretor)
+$dataFim = Get-Date -Format "yyyy-MM-dd"
+$contextoFimPath = "$baseDir\PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md"
+
+# Localizar PAINEL_ATIVIDADES mais recente
+$painelMaisRecente = Get-ChildItem "$baseDir\PROTOCOLOS_ENCERRAMENTO" -Filter "PAINEL_ATIVIDADES_*$dataFim*.md" -ErrorAction SilentlyContinue |
+                     Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if (-not $painelMaisRecente) {
+    $painelMaisRecente = Get-ChildItem "$baseDir\PROTOCOLOS_ENCERRAMENTO" -Filter "PAINEL_ATIVIDADES_*.md" -ErrorAction SilentlyContinue |
+                         Sort-Object LastWriteTime -Descending | Select-Object -First 1
+}
+$painelNome = if ($painelMaisRecente) { $painelMaisRecente.Name } else { "PAINEL_ATIVIDADES_$dataFim.md (verificar)" }
+
+Write-Host ""
+Write-Host "=======================================================" -ForegroundColor Magenta
+Write-Host "  EMBAIXADOR OPERACIONAL -- Vanguard (A4)"              -ForegroundColor Magenta
+Write-Host "=======================================================" -ForegroundColor Magenta
+Write-Host ""
+Write-Host "  Projeto: 'Vanguard - Embaixador Operacional'" -ForegroundColor White
+Write-Host ""
+Write-Host "  Arrastar os 2 arquivos:" -ForegroundColor Yellow
+Write-Host "  1. PROTOCOLOS_ENCERRAMENTO\$painelNome"               -ForegroundColor Cyan
+if (Test-Path $contextoFimPath) {
+    Write-Host "  2. PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md" -ForegroundColor Cyan
+} else {
+    Write-Host "  2. CONTEXTO_SESSAO_DIRETOR_$dataFim.md [NAO ENCONTRADO -- Musculo deve gerar]" -ForegroundColor Red
+}
+Write-Host ""
+Write-Host "  Colar no chat do Embaixador Operacional:"             -ForegroundColor White
+Write-Host "  -----------------------------------------------"       -ForegroundColor DarkGray
+Write-Host "  Embaixador, fechamento de sessao $dataFim."            -ForegroundColor Cyan
+Write-Host "  Upload: PAINEL_ATIVIDADES + CONTEXTO_SESSAO_DIRETOR." -ForegroundColor Cyan
+Write-Host "  Processar e confirmar recepcao em 1 linha."            -ForegroundColor Cyan
+Write-Host "  Abertura da proxima sessao: aguardar ativacao."        -ForegroundColor Cyan
+Write-Host "  -----------------------------------------------"       -ForegroundColor DarkGray
+Write-Host ""
+
+# n8n W-4 -- gate: TELEGRAM_BOT_TOKEN configurado (D2 ENV_VARS)
+$alertConfigPath = Join-Path $PSScriptRoot "alert_config.ps1"
+$telegramAtivo   = $false
+if (Test-Path $alertConfigPath) {
+    try {
+        . $alertConfigPath
+        $telegramAtivo = -not [string]::IsNullOrWhiteSpace($TELEGRAM_BOT_TOKEN)
+    } catch {}
+}
+if ($telegramAtivo) {
+    Write-Host "  [n8n W-4] Telegram ativo -- notificacao de encerramento disparada via W-4" -ForegroundColor Green
+} else {
+    Write-Host "  [n8n W-4] Telegram INATIVO -- configurar D2 ENV_VARS (TELEGRAM_BOT_TOKEN) para ativar" -ForegroundColor DarkGray
+    Write-Host "            Apos D2: W-4 envia aviso automatico ao Diretor com lista de arquivos para upload" -ForegroundColor DarkGray
+}
+Write-Host ""
+Write-Host "=======================================================" -ForegroundColor Magenta
 
 exit $exitCode
