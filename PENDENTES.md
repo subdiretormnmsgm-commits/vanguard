@@ -155,7 +155,10 @@
 
 - [x] `2026-06-04` ~~**n8n -- GitHub webhook configurado no repositório vanguard:**~~ ✅
 
-- [ ] `2026-06-04` **Embaixador V4.0 -- Mandato 19: solicitar Perfis de Nicho EdTech e LegalTech V1:** [diretor]
-  Eduardo abre Claude Projects e cola o bloco abaixo no Embaixador Ingrid (nicho EdTech) e Embaixador Valdece (nicho LegalTech):
-  "Estou construindo o segundo cliente do nicho [EdTech-Concurso / LegalTech-Criminal]. Com base no que voce sabe sobre [Ingrid / Valdece], crie o Perfil de Nicho V1: (a) perfil psicografico do cliente-tipo, (b) objecoes mais previstas, (c) sinal de churn a monitorar, (d) diferencial mais valorizado neste nicho. Formato: 4 blocos nomeados."
-  Resultado: Musculo recebe, valida via protocolo M-21 e inscreve principios aprovados.
+- [x] `2026-06-04` ~~**Embaixador V4.0 -- Mandato 19: Perfis de Nicho V1 gerados:**~~
+  ✅ PERFIL_NICHO_LEGALTECH_V1.md (Valdece) + PERFIL_NICHO_EDTECH_V1.md (Ingrid) salvos em CLAUDE_PROJECT de cada projeto.
+  Princípios P-106/P-107/P-108 inscritos no LEDGER.
+
+- [ ] `2026-06-18` **Segurança -- webhooks n8n sem autenticação:** [musculo]
+  Workflows 3 e 4 aceitam POST de qualquer origem. Adicionar shared secret no header antes de abrir o n8n para outros casos de uso.
+  Impacto atual: baixo (URL não pública). Gate: antes de usar n8n em produção com dados sensíveis.

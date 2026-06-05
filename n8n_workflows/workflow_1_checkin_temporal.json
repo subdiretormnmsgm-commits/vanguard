@@ -19,7 +19,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const hora = new Date().getHours();\nlet periodo = 'TARDE';\nif (hora >= 5 && hora < 12) periodo = 'MANHA';\nif (hora >= 18) periodo = 'NOITE';\n\nconst saudacoes = {\n  MANHA: 'Bom dia, Diretor.',\n  TARDE: 'Boa tarde, Diretor.',\n  NOITE: 'Boa noite, Diretor.'\n};\n\nreturn [{\n  json: {\n    periodo: periodo,\n    saudacao: saudacoes[periodo],\n    hora: hora,\n    data: new Date().toLocaleDateString('pt-BR'),\n    timestamp: new Date().toISOString()\n  }\n}];"
+        "jsCode": "const agora = new Date();\nconst horaBR = parseInt(agora.toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo', hour: '2-digit', hour12: false}));\nconst dataBR = agora.toLocaleDateString('pt-BR', {timeZone: 'America/Sao_Paulo'});\n\nlet periodo = 'TARDE';\nif (horaBR >= 5 && horaBR < 12) periodo = 'MANHA';\nif (horaBR >= 18) periodo = 'NOITE';\n\nconst saudacoes = {\n  MANHA: 'Bom dia, Diretor.',\n  TARDE: 'Boa tarde, Diretor.',\n  NOITE: 'Boa noite, Diretor.'\n};\n\nreturn [{\n  json: {\n    periodo: periodo,\n    saudacao: saudacoes[periodo],\n    hora: horaBR,\n    data: dataBR,\n    timestamp: agora.toISOString()\n  }\n}];"
       },
       "id": "code-periodo",
       "name": "Detectar Periodo",

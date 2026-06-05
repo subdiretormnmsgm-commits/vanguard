@@ -51,7 +51,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const item = $input.item.json;\nconst valdeceOk = !item.error;\nconst ingridOk = $('Checar Ingrid').item.json.ingridOk;\nconst alertas = [];\nif (!ingridOk) alertas.push('INGRID offline');\nif (!valdeceOk) alertas.push('VALDECE offline');\nconst temAlerta = alertas.length > 0;\nconst hora = new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});\nconst texto = 'ALERTA -- Supabase offline\\n\\n' + alertas.join('\\n') + '\\n\\nHora: ' + hora;\nreturn [{ json: { temAlerta: temAlerta, texto: texto } }];"
+        "jsCode": "const item = $input.item.json;\nconst valdeceOk = !item.error;\nconst ingridOk = $('Checar Ingrid').item.json.ingridOk;\nconst alertas = [];\nif (!ingridOk) alertas.push('INGRID offline');\nif (!valdeceOk) alertas.push('VALDECE offline');\nconst temAlerta = alertas.length > 0;\nconst hora = new Date().toLocaleTimeString('pt-BR', {timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit'});\nconst texto = 'ALERTA -- Supabase offline\\n\\n' + alertas.join('\\n') + '\\n\\nHora: ' + hora;\nreturn [{ json: { temAlerta: temAlerta, texto: texto } }];"
       },
       "id": "code-checar",
       "name": "Checar Valdece e Montar Alerta",
