@@ -136,9 +136,30 @@ O Músculo executa a skill, delibera com os 7 pontos, apresenta plano de build.
 ## RESUMO VISUAL — 1 LINHA POR ETAPA
 
 ```
-① GEMINI    → Cole MASTER + PASSO3 · Anexe MEMORIA + relatorio + LEDGER + WIP → recebe DIRETRIZ + [G-1 a G-5]
-② NOTEBOOKLM → Script + Wipe&Sync + Cole COMANDO CURTO → recebe Skill [SKILL].md + [N-1 a N-5]
-③ EMBAIXADOR → Cole PASSO7 + [G-1 a G-5] + [N-1 a N-5] → recebe [E-1 a E-5] + TEMPERATURA + flags
+① GEMINI    → gemini_anchor_generator.ps1 · Cole MASTER + PASSO3 · Anexe MEMORIA + relatorio + LEDGER + WIP → recebe DIRETRIZ + [G-1 a G-5]
+② NOTEBOOKLM → preparar_notebooklm_projeto.ps1 + Wipe&Sync + Cole COMANDO CURTO → recebe Skill [SKILL].md + [N-1 a N-5]
+③ EMBAIXADOR → ir_ao_embaixador.ps1 · Cole PASSO7 + [G-1 a G-5] + [N-1 a N-5] → recebe [E-1 a E-5] + TEMPERATURA + flags
 ④ MÚSCULO   → Cole Skill + DIRETRIZ + [E-1 a E-5] → recebe deliberação + plano de build
-⑤ FECHAR    → MEMORIA + relatorio + session_close.ps1 → loop seguinte desbloqueado
+⑤ BUILD     → Commits com [RESOLVE:] · W-3 notifica Telegram + Notion a cada push
+⑥ FECHAR    → MEMORIA + relatorio + DELIBERACAO (P-037) + session_close.ps1 → W-4 dispara → Wipe & Sync NotebookLM
 ```
+
+---
+
+## N8N — O QUE MUDA NO LOOP A PARTIR DE V27 [2026-06-05]
+
+O n8n não muda a sequência do loop — muda QUEM transporta e COMO o Diretor recebe.
+
+**Antes (V1–V25):** Diretor = transportador de contexto entre ferramentas.
+**Depois (V26–V27):** Diretor = emissor de vereditos. n8n transporta automaticamente.
+
+| Momento do loop | Antes | Depois (n8n ativo) |
+|---|---|---|
+| Após git push | Diretor checava manualmente | W-3 notifica Telegram + Notion automaticamente |
+| Ao fechar sessão | Diretor rodava script e mandava e-mail | W-4 envia resumo ao Telegram + Notion automaticamente |
+| Para aprovar decisões | Diretor abria DECISOES.json + rodava script | Diretor digita /aprovar D1 no Telegram (W-7) |
+| Status de projetos | Diretor perguntava ao Músculo | W-1 envia briefing 3x/dia sem ser solicitado |
+| Supabase offline | Diretor descobria ao usar | W-2 alerta imediatamente |
+
+**O que não muda:** Gemini → NotebookLM → Embaixador → Músculo → Build.
+O loop intelectual permanece idêntico — o n8n só automatiza a camada de notificação e veredito.
