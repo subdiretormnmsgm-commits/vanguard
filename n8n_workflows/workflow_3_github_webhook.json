@@ -17,7 +17,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const payload = $input.item.json.body || $input.item.json;\nconst commits = payload.commits || [];\nconst repoName = payload.repository ? payload.repository.full_name : 'vanguard';\nconst branch = payload.ref ? payload.ref.replace('refs/heads/', '') : 'main';\nconst ultimoCommit = commits[commits.length - 1];\nconst mensagem = ultimoCommit ? ultimoCommit.message : 'sem mensagem';\nconst sha = ultimoCommit ? ultimoCommit.id.substring(0, 7) : '0000000';\nconst temResolve = mensagem.includes('[RESOLVE:');\nconst resolveMatch = mensagem.match(/\\[RESOLVE:\\s*([^\\]]+)\\]/);\nconst pendente = resolveMatch ? resolveMatch[1].trim() : '';\nconst resolveTexto = temResolve ? '✅ RESOLVE: ' + pendente : '';\nconst linhas = ['📦 Commit -- ' + repoName, sha + ' | ' + branch, mensagem];\nif (temResolve) linhas.push(resolveTexto);\nconst texto = linhas.join('\\n');\nreturn [{ json: { repoName: repoName, branch: branch, sha: sha, mensagem: mensagem, temResolve: temResolve, pendente: pendente, texto: texto } }];"
+        "jsCode": "const payload = $input.item.json.body || $input.item.json;\nconst commits = payload.commits || [];\nconst repoName = payload.repository ? payload.repository.full_name : 'vanguard';\nconst branch = payload.ref ? payload.ref.replace('refs/heads/', '') : 'main';\nconst ultimoCommit = commits[commits.length - 1];\nconst mensagem = ultimoCommit ? ultimoCommit.message : 'sem mensagem';\nconst sha = ultimoCommit ? ultimoCommit.id.substring(0, 7) : '0000000';\nconst temResolve = mensagem.includes('[RESOLVE:');\nconst resolveMatch = mensagem.match(/\\[RESOLVE:\\s*([^\\]]+)\\]/);\nconst pendente = resolveMatch ? resolveMatch[1].trim() : '';\nconst linhas = ['[COMMIT] ' + repoName, sha + ' | ' + branch, mensagem];\nif (temResolve) linhas.push('RESOLVE: ' + pendente);\nconst texto = linhas.join('\\n');\nreturn [{ json: { repoName: repoName, branch: branch, sha: sha, mensagem: mensagem, temResolve: temResolve, pendente: pendente, texto: texto } }];"
       },
       "id": "code-extrair",
       "name": "Extrair Dados do Push",
@@ -43,6 +43,42 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $('Extrair Dados do Push').item.json;\nconst agora = new Date();\nconst data = agora.toLocaleDateString('pt-BR', {timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', year: 'numeric'});\nconst hora = agora.toLocaleTimeString('pt-BR', {timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit'});\nconst partes = ['[COMMIT] ' + data + ' ' + hora, 'SHA: ' + item.sha + ' | Branch: ' + item.branch, 'Msg: ' + item.mensagem.split('\\n')[0].substring(0, 200)];\nif (item.temResolve) partes.push('RESOLVE: ' + item.pendente);\nconst conteudo = partes.join(' -- ');\nconst body = { children: [{ object: 'block', type: 'paragraph', paragraph: { rich_text: [{ type: 'text', text: { content: conteudo } }] } }] };\nreturn [{ json: { notionBody: JSON.stringify(body) } }];"
+      },
+      "id": "code-notion-w3",
+      "name": "Preparar Notion Body",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.notion.com/v1/blocks/' + $env.NOTION_WIP_PAGE_ID + '/children' }}",
+        "sendHeaders": true,
+        "specifyHeaders": "keypair",
+        "headerParameters": {
+          "parameters": [
+            {"name": "Authorization", "value": "={{ 'Bearer ' + $env.NOTION_API_TOKEN }}"},
+            {"name": "Notion-Version", "value": "2022-06-28"},
+            {"name": "Content-Type", "value": "application/json"}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ $json.notionBody }}",
+        "options": {"timeout": 15000},
+        "ignoreResponseCode": true
+      },
+      "id": "notion-wip-w3",
+      "name": "Notion -- Append WIP Board",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 300],
+      "continueOnFail": true
     }
   ],
   "connections": {
@@ -51,9 +87,15 @@
     },
     "Extrair Dados do Push": {
       "main": [[{"node": "Telegram -- Notificar Commit", "type": "main", "index": 0}]]
+    },
+    "Telegram -- Notificar Commit": {
+      "main": [[{"node": "Preparar Notion Body", "type": "main", "index": 0}]]
+    },
+    "Preparar Notion Body": {
+      "main": [[{"node": "Notion -- Append WIP Board", "type": "main", "index": 0}]]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {"executionOrder": "v1"},
-  "tags": ["vanguard", "github", "webhook", "fase1"]
+  "tags": ["vanguard", "github", "webhook", "notion", "fase2"]
 }

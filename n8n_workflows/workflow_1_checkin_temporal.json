@@ -19,7 +19,7 @@
     },
     {
       "parameters": {
-        "url": "={{ $env.GITHUB_API_WBOARD_URL || 'https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json' }}",
+        "url": "={{ $env.GITHUB_API_WBOARD_URL || 'https://api.github.com/repos/subdiretormnmsgme-commits/vanguard/contents/CLIENTES/WIP_BOARD.json' }}",
         "sendHeaders": true,
         "specifyHeaders": "keypair",
         "headerParameters": {
@@ -66,14 +66,52 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $('Detectar Periodo').item.json;\nconst conteudo = '[STATUS] ' + item.data + ' ' + item.hora + 'h | ' + item.statusProjetos.replace(/\\n/g, ' | ');\nconst body = { children: [{ object: 'block', type: 'paragraph', paragraph: { rich_text: [{ type: 'text', text: { content: conteudo } }] } }] };\nreturn [{ json: { notionBody: JSON.stringify(body) } }];"
+      },
+      "id": "code-notion-w1",
+      "name": "Preparar Notion Body",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.notion.com/v1/blocks/' + $env.NOTION_WIP_PAGE_ID + '/children' }}",
+        "sendHeaders": true,
+        "specifyHeaders": "keypair",
+        "headerParameters": {
+          "parameters": [
+            {"name": "Authorization", "value": "={{ 'Bearer ' + $env.NOTION_API_TOKEN }}"},
+            {"name": "Notion-Version", "value": "2022-06-28"},
+            {"name": "Content-Type", "value": "application/json"}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ $json.notionBody }}",
+        "options": {"timeout": 15000},
+        "ignoreResponseCode": true
+      },
+      "id": "notion-wip-w1",
+      "name": "Notion -- Append Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 300],
+      "continueOnFail": true
     }
   ],
   "connections": {
     "Cron -- 7h 13h 20h": {"main": [[{"node": "Ler WIP_BOARD", "type": "main", "index": 0}]]},
     "Ler WIP_BOARD": {"main": [[{"node": "Detectar Periodo", "type": "main", "index": 0}]]},
-    "Detectar Periodo": {"main": [[{"node": "Enviar Check-in Telegram", "type": "main", "index": 0}]]}
+    "Detectar Periodo": {"main": [[{"node": "Enviar Check-in Telegram", "type": "main", "index": 0}]]},
+    "Enviar Check-in Telegram": {"main": [[{"node": "Preparar Notion Body", "type": "main", "index": 0}]]},
+    "Preparar Notion Body": {"main": [[{"node": "Notion -- Append Status", "type": "main", "index": 0}]]}
   },
-  "active": false,
+  "active": true,
   "settings": {"executionOrder": "v1"},
-  "tags": ["vanguard", "checkin", "fase1"]
+  "tags": ["vanguard", "checkin", "notion", "fase2"]
 }

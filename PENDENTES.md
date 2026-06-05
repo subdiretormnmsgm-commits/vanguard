@@ -181,3 +181,11 @@
 - [ ] `2026-06-18` **n8n FASE 2 — D2: Configurar ENV_VARS completas no n8n EasyPanel:** [diretor]
   Variáveis: ANTHROPIC_API_KEY · TELEGRAM_BOT_TOKEN · TELEGRAM_CHAT_ID_DIRETOR · GITHUB_PAT_READONLY · BURN_RATE_DAILY_LIMIT_USD · N8N_WEBHOOK_SECRET · NOTION_API_TOKEN · NOTION_WIP_PAGE_ID · NOTION_PENDENTES_PAGE_ID · NOTION_LEDGER_PAGE_ID.
   Gate antes de ativar W-8, W-6, W-7 e Blocos Notion (D3 critério de ativação).
+  ✅ PARCIAL 2026-06-05: NOTION_API_TOKEN + NOTION_WIP_PAGE_ID + NOTION_PENDENTES_PAGE_ID configurados. Restam as demais variáveis para D3.
+
+- [x] `2026-06-05` ~~**n8n FASE 2 — Blocos 4-6: Notion OUTPUT em W-1 + W-3 + W-4:**~~
+  ✅ Nodes Preparar Body + Notion Append adicionados nos 3 workflows (continueOnFail: true — P-110).
+  W-1 (Check-in): STATUS → NOTION_WIP_PAGE_ID · W-3 (GitHub Push): COMMIT → NOTION_WIP_PAGE_ID
+  W-4 (Session Close): SESSAO → NOTION_WIP_PAGE_ID · PENDENTES → NOTION_PENDENTES_PAGE_ID
+  Workflows ativados via API em 2026-06-05 — todos status: active=True.
+  P-110 inscrito no LEDGER (toda automação crítica exige fallback ≤3 passos).
