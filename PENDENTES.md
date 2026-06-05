@@ -41,7 +41,7 @@
 - [x] `2026-06-04` ~~**Ingrid — D2: Gate 7.2 RLS dry-run — encerrado:**~~
   ✅ Registrado como dívida técnica (single-user by design). Multi-tenant requer refatoração futura.
 
-- [ ] `2026-06-XX` **Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:** [diretor]
+- [x] `2026-06-XX` **Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:** [diretor]
   Veredito do Diretor 2026-05-30: aguardar sessão com mais engajamento verbal de Ingrid.
   Frase pronta: "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄"
 
