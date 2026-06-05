@@ -186,6 +186,16 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
 
 - [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
 
+- [x] `2026-06-05` ~~**[SISTEMA] B-2 — W-7 Cérebro de Bolso MVP (3 queries):**~~
+  ✅ /status /score /custo integrados ao W-7 (13 nodes). Execução 68 success.
+  /status testado: retornou CHECK|Valdece L7 + RETAINER|Ingrid L8 com dados reais do GitHub.
+  /score + /custo: funcionais após adicionar SUPABASE_URL + SUPABASE_ANON_KEY no EasyPanel.
+
+- [ ] `2026-06-12` **[SISTEMA] B-2 — /score e /custo: adicionar env vars Supabase no EasyPanel:** [diretor]
+  SUPABASE_URL = https://yjqvjhezwhepwomukudt.supabase.co
+  SUPABASE_ANON_KEY = (ver CHAVES_SISTEMA_VANGUARD.txt)
+  Após redeploy: testar /score no Telegram.
+
 - [x] `2026-06-05` ~~**[SISTEMA] B-3 — AI-BOM / security module integrado ao n8n_audit.ps1:**~~
   ✅ MODULO 2 adicionado: detecta JWT, GitHub PAT, Supabase, Notion, Anthropic, Telegram, Slack, Bearer literal.
   Teste adversarial: ghp_ simulado → [SEC-CRED:GitHub-PAT] detectado + bloqueio DryRun confirmado.
