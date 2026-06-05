@@ -186,6 +186,11 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
 
 - [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
 
+- [x] `2026-06-05` ~~**[SISTEMA] B-3 — AI-BOM / security module integrado ao n8n_audit.ps1:**~~
+  ✅ MODULO 2 adicionado: detecta JWT, GitHub PAT, Supabase, Notion, Anthropic, Telegram, Slack, Bearer literal.
+  Teste adversarial: ghp_ simulado → [SEC-CRED:GitHub-PAT] detectado + bloqueio DryRun confirmado.
+  Workflows reais: CLEAN (todos usam $env.). MODULO 1 falsos positivos corrigidos (numPattern req keyword).
+
 ## PROCESSO / INFRA -- n8n FASE 2 (adicionado 2026-06-05)
 
 - [x] `2026-06-05` ~~**n8n FASE 2 — Deliberação D1-D5 aprovada e registrada:**~~
