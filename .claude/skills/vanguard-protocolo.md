@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.2 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24)**
+**Versão da Skill:** 6.3 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04)**
 
 ---
 
@@ -60,6 +60,18 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
   └── Como ativar: ir_ao_embaixador.ps1 -cliente [NOME] → clipboard + browser automáticos.
   └── Contribui ao loop com: 5 IDEIAS DISRUPTIVAS baseadas em comportamento real do cliente.
   └── Template: PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md
+
+N8N:              Sistema Nervoso Autônomo (EasyPanel — 24/7) [adicionado V26 — 2026-06-04]
+  └── Papel: Executor de automação contínua. Não é membro do Conselho — é o sistema nervoso.
+  └── Host: https://vanguard-vanguard-n8n.0ul9nk.easypanel.host · Credenciais: N8N Easypanel.txt (gitignored)
+  └── O Diretor PARA DE TRANSPORTAR contexto — passa a EMITIR VEREDITOS via Telegram.
+  └── W-1: Check-in 7h/13h/20h · W-2: Monitor Supabase · W-3: GitHub Push → Telegram+Notion
+  └── W-4: Session Close → Telegram+Notion+Pendentes · W-7: Veredito via /aprovar /rejeitar
+  └── W-5: ChurnWatch (gate: 2026-06-12) · W-6: Embaixador API (gate: 30 dias FASE 1)
+  └── Regra P-110: todo workflow tem fallback ≤ 3 passos documentado em MAINTENANCE_COST.md
+  └── Regra P-109: Notion = OUTPUT ONLY — git é a única fonte de verdade
+  └── Regra P-102: coexistência 30 dias — scripts .ps1 locais antes de desativar redundâncias
+  └── Regra P-072: W-7 Telegram DEVE sincronizar DECISOES.json local — estado assíncrono é violação
 
 TRIGGER:          PROTOCOLO VANGUARD
 MEMORANDO:        MEMORANDO_PENTALATERAL_UNIVERSAL.md
@@ -381,19 +393,6 @@ DECISOES.json fica LOCAL — JSON não é lido como Knowledge Document no Claude
 | `friction.log` | `.claude/meta/` | Músculo (registra eventos em tempo real) |
 
 ### Ritual de Fechamento de Sessão (obrigatório)
-
-**ORDEM CANONICA — nunca improvisar (P-086):**
-
-```
-[1] AUDITORIA DE DOCS     — MANIFEST: Desatualizado | Ausente | Em dia
-[2] PENDENTES ABERTOS     — lista completa, sem corte
-[3] PAINEL DE ATIVIDADES  — caminho do arquivo + instrução de upload ao Embaixador
-[4] PROXIMA SESSAO        — Prioridade 1 nomeada antes de encerrar
-[5] session_close.ps1     — 9 gates automáticos (inclui e-mail + Telegram)
-```
-
-O bloco [1]-[4] é exibido automaticamente pelo script ao final dos gates.
-Músculo não encerra sessão sem apresentar os 4 itens ao Diretor — nessa ordem.
 
 ```powershell
 # Executar ao fechar QUALQUER sessão — mesmo que pequena
@@ -1495,18 +1494,6 @@ Inclui obrigatoriamente: 5 ideias disruptivas para a próxima iteração.
 | Estimativa | Automação simples: 1–3 dias · Pipeline complexo: 1–2 sem |
 | Risco principal | Rate limits de APIs externas · Falhas silenciosas · Idempotência |
 | Padrão de falha | Sem log de falhas → quando quebra, ninguém sabe o que aconteceu |
-
-**n8n Pentalateral IAH (ativo 2026-06-04):**
-
-| Elemento | Valor |
-|----------|-------|
-| Host | EasyPanel cloud — 24/7, independente do PC local |
-| Workflows ativos | W-1 Check-in · W-2 Monitor Supabase · W-3 GitHub Push · W-4 Session Close |
-| Saída Notion | Cockpit visual — OUTPUT ONLY (P-109). Git é a única fonte de verdade |
-| Fallback (P-110) | Todo workflow crítico: fallback manual em 3 passos documentado |
-| Gate de ativação | N-1 (ping) rodando + ENV_VARS completas + 7 dias staging |
-| Parâmetros por cliente | `churn_watch_threshold` + `ultimo_contato_cliente` no WIP_BOARD — W-5 lê esses campos |
-| Roadmap FASE 2 | W-5 ChurnWatch → M-4 Circuit Breaker → W-7 Veredito MVP → W-6 Embaixador API |
 
 ### Dashboard / BI (Camada 2–3)
 

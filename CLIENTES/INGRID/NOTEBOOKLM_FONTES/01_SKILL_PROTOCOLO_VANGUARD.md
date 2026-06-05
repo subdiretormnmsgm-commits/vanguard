@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.2 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24)**
+**Versão da Skill:** 6.3 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04)**
 
 ---
 
@@ -60,6 +60,18 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
   └── Como ativar: ir_ao_embaixador.ps1 -cliente [NOME] → clipboard + browser automáticos.
   └── Contribui ao loop com: 5 IDEIAS DISRUPTIVAS baseadas em comportamento real do cliente.
   └── Template: PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md
+
+N8N:              Sistema Nervoso Autônomo (EasyPanel — 24/7) [adicionado V26 — 2026-06-04]
+  └── Papel: Executor de automação contínua. Não é membro do Conselho — é o sistema nervoso.
+  └── Host: https://vanguard-vanguard-n8n.0ul9nk.easypanel.host · Credenciais: N8N Easypanel.txt (gitignored)
+  └── O Diretor PARA DE TRANSPORTAR contexto — passa a EMITIR VEREDITOS via Telegram.
+  └── W-1: Check-in 7h/13h/20h · W-2: Monitor Supabase · W-3: GitHub Push → Telegram+Notion
+  └── W-4: Session Close → Telegram+Notion+Pendentes · W-7: Veredito via /aprovar /rejeitar
+  └── W-5: ChurnWatch (gate: 2026-06-12) · W-6: Embaixador API (gate: 30 dias FASE 1)
+  └── Regra P-110: todo workflow tem fallback ≤ 3 passos documentado em MAINTENANCE_COST.md
+  └── Regra P-109: Notion = OUTPUT ONLY — git é a única fonte de verdade
+  └── Regra P-102: coexistência 30 dias — scripts .ps1 locais antes de desativar redundâncias
+  └── Regra P-072: W-7 Telegram DEVE sincronizar DECISOES.json local — estado assíncrono é violação
 
 TRIGGER:          PROTOCOLO VANGUARD
 MEMORANDO:        MEMORANDO_PENTALATERAL_UNIVERSAL.md

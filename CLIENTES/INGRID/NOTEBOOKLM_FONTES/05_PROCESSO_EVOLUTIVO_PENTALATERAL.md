@@ -59,6 +59,17 @@ Cada membro adiciona. Nunca apenas valida. O Diretor tem o veredito final. Sempr
 **O loop evolutivo tem 5 contribuintes — 25 ideias por ciclo [M×2+G+N+E × 5]:**
 Músculo técnico (5) + Músculo cirúrgico [G+N] (5) + Estrategista (5) + Auditor (5) + Embaixador (5) = 25 ideias/ciclo. O Músculo contribui duas vezes: análise técnica pura e análise cirúrgica filtrada do Gemini+NotebookLM. O loop fica mais rico a cada volta porque cada membro vê ângulos que os outros não veem.
 
+**[ADICIONADO V26 — 2026-06-04] O SISTEMA NERVOSO AUTÔNOMO — n8n como 6º Elemento:**
+O n8n NÃO é um membro do Conselho. É o sistema nervoso que executa enquanto o Conselho delibera.
+Antes da V26: Diretor transportava contexto manualmente entre sessões. Após V26: Diretor emite vereditos.
+5 workflows ativos (W-1/W-2/W-3/W-4/W-7) no EasyPanel 24/7 — o Pentalateral opera mesmo sem o Diretor ativo.
+Princípio fundador: P-109 (Notion = output), P-110 (fallback ≤ 3 passos), P-102 (coexistência 30 dias).
+Esta transição encerrou o **Looping 2 — A Construção da Empresa** (V26/V27).
+
+**Os dois Loopings que mudaram a direção:**
+- **Looping 1 — Método (V17–V24):** "fundador que constrói produto" → "fundador que constrói método". O INTELLIGENCE_LEDGER nasce. O loop evolutivo é formalizado. O Pentalateral se torna o produto.
+- **Looping 2 — Empresa (V26–V27):** "Conselho manual" → "sistema nervoso autônomo". n8n entra como executor 24/7. O Diretor para de transportar e passa a emitir vereditos.
+
 ---
 
 ## 2. O PROCESSO — 10 PASSOS (para projeto novo ou nova iteração)
@@ -599,3 +610,13 @@ Status: PENDENTE / VALIDADO / REVERTIDO
 - **Calibração do Pentalateral:** quando Gemini alucinar, colar formato obrigatório antes do próximo prompt
 - **Ordem de envio ao Gemini:** MEMORIA + relatorio + COMANDO — nessa ordem — sempre
 - **Sempre dizer o próximo passo:** o Músculo instrui explicitamente o que fazer depois de cada entrega
+
+### [2026-06-04] — V26/V27 — SISTEMA NERVOSO AUTÔNOMO (n8n FASE 1+2)
+- **n8n como executor contínuo:** 5 workflows ativos no EasyPanel — o Pentalateral nunca para
+- **W-7 Veredito via Telegram:** Diretor aprova/rejeita decisões sem abrir computador — /aprovar /rejeitar /veredito
+- **P-109 Notion OUTPUT ONLY:** Notion é painel de visualização — git é a única fonte de verdade
+- **P-110 Fallback ≤ 3 passos:** todo workflow tem plano de contingência local documentado em MAINTENANCE_COST.md
+- **P-102 Coexistência 30 dias:** scripts .ps1 locais redundantes com workflows n8n durante a transição
+- **Looping 2 completo:** transição "Conselho manual → sistema nervoso autônomo" — o Diretor para de transportar
+- **PASSO5 Auditor Sistêmico:** sessão NotebookLM separada para auditoria do sistema Vanguard (não de cliente)
+- **pentalateral-atualizacao-v2.md:** skill do Auditor Sistêmico — audita os dois loopings e mapeia o delta V27
