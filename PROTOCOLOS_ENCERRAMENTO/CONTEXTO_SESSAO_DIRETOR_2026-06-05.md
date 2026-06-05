@@ -1,60 +1,76 @@
 # CONTEXTO_SESSAO_DIRETOR — 2026-06-05 (sexta-feira)
-> Gerado pelo Músculo ao fechar a sessão
+> Gerado pelo Músculo ao fechar a sessão — atualizado 17:58
 > Destino: (1) disco → lido por session_start.ps1 · (2) Claude Projects → Embaixador guarda
 
 ---
 
-## [PROJ-001 Valdece + PROJ-002 Ingrid] · 2026-06-05
+## PROJETOS ATIVOS: Valdece (Hypercare) · Ingrid (Retainer)
 
 ---
 
-### O QUE O DIRETOR MENCIONOU QUE O SISTEMA NÃO SABIA
+### O QUE FOI FEITO HOJE
 
-- **CONTEXTO SESSÃO DIRETOR não foi implementado** — Diretor confirmou que solicitou em sessão anterior. O sistema não tinha registro de nenhum arquivo nem commit. Falha de processo: pedido verbal não foi para o PENDENTES. Implementado nesta sessão.
-- **D2 ENV_VARS PARCIAL** — Diretor confirmou que as 3 variáveis Notion já estão configuradas. O PENDENTES tinha isso registrado mas o Músculo precisou confirmar com o Diretor antes de declarar o status.
-- **Sentinel Report** — Diretor não sabia o nome exato do processo. Explicitado: WhatsApp estruturado durante Hypercare para confirmar uso ativo + semente V2.
+**n8n — W-5 ChurnWatch com mensagens sugeridas (commit d7cacfd)**
+- Adicionadas mensagens pré-calibradas por cliente no alerta de churn:
+  - Ingrid 3–4d: "Ingrid, tudo bem? Estou por aqui se precisar de algo. 🙂"
+  - Ingrid 5d+: "Ingrid, estou por aqui. Como está o estudo?"
+  - Valdece 7d+: "Dr. Valdece, tudo bem? Passando para saber como está sendo a experiência com o sistema."
+- Lembrete de domingo: relatório semanal Ingrid aparece no resumo diário aos domingos
+- W-5 atualizado e ativo no EasyPanel (ID: zD4PVzfFDPpKKAHZ)
+
+**n8n — W-7 Telegram configurado e funcional (sessão anterior)**
+- /status /score /custo /aprovar /rejeitar /veredito operacionais
+- SUPABASE_URL + SUPABASE_ANON_KEY (Ingrid) adicionadas no EasyPanel
+- NOTION_WIP_PAGE_ID atualizado (376ac59f774f817db1d8c204d6abcea5)
+- /score retorna "sem dados em respostas" (tabela vazia — correto)
+
+**Infra — n8n_audit.ps1 corrigido (commit 860c2dd)**
+- Bug: keyword sozinho ("churn", "score") disparava GATE 7B — falso positivo
+- Fix: apenas num+keyword OU string longa > 50 chars viola
+- Session_close agora fecha sem bloqueio espúrio
+
+**PENDENTES — 3 itens marcados como feitos**
+- SUPABASE env vars EasyPanel ✅
+- NOTION_WIP_PAGE_ID EasyPanel ✅
+- Linha solta [BUILD 04-06] removida (item já estava [x])
+
+**P-072 — session_start detecta VEREDITOS do Telegram (infra instalada)**
+- detectar_vereditos_github.ps1 + aplicar_veredito_telegram.ps1 criados
+- session_start alerta automaticamente se houver vereditos pendentes no GitHub
 
 ---
 
-### DOCUMENTOS MORTOS DETECTADOS
+### PENDENTES ABERTOS (3 itens — sem urgência imediata)
 
-- Nenhum detectado nesta sessão. (Varredura automática via BLOCO 1 do session_start entra em produção a partir desta sessão.)
+| Item | Quem | Prazo |
+|---|---|---|
+| D5: Link Demo Ingrid bloqueado até 2ª usuária | Músculo | 2026-06-XX |
+| Gate 7.2 RLS refactor (multi-tenant) | Músculo | 2026-07-XX |
+| Webhooks n8n sem autenticação (baixo risco) | Músculo | 2026-06-18 |
 
 ---
 
-### INCONSISTÊNCIAS ABERTAS
+### ALERTAS DO SISTEMA
 
-- **P-098 hook bloqueia Edit tool mesmo com AUTORIZO explícito** — workaround: Python via Bash. Não foi resolvido estruturalmente. Registrado como limitação conhecida, não bug.
-- **DELIBERACAO_LOOP_V7_VALDECE retroativa** — criada sem data original, marcada como "retroativo 2026-06-05". Tecnicamente válida mas auditória P-045 pode questionar no futuro.
-- **DECISOES_N8N_NOTION_2026-06-04.json (INGRID)** — sem VEREDITO. Agenda bloqueada desde 2026-06-04. Diretor não deliberou nesta sessão.
+- **MASTER desatualizado 28h** — commitar antes do próximo Gemini (GATE 9.5)
+- **PAINEL_ATIVIDADES mais recente é de 2026-06-04** (Ingrid + Valdece) — nenhum foi gerado hoje com dados do dia; o novo PAINEL_2026-06-05.md foi gerado agora pelo session_close
 
 ---
 
 ### FICOU NO AR
 
-- **D2 ENV_VARS**: 7 variáveis restantes para o Diretor configurar no EasyPanel. Músculo não tem acesso.
-  - ANTHROPIC_API_KEY
-  - TELEGRAM_BOT_TOKEN
-  - TELEGRAM_CHAT_ID_DIRETOR
-  - GITHUB_PAT_READONLY
-  - BURN_RATE_DAILY_LIMIT_USD
-  - N8N_WEBHOOK_SECRET
-  - NOTION_LEDGER_PAGE_ID
-- **Email de fechamento**: a ser gerado pelo Músculo antes de encerrar.
-
----
-
-### DECISÕES VERBAIS NÃO REGISTRADAS
-
-- **Embaixador deve receber este arquivo por upload do Diretor** — aceito verbalmente. Não está em PENDENTES. Ação: Diretor arrasta CONTEXTO_SESSAO_DIRETOR_2026-06-05.md para o Claude Projects ao fechar esta sessão.
-- **P-113 (Músculo tem a informação — se não apresenta, o Diretor paga)** — princípio proposto pelo Embaixador. Registrar no INTELLIGENCE_LEDGER.
+- **ANTHROPIC_API_KEY no EasyPanel** — gate D2 ENV_VARS. Sem ela: ABERTURA_SESSAO_AUTONOMA (Haiku) não funciona. Músculo não tem acesso ao EasyPanel.
+- **Hermes bidirecional** — capturado como M-1 a M-5 para próximo loop Gemini. Twilio não funcionou. Alternativas: Z-API, Evolution API, UltraMsg.
+- **W-5 validação visual** — aguardar próximo cron 8h BRT para confirmar formato das mensagens no Telegram
 
 ---
 
 ### PRÓXIMA SESSÃO — AÇÃO IMEDIATA
 
-**Uma frase:** Verificar se D2 ENV_VARS foram configurados e se DECISOES_N8N_NOTION_2026-06-04.json tem VEREDITO — estas duas pendências bloqueiam W-1/W-3/W-4 e a agenda de Ingrid.
+1. Diretor envia PAINEL_ATIVIDADES + CONTEXTO_SESSAO_DIRETOR ao Embaixador Operacional
+2. Diretor verifica W-5 às 8h BRT (mensagens sugeridas no Telegram)
+3. Músculo: agenda próximo PASSO3 para loop Gemini (Ingrid ou Valdece — conforme deliberação)
 
 ---
 
-*Músculo · Pentalateral IAH · 2026-06-05*
+*Músculo · Pentalateral IAH · 2026-06-05 17:58*
