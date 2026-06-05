@@ -1967,3 +1967,10 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **O que o n8n NUNCA faz (independente do grau):** gerar DIRETRIZ, emitir Skill, fazer analise de negocio, substituir qualquer membro do Conselho.
 **Regra:** cada grau requer 30 dias de estabilidade do anterior + gate auditar_consistencia.ps1 exit 0.
 **Aplica-se a:** todo roadmap de automacao n8n envolvendo IA + toda proposta de W-8 em diante.
+
+## P-113 -- INFORMACAO RETIDA E CUSTO INVISIVEL PARA QUEM DELIBERA (2026-06-05)
+**Origem:** Embaixador em resposta ao design do CONTEXTO_SESSAO_DIRETOR (2026-06-05).
+**Fundamento:** O Musculo tem a informacao. Se nao apresenta proativamente, o Diretor paga o preco. Informacao retida nao e neutralidade -- e custo invisivel para quem delibera. A abertura de sessao inclui obrigatoriamente: (a) contexto da ultima sessao, (b) documentos mortos, (c) o que ficou no ar. O Diretor nao e o gatilho de memoria do proprio sistema.
+**O que muda operacionalmente:** (a) session_start.ps1 injeta BLOCO 0 (CONTEXTO_SESSAO_DIRETOR) e BLOCO 1 (documentos mortos varredura automatica). (b) Musculo gera CONTEXTO_SESSAO_DIRETOR antes de session_close -- nao depois. (c) Diretor arrasta o arquivo para Claude Projects (Embaixador) ao fechar sessao -- acao A4 insubstituivel.
+**Evidencia:** Pedido de CONTEXTO_SESSAO_DIRETOR feito em sessao anterior mas nao registrado no PENDENTES -- processo verbal sem rastreio. Detectado pelo Diretor em 2026-06-05.
+**Aplica-se a:** toda abertura de sessao + todo fechamento de sessao com conteudo relevante que nao esta em PENDENTES nem WIP_BOARD.

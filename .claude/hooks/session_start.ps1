@@ -254,6 +254,83 @@ function Get-PendentesAlert {
 
 $pendentesAlert = Get-PendentesAlert
 
+# --- CONTEXTO SESSAO DIRETOR: contexto conversacional da ultima sessao ---
+function Get-ContextoSessao {
+    $protDir = Join-Path $projectDir "PROTOCOLOS_ENCERRAMENTO"
+    if (-not (Test-Path $protDir)) { return $null }
+    $arquivos = Get-ChildItem $protDir -Filter "CONTEXTO_SESSAO_DIRETOR_*.md" -ErrorAction SilentlyContinue |
+                Sort-Object LastWriteTime -Descending
+    if (-not $arquivos -or $arquivos.Count -eq 0) { return $null }
+    $mais_recente = $arquivos[0]
+    $data_ctx = $mais_recente.BaseName -replace "CONTEXTO_SESSAO_DIRETOR_", ""
+    $conteudo = Get-Content $mais_recente.FullName -Encoding UTF8 -ErrorAction SilentlyContinue
+    if (-not $conteudo) { return $null }
+    $secoes_chave = @()
+    $capturando = $false
+    $linhas_capturadas = 0
+    foreach ($linha in $conteudo) {
+        if ($linha -match '^## [23456]') { $capturando = $true }
+        if ($linha -match '^## [78]' -or $linhas_capturadas -ge 60) { break }
+        if ($capturando) { $secoes_chave += $linha; $linhas_capturadas++ }
+    }
+    $resumo = @("CONTEXTO DA ULTIMA SESSAO -- $data_ctx", "")
+    $resumo += $secoes_chave
+    return $resumo -join "`n"
+}
+
+$contextoSessao = Get-ContextoSessao
+
+# --- BLOCO 1: Varredura de Documentos Mortos (P-113) ---
+# Detecta arquivos > 7 dias sem referencia em DEPENDENCY_MAP, PENDENTES ou WIP_BOARD
+function Get-DocumentosMortos {
+    $hoje = [datetime]::Today
+    $limite = 7
+    # Listas de referencia
+    $depMapPath  = Join-Path $projectDir "PENTALATERAL_UNIVERSAL\OPERACAO\DEPENDENCY_MAP.json"
+    $pendPath    = Join-Path $projectDir "PENDENTES.md"
+    $wipPathDM   = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
+    $refTexto = ""
+    if (Test-Path $depMapPath) { $refTexto += (Get-Content $depMapPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) }
+    if (Test-Path $pendPath)   { $refTexto += (Get-Content $pendPath   -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) }
+    if (Test-Path $wipPathDM)  { $refTexto += (Get-Content $wipPathDM  -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) }
+
+    # Diretorios a escanear
+    $diretorios = @(
+        (Join-Path $projectDir "CONSELHO"),
+        (Join-Path $projectDir "CLIENTES"),
+        (Join-Path $projectDir "PENTALATERAL_UNIVERSAL\OPERACAO"),
+        (Join-Path $projectDir "scripts")
+    )
+    $mortos = [System.Collections.ArrayList]@()
+    foreach ($dir in $diretorios) {
+        if (-not (Test-Path $dir)) { continue }
+        $arquivos = Get-ChildItem $dir -Recurse -File -Include "*.md","*.txt","*.ps1" -ErrorAction SilentlyContinue
+        foreach ($arq in $arquivos) {
+            # Ignorar pastas HISTORICO e NOTEBOOKLM_FONTES (esperado ter arquivos antigos)
+            if ($arq.FullName -match '\\HISTORICO\\' -or $arq.FullName -match '\\NOTEBOOKLM_FONTES\\') { continue }
+            if ($arq.FullName -match '\\NOTEBOOKLM_DROP\\') { continue }
+            $diasIdle = ($hoje - $arq.LastWriteTime.Date).Days
+            if ($diasIdle -lt $limite) { continue }
+            $nome = $arq.Name
+            if ($refTexto -match [regex]::Escape($nome)) { continue }
+            [void]$mortos.Add([PSCustomObject]@{ Nome = $nome; Dias = $diasIdle; Path = $arq.FullName })
+        }
+    }
+    if ($mortos.Count -eq 0) { return $null }
+    $top = @($mortos | Sort-Object Dias -Descending | Select-Object -First 5)
+    $linhas = @("DOCUMENTOS MORTOS -- $($mortos.Count) arquivo(s) sem referencia ativa ha > $limite dias", "")
+    foreach ($m in $top) {
+        $relPath = $m.Path.Replace($projectDir + "\", "")
+        $linhas += "  [MORTO] $($m.Nome) -- $($m.Dias) dias -- $relPath"
+    }
+    if ($mortos.Count -gt 5) { $linhas += "  ... e mais $($mortos.Count - 5) arquivo(s)" }
+    $linhas += ""
+    $linhas += "  Acao: verificar se ainda tem uso. Se nao: deletar ou arquivar."
+    return $linhas -join "`n"
+}
+
+$documentosMortos = Get-DocumentosMortos
+
 # ENTREGAVEL 12 -- Pendentes vencidos formato P-069 (DD-MM-YYYY dia-da-semana)
 # Complementa Get-PendentesAlert (que detecta formato backtick ISO) com o formato P-069
 $pendentesVencidosP069 = ""
@@ -620,6 +697,8 @@ if ($mapaDiarioOutput)     { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS 
 if ($pendentesVencidosP069) { $sections = @("## PENDENTES VENCIDOS (P-069) -- ATENCAO IMEDIATA`n$pendentesVencidosP069") + $sections }
 if ($decisoesPendentes) { $sections = @("## DECISOES PENDENTES -- AGENDA BLOQUEADA ATE VEREDITO`n$decisoesPendentes") + $sections }
 if ($loopLembrete)      { $sections = @("## LEMBRETE DE LOOP -- FASES ATIVAS (P-077)`n$loopLembrete") + $sections }
+if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA CONVERSACIONAL)`n$contextoSessao") + $sections }
+if ($documentosMortos)  { $sections = @("## DOCUMENTOS MORTOS (P-113) -- VARREDURA AUTOMATICA`n$documentosMortos") + $sections }
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +

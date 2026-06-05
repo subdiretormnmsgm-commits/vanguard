@@ -1956,3 +1956,14 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
   Valdece sobe acordaos → corpus_status alimenta Perfil de Nicho LegalTech (P-108)
   Qualquer cliente responde quiz → dado de nicho entra no Radar de Perfis (Camada 3 n8n)
 **Aplica-se a:** toda decisao de roadmap de produto + toda feature de onboarding + todo workflow n8n que coleta dados de uso.
+
+## P-112 -- N8N COMO PRE-PROCESSADOR CONTROLADO: PALCO PRONTO, CONSELHO DELIBERA (2026-06-05)
+**Origem:** Visao do Diretor em sessao 2026-06-05 -- "Em algum momento, com controle, faremos o n8n pensar."
+**Fundamento:** "Com controle" significa pre-processamento estruturado, NAO autonomia deliberativa. O n8n le dados (commits, WIP_BOARD, PENDENTES, churn) e monta contexto -- mas NAO gera DIRETRIZ, NAO gera Skill, NAO delibera sobre negocio. Quem delibera e o Conselho. O n8n e o assistente de pesquisa que monta o briefing; o Conselho assina.
+**Os tres graus (em ordem de maturidade):**
+  Grau 1 (proximo -- gate: W-5+W-6 estaveis 30 dias): W-8 pre-compila PASSO3 baseado em commits + WIP + PENDENTES → Diretor revisa e cola no Gemini. Tempo economizado: 20min/loop.
+  Grau 2 (V28-V29): n8n chama API estruturada (nao LLM livre) para classificar dados → gera JSON de contexto → Diretor valida e injeta no loop. Sem geracao de texto livre pelo n8n.
+  Grau 3 (futuro distante): n8n executa tarefas repetitivas de Classe A (tecnicas, sem ambiguidade) → Diretor so aprova o resultado via Telegram.
+**O que o n8n NUNCA faz (independente do grau):** gerar DIRETRIZ, emitir Skill, fazer analise de negocio, substituir qualquer membro do Conselho.
+**Regra:** cada grau requer 30 dias de estabilidade do anterior + gate auditar_consistencia.ps1 exit 0.
+**Aplica-se a:** todo roadmap de automacao n8n envolvendo IA + toda proposta de W-8 em diante.
