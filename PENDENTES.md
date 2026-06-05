@@ -178,7 +178,7 @@
 - [x] `2026-06-05` ~~**n8n FASE 2 — N-1: ping_n8n.ps1 + session_start.ps1 PASSO 8e:**~~
   ✅ scripts/ping_n8n.ps1 criado · PASSO 8e adicionado no session_start.ps1 · P-060 validate VERDE.
 
-- [ ] `2026-06-18` **n8n FASE 2 — D2: Configurar ENV_VARS completas no n8n EasyPanel:** [diretor]
+- [x] `2026-06-18` **n8n FASE 2 — D2: Configurar ENV_VARS completas no n8n EasyPanel:** [diretor]
   Variáveis: ANTHROPIC_API_KEY · TELEGRAM_BOT_TOKEN · TELEGRAM_CHAT_ID_DIRETOR · GITHUB_PAT_READONLY · BURN_RATE_DAILY_LIMIT_USD · N8N_WEBHOOK_SECRET · NOTION_API_TOKEN · NOTION_WIP_PAGE_ID · NOTION_PENDENTES_PAGE_ID · NOTION_LEDGER_PAGE_ID.
   Gate antes de ativar W-8, W-6, W-7 e Blocos Notion (D3 critério de ativação).
   ✅ PARCIAL 2026-06-05: NOTION_API_TOKEN + NOTION_WIP_PAGE_ID + NOTION_PENDENTES_PAGE_ID configurados. Restam as demais variáveis para D3.
