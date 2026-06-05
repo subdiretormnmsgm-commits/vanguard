@@ -100,9 +100,9 @@
   GitHub 401: GITHUB_PAT_WRITE não definido no EasyPanel — AÇÃO DO DIRETOR: adicionar env var.
   Após PAT adicionado: W-7 100% funcional.
 
-- [ ] `2026-06-07` **[SISTEMA] W-7 — confirmar GitHub OK após GITHUB_PAT_WRITE no EasyPanel:** [diretor+musculo]
-  Ação Diretor: EasyPanel → n8n → Environment Variables → GITHUB_PAT_WRITE = REDACTED_PAT
-  Após redeploy: Músculo verifica execução GitHub → HTTP 201.
+- [x] `2026-06-05` ~~**[SISTEMA] W-7 — GitHub OK confirmado após GITHUB_PAT_WRITE:**~~
+  ✅ Execução 65 success · SHA 1b08156a · VEREDITOS_202606051931.json · diretor_confirmado: true.
+  W-7 ENTREGUE E FUNCIONAL — Telegram + Notion + GitHub todos operacionais.
 
 - [ ] `2026-06-12` **[SISTEMA] P-072 — W-7 VEREDITOS → session_start processa localmente:** [musculo]
   W-7 grava VEREDITOS/*.json no GitHub. session_start deve detectar + chamar executar_vereditos.ps1.
