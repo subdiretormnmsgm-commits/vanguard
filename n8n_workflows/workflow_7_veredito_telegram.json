@@ -1,0 +1,149 @@
+{
+  "name": "07 -- Veredito via Telegram MVP",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": ["message"],
+        "options": {}
+      },
+      "id": "telegram-trigger",
+      "name": "Telegram -- Receber Mensagem",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-bot-vanguard",
+          "name": "Vanguard IAH Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const msg = $input.item.json.message || {};\nconst texto = (msg.text || '').trim();\nconst chatId = msg.chat ? msg.chat.id : null;\nconst fromId = msg.from ? msg.from.id : null;\nconst DIRETOR_CHAT_ID = parseInt($env.TELEGRAM_CHAT_ID_DIRETOR || '0');\n\n// Verificar se e o Diretor\nconst isDiretor = (chatId === DIRETOR_CHAT_ID || fromId === DIRETOR_CHAT_ID);\n\n// Parsear comando\n// Formatos aceitos: /aprovar A , /rejeitar B , /veredito D1:A D2:B\nconst cmdMatch = texto.match(/^\\/(aprovar|rejeitar|veredito)\\s+(.+)/i);\nif (!cmdMatch) {\n  return [{ json: { valido: false, motivo: 'Formato invalido -- use /aprovar A ou /rejeitar B', chatId: chatId } }];\n}\n\nconst cmd = cmdMatch[1].toLowerCase();\nconst arg = cmdMatch[2].trim().toUpperCase();\n\n// Parsear itens: \"A\" ou \"D1:A D2:B D3:C\"\nlet itens = [];\nif (cmd === 'veredito') {\n  const matches = arg.match(/D\\d+:[ABC]/gi);\n  if (matches) itens = matches.map(m => ({ id: m.split(':')[0], veredito: m.split(':')[1] }));\n} else {\n  // /aprovar A ou /rejeitar B\n  const v = cmd === 'aprovar' ? 'A' : 'B';\n  itens = [{ id: arg, veredito: v }];\n}\n\nconst agora = new Date();\nconst data = agora.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });\nconst hora = agora.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit' });\n\nreturn [{ json: { valido: true, isDiretor: isDiretor, cmd: cmd, itens: itens, texto: texto, chatId: chatId, data: data, hora: hora } }];"
+      },
+      "id": "code-parsear",
+      "name": "Parsear Comando",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.valido }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-valido",
+      "name": "Comando Valido?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $('Parsear Comando').item.json;\nconst linhas = item.itens.map(i => '[' + i.veredito + '] ' + i.id);\nconst resumo = '[VEREDITO] ' + item.data + ' ' + item.hora + ' | ' + linhas.join(' | ');\nconst body = { children: [{ object: 'block', type: 'paragraph', paragraph: { rich_text: [{ type: 'text', text: { content: resumo } }] } }] };\nconst confirmacao = 'Veredito registrado:\\n' + linhas.map(l => '  ' + l).join('\\n') + '\\n\\n' + item.data + ' ' + item.hora;\nreturn [{ json: { notionBody: JSON.stringify(body), confirmacao: confirmacao, chatId: item.chatId } }];"
+      },
+      "id": "code-preparar",
+      "name": "Preparar Registro",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.notion.com/v1/blocks/' + $env.NOTION_PENDENTES_PAGE_ID + '/children' }}",
+        "sendHeaders": true,
+        "specifyHeaders": "keypair",
+        "headerParameters": {
+          "parameters": [
+            {"name": "Authorization", "value": "={{ 'Bearer ' + $env.NOTION_API_TOKEN }}"},
+            {"name": "Notion-Version", "value": "2022-06-28"},
+            {"name": "Content-Type", "value": "application/json"}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ $json.notionBody }}",
+        "options": {"timeout": 15000},
+        "ignoreResponseCode": true
+      },
+      "id": "notion-veredito",
+      "name": "Notion -- Log Veredito",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 200],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendMessage' }}",
+        "sendBody": true,
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            {"name": "chat_id", "value": "={{ $('Preparar Registro').item.json.chatId }}"},
+            {"name": "text", "value": "={{ $('Preparar Registro').item.json.confirmacao }}"}
+          ]
+        }
+      },
+      "id": "telegram-confirmar",
+      "name": "Telegram -- Confirmar Veredito",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 200],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendMessage' }}",
+        "sendBody": true,
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            {"name": "chat_id", "value": "={{ $('Parsear Comando').item.json.chatId }}"},
+            {"name": "text", "value": "={{ $('Parsear Comando').item.json.motivo || 'Comando invalido. Use: /aprovar A ou /rejeitar B ou /veredito D1:A D2:B' }}"}
+          ]
+        }
+      },
+      "id": "telegram-erro",
+      "name": "Telegram -- Erro de Formato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 420],
+      "continueOnFail": true
+    }
+  ],
+  "connections": {
+    "Telegram -- Receber Mensagem": {
+      "main": [[{"node": "Parsear Comando", "type": "main", "index": 0}]]
+    },
+    "Parsear Comando": {
+      "main": [[{"node": "Comando Valido?", "type": "main", "index": 0}]]
+    },
+    "Comando Valido?": {
+      "main": [
+        [{"node": "Preparar Registro", "type": "main", "index": 0}],
+        [{"node": "Telegram -- Erro de Formato", "type": "main", "index": 0}]
+      ]
+    },
+    "Preparar Registro": {
+      "main": [[{"node": "Notion -- Log Veredito", "type": "main", "index": 0}]]
+    },
+    "Notion -- Log Veredito": {
+      "main": [[{"node": "Telegram -- Confirmar Veredito", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["vanguard", "veredito", "telegram", "mvp", "fase2"],
+  "notes": "W-7 MVP texto. BLOQUEADO ate D2 ENV_VARS com TELEGRAM_BOT_TOKEN configurado no EasyPanel. Comandos: /aprovar A | /rejeitar B | /veredito D1:A D2:B D3:C. Confirmacao imediata via Telegram + log no Notion Pendentes. N-5 Undo Window na versao v1.1 (com botoes inline)."
+}

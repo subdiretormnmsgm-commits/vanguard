@@ -1496,6 +1496,18 @@ Inclui obrigatoriamente: 5 ideias disruptivas para a próxima iteração.
 | Risco principal | Rate limits de APIs externas · Falhas silenciosas · Idempotência |
 | Padrão de falha | Sem log de falhas → quando quebra, ninguém sabe o que aconteceu |
 
+**n8n Pentalateral IAH (ativo 2026-06-04):**
+
+| Elemento | Valor |
+|----------|-------|
+| Host | EasyPanel cloud — 24/7, independente do PC local |
+| Workflows ativos | W-1 Check-in · W-2 Monitor Supabase · W-3 GitHub Push · W-4 Session Close |
+| Saída Notion | Cockpit visual — OUTPUT ONLY (P-109). Git é a única fonte de verdade |
+| Fallback (P-110) | Todo workflow crítico: fallback manual em 3 passos documentado |
+| Gate de ativação | N-1 (ping) rodando + ENV_VARS completas + 7 dias staging |
+| Parâmetros por cliente | `churn_watch_threshold` + `ultimo_contato_cliente` no WIP_BOARD — W-5 lê esses campos |
+| Roadmap FASE 2 | W-5 ChurnWatch → M-4 Circuit Breaker → W-7 Veredito MVP → W-6 Embaixador API |
+
 ### Dashboard / BI (Camada 2–3)
 
 | Elemento | Padrão Validado |

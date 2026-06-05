@@ -183,6 +183,16 @@
   Gate antes de ativar W-8, W-6, W-7 e Blocos Notion (D3 critério de ativação).
   ✅ PARCIAL 2026-06-05: NOTION_API_TOKEN + NOTION_WIP_PAGE_ID + NOTION_PENDENTES_PAGE_ID configurados. Restam as demais variáveis para D3.
 
+- [ ] `2026-06-12` **n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:** [musculo]
+  Timer iniciado 2026-06-05. Se W-1/W-3/W-4 estáveis em 2026-06-12 → verde para build W-5.
+  Verificar: n8n EasyPanel → executions → zero erros nos últimos 7 dias.
+  Gate adicional: D2 ENV_VARS completas (TELEGRAM_BOT_TOKEN obrigatório para W-5).
+
+- [ ] `2026-06-18` **n8n FASE 2 — D6: Build W-7 Veredito MVP texto:** [musculo]
+  Workflow Telegram: Eduardo responde /aprovar A ou /rejeitar B → n8n parseia → log no Notion.
+  Bloqueado até D2 com TELEGRAM_BOT_TOKEN configurado no EasyPanel.
+  JSON do workflow criado em n8n_workflows/workflow_7_veredito_telegram.json.
+
 - [x] `2026-06-05` ~~**n8n FASE 2 — Blocos 4-6: Notion OUTPUT em W-1 + W-3 + W-4:**~~
   ✅ Nodes Preparar Body + Notion Append adicionados nos 3 workflows (continueOnFail: true — P-110).
   W-1 (Check-in): STATUS → NOTION_WIP_PAGE_ID · W-3 (GitHub Push): COMMIT → NOTION_WIP_PAGE_ID

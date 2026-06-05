@@ -487,6 +487,27 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 ---
 
+## 🤖 N8N — CAMADA DE AUTOMAÇÃO DO PENTALATERAL (ativo desde 2026-06-04)
+
+> **EasyPanel:** `https://vanguard-vanguard-n8n.0ul9nk.easypanel.host` — cloud 24/7, independente do PC local.
+> **Credenciais:** `N8N Easypanel.txt` (gitignored). **P-110:** todo workflow crítico tem fallback manual ≤3 passos.
+
+| Workflow | Trigger | O que faz |
+|---|---|---|
+| W-1 Check-in | Cron 7h/13h/20h | Status projetos → Telegram + Notion WIP Board |
+| W-2 Monitor Supabase | Cron horário | Verifica Supabase online → alerta se offline |
+| W-3 GitHub Push | Webhook GitHub | Notifica commits → Telegram + Notion WIP Board |
+| W-4 Session Close | Webhook POST | Resumo de sessão → Telegram + Notion WIP + Pendentes |
+
+**Regras obrigatórias para o Músculo:**
+- Nunca chamar APIs externas (Claude, Gemini, Telegram) diretamente do código local — usar n8n como proxy quando possível
+- `ping_n8n.ps1` (PASSO 8e session_start) verifica uptime a cada sessão
+- Novos workflows: sempre com `continueOnFail: true` nos nodes críticos (P-110)
+- `churn_watch_threshold` e `ultimo_contato_cliente` obrigatórios no WIP_BOARD por projeto (W-5 ChurnWatch lê esses campos)
+- Workflows não ativados sem: N-1 rodando + ENV_VARS completas + 7 dias staging
+
+---
+
 ## 🔧 FERRAMENTAS DE ORQUESTRAÇÃO DO CONSELHO
 
 ### HOOKS ATIVOS — Proteção automática

@@ -1946,3 +1946,13 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
   REGRA 2 -- W-6 usa replace_content (sobrescreve) -- edicao manual e destruida na proxima sync
   REGRA 3 -- DEPENDENCY_MAP.json marca Notion como TIPO3_OUTPUT_EXTERNO -- auditar_consistencia.ps1 nunca le do Notion
 **Aplica-se a:** todo artefato publicado via n8n em qualquer pagina Notion do Pentalateral IAH.
+
+## P-111 -- ATENDER CLIENTES E CONSTRUIR VANTAGEM COMPETITIVA SAO O MESMO ATO (2026-06-05)
+**Origem:** Embaixador -- Briefing N8N-FASE2 -- sessao 2026-06-05. Candidato P-YYY aprovado pelo Diretor.
+**Fundamento:** P-008 aponta a direcao sem nomear o mecanismo. Quando o comportamento de uso do cliente alimenta automaticamente o ativo de inteligencia da empresa (Perfil de Nicho, LEDGER, Auditor Autonomo), cada sessao de produto e simultaneamente receita e infraestrutura de aprendizado. O cliente nao sabe que esta treinando o sistema -- o sistema sabe.
+**Regra:** ao projetar qualquer feature de produto cliente, perguntar: "este dado de uso alimenta qual ativo de inteligencia da Vanguard?" Se a resposta for nenhum, a feature e custo, nao investimento. Priorizar features que geram dados estruturados sobre comportamento de nicho.
+**Exemplos concretos:**
+  Ingrid usa SM-2 → churn_watch_threshold calibrado para EdTech-Concurso (P-106)
+  Valdece sobe acordaos → corpus_status alimenta Perfil de Nicho LegalTech (P-108)
+  Qualquer cliente responde quiz → dado de nicho entra no Radar de Perfis (Camada 3 n8n)
+**Aplica-se a:** toda decisao de roadmap de produto + toda feature de onboarding + todo workflow n8n que coleta dados de uso.

@@ -4,8 +4,20 @@
   "updated": "2026-06-04",
   "projetos_ativos": ["INGRID", "VALDECE"],
   "projetos_ativos_DEPRECATED": "Usar utils/Get-ProjetosAtivos.ps1 -- le dinamicamente do WIP_BOARD.board.build/check/retainer. Este campo sera removido em versao futura. Adicionar projeto novo = criar pasta CLIENTES/[NOME]/ + entrada WIP_BOARD + preparar_notebooklm.",
-  "ultima_atualizacao": "2026-06-04",
-  "description": "Mapa de dependencias do Pentalateral IAH v2.0. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060).",
+  "ultima_atualizacao": "2026-06-05",
+  "description": "Mapa de dependencias do Pentalateral IAH v2.1. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060). n8n EasyPanel e dependencia estrutural universal a partir de 2026-06-05.",
+  "infra_dependencias": {
+    "n8n": {
+      "tipo": "UNIVERSAL_ESTRUTURAL",
+      "host": "https://vanguard-vanguard-n8n.0ul9nk.easypanel.host",
+      "workflows_ativos": ["W-1 check-in", "W-2 monitor-supabase", "W-3 github-push", "W-4 session-close"],
+      "nota": "Dependencia de toda automacao critica. P-110: fallback manual documentado para cada workflow. Verificar uptime via ping_n8n.ps1 no session_start (PASSO 8e).",
+      "campos_por_cliente_wip_board": {
+        "churn_watch_threshold": "dias de inatividade antes de alerta -- OBRIGATORIO em todo projeto WIP_BOARD. W-5 ChurnWatch le este campo -- nunca hardcoded no workflow.",
+        "ultimo_contato_cliente": "data ISO 8601 -- W-5 calcula delta vs data atual"
+      }
+    }
+  },
   "fonte_canonica_base": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE",
   "documentos": {
     "UNIVERSAL_PURO": {
