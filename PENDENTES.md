@@ -188,10 +188,9 @@
   Verificar: n8n EasyPanel → executions → zero erros nos últimos 7 dias.
   Gate adicional: D2 ENV_VARS completas (TELEGRAM_BOT_TOKEN obrigatório para W-5).
 
-- [ ] `2026-06-18` **n8n FASE 2 — D6: Build W-7 Veredito MVP texto:** [musculo]
-  Workflow Telegram: Eduardo responde /aprovar A ou /rejeitar B → n8n parseia → log no Notion.
-  Bloqueado até D2 com TELEGRAM_BOT_TOKEN configurado no EasyPanel.
-  JSON do workflow criado em n8n_workflows/workflow_7_veredito_telegram.json.
+- [x] `2026-06-05` ~~**n8n FASE 2 — D6: Build W-7 Veredito MVP texto:**~~
+  ✅ Importado + ativo (ID: KisAa6ynD4btgrkL) · /aprovar TESTE confirmado pelo Diretor 2026-06-05.
+  Comandos: /aprovar A · /rejeitar B · /veredito D1:A D2:B · log automático no Notion Pendentes.
 
 - [x] `2026-06-05` ~~**n8n FASE 2 — Blocos 4-6: Notion OUTPUT em W-1 + W-3 + W-4:**~~
   ✅ Nodes Preparar Body + Notion Append adicionados nos 3 workflows (continueOnFail: true — P-110).

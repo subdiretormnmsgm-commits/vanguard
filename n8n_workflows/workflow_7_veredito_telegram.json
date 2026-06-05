@@ -13,14 +13,14 @@
       "position": [240, 300],
       "credentials": {
         "telegramApi": {
-          "id": "telegram-bot-vanguard",
+          "id": "pNmpmjEcJ1RUvpz3",
           "name": "Vanguard IAH Bot"
         }
       }
     },
     {
       "parameters": {
-        "jsCode": "const msg = $input.item.json.message || {};\nconst texto = (msg.text || '').trim();\nconst chatId = msg.chat ? msg.chat.id : null;\nconst fromId = msg.from ? msg.from.id : null;\nconst DIRETOR_CHAT_ID = parseInt($env.TELEGRAM_CHAT_ID_DIRETOR || '0');\n\n// Verificar se e o Diretor\nconst isDiretor = (chatId === DIRETOR_CHAT_ID || fromId === DIRETOR_CHAT_ID);\n\n// Parsear comando\n// Formatos aceitos: /aprovar A , /rejeitar B , /veredito D1:A D2:B\nconst cmdMatch = texto.match(/^\\/(aprovar|rejeitar|veredito)\\s+(.+)/i);\nif (!cmdMatch) {\n  return [{ json: { valido: false, motivo: 'Formato invalido -- use /aprovar A ou /rejeitar B', chatId: chatId } }];\n}\n\nconst cmd = cmdMatch[1].toLowerCase();\nconst arg = cmdMatch[2].trim().toUpperCase();\n\n// Parsear itens: \"A\" ou \"D1:A D2:B D3:C\"\nlet itens = [];\nif (cmd === 'veredito') {\n  const matches = arg.match(/D\\d+:[ABC]/gi);\n  if (matches) itens = matches.map(m => ({ id: m.split(':')[0], veredito: m.split(':')[1] }));\n} else {\n  // /aprovar A ou /rejeitar B\n  const v = cmd === 'aprovar' ? 'A' : 'B';\n  itens = [{ id: arg, veredito: v }];\n}\n\nconst agora = new Date();\nconst data = agora.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });\nconst hora = agora.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit' });\n\nreturn [{ json: { valido: true, isDiretor: isDiretor, cmd: cmd, itens: itens, texto: texto, chatId: chatId, data: data, hora: hora } }];"
+        "jsCode": "const msg = $input.item.json.message || {};\nconst texto = (msg.text || '').trim();\nconst chatId = msg.chat ? msg.chat.id : null;\nconst fromId = msg.from ? msg.from.id : null;\nconst DIRETOR_CHAT_ID = parseInt($env.TELEGRAM_CHAT_ID_DIRETOR || '0');\n\nconst isDiretor = (chatId === DIRETOR_CHAT_ID || fromId === DIRETOR_CHAT_ID);\n\nconst cmdMatch = texto.match(/^\\/(aprovar|rejeitar|veredito)\\s+(.+)/i);\nif (!cmdMatch) {\n  return [{ json: { valido: false, motivo: 'Formato invalido -- use /aprovar A ou /rejeitar B', chatId: chatId } }];\n}\n\nconst cmd = cmdMatch[1].toLowerCase();\nconst arg = cmdMatch[2].trim().toUpperCase();\n\nlet itens = [];\nif (cmd === 'veredito') {\n  const matches = arg.match(/D\\d+:[ABC]/gi);\n  if (matches) itens = matches.map(m => ({ id: m.split(':')[0], veredito: m.split(':')[1] }));\n} else {\n  const v = cmd === 'aprovar' ? 'A' : 'B';\n  itens = [{ id: arg, veredito: v }];\n}\n\nconst agora = new Date();\nconst data = agora.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });\nconst hora = agora.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit' });\n\nreturn [{ json: { valido: true, isDiretor: isDiretor, cmd: cmd, itens: itens, texto: texto, chatId: chatId, data: data, hora: hora } }];"
       },
       "id": "code-parsear",
       "name": "Parsear Comando",
@@ -142,8 +142,5 @@
       "main": [[{"node": "Telegram -- Confirmar Veredito", "type": "main", "index": 0}]]
     }
   },
-  "active": false,
-  "settings": {"executionOrder": "v1"},
-  "tags": ["vanguard", "veredito", "telegram", "mvp", "fase2"],
-  "notes": "W-7 MVP texto. BLOQUEADO ate D2 ENV_VARS com TELEGRAM_BOT_TOKEN configurado no EasyPanel. Comandos: /aprovar A | /rejeitar B | /veredito D1:A D2:B D3:C. Confirmacao imediata via Telegram + log no Notion Pendentes. N-5 Undo Window na versao v1.1 (com botoes inline)."
+  "settings": {"executionOrder": "v1"}
 }
