@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.1",
+  "projeto": "PENTALATERAL_IAH",
+  "loop": "N8N-FASE2",
+  "data": "2026-06-05",
+  "gerado_por": "Embaixador + sintese P-037 Musculo",
+  "deliberacao_path": "PENTALATERAL_UNIVERSAL/HISTORICO/DELIBERACAO_LOOP_N8N_FASE2_2026-06-05.md",
+  "vereditos": {
+    "D1": "A",
+    "D2": "A",
+    "D3": "A",
+    "D4": "A",
+    "D5": "A"
+  },
+  "decisoes": [
+    {
+      "id": "D1",
+      "tipo": "BUILD_ORDER",
+      "titulo": "Ordem de build dos workflows",
+      "veredito": "A",
+      "sequencia_aprovada": [
+        "N-4 — Git Hook schema JSON (imediato, independente de n8n)",
+        "N-1 — ping_n8n.ps1 no session_start.ps1 (pre-requisito universal)",
+        "W-8 ChurnWatch + N-3 isolamento B2B/B2C",
+        "M-4 Circuit Breaker (pre-requisito de W-6)",
+        "W-6 Embaixador via Claude API + N-2 Idempotencia",
+        "W-7 MVP texto simples (Relatorio semanal)",
+        "W-7 v1.1 botoes + N-5 Undo Window (apos 30 dias W-7 MVP)",
+        "W-5 Auto-preparo PASSO3 (apos W-8 estavel)",
+        "W-1/W-3/W-4 ampliados com Notion"
+      ],
+      "urgencia": "ALTA"
+    },
+    {
+      "id": "D2",
+      "tipo": "ENV_VARS",
+      "titulo": "Variaveis de ambiente no n8n — configurar tudo em uma sessao",
+      "veredito": "A",
+      "variaveis_obrigatorias": [
+        "ANTHROPIC_API_KEY",
+        "TELEGRAM_BOT_TOKEN",
+        "TELEGRAM_CHAT_ID_DIRETOR",
+        "GITHUB_PAT_READONLY",
+        "BURN_RATE_DAILY_LIMIT_USD",
+        "N8N_WEBHOOK_SECRET",
+        "GITHUB_RAW_WBOARD_URL",
+        "NOTION_API_TOKEN",
+        "NOTION_WIP_PAGE_ID",
+        "NOTION_PENDENTES_PAGE_ID",
+        "NOTION_LEDGER_PAGE_ID"
+      ],
+      "instrucao": "Configurar todas antes de ativar qualquer workflow. Nenhum workflow vai active:true antes desta lista estar completa.",
+      "urgencia": "ALTA"
+    },
+    {
+      "id": "D3",
+      "tipo": "ACTIVATION_CRITERIA",
+      "titulo": "Criterio de ativacao apos 18-06-2026",
+      "veredito": "A",
+      "gates_obrigatorios": [
+        "N-1 ping_n8n.ps1 implementado e testado",
+        "ENV_VARS D2 todas configuradas no n8n",
+        "M-1 Timestamp Lock implementado nos workflows de escrita",
+        "M-4 Circuit Breaker ativo antes de W-6",
+        "7 dias de staging com dados reais nao-criticos"
+      ],
+      "ativacao_por_workflow": {
+        "W-8_churnwatch": "7 dias staging + N-1 ativo + N-3 prefixos implementados",
+        "W-6_embaixador_api": "W-8 ativo 30 dias + M-4 Circuit Breaker + N-2 Idempotencia",
+        "W-7_mvp": "W-8 ativo + texto simples sem botoes + N-4 schema hook ativo",
+        "W-7_v1.1": "W-7 MVP 30 dias + N-5 Undo Window implementada"
+      },
+      "urgencia": "MEDIA"
+    },
+    {
+      "id": "D4",
+      "tipo": "N_IDEAS_POSICIONAMENTO",
+      "titulo": "Posicao das ideias N-1 a N-5",
+      "veredito": "A",
+      "mapa": {
+        "N-1": "PRE-REQUISITO UNIVERSAL — session_start.ps1 + Task Scheduler diario",
+        "N-2": "PRE-REQUISITO de W-6 — implementar antes de ativar Embaixador via API",
+        "N-3": "REQUISITO de W-8 — prefixos B2B/B2C no build de ChurnWatch",
+        "N-4": "IMPLEMENTACAO IMEDIATA — esta semana, independente de n8n",
+        "N-5": "SEQUENCIADO com W-7 v1.1 — nao entra no MVP"
+      },
+      "urgencia": "N-4 IMEDIATA | restantes conforme sequencia D1"
+    },
+    {
+      "id": "D5",
+      "tipo": "PRINCIPIO_CANDIDATO",
+      "titulo": "Inscrever P-110 no INTELLIGENCE_LEDGER",
+      "veredito": "A",
+      "texto_principio": "Toda automacao critica deve ter fallback manual documentado de no maximo 3 passos. Se o fallback exige mais que 3 passos, o sistema virou dependencia nao declarada.",
+      "fallbacks_documentados": {
+        "W-8_churnwatch_down": "Abrir WIP_BOARD.md e checar campo ultimo_contato_cliente manualmente",
+        "W-6_embaixador_down": "Executar Passo 7 manual via Claude Projects como hoje",
+        "W-7_veredito_down": "Colar VEREDITOS.json manualmente via terminal"
+      },
+      "urgencia": "MEDIA"
+    }
+  ]
+}

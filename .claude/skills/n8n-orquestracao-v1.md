@@ -1,0 +1,11 @@
+SKILL: n8n-orquestracao-v1.md
+Camada: Infraestrutura Pentalateral (Interna) | Loop: N8N-FASE2 | Stack: n8n + Claude API + Notion API + Telegram
+[AUDITORIA DE COERENCIA]
+A transição para a FASE 2 de automação via n8n (W-5, W-6, W-7) encontra-se em conformidade estrutural, desde que submissa ao [P-102] (coexistência com scripts locais por 30 dias). A automação da extração do Embaixador (W-6) fortalece a arquitetura assíncrona, enquanto o veto à geração autônoma de DIRETRIZ via Gemini protege a tensão produtiva e a inserção do "feeling do negócio" exigida do Diretor. O Notion cristaliza-se como um cockpit "read-only" (ARQ-1 e P-109), assegurando que repositório Git local (WIP_BOARD) seja inviolável e permaneça como a única fonte canônica de verdade.
+[CONEXAO HISTORICA]
+O sistema já sofreu paralisias documentadas devido à Fricção Operacional do Diretor ao transitar dados manualmente entre o Músculo e o Embaixador (ver [FALHA-PROCESSO-2026-05-18]). O n8n atua como o escudo definitivo contra a fadiga humana. Contudo, as falhas passadas do Supabase (P-025) deixam um alerta: orquestrar APIs em nuvem sem rotinas robustas de "retry" e logs de timeout recriará o cenário de falhas invisíveis. Automação sem auditoria local é caixa preta.
+[PADRAO DE SUCESSO/FALHA]
+SUCESSO: O Veredito via Telegram (W-7) ancorado inicialmente em MVP de texto antes de UIs complexas com botões, preservando a agilidade do Diretor sem estourar horas de engenharia na FASE 2.
+FALHA: A possibilidade de transformar o n8n em um motor de lógica de negócio em vez de mero "transporte de payload". O n8n DEVE permanecer burro. Se restrições de Burn Rate ou prompts de sistema migrarem dos arquivos .md do repositório para caixas de Javascript dentro dos nodes do n8n, perderemos a rastreabilidade do código.
+[PERSPECTIVA DO SOCIO]
+Como Sócio-Consultor, emito o alerta financeiro [P-006]: operar o Embaixador via Claude API (W-6) terá um custo variável por token. A FASE 2 não estará verdadeiramente concluída até que Eduardo possua, em seu Painel ou via Telegram, a visibilidade clara do Burn Rate interno do Pentalateral. Uma automação brilhante não deve transformar nossa holding em refém de custos de API ocultos gerados por cronjobs internos e webhooks indiscriminados.

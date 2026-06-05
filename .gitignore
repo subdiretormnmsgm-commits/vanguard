@@ -49,3 +49,4 @@ scripts/n8n_config.ps1
 # Credenciais EasyPanel / n8n em texto plano (HV-1)
 "N8N Easypanel.txt"
 N8N*.txt
+api n8n.txt

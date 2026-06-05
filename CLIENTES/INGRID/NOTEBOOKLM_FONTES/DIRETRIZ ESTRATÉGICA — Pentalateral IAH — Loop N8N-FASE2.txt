@@ -1,0 +1,74 @@
+DIRETRIZ ESTRATÉGICA — Pentalateral IAH — Loop N8N-FASE2
+================================================================================
+
+### M-1 — Loop com n8n integrado
+
+Portanto, a arquitetura do fluxo pentalateral evolui para um modelo de orquestração híbrido, preservando o rigor analítico essencial e eliminando o transporte manual de dados pelo Diretor[cite: 1, 2]. Adicionalmente, o ecossistema passa a operar de forma assíncrona com gatilhos estruturados via webhooks[cite: 1]. 
+
+*   **PASSO 1 e 2 (Músculo — Git/Terminal):** O Músculo executa as rotinas técnicas e, ao disparar o script de fechamento de sessão, aciona automaticamente o webhook de término de ciclo no n8n[cite: 1, 2].
+*   **PASSO 3 (Estrategista — Gemini API / AI Studio):** O n8n intercepta os artefatos de dados atualizados no repositório Git, processa o payload e consome diretamente a API do Google Gemini (AI Studio) para confeccionar de forma autônoma o rascunho da Diretriz Estratégica[cite: 1]. Desse modo, o Diretor interveio via navegador apenas quando houver necessidade de refinamento caótico ou expansão mercadológica complexa[cite: 1].
+*   **PASSO 5 (Auditor — NotebookLM):** Devido à limitação técnica de ausência de API pública no NotebookLM, esta etapa permanece dependente de ação humana[cite: 1]. No entanto, o n8n minimiza o esforço operacional gerando um arquivo compactado `.zip` contendo as fontes canônicas atualizadas e enviando um link direto no Telegram para o Diretor realizar o arrastar-e-soltar na interface gráfica[cite: 1].
+*   **PASSO 7 (Embaixador — Claude API):** Logo após o Diretor disponibilizar a nova Skill gerada pelo Auditor no diretório monitorado, o n8n identifica o arquivo e realiza a chamada direta via Claude API, operando o Embaixador de forma totalmente automatizada e independente de interface web[cite: 1].
+*   **Síntese P-037 e Veredito (Diretor):** Por fim, o n8n consolida as análises cirúrgicas e as reações em um payload unificado, transmitindo o plano de ação mastigado diretamente para o bot do Telegram com botões interativos de aprovação[cite: 1, 2].
+
+---
+
+### M-2 — Papel cirúrgico do Diretor
+
+Com o intuito de maximizar o tempo do Gestor Soberano, o papel do Diretor é redefinido estritamente para funções de supervisão conceitual e deliberação final, eliminando atividades mecânicas de manipulação de arquivos[cite: 1, 2].
+
+*   **PASSO 3 (Gemini):** O Diretor apenas revisa a Diretriz Estratégica estruturada gerada automaticamente via API[cite: 1]. Caso a inteligência exija uma calibração profunda, o Diretor utiliza o prompt master no navegador, atuando como o elemento de expansão criativa[cite: 1, 2].
+*   **PASSO 5 (NotebookLM):** O Diretor atua exclusivamente como o transportador físico pontual, abrindo a interface do NotebookLM, inserindo as fontes consolidadas pelo n8n e copiando o output da Skill para a pasta de snapshots[cite: 1, 2].
+*   **PASSO 7 (Embaixador):** O Diretor exerce zero esforço operacional nesta etapa, uma vez que a execução via Claude API é delegada inteiramente à automação do n8n[cite: 1].
+*   **Veredito:** O plano de build chega ao Diretor por meio de uma mensagem formatada no Telegram[cite: 1]. O veredito é emitido com um único clique em botões interativos (ex: `[Aprovar Opção A]`, `[Vetar Mudança]`), o que aciona o n8n para gravar o arquivo `VEREDITOS.json` e disparar de forma transparente os scripts locais de automação técnica[cite: 1, 2].
+
+---
+
+### M-3 — Documentos do Pentalateral que precisam ser atualizados
+
+Por conseguinte, a introdução da camada n8n exige modificações cirúrgicas na documentação viva do Pentalateral para garantir a integridade do ecossistema e evitar a alucinação de processos[cite: 1, 2].
+
+*   **CLAUDE.md (Constituição):** Atualização obrigatória da seção "QUEM VOCÊ É", redefinindo o Músculo para atuar em coordenação com os webhooks do n8n e explicitando a proibição de executar chamadas de IA sem a validação de proxy seguro[cite: 1, 2].
+*   **vanguard-protocolo.md:** Redesenho completo da esteira do processo pentalateral de tomada de decisão, oficializando a automação do Passo 3 e do Passo 7 via API e detalhando os checkpoints assíncronos[cite: 1].
+*   **TEMPLATES_COMUNICACAO_PENTALATERAL.md:** Alteração estrutural do formato dos passos, substituindo os blocos de texto estáticos por esquemas de objetos JSON parametrizados para facilitar o consumo via requisições HTTP[cite: 1, 2].
+*   **DEPENDENCY_MAP.json:** Inclusão do n8n como dependência estrutural de classe universal, mapeando cada workflow ativo aos seus respectivos arquivos de entrada e saídas de dados[cite: 1, 2].
+*   **session_start.ps1 / session_close.ps1:** O `session_close.ps1` é expandido para encapsular o payload Git completo na chamada HTTP do webhook[cite: 1, 2]. O `session_start.ps1` ganha uma rotina de verificação no n8n para certificar se existem vereditos pendentes no Telegram antes de liberar o terminal[cite: 1, 2].
+
+---
+
+### M-4 — Workflows FASE 2 prioritários
+
+Em consonância com as restrições de segurança do sistema, os três fluxos automatizados mais impactantes para o desenvolvimento da Fase 2 são definidos com foco no isolamento de contexto e na redução do transporte de dados[cite: 1, 2].
+
+1.  **Auto-preparo e Minuta do PASSO 3 (Gatilhada por fechamento técnico):** Assim que o Músculo commita o encerramento técnico de um dia calendário, o n8n lê o repositório, extrai o histórico consolidado e invoca a API do Gemini no AI Studio para gerar a minuta da Diretriz Estratégica VX no disco, eliminando o preenchimento manual de templates[cite: 1, 2].
+2.  **Orquestração e Disparo do Embaixador via Claude API (Passo 7 Automático):** Esse workflow monitora a aprovação da Skill do Auditor e invoca de maneira direta e assíncrona a API da Anthropic com a persona persistente do cliente, gerando o relatório comportamental e injetando as reações de mercado sem abrir o navegador[cite: 1, 2].
+3.  **Mecanismo de Veredito Centralizado via Bot de Telegram (Mata-transporte de JSON):** Transforma o Painel de Deliberação em uma interface conversacional segura para o Diretor, onde cada clique em botão gera e grava autonomamente o arquivo `VEREDITOS.json` no servidor e atualiza o estado vivo do `WIP_BOARD.json`[cite: 1, 3].
+
+---
+
+### M-5 — Risco de processo
+
+Em contrapartida, a automação do fluxo impõe ameaças à soberania intelectual do conselho que precisam ser mitigadas preventivamente por firewalls persistentes[cite: 1, 2].
+
+1.  **Degradação da Qualidade Deliberativa (Efeito Automatismo Linear):** O risco reside na possibilidade de a geração automática da Diretriz via API tornar os prompts excessivamente mecânicos e previsíveis, reduzindo a tensão criativa e o otimismo estratégico gerados na interface caótica do Gemini Advanced[cite: 1, 2].
+2.  **Dessincronização Assíncrona de Estado (Split-Brain de Arquivos):** Caso o Diretor emita um veredito via Telegram enquanto o Músculo estiver operando uma sessão local de codificação, podem ocorrer conflitos destrutivos de escrita no `WIP_BOARD.json` ou no `PENDENTES.md`[cite: 1, 3].
+3.  **Explosão de Custo e Esgotamento de Contexto (Rate-Limit de APIs):** O envio contínuo de múltiplos arquivos de contexto para as APIs do Claude e do Gemini a cada push ou webhook pode estourar as quotas financeiras diárias ou truncar respostas críticas devido à perda de foco no meio do contexto.
+
+================================================================================
+
+### [SKILL PARA O NOTEBOOKLM]: n8n-orquestracao-v1.md
+
+```markdown
+# SKILL: Orquestração Sistêmica com n8n Layer
+**Versão:** 1.0 · Constitucional / Arquitetura
+**Contexto Histórico:** Implementada em 2026-06-04 para governar a transição do Pentalateral IAH da Fase 1 local para a Fase 2 assíncrona.
+
+## 1. PRECEDENTES ANCORADOS
+- **[P-001]:** Claude Code nunca opera como daemon autônomo. Toda execução automatizada sem intervenção humana direta no terminal é obrigatoriamente realizada via Claude API governada pelo n8n.
+- **[P-075]:** O Diretor nunca atua como transportador de contexto ou arquivos entre os sócios. O n8n assume a responsabilidade de consolidar payloads e preparar as interfaces de destino.
+- **[P-101]:** Mensagens ou webhooks externos jamais acessam os modelos do Claude diretamente. A camada n8n atua como proxy de segurança compulsório, injetando as travas de identidade e limites de custo.
+- **[P-102]:** O n8n atua como camada complementar. Nenhum script de automação local (ChurnWatch, pings ou watchers) pode ser desativado até que se comprove 30 dias de uptime ininterrupto da automação correspondente no n8n.
+
+## 2. REGRAS DE COERÊNCIA PARA O AUDITOR
+- **Auditoria de Estado:** O n8n é uma janela de exibição e transporte. A única fonte canônica da verdade absoluta permanece armazenada nos arquivos estruturados rastreados pelo Git.
+- **Veto de Processamento:** Rejeitar qualquer plano de execução que preveja a manipulação direta de variáveis sensíveis do ecossistema por canais de terceiros sem a respectiva homologação no DEPENDENCY_MAP.json.

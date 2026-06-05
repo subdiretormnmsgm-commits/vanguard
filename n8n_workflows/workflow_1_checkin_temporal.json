@@ -20,6 +20,15 @@
     {
       "parameters": {
         "url": "={{ $env.GITHUB_RAW_WBOARD_URL || 'https://raw.githubusercontent.com/subdiretormnmsgme-commits/vanguard/master/CLIENTES/WIP_BOARD.json' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $env.GITHUB_PAT_READONLY ? 'token ' + $env.GITHUB_PAT_READONLY : '' }}"
+            }
+          ]
+        },
         "options": {"timeout": 8000},
         "ignoreResponseCode": true
       },
@@ -32,7 +41,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const agora = new Date();\nconst horaBR = parseInt(agora.toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo', hour: '2-digit', hour12: false}));\nconst dataBR = agora.toLocaleDateString('pt-BR', {timeZone: 'America/Sao_Paulo'});\n\nlet periodo = 'TARDE';\nif (horaBR >= 5 && horaBR < 12) periodo = 'MANHA';\nif (horaBR >= 18) periodo = 'NOITE';\n\nconst saudacoes = {\n  MANHA: 'Bom dia, Diretor.',\n  TARDE: 'Boa tarde, Diretor.',\n  NOITE: 'Boa noite, Diretor.'\n};\n\nlet statusProjetos = '';\ntry {\n  const wip = $('Ler WIP_BOARD').item.json;\n  const board = wip.board || {};\n  const todos = [];\n  if (board.build) todos.push(...board.build);\n  if (board.check) todos.push(...board.check);\n  if (board.entregue) todos.push(...board.entregue);\n  const linhas = todos.map(function(p) {\n    const nome = p.cliente || p.id || 'Projeto';\n    const st = (p.status || 'ATIVO').split(' -- ')[0];\n    return '- ' + nome + ': ' + st;\n  });\n  statusProjetos = linhas.length > 0 ? linhas.join('\\n') : '- (sem projetos ativos)';\n} catch (e) {\n  statusProjetos = '- (WIP_BOARD indisponivel)';\n}\n\nreturn [{\n  json: {\n    periodo: periodo,\n    saudacao: saudacoes[periodo],\n    hora: horaBR,\n    data: dataBR,\n    timestamp: agora.toISOString(),\n    statusProjetos: statusProjetos\n  }\n}];"
+        "jsCode": "const agora = new Date();\nconst horaBR = parseInt(agora.toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo', hour: '2-digit', hour12: false}));\nconst dataBR = agora.toLocaleDateString('pt-BR', {timeZone: 'America/Sao_Paulo'});\n\nlet periodo = 'TARDE';\nif (horaBR >= 5 && horaBR < 12) periodo = 'MANHA';\nif (horaBR >= 18) periodo = 'NOITE';\n\nconst saudacoes = {\n  MANHA: 'Bom dia, Diretor.',\n  TARDE: 'Boa tarde, Diretor.',\n  NOITE: 'Boa noite, Diretor.'\n};\n\nlet statusProjetos = '';\ntry {\n  const wipRaw = $('Ler WIP_BOARD').item.json;\n  let wip;\n  if (wipRaw && wipRaw.board) {\n    wip = wipRaw;\n  } else if (wipRaw && typeof wipRaw.body === 'string') {\n    wip = JSON.parse(wipRaw.body);\n  } else if (typeof wipRaw === 'string') {\n    wip = JSON.parse(wipRaw);\n  } else {\n    wip = JSON.parse(JSON.stringify(wipRaw));\n  }\n  const board = wip.board || {};\n  const todos = [];\n  if (board.build) todos.push(...board.build);\n  if (board.check) todos.push(...board.check);\n  if (board.retainer) todos.push(...board.retainer);\n  if (board.entregue) todos.push(...board.entregue);\n  const linhas = todos.map(function(p) {\n    const nome = p.cliente || p.id || 'Projeto';\n    const st = (p.status || 'ATIVO').split(' -- ')[0];\n    return '- ' + nome + ': ' + st;\n  });\n  statusProjetos = linhas.length > 0 ? linhas.join('\\n') : '- (sem projetos ativos)';\n} catch (e) {\n  statusProjetos = '- (WIP_BOARD indisponivel: ' + e.message + ')';\n}\n\nreturn [{\n  json: {\n    periodo: periodo,\n    saudacao: saudacoes[periodo],\n    hora: horaBR,\n    data: dataBR,\n    timestamp: agora.toISOString(),\n    statusProjetos: statusProjetos\n  }\n}];"
       },
       "id": "code-periodo",
       "name": "Detectar Periodo",
@@ -45,8 +54,19 @@
         "method": "POST",
         "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendMessage' }}",
         "sendBody": true,
-        "bodyContentType": "json",
-        "jsonBody": "={\"chat_id\": 8895733647, \"text\": \"{{ $json.saudacao }}\\n\\nCheck-in Vanguard IAH -- {{ $json.data }}\\n\\nStatus dos projetos:\\n{{ $json.statusProjetos }}\"}"
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "chat_id",
+              "value": "={{ $env.TELEGRAM_CHAT_ID || '8895733647' }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.saudacao + '\\n\\nCheck-in Vanguard IAH -- ' + $json.data + '\\n\\nStatus dos projetos:\\n' + $json.statusProjetos }}"
+            }
+          ]
+        }
       },
       "id": "telegram-checkin",
       "name": "Enviar Check-in Telegram",
