@@ -1,5 +1,5 @@
 # WIP BOARD — Pentalateral IAH
-**Atualizado em:** 2026-06-04
+**Atualizado em:** 2026-06-05
 **Fonte:** WIP_BOARD.json (versao Markdown para o Auditor — NotebookLM nao le JSON)
 
 ---
@@ -26,8 +26,8 @@
 - **Sentinel:** VERDE — 2026-06-04 (Supabase pause resolvido)
 - **Corpus:** 61 acordaos | 22 temas | threshold 0.45 | TESTADO E VERDE
 - **Loop fase atual:**
-  - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: **PENDENTE**
-  - Proximo: DELIBERACAO_LOOP_V7_VALDECE.md (P-037 pendente)
+  - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: **OK**
+  - Proximo: Loop 8 gate — Sentinel Report uso ativo + Gemini anchor DIRETRIZ V8 Valdece
 - **V2 Pipeline:** Sovereign Upload + Radar de Divergencia + Citacao DOCX | R$8.500-12.000
 - **Proximo passo:** Hypercare termina 18-06-2026 — aguardar feedback Valdece apos Sentinel
 

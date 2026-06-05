@@ -86,11 +86,8 @@
 
 ## PROCESSO / INFRA
 
-- [ ] `2026-06-12` **[SISTEMA] MANUAL_DIRETOR.md — adicionar seção n8n (slot 03 sem n8n):** [musculo]
-  Arquivo `PENTALATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md` tem 0 menções de n8n.
-  Adicionar: (a) Como usar W-7 Telegram para vereditos, (b) W-1 briefing automático,
-  (c) Regras P-109/P-110/P-102, (d) MAINTENANCE_COST.md como referência de fallback.
-  Sync para CLIENTES/*/NOTEBOOKLM_FONTES/03_MANUAL_DIRETOR.md após editar.
+- [x] `2026-06-12` ~~**[SISTEMA] MANUAL_DIRETOR.md — adicionar seção n8n (slot 03 sem n8n):**~~
+  ✅ MANUAL_DIRETOR v1.5 já contém PARTE 8 (n8n) — feito na sessão 2026-06-05 (commit 630ab0d). Sync Ingrid+Valdece confirmado.
 
 - [ ] `2026-06-12` **[SISTEMA] DEPENDENCY_MAP.json v2.2 — adicionar REGISTRO_DE_PREMISSAS + CANDIDATOS:** [musculo]
   Risco 3 do Auditor Sistêmico: REGISTRO_DE_PREMISSAS.md e CANDIDATOS_A_PRINCIPIO.md
