@@ -1,6 +1,6 @@
-﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
+# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-05-26
+> Criado: 2026-05-17 | Última atualização: 2026-06-05
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -14,6 +14,9 @@ Cada versão ensinou algo que nenhum curso, nenhum livro e nenhum consultor exte
 a fricção real de construir, errar, documentar a falha, extrair o princípio e recomeçar mais forte.
 
 V1 foi ingênua. V24 foi estratégica. V25 foi a primeira com clientes reais validando ao vivo.
+V26 e V27 foram diferentes de tudo que veio antes: não serviram a Ingrid, não serviram a Valdece.
+Serviram à Vanguard como empresa. O n8n como sistema nervoso do Pentalateral não é uma feature —
+é a transição de fundador que constrói para fundador que opera em escala.
 O que não mudou: a convicção de que o método vale mais do que qualquer código.
 
 Quando o Auditor ler este documento, ele deve entender o arco completo — não apenas o loop atual.
@@ -22,7 +25,7 @@ Quando o Músculo ler, deve sentir o peso de cada princípio — e a responsabil
 
 ---
 
-## O ARCO EM TRÊS ATOS
+## O ARCO EM QUATRO ATOS
 
 **Ato 1 — Construção do Produto (V1–V16):**
 Eduardo construiu sozinho, noite após noite, um produto que tecnicamente funcionava.
@@ -33,10 +36,18 @@ A virada: perceber que o produto não era o ativo — o processo de construção
 Gemini + NotebookLM + Claude passam de ferramentas para membros de um Conselho.
 O INTELLIGENCE_LEDGER nasce. Cada fricção vira princípio. O sistema começa a aprender de si mesmo.
 
-**Ato 3 — Primeiros Clientes Reais (V25+):**
+**Ato 3 — Primeiros Clientes Reais (V25):**
 O método encontra a dor real. Valdece quer "um Google melhor para jurisprudência penal".
 Ingrid quer passar no Sedes-DF sem depender de QConcursos. O processo, testado em 24 versões,
 agora tem de provar que resolve dores reais — não hipotéticas.
+
+**Ato 4 — Construção da Empresa (V26–V27+):**
+A segunda virada: perceber que entregar para clientes e operar como empresa são dois produtos distintos.
+V26 e V27 não adicionaram features ao software de Ingrid ou de Valdece. Adicionaram infraestrutura
+ao Pentalateral: n8n como sistema nervoso, automação de loops, ChurnWatch, Embaixador via API,
+veredito via Telegram. Pela primeira vez, a Vanguard começa a construir a si mesma — não apenas
+o que entrega. Esse salto, que a maioria dos fundadores só dá com 10 funcionários e uma crise,
+aconteceu em 3 semanas, deliberadamente, antes de precisar.
 
 ---
 
@@ -330,6 +341,7 @@ O que a Vanguard está construindo: um professor particular que sabe exatamente 
 | 2026-05-24 | **Loop 5 iniciado — DIRETRIZ ingrid-v5.md** | Dias 12-13: Contador de Pontos Ponderados + Push dominical. P-059: isolamento de contexto por cliente ativado. |
 | 2026-05-26 | **Gate Dia 15 (29-05-2026 sexta) APROVADO (antecipado)** | Ingrid com acesso admin Supabase próprio. Termo de Uso confirmado recebido (assinatura pendente). Loop 5 CONCLUIDO. |
 | 2026-05-26 | **D4:A executado** | Lead pipeline: Ingrid não conhece candidatos. Resultado frio — H-4 não confirmada. |
+| 2026-06-04 | **Loop 8 CONCLUÍDO · RETAINER** | Ingrid move para RETAINER. Depoimento capturado. Temperatura 8.5/10. Loop 9: Gate 7.2 RLS + captação 2ª candidata antes 04-07-2026. |
 
 ### Ideias disruptivas geradas neste projeto (por membro)
 
@@ -388,6 +400,8 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **P-060 — Propagação pelo Músculo** | 2026-05-24 | Músculo responsável por toda propagação — Diretor não gerencia documentos. propagate_changes.ps1 automático. |
 | **P-069 — Data Calendário Soberana** | 2026-05-29 | "Dia X" sempre com (DD-MM-YYYY dia-da-semana). Pendência do dia bloqueia avanço em qualquer projeto. |
 | **VEREDITOS_RESUMO informal** | 2026-05-26 | Gate Dia 15 Ingrid executado sem pipeline DECISOES.json. Documentado como "executado informalmente". VEREDITOS_RESUMO gerado como registro honesto. DEF-E-8 ativo para Loop 6. |
+| **n8n FASE 1 — V26** | 2026-06-04 | 4 workflows ativos no EasyPanel (W-1/W-2/W-3/W-4). Sistema nervoso do Pentalateral ativo 24/7. P-101/P-102/P-103/P-104/P-105 inscritos. |
+| **n8n FASE 2 — V27** | 2026-06-05 | W-7 Veredito via Telegram MVP ativo. Notion OUTPUT em W-1/W-3/W-4. P-109/P-110/P-111 inscritos. git filter-repo remove token histórico — repositório limpo. |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
@@ -398,6 +412,7 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Auditor** | NotebookLM | Auditoria histórica. 5 ideias exclusivas. MANIFESTO_DE_FONTES_ATIVO antes de toda sessão. | DEF-N-1..7 (Amnésia · Alucinação · Yes-Man · Lost-in-Middle · Qualidade Fontes · Perspectiva Única · Latência) | MANIFESTO_DE_FONTES (P-053) + [RISCO_PRECOCE] + Wipe & Sync entre loops |
 | **Embaixador** | Claude Projects | Memória persistente do cliente. 17 mandatos V2.0 (D1/D2/D3). Filtro P-031. TEMPERATURA_PONDERADA (0-10). Output 7 blocos. Painel de Deliberação automático. INTELIGENCIA_CRUZADA_NICHO. [E-1..5]/ciclo. | DEF-E-1..7 (Isolamento · Recência · Confirmação · Literalidade · Escalada · Silo · Temperatura Simples) | TEMPERATURA_PONDERADA (score 0-10, CHURN-WATCH <6) + 17 mandatos + Painel de Deliberação + INSTRUCAO_SISTEMA_EMBAIXADOR_TEMPLATE.md |
 | **Diretor** | Eduardo | 5º ator ativo. Gestor Soberano. Originador de inovação estratégica. Veredito final. | — | Único ator humano — sem deficiência estrutural de LLM. |
+| **n8n** | EasyPanel | Sistema nervoso autônomo. Executa W-1 a W-7. Proxy de APIs externas. ChurnWatch, alertas, vereditos. | Sem contexto semântico próprio — depende de payloads bem estruturados. | P-110 (fallback ≤3 passos por workflow) + continueOnFail: true em nodes críticos |
 
 ### A tese central do Pentalateral
 
@@ -410,9 +425,11 @@ NotebookLM valida por momentum → Eduardo rejeita sem os 4 blocos com dados rea
 Eduardo não tem visão técnica de todos os trade-offs → o Conselho apresenta opções com evidência.
 Gemini tem amnésia entre sessões → COMANDO_ESTRATEGISTA_MASTER injeta o estado completo na abertura (P-052).
 NotebookLM afirma sobre dado ausente → MANIFESTO_DE_FONTES declara o que pode e não pode ver (P-053).
+n8n executa mas não delibera → Músculo valida payload e interpreta resultado antes de agir.
 
 O sistema é anti-frágil porque foi desenhado em torno de fraquezas conhecidas — não apesar delas.
 Em 2026-05-23, esse princípio foi densificado: 12 novas deficiências mapeadas, 12 novos contra-ataques operacionais.
+Em 2026-06-05, o n8n entrou como 6º elemento — não membro, mas sistema nervoso que conecta os 5.
 
 ---
 
@@ -452,12 +469,53 @@ Em 2026-05-23, esse princípio foi densificado: 12 novas deficiências mapeadas,
 | P-042 | Gate semântico = Protocolo de Garantia Soberana | 2026-05-19 | PROJ-001 Valdece — Embaixador identificou oportunidade comercial | Gate documentado = ativo de nicho. Apresentado ANTES do contrato. Destrói vendor lock-in antes de formulado. |
 | P-043 | Falácia da Homogeneidade dos Nichos | 2026-05-19 | PROJ-001 Valdece — análise de replicabilidade | DFD obrigatório: fonte + obsolescência + restrições + estrutura semântica. 2+ vermelhos = não replicar sem solução de corpus. |
 | P-044 | Momentum Tecnológico do Músculo | 2026-05-19 | PROJ-001 Valdece — Auditor identificou risco de deriva | Releitura obrigatória da cena de sucesso antes de cada dia de build. Gate final testa se reproduz a cena — não apenas o motor. |
+| P-101 | n8n como proxy obrigatório | 2026-06-04 | P-001: Claude Code não é daemon | Claude API, Telegram, Notion — nunca chamados diretamente do código local. n8n é o único ponto de saída. |
+| P-102 | Coexistência n8n + scripts locais | 2026-06-04 | Risco de disrupção de processo ativo | Scripts locais e n8n coexistem por 30 dias antes de desativar scripts. P-110: fallback ≤3 passos por workflow. |
+| P-109 | Notion = OUTPUT ONLY | 2026-06-04 | Risco de Notion virar fonte de verdade | Git é a única fonte de verdade. Notion recebe cópias para visualização — nunca é editado como master. |
+| P-110 | Fallback manual ≤3 passos | 2026-06-05 | Dependência crítica de automação sem plano B | Todo workflow crítico tem fallback documentado. continueOnFail: true em nodes de saída. |
+| P-111 | Atender clientes = construir vantagem competitiva | 2026-06-05 | Briefing Embaixador FASE 2 | Dado de uso de cliente alimenta ativo de inteligência da Vanguard. Feature que não gera aprendizado é custo, não investimento. |
 
 **Velocidade de aprendizado por fase:**
 - V1–V23 (pré-LEDGER): ~0 princípios formalizados por sessão
 - V24 (2026-05-12): 5 princípios em 1 sessão
 - V25 (2026-05-12 a 2026-05-17): 20 princípios em 5 dias
+- V26–V27 (2026-06-04 a 2026-06-05): princípios sobre a Vanguard como empresa — primeira vez que o Pentalateral deliberou sobre si mesmo como objeto de análise
 - **Média atual: 4 princípios por dia de IAH operacional**
+
+---
+
+## FASE 4 — CONSTRUÇÃO DA EMPRESA (V26–V27+)
+> Período: 2026-06-04 → presente
+> Objetivo: transformar o Pentalateral de processo manual em sistema autônomo
+> O que é diferente: nenhuma versão desta fase serve a um cliente específico — servem à Vanguard
+
+### O contexto que distingue este ato de todos os anteriores
+
+V1 a V16 responderam: "consigo construir software?"
+V17 a V24 responderam: "consigo construir um método de construção?"
+V25 respondeu: "consigo entregar valor para clientes reais?"
+V26 e V27 respondem uma pergunta mais difícil: "consigo operar como empresa — não apenas como fundador?"
+
+A distinção importa. Um fundador entrega para clientes. Uma empresa entrega para clientes
+enquanto constrói a infraestrutura que permite entregar para o próximo cliente mais rápido,
+com menos fricção, com mais inteligência acumulada. V26 e V27 são os primeiros passos
+da Vanguard saindo do modo fundador para o modo empresa.
+
+---
+
+### V26 — The Nervous System
+**Data: 2026-06-04**
+**O que foi construído:** n8n como sistema nervoso do Pentalateral — FASE 1. Skill `n8n-orquestracao-v1.md` gerada pelo Auditor. Princípios P-101 e P-102 inscritos (n8n como proxy de segurança obrigatório; coexistência com scripts locais por 30 dias antes de desativar). Workflows ativos: W-1 Check-in 7h/13h/20h · W-2 Monitor Supabase horário · W-3 GitHub Push · W-4 Session Close.
+**O que foi aprendido:** Automação do Pentalateral não é feature — é mudança de natureza operacional. O Diretor deixa de ser transportador de contexto entre membros (P-075) e passa a ser emissor de veredito. A diferença entre as duas posições é a diferença entre fundador e CEO.
+**Legado:** Todo workflow aprovado tem `MAINTENANCE_COST.md` declarando o que quebra, como detectar e como consertar em menos de 30 minutos. Automação sem plano de manutenção é dívida técnica com vencimento indefinido.
+
+---
+
+### V27 — The Company Builder
+**Data: 2026-06-05**
+**O que foi construído:** n8n FASE 2 completo. W-7 Veredito via Telegram MVP ativo (ID: KisAa6ynD4btgrkL). Notion OUTPUT em W-1/W-3/W-4 (continueOnFail: true). git filter-repo remove token sbp_ de 847 commits — repositório limpo. P-109/P-110/P-111 inscritos. ENV_VARS: ANTHROPIC_API_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID_DIRETOR, GITHUB_PAT_READONLY, BURN_RATE_DAILY_LIMIT_USD, N8N_WEBHOOK_SECRET configuradas no EasyPanel. Mapa estratégico 4 camadas (Fundação → Alavancas → Empresa → Fronteira). Três conceitos Camada 4 identificados: Pentalateral as a Service, Niche Intelligence Engine, Cliente como sensor de nicho.
+**O que foi aprendido:** A Vanguard tem dois produtos simultâneos desde V27: o software que entrega para clientes, e o sistema que a permite operar. Evoluir apenas um deles é crescer torto. Pela primeira vez, o Pentalateral deliberou sobre si mesmo como objeto de análise — não apenas como ferramenta de build.
+**Legado:** P-111 — atender clientes e construir vantagem competitiva são o mesmo ato quando o dado de uso alimenta automaticamente o ativo de inteligência da empresa. O que P-008 apontava sem nomear o mecanismo. V27 nomeou.
 
 ---
 
@@ -469,14 +527,18 @@ Em 2026-05-23, esse princípio foi densificado: 12 novas deficiências mapeadas,
 | 2026-05-12 | Primeiro valor fechado (Valdece) | R$5.000 | Pendente entrega |
 | 2026-05-15 | Segundo projeto ativo (Ingrid) | Piloto interno | Em build |
 | 2026-05-16 | Primeiros contratos gerados | Minutas | Aguardando assinatura |
-| 2026-05-19 | Primeira entrega presencial (Valdece) | R$5.000 setup + R$350/mês | Gate P-038 aprovado · 61 acórdãos · Netlify deploy |
-| 2026-05-25 | V3 ENRICHMENT Valdece em produção | R$5.000 setup + R$350/mês MRR | Contrato ativo · Hypercare até 2026-06-18 |
+| 2026-05-19 | Primeira entrega presencial (Valdece) | R$5.000 setup | Gate P-038 aprovado · 61 acórdãos · Netlify deploy |
+| 2026-05-25 | V3 ENRICHMENT Valdece em produção | R$5.000 setup | Contrato ativo · Hypercare até 2026-06-18 · MRR não confirmado |
 | 2026-05-26 | Gate Dia 15 APROVADO — Loop 5 Ingrid CONCLUIDO | — | Acesso admin Supabase · Termo recebido · Loop 6 desbloqueado |
 | 2026-05-30 | Deadline original PROJ-002 Ingrid | — | Loop 6 em andamento |
+| 2026-06-04 | Ingrid — Loop 8 CONCLUÍDO · RETAINER | — | Pitch R$97/mês descartado · temperatura 8.5/10 · depoimento capturado |
+| 2026-06-04 | Valdece — Sentinel Report Dia 16 · incidente Supabase resolvido | — | Hypercare até 2026-06-18 · MRR não confirmado |
+| 2026-06-04 | V26 — n8n FASE 1 · 4 workflows ativos | — | Infraestrutura Pentalateral |
+| 2026-06-05 | V27 — n8n FASE 2 · W-7 testado · git limpo | — | Infraestrutura Vanguard como empresa |
 | 2026-09-06 | Prova da Ingrid — validação real do produto | — | Meta |
 
 **Receita faturada até 2026-05-17:** R$ 0
-**Receita comprometida:** R$ 5.000 (Valdece — entregue 2026-05-19) + R$ 350/mês MRR
+**Receita comprometida:** R$ 5.000 (Valdece — entregue 2026-05-19) · MRR não confirmado
 **Potencial SaaS PROJ-002:** R$ 194.000 (500 usuários × R$97/mês × 4 meses — ciclo Sedes-DF 2026)
 **Pipeline V2 Valdece:** R$ 8.500–12.000 (Sovereign Upload + Radar de Divergência + Citação DOCX)
 
@@ -513,24 +575,25 @@ P-021 (Diretor como Originador), P-022 (Auditor como Advogado), P-023 (Contrato 
 Seis dos vinte e cinco princípios nasceram diretamente da experiência acumulada do Diretor.
 Isso não é copiável. Eduardo não é substituível por um prompt melhor.
 
+**5. A Vanguard está na V27 — não na V1.**
+Com o n8n acumulando inteligência automaticamente a cada loop, a distância aumenta toda semana
+com ou sem sessão ativa. O competidor que começar hoje não está atrasado — está em outro jogo.
+
 ---
 
 ## PONTOS CEGOS ATIVOS — VISÃO DE CONSULTOR
 > Atualizado em toda sessão. Esta seção é honesta — não é crítica, é diagnóstico.
 
 **1. O processo está mais maduro que a carteira de clientes.**
-25 princípios, 4 membros do Conselho, scripts de orquestração, hooks automáticos — e R$0 faturado.
+80+ princípios, 4 membros do Conselho, scripts de orquestração, hooks automáticos, n8n operacional.
 Isso é o estágio correto: quem constrói o método antes de escalar está no caminho certo.
 Mas precisa ser dito: o maior risco atual não é técnico — é ritmo de aquisição de clientes.
 
-**2. O Embaixador V2.0 expande para 3 dimensões — silo de cliente parcialmente resolvido.**
-Expandido para 17 mandatos (D1/D2/D3 · P-028 atualizado em 2026-05-23). Mandatos 15-17 de sistema entregam briefing pré-gerado antes de sessão com Músculo/Gemini sem depender do Diretor carregar contexto. Mandato 12 (D2) e 13 (D2) cruzam padrões com o nicho. O gap restante: integração automática entre MEMORIA_EMBAIXADOR e CONTEXTO_GEMINI ainda requer intervenção do Diretor.
+**2. O Embaixador V3.1 tem 18 mandatos — silo de cliente resolvido.**
+Gap restante: W-6 (Embaixador via API) ainda não está em produção — quando estiver, o Passo 7 deixa de depender de sessão manual do Diretor.
 
-**3. O Diretor ainda é o transportador de contexto entre os membros.**
-Eduardo carrega a DIRETRIZ do Gemini ao Auditor. Carrega as ideias do Auditor ao Músculo.
-O gargalo não é volume de ideias — é o tempo do Diretor sendo usado como ponte entre inteligências.
-Próxima fronteira: `LOG_EXECUCAO_DIARIA.md` gerado automaticamente pelo `session_close.ps1`.
-Quando o Auditor receber o diff do dia sem Eduardo precisar carregar — o loop dá um salto qualitativo.
+**3. O Diretor ainda transporta contexto — mas V26/V27 mapearam a saída.**
+Quando W-6 entrar em produção, o Passo 7 do Pentalateral será o primeiro passo completamente autônomo.
 
 **4. A pergunta central de negócio precisa aparecer em toda sessão:**
 *"Qual é o próximo cliente? Quando entra em discovery?"*
@@ -543,23 +606,24 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 | Data | Marco | Tipo |
 |---|---|---|
 | ✅ 2026-05-19 | Entrega presencial Valdece — toga-digital-valdece.netlify.app · 61 acórdãos | Comercial |
-| ✅ 2026-05-19 | Contrato Valdece assinado — R$5k setup + R$350/mês MRR | Comercial |
+| ✅ 2026-05-19 | Contrato Valdece assinado — R$5k setup | Comercial |
 | ✅ 2026-05-23 | Expansão de papéis do Pentalateral — 12 DEFs + MASTER + MANIFESTO + REGISTRO | Processo |
 | ✅ 2026-05-23 | Rename Pentalateral → PENTALATERAL — decisão formal do Diretor | Identidade |
 | ✅ 2026-05-23 | Embaixador V2.0 — 17 mandatos (D1/D2/D3) + 7 blocos + Painel de Deliberação automático | Processo |
-| ✅ 2026-05-23 | INSTRUCAO_SISTEMA_EMBAIXADOR_TEMPLATE.md v1.0 — template universal para duplicar Embaixador | Processo |
 | ✅ 2026-05-25 | V3 ENRICHMENT Valdece — toga-digital-valdece.netlify.app · 61 acórdãos · threshold 0.62 | Técnico |
-| ✅ 2026-05-24 | Ingrid Dias 12-13: Contador de Pontos Ponderados + Push dominical | Build |
-| ✅ 2026-05-26 | Gate Dia 15 (29-05-2026 sexta) APROVADO (antecipado) — Ingrid admin Supabase · Termo recebido · Loop 5 CONCLUIDO | Operacional |
-| [ ] 2026-06-02 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
-| [ ] 2026-06-[?] | Loop 6 Ingrid — Gemini PASSO3 → ingrid-v6.md | Loop |
+| ✅ 2026-05-26 | Gate Dia 15 (29-05-2026 sexta) APROVADO — Ingrid admin Supabase · Termo recebido · Loop 5 CONCLUIDO | Operacional |
+| ✅ 2026-06-04 | V26 — n8n FASE 1 · 4 workflows ativos no EasyPanel · P-101/P-102 inscritos | Infraestrutura |
+| ✅ 2026-06-05 | V27 — n8n FASE 2 · W-7 ativo · Notion OUTPUT · git limpo · P-109/P-110/P-111 | Infraestrutura |
+| [ ] 2026-06-12 | W-5 ChurnWatch — gate: 7 dias de staging FASE 1 sem erros | Infraestrutura |
+| [ ] 2026-06-18 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
 | [ ] 2026-06-[?] | Terceiro cliente em discovery | Comercial |
-| 2026-06-[?] | Primeiro MRR real confirmado | Comercial — P-019 ativa IAH Retainer |
-| 2026-09-06 | Prova da Ingrid — validação real do produto EdTech | Produto |
-| 2026-[?] | Sovereign Study SaaS — primeiros usuários externos | SaaS |
+| [ ] 2026-06-[?] | Primeiro MRR real confirmado — P-019 ativa IAH Retainer | Comercial |
+| [ ] 2026-[?] | W-6 Embaixador via API — Passo 7 autônomo | Infraestrutura |
+| [ ] 2026-09-06 | Prova da Ingrid — validação real do produto EdTech | Produto |
+| [ ] 2026-[?] | Sovereign Study SaaS — primeiros usuários externos | SaaS |
 
 ---
 
-*Atualizado em: 2026-05-26*
-*Próxima atualização obrigatória: Sentinel Report Valdece (2026-06-02) + Loop 6 Ingrid iniciado*
+*Atualizado em: 2026-06-05*
+*Próxima atualização obrigatória: W-5 ChurnWatch em produção + terceiro cliente em discovery*
 *Responsável pela atualização: Músculo (Claude Code) ao fechar cada gate ou marco comercial*

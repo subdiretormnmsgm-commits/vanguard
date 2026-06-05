@@ -1927,6 +1927,16 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Regra:** ao preparar proposta para segundo cliente do mesmo nicho, sempre incluir o case do primeiro como ancora de valor. Nunca repetir o mesmo preco do primeiro contrato — o risco caiu, o valor subiu.
 **Aplica-se a:** todo novo projeto IAH onde ja existe um cliente no mesmo nicho.
 
+## P-110 -- AUTOMACAO CRITICA EXIGE FALLBACK MANUAL DE NO MAXIMO 3 PASSOS (2026-06-05)
+**Origem:** Deliberacao n8n FASE 2 -- sessao 2026-06-05. Aprovado em DECISOES_N8N_FASE2 D5:A.
+**Fundamento:** Automacao sem fallback manual de no maximo 3 passos criou dependencia nao declarada. Se o fallback exige mais que 3 passos, o sistema exige a automacao para sobreviver -- isso e vulnerabilidade, nao feature.
+**Regra:** antes de ativar qualquer workflow critico, documentar o fallback manual com no maximo 3 passos. Se o fallback nao couber em 3 passos: simplificar a automacao ou dividir em workflows menores.
+**Fallbacks documentados (Pentalateral IAH):**
+  W-8 ChurnWatch down  -> Abrir WIP_BOARD.md e checar campo ultimo_contato_cliente manualmente (1 passo)
+  W-6 Embaixador down  -> Executar Passo 7 manual via Claude Projects como hoje (1 passo)
+  W-7 Veredito down    -> Colar VEREDITOS.json manualmente via terminal (1 passo)
+**Aplica-se a:** todo workflow n8n critico + toda automacao PS1 que bloqueia o processo Pentalateral.
+
 ## P-109 -- NOTION E OUTPUT-ONLY: GIT E A UNICA FONTE DE VERDADE (2026-06-04)
 **Origem:** Decisao ARQ-1 aprovada pelo Diretor -- sessao 2026-06-04. Confirmado "analise ok" apos deliberacao sobre session amnesia e cockpit do Diretor.
 **Fundamento:** Notion como cockpit visual -- exclusivamente para leitura e deliberacao. Toda informacao que aparece no Notion foi gerada a partir de artefatos em disco via n8n. Editar diretamente no Notion cria divergencia silenciosa: o sistema nao detecta, o Git nao registra, a proxima automacao sobrescreve.
@@ -1936,3 +1946,13 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
   REGRA 2 -- W-6 usa replace_content (sobrescreve) -- edicao manual e destruida na proxima sync
   REGRA 3 -- DEPENDENCY_MAP.json marca Notion como TIPO3_OUTPUT_EXTERNO -- auditar_consistencia.ps1 nunca le do Notion
 **Aplica-se a:** todo artefato publicado via n8n em qualquer pagina Notion do Pentalateral IAH.
+
+## P-111 -- ATENDER CLIENTES E CONSTRUIR VANTAGEM COMPETITIVA SAO O MESMO ATO (2026-06-05)
+**Origem:** Embaixador -- Briefing N8N-FASE2 -- sessao 2026-06-05. Candidato P-YYY aprovado pelo Diretor.
+**Fundamento:** P-008 aponta a direcao sem nomear o mecanismo. Quando o comportamento de uso do cliente alimenta automaticamente o ativo de inteligencia da empresa (Perfil de Nicho, LEDGER, Auditor Autonomo), cada sessao de produto e simultaneamente receita e infraestrutura de aprendizado. O cliente nao sabe que esta treinando o sistema -- o sistema sabe.
+**Regra:** ao projetar qualquer feature de produto cliente, perguntar: "este dado de uso alimenta qual ativo de inteligencia da Vanguard?" Se a resposta for nenhum, a feature e custo, nao investimento. Priorizar features que geram dados estruturados sobre comportamento de nicho.
+**Exemplos concretos:**
+  Ingrid usa SM-2 → churn_watch_threshold calibrado para EdTech-Concurso (P-106)
+  Valdece sobe acordaos → corpus_status alimenta Perfil de Nicho LegalTech (P-108)
+  Qualquer cliente responde quiz → dado de nicho entra no Radar de Perfis (Camada 3 n8n)
+**Aplica-se a:** toda decisao de roadmap de produto + toda feature de onboarding + todo workflow n8n que coleta dados de uso.
