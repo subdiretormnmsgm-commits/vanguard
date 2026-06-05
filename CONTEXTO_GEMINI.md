@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-04 16:39
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-05 12:40
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-5a7afc7 chore(ingrid): RETAINER -- depoimento capturado + Sentinel Valdece enviado + pendentes limpos
-a402c0f chore(pendentes): marcar concluidos -- Gate7.2 divida tecnica + Wipe&Sync Ingrid + D4 Ingrid
-4ffe3b8 chore(session-close): artefatos finais 04-06-2026 -- VERDE -- Loop8 + Valdece + n8n FASE0
+0e6d5a7 feat(embaixador-oper): artefato operacional + n8n payload + session_close integrado
+2cf7312 feat(processo): CONTEXTO_SESSAO_DIRETOR + Embaixador Operacional (P-113)
+54e4c54 chore(pendentes): [AUTO-RESOLVE] DEPENDENCY_MAP
 
 ================================================================================
 
@@ -142,7 +142,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-06-01",
+    "atualizado_em":  "2026-06-05",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -152,75 +152,75 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 
                                 ],
                   "build":  [
+
+                            ],
+                  "check":  [
                                 {
-                                    "id":  "PROJ-002",
-                                    "cliente":  "Ingrid",
-                                    "projeto":  "Ferramenta de Estudo â€” Concurso Sedes-DF",
-                                    "area":  "EdTech Â· Concursos PÃºblicos",
-                                    "camada":  "2 (Produto â€” 15 dias)",
-                                    "valor_fechado":  0,
-                                    "tipo":  "Projeto Piloto Interno â€” ValidaÃ§Ã£o V25",
-                                    "deadline":  "2026-05-30",
-                                    "prova_cliente":  "2026-09-06",
-                                    "status":  "RETAINER -- Loop 8 CONCLUIDO -- produto entregue -- depoimento capturado (Ingrid: gostou muito) -- sem novos loops",
-                                    "cargo":  "TDAS â€“ TÃ©cnico em Desenvolvimento e AssistÃªncia Social â€“ Especialidade: TÃ©cnico Administrativo (Cargo 202)",
-                                    "banca":  "Instituto Quadrix",
-                                    "stack":  "PWA + Supabase + Claude API",
-                                    “loop_atual”:  “Loop 8 CONCLUIDO -- MEMORIA_V8 + relatorio_V8 + DELIBERACAO_V8 gerados -- Loop 9 PENDENTE: Gate 7.2 + captacao 2a candidata”,
-                                    "diretriz_gemini_v1":  true,
-                                    "skill_notebooklm_v1":  true,
-                                    "deliberacao_musculo":  true,
-                                    "veredito_diretor":  true,
-                                    "veredito_data":  "2026-05-15",
-                                    "edital_sedes_json":  true,
-                                    "build_iniciado_em":  "2026-05-15",
-                                    "dias_completos":  [
-                                                           "dia1_schema_edge",
-                                                           "dia2_gate_questoes",
-                                                           "dia3_5_feed_sm2_pwa",
-                                                           "dia6_8_tutor_fallback",
-                                                           "dia9_11_heatmap_simulado",
-                                                           "dia12_contador_socratica_vacina_push_cb"
-                                                       ],
-                                    "delivery_dates":  {
-                                                           "dia1_2":  "2026-05-15",
-                                                           "dia3_5":  "2026-05-17",
-                                                           "dia6_8":  "2026-05-19",
-                                                           "dia9_11":  "2026-05-20",
-                                                           "dia12":  "2026-05-23"
-                                                       },
-                                    "plano_build":  {
-                                                        "dia1_2":  "Schema multi-tenant + Edge Function + Magico de Oz Gate CLI + playbook distratores",
-                                                        "dia3_5":  "Feed Diario (70/30 Peso 2) + Spaced Repetition SM-2 + Pilula JSON + Explicacao direta ao errar + Contador header",
-                                                        "dia6_8":  "Interface questoes + Tutor Socratico Haiku (Peso 2) + Caching + Fallback Fadiga 70%",
-                                                        "dia9_11":  "Heatmap urgencia temporal + Micro-Simulado diario + Modo Sedes-DF domingos",
-                                                        "dia12_13":  "Contador Pontos Ponderados + Notificacao push domingo",
-                                                        "dia14_15":  "OFFBOARDING_RUNBOOK + SaaS Readiness Audit + P-013 soberania"
+                                    "id":  "PROJ-001",
+                                    "cliente":  "Valdece",
+                                    "projeto":  "Ferramenta de Busca Jurisprudencia STF/STJ",
+                                    "area":  "LegalTech - Direito Penal",
+                                    "camada":  "1 (MVP Alto Impacto)",
+                                    "valor_fechado":  5000,
+                                    "status":  "HYPERCARE -- ate 18-06-2026",
+                                    "loop_atual":  "Loop 7 CONCLUIDO -- V3 entregue + Deploy Netlify OK",
+                                    "deploy_netlify":  "https://toga-digital-valdece.netlify.app",
+                                    "deploy_netlify_data":  "2026-05-19",
+                                    "contrato_assinado":  true,
+                                    "contrato_assinado_em":  "2026-05-19",
+                                    "deadline":  "2026-05-23",
+                                    "build_iniciado_em":  "2026-05-13",
+                                    "ultimo_contato_cliente":  "2026-06-04",
+                                    "churn_watch_threshold":  3,
+                                    "stack":  "FastAPI + Supabase + Claude API + Netlify",
+                                    "loop_fase_atual":  {
+                                                            "loop":  7,
+                                                            "gemini":  "OK",
+                                                            "notebooklm":  "OK",
+                                                            "embaixador":  "OK",
+                                                            "musculo":  "OK",
+                                                            "proximo":  "Loop 8 gate: Sentinel Report uso ativo + Gemini anchor para DIRETRIZ V8 Valdece"
+                                                        },
+                                    "proximo_passo":  "Hypercare termina 18-06-2026 -- Sentinel Report enviado 2026-06-04 -- aguardar feedback Valdece",
+                                    "sentinel_report":  {
+                                                            "ultimo":  "2026-06-04",
+                                                            "status":  "VERDE",
+                                                            "supabase_pause_resolvido":  true
+                                                        },
+                                    "v2_pipeline":  {
+                                                        "features":  [
+                                                                         "Sovereign Upload",
+                                                                         "Radar de Divergencia",
+                                                                         "Citacao DOCX"
+                                                                     ],
+                                                        "gatilho":  "corpus \u003e= 500 docs ou 30 dias pos-entrega",
+                                                        "pricing":  "R$8.500-12.000 projeto unico + R$300/mes manutencao opcional"
                                                     },
-                                    "decisoes_fixadas":  {
-                                                             "fonte_questoes":  "Claude API â€” sem scraping (P-003)",
-                                                             "auth":  "single-user â€” sem login complexo",
-                                                             "cache":  "gerar lote 50 quando \u003c 30 questoes disponiveis",
-                                                             "proporcao_feed":  "70% Peso 2 / 30% Peso 1",
-                                                             "modelos_api":  "Haiku (gerais + dicas socraticas) / Sonnet (especificos)",
-                                                             "burn_rate":  "BURN_RATE_DAILY_LIMIT_USD=5.00",
-                                                             "fallback":  "trigger 70% da cota diaria",
-                                                             "spaced_repetition":  "SM-2 intervalo variavel",
-                                                             "push_vs_email":  "push no MVP / email com tracking no Loop 2",
-                                                             "comentario_erro":  "Opcao A (Dias 3-5): explicacao direta do banco + Opcao B (Dias 6-8): Tutor Socratico Haiku"
-                                                         },
-                                    "gates_bloqueantes":  {
-                                                              "dia2":  "10 questoes avaliadas por Eduardo â€” rubrica media \u003e= 4/5",
-                                                              "dia5":  "Feed exibe plano correto 7 dias com proporcao correta",
-                                                              "dia8":  "Ingrid responde 10 questoes â€” progresso salvo â€” fallback testado",
-                                                              "dia11":  "Heatmap correto + simulado domingo completo",
-                                                              "dia15":  "Ingrid com acesso admin proprio Supabase"
-                                                          },
-                                    "precificacao":  {
-                                                         "valor_gerado_candidato":  "R$ 9.750 (tempo + probabilidade aprovacao)",
-                                                         "servico_personalizado":  "R$ 2.500 por candidato externo",
-                                                         "licenca_acesso_saas":  "R$ 197 por ciclo do concurso",
-                                                         "saas_b2c_mrr":  "R$ 97/mes x 4 meses = R$ 388 por usuario",
+                                    "corpus_status":  {
+                                                          "total_acordaos":  61,
+                                                          "temas_cobertos":  22,
+                                                          "threshold":  0.45,
+                                                          "status":  "TESTADO E VERDE"
+                                                      },
+                                    "briefing_path":  "CLIENTES/VALDECE/BRIEFING_DISCOVERY.txt",
+                                    "gut_score":  75,
+                                    "entrada_em":  "2026-05-12"
+                                }
+                            ],
+                  "entregue":  [
+
+                               ],
+                  "retainer":  [
+                                   {
+                                       "id":  "PROJ-002",
+                                       "cliente":  "Ingrid",
+                                       "projeto":  "Ferramenta de Estudo -- Concurso Sedes-DF",
+                                       "area":  "EdTech - Concursos Publicos",
+                                       "camada":  "2 (Produto -- 15 dias)",
+                                       "valor_fechado":  0,
+                                       "tipo":  "Projeto Piloto Interno -- Validacao V25",
+                                       "status":  "RETAINER",
+                                       "loop_atual":  "Loop 8 CONCLUIDO",
 ... [truncado -- ver arquivo completo]
 
 ================================================================================
@@ -232,7 +232,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.2 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24)**
+**Versão da Skill:** 6.3 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04)**
 
 ---
 

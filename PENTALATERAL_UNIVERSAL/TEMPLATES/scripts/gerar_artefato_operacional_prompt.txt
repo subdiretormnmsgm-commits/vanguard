@@ -12,30 +12,45 @@
 
 ## SUA TAREFA — ABERTURA DE SESSÃO (artefato pré-gerado)
 
-Com base no CONTEXTO e no PAINEL, gere o artefato com EXATAMENTE estes 5 blocos:
+O CONTEXTO_SESSAO tem 9 seções. Use-as para preencher os blocos abaixo:
 
 **1. ESTADO DO SISTEMA**
-Semáforo por projeto — 1 linha cada.
+Semáforo por projeto — 1 linha cada. Fonte: PAINEL_ATIVIDADES.
 [VERDE/AMARELO/VERMELHO] [Projeto] — N pendentes · próximo: [ação concreta]
 
-**2. CONTEXTO DA ÚLTIMA SESSÃO**
-3 linhas máximo: o que o Músculo fez · o que ficou no ar · o que o Diretor mencionou que o sistema não sabia.
+**2. O QUE FOI CONSTRUÍDO**
+Fonte: CONTEXTO seção "O QUE FOI CONSTRUÍDO".
+Lista com verbo: "Implementado X", "Criado Y", "Atualizado Z".
+Máximo 6 itens. Só entregas com impacto real — omitir ajustes cosméticos.
+Se seção ausente no CONTEXTO: "Não registrado — Músculo deve preencher seção 1 do CONTEXTO."
 
-**3. PADRÃO DETECTADO**
-Identifique se algum problema é recorrente entre sessões.
-Exemplo: "D2 ENV_VARS mencionado pela 2ª vez sem resolução — tarefa do Diretor acumulando."
-Se nenhum padrão real detectado: omitir esta seção.
+**3. DECISÕES E DIREÇÃO DO DIRETOR**
+Fonte: CONTEXTO seções "DECISÕES TOMADAS" + "DIREÇÃO DO DIRETOR".
+Formato: "DECISÃO: [o quê] → [razão em 5 palavras] → [impacto]"
+Máximo 4 itens.
+Se seção ausente: "Não registrado."
 
-**4. INCONSISTÊNCIAS ABERTAS**
-O que estava sem resolução no CONTEXTO. Seja específico — não generalize.
+**4. PADRÃO DETECTADO**
+Compare os últimos CONTEXTO recebidos. Sinalize padrão se:
+- Mesma variável/tarefa pendente aparece em 2+ sessões
+- Mesmo alerta emitido sem resolução
+- Decisão verbal repetida sem entrar no PENDENTES
+Exemplo: "D2 ENV_VARS mencionado em 2 sessões — tarefa acumulando."
+Se nenhum padrão real: omitir este bloco completamente.
+
+**5. INCONSISTÊNCIAS E FRICÇÕES ABERTAS**
+Fonte: CONTEXTO seções "FRICÇÕES DO PROCESSO" + "DOCUMENTOS MORTOS / INCONSISTÊNCIAS" + "FICOU NO AR".
+Lista numerada. Seja específico — não generalize.
 Se nenhuma: "Sistema consistente."
 
-**5. PRIORIDADE DESTA SESSÃO**
-Uma frase: o que o Músculo deve atacar primeiro com base nos dois documentos.
-Seja cirúrgico — não liste 3 coisas.
+**6. PRIORIDADE DESTA SESSÃO**
+Fonte: CONTEXTO seção "PRÓXIMA SESSÃO — AÇÃO IMEDIATA".
+Uma frase cirúrgica — não liste 3 coisas.
+O que o Músculo deve atacar primeiro.
 
 ---
 
 Tom: direto, sem bajulação. Você é o único com memória entre sessões — use isso.
 Não repita os dados do PAINEL — acrescente perspectiva que só você tem.
-Máximo 500 palavras no total.
+Seções ausentes no CONTEXTO: sinalize com "Não registrado" em vez de inventar.
+Máximo 600 palavras no total.

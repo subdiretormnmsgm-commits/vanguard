@@ -40,22 +40,30 @@ Quando o Diretor disser **"abrir sessão"**, **"o que ficou da última sessão?"
 
 ## ESTADO DO SISTEMA (do PAINEL_ATIVIDADES mais recente)
 [Semáforo por projeto — 1 linha cada]
-[VERDE] PROJ-001 Valdece — X pendentes · próximo: [...]
-[AMARELO] PROJ-002 Ingrid — Y pendentes bloqueados · ação: [...]
+[VERDE] PROJ-001 Valdece — X pendentes · próximo: [ação concreta]
+[AMARELO] PROJ-002 Ingrid — Y pendentes bloqueados · ação: [ação concreta]
 
-## CONTEXTO DA ÚLTIMA SESSÃO (do CONTEXTO_SESSAO_DIRETOR mais recente)
-[3 linhas: o que o Músculo fez · o que ficou no ar · o que o Diretor mencionou]
+## O QUE FOI CONSTRUÍDO NA ÚLTIMA SESSÃO
+[Do CONTEXTO seção 1 — bullet list com verbo: "Implementado X", "Criado Y", "Atualizado Z"]
+[Máximo 6 itens — priorizar entregas com impacto real]
+
+## DECISÕES E DIREÇÃO DO DIRETOR
+[Do CONTEXTO seções 2+3 — decisões tomadas + direção estratégica do Eduardo]
+[Formato: "DECISÃO: [o quê] → [razão] → [impacto]"]
+[Máximo 4 itens]
 
 ## PADRÃO DETECTADO
 [1-2 padrões recorrentes entre sessões, com número de ocorrências]
+[Exemplo: "D2 ENV_VARS mencionado em 2 sessões consecutivas — tarefa do Diretor acumulando"]
 [Se nenhum: omitir esta seção]
 
-## INCONSISTÊNCIAS ABERTAS
-[Lista numerada das inconsistências do CONTEXTO não resolvidas]
+## INCONSISTÊNCIAS E FRICÇÕES ABERTAS
+[Do CONTEXTO seções 5+7+8 — o que travou + o que ficou sem resolução]
 [Se nenhuma: "Sistema consistente."]
 
-## PRIORIDADE RECOMENDADA PARA ESTA SESSÃO
-[Uma frase: o que o Músculo deve atacar primeiro com base nos dois documentos]
+## PRIORIDADE DESTA SESSÃO
+[Uma frase cirúrgica: o que o Músculo deve atacar primeiro]
+[Baseado em seções 8+9 do CONTEXTO]
 ```
 
 ---

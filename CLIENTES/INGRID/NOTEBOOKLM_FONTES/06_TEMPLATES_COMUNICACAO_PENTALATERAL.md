@@ -718,6 +718,52 @@ Quando o processo evoluir e revelar um formato melhor:
 
 ---
 
-*Templates do Pentalateral IAH — 5 atores: Músculo + Estrategista + Auditor + Embaixador + Diretor*
+---
+
+## TEMPLATE W-7 — VEREDITO VIA TELEGRAM (n8n) [adicionado V27 — 2026-06-04]
+
+> Canal: Telegram Bot @Eduardo431Vanguardbot
+> Workflow: W-7 (ID: KisAa6ynD4btgrkL) — Trigger: comandos /aprovar /rejeitar /veredito
+> Fonte de entrada: DECISOES.json gerado pelo render_painel.ps1
+
+### FORMATO DE COMANDO NO TELEGRAM
+
+```
+/aprovar D1           → aprova decisão D1 do DECISOES.json ativo
+/rejeitar D2          → rejeita decisão D2
+/veredito D1:A D2:B D3:C  → vereditos em lote (A=opção A, B=opção B, etc.)
+/pendentes            → lista decisões aguardando veredito
+/status               → status dos projetos ativos (W-1 clone)
+```
+
+### RESPOSTA ESPERADA DO W-7 (Músculo verifica)
+
+```
+✅ Veredito registrado:
+D1: APROVADO (opção A)
+D2: REJEITADO
+Projeto: [CLIENTE] · Loop: [N]
+DECISOES.json atualizado · Notion: OK
+Próximo: executar_vereditos.ps1 -cliente [NOME]
+```
+
+### ⚠️ REGRA P-072 — CONFORMIDADE OBRIGATÓRIA
+
+O W-7 DEVE atualizar o arquivo `DECISOES.json` local IMEDIATAMENTE após o veredito.
+Se o Notion registrar mas o git não → estado assíncrono → Auditor delibera com premissas erradas.
+Fallback: editar DECISOES.json direto + rodar `.\scripts\executar_vereditos.ps1 -cliente [NOME]`
+
+### TABELA ATUALIZADA — COM n8n
+
+| Template | De → Para | Canal | Quando usar |
+|---|---|---|---|
+| **W-1 Check-in** | n8n → Diretor | Telegram automático | 7h/13h/20h — status projetos |
+| **W-3 Push** | n8n → Diretor | Telegram automático | A cada git push |
+| **W-7 Veredito** | Diretor → n8n | Telegram manual | Ao receber lista de decisões |
+| **W-4 Session Close** | Músculo → n8n → Diretor | Webhook automático | Ao fechar sessão |
+
+---
+
+*Templates do Pentalateral IAH — 5 atores + n8n como sistema nervoso*
 *25 ideias/ciclo [M×2+G+N+E × 5]: [M×2 técnico+cirúrgico] + [E] + [G] + [N] × 5 cada*
-*Versão 2.0 · 2026-05-18*
+*Versão 3.0 · 2026-06-05 — adicionado Template W-7 Veredito Telegram*

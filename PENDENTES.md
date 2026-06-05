@@ -192,10 +192,11 @@
 - [x] `2026-06-05` ~~**n8n FASE 2 — N-1: ping_n8n.ps1 + session_start.ps1 PASSO 8e:**~~
   ✅ scripts/ping_n8n.ps1 criado · PASSO 8e adicionado no session_start.ps1 · P-060 validate VERDE.
 
-- [x] `2026-06-18` **n8n FASE 2 — D2: Configurar ENV_VARS completas no n8n EasyPanel:** [diretor]
-  Variáveis: ANTHROPIC_API_KEY · TELEGRAM_BOT_TOKEN · TELEGRAM_CHAT_ID_DIRETOR · GITHUB_PAT_READONLY · BURN_RATE_DAILY_LIMIT_USD · N8N_WEBHOOK_SECRET · NOTION_API_TOKEN · NOTION_WIP_PAGE_ID · NOTION_PENDENTES_PAGE_ID · NOTION_LEDGER_PAGE_ID.
-  Gate antes de ativar W-8, W-6, W-7 e Blocos Notion (D3 critério de ativação).
-  ✅ PARCIAL 2026-06-05: NOTION_API_TOKEN + NOTION_WIP_PAGE_ID + NOTION_PENDENTES_PAGE_ID configurados. Restam as demais variáveis para D3.
+- [x] `2026-06-05` ~~**n8n FASE 2 — D2: Configurar ENV_VARS completas no n8n EasyPanel:**~~ [diretor]
+  ✅ CONCLUÍDO 2026-06-05: todas as 10 variáveis configuradas.
+  NOTION_LEDGER_PAGE_ID = 376ac59f774f80809e9fee855d62070a (Ledger Vanguard — adicionado 2026-06-05).
+  ANTHROPIC_API_KEY validada via teste direto à API (Haiku respondeu OK).
+  Gate D3 desbloqueado.
 
 - [ ] `2026-06-12` **n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:** [musculo]
   Timer iniciado 2026-06-05. Se W-1/W-3/W-4 estáveis em 2026-06-12 → verde para build W-5.
