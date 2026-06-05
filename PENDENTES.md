@@ -104,7 +104,7 @@
   ✅ Execução 65 success · SHA 1b08156a · VEREDITOS_202606051931.json · diretor_confirmado: true.
   W-7 ENTREGUE E FUNCIONAL — Telegram + Notion + GitHub todos operacionais.
 
-- [ ] `2026-06-12` **[SISTEMA] P-072 — W-7 VEREDITOS → session_start processa localmente:** [musculo]
+- [x] `2026-06-12` **[SISTEMA] P-072 — W-7 VEREDITOS → session_start processa localmente:** [musculo]
   W-7 grava VEREDITOS/*.json no GitHub. session_start deve detectar + chamar executar_vereditos.ps1.
   Design: session_start faz git pull → verifica VEREDITOS/ → processa unread → atualiza DECISOES.json.
 
