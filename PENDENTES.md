@@ -95,10 +95,18 @@
   Ação: editar PENTALATERAL_UNIVERSAL/OPERACAO/DEPENDENCY_MAP.json → adicionar na seção `documentos`.
   Requer `.musculo_autorizacao.flag` (arquivo protegido).
 
-- [ ] `2026-06-12` **[SISTEMA] Verificar W-7 Telegram → DECISOES.json sync (Risco P-072):** [musculo+diretor]
-  Risco 1 do Auditor: W-7 pode aprovar vereditos sem atualizar DECISOES.json local.
-  Antes de W-7 ir para produção plena: garantir que o webhook do n8n chama executar_vereditos.ps1
-  ou atualiza o arquivo JSON via API git. Testar com /aprovar em decisão teste.
+- [x] `2026-06-05` ~~**[SISTEMA] W-7 Telegram — Teste /aprovar TESTE executado:**~~
+  ✅ Execução 64 confirmada: isDiretor OK · Parsear OK · Preparar OK · Notion OK · Telegram OK
+  GitHub 401: GITHUB_PAT_WRITE não definido no EasyPanel — AÇÃO DO DIRETOR: adicionar env var.
+  Após PAT adicionado: W-7 100% funcional.
+
+- [ ] `2026-06-07` **[SISTEMA] W-7 — confirmar GitHub OK após GITHUB_PAT_WRITE no EasyPanel:** [diretor+musculo]
+  Ação Diretor: EasyPanel → n8n → Environment Variables → GITHUB_PAT_WRITE = REDACTED_PAT
+  Após redeploy: Músculo verifica execução GitHub → HTTP 201.
+
+- [ ] `2026-06-12` **[SISTEMA] P-072 — W-7 VEREDITOS → session_start processa localmente:** [musculo]
+  W-7 grava VEREDITOS/*.json no GitHub. session_start deve detectar + chamar executar_vereditos.ps1.
+  Design: session_start faz git pull → verifica VEREDITOS/ → processa unread → atualiza DECISOES.json.
 
 - [x] `2026-05-27` ~~**[BLOQUEANTE] ChurnWatch_Vanguard NAO registrado no Task Scheduler:**~~
   ✅ Registrado pelo Músculo em 2026-05-27 (sem Admin necessário). Próxima execução: 28-05-2026 08:00.

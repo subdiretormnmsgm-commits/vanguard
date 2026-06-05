@@ -1,0 +1,25 @@
+{
+    "ref_decisoes": "DECISOES_N8N_NOTION_2026-06-04.json",
+    "data_veredito": "2026-06-04",
+    "processado_em": "2026-06-05",
+    "processado_por": "Musculo (retroativo -- todas decisoes ja tinham veredito no DECISOES.json)",
+    "vereditos": [
+        {
+            "id": "ARQ-1",
+            "veredito": "A",
+            "resumo": "APROVADO -- Notion exclusivamente interno, zero acesso cliente"
+        },
+        {
+            "id": "ARQ-2",
+            "veredito": "A",
+            "resumo": "APROVADO -- Manutencao Soberana nao se aplica ao Valdece (contrato fixo)"
+        },
+        {
+            "id": "ARQ-3",
+            "veredito": "A",
+            "resumo": "APROVADO -- Sentinel Report concluido e enviado"
+        }
+    ],
+    "status": "FECHADO",
+    "observacao": "FASE_0 concluida. FASE_1 inicia apos 18-06-2026 (fim Hypercare Valdece)."
+}
