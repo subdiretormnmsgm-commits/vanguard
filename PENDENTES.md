@@ -226,7 +226,7 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   Novo valor: NOTION_WIP_PAGE_ID = 376ac59f774f817db1d8c204d6abcea5
   Substituir o valor antigo (376ac59f774f80e3bc05e718857b4c22) no EasyPanel.
 
-- [ ] `2026-06-12` **n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:** [musculo]
+- [x] `2026-06-12` **n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:** [musculo]
   Timer iniciado 2026-06-05. Se W-1/W-3/W-4 estáveis em 2026-06-12 → verde para build W-5.
   Verificar: n8n EasyPanel → executions → zero erros nos últimos 7 dias.
   Gate adicional: D2 ENV_VARS completas (TELEGRAM_BOT_TOKEN obrigatório para W-5).
