@@ -134,3 +134,15 @@ Lê o WIP_BOARD, calcula dias sem contato por cliente e envia:
 - **Alerta de churn** apenas se algum cliente ultrapassou o threshold de dias
 
 Thresholds configurados no `WIP_BOARD.json` → campo `churn_watch_threshold` por projeto.
+
+**Mensagens sugeridas incluídas no alerta de churn:**
+
+| Cliente | Dias sem contato | Mensagem sugerida |
+|---|---|---|
+| Ingrid | 3–4 dias | "Ingrid, tudo bem? Estou por aqui se precisar de algo. 🙂" |
+| Ingrid | 5+ dias | "Ingrid, estou por aqui. Como está o estudo?" |
+| Valdece | 7+ dias | "Dr. Valdece, tudo bem? Passando para saber como está sendo a experiência com o sistema." |
+
+**Lembrete de domingo (Ingrid):**
+Todo domingo o resumo diário inclui a mensagem de relatório semanal:
+`"Ingrid, semana encerrada! Me conta: quantas questões você respondeu essa semana? Quero atualizar o seu relatório de progresso. 📊"`
