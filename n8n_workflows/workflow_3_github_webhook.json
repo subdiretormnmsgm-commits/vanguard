@@ -5,7 +5,6 @@
       "parameters": {
         "httpMethod": "POST",
         "path": "github-vanguard",
-        "authentication": "headerAuth",
         "responseMode": "onReceived",
         "options": {}
       },
@@ -18,7 +17,7 @@
     },
     {
       "parameters": {
-        "functionCode": "const payload = $input.item.json;\n\nconst commits = payload.commits || [];\nconst repoName = payload.repository?.full_name || 'desconhecido';\nconst branch = payload.ref?.replace('refs/heads/', '') || 'main';\nconst pusher = payload.pusher?.name || 'Musculo';\n\nconst ultimoCommit = commits[commits.length - 1];\nconst mensagem = ultimoCommit?.message || 'sem mensagem';\nconst sha = ultimoCommit?.id?.substring(0, 7) || '0000000';\n\n// Detectar RESOLVE\nconst temResolve = mensagem.includes('[RESOLVE:');\nconst pendente = temResolve ? mensagem.match(/\\[RESOLVE:\\s*([^\\]]+)\\]/)?.[1] : null;\n\nreturn [{\n  json: {\n    repoName,\n    branch,\n    pusher,\n    mensagem,\n    sha,\n    totalCommits: commits.length,\n    temResolve,\n    pendente,\n    timestamp: new Date().toISOString()\n  }\n}];"
+        "jsCode": "const payload = $input.item.json.body || $input.item.json;\nconst commits = payload.commits || [];\nconst repoName = payload.repository ? payload.repository.full_name : 'vanguard';\nconst branch = payload.ref ? payload.ref.replace('refs/heads/', '') : 'main';\nconst ultimoCommit = commits[commits.length - 1];\nconst mensagem = ultimoCommit ? ultimoCommit.message : 'sem mensagem';\nconst sha = ultimoCommit ? ultimoCommit.id.substring(0, 7) : '0000000';\nconst temResolve = mensagem.includes('[RESOLVE:');\nconst resolveMatch = mensagem.match(/\\[RESOLVE:\\s*([^\\]]+)\\]/);\nconst pendente = resolveMatch ? resolveMatch[1] : '';\nconst resolveTexto = temResolve ? 'RESOLVE: ' + pendente : 'sem RESOLVE';\nconst texto = 'Commit -- ' + repoName + '\\n' + sha + ' | ' + branch + '\\n' + mensagem + '\\n' + resolveTexto;\nreturn [{ json: { repoName: repoName, branch: branch, sha: sha, mensagem: mensagem, temResolve: temResolve, pendente: pendente, texto: texto } }];"
       },
       "id": "code-extrair",
       "name": "Extrair Dados do Push",
@@ -28,25 +27,22 @@
     },
     {
       "parameters": {
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "telegramApi",
-        "resource": "message",
-        "operation": "sendMessage",
-        "chatId": "CONFIGURE: ID do chat Telegram do Diretor",
-        "text": "Commit detectado -- {{ $json.repoName }}\n\n{{ $json.sha }} | {{ $json.branch }}\n{{ $json.mensagem }}\n\n{{ $json.temResolve ? 'RESOLVE: ' + $json.pendente : 'sem RESOLVE' }}\n\n{{ $json.timestamp.substring(0, 10) }} {{ $json.timestamp.substring(11, 16) }}",
-        "additionalFields": {}
+        "method": "POST",
+        "url": "https://api.telegram.org/bot8146192723:AAHVZJzzV0R_jp2sAaSE3T2AFFjnzMWuOgE/sendMessage",
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParameters": {
+          "parameters": [
+            {"name": "chat_id", "value": "8895733647"},
+            {"name": "text", "value": "={{ $json.texto }}"}
+          ]
+        }
       },
       "id": "telegram-commit",
       "name": "Telegram -- Notificar Commit",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [680, 300],
-      "credentials": {
-        "telegramApi": {
-          "id": "CONFIGURE: ID da credencial Telegram",
-          "name": "Telegram Vanguard"
-        }
-      }
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
     }
   ],
   "connections": {
@@ -58,9 +54,6 @@
     }
   },
   "active": false,
-  "settings": {
-    "executionOrder": "v1"
-  },
-  "tags": ["vanguard", "github", "webhook", "fase1"],
-  "notes": "APOS IMPORTAR: (1) Ativar workflow para gerar URL do webhook. (2) Copiar URL gerada pelo n8n. (3) No GitHub, ir em Settings > Webhooks > Add webhook > colar URL + secret. (4) Configurar chatId Telegram."
+  "settings": {"executionOrder": "v1"},
+  "tags": ["vanguard", "github", "webhook", "fase1"]
 }

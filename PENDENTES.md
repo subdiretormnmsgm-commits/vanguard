@@ -142,31 +142,18 @@
 - [x] `2026-06-04` ~~**Sentinel Report Valdece — WhatsApp enviado:**~~
   ✅ Enviado pelo Diretor em 2026-06-04.
 
-- [x] `2026-06-18+` **n8n FASE 1 — build EasyPanel após Hypercare Valdece:** [musculo]
-  4 workflows: check-ins 7h/13h/20h + monitor Supabase horário + webhook GitHub + formulário campo→MEMORIA.
-  Desbloqueado após: Hypercare Valdece encerrar (18-06-2026).
-  DECISOES registradas em CLIENTES/INGRID/CLAUDE_PROJECT/DECISOES/DECISOES_N8N_NOTION_2026-06-04.json
+- [x] `2026-06-04` ~~**n8n FASE 1 — build EasyPanel (adiantado de 18-06-2026):**~~
+  ✅ 4 workflows ativos em https://vanguard-vanguard-n8n.0ul9nk.easypanel.host
+  01 Check-in 7h/13h/20h · 02 Monitor Supabase horário · 03 GitHub Push · 04 Session Close.
+  GitHub webhook configurado · n8n_config.ps1 criado · P-103/P-104/P-105 inscritos.
 
 ## PROCESSO / INFRA -- n8n FASE 1 (adicionado 2026-06-04)
 
-- [ ] `2026-06-18+` **n8n -- Criar 4 JSONs de workflow prontos para importar:** [musculo]
-  Workflow 1: check-in 7h/13h/20h via cron + Notion + Telegram.
-  Workflow 2: monitor Supabase horario (ping HTTP + alerta Telegram se falhar).
-  Workflow 3: webhook GitHub push (recebe payload + atualiza Notion).
-  Workflow 4: session_close webhook (recebe principios LEDGER + grava no Notion).
-  Diretor NAO digita codigo -- importa JSON via interface visual do n8n.
-  Gate: criar antes de 18-06-2026 para entregar pronto no Dia 1.
+- [x] `2026-06-04` ~~**n8n -- 4 JSONs de workflow criados e importados:**~~ ✅ todos publicados em produção.
 
-- [ ] `2026-06-18+` **n8n -- Roteiro de instalacao EasyPanel (para Diretor):** [musculo]
-  Documento visual passo a passo: onde clicar, o que digitar, como verificar.
-  Inclui: instalar n8n no EasyPanel + variaveis de ambiente + gate de RAM.
-  Nivel: Diretor sem experiencia tecnica consegue seguir sozinho.
-  Gate: criar antes de 18-06-2026.
+- [x] `2026-06-04` ~~**n8n -- EasyPanel instalado + volume persistente + WEBHOOK_URL configurado:**~~ ✅
 
-- [ ] `2026-06-18+` **n8n -- Roteiro de configuracao de credenciais (para Diretor):** [musculo]
-  Guia de como preencher cada credencial no n8n (interface visual -- sem codigo).
-  Campos: Telegram token, Supabase URL/key, GitHub PAT, Notion API key.
-  Gate: criar antes de 18-06-2026.
+- [x] `2026-06-04` ~~**n8n -- GitHub webhook configurado no repositório vanguard:**~~ ✅
 
 - [ ] `2026-06-04` **Embaixador V4.0 -- Mandato 19: solicitar Perfis de Nicho EdTech e LegalTech V1:** [diretor]
   Eduardo abre Claude Projects e cola o bloco abaixo no Embaixador Ingrid (nicho EdTech) e Embaixador Valdece (nicho LegalTech):

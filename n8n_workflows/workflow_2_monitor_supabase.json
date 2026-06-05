@@ -4,9 +4,7 @@
     {
       "parameters": {
         "rule": {
-          "interval": [
-            {"field": "hours", "hoursInterval": 1}
-          ]
+          "interval": [{"field": "hours", "hoursInterval": 1}]
         }
       },
       "id": "cron-supabase",
@@ -17,76 +15,49 @@
     },
     {
       "parameters": {
-        "url": "CONFIGURE: URL Supabase Ingrid + /rest/v1/",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "options": {
-          "timeout": 10000,
-          "response": {
-            "response": {
-              "fullResponse": true
-            }
-          }
-        }
+        "url": "https://yjqvjhezwhepwomukudt.supabase.co/rest/v1/",
+        "options": {"timeout": 10000},
+        "ignoreResponseCode": true
       },
       "id": "http-ingrid",
       "name": "Ping Supabase Ingrid",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 200],
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "CONFIGURE: criar credencial Header Auth com apikey = Service Key Ingrid",
-          "name": "Supabase Ingrid Header"
-        }
-      },
+      "position": [460, 300],
       "continueOnFail": true
     },
     {
       "parameters": {
-        "url": "CONFIGURE: URL Supabase Valdece + /rest/v1/",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "options": {
-          "timeout": 10000,
-          "response": {
-            "response": {
-              "fullResponse": true
-            }
-          }
-        }
+        "jsCode": "const item = $input.item.json;\nconst ingridOk = !item.error;\nreturn [{ json: { ingridOk: ingridOk } }];"
+      },
+      "id": "code-ingrid",
+      "name": "Checar Ingrid",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://ehyaecxqijgyuuiorzcj.supabase.co/rest/v1/",
+        "options": {"timeout": 10000},
+        "ignoreResponseCode": true
       },
       "id": "http-valdece",
       "name": "Ping Supabase Valdece",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 420],
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "CONFIGURE: criar credencial Header Auth com apikey = Service Key Valdece",
-          "name": "Supabase Valdece Header"
-        }
-      },
+      "position": [900, 300],
       "continueOnFail": true
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {"caseSensitive": true},
-          "conditions": [
-            {
-              "leftValue": "={{ $('Ping Supabase Ingrid').item.json.statusCode }}",
-              "rightValue": 200,
-              "operator": {"type": "number", "operation": "notEquals"}
-            }
-          ]
-        }
+        "jsCode": "const item = $input.item.json;\nconst valdeceOk = !item.error;\nconst ingridOk = $('Checar Ingrid').item.json.ingridOk;\nconst alertas = [];\nif (!ingridOk) alertas.push('INGRID offline');\nif (!valdeceOk) alertas.push('VALDECE offline');\nconst temAlerta = alertas.length > 0;\nconst hora = new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});\nconst texto = 'ALERTA -- Supabase offline\\n\\n' + alertas.join('\\n') + '\\n\\nHora: ' + hora;\nreturn [{ json: { temAlerta: temAlerta, texto: texto } }];"
       },
-      "id": "if-ingrid-down",
-      "name": "Ingrid Down?",
-      "type": "n8n-nodes-base.if",
+      "id": "code-checar",
+      "name": "Checar Valdece e Montar Alerta",
+      "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [680, 200]
+      "position": [1120, 300]
     },
     {
       "parameters": {
@@ -94,96 +65,63 @@
           "options": {"caseSensitive": true},
           "conditions": [
             {
-              "leftValue": "={{ $('Ping Supabase Valdece').item.json.statusCode }}",
-              "rightValue": 200,
-              "operator": {"type": "number", "operation": "notEquals"}
+              "leftValue": "={{ $json.temAlerta }}",
+              "rightValue": true,
+              "operator": {"type": "boolean", "operation": "equals"}
             }
           ]
         }
       },
-      "id": "if-valdece-down",
-      "name": "Valdece Down?",
+      "id": "if-alerta",
+      "name": "Tem Alerta?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [680, 420]
+      "position": [1340, 300]
     },
     {
       "parameters": {
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "telegramApi",
-        "resource": "message",
-        "operation": "sendMessage",
-        "chatId": "CONFIGURE: ID do chat Telegram do Diretor",
-        "text": "ALERTA CRITICO -- Supabase INGRID offline\n\nURL: {{ $('Ping Supabase Ingrid').item.json.url }}\nStatus: {{ $('Ping Supabase Ingrid').item.json.statusCode }}\nHora: {{ $now.format('HH:mm') }}\n\nAcao: verificar dashboard Supabase imediatamente.",
-        "additionalFields": {}
-      },
-      "id": "telegram-alerta-ingrid",
-      "name": "ALERTA -- Ingrid Down",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [900, 140],
-      "credentials": {
-        "telegramApi": {
-          "id": "CONFIGURE: ID da credencial Telegram",
-          "name": "Telegram Vanguard"
+        "method": "POST",
+        "url": "https://api.telegram.org/bot8146192723:AAHVZJzzV0R_jp2sAaSE3T2AFFjnzMWuOgE/sendMessage",
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParameters": {
+          "parameters": [
+            {"name": "chat_id", "value": "8895733647"},
+            {"name": "text", "value": "={{ $json.texto }}"}
+          ]
         }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "telegramApi",
-        "resource": "message",
-        "operation": "sendMessage",
-        "chatId": "CONFIGURE: ID do chat Telegram do Diretor",
-        "text": "ALERTA CRITICO -- Supabase VALDECE offline\n\nURL: {{ $('Ping Supabase Valdece').item.json.url }}\nStatus: {{ $('Ping Supabase Valdece').item.json.statusCode }}\nHora: {{ $now.format('HH:mm') }}\n\nAcao: verificar dashboard Supabase imediatamente.",
-        "additionalFields": {}
       },
-      "id": "telegram-alerta-valdece",
-      "name": "ALERTA -- Valdece Down",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [900, 360],
-      "credentials": {
-        "telegramApi": {
-          "id": "CONFIGURE: ID da credencial Telegram",
-          "name": "Telegram Vanguard"
-        }
-      }
+      "id": "telegram-alerta",
+      "name": "ALERTA -- Telegram",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1560, 200]
     }
   ],
   "connections": {
     "Cron -- A cada 1 hora": {
-      "main": [
-        [
-          {"node": "Ping Supabase Ingrid", "type": "main", "index": 0},
-          {"node": "Ping Supabase Valdece", "type": "main", "index": 0}
-        ]
-      ]
+      "main": [[{"node": "Ping Supabase Ingrid", "type": "main", "index": 0}]]
     },
     "Ping Supabase Ingrid": {
-      "main": [[{"node": "Ingrid Down?", "type": "main", "index": 0}]]
+      "main": [[{"node": "Checar Ingrid", "type": "main", "index": 0}]]
+    },
+    "Checar Ingrid": {
+      "main": [[{"node": "Ping Supabase Valdece", "type": "main", "index": 0}]]
     },
     "Ping Supabase Valdece": {
-      "main": [[{"node": "Valdece Down?", "type": "main", "index": 0}]]
+      "main": [[{"node": "Checar Valdece e Montar Alerta", "type": "main", "index": 0}]]
     },
-    "Ingrid Down?": {
-      "main": [
-        [{"node": "ALERTA -- Ingrid Down", "type": "main", "index": 0}],
-        []
-      ]
+    "Checar Valdece e Montar Alerta": {
+      "main": [[{"node": "Tem Alerta?", "type": "main", "index": 0}]]
     },
-    "Valdece Down?": {
+    "Tem Alerta?": {
       "main": [
-        [{"node": "ALERTA -- Valdece Down", "type": "main", "index": 0}],
+        [{"node": "ALERTA -- Telegram", "type": "main", "index": 0}],
         []
       ]
     }
   },
   "active": false,
-  "settings": {
-    "executionOrder": "v1"
-  },
-  "tags": ["vanguard", "monitor", "supabase", "fase1"],
-  "notes": "CONFIGURE: URLs e Service Keys de Ingrid e Valdece. chatId Telegram. Ativar apos configurar e testar manualmente."
+  "settings": {"executionOrder": "v1"},
+  "tags": ["vanguard", "monitor", "supabase", "fase1"]
 }

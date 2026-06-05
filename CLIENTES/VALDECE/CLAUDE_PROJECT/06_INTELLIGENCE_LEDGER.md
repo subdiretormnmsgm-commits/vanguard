@@ -1811,3 +1811,94 @@ O produto prova valor em Ingrid; escala nos proximos clientes.
 Regra derivada: o primeiro cliente piloto pode ter valor estrategico superior ao valor comercial.
 Cobrar Ingrid agora poderia contaminar a natureza da relacao e enfraquecer a narrativa de fundadora.
 Ingrid que passa no concurso e indica o proximo cliente vale mais que R\/mes.
+
+---
+
+## P-100 — EMBAIXADOR OPERA POR RAG — DESIGN DO PASSO7 DEVE RESPEITAR ISSO (2026-06-05)
+**Origem:** Analise das capacidades do Claude Projects na sessao 2026-06-05 (stack infra Pentalateral).
+**Evidencia:** Claude Projects usa recuperacao semantica (RAG interno) -- nao carrega todos os documentos do projeto de uma vez. Secoes relevantes sao puxadas para o contexto ativo baseadas nas perguntas da conversa.
+
+Tres regras obrigatorias ao preparar PASSO7 para o Embaixador:
+
+1. PERGUNTAS DEVEM USAR TERMOS EXATOS DA MEMORIA_EMBAIXADOR
+   Pergunta vaga ("como o cliente reage?") retrieve trecho impreciso.
+   Pergunta especifica ("sinais de churn observados" / "temperatura do cliente" / "canal de contato preferido") retrieve o trecho correto.
+   O Musculo deve escrever Q-X com os mesmos termos que usa ao escrever a MEMORIA_EMBAIXADOR.
+
+2. CONTEXTO NOVO (session-specific) VAI COMO ATTACHMENT, NAO COMO ARQUIVO DO PROJETO
+   WIP_BOARD atualizado, PASSO3 desta sessao, decisoes recentes -- sempre como attachment direto no chat.
+   Attachment direto = contexto ativo (lido integralmente). Arquivo do projeto = RAG (retrieved parcialmente).
+   Nunca depender que o RAG do projeto encontre contexto que mudou hoje.
+
+3. MEMORIA_EMBAIXADOR DEVE TER SECOES NOMEADAS PARA RETRIEVAL CIRURGICO
+   Formato obrigatorio: ## Temperatura do cliente / ## Sinais de churn observados / ## Canal de contato preferido / ## Contexto de nicho / ## Hipoteses ativas.
+   Bloco monolitico = retrieve impreciso = resposta generica. Secao nomeada = retrieve cirurgico = insight real.
+
+Limite de upload por sessao: 20 arquivos max, 30 MB cada. Plano Pro: 200K tokens de contexto de chat.
+Regra operacional: PASSO7 lean + termos precisos + attachments de sessao = Embaixador respondendo com profundidade maxima.
+Ferramenta de verificacao: ao revisar qualquer PASSO7, checar se Q-X usa vocabulario da MEMORIA_EMBAIXADOR.
+
+---
+
+
+## P-101 -- MENSAGEM EXTERNA NUNCA ACESSA CLAUDE DIRETAMENTE -- n8n COMO CAMADA OBRIGATORIA (2026-06-04)
+**Origem:** Analise cirurgica stack infra Pentalateral -- Musculo M-4 -- Veredito [M] do Diretor em 2026-06-04.
+**Veredito:** Aprovado pelo Diretor. Texto versao Musculo. Inscrito automaticamente.
+
+> Toda mensagem externa (cliente, sistema, webhook) passa por n8n antes de chegar ao Claude.
+> Claude nunca e acessado diretamente por canal externo -- sem excecao na FASE 1.
+> n8n nunca e proxy de produto. O cliente percebe a Vanguard como experiencia humana, nunca como bot.
+> A camada n8n orquestra internamente; a interface entregue ao cliente e sempre curada pelo Diretor.
+
+**Diferencial declarado:** O cliente e avisado antes que qualquer problema afete seu uso.
+Isso distingue monitoramento reativo (o cliente descobre a falha) de proatividade real (a Vanguard age antes).
+O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel e comercialmente comunicavel.
+
+**Regra derivada:**
+- Nenhum workflow n8n da FASE 1 pode expor endpoint publico do Claude sem camada de autorizacao
+- n8n autentica a origem de cada mensagem antes de encaminhar ao modelo
+- Prompts de sistema (identidade Vanguard, contexto de cliente, burn rate) sao injetados pelo n8n -- nunca pelo cliente
+- Se o n8n cair, o fallback e silencio informado ao Diretor -- nunca acesso direto ao modelo pelo cliente
+
+**Aplica-se a:** todo workflow n8n da FASE 1 e FASE 2. Todo novo canal (WhatsApp, Telegram, Discord) que conectar o Claude a um cliente externo. OpenClaw V2 herda esta regra quando ativado.
+
+## P-102 -- N8N COMPLEMENTA, NAO SUBSTITUI PROCESSOS EXISTENTES (2026-06-04)
+**Origem:** Aviso do Diretor Eduardo na sessao 2026-06-04 -- "Lembre-se que temos muitos processos automatizados, nao quero impacta-los."
+**Veredito:** Inscrito automaticamente pelo Musculo como constraint de build.
+
+> O n8n FASE 1 adiciona uma camada de orquestracao.
+> Ele nao substitui, nao desativa e nao modifica nenhum processo existente:
+>   - ChurnWatch_Vanguard (Task Scheduler) -- continua rodando
+>   - briefing_diario.ps1 (Task Scheduler) -- continua rodando
+>   - ping_supabase_universal.ps1 (Task Scheduler) -- continua rodando
+>   - decisoes_watcher.ps1 (watcher ativo) -- continua rodando
+>   - skill_watcher.ps1 (watcher ativo) -- continua rodando
+>   - session_close.ps1 (canônico) -- NAO MODIFICADO; webhook n8n e extensao no wrapper
+
+> Coexistencia obrigatoria: cada novo processo n8n e adicionado SEM remover o equivalente local.
+> Remover um processo local so apos 30 dias de uptime estavel do equivalente n8n (P-FASE2).
+> "Novo processo rodando" nao e evidencia suficiente para desligar o anterior.
+
+**Regra derivada:**
+- Ao criar qualquer workflow n8n, documentar: "este workflow substitui qual script local?" e "o script local ainda deve rodar?"
+- Resposta padrao FASE 1: o script local ainda roda. O n8n e paralelo.
+- Conflito (dois processos fazendo a mesma coisa) = bug de arquitetura, nao feature.
+- Todo workflow n8n novo deve ser aprovado pelo Diretor com declaracao explicita de coexistencia.
+
+**Aplica-se a:** toda a FASE 1. Revisao na FASE 2 (apos 30 dias de estabilidade) para decidir o que descontinuar.
+---
+
+## P-103 — NODE TELEGRAM DO N8N TEM BUG DE CREDENCIAL — USAR HTTP REQUEST (2026-06-04)
+**Origem:** instalacao n8n FASE 1 — sessao 2026-06-04.
+**Problema:** o node 
+8n-nodes-base.telegram v1.2 tem bug: Access Token em modo Expression fica com valor __n8n_BLANK_VALUE mesmo apos criar credencial com sucesso. Erro resultante: 400 Bad Request: chat not found.
+**Solucao definitiva:** substituir nodes Telegram por 
+8n-nodes-base.httpRequest com URL https://api.telegram.org/bot[TOKEN]/sendMessage e body JSON com chat_id e 	ext. Testado e funcionando.
+**Regra:** NUNCA usar node Telegram do n8n para envio de mensagens. Sempre HTTP Request direto.
+
+## P-104 — CAMPO JSODE VS FUNCTIONCODE NO NODE CODE DO N8N (2026-06-04)
+**Origem:** instalacao n8n FASE 1 — sessao 2026-06-04.
+**Problema:** node 
+8n-nodes-base.code versao 2 usa campo jsCode, nao unctionCode. JSON importado com unctionCode carrega template padrao em vez do codigo real — sem aviso de erro.
+**Solucao:** todos os workflows devem usar "jsCode" no parametro do node Code. Verificar sempre apos importacao se o codigo foi carregado.
+**Regra:** ao criar JSON de workflow para importacao, usar jsCode no campo de codigo.

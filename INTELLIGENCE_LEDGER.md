@@ -1886,3 +1886,19 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 - Todo workflow n8n novo deve ser aprovado pelo Diretor com declaracao explicita de coexistencia.
 
 **Aplica-se a:** toda a FASE 1. Revisao na FASE 2 (apos 30 dias de estabilidade) para decidir o que descontinuar.
+---
+
+## P-103 — NODE TELEGRAM DO N8N TEM BUG DE CREDENCIAL — USAR HTTP REQUEST (2026-06-04)
+**Origem:** instalacao n8n FASE 1 — sessao 2026-06-04.
+**Problema:** o node 
+8n-nodes-base.telegram v1.2 tem bug: Access Token em modo Expression fica com valor __n8n_BLANK_VALUE mesmo apos criar credencial com sucesso. Erro resultante: 400 Bad Request: chat not found.
+**Solucao definitiva:** substituir nodes Telegram por 
+8n-nodes-base.httpRequest com URL https://api.telegram.org/bot[TOKEN]/sendMessage e body JSON com chat_id e 	ext. Testado e funcionando.
+**Regra:** NUNCA usar node Telegram do n8n para envio de mensagens. Sempre HTTP Request direto.
+
+## P-104 — CAMPO JSODE VS FUNCTIONCODE NO NODE CODE DO N8N (2026-06-04)
+**Origem:** instalacao n8n FASE 1 — sessao 2026-06-04.
+**Problema:** node 
+8n-nodes-base.code versao 2 usa campo jsCode, nao unctionCode. JSON importado com unctionCode carrega template padrao em vez do codigo real — sem aviso de erro.
+**Solucao:** todos os workflows devem usar "jsCode" no parametro do node Code. Verificar sempre apos importacao se o codigo foi carregado.
+**Regra:** ao criar JSON de workflow para importacao, usar jsCode no campo de codigo.

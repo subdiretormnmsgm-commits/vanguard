@@ -5,7 +5,9 @@
       "parameters": {
         "rule": {
           "interval": [
-            {"field": "hours", "hoursInterval": 1}
+            {"triggerAtHour": 7, "triggerAtMinute": 0},
+            {"triggerAtHour": 13, "triggerAtMinute": 0},
+            {"triggerAtHour": 20, "triggerAtMinute": 0}
           ]
         }
       },
@@ -13,29 +15,11 @@
       "name": "Cron -- 7h 13h 20h",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
-      "position": [240, 300],
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "triggerAtHour": 7,
-              "triggerAtMinute": 0
-            },
-            {
-              "triggerAtHour": 13,
-              "triggerAtMinute": 0
-            },
-            {
-              "triggerAtHour": 20,
-              "triggerAtMinute": 0
-            }
-          ]
-        }
-      }
+      "position": [240, 300]
     },
     {
       "parameters": {
-        "functionCode": "const hora = new Date().getHours();\nlet periodo = 'TARDE';\nif (hora >= 5 && hora < 12) periodo = 'MANHA';\nif (hora >= 18) periodo = 'NOITE';\n\nconst saudacoes = {\n  MANHA: 'Bom dia, Diretor.',\n  TARDE: 'Boa tarde, Diretor.',\n  NOITE: 'Boa noite, Diretor.'\n};\n\nreturn [{\n  json: {\n    periodo: periodo,\n    saudacao: saudacoes[periodo],\n    hora: hora,\n    data: new Date().toLocaleDateString('pt-BR'),\n    timestamp: new Date().toISOString()\n  }\n}];"
+        "jsCode": "const hora = new Date().getHours();\nlet periodo = 'TARDE';\nif (hora >= 5 && hora < 12) periodo = 'MANHA';\nif (hora >= 18) periodo = 'NOITE';\n\nconst saudacoes = {\n  MANHA: 'Bom dia, Diretor.',\n  TARDE: 'Boa tarde, Diretor.',\n  NOITE: 'Boa noite, Diretor.'\n};\n\nreturn [{\n  json: {\n    periodo: periodo,\n    saudacao: saudacoes[periodo],\n    hora: hora,\n    data: new Date().toLocaleDateString('pt-BR'),\n    timestamp: new Date().toISOString()\n  }\n}];"
       },
       "id": "code-periodo",
       "name": "Detectar Periodo",
@@ -45,25 +29,17 @@
     },
     {
       "parameters": {
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "telegramApi",
-        "resource": "message",
-        "operation": "sendMessage",
-        "chatId": "CONFIGURE: ID do chat Telegram do Diretor",
-        "text": "={{ $json.saudacao }}\n\nCheck-in Vanguard IAH -- {{ $json.data }}\n\nStatus dos projetos:\n- Ingrid: ver PENDENTES\n- Valdece: Hypercare ate 18/06\n\nUse /status para ver detalhes.",
-        "additionalFields": {}
+        "method": "POST",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendMessage' }}",
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={\"chat_id\": 8895733647, \"text\": \"{{ $json.saudacao }}\\n\\nCheck-in Vanguard IAH -- {{ $json.data }}\\n\\nStatus dos projetos:\\n- Ingrid: RETAINER\\n- Valdece: Hypercare ate 18/06\"}"
       },
       "id": "telegram-checkin",
-      "name": "Telegram -- Enviar Check-in",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [680, 300],
-      "credentials": {
-        "telegramApi": {
-          "id": "CONFIGURE: ID da credencial Telegram criada",
-          "name": "Telegram Vanguard"
-        }
-      }
+      "name": "Enviar Check-in Telegram",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
     }
   ],
   "connections": {
@@ -71,13 +47,10 @@
       "main": [[{"node": "Detectar Periodo", "type": "main", "index": 0}]]
     },
     "Detectar Periodo": {
-      "main": [[{"node": "Telegram -- Enviar Check-in", "type": "main", "index": 0}]]
+      "main": [[{"node": "Enviar Check-in Telegram", "type": "main", "index": 0}]]
     }
   },
   "active": false,
-  "settings": {
-    "executionOrder": "v1"
-  },
-  "tags": ["vanguard", "checkin", "fase1"],
-  "notes": "CONFIGURE antes de ativar: (1) chatId do Telegram, (2) ID da credencial Telegram. Ativar toggle apos configurar."
+  "settings": {"executionOrder": "v1"},
+  "tags": ["vanguard", "checkin", "fase1"]
 }
