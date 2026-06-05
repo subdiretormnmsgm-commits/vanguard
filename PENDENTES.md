@@ -117,9 +117,8 @@
 ## COMO USAR
 
 **Adicionar pendente (Músculo):**
-```
-- [ ] `YYYY-MM-DD` **[PROJ/PROCESSO]** descrição exata da tarefa
-```
+
+Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto + descrição.
 
 **Marcar feito:**
 ```

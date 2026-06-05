@@ -717,6 +717,39 @@ if (Test-Path $candidatosPath) {
 }
 
 # ==========================================================================
+# GATE 7B -- n8n_audit.ps1 (Camada B -- linter de julgamento hardcoded)
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 7B] n8n audit (linter de workflow)..." -ForegroundColor Cyan
+$n8nAuditScript = "$BASE\scripts\n8n_audit.ps1"
+$n8nWorkflowDir = "$BASE\_n8n\workflows"
+if (Test-Path $n8nWorkflowDir) {
+    $n8nJsons = @(Get-ChildItem -Path $n8nWorkflowDir -Filter "*.json" -ErrorAction SilentlyContinue)
+    if ($n8nJsons.Count -gt 0) {
+        if ($DryRun) {
+            Write-Host "  [DRYRUN] GATE 7B -- n8n_audit simulado ($($n8nJsons.Count) workflow(s))" -ForegroundColor DarkCyan
+        } elseif (Test-Path $n8nAuditScript) {
+            & powershell.exe -NonInteractive -File $n8nAuditScript -WorkflowDir $n8nWorkflowDir 2>$null
+            if ($LASTEXITCODE -ne 0) {
+                Write-Host "  [GATE 7B] VERMELHO -- n8n_audit detectou violacoes de hardcode." -ForegroundColor Red
+                Write-Host "            Remover logica hardcoded ou adicionar '// LEDGER: [razao]'." -ForegroundColor Red
+                Write-Host "            Ver: _n8n\N8N_AUDIT_REPORT.md" -ForegroundColor Red
+                if ($DryRun) { Write-Host "  [DRYRUN] GATE 7B -- BLOQUEARIA com exit 1" -ForegroundColor DarkCyan }
+                else { exit 1 }
+            } else {
+                Write-Host "  [GATE 7B] n8n_audit CLEAN -- $($n8nJsons.Count) workflow(s) auditado(s)" -ForegroundColor Green
+            }
+        } else {
+            Write-Host "  [GATE 7B] n8n_audit.ps1 nao encontrado -- instalar em scripts/" -ForegroundColor Yellow
+        }
+    } else {
+        Write-Host "  [GATE 7B] Nenhum workflow .json em _n8n/workflows/ -- gate ignorado" -ForegroundColor DarkGray
+    }
+} else {
+    Write-Host "  [GATE 7B] _n8n/workflows/ nao existe -- gate ignorado (Camada B nao instalada)" -ForegroundColor DarkGray
+}
+
+# ==========================================================================
 # GATE 8 -- Notificacao: e-mail + Telegram + Auto-preparacao dos 3 socios
 # ==========================================================================
 Write-Host ""

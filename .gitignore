@@ -51,3 +51,6 @@ scripts/n8n_config.ps1
 N8N*.txt
 api n8n.txt
 n8n_workflows/_*_temp.json
+
+# Cofre de chaves consolidado (HV-1)
+CHAVES_SISTEMA_VANGUARD.txt

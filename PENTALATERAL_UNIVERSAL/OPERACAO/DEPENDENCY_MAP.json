@@ -23,6 +23,22 @@
       "campos_por_cliente_wip_board": {
         "churn_watch_threshold": "dias de inatividade antes de alerta -- OBRIGATORIO em todo projeto WIP_BOARD. W-5 ChurnWatch le este campo -- nunca hardcoded no workflow.",
         "ultimo_contato_cliente": "data ISO 8601 -- W-5 calcula delta vs data atual"
+      },
+      "n8n_as_code": {
+        "ativo_desde": "2026-06-05",
+        "config_fonte": "_n8n/N8N_CONFIG.json",
+        "workflows_dir": "_n8n/workflows/",
+        "linter": "scripts/n8n_audit.ps1",
+        "export": "scripts/n8n_export.ps1",
+        "gate_sessao": "Gate 7B -- session_close bloqueia se linter detectar hardcode",
+        "artefatos_rastreados": "_n8n/workflows/*.json",
+        "auditoria_notebooklm": {
+          "obrigatoria": true,
+          "acao_automatica": "preparar_notebooklm_projeto.ps1 inclui _n8n/workflows/*.json como slot 19+ em NOTEBOOKLM_FONTES quando existirem",
+          "ordem_auditor": "INSTRUCAO_AUDITOR.md secao [N8N_AUDIT] -- Auditor verifica hardcode em todo loop que contenha workflows nas fontes",
+          "nota": "Workflows no Git = Auditor pode auditar automacao. Sem essa inclusao automatica, o n8n e caixa preta para o Conselho."
+        },
+        "nota_git": "workflows/*.json sao versionados no Git. N8N_CONFIG.json e a unica fonte de valores de julgamento -- nunca hardcoded nos nodes (P-101 refinado 2026-06-05)."
       }
     }
   },

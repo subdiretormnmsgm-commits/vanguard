@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-06-05",
+  "note": "Fonte canonica de toda logica de julgamento do n8n. Nenhum valor hardcoded nos nodes. Editar aqui, commitar, n8n le em runtime.",
+  "cost_limits": {
+    "global_mensal_brl": 50.00,
+    "alerta_percentual": 80,
+    "por_projeto": {
+      "PROJ-002": 20.00,
+      "PROJ-001": 20.00
+    },
+    "acao_ao_atingir_limite": {
+      "EXPLICITO": "BLOQUEAR",
+      "AUTO-PASS": "ALERTAR"
+    }
+  },
+  "fx": {
+    "usd_brl_rate": 5.80,
+    "usd_brl_updated": "2026-06-05"
+  },
+  "judgement_values": {},
+  "alert_thresholds": {
+    "churn_watch_dias_padrao": 7,
+    "supabase_offline_tolerancia_min": 5
+  },
+  "telegram": {
+    "batch_window_segundos": 600,
+    "batch_excecoes": ["Embaixador", "Gemini", "Musculo", "NotebookLM"]
+  }
+}
