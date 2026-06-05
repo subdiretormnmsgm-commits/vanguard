@@ -489,6 +489,26 @@ if ($existeTask) {
 }
 
 # ==========================================================================
+# PASSO 8e — N-1: Verificar status do n8n (P-101)
+# ==========================================================================
+Write-Host ""
+Write-Host "  [PASSO 8e] Verificando n8n (P-101)..." -ForegroundColor Cyan
+$pingN8nScript = "$BASE\scripts\ping_n8n.ps1"
+if (Test-Path $pingN8nScript) {
+    & powershell.exe -NonInteractive -File "$pingN8nScript" | ForEach-Object { Write-Host "  $_" }
+    $pingExit = $LASTEXITCODE
+    if ($pingExit -eq 0) {
+        [void]$infoLinhas.Add("n8n: ONLINE")
+    } else {
+        [void]$avisos.Add("n8n OFFLINE -- Check-in 7h/13h/20h + Monitor Supabase + alertas desativados")
+        Set-StatusAmarclo
+    }
+} else {
+    Write-Host "  [--] ping_n8n.ps1 nao encontrado (N-1 pendente)" -ForegroundColor DarkGray
+    [void]$infoLinhas.Add("n8n: N/A (ping_n8n.ps1 ausente)")
+}
+
+# ==========================================================================
 # LEMBRETE DE LOOP — ONDE ESTAMOS (OSV-004, P-027)
 # Exibir ANTES da AGENDA DO DIA — Músculo nao pode ignorar
 # ==========================================================================

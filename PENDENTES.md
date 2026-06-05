@@ -164,3 +164,20 @@
   Impacto atual: baixo (URL não pública). Gate: antes de usar n8n em produção com dados sensíveis.
 
 - [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
+
+## PROCESSO / INFRA -- n8n FASE 2 (adicionado 2026-06-05)
+
+- [x] `2026-06-05` ~~**n8n FASE 2 — Deliberação D1-D5 aprovada e registrada:**~~
+  ✅ DECISOES_N8N_FASE2_2026-06-05.json aprovado (D1:A D2:A D3:A D4:A D5:A).
+  Ref: PENTALATERAL_UNIVERSAL/HISTORICO/DECISOES_N8N_FASE2_2026-06-05.json
+  Sequência de build: N-4 → N-1 → W-8 → M-4 → W-6 → W-7 MVP → W-7 v1.1 → Notion.
+
+- [x] `2026-06-05` ~~**n8n FASE 2 — N-4: pre-commit hook valida schema DECISOES.json v1.1:**~~
+  ✅ .git/hooks/pre-commit atualizado com seção N-4 (Python inline). Valida schema_version=1.1 + campos obrigatórios + vereditos A/B/C.
+
+- [x] `2026-06-05` ~~**n8n FASE 2 — N-1: ping_n8n.ps1 + session_start.ps1 PASSO 8e:**~~
+  ✅ scripts/ping_n8n.ps1 criado · PASSO 8e adicionado no session_start.ps1 · P-060 validate VERDE.
+
+- [ ] `2026-06-18` **n8n FASE 2 — D2: Configurar ENV_VARS completas no n8n EasyPanel:** [diretor]
+  Variáveis: ANTHROPIC_API_KEY · TELEGRAM_BOT_TOKEN · TELEGRAM_CHAT_ID_DIRETOR · GITHUB_PAT_READONLY · BURN_RATE_DAILY_LIMIT_USD · N8N_WEBHOOK_SECRET · NOTION_API_TOKEN · NOTION_WIP_PAGE_ID · NOTION_PENDENTES_PAGE_ID · NOTION_LEDGER_PAGE_ID.
+  Gate antes de ativar W-8, W-6, W-7 e Blocos Notion (D3 critério de ativação).
