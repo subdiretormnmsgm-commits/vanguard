@@ -67,11 +67,12 @@ foreach ($file in $jsonFiles) {
             $hasStrHardcode = $line -match $strPattern
             $hasKeyword     = ($keywords | Where-Object { $line -match $_ }).Count -gt 0
 
-            # Numeric sozinho nao viola -- requer keyword na mesma linha
+            # Viola apenas: numero de negocio (num + keyword) OU string longa hardcoded
+            # Keyword sozinho NAO viola -- comando/propriedade com nome de negocio e codigo legitimo
             $isBusinessNum = $hasNumHardcode -and $hasKeyword
             if ($isApproved) {
                 $null = $approved.Add("[OK-LEDGER] $($file.Name) · $($node.name) · L$lineNum`n  > $($line.Trim())")
-            } elseif ($isBusinessNum -or $hasStrHardcode -or $hasKeyword) {
+            } elseif ($isBusinessNum -or $hasStrHardcode) {
                 $null = $violations.Add("[VIOLATION] $($file.Name) · $($node.name) · L$lineNum`n  > $($line.Trim())")
             }
         }

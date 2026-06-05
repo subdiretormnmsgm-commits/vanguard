@@ -184,17 +184,13 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   Workflows 3 e 4 aceitam POST de qualquer origem. Adicionar shared secret no header antes de abrir o n8n para outros casos de uso.
   Impacto atual: baixo (URL não pública). Gate: antes de usar n8n em produção com dados sensíveis.
 
-- [BUILD (04-06-2026 quinta-feira)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
-
 - [x] `2026-06-05` ~~**[SISTEMA] B-2 — W-7 Cérebro de Bolso MVP (3 queries):**~~
   ✅ /status /score /custo integrados ao W-7 (13 nodes). Execução 68 success.
   /status testado: retornou CHECK|Valdece L7 + RETAINER|Ingrid L8 com dados reais do GitHub.
   /score + /custo: funcionais após adicionar SUPABASE_URL + SUPABASE_ANON_KEY no EasyPanel.
 
-- [ ] `2026-06-12` **[SISTEMA] B-2 — /score e /custo: adicionar env vars Supabase no EasyPanel:** [diretor]
-  SUPABASE_URL = https://yjqvjhezwhepwomukudt.supabase.co
-  SUPABASE_ANON_KEY = (ver CHAVES_SISTEMA_VANGUARD.txt)
-  Após redeploy: testar /score no Telegram.
+- [x] `2026-06-05` ~~**[SISTEMA] B-2 — /score e /custo: env vars Supabase no EasyPanel:**~~
+  ✅ SUPABASE_URL + SUPABASE_ANON_KEY adicionadas — /score retornou "sem dados" (OK, tabela vazia) — 2026-06-05.
 
 - [x] `2026-06-05` ~~**[SISTEMA] B-3 — AI-BOM / security module integrado ao n8n_audit.ps1:**~~
   ✅ MODULO 2 adicionado: detecta JWT, GitHub PAT, Supabase, Notion, Anthropic, Telegram, Slack, Bearer literal.
@@ -221,10 +217,8 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   Gate D3 desbloqueado.
   ⚠️ ATUALIZAR 2026-06-05: NOTION_WIP_PAGE_ID = 376ac59f774f817db1d8c204d6abcea5 (WIP Board recriado standalone — página antiga era inline dentro de Pendentes).
 
-- [ ] `2026-06-05` **Notion — Atualizar NOTION_WIP_PAGE_ID no EasyPanel:** [diretor]
-  WIP Board foi recriado como página standalone na raiz do workspace.
-  Novo valor: NOTION_WIP_PAGE_ID = 376ac59f774f817db1d8c204d6abcea5
-  Substituir o valor antigo (376ac59f774f80e3bc05e718857b4c22) no EasyPanel.
+- [x] `2026-06-05` ~~**Notion — NOTION_WIP_PAGE_ID atualizado no EasyPanel:**~~
+  ✅ 376ac59f774f817db1d8c204d6abcea5 configurado — W-3 confirmou Notion operacional — 2026-06-05.
 
 - [x] `2026-06-12` **n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:** [musculo]
   Timer iniciado 2026-06-05. Se W-1/W-3/W-4 estáveis em 2026-06-12 → verde para build W-5.
