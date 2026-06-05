@@ -1927,6 +1927,16 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Regra:** ao preparar proposta para segundo cliente do mesmo nicho, sempre incluir o case do primeiro como ancora de valor. Nunca repetir o mesmo preco do primeiro contrato — o risco caiu, o valor subiu.
 **Aplica-se a:** todo novo projeto IAH onde ja existe um cliente no mesmo nicho.
 
+## P-110 -- AUTOMACAO CRITICA EXIGE FALLBACK MANUAL DE NO MAXIMO 3 PASSOS (2026-06-05)
+**Origem:** Deliberacao n8n FASE 2 -- sessao 2026-06-05. Aprovado em DECISOES_N8N_FASE2 D5:A.
+**Fundamento:** Automacao sem fallback manual de no maximo 3 passos criou dependencia nao declarada. Se o fallback exige mais que 3 passos, o sistema exige a automacao para sobreviver -- isso e vulnerabilidade, nao feature.
+**Regra:** antes de ativar qualquer workflow critico, documentar o fallback manual com no maximo 3 passos. Se o fallback nao couber em 3 passos: simplificar a automacao ou dividir em workflows menores.
+**Fallbacks documentados (Pentalateral IAH):**
+  W-8 ChurnWatch down  -> Abrir WIP_BOARD.md e checar campo ultimo_contato_cliente manualmente (1 passo)
+  W-6 Embaixador down  -> Executar Passo 7 manual via Claude Projects como hoje (1 passo)
+  W-7 Veredito down    -> Colar VEREDITOS.json manualmente via terminal (1 passo)
+**Aplica-se a:** todo workflow n8n critico + toda automacao PS1 que bloqueia o processo Pentalateral.
+
 ## P-109 -- NOTION E OUTPUT-ONLY: GIT E A UNICA FONTE DE VERDADE (2026-06-04)
 **Origem:** Decisao ARQ-1 aprovada pelo Diretor -- sessao 2026-06-04. Confirmado "analise ok" apos deliberacao sobre session amnesia e cockpit do Diretor.
 **Fundamento:** Notion como cockpit visual -- exclusivamente para leitura e deliberacao. Toda informacao que aparece no Notion foi gerada a partir de artefatos em disco via n8n. Editar diretamente no Notion cria divergencia silenciosa: o sistema nao detecta, o Git nao registra, a proxima automacao sobrescreve.
