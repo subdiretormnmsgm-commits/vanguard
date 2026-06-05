@@ -1926,3 +1926,13 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Fundamento:** Valdece pagou R$5.000 (primeiro contrato, sem case). Com o case de Valdece + ancora Westlaw (R$36.000/ano), o segundo cliente do mesmo perfil tem teto receptivo de R$7.500-9.000 sem barganhar. O case real e o ativo que eleva o preco — nao a feature.
 **Regra:** ao preparar proposta para segundo cliente do mesmo nicho, sempre incluir o case do primeiro como ancora de valor. Nunca repetir o mesmo preco do primeiro contrato — o risco caiu, o valor subiu.
 **Aplica-se a:** todo novo projeto IAH onde ja existe um cliente no mesmo nicho.
+
+## P-109 -- NOTION E OUTPUT-ONLY: GIT E A UNICA FONTE DE VERDADE (2026-06-04)
+**Origem:** Decisao ARQ-1 aprovada pelo Diretor -- sessao 2026-06-04. Confirmado "analise ok" apos deliberacao sobre session amnesia e cockpit do Diretor.
+**Fundamento:** Notion como cockpit visual -- exclusivamente para leitura e deliberacao. Toda informacao que aparece no Notion foi gerada a partir de artefatos em disco via n8n. Editar diretamente no Notion cria divergencia silenciosa: o sistema nao detecta, o Git nao registra, a proxima automacao sobrescreve.
+**Regra:** nunca editar uma pagina Notion do sistema Vanguard manualmente. A pergunta "onde esta a verdade?" tem resposta unica: Git. Notion e uma janela, nao um arquivo.
+**Protecao tecnica (3 camadas):**
+  REGRA 1 -- warning banner em cada pagina Notion: "SOMENTE LEITURA -- editado pelo n8n"
+  REGRA 2 -- W-6 usa replace_content (sobrescreve) -- edicao manual e destruida na proxima sync
+  REGRA 3 -- DEPENDENCY_MAP.json marca Notion como TIPO3_OUTPUT_EXTERNO -- auditar_consistencia.ps1 nunca le do Notion
+**Aplica-se a:** todo artefato publicado via n8n em qualquer pagina Notion do Pentalateral IAH.

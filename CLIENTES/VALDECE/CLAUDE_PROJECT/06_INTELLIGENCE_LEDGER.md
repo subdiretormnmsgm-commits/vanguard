@@ -1902,3 +1902,37 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 8n-nodes-base.code versao 2 usa campo jsCode, nao unctionCode. JSON importado com unctionCode carrega template padrao em vez do codigo real — sem aviso de erro.
 **Solucao:** todos os workflows devem usar "jsCode" no parametro do node Code. Verificar sempre apos importacao se o codigo foi carregado.
 **Regra:** ao criar JSON de workflow para importacao, usar jsCode no campo de codigo.
+
+## P-105 — WEBHOOK N8N V2: BODY ANINHADO EM $JSON.BODY (2026-06-04)
+**Origem:** instalacao n8n FASE 1 — sessao 2026-06-04.
+**Problema:** webhook node typeVersion 2 do n8n encapsula o POST body em $json.body, nao diretamente em $json. Codigo que acessa $input.item.json.campo recebe undefined — valores default ativam e chegam vazios ao Telegram.
+**Solucao:** usar `const payload = $input.item.json.body || $input.item.json;` — lida com ambas as versoes.
+**Regra:** todo Code node pos-Webhook deve usar o padrao body-fallback.
+
+## P-106 — CHURNWATCH EDTECH: THRESHOLD 3 DIAS, NAO 5 (2026-06-04)
+**Origem:** PERFIL_NICHO EdTech-Concurso V1 — Embaixador · PROJ-002 Ingrid.
+**Fundamento:** a concurseira EdTech-Quadrix nao verbaliza insatisfacao — silencia e abandona. Confirmado com Ingrid (5 dias silencio apos bug 18/05 sem queixa verbal). Threshold de 5 dias ja e tarde — a janela de reengajamento efetiva fecha antes disso.
+**Regra:** ChurnWatch para perfil EdTech-Concurso: alerta em 3 dias de inatividade real (sem sessao confirmada). 5 dias = urgencia maxima. 7+ dias = provavel perda.
+**Aplica-se a:** qualquer projeto EdTech com perfil de usuario nao-verbal.
+
+## P-107 — ANCORA DE PRECO EDTECH: CUSTO DO ERRO DE DIRECAO (2026-06-04)
+**Origem:** PERFIL_NICHO EdTech-Concurso V1 — Embaixador · PROJ-002 Ingrid.
+**Fundamento:** o medo central da concurseira EdTech-Quadrix nao e financeiro — e desperdicar meses estudando a materia errada. A ancora correta nao e comparar com o preco do TEC (R$50-90/mes). E ancorar no custo da reprovacao por estudar a materia errada.
+**Frame validado:** "Gran Cursos cobra R$660/ano e nao sabe que voce vai prestar Cargo 202 no Quadrix. Esse sistema so estuda o que a banca cobra para o seu cargo."
+**Regra:** nunca usar preco do concorrente como ancora primaria em pitch EdTech. Usar custo do erro de direcao.
+
+## P-108 — CASE REAL ELEVA TETO DE PRECO DO SEGUNDO CLIENTE NO MESMO NICHO (2026-06-04)
+**Origem:** PERFIL_NICHO LegalTech-Criminal V1 — Embaixador · PROJ-001 Valdece.
+**Fundamento:** Valdece pagou R$5.000 (primeiro contrato, sem case). Com o case de Valdece + ancora Westlaw (R$36.000/ano), o segundo cliente do mesmo perfil tem teto receptivo de R$7.500-9.000 sem barganhar. O case real e o ativo que eleva o preco — nao a feature.
+**Regra:** ao preparar proposta para segundo cliente do mesmo nicho, sempre incluir o case do primeiro como ancora de valor. Nunca repetir o mesmo preco do primeiro contrato — o risco caiu, o valor subiu.
+**Aplica-se a:** todo novo projeto IAH onde ja existe um cliente no mesmo nicho.
+
+## P-109 -- NOTION E OUTPUT-ONLY: GIT E A UNICA FONTE DE VERDADE (2026-06-04)
+**Origem:** Decisao ARQ-1 aprovada pelo Diretor -- sessao 2026-06-04. Confirmado "analise ok" apos deliberacao sobre session amnesia e cockpit do Diretor.
+**Fundamento:** Notion como cockpit visual -- exclusivamente para leitura e deliberacao. Toda informacao que aparece no Notion foi gerada a partir de artefatos em disco via n8n. Editar diretamente no Notion cria divergencia silenciosa: o sistema nao detecta, o Git nao registra, a proxima automacao sobrescreve.
+**Regra:** nunca editar uma pagina Notion do sistema Vanguard manualmente. A pergunta "onde esta a verdade?" tem resposta unica: Git. Notion e uma janela, nao um arquivo.
+**Protecao tecnica (3 camadas):**
+  REGRA 1 -- warning banner em cada pagina Notion: "SOMENTE LEITURA -- editado pelo n8n"
+  REGRA 2 -- W-6 usa replace_content (sobrescreve) -- edicao manual e destruida na proxima sync
+  REGRA 3 -- DEPENDENCY_MAP.json marca Notion como TIPO3_OUTPUT_EXTERNO -- auditar_consistencia.ps1 nunca le do Notion
+**Aplica-se a:** todo artefato publicado via n8n em qualquer pagina Notion do Pentalateral IAH.
