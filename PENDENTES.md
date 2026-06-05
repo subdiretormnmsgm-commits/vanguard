@@ -197,6 +197,12 @@
   NOTION_LEDGER_PAGE_ID = 376ac59f774f80809e9fee855d62070a (Ledger Vanguard — adicionado 2026-06-05).
   ANTHROPIC_API_KEY validada via teste direto à API (Haiku respondeu OK).
   Gate D3 desbloqueado.
+  ⚠️ ATUALIZAR 2026-06-05: NOTION_WIP_PAGE_ID = 376ac59f774f817db1d8c204d6abcea5 (WIP Board recriado standalone — página antiga era inline dentro de Pendentes).
+
+- [ ] `2026-06-05` **Notion — Atualizar NOTION_WIP_PAGE_ID no EasyPanel:** [diretor]
+  WIP Board foi recriado como página standalone na raiz do workspace.
+  Novo valor: NOTION_WIP_PAGE_ID = 376ac59f774f817db1d8c204d6abcea5
+  Substituir o valor antigo (376ac59f774f80e3bc05e718857b4c22) no EasyPanel.
 
 - [ ] `2026-06-12` **n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:** [musculo]
   Timer iniciado 2026-06-05. Se W-1/W-3/W-4 estáveis em 2026-06-12 → verde para build W-5.
