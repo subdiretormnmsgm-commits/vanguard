@@ -86,6 +86,23 @@
 
 ## PROCESSO / INFRA
 
+- [ ] `2026-06-12` **[SISTEMA] MANUAL_DIRETOR.md — adicionar seção n8n (slot 03 sem n8n):** [musculo]
+  Arquivo `PENTALATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md` tem 0 menções de n8n.
+  Adicionar: (a) Como usar W-7 Telegram para vereditos, (b) W-1 briefing automático,
+  (c) Regras P-109/P-110/P-102, (d) MAINTENANCE_COST.md como referência de fallback.
+  Sync para CLIENTES/*/NOTEBOOKLM_FONTES/03_MANUAL_DIRETOR.md após editar.
+
+- [ ] `2026-06-12` **[SISTEMA] DEPENDENCY_MAP.json v2.2 — adicionar REGISTRO_DE_PREMISSAS + CANDIDATOS:** [musculo]
+  Risco 3 do Auditor Sistêmico: REGISTRO_DE_PREMISSAS.md e CANDIDATOS_A_PRINCIPIO.md
+  não estão no DEPENDENCY_MAP → sync e propagate_changes.ps1 os ignoram.
+  Ação: editar PENTALATERAL_UNIVERSAL/OPERACAO/DEPENDENCY_MAP.json → adicionar na seção `documentos`.
+  Requer `.musculo_autorizacao.flag` (arquivo protegido).
+
+- [ ] `2026-06-12` **[SISTEMA] Verificar W-7 Telegram → DECISOES.json sync (Risco P-072):** [musculo+diretor]
+  Risco 1 do Auditor: W-7 pode aprovar vereditos sem atualizar DECISOES.json local.
+  Antes de W-7 ir para produção plena: garantir que o webhook do n8n chama executar_vereditos.ps1
+  ou atualiza o arquivo JSON via API git. Testar com /aprovar em decisão teste.
+
 - [x] `2026-05-27` ~~**[BLOQUEANTE] ChurnWatch_Vanguard NAO registrado no Task Scheduler:**~~
   ✅ Registrado pelo Músculo em 2026-05-27 (sem Admin necessário). Próxima execução: 28-05-2026 08:00.
 
