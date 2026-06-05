@@ -139,13 +139,37 @@ Próxima prioridade: [uma linha]
 ---
 
 > **FLUXO DE ENCERRAMENTO:**
-> 1. Músculo preenche este protocolo e envia por e-mail ao Diretor
-> 2. Diretor copia o protocolo e envia ao Embaixador (Claude Projects)
-> 3. Embaixador cria/atualiza o artefato `PAINEL_ATIVIDADES.md` com:
->    (a) Resumo executivo em 3 bullets: o que avançou · o que está em risco · o que o Diretor decide
->    (b) Tabela de pendentes por projeto com semáforo visual (🔴🟡✅)
->    (c) Próxima ação do Diretor em destaque — única, clara, com prazo
-> 4. Embaixador retorna o artefato atualizado ao Diretor
+> 1. Músculo gera `PAINEL_ATIVIDADES_[DATA].md` + `CONTEXTO_SESSAO_DIRETOR_[DATA].md` em `PROTOCOLOS_ENCERRAMENTO\`
+> 2. Diretor arrasta os **2 arquivos** ao Embaixador Operacional (Claude Projects) e cola o comando abaixo
+> 3. Embaixador gera o artefato publicável com os 6 blocos obrigatórios
+> 4. Embaixador entrega o artefato + instrução ao Diretor para colar o BLOCO 0 na próxima sessão
 >
+> ---
+>
+> **COMANDO PADRÃO AO EMBAIXADOR** *(Músculo apresenta com data preenchida — Diretor não monta na mão)*
+>
+> ```
+> Embaixador, fechamento de sessão — [DATA]. Faço upload do PAINEL_ATIVIDADES e do
+> CONTEXTO_SESSAO_DIRETOR desta sessão. Com base nos dois, gerar o artefato publicável com:
+>
+> 0. BRIEFING DE ABERTURA PARA O MÚSCULO (item mais importante — gerar primeiro)
+> Redigir um parágrafo que o Diretor colará no início da próxima sessão do Claude Code.
+> Deve conter: (a) o que foi entregue hoje e está ativo, (b) o que ficou em aberto e por quê,
+> (c) qual é o próximo passo esperado do Músculo ao abrir a sessão.
+> Escrito na segunda pessoa, direto ao Músculo: "Músculo, na última sessão…"
+>
+> 1. SEMÁFORO — status visual de cada projeto (🔴 bloqueante / 🟡 atenção / 🟢 saudável)
+> 2. DIAGNÓSTICO DO DIA — saúde dos projetos ativos + o que avançou hoje
+> 3. PREVISÃO DOS PRÓXIMOS DIAS — data a data com checklist de ações do Diretor
+> 4. ANÁLISE GERENCIAL — perspectiva do Embaixador: o que o comportamento real do cliente
+>    confirma ou contradiz? O que você vê que o Músculo não vê?
+> 5. PRÓXIMA AÇÃO DO DIRETOR — máximo 3 itens, em ordem de prioridade
+>
+> Ao entregar o artefato, incluir esta instrução ao Diretor:
+> "Diretor, amanhã ao abrir o Claude Code, cole o BLOCO 0 acima como primeira mensagem
+> para o Músculo — antes de qualquer outra coisa. Sem isso, ele começa sem contexto."
+> ```
+>
+> **Regra:** BLOCO 0 é o mais importante — garante continuidade do Músculo entre sessões.
 > O artefato é cumulativo — reflete sempre o estado mais recente de TODOS os projetos.
-> O Diretor gerencia as atividades a partir do PAINEL_ATIVIDADES atualizado pelo Embaixador.
+> O Diretor gerencia as atividades a partir do artefato atualizado pelo Embaixador.
