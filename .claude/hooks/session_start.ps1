@@ -669,6 +669,18 @@ if ((Test-Path $wipForSkill) -and (Test-Path $swScript)) {
     } catch {}
 }
 
+# --- P-072: Detectar VEREDITOS nao processados no GitHub ---
+$vereditosTelegramOutput = ""
+$detectVereditosScript = Join-Path $projectDir "scripts\detectar_vereditos_github.ps1"
+if (Test-Path $detectVereditosScript) {
+    try {
+        $vLines = & powershell.exe -NonInteractive -File $detectVereditosScript 2>$null
+        if ($vLines) {
+            $vereditosTelegramOutput = ($vLines | Where-Object { $_ -ne $null }) -join "`n"
+        }
+    } catch {}
+}
+
 # ADD-A1 -- Commits recentes (ultimos 10) para contexto de sessao
 $ultimosCommits = ""
 try {
@@ -690,6 +702,7 @@ if ($churnWatchStatus)   { $sections += "## CHURN-WATCH INATIVO -- ACAO DO DIRET
 if ($formalizadorOutput) { $sections += "## FORMALIZADOR - CONFLITO COMERCIAL DETECTADO`n$formalizadorOutput" }
 if ($loopGuardianOutput) { $sections += "## LOOP GUARDIAN - SAUDE DO LOOP EVOLUTIVO`n$loopGuardianOutput" }
 if ($discoveryAlert)     { $sections += "## PROJETO NOVO EM DISCOVERY -- VERIFICAR ANTES DE ONBOARDING`n$discoveryAlert" }
+if ($vereditosTelegramOutput) { $sections += "## VEREDITOS TELEGRAM PENDENTES (P-072) -- PROCESSAR ANTES DE QUALQUER ACAO`n$vereditosTelegramOutput" }
 if ($ultimosCommits)     { $sections += "## COMMITS RECENTES (ultimos 10)`n$ultimosCommits" }
 
 if ($manifestStatus)       { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
