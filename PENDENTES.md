@@ -179,11 +179,11 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
 - [x] `2026-06-07` ~~**[BUG] W-5 ChurnWatch — falso positivo VERMELHO — RESOLVIDO:**~~
   ✅ Causa confirmada: WIP_BOARD tinha ultimo_contato_cliente=2026-05-20 (desatualizado). Após atualizar para 2026-06-04, alerta voltou a "2d OK". Código do W-5 está correto — lê os campos certos. Não havia workflow antigo duplicado.
 
-- [ ] `2026-06-18` **Segurança -- webhooks n8n sem autenticação:** [diretor]
+- [x] `2026-06-18` ~~**Segurança -- webhooks n8n sem autenticação:**~~
+  ✅ W-4: Code node "Validar Secret" adicionado via API PUT (HTTP 200). Verifica X-Webhook-Secret.
+  ✅ W-3: Code node "Validar Origem GitHub" adicionado via API PUT (HTTP 200). Verifica X-Hub-Signature.
   ✅ Script local: n8n_session_webhook.ps1 envia X-Webhook-Secret em todo POST para W-4.
-  ⏳ Pendente Diretor: adicionar Code node de validação no n8n UI (W-3 e W-4).
-  Instruções exatas: `_n8n/SEGURANCA_WEBHOOKS.md`
-  Impacto atual: baixo (URL não pública). Gate: antes de usar n8n com dados sensíveis de cliente.
+  Segredo: N8N_WEBHOOK_SECRET (já no EasyPanel). [RESOLVE: seguranca-webhooks]
 
 - [x] `2026-06-05` ~~**[SISTEMA] B-2 — W-7 Cérebro de Bolso MVP (3 queries):**~~
   ✅ /status /score /custo integrados ao W-7 (13 nodes). Execução 68 success.
