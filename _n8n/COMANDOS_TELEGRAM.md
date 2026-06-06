@@ -6,7 +6,7 @@
 
 ## GUIA DO DIRETOR — O QUE FAZER COM CADA MENSAGEM
 
-### 1. Check-in diário (W-1) — chega 3x por dia: 7h, 13h, 20h BRT
+### 1. Check-in diário (W-1) — chega 1x por dia: 7h BRT
 
 ```
 Bom dia, Diretor.
