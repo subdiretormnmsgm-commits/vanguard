@@ -70,17 +70,30 @@ if ($DryRun) {
     exit 0
 }
 
+# Carregar secret do CHAVES_SISTEMA_VANGUARD.txt (P-073 -- credencial fora do codigo)
+$chavesPath = Join-Path $BASE "CHAVES_SISTEMA_VANGUARD.txt"
+$webhookSecret = ""
+if (Test-Path $chavesPath) {
+    $linhaSecret = Get-Content $chavesPath -Encoding UTF8 | Where-Object { $_ -match "^N8N_WEBHOOK_SECRET\s*=" }
+    if ($linhaSecret) {
+        $webhookSecret = ($linhaSecret -split "=", 2)[1].Trim()
+    }
+}
+
 # Fire-and-forget via Start-Job -- nao bloqueia o terminal (N-3)
-$jobUrl  = $N8N_SESSION_CLOSE_URL
-$jobBody = $json
+$jobUrl    = $N8N_SESSION_CLOSE_URL
+$jobBody   = $json
+$jobSecret = $webhookSecret
 Start-Job -ScriptBlock {
-    param($url, $body)
+    param($url, $body, $secret)
     try {
-        Invoke-RestMethod -Uri $url -Method POST -Body $body -ContentType "application/json" -TimeoutSec 5 | Out-Null
+        $hdrs = @{ "Content-Type" = "application/json" }
+        if ($secret) { $hdrs["X-Webhook-Secret"] = $secret }
+        Invoke-RestMethod -Uri $url -Method POST -Body $body -Headers $hdrs -TimeoutSec 5 | Out-Null
     } catch {
         # silencio intencional -- fire-and-forget nao reporta falha ao terminal
     }
-} -ArgumentList $jobUrl, $jobBody | Out-Null
+} -ArgumentList $jobUrl, $jobBody, $jobSecret | Out-Null
 
 Write-Host "  [n8n_webhook] Webhook disparado (fire-and-forget) -- N-3 OK" -ForegroundColor DarkGray
 exit 0
