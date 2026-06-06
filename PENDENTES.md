@@ -101,9 +101,8 @@
   ✅ Execução 65 success · SHA 1b08156a · VEREDITOS_202606051931.json · diretor_confirmado: true.
   W-7 ENTREGUE E FUNCIONAL — Telegram + Notion + GitHub todos operacionais.
 
-- [x] `2026-06-12` **[SISTEMA] P-072 — W-7 VEREDITOS → session_start processa localmente:** [musculo]
-  W-7 grava VEREDITOS/*.json no GitHub. session_start deve detectar + chamar executar_vereditos.ps1.
-  Design: session_start faz git pull → verifica VEREDITOS/ → processa unread → atualiza DECISOES.json.
+- [x] `2026-06-12` ~~**[SISTEMA] P-072 — W-7 VEREDITOS → session_start processa localmente:**~~
+  ✅ PASSO 8f implementado em session_start.ps1: git pull → detecta VEREDITOS/*.json → exibe vereditos pendentes ao Músculo com instrução de processamento. Pasta VEREDITOS/processed/ criada. [RESOLVE: P-072]
 
 - [x] `2026-05-27` ~~**[BLOQUEANTE] ChurnWatch_Vanguard NAO registrado no Task Scheduler:**~~
   ✅ Registrado pelo Músculo em 2026-05-27 (sem Admin necessário). Próxima execução: 28-05-2026 08:00.
@@ -220,10 +219,8 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
 - [x] `2026-06-05` ~~**Notion — NOTION_WIP_PAGE_ID atualizado no EasyPanel:**~~
   ✅ 376ac59f774f817db1d8c204d6abcea5 configurado — W-3 confirmou Notion operacional — 2026-06-05.
 
-- [x] `2026-06-12` **n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:** [musculo]
-  Timer iniciado 2026-06-05. Se W-1/W-3/W-4 estáveis em 2026-06-12 → verde para build W-5.
-  Verificar: n8n EasyPanel → executions → zero erros nos últimos 7 dias.
-  Gate adicional: D2 ENV_VARS completas (TELEGRAM_BOT_TOKEN obrigatório para W-5).
+- [x] `2026-06-12` ~~**n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:**~~
+  ✅ W-5 construído e ativo desde 2026-06-05. W-1/W-3/W-4 sem erros em 2026-06-06 (OK:4/OK:4/OK:2). Gate cumprido antecipadamente — W-5 em produção. [RESOLVE: D5]
 
 - [x] `2026-06-05` ~~**n8n FASE 2 — D6: Build W-7 Veredito MVP texto:**~~
   ✅ Importado + ativo (ID: KisAa6ynD4btgrkL) · /aprovar TESTE confirmado pelo Diretor 2026-06-05.

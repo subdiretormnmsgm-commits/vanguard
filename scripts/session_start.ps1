@@ -509,6 +509,67 @@ if (Test-Path $pingN8nScript) {
 }
 
 # ==========================================================================
+# PASSO 8f -- VEREDITOS do Telegram via GitHub (P-072)
+# W-7 grava VEREDITOS/*.json no repo. session_start detecta e alerta Musculo.
+# ==========================================================================
+Write-Host ""
+Write-Host "  [PASSO 8f] Verificando VEREDITOS do Telegram (P-072)..." -ForegroundColor Cyan
+
+$vreditosDir    = "$BASE\VEREDITOS"
+$vreditosProcDir = "$vreditosDir\processed"
+
+# git pull para trazer commits do W-7
+Push-Location $BASE
+$pullOut = git pull --rebase --autostash --quiet 2>&1
+Pop-Location
+if ($LASTEXITCODE -ne 0) {
+    [void]$avisos.Add("git pull (P-072) retornou codigo $LASTEXITCODE -- VEREDITOS podem estar desatualizados")
+}
+
+if (-not (Test-Path $vreditosDir)) {
+    Write-Host "  [--] Pasta VEREDITOS/ ainda nao existe -- W-7 nao registrou vereditos" -ForegroundColor DarkGray
+} else {
+    $arquivosVrd = @(Get-ChildItem "$vreditosDir\VEREDITOS_*.json" -ErrorAction SilentlyContinue)
+    if ($arquivosVrd.Count -eq 0) {
+        Write-Host "  [OK] Nenhum veredito do Telegram pendente" -ForegroundColor Green
+    } else {
+        Write-Host ""
+        Write-Host "  +====================================================+" -ForegroundColor Yellow
+        Write-Host "  |  VEREDITOS DO TELEGRAM -- PROCESSAR AGORA (P-072)  |" -ForegroundColor Yellow
+        Write-Host "  +====================================================+" -ForegroundColor Yellow
+        foreach ($arq in $arquivosVrd) {
+            try {
+                $vrdObj   = Get-Content $arq.FullName -Raw -Encoding UTF8 | ConvertFrom-Json
+                $tsLabel  = if ($vrdObj.dataHora) { $vrdObj.dataHora } else { $arq.Name }
+                $itensList = ($vrdObj.vereditos | ForEach-Object {
+                    $lbl = switch ($_.veredito) {
+                        "A" { "APROVADO" }
+                        "B" { "DEVOLVER" }
+                        "C" { "ADIAR"    }
+                        default { $_.veredito }
+                    }
+                    "$($_.id):$lbl"
+                }) -join "  "
+                Write-Host ("  |  " + $tsLabel.PadRight(49) + "|") -ForegroundColor Yellow
+                Write-Host ("  |  -> " + $itensList.PadRight(46) + "|") -ForegroundColor White
+                Write-Host ("  |  Arquivo: " + $arq.Name.PadRight(42) + "|") -ForegroundColor DarkGray
+                Write-Host "  +----------------------------------------------------+" -ForegroundColor Yellow
+            } catch {
+                Write-Host ("  |  [ERRO] Nao foi possivel ler: " + $arq.Name) -ForegroundColor Red
+                Write-Host "  +----------------------------------------------------+" -ForegroundColor Yellow
+            }
+        }
+        $projParaVrd = if ($clienteLabel -ne "") { $clienteLabel } else { "projeto ativo" }
+        Write-Host ("  |  Musculo: abrir DECISOES.json de " + $projParaVrd.PadRight(17) + "|") -ForegroundColor Cyan
+        Write-Host "  |  Aplicar vereditos + render_painel.ps1              |" -ForegroundColor Cyan
+        Write-Host "  |  Apos processar: mover para VEREDITOS\processed\    |" -ForegroundColor DarkGray
+        Write-Host "  +====================================================+" -ForegroundColor Yellow
+        [void]$avisos.Add("$($arquivosVrd.Count) veredito(s) do Telegram aguardando processamento (P-072)")
+        Set-StatusAmarclo
+    }
+}
+
+# ==========================================================================
 # LEMBRETE DE LOOP — ONDE ESTAMOS (OSV-004, P-027)
 # Exibir ANTES da AGENDA DO DIA — Músculo nao pode ignorar
 # ==========================================================================

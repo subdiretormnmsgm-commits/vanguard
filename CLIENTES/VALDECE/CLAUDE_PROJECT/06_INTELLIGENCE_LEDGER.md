@@ -1968,6 +1968,11 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Regra:** cada grau requer 30 dias de estabilidade do anterior + gate auditar_consistencia.ps1 exit 0.
 **Aplica-se a:** todo roadmap de automacao n8n envolvendo IA + toda proposta de W-8 em diante.
 
+## P-115 -- MUSCULO ASSESSORA ATIVAMENTE A CONCLUSAO DE PENDENTES E DEPENDENCY_MAP (2026-06-06)
+**Origem:** Mandato do Diretor em 2026-06-06.
+**Fundamento:** Apos apresentar o MAPA DIARIO, o Musculo sempre propoe quais pendentes [musculo] podem ser executados na sessao atual -- com sequencia e estimativa. Nunca encerra sessao sem oferecer avanco em pelo menos 1 item [musculo] aberto. DEPENDENCY_MAP especificamente: (a) item marcado [x] sem simbolo de conclusao (strikethrough + checkmark) = nao concluido -- propor execucao imediata. (b) Apos criar documento novo em PENTALATERAL_UNIVERSAL/ -> verificar se foi adicionado ao DEPENDENCY_MAP. (c) DEPENDENCY_MAP.json so e considerado atualizado apos: editar o arquivo + executar propagate_changes.ps1 + verificar hash. Nao declarar concluido sem os 3 passos.
+**Evidencia:** Item DEPENDENCY_MAP ficou como [x] sem conclusao por multiplas sessoes sem que o Musculo propusesse execucao. Falha detectada pelo Diretor em 2026-06-06.
+**Aplica-se a:** toda sessao, em especial ao fechar -- varredura de pendentes [musculo] abertos e DEPENDENCY_MAP com entradas em atraso.
 ## P-114 — BLOCO 0 DO EMBAIXADOR É ADITIVO — NAO SUBSTITUI LEITURA DE ARQUIVOS (2026-06-06)
 **Origem:** Mandato do Diretor em 2026-06-06.
 **Fundamento:** O Embaixador gera um BLOCO 0 ao fechar cada sessao: sintese do PAINEL_ATIVIDADES + CONTEXTO_SESSAO_DIRETOR com perspectiva comportamental de cliente, alertas e acoes do Diretor. O Diretor cola este bloco ao ABRIR a proxima sessao. O BLOCO 0 enriquece o briefing com interpretacao -- mas nao substitui a leitura de PENDENTES.md, WIP_BOARD.json ou PAINEL_ATIVIDADES. Os arquivos em disco confirmam e completam o que o Embaixador sintetizou.
