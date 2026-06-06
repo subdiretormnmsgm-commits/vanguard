@@ -59,6 +59,20 @@
       "verificar_sempre": false,
       "bloqueante_fechamento": false,
       "nota": "Atualizada pelo Musculo (P-032) a cada gate — sync ao fechar sessao com projeto Valdece ativo"
+    },
+    {
+      "id": "estado_wip",
+      "descricao": "WIP Board — estado dos projetos ativos. Detecta na abertura, nao bloqueia no fechamento.",
+      "tipo": "PROJECT_ONLY",
+      "fonte": "CLIENTES/WIP_BOARD.md",
+      "copias": [
+        "CLIENTES/INGRID/NOTEBOOKLM_FONTES/07_WIP_BOARD.md",
+        "CLIENTES/VALDECE/NOTEBOOKLM_FONTES/07_WIP_BOARD.md"
+      ],
+      "acao": "copy",
+      "verificar_sempre": false,
+      "bloqueante_fechamento": false,
+      "nota": "WIP muda toda sessao — bloqueio criaria ruido. Decisao do Diretor 2026-06-06."
     }
   ]
 }
