@@ -192,6 +192,41 @@ if ($DryRun) {
 }
 
 # ==========================================================================
+# GATE 3.5 -- sync_guard.ps1 -Fechamento (BLOQUEANTE se divergencias canonicas)
+# P-033: toda mudanca em PENTALATERAL_UNIVERSAL/ exige copias em sync
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 3.5] sync_guard -- integridade de documentos canonicos..." -ForegroundColor Cyan
+$syncGuardScript = "$BASE\scripts\sync_guard.ps1"
+if (Test-Path $syncGuardScript) {
+    if ($DryRun) {
+        Write-Host "  [DRYRUN] GATE 3.5 -- sync_guard -Fechamento simulado" -ForegroundColor DarkCyan
+        $gateStatus.G35 = "N/A"
+    } else {
+        try {
+            $sgOut = & powershell.exe -NonInteractive -File $syncGuardScript -Fechamento 2>$null
+            $sgExit = $LASTEXITCODE
+            if ($sgExit -eq 0) {
+                Write-Host "  [GATE 3.5] VERDE -- todas as copias em sync com a fonte canonica" -ForegroundColor Green
+                $gateStatus.G35 = "VERDE"
+            } else {
+                $sgOut | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+                Write-Host "  [GATE 3.5] VERMELHO -- session_close BLOQUEADO (P-033)" -ForegroundColor Red
+                Write-Host "  Use: .\scripts\sync_guard.ps1 -Abertura -AutoCorrigir para corrigir" -ForegroundColor Yellow
+                $gateStatus.G35 = "VERMELHO"
+                exit 1
+            }
+        } catch {
+            Write-Host "  [GATE 3.5] sync_guard.ps1 falhou -- ignorado: $_" -ForegroundColor Yellow
+            $gateStatus.G35 = "AMARELO"
+        }
+    }
+} else {
+    Write-Host "  [GATE 3.5] sync_guard.ps1 nao encontrado -- IGNORADO" -ForegroundColor DarkGray
+    $gateStatus.G35 = "N/A"
+}
+
+# ==========================================================================
 # GATE 4 -- CLAUDE_PROJECT byte-level sync (ledger_sync)
 # ==========================================================================
 Write-Host ""

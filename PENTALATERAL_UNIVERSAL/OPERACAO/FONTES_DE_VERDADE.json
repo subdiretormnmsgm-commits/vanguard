@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "gerado": "2026-06-06",
+  "descricao": "Fonte canonica de cada documento do sistema. Base do sync_guard.ps1. Editar aqui para adicionar novos pares.",
+  "principio": "P-033 — sync universal obrigatorio apos qualquer mudanca em PENTALATERAL_UNIVERSAL/",
+  "pares": [
+    {
+      "id": "skill_protocolo",
+      "descricao": "Skill Protocolo Vanguard — skill operacional do Musculo",
+      "tipo": "UNIVERSAL_PURO",
+      "fonte": "PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md",
+      "copias": [
+        ".claude/skills/vanguard-protocolo.md",
+        "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/01_SKILL_PROTOCOLO_VANGUARD.md",
+        "CLIENTES/INGRID/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md",
+        "CLIENTES/VALDECE/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md"
+      ],
+      "acao": "copy",
+      "verificar_sempre": true,
+      "bloqueante_fechamento": true
+    },
+    {
+      "id": "memorando",
+      "descricao": "Memorando Pentalateral IAH — modelo universal",
+      "tipo": "UNIVERSAL_PURO",
+      "fonte": "PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+      "copias": [
+        ".claude/skills/vanguard-memorando.md",
+        "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+        "CLIENTES/INGRID/NOTEBOOKLM_FONTES/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+        "CLIENTES/VALDECE/NOTEBOOKLM_FONTES/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md"
+      ],
+      "acao": "copy",
+      "verificar_sempre": true,
+      "bloqueante_fechamento": true
+    },
+    {
+      "id": "memoria_ingrid",
+      "descricao": "MEMORIA_EMBAIXADOR Ingrid — CLAUDE_PROJECT e a fonte, NOTEBOOKLM_FONTES e a copia",
+      "tipo": "PROJECT_ONLY",
+      "fonte": "CLIENTES/INGRID/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md",
+      "copias": [
+        "CLIENTES/INGRID/NOTEBOOKLM_FONTES/14_MEMORIA_INGRID.md"
+      ],
+      "acao": "copy",
+      "verificar_sempre": false,
+      "bloqueante_fechamento": false,
+      "nota": "Atualizada pelo Musculo (P-032) a cada gate — sync ao fechar sessao com projeto Ingrid ativo"
+    },
+    {
+      "id": "memoria_valdece",
+      "descricao": "MEMORIA_EMBAIXADOR Valdece — CLAUDE_PROJECT e a fonte, NOTEBOOKLM_FONTES e a copia",
+      "tipo": "PROJECT_ONLY",
+      "fonte": "CLIENTES/VALDECE/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md",
+      "copias": [
+        "CLIENTES/VALDECE/NOTEBOOKLM_FONTES/14_MEMORIA_VALDECE.md"
+      ],
+      "acao": "copy",
+      "verificar_sempre": false,
+      "bloqueante_fechamento": false,
+      "nota": "Atualizada pelo Musculo (P-032) a cada gate — sync ao fechar sessao com projeto Valdece ativo"
+    }
+  ]
+}

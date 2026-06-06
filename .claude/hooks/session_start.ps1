@@ -407,6 +407,19 @@ if (Test-Path $ledgerSyncScript) {
           if ($lsOut) { Write-Host $lsOut } } catch {}
 }
 
+# --- SYNC_GUARD: integridade de documentos canonicos (P-033 / FASE 2 SYNC_GUARD) ---
+$syncGuardOutput = ""
+$syncGuardScript = Join-Path $projectDir "scripts\sync_guard.ps1"
+if (Test-Path $syncGuardScript) {
+    try {
+        $sgLines = & powershell.exe -NonInteractive -File $syncGuardScript -Abertura 2>$null
+        $sgText  = $sgLines -join "`n"
+        if ($sgText -match "\[VERMELHO\]" -or $sgText -match "\[AMARELO\]") {
+            $syncGuardOutput = $sgText
+        }
+    } catch {}
+}
+
 # --- MANIFEST_DOCS: estado de sincronizacao por projeto (P-071) ---
 function Get-ManifestStatus {
     $wipPath = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
@@ -712,6 +725,7 @@ if ($decisoesPendentes) { $sections = @("## DECISOES PENDENTES -- AGENDA BLOQUEA
 if ($loopLembrete)      { $sections = @("## LEMBRETE DE LOOP -- FASES ATIVAS (P-077)`n$loopLembrete") + $sections }
 if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA CONVERSACIONAL)`n$contextoSessao") + $sections }
 if ($documentosMortos)  { $sections = @("## DOCUMENTOS MORTOS (P-113) -- VARREDURA AUTOMATICA`n$documentosMortos") + $sections }
+if ($syncGuardOutput)   { $sections = @("## SYNC_GUARD (P-033) -- DIVERGENCIAS DE DOCUMENTOS CANONICOS`n$syncGuardOutput") + $sections }
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +
