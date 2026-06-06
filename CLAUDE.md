@@ -2,7 +2,7 @@
 - CURRENT_VERSION: 12
 - MODEL: "Venture Builder Autônoma & Holding de Dados SaaS — The Sovereign Launch"
 - SISTEMA: Pentalateral IAH — 5 atores: Diretor + Músculo + Estrategista + Auditor + Embaixador
-- ÚLTIMA_ATUALIZAÇÃO: 2026-05-24 — P-063: leitura obrigatória do PENDENTES.md completo ao iniciar sessão
+- ÚLTIMA_ATUALIZAÇÃO: 2026-06-06 — P-114: BLOCO 0 do Embaixador como âncora obrigatória de contexto na abertura
 
 ---
 
@@ -63,7 +63,8 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
 
 | Instrumento | Onde | O que contém |
 |---|---|---|
-| `PENDENTES.md` | **raiz** | **⚠️ PRIMEIRO A LER — tarefas pendentes com atraso em dias. P-076: pendente não registrado aqui não existe.** |
+| **BLOCO 0 do Embaixador** | **colado pelo Diretor no chat** | **⚠️ ÂNCORA DE CONTEXTO — síntese da sessão anterior (PAINEL + CONTEXTO_SESSAO_DIRETOR). P-114: processar antes de qualquer resposta.** |
+| `PENDENTES.md` | **raiz** | **⚠️ PRIMEIRO ARQUIVO A LER — tarefas pendentes com atraso em dias. P-076: pendente não registrado aqui não existe.** |
 | `INTELLIGENCE_LEDGER.md` | raiz | Princípios extraídos de fricções reais (P-001 a P-076+). O que nunca repetir. |
 | `CLIENTES/[PROJETO]/NOTEBOOKLM_DROP/` | CLIENTES/ | Pasta de drop da Skill do NotebookLM — `skill_watcher.ps1` valida e instala automaticamente. |
 | `CLIENTES/WIP_BOARD.json` | raiz | Estado atual de todos os projetos. O que está em build, check, entregue. |
@@ -244,6 +245,34 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
       Se não → deliberar e registrar o novo passo no PENDENTES antes de executar.
     FALHA DESTA REGRA = Músculo operando com contexto de títulos, não de instruções.
     Evidência da falha: Eduardo teve que dizer "Veja o arquivo PENDENTES" em 2026-05-24.
+    ─────────────────────────────────────────────────────────────────────────────────────
+37. BLOCO 0 DO EMBAIXADOR — ÂNCORA OBRIGATÓRIA DE CONTEXTO — P-114 (2026-06-06):
+    O Embaixador gera um BLOCO 0 ao fechar cada sessão: síntese do PAINEL_ATIVIDADES +
+    CONTEXTO_SESSAO_DIRETOR, com perspectiva comportamental sobre clientes e pendências do Diretor.
+    OBRIGAÇÃO DO DIRETOR: colar o BLOCO 0 no chat ao ABRIR a próxima sessão — antes de qualquer
+    outra mensagem. Sem o BLOCO 0, o Músculo opera cego sobre o que aconteceu na sessão anterior.
+    OBRIGAÇÃO DO MÚSCULO (BLOQUEANTE): ao detectar o BLOCO 0 colado, extrair ANTES de qualquer resposta:
+    (a) o que foi feito na sessão anterior — entregas, decisões, ficou no ar
+    (b) alertas do Embaixador com perspectiva comportamental do cliente
+    (c) ações pendentes do Diretor para esta sessão
+    (d) previsão dos próximos dias
+    SEQUÊNCIA OBRIGATÓRIA DE ABERTURA (nesta ordem — todas as etapas sempre):
+    → 0. Processar BLOCO 0 do Embaixador (se colado pelo Diretor) — âncora interpretativa
+    → 1. Read("PENDENTES.md") — bloqueante — sempre, independentemente do BLOCO 0
+    → 2. Read(PAINEL_ATIVIDADES mais recente) — sempre
+    → 3. Read(WIP_BOARD.json) + git log — verificar estado real em disco
+    → 4. Verificar ChurnWatch + Check-in do dia (1x por dia — fontes em ordem de prioridade):
+         (a) Se Diretor colou output do W-1 ou W-5 no chat → usar esses dados
+         (b) Fallback: calcular direto do WIP_BOARD → (hoje - ultimo_contato_cliente) vs churn_watch_threshold
+         Reportar: "[CLIENTE] Xd (threshold Yd) — OK/ATENÇÃO/VERMELHO" para cada projeto ativo
+         ATENÇÃO: cruzar sempre com WIP_BOARD antes de escalar alerta — W-5 pode ter dado desatualizado
+    → 5. Classificar pendentes P-092 (AUTO-VERDE / AUTO-AMARELO / DIRETOR-CONFIRMAR)
+    → 6. Apresentar MAPA DIÁRIO ao Diretor com todas as informações combinadas:
+         pendentes · gargalos · ChurnWatch de cada projeto · check-in do dia · próximas ações numeradas
+    O BLOCO 0 é ADITIVO: enriquece o briefing com a visão do Embaixador — nunca substitui
+    a leitura de PENDENTES, WIP_BOARD ou PAINEL. Os arquivos confirmam e completam o BLOCO 0.
+    FALLBACK (sessão sem BLOCO 0): Read("PROTOCOLOS_ENCERRAMENTO/CONTEXTO_SESSAO_DIRETOR_[data mais recente].md")
+    Músculo que responde ao Diretor antes de processar o BLOCO 0 = DEF-M-6 (Músculo Reativo).
     ─────────────────────────────────────────────────────────────────────────────────────
 22. PROTOCOLO DE ENCERRAMENTO VAI AO EMBAIXADOR — SEMPRE (2026-05-24):
     Ao fechar qualquer sessão, o Músculo gera automaticamente o PAINEL_ATIVIDADES via
@@ -494,7 +523,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 | Workflow | Trigger | O que faz |
 |---|---|---|
-| W-1 Check-in | Cron 7h/13h/20h | Status projetos → Telegram + Notion WIP Board |
+| W-1 Check-in | Cron 7h BRT (1x/dia) | Status projetos → Telegram + Notion WIP Board |
 | W-2 Monitor Supabase | Cron horário | Verifica Supabase online → alerta se offline |
 | W-3 GitHub Push | Webhook GitHub | Notifica commits → Telegram + Notion WIP Board |
 | W-4 Session Close | Webhook POST | Resumo de sessão → Telegram + Notion WIP + Pendentes |

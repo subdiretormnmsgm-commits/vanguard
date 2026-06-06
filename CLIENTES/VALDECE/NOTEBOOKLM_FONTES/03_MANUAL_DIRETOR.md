@@ -1541,6 +1541,49 @@ Incrementa a versão para [X.X]."
 
 ---
 
-*Manual do diretor · PENTALATERAL IAH · V1.1*
+| 1.5 | 2026-06-05 | Seção n8n adicionada — V26/V27: W-1/W-3/W-4/W-7 Telegram, regras P-109/P-110/P-102/P-072. Diretor emite vereditos, não transporta contexto. |
+
+---
+
+## PARTE 8 — N8N: O SISTEMA NERVOSO DO DIRETOR [V27 — 2026-06-05]
+
+> Desde V26, o n8n opera 24/7 no EasyPanel. O Diretor não transporta mais contexto —
+> recebe notificações automáticas e emite vereditos via Telegram.
+
+### O que chega automaticamente (sem ação do Diretor)
+
+| Quando | Canal | O que chega |
+|---|---|---|
+| 7h / 13h / 20h | Telegram | Briefing automático de projetos (W-1) |
+| A cada git push | Telegram | Notificação de commit (W-3) |
+| Ao fechar sessão | Telegram | Resumo da sessão + pendentes (W-4) |
+
+### Como emitir vereditos via Telegram (W-7)
+
+```
+/aprovar D1           → aprova decisão D1
+/rejeitar D2          → rejeita decisão D2
+/veredito D1:A D2:B   → vereditos em lote
+/pendentes            → lista o que aguarda veredito
+```
+
+**Fallback se W-7 cair:** editar `DECISOES.json` direto + rodar `.\scripts\executar_vereditos.ps1 -cliente [NOME]`
+
+### Regras essenciais do n8n
+
+| Regra | Na prática |
+|---|---|
+| **P-109** Notion = OUTPUT ONLY | Nunca editar Notion manualmente — o git é canônico |
+| **P-110** Fallback ≤ 3 passos | Se n8n cair: ver `MAINTENANCE_COST.md` |
+| **P-102** Coexistência 30 dias | Scripts `.ps1` locais ainda funcionam em paralelo |
+| **P-072** W-7 synca DECISOES.json | Veredito Telegram deve atualizar arquivo local |
+
+```powershell
+.\scripts\ping_n8n.ps1   # Verde = OK · Vermelho = usar MAINTENANCE_COST.md
+```
+
+---
+
+*Manual do diretor · PENTALATERAL IAH · V1.5*
 *Criado pelo Músculo para o Diretor Eduardo*
 *atualizar após cada projeto — este documento é tão vivo quanto o sistema que descreve*

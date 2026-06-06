@@ -1,148 +1,194 @@
 # COMANDOS TELEGRAM — Bot Vanguard (@Eduardo431Vanguardbot)
 > Acesso exclusivo ao Diretor (chat_id 8895733647). Qualquer outro ID recebe "Acesso não autorizado."
-> Workflow: W-7 — atualizado em 2026-06-05
+> Workflow: W-7 — atualizado em 2026-06-06
 
 ---
 
-## CONSULTAS (leitura)
+## GUIA DO DIRETOR — O QUE FAZER COM CADA MENSAGEM
+
+### 1. Check-in diário (W-1) — chega 3x por dia: 7h, 13h, 20h BRT
+
+```
+Bom dia, Diretor.
+Check-in Vanguard IAH -- 06/06/2026
+
+Status dos projetos:
+- Valdece: HYPERCARE
+- Ingrid: RETAINER
+```
+
+**O que fazer:** Ler e ignorar. É só uma atualização automática.
+Nenhuma ação necessária, nenhum comando para enviar.
+
+---
+
+### 2. ChurnWatch (W-5) — chega 1x por dia: 8h BRT
+
+**Cenário A — tudo OK:**
+```
+ChurnWatch 2026-06-06 11:00 UTC
+Valdece: 2d (threshold 3d) -- OK
+Ingrid: 2d (threshold 3d) -- OK
+```
+**O que fazer:** Ler e ignorar. Nenhuma ação necessária.
+
+---
+
+**Cenário B — alerta com mensagem sugerida:**
+```
+[ALERTA] CHURN-WATCH -- INGRID
+5 dias sem contato (threshold: 3 dias)
+Último contato: 01/06/2026
+
+Mensagem sugerida:
+"Ingrid, estou por aqui. Como está o estudo?"
+```
+**O que fazer:** Copiar a mensagem sugerida e enviar à Ingrid pelo WhatsApp/canal que usa.
+Nenhum comando Telegram necessário.
+Depois, na próxima sessão Claude Code, informar ao Músculo que o contato foi feito — ele atualiza o WIP_BOARD.
+
+---
+
+**Cenário C — alerta VERMELHO:**
+```
+[VERMELHO] CHURN-WATCH -- VALDECE
+17 dias sem contato (threshold: 5 dias)
+```
+**O que fazer:** Verificar se o alerta é real — pode ser falso positivo (bug no W-5).
+Não enviar mensagem ao cliente antes de confirmar com o Músculo.
+Abrir o Claude Code e informar o alerta recebido.
+
+---
+
+### 3. Notificação de commit (W-3) — chega a cada push no GitHub
+
+```
+Novo commit no vanguard
+feat(n8n): W-5 ChurnWatch -- mensagens sugeridas
+Eduardo · 2026-06-05 17:43
+```
+**O que fazer:** Ler e ignorar. É informativo — confirma que o Músculo commitou algo.
+
+---
+
+### 4. Notificação de sessão encerrada (W-4) — chega ao fechar sessão
+
+```
+Sessão encerrada -- 2026-06-05
+Entregas: W-5 ChurnWatch · B-3 security · P-072 resolvido
+Pendentes: 3 abertos · 0 urgentes
+Próximo: verificar W-5 às 8h BRT
+```
+**O que fazer:** Ler. É o lembrete para subir o PAINEL_ATIVIDADES ao Embaixador.
+Nenhum comando Telegram necessário.
+
+---
+
+### 5. Menu de ajuda — aparece quando o bot não entendeu o que você digitou
+
+```
+Cmds: /status /score /custo /aprovar X /rejeitar X /veredito D1:A
+```
+**O que fazer:** Ignorar. Isso significa que você digitou algo que o bot não reconheceu.
+O bot não entende frases como "acionar Embaixador" — só entende os comandos listados abaixo.
+Nenhuma ação necessária.
+
+---
+
+### 6. Confirmação de veredito — aparece após você enviar /aprovar, /rejeitar ou /veredito
+
+```
+Veredito registrado!
+Arquivo: VEREDITOS/VEREDITOS_202606051925.json
+2026-06-05 19:25 UTC
+```
+**O que fazer:** Ler e confirmar que chegou "Veredito registrado!". Pronto.
+Na próxima sessão o Músculo processa automaticamente.
+
+---
+
+## QUANDO USAR OS COMANDOS
+
+Os comandos abaixo você só usa quando quiser consultar algo ou quando o Músculo pedir.
+Na maioria dos dias você não precisa digitar nada no Telegram.
+
+---
+
+## CONSULTAS (você digita, o bot responde)
 
 ### `/status`
-Mostra o estado atual de todos os projetos no WIP Board.
-Lê diretamente o `WIP_BOARD.json` do GitHub (fonte canônica).
+**Quando usar:** quando quiser ver o estado atual dos projetos sem abrir o Claude Code.
 
-**Exemplo de resposta:**
+**O que chega:**
 ```
 STATUS 2026-06-05
-
-CHECK|Valdece L7|Musculo -- P-037 sintese Loop 7
-RETAINER|Ingrid L8|Loop 9 -- Gate 7.2 RLS
+CHECK|Valdece L7|Loop 8 -- Sentinel aguardando
+RETAINER|Ingrid L8|Loop 9 -- captacao 2a candidata
 ```
 
 ---
 
 ### `/score`
-Mostra a taxa de acerto da Ingrid nos quizzes do sistema.
-Lê a tabela `respostas` no Supabase Ingrid.
+**Quando usar:** quando quiser ver o desempenho de Ingrid nos quizzes.
 
-**Exemplo de resposta:**
+**O que chega:**
 ```
 SCORE INGRID
 87/120 (72%)
 7d: 23/30 (76%)
 2026-06-05
 ```
-> `sem dados em respostas` = Ingrid ainda não usou o sistema. Normal até ela responder o primeiro quiz.
+> `sem dados` = Ingrid ainda não usou o quiz. Normal.
 
 ---
 
 ### `/custo`
-Mostra o custo acumulado de API do projeto (últimas 10 sessões).
-Lê a tabela `custo_sessoes` no Supabase Ingrid.
+**Quando usar:** quando quiser ver quanto a API da Anthropic consumiu.
 
-**Exemplo de resposta:**
+**O que chega:**
 ```
 CUSTO 2026-06
 USD: 0.0847
 Tokens: 142.300
 ```
-> `sem dados` = tabela `custo_sessoes` ainda não tem registros. Precisa ser populada manualmente ou via script de sessão.
+> `sem dados` = tabela de custo ainda vazia. Normal por enquanto.
 
 ---
 
-## VEREDITOS (escrita)
+## VEREDITOS (você digita quando o Músculo pedir)
 
-Gravam no GitHub (`VEREDITOS/VEREDITOS_YYYYMMDDHHNN.json`), atualizam o Notion WIP Board e confirmam via Telegram.
+O Músculo só pede veredito via Telegram quando gera um `DECISOES.json` com opções para deliberar.
+Ele vai te avisar explicitamente qual ID usar e qual opção escolher.
 
----
+### `/aprovar D1`
+Aprova a decisão D1. Equivale a veredito A.
 
-### `/aprovar <ID>`
-Aprova uma decisão pendente. Equivale a veredito **A**.
+### `/rejeitar D2`
+Rejeita a decisão D2. Equivale a veredito B.
 
-```
-/aprovar D1
-```
-
----
-
-### `/rejeitar <ID>`
-Rejeita uma decisão pendente. Equivale a veredito **B**.
-
-```
-/rejeitar D2
-```
-
----
-
-### `/veredito <D1:A> <D2:B> ...`
-Envia múltiplos vereditos de uma vez.
-
-Opções de veredito:
+### `/veredito D1:A D2:B D3:C`
+Envia vários vereditos de uma vez.
 - `A` = Aprovar
 - `B` = Rejeitar
 - `C` = Adiar
 
+**Fluxo completo:**
 ```
-/veredito D1:A D2:B D3:C
-```
-
-**Exemplo de resposta:**
-```
-Veredito registrado!
-Arquivo: VEREDITOS/VEREDITOS_202606051925.json
-2026-06-05 19:25 UTC
+Músculo avisa: "Diretor, decisão D1 aguarda veredito — /aprovar D1 ou /rejeitar D1"
+Você digita:   /aprovar D1
+Bot confirma:  "Veredito registrado!"
+Próxima sessão: Músculo aplica automaticamente.
 ```
 
 ---
 
-## REGRAS DE USO
+## CHURN WATCH — THRESHOLDS ATIVOS
 
-| Regra | Detalhe |
-|---|---|
-| IDs de decisão | Definidos no `DECISOES.json` do projeto ativo (D1, D2, D3...) |
-| Arquivo gerado | `VEREDITOS/VEREDITOS_{timestamp}.json` no repositório GitHub |
-| Notion | Atualizado automaticamente após cada veredito |
-| Proteção split-brain | Timestamp único por arquivo — dois vereditos simultâneos não colidem |
-| Chaves necessárias | `GITHUB_PAT_WRITE` + `TELEGRAM_BOT_TOKEN` + `NOTION_API_TOKEN` (EasyPanel) |
-| Dados Supabase | `SUPABASE_URL` + `SUPABASE_ANON_KEY` (EasyPanel) |
-
----
-
-## FLUXO COMPLETO DE VEREDITO
-
-```
-Telegram /veredito D1:A
-    ↓
-W-7 valida isDiretor
-    ↓
-Grava VEREDITOS_{ts}.json no GitHub
-    ↓
-Atualiza Notion WIP Board
-    ↓
-Telegram confirma: "Veredito registrado!"
-    ↓
-[próxima sessão] session_start detecta arquivo → executar_vereditos.ps1 processa
-```
-
----
-
-## CHURN WATCH (automático — sem comando)
-
-O W-5 roda todo dia às **8h BRT** automaticamente.
-Lê o WIP_BOARD, calcula dias sem contato por cliente e envia:
-
-- **Resumo diário** sempre (todos os projetos com status OK/ALERTA)
-- **Alerta de churn** apenas se algum cliente ultrapassou o threshold de dias
-
-Thresholds configurados no `WIP_BOARD.json` → campo `churn_watch_threshold` por projeto.
-
-**Mensagens sugeridas incluídas no alerta de churn:**
-
-| Cliente | Dias sem contato | Mensagem sugerida |
-|---|---|---|
-| Ingrid | 3–4 dias | "Ingrid, tudo bem? Estou por aqui se precisar de algo. 🙂" |
-| Ingrid | 5+ dias | "Ingrid, estou por aqui. Como está o estudo?" |
-| Valdece | 7+ dias | "Dr. Valdece, tudo bem? Passando para saber como está sendo a experiência com o sistema." |
+| Cliente | Threshold | Mensagem 3-4 dias | Mensagem 5+ dias |
+|---|---|---|---|
+| Ingrid | 3 dias | "Ingrid, tudo bem? Estou por aqui se precisar de algo. 🙂" | "Ingrid, estou por aqui. Como está o estudo?" |
+| Valdece | 3 dias | — | "Dr. Valdece, tudo bem? Passando para saber como está sendo a experiência com o sistema." |
 
 **Lembrete de domingo (Ingrid):**
-Todo domingo o resumo diário inclui a mensagem de relatório semanal:
+Todo domingo o resumo inclui:
 `"Ingrid, semana encerrada! Me conta: quantas questões você respondeu essa semana? Quero atualizar o seu relatório de progresso. 📊"`

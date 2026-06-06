@@ -180,6 +180,13 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   ✅ PERFIL_NICHO_LEGALTECH_V1.md (Valdece) + PERFIL_NICHO_EDTECH_V1.md (Ingrid) salvos em CLAUDE_PROJECT de cada projeto.
   Princípios P-106/P-107/P-108 inscritos no LEDGER.
 
+- [ ] `2026-06-07` **[BUG] W-5 ChurnWatch — dados desatualizados (falso positivo VERMELHO):** [musculo]
+  W-5 disparou alerta VERMELHO para Valdece com "17 dias, threshold 5d, último contato 20/05".
+  WIP_BOARD real: ultimo_contato_cliente=2026-06-04, threshold=3d. W-1 confirmou: Valdece 2d OK.
+  Causa provável: W-5 usa campo diferente do WIP_BOARD ou dado hardcoded no workflow.
+  Ação: abrir JSON do W-5 no EasyPanel → localizar onde lê ultimo_contato_cliente → corrigir campo.
+  Gate: antes do próximo disparo do cron W-5 (diário).
+
 - [ ] `2026-06-18` **Segurança -- webhooks n8n sem autenticação:** [musculo]
   Workflows 3 e 4 aceitam POST de qualquer origem. Adicionar shared secret no header antes de abrir o n8n para outros casos de uso.
   Impacto atual: baixo (URL não pública). Gate: antes de usar n8n em produção com dados sensíveis.

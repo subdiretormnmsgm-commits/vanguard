@@ -1968,6 +1968,13 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Regra:** cada grau requer 30 dias de estabilidade do anterior + gate auditar_consistencia.ps1 exit 0.
 **Aplica-se a:** todo roadmap de automacao n8n envolvendo IA + toda proposta de W-8 em diante.
 
+## P-114 — BLOCO 0 DO EMBAIXADOR É ADITIVO — NAO SUBSTITUI LEITURA DE ARQUIVOS (2026-06-06)
+**Origem:** Mandato do Diretor em 2026-06-06.
+**Fundamento:** O Embaixador gera um BLOCO 0 ao fechar cada sessao: sintese do PAINEL_ATIVIDADES + CONTEXTO_SESSAO_DIRETOR com perspectiva comportamental de cliente, alertas e acoes do Diretor. O Diretor cola este bloco ao ABRIR a proxima sessao. O BLOCO 0 enriquece o briefing com interpretacao -- mas nao substitui a leitura de PENDENTES.md, WIP_BOARD.json ou PAINEL_ATIVIDADES. Os arquivos em disco confirmam e completam o que o Embaixador sintetizou.
+**Sequencia obrigatoria de abertura (todas as etapas sempre):** 0. Processar BLOCO 0 -> 1. Read(PENDENTES.md) -> 2. Read(PAINEL_ATIVIDADES) -> 3. Read(WIP_BOARD + git log) -> 4. Classificar P-092 -> 5. Apresentar MAPA DIARIO com todas as informacoes combinadas.
+**Fallback:** se Diretor nao colar BLOCO 0 -> Read(CONTEXTO_SESSAO_DIRETOR mais recente em disco).
+**Evidencia:** sem o BLOCO 0, o Musculo abria com dados brutos sem interpretacao -- Diretor reconstruia contexto verbalmente. Com o BLOCO 0, o briefing chega com visao do Embaixador ja integrada aos arquivos. Detectado e corrigido em 2026-06-06.
+**Aplica-se a:** toda abertura de sessao, sem excecao.
 ## P-113 -- INFORMACAO RETIDA E CUSTO INVISIVEL PARA QUEM DELIBERA (2026-06-05)
 **Origem:** Embaixador em resposta ao design do CONTEXTO_SESSAO_DIRETOR (2026-06-05).
 **Fundamento:** O Musculo tem a informacao. Se nao apresenta proativamente, o Diretor paga o preco. Informacao retida nao e neutralidade -- e custo invisivel para quem delibera. A abertura de sessao inclui obrigatoriamente: (a) contexto da ultima sessao, (b) documentos mortos, (c) o que ficou no ar. O Diretor nao e o gatilho de memoria do proprio sistema.

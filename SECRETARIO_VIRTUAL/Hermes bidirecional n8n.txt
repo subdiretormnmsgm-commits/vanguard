@@ -1,0 +1,84 @@
+ Coisa 2 — Hermes bidirecional (n8n envia + recebe resposta do cliente)
+  Essa sim precisa de uma API. Twilio não funcionou. Alternativas brasileiras que funcionam:
+
+  ┌─────────────────┬──────────┬───────┬───────────────────────────────────────────┐
+  │      Opção      │  Custo   │ Risco │                Observação                 │
+  ├─────────────────┼──────────┼───────┼───────────────────────────────────────────┤
+  │ Z-API (zapi.io) │ R$97/mês │ Baixo │ Popular no Brasil, estável, suporte em PT │
+  ├─────────────────┼──────────┼───────┼───────────────────────────────────────────┤
+  │ Evolution API   │ Grátis   │ Médio │ Self-hosted, liga número real via QR code │
+  ├─────────────────┼──────────┼───────┼───────────────────────────────────────────┤
+  │ UltraMsg        │ ~$15/mês │ Baixo │ Interface simples, webhook nativo         │
+  └─────────────────┴──────────┴───────┴───────────────────────────────────────────┘
+
+  ---
+  Minha sugestão: deixa o Hermes para o loop (já registrado como M-1 a M-5). Quando o Gemini deliberar, aí decidimos
+  qual API.
+
+
+ntendido. Você está descrevendo algo diferente do que eu deliberei — não é relay. É o Hermes: secretário autônomo que
+  representa a Vanguard com os clientes, envia, recebe resposta e traz inteligência de volta ao Conselho.
+
+  Deliberação completa:
+
+  ---
+  1. O QUE ESTÁ CERTO
+  A visão fecha um gap real. Hoje o sistema fala sobre o cliente (Embaixador analisa hipóteses). Com o Hermes, o sistema
+  fala com o cliente e traz dados reais. O Embaixador hoje opera com temperatura estimada. Com Hermes, opera com
+  resposta real de ontem.
+
+  2. ONDE DIVERGE — o canal define tudo
+
+  Para receber resposta do cliente, n8n precisa de um canal bidirecional:
+
+  ┌──────────────────────────────┬─────────┬────────────┬─────────────┬─────────────────────────────┐
+  │            Canal             │ Enviar  │  Receber   │    Custo    │            Setup            │
+  ├──────────────────────────────┼─────────┼────────────┼─────────────┼─────────────────────────────┤
+  │ WhatsApp (Twilio)            │ ✅      │ ✅         │ ~R$0,08/msg │ 2–5 dias (aprovação Meta)   │
+  ├──────────────────────────────┼─────────┼────────────┼─────────────┼─────────────────────────────┤
+  │ WhatsApp (Evolution API)     │ ✅      │ ✅         │ Grátis      │ 4h + risco de ban do número │
+  ├──────────────────────────────┼─────────┼────────────┼─────────────┼─────────────────────────────┤
+  │ Email (Gmail)                │ ✅      │ ✅         │ Grátis      │ 2h — disponível hoje        │
+  ├──────────────────────────────┼─────────┼────────────┼─────────────┼─────────────────────────────┤
+  │ Formulário (Typeform/Google) │ ✅ link │ ✅ webhook │ Grátis      │ 1h — disponível hoje        │
+  ├──────────────────────────────┼─────────┼────────────┼─────────────┼─────────────────────────────┤
+  │ SMS (Twilio)                 │ ✅      │ ✅         │ ~R$0,12/msg │ 1h após Twilio ativo        │
+  └──────────────────────────────┴─────────┴────────────┴─────────────┴─────────────────────────────┘
+
+  3. DECISÃO
+
+  O Hermes tem duas fases:
+
+  Fase 1 — MVP hoje (sem Twilio):
+  - Hermes envia mensagem via Telegram ao Diretor com botão "ENVIADO" → Diretor manda no WhatsApp → confirma no Telegram
+  → n8n atualiza ultimo_contato_cliente no WIP_BOARD + notifica Embaixador
+  - Hermes coleta feedback via link de formulário embutido na mensagem (Google Forms → n8n webhook → Supabase)
+  - Ciclo: Músculo/Embaixador triggera → Hermes envia → cliente responde no formulário → feedback chega automático
+
+  Fase 2 — Hermes completo (com Twilio):
+  - WhatsApp bidirecional real. Cliente responde no próprio WhatsApp → Twilio webhook → n8n processa → Embaixador recebe
+  o texto com classificação automática (positivo/negativo/dúvida)
+  - ultimo_contato_cliente atualizado automaticamente sem o Diretor tocar
+
+  4. ENHANCEMENT
+  O Hermes não só relata — ele classifica. Resposta do cliente chega no n8n → código JS analisa sentimento básico →
+  reporta ao Embaixador: "Ingrid respondeu 'tô ocupada mas não esqueci' — temperatura estimada: 6/10 — próxima ação:
+  aguardar 3 dias".
+
+  5. CUSTO REAL
+  - MVP Fase 1: ~4h de build, zero custo operacional
+  - Fase 2 com Twilio: +2h + configuração de conta + ~$10–20/mês dependendo do volume
+
+  6. IMPACTO COMERCIAL
+  Hoje o Diretor é o mensageiro. Com Hermes, o Diretor é o estrategista. A diferença no pitch para próximos clientes:
+  "nosso sistema acompanha seus clientes automaticamente e nos traz o feedback — você não precisa perguntar o que está
+  acontecendo".
+
+  7. PRÓXIMA AÇÃO
+
+  Duas decisões para o Diretor:
+
+  ▎ D1 — Canal da Fase 1: Email ou Formulário (recomendo formulário — mais natural para coletar feedback estruturado)
+  ▎ D2 — Twilio para Fase 2: cadastrar agora ou aguardar MVP validado?
+
+  Se aprovar D1 hoje, o Hermes MVP entra no backlog como W-8 e eu já escrevo a arquitetura completa.

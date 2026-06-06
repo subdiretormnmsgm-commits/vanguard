@@ -1,8 +1,8 @@
-﻿# N8N_AUDIT_REPORT -- 2026-06-05 15:14
+﻿# N8N_AUDIT_REPORT -- 2026-06-05 17:59
 
 STATUS: CLEAN -- nenhuma violacao encontrada.
-Workflows auditados: 1
+Workflows auditados: 5
 
 ## Aprovadas via LEDGER (requer revisao do Auditor)
-- [OK-LEDGER] test_clean.json Â· Route Payload Â· L1
-  > const threshold = $env.CHURN_THRESHOLD; // LEDGER: lido de N8N_CONFIG via ENV
+- [OK-LEDGER] w7_veredito_telegram.json Â· Parsear Comando Â· L5
+  > const DIRETOR_ID = '8895733647'; // LEDGER: Telegram chat_id do Diretor -- identidade fixa, nao valor de negocio

@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-05 12:40
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-06 10:46
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-0e6d5a7 feat(embaixador-oper): artefato operacional + n8n payload + session_close integrado
-2cf7312 feat(processo): CONTEXTO_SESSAO_DIRETOR + Embaixador Operacional (P-113)
-54e4c54 chore(pendentes): [AUTO-RESOLVE] DEPENDENCY_MAP
+2e8ee91 docs(protocolo): comando padrão ao Embaixador no PROTOCOLO_ENCERRAMENTO_TEMPLATE v2.0
+195380f docs(sessao): CONTEXTO_SESSAO_DIRETOR 2026-06-05 atualizado com contexto completo da tarde
+860c2dd chore(sessao): session_close 2026-06-05 + fix audit falso positivo + PENDENTES limpos
 
 ================================================================================
 
