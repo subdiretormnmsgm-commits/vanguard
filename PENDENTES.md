@@ -89,11 +89,8 @@
 - [x] `2026-06-12` ~~**[SISTEMA] MANUAL_DIRETOR.md — adicionar seção n8n (slot 03 sem n8n):**~~
   ✅ MANUAL_DIRETOR v1.5 já contém PARTE 8 (n8n) — feito na sessão 2026-06-05 (commit 630ab0d). Sync Ingrid+Valdece confirmado.
 
-- [x] `2026-06-12` **[SISTEMA] DEPENDENCY_MAP.json v2.2 — adicionar REGISTRO_DE_PREMISSAS + CANDIDATOS:** [musculo]
-  Risco 3 do Auditor Sistêmico: REGISTRO_DE_PREMISSAS.md e CANDIDATOS_A_PRINCIPIO.md
-  não estão no DEPENDENCY_MAP → sync e propagate_changes.ps1 os ignoram.
-  Ação: editar PENTALATERAL_UNIVERSAL/OPERACAO/DEPENDENCY_MAP.json → adicionar na seção `documentos`.
-  Requer `.musculo_autorizacao.flag` (arquivo protegido).
+- [x] `2026-06-12` ~~**[SISTEMA] DEPENDENCY_MAP.json v2.2 — REGISTRO_DE_PREMISSAS + CANDIDATOS:**~~
+  ✅ Já estavam em PROJECT_ONLY.padroes desde 2026-06-05 (schema_version 2.2). PENDENTES não foi marcado na época — falha de rastreio corrigida em 2026-06-06 (P-115).
 
 - [x] `2026-06-05` ~~**[SISTEMA] W-7 Telegram — Teste /aprovar TESTE executado:**~~
   ✅ Execução 64 confirmada: isDiretor OK · Parsear OK · Preparar OK · Notion OK · Telegram OK
