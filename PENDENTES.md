@@ -86,6 +86,18 @@
 
 ## PROCESSO / INFRA
 
+- [x] `2026-06-06` ~~**[GAP] FONTES_DE_VERDADE.json — par estado_wip ausente:**~~
+  ✅ Par adicionado com bloqueante_fechamento: false (decisão do Diretor 2026-06-06).
+  Fonte: CLIENTES/WIP_BOARD.md · Cópias: INGRID/07_WIP_BOARD.md + VALDECE/07_WIP_BOARD.md
+  sync_guard -Abertura: 5 pares · OK: 12 · Divergentes: 0 · VERDE.
+
+- [ ] `2026-06-XX` **[CANDIDATO A PRINCÍPIO] sync_guard -WhatIf — modo verdadeiramente passivo:** [musculo]
+  DryRun no sync_guard precisa de flag verdadeiramente passivo (-WhatIf) que não escreva em disco.
+  Nomenclatura "DryRun" sem modo passivo real é risco de execução silenciosa — detectado em 2026-06-06
+  quando -AutoCorrigir alterou NOTEBOOKLM_BASE/01_SKILL durante teste descrito como "DryRun".
+  Numeração do princípio atribuída pelo Diretor na próxima sessão com o Embaixador.
+  Ação: implementar `-WhatIf` no sync_guard.ps1 que exiba o que seria feito sem alterar nenhum arquivo.
+
 - [x] `2026-06-12` ~~**[SISTEMA] MANUAL_DIRETOR.md — adicionar seção n8n (slot 03 sem n8n):**~~
   ✅ MANUAL_DIRETOR v1.5 já contém PARTE 8 (n8n) — feito na sessão 2026-06-05 (commit 630ab0d). Sync Ingrid+Valdece confirmado.
 
