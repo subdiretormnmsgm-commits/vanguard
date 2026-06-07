@@ -94,42 +94,74 @@ Write-Host "=======================================================" -Foreground
 Write-Host ""
 Write-Host "  Projeto: 'Vanguard - Embaixador Operacional'" -ForegroundColor White
 Write-Host ""
-Write-Host "  Arrastar os 5 arquivos:" -ForegroundColor Yellow
-Write-Host "  1. PROTOCOLOS_ENCERRAMENTO\$painelNome"               -ForegroundColor Cyan
+Write-Host "  ANEXAR os 7 arquivos ao Embaixador (arrastar):" -ForegroundColor Yellow
+Write-Host ""
+
+# Doc 1 -- PAINEL
+Write-Host "  1. PROTOCOLOS_ENCERRAMENTO\$painelNome" -ForegroundColor Cyan
+
+# Doc 2 -- CONTEXTO
 if (Test-Path $contextoFimPath) {
     Write-Host "  2. PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md" -ForegroundColor Cyan
 } else {
-    Write-Host "  2. CONTEXTO_SESSAO_DIRETOR_$dataFim.md [NAO ENCONTRADO -- Musculo deve gerar]" -ForegroundColor Red
+    Write-Host "  2. CONTEXTO_SESSAO_DIRETOR_$dataFim.md [NAO GERADO -- Musculo deve criar antes de fechar]" -ForegroundColor Red
 }
-Write-Host "  3. CLIENTES\WIP_BOARD.json"                            -ForegroundColor Cyan
-Write-Host "  4. INTELLIGENCE_LEDGER.md"                             -ForegroundColor Cyan
-Write-Host "  5. PENDENTES.md"                                       -ForegroundColor Cyan
+
+# Doc 3 -- WIP_BOARD
+Write-Host "  3. CLIENTES\WIP_BOARD.json" -ForegroundColor Cyan
+
+# Doc 4 -- LEDGER
+Write-Host "  4. INTELLIGENCE_LEDGER.md" -ForegroundColor Cyan
+
+# Doc 5 -- PENDENTES
+Write-Host "  5. PENDENTES.md" -ForegroundColor Cyan
+
+# Doc 6 -- TIMELINE
+$timelinePath = "$baseDir\CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md"
+if (Test-Path $timelinePath) {
+    Write-Host "  6. CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md" -ForegroundColor Cyan
+} else {
+    Write-Host "  6. 16_VANGUARD_TIMELINE.md [NAO ENCONTRADO]" -ForegroundColor Yellow
+}
+
+# Doc 7 -- MEMORIA EMBAIXADOR
+$memoriaEmbPath = "$baseDir\CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
+if (Test-Path $memoriaEmbPath) {
+    Write-Host "  7. CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md" -ForegroundColor Cyan
+} else {
+    Write-Host "  7. MEMORIA_EMBAIXADOR_VANGUARD.md [NAO ENCONTRADO]" -ForegroundColor Yellow
+}
+
 Write-Host ""
-Write-Host "  Colar no chat do Embaixador Operacional:"             -ForegroundColor White
-Write-Host "  -----------------------------------------------"       -ForegroundColor DarkGray
-Write-Host "  Embaixador, fechamento de sessao -- $dataFim."         -ForegroundColor Cyan
-Write-Host "  Faco upload do PAINEL_ATIVIDADES, CONTEXTO_SESSAO_DIRETOR, WIP_BOARD, INTELLIGENCE_LEDGER e PENDENTES desta sessao." -ForegroundColor Cyan
-Write-Host "  Com base nos cinco arquivos, gerar o artefato publicavel com:" -ForegroundColor Cyan
+Write-Host "  COLAR no chat do Embaixador (copiar o bloco abaixo):" -ForegroundColor Yellow
 Write-Host ""
-Write-Host "  0. BRIEFING DE ABERTURA PARA O MUSCULO (item mais importante -- gerar primeiro)" -ForegroundColor Cyan
-Write-Host "     Redigir um paragrafo que o Diretor colara no inicio da proxima sessao do Claude Code." -ForegroundColor Cyan
-Write-Host "     Deve conter: (a) o que foi entregue hoje e esta ativo," -ForegroundColor Cyan
-Write-Host "     (b) o que ficou em aberto e por que," -ForegroundColor Cyan
-Write-Host "     (c) qual e o proximo passo esperado do Musculo ao abrir a sessao." -ForegroundColor Cyan
-Write-Host "     Escrito na segunda pessoa, direto ao Musculo: 'Musculo, na ultima sessao...'" -ForegroundColor Cyan
+Write-Host "  ============================================================" -ForegroundColor DarkGray
+Write-Host "  Embaixador, fechamento de sessao -- $dataFim." -ForegroundColor White
+Write-Host "  Faco upload do PAINEL_ATIVIDADES, CONTEXTO_SESSAO_DIRETOR," -ForegroundColor White
+Write-Host "  WIP_BOARD, INTELLIGENCE_LEDGER, PENDENTES, VANGUARD_TIMELINE" -ForegroundColor White
+Write-Host "  e MEMORIA_EMBAIXADOR desta sessao." -ForegroundColor White
+Write-Host "  Com base nos sete arquivos, gerar o artefato publicavel com:" -ForegroundColor White
 Write-Host ""
-Write-Host "  1. SEMAFORO -- status visual de cada projeto (bloqueante / atencao / saudavel)" -ForegroundColor Cyan
-Write-Host "  2. DIAGNOSTICO DO DIA -- saude dos projetos ativos + o que avancou hoje no sistema" -ForegroundColor Cyan
-Write-Host "  3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor" -ForegroundColor Cyan
-Write-Host "  4. ANALISE GERENCIAL -- o que o comportamento real do cliente confirma ou contradiz?" -ForegroundColor Cyan
-Write-Host "     O que voce ve que o Musculo nao ve?" -ForegroundColor Cyan
-Write-Host "  5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens, em ordem de prioridade" -ForegroundColor Cyan
+Write-Host "  0. BRIEFING DE ABERTURA PARA O MUSCULO (item mais importante -- gerar primeiro)" -ForegroundColor White
+Write-Host "     Redigir um paragrafo que o Diretor colara no inicio da proxima sessao do Claude Code." -ForegroundColor White
+Write-Host "     Deve conter: (a) o que foi entregue hoje e esta ativo," -ForegroundColor White
+Write-Host "     (b) o que ficou em aberto e por que," -ForegroundColor White
+Write-Host "     (c) qual e o proximo passo esperado do Musculo ao abrir a sessao." -ForegroundColor White
+Write-Host "     Escrito na segunda pessoa, direto ao Musculo: 'Musculo, na ultima sessao...'" -ForegroundColor White
 Write-Host ""
-Write-Host "  Ao entregar o artefato, incluir esta instrucao ao Diretor:" -ForegroundColor Cyan
-Write-Host "  'Diretor, amanha ao abrir o Claude Code, cole o BLOCO 0 acima como" -ForegroundColor Cyan
-Write-Host "  primeira mensagem para o Musculo -- antes de qualquer outra coisa." -ForegroundColor Cyan
-Write-Host "  Sem isso, ele comeca sem contexto da sessao de hoje.'" -ForegroundColor Cyan
-Write-Host "  -----------------------------------------------"       -ForegroundColor DarkGray
+Write-Host "  1. SEMAFORO -- status visual de cada projeto" -ForegroundColor White
+Write-Host "     (vermelho bloqueante / amarelo atencao / verde saudavel)" -ForegroundColor White
+Write-Host "  2. DIAGNOSTICO DO DIA -- saude dos projetos ativos + o que avancou" -ForegroundColor White
+Write-Host "  3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist do Diretor" -ForegroundColor White
+Write-Host "  4. ANALISE GERENCIAL -- o que o comportamento real do cliente confirma" -ForegroundColor White
+Write-Host "     ou contradiz? O que voce ve que o Musculo nao ve?" -ForegroundColor White
+Write-Host "  5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens em ordem de prioridade" -ForegroundColor White
+Write-Host ""
+Write-Host "  Ao entregar o artefato, incluir esta instrucao ao Diretor:" -ForegroundColor White
+Write-Host "  'Diretor, ao abrir o Claude Code, cole o BLOCO 0 acima como" -ForegroundColor White
+Write-Host "  PRIMEIRA mensagem para o Musculo -- antes de qualquer outra coisa." -ForegroundColor White
+Write-Host "  Sem isso, ele comeca sem contexto da sessao de hoje.'" -ForegroundColor White
+Write-Host "  ============================================================" -ForegroundColor DarkGray
 Write-Host ""
 
 # n8n W-4 -- gate: TELEGRAM_BOT_TOKEN configurado (D2 ENV_VARS)
