@@ -72,6 +72,50 @@ Deploy Docker Compose = sempre manual pelo painel.
 
 ---
 
+## HERMES AGENT NO EASYPANEL (validado 2026-06-07)
+
+**Imagem:** `nousresearch/hermes-agent:latest` (MIT, Nous Research, 2.3M pulls)
+**Projeto EasyPanel:** `hermes` · **Serviço:** `hermes-agent` · **Tipo:** Compose BETA
+**Volume persistido:** `hermes_data:/opt/data` — config, kanban, memories, skills, logs
+
+### Problema crítico: env vars do EasyPanel Ambiente NÃO chegam ao container
+
+O EasyPanel Compose BETA NÃO injeta as variáveis da aba "Ambiente" no processo do container.
+`echo $TELEGRAM_BOT_TOKEN` retorna vazio mesmo com var configurada no painel.
+
+**Solução validada:** configurar via `hermes config set` dentro do container:
+```bash
+hermes config set telegram.token SEU_TOKEN
+hermes config set telegram.allowed_chats SEU_CHAT_ID
+```
+Esses valores ficam em `/opt/data/config.yaml` (volume persistido → sobrevive restart).
+
+Para a chave OpenRouter (não tem `hermes config set` para isso):
+```bash
+# No terminal do container — cria .env que o Hermes lê:
+echo 'OPENROUTER_API_KEY=sk-or-v1-...' > /opt/hermes/.env
+# ATENÇÃO: /opt/hermes/ NÃO é volume — perde no restart do container
+# Workaround permanente: copiar para /opt/data/ e verificar se Hermes aceita symlink
+```
+
+### YAML para o Compose BETA (formato validado — sem ${VAR})
+
+- Remover `version:` (obsoleto no Docker Compose v2 — causa parsing error)
+- Remover `container_name:` (EasyPanel gerencia)
+- Remover `ports:` (EasyPanel gerencia via Domínios — causamconflito)
+- Listar env vars SEM valor (`- OPENROUTER_API_KEY`) — mas não chegam (ver acima)
+
+### Comandos úteis no terminal do container
+
+```bash
+hermes status                  # ver estado completo (API keys, Telegram, Gateway)
+hermes config set KEY VALUE    # salvar config em /opt/data/config.yaml
+hermes gateway restart         # reiniciar gateway (pega novos configs)
+cat /opt/data/logs/gateways/default/current | tail -30  # ver logs
+```
+
+---
+
 ## ERROS CONHECIDOS
 
 | Erro | Causa | Solução |
@@ -80,3 +124,6 @@ Deploy Docker Compose = sempre manual pelo painel.
 | `request/body is read-only` | Campo proibido no POST/PUT da API n8n | Remover versionId, meta, id, active |
 | Workflow ativo mas webhook retorna "No Respond to Webhook node" | responseMode=responseNode sem nó de resposta | Normal para workflows de ingestão — exit code 0 = sucesso |
 | Imagem Docker não encontrada no deploy | Tag errada ou imagem privada | Confirmar existência em hub.docker.com antes |
+| `yaml: line N: did not find expected key` | `version:` ou `container_name:` no compose | Remover essas diretivas — incompatíveis com Compose BETA |
+| `ports is used in X. It might cause conflicts` | `ports:` no compose conflita com roteamento do EasyPanel | Remover `ports:` — configurar exposição via aba Domínios |
+| Env vars do Ambiente não chegam ao container | Bug do Compose BETA — vars não injetadas no processo | Usar `hermes config set` para persistir no volume |

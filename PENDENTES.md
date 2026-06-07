@@ -45,18 +45,15 @@
 - [x] `2026-06-06` ~~**V28 — P-116 inscrito no INTELLIGENCE_LEDGER.md:**~~
   ✅ "O que dói é erro, não esforço — verificação antes de automação" inscrito. AUTORIZO concedido.
 
-- [ ] `2026-06-06` **V28 — [DIRETOR] W-8: importar _n8n/w8_signal_classifier.json no EasyPanel:** [diretor]
-  Ação: EasyPanel → n8n → Import Workflow → selecionar _n8n/w8_signal_classifier.json.
-  Configurar credenciais: Telegram API + Supabase HTTP. Ativar em shadow mode (7 dias).
+- [x] `2026-06-06` ~~**V28 — [DIRETOR] W-8: importar no EasyPanel n8n:**~~
+  ✅ W-8 Signal Classifier importado, credenciais configuradas, ativado em shadow mode — 2026-06-07.
 
-- [ ] `2026-06-06` **V28 — [DIRETOR] Hermes Agent: deploy docker-compose.yml no EasyPanel:** [diretor]
-  Ação: EasyPanel → New Service → Docker Compose → colar hermes-agent/docker-compose.yml.
-  Definir env vars: ANTHROPIC_API_KEY, N8N_WEBHOOK_BASE, N8N_WEBHOOK_SECRET, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID_DIRETOR, SUPABASE_URL, SUPABASE_ANON_KEY, HERMES_DOMAIN.
-  Após deploy: definir HERMES_AGENT_URL no ambiente local (para ping_hermes.ps1).
+- [x] `2026-06-06` ~~**V28 — [DIRETOR] Hermes Agent: deploy EasyPanel:**~~
+  ✅ Deploy concluído — projeto hermes/hermes-agent rodando. OpenRouter ✓ · Telegram ✓ · Gateway PID 251.
+  Respondeu ao Diretor no Telegram em 2026-06-07. Config persistida em /opt/data/config.yaml.
 
-- [ ] `2026-06-06` **V28 — [DIRETOR] Supabase: criar tabela silenced_signals_log:** [diretor]
-  SQL: CREATE TABLE silenced_signals_log (id SERIAL PRIMARY KEY, origem TEXT, cliente TEXT, categoria TEXT, grau TEXT, motivo TEXT, shadow_mode BOOLEAN DEFAULT true, timestamp TIMESTAMPTZ DEFAULT now());
-  RLS: habilitar + policy SELECT para anon (leitura do log de sombra pelo Músculo).
+- [x] `2026-06-06` ~~**V28 — [DIRETOR] Supabase: criar tabela silenced_signals_log:**~~
+  ✅ Tabela criada com RLS — "Success. No rows returned" confirmado pelo Diretor 2026-06-07.
 
 ---
 ## PROJ-001 · Valdece (Hypercare até 18/06/2026)

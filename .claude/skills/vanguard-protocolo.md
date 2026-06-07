@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.4 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06)**
+**Versão da Skill:** 6.5 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 (2026-06-07)**
 
 ---
 
@@ -71,7 +71,17 @@ N8N:              Sistema Nervoso Autônomo (EasyPanel — 24/7) [adicionado V26
   └── Regra P-110: todo workflow tem fallback ≤ 3 passos documentado em MAINTENANCE_COST.md
   └── Regra P-109: Notion = OUTPUT ONLY — git é a única fonte de verdade
   └── Regra P-102: coexistência 30 dias — scripts .ps1 locais antes de desativar redundâncias
-  └── Regra P-072: W-7 Telegram DEVE sincronizar DECISOES.json local — estado assíncrono é violação
+  └── Regra P-072: W-7 Telegram DEVE sincronizar DECISOES.json local -- estado assincrono e violacao
+
+HERMES AGENT:     Motor Autonomo 24/7 (EasyPanel -- ativo desde 2026-06-07)
+  └── Papel: Executor autonomo entre sessoes. Responde no Telegram 24h. Graus A/B/C.
+  └── Grau A: age apenas com /aprovar do Diretor (atual)
+  └── Grau B: age + da 15min para veto (futuro -- apos validacao)
+  └── Grau C: autonomo + loga tudo (futuro -- apos Grau B estavel)
+  └── Host: EasyPanel projeto hermes/hermes-agent · Modelo: claude-sonnet-4-6 via OpenRouter
+  └── Telegram: @Eduardo431Vanguardbot · Config: /opt/data/config.yaml (volume persistido)
+  └── W-8 shadow mode expira: 2026-06-14 --> avaliar ativacao plena
+  └── Skill pendente: pentalateral-graus-abc.md upload no dashboard Hermes
 
 TRIGGER:          PROTOCOLO VANGUARD
 MEMORANDO:        MEMORANDO_PENTALATERAL_UNIVERSAL.md

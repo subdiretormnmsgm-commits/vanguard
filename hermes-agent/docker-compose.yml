@@ -35,7 +35,9 @@ services:
       - "9099:9099"
     command: ["gateway", "run"]
 
-  # --- DASHBOARD: painel de gestão (localhost only) ---
+  # --- DASHBOARD: painel de gestão (acesso apenas local via tunnel) ---
+  # SEGURANÇA: bind em 127.0.0.1 — nunca expor porta 9119 diretamente na internet
+  # Acesso: ssh -L 9119:localhost:9119 user@servidor, depois abrir localhost:9119
   dashboard:
     image: nousresearch/hermes-agent:latest
     container_name: hermes-dashboard
@@ -48,7 +50,7 @@ services:
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
     command: ["dashboard", "--host", "0.0.0.0", "--port", "9119", "--no-open"]
     ports:
-      - "9119:9119"
+      - "127.0.0.1:9119:9119"
 
 volumes:
   hermes_data:

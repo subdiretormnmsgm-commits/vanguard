@@ -1,8 +1,8 @@
 ﻿# 🚀 VANGUARD TECH - CONSTITUIÇÃO MESTRE
-- CURRENT_VERSION: 12
-- MODEL: "Venture Builder Autônoma & Holding de Dados SaaS — The Sovereign Launch"
-- SISTEMA: Pentalateral IAH — 5 atores: Diretor + Músculo + Estrategista + Auditor + Embaixador
-- ÚLTIMA_ATUALIZAÇÃO: 2026-06-06 — P-115: Músculo assessora ativamente a conclusão de pendentes e DEPENDENCY_MAP
+- CURRENT_VERSION: 13
+- MODEL: "Venture Builder Autônoma & Holding de Dados SaaS — The Sovereign Autonomous Layer"
+- SISTEMA: Pentalateral IAH + Hermes Agent — 5 atores + motor autônomo 24/7: Diretor + Músculo + Estrategista + Auditor + Embaixador + Hermes
+- ÚLTIMA_ATUALIZAÇÃO: 2026-06-07 — V28: Hermes Agent ONLINE (EasyPanel · Telegram · OpenRouter) + W-8 Signal Classifier shadow mode + P-116
 
 ---
 
@@ -530,10 +530,24 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 ---
 
-## 🤖 N8N — CAMADA DE AUTOMAÇÃO DO PENTALATERAL (ativo desde 2026-06-04)
+## 🤖 N8N + HERMES — CAMADA DE AUTOMAÇÃO DO PENTALATERAL (ativo desde 2026-06-04)
 
-> **EasyPanel:** `https://vanguard-vanguard-n8n.0ul9nk.easypanel.host` — cloud 24/7, independente do PC local.
-> **Credenciais:** `N8N Easypanel.txt` (gitignored). **P-110:** todo workflow crítico tem fallback manual ≤3 passos.
+> **EasyPanel n8n:** `https://vanguard-vanguard-n8n.0ul9nk.easypanel.host` — cloud 24/7, independente do PC local.
+> **EasyPanel Hermes:** projeto `hermes` / serviço `hermes-agent` — motor autônomo 24/7 via Telegram.
+> **Credenciais:** `N8N Easypanel.txt` + `CHAVES_SISTEMA_VANGUARD.txt` (ambos gitignored). **P-110:** todo workflow crítico tem fallback manual ≤3 passos.
+
+### HERMES AGENT — MOTOR AUTÔNOMO DO PENTALATERAL (ativo desde 2026-06-07)
+> **Imagem:** `nousresearch/hermes-agent:latest` · **Modelo:** `anthropic/claude-sonnet-4-6` via OpenRouter
+> **Telegram:** `@Eduardo431Vanguardbot` · **Grau atual:** A (age apenas com aprovação do Diretor)
+> **Config persistida:** `/opt/data/config.yaml` (volume EasyPanel — sobrevive restart)
+> **Graus de delegação:** A = pede aprovação · B = age + confirma em 15min · C = autônomo + loga
+> **Runbook:** `PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_EASYPANEL.md`
+
+**Regras obrigatórias para o Músculo (Hermes):**
+- Ao iniciar sessão: `ping_hermes.ps1` verifica se Hermes está online
+- W-8 shadow mode expira em 2026-06-14 → Músculo alerta Diretor para avaliar ativação plena
+- Skill `pentalateral-graus-abc.md` deve ser carregada no dashboard Hermes (pendente)
+- Hermes em Grau A: toda ação requer `/aprovar N` no Telegram antes de executar
 
 | Workflow | Trigger | O que faz |
 |---|---|---|
@@ -541,6 +555,9 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 | W-2 Monitor Supabase | Cron horário | Verifica Supabase online → alerta se offline |
 | W-3 GitHub Push | Webhook GitHub | Notifica commits → Telegram + Notion WIP Board |
 | W-4 Session Close | Webhook POST | Resumo de sessão → Telegram + Notion WIP + Pendentes |
+| W-5 ChurnWatch | Cron diário | (dias_sem_contato > threshold) → alerta Telegram com msg WhatsApp pronta |
+| W-7 Cérebro de Bolso | Webhook Telegram | /status /score /custo /veredito via Telegram → resposta imediata |
+| W-8 Signal Classifier | Webhook POST | Classifica sinais AUTO-RESOLVE/INFORMAR/DELIBERAR-A/B/C → `silenced_signals_log` (shadow mode 7d) |
 
 **Regras obrigatórias para o Músculo:**
 - Nunca chamar APIs externas (Claude, Gemini, Telegram) diretamente do código local — usar n8n como proxy quando possível

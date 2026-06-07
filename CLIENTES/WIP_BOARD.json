@@ -45,20 +45,33 @@
                                                           "DECISOES_VANGUARD_2026-06-06.json -- D1=C D2=A D3=A",
                                                           "VEREDITOS_VANGUARD_2026-06-06.json -- veredito verbal registrado"
                                                       ],
-                                    "pendentes_v28":  [
-                                                          "W-8 Signal Classifier -- build n8n shadow mode (~3h)",
-                                                          "Hermes Agent -- Docker EasyPanel + Claude API + pentalateral-graus-abc.md skill (~4-6h)",
-                                                          "State Guard -- acoplar ao session_start (~2h)",
-                                                          "N-4 Sync forcado pos-veredito em executar_vereditos.ps1 (~1h)",
+                                    "pendentes_v28":  [],
+                                    "entregues_v28_completo":  [
+                                                          "W-8 Signal Classifier -- ATIVO shadow mode n8n EasyPanel (2026-06-07)",
+                                                          "Hermes Agent -- ONLINE EasyPanel hermes/hermes-agent OpenRouter+Telegram (2026-06-07)",
+                                                          "silenced_signals_log -- CRIADA Supabase com RLS (2026-06-07)",
+                                                          "gate_coerencia.ps1 -- INTEGRADO skill_parser_gate",
+                                                          "State Guard -- INTEGRADO session_start",
+                                                          "N-4 executar_vereditos -- sync forcado pos-veredito",
                                                           "P-116 inscricao no INTELLIGENCE_LEDGER",
                                                           "MEMORIA_EMBAIXADOR_VANGUARD.md -- perfil fundador",
                                                           "NARRATIVA_FUNDADOR.md -- Vanguard como primeiro caso do proprio produto",
-                                                          "ping_hermes.ps1 -- verificacao de uptime",
-                                                          "silenced_signals_log -- tabela Supabase"
+                                                          "ping_hermes.ps1 -- health check Hermes",
+                                                          "RUNBOOK_EASYPANEL.md -- fonte canonica EasyPanel",
+                                                          "RUNBOOK_SUPABASE_DDL.md -- fonte canonica Supabase"
                                                       ],
+                                    "hermes_agent":  {
+                                                         "status":  "ONLINE",
+                                                         "plataforma":  "EasyPanel hermes/hermes-agent",
+                                                         "modelo":  "anthropic/claude-sonnet-4-6 via OpenRouter",
+                                                         "telegram":  "configurado (home: 8895733647)",
+                                                         "grau_atual":  "A -- age apenas com aprovacao",
+                                                         "config_path":  "/opt/data/config.yaml",
+                                                         "shadow_mode_w8_expira":  "2026-06-14"
+                                                     },
                                     "principios_v28":  [
                                                            "P-115 -- Musculo assessora ativamente conclusao de pendentes (2026-06-06)",
-                                                           "P-116 candidato -- o que doi e erro, nao esforco -- verificacao antes de automacao"
+                                                           "P-116 -- o que doi e erro, nao esforco -- verificacao antes de automacao (2026-06-06)"
                                                        ],
                                     "skill_path":  ".claude/skills/vanguard-v28.md",
                                     "memoria_embaixador_path":  "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
