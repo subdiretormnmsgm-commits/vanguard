@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 1.0 | Loop 28
+> Criada em: 2026-06-06 | Versão: 1.1 | Loop 28 | Atualizada: 2026-06-07
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -28,6 +28,9 @@
 - Frustra quando sócios são apresentados em hierarquia ("todos os sócios são iguais")
 - Frustra quando o mesmo princípio precisa ser reiterado ("sexto looping que...")
 - Frustra quando o sistema encerra sem mostrar o que ficou aberto
+- Frustra quando o sistema declara automação que não existe ("você disse automatizado três vezes e não estava")
+- Frustra quando a saída do terminal é verbosa em vez de direta — "simples como coisa de soldado"
+- Frustra quando ferramentas construídas não garantem os documentos atualizados sem intervenção manual
 
 **O que o Diretor não negocia:**
 - Controle real sobre o sistema — pode delegar execução, nunca veredito
@@ -59,16 +62,18 @@
 | H-V3 | Signal Classifier reduz ruído de alertas em >60% | INCERTA — shadow mode por 7 dias para medir baseline |
 | H-V4 | Loop Pentalateral autônomo gera princípios sem Eduardo iniciar | CANDIDATA — V28 é o experimento |
 
-### Gates Ativos (estado em 2026-06-06)
+### Gates Ativos (estado em 2026-06-07)
 
 | Gate | Descrição | Status |
 |------|-----------|--------|
 | V28-G1 | E-1 Gate de Coerência Semântica | ✅ ENTREGUE |
-| V28-G2 | Signal Classifier W-8 shadow mode | ⬜ PENDENTE — build n8n |
-| V28-G3 | Hermes Agent Docker EasyPanel | ⬜ PENDENTE — deploy |
+| V28-G2 | Signal Classifier W-8 shadow mode | ✅ ATIVO — shadow mode, expira 2026-06-14 |
+| V28-G3 | Hermes Agent Docker EasyPanel | ✅ ONLINE — Grau A, @Eduardo431Vanguardbot |
 | V28-G4 | State Guard session_start | ⬜ PENDENTE — build |
-| V28-G5 | 7 dias shadow mode validados | ⬜ BLOQUEADO — aguarda V28-G2 |
-| V28-G6 | Hermes Grau A ativado (primeiro loop autônomo) | ⬜ BLOQUEADO — aguarda V28-G3 + V28-G5 |
+| V28-G5 | 7 dias shadow mode validados | ⬜ AGUARDANDO — expira 2026-06-14 |
+| V28-G6 | Hermes Grau A ativado (primeiro loop autônomo) | ⬜ BLOQUEADO — aguarda V28-G5 |
+| V28-G7 | sync_ficou_no_ar integrado ao session_close | ✅ ENTREGUE — 2026-06-07 |
+| V28-G8 | Bloco Embaixador formato definitivo validado | ✅ ENTREGUE — 2026-06-07 |
 
 ---
 
@@ -92,9 +97,10 @@
 
 ## PROXIMA ACAO DO EMBAIXADOR
 
-Próxima ativação: ao fechar V28 build (Gates G2-G4 completados)  
-Questão para deliberar: "7 dias de shadow mode mostraram que tipo de sinal o Diretor quer interceptar vs. deixar passar?"  
-Sinal de alerta: se Eduardo precisar intervir operacionalmente mais de 2x/semana após V28, a delegação ainda não funcionou
+Próxima ativação: ao receber os 7 documentos da sessão 2026-06-07 (upload do Diretor)  
+Questão prioritária: "7 dias de shadow mode (expira 2026-06-14) — que tipo de sinal o Diretor quer interceptar vs. deixar passar?"  
+Questão secundária: "Secretário Virtual vai ser o primeiro produto que capta leads ativamente — como o Diretor quer posicionar isso para o primeiro cliente sem MEI?"  
+Sinal de alerta: se Eduardo precisar corrigir documentos que ferramentas deveriam manter atualizados, o sistema de automação falhou — não o Diretor
 
 ---
 
@@ -105,3 +111,8 @@ Sinal de alerta: se Eduardo precisar intervir operacionalmente mais de 2x/semana
 | 2026-06-06 | Loop 28 veredito | D1=C D2=A D3=A — "Pode executar" |
 | 2026-06-06 | AUTORIZO DEPENDENCY_MAP.json | VANGUARD adicionado aos projetos_ativos |
 | 2026-06-06 | "Não posso perder o controle" | Princípio fundador documentado — contrato de autonomia A/B/C é resposta |
+| 2026-06-07 | Hermes ONLINE confirmado | Grau A ativo, @Eduardo431Vanguardbot respondendo /status |
+| 2026-06-07 | GitHub secundário resolvido | PAT removido do histórico; filter-repo + force push |
+| 2026-06-07 | Bloco Embaixador validado | "Simples como coisa de soldado" — formato definitivo gravado em memória |
+| 2026-06-07 | Secretário Virtual diagnosticado | main.py existe; Formspree → EasyPanel é a próxima entrega |
+| 2026-06-07 | Falha P-032 identificada pelo Diretor | "As ferramentas não deveriam garantir os documentos atualizados?" — fix sistêmico pendente |
