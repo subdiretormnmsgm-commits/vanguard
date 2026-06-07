@@ -74,6 +74,26 @@ if ($exitCode -eq 0) {
     }
 }
 
+# GATE P-032: MEMORIA_EMBAIXADOR_VANGUARD deve ter sido atualizada hoje
+$memoriaVanguardPath = "$baseDir\CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
+$memoriaOk = $false
+if (Test-Path $memoriaVanguardPath) {
+    $memoriaOk = ((Get-Item $memoriaVanguardPath).LastWriteTime.Date -eq (Get-Date).Date)
+}
+if (-not $memoriaOk) {
+    Write-Host ""
+    Write-Host "  ========================================================" -ForegroundColor Red
+    Write-Host "  [GATE P-032] BLOQUEIO -- MEMORIA_EMBAIXADOR desatualizada" -ForegroundColor Red
+    Write-Host "  ========================================================" -ForegroundColor Red
+    Write-Host "  MEMORIA_EMBAIXADOR_VANGUARD.md nao foi modificada hoje." -ForegroundColor Red
+    Write-Host "  Musculo: atualizar antes de encerrar (P-032 obrigatorio)." -ForegroundColor Red
+    Write-Host "  Arquivo: CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md" -ForegroundColor Red
+    Write-Host "  Atualizar: gates, log de contatos, hipoteses, proxima acao." -ForegroundColor Yellow
+    Write-Host "  ========================================================" -ForegroundColor Red
+    Write-Host ""
+    $exitCode = 2
+}
+
 # POS-CLOSE: bloco Embaixador Operacional (A4 -- acao insubstituivel do Diretor)
 $dataFim = Get-Date -Format "yyyy-MM-dd"
 
