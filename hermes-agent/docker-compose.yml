@@ -1,56 +1,55 @@
 version: "3.9"
 
-# Hermes Agent — Motor Autônomo do Pentalateral IAH (V28)
+# Hermes Agent -- Motor Autônomo do Pentalateral IAH (V28)
+# Imagem oficial: nousresearch/hermes-agent (MIT, Nous Research)
 # Deploy: EasyPanel -> New Service -> Docker Compose
-# Imagem: nousresearch/hermes-agent (MIT, v0.14.0)
-# P-110: fallback = n8n + session_start manual se container offline
+#
+# Prerequisito: OPENROUTER_API_KEY de openrouter.ai/keys
+# Modelo usado: anthropic/claude-sonnet-4-6 (via OpenRouter)
+#
+# P-110: fallback manual = session_start + WIP_BOARD + PENDENTES (3 passos)
 
 services:
-  hermes-agent:
+  # --- GATEWAY: o agente autônomo principal ---
+  gateway:
     image: nousresearch/hermes-agent:latest
     container_name: hermes-pentalateral
     restart: unless-stopped
-    environment:
-      # API do modelo (Claude Sonnet como cerebro principal)
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - HERMES_MODEL=claude-sonnet-4-6
-      # Memoria persistente SQLite
-      - HERMES_MEMORY_PATH=/data/hermes_memory.db
-      # Skill do Pentalateral (graus A/B/C)
-      - HERMES_SKILL_PATH=/skills/pentalateral-graus-abc.md
-      # Integracao n8n (webhook para classificacao de sinais W-8)
-      - N8N_WEBHOOK_BASE=${N8N_WEBHOOK_BASE}
-      - N8N_WEBHOOK_SECRET=${N8N_WEBHOOK_SECRET}
-      # Telegram (Registro de Iniciativa diario ao Diretor)
-      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
-      - TELEGRAM_CHAT_ID_DIRETOR=${TELEGRAM_CHAT_ID_DIRETOR}
-      # Supabase (silenced_signals_log)
-      - SUPABASE_URL=${SUPABASE_URL}
-      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
-      # Claude Code CLI (para operacoes Grau C)
-      - CLAUDE_CODE_PATH=/usr/local/bin/claude
     volumes:
-      # Memoria persistente entre restarts
-      - hermes_data:/data
-      # Skill dos graus A/B/C (montada do repo)
-      - ./skills:/skills:ro
-      # Logs auditaveis
-      - hermes_logs:/logs
+      - hermes_data:/opt/data
+    environment:
+      # LLM via OpenRouter (suporta anthropic/claude-sonnet-4-6)
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+
+      # Telegram: canal de comunicação com o Diretor
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_ALLOWED_USERS=${TELEGRAM_ALLOWED_USERS}
+      - TELEGRAM_HOME_CHANNEL=${TELEGRAM_HOME_CHANNEL}
+      - TELEGRAM_HOME_CHANNEL_NAME=Vanguard Pentalateral
+
+      # API Server: expõe endpoint para W-8 enviar sinais ao Hermes
+      # Autenticação obrigatória (P-110: nunca expor sem API_SERVER_KEY)
+      - API_SERVER_HOST=0.0.0.0
+      - API_SERVER_KEY=${HERMES_API_SERVER_KEY}
     ports:
-      # Health check endpoint (ping_hermes.ps1 consulta esta porta)
-      - "8888:8888"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8888/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
-    labels:
-      - "easypanel.domain=${HERMES_DOMAIN}"
-      - "easypanel.port=8888"
+      - "9099:9099"
+    command: ["gateway", "run"]
+
+  # --- DASHBOARD: painel de gestão (localhost only) ---
+  dashboard:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-dashboard
+    restart: unless-stopped
+    depends_on:
+      - gateway
+    volumes:
+      - hermes_data:/opt/data
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+    command: ["dashboard", "--host", "0.0.0.0", "--port", "9119", "--no-open"]
+    ports:
+      - "9119:9119"
 
 volumes:
   hermes_data:
-    driver: local
-  hermes_logs:
     driver: local

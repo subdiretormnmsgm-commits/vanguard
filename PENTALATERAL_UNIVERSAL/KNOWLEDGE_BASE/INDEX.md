@@ -14,6 +14,8 @@
 |---------|---------|-------------------|
 | Busca semântica + pgvector + Supabase | [RUNBOOK_BUSCA_SEMANTICA_SUPABASE.md](../OPERACAO/RUNBOOK_BUSCA_SEMANTICA_SUPABASE.md) | dimension mismatch · outputDimensionality · reembed · cache PostgREST · HNSW limit |
 | Testes remotos de frontend (Playwright) | [TESTES_REMOTOS.md](TESTES_REMOTOS.md) | golden path · interceptação de fetch · checklist por tipo de projeto |
+| EasyPanel — deploy e API n8n | [RUNBOOK_EASYPANEL.md](../OPERACAO/RUNBOOK_EASYPANEL.md) | Docker Compose deploy · import workflow API · credencial Telegram · erros tRPC |
+| Supabase DDL e RLS | [RUNBOOK_SUPABASE_DDL.md](../OPERACAO/RUNBOOK_SUPABASE_DDL.md) | anon vs service role · CREATE TABLE · RLS policies · erros comuns |
 
 ---
 

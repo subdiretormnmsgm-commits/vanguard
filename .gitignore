@@ -61,3 +61,4 @@ _n8n/all_workflows.json
 _n8n/w8_put_payload.json
 _n8n/w8_updated_api.json
 _n8n/w8_current_api.json
+hermes-agent/.env

@@ -723,25 +723,45 @@ if ($novasFalhasG7.Count -gt 0 -or $env:FALHA_SESSAO) {
     }
 }
 
-# ADD-F2 -- KNOWLEDGE_BASE (P-050) + CANDIDATOS_A_PRINCIPIO pendentes
-$kbPath = "$BASE\PENTALATERAL_UNIVERSAL\KNOWLEDGE_BASE\INDEX.md"
-if (Test-Path $kbPath) {
-    $kbAge = ([datetime]::Today - (Get-Item $kbPath).LastWriteTime.Date).Days
-    if ($kbAge -gt 7) {
-        Write-Host "  [GATE 7] KNOWLEDGE_BASE INDEX sem atualizacao ha ${kbAge} dias (P-050)" -ForegroundColor Yellow
-        $dtF2 = Get-Date -Format "dd-MM-yyyy"
-        $dsF2 = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
-        $exF2 = if (Test-Path $pendentesPath) { Get-Content $pendentesPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue } else { "" }
-        if ($null -eq $exF2) { $exF2 = "" }
-        if (-not ($exF2 -match ("KNOWLEDGE_BASE.*" + [regex]::Escape($dtF2)))) {
-            Add-Content $pendentesPath "`n- [KNOWLEDGE_BASE ($dtF2 $dsF2)] Algum problema resolvido nesta sessao nao documentado? (P-050)" -Encoding UTF8
-        }
-    } else {
-        Write-Host "  [GATE 7] KNOWLEDGE_BASE INDEX -- OK (${kbAge}d)" -ForegroundColor Green
-    }
+# ADD-F2 -- KNOWLEDGE_BASE (P-050) -- gate SEMPRE ativo, nao apenas por idade
+# O gate antigo (>7 dias) gerava falso verde quando INDEX foi atualizado mas problemas nao documentados
+# Novo gate: SEMPRE exibe runbooks disponiveis + exige confirmacao explicita do Musculo
+$kbPath     = "$BASE\PENTALATERAL_UNIVERSAL\KNOWLEDGE_BASE\INDEX.md"
+$runbookDir = "$BASE\PENTALATERAL_UNIVERSAL\OPERACAO"
+Write-Host ""
+Write-Host "  ================================================================" -ForegroundColor Cyan
+Write-Host "  [GATE 7] KNOWLEDGE_BASE -- P-050 (sempre ativo)" -ForegroundColor Cyan
+Write-Host "  ================================================================" -ForegroundColor Cyan
+Write-Host "  Regra: todo problema tecnico resolvido nesta sessao" -ForegroundColor White
+Write-Host "  deve estar em um RUNBOOK antes de fechar." -ForegroundColor White
+Write-Host ""
+
+# Listar runbooks existentes como ancora para o Musculo
+$runbooks = @(Get-ChildItem $runbookDir -Filter "RUNBOOK_*.md" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name)
+if ($runbooks.Count -gt 0) {
+    Write-Host "  Runbooks disponiveis:" -ForegroundColor DarkGray
+    $runbooks | ForEach-Object { Write-Host "    - $_" -ForegroundColor DarkGray }
 } else {
-    Write-Host "  [GATE 7] KNOWLEDGE_BASE\INDEX.md nao encontrado -- criar apos resolver problema (P-050)" -ForegroundColor DarkGray
+    Write-Host "  Nenhum runbook encontrado em PENTALATERAL_UNIVERSAL\OPERACAO\" -ForegroundColor Yellow
 }
+Write-Host ""
+
+# Detectar problemas resolvidos hoje via git log (commits com fix/erro/workaround/solucao)
+$gitLogHoje = git log --since="00:00" --oneline 2>$null | Select-String -Pattern "fix|erro|workaround|solucao|corrigi|ajust|bug" -CaseSensitive:$false
+if ($gitLogHoje) {
+    Write-Host "  Commits de hoje com indicios de problemas resolvidos:" -ForegroundColor Yellow
+    $gitLogHoje | Select-Object -First 5 | ForEach-Object { Write-Host "    $_" -ForegroundColor Yellow }
+    Write-Host ""
+}
+
+Write-Host "  [MUSCULO] Resposta obrigatoria antes de fechar:" -ForegroundColor White
+Write-Host "    KB-OK    -- todos os problemas desta sessao estao documentados" -ForegroundColor Green
+Write-Host "    KB-FALTA -- [descrever o que nao foi documentado ainda]" -ForegroundColor Red
+Write-Host ""
+Write-Host "  Se KB-FALTA: abrir o RUNBOOK correspondente agora." -ForegroundColor Yellow
+Write-Host "  Nao existe 'documentar depois' -- depois nao existe." -ForegroundColor Yellow
+Write-Host "  ================================================================" -ForegroundColor Cyan
+Write-Host ""
 $candidatosPath = "$BASE\PENTALATERAL_UNIVERSAL\KNOWLEDGE_BASE\CANDIDATOS_A_PRINCIPIO.md"
 if (Test-Path $candidatosPath) {
     $candContent  = Get-Content $candidatosPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
