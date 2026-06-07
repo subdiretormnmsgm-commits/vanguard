@@ -1,4 +1,4 @@
-# PENDENTES — Vanguard IAH
+﻿# PENDENTES — Vanguard IAH
 > Atualizado pelo Músculo em tempo real durante qualquer sessão.
 > O briefing matinal lê este arquivo — tudo aqui aparece às 7h.
 > Regra P-047: qualquer tarefa identificada como pendente → registrar aqui IMEDIATAMENTE.
@@ -13,6 +13,52 @@
 
 ---
 
+## PROJ-000 · Vanguard (VanguardV28 — Pentalateral Autônomo)
+
+- [x] `2026-06-06` ~~**V28 — gate_coerencia.ps1 (E-1 Haiku API) + skill_parser_gate integrado:**~~
+  ✅ gate_coerencia.ps1 criado e integrado ao skill_parser_gate.ps1 — commit baf693a.
+
+- [x] `2026-06-06` ~~**V28 — sync_guard -WhatIf — modo passivo real:**~~
+  ✅ -WhatIf implementado: exibe o que faria sem escrever em disco. Detectado 2026-06-06.
+
+- [x] `2026-06-06` ~~**V28 — N-4: sync forçado pós-veredito em executar_vereditos.ps1:**~~
+  ✅ N-4 adicionado ao final de executar_vereditos.ps1 — P-033 automático após deliberação.
+
+- [x] `2026-06-06` ~~**V28 — State Guard (state_guard.ps1) integrado ao session_start:**~~
+  ✅ Criado + integrado ao .claude/hooks/session_start.ps1 — anomalias WIP_BOARD na abertura.
+
+- [x] `2026-06-06` ~~**V28 — ping_hermes.ps1 — health check do Hermes Agent:**~~
+  ✅ Criado: exit 0 (UP) / exit 1 (DOWN) / exit 2 (config ausente). -Silencioso + -Telegram.
+
+- [x] `2026-06-06` ~~**V28 — MEMORIA_EMBAIXADOR_VANGUARD.md — perfil comportamental do Fundador:**~~
+  ✅ Criado em CLIENTES/VANGUARD/CLAUDE_PROJECT/ — temperatura 9.2/10, hipóteses H-V1 a H-V4.
+
+- [x] `2026-06-06` ~~**V28 — NARRATIVA_FUNDADOR.md — E-4 Vanguard como primeiro caso do produto:**~~
+  ✅ Criado em CLIENTES/VANGUARD/ — argumento central, história, pitch, métricas.
+
+- [x] `2026-06-06` ~~**V28 — W-8 Signal Classifier JSON (shadow mode) para n8n:**~~
+  ✅ _n8n/w8_signal_classifier.json criado — 6 nós, classificação AUTO-RESOLVE/DELIBERAR-A/B/C.
+
+- [x] `2026-06-06` ~~**V28 — Hermes Agent Docker config para EasyPanel:**~~
+  ✅ hermes-agent/docker-compose.yml + hermes-agent/skills/pentalateral-graus-abc.md criados.
+
+- [x] `2026-06-06` ~~**V28 — P-116 inscrito no INTELLIGENCE_LEDGER.md:**~~
+  ✅ "O que dói é erro, não esforço — verificação antes de automação" inscrito. AUTORIZO concedido.
+
+- [ ] `2026-06-06` **V28 — [DIRETOR] W-8: importar _n8n/w8_signal_classifier.json no EasyPanel:** [diretor]
+  Ação: EasyPanel → n8n → Import Workflow → selecionar _n8n/w8_signal_classifier.json.
+  Configurar credenciais: Telegram API + Supabase HTTP. Ativar em shadow mode (7 dias).
+
+- [ ] `2026-06-06` **V28 — [DIRETOR] Hermes Agent: deploy docker-compose.yml no EasyPanel:** [diretor]
+  Ação: EasyPanel → New Service → Docker Compose → colar hermes-agent/docker-compose.yml.
+  Definir env vars: ANTHROPIC_API_KEY, N8N_WEBHOOK_BASE, N8N_WEBHOOK_SECRET, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID_DIRETOR, SUPABASE_URL, SUPABASE_ANON_KEY, HERMES_DOMAIN.
+  Após deploy: definir HERMES_AGENT_URL no ambiente local (para ping_hermes.ps1).
+
+- [ ] `2026-06-06` **V28 — [DIRETOR] Supabase: criar tabela silenced_signals_log:** [diretor]
+  SQL: CREATE TABLE silenced_signals_log (id SERIAL PRIMARY KEY, origem TEXT, cliente TEXT, categoria TEXT, grau TEXT, motivo TEXT, shadow_mode BOOLEAN DEFAULT true, timestamp TIMESTAMPTZ DEFAULT now());
+  RLS: habilitar + policy SELECT para anon (leitura do log de sombra pelo Músculo).
+
+---
 ## PROJ-001 · Valdece (Hypercare até 18/06/2026)
 
 - [x] `2026-06-02` ~~**Sentinel Report — PASSO7-C preparado pelo Músculo:**~~
@@ -91,7 +137,16 @@
   Fonte: CLIENTES/WIP_BOARD.md · Cópias: INGRID/07_WIP_BOARD.md + VALDECE/07_WIP_BOARD.md
   sync_guard -Abertura: 5 pares · OK: 12 · Divergentes: 0 · VERDE.
 
-- [ ] `2026-06-XX` **[CANDIDATO A PRINCÍPIO] sync_guard -WhatIf — modo verdadeiramente passivo:** [musculo]
+- [ ] `2026-06-06` **[CANDIDATO A PRINCÍPIO] Diagrama de ciclo sem todos os membros normaliza skip:** [musculo]
+  Todo diagrama ou representação do ciclo Pentalateral mostrado no chat deve incluir os 5 membros
+  (Gemini → NotebookLM → Embaixador → Músculo → Diretor) OU declarar explicitamente que é subfluxo.
+  Diagrama parcial — mesmo para explicar nomenclatura ou naming convention — normaliza pular membros
+  (ex: mostrar NotebookLM → Músculo sem Embaixador). Detectado 2026-06-06: elo apresentado omitiu Embaixador.
+  Numeração do princípio atribuída pelo Diretor na próxima sessão com o Embaixador.
+  Ação: ao gerar qualquer diagrama de fluxo, verificar se todos os membros estão ou declarar "[SUBFLUXO: X]".
+
+- [x] `2026-06-06` ~~**[CANDIDATO A PRINCÍPIO] sync_guard -WhatIf — modo verdadeiramente passivo:**~~
+  ✅ -WhatIf implementado em sync_guard.ps1 (V28). Modo passivo real: exibe o que faria sem escrever em disco. [RESOLVE: sync_guard-whatif]
   DryRun no sync_guard precisa de flag verdadeiramente passivo (-WhatIf) que não escreva em disco.
   Nomenclatura "DryRun" sem modo passivo real é risco de execução silenciosa — detectado em 2026-06-06
   quando -AutoCorrigir alterou NOTEBOOKLM_BASE/01_SKILL durante teste descrito como "DryRun".

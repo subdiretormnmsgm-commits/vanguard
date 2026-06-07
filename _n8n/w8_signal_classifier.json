@@ -1,0 +1,145 @@
+{
+  "name": "W-8 Signal Classifier (Shadow Mode)",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// W-8 Signal Classifier -- Shadow Mode\n// Categoriza sinais de W-1/W-5/W-3 antes de qualquer notificacao\n// Shadow Mode: classifica mas NAO bloqueia sinais existentes\n// P-110: fallback = W-1/W-5/W-3 passam direto se W-8 offline\n\nconst payload = $input.first().json;\n\n// Schema do sinal recebido\nconst sinal = {\n  origem: payload.origem || 'DESCONHECIDO',  // W-1 | W-3 | W-5\n  cliente: payload.cliente || '',\n  tipo: payload.tipo || '',\n  dados: payload.dados || {},\n  timestamp: payload.timestamp || new Date().toISOString()\n};\n\n// Regras de classificacao (calibrar apos 7 dias shadow mode)\nlet categoria = 'INFORMAR';\nlet grau = null;\nlet motivo = '';\nlet silenciar = false;\n\n// --- AUTO-RESOLVE: sinais que nao precisam de atencao imediata ---\nif (\n  // Check-in de rotina sem anomalia\n  (sinal.origem === 'W-1' && sinal.tipo === 'check_in' && sinal.dados.status === 'OK') ||\n  // GitHub push em branch nao-master\n  (sinal.origem === 'W-3' && sinal.tipo === 'push' && sinal.dados.branch && sinal.dados.branch !== 'master') ||\n  // Supabase OK (W-2)\n  (sinal.origem === 'W-2' && sinal.tipo === 'health_check' && sinal.dados.status === 'UP')\n) {\n  categoria = 'AUTO-RESOLVE';\n  motivo = 'Sinal de rotina sem anomalia detectada';\n  silenciar = true;\n}\n\n// --- DELIBERAR-A: requer Eduardo antes de qualquer acao ---\nelse if (\n  // Churn critico (>2x threshold)\n  (sinal.origem === 'W-5' && sinal.tipo === 'churn_critico') ||\n  // Push para master com mudancas em arquivos criticos\n  (sinal.origem === 'W-3' && sinal.tipo === 'push' && sinal.dados.branch === 'master' &&\n    sinal.dados.arquivos_criticos && sinal.dados.arquivos_criticos.length > 0) ||\n  // Supabase offline\n  (sinal.origem === 'W-2' && sinal.tipo === 'health_check' && sinal.dados.status === 'DOWN')\n) {\n  categoria = 'DELIBERAR';\n  grau = 'A';\n  motivo = 'Acao requer veredito do Diretor antes de executar';\n}\n\n// --- DELIBERAR-B: Hermes age + confirma com Eduardo ---\nelse if (\n  // Churn atencao (>1x threshold, <2x)\n  (sinal.origem === 'W-5' && sinal.tipo === 'churn_atencao') ||\n  // Session close com fricao detectada\n  (sinal.origem === 'W-4' && sinal.tipo === 'session_close' && sinal.dados.friccoes && sinal.dados.friccoes.length > 0)\n) {\n  categoria = 'DELIBERAR';\n  grau = 'B';\n  motivo = 'Hermes age com protocolo padrao + envia confirmacao ao Diretor';\n}\n\n// --- DELIBERAR-C: Hermes age autonomamente + loga ---\nelse if (\n  // Session close rotineiro\n  (sinal.origem === 'W-4' && sinal.tipo === 'session_close') ||\n  // Check-in com dados novos (atualiza WIP_BOARD)\n  (sinal.origem === 'W-1' && sinal.tipo === 'check_in')\n) {\n  categoria = 'DELIBERAR';\n  grau = 'C';\n  motivo = 'Protocolo pre-aprovado — Hermes executa + loga em silenced_signals_log';\n}\n\n// --- INFORMAR: notificar Eduardo, nenhuma acao automatica ---\nelse {\n  categoria = 'INFORMAR';\n  motivo = 'Sinal nao mapeado — encaminhar ao Diretor para classificacao manual';\n}\n\n// Shadow mode: classificar mas NAO silenciar (7 dias de observacao)\nconst shadowMode = true;\nif (shadowMode && silenciar) {\n  silenciar = false;  // Shadow: nao silencia ainda\n}\n\n// Log do classificador (sempre)\nconst resultado = {\n  shadow_mode: shadowMode,\n  sinal_original: sinal,\n  classificacao: {\n    categoria,\n    grau,\n    motivo,\n    silenciar,\n    classificado_em: new Date().toISOString()\n  }\n};\n\nreturn [{ json: resultado }];\n"
+      },
+      "id": "classify-signal",
+      "name": "Classificar Sinal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.classificacao.categoria }}",
+              "rightValue": "AUTO-RESOLVE",
+              "operator": { "type": "string", "operation": "equals" }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "check-auto-resolve",
+      "name": "Auto-Resolve?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log para silenced_signals_log (Supabase) -- Shadow Mode\n// Em producao: sinais AUTO-RESOLVE nao chegam ao Diretor\nconst dados = $input.first().json;\n\nreturn [{\n  json: {\n    acao: 'LOG_SILENCIADO',\n    shadow_mode: true,\n    nota: 'Em shadow mode: sinal classificado como AUTO-RESOLVE mas NAO silenciado (7 dias observacao)',\n    dados: dados,\n    timestamp: new Date().toISOString()\n  }\n}];\n"
+      },
+      "id": "log-auto-resolve",
+      "name": "Log Auto-Resolve (Shadow)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 200],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Encaminhar sinal classificado para workflow de destino\n// INFORMAR -> Telegram direto\n// DELIBERAR-A -> Telegram com urgencia + bloquear Hermes\n// DELIBERAR-B -> Hermes age + Telegram confirmacao\n// DELIBERAR-C -> Hermes age silencioso + log\n\nconst dados = $input.first().json;\nconst cat   = dados.classificacao.categoria;\nconst grau  = dados.classificacao.grau;\n\nlet destino = 'TELEGRAM_INFORMAR';\nlet urgente = false;\n\nif (cat === 'DELIBERAR' && grau === 'A') {\n  destino = 'TELEGRAM_DELIBERAR_A';\n  urgente = true;\n} else if (cat === 'DELIBERAR' && grau === 'B') {\n  destino = 'HERMES_B';\n} else if (cat === 'DELIBERAR' && grau === 'C') {\n  destino = 'HERMES_C';\n}\n\nreturn [{\n  json: {\n    ...dados,\n    roteamento: { destino, urgente }\n  }\n}];\n"
+      },
+      "id": "route-signal",
+      "name": "Rotear Sinal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 380],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "sendTo": "={{ $env.TELEGRAM_CHAT_ID_DIRETOR }}",
+        "text": "={{ '[W-8] SINAL CLASSIFICADO -- ' + $json.classificacao.categoria + (($json.classificacao.grau) ? '-' + $json.classificacao.grau : '') + '\\n\\nOrigem: ' + $json.sinal_original.origem + ' | Cliente: ' + $json.sinal_original.cliente + '\\nMotivo: ' + $json.classificacao.motivo + '\\n\\n[SHADOW MODE -- apenas observando]' }}",
+        "additionalFields": {}
+      },
+      "id": "telegram-notify",
+      "name": "Telegram -- Notificar (Shadow)",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1120, 380],
+      "continueOnFail": true,
+      "credentials": { "telegramApi": { "id": "telegram-api", "name": "Telegram API" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL + '/rest/v1/silenced_signals_log' }}",
+        "authentication": "predefinedCredentialType",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ origem: $json.sinal_original.origem, cliente: $json.sinal_original.cliente, categoria: $json.classificacao.categoria, grau: $json.classificacao.grau, motivo: $json.classificacao.motivo, shadow_mode: true, timestamp: $json.classificacao.classificado_em }) }}",
+        "options": {}
+      },
+      "id": "supabase-log",
+      "name": "Supabase -- Log Classificacao",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 200],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "w8-signal-classifier",
+        "authentication": "none",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook -- Receber Sinal",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "w8-signal-classifier"
+    }
+  ],
+  "connections": {
+    "Webhook -- Receber Sinal": {
+      "main": [[ { "node": "Classificar Sinal", "type": "main", "index": 0 } ]]
+    },
+    "Classificar Sinal": {
+      "main": [[ { "node": "Auto-Resolve?", "type": "main", "index": 0 } ]]
+    },
+    "Auto-Resolve?": {
+      "main": [
+        [ { "node": "Log Auto-Resolve (Shadow)", "type": "main", "index": 0 } ],
+        [ { "node": "Rotear Sinal", "type": "main", "index": 0 } ]
+      ]
+    },
+    "Log Auto-Resolve (Shadow)": {
+      "main": [[ { "node": "Supabase -- Log Classificacao", "type": "main", "index": 0 } ]]
+    },
+    "Rotear Sinal": {
+      "main": [[ { "node": "Telegram -- Notificar (Shadow)", "type": "main", "index": 0 } ]]
+    },
+    "Telegram -- Notificar (Shadow)": {
+      "main": [[ { "node": "Supabase -- Log Classificacao", "type": "main", "index": 0 } ]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "meta": {
+    "instanceId": "vanguard-pentalateral",
+    "templateCredsSetupCompleted": false
+  },
+  "pinData": {},
+  "versionId": "v28-shadow-mode",
+  "tags": [
+    { "createdAt": "2026-06-06", "name": "V28" },
+    { "createdAt": "2026-06-06", "name": "shadow-mode" },
+    { "createdAt": "2026-06-06", "name": "autonomo" }
+  ]
+}

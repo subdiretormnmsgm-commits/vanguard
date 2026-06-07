@@ -420,6 +420,23 @@ if (Test-Path $syncGuardScript) {
     } catch {}
 }
 
+# --- STATE_GUARD: anomalias semanticas no WIP_BOARD (V28) ---
+$stateGuardOutput = ""
+$stateGuardScript = Join-Path $projectDir "scripts\state_guard.ps1"
+if (Test-Path $stateGuardScript) {
+    try {
+        $sgRaw = & powershell.exe -NonInteractive -File $stateGuardScript -Silencioso 2>$null
+        $sgJson = $sgRaw -join "" | ConvertFrom-Json
+        if ($sgJson -and $sgJson.alertas -gt 0) {
+            $linhasSG = @("STATE_GUARD V28 -- $(Get-Date -Format 'yyyy-MM-dd') -- $($sgJson.alertas) anomalia(s)")
+            foreach ($det in $sgJson.detalhes) {
+                $linhasSG += "  [$($det.nivel)] $($det.detalhe)"
+            }
+            $stateGuardOutput = $linhasSG -join "`n"
+        }
+    } catch {}
+}
+
 # --- MANIFEST_DOCS: estado de sincronizacao por projeto (P-071) ---
 function Get-ManifestStatus {
     $wipPath = Join-Path $projectDir "CLIENTES\WIP_BOARD.json"
@@ -726,6 +743,7 @@ if ($loopLembrete)      { $sections = @("## LEMBRETE DE LOOP -- FASES ATIVAS (P-
 if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA CONVERSACIONAL)`n$contextoSessao") + $sections }
 if ($documentosMortos)  { $sections = @("## DOCUMENTOS MORTOS (P-113) -- VARREDURA AUTOMATICA`n$documentosMortos") + $sections }
 if ($syncGuardOutput)   { $sections = @("## SYNC_GUARD (P-033) -- DIVERGENCIAS DE DOCUMENTOS CANONICOS`n$syncGuardOutput") + $sections }
+if ($stateGuardOutput)  { $sections = @("## STATE_GUARD V28 -- ANOMALIAS NO WIP_BOARD`n$stateGuardOutput") + $sections }
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +

@@ -272,3 +272,24 @@ Write-Host "  . Se LEDGER atualizado -> sync: .\scripts\session_close.ps1 -SyncO
 Write-Host "  . Se mensagem copiada -> colar no WhatsApp para $projetoLabel"
 Write-Host ""
 Write-Host "Painel fechado. Ciclo completo."
+
+# N-4 V28 -- Sync forcado pos-veredito (P-033 automatico apos deliberacao)
+# Garante que NOTEBOOKLM_FONTES nao fica defasado apos veredito executado
+Write-Host ""
+Write-Host "==================================================="
+Write-Host "  N-4 V28 -- Sync forcado pos-veredito"           -ForegroundColor Cyan
+Write-Host "==================================================="
+$syncScript = Join-Path $raiz "scripts\sync_vanguard_docs.ps1"
+$altScript  = Join-Path $raiz ".claude\skills\files\sync_vanguard_docs.ps1"
+$syncPath   = if (Test-Path $syncScript) { $syncScript } elseif (Test-Path $altScript) { $altScript } else { $null }
+
+if ($syncPath) {
+    Write-Host "  Rodando sync para garantir FONTES atualizadas..." -ForegroundColor DarkGray
+    & $syncPath 2>&1 | Select-String -Pattern "(SYNC CONCLUIDO|Sync:|Orfaos:|INTEGRIDADE)" | ForEach-Object {
+        Write-Host "  $_" -ForegroundColor DarkGray
+    }
+    Write-Host "  [N-4] Sync pos-veredito concluido." -ForegroundColor Green
+} else {
+    Write-Host "  [N-4] sync_vanguard_docs.ps1 nao encontrado -- rodar manualmente: .\.claude\skills\files\sync_vanguard_docs.ps1" -ForegroundColor Yellow
+}
+Write-Host "==================================================="

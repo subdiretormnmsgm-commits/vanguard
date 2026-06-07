@@ -15,13 +15,24 @@ param(
     [switch]$Abertura,
     [switch]$Fechamento,
     [switch]$AutoCorrigir,
-    [switch]$Silencioso
+    [switch]$Silencioso,
+    [switch]$WhatIf
 )
 
-if (-not ($Abertura -or $Fechamento)) {
+# -WhatIf: exibe o que seria feito sem escrever nada em disco (CANDIDATO P-117)
+# Detectado em 2026-06-06: -AutoCorrigir alterou NOTEBOOKLM_BASE/01_SKILL durante
+# teste descrito como "DryRun" -- modo verdadeiramente passivo era necessario.
+if ($WhatIf) {
+    $AutoCorrigir = $false  # WhatIf nunca escreve -- sobrescreve AutoCorrigir
+    if (-not ($Abertura -or $Fechamento)) {
+        $Abertura = $true   # WhatIf sem modo = simular Abertura
+    }
+}
+
+if (-not ($Abertura -or $Fechamento -or $WhatIf)) {
     if (-not $Silencioso) {
         Write-Host "[sync_guard] Uso: -Abertura (relatorio) | -Fechamento (bloqueante)" -ForegroundColor Yellow
-        Write-Host "             Opcional: -AutoCorrigir | -Silencioso" -ForegroundColor DarkGray
+        Write-Host "             Opcional: -AutoCorrigir | -Silencioso | -WhatIf (passivo -- sem escrita)" -ForegroundColor DarkGray
     }
     exit 0
 }
@@ -80,11 +91,13 @@ foreach ($par in $pares) {
         }
         $divergencias.Add($div)
 
-        if ($AutoCorrigir) {
+        if ($AutoCorrigir -and -not $WhatIf) {
             $dir = Split-Path $copiaAbs -Parent
             if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
             Copy-Item $fonteAbs $copiaAbs -Force
             $corrigidos.Add($copia)
+        } elseif ($WhatIf) {
+            $corrigidos.Add("[WHATIF] COPIARIA: $($par.fonte) -> $copia")
         }
     }
 }
@@ -112,11 +125,12 @@ if ($Silencioso) {
 
 # --- OUTPUT VISUAL ---
 
-$modo = if ($Abertura) { "ABERTURA" } else { "FECHAMENTO" }
+$modo = if ($WhatIf) { "WHATIF (passivo -- sem escrita)" } elseif ($Abertura) { "ABERTURA" } else { "FECHAMENTO" }
 Write-Host ""
 Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host "  SYNC_GUARD -- $modo -- $(Get-Date -Format 'yyyy-MM-dd HH:mm')" -ForegroundColor Cyan
 Write-Host "  Pares: $($pares.Count) | OK: $okCount | Divergentes: $($divergencias.Count)" -ForegroundColor Gray
+if ($WhatIf) { Write-Host "  [WHATIF] Nenhum arquivo sera alterado. Modo leitura pura." -ForegroundColor DarkYellow }
 Write-Host "================================================================" -ForegroundColor Cyan
 
 if ($divergencias.Count -eq 0) {
@@ -159,7 +173,13 @@ if ($Abertura -and $divergenciasBloqueantes.Count -gt 0 -and -not $AutoCorrigir)
     Write-Host ""
 }
 
-if ($Fechamento -and $divergenciasBloqueantes.Count -gt 0) {
+if ($WhatIf -and $divergencias.Count -gt 0) {
+    Write-Host "  [WHATIF] Se rodar com -AutoCorrigir, $($corrigidos.Count) copia(s) seriam restauradas." -ForegroundColor DarkYellow
+    Write-Host "  NENHUM arquivo foi alterado." -ForegroundColor DarkYellow
+    Write-Host ""
+}
+
+if ($Fechamento -and -not $WhatIf -and $divergenciasBloqueantes.Count -gt 0) {
     Write-Host "  [BLOQUEIO] session_close BLOQUEADO -- $($divergenciasBloqueantes.Count) divergencia(s) critica(s)" -ForegroundColor Red
     Write-Host "  ACAO: corrija a divergencia ou use -AutoCorrigir antes de fechar" -ForegroundColor Yellow
     Write-Host ""
