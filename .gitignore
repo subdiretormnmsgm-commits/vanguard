@@ -54,3 +54,10 @@ n8n_workflows/_*_temp.json
 
 # Cofre de chaves consolidado (HV-1)
 CHAVES_SISTEMA_VANGUARD.txt
+
+# n8n API intermediários (podem conter chaves hardcoded)
+_n8n/*_api.json
+_n8n/all_workflows.json
+_n8n/w8_put_payload.json
+_n8n/w8_updated_api.json
+_n8n/w8_current_api.json
