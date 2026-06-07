@@ -561,6 +561,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 | W-3 GitHub Push | Webhook GitHub | Notifica commits → Telegram + Notion WIP Board |
 | W-4 Session Close | Webhook POST | Resumo de sessão → Telegram + Notion WIP + Pendentes |
 | W-5 ChurnWatch | Cron diário | (dias_sem_contato > threshold) → alerta Telegram com msg WhatsApp pronta |
+| W-6 Session Watch | Cron 17h BRT | Lê PENDENTES.md via GitHub → lista itens abertos por tag → Telegram (silencia se 0 pendentes) |
 | W-7 Cérebro de Bolso | Webhook Telegram | /status /score /custo /veredito via Telegram → resposta imediata |
 | W-8 Signal Classifier | Webhook POST | Classifica sinais AUTO-RESOLVE/INFORMAR/DELIBERAR-A/B/C → `silenced_signals_log` (shadow mode 7d) |
 

@@ -1,0 +1,106 @@
+{
+  "name": "06 -- Session Watch 17h BRT",
+  "active": true,
+  "nodes": [
+    {
+      "id": "cron-w6",
+      "name": "Cron -- 17h BRT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "parameters": {
+        "rule": {
+          "interval": [{"triggerAtHour": 20, "triggerAtMinute": 0}]
+        }
+      }
+    },
+    {
+      "id": "code-verif-w6",
+      "name": "Verificar W-4 Hoje",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "parameters": {
+        "jsCode": "const W4_ID = 'rMl9OJaA1hazqo1i';\nconst n8nHost = $env.N8N_HOST || 'https://vanguard-vanguard-n8n.0ul9nk.easypanel.host';\nconst apiKey = $env.N8N_API_KEY || '';\nconst hoje = new Date().toISOString().slice(0, 10);\nlet rodouHoje = false;\ntry {\n  const url = n8nHost + '/api/v1/executions?workflowId=' + W4_ID + '&limit=5';\n  const resp = await $http.get(url, { headers: { 'X-N8N-API-KEY': apiKey } });\n  const execs = resp.data.data || [];\n  rodouHoje = execs.some(function(e){ return e.startedAt && e.startedAt.startsWith(hoje) && e.status === 'success'; });\n} catch(e) { rodouHoje = false; }\nreturn [{ json: { rodouHoje: rodouHoje, hoje: hoje } }];"
+      }
+    },
+    {
+      "id": "if-w6",
+      "name": "Rodou Hoje?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300],
+      "parameters": {
+        "conditions": {
+          "options": {"caseSensitive": true},
+          "conditions": [
+            {
+              "leftValue": "={{ $json.rodouHoje }}",
+              "rightValue": true,
+              "operator": {"type": "boolean", "operation": "equals"}
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "http-pend-w6",
+      "name": "Ler PENDENTES.md",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 420],
+      "parameters": {
+        "url": "={{ $env.GITHUB_API_PENDENTES_URL || 'https://api.github.com/repos/subdiretormnmsgme-commits/vanguard/contents/PENDENTES.md' }}",
+        "sendHeaders": true,
+        "specifyHeaders": "keypair",
+        "headerParameters": {
+          "parameters": [
+            {"name": "Authorization", "value": "={{ 'token ' + $env.GITHUB_PAT_READONLY }}"},
+            {"name": "Accept", "value": "application/vnd.github.v3+json"}
+          ]
+        },
+        "options": {"timeout": 10000},
+        "ignoreResponseCode": true
+      }
+    },
+    {
+      "id": "code-msg-w6",
+      "name": "Montar Mensagem",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 420],
+      "parameters": {
+        "jsCode": "const agora = new Date();\nconst dataBR = agora.toLocaleDateString('pt-BR', {timeZone: 'America/Sao_Paulo'});\nconst horaBR = agora.toLocaleTimeString('pt-BR', {timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit'});\nlet content = '';\ntry {\n  const raw = $input.item.json;\n  if (raw && raw.content) {\n    content = Buffer.from(raw.content.replace(/\\n/g, ''), 'base64').toString('utf8');\n  }\n} catch(e) { content = ''; }\nconst linhas = content.split('\\n');\nconst M = [], D = [];\nfor (var i = 0; i < linhas.length; i++) {\n  var linha = linhas[i];\n  if (!linha.match(/^\\s*-\\s*\\[\\s\\]/)) continue;\n  var tag = linha.indexOf('[musculo]') >= 0 ? 'musculo' : linha.indexOf('[diretor]') >= 0 ? 'diretor' : 'musculo';\n  var texto = linha.replace(/^\\s*-\\s*\\[\\s\\]\\s*/, '').replace(/^\\\"?\\d{4}-\\d{2}-\\d{2}\\\"?\\s*/, '').replace(/\\*\\*/g, '').replace(/\\[musculo\\]|\\[diretor\\]/gi, '').trim().slice(0, 70);\n  if (!texto) continue;\n  if (tag === 'musculo') M.push(texto); else D.push(texto);\n}\nconst total = M.length + D.length;\nif (total === 0) return [];\nlet msg = 'Session Watch -- ' + dataBR + ' | ' + horaBR + '\\n';\nmsg += 'session_close.ps1 nao executado ainda\\n';\nmsg += '\\nPendentes abertos: ' + total;\nif (M.length > 0) {\n  msg += '\\n[musculo] ' + M.length + ':';\n  M.slice(0, 3).forEach(function(i){ msg += '\\n  * ' + i; });\n  if (M.length > 3) msg += '\\n  ... +' + (M.length - 3) + ' outros';\n}\nif (D.length > 0) {\n  msg += '\\n[diretor] ' + D.length + ':';\n  D.slice(0, 3).forEach(function(i){ msg += '\\n  * ' + i; });\n  if (D.length > 3) msg += '\\n  ... +' + (D.length - 3) + ' outros';\n}\nmsg += '\\n\\nExecute: .\\\\scripts\\\\session_close.ps1';\nreturn [{ json: { mensagem: msg, totalAbertos: total } }];"
+      }
+    },
+    {
+      "id": "telegram-w6",
+      "name": "Telegram -- Session Watch",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 420],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendMessage' }}",
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParameters": {
+          "parameters": [
+            {"name": "chat_id", "value": "={{ $env.TELEGRAM_CHAT_ID || '8895733647' }}"},
+            {"name": "text", "value": "={{ $json.mensagem }}"}
+          ]
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cron -- 17h BRT":    {"main": [[{"node": "Verificar W-4 Hoje", "type": "main", "index": 0}]]},
+    "Verificar W-4 Hoje": {"main": [[{"node": "Rodou Hoje?", "type": "main", "index": 0}]]},
+    "Rodou Hoje?":        {"main": [[], [{"node": "Ler PENDENTES.md", "type": "main", "index": 0}]]},
+    "Ler PENDENTES.md":   {"main": [[{"node": "Montar Mensagem", "type": "main", "index": 0}]]},
+    "Montar Mensagem":    {"main": [[{"node": "Telegram -- Session Watch", "type": "main", "index": 0}]]}
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

@@ -96,6 +96,7 @@ try {
             $linhas += "  [?] $a"
         }
         Write-Output ($linhas -join "`n")
+        exit 2
     }
 
 } finally {

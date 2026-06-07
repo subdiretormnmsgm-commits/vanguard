@@ -77,8 +77,9 @@ if ($projetosEmBuild.Count -gt 0) {
 
 # Status por gate
 $gateStatus = [ordered]@{
-    G1  = "PENDENTE"
-    G2  = "PENDENTE"
+    G1   = "PENDENTE"
+    G1_6 = "PENDENTE"
+    G2   = "PENDENTE"
     G3  = "PENDENTE"
     G4  = "PENDENTE"
     G5  = "PENDENTE"
@@ -125,6 +126,132 @@ if (Test-Path $auditScript) {
 } else {
     Write-Host "  [GATE 1] auditar_consistencia.ps1 nao encontrado -- IGNORADO" -ForegroundColor DarkGray
     $gateStatus.G1 = "N/A"
+}
+
+# ==========================================================================
+# GATE 1.5 -- RECONCILIACAO DE PENDENTES (inserido 2026-06-07 -- Briefing Embaixador)
+# Filosofia: mesma filosofia do sync_guard para documentos, aplicada ao PENDENTES.md.
+# Executa ANTES de qualquer escrita na secao "Ficou no Ar".
+# VERMELHO (exit 1) se estado contraditorio nao resolvido.
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 1.5] Reconciliacao de pendentes..." -ForegroundColor Cyan
+$pendPath15 = "$BASE\PENDENTES.md"
+$gate15Status = "VERDE"
+
+if (Test-Path $pendPath15) {
+    $pLines = @(Get-Content $pendPath15 -Encoding UTF8)
+    $pMod   = $false
+    $logDedup = [System.Collections.ArrayList]@()
+
+    # --- Regra 1: ESTADO UNICO -- item nao pode ser [ ] e [x] simultaneamente ---
+    # Indice: texto normalizado -> primeira linha aberta encontrada
+    $abertosIdx = @{}
+    $fechadosTextos = [System.Collections.ArrayList]@()
+
+    for ($i = 0; $i -lt $pLines.Count; $i++) {
+        $l = $pLines[$i]
+        if ($l -match '^\s*-\s*\[x\]') {
+            # Extrair texto normalizando marcadores MD
+            $txt = $l -replace '^\s*-\s*\[x\]\s*', '' -replace '~~', '' -replace '`[^`]*`', '' -replace '\*\*', ''
+            $txt = $txt.Substring(0, [Math]::Min(50, $txt.Length)).ToLower().Trim()
+            [void]$fechadosTextos.Add($txt)
+        }
+        if ($l -match '^\s*-\s*\[\s*\]') {
+            $txt = $l -replace '^\s*-\s*\[\s*\]\s*', '' -replace '`[^`]*`', '' -replace '\*\*', ''
+            $txt = $txt.Substring(0, [Math]::Min(50, $txt.Length)).ToLower().Trim()
+            # Verificar se este item aberto tem correspondente fechado (palavras em comum >= 3)
+            $kwAberto = @($txt -split '\s+' | Where-Object { $_.Length -gt 4 } | Select-Object -Unique)
+            foreach ($fechado in $fechadosTextos) {
+                $kwFechado = @($fechado -split '\s+' | Where-Object { $_.Length -gt 4 } | Select-Object -Unique)
+                $comuns = @($kwAberto | Where-Object { $kwFechado -contains $_ })
+                if ($comuns.Count -ge 3) {
+                    [void]$logDedup.Add("[ESTADO-UNICO] Linha $($i+1): item aberto tem correspondente [x] -- removendo [ ] (mantendo [x] mais recente)")
+                    $pLines[$i] = $null  # marcar para remocao
+                    $pMod = $true
+                    $gate15Status = "AMARELO"
+                    break
+                }
+            }
+        }
+    }
+
+    # Remover linhas marcadas como $null
+    if ($pMod) {
+        $pLines = @($pLines | Where-Object { $_ -ne $null })
+    }
+
+    # --- Regra 2: CABECALHO UNICO -- "Ficou no Ar -- DATA" max 1x por data ---
+    $dataHoje15 = Get-Date -Format "yyyy-MM-dd"
+    $marcaCab   = "## Ficou no Ar -- $dataHoje15"
+    $idxsCab    = @()
+    for ($i = 0; $i -lt $pLines.Count; $i++) {
+        if ($pLines[$i] -match [regex]::Escape($marcaCab)) { $idxsCab += $i }
+    }
+    if ($idxsCab.Count -gt 1) {
+        # Manter o primeiro cabecalho, remover os subsequentes (mas manter seus itens)
+        for ($k = 1; $k -lt $idxsCab.Count; $k++) {
+            [void]$logDedup.Add("[CAB-UNICO] Cabecalho duplicado na linha $($idxsCab[$k]+1) -- removendo")
+            $pLines[$idxsCab[$k]] = $null
+            $pMod = $true
+            $gate15Status = "AMARELO"
+        }
+        $pLines = @($pLines | Where-Object { $_ -ne $null })
+    }
+
+    # Salvar se houve modificacoes
+    if ($pMod -and -not $DryRun) {
+        [System.IO.File]::WriteAllLines($pendPath15, $pLines, [System.Text.UTF8Encoding]::new($false))
+        Write-Host "  [GATE 1.5] PENDENTES.md corrigido automaticamente:" -ForegroundColor Yellow
+        $logDedup | ForEach-Object { Write-Host "    $_" -ForegroundColor Yellow }
+    } elseif ($pMod -and $DryRun) {
+        Write-Host "  [DRYRUN] GATE 1.5 -- correcoes simuladas:" -ForegroundColor DarkCyan
+        $logDedup | ForEach-Object { Write-Host "    $_" -ForegroundColor DarkCyan }
+    } else {
+        Write-Host "  [GATE 1.5] VERDE -- sem estados contraditorios detectados" -ForegroundColor Green
+    }
+
+    # VERMELHO bloqueante: estado contraditorio nao resolvido (nao deve ocorrer apos correcao acima,
+    # mas protege contra falha de escrita)
+    if ($gate15Status -eq "VERMELHO") {
+        Write-Host "  [GATE 1.5] VERMELHO -- estado contraditorio persistente. Resolver manualmente antes de encerrar." -ForegroundColor Red
+        if (-not $DryRun) { exit 1 }
+    }
+} else {
+    Write-Host "  [GATE 1.5] PENDENTES.md nao encontrado -- IGNORADO" -ForegroundColor DarkGray
+}
+
+# ==========================================================================
+# GATE 1.6 -- reconcile_pendentes.ps1 BLOQUEANTE (P-087 gate)
+# Bloqueia se houver commit recente com keyword de pendente aberto sem [RESOLVE:]
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 1.6] Reconciliacao P-087 (commits vs PENDENTES)..." -ForegroundColor Cyan
+$reconcileScript = "$BASE\scripts\reconcile_pendentes.ps1"
+if (Test-Path $reconcileScript) {
+    if ($DryRun) {
+        Write-Host "  [DRYRUN] GATE 1.6 -- reconcile_pendentes simulado" -ForegroundColor DarkCyan
+        $gateStatus.G1_6 = "DRYRUN"
+    } else {
+        $reconcileOut = & powershell.exe -NonInteractive -File $reconcileScript 2>$null
+        $reconcileExit = $LASTEXITCODE
+        if ($reconcileExit -eq 2) {
+            Write-Host "  [GATE 1.6] VERMELHO -- commits sem [RESOLVE:] detectados:" -ForegroundColor Red
+            $reconcileOut -split "`n" | ForEach-Object { Write-Host "    $_" -ForegroundColor Red }
+            Write-Host "  Acao: marcar [x] os pendentes resolvidos OU adicionar [RESOLVE:keyword] ao commit e recomitar." -ForegroundColor Yellow
+            $gateStatus.G1_6 = "VERMELHO"
+            exit 1
+        } elseif ($reconcileExit -eq 0) {
+            Write-Host "  [GATE 1.6] VERDE -- nenhuma divergencia P-087 detectada" -ForegroundColor Green
+            $gateStatus.G1_6 = "VERDE"
+        } else {
+            Write-Host "  [GATE 1.6] AMARELO -- reconcile_pendentes retornou codigo inesperado ($reconcileExit)" -ForegroundColor Yellow
+            $gateStatus.G1_6 = "AMARELO"
+        }
+    }
+} else {
+    Write-Host "  [GATE 1.6] reconcile_pendentes.ps1 nao encontrado -- IGNORADO" -ForegroundColor DarkGray
+    $gateStatus.G1_6 = "N/A"
 }
 
 # ==========================================================================

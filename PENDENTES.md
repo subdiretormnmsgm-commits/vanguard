@@ -90,10 +90,23 @@
   Frase pronta: "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄"
 
 
+- [x] `2026-06-07` ~~**[MÚSCULO] W-6 Session Watch — criar no n8n EasyPanel via API e desativar o workflow estático:**~~
+  ✅ W-6 (ID: `0MoOx1AAtd44ePET`) criado + ativado via API — 2026-06-07. Session Watch estático (pSd0cUNVVyp5IsMO) desativado. Dados agora dinâmicos (lê PENDENTES.md + verifica W-4). `_n8n/workflows/w6_session_watch.json` atualizado com W-4 check + IF node.
+
+- [x] `2026-06-07` ~~**[MÚSCULO] Gate 1.6 — reconcile_pendentes.ps1 virar bloqueante no session_close:**~~
+  ✅ reconcile_pendentes.ps1 agora emite exit 2 quando detecta divergências. Gate 1.6 inserido no session_close.ps1 entre Gate 1.5 e Gate 2 — bloqueia (exit 1) em exit 2. G1_6 adicionado ao gateStatus. 2026-06-07.
+
 ## Ficou no Ar -- 2026-06-07 (gerado automaticamente)
-- [ ] "2026-06-07" **Mensagens aos sócios (Gemini/NotebookLM/Embaixador) sobre V28** [musculo]
-- [ ] "2026-06-07" **Templates Pentalateral + MANUAL_DIRETOR + SKILL_PROTOCOLO_VANGUARD** [musculo]
-- [ ] "2026-06-07" **Skill `pentalateral-graus-abc.md` upload no dashboard Hermes** [musculo]
+- [ ] "2026-06-07" **Deploy Secretário Virtual no EasyPanel (adaptar main.py para Formspree + configurar webhook)** [musculo]
+- [ ] "2026-06-07" **[diretor] Login no formspree.io para confirmar acesso ao formulário `xjglyyer`** [diretor]
+- [ ] "2026-06-07" **[diretor] Considerar abertura de MEI antes do primeiro contrato** [diretor]
+
+- [x] "2026-06-07" ~~**Mensagens aos sócios (Gemini/NotebookLM/Embaixador) sobre V28**~~
+  ✅ Feito na sessão 2026-06-07 — confirmado pelo Diretor. Pendente era falso positivo do sync_ficou_no_ar.ps1.
+- [x] "2026-06-07" ~~**Templates Pentalateral + MANUAL_DIRETOR + SKILL_PROTOCOLO_VANGUARD**~~
+  ✅ MANUAL_DIRETOR v1.6 (7f89fef) + SKILL_PROTOCOLO v6.6 + TEMPLATES v2.1 (34578d4) + sync todos clientes (309d02a). Pendente era duplicata gerada por sync_ficou_no_ar.ps1.
+- [x] "2026-06-07" ~~**Skill `pentalateral-graus-abc.md` upload no dashboard Hermes**~~
+  ✅ Arquivo em hermes-agent/skills/ + confirmado no container /opt/data/skills/ pelo Diretor (2026-06-07). Commit 139827f. Pendente era duplicata do sync_ficou_no_ar.ps1.
 - [ ] "2026-06-07" **WhatsApp Valdece + Ingrid (ChurnWatch alertou)** [diretor]
 
 - [ ] `2026-06-XX` **Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:** [musculo]
@@ -302,4 +315,5 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   Workflows ativados via API em 2026-06-05 — todos status: active=True.
   P-110 inscrito no LEDGER (toda automação crítica exige fallback ≤3 passos).
 
+- [BUILD (07-06-2026 domingo)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
 - [BUILD (07-06-2026 domingo)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
