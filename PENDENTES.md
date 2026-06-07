@@ -1,4 +1,4 @@
-﻿# PENDENTES — Vanguard IAH
+# PENDENTES — Vanguard IAH
 > Atualizado pelo Músculo em tempo real durante qualquer sessão.
 > O briefing matinal lê este arquivo — tudo aqui aparece às 7h.
 > Regra P-047: qualquer tarefa identificada como pendente → registrar aqui IMEDIATAMENTE.
@@ -88,6 +88,13 @@
 - [x] `2026-06-XX` **Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:** [diretor]
   Veredito do Diretor 2026-05-30: aguardar sessão com mais engajamento verbal de Ingrid.
   Frase pronta: "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄"
+
+
+## Ficou no Ar -- 2026-06-07 (gerado automaticamente)
+- [ ] "2026-06-07" **Mensagens aos sócios (Gemini/NotebookLM/Embaixador) sobre V28** [musculo]
+- [ ] "2026-06-07" **Templates Pentalateral + MANUAL_DIRETOR + SKILL_PROTOCOLO_VANGUARD** [musculo]
+- [ ] "2026-06-07" **Skill `pentalateral-graus-abc.md` upload no dashboard Hermes** [musculo]
+- [ ] "2026-06-07" **WhatsApp Valdece + Ingrid (ChurnWatch alertou)** [diretor]
 
 - [ ] `2026-06-XX` **Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:** [musculo]
   Com 1 usuária, anonimato é fictício. Liberar quando segunda usuária ativa.
@@ -294,3 +301,5 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   W-4 (Session Close): SESSAO → NOTION_WIP_PAGE_ID · PENDENTES → NOTION_PENDENTES_PAGE_ID
   Workflows ativados via API em 2026-06-05 — todos status: active=True.
   P-110 inscrito no LEDGER (toda automação crítica exige fallback ≤3 passos).
+
+- [BUILD (07-06-2026 domingo)] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A -- build significativo detectado
