@@ -45,6 +45,17 @@ if ([string]::IsNullOrWhiteSpace($conteudo)) {
     exit 1
 }
 
+# Normalizar acentos via .NET Unicode FormD (robusto, sem problemas de encoding PS 5.1)
+$normalized = $conteudo.Normalize([System.Text.NormalizationForm]::FormD)
+$sb = [System.Text.StringBuilder]::new()
+foreach ($c in $normalized.ToCharArray()) {
+    if ([System.Globalization.CharUnicodeInfo]::GetUnicodeCategory($c) -ne `
+        [System.Globalization.UnicodeCategory]::NonSpacingMark) {
+        [void]$sb.Append($c)
+    }
+}
+$conteudoNorm = $sb.ToString().ToUpper()
+
 Write-Host "Arquivo : $skill"
 Write-Host "Tamanho : $($conteudo.Length) chars"
 Write-Host ""
@@ -62,7 +73,7 @@ $blocos = @(
 )
 
 foreach ($bloco in $blocos) {
-    if ($conteudo -notmatch $bloco.padrao) {
+    if ($conteudoNorm -notmatch $bloco.padrao) {
         $erros.Add("Bloco ausente: $($bloco.nome)")
         $aprovado = $false
     }
@@ -203,6 +214,27 @@ if ($aprovado) {
     Write-Host ""
     Write-Host "================================================"
     } # closes if (-not $soberanaP067)
+}
+
+# E-1 V28: Gate de Coerencia Semantica (apos aprovacao estrutural)
+if ($aprovado -and (-not $soberanaP067)) {
+    Write-Host ""
+    Write-Host "================================================"
+    Write-Host "  E-1 V28 -- Gate de Coerencia Semantica"
+    Write-Host "================================================"
+    $gateScript = Join-Path $BASE "scripts\gate_coerencia.ps1"
+    if (Test-Path $gateScript) {
+        & $gateScript -documento $skill -proximo_passo "Musculo executar deliberacao P-037 e sintese do loop"
+        if ($LASTEXITCODE -eq 1) {
+            Write-Host ""
+            Write-Host "  [E-1] Skill aprovada estruturalmente mas rejeitada semanticamente." -ForegroundColor Yellow
+            Write-Host "  Musculo deve revisar lacunas antes de iniciar P-037." -ForegroundColor Yellow
+        } elseif ($LASTEXITCODE -eq 0) {
+            Write-Host "  [E-1] Coerencia semantica: OK" -ForegroundColor Green
+        }
+    } else {
+        Write-Host "  [E-1] gate_coerencia.ps1 nao encontrado -- instalar V28 primeiro." -ForegroundColor DarkYellow
+    }
 }
 
 exit $(if ($aprovado) { 0 } else { 2 })

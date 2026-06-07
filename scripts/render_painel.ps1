@@ -5,7 +5,7 @@
 
 param(
     [Parameter(Mandatory=$true)]
-    [ValidateSet("INGRID","VALDECE")]
+    [ValidateSet("INGRID","VALDECE","VANGUARD")]
     [string]$projeto,
 
     [string]$data = "",

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.1",
+  "data": "2026-06-06",
+  "cliente": "VANGUARD",
+  "loop": 28,
+  "projeto_label": "VanguardV28 — Pentalateral Autonomo",
+  "sintese_musculo": "25 inputs processados. Embaixador recomenda: verificacao antes de automacao. Gate de coerencia semantica (E-1) e classifier shadow (G-5+N-3) como prioridade 1. Agente (Hermes) entra em V29 apos camada de verificacao provada. G-2 (timeout) e M-4 (Telegram) descartados.",
+  "decisoes": [
+    {
+      "id": "D1",
+      "titulo": "Arquitetura do agente auxiliar: n8n+API / processo dedicado / hibrido?",
+      "urgencia": "ALTA",
+      "recomendacao_embaixador": "C",
+      "opcoes": [
+        {
+          "id": "A",
+          "descricao": "n8n + Claude API em loop agendado (estende o que existe, sem daemon persistente)"
+        },
+        {
+          "id": "B",
+          "descricao": "Processo dedicado persistente no EasyPanel (novo servico, maxima autonomia)"
+        },
+        {
+          "id": "C",
+          "descricao": "Hibrido: agente persistente remove a ignicao, n8n orquestra, Claude API verifica coerencia — RECOMENDADO Musculo + Embaixador"
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "titulo": "Signal Classifier: pre-requisito em shadow mode ou calibrar em producao?",
+      "urgencia": "ALTA",
+      "recomendacao_embaixador": "A",
+      "opcoes": [
+        {
+          "id": "A",
+          "descricao": "Classifier primeiro em shadow mode — Eduardo ve o que o sistema faria antes de fazer (M-1 + G-5 + N-3 consolidados) — RECOMENDADO"
+        },
+        {
+          "id": "B",
+          "descricao": "Build agente agora, calibrar classifier em producao (risco: ruido antes da confianca estar estabelecida)"
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "titulo": "Escopo do V28: verificacao primeiro ou arquitetura completa do agente?",
+      "urgencia": "ALTA",
+      "recomendacao_embaixador": "A",
+      "opcoes": [
+        {
+          "id": "A",
+          "descricao": "V28 = gate de coerencia semantica (E-1) + classifier shadow + State Guard (incremental, ~8h total, ver antes de confiar) — RECOMENDADO"
+        },
+        {
+          "id": "B",
+          "descricao": "V28 = arquitetura completa do agente auxiliar com graus A/B/C (3-4 sessoes, ~13h total)"
+        }
+      ]
+    }
+  ]
+}

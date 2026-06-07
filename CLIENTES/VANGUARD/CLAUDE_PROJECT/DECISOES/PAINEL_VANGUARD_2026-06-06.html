@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Deliberação — VanguardV28 — Pentalateral Autonomo · 2026-06-06</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;padding:2rem 1rem}
+.container{max-width:640px;margin:0 auto}
+.header{margin-bottom:1.5rem}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+h1{font-size:17px;font-weight:500}
+.meta{font-size:13px;color:#888;margin-top:2px}
+.prog-bar{height:3px;background:#e0dfd8;border-radius:2px;margin-top:12px}
+.prog-fill{height:3px;background:#1D9E75;border-radius:2px;transition:width .3s}
+.section-label{font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.06em;margin:1.5rem 0 8px}
+.card{background:#fff;border:1px solid #e8e7e0;border-radius:12px;padding:1.25rem;margin-bottom:10px}
+.card-hdr{display:flex;align-items:flex-start;gap:10px;margin-bottom:1rem}
+.icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.ic-pre{background:#FCEBEB;color:#A32D2D}
+.ic-alt{background:#FAEEDA;color:#854F0B}
+.ic-nor{background:#E6F1FB;color:#185FA5}
+.ic-int{background:#F1EFE8;color:#5F5E5A}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:100px;margin-left:8px;vertical-align:middle}
+.b-pre{background:#FCEBEB;color:#A32D2D}
+.b-alt{background:#FAEEDA;color:#854F0B}
+.b-nor{background:#E6F1FB;color:#185FA5}
+.ctitle{font-size:12px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.cdesc{font-size:14px;color:#1a1a18;font-weight:500}
+.ev{background:#f5f4f0;border-radius:8px;padding:10px 12px;font-size:13px;color:#666;margin-bottom:1rem;line-height:1.5}
+.arte-label{font-size:13px;color:#888;margin-bottom:6px;margin-top:12px}
+.arte-text{background:#f5f4f0;border-left:2px solid #185FA5;border-radius:0 8px 8px 0;padding:10px 12px;font-size:13px;color:#1a1a18;line-height:1.6;margin-bottom:1rem;white-space:pre-wrap}
+.arte-edit{width:100%;border:1px solid #d0cfc8;border-radius:8px;padding:10px 12px;font-size:13px;font-family:inherit;color:#1a1a18;background:#fff;resize:none;margin-bottom:1rem;line-height:1.6;min-height:80px}
+.arte-edit:focus{outline:none;border-color:#888}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid #e8e7e0;border-radius:8px;cursor:pointer;transition:all .15s;-webkit-user-select:none;user-select:none}
+.opt:hover{border-color:#aaa;background:#fafaf8}
+.opt.sel{border-color:#1D9E75;background:#E1F5EE}
+.oc{width:18px;height:18px;border:1.5px solid #ccc;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.opt.sel .oc{border-color:#1D9E75;background:#1D9E75}
+.opt.sel .oc::after{content:'';width:6px;height:6px;background:white;border-radius:50%;display:block}
+.ol{font-size:14px;color:#1a1a18;font-weight:500}
+.os{font-size:12px;color:#888;margin-top:2px}
+.footer{margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ftr-s{font-size:13px;color:#888;flex:1}
+.btn{background:#1a1a18;color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .15s;white-space:nowrap}
+.btn:hover{opacity:.85}
+.btn:disabled{opacity:.35;cursor:default}
+.done{text-align:center;padding:3rem 1rem}
+.done-ic{font-size:40px;margin-bottom:12px}
+.done-t{font-size:17px;font-weight:500;margin-bottom:6px}
+.done-sub{font-size:13px;color:#888;margin-bottom:16px}
+.done-s{font-size:13px;color:#1a1a18;white-space:pre-line;line-height:1.9;text-align:left;background:#f5f4f0;border-radius:8px;padding:1rem;margin-top:1rem}
+.done-cmd{background:#1a1a18;color:#00F0FF;border-radius:8px;padding:10px 14px;font-size:12px;font-family:monospace;margin-top:12px;text-align:left;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-top">
+      <h1>Deliberação do Diretor</h1>
+      <span class="meta" id="counter">0 de N decididas</span>
+    </div>
+    <div class="meta" id="meta-linha"></div>
+    <div class="prog-bar"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+  </div>
+
+  <div id="cards"></div>
+
+  <div id="done" style="display:none">
+    <div class="done">
+      <div class="done-ic">✅</div>
+      <div class="done-t">Vereditos confirmados</div>
+      <div class="done-sub">Arquivo JSON gerado. Siga as instruções abaixo.</div>
+      <div class="done-s" id="done-text"></div>
+      <div class="done-cmd" id="done-cmd"></div>
+    </div>
+  </div>
+
+  <div class="footer" id="footer">
+    <div class="ftr-s" id="ftr-s">Marque todas as decisões para confirmar</div>
+    <button class="btn" id="btn" disabled onclick="confirmar()">Confirmar vereditos</button>
+  </div>
+</div>
+
+<script>
+const D = {
+    "schema_version":  "1.1",
+    "data":  "2026-06-06",
+    "cliente":  "VANGUARD",
+    "loop":  28,
+    "projeto_label":  "VanguardV28 — Pentalateral Autonomo",
+    "sintese_musculo":  "25 inputs processados. Embaixador recomenda: verificacao antes de automacao. Gate de coerencia semantica (E-1) e classifier shadow (G-5+N-3) como prioridade 1. Agente (Hermes) entra em V29 apos camada de verificacao provada. G-2 (timeout) e M-4 (Telegram) descartados.",
+    "decisoes":  [
+                     {
+                         "id":  "D1",
+                         "titulo":  "Arquitetura do agente auxiliar: n8n+API / processo dedicado / hibrido?",
+                         "urgencia":  "ALTA",
+                         "recomendacao_embaixador":  "C",
+                         "opcoes":  [
+                                        {
+                                            "id":  "A",
+                                            "descricao":  "n8n + Claude API em loop agendado (estende o que existe, sem daemon persistente)"
+                                        },
+                                        {
+                                            "id":  "B",
+                                            "descricao":  "Processo dedicado persistente no EasyPanel (novo servico, maxima autonomia)"
+                                        },
+                                        {
+                                            "id":  "C",
+                                            "descricao":  "Hibrido: agente persistente remove a ignicao, n8n orquestra, Claude API verifica coerencia — RECOMENDADO Musculo + Embaixador"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  "D2",
+                         "titulo":  "Signal Classifier: pre-requisito em shadow mode ou calibrar em producao?",
+                         "urgencia":  "ALTA",
+                         "recomendacao_embaixador":  "A",
+                         "opcoes":  [
+                                        {
+                                            "id":  "A",
+                                            "descricao":  "Classifier primeiro em shadow mode — Eduardo ve o que o sistema faria antes de fazer (M-1 + G-5 + N-3 consolidados) — RECOMENDADO"
+                                        },
+                                        {
+                                            "id":  "B",
+                                            "descricao":  "Build agente agora, calibrar classifier em producao (risco: ruido antes da confianca estar estabelecida)"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  "D3",
+                         "titulo":  "Escopo do V28: verificacao primeiro ou arquitetura completa do agente?",
+                         "urgencia":  "ALTA",
+                         "recomendacao_embaixador":  "A",
+                         "opcoes":  [
+                                        {
+                                            "id":  "A",
+                                            "descricao":  "V28 = gate de coerencia semantica (E-1) + classifier shadow + State Guard (incremental, ~8h total, ver antes de confiar) — RECOMENDADO"
+                                        },
+                                        {
+                                            "id":  "B",
+                                            "descricao":  "V28 = arquitetura completa do agente auxiliar com graus A/B/C (3-4 sessoes, ~13h total)"
+                                        }
+                                    ]
+                     }
+                 ],
+    "cliente_label":  "VANGUARD",
+    "secoes":  [
+
+               ]
+};
+const total = D.decisoes.length;
+const selecionados = {};
+const textosEditados = {};
+
+const urgBadge = {
+  prerequisito: ['ic-pre','b-pre','Pré-requisito'],
+  alta:         ['ic-alt','b-alt','Atenção'],
+  normal:       ['ic-nor','b-nor','Normal']
+};
+const urgDefault = ['ic-nor','b-nor','Normal'];
+
+function build() {
+  document.getElementById('meta-linha').textContent =
+    D.projeto_label + ' · Loop ' + D.loop + ' · ' + D.data + ' · Gerado pelo Embaixador';
+  document.getElementById('counter').textContent = '0 de ' + total + ' decididas';
+
+  const container = document.getElementById('cards');
+  const sections = {};
+  D.decisoes.forEach(d => { sections[d.secao] = sections[d.secao] || []; sections[d.secao].push(d); });
+
+  const secOrder = D.secoes.map(s => s.id);
+  const secLabels = {};
+  D.secoes.forEach(s => { secLabels[s.id] = s.label; });
+
+  secOrder.forEach(sid => {
+    if (!sections[sid]) return;
+    const lbl = document.createElement('div');
+    lbl.className = 'section-label';
+    lbl.textContent = secLabels[sid] || sid;
+    container.appendChild(lbl);
+
+    sections[sid].forEach(d => {
+      const [icClass, bClass, bLabel] = urgBadge[d.urgencia] || urgDefault;
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      let arteHtml = '';
+      if (d.tem_artefato && d.artefato_texto) {
+        if (d.artefato_editavel) {
+          arteHtml = '<div class="arte-label">' + (d.artefato_label || 'Texto:') + '</div>' +
+            '<textarea class="arte-edit" id="arte-' + d.id + '" rows="3" onchange="editarArte(\'' + d.id + '\')">' + escHtml(d.artefato_texto) + '</textarea>';
+        } else {
+          arteHtml = '<div class="arte-label">' + (d.artefato_label || 'Texto:') + '</div>' +
+            '<div class="arte-text">' + escHtml(d.artefato_texto) + '</div>';
+        }
+      }
+
+      const optsHtml = d.opcoes.map(o =>
+        '<div class="opt" onclick="sel(\'' + d.id + '\',\'' + o.valor + '\')">' +
+        '<div class="oc"></div><div>' +
+        '<div class="ol">' + escHtml(o.label) + '</div>' +
+        (o.subtitulo ? '<div class="os">' + escHtml(o.subtitulo) + '</div>' : '') +
+        '</div></div>'
+      ).join('');
+
+      card.innerHTML =
+        '<div class="card-hdr"><div class="icon ' + icClass + '">' + (d.icon || '🔹') + '</div>' +
+        '<div><div class="ctitle">' + escHtml(d.titulo) +
+        '<span class="badge ' + bClass + '">' + bLabel + '</span></div>' +
+        '<div class="cdesc">' + escHtml(d.subtitulo) + '</div></div></div>' +
+        '<div class="ev">' + escHtml(d.situacao) + '</div>' +
+        arteHtml +
+        '<div class="opts" id="opts-' + d.id + '">' + optsHtml + '</div>';
+
+      container.appendChild(card);
+    });
+  });
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function editarArte(id) {
+  const el = document.getElementById('arte-' + id);
+  if (el) textosEditados[id] = el.value;
+}
+
+function sel(cardId, valor) {
+  selecionados[cardId] = valor;
+  const el = document.getElementById('arte-' + cardId);
+  if (el) textosEditados[cardId] = el.value;
+  document.querySelectorAll('#opts-' + cardId + ' .opt').forEach(o => o.classList.remove('sel'));
+  const opts = document.querySelectorAll('#opts-' + cardId + ' .opt');
+  const d = D.decisoes.find(x => x.id === cardId);
+  if (d) {
+    const idx = d.opcoes.findIndex(o => o.valor === valor);
+    if (idx >= 0 && opts[idx]) opts[idx].classList.add('sel');
+  }
+  upd();
+}
+
+function upd() {
+  const done = Object.keys(selecionados).length;
+  document.getElementById('counter').textContent = done + ' de ' + total + ' decididas';
+  document.getElementById('prog').style.width = (done / total * 100) + '%';
+  const btn = document.getElementById('btn');
+  btn.disabled = done < total;
+  document.getElementById('ftr-s').textContent = done === total
+    ? 'Pronto para confirmar'
+    : (total - done) + ' decisão(ões) pendente(s)';
+}
+
+function confirmar() {
+  const ts = new Date().toISOString();
+  const vereditos = {
+    schema_versao: '1.0',
+    projeto: D.projeto,
+    projeto_label: D.projeto_label,
+    data_decisoes: D.data,
+    data_veredito: ts,
+    loop: D.loop,
+    vereditos: D.decisoes.map(d => {
+      const val = selecionados[d.id];
+      const opcao = d.opcoes.find(o => o.valor === val) || {};
+      const textoFinal = textosEditados[d.id] !== undefined ? textosEditados[d.id]
+        : (d.artefato_texto || '');
+      return {
+        id: d.id,
+        titulo: d.titulo,
+        valor_selecionado: val,
+        label_selecionado: opcao.label || val,
+        texto_final: textoFinal,
+        acoes: opcao.acoes || []
+      };
+    })
+  };
+
+  const json = JSON.stringify(vereditos, null, 2);
+  const fn = 'VEREDITOS_' + D.cliente_label + '_' + D.data + '.json';
+
+  // Download
+  const blob = new Blob([json], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = fn;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  // Done screen
+  document.getElementById('cards').style.display = 'none';
+  document.getElementById('done').style.display = 'block';
+  document.getElementById('footer').style.display = 'none';
+
+  const linhas = vereditos.vereditos.map(v => '· ' + v.titulo + ': ' + v.label_selecionado).join('\n');
+  document.getElementById('done-text').textContent = linhas;
+  document.getElementById('done-cmd').innerHTML =
+    '1. Mova <strong>' + fn + '</strong> para:<br>' +
+    'CLIENTES\\' + D.projeto_label.toUpperCase() + '\\CLAUDE_PROJECT\\DECISOES\\<br><br>' +
+    '2. Rode no terminal:<br>' +
+    '.\\scripts\\executar_vereditos.ps1 -projeto ' + D.projeto_label.toUpperCase();
+}
+
+build();
+</script>
+</body>
+</html>

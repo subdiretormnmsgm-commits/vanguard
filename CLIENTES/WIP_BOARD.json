@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-06-05",
+    "atualizado_em":  "2026-06-06",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -9,7 +9,61 @@
 
                                 ],
                   "build":  [
-
+                                {
+                                    "id":  "PROJ-000",
+                                    "cliente":  "VANGUARD",
+                                    "projeto":  "VanguardV28 -- Pentalateral Autonomo",
+                                    "area":  "Infraestrutura Interna -- Pentalateral IAH",
+                                    "camada":  "0 (Infraestrutura Vanguard -- nao e projeto cliente)",
+                                    "valor_fechado":  0,
+                                    "tipo":  "Projeto Interno -- Evolucao do Sistema",
+                                    "status":  "BUILD",
+                                    "loop_atual":  "Loop 28 -- EM BUILD",
+                                    "build_iniciado_em":  "2026-06-06",
+                                    "deadline":  null,
+                                    "churn_watch_threshold":  null,
+                                    "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
+                                    "loop_fase_atual":  {
+                                                            "loop":  28,
+                                                            "gemini":  "OK",
+                                                            "notebooklm":  "OK",
+                                                            "embaixador":  "OK",
+                                                            "musculo":  "OK",
+                                                            "proximo":  "BUILD V28: E-1 gate_coerencia.ps1 (feito) + Signal Classifier W-8 shadow mode + Hermes Agent Docker EasyPanel + State Guard"
+                                                        },
+                                    "vereditos_loop28":  {
+                                                             "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
+                                                             "D2":  "A -- Signal Classifier shadow mode primeiro (7 dias observacao)",
+                                                             "D3":  "A -- V28 = E-1 + Classifier shadow + Hermes Agent + State Guard (~8h total)"
+                                                         },
+                                    "entregues_v28":  [
+                                                          "gate_coerencia.ps1 -- E-1 Gate de Coerencia Semantica via Haiku",
+                                                          "skill_parser_gate.ps1 -- E-1 integrado ao final",
+                                                          "MAINTENANCE_COST.md v2.0 -- fallbacks W-8 + W-9 + Hermes Agent",
+                                                          "render_painel.ps1 -- VANGUARD adicionado ao ValidateSet",
+                                                          "DELIBERACAO_LOOP_V28_VANGUARD.md -- P-037 gate satisfeito",
+                                                          "DECISOES_VANGUARD_2026-06-06.json -- D1=C D2=A D3=A",
+                                                          "VEREDITOS_VANGUARD_2026-06-06.json -- veredito verbal registrado"
+                                                      ],
+                                    "pendentes_v28":  [
+                                                          "W-8 Signal Classifier -- build n8n shadow mode (~3h)",
+                                                          "Hermes Agent -- Docker EasyPanel + Claude API + pentalateral-graus-abc.md skill (~4-6h)",
+                                                          "State Guard -- acoplar ao session_start (~2h)",
+                                                          "N-4 Sync forcado pos-veredito em executar_vereditos.ps1 (~1h)",
+                                                          "P-116 inscricao no INTELLIGENCE_LEDGER",
+                                                          "MEMORIA_EMBAIXADOR_VANGUARD.md -- perfil fundador",
+                                                          "NARRATIVA_FUNDADOR.md -- Vanguard como primeiro caso do proprio produto",
+                                                          "ping_hermes.ps1 -- verificacao de uptime",
+                                                          "silenced_signals_log -- tabela Supabase"
+                                                      ],
+                                    "principios_v28":  [
+                                                           "P-115 -- Musculo assessora ativamente conclusao de pendentes (2026-06-06)",
+                                                           "P-116 candidato -- o que doi e erro, nao esforco -- verificacao antes de automacao"
+                                                       ],
+                                    "skill_path":  ".claude/skills/vanguard-v28.md",
+                                    "memoria_embaixador_path":  "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
+                                    "historico_path":  "CLIENTES/VANGUARD/HISTORICO/"
+                                }
                             ],
                   "check":  [
                                 {
@@ -152,7 +206,7 @@
                  "loops_desde_ultimo_checkup":  1,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-05",
+                 "data_ultima_sessao":  "2026-06-06",
                  "claude_projects_pendente":  false
              }
 }

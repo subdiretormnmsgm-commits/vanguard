@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.1",
+  "cliente": "VANGUARD",
+  "loop": 28,
+  "data_veredito": "2026-06-06",
+  "veredito_via": "deliberacao_verbal_sessao",
+  "vereditos": [
+    {
+      "id": "D1",
+      "escolha": "C",
+      "descricao": "Hibrido: Hermes Agent (motor persistente) + n8n (orquestrador) + Claude API (verificacao e briefing)",
+      "notas": "Hermes deployado no EasyPanel via Docker. Claude API como modelo. n8n continua como sistema nervoso de workflows."
+    },
+    {
+      "id": "D2",
+      "escolha": "A",
+      "descricao": "Signal Classifier em shadow mode primeiro — Eduardo ve o que o sistema faria por 7 dias antes de ativar",
+      "notas": "Shadow mode: classifica sinais mas nao bloqueia. G-5 + N-3 consolidados nesta implementacao."
+    },
+    {
+      "id": "D3",
+      "escolha": "A",
+      "descricao": "V28 = E-1 (gate coerencia semantica) + Signal Classifier shadow + Hermes Agent + State Guard",
+      "notas": "E-2 (Hermes) entra no V28 — condicao: E-1 construido primeiro. Build incremental em 3 sessoes (~8h)."
+    }
+  ]
+}

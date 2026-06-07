@@ -108,6 +108,52 @@ Se não sincronizar → estado assíncrono → usar o fallback manual acima para
 
 ---
 
+## W-8 — Signal Classifier (Shadow Mode → Produção)
+
+**O que faz:** Categoriza sinais de W-1/W-5/W-3 em [AUTO-RESOLVE] / [INFORMAR] / [DELIBERAR-A/B/C] antes de qualquer notificação. Em shadow mode: classifica mas não bloqueia.
+
+**Fallback (3 passos):**
+1. Se W-8 offline: W-1/W-5/W-3 continuam enviando para Telegram diretamente (comportamento pré-V28 — zero perda de alertas)
+2. Verificar `silenced_signals_log` no Supabase para auditoria manual dos sinais silenciados
+3. Reativar W-8 via EasyPanel → n8n → ativar workflow "Signal Classifier"
+
+**Impacto se falhar:** Shadow mode: zero impacto (sinais passam direto). Produção: sem classificação — alertas voltam ao volume pré-V28. Reverter para comportamento anterior é o fallback.
+
+---
+
+## W-9 — Inversão do Auditor / Hash Check (Cron: abertura de sessão)
+
+**O que faz:** Verifica hash de `NOTEBOOKLM_FONTES/` vs data da DIRETRIZ mais recente. Se FONTES desatualizadas → alerta na abertura de sessão Claude Code.
+
+**Fallback (3 passos):**
+1. Rodar manualmente: `.\scripts\sync_vanguard_docs.ps1` — força sync de todos os docs
+2. Verificar manualmente: `CLIENTES/[CLIENTE]/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V*.txt` — data vs DIRETRIZ em disco
+3. Se defasado → preparar_notebooklm_projeto.ps1 -cliente [NOME] antes de ir ao NotebookLM
+
+**Impacto se falhar:** Auditor pode receber fontes desatualizadas — médio impacto. Fallback manual via script existente.
+
+---
+
+## HERMES AGENT — Daemon Persistente (Docker EasyPanel)
+
+**O que faz:** Motor autônomo 24/7. Detecta sinais classificados pelo W-8, age conforme graus A/B/C, chama `claude -p` para execução de Grau C, monta briefing diário via email.
+
+**Fallback (3 passos):**
+1. Se Hermes offline: `n8n` assume notificações (W-1/W-5 continuam funcionando independentemente)
+2. Briefing manual: abrir WIP_BOARD.md + PENDENTES.md no início da sessão (comportamento atual do session_start)
+3. Reiniciar container Hermes: EasyPanel → serviço hermes-agent → Restart
+
+**⚠️ RISCO CRÍTICO P-110:** Se Hermes ficar offline e n8n também → Eduardo opera com session_start manual apenas. Verificar com `ping_n8n.ps1` + `ping_hermes.ps1` (a criar).
+
+**Impacto se falhar:** ALTO — loop autônomo para. Eduardo volta a ser a ignição. Fallback é o estado pré-V28 — reversível e seguro.
+
+**Graus A/B/C — fallback específico:**
+- Grau A offline: Eduardo recebe email normalmente (Hermes envia antes de agir) → delibera via painel
+- Grau B offline: tarefa fica em fila no SQLite do Hermes até ele voltar online
+- Grau C offline: n8n loga o sinal em `silenced_signals_log` — Músculo processa na próxima sessão
+
+---
+
 ## DIAGNÓSTICO RÁPIDO — SE TUDO PARAR
 
 ```powershell
@@ -126,5 +172,4 @@ Se não sincronizar → estado assíncrono → usar o fallback manual acima para
 
 ---
 
-*Versão: 1.0 · 2026-06-05 · Criado pelo Músculo*
-*Atualizar ao adicionar W-5/W-6 em produção*
+*Versão: 2.0 · 2026-06-06 · V28 — Signal Classifier + W-9 + Hermes Agent adicionados*
