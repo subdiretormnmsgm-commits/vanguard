@@ -1,0 +1,70 @@
+{
+    "projeto":  "VANGUARD",
+    "ultima_sincronizacao":  "2026-06-07T01:07:21",
+    "arquivos":  [
+                     {
+                         "nome":  "00_INSTRUCAO_AUDITOR.md",
+                         "hash_universal":  "1363C01A7EF6A0D94A36C006D059FC29A185D07782B738B436428C98164D943D",
+                         "hash_local":  "",
+                         "status":  "AUSENTE"
+                     },
+                     {
+                         "nome":  "01_SKILL_PROTOCOLO_VANGUARD.md",
+                         "hash_universal":  "7CE310FA582A690AC90397CB0DA9E371A78A3D6901C2CA9B55A7E47170CBE55A",
+                         "hash_local":  "",
+                         "status":  "AUSENTE"
+                     },
+                     {
+                         "nome":  "02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+                         "hash_universal":  "60AAAEE1497FD92C9F03EFF1C7AB00BE4C004AAB262086A2308F6497A2653B9D",
+                         "hash_local":  "",
+                         "status":  "AUSENTE"
+                     },
+                     {
+                         "nome":  "03_MANUAL_DIRETOR.md",
+                         "hash_universal":  "9E9E6429B07D452EA335BD6804282D55159FDC9EF4CC3FECE66B80B7A723E3F3",
+                         "hash_local":  "",
+                         "status":  "AUSENTE"
+                     },
+                     {
+                         "nome":  "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
+                         "hash_universal":  "573424CBF83BB5EFE834EFFFFE460FEE12A7AE5C860286C0E04A23A6C6F76087",
+                         "hash_local":  "",
+                         "status":  "AUSENTE"
+                     },
+                     {
+                         "nome":  "06_TEMPLATES_COMUNICACAO_PENTALATERAL.md",
+                         "hash_universal":  "09C25FDB01847A0BD5BFFE64351416FCABB7C289935A76DBA86D909686CE8A98",
+                         "hash_local":  "",
+                         "status":  "AUSENTE"
+                     },
+                     {
+                         "nome":  "07_WIP_BOARD.txt",
+                         "hash_universal":  "ADD24DF93680994D93997A07D4222B1AA3F14A06B6F0C43898F2F149C5B9DECC",
+                         "hash_local":  "ADD24DF93680994D93997A07D4222B1AA3F14A06B6F0C43898F2F149C5B9DECC",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "08_ANALISE_SOCIO_ATUAL.txt",
+                         "hash_universal":  "8A1658A03C597C56493F67FDFBEFFFADAD60C8532050AC160483B033F5D17C91",
+                         "hash_local":  "8A1658A03C597C56493F67FDFBEFFFADAD60C8532050AC160483B033F5D17C91",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "INTELLIGENCE_LEDGER.md",
+                         "hash_universal":  "4AD30622845AB60F832AD406ED3EC25E5920AF9E94E51B99227AE18F1595A964",
+                         "hash_local":  "",
+                         "status":  "AUSENTE"
+                     },
+                     {
+                         "nome":  "LEDGER_INDEX.md",
+                         "hash_universal":  "F683043801A94C071E14988A385225B61534C4693932081DCA0E99463EAC7E5D",
+                         "hash_local":  "",
+                         "status":  "AUSENTE"
+                     }
+                 ],
+    "status_geral":  "VERMELHO",
+    "total":  10,
+    "drift_count":  0,
+    "ausente_count":  8
+}

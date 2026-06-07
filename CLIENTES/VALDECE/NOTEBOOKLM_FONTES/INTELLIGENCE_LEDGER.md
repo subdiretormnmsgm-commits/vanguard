@@ -1973,6 +1973,20 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Fundamento:** Apos apresentar o MAPA DIARIO, o Musculo sempre propoe quais pendentes [musculo] podem ser executados na sessao atual -- com sequencia e estimativa. Nunca encerra sessao sem oferecer avanco em pelo menos 1 item [musculo] aberto. DEPENDENCY_MAP especificamente: (a) item marcado [x] sem simbolo de conclusao (strikethrough + checkmark) = nao concluido -- propor execucao imediata. (b) Apos criar documento novo em PENTALATERAL_UNIVERSAL/ -> verificar se foi adicionado ao DEPENDENCY_MAP. (c) DEPENDENCY_MAP.json so e considerado atualizado apos: editar o arquivo + executar propagate_changes.ps1 + verificar hash. Nao declarar concluido sem os 3 passos.
 **Evidencia:** Item DEPENDENCY_MAP ficou como [x] sem conclusao por multiplas sessoes sem que o Musculo propusesse execucao. Falha detectada pelo Diretor em 2026-06-06.
 **Aplica-se a:** toda sessao, em especial ao fechar -- varredura de pendentes [musculo] abertos e DEPENDENCY_MAP com entradas em atraso.
+
+## P-116 -- O QUE DOI E ERRO, NAO ESFORCO -- VERIFICACAO ANTES DE AUTOMACAO (2026-06-06)
+**Origem:** Embaixador V28 -- Loop 28 -- "verificacao antes de automacao" como principio fundador do Hermes Agent.
+**Fundamento:** Confianca no sistema nao se declara -- se verifica. Cada nivel de delegacao (Grau A/B/C) exige prova antes de subir. O Gate de Coerencia Semantica (E-1) nasce deste principio: antes de confiar que um handoff esta completo para o proximo socio, um agente verifica semanticamente. "O que doi e erro, nao esforco" -- a verificacao extra e esforco; o erro nao detectado e o que custa caro.
+**Evidencia:** E-1 gate_coerencia.ps1 criado no V28. Graus A/B/C definidos em pentalateral-graus-abc.md. Shadow mode de 7 dias antes de ativar Signal Classifier -- padrao de verificar antes de confiar.
+**Aplica-se a:** toda proposta de automacao nova -- a pergunta "o que verificamos antes de ativar?" precede a pergunta "quando ativamos?". Escada de confianca: shadow -> Grau A -> Grau B -> Grau C.
+
+## P-117 -- DIAGRAMA PARCIAL DO CICLO PENTALATERAL NORMALIZA SKIP DE MEMBRO (2026-06-06)
+**Origem:** Detectado em 2026-06-06 ao apresentar diagrama NotebookLM → Músculo sem o Embaixador.
+**Fundamento:** Todo diagrama ou representação do ciclo Pentalateral mostrado no chat deve incluir os 5 membros (Gemini → NotebookLM → Embaixador → Músculo → Diretor) ou declarar explicitamente que é [SUBFLUXO: X]. Diagrama parcial — mesmo para explicar nomenclatura, naming convention ou subetapa — normaliza pular membros. O leitor passa a aceitar o ciclo incompleto como correto porque "viu no diagrama". Omissão visual é omissão operacional.
+**Regra:** antes de gerar qualquer diagrama de fluxo ou tabela de sequência, verificar: todos os 5 membros estão representados? Se não → acrescentar ou adicionar nota [SUBFLUXO: X — Embaixador e Diretor operam em paralelo neste subfluxo].
+**Evidência:** elo apresentado em sessão de nomenclatura omitiu o Embaixador — ciclo apareceu como NotebookLM → Músculo, normalizando o skip do 3º membro.
+**Aplica-se a:** todo diagrama, tabela de sequência, fluxo PDCA ou representação visual do ciclo Pentalateral gerado pelo Músculo no chat ou em documentos.
+
 ## P-114 — BLOCO 0 DO EMBAIXADOR É ADITIVO — NAO SUBSTITUI LEITURA DE ARQUIVOS (2026-06-06)
 **Origem:** Mandato do Diretor em 2026-06-06.
 **Fundamento:** O Embaixador gera um BLOCO 0 ao fechar cada sessao: sintese do PAINEL_ATIVIDADES + CONTEXTO_SESSAO_DIRETOR com perspectiva comportamental de cliente, alertas e acoes do Diretor. O Diretor cola este bloco ao ABRIR a proxima sessao. O BLOCO 0 enriquece o briefing com interpretacao -- mas nao substitui a leitura de PENDENTES.md, WIP_BOARD.json ou PAINEL_ATIVIDADES. Os arquivos em disco confirmam e completam o que o Embaixador sintetizou.

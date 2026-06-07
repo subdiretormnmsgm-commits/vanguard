@@ -123,10 +123,52 @@ Daemon não decide — monta briefing. Se gate pendente + 24h sem sessão → Te
 com contexto pronto + "tempo estimado: 20 min". Eduardo decide quando, não se.
 
 [G-1 a G-5] — IDEIAS DO ESTRATEGISTA (GEMINI):
-[Preencher após receber DIRETRIZ do Gemini]
+
+[G-1] Falsa Falha Programada [CONTRA-INTUITIVO]
+Injeção aleatória e documentada de um erro não-crítico no WIP_BOARD para testar se
+o State Guard e o Chief of Staff detectam e formatam o alerta corretamente. Valida
+a malha de detecção antes que um erro silencioso real corrompa o banco de inteligência.
+
+[G-2] Deliberação por Timeout Controlado [CONTRA-INTUITIVO]
+Sinais classificados como [DELIBERAR-BAIXO-RISCO] assumem resposta "NÃO/MANTER" se
+não houver veredito do Diretor em 24h. Evita que inércia administrativa trave
+ramificações não-críticas. Log explícito: "Resolução Autônoma por Inatividade".
+
+[G-3] Inversão de Alimentação do Auditor
+Em vez do Músculo empurrar dados para o NotebookLM, script extrai hash dos documentos
+e n8n verifica integridade. Se defasado, n8n fornece payload exato no Telegram para
+copiar/colar. Transforma compilação de fontes em ação mecânica de 1 toque.
+
+[G-4] Trancamento Semântico de Contexto
+Chief of Staff Daemon gera assinatura (hash) do PASSO3 no momento do pre-draft. Se
+assinatura for alterada fora do fluxo aprovado, o loop é bloqueado. Previne derivas
+silenciosas do Diretor ou corrupções na edição antes da submissão ao Gemini.
+
+[G-5] Classificador Dinâmico em Shadow Mode
+Antes de autorizar intervenção ativa, o classificador n8n roda em modo sombra
+enviando tags previstas para log separado que Eduardo revisa no final do dia.
+Calibração de tolerância de ruído sem risco de silenciar ou interromper incorretamente.
 
 [N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM):
-[Preencher após receber Skill do NotebookLM]
+
+[N-1] Fallback-as-Code: nó final inativo em cada workflow n8n contém os 3 passos
+manuais de fallback. Script varre API n8n e recompila MAINTENANCE_COST.md
+automaticamente. Resolve P-110 de forma estrutural — impossível esquecer.
+
+[N-2] Auditoria de Briefing Reverso: W-8 injeta 1 pergunta aleatória do
+INTELLIGENCE_LEDGER no briefing diário — combate amnésia humana do Diretor.
+
+[N-3] Shadow Classifier Log: Signal Classifier roda em modo sombra etiquetando
+eventos com [SHADOW-RESOLVE] sem bloqueá-los. Eduardo audita a lógica antes de
+confiar plenamente na IA para silenciar o Telegram. Alinhado com G-5 do Gemini.
+
+[N-4] Sync Forçado Pós-Veredito: W-7 dispara Cloudflare Tunnel para git pull
+imediato na máquina local após veredito no Telegram. Elimina risco de sobrescrever
+veredito assíncrono dado no celular.
+
+[N-5] Métrica de Fadiga Cognitiva: Músculo monitora prompts curtos em sequência
+("ok", "vai", "faz") — sinaliza Fadiga do Diretor e sugere session_close para
+proteger integridade das decisões contra vereditos dados por cansaço.
 
 ---
 

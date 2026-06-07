@@ -1,6 +1,6 @@
 ﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
 **O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
-**Versão:** 1.4 · 2026-05-24 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1
+**Versão:** 1.6 · 2026-06-07 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1 · PARTE 8 n8n (V27) + PARTE 9 Hermes Agent (V28)
 
 ---
 

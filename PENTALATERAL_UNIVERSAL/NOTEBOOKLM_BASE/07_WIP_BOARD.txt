@@ -1,5 +1,5 @@
 ﻿WIP BOARD — PENTALATERAL IAH
-Atualizado em: 2026-06-01
+Atualizado em: 2026-06-07
 WIP Limits: BUILD=2  CHECK=1
 
 ==============================
@@ -7,56 +7,47 @@ COLUNA: BUILD
 ==============================
 
 -------------------------------
-PROJETO: PROJ-002 — Ingrid
-  Descricao : Ferramenta de Estudo â€” Concurso Sedes-DF
-  Area      : EdTech Â· Concursos PÃºblicos
-  Camada    : 2 (Produto â€” 15 dias)
-  Stack     : PWA + Supabase + Claude API
-  Deadline  : 2026-05-30
-  Status    : Loop 8 -- iniciando -- Telemetria + RLS + Monetizacao
-  Loop atual: Loop 7 CONCLUIDO â€” MEMORIA_V7 + relatorio_V7 + DELIBERACAO_V7 gerados Â· Loop 8 PENDENTE â€” aguarda Gemini PASSO3
-  Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado, dia12_contador_socratica_vacina_push_cb
-  Gates bloqueantes:
-    dia2: 10 questoes avaliadas por Eduardo â€” rubrica media >= 4/5
-    dia5: Feed exibe plano correto 7 dias com proporcao correta
-    dia8: Ingrid responde 10 questoes â€” progresso salvo â€” fallback testado
-    dia11: Heatmap correto + simulado domingo completo
-    dia15: Ingrid com acesso admin proprio Supabase
-  Decisoes fixadas:
-    fonte_questoes: Claude API â€” sem scraping (P-003)
-    auth: single-user â€” sem login complexo
-    cache: gerar lote 50 quando < 30 questoes disponiveis
-    proporcao_feed: 70% Peso 2 / 30% Peso 1
-    modelos_api: Haiku (gerais + dicas socraticas) / Sonnet (especificos)
-    burn_rate: BURN_RATE_DAILY_LIMIT_USD=5.00
-    fallback: trigger 70% da cota diaria
-    spaced_repetition: SM-2 intervalo variavel
-    push_vs_email: push no MVP / email com tracking no Loop 2
-    comentario_erro: Opcao A (Dias 3-5): explicacao direta do banco + Opcao B (Dias 6-8): Tutor Socratico Haiku
-  Proximo passo: Loop 5 CONCLUIDO Â· Loop 6: Gemini PASSO3 â†’ ingrid-v6.md â†’ Embaixador â†’ build Â· Sentinel CHURN-WATCH ativo Â· Pitch SaaS R$97/mÃªs ao verbalizar uso ativo
-  Loops programados:
-    Loop 1 (Kickoff): concluido
-    Loop 2 (Gate Dia 5): concluido
-    Loop 3 (Gate Dia 11): concluido
-    Loop 4 (Handoff Dia 15): concluido
+PROJETO: PROJ-000 — VANGUARD
+  Descricao : VanguardV28 -- Pentalateral Autonomo
+  Area      : Infraestrutura Interna -- Pentalateral IAH
+  Camada    : 0 (Infraestrutura Vanguard -- nao e projeto cliente)
+  Stack     : Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)
+  Deadline  : 
+  Status    : BUILD
+  Loop atual: Loop 28 -- EM BUILD
+
+==============================
+COLUNA: CHECK
+==============================
 
 -------------------------------
 PROJETO: PROJ-001 — Valdece
-  Descricao : Ferramenta de Busca JurisprudÃªncia STF/STJ
-  Area      : Legal Tech Â· Direito Penal
+  Descricao : Ferramenta de Busca Jurisprudencia STF/STJ
+  Area      : LegalTech - Direito Penal
   Camada    : 1 (MVP Alto Impacto)
-  Stack     : 
+  Stack     : FastAPI + Supabase + Claude API + Netlify
   Deadline  : 2026-05-23
-  Status    : Sistema LIVE Â· Contrato ASSINADO 2026-05-19 Â· R Â· V3 pipeline desbloqueado
-  Loop atual: Loop 7 CONCLUÃ­DO (V3 entregue + Deploy Netlify OK) â€” toga-digital-valdece.netlify.app ativo
-  Dias completos: dia1_infraestrutura, dia2_corpus_pipeline, dia3_stj_tema_ui, dia4_gate_abnt_threshold_toga, dia5_corpus_deploy_demo
-  Proximo passo: V3 ENTREGUE â€” Deploy Netlify (Diretor) + Sentinel Report 2026-06-02
+  Status    : HYPERCARE -- ate 18-06-2026
+  Loop atual: Loop 7 CONCLUIDO -- V3 entregue + Deploy Netlify OK
+  Proximo passo: Hypercare termina 18-06-2026 -- Sentinel Report enviado 2026-06-04 -- aguardar feedback Valdece
+
+==============================
+COLUNA: RETAINER
+==============================
+
+-------------------------------
+PROJETO: PROJ-002 — Ingrid
+  Descricao : Ferramenta de Estudo -- Concurso Sedes-DF
+  Area      : EdTech - Concursos Publicos
+  Camada    : 2 (Produto -- 15 dias)
+  Stack     : PWA + Supabase + Claude API
+  Deadline  : 2026-05-30
+  Status    : RETAINER
+  Loop atual: Loop 8 CONCLUIDO
+  Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado, dia12_contador_socratica_vacina_push_cb
 
 ==============================
 PERFIS DE NICHO
 ==============================
-  EdTech-Concurso: maturidade=60% status=consolidado parcial
-  Legal-Tech-Criminal: maturidade=75% status=CONTRATO ASSINADO 2026-05-19 â€” V3 desbloqueado â€” Loop 7 iniciando
-  MÃ©dico-Prova-Especialidade [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini
-  Contabilidade-PME [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini
-  PsicÃ³logo-ClÃ­nico-AutÃ´nomo [DISCOVERY]: GO aprovado 2026-05-19 â€” Embaixador gerando PASSO3 para Gemini
+  EdTech-Concurso: maturidade=70% status=consolidado -- Loop 8 concluido
+  LegalTech-Criminal: maturidade=75% status=HYPERCARE -- V3 entregue -- Sentinel Verde
