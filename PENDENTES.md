@@ -134,13 +134,8 @@
   Fonte: CLIENTES/WIP_BOARD.md · Cópias: INGRID/07_WIP_BOARD.md + VALDECE/07_WIP_BOARD.md
   sync_guard -Abertura: 5 pares · OK: 12 · Divergentes: 0 · VERDE.
 
-- [ ] `2026-06-06` **[CANDIDATO A PRINCÍPIO] Diagrama de ciclo sem todos os membros normaliza skip:** [musculo]
-  Todo diagrama ou representação do ciclo Pentalateral mostrado no chat deve incluir os 5 membros
-  (Gemini → NotebookLM → Embaixador → Músculo → Diretor) OU declarar explicitamente que é subfluxo.
-  Diagrama parcial — mesmo para explicar nomenclatura ou naming convention — normaliza pular membros
-  (ex: mostrar NotebookLM → Músculo sem Embaixador). Detectado 2026-06-06: elo apresentado omitiu Embaixador.
-  Numeração do princípio atribuída pelo Diretor na próxima sessão com o Embaixador.
-  Ação: ao gerar qualquer diagrama de fluxo, verificar se todos os membros estão ou declarar "[SUBFLUXO: X]".
+- [x] `2026-06-06` ~~**[CANDIDATO A PRINCÍPIO] Diagrama de ciclo sem todos os membros normaliza skip:**~~
+  ✅ Registrado como P-117 no INTELLIGENCE_LEDGER.md em 2026-06-07 — veredito do Diretor. [RESOLVE: diagrama-ciclo-skip]
 
 - [x] `2026-06-06` ~~**[CANDIDATO A PRINCÍPIO] sync_guard -WhatIf — modo verdadeiramente passivo:**~~
   ✅ -WhatIf implementado em sync_guard.ps1 (V28). Modo passivo real: exibe o que faria sem escrever em disco. [RESOLVE: sync_guard-whatif]
