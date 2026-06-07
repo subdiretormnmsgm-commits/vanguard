@@ -102,6 +102,12 @@
 - [x] `2026-06-07` ~~**[MÚSCULO] Audit SKILL_PROTOCOLO — princípios P-070 a P-111 ausentes**~~
   ✅ Seção "PRINCÍPIOS RECENTES — P-070 a P-101" adicionada ao SKILL_PROTOCOLO v6.8. 17 princípios de impacto operacional direto (P-070 a P-101) incorporados. Propagado para NOTEBOOKLM_BASE + INGRID + VALDECE + VANGUARD. 2026-06-07. [RESOLVE: Audit SKILL_PROTOCOLO]
 
+- [ ] `2026-06-07` **[MÚSCULO] Pentalateral — Levar descoberta /notebooklm ao Auditor + Embaixador** [musculo]
+  PASSO5 (Auditor): análise histórica + riscos + como a skill muda o ciclo + N-1 a N-5
+  PASSO7-D (Embaixador): SEÇÃO D com análise do Músculo (M-1 a M-5) sobre ampliação de habilidades
+  Contexto: skill /notebooklm instalada + P-120 inscrito + análise de /gemini como próximo elo
+  Objetivo: Auditor + Embaixador deliberam sobre "ampliar habilidades do Pentalateral"
+
 ## Ficou no Ar -- 2026-06-07 (gerado automaticamente)
 - [ ] "2026-06-07" **Deploy Secretário Virtual no EasyPanel (adaptar main.py para Formspree + configurar webhook)** [musculo]
 - [ ] "2026-06-07" **[diretor] Login no formspree.io para confirmar acesso ao formulário `xjglyyer`** [diretor]
