@@ -1651,6 +1651,7 @@ O W-8 classifica sinais que chegam ao sistema antes de qualquer ação:
 | Regra | Na prática |
 |---|---|
 | **P-116** Verificação antes de automação | O que dói é o erro, não o esforço. Hermes verifica antes de agir. |
+| **P-117** Diagrama sem todos os membros normaliza skip | Todo diagrama do ciclo Pentalateral mostra os 5 membros ou declara `[SUBFLUXO: X]`. |
 | **Grau A obrigatório** | Toda ação requer `/aprovar N` no Telegram antes de executar |
 | **Skill carregada** | `pentalateral-graus-abc.md` deve estar no dashboard do Hermes |
 | **W-8 expira 2026-06-14** | Avaliar shadow mode antes desta data — não deixar vencer sem decisão |
