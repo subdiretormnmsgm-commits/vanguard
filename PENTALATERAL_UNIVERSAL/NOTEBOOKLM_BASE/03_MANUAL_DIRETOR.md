@@ -1,6 +1,6 @@
 ﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
 **O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
-**Versão:** 1.6 · 2026-06-07 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1 · PARTE 8 n8n (V27) + PARTE 9 Hermes Agent (V28)
+**Versão:** 1.7 · 2026-06-07 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1 · PARTE 8 n8n (V27) + PARTE 9 Hermes Agent (V28) · W-5 ChurnWatch + W-6 Session Watch adicionados à tabela · Gate 1.6 documentado
 
 ---
 
@@ -1549,6 +1549,10 @@ Incrementa a versão para [X.X]."
 
 ---
 
+| 1.7 | 2026-06-07 | W-5 ChurnWatch e W-6 Session Watch adicionados à tabela de notificações automáticas. Gate 1.6 (reconcile_pendentes bloqueante, P-087) documentado na seção n8n. |
+
+---
+
 ## PARTE 8 — N8N: O SISTEMA NERVOSO DO DIRETOR [V27 — 2026-06-05]
 
 > Desde V26, o n8n opera 24/7 no EasyPanel. O Diretor não transporta mais contexto —
@@ -1561,6 +1565,8 @@ Incrementa a versão para [X.X]."
 | 7h / 13h / 20h | Telegram | Briefing automático de projetos (W-1) |
 | A cada git push | Telegram | Notificação de commit (W-3) |
 | Ao fechar sessão | Telegram | Resumo da sessão + pendentes (W-4) |
+| Cron diário | Telegram | ChurnWatch: alerta se cliente sem contato > threshold, com mensagem WhatsApp pronta (W-5) |
+| 17h BRT (se sessão não fechada) | Telegram | Session Watch: lista pendentes abertos por tag [musculo]/[diretor] do PENDENTES.md — silencia se 0 pendentes (W-6) |
 
 ### Como emitir vereditos via Telegram (W-7)
 
@@ -1572,6 +1578,12 @@ Incrementa a versão para [X.X]."
 ```
 
 **Fallback se W-7 cair:** editar `DECISOES.json` direto + rodar `.\scripts\executar_vereditos.ps1 -cliente [NOME]`
+
+### Gate 1.6 — reconcile_pendentes é bloqueante no session_close (P-087)
+
+Desde 2026-06-07, o `session_close.ps1` inclui Gate 1.6: chama `reconcile_pendentes.ps1` que detecta commits recentes com keyword de pendente aberto sem tag `[RESOLVE:]`. Se encontrar divergência → exit 2 → session_close bloqueia (exit 1).
+
+**O que fazer se o Gate 1.6 bloquear:** marcar `[x]` os pendentes que já foram resolvidos no PENDENTES.md e commitá-los — ou adicionar `[RESOLVE:keyword]` ao commit que os resolveu via `git commit --amend` (se ainda não publicado).
 
 ### Regras essenciais do n8n
 
