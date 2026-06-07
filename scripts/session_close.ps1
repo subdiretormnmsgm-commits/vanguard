@@ -37,6 +37,24 @@ if ($exitCode -eq 0) {
     }
 }
 
+# GIT PUSH -- propagar commits locais para o GitHub e disparar W-3
+if ($exitCode -eq 0) {
+    Write-Host ""
+    Write-Host "  [GIT] Verificando commits locais nao publicados..." -ForegroundColor Cyan
+    $unpushed = git log origin/master..master --oneline 2>$null
+    if ($unpushed) {
+        Write-Host "  [GIT] $(@($unpushed).Count) commit(s) pendentes -- fazendo push..." -ForegroundColor Yellow
+        git push origin master 2>&1 | ForEach-Object { Write-Host "  $_" }
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "  [GIT] Push concluido -- W-3 sera disparado pelo GitHub." -ForegroundColor Green
+        } else {
+            Write-Host "  [GIT] AVISO: push falhou -- verificar conexao ou conflitos remotos." -ForegroundColor Yellow
+        }
+    } else {
+        Write-Host "  [GIT] Nenhum commit pendente -- remoto ja esta atualizado." -ForegroundColor Green
+    }
+}
+
 # ARTEFATO OPERACIONAL -- Haiku via API (gate: ANTHROPIC_API_KEY disponivel -- D2 ENV_VARS)
 if ($exitCode -eq 0) {
     $artefatoOpScript = Join-Path $PSScriptRoot "gerar_artefato_operacional.ps1"
