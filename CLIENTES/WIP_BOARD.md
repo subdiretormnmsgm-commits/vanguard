@@ -1,5 +1,5 @@
 # WIP BOARD — Pentalateral IAH
-**Atualizado em:** 2026-06-06
+**Atualizado em:** 2026-06-07
 **Fonte:** WIP_BOARD.json (versao Markdown para o Auditor — NotebookLM nao le JSON)
 
 ---
@@ -18,31 +18,40 @@
 - **Projeto:** VanguardV28 -- Pentalateral Autonomo
 - **Area:** Infraestrutura Interna — Pentalateral IAH
 - **Tipo:** Projeto Interno — Evolucao do Sistema (nao e projeto cliente)
-- **Status:** BUILD — iniciado 2026-06-06
-- **Loop:** 28 — EM BUILD
+- **Status:** BUILD — Loop 28 ENTREGUE em 2026-06-07
+- **Loop:** 28 CONCLUIDO | Proximo: Loop 29 (aguarda Gemini)
 - **Stack:** Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API Haiku (verificacao semantica)
 - **Vereditos Loop 28:**
   - D1=C: Hibrido (Hermes + n8n + Claude API) — APROVADO
   - D2=A: Signal Classifier shadow mode primeiro (7 dias observacao) — APROVADO
   - D3=A: V28 incremental — E-1 + Classifier shadow + Hermes + State Guard (~8h total) — APROVADO
 - **Loop fase atual:**
-  - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: OK
-  - Proximo: BUILD V28 — W-8 Signal Classifier n8n + Hermes Agent Docker + State Guard
-- **Entregues V28:**
-  - gate_coerencia.ps1 — E-1 Gate de Coerencia Semantica via Haiku
-  - skill_parser_gate.ps1 — E-1 integrado ao final
-  - MAINTENANCE_COST.md v2.0 — fallbacks W-8 + W-9 + Hermes Agent
-  - render_painel.ps1 — VANGUARD adicionado ao ValidateSet
-  - DELIBERACAO_LOOP_V28_VANGUARD.md — P-037 gate satisfeito
-  - DECISOES_VANGUARD_2026-06-06.json + VEREDITOS — veredito D1=C D2=A D3=A
-- **Pendentes V28:**
-  - W-8 Signal Classifier — build n8n shadow mode (~3h)
-  - Hermes Agent — Docker EasyPanel + Claude API + skill graus A/B/C (~4-6h)
-  - State Guard — acoplar ao session_start (~2h)
-  - N-4 Sync forcado pos-veredito em executar_vereditos.ps1 (~1h)
+  - Gemini: PENDENTE | NotebookLM: OK | Embaixador: OK | Musculo: OK
+  - Proximo: Gemini — PASSO3 Loop 29
+- **Entregues V28 (completo):**
+  - W-8 Signal Classifier — ATIVO shadow mode n8n EasyPanel (2026-06-07)
+  - Hermes Agent — ONLINE EasyPanel hermes/hermes-agent OpenRouter+Telegram (2026-06-07)
+  - silenced_signals_log — CRIADA Supabase com RLS (2026-06-07)
+  - gate_coerencia.ps1 — INTEGRADO skill_parser_gate
+  - State Guard — INTEGRADO session_start
+  - N-4 executar_vereditos — sync forcado pos-veredito
   - P-116 inscricao no INTELLIGENCE_LEDGER
   - MEMORIA_EMBAIXADOR_VANGUARD.md — perfil fundador
-  - ping_hermes.ps1 + silenced_signals_log Supabase
+  - NARRATIVA_FUNDADOR.md — Vanguard como primeiro caso do proprio produto
+  - ping_hermes.ps1 — health check Hermes
+  - RUNBOOK_EASYPANEL.md — fonte canonica EasyPanel
+  - RUNBOOK_SUPABASE_DDL.md — fonte canonica Supabase
+  - MEMORIA_V27_VANGUARD.md + MEMORIA_V28_VANGUARD.md — P-045 gate
+  - CLAUDE.md v13 + vanguard-protocolo.md v6.5 — Hermes integrado
+- **Hermes Agent:**
+  - Status: ONLINE
+  - Plataforma: EasyPanel hermes/hermes-agent
+  - Modelo: anthropic/claude-sonnet-4-6 via OpenRouter
+  - Telegram: configurado (home: 8895733647)
+  - Grau atual: A — age apenas com aprovacao
+  - Config: /opt/data/config.yaml (volume persistido)
+  - W-8 shadow mode expira: 2026-06-14
+- **Pendentes V28:** (zerado)
 - **Skill:** .claude/skills/vanguard-v28.md
 
 ---
@@ -116,9 +125,9 @@
 |-------|-------|
 | Loops desde ultimo checkup | 1 |
 | Data ultimo checkup | 2026-05-27 |
-| Data ultima sessao | 2026-06-06 |
-| Claude Projects pendente | Nao |
+| Data ultima sessao | 2026-06-07 |
+| Claude Projects pendente | Sim |
 
 ---
 
-*V28 adicionado em 2026-06-06 — PROJ-000 VANGUARD como projeto interno em BUILD*
+*V28 ENTREGUE 2026-06-07 — Hermes Agent ONLINE + W-8 shadow mode (expira 2026-06-14)*

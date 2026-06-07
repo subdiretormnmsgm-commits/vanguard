@@ -67,20 +67,41 @@ Write-Host "=======================================================" -Foreground
 Write-Host ""
 Write-Host "  Projeto: 'Vanguard - Embaixador Operacional'" -ForegroundColor White
 Write-Host ""
-Write-Host "  Arrastar os 2 arquivos:" -ForegroundColor Yellow
+Write-Host "  Arrastar os 5 arquivos:" -ForegroundColor Yellow
 Write-Host "  1. PROTOCOLOS_ENCERRAMENTO\$painelNome"               -ForegroundColor Cyan
 if (Test-Path $contextoFimPath) {
     Write-Host "  2. PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md" -ForegroundColor Cyan
 } else {
     Write-Host "  2. CONTEXTO_SESSAO_DIRETOR_$dataFim.md [NAO ENCONTRADO -- Musculo deve gerar]" -ForegroundColor Red
 }
+Write-Host "  3. CLIENTES\WIP_BOARD.json"                            -ForegroundColor Cyan
+Write-Host "  4. INTELLIGENCE_LEDGER.md"                             -ForegroundColor Cyan
+Write-Host "  5. PENDENTES.md"                                       -ForegroundColor Cyan
 Write-Host ""
 Write-Host "  Colar no chat do Embaixador Operacional:"             -ForegroundColor White
 Write-Host "  -----------------------------------------------"       -ForegroundColor DarkGray
-Write-Host "  Embaixador, fechamento de sessao $dataFim."            -ForegroundColor Cyan
-Write-Host "  Upload: PAINEL_ATIVIDADES + CONTEXTO_SESSAO_DIRETOR." -ForegroundColor Cyan
-Write-Host "  Processar e confirmar recepcao em 1 linha."            -ForegroundColor Cyan
-Write-Host "  Abertura da proxima sessao: aguardar ativacao."        -ForegroundColor Cyan
+Write-Host "  Embaixador, fechamento de sessao -- $dataFim."         -ForegroundColor Cyan
+Write-Host "  Faco upload do PAINEL_ATIVIDADES, CONTEXTO_SESSAO_DIRETOR, WIP_BOARD, INTELLIGENCE_LEDGER e PENDENTES desta sessao." -ForegroundColor Cyan
+Write-Host "  Com base nos cinco arquivos, gerar o artefato publicavel com:" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  0. BRIEFING DE ABERTURA PARA O MUSCULO (item mais importante -- gerar primeiro)" -ForegroundColor Cyan
+Write-Host "     Redigir um paragrafo que o Diretor colara no inicio da proxima sessao do Claude Code." -ForegroundColor Cyan
+Write-Host "     Deve conter: (a) o que foi entregue hoje e esta ativo," -ForegroundColor Cyan
+Write-Host "     (b) o que ficou em aberto e por que," -ForegroundColor Cyan
+Write-Host "     (c) qual e o proximo passo esperado do Musculo ao abrir a sessao." -ForegroundColor Cyan
+Write-Host "     Escrito na segunda pessoa, direto ao Musculo: 'Musculo, na ultima sessao...'" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  1. SEMAFORO -- status visual de cada projeto (bloqueante / atencao / saudavel)" -ForegroundColor Cyan
+Write-Host "  2. DIAGNOSTICO DO DIA -- saude dos projetos ativos + o que avancou hoje no sistema" -ForegroundColor Cyan
+Write-Host "  3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor" -ForegroundColor Cyan
+Write-Host "  4. ANALISE GERENCIAL -- o que o comportamento real do cliente confirma ou contradiz?" -ForegroundColor Cyan
+Write-Host "     O que voce ve que o Musculo nao ve?" -ForegroundColor Cyan
+Write-Host "  5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens, em ordem de prioridade" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  Ao entregar o artefato, incluir esta instrucao ao Diretor:" -ForegroundColor Cyan
+Write-Host "  'Diretor, amanha ao abrir o Claude Code, cole o BLOCO 0 acima como" -ForegroundColor Cyan
+Write-Host "  primeira mensagem para o Musculo -- antes de qualquer outra coisa." -ForegroundColor Cyan
+Write-Host "  Sem isso, ele comeca sem contexto da sessao de hoje.'" -ForegroundColor Cyan
 Write-Host "  -----------------------------------------------"       -ForegroundColor DarkGray
 Write-Host ""
 
