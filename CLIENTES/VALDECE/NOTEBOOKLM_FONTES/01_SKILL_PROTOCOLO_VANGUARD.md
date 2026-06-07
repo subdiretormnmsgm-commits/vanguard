@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.6 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 a P-117 (2026-06-07)**
+**Versão da Skill:** 6.7 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 a P-117 (2026-06-07) · Gate 1.6 bloqueante + P-087 + P-090 + P-118 (2026-06-07)**
 
 ---
 
@@ -2632,6 +2632,16 @@ Todo dia interno de projeto (ex: "Dia 15") tem data calendário correspondente �
 
 ---
 
+### PRINCÍPIOS RECENTES — P-087 e P-090 (2026-05-28 a 2026-05-29)
+
+**[P-087] — Tag [RESOLVE:] Obrigatória em Commit que Conclui Pendente (2026-05-28)**
+Todo commit que fecha tarefa do PENDENTES.md DEVE incluir `[RESOLVE: keyword]` na mensagem — formato: `<tipo>(<escopo>): <descricao> [RESOLVE: <keyword-do-pendente>]`. O hook `.git/hooks/post-commit` detecta a tag e chama `auto_resolve_pendentes.ps1` automaticamente (commit separado `[AUTO-RESOLVE]` — nunca amend). Fallback: `reconcile_pendentes.ps1` no session_start alerta via PENDENTES-WATCH. A partir de 2026-06-07, `reconcile_pendentes.ps1` é Gate 1.6 do `session_close.ps1` — exit 2 bloqueia o fechamento com exit 1. Músculo que omite [RESOLVE:] = violação P-087 detectada no próximo fechamento de sessão.
+
+**[P-090] — PASSO3 é Escrito no Arquivo, não no Chat (2026-05-29)**
+Conteúdo gerado no chat (M-1 a M-5, MISSÃO do loop) é rascunho — invisível ao Gemini. O Gemini lê `PASSO3_GEMINI.md` — não o chat. Ao gerar qualquer conteúdo para PASSO3: escrever no arquivo com Write tool antes de qualquer outra coisa. Gate: `gemini_anchor_generator.ps1` bloqueia se detectar `[MUSCULO:` no arquivo. Placeholder no arquivo = Gemini faz análise livre = DIRETRIZ inválida.
+
+---
+
 ### PRINCÍPIOS RECENTES — P-112 a P-117 (2026-06-07)
 
 **[P-112] — n8n como Pré-processador Controlado: Palco Pronto, Conselho Delibera (2026-06-04)**
@@ -2654,4 +2664,11 @@ Todo diagrama do ciclo Pentalateral deve incluir os 5 membros (Gemini → Notebo
 
 ---
 
-*V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid · P-069 (2026-05-29) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + P-116 a P-117 (2026-06-07)*
+### PRINCÍPIOS RECENTES — P-118 (2026-06-07)
+
+**[P-118] — Auditar Execução Antes de Construir — O Mapa de Ferramentas Pode Estar Incompleto (2026-06-07)**
+Problema recorrente com ferramenta de prevenção já inscrita no LEDGER → primeira ação é auditar execução, não construir camada nova. A auditoria pode revelar que a ferramenta funciona e o defeito está num componente vizinho não mapeado. Antes de emitir briefing de auditoria ou propor nova ferramenta: mapear TODOS os scripts que escrevem no arquivo-alvo — não só os declarados no LEDGER. Perguntar explicitamente: "que outros scripts tocam este arquivo?" antes de concluir o mapa. DEPENDENCY_MAP cobre documentos canônicos; para scripts, a pergunta é obrigatória. Evidência: `sync_ficou_no_ar.ps1` não constava no briefing inicial — era o componente com os dois bugs. Aprovado pelo Diretor em 2026-06-07.
+
+---
+
+*V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid · P-069 (2026-05-29) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + P-116 a P-117 (2026-06-07) · Gate 1.6 + P-087 + P-090 + P-118 (2026-06-07)*
