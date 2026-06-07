@@ -29,6 +29,15 @@ $universal = Join-Path (Split-Path -Parent $PSScriptRoot) "PENTALATERAL_UNIVERSA
 & powershell.exe -NonInteractive -File $universal @args
 $exitCode = $LASTEXITCODE
 
+# SYNC FICOU NO AR -- converte itens de "8. FICOU NO AR" do CONTEXTO em [ ] no PENDENTES.md
+# Roda antes do webhook para que o n8n receba o PENDENTES ja atualizado
+if ($exitCode -eq 0) {
+    $syncFicouScript = Join-Path $PSScriptRoot "sync_ficou_no_ar.ps1"
+    if (Test-Path $syncFicouScript) {
+        & powershell.exe -NonInteractive -File $syncFicouScript -DataContexto $dataHoje 2>$null
+    }
+}
+
 # N-3: fire-and-forget webhook n8n (so executa se n8n_config.ps1 existir e gates passaram)
 if ($exitCode -eq 0) {
     $webhookScript = Join-Path $PSScriptRoot "n8n_session_webhook.ps1"
