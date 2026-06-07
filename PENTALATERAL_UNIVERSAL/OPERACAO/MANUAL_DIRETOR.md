@@ -1,6 +1,6 @@
 ﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
 **O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
-**Versão:** 1.4 · 2026-05-24 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1
+**Versão:** 1.6 · 2026-06-07 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1 · PARTE 8 n8n (V27) + PARTE 9 Hermes Agent (V28)
 
 ---
 
@@ -1651,6 +1651,7 @@ O W-8 classifica sinais que chegam ao sistema antes de qualquer ação:
 | Regra | Na prática |
 |---|---|
 | **P-116** Verificação antes de automação | O que dói é o erro, não o esforço. Hermes verifica antes de agir. |
+| **P-117** Diagrama sem todos os membros normaliza skip | Todo diagrama do ciclo Pentalateral mostra os 5 membros ou declara `[SUBFLUXO: X]`. |
 | **Grau A obrigatório** | Toda ação requer `/aprovar N` no Telegram antes de executar |
 | **Skill carregada** | `pentalateral-graus-abc.md` deve estar no dashboard do Hermes |
 | **W-8 expira 2026-06-14** | Avaliar shadow mode antes desta data — não deixar vencer sem decisão |
