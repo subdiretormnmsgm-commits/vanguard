@@ -1980,6 +1980,13 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Evidencia:** E-1 gate_coerencia.ps1 criado no V28. Graus A/B/C definidos em pentalateral-graus-abc.md. Shadow mode de 7 dias antes de ativar Signal Classifier -- padrao de verificar antes de confiar.
 **Aplica-se a:** toda proposta de automacao nova -- a pergunta "o que verificamos antes de ativar?" precede a pergunta "quando ativamos?". Escada de confianca: shadow -> Grau A -> Grau B -> Grau C.
 
+## P-117 -- DIAGRAMA PARCIAL DO CICLO PENTALATERAL NORMALIZA SKIP DE MEMBRO (2026-06-06)
+**Origem:** Detectado em 2026-06-06 ao apresentar diagrama NotebookLM → Músculo sem o Embaixador.
+**Fundamento:** Todo diagrama ou representação do ciclo Pentalateral mostrado no chat deve incluir os 5 membros (Gemini → NotebookLM → Embaixador → Músculo → Diretor) ou declarar explicitamente que é [SUBFLUXO: X]. Diagrama parcial — mesmo para explicar nomenclatura, naming convention ou subetapa — normaliza pular membros. O leitor passa a aceitar o ciclo incompleto como correto porque "viu no diagrama". Omissão visual é omissão operacional.
+**Regra:** antes de gerar qualquer diagrama de fluxo ou tabela de sequência, verificar: todos os 5 membros estão representados? Se não → acrescentar ou adicionar nota [SUBFLUXO: X — Embaixador e Diretor operam em paralelo neste subfluxo].
+**Evidência:** elo apresentado em sessão de nomenclatura omitiu o Embaixador — ciclo apareceu como NotebookLM → Músculo, normalizando o skip do 3º membro.
+**Aplica-se a:** todo diagrama, tabela de sequência, fluxo PDCA ou representação visual do ciclo Pentalateral gerado pelo Músculo no chat ou em documentos.
+
 ## P-114 — BLOCO 0 DO EMBAIXADOR É ADITIVO — NAO SUBSTITUI LEITURA DE ARQUIVOS (2026-06-06)
 **Origem:** Mandato do Diretor em 2026-06-06.
 **Fundamento:** O Embaixador gera um BLOCO 0 ao fechar cada sessao: sintese do PAINEL_ATIVIDADES + CONTEXTO_SESSAO_DIRETOR com perspectiva comportamental de cliente, alertas e acoes do Diretor. O Diretor cola este bloco ao ABRIR a proxima sessao. O BLOCO 0 enriquece o briefing com interpretacao -- mas nao substitui a leitura de PENDENTES.md, WIP_BOARD.json ou PAINEL_ATIVIDADES. Os arquivos em disco confirmam e completam o que o Embaixador sintetizou.

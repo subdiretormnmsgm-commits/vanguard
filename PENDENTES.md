@@ -41,6 +41,7 @@
 
 - [x] `2026-06-06` ~~**V28 — Hermes Agent Docker config para EasyPanel:**~~
   ✅ hermes-agent/docker-compose.yml + hermes-agent/skills/pentalateral-graus-abc.md criados.
+  ✅ `pentalateral-graus-abc.md` carregada no container Hermes (/opt/data/skills/) — confirmado pelo Diretor em 2026-06-07.
 
 - [x] `2026-06-06` ~~**V28 — P-116 inscrito no INTELLIGENCE_LEDGER.md:**~~
   ✅ "O que dói é erro, não esforço — verificação antes de automação" inscrito. AUTORIZO concedido.
