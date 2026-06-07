@@ -744,6 +744,24 @@ if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA C
 if ($documentosMortos)  { $sections = @("## DOCUMENTOS MORTOS (P-113) -- VARREDURA AUTOMATICA`n$documentosMortos") + $sections }
 if ($syncGuardOutput)   { $sections = @("## SYNC_GUARD (P-033) -- DIVERGENCIAS DE DOCUMENTOS CANONICOS`n$syncGuardOutput") + $sections }
 if ($stateGuardOutput)  { $sections = @("## STATE_GUARD V28 -- ANOMALIAS NO WIP_BOARD`n$stateGuardOutput") + $sections }
+
+# BLOCO 0 -- sempre a primeira secao, nunca truncada (P-114 / 2026-06-08)
+$bloco0Alert = @(
+    "ACAO OBRIGATORIA ANTES DE QUALQUER RESPOSTA AO DIRETOR:",
+    "",
+    "  Verificar se Diretor colou o BLOCO 0 do Embaixador ao abrir esta sessao.",
+    "  Se NAO colou -> dizer EXATAMENTE:",
+    "    'Diretor, cole aqui o BLOCO 0 do Embaixador da sessao anterior antes de continuarmos.'",
+    "  Aguardar o BLOCO 0 ou confirmacao explícita de indisponibilidade.",
+    "  Nao apresentar MAPA DIARIO nem responder sobre tarefas antes disso.",
+    "",
+    "  FALLBACK (somente apos confirmacao do Diretor de que nao esta disponivel):",
+    "  Ler: PROTOCOLOS_ENCERRAMENTO/CONTEXTO_SESSAO_DIRETOR_[data mais recente].md",
+    "",
+    "  Musculo que responde antes de solicitar BLOCO 0 = DEF-M-6 (Musculo Reativo)."
+) -join "`n"
+$sections = @("## ⚠️  BLOCO 0 DO EMBAIXADOR (P-114) -- PRIMEIRA ACAO OBRIGATORIA`n$bloco0Alert") + $sections
+
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +
