@@ -740,10 +740,12 @@ if ($mapaDiarioOutput)     { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS 
 if ($pendentesVencidosP069) { $sections = @("## PENDENTES VENCIDOS (P-069) -- ATENCAO IMEDIATA`n$pendentesVencidosP069") + $sections }
 if ($decisoesPendentes) { $sections = @("## DECISOES PENDENTES -- AGENDA BLOQUEADA ATE VEREDITO`n$decisoesPendentes") + $sections }
 if ($loopLembrete)      { $sections = @("## LEMBRETE DE LOOP -- FASES ATIVAS (P-077)`n$loopLembrete") + $sections }
-if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA CONVERSACIONAL)`n$contextoSessao") + $sections }
 if ($documentosMortos)  { $sections = @("## DOCUMENTOS MORTOS (P-113) -- VARREDURA AUTOMATICA`n$documentosMortos") + $sections }
 if ($syncGuardOutput)   { $sections = @("## SYNC_GUARD (P-033) -- DIVERGENCIAS DE DOCUMENTOS CANONICOS`n$syncGuardOutput") + $sections }
 if ($stateGuardOutput)  { $sections = @("## STATE_GUARD V28 -- ANOMALIAS NO WIP_BOARD`n$stateGuardOutput") + $sections }
+
+# CONTEXTO SESSAO DIRETOR -- segunda secao (logo apos BLOCO 0, nunca truncada)
+if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA CONVERSACIONAL)`n$contextoSessao") + $sections }
 
 # BLOCO 0 -- sempre a primeira secao, nunca truncada (P-114 / 2026-06-08)
 $bloco0Alert = @(
