@@ -96,6 +96,12 @@
 - [x] `2026-06-07` ~~**[MÚSCULO] Gate 1.6 — reconcile_pendentes.ps1 virar bloqueante no session_close:**~~
   ✅ reconcile_pendentes.ps1 agora emite exit 2 quando detecta divergências. Gate 1.6 inserido no session_close.ps1 entre Gate 1.5 e Gate 2 — bloqueia (exit 1) em exit 2. G1_6 adicionado ao gateStatus. 2026-06-07.
 
+- [x] `2026-06-07` ~~**[MÚSCULO] SKILL_PROTOCOLO v6.7 + MANUAL_DIRETOR v1.7 — gaps P-087/P-090/P-118/Gate1.6/W-5/W-6:**~~
+  ✅ P-087 (RESOLVE tag) + P-090 (PASSO3 no arquivo) + P-118 (auditar antes de construir) adicionados ao SKILL_PROTOCOLO. Gate 1.6 + W-5 ChurnWatch + W-6 Session Watch documentados no MANUAL_DIRETOR. Cadeia canônica NOTEBOOKLM_BASE → CLIENTES propagada. Hook P-073 VERDE.
+
+- [ ] `2026-06-07` **[MÚSCULO] Audit SKILL_PROTOCOLO — princípios P-070 a P-111 ausentes** [musculo]
+  Gap identificado: SKILL_PROTOCOLO tem P-069 e depois pula para P-112. Princípios P-070 a P-111 existem no LEDGER mas nunca foram trazidos para o SKILL. Ação: ler LEDGER P-070..P-111 → avaliar quais têm impacto operacional direto → adicionar seção "PRINCÍPIOS P-070 a P-111" no SKILL_PROTOCOLO. Estimativa: 30 min. Fazer na próxima sessão com capacidade disponível.
+
 ## Ficou no Ar -- 2026-06-07 (gerado automaticamente)
 - [ ] "2026-06-07" **Deploy Secretário Virtual no EasyPanel (adaptar main.py para Formspree + configurar webhook)** [musculo]
 - [ ] "2026-06-07" **[diretor] Login no formspree.io para confirmar acesso ao formulário `xjglyyer`** [diretor]
