@@ -1545,6 +1545,10 @@ Incrementa a versão para [X.X]."
 
 ---
 
+| 1.6 | 2026-06-07 | Seção Hermes Agent adicionada — V28: motor autônomo 24h, Graus A/B/C, W-8 Signal Classifier shadow mode, P-116 verificação antes de automação. |
+
+---
+
 ## PARTE 8 — N8N: O SISTEMA NERVOSO DO DIRETOR [V27 — 2026-06-05]
 
 > Desde V26, o n8n opera 24/7 no EasyPanel. O Diretor não transporta mais contexto —
@@ -1584,6 +1588,75 @@ Incrementa a versão para [X.X]."
 
 ---
 
-*Manual do diretor · PENTALATERAL IAH · V1.5*
+## PARTE 9 — HERMES AGENT: O 6º COMPONENTE DO PENTALATERAL [V28 — 2026-06-07]
+
+> Desde V28, o Pentalateral tem um componente 24h: o Hermes Agent.
+> Ele opera entre sessões. O Diretor não precisa abrir o Claude Code para ser informado.
+
+### O que é o Hermes
+
+Motor autônomo rodando no EasyPanel (`hermes/hermes-agent`), usando `anthropic/claude-sonnet-4-6` via OpenRouter. Responde no Telegram `@Eduardo431Vanguardbot`. Persiste configuração em `/opt/data/config.yaml` (sobrevive restart).
+
+### Graus de Delegação — O Diretor controla o nível de autonomia
+
+| Grau | Como funciona | Status atual |
+|------|--------------|-------------|
+| **A** | Hermes age apenas com aprovação do Diretor | ✅ ATIVO |
+| **B** | Hermes age + confirma em 15min. Diretor pode vetar. | Após validação W-8 (2026-06-14) |
+| **C** | Hermes autônomo + loga todas as ações | Futuro — exige Grau B validado |
+
+**Regra:** nunca pular grau. A → B → C. Cada transição requer aprovação explícita do Diretor.
+
+### Como interagir com o Hermes via Telegram
+
+```
+/aprovar N       → aprova ação pendente N
+/status          → estado atual dos projetos
+/score           → pontuação dos projetos (W-7 integrado)
+/custo           → custo acumulado de API
+/briefing NOME   → briefing de reunião com cliente (V29)
+```
+
+### W-8 Signal Classifier — O filtro de ruído do Hermes
+
+O W-8 classifica sinais que chegam ao sistema antes de qualquer ação:
+
+| Classificação | Significado | O que acontece |
+|---|---|---|
+| `AUTO-RESOLVE` | Pendente já resolvido por commit | Marca automaticamente |
+| `INFORMAR` | Evento que o Diretor deve saber | Telegram silencioso |
+| `DELIBERAR-A` | Decisão de baixo impacto | Hermes processa (Grau A: pede aprovação) |
+| `DELIBERAR-B` | Decisão de médio impacto | Sempre vai ao Diretor |
+| `DELIBERAR-C` | Decisão estratégica | Pausa tudo, aguarda Eduardo |
+
+**Shadow mode:** ativo desde 2026-06-07. Expira **2026-06-14**. Durante o shadow mode, o W-8 registra o que *faria* em `silenced_signals_log` (Supabase) sem agir. O Diretor avalia os logs antes de ativar ação real.
+
+**⚠️ Ação do Diretor em 2026-06-14:** verificar `silenced_signals_log` e decidir: (A) ativar W-8 com ação real, ou (B) prorrogar shadow mode por mais 7 dias.
+
+### Verificar saúde do Hermes
+
+```powershell
+.\scripts\ping_hermes.ps1             # exit 0 = UP · exit 1 = DOWN · exit 2 = config ausente
+.\scripts\ping_hermes.ps1 -Telegram   # envia resultado ao Telegram
+```
+
+### Fallback se Hermes cair
+
+1. Verificar EasyPanel: `hermes/hermes-agent` → reiniciar serviço
+2. Se não subir: `hermes config set` para re-persistir vars no volume `/opt/data/`
+3. Runbook completo: `PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_EASYPANEL.md`
+
+### Regras essenciais do Hermes
+
+| Regra | Na prática |
+|---|---|
+| **P-116** Verificação antes de automação | O que dói é o erro, não o esforço. Hermes verifica antes de agir. |
+| **Grau A obrigatório** | Toda ação requer `/aprovar N` no Telegram antes de executar |
+| **Skill carregada** | `pentalateral-graus-abc.md` deve estar no dashboard do Hermes |
+| **W-8 expira 2026-06-14** | Avaliar shadow mode antes desta data — não deixar vencer sem decisão |
+
+---
+
+*Manual do diretor · PENTALATERAL IAH · V1.6*
 *Criado pelo Músculo para o Diretor Eduardo*
 *atualizar após cada projeto — este documento é tão vivo quanto o sistema que descreve*

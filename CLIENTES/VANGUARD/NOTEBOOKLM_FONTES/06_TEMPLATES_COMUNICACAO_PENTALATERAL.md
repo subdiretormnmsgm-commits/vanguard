@@ -1,7 +1,7 @@
 ﻿# TEMPLATES DE COMUNICAÇÃO — PENTALATERAL IAH
 **Referência interna do Músculo — não colar diretamente em nenhuma IA**
 **Organismo vivo — atualizar quando o processo evoluir**
-**Versão:** 2.1 | Data: 2026-06-07 | V28: Hermes Agent como 6º componente ativo 24h
+**Versão:** 2.0 | Data: 2026-05-18
 
 > ⚠️ REGRA FUNDAMENTAL — LER ANTES DE USAR
 >
@@ -16,9 +16,6 @@
 ---
 
 ## VISÃO GERAL DO FLUXO DE DOCUMENTOS
-
-> V28: HERMES AGENT é o 6º componente ativo — opera 24h entre sessões via Telegram.
-> Classifica sinais (W-8), executa ações aprovadas (Grau A→B→C), não substitui nenhum membro do Conselho.
 
 ```
 DIRETOR
