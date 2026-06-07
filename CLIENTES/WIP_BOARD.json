@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-06-06",
+    "atualizado_em":  "2026-06-07",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -25,7 +25,7 @@
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
                                                             "loop":  28,
-                                                            "gemini":  "OK",
+                                                            "gemini":  "PENDENTE",
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "OK",
@@ -45,21 +45,23 @@
                                                           "DECISOES_VANGUARD_2026-06-06.json -- D1=C D2=A D3=A",
                                                           "VEREDITOS_VANGUARD_2026-06-06.json -- veredito verbal registrado"
                                                       ],
-                                    "pendentes_v28":  [],
-                                    "entregues_v28_completo":  [
-                                                          "W-8 Signal Classifier -- ATIVO shadow mode n8n EasyPanel (2026-06-07)",
-                                                          "Hermes Agent -- ONLINE EasyPanel hermes/hermes-agent OpenRouter+Telegram (2026-06-07)",
-                                                          "silenced_signals_log -- CRIADA Supabase com RLS (2026-06-07)",
-                                                          "gate_coerencia.ps1 -- INTEGRADO skill_parser_gate",
-                                                          "State Guard -- INTEGRADO session_start",
-                                                          "N-4 executar_vereditos -- sync forcado pos-veredito",
-                                                          "P-116 inscricao no INTELLIGENCE_LEDGER",
-                                                          "MEMORIA_EMBAIXADOR_VANGUARD.md -- perfil fundador",
-                                                          "NARRATIVA_FUNDADOR.md -- Vanguard como primeiro caso do proprio produto",
-                                                          "ping_hermes.ps1 -- health check Hermes",
-                                                          "RUNBOOK_EASYPANEL.md -- fonte canonica EasyPanel",
-                                                          "RUNBOOK_SUPABASE_DDL.md -- fonte canonica Supabase"
+                                    "pendentes_v28":  [
+
                                                       ],
+                                    "entregues_v28_completo":  [
+                                                                   "W-8 Signal Classifier -- ATIVO shadow mode n8n EasyPanel (2026-06-07)",
+                                                                   "Hermes Agent -- ONLINE EasyPanel hermes/hermes-agent OpenRouter+Telegram (2026-06-07)",
+                                                                   "silenced_signals_log -- CRIADA Supabase com RLS (2026-06-07)",
+                                                                   "gate_coerencia.ps1 -- INTEGRADO skill_parser_gate",
+                                                                   "State Guard -- INTEGRADO session_start",
+                                                                   "N-4 executar_vereditos -- sync forcado pos-veredito",
+                                                                   "P-116 inscricao no INTELLIGENCE_LEDGER",
+                                                                   "MEMORIA_EMBAIXADOR_VANGUARD.md -- perfil fundador",
+                                                                   "NARRATIVA_FUNDADOR.md -- Vanguard como primeiro caso do proprio produto",
+                                                                   "ping_hermes.ps1 -- health check Hermes",
+                                                                   "RUNBOOK_EASYPANEL.md -- fonte canonica EasyPanel",
+                                                                   "RUNBOOK_SUPABASE_DDL.md -- fonte canonica Supabase"
+                                                               ],
                                     "hermes_agent":  {
                                                          "status":  "ONLINE",
                                                          "plataforma":  "EasyPanel hermes/hermes-agent",
@@ -219,7 +221,7 @@
                  "loops_desde_ultimo_checkup":  1,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-06",
-                 "claude_projects_pendente":  false
+                 "data_ultima_sessao":  "2026-06-07",
+                 "claude_projects_pendente":  true
              }
 }
