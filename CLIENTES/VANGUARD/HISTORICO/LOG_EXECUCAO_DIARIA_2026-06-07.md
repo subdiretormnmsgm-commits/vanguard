@@ -1,36 +1,30 @@
 # LOG DE EXECUCAO DIARIA -- VANGUARD . 2026-06-07
 > Gerado automaticamente por session_close.ps1
-> Sessao encerrada: 01:07:21
+> Sessao encerrada: 15:29:58
 
 ---
 
 ## 1. ARQUIVOS MODIFICADOS
-- .musculo_autorizacao.flag
-- @{meta=; principles=System.Object[]; confirmed_patterns=System.Object[]; refuted_patterns=System.Object[]; constitution=; active_projects=System.Object[]; sessions=System.Collections.ArrayList}
-- CLIENTES/INGRID/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
+- .claude/skills/vanguard-protocolo.md
 - CLIENTES/INGRID/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md
-- CLIENTES/INGRID/NOTEBOOKLM_FONTES/INTELLIGENCE_LEDGER.md
-- CLIENTES/VALDECE/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
 - CLIENTES/VALDECE/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md
-- CLIENTES/VALDECE/NOTEBOOKLM_FONTES/INTELLIGENCE_LEDGER.md
-- CLIENTES/VALDECE/PASSO3_GEMINI.md
-- CLIENTES/WIP_BOARD.json
-- CONTEXTO_GEMINI.md
-- PASSO7_EMBAIXADOR_V28.md
+- CLIENTES/VALDECE/NOTEBOOKLM_FONTES/03_MANUAL_DIRETOR.md
+- CLIENTES/VANGUARD/CLAUDE_PROJECT/07_WIP_BOARD.json
+- CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V28_vanguard.md
+- CLIENTES/VANGUARD/MANIFEST_DOCS.json
+- CLIENTES/VANGUARD/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md
+- CLIENTES/VANGUARD/NOTEBOOKLM_FONTES/03_MANUAL_DIRETOR.md
 - PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/01_SKILL_PROTOCOLO_VANGUARD.md
-- PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md
-- scripts/decisoes_watcher.log
-- scripts/skill_watcher.log
+- SYNC_REPORT_20260607.md
 
 
 ## 2. SINCRONIZACAO NOTEBOOKLM
 | Projeto | Status MANIFEST |
 |---------|----------------|
-| VANGUARD | VERMELHO |
+| VANGUARD | AMARELO |
 
-## 3. PENDENTES ABERTOS (3 itens)
+## 3. PENDENTES ABERTOS (2 itens)
 - Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:
-- [CANDIDATO A PRINCÍPIO] Diagrama de ciclo sem todos os membros normaliza skip:
 - Ingrid — Gate 7.2 RLS refactor — pré-requisito multi-tenant:
 
 
@@ -68,6 +62,7 @@
 + `2026-05-30` **Ingrid — Dia 13 (29-05-2026 sexta-feira) — Contador Pontos Ponderados + Notificação push domingo:**
 + `2026-05-27` ~~**Loop 6 Ingrid — PAINEL DE DELIBERAÇÃO:**~~
 + `2026-06-06` ~~**[GAP] FONTES_DE_VERDADE.json — par estado_wip ausente:**~~
++ `2026-06-06` ~~**[CANDIDATO A PRINCÍPIO] Diagrama de ciclo sem todos os membros normaliza skip:**~~
 + `2026-06-06` ~~**[CANDIDATO A PRINCÍPIO] sync_guard -WhatIf — modo verdadeiramente passivo:**~~
 + `2026-06-12` ~~**[SISTEMA] MANUAL_DIRETOR.md — adicionar seção n8n (slot 03 sem n8n):**~~
 + `2026-06-12` ~~**[SISTEMA] DEPENDENCY_MAP.json v2.2 — REGISTRO_DE_PREMISSAS + CANDIDATOS:**~~
@@ -108,4 +103,4 @@
 
 
 ## 5. STATUS GERAL
-VERMELHO
+AMARELO

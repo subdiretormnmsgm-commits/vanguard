@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-06-06",
+    "atualizado_em":  "2026-06-07",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -29,7 +29,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "OK",
-                                                            "proximo":  "Gemini -- PASSO3 Loop 29"
+                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -221,7 +221,7 @@
                  "loops_desde_ultimo_checkup":  1,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-06",
-                 "claude_projects_pendente":  false
+                 "data_ultima_sessao":  "2026-06-07",
+                 "claude_projects_pendente":  true
              }
 }

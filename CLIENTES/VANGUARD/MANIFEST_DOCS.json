@@ -1,47 +1,53 @@
 {
     "projeto":  "VANGUARD",
-    "ultima_sincronizacao":  "2026-06-07T01:07:21",
+    "ultima_sincronizacao":  "2026-06-07T15:29:58",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
                          "hash_universal":  "1363C01A7EF6A0D94A36C006D059FC29A185D07782B738B436428C98164D943D",
-                         "hash_local":  "",
-                         "status":  "AUSENTE"
+                         "hash_local":  "1363C01A7EF6A0D94A36C006D059FC29A185D07782B738B436428C98164D943D",
+                         "status":  "SYNC"
                      },
                      {
                          "nome":  "01_SKILL_PROTOCOLO_VANGUARD.md",
-                         "hash_universal":  "7CE310FA582A690AC90397CB0DA9E371A78A3D6901C2CA9B55A7E47170CBE55A",
-                         "hash_local":  "",
-                         "status":  "AUSENTE"
+                         "hash_universal":  "F420E10C0A29463CB9994A37B948676C0DD9BD3CEC0B416018DDD22CD541D5B4",
+                         "hash_local":  "F420E10C0A29463CB9994A37B948676C0DD9BD3CEC0B416018DDD22CD541D5B4",
+                         "status":  "SYNC"
                      },
                      {
                          "nome":  "02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
                          "hash_universal":  "60AAAEE1497FD92C9F03EFF1C7AB00BE4C004AAB262086A2308F6497A2653B9D",
-                         "hash_local":  "",
-                         "status":  "AUSENTE"
+                         "hash_local":  "60AAAEE1497FD92C9F03EFF1C7AB00BE4C004AAB262086A2308F6497A2653B9D",
+                         "status":  "SYNC"
                      },
                      {
                          "nome":  "03_MANUAL_DIRETOR.md",
-                         "hash_universal":  "9E9E6429B07D452EA335BD6804282D55159FDC9EF4CC3FECE66B80B7A723E3F3",
-                         "hash_local":  "",
-                         "status":  "AUSENTE"
+                         "hash_universal":  "1C7954F683F87B02432060FF7FC82F2FAFD7579B518748CC01F5BCDE916D4F84",
+                         "hash_local":  "F9463CA9A0755578C54C0EA2469B8153E220202521DBD736A5E4973D1711AB38",
+                         "status":  "DRIFT"
+                     },
+                     {
+                         "nome":  "04_INTELLIGENCE_LEDGER.md",
+                         "hash_universal":  "CA8BA96852B0DAEA997E42783CC7F8E00C5CC1EF132E282E1F5B337CEFD3ED84",
+                         "hash_local":  "45C5FA99BD4AD7FAD15E6D5D4F347A5A782AD2F93089FD36AF1BD8F429AF608A",
+                         "status":  "DRIFT"
                      },
                      {
                          "nome":  "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
                          "hash_universal":  "573424CBF83BB5EFE834EFFFFE460FEE12A7AE5C860286C0E04A23A6C6F76087",
-                         "hash_local":  "",
-                         "status":  "AUSENTE"
+                         "hash_local":  "573424CBF83BB5EFE834EFFFFE460FEE12A7AE5C860286C0E04A23A6C6F76087",
+                         "status":  "SYNC"
                      },
                      {
                          "nome":  "06_TEMPLATES_COMUNICACAO_PENTALATERAL.md",
-                         "hash_universal":  "09C25FDB01847A0BD5BFFE64351416FCABB7C289935A76DBA86D909686CE8A98",
-                         "hash_local":  "",
-                         "status":  "AUSENTE"
+                         "hash_universal":  "9FE6C1AB351E85047E7CBCBE293EEF11D4A04D64EABC7A036741869BBBAC230D",
+                         "hash_local":  "239FE2C8765BE4A110A1890B3E2A6AAAB9834227C66DE27B9CA96755FF446563",
+                         "status":  "DRIFT"
                      },
                      {
                          "nome":  "07_WIP_BOARD.txt",
-                         "hash_universal":  "ADD24DF93680994D93997A07D4222B1AA3F14A06B6F0C43898F2F149C5B9DECC",
-                         "hash_local":  "ADD24DF93680994D93997A07D4222B1AA3F14A06B6F0C43898F2F149C5B9DECC",
+                         "hash_universal":  "F5CCD45DF909763F5CC1A1B8DBAEA380EDE6B6EC24A5FC18BA9D7E1A51FB8B0B",
+                         "hash_local":  "F5CCD45DF909763F5CC1A1B8DBAEA380EDE6B6EC24A5FC18BA9D7E1A51FB8B0B",
                          "status":  "SYNC"
                      },
                      {
@@ -51,20 +57,20 @@
                          "status":  "SYNC"
                      },
                      {
-                         "nome":  "INTELLIGENCE_LEDGER.md",
+                         "nome":  "04_INTELLIGENCE_LEDGER.md",
                          "hash_universal":  "4AD30622845AB60F832AD406ED3EC25E5920AF9E94E51B99227AE18F1595A964",
-                         "hash_local":  "",
-                         "status":  "AUSENTE"
+                         "hash_local":  "45C5FA99BD4AD7FAD15E6D5D4F347A5A782AD2F93089FD36AF1BD8F429AF608A",
+                         "status":  "DRIFT"
                      },
                      {
                          "nome":  "LEDGER_INDEX.md",
                          "hash_universal":  "F683043801A94C071E14988A385225B61534C4693932081DCA0E99463EAC7E5D",
-                         "hash_local":  "",
-                         "status":  "AUSENTE"
+                         "hash_local":  "F683043801A94C071E14988A385225B61534C4693932081DCA0E99463EAC7E5D",
+                         "status":  "SYNC"
                      }
                  ],
-    "status_geral":  "VERMELHO",
-    "total":  10,
-    "drift_count":  0,
-    "ausente_count":  8
+    "status_geral":  "AMARELO",
+    "total":  11,
+    "drift_count":  4,
+    "ausente_count":  0
 }

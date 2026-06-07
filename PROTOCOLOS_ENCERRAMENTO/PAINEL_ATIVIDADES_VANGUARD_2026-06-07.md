@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - VANGUARD - DIRETOR EDUARDO
-### Pentalateral IAH - Domingo, 2026-06-07 01:07
+### Pentalateral IAH - Domingo, 2026-06-07 15:30
 
 ---
 
@@ -8,9 +8,7 @@
 > O Diretor delibera a ordem de acao. O Musculo nunca decide a prioridade.
 > Abaixo: todas as atividades vencidas ou que vencem hoje, ordenadas por dias de atraso.
 
-| # | Projeto | Tarefa | Prazo | Dias em atraso |
-|---|---------|--------|-------|---------------|
-| 1 | PROCESSO / INFRA | [CANDIDATO A PRINCÍPIO] Diagrama de ciclo sem todos os me... | 2026-06-06 | 1d |
+Nenhuma atividade em deficit nesta sessao.
 
 ---
 
@@ -49,21 +47,21 @@ O artefato deve ser autossuficiente: o Diretor abre e decide, nao executa.
 ## PROJETOS ATIVOS
 
 ```
-VANGUARD   [BUILD    ]  Loop 28 -- Gemini:PENDENTE NBook:OK Embaixador:OK Musculo:OK -- Proximo: Gemini -- PASSO3 Loop 29  Deadline: sem prazo
+VANGUARD   [BUILD    ]  Loop 28 -- Gemini:PENDENTE NBook:OK Embaixador:OK Musculo:OK -- Proximo: Embaixador -- PASSO7 Secao D antes do Musculo  Deadline: sem prazo
 ```
 
 ---
 
 ## COMMIT DA SESSAO
 
-Commit : 5f3efbe - 2 arquivo(s) alterado(s)
-Mensagem: feat(v28): V28 ENTREGUE -- Hermes ONLINE + docs atualizados + fechamento loop
+Commit : 7c6ffb5 - 1 arquivo(s) alterado(s)
+Mensagem: chore(sync): LEDGER propagado + PENDENTES atualizado (Hermes skill confirmada)
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao 2026-06-07 -- 16 arquivo(s) modificado(s). MANIFEST: VERMELHO. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VANGUARD\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-07.md.
+Sessao 2026-06-07 -- 11 arquivo(s) modificado(s). MANIFEST: AMARELO. LOG: C:\Users\Eduardo DELL\OneDrive\Área de Trabalho\vanguard\CLIENTES\VANGUARD\HISTORICO\LOG_EXECUCAO_DIARIA_2026-06-07.md.
 
 ---
 
@@ -71,7 +69,7 @@ Sessao 2026-06-07 -- 16 arquivo(s) modificado(s). MANIFEST: VERMELHO. LOG: C:\Us
 
 > Escopo: anomalias de sistema (manifesto hash, canonical violation). Pendentes e gargalos estao nas secoes ATIVIDADES EM DEFICIT e ALERTA GARGALO acima.
 
-- [VANGUARD] MANIFEST: VERMELHO
+- [VANGUARD] MANIFEST: AMARELO
 
 ---
 
@@ -85,7 +83,7 @@ Sessao 2026-06-07 -- 16 arquivo(s) modificado(s). MANIFEST: VERMELHO. LOG: C:\Us
 
 Nenhum pendente urgente neste ciclo.
 
-Total pendentes abertos: 1
+Total pendentes abertos: 0
 
 ---
 
@@ -99,7 +97,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto VANGUARD encerrou sessao com 3 pendente(s) e 0 gargalo(s). Status documental: VERMELHO.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto VANGUARD encerrou sessao com 2 pendente(s) e 0 gargalo(s). Status documental: AMARELO.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 
