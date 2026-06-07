@@ -38,13 +38,46 @@ $dataWh = if ($Data) { $Data } else { (Get-Date -Format "yyyy-MM-dd") }
 $contextoExiste = Test-Path "$BASE\PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataWh.md"
 $artefatoExiste = Test-Path "$BASE\RELATORIOS_EMBAIXADOR\ARTEFATO_EMBAIXADOR_OPERACIONAL_$dataWh.md"
 
+# Extrair pendentes abertos do PENDENTES.md (itens [ ] nao concluidos)
+$pendentesAbertos = @()
+$pendentesPath = Join-Path $BASE "PENDENTES.md"
+if (Test-Path $pendentesPath) {
+    $linhasPend = Get-Content $pendentesPath -Encoding UTF8
+    foreach ($linha in $linhasPend) {
+        if ($linha -match '^\- \[ \]') {
+            # Extrair titulo em negrito
+            $titulo = $linha -replace '^\- \[ \] `[^`]+` \*\*(.+?)\*\*.*', '$1'
+            if ($titulo -eq $linha) { $titulo = ($linha -replace '^\- \[ \] ', '').Trim() }
+            $projeto = if ($linha -match '\[musculo\]') { '[musculo]' } elseif ($linha -match '\[diretor\]') { '[diretor]' } else { '' }
+            $pendentesAbertos += ($titulo.Trim() + if ($projeto) { ' ' + $projeto } else { '' })
+        }
+    }
+}
+
+# Extrair titulos de principios novos hoje do INTELLIGENCE_LEDGER.md
+$principiosTitulos = @()
+if ($Principio) { $principiosTitulos = @($Principio) }
+else {
+    $ledgerPath = Join-Path $BASE "INTELLIGENCE_LEDGER.md"
+    if (Test-Path $ledgerPath) {
+        $hoje = Get-Date -Format "yyyy-MM-dd"
+        $linhasLedger = Get-Content $ledgerPath -Encoding UTF8
+        foreach ($linha in $linhasLedger) {
+            if ($linha -match "^## (P-\d+)[^(]*\($hoje\)") {
+                $principiosTitulos += $Matches[1] + ' — ' + ($linha -replace '^## P-\d+ -- ', '' -replace "^## P-\d+ — ", '' -replace " \($hoje\)", '')
+            }
+        }
+    }
+}
+
 $payload = @{
-    cliente    = $Cliente
-    data       = $dataWh
-    hora       = if ($Hora) { $Hora } else { (Get-Date -Format "HH:mm") }
-    principios = if ($Principio) { @($Principio) } else { @() }
-    friccoes   = if ($Friccao)   { @($Friccao) }   else { @() }
-    dividas    = if ($Divida)    { @($Divida) }     else { @() }
+    cliente          = $Cliente
+    data             = $dataWh
+    hora             = if ($Hora) { $Hora } else { (Get-Date -Format "HH:mm") }
+    principios       = $principiosTitulos
+    friccoes         = if ($Friccao)   { @($Friccao) }   else { @() }
+    dividas          = if ($Divida)    { @($Divida) }     else { @() }
+    pendentes_abertos = $pendentesAbertos
     git        = @{
         sha           = $gitSha
         branch        = $gitBranch
