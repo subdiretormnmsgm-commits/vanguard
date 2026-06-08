@@ -15,20 +15,14 @@
 
 ## PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo)
 
-- [ ] `2026-06-09` **[MANDATO DIRETOR] Auditoria cirúrgica completa — TODOS os documentos desatualizados** [musculo]
-  Mandato explícito: "Muita coisa desatualizada." — 2026-06-08.
-  Escopo: LEDGER + WIP_BOARD + PASSO files + docs universais + SKILL_PROTOCOLO + MANUAL_DIRETOR.
-  Verificar: 6 mudanças Loop 29 (INTELLIGENCE HUB, Antigravity, /notebooklm v2, LOOP_STATE, W-9, P-121→P-126).
-  Entregável: lista ATUALIZADO / EM DIA / PENDENTE para cada documento auditado.
-  PRIMEIRA AÇÃO da próxima sessão — bloqueante para DIRETRIZ V29.
+- [x] `2026-06-09` ~~**[MANDATO DIRETOR] Auditoria cirúrgica completa — TODOS os documentos desatualizados** [musculo]~~
+  ✅ Auditoria concluída 2026-06-09. 7 DESATUALIZADO corrigidos: SKILL_PROTOCOLO v6.9 + MANUAL_DIRETOR v1.8 + CLAUDE.md V29 + WIP_BOARD Loop 29 + LEDGER P-127 + propagação sync_vanguard_docs.ps1 x2. Commit a3a7d99 (50 arquivos). DIRETRIZ V29 DESBLOQUEADA.
 
 - [x] `2026-06-09` ~~**[MÚSCULO] P-127 → INTELLIGENCE_LEDGER** [musculo]~~
   ✅ P-127 inscrito: "Embaixador opera Estrategista de forma autônoma com grounding verificado — 1ª instância documentada." — 2026-06-09. [RESOLVE: P-127]
 
-- [ ] `2026-06-09` **[DIRETOR] Veredito Mumuzinho — onboarding formal ou pasta excluída** [diretor]
-  GATE 1 do session_close trava em VERMELHO por causa do arquivo MUMUZINHO/*.txt (menciona "Quadrilateral").
-  Opções: (A) onboarding formal → criar PROJ-003, renomear arquivo, instrução ao Músculo.
-  (B) Excluir pasta até haver contrato. Diretor decide qual caminho — Músculo executa.
+- [x] `2026-06-09` ~~**[DIRETOR] Veredito Mumuzinho — onboarding formal ou pasta excluída** [diretor]~~
+  ✅ Diretor escolheu Opção A: PROJ-003 criado em DISCOVERY STANDBY. Estrutura + MEMORIA_EMBAIXADOR + WIP_BOARD atualizados. "Quadrilateral" → "Pentalateral IAH" corrigido (GATE 1 VERDE). Diretor aciona quando tiver canal para Dudu Félix. Commit 0d6bb1c.
 
 - [ ] `2026-06-09` **[DIRETOR] Arrastar 7 arquivos ao Embaixador + colar mensagem** [diretor]
   Arquivos: PAINEL_ATIVIDADES · CONTEXTO_SESSAO_DIRETOR · WIP_BOARD · LEDGER · PENDENTES · VANGUARD_TIMELINE · MEMORIA_EMBAIXADOR
@@ -38,6 +32,19 @@
   PASSO3 pronto em CLIENTES/VANGUARD/PASSO3_GEMINI.md.
   Pré-requisito: auditoria cirúrgica concluída.
   Usar skill gemini-pentalateral: subir PASSO3 ao Drive → anexar + disparar.
+
+- [ ] `2026-06-09` **[MÚSCULO] Fix sistêmico P-073 — sync_vanguard_docs.ps1 deve atualizar NOTEBOOKLM_BASE** [musculo]
+  Problema recorrente: OPERACAO/ é atualizado → sync copia para CLIENTES/ mas NÃO para NOTEBOOKLM_BASE/.
+  detect_canonical usa BASE como referência → falso positivo VERMELHO toda sessão.
+  Fix: adicionar Passo 0 no sync_vanguard_docs.ps1 — OPERACAO → NOTEBOOKLM_BASE antes de OPERACAO → CLIENTES.
+  Afeta: 01_SKILL_PROTOCOLO + 03_MANUAL_DIRETOR (detectado em 2026-06-09).
+  Baixa prioridade mas recorrente — eliminar para sempre.
+
+- [ ] `2026-06-09` **[DIRETOR] W-9 Track TRENDS — importar no EasyPanel n8n** [diretor]
+  Arquivo: `_n8n/workflows/w9_trends_semanal.json` (criado em 2026-06-08, pronto para import).
+  Acesso: EasyPanel → n8n → Workflows → Import from file.
+  Após import: configurar ENV_VARS (ANTHROPIC_API_KEY + TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID já existem).
+  Cron: segunda-feira 8h BRT. Gera relatório de tendências por nicho no INTELLIGENCE_HUB/TRENDS/.
 
 - [ ] `2026-06-14` **[DIRETOR] W-8 shadow mode — avaliar ativação plena** [diretor]
   DEADLINE HARD: shadow mode expira 2026-06-14.
