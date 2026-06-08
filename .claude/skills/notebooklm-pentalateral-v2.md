@@ -1,9 +1,4 @@
----
-name: notebooklm
-description: Control NotebookLM via browser automation using the Claude Chrome Extension (skill /notebooklm). Use this skill whenever the user wants to interact with any of their NotebookLM notebooks — reading content, pulling summaries or key takeaways, adding sources (URLs, text, files, YouTube links), generating Studio outputs (infographics, slide decks, audio overviews, study guides, briefing docs, mind maps, timelines, FAQs), or creating new notebooks. Triggers on any phrase involving NotebookLM — "open NotebookLM", "check my [notebook name] notebook", "pull info from NotebookLM", "ask my notebook about X", "add [source] to NotebookLM", "create an infographic in NotebookLM", "use NotebookLM Studio", "generate a slide deck from my notebook", "what does my notebook say about X", or any variation where the goal involves NotebookLM. When in doubt, use this skill — don't try to replicate NotebookLM's functionality manually.
----
-
-# SKILL: notebooklm (v2 — Pentalateral IAH)
+# SKILL: notebooklm-pentalateral-v2.md
 Camada: Sistema Interno | Loop: Universal | Stack: Claude Chrome Extension + NotebookLM
 
 ### [IDENTIDADE PENTALATERAL]
@@ -19,10 +14,6 @@ Esta skill governa a automação programática do SÓCIO-AUDITOR (NotebookLM) vi
 *   **Gate P-045:** O Músculo deve verificar se `MEMORIA_V[N-1]` e `relatorio_V[N-1]` existem no histórico antes de acionar a extensão.
 *   **Gate P-059:** Confirme que a variável global `$CLIENTE_ATIVO` está definida e corresponde ao caderno alvo.
 *   **Gate P-053:** `preparar_notebooklm_projeto.ps1` deve ter sido executado para compilar a pasta de fontes.
-
-### [DOIS NAMESPACES — P-123]
-*   `[YYYY-MM] [CLIENTE]-base` — notebook PERMANENTE. Contém LEDGER + universais + histórico. NUNCA recebe docs de loop efêmero nem dados de cliente.
-*   `[YYYY-MM] [CLIENTE]-loop-N` — notebook EFÊMERO. Criado no loop N, destruído após skill extraída e aprovada.
 
 ### [MATRIZ DE AUTORIZAÇÃO]
 | Ator | Pode acionar? | Em qual momento do ciclo? | Gate obrigatório antes? |
@@ -40,7 +31,7 @@ Esta skill governa a automação programática do SÓCIO-AUDITOR (NotebookLM) vi
 
 ### [Abrir Notebook com validação $CLIENTE_ATIVO via URL + título do DOM]
 1. Na homepage do NotebookLM, use Computer Use / OCR para buscar o card cujo título contém a string de `$CLIENTE_ATIVO`.
-2. Clique no card.
+2. Clique no card. 
 3. Após o carregamento, extraia o título do DOM (h1 ou header principal) e verifique se a URL mudou.
 4. **Gate de Segurança:** Se o título no DOM não contiver `$CLIENTE_ATIVO`, aborte imediatamente a operação (Kill-Switch P-059) e feche a aba.
 
@@ -67,7 +58,7 @@ Esta skill governa a automação programática do SÓCIO-AUDITOR (NotebookLM) vi
 
 ### [Action: Read/Extract — com skill_parser_gate.ps1 + timeout de 5 min]
 1. Insira o prompt na caixa de chat e envie.
-2. Inicie um loop de polling a cada 15 segundos verificando se a resposta terminou de ser gerada no DOM.
+2. Inicie um loop de polling a cada 15 segundos verificando se a resposta terminou de ser gerada no DOM (procure pelo desaparecimento do ícone de "thinking/generating").
 3. **TIMEOUT:** Limite máximo de **5 minutos**. Se exceder, tire screenshot e aborte com erro de timeout.
 4. Após geração completa, raspe todo o texto do container de resposta.
 5. Salve o texto fisicamente em `.claude/skills/[$CLIENTE_ATIVO]-v[N].md`.
@@ -75,26 +66,27 @@ Esta skill governa a automação programática do SÓCIO-AUDITOR (NotebookLM) vi
 
 ### [Action: Create Notebook]
 1. Na homepage, clique em "New Notebook".
-2. No campo de título, insira obrigatoriamente: `[YYYY-MM] [NOME_CLIENTE]-base` ou `[YYYY-MM] [NOME_CLIENTE]-loop-N`.
+2. No campo de título, insira obrigatoriamente: `[YYYY-MM] [NOME_CLIENTE]`.
 3. Prossiga para Action: Add Sources.
 
 ---
 
 ## [AUDITORIA DE COERÊNCIA]
 *   **Princípio P-075 (O Diretor não transporta):** Esta skill codifica a desintermediação operacional, transferindo o trabalho braçal de DOM manipulation para o Músculo.
-*   **Princípio P-053 (Manifesto de Fontes):** As travas na seção `[Action: Add Sources]` garantem a validade ontológica do Pentalateral.
+*   **Princípio P-053 (Manifesto de Fontes):** As travas na seção `[Action: Add Sources]` garantem a validade ontológica do Pentalateral. Nada entra no NotebookLM que não esteja indexado no repo Git local.
 *   **Princípio P-059 (Isolamento de Contexto):** A verificação rigorosa de `$CLIENTE_ATIVO` no DOM impede a contaminação cruzada de cadernos.
-*   **Princípio P-123 (Dois Namespaces):** Base permanente nunca recebe dados de loop efêmero — isolamento garantido por design.
+*   **Precedentes Reais:** No Loop V26 (Projeto Vanguard), a transição para o n8n comprovou que automações periféricas falham sem fallbacks locais. Esta skill atua como a contraparte local de RPA (Robotic Process Automation) para a nuvem.
 
 ## [CONEXÃO HISTÓRICA]
-A ausência dessa automação causou gargalos severos de processamento nas V1 a V17. Especificamente na **FALHA-PROCESSO-2026-05-18-D**, o Diretor tentou abrir o NotebookLM mas o sistema travou com contexto defasado porque arquivos velhos não foram limpos manualmente. A inclusão do Wipe & Sync detalhado no DOM neutraliza esse risco estruturalmente.
+A ausência dessa automação causou gargalos severos de processamento nas V1 a V17. Especificamente na **FALHA-PROCESSO-2026-05-18-D**, o Diretor tentou abrir o NotebookLM mas o sistema travou com contexto defasado porque arquivos velhos não foram limpos manualmente. Se o *Wipe & Sync* manual já falhou no passado, sua ausência em uma automação destruiria a precisão do Auditor no primeiro ciclo. A inclusão do fluxo detalhado no DOM neutraliza esse risco.
 
 ## [PADRÃO DE SUCESSO/FALHA]
-*   **Fluxo de Sucesso:** O Músculo abre o browser invisivelmente, deleta as fontes antigas, faz upload da pasta correta, emite o prompt do PASSO 5, aguarda dentro de 5 minutos, salva o `.md` no disco e o `skill_parser_gate.ps1` aprova os 4 blocos. Telegram notifica: *"Auditoria extraída e validada."*
-*   **Fluxo de Falha:** DOM alterado ou Wipe falha → screenshot → W-7 Telegram: *"ALERTA NOTEBOOKLM: Falha na manipulação do DOM na etapa [X]. Intervenção manual requerida."*
+*   **Fluxo de Sucesso:** O Músculo abre o browser invisivelmente, deleta as fontes antigas, faz upload da pasta correta, emite o prompt do PASSO 5, aguarda a geração dentro de 5 minutos, salva o arquivo `.md` no disco e o `skill_parser_gate.ps1` aprova os 4 blocos. O Telegram notifica o Diretor: *"Auditoria extraída e validada."*
+*   **Fluxo de Falha:** O DOM do Google sofre alteração, o seletor não é encontrado, ou o Wipe falha. O Músculo captura o erro, tira um screenshot da tela falha, não tenta salvar a skill pela metade, e dispara alerta via W-7 / W-1 ao Telegram do Diretor: *"ALERTA NOTEBOOKLM: Falha na manipulação do DOM na etapa [X]. Intervenção manual requerida."*
 
 ## [PERSPECTIVA DO SÓCIO]
-*   **Timeout e Extração:** 5 minutos máximo. 1 retry permitido. Se `skill_parser_gate.ps1` rejeitar, pedir correção estrutural no mesmo chat.
-*   **Falha no Wipe:** Se bulk delete não funcionar, excluir fontes uma a uma via lixeiras individuais. Se lixeiras ausentes no DOM → abortar.
-*   **Notebook Ausente:** Se `$CLIENTE_ATIVO` não for encontrado na homepage → NUNCA adivinhar caderno próximo → ativar `[Action: Create Notebook]` imediatamente.
-*   **Reporte ao Diretor:** Após cada Action principal, consolidar log e disparar via n8n (W-1 ou webhook) para Telegram do Diretor.
+Para garantir a sanidade da operação e evitar as abstrações da V1, as regras operacionais são as seguintes:
+*   **Timeout e Extração:** O timeout de extração de resposta via chat é estrito em **5 minutos**. O Auditor exige tempo para conectar o histórico. Se falhar, o Músculo refaz o prompt uma (1) vez antes de abortar. Se o `skill_parser_gate.ps1` rejeitar (falta de blocos), o Músculo pede ao NotebookLM para corrigir estruturalmente a saída no mesmo chat.
+*   **Falha no Wipe & Sync:** Se o modal de exclusão em massa não funcionar, o Músculo está autorizado a excluir as fontes uma a uma clicando nas lixeiras individuais. Se as lixeiras não existirem no DOM, aborte.
+*   **Notebook Ausente:** Se a busca pelo notebook de `$CLIENTE_ATIVO` falhar na homepage, o Músculo NUNCA tenta adivinhar cadernos próximos. Ele ativa imediatamente a `[Action: Create Notebook]`, forjando um ambiente limpo.
+*   **Reporte ao Diretor:** Ao final de cada *Action* principal (Wipe concluído, Upload concluído, Extração concluída), o Músculo consolida o log e o dispara silenciosamente via n8n (W-1 ou webhook de console) para que o Diretor tenha o tracking da automação em tempo real pelo celular.

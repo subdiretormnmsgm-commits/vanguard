@@ -1,7 +1,7 @@
 # MEMORIA_EMBAIXADOR — PROJ-001 VALDECE
 > Documento vivo. Atualizar a cada gate ou marco de relacionamento.
 > Leitura obrigatória de abertura de sessão — 30 segundos.
-> Versão: Loop 7 · 2026-05-24 (Hypercare ativo · 5 dias pós-assinatura · NotebookLM + Embaixador processados)
+> Versão: Loop 8 Prep · 2026-06-07 (Hypercare ativo · 20 dias pós-entrega · Embaixador Loop 8 + Embaixador Universal P-120 processados)
 
 ---
 
@@ -47,7 +47,8 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | commit 9709649 | **Loop 6:** ementa completa (600 chars) + badge UF + boost monocrático (+0.15) ✅ |
 | fix HC 512.290/RJ | Dado errado corrigido no banco + re-embedding executado ✅ |
 | 5 áudios Valdece | Feedback técnico processado: ementa ✅ UF ✅ data_dje ❌V3 repercussão ❌V3 |
-| Temperatura | **QUENTE** — Score 6.8 · 13 dias Hypercare · uso ativo confirmado · silêncio = uso operacional (H-3 CONFIRMADA) · CHURN-WATCH INATIVO |
+| Temperatura | **QUENTE** — Score 6.8 · 20 dias Hypercare · uso ativo confirmado · silêncio = uso operacional (H-3 CONFIRMADA) · CHURN-WATCH limiar 7 dias |
+| ⚠️ REGRA P-120 | **NÃO mencionar automação, IA, agentes ou /notebooklm ao Valdece durante Hypercare.** Termos de automação = desconforto jurídico. Apresentar sempre como "equipe sincronizada". |
 | Contrato | **ASSINADO — 2026-05-19** · R$5k fixo + sem mensalidade · Gate V3 DESBLOQUEADO |
 
 **Sistema pronto — estado Loop 6 (2026-05-19):**
@@ -110,7 +111,7 @@ Contrato ainda não assinado — Eduardo vai presencialmente hoje fechar.
 | H-2 | A demo no computador DELE (não de Eduardo) é o momento de virada | PENDENTE — demo ainda não realizada | Perfil exigente — precisa sentir que o sistema é dele |
 | H-3 | O silêncio durante a primeira busca = aprovação — não interromper | **CONFIRMADA** — 13 dias silêncio com uso ativo = comportamento operacional, não fricção | Advogado criminalista incorpora ferramenta que funciona sem cerimônia |
 | H-4 | Pode pedir feature não existente depois do encantamento | **CONFIRMADA** — 5 áudios pedindo V3 (data_dje, badges vinculantes) | Scope creep via áudio já em curso — P-023 ativo |
-| H-5 | Mencionará colega advogado criminalista se ficar satisfeito | **AQUECENDO** — janela esperada Dia 14–30 após primeira vitória em audiência | 13 dias de uso ativo · gatilho = caso real + precedente encontrado |
+| H-5 | Mencionará colega advogado criminalista se ficar satisfeito | **AQUECENDO — IMINENTE** · Protocolo: ao ouvir qualquer menção a colega → "Que legal! Ele é criminalista?" | 20 dias uso ativo · gatilho = vitória em audiência · janela D30 (18-06-2026) |
 
 ---
 
@@ -204,30 +205,59 @@ Você encontra em 10 segundos, com a citação pronta. Assimetria é isso."
 
 | Produto | Valor | Gatilho para pitch | Timing |
 |---|---|---|---|
-| Toga Digital V1 | R$5.000 fixo | Gate: assinatura no presencial | 2026-05-19 |
-| Hypercare | Incluso | — | 30 dias pós-entrega |
-| V2 — Sovereign Upload + Radar + Citação DOCX | R$8.500–12.000 + R$300/mês opcional | Corpus ≥ 500 docs OU 30 dias de uso ativo | **2026-06-18** |
-| Indicação de nicho | Lead qualificado | Valdece mencionar colega criminalista | Qualquer momento pós-satisfação |
+| Toga Digital V1 | R$5.000 fixo | Gate: assinatura no presencial | 2026-05-19 ✅ |
+| Hypercare | Incluso | — | Encerra 2026-06-18 |
+| V2 — Sovereign Upload + Radar + Citação DOCX | R$8.500–12.000 + R$300/mês opcional | **Gate da Vitória (primário)** OU D30 fallback (18-06-2026) | **Gate da Vitória > Gate Calendário** |
+| Indicação de nicho | Lead qualificado | Valdece mencionar colega criminalista | Qualquer momento pós-H-5 |
+
+**Gate da Vitória (2026-06-07 — Embaixador Valdece):**
+- Gatilho PRIMÁRIO para pitch V2: Valdece relata primeira vitória em audiência usando o sistema
+- Resposta imediata ao relato: "Que caso foi esse? Posso registrar?" — colher depoimento em voz própria
+- SOMENTE após registrar o depoimento → abrir V2 naturalmente como "o que vem depois disso"
+- D30 (18-06-2026) é FALLBACK — se Gate da Vitória não acontecer antes, abrir V2 pela 3ª pergunta do Sentinel: "O que está faltando no corpus?"
+
+**Sovereign Upload — UX revisada (2026-06-07):**
+- Dois perfis de permissão obrigatórios: **Uploader** (estagiário — sobe documentos) + **Titular** (Valdece — aprova ingestão)
+- Valdece não faz upload manual. Estagiário faz. Valdece valida.
+- Argumento: "você não opera o sistema — você controla o que entra nele."
 
 **Argumento de abertura V2:** "Quando seu corpus chegar em 500 decisões, temos um upgrade com upload de documentos seus que você vai querer ver."
-**Nunca pitch V2 antes de 2 semanas de uso real.**
+**Nunca pitch V2 antes da primeira vitória relatada ou D30 — o que vier primeiro.**
 
 ---
 
 ## PRÓXIMA AÇÃO CRÍTICA
 
-**SENTINEL REPORT DIA 14 — 2026-06-02 (AMANHÃ)**
+**SENTINEL D30 — ANTES DE 2026-06-18 (Hypercare encerrando)**
 
-Texto exato para WhatsApp (validado pelo Embaixador · não improvisar):
-> "Dr. Valdece, duas semanas rodando. Sistemas assim costumam poupar entre 40 e 90 minutos de pesquisa por caso — dependendo da urgência da consulta. Como tem sido na prática? Algum tema que o sistema trouxe que valeu a pena?"
+> **DIFERENÇA D14 vs D30:**
+> - D14: "Como está sendo?" — abrir conversa, colher percepção
+> - D30: MODO ESCUTA + abertura natural V2 — não pressionar
 
-**Simulação adversarial:**
-- Valdece Receptivo (65%): responde com caso → colher depoimento → argumento V2
-- Valdece Resistente (20%): "ainda não precisei muito" → aceitar sem pressionar
-- Valdece Silencioso (15%): não responde → aguardar 48h → reenviar versão ainda mais curta
+Texto D30 sugerido (adaptar com base no que Valdece respondeu no D14):
+> "Dr. Valdece, chegamos ao mês de rodagem. Como você está usando — já achou algum precedente que fez diferença numa audiência? Fico curioso."
 
-**Após resposta do Sentinel Report:** abrir conversa de migração de infra (D2).
-**Janela V2:** 2026-06-18 (30 dias pós-entrega).
+Terceira pergunta (quando responder positivamente):
+> "O que está faltando no corpus para os seus casos mais frequentes?"
+
+**Protocolo de vitória (Gate da Vitória):**
+Ao ouvir qualquer relato de caso ganho ou precedente decisivo:
+→ "Que caso foi esse? Posso registrar?" — NÃO mencionar V2 antes de colher o depoimento
+→ Após depoimento registrado: "Com o acervo de casos assim que você vai acumulando, temos um próximo passo interessante..."
+→ SOMENTE aí abrir V2.
+
+**⚠️ URGENTE — ANTES DE D30:**
+Eduardo deve testar o PWA Toga Digital no celular:
+- Navegação com uma mão ✓
+- Busca semântica → resultado em ≤3s ✓
+- Sem scroll horizontal obrigatório ✓
+- Citação ABNT copiável no mobile ✓
+Valdece pode usar em audiência. Falha mobile = risco reputacional crítico.
+
+**Simulação adversarial D30:**
+- Valdece com vitória (40%): Gate da Vitória → abrir V2 pelo depoimento
+- Valdece ativo sem vitória (35%): "ainda explorando" → 3ª pergunta corpus → V2 orgânico
+- Valdece silencioso (25%): não responde → aguardar 48h → versão mais curta
 
 ---
 

@@ -2015,3 +2015,32 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Evidencia:** Mumuzinho declarou dor em video publico ("ja estou criando um sistema"). O Musculo calculou GUT = 60 (provisorio) vs. GUT potencial = 100 (pos-contato). A diferenca de 40 pontos e 100% atribuivel a ausencia de contato bilateral. Sem esse gate, qualquer proposta e para um cliente imaginario.
 **Corolario comercial:** "Ja esta construindo com outra equipe" e sinal positivo, nao ameaca -- prova compromisso e orcamento. A questao e se o build atual tem os gaps que a Vanguard resolve. Isso so se sabe com contato direto.
 **Aplica-se a:** toda analise de oportunidade iniciada por video, podcast, entrevista ou post publico -- independentemente do tamanho do prospecto ou da clareza da dor declarada.
+
+## P-120 -- EMBAIXADOR PODE ACIONAR O AUDITOR PROGRAMATICAMENTE VIA CLAUDE IN CHROME (2026-06-07)
+**Origem:** Diretor Eduardo descobriu a skill /notebooklm em 2026-06-07. Pediu ao Embaixador que observasse e transmitisse a descoberta ao Musculo como canal estruturado. Correcao formal da atribuicao registrada em P-126.
+**Fundamento:** O Embaixador (Claude Projects) transmitiu ao Musculo que a extensao Claude in Chrome permite controlar o NotebookLM (Auditor) via automacao de browser -- sem que o Diretor precise arrastar arquivos, copiar/colar ou abrir o NotebookLM manualmente. A skill .claude/skills/notebooklm.md encapsula 4 acoes principais: ler/extrair info, adicionar fontes (URL, texto, arquivo, Google Doc), gerar Studio outputs (Audio Overview, Infografico, Slides, FAQ, etc.) e criar notebooks novos. Quando o Embaixador aciona o Auditor com esta skill, o ciclo Musculo→Gemini→Auditor→Embaixador fecha sem interrupcao manual do Diretor.
+**O que muda operacionalmente:**
+  (a) PASSO5_NOTEBOOKLM: o Diretor pode delegar ao Embaixador o envio de fontes ao Auditor via Claude in Chrome -- zero arrastar manual
+  (b) Musculo pode acionar o Auditor diretamente quando precisar de uma consulta rapida ao notebook sem abrir sessao separada
+  (c) Embaixador pode adicionar fontes ao notebook do Auditor como parte do debriefing pos-reuniao -- sem etapa manual intermediaria
+  (d) Fallback manual: abrir https://notebooklm.google.com + arrastar arquivos (1 passo -- P-110 cumprido)
+  (e) Pre-requisito: extensao Claude in Chrome instalada + Google account logada no browser
+**Arquivo da skill:** .claude/skills/notebooklm.md (leitura direta) e .claude/skills/notebooklm.skill (formato binario para instalacao no dashboard)
+**Verificacao dos alertas do Auditor:**
+  P-072 (Deliberacao formal): Zero conflito -- P-072 regula vereditos do Diretor, nao acoes do Musculo/Embaixador. VERDE.
+  P-110 (Fallback ≤3 passos): Fallback = abrir notebooklm.google.com manualmente (1 passo). VERDE.
+  P-060/P-074 (Propagacao total): Skill e ferramenta do Musculo (nao documento universal) -- nao propaga para CLIENTES/. Documentada no SKILL_PROTOCOLO via auditoria P-070→P-101 da mesma sessao. VERDE.
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** todo ciclo Pentalateral onde o Diretor precisaria arrastar fontes ao NotebookLM manualmente + todo debriefing pos-reuniao onde o Embaixador ja tem o material para alimentar o Auditor.
+
+## P-126 -- DOIS CAMINHOS DE EVOLUCAO, MESMA ORIGEM (2026-06-07)
+**Origem:** Deliberacao do Musculo a partir da descoberta da skill /notebooklm -- sessao 2026-06-07.
+**Fundamento:** O Pentalateral IAH evolui por dois caminhos distintos -- ambos originados pelo Diretor:
+  CICLO FORMAL: Diretor define direcao estrategica -> Gemini gera DIRETRIZ -> NotebookLM gera Skill -> Musculo constroi. Caminho top-down, estrategia como ponto de partida.
+  CICLO EMERGENTE: Diretor descobre capacidade nova -> usa o Embaixador como canal estruturado de transmissao -> 4 socios analisam em paralelo -> Diretor homologa a reconfiguracao. Caminho bottom-up, capacidade como ponto de partida.
+**O papel do Embaixador no Ciclo Emergente:** alem de memoria de cliente e filtro de realidade, o Embaixador opera como canal de transmissao estruturado entre o Diretor e os demais socios -- recebe a descoberta do Diretor, processa com contexto e encaminha ao Musculo com perspectiva interpretada. Nao e descobridor. E amplificador com julgamento.
+**O que nao muda:** em nenhum dos dois caminhos o sistema evolui sem o Diretor como ponto de origem. Socios analisam. Musculo constroi. O Diretor descobre e decide -- sempre. A automacao amplia a capacidade do Diretor, nunca a substitui.
+**Correcao de atribuicao:** P-120 registrou "Descoberta do Embaixador" -- correcao formal: a descoberta foi do Diretor Eduardo. O Embaixador foi o canal. P-120 atualizado para refletir a origem correta.
+**Evidencia:** sessao 2026-06-07 -- skill /notebooklm descoberta pelo Diretor, transmitida via Embaixador ao Musculo, analisada pelos 4 socios (Embaixador Universal + Auditor Universal + Auditor Ingrid + Embaixador Ingrid), homologada pelo Diretor. Nenhum socio iniciou o processo -- o Diretor originou.
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** toda sessao em que uma nova capacidade, skill ou ferramenta for descoberta e trazida ao Pentalateral para analise e reconfiguracao do sistema.
