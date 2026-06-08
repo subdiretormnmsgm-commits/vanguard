@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "cliente": "VANGUARD",
+  "loop_atual": 29,
+  "loop_status": "EM_BUILD",
+  "fase_atual": "GEMINI_PENDENTE",
+  "socios": {
+    "gemini": {
+      "status": "PENDENTE",
+      "artefato": null,
+      "data_conclusao": null,
+      "proximo": "Gerar PASSO3_GEMINI_VANGUARD.md com todos os novos desenvolvimentos desta sessão — INTELLIGENCE HUB + /notebooklm v2 + Antigravity + P-121 a P-126 + LOOP_STATE system"
+    },
+    "notebooklm": {
+      "status": "PENDENTE",
+      "artefato": null,
+      "data_conclusao": null,
+      "proximo": "Após DIRETRIZ V29 do Gemini → preparar_notebooklm_projeto.ps1 -cliente VANGUARD"
+    },
+    "embaixador": {
+      "status": "OK",
+      "artefato": "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
+      "data_conclusao": "2026-06-07",
+      "proximo": null
+    },
+    "musculo": {
+      "status": "OK",
+      "artefato": "CLIENTES/VANGUARD/HISTORICO/DELIBERACAO_LOOP_V28_VANGUARD.md",
+      "data_conclusao": "2026-06-07",
+      "proximo": null
+    }
+  },
+  "gates": {
+    "p045_memoria_anterior_existe": true,
+    "p037_deliberacao_concluida": true,
+    "p032_memoria_embaixador_atualizada": true,
+    "p087_resolve_commitado": true
+  },
+  "contexto_snapshot": {
+    "cliente_temperatura": "N/A — projeto interno",
+    "ultimo_contato_cliente": "N/A",
+    "proximo_gate_externo": "W-8 shadow mode expira 2026-06-14 — avaliar ativação plena",
+    "prazo": "2026-06-14",
+    "observacoes": "Loop 29 = nova conformação Vanguard. Entregas desta sessão: P-121 a P-126 no LEDGER, notebooklm.md v2, INTELLIGENCE HUB (COMPETITORS + TRENDS), Antigravity Intel Loop (GEMINI.md + .agents/skills/intel-loop.md), LOOP_STATE system. Gemini PENDENTE: ainda não recebeu DIRETRIZ sobre nova configuração."
+  },
+  "pendentes_abertos": [
+    "DIRETRIZ V29 Gemini — nova conformação Vanguard para o Estrategista",
+    "Skill vanguard-v29.md — NotebookLM após DIRETRIZ",
+    "W-9 n8n Track TRENDS — importar e ativar no EasyPanel",
+    "GEMINI.md para Antigravity — atualizar sócios sobre nova identidade",
+    "W-8 shadow mode — avaliar ativação plena em 2026-06-14"
+  ],
+  "ultima_atualizacao": "2026-06-07",
+  "proxima_acao_musculo": "Gerar PASSO3_GEMINI_VANGUARD.md com síntese de tudo que mudou no Loop 29 + 5 ideias M-1 a M-5",
+  "proxima_acao_diretor": "Levar PASSO3 ao Gemini para DIRETRIZ V29. Importar W-9 no EasyPanel n8n após aprovação."
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "cliente": "VALDECE",
+  "loop_atual": 7,
+  "loop_status": "CONCLUIDO",
+  "fase_atual": "LOOP_ENCERRADO",
+  "socios": {
+    "gemini": {
+      "status": "OK",
+      "artefato": "CLIENTES/VALDECE/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V7.txt",
+      "data_conclusao": "2026-05-19",
+      "proximo": null
+    },
+    "notebooklm": {
+      "status": "OK",
+      "artefato": ".claude/skills/valdece-v7.md",
+      "data_conclusao": "2026-05-19",
+      "proximo": null
+    },
+    "embaixador": {
+      "status": "OK",
+      "artefato": "CLIENTES/VALDECE/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md",
+      "data_conclusao": "2026-06-07",
+      "proximo": null
+    },
+    "musculo": {
+      "status": "OK",
+      "artefato": "CLIENTES/VALDECE/HISTORICO/DELIBERACAO_LOOP_V7_VALDECE.md",
+      "data_conclusao": "2026-05-19",
+      "proximo": null
+    }
+  },
+  "gates": {
+    "p045_memoria_anterior_existe": true,
+    "p037_deliberacao_concluida": true,
+    "p032_memoria_embaixador_atualizada": true,
+    "p087_resolve_commitado": true
+  },
+  "contexto_snapshot": {
+    "cliente_temperatura": "AQUECENDO",
+    "ultimo_contato_cliente": "2026-06-04",
+    "proximo_gate_externo": "Gate da Vitória — colega criminalista mencionado por Valdece",
+    "prazo": "2026-06-18",
+    "observacoes": "HYPERCARE até 18-06-2026. Sentinel Report Verde (2026-06-04). P-120 ATIVO: NÃO mencionar automação/IA/agentes ao Valdece durante Hypercare. Deploy: https://toga-digital-valdece.netlify.app"
+  },
+  "pendentes_abertos": [
+    "Sentinel D30 — protocolo de reengajamento antes de 18-06-2026",
+    "Gate da Vitória — aguardar menção a colega criminalista",
+    "Loop 8 gate: Sentinel Report uso ativo confirmado + Gemini anchor DIRETRIZ V8"
+  ],
+  "ultima_atualizacao": "2026-06-07",
+  "proxima_acao_musculo": "Loop 8: após Gate da Vitória ou confirmação Sentinel D30 → gemini_anchor_generator.ps1 com MEMORIA_V7 + relatorio_V7 + LEDGER → PASSO3",
+  "proxima_acao_diretor": "Antes de 18-06-2026: Sentinel D30 com Valdece. Ao ouvir menção a colega → 'Que legal! Ele é criminalista?' (Gate da Vitória)."
+}

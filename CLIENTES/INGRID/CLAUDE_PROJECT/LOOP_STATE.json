@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "cliente": "INGRID",
+  "loop_atual": 8,
+  "loop_status": "CONCLUIDO",
+  "fase_atual": "LOOP_ENCERRADO",
+  "socios": {
+    "gemini": {
+      "status": "OK",
+      "artefato": "CLIENTES/INGRID/NOTEBOOKLM_FONTES/12_DIRETRIZ_GEMINI_V8.txt",
+      "data_conclusao": "2026-06-04",
+      "proximo": null
+    },
+    "notebooklm": {
+      "status": "OK",
+      "artefato": ".claude/skills/ingrid-v8.md",
+      "data_conclusao": "2026-06-04",
+      "proximo": null
+    },
+    "embaixador": {
+      "status": "OK",
+      "artefato": "CLIENTES/INGRID/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md",
+      "data_conclusao": "2026-06-04",
+      "proximo": null
+    },
+    "musculo": {
+      "status": "OK",
+      "artefato": "CLIENTES/INGRID/HISTORICO/DELIBERACAO_LOOP_V8_INGRID.md",
+      "data_conclusao": "2026-06-04",
+      "proximo": null
+    }
+  },
+  "gates": {
+    "p045_memoria_anterior_existe": true,
+    "p037_deliberacao_concluida": true,
+    "p032_memoria_embaixador_atualizada": true,
+    "p087_resolve_commitado": true
+  },
+  "contexto_snapshot": {
+    "cliente_temperatura": "ENGAJADA",
+    "ultimo_contato_cliente": "2026-06-04",
+    "proximo_gate_externo": "Captação 2ª candidata antes de 04-07-2026",
+    "prazo": "2026-09-06",
+    "observacoes": "Ingrid gostou muito da ferramenta (depoimento 2026-06-04). App em produção: https://subdiretormnmsgm-commits.github.io/vanguard/"
+  },
+  "pendentes_abertos": [
+    "D5 — Link Demo bloqueado até 2ª usuária",
+    "D6 — Semente E-4 aguardar engajamento verbal",
+    "Gate 7.2 RLS refactor — julho 2026"
+  ],
+  "ultima_atualizacao": "2026-06-07",
+  "proxima_acao_musculo": "Loop 9: gemini_anchor_generator.ps1 com MEMORIA_V8 + relatorio_V8 + LEDGER → PASSO3 para Gemini",
+  "proxima_acao_diretor": "Confirmar captação de 2ª candidata antes de 04-07-2026. Gate D5 e D6 aguardam este evento."
+}
