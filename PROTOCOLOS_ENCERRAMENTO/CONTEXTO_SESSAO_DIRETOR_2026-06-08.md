@@ -151,6 +151,28 @@ ARTEFATO PADRÃO:
 
 ---
 
+---
+
+## PARTE 2 — Continuação da sessão (mesma data)
+
+### Artefatos adicionais
+
+| Artefato | Tipo | Commit |
+|---|---|---|
+| Gate e-mail em `session_close.ps1` | Bloqueia sessão se `.email_body.txt` ausente; auto-dispara `email_fechamento.ps1` | local |
+| Flag `.email_sent_YYYY-MM-DD.flag` em `email_fechamento.ps1` | Criado após envio bem-sucedido — session_close usa para verificar | local |
+| `gemini-pentalateral.md` | Skill v2.1 commitada no caminho canônico `.claude/skills/` | 63afe6c |
+
+### Decisões adicionais
+
+| Decisão | Razão | Impacto |
+|---|---|---|
+| P-127 registrado | Embaixador operou Gemini autônomo com grounding verificado — 1ª instância | Loop direto entre membros sem o Diretor como ignição |
+| Análise Médico Concurseiro = teste | Confirmado pelo Diretor — não vinculada a projeto | Validação do canal Embaixador→Estrategista |
+| Skill path: `gemini-pentalateral.md` (hífen) | Caminho canônico definido pelo Diretor | Commit registrado |
+
+---
+
 ## 9. PRÓXIMA SESSÃO
 
-Abrir com BLOCO 0 do Embaixador + auditoria cirúrgica completa de todos os documentos afetados pelas 6 mudanças do Loop 29 — garantir que LEDGER, WIP_BOARD, PASSO files e docs universais estejam 100% coerentes antes da DIRETRIZ V29.
+Abrir com BLOCO 0 do Embaixador + auditoria cirúrgica completa de todos os documentos afetados pelas 6 mudanças do Loop 29 + registrar P-127 no LEDGER — garantir que LEDGER, WIP_BOARD, PASSO files e docs universais estejam 100% coerentes antes da DIRETRIZ V29.

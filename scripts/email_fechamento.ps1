@@ -48,6 +48,10 @@ try {
     $smtp.Send($msg)
     Write-Host "✅ E-mail de fechamento enviado para $ALERT_TO" -ForegroundColor Green
 
+    # Flag de confirmacao -- session_close verifica este arquivo para saber se email foi enviado
+    $flagPath = Join-Path $PSScriptRoot ".email_sent_$(Get-Date -Format 'yyyy-MM-dd').flag"
+    Set-Content -Path $flagPath -Value (Get-Date -Format "yyyy-MM-dd HH:mm:ss") -Encoding UTF8
+
     # Limpa o arquivo temporário após envio
     Remove-Item $bodyFile -Force
 } catch {

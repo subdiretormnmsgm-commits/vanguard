@@ -13,7 +13,41 @@
 
 ---
 
-## PROJ-000 · Vanguard (VanguardV28 — Pentalateral Autônomo)
+## PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo)
+
+- [ ] `2026-06-09` **[MANDATO DIRETOR] Auditoria cirúrgica completa — TODOS os documentos desatualizados** [musculo]
+  Mandato explícito: "Muita coisa desatualizada." — 2026-06-08.
+  Escopo: LEDGER + WIP_BOARD + PASSO files + docs universais + SKILL_PROTOCOLO + MANUAL_DIRETOR.
+  Verificar: 6 mudanças Loop 29 (INTELLIGENCE HUB, Antigravity, /notebooklm v2, LOOP_STATE, W-9, P-121→P-126).
+  Entregável: lista ATUALIZADO / EM DIA / PENDENTE para cada documento auditado.
+  PRIMEIRA AÇÃO da próxima sessão — bloqueante para DIRETRIZ V29.
+
+- [ ] `2026-06-09` **[MÚSCULO] P-127 → INTELLIGENCE_LEDGER** [musculo]
+  Inscrever: "Embaixador opera Estrategista de forma autônoma com grounding verificado — 1ª instância documentada."
+  Incluir: data 2026-06-08, skill gemini-pentalateral v2.1, análise Médico Concurseiro como teste.
+  Após inscrever: propagar via sync_vanguard_docs.ps1 (P-033).
+
+- [ ] `2026-06-09` **[DIRETOR] Veredito Mumuzinho — onboarding formal ou pasta excluída** [diretor]
+  GATE 1 do session_close trava em VERMELHO por causa do arquivo MUMUZINHO/*.txt (menciona "Quadrilateral").
+  Opções: (A) onboarding formal → criar PROJ-003, renomear arquivo, instrução ao Músculo.
+  (B) Excluir pasta até haver contrato. Diretor decide qual caminho — Músculo executa.
+
+- [ ] `2026-06-09` **[DIRETOR] Arrastar 7 arquivos ao Embaixador + colar mensagem** [diretor]
+  Arquivos: PAINEL_ATIVIDADES · CONTEXTO_SESSAO_DIRETOR · WIP_BOARD · LEDGER · PENDENTES · VANGUARD_TIMELINE · MEMORIA_EMBAIXADOR
+  Mensagem já preparada: colar a mensagem copiada do terminal da sessão 2026-06-08.
+
+- [ ] `2026-06-09` **[MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md** [musculo]
+  PASSO3 pronto em CLIENTES/VANGUARD/PASSO3_GEMINI.md.
+  Pré-requisito: auditoria cirúrgica concluída.
+  Usar skill gemini-pentalateral: subir PASSO3 ao Drive → anexar + disparar.
+
+- [ ] `2026-06-14` **[DIRETOR] W-8 shadow mode — avaliar ativação plena** [diretor]
+  DEADLINE HARD: shadow mode expira 2026-06-14.
+  Decisão: ativar pleno (W-8 classifica sinais em produção) ou prorrogar por mais 7 dias.
+
+- [ ] `2026-06-18` **[DIRETOR] Sentinel Valdece — Hypercare encerra** [diretor]
+  Hypercare até 18/06/2026. Sentinel antes desta data.
+  P-120 ATIVO: NÃO mencionar automação/IA/agentes ao Valdece.
 
 - [x] `2026-06-06` ~~**V28 — gate_coerencia.ps1 (E-1 Haiku API) + skill_parser_gate integrado:**~~
   ✅ gate_coerencia.ps1 criado e integrado ao skill_parser_gate.ps1 — commit baf693a.

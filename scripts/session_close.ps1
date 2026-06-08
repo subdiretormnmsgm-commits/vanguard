@@ -94,6 +94,40 @@ if (-not $memoriaOk) {
     $exitCode = 2
 }
 
+# GATE EMAIL -- e-mail de fechamento deve ter sido enviado antes de encerrar
+$emailBodyPath = Join-Path $baseDir "scripts\.email_body.txt"
+$emailSentFlag = Join-Path $baseDir "scripts\.email_sent_$dataHoje.flag"
+
+if (Test-Path $emailBodyPath) {
+    # Body existe mas nao foi enviado -- disparar automaticamente
+    Write-Host ""
+    Write-Host "  [EMAIL] .email_body.txt encontrado -- disparando email_fechamento.ps1 automaticamente..." -ForegroundColor Cyan
+    $emailScript = Join-Path $baseDir "scripts\email_fechamento.ps1"
+    & powershell.exe -NonInteractive -File $emailScript
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "  [GATE EMAIL] Falha no envio -- verificar SMTP." -ForegroundColor Red
+        Write-Host "  Rodar manualmente: .\scripts\email_fechamento.ps1" -ForegroundColor Yellow
+        $exitCode = 2
+    }
+} elseif (-not (Test-Path $emailSentFlag)) {
+    # Nem body nem flag de envio -- email nunca foi preparado
+    Write-Host ""
+    Write-Host "  ========================================================" -ForegroundColor Red
+    Write-Host "  [GATE EMAIL] BLOQUEIO -- E-mail nao preparado nem enviado" -ForegroundColor Red
+    Write-Host "  ========================================================" -ForegroundColor Red
+    Write-Host "  scripts\.email_body.txt nao encontrado." -ForegroundColor Red
+    Write-Host "  Musculo: escrever scripts\.email_body.txt e rodar email_fechamento.ps1" -ForegroundColor Red
+    Write-Host "  Conteudo obrigatorio:" -ForegroundColor Yellow
+    Write-Host "    (a) entregas do dia com status" -ForegroundColor Yellow
+    Write-Host "    (b) alertas emitidos" -ForegroundColor Yellow
+    Write-Host "    (c) proximo gate e prazo" -ForegroundColor Yellow
+    Write-Host "    (d) o que o Diretor faz antes da proxima sessao" -ForegroundColor Yellow
+    Write-Host "    (e) previsao dos proximos dias" -ForegroundColor Yellow
+    Write-Host "  ========================================================" -ForegroundColor Red
+    $exitCode = 2
+}
+# Se $emailSentFlag existir -- email ja foi enviado hoje -- gate OK, silencio total
+
 # POS-CLOSE: bloco Embaixador Operacional (A4 -- acao insubstituivel do Diretor)
 $dataFim = Get-Date -Format "yyyy-MM-dd"
 
