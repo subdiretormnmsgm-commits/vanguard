@@ -1,6 +1,6 @@
 ﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
 **O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
-**Versão:** 1.7 · 2026-06-07 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1 · PARTE 8 n8n (V27) + PARTE 9 Hermes Agent (V28) · W-5 ChurnWatch + W-6 Session Watch adicionados à tabela · Gate 1.6 documentado
+**Versão:** 1.8 · 2026-06-09 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1 · PARTE 8 n8n (V27) + PARTE 9 Hermes Agent (V28) + PARTE 10 INTELLIGENCE HUB + Antigravity (V29) · W-9 Track TRENDS adicionado · P-119 a P-127
 
 ---
 
@@ -1567,6 +1567,7 @@ Incrementa a versão para [X.X]."
 | Ao fechar sessão | Telegram | Resumo da sessão + pendentes (W-4) |
 | Cron diário | Telegram | ChurnWatch: alerta se cliente sem contato > threshold, com mensagem WhatsApp pronta (W-5) |
 | 17h BRT (se sessão não fechada) | Telegram | Session Watch: lista pendentes abertos por tag [musculo]/[diretor] do PENDENTES.md — silencia se 0 pendentes (W-6) |
+| Segunda 8h BRT | Telegram | Track TRENDS: relatório semanal de tendências por nicho via Antigravity + /notebooklm (W-9) |
 
 ### Como emitir vereditos via Telegram (W-7)
 
@@ -1668,8 +1669,49 @@ O W-8 classifica sinais que chegam ao sistema antes de qualquer ação:
 | **Skill carregada** | `pentalateral-graus-abc.md` deve estar no dashboard do Hermes |
 | **W-8 expira 2026-06-14** | Avaliar shadow mode antes desta data — não deixar vencer sem decisão |
 
+## PARTE 10 — INTELLIGENCE HUB E ANTIGRAVITY CLI [V29 — 2026-06-09]
+
+> O INTELLIGENCE HUB é o motor de inteligência de mercado do Pentalateral — separado e isolado do loop de cliente (P-124).
+
+### INTELLIGENCE HUB — Estrutura
+
+| Track | Frequência | O que gera | Onde fica |
+|---|---|---|---|
+| COMPETITORS | Mensal | Relatório de 5 concorrentes por nicho | `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/` |
+| TRENDS | Semanal (W-9) | Tendências de mercado via YouTube + artigos | `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/` |
+| PENDING_REVIEW | Contínuo | Canal Antigravity → Músculo → Conselho | `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` |
+
+### Como usar o INTELLIGENCE HUB na pré-venda
+
+Antes de qualquer reunião de prospecção:
+```
+REPORT_COMPETITORS do nicho do prospecto → Músculo já tem pronto via Antigravity
+→ Diretor chega na reunião sabendo mais do mercado do cliente do que o próprio cliente
+→ Custo: 0 | Impacto: fecha credibilidade antes do pitch
+```
+
+### Antigravity CLI — Regras Obrigatórias
+
+| Regra | Detalhe |
+|---|---|
+| **P-124** Câmara de Eco Proibida | Antigravity NÃO entra no loop de cliente. Nunca gera DIRETRIZ, Skill ou veredito de cliente. |
+| **PENDING_REVIEW como único canal** | Todo output do Antigravity vai para PENDING_REVIEW.md — Músculo revisa antes de qualquer ação |
+| **Identidade isolada** | GEMINI.md (raiz) define o Antigravity como Intel Loop Motor — NÃO é o Estrategista do Pentalateral |
+| **W-9 status** | Arquivo criado (`_n8n/workflows/w9_trends_semanal.json`) — importação no EasyPanel pendente [DIRETOR] |
+
+### Como importar W-9 no EasyPanel
+
+1. Acessar `https://vanguard-vanguard-n8n.0ul9nk.easypanel.host`
+2. Menu → Workflows → Import → selecionar `_n8n/workflows/w9_trends_semanal.json`
+3. Configurar credenciais Gemini API (já disponíveis no n8n)
+4. Ativar workflow → Track TRENDS operacional às segundas 8h BRT
+
 ---
 
-*Manual do diretor · PENTALATERAL IAH · V1.6*
+| 1.8 | 2026-06-09 | PARTE 10 adicionada — V29: INTELLIGENCE HUB + Antigravity + W-9 Track TRENDS + P-119 a P-127. W-9 na tabela de notificações automáticas. |
+
+---
+
+*Manual do diretor · PENTALATERAL IAH · V1.8*
 *Criado pelo Músculo para o Diretor Eduardo*
 *atualizar após cada projeto — este documento é tão vivo quanto o sistema que descreve*

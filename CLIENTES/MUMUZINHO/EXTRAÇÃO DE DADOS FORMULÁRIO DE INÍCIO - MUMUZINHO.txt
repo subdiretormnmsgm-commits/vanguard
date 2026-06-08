@@ -1,0 +1,46 @@
+EXTRAÇÃO: FORMULÁRIO DE INÍCIO DE PROJETO — VANGUARD
+01. Quem é você
+Nome: Mumuzinho
+.
+Propósito do projeto: Negócio / Empresa (Holding / Agenciamento e Mentoria Artística). O prospecto não quer atuar apenas como cantor ou um empresário tradicional, mas como um mentor e provedor de infraestrutura (já comprou 3 salas no Rio de Janeiro e contratou executivos do mercado fonográfico para dar suporte a novos talentos)
+.
+02. O Projeto
+A ideia central: Automatizar o business da música, criando uma plataforma para a gestão integral da carreira artística. O sistema visa atender "desde a linha de cima" (artistas consagrados com faturamentos na casa dos R$ 30 milhões) até "o cara do barzinho"
+.
+Tipo de solução: App Web / Plataforma B2B / App Mobile com integração de IA e Cloud
+. É, na nossa linguagem, um SaaS Multi-Tenant (V6) focado em transparência financeira e logística
+.
+03. O Problema
+O que está custando dinheiro ou tempo hoje: A extrema falta de tecnologia e transparência no setor
+. Os artistas vivem na estrada e não acompanham o negócio, focando apenas em cantar, enquanto os empresários gerem os recursos de forma centralizada e sem visibilidade mútua
+.
+O que quer resolver: A assimetria de informações. Ele deseja criar um "campo de visibilidade de mão dupla" para garantir uma relação saudável e transparente entre o empresário/gestor e o artista
+.
+A urgência: Crítica e em andamento. Ele não está apenas na fase da ideia; ele afirmou categoricamente: "Não se eu criasse não, já estou criando... já estou fazendo um sistema"
+. Se a Vanguard não atuar agora, ele construirá essa plataforma com outra equipe.
+04. O Momento que Define o Sucesso (Cena de Sucesso P-041)
+Ação mais importante: O artista ou gestor pegar o próprio celular, abrir uma interface com mapa geográfico mostrando a agenda de shows, clicar em um evento específico e visualizar, em tempo real: qual foi a negociação, o custo logístico do show, o valor bruto do cachê, a comissão exata a ser paga, a carga tributária retida e a quantidade de público (bilheteria)
+. Essa é a materialização perfeita do nosso "Sovereign Ignition Cockpit" aplicado à música
+.
+05. A Visão Ideal
+Se não houvesse limitações: A plataforma utilizaria a era da Inteligência Artificial e do Cloud computing para abraçar de forma transparente todos os campos de monetização possíveis do artista: os ganhos com streaming, a receita do ambiente digital, o show business físico e as publicidades
+. O objetivo final é fazer com que a classe artística "vire a chave de que é business", tratando a carreira como uma empresa da "Champions League" da música
+.
+06. Como o Sistema Funciona
+Fluxo de informação:
+O que entra: Dados de negociação de shows (geolocalização, contratantes), estrutura de custos (logística, equipe), divisão de percentuais (splits de royalties e comissões) e impostos
+.
+O que sai: Dashboards e relatórios visuais no celular, gerando aprovações e notificações de prestação de contas que alinham perfeitamente o artista e a sua gestão, eliminando as fricções financeiras
+.
+07. O que já existe
+Ponto de partida: O cliente já está ativamente construindo o projeto
+. Ele estruturou um escritório físico pesado (três salas no RJ) e já trouxe inteligência humana especializada para o negócio (como Dudu Félix, executivo com 12 anos de experiência em gestão de artistas na Universal Music)
+.
+08. Contexto Financeiro
+Tamanho do negócio: Gigantesco e com alto fluxo de capital. Ele citou que uma carreira bem-sucedida no pagode tem um faturamento estimado de "30 milhões mais ou menos por ano"
+. A ferramenta precisaria orquestrar percentuais e transações milionárias, exigindo o nosso nível máximo de robustez (Camada 5 - Monopólio)
+.
+09. Prazo e Investimento
+Quando e quanto: O projeto é para "agora", visto que a execução e a alocação de equipe física já começaram
+. O orçamento não foi detalhado em números precisos no vídeo, mas a aquisição imobiliária e a folha de pagamento sênior demonstram um budget robusto e compatível com as soluções "Enterprise" da Vanguard
+. A inércia dele já terminou; o que ele precisa agora é do nosso Protocolo Pentalateral IAH para orquestrar a tecnologia que a equipe dele ainda está tentando montar.

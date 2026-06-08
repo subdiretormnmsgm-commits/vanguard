@@ -12,6 +12,20 @@
 
 ---
 
+## DISCOVERY (STANDBY)
+
+### PROJ-003 — Mumuzinho
+- **Projeto:** Plataforma de Gestao Integral de Carreira Artistica
+- **Area:** MusicTech — Fonografia / Holding Artistica
+- **Status:** STANDBY — aguarda acionamento do Diretor
+- **GUT atual:** 60 provisório | **GUT potencial:** 100 (pós-contato bilateral)
+- **Gate Zero:** contato confirmado com Dudu Félix (decisor presumido) — PENDENTE
+- **Gate temporal:** prospecção ativa pós 04-07-2026
+- **ChurnWatch:** desativado (sem contato bilateral)
+- **Nota:** Standby total — inteligência preservada (Análise de Encaixe + Pesquisa Fonográfica) — Diretor aciona quando tiver canal para Dudu Félix
+
+---
+
 ## BUILD
 
 ### PROJ-000 — VANGUARD (Projeto Interno)

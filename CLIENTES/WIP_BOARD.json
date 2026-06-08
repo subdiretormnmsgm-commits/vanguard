@@ -6,7 +6,26 @@
                    },
     "board":  {
                   "discovery":  [
-
+                                    {
+                                        "id":  "PROJ-003",
+                                        "cliente":  "MUMUZINHO",
+                                        "projeto":  "Plataforma de Gestao Integral de Carreira Artistica",
+                                        "area":  "MusicTech - Fonografia / Holding Artistica",
+                                        "camada":  "5 (Monopolio -- escala enterprise)",
+                                        "status":  "STANDBY -- aguarda acionamento do Diretor",
+                                        "gut_score_atual":  60,
+                                        "gut_score_potencial":  100,
+                                        "gate_zero":  "contato bilateral confirmado com Dudu Felix -- PENDENTE",
+                                        "gate_temporal":  "prospecção ativa pós 04-07-2026 (captacao 2a candidata Ingrid)",
+                                        "decisor_presumido":  "Dudu Felix (ex-Universal Music) -- NAO VALIDADO",
+                                        "churn_watch_threshold":  null,
+                                        "ultimo_contato_cliente":  null,
+                                        "briefing_path":  "CLIENTES/MUMUZINHO/EXTRAÇÃO DE DADOS FORMULÁRIO DE INÍCIO - MUMUZINHO.txt",
+                                        "analise_encaixe":  "CLIENTES/MUMUZINHO/ANALISE_ENCAIXE_MUMUZINHO_2026-06-07.md",
+                                        "pesquisa_dominio":  "CLIENTES/MUMUZINHO/PESQUISA_DOMINIO_FONOGRAFICO_2026-06-07.md",
+                                        "memoria_embaixador_path":  "CLIENTES/MUMUZINHO/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_MUMUZINHO.md",
+                                        "nota":  "Standby total -- Diretor aciona quando tiver canal para Dudu Felix"
+                                    }
                                 ],
                   "build":  [
                                 {
@@ -25,11 +44,11 @@
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
                                                             "loop":  29,
-                                                            "gemini":  "PENDENTE",
+                                                            "gemini":  "OK",
                                                             "notebooklm":  "PENDENTE",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "EM BUILD",
-                                                            "proximo":  "Gemini -- PASSO3_GEMINI.md pronto -- ir ao Gemini com skill gemini-pentalateral v2.1"
+                                                            "proximo":  "NotebookLM -- Skill vanguard-v29.md"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -91,7 +110,7 @@
                                                           "LOOP_STATE system v1.0 -- estado duravel por cliente/loop -- resolve amnesia pos-compactacao",
                                                           "W-9 n8n -- Track TRENDS semanal (segunda 8h BRT) -- arquivo criado -- importacao EasyPanel pendente [DIRETOR]",
                                                           "session_close.ps1 -- gate e-mail bloqueante adicionado",
-                                                          "skill gemini-pentalateral v2.1 -- browser automation Embaixador->Estrategista",
+                                                          "skill gemini-pentalateral v2.1 -- browser automation Embaixador-\u003eEstrategista",
                                                           "P-121 a P-127 inscritos no INTELLIGENCE_LEDGER"
                                                       ],
                                     "skill_path":  ".claude/skills/vanguard-v29.md",
