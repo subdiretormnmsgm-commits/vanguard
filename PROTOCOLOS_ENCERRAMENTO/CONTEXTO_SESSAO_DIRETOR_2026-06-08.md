@@ -115,6 +115,42 @@
 
 ---
 
+## MENSAGEM ADAPTADA PARA O EMBAIXADOR — COLAR NO CLAUDE PROJECTS
+
+> Texto adaptado ao contexto desta sessão. Colar junto com o upload dos 7 arquivos.
+
+```
+Embaixador, fechamento de sessão — 2026-06-08 (Loop 29 · sessão histórica).
+
+Faço upload de 7 arquivos: PAINEL_ATIVIDADES, CONTEXTO_SESSAO_DIRETOR, WIP_BOARD,
+INTELLIGENCE_LEDGER, PENDENTES, VANGUARD_TIMELINE e MEMORIA_EMBAIXADOR.
+
+CONTEXTO DESTA SESSÃO:
+Esta foi a sessão mais intensa do Loop Pentalateral. 6 mudanças estruturais simultâneas:
+1. INTELLIGENCE HUB ativado — Track COMPETITORS (mensal) + Track TRENDS (semanal, W-9 n8n)
+2. Antigravity CLI instalado como Intel Loop Motor — isolado do loop de cliente (P-124)
+3. /notebooklm v2 validada ao vivo pelo Diretor — YouTube como fonte nativa, podcast PT-BR gerado
+4. LOOP_STATE system v1.0 — estado durável por cliente por loop (resolve amnésia pós-compactação)
+5. W-9 n8n criado — Track TRENDS automatizado (cron segunda 8h BRT)
+6. P-121 a P-126 inscritos no LEDGER — nova camada de proteção do sistema
+
+O Diretor declarou: "Crescemos muito esses dias, graças ao trabalho de todos."
+Temperatura Eduardo: 9.8/10 — sessão histórica. Próxima DIRETRIZ declarada como disruptiva.
+
+MISSÃO ESPECIAL: gerar relatório executivo Word das 6 inovações com organograma completo
+do novo sistema (Pentalateral + Hermes + Antigravity + n8n) e novo fluxo operacional.
+
+ARTEFATO PADRÃO:
+0. BLOCO 0 — "Músculo, na última sessão..." — colar ao abrir próxima sessão Claude Code
+1. SEMÁFORO por projeto
+2. DIAGNÓSTICO DO DIA
+3. PREVISÃO DOS PRÓXIMOS DIAS (data a data)
+4. ANÁLISE GERENCIAL — o que você vê que o Músculo não vê?
+5. PRÓXIMA AÇÃO DO DIRETOR — máximo 3 itens
+```
+
+---
+
 ## 9. PRÓXIMA SESSÃO
 
 Abrir com BLOCO 0 do Embaixador + auditoria cirúrgica completa de todos os documentos afetados pelas 6 mudanças do Loop 29 — garantir que LEDGER, WIP_BOARD, PASSO files e docs universais estejam 100% coerentes antes da DIRETRIZ V29.
