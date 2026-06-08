@@ -158,7 +158,8 @@
   ✅ MANUAL_DIRETOR v1.6 (7f89fef) + SKILL_PROTOCOLO v6.6 + TEMPLATES v2.1 (34578d4) + sync todos clientes (309d02a). Pendente era duplicata gerada por sync_ficou_no_ar.ps1.
 - [x] "2026-06-07" ~~**Skill `pentalateral-graus-abc.md` upload no dashboard Hermes**~~
   ✅ Arquivo em hermes-agent/skills/ + confirmado no container /opt/data/skills/ pelo Diretor (2026-06-07). Commit 139827f. Pendente era duplicata do sync_ficou_no_ar.ps1.
-- [ ] "2026-06-07" **WhatsApp Valdece + Ingrid (ChurnWatch alertou)** [diretor]
+- [x] "2026-06-09" ~~**WhatsApp Valdece + Ingrid (ChurnWatch alertou)**~~ [diretor]
+  ✅ Ambos responderam em 2026-06-09: ferramentas OK. Projetos em standby. ultimo_contato atualizado → 2026-06-09. ChurnWatch VERDE.
 
 - [ ] `2026-06-XX` **Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:** [musculo]
   Com 1 usuária, anonimato é fictício. Liberar quando segunda usuária ativa.

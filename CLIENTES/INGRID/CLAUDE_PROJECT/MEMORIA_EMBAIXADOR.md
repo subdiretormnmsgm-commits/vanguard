@@ -3,7 +3,7 @@
 > **CAMADA_FATOS:** dado bruto e verbatim. Zero interpretação. Auditor lê esta camada diretamente.
 > **CAMADA_INFERENCIA:** análise do Embaixador. Ler sabendo que é opinião fundamentada.
 > **CAMADA_DECISAO:** deliberações formais do Conselho. Verdades acordadas do projeto.
-> Versão: Loop 8 · 2026-06-04 — P-032 atualizado pelo Músculo
+> Versão: Loop 8 · 2026-06-09 — P-032 atualizado pelo Músculo (standby confirmado)
 
 ---
 
@@ -24,6 +24,7 @@
 | 2026-06-04 | Diretor | **VEREDITO D1** — Ferramenta gratuita para Ingrid. Sem cobrança R$97/mês. Ingrid é caso piloto — dados anonimizados são argumento comercial para próximas candidatas. Ingrid não é cliente pagante: é fundadora simbólica do produto. | Veredito Diretor |
 | 2026-06-04 | Diretor | **VEREDITO D4** — Mensagem de presença humana esta semana. Eduardo entra em contato sem mencionar pitch ou cobrança. | Veredito Diretor |
 | 2026-06-04 | Embaixador | **Loop 8 processado** — Temperatura 8.5/10 QUENTE. 5 decisões D1-D5: D1 descartado, D2/D4/D5 aprovados, D3 descartado. | Embaixador Loop 8 |
+| 2026-06-09 | WhatsApp (via Diretor) | **Contato bilateral confirmado** — Ingrid confirmou: ferramenta funcionando bem. Projeto em STANDBY (sem demanda ativa). CHURN-WATCH resetado → ultimo_contato 2026-06-09. Temperatura QUENTE mantida. | Músculo (P-032) |
 | 2026-06-01 | WhatsApp | **D3 respondido** — Ingrid confirmou: está realizando o acesso e está gostando. Cenário A confirmado (engajada, ativa, não desengajada). | Ingrid via Diretor |
 | 2026-06-01 | WhatsApp | **D3 enviado** — debrief casual: "Aquela configuração ficou perfeita. Como você tá se sentindo com o estudo essa semana? 📚" | Diretor |
 | 2026-05-30 | WhatsApp | Veredito: Enviar debrief casual amanhã — coletar temperatura real (PITCH-WATCH — janela R$97/mês: aberta, gatilho não acionado) | VEREDITOS_INGRID_2026-05-30.json |
@@ -352,6 +353,7 @@ ou "achei que ia perder tempo aqui e não — é diferente"
 | 2026-05-26 | Gate Dia 15 APROVADO — Loop 5 CONCLUIDO. D4:A executado (lead plantado, Ingrid confirmou não ter rede de concurso). Novo PDF Termo recebido e confirmado por Ingrid. SCOPE-WATCH H-5 desativado. LEGAL-WATCH parcial (recebimento confirmado, assinatura pendente). | Músculo (P-032) |
 | 2026-05-27 | Loop 6 SEÇÃO D executada: Embaixador retornou TEMPERATURA 7.5/10, [E-1 a E-5], PAINEL DE DELIBERAÇÃO (P0/P1/PRINCIPIO/D3). LEGAL-WATCH VERDE (reassinatura física confirmada). [DADOS-WATCH] ATIVO (470 respostas — user_id a verificar). H-7 CONFIRMADA. H-8 NOVA. Vereditos do Painel pendentes. | Músculo (P-032) |
 | 2026-06-01 | D3 RESPONDIDO — Ingrid confirmou acesso ativo e que está gostando. Cenário A confirmado. H-4 revisada para BAIXO RISCO. Temperatura elevada para 8.5/10. PITCH-WATCH AQUECIDO. Loop 8 liberado para avançar. | Músculo (P-032) |
+| 2026-06-09 | Contato bilateral confirmado via WhatsApp — Ingrid: ferramenta OK. Projeto STANDBY. CHURN-WATCH VERDE (ultimo_contato 2026-06-09). Temperatura QUENTE mantida. | Músculo (P-032) |
 
 ---
 

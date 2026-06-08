@@ -69,7 +69,7 @@
 - **Loop:** 7 CONCLUIDO — V3 entregue + Deploy Netlify OK
 - **Deploy:** https://toga-digital-valdece.netlify.app
 - **Contrato:** Assinado 2026-05-19 | R$5.000
-- **Ultimo contato:** 2026-06-04
+- **Ultimo contato:** 2026-06-09 (confirmou: ferramenta OK — standby)
 - **Churn threshold:** 3 dias
 - **Sentinel:** VERDE — 2026-06-04 (Supabase pause resolvido)
 - **Corpus:** 61 acordaos | 22 temas | threshold 0.45 | TESTADO E VERDE
@@ -86,9 +86,9 @@
 ### PROJ-002 — Ingrid
 - **Projeto:** Ferramenta de Estudo — Concurso Sedes-DF
 - **Area:** EdTech - Concursos Publicos
-- **Status:** RETAINER
+- **Status:** RETAINER — STANDBY
 - **Loop:** 8 CONCLUIDO
-- **Ultimo contato:** 2026-06-04
+- **Ultimo contato:** 2026-06-09 (confirmou: ferramenta OK — standby)
 - **Churn threshold:** 3 dias (P-106 — EdTech perfil nao-verbal)
 - **Depoimento:** Ingrid gostou muito da ferramenta — capturado 2026-06-04
 - **Prova:** 2026-09-06 (Instituto Quadrix)

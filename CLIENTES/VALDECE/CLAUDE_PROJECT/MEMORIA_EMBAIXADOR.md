@@ -47,7 +47,7 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | commit 9709649 | **Loop 6:** ementa completa (600 chars) + badge UF + boost monocrático (+0.15) ✅ |
 | fix HC 512.290/RJ | Dado errado corrigido no banco + re-embedding executado ✅ |
 | 5 áudios Valdece | Feedback técnico processado: ementa ✅ UF ✅ data_dje ❌V3 repercussão ❌V3 |
-| Temperatura | **QUENTE** — Score 6.8 · 20 dias Hypercare · uso ativo confirmado · silêncio = uso operacional (H-3 CONFIRMADA) · CHURN-WATCH limiar 7 dias |
+| Temperatura | **QUENTE** — Score 6.8 · Hypercare até 18-06-2026 · uso ativo confirmado 2026-06-09 (ferramenta OK via WhatsApp) · silêncio = uso operacional (H-3 CONFIRMADA) · STANDBY · CHURN-WATCH VERDE |
 | ⚠️ REGRA P-120 | **NÃO mencionar automação, IA, agentes ou /notebooklm ao Valdece durante Hypercare.** Termos de automação = desconforto jurídico. Apresentar sempre como "equipe sincronizada". |
 | Contrato | **ASSINADO — 2026-05-19** · R$5k fixo + sem mensalidade · Gate V3 DESBLOQUEADO |
 
@@ -370,6 +370,7 @@ NÃO apresentar V3 durante a assinatura. Apresentar DEPOIS da demo, de forma cas
 | 2026-05-21 (Loop 7 — V3 entregue) | Correção crítica: outputDimensionality 768→3072 no frontend. 28 docs re-embeddados. Simulação remota completa: 5/5 queries P-051 OK · score médio 92.2% · topo 98% (medidas cautelares). Mensagem de reativação redigida com Embaixador: "testei agora nos seus 5 temas" + link + frase da audiência. Temperatura: ENTUSIASMADA mantida. | Músculo (P-032) |
 | 2026-05-24 (Loop 7 — Embaixador) | Embaixador processou ativação Loop 7 completa (blocos A–H). TEMPERATURA_PONDERADA: QUENTE · Score 6.5 · tendência estável · contexto pagamento: PAGO. CHURN-WATCH: inativo. Risco principal: 5 dias sem check-in pós-assinatura — uso real não confirmado. H-4 CONFIRMADA (scope creep logo na assinatura: personalização de logo para OAB). H-5 aquecendo — menção a colegas na OAB iminente. Ação imediata D1: mensagem Hypercare Dia 5 + plantio semente migração (D2). Próximo Sentinel Report: 2026-06-02. Watchdog: SCOPE-WATCH aberto (personalização logo). GATE-WATCH: migração bloqueada em build, não em credenciais — Eduardo TEM as credenciais do Valdece (obtidas 2026-05-19). | Músculo (P-032) |
 | 2026-06-01 (Hypercare Dia 13 — Embaixador) | Embaixador processou SEÇÃO B Sentinel Report. Score 6.8 QUENTE · tendência estável. H-3 CONFIRMADA: silêncio 13 dias + uso ativo = comportamento operacional (não fricção). H-5 AQUECENDO — janela Dia 14–30. CHURN-WATCH: INATIVO · threshold ajustado 7 dias (não 48h). [LEGAL-WATCH] AMARELO: infra ainda na Vanguard · migração pendente · abrir após Sentinel Report. Risco central: normalização precoce sem ROI percebido. Sentinel Report texto pronto (seção acima). Princípio P-093 candidato ao LEDGER. | Músculo (P-032) |
+| 2026-06-09 | **Contato bilateral confirmado via WhatsApp (Diretor)** — Valdece confirmou: ferramenta funcionando bem. Projeto em STANDBY (sem demanda ativa). CHURN-WATCH resetado → ultimo_contato 2026-06-09. Temperatura: QUENTE mantida · H-3 reconfirmada (silêncio ativo = uso operacional). Hypercare encerra 2026-06-18 — próxima ação: Sentinel antes desta data. | Músculo (P-032) |
 
 ---
 

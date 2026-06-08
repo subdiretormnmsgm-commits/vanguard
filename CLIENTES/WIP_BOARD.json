@@ -134,7 +134,7 @@
                                     "contrato_assinado_em":  "2026-05-19",
                                     "deadline":  "2026-05-23",
                                     "build_iniciado_em":  "2026-05-13",
-                                    "ultimo_contato_cliente":  "2026-06-04",
+                                    "ultimo_contato_cliente":  "2026-06-09",
                                     "churn_watch_threshold":  3,
                                     "stack":  "FastAPI + Supabase + Claude API + Netlify",
                                     "loop_fase_atual":  {
@@ -188,7 +188,7 @@
                                        "deadline":  "2026-05-30",
                                        "prova_cliente":  "2026-09-06",
                                        "build_iniciado_em":  "2026-05-15",
-                                       "ultimo_contato_cliente":  "2026-06-04",
+                                       "ultimo_contato_cliente":  "2026-06-09",
                                        "churn_watch_threshold":  3,
                                        "cargo":  "TDAS -- Tecnico em Desenvolvimento e Assistencia Social -- Cargo 202",
                                        "banca":  "Instituto Quadrix",
