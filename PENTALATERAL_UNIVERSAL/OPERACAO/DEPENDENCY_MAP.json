@@ -119,9 +119,9 @@
         },
         {
           "slot": "20",
-          "nome": "20_LOOP_STATE_SCHEMA.json",
-          "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.json",
-          "nota": "Template universal de estado por cliente por loop. Instancias em CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json. Criado 2026-06-07."
+          "nome": "20_LOOP_STATE_SCHEMA.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.md",
+          "nota": "Documentacao Markdown do LOOP_STATE para o Auditor (NotebookLM nao le .json). Instancias JSON em CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json. Criado 2026-06-07."
         },
         {
           "slot": "21",
@@ -502,11 +502,11 @@
     },
     {
       "id": "R-015",
-      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.json",
-      "description": "LOOP_STATE schema vai para NOTEBOOKLM_FONTES de todos os clientes como slot 20",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.md",
+      "description": "LOOP_STATE schema (formato Markdown) vai para NOTEBOOKLM_FONTES de todos os clientes como slot 20. Nota: LOOP_STATE_SCHEMA.json permanece como template de instancias — uso exclusivo de scripts.",
       "destinations": [
         {
-          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/20_LOOP_STATE_SCHEMA.json",
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/20_LOOP_STATE_SCHEMA.md",
           "action": "copy_to_all_clients"
         }
       ]
