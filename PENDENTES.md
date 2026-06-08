@@ -46,9 +46,21 @@
   Após import: configurar ENV_VARS (ANTHROPIC_API_KEY + TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID já existem).
   Cron: segunda-feira 8h BRT. Gera relatório de tendências por nicho no INTELLIGENCE_HUB/TRENDS/.
 
+- [ ] `2026-06-09` **[DIRETOR] W-8 — importar 4 workflows + adicionar 2 env vars no EasyPanel** [diretor]
+  Músculo concluiu 2026-06-09: SUPABASE_VANGUARD_URL corrigido + W-1/W-3/W-5 integrados → W-8 webhook.
+  Commit 1ac5d5d. Shadow mode real NÃO começou até o Diretor importar os workflows atualizados.
+  AÇÃO (3 passos):
+  1. EasyPanel → n8n → Settings → Environment Variables → Adicionar:
+     `SUPABASE_VANGUARD_URL` = https://ehyaecxqijgyuuiorzcj.supabase.co
+     `SUPABASE_VANGUARD_ANON_KEY` = (ver CHAVES_SISTEMA_VANGUARD.txt → bloco SUPABASE VANGUARD INTERNO)
+  2. Importar (substituir) 4 workflows: `_n8n/w8_signal_classifier.json` + `w1_checkin_temporal.json` + `w3_github_push.json` + `w5_churnwatch.json`
+  3. Reativar todos os 4 workflows após import.
+  Após isso: shadow mode real começa — silenced_signals_log vai começar a receber dados.
+
 - [ ] `2026-06-14` **[DIRETOR] W-8 shadow mode — avaliar ativação plena** [diretor]
   DEADLINE HARD: shadow mode expira 2026-06-14.
-  Decisão: ativar pleno (W-8 classifica sinais em produção) ou prorrogar por mais 7 dias.
+  PRÉ-REQUISITO: item EasyPanel acima deve estar feito antes desta avaliação.
+  Decisão: se silenced_signals_log tiver dados → ativar pleno (`shadowMode = false` em w8 + reimport). Senão prorrogar.
 
 - [ ] `2026-06-18` **[DIRETOR] Sentinel Valdece — Hypercare encerra** [diretor]
   Hypercare até 18/06/2026. Sentinel antes desta data.
