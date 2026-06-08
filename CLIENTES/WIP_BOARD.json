@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-06-07",
+    "atualizado_em":  "2026-06-09",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -12,24 +12,24 @@
                                 {
                                     "id":  "PROJ-000",
                                     "cliente":  "VANGUARD",
-                                    "projeto":  "VanguardV28 -- Pentalateral Autonomo",
+                                    "projeto":  "VanguardV29 -- Pentalateral Autonomo",
                                     "area":  "Infraestrutura Interna -- Pentalateral IAH",
                                     "camada":  "0 (Infraestrutura Vanguard -- nao e projeto cliente)",
                                     "valor_fechado":  0,
                                     "tipo":  "Projeto Interno -- Evolucao do Sistema",
                                     "status":  "BUILD",
-                                    "loop_atual":  "Loop 28 -- EM BUILD",
+                                    "loop_atual":  "Loop 29 -- EM BUILD",
                                     "build_iniciado_em":  "2026-06-06",
                                     "deadline":  null,
                                     "churn_watch_threshold":  null,
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
-                                                            "loop":  28,
+                                                            "loop":  29,
                                                             "gemini":  "PENDENTE",
-                                                            "notebooklm":  "OK",
-                                                            "embaixador":  "OK",
-                                                            "musculo":  "OK",
-                                                            "proximo":  "Embaixador -- PASSO7 Secao D antes do Musculo"
+                                                            "notebooklm":  "PENDENTE",
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "EM BUILD",
+                                                            "proximo":  "Gemini -- PASSO3_GEMINI.md pronto -- ir ao Gemini com skill gemini-pentalateral v2.1"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -75,7 +75,26 @@
                                                            "P-115 -- Musculo assessora ativamente conclusao de pendentes (2026-06-06)",
                                                            "P-116 -- o que doi e erro, nao esforco -- verificacao antes de automacao (2026-06-06)"
                                                        ],
-                                    "skill_path":  ".claude/skills/vanguard-v28.md",
+                                    "principios_v29":  [
+                                                           "P-121 -- automacao nao iniciada pelo cliente e ameaca de churn (2026-06-08)",
+                                                           "P-122 -- deliberacao precede P-032 (2026-06-08)",
+                                                           "P-123 -- dois namespaces de notebook: base permanente + loop efemero (2026-06-08)",
+                                                           "P-124 -- camara de eco proibida -- checkpoint humano obrigatorio entre socios (2026-06-08)",
+                                                           "P-125 -- fire-and-forget com webhook -- Studio outputs nao bloqueiam o terminal (2026-06-08)",
+                                                           "P-126 -- dois caminhos de evolucao, mesma origem (2026-06-08)",
+                                                           "P-127 -- Embaixador opera Estrategista de forma autonoma com grounding verificado (2026-06-09)"
+                                                       ],
+                                    "entregues_v29":  [
+                                                          "INTELLIGENCE HUB -- Track COMPETITORS (mensal) + Track TRENDS (semanal W-9) -- ATIVO",
+                                                          "Antigravity CLI -- Intel Loop Motor isolado (P-124) -- GEMINI.md + intel-loop.md + PENDING_REVIEW.md",
+                                                          "/notebooklm skill v2 -- YouTube nativo + podcast PT-BR -- validada em producao",
+                                                          "LOOP_STATE system v1.0 -- estado duravel por cliente/loop -- resolve amnesia pos-compactacao",
+                                                          "W-9 n8n -- Track TRENDS semanal (segunda 8h BRT) -- arquivo criado -- importacao EasyPanel pendente [DIRETOR]",
+                                                          "session_close.ps1 -- gate e-mail bloqueante adicionado",
+                                                          "skill gemini-pentalateral v2.1 -- browser automation Embaixador->Estrategista",
+                                                          "P-121 a P-127 inscritos no INTELLIGENCE_LEDGER"
+                                                      ],
+                                    "skill_path":  ".claude/skills/vanguard-v29.md",
                                     "memoria_embaixador_path":  "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
                                     "historico_path":  "CLIENTES/VANGUARD/HISTORICO/"
                                 }
@@ -218,10 +237,10 @@
                                "regra_5":  "Retainer so apos 30 dias de dados reais do Sentinel"
                            },
     "meta":  {
-                 "loops_desde_ultimo_checkup":  1,
+                 "loops_desde_ultimo_checkup":  2,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-07",
+                 "data_ultima_sessao":  "2026-06-09",
                  "claude_projects_pendente":  true
              }
 }

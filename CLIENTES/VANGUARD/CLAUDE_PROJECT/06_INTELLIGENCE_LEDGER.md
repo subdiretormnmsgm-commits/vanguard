@@ -2033,6 +2033,69 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Aprovado pelo Diretor:** 2026-06-07.
 **Aplica-se a:** todo ciclo Pentalateral onde o Diretor precisaria arrastar fontes ao NotebookLM manualmente + todo debriefing pos-reuniao onde o Embaixador ja tem o material para alimentar o Auditor.
 
+## P-121 -- AUTOMACAO NAO INICIADA PELO CLIENTE E AMEACA DE CHURN (2026-06-07)
+**Origem:** Analise do Musculo a partir da deliberacao sobre skill /notebooklm e risco de Camara de Eco de Silicio -- sessao 2026-06-07.
+**Fundamento:** Automacao aplicada ao cliente sem que ele a tenha solicitado ou aprovado e percebida como produto em construcao permanente, instabilidade ou invasao de privacidade. No contexto Hypercare (cliente recente, confianca em formacao), qualquer automacao visivel ao cliente que ele nao conheca pode gerar churn emocional -- nao por falha tecnica, mas por surpresa nao gerenciada.
+**Regra operacional:**
+  (a) Toda automacao que afete a experiencia do cliente deve ser comunicada ANTES de ativar -- nunca surpresa
+  (b) Durante Hypercare: zero automacao visivel ao cliente sem aprovacao explicita do Diretor e do proprio cliente
+  (c) Automacoes internas (INTELLIGENCE HUB, ChurnWatch, Sentinel) sao invisiveis ao cliente -- permitidas sem gate
+  (d) O Embaixador valida se a comunicacao da automacao e oportuna antes de qualquer anuncio
+**Camara de Eco de Silicio (risco relacionado):** LLMs conversando com LLMs sem checkpoint humano fecham o loop tecnicamente mas perdem o julgamento comercial humano. P-124 complementa este principio com o gate obrigatorio.
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** todo projeto em Hypercare + todo momento em que uma nova automacao for ativada que tenha interface com o cliente.
+
+## P-122 -- DELIBERACAO PRECEDE P-032 -- OUTPUT RECEBIDO NAO SIGNIFICA DELIBERACAO CONCLUIDA (2026-06-07)
+**Origem:** Falha detectada pelo Diretor em 2026-06-07 -- Musculo executou P-032 (atualizacao da MEMORIA_EMBAIXADOR) antes de apresentar as decisoes ao Diretor e receber veredito.
+**Fundamento:** Receber o output de um socio (Gemini, NotebookLM, Embaixador) e o primeiro passo da deliberacao -- nao o ultimo. O Musculo que atualiza MEMORIA ou executa acoes com base em output recebido sem que o Diretor tenha deliberado esta cortocircuitando o processo. A deliberacao e prerrogativa exclusiva do Diretor -- o Musculo apresenta, o Diretor decide.
+**Sequencia inviolavel:**
+  1. Musculo recebe output do socio
+  2. Musculo apresenta ao Diretor: "Dx decisoes identificadas -- D1: [titulo] A/B, D2: [titulo] A/B..."
+  3. Diretor responde: "D1:A D2:B D3:A"
+  4. SOMENTE APOS o veredito: Musculo executa P-032 e demais acoes
+**O que nao e deliberacao:** Musculo concordar internamente com o output · Musculo achar que a acao e obvia · Musculo executar para "economizar tempo" do Diretor
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** toda sessao em que output de socio chegar e houver acoes derivadas -- especialmente P-032 (MEMORIA_EMBAIXADOR), compromisos de build e vereditos de DECISOES.json.
+
+## P-123 -- DOIS NAMESPACES DE NOTEBOOK -- BASE PERMANENTE E LOOP EFEMERO (2026-06-07)
+**Origem:** Deliberacao sobre modelo hibrido de notebooks NotebookLM -- sessao 2026-06-07.
+**Fundamento:** O NotebookLM (Auditor) opera com dois tipos de contexto que nao devem se misturar: (a) inteligencia universal e historica da Vanguard (LEDGER, universais, processo) e (b) contexto especifico do loop atual do cliente (PASSO5, docs do ciclo). Misturar os dois contamina o Auditor com dados de cliente em espaco permanente, violando P-059 (Isolamento de Contexto) e criando risco de vazamento entre projetos.
+**Dois namespaces obrigatorios:**
+  [cliente]-base   : notebook PERMANENTE -- contem LEDGER + universais + SKILL_PROTOCOLO + historico do cliente. NUNCA recebe docs de loop efemero. NUNCA recebe documentos do cliente (acórdãos, planilhas, dados sensiveis).
+  [cliente]-loop-N : notebook EFEMERO -- criado no inicio do loop N, destroido apos skill extraida e aprovada. Contem PASSO5 + docs do ciclo atual + fontes especificas do loop.
+**Regras de isolamento:**
+  (a) Studio outputs (Audio Overview, Infografico) NUNCA saem do namespace loop -- sao descartados com o notebook efemero
+  (b) A skill gerada pelo loop (.[cliente]-vN.md) e o unico artefato que sobrevive ao loop -- salva em .claude/skills/
+  (c) O namespace base e sincronizado via preparar_notebooklm_projeto.ps1 -- nunca editado manualmente
+  (d) Nome obrigatorio: "[YYYY-MM] [NOME_CLIENTE]-base" e "[YYYY-MM] [NOME_CLIENTE]-loop-N"
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** todo projeto com NotebookLM ativo -- Valdece, Ingrid e qualquer cliente futuro.
+
+## P-124 -- CHECKPOINT HUMANO OBRIGATORIO ENTRE SOCIOS -- NENHUM SOCIO ACIONA OUTRO DIRETAMENTE (2026-06-07)
+**Origem:** Risco de Camara de Eco de Silicio identificado na deliberacao sobre skill /notebooklm -- sessao 2026-06-07.
+**Fundamento:** O Pentalateral IAH e um sistema de multiplos LLMs com perspectivas distintas. O valor do sistema vem da diversidade de modelos e da curadoria humana entre cada camada. Se um socio acionar outro diretamente (Musculo chama Gemini API que chama NotebookLM que alimenta Embaixador), o loop fecha sem checkpoint humano -- e tecnicamente correto mas comercialmente cego. O Diretor perde a capacidade de detectar deriva antes que ela se acumule.
+**Regra operacional:**
+  (a) Nenhum socio aciona outro socio diretamente no loop de cliente -- o Diretor e o intermediario obrigatorio
+  (b) Automacoes de infraestrutura (INTELLIGENCE HUB, ChurnWatch, Sentinel) podem rodar LLM→LLM pois nao geram vereditos de cliente
+  (c) Quando o Musculo precisar de input do Auditor rapidamente, o gate e: apresentar a necessidade ao Diretor → Diretor aprova → Musculo executa
+  (d) A unica excecao e o fire-and-forget de Studio outputs (P-125) -- nao gera veredito, apenas conteudo de apoio
+**Camara de Eco de Silicio:** dois ou mais LLMs do mesmo provedor (ex: Gemini + Antigravity CLI) no mesmo loop de cliente amplificam os proprios vieses sem filtro humano -- nunca permitido no Pentalateral.
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** toda automacao que encadeie dois ou mais socios do Pentalateral sem passagem pelo Diretor.
+
+## P-125 -- FIRE-AND-FORGET COM WEBHOOK -- STUDIO OUTPUTS NAO BLOQUEIAM O TERMINAL (2026-06-07)
+**Origem:** Gargalo identificado na geracao de Studio outputs (Audio Overview) do NotebookLM -- sessao 2026-06-07.
+**Fundamento:** Studio outputs (Audio Overview, Infografico, Slides, FAQ) levam de 3 a 10 minutos para gerar. Se o Musculo aguardar sincronamente, o terminal fica bloqueado e o Diretor perde tempo. O padrao correto e: disparar a geracao e liberar o terminal imediatamente -- o n8n monitora a pasta .claude/skills/ e notifica o Diretor via Telegram quando o output estiver pronto.
+**Sequencia fire-and-forget:**
+  1. Musculo aciona a geracao do Studio output via skill /notebooklm
+  2. Musculo dispara webhook n8n (W-4 ou endpoint dedicado) com: cliente, loop, tipo de output
+  3. Terminal liberado -- Musculo continua outras tarefas
+  4. n8n monitora .claude/skills/ ou polling no NotebookLM
+  5. Quando output pronto: n8n notifica Diretor via Telegram com link ou arquivo
+**O que NUNCA fazer:** aguardar sincronamente a geracao de Studio output · manter terminal ocupado por 10 minutos · perguntar ao Diretor "quer que eu aguarde?"
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** toda sessao em que Studio outputs forem solicitados ao Auditor -- especialmente Audio Overview que e o mais demorado.
+
 ## P-126 -- DOIS CAMINHOS DE EVOLUCAO, MESMA ORIGEM (2026-06-07)
 **Origem:** Deliberacao do Musculo a partir da descoberta da skill /notebooklm -- sessao 2026-06-07.
 **Fundamento:** O Pentalateral IAH evolui por dois caminhos distintos -- ambos originados pelo Diretor:

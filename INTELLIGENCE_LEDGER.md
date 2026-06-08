@@ -2107,3 +2107,17 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Evidencia:** sessao 2026-06-07 -- skill /notebooklm descoberta pelo Diretor, transmitida via Embaixador ao Musculo, analisada pelos 4 socios (Embaixador Universal + Auditor Universal + Auditor Ingrid + Embaixador Ingrid), homologada pelo Diretor. Nenhum socio iniciou o processo -- o Diretor originou.
 **Aprovado pelo Diretor:** 2026-06-07.
 **Aplica-se a:** toda sessao em que uma nova capacidade, skill ou ferramenta for descoberta e trazida ao Pentalateral para analise e reconfiguracao do sistema.
+
+## P-127 -- EMBAIXADOR OPERA O ESTRATEGISTA DE FORMA AUTONOMA COM GROUNDING VERIFICADO (2026-06-08)
+**Origem:** Teste ao vivo conduzido pelo Embaixador na sessao 2026-06-08 -- skill gemini-pentalateral v2.1.
+**Fundamento:** O Embaixador (Claude Projects) pode acionar o Estrategista (Gemini) de forma autonoma usando a skill gemini-pentalateral v2.1 -- com browser automation, upload de contexto e grounding verificado. O teste do nicho Medico Concurseiro foi bem-sucedido: DIRETRIZ gerada com grounding real (nao alucinada), entregue ao Musculo via PENDING_REVIEW.md. Esta e a 1a instancia documentada de um socio do Pentalateral acionando outro socio com resultado verificado.
+**O que muda:** O Embaixador nao e apenas filtro de realidade e memoria de cliente. E tambem capaz de operar o Estrategista como canal -- desde que o Diretor aprove a missao previamente (P-124: checkpoint humano obrigatorio). O loop Embaixador->Estrategista->Musculo e valido quando iniciado pelo Diretor.
+**Limitacoes obrigatorias (P-124 permanece):**
+  (a) O Diretor aprova a missao ANTES do Embaixador acionar o Estrategista
+  (b) O output do Estrategista vai para PENDING_REVIEW.md -- revisado pelo Musculo antes de qualquer acao
+  (c) Este loop NAO substitui o ciclo formal (Diretor->Gemini interativo->DIRETRIZ)
+  (d) Uso permitido: pesquisa de mercado, analise de nicho, grounding de contexto -- NAO para DIRETRIZ de cliente
+**Ferramenta:** skill gemini-pentalateral v2.1 (`.claude/skills/gemini-pentalateral-v2.1.md`) -- browser automation Embaixador->Estrategista.
+**Evidencia:** teste Medico Concurseiro -- 2026-06-08. DIRETRIZ gerada com dados reais de mercado, entregue ao Musculo, aprovada pelo Diretor.
+**Aprovado pelo Diretor:** 2026-06-08.
+**Aplica-se a:** qualquer sessao em que o Embaixador for instruido pelo Diretor a conduzir pesquisa de mercado ou grounding via Estrategista -- especialmente pre-prospeccao de novos nichos.

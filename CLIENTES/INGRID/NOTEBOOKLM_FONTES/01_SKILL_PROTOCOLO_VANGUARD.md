@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.8 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 a P-117 (2026-06-07) · Gate 1.6 bloqueante + P-087 + P-090 + P-118 (2026-06-07) · Audit P-070 a P-101 adicionados (2026-06-07)**
+**Versão da Skill:** 6.9 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 a P-117 (2026-06-07) · Gate 1.6 bloqueante + P-087 + P-090 + P-118 (2026-06-07) · Audit P-070 a P-101 adicionados (2026-06-07) · INTELLIGENCE HUB + Antigravity + LOOP_STATE + W-9 + P-119 a P-127 (2026-06-09)**
 
 ---
 
@@ -2726,4 +2726,73 @@ Problema recorrente com ferramenta de prevenção já inscrita no LEDGER → pri
 
 ---
 
-*V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid · P-069 (2026-05-29) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + P-116 a P-117 (2026-06-07) · Gate 1.6 + P-087 + P-090 + P-118 (2026-06-07) · Audit P-070 a P-101 (2026-06-07)*
+### PRINCÍPIOS RECENTES — P-119 a P-127 (2026-06-07/09) — Loop 29
+
+**[P-119] — Vídeo Público de Dor é Dado de Marketing, Não de Intenção de Compra (2026-06-07)**
+Prospecto que declara dor em vídeo público confirma que o problema existe — não que quer contratar. GUT calculado sem contato bilateral é provisório. Gate Zero obrigatório: contato bilateral confirmado com o decisor real antes de qualquer estimativa ou proposta. Aplica-se a toda análise iniciada por vídeo, podcast ou post público.
+
+**[P-120] — Embaixador Pode Acionar o Auditor Programaticamente via Claude in Chrome (2026-06-07)**
+A skill /notebooklm permite automação de browser para controlar o NotebookLM sem que o Diretor arraste arquivos manualmente. Embaixador pode adicionar fontes, gerar Studio outputs e criar notebooks via Claude in Chrome. Descoberta pelo Diretor Eduardo — Embaixador foi o canal estruturado de transmissão (correção de atribuição registrada em P-126).
+
+**[P-121] — Automação Não Iniciada Pelo Cliente é Ameaça de Churn (2026-06-08)**
+Qualquer automação que o cliente não pediu e não vê o valor imediato pode gerar fricção e churn. Regra: apresentar antes de implementar. O cliente deve sempre entender o que mudou na ferramenta e por quê. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-122] — Deliberação Precede P-032 (2026-06-08)**
+Receber output de sócio é o primeiro passo da deliberação — não o último. O Músculo apresenta ao Diretor as decisões identificadas (D1, D2...). Somente após veredito: executar P-032 e demais ações. O Músculo concordar internamente com um output não é deliberação. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-123] — Dois Namespaces de Notebook: Base Permanente + Loop Efêmero (2026-06-08)**
+[cliente]-base: notebook permanente com LEDGER + universais + histórico — NUNCA recebe docs de loop efêmero nem dados sensíveis do cliente. [cliente]-loop-N: notebook efêmero criado no início do loop, destruído após skill extraída. A skill gerada (..[cliente]-vN.md) é o único artefato que sobrevive ao loop. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-124] — Câmara de Eco Proibida — Checkpoint Humano Obrigatório Entre Sócios (2026-06-08)**
+Nenhum sócio aciona outro sócio diretamente no loop de cliente — o Diretor é o intermediário obrigatório. Automações de infraestrutura (INTELLIGENCE HUB, ChurnWatch) podem rodar LLM→LLM pois não geram vereditos de cliente. Câmara de Eco de Silício: dois LLMs do mesmo provedor no mesmo loop de cliente = vieses amplificados sem filtro humano — nunca permitido. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-125] — Fire-and-Forget com Webhook — Studio Outputs Não Bloqueiam o Terminal (2026-06-08)**
+Studio outputs (Audio Overview, Infográfico) levam 3-10min. O Músculo dispara via skill /notebooklm + webhook n8n e libera o terminal imediatamente. O n8n monitora e notifica o Diretor via Telegram quando pronto. Nunca aguardar sincronamente. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-126] — Dois Caminhos de Evolução, Mesma Origem (2026-06-08)**
+CICLO FORMAL: Diretor define direção → Gemini gera DIRETRIZ → NotebookLM gera Skill → Músculo constrói. CICLO EMERGENTE: Diretor descobre capacidade nova → usa Embaixador como canal → 4 sócios analisam → Diretor homologa. Em nenhum dos dois caminhos o sistema evolui sem o Diretor como ponto de origem. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-127] — Embaixador Opera o Estrategista de Forma Autônoma com Grounding Verificado (2026-06-09)**
+O Embaixador (Claude Projects) pode acionar o Estrategista (Gemini) via skill gemini-pentalateral v2.1 — browser automation, upload de contexto, grounding verificado. Loop Embaixador→Estrategista→Músculo é válido quando iniciado pelo Diretor. Uso permitido: pesquisa de nicho, grounding pré-prospecção. NÃO para DIRETRIZ de cliente. P-124 permanece: Diretor aprova antes. Output vai para PENDING_REVIEW.md. Evidência: teste Médico Concurseiro 2026-06-08 bem-sucedido. Aprovado pelo Diretor em 2026-06-09.
+
+---
+
+### INTELLIGENCE HUB — MOTOR DE INTELIGÊNCIA DE MERCADO (Loop 29 — 2026-06-08)
+
+**Estrutura:** `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/`
+- `COMPETITORS/` — relatórios mensais por nicho (5 concorrentes, gerados pelo Antigravity)
+- `TRENDS/` — relatórios semanais via W-9 + /notebooklm (YouTube + artigos por nicho)
+- `PENDING_REVIEW.md` — canal Antigravity → Músculo → Conselho (Músculo revisa antes de qualquer ação)
+
+**Regras operacionais:**
+- P-124: Antigravity NÃO entra no loop de cliente — câmara de eco proibida
+- Relatório COMPETITORS: cópia manual para slot 21 de NOTEBOOKLM_FONTES após aprovação pelo Músculo
+- Uso pré-venda: REPORT_COMPETITORS do nicho gerado antes de qualquer reunião de prospecção
+
+### ANTIGRAVITY CLI — INTEL LOOP MOTOR (Loop 29 — 2026-06-08)
+
+**Função:** motor autônomo do INTELLIGENCE HUB — gera relatórios COMPETITORS + TRENDS via Gemini CLI
+**Identidade isolada:** `GEMINI.md` (raiz) — Intel Loop Motor, NÃO é o Estrategista do Pentalateral
+**Skill:** `.agents/skills/intel-loop.md` — checklists COMPETITORS + TRENDS
+**Canal de saída:** `PENDING_REVIEW.md` — Antigravity escreve, Músculo revisa, Conselho recebe
+**Regra P-124:** output do Antigravity vai para PENDING_REVIEW — NUNCA direto para DECISOES.json ou WIP_BOARD
+
+### LOOP_STATE SYSTEM v1.0 (Loop 29 — 2026-06-08)
+
+**Função:** estado durável por cliente/loop — resolve amnésia pós-compactação de contexto
+**Instâncias:** `CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json` por projeto
+**Schema Markdown:** `PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.md` (slot 20 nos NOTEBOOKLM_FONTES)
+**Scripts:** `pre_loop_action.ps1` (verifica estado antes do loop) + `post_loop_action.ps1` (atualiza após fase)
+**Uso:** ao iniciar novo loop — verificar estado anterior antes de avançar qualquer fase
+
+### W-9 TRACK TRENDS — INTELIGÊNCIA SEMANAL (Loop 29 — 2026-06-08)
+
+**Trigger:** cron segunda-feira 8h BRT (11h UTC)
+**Fluxo:** W-9 n8n → Gemini grounding → relatório semanal → GitHub → Telegram Diretor
+**Arquivo:** `_n8n/workflows/w9_trends_semanal.json`
+**Status:** arquivo criado e validado — importação no EasyPanel pendente [DIRETOR]
+**Output:** `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/` — slot 21 propagado para NOTEBOOKLM_FONTES
+
+---
+
+*V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid · P-069 (2026-05-29) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + P-116 a P-117 (2026-06-07) · Gate 1.6 + P-087 + P-090 + P-118 (2026-06-07) · Audit P-070 a P-101 (2026-06-07) · INTELLIGENCE HUB + Antigravity + LOOP_STATE + W-9 + P-119 a P-127 (2026-06-09)*

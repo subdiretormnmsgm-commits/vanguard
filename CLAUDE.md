@@ -2,7 +2,7 @@
 - CURRENT_VERSION: 13
 - MODEL: "Venture Builder Autônoma & Holding de Dados SaaS — The Sovereign Autonomous Layer"
 - SISTEMA: Pentalateral IAH + Hermes Agent — 5 atores + motor autônomo 24/7: Diretor + Músculo + Estrategista + Auditor + Embaixador + Hermes
-- ÚLTIMA_ATUALIZAÇÃO: 2026-06-07 — V28: Hermes Agent ONLINE (EasyPanel · Telegram · OpenRouter) + W-8 Signal Classifier shadow mode + P-116
+- ÚLTIMA_ATUALIZAÇÃO: 2026-06-09 — V29: INTELLIGENCE HUB + Antigravity CLI + /notebooklm v2 + LOOP_STATE system + W-9 Track TRENDS + P-119 a P-127
 
 ---
 
@@ -535,6 +535,16 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 ---
 
+## 🧠 INTELLIGENCE HUB + ANTIGRAVITY CLI (ativo desde 2026-06-08)
+
+> **Função:** motor de inteligência de mercado — separado e ISOLADO do loop de cliente (P-124: câmara de eco proibida).
+> **Estrutura:** `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/` → `COMPETITORS/` + `TRENDS/` + `PENDING_REVIEW.md`
+> **Antigravity CLI:** gera relatórios COMPETITORS (mensal) + TRENDS (semanal via W-9). GEMINI.md define sua identidade como Intel Loop Motor — NÃO é o Estrategista.
+> **Regra obrigatória:** todo output do Antigravity vai para `PENDING_REVIEW.md` — Músculo revisa ANTES de qualquer ação. Nunca direto para DECISOES.json ou WIP_BOARD.
+> **LOOP_STATE system:** `CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json` por cliente — estado durável por loop, resolve amnésia pós-compactação.
+
+---
+
 ## 🤖 N8N + HERMES — CAMADA DE AUTOMAÇÃO DO PENTALATERAL (ativo desde 2026-06-04)
 
 > **EasyPanel n8n:** `https://vanguard-vanguard-n8n.0ul9nk.easypanel.host` — cloud 24/7, independente do PC local.
@@ -564,6 +574,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 | W-6 Session Watch | Cron 17h BRT | Lê PENDENTES.md via GitHub → lista itens abertos por tag → Telegram (silencia se 0 pendentes) |
 | W-7 Cérebro de Bolso | Webhook Telegram | /status /score /custo /veredito via Telegram → resposta imediata |
 | W-8 Signal Classifier | Webhook POST | Classifica sinais AUTO-RESOLVE/INFORMAR/DELIBERAR-A/B/C → `silenced_signals_log` (shadow mode 7d) |
+| W-9 Track TRENDS | Cron segunda 8h BRT | Relatório semanal de tendências por nicho via Antigravity + /notebooklm → INTELLIGENCE_HUB/TRENDS/ → Telegram |
 
 **Regras obrigatórias para o Músculo:**
 - Nunca chamar APIs externas (Claude, Gemini, Telegram) diretamente do código local — usar n8n como proxy quando possível

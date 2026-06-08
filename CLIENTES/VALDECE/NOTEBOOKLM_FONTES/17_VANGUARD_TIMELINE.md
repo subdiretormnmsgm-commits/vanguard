@@ -1,6 +1,6 @@
 # VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-06-05
+> Criado: 2026-05-17 | Última atualização: 2026-06-06
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -17,6 +17,9 @@ V1 foi ingênua. V24 foi estratégica. V25 foi a primeira com clientes reais val
 V26 e V27 foram diferentes de tudo que veio antes: não serviram a Ingrid, não serviram a Valdece.
 Serviram à Vanguard como empresa. O n8n como sistema nervoso do Pentalateral não é uma feature —
 é a transição de fundador que constrói para fundador que opera em escala.
+V28 é a versão em que o Pentalateral aprende a deliberar sem o Diretor presente — o primeiro loop
+que começa sem Eduardo como ignição. Hermes Agent como motor persistente. Gate de coerência
+semântica como firewall. Signal Classifier como cortex de triagem. A empresa começa a operar sozinha.
 O que não mudou: a convicção de que o método vale mais do que qualquer código.
 
 Quando o Auditor ler este documento, ele deve entender o arco completo — não apenas o loop atual.
@@ -402,6 +405,7 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **VEREDITOS_RESUMO informal** | 2026-05-26 | Gate Dia 15 Ingrid executado sem pipeline DECISOES.json. Documentado como "executado informalmente". VEREDITOS_RESUMO gerado como registro honesto. DEF-E-8 ativo para Loop 6. |
 | **n8n FASE 1 — V26** | 2026-06-04 | 4 workflows ativos no EasyPanel (W-1/W-2/W-3/W-4). Sistema nervoso do Pentalateral ativo 24/7. P-101/P-102/P-103/P-104/P-105 inscritos. |
 | **n8n FASE 2 — V27** | 2026-06-05 | W-7 Veredito via Telegram MVP ativo. Notion OUTPUT em W-1/W-3/W-4. P-109/P-110/P-111 inscritos. git filter-repo remove token histórico — repositório limpo. |
+| **Pentalateral Autônomo — V28** | 2026-06-06 | E-1 Gate de Coerência Semântica (Haiku API). Hermes Agent (open source, Docker, Claude API nativo, graus A/B/C). Signal Classifier W-8 shadow mode. State Guard. MAINTENANCE_COST.md v2.0. P-115 inscrito. Loop começa sem Eduardo. |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
@@ -474,12 +478,15 @@ Em 2026-06-05, o n8n entrou como 6º elemento — não membro, mas sistema nervo
 | P-109 | Notion = OUTPUT ONLY | 2026-06-04 | Risco de Notion virar fonte de verdade | Git é a única fonte de verdade. Notion recebe cópias para visualização — nunca é editado como master. |
 | P-110 | Fallback manual ≤3 passos | 2026-06-05 | Dependência crítica de automação sem plano B | Todo workflow crítico tem fallback documentado. continueOnFail: true em nodes de saída. |
 | P-111 | Atender clientes = construir vantagem competitiva | 2026-06-05 | Briefing Embaixador FASE 2 | Dado de uso de cliente alimenta ativo de inteligência da Vanguard. Feature que não gera aprendizado é custo, não investimento. |
+| P-115 | Músculo assessora ativamente conclusão de pendentes | 2026-06-06 | DEPENDENCY_MAP ficou [x] sem ✅ por múltiplas sessões sem proposta de execução | Músculo NUNCA encerra sessão sem oferecer avançar pelo menos 1 pendente [musculo]. DEPENDENCY_MAP: [x] sem ✅ = propor execução imediata. 3 passos obrigatórios: arquivo editado + propagate_changes.ps1 + hash verificado. |
+| P-116 (candidato) | O que dói é erro, não esforço | 2026-06-06 | Embaixador: "verificação antes de automação" — E-1 Gate de Coerência nasce deste princípio | Confiança no sistema não se declara, se verifica. Gate semântico antes de qualquer handoff. Graus A/B/C são o contrato de autonomia — não burocracia. |
 
 **Velocidade de aprendizado por fase:**
 - V1–V23 (pré-LEDGER): ~0 princípios formalizados por sessão
 - V24 (2026-05-12): 5 princípios em 1 sessão
 - V25 (2026-05-12 a 2026-05-17): 20 princípios em 5 dias
 - V26–V27 (2026-06-04 a 2026-06-05): princípios sobre a Vanguard como empresa — primeira vez que o Pentalateral deliberou sobre si mesmo como objeto de análise
+- V28 (2026-06-06): princípios sobre autonomia — P-115 (assessoria ativa de pendentes) + P-116 candidato (verificação antes de automação)
 - **Média atual: 4 princípios por dia de IAH operacional**
 
 ---
@@ -519,6 +526,14 @@ da Vanguard saindo do modo fundador para o modo empresa.
 
 ---
 
+### V28 — The Autonomous Loop
+**Data: 2026-06-06**
+**O que foi construído:** Pentalateral Autônomo — primeira versão em que o loop começa sem o Diretor como ignição. Três pilares: (1) **E-1 Gate de Coerência Semântica** — `gate_coerencia.ps1` chama Claude Haiku via API para verificar se cada output de sócio está completo para o próximo passo; integrado ao `skill_parser_gate.ps1` como última verificação após aprovação estrutural. (2) **Signal Classifier W-8** — workflow n8n em shadow mode por 7 dias que categoriza sinais em [AUTO-RESOLVE] / [INFORMAR] / [DELIBERAR-A/B/C] antes de qualquer notificação. (3) **Hermes Agent** — motor autônomo persistente (open source, MIT, Docker EasyPanel, Claude API nativo, SQLite, 175k stars GitHub, v0.14.0); opera com graus de delegação A/B/C definidos em `pentalateral-graus-abc.md`; envia Registro de Iniciativa diário ao Diretor. Decisão de arquitetura: D1=C Híbrido (Hermes + n8n + Claude API), D2=A shadow mode primeiro, D3=A V28 incremental ~8h total. `MAINTENANCE_COST.md` v2.0 com fallbacks para W-8, W-9 e Hermes Agent. P-115 inscrito: Músculo assessora ativamente conclusão de pendentes. `render_painel.ps1` suporta projeto VANGUARD.
+**O que foi aprendido:** A pergunta que distingue V28 de V27: "O sistema consegue saber o que fazer sem eu estar presente?" V28 é a primeira resposta real a essa pergunta — não com uma promise, mas com arquitetura que verifica, classifica e age antes de o Diretor acordar. O Hermes Agent não é uma feature. É a diferença entre ter um processo e ter uma empresa que executa o processo.
+**Legado:** P-116 candidato — "o que dói é erro, não esforço." Verificação antes de automação. O Gate de Coerência Semântica nasce desse princípio: confiança não se declara, se verifica. Graus A/B/C não são burocracia — são o contrato de autonomia entre o sistema e o Diretor.
+
+---
+
 ## MARCOS COMERCIAIS
 
 | Data | Marco | Valor | Status |
@@ -535,6 +550,7 @@ da Vanguard saindo do modo fundador para o modo empresa.
 | 2026-06-04 | Valdece — Sentinel Report Dia 16 · incidente Supabase resolvido | — | Hypercare até 2026-06-18 · MRR não confirmado |
 | 2026-06-04 | V26 — n8n FASE 1 · 4 workflows ativos | — | Infraestrutura Pentalateral |
 | 2026-06-05 | V27 — n8n FASE 2 · W-7 testado · git limpo | — | Infraestrutura Vanguard como empresa |
+| 2026-06-06 | V28 — Pentalateral Autônomo · Hermes Agent · E-1 · W-8 shadow | — | Loop começa sem Eduardo · graus A/B/C · verificação semântica |
 | 2026-09-06 | Prova da Ingrid — validação real do produto | — | Meta |
 
 **Receita faturada até 2026-05-17:** R$ 0
@@ -575,8 +591,8 @@ P-021 (Diretor como Originador), P-022 (Auditor como Advogado), P-023 (Contrato 
 Seis dos vinte e cinco princípios nasceram diretamente da experiência acumulada do Diretor.
 Isso não é copiável. Eduardo não é substituível por um prompt melhor.
 
-**5. A Vanguard está na V27 — não na V1.**
-Com o n8n acumulando inteligência automaticamente a cada loop, a distância aumenta toda semana
+**5. A Vanguard está na V28 — não na V1.**
+Com o Hermes Agent operando autonomamente e o n8n acumulando inteligência a cada loop, a distância aumenta toda semana
 com ou sem sessão ativa. O competidor que começar hoje não está atrasado — está em outro jogo.
 
 ---

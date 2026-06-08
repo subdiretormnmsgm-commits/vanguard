@@ -1,5 +1,5 @@
 # WIP BOARD — Pentalateral IAH
-**Atualizado em:** 2026-06-07
+**Atualizado em:** 2026-06-09
 **Fonte:** WIP_BOARD.json (versao Markdown para o Auditor — NotebookLM nao le JSON)
 
 ---
@@ -15,34 +15,25 @@
 ## BUILD
 
 ### PROJ-000 — VANGUARD (Projeto Interno)
-- **Projeto:** VanguardV28 -- Pentalateral Autonomo
+- **Projeto:** VanguardV29 -- Pentalateral Autonomo
 - **Area:** Infraestrutura Interna — Pentalateral IAH
 - **Tipo:** Projeto Interno — Evolucao do Sistema (nao e projeto cliente)
-- **Status:** BUILD — Loop 28 ENTREGUE em 2026-06-07
-- **Loop:** 28 CONCLUIDO | Proximo: Loop 29 (aguarda Gemini)
-- **Stack:** Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API Haiku (verificacao semantica)
-- **Vereditos Loop 28:**
-  - D1=C: Hibrido (Hermes + n8n + Claude API) — APROVADO
-  - D2=A: Signal Classifier shadow mode primeiro (7 dias observacao) — APROVADO
-  - D3=A: V28 incremental — E-1 + Classifier shadow + Hermes + State Guard (~8h total) — APROVADO
+- **Status:** BUILD — Loop 29 EM BUILD (auditoria cirurgica concluida 2026-06-09)
+- **Loop:** 29 EM BUILD | Gemini PENDENTE | auditoria cirurgica desbloqueou
+- **Stack:** Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API Haiku + Antigravity CLI (Intel Loop Motor)
 - **Loop fase atual:**
-  - Gemini: PENDENTE | NotebookLM: OK | Embaixador: OK | Musculo: OK
-  - Proximo: Gemini — PASSO3 Loop 29
-- **Entregues V28 (completo):**
-  - W-8 Signal Classifier — ATIVO shadow mode n8n EasyPanel (2026-06-07)
-  - Hermes Agent — ONLINE EasyPanel hermes/hermes-agent OpenRouter+Telegram (2026-06-07)
-  - silenced_signals_log — CRIADA Supabase com RLS (2026-06-07)
-  - gate_coerencia.ps1 — INTEGRADO skill_parser_gate
-  - State Guard — INTEGRADO session_start
-  - N-4 executar_vereditos — sync forcado pos-veredito
-  - P-116 inscricao no INTELLIGENCE_LEDGER
-  - MEMORIA_EMBAIXADOR_VANGUARD.md — perfil fundador
-  - NARRATIVA_FUNDADOR.md — Vanguard como primeiro caso do proprio produto
-  - ping_hermes.ps1 — health check Hermes
-  - RUNBOOK_EASYPANEL.md — fonte canonica EasyPanel
-  - RUNBOOK_SUPABASE_DDL.md — fonte canonica Supabase
-  - MEMORIA_V27_VANGUARD.md + MEMORIA_V28_VANGUARD.md — P-045 gate
-  - CLAUDE.md v13 + vanguard-protocolo.md v6.5 — Hermes integrado
+  - Gemini: PENDENTE | NotebookLM: PENDENTE | Embaixador: PENDENTE | Musculo: EM BUILD
+  - Proximo: Gemini — PASSO3_GEMINI.md pronto — skill gemini-pentalateral v2.1
+- **Entregues V29:**
+  - INTELLIGENCE HUB — Track COMPETITORS (mensal) + Track TRENDS (semanal W-9) — ATIVO
+  - Antigravity CLI — Intel Loop Motor isolado (P-124) — GEMINI.md + intel-loop.md + PENDING_REVIEW.md
+  - /notebooklm skill v2 — YouTube nativo + podcast PT-BR — validada em producao pelo Diretor
+  - LOOP_STATE system v1.0 — estado duravel por cliente/loop — resolve amnesia pos-compactacao
+  - W-9 n8n — Track TRENDS semanal (segunda 8h BRT) — arquivo criado (importacao EasyPanel: [DIRETOR])
+  - session_close.ps1 — gate e-mail bloqueante adicionado
+  - skill gemini-pentalateral v2.1 — browser automation Embaixador->Estrategista
+  - P-121 a P-127 inscritos no INTELLIGENCE_LEDGER
+- **Principios V29:** P-121 a P-127 (2026-06-08/09)
 - **Hermes Agent:**
   - Status: ONLINE
   - Plataforma: EasyPanel hermes/hermes-agent
@@ -51,8 +42,7 @@
   - Grau atual: A — age apenas com aprovacao
   - Config: /opt/data/config.yaml (volume persistido)
   - W-8 shadow mode expira: 2026-06-14
-- **Pendentes V28:** (zerado)
-- **Skill:** .claude/skills/vanguard-v28.md
+- **Skill:** .claude/skills/vanguard-v29.md (pendente — aguarda DIRETRIZ V29)
 
 ---
 
@@ -123,11 +113,11 @@
 
 | Campo | Valor |
 |-------|-------|
-| Loops desde ultimo checkup | 1 |
+| Loops desde ultimo checkup | 2 |
 | Data ultimo checkup | 2026-05-27 |
-| Data ultima sessao | 2026-06-07 |
+| Data ultima sessao | 2026-06-09 |
 | Claude Projects pendente | Sim |
 
 ---
 
-*V28 ENTREGUE 2026-06-07 — Hermes Agent ONLINE + W-8 shadow mode (expira 2026-06-14)*
+*V29 EM BUILD 2026-06-09 — INTELLIGENCE HUB + Antigravity + /notebooklm v2 + LOOP_STATE + P-127 — Gemini PENDENTE*

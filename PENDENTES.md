@@ -22,10 +22,8 @@
   Entregável: lista ATUALIZADO / EM DIA / PENDENTE para cada documento auditado.
   PRIMEIRA AÇÃO da próxima sessão — bloqueante para DIRETRIZ V29.
 
-- [ ] `2026-06-09` **[MÚSCULO] P-127 → INTELLIGENCE_LEDGER** [musculo]
-  Inscrever: "Embaixador opera Estrategista de forma autônoma com grounding verificado — 1ª instância documentada."
-  Incluir: data 2026-06-08, skill gemini-pentalateral v2.1, análise Médico Concurseiro como teste.
-  Após inscrever: propagar via sync_vanguard_docs.ps1 (P-033).
+- [x] `2026-06-09` ~~**[MÚSCULO] P-127 → INTELLIGENCE_LEDGER** [musculo]~~
+  ✅ P-127 inscrito: "Embaixador opera Estrategista de forma autônoma com grounding verificado — 1ª instância documentada." — 2026-06-09. [RESOLVE: P-127]
 
 - [ ] `2026-06-09` **[DIRETOR] Veredito Mumuzinho — onboarding formal ou pasta excluída** [diretor]
   GATE 1 do session_close trava em VERMELHO por causa do arquivo MUMUZINHO/*.txt (menciona "Quadrilateral").
