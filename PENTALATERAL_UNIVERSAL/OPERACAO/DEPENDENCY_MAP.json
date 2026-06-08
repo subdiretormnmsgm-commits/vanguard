@@ -1,15 +1,15 @@
-﻿{
-  "schema_version": "2.2",
-  "version": "2.2",
-  "updated": "2026-06-06",
+{
+  "schema_version": "2.3",
+  "version": "2.3",
+  "updated": "2026-06-07",
   "projetos_ativos": [
     "INGRID",
     "VALDECE",
     "VANGUARD"
   ],
   "projetos_ativos_DEPRECATED": "Usar utils/Get-ProjetosAtivos.ps1 -- le dinamicamente do WIP_BOARD.board.build/check/retainer. Este campo sera removido em versao futura. Adicionar projeto novo = criar pasta CLIENTES/[NOME]/ + entrada WIP_BOARD + preparar_notebooklm.",
-  "ultima_atualizacao": "2026-06-05",
-  "description": "Mapa de dependencias do Pentalateral IAH v2.2. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060). n8n EasyPanel e dependencia estrutural universal a partir de 2026-06-05. v2.2: REGISTRO_DE_PREMISSAS.md + CANDIDATOS_A_PRINCIPIO.md adicionados ao PROJECT_ONLY (P-112 Auditor Sistemico Risco 3).",
+  "ultima_atualizacao": "2026-06-07",
+  "description": "Mapa de dependencias do Pentalateral IAH v2.3. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060). n8n EasyPanel e dependencia estrutural universal a partir de 2026-06-05. v2.2: REGISTRO_DE_PREMISSAS.md + CANDIDATOS_A_PRINCIPIO.md adicionados ao PROJECT_ONLY (P-112). v2.3 (2026-06-07): NAMESPACE_NOTEBOOKS.md + LOOP_STATE_SCHEMA.json + INTELLIGENCE_HUB adicionados. W-9 Track TRENDS ativado. P-121 a P-126 inscritos no LEDGER.",
   "infra_dependencias": {
     "n8n": {
       "tipo": "UNIVERSAL_ESTRUTURAL",
@@ -18,7 +18,12 @@
         "W-1 check-in",
         "W-2 monitor-supabase",
         "W-3 github-push",
-        "W-4 session-close"
+        "W-4 session-close",
+        "W-5 churnwatch",
+        "W-6 session-watch",
+        "W-7 cerebro-de-bolso",
+        "W-8 signal-classifier (shadow mode ate 2026-06-14)",
+        "W-9 trends-semanal (importar no EasyPanel)"
       ],
       "nota": "Dependencia de toda automacao critica. P-110: fallback manual documentado para cada workflow. Verificar uptime via ping_n8n.ps1 no session_start (PASSO 8e).",
       "campos_por_cliente_wip_board": {
@@ -41,6 +46,16 @@
         },
         "nota_git": "workflows/*.json sao versionados no Git. N8N_CONFIG.json e a unica fonte de valores de julgamento -- nunca hardcoded nos nodes (P-101 refinado 2026-06-05)."
       }
+    },
+    "antigravity": {
+      "tipo": "INTEL_LOOP_MOTOR",
+      "versao": "1.0.6",
+      "instalado_em": "2026-06-07",
+      "exe": "C:/Users/Eduardo DELL/AppData/Local/agy/bin/agy.exe",
+      "config": "GEMINI.md (raiz do repo)",
+      "skills": ".agents/skills/intel-loop.md",
+      "papel": "Intel Loop Motor -- pesquisa COMPETITORS + TRENDS autonomamente",
+      "nota": "P-124: NAO entra no loop de cliente. NAO gera DIRETRIZes. Output vai para INTELLIGENCE_HUB/PENDING_REVIEW.md, revisado pelo Musculo antes de ir ao Conselho."
     }
   },
   "fonte_canonica_base": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE",
@@ -97,6 +112,24 @@
           "padrao": true
         },
         {
+          "slot": "19",
+          "nome": "19_NAMESPACE_NOTEBOOKS.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/NAMESPACE_NOTEBOOKS.md",
+          "nota": "P-123 (2026-06-07): modelo hibrido de namespaces — base permanente + loop efemero. Todo cliente tem exatamente dois notebooks."
+        },
+        {
+          "slot": "20",
+          "nome": "20_LOOP_STATE_SCHEMA.json",
+          "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.json",
+          "nota": "Template universal de estado por cliente por loop. Instancias em CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json. Criado 2026-06-07."
+        },
+        {
+          "slot": "21",
+          "nome": "21_INTELLIGENCE_HUB_COMPETITORS.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/REPORT_COMPETITORS_2026-06.md",
+          "nota": "Ultimo relatorio COMPETITORS. Atualizacao mensal automatica via Antigravity. Musculo copia slot 21 manualmente apos cada novo relatorio aprovado."
+        },
+        {
           "slot": "OPS-01",
           "nome": "COMANDO_VERIFICACAO_SISTEMICA_FINAL.md",
           "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md",
@@ -133,6 +166,18 @@
           "canonical": "PENTALATERAL_UNIVERSAL/scripts/testar_gates_criticos.ps1",
           "wrapper": null,
           "nota": "P-097. Testa regressao dos gates bloqueantes. Rodar a cada 3 loops via meta.loops_desde_ultimo_checkup. Sem wrapper -- chamar diretamente."
+        },
+        {
+          "nome": "pre_loop_action.ps1",
+          "canonical": "scripts/pre_loop_action.ps1",
+          "wrapper": null,
+          "nota": "Criado 2026-06-07. Valida estado antes de iniciar novo loop (P-045 + P-091). Le LOOP_STATE.json do cliente. Bloqueante se loop anterior incompleto."
+        },
+        {
+          "nome": "post_loop_action.ps1",
+          "canonical": "scripts/post_loop_action.ps1",
+          "wrapper": null,
+          "nota": "Criado 2026-06-07. Atualiza LOOP_STATE.json apos concluir uma fase. Sincroniza com WIP_BOARD. Parametros: -cliente -socio -artefato."
         }
       ]
     },
@@ -192,6 +237,19 @@
             "GATE_PROXIMO"
           ],
           "nota": "P-089: regenerado automaticamente pelo gemini_anchor_generator.ps1 ao marcar gemini=OK. Musculo completa secao MISSAO antes de enviar ao Gemini."
+        },
+        {
+          "template": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.json",
+          "instancia_padrao": "CLIENTES/[CLIENTE]/CLAUDE_PROJECT/LOOP_STATE.json",
+          "campos_contexto": [
+            "cliente",
+            "loop_atual",
+            "loop_status",
+            "socios",
+            "gates",
+            "contexto_snapshot"
+          ],
+          "nota": "Criado 2026-06-07. Instancias existem para INGRID, VALDECE e VANGUARD. pre_loop_action.ps1 valida. post_loop_action.ps1 atualiza."
         }
       ]
     },
@@ -219,7 +277,38 @@
         "PASSO7_EMBAIXADOR_*.md",
         "PASSO7_*.md",
         "REGISTRO_DE_PREMISSAS.md",
-        "CANDIDATOS_A_PRINCIPIO.md"
+        "CANDIDATOS_A_PRINCIPIO.md",
+        "LOOP_STATE.json"
+      ]
+    },
+    "INTEL_LOOP": {
+      "descricao": "Arquivos do Intel Loop Motor (Antigravity). Nao propagam para projetos de cliente. Ficam em PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/ e raiz/Antigravity.",
+      "arquivos": [
+        {
+          "nome": "GEMINI.md",
+          "canonical": "GEMINI.md",
+          "nota": "Identidade do Antigravity como Intel Loop Motor. NAO propagar para clientes. P-124."
+        },
+        {
+          "nome": "intel-loop.md",
+          "canonical": ".agents/skills/intel-loop.md",
+          "nota": "Skill do Antigravity para COMPETITORS + TRENDS. NAO propagar para clientes."
+        },
+        {
+          "nome": "PENDING_REVIEW.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md",
+          "nota": "Canal de comunicacao Antigravity -> Musculo. Antigravity escreve. Musculo revisa e aprova."
+        },
+        {
+          "nome": "REPORT_COMPETITORS_[YYYY-MM].md",
+          "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/",
+          "nota": "Relatorios mensais de empresas concorrentes. Aprovados pelo Musculo entram em NOTEBOOKLM_FONTES como slot 21."
+        },
+        {
+          "nome": "REPORT_TRENDS_[YYYY-WW].md",
+          "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/",
+          "nota": "Relatorios semanais de tendencias. Aprovados pelo Musculo entram em NOTEBOOKLM_FONTES como slot 22."
+        }
       ]
     }
   },
@@ -397,6 +486,40 @@
         {
           "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
           "action": "copy_fixed"
+        }
+      ]
+    },
+    {
+      "id": "R-014",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/NAMESPACE_NOTEBOOKS.md",
+      "description": "P-123 Namespace model vai para NOTEBOOKLM_FONTES de todos os clientes como slot 19",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/19_NAMESPACE_NOTEBOOKS.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-015",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.json",
+      "description": "LOOP_STATE schema vai para NOTEBOOKLM_FONTES de todos os clientes como slot 20",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/20_LOOP_STATE_SCHEMA.json",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-016",
+      "trigger": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/REPORT_COMPETITORS_",
+      "description": "Relatorio COMPETITORS aprovado vai para NOTEBOOKLM_FONTES como slot 21 (copia manual pelo Musculo apos aprovacao em PENDING_REVIEW.md)",
+      "action_type": "prefix_match_manual",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/21_INTELLIGENCE_HUB_COMPETITORS.md",
+          "action": "copy_to_all_clients_manual"
         }
       ]
     }
