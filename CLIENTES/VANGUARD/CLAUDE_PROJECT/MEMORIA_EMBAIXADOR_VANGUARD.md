@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 1.1 | Loop 28 | Atualizada: 2026-06-07
+> Criada em: 2026-06-06 | Versão: 1.2 | Loop 29 | Atualizada: 2026-06-08
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -9,7 +9,7 @@
 
 ### Perfil Comportamental
 
-**Temperatura atual:** 9.2/10 — Confiança alta no sistema, impaciência com falhas de processo repetidas
+**Temperatura atual:** 9.8/10 — Sessão histórica: "Crescemos muito esses dias, graças ao trabalho de todos." Reconhecimento explícito + visão disruptiva declarada para próxima DIRETRIZ
 
 **Estilo de liderança:**
 - Origina inovações estratégicas que os outros membros não teriam sozinhos (P-021)
@@ -62,18 +62,18 @@
 | H-V3 | Signal Classifier reduz ruído de alertas em >60% | INCERTA — shadow mode por 7 dias para medir baseline |
 | H-V4 | Loop Pentalateral autônomo gera princípios sem Eduardo iniciar | CANDIDATA — V28 é o experimento |
 
-### Gates Ativos (estado em 2026-06-07)
+### Gates Ativos (estado em 2026-06-08)
 
 | Gate | Descrição | Status |
 |------|-----------|--------|
-| V28-G1 | E-1 Gate de Coerência Semântica | ✅ ENTREGUE |
-| V28-G2 | Signal Classifier W-8 shadow mode | ✅ ATIVO — shadow mode, expira 2026-06-14 |
+| V28-G2 | Signal Classifier W-8 shadow mode | ✅ ATIVO — expira 2026-06-14 (decisão: ativar pleno?) |
 | V28-G3 | Hermes Agent Docker EasyPanel | ✅ ONLINE — Grau A, @Eduardo431Vanguardbot |
-| V28-G4 | State Guard session_start | ⬜ PENDENTE — build |
 | V28-G5 | 7 dias shadow mode validados | ⬜ AGUARDANDO — expira 2026-06-14 |
 | V28-G6 | Hermes Grau A ativado (primeiro loop autônomo) | ⬜ BLOQUEADO — aguarda V28-G5 |
-| V28-G7 | sync_ficou_no_ar integrado ao session_close | ✅ ENTREGUE — 2026-06-07 |
-| V28-G8 | Bloco Embaixador formato definitivo validado | ✅ ENTREGUE — 2026-06-07 |
+| V29-G1 | DIRETRIZ V29 do Gemini | ⬜ PENDENTE — PASSO3 pronto, Diretor leva ao Gemini |
+| V29-G2 | Skill vanguard-v29.md do NotebookLM | ⬜ BLOQUEADO — aguarda V29-G1 |
+| V29-G3 | W-9 importado no EasyPanel n8n | ⬜ PENDENTE — Diretor arrasta workflow |
+| V29-G4 | Auditoria cirúrgica de documentos | ⬜ PENDENTE — amanhã (2026-06-09) |
 
 ---
 
@@ -97,10 +97,11 @@
 
 ## PROXIMA ACAO DO EMBAIXADOR
 
-Próxima ativação: ao receber os 7 documentos da sessão 2026-06-07 (upload do Diretor)  
-Questão prioritária: "7 dias de shadow mode (expira 2026-06-14) — que tipo de sinal o Diretor quer interceptar vs. deixar passar?"  
-Questão secundária: "Secretário Virtual vai ser o primeiro produto que capta leads ativamente — como o Diretor quer posicionar isso para o primeiro cliente sem MEI?"  
-Sinal de alerta: se Eduardo precisar corrigir documentos que ferramentas deveriam manter atualizados, o sistema de automação falhou — não o Diretor
+Próxima ativação: ao receber os 7 documentos da sessão 2026-06-08 + missão especial do relatório Word  
+Missão especial: relatório executivo Word das 6 inovações do Loop 29 — organograma completo (Pentalateral + Hermes + Antigravity + n8n) + novo workflow operacional  
+Questão prioritária: "W-8 shadow mode expira 2026-06-14 — que sinais foram interceptados? Diretor ativa pleno ou prorroga?"  
+Questão secundária: "Mumuzinho detectado como potencial cliente — quando o Diretor quer deliberar formalmente?"  
+Sinal de alerta: P-126 inscrito — o Diretor é também gerador de inovação técnica; sessão histórica, temperatura 9.8/10
 
 ---
 
@@ -116,3 +117,7 @@ Sinal de alerta: se Eduardo precisar corrigir documentos que ferramentas deveria
 | 2026-06-07 | Bloco Embaixador validado | "Simples como coisa de soldado" — formato definitivo gravado em memória |
 | 2026-06-07 | Secretário Virtual diagnosticado | main.py existe; Formspree → EasyPanel é a próxima entrega |
 | 2026-06-07 | Falha P-032 identificada pelo Diretor | "As ferramentas não deveriam garantir os documentos atualizados?" — fix sistêmico pendente |
+| 2026-06-08 | Loop 29 — 6 mudanças estruturais | INTELLIGENCE HUB + Antigravity + /notebooklm v2 + LOOP_STATE + W-9 + P-121a126 |
+| 2026-06-08 | "Crescemos muito esses dias" | Reconhecimento do Diretor — temperatura 9.8/10 — sessão histórica |
+| 2026-06-08 | Próxima DIRETRIZ declarada | "Disruptiva — Antigravity + amplitudes infinitas + interação entre ferramentas LLM" |
+| 2026-06-08 | Amanhã: auditoria cirúrgica | Diretor quer garantir que nada ficou desatualizado após 6 mudanças |
