@@ -124,7 +124,7 @@ Write-Host "  ---" -ForegroundColor DarkGray
 Write-Host "  MENSAGEM PARA COLAR NO EMBAIXADOR:" -ForegroundColor Yellow
 Write-Host ""
 
-# Ler mensagem adaptada se Musculo a escreveu antes de rodar session_close
+# Contexto adaptado -- Musculo escreve scripts\embaixador_msg_sessao.txt antes do close
 $msgAdaptadaPath = Join-Path $baseDir "scripts\embaixador_msg_sessao.txt"
 if (Test-Path $msgAdaptadaPath) {
     $linhas = Get-Content $msgAdaptadaPath -Encoding UTF8
@@ -133,27 +133,30 @@ if (Test-Path $msgAdaptadaPath) {
     }
     Remove-Item $msgAdaptadaPath -Force
     Write-Host ""
-    Write-Host "  [OK] Mensagem adaptada pelo Musculo -- scripts\embaixador_msg_sessao.txt consumido." -ForegroundColor Green
 } else {
-    Write-Host "  [AVISO] Mensagem generica -- Musculo deve escrever scripts\embaixador_msg_sessao.txt" -ForegroundColor Yellow
-    Write-Host "          com texto adaptado ao contexto da sessao ANTES de rodar session_close." -ForegroundColor Yellow
-    Write-Host ""
+    Write-Host "  [AVISO] Musculo nao escreveu scripts\embaixador_msg_sessao.txt -- contexto da sessao ausente." -ForegroundColor Yellow
     Write-Host "  Embaixador, fechamento de sessao -- $dataFim." -ForegroundColor White
-    Write-Host "  Faco upload do PAINEL_ATIVIDADES, CONTEXTO_SESSAO_DIRETOR, WIP_BOARD, INTELLIGENCE_LEDGER, PENDENTES," -ForegroundColor White
-    Write-Host "  VANGUARD_TIMELINE e MEMORIA_EMBAIXADOR desta sessao." -ForegroundColor White
-    Write-Host "  Com base nos sete arquivos, gerar o artefato publicavel com:" -ForegroundColor White
+    Write-Host "  Faco upload de 7 arquivos: PAINEL_ATIVIDADES, CONTEXTO_SESSAO_DIRETOR, WIP_BOARD," -ForegroundColor White
+    Write-Host "  INTELLIGENCE_LEDGER, PENDENTES, VANGUARD_TIMELINE e MEMORIA_EMBAIXADOR." -ForegroundColor White
     Write-Host ""
-    Write-Host "  0. BRIEFING DE ABERTURA PARA O MUSCULO (gerar primeiro)" -ForegroundColor White
-    Write-Host '     "Musculo, na ultima sessao..." -- o que foi entregue, o que ficou em aberto, proximo passo.' -ForegroundColor White
-    Write-Host ""
-    Write-Host "  1. SEMAFORO -- status visual por projeto" -ForegroundColor White
-    Write-Host "  2. DIAGNOSTICO DO DIA -- saude dos projetos ativos + o que avancou hoje" -ForegroundColor White
-    Write-Host "  3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist do Diretor" -ForegroundColor White
-    Write-Host "  4. ANALISE GERENCIAL -- o que voce ve que o Musculo nao ve?" -ForegroundColor White
-    Write-Host "  5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens em ordem de prioridade" -ForegroundColor White
-    Write-Host ""
-    Write-Host '  "Diretor, cole o BLOCO 0 como PRIMEIRA mensagem ao abrir Claude Code."' -ForegroundColor White
 }
+
+# Estrutura padrao -- SEMPRE impressa, adaptada ou nao
+Write-Host "  Com base nos arquivos, gerar o artefato publicavel com:" -ForegroundColor White
+Write-Host ""
+Write-Host "  0. BRIEFING DE ABERTURA PARA O MUSCULO (gerar primeiro)" -ForegroundColor White
+Write-Host "     Paragrafo que o Diretor colara ao abrir a proxima sessao do Claude Code." -ForegroundColor White
+Write-Host "     Conter: (a) o que foi entregue hoje e esta ativo, (b) o que ficou em aberto e por que," -ForegroundColor White
+Write-Host "     (c) proximo passo esperado do Musculo." -ForegroundColor White
+Write-Host '     Escrito na segunda pessoa: "Musculo, na ultima sessao..."' -ForegroundColor White
+Write-Host ""
+Write-Host "  1. SEMAFORO -- status visual por projeto (vermelho bloqueante / amarelo atencao / verde saudavel)" -ForegroundColor White
+Write-Host "  2. DIAGNOSTICO DO DIA -- saude dos projetos ativos + o que avancou hoje" -ForegroundColor White
+Write-Host "  3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist do Diretor" -ForegroundColor White
+Write-Host "  4. ANALISE GERENCIAL -- o que voce ve que o Musculo nao ve?" -ForegroundColor White
+Write-Host "  5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens em ordem de prioridade" -ForegroundColor White
+Write-Host ""
+Write-Host '  "Diretor, ao abrir o Claude Code, cole o BLOCO 0 acima como PRIMEIRA mensagem para o Musculo -- antes de qualquer outra coisa."' -ForegroundColor White
 Write-Host ""
 
 # n8n W-4 -- gate: TELEGRAM_BOT_TOKEN configurado (D2 ENV_VARS)
