@@ -140,6 +140,39 @@ Write-Log "  VANGUARD DOC SYNC -- $DATA_HOJE (Modo: $modo)" "Cyan"
 if ($incluirNichos -ne "") { Write-Log "  Nicho: $incluirNichos" "Cyan" }
 Write-Log "==================================================" "Cyan"
 
+### Rodada 0 -- Canonico OPERACAO -> NOTEBOOKLM_BASE (P-073)
+### Fix P-073: arquivo canonico editado em OPERACAO deve propagar para a versao numerada
+### em NOTEBOOKLM_BASE ANTES do sync para CLIENTES. Sem isto, detect_canonical_violation
+### compara CLIENTES contra um BASE desatualizado e gera falso positivo VERMELHO recorrente.
+Write-Log "RODADA 0 -- CANONICO OPERACAO -> NOTEBOOKLM_BASE (P-073)" "Yellow"
+$OPERACAO_DIR  = Join-Path $UNIVERSAL_BASE "OPERACAO"
+$BASE_DIR      = Join-Path $UNIVERSAL_BASE "NOTEBOOKLM_BASE"
+$canonico_sync = 0
+if ((Test-Path $OPERACAO_DIR) -and (Test-Path $BASE_DIR)) {
+    $arqs_operacao = Get-ChildItem -Path $OPERACAO_DIR -File | Where-Object { $_.Extension -match "\.(md|txt)$" }
+    foreach ($op in $arqs_operacao) {
+        $destino_base = Get-NumeradoDestino -fontes_dir $BASE_DIR -nome $op.Name
+        ### So sincroniza se existe contraparte NUMERADA (NN_<nome>) em BASE; nunca cria copia bare
+        if ((Split-Path $destino_base -Leaf) -ne $op.Name) {
+            $hash_op   = Get-FileHash256 $op.FullName
+            $hash_base = if (Test-Path $destino_base) { Get-FileHash256 $destino_base } else { "" }
+            if ($hash_op -ne $hash_base) {
+                if ($modo -eq "verificar") {
+                    Write-Log "  [P-073][verificar] DIVERGENTE (nao escrito): $($op.Name) -> $(Split-Path $destino_base -Leaf)" "Yellow"
+                } else {
+                    Copy-Item -Path $op.FullName -Destination $destino_base -Force
+                    Write-Log "  [P-073] OPERACAO -> BASE: $($op.Name) -> $(Split-Path $destino_base -Leaf)" "Cyan"
+                }
+                $canonico_sync++
+            }
+        }
+    }
+}
+$rotulo_r0 = if ($modo -eq "verificar") { "divergente(s) detectado(s)" } else { "sincronizado(s)" }
+Write-Log "  RODADA 0 (P-073): $canonico_sync arquivo(s) canonico(s) $rotulo_r0" "White"
+Write-Relatorio "## RODADA 0 -- Canonico OPERACAO -> BASE (P-073): $canonico_sync arquivo(s) $rotulo_r0"
+Write-Relatorio ""
+
 ### Rodada 1 -- Inventario
 Write-Log "RODADA 1 -- INVENTARIO" "Yellow"
 
