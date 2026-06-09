@@ -52,6 +52,13 @@
   Afeta: 01_SKILL_PROTOCOLO + 03_MANUAL_DIRETOR (detectado em 2026-06-09).
   Baixa prioridade mas recorrente — eliminar para sempre.
 
+- [ ] `2026-06-09` **[MÚSCULO] Dívida arquitetural P-059 — páginas Notion globais vs. isolamento por cliente** [musculo] — DÍVIDA REGISTRADA (não bloqueante hoje · Dia único 09-06-2026 terça-feira)
+  Contexto: o canal bidirecional Notion (P-128) usa páginas GLOBAIS (Pendentes/WIP/Ledger/Falhas/Sugestões), únicas para todo o sistema. O Pentalateral suporta até 20 projetos simultâneos (P-059) com isolamento de contexto por cliente.
+  Risco: com >1 cliente em BUILD, o Diretor veria pendentes de vários clientes numa única página Notion — pode marcar [x] no item do cliente errado.
+  Mitigação atual (suficiente com 1 cliente ativo): o pull casa por TEXTO EXATO da linha do PENDENTES.md (não por cliente) e só quita itens [diretor]; o #2 agora alerta órfãos (marcado no Notion sem casar no PENDENTES).
+  Fix a decidir ANTES do 2º projeto simultâneo em BUILD: (a) prefixar `[CLIENTE]` em toda linha [diretor] sincronizada ao Notion, ou (b) páginas Notion por projeto.
+  Origem: análise dos 4 desafios do canal Notion bidirecional, 2026-06-09.
+
 - [ ] `2026-06-09` **[DIRETOR] W-9 Track TRENDS — importar no EasyPanel n8n** [diretor]
   Arquivo: `_n8n/workflows/w9_trends_semanal.json` (criado em 2026-06-08, pronto para import).
   Acesso: EasyPanel → n8n → Workflows → Import from file.

@@ -2121,3 +2121,23 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Evidencia:** teste Medico Concurseiro -- 2026-06-08. DIRETRIZ gerada com dados reais de mercado, entregue ao Musculo, aprovada pelo Diretor.
 **Aprovado pelo Diretor:** 2026-06-08.
 **Aplica-se a:** qualquer sessao em que o Embaixador for instruido pelo Diretor a conduzir pesquisa de mercado ou grounding via Estrategista -- especialmente pre-prospeccao de novos nichos.
+
+## P-128 -- NOTION COMO CANAL BIDIRECIONAL DO DIRETOR (2026-06-08)
+**Origem:** Falha relatada pelo Diretor ("Notion nao esta atualizado, conserte") + sugestao do Diretor de usar paginas Notion como canal de comunicacao para ideias/falhas do dia.
+**Causa raiz da falha:** a pagina "Vanguard WIP Board" nunca havia sido compartilhada com a integration "Vanguard IAH" -> a API retornava 404 -> os workflows n8n (W-1, W-4) gravavam com `2>$null` e a falha ficava invisivel. Diretor resolveu compartilhando a pagina.
+**O que muda -- ciclo Notion bidirecional 100% por codigo (Diretor NAO administra Notion):**
+  ENTRADA (session_start, leitura OBRIGATORIA toda sessao):
+    - `notion_inbox.ps1` le "Vanguard - Falhas do Dia" + "Vanguard - Sugestoes do Dia" -> Musculo classifica e marca [PROCESSADO]
+    - `notion_pendentes_pull.ps1` le "Vanguard Pendentes": itens que o Diretor marcou [x] no Notion sao quitados no PENDENTES.md local
+  SAIDA (session_close):
+    - `notion_sync.ps1` reescreve "Vanguard Pendentes" (so abertos) + "Vanguard WIP Board" + "Ledger Vanguard"
+**Regras invioláveis:**
+  (a) FLEXIBILIDADE DO DIRETOR E SO EM ITENS [diretor]. Item [musculo] marcado no Notion -> IGNORADO + alerta (esses se quitam por [RESOLVE:]/git, P-087). Marcar [x], nunca editar o texto (match e por texto normalizado; texto editado nao casa e nao quita).
+  (b) NUNCA apagar `child_page`/`child_database` no wipe -- "Falhas do Dia" e "Sugestoes do Dia" sao filhas de "Vanguard Pendentes" e ja foram arquivadas por engano uma vez (2026-06-08). Todos os scripts referenciam paginas por ID FIXO de CHAVES, nunca criam por busca/titulo -> zero duplicacao.
+  (c) Ledger no Notion = cabecalho de frescor + tail recente (2123 linhas e inviavel espelhar; fonte canonica = git/INTELLIGENCE_LEDGER.md).
+  (d) UMA fonte de WIP: `notion_sync` so LE `CLIENTES/WIP_BOARD.md` (canonica), nunca cria .md; alerta se WIP_BOARD.json for mais novo que o .md.
+  (e) Erro de Notion SEMPRE visivel (sem `2>$null` cego). Fallback P-110: arquivos locais sao a fonte canonica -- Notion e espelho/canal, nunca a verdade.
+**Ferramentas:** `scripts/notion_inbox.ps1` + `scripts/notion_pendentes_pull.ps1` + `scripts/notion_sync.ps1`; chamados por `.claude/hooks/session_start.ps1` (entrada) e `scripts/session_close.ps1` (saida).
+**Evidencia:** sync testado em producao 2026-06-08 -- Pendentes 17 blocos / WIP 113 / Ledger 76; round-trip de matching Notion<->PENDENTES 12/12.
+**Aprovado pelo Diretor:** 2026-06-08.
+**Aplica-se a:** toda sessao -- entrada obrigatoria na abertura, saida obrigatoria no fechamento.

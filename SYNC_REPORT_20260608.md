@@ -2,8 +2,10 @@
 > P-033 -- Sync universal -> projetos e obrigatorio e imediato
 > Pastas excluidas: PERFIS_NICHO, VANGUARD_HISTORICO
 
+## RODADA 0 -- Canonico OPERACAO -> BASE (P-073): 0 arquivo(s) sincronizado(s)
+
 ## STATUS FINAL
-- Sincronizados: 3
+- Sincronizados: 6
 - Falhas de Integridade: 0
 - Orfaos: 7
 - Project_Only (nao sao orfaos): 13

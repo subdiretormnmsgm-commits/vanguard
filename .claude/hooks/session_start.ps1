@@ -747,26 +747,35 @@ if ($stateGuardOutput)  { $sections = @("## STATE_GUARD V28 -- ANOMALIAS NO WIP_
 # CONTEXTO SESSAO DIRETOR -- segunda secao (logo apos BLOCO 0, nunca truncada)
 if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA CONVERSACIONAL)`n$contextoSessao") + $sections }
 
-# NOTION INBOX DO DIRETOR (2026-06-08) -- leitura OBRIGATORIA toda sessao.
-# Diretor escreve em "Falhas do Dia" + "Sugestoes do Dia"; Musculo le, classifica e marca [PROCESSADO].
+# NOTION (2026-06-08) -- leitura OBRIGATORIA toda sessao, rodada em PARALELO (#3, 2026-06-09).
+#   inbox: Diretor escreve em "Falhas do Dia" + "Sugestoes do Dia"; Musculo le e marca [PROCESSADO].
+#   pull : Diretor marca [x] no Notion (so itens [diretor]); Musculo quita o PENDENTES.md.
+# Paralelo + teto de 12s: latencia = max(inbox,pull) em vez da soma. Degrada gracioso:
+# qualquer falha/timeout -> secao omitida, PENDENTES.md local intacto (fonte canonica, P-110).
 $notionInbox = $null
+$notionPull  = $null
 try {
-    $inboxScript = Join-Path (Split-Path -Parent $PSScriptRoot) "scripts\notion_inbox.ps1"
-    if (Test-Path $inboxScript) {
-        $notionInbox = (& powershell.exe -NonInteractive -File $inboxScript 2>$null | Out-String).Trim()
+    $scriptsDir  = Join-Path (Split-Path -Parent $PSScriptRoot) "scripts"
+    $inboxScript = Join-Path $scriptsDir "notion_inbox.ps1"
+    $pullScript  = Join-Path $scriptsDir "notion_pendentes_pull.ps1"
+    $sb   = { param($s) (& $s 2>$null | Out-String) }   # chamada direta no runspace do job (sem powershell.exe aninhado -- ~40% mais rapido)
+    $jobs = @()
+    if (Test-Path $inboxScript) { $jobs += @{ nome = 'inbox'; job = (Start-Job -ScriptBlock $sb -ArgumentList $inboxScript) } }
+    if (Test-Path $pullScript)  { $jobs += @{ nome = 'pull';  job = (Start-Job -ScriptBlock $sb -ArgumentList $pullScript) } }
+    if ($jobs.Count -gt 0) {
+        $todos = $jobs | ForEach-Object { $_.job }
+        $null  = Wait-Job -Job $todos -Timeout 12
+        foreach ($j in $jobs) {
+            if ($j.job.State -eq 'Completed') {
+                $out = (Receive-Job -Job $j.job 2>$null | Out-String).Trim()
+                if ($j.nome -eq 'inbox') { $notionInbox = $out } else { $notionPull = $out }
+            }
+        }
+        $todos | Remove-Job -Force -ErrorAction SilentlyContinue
     }
-} catch { $notionInbox = $null }
+} catch { $notionInbox = $null; $notionPull = $null }
 if ($notionInbox) { $sections = @("## NOTION INBOX DO DIRETOR -- LEITURA OBRIGATORIA (Falhas + Sugestoes)`n$notionInbox") + $sections }
-
-# NOTION -> PENDENTES (2026-06-08) -- Diretor marca [x] no Notion (so itens [diretor]); Musculo quita o PENDENTES.md.
-$notionPull = $null
-try {
-    $pullScript = Join-Path (Split-Path -Parent $PSScriptRoot) "scripts\notion_pendentes_pull.ps1"
-    if (Test-Path $pullScript) {
-        $notionPull = (& powershell.exe -NonInteractive -File $pullScript 2>$null | Out-String).Trim()
-    }
-} catch { $notionPull = $null }
-if ($notionPull) { $sections = @("## NOTION -> PENDENTES (Diretor quitou itens [diretor] no Notion)`n$notionPull") + $sections }
+if ($notionPull)  { $sections = @("## NOTION -> PENDENTES (Diretor quitou itens [diretor] no Notion)`n$notionPull") + $sections }
 
 # BLOCO 0 -- sempre a primeira secao, nunca truncada (P-114 / 2026-06-08)
 $bloco0Alert = @(

@@ -1,0 +1,703 @@
+﻿{
+    "updatedAt":  "2026-06-07T17:27:10.224Z",
+    "createdAt":  "2026-06-05T00:52:45.316Z",
+    "id":  "rMl9OJaA1hazqo1i",
+    "name":  "04 -- Session Close MEMORIA Update",
+    "description":  null,
+    "active":  true,
+    "isArchived":  false,
+    "nodes":  [
+                  {
+                      "id":  "webhook-session",
+                      "name":  "Webhook Session Close",
+                      "type":  "n8n-nodes-base.webhook",
+                      "typeVersion":  2,
+                      "position":  [
+                                       240,
+                                       300
+                                   ],
+                      "webhookId":  "session-close-vanguard",
+                      "parameters":  {
+                                         "httpMethod":  "POST",
+                                         "path":  "session-close-vanguard",
+                                         "responseMode":  "onReceived",
+                                         "options":  {
+
+                                                     }
+                                     }
+                  },
+                  {
+                      "id":  "code-validar-secret",
+                      "name":  "Validar Secret",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       460,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "jsCode":  "const s=$env.N8N_WEBHOOK_SECRET||\"\";const r=(($input.item.json.headers||{})[\"x-webhook-secret\"]||\"\");if(!s||r!==s){return [{json:{erro:\"Nao autorizado\",valido:false}}];}return [$input.item];"
+                                     }
+                  },
+                  {
+                      "id":  "code-processar",
+                      "name":  "Processar Payload",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       680,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "jsCode":  "const payload=$input.item.json.body||$input.item.json;\nconst cliente=payload.cliente||\"GERAL\";\nconst principios=payload.principios||[];\nconst friccoes=payload.friccoes||[];\nconst dividas=payload.dividas||[];\nconst pendentes_abertos=payload.pendentes_abertos||[];\nconst documentos_mortos=payload.documentos_mortos||[];\nconst inconsistencias=payload.inconsistencias||[];\nconst ficou_no_ar=payload.ficou_no_ar||\"\";\nconst diretor_mencionou=payload.diretor_mencionou||\"\";\nconst data=payload.data||new Date().toLocaleDateString(\"pt-BR\",{timeZone:\"America/Sao_Paulo\"});\nconst hora=payload.hora||new Date().toLocaleTimeString(\"pt-BR\",{timeZone:\"America/Sao_Paulo\",hour:\"2-digit\",minute:\"2-digit\"});\nconst resumoPrincipios=principios.length\u003e0?principios.map(function(p,i){return(i+1)+\". \"+p;}).join(\"\\n\"):\"Nenhum principio novo\";\nconst resumoFriccoes=friccoes.length\u003e0?friccoes.map(function(f,i){return(i+1)+\". \"+f;}).join(\"\\n\"):\"Nenhuma friccao\";\nconst extraLinhas=[];\nif(documentos_mortos.length\u003e0)extraLinhas.push(\"Docs mortos: \"+documentos_mortos.join(\", \"));\nif(inconsistencias.length\u003e0)extraLinhas.push(\"Inconsistencias: \"+inconsistencias.join(\", \"));\nif(ficou_no_ar)extraLinhas.push(\"Ficou no ar: \"+ficou_no_ar);\nif(diretor_mencionou)extraLinhas.push(\"Diretor mencionou: \"+diretor_mencionou);\nconst extraBloco=extraLinhas.length\u003e0?\"\\n\\n\"+extraLinhas.join(\"\\n\"):\"\";\nconst texto=\"Sessao encerrada -- \"+data+\" \"+hora+\"\\nCliente: \"+cliente+\"\\n\\nPrincipios (+\"+principios.length+\"):\\n\"+resumoPrincipios+\"\\n\\nFriccoes (+\"+friccoes.length+\"):\\n\"+resumoFriccoes+\"\\n\\nDividas: \"+dividas.length+extraBloco;\nreturn [{json:{cliente,data,hora,texto,principios,friccoes,dividas,pendentes_abertos,documentos_mortos,inconsistencias,ficou_no_ar,diretor_mencionou}}];"
+                                     }
+                  },
+                  {
+                      "id":  "telegram-sessao",
+                      "name":  "Telegram -- Resumo Sessao",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       900,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                         "sendBody":  true,
+                                         "contentType":  "json",
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "chat_id",
+                                                                                       "value":  "8895733647"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "text",
+                                                                                       "value":  "={{ $json.texto }}"
+                                                                                   }
+                                                                               ]
+                                                            }
+                                     }
+                  },
+                  {
+                      "id":  "code-notion-w4",
+                      "name":  "Preparar Notion Bodies",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       1120,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "jsCode":  "const item = $(\"Processar Payload\").item.json;\nconst tsStr = new Date().toISOString().replace(\"T\",\" \").slice(0,16) + \" UTC\";\nconst cliente = String(item.cliente || \"?\");\nconst principios = item.principios || [];\nconst friccoes_count = (item.friccoes || []).length;\nconst dividas = item.dividas || [];\nconst pendentes = item.pendentes_abertos || [];\n\n// WIP Board\nconst wipChildren = [\n    { object:\"block\", type:\"divider\", divider:{} },\n    { object:\"block\", type:\"callout\", callout:{ rich_text:[{type:\"text\",text:{content:\"🔒 Sessão encerrada · \"+tsStr},annotations:{bold:true}}], icon:{type:\"emoji\",emoji:\"🔒\"}, color:\"purple_background\" } },\n    { object:\"block\", type:\"bulleted_list_item\", bulleted_list_item:{ rich_text:[{type:\"text\",text:{content:\"🗂️ Projeto: \"+cliente}}] } },\n    { object:\"block\", type:\"bulleted_list_item\", bulleted_list_item:{ rich_text:[{type:\"text\",text:{content:\"📌 Princípios: +\"+principios.length+\" · Frições: \"+friccoes_count+\" · Dívidas: \"+dividas.length+\" · Pendentes: \"+pendentes.length}}] } }\n];\n\n// Pendentes -- itens abertos do PENDENTES.md (OVERWRITE a cada session_close)\nconst pendChildren = [\n    { object:\"block\", type:\"divider\", divider:{} },\n    { object:\"block\", type:\"callout\", callout:{ rich_text:[{type:\"text\",text:{content:\"📋 Pendentes Abertos · \"+tsStr},annotations:{bold:true}}], icon:{type:\"emoji\",emoji:\"📋\"}, color:\"blue_background\" } }\n];\nconst listaPend = pendentes.length \u003e 0 ? pendentes : [\"(sem pendentes abertos — all done ✅)\"];\nlistaPend.forEach(p =\u003e {\n    pendChildren.push({ object:\"block\", type:\"bulleted_list_item\", bulleted_list_item:{ rich_text:[{type:\"text\",text:{content:String(p)}}] } });\n});\nif (dividas.length \u003e 0) {\n    pendChildren.push({ object:\"block\", type:\"divider\", divider:{} });\n    pendChildren.push({ object:\"block\", type:\"callout\", callout:{ rich_text:[{type:\"text\",text:{content:\"⚠️ Dívidas Técnicas · \"+tsStr},annotations:{bold:true}}], icon:{type:\"emoji\",emoji:\"⚠️\"}, color:\"orange_background\" } });\n    dividas.forEach(d =\u003e {\n        pendChildren.push({ object:\"block\", type:\"numbered_list_item\", numbered_list_item:{ rich_text:[{type:\"text\",text:{content:String(d)}}] } });\n    });\n}\n\n// Ledger Vanguard -- novos principios (APPEND por sessao)\nconst ledgerChildren = [\n    { object:\"block\", type:\"divider\", divider:{} },\n    { object:\"block\", type:\"callout\", callout:{ rich_text:[{type:\"text\",text:{content:\"📖 Sessão \"+tsStr+\" · \"+cliente},annotations:{bold:true}}], icon:{type:\"emoji\",emoji:\"📖\"}, color:\"gray_background\" } }\n];\nconst listaPrinc = principios.length \u003e 0 ? principios : [\"(sem novos princípios nesta sessão)\"];\nlistaPrinc.forEach(p =\u003e {\n    ledgerChildren.push({ object:\"block\", type:\"bulleted_list_item\", bulleted_list_item:{ rich_text:[{type:\"text\",text:{content:String(p)}}] } });\n});\n\nreturn [{ json: { wipChildren, pendChildren, ledgerChildren } }];"
+                                     }
+                  },
+                  {
+                      "id":  "notion-wip-w4",
+                      "name":  "Notion -- Append WIP Board",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1340,
+                                       300
+                                   ],
+                      "continueOnFail":  true,
+                      "parameters":  {
+                                         "method":  "PATCH",
+                                         "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_WIP_PAGE_ID + \u0027/children\u0027 }}",
+                                         "sendHeaders":  true,
+                                         "specifyHeaders":  "keypair",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Notion-Version",
+                                                                                         "value":  "2022-06-28"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Content-Type",
+                                                                                         "value":  "application/json"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "options":  {
+                                                         "timeout":  15000
+                                                     },
+                                         "ignoreResponseCode":  true,
+                                         "jsonBody":  "={{ JSON.stringify({ children: $(\"Preparar Notion Bodies\").item.json.wipChildren }) }}"
+                                     }
+                  },
+                  {
+                      "id":  "notion-pend-w4",
+                      "name":  "Notion -- Append Pendentes",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1780,
+                                       300
+                                   ],
+                      "continueOnFail":  true,
+                      "parameters":  {
+                                         "method":  "PATCH",
+                                         "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_PENDENTES_PAGE_ID + \u0027/children\u0027 }}",
+                                         "sendHeaders":  true,
+                                         "specifyHeaders":  "keypair",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Notion-Version",
+                                                                                         "value":  "2022-06-28"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Content-Type",
+                                                                                         "value":  "application/json"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "options":  {
+                                                         "timeout":  15000
+                                                     },
+                                         "ignoreResponseCode":  true,
+                                         "jsonBody":  "={{ JSON.stringify({ children: $(\"Preparar Notion Bodies\").item.json.pendChildren }) }}"
+                                     }
+                  },
+                  {
+                      "id":  "code-limpar-pend",
+                      "name":  "Limpar Pendentes",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       1560,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "jsCode":  "const pageId = $env.NOTION_PENDENTES_PAGE_ID;\nconst token = $env.NOTION_API_TOKEN;\nconst headers = { \u0027Authorization\u0027: \u0027Bearer \u0027 + token, \u0027Notion-Version\u0027: \u00272022-06-28\u0027, \u0027Content-Type\u0027: \u0027application/json\u0027 };\ntry {\n  const resp = await $http.get(\u0027https://api.notion.com/v1/blocks/\u0027 + pageId + \u0027/children?page_size=100\u0027, { headers });\n  const blocks = resp.results || (resp.data \u0026\u0026 resp.data.results) || [];\n  for (const block of blocks) {\n    try { await $http.delete(\u0027https://api.notion.com/v1/blocks/\u0027 + block.id, { headers }); } catch(e) {}\n  }\n  return [{ json: { limpar_ok: true, cleared: blocks.length } }];\n} catch(e) {\n  return [{ json: { limpar_ok: false, error: String(e.message) } }];\n}",
+                                         "mode":  "runOnceForAllItems"
+                                     }
+                  },
+                  {
+                      "id":  "notion-ledger-w4",
+                      "name":  "Notion -- Append Ledger",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       2000,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "method":  "PATCH",
+                                         "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_LEDGER_PAGE_ID + \u0027/children\u0027 }}",
+                                         "sendHeaders":  true,
+                                         "specifyHeaders":  "keypair",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Notion-Version",
+                                                                                         "value":  "2022-06-28"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Content-Type",
+                                                                                         "value":  "application/json"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "options":  {
+                                                         "timeout":  15000
+                                                     },
+                                         "ignoreResponseCode":  true,
+                                         "jsonBody":  "={{ JSON.stringify({ children: $(\"Preparar Notion Bodies\").item.json.ledgerChildren }) }}"
+                                     }
+                  }
+              ],
+    "connections":  {
+                        "Webhook Session Close":  {
+                                                      "main":  [
+                                                                   [
+                                                                       {
+                                                                           "node":  "Validar Secret",
+                                                                           "type":  "main",
+                                                                           "index":  0
+                                                                       }
+                                                                   ]
+                                                               ]
+                                                  },
+                        "Validar Secret":  {
+                                               "main":  [
+                                                            [
+                                                                {
+                                                                    "node":  "Processar Payload",
+                                                                    "type":  "main",
+                                                                    "index":  0
+                                                                }
+                                                            ]
+                                                        ]
+                                           },
+                        "Processar Payload":  {
+                                                  "main":  [
+                                                               [
+                                                                   {
+                                                                       "node":  "Telegram -- Resumo Sessao",
+                                                                       "type":  "main",
+                                                                       "index":  0
+                                                                   }
+                                                               ]
+                                                           ]
+                                              },
+                        "Telegram -- Resumo Sessao":  {
+                                                          "main":  [
+                                                                       [
+                                                                           {
+                                                                               "node":  "Preparar Notion Bodies",
+                                                                               "type":  "main",
+                                                                               "index":  0
+                                                                           }
+                                                                       ]
+                                                                   ]
+                                                      },
+                        "Preparar Notion Bodies":  {
+                                                       "main":  [
+                                                                    [
+                                                                        {
+                                                                            "node":  "Notion -- Append WIP Board",
+                                                                            "type":  "main",
+                                                                            "index":  0
+                                                                        }
+                                                                    ]
+                                                                ]
+                                                   },
+                        "Notion -- Append WIP Board":  {
+                                                           "main":  [
+                                                                        [
+                                                                            {
+                                                                                "node":  "Limpar Pendentes",
+                                                                                "type":  "main",
+                                                                                "index":  0
+                                                                            }
+                                                                        ]
+                                                                    ]
+                                                       },
+                        "Limpar Pendentes":  {
+                                                 "main":  [
+                                                              [
+                                                                  {
+                                                                      "node":  "Notion -- Append Pendentes",
+                                                                      "type":  "main",
+                                                                      "index":  0
+                                                                  }
+                                                              ]
+                                                          ]
+                                             },
+                        "Notion -- Append Pendentes":  {
+                                                           "main":  [
+                                                                        [
+                                                                            {
+                                                                                "node":  "Notion -- Append Ledger",
+                                                                                "type":  "main",
+                                                                                "index":  0
+                                                                            }
+                                                                        ]
+                                                                    ]
+                                                       }
+                    },
+    "settings":  {
+                     "executionOrder":  "v1",
+                     "binaryMode":  "separate",
+                     "timeSavedMode":  "fixed",
+                     "callerPolicy":  "workflowsFromSameOwner",
+                     "availableInMCP":  false
+                 },
+    "staticData":  null,
+    "meta":  null,
+    "nodeGroups":  [
+
+                   ],
+    "pinData":  {
+
+                },
+    "versionId":  "7070abdd-0b58-4767-afd1-197ee8f106d0",
+    "activeVersionId":  "7070abdd-0b58-4767-afd1-197ee8f106d0",
+    "versionCounter":  11,
+    "triggerCount":  1,
+    "shared":  [
+                   {
+                       "updatedAt":  "2026-06-05T00:52:45.323Z",
+                       "createdAt":  "2026-06-05T00:52:45.323Z",
+                       "role":  "workflow:owner",
+                       "workflowId":  "rMl9OJaA1hazqo1i",
+                       "projectId":  "Mb9nRcqOOeOWwvQp",
+                       "project":  {
+                                       "updatedAt":  "2026-06-05T00:22:23.279Z",
+                                       "createdAt":  "2026-06-05T00:20:22.979Z",
+                                       "id":  "Mb9nRcqOOeOWwvQp",
+                                       "name":  "Eduardo Vanguard \u003csubdiretor.mnmsgm@gmail.com\u003e",
+                                       "type":  "personal",
+                                       "icon":  null,
+                                       "description":  null,
+                                       "creatorId":  "c9cce6ae-4208-4652-b8b0-becc6071d41a"
+                                   }
+                   }
+               ],
+    "tags":  [
+
+             ],
+    "activeVersion":  {
+                          "updatedAt":  "2026-06-07T17:27:10.226Z",
+                          "createdAt":  "2026-06-07T17:27:10.226Z",
+                          "versionId":  "7070abdd-0b58-4767-afd1-197ee8f106d0",
+                          "workflowId":  "rMl9OJaA1hazqo1i",
+                          "nodes":  [
+                                        {
+                                            "id":  "webhook-session",
+                                            "name":  "Webhook Session Close",
+                                            "type":  "n8n-nodes-base.webhook",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             240,
+                                                             300
+                                                         ],
+                                            "webhookId":  "session-close-vanguard",
+                                            "parameters":  {
+                                                               "httpMethod":  "POST",
+                                                               "path":  "session-close-vanguard",
+                                                               "responseMode":  "onReceived",
+                                                               "options":  {
+
+                                                                           }
+                                                           }
+                                        },
+                                        {
+                                            "id":  "code-validar-secret",
+                                            "name":  "Validar Secret",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             460,
+                                                             300
+                                                         ],
+                                            "parameters":  {
+                                                               "jsCode":  "const s=$env.N8N_WEBHOOK_SECRET||\"\";const r=(($input.item.json.headers||{})[\"x-webhook-secret\"]||\"\");if(!s||r!==s){return [{json:{erro:\"Nao autorizado\",valido:false}}];}return [$input.item];"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "code-processar",
+                                            "name":  "Processar Payload",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             680,
+                                                             300
+                                                         ],
+                                            "parameters":  {
+                                                               "jsCode":  "const payload=$input.item.json.body||$input.item.json;\nconst cliente=payload.cliente||\"GERAL\";\nconst principios=payload.principios||[];\nconst friccoes=payload.friccoes||[];\nconst dividas=payload.dividas||[];\nconst pendentes_abertos=payload.pendentes_abertos||[];\nconst documentos_mortos=payload.documentos_mortos||[];\nconst inconsistencias=payload.inconsistencias||[];\nconst ficou_no_ar=payload.ficou_no_ar||\"\";\nconst diretor_mencionou=payload.diretor_mencionou||\"\";\nconst data=payload.data||new Date().toLocaleDateString(\"pt-BR\",{timeZone:\"America/Sao_Paulo\"});\nconst hora=payload.hora||new Date().toLocaleTimeString(\"pt-BR\",{timeZone:\"America/Sao_Paulo\",hour:\"2-digit\",minute:\"2-digit\"});\nconst resumoPrincipios=principios.length\u003e0?principios.map(function(p,i){return(i+1)+\". \"+p;}).join(\"\\n\"):\"Nenhum principio novo\";\nconst resumoFriccoes=friccoes.length\u003e0?friccoes.map(function(f,i){return(i+1)+\". \"+f;}).join(\"\\n\"):\"Nenhuma friccao\";\nconst extraLinhas=[];\nif(documentos_mortos.length\u003e0)extraLinhas.push(\"Docs mortos: \"+documentos_mortos.join(\", \"));\nif(inconsistencias.length\u003e0)extraLinhas.push(\"Inconsistencias: \"+inconsistencias.join(\", \"));\nif(ficou_no_ar)extraLinhas.push(\"Ficou no ar: \"+ficou_no_ar);\nif(diretor_mencionou)extraLinhas.push(\"Diretor mencionou: \"+diretor_mencionou);\nconst extraBloco=extraLinhas.length\u003e0?\"\\n\\n\"+extraLinhas.join(\"\\n\"):\"\";\nconst texto=\"Sessao encerrada -- \"+data+\" \"+hora+\"\\nCliente: \"+cliente+\"\\n\\nPrincipios (+\"+principios.length+\"):\\n\"+resumoPrincipios+\"\\n\\nFriccoes (+\"+friccoes.length+\"):\\n\"+resumoFriccoes+\"\\n\\nDividas: \"+dividas.length+extraBloco;\nreturn [{json:{cliente,data,hora,texto,principios,friccoes,dividas,pendentes_abertos,documentos_mortos,inconsistencias,ficou_no_ar,diretor_mencionou}}];"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "telegram-sessao",
+                                            "name":  "Telegram -- Resumo Sessao",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             900,
+                                                             300
+                                                         ],
+                                            "parameters":  {
+                                                               "method":  "POST",
+                                                               "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                                               "sendBody":  true,
+                                                               "contentType":  "json",
+                                                               "bodyParameters":  {
+                                                                                      "parameters":  [
+                                                                                                         {
+                                                                                                             "name":  "chat_id",
+                                                                                                             "value":  "8895733647"
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "text",
+                                                                                                             "value":  "={{ $json.texto }}"
+                                                                                                         }
+                                                                                                     ]
+                                                                                  }
+                                                           }
+                                        },
+                                        {
+                                            "id":  "code-notion-w4",
+                                            "name":  "Preparar Notion Bodies",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             1120,
+                                                             300
+                                                         ],
+                                            "parameters":  {
+                                                               "jsCode":  "const item = $(\"Processar Payload\").item.json;\nconst tsStr = new Date().toISOString().replace(\"T\",\" \").slice(0,16) + \" UTC\";\nconst cliente = String(item.cliente || \"?\");\nconst principios = item.principios || [];\nconst friccoes_count = (item.friccoes || []).length;\nconst dividas = item.dividas || [];\nconst pendentes = item.pendentes_abertos || [];\n\n// WIP Board\nconst wipChildren = [\n    { object:\"block\", type:\"divider\", divider:{} },\n    { object:\"block\", type:\"callout\", callout:{ rich_text:[{type:\"text\",text:{content:\"🔒 Sessão encerrada · \"+tsStr},annotations:{bold:true}}], icon:{type:\"emoji\",emoji:\"🔒\"}, color:\"purple_background\" } },\n    { object:\"block\", type:\"bulleted_list_item\", bulleted_list_item:{ rich_text:[{type:\"text\",text:{content:\"🗂️ Projeto: \"+cliente}}] } },\n    { object:\"block\", type:\"bulleted_list_item\", bulleted_list_item:{ rich_text:[{type:\"text\",text:{content:\"📌 Princípios: +\"+principios.length+\" · Frições: \"+friccoes_count+\" · Dívidas: \"+dividas.length+\" · Pendentes: \"+pendentes.length}}] } }\n];\n\n// Pendentes -- itens abertos do PENDENTES.md (OVERWRITE a cada session_close)\nconst pendChildren = [\n    { object:\"block\", type:\"divider\", divider:{} },\n    { object:\"block\", type:\"callout\", callout:{ rich_text:[{type:\"text\",text:{content:\"📋 Pendentes Abertos · \"+tsStr},annotations:{bold:true}}], icon:{type:\"emoji\",emoji:\"📋\"}, color:\"blue_background\" } }\n];\nconst listaPend = pendentes.length \u003e 0 ? pendentes : [\"(sem pendentes abertos — all done ✅)\"];\nlistaPend.forEach(p =\u003e {\n    pendChildren.push({ object:\"block\", type:\"bulleted_list_item\", bulleted_list_item:{ rich_text:[{type:\"text\",text:{content:String(p)}}] } });\n});\nif (dividas.length \u003e 0) {\n    pendChildren.push({ object:\"block\", type:\"divider\", divider:{} });\n    pendChildren.push({ object:\"block\", type:\"callout\", callout:{ rich_text:[{type:\"text\",text:{content:\"⚠️ Dívidas Técnicas · \"+tsStr},annotations:{bold:true}}], icon:{type:\"emoji\",emoji:\"⚠️\"}, color:\"orange_background\" } });\n    dividas.forEach(d =\u003e {\n        pendChildren.push({ object:\"block\", type:\"numbered_list_item\", numbered_list_item:{ rich_text:[{type:\"text\",text:{content:String(d)}}] } });\n    });\n}\n\n// Ledger Vanguard -- novos principios (APPEND por sessao)\nconst ledgerChildren = [\n    { object:\"block\", type:\"divider\", divider:{} },\n    { object:\"block\", type:\"callout\", callout:{ rich_text:[{type:\"text\",text:{content:\"📖 Sessão \"+tsStr+\" · \"+cliente},annotations:{bold:true}}], icon:{type:\"emoji\",emoji:\"📖\"}, color:\"gray_background\" } }\n];\nconst listaPrinc = principios.length \u003e 0 ? principios : [\"(sem novos princípios nesta sessão)\"];\nlistaPrinc.forEach(p =\u003e {\n    ledgerChildren.push({ object:\"block\", type:\"bulleted_list_item\", bulleted_list_item:{ rich_text:[{type:\"text\",text:{content:String(p)}}] } });\n});\n\nreturn [{ json: { wipChildren, pendChildren, ledgerChildren } }];"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "notion-wip-w4",
+                                            "name":  "Notion -- Append WIP Board",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1340,
+                                                             300
+                                                         ],
+                                            "continueOnFail":  true,
+                                            "parameters":  {
+                                                               "method":  "PATCH",
+                                                               "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_WIP_PAGE_ID + \u0027/children\u0027 }}",
+                                                               "sendHeaders":  true,
+                                                               "specifyHeaders":  "keypair",
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Notion-Version",
+                                                                                                               "value":  "2022-06-28"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Content-Type",
+                                                                                                               "value":  "application/json"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "json",
+                                                               "options":  {
+                                                                               "timeout":  15000
+                                                                           },
+                                                               "ignoreResponseCode":  true,
+                                                               "jsonBody":  "={{ JSON.stringify({ children: $(\"Preparar Notion Bodies\").item.json.wipChildren }) }}"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "notion-pend-w4",
+                                            "name":  "Notion -- Append Pendentes",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1780,
+                                                             300
+                                                         ],
+                                            "continueOnFail":  true,
+                                            "parameters":  {
+                                                               "method":  "PATCH",
+                                                               "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_PENDENTES_PAGE_ID + \u0027/children\u0027 }}",
+                                                               "sendHeaders":  true,
+                                                               "specifyHeaders":  "keypair",
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Notion-Version",
+                                                                                                               "value":  "2022-06-28"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Content-Type",
+                                                                                                               "value":  "application/json"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "json",
+                                                               "options":  {
+                                                                               "timeout":  15000
+                                                                           },
+                                                               "ignoreResponseCode":  true,
+                                                               "jsonBody":  "={{ JSON.stringify({ children: $(\"Preparar Notion Bodies\").item.json.pendChildren }) }}"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "code-limpar-pend",
+                                            "name":  "Limpar Pendentes",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             1560,
+                                                             300
+                                                         ],
+                                            "parameters":  {
+                                                               "jsCode":  "const pageId = $env.NOTION_PENDENTES_PAGE_ID;\nconst token = $env.NOTION_API_TOKEN;\nconst headers = { \u0027Authorization\u0027: \u0027Bearer \u0027 + token, \u0027Notion-Version\u0027: \u00272022-06-28\u0027, \u0027Content-Type\u0027: \u0027application/json\u0027 };\ntry {\n  const resp = await $http.get(\u0027https://api.notion.com/v1/blocks/\u0027 + pageId + \u0027/children?page_size=100\u0027, { headers });\n  const blocks = resp.results || (resp.data \u0026\u0026 resp.data.results) || [];\n  for (const block of blocks) {\n    try { await $http.delete(\u0027https://api.notion.com/v1/blocks/\u0027 + block.id, { headers }); } catch(e) {}\n  }\n  return [{ json: { limpar_ok: true, cleared: blocks.length } }];\n} catch(e) {\n  return [{ json: { limpar_ok: false, error: String(e.message) } }];\n}",
+                                                               "mode":  "runOnceForAllItems"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "notion-ledger-w4",
+                                            "name":  "Notion -- Append Ledger",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             2000,
+                                                             300
+                                                         ],
+                                            "parameters":  {
+                                                               "method":  "PATCH",
+                                                               "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_LEDGER_PAGE_ID + \u0027/children\u0027 }}",
+                                                               "sendHeaders":  true,
+                                                               "specifyHeaders":  "keypair",
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Notion-Version",
+                                                                                                               "value":  "2022-06-28"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Content-Type",
+                                                                                                               "value":  "application/json"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "json",
+                                                               "options":  {
+                                                                               "timeout":  15000
+                                                                           },
+                                                               "ignoreResponseCode":  true,
+                                                               "jsonBody":  "={{ JSON.stringify({ children: $(\"Preparar Notion Bodies\").item.json.ledgerChildren }) }}"
+                                                           }
+                                        }
+                                    ],
+                          "connections":  {
+                                              "Webhook Session Close":  {
+                                                                            "main":  [
+                                                                                         [
+                                                                                             {
+                                                                                                 "node":  "Validar Secret",
+                                                                                                 "type":  "main",
+                                                                                                 "index":  0
+                                                                                             }
+                                                                                         ]
+                                                                                     ]
+                                                                        },
+                                              "Validar Secret":  {
+                                                                     "main":  [
+                                                                                  [
+                                                                                      {
+                                                                                          "node":  "Processar Payload",
+                                                                                          "type":  "main",
+                                                                                          "index":  0
+                                                                                      }
+                                                                                  ]
+                                                                              ]
+                                                                 },
+                                              "Processar Payload":  {
+                                                                        "main":  [
+                                                                                     [
+                                                                                         {
+                                                                                             "node":  "Telegram -- Resumo Sessao",
+                                                                                             "type":  "main",
+                                                                                             "index":  0
+                                                                                         }
+                                                                                     ]
+                                                                                 ]
+                                                                    },
+                                              "Telegram -- Resumo Sessao":  {
+                                                                                "main":  [
+                                                                                             [
+                                                                                                 {
+                                                                                                     "node":  "Preparar Notion Bodies",
+                                                                                                     "type":  "main",
+                                                                                                     "index":  0
+                                                                                                 }
+                                                                                             ]
+                                                                                         ]
+                                                                            },
+                                              "Preparar Notion Bodies":  {
+                                                                             "main":  [
+                                                                                          [
+                                                                                              {
+                                                                                                  "node":  "Notion -- Append WIP Board",
+                                                                                                  "type":  "main",
+                                                                                                  "index":  0
+                                                                                              }
+                                                                                          ]
+                                                                                      ]
+                                                                         },
+                                              "Notion -- Append WIP Board":  {
+                                                                                 "main":  [
+                                                                                              [
+                                                                                                  {
+                                                                                                      "node":  "Limpar Pendentes",
+                                                                                                      "type":  "main",
+                                                                                                      "index":  0
+                                                                                                  }
+                                                                                              ]
+                                                                                          ]
+                                                                             },
+                                              "Limpar Pendentes":  {
+                                                                       "main":  [
+                                                                                    [
+                                                                                        {
+                                                                                            "node":  "Notion -- Append Pendentes",
+                                                                                            "type":  "main",
+                                                                                            "index":  0
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                   },
+                                              "Notion -- Append Pendentes":  {
+                                                                                 "main":  [
+                                                                                              [
+                                                                                                  {
+                                                                                                      "node":  "Notion -- Append Ledger",
+                                                                                                      "type":  "main",
+                                                                                                      "index":  0
+                                                                                                  }
+                                                                                              ]
+                                                                                          ]
+                                                                             }
+                                          },
+                          "nodeGroups":  [
+
+                                         ],
+                          "authors":  "Eduardo Vanguard",
+                          "name":  null,
+                          "description":  null,
+                          "autosaved":  false,
+                          "workflowPublishHistory":  [
+                                                         {
+                                                             "createdAt":  "2026-06-07T17:27:10.344Z",
+                                                             "id":  114,
+                                                             "workflowId":  "rMl9OJaA1hazqo1i",
+                                                             "versionId":  "7070abdd-0b58-4767-afd1-197ee8f106d0",
+                                                             "event":  "activated",
+                                                             "userId":  "c9cce6ae-4208-4652-b8b0-becc6071d41a"
+                                                         },
+                                                         {
+                                                             "createdAt":  "2026-06-07T17:27:10.305Z",
+                                                             "id":  113,
+                                                             "workflowId":  "rMl9OJaA1hazqo1i",
+                                                             "versionId":  "7070abdd-0b58-4767-afd1-197ee8f106d0",
+                                                             "event":  "deactivated",
+                                                             "userId":  "c9cce6ae-4208-4652-b8b0-becc6071d41a"
+                                                         }
+                                                     ]
+                      }
+}

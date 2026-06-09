@@ -1,0 +1,553 @@
+﻿{
+    "updatedAt":  "2026-06-09T00:11:11.846Z",
+    "createdAt":  "2026-06-05T00:23:28.128Z",
+    "id":  "rinBbgMlUTEccnTI",
+    "name":  "01 -- Check-in Temporal 7h 13h 20h",
+    "description":  null,
+    "active":  true,
+    "isArchived":  false,
+    "nodes":  [
+                  {
+                      "parameters":  {
+                                         "rule":  {
+                                                      "interval":  [
+                                                                       {
+                                                                           "triggerAtHour":  12,
+                                                                           "triggerAtMinute":  0
+                                                                       }
+                                                                   ]
+                                                  }
+                                     },
+                      "id":  "cron-trigger-1",
+                      "name":  "Cron -- 7h 13h 20h",
+                      "type":  "n8n-nodes-base.scheduleTrigger",
+                      "typeVersion":  1.1,
+                      "position":  [
+                                       240,
+                                       304
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "url":  "={{ $env.GITHUB_API_WBOARD_URL || \u0027https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json\u0027 }}",
+                                         "sendHeaders":  true,
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ \u0027token \u0027 + $env.GITHUB_PAT_READONLY }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Accept",
+                                                                                         "value":  "application/vnd.github.v3+json"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "options":  {
+                                                         "timeout":  10000
+                                                     }
+                                     },
+                      "id":  "http-wip",
+                      "name":  "Ler WIP_BOARD",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       464,
+                                       304
+                                   ],
+                      "continueOnFail":  true
+                  },
+                  {
+                      "parameters":  {
+                                         "jsCode":  "const agora = new Date();\nconst horaBR = parseInt(agora.toLocaleString(\u0027pt-BR\u0027, {timeZone: \u0027America/Sao_Paulo\u0027, hour: \u00272-digit\u0027, hour12: false}));\nconst dataBR = agora.toLocaleDateString(\u0027pt-BR\u0027, {timeZone: \u0027America/Sao_Paulo\u0027});\nlet periodo;\nif (horaBR \u003e= 5 \u0026\u0026 horaBR \u003c 12) periodo = \u0027MANHA\u0027;\nelse if (horaBR \u003e= 12 \u0026\u0026 horaBR \u003c 18) periodo = \u0027TARDE\u0027;\nelse periodo = \u0027NOITE\u0027;\nconst saudacoes = {MANHA: \u0027Bom dia, Diretor.\u0027, TARDE: \u0027Boa tarde, Diretor.\u0027, NOITE: \u0027Boa noite, Diretor.\u0027};\nlet statusProjetos = \u0027\u0027;\ntry {\n  const wipRaw = $(\u0027Ler WIP_BOARD\u0027).item.json;\n  let wip;\n  if (wipRaw \u0026\u0026 wipRaw.board) {\n    wip = wipRaw;\n  } else if (wipRaw \u0026\u0026 wipRaw.content) {\n    const decoded = Buffer.from(wipRaw.content.replace(/\\n/g, \u0027\u0027), \u0027base64\u0027).toString(\u0027utf8\u0027);\n    wip = JSON.parse(decoded.replace(/^\\uFEFF/, \u0027\u0027));\n  } else if (wipRaw \u0026\u0026 typeof wipRaw.body === \u0027string\u0027) {\n    wip = JSON.parse(wipRaw.body.replace(/^\\uFEFF/, \u0027\u0027));\n  } else {\n    wip = {};\n  }\n  const board = wip.board || {};\n  const todos = [];\n  if (board.build) todos.push(...board.build);\n  if (board.check) todos.push(...board.check);\n  if (board.retainer) todos.push(...board.retainer);\n  if (board.entregue) todos.push(...board.entregue);\n  const linhas = todos.map(function(p) {\n    const nome = p.cliente || p.id || \u0027Projeto\u0027;\n    const st = (p.status || \u0027ATIVO\u0027).split(\u0027 -- \u0027)[0];\n    return \u0027- \u0027 + nome + \u0027: \u0027 + st;\n  });\n  statusProjetos = linhas.length \u003e 0 ? linhas.join(\u0027\\n\u0027) : \u0027- (sem projetos ativos)\u0027;\n} catch (e) {\n  statusProjetos = \u0027- (ERRO: \u0027 + e.message + \u0027)\u0027;\n}\nreturn [{json: {periodo: periodo, saudacao: saudacoes[periodo], hora: horaBR, data: dataBR, timestamp: agora.toISOString(), statusProjetos: statusProjetos}}];"
+                                     },
+                      "id":  "code-periodo",
+                      "name":  "Detectar Periodo",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       688,
+                                       304
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "chat_id",
+                                                                                       "value":  "={{ $env.TELEGRAM_CHAT_ID || \u00278895733647\u0027 }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "text",
+                                                                                       "value":  "={{ $json.saudacao + \u0027\\n\\nCheck-in Vanguard IAH -- \u0027 + $json.data + \u0027\\n\\nStatus dos projetos:\\n\u0027 + $json.statusProjetos }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "telegram-checkin",
+                      "name":  "Enviar Check-in Telegram",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       912,
+                                       304
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "jsCode":  "const item = $(\u0027Detectar Periodo\u0027).item.json;\nconst tsStr = new Date().toISOString().replace(\u0027T\u0027,\u0027 \u0027).slice(0,16) + \u0027 UTC\u0027;\nconst periodo = String(item.periodo || \u0027dia\u0027);\nconst statusText = String(item.statusProjetos || \u0027\u0027);\nconst NL = String.fromCharCode(10);\nconst DOT = String.fromCharCode(183);\nconst normalized = statusText.split(NL).join(DOT);\nconst projLines = normalized.split(DOT).map(l =\u003e l.trim()).filter(l =\u003e l.length \u003e 0);\n\n// Emoji e cor por período\nconst periodoEmoji = periodo === \u0027manha\u0027 ? \u0027🌅\u0027 : periodo === \u0027tarde\u0027 ? \u0027🌤️\u0027 : \u0027🌙\u0027;\nconst periodoLabel = periodo === \u0027manha\u0027 ? \u0027Bom dia\u0027 : periodo === \u0027tarde\u0027 ? \u0027Boa tarde\u0027 : \u0027Boa noite\u0027;\n\n// Adicionar emoji de semáforo por linha\nfunction semaforo(line) {\n    const l = line.toUpperCase();\n    if (l.includes(\u0027VERMELHO\u0027) || l.includes(\u0027ERROR\u0027) || l.includes(\u0027OFFLINE\u0027)) return \u0027🔴 \u0027 + line;\n    if (l.includes(\u0027AMARELO\u0027) || l.includes(\u0027ATENÇÃO\u0027) || l.includes(\u0027ATENCAO\u0027) || l.includes(\u0027CHECK\u0027)) return \u0027🟡 \u0027 + line;\n    if (l.includes(\u0027VERDE\u0027) || l.includes(\u0027OK\u0027) || l.includes(\u0027RETAINER\u0027) || l.includes(\u0027SUCCESS\u0027)) return \u0027🟢 \u0027 + line;\n    return \u0027▸ \u0027 + line;\n}\n\nconst blocos = [\n    { object:\u0027block\u0027, type:\u0027divider\u0027, divider:{} },\n    { object:\u0027block\u0027, type:\u0027callout\u0027, callout:{ rich_text:[{type:\u0027text\u0027,text:{content:periodoEmoji+\u0027 Check-in · \u0027+periodoLabel+\u0027 · \u0027+tsStr},annotations:{bold:true}}], icon:{type:\u0027emoji\u0027,emoji:\u0027📊\u0027}, color:\u0027blue_background\u0027 } }\n];\n\nif (projLines.length === 0) {\n    blocos.push({ object:\u0027block\u0027, type:\u0027bulleted_list_item\u0027, bulleted_list_item:{ rich_text:[{type:\u0027text\u0027,text:{content:statusText.slice(0,200)}}] } });\n} else {\n    projLines.forEach(line =\u003e {\n        blocos.push({ object:\u0027block\u0027, type:\u0027bulleted_list_item\u0027, bulleted_list_item:{ rich_text:[{type:\u0027text\u0027,text:{content:semaforo(line)}}] } });\n    });\n}\n\nreturn [{ json: { notionChildren: blocos } }];"
+                                     },
+                      "id":  "code-notion-w1",
+                      "name":  "Preparar Notion Body",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       1120,
+                                       304
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "PATCH",
+                                         "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_WIP_PAGE_ID + \u0027/children\u0027 }}",
+                                         "sendHeaders":  true,
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Notion-Version",
+                                                                                         "value":  "2022-06-28"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Content-Type",
+                                                                                         "value":  "application/json"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "jsonBody":  "={{ JSON.stringify({ children: $(\u0027Preparar Notion Body\u0027).item.json.notionChildren }) }}",
+                                         "options":  {
+                                                         "timeout":  15000
+                                                     }
+                                     },
+                      "id":  "notion-wip-w1",
+                      "name":  "Notion -- Append Status",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1344,
+                                       304
+                                   ],
+                      "continueOnFail":  true
+                  },
+                  {
+                      "id":  "w8-post-w1",
+                      "name":  "W-8 -- Sinal Check-in",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1564,
+                                       304
+                                   ],
+                      "continueOnFail":  true,
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "https://vanguard-vanguard-n8n.0ul9nk.easypanel.host/webhook/w8-signal-classifier",
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "jsonBody":  "={{ JSON.stringify({origem:\"W-1\",tipo:\"check_in\",dados:{status:\"OK\"},timestamp:new Date().toISOString()}) }}",
+                                         "ignoreResponseCode":  true,
+                                         "options":  {
+                                                         "timeout":  5000
+                                                     }
+                                     }
+                  }
+              ],
+    "connections":  {
+                        "Cron -- 7h 13h 20h":  {
+                                                   "main":  [
+                                                                [
+                                                                    {
+                                                                        "node":  "Ler WIP_BOARD",
+                                                                        "type":  "main",
+                                                                        "index":  0
+                                                                    }
+                                                                ]
+                                                            ]
+                                               },
+                        "Ler WIP_BOARD":  {
+                                              "main":  [
+                                                           [
+                                                               {
+                                                                   "node":  "Detectar Periodo",
+                                                                   "type":  "main",
+                                                                   "index":  0
+                                                               }
+                                                           ]
+                                                       ]
+                                          },
+                        "Detectar Periodo":  {
+                                                 "main":  [
+                                                              [
+                                                                  {
+                                                                      "node":  "Enviar Check-in Telegram",
+                                                                      "type":  "main",
+                                                                      "index":  0
+                                                                  }
+                                                              ]
+                                                          ]
+                                             },
+                        "Enviar Check-in Telegram":  {
+                                                         "main":  [
+                                                                      [
+                                                                          {
+                                                                              "node":  "Preparar Notion Body",
+                                                                              "type":  "main",
+                                                                              "index":  0
+                                                                          }
+                                                                      ]
+                                                                  ]
+                                                     },
+                        "Preparar Notion Body":  {
+                                                     "main":  [
+                                                                  [
+                                                                      {
+                                                                          "node":  "Notion -- Append Status",
+                                                                          "type":  "main",
+                                                                          "index":  0
+                                                                      }
+                                                                  ]
+                                                              ]
+                                                 },
+                        "Notion -- Append Status":  {
+                                                        "main":  [
+                                                                     [
+                                                                         {
+                                                                             "node":  "W-8 -- Sinal Check-in",
+                                                                             "type":  "main",
+                                                                             "index":  0
+                                                                         }
+                                                                     ]
+                                                                 ]
+                                                    }
+                    },
+    "settings":  {
+                     "executionOrder":  "v1",
+                     "binaryMode":  "separate",
+                     "timeSavedMode":  "fixed",
+                     "callerPolicy":  "workflowsFromSameOwner",
+                     "availableInMCP":  false
+                 },
+    "staticData":  {
+                       "node:Cron -- 7h 13h 20h":  {
+                                                       "recurrenceRules":  [
+
+                                                                           ]
+                                                   }
+                   },
+    "meta":  {
+                 "templateCredsSetupCompleted":  true
+             },
+    "nodeGroups":  [
+
+                   ],
+    "pinData":  {
+
+                },
+    "versionId":  "02ddb31a-f982-4c6c-a91c-bb2e606e5dd5",
+    "activeVersionId":  "02ddb31a-f982-4c6c-a91c-bb2e606e5dd5",
+    "versionCounter":  36,
+    "triggerCount":  1,
+    "shared":  [
+                   {
+                       "updatedAt":  "2026-06-05T00:23:28.131Z",
+                       "createdAt":  "2026-06-05T00:23:28.131Z",
+                       "role":  "workflow:owner",
+                       "workflowId":  "rinBbgMlUTEccnTI",
+                       "projectId":  "Mb9nRcqOOeOWwvQp",
+                       "project":  {
+                                       "updatedAt":  "2026-06-05T00:22:23.279Z",
+                                       "createdAt":  "2026-06-05T00:20:22.979Z",
+                                       "id":  "Mb9nRcqOOeOWwvQp",
+                                       "name":  "Eduardo Vanguard \u003csubdiretor.mnmsgm@gmail.com\u003e",
+                                       "type":  "personal",
+                                       "icon":  null,
+                                       "description":  null,
+                                       "creatorId":  "c9cce6ae-4208-4652-b8b0-becc6071d41a"
+                                   }
+                   }
+               ],
+    "tags":  [
+
+             ],
+    "activeVersion":  {
+                          "updatedAt":  "2026-06-09T00:11:11.847Z",
+                          "createdAt":  "2026-06-09T00:11:11.847Z",
+                          "versionId":  "02ddb31a-f982-4c6c-a91c-bb2e606e5dd5",
+                          "workflowId":  "rinBbgMlUTEccnTI",
+                          "nodes":  [
+                                        {
+                                            "parameters":  {
+                                                               "rule":  {
+                                                                            "interval":  [
+                                                                                             {
+                                                                                                 "triggerAtHour":  12,
+                                                                                                 "triggerAtMinute":  0
+                                                                                             }
+                                                                                         ]
+                                                                        }
+                                                           },
+                                            "id":  "cron-trigger-1",
+                                            "name":  "Cron -- 7h 13h 20h",
+                                            "type":  "n8n-nodes-base.scheduleTrigger",
+                                            "typeVersion":  1.1,
+                                            "position":  [
+                                                             240,
+                                                             304
+                                                         ]
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "url":  "={{ $env.GITHUB_API_WBOARD_URL || \u0027https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json\u0027 }}",
+                                                               "sendHeaders":  true,
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ \u0027token \u0027 + $env.GITHUB_PAT_READONLY }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Accept",
+                                                                                                               "value":  "application/vnd.github.v3+json"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "options":  {
+                                                                               "timeout":  10000
+                                                                           }
+                                                           },
+                                            "id":  "http-wip",
+                                            "name":  "Ler WIP_BOARD",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             464,
+                                                             304
+                                                         ],
+                                            "continueOnFail":  true
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "jsCode":  "const agora = new Date();\nconst horaBR = parseInt(agora.toLocaleString(\u0027pt-BR\u0027, {timeZone: \u0027America/Sao_Paulo\u0027, hour: \u00272-digit\u0027, hour12: false}));\nconst dataBR = agora.toLocaleDateString(\u0027pt-BR\u0027, {timeZone: \u0027America/Sao_Paulo\u0027});\nlet periodo;\nif (horaBR \u003e= 5 \u0026\u0026 horaBR \u003c 12) periodo = \u0027MANHA\u0027;\nelse if (horaBR \u003e= 12 \u0026\u0026 horaBR \u003c 18) periodo = \u0027TARDE\u0027;\nelse periodo = \u0027NOITE\u0027;\nconst saudacoes = {MANHA: \u0027Bom dia, Diretor.\u0027, TARDE: \u0027Boa tarde, Diretor.\u0027, NOITE: \u0027Boa noite, Diretor.\u0027};\nlet statusProjetos = \u0027\u0027;\ntry {\n  const wipRaw = $(\u0027Ler WIP_BOARD\u0027).item.json;\n  let wip;\n  if (wipRaw \u0026\u0026 wipRaw.board) {\n    wip = wipRaw;\n  } else if (wipRaw \u0026\u0026 wipRaw.content) {\n    const decoded = Buffer.from(wipRaw.content.replace(/\\n/g, \u0027\u0027), \u0027base64\u0027).toString(\u0027utf8\u0027);\n    wip = JSON.parse(decoded.replace(/^\\uFEFF/, \u0027\u0027));\n  } else if (wipRaw \u0026\u0026 typeof wipRaw.body === \u0027string\u0027) {\n    wip = JSON.parse(wipRaw.body.replace(/^\\uFEFF/, \u0027\u0027));\n  } else {\n    wip = {};\n  }\n  const board = wip.board || {};\n  const todos = [];\n  if (board.build) todos.push(...board.build);\n  if (board.check) todos.push(...board.check);\n  if (board.retainer) todos.push(...board.retainer);\n  if (board.entregue) todos.push(...board.entregue);\n  const linhas = todos.map(function(p) {\n    const nome = p.cliente || p.id || \u0027Projeto\u0027;\n    const st = (p.status || \u0027ATIVO\u0027).split(\u0027 -- \u0027)[0];\n    return \u0027- \u0027 + nome + \u0027: \u0027 + st;\n  });\n  statusProjetos = linhas.length \u003e 0 ? linhas.join(\u0027\\n\u0027) : \u0027- (sem projetos ativos)\u0027;\n} catch (e) {\n  statusProjetos = \u0027- (ERRO: \u0027 + e.message + \u0027)\u0027;\n}\nreturn [{json: {periodo: periodo, saudacao: saudacoes[periodo], hora: horaBR, data: dataBR, timestamp: agora.toISOString(), statusProjetos: statusProjetos}}];"
+                                                           },
+                                            "id":  "code-periodo",
+                                            "name":  "Detectar Periodo",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             688,
+                                                             304
+                                                         ]
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "method":  "POST",
+                                                               "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                                               "sendBody":  true,
+                                                               "bodyParameters":  {
+                                                                                      "parameters":  [
+                                                                                                         {
+                                                                                                             "name":  "chat_id",
+                                                                                                             "value":  "={{ $env.TELEGRAM_CHAT_ID || \u00278895733647\u0027 }}"
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "text",
+                                                                                                             "value":  "={{ $json.saudacao + \u0027\\n\\nCheck-in Vanguard IAH -- \u0027 + $json.data + \u0027\\n\\nStatus dos projetos:\\n\u0027 + $json.statusProjetos }}"
+                                                                                                         }
+                                                                                                     ]
+                                                                                  },
+                                                               "options":  {
+
+                                                                           }
+                                                           },
+                                            "id":  "telegram-checkin",
+                                            "name":  "Enviar Check-in Telegram",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             912,
+                                                             304
+                                                         ]
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "jsCode":  "const item = $(\u0027Detectar Periodo\u0027).item.json;\nconst tsStr = new Date().toISOString().replace(\u0027T\u0027,\u0027 \u0027).slice(0,16) + \u0027 UTC\u0027;\nconst periodo = String(item.periodo || \u0027dia\u0027);\nconst statusText = String(item.statusProjetos || \u0027\u0027);\nconst NL = String.fromCharCode(10);\nconst DOT = String.fromCharCode(183);\nconst normalized = statusText.split(NL).join(DOT);\nconst projLines = normalized.split(DOT).map(l =\u003e l.trim()).filter(l =\u003e l.length \u003e 0);\n\n// Emoji e cor por período\nconst periodoEmoji = periodo === \u0027manha\u0027 ? \u0027🌅\u0027 : periodo === \u0027tarde\u0027 ? \u0027🌤️\u0027 : \u0027🌙\u0027;\nconst periodoLabel = periodo === \u0027manha\u0027 ? \u0027Bom dia\u0027 : periodo === \u0027tarde\u0027 ? \u0027Boa tarde\u0027 : \u0027Boa noite\u0027;\n\n// Adicionar emoji de semáforo por linha\nfunction semaforo(line) {\n    const l = line.toUpperCase();\n    if (l.includes(\u0027VERMELHO\u0027) || l.includes(\u0027ERROR\u0027) || l.includes(\u0027OFFLINE\u0027)) return \u0027🔴 \u0027 + line;\n    if (l.includes(\u0027AMARELO\u0027) || l.includes(\u0027ATENÇÃO\u0027) || l.includes(\u0027ATENCAO\u0027) || l.includes(\u0027CHECK\u0027)) return \u0027🟡 \u0027 + line;\n    if (l.includes(\u0027VERDE\u0027) || l.includes(\u0027OK\u0027) || l.includes(\u0027RETAINER\u0027) || l.includes(\u0027SUCCESS\u0027)) return \u0027🟢 \u0027 + line;\n    return \u0027▸ \u0027 + line;\n}\n\nconst blocos = [\n    { object:\u0027block\u0027, type:\u0027divider\u0027, divider:{} },\n    { object:\u0027block\u0027, type:\u0027callout\u0027, callout:{ rich_text:[{type:\u0027text\u0027,text:{content:periodoEmoji+\u0027 Check-in · \u0027+periodoLabel+\u0027 · \u0027+tsStr},annotations:{bold:true}}], icon:{type:\u0027emoji\u0027,emoji:\u0027📊\u0027}, color:\u0027blue_background\u0027 } }\n];\n\nif (projLines.length === 0) {\n    blocos.push({ object:\u0027block\u0027, type:\u0027bulleted_list_item\u0027, bulleted_list_item:{ rich_text:[{type:\u0027text\u0027,text:{content:statusText.slice(0,200)}}] } });\n} else {\n    projLines.forEach(line =\u003e {\n        blocos.push({ object:\u0027block\u0027, type:\u0027bulleted_list_item\u0027, bulleted_list_item:{ rich_text:[{type:\u0027text\u0027,text:{content:semaforo(line)}}] } });\n    });\n}\n\nreturn [{ json: { notionChildren: blocos } }];"
+                                                           },
+                                            "id":  "code-notion-w1",
+                                            "name":  "Preparar Notion Body",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             1120,
+                                                             304
+                                                         ]
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "method":  "PATCH",
+                                                               "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_WIP_PAGE_ID + \u0027/children\u0027 }}",
+                                                               "sendHeaders":  true,
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Notion-Version",
+                                                                                                               "value":  "2022-06-28"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Content-Type",
+                                                                                                               "value":  "application/json"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "json",
+                                                               "jsonBody":  "={{ JSON.stringify({ children: $(\u0027Preparar Notion Body\u0027).item.json.notionChildren }) }}",
+                                                               "options":  {
+                                                                               "timeout":  15000
+                                                                           }
+                                                           },
+                                            "id":  "notion-wip-w1",
+                                            "name":  "Notion -- Append Status",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1344,
+                                                             304
+                                                         ],
+                                            "continueOnFail":  true
+                                        },
+                                        {
+                                            "id":  "w8-post-w1",
+                                            "name":  "W-8 -- Sinal Check-in",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1564,
+                                                             304
+                                                         ],
+                                            "continueOnFail":  true,
+                                            "parameters":  {
+                                                               "method":  "POST",
+                                                               "url":  "https://vanguard-vanguard-n8n.0ul9nk.easypanel.host/webhook/w8-signal-classifier",
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "json",
+                                                               "jsonBody":  "={{ JSON.stringify({origem:\"W-1\",tipo:\"check_in\",dados:{status:\"OK\"},timestamp:new Date().toISOString()}) }}",
+                                                               "ignoreResponseCode":  true,
+                                                               "options":  {
+                                                                               "timeout":  5000
+                                                                           }
+                                                           }
+                                        }
+                                    ],
+                          "connections":  {
+                                              "Cron -- 7h 13h 20h":  {
+                                                                         "main":  [
+                                                                                      [
+                                                                                          {
+                                                                                              "node":  "Ler WIP_BOARD",
+                                                                                              "type":  "main",
+                                                                                              "index":  0
+                                                                                          }
+                                                                                      ]
+                                                                                  ]
+                                                                     },
+                                              "Ler WIP_BOARD":  {
+                                                                    "main":  [
+                                                                                 [
+                                                                                     {
+                                                                                         "node":  "Detectar Periodo",
+                                                                                         "type":  "main",
+                                                                                         "index":  0
+                                                                                     }
+                                                                                 ]
+                                                                             ]
+                                                                },
+                                              "Detectar Periodo":  {
+                                                                       "main":  [
+                                                                                    [
+                                                                                        {
+                                                                                            "node":  "Enviar Check-in Telegram",
+                                                                                            "type":  "main",
+                                                                                            "index":  0
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                   },
+                                              "Enviar Check-in Telegram":  {
+                                                                               "main":  [
+                                                                                            [
+                                                                                                {
+                                                                                                    "node":  "Preparar Notion Body",
+                                                                                                    "type":  "main",
+                                                                                                    "index":  0
+                                                                                                }
+                                                                                            ]
+                                                                                        ]
+                                                                           },
+                                              "Preparar Notion Body":  {
+                                                                           "main":  [
+                                                                                        [
+                                                                                            {
+                                                                                                "node":  "Notion -- Append Status",
+                                                                                                "type":  "main",
+                                                                                                "index":  0
+                                                                                            }
+                                                                                        ]
+                                                                                    ]
+                                                                       },
+                                              "Notion -- Append Status":  {
+                                                                              "main":  [
+                                                                                           [
+                                                                                               {
+                                                                                                   "node":  "W-8 -- Sinal Check-in",
+                                                                                                   "type":  "main",
+                                                                                                   "index":  0
+                                                                                               }
+                                                                                           ]
+                                                                                       ]
+                                                                          }
+                                          },
+                          "nodeGroups":  [
+
+                                         ],
+                          "authors":  "Eduardo Vanguard",
+                          "name":  null,
+                          "description":  null,
+                          "autosaved":  false,
+                          "workflowPublishHistory":  [
+                                                         {
+                                                             "createdAt":  "2026-06-09T00:11:42.970Z",
+                                                             "id":  121,
+                                                             "workflowId":  "rinBbgMlUTEccnTI",
+                                                             "versionId":  "02ddb31a-f982-4c6c-a91c-bb2e606e5dd5",
+                                                             "event":  "activated",
+                                                             "userId":  "c9cce6ae-4208-4652-b8b0-becc6071d41a"
+                                                         }
+                                                     ]
+                      }
+}

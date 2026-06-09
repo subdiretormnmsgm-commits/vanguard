@@ -49,11 +49,18 @@ try {
 }
 if ($checked.Count -eq 0) { exit 0 }   # silencio total se nada marcado
 
-# 2. Mapear linhas abertas do PENDENTES.md
+# 2. Mapear linhas abertas do PENDENTES.md + pre-computar as JA quitadas ([x]) para distinguir
+#    "ja concluido" (silencio) de "marcado no Notion mas inexistente no PENDENTES" (alerta -- #2).
 $raw   = Get-Content -Raw -Encoding UTF8 $PEND
 $linhas = Get-Content -Encoding UTF8 $PEND
 $quitados = New-Object System.Collections.ArrayList
 $ignorados = New-Object System.Collections.ArrayList
+$orfaos = New-Object System.Collections.ArrayList
+
+$jaQuitadasNorm = New-Object System.Collections.ArrayList
+foreach ($l in $linhas) {
+    if ($l -match '^\s*[-*]\s*\[[xX]\]\s*(.*)') { [void]$jaQuitadasNorm.Add((Norm (Clean $matches[1]))) }
+}
 
 foreach ($chk in $checked) {
     $hits = @()
@@ -63,7 +70,13 @@ foreach ($chk in $checked) {
             if ((Norm (Clean $conteudo)) -eq $chk) { $hits += $l }
         }
     }
-    if ($hits.Count -eq 0) { continue }                      # ja quitado ou texto editado -> ignora silencioso
+    if ($hits.Count -eq 0) {
+        # Nao bate com nenhuma linha aberta. Ja esta quitada [x]? -> silencio. Senao -> orfao (alerta #2).
+        if ($jaQuitadasNorm -notcontains $chk) {
+            [void]$orfaos.Add($chk)
+        }
+        continue
+    }
     if ($hits.Count -gt 1) { [void]$ignorados.Add("AMBIGUO (texto repetido) -> $chk"); continue }
     $linha = $hits[0]
     if ($linha -notmatch '\[diretor\]') {                    # REGRA DE OURO: so [diretor]
@@ -82,7 +95,7 @@ if ($quitados.Count -gt 0) {
 }
 
 # 4. Reportar (session_start injeta isto no contexto)
-if ($quitados.Count -gt 0 -or $ignorados.Count -gt 0) {
+if ($quitados.Count -gt 0 -or $ignorados.Count -gt 0 -or $orfaos.Count -gt 0) {
     Write-Output "=== NOTION -> PENDENTES (Diretor marcou no Notion) ==="
     if ($quitados.Count -gt 0) {
         Write-Output "QUITADOS via Notion ($($quitados.Count)) -- ja marcados [x] no PENDENTES.md:"
@@ -91,5 +104,10 @@ if ($quitados.Count -gt 0 -or $ignorados.Count -gt 0) {
     if ($ignorados.Count -gt 0) {
         Write-Output "IGNORADOS ($($ignorados.Count)) -- flexibilidade e SO em [diretor]:"
         $ignorados | ForEach-Object { Write-Output "  (!) $_" }
+    }
+    if ($orfaos.Count -gt 0) {
+        Write-Output "ORFAOS ($($orfaos.Count)) -- marcados [x] no Notion mas NAO encontrados no PENDENTES.md:"
+        Write-Output "  (texto editado dos dois lados, item de outra pagina, ou ja arquivado -- Musculo deve conferir)"
+        $orfaos | ForEach-Object { Write-Output "  (?) $_" }
     }
 }

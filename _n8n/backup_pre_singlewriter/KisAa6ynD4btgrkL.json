@@ -1,0 +1,1381 @@
+﻿{
+    "updatedAt":  "2026-06-07T15:36:36.379Z",
+    "createdAt":  "2026-06-05T06:19:28.457Z",
+    "id":  "KisAa6ynD4btgrkL",
+    "name":  "07 -- Veredito via Telegram MVP",
+    "description":  null,
+    "active":  true,
+    "isArchived":  false,
+    "nodes":  [
+                  {
+                      "parameters":  {
+                                         "updates":  [
+                                                         "message"
+                                                     ],
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "telegram-trigger",
+                      "name":  "Telegram -- Receber Mensagem",
+                      "type":  "n8n-nodes-base.telegramTrigger",
+                      "typeVersion":  1.1,
+                      "position":  [
+                                       240,
+                                       300
+                                   ],
+                      "credentials":  {
+                                          "telegramApi":  {
+                                                              "id":  "pNmpmjEcJ1RUvpz3",
+                                                              "name":  "Vanguard IAH Bot"
+                                                          }
+                                      },
+                      "webhookId":  "9280a8e2-72ef-4fa0-a025-42fdadfc3662"
+                  },
+                  {
+                      "parameters":  {
+                                         "jsCode":  "const msg = $input.item.json.message || {};\nconst texto = (msg.text || \u0027\u0027).trim();\nconst chatId = msg.chat ? String(msg.chat.id) : \u0027\u0027;\nconst fromId = msg.from ? String(msg.from.id) : \u0027\u0027;\nconst DIRETOR_ID = \u00278895733647\u0027; // LEDGER: Telegram chat_id do Diretor -- identidade fixa, nao valor de negocio\nconst isDiretor = (chatId === DIRETOR_ID || fromId === DIRETOR_ID);\nif (!isDiretor) {\n  return [{ json: { tipo: \u0027erro\u0027, valido: false, motivo: \u0027Acesso nao autorizado.\u0027, chatId: chatId || fromId } }];\n}\nconst queryMatch = texto.match(/^\\/(status|score|custo)(?:\\s+(.*))?$/i);\nif (queryMatch) {\n  return [{ json: { tipo: \u0027query\u0027, cmd: queryMatch[1].toLowerCase(), param: (queryMatch[2]||\u0027\u0027).trim(), chatId: chatId } }];\n}\nconst okMatch = texto.match(/^\\/ok\\s+(.+)/i);\nif (okMatch) {\n  const nome = okMatch[1].trim();\n  return [{ json: { tipo: \u0027contato\u0027, nome: nome, chatId: chatId } }];\n}\nconst cmdMatch = texto.match(/^\\/(aprovar|rejeitar|veredito)\\s+(.+)/i);\nif (!cmdMatch) {\n  return [{ json: { tipo: \u0027erro\u0027, valido: false, motivo: \u0027Cmds: /status /score /custo /aprovar X /rejeitar X /veredito D1:A\u0027, chatId: chatId } }];\n}\nconst cmd = cmdMatch[1].toLowerCase();\nconst arg = cmdMatch[2].trim().toUpperCase();\nlet itens = [];\nif (cmd === \u0027veredito\u0027) {\n  const matches = arg.match(/D\\d+:[ABC]/gi);\n  if (matches) itens = matches.map(function(m){ return { id: m.split(\u0027:\u0027)[0], veredito: m.split(\u0027:\u0027)[1] }; });\n} else {\n  const v = cmd === \u0027aprovar\u0027 ? \u0027A\u0027 : \u0027B\u0027;\n  itens = [{ id: arg, veredito: v }];\n}\nif (!itens.length) {\n  return [{ json: { tipo: \u0027erro\u0027, valido: false, motivo: \u0027Nenhum item reconhecido. Use D1:A D2:B\u0027, chatId: chatId } }];\n}\nconst agora = new Date();\nconst tsFile = agora.toISOString().replace(/[^0-9]/g,\u0027\u0027).slice(0,12);\nconst dataHora = agora.toISOString().replace(\u0027T\u0027,\u0027 \u0027).slice(0,16) + \u0027 UTC\u0027;\nreturn [{ json: { tipo: \u0027veredito\u0027, valido: true, cmd: cmd, itens: itens, chatId: chatId, tsFile: tsFile, dataHora: dataHora } }];"
+                                     },
+                      "id":  "code-parsear",
+                      "name":  "Parsear Comando",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       460,
+                                       300
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "boolean":  [
+                                                                            {
+                                                                                "value1":  "={{ $json.valido }}",
+                                                                                "value2":  true
+                                                                            }
+                                                                        ]
+                                                        }
+                                     },
+                      "id":  "if-valido",
+                      "name":  "Comando Valido?",
+                      "type":  "n8n-nodes-base.if",
+                      "typeVersion":  1,
+                      "position":  [
+                                       680,
+                                       300
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "jsCode":  "const item = $(\u0027Parsear Comando\u0027).item.json;\n\nconst nomeArquivo = \u0027VEREDITOS/VEREDITOS_\u0027 + item.tsFile + \u0027.json\u0027;\n\nconst payload = {\n  timestamp: new Date().toISOString(),\n  dataHora: item.dataHora,\n  vereditos: item.itens,\n  fonte: \u0027telegram\u0027,\n  diretor_confirmado: true\n};\nconst payloadB64 = Buffer.from(JSON.stringify(payload, null, 2), \u0027utf8\u0027).toString(\u0027base64\u0027);\nconst commitMsg = \u0027veredito(telegram): \u0027 + item.itens.map(function(i){ return i.id + \u0027:\u0027 + i.veredito; }).join(\u0027, \u0027);\n\nconst blocos = [];\nblocos.push({\n  object: \u0027block\u0027,\n  type: \u0027heading_3\u0027,\n  heading_3: { rich_text: [{ type: \u0027text\u0027, text: { content: \u0027Vereditos \u0027 + item.dataHora } }] }\n});\nitem.itens.forEach(function(i) {\n  const label = i.veredito === \u0027A\u0027 ? \u0027APROVADO\u0027 : (i.veredito === \u0027B\u0027 ? \u0027DEVOLVER\u0027 : i.veredito);\n  blocos.push({\n    object: \u0027block\u0027,\n    type: \u0027bulleted_list_item\u0027,\n    bulleted_list_item: { rich_text: [{ type: \u0027text\u0027, text: { content: i.id + \u0027 - \u0027 + label } } ] }\n  });\n});\nblocos.push({\n  object: \u0027block\u0027,\n  type: \u0027paragraph\u0027,\n  paragraph: { rich_text: [{ type: \u0027text\u0027, text: { content: \u0027Arquivo: \u0027 + nomeArquivo }, annotations: { italic: true, color: \u0027gray\u0027 } }] }\n});\n\nconst linhasConfirm = item.itens.map(function(i){\n  const label = i.veredito === \u0027A\u0027 ? \u0027APROVADO\u0027 : (i.veredito === \u0027B\u0027 ? \u0027DEVOLVER\u0027 : i.veredito);\n  return \u0027  - \u0027 + i.id + \u0027: \u0027 + label;\n}).join(\u0027\\n\u0027);\n\nconst confirmacao = \u0027Veredito registrado!\\n\u0027 + linhasConfirm + \u0027\\n\\nArquivo: \u0027 + nomeArquivo + \u0027\\n\u0027 + item.dataHora;\n\nreturn [{ json: {\n  notionChildren: blocos,\n  confirmacao: confirmacao,\n  chatId: item.chatId,\n  nomeArquivo: nomeArquivo,\n  payloadB64: payloadB64,\n  commitMsg: commitMsg\n} }];\n"
+                                     },
+                      "id":  "code-preparar",
+                      "name":  "Preparar Registro",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       900,
+                                       200
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "PUT",
+                                         "url":  "={{ \u0027https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/\u0027 + $json.nomeArquivo }}",
+                                         "sendHeaders":  true,
+                                         "specifyHeaders":  "keypair",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ \u0027token \u0027 + $env.GITHUB_PAT_WRITE }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Accept",
+                                                                                         "value":  "application/vnd.github.v3+json"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "X-GitHub-Api-Version",
+                                                                                         "value":  "2022-11-28"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "jsonBody":  "={{ JSON.stringify({ message: $json.commitMsg, content: $json.payloadB64, committer: { name: \u0027n8n Vanguard\u0027, email: \u0027subdiretor.mnmsgm@gmail.com\u0027 } }) }}",
+                                         "options":  {
+                                                         "timeout":  15000
+                                                     },
+                                         "ignoreResponseCode":  false
+                                     },
+                      "id":  "github-write",
+                      "name":  "GitHub -- Gravar VEREDITOS",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1120,
+                                       200
+                                   ],
+                      "continueOnFail":  true
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "PATCH",
+                                         "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_PENDENTES_PAGE_ID + \u0027/children\u0027 }}",
+                                         "sendHeaders":  true,
+                                         "specifyHeaders":  "keypair",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Notion-Version",
+                                                                                         "value":  "2022-06-28"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Content-Type",
+                                                                                         "value":  "application/json"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "jsonBody":  "={{ JSON.stringify({ children: $(\u0027Preparar Registro\u0027).item.json.notionChildren }) }}",
+                                         "options":  {
+                                                         "timeout":  15000
+                                                     },
+                                         "ignoreResponseCode":  true
+                                     },
+                      "id":  "notion-veredito",
+                      "name":  "Notion -- Log Veredito",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1340,
+                                       200
+                                   ],
+                      "continueOnFail":  true
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                         "sendBody":  true,
+                                         "specifyBody":  "keypair",
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "chat_id",
+                                                                                       "value":  "={{ $(\u0027Preparar Registro\u0027).item.json.chatId }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "text",
+                                                                                       "value":  "={{ $(\u0027Preparar Registro\u0027).item.json.confirmacao }}"
+                                                                                   }
+                                                                               ]
+                                                            }
+                                     },
+                      "id":  "telegram-confirmar",
+                      "name":  "Telegram -- Confirmar Veredito",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1560,
+                                       200
+                                   ],
+                      "continueOnFail":  true
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                         "sendBody":  true,
+                                         "specifyBody":  "keypair",
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "chat_id",
+                                                                                       "value":  "={{ $(\u0027Parsear Comando\u0027).item.json.chatId }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "text",
+                                                                                       "value":  "={{ $(\u0027Parsear Comando\u0027).item.json.motivo }}"
+                                                                                   }
+                                                                               ]
+                                                            }
+                                     },
+                      "id":  "telegram-erro",
+                      "name":  "Telegram -- Erro de Formato",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       900,
+                                       420
+                                   ],
+                      "continueOnFail":  true
+                  },
+                  {
+                      "id":  "if-query",
+                      "name":  "Eh Query?",
+                      "type":  "n8n-nodes-base.if",
+                      "typeVersion":  1,
+                      "position":  [
+                                       680,
+                                       500
+                                   ],
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "string":  [
+                                                                           {
+                                                                               "value1":  "={{ $json.tipo }}",
+                                                                               "value2":  "query",
+                                                                               "operation":  "equal"
+                                                                           }
+                                                                       ]
+                                                        }
+                                     }
+                  },
+                  {
+                      "id":  "code-query-prep",
+                      "name":  "Preparar Query",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       900,
+                                       500
+                                   ],
+                      "parameters":  {
+                                         "jsCode":  "const item = $input.item.json;\nconst cmd = item.cmd;\nconst param = (item.param || \u0027\u0027).toLowerCase().trim();\nconst chatId = item.chatId;\nconst githubToken = $env.GITHUB_PAT_READONLY || \u0027\u0027;\nconst supabaseUrl = $env.SUPABASE_URL || \u0027\u0027;\nconst supabaseKey = $env.SUPABASE_ANON_KEY || \u0027\u0027;\nlet url = \u0027\u0027;\nlet authHeader = \u0027\u0027;\nlet apiKey = \u0027\u0027;\nif (cmd === \u0027status\u0027) {\n  url = \u0027https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json\u0027;\n  authHeader = \u0027token \u0027 + githubToken;\n} else if (cmd === \u0027score\u0027) {\n  if (supabaseUrl \u0026\u0026 supabaseKey) {\n    url = supabaseUrl + \u0027/rest/v1/respostas?order=respondido_em.desc\u0026limit=100\u0026select=acertou,respondido_em\u0027;\n    authHeader = \u0027Bearer \u0027 + supabaseKey;\n    apiKey = supabaseKey;\n  }\n} else if (cmd === \u0027custo\u0027) {\n  if (supabaseUrl \u0026\u0026 supabaseKey) {\n    url = supabaseUrl + \u0027/rest/v1/custo_sessoes?order=data.desc\u0026limit=10\u0026select=data,custo_usd,tokens_totais\u0027;\n    authHeader = \u0027Bearer \u0027 + supabaseKey;\n    apiKey = supabaseKey;\n  }\n}\nreturn [{ json: { url:url, authHeader:authHeader, apiKey:apiKey, cmd:cmd, param:param, chatId:chatId, semConfig:!url } }];"
+                                     }
+                  },
+                  {
+                      "id":  "http-query",
+                      "name":  "Executar Query",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1120,
+                                       500
+                                   ],
+                      "continueOnFail":  true,
+                      "parameters":  {
+                                         "method":  "GET",
+                                         "url":  "={{ $json.url }}",
+                                         "sendHeaders":  true,
+                                         "specifyHeaders":  "keypair",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ $json.authHeader }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Accept",
+                                                                                         "value":  "application/vnd.github.v3+json"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "apikey",
+                                                                                         "value":  "={{ $json.apiKey || \u0027\u0027 }}"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "options":  {
+                                                         "timeout":  10000
+                                                     },
+                                         "ignoreResponseCode":  true
+                                     }
+                  },
+                  {
+                      "id":  "code-query-fmt",
+                      "name":  "Formatar Resposta",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       1340,
+                                       500
+                                   ],
+                      "parameters":  {
+                                         "jsCode":  "const prep = $(\u0027Preparar Query\u0027).item.json;\nconst cmd = prep.cmd;\nconst chatId = prep.chatId;\nconst raw = $input.item.json;\nlet texto = \u0027\u0027;\nif (prep.semConfig) {\n  texto = cmd + \u0027: config pendente.\\nAdicionar no EasyPanel: SUPABASE_URL + SUPABASE_ANON_KEY\u0027;\n} else if (raw.message \u0026\u0026 typeof raw.message === \u0027string\u0027 \u0026\u0026 raw.message.length \u003c 200) {\n  texto = cmd + \u0027: erro -- \u0027 + raw.message;\n} else if (cmd === \u0027status\u0027) {\n  try {\n    const content = raw.content ? Buffer.from(raw.content.replace(/\\n/g,\u0027\u0027),\u0027base64\u0027).toString(\u0027utf8\u0027) : null;\n    if (!content) throw new Error(\u0027sem conteudo\u0027);\n    const wip = JSON.parse(content);\n    const board = wip.board || {};\n    const linhas = [];\n    [\u0027build\u0027,\u0027check\u0027,\u0027retainer\u0027].forEach(function(col) {\n      (board[col]||[]).forEach(function(p) {\n        const f = p.loop_fase_atual || {};\n        linhas.push(col.toUpperCase()+\u0027|\u0027+p.cliente+\u0027 L\u0027+(f.loop||\u0027?\u0027)+\u0027|\u0027+(f.proximo||p.proximo_passo||\u0027\u0027).slice(0,45));\n      });\n    });\n    texto = \u0027STATUS \u0027+new Date().toISOString().slice(0,10)+\u0027\\n\\n\u0027+(linhas.length?linhas.join(\u0027\\n\u0027):\u0027(vazio)\u0027);\n  } catch(e) { texto = \u0027status: erro -- \u0027+e.message; }\n} else if (cmd === \u0027score\u0027) {\n  try {\n    const rows = Array.isArray(raw) ? raw : [];\n    if (!rows.length) { texto = \u0027score: sem dados em respostas.\u0027; }\n    else {\n      const ac = rows.filter(function(r){return r.acertou===true;}).length;\n      const pct = Math.round(ac/rows.length*100);\n      const lim = new Date(Date.now()-7*24*3600*1000).toISOString();\n      const rec = rows.filter(function(r){return r.respondido_em\u003e=lim;});\n      const acRec = rec.filter(function(r){return r.acertou===true;}).length;\n      const pctR = rec.length ? Math.round(acRec/rec.length*100) : 0;\n      texto = \u0027SCORE INGRID\\n\u0027+ac+\u0027/\u0027+rows.length+\u0027 (\u0027+pct+\u0027%)\\n7d: \u0027+acRec+\u0027/\u0027+rec.length+\u0027 (\u0027+pctR+\u0027%)\\n\u0027+new Date().toISOString().slice(0,10);\n    }\n  } catch(e) { texto = \u0027score: \u0027+e.message; }\n} else if (cmd === \u0027custo\u0027) {\n  try {\n    const rows = Array.isArray(raw) ? raw : [];\n    if (!rows.length) { texto = \u0027custo: sem dados. Registrar sessoes primeiro.\u0027; }\n    else {\n      const tot = rows.reduce(function(s,r){return s+(parseFloat(r.custo_usd)||0);},0);\n      const tok = rows.reduce(function(s,r){return s+(parseInt(r.tokens_totais)||0);},0);\n      texto = \u0027CUSTO \u0027+new Date().toISOString().slice(0,7)+\u0027\\nUSD: \u0027+tot.toFixed(4)+\u0027\\nTokens: \u0027+tok.toLocaleString();\n    }\n  } catch(e) { texto = \u0027custo: \u0027+e.message; }\n}\nreturn [{ json: { texto:texto, chatId:chatId } }];"
+                                     }
+                  },
+                  {
+                      "id":  "telegram-query-resp",
+                      "name":  "Telegram -- Resposta Query",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1560,
+                                       500
+                                   ],
+                      "continueOnFail":  true,
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                         "sendBody":  true,
+                                         "specifyBody":  "keypair",
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "chat_id",
+                                                                                       "value":  "={{ $json.chatId }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "text",
+                                                                                       "value":  "={{ $json.texto }}"
+                                                                                   }
+                                                                               ]
+                                                            }
+                                     }
+                  },
+                  {
+                      "id":  "if-contato",
+                      "name":  "Eh Contato?",
+                      "type":  "n8n-nodes-base.if",
+                      "typeVersion":  1,
+                      "position":  [
+                                       880,
+                                       700
+                                   ],
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "string":  [
+                                                                           {
+                                                                               "value1":  "={{ $json.tipo }}",
+                                                                               "value2":  "contato",
+                                                                               "operation":  "equal"
+                                                                           }
+                                                                       ]
+                                                        }
+                                     }
+                  },
+                  {
+                      "id":  "code-prep",
+                      "name":  "Preparar Leitura Contato",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       1100,
+                                       700
+                                   ],
+                      "parameters":  {
+                                         "jsCode":  "const item = $input.item.json;\nconst nome = item.nome; const chatId = item.chatId;\nconst tok = $env.GITHUB_PAT_WRITE || \"\";\nconst url = \"https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json\";\nreturn [{ json: { url: url, authHeader: \"token \" + tok, nome: nome, chatId: chatId } }];"
+                                     }
+                  },
+                  {
+                      "id":  "http-ler",
+                      "name":  "GitHub -- Ler WIP (Contato)",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "continueOnFail":  true,
+                      "position":  [
+                                       1320,
+                                       700
+                                   ],
+                      "parameters":  {
+                                         "method":  "GET",
+                                         "url":  "={{ $json.url }}",
+                                         "sendHeaders":  true,
+                                         "specifyHeaders":  "keypair",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ $json.authHeader }}"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "options":  {
+                                                         "timeout":  10000
+                                                     },
+                                         "ignoreResponseCode":  true
+                                     }
+                  },
+                  {
+                      "id":  "code-atu",
+                      "name":  "Atualizar Contato WIP",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "continueOnFail":  true,
+                      "position":  [
+                                       1540,
+                                       700
+                                   ],
+                      "parameters":  {
+                                         "jsCode":  "const prep = $(\u0027Preparar Leitura Contato\u0027).item.json; const raw = $input.item.json;\nconst nome = (prep.nome||\"\").toUpperCase(); const chatId = prep.chatId;\nconst today = new Date().toISOString().slice(0,10); const sha = raw.sha||\"\";\nif (!raw.content) return [{ json: { confirmacao: \"Erro: WIP_BOARD nao encontrado.\", chatId: chatId, sha:\"\", url:\"\" } }];\nconst content = Buffer.from(raw.content.replace(/\\n/g,\"\"),\"base64\").toString(\"utf8\");\nlet wip; try { wip=JSON.parse(content); } catch(e) { return [{ json: { confirmacao:\"Erro JSON.\", chatId:chatId, sha:\"\", url:\"\" } }]; }\nconst board=wip.board||{}; let cliente=null; let thr=3;\n[\"build\",\"check\",\"retainer\",\"active_projects\"].forEach(col=\u003e{(board[col]||[]).forEach(p=\u003e{if(p.cliente\u0026\u0026p.cliente.toUpperCase()===nome){p.ultimo_contato_cliente=today;cliente=p.cliente;thr=parseInt(p.churn_watch_threshold)||3;}});});\nif(!cliente) return [{ json: { confirmacao:\"Erro: \"+prep.nome+\" nao encontrado.\", chatId:chatId, sha:\"\", url:\"\" } }];\nconst novoContent=Buffer.from(JSON.stringify(wip,null,4),\"utf8\").toString(\"base64\");\nconst commitMsg=\"chore(churnwatch): contato \"+cliente+\" via Telegram \"+today;\nconst confirmacao=\"Contato com \"+cliente+\" registrado (\"+today+\").\\nProximo alerta em \"+thr+\" dias.\";\nreturn [{ json: { url:\"https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json\", sha:sha, novoContent:novoContent, commitMsg:commitMsg, confirmacao:confirmacao, chatId:chatId } }];"
+                                     }
+                  },
+                  {
+                      "id":  "http-grav",
+                      "name":  "GitHub -- Gravar Contato",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "continueOnFail":  true,
+                      "position":  [
+                                       1760,
+                                       700
+                                   ],
+                      "parameters":  {
+                                         "method":  "PUT",
+                                         "url":  "={{ $json.url }}",
+                                         "sendHeaders":  true,
+                                         "specifyHeaders":  "keypair",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "={{ \u0027token \u0027 + $env.GITHUB_PAT_WRITE }}"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Accept",
+                                                                                         "value":  "application/vnd.github.v3+json"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "jsonBody":  "={{ JSON.stringify({message:$json.commitMsg,content:$json.novoContent,sha:$json.sha,committer:{name:\u0027n8n Vanguard\u0027,email:\u0027subdiretor.mnmsgm@gmail.com\u0027}}) }}",
+                                         "options":  {
+                                                         "timeout":  15000
+                                                     }
+                                     }
+                  },
+                  {
+                      "id":  "http-tel",
+                      "name":  "Telegram -- Confirmar Contato",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "continueOnFail":  true,
+                      "position":  [
+                                       1980,
+                                       700
+                                   ],
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                         "sendBody":  true,
+                                         "specifyBody":  "keypair",
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "chat_id",
+                                                                                       "value":  "={{ $(\u0027Atualizar Contato WIP\u0027).item.json.chatId }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "text",
+                                                                                       "value":  "={{ $(\u0027Atualizar Contato WIP\u0027).item.json.confirmacao }}"
+                                                                                   }
+                                                                               ]
+                                                            }
+                                     }
+                  }
+              ],
+    "connections":  {
+                        "Telegram -- Receber Mensagem":  {
+                                                             "main":  [
+                                                                          [
+                                                                              {
+                                                                                  "node":  "Parsear Comando",
+                                                                                  "type":  "main",
+                                                                                  "index":  0
+                                                                              }
+                                                                          ]
+                                                                      ]
+                                                         },
+                        "Parsear Comando":  {
+                                                "main":  [
+                                                             [
+                                                                 {
+                                                                     "node":  "Eh Query?",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ]
+                                                         ]
+                                            },
+                        "Comando Valido?":  {
+                                                "main":  [
+                                                             [
+                                                                 {
+                                                                     "node":  "Preparar Registro",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ],
+                                                             [
+                                                                 {
+                                                                     "node":  "Telegram -- Erro de Formato",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ]
+                                                         ]
+                                            },
+                        "Preparar Registro":  {
+                                                  "main":  [
+                                                               [
+                                                                   {
+                                                                       "node":  "GitHub -- Gravar VEREDITOS",
+                                                                       "type":  "main",
+                                                                       "index":  0
+                                                                   }
+                                                               ]
+                                                           ]
+                                              },
+                        "GitHub -- Gravar VEREDITOS":  {
+                                                           "main":  [
+                                                                        [
+                                                                            {
+                                                                                "node":  "Notion -- Log Veredito",
+                                                                                "type":  "main",
+                                                                                "index":  0
+                                                                            }
+                                                                        ]
+                                                                    ]
+                                                       },
+                        "Notion -- Log Veredito":  {
+                                                       "main":  [
+                                                                    [
+                                                                        {
+                                                                            "node":  "Telegram -- Confirmar Veredito",
+                                                                            "type":  "main",
+                                                                            "index":  0
+                                                                        }
+                                                                    ]
+                                                                ]
+                                                   },
+                        "Eh Query?":  {
+                                          "main":  [
+                                                       [
+                                                           {
+                                                               "node":  "Preparar Query",
+                                                               "type":  "main",
+                                                               "index":  0
+                                                           }
+                                                       ],
+                                                       [
+                                                           {
+                                                               "node":  "Eh Contato?",
+                                                               "type":  "main",
+                                                               "index":  0
+                                                           }
+                                                       ]
+                                                   ]
+                                      },
+                        "Preparar Query":  {
+                                               "main":  [
+                                                            [
+                                                                {
+                                                                    "node":  "Executar Query",
+                                                                    "type":  "main",
+                                                                    "index":  0
+                                                                }
+                                                            ]
+                                                        ]
+                                           },
+                        "Executar Query":  {
+                                               "main":  [
+                                                            [
+                                                                {
+                                                                    "node":  "Formatar Resposta",
+                                                                    "type":  "main",
+                                                                    "index":  0
+                                                                }
+                                                            ]
+                                                        ]
+                                           },
+                        "Formatar Resposta":  {
+                                                  "main":  [
+                                                               [
+                                                                   {
+                                                                       "node":  "Telegram -- Resposta Query",
+                                                                       "type":  "main",
+                                                                       "index":  0
+                                                                   }
+                                                               ]
+                                                           ]
+                                              },
+                        "Eh Contato?":  {
+                                            "main":  [
+                                                         [
+                                                             {
+                                                                 "node":  "Preparar Leitura Contato",
+                                                                 "type":  "main",
+                                                                 "index":  0
+                                                             }
+                                                         ],
+                                                         [
+                                                             {
+                                                                 "node":  "Comando Valido?",
+                                                                 "type":  "main",
+                                                                 "index":  0
+                                                             }
+                                                         ]
+                                                     ]
+                                        },
+                        "Preparar Leitura Contato":  {
+                                                         "main":  [
+                                                                      [
+                                                                          {
+                                                                              "node":  "GitHub -- Ler WIP (Contato)",
+                                                                              "type":  "main",
+                                                                              "index":  0
+                                                                          }
+                                                                      ]
+                                                                  ]
+                                                     },
+                        "GitHub -- Ler WIP (Contato)":  {
+                                                            "main":  [
+                                                                         [
+                                                                             {
+                                                                                 "node":  "Atualizar Contato WIP",
+                                                                                 "type":  "main",
+                                                                                 "index":  0
+                                                                             }
+                                                                         ]
+                                                                     ]
+                                                        },
+                        "Atualizar Contato WIP":  {
+                                                      "main":  [
+                                                                   [
+                                                                       {
+                                                                           "node":  "GitHub -- Gravar Contato",
+                                                                           "type":  "main",
+                                                                           "index":  0
+                                                                       }
+                                                                   ]
+                                                               ]
+                                                  },
+                        "GitHub -- Gravar Contato":  {
+                                                         "main":  [
+                                                                      [
+                                                                          {
+                                                                              "node":  "Telegram -- Confirmar Contato",
+                                                                              "type":  "main",
+                                                                              "index":  0
+                                                                          }
+                                                                      ]
+                                                                  ]
+                                                     }
+                    },
+    "settings":  {
+                     "executionOrder":  "v1"
+                 },
+    "staticData":  null,
+    "meta":  null,
+    "nodeGroups":  [
+
+                   ],
+    "pinData":  null,
+    "versionId":  "929bb696-dd3d-4112-a914-d4a11ac19ca0",
+    "activeVersionId":  "929bb696-dd3d-4112-a914-d4a11ac19ca0",
+    "versionCounter":  5,
+    "triggerCount":  1,
+    "shared":  [
+                   {
+                       "updatedAt":  "2026-06-05T06:19:28.459Z",
+                       "createdAt":  "2026-06-05T06:19:28.459Z",
+                       "role":  "workflow:owner",
+                       "workflowId":  "KisAa6ynD4btgrkL",
+                       "projectId":  "Mb9nRcqOOeOWwvQp",
+                       "project":  {
+                                       "updatedAt":  "2026-06-05T00:22:23.279Z",
+                                       "createdAt":  "2026-06-05T00:20:22.979Z",
+                                       "id":  "Mb9nRcqOOeOWwvQp",
+                                       "name":  "Eduardo Vanguard \u003csubdiretor.mnmsgm@gmail.com\u003e",
+                                       "type":  "personal",
+                                       "icon":  null,
+                                       "description":  null,
+                                       "creatorId":  "c9cce6ae-4208-4652-b8b0-becc6071d41a"
+                                   }
+                   }
+               ],
+    "tags":  [
+
+             ],
+    "activeVersion":  {
+                          "updatedAt":  "2026-06-07T15:36:36.380Z",
+                          "createdAt":  "2026-06-07T15:36:36.380Z",
+                          "versionId":  "929bb696-dd3d-4112-a914-d4a11ac19ca0",
+                          "workflowId":  "KisAa6ynD4btgrkL",
+                          "nodes":  [
+                                        {
+                                            "parameters":  {
+                                                               "updates":  [
+                                                                               "message"
+                                                                           ],
+                                                               "options":  {
+
+                                                                           }
+                                                           },
+                                            "id":  "telegram-trigger",
+                                            "name":  "Telegram -- Receber Mensagem",
+                                            "type":  "n8n-nodes-base.telegramTrigger",
+                                            "typeVersion":  1.1,
+                                            "position":  [
+                                                             240,
+                                                             300
+                                                         ],
+                                            "credentials":  {
+                                                                "telegramApi":  {
+                                                                                    "id":  "pNmpmjEcJ1RUvpz3",
+                                                                                    "name":  "Vanguard IAH Bot"
+                                                                                }
+                                                            },
+                                            "webhookId":  "9280a8e2-72ef-4fa0-a025-42fdadfc3662"
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "jsCode":  "const msg = $input.item.json.message || {};\nconst texto = (msg.text || \u0027\u0027).trim();\nconst chatId = msg.chat ? String(msg.chat.id) : \u0027\u0027;\nconst fromId = msg.from ? String(msg.from.id) : \u0027\u0027;\nconst DIRETOR_ID = \u00278895733647\u0027; // LEDGER: Telegram chat_id do Diretor -- identidade fixa, nao valor de negocio\nconst isDiretor = (chatId === DIRETOR_ID || fromId === DIRETOR_ID);\nif (!isDiretor) {\n  return [{ json: { tipo: \u0027erro\u0027, valido: false, motivo: \u0027Acesso nao autorizado.\u0027, chatId: chatId || fromId } }];\n}\nconst queryMatch = texto.match(/^\\/(status|score|custo)(?:\\s+(.*))?$/i);\nif (queryMatch) {\n  return [{ json: { tipo: \u0027query\u0027, cmd: queryMatch[1].toLowerCase(), param: (queryMatch[2]||\u0027\u0027).trim(), chatId: chatId } }];\n}\nconst okMatch = texto.match(/^\\/ok\\s+(.+)/i);\nif (okMatch) {\n  const nome = okMatch[1].trim();\n  return [{ json: { tipo: \u0027contato\u0027, nome: nome, chatId: chatId } }];\n}\nconst cmdMatch = texto.match(/^\\/(aprovar|rejeitar|veredito)\\s+(.+)/i);\nif (!cmdMatch) {\n  return [{ json: { tipo: \u0027erro\u0027, valido: false, motivo: \u0027Cmds: /status /score /custo /aprovar X /rejeitar X /veredito D1:A\u0027, chatId: chatId } }];\n}\nconst cmd = cmdMatch[1].toLowerCase();\nconst arg = cmdMatch[2].trim().toUpperCase();\nlet itens = [];\nif (cmd === \u0027veredito\u0027) {\n  const matches = arg.match(/D\\d+:[ABC]/gi);\n  if (matches) itens = matches.map(function(m){ return { id: m.split(\u0027:\u0027)[0], veredito: m.split(\u0027:\u0027)[1] }; });\n} else {\n  const v = cmd === \u0027aprovar\u0027 ? \u0027A\u0027 : \u0027B\u0027;\n  itens = [{ id: arg, veredito: v }];\n}\nif (!itens.length) {\n  return [{ json: { tipo: \u0027erro\u0027, valido: false, motivo: \u0027Nenhum item reconhecido. Use D1:A D2:B\u0027, chatId: chatId } }];\n}\nconst agora = new Date();\nconst tsFile = agora.toISOString().replace(/[^0-9]/g,\u0027\u0027).slice(0,12);\nconst dataHora = agora.toISOString().replace(\u0027T\u0027,\u0027 \u0027).slice(0,16) + \u0027 UTC\u0027;\nreturn [{ json: { tipo: \u0027veredito\u0027, valido: true, cmd: cmd, itens: itens, chatId: chatId, tsFile: tsFile, dataHora: dataHora } }];"
+                                                           },
+                                            "id":  "code-parsear",
+                                            "name":  "Parsear Comando",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             460,
+                                                             300
+                                                         ]
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "conditions":  {
+                                                                                  "boolean":  [
+                                                                                                  {
+                                                                                                      "value1":  "={{ $json.valido }}",
+                                                                                                      "value2":  true
+                                                                                                  }
+                                                                                              ]
+                                                                              }
+                                                           },
+                                            "id":  "if-valido",
+                                            "name":  "Comando Valido?",
+                                            "type":  "n8n-nodes-base.if",
+                                            "typeVersion":  1,
+                                            "position":  [
+                                                             680,
+                                                             300
+                                                         ]
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "jsCode":  "const item = $(\u0027Parsear Comando\u0027).item.json;\n\nconst nomeArquivo = \u0027VEREDITOS/VEREDITOS_\u0027 + item.tsFile + \u0027.json\u0027;\n\nconst payload = {\n  timestamp: new Date().toISOString(),\n  dataHora: item.dataHora,\n  vereditos: item.itens,\n  fonte: \u0027telegram\u0027,\n  diretor_confirmado: true\n};\nconst payloadB64 = Buffer.from(JSON.stringify(payload, null, 2), \u0027utf8\u0027).toString(\u0027base64\u0027);\nconst commitMsg = \u0027veredito(telegram): \u0027 + item.itens.map(function(i){ return i.id + \u0027:\u0027 + i.veredito; }).join(\u0027, \u0027);\n\nconst blocos = [];\nblocos.push({\n  object: \u0027block\u0027,\n  type: \u0027heading_3\u0027,\n  heading_3: { rich_text: [{ type: \u0027text\u0027, text: { content: \u0027Vereditos \u0027 + item.dataHora } }] }\n});\nitem.itens.forEach(function(i) {\n  const label = i.veredito === \u0027A\u0027 ? \u0027APROVADO\u0027 : (i.veredito === \u0027B\u0027 ? \u0027DEVOLVER\u0027 : i.veredito);\n  blocos.push({\n    object: \u0027block\u0027,\n    type: \u0027bulleted_list_item\u0027,\n    bulleted_list_item: { rich_text: [{ type: \u0027text\u0027, text: { content: i.id + \u0027 - \u0027 + label } } ] }\n  });\n});\nblocos.push({\n  object: \u0027block\u0027,\n  type: \u0027paragraph\u0027,\n  paragraph: { rich_text: [{ type: \u0027text\u0027, text: { content: \u0027Arquivo: \u0027 + nomeArquivo }, annotations: { italic: true, color: \u0027gray\u0027 } }] }\n});\n\nconst linhasConfirm = item.itens.map(function(i){\n  const label = i.veredito === \u0027A\u0027 ? \u0027APROVADO\u0027 : (i.veredito === \u0027B\u0027 ? \u0027DEVOLVER\u0027 : i.veredito);\n  return \u0027  - \u0027 + i.id + \u0027: \u0027 + label;\n}).join(\u0027\\n\u0027);\n\nconst confirmacao = \u0027Veredito registrado!\\n\u0027 + linhasConfirm + \u0027\\n\\nArquivo: \u0027 + nomeArquivo + \u0027\\n\u0027 + item.dataHora;\n\nreturn [{ json: {\n  notionChildren: blocos,\n  confirmacao: confirmacao,\n  chatId: item.chatId,\n  nomeArquivo: nomeArquivo,\n  payloadB64: payloadB64,\n  commitMsg: commitMsg\n} }];\n"
+                                                           },
+                                            "id":  "code-preparar",
+                                            "name":  "Preparar Registro",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             900,
+                                                             200
+                                                         ]
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "method":  "PUT",
+                                                               "url":  "={{ \u0027https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/\u0027 + $json.nomeArquivo }}",
+                                                               "sendHeaders":  true,
+                                                               "specifyHeaders":  "keypair",
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ \u0027token \u0027 + $env.GITHUB_PAT_WRITE }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Accept",
+                                                                                                               "value":  "application/vnd.github.v3+json"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "X-GitHub-Api-Version",
+                                                                                                               "value":  "2022-11-28"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "json",
+                                                               "jsonBody":  "={{ JSON.stringify({ message: $json.commitMsg, content: $json.payloadB64, committer: { name: \u0027n8n Vanguard\u0027, email: \u0027subdiretor.mnmsgm@gmail.com\u0027 } }) }}",
+                                                               "options":  {
+                                                                               "timeout":  15000
+                                                                           },
+                                                               "ignoreResponseCode":  false
+                                                           },
+                                            "id":  "github-write",
+                                            "name":  "GitHub -- Gravar VEREDITOS",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1120,
+                                                             200
+                                                         ],
+                                            "continueOnFail":  true
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "method":  "PATCH",
+                                                               "url":  "={{ \u0027https://api.notion.com/v1/blocks/\u0027 + $env.NOTION_PENDENTES_PAGE_ID + \u0027/children\u0027 }}",
+                                                               "sendHeaders":  true,
+                                                               "specifyHeaders":  "keypair",
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ \u0027Bearer \u0027 + $env.NOTION_API_TOKEN }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Notion-Version",
+                                                                                                               "value":  "2022-06-28"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Content-Type",
+                                                                                                               "value":  "application/json"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "json",
+                                                               "jsonBody":  "={{ JSON.stringify({ children: $(\u0027Preparar Registro\u0027).item.json.notionChildren }) }}",
+                                                               "options":  {
+                                                                               "timeout":  15000
+                                                                           },
+                                                               "ignoreResponseCode":  true
+                                                           },
+                                            "id":  "notion-veredito",
+                                            "name":  "Notion -- Log Veredito",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1340,
+                                                             200
+                                                         ],
+                                            "continueOnFail":  true
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "method":  "POST",
+                                                               "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "keypair",
+                                                               "bodyParameters":  {
+                                                                                      "parameters":  [
+                                                                                                         {
+                                                                                                             "name":  "chat_id",
+                                                                                                             "value":  "={{ $(\u0027Preparar Registro\u0027).item.json.chatId }}"
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "text",
+                                                                                                             "value":  "={{ $(\u0027Preparar Registro\u0027).item.json.confirmacao }}"
+                                                                                                         }
+                                                                                                     ]
+                                                                                  }
+                                                           },
+                                            "id":  "telegram-confirmar",
+                                            "name":  "Telegram -- Confirmar Veredito",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1560,
+                                                             200
+                                                         ],
+                                            "continueOnFail":  true
+                                        },
+                                        {
+                                            "parameters":  {
+                                                               "method":  "POST",
+                                                               "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "keypair",
+                                                               "bodyParameters":  {
+                                                                                      "parameters":  [
+                                                                                                         {
+                                                                                                             "name":  "chat_id",
+                                                                                                             "value":  "={{ $(\u0027Parsear Comando\u0027).item.json.chatId }}"
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "text",
+                                                                                                             "value":  "={{ $(\u0027Parsear Comando\u0027).item.json.motivo }}"
+                                                                                                         }
+                                                                                                     ]
+                                                                                  }
+                                                           },
+                                            "id":  "telegram-erro",
+                                            "name":  "Telegram -- Erro de Formato",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             900,
+                                                             420
+                                                         ],
+                                            "continueOnFail":  true
+                                        },
+                                        {
+                                            "id":  "if-query",
+                                            "name":  "Eh Query?",
+                                            "type":  "n8n-nodes-base.if",
+                                            "typeVersion":  1,
+                                            "position":  [
+                                                             680,
+                                                             500
+                                                         ],
+                                            "parameters":  {
+                                                               "conditions":  {
+                                                                                  "string":  [
+                                                                                                 {
+                                                                                                     "value1":  "={{ $json.tipo }}",
+                                                                                                     "value2":  "query",
+                                                                                                     "operation":  "equal"
+                                                                                                 }
+                                                                                             ]
+                                                                              }
+                                                           }
+                                        },
+                                        {
+                                            "id":  "code-query-prep",
+                                            "name":  "Preparar Query",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             900,
+                                                             500
+                                                         ],
+                                            "parameters":  {
+                                                               "jsCode":  "const item = $input.item.json;\nconst cmd = item.cmd;\nconst param = (item.param || \u0027\u0027).toLowerCase().trim();\nconst chatId = item.chatId;\nconst githubToken = $env.GITHUB_PAT_READONLY || \u0027\u0027;\nconst supabaseUrl = $env.SUPABASE_URL || \u0027\u0027;\nconst supabaseKey = $env.SUPABASE_ANON_KEY || \u0027\u0027;\nlet url = \u0027\u0027;\nlet authHeader = \u0027\u0027;\nlet apiKey = \u0027\u0027;\nif (cmd === \u0027status\u0027) {\n  url = \u0027https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json\u0027;\n  authHeader = \u0027token \u0027 + githubToken;\n} else if (cmd === \u0027score\u0027) {\n  if (supabaseUrl \u0026\u0026 supabaseKey) {\n    url = supabaseUrl + \u0027/rest/v1/respostas?order=respondido_em.desc\u0026limit=100\u0026select=acertou,respondido_em\u0027;\n    authHeader = \u0027Bearer \u0027 + supabaseKey;\n    apiKey = supabaseKey;\n  }\n} else if (cmd === \u0027custo\u0027) {\n  if (supabaseUrl \u0026\u0026 supabaseKey) {\n    url = supabaseUrl + \u0027/rest/v1/custo_sessoes?order=data.desc\u0026limit=10\u0026select=data,custo_usd,tokens_totais\u0027;\n    authHeader = \u0027Bearer \u0027 + supabaseKey;\n    apiKey = supabaseKey;\n  }\n}\nreturn [{ json: { url:url, authHeader:authHeader, apiKey:apiKey, cmd:cmd, param:param, chatId:chatId, semConfig:!url } }];"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "http-query",
+                                            "name":  "Executar Query",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1120,
+                                                             500
+                                                         ],
+                                            "continueOnFail":  true,
+                                            "parameters":  {
+                                                               "method":  "GET",
+                                                               "url":  "={{ $json.url }}",
+                                                               "sendHeaders":  true,
+                                                               "specifyHeaders":  "keypair",
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ $json.authHeader }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Accept",
+                                                                                                               "value":  "application/vnd.github.v3+json"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "apikey",
+                                                                                                               "value":  "={{ $json.apiKey || \u0027\u0027 }}"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "options":  {
+                                                                               "timeout":  10000
+                                                                           },
+                                                               "ignoreResponseCode":  true
+                                                           }
+                                        },
+                                        {
+                                            "id":  "code-query-fmt",
+                                            "name":  "Formatar Resposta",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             1340,
+                                                             500
+                                                         ],
+                                            "parameters":  {
+                                                               "jsCode":  "const prep = $(\u0027Preparar Query\u0027).item.json;\nconst cmd = prep.cmd;\nconst chatId = prep.chatId;\nconst raw = $input.item.json;\nlet texto = \u0027\u0027;\nif (prep.semConfig) {\n  texto = cmd + \u0027: config pendente.\\nAdicionar no EasyPanel: SUPABASE_URL + SUPABASE_ANON_KEY\u0027;\n} else if (raw.message \u0026\u0026 typeof raw.message === \u0027string\u0027 \u0026\u0026 raw.message.length \u003c 200) {\n  texto = cmd + \u0027: erro -- \u0027 + raw.message;\n} else if (cmd === \u0027status\u0027) {\n  try {\n    const content = raw.content ? Buffer.from(raw.content.replace(/\\n/g,\u0027\u0027),\u0027base64\u0027).toString(\u0027utf8\u0027) : null;\n    if (!content) throw new Error(\u0027sem conteudo\u0027);\n    const wip = JSON.parse(content);\n    const board = wip.board || {};\n    const linhas = [];\n    [\u0027build\u0027,\u0027check\u0027,\u0027retainer\u0027].forEach(function(col) {\n      (board[col]||[]).forEach(function(p) {\n        const f = p.loop_fase_atual || {};\n        linhas.push(col.toUpperCase()+\u0027|\u0027+p.cliente+\u0027 L\u0027+(f.loop||\u0027?\u0027)+\u0027|\u0027+(f.proximo||p.proximo_passo||\u0027\u0027).slice(0,45));\n      });\n    });\n    texto = \u0027STATUS \u0027+new Date().toISOString().slice(0,10)+\u0027\\n\\n\u0027+(linhas.length?linhas.join(\u0027\\n\u0027):\u0027(vazio)\u0027);\n  } catch(e) { texto = \u0027status: erro -- \u0027+e.message; }\n} else if (cmd === \u0027score\u0027) {\n  try {\n    const rows = Array.isArray(raw) ? raw : [];\n    if (!rows.length) { texto = \u0027score: sem dados em respostas.\u0027; }\n    else {\n      const ac = rows.filter(function(r){return r.acertou===true;}).length;\n      const pct = Math.round(ac/rows.length*100);\n      const lim = new Date(Date.now()-7*24*3600*1000).toISOString();\n      const rec = rows.filter(function(r){return r.respondido_em\u003e=lim;});\n      const acRec = rec.filter(function(r){return r.acertou===true;}).length;\n      const pctR = rec.length ? Math.round(acRec/rec.length*100) : 0;\n      texto = \u0027SCORE INGRID\\n\u0027+ac+\u0027/\u0027+rows.length+\u0027 (\u0027+pct+\u0027%)\\n7d: \u0027+acRec+\u0027/\u0027+rec.length+\u0027 (\u0027+pctR+\u0027%)\\n\u0027+new Date().toISOString().slice(0,10);\n    }\n  } catch(e) { texto = \u0027score: \u0027+e.message; }\n} else if (cmd === \u0027custo\u0027) {\n  try {\n    const rows = Array.isArray(raw) ? raw : [];\n    if (!rows.length) { texto = \u0027custo: sem dados. Registrar sessoes primeiro.\u0027; }\n    else {\n      const tot = rows.reduce(function(s,r){return s+(parseFloat(r.custo_usd)||0);},0);\n      const tok = rows.reduce(function(s,r){return s+(parseInt(r.tokens_totais)||0);},0);\n      texto = \u0027CUSTO \u0027+new Date().toISOString().slice(0,7)+\u0027\\nUSD: \u0027+tot.toFixed(4)+\u0027\\nTokens: \u0027+tok.toLocaleString();\n    }\n  } catch(e) { texto = \u0027custo: \u0027+e.message; }\n}\nreturn [{ json: { texto:texto, chatId:chatId } }];"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "telegram-query-resp",
+                                            "name":  "Telegram -- Resposta Query",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "position":  [
+                                                             1560,
+                                                             500
+                                                         ],
+                                            "continueOnFail":  true,
+                                            "parameters":  {
+                                                               "method":  "POST",
+                                                               "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "keypair",
+                                                               "bodyParameters":  {
+                                                                                      "parameters":  [
+                                                                                                         {
+                                                                                                             "name":  "chat_id",
+                                                                                                             "value":  "={{ $json.chatId }}"
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "text",
+                                                                                                             "value":  "={{ $json.texto }}"
+                                                                                                         }
+                                                                                                     ]
+                                                                                  }
+                                                           }
+                                        },
+                                        {
+                                            "id":  "if-contato",
+                                            "name":  "Eh Contato?",
+                                            "type":  "n8n-nodes-base.if",
+                                            "typeVersion":  1,
+                                            "position":  [
+                                                             880,
+                                                             700
+                                                         ],
+                                            "parameters":  {
+                                                               "conditions":  {
+                                                                                  "string":  [
+                                                                                                 {
+                                                                                                     "value1":  "={{ $json.tipo }}",
+                                                                                                     "value2":  "contato",
+                                                                                                     "operation":  "equal"
+                                                                                                 }
+                                                                                             ]
+                                                                              }
+                                                           }
+                                        },
+                                        {
+                                            "id":  "code-prep",
+                                            "name":  "Preparar Leitura Contato",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "position":  [
+                                                             1100,
+                                                             700
+                                                         ],
+                                            "parameters":  {
+                                                               "jsCode":  "const item = $input.item.json;\nconst nome = item.nome; const chatId = item.chatId;\nconst tok = $env.GITHUB_PAT_WRITE || \"\";\nconst url = \"https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json\";\nreturn [{ json: { url: url, authHeader: \"token \" + tok, nome: nome, chatId: chatId } }];"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "http-ler",
+                                            "name":  "GitHub -- Ler WIP (Contato)",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "continueOnFail":  true,
+                                            "position":  [
+                                                             1320,
+                                                             700
+                                                         ],
+                                            "parameters":  {
+                                                               "method":  "GET",
+                                                               "url":  "={{ $json.url }}",
+                                                               "sendHeaders":  true,
+                                                               "specifyHeaders":  "keypair",
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ $json.authHeader }}"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "options":  {
+                                                                               "timeout":  10000
+                                                                           },
+                                                               "ignoreResponseCode":  true
+                                                           }
+                                        },
+                                        {
+                                            "id":  "code-atu",
+                                            "name":  "Atualizar Contato WIP",
+                                            "type":  "n8n-nodes-base.code",
+                                            "typeVersion":  2,
+                                            "continueOnFail":  true,
+                                            "position":  [
+                                                             1540,
+                                                             700
+                                                         ],
+                                            "parameters":  {
+                                                               "jsCode":  "const prep = $(\u0027Preparar Leitura Contato\u0027).item.json; const raw = $input.item.json;\nconst nome = (prep.nome||\"\").toUpperCase(); const chatId = prep.chatId;\nconst today = new Date().toISOString().slice(0,10); const sha = raw.sha||\"\";\nif (!raw.content) return [{ json: { confirmacao: \"Erro: WIP_BOARD nao encontrado.\", chatId: chatId, sha:\"\", url:\"\" } }];\nconst content = Buffer.from(raw.content.replace(/\\n/g,\"\"),\"base64\").toString(\"utf8\");\nlet wip; try { wip=JSON.parse(content); } catch(e) { return [{ json: { confirmacao:\"Erro JSON.\", chatId:chatId, sha:\"\", url:\"\" } }]; }\nconst board=wip.board||{}; let cliente=null; let thr=3;\n[\"build\",\"check\",\"retainer\",\"active_projects\"].forEach(col=\u003e{(board[col]||[]).forEach(p=\u003e{if(p.cliente\u0026\u0026p.cliente.toUpperCase()===nome){p.ultimo_contato_cliente=today;cliente=p.cliente;thr=parseInt(p.churn_watch_threshold)||3;}});});\nif(!cliente) return [{ json: { confirmacao:\"Erro: \"+prep.nome+\" nao encontrado.\", chatId:chatId, sha:\"\", url:\"\" } }];\nconst novoContent=Buffer.from(JSON.stringify(wip,null,4),\"utf8\").toString(\"base64\");\nconst commitMsg=\"chore(churnwatch): contato \"+cliente+\" via Telegram \"+today;\nconst confirmacao=\"Contato com \"+cliente+\" registrado (\"+today+\").\\nProximo alerta em \"+thr+\" dias.\";\nreturn [{ json: { url:\"https://api.github.com/repos/subdiretormnmsgm-commits/vanguard/contents/CLIENTES/WIP_BOARD.json\", sha:sha, novoContent:novoContent, commitMsg:commitMsg, confirmacao:confirmacao, chatId:chatId } }];"
+                                                           }
+                                        },
+                                        {
+                                            "id":  "http-grav",
+                                            "name":  "GitHub -- Gravar Contato",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "continueOnFail":  true,
+                                            "position":  [
+                                                             1760,
+                                                             700
+                                                         ],
+                                            "parameters":  {
+                                                               "method":  "PUT",
+                                                               "url":  "={{ $json.url }}",
+                                                               "sendHeaders":  true,
+                                                               "specifyHeaders":  "keypair",
+                                                               "headerParameters":  {
+                                                                                        "parameters":  [
+                                                                                                           {
+                                                                                                               "name":  "Authorization",
+                                                                                                               "value":  "={{ \u0027token \u0027 + $env.GITHUB_PAT_WRITE }}"
+                                                                                                           },
+                                                                                                           {
+                                                                                                               "name":  "Accept",
+                                                                                                               "value":  "application/vnd.github.v3+json"
+                                                                                                           }
+                                                                                                       ]
+                                                                                    },
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "json",
+                                                               "jsonBody":  "={{ JSON.stringify({message:$json.commitMsg,content:$json.novoContent,sha:$json.sha,committer:{name:\u0027n8n Vanguard\u0027,email:\u0027subdiretor.mnmsgm@gmail.com\u0027}}) }}",
+                                                               "options":  {
+                                                                               "timeout":  15000
+                                                                           }
+                                                           }
+                                        },
+                                        {
+                                            "id":  "http-tel",
+                                            "name":  "Telegram -- Confirmar Contato",
+                                            "type":  "n8n-nodes-base.httpRequest",
+                                            "typeVersion":  4.2,
+                                            "continueOnFail":  true,
+                                            "position":  [
+                                                             1980,
+                                                             700
+                                                         ],
+                                            "parameters":  {
+                                                               "method":  "POST",
+                                                               "url":  "={{ \u0027https://api.telegram.org/bot\u0027 + $env.TELEGRAM_BOT_TOKEN + \u0027/sendMessage\u0027 }}",
+                                                               "sendBody":  true,
+                                                               "specifyBody":  "keypair",
+                                                               "bodyParameters":  {
+                                                                                      "parameters":  [
+                                                                                                         {
+                                                                                                             "name":  "chat_id",
+                                                                                                             "value":  "={{ $(\u0027Atualizar Contato WIP\u0027).item.json.chatId }}"
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "text",
+                                                                                                             "value":  "={{ $(\u0027Atualizar Contato WIP\u0027).item.json.confirmacao }}"
+                                                                                                         }
+                                                                                                     ]
+                                                                                  }
+                                                           }
+                                        }
+                                    ],
+                          "connections":  {
+                                              "Telegram -- Receber Mensagem":  {
+                                                                                   "main":  [
+                                                                                                [
+                                                                                                    {
+                                                                                                        "node":  "Parsear Comando",
+                                                                                                        "type":  "main",
+                                                                                                        "index":  0
+                                                                                                    }
+                                                                                                ]
+                                                                                            ]
+                                                                               },
+                                              "Parsear Comando":  {
+                                                                      "main":  [
+                                                                                   [
+                                                                                       {
+                                                                                           "node":  "Eh Query?",
+                                                                                           "type":  "main",
+                                                                                           "index":  0
+                                                                                       }
+                                                                                   ]
+                                                                               ]
+                                                                  },
+                                              "Comando Valido?":  {
+                                                                      "main":  [
+                                                                                   [
+                                                                                       {
+                                                                                           "node":  "Preparar Registro",
+                                                                                           "type":  "main",
+                                                                                           "index":  0
+                                                                                       }
+                                                                                   ],
+                                                                                   [
+                                                                                       {
+                                                                                           "node":  "Telegram -- Erro de Formato",
+                                                                                           "type":  "main",
+                                                                                           "index":  0
+                                                                                       }
+                                                                                   ]
+                                                                               ]
+                                                                  },
+                                              "Preparar Registro":  {
+                                                                        "main":  [
+                                                                                     [
+                                                                                         {
+                                                                                             "node":  "GitHub -- Gravar VEREDITOS",
+                                                                                             "type":  "main",
+                                                                                             "index":  0
+                                                                                         }
+                                                                                     ]
+                                                                                 ]
+                                                                    },
+                                              "GitHub -- Gravar VEREDITOS":  {
+                                                                                 "main":  [
+                                                                                              [
+                                                                                                  {
+                                                                                                      "node":  "Notion -- Log Veredito",
+                                                                                                      "type":  "main",
+                                                                                                      "index":  0
+                                                                                                  }
+                                                                                              ]
+                                                                                          ]
+                                                                             },
+                                              "Notion -- Log Veredito":  {
+                                                                             "main":  [
+                                                                                          [
+                                                                                              {
+                                                                                                  "node":  "Telegram -- Confirmar Veredito",
+                                                                                                  "type":  "main",
+                                                                                                  "index":  0
+                                                                                              }
+                                                                                          ]
+                                                                                      ]
+                                                                         },
+                                              "Eh Query?":  {
+                                                                "main":  [
+                                                                             [
+                                                                                 {
+                                                                                     "node":  "Preparar Query",
+                                                                                     "type":  "main",
+                                                                                     "index":  0
+                                                                                 }
+                                                                             ],
+                                                                             [
+                                                                                 {
+                                                                                     "node":  "Eh Contato?",
+                                                                                     "type":  "main",
+                                                                                     "index":  0
+                                                                                 }
+                                                                             ]
+                                                                         ]
+                                                            },
+                                              "Preparar Query":  {
+                                                                     "main":  [
+                                                                                  [
+                                                                                      {
+                                                                                          "node":  "Executar Query",
+                                                                                          "type":  "main",
+                                                                                          "index":  0
+                                                                                      }
+                                                                                  ]
+                                                                              ]
+                                                                 },
+                                              "Executar Query":  {
+                                                                     "main":  [
+                                                                                  [
+                                                                                      {
+                                                                                          "node":  "Formatar Resposta",
+                                                                                          "type":  "main",
+                                                                                          "index":  0
+                                                                                      }
+                                                                                  ]
+                                                                              ]
+                                                                 },
+                                              "Formatar Resposta":  {
+                                                                        "main":  [
+                                                                                     [
+                                                                                         {
+                                                                                             "node":  "Telegram -- Resposta Query",
+                                                                                             "type":  "main",
+                                                                                             "index":  0
+                                                                                         }
+                                                                                     ]
+                                                                                 ]
+                                                                    },
+                                              "Eh Contato?":  {
+                                                                  "main":  [
+                                                                               [
+                                                                                   {
+                                                                                       "node":  "Preparar Leitura Contato",
+                                                                                       "type":  "main",
+                                                                                       "index":  0
+                                                                                   }
+                                                                               ],
+                                                                               [
+                                                                                   {
+                                                                                       "node":  "Comando Valido?",
+                                                                                       "type":  "main",
+                                                                                       "index":  0
+                                                                                   }
+                                                                               ]
+                                                                           ]
+                                                              },
+                                              "Preparar Leitura Contato":  {
+                                                                               "main":  [
+                                                                                            [
+                                                                                                {
+                                                                                                    "node":  "GitHub -- Ler WIP (Contato)",
+                                                                                                    "type":  "main",
+                                                                                                    "index":  0
+                                                                                                }
+                                                                                            ]
+                                                                                        ]
+                                                                           },
+                                              "GitHub -- Ler WIP (Contato)":  {
+                                                                                  "main":  [
+                                                                                               [
+                                                                                                   {
+                                                                                                       "node":  "Atualizar Contato WIP",
+                                                                                                       "type":  "main",
+                                                                                                       "index":  0
+                                                                                                   }
+                                                                                               ]
+                                                                                           ]
+                                                                              },
+                                              "Atualizar Contato WIP":  {
+                                                                            "main":  [
+                                                                                         [
+                                                                                             {
+                                                                                                 "node":  "GitHub -- Gravar Contato",
+                                                                                                 "type":  "main",
+                                                                                                 "index":  0
+                                                                                             }
+                                                                                         ]
+                                                                                     ]
+                                                                        },
+                                              "GitHub -- Gravar Contato":  {
+                                                                               "main":  [
+                                                                                            [
+                                                                                                {
+                                                                                                    "node":  "Telegram -- Confirmar Contato",
+                                                                                                    "type":  "main",
+                                                                                                    "index":  0
+                                                                                                }
+                                                                                            ]
+                                                                                        ]
+                                                                           }
+                                          },
+                          "nodeGroups":  [
+
+                                         ],
+                          "authors":  "Eduardo Vanguard",
+                          "name":  null,
+                          "description":  null,
+                          "autosaved":  false,
+                          "workflowPublishHistory":  [
+                                                         {
+                                                             "createdAt":  "2026-06-07T15:36:37.178Z",
+                                                             "id":  103,
+                                                             "workflowId":  "KisAa6ynD4btgrkL",
+                                                             "versionId":  "929bb696-dd3d-4112-a914-d4a11ac19ca0",
+                                                             "event":  "activated",
+                                                             "userId":  "c9cce6ae-4208-4652-b8b0-becc6071d41a"
+                                                         },
+                                                         {
+                                                             "createdAt":  "2026-06-07T15:36:36.670Z",
+                                                             "id":  102,
+                                                             "workflowId":  "KisAa6ynD4btgrkL",
+                                                             "versionId":  "929bb696-dd3d-4112-a914-d4a11ac19ca0",
+                                                             "event":  "deactivated",
+                                                             "userId":  "c9cce6ae-4208-4652-b8b0-becc6071d41a"
+                                                         }
+                                                     ]
+                      }
+}

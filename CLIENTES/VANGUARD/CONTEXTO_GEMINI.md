@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-08 22:14
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-09 00:08
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-83d1e62 chore(fechamento): msg Embaixador + WIP_BOARD gemini PENDENTE -- fechamento final 2026-06-09
-e1c5978 chore(skills): mover Sugestoes.md para CONSELHO/ -- nao e skill, e caderno do Diretor
-cfea5e1 feat(pendentes): doc_freshness_checker.ps1 -- deteccao de deriva de documentos [musculo]
+c5c0f5e docs(p-128): registrar ciclo Notion bidirecional + proteger CLAUDE.md (P-098)
+2acc04c feat(notion): ciclo bidirecional Diretor<->Pentalateral [P-128]
+d8fb215 chore(pendentes): [AUTO-RESOLVE] P-073
 
 ================================================================================
 
@@ -187,7 +187,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
                                                             "loop":  29,
-                                                            "gemini":  "PENDENTE",
+                                                            "gemini":  "OK",
                                                             "notebooklm":  "PENDENTE",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "EM BUILD",
