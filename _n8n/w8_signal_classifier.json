@@ -106,7 +106,7 @@
         "httpMethod": "POST",
         "path": "w8-signal-classifier",
         "authentication": "none",
-        "responseMode": "responseNode",
+        "responseMode": "onReceived",
         "options": {}
       },
       "id": "webhook-trigger",
