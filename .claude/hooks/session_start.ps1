@@ -747,6 +747,27 @@ if ($stateGuardOutput)  { $sections = @("## STATE_GUARD V28 -- ANOMALIAS NO WIP_
 # CONTEXTO SESSAO DIRETOR -- segunda secao (logo apos BLOCO 0, nunca truncada)
 if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA CONVERSACIONAL)`n$contextoSessao") + $sections }
 
+# NOTION INBOX DO DIRETOR (2026-06-08) -- leitura OBRIGATORIA toda sessao.
+# Diretor escreve em "Falhas do Dia" + "Sugestoes do Dia"; Musculo le, classifica e marca [PROCESSADO].
+$notionInbox = $null
+try {
+    $inboxScript = Join-Path (Split-Path -Parent $PSScriptRoot) "scripts\notion_inbox.ps1"
+    if (Test-Path $inboxScript) {
+        $notionInbox = (& powershell.exe -NonInteractive -File $inboxScript 2>$null | Out-String).Trim()
+    }
+} catch { $notionInbox = $null }
+if ($notionInbox) { $sections = @("## NOTION INBOX DO DIRETOR -- LEITURA OBRIGATORIA (Falhas + Sugestoes)`n$notionInbox") + $sections }
+
+# NOTION -> PENDENTES (2026-06-08) -- Diretor marca [x] no Notion (so itens [diretor]); Musculo quita o PENDENTES.md.
+$notionPull = $null
+try {
+    $pullScript = Join-Path (Split-Path -Parent $PSScriptRoot) "scripts\notion_pendentes_pull.ps1"
+    if (Test-Path $pullScript) {
+        $notionPull = (& powershell.exe -NonInteractive -File $pullScript 2>$null | Out-String).Trim()
+    }
+} catch { $notionPull = $null }
+if ($notionPull) { $sections = @("## NOTION -> PENDENTES (Diretor quitou itens [diretor] no Notion)`n$notionPull") + $sections }
+
 # BLOCO 0 -- sempre a primeira secao, nunca truncada (P-114 / 2026-06-08)
 $bloco0Alert = @(
     "ACAO OBRIGATORIA ANTES DE QUALQUER RESPOSTA AO DIRETOR:",

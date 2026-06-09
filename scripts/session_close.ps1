@@ -38,6 +38,15 @@ if ($exitCode -eq 0) {
     }
 }
 
+# NOTION SYNC -- atualiza Pendentes + WIP Board + Ledger no fim de toda sessao (obrigatorio).
+# Diretor nao administra Notion -- este push e 100% por codigo. SEM 2>$null: erro deve ser visivel.
+if ($exitCode -eq 0) {
+    $notionSync = Join-Path $PSScriptRoot "notion_sync.ps1"
+    if (Test-Path $notionSync) {
+        & powershell.exe -NonInteractive -File $notionSync
+    }
+}
+
 # N-3: fire-and-forget webhook n8n (so executa se n8n_config.ps1 existir e gates passaram)
 if ($exitCode -eq 0) {
     $webhookScript = Join-Path $PSScriptRoot "n8n_session_webhook.ps1"
