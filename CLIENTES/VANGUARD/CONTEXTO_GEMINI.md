@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-08 19:27
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-08 21:41
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-a3a7d99 docs(auditoria): Loop 29 cirurgica completa -- P-127 + SKILL v6.9 + MANUAL v1.8 + WIP L29 + sync [RESOLVE: auditoria-loop29]
-972c7d8 feat(fechamento): gate e-mail + P-127 + auditoria mandato 2026-06-09
-63afe6c feat(skills): gemini-pentalateral v2.1 -- browser automation Embaixador->Estrategista
+99fb66d docs(pendentes): W-8 env vars confirmadas -- shadow mode 100% operacional
+0336c41 feat(w8): deploy shadow mode real via API -- W-1/W-3/W-5/W-8 ativos [RESOLVE: W-8-deploy]
+4cf0881 docs(pendentes): W-8 -- instrucoes EasyPanel para Diretor (2026-06-09)
 
 ================================================================================
 
@@ -149,7 +149,26 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                    },
     "board":  {
                   "discovery":  [
-
+                                    {
+                                        "id":  "PROJ-003",
+                                        "cliente":  "MUMUZINHO",
+                                        "projeto":  "Plataforma de Gestao Integral de Carreira Artistica",
+                                        "area":  "MusicTech - Fonografia / Holding Artistica",
+                                        "camada":  "5 (Monopolio -- escala enterprise)",
+                                        "status":  "STANDBY -- aguarda acionamento do Diretor",
+                                        "gut_score_atual":  60,
+                                        "gut_score_potencial":  100,
+                                        "gate_zero":  "contato bilateral confirmado com Dudu Felix -- PENDENTE",
+                                        "gate_temporal":  "prospecção ativa pós 04-07-2026 (captacao 2a candidata Ingrid)",
+                                        "decisor_presumido":  "Dudu Felix (ex-Universal Music) -- NAO VALIDADO",
+                                        "churn_watch_threshold":  null,
+                                        "ultimo_contato_cliente":  null,
+                                        "briefing_path":  "CLIENTES/MUMUZINHO/EXTRAÇÃO DE DADOS FORMULÁRIO DE INÍCIO - MUMUZINHO.txt",
+                                        "analise_encaixe":  "CLIENTES/MUMUZINHO/ANALISE_ENCAIXE_MUMUZINHO_2026-06-07.md",
+                                        "pesquisa_dominio":  "CLIENTES/MUMUZINHO/PESQUISA_DOMINIO_FONOGRAFICO_2026-06-07.md",
+                                        "memoria_embaixador_path":  "CLIENTES/MUMUZINHO/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_MUMUZINHO.md",
+                                        "nota":  "Standby total -- Diretor aciona quando tiver canal para Dudu Felix"
+                                    }
                                 ],
                   "build":  [
                                 {
@@ -172,7 +191,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                             "notebooklm":  "PENDENTE",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "EM BUILD",
-                                                            "proximo":  "Gemini -- PASSO3_GEMINI.md pronto -- ir ao Gemini com skill gemini-pentalateral v2.1"
+                                                            "proximo":  "NotebookLM -- Skill vanguard-v29.md"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -202,25 +221,6 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
                                                                    "MEMORIA_EMBAIXADOR_VANGUARD.md -- perfil fundador",
                                                                    "NARRATIVA_FUNDADOR.md -- Vanguard como primeiro caso do proprio produto",
                                                                    "ping_hermes.ps1 -- health check Hermes",
-                                                                   "RUNBOOK_EASYPANEL.md -- fonte canonica EasyPanel",
-                                                                   "RUNBOOK_SUPABASE_DDL.md -- fonte canonica Supabase"
-                                                               ],
-                                    "hermes_agent":  {
-                                                         "status":  "ONLINE",
-                                                         "plataforma":  "EasyPanel hermes/hermes-agent",
-                                                         "modelo":  "anthropic/claude-sonnet-4-6 via OpenRouter",
-                                                         "telegram":  "configurado (home: 8895733647)",
-                                                         "grau_atual":  "A -- age apenas com aprovacao",
-                                                         "config_path":  "/opt/data/config.yaml",
-                                                         "shadow_mode_w8_expira":  "2026-06-14"
-                                                     },
-                                    "principios_v28":  [
-                                                           "P-115 -- Musculo assessora ativamente conclusao de pendentes (2026-06-06)",
-                                                           "P-116 -- o que doi e erro, nao esforco -- verificacao antes de automacao (2026-06-06)"
-                                                       ],
-                                    "principios_v29":  [
-                                                           "P-121 -- automacao nao iniciada pelo cliente e ameaca de churn (2026-06-08)",
-                                                           "P-122 -- deliberacao precede P-032 (2026-06-08)",
 ... [truncado -- ver arquivo completo]
 
 ================================================================================

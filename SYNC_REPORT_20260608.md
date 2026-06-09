@@ -3,7 +3,7 @@
 > Pastas excluidas: PERFIS_NICHO, VANGUARD_HISTORICO
 
 ## STATUS FINAL
-- Sincronizados: 9
+- Sincronizados: 3
 - Falhas de Integridade: 0
 - Orfaos: 7
 - Project_Only (nao sao orfaos): 13

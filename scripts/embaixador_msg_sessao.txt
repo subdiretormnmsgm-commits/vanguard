@@ -1,0 +1,51 @@
+MENSAGEM AO EMBAIXADOR — SESSÃO 2026-06-09
+=========================================
+
+Eduardo, copie e cole isto no Claude Projects (Embaixador Vanguard IAH) agora.
+
+---
+
+Embaixador, sessão técnica de infraestrutura encerrada. Contexto para o BLOCO 0:
+
+## O QUE FOI FEITO
+
+**W-8 Shadow Mode — OPERACIONAL** (entrega principal):
+- 4 workflows n8n atualizados via REST API (sem intervenção manual no EasyPanel)
+- W-1 (Check-in) + W-3 (GitHub Push) + W-5 (ChurnWatch) agora postam sinais ao W-8
+- Chain confirmada em produção: W-3 success 00:24:38 → W-8 success 00:24:39
+- Bug pré-existente corrigido no W-3: jsCode com newline literal causava SyntaxError desde 05-06
+- SUPABASE_VANGUARD_URL + ANON_KEY confirmados no EasyPanel pelo Diretor
+- Shadow mode começa a gravar em silenced_signals_log a partir de hoje
+
+**Modelo:** Diretor perguntou se eu era Opus ou Sonnet. Sou Sonnet 4.6. Diretor pediu Opus para esta sessão — não foi possível trocar mid-conversation. Nenhuma implicação estratégica.
+
+**Clientes:** Ingrid e Valdece em standby (responderam 2026-06-09 que ferramentas estão OK). Nenhuma atividade de cliente nesta sessão.
+
+## ALERTAS DO MÚSCULO
+
+1. **W-8 deadline 2026-06-14**: Em 5 dias avaliar ativação plena (shadowMode = false). Pré-requisito: silenced_signals_log ter dados. Eduardo precisa verificar a tabela antes desta data.
+
+2. **Sentinel Valdece**: Hypercare encerra 2026-06-18 (9 dias). Eduardo deve enviar Sentinel antes desta data. P-120 ATIVO: não mencionar automação/IA ao Valdece.
+
+3. **SUPABASE_URL_INGRID no EasyPanel aponta para URL errada** (Vanguard, não Ingrid). Variável órfã — nenhum workflow usa — mas deve ser corrigida na próxima manutenção de ENV_VARS.
+
+## AÇÕES DO DIRETOR PARA PRÓXIMA SESSÃO
+
+1. Arrastar 7 arquivos ao Embaixador + colar mensagem desta sessão
+2. Importar W-9 (Track TRENDS) no EasyPanel n8n
+3. Enviar Sentinel Valdece antes de 18-06
+4. Verificar silenced_signals_log antes de 14-06 para decidir ativação plena W-8
+5. Login Formspree.io (formulário xjglyyer) — confirmar acesso
+
+## PRÓXIMA SESSÃO — PRIORIDADE
+
+1. DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md (desbloqueado pela auditoria de 2026-06-09)
+2. Fix P-073 — sync_vanguard_docs.ps1 deve atualizar NOTEBOOKLM_BASE antes dos clientes
+3. Levar descoberta /notebooklm ao Auditor (PASSO5) + Embaixador (PASSO7-D)
+
+## TEMPERATURA
+
+Eduardo operou de forma cirúrgica nesta sessão: pediu Opus (impossível no Sonnet), aceitou limitação sem drama, focou no W-8 e encerrou limpo. Nenhuma fricção comportamental. Sistema funcionando como planejado.
+
+---
+FIM DO CONTEXTO — Músculo encerrou 2026-06-09
