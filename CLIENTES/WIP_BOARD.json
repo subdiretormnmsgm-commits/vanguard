@@ -44,7 +44,7 @@
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
                                                             "loop":  29,
-                                                            "gemini":  "OK",
+                                                            "gemini":  "PENDENTE",
                                                             "notebooklm":  "PENDENTE",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "EM BUILD",
