@@ -12,6 +12,21 @@
 
 ---
 
+## MISSÕES DE INTELIGÊNCIA ATIVAS (deliberadas Loop 29, D5:A — aguardando execução/output)
+
+> P-134: missão aberta vive aqui, nunca na memória de turno. Firewall P-132/P-124/P-119/P-059.
+> Cadência (D9:A): competitivo/tendências **semanal** · edital **quinzenal até 06/09** · tecnológico **sob gatilho**.
+
+| Missão | Quem | Prazo | Status |
+|---|---|---|---|
+| **M-INTEL-1** Triangulação cega do fact-check "venture-studio agentado é viável" | Músculo (WebSearch) + Auditor (Deep Research) — **cegos entre si** | — | ABERTA |
+| **M-INTEL-2** Benchmark de pricing LegalTech para Valdece V4 (ancorar P-108) | Embaixador (Cowork) + Auditor (Deep Research) | **2026-06-18** (antes do fim do Hypercare) | ABERTA |
+| **M-INTEL-3** Watch de Edital Ingrid (Quadrix / Sedes-DF) | Embaixador (Cowork) + Auditor | **2026-06-09 PRAZO DURO** → depois quinzenal | ABERTA — URGENTE |
+
+> Saída de cada missão: FONTE (URL + data) sempre, ou "não confirmado". Resultado entra como linha em AGUARDANDO VEREDITO acima. Nunca direto a DECISOES.json/WIP.
+
+---
+
 ## APROVADOS
 
 | Data aprovação | Tipo | Arquivo | Enviado ao Conselho |

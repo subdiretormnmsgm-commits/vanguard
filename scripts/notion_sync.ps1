@@ -75,7 +75,7 @@ function Md-Blocks($lines) {
         if ($t -match '^---+$') { [void]$out.Add('{"object":"block","type":"divider","divider":{}}'); continue }
         if ($t -match '^\|[\s:-]+\|?\s*$') { continue }   # linha separadora de tabela markdown
         if ($t -match '^#{1,6}\s+(.*)') { [void]$out.Add((B-Head (Clean $matches[1]))); continue }
-        if ($t -match '^\s*[-*]\s*\[( |x|X)\]\s*(.*)') { [void]$out.Add((B-Todo (Clean $matches[2]) ($matches[1] -match '[xX]'))); continue }
+        if ($t -match '^\s*[-*]\s*\[( |x|X)\]\s*(.*)') { $td = Clean $matches[2]; if (-not [string]::IsNullOrWhiteSpace($td)) { [void]$out.Add((B-Todo $td ($matches[1] -match '[xX]'))) }; continue }
         if ($t -match '^\s*[-*]\s+(.*)') { [void]$out.Add((B-Bullet (Clean $matches[1]))); continue }
         [void]$out.Add((B-Para (Clean $t)))
     }
@@ -126,7 +126,7 @@ if (Test-Path $pend) {
         if ($t -match '^#{1,6}\s+(.*)') { $cur = @{ head = (Clean $matches[1]); items = (New-Object System.Collections.ArrayList) }; [void]$secoes.Add($cur); continue }
         if ($t -match '^\s*[-*]\s*\[ \]\s*(.*)') {
             if (-not $cur) { $cur = @{ head = $null; items = (New-Object System.Collections.ArrayList) }; [void]$secoes.Add($cur) }
-            [void]$cur.items.Add((Clean $matches[1]))
+            $itc = Clean $matches[1]; if (-not [string]::IsNullOrWhiteSpace($itc)) { [void]$cur.items.Add($itc) }
         }
     }
     $bl = New-Object System.Collections.ArrayList

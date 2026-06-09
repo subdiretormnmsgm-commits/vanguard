@@ -123,6 +123,26 @@
 - [x] `2026-06-06` ~~**V28 — [DIRETOR] Supabase: criar tabela silenced_signals_log:**~~
   ✅ Tabela criada com RLS — "Success. No rows returned" confirmado pelo Diretor 2026-06-07.
 
+### 🧭 BACKLOG V30 — registrado no fechamento do Loop 29 (P-134)
+
+- [ ] `2026-06-XX` **[V30 ÉPICO] Máquina de Conhecimento Soberana — canais → FONTES → Auditor → banco gigante** [musculo] — BACKLOG, aguarda Diretor abrir V30
+  Visão do Diretor (Loop 29, 09-06-2026 terça-feira): usar os canais externos de TODOS os membros como motor de descoberta de FONTES → canalizar para o Auditor (NotebookLM) → "o mais importante: um gigante banco de dados" / enciclopédia inteligente / criador de podcast-áudio — TUDO agendado. É o Sovereign Data Layer do modelo de negócio.
+  Pipeline (5 estágios):
+  (1) DESCOBERTA (Source Engine) — `/yt-search` (instalada 09-06) + WebSearch/WebFetch/context7 (Músculo) · Deep Research (Auditor) · Cowork (Embaixador) · varredura (Estrategista). Saída = FONTES {url, data, canal, nicho, por quê, métricas, confianca}.
+  (2) CURADORIA (gate firewall) — fontes caem em PENDING_REVIEW; Músculo cura (P-132: fonte+data sempre; dedup; relevância). CURAR alto sinal, nunca despejar.
+  (3) INGESTÃO (Auditor/NotebookLM) — fontes curadas → cadernos (P-123: BASE + LOOP + INTEL). Camada de transformação/consulta, NÃO o store durável.
+  (4) TRANSFORMAÇÃO — gestor de conhecimento · enciclopédia consultável · podcast/Audio Overview · briefings.
+  (5) AGENDAMENTO — cron n8n/Hermes (modelo do W-9 TRENDS) → PENDING_REVIEW → Diretor (P-127: trabalho agendado exige missão aprovada).
+  Gate de credibilidade (refinamento Diretor, "para depois"): aplicar o modelo `/yt-search` à WEB com whitelist/denylist de domínios + score de confiança — só fontes fidedignas (oficial/primária/acadêmica), BLOG EXCLUÍDO.
+  Riscos do consultor: (a) DILUIÇÃO — valor está na CURADORIA, não no volume; (b) NotebookLM tem LIMITE de fontes → store durável = INTELLIGENCE_HUB (arquivos) → depois Supabase; (c) FONTE ≠ verdade (só "confirmado" com triangulação P-132); (d) firewall P-059/P-124 na ingestão agendada.
+  Primeiro passo cirúrgico recomendado: schema de FONTE + captura YT → INTELLIGENCE_HUB/SOURCES/ → PENDING_REVIEW, provar com 1 nicho antes de escalar.
+  Memória: project_maquina_conhecimento_soberana + project_motor_de_verdade_engines.
+
+- [ ] `2026-06-XX` **[V30 ÉPICO] Antigravity motor de deriva / W-10 — comandos determinados + repositório de skills** [musculo] — BACKLOG, aguarda Diretor abrir V30
+  Liga doc_freshness_checker + M-4 (curar deriva) num motor do Estrategista (Antigravity) que varre deriva de documentos e processos e só reporta para PENDING_REVIEW (nunca direto a DECISOES/WIP — P-124).
+  Inclui curadoria de 5-10 skills do repo Antigravity awesome-skills (1.525+ SKILL.md — curar, não despejar).
+  Memória: feedback_antigravity_motor_falhas_deriva + reference_antigravity_awesome_skills.
+
 ---
 ## PROJ-001 · Valdece (Hypercare até 18/06/2026)
 

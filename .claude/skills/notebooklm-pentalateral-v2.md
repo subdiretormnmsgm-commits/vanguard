@@ -1,3 +1,5 @@
+> ⚠️ FALLBACK de `notebooklm-pentalateral-v3`. Usar SO quando a CLI (notebooklm-py) retornar erro de RPC persistente. NAO e o caminho primario. (Redundancia de protecao hierarquizada -- P-110.)
+
 # SKILL: notebooklm-pentalateral-v2.md
 Camada: Sistema Interno | Loop: Universal | Stack: Claude Chrome Extension + NotebookLM
 

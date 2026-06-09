@@ -2148,3 +2148,63 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
   #4 DIVIDA P-059 (registrada no PENDENTES): paginas Notion globais vs isolamento por cliente. Mitigacao atual basta com 1 cliente (match por texto exato + so [diretor] + alerta de orfao do #2); decidir prefixo `[CLIENTE]` OU paginas por projeto antes do 2o projeto simultaneo em BUILD.
   LICAO TECNICA: PUT da Public API n8n rejeita `settings` com campos extras (`additionalProperties:false`: binaryMode/timeSavedMode/availableInMCP) -- sanitizar para a whitelist (executionOrder, save*, executionTimeout, errorWorkflow, timezone).
   **Verificado no n8n vivo 2026-06-09:** 6 writers DISABLED / 0 ativos / 4 workflows `active=True`. Commit 2343030. Aprovado pelo Diretor 2026-06-09.
+
+## P-129 -- FONTE INESGOTAVEL: O ELO MUSCULO<->AUDITOR E CAPACIDADE ABERTA (2026-06-09)
+**Origem:** Correcao do Diretor (marcada "IMPORTANTE") quando o Musculo enquadrou o Auditor (NotebookLM) numa tabela fechada de ~15 funcoes.
+**Fundamento:** "Fonte inesgotavel de conhecimento" NAO significa conteudo infinito -- significa que o ELO programatico Musculo<->Auditor (canal da skill notebooklm-pentalateral-v3) abre uma INFINIDADE de acoes. O valor esta no canal, nao no conteudo. Listar funcoes fixas (gestor/auditor/advogado/pesquisa de nicho/benchmarking dos gigantes) cria uma gaiola: vira teto quando deveria ser chao.
+**Como pensar (primitivas geradoras, nunca lista):** BUSCAR · INGERIR (qualquer midia) · INDEXAR · INTERROGAR · CRUZAR/AUDITAR · SINTETIZAR · TRANSFORMAR · PERSISTIR. Combinar com qualquer dominio (cliente/mercado/juridico/interno/pessoal do Diretor) x qualquer saida = espaco combinatorio aberto. "Gestor/auditor/advogado" sao 3 lentes, nao limites. Catalogo e GERADOR com exemplos-amostra -- cresce, nunca "se completa".
+**Roteamento (materializado em notebooklm-pentalateral-v3, 2026-06-09):** o criterio NAO e o nome da funcao -- e a ORIGEM da fonte + o DESTINO da saida. Funcao de cliente -> caderno do projeto [YYYY-MM][CLIENTE] modo CLIENTE; funcao de mercado -> caderno INTEL especifico modo INTEL -> PENDING_REVIEW; juridico/regulatorio transversal -> caderno juridico. A MESMA funcao muda de caderno conforme o contexto.
+**Ressalva (P-124 permanece):** acao INTEL passa por prompt analitico + PENDING_REVIEW.
+**Aprovado pelo Diretor:** 2026-06-09 ("Essa e a linha que v29 vai para frente, voce pescou tudo").
+**Aplica-se a:** todo uso do Auditor e todo desenho de catalogo de acoes do Pentalateral.
+
+## P-130 -- ANTIGRAVITY ASSUME O PAPEL DE ESTRATEGISTA; O CANAL MUDA, A BARREIRA NAO (2026-06-09)
+**Origem:** Decisao do Diretor na sessao 2026-06-09 ("mude que o Estrategista e o Antigravity"), dentro da linha-mestra V29 "Pentalateral agentado e agendado".
+**Fundamento:** O Estrategista SEMPRE foi o Gemini. O que muda e o CANAL: de Gemini web (Diretor transporta: cola PASSO3 + anexa arquivos) para Antigravity (agente que LE PASSO3+CONTEXTO do disco). Mesma inteligencia, canal agentado. GEMINI.md reescrito para v2.0: dupla funcao (1) Estrategista no loop, (2) Intel Loop Motor -- nunca misturadas na mesma sessao.
+**Reinterpretacao de P-124 (preservado, NAO revogado):** P-124 proibia o Antigravity de entrar no loop por ser o mesmo motor Gemini (camara de eco). Com a fusao, a diversidade do Pentalateral deixa de ser garantida pela EXCLUSAO do Antigravity e passa a ser garantida pelo MUSCULO (Claude Code, engine diferente) como barreira obrigatoria: toda saida do Estrategista -- DIRETRIZ ou relatorio -- vai ao Musculo ANTES do veredito do Diretor. A barreira nao some; muda de lugar.
+**Escopo cirurgico (firewall como precondicao):** liberado SO o loop VANGUARD. CLIENTES/INGRID/, CLIENTES/VALDECE/ e */CLAUDE_PROJECT/ permanecem BLOQUEADOS (P-059) ate existirem as 3 ferramentas bloqueantes ao Antigravity: (a) isolamento P-059 que aborta ao tocar caderno de cliente nao declarado; (b) gate que recusa gerar DIRETRIZ sem ter lido PASSO3+CONTEXTO; (c) saida sempre -> PENDING_REVIEW/Musculo, nunca decisao direta.
+**Ferramentas/arquivos:** GEMINI.md v2.0 + CLIENTES/VANGUARD/PASSO3_GEMINI.md (missao V29) + CONTEXTO_GEMINI.md (via gemini_anchor_generator.ps1).
+**Aprovado pelo Diretor:** 2026-06-09.
+**Aplica-se a:** todo loop conduzido pelo Antigravity como Estrategista -- VANGUARD ja; clientes apenas apos as 3 travas.
+
+## [FALHA-PROCESSO-2026-06-09] -- PROMPT AD-HOC NO CHAT EM VEZ DE PASSO3+CONTEXTO
+**Detectada pelo Diretor:** "O Antigravity nao teria que ler Passo3Gemini e Contexto Gemini? Se sim, isso deve estar sempre presente. Processo e o que leva a Vanguard para frente, disciplina, inteligencia e firewall."
+**O que aconteceu:** ao preparar o acionamento do Antigravity, o Musculo redigiu um prompt estrategico ad-hoc DIRETO no chat, ignorando os instrumentos canonicos PASSO3_GEMINI.md + CONTEXTO_GEMINI.md. Conteudo no chat e rascunho invisivel ao processo (eco de P-090: o que nao esta no arquivo nao existe para o socio).
+**Causa raiz:** atalho operacional sob momentum -- "escrever rapido" venceu "seguir o instrumento".
+**Correcao estrutural:** GEMINI.md v2.0 torna a leitura de PASSO3+CONTEXTO OBRIGATORIA na identidade do Estrategista (Antigravity). O comando de acionamento referencia os dois arquivos via @ -- nunca repassa a missao no corpo do prompt.
+**Regra:** todo acionamento de socio passa pelo arquivo canonico (PASSO3/CONTEXTO/PASSO5/PASSO7), nunca por texto improvisado no chat.
+**Aplica-se a:** todo acionamento de Estrategista, Auditor e Embaixador.
+**ATUALIZACAO 2026-06-09 (Embaixador, Loop 29):** padrao emergente "velocidade vencendo disciplina" -- 2a ocorrencia em ~3 dias (a 1a foi P-122: output recebido tratado como deliberacao concluida). Sinal de processo: sob momentum, o atalho vence o instrumento. Antidoto estrutural alem do GEMINI.md v2.0 -> E-5 (toda DIRETRIZ do Antigravity ecoa hash/resumo do input que leu, provando que leu PASSO3+CONTEXTO).
+
+## P-131 -- O DIRETOR E ATIVO AO LONGO DE TODO O PROCESSO, NAO SO NO VEREDITO FINAL (2026-06-09)
+**Origem:** Diretor corrigiu enquadramento binario do Musculo (a/b): "Participo ativamente de todo o processo, acho que me expressei errado. Tudo e sobre a minha egide."
+**Principio:** O Diretor e ativo ao longo de TODO o processo, nao apenas no veredito final. A automacao do Pentalateral assume a EXECUCAO, mas mantem o Diretor presente e deliberando em cada etapa -- nada roda como loop fechado a ser auditado depois. SILENCIO NAO E APROVACAO.
+**Consequencia operacional:** enterra qualquer mecanismo de "veto silencioso" / "silencio = execucao". Reformula N-4 do Loop 29: aprovacao EXPLICITA sempre, exceto Classe A reversivel ja pre-autorizada -- a janela de delegacao pre-encena mas NAO executa no silencio. Reforca o ALERTA CRITICO contra deliberacao autonoma entre socios (M-1 enxame continuo / G-4 conselho dialetico autonomo -> descartados no Loop 29 por removerem o checkpoint do Diretor).
+**Aprovado pelo Diretor:** 2026-06-09 (D7:APROVAR).
+**Aplica-se a:** todo desenho de automacao e grau de delegacao do Hermes (A/B/C) e de qualquer socio agentado.
+
+## P-132 -- DIVERSIDADE DE ENGINES E MOTOR DE VERDADE; O ELO MUSCULO<->AUDITOR E O PAR PRIMARIO (2026-06-09)
+**Origem:** Diretor declarou a interacao Musculo<->Auditor "a mais importante da sessao" e mandou AMPLIA-la. Amplificacao direta de P-129.
+**Fundamento:** P-129 estabeleceu que o elo Musculo<->Auditor e capacidade ABERTA (infinitas acoes). A amplificacao: esse mesmo elo e o MOTOR DE VERDADE do Pentalateral. Musculo (Claude Code: WebSearch/WebFetch/context7) e Auditor (NotebookLM: Deep Research/Discover Sources) sao DOIS engines independentes. Quando ambos pesquisam o MESMO fato critico SEM ver o achado um do outro (busca cega), a convergencia mede a verdade: convergem -> alta confianca; divergem -> flag ao Diretor. Diversidade de engines deixa de ser so anti-camara-de-eco (firewall) e passa a ser como o sistema MEDE a realidade.
+**Mecanismos [M'-1 a M'-5] (tese cirurgica do Musculo, endossada pelo Diretor):**
+  M'-1 Triangulacao Cega de Evidencia -- >=2 engines, mesmo fato, buscas cegas entre si.
+  M'-2 Pesquisa Adversarial por Vies Nativo -- cada membro pesquisa o que sua deficiencia o torna bom em achar (Estrategista->oportunidade; Auditor->precedente de falha via Deep Research; Embaixador->concorrente/pricing; Musculo->viabilidade tecnica).
+  M'-3 Reconhecimento externo ANTES da DIRETRIZ -- a DIRETRIZ nasce ancorada, matando a Alucinacao Otimista na origem.
+  M'-4 Auditor guardiao INTERNO + EXTERNO -- confronta ideias contra o LEDGER e contra o estado-da-arte.
+  M'-5 Vigilancia externa continua -- Deep Research agendado (Auditor) + Cowork (Embaixador) -> PENDING_REVIEW.
+**Par primario, nao unico:** o elo Musculo<->Auditor e o par de triangulacao PRIMARIO (dois engines tecnicos com canal programatico estavel -- skill notebooklm-pentalateral-v3). Embaixador (Claude.ai, navegacao livre + Cowork) e Estrategista (Antigravity) entram como engines adicionais quando o fato pede 3a/4a confirmacao.
+**Firewall (P-124 evoluida):** buscas cegas entre si; FONTE (URL+data) sempre ou declarar "nao confirmado"; convergencia decidida no Diretor; nunca cruzar dado de cliente (P-059); publico != intencao de compra (P-119); saida -> PENDING_REVIEW, nunca direto a DECISOES.json/WIP_BOARD.
+**Aprovado pelo Diretor:** 2026-06-09 (instrucao "amplie" + AUTORIZO).
+**Aplica-se a:** todo fato critico de mercado/tecnico/regulatorio antes de virar DIRETRIZ ou veredito.
+
+## P-133 -- GATE ZERO DE PIPELINE: LOOP DE EXPANSAO NAO FECHA SEM DISCOVERY DO PROXIMO CLIENTE (2026-06-09)
+**Origem:** [E-1] do Embaixador no Loop 29 (deliberado D4:A). Fato confirmado por fact-check externo: o gargalo da Vanguard nao e capacidade, e AQUISICAO -- 1 cliente pagante (Valdece R$5k), Ingrid R$0 piloto, 0 prospeccao ativa, sobre uma DIRETRIZ de "Expansao Exponencial".
+**Principio:** Nenhum loop de EXPANSAO fecha sem registrar o status de discovery do proximo cliente. Pipeline-vazio e alerta de 1a classe -- mesma severidade que deriva de documento.
+**Aprovado pelo Diretor:** 2026-06-09 (D4:A confirmado / D7-D10).
+**Aplica-se a:** todo fechamento de loop cuja DIRETRIZ proponha escala/expansao.
+
+## P-134 -- ITEM ABERTO VIVE EM PENDING_REVIEW/PENDENTES, NUNCA NA MEMORIA DE TURNO (2026-06-09)
+**Origem:** auto-correcao do Embaixador no Loop 29 -- deixou cair 3 missoes de inteligencia entre a 1a reacao e a consolidada (a pior: Watch de Edital Ingrid, prazo duro 06/09) -- + observacao do Diretor.
+**Principio:** missao de inteligencia, pendencia ou decisao em aberto que so exista na conversa sera perdida no fechamento. Toda missao aberta e inscrita em PENDING_REVIEW (intel) ou PENDENTES.md (operacional) no MESMO turno em que nasce. Extensao de P-076 (pendente nao registrado nao existe) para a camada de inteligencia externa.
+**Aprovado pelo Diretor:** 2026-06-09 (D10:APROVAR).
+**Aplica-se a:** todo membro que gere missao/pendencia -- especialmente o Embaixador, cuja memoria de turno e volatil entre reacoes.

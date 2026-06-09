@@ -1,8 +1,9 @@
-# gemini_anchor_generator.ps1
-# Compila PAYLOAD COMPLETO para o Gemini: CONTEXTO + MEMORIA + RELATORIO + PASSO3
-# Um arquivo, uma colagem -- zero erro de ordem.
+# gemini_anchor_generator.ps1  (V29 -- adaptado para o ANTIGRAVITY = Estrategista)
+# Compila o CONTEXTO do Estrategista: LEDGER + WIP + MEMORIA + RELATORIO + PASSO3
+# O Antigravity LE CLIENTES\[NOME]\CONTEXTO_GEMINI.md do disco via @ -- nao se cola nem se arrasta.
+# Este script NAO abre mais o Gemini web (obsoleto). Mantem: compilacao + gate P-045 + WIP loop_fase.
 # Uso: .\scripts\gemini_anchor_generator.ps1 [-cliente NOME]
-# Output: CLIENTES\[NOME]\CONTEXTO_GEMINI.md (payload completo) + clipboard
+# Output: CLIENTES\[NOME]\CONTEXTO_GEMINI.md + comando @ pronto no clipboard
 
 param(
     [string]$cliente = ""
@@ -33,7 +34,21 @@ Write-Host "  gemini_anchor_generator -- $DATA"
 Write-Host "================================================"
 Write-Host ""
 
-$ledger = Read-Doc "INTELLIGENCE_LEDGER.md" 120
+# LEDGER digest -- corrige o ponto cego do Estrategista (V29):
+# arquivo @ inteiro (207KB) era truncado em ~800 linhas e a cauda P-116+ nunca chegava.
+# Agora: cabecalho/leis + INDICE COMPLETO de principios (1 linha cada) + cauda recente integral.
+$ledger = $null
+$ledgerFull = Join-Path $BASE "INTELLIGENCE_LEDGER.md"
+if (Test-Path $ledgerFull) {
+    $allLines = @(Get-Content $ledgerFull -Encoding UTF8)
+    $headEnd  = [Math]::Min(59, $allLines.Count - 1)
+    $head     = ($allLines[0..$headEnd]) -join "`n"
+    $indexLines = @($allLines | Where-Object { $_ -match '^#{2,3}\s*\[?P-\d+\]?' })
+    $tailMatch  = $allLines | Select-String -Pattern '^#{2,3}\s*\[?P-116\]?' | Select-Object -First 1
+    $tail = ""
+    if ($tailMatch) { $tail = ($allLines[($tailMatch.LineNumber - 1)..($allLines.Count - 1)]) -join "`n" }
+    $ledger = "### CABECALHO + LEIS SOBERANAS`n$head`n`n### INDICE COMPLETO DE PRINCIPIOS (titulos -- use para citar P-XXX corretamente)`n" + ($indexLines -join "`n") + "`n`n### PRINCIPIOS RECENTES -- TEXTO INTEGRAL (P-116 ao ultimo)`n$tail"
+}
 $wip    = Read-Doc "CLIENTES\WIP_BOARD.json" 80
 $proto  = Read-Doc ".claude\skills\vanguard-protocolo.md" 60
 
@@ -201,47 +216,37 @@ if ($projetoAtivo) {
 }
 Set-Content $destFile -Value $output -Encoding UTF8
 
-# --- COPIAR PARA CLIPBOARD ---
-try {
-    $output | Set-Clipboard
-    $clipMsg = "copiado"
-} catch {
-    $clipMsg = "indisponivel -- copie o arquivo manualmente"
-}
-
 Write-Host ""
 Write-Host "================================================"
-Write-Host "  PAYLOAD GEMINI GERADO -- $DATA"
+Write-Host "  CONTEXTO DO ESTRATEGISTA GERADO -- $DATA"
 Write-Host "================================================"
 Write-Host ""
-Write-Host "  Arquivo  : $destLabel ($($output.Length) chars)"
-Write-Host "  Clipboard: $clipMsg"
+Write-Host "  Arquivo: $destLabel ($($output.Length) chars)"
+Write-Host "  -> Lido pelo Antigravity via @ (nao se cola nem se arrasta)"
 Write-Host ""
 
-# Arquivos para arrastar no Gemini
-$arq3Arrastar = Join-Path $BASE "PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\04_INTELLIGENCE_LEDGER.md"
-$arq4Arrastar = Join-Path $BASE "CLIENTES\WIP_BOARD.json"
-
-Write-Host "  =============================================="
-Write-Host "  PROTOCOLO GEMINI -- EXECUTAR AGORA" -ForegroundColor Cyan
-Write-Host "  =============================================="
-Write-Host "  [ ] 1. Ctrl+V no Gemini (payload ja no clipboard)"
-Write-Host "  [ ] 2. Arrastar os 4 arquivos:"
-if ($script:arq1Arrastar) { Write-Host "         -> $($script:arq1Arrastar)" -ForegroundColor Yellow } else { Write-Host "         -> [sem MEMORIA -- Loop 1]" -ForegroundColor DarkGray }
-if ($script:arq2Arrastar) { Write-Host "         -> $($script:arq2Arrastar)" -ForegroundColor Yellow } else { Write-Host "         -> [sem RELATORIO -- Loop 1]" -ForegroundColor DarkGray }
-Write-Host "         -> $arq3Arrastar" -ForegroundColor Yellow
-Write-Host "         -> $arq4Arrastar" -ForegroundColor Yellow
-Write-Host "  [ ] 3. Enviar"
-Write-Host "  =============================================="
-Write-Host ""
-
-# Abrir Gemini no browser automaticamente
-try {
-    Start-Process "https://gemini.google.com"
-    Write-Host "  Gemini aberto no browser. Cole (Ctrl+V) e arraste os arquivos." -ForegroundColor Green
-} catch {
-    Write-Host "  Abrir manualmente: https://gemini.google.com" -ForegroundColor Yellow
+# --- COMANDO @ PARA O ANTIGRAVITY (substitui o "arrastar 4 arquivos" do Gemini web) ---
+if ($projetoAtivo) {
+    $passo3Rel   = "CLIENTES/$clienteUpper/PASSO3_GEMINI.md"
+    $contextoRel = "CLIENTES/$clienteUpper/CONTEXTO_GEMINI.md"
+} else {
+    $passo3Rel   = "CLIENTES/VANGUARD/PASSO3_GEMINI.md"
+    $contextoRel = "CONTEXTO_GEMINI.md"
 }
+$antigravityCmd = "@$passo3Rel @$contextoRel @INTELLIGENCE_LEDGER.md`n`nVoce e o Estrategista do Pentalateral (GEMINI.md v2.0). Leia os 3 arquivos acima e gere a DIRETRIZ ESTRATEGICA no formato obrigatorio do PASSO3 (7 blocos), com [G-1 a G-5] e o bloco [PARA O NOTEBOOKLM]."
+
+try { $antigravityCmd | Set-Clipboard; $clipMsg = "comando @ copiado" } catch { $clipMsg = "indisponivel -- copie do terminal" }
+
+Write-Host "  =============================================="
+Write-Host "  PROTOCOLO ESTRATEGISTA (ANTIGRAVITY) -- EXECUTAR AGORA" -ForegroundColor Cyan
+Write-Host "  =============================================="
+Write-Host "  O Antigravity LE os arquivos do disco via @ -- nada de colar payload nem arrastar."
+Write-Host ""
+Write-Host "  [ ] 1. Cole no Antigravity ($clipMsg):"
+Write-Host "         $antigravityCmd" -ForegroundColor Yellow
+Write-Host "  [ ] 2. Enviar -- a DIRETRIZ volta ao Musculo antes do veredito (P-124)"
+Write-Host "  =============================================="
+Write-Host ""
 
 # RISCO A -- Atualizar loop_fase_atual.gemini = "OK" automaticamente (P-077)
 if ($projetoAtivo -and $projetoAtivo.id -ne "MANUAL") {

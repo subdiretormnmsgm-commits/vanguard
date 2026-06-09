@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.2",
+  "data": "2026-06-09",
+  "cliente": "VANGUARD",
+  "loop": 29,
+  "projeto_label": "Vanguard V29 — Pentalateral Agentado: Motor de Verdade",
+  "estado": "DELIBERADO_FECHADO",
+  "ordem_inviolavel_cumprida": "Estrategista (Antigravity) -> Auditor (NotebookLM) -> Embaixador (SECAO D consolidada) -> Musculo (sintese P-037) -> DECISOES.json",
+  "sintese_musculo": "25 inputs + corte cirurgico [M'-1..5] + fact-check externo. A DIRETRIZ V29 'Expansao Exponencial' esta sobre mercado real porem sobre PIPELINE VAZIO (1 cliente pagante). Melhores operadores mantem checkpoint humano -> valida o firewall (M-5) e P-131. Eixos: A Curar Deriva / B Firewall Reposicionado / C Autonomia Hermes / D Gate Zero Pipeline / E Upsell Seguro + Inteligencia Externa. A interacao Musculo<->Auditor foi declarada pelo Diretor a mais importante da sessao e ampliada em P-132 (Motor de Verdade via triangulacao cega).",
+  "decisoes": [
+    { "id": "D1", "titulo": "Curar a deriva (G-3 + E-4 diff humano-legivel + E-5 hash grounding)", "veredito": "A", "efeito": "Aprovar conceito; W-10 (Antigravity motor de deriva) travado no backlog pos-Loop 29" },
+    { "id": "D2", "titulo": "Firewall reposicionado (P-124 na era agentada)", "veredito": "A", "efeito": "Descartar M-1 (enxame) e G-4 (conselho dialetico autonomo); elevar M-5; adotar N-1/N-3; construir E-3 (auto-detector de camara de eco)" },
+    { "id": "D3", "titulo": "Hermes / W-8 shadow mode", "veredito": "A", "efeito": "Prorrogar shadow (HARD 2026-06-14); Grau B BLOQUEADO ate validar H-V2 (<5% erro)" },
+    { "id": "D4", "titulo": "Gate Zero de Pipeline (E-1)", "veredito": "A", "efeito": "Instituir como alerta de 1a classe -> P-133" },
+    { "id": "D5", "titulo": "Missoes de inteligencia externa (3)", "veredito": "A", "efeito": "Aprovar triangulacao cega + benchmark pricing Valdece + Watch Edital Ingrid; registradas em PENDING_REVIEW" },
+    { "id": "D6", "titulo": "Upsell seguro (G-1->E-2 Dossie Interno; G-2->N-2 schemas anonimizados)", "veredito": "A", "efeito": "Adotar os dois reposicionamentos; N-5 (MRR=teto 2o cliente, P-108) como metrica futura" },
+    { "id": "R", "titulo": "Reconciliacao Valdece", "veredito": "A", "efeito": "Standby de prospeccao; Hypercare Valdece ATIVO ate 2026-06-18" },
+    { "id": "D7", "titulo": "Inscrever P-131 (Diretor ativo em todo o processo)", "veredito": "APROVAR", "efeito": "P-131 no LEDGER; enterra veto silencioso" },
+    { "id": "D8", "titulo": "N-4 reformulado (veto silencioso -> aprovacao explicita)", "veredito": "APROVAR", "efeito": "Aprovacao explicita sempre, exceto Classe A reversivel; janela pre-encena, nao executa no silencio" },
+    { "id": "D9", "titulo": "Cadencia Vigilancia Cowork", "veredito": "APROVAR", "efeito": "Competitivo/tendencias semanal; edital quinzenal ate 06/09; tech sob gatilho" },
+    { "id": "D10", "titulo": "Inscrever P-134 (item aberto vive em PENDING_REVIEW/PENDENTES)", "veredito": "APROVAR", "efeito": "P-134 no LEDGER; extensao de P-076 para inteligencia externa" }
+  ],
+  "principios_inscritos": ["P-131", "P-132", "P-133", "P-134", "[FALHA-PROCESSO-2026-06-09] addendum (velocidade vencendo disciplina, 2a ocorrencia)"],
+  "missoes_intel_deliberadas": [
+    "M-INTEL-1: Triangulacao cega do fact-check venture-studio agentado (Musculo WebSearch + Auditor Deep Research, cegos entre si)",
+    "M-INTEL-2: Benchmark de pricing LegalTech para Valdece V4 -- ANTES de 2026-06-18 (fim do Hypercare)",
+    "M-INTEL-3: Watch de Edital Ingrid (Quadrix / Sedes-DF) -- PRAZO DURO 2026-06-09; depois quinzenal via Cowork"
+  ],
+  "backlog_v30": [
+    "Maquina de Conhecimento Soberana (canais->FONTES->Auditor/NotebookLM->banco gigante/enciclopedia/podcast, agendado; gate de credibilidade sem blogs)",
+    "Antigravity motor de deriva / W-10 (comandos determinados + repositorio de skills + varredura -> PENDING_REVIEW)"
+  ],
+  "aprovado_pelo_diretor": "2026-06-09"
+}

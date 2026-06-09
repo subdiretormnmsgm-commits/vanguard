@@ -5,15 +5,13 @@
 ## RODADA 0 -- Canonico OPERACAO -> BASE (P-073): 0 arquivo(s) sincronizado(s)
 
 ## STATUS FINAL
-- Sincronizados: 6
+- Sincronizados: 3
 - Falhas de Integridade: 0
-- Orfaos: 7
-- Project_Only (nao sao orfaos): 13
+- Orfaos: 5
+- Project_Only (nao sao orfaos): 14
 ## DECISOES PENDENTES (ORFAOS REAIS)
 - VALDECE|00_MANIFESTO_DE_FONTES.md
-- VANGUARD|12_DIRETRIZ_GEMINI_PLACEHOLDER.txt
 - INGRID|00_MANIFESTO_DE_FONTES.md
 - VALDECE|21_INTELLIGENCE_HUB_COMPETITORS.md
 - INGRID|21_INTELLIGENCE_HUB_COMPETITORS.md
 - VANGUARD|00_MANIFESTO_DE_FONTES.md
-- VANGUARD|21_INTELLIGENCE_HUB_COMPETITORS.md

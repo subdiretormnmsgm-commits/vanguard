@@ -2017,8 +2017,8 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Aplica-se a:** toda analise de oportunidade iniciada por video, podcast, entrevista ou post publico -- independentemente do tamanho do prospecto ou da clareza da dor declarada.
 
 ## P-120 -- EMBAIXADOR PODE ACIONAR O AUDITOR PROGRAMATICAMENTE VIA CLAUDE IN CHROME (2026-06-07)
-**Origem:** Comunicado do Embaixador -- sessao 2026-06-07. Descoberta de nova capacidade via skill /notebooklm instalada no Claude Code.
-**Fundamento:** O Embaixador (Claude Projects) descobriu que a extensao Claude in Chrome permite controlar o NotebookLM (Auditor) via automacao de browser -- sem que o Diretor precise arrastar arquivos, copiar/colar ou abrir o NotebookLM manualmente. A skill .claude/skills/notebooklm.md encapsula 4 acoes principais: ler/extrair info, adicionar fontes (URL, texto, arquivo, Google Doc), gerar Studio outputs (Audio Overview, Infografico, Slides, FAQ, etc.) e criar notebooks novos. Quando o Embaixador aciona o Auditor com esta skill, o ciclo Musculo→Gemini→Auditor→Embaixador fecha sem interrupcao manual do Diretor.
+**Origem:** Diretor Eduardo descobriu a skill /notebooklm em 2026-06-07. Pediu ao Embaixador que observasse e transmitisse a descoberta ao Musculo como canal estruturado. Correcao formal da atribuicao registrada em P-126.
+**Fundamento:** O Embaixador (Claude Projects) transmitiu ao Musculo que a extensao Claude in Chrome permite controlar o NotebookLM (Auditor) via automacao de browser -- sem que o Diretor precise arrastar arquivos, copiar/colar ou abrir o NotebookLM manualmente. A skill .claude/skills/notebooklm.md encapsula 4 acoes principais: ler/extrair info, adicionar fontes (URL, texto, arquivo, Google Doc), gerar Studio outputs (Audio Overview, Infografico, Slides, FAQ, etc.) e criar notebooks novos. Quando o Embaixador aciona o Auditor com esta skill, o ciclo Musculo→Gemini→Auditor→Embaixador fecha sem interrupcao manual do Diretor.
 **O que muda operacionalmente:**
   (a) PASSO5_NOTEBOOKLM: o Diretor pode delegar ao Embaixador o envio de fontes ao Auditor via Claude in Chrome -- zero arrastar manual
   (b) Musculo pode acionar o Auditor diretamente quando precisar de uma consulta rapida ao notebook sem abrir sessao separada
@@ -2032,3 +2032,145 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
   P-060/P-074 (Propagacao total): Skill e ferramenta do Musculo (nao documento universal) -- nao propaga para CLIENTES/. Documentada no SKILL_PROTOCOLO via auditoria P-070→P-101 da mesma sessao. VERDE.
 **Aprovado pelo Diretor:** 2026-06-07.
 **Aplica-se a:** todo ciclo Pentalateral onde o Diretor precisaria arrastar fontes ao NotebookLM manualmente + todo debriefing pos-reuniao onde o Embaixador ja tem o material para alimentar o Auditor.
+
+## P-121 -- AUTOMACAO NAO INICIADA PELO CLIENTE E AMEACA DE CHURN (2026-06-07)
+**Origem:** Analise do Musculo a partir da deliberacao sobre skill /notebooklm e risco de Camara de Eco de Silicio -- sessao 2026-06-07.
+**Fundamento:** Automacao aplicada ao cliente sem que ele a tenha solicitado ou aprovado e percebida como produto em construcao permanente, instabilidade ou invasao de privacidade. No contexto Hypercare (cliente recente, confianca em formacao), qualquer automacao visivel ao cliente que ele nao conheca pode gerar churn emocional -- nao por falha tecnica, mas por surpresa nao gerenciada.
+**Regra operacional:**
+  (a) Toda automacao que afete a experiencia do cliente deve ser comunicada ANTES de ativar -- nunca surpresa
+  (b) Durante Hypercare: zero automacao visivel ao cliente sem aprovacao explicita do Diretor e do proprio cliente
+  (c) Automacoes internas (INTELLIGENCE HUB, ChurnWatch, Sentinel) sao invisiveis ao cliente -- permitidas sem gate
+  (d) O Embaixador valida se a comunicacao da automacao e oportuna antes de qualquer anuncio
+**Camara de Eco de Silicio (risco relacionado):** LLMs conversando com LLMs sem checkpoint humano fecham o loop tecnicamente mas perdem o julgamento comercial humano. P-124 complementa este principio com o gate obrigatorio.
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** todo projeto em Hypercare + todo momento em que uma nova automacao for ativada que tenha interface com o cliente.
+
+## P-122 -- DELIBERACAO PRECEDE P-032 -- OUTPUT RECEBIDO NAO SIGNIFICA DELIBERACAO CONCLUIDA (2026-06-07)
+**Origem:** Falha detectada pelo Diretor em 2026-06-07 -- Musculo executou P-032 (atualizacao da MEMORIA_EMBAIXADOR) antes de apresentar as decisoes ao Diretor e receber veredito.
+**Fundamento:** Receber o output de um socio (Gemini, NotebookLM, Embaixador) e o primeiro passo da deliberacao -- nao o ultimo. O Musculo que atualiza MEMORIA ou executa acoes com base em output recebido sem que o Diretor tenha deliberado esta cortocircuitando o processo. A deliberacao e prerrogativa exclusiva do Diretor -- o Musculo apresenta, o Diretor decide.
+**Sequencia inviolavel:**
+  1. Musculo recebe output do socio
+  2. Musculo apresenta ao Diretor: "Dx decisoes identificadas -- D1: [titulo] A/B, D2: [titulo] A/B..."
+  3. Diretor responde: "D1:A D2:B D3:A"
+  4. SOMENTE APOS o veredito: Musculo executa P-032 e demais acoes
+**O que nao e deliberacao:** Musculo concordar internamente com o output · Musculo achar que a acao e obvia · Musculo executar para "economizar tempo" do Diretor
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** toda sessao em que output de socio chegar e houver acoes derivadas -- especialmente P-032 (MEMORIA_EMBAIXADOR), compromisos de build e vereditos de DECISOES.json.
+
+## P-123 -- DOIS NAMESPACES DE NOTEBOOK -- BASE PERMANENTE E LOOP EFEMERO (2026-06-07)
+**Origem:** Deliberacao sobre modelo hibrido de notebooks NotebookLM -- sessao 2026-06-07.
+**Fundamento:** O NotebookLM (Auditor) opera com dois tipos de contexto que nao devem se misturar: (a) inteligencia universal e historica da Vanguard (LEDGER, universais, processo) e (b) contexto especifico do loop atual do cliente (PASSO5, docs do ciclo). Misturar os dois contamina o Auditor com dados de cliente em espaco permanente, violando P-059 (Isolamento de Contexto) e criando risco de vazamento entre projetos.
+**Dois namespaces obrigatorios:**
+  [cliente]-base   : notebook PERMANENTE -- contem LEDGER + universais + SKILL_PROTOCOLO + historico do cliente. NUNCA recebe docs de loop efemero. NUNCA recebe documentos do cliente (acórdãos, planilhas, dados sensiveis).
+  [cliente]-loop-N : notebook EFEMERO -- criado no inicio do loop N, destroido apos skill extraida e aprovada. Contem PASSO5 + docs do ciclo atual + fontes especificas do loop.
+**Regras de isolamento:**
+  (a) Studio outputs (Audio Overview, Infografico) NUNCA saem do namespace loop -- sao descartados com o notebook efemero
+  (b) A skill gerada pelo loop (.[cliente]-vN.md) e o unico artefato que sobrevive ao loop -- salva em .claude/skills/
+  (c) O namespace base e sincronizado via preparar_notebooklm_projeto.ps1 -- nunca editado manualmente
+  (d) Nome obrigatorio: "[YYYY-MM] [NOME_CLIENTE]-base" e "[YYYY-MM] [NOME_CLIENTE]-loop-N"
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** todo projeto com NotebookLM ativo -- Valdece, Ingrid e qualquer cliente futuro.
+
+## P-124 -- CHECKPOINT HUMANO OBRIGATORIO ENTRE SOCIOS -- NENHUM SOCIO ACIONA OUTRO DIRETAMENTE (2026-06-07)
+**Origem:** Risco de Camara de Eco de Silicio identificado na deliberacao sobre skill /notebooklm -- sessao 2026-06-07.
+**Fundamento:** O Pentalateral IAH e um sistema de multiplos LLMs com perspectivas distintas. O valor do sistema vem da diversidade de modelos e da curadoria humana entre cada camada. Se um socio acionar outro diretamente (Musculo chama Gemini API que chama NotebookLM que alimenta Embaixador), o loop fecha sem checkpoint humano -- e tecnicamente correto mas comercialmente cego. O Diretor perde a capacidade de detectar deriva antes que ela se acumule.
+**Regra operacional:**
+  (a) Nenhum socio aciona outro socio diretamente no loop de cliente -- o Diretor e o intermediario obrigatorio
+  (b) Automacoes de infraestrutura (INTELLIGENCE HUB, ChurnWatch, Sentinel) podem rodar LLM→LLM pois nao geram vereditos de cliente
+  (c) Quando o Musculo precisar de input do Auditor rapidamente, o gate e: apresentar a necessidade ao Diretor → Diretor aprova → Musculo executa
+  (d) A unica excecao e o fire-and-forget de Studio outputs (P-125) -- nao gera veredito, apenas conteudo de apoio
+**Camara de Eco de Silicio:** dois ou mais LLMs do mesmo provedor (ex: Gemini + Antigravity CLI) no mesmo loop de cliente amplificam os proprios vieses sem filtro humano -- nunca permitido no Pentalateral.
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** toda automacao que encadeie dois ou mais socios do Pentalateral sem passagem pelo Diretor.
+
+## P-125 -- FIRE-AND-FORGET COM WEBHOOK -- STUDIO OUTPUTS NAO BLOQUEIAM O TERMINAL (2026-06-07)
+**Origem:** Gargalo identificado na geracao de Studio outputs (Audio Overview) do NotebookLM -- sessao 2026-06-07.
+**Fundamento:** Studio outputs (Audio Overview, Infografico, Slides, FAQ) levam de 3 a 10 minutos para gerar. Se o Musculo aguardar sincronamente, o terminal fica bloqueado e o Diretor perde tempo. O padrao correto e: disparar a geracao e liberar o terminal imediatamente -- o n8n monitora a pasta .claude/skills/ e notifica o Diretor via Telegram quando o output estiver pronto.
+**Sequencia fire-and-forget:**
+  1. Musculo aciona a geracao do Studio output via skill /notebooklm
+  2. Musculo dispara webhook n8n (W-4 ou endpoint dedicado) com: cliente, loop, tipo de output
+  3. Terminal liberado -- Musculo continua outras tarefas
+  4. n8n monitora .claude/skills/ ou polling no NotebookLM
+  5. Quando output pronto: n8n notifica Diretor via Telegram com link ou arquivo
+**O que NUNCA fazer:** aguardar sincronamente a geracao de Studio output · manter terminal ocupado por 10 minutos · perguntar ao Diretor "quer que eu aguarde?"
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** toda sessao em que Studio outputs forem solicitados ao Auditor -- especialmente Audio Overview que e o mais demorado.
+
+## P-126 -- DOIS CAMINHOS DE EVOLUCAO, MESMA ORIGEM (2026-06-07)
+**Origem:** Deliberacao do Musculo a partir da descoberta da skill /notebooklm -- sessao 2026-06-07.
+**Fundamento:** O Pentalateral IAH evolui por dois caminhos distintos -- ambos originados pelo Diretor:
+  CICLO FORMAL: Diretor define direcao estrategica -> Gemini gera DIRETRIZ -> NotebookLM gera Skill -> Musculo constroi. Caminho top-down, estrategia como ponto de partida.
+  CICLO EMERGENTE: Diretor descobre capacidade nova -> usa o Embaixador como canal estruturado de transmissao -> 4 socios analisam em paralelo -> Diretor homologa a reconfiguracao. Caminho bottom-up, capacidade como ponto de partida.
+**O papel do Embaixador no Ciclo Emergente:** alem de memoria de cliente e filtro de realidade, o Embaixador opera como canal de transmissao estruturado entre o Diretor e os demais socios -- recebe a descoberta do Diretor, processa com contexto e encaminha ao Musculo com perspectiva interpretada. Nao e descobridor. E amplificador com julgamento.
+**O que nao muda:** em nenhum dos dois caminhos o sistema evolui sem o Diretor como ponto de origem. Socios analisam. Musculo constroi. O Diretor descobre e decide -- sempre. A automacao amplia a capacidade do Diretor, nunca a substitui.
+**Correcao de atribuicao:** P-120 registrou "Descoberta do Embaixador" -- correcao formal: a descoberta foi do Diretor Eduardo. O Embaixador foi o canal. P-120 atualizado para refletir a origem correta.
+**Evidencia:** sessao 2026-06-07 -- skill /notebooklm descoberta pelo Diretor, transmitida via Embaixador ao Musculo, analisada pelos 4 socios (Embaixador Universal + Auditor Universal + Auditor Ingrid + Embaixador Ingrid), homologada pelo Diretor. Nenhum socio iniciou o processo -- o Diretor originou.
+**Aprovado pelo Diretor:** 2026-06-07.
+**Aplica-se a:** toda sessao em que uma nova capacidade, skill ou ferramenta for descoberta e trazida ao Pentalateral para analise e reconfiguracao do sistema.
+
+## P-127 -- EMBAIXADOR OPERA O ESTRATEGISTA DE FORMA AUTONOMA COM GROUNDING VERIFICADO (2026-06-08)
+**Origem:** Teste ao vivo conduzido pelo Embaixador na sessao 2026-06-08 -- skill gemini-pentalateral v2.1.
+**Fundamento:** O Embaixador (Claude Projects) pode acionar o Estrategista (Gemini) de forma autonoma usando a skill gemini-pentalateral v2.1 -- com browser automation, upload de contexto e grounding verificado. O teste do nicho Medico Concurseiro foi bem-sucedido: DIRETRIZ gerada com grounding real (nao alucinada), entregue ao Musculo via PENDING_REVIEW.md. Esta e a 1a instancia documentada de um socio do Pentalateral acionando outro socio com resultado verificado.
+**O que muda:** O Embaixador nao e apenas filtro de realidade e memoria de cliente. E tambem capaz de operar o Estrategista como canal -- desde que o Diretor aprove a missao previamente (P-124: checkpoint humano obrigatorio). O loop Embaixador->Estrategista->Musculo e valido quando iniciado pelo Diretor.
+**Limitacoes obrigatorias (P-124 permanece):**
+  (a) O Diretor aprova a missao ANTES do Embaixador acionar o Estrategista
+  (b) O output do Estrategista vai para PENDING_REVIEW.md -- revisado pelo Musculo antes de qualquer acao
+  (c) Este loop NAO substitui o ciclo formal (Diretor->Gemini interativo->DIRETRIZ)
+  (d) Uso permitido: pesquisa de mercado, analise de nicho, grounding de contexto -- NAO para DIRETRIZ de cliente
+**Ferramenta:** skill gemini-pentalateral v2.1 (`.claude/skills/gemini-pentalateral-v2.1.md`) -- browser automation Embaixador->Estrategista.
+**Evidencia:** teste Medico Concurseiro -- 2026-06-08. DIRETRIZ gerada com dados reais de mercado, entregue ao Musculo, aprovada pelo Diretor.
+**Aprovado pelo Diretor:** 2026-06-08.
+**Aplica-se a:** qualquer sessao em que o Embaixador for instruido pelo Diretor a conduzir pesquisa de mercado ou grounding via Estrategista -- especialmente pre-prospeccao de novos nichos.
+
+## P-128 -- NOTION COMO CANAL BIDIRECIONAL DO DIRETOR (2026-06-08)
+**Origem:** Falha relatada pelo Diretor ("Notion nao esta atualizado, conserte") + sugestao do Diretor de usar paginas Notion como canal de comunicacao para ideias/falhas do dia.
+**Causa raiz da falha:** a pagina "Vanguard WIP Board" nunca havia sido compartilhada com a integration "Vanguard IAH" -> a API retornava 404 -> os workflows n8n (W-1, W-4) gravavam com `2>$null` e a falha ficava invisivel. Diretor resolveu compartilhando a pagina.
+**O que muda -- ciclo Notion bidirecional 100% por codigo (Diretor NAO administra Notion):**
+  ENTRADA (session_start, leitura OBRIGATORIA toda sessao):
+    - `notion_inbox.ps1` le "Vanguard - Falhas do Dia" + "Vanguard - Sugestoes do Dia" -> Musculo classifica e marca [PROCESSADO]
+    - `notion_pendentes_pull.ps1` le "Vanguard Pendentes": itens que o Diretor marcou [x] no Notion sao quitados no PENDENTES.md local
+  SAIDA (session_close):
+    - `notion_sync.ps1` reescreve "Vanguard Pendentes" (so abertos) + "Vanguard WIP Board" + "Ledger Vanguard"
+**Regras invioláveis:**
+  (a) FLEXIBILIDADE DO DIRETOR E SO EM ITENS [diretor]. Item [musculo] marcado no Notion -> IGNORADO + alerta (esses se quitam por [RESOLVE:]/git, P-087). Marcar [x], nunca editar o texto (match e por texto normalizado; texto editado nao casa e nao quita).
+  (b) NUNCA apagar `child_page`/`child_database` no wipe -- "Falhas do Dia" e "Sugestoes do Dia" sao filhas de "Vanguard Pendentes" e ja foram arquivadas por engano uma vez (2026-06-08). Todos os scripts referenciam paginas por ID FIXO de CHAVES, nunca criam por busca/titulo -> zero duplicacao.
+  (c) Ledger no Notion = cabecalho de frescor + tail recente (2123 linhas e inviavel espelhar; fonte canonica = git/INTELLIGENCE_LEDGER.md).
+  (d) UMA fonte de WIP: `notion_sync` so LE `CLIENTES/WIP_BOARD.md` (canonica), nunca cria .md; alerta se WIP_BOARD.json for mais novo que o .md.
+  (e) Erro de Notion SEMPRE visivel (sem `2>$null` cego). Fallback P-110: arquivos locais sao a fonte canonica -- Notion e espelho/canal, nunca a verdade.
+**Ferramentas:** `scripts/notion_inbox.ps1` + `scripts/notion_pendentes_pull.ps1` + `scripts/notion_sync.ps1`; chamados por `.claude/hooks/session_start.ps1` (entrada) e `scripts/session_close.ps1` (saida).
+**Evidencia:** sync testado em producao 2026-06-08 -- Pendentes 17 blocos / WIP 113 / Ledger 76; round-trip de matching Notion<->PENDENTES 12/12.
+**Aprovado pelo Diretor:** 2026-06-08.
+**Aplica-se a:** toda sessao -- entrada obrigatoria na abertura, saida obrigatoria no fechamento.
+**ATUALIZACAO 2026-06-09 -- SINGLE-WRITER + correcao dos 4 desafios do canal:**
+  #1 CONFLITO DE ESCRITORES (resolvido): 6 nodes de escrita Notion (append em /children) viviam em 4 workflows n8n -- W-1 (Append Status), W-3 (Append WIP), W-4 (Append WIP+Pendentes+Ledger), W-7 (Log Veredito). Empilhavam nas MESMAS paginas que `notion_sync` faz wipe+rewrite. Agora DESLIGADOS via Public API (`disabled:true` = pass-through; verificado por evidencia que downstream NAO usa a resposta do Notion). `notion_sync` e o UNICO escritor. Telegram / W-8 Sinais / Limpar Pendentes intactos. Ferramenta: `scripts/n8n_disable_notion_writers.ps1` (`-DryRun` / `-Rollback` + backup automatico em `_n8n/backup_pre_singlewriter/`).
+  #2 FALHA SILENCIOSA (resolvida): `notion_pendentes_pull` distingue item ja-quitado [x] (silencio) de ORFAO (marcado no Notion sem casar no PENDENTES) -> alerta `(?)`.
+  #3 LATENCIA (resolvida): `session_start` roda inbox+pull em PARALELO (`Start-Job` com chamada direta `& $s`, sem `powershell.exe` aninhado) -- ~40% mais rapido, teto 12s, degrada gracioso. Tentativa inicial com powershell.exe aninhado ficou MAIS lenta -- corrigido.
+  #4 DIVIDA P-059 (registrada no PENDENTES): paginas Notion globais vs isolamento por cliente. Mitigacao atual basta com 1 cliente (match por texto exato + so [diretor] + alerta de orfao do #2); decidir prefixo `[CLIENTE]` OU paginas por projeto antes do 2o projeto simultaneo em BUILD.
+  LICAO TECNICA: PUT da Public API n8n rejeita `settings` com campos extras (`additionalProperties:false`: binaryMode/timeSavedMode/availableInMCP) -- sanitizar para a whitelist (executionOrder, save*, executionTimeout, errorWorkflow, timezone).
+  **Verificado no n8n vivo 2026-06-09:** 6 writers DISABLED / 0 ativos / 4 workflows `active=True`. Commit 2343030. Aprovado pelo Diretor 2026-06-09.
+
+## P-129 -- FONTE INESGOTAVEL: O ELO MUSCULO<->AUDITOR E CAPACIDADE ABERTA (2026-06-09)
+**Origem:** Correcao do Diretor (marcada "IMPORTANTE") quando o Musculo enquadrou o Auditor (NotebookLM) numa tabela fechada de ~15 funcoes.
+**Fundamento:** "Fonte inesgotavel de conhecimento" NAO significa conteudo infinito -- significa que o ELO programatico Musculo<->Auditor (canal da skill notebooklm-pentalateral-v3) abre uma INFINIDADE de acoes. O valor esta no canal, nao no conteudo. Listar funcoes fixas (gestor/auditor/advogado/pesquisa de nicho/benchmarking dos gigantes) cria uma gaiola: vira teto quando deveria ser chao.
+**Como pensar (primitivas geradoras, nunca lista):** BUSCAR · INGERIR (qualquer midia) · INDEXAR · INTERROGAR · CRUZAR/AUDITAR · SINTETIZAR · TRANSFORMAR · PERSISTIR. Combinar com qualquer dominio (cliente/mercado/juridico/interno/pessoal do Diretor) x qualquer saida = espaco combinatorio aberto. "Gestor/auditor/advogado" sao 3 lentes, nao limites. Catalogo e GERADOR com exemplos-amostra -- cresce, nunca "se completa".
+**Roteamento (materializado em notebooklm-pentalateral-v3, 2026-06-09):** o criterio NAO e o nome da funcao -- e a ORIGEM da fonte + o DESTINO da saida. Funcao de cliente -> caderno do projeto [YYYY-MM][CLIENTE] modo CLIENTE; funcao de mercado -> caderno INTEL especifico modo INTEL -> PENDING_REVIEW; juridico/regulatorio transversal -> caderno juridico. A MESMA funcao muda de caderno conforme o contexto.
+**Ressalva (P-124 permanece):** acao INTEL passa por prompt analitico + PENDING_REVIEW.
+**Aprovado pelo Diretor:** 2026-06-09 ("Essa e a linha que v29 vai para frente, voce pescou tudo").
+**Aplica-se a:** todo uso do Auditor e todo desenho de catalogo de acoes do Pentalateral.
+
+## P-130 -- ANTIGRAVITY ASSUME O PAPEL DE ESTRATEGISTA; O CANAL MUDA, A BARREIRA NAO (2026-06-09)
+**Origem:** Decisao do Diretor na sessao 2026-06-09 ("mude que o Estrategista e o Antigravity"), dentro da linha-mestra V29 "Pentalateral agentado e agendado".
+**Fundamento:** O Estrategista SEMPRE foi o Gemini. O que muda e o CANAL: de Gemini web (Diretor transporta: cola PASSO3 + anexa arquivos) para Antigravity (agente que LE PASSO3+CONTEXTO do disco). Mesma inteligencia, canal agentado. GEMINI.md reescrito para v2.0: dupla funcao (1) Estrategista no loop, (2) Intel Loop Motor -- nunca misturadas na mesma sessao.
+**Reinterpretacao de P-124 (preservado, NAO revogado):** P-124 proibia o Antigravity de entrar no loop por ser o mesmo motor Gemini (camara de eco). Com a fusao, a diversidade do Pentalateral deixa de ser garantida pela EXCLUSAO do Antigravity e passa a ser garantida pelo MUSCULO (Claude Code, engine diferente) como barreira obrigatoria: toda saida do Estrategista -- DIRETRIZ ou relatorio -- vai ao Musculo ANTES do veredito do Diretor. A barreira nao some; muda de lugar.
+**Escopo cirurgico (firewall como precondicao):** liberado SO o loop VANGUARD. CLIENTES/INGRID/, CLIENTES/VALDECE/ e */CLAUDE_PROJECT/ permanecem BLOQUEADOS (P-059) ate existirem as 3 ferramentas bloqueantes ao Antigravity: (a) isolamento P-059 que aborta ao tocar caderno de cliente nao declarado; (b) gate que recusa gerar DIRETRIZ sem ter lido PASSO3+CONTEXTO; (c) saida sempre -> PENDING_REVIEW/Musculo, nunca decisao direta.
+**Ferramentas/arquivos:** GEMINI.md v2.0 + CLIENTES/VANGUARD/PASSO3_GEMINI.md (missao V29) + CONTEXTO_GEMINI.md (via gemini_anchor_generator.ps1).
+**Aprovado pelo Diretor:** 2026-06-09.
+**Aplica-se a:** todo loop conduzido pelo Antigravity como Estrategista -- VANGUARD ja; clientes apenas apos as 3 travas.
+
+## [FALHA-PROCESSO-2026-06-09] -- PROMPT AD-HOC NO CHAT EM VEZ DE PASSO3+CONTEXTO
+**Detectada pelo Diretor:** "O Antigravity nao teria que ler Passo3Gemini e Contexto Gemini? Se sim, isso deve estar sempre presente. Processo e o que leva a Vanguard para frente, disciplina, inteligencia e firewall."
+**O que aconteceu:** ao preparar o acionamento do Antigravity, o Musculo redigiu um prompt estrategico ad-hoc DIRETO no chat, ignorando os instrumentos canonicos PASSO3_GEMINI.md + CONTEXTO_GEMINI.md. Conteudo no chat e rascunho invisivel ao processo (eco de P-090: o que nao esta no arquivo nao existe para o socio).
+**Causa raiz:** atalho operacional sob momentum -- "escrever rapido" venceu "seguir o instrumento".
+**Correcao estrutural:** GEMINI.md v2.0 torna a leitura de PASSO3+CONTEXTO OBRIGATORIA na identidade do Estrategista (Antigravity). O comando de acionamento referencia os dois arquivos via @ -- nunca repassa a missao no corpo do prompt.
+**Regra:** todo acionamento de socio passa pelo arquivo canonico (PASSO3/CONTEXTO/PASSO5/PASSO7), nunca por texto improvisado no chat.
+**Aplica-se a:** todo acionamento de Estrategista, Auditor e Embaixador.

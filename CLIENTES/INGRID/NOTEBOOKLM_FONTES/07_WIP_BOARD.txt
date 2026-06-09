@@ -1,5 +1,5 @@
 ﻿WIP BOARD — PENTALATERAL IAH
-Atualizado em: 2026-06-07
+Atualizado em: 2026-06-09
 WIP Limits: BUILD=2  CHECK=1
 
 ==============================
@@ -8,13 +8,13 @@ COLUNA: BUILD
 
 -------------------------------
 PROJETO: PROJ-000 — VANGUARD
-  Descricao : VanguardV28 -- Pentalateral Autonomo
+  Descricao : VanguardV29 -- Pentalateral Autonomo
   Area      : Infraestrutura Interna -- Pentalateral IAH
   Camada    : 0 (Infraestrutura Vanguard -- nao e projeto cliente)
   Stack     : Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)
   Deadline  : 
   Status    : BUILD
-  Loop atual: Loop 28 -- EM BUILD
+  Loop atual: Loop 29 -- EM BUILD
 
 ==============================
 COLUNA: CHECK
@@ -45,6 +45,20 @@ PROJETO: PROJ-002 — Ingrid
   Status    : RETAINER
   Loop atual: Loop 8 CONCLUIDO
   Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado, dia12_contador_socratica_vacina_push_cb
+
+==============================
+COLUNA: DISCOVERY
+==============================
+
+-------------------------------
+PROJETO: PROJ-003 — MUMUZINHO
+  Descricao : Plataforma de Gestao Integral de Carreira Artistica
+  Area      : MusicTech - Fonografia / Holding Artistica
+  Camada    : 5 (Monopolio -- escala enterprise)
+  Stack     : 
+  Deadline  : 
+  Status    : STANDBY -- aguarda acionamento do Diretor
+  Loop atual: 
 
 ==============================
 PERFIS DE NICHO

@@ -2,7 +2,7 @@
 - CURRENT_VERSION: 13
 - MODEL: "Venture Builder Autônoma & Holding de Dados SaaS — The Sovereign Autonomous Layer"
 - SISTEMA: Pentalateral IAH + Hermes Agent — 5 atores + motor autônomo 24/7: Diretor + Músculo + Estrategista + Auditor + Embaixador + Hermes
-- ÚLTIMA_ATUALIZAÇÃO: 2026-06-09 — V29: INTELLIGENCE HUB + Antigravity CLI + /notebooklm v2 + LOOP_STATE system + W-9 Track TRENDS + P-119 a P-127
+- ÚLTIMA_ATUALIZAÇÃO: 2026-06-09 — V29: Pentalateral Agentado e Agendado — Antigravity = ESTRATEGISTA + INTELLIGENCE HUB + LOOP_STATE + W-9 Track TRENDS + P-119 a P-130
 
 ---
 
@@ -547,7 +547,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 > **Função:** motor de inteligência de mercado — separado e ISOLADO do loop de cliente (P-124: câmara de eco proibida).
 > **Estrutura:** `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/` → `COMPETITORS/` + `TRENDS/` + `PENDING_REVIEW.md`
-> **Antigravity CLI:** gera relatórios COMPETITORS (mensal) + TRENDS (semanal via W-9). GEMINI.md define sua identidade como Intel Loop Motor — NÃO é o Estrategista.
+> **Antigravity CLI (= ESTRATEGISTA, V29 · P-130):** é o canal do Estrategista do Pentalateral — lê `CLIENTES/[PROJ]/PASSO3_GEMINI.md` + `CONTEXTO_GEMINI.md` do disco e gera a DIRETRIZ. Acumula a função de Intel Loop Motor (COMPETITORS mensal + TRENDS semanal via W-9), nunca misturada na mesma sessão. **P-124 preservada:** toda saída vai ao Músculo (engine diferente) antes do veredito. **Escopo atual:** loop VANGUARD liberado; INGRID/VALDECE só após as 3 ferramentas bloqueantes (P-059).
 > **Regra obrigatória:** todo output do Antigravity vai para `PENDING_REVIEW.md` — Músculo revisa ANTES de qualquer ação. Nunca direto para DECISOES.json ou WIP_BOARD.
 > **LOOP_STATE system:** `CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json` por cliente — estado durável por loop, resolve amnésia pós-compactação.
 
