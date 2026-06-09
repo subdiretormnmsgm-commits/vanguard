@@ -1,22 +1,29 @@
 # CONTEXTO DA SESSÃO — DIRETOR
-> Data: 2026-06-09 (segunda-feira) · Loop 29 · Vanguard Tech
+> Data: 2026-06-09 (terça-feira) · Loop 29 FECHADO · Vanguard Tech
 > Gerado pelo Músculo para o Embaixador (P-114) e como fallback de abertura
+> ⚠️ O dia 06-09 teve DUAS sessões: (A) infra W-8 de manhã/madrugada · (B) FECHAMENTO do Loop 29 à noite (esta). Ambas registradas abaixo.
 
 ---
 
 ## 1. O QUE FOI CONSTRUÍDO
 
+### Sessão B (esta — FECHAMENTO Loop 29 · Motor de Verdade)
 | Artefato | Tipo | Commit |
 |---|---|---|
-| W-8 Signal Classifier — `responseMode` corrigido (`responseNode` → `onReceived`) | Fix crítico via REST API | `0336c41` |
-| W-1 Check-in — node `w8-post-w1` adicionado | W-1 agora posta sinais ao W-8 | `0336c41` |
-| W-3 GitHub Push — node `w8-post-w3` adicionado + jsCode corrigido | Fix: newline literal → `\n` (bug desde 05-06) | `0336c41` |
-| W-5 ChurnWatch — node `w8-post-w5` já presente (confirmado) | Cadeia completa W-1/W-3/W-5 → W-8 | — |
-| W-8 Shadow Mode operacional em produção | Chain confirmada: W-3 success 00:24:38 → W-8 success 00:24:39 | — |
-| Auditoria ENV_VARS EasyPanel (37 variáveis) | SUPABASE_VANGUARD_URL + ANON_KEY confirmados; 2 órfãs flagradas | — |
-| `scripts/embaixador_msg_sessao.txt` | Mensagem adaptada ao contexto desta sessão | `a107bd5` |
-| LEDGER propagado (Ingrid + Valdece + Vanguard) | P-033 sync universal | `a107bd5` |
-| WIP_BOARD: gemini VANGUARD Loop 29 revertido OK → PENDENTE | Corrigido via `corrigir_wip.ps1` (P-091 — sem artefato em disco) | anterior |
+| FECHAMENTO Loop 29 VANGUARD — síntese P-037 + DELIBERACAO_LOOP_V29 (adendo de fechamento) | Loop fechado | `b30c342` |
+| INTELLIGENCE_LEDGER — P-131, P-132, P-133, P-134 inscritos (AUTORIZO P-098) | Princípios novos | `b30c342` |
+| VANGUARD_TIMELINE V28 → **V29** (corrige deriva de doc — estava 3 versões atrás) | Doc canônico | `dd9b09f` |
+| Seção V29 "The Sovereign Autonomous Layer" + subseção "Motor de Verdade" (09-06) | Timeline | `dd9b09f` |
+| Sync P-033 da Timeline → INGRID + VALDECE + VANGUARD NOTEBOOKLM_FONTES/17 | Propagação universal | `dd9b09f` |
+| PENDENTES — Backlog V30 (3 épicos): Máquina de Conhecimento · **Cowork 2º motor de tempo** · Antigravity deriva/W-10 | Backlog | `dd9b09f` |
+| Limpeza: 23 artefatos de debug Playwright apagados (snapshots ~197KB) | Higiene de repo | (não commitado — eram untracked) |
+
+### Sessão A (infra W-8 — madrugada/manhã)
+| Artefato | Tipo | Commit |
+|---|---|---|
+| W-8 Signal Classifier — `responseMode` corrigido + W-1/W-3/W-5 postam ao W-8 | Fix crítico REST API | `0336c41` |
+| W-8 Shadow Mode operacional em produção (chain confirmada) | Infra n8n | — |
+| LEDGER propagado (Ingrid + Valdece + Vanguard) — P-033 | Sync universal | `a107bd5` |
 
 ---
 
@@ -24,32 +31,33 @@
 
 | Decisão | Razão | Impacto |
 |---|---|---|
-| Ingrid → standby | Respondeu 09-06 que ferramenta está OK | Sem ações pendentes até Diretor reativar |
-| Valdece → standby | Respondeu 09-06 que ferramenta está OK | Hypercare termina 18-06 — Sentinel obrigatório |
-| Mumuzinho → standby indefinido | "Esse projeto ficará em standby até que eu o acione. Não precisará ficar nos pendentes" | Removido dos pendentes por ordem do Diretor |
-| W-8 shadow mode → 7 dias de observação | Coletar dados antes de ativar plena | Deadline avaliação: 2026-06-14 (HARD) |
-| Mensagem ao Embaixador colada no chat | "Sempre cole a mensagem aqui, sempre. Fica melhor para mim" | Novo padrão permanente registrado em memória |
+| **Loop 29 = FECHADO** | Síntese P-037 completa (Antigravity→Auditor→Embaixador→Músculo) | DECISOES.json + LOOP_STATE atualizados |
+| Inscrever P-131/132/133/134 (AUTORIZO concedido) | Princípios derivados do Loop 29 | Motor de Verdade agora é lei |
+| **P-132 = amplificação direta de P-129** (elo Músculo↔Auditor = par primário) | "A interação mais importante da sessão" — Diretor | Triangulação cega vira padrão |
+| Apagar 23 artefatos de debug (manter resíduo Sugestões.md) | Lixo Playwright não vai ao histórico permanente | Resíduo Sugestões tem conteúdo do Diretor → triagem registrada |
+| **Cowork = 2º motor de tempo, independente de sessão** | "Cowork te faz ter controle sobre o tempo" — Diretor | Épico V30; quebra limitação do P-001 |
+| Ingrid / Valdece / Mumuzinho → standby (Sessão A) | Clientes responderam OK 09-06 / ordem do Diretor | Sem ações até reativação |
 
 ---
 
 ## 3. DIREÇÃO DO DIRETOR
 
-- **"Esse projeto ficará em standby até que eu o acione. Não precisará ficar nos pendentes"** — sobre Mumuzinho
-- **"Você testou todos?"** → confirmação de que todos os workflows foram testados e estão funcionando
-- **"Teste todos os comandos do n8n"** → execução completa: W-8 webhook, W-3 HMAC, chain confirmada
-- **"Sempre cole a mensagem aqui, sempre. Fica melhor para mim"** → novo padrão de entrega do Embaixador
-- **"Encerrar a sessão, todo o protocolo de fechamento, sem erros"** — encerramento explícito com protocolo completo
+- **"Cowork te faz ter controle sobre o tempo, INDEPENDENTE de abertura ou fechamento de sessão"** — insight central; vira épico V30 (2º motor autônomo, ao lado do Hermes)
+- **"Estou ficando com mais ideias que vocês, muito convívio com vocês"** — energia geradora alta (P-021); Diretor originando em rajada
+- **"Atualizar Vanguard Timeline, que evolução hoje"** — corrigiu deriva: Timeline estava em V28, saltou para V29
+- **"Lembre-se do protocolo de encerramento, seja detalhista"** — encerramento explícito e completo
+- **"Commite tudo / Push ao GitHub agora"** — vereditos de fechamento
 
 ---
 
 ## 4. ESTADO DOS PROJETOS
 
-| Projeto | Status Antes | Status Agora | Obs |
-|---|---|---|---|
-| INGRID | Loop 8 CONCLUIDO | Loop 8 CONCLUIDO · STANDBY | Respondeu OK em 09-06 · reativar quando Diretor acionar |
-| VALDECE | Loop 7 CONCLUIDO · HYPERCARE | Idem · STANDBY | Sentinel D30 antes de 18-06-2026 · P-120 ativo |
-| VANGUARD | Loop 29 EM BUILD · PASSO3 pronto | Idem · DIRETRIZ V29 pendente | WIP_BOARD gemini corrigido OK→PENDENTE |
-| MUMUZINHO | DISCOVERY (opção A) | STANDBY INDEFINIDO | Sem instrução do Diretor até acionamento |
+| Projeto | Status | Obs |
+|---|---|---|
+| VANGUARD | **Loop 29 FECHADO** · Loop 30 não aberto | Backlog V30 registrado · DIRETRIZ V29 rodou via Antigravity (P-130) |
+| INGRID | Loop 8 CONCLUÍDO · STANDBY | Respondeu OK 09-06 · M-INTEL-3 (watch edital) prazo duro 09-06 |
+| VALDECE | Loop 7 CONCLUÍDO · HYPERCARE · STANDBY | Sentinel D30 antes de 18-06 · P-120 ativo |
+| MUMUZINHO | DISCOVERY · STANDBY INDEFINIDO | Sem instrução até acionamento do Diretor |
 
 ---
 
@@ -57,18 +65,17 @@
 
 | Fricção | Causa | Resolução |
 |---|---|---|
-| PAINEL + CONTEXTO_SESSAO gerados com data anterior | session_close.ps1 não criou novos arquivos com data 09-06 | Músculo criou manualmente com dados corretos (esta sessão) |
-| session_close.ps1 Gate 1.6 VERMELHO (9 false positives) | P-087 fuzzy keyword match: "W-8" aparece em commits resolvidos E em pendentes ainda abertos | False positives confirmados — todos os 9 itens legitimamente ainda abertos |
-| `embaixador_msg_sessao.txt` consumido na 1ª execução | session_close.ps1 lê e aparentemente consome o arquivo | Recriado manualmente; padrão alterado para colar no chat |
-| WIP_BOARD declarava gemini=OK sem artefato em disco | Inconsistência herdada — DIRETRIZ V29 não existia | `corrigir_wip.ps1` reverteu; Gate 1 VERDE na 2ª execução |
+| Timeline canônica 3 versões atrás (V28) | Deriva de doc não detectada entre sessões | Corrigida nesta sessão + épico V30 doc_freshness/W-10 |
+| 23 artefatos de debug poluindo o working tree | Sessão Playwright NotebookLM não limpou scratch | Apagados; resíduo com conteúdo do Diretor preservado e registrado |
+| `Sugestões.md` em skills não é duplicata pura | 30 linhas de sugestões antigas do Diretor não migraram ao canônico | PENDENTE de triagem criado (não apagar sem triar) |
+| PAINEL + CONTEXTO 06-09 gerados na sessão anterior | Arquivos com data de hoje mas conteúdo de outra sessão | Músculo recriou com o dia completo (memória BLOQUEANTE) |
 
 ---
 
 ## 6. O QUE O SISTEMA NÃO SABIA
 
-- **Músculo é Sonnet 4.6, não Opus** — Diretor perguntou diretamente; não é possível trocar modelo mid-session; nenhum impacto operacional
-- **W-3 tinha bug desde 05-06** — jsCode com newline literal causava SyntaxError silencioso; corrigido ao vivo nesta sessão
-- **SUPABASE_URL_INGRID no EasyPanel aponta para URL da Vanguard** — variável órfã confirmada pelo Diretor na auditoria de ENV_VARS; sem impacto atual pois nenhum workflow usa
+- **Cowork tem controle sobre o próprio tempo** — roda independente de sessão; é um 2º relógio (o do mundo) ao lado do relógio de sessão. A abertura passa a ser ponto de SINCRONIZAÇÃO.
+- **A Timeline estava 3 versões defasada** — revelado ao pedir "que evolução hoje"; confirma a necessidade do motor de deriva (V30).
 
 ---
 
@@ -76,8 +83,9 @@
 
 | Documento | Problema | Ação |
 |---|---|---|
-| `_n8n/w8_signal_classifier.json` (local) | `responseMode: "responseNode"` ainda no arquivo local (o live foi corrigido via API) | Atualizar arquivo local na próxima sessão para refletir estado real |
-| WIP_BOARD loop_fase_atual VANGUARD Loop 29 | Ainda pode não refletir fase atual após corrigir gemini | Verificar na abertura da próxima sessão |
+| `.claude/skills/Sugestões.md` (untracked) | Resíduo com sugestões órfãs do Diretor | Triar e migrar para CONSELHO/SUGESTOES_DIRETOR.md (PENDENTE criado) |
+| PENDENTES "DIRETRIZ V29 — ir ao Gemini" ainda [ ] | Loop rodou via Antigravity (P-130), não pela rota Gemini manual | Verificar/quitar na abertura da próxima sessão |
+| `_n8n/w8_signal_classifier.json` (local) | responseMode local ainda errado (live corrigido) | Atualizar arquivo local |
 
 ---
 
@@ -85,62 +93,15 @@
 
 | Item | Motivo | Próxima ação |
 |---|---|---|
-| DIRETRIZ V29 (Gemini) | Diretor precisa levar PASSO3_GEMINI.md ao Gemini | Diretor executa — PASSO3 pronto |
-| Skill vanguard-v29.md (NotebookLM) | Depende da DIRETRIZ V29 | Após Gemini |
-| W-9 importar no EasyPanel | Arquivo criado (`_n8n/workflows/w9_trends_semanal.json`), import manual necessário | Diretor arrasta arquivo no EasyPanel |
-| W-8 shadow mode avaliação plena | Expira HARD 2026-06-14 | Verificar `silenced_signals_log` antes da data |
-| Sentinel Valdece | Hypercare até 2026-06-18 | Diretor agenda e envia antes dessa data |
-| Fix P-073 | `sync_vanguard_docs.ps1` deve atualizar NOTEBOOKLM_BASE antes dos clientes | Músculo executa na próxima sessão |
-| `_n8n/w8_signal_classifier.json` local desatualizado | responseMode errado no arquivo local | Músculo corrige na próxima sessão |
-| SUPABASE_URL_INGRID ENV_VAR no EasyPanel | Aponta para URL Vanguard (errada) | Corrigir na próxima manutenção de ENV_VARS |
-
----
-
-## MENSAGEM ADAPTADA PARA O EMBAIXADOR — COLAR NO CLAUDE PROJECTS
-
-> Texto adaptado ao contexto desta sessão. Colar junto com o upload dos 7 arquivos.
-
-```
-Embaixador, sessão técnica de infraestrutura encerrada. Contexto para o BLOCO 0:
-
-## O QUE FOI FEITO
-
-**W-8 Shadow Mode — OPERACIONAL** (entrega principal):
-- 4 workflows n8n atualizados via REST API (sem intervenção manual no EasyPanel)
-- W-1 (Check-in) + W-3 (GitHub Push) + W-5 (ChurnWatch) agora postam sinais ao W-8
-- Chain confirmada em produção: W-3 success 00:24:38 → W-8 success 00:24:39
-- Bug pré-existente corrigido no W-3: jsCode com newline literal causava SyntaxError desde 05-06
-- SUPABASE_VANGUARD_URL + ANON_KEY confirmados no EasyPanel pelo Diretor
-- Shadow mode começa a gravar em silenced_signals_log a partir de hoje
-
-**Clientes:** Ingrid e Valdece em standby (responderam 2026-06-09 que ferramentas estão OK).
-Mumuzinho em standby indefinido por ordem do Diretor.
-
-## ALERTAS DO MÚSCULO
-
-1. W-8 deadline 2026-06-14 (HARD): verificar silenced_signals_log antes de decidir ativação plena
-2. Sentinel Valdece: Hypercare encerra 2026-06-18 — P-120 ativo (não mencionar IA/automação)
-3. SUPABASE_URL_INGRID no EasyPanel aponta para URL errada — variável órfã, sem impacto atual
-
-## AÇÕES DO DIRETOR PARA PRÓXIMA SESSÃO
-
-1. Arrastar 7 arquivos ao Embaixador + colar mensagem desta sessão
-2. Importar W-9 no EasyPanel (arquivo: _n8n/workflows/w9_trends_semanal.json)
-3. Enviar Sentinel Valdece antes de 18-06
-4. Verificar silenced_signals_log antes de 14-06
-
-## TEMPERATURA
-
-Eduardo operou de forma cirúrgica: focou no W-8, testou todos os workflows, aceitou
-limitações técnicas sem drama. Sessão de infraestrutura limpa — nenhuma fricção
-comportamental. Novo padrão estabelecido: mensagem ao Embaixador sempre colada no chat.
-
----
-FIM DO CONTEXTO — Músculo encerrou 2026-06-09
-```
+| Triagem do `Sugestões.md` órfão | Tem conteúdo do Diretor | Triar com Diretor → migrar → apagar |
+| W-8 shadow mode avaliação plena | Expira HARD 2026-06-14 | Verificar `silenced_signals_log` antes |
+| Sentinel Valdece | Hypercare até 2026-06-18 | Diretor agenda e envia |
+| Backlog V30 (3 épicos) | Aguarda Diretor abrir V30 | Máquina de Conhecimento · Cowork · Antigravity deriva |
+| M-INTEL-3 Watch Edital Ingrid | Prazo duro 2026-06-09 | Verificar em PENDING_REVIEW |
+| Reescrita dos passos do Embaixador (templates/protocolo/script) | Enfileirado da sessão anterior | Próxima sessão |
 
 ---
 
 ## 9. PRÓXIMA SESSÃO
 
-Abrir com BLOCO 0 do Embaixador + ir ao Gemini com PASSO3_GEMINI.md (DIRETRIZ V29) + fix P-073 no sync_vanguard_docs.ps1 + atualizar arquivo local do W-8 para refletir responseMode correto.
+Abrir com BLOCO 0 do Embaixador → decidir abertura do Loop 30 (Gate Zero de Pipeline P-133: status do 3º cliente) ou avançar backlog V30 (primeiro passo cirúrgico da Máquina de Conhecimento: schema de FONTE + captura YT→SOURCES→PENDING_REVIEW). Triar Sugestões.md órfão.

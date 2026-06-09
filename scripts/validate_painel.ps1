@@ -54,7 +54,8 @@ foreach ($l in $linhas) {
     if ($l -match "^## " -and $l -notmatch "PENDENTES") {
         $emSecaoPendentes = $false; $emSecaoFuturos = $false
     }
-    if ($emSecaoPendentes -and $l -match "^\p{So}|\p{Sm}") { $urgentesContados++ }  # emoji no inicio
+    # emoji no inicio -- inclui pares substitutos (SMP: 🔴🟡 sao \p{Cs} high-surrogate em PS5.1) + simbolos BMP (⚪)
+    if ($emSecaoPendentes -and $l -match "^([\uD800-\uDBFF]|\p{So}|\p{Sm})") { $urgentesContados++ }
 }
 
 # --- Contar itens futuros (linhas "- [" na secao futuros) ---

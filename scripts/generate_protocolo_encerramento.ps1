@@ -107,7 +107,7 @@ if (Test-Path $pendentesPath) {
             } else {
                 $ignorandoSecao = $false
                 $secaoAtual = $candidato
-                if (-not $secoes.Contains($secaoAtual))        { $secoes[$secaoAtual]        = [System.Collections.Generic.List[string]]::new() }
+                if (-not $secoes.Contains($secaoAtual))        { $secoes[$secaoAtual]        = [System.Collections.Generic.List[object]]::new() }
                 if (-not $secoesFuturas.Contains($secaoAtual)) { $secoesFuturas[$secaoAtual] = [System.Collections.Generic.List[object]]::new() }
             }
         }
