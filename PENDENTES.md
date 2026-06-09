@@ -40,6 +40,14 @@
   Integrar ao session_close.ps1 como Gate 0.5 (antes do Gate 1 atual).
   Custo estimado: ~2h. Elimina classe inteira de DEF-M-6 por documento desatualizado.
 
+- [ ] `2026-06-09` **[MÚSCULO+DIRETOR] Triar sugestões órfãs em `.claude/skills/Sugestões.md`** [musculo]
+  Achado no fechamento do Loop 29: o resíduo `.claude/skills/Sugestões.md` (untracked, NÃO é duplicata) tem 30 linhas de sugestões antigas do Diretor que NÃO migraram para o canônico `CONSELHO/SUGESTOES_DIRETOR.md`. Itens:
+  (a) "/code-review obrigatório ao final de cada sessão" + análise cirúrgica de erros pós-atualização;
+  (b) "Listar todas as mensagens que devem chegar diariamente no meu Instagram";
+  (c) "Explicar em detalhe n8n vs Hermes — responsabilidade de cada um + todos os workflows (horário/mensagem/ações do Diretor)";
+  (d) "Na mensagem ao Auditor e Embaixador, além da V29, falar do Antigravity" (provavelmente já feito);
+  Ação: triar com o Diretor o que já foi resolvido vs. pendente → migrar não-resolvidos para CONSELHO/SUGESTOES_DIRETOR.md → só então apagar o resíduo. NÃO commitar o resíduo nem apagar sem triagem (tem conteúdo do Diretor).
+
 - [ ] `2026-06-09` **[MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md** [musculo]
   PASSO3 pronto em CLIENTES/VANGUARD/PASSO3_GEMINI.md.
   Pré-requisito: auditoria cirúrgica concluída.
@@ -136,6 +144,14 @@
   Gate de credibilidade (refinamento Diretor, "para depois"): aplicar o modelo `/yt-search` à WEB com whitelist/denylist de domínios + score de confiança — só fontes fidedignas (oficial/primária/acadêmica), BLOG EXCLUÍDO.
   Riscos do consultor: (a) DILUIÇÃO — valor está na CURADORIA, não no volume; (b) NotebookLM tem LIMITE de fontes → store durável = INTELLIGENCE_HUB (arquivos) → depois Supabase; (c) FONTE ≠ verdade (só "confirmado" com triangulação P-132); (d) firewall P-059/P-124 na ingestão agendada.
   Primeiro passo cirúrgico recomendado: schema de FONTE + captura YT → INTELLIGENCE_HUB/SOURCES/ → PENDING_REVIEW, provar com 1 nicho antes de escalar.
+  Memória: project_maquina_conhecimento_soberana + project_motor_de_verdade_engines.
+
+- [ ] `2026-06-XX` **[V30 ÉPICO] Embaixador agentado via Cowork — 2º motor de tempo real (independente de sessão)** [musculo] — BACKLOG, aguarda Diretor abrir V30
+  Visão central do Diretor (Loop 29, 09-06-2026 terça-feira): "Cowork te faz ter controle sobre o tempo, INDEPENDENTE de abertura ou fechamento de sessão." Agentar o Embaixador no Cowork para fazer pesquisas, buscar ferramentas/vídeos/concorrentes — "quase tudo" — em DIAS PROGRAMADOS, no relógio do mundo, não no da sessão.
+  POR QUE é grande: quebra a limitação do P-001 (Claude Code exige sessão humana). O Cowork vira um 2º motor autônomo (ao lado do Hermes/n8n) que trabalha 24/7 e ACUMULA entre sessões. A Vanguard passa a ter DOIS relógios — o de sessão (Músculo/Diretor) e o do mundo (Hermes + Cowork) — e a abertura de sessão é o ponto de SINCRONIZAÇÃO: o Músculo apenas COLHE o que se acumulou.
+  Mecânica proposta: destino fixo `INTELLIGENCE_HUB/INBOX_COWORK/[data].md` (fila durável — P-134, item vive em arquivo nunca em memória de turno); leitura entra como novo PASSO da sequência de abertura (BLOCO 0 → PENDENTES → ... → INBOX externo). Cadência reaproveita o modelo cron do W-9 + dias definidos pelo Diretor (ver D9: competitivo/tendências semanal · edital quinzenal · tecnológico sob gatilho).
+  Firewall OBRIGATÓRIO: Cowork não tem firewall nativo — saída cai em PENDING_REVIEW primeiro (P-124), curada na abertura, fonte+data sempre ou "não confirmado" (P-132), nunca direto ao MAPA DIÁRIO. Não cruzar dado de cliente (P-059).
+  Liga com a Máquina de Conhecimento (é o estágio DESCOBERTA do Embaixador) e com M'-5 (vigilância 24/7) virando rotina.
   Memória: project_maquina_conhecimento_soberana + project_motor_de_verdade_engines.
 
 - [ ] `2026-06-XX` **[V30 ÉPICO] Antigravity motor de deriva / W-10 — comandos determinados + repositório de skills** [musculo] — BACKLOG, aguarda Diretor abrir V30

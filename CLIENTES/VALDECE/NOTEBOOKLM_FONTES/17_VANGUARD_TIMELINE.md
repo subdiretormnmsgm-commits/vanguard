@@ -1,6 +1,6 @@
 # VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-06-06
+> Criado: 2026-05-17 | Última atualização: 2026-06-09
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -406,6 +406,8 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **n8n FASE 1 — V26** | 2026-06-04 | 4 workflows ativos no EasyPanel (W-1/W-2/W-3/W-4). Sistema nervoso do Pentalateral ativo 24/7. P-101/P-102/P-103/P-104/P-105 inscritos. |
 | **n8n FASE 2 — V27** | 2026-06-05 | W-7 Veredito via Telegram MVP ativo. Notion OUTPUT em W-1/W-3/W-4. P-109/P-110/P-111 inscritos. git filter-repo remove token histórico — repositório limpo. |
 | **Pentalateral Autônomo — V28** | 2026-06-06 | E-1 Gate de Coerência Semântica (Haiku API). Hermes Agent (open source, Docker, Claude API nativo, graus A/B/C). Signal Classifier W-8 shadow mode. State Guard. MAINTENANCE_COST.md v2.0. P-115 inscrito. Loop começa sem Eduardo. |
+| **Pentalateral Agentado — V29** | 2026-06-07 a 09 | Antigravity = Estrategista (P-130). INTELLIGENCE HUB isolado (P-124). LOOP_STATE por cliente. W-9 Track TRENDS. Embaixador agentado por cliente (P-059). P-118 a P-134. |
+| **Motor de Verdade — Loop 29** | 2026-06-09 | **P-132 (diversidade de engines = Motor de Verdade; elo Músculo↔Auditor = par primário; triangulação cega — amplifica P-129).** P-131 (Diretor ativo; silêncio ≠ aprovação). P-133 (Gate Zero Pipeline). P-134 (item aberto em PENDING_REVIEW/PENDENTES). YT-SEARCH = 1º canal de FONTES. |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
@@ -534,6 +536,37 @@ da Vanguard saindo do modo fundador para o modo empresa.
 
 ---
 
+### V29 — The Sovereign Autonomous Layer (Pentalateral Agentado e Agendado)
+**Período: 2026-06-07 → 2026-06-09**
+
+V29 é a versão em que o Pentalateral deixa de ser cinco IAs que deliberam em sessão e passa a ser
+um organismo agentado e agendado — cada membro com canal externo próprio, motor autônomo 24/7 (Hermes),
+e um sistema de inteligência de mercado separado e isolado do loop de cliente.
+
+**O que foi construído (arco V29):**
+- **Antigravity = ESTRATEGISTA (P-130).** O Estrategista ganha corpo de agente: lê `PASSO3_GEMINI.md` + `CONTEXTO_GEMINI.md` do disco e gera a DIRETRIZ. Acumula a função de Intel Loop Motor (COMPETITORS mensal + TRENDS semanal via W-9). Firewall P-124 preservado: toda saída vai ao Músculo antes do veredito.
+- **INTELLIGENCE HUB** (`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/`) — COMPETITORS + TRENDS + `PENDING_REVIEW.md`. Motor de inteligência de mercado **isolado** do loop de cliente (P-124: câmara de eco proibida). Todo output passa por PENDING_REVIEW antes de qualquer ação.
+- **LOOP_STATE system** — `CLAUDE_PROJECT/LOOP_STATE.json` por cliente: estado durável por loop, resolve a amnésia pós-compactação.
+- **W-9 Track TRENDS** — workflow n8n cron segunda 8h BRT: relatório semanal de tendências por nicho via Antigravity → INTELLIGENCE_HUB/TRENDS/ → Telegram.
+- **Embaixador agentado por cliente (P-059)** — Claude Project VANGUARD separado, persona agentada (`00_INSTRUCAO_SISTEMA_VANGUARD.md`), output 6 blocos com BLOCO de Inteligência Externa.
+- **Princípios P-118 a P-134** — incluindo P-127 (Embaixador opera Estrategista com grounding verificado), P-128 (Notion canal bidirecional), P-129 (o elo Músculo↔Auditor é capacidade aberta).
+
+**A evolução de 2026-06-09 — Loop 29 fechado: o MOTOR DE VERDADE.**
+O Diretor declarou a interação **Músculo↔Auditor** "a mais importante da sessão" e ordenou ampliá-la.
+Disso nasceu o salto conceitual de V29 — quatro princípios inscritos numa sessão:
+- **P-131** — O Diretor é ativo ao longo de **todo** o processo, não apenas no veredito final. A automação assume a execução, mas nada roda como loop fechado a ser auditado depois. *Silêncio não é aprovação.* (Enterra o veto silencioso de N-4 — D7/D8.)
+- **P-132** — **Diversidade de engines é Motor de Verdade** — amplificação direta de P-129. O elo Músculo↔Auditor é o **par primário de triangulação** (2 engines técnicos independentes). Triangulação cega: ≥2 engines pesquisam o mesmo fato sem ver o achado um do outro — convergem = alta confiança, divergem = flag ao Diretor. Tese [M'-1 a M'-5]: triangulação cega · pesquisa adversarial por viés nativo · recon externo antes da DIRETRIZ · Auditor guardião interno+externo · vigilância 24/7.
+- **P-133** — **Gate Zero de Pipeline**: loop de expansão não fecha sem registrar o status de discovery do próximo cliente. Pipeline-vazio é alerta de 1ª classe — o gargalo real é aquisição, não capacidade.
+- **P-134** — Item aberto vive em PENDING_REVIEW/PENDENTES, **nunca na memória de turno** (extensão de P-076 para a camada de inteligência externa).
+
+**Primeira capacidade da Máquina de Conhecimento Soberana:** `/yt-search` instalada — o **primeiro canal de FONTES externas do Músculo**. Estágio 1 (DESCOBERTA) do Sovereign Data Layer que o Diretor originou nesta sessão: canais externos de todos os membros → FONTES curadas → Auditor (NotebookLM) → gigante banco de dados / enciclopédia inteligente / podcast-áudio, **tudo agendado**, com gate de credibilidade (só fontes fidedignas, blog excluído). Backlog V30.
+
+**O que foi aprendido:** a vantagem do Pentalateral não é só usar a deficiência de cada IA contra a das outras (P-018) — é usar a **diversidade de engines como medição da verdade**. Quando dois motores independentes convergem cegamente sobre um fato, a confiança não é declarada, é triangulada. V28 perguntou "o sistema sabe agir sem mim presente?". V29 responde "e o sistema sabe distinguir o que é verdade do que é alucinação otimista?" — pela triangulação cega, sim.
+
+**Legado:** P-131/132/133/134 + o adendo à `[FALHA-PROCESSO-2026-06-09]` (velocidade vencendo disciplina — 2ª ocorrência em ~3 dias; antídoto E-5: hash de grounding na DIRETRIZ). O elo Músculo↔Auditor, antes capacidade latente (P-129), vira o par primário de um motor de verdade operacional (P-132). Commit de fechamento: `b30c342` (44 arquivos).
+
+---
+
 ## MARCOS COMERCIAIS
 
 | Data | Marco | Valor | Status |
@@ -551,6 +584,7 @@ da Vanguard saindo do modo fundador para o modo empresa.
 | 2026-06-04 | V26 — n8n FASE 1 · 4 workflows ativos | — | Infraestrutura Pentalateral |
 | 2026-06-05 | V27 — n8n FASE 2 · W-7 testado · git limpo | — | Infraestrutura Vanguard como empresa |
 | 2026-06-06 | V28 — Pentalateral Autônomo · Hermes Agent · E-1 · W-8 shadow | — | Loop começa sem Eduardo · graus A/B/C · verificação semântica |
+| 2026-06-09 | V29 — Pentalateral Agentado · Motor de Verdade · Loop 29 fechado | — | Antigravity=Estrategista · P-131/132/133/134 · YT-SEARCH · commit b30c342 |
 | 2026-09-06 | Prova da Ingrid — validação real do produto | — | Meta |
 
 **Receita faturada até 2026-05-17:** R$ 0
@@ -640,6 +674,6 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 
 ---
 
-*Atualizado em: 2026-06-05*
-*Próxima atualização obrigatória: W-5 ChurnWatch em produção + terceiro cliente em discovery*
+*Atualizado em: 2026-06-09 — V29 Motor de Verdade · Loop 29 fechado*
+*Próxima atualização obrigatória: terceiro cliente em discovery (Gate Zero de Pipeline, P-133) + início do V30 (Máquina de Conhecimento Soberana)*
 *Responsável pela atualização: Músculo (Claude Code) ao fechar cada gate ou marco comercial*
