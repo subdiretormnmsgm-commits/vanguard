@@ -45,7 +45,7 @@
   Pré-requisito: auditoria cirúrgica concluída.
   Usar skill gemini-pentalateral: subir PASSO3 ao Drive → anexar + disparar.
 
-- [ ] `2026-06-09` **[MÚSCULO] Fix sistêmico P-073 — sync_vanguard_docs.ps1 deve atualizar NOTEBOOKLM_BASE** [musculo]
+- [x] `2026-06-09` **[MÚSCULO] Fix sistêmico P-073 — sync_vanguard_docs.ps1 deve atualizar NOTEBOOKLM_BASE** [musculo]
   Problema recorrente: OPERACAO/ é atualizado → sync copia para CLIENTES/ mas NÃO para NOTEBOOKLM_BASE/.
   detect_canonical usa BASE como referência → falso positivo VERMELHO toda sessão.
   Fix: adicionar Passo 0 no sync_vanguard_docs.ps1 — OPERACAO → NOTEBOOKLM_BASE antes de OPERACAO → CLIENTES.
