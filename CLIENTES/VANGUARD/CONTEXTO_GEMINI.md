@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-08 21:41
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-08 22:14
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-99fb66d docs(pendentes): W-8 env vars confirmadas -- shadow mode 100% operacional
-0336c41 feat(w8): deploy shadow mode real via API -- W-1/W-3/W-5/W-8 ativos [RESOLVE: W-8-deploy]
-4cf0881 docs(pendentes): W-8 -- instrucoes EasyPanel para Diretor (2026-06-09)
+83d1e62 chore(fechamento): msg Embaixador + WIP_BOARD gemini PENDENTE -- fechamento final 2026-06-09
+e1c5978 chore(skills): mover Sugestoes.md para CONSELHO/ -- nao e skill, e caderno do Diretor
+cfea5e1 feat(pendentes): doc_freshness_checker.ps1 -- deteccao de deriva de documentos [musculo]
 
 ================================================================================
 

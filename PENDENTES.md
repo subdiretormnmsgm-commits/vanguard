@@ -28,7 +28,7 @@
   Arquivos: PAINEL_ATIVIDADES · CONTEXTO_SESSAO_DIRETOR · WIP_BOARD · LEDGER · PENDENTES · VANGUARD_TIMELINE · MEMORIA_EMBAIXADOR
   Mensagem já preparada: colar a mensagem copiada do terminal da sessão 2026-06-08.
 
-- [ ] `2026-06-09` **[MÚSCULO] doc_freshness_checker.ps1 — detecção de deriva de documentos** [musculo]
+- [ ] `2026-06-09` **[MÚSCULO] doc_freshness_checker.ps1 — detecção de deriva de documentos** [musculo] — AGENDADO para amanhã (09-06-2026 terça-feira) por decisão do Diretor em 2026-06-08
   Problema: documentos críticos ficam desatualizados entre sessões sem detecção (caso: TIMELINE 3 dias atrás).
   Solução aprovada pelo Diretor: script signal-driven, não calendar-driven.
   O que construir:
