@@ -48,6 +48,19 @@
   (d) "Na mensagem ao Auditor e Embaixador, além da V29, falar do Antigravity" (provavelmente já feito);
   Ação: triar com o Diretor o que já foi resolvido vs. pendente → migrar não-resolvidos para CONSELHO/SUGESTOES_DIRETOR.md → só então apagar o resíduo. NÃO commitar o resíduo nem apagar sem triagem (tem conteúdo do Diretor).
 
+- [ ] `2026-06-09` **[MÚSCULO] Reconciliar as 4 cópias da TIMELINE — definir fonte canônica única** [musculo]
+  Achado no fechamento do Loop 29 (Diretor detectou `CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md` desatualizado).
+  CAUSA-RAIZ: existem 4 cópias da Timeline que derivam entre si sem fonte canônica:
+    (1) `CLIENTES/VANGUARD/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md` — vai ao Embaixador (versão RICA, 730+ linhas)
+    (2,3,4) `CLIENTES/{VANGUARD,INGRID,VALDECE}/NOTEBOOKLM_FONTES/17_VANGUARD_TIMELINE.md` — lida pelo Auditor (versão CONDENSADA, 679 linhas)
+    (+) `CLIENTES/VANGUARD/HISTORICO/VANGUARD_TIMELINE.md`
+  O `dd9b09f` atualizou as cópias FONTES/17 + HISTORICO mas NÃO o CLAUDE_PROJECT/16 → deriva.
+  Pior: o CLAUDE_PROJECT/16 (Embaixador) está MAIS completo que o FONTES/17 (Auditor) — o Auditor lê a versão condensada.
+  Por que sync_vanguard_docs.ps1 não corrige: a Timeline vive FORA de PENTALATERAL_UNIVERSAL/ → sync nunca a toca.
+  Por que doc_freshness_checker.ps1 não pegou: CLAUDE_PROJECT/16 não está na lista RASTREADO (ou rastreia path diferente).
+  AÇÃO (decisão do Diretor pendente): (a) eleger UMA fonte canônica da Timeline; (b) criar sync 1→N que propaga para as 4 cópias; (c) incluir TODAS as cópias no doc_freshness_checker. Backlog V30 — liga ao épico doc_freshness/W-10.
+  Correção pontual já feita em 2026-06-09: CLAUDE_PROJECT/16 trazido a V29 Motor de Verdade (merge cirúrgico, sem perder detalhe).
+
 - [ ] `2026-06-09` **[MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md** [musculo]
   PASSO3 pronto em CLIENTES/VANGUARD/PASSO3_GEMINI.md.
   Pré-requisito: auditoria cirúrgica concluída.

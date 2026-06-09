@@ -406,7 +406,8 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **n8n FASE 1 — V26** | 2026-06-04 | 4 workflows ativos no EasyPanel (W-1/W-2/W-3/W-4). Sistema nervoso do Pentalateral ativo 24/7. P-101/P-102/P-103/P-104/P-105 inscritos. |
 | **n8n FASE 2 — V27** | 2026-06-05 | W-7 Veredito via Telegram MVP ativo. Notion OUTPUT em W-1/W-3/W-4. P-109/P-110/P-111 inscritos. git filter-repo remove token histórico — repositório limpo. |
 | **Pentalateral Autônomo — V28** | 2026-06-06 | E-1 Gate de Coerência Semântica (Haiku API). Hermes Agent (open source, Docker, Claude API nativo, graus A/B/C). Signal Classifier W-8 shadow mode. State Guard. MAINTENANCE_COST.md v2.0. P-115 inscrito. Loop começa sem Eduardo. |
-| **Sovereign Intelligence Layer — V29** | 2026-06-07/08/09 | INTELLIGENCE HUB (COMPETITORS + TRENDS + PENDING_REVIEW). Antigravity CLI como Intel Loop Motor (isolado, P-124). /notebooklm v2 + YouTube como fonte. LOOP_STATE system por cliente por loop. W-9 Track TRENDS (cron semanal). W-8 OPERACIONAL em produção (shadow mode ativo). gemini-pentalateral v2.1. P-118 a P-127 inscritos. |
+| **Pentalateral Agentado — V29** | 2026-06-07 a 09 | Antigravity = Estrategista (P-130). INTELLIGENCE HUB isolado (P-124). LOOP_STATE por cliente. W-9 Track TRENDS. Embaixador agentado por cliente (P-059). /notebooklm v2 + YouTube como fonte. W-8 OPERACIONAL em produção. gemini-pentalateral v2.1. P-118 a P-134. |
+| **Motor de Verdade — Loop 29** | 2026-06-09 | **P-132 (diversidade de engines = Motor de Verdade; elo Músculo↔Auditor = par primário; triangulação cega — amplifica P-129).** P-131 (Diretor ativo; silêncio ≠ aprovação). P-133 (Gate Zero Pipeline). P-134 (item aberto em PENDING_REVIEW/PENDENTES). YT-SEARCH = 1º canal de FONTES. Loop 29 fechado (commit b30c342). |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
@@ -492,6 +493,13 @@ Em 2026-06-05, o n8n entrou como 6º elemento — não membro, mas sistema nervo
 | P-125 | Fire-and-forget com webhook — Studio outputs não bloqueiam terminal | 2026-06-07 | Audio Overview leva 3–10 min; terminal não pode ficar bloqueado | Disparar geração → liberar terminal → n8n monitora → Telegram notifica. |
 | P-126 | Dois caminhos de evolução, mesma origem | 2026-06-07 | Descoberta /notebooklm v2 pelo Diretor — bottom-up, não top-down | Ciclo formal (Diretor→Gemini→Skill) e Ciclo emergente (Diretor descobre→Embaixador amplifica→sócios analisam). |
 | P-127 | Embaixador opera o Estrategista autonomamente com grounding verificado | 2026-06-08 | Teste: Embaixador→Gemini no nicho Médico Concurseiro via gemini-pentalateral v2.1 | DIRETRIZ via PENDING_REVIEW.md. 1ª instância documentada de sócio→sócio com resultado verificado. P-124 permanece. |
+| P-128 | Notion é canal bidirecional do Diretor | 2026-06-08 | Diretor precisa registrar Falhas/Sugestões e quitar pendentes [diretor] fora da sessão | ENTRADA (notion_inbox + notion_pendentes_pull) + SAÍDA (notion_sync). Flexibilidade só em [diretor]; [musculo] no Notion = ignorado. Arquivos locais = fonte canônica (P-110). |
+| P-129 | O elo Músculo↔Auditor é capacidade aberta (fonte inesgotável) | 2026-06-09 | Reflexão sobre o par de 2 engines técnicos independentes | A interação entre Músculo (Claude) e Auditor (NotebookLM) é capacidade latente a explorar continuamente — não esgota em um loop. |
+| P-130 | Antigravity assume o papel de Estrategista — o canal muda, a barreira não | 2026-06-09 | Estrategista ganha corpo de agente que lê o disco e gera DIRETRIZ | Antigravity lê PASSO3_GEMINI.md + CONTEXTO_GEMINI.md → DIRETRIZ. Acumula Intel Loop Motor. Firewall P-124 preservado: saída vai ao Músculo antes do veredito. |
+| P-131 | O Diretor é ativo ao longo de TODO o processo, não só no veredito final | 2026-06-09 | Risco de loop fechado auditado só depois | A automação executa, mas nada roda como caixa-preta. *Silêncio não é aprovação.* Enterra o veto silencioso de N-4 (D7/D8). |
+| P-132 | Diversidade de engines é Motor de Verdade — elo Músculo↔Auditor = par primário | 2026-06-09 | Diretor declarou a interação Músculo↔Auditor "a mais importante da sessão" e mandou ampliá-la | Triangulação cega: ≥2 engines pesquisam o mesmo fato sem ver o achado um do outro — convergem = alta confiança, divergem = flag ao Diretor. Amplificação direta de P-129. |
+| P-133 | Gate Zero de Pipeline — loop de expansão não fecha sem discovery do próximo cliente | 2026-06-09 | Pipeline-vazio não detectado no fechamento de loop | Loop de expansão registra o status de discovery do próximo cliente. Pipeline-vazio = alerta de 1ª classe: o gargalo real é aquisição, não capacidade. |
+| P-134 | Item aberto vive em PENDING_REVIEW/PENDENTES, nunca na memória de turno | 2026-06-09 | Risco de item de inteligência externa perdido pós-compactação | Extensão de P-076 para a camada de inteligência externa: nada fica só na conversa. |
 
 **Velocidade de aprendizado por fase:**
 - V1–V23 (pré-LEDGER): ~0 princípios formalizados por sessão
@@ -499,8 +507,8 @@ Em 2026-06-05, o n8n entrou como 6º elemento — não membro, mas sistema nervo
 - V25 (2026-05-12 a 2026-05-17): 20 princípios em 5 dias
 - V26–V27 (2026-06-04 a 2026-06-05): princípios sobre a Vanguard como empresa
 - V28 (2026-06-06): autonomia — P-115/P-116/P-117
-- V29 (2026-06-07/08/09): inteligência soberana — P-118 a P-127 (10 princípios em 3 dias)
-- **Média atual: 4+ princípios por dia de IAH operacional**
+- V29 (2026-06-07/08/09): inteligência soberana + Motor de Verdade — P-118 a P-134 (17 princípios em 3 dias)
+- **Média atual: 5+ princípios por dia de IAH operacional**
 
 ---
 
@@ -547,7 +555,7 @@ da Vanguard saindo do modo fundador para o modo empresa.
 
 ---
 
-### V29 — The Sovereign Intelligence Layer
+### V29 — The Sovereign Autonomous Layer (Pentalateral Agentado e Agendado)
 **Datas: 2026-06-07 / 2026-06-08 / 2026-06-09**
 
 **O que foi construído:**
@@ -596,6 +604,20 @@ A descoberta mais importante da V29: o Diretor descobre capacidades novas que ne
 - P-124 (câmara de eco proibida) → Antigravity isolado, PENDING_REVIEW.md como checkpoint
 - P-127 (Embaixador→Estrategista verificado) → novo caminho de loop com aprovação do Diretor
 - `silenced_signals_log` como base de dados para decisão de ativação plena do W-8 (deadline: 2026-06-14)
+
+**A evolução de 2026-06-09 — Loop 29 fechado: o MOTOR DE VERDADE.**
+O Diretor declarou a interação **Músculo↔Auditor** "a mais importante da sessão" e ordenou ampliá-la.
+Disso nasceu o salto conceitual que renomeia a V29 de *Intelligence Layer* para **Sovereign Autonomous Layer** — quatro princípios inscritos numa sessão:
+- **P-131** — O Diretor é ativo ao longo de **todo** o processo, não apenas no veredito final. A automação assume a execução, mas nada roda como loop fechado a ser auditado depois. *Silêncio não é aprovação.* (Enterra o veto silencioso de N-4 — D7/D8.)
+- **P-132** — **Diversidade de engines é Motor de Verdade** — amplificação direta de P-129. O elo Músculo↔Auditor é o **par primário de triangulação** (2 engines técnicos independentes). Triangulação cega: ≥2 engines pesquisam o mesmo fato sem ver o achado um do outro — convergem = alta confiança, divergem = flag ao Diretor. Tese [M'-1 a M'-5]: triangulação cega · pesquisa adversarial por viés nativo · recon externo antes da DIRETRIZ · Auditor guardião interno+externo · vigilância 24/7.
+- **P-133** — **Gate Zero de Pipeline**: loop de expansão não fecha sem registrar o status de discovery do próximo cliente. Pipeline-vazio é alerta de 1ª classe — o gargalo real é aquisição, não capacidade.
+- **P-134** — Item aberto vive em PENDING_REVIEW/PENDENTES, **nunca na memória de turno** (extensão de P-076 para a camada de inteligência externa).
+
+**Cowork = 2º motor de tempo (insight do Diretor, eleito épico V30).** "Cowork te faz ter controle sobre o tempo, independente de abertura ou fechamento de sessão." O Embaixador agentado via Cowork roda no relógio do mundo — em dias programados pesquisa, busca vídeos e ferramentas, e deposita em `INTELLIGENCE_HUB/INBOX_COWORK/[data].md`. A abertura de sessão passa a ser ponto de **sincronização** entre os dois relógios (sessão + mundo). Quebra a limitação histórica do P-001 (Claude Code ≠ daemon) sem violá-la: o daemon é o Cowork, não o Claude Code. Firewall P-124 intacto — tudo passa por PENDING_REVIEW antes de qualquer ação.
+
+**Primeira capacidade da Máquina de Conhecimento Soberana (V30):** `/yt-search` instalada — o **primeiro canal de FONTES externas do Músculo**. Estágio 1 (DESCOBERTA) do Sovereign Data Layer: canais externos de todos os membros → FONTES curadas → Auditor (NotebookLM) → banco de dados gigante / enciclopédia inteligente / podcast-áudio, **tudo agendado**, com gate de credibilidade (blog excluído). Backlog V30.
+
+**O que foi aprendido (Loop 29):** a vantagem do Pentalateral não é só usar a deficiência de cada IA contra a das outras (P-018) — é usar a **diversidade de engines como medição da verdade**. Quando dois motores independentes convergem cegamente sobre um fato, a confiança não é declarada, é triangulada. V28 perguntou "o sistema sabe agir sem mim presente?". V29 responde "e o sistema sabe distinguir o que é verdade do que é alucinação otimista?" — pela triangulação cega, sim. Commit de fechamento do Loop 29: `b30c342` (44 arquivos) + `dd9b09f` (Timeline V29) + `380cc28` (artefatos).
 
 ---
 
@@ -659,7 +681,7 @@ P-021 (Diretor como Originador), P-022 (Auditor como Advogado), P-023 (Contrato 
 Seis dos vinte e cinco princípios nasceram diretamente da experiência acumulada do Diretor.
 Isso não é copiável. Eduardo não é substituível por um prompt melhor.
 
-**5. A Vanguard está na V28 — não na V1.**
+**5. A Vanguard está na V29 (Motor de Verdade) — não na V1.**
 Com o Hermes Agent operando autonomamente e o n8n acumulando inteligência a cada loop, a distância aumenta toda semana
 com ou sem sessão ativa. O competidor que começar hoje não está atrasado — está em outro jogo.
 
@@ -699,7 +721,8 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 | ✅ 2026-06-04 | V26 — n8n FASE 1 · 4 workflows ativos no EasyPanel · P-101/P-102 inscritos | Infraestrutura |
 | ✅ 2026-06-05 | V27 — n8n FASE 2 · W-7 ativo · Notion OUTPUT · git limpo · P-109/P-110/P-111 | Infraestrutura |
 | ✅ 2026-06-08 | V29 — INTELLIGENCE HUB + Antigravity + LOOP_STATE + W-9 + P-127 | Infraestrutura |
-| ✅ 2026-06-09 | W-8 Shadow Mode OPERACIONAL em produção · W-3 fix · P-118 a P-127 inscritos | Infraestrutura |
+| ✅ 2026-06-09 | W-8 Shadow Mode OPERACIONAL em produção · W-3 fix · ENV_VARS auditadas | Infraestrutura |
+| ✅ 2026-06-09 | **Loop 29 FECHADO — Motor de Verdade** · P-128 a P-134 inscritos · Timeline V29 · commits b30c342/dd9b09f/380cc28 | Processo |
 | [ ] 2026-06-14 | W-8 — avaliar ativação plena (HARD deadline) | Infraestrutura |
 | [ ] 2026-06-18 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
 | [ ] 2026-06-18 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
@@ -711,6 +734,6 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 
 ---
 
-*Atualizado em: 2026-06-05*
-*Próxima atualização obrigatória: W-5 ChurnWatch em produção + terceiro cliente em discovery*
+*Atualizado em: 2026-06-09 — V29 Motor de Verdade · Loop 29 FECHADO*
+*Próxima atualização obrigatória: terceiro cliente em discovery (Gate Zero de Pipeline, P-133) + início do V30 (Máquina de Conhecimento Soberana · Cowork 2º motor de tempo)*
 *Responsável pela atualização: Músculo (Claude Code) ao fechar cada gate ou marco comercial*
