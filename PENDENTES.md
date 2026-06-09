@@ -28,6 +28,18 @@
   Arquivos: PAINEL_ATIVIDADES · CONTEXTO_SESSAO_DIRETOR · WIP_BOARD · LEDGER · PENDENTES · VANGUARD_TIMELINE · MEMORIA_EMBAIXADOR
   Mensagem já preparada: colar a mensagem copiada do terminal da sessão 2026-06-08.
 
+- [ ] `2026-06-09` **[MÚSCULO] doc_freshness_checker.ps1 — detecção de deriva de documentos** [musculo]
+  Problema: documentos críticos ficam desatualizados entre sessões sem detecção (caso: TIMELINE 3 dias atrás).
+  Solução aprovada pelo Diretor: script signal-driven, não calendar-driven.
+  O que construir:
+  (a) Para cada doc RASTREADO (TIMELINE, MEMORIA_EMBAIXADOR, DEPENDENCY_MAP, WIP_BOARD, PENDENTES):
+      comparar data da última atualização do doc vs. commits desde essa data
+  (b) Se houver commit que deveria ter disparado update → doc marcado como STALE
+  (c) Reportar: "[STALE] 16_VANGUARD_TIMELINE.md — 3 commits desde último update"
+  (d) Docs CRÍTICOS stale → exit 1 bloqueante no session_close.ps1
+  Integrar ao session_close.ps1 como Gate 0.5 (antes do Gate 1 atual).
+  Custo estimado: ~2h. Elimina classe inteira de DEF-M-6 por documento desatualizado.
+
 - [ ] `2026-06-09` **[MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md** [musculo]
   PASSO3 pronto em CLIENTES/VANGUARD/PASSO3_GEMINI.md.
   Pré-requisito: auditoria cirúrgica concluída.
