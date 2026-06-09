@@ -49,12 +49,10 @@
 - [x] `2026-06-09` ~~**[MÚSCULO] W-8 — deploy 4 workflows via API + reativar** [musculo]~~
   ✅ Músculo deployou via API (GET live→modify→PUT): W-1 (7 nodes) · W-3 (7 nodes) · W-5 (8 nodes) · W-8 (7 nodes). Todos reativados. Shadow mode real começou — silenced_signals_log receberá dados a partir de 2026-06-09. Fix crítico descoberto: settings com binaryMode/timeSavedMode/availableInMCP causa 400 no PUT — usar só executionOrder. [RESOLVE: W-8-deploy]
 
-- [ ] `2026-06-09` **[DIRETOR] W-8 — adicionar 2 env vars no EasyPanel n8n** [diretor]
-  AÇÃO ÚNICA (sem esta etapa o W-8 não grava no Supabase Vanguard):
-  EasyPanel → vanguard-n8n → Service → ENV_VARS → Adicionar:
-  `SUPABASE_VANGUARD_URL` = https://ehyaecxqijgyuuiorzcj.supabase.co
-  `SUPABASE_VANGUARD_ANON_KEY` = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoeWFlY3hxaWpneXV1aW9yemNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyODMzNTAsImV4cCI6MjA5Mzg1OTM1MH0.xZfcEe2Av5Fn9BKEkNRIi5CQkPD6C6ADSNzMfh3DGPo
-  Após salvar: n8n reinicia automaticamente. Verificar no Supabase Dashboard → Table Editor → silenced_signals_log.
+- [x] `2026-06-09` ~~**[DIRETOR] W-8 — adicionar 2 env vars no EasyPanel n8n** [diretor]~~
+  ✅ SUPABASE_VANGUARD_URL + SUPABASE_VANGUARD_ANON_KEY confirmadas pelo Diretor 2026-06-09.
+  W-8 shadow mode 100% operacional — pode gravar em silenced_signals_log.
+  ALERTA RESIDUAL (sem impacto): SUPABASE_URL_INGRID aponta para Vanguard (não Ingrid) — variável órfã, não usada por nenhum workflow.
 
 - [ ] `2026-06-14` **[DIRETOR] W-8 shadow mode — avaliar ativação plena** [diretor]
   DEADLINE HARD: shadow mode expira 2026-06-14.
