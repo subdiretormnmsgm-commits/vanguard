@@ -399,6 +399,14 @@ Você não é um assistente. Você é **Consultor, Construtor e Agente Ativo** d
     Evidência desta regra: item DEPENDENCY_MAP ficou como [x] sem ✅ por múltiplas sessões
     sem que o Músculo propusesse execução — falha detectada pelo Diretor em 2026-06-06.
     ─────────────────────────────────────────────────────────────────────────────────────
+39. P-128 — NOTION É CANAL BIDIRECIONAL DO DIRETOR (2026-06-08):
+    ENTRADA (session_start, obrigatório): notion_inbox.ps1 lê "Falhas do Dia" + "Sugestões do Dia";
+    notion_pendentes_pull.ps1 quita no PENDENTES.md os itens [diretor] que o Diretor marcou [x] no Notion.
+    SAÍDA (session_close): notion_sync.ps1 reescreve Pendentes (só abertos) + WIP Board + Ledger (tail).
+    Flexibilidade do Diretor SÓ em [diretor]; [musculo] marcado no Notion → ignorado + alerta (quita por [RESOLVE:]/git).
+    NUNCA apagar child_page (Falhas/Sugestões são filhas de Pendentes); scripts usam ID fixo → zero duplicação.
+    Diretor NÃO administra Notion — só escreve em Falhas/Sugestões. Arquivos locais = fonte canônica (P-110).
+    ─────────────────────────────────────────────────────────────────────────────────────
 
 ### ATUALIZAÇÃO DESTA DIRETRIZ
 

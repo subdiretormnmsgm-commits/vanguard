@@ -31,7 +31,8 @@ $protegidos = @(
     "PASSO3_GEMINI_TEMPLATE\.md$",
     "passo3_template\.txt$",
     "INTELLIGENCE_LEDGER\.md$",
-    "DEPENDENCY_MAP\.json$"
+    "DEPENDENCY_MAP\.json$",
+    "CLAUDE\.md$"
 )
 
 $pathNorm = $FilePath -replace "\\", "/"
