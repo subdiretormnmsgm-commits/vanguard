@@ -86,7 +86,10 @@
                                                          "plataforma":  "EasyPanel hermes/hermes-agent",
                                                          "modelo":  "anthropic/claude-sonnet-4-6 via OpenRouter",
                                                          "telegram":  "configurado (home: 8895733647)",
-                                                         "grau_atual":  "A -- age apenas com aprovacao",
+                                                         "grau_atual":  "B -- age automaticamente + veto 15min Telegram",
+                                                         "grau_ativado_em":  "2026-06-10",
+                                                         "approvals_mode":  "auto",
+                                                         "approvals_timeout_s":  900,
                                                          "config_path":  "/opt/data/config.yaml",
                                                          "shadow_mode_w8_expira":  "2026-06-14"
                                                      },
@@ -259,7 +262,7 @@
                  "loops_desde_ultimo_checkup":  2,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-09",
+                 "data_ultima_sessao":  "2026-06-10",
                  "claude_projects_pendente":  true
              }
 }
