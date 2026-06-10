@@ -2294,6 +2294,42 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 
 ---
 
+## P-147 — BUDGET DE LEITURA DO DIRETOR E REGRA PERMANENTE (2026-06-10)
+**Origem:** E-2 do Embaixador — "Com 10 projetos vão colapsar." O Embaixador identificou que cada loop adiciona artefatos que exigem leitura voluntária do Diretor, sem limite estrutural.
+**Princípio:** Todo artefato novo proposto em qualquer loop deve declarar seu custo de atenção do Diretor (em "itens de atenção voluntária por sessão"). O sistema tem um teto — estourou o teto, algo existente é podado antes do novo entrar. É a Poda Jobs (Loop 30) como regra permanente, não como evento.
+**Regra operacional:** Ao propor qualquer novo documento, dashboard ou artefato de leitura, o Músculo declara: "Este artefato exige X min/semana do Diretor." Se o total acumulado ultrapassar o teto acordado → propor o que será podado em troca.
+**Aplica-se a:** abertura de qualquer loop. Ao propor M/G/N/E que resulte em novo documento de leitura recorrente.
+
+---
+
+## P-146 — DOCUMENTAR SEM AUTOMATIZAR E REPETIR O ERRO (2026-06-10)
+**Origem:** "Todos os erros desta sessao devem ser tratados com ferramentas que automatizem as acoes, nao tao somente os registros." — Diretor detectou que o LEDGER acumula principios mas os erros se repetem porque nenhuma ferramenta os previne.
+**Principio:** Todo erro que gera um P-XXX DEVE gerar tambem um script ou gate que impede a recorrencia. Se nao houver ferramenta, o P-XXX e decoracao. Sequencia obrigatoria ao detectar erro:
+  (1) Inscrever P-XXX no LEDGER (registro — necessario mas nao suficiente)
+  (2) Adicionar ao PENDENTES.md o BUILD da ferramenta que previne (bloqueante — sem isso, P-XXX nao fecha)
+  (3) Ao construir a ferramenta → marcar P-XXX como IMPLEMENTADO com link para o script
+**Exemplos desta sessao:**
+  P-143 (anti-esquecimento) → [CHECKLIST DO MUSCULO] no PASSO5 template + skill_parser_gate Gate
+  P-144 (dois socios com busca web) → checklist bloqueante no PASSO5 com "Deep Research WEB clicado"
+  P-145 (event-driven) → update_memoria_embaixador.ps1 chamado no PASSO5.5 e PASSO7.5
+  BOM UTF-8 (3a ocorrencia) → fix_bom_json.ps1 integrado ao session_close Gate 1
+**Aplica-se a:** todo novo P-XXX derivado de erro operacional. Principios de arquitetura nao precisam de ferramenta — principios de processo SIM.
+
+---
+
+## P-145 — ATUALIZACAO DE DOCUMENTOS E EVENT-DRIVEN, NAO APENAS SESSION-DRIVEN (2026-06-10)
+**Origem:** "Nao pode ser so session_close. Tem que ser uma etapa depois do PASSO5." — Diretor identificou que com 10+ projetos simultaneos, esperar o session_close para atualizar MEMORIA_EMBAIXADOR e documentos de estado gera colapso.
+**Principio:** Apos cada interacao com um socio (PASSO3, PASSO5, PASSO7), o Musculo executa imediatamente um "PASSO X.5" de atualizacao de documentos. O session_close faz auditoria leve — nao e a unica janela de atualizacao.
+**Sequencia obrigatoria:**
+  PASSO3 (Gemini entrega DIRETRIZ) → PASSO3.5: atualizar LOOP_STATE.json (gemini=OK) + WIP_BOARD (loop_fase_atual)
+  PASSO5 (Auditor entrega Skill) → PASSO5.5: atualizar LOOP_STATE.json (notebooklm=OK) + MEMORIA_EMBAIXADOR (achados N-1..N-5) + WIP_BOARD
+  PASSO7 (Embaixador entrega SECAO D) → PASSO7.5: atualizar LOOP_STATE.json (embaixador=OK) + MEMORIA_EMBAIXADOR (achados E-1..E-5 + comportamento) + WIP_BOARD
+  session_close → Gate 6B: verificar que TODOS os PASSOs foram atualizados (ja nao e o unico momento)
+**Por que importa:** MEMORIA_EMBAIXADOR ficou 2 loops sem atualizar no Loop 31. Com 10 projetos, o atraso multiplica. Atualizar no momento certo — enquanto o contexto esta fresco — e mais preciso e sustentavel.
+**Aplica-se a:** todos os projetos, todos os loops. LOOP_STATE.json + MEMORIA_EMBAIXADOR + WIP_BOARD.
+
+---
+
 ## P-144 — DOIS SOCIOS TEM PESQUISA AVANCADA WEB — USAR OBRIGATORIAMENTE (2026-06-10)
 **Origem:** Diretor confirmou que tanto Auditor (NotebookLM) quanto Embaixador (Claude Projects) tem pesquisa avancada na internet. Musculo nao ativou nenhuma das duas no Loop 31.
 **Diferenca critica entre os dois:**

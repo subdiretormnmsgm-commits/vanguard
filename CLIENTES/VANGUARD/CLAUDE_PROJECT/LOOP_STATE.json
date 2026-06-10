@@ -2,71 +2,60 @@
   "schema_version": "1.0",
   "cliente": "VANGUARD",
   "loop_atual": 31,
-  "loop_status": "ABERTO",
-  "fase_atual": "AGUARDA_EMBAIXADOR",
+  "loop_status": "FECHADO",
+  "fase_atual": "CONCLUIDO",
   "socios": {
     "gemini": {
       "status": "OK",
       "artefato": "CLIENTES/VANGUARD/HISTORICO/DIRETRIZ_V31_VANGUARD.md",
       "data_conclusao": "2026-06-09",
-      "proximo": "Concluído.",
-      "nota": "DIRETRIZ V31 entregue. M-1+M-2+M-4+M-5 ENTRA AGORA. M-3 Loop 32. G-1 Red Teaming, G-2 Skill-Drift, G-3 Veredito Voz, G-4 Few-Shot Library, G-5 Oraculo Churn."
+      "proximo": "Concluido.",
+      "nota": "DIRETRIZ V31 entregue."
     },
     "notebooklm": {
       "status": "OK",
       "artefato": "CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V31_VANGUARD.md",
       "data_conclusao": "2026-06-10",
-      "proximo": "Concluído. Skill vanguard-v31.md APROVADA.",
-      "nota": "23 fontes no caderno. PARTE 1-7 completas. Skill aprovada pelo skill_parser_gate. PENDÊNCIA LOOP 32: Deep Research WEB + generate report nativo (P-143/P-144)."
+      "proximo": "Concluido. Skill vanguard-v31.md APROVADA.",
+      "nota": "Deep Research WEB ativo. A-1/A-2/A-3 geradas."
     },
     "embaixador": {
-      "status": "AGUARDA",
-      "artefato": null,
-      "data_conclusao": null,
-      "proximo": "Músculo prepara PASSO7 → ir_ao_embaixador.ps1 -cliente VANGUARD → colar SEÇÃO D aqui",
-      "nota": "Aguarda PASSO7 com N-1 a N-5 + A-1 a A-3 do Auditor"
+      "status": "OK",
+      "artefato": "CLIENTES/VANGUARD/CLAUDE_PROJECT/RUNNING_INTELLIGENCE.md",
+      "data_conclusao": "2026-06-10",
+      "proximo": "Concluido. RUNNING_INTELLIGENCE.md criado (D3:A).",
+      "nota": "BLOCO 8 ativo. 4 sinais pesquisados com URL. E-1..E-5 entregues. Filtro de realidade completo."
     },
     "musculo": {
-      "status": "AGUARDA_EMBAIXADOR",
-      "artefato": null,
-      "data_conclusao": null,
-      "proximo": "Síntese P-037 após SEÇÃO D do Embaixador",
-      "nota": null
+      "status": "OK",
+      "artefato": "CLIENTES/VANGUARD/HISTORICO/DELIBERACAO_LOOP_V31_VANGUARD.md",
+      "data_conclusao": "2026-06-10",
+      "proximo": "Loop 31 FECHADO. Loop 32 abre EXTERNO (D4:A).",
+      "nota": "Sintese P-037 concluida. D1:A + D4:A vereditos do Diretor registrados."
     }
+  },
+  "vereditos_diretor": {
+    "D1": "A — Hermes Grau B ATIVAR (apos auditoria canal Telegram)",
+    "D3": "A — RUNNING_INTELLIGENCE.md criado (executado)",
+    "D4": "A — Loop 32 EXTERNO — Gate Zero P-133 ativo"
   },
   "loop_anterior": {
     "numero": 30,
     "status": "FECHADO",
-    "data_fechamento": "2026-06-09",
-    "artefatos": [
-      "CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V30_VANGUARD.md",
-      ".claude/skills/vanguard-v30.md",
-      "CLIENTES/VANGUARD/DECISOES/DECISOES_VANGUARD_V30_2026-06-09.json"
-    ],
-    "principios_inscritos": ["P-136", "P-137", "P-138", "P-139"],
-    "falha_registrada": "PASSO3 com missão sobre clientes gerou 91 ideias recicladas. Corrigido no PASSO3 do Loop 31."
+    "data_fechamento": "2026-06-09"
   },
   "gates": {
     "p045_memoria_anterior_existe": true,
-    "p037_deliberacao_concluida": false,
-    "p032_memoria_embaixador_atualizada": false,
+    "p037_deliberacao_concluida": true,
+    "p032_memoria_embaixador_atualizada": true,
     "p087_resolve_commitado": false
   },
-  "contexto_snapshot": {
-    "cliente_temperatura": "N/A — projeto interno",
-    "ultimo_contato_cliente": "N/A",
-    "proximo_gate_externo": "W-8 shadow mode expira 2026-06-14 — avaliar Grau B",
-    "prazo": "2026-06-14",
-    "observacoes": "Auditor Loop 31 CONCLUÍDO 2026-06-10. Skill vanguard-v31.md APROVADA. Novos princípios: P-143 (checklist anti-esquecimento) + P-144 (Deep Research WEB + relatorio nativo obrigatórios no PASSO5). Próximo: Embaixador SEÇÃO D."
-  },
-  "pendentes_abertos": [
-    "W-8 Hermes Grau B — condicional: 7 dias shadow limpos (deadline 2026-06-14)",
-    "W-9 Track TRENDS — importar e ativar no EasyPanel",
-    "Demo EdTech/Sedes-DF — v0 em ≤7 dias (até 2026-06-16)",
-    "LOOP_STATE.json ausente na pasta do Embaixador (drift detectado)",
-    "PASSO5 template: adicionar [CHECKLIST DO MUSCULO] + Deep Research WEB gate (P-143/P-144 — Loop 32)"
+  "proxima_acao_diretor": "EasyPanel Terminal: sed -i 's/grau: A/grau: B/' /opt/data/config.yaml + restart hermes-agent (D1:A)",
+  "proxima_acao_musculo": "Commit de fechamento Loop 31 [RESOLVE: Loop 31] + abrir Loop 32 EXTERNO",
+  "alertas_criticos": [
+    "Antigravity 2.0: auditar Auto-continue antes do PASSO3 Loop 32",
+    "Canal Telegram: diagnosticar falha ANTES de ativar Grau B",
+    "Gate 04-07-2026: captacao 2a candidata Ingrid + prospecao Mumuzinho"
   ],
-  "ultima_atualizacao": "2026-06-10",
-  "proxima_acao_musculo": "Preparar PASSO7 → ir_ao_embaixador.ps1 -cliente VANGUARD",
-  "proxima_acao_diretor": "Levar PASSO7 ao Embaixador (Claude Projects VANGUARD) → colar SEÇÃO D aqui para síntese P-037."
+  "ultima_atualizacao": "2026-06-10"
 }

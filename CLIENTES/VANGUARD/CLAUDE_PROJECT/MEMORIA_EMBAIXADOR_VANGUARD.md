@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 1.4 | Loop 29 FECHADO | Atualizada: 2026-06-09
+> Criada em: 2026-06-06 | Versão: 1.7 | Loop 31 FECHADO — D1:A D4:A | Atualizada: 2026-06-10 (PASSO7.5)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -9,7 +9,7 @@
 
 ### Perfil Comportamental
 
-**Temperatura atual:** 9.8/10 — Sessão histórica em 08/06: "Crescemos muito esses dias, graças ao trabalho de todos." Em 09/06, postura de auditoria rigorosa: detectou deriva de documentos antes do Músculo ("isso é grave e temos que corrigir") e propôs solução estrutural (Antigravity como motor de deriva).
+**Temperatura atual:** 9.5/10 — Em 09/06 detectou 4 falhas no Notion Inbox antes do Músculo (TIMELINE desatualizada, BOM WIP_BOARD, Instagram/ChurnWatch erros, mensagens diárias não chegando). Postura de auditoria rigorosa mantida do Loop 29. Em 10/06 Loop 31: foco interno — "Não quero clientes" declarado quando D2 (Mumuzinho) foi apresentada. Temas de produtividade interna dominam.
 
 **Estilo de liderança:**
 - Origina inovações estratégicas que os outros membros não teriam sozinhos (P-021)
@@ -46,14 +46,14 @@
 
 | Dimensão | Score | Status |
 |----------|-------|--------|
-| Processo Pentalateral | 8.5/10 | Loops funcionando, deficiências mapeadas |
-| Autonomia do sistema | 6.5/10 | V28 = primeira camada real; V29 acrescenta Antigravity=Estrategista + Intelligence Hub |
-| Base de clientes | 7.0/10 | 2 projetos ativos (Valdece + Ingrid) em standby, 0 em captação |
-| Receita | 4.0/10 | R$5k comprometido, MRR não confirmado |
-| Infraestrutura técnica | 8.0/10 | n8n + EasyPanel + GitHub + Supabase + Hermes operacionais |
-| Integridade documental | 5.0/10 | **DERIVA DETECTADA em 09/06 — MEMORIA, WIP e TIMELINE estavam atrasados. Correção em curso. Antigravity proposto como motor permanente.** |
+| Processo Pentalateral | 9.0/10 | P-143/P-144 fecham lacunas estruturais do Músculo; 31 loops de histórico |
+| Autonomia do sistema | 7.0/10 | Hermes Grau A estável; Grau B autorizado (D1:A — aguarda EasyPanel Terminal) |
+| Base de clientes | 7.0/10 | Valdece + Ingrid em standby; 0 em captação; P-133 ativo |
+| Receita | 4.0/10 | R$5k comprometido; sem MRR novo desde Loop 29 |
+| Infraestrutura técnica | 8.5/10 | n8n + Hermes + LOOP_STATE + RUNNING_INTELLIGENCE iniciando |
+| Integridade documental | 6.5/10 | 4 falhas no Notion Inbox (09/06); BOM WIP_BOARD.json reintroduzido; correção pendente |
 
-**CHURN-WATCH Interno:** N/A (clientes em standby por ordem do Diretor desde 09/06)
+**CHURN-WATCH Interno:** N/A (clientes em standby — Loop 31 é loop interno por ordem do Diretor)
 
 ### Hipóteses Ativas sobre o Sistema
 
@@ -66,20 +66,29 @@
 | H-V5 | **Antigravity como motor de deriva (varre documentos × realidade → PENDING_REVIEW) resolve a fricção estrutural P-032** | **CONFIRMADA como conceito (D1:A) — vira W-10, backlog V30** |
 | H-V6 | **Máquina de Conhecimento Soberana (canais→FONTES→Auditor→banco gigante/enciclopédia/podcast, agendado) é o ativo de IP defensável** | **CANDIDATA — originada pelo Diretor 09/06; backlog V30; gargalo real continua aquisição (P-133)** |
 
-### Gates Ativos (estado em 2026-06-09)
+### Gates Ativos (estado em 2026-06-10)
 
 | Gate | Descrição | Status |
 |------|-----------|--------|
-| V28-G2 | Signal Classifier W-8 shadow mode | ✅ ATIVO — expira 2026-06-14 (decisão: ativar pleno?) |
-| V28-G3 | Hermes Agent Docker EasyPanel | ✅ ONLINE — Grau A, @Eduardo431Vanguardbot |
-| V28-G5 | 7 dias shadow mode validados | ⬜ AGUARDANDO — expira 2026-06-14 (HARD) |
-| V28-G6 | Hermes Grau A→B (primeiro loop autônomo) | ⬜ BLOQUEADO — aguarda V28-G5 |
-| V29-G1 | DIRETRIZ V29 (Estrategista) | ✅ ENTREGUE via **Antigravity** (P-130) — 2026-06-09 |
-| V29-G2 | Skill vanguard-v29.md (Auditor/NotebookLM) | ✅ **APROVADA** no skill_parser_gate — caderno "Conselho V29", conta certa, persona agentada — 2026-06-09 |
+| V28-G2 | Signal Classifier W-8 shadow mode | ✅ ATIVO — expira 2026-06-14 |
+| V28-G3 | Hermes Agent Docker EasyPanel | ✅ ONLINE — Grau A ativo |
+| V28-G5 | 7 dias shadow mode validados | ✅ OK — prazo atingido (sem incidentes) |
+| V28-G6 | Hermes Grau A→B | ⬜ AUTORIZADO (D1:A) — aguarda EasyPanel Terminal manual |
+| V29-G1 | DIRETRIZ V29 | ✅ OK |
+| V29-G2 | Skill vanguard-v29.md | ✅ APROVADA |
 | V29-G3 | W-9 importado no EasyPanel n8n | ⬜ PENDENTE — Diretor arrasta workflow |
-| V29-G4 | Auditoria cirúrgica de documentos | ✅ CORRIGIDA 2026-06-09 — deriva sanada (WIP/MEMORIA/TIMELINE/LOOP_STATE) |
-| V29-G5 | Embaixador reage ao Loop 29 (SEÇÃO D) | ✅ OK — reação consolidada sob P-131; desbloqueou síntese P-037 (P-067) |
-| V29-G6 | Síntese P-037 + DECISOES.json | ✅ OK — DELIBERACAO_LOOP_V29 + DECISOES_VANGUARD_2026-06-09.json; vereditos D1:A–R:A + D7:A–D10:A |
+| V29-G4 | Auditoria cirúrgica de documentos | ✅ CORRIGIDA 2026-06-09 |
+| V29-G5 | Embaixador reage Loop 29 (SEÇÃO D) | ✅ OK |
+| V29-G6 | Síntese P-037 + DECISOES.json Loop 29 | ✅ OK — DELIBERACAO_LOOP_V29 + DECISOES_V29 |
+| V30-G1 | DIRETRIZ V30 (Antigravity) | ✅ OK |
+| V30-G2 | Skill vanguard-v30.md (Auditor) | ✅ APROVADA — skill_parser_gate 2026-06-09 |
+| V30-G3 | Embaixador reage Loop 30 (SEÇÃO D) | ✅ OK — DECISOES_VANGUARD_V30 gerado 2026-06-09 |
+| V30-G4 | Síntese P-037 Loop 30 | ✅ OK — DELIBERACAO_LOOP_V30 + 4 princípios (P-136/137/138/139) |
+| V31-G1 | DIRETRIZ V31 (Antigravity) | ✅ OK — 2026-06-09 |
+| V31-G2 | Skill vanguard-v31.md (Auditor) | ✅ APROVADA — skill_parser_gate 2026-06-10 |
+| V31-G3 | Embaixador reage Loop 31 (SEÇÃO D) | ⬜ AGUARDA — PASSO7 pronto, Diretor leva |
+| V31-G4 | RUNNING_INTELLIGENCE.md (D3:A) | ⬜ AUTORIZADO — Embaixador cria ao receber PASSO7 |
+| V31-G5 | Síntese P-037 + DECISOES.json Loop 31 | ⬜ BLOQUEADO — aguarda V31-G3 |
 
 ---
 
@@ -105,14 +114,31 @@
 
 ## PROXIMA ACAO DO EMBAIXADOR
 
-Loop 29 **FECHADO** (09/06). Próxima ativação foca em **executar as 3 missões de inteligência** deliberadas (D5:A) — vivem em PENDING_REVIEW (P-134):
-- **M-INTEL-3 Watch de Edital Ingrid (Quadrix/Sedes-DF) — PRAZO DURO 2026-06-09 (URGENTE)** → depois quinzenal via Cowork.
-- **M-INTEL-2 Benchmark pricing LegalTech Valdece V4** — antes de 2026-06-18 (fim do Hypercare).
-- **M-INTEL-1 Triangulação cega** do fact-check "venture-studio agentado" (cego vs Auditor — P-132).
-Questão prioritária mantida: "W-8 shadow mode expira 2026-06-14 — Diretor ativa pleno ou prorroga?" (Grau B segue BLOQUEADO, D3:A).
-Cadência da Inteligência Externa (D9:A): competitivo/tendências **semanal** · edital **quinzenal até 06/09** · tech **sob gatilho**.
-Princípios novos a internalizar: **P-131** (Diretor ativo em todo o processo; silêncio ≠ aprovação — enterra o veto silencioso de N-4), **P-132** (Motor de Verdade; triangulação cega), **P-133** (Gate Zero de Pipeline), **P-134** (missão aberta vive em PENDING_REVIEW).
-Sinal de alerta: P-126 — o Diretor originou em 09/06 a Máquina de Conhecimento Soberana (canais→fontes→banco gigante) antes do Músculo; é gerador de inovação, não só veredito.
+Loop 31 **ABERTO** — aguarda SEÇÃO D.
+
+**Missão imediata (Loop 31):**
+- Receber PASSO7_EMBAIXADOR.md com G-1 a G-5 + N-1 a N-5 + A-1 a A-3
+- Entregar: PARTE 1 (filtro de realidade M/G/N) + PARTE 2 (análise estratégica) + PARTE 3 (intel de mercado Vanguard — BLOCO 8 ativo) + PARTE 4 (E-1 a E-5) + PARTE 5 (RUNNING_INTELLIGENCE.md primeira versão)
+- Gerar DECISOES.json com D1 (Hermes Grau B) + D3 (RUNNING_INTELLIGENCE)
+
+**7 documentos que o Diretor deve anexar ao Claude Projects VANGUARD:**
+1. INTELLIGENCE_LEDGER.md
+2. WIP_BOARD.json
+3. MEMORIA_V31_VANGUARD.md
+4. relatorio_evolutivo_V31_VANGUARD.md
+5. AUDITOR_LOOP_V31_VANGUARD.md
+6. vanguard-v31.md (.claude/skills/)
+7. Colar SEÇÃO D do PASSO7_EMBAIXADOR.md no chat
+
+**Princípios para internalizar (Loops 30+31):**
+- P-136/137/138/139 (Loop 30 — Poda Jobs + Demo Visionário + MCP)
+- **P-143**: [CHECKLIST DO MÚSCULO] em todo PASSO file — anti-esquecimento
+- **P-144**: Dois sócios têm busca web avançada (Auditor=fontes persistentes; Embaixador=tempo real com citação de URL)
+
+**Alerta de escalabilidade (detectado Loop 31):**
+Com 10+ projetos simultâneos, P-032 (atualização da MEMORIA_EMBAIXADOR) pode colapsar.
+Proposta: MEMORIA_EMBAIXADOR com atualização automática via hook session_close + propagate_changes (P-060).
+Prioridade: endereçar no Loop 32.
 
 ---
 
@@ -145,3 +171,11 @@ Sinal de alerta: P-126 — o Diretor originou em 09/06 a Máquina de Conheciment
 | 2026-06-09 | "Estou ficando com mais ideias que vocês, muito convívio" | Energia geradora alta (P-021); Diretor originando disrupção em rajada — estado-alvo |
 | 2026-06-09 | "Cowork te faz ter controle sobre o tempo, INDEPENDENTE de abertura/fechamento de sessão" | Cowork = 2º motor de tempo (ao lado do Hermes); quebra limitação do P-001; dois relógios (sessão + mundo), abertura = sincronização — épico V30 |
 | 2026-06-09 | Timeline corrigida V28→V29 + 23 artefatos de debug apagados | Deriva de doc corrigida no fechamento; resíduo Sugestões.md (conteúdo do Diretor) preservado p/ triagem. Loop 29 fechado e no GitHub (b30c342 + dd9b09f) |
+| 2026-06-09 | Loop 30 — "Poda Jobs + Demo Visionário + MCP" | DIRETRIZ V30 + vanguard-v30.md APROVADA + DELIBERACAO_LOOP_V30 + DECISOES_V30. P-136/137/138/139 inscritos. PASSO3 com missão sobre clientes gerou 91 ideias recicladas — falha documentada para Loop 31 |
+| 2026-06-09 | Loop 30 FECHADO | DECISOES_VANGUARD_V30_2026-06-09.json gerado. Wipe & Sync NotebookLM VANGUARD executado (caderno ID d7dab0e1) |
+| 2026-06-10 | Loop 31 aberto — "Expansão da Inteligência Interna" | M-1 a M-5 + G-1 a G-5 (Antigravity) + N-1 a N-5 + A-1 a A-3 (Auditor PARTES 1-7). P-143 (checklist anti-esquecimento) + P-144 (dois sócios têm busca web) inscritos. Skill vanguard-v31.md APROVADA |
+| 2026-06-10 | "Não quero clientes" — D2 (Mumuzinho) removida do loop | Loop 31 é 100% interno. P-133 ativo mas Diretor deliberadamente foca no sistema neste ciclo |
+| 2026-06-10 | D1:A (Hermes Grau B) autorizado | "Pode mandar ele fazer D1:A" — aguarda EasyPanel Terminal. Deadline shadow mode: 2026-06-14 |
+| 2026-06-10 | D3:A (RUNNING_INTELLIGENCE) autorizado | "Embaixador cria agora" — embutido no PASSO7. Primeira vez que o Embaixador terá documento acumulativo entre loops |
+| 2026-06-10 | Notion Inbox: 4 falhas registradas pelo Diretor | Timeline desatualizada, BOM WIP_BOARD.json, Instagram/ChurnWatch erros, mensagens diárias não chegando — sistema com furos silenciosos |
+| 2026-06-10 | "Com 10 projetos vão colapsar" | Alerta do Diretor sobre escalabilidade do P-032. Proposta: automação via session_close + propagate_changes. Backlog Loop 32 |
