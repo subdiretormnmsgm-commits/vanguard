@@ -255,6 +255,47 @@ if (Test-Path $reconcileScript) {
 }
 
 # ==========================================================================
+# GATE 1.7 -- VANGUARD_TIMELINE atualizada com o loop atual (BLOQUEANTE)
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 1.7] Verificando VANGUARD_TIMELINE..." -ForegroundColor Cyan
+
+$timelinePath = "$BASE\PENTALATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md"
+$gateStatus.G1_7 = "N/A"
+if (Test-Path $timelinePath) {
+    # Ler WIP_BOARD para saber o loop atual
+    $wipPath = "$BASE\CLIENTES\WIP_BOARD.json"
+    $loopAtual = 0
+    if (Test-Path $wipPath) {
+        try {
+            $wipContent = Get-Content $wipPath -Raw -Encoding UTF8
+            $wipContent = $wipContent -replace '^\xEF\xBB\xBF', ''  # remove BOM
+            $wip = $wipContent | ConvertFrom-Json -ErrorAction SilentlyContinue
+            if ($wip.VANGUARD.loop_atual -match 'Loop (\d+)') { $loopAtual = [int]$Matches[1] }
+        } catch {}
+    }
+    $timelineContent = Get-Content $timelinePath -Raw -Encoding UTF8
+    $dataHoje = Get-Date -Format "yyyy-MM-dd"
+    # Verificar se a data de hoje OU o loop atual aparecem na timeline
+    $temDataHoje  = $timelineContent -match [regex]::Escape($dataHoje)
+    $temLoopAtual = ($loopAtual -gt 0) -and ($timelineContent -match "Loop $loopAtual")
+    if ($temDataHoje -or $temLoopAtual) {
+        Write-Host "  [GATE 1.7] VERDE -- TIMELINE atualizada (loop $loopAtual / $dataHoje)" -ForegroundColor Green
+        $gateStatus.G1_7 = "VERDE"
+    } else {
+        Write-Host "  [GATE 1.7] VERMELHO -- TIMELINE desatualizada!" -ForegroundColor Red
+        Write-Host "  Nao encontrei loop $loopAtual nem $dataHoje em VANGUARD_TIMELINE.md" -ForegroundColor Red
+        Write-Host "  Acao: adicionar entrada do loop atual na TIMELINE antes de fechar." -ForegroundColor Yellow
+        Write-Host "  Arquivo: PENTALATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md" -ForegroundColor Yellow
+        $gateStatus.G1_7 = "VERMELHO"
+        if (-not $DryRun) { exit 1 }
+        else { Write-Host "  [DRYRUN] GATE 1.7 -- BLOQUEARIA com exit 1" -ForegroundColor DarkCyan }
+    }
+} else {
+    Write-Host "  [GATE 1.7] TIMELINE nao encontrada -- IGNORADO" -ForegroundColor DarkGray
+}
+
+# ==========================================================================
 # GATE 2 -- sync_passo_files.ps1 + sync_vanguard_docs.ps1
 # ==========================================================================
 Write-Host ""
