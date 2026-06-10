@@ -37,7 +37,7 @@
                                     "valor_fechado":  0,
                                     "tipo":  "Projeto Interno -- Evolucao do Sistema",
                                     "status":  "BUILD",
-                                    "loop_atual":  "Loop 29 -- EM BUILD",
+                                    "loop_atual":  "Loop 29 FECHADO -- V29 Motor de Verdade -- P-131/132/133/134 inscritos",
                                     "build_iniciado_em":  "2026-06-06",
                                     "deadline":  null,
                                     "churn_watch_threshold":  null,
@@ -46,8 +46,8 @@
                                                             "loop":  29,
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
-                                                            "embaixador":  "PENDENTE",
-                                                            "musculo":  "EM BUILD",
+                                                            "embaixador":  "OK",
+                                                            "musculo":  "OK",
                                                             "proximo":  "NotebookLM -- Skill vanguard-v29.md"
                                                         },
                                     "vereditos_loop28":  {

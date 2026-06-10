@@ -1,5 +1,6 @@
 ﻿# PASSO 7 — TEMPLATE UNIVERSAL: PARA O EMBAIXADOR (CLAUDE PROJECTS)
-# Versão: Universal · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v2.1 · 2026-06-09 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Mudança v2.1: BLOCO 8 (Inteligência Externa) adicionado como PARTE 5 obrigatória na SEÇÃO D
 # Uso: O Músculo preenche os [PLACEHOLDERS] com dados reais antes de enviar ao Embaixador.
 
 ---
@@ -238,7 +239,22 @@ CONTEXTO DO CICLO (elo obrigatório — não omitir):
 [N-1 a N-5] — IDEIAS DO AUDITOR (NOTEBOOKLM):
 [COLAR AS 5 IDEIAS DO NOTEBOOKLM COM NOME E DESCRIÇÃO DE 2 LINHAS CADA]
 
-PEDIDO AO EMBAIXADOR — QUATRO PARTES OBRIGATÓRIAS:
+INSTRUÇÃO DE AMPLITUDE — BLOCO 8 ATIVO:
+O Embaixador tem acesso à internet, busca avançada e pesquisa profunda em tempo real.
+Na PARTE 5 deste pedido, use essas capacidades ativamente.
+Não responda com base apenas em memória — pesquise, cite fontes, confronte dados.
+
+CRITÉRIO DE FONTE — INVIOLÁVEL:
+  ACEITO:   sites oficiais de órgãos/empresas · relatórios Gartner/McKinsey/IBGE ·
+            publicações técnicas (GitHub, docs oficiais, arxiv) · press releases ·
+            veículos jornalísticos com CNPJ identificado.
+  PROIBIDO: blogs de opinião sem autoria institucional · Medium sem peer review ·
+            posts de redes sociais como fonte primária · sites sem data de publicação.
+  DÚVIDA:   cite + sinalize [FONTE SECUNDÁRIA — verificar].
+
+---
+
+PEDIDO AO EMBAIXADOR — CINCO PARTES OBRIGATÓRIAS:
 
 PARTE 1 — FILTRO DE REALIDADE (MANDATO TOTAL — 15 IDEIAS OBRIGATÓRIAS)
 ⚠️ REAGIR INDIVIDUALMENTE A CADA UMA DAS 15 IDEIAS SEM EXCEÇÃO.
@@ -272,6 +288,40 @@ O que o comportamento real do cliente revela sobre o nicho — não apenas sobre
 - Argumento de venda derivado: [o que Eduardo usa como prova social para o próximo cliente do nicho]
 - Risco de nicho: [o que pode impedir a escala de 1 para N clientes]
 - Modelo de precificação: [o nicho suporta MRR / licença única / project-based?]
+
+PARTE 5 — MISSÃO DE INTELIGÊNCIA EXTERNA [BLOCO 8 ATIVO]
+USE SUA CAPACIDADE DE BUSCA NA INTERNET AGORA.
+Músculo preenche os placeholders abaixo com o nicho e tecnologias do projeto antes de enviar.
+Para cada tarefa: pesquise, cite fonte (URL + data de acesso), entregue dados reais.
+
+[BLOCO 8 — TAREFA 1] RADAR COMPETITIVO — [NICHO_DO_PROJETO]
+→ Quem oferece produto equivalente no Brasil hoje (últimos 90 dias)?
+→ Algum concorrente direto surgiu ou ganhou tração recentemente?
+Entregável: 2-3 concorrentes reais — URL + o que fazem + ponto fraco.
+
+[BLOCO 8 — TAREFA 2] SENSOR DE TENDÊNCIAS — [TECNOLOGIAS_CENTRAIS]
+→ Estado real de adoção das tecnologias centrais do projeto?
+→ Atualizações críticas de API ou regulação nos últimos 30 dias?
+→ Formato de produto ou go-to-market viral em B2B nos últimos 60 dias?
+Entregável: 2-3 tendências com impacto direto + link.
+
+[BLOCO 8 — TAREFA 3] FACT-CHECKER DO CONSELHO
+→ Afirmações técnicas ou de mercado de M/G/N que precisam de verificação externa:
+  [MÚSCULO LISTA AQUI AS PREMISSAS QUE PRECISAM DE VERIFICAÇÃO]
+Entregável: CONFIRMADO / PARCIALMENTE CORRETO / DERRUBADO + fonte.
+
+[BLOCO 8 — TAREFA 4] BENCHMARK DE PRICING
+→ Preço real de produtos comparáveis no segmento-alvo?
+→ Teto de preço que o segmento aceita pagar?
+→ Modelo de cobrança dominante (SaaS, por uso, freemium, projeto)?
+Entregável: tabela produto · preço · modelo · fonte URL.
+
+[BLOCO 8 — TAREFA 5] WATCH REGULATÓRIO
+→ Mudanças recentes em regulação/legislação/edital que afetam o cliente [NOME_DO_CLIENTE]?
+→ Algum edital público relevante para o nicho [NICHO_DO_PROJETO]?
+Entregável: achados com link oficial + impacto imediato para o cliente.
+
+---
 
 PARTE 4 — DECISOES.json (DEF-E-8: obrigatório ao fechar SEÇÃO D)
 

@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - VANGUARD - DIRETOR EDUARDO
-### Pentalateral IAH - Terça-feira, 2026-06-09 05:36
+### Pentalateral IAH - Terça-feira, 2026-06-09 06:07
 
 ---
 
@@ -13,9 +13,10 @@
 | 1 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md | 2026-06-09 | HOJE |
 | 2 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [MÚSCULO] Dívida arquitetural P-059 — páginas Notion glob... | 2026-06-09 | HOJE |
 | 3 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [DIRETOR] W-9 Track TRENDS — importar no EasyPanel n8n | 2026-06-09 | HOJE |
-| 4 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [DIRETOR] Arrastar 7 arquivos ao Embaixador + colar mensagem | 2026-06-09 | HOJE |
-| 5 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [MÚSCULO] doc_freshness_checker.ps1 — detecção de deriva ... | 2026-06-09 | HOJE |
-| 6 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [MÚSCULO+DIRETOR] Triar sugestões órfãs em `.claude/skill... | 2026-06-09 | HOJE |
+| 4 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [MÚSCULO] Reconciliar as 4 cópias da TIMELINE — definir f... | 2026-06-09 | HOJE |
+| 5 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [DIRETOR] Arrastar 7 arquivos ao Embaixador + colar mensagem | 2026-06-09 | HOJE |
+| 6 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [MÚSCULO] doc_freshness_checker.ps1 — detecção de deriva ... | 2026-06-09 | HOJE |
+| 7 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [MÚSCULO+DIRETOR] Triar sugestões órfãs em `.claude/skill... | 2026-06-09 | HOJE |
 
 ---
 
@@ -61,14 +62,16 @@ VANGUARD   [BUILD    ]  Loop 29 -- Gemini:OK NBook:OK Embaixador:PENDENTE Muscul
 
 ## COMMIT DA SESSAO
 
-Commit : dd9b09f - 2 arquivo(s) alterado(s)
-Mensagem: docs(timeline): VANGUARD_TIMELINE V29 -- Motor de Verdade + Loop 29 fechado + sync P-033
+Commit : d58b35a - 3 arquivo(s) alterado(s)
+Mensagem: docs(timeline): reconciliar 4 copias da TIMELINE + propagar versao rica V29 Motor de Verdade
 
 ---
 
 ## ENTREGAS DO DIA
 
 Commits do dia:
+- d58b35a docs(timeline): reconciliar 4 copias da TIMELINE + propagar versao rica V29 Motor de Verdade
+- 380cc28 chore(fechamento): artefatos de encerramento Loop 29 + fix 2 bugs de tooling
 - dd9b09f docs(timeline): VANGUARD_TIMELINE V29 -- Motor de Verdade + Loop 29 fechado + sync P-033
 - b30c342 feat(loop29): FECHAMENTO Loop 29 VANGUARD -- Motor de Verdade + P-131/132/133/134
 - 97a2c8c docs(ledger): P-128 atualizado -- single-writer n8n + 4 desafios resolvidos
@@ -97,7 +100,8 @@ Nenhum alerta ativo detectado nesta sessao.
 🔴 [DIRETOR] Arrastar 7 arquivos ao Embaixador + colar mensagem [diretor]
 🔴 [MÚSCULO] doc_freshness_checker.ps1 — detecção de deriva de documentos [musculo]
 🟡 [MÚSCULO+DIRETOR] Triar sugestões órfãs em `.claude/skills/Sugestõe... [musculo]
-🟡 [MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md [musculo]
+🟡 [MÚSCULO] Reconciliar as 4 cópias da TIMELINE — definir fonte canôn... [musculo]
+⚪ [MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md [musculo]
 ⚪ [MÚSCULO] Dívida arquitetural P-059 — páginas Notion globais vs. is... [musculo]
 ⚪ [DIRETOR] W-9 Track TRENDS — importar no EasyPanel n8n [diretor]
 
@@ -109,7 +113,7 @@ Nenhum alerta ativo detectado nesta sessao.
 - [sem data definida] [V30 ÉPICO] Embaixador agentado via Cowork — 2º motor de tempo real... [musculo]
 - [sem data definida] [V30 ÉPICO] Antigravity motor de deriva / W-10 — comandos determina... [musculo]
 
-Total pendentes abertos: 11 (6 urgente(s) + 5 agendado(s))
+Total pendentes abertos: 12 (7 urgente(s) + 5 agendado(s))
 
 ---
 
@@ -123,7 +127,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Projeto VANGUARD encerrou sessao com 11 pendente(s) -- 6 urgente(s) + 5 agendado(s) e 0 gargalo(s). Status documental: VERDE.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Projeto VANGUARD encerrou sessao com 12 pendente(s) -- 7 urgente(s) + 5 agendado(s) e 0 gargalo(s). Status documental: VERDE.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 

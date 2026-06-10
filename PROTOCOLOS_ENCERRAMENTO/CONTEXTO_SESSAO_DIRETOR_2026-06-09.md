@@ -17,6 +17,8 @@
 | Sync P-033 da Timeline → INGRID + VALDECE + VANGUARD NOTEBOOKLM_FONTES/17 | Propagação universal | `dd9b09f` |
 | PENDENTES — Backlog V30 (3 épicos): Máquina de Conhecimento · **Cowork 2º motor de tempo** · Antigravity deriva/W-10 | Backlog | `dd9b09f` |
 | Limpeza: 23 artefatos de debug Playwright apagados (snapshots ~197KB) | Higiene de repo | (não commitado — eram untracked) |
+| **Reconciliação da TIMELINE** — Diretor detectou `CLAUDE_PROJECT/16` (→ Embaixador) desatualizado | Correção de deriva | `d58b35a` |
+| Merge cirúrgico V29 Motor de Verdade no `CLAUDE_PROJECT/16` (P-128..P-134 + Cowork) + versão rica propagada à fonte canônica + 3× FONTES/17 | Doc canônico | `d58b35a` |
 
 ### Sessão A (infra W-8 — madrugada/manhã)
 | Artefato | Tipo | Commit |

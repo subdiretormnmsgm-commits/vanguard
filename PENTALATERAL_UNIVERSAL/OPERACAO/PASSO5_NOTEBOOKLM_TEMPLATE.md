@@ -1,5 +1,6 @@
 ﻿# PASSO 5 — TEMPLATE UNIVERSAL: PARA O NOTEBOOKLM (AUDITOR)
-# Versão: Universal v2.3 · 2026-05-24 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v2.4 · 2026-06-09 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Atualização 2026-06-09: YT-ENRICHMENT (PASSO 2.5 obrigatório) + PARTE 5 AMPLIAR + ARTEFATOS RICOS
 # Atualização 2026-05-24: Auditor agora recebe DECISOES.json como contexto de vereditos do loop anterior.
 # Uso: O Músculo preenche os [PLACEHOLDERS] com dados reais antes de enviar.
 
@@ -129,6 +130,45 @@ Instrução de ativação: "Auditor, onde está o ponto cego do Diretor nesta de
 
 ---
 
+## 🔍 YT-ENRICHMENT — OBRIGATÓRIO ANTES DE PREPARAR AS FONTES
+> Músculo executa ANTES de rodar preparar_notebooklm_projeto.ps1.
+> Objetivo: alimentar o Auditor com fontes externas de qualidade — transcrições de vídeos especializados.
+> Banco rico = Auditor com visão de mercado + padrões externos + validação das ideias do loop.
+
+**Executar via Músculo (skill YT-SEARCH instalada em ~/.claude/skills/):**
+```bash
+# Busca 1: tecnologias centrais do loop
+python ~/.claude/skills/yt-search/scripts/search.py "[TOPICO_TECNOLOGIA_DO_LOOP]" --count 8 --months 6
+
+# Busca 2: nicho do cliente ativo
+python ~/.claude/skills/yt-search/scripts/search.py "[NICHO_DO_CLIENTE]" --count 8 --months 6
+
+# Busca 3: tendências de mercado relevantes
+python ~/.claude/skills/yt-search/scripts/search.py "[TENDENCIA_RELEVANTE]" --count 5 --months 3
+```
+
+**Critério de seleção (ao menos 1 critério para aceitar):**
+- Canal com > 10.000 inscritos
+- Views/Subs ratio > 0.3 (vídeo performou no nicho)
+- Canal oficial de empresa (Anthropic, Google, IBM, Microsoft, Gartner)
+- Especialista técnico reconhecido com histórico no nicho
+- Vídeo com > 50.000 views
+
+**PROIBIDO:** canais sem histórico, vídeos de "guru" com <1K subs, clips, vídeos > 18 meses.
+
+**Canais referência para loops de IA (Pentalateral):**
+Chase AI, Jack Roberts, Cole Medin, Nate Herk, AI LABS, IBM Technology, Nick Saraev, Zinho Automates
+
+**Adicionar URLs selecionadas (max 5) via CLI:**
+```bash
+notebooklm source add "https://youtube.com/watch?v=[ID]"
+```
+
+Saída: 3-5 fontes de vídeo adicionadas — Auditor processa transcrições automaticamente.
+Ver detalhes completos: PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_AUDITOR_REMOTO.md → PASSO 2.5
+
+---
+
 ## 📋 CONTEXTO DO PROJETO
 > O Músculo preenche esta seção antes de enviar ao NotebookLM.
 
@@ -187,6 +227,58 @@ Para cada ideia do Embaixador (baseada em comportamento real do cliente):
 - EXPANDE: há evidência histórica que vai além do que o Embaixador viu
 - ALERTA: o histórico de outros projetos mostra risco que o Embaixador não tem como ver
 O Embaixador tem contexto de cliente. O Auditor tem contexto de todos os projetos. Juntos cobrindo os dois ângulos é inteligência composta real.
+
+**PARTE 5 — AMPLIAR (obrigatório a partir do Loop 30)**
+> Ideias EXCLUSIVAS do Auditor — o que M, G e E não propuseram.
+> Fonte: cruzamento das fontes internas + fontes de vídeo YT-SEARCH carregadas neste ciclo.
+> Mínimo 3 ideias marcadas [A-1][A-2][A-3]. Máximo 5.
+
+Para cada ideia de AMPLIAR:
+- Nome da ideia
+- O que é — em 2 linhas
+- Por que nenhum outro membro viu — o cruzamento que só o Auditor consegue fazer
+- Conexão com fonte externa (citar canal/vídeo se aplicável)
+
+Se fontes de vídeo foram carregadas: ao menos 1 ideia de AMPLIAR deve emergir do conteúdo externo.
+Isso é o diferencial do banco rico: insights que o sistema interno não teria gerado sozinho.
+
+---
+
+## 🎯 ARTEFATOS RICOS — GERAR APÓS A SKILL [NOVO — DISRUPTIVO]
+> Após entregar a Skill, o Auditor não encerra. O banco está carregado — aproveitar ao máximo.
+> Músculo solicita estes artefatos APÓS validar a Skill com skill_parser_gate.ps1.
+
+**Solicitar no chat do NotebookLM após a Skill:**
+```
+Auditor, a Skill foi validada. Agora gere os artefatos do Loop [N]:
+1. Briefing Document — síntese executiva dos achados do loop para o Diretor
+2. Audio Overview (brief) — resumo em áudio para o Diretor ouvir no celular (máx 10 min)
+   Tom: direto, linguagem de negócios, focar em alertas + próximas decisões.
+3. Mind Map — estrutura visual das conexões entre as ideias do loop
+Aguardar geração de cada um antes de solicitar o próximo.
+```
+
+**Via CLI (após a geração):**
+```bash
+# Relatório
+notebooklm generate report --format briefing-doc
+notebooklm artifact wait
+notebooklm download report "CLIENTES/[NOME]/HISTORICO/BRIEFING_LOOP_V[N]_[NOME].md"
+
+# Podcast (áudio brief)
+notebooklm generate audio "Resumo do Loop [N]: alertas críticos, joias identificadas, próximas decisões do Diretor. Máximo 10 minutos, linguagem de negócios." --format brief
+notebooklm artifact wait
+notebooklm download audio "CLIENTES/[NOME]/HISTORICO/PODCAST_LOOP_V[N]_[NOME].mp3"
+
+# Mapa Mental
+notebooklm download mind-map "CLIENTES/[NOME]/HISTORICO/MINDMAP_LOOP_V[N]_[NOME].json"
+```
+
+**Prioridade:** BRIEFING obrigatório · PODCAST obrigatório se loop > 2h · MINDMAP recomendado.
+**Uso dos artefatos:**
+- BRIEFING → fonte extra para o próximo CONTEXTO_GEMINI (Antigravity ficará mais informado)
+- PODCAST → Diretor escuta briefing sem abrir documentos
+- MINDMAP → referência visual das conexões do loop para deliberações futuras
 
 ---
 

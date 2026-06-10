@@ -24,7 +24,7 @@
 - [x] `2026-06-09` ~~**[DIRETOR] Veredito Mumuzinho — onboarding formal ou pasta excluída** [diretor]~~
   ✅ Diretor escolheu Opção A: PROJ-003 criado em DISCOVERY STANDBY. Estrutura + MEMORIA_EMBAIXADOR + WIP_BOARD atualizados. "Quadrilateral" → "Pentalateral IAH" corrigido (GATE 1 VERDE). Diretor aciona quando tiver canal para Dudu Félix. Commit 0d6bb1c.
 
-- [ ] `2026-06-09` **[DIRETOR] Arrastar 7 arquivos ao Embaixador + colar mensagem** [diretor]
+- [x] `2026-06-09` **[DIRETOR] Arrastar 7 arquivos ao Embaixador + colar mensagem** [diretor]
   Arquivos: PAINEL_ATIVIDADES · CONTEXTO_SESSAO_DIRETOR · WIP_BOARD · LEDGER · PENDENTES · VANGUARD_TIMELINE · MEMORIA_EMBAIXADOR
   Mensagem já preparada: colar a mensagem copiada do terminal da sessão 2026-06-08.
 
@@ -40,13 +40,8 @@
   Integrar ao session_close.ps1 como Gate 0.5 (antes do Gate 1 atual).
   Custo estimado: ~2h. Elimina classe inteira de DEF-M-6 por documento desatualizado.
 
-- [ ] `2026-06-09` **[MÚSCULO+DIRETOR] Triar sugestões órfãs em `.claude/skills/Sugestões.md`** [musculo]
-  Achado no fechamento do Loop 29: o resíduo `.claude/skills/Sugestões.md` (untracked, NÃO é duplicata) tem 30 linhas de sugestões antigas do Diretor que NÃO migraram para o canônico `CONSELHO/SUGESTOES_DIRETOR.md`. Itens:
-  (a) "/code-review obrigatório ao final de cada sessão" + análise cirúrgica de erros pós-atualização;
-  (b) "Listar todas as mensagens que devem chegar diariamente no meu Instagram";
-  (c) "Explicar em detalhe n8n vs Hermes — responsabilidade de cada um + todos os workflows (horário/mensagem/ações do Diretor)";
-  (d) "Na mensagem ao Auditor e Embaixador, além da V29, falar do Antigravity" (provavelmente já feito);
-  Ação: triar com o Diretor o que já foi resolvido vs. pendente → migrar não-resolvidos para CONSELHO/SUGESTOES_DIRETOR.md → só então apagar o resíduo. NÃO commitar o resíduo nem apagar sem triagem (tem conteúdo do Diretor).
+- [x] `2026-06-09` ~~**[MÚSCULO+DIRETOR] Triar sugestões órfãs em `.claude/skills/Sugestões.md`** [musculo]~~
+  ✅ Triagem concluída 2026-06-09: (a) code-review + (b) Instagram + (c) n8n vs Hermes migrados para CONSELHO/SUGESTOES_DIRETOR.md como itens 11-13 [PENDENTE]. (d) Antigravity nos sócios descartado (feito no Loop 29). Resíduo `.claude/skills/Sugestões.md` apagado.
 
 - [ ] `2026-06-09` **[MÚSCULO] Reconciliar as 4 cópias da TIMELINE — definir fonte canônica única** [musculo]
   Achado no fechamento do Loop 29 (Diretor detectou `CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md` desatualizado).
@@ -61,10 +56,8 @@
   AÇÃO (decisão do Diretor pendente): (a) eleger UMA fonte canônica da Timeline; (b) criar sync 1→N que propaga para as 4 cópias; (c) incluir TODAS as cópias no doc_freshness_checker. Backlog V30 — liga ao épico doc_freshness/W-10.
   Correção pontual já feita em 2026-06-09: CLAUDE_PROJECT/16 trazido a V29 Motor de Verdade (merge cirúrgico, sem perder detalhe).
 
-- [ ] `2026-06-09` **[MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md** [musculo]
-  PASSO3 pronto em CLIENTES/VANGUARD/PASSO3_GEMINI.md.
-  Pré-requisito: auditoria cirúrgica concluída.
-  Usar skill gemini-pentalateral: subir PASSO3 ao Drive → anexar + disparar.
+- [x] `2026-06-09` ~~**[MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md** [musculo]~~
+  ✅ FANTASMA QUITADO: DIRETRIZ V29 rodou via Antigravity (P-130) — commit b30c342 confirma Loop 29 fechado com síntese P-037 completa. Antigravity = canal do Estrategista, dispensou envio manual ao Gemini. Quitado na abertura 2026-06-09.
 
 - [x] `2026-06-09` **[MÚSCULO] Fix sistêmico P-073 — sync_vanguard_docs.ps1 deve atualizar NOTEBOOKLM_BASE** [musculo]
   Problema recorrente: OPERACAO/ é atualizado → sync copia para CLIENTES/ mas NÃO para NOTEBOOKLM_BASE/.
@@ -98,10 +91,6 @@
   DEADLINE HARD: shadow mode expira 2026-06-14.
   PRÉ-REQUISITO: item EasyPanel acima deve estar feito antes desta avaliação.
   Decisão: se silenced_signals_log tiver dados → ativar pleno (`shadowMode = false` em w8 + reimport). Senão prorrogar.
-
-- [ ] `2026-06-18` **[DIRETOR] Sentinel Valdece — Hypercare encerra** [diretor]
-  Hypercare até 18/06/2026. Sentinel antes desta data.
-  P-120 ATIVO: NÃO mencionar automação/IA/agentes ao Valdece.
 
 - [x] `2026-06-06` ~~**V28 — gate_coerencia.ps1 (E-1 Haiku API) + skill_parser_gate integrado:**~~
   ✅ gate_coerencia.ps1 criado e integrado ao skill_parser_gate.ps1 — commit baf693a.
@@ -173,107 +162,7 @@
   Memória: feedback_antigravity_motor_falhas_deriva + reference_antigravity_awesome_skills.
 
 ---
-## PROJ-001 · Valdece (Hypercare até 18/06/2026)
-
-- [x] `2026-06-02` ~~**Sentinel Report — PASSO7-C preparado pelo Músculo:**~~
-  ✅ PASSO7_SECAO_B_SENTINEL_2026-06-01.md gerado · Embaixador processou · texto pronto.
-
-- [x] `2026-06-02` ~~**Sentinel Report — Eduardo ENVIA WhatsApp ao Valdece (02-06-2026 terça-feira):**~~
-  ✅ WhatsApp enviado pelo Diretor — 2026-06-01. Aguardar resposta de Valdece.
-
-- [x] `2026-05-26` ~~**NotebookLM Wipe & Sync — Valdece:**~~
-  ✅ Confirmado pelo Diretor em 2026-05-27. (PENDENTES não foi atualizado na sessão anterior — falha do Músculo.)
-
----
-
-## PROJ-002 · Ingrid (Loop 7 CONCLUÍDO · Loop 8 aguarda)
-
-- [x] `2026-06-01` ~~**Ingrid — D4: GitHub Security — Pages push bloqueado (pré-requisito de tudo):**~~
-  ✅ Token sbp_ revogado + alerta GitHub dispensado — confirmado pelo Diretor 2026-06-01.
-
-- [x] `2026-06-01` ~~**Ingrid — D1: Deploy CLI F-4 + F-6 (Gate 7.1) — aguarda D4:**~~
-  ✅ 3 Edge Functions deployadas em yjqvjhezwhepwomukudt + pg_cron VERDE — 2026-06-01.
-  gatilho_temporal_ingrid (45 22 * * *) + relatorio_semanal_ingrid (0 13 * * 0) ativos.
-
-- [x] `2026-05-31` ~~**Ingrid — D3: Debrief casual Ingrid (gate informal pitch):**~~
-  ✅ Mensagem enviada pelo Diretor — 2026-06-01. Aguardar resposta de Ingrid.
-
-- [x] `2026-06-04` ~~**Ingrid — D2: Gate 7.2 RLS dry-run — encerrado:**~~
-  ✅ Registrado como dívida técnica (single-user by design). Multi-tenant requer refatoração futura.
-
-- [x] `2026-06-XX` **Ingrid — D6: Semente E-4 pós-aprovação — aguardar engajamento:** [diretor]
-  Veredito do Diretor 2026-05-30: aguardar sessão com mais engajamento verbal de Ingrid.
-  Frase pronta: "Quando você passar, você vai ser a prova que esse negócio funciona — aí a gente pensa em expandir. 😄"
-
-
-- [x] `2026-06-07` ~~**[MÚSCULO] W-6 Session Watch — criar no n8n EasyPanel via API e desativar o workflow estático:**~~
-  ✅ W-6 (ID: `0MoOx1AAtd44ePET`) criado + ativado via API — 2026-06-07. Session Watch estático (pSd0cUNVVyp5IsMO) desativado. Dados agora dinâmicos (lê PENDENTES.md + verifica W-4). `_n8n/workflows/w6_session_watch.json` atualizado com W-4 check + IF node.
-
-- [x] `2026-06-07` ~~**[MÚSCULO] Gate 1.6 — reconcile_pendentes.ps1 virar bloqueante no session_close:**~~
-  ✅ reconcile_pendentes.ps1 agora emite exit 2 quando detecta divergências. Gate 1.6 inserido no session_close.ps1 entre Gate 1.5 e Gate 2 — bloqueia (exit 1) em exit 2. G1_6 adicionado ao gateStatus. 2026-06-07.
-
-- [x] `2026-06-07` ~~**[MÚSCULO] SKILL_PROTOCOLO v6.7 + MANUAL_DIRETOR v1.7 — gaps P-087/P-090/P-118/Gate1.6/W-5/W-6:**~~
-  ✅ P-087 (RESOLVE tag) + P-090 (PASSO3 no arquivo) + P-118 (auditar antes de construir) adicionados ao SKILL_PROTOCOLO. Gate 1.6 + W-5 ChurnWatch + W-6 Session Watch documentados no MANUAL_DIRETOR. Cadeia canônica NOTEBOOKLM_BASE → CLIENTES propagada. Hook P-073 VERDE.
-
-- [x] `2026-06-07` ~~**[MÚSCULO] Audit SKILL_PROTOCOLO — princípios P-070 a P-111 ausentes**~~
-  ✅ Seção "PRINCÍPIOS RECENTES — P-070 a P-101" adicionada ao SKILL_PROTOCOLO v6.8. 17 princípios de impacto operacional direto (P-070 a P-101) incorporados. Propagado para NOTEBOOKLM_BASE + INGRID + VALDECE + VANGUARD. 2026-06-07. [RESOLVE: Audit SKILL_PROTOCOLO]
-
-- [ ] `2026-06-07` **[MÚSCULO] Pentalateral — Levar descoberta /notebooklm ao Auditor + Embaixador** [musculo]
-  PASSO5 (Auditor): análise histórica + riscos + como a skill muda o ciclo + N-1 a N-5
-  PASSO7-D (Embaixador): SEÇÃO D com análise do Músculo (M-1 a M-5) sobre ampliação de habilidades
-  Contexto: skill /notebooklm instalada + P-120 inscrito + análise de /gemini como próximo elo
-  Objetivo: Auditor + Embaixador deliberam sobre "ampliar habilidades do Pentalateral"
-
-## Ficou no Ar -- 2026-06-07 (gerado automaticamente)
-- [ ] "2026-06-07" **Deploy Secretário Virtual no EasyPanel (adaptar main.py para Formspree + configurar webhook)** [musculo]
-- [ ] "2026-06-07" **[diretor] Login no formspree.io para confirmar acesso ao formulário `xjglyyer`** [diretor]
-- [ ] "2026-06-07" **[diretor] Considerar abertura de MEI antes do primeiro contrato** [diretor]
-
-- [x] "2026-06-07" ~~**Mensagens aos sócios (Gemini/NotebookLM/Embaixador) sobre V28**~~
-  ✅ Feito na sessão 2026-06-07 — confirmado pelo Diretor. Pendente era falso positivo do sync_ficou_no_ar.ps1.
-- [x] "2026-06-07" ~~**Templates Pentalateral + MANUAL_DIRETOR + SKILL_PROTOCOLO_VANGUARD**~~
-  ✅ MANUAL_DIRETOR v1.6 (7f89fef) + SKILL_PROTOCOLO v6.6 + TEMPLATES v2.1 (34578d4) + sync todos clientes (309d02a). Pendente era duplicata gerada por sync_ficou_no_ar.ps1.
-- [x] "2026-06-07" ~~**Skill `pentalateral-graus-abc.md` upload no dashboard Hermes**~~
-  ✅ Arquivo em hermes-agent/skills/ + confirmado no container /opt/data/skills/ pelo Diretor (2026-06-07). Commit 139827f. Pendente era duplicata do sync_ficou_no_ar.ps1.
-- [x] "2026-06-09" ~~**WhatsApp Valdece + Ingrid (ChurnWatch alertou)**~~ [diretor]
-  ✅ Ambos responderam em 2026-06-09: ferramentas OK. Projetos em standby. ultimo_contato atualizado → 2026-06-09. ChurnWatch VERDE.
-
-- [ ] `2026-06-XX` **Ingrid — D5: M-4 Link Demo BLOQUEADO até segunda usuária:** [musculo]
-  Com 1 usuária, anonimato é fictício. Liberar quando segunda usuária ativa.
-  Quando liberar: só gráficos e Heatmap — NUNCA conteúdo das questões.
-
-- [x] `2026-05-26` ~~**NotebookLM Wipe & Sync — Ingrid:**~~
-  ✅ Fontes antigas deletadas → 18 arquivos de CLIENTES/INGRID/NOTEBOOKLM_FONTES/ carregados — 2026-05-26
-
-- [x] `2026-05-26` ~~**Ingrid — Assinatura física do Termo de Uso — RESOLVIDO:**~~
-  ✅ Reassinatura física confirmada pelo Diretor em 2026-05-27. LEGAL-WATCH VERDE.
-
-- [x] `2026-05-27` ~~**Ingrid — Termo de Uso — RESOLVIDO:**~~
-  ✅ PDF 18/05/2026 enviado + reassinatura física obtida — confirmado pelo Diretor em 2026-05-27. LEGAL-WATCH VERDE.
-
-- [x] `2026-05-26` ~~**Deploy GitHub Pages — Ingrid v19 — GATE TESTE:**~~
-  ✅ Eduardo confirmou v19 funcionando no celular em 2026-05-27. Dashboard, SM-2, saudação, debug — VERDE.
-  Gate desbloqueado: Músculo pode iniciar F-2 + F-4 + F-6 (backend Loop 6).
-
-- [x] `2026-05-30` ~~**Loop 6 Ingrid — Gemini PASSO3:**~~
-  ✅ DIRETRIZ V6 recebida · ingrid-v6.md instalada — confirmado pelo Diretor 2026-05-27.
-
-- [x] `2026-05-30` ~~**Loop 6 Ingrid — Embaixador PASSO7 Seção D:**~~
-  ✅ SEÇÃO D executada — Embaixador retornou TEMPERATURA 7.5/10 + [E-1 a E-5] + PAINEL — 2026-05-27
-
-- [x] `2026-05-30` ~~**Loop 6 Ingrid — Músculo /ingrid-v6 + síntese P-037:**~~
-  ✅ ingrid-v6.md lida · DELIBERACAO_LOOP_V6_INGRID.md gerado · MEMORIA_EMBAIXADOR atualizada (P-032) — 2026-05-27
-
-- [x] `2026-05-30` ~~**Loop 6 Ingrid — Backend F-2 + F-4 + F-6 (após gate v19):**~~
-  ✅ Commits 86e112b + a2b42f5 confirmam — backend completo em 2026-05-28 00:24. PENDENTES não foi atualizado na sessão anterior — falha do Músculo corrigida agora.
-
-- [x] `2026-05-30` **Ingrid — Dia 13 (29-05-2026 sexta-feira) — Contador Pontos Ponderados + Notificação push domingo:**
-  Contador Pontos Ponderados: exibir no header/dashboard a pontuação ponderada acumulada da Ingrid.
-  Notificação push domingo: acionar notificação automática aos domingos para lembrar do Micro-Simulado.
-  Referência: plano_build dia12_13 do WIP_BOARD + skill ingrid-v6.md.
-
-- [x] `2026-05-27` ~~**Loop 6 Ingrid — PAINEL DE DELIBERAÇÃO:**~~
-  ✅ P0-A (DADOS-WATCH VERDE: 102 respostas migradas) · P1-A (aguardar até 31/05) · PRINCIPIO-A (P-079 inscrito) · D3_VANGUARD-A (registrado) — 2026-05-27
+> 📂 PROJ-001 Valdece · PROJ-002 Ingrid · PROJ-003 Mumuzinho em **STANDBY** por decisão do Diretor (09-06-2026) — ver `CLIENTES/STANDBY/PENDENTES_STANDBY.md`. Músculo não toca sem gatilho explícito.
 
 ---
 
@@ -349,10 +238,6 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
 - [x] `2026-06-05` ~~**TESTE_PROCESSO_COMPLETO.md Bloco A — executado:**~~
   ✅ Arquivo criado (fantasma resolvido) · A1 VERDE · A2 VERDE · A3 VERDE · A4 VERDE · P-050 VERDE (P-099 no LEDGER)
 
-- [ ] `2026-07-XX` **Ingrid — Gate 7.2 RLS refactor — pré-requisito multi-tenant:** [musculo]
-  Sistema atual é single-user por design (USING true). Para 2ª candidata: adicionar Supabase Auth + substituir UUID localStorage por auth.uid() em todas as tabelas.
-  Não bloqueia nada até decisão de onboarding multi-tenant.
-
 - [x] `2026-06-04` ~~**NotebookLM Wipe & Sync — Valdece:**~~
   ✅ Realizado pelo Diretor em 2026-06-04.
 
@@ -393,58 +278,3 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   ✅ W-3: Code node "Validar Origem GitHub" adicionado via API PUT (HTTP 200). Verifica X-Hub-Signature.
   ✅ Script local: n8n_session_webhook.ps1 envia X-Webhook-Secret em todo POST para W-4.
   Segredo: N8N_WEBHOOK_SECRET (já no EasyPanel). [RESOLVE: seguranca-webhooks]
-
-- [x] `2026-06-05` ~~**[SISTEMA] B-2 — W-7 Cérebro de Bolso MVP (3 queries):**~~
-  ✅ /status /score /custo integrados ao W-7 (13 nodes). Execução 68 success.
-  /status testado: retornou CHECK|Valdece L7 + RETAINER|Ingrid L8 com dados reais do GitHub.
-  /score + /custo: funcionais após adicionar SUPABASE_URL + SUPABASE_ANON_KEY no EasyPanel.
-
-- [x] `2026-06-05` ~~**[SISTEMA] B-2 — /score e /custo: env vars Supabase no EasyPanel:**~~
-  ✅ SUPABASE_URL + SUPABASE_ANON_KEY adicionadas — /score retornou "sem dados" (OK, tabela vazia) — 2026-06-05.
-
-- [x] `2026-06-05` ~~**[SISTEMA] B-3 — AI-BOM / security module integrado ao n8n_audit.ps1:**~~
-  ✅ MODULO 2 adicionado: detecta JWT, GitHub PAT, Supabase, Notion, Anthropic, Telegram, Slack, Bearer literal.
-  Teste adversarial: ghp_ simulado → [SEC-CRED:GitHub-PAT] detectado + bloqueio DryRun confirmado.
-  Workflows reais: CLEAN (todos usam $env.). MODULO 1 falsos positivos corrigidos (numPattern req keyword).
-
-## PROCESSO / INFRA -- n8n FASE 2 (adicionado 2026-06-05)
-
-- [x] `2026-06-05` ~~**n8n FASE 2 — Deliberação D1-D5 aprovada e registrada:**~~
-  ✅ DECISOES_N8N_FASE2_2026-06-05.json aprovado (D1:A D2:A D3:A D4:A D5:A).
-  Ref: PENTALATERAL_UNIVERSAL/HISTORICO/DECISOES_N8N_FASE2_2026-06-05.json
-  Sequência de build: N-4 → N-1 → W-8 → M-4 → W-6 → W-7 MVP → W-7 v1.1 → Notion.
-
-- [x] `2026-06-05` ~~**n8n FASE 2 — N-4: pre-commit hook valida schema DECISOES.json v1.1:**~~
-  ✅ .git/hooks/pre-commit atualizado com seção N-4 (Python inline). Valida schema_version=1.1 + campos obrigatórios + vereditos A/B/C.
-
-- [x] `2026-06-05` ~~**n8n FASE 2 — N-1: ping_n8n.ps1 + session_start.ps1 PASSO 8e:**~~
-  ✅ scripts/ping_n8n.ps1 criado · PASSO 8e adicionado no session_start.ps1 · P-060 validate VERDE.
-
-- [x] `2026-06-05` ~~**n8n FASE 2 — D2: Configurar ENV_VARS completas no n8n EasyPanel:**~~ [diretor]
-  ✅ CONCLUÍDO 2026-06-05: todas as 10 variáveis configuradas.
-  NOTION_LEDGER_PAGE_ID = 376ac59f774f80809e9fee855d62070a (Ledger Vanguard — adicionado 2026-06-05).
-  ANTHROPIC_API_KEY validada via teste direto à API (Haiku respondeu OK).
-  Gate D3 desbloqueado.
-  ⚠️ ATUALIZAR 2026-06-05: NOTION_WIP_PAGE_ID = 376ac59f774f817db1d8c204d6abcea5 (WIP Board recriado standalone — página antiga era inline dentro de Pendentes).
-
-- [x] `2026-06-05` ~~**Notion — NOTION_WIP_PAGE_ID atualizado no EasyPanel:**~~
-  ✅ 376ac59f774f817db1d8c204d6abcea5 configurado — W-3 confirmou Notion operacional — 2026-06-05.
-
-- [x] `2026-06-12` ~~**n8n FASE 2 — D5: Timer 7 dias staging FASE 1 — gate para W-5 ChurnWatch:**~~
-  ✅ W-5 construído e ativo desde 2026-06-05. W-1/W-3/W-4 sem erros em 2026-06-06 (OK:4/OK:4/OK:2). Gate cumprido antecipadamente — W-5 em produção. [RESOLVE: D5]
-
-- [x] `2026-06-05` ~~**n8n FASE 2 — D6: Build W-7 Veredito MVP texto:**~~
-  ✅ Importado + ativo (ID: KisAa6ynD4btgrkL) · /aprovar TESTE confirmado pelo Diretor 2026-06-05.
-  Comandos: /aprovar A · /rejeitar B · /veredito D1:A D2:B · log automático no Notion Pendentes.
-
-- [x] `2026-06-05` ~~**n8n FASE 2 — Blocos 4-6: Notion OUTPUT em W-1 + W-3 + W-4:**~~
-  ✅ Nodes Preparar Body + Notion Append adicionados nos 3 workflows (continueOnFail: true — P-110).
-  W-1 (Check-in): STATUS → NOTION_WIP_PAGE_ID · W-3 (GitHub Push): COMMIT → NOTION_WIP_PAGE_ID
-  W-4 (Session Close): SESSAO → NOTION_WIP_PAGE_ID · PENDENTES → NOTION_PENDENTES_PAGE_ID
-  Workflows ativados via API em 2026-06-05 — todos status: active=True.
-  P-110 inscrito no LEDGER (toda automação crítica exige fallback ≤3 passos).
-
-- [x] `2026-06-07` ~~**[BUILD] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A — build significativo detectado**~~
-  ✅ A1 VERDE (sem placeholders) · A2 VERDE (todos artefatos: MEMORIA+relatorio+DELIBERACAO para VANGUARD/VALDECE/INGRID) · A3 INFO (PASSO3 referencia loop anterior — normal, regenerado ao iniciar próximo loop) · A4 INFO (MEMORIA_EMBAIXADOR: sem vereditos hoje, sem obrigação P-032). [RESOLVE: TESTE-PROCESSO-BLOCO-A]
-- [x] `2026-06-07` ~~**[BUILD] Rodar TESTE_PROCESSO_COMPLETO.md Bloco A — build significativo detectado**~~
-  ✅ A1 VERDE (sem placeholders) · A2 VERDE (todos artefatos: MEMORIA+relatorio+DELIBERACAO para VANGUARD/VALDECE/INGRID) · A3 INFO (PASSO3 referencia loop anterior — normal, regenerado ao iniciar próximo loop) · A4 INFO (MEMORIA_EMBAIXADOR: sem vereditos hoje, sem obrigação P-032). [RESOLVE: TESTE-PROCESSO-BLOCO-A]

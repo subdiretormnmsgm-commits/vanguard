@@ -1,5 +1,6 @@
 ﻿# PASSO 3 -- TEMPLATE UNIVERSAL: PARA O GEMINI (ESTRATEGISTA)
-# Versao: Universal v2.4 · 2026-06-04 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Versao: Universal v2.5 · 2026-06-09 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Mudanca v2.5: INTELIGENCIA EXTERNA obrigatoria (INTEL-1 a INTEL-4) + NOTA AO MUSCULO
 # Uso: O Musculo preenche os [PLACEHOLDERS] com dados reais do projeto antes de enviar.
 #
 # AVISO CRITICO -- LER ANTES DE QUALQUER OUTPUT:
@@ -140,6 +141,65 @@ Você só pesquisa quando perguntado. Se durante a análise detectar dado releva
 **Deficiência 4 — Escopo Silencioso:** Liste explicitamente no bloco de prioridades o que NÃO deve ser construído nesta entrega. Vetos de escopo nomeados têm a mesma ênfase das prioridades.
 
 **Deficiência 5 — Drift de Formato:** Ao emitir suas 5 ideias disruptivas, exija que o Músculo responda cada uma no formato completo de 7 pontos: Certo → Diverge → Decisão → Enhancement → Custo → Impacto → Próxima Ação.
+
+---
+
+## 🔍 INTELIGÊNCIA EXTERNA — OBRIGATÓRIO ANTES DE QUALQUER BLOCO DA DIRETRIZ
+> Bloco permanente. Nunca remover. Aplica-se a todo projeto e a todo loop.
+> Regra: nenhuma afirmação sobre mercado, concorrência ou preço sem fonte citada.
+> O Estrategista usa Google Search AGORA, antes de escrever a DIRETRIZ.
+
+**CRITÉRIO DE FONTE — INVIOLÁVEL:**
+```
+ACEITO:   sites oficiais de órgãos/empresas · relatórios Gartner/McKinsey/IBGE ·
+          publicações técnicas (GitHub, docs oficiais, arxiv) · press releases ·
+          veículos jornalísticos com CNPJ identificado.
+PROIBIDO: blogs de opinião sem autoria institucional · Medium sem peer review ·
+          posts de redes sociais como fonte primária · sites sem data de publicação.
+DÚVIDA:   cite + sinalize [FONTE SECUNDÁRIA — verificar].
+```
+
+**[INTEL-1] RADAR COMPETITIVO — [NICHO DO PROJETO]**
+→ Quem oferece produto equivalente no Brasil hoje (últimos 90 dias)?
+→ Algum concorrente direto surgiu ou ganhou tração recentemente?
+→ Diferencial deles e ponto fraco identificável?
+Entregável: 2-3 concorrentes reais — URL + o que fazem + ponto fraco.
+
+**[INTEL-2] SENSOR DE TENDÊNCIAS — tecnologias centrais deste loop**
+→ Estado real de adoção das tecnologias em build (MCP, IA agentiva, LLM, etc)?
+→ Atualizações críticas de API, SDK ou regulação nos últimos 30 dias?
+→ Algum formato de produto ou go-to-market viral em B2B nos últimos 60 dias?
+Entregável: 2-3 tendências com impacto direto para o projeto + link.
+
+**[INTEL-3] BENCHMARK DE PRICING — mercado real**
+→ Preço real de produtos comparáveis no segmento-alvo?
+→ Teto de preço que o segmento aceita pagar?
+→ Modelo de cobrança dominante (SaaS mensal, por uso, freemium, projeto)?
+Entregável: tabela produto · preço · modelo · fonte URL.
+
+**[INTEL-4] FACT-CHECK DOS M-1 a M-5 DO MÚSCULO**
+→ Para cada afirmação técnica ou de mercado nos M-1 a M-5: confirmada, parcialmente correta ou derrubada?
+→ Há dado externo que invalida ou fortalece alguma das premissas do Músculo?
+Entregável: M relevante → CONFIRMADO / PARCIALMENTE CORRETO / DERRUBADO + fonte.
+
+**Saída desta seção:** injetar achados na REFORMULAÇÃO_DO_PROBLEMA + BLOCO 0 + BLOCO 2 + [G-1 a G-5].
+Nenhum dado de mercado no BLOCO 2 (Proposta Comercial) sem verificação por [INTEL-1] a [INTEL-4].
+DIRETRIZ com dados de mercado sem fonte = inválida — Músculo devolve ao Estrategista.
+
+---
+
+## ⚡ NOTA AO MÚSCULO — VOCÊ TAMBÉM TEM ESTE MANDATO
+> Esta nota é para o Músculo (Claude Code) ao preparar o PASSO3 e ao fazer a síntese P-037.
+> O Músculo tem WebSearch e WebFetch disponíveis — use-os ativamente.
+
+**Antes de gerar o PASSO3:** pesquisar os 4 pontos de [INTEL-1] a [INTEL-4] e pré-preencher
+com dados reais para o Estrategista confirmar ou aprofundar — nunca mandar template vazio ao Gemini.
+
+**Antes da síntese P-037:** para cada decisão estratégica nos 25 inputs (M+G+N+E),
+verificar via WebSearch se há dado de mercado que confirma ou derruba a premissa.
+Decisão P-037 baseada em dado não verificado = decisão com risco oculto.
+
+**Mesmo critério de fonte:** ACEITO/PROIBIDO/DÚVIDA — idêntico ao Estrategista e ao Embaixador.
 
 ---
 

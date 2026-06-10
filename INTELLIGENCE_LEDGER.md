@@ -2203,6 +2203,22 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Aprovado pelo Diretor:** 2026-06-09 (D4:A confirmado / D7-D10).
 **Aplica-se a:** todo fechamento de loop cuja DIRETRIZ proponha escala/expansao.
 
+## [FALHA-PROCESSO-2026-06-09-B] -- MUSCULO ANALISOU DIRETRIZ ANTES DO AUDITOR E DO EMBAIXADOR
+**Detectada pelo Diretor:** "Voce nao analisa agora. Espere auditor, embaixador. repetiu o ato falho."
+**O que aconteceu:** ao receber a DIRETRIZ V30 do Estrategista (Antigravity), o Musculo imediatamente fez a analise cirurgica P-034 e apresentou divergencias, alertas e recomendacao de nicho ANTES de montar o PASSO5 para o Auditor. A sequencia correta e Estrategista -> Auditor -> Embaixador -> Musculo (sintese P-037). O Musculo pulou 2 etapas.
+**Causa raiz:** material rico chega ao Musculo e ele "antecipa" para ser util -- o mesmo gatilho de [FALHA-PROCESSO-2026-06-09] ("velocidade vencendo disciplina"). 3a ocorrencia do padrao em ~3 dias.
+**Gatilho especifico:** DIRETRIZ com 5 blocos de analise imediata + alertas identificados = Musculo entende que "analisar e agregar valor". Na verdade, o valor e AGUARDAR os outros socios antes de sintetizar.
+**Regra estrutural:** ao receber DIRETRIZ do Estrategista, a UNICA acao permitida e: (1) montar PASSO5, (2) apresentar comando ao Diretor no chat, (3) aguardar. Zero analise, zero divergencia, zero recomendacao antes do Auditor e do Embaixador responderem.
+**Antidoto:** o proprio CLAUDE.md item 14 (P-031 Embaixador como filtro de realidade) e a ORDEM DO PROCESSO (Passo 5 -> Passo 6 -> Passo 7 -> sintese) sao o firewall. Musculo que pula etapas do processo = DEF-M-6 (Reativo por antecipacao) em vez de DEF-M-6 (Reativo por demanda).
+**Aplica-se a:** todo loop, todo projeto, toda DIRETRIZ recebida de qualquer socio.
+
+## P-135 -- VANGUARD E UNICO SISTEMA COM 4 LLMs EM CONSELHO COORDENADO -- DIFERENCIAL ABSOLUTO (2026-06-09)
+**Origem:** observacao direta do Diretor apos busca YT-SEARCH sobre multi-agent AI systems (2026-06-09). O mercado documenta pares -- o Vanguard opera conselho completo.
+**Principio:** nenhum canal, paper ou tutorial documenta 4 LLMs distintos (Claude Code + Gemini/Antigravity + NotebookLM + Claude Projects) operando em conselho deliberativo coordenado com papeis fixos, sequencia inviolavel e protocolo de veredito humano em cada gate. Pares sao comuns -- conselho completo e exclusivo do Vanguard.
+**Implicacao estrategica:** o diferencial comercial nao e "usa IA" -- e "opera com 4 LLMs em conselho, cada um com papel unico, com veredito humano em cada decisao". Moat real = arquitetura + disciplina + Pentalateral como metodologia. Impossivel de copiar rapidamente.
+**Como usar:** Demo Visionario, Audit-Bait, pitch, proposta -- sempre posicionar o CONSELHO como diferencial, nao as ferramentas individualmente. Cliente nao compra Claude -- compra o sistema que ninguem mais tem.
+**Aplica-se a:** toda comunicacao comercial, positioning, P-133 (pipeline), Demo Visionario (JOIA-4).
+
 ## P-134 -- ITEM ABERTO VIVE EM PENDING_REVIEW/PENDENTES, NUNCA NA MEMORIA DE TURNO (2026-06-09)
 **Origem:** auto-correcao do Embaixador no Loop 29 -- deixou cair 3 missoes de inteligencia entre a 1a reacao e a consolidada (a pior: Watch de Edital Ingrid, prazo duro 06/09) -- + observacao do Diretor.
 **Principio:** missao de inteligencia, pendencia ou decisao em aberto que so exista na conversa sera perdida no fechamento. Toda missao aberta e inscrita em PENDING_REVIEW (intel) ou PENDENTES.md (operacional) no MESMO turno em que nasce. Extensao de P-076 (pendente nao registrado nao existe) para a camada de inteligencia externa.

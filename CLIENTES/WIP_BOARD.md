@@ -32,7 +32,7 @@
 - **Projeto:** VanguardV29 -- Pentalateral Autonomo
 - **Area:** Infraestrutura Interna — Pentalateral IAH
 - **Tipo:** Projeto Interno — Evolucao do Sistema (nao e projeto cliente)
-- **Status:** BUILD — Loop 29 EM BUILD (auditoria cirurgica concluida 2026-06-09)
+- **Status:** BUILD — Loop 29 FECHADO · V29 Motor de Verdade · P-131/132/133/134 inscritos · Loop 30 aguarda veredito do Diretor
 - **Loop:** 29 EM BUILD | Gemini PENDENTE | auditoria cirurgica desbloqueou
 - **Stack:** Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API Haiku + Antigravity CLI (Intel Loop Motor)
 - **Loop fase atual:**
