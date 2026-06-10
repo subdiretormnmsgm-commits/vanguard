@@ -1,6 +1,6 @@
-# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
+﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-06-09
+> Criado: 2026-05-17 | Última atualização: 2026-06-10
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -408,6 +408,8 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Pentalateral Autônomo — V28** | 2026-06-06 | E-1 Gate de Coerência Semântica (Haiku API). Hermes Agent (open source, Docker, Claude API nativo, graus A/B/C). Signal Classifier W-8 shadow mode. State Guard. MAINTENANCE_COST.md v2.0. P-115 inscrito. Loop começa sem Eduardo. |
 | **Pentalateral Agentado — V29** | 2026-06-07 a 09 | Antigravity = Estrategista (P-130). INTELLIGENCE HUB isolado (P-124). LOOP_STATE por cliente. W-9 Track TRENDS. Embaixador agentado por cliente (P-059). /notebooklm v2 + YouTube como fonte. W-8 OPERACIONAL em produção. gemini-pentalateral v2.1. P-118 a P-134. |
 | **Motor de Verdade — Loop 29** | 2026-06-09 | **P-132 (diversidade de engines = Motor de Verdade; elo Músculo↔Auditor = par primário; triangulação cega — amplifica P-129).** P-131 (Diretor ativo; silêncio ≠ aprovação). P-133 (Gate Zero Pipeline). P-134 (item aberto em PENDING_REVIEW/PENDENTES). YT-SEARCH = 1º canal de FONTES. Loop 29 fechado (commit b30c342). |
+| **Inteligência Ativa — Loop 30** | 2026-06-09 | V30 — Inteligência Ativa nos 3 Sócios. Auditor e Embaixador com busca web ativa (P-144). NotebookLM 100% remoto via Playwright (P-142). Workflow YT-ENRICHMENT + BRIEFING (P-140). Skills externas mapeadas por gate (P-135/P-136/P-137). P-138 (Valdece primeiro), P-139 (Vitrine vs Cofre). Loop 30 fechado. Skill vanguard-v30.md gerada. |
+| **Expansão da Inteligência — Loop 31** | 2026-06-10 | V31 — Expansão da Inteligência Interna. DECISOES D1:A (Hermes Grau B) + D3:A (RUNNING_INTELLIGENCE.md) + D4:A (Loop 32 EXTERNO). Hermes token corrigido + canal Telegram verificado + approvals.mode=auto. BOM UTF-8 removido do WIP_BOARD. P-141 (LOOP TRANSCRIPT anti-amnésia), P-143 (checklist BLOQUEANTE), P-145 (event-driven), P-146 (documentar=automatizar), P-147 (Budget de Leitura). Loop 31 fechado (commit c1c6936). |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
@@ -500,6 +502,19 @@ Em 2026-06-05, o n8n entrou como 6º elemento — não membro, mas sistema nervo
 | P-132 | Diversidade de engines é Motor de Verdade — elo Músculo↔Auditor = par primário | 2026-06-09 | Diretor declarou a interação Músculo↔Auditor "a mais importante da sessão" e mandou ampliá-la | Triangulação cega: ≥2 engines pesquisam o mesmo fato sem ver o achado um do outro — convergem = alta confiança, divergem = flag ao Diretor. Amplificação direta de P-129. |
 | P-133 | Gate Zero de Pipeline — loop de expansão não fecha sem discovery do próximo cliente | 2026-06-09 | Pipeline-vazio não detectado no fechamento de loop | Loop de expansão registra o status de discovery do próximo cliente. Pipeline-vazio = alerta de 1ª classe: o gargalo real é aquisição, não capacidade. |
 | P-134 | Item aberto vive em PENDING_REVIEW/PENDENTES, nunca na memória de turno | 2026-06-09 | Risco de item de inteligência externa perdido pós-compactação | Extensão de P-076 para a camada de inteligência externa: nada fica só na conversa. |
+| P-135 | Vanguard = único sistema com 4 LLMs em conselho coordenado | 2026-06-09 | Busca YT-SEARCH sobre multi-agent AI — mercado documenta pares, Vanguard opera conselho | Diferencial absoluto documentado como ativo de posicionamento. |
+| P-136 | ultrathink é obrigatório na síntese P-037 | 2026-06-09 | Avaliação de skills externas antes da síntese Loop 30 | ultrathink-trigger → brainstorming → writing-plans = sequência inviolável ao analisar SEÇÃO D. |
+| P-137 | Mapa de skills por gate do Pentalateral | 2026-06-09 | Avaliação de 6 skills externas antes da síntese P-037 | Cada gate do loop tem skills específicas — nunca genéricas. check_skills_embaixador.ps1. |
+| P-138 | Valdece primeiro: demo no nicho de cliente ativo exige pré-aviso | 2026-06-09 | Embaixador [E-2] Loop 30 — inteligência não presente em nenhum outro membro | Demo pública no nicho de cliente ativo só após contato prévio. |
+| P-139 | Vitrine vs Cofre: linha obrigatória antes do primeiro artifact público | 2026-06-09 | Contradição entre G-2 (público) e H-V6 (IP proprietário) | Decidir ANTES: artifact é vitrine ou cofre. Não há meio-termo. |
+| P-140 | Workflow de abertura de loop: YT-ENRICHMENT + CAPACIDADES + BRIEFING | 2026-06-09 | Workflow perdido no compacto — reconstruído 3x | Seções [CAPACIDADES] permanentes nos PASSOs. YT-SEARCH obrigatório ao abrir loop. |
+| P-141 | LOOP TRANSCRIPT: imunidade estrutural à amnésia de compactação | 2026-06-09 | 3ª ocorrência de perda por compactação | session_close gera LOOP_TRANSCRIPT_V[N].md com todas as ideias + disposição final + arquivos criados. |
+| P-142 | NotebookLM é 100% remoto — Músculo opera via Playwright | 2026-06-10 | Diretor confirmou múltiplas vezes. Músculo ainda pedia ações manuais. | Nunca pedir ao Diretor para arrastar/colar/upload. Playwright faz tudo. |
+| P-143 | Ferramenta automática anti-esquecimento do Músculo | 2026-06-10 | Músculo esqueceu Deep Research e relatório nativo no Loop 31 | [CHECKLIST DO MÚSCULO] BLOQUEANTE em cada PASSO file. skill_parser_gate.ps1 valida. |
+| P-144 | Dois sócios têm pesquisa avançada web — usar obrigatoriamente | 2026-06-10 | Auditor e Embaixador com web ativa; Músculo não ativou nenhum no Loop 31 | Auditor: Deep Research WEB via Playwright ANTES do PASSO5. Embaixador: BLOCO 8 no PASSO7. |
+| P-145 | Atualização de documentos é event-driven, não só session-driven | 2026-06-10 | MEMORIA_EMBAIXADOR 2 loops atrasada no Loop 31 | Após PASSO3/5/7 → executar PASSO X.5 de atualização imediata. |
+| P-146 | Documentar sem automatizar = repetir o erro | 2026-06-10 | Diretor: "Erros devem ser tratados com ferramentas, não só registros" | Todo P-XXX de processo exige build de ferramenta no PENDENTES. Sem script, o princípio é decoração. |
+| P-147 | Budget de Leitura do Diretor é regra permanente | 2026-06-10 | E-2 Embaixador — com 10 projetos, artefatos colapsam a atenção do Diretor | Ao propor novo artefato, declarar custo de atenção. Estourou o teto → podar algo existente primeiro. |
 
 **Velocidade de aprendizado por fase:**
 - V1–V23 (pré-LEDGER): ~0 princípios formalizados por sessão
@@ -723,6 +738,9 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 | ✅ 2026-06-08 | V29 — INTELLIGENCE HUB + Antigravity + LOOP_STATE + W-9 + P-127 | Infraestrutura |
 | ✅ 2026-06-09 | W-8 Shadow Mode OPERACIONAL em produção · W-3 fix · ENV_VARS auditadas | Infraestrutura |
 | ✅ 2026-06-09 | **Loop 29 FECHADO — Motor de Verdade** · P-128 a P-134 inscritos · Timeline V29 · commits b30c342/dd9b09f/380cc28 | Processo |
+| ✅ 2026-06-09 | **Loop 30 FECHADO — Inteligência Ativa nos 3 Sócios** · Skill vanguard-v30.md · P-135 a P-140 | Processo |
+| ✅ 2026-06-10 | **Loop 31 FECHADO — Expansão da Inteligência Interna** · Hermes Grau B ativo · RUNNING_INTELLIGENCE.md · D1:A D3:A D4:A · P-141 a P-147 · commit c1c6936 | Processo |
+| ✅ 2026-06-10 | BOM UTF-8 removido do WIP_BOARD · ChurnWatch desbloqueado · commit f11e441 | Infraestrutura |
 | [ ] 2026-06-14 | W-8 — avaliar ativação plena (HARD deadline) | Infraestrutura |
 | [ ] 2026-06-18 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
 | [ ] 2026-06-18 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
@@ -734,6 +752,6 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 
 ---
 
-*Atualizado em: 2026-06-09 — V29 Motor de Verdade · Loop 29 FECHADO*
-*Próxima atualização obrigatória: terceiro cliente em discovery (Gate Zero de Pipeline, P-133) + início do V30 (Máquina de Conhecimento Soberana · Cowork 2º motor de tempo)*
+*Atualizado em: 2026-06-10 — V31 Expansão da Inteligência Interna · Loop 31 FECHADO · Loop 32 EXTERNO abrindo*
+*Próxima atualização obrigatória: Loop 32 — Gate Zero P-133 + captação 2ª candidata Ingrid (04-07-2026) + primeiro MRR novo*
 *Responsável pela atualização: Músculo (Claude Code) ao fechar cada gate ou marco comercial*
