@@ -37,18 +37,18 @@
                                     "valor_fechado":  0,
                                     "tipo":  "Projeto Interno -- Evolucao do Sistema",
                                     "status":  "BUILD",
-                                    "loop_atual":  "Loop 29 FECHADO -- V29 Motor de Verdade -- P-131/132/133/134 inscritos",
+                                    "loop_atual":  "Loop 31 FECHADO -- V31 Expansao da Inteligencia Interna -- P-143 a P-147",
                                     "build_iniciado_em":  "2026-06-06",
                                     "deadline":  null,
                                     "churn_watch_threshold":  null,
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
-                                                            "loop":  29,
-                                                            "gemini":  "OK",
-                                                            "notebooklm":  "OK",
-                                                            "embaixador":  "OK",
-                                                            "musculo":  "OK",
-                                                            "proximo":  "NotebookLM -- Skill vanguard-v29.md"
+                                                            "loop":  32,
+                                                            "gemini":  "PENDENTE",
+                                                            "notebooklm":  "PENDENTE",
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "PENDENTE",
+                                                            "proximo":  "Loop 32 EXTERNO -- Gate Zero P-133 ativo -- D4:A (2026-06-10)"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
