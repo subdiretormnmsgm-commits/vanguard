@@ -2369,6 +2369,42 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Aplica-se a:** NotebookLM VANGUARD (d7dab0e1) e todos os cadernos de clientes. Sem excecao.
 **Ferramentas:** mcp__plugin_playwright_playwright__browser_* — carregadas via ToolSearch no inicio da sessao se nao disponiveis.
 
+## [FALHA-PROCESSO-2026-06-10-A] SKILLS ERRADAS AO ANALISAR SECAO D — RECORRENTE POS-COMPACTACAO
+**Origem:** Sessao 2026-06-10. Ao analisar SECAO D do Embaixador (Loop 31), o Musculo invocou mcp-builder e notebooklm em vez das 3 skills corretas: ultrathink-trigger → brainstorming → writing-plans.
+**Por que acontece:** apos compactacao, o Musculo perde o contexto das skills corretas. O padrao esta na memoria mas nao num gatilho automatico antes da acao.
+**Antidoto implementado:** check_skills_embaixador.ps1 criado (P-146). Memoria feedback_skills_ao_analisar_embaixador.md atualizada.
+**Antidoto necessario:** gate no inicio da analise de SECAO D — verificar se as 3 skills foram invocadas ANTES de apresentar conteudo.
+
+## [FALHA-PROCESSO-2026-06-10-B] VOLUME DE DELIBERACAO SEM CONVERSAO EM BUILD
+**Origem:** Sessao 2026-06-10. 6h de sessao. 3 builds tecnicos entregues. 0 dos builds aprovados no DECISOES.json (M-2, M-1+E-1, G-2+W-10) iniciados. Antigravity: 0 acionamentos.
+**Diagnostico do Diretor:** "Dois loopings e nada." O padrao e deliberacao de alta qualidade sem produto entregue.
+**Causa raiz:** ausencia de time-boxing por build. Sem gatilho que force transicao de DELIBERACAO para BUILD.
+**Antidoto:** se 90 minutos de sessao sem commit de feature, Musculo auto-alerta: "Nenhum build nos ultimos 90 minutos — qual codigo escrevo agora?" Loop 32 aplica: build primeiro, deliberacao depois.
+
+## [FALHA-PROCESSO-2026-06-10-C] ANTIGRAVITY PARADO A SESSAO INTEIRA
+**Origem:** Sessao 2026-06-10. Estrategista nao foi acionado. Diretor: "E o Antigravity, nada?"
+**Principio violado:** P-075 — cada membro do Pentalateral tem papel obrigatorio no loop.
+**Antidoto:** ao iniciar sessao com loop ativo, PASSO3 com Antigravity e item BLOQUEANTE do MAPA DIARIO. Se meia sessao sem PASSO3, auto-alerta.
+
+## [FALHA-PROCESSO-2026-06-10-D] WIP_BOARD 3 LOOPS ATRASADO
+**Origem:** Sessao 2026-06-10. WIP_BOARD declarava Loop 29 quando sessao estava no Loop 31.
+**Principio violado:** P-027 — atualizar WIP_BOARD imediatamente ao concluir etapa, nao no session_close.
+**Antidoto:** WIP_BOARD nao atualizado no momento da etapa = etapa nao concluida. session_close bloqueia se WIP > 1 loop atrasado.
+
+## [FALHA-PROCESSO-2026-06-10-E] TOKEN HERMES MORTO DESDE IMPLANTACAO
+**Origem:** Sessao 2026-06-10. Token morto (7914321985) hardcoded no Hermes config.yaml. Declarado "ativo" sem teste ao vivo.
+**Principio violado:** P-010 — gate sem evidencia e invalido.
+**Antidoto:** ao implantar sistema com canal externo (Telegram, email, webhook), o gate de ativacao exige mensagem de teste RECEBIDA antes de declarar ATIVO.
+
+## [FALHA-PROCESSO-2026-06-10-F] BOM SILENCIOSO NO WIP_BOARD — MULTIPLAS SESSOES
+**Origem:** Sessao 2026-06-10. BOM (EF BB BF) no WIP_BOARD.json quebrando ChurnWatch n8n em silencio por multiplas sessoes.
+**Antidoto:** validate_scripts.ps1 inclui verificacao de BOM em .json criticos. Ao criar .json critico no Windows, usar WriteAllBytes com encoding explicito sem BOM.
+
+## [FALHA-PROCESSO-2026-06-10-G] DEF-M-6 — MUSCULO DETERMINOU ENCERRAMENTO
+**Origem:** Sessao 2026-06-10. Musculo disse "va dormir" — determinou o estado do Diretor e da sessao.
+**Principio violado:** fechamento e prerrogativa exclusiva do Diretor (CLAUDE.md + P-114).
+**Antidoto:** nunca usar linguagem que determine estado do Diretor. Correto: "Diretor, chegamos ao protocolo de fechamento — deseja encerrar agora?"
+
 ## P-141 — LOOP TRANSCRIPT: IMUNIDADE ESTRUTURAL A AMNESIA DE COMPACTACAO (2026-06-09)
 **Origem:** terceira ocorrencia de perda de trabalho por compactacao (Loop 30: capacidades Antigravity; Loop 29: missoes Embaixador; Loop 31: workflow YT + PASSO files). Padrao recorrente = falha estrutural.
 **Principio:** todo trabalho que nao esta em arquivo em disco nao existe. Workflow, secoes de capacidades e instrucoes que so existem no chat sao conteudo morto.
