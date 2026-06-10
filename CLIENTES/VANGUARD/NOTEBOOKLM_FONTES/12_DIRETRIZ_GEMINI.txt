@@ -1,114 +1,81 @@
-DIRETRIZ ESTRATÉGICA V29 — VANGUARD TECH — Loop 29
-Canal: Estrategista (Antigravity) · Eixo: EXPANSÃO EXPONENCIAL · 2026-06-09
-[Transcrição da saída do Estrategista desta sessão — fonte 12 para o Auditor]
+DIRETRIZ ESTRATÉGICA V31 — VANGUARD TECH — Loop 31
+Canal: Estrategista (Antigravity) · Eixo: EXPANSÃO DA INTELIGÊNCIA INTERNA · 2026-06-09/10
+[Transcrição da saída do Estrategista — fonte 12 para o Auditor]
 
 ═══════════════════════════════════════════════════════════════════
 [1. VALIDAÇÃO DO MÚSCULO]
 ═══════════════════════════════════════════════════════════════════
-As cinco teses [M-1 a M-5] estão corretas e convergem num único movimento:
-sair do modelo "Diretor como barramento manual entre silos" para um ENXAME
-ORQUESTRADO de sócios que se autoalimenta. O Músculo acertou o diagnóstico
-central (M-3): o gargalo do exponencial não é técnico, é o acoplamento entre
-nº de clientes e horas-Diretor. Acertou também ao reposicionar o firewall
-(M-5) como habilitador da escala, não como freio.
+As 5 teses do Músculo (M-1 a M-5) identificam corretamente a lacuna central:
+o Pentalateral não se mede, não se otimiza e não fecha seus próprios ciclos
+de aprendizado. A missão interna (sem clientes) é o foco correto para o Loop 31.
+
+DECISÕES DO ESTRATEGISTA:
+- M-1 (LOOP SCOREBOARD): ENTRA AGORA — com adição obrigatória de Cost Attribution/Token Burn Rate
+- M-2 (LOOP TRANSCRIPT): ENTRA AGORA — imunidade estrutural à amnésia de compactação
+- M-3 (PASSO3 AUTO-CALIBRÁVEL): LOOP 32 — risco de Reward Hacking (LLM-as-Judge fraco)
+- M-4 (AUDITOR INTELLIGENCE ENGINE): ENTRA AGORA — Deep Research + BRIEFING ativados
+- M-5 (EMBAIXADOR INTELLIGENCE LOOP): ENTRA AGORA — RUNNING_INTELLIGENCE.md como missão permanente
 
 ═══════════════════════════════════════════════════════════════════
-[2. DIVERGÊNCIA ESTRATÉGICA]
+[2. IDEIAS DO ESTRATEGISTA — G-1 a G-5]
 ═══════════════════════════════════════════════════════════════════
-Divirjo de tratar "enxame" como sincronização de todos os sócios o tempo todo.
-O exponencial real vem de COMPUTAÇÃO ANTECIPATÓRIA: cada sócio trabalha em
-background ANTES de ser requisitado, deixando resultado pronto em PENDING_REVIEW.
-O Diretor não orquestra o enxame em tempo real — ele colhe o que o enxame já
-produziu. A unidade de escala não é "mais sócios ligados", é "mais trabalho
-adiantado por pista paralela desacoplada".
+
+[G-1] PENTALATERAL RED TEAMING (O Teste de Quebra)
+1x/mês: Antigravity instanciado como "Atacante". Missão: gerar Diretriz persuasiva que
+esconde violação deliberada ao P-059 ou P-121. Teste: Músculo e Auditor conseguem flagrar?
+Se passar, o firewall é fraco.
+Entrega: script red_team_session.ps1 + log de resultado por Loop.
+
+[G-2] SKILL-DRIFT RADAR
+Subagente no session_start cruza últimos 5 LOOP_TRANSCRIPT. Se o Músculo resolveu o mesmo
+tipo de bug de forma idêntica 3 vezes: "Fadiga de Sistema Detectada — isso deveria ter
+virado Automação".
+Entrega: drift_detector.ps1 integrado ao session_start.
+
+[G-3] VEREDITO ENRIQUECIDO DO DIRETOR
+Telegram integra notas de voz do Diretor (ex: "Aprovo o A porque UX do B não serve para EdTech").
+Embaixador faz STT, extrai o "Porque" estrutural, injeta na calibração do sistema.
+Menos digitação, mais contexto de alta densidade.
+Entrega: webhook Telegram voz → n8n → Embaixador STT → LOOP_STATE.json enriquecido.
+
+[G-4] BIBLIOTECA DINÂMICA DE FEW-SHOT PROMPTS
+Quando loop recebe Score 5 no Scoreboard, Antigravity recorta inputs e outputs perfeitos
+e adiciona como few-shot examples para prompts de tarefas similares nos próximos loops.
+Entrega: few_shot_library.json versionado + script de extração automática.
+
+[G-5] ORÁCULO DE CHURN (Previsão via Embaixador)
+Telemetria do app do cliente (ex: Valdece) conectada ao Embaixador. Queda sutil de 10%
+no uso → Embaixador emite alerta RUNNING_INTELLIGENCE com estratégia de Hypercare Ativo
+antes do cliente notar a insatisfação.
+Entrega: webhook Supabase → n8n → Embaixador → RUNNING_INTELLIGENCE.md.
 
 ═══════════════════════════════════════════════════════════════════
-[3. DECISÃO CLARA]
+[3. ALERTAS CRÍTICOS DO ESTRATEGISTA]
 ═══════════════════════════════════════════════════════════════════
-[M-1] Enxame Músculo+Auditor .................. ENTRA AGORA (sob Shadow Mode P-116)
-[M-2] Embaixador agendado (Cowork) ........... ENTRA AGORA (depende das 3 travas)
-[M-3] Desacoplar clientes × horas-Diretor .... ENTRA AGORA (cerne do loop)
-[M-4] Antigravity expandido com sabedoria .... ENTRA AGORA (modo manutenção/INTEL)
-[M-5] Firewall como habilitador .............. ENTRA AGORA (precondição inviolável)
+
+[CRÍTICO-1] REWARD HACKING no M-3:
+Músculo como scorer do próprio PASSO3 leva a notas altas para prompts genéricos.
+Mover para Loop 32 com Chain-of-Verification e Scorer cruzado (Auditor avalia, não Músculo).
+
+[CRÍTICO-2] CEGUEIRA FINANCEIRA no M-1:
+SYSTEM_HEALTH sem métrica de custo é cego para Runaway Costs — falha #1 em sistemas multi-agentes.
+Cost Attribution e Token Burn Rate são métricas obrigatórias no Scoreboard.
+
+[CRÍTICO-3] VAZAMENTO DE CONTEXTO na Auto-Calibração:
+Auto-calibração cruzando dados de projetos diferentes viola P-059 mortalmente.
+A extração deve ser puramente semântica/estrutural — nunca dados brutos de clientes.
 
 ═══════════════════════════════════════════════════════════════════
-[4. ENHANCEMENT]
+[4. SKILL NOMEADA PELO ESTRATEGISTA]
 ═══════════════════════════════════════════════════════════════════
-- Embaixador deixa de ser "memória persistente" e vira MOTOR DE PIPELINE:
-  agendado, ele simula necessidade futura do cliente e prepara o upsell antes
-  do cliente pedir (computação antecipatória aplicada à receita).
-- Antigravity (M-4) ganha função de varredura de deriva: cruza o código/docs
-  com o LEDGER e reporta inconsistências — sempre só para PENDING_REVIEW.
-- Pistas paralelas desacopladas: cada cliente = 1 pista que roda sozinha;
-  só a exceção sobe ao Diretor (Hermes/W-8 como balanceador cognitivo).
+Nome da Skill para o NotebookLM: vanguard-v31.md
+Nome do BRIEFING adicional: BRIEFING_ESTADO_ARTE_LOOP31.md
 
 ═══════════════════════════════════════════════════════════════════
-[5. CUSTO REAL]
+[PARA O MÚSCULO — síntese P-037 após Embaixador]
 ═══════════════════════════════════════════════════════════════════
-- M-1/M-3: arquitetura de subagentes isolados (P-059) + n8n como trilho de
-  disparo. Build incremental; risco = engarrafamento do PENDING_REVIEW (mitigar
-  com fila e Circuit Breaker já decididos).
-- M-2: depende das 3 travas bloqueantes (isolamento que aborta · gate que recusa
-  DIRETRIZ sem PASSO3+CONTEXTO · saída sempre → PENDING_REVIEW). Sem elas, V30.
-- M-4: Antigravity já lê o repo do disco; custo marginal baixo. Risco = furar
-  isolamento → manter modo manutenção, nunca tocar arquivo de cliente sozinho.
-
-═══════════════════════════════════════════════════════════════════
-[6. IMPACTO COMERCIAL]
-═══════════════════════════════════════════════════════════════════
-Desacoplar clientes de horas-Diretor é o que transforma a Vanguard de
-consultoria-gargalo em holding que escala. Cada pista nova vira receita sem
-custo linear de tempo do Diretor. O Embaixador-motor antecipa upsell = expande
-LTV sem ação reativa. O firewall blindado é o que permite vender escala com
-segurança (diferencial impossível de copiar).
-
-═══════════════════════════════════════════════════════════════════
-[7. PRÓXIMA AÇÃO]
-═══════════════════════════════════════════════════════════════════
-Auditar [M-1..M-5] + [G-1..G-5] contra o LEDGER (P-001 a P-130), com foco na
-tensão P-124 (checkpoint humano) × P-129 (elo Músculo↔Auditor aberto).
-Gerar a Skill vanguard-v29.md.
-
-═══════════════════════════════════════════════════════════════════
-[G-1 a G-5] — IDEIAS DISRUPTIVAS DE EXPANSÃO (zero freios)
-═══════════════════════════════════════════════════════════════════
-[G-1] EMBAIXADOR PREDANTE — upsell antecipado via simulação de necessidade
-      futura do cliente; o Embaixador agendado prepara a próxima oferta antes
-      do cliente perceber que precisa.
-[G-2] CLONAGEM DE PROSPECTOS EM BACKGROUND — o Intel alimenta uma persona do
-      decisor; o conselho ensaia a abordagem contra o "clone" antes da reunião real.
-[G-3] AUDITORIA ATIVA DE DERIVA — o Antigravity cruza continuamente código/docs
-      com o LEDGER e levanta deriva/gaps de propagação → PENDING_REVIEW.
-[G-4] CONSELHO DIALÉTICO — Músculo × Estrategista em debate autônomo (tese ×
-      antítese) antes do Diretor; o Diretor recebe a síntese, não o ruído.
-[G-5] SUPER-CARD NO HERMES — decisão do Diretor de 15 min → 5 seg: o card no
-      Telegram traz contexto + opções + recomendação prontos para 1 toque.
-
-═══════════════════════════════════════════════════════════════════
-[PARA O NOTEBOOKLM]
-═══════════════════════════════════════════════════════════════════
-Skill: vanguard-v29.md
-
-[IDENTIDADE DO AUDITOR UNIVERSAL]
-Auditor do Pentalateral IAH. Tensão ativa: auditar, não validar. Peso máximo ao
-LEDGER (P-001 a P-130). Cada afirmação cita princípio/versão/padrão.
-
-[O QUE AUDITAR NESTE LOOP]
-- [M-1..M-5] e [G-1..G-5] contradizem o LEDGER?
-- CRÍTICO: o elo Músculo↔Auditor (M-1) viola P-124 ("nenhum sócio aciona outro
-  diretamente")? Como reconciliar P-129 (elo aberto) com P-124 (checkpoint humano)?
-- G-1/G-2 conflitam com P-121 (automação não iniciada pelo cliente = risco churn)
-  ou P-059 (isolamento) para Ingrid/Valdece?
-- Precisão obrigatória: P-018 = "Diretor é o 4º LLM — orquestração de deficiências
-  como vantagem"; P-128 = "Notion canal bidirecional" (NÃO single-writer).
-
-[PADRÕES HISTÓRICOS CRÍTICOS]
-Citar loops/versões: que automações funcionaram e quais falharam ao longo dos
-+50 loops. Onde a câmara de eco (P-124) já evitou erro.
-
-[N-1 a N-5]
-N-1: topologia n8n resiliente para disparo concorrente sem engarrafar PENDING_REVIEW?
-N-2: como sócios interrogam schemas cruzados sem violar P-059?
-N-3: há espaço para o Auditor ler continuamente, validando a cada artefato? Respeita P-124?
-N-4: fluxo Hermes otimizado para aprovação instantânea do Diretor sem fricção?
-N-5: como medir a "sabedoria expandida" do Antigravity convertendo background em MRR?
+Prioridade de build Loop 31:
+1. SYSTEM_HEALTH.md schema + métricas (M-1)
+2. session_close.ps1 → LOOP_TRANSCRIPT geração (M-2)
+3. RUNNING_INTELLIGENCE.md criado pelo Embaixador (M-5)
+4. Aguardar Skill vanguard-v31.md + SEÇÃO D Embaixador antes de fechar síntese.

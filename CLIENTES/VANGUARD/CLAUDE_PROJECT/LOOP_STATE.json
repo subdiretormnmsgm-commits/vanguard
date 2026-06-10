@@ -1,63 +1,72 @@
 {
   "schema_version": "1.0",
   "cliente": "VANGUARD",
-  "loop_atual": 29,
-  "loop_status": "FECHADO",
-  "fase_atual": "LOOP_FECHADO",
+  "loop_atual": 31,
+  "loop_status": "ABERTO",
+  "fase_atual": "AGUARDA_EMBAIXADOR",
   "socios": {
     "gemini": {
       "status": "OK",
-      "artefato": "CLIENTES/VANGUARD/DIRETRIZ_GEMINI_V29.txt",
+      "artefato": "CLIENTES/VANGUARD/HISTORICO/DIRETRIZ_V31_VANGUARD.md",
       "data_conclusao": "2026-06-09",
-      "proximo": null,
-      "nota": "Estrategista = Antigravity (P-130). DIRETRIZ V29 — eixo Computacao Antecipatoria / Expansao Exponencial. G-1..G-5 + N-1..N-5."
+      "proximo": "Concluído.",
+      "nota": "DIRETRIZ V31 entregue. M-1+M-2+M-4+M-5 ENTRA AGORA. M-3 Loop 32. G-1 Red Teaming, G-2 Skill-Drift, G-3 Veredito Voz, G-4 Few-Shot Library, G-5 Oraculo Churn."
     },
     "notebooklm": {
       "status": "OK",
-      "artefato": ".claude/skills/vanguard-v29.md + CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V29_VANGUARD.md",
-      "data_conclusao": "2026-06-09",
-      "proximo": null,
-      "nota": "Auditor no caderno 'Conselho V29'. M-1 e G-4 ALERTA CRITICO; G-1/G-2 ALERTA. Skill APROVADA no gate."
+      "artefato": "CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V31_VANGUARD.md",
+      "data_conclusao": "2026-06-10",
+      "proximo": "Concluído. Skill vanguard-v31.md APROVADA.",
+      "nota": "23 fontes no caderno. PARTE 1-7 completas. Skill aprovada pelo skill_parser_gate. PENDÊNCIA LOOP 32: Deep Research WEB + generate report nativo (P-143/P-144)."
     },
     "embaixador": {
-      "status": "OK",
-      "artefato": "Reacao consolidada Loop 29 (SECAO D) sob P-131 + Inteligencia Externa",
-      "data_conclusao": "2026-06-09",
-      "proximo": null,
-      "nota": "SECAO D + Radar Competitivo externo. Confirmou eixo sobre mercado real porem pipeline vazio; elevou G-3 a prioridade 1; N-4 movido EXPANDE->ALERTA (veto silencioso eliminado sob P-131). 3 missoes de inteligencia + BLOCO 4-bis (recuperou Watch Edital Ingrid). [E-1..E-5] autorais."
+      "status": "AGUARDA",
+      "artefato": null,
+      "data_conclusao": null,
+      "proximo": "Músculo prepara PASSO7 → ir_ao_embaixador.ps1 -cliente VANGUARD → colar SEÇÃO D aqui",
+      "nota": "Aguarda PASSO7 com N-1 a N-5 + A-1 a A-3 do Auditor"
     },
     "musculo": {
-      "status": "OK",
-      "artefato": "CLIENTES/VANGUARD/HISTORICO/DELIBERACAO_LOOP_V29_VANGUARD.md + DECISOES/DECISOES_VANGUARD_2026-06-09.json",
-      "data_conclusao": "2026-06-09",
-      "proximo": null,
-      "nota": "Sintese P-037 completa. Tese cirurgica [M'-1..5] Motor de Verdade endossada pelo Diretor -> P-132 (amplia P-129, elo Musculo<->Auditor). Vereditos D1:A-R:A + D7:A-D10:A. Principios inscritos: P-131/132/133/134."
+      "status": "AGUARDA_EMBAIXADOR",
+      "artefato": null,
+      "data_conclusao": null,
+      "proximo": "Síntese P-037 após SEÇÃO D do Embaixador",
+      "nota": null
     }
+  },
+  "loop_anterior": {
+    "numero": 30,
+    "status": "FECHADO",
+    "data_fechamento": "2026-06-09",
+    "artefatos": [
+      "CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V30_VANGUARD.md",
+      ".claude/skills/vanguard-v30.md",
+      "CLIENTES/VANGUARD/DECISOES/DECISOES_VANGUARD_V30_2026-06-09.json"
+    ],
+    "principios_inscritos": ["P-136", "P-137", "P-138", "P-139"],
+    "falha_registrada": "PASSO3 com missão sobre clientes gerou 91 ideias recicladas. Corrigido no PASSO3 do Loop 31."
   },
   "gates": {
     "p045_memoria_anterior_existe": true,
-    "p037_deliberacao_concluida": true,
-    "p032_memoria_embaixador_atualizada": true,
+    "p037_deliberacao_concluida": false,
+    "p032_memoria_embaixador_atualizada": false,
     "p087_resolve_commitado": false
   },
   "contexto_snapshot": {
     "cliente_temperatura": "N/A — projeto interno",
     "ultimo_contato_cliente": "N/A",
-    "proximo_gate_externo": "W-8 shadow mode expira 2026-06-14 — avaliar ativacao plena; Watch Edital Ingrid prazo duro 2026-06-09",
+    "proximo_gate_externo": "W-8 shadow mode expira 2026-06-14 — avaliar Grau B",
     "prazo": "2026-06-14",
-    "observacoes": "Loop 29 FECHADO 2026-06-09. Principios novos: P-131 (Diretor ativo em todo o processo; silencio != aprovacao), P-132 (diversidade de engines = Motor de Verdade; elo Musculo<->Auditor par primario; triangulacao cega), P-133 (Gate Zero de Pipeline), P-134 (item aberto vive em PENDING_REVIEW/PENDENTES). YT-SEARCH instalada (primeiro canal de fontes do Musculo). Backlog V30: Maquina de Conhecimento Soberana (canais->fontes->Auditor->banco gigante/enciclopedia/podcast, agendado, gate de credibilidade) + Antigravity motor de deriva (W-10)."
+    "observacoes": "Auditor Loop 31 CONCLUÍDO 2026-06-10. Skill vanguard-v31.md APROVADA. Novos princípios: P-143 (checklist anti-esquecimento) + P-144 (Deep Research WEB + relatorio nativo obrigatórios no PASSO5). Próximo: Embaixador SEÇÃO D."
   },
   "pendentes_abertos": [
-    "M-INTEL-3 Watch de Edital Ingrid (Quadrix/Sedes-DF) — PRAZO DURO 2026-06-09 (PENDING_REVIEW)",
-    "M-INTEL-2 Benchmark pricing LegalTech Valdece V4 — ate 2026-06-18 (PENDING_REVIEW)",
-    "M-INTEL-1 Triangulacao cega fact-check venture-studio agentado (PENDING_REVIEW)",
-    "W-8 shadow mode — avaliar ativacao plena em 2026-06-14",
-    "W-9 n8n Track TRENDS — importar e ativar no EasyPanel",
-    "[V30] Maquina de Conhecimento Soberana — canais->FONTES->Auditor->banco gigante, agendado",
-    "[V30] Antigravity motor de deriva / W-10 — comandos determinados + repositorio de skills",
-    "Reescrita dos passos do Embaixador em todos os arquivos (tarefa original pendente)"
+    "W-8 Hermes Grau B — condicional: 7 dias shadow limpos (deadline 2026-06-14)",
+    "W-9 Track TRENDS — importar e ativar no EasyPanel",
+    "Demo EdTech/Sedes-DF — v0 em ≤7 dias (até 2026-06-16)",
+    "LOOP_STATE.json ausente na pasta do Embaixador (drift detectado)",
+    "PASSO5 template: adicionar [CHECKLIST DO MUSCULO] + Deep Research WEB gate (P-143/P-144 — Loop 32)"
   ],
-  "ultima_atualizacao": "2026-06-09",
-  "proxima_acao_musculo": "Loop 29 fechado. Executar missoes de inteligencia (M-INTEL-3 urgente). Retomar reescrita dos passos do Embaixador. Iniciar Loop 30 quando o Diretor acionar.",
-  "proxima_acao_diretor": "Validar fechamento. Acionar M-INTEL-3 (Watch Edital Ingrid, prazo 06/09). Decidir quando abrir Loop 30 / V30."
+  "ultima_atualizacao": "2026-06-10",
+  "proxima_acao_musculo": "Preparar PASSO7 → ir_ao_embaixador.ps1 -cliente VANGUARD",
+  "proxima_acao_diretor": "Levar PASSO7 ao Embaixador (Claude Projects VANGUARD) → colar SEÇÃO D aqui para síntese P-037."
 }
