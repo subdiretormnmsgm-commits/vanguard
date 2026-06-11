@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 1.7 | Loop 31 FECHADO — D1:A D4:A | Atualizada: 2026-06-10 (PASSO7.5)
+> Criada em: 2026-06-06 | Versão: 1.8 | Loop 32 FECHADO — Deriva Documental | Atualizada: 2026-06-10 (P-032)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -9,7 +9,7 @@
 
 ### Perfil Comportamental
 
-**Temperatura atual:** 9.5/10 — Em 09/06 detectou 4 falhas no Notion Inbox antes do Músculo (TIMELINE desatualizada, BOM WIP_BOARD, Instagram/ChurnWatch erros, mensagens diárias não chegando). Postura de auditoria rigorosa mantida do Loop 29. Em 10/06 Loop 31: foco interno — "Não quero clientes" declarado quando D2 (Mumuzinho) foi apresentada. Temas de produtividade interna dominam.
+**Temperatura atual:** 9.0/10 — Loop 32 (2026-06-10): foco cirúrgico na deriva documental. Autorizou campanha de 62 arquivos com protocolo de 3 mensagens + veredito V-2. Interrompe e reorienta quando detecta desvio de escopo — "protocolo de encerramento" disparou imediatamente após commit. Padrão de aprovação curto e direto mantido ("CONSELHO e CLIENTES/VANGUARD APROVADOS"). Forneceu lista dos 7 arquivos obrigatórios ao Embaixador no protocolo de fechamento — exigência de atualização antes do upload.
 
 **Estilo de liderança:**
 - Origina inovações estratégicas que os outros membros não teriam sozinhos (P-021)
@@ -46,12 +46,12 @@
 
 | Dimensão | Score | Status |
 |----------|-------|--------|
-| Processo Pentalateral | 9.0/10 | P-143/P-144 fecham lacunas estruturais do Músculo; 31 loops de histórico |
-| Autonomia do sistema | 7.0/10 | Hermes Grau A estável; Grau B autorizado (D1:A — aguarda EasyPanel Terminal) |
-| Base de clientes | 7.0/10 | Valdece + Ingrid em standby; 0 em captação; P-133 ativo |
+| Processo Pentalateral | 9.5/10 | Loop 32 100% build (0 deliberação) — padrão ideal de execução; 32 loops de histórico |
+| Autonomia do sistema | 8.0/10 | Hermes Grau B ATIVO (D1:A 2026-06-10) — age + confirma 15min; canal Telegram restaurado |
+| Base de clientes | 7.0/10 | Valdece + Ingrid em standby; 0 em captação; P-133 ativo deadline 04-07-2026 |
 | Receita | 4.0/10 | R$5k comprometido; sem MRR novo desde Loop 29 |
-| Infraestrutura técnica | 8.5/10 | n8n + Hermes + LOOP_STATE + RUNNING_INTELLIGENCE iniciando |
-| Integridade documental | 6.5/10 | 4 falhas no Notion Inbox (09/06); BOM WIP_BOARD.json reintroduzido; correção pendente |
+| Infraestrutura técnica | 9.0/10 | n8n + Hermes Grau B + LOOP_STATE v1.1 + RUNNING_INTELLIGENCE + pentalateral-firewall |
+| Integridade documental | 9.5/10 | Loop 32 corrigiu deriva em 62 arquivos (4defaf6); LEDGER_INBOX.md criado como buffer |
 
 **CHURN-WATCH Interno:** N/A (clientes em standby — Loop 31 é loop interno por ordem do Diretor)
 

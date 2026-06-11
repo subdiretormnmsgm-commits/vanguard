@@ -196,6 +196,71 @@
 
 ---
 
+### 🔁 LOOP 33 — ABERTURA PENDENTE (2026-06-10)
+
+> Loop 32 FECHADO (commit 4defaf6). Loop 33 abre nesta sessão ou na próxima.
+> Missão: 7 docs CONSTITUICAO + ATOs 2-6 + Antigravity PASSO3 V33 + Gate Zero P-133.
+
+- [ ] `2026-06-11` **[DIRETOR] B-1 gate — confirmar backup antes de abrir Antigravity** [diretor]
+  Obrigatório antes de qualquer acionamento do Antigravity no Loop 33.
+  Confirmar verbalmente: "backup realizado" ou "ciente do risco sem backup".
+  Sem confirmação: Músculo não abre Antigravity nesta sessão.
+
+- [ ] `2026-06-11` **[DIRETOR] Wipe & Sync NotebookLM VANGUARD — Loop 32 encerrado** [diretor]
+  Loop 32 FECHADO (commit 4defaf6). Caderno VANGUARD deve ser limpo e recarregado.
+  Executar: `preparar_notebooklm_projeto.ps1 -cliente VANGUARD` → arrastar fontes → Wipe & Sync.
+  ID caderno VANGUARD: d7dab0e1 (conta subdiretor.mnmsgm@gmail.com).
+
+- [ ] `2026-06-11` **[DIRETOR] Autorizar SOBRESCREVER INTELLIGENCE_LEDGER.md — LEDGER_INBOX items** [diretor]
+  LEDGER_INBOX.md criado com: P-148 + FALHAS A-K + addendum P-130.
+  Quando autorizado: Músculo move todos os itens para INTELLIGENCE_LEDGER.md com [RESOLVE: LEDGER-INBOX-FALHAS].
+
+- [ ] `2026-06-11` **[MÚSCULO] 7 docs CONSTITUICAO — seção a seção no Loop 33** [musculo]
+  Arquivos [IDENTIDADE] que precisam de renomeação Antigravity → EXECUTOR do Estrategista:
+  (1) PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL.md
+  (2) PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md
+  (3) PENTALATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_PENTALATERAL.md
+  (4) CLIENTES/VANGUARD/PASSO5_NOTEBOOKLM.md (secção IDENTIDADE)
+  (5) CLIENTES/VANGUARD/PASSO7_EMBAIXADOR.md (secção IDENTIDADE)
+  (6) .claude/skills/vanguard-v30.md (secção IDENTIDADE)
+  (7) .claude/skills/vanguard-v31.md (secção IDENTIDADE — se existir)
+  Regra: seção a seção com flag P-098 por arquivo. Nunca em lote.
+
+- [ ] `2026-06-11` **[MÚSCULO] ATO 4 — expandir pentalateral-firewall.md + 3 skills + session_start gate** [musculo]
+  (a) `.agents/workflows/pre-commit.md` — workflow que verifica R-01..R-04 antes de commit
+  (b) Skill de isolamento de cliente: gate que aborta ao detectar caderno não declarado
+  (c) Skill de gate DIRETRIZ: bloqueia Antigravity de gerar DIRETRIZ sem PASSO3+CONTEXTO
+  (d) Skill de saída PENDING_REVIEW: output sempre → PENDING_REVIEW, nunca direto ao WIP/DECISOES
+  (e) session_start: adicionar verificação de pentalateral-firewall.md para novos scripts
+  Custo: ~3h. Desbloqueia P-059 para INGRID/VALDECE.
+
+- [ ] `2026-06-11` **[MÚSCULO] ATO 5 — build_budget_guard (monitor builds_aprovados_nao_iniciados)** [musculo]
+  LOOP_STATE v1.1 tem campo `builds_aprovados_nao_iniciados`.
+  Script: `scripts/build_budget_guard.ps1 -cliente [X]`
+  (a) Lê LOOP_STATE.builds_aprovados_nao_iniciados
+  (b) Se count > 3 ou bloqueante=true → alerta no session_start + Telegram
+  (c) Ao iniciar build: remover do array + criar item em PENDENTES com [RESOLVE:]
+  Custo: ~1h. Rastreia dívida de execução automaticamente.
+
+- [ ] `2026-06-11` **[MÚSCULO] Build M-2 — LOOP TRANSCRIPT anti-amnésia** [musculo]
+  Aprovado no Loop 31 ENTRA. Primeiro build concreto do Loop 33.
+  session_close.ps1 passa a gerar `CLIENTES/VANGUARD/HISTORICO/LOOP_TRANSCRIPT_V[N].md`
+  com: ideias M/G/N/E com disposição final + arquivos criados + skills usadas.
+  Transcript se torna fonte permanente no caderno VANGUARD.
+  Custo: ~2h.
+
+- [ ] `2026-06-11` **[MÚSCULO] Cron W-1 — restaurar 3x/dia no n8n Studio** [musculo]
+  W-1 atual: 1x/dia (7h BRT). Deveria ser: 7h + 13h + 20h BRT.
+  Ação: EasyPanel → n8n Studio → W-1 → editar cron → reimportar.
+  FALHA-H da sessão — não bloqueante mas crítico para briefings.
+
+- [ ] `2026-06-11` **[MÚSCULO] Mover LEDGER_INBOX.md → INTELLIGENCE_LEDGER.md quando autorizado** [musculo]
+  Aguarda [DIRETOR] autorizar acima.
+  Itens a mover: P-148 + FALHAS A-K (11 itens) + addendum P-130.
+  Commit: `[RESOLVE: LEDGER-INBOX-FALHAS]` + `[RESOLVE: LEDGER-INBOX-P148]`.
+
+---
+
 ### 🧭 BACKLOG V30 — registrado no fechamento do Loop 29 (P-134)
 
 - [ ] `2026-06-XX` **[V30 ÉPICO] Máquina de Conhecimento Soberana — canais → FONTES → Auditor → banco gigante** [musculo] — BACKLOG, aguarda Diretor abrir V30

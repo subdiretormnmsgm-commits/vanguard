@@ -1,10 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "cliente": "VANGUARD",
   "loop_atual": 32,
-  "loop_status": "ABERTO",
-  "fase_atual": "ABERTURA",
-  "missao": "EXTERNO — Gate Zero P-133: captação 2ª candidata Ingrid · deadline 04-07-2026",
+  "loop_status": "FECHADO",
+  "fase_atual": "CONCLUIDO",
+  "missao": "INTERNO — Deriva Documental: Antigravity→EXECUTOR, Hermes Grau B, LOOP_STATE v1.1, pentalateral-firewall · CONCLUIDO 2026-06-10",
   "socios": {
     "gemini": {
       "status": "PENDENTE",
@@ -28,11 +28,11 @@
       "nota": ""
     },
     "musculo": {
-      "status": "EM_EXECUCAO",
-      "artefato": "CLIENTES/VANGUARD/HISTORICO/DELIBERACAO_LOOP_V32_VANGUARD.md",
-      "data_conclusao": "",
-      "proximo": "ATOs 1-6 em execução → PASSO3 → síntese P-037",
-      "nota": "ATOs 0-1 concluídos. PARTE A CLAUDE.md+GEMINI.md aplicados."
+      "status": "OK",
+      "artefato": "CLIENTES/VANGUARD/HISTORICO/MEMORIA_V32_VANGUARD.md",
+      "data_conclusao": "2026-06-10",
+      "proximo": null,
+      "nota": "Loop 32 INTERNO — deriva documental. Commit 4defaf6 (65 arquivos). [RESOLVE: deriva documental Loop 32]."
     }
   },
   "vereditos_diretor": {},
@@ -106,23 +106,35 @@
     "numero": 31,
     "status": "FECHADO",
     "data_fechamento": "2026-06-10",
-    "p087_commitado": false
+    "p087_commitado": true
   },
   "gates": {
     "p045_memoria_anterior_existe": true,
-    "p037_deliberacao_concluida": false,
-    "p032_memoria_embaixador_atualizada": false,
-    "p087_resolve_commitado": false,
+    "p037_deliberacao_concluida": true,
+    "p032_memoria_embaixador_atualizada": true,
+    "p087_resolve_commitado": true,
     "p133_gate_zero_captacao": false
   },
-  "proxima_acao_diretor": "Após ATOs 2-6: revisar PASSO3_GEMINI.md regenerado → levar ao Gemini para DIRETRIZ V32",
-  "proxima_acao_musculo": "ATO 2: doc_freshness_checker.ps1 · ATO 3: fix_bom_json.ps1 · ATO 4: pentalateral-firewall.md · ATO 5: build_budget_guard · ATO 6: LEDGER_INBOX.md",
+  "proxima_acao_diretor": "Colar BLOCO 0 do Embaixador ao abrir Loop 33 · Wipe & Sync NotebookLM VANGUARD · Confirmar push 4defaf6",
+  "proxima_acao_musculo": "Loop 33: 7 docs CONSTITUICAO (seção a seção) + ATOs 2-6 + B-1 gate Antigravity + Cron W-1 3x/dia",
   "alertas_criticos": [
     "BLOQUEANTE P-133: captação 2ª candidata Ingrid — deadline 04-07-2026",
-    "p087_resolve_commitado=FALSE: commit de fechamento Loop 31 [RESOLVE: Loop 31] pendente",
-    "W-1 cron ainda 1x/dia — deveria ser 3x (7h/13h/20h BRT)",
-    "3 ferramentas bloqueantes Antigravity ainda não existem (ATO 4)",
-    "CONSELHO/SUGESTOES_DIRETOR.md: deletado no git, não commitado"
+    "W-1 cron ainda 1x/dia — deveria ser 3x (7h/13h/20h BRT) — Loop 33",
+    "3 ferramentas bloqueantes Antigravity (ATOs 2-6) — Loop 33",
+    "7 docs CONSTITUICAO seção a seção — Loop 33",
+    "W-8 shadow mode expira 2026-06-14 — avaliar Hermes Grau C"
   ],
-  "ultima_atualizacao": "2026-06-10"
+  "ultima_atualizacao": "2026-06-10",
+  "loop_32_entregues": [
+    "Antigravity → EXECUTOR do Estrategista (Gemini) em 62 arquivos",
+    "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",
+    "LOOP_STATE schema v1.1 (missao + loop_anterior + builds_aprovados_nao_iniciados + p133)",
+    "pentalateral-firewall.md criado (.agents/skills/) — R-01..R-04",
+    "SUGESTOES_DIRETOR.md protegida R-01 + deletada de CONSELHO/",
+    "PASSO3_GEMINI.md VANGUARD identidade corrigida",
+    "CONTEXTO_GEMINI.md regenerado via anchor generator (110.677 chars)",
+    "P-033 sync slot 20 LOOP_STATE_SCHEMA propagado para INGRID+VALDECE+VANGUARD",
+    "Commit 4defaf6 — 65 arquivos · 4039 inserções · 1037 deleções",
+    "LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130"
+  ]
 }
