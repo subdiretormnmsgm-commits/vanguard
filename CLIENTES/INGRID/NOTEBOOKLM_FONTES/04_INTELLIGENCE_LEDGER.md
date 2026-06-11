@@ -1,4 +1,4 @@
-﻿# INTELLIGENCE LEDGER — Pentalateral IAH
+# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -2166,6 +2166,7 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Ferramentas/arquivos:** GEMINI.md v2.0 + CLIENTES/VANGUARD/PASSO3_GEMINI.md (missao V29) + CONTEXTO_GEMINI.md (via gemini_anchor_generator.ps1).
 **Aprovado pelo Diretor:** 2026-06-09.
 **Aplica-se a:** todo loop conduzido pelo Antigravity como Estrategista -- VANGUARD ja; clientes apenas apos as 3 travas.
+**ADDENDUM 2026-06-10 (Loop 32 -- veredito Diretor):** DIRETRIZ e papel exclusivo do Gemini Advanced -- Antigravity JAMAIS gera DIRETRIZ de loop. Antigravity = EXECUTOR do Estrategista, nao o Estrategista em si. A identidade foi corrigida em todos os documentos do sistema no Loop 32: PASSO3_GEMINI.md, GEMINI.md, CLAUDE.md, SKILL_PROTOCOLO_VANGUARD v7.0, MANUAL_DIRETOR v1.9 e demais (commit 4defaf6 -- 65 arquivos). Nomenclatura: `Estrategista` = Gemini via canal Antigravity; `Antigravity Executor` = o agente que transporta a missao. Nunca intercambiar os dois termos.
 
 ## [FALHA-PROCESSO-2026-06-09] -- PROMPT AD-HOC NO CHAT EM VEZ DE PASSO3+CONTEXTO
 **Detectada pelo Diretor:** "O Antigravity nao teria que ler Passo3Gemini e Contexto Gemini? Se sim, isso deve estar sempre presente. Processo e o que leva a Vanguard para frente, disciplina, inteligencia e firewall."
@@ -2416,3 +2417,39 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
   (e) Score do loop (5 metricas SYSTEM_HEALTH quando implementado)
 **O transcript torna-se fonte permanente no caderno do Auditor.** O Auditor le os ultimos 3 transcripts antes de gerar a Skill. Continuidade garantida apos compactacoes.
 **Aplica-se a:** todos os projetos, todos os loops. Prioridade de implementacao: Loop 31.
+## P-148 -- LEDGER_INBOX COMO BUFFER DE INTEGRIDADE (2026-06-10)
+**Origem:** FALHA [J] da sessao 2026-06-10 -- FALHAS [A-I] nao entraram no LEDGER porque P-098 bloqueava e o sistema nao tinha buffer entre "detectado" e "autorizado".
+**Principio:** Todo erro ou aprendizado identificado em sessao que nao possa ser inscrito no LEDGER imediatamente (P-098 bloqueante) DEVE ir para LEDGER_INBOX.md antes de qualquer outra coisa. Nao existe "vou registrar depois" -- o compacto de contexto apaga o que nao esta em arquivo.
+**Regra operacional:**
+  (1) Detectou falha -> registrar em LEDGER_INBOX imediatamente (sem flag P-098)
+  (2) Ao receber autorizacao: [RESOLVE: LEDGER-INBOX-P148] + mover para INTELLIGENCE_LEDGER.md
+  (3) LEDGER_INBOX nunca substitui o LEDGER -- e ponte, nao destino
+**Por que e critico:** sessao de Loop 31 gerou 11 falhas ([A]-[K]) que ficaram presas no PAINEL porque nao havia buffer. Algumas se repetiram.
+**Aplica-se a:** toda sessao que detecte falha operacional. Principios de processo tem prioridade de entrada.
+**Ferramenta:** LEDGER_INBOX.md (raiz) -- buffer oficial. Ao detectar falha em sessao: append imediato, sem perguntar.
+
+## [FALHA-PROCESSO-2026-06-10-H] DELIBERACAO SEM CITAR TEXTO DAS IDEIAS
+**Origem:** Sessao 2026-06-10. Musculo deliberou sobre ideias do Embaixador sem citar texto literal: [IDEIA: texto] -- analise ficou flutuante, nao ancorada no documento.
+**Gravidade:** ALTO -- veredito sem ancora textual e deliberacao de memoria, nao do documento atual.
+**Principio violado:** PADRAO DE DELIBERACAO (CLAUDE.md) -- reage a cada ideia pelo nome.
+**Correcao imediata:** padrao restabelecido na sessao.
+**Antidoto:** ao iniciar analise de E-1..E-5, citar texto literal antes de avaliar. Se secao nao tem texto claro, bloquear e pedir reforco ao Embaixador antes de deliberar.
+
+## [FALHA-PROCESSO-2026-06-10-I] sed SEM ESPECIFICAR CONTAINER LINUX
+**Origem:** Sessao 2026-06-10. Musculo sugeriu comando sed sem especificar em qual container Docker executar no EasyPanel.
+**Gravidade:** BAIXO -- gerou confusao de execucao no contexto de Hermes/EasyPanel.
+**Correcao:** RUNBOOK_EASYPANEL.md atualizado com prefixo "docker exec hermes-agent" obrigatorio.
+**Antidoto:** toda instrucao de terminal para EasyPanel DEVE incluir: "docker exec [nome-do-container] [comando]". Nunca assumir contexto de execucao sem nomear o container.
+
+## [FALHA-PROCESSO-2026-06-10-J] CRON W-1 1X/DIA EM VEZ DE 3X
+**Origem:** Sessao 2026-06-10. W-1 (Check-in diario) configurado para disparar 1x/dia (7h BRT) -- especificacao diz 3x (7h/13h/20h BRT). 2/3 dos briefings nunca chegaram ao Diretor.
+**Gravidade:** ALTO -- Diretor perdeu visibilidade operacional de tarde e noite.
+**Corrigido:** nao corrigido -- pendente sessao Loop 33 (n8n Studio).
+**Antidoto:** ao importar ou criar qualquer workflow n8n com schedule -> verificar schedule configurado contra especificacao em CLAUDE.md ANTES de declarar "ativo". Cron ativo nao e cron correto.
+
+## [FALHA-PROCESSO-2026-06-10-K] META-FALHA: FALHAS [A-I] NAO ENTRARAM NO LEDGER
+**Origem:** Sessao 2026-06-10. 11 falhas detectadas em Loop 31 ficaram presas no PAINEL porque P-098 bloqueava a escrita no LEDGER e nao havia buffer intermediario.
+**Gravidade:** MEDIO -- falha que nao entra no LEDGER nao tem prevencao permanente; ciclo se repete.
+**Diagnostico:** o LEDGER e o unico mecanismo de memoria de falhas entre sessoes. Se P-098 bloqueia a entrada, as falhas morrem com o compacto de contexto.
+**Solucao estrutural:** LEDGER_INBOX.md criado em Loop 32 (ATO 6) como buffer oficial. P-148 formaliza o principio.
+**Antidoto:** ao detectar qualquer falha em sessao -> LEDGER_INBOX.md imediatamente (sem autorizacao P-098). Ao receber autorizacao -> mover em lote com [RESOLVE: LEDGER-INBOX-FALHAS].

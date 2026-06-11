@@ -1,155 +1,155 @@
 {
-  "schema_version": "1.1",
-  "cliente": "VANGUARD",
-  "loop_atual": 33,
-  "loop_status": "PRE_LOOP",
-  "fase_atual": "ATOS_PRE_ABERTURA",
-  "missao": "EXTERNO — Vanguard como Empresa · ATOs 1-6 pré-abertura + EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 · 2026-06-11",
-  "socios": {
-    "gemini": {
-      "status": "PENDENTE",
-      "artefato": "",
-      "data_conclusao": "",
-      "proximo": "PASSO3_GEMINI.md Loop 33 — Antigravity EXECUTOR com identidade ampliada · missao EXTERNO",
-      "nota": "Aguarda ATOs 1-6 + EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 posicionados"
-    },
-    "notebooklm": {
-      "status": "PENDENTE",
-      "artefato": "",
-      "data_conclusao": "",
-      "proximo": "Após DIRETRIZ V33 → PASSO5 Loop 33 → Skill vanguard-v33.md · Wipe&Sync VANGUARD pendente [DIRETOR]",
-      "nota": ""
-    },
-    "embaixador": {
-      "status": "PENDENTE",
-      "artefato": "",
-      "data_conclusao": "",
-      "proximo": "Após Músculo → PASSO7 Loop 33 → filtro de realidade + RUNNING_INTELLIGENCE",
-      "nota": ""
-    },
-    "musculo": {
-      "status": "PENDENTE",
-      "artefato": "",
-      "data_conclusao": "",
-      "proximo": "ATOs 1-6 em sequência → posicionar EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 → abrir Loop 33",
-      "nota": "B-1 backup gate: CONFIRMADO pelo Diretor 2026-06-11"
-    }
-  },
-  "vereditos_diretor": {
-    "2026-06-11": {
-      "B1_backup_gate": "SIM — Antigravity desbloqueado",
-      "wipe_sync_notebooklm": "SIM — pendente execução pelo Diretor (problemas técnicos)",
-      "autorizo_sobrescrever_ledger": "SIM — ATO 5 desbloqueado",
-      "w9_track_trends": "NAO — não entra neste loop",
-      "w8_shadow_avaliar": "SIM — avaliação desta sessão (deadline 14-06-2026)"
-    }
-  },
-  "builds_aprovados_nao_iniciados": [
-    {
-      "id": "M-2",
-      "descricao": "LOOP TRANSCRIPT anti-amnésia (Delta ≤100 linhas)",
-      "origem": "Loop 31 DELIBERACAO",
-      "estimativa": "~2h",
-      "bloqueante": null,
-      "prioridade": 1
-    },
-    {
-      "id": "M-1+E-1",
-      "descricao": "Pergunta de Contexto Inicial + signal de temperatura do cliente",
-      "origem": "Loop 31 DELIBERACAO",
-      "estimativa": "~3h",
-      "bloqueante": null,
-      "prioridade": 2
-    },
-    {
-      "id": "G-2+W-10",
-      "descricao": "Gateway DIRETRIZ unificado + Workflow W-10",
-      "origem": "Loop 31 DELIBERACAO",
-      "estimativa": "~4h",
-      "bloqueante": "P-059 — só após 3 ferramentas bloqueantes (ATO 3 desbloqueia)",
-      "prioridade": 3
-    },
-    {
-      "id": "G-3+E-4",
-      "descricao": "DIRETRIZ_DELTA + filtro de realidade do Embaixador",
-      "origem": "Loop 31 DELIBERACAO",
-      "estimativa": "~3h",
-      "bloqueante": null,
-      "prioridade": 4
-    },
-    {
-      "id": "G-1+E-3",
-      "descricao": "Mapa de Soberania visual + INTELLIGENCE_SCORE",
-      "origem": "Loop 31 DELIBERACAO",
-      "estimativa": "~4h",
-      "bloqueante": null,
-      "prioridade": 5
-    },
-    {
-      "id": "G-5",
-      "descricao": "Snapshot quinzenal de Soberania",
-      "origem": "Loop 31 DELIBERACAO",
-      "estimativa": "~2h",
-      "bloqueante": null,
-      "prioridade": 6
-    },
-    {
-      "id": "M-4+A-2",
-      "descricao": "Budget Monitor de leitura + audit de custo de atenção do Diretor",
-      "origem": "Loop 31 DELIBERACAO",
-      "estimativa": "~3h",
-      "bloqueante": null,
-      "prioridade": 7
-    },
-    {
-      "id": "A-1",
-      "descricao": "Painel de navegação da IA (RUNNING_INTELLIGENCE + sinais)",
-      "origem": "Loop 31 DELIBERACAO",
-      "estimativa": "~4h",
-      "bloqueante": null,
-      "prioridade": 8
-    }
-  ],
-  "loop_anterior": {
-    "numero": 32,
-    "status": "FECHADO",
-    "data_fechamento": "2026-06-10",
-    "missao": "INTERNO — Deriva Documental: Antigravity→EXECUTOR, Hermes Grau B, LOOP_STATE v1.1, pentalateral-firewall",
-    "p087_commitado": true
-  },
-  "gates": {
-    "p045_memoria_anterior_existe": true,
-    "p037_deliberacao_concluida": true,
-    "p032_memoria_embaixador_atualizada": true,
-    "p087_resolve_commitado": true,
-    "p133_gate_zero_captacao": false,
-    "b1_backup_confirmado": true,
-    "ato1_doc_freshness": true,
-    "ato2_fix_bom_session_close": true,
-    "ato3_firewall_skills_gate": true,
-    "ato4_build_budget_guard": true,
-    "ato5_ledger_inbox_movido": false,
-    "ato6_notify_hermes_watch": false
-  },
-  "proxima_acao_diretor": "Colar AGENTS_FIREWALL_V1.md + EXECUTOR_PLAYBOOK_V1.md + PASSO3_GEMINI_AMPLIACAO_V2.md (após resolver problema técnico de paste) · Wipe & Sync NotebookLM VANGUARD · Avaliar W-8 ativação plena (deadline 14-06-2026)",
-  "proxima_acao_musculo": "ATO 3 (aguarda AGENTS_FIREWALL_V1.md) → ATO 5: LEDGER_INBOX → LEDGER (autorizado) → ATO 6: notify_hermes + watch_readonly → posicionar EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2",
-  "alertas_criticos": [
-    "W-8 shadow mode expira 2026-06-14 — avaliar Hermes Grau C (SIM confirmado pelo Diretor)",
-    "BLOQUEANTE P-133: captação 2ª candidata Ingrid — deadline 04-07-2026",
-    "W-1 cron ainda 1x/dia — deveria ser 3x (7h/13h/20h BRT)",
-    "Wipe & Sync NotebookLM VANGUARD pendente [DIRETOR] — problemas técnicos"
-  ],
-  "ultima_atualizacao": "2026-06-11",
-  "loop_32_entregues": [
-    "Antigravity → EXECUTOR do Estrategista (Gemini) em 62 arquivos — commit 4defaf6",
-    "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",
-    "LOOP_STATE schema v1.1 (missao + loop_anterior + builds_aprovados_nao_iniciados + p133)",
-    "pentalateral-firewall.md criado (.agents/skills/) — R-01..R-04",
-    "SUGESTOES_DIRETOR.md protegida R-01 + deletada de CONSELHO/",
-    "PASSO3_GEMINI.md VANGUARD identidade corrigida",
-    "CONTEXTO_GEMINI.md regenerado via anchor generator (110.677 chars)",
-    "P-033 sync slot 20 LOOP_STATE_SCHEMA propagado para INGRID+VALDECE+VANGUARD",
-    "Commit 4defaf6 — 65 arquivos · 4039 inserções · 1037 deleções",
-    "LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130"
-  ]
+    "schema_version":  "1.1",
+    "cliente":  "VANGUARD",
+    "loop_atual":  33,
+    "loop_status":  "PRE_LOOP",
+    "fase_atual":  "ATOS_PRE_ABERTURA",
+    "missao":  "EXTERNO — Vanguard como Empresa · ATOs 1-6 pré-abertura + EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 · 2026-06-11",
+    "socios":  {
+                   "gemini":  {
+                                  "status":  "PENDENTE",
+                                  "artefato":  "",
+                                  "data_conclusao":  "",
+                                  "proximo":  "PASSO3_GEMINI.md Loop 33 — Antigravity EXECUTOR com identidade ampliada · missao EXTERNO",
+                                  "nota":  "Aguarda ATOs 1-6 + EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 posicionados"
+                              },
+                   "notebooklm":  {
+                                      "status":  "PENDENTE",
+                                      "artefato":  "",
+                                      "data_conclusao":  "",
+                                      "proximo":  "Após DIRETRIZ V33 → PASSO5 Loop 33 → Skill vanguard-v33.md · Wipe\u0026Sync VANGUARD pendente [DIRETOR]",
+                                      "nota":  ""
+                                  },
+                   "embaixador":  {
+                                      "status":  "PENDENTE",
+                                      "artefato":  "",
+                                      "data_conclusao":  "",
+                                      "proximo":  "Após Músculo → PASSO7 Loop 33 → filtro de realidade + RUNNING_INTELLIGENCE",
+                                      "nota":  ""
+                                  },
+                   "musculo":  {
+                                   "status":  "PENDENTE",
+                                   "artefato":  "",
+                                   "data_conclusao":  "",
+                                   "proximo":  "ATOs 1-6 em sequência → posicionar EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 → abrir Loop 33",
+                                   "nota":  "B-1 backup gate: CONFIRMADO pelo Diretor 2026-06-11"
+                               }
+               },
+    "vereditos_diretor":  {
+                              "2026-06-11":  {
+                                                 "B1_backup_gate":  "SIM — Antigravity desbloqueado",
+                                                 "wipe_sync_notebooklm":  "SIM — pendente execução pelo Diretor (problemas técnicos)",
+                                                 "autorizo_sobrescrever_ledger":  "SIM — ATO 5 desbloqueado",
+                                                 "w9_track_trends":  "NAO — não entra neste loop",
+                                                 "w8_shadow_avaliar":  "SIM — avaliação desta sessão (deadline 14-06-2026)"
+                                             }
+                          },
+    "builds_aprovados_nao_iniciados":  [
+                                           {
+                                               "id":  "M-2",
+                                               "descricao":  "LOOP TRANSCRIPT anti-amnésia (Delta ≤100 linhas)",
+                                               "origem":  "Loop 31 DELIBERACAO",
+                                               "estimativa":  "~2h",
+                                               "bloqueante":  null,
+                                               "prioridade":  1
+                                           },
+                                           {
+                                               "id":  "M-1+E-1",
+                                               "descricao":  "Pergunta de Contexto Inicial + signal de temperatura do cliente",
+                                               "origem":  "Loop 31 DELIBERACAO",
+                                               "estimativa":  "~3h",
+                                               "bloqueante":  null,
+                                               "prioridade":  2
+                                           },
+                                           {
+                                               "id":  "G-2+W-10",
+                                               "descricao":  "Gateway DIRETRIZ unificado + Workflow W-10",
+                                               "origem":  "Loop 31 DELIBERACAO",
+                                               "estimativa":  "~4h",
+                                               "bloqueante":  "P-059 — só após 3 ferramentas bloqueantes (ATO 3 desbloqueia)",
+                                               "prioridade":  3
+                                           },
+                                           {
+                                               "id":  "G-3+E-4",
+                                               "descricao":  "DIRETRIZ_DELTA + filtro de realidade do Embaixador",
+                                               "origem":  "Loop 31 DELIBERACAO",
+                                               "estimativa":  "~3h",
+                                               "bloqueante":  null,
+                                               "prioridade":  4
+                                           },
+                                           {
+                                               "id":  "G-1+E-3",
+                                               "descricao":  "Mapa de Soberania visual + INTELLIGENCE_SCORE",
+                                               "origem":  "Loop 31 DELIBERACAO",
+                                               "estimativa":  "~4h",
+                                               "bloqueante":  null,
+                                               "prioridade":  5
+                                           },
+                                           {
+                                               "id":  "G-5",
+                                               "descricao":  "Snapshot quinzenal de Soberania",
+                                               "origem":  "Loop 31 DELIBERACAO",
+                                               "estimativa":  "~2h",
+                                               "bloqueante":  null,
+                                               "prioridade":  6
+                                           },
+                                           {
+                                               "id":  "M-4+A-2",
+                                               "descricao":  "Budget Monitor de leitura + audit de custo de atenção do Diretor",
+                                               "origem":  "Loop 31 DELIBERACAO",
+                                               "estimativa":  "~3h",
+                                               "bloqueante":  null,
+                                               "prioridade":  7
+                                           },
+                                           {
+                                               "id":  "A-1",
+                                               "descricao":  "Painel de navegação da IA (RUNNING_INTELLIGENCE + sinais)",
+                                               "origem":  "Loop 31 DELIBERACAO",
+                                               "estimativa":  "~4h",
+                                               "bloqueante":  null,
+                                               "prioridade":  8
+                                           }
+                                       ],
+    "loop_anterior":  {
+                          "numero":  32,
+                          "status":  "FECHADO",
+                          "data_fechamento":  "2026-06-10",
+                          "missao":  "INTERNO — Deriva Documental: Antigravity→EXECUTOR, Hermes Grau B, LOOP_STATE v1.1, pentalateral-firewall",
+                          "p087_commitado":  true
+                      },
+    "gates":  {
+                  "p045_memoria_anterior_existe":  true,
+                  "p037_deliberacao_concluida":  true,
+                  "p032_memoria_embaixador_atualizada":  true,
+                  "p087_resolve_commitado":  true,
+                  "p133_gate_zero_captacao":  false,
+                  "b1_backup_confirmado":  true,
+                  "ato1_doc_freshness":  true,
+                  "ato2_fix_bom_session_close":  true,
+                  "ato3_firewall_skills_gate":  true,
+                  "ato4_build_budget_guard":  true,
+                  "ato5_ledger_inbox_movido":  true,
+                  "ato6_notify_hermes_watch":  false
+              },
+    "proxima_acao_diretor":  "Colar AGENTS_FIREWALL_V1.md + EXECUTOR_PLAYBOOK_V1.md + PASSO3_GEMINI_AMPLIACAO_V2.md (após resolver problema técnico de paste) · Wipe \u0026 Sync NotebookLM VANGUARD · Avaliar W-8 ativação plena (deadline 14-06-2026)",
+    "proxima_acao_musculo":  "ATO 6: notify_hermes.ps1 + watch_readonly.ps1 (~1h30) → posicionar EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 → abrir Loop 33",
+    "alertas_criticos":  [
+                             "W-8 shadow mode expira 2026-06-14 — avaliar Hermes Grau C (SIM confirmado pelo Diretor)",
+                             "BLOQUEANTE P-133: captação 2ª candidata Ingrid — deadline 04-07-2026",
+                             "W-1 cron ainda 1x/dia — deveria ser 3x (7h/13h/20h BRT)",
+                             "Wipe \u0026 Sync NotebookLM VANGUARD pendente [DIRETOR] — problemas técnicos"
+                         ],
+    "ultima_atualizacao":  "2026-06-11",
+    "loop_32_entregues":  [
+                              "Antigravity → EXECUTOR do Estrategista (Gemini) em 62 arquivos — commit 4defaf6",
+                              "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",
+                              "LOOP_STATE schema v1.1 (missao + loop_anterior + builds_aprovados_nao_iniciados + p133)",
+                              "pentalateral-firewall.md criado (.agents/skills/) — R-01..R-04",
+                              "SUGESTOES_DIRETOR.md protegida R-01 + deletada de CONSELHO/",
+                              "PASSO3_GEMINI.md VANGUARD identidade corrigida",
+                              "CONTEXTO_GEMINI.md regenerado via anchor generator (110.677 chars)",
+                              "P-033 sync slot 20 LOOP_STATE_SCHEMA propagado para INGRID+VALDECE+VANGUARD",
+                              "Commit 4defaf6 — 65 arquivos · 4039 inserções · 1037 deleções",
+                              "LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130"
+                          ]
 }

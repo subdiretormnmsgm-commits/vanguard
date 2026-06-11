@@ -247,10 +247,8 @@
   Ação: EasyPanel → n8n Studio → W-1 → editar cron → reimportar.
   FALHA-H da sessão — não bloqueante mas crítico para briefings.
 
-- [ ] `2026-06-11` **[MÚSCULO] ATO 5 — LEDGER_INBOX → INTELLIGENCE_LEDGER (autorizado 2026-06-11)** [musculo]
-  ✅ Autorização P-098 concedida pelo Diretor em 2026-06-11.
-  Itens a mover: P-148 + FALHAS A-K (13 itens) + addendum P-130.
-  Commit: `[RESOLVE: LEDGER-INBOX-FALHAS]` + `[RESOLVE: LEDGER-INBOX-P148]` + `[RESOLVE: LEDGER-INBOX-P130-ADDENDUM]`.
+- [x] `2026-06-11` ~~**[MÚSCULO] ATO 5 — LEDGER_INBOX → INTELLIGENCE_LEDGER (autorizado 2026-06-11)** [musculo]~~
+  ✅ Concluído 2026-06-11. P-148 + P-130-ADDENDUM + FALHA-H..K adicionados ao LEDGER (2.419→2.455 linhas). Sync P-033 executado (9 arquivos). LEDGER_INBOX zerado. [RESOLVE: ATO 5]
 
 - [ ] `2026-06-11` **[MÚSCULO] ATO 6 — notify_hermes.ps1 + watch_readonly.ps1** [musculo]
   (a) `scripts/notify_hermes.ps1 -status [INFO|AVISO|ALERTA|CRITICO] -mensagem -projeto`

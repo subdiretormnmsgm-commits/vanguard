@@ -1774,11 +1774,10 @@ E não esquece.
 | 2.2 | 2026-05-18 | Evolução para Pentalateral IAH: Embaixador adicionado como 5º ator (Claude Projects), P-031 Filtro de Realidade (CONFIRMA/EXPANDE/ALERTA), P-032 MEMORIA_EMBAIXADOR automática, 25 ideias/ciclo [M×2+G+N+E × 5] [M+E+G+N × 5], Paradigma v3.1 documentado, Os 10 Passos do Pentalateral, tabela de membros expandida para 5, glossário com novos termos, manifesto atualizado, título atualizado para "Pentalateral IAH" |
 | 2.3 | 2026-05-23 | Expansão de papéis: 12 novas DEFs (G/N/M/E 5-7) + PARADIGMA v3.2 + 25 ideias/ciclo formalizadas + INSTRUCAO_SISTEMA_EMBAIXADOR_TEMPLATE.md v1.0 + Embaixador V2.0 (17 mandatos D1/D2/D3) |
 | 2.4 | 2026-05-26 | P-059 (Isolamento de contexto por cliente — Lei) + P-060 (Músculo responsável por toda propagação) + P-069 (Data Calendário Soberana) + DEF-E-8 (Pipeline Incompleto) + PROTOCOLO DE ENCERRAMENTO via PAINEL_ATIVIDADES integrado ao session_close.ps1 + Template 9 adicionado em TEMPLATES_COMUNICACAO_PENTALATERAL |
-| 2.5 | 2026-06-10 | Hermes Agent: Grau B ATIVO (D1:A executado) — age + confirma 15min no Telegram. Antigravity = EXECUTOR do Estrategista Gemini (não Estrategista, não gera DIRETRIZ). RUNNING_INTELLIGENCE.md como artefato de inteligência persistente do Embaixador. P-147 (Budget de Leitura do Diretor — todo novo artefato declara custo de atenção). |
 
 ---
 
-*Documento do Pentalateral IAH · Modelo Universal v2.5*
+*Documento do Pentalateral IAH · Modelo Universal v2.4*
 *Portátil: funciona independentemente do operador, das ferramentas e da empresa*
 *Pode ser apresentado ao cliente como metodologia — não revela detalhes operacionais*
-*Atualizado: 2026-06-10 — Loop 32 VANGUARD*
+*Próxima revisão: ao fechar PROJ-001 Valdece ou PROJ-002 Ingrid (primeiros projetos com Pentalateral completo)*
