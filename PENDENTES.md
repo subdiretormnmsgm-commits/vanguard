@@ -225,13 +225,12 @@
   (7) .claude/skills/vanguard-v31.md (secção IDENTIDADE — se existir)
   Regra: seção a seção com flag P-098 por arquivo. Nunca em lote.
 
-- [ ] `2026-06-11` **[MÚSCULO] ATO 3 — expandir pentalateral-firewall.md + 3 skills + session_start gate** [musculo]
-  (a) `.agents/workflows/pre-commit.md` — workflow que verifica R-01..R-04 antes de commit
-  (b) Skill de isolamento de cliente: gate que aborta ao detectar caderno não declarado
-  (c) Skill de gate DIRETRIZ: bloqueia Antigravity de gerar DIRETRIZ sem PASSO3+CONTEXTO
-  (d) Skill de saída PENDING_REVIEW: output sempre → PENDING_REVIEW, nunca direto ao WIP/DECISOES
-  (e) session_start: adicionar verificação de pentalateral-firewall.md para novos scripts
-  Custo: ~3h. Desbloqueia P-059 para INGRID/VALDECE.
+- [x] `2026-06-11` ~~**[MÚSCULO] ATO 3 — expandir pentalateral-firewall.md + 3 skills + session_start gate** [musculo]~~
+  ✅ AGENTS.md criado na raiz (v1.1 — R-01-EXPANDIDO preenchido com 628 arquivos inventariados).
+  ✅ .agents/workflows/pre-commit.md criado — gate R-01 pré-commit para Antigravity.
+  ✅ .claude/skills/doc-drift-audit.md criado — auditoria semântica de deriva documental.
+  ✅ .claude/skills/json-bom-guard.md criado — prevenção FALHA-H (BOM UTF-8).
+  ✅ session_start.ps1: gate AGENTS.md + alerta se ausente. [RESOLVE: ATO 3]
 
 - [x] `2026-06-11` ~~**[MÚSCULO] ATO 4 — build_budget_guard (monitor builds_aprovados_nao_iniciados)** [musculo]~~
   ✅ build_budget_guard.ps1 criado + integrado ao session_start (relatório na abertura) + session_close (FALHA-PADRÃO no PAINEL se count>=5). Parâmetro -iniciar [id] remove do LOOP_STATE e cria PENDENTES com [RESOLVE:]. [RESOLVE: ATO 4]

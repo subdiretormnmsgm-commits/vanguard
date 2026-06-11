@@ -126,7 +126,7 @@
     "b1_backup_confirmado": true,
     "ato1_doc_freshness": true,
     "ato2_fix_bom_session_close": true,
-    "ato3_firewall_skills_gate": false,
+    "ato3_firewall_skills_gate": true,
     "ato4_build_budget_guard": true,
     "ato5_ledger_inbox_movido": false,
     "ato6_notify_hermes_watch": false

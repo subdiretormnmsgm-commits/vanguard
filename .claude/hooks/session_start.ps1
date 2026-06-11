@@ -711,6 +711,13 @@ if (Test-Path $detectVereditosScript) {
     } catch {}
 }
 
+# --- ATO 3 Loop 33: AGENTS.md gate (firewall Antigravity) ---
+$agentsMdAlert = ""
+$agentsPath = Join-Path $projectDir "AGENTS.md"
+if (-not (Test-Path $agentsPath)) {
+    $agentsMdAlert = "AGENTS.md AUSENTE na raiz do repositorio.`nO firewall do Antigravity nao existe. Criar AGENTS.md antes de qualquer acionamento do Antigravity.`nAcao: executar ATO 3 do Loop 33 via Musculo."
+}
+
 # --- ATO 4 Loop 33: Build Budget Guard (P-148) -- builds aprovados sem inicio ---
 $buildBudgetOutput = ""
 $budgetScript = Join-Path $projectDir "scripts\build_budget_guard.ps1"
@@ -747,6 +754,7 @@ if ($discoveryAlert)     { $sections += "## PROJETO NOVO EM DISCOVERY -- VERIFIC
 if ($vereditosTelegramOutput) { $sections += "## VEREDITOS TELEGRAM PENDENTES (P-072) -- PROCESSAR ANTES DE QUALQUER ACAO`n$vereditosTelegramOutput" }
 if ($ultimosCommits)     { $sections += "## COMMITS RECENTES (ultimos 10)`n$ultimosCommits" }
 if ($buildBudgetOutput)  { $sections += "## BUILD BUDGET GUARD (P-148) -- BUILDS APROVADOS SEM INICIO`n$buildBudgetOutput" }
+if ($agentsMdAlert)      { $sections += "## [CRÍTICO] AGENTS.md AUSENTE -- FIREWALL DO ANTIGRAVITY INATIVO`n$agentsMdAlert" }
 
 if ($manifestStatus)       { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
 if ($mapaDiarioOutput)     { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
