@@ -1,102 +1,114 @@
-# RELATÓRIO EVOLUTIVO V28 — VANGUARD PENTALATERAL IAH
-**Loop 28 · The Sovereign Autonomous Layer · 2026-06-07**
-**Músculo · Síntese de Negócio + Processo**
+# RELATÓRIO EVOLUTIVO — VANGUARD V29 · Loop 29 · Motor de Verdade
+> Músculo · Data: 2026-06-09 · Análise de negócio + SWOT + PDCA + 5W2H
 
 ---
 
-## SWOT — ESTADO AO FECHAR V28
+## 1. ANÁLISE SWOT — VANGUARD AO FINAL DO V29
 
-### FORÇAS
+### Forças (construídas no Loop 29)
+- **Motor de Verdade**: triangulação cega entre engines é protocolo institutionalizado (P-132) — nenhum competidor tem isso
+- **Antigravity como Estrategista**: o Diretor não cola mais texto no Gemini — canal programático operacional (P-130)
+- **LEDGER vivo com 134 princípios**: memória institucional que cresce a cada fricção real — antídoto para regressão
+- **Hermes em produção** (Grau A): primeiro motor autônomo notificando via Telegram 24/7
+- **2 clientes entregues e em standby**: Valdece (LegalTech) + Ingrid (EdTech) — 2 verticais com padrão comprovado
 
-- **Hermes Agent ONLINE:** primeiro motor autônomo do sistema rodando 24h — EasyPanel, OpenRouter, Telegram. Gateway PID 251, config persistida em `/opt/data/config.yaml`. Pentalateral tem agora um 6º componente ativo entre sessões.
-- **W-8 Signal Classifier ativo:** taxonomia de sinal implementada (AUTO-RESOLVE / INFORMAR / DELIBERAR-A/B/C). Shadow mode de 7 dias — o sistema aprende antes de agir. Prova de maturidade operacional.
-- **Camada de verificação antes da automação (P-116):** o V28 redefiniu a filosofia de build. Verificação semântica via Haiku (gate_coerencia.ps1) entra antes de qualquer propagação de decisão. A dor real identificada pelo Embaixador (E-3) — é o erro que dói, não o esforço — se tornou princípio fundador.
-- **State Guard integrado:** anomalias no WIP_BOARD detectadas na abertura de sessão, não quando o Diretor percebe. Fecha o loop de visibilidade sem custo cognitivo adicional.
-- **Runbooks canônicos:** RUNBOOK_EASYPANEL.md + RUNBOOK_SUPABASE_DDL.md criados. Conhecimento técnico adquirido com dor documentado antes de ser esquecido — P-050 ativo.
+### Fraquezas (detectadas no Loop 29)
+- **Pipeline vazio** (E-1, P-133): 0 clientes em discovery ativo — o gargalo é aquisição, não capacidade
+- **Deriva documental contínua**: docs saem de sincronia entre sessões; sem ferramenta automática (doc_freshness ainda não construído)
+- **W-8 ainda em Shadow Mode** (até 14/06): Hermes não age de forma autônoma ainda — custo cognitivo do Diretor não caiu de forma mensurável
+- **Velocidade vencendo disciplina** (2ª ocorrência em ~3 dias): padrão de falha que produz outputs não-ancorados
 
-### FRAQUEZAS
+### Oportunidades
+- **Conselho das 4 Ferramentas + MCP**: integração NotebookLM↔Claude Code↔Antigravity↔Projects via MCP reduz latência do loop de 4 etapas manuais para disparos programáticos
+- **Expansão LMM** (Embaixador + Antigravity): Computer Use API do Cowork permite Embaixador com "mãos" — executor de UI, não só agente de chat
+- **Skills soberanas**: repositório de 1.525+ skills instaláveis — /ultrathink, /find-skills, /superpowers como amplificadores do Músculo antes de cada DIRETRIZ
+- **Opus 4.8 + Sonnet paralelos**: sistema multi-agente superou single-agent em 90.2% — Músculo como líder-Opus orquestrando subagentes-Sonnet por projeto
 
-- **Hermes em Grau A:** toda ação requer aprovação do Diretor. Aumenta a autonomia percebida do sistema, mas o custo cognitivo de Eduardo não caiu — apenas mudou de canal (Claude Code → Telegram). Grau B é o próximo salto real.
-- **W-8 shadow mode não gera alerta ativo:** os logs vão para `silenced_signals_log` mas o Diretor não vê o que o sistema *teria feito*. Falta o relatório de shadow — o Diretor não pode avaliar sem ver.
-- **NOTEBOOKLM_FONTES/VANGUARD incompleta:** a pasta foi criada na sessão mas sem os arquivos base universais (00_INSTRUCAO_AUDITOR, 02_MEMORANDO, 05_PROCESSO, 06_TEMPLATES). MANIFEST VERMELHO ao fechar sessão.
-- **pentalateral-graus-abc.md não carregada no Hermes:** o Hermes opera sem sua skill de referência. Gap de configuração que pode gerar comportamento inconsistente em interações futuras.
-
-### OPORTUNIDADES
-
-- **Pitch validado:** "Vanguard como primeiro caso do próprio produto" — NARRATIVA_FUNDADOR.md gerado. O diferencial de mercado é demonstrável: fundador que automatizou verificação e tem dados para provar.
-- **Teto de projetos simultâneos:** com V28, a estimativa do Embaixador sobe de 3-5 para 6-10 projetos antes de saturar a atenção do Diretor. Capacidade de receita dobrada sem aumentar equipe.
-- **Loop de confiança construível:** escada Grau A → B → C documentada. Em 30 dias com dados reais do shadow mode, a decisão de subir para Grau B é técnica, não de fé.
-
-### AMEAÇAS
-
-- **W-8 expira em 2026-06-14:** se o shadow mode não for avaliado antes dessa data, ou o sistema entra em produção sem validação (risco de falso positivo em cliente ativo) ou continua em shadow indefinidamente (automação travada).
-- **ChurnWatch Valdece + Ingrid no limiar:** 3 dias sem contato (threshold 3). Se Hermes/W-8 não detectar e o Diretor não agir hoje, o próximo alerta já é VERMELHO — com cliente em Hypercare.
-- **RLS do silenced_signals_log permissiva:** anon pode INSERT. Em produção com Grau B/C, um agente mal-configurado pode gravar lixo na tabela de sinal — corrompendo o aprendizado do W-8.
+### Ameaças
+- **Grau B antes de validar W-8** violaria P-116 — risco de ação não-supervisionada
+- **MCP sem isolamento de contexto** (P-059): integrar notebooks de clientes diferentes via MCP cria risco de contaminação cruzada
+- **Câmara de eco** (P-124): qualquer integração Músculo↔Auditor em loop contínuo sem o Diretor recria o padrão que falhou em V24
 
 ---
 
-## PDCA — ANÁLISE DO CICLO V28
+## 2. PDCA DO LOOP 29
 
-### PLAN (o que foi planejado)
+### Plan (o que foi planejado)
+- Completar o eixo de Expansão Exponencial iniciado no primeiro passe do Loop 29
+- Inscrever princípios do Motor de Verdade no LEDGER
+- Ativar Antigravity como canal do Estrategista (P-130)
+- Corrigir bugs de infraestrutura (BOM, Notion session_start)
 
-- Arquitetura: Opção C Híbrida — Hermes (ignição) + n8n (orquestrador) + Claude API (verificação semântica)
-- Signal Classifier em shadow mode 7 dias antes de qualquer ação real
-- Gate de coerência semântica como prioridade 1 (E-1 Embaixador)
-- Escopo fechado: ~8h core, 2-3 sessões
+### Do (o que foi executado)
+- DELIBERAÇÃO_LOOP_V29 completa com síntese P-037
+- P-131/132/133/134 inscritos
+- AUDITOR_LOOP_V29 com 23 fontes (depois expandido para 33 na sessão V30)
+- INTELLIGENCE_HUB Track COMPETITORS + W-9 TRENDS
+- Bug session_start (Notion) corrigido
+- BOM UTF-8 removido do WIP_BOARD.json
+- LOOP_STATE system v1.0 ativo
+- 5 cópias TIMELINE reconciliadas e propagadas (P-033)
 
-### DO (o que foi executado)
+### Check (o que desviou do plano)
+- MEMORIA_V29 e relatorio_V29 **não foram gerados no fechamento** (P-045 violado — detectado na abertura do Loop 30)
+- W-9 importação EasyPanel ficou como pendente do Diretor (não bloqueante, mas anotado)
+- `doc_freshness_checker.ps1` não construído (entrou no backlog V30)
 
-- ✅ Hermes Agent deploy EasyPanel — respondeu ao Telegram na sessão
-- ✅ W-8 Signal Classifier importado no n8n, shadow mode ativo
-- ✅ silenced_signals_log criada no Supabase com RLS
-- ✅ gate_coerencia.ps1 + integração ao skill_parser_gate.ps1
-- ✅ State Guard integrado ao session_start
-- ✅ ping_hermes.ps1, sync_guard -WhatIf, N-4 executar_vereditos
-- ✅ MEMORIA_EMBAIXADOR_VANGUARD.md + NARRATIVA_FUNDADOR.md
-- ✅ RUNBOOK_EASYPANEL.md + RUNBOOK_SUPABASE_DDL.md
-- ✅ P-115 + P-116 inscritos no LEDGER
-
-### CHECK (o que ficou fora do plano)
-
-- ❌ Templates Pentalateral + MANUAL_DIRETOR adiados (escopo grande, priorizou fechar V28 primeiro)
-- ❌ Mensagens de atualização aos sócios sobre V28 não enviadas
-- ❌ pentalateral-graus-abc.md não carregada no dashboard Hermes
-- ❌ NOTEBOOKLM_FONTES/VANGUARD incompleta — MANIFEST VERMELHO
-- ❌ relatorio_evolutivo não criado no session_close (gap corrigido nesta sessão)
-- ⚠️ EasyPanel Compose BETA não injeta vars do painel "Ambiente" no container — workaround via `hermes config set` documentado no RUNBOOK
-
-### ACT (o que muda no V29)
-
-- Relatório de shadow mode: o W-8 precisa gerar summary semanal para o Diretor avaliar antes de 2026-06-14
-- Hermes Grau B: após validação do shadow mode, subir delegação para "age + confirma em 15min"
-- RLS silenced_signals_log: restringir INSERT ao service_role
-- Integração W-8 → Hermes: sinal DELIBERAR-A dispara análise automática no Hermes
+### Act (o que muda no Loop 30)
+- P-045 reforçado: MEMORIA+relatorio são gerados ANTES de montar o PASSO3 do loop seguinte — não ao fechar o loop atual
+- Backlog V30 já tem 3 épicos: Máquina de Conhecimento + Motor de Deriva (W-10) + E-3 Anti-câmara-de-eco
 
 ---
 
-## 5W2H — PRÓXIMO LOOP (V29)
+## 3. 5W2H — ENTREGAS CENTRAIS DO V29
 
-| Elemento | Resposta |
-|---------|---------|
-| **WHAT** | Hermes Grau B + relatório automático do W-8 shadow mode |
-| **WHY** | Grau A não reduz custo cognitivo do Diretor. Grau B fecha o gap real. |
-| **WHO** | Músculo build · Hermes executa · Diretor delibera escalações |
-| **WHEN** | Depende da avaliação do shadow mode: data alvo **2026-06-14** (expiração W-8) |
-| **WHERE** | EasyPanel hermes/hermes-agent + n8n + Supabase silenced_signals_log |
-| **HOW** | (1) Relatório shadow mode automático via W-8 → Telegram · (2) Subir Grau B · (3) RLS restritiva |
-| **HOW MUCH** | ~4h build (relatório shadow + Grau B) + 1h config (RLS + skill Hermes) |
+| Entrega | What | Who | When | Where | Why | How | How Much |
+|---|---|---|---|---|---|---|---|
+| Motor de Verdade (P-132) | Triangulação cega entre engines como protocolo | Músculo + todos sócios | 2026-06-09 | INTELLIGENCE_LEDGER.md | Eliminar single-source como verdade | M'-1 a M'-5 deliberados | 0 custo adicional — mudança de processo |
+| Antigravity CLI (P-130) | Canal do Estrategista lendo disco | Músculo | 2026-06-09 | PASSO3_GEMINI.md + CONTEXTO_GEMINI.md | Diretor não transporta texto manualmente | Scripts de geração + leitura automática | ~2h de build no loop |
+| P-131 (Diretor ativo) | Princípio contra silêncio-como-aprovação | Diretor emitiu | 2026-06-09 | LEDGER | Corrigir N-4 que permitia veto silencioso | Veredito explícito obrigatório em cada etapa | Mudança de processo — custo zero |
+| P-133 (Gate Zero Pipeline) | Loop de expansão não fecha sem 3º cliente | Músculo institui | 2026-06-09 | WIP_BOARD + PENDENTES | Pipeline vazio é risco equivalente a deriva | Alerta de 1ª classe na abertura de sessão | ~30min de gate em cada loop |
+| BOM UTF-8 corrigido | WIP_BOARD.json sem byte U+FEFF | Músculo | 2026-06-09 | WIP_BOARD.json | W-5 ChurnWatch quebrando no n8n | `[System.Text.UTF8Encoding]::new($false)` | 0 custo — bug fix |
 
 ---
 
-## AVALIAÇÃO DO CONSULTOR
+## 4. ANÁLISE DE NEGÓCIO — IMPACTO COMERCIAL DO V29
 
-V28 entregou o que prometeu com uma ressignificação importante: o Embaixador identificou que o problema central não era automação — era verificação. Automatizar sem verificar é multiplicar erros. O P-116 nasce disso e vale mais que qualquer linha de código entregue neste loop.
+**O que mudou para o Diretor:**
+- Antigravity rodando do disco: ~15 minutos economizados por sessão de Pentalateral
+- LOOP_STATE system: amnésia pós-compactação resolvida — contexto preservado entre sessões longas
+- W-9 semanal (quando importado): inteligência de tendências sem custo de sessão
+- Hermes notificando 24/7: Diretor não precisa abrir o Claude Code para saber o status
 
-O Hermes online é um marco — o Pentalateral tem agora seu primeiro componente 24h. Mas o risco real está na transição: um Hermes em Grau A sem skill carregada e com shadow mode não avaliado pelo Diretor é um componente caro e subaproveitado. A janela de 2026-06-14 é real — o Diretor precisa ver os dados do shadow antes que o prazo expire ou tomar decisão de prorrogar conscientemente.
+**O que mudou para os clientes:**
+- Nada novo entregue no Loop 29 (é loop interno de infraestrutura)
+- Hypercare Valdece segue verde — ferramenta operacional sem incidentes
+- Ingrid em standby aguardando 2ª candidata
 
-Ponto positivo operacional: o V28 foi o primeiro loop onde o PROJETO INTERNO (VANGUARD) foi rastreado no WIP_BOARD com os mesmos campos de cliente — isso é evolução de maturidade do sistema.
+**Métrica de evolução do sistema:**
+- V24 (início do LEDGER): 5 princípios por sessão
+- V29: 134 princípios acumulados — cada um é uma fricção real resolvida
+- Loops até aqui: 29 — média de ~4.6 princípios por loop = 1 princípio novo a cada 2 sessões
 
 ---
 
-*Relatório Evolutivo V28 · Músculo · Pentalateral IAH · 2026-06-07*
-*Próxima etapa: Loop V29 — Gemini PASSO3 com M-1 a M-5 desta MEMORIA*
+## 5. CINCO IDEIAS DISRUPTIVAS PARA V30 [M-1 a M-5]
+
+**[M-1] COWORK COMO "MÃO DIREITA" DO EMBAIXADOR**
+Computer Use API permite que o Embaixador execute ações reais de interface: arrastar arquivos para o NotebookLM, preencher formulários de cliente, abrir e fechar apps. Custo: mensalidade Cowork (~$20/mês). Impacto: onboarding de cliente novo cai de 1 hora do Diretor para 10 minutos supervisionados.
+
+**[M-2] HIERARQUIA OPUS+SONNET: 90.2% DE GANHO SEM TROCA DE MODELO**
+Músculo como orquestrador-Opus 4.8 delegando subagentes-Sonnet 4.6 por projeto (P-059 preservado) supera single-agent em 90.2% nas tarefas de pesquisa complexa. Filtro: reservar para deliberações de alto risco (PASSO3, síntese P-037). 15x tokens mas ROI mensurável.
+
+**[M-3] NOTEBOOKLM VIA MCP: FIREWALL DE ALUCINAÇÃO PROGRAMÁTICO**
+Pontes MCP da comunidade permitem que o Músculo consulte o NotebookLM diretamente pelo terminal antes de qualquer afirmação crítica. Cada output passa pelo oráculo anti-alucinação ancorado em citações. P-132 + P-129 em versão industrial: sem cold-start, sem copiar-colar.
+
+**[M-4] /ULTRATHINK ANTES DE CADA PASSO3: QUALIDADE DELIBERATIVA +N%**
+Skill /ultrathink eleva a qualidade da análise antes de montar o PASSO3. Uso: Músculo roda /ultrathink sobre o contexto do loop → PASSO3 chega ao Estrategista mais ancorado → DIRETRIZ gerada com menos viés de momentum. Custo: ~5 minutos por sessão de Pentalateral.
+
+**[M-5] JOBS COMO FILTRO DO BACKLOG V30: PODA DE 70%**
+Das 91 sugestões do Diretor, aplicar o corte Jobs: identificar as 3-5 "joias" do V30 e descartar o ruído. O critério: o que aumenta MRR ou reduz custo operacional do Diretor de forma mensurável? O que é feature de museu tecnológico? Esse filtro vira o formato da DIRETRIZ V30 — Estrategista entrega o backlog podado, não 5 ideias brutas.
+
+---
+
+*Relatório evolutivo V29 · Músculo · 2026-06-09 · Análise SWOT + PDCA + 5W2H completos*

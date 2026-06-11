@@ -1,85 +1,114 @@
-# MEMORIA V28 — VANGUARD PENTALATERAL IAH
-**Loop 28 · The Sovereign Autonomous Layer · 2026-06-07**
+# MEMORIA — VANGUARD V29 · Loop 29 · Motor de Verdade
+> Músculo · Data: 2026-06-09 · Artefato de fechamento de loop (P-045)
+> Contexto técnico completo para o próximo Estrategista (Antigravity)
 
 ---
 
-## TEMA DO LOOP
+## 1. RESUMO EXECUTIVO DO LOOP 29
 
-Transformar o Pentalateral de sistema assistido em sistema autônomo.
-Eduardo delibera. Hermes executa. O loop não para entre sessões.
-
----
-
-## O QUE FOI CONSTRUÍDO
-
-| Entregável | Descrição | Status |
-|-----------|-----------|--------|
-| W-8 Signal Classifier | n8n workflow — classifica sinais em AUTO-RESOLVE/INFORMAR/DELIBERAR-A/B/C. Shadow mode 7 dias. | ✅ ATIVO |
-| Hermes Agent | Motor autônomo — EasyPanel, responde no Telegram, usa OpenRouter/Claude. PID 251. | ✅ ONLINE |
-| silenced_signals_log | Tabela Supabase com RLS — log de sombra do W-8 | ✅ CRIADA |
-| gate_coerencia.ps1 | Validação semântica via Haiku API antes de propagar decisões | ✅ INTEGRADO |
-| State Guard | state_guard.ps1 — detecta anomalias no WIP_BOARD na abertura de sessão | ✅ INTEGRADO |
-| ping_hermes.ps1 | Health check do Hermes Agent — exit 0/1/2 + flag -Telegram | ✅ CRIADO |
-| sync_guard -WhatIf | Modo passivo real — exibe o que faria sem escrever em disco | ✅ IMPLEMENTADO |
-| N-4 executar_vereditos | Sync forçado pós-veredito (P-033 automático após deliberação) | ✅ INTEGRADO |
-| MEMORIA_EMBAIXADOR_VANGUARD.md | Perfil comportamental do Fundador — temperatura 9.2/10 | ✅ CRIADO |
-| NARRATIVA_FUNDADOR.md | Argumento central: Vanguard como primeiro caso do próprio produto | ✅ CRIADO |
-| RUNBOOK_EASYPANEL.md | Fonte canônica: deploy Compose BETA, n8n API, erros conhecidos | ✅ CRIADO |
-| RUNBOOK_SUPABASE_DDL.md | Fonte canônica: DDL, RLS, anon vs service role, tabelas | ✅ CRIADO |
-| P-115 no LEDGER | Músculo assessora ativamente pendentes + DEPENDENCY_MAP em toda sessão | ✅ INSCRITO |
-| P-116 no LEDGER | O que dói é erro, não esforço — verificação antes de automação | ✅ INSCRITO |
+**Tema central:** Motor de Verdade — diversidade de engines como medição da realidade.
+**Decisão fundadora:** P-132 — o elo Músculo↔Auditor é o par primário; triangulação cega [M'-1..5] é o protocolo.
+**Maior entrega operacional:** Antigravity CLI ativo como canal do Estrategista (P-130) — o Diretor não precisa mais colar texto no Gemini manualmente.
+**Maior princípio inscrito:** P-131 — Diretor ativo em todo o processo; silêncio ≠ aprovação.
 
 ---
 
-## PRINCÍPIOS EXTRAÍDOS
+## 2. ENTREGAS CONFIRMADAS EM DISCO (evidência em git)
 
-- **P-115:** Músculo propõe execução de [musculo] pendentes em toda sessão. DEPENDENCY_MAP só concluído com 3 passos.
-- **P-116:** Confiança no sistema se verifica, não se declara. Escada: shadow → Grau A → Grau B → Grau C.
-- **Lição técnica EasyPanel:** Compose BETA não injeta vars do painel "Ambiente" no container. Usar `hermes config set` para persistir no volume `/opt/data/`.
-
----
-
-## VEREDITOS DO LOOP
-
-- **D1:** C — Híbrido Hermes + n8n + Claude API (não puramente um, não puramente outro)
-- **D2:** A — Signal Classifier shadow mode primeiro (7 dias observação antes de agir)
-- **D3:** A — V28 = E-1 + Classifier shadow + Hermes Agent + State Guard (~8h total)
-
----
-
-## ESTADO TÉCNICO AO FECHAR
-
-- Hermes: `OpenRouter ✓ · Telegram ✓ (home: 8895733647) · Gateway PID 251`
-- W-8: ativo em shadow mode — 7 dias de observação iniciados em 2026-06-07
-- Supabase: `silenced_signals_log` com RLS — anon pode SELECT e INSERT
-- Persistência Hermes: token + allowed_chats + api_key em `/opt/data/config.yaml`
+| Entrega | Arquivo/Referência | Status |
+|---|---|---|
+| INTELLIGENCE HUB | `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/` | ✅ ATIVO |
+| Antigravity CLI | `CLIENTES/VANGUARD/PASSO3_GEMINI.md` lido do disco | ✅ ATIVO |
+| /notebooklm skill v2 | `.claude/skills/notebooklm.md` | ✅ ATIVO |
+| LOOP_STATE system v1.0 | `CLIENTES/[PROJ]/CLAUDE_PROJECT/LOOP_STATE.json` | ✅ ATIVO |
+| W-9 n8n Track TRENDS | Arquivo de workflow criado | ⏳ IMPORTAÇÃO EasyPanel: DIRETOR |
+| session_close.ps1 gate e-mail | `.claude/hooks/session_close.ps1` | ✅ ATIVO |
+| skill gemini-pentalateral v2.1 | `.claude/skills/gemini-pentalateral.md` | ✅ ATIVO |
+| P-121 a P-134 inscritos | `INTELLIGENCE_LEDGER.md` | ✅ ATIVO |
+| YT-SEARCH instalada | Canal de fontes externas do Músculo | ✅ ATIVO |
+| 5 cópias TIMELINE sincronizadas | P-033 executado | ✅ ATIVO |
+| Bug Notion session_start corrigido | `.claude/hooks/session_start.ps1` linha 758 | ✅ ATIVO |
+| BOM UTF-8 removido WIP_BOARD.json | P-128 ChurnWatch funcional | ✅ ATIVO |
 
 ---
 
-## O QUE FICA ABERTO → V29
+## 3. PRINCÍPIOS INSCRITOS NO LOOP 29
 
-- Hermes subir para Grau B (age + confirma, não apenas responde)
-- W-8 sair do shadow mode após 7 dias de validação (2026-06-14)
-- Integração W-8 → Hermes: sinal DELIBERAR-A dispara análise no Hermes
-- Skill `pentalateral-graus-abc.md` upload no dashboard do Hermes
-- Fix persistência OpenRouter via `.env` no volume (workaround atual: config.yaml)
-- RLS do `silenced_signals_log` — restringir INSERT ao service_role (segurança)
+| Princípio | Enunciado | Por quê importa no Loop 30 |
+|---|---|---|
+| **P-131** | Diretor ativo ao longo de todo o processo; silêncio ≠ aprovação | Nenhum Loop 30 roda sem aprovação explícita em cada etapa |
+| **P-132** | Diversidade de engines = Motor de Verdade; elo Músculo↔Auditor é par primário (amplia P-129) | Cada afirmação crítica deve ter triangulação cega — never single-source |
+| **P-133** | Gate Zero de Pipeline: loop de expansão não fecha sem status de discovery do próximo cliente | V30 não fecha sem status de Mumuzinho ou novo cliente |
+| **P-134** | Item aberto vive em PENDING_REVIEW/PENDENTES, nunca na memória de turno | Backlog do Loop 30 deve ir para PENDENTES.md no momento em que é identificado |
 
 ---
 
-## 5 IDEIAS DISRUPTIVAS PARA O GEMINI (Loop 29)
+## 4. DECISÕES E VEREDITOS DO LOOP 29 (D1–D10)
 
-**M-1 — Hermes como árbitro de prioridade**
-Quando W-8 classifica múltiplos sinais simultâneos, Hermes prioriza por impacto comercial (cliente ativo > interno > administrativo) e apresenta ao Diretor em ordem de urgência — não cronológica.
+| # | Decisão | Veredito | Estado atual |
+|---|---------|----------|---|
+| D1 | Curar a deriva (G-3+E-4+E-5) → W-10 no backlog | A | Backlog V30 — PENDENTES.md |
+| D2 | Firewall reposicionado: descartar M-1/G-4; adotar N-1/N-3; construir E-3 | A | E-3 a construir em V30 |
+| D3 | Hermes shadow mode prorrogado; Grau B bloqueado até validar W-8 | A | Shadow expira 14/06/2026 |
+| D4 | Gate Zero de Pipeline como alerta de 1ª classe (P-133) | A | Inscrito no LEDGER |
+| D5 | Missões de inteligência (triangulação + pricing Valdece + watch Ingrid) | A | PENDING_REVIEW.md |
+| D6 | Upsell seguro: G-1→E-2 (dossiê interno); G-2→N-2 (schemas anonimizados) | A | Backlog V30 |
+| R | Reconciliação Valdece: standby prospecção; Hypercare até 18/06 | A | Sentinel pendente |
+| D7 | Inscrever P-131 | A | ✅ Inscrito |
+| D8 | N-4 reformulado: aprovação explícita sempre; silêncio nunca = execução | A | ✅ Inscrito |
+| D9 | Cadência vigilância Cowork: competitivo/tendências semanal; edital quinzenal até 06/09 | A | Backlog V30 |
+| D10 | Inscrever P-134 | A | ✅ Inscrito |
 
-**M-2 — Grau B com janela de veto**
-Grau B não precisa esperar confirmação ativa. Hermes age e dá 15 minutos para veto. Se Eduardo não rejeitar, a ação é confirmada automaticamente. Reduz carga sem perder controle.
+---
 
-**M-3 — Kanban do Hermes como WIP_BOARD espelho**
-O `kanban.db` do Hermes pode ser populado automaticamente pelo Músculo ao session_close — transformando o Hermes num segundo ponto de verdade do estado dos projetos, acessível 24h via Telegram.
+## 5. O QUE FICOU PENDENTE (Loop 30 herda)
 
-**M-4 — Hermes como co-piloto de reunião**
-Antes de qualquer reunião com cliente, Eduardo envia: `/briefing Ingrid reunião`. Hermes responde com: temperatura do cliente, últimas interações, gate atual, o que não pode esquecer de dizer.
+- `doc_freshness_checker.ps1` (Gate 0.5): construir detector de deriva documental — ~2h [musculo]
+- `E-3 Auto-detector de câmara de eco`: skill do Músculo — backlog V30 [musculo]
+- `W-10 Motor de deriva / Antigravity expandido`: backlog V30 [musculo]
+- `Reconciliação estrutural TIMELINE`: fonte canônica única + sync 1→N para 5 cópias [musculo]
+- Arrastar 7 arquivos ao Embaixador (FONTES/) [diretor]
+- W-9 importar no EasyPanel [diretor]
+- W-8 shadow mode: avaliar ativação plena (deadline 14/06/2026) [diretor]
 
-**M-5 — Hermes aprende com o Diretor**
-Cada vez que Eduardo aprova ou rejeita uma sugestão do Hermes, o feedback vai para as `memories/`. Em 30 dias, o Hermes tem um perfil real do estilo de decisão do Diretor — sem Eduardo precisar explicar nada duas vezes.
+---
+
+## 6. ALERTAS ATIVOS PARA O LOOP 30
+
+1. **W-8 shadow expira 14/06/2026** — Diretor deve avaliar se ativa Hermes Grau B ou prorroga shadow.
+2. **P-133 Gate Zero** — V30 não fecha sem status de discovery do 3º cliente (Mumuzinho em standby indefinido — gargalo é aquisição, não capacidade).
+3. **Falha-processo detectada 2x em ~3 dias**: "velocidade vencendo disciplina" — E-5 (hash de grounding na DIRETRIZ) é antídoto. Antigravity DEVE ler PASSO3+CONTEXTO_GEMINI do disco antes de qualquer output.
+4. **Notion session_start**: bug corrigido em 09/06. Monitorar próxima sessão para confirmar leitura correta.
+5. **BOM UTF-8**: corrigido no WIP_BOARD.json. Verificar se outros arquivos JSON do sistema têm o mesmo problema.
+
+---
+
+## 7. ESTADO DO CONSELHO AO FINAL DO LOOP 29
+
+| Sócio | Status | Artefato Produzido |
+|---|---|---|
+| Estrategista (Antigravity) | OK | DIRETRIZ V29 — Eixo de Expansão Exponencial |
+| Auditor (NotebookLM) | OK | AUDITOR_LOOP_V29 — 23 fontes, PARTES 1+2+4 |
+| Embaixador (Claude Projects) | OK | SEÇÃO D + Radar Competitivo + [E-1..E-5] |
+| Músculo (Claude Code) | OK | DELIBERACAO_LOOP_V29 (síntese P-037) |
+| Diretor | OK | Vereditos D1–D10 emitidos |
+
+---
+
+## 8. CONTEXTO TÉCNICO PARA O LOOP 30
+
+**Infraestrutura atual:**
+- Hermes Agent: ONLINE · EasyPanel · Grau A · modelo claude-sonnet-4-6 via OpenRouter
+- n8n: ONLINE · EasyPanel · W-1 a W-9 (W-9 pendente importação)
+- Antigravity: CLI ativo · lê PASSO3+CONTEXTO do disco · P-130 ativo
+- Supabase: ONLINE (Valdece corpus 61 acórdãos; Ingrid 460 questões)
+- NotebookLM: caderno "Vanguard Tech Universal" ativo · conta subdiretor.mnmsgm@gmail.com
+
+**Projetos cliente no final do Loop 29:**
+- PROJ-001 Valdece: HYPERCARE até 18/06 · V3 entregue · Netlify OK · STANDBY
+- PROJ-002 Ingrid: RETAINER · Loop 8 concluído · STANDBY
+- PROJ-003 Mumuzinho: DISCOVERY STANDBY · gate: canal para Dudu Félix
+
+---
+
+*MEMORIA_V29 · Músculo · 2026-06-09 · Loop 29 FECHADO · P-131/132/133/134 inscritos*

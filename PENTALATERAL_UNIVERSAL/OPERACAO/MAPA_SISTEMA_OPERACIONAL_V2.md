@@ -25,6 +25,19 @@ Itens adicionados com base na auditoria do Auditor Sistêmico (2026-06-05):
 
 ---
 
+## DELTA V29/L32 — HERMES GRAU B + ANTIGRAVITY EXECUTOR + RUNNING_INTELLIGENCE (2026-06-10)
+
+| Item | Onde adicionado | Referência |
+|---|---|---|
+| Hermes Grau B ATIVO (D1:A executado 2026-06-10) | CAMADA 4 (Hermes Agent) | CLAUDE.md + MANUAL_HERMES_COMMANDS.md |
+| Antigravity = EXECUTOR do Estrategista (não o Estrategista) | CAMADA 4 (Antigravity CLI) | GEMINI.md + SKILL_PROTOCOLO_VANGUARD v7.0 |
+| RUNNING_INTELLIGENCE.md (Embaixador — decaimento 90d) | CAMADA 2 (por projeto) | P-143 |
+| builds_aprovados_nao_iniciados no LOOP_STATE v1.1 | CAMADA 1 (estado) | LOOP_STATE_SCHEMA v1.1 |
+| p133_gate_zero_captacao no LOOP_STATE | CAMADA 1 (gates) | P-133 |
+| loop_anterior e missao como campos do LOOP_STATE v1.1 | CAMADA 1 (estado) | LOOP_STATE_SCHEMA v1.1 |
+
+---
+
 ## ⚙️ MAPA COMPLETO DO SISTEMA — TODOS OS ARQUIVOS
 
 ### CAMADA 0 — FONTES CANÔNICAS (TIPO 1 UNIVERSAL_PURO)

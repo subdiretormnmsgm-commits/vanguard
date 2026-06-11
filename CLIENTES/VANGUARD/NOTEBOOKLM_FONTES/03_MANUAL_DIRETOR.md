@@ -1,6 +1,6 @@
 ﻿# MANUAL DO DIRETOR — ORQUESTRAÇÃO DO PENTALATERAL IAH
 **O guia completo de Eduardo para coordenar Gemini, NotebookLM, Claude Code e Claude Projects**
-**Versão:** 1.8 · 2026-06-09 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1 · PARTE 8 n8n (V27) + PARTE 9 Hermes Agent (V28) + PARTE 10 INTELLIGENCE HUB + Antigravity (V29) · W-9 Track TRENDS adicionado · P-119 a P-127
+**Versão:** 1.9 · 2026-06-10 · Organismo Vivo — Pipeline inline · Schema DECISOES v1.1 · PARTE 8 n8n (V27) + PARTE 9 Hermes Agent (V28) + PARTE 10 INTELLIGENCE HUB + Antigravity (V29) · W-9 Track TRENDS adicionado · P-119 a P-147 · Hermes Grau B (D1:A 2026-06-10) · Antigravity = EXECUTOR do Estrategista (Gemini)
 
 ---
 
@@ -1614,8 +1614,8 @@ Motor autônomo rodando no EasyPanel (`hermes/hermes-agent`), usando `anthropic/
 
 | Grau | Como funciona | Status atual |
 |------|--------------|-------------|
-| **A** | Hermes age apenas com aprovação do Diretor | ✅ ATIVO |
-| **B** | Hermes age + confirma em 15min. Diretor pode vetar. | Após validação W-8 (2026-06-14) |
+| **A** | Hermes age apenas com aprovação do Diretor | Histórico — superado 2026-06-10 |
+| **B** | Hermes age + confirma em 15min. Diretor pode vetar. | ✅ ATIVO — D1:A executado 2026-06-10 |
 | **C** | Hermes autônomo + loga todas as ações | Futuro — exige Grau B validado |
 
 **Regra:** nunca pular grau. A → B → C. Cada transição requer aprovação explícita do Diretor.
@@ -1665,7 +1665,7 @@ O W-8 classifica sinais que chegam ao sistema antes de qualquer ação:
 |---|---|
 | **P-116** Verificação antes de automação | O que dói é o erro, não o esforço. Hermes verifica antes de agir. |
 | **P-117** Diagrama sem todos os membros normaliza skip | Todo diagrama do ciclo Pentalateral mostra os 5 membros ou declara `[SUBFLUXO: X]`. |
-| **Grau A obrigatório** | Toda ação requer `/aprovar N` no Telegram antes de executar |
+| **Grau B ativo** | Hermes age automaticamente. Diretor tem 15min para `/rejeitar N` no Telegram se quiser bloquear. |
 | **Skill carregada** | `pentalateral-graus-abc.md` deve estar no dashboard do Hermes |
 | **W-8 expira 2026-06-14** | Avaliar shadow mode antes desta data — não deixar vencer sem decisão |
 
@@ -1696,7 +1696,7 @@ REPORT_COMPETITORS do nicho do prospecto → Músculo já tem pronto via Antigra
 |---|---|
 | **P-124** Câmara de Eco Proibida | Antigravity NÃO entra no loop de cliente. Nunca gera DIRETRIZ, Skill ou veredito de cliente. |
 | **PENDING_REVIEW como único canal** | Todo output do Antigravity vai para PENDING_REVIEW.md — Músculo revisa antes de qualquer ação |
-| **Identidade isolada** | GEMINI.md (raiz) define o Antigravity como Intel Loop Motor — NÃO é o Estrategista do Pentalateral |
+| **Identidade isolada** | GEMINI.md (raiz) define o Antigravity como EXECUTOR do Estrategista (Gemini) — Intel Loop Motor. NÃO gera DIRETRIZ de loop (veredito Diretor 2026-06-10). |
 | **W-9 status** | Arquivo criado (`_n8n/workflows/w9_trends_semanal.json`) — importação no EasyPanel pendente [DIRETOR] |
 
 ### Como importar W-9 no EasyPanel
@@ -1709,9 +1709,10 @@ REPORT_COMPETITORS do nicho do prospecto → Músculo já tem pronto via Antigra
 ---
 
 | 1.8 | 2026-06-09 | PARTE 10 adicionada — V29: INTELLIGENCE HUB + Antigravity + W-9 Track TRENDS + P-119 a P-127. W-9 na tabela de notificações automáticas. |
+| 1.9 | 2026-06-10 | Hermes Grau B ATIVO (D1:A executado). Antigravity = EXECUTOR do Estrategista Gemini (não Estrategista). RUNNING_INTELLIGENCE.md como artefato do Embaixador. P-128 a P-147. |
 
 ---
 
-*Manual do diretor · PENTALATERAL IAH · V1.8*
+*Manual do diretor · PENTALATERAL IAH · V1.9*
 *Criado pelo Músculo para o Diretor Eduardo*
 *atualizar após cada projeto — este documento é tão vivo quanto o sistema que descreve*

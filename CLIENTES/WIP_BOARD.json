@@ -1,4 +1,4 @@
-{
+﻿{
     "atualizado_em":  "2026-06-09",
     "wip_limits":  {
                        "build":  2,
@@ -44,11 +44,11 @@
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
                                                             "loop":  32,
-                                                            "gemini":  "PENDENTE",
+                                                            "gemini":  "OK",
                                                             "notebooklm":  "PENDENTE",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "Loop 32 EXTERNO -- Gate Zero P-133 ativo -- D4:A (2026-06-10)"
+                                                            "proximo":  "NotebookLM -- Skill vanguard-v32.md"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",

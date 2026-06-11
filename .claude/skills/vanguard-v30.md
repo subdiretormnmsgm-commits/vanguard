@@ -1,29 +1,17 @@
-# SKILL: vanguard-v30.md
+# Skill vanguard-v30.md
 # Gerada pelo Auditor (NotebookLM) — Loop 30 — 2026-06-09
-# Caderno: Vanguard Tech — Conselho V29 (d7dab0e1)
+# 23 fontes: 18 internas + 5 YouTube (YT-ENRICHMENT v2.0)
 
 ---
 
-## [AUDITORIA DE COERENCIA]
+[AUDITORIA DE COERENCIA]
+O Eixo de Expansão (Loop 30) ameaça romper o P-131 (Diretor ativo no processo) ao sugerir o Pentalateral Lite Sandbox (G-4), introduzindo a resposta autônoma via bot a prospects sem revisão prévia. Isso materializa a Câmara de Eco (P-124). A conexão programática via MCP (M-3 / JOIA-1) reconcilia com P-129 (elo Músculo-Auditor ilimitado), desde que seus artefatos resultantes alimentem invariavelmente o PENDING_REVIEW.md (P-134), e nunca sejam enviados ao cliente de forma autônoma (P-121). O uso do "Demo Visionário" requer atenção estrita ao P-059; nenhum dado da base de produção (Ingrid/Valdece) pode ser extraído para displays públicos.
 
-O Eixo de Expansão (V30) flerta com a remoção da barreira humana. O uso do Pentalateral Lite (G-4) e as integrações MCP devem obedecer rigorosamente ao P-131 (Diretor ativo, veredito explícito). A comunicação MCP materializa o P-129 (capacidade aberta Músculo↔Auditor), atuando puramente como ferramenta de triangulação e leitura (Motor de Verdade, P-132). É estritamente proibido usar dados de clientes ativos (Ingrid/Valdece) para construir o Demo Visionário; isso violaria o Isolamento (P-059) e o Dízimo de Dados (P-013) que garantem a soberania dos dados do cliente. O uso da skill `/ultrathink` necessita de Gate Financeiro (Lei 5) para não implodir a margem.
+[CONEXAO HISTORICA]
+Entre a V16 e V28, o Pentalateral comprovou que interfaces espetaculares sem corpus testado são produtos vazios (V16). IAs deixadas no controle sem "Loop Guards" ou gates de verificação alucinam infinitamente (V24 / P-001). A infraestrutura V27/V28 com o n8n obteve sucesso apenas porque o orquestrador não tem poder deliberativo, transportando inteligência (P-112). A inserção do MCP e do Cowork segue essa trilha: agentes buscam, ingerem e extraem valor (como o script Python notebooklm-py valida), mas o veredito permanece humano e o fallback manual (P-110) deve estar sempre a postos para o caso da automação colapsar.
 
----
+[PADRAO DE SUCESSO/FALHA]
+Padrão de Sucesso: Computação antecipatória de leitura e síntese (Cowork / M-1) executando tarefas em background via agendas cron e desaguando relatórios no Inbox (P-124, P-134), reduzindo o custo de contexto para o Diretor. A ancoragem de preços através de calculadoras de dor real (Time-Machine / G-5), elevando o teto de precificação (P-108). Padrão de Falha: Ignorar a Lei 5 (Burn Rate Shield) pelo uso irrestrito de tokens via ferramentas de pensamento profundo (/ultrathink / M-4) para deliberações de Classe A. Permitir resposta de e-mail ao lead de forma direta sem validação do Telegram (G-4 ferindo P-131 e P-121).
 
-## [CONEXAO HISTORICA]
-
-As falhas do passado iluminam os riscos atuais. Em V16, provamos que UI sem base real é ficção. A V24 enterrou a ideia de que IA deve operar de modo autônomo sem supervisão (P-001). As integrações do n8n em V27 e do Hermes em V28 trouxeram escala precisamente porque usaram Graus de Delegação (P-116). Adoções técnicas robustas na Vanguard nunca dispensaram fallbacks manuais (P-110). Se o servidor MCP falhar, o processo deve reverter imediatamente para o modelo de arrastar arquivos, evitando que o ciclo técnico colapse.
-
----
-
-## [PADRAO DE SUCESSO/FALHA]
-
-**Sucesso:** Triangulação cega usando MCP. O Músculo interroga o Auditor via terminal, compila os "Artifacts" visuais do Antigravity (G-1) e submete TUDO para o `PENDING_REVIEW.md` (P-134), aguardando o "D1:A" do Diretor. O uso de dados sintéticos para demonstração de autoridade.
-
-**Falha:** Respostas automatizadas via e-mail sem veredito do Diretor (P-121, P-131). Publicação de "Skills" que contém IP da Vanguard em vez de Artifacts (G-2 falha). Quebra de isolamento de contexto (P-059) transferindo base de dados da Ingrid para um Demo público.
-
----
-
-## [PERSPECTIVA DO SOCIO]
-
-A automação (MCP, Antigravity) tem o condão de acelerar o Músculo e o Auditor, mas a V30 ignora o gargalo primário diagnosticado no P-133: o funil de aquisição está vazio. Produzir artefatos e ferramentas de backend de forma exponencial não traz MRR se não houver um terceiro cliente no pipeline. O Demo Visionário deve ser a ponte entre a infraestrutura de V29 e o fechamento de um novo contrato. Use a tecnologia para empacotar o valor visualmente, mas submeta todas as deliberações ao Diretor. O processo protege a receita; o atalho a corrói.
+[PERSPECTIVA DO SOCIO]
+O pipeline zero (P-133) é o único problema que ameaça a Vanguard hoje. Nós temos as ferramentas tecnológicas mais robustas do mercado de venture builder. Mas tecnologia orquestrada que não toca em cliente pagante é custo fixo, não inteligência composta. As integrações via MCP com o NotebookLM e o Cowork não devem ser utilizadas para refinar código no Loop 30; devem ser injetadas exaustivamente em missões de descoberta (Discovery) e Inteligência de Mercado para prospectar, compor o "Audit-Bait" e acionar as redes B2B visando conquistar o terceiro cliente.

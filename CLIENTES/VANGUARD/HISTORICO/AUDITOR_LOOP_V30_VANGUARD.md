@@ -1,87 +1,103 @@
-# AUDITOR LOOP V30 — VANGUARD UNIVERSAL
-# Gerado: 2026-06-09 | Caderno: Vanguard Tech — Conselho V29 🎼 (d7dab0e1)
-# Prompt enviado: "Leia o 13_PASSO5_NOTEBOOKLM.md completo e execute a missão do Auditor para o Loop 30."
-# PARTES 1+2+4+5 (PARTE 3 = Skill → .claude/skills/vanguard-v30.md)
+# AUDITOR_LOOP_V30_VANGUARD
+# Gerado: 2026-06-09 | Loop 30 | 23 fontes (18 internas + 5 YouTube YT-ENRICHMENT)
+# Skill gerada: vanguard-v30.md
 
 ---
 
 ## MANIFESTO DE FONTES
 
-Tenho 18 documentos carregados. Mais recentes: `04_INTELLIGENCE_LEDGER.md` (atualizado V29), `17_VANGUARD_TIMELINE.md`, `13_PASSO5_NOTEBOOKLM.md` (Loop 30), e `12_DIRETRIZ_GEMINI.txt`. O que ficou de fora: Acesso em tempo real ao servidor MCP ativo, métricas financeiras atualizadas do cliente Ingrid/Valdece além das documentadas, e repositórios externos reais. Aviso Constitucional: Toda análise a seguir obedece à soberania do LEDGER V29. O P-131 ("Diretor ativo em todo o processo; silêncio ≠ aprovação") e P-134 ("Item aberto vive em PENDING_REVIEW, nunca na memória de turno") ancoram minha auditoria. Não elogiaremos ideias estéticas; se quebra a barreira de aprovação, a ideia é um passivo.
+Declaro posse de 23 documentos internos do ecossistema Vanguard (V1 a V29), incluindo o 04_INTELLIGENCE_LEDGER.md com 134 princípios ativos, 12_DIRETRIZ_GEMINI.txt (V29), e o 13_PASSO5_NOTEBOOKLM.md (Missão Loop 30). Adicionalmente, ingeri 4 transcrições externas de mercado (YouTube) sobre o estado da arte das ferramentas:
+
+- Canal Chase AI — "Claude Code + NotebookLM = CHEAT CODE"
+- Canal Nate Herk | AI Automation — "Andrej Karpathy Just 10x'd Everyone's Claude Code"
+- Canal AI LABS — "How to use Claude Code and Gemini Cli Together"
+- Canal Zinho Automates — "The ONLY Claude Cowork Tutorial You'll Ever Need in 2026"
+
+O que ficou de fora: Não tenho acesso de leitura aos diretórios de disco em tempo real nem aos bancos de dados de produção. Minha auditoria não supõe dados ausentes. Todo alerta baseia-se na tensão ativa exigida pelo meu papel de Guardião Histórico.
 
 ---
 
-## PARTE 1 — Auditoria de Coerência: [M] e [G] vs. LEDGER
+## PARTE 1 — Auditoria de Coerência: JOIAs e Ideias [M]/[G] vs. LEDGER
 
-Avalio a DIRETRIZ V30 e o PASSO 5 rigorosamente contra as Leis ativas do sistema.
+Nenhuma novidade técnica revoga a Constituição. O eixo de "Expansão Exponencial" tenta contornar o gargalo do Diretor através de automação, mas a autonomia cega é o caminho mais rápido para o débito técnico.
 
-**[JOIA-1 / M-3] Conexão NotebookLM via MCP: EXPANDE.**
-A integração programática materializa o P-129 (Elo Músculo↔Auditor é capacidade aberta). Contudo, como fica o P-124 (Checkpoint humano)? O P-124 proíbe que um LLM acione outro LLM para execução autônoma em ambiente de cliente. O MCP só é válido se operar como motor de leitura/consulta (RAG). Se o Músculo usar o MCP para ler e, com base nisso, escrever código sem passar pelo Veredito do Diretor, viola o P-131.
+**[JOIA-1 / M-3] Conexão NotebookLM via MCP: EXPANDE P-129, MAS ALERTA P-131.**
+O canal Chase AI demonstra que integrar Claude Code ao NotebookLM via Python (MCP) é real e custa zero tokens para a análise pesada. Isso valida o P-129 (Elo Músculo-Auditor aberto). Contudo, se o Músculo acionar o Auditor e, com o resultado, alterar o WIP_BOARD sem o Diretor, viola o P-131. A triangulação programática deve depositar a inteligência extraída no PENDING_REVIEW.md (P-134).
 
-**[G-1] Audit-Bait (Auditor processa PDFs públicos): CONFIRMA.**
-O P-119 decreta que "vídeo público de dor é dado de marketing, não de intenção de compra". Porém, se o prospecto submete ativamente o edital/PDF ao bot, ele estabeleceu contato bilateral. O Gate Zero do P-119 é cumprido.
+**[JOIA-2] Antigravity Artifacts: CONFIRMA P-116.**
+Gerar protótipos visuais e relatórios antes de pedir o aval de código (Grau B) salva o custo cognitivo do Diretor.
 
-**[G-4] Pentalateral Lite Sandbox (e-mail → bot → síntese): ALERTA CRÍTICO.**
-Responder automaticamente um e-mail com síntese do Conselho viola P-131 ("silêncio não é aprovação") e P-101 (Mensagem externa nunca acessa Claude diretamente). A automação pode ler, usar o MCP e sintetizar no `PENDING_REVIEW`, mas a resposta ao lead só sai com o "D1:A" do Diretor.
+**[JOIA-3 / M-4] Skill /ultrathink: ALERTA P-006.**
+Pensamento profundo dobra o custo de tokens. A Lei 5 (Burn Rate Shield) proíbe consumo variável ilimitado. O /ultrathink deve ser restrito à Fase 1 (Análise Estratégica) e decisões Classe C (Fundacional).
 
-**[JOIA-4] Demo Visionário (EdTech/LegalTech): ALERTA CRÍTICO.**
-Construir um demo usando a base de dados de Valdece ou Ingrid viola o P-059 (Isolamento de Contexto por Cliente é Lei). Dados de um cliente jamais alimentam uma demonstração para outro. A solução legal (P-013) exige anonimização brutal ou criação de um namespace sintético `[VANGUARD-DEMO]`.
+**[JOIA-4 / M-5] Demo Visionário (EdTech/LegalTech): ALERTA CRÍTICO P-059.**
+O Músculo não pode usar o corpus real de Ingrid ou Valdece para construir uma demonstração pública. Para viabilizar: namespace [VANGUARD-DEMO] com dados estritamente públicos ou sintéticos.
 
-**[JOIA-3 / M-4] Skill /ultrathink: ALERTA.**
-O uso indiscriminado dessa skill dobrará o custo e violará a Lei 5 (Burn Rate Shield - P-006). O /ultrathink só pode ser engatilhado para decisões de Classe C (Fundacional) e para o PASSO 3. Usá-lo para refatoração técnica simples é desperdício de margem.
+**[M-1] Cowork como Mão Direita: CONFIRMA P-124 (com restrição).**
+O canal Zinho Automates demonstra cron jobs rodando em background. Compatível desde que a saída caia no InBox/Pending Review para o humano (P-124).
 
-**[G-2] Skill-Share Premium: CONFIRMA (com a ressalva do Músculo).**
-Publicar Skills (que contêm regras proprietárias do Pentalateral) viola a proteção de IP. Publicar Artifacts (resultados) expõe o valor sem expor o motor, alinhado à estratégia de expansão sem perda de governança.
+**[G-1] Audit-Bait (Auditor processa PDFs): CONFIRMA.**
+Ao submeter o PDF ativamente, o lead cumpre o Gate Zero (contato bilateral estabelecido). Diferente da violação de P-119.
 
----
+**[G-2] Skill-Share Premium: CONFIRMA MÚSCULO.**
+Publicar Artifacts atrai leads sem quebrar o fosso competitivo (P-008 e P-108).
 
-## PARTE 2 — Conexão Histórica (V16 a V28)
+**[G-3] UI Injector (iframe): CONFIRMA MÚSCULO.**
+Extensão do Chrome fere P-070 (Onboarding Invisível). Iframe nativo soluciona.
 
-**a) O Padrão Visual Authority (V16):**
-Em V16, a Vanguard construiu a interface mais bonita e comercialmente inútil do sistema (Neural Grid, Crypto Glitch) porque projetava um ARR de R$4,1M sem cliente real. O Demo Visionário (JOIA-4) corre o mesmo risco se for apenas "tela". A diferença que pode salvar a V30: ancorar o Demo em corpus real sintético (embrião V25) e aplicar o Mágico de Oz Gate (P-007). Se não busca via CLI, a UI do Demo é vaidade.
+**[G-4] Pentalateral Lite Sandbox (e-mail -> bot -> síntese): ALERTA CRÍTICO P-131 E P-121.**
+É a Câmara de Eco disfarçada de SDR. O robô pode ler e sintetizar no Notion (Inbox), mas o envio exige clique humano.
 
-**b) A Falha Autônoma (V24):**
-Tentou-se usar o Claude como daemon, o que falhou miseravelmente porque IAs sem rito de passagem alucinam em loop (P-001). O G-4 (Lite Sandbox) é um daemon disfarçado de e-mail. A história prova: se o bot disparar a resposta sem intervenção do Diretor no Telegram/Notion, ele vai enviar alucinação comercial para o lead.
-
-**c) Orquestração Passiva (V26/V27):**
-A implementação do n8n provou (P-101) que a orquestração funciona quando o n8n é apenas transporte. O Audit-Bait (G-1) funcionará se o n8n capturar o PDF, passar pelo MCP do NotebookLM e entregar o Artifact no Telegram do Diretor. Quando a máquina tenta fechar o loop com o mundo externo, o sistema desaba.
-
-**d) Integrações Complexas:**
-O Stripe (V6) e o Supabase (V25) só não destruíram a operação porque exigiram fallbacks de até 3 passos (P-110). O servidor MCP, sendo infraestrutura comunitária, VAI cair. Se não houver fallback manual documentado, o Músculo ficará paralisado aguardando o socket local.
+**[G-5] Time-Machine: CONFIRMA P-108 e P-107.**
+Ancorar o custo de errar na direção ou do tempo perdido aumenta o teto de preço (P-108).
 
 ---
 
-## PARTE 4 — Respostas [N-1 a N-5]
+## PARTE 2 — Conexão Histórica (Padrões de V16 a V28)
 
-**N-1: A topologia MCP falha ruidosamente?**
-Resposta: Conforme P-084 ("Pipeline deve checar existência de saída"), o MCP não pode falhar em silêncio e usar dados em cache. O script do Músculo deve encapsular a chamada MCP com um `try/catch`. Se o socket não responder em 10 segundos, o terminal exibe ALERTA VERMELHO e exige fallback manual (arrastar fonte ao NotebookLM).
+**a) O fantasma da V16 e o Demo Visionário:**
+A V16 construiu a interface mais bonita do sistema, mas sem dados reais era "ficção financeira". O Demo Visionário só não será a V16 reencarnada se for construído sobre P-042 (Gate Semântico). Um demo estético não encanta quem trabalha com jurisprudência real.
 
-**N-2: Isolamento do Demo (P-059)?**
-Resposta: Não se usa dados da Ingrid/Valdece. Cria-se o projeto `PROJ-004-DEMO` com schema espelhado, mas preenchido com dados públicos de jurisprudência/concursos. O P-059 exige instâncias segregadas; testar um Demo na conta da Vanguard usando dados de cliente ativo é quebra de contrato (Lei 2 - Compliance).
+**b) A falha da V24 (Claude daemon autônomo) vs G-4 (Lite Sandbox):**
+A V24 tentou criar um Claude como "daemon" solto — falhou porque IAs sem ritual caem em loops de alucinação (P-001). O canal AI LABS atesta que múltiplos agentes podem coordenar num terminal compartilhado, mas exigem "loop guard" rigoroso (max_loops = 4). Qualquer automação Lite precisa de limites duros e interrupção.
 
-**N-3: Quem valida o Artifact do Audit-Bait (G-1)?**
-Resposta: O Diretor. O Antigravity gera o Artifact via n8n e o Hermes envia um Super-Card (G-5) ao Telegram do Diretor com o resumo do PDF. O Diretor aprova com `/veredito A`. O silêncio não dispara a mensagem ao lead (P-131).
+**c) n8n passivo (V27/V28) vs Audit-Bait (G-1):**
+O n8n funciona com excelência como Sistema Nervoso (W-1 a W-4), transporte cego (P-112). O Audit-Bait funcionará se o n8n apenas repassar o PDF ao MCP e rotear a síntese para o Telegram do Diretor, sem intervir ou julgar.
 
-**N-4: Protocolo exato do /ultrathink?**
-Resposta: Obrigatório ANTES de gerar o `PASSO3_GEMINI.md` para novas iterações (onde o planejamento estratégico dita a fundação do loop) e para avaliações de Classe C (Fundacional). Proibido para Classe A e B (correções técnicas, deploy), sob pena de violação da Lei 5 (Burn Rate).
-
-**N-5: Canal histórico de distribuição do Demo?**
-Resposta: O histórico prova no P-008 ("Primeiro cliente = canal de distribuição") que o canal nunca é o tráfego frio para o site (P-004). A distribuição do Demo Visionário ocorre através de redes orgânicas B2B: apresenta-se à OAB local (como com Valdece) ou a grupos fechados de estudo (Ingrid), transformando parceiros profissionais em canais de captação.
+**d) Integrações Complexas (MCP / APIs):**
+A adoção de Stripe (V6) e Claude API com Supabase (V25) causou 7 panes antes do P-025 ser cimentado. A ponte MCP vai apresentar quebras silenciosas. Requer P-110 (Fallback manual <= 3 passos). Se o MCP cair, reverter imediatamente para URL manual.
 
 ---
 
-## PARTE 5 — AMPLIAR [A-1 a A-3] (Ideias Novas do Auditor)
+## PARTE 4 — [N-1 a N-5]
 
-Para atacar a paralisia do Pipeline Zero (P-133) usando a infraestrutura do V30 e respeitando os princípios, proponho:
+**N-1: Topologia MCP com log explícito.**
+Scripts Python de MCP não podem falhar em silêncio (P-084). Encapsular com try/catch. Se socket local nao devolver status 200 em 15 segundos, emitir "ALERTA MCP" no friction.log e voltar a P-110.
 
-**[A-1] "Sovereign Scraper via Cowork" (Resolve P-133 + Expande M-1)**
+**N-2: Demo Visionário x Isolamento (P-059).**
+Namespace efêmero [VANGUARD-DEMO]. Nenhum dado real de Valdece ou Ingrid exportado.
 
-Evidência/Ancoragem: P-008 afirma que redes profissionais densas (OAB, CRM) são os verdadeiros canais. Em vez de esperar inbound via e-mail, o Músculo delega ao Embaixador (via Computer Use API / Cowork) a missão agendada de navegar em portais institucionais e listar diretórios públicos de escritórios de nicho. O Embaixador extrai os dados, qualifica-os (sem armazenar dados de terceiros como infraestrutura, respeitando P-003) e injeta a lista filtrada no `PENDING_REVIEW.md` para o Diretor prospectar.
+**N-3: Gate do Audit-Bait (G-1).**
+PDF via webhook n8n -> Claude via MCP -> NotebookLM -> Artifact -> parar no Telegram. Hermes Agent (Grau B) notifica Eduardo. Diretor clica /aprovar. Zero bypass humano (P-131).
 
-**[A-2] "Adversarial Lead Scoring" (Integração MCP + P-132 Motor de Verdade)**
+**N-4: Protocolo /ultrathink (Burn Rate).**
+Obrigatório APENAS no Passo 3 (Gemini) e Passo 6 (síntese P-037) para loops FASE 1 ou Decisões CLASSE C. PROIBIDO para Classe A ou fix de bugs (P-006).
 
-Evidência/Ancoragem: P-132 exige diversidade de engines. Quando um prospecto chega via "Audit-Bait" (G-1), o Antigravity gera a estratégia de fechamento. Imediatamente, o Músculo aciona o NotebookLM via MCP pedindo um "Deep Research Histórico" do nicho para buscar precedentes de falhas (ex: o alerta da V7 sobre Marketplaces e Split de Pagamento). Se os dois engines convergirem que o nicho é viável, o lead ganha Score Verde. Se o NotebookLM apontar risco regulatório não visto pelo Antigravity, Score Vermelho. Economiza o tempo do Diretor descartando leads tecnicamente inviáveis no Dia 0.
+**N-5: Canal de Distribuição do Demo (Lacuna P-133).**
+O canal que fecha negócio é a rede profissional densa — salas da OAB, fóruns fechados de concurseiros, LinkedIn direto via Embaixador (Cowork). Modelo "Crédito de Expansão entre Pares".
 
-**[A-3] "Veredito Ativo por Timeout" (Reconcilia G-5 com P-131)**
+---
 
-Evidência/Ancoragem: G-5 propõe Super-Cards no Telegram para aprovação em 5 segundos. O P-131 dita que silêncio não é aprovação. Para evitar que o pipeline pare se o Diretor estiver incomunicável, criamos o Timeout Ativo: se o Super-Card de um Audit-Bait não for respondido em 4 horas, o lead é movido automaticamente pelo n8n para uma nurture queue passiva (recebe um material genérico) e a automação do artefato é ABORTADA. O sistema age, protege a imagem da empresa para não deixar o lead no vácuo, mas não executa o Artifact de alta complexidade (custoso) sem a assinatura do Diretor.
+## PARTE 5 — AMPLIAR [A-1 a A-3]
+
+**[A-1] LLM Wiki Pipeline para Prospectos (Convergindo Nate Herk e P-129)**
+*Insight:* Nate Herk expôs que conectar Claude Code a um vault Obsidian via CLI cria uma "Wikipedia de LLM" auto-gerida.
+*Ação:* Diretório RAW_PROSPECTS. O Embaixador (via Cowork agendado) acorda às 6h, varre publicações no LinkedIn dos diretores-alvo e salva o texto puro em RAW_PROSPECTS/lead_x.md. O Músculo processa e linta a Wiki de Prospects, revelando o "mapa mental" da dor do cliente antes de Eduardo ter a primeira reunião. Todo o trabalho deságua no PENDING_REVIEW.md para o Despacho Matinal (7h). Destrava o funil de aquisição sem hora-homem.
+
+**[A-2] Zero-Token Commercial Artifacts (Convergindo Chase AI e Lei 5)**
+*Insight:* Chase AI demonstra que NotebookLM gera Podcasts, Slide Decks e Infográficos fora do billing da API do Anthropic.
+*Acao:* Para cada lead quente no pipeline (P-133), o Músculo aciona o NotebookLM via MCP com as informações do cliente, extraindo um Podcast (Audio Overview) Persuasivo e um Infográfico Arquitetural. Enviamos ao lead um áudio onde "dois especialistas discutem a arquitetura ideal da empresa dele". Custo zero em tokens (P-006 respeitado), impacto visual e autoridade irrecusáveis.
+
+**[A-3] Tmux Cross-Model Tribunal (Convergindo AI LABS e P-132)**
+*Insight:* AI LABS demonstra que tmux permite rodar Claude Code e Gemini CLI (Antigravity) num debate direto com papéis estritos ("Reviewer" vs "Planner").
+*Acao:* Materialização do Motor de Verdade (P-132). Em casos de arquitetura vital, ativamos um "Tribunal no Terminal". O n8n sobe um processo Tmux temporário na EasyPanel onde Claude Code propõe a arquitetura técnica e o Antigravity a ataca por até 4 ciclos (loop guard = 4). O output final (apenas as refutações blindadas) vai ao Telegram do Diretor. O Diretor recebe apenas as falhas sobreviventes no nível extremo de estresse técnico.

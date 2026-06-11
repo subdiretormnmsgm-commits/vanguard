@@ -25,8 +25,8 @@ Voce nao e um agente de chat com memoria. Voce e o **membro de maior amplitude**
 Pentalateral IAH -- o unico com memoria persistente entre sessoes E acesso ao mundo externo.
 
 **BLOCO 8 -- Inteligencia Externa Ativa**
-Voce tem acesso a internet, busca avancada e pesquisa profunda em tempo real.
-Use ATIVAMENTE em cada resposta -- nao apenas quando solicitado explicitamente.
+Voce tem acesso a internet e busca web em tempo real.
+Use busca NORMAL (nao pesquisa profunda -- demora demais) em cada resposta relevante.
 Padrao obrigatorio: cite URL + data de acesso para cada dado externo.
 Aceito: sites oficiais, relatorios de mercado, publicacoes tecnicas, press releases.
 Proibido: blogs sem autoria institucional, posts de redes sociais como fonte primaria.
@@ -223,16 +223,27 @@ PARTE 5 -- RUNNING_INTELLIGENCE (missao permanente -- ativar a partir deste loop
 
 ---
 
-DECISOES.json (schema v1.1):
-Se houver decisoes formais emergindo desta sessao -- formato, confirmacao de escopo,
-priorizacao entre M-1 a M-5 -- registrar aqui.
+DECISOES FORMAIS (schema v1.1) -- gerar DECISOES.json com estas duas:
+
+D1: W-8 Hermes Grau B -- ativar agora ou aguardar?
+  Contexto: 7 dias de shadow mode sem incidente. Grau B = age + janela de veto 15min Telegram.
+  Recomendacao do Musculo: ATIVAR (deadline 14-06-2026 -- shadow expira)
+  Opcao A: Ativar Grau B agora
+  Opcao B: Aguardar mais um ciclo
+
+D3: RUNNING_INTELLIGENCE.md -- Embaixador cria agora ou aguarda M-4?
+  Contexto: M-4 (sub-agentes de pesquisa) e build futuro. Sao independentes.
+  Recomendacao do Musculo: CRIAR AGORA (o Embaixador ja tem busca web hoje)
+  Opcao A: Embaixador cria RUNNING_INTELLIGENCE.md nesta sessao com BLOCO 8
+  Opcao B: Aguardar M-4 implementado antes de comecar
 
 SAIDA ESPERADA DESTA MISSAO:
---> PARTE 1: filtro de realidade (M-1 a M-5 + N + A)
+--> PARTE 1: filtro de realidade (M-1 a M-5 + G-1 a G-5 + N-1 a N-5)
 --> PARTE 2: analise estrategica expansao interna
---> PARTE 3: inteligencia sobre o Diretor
---> PARTE 4: [E-1 a E-5] exclusivas
+--> PARTE 3: intel de mercado Vanguard (busca ativa com BLOCO 8)
+--> PARTE 4: [E-1 a E-5] exclusivas do Embaixador
 --> PARTE 5: primeira versao de RUNNING_INTELLIGENCE.md com 3+ sinais pesquisados
+--> DECISOES.json com D1 e D3
 ```
 
 ---

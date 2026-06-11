@@ -1,61 +1,128 @@
 {
   "schema_version": "1.0",
   "cliente": "VANGUARD",
-  "loop_atual": 31,
-  "loop_status": "FECHADO",
-  "fase_atual": "CONCLUIDO",
+  "loop_atual": 32,
+  "loop_status": "ABERTO",
+  "fase_atual": "ABERTURA",
+  "missao": "EXTERNO — Gate Zero P-133: captação 2ª candidata Ingrid · deadline 04-07-2026",
   "socios": {
     "gemini": {
-      "status": "OK",
-      "artefato": "CLIENTES/VANGUARD/HISTORICO/DIRETRIZ_V31_VANGUARD.md",
-      "data_conclusao": "2026-06-09",
-      "proximo": "Concluido.",
-      "nota": "DIRETRIZ V31 entregue."
+      "status": "PENDENTE",
+      "artefato": "",
+      "data_conclusao": "",
+      "proximo": "PASSO3_GEMINI.md Loop 32 → DIRETRIZ V32",
+      "nota": ""
     },
     "notebooklm": {
-      "status": "OK",
-      "artefato": "CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V31_VANGUARD.md",
-      "data_conclusao": "2026-06-10",
-      "proximo": "Concluido. Skill vanguard-v31.md APROVADA.",
-      "nota": "Deep Research WEB ativo. A-1/A-2/A-3 geradas."
+      "status": "PENDENTE",
+      "artefato": "",
+      "data_conclusao": "",
+      "proximo": "Após DIRETRIZ V32 → PASSO5 → Skill vanguard-v32.md",
+      "nota": ""
     },
     "embaixador": {
-      "status": "OK",
-      "artefato": "CLIENTES/VANGUARD/CLAUDE_PROJECT/RUNNING_INTELLIGENCE.md",
-      "data_conclusao": "2026-06-10",
-      "proximo": "Concluido. RUNNING_INTELLIGENCE.md criado (D3:A).",
-      "nota": "BLOCO 8 ativo. 4 sinais pesquisados com URL. E-1..E-5 entregues. Filtro de realidade completo."
+      "status": "PENDENTE",
+      "artefato": "",
+      "data_conclusao": "",
+      "proximo": "Após Músculo → PASSO7 → filtro de realidade Loop 32",
+      "nota": ""
     },
     "musculo": {
-      "status": "OK",
-      "artefato": "CLIENTES/VANGUARD/HISTORICO/DELIBERACAO_LOOP_V31_VANGUARD.md",
-      "data_conclusao": "2026-06-10",
-      "proximo": "Loop 31 FECHADO. Loop 32 abre EXTERNO (D4:A).",
-      "nota": "Sintese P-037 concluida. D1:A + D4:A vereditos do Diretor registrados."
+      "status": "EM_EXECUCAO",
+      "artefato": "CLIENTES/VANGUARD/HISTORICO/DELIBERACAO_LOOP_V32_VANGUARD.md",
+      "data_conclusao": "",
+      "proximo": "ATOs 1-6 em execução → PASSO3 → síntese P-037",
+      "nota": "ATOs 0-1 concluídos. PARTE A CLAUDE.md+GEMINI.md aplicados."
     }
   },
-  "vereditos_diretor": {
-    "D1": "A — Hermes Grau B ATIVAR (apos auditoria canal Telegram)",
-    "D3": "A — RUNNING_INTELLIGENCE.md criado (executado)",
-    "D4": "A — Loop 32 EXTERNO — Gate Zero P-133 ativo"
-  },
+  "vereditos_diretor": {},
+  "builds_aprovados_nao_iniciados": [
+    {
+      "id": "M-2",
+      "descricao": "LOOP TRANSCRIPT anti-amnésia (Delta ≤100 linhas)",
+      "origem": "Loop 31 DELIBERACAO",
+      "estimativa": "~2h",
+      "bloqueante": null,
+      "prioridade": 1
+    },
+    {
+      "id": "M-1+E-1",
+      "descricao": "Pergunta de Contexto Inicial + signal de temperatura do cliente",
+      "origem": "Loop 31 DELIBERACAO",
+      "estimativa": "~3h",
+      "bloqueante": null,
+      "prioridade": 2
+    },
+    {
+      "id": "G-2+W-10",
+      "descricao": "Gateway DIRETRIZ unificado + Workflow W-10",
+      "origem": "Loop 31 DELIBERACAO",
+      "estimativa": "~4h",
+      "bloqueante": "P-059 — só após 3 ferramentas bloqueantes",
+      "prioridade": 3
+    },
+    {
+      "id": "G-3+E-4",
+      "descricao": "DIRETRIZ_DELTA + filtro de realidade do Embaixador",
+      "origem": "Loop 31 DELIBERACAO",
+      "estimativa": "~3h",
+      "bloqueante": null,
+      "prioridade": 4
+    },
+    {
+      "id": "G-1+E-3",
+      "descricao": "Mapa de Soberania visual + INTELLIGENCE_SCORE",
+      "origem": "Loop 31 DELIBERACAO",
+      "estimativa": "~4h",
+      "bloqueante": null,
+      "prioridade": 5
+    },
+    {
+      "id": "G-5",
+      "descricao": "Snapshot quinzenal de Soberania",
+      "origem": "Loop 31 DELIBERACAO",
+      "estimativa": "~2h",
+      "bloqueante": null,
+      "prioridade": 6
+    },
+    {
+      "id": "M-4+A-2",
+      "descricao": "Budget Monitor de leitura + audit de custo de atenção do Diretor",
+      "origem": "Loop 31 DELIBERACAO",
+      "estimativa": "~3h",
+      "bloqueante": null,
+      "prioridade": 7
+    },
+    {
+      "id": "A-1",
+      "descricao": "Painel de navegação da IA (RUNNING_INTELLIGENCE + sinais)",
+      "origem": "Loop 31 DELIBERACAO",
+      "estimativa": "~4h",
+      "bloqueante": null,
+      "prioridade": 8
+    }
+  ],
   "loop_anterior": {
-    "numero": 30,
+    "numero": 31,
     "status": "FECHADO",
-    "data_fechamento": "2026-06-09"
+    "data_fechamento": "2026-06-10",
+    "p087_commitado": false
   },
   "gates": {
     "p045_memoria_anterior_existe": true,
-    "p037_deliberacao_concluida": true,
-    "p032_memoria_embaixador_atualizada": true,
-    "p087_resolve_commitado": false
+    "p037_deliberacao_concluida": false,
+    "p032_memoria_embaixador_atualizada": false,
+    "p087_resolve_commitado": false,
+    "p133_gate_zero_captacao": false
   },
-  "proxima_acao_diretor": "EasyPanel Terminal: sed -i 's/grau: A/grau: B/' /opt/data/config.yaml + restart hermes-agent (D1:A)",
-  "proxima_acao_musculo": "Commit de fechamento Loop 31 [RESOLVE: Loop 31] + abrir Loop 32 EXTERNO",
+  "proxima_acao_diretor": "Após ATOs 2-6: revisar PASSO3_GEMINI.md regenerado → levar ao Gemini para DIRETRIZ V32",
+  "proxima_acao_musculo": "ATO 2: doc_freshness_checker.ps1 · ATO 3: fix_bom_json.ps1 · ATO 4: pentalateral-firewall.md · ATO 5: build_budget_guard · ATO 6: LEDGER_INBOX.md",
   "alertas_criticos": [
-    "Antigravity 2.0: auditar Auto-continue antes do PASSO3 Loop 32",
-    "Canal Telegram: diagnosticar falha ANTES de ativar Grau B",
-    "Gate 04-07-2026: captacao 2a candidata Ingrid + prospecao Mumuzinho"
+    "BLOQUEANTE P-133: captação 2ª candidata Ingrid — deadline 04-07-2026",
+    "p087_resolve_commitado=FALSE: commit de fechamento Loop 31 [RESOLVE: Loop 31] pendente",
+    "W-1 cron ainda 1x/dia — deveria ser 3x (7h/13h/20h BRT)",
+    "3 ferramentas bloqueantes Antigravity ainda não existem (ATO 4)",
+    "CONSELHO/SUGESTOES_DIRETOR.md: deletado no git, não commitado"
   ],
   "ultima_atualizacao": "2026-06-10"
 }

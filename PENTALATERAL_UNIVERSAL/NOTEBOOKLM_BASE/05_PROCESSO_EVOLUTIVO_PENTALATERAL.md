@@ -620,3 +620,11 @@ Status: PENDENTE / VALIDADO / REVERTIDO
 - **Looping 2 completo:** transição "Conselho manual → sistema nervoso autônomo" — o Diretor para de transportar
 - **PASSO5 Auditor Sistêmico:** sessão NotebookLM separada para auditoria do sistema Vanguard (não de cliente)
 - **pentalateral-atualizacao-v2.md:** skill do Auditor Sistêmico — audita os dois loopings e mapeia o delta V27
+
+### [2026-06-10] — V29/L32 — HERMES GRAU B + ANTIGRAVITY EXECUTOR + RUNNING_INTELLIGENCE
+- **Hermes Grau B ATIVO:** D1:A executado — Hermes age e confirma em 15min (Grau A era fase inicial com aprovação prévia obrigatória)
+- **Antigravity = EXECUTOR do Estrategista:** nomenclatura corrigida — Gemini é o Estrategista (raciocínio + DIRETRIZ); Antigravity é o braço executor; jamais gera DIRETRIZ de loop (veredito Diretor 2026-06-10)
+- **RUNNING_INTELLIGENCE.md:** novo artefato do Embaixador — inteligência persistente com decaimento de 90 dias; substitui modelo de memória plana por sinais com prazo de validade
+- **P-143 a P-147:** novos princípios do Loop 31 — Budget de Leitura (P-147), motor de verdade triangulado (P-132/P-143), Dois Sócios com busca web (P-144), LOOP TRANSCRIPT anti-amnésia (P-141)
+- **Loop 32 EXTERNO — Gate Zero P-133:** captação 2ª candidata Ingrid · deadline 04-07-2026 — loop não fecha sem próximo cliente confirmado
+- **LOOP_STATE_SCHEMA v1.1:** campo `builds_aprovados_nao_iniciados` rastreia builds aprovados nunca iniciados (8 herdados do Loop 31); `missao` descreve tipo do loop (INTERNO/EXTERNO); `p133_gate_zero_captacao` gate obrigatório

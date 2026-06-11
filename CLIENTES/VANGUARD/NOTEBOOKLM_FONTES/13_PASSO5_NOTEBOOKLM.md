@@ -1,130 +1,281 @@
-# PASSO 5 — AUDITOR (NOTEBOOKLM) · VANGUARD UNIVERSAL
-# Sessão: 2026-06-09 · Loop 30 · PODA JOBS + DEMO VISIONÁRIO + MCP
-# COMO USAR (fluxo atual — manual): rodar .\scripts\preparar_notebooklm_projeto.ps1 -cliente VANGUARD
-#            arrastar fontes → no chat colar apenas: "Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill."
-# VISAO FUTURA (JOIA-1 V30 — DIRETRIZ DO DIRETOR): este PASSO deve ser levado de forma REMOTA,
-#            ligando-se ao Auditor via MCP — sem arrastar arquivos, sem copiar/colar manualmente.
-#            A construção do servidor MCP NotebookLM é prioridade V30 que elimina este fluxo manual.
-# IDIOMA OBRIGATÓRIO: todo output do Auditor deve ser em português.
+# PASSO 5 -- AUDITOR (NOTEBOOKLM) · VANGUARD UNIVERSAL
+# Sessao: 2026-06-09 · Loop 31 · EXPANSAO DA INTELIGENCIA INTERNA DO PENTALATERAL
+# COMO USAR (fluxo atual -- manual): rodar .\scripts\preparar_notebooklm_projeto.ps1 -cliente VANGUARD
+#            arrastar fontes --> no chat colar apenas: "Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill."
+# VISAO FUTURA (JOIA-1 -- Loop 31): este PASSO sera levado de forma REMOTA via MCP
+#            ligando-se ao Auditor via notebooklm-py -- sem arrastar arquivos, sem colar manualmente.
+# IDIOMA OBRIGATORIO: todo output do Auditor deve ser em portugues.
 
 ---
 
-## PROTOCOLO ANTI-ALUCINAÇÃO — ATIVAR ANTES DE QUALQUER ANÁLISE
+## [CAPACIDADES DO AUDITOR -- DEEP RESEARCH ATIVO]
 
-Auditor, o Pentalateral IAH mapeou suas deficiências nativas. Auto-aplique:
-- Regra do Nutricionista: peso máximo ao LEDGER. P-134 é o mais recente (2026-06-09).
-- Proibição de Análise Genérica: cada afirmação cita numero de princípio, versão ou padrão. Genérico = inválido.
-- Tensão Ativa: auditar, não validar. Se a DIRETRIZ V30 viola o LEDGER — diga, com evidência.
-- Filtro de Recência: P-131 a P-134 (2026-06-09) prevalecem sobre anteriores em conflito.
+> Esta secao e permanente -- nao muda por loop. Leia antes de qualquer analise.
+
+Voce nao e apenas uma biblioteca de consulta. Voce e um **Intelligence Engine** com
+capacidades que vao alem de responder perguntas sobre as fontes carregadas:
+
+**Deep Research -- pesquisa ativa na web**
+Voce pode realizar pesquisas profundas na internet, ancoradas nas suas fontes internas.
+Use quando o Musculo enviar research queries especificas (PARTE 6 deste PASSO).
+Padrao obrigatorio: cite URL + data de acesso para cada dado externo. Nenhuma
+afirmacao de mercado e aceita sem fonte verificavel.
+
+**Fontes do caderno VANGUARD -- historico V1 a V31**
+Voce tem acesso a 18 documentos internos da Vanguard + fontes YouTube (Loop 30: 5 videos +
+Loop 31: 5 novos videos adicionados nesta sessao). Use o historico completo -- nao apenas
+os documentos mais recentes. Padroes antigos (V1-V15) frequentemente revelam o que os
+novos nao veem.
+
+**Anti-Alucinacao estrutural -- sua maior forca**
+Voce so afirma o que esta nas suas fontes ou no que pesquisou ativamente. Isso e o
+que torna voce unico no Pentalateral. Nunca extrapole alem das fontes -- sinalize
+explicitamente quando uma afirmacao e inferencia vs evidencia.
+
+**Geracao de documentos adicionais**
+Alem da Skill de loop, voce pode gerar relatorios, briefings e documentos estruturados.
+Neste loop, voce entregara um BRIEFING DE ESTADO DA ARTE (PARTE 7) alem da Skill.
+
+---
+
+## PROTOCOLO ANTI-ALUCINACAO -- ATIVAR ANTES DE QUALQUER ANALISE
+
+Auditor, o Pentalateral IAH mapeou suas deficiencias nativas. Auto-aplique:
+- Regra do Nutricionista: peso maximo ao LEDGER. P-139 e o mais recente (2026-06-09).
+- Proibicao de Analise Generica: cada afirmacao cita numero de principio, versao ou padrao real. Generico = invalido.
+- Tensao Ativa: auditar, nao validar. Se os M-1 a M-5 violam o LEDGER -- diga, com evidencia.
+- Filtro de Recencia: P-136 a P-139 (2026-06-09) prevalecem sobre anteriores em conflito.
 - MANIFESTO_DE_FONTES: declare o que tem e o que ficou de fora antes de analisar.
 
 ---
 
 ## CONTEXTO DA CONSULTA
 
-Sistema: Pentalateral IAH — Vanguard Tech (Loop 30 · Abertura)
-Evento: Aplicação da Poda Jobs nas 91 sugestões do Diretor. Pipeline de clientes ZERO.
-P-133 é gate de 1a classe: Loop 30 não fecha sem status de discovery do 3o cliente.
+Sistema: Pentalateral IAH -- Vanguard Tech (Loop 31 · Abertura)
+Missao do loop: expandir a inteligencia interna do sistema Pentalateral -- nao clientes.
+Lacuna central identificada: o sistema nao se mede, nao se otimiza e nao fecha seus
+proprios ciclos de aprendizado.
 
-Decisões já tomadas neste loop:
-1. DIRETRIZ V30 entregue pelo Estrategista (Antigravity). 4 JOIAS identificadas.
-2. Demo Visionário é a estratégia central de pipeline (G-5 Time-Machine + G-1 Audit-Bait).
-3. Músculo propõe nicho EdTech/Ingrid V2 para o Demo (timing prova 09/09 + Gate D5).
-4. G-2 Skill-Share reposicionado pelo Músculo: publicar Artifacts, nunca Skills internas (C-5 Jobs).
-5. G-3 Chrome Extension reposicionado: widget/iframe embeddable (sem instalação no cliente).
-6. Custo MCP NotebookLM: realista 4-6 sessões (servidor comunitário não-oficial, não nativo).
-7. LACUNA P-133: canal de distribuição do Demo não definido — Embaixador responde no PASSO7.
-
-Princípios novos inscritos no Loop 29 (peso soberano):
-- P-131: Diretor ativo em todo o processo; silêncio nao é aprovação
-- P-132: Diversidade de engines = Motor de Verdade; triangulação cega
-- P-133: Gate Zero de Pipeline — loop não fecha sem discovery do 3o cliente
-- P-134: Item aberto vive em PENDING_REVIEW/PENDENTES, nunca na memória de turno
+Novos videos adicionados ao caderno nesta sessao (Loop 31):
+- Multi Agent Systems Explained (IBM Technology) -- https://youtube.com/watch?v=sWH0T4Zez6I
+- Orchestrating Complex AI Workflows (IBM Technology) -- https://youtube.com/watch?v=OFq_CvRCpA0
+- Multi Agent AI Way Easier (n8n) -- https://youtube.com/watch?v=lW5xEm7iSXk
+- The Missing Layer -- Supermemory (Better Stack) -- https://youtube.com/watch?v=GETMfbGWc0k
+- Learn the basics of Google Antigravity (Google Antigravity) -- https://youtube.com/watch?v=nTOVIGsqCuY
 
 ---
 
-## IDEIAS A AUDITAR — DIRETRIZ V30 DO ESTRATEGISTA
+## IDEIAS A AUDITAR -- M-1 a M-5 DO MUSCULO (Loop 31)
 
-[JOIAS aprovadas — auditar se resistem ao LEDGER]
-- JOIA-1: Conexão NotebookLM via MCP (Triângulo Programático)
-- JOIA-2: Antigravity Manager Surface + Artifacts (Protótipos visuais)
-- JOIA-3: Skill /ultrathink (protocolo pré-PASSO3)
-- JOIA-4: Demo Visionário (EdTech ou LegalTech — nicho a decidir)
+[M-1] LOOP SCOREBOARD
+session_close.ps1 calcula 5 metricas por loop: Taxa de Novidade, Densidade de Principios,
+Taxa de Violacao, Tempo de Ciclo, Score de Divergencia. SYSTEM_HEALTH.md lido em 30s.
+ATENCAO (Estrategista): adicionar metrica obrigatoria de Cost Attribution/Token Burn Rate.
+Sem custo, o Scoreboard e cego para Runaway Costs (falha #1 em multi-agentes reais).
 
-[Ideias disruptivas G-1 a G-5 do Estrategista — auditar]
-- G-1: Audit-Bait (LeadMagnet — Auditor processa PDFs públicos, Antigravity gera Artifact)
-- G-2: Skill-Share Premium [MÚSCULO ALERTA: publicar Artifacts, não Skills internas]
-- G-3: UI Injector [MÚSCULO ALERTA: iframe/widget, não Chrome Extension]
-- G-4: Pentalateral Lite Sandbox (e-mail → bot → síntese automática)
-- G-5: Time-Machine (calculadora de custo financeiro do tempo perdido — ancoragem P-108)
+[M-2] LOOP TRANSCRIPT
+session_close.ps1 gera LOOP_TRANSCRIPT_V[N].md com todas as ideias, disposicoes finais,
+arquivos criados e outputs de skills. Transcript vira fonte permanente no caderno VANGUARD.
+Imunidade a amnesia de compactacao.
 
-[M-1 a M-5 do Músculo — Loop 30]
-- M-1: Cowork como "Mao Direita" do Embaixador [Estrategista rebaixou para V31 — confirmar?]
-- M-2: Poda Jobs como filtro do backlog V30
-- M-3: NotebookLM via MCP: Triângulo de Verdade Programático
-- M-4: /ultrathink como protocolo pré-PASSO3
-- M-5: Pipeline Zero é o gargalo real — Demo Visionário como estratégia P-133
+[M-3] PASSO3 AUTO-CALIBRAVEL
+DECISAO DO ESTRATEGISTA: mover para Loop 32. Risco de Reward Hacking se o Musculo scorer
+o proprio PASSO3 (LLM-as-a-Judge fraco). Entrada condicional na V32 com Chain-of-Verification
+e Scorer cruzado (Auditor avalia, nao o Musculo).
+
+[M-4] AUDITOR COMO INTELLIGENCE ENGINE
+Deep Research ativado com 5 research queries por loop + BRIEFING DE ESTADO DA ARTE.
+Audicao deve incluir: validar fontes com criterio anti-SEO (Reflection antes de aceitar fonte).
+
+[M-5] EMBAIXADOR INTELLIGENCE LOOP
+BLOCO 8 completamente ativado. RUNNING_INTELLIGENCE.md acumula inteligencia competitiva
+entre loops. Em 6 loops: repositorio automatico.
 
 ---
 
-## MISSÃO PARA O AUDITOR
+## IDEIAS A AUDITAR -- G-1 a G-5 DO ESTRATEGISTA (Diretriz V31 · Antigravity)
 
-PARTE 1 — AUDITORIA DE COERÊNCIA
-As 4 JOIAS e G-1 a G-5 contradizem o LEDGER (P-001 a P-134)?
+[G-1] PENTALATERAL RED TEAMING (O Teste de Quebra)
+1x/mes: Antigravity instanciado como "Atacante". Missao: gerar Diretriz persuasiva que
+esconde violacao deliberada ao P-059 ou P-121. Teste: Musculo e Auditor conseguem flagrar?
+Se passar, o firewall e fraco.
 
-Questões críticas:
-(a) JOIA-1 (NotebookLM via MCP): a conexão programática Músculo-Auditor via MCP reconcilia P-129 (elo aberto) com P-124 (checkpoint humano)? Qual é o checkpoint exato nessa topologia?
-(b) G-1 (Audit-Bait com PDFs públicos): PDFs de editais/diários oficiais violam P-119 (dado público nao é intenção de compra)? Ou essa é uma aplicação legítima de Lead Magnet ancorado em fonte real?
-(c) G-4 (Pentalateral Lite Sandbox): bot que responde e-mail de prospecto com síntese automática — viola P-121 (automação não iniciada pelo cliente = risco de churn)? O prospecto iniciou ao enviar o e-mail — isso muda a análise?
-(d) Demo Visionário EdTech/Ingrid V2: usar os dados do sistema Ingrid para construir um demo coloca em risco P-059 (isolamento de contexto)? Ou o demo usa dados sintéticos/anonimizados?
-(e) /ultrathink como protocolo: há alguma restrição no LEDGER que limite quando usar pensamento profundo? Custo de tokens dobra (estimativa do Estrategista) — isso viola algum princípio de eficiência?
+[G-2] SKILL-DRIFT RADAR
+Subagente no session_start cruza ultimos 5 LOOP_TRANSCRIPT. Se o Musculo resolveu o mesmo
+tipo de bug de forma identica 3 vezes: "Fadiga de Sistema Detectada -- isso deveria ter
+virado Automacao".
 
-PARTE 2 — CONEXÃO HISTÓRICA
-(a) V16 (Visual Authority) falhou com demos estéticos sem dados reais. O Demo Visionário V30 tem dado real (corpus Supabase Ingrid/Valdece) — isso muda o padrão de sucesso?
-(b) V24 tentou Claude daemon autônomo e falhou. O G-4 (Pentalateral Lite Sandbox) é semelhante ou diferente? Por quê?
-(c) V27/V28 provaram que o n8n como orquestrador passivo funciona. O Audit-Bait (G-1) pode usar n8n como trilho sem virar câmara de eco?
-(d) Qual o padrão histórico de adoção de integrações técnicas complexas (MCP, APIs externas) no sistema Vanguard? Quais falharam, quais deram certo?
+[G-3] VEREDITO ENRIQUECIDO DO DIRETOR
+Telegram integra notas de voz do Diretor (ex: "Aprovo o A porque UX do B nao serve para EdTech").
+Embaixador faz STT, extrai o "Porque" estrutural, injeta na calibracao do sistema.
+Menos digitacao, mais contexto de alta densidade.
 
-PARTE 3 — SKILL DO AUDITOR
-Nome da Skill: vanguard-v30.md
-4 blocos obrigatórios (sem acento, verificados por skill_parser_gate.ps1):
+[G-4] BIBLIOTECA DINAMICA DE FEW-SHOT PROMPTS
+Quando loop recebe Score 5 no Scoreboard, Antigravity recorta inputs e outputs perfeitos
+e adiciona como few-shot examples para prompts de tarefas similares nos proximos loops.
+
+[G-5] ORACULO DE CHURN (Previsao via Embaixador)
+Telemetria do app do cliente (ex: Valdece) conectada ao Embaixador. Queda sutil de 10%
+no uso -> Embaixador emite alerta RUNNING_INTELLIGENCE com estrategia de Hypercare Ativo
+antes do cliente notar a insatisfacao.
+
+---
+
+## PONTOS CRITICOS DO ESTRATEGISTA (auditar com prioridade maxima)
+
+[CRITICO-1] REWARD HACKING no M-3:
+O Musculo como scorer do proprio PASSO3 leva a notas altas para prompts genericos (Reward Hacking).
+O Estrategista descartou essa versao. Auditor: confirmar o risco com evidencia historica do LEDGER.
+Ha precedente em V1-V30 de auto-avaliacao que falhou desta forma?
+
+[CRITICO-2] CEGUEIRA FINANCEIRA no M-1:
+SYSTEM_HEALTH sem metrica de custo e cego para Runaway Costs -- falha #1 em sistemas multi-agentes.
+Auditar: o session_close.ps1 atual consegue capturar tokens/custo por loop? Qual o gap tecnico?
+
+[CRITICO-3] VAZAMENTO DE CONTEXTO na Auto-Calibracao:
+Auto-calibracao cruzando dados de projetos diferentes viola P-059 mortalmente.
+Auditar: a extracao deve ser puramente semantica/estrutural. Existe tecnica documentada para isso?
+
+---
+
+## MISSAO PARA O AUDITOR
+
+### PARTE 1 -- AUDITORIA DE COERENCIA
+
+Os M-1 a M-5 contradizem o LEDGER (P-001 a P-139)?
+
+Questoes criticas:
+(a) M-1 (LOOP SCOREBOARD): as 5 metricas propostas sao realmente mensuraveis pelo session_close.ps1?
+    A "Taxa de Novidade" pode ser calculada automaticamente ou exige julgamento humano?
+    Qual metrica tem maior risco de ser um indicador lagging vs leading?
+
+(b) M-2 (LOOP TRANSCRIPT): o transcript gerado automaticamente viola P-134 (item aberto vive
+    em PENDENTES, nunca em memoria de turno)? Ou o transcript e exatamente o oposto --
+    a formalizacao que P-134 exige?
+    Risco: transcript muito verboso = ruido que dilui o foco do Auditor.
+
+(c) M-3 (PASSO3 AUTO-CALIBRAVEL): score 1-5 dado pelo Musculo sobre seu proprio PASSO3 cria
+    vies de avaliacao. Como neutralizar? Ha precedente historico de auto-avaliacao funcional?
+
+(d) M-4 (DEEP RESEARCH): o Deep Research ancora resultados nas fontes do caderno ou pode trazer
+    dados nao verificados? Qual o limite do que pode ser afirmado com base em Deep Research?
+
+(e) M-5 (RUNNING_INTELLIGENCE): o Embaixador acumulando inteligencia sem intervencao do Diretor
+    viola P-131 ou P-124? Como o Diretor mantem controle sem virar barramento manual?
+
+### PARTE 2 -- CONEXAO HISTORICA
+
+(a) V1 a V30: algum loop anterior tentou medir a qualidade do proprio loop? Como terminou?
+(b) O sistema ja teve algum mecanismo de feedback que foi abandonado? Por que?
+(c) O LEDGER tem algum principio (P-001 a P-100) que relido agora sugere um eixo de
+    expansao que os M-1 a M-5 nao capturaram?
+(d) Qual o padrao historico de sucesso de automacoes que tocam o proprio processo do Pentalateral?
+
+### PARTE 3 -- SKILL DO AUDITOR
+
+Nome da Skill: vanguard-v31.md
+4 blocos obrigatorios (sem acento, verificados por skill_parser_gate.ps1):
 ## [AUDITORIA DE COERENCIA]
 ## [CONEXAO HISTORICA]
 ## [PADRAO DE SUCESSO/FALHA]
 ## [PERSPECTIVA DO SOCIO]
 
-PARTE 4 — [N-1 a N-5] (adicionar às do Estrategista)
-N-1: A topologia MCP Músculo-Auditor tem log explícito e falha ruidosamente? (falha silenciosa = padrão V24)
-N-2: O Demo Visionário usa dados sintéticos ou reais de Ingrid/Valdece? Como garantir P-059?
-N-3: O G-1 Audit-Bait (Auditor processa PDFs públicos) tem gate de qualidade — quem valida o Artifact antes de chegar ao lead?
-N-4: O /ultrathink deve ser obrigatório em quais etapas e opcional em quais? Definir o protocolo preciso.
-N-5: O canal de distribuição do Demo (lacuna P-133) — o Auditor tem alguma evidência histórica de qual canal de prospecção funcionou no contexto Vanguard?
+### PARTE 4 -- [N-1 a N-5]
 
----
+N-1: O LOOP SCOREBOARD deve ser calculado automaticamente ou com curadoria humana em algum ponto?
+     Qual das 5 metricas tem maior risco de medir o processo e nao o resultado?
 
-## PARTE 5 — AMPLIAR (OBRIGATÓRIO — além de auditar, o Auditor expande)
+N-2: O LOOP TRANSCRIPT resolve a amnesia de compactacao ou cria excesso de fonte que dilui o foco?
+     Qual o tamanho maximo util de um transcript para o Auditor processar eficientemente?
 
-Esta seção é a diferença entre um Auditor que reage e um Auditor que co-cria.
-O Músculo e o Estrategista propuseram M-1 a M-5 e G-1 a G-5. Você tem acesso ao
-histórico de V1 a V29 e a 33 fontes externas. Você enxerga padrões que eles não viram.
+N-3: O PASSO3 AUTO-CALIBRAVEL pressupoe que o Musculo sabe avaliar se o Estrategista trouxe
+     angulo novo. Ha evidencia historica de que essa avaliacao funciona sem vies de confirmacao?
 
+N-4: O RUNNING_INTELLIGENCE.md acumula indefinidamente ou tem janela de validade?
+     Dados de inteligencia competitiva de 6 meses atras ainda sao relevantes para o loop atual?
+
+N-5: Qual o risco de o sistema se tornar tao introspectivo (medindo a si mesmo) que perca
+     o contato com o mercado? Ha sinal de que isso ja esta acontecendo no historico V1-V30?
+
+### PARTE 5 -- AMPLIAR (obrigatorio -- alem de auditar, o Auditor expande)
+
+Esta secao e a diferenca entre um Auditor que reage e um Auditor que co-cria.
 Produza pelo menos 3 ideias marcadas [A-1] [A-2] [A-3]:
-- Devem ser NOVAS — não repetir nenhum M, G ou N anterior
-- Devem estar ancoradas em evidência histórica (V-X) ou fonte externa (citação)
-- Devem ser relevantes para V30: aumentar MRR, reduzir custo do Diretor, ou destravar P-133
-- Devem respeitar o LEDGER — se violarem um P-XXX, dizer qual e por que é superável
+- Devem ser NOVAS -- nao repetir nenhum M anterior
+- Devem estar ancoradas em evidencia historica (V-X) ou fonte do caderno (citacao)
+- Devem ser relevantes para Loop 31: expandir inteligencia interna do sistema
+- Devem respeitar o LEDGER -- se violarem um P-XXX, dizer qual e por que e superavel
 
-Perguntas geradoras para o Auditor:
-(a) Que conexão entre as 4 JOIAS o Músculo não enxergou? (MCP + Demo + /ultrathink juntos = o que?)
-(b) O histórico Vanguard tem algum padrão de sucesso que foi subutilizado e se encaixa em V30?
-(c) Há alguma fonte externa (33 fontes carregadas) com insight que os M, G e N não capturaram?
-(d) O LEDGER tem algum princípio antigo (P-001 a P-100) que, relido à luz do V30, abre uma oportunidade nova?
+Perguntas geradoras:
+(a) Os 5 videos novos do caderno (IBM, n8n, Better Stack, Google Antigravity) -- o que revelam
+    sobre o estado da arte que os M-1 a M-5 nao capturaram?
+(b) Qual principio do LEDGER esta sendo menos usado e poderia ser alavancado?
+(c) Onde o historico Vanguard (V1-V30) mostra uma capacidade construida mas nunca explorada?
 
 ---
 
-## INSTRUÇÃO FINAL AO DIRETOR (pós-output do Auditor)
+### PARTE 6 -- DEEP RESEARCH (5 queries -- pesquisar ativamente)
 
-- [ ] Salvar PARTES 1+2+4+5 em: CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V30_VANGUARD.md
-- [ ] Salvar PARTE 3 (Skill) em: .claude/skills/vanguard-v30.md
-- [ ] Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\vanguard-v30.md"
-- [ ] Colar [N-1 a N-5] + [A-1 a A-3] no PASSO7_EMBAIXADOR.md SEÇÃO D antes de ir ao Embaixador
+Use suas capacidades de Deep Research para cada query abaixo.
+Padrao obrigatorio: cite URL + data de acesso. Nenhum dado de mercado sem fonte.
+
+[QUERY-1] Estado da arte de sistemas multi-agente com memoria persistente (2025-2026)
+Pesquisar: quais arquiteturas de memoria persistente estao em producao?
+Quais falharam e por que? O que diferencia os que funcionam dos que nao funcionam?
+Entregavel: 3-5 achados com URL + impacto direto para o Pentalateral.
+
+[QUERY-2] Ferramentas de medicao de qualidade de outputs LLM em producao
+Pesquisar: como empresas reais medem se seus agentes LLM estao melhorando ou degradando?
+Quais metricas sao usadas -- automaticas vs humanas? Quais ferramentas open-source existem?
+Entregavel: tabela de ferramentas + metrica + caso de uso + URL.
+
+[QUERY-3] Padroes de falha em sistemas de 4+ LLMs coordenados
+Pesquisar: pesquisa academica ou casos documentados de falha em sistemas multi-LLM.
+Quais sao as falhas mais comuns? Como o LLM Council (Karpathy) endereca isso?
+Entregavel: lista de 3-5 padroes de falha + antidoto + URL da fonte.
+
+[QUERY-4] MCP em producao: casos reais de sucesso e falha documentados
+Pesquisar: empresas que implantaram MCP em producao em 2025-2026.
+O que funcionou? O que falhou silenciosamente? Quais servidores MCP tem mais de 1000 downloads?
+Entregavel: 3-5 casos reais com URL + licao aprendida para o Pentalateral.
+
+[QUERY-5] Sistemas de auto-melhoria em agentes IA: o que e tecnicamente viavel hoje
+Pesquisar: ha sistemas de agente que se auto-melhoram sem intervencao humana em producao?
+Quais sao os limites tecnicos atuais? O que e possivel com os LLMs de 2026?
+Entregavel: snapshot do estado da arte com links + o que e viavel vs especulativo.
+
+---
+
+### PARTE 7 -- BRIEFING DE ESTADO DA ARTE (documento adicional obrigatorio)
+
+**Alem da Skill vanguard-v31.md, gere um documento separado:**
+
+Titulo: BRIEFING_ESTADO_ARTE_SISTEMAS_AGENTES_LOOP31.md
+
+## [ESTADO DA ARTE -- JUNHO 2026]
+O que e tecnicamente verdade hoje sobre sistemas multi-agente (fontes verificadas).
+3-5 afirmacoes com URL + data. Sem especulacao.
+
+## [GAPS DO PENTALATERAL vs ESTADO DA ARTE]
+O que o mercado ja faz que o Pentalateral ainda nao faz?
+O que o Pentalateral faz que o mercado ainda nao faz?
+Tabela: CAPACIDADE | PENTALATERAL | MERCADO | GAP.
+
+## [AMEACAS E OPORTUNIDADES -- PROXIMOS 90 DIAS]
+Com base nas fontes + Deep Research:
+- O que pode tornar o Pentalateral obsoleto em 90 dias?
+- Qual e a janela de oportunidade que fecha em 90 dias?
+
+## [RECOMENDACAO DO AUDITOR]
+Com base em tudo: qual e o investimento de 1 loop que maior ROI traz para a
+inteligencia interna do sistema? Resposta ancorada em evidencia -- nao opiniao.
+
+---
+
+## INSTRUCAO FINAL AO DIRETOR (pos-output do Auditor)
+
+- [ ] Salvar PARTES 1+2+4+5+6 em: CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V31_VANGUARD.md
+- [ ] Salvar PARTE 3 (Skill) em: .claude/skills/vanguard-v31.md
+- [ ] Salvar PARTE 7 (Briefing) em: CLIENTES/VANGUARD/HISTORICO/BRIEFING_ESTADO_ARTE_LOOP31.md
+- [ ] Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\vanguard-v31.md"
+- [ ] Colar [N-1 a N-5] + [A-1 a A-3] no PASSO7_EMBAIXADOR.md SECAO D antes de ir ao Embaixador

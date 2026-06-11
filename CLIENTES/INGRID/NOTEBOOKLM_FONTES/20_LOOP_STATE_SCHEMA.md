@@ -1,6 +1,6 @@
-# LOOP_STATE — Schema Universal v1.0
+# LOOP_STATE — Schema Universal v1.1
 > Documento: `PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.md`
-> Versão: 1.0 · Criado: 2026-06-07 · Pentalateral IAH
+> Versão: 1.1 · Criado: 2026-06-07 · Atualizado: 2026-06-10 · Pentalateral IAH
 > Uso: template universal copiado para `CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json` por cliente
 
 ---
@@ -19,11 +19,12 @@ O LOOP_STATE é o arquivo de estado de loop por cliente. Resolve o problema de a
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| `schema_version` | string | Versão do schema (atualmente "1.0") |
+| `schema_version` | string | Versão do schema (atualmente "1.1") |
 | `cliente` | string | Nome do cliente em MAIÚSCULAS (INGRID, VALDECE, VANGUARD) |
 | `loop_atual` | número | Número do loop em curso |
-| `loop_status` | enum | Estado geral do loop: `CONCLUIDO` / `EM_BUILD` / `BLOQUEADO` |
-| `fase_atual` | enum | Fase ativa: `GEMINI_PENDENTE` / `NOTEBOOKLM_PENDENTE` / `EMBAIXADOR_PENDENTE` / `MUSCULO_PENDENTE` / `LOOP_ENCERRADO` |
+| `loop_status` | enum | Estado geral do loop: `ABERTO` / `CONCLUIDO` / `EM_BUILD` / `BLOQUEADO` / `FECHADO` |
+| `fase_atual` | enum | Fase ativa: `ABERTURA` / `GEMINI_PENDENTE` / `NOTEBOOKLM_PENDENTE` / `EMBAIXADOR_PENDENTE` / `MUSCULO_PENDENTE` / `LOOP_ENCERRADO` / `CONCLUIDO` |
+| `missao` | string | Missão do loop atual — tipo INTERNO ou EXTERNO + objetivo + deadline se aplicável |
 
 ---
 
@@ -61,8 +62,38 @@ Gates de processo que devem ser verdadeiros antes de fechar o loop.
 | `p037_deliberacao_concluida` | P-037 | Síntese Músculo pós-Embaixador gerada antes do DECISOES.json |
 | `p032_memoria_embaixador_atualizada` | P-032 | MEMORIA_EMBAIXADOR atualizada no mesmo dia dos vereditos |
 | `p087_resolve_commitado` | P-087 | Commit com `[RESOLVE: keyword]` realizado |
+| `p133_gate_zero_captacao` | P-133 | Gate Zero: descoberta do próximo cliente confirmada antes de fechar loop |
 
 **Regra:** `pre_loop_action.ps1` valida todos os gates antes de avançar para novo loop.
+
+---
+
+### Bloco LOOP_ANTERIOR
+
+Registra o estado do loop encerrado imediatamente anterior — referência histórica e evidência do gate P-045.
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| `numero` | número | Número do loop anterior |
+| `status` | enum | `FECHADO` / `CONCLUIDO` |
+| `data_fechamento` | string | Data de fechamento no formato YYYY-MM-DD |
+| `p087_commitado` | boolean | Commit `[RESOLVE:]` foi realizado para o loop anterior |
+
+---
+
+### Campo BUILDS_APROVADOS_NAO_INICIADOS
+
+Array de builds que o Diretor aprovou mas que nunca foram iniciados. Persiste entre loops — rastreia dívida de execução.
+
+| Campo por item | Tipo | Descrição |
+|---|---|---|
+| `id` | string | Identificador do build (ex: "M-2", "G-1+E-3") |
+| `descricao` | string | Descrição do build aprovado |
+| `prioridade` | enum | `ALTA` / `MEDIA` / `BAIXA` |
+| `estimativa` | string | Tempo estimado de execução (ex: "2h", "30min") |
+| `bloqueante` | boolean | Se `true`: bloqueia abertura de novo loop enquanto pendente |
+
+**Regra:** ao iniciar qualquer build desta lista, remover o item do array e registrar tarefa em PENDENTES.md com `[RESOLVE: keyword]`.
 
 ---
 
@@ -124,7 +155,7 @@ Informações de contexto do cliente no momento da última atualização.
 |---|---|---|---|
 | INGRID | `CLIENTES/INGRID/CLAUDE_PROJECT/LOOP_STATE.json` | Loop 8 | CONCLUIDO |
 | VALDECE | `CLIENTES/VALDECE/CLAUDE_PROJECT/LOOP_STATE.json` | Loop 7 | CONCLUIDO + HYPERCARE até 2026-06-18 |
-| VANGUARD | `CLIENTES/VANGUARD/CLAUDE_PROJECT/LOOP_STATE.json` | Loop 29 | EM_BUILD |
+| VANGUARD | `CLIENTES/VANGUARD/CLAUDE_PROJECT/LOOP_STATE.json` | Loop 32 | ABERTO |
 
 ---
 

@@ -2212,8 +2212,207 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Antidoto:** o proprio CLAUDE.md item 14 (P-031 Embaixador como filtro de realidade) e a ORDEM DO PROCESSO (Passo 5 -> Passo 6 -> Passo 7 -> sintese) sao o firewall. Musculo que pula etapas do processo = DEF-M-6 (Reativo por antecipacao) em vez de DEF-M-6 (Reativo por demanda).
 **Aplica-se a:** todo loop, todo projeto, toda DIRETRIZ recebida de qualquer socio.
 
+## P-135 -- VANGUARD E UNICO SISTEMA COM 4 LLMs EM CONSELHO COORDENADO -- DIFERENCIAL ABSOLUTO (2026-06-09)
+**Origem:** observacao direta do Diretor apos busca YT-SEARCH sobre multi-agent AI systems (2026-06-09). O mercado documenta pares -- o Vanguard opera conselho completo.
+**Principio:** nenhum canal, paper ou tutorial documenta 4 LLMs distintos (Claude Code + Gemini/Antigravity + NotebookLM + Claude Projects) operando em conselho deliberativo coordenado com papeis fixos, sequencia inviolavel e protocolo de veredito humano em cada gate. Pares sao comuns -- conselho completo e exclusivo do Vanguard.
+**Implicacao estrategica:** o diferencial comercial nao e "usa IA" -- e "opera com 4 LLMs em conselho, cada um com papel unico, com veredito humano em cada decisao". Moat real = arquitetura + disciplina + Pentalateral como metodologia. Impossivel de copiar rapidamente.
+**Como usar:** Demo Visionario, Audit-Bait, pitch, proposta -- sempre posicionar o CONSELHO como diferencial, nao as ferramentas individualmente. Cliente nao compra Claude -- compra o sistema que ninguem mais tem.
+**Aplica-se a:** toda comunicacao comercial, positioning, P-133 (pipeline), Demo Visionario (JOIA-4).
+
+## P-137 -- MAPA DE SKILLS POR GATE DO PENTALATERAL (2026-06-09)
+**Origem:** avaliacao de 6 skills externas (ultrathink-trigger, insights, brainstorming, writing-plans, mcp-builder, find-skills) antes da sintese P-037 do Loop 30.
+**Skills instaladas e mapeadas por gate:**
+  SINTESE P-037:     ultrathink-trigger (P-136, obrigatorio) + brainstorming (exploracao socrática dos 25 inputs) + writing-plans (estruturar plano final)
+  FECHAMENTO:        insights (metricas de correcao e aprendizado — acionar no session_close)
+  BUILD MCP (Loop 31+): mcp-builder (Anthropic oficial — 4 fases — usar quando implementar notebooklm-mcp-cli / JOIA-1)
+  find-skills:       NAO EXISTE em vercel-labs/agent-skills — repositorio tem apenas skills Vercel/React. Ignorar este link.
+**Sequencia ideal P-037:** receber Embaixador → ultrathink ativo → brainstorming (explorar convergencias/exclusoes entre M+G+N+E) → writing-plans (plano consolidado) → DECISOES.json → Diretor delibera.
+**Como usar:** ao iniciar qualquer gate do Pentalateral, consultar este P-137 antes de escolher a skill. Nao inventar sequencia — usar o mapa.
+**Aplica-se a:** todos os gates do Pentalateral, especialmente P-037 e BUILD de MCP.
+
+**ADENDO (2026-06-09) — mcp-builder NAO liga Claude Code ao Antigravity:**
+mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). Antigravity e outro agente LLM — ligar via MCP eliminaria P-131 (gate de veredito humano) e P-037 (sintese pelo Conselho). Canal correto para Claude Code + Antigravity = tmux Cross-Model Tribunal (A-3 do Loop 30): debate direto com papeis estritos, loop guard = 4, output final ao Diretor via Telegram.
+  Claude Code → NotebookLM  = mcp-builder (JOIA-1/N-1 Loop 31)
+  Claude Code ↔ Antigravity = tmux Tribunal (A-3)
+  Antigravity → Músculo     = PASSO3 → DIRETRIZ → gate Diretor (processo normal)
+
+## P-136 -- ULTRATHINK E OBRIGATORIO NA SINTESE P-037 -- SKILL VALIDADA (2026-06-09)
+**Origem:** avaliacao das skills ultrathink-trigger.md e insights.md antes da sintese P-037 do Loop 30.
+**Principio:** a sintese P-037 (consolidar 25 inputs M+G+N+E em 1 plano) pontuou peso 11 na tabela ultrathink-trigger (threshold = 5). Razao: architecture decision (+4) + multi-domain (+2) + breaking change potential (+3) + files > 5 (+2). NAO viola P-006 porque P-006 proibe ultrathink para Classe A (rotineiras) -- sintese P-037 e Classe C (Fundacional). Confirmado pelo Auditor no N-4 do Loop 30.
+**Situacoes aprovadas:** (a) Passo 3 Gemini, (b) sintese P-037, (c) Discovery de novo cliente -- e APENAS essas.
+**Skill insights.md:** aplicavel no fechamento de sessao para metricas de correcao e aprendizado -- nao enriquece deliberacao tecnica.
+**Como usar:** ao receber Secao D do Embaixador e iniciar P-037, aplicar raciocinio maximo. Calcular peso se houver duvida.
+**Aplica-se a:** toda sintese P-037, todo Discovery Classe C, todo gate fundacional.
+
+## P-138 — VALDECE PRIMEIRO: DEMO NO NICHO DE CLIENTE ATIVO EXIGE PRÉ-AVISO ANTES DE PUBLICAR (2026-06-09)
+**Origem:** Embaixador [E-2] Loop 30 — inteligência de cliente não presente em nenhum outro membro.
+**Fundamento:** Valdece é simultaneamente cliente ativo E canal de distribuição da Vanguard no nicho LegalTech. Se ele descobrir por terceiros que a Vanguard lançou um produto gratuito no "nicho dele", o risco não é reclamação — é silêncio + churn + canal fechado permanentemente. Nenhum membro (Gemini/NotebookLM/Músculo) identificou este risco. O Embaixador identificou porque tem memória comportamental persistente do cliente.
+**Princípio:** Antes de publicar qualquer Demo, Artifact ou Audit-Bait no nicho de um cliente ativo, o Diretor informa o cliente diretamente — e convida à co-autoria. O cliente vira embaixador (P-008), não vítima.
+**Protocolo E-2 (3 etapas antes de publicar qualquer Demo no nicho de cliente ativo):**
+  1. Verificar WIP_BOARD: há cliente ativo neste nicho?
+  2. Se sim → Diretor informa antes de publicar (janela mínima: 48h antes)
+  3. Framing: "Estamos construindo um Demo de aquisição para expandir no nicho. Você tem interesse em ser o primeiro a ver / dar feedback / indicar?"
+**Aplica-se a:** qualquer nicho onde já existe cliente pagante ou em piloto. Sempre antes de publicar demo, artifact ou audit-bait acessível externamente.
+**Gate:** E-4 (checklist de identidade do Demo) deve incluir pergunta: "Há cliente ativo neste nicho? Se sim, E-2 foi executado?"
+
+---
+
+## P-139 — VITRINE VS COFRE: LINHA OBRIGATÓRIA ANTES DO PRIMEIRO ARTIFACT PÚBLICO (2026-06-09)
+**Origem:** contradição identificada entre G-2 (Skill-Share Premium — Artifacts públicos para atrair leads) e H-V6 (Máquina de Conhecimento Soberana — banco gigante como IP proprietário). Nenhum membro resolveu a contradição antes desta inscrição.
+**O problema:** sem a linha traçada, o primeiro Artifact público pode extrair do cofre (banco soberano = moat competitivo) achando que é vitrine (amostra de capacidade). Uma vez público, o conteúdo do cofre se torna referência aberta — o moat vaza.
+**Definições:**
+  VITRINE (publicável): outputs sintéticos e anônimos — análises, diagnósticos, relatórios gerados sobre dados PÚBLICOS. Nunca revela o método de geração, nunca usa corpus de cliente real.
+  COFRE (interno): o LEDGER, os princípios P-XXX, o LOOP_STATE, as Skills de cliente, a metodologia do Pentalateral. Esses são o moat real — não se publicam nunca, nem como "exemplo de saída".
+**Linha operacional (Gate antes de publicar qualquer Artifact):**
+  1. Este conteúdo foi gerado com dados PÚBLICOS ou com corpus de cliente/sistema interno?
+  2. Se corpus interno → COFRE → proibido de publicar
+  3. Se dados públicos → VITRINE → publicável com namespace sintético
+  4. Dúvida → COFRE por padrão
+**Aplica-se a:** todo Artifact, Demo, Audit-Bait, Skill-Share público gerado pelo Pentalateral. O Gate E-4 inclui esta verificação como pergunta obrigatória.
+
+---
+
 ## P-134 -- ITEM ABERTO VIVE EM PENDING_REVIEW/PENDENTES, NUNCA NA MEMORIA DE TURNO (2026-06-09)
 **Origem:** auto-correcao do Embaixador no Loop 29 -- deixou cair 3 missoes de inteligencia entre a 1a reacao e a consolidada (a pior: Watch de Edital Ingrid, prazo duro 06/09) -- + observacao do Diretor.
 **Principio:** missao de inteligencia, pendencia ou decisao em aberto que so exista na conversa sera perdida no fechamento. Toda missao aberta e inscrita em PENDING_REVIEW (intel) ou PENDENTES.md (operacional) no MESMO turno em que nasce. Extensao de P-076 (pendente nao registrado nao existe) para a camada de inteligencia externa.
 **Aprovado pelo Diretor:** 2026-06-09 (D10:APROVAR).
 **Aplica-se a:** todo membro que gere missao/pendencia -- especialmente o Embaixador, cuja memoria de turno e volatil entre reacoes.
+
+---
+
+## P-140 — WORKFLOW DE ABERTURA DE LOOP: YT-ENRICHMENT + EXPANSAO LMM + BRIEFING (2026-06-09)
+**Origem:** Loop 31 -- sessao reconstruiu workflow perdido no compacto de contexto porque estava apenas no chat. Diretor: "Registre em ferramenta que nunca mais esqueca."
+**Workflow obrigatorio ao abrir qualquer loop VANGUARD (executar ANTES de escrever os PASSOs):**
+  1. YT-SEARCH: rodar 3 buscas com queries do tema do loop. Selecionar top 5 por autoridade (canal + views + data recente).
+  2. notebooklm source add <URL> para cada video selecionado. Auditor entra no loop com fontes atualizadas.
+  3. PASSO3 DEVE conter secao [CAPACIDADES DO ESTRATEGISTA] permanente: Manager Surface, Deep Research, Artifacts visuais, background agents, @ file reading, contexto longo.
+  4. PASSO5 DEVE conter secao [CAPACIDADES DO AUDITOR] permanente: Deep Research ativo, geracao de documentos adicionais, anti-alucinacao estrutural, 5 research queries do loop, PARTE 7 (BRIEFING DE ESTADO DA ARTE).
+  5. PASSO7 DEVE conter secao [CAPACIDADES DO EMBAIXADOR] permanente: BLOCO 8 completo, memoria persistente, analise comportamental do Diretor, RUNNING_INTELLIGENCE.md.
+**Regra de ouro:** as secoes [CAPACIDADES] NAO mudam por loop -- sao permanentes. Ao reescrever qualquer PASSO, verificar se as secoes permanentes estao presentes antes de gravar.
+**Por que e critico:** perda das capacidades do Antigravity no compacto gerou retrabalho e frustração do Diretor. Secoes em arquivo = imunes ao compacto.
+**Aplica-se a:** abertura de todo loop VANGUARD. Para projetos cliente: adaptar queries para o nicho.
+
+---
+
+## P-147 — BUDGET DE LEITURA DO DIRETOR E REGRA PERMANENTE (2026-06-10)
+**Origem:** E-2 do Embaixador — "Com 10 projetos vão colapsar." O Embaixador identificou que cada loop adiciona artefatos que exigem leitura voluntária do Diretor, sem limite estrutural.
+**Princípio:** Todo artefato novo proposto em qualquer loop deve declarar seu custo de atenção do Diretor (em "itens de atenção voluntária por sessão"). O sistema tem um teto — estourou o teto, algo existente é podado antes do novo entrar. É a Poda Jobs (Loop 30) como regra permanente, não como evento.
+**Regra operacional:** Ao propor qualquer novo documento, dashboard ou artefato de leitura, o Músculo declara: "Este artefato exige X min/semana do Diretor." Se o total acumulado ultrapassar o teto acordado → propor o que será podado em troca.
+**Aplica-se a:** abertura de qualquer loop. Ao propor M/G/N/E que resulte em novo documento de leitura recorrente.
+
+---
+
+## P-146 — DOCUMENTAR SEM AUTOMATIZAR E REPETIR O ERRO (2026-06-10)
+**Origem:** "Todos os erros desta sessao devem ser tratados com ferramentas que automatizem as acoes, nao tao somente os registros." — Diretor detectou que o LEDGER acumula principios mas os erros se repetem porque nenhuma ferramenta os previne.
+**Principio:** Todo erro que gera um P-XXX DEVE gerar tambem um script ou gate que impede a recorrencia. Se nao houver ferramenta, o P-XXX e decoracao. Sequencia obrigatoria ao detectar erro:
+  (1) Inscrever P-XXX no LEDGER (registro — necessario mas nao suficiente)
+  (2) Adicionar ao PENDENTES.md o BUILD da ferramenta que previne (bloqueante — sem isso, P-XXX nao fecha)
+  (3) Ao construir a ferramenta → marcar P-XXX como IMPLEMENTADO com link para o script
+**Exemplos desta sessao:**
+  P-143 (anti-esquecimento) → [CHECKLIST DO MUSCULO] no PASSO5 template + skill_parser_gate Gate
+  P-144 (dois socios com busca web) → checklist bloqueante no PASSO5 com "Deep Research WEB clicado"
+  P-145 (event-driven) → update_memoria_embaixador.ps1 chamado no PASSO5.5 e PASSO7.5
+  BOM UTF-8 (3a ocorrencia) → fix_bom_json.ps1 integrado ao session_close Gate 1
+**Aplica-se a:** todo novo P-XXX derivado de erro operacional. Principios de arquitetura nao precisam de ferramenta — principios de processo SIM.
+
+---
+
+## P-145 — ATUALIZACAO DE DOCUMENTOS E EVENT-DRIVEN, NAO APENAS SESSION-DRIVEN (2026-06-10)
+**Origem:** "Nao pode ser so session_close. Tem que ser uma etapa depois do PASSO5." — Diretor identificou que com 10+ projetos simultaneos, esperar o session_close para atualizar MEMORIA_EMBAIXADOR e documentos de estado gera colapso.
+**Principio:** Apos cada interacao com um socio (PASSO3, PASSO5, PASSO7), o Musculo executa imediatamente um "PASSO X.5" de atualizacao de documentos. O session_close faz auditoria leve — nao e a unica janela de atualizacao.
+**Sequencia obrigatoria:**
+  PASSO3 (Gemini entrega DIRETRIZ) → PASSO3.5: atualizar LOOP_STATE.json (gemini=OK) + WIP_BOARD (loop_fase_atual)
+  PASSO5 (Auditor entrega Skill) → PASSO5.5: atualizar LOOP_STATE.json (notebooklm=OK) + MEMORIA_EMBAIXADOR (achados N-1..N-5) + WIP_BOARD
+  PASSO7 (Embaixador entrega SECAO D) → PASSO7.5: atualizar LOOP_STATE.json (embaixador=OK) + MEMORIA_EMBAIXADOR (achados E-1..E-5 + comportamento) + WIP_BOARD
+  session_close → Gate 6B: verificar que TODOS os PASSOs foram atualizados (ja nao e o unico momento)
+**Por que importa:** MEMORIA_EMBAIXADOR ficou 2 loops sem atualizar no Loop 31. Com 10 projetos, o atraso multiplica. Atualizar no momento certo — enquanto o contexto esta fresco — e mais preciso e sustentavel.
+**Aplica-se a:** todos os projetos, todos os loops. LOOP_STATE.json + MEMORIA_EMBAIXADOR + WIP_BOARD.
+
+---
+
+## P-144 — DOIS SOCIOS TEM PESQUISA AVANCADA WEB — USAR OBRIGATORIAMENTE (2026-06-10)
+**Origem:** Diretor confirmou que tanto Auditor (NotebookLM) quanto Embaixador (Claude Projects) tem pesquisa avancada na internet. Musculo nao ativou nenhuma das duas no Loop 31.
+**Diferenca critica entre os dois:**
+  AUDITOR (NotebookLM) — Deep Research WEB:
+    Clica o botao "Deep Research" na interface → pesquisa a internet → GERA NOVAS FONTES no caderno.
+    Essas fontes ficam PERSISTENTES e enriquecem todas as analises futuras.
+    O Musculo clica via Playwright ANTES de enviar o PASSO5 — porque demora e gera fontes.
+    Fluxo: clicar botao → aguardar fontes serem adicionadas → enviar comando PASSO5.
+  EMBAIXADOR (Claude Projects) — Busca Avancada:
+    Pesquisa a internet durante a resposta → cita URLs direto no texto.
+    Nao gera arquivos persistentes — e uma pesquisa em tempo real.
+    Ativado via instrucao no PASSO7: "USE SUA CAPACIDADE DE BUSCA AGORA."
+    BLOCO 8 no PASSO7 ja esta configurado para isso.
+**Principio 2 — RELATORIO NATIVO:** Apos a resposta do Auditor no chat, executar: `notebooklm generate report --format briefing-doc` — gera documento formatado como artefato separado do BRIEFING DE ESTADO DA ARTE (PARTE 7).
+**Checklist obrigatorio no PASSO5 a partir do Loop 32:**
+  (1) Clicar botao Deep Research WEB via Playwright (PRIMEIRO — antes de qualquer coisa)
+  (2) Aguardar Deep Research completar e fontes serem adicionadas ao caderno
+  (3) Enviar comando PASSO5 com todas as PARTES (Auditor usa fontes novas da web)
+  (4) Apos resposta: notebooklm generate report --format briefing-doc
+  (5) Salvar AUDITOR_LOOP_V[N].md + Skill + relatorio nativo
+**Checklist PASSO7 — Embaixador:** incluir instrucao explicita "USE SUA CAPACIDADE DE BUSCA AGORA" com fontes requeridas por tarefa. BLOCO 8 ja esta no template.
+**Aplica-se a:** todos os loops a partir do 32. Loop 31 = evidencia da falha dupla.
+
+## P-143 — FERRAMENTA AUTOMATICA ANTI-ESQUECIMENTO DO MUSCULO (2026-06-10)
+**Origem:** "Temos que ter alguma ferramenta automatica que nao deixe voce esquecer." Diretor detectou que o Musculo esqueceu o relatorio nativo e o Deep Research web.
+**Principio:** Cada PASSO file contem um bloco [CHECKLIST DO MUSCULO] com itens BLOQUEANTES. O Musculo nao pode declarar o PASSO concluido sem marcar cada item. skill_parser_gate.ps1 valida PASSO5 — se faltam itens do checklist, exit 1.
+**Implementacao:**
+  (a) Adicionar [CHECKLIST DO MUSCULO] ao PASSO5_NOTEBOOKLM_TEMPLATE.md
+  (b) skill_parser_gate.ps1 verifica checklist no PASSO5 antes de executar
+  (c) session_close.ps1 Gate 6D: AUDITOR_LOOP_V[N] + relatorio nativo obrigatorios
+**Aplica-se a:** PASSO3, PASSO5, PASSO7 de todos os projetos. Template universal atualizado a partir do Loop 32.
+
+## P-142 — NOTEBOOKLM E 100% REMOTO — MUSCULO OPERA VIA PLAYWRIGHT (2026-06-10)
+**Origem:** Diretor confirmou multiplas vezes que toda operacao NotebookLM e executada remotamente pelo Musculo. "Voce insere tudo remotamente. Ja determinei que voce faca isso. Mandei registrar. Toda essa atividade e remota."
+**Principio:** O Musculo NUNCA pede ao Diretor para arrastar arquivos, fazer upload, colar comandos no chat ou interagir com o NotebookLM. Tudo e feito via Playwright (browser_file_upload, browser_click, browser_type, browser_press_key).
+**Ordem obrigatoria de operacao:** (1) Enviar COMANDO de Deep Research PRIMEIRO — inicia o processo longo imediatamente. (2) Enquanto o Auditor processa, atualizar arquivos de fundo (deletar fontes antigas, fazer upload das novas). Nao bloquear o inicio do Deep Research por gestao de arquivos.
+**Aplica-se a:** NotebookLM VANGUARD (d7dab0e1) e todos os cadernos de clientes. Sem excecao.
+**Ferramentas:** mcp__plugin_playwright_playwright__browser_* — carregadas via ToolSearch no inicio da sessao se nao disponiveis.
+
+## [FALHA-PROCESSO-2026-06-10-A] SKILLS ERRADAS AO ANALISAR SECAO D — RECORRENTE POS-COMPACTACAO
+**Origem:** Sessao 2026-06-10. Ao analisar SECAO D do Embaixador (Loop 31), o Musculo invocou mcp-builder e notebooklm em vez das 3 skills corretas: ultrathink-trigger → brainstorming → writing-plans.
+**Por que acontece:** apos compactacao, o Musculo perde o contexto das skills corretas. O padrao esta na memoria mas nao num gatilho automatico antes da acao.
+**Antidoto implementado:** check_skills_embaixador.ps1 criado (P-146). Memoria feedback_skills_ao_analisar_embaixador.md atualizada.
+**Antidoto necessario:** gate no inicio da analise de SECAO D — verificar se as 3 skills foram invocadas ANTES de apresentar conteudo.
+
+## [FALHA-PROCESSO-2026-06-10-B] VOLUME DE DELIBERACAO SEM CONVERSAO EM BUILD
+**Origem:** Sessao 2026-06-10. 6h de sessao. 3 builds tecnicos entregues. 0 dos builds aprovados no DECISOES.json (M-2, M-1+E-1, G-2+W-10) iniciados. Antigravity: 0 acionamentos.
+**Diagnostico do Diretor:** "Dois loopings e nada." O padrao e deliberacao de alta qualidade sem produto entregue.
+**Causa raiz:** ausencia de time-boxing por build. Sem gatilho que force transicao de DELIBERACAO para BUILD.
+**Antidoto:** se 90 minutos de sessao sem commit de feature, Musculo auto-alerta: "Nenhum build nos ultimos 90 minutos — qual codigo escrevo agora?" Loop 32 aplica: build primeiro, deliberacao depois.
+
+## [FALHA-PROCESSO-2026-06-10-C] ANTIGRAVITY PARADO A SESSAO INTEIRA
+**Origem:** Sessao 2026-06-10. Estrategista nao foi acionado. Diretor: "E o Antigravity, nada?"
+**Principio violado:** P-075 — cada membro do Pentalateral tem papel obrigatorio no loop.
+**Antidoto:** ao iniciar sessao com loop ativo, PASSO3 com Antigravity e item BLOQUEANTE do MAPA DIARIO. Se meia sessao sem PASSO3, auto-alerta.
+
+## [FALHA-PROCESSO-2026-06-10-D] WIP_BOARD 3 LOOPS ATRASADO
+**Origem:** Sessao 2026-06-10. WIP_BOARD declarava Loop 29 quando sessao estava no Loop 31.
+**Principio violado:** P-027 — atualizar WIP_BOARD imediatamente ao concluir etapa, nao no session_close.
+**Antidoto:** WIP_BOARD nao atualizado no momento da etapa = etapa nao concluida. session_close bloqueia se WIP > 1 loop atrasado.
+
+## [FALHA-PROCESSO-2026-06-10-E] TOKEN HERMES MORTO DESDE IMPLANTACAO
+**Origem:** Sessao 2026-06-10. Token morto (7914321985) hardcoded no Hermes config.yaml. Declarado "ativo" sem teste ao vivo.
+**Principio violado:** P-010 — gate sem evidencia e invalido.
+**Antidoto:** ao implantar sistema com canal externo (Telegram, email, webhook), o gate de ativacao exige mensagem de teste RECEBIDA antes de declarar ATIVO.
+
+## [FALHA-PROCESSO-2026-06-10-F] BOM SILENCIOSO NO WIP_BOARD — MULTIPLAS SESSOES
+**Origem:** Sessao 2026-06-10. BOM (EF BB BF) no WIP_BOARD.json quebrando ChurnWatch n8n em silencio por multiplas sessoes.
+**Antidoto:** validate_scripts.ps1 inclui verificacao de BOM em .json criticos. Ao criar .json critico no Windows, usar WriteAllBytes com encoding explicito sem BOM.
+
+## [FALHA-PROCESSO-2026-06-10-G] DEF-M-6 — MUSCULO DETERMINOU ENCERRAMENTO
+**Origem:** Sessao 2026-06-10. Musculo disse "va dormir" — determinou o estado do Diretor e da sessao.
+**Principio violado:** fechamento e prerrogativa exclusiva do Diretor (CLAUDE.md + P-114).
+**Antidoto:** nunca usar linguagem que determine estado do Diretor. Correto: "Diretor, chegamos ao protocolo de fechamento — deseja encerrar agora?"
+
+## P-141 — LOOP TRANSCRIPT: IMUNIDADE ESTRUTURAL A AMNESIA DE COMPACTACAO (2026-06-09)
+**Origem:** terceira ocorrencia de perda de trabalho por compactacao (Loop 30: capacidades Antigravity; Loop 29: missoes Embaixador; Loop 31: workflow YT + PASSO files). Padrao recorrente = falha estrutural.
+**Principio:** todo trabalho que nao esta em arquivo em disco nao existe. Workflow, secoes de capacidades e instrucoes que so existem no chat sao conteudo morto.
+**Solucao obrigatoria:** session_close.ps1 gera CLIENTES/[CLIENTE]/HISTORICO/LOOP_TRANSCRIPT_V[N].md com:
+  (a) Todas as ideias M/G/N/A/E com disposicao final (APROVADO / V+1 / DESCARTADO)
+  (b) Arquivos criados/modificados com resumo do conteudo critico
+  (c) Skills usadas e outputs que nao podem ser perdidos
+  (d) Checklist: secoes [CAPACIDADES] presentes em PASSO3/5/7?
+  (e) Score do loop (5 metricas SYSTEM_HEALTH quando implementado)
+**O transcript torna-se fonte permanente no caderno do Auditor.** O Auditor le os ultimos 3 transcripts antes de gerar a Skill. Continuidade garantida apos compactacoes.
+**Aplica-se a:** todos os projetos, todos os loops. Prioridade de implementacao: Loop 31.

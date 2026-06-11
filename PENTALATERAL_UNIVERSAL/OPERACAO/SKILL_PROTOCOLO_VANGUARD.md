@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.9 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 a P-117 (2026-06-07) · Gate 1.6 bloqueante + P-087 + P-090 + P-118 (2026-06-07) · Audit P-070 a P-101 adicionados (2026-06-07) · INTELLIGENCE HUB + Antigravity + LOOP_STATE + W-9 + P-119 a P-127 (2026-06-09)**
+**Versão da Skill:** 7.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 a P-117 (2026-06-07) · Gate 1.6 bloqueante + P-087 + P-090 + P-118 (2026-06-07) · Audit P-070 a P-101 adicionados (2026-06-07) · INTELLIGENCE HUB + Antigravity + LOOP_STATE + W-9 + P-119 a P-127 (2026-06-09) · Antigravity = EXECUTOR do Estrategista (Gemini) + Hermes Grau B + RUNNING_INTELLIGENCE + P-128 a P-147 (2026-06-10)**
 
 ---
 
@@ -75,9 +75,9 @@ N8N:              Sistema Nervoso Autônomo (EasyPanel — 24/7) [adicionado V26
 
 HERMES AGENT:     Motor Autonomo 24/7 (EasyPanel -- ativo desde 2026-06-07)
   └── Papel: Executor autonomo entre sessoes. Responde no Telegram 24h. Graus A/B/C.
-  └── Grau A: age apenas com /aprovar do Diretor (atual)
-  └── Grau B: age + da 15min para veto (futuro -- apos validacao)
-  └── Grau C: autonomo + loga tudo (futuro -- apos Grau B estavel)
+  └── Grau A: age apenas com /aprovar do Diretor (histórico — superado 2026-06-10)
+  └── Grau B: age + dá 15min para veto no Telegram (ATUAL — D1:A executado 2026-06-10)
+  └── Grau C: autônomo + loga tudo (futuro — exige Grau B validado)
   └── Host: EasyPanel projeto hermes/hermes-agent · Modelo: claude-sonnet-4-6 via OpenRouter
   └── Telegram: @Eduardo431Vanguardbot · Config: /opt/data/config.yaml (volume persistido)
   └── W-8 shadow mode expira: 2026-06-14 --> avaliar ativacao plena

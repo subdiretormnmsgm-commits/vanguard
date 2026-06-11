@@ -133,6 +133,69 @@
 - [x] `2026-06-06` ~~**V28 — [DIRETOR] Supabase: criar tabela silenced_signals_log:**~~
   ✅ Tabela criada com RLS — "Success. No rows returned" confirmado pelo Diretor 2026-06-07.
 
+### 🔧 LOOP 31 — ERROS → FERRAMENTAS (P-146: documentar sem automatizar = repetir o erro)
+
+- [ ] `2026-06-10` **[MÚSCULO] fix_bom_json.ps1 — eliminar BOM UTF-8 de todos os .json (3ª ocorrência)** [musculo]
+  Erro: WIP_BOARD.json com BOM quebra ChurnWatch (W-5), Notion sync (P-128), session_start.
+  Terceira vez em 6 semanas — documentar não basta.
+  O que construir:
+  (a) `scripts/fix_bom_json.ps1` — remove BOM de todo .json no repo + valida encoding UTF-8 sem BOM
+  (b) Integrar ao session_close.ps1 Gate 1: rodar fix_bom automaticamente antes de qualquer sync
+  (c) Integrar ao validate_scripts.ps1: checar BOM em .json além de .ps1
+  (d) Commit automático após correção com [RESOLVE: bom-json]
+  Custo: ~30min. Elimina classe inteira de falhas silenciosas de automação.
+
+- [ ] `2026-06-10` **[MÚSCULO] update_memoria_embaixador.ps1 — atualização event-driven (P-145)** [musculo]
+  Erro: MEMORIA_EMBAIXADOR ficou 2 loops desatualizada (Loop 30 + 31). Gate 6B só alerta, não age.
+  O que construir:
+  (a) `scripts/update_memoria_embaixador.ps1 -cliente [X] -passo [5|7]`
+      Extrai do LOOP_STATE + AUDITOR_LOOP_V[N] ou SECAO_D os achados do sócio concluído
+      Acrescenta seção "[DATA] Loop N — sócio Y concluído: [resumo]" ao LOG DE CONTATOS
+      Atualiza D2 (temperatura) e Gates automaticamente
+  (b) PASSO5.5: chamado automaticamente após salvar AUDITOR_LOOP_V[N].md
+  (c) PASSO7.5: chamado automaticamente após colar SEÇÃO D
+  (d) session_close Gate 6B: exit 1 se NENHUM dos dois scripts rodou na sessão com vereditos
+  Custo: ~2h. Escala para 10 projetos sem colapso.
+
+- [ ] `2026-06-10` **[MÚSCULO] [CHECKLIST DO MÚSCULO] bloqueante no PASSO5 template (P-143)** [musculo]
+  Erro: Deep Research WEB não clicado antes do PASSO5 + relatorio nativo esquecido (Loop 31).
+  P-143 registrado mas template não atualizado — registro sem ferramenta é decoração.
+  O que construir:
+  (a) Adicionar bloco ao `PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md`:
+      ```
+      ## [CHECKLIST DO MÚSCULO — BLOQUEANTE]
+      - [ ] Deep Research WEB clicado via Playwright (ANTES de enviar PASSO5)
+      - [ ] Aguardado até fontes aparecerem no caderno
+      - [ ] PASSO5 enviado com todas as PARTES
+      - [ ] notebooklm generate report --format briefing-doc executado
+      - [ ] AUDITOR_LOOP_V[N]_[CLIENTE].md salvo em HISTORICO/
+      - [ ] Skill [nome].md salva em .claude/skills/ e validada por skill_parser_gate
+      - [ ] update_memoria_embaixador.ps1 rodado (PASSO5.5)
+      ```
+  (b) skill_parser_gate.ps1: verificar se PASSO5 tem [CHECKLIST DO MÚSCULO] — exit 1 se ausente
+  (c) Propagar para PASSO3 e PASSO7 templates com checklists equivalentes
+  Custo: ~1h. Protege contra DEF-M-6 por esquecimento estrutural.
+
+- [ ] `2026-06-10` **[MÚSCULO] session_close Gate 6A — MEMORIA + relatorio obrigatórios ANTES de fechar** [musculo]
+  Erro: MEMORIA_V31 e relatorio_V31 escritos APÓS compactação de contexto (P-045 quase violado).
+  O que construir: session_close.ps1 Gate 6A:
+  (a) Para cada projeto com loop_status=ABERTO no LOOP_STATE.json:
+      verificar se `HISTORICO/MEMORIA_V[N]_[CLIENTE].md` existe
+      verificar se `HISTORICO/relatorio_evolutivo_V[N]_[CLIENTE].md` existe
+  (b) Se ausentes → exit 1 BLOQUEANTE: "Feche o Loop [N] antes de encerrar: MEMORIA + relatorio ausentes."
+  (c) Exceção: se LOOP_STATE.fase_atual = "AGUARDA_EMBAIXADOR" → alerta não-bloqueante (loop ainda aberto)
+  Custo: ~30min. Garante que P-045 é cumprido antes do contexto ser compactado.
+
+- [ ] `2026-06-10` **[MÚSCULO] Expandir doc_freshness_checker para CLAUDE_PROJECT/ (TIMELINE + MEMORIA_EMBAIXADOR)** [musculo]
+  Erro: CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md desatualizado (detectado pelo Diretor, não pelo sistema).
+  Liga ao doc_freshness_checker.ps1 do backlog V30 — mas esta expansão é urgente:
+  (a) Adicionar à lista RASTREADO: CLIENTES/*/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md
+  (b) Adicionar: CLIENTES/*/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_*.md
+  (c) Threshold: stale se >1 loop sem update (não >3 dias — loops têm cadência variável)
+  Custo: ~30min se doc_freshness_checker já existir. Caso contrário: parte do épico V30.
+
+---
+
 ### 🧭 BACKLOG V30 — registrado no fechamento do Loop 29 (P-134)
 
 - [ ] `2026-06-XX` **[V30 ÉPICO] Máquina de Conhecimento Soberana — canais → FONTES → Auditor → banco gigante** [musculo] — BACKLOG, aguarda Diretor abrir V30

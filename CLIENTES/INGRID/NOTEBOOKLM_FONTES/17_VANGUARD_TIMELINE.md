@@ -1,4 +1,4 @@
-﻿# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
+# VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
 > Criado: 2026-05-17 | Última atualização: 2026-06-10
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.

@@ -14,7 +14,7 @@ PROJETO: PROJ-000 — VANGUARD
   Stack     : Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)
   Deadline  : 
   Status    : BUILD
-  Loop atual: Loop 29 -- EM BUILD
+  Loop atual: Loop 29 FECHADO -- V29 Motor de Verdade -- P-131/132/133/134 inscritos
 
 ==============================
 COLUNA: CHECK

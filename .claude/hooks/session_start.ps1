@@ -755,7 +755,7 @@ if ($contextoSessao)    { $sections = @("## CONTEXTO DA ULTIMA SESSAO (MEMORIA C
 $notionInbox = $null
 $notionPull  = $null
 try {
-    $scriptsDir  = Join-Path (Split-Path -Parent $PSScriptRoot) "scripts"
+    $scriptsDir  = Join-Path $projectDir "scripts"
     $inboxScript = Join-Path $scriptsDir "notion_inbox.ps1"
     $pullScript  = Join-Path $scriptsDir "notion_pendentes_pull.ps1"
     $sb   = { param($s) (& $s 2>$null | Out-String) }   # chamada direta no runspace do job (sem powershell.exe aninhado -- ~40% mais rapido)

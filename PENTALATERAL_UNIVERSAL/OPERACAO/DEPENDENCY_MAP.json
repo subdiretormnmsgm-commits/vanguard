@@ -249,7 +249,7 @@
             "gates",
             "contexto_snapshot"
           ],
-          "nota": "Criado 2026-06-07. Instancias existem para INGRID, VALDECE e VANGUARD. pre_loop_action.ps1 valida. post_loop_action.ps1 atualiza."
+          "nota": "Criado 2026-06-07. Schema v1.1 (2026-06-10): adiciona missao, loop_anterior, builds_aprovados_nao_iniciados, p133_gate_zero_captacao. Propagavel via TEMPLATE_COM_INSTANCIA. Instancias em CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json. pre_loop_action.ps1 valida. post_loop_action.ps1 atualiza."
         }
       ]
     },
@@ -278,7 +278,8 @@
         "PASSO7_*.md",
         "REGISTRO_DE_PREMISSAS.md",
         "CANDIDATOS_A_PRINCIPIO.md",
-        "LOOP_STATE.json"
+        "LOOP_STATE.json",
+        "RUNNING_INTELLIGENCE.md"
       ]
     },
     "INTEL_LOOP": {

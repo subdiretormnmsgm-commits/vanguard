@@ -24,7 +24,7 @@ Hermes é o motor autônomo 24/7 do Pentalateral IAH. Roda na nuvem (EasyPanel),
 | `/custo` | Custos de API / infra do mês | W-7 Cérebro de Bolso |
 | `/veredito` | Próximos vereditos pendentes de decisão | W-7 Cérebro de Bolso |
 | `/ok NOME` | Registra contato com o cliente (para ChurnWatch) | W-7 — NOVO ✅ |
-| `/aprovar N` | Aprova ação pendente número N do Hermes Agent | Hermes Agent (Grau A) |
+| `/aprovar N` | Aprova ação pendente número N do Hermes Agent | Hermes Agent (Grau B) |
 
 ---
 
@@ -90,7 +90,7 @@ O Hermes Agent é diferente dos workflows n8n. É uma IA que pensa e age.
 1. Você envia mensagem no Telegram
 2. Hermes lê seus documentos de skill (`/opt/data/skills/`)
 3. Hermes analisa e propõe uma ação
-4. **Grau A:** aguarda `/aprovar N` antes de executar
+4. **Grau B ATIVO (D1:A 2026-06-10):** age + confirma em 15min
 
 ### Skills carregadas no Hermes
 - `pentalateral-graus-abc.md` — regras de delegação A/B/C ✅ (carregado 2026-06-07)
@@ -99,8 +99,8 @@ O Hermes Agent é diferente dos workflows n8n. É uma IA que pensa e age.
 
 | Grau | Comportamento | Quando usar |
 |------|--------------|------------|
-| **A (atual)** | Propõe → aguarda `/aprovar N` | Fase inicial — cada ação é revisada |
-| **B** | Age → confirma em 15 min | Tarefas rotineiras aprovadas |
+| **A** | Propõe → aguarda `/aprovar N` | Fase inicial — cada ação é revisada |
+| **B (ATUAL — D1:A 2026-06-10)** | Age → confirma em 15 min | Tarefas rotineiras aprovadas |
 | **C** | Autônomo → loga ações | Automações de baixo risco |
 
 ### Como aprovar uma ação
@@ -116,11 +116,11 @@ Hermes: "Executado. Mensagem enviada."
 
 | Capacidade | Status | O que desbloqueará |
 |-----------|--------|-------------------|
-| Hermes executa vereditos via Telegram | Planejado | Grau B — aprovação cirúrgica |
+| Hermes executa vereditos via Telegram | **ATIVO** | Grau B — age + confirma 15min |
 | Hermes atualiza PENDENTES.md via GitHub | Planejado | Gestão de tarefas pelo celular |
 | Hermes envia PASSO3 ao Gemini | Planejado | Loop Pentalateral pelo celular |
 | W-8 Signal Classifier ativo | 2026-06-14 (avaliação) | Triagem automática de sinais |
-| Hermes Grau B | Decisão do Diretor | Ações sem aprovação por 15min |
+| Hermes Grau B | **ATIVO 2026-06-10** | Ações sem aprovação + confirma 15min |
 
 ---
 
