@@ -102,6 +102,33 @@ Write-Host "======================================================="
 Write-Host ""
 
 # ==========================================================================
+# GATE 0.5 -- doc_freshness_checker.ps1 (ATO 1 Loop 33)
+# Verifica CONTEUDO dos arquivos canonicos, nao datas.
+# BLOQUEANTE: se VERMELHO, session_close para -- nao gera PAINEL/CONTEXTO.
+# ==========================================================================
+Write-Host "  [GATE 0.5] Freshness de conteudo canonico..." -ForegroundColor Cyan
+$freshnessScript = "$BASE\scripts\doc_freshness_checker.ps1"
+if (Test-Path $freshnessScript) {
+    if ($DryRun) {
+        Write-Host "  [DRYRUN] GATE 0.5 -- doc_freshness_checker simulado" -ForegroundColor DarkCyan
+    } else {
+        & powershell.exe -NonInteractive -File $freshnessScript -Cliente $cliente -Silent 2>$null
+        $freshnessExit = $LASTEXITCODE
+        if ($freshnessExit -eq 1) {
+            Write-Host "  [GATE 0.5] VERMELHO -- divergencia de conteudo detectada." -ForegroundColor Red
+            Write-Host "             Rodar: .\scripts\doc_freshness_checker.ps1 -Cliente $cliente" -ForegroundColor Red
+            Write-Host "             Corrigir arquivos VERMELHO antes de encerrar sessao." -ForegroundColor Red
+            exit 1
+        } else {
+            Write-Host "  [GATE 0.5] VERDE -- conteudo coerente com Loop $($cliente)." -ForegroundColor Green
+        }
+    }
+} else {
+    Write-Host "  [GATE 0.5] doc_freshness_checker.ps1 nao encontrado -- IGNORADO" -ForegroundColor DarkGray
+}
+Write-Host ""
+
+# ==========================================================================
 # GATE 1 -- auditar_consistencia.ps1 (BLOQUEANTE -- exit 1 se VERMELHO)
 # ==========================================================================
 Write-Host "  [GATE 1] Auditoria de consistencia..." -ForegroundColor Cyan
@@ -126,6 +153,19 @@ if (Test-Path $auditScript) {
 } else {
     Write-Host "  [GATE 1] auditar_consistencia.ps1 nao encontrado -- IGNORADO" -ForegroundColor DarkGray
     $gateStatus.G1 = "N/A"
+}
+
+# GATE 1 -- REFORCO: fix_bom_json.ps1 (ATO 2 Loop 33 -- FALHA-H 3a ocorrencia)
+$fixBomScript = "$BASE\scripts\fix_bom_json.ps1"
+if (Test-Path $fixBomScript) {
+    if ($DryRun) {
+        Write-Host "  [DRYRUN] GATE 1 fix_bom -- simulado" -ForegroundColor DarkCyan
+    } else {
+        & powershell.exe -NonInteractive -File $fixBomScript 2>$null
+        if ($LASTEXITCODE -eq 1) {
+            Write-Host "  [GATE 1] AVISO: fix_bom_json encontrou JSON invalido apos remocao de BOM -- verificar manualmente." -ForegroundColor Yellow
+        }
+    }
 }
 
 # ==========================================================================
@@ -1194,6 +1234,24 @@ if (Test-Path $painelScript) {
     $analise  = "Projeto $cliente encerrou sessao com $totalPend pendente(s) aberto(s) e $gargaloCnt gargalo(s) de gate. "
     $analise += "Status documental: $statusFinal. $deadlineInfo "
     $analise += "Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini."
+
+    # ATO 4 Loop 33: Build Budget Guard -- FALHA-PADRAO se builds acumulam sem inicio (P-148)
+    $bbGuardScript = "$BASE\scripts\build_budget_guard.ps1"
+    if (Test-Path $bbGuardScript) {
+        $null = & powershell.exe -NonInteractive -File $bbGuardScript -Cliente $cliente -Silent 2>$null
+        if ($LASTEXITCODE -eq 2) {
+            $lsPathBB = "$BASE\CLIENTES\$cliente\CLAUDE_PROJECT\LOOP_STATE.json"
+            $buildsCountBB = 0
+            if (Test-Path $lsPathBB) {
+                try {
+                    $lsBB = Get-Content $lsPathBB -Raw -Encoding UTF8 | ConvertFrom-Json
+                    $buildsCountBB = @($lsBB.builds_aprovados_nao_iniciados).Count
+                } catch {}
+            }
+            $analise += " [FALHA-PADRAO P-148] $buildsCountBB build(s) aprovados sem inicio nesta sessao. Proxima sessao: iniciar M-2 antes de qualquer deliberacao."
+            Write-Host "  [BUILD-GUARD] FALHA-PADRAO registrada no PAINEL -- $buildsCountBB builds acumulados." -ForegroundColor Red
+        }
+    }
 
     $entregasTexto = "Sessao $DATA -- $($arquivosMod.Count) arquivo(s) modificado(s). "
     $entregasTexto += "MANIFEST: $(($manifestStatus.Values | Select-Object -Unique) -join ', '). "

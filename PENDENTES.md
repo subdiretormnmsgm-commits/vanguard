@@ -211,9 +211,8 @@
   Executar: `preparar_notebooklm_projeto.ps1 -cliente VANGUARD` → arrastar fontes → Wipe & Sync.
   ID caderno VANGUARD: d7dab0e1 (conta subdiretor.mnmsgm@gmail.com).
 
-- [ ] `2026-06-11` **[DIRETOR] Autorizar SOBRESCREVER INTELLIGENCE_LEDGER.md — LEDGER_INBOX items** [diretor]
-  LEDGER_INBOX.md criado com: P-148 + FALHAS A-K + addendum P-130.
-  Quando autorizado: Músculo move todos os itens para INTELLIGENCE_LEDGER.md com [RESOLVE: LEDGER-INBOX-FALHAS].
+- [x] `2026-06-11` ~~**[DIRETOR] Autorizar SOBRESCREVER INTELLIGENCE_LEDGER.md — LEDGER_INBOX items** [diretor]~~
+  ✅ Autorizado pelo Diretor em 2026-06-11. ATO 5 desbloqueado — Músculo move todos os itens para INTELLIGENCE_LEDGER.md.
 
 - [ ] `2026-06-11` **[MÚSCULO] 7 docs CONSTITUICAO — seção a seção no Loop 33** [musculo]
   Arquivos [IDENTIDADE] que precisam de renomeação Antigravity → EXECUTOR do Estrategista:
@@ -226,7 +225,7 @@
   (7) .claude/skills/vanguard-v31.md (secção IDENTIDADE — se existir)
   Regra: seção a seção com flag P-098 por arquivo. Nunca em lote.
 
-- [ ] `2026-06-11` **[MÚSCULO] ATO 4 — expandir pentalateral-firewall.md + 3 skills + session_start gate** [musculo]
+- [ ] `2026-06-11` **[MÚSCULO] ATO 3 — expandir pentalateral-firewall.md + 3 skills + session_start gate** [musculo]
   (a) `.agents/workflows/pre-commit.md` — workflow que verifica R-01..R-04 antes de commit
   (b) Skill de isolamento de cliente: gate que aborta ao detectar caderno não declarado
   (c) Skill de gate DIRETRIZ: bloqueia Antigravity de gerar DIRETRIZ sem PASSO3+CONTEXTO
@@ -234,13 +233,8 @@
   (e) session_start: adicionar verificação de pentalateral-firewall.md para novos scripts
   Custo: ~3h. Desbloqueia P-059 para INGRID/VALDECE.
 
-- [ ] `2026-06-11` **[MÚSCULO] ATO 5 — build_budget_guard (monitor builds_aprovados_nao_iniciados)** [musculo]
-  LOOP_STATE v1.1 tem campo `builds_aprovados_nao_iniciados`.
-  Script: `scripts/build_budget_guard.ps1 -cliente [X]`
-  (a) Lê LOOP_STATE.builds_aprovados_nao_iniciados
-  (b) Se count > 3 ou bloqueante=true → alerta no session_start + Telegram
-  (c) Ao iniciar build: remover do array + criar item em PENDENTES com [RESOLVE:]
-  Custo: ~1h. Rastreia dívida de execução automaticamente.
+- [x] `2026-06-11` ~~**[MÚSCULO] ATO 4 — build_budget_guard (monitor builds_aprovados_nao_iniciados)** [musculo]~~
+  ✅ build_budget_guard.ps1 criado + integrado ao session_start (relatório na abertura) + session_close (FALHA-PADRÃO no PAINEL se count>=5). Parâmetro -iniciar [id] remove do LOOP_STATE e cria PENDENTES com [RESOLVE:]. [RESOLVE: ATO 4]
 
 - [ ] `2026-06-11` **[MÚSCULO] Build M-2 — LOOP TRANSCRIPT anti-amnésia** [musculo]
   Aprovado no Loop 31 ENTRA. Primeiro build concreto do Loop 33.
@@ -254,10 +248,19 @@
   Ação: EasyPanel → n8n Studio → W-1 → editar cron → reimportar.
   FALHA-H da sessão — não bloqueante mas crítico para briefings.
 
-- [ ] `2026-06-11` **[MÚSCULO] Mover LEDGER_INBOX.md → INTELLIGENCE_LEDGER.md quando autorizado** [musculo]
-  Aguarda [DIRETOR] autorizar acima.
-  Itens a mover: P-148 + FALHAS A-K (11 itens) + addendum P-130.
-  Commit: `[RESOLVE: LEDGER-INBOX-FALHAS]` + `[RESOLVE: LEDGER-INBOX-P148]`.
+- [ ] `2026-06-11` **[MÚSCULO] ATO 5 — LEDGER_INBOX → INTELLIGENCE_LEDGER (autorizado 2026-06-11)** [musculo]
+  ✅ Autorização P-098 concedida pelo Diretor em 2026-06-11.
+  Itens a mover: P-148 + FALHAS A-K (13 itens) + addendum P-130.
+  Commit: `[RESOLVE: LEDGER-INBOX-FALHAS]` + `[RESOLVE: LEDGER-INBOX-P148]` + `[RESOLVE: LEDGER-INBOX-P130-ADDENDUM]`.
+
+- [ ] `2026-06-11` **[MÚSCULO] ATO 6 — notify_hermes.ps1 + watch_readonly.ps1** [musculo]
+  (a) `scripts/notify_hermes.ps1 -status [INFO|AVISO|ALERTA|CRITICO] -mensagem -projeto`
+      Frequência: CRITICO=imediato · ALERTA=dedup 30min · AVISO=agrupa no close · INFO=só no close
+  (b) `scripts/watch_readonly.ps1` — monitora R-01 do firewall em background
+      Se R-01 modificado → notify_hermes -status CRITICO imediato
+      Iniciado por session_start.ps1 · encerrado por session_close.ps1
+  (c) Teste: enviar AVISO "ATOs 1-6 concluídos" ao final → confirmar chegada no Telegram
+  Custo: ~1h30. Sistema deixa de ser mudo — Turno da Noite do Executor vira viável.
 
 ---
 
