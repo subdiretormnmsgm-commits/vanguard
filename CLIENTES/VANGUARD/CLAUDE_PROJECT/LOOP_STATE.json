@@ -3,7 +3,7 @@
     "cliente":  "VANGUARD",
     "loop_atual":  33,
     "loop_status":  "PRE_LOOP",
-    "fase_atual":  "ATOs_1_6_CONCLUIDOS",
+    "fase_atual":  "LOOP_ABERTO",
     "missao":  "EXTERNO — Vanguard como Empresa · ATOs 1-6 pré-abertura + EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 · 2026-06-11",
     "socios":  {
                    "gemini":  {
@@ -132,7 +132,7 @@
                   "ato6_notify_hermes_watch":  true
               },
     "proxima_acao_diretor":  "Colar AGENTS_FIREWALL_V1.md + EXECUTOR_PLAYBOOK_V1.md + PASSO3_GEMINI_AMPLIACAO_V2.md (após resolver problema técnico de paste) · Wipe \u0026 Sync NotebookLM VANGUARD · Avaliar W-8 ativação plena (deadline 14-06-2026)",
-    "proxima_acao_musculo":  "EXECUTOR_PLAYBOOK (Diretor cola) -> abrir Loop 33 oficialmente",
+    "proxima_acao_musculo":  "Loop 33 aberto -- PASSO3 pronto para Antigravity Executor",
     "alertas_criticos":  [
                              "W-8 shadow mode expira 2026-06-14 — avaliar Hermes Grau C (SIM confirmado pelo Diretor)",
                              "BLOQUEANTE P-133: captação 2ª candidata Ingrid — deadline 04-07-2026",
