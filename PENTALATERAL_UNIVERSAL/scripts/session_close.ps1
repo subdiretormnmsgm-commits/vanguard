@@ -1832,6 +1832,19 @@ Write-Host ""
 Write-Host "=======================================================" -ForegroundColor Cyan
 Write-Host ""
 
+# ATO 6 -- Encerrar watch_readonly + flush notify buffer
+$watchPidFile  = Join-Path $projectDir "scripts\.watch_readonly.pid"
+$notifyScript  = Join-Path $projectDir "scripts\notify_hermes.ps1"
+if (Test-Path $watchPidFile) {
+    $wPid = ([System.IO.File]::ReadAllText($watchPidFile)).Trim()
+    try { Stop-Process -Id $wPid -Force -ErrorAction SilentlyContinue } catch {}
+    Remove-Item $watchPidFile -Force -ErrorAction SilentlyContinue
+    Write-Host "  [WATCH_READONLY] Monitor R-01 encerrado (PID $wPid)." -ForegroundColor DarkGray
+}
+if (Test-Path $notifyScript) {
+    & powershell.exe -NonInteractive -File $notifyScript -flush 2>$null
+}
+
 Write-Host "======================================================="
 Write-Host "  Proximo: git commit -- depois PASSO3 + Gemini."
 Write-Host "======================================================="

@@ -815,6 +815,17 @@ $bloco0Alert = @(
 ) -join "`n"
 $sections = @("## ⚠️  BLOCO 0 DO EMBAIXADOR (P-114) -- PRIMEIRA ACAO OBRIGATORIA`n$bloco0Alert") + $sections
 
+# ATO 6 -- Iniciar watch_readonly.ps1 em background (P-033 guardian)
+$watchScript = Join-Path $projectDir "scripts\watch_readonly.ps1"
+$watchPidFile = Join-Path $projectDir "scripts\.watch_readonly.pid"
+if ((Test-Path $watchScript) -and (-not (Test-Path $watchPidFile))) {
+    try {
+        Start-Process powershell.exe `
+            -ArgumentList "-NonInteractive -WindowStyle Hidden -File `"$watchScript`"" `
+            -WindowStyle Hidden -ErrorAction SilentlyContinue
+    } catch {}
+}
+
 if ($sections.Count -eq 0) { exit 0 }
 
 $context = "=== PENTALATERAL IAH - INSTRUMENTOS DE MEMORIA (auto-injetados) ===`n`n" +

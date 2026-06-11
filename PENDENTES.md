@@ -250,14 +250,10 @@
 - [x] `2026-06-11` ~~**[MÚSCULO] ATO 5 — LEDGER_INBOX → INTELLIGENCE_LEDGER (autorizado 2026-06-11)** [musculo]~~
   ✅ Concluído 2026-06-11. P-148 + P-130-ADDENDUM + FALHA-H..K adicionados ao LEDGER (2.419→2.455 linhas). Sync P-033 executado (9 arquivos). LEDGER_INBOX zerado. [RESOLVE: ATO 5]
 
-- [ ] `2026-06-11` **[MÚSCULO] ATO 6 — notify_hermes.ps1 + watch_readonly.ps1** [musculo]
-  (a) `scripts/notify_hermes.ps1 -status [INFO|AVISO|ALERTA|CRITICO] -mensagem -projeto`
-      Frequência: CRITICO=imediato · ALERTA=dedup 30min · AVISO=agrupa no close · INFO=só no close
-  (b) `scripts/watch_readonly.ps1` — monitora R-01 do firewall em background
-      Se R-01 modificado → notify_hermes -status CRITICO imediato
-      Iniciado por session_start.ps1 · encerrado por session_close.ps1
-  (c) Teste: enviar AVISO "ATOs 1-6 concluídos" ao final → confirmar chegada no Telegram
-  Custo: ~1h30. Sistema deixa de ser mudo — Turno da Noite do Executor vira viável.
+- [x] `2026-06-11` ~~**[MÚSCULO] ATO 6 — notify_hermes.ps1 + watch_readonly.ps1** [musculo]~~
+  ✅ Concluído 2026-06-11. notify_hermes.ps1 (CRITICO|ALERTA|AVISO|INFO + dedup 30min + buffer flush).
+  watch_readonly.ps1 (monitor SHA-256 dos 7 arquivos R-01 em background). Integrados ao session_start
+  (launch) + session_close (stop + flush). Teste AVISO "ATOs 1-6" confirmado no Telegram. [RESOLVE: ATO 6]
 
 ---
 
