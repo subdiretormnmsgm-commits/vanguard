@@ -737,6 +737,42 @@ try {
     if ($cl) { $ultimosCommits = ($cl -join "`n") }
 } catch {}
 
+# --- PASSO 0: COLHEITA DO EMBAIXADOR (INBOX_COWORK via MCP Drive) ---
+# Instrui o Musculo a ler outputs novos do Cowork antes de qualquer acao de sessao.
+# O Musculo usa MCP Google Drive -- NUNCA cria copia local do SKILL do Cowork.
+$colheitaCowork = @(
+    "PASSO 0 -- COLHEITA DO EMBAIXADOR AGENTADO (Cowork / 24-7)",
+    "EXECUTAR ANTES DE: BLOCO 0, PENDENTES, MAPA DIARIO, QUALQUER RESPOSTA AO DIRETOR.",
+    "",
+    "ACAO OBRIGATORIA -- usar MCP Google Drive (conta: subdiretor.mnmsgm@gmail.com):",
+    "  Folder ID INBOX_COWORK: 1EjaH6TmsxbYpgKWb7ASm7CohFJfwSLKi",
+    "",
+    "  FLUXO:",
+    "  1. Listar arquivos na pasta INBOX_COWORK",
+    "     (mcp__claude_ai_Google_Drive__search_files ou list_recent_files)",
+    "  2. Filtrar: apenas arquivos cujo nome NAO começa com [LIDO]",
+    "  3. Para cada arquivo novo:",
+    "     a. Ler conteudo via mcp__claude_ai_Google_Drive__read_file_content",
+    "     b. Extrair: frente (F1/F5/F7/etc), data, 3 bullets principais",
+    "     c. Renomear adicionando prefixo [LIDO] ao nome (copy + delete original)",
+    "  4. Apresentar ao Diretor no formato:",
+    "     COLHEITA DO EMBAIXADOR -- [N] arquivo(s) novo(s)",
+    "     [F1] Radar de Dor - [data]: bullet1 / bullet2 / bullet3",
+    "     [F5] Espelho Estrategico - [data]: bullet1 / bullet2 / bullet3",
+    "     Arquivos completos: Drive INBOX_COWORK/",
+    "",
+    "  SE INBOX VAZIO ou todos ja com prefixo [LIDO]:",
+    "  -> Exibir: [AMARELO] INBOX_COWORK vazio -- Cowork pode nao ter rodado hoje",
+    "  -> NAO BLOQUEAR -- continuar para BLOCO 0 -> PENDENTES -> MAPA DIARIO",
+    "",
+    "  REGRAS ABSOLUTAS DO MUSCULO SOBRE O COWORK:",
+    "  - NAO executar frentes F1-F15 (sao do Cowork, nao do Musculo)",
+    "  - NAO criar arquivo local SKILL_EMBAIXADOR (canonico no Drive ID: 1P9lMGyKAnQImb1aId06BeSLHge2TFsXD)",
+    "  - APENAS ler, extrair bullets e renomear [LIDO]",
+    "",
+    "  Musculo que pula PASSO 0 = sessao sem inteligencia do Cowork = P-031 violado."
+) -join "`n"
+
 $sections = @()
 if ($pendentesAlert)     { $sections += "## PENDENTES (P-048) - LER PRIMEIRO`n$pendentesAlert" }
 if ($pendentesWatchOutput) { $sections += "## PENDENTES-WATCH (P-087) -- CONFIRMAR MARCACAO`n$pendentesWatchOutput" }
@@ -814,6 +850,9 @@ $bloco0Alert = @(
     "  Musculo que responde antes de solicitar BLOCO 0 = DEF-M-6 (Musculo Reativo)."
 ) -join "`n"
 $sections = @("## ⚠️  BLOCO 0 DO EMBAIXADOR (P-114) -- PRIMEIRA ACAO OBRIGATORIA`n$bloco0Alert") + $sections
+
+# PASSO 0 -- COLHEITA DO EMBAIXADOR -- primeira secao de toda sessao (antes de BLOCO 0)
+$sections = @("## ⚡ PASSO 0 -- COLHEITA DO EMBAIXADOR AGENTADO (Cowork / MCP Drive)`n$colheitaCowork") + $sections
 
 # ATO 6 -- Iniciar watch_readonly.ps1 em background (P-033 guardian)
 $watchScript = Join-Path $projectDir "scripts\watch_readonly.ps1"

@@ -57,7 +57,7 @@ if (Test-Path $alertConfig) {
         $msg.From          = $ALERT_FROM
         $msg.To.Add($ALERT_TO)
         $msg.Subject       = "ALERTA HV-1: API Key detectada no chat do Claude Code"
-        $msg.Body          = "Diretor,`n`nO sistema bloqueou uma mensagem no Claude Code que continha:`n$nomes`n`nA mensagem NAO foi processada.`n`nAcao correta: use .\scripts\configurar_env.ps1 -projeto [NOME] para configurar credenciais com entrada mascarada, sem expor no chat.`n`nMusculo — API Key Guardian"
+        $msg.Body          = "Diretor,`n`nO sistema bloqueou uma mensagem no Claude Code que continha:`n$nomes`n`nA mensagem NAO foi processada.`n`nAcao correta: use .\scripts\configurar_env.ps1 -projeto [NOME] para configurar credenciais com entrada mascarada, sem expor no chat.`n`nMusculo - API Key Guardian"
         $msg.BodyEncoding  = [System.Text.Encoding]::UTF8
         $smtp.Send($msg)
     } catch { }
