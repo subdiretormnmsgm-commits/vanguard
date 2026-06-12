@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 1.8 | Loop 32 FECHADO — Deriva Documental | Atualizada: 2026-06-10 (P-032)
+> Criada em: 2026-06-06 | Versão: 2.0 | Loop 33 V2 SÍNTESE P-037 CONCLUÍDA — aguarda veredito D1/D2 | Atualizada: 2026-06-12 (P-032)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -46,12 +46,12 @@
 
 | Dimensão | Score | Status |
 |----------|-------|--------|
-| Processo Pentalateral | 9.5/10 | Loop 32 100% build (0 deliberação) — padrão ideal de execução; 32 loops de histórico |
-| Autonomia do sistema | 8.0/10 | Hermes Grau B ATIVO (D1:A 2026-06-10) — age + confirma 15min; canal Telegram restaurado |
-| Base de clientes | 7.0/10 | Valdece + Ingrid em standby; 0 em captação; P-133 ativo deadline 04-07-2026 |
-| Receita | 4.0/10 | R$5k comprometido; sem MRR novo desde Loop 29 |
+| Processo Pentalateral | 9.5/10 | Loop 33 V2 em curso — Virada Estratégica; 33 loops de histórico; P-149 inscrito (câmara de eco) |
+| Autonomia do sistema | 8.0/10 | Hermes Grau B ATIVO (D1:A 2026-06-10) — age + confirma 15min; W-8 shadow expira 2026-06-14 |
+| Base de clientes | 5.0/10 | Valdece hypercare até 18-06; Ingrid retainer ativo; pipeline ZERO; P-133 CRÍTICO |
+| Receita | 4.0/10 | R$5k comprometido; sem MRR novo; Loop 33 aponta Vertical Licitações como saída |
 | Infraestrutura técnica | 9.0/10 | n8n + Hermes Grau B + LOOP_STATE v1.1 + RUNNING_INTELLIGENCE + pentalateral-firewall |
-| Integridade documental | 9.5/10 | Loop 32 corrigiu deriva em 62 arquivos (4defaf6); LEDGER_INBOX.md criado como buffer |
+| Integridade documental | 9.5/10 | Loop 32 corrigiu deriva em 62 arquivos (4defaf6); LEDGER_INBOX.md ativo como buffer |
 
 **CHURN-WATCH Interno:** N/A (clientes em standby — Loop 31 é loop interno por ordem do Diretor)
 
@@ -86,9 +86,18 @@
 | V30-G4 | Síntese P-037 Loop 30 | ✅ OK — DELIBERACAO_LOOP_V30 + 4 princípios (P-136/137/138/139) |
 | V31-G1 | DIRETRIZ V31 (Antigravity) | ✅ OK — 2026-06-09 |
 | V31-G2 | Skill vanguard-v31.md (Auditor) | ✅ APROVADA — skill_parser_gate 2026-06-10 |
-| V31-G3 | Embaixador reage Loop 31 (SEÇÃO D) | ⬜ AGUARDA — PASSO7 pronto, Diretor leva |
-| V31-G4 | RUNNING_INTELLIGENCE.md (D3:A) | ⬜ AUTORIZADO — Embaixador cria ao receber PASSO7 |
-| V31-G5 | Síntese P-037 + DECISOES.json Loop 31 | ⬜ BLOQUEADO — aguarda V31-G3 |
+| V31-G3 | Embaixador reage Loop 31 (SEÇÃO D) | ✅ OK — concluído |
+| V31-G4 | RUNNING_INTELLIGENCE.md (D3:A) | ✅ CRIADO — Embaixador entregou |
+| V31-G5 | Síntese P-037 + DECISOES.json Loop 31 | ✅ OK — Loop 31 FECHADO |
+| V32-G1 | DIRETRIZ V32 (Antigravity) | ✅ OK — Deriva Documental 62 arquivos |
+| V32-G2 | Skill vanguard-v32.md (Auditor) | ✅ APROVADA |
+| V32-G3 | Embaixador reage Loop 32 (SEÇÃO D) | ✅ OK — Loop 32 FECHADO 2026-06-10 |
+| V32-G4 | Síntese P-037 + DECISOES.json Loop 32 | ✅ OK — Hermes Grau B + firewall |
+| V33-G1 | DIRETRIZ V33 V2 (Antigravity) | ✅ OK — G-1..G-5 aprovados 2026-06-11 |
+| V33-G2 | Skill vanguard-v33.md (Auditor) | ✅ APROVADA — 2026-06-12 · N-1..N-5 + A-1..A-3 |
+| V33-G3 | Embaixador reage Loop 33 (SEÇÃO D) | ✅ OK — E-1..E-5 + D1/D2 propostos + intel BLOCO 8 entregues 2026-06-12 |
+| V33-G4 | RUNNING_INTELLIGENCE.md (Loop 33) | ✅ OK — Embaixador entregou sinais/ameaças/oportunidades Loop 33 |
+| V33-G5 | Síntese P-037 + DECISOES.json Loop 33 | ⬜ DELIBERACAO criada — aguarda veredito D1/D2 do Diretor |
 
 ---
 
@@ -114,31 +123,20 @@
 
 ## PROXIMA ACAO DO EMBAIXADOR
 
-Loop 31 **ABERTO** — aguarda SEÇÃO D.
+Loop 33 V2 — **SÍNTESE P-037 CONCLUÍDA. Aguarda veredito D1/D2 do Diretor.**
 
-**Missão imediata (Loop 31):**
-- Receber PASSO7_EMBAIXADOR.md com G-1 a G-5 + N-1 a N-5 + A-1 a A-3
-- Entregar: PARTE 1 (filtro de realidade M/G/N) + PARTE 2 (análise estratégica) + PARTE 3 (intel de mercado Vanguard — BLOCO 8 ativo) + PARTE 4 (E-1 a E-5) + PARTE 5 (RUNNING_INTELLIGENCE.md primeira versão)
-- Gerar DECISOES.json com D1 (Hermes Grau B) + D3 (RUNNING_INTELLIGENCE)
+**Missão imediata (pós-veredito):**
+- Receber D1 e D2 do Diretor (resposta em até 2 palavras: "D1:A D2:A")
+- Músculo executa: G-4 (LOOP_STATE por cliente) + G-2 (auditoria PNCP prospect nomeado) + G-3 (Pitch Reverso ROI) + E-5 (MEMORIA automática)
+- E-2 (Ponte Valdece): ação imediata — Valdece em hypercare até 18-06, janela fecha junto
 
-**7 documentos que o Diretor deve anexar ao Claude Projects VANGUARD:**
-1. INTELLIGENCE_LEDGER.md
-2. WIP_BOARD.json
-3. MEMORIA_V31_VANGUARD.md
-4. relatorio_evolutivo_V31_VANGUARD.md
-5. AUDITOR_LOOP_V31_VANGUARD.md
-6. vanguard-v31.md (.claude/skills/)
-7. Colar SEÇÃO D do PASSO7_EMBAIXADOR.md no chat
+**Aprendizados críticos do Loop 33 (para o Embaixador):**
+- **Embaixador identificou risco que nenhum sócio viu:** comportamental — pattern builder vs vendedor
+- **Confronto do Embaixador confirmado:** premissa "poucos competidores" do Auditor está stale. ConLicitação/Dr. Licita existe desde fev/2026
+- **E-4 validado como pitch central:** "anti-alucinação em 3 camadas" transforma P-124/P-132/P-135 em argumento de venda
+- **E-5 bloqueante:** automação MEMORIA é pré-requisito de escala, não backlog
 
-**Princípios para internalizar (Loops 30+31):**
-- P-136/137/138/139 (Loop 30 — Poda Jobs + Demo Visionário + MCP)
-- **P-143**: [CHECKLIST DO MÚSCULO] em todo PASSO file — anti-esquecimento
-- **P-144**: Dois sócios têm busca web avançada (Auditor=fontes persistentes; Embaixador=tempo real com citação de URL)
-
-**Alerta de escalabilidade (detectado Loop 31):**
-Com 10+ projetos simultâneos, P-032 (atualização da MEMORIA_EMBAIXADOR) pode colapsar.
-Proposta: MEMORIA_EMBAIXADOR com atualização automática via hook session_close + propagate_changes (P-060).
-Prioridade: endereçar no Loop 32.
+**W-8 shadow mode:** expira 2026-06-14 — avaliar Hermes Grau C no próximo loop
 
 ---
 
@@ -179,3 +177,11 @@ Prioridade: endereçar no Loop 32.
 | 2026-06-10 | D3:A (RUNNING_INTELLIGENCE) autorizado | "Embaixador cria agora" — embutido no PASSO7. Primeira vez que o Embaixador terá documento acumulativo entre loops |
 | 2026-06-10 | Notion Inbox: 4 falhas registradas pelo Diretor | Timeline desatualizada, BOM WIP_BOARD.json, Instagram/ChurnWatch erros, mensagens diárias não chegando — sistema com furos silenciosos |
 | 2026-06-10 | "Com 10 projetos vão colapsar" | Alerta do Diretor sobre escalabilidade do P-032. Proposta: automação via session_close + propagate_changes. Backlog Loop 32 |
+| 2026-06-10 | Loop 32 FECHADO — Deriva Documental | 62 arquivos corrigidos (4defaf6). Hermes Grau B ativo. pentalateral-firewall.md. LEDGER_INBOX.md criado. P-145..P-148 inscritos |
+| 2026-06-11 | Loop 33 V1 DESCARTADO | M-1..M-5 eram soluções pré-compiladas → câmara de eco. Diretor detectou. DIRETRIZ V33 V1 nula. P-149 inscrito |
+| 2026-06-11 | Loop 33 V2 ABERTO — Virada Estratégica | PASSO3 refeito com M disruptivos. Antigravity gerou DIRETRIZ V33 V2 com G-1..G-5. Aprovado pelo Diretor |
+| 2026-06-12 | Auditor entregou Loop 33 — Skill APROVADA | vanguard-v33.md · N-1..N-5 · A-1..A-3 · BRIEFING_ESTADO_ARTE_LOOP33. Recomendação: abrir Vertical Licitações ESTA SEMANA |
+| 2026-06-12 | "Com 25 projetos iremos colapsar" | Diretor reconfirmou alerta de escalabilidade. Automação de MEMORIA_EMBAIXADOR é pré-requisito de escala — não backlog |
+| 2026-06-12 | Embaixador entregou Loop 33 — análise excepcional | E-1..E-5 + filtro de realidade + BLOCO 8 (intel externa ativa). Confronto crítico: premissa de first-mover do Auditor stale (ConLicitação/Dr. Licita existe). Risco comportamental identificado: padrão builder-não-vendedor do Diretor como gargalo real do loop |
+| 2026-06-12 | Síntese P-037 Loop 33 concluída | DELIBERACAO_LOOP_V33 criada. D1:A redefinido (1 contato quente + prospect nomeado ≠ build técnico). D2:A (Setup + Retainer + %). E-4 (anti-alucinação como pitch central) adotada. E-5 (MEMORIA automática) bloqueante |
+| 2026-06-12 | Sessão técnica — Firewall Pentalateral | Antigravity Builds A-D analisados e filtrados (MERGE/SKIP/DOC/SIMPLIFICADO). PASSO 0 COLHEITA refinado. BUILD 5 PNCP criado (Vertical Licitações). BOM UTF-8 eliminado (14 arquivos, fix sistêmico). TIMELINE reconciliada — fonte canônica 16_CP definida e propagada x3. Padrão DEF-G-2 detectado no Cowork e corrigido. 11 commits. Integridade documental: VERDE. |
