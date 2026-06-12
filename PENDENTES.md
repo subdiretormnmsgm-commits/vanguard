@@ -43,18 +43,10 @@
 - [x] `2026-06-09` ~~**[MÚSCULO+DIRETOR] Triar sugestões órfãs em `.claude/skills/Sugestões.md`** [musculo]~~
   ✅ Triagem concluída 2026-06-09: (a) code-review + (b) Instagram + (c) n8n vs Hermes migrados para CONSELHO/SUGESTOES_DIRETOR.md como itens 11-13 [PENDENTE]. (d) Antigravity nos sócios descartado (feito no Loop 29). Resíduo `.claude/skills/Sugestões.md` apagado.
 
-- [ ] `2026-06-09` **[MÚSCULO] Reconciliar as 4 cópias da TIMELINE — definir fonte canônica única** [musculo]
-  Achado no fechamento do Loop 29 (Diretor detectou `CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md` desatualizado).
-  CAUSA-RAIZ: existem 4 cópias da Timeline que derivam entre si sem fonte canônica:
-    (1) `CLIENTES/VANGUARD/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md` — vai ao Embaixador (versão RICA, 730+ linhas)
-    (2,3,4) `CLIENTES/{VANGUARD,INGRID,VALDECE}/NOTEBOOKLM_FONTES/17_VANGUARD_TIMELINE.md` — lida pelo Auditor (versão CONDENSADA, 679 linhas)
-    (+) `CLIENTES/VANGUARD/HISTORICO/VANGUARD_TIMELINE.md`
-  O `dd9b09f` atualizou as cópias FONTES/17 + HISTORICO mas NÃO o CLAUDE_PROJECT/16 → deriva.
-  Pior: o CLAUDE_PROJECT/16 (Embaixador) está MAIS completo que o FONTES/17 (Auditor) — o Auditor lê a versão condensada.
-  Por que sync_vanguard_docs.ps1 não corrige: a Timeline vive FORA de PENTALATERAL_UNIVERSAL/ → sync nunca a toca.
-  Por que doc_freshness_checker.ps1 não pegou: CLAUDE_PROJECT/16 não está na lista RASTREADO (ou rastreia path diferente).
-  AÇÃO (decisão do Diretor pendente): (a) eleger UMA fonte canônica da Timeline; (b) criar sync 1→N que propaga para as 4 cópias; (c) incluir TODAS as cópias no doc_freshness_checker. Backlog V30 — liga ao épico doc_freshness/W-10.
-  Correção pontual já feita em 2026-06-09: CLAUDE_PROJECT/16 trazido a V29 Motor de Verdade (merge cirúrgico, sem perder detalhe).
+- [x] `2026-06-09` ~~**[MÚSCULO] Reconciliar as 4 cópias da TIMELINE — definir fonte canônica única** [musculo]~~
+  ✅ Fonte canônica definida em 2026-06-12: `CLIENTES/VANGUARD/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md`
+  ✅ Propagado para 17_FONTES de VANGUARD + INGRID + VALDECE — hash C8304FF43028 verificado nos 3. Commit a2967e5.
+  Dívida Loop 34: (a) criar sync automático 1→N `16_CP → 17_FONTES x3`; (b) adicionar ao DEPENDENCY_MAP; (c) incluir no doc_freshness_checker.
 
 - [x] `2026-06-09` ~~**[MÚSCULO] DIRETRIZ V29 — ir ao Gemini com PASSO3_GEMINI.md** [musculo]~~
   ✅ FANTASMA QUITADO: DIRETRIZ V29 rodou via Antigravity (P-130) — commit b30c342 confirma Loop 29 fechado com síntese P-037 completa. Antigravity = canal do Estrategista, dispensou envio manual ao Gemini. Quitado na abertura 2026-06-09.
