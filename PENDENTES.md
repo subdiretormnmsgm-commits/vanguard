@@ -144,7 +144,7 @@
   (d) session_close Gate 6B: exit 1 se NENHUM dos dois scripts rodou na sessão com vereditos
   Custo: ~2h. Escala para 10 projetos sem colapso.
 
-- [ ] `2026-06-10` **[MÚSCULO] [CHECKLIST DO MÚSCULO] bloqueante no PASSO5 template (P-143)** [musculo]
+- [x] `2026-06-10` **[MÚSCULO] [CHECKLIST DO MÚSCULO] bloqueante no PASSO5 template (P-143)** [musculo]
   Erro: Deep Research WEB não clicado antes do PASSO5 + relatorio nativo esquecido (Loop 31).
   P-143 registrado mas template não atualizado — registro sem ferramenta é decoração.
   O que construir:
