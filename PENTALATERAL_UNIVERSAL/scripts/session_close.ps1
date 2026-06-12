@@ -1041,7 +1041,7 @@ for ($i = 0; $i -lt $_g7cArqs.Count; $i++) {
         $lw = (Get-Item $p).LastWriteTime
         $deltaH = [math]::Round(($_g7cAgora - $lw).TotalHours, 1)
         if ($deltaH -gt $_g7cThreshold) {
-            $_g7cFalhas += ("  [STALE " + $deltaH + "h] " + $_g7cNomes[$i] + " -- ultima mod: " + $lw.ToString("HH:mm"))
+            $_g7cFalhas += ("  [STALE " + $deltaH + "h] " + $_g7cNomes[$i] + " -- ultima mod: " + $lw.ToString("yyyy-MM-dd HH:mm"))
         }
     }
 }

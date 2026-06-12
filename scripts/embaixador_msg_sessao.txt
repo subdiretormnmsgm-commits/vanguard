@@ -1,0 +1,41 @@
+Embaixador, fechamento de sessao -- 12/06/2026 (sexta-feira) -- Loop 33 VANGUARD
+
+Faco upload dos 7 arquivos abaixo (todos atualizados hoje):
+1. PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_2026-06-12.md
+2. PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_2026-06-12.md
+3. CLIENTES\WIP_BOARD.json
+4. INTELLIGENCE_LEDGER.md
+5. PENDENTES.md
+6. CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md
+7. CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md
+
+DESTAQUES DESTA SESSAO (para voce ancorar a analise):
+- Firewall Pentalateral — Antigravity Builds A-D
+- Infraestrutura
+- PASSO 0 refinado
+- BUILD 5 PNCP criado
+- BOM UTF-8 corrigido
+- fix_bom_json.ps1
+- api_key_guardian.ps1
+- SKILL_EMBAIXADOR_v2.1.md
+- Auditoria de Fechamento
+- LEDGER
+
+Com base nos 7 arquivos, gerar o artefato publicavel com:
+0. BRIEFING DE ABERTURA PARA O MUSCULO (gerar primeiro)
+   Paragrafo que o Diretor colara ao abrir a proxima sessao do Claude Code.
+   Conter: (a) o que foi entregue hoje e esta ativo, (b) o que ficou em aberto e por que, (c) proximo passo esperado do Musculo.
+   Escrito na segunda pessoa: "Musculo, na ultima sessao..."
+1. SEMAFORO -- status visual por projeto (BLOQUEANTE / ATENCAO / SAUDAVEL)
+2. DIAGNOSTICO DO DIA -- saude dos projetos ativos + o que avancou hoje
+3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist do Diretor
+4. ANALISE GERENCIAL -- o que voce ve que o Musculo nao ve?
+5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens em ordem de prioridade
+
+PERSPECTIVA COMPORTAMENTAL QUE PECO DE VOCE:
+- Diretor ainda sem acao: `2026-06-12` **[DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertical Licitações (G-2+G-3)** [diretor]
+- Diretor ainda sem acao: `2026-06-12` **[DIRETOR] ⚠️ URGENTE — E-2 Ponte Valdece antes de 18-06** [diretor]
+O que estes padroes sinalizam sobre a capacidade de atencao do Diretor neste momento?
+
+Ao entregar, incluir instrucao ao Diretor:
+"Diretor, ao abrir o Claude Code, cole o BLOCO 0 acima como PRIMEIRA mensagem para o Musculo -- antes de qualquer outra coisa."
