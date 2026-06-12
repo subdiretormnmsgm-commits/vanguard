@@ -2453,3 +2453,41 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Diagnostico:** o LEDGER e o unico mecanismo de memoria de falhas entre sessoes. Se P-098 bloqueia a entrada, as falhas morrem com o compacto de contexto.
 **Solucao estrutural:** LEDGER_INBOX.md criado em Loop 32 (ATO 6) como buffer oficial. P-148 formaliza o principio.
 **Antidoto:** ao detectar qualquer falha em sessao -> LEDGER_INBOX.md imediatamente (sem autorizacao P-098). Ao receber autorizacao -> mover em lote com [RESOLVE: LEDGER-INBOX-FALHAS].
+
+## P-149 — PASSO3 APRESENTA PROBLEMAS, NAO SOLUCOES — CAMARA DE ECO E BLOQUEANTE (2026-06-11)
+**Origem:** Loop 33 — Musculo escreveu M-1 a M-5 como solucoes pre-compiladas no PASSO3_GEMINI.md. O Estrategista (Antigravity) pesquisou e validou essas solucoes em vez de descobrir o que estava fora do radar. DIRETRIZ V33 confirmou o que o Musculo ja havia decidido. Diretor detectou: "Voce esta indo de encontro ao que o Diretor quer." Loop refeito do zero.
+**Falha composta:**
+  - M-1 a M-5 eram solucoes pre-definidas — fecharam o espaco de descoberta dos socios
+  - Query do Deep Research no NotebookLM replicou as ideias compiladas — camara de eco tripla
+  - M-1 (Cowork) era tarefa do Embaixador — nao devia estar no PASSO3 para o Estrategista
+**Principio:** O MUSCULO APRESENTA PROBLEMAS E CONTEXTO AO PASSO3 — NUNCA SOLUCOES PRE-COMPILADAS.
+  As G-1..G-5 pertencem exclusivamente ao Estrategista.
+  As N-1..N-5 pertencem exclusivamente ao Auditor.
+  As E-1..E-5 pertencem exclusivamente ao Embaixador.
+  O Musculo apresenta: (a) onde a empresa esta, (b) o que nao esta funcionando, (c) perguntas abertas sem resposta.
+  Nunca: (x) solucoes tecnicas para os socios validarem.
+**Trava obrigatoria no PASSO3:** adicionar secao [GATE ANTI-CAMARA-DE-ECO] antes dos M-X:
+  "O Estrategista e proibido de validar M-X. Sua missao e descobrir o que M-X nao viu.
+  Se os G coincidem com os M, a DIRETRIZ e invalida — reiniciar com perspectiva oposta."
+**Aplica-se a:** todo PASSO3 de todo projeto. Prioridade maxima.
+**Resolucao:** [RESOLVE: LEDGER-INBOX-P149]
+
+## P-150 — DELIBERACAO INDIVIDUAL DE CADA IDEIA COM 7 PONTOS ANTES DE QUALQUER SINTESE (2026-06-12)
+**Origem:** Loop 33 — Musculo apresentou sintese consolidada (D1/D2 + plano) sem mostrar deliberacao individual das 23 ideias (M+G+N+A+E). Diretor: "Como 20 ideias disruptivas se resumem a isso? Voce so pode estar alucinando." Reapresentacao com 7 pontos por ideia: "Agora sim. Excelente."
+**Falha detectada:**
+  - Musculo foi direto para sintese P-037 sem deliberar cada ideia individualmente
+  - Diretor nao consegue veredar "D1:A" sem ver o raciocinio por tras de cada M/G/N/A/E
+  - Sintese sem deliberacao individual = camara de eco — o Musculo pre-decide sem o Diretor ver o processo
+**Principio:** AO RECEBER OUTPUT DOS SOCIOS (M+G+N+A+E), O MUSCULO DELIBERA CADA IDEIA INDIVIDUALMENTE COM 7 PONTOS ANTES DE QUALQUER SINTESE OU DECISOES.JSON.
+**Sequencia inviolavel:**
+  1. Bloco M — cada ideia com 7 pontos (Certo / Diverge / Decisao / Enhancement / Custo real / Impacto comercial / Proxima acao)
+  2. Bloco G — cada ideia com 7 pontos
+  3. Bloco N — cada contra-argumento com analise
+  4. Bloco A — cada ideia exclusiva com 7 pontos
+  5. Bloco E — cada ideia com 7 pontos
+  6. Tabela resumo de vereditos (ENTRA AGORA / V2 / DESCARTADO / CONDICIONADO)
+  7. SO ENTAO: sintese P-037 -> DECISOES.json
+**Por que e critico:** o Diretor nao consegue deliberar sobre "D1:A" sem saber o raciocinio por tras de cada uma das ideias. Sintese sem deliberacao individual e camara de eco — o Musculo pre-decide.
+**Confirmado pelo Diretor:** "Agora sim. Excelente." — 2026-06-12 apos deliberacao completa de 23 ideias com 7 pontos cada.
+**Aplica-se a:** todo loop de todo projeto. Prioridade maxima.
+**Resolucao:** [RESOLVE: LEDGER-INBOX-P150]

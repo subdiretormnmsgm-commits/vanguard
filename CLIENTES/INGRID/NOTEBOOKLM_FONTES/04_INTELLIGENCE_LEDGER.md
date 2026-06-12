@@ -1,4 +1,4 @@
-﻿# INTELLIGENCE LEDGER — Pentalateral IAH
+# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -2166,6 +2166,7 @@ O watchdog n8n + alertas Telegram tornam este diferencial tecnicamente possivel 
 **Ferramentas/arquivos:** GEMINI.md v2.0 + CLIENTES/VANGUARD/PASSO3_GEMINI.md (missao V29) + CONTEXTO_GEMINI.md (via gemini_anchor_generator.ps1).
 **Aprovado pelo Diretor:** 2026-06-09.
 **Aplica-se a:** todo loop conduzido pelo Antigravity como Estrategista -- VANGUARD ja; clientes apenas apos as 3 travas.
+**ADDENDUM 2026-06-10 (Loop 32 -- veredito Diretor):** DIRETRIZ e papel exclusivo do Gemini Advanced -- Antigravity JAMAIS gera DIRETRIZ de loop. Antigravity = EXECUTOR do Estrategista, nao o Estrategista em si. A identidade foi corrigida em todos os documentos do sistema no Loop 32: PASSO3_GEMINI.md, GEMINI.md, CLAUDE.md, SKILL_PROTOCOLO_VANGUARD v7.0, MANUAL_DIRETOR v1.9 e demais (commit 4defaf6 -- 65 arquivos). Nomenclatura: `Estrategista` = Gemini via canal Antigravity; `Antigravity Executor` = o agente que transporta a missao. Nunca intercambiar os dois termos.
 
 ## [FALHA-PROCESSO-2026-06-09] -- PROMPT AD-HOC NO CHAT EM VEZ DE PASSO3+CONTEXTO
 **Detectada pelo Diretor:** "O Antigravity nao teria que ler Passo3Gemini e Contexto Gemini? Se sim, isso deve estar sempre presente. Processo e o que leva a Vanguard para frente, disciplina, inteligencia e firewall."
@@ -2294,6 +2295,117 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 
 ---
 
+## P-147 — BUDGET DE LEITURA DO DIRETOR E REGRA PERMANENTE (2026-06-10)
+**Origem:** E-2 do Embaixador — "Com 10 projetos vão colapsar." O Embaixador identificou que cada loop adiciona artefatos que exigem leitura voluntária do Diretor, sem limite estrutural.
+**Princípio:** Todo artefato novo proposto em qualquer loop deve declarar seu custo de atenção do Diretor (em "itens de atenção voluntária por sessão"). O sistema tem um teto — estourou o teto, algo existente é podado antes do novo entrar. É a Poda Jobs (Loop 30) como regra permanente, não como evento.
+**Regra operacional:** Ao propor qualquer novo documento, dashboard ou artefato de leitura, o Músculo declara: "Este artefato exige X min/semana do Diretor." Se o total acumulado ultrapassar o teto acordado → propor o que será podado em troca.
+**Aplica-se a:** abertura de qualquer loop. Ao propor M/G/N/E que resulte em novo documento de leitura recorrente.
+
+---
+
+## P-146 — DOCUMENTAR SEM AUTOMATIZAR E REPETIR O ERRO (2026-06-10)
+**Origem:** "Todos os erros desta sessao devem ser tratados com ferramentas que automatizem as acoes, nao tao somente os registros." — Diretor detectou que o LEDGER acumula principios mas os erros se repetem porque nenhuma ferramenta os previne.
+**Principio:** Todo erro que gera um P-XXX DEVE gerar tambem um script ou gate que impede a recorrencia. Se nao houver ferramenta, o P-XXX e decoracao. Sequencia obrigatoria ao detectar erro:
+  (1) Inscrever P-XXX no LEDGER (registro — necessario mas nao suficiente)
+  (2) Adicionar ao PENDENTES.md o BUILD da ferramenta que previne (bloqueante — sem isso, P-XXX nao fecha)
+  (3) Ao construir a ferramenta → marcar P-XXX como IMPLEMENTADO com link para o script
+**Exemplos desta sessao:**
+  P-143 (anti-esquecimento) → [CHECKLIST DO MUSCULO] no PASSO5 template + skill_parser_gate Gate
+  P-144 (dois socios com busca web) → checklist bloqueante no PASSO5 com "Deep Research WEB clicado"
+  P-145 (event-driven) → update_memoria_embaixador.ps1 chamado no PASSO5.5 e PASSO7.5
+  BOM UTF-8 (3a ocorrencia) → fix_bom_json.ps1 integrado ao session_close Gate 1
+**Aplica-se a:** todo novo P-XXX derivado de erro operacional. Principios de arquitetura nao precisam de ferramenta — principios de processo SIM.
+
+---
+
+## P-145 — ATUALIZACAO DE DOCUMENTOS E EVENT-DRIVEN, NAO APENAS SESSION-DRIVEN (2026-06-10)
+**Origem:** "Nao pode ser so session_close. Tem que ser uma etapa depois do PASSO5." — Diretor identificou que com 10+ projetos simultaneos, esperar o session_close para atualizar MEMORIA_EMBAIXADOR e documentos de estado gera colapso.
+**Principio:** Apos cada interacao com um socio (PASSO3, PASSO5, PASSO7), o Musculo executa imediatamente um "PASSO X.5" de atualizacao de documentos. O session_close faz auditoria leve — nao e a unica janela de atualizacao.
+**Sequencia obrigatoria:**
+  PASSO3 (Gemini entrega DIRETRIZ) → PASSO3.5: atualizar LOOP_STATE.json (gemini=OK) + WIP_BOARD (loop_fase_atual)
+  PASSO5 (Auditor entrega Skill) → PASSO5.5: atualizar LOOP_STATE.json (notebooklm=OK) + MEMORIA_EMBAIXADOR (achados N-1..N-5) + WIP_BOARD
+  PASSO7 (Embaixador entrega SECAO D) → PASSO7.5: atualizar LOOP_STATE.json (embaixador=OK) + MEMORIA_EMBAIXADOR (achados E-1..E-5 + comportamento) + WIP_BOARD
+  session_close → Gate 6B: verificar que TODOS os PASSOs foram atualizados (ja nao e o unico momento)
+**Por que importa:** MEMORIA_EMBAIXADOR ficou 2 loops sem atualizar no Loop 31. Com 10 projetos, o atraso multiplica. Atualizar no momento certo — enquanto o contexto esta fresco — e mais preciso e sustentavel.
+**Aplica-se a:** todos os projetos, todos os loops. LOOP_STATE.json + MEMORIA_EMBAIXADOR + WIP_BOARD.
+
+---
+
+## P-144 — DOIS SOCIOS TEM PESQUISA AVANCADA WEB — USAR OBRIGATORIAMENTE (2026-06-10)
+**Origem:** Diretor confirmou que tanto Auditor (NotebookLM) quanto Embaixador (Claude Projects) tem pesquisa avancada na internet. Musculo nao ativou nenhuma das duas no Loop 31.
+**Diferenca critica entre os dois:**
+  AUDITOR (NotebookLM) — Deep Research WEB:
+    Clica o botao "Deep Research" na interface → pesquisa a internet → GERA NOVAS FONTES no caderno.
+    Essas fontes ficam PERSISTENTES e enriquecem todas as analises futuras.
+    O Musculo clica via Playwright ANTES de enviar o PASSO5 — porque demora e gera fontes.
+    Fluxo: clicar botao → aguardar fontes serem adicionadas → enviar comando PASSO5.
+  EMBAIXADOR (Claude Projects) — Busca Avancada:
+    Pesquisa a internet durante a resposta → cita URLs direto no texto.
+    Nao gera arquivos persistentes — e uma pesquisa em tempo real.
+    Ativado via instrucao no PASSO7: "USE SUA CAPACIDADE DE BUSCA AGORA."
+    BLOCO 8 no PASSO7 ja esta configurado para isso.
+**Principio 2 — RELATORIO NATIVO:** Apos a resposta do Auditor no chat, executar: `notebooklm generate report --format briefing-doc` — gera documento formatado como artefato separado do BRIEFING DE ESTADO DA ARTE (PARTE 7).
+**Checklist obrigatorio no PASSO5 a partir do Loop 32:**
+  (1) Clicar botao Deep Research WEB via Playwright (PRIMEIRO — antes de qualquer coisa)
+  (2) Aguardar Deep Research completar e fontes serem adicionadas ao caderno
+  (3) Enviar comando PASSO5 com todas as PARTES (Auditor usa fontes novas da web)
+  (4) Apos resposta: notebooklm generate report --format briefing-doc
+  (5) Salvar AUDITOR_LOOP_V[N].md + Skill + relatorio nativo
+**Checklist PASSO7 — Embaixador:** incluir instrucao explicita "USE SUA CAPACIDADE DE BUSCA AGORA" com fontes requeridas por tarefa. BLOCO 8 ja esta no template.
+**Aplica-se a:** todos os loops a partir do 32. Loop 31 = evidencia da falha dupla.
+
+## P-143 — FERRAMENTA AUTOMATICA ANTI-ESQUECIMENTO DO MUSCULO (2026-06-10)
+**Origem:** "Temos que ter alguma ferramenta automatica que nao deixe voce esquecer." Diretor detectou que o Musculo esqueceu o relatorio nativo e o Deep Research web.
+**Principio:** Cada PASSO file contem um bloco [CHECKLIST DO MUSCULO] com itens BLOQUEANTES. O Musculo nao pode declarar o PASSO concluido sem marcar cada item. skill_parser_gate.ps1 valida PASSO5 — se faltam itens do checklist, exit 1.
+**Implementacao:**
+  (a) Adicionar [CHECKLIST DO MUSCULO] ao PASSO5_NOTEBOOKLM_TEMPLATE.md
+  (b) skill_parser_gate.ps1 verifica checklist no PASSO5 antes de executar
+  (c) session_close.ps1 Gate 6D: AUDITOR_LOOP_V[N] + relatorio nativo obrigatorios
+**Aplica-se a:** PASSO3, PASSO5, PASSO7 de todos os projetos. Template universal atualizado a partir do Loop 32.
+
+## P-142 — NOTEBOOKLM E 100% REMOTO — MUSCULO OPERA VIA PLAYWRIGHT (2026-06-10)
+**Origem:** Diretor confirmou multiplas vezes que toda operacao NotebookLM e executada remotamente pelo Musculo. "Voce insere tudo remotamente. Ja determinei que voce faca isso. Mandei registrar. Toda essa atividade e remota."
+**Principio:** O Musculo NUNCA pede ao Diretor para arrastar arquivos, fazer upload, colar comandos no chat ou interagir com o NotebookLM. Tudo e feito via Playwright (browser_file_upload, browser_click, browser_type, browser_press_key).
+**Ordem obrigatoria de operacao:** (1) Enviar COMANDO de Deep Research PRIMEIRO — inicia o processo longo imediatamente. (2) Enquanto o Auditor processa, atualizar arquivos de fundo (deletar fontes antigas, fazer upload das novas). Nao bloquear o inicio do Deep Research por gestao de arquivos.
+**Aplica-se a:** NotebookLM VANGUARD (d7dab0e1) e todos os cadernos de clientes. Sem excecao.
+**Ferramentas:** mcp__plugin_playwright_playwright__browser_* — carregadas via ToolSearch no inicio da sessao se nao disponiveis.
+
+## [FALHA-PROCESSO-2026-06-10-A] SKILLS ERRADAS AO ANALISAR SECAO D — RECORRENTE POS-COMPACTACAO
+**Origem:** Sessao 2026-06-10. Ao analisar SECAO D do Embaixador (Loop 31), o Musculo invocou mcp-builder e notebooklm em vez das 3 skills corretas: ultrathink-trigger → brainstorming → writing-plans.
+**Por que acontece:** apos compactacao, o Musculo perde o contexto das skills corretas. O padrao esta na memoria mas nao num gatilho automatico antes da acao.
+**Antidoto implementado:** check_skills_embaixador.ps1 criado (P-146). Memoria feedback_skills_ao_analisar_embaixador.md atualizada.
+**Antidoto necessario:** gate no inicio da analise de SECAO D — verificar se as 3 skills foram invocadas ANTES de apresentar conteudo.
+
+## [FALHA-PROCESSO-2026-06-10-B] VOLUME DE DELIBERACAO SEM CONVERSAO EM BUILD
+**Origem:** Sessao 2026-06-10. 6h de sessao. 3 builds tecnicos entregues. 0 dos builds aprovados no DECISOES.json (M-2, M-1+E-1, G-2+W-10) iniciados. Antigravity: 0 acionamentos.
+**Diagnostico do Diretor:** "Dois loopings e nada." O padrao e deliberacao de alta qualidade sem produto entregue.
+**Causa raiz:** ausencia de time-boxing por build. Sem gatilho que force transicao de DELIBERACAO para BUILD.
+**Antidoto:** se 90 minutos de sessao sem commit de feature, Musculo auto-alerta: "Nenhum build nos ultimos 90 minutos — qual codigo escrevo agora?" Loop 32 aplica: build primeiro, deliberacao depois.
+
+## [FALHA-PROCESSO-2026-06-10-C] ANTIGRAVITY PARADO A SESSAO INTEIRA
+**Origem:** Sessao 2026-06-10. Estrategista nao foi acionado. Diretor: "E o Antigravity, nada?"
+**Principio violado:** P-075 — cada membro do Pentalateral tem papel obrigatorio no loop.
+**Antidoto:** ao iniciar sessao com loop ativo, PASSO3 com Antigravity e item BLOQUEANTE do MAPA DIARIO. Se meia sessao sem PASSO3, auto-alerta.
+
+## [FALHA-PROCESSO-2026-06-10-D] WIP_BOARD 3 LOOPS ATRASADO
+**Origem:** Sessao 2026-06-10. WIP_BOARD declarava Loop 29 quando sessao estava no Loop 31.
+**Principio violado:** P-027 — atualizar WIP_BOARD imediatamente ao concluir etapa, nao no session_close.
+**Antidoto:** WIP_BOARD nao atualizado no momento da etapa = etapa nao concluida. session_close bloqueia se WIP > 1 loop atrasado.
+
+## [FALHA-PROCESSO-2026-06-10-E] TOKEN HERMES MORTO DESDE IMPLANTACAO
+**Origem:** Sessao 2026-06-10. Token morto (7914321985) hardcoded no Hermes config.yaml. Declarado "ativo" sem teste ao vivo.
+**Principio violado:** P-010 — gate sem evidencia e invalido.
+**Antidoto:** ao implantar sistema com canal externo (Telegram, email, webhook), o gate de ativacao exige mensagem de teste RECEBIDA antes de declarar ATIVO.
+
+## [FALHA-PROCESSO-2026-06-10-F] BOM SILENCIOSO NO WIP_BOARD — MULTIPLAS SESSOES
+**Origem:** Sessao 2026-06-10. BOM (EF BB BF) no WIP_BOARD.json quebrando ChurnWatch n8n em silencio por multiplas sessoes.
+**Antidoto:** validate_scripts.ps1 inclui verificacao de BOM em .json criticos. Ao criar .json critico no Windows, usar WriteAllBytes com encoding explicito sem BOM.
+
+## [FALHA-PROCESSO-2026-06-10-G] DEF-M-6 — MUSCULO DETERMINOU ENCERRAMENTO
+**Origem:** Sessao 2026-06-10. Musculo disse "va dormir" — determinou o estado do Diretor e da sessao.
+**Principio violado:** fechamento e prerrogativa exclusiva do Diretor (CLAUDE.md + P-114).
+**Antidoto:** nunca usar linguagem que determine estado do Diretor. Correto: "Diretor, chegamos ao protocolo de fechamento — deseja encerrar agora?"
+
 ## P-141 — LOOP TRANSCRIPT: IMUNIDADE ESTRUTURAL A AMNESIA DE COMPACTACAO (2026-06-09)
 **Origem:** terceira ocorrencia de perda de trabalho por compactacao (Loop 30: capacidades Antigravity; Loop 29: missoes Embaixador; Loop 31: workflow YT + PASSO files). Padrao recorrente = falha estrutural.
 **Principio:** todo trabalho que nao esta em arquivo em disco nao existe. Workflow, secoes de capacidades e instrucoes que so existem no chat sao conteudo morto.
@@ -2305,3 +2417,77 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
   (e) Score do loop (5 metricas SYSTEM_HEALTH quando implementado)
 **O transcript torna-se fonte permanente no caderno do Auditor.** O Auditor le os ultimos 3 transcripts antes de gerar a Skill. Continuidade garantida apos compactacoes.
 **Aplica-se a:** todos os projetos, todos os loops. Prioridade de implementacao: Loop 31.
+## P-148 -- LEDGER_INBOX COMO BUFFER DE INTEGRIDADE (2026-06-10)
+**Origem:** FALHA [J] da sessao 2026-06-10 -- FALHAS [A-I] nao entraram no LEDGER porque P-098 bloqueava e o sistema nao tinha buffer entre "detectado" e "autorizado".
+**Principio:** Todo erro ou aprendizado identificado em sessao que nao possa ser inscrito no LEDGER imediatamente (P-098 bloqueante) DEVE ir para LEDGER_INBOX.md antes de qualquer outra coisa. Nao existe "vou registrar depois" -- o compacto de contexto apaga o que nao esta em arquivo.
+**Regra operacional:**
+  (1) Detectou falha -> registrar em LEDGER_INBOX imediatamente (sem flag P-098)
+  (2) Ao receber autorizacao: [RESOLVE: LEDGER-INBOX-P148] + mover para INTELLIGENCE_LEDGER.md
+  (3) LEDGER_INBOX nunca substitui o LEDGER -- e ponte, nao destino
+**Por que e critico:** sessao de Loop 31 gerou 11 falhas ([A]-[K]) que ficaram presas no PAINEL porque nao havia buffer. Algumas se repetiram.
+**Aplica-se a:** toda sessao que detecte falha operacional. Principios de processo tem prioridade de entrada.
+**Ferramenta:** LEDGER_INBOX.md (raiz) -- buffer oficial. Ao detectar falha em sessao: append imediato, sem perguntar.
+
+## [FALHA-PROCESSO-2026-06-10-H] DELIBERACAO SEM CITAR TEXTO DAS IDEIAS
+**Origem:** Sessao 2026-06-10. Musculo deliberou sobre ideias do Embaixador sem citar texto literal: [IDEIA: texto] -- analise ficou flutuante, nao ancorada no documento.
+**Gravidade:** ALTO -- veredito sem ancora textual e deliberacao de memoria, nao do documento atual.
+**Principio violado:** PADRAO DE DELIBERACAO (CLAUDE.md) -- reage a cada ideia pelo nome.
+**Correcao imediata:** padrao restabelecido na sessao.
+**Antidoto:** ao iniciar analise de E-1..E-5, citar texto literal antes de avaliar. Se secao nao tem texto claro, bloquear e pedir reforco ao Embaixador antes de deliberar.
+
+## [FALHA-PROCESSO-2026-06-10-I] sed SEM ESPECIFICAR CONTAINER LINUX
+**Origem:** Sessao 2026-06-10. Musculo sugeriu comando sed sem especificar em qual container Docker executar no EasyPanel.
+**Gravidade:** BAIXO -- gerou confusao de execucao no contexto de Hermes/EasyPanel.
+**Correcao:** RUNBOOK_EASYPANEL.md atualizado com prefixo "docker exec hermes-agent" obrigatorio.
+**Antidoto:** toda instrucao de terminal para EasyPanel DEVE incluir: "docker exec [nome-do-container] [comando]". Nunca assumir contexto de execucao sem nomear o container.
+
+## [FALHA-PROCESSO-2026-06-10-J] CRON W-1 1X/DIA EM VEZ DE 3X
+**Origem:** Sessao 2026-06-10. W-1 (Check-in diario) configurado para disparar 1x/dia (7h BRT) -- especificacao diz 3x (7h/13h/20h BRT). 2/3 dos briefings nunca chegaram ao Diretor.
+**Gravidade:** ALTO -- Diretor perdeu visibilidade operacional de tarde e noite.
+**Corrigido:** nao corrigido -- pendente sessao Loop 33 (n8n Studio).
+**Antidoto:** ao importar ou criar qualquer workflow n8n com schedule -> verificar schedule configurado contra especificacao em CLAUDE.md ANTES de declarar "ativo". Cron ativo nao e cron correto.
+
+## [FALHA-PROCESSO-2026-06-10-K] META-FALHA: FALHAS [A-I] NAO ENTRARAM NO LEDGER
+**Origem:** Sessao 2026-06-10. 11 falhas detectadas em Loop 31 ficaram presas no PAINEL porque P-098 bloqueava a escrita no LEDGER e nao havia buffer intermediario.
+**Gravidade:** MEDIO -- falha que nao entra no LEDGER nao tem prevencao permanente; ciclo se repete.
+**Diagnostico:** o LEDGER e o unico mecanismo de memoria de falhas entre sessoes. Se P-098 bloqueia a entrada, as falhas morrem com o compacto de contexto.
+**Solucao estrutural:** LEDGER_INBOX.md criado em Loop 32 (ATO 6) como buffer oficial. P-148 formaliza o principio.
+**Antidoto:** ao detectar qualquer falha em sessao -> LEDGER_INBOX.md imediatamente (sem autorizacao P-098). Ao receber autorizacao -> mover em lote com [RESOLVE: LEDGER-INBOX-FALHAS].
+
+## P-149 — PASSO3 APRESENTA PROBLEMAS, NAO SOLUCOES — CAMARA DE ECO E BLOQUEANTE (2026-06-11)
+**Origem:** Loop 33 — Musculo escreveu M-1 a M-5 como solucoes pre-compiladas no PASSO3_GEMINI.md. O Estrategista (Antigravity) pesquisou e validou essas solucoes em vez de descobrir o que estava fora do radar. DIRETRIZ V33 confirmou o que o Musculo ja havia decidido. Diretor detectou: "Voce esta indo de encontro ao que o Diretor quer." Loop refeito do zero.
+**Falha composta:**
+  - M-1 a M-5 eram solucoes pre-definidas — fecharam o espaco de descoberta dos socios
+  - Query do Deep Research no NotebookLM replicou as ideias compiladas — camara de eco tripla
+  - M-1 (Cowork) era tarefa do Embaixador — nao devia estar no PASSO3 para o Estrategista
+**Principio:** O MUSCULO APRESENTA PROBLEMAS E CONTEXTO AO PASSO3 — NUNCA SOLUCOES PRE-COMPILADAS.
+  As G-1..G-5 pertencem exclusivamente ao Estrategista.
+  As N-1..N-5 pertencem exclusivamente ao Auditor.
+  As E-1..E-5 pertencem exclusivamente ao Embaixador.
+  O Musculo apresenta: (a) onde a empresa esta, (b) o que nao esta funcionando, (c) perguntas abertas sem resposta.
+  Nunca: (x) solucoes tecnicas para os socios validarem.
+**Trava obrigatoria no PASSO3:** adicionar secao [GATE ANTI-CAMARA-DE-ECO] antes dos M-X:
+  "O Estrategista e proibido de validar M-X. Sua missao e descobrir o que M-X nao viu.
+  Se os G coincidem com os M, a DIRETRIZ e invalida — reiniciar com perspectiva oposta."
+**Aplica-se a:** todo PASSO3 de todo projeto. Prioridade maxima.
+**Resolucao:** [RESOLVE: LEDGER-INBOX-P149]
+
+## P-150 — DELIBERACAO INDIVIDUAL DE CADA IDEIA COM 7 PONTOS ANTES DE QUALQUER SINTESE (2026-06-12)
+**Origem:** Loop 33 — Musculo apresentou sintese consolidada (D1/D2 + plano) sem mostrar deliberacao individual das 23 ideias (M+G+N+A+E). Diretor: "Como 20 ideias disruptivas se resumem a isso? Voce so pode estar alucinando." Reapresentacao com 7 pontos por ideia: "Agora sim. Excelente."
+**Falha detectada:**
+  - Musculo foi direto para sintese P-037 sem deliberar cada ideia individualmente
+  - Diretor nao consegue veredar "D1:A" sem ver o raciocinio por tras de cada M/G/N/A/E
+  - Sintese sem deliberacao individual = camara de eco — o Musculo pre-decide sem o Diretor ver o processo
+**Principio:** AO RECEBER OUTPUT DOS SOCIOS (M+G+N+A+E), O MUSCULO DELIBERA CADA IDEIA INDIVIDUALMENTE COM 7 PONTOS ANTES DE QUALQUER SINTESE OU DECISOES.JSON.
+**Sequencia inviolavel:**
+  1. Bloco M — cada ideia com 7 pontos (Certo / Diverge / Decisao / Enhancement / Custo real / Impacto comercial / Proxima acao)
+  2. Bloco G — cada ideia com 7 pontos
+  3. Bloco N — cada contra-argumento com analise
+  4. Bloco A — cada ideia exclusiva com 7 pontos
+  5. Bloco E — cada ideia com 7 pontos
+  6. Tabela resumo de vereditos (ENTRA AGORA / V2 / DESCARTADO / CONDICIONADO)
+  7. SO ENTAO: sintese P-037 -> DECISOES.json
+**Por que e critico:** o Diretor nao consegue deliberar sobre "D1:A" sem saber o raciocinio por tras de cada uma das ideias. Sintese sem deliberacao individual e camara de eco — o Musculo pre-decide.
+**Confirmado pelo Diretor:** "Agora sim. Excelente." — 2026-06-12 apos deliberacao completa de 23 ideias com 7 pontos cada.
+**Aplica-se a:** todo loop de todo projeto. Prioridade maxima.
+**Resolucao:** [RESOLVE: LEDGER-INBOX-P150]

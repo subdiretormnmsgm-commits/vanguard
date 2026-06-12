@@ -7,7 +7,14 @@
 
 ---
 
-## STATUS: INBOX VAZIO — Loop 33, ATO 5 concluído (2026-06-11)
+## STATUS: 0 ENTRADAS PENDENTES — Loop 33 fechado · 2026-06-12
+
+---
+
+## [MOVIDOS PARA INTELLIGENCE_LEDGER.md — 2026-06-12]
+
+- **P-149** → adicionado após FALHA-K · [RESOLVE: LEDGER-INBOX-P149]
+- **P-150** → adicionado após P-149 · [RESOLVE: LEDGER-INBOX-P150]
 
 Todos os itens do lote Loop 31+32 foram movidos para INTELLIGENCE_LEDGER.md:
 - **P-148** → adicionado após P-141

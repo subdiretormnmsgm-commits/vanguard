@@ -2,36 +2,36 @@
     "schema_version":  "1.1",
     "cliente":  "VANGUARD",
     "loop_atual":  33,
-    "loop_status":  "PRE_LOOP",
-    "fase_atual":  "LOOP_ABERTO",
+    "loop_status":  "VEREDITO_CONFIRMADO",
+    "fase_atual":  "EXECUCAO",
     "missao":  "EXTERNO — Vanguard como Empresa · ATOs 1-6 pré-abertura + EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 · 2026-06-11",
     "socios":  {
                    "gemini":  {
-                                  "status":  "PENDENTE",
-                                  "artefato":  "",
-                                  "data_conclusao":  "",
-                                  "proximo":  "PASSO3_GEMINI.md Loop 33 — Antigravity EXECUTOR com identidade ampliada · missao EXTERNO",
-                                  "nota":  "Aguarda ATOs 1-6 + EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 posicionados"
+                                  "status":  "OK",
+                                  "artefato":  "DIRETRIZ_ESTRATEGICA_V33 — G-1..G-5 + PARA_NOTEBOOKLM recebidos",
+                                  "data_conclusao":  "2026-06-11",
+                                  "proximo":  "NotebookLM — Skill vanguard-v33.md (PASSO5 + Deep Research WEB + 24 fontes carregadas)",
+                                  "nota":  "Subagentes A+B+D despachados. G-1=INBOX_COWORK G-2=Impugnacao G-3=ROI G-4=Delegacao G-5=Mock Case"
                               },
                    "notebooklm":  {
-                                      "status":  "PENDENTE",
-                                      "artefato":  "",
-                                      "data_conclusao":  "",
-                                      "proximo":  "Após DIRETRIZ V33 → PASSO5 Loop 33 → Skill vanguard-v33.md · Wipe\u0026Sync VANGUARD pendente [DIRETOR]",
-                                      "nota":  ""
+                                      "status":  "OK",
+                                      "artefato":  ".claude/skills/vanguard-v33.md — 4 blocos APROVADOS · AUDITOR_LOOP_V33_vanguard.md · BRIEFING_ESTADO_ARTE_LOOP33.md",
+                                      "data_conclusao":  "2026-06-12",
+                                      "proximo":  "Embaixador → PASSO7 Loop 33 → filtro de realidade + E-1..E-5 + RUNNING_INTELLIGENCE",
+                                      "nota":  "Skill vanguard-v33.md APROVADA pelo skill_parser_gate. N-1..N-5 gerados. A-1..A-3 ampliados."
                                   },
                    "embaixador":  {
-                                      "status":  "PENDENTE",
-                                      "artefato":  "",
-                                      "data_conclusao":  "",
-                                      "proximo":  "Após Músculo → PASSO7 Loop 33 → filtro de realidade + RUNNING_INTELLIGENCE",
-                                      "nota":  ""
+                                      "status":  "OK",
+                                      "artefato":  "E-1..E-5 + D1/D2 propostos + intel BLOCO 8 (ConLicitacao/Dr.Licita, PNCP API, risco alucinacao) — 2026-06-12",
+                                      "data_conclusao":  "2026-06-12",
+                                      "proximo":  "Aguardando veredito D1/D2 do Diretor",
+                                      "nota":  "BLOQUEANTE P-067: Musculo bloqueado ate Embaixador entregar E-1..E-5 + SECAO D"
                                   },
                    "musculo":  {
-                                   "status":  "PENDENTE",
-                                   "artefato":  "",
-                                   "data_conclusao":  "",
-                                   "proximo":  "ATOs 1-6 em sequência → posicionar EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 → abrir Loop 33",
+                                   "status":  "OK",
+                                   "artefato":  "DELIBERACAO_LOOP_V33_VANGUARD.md + DECISOES_VANGUARD_V33_2026-06-12.json — sintese P-037 concluida",
+                                   "data_conclusao":  "2026-06-12",
+                                   "proximo":  "Aguardando veredito D1+D2 do Diretor + prospect nomeado",
                                    "nota":  "B-1 backup gate: CONFIRMADO pelo Diretor 2026-06-11"
                                }
                },
@@ -42,6 +42,12 @@
                                                  "autorizo_sobrescrever_ledger":  "SIM — ATO 5 desbloqueado",
                                                  "w9_track_trends":  "NAO — não entra neste loop",
                                                  "w8_shadow_avaliar":  "SIM — avaliação desta sessão (deadline 14-06-2026)"
+                                             },
+                              "2026-06-12":  {
+                                                 "D1_A":  "CONFIRMADO — 1 contato quente + prospect nomeado (nicho licitações, não build técnico)",
+                                                 "D2_A":  "CONFIRMADO — setup + retainer + % com valores F12: R$2.800 primeiro edital / R$3.500mês retainer / R$5.500 edital R$5M+",
+                                                 "FINEP":  "DESCARTADA — regime tributário não elegível",
+                                                 "inbox_cowork_lido":  "SIM — 18 arquivos via MCP Drive · BUILD 1 executado manualmente nesta sessão"
                                              }
                           },
     "builds_aprovados_nao_iniciados":  [
@@ -131,15 +137,15 @@
                   "ato5_ledger_inbox_movido":  true,
                   "ato6_notify_hermes_watch":  true
               },
-    "proxima_acao_diretor":  "Colar AGENTS_FIREWALL_V1.md + EXECUTOR_PLAYBOOK_V1.md + PASSO3_GEMINI_AMPLIACAO_V2.md (após resolver problema técnico de paste) · Wipe \u0026 Sync NotebookLM VANGUARD · Avaliar W-8 ativação plena (deadline 14-06-2026)",
-    "proxima_acao_musculo":  "Loop 33 aberto -- PASSO3 pronto para Antigravity Executor",
+    "proxima_acao_diretor":  "URGENTE (antes 18-06): testar migração Antigravity CLI — 30min. ESTA SEMANA: 1ª ação comercial Licitações (LinkedIn hoje 5min + PNCP amanhã 1 empresa). Ponte Valdece antes de 18-06.",
+    "proxima_acao_musculo":  "G-2: dossiê PNCP do nicho licitações (~4h) + G-3: Pitch Reverso ROI (~1h). E-4: pitch anti-alucinação 3 parágrafos (~30min). E-5: update_memoria_embaixador.ps1 (~2h). BUILD 1: instrução permanente PENDENTES para abertura de sessão.",
     "alertas_criticos":  [
                              "W-8 shadow mode expira 2026-06-14 — avaliar Hermes Grau C (SIM confirmado pelo Diretor)",
                              "BLOQUEANTE P-133: captação 2ª candidata Ingrid — deadline 04-07-2026",
                              "W-1 cron ainda 1x/dia — deveria ser 3x (7h/13h/20h BRT)",
                              "Wipe \u0026 Sync NotebookLM VANGUARD pendente [DIRETOR] — problemas técnicos"
                          ],
-    "ultima_atualizacao":  "2026-06-11",
+    "ultima_atualizacao":  "2026-06-12",
     "loop_32_entregues":  [
                               "Antigravity → EXECUTOR do Estrategista (Gemini) em 62 arquivos — commit 4defaf6",
                               "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",
