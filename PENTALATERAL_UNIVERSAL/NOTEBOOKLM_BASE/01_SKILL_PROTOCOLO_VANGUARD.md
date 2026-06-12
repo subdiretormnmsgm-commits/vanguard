@@ -763,8 +763,15 @@ O ciclo continua.
 >
 > ```
 > PASSO 0 — Embaixador ativado (ir_ao_embaixador.ps1 -cliente [NOME])
+>           + ENRIQUECIMENTO DE NICHO (Musculo — obrigatorio):
+>             1. Identificar setor/nicho do prospect (WIP_BOARD ou briefing inicial)
+>             2. Consultar Biblioteca_Nichos_Vanguard_v[N].md — buscar Cartao correspondente
+>             3. Se Cartao existe → copiar para CLIENTES/[NOME]/INTELIGENCIA_NICHO.md
+>                + injetar custo da dor + gatilhos + objecoes na MEMORIA_EMBAIXADOR inicial
+>             4. Se Cartao ausente → rodar /cowork-engine focado no nicho antes de continuar
+>                (Biblioteca cresce a cada projeto novo — nunca iniciar sem ela)
 >      ↓
-> PASSO 1-2 — Diretor faz Discovery → Embaixador popula MEMORIA_EMBAIXADOR + hipóteses [H]
+> PASSO 1-2 — Diretor faz Discovery → Embaixador popula MEMORIA_EMBAIXADOR + hipoteses [H]
 >      ↓
 > PASSO 3 — Eduardo → Gemini  (Comando 1 inclui LOG_CLIENTE + [E-1 a E-5] do Embaixador)
 >      ↓
