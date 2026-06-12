@@ -445,3 +445,20 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
 - [ ] `2026-06-12` **[MUSCULO] Gate 7C -- verificacao por HORARIO, nao por data** [musculo]
   Diretor: controles devem ser em HH:MM. Threshold: arquivo modificado nas ultimas 8h.
   Alterar PENTALATERAL_UNIVERSAL/scripts/session_close.ps1 Gate 7C.
+
+- [x] `2026-06-12` ~~**[MUSCULO] PASSO 0 BLOQUEANTE -- Cowork + Notion com mesma forca que BLOCO 0** [musculo]~~
+  ✅ session_start.ps1 atualizado: $colheitaCowork reescrito com linguagem ⛔ BLOQUEANTE.
+  Sequencia obrigatoria: [1] Notion (hook automatico -- confirmar) → [2] Cowork MCP Drive → BLOCO 0.
+  Musculo que solicita BLOCO 0 antes de executar PASSO 0 = DEF-M-6 automatico. [RESOLVE: passo0-bloqueante]
+
+- [ ] `2026-06-12` **[MUSCULO] Notion FALHA -- ChurnWatch JSON parse error (W-5)** [musculo]
+  Falha do Dia (Notion 2026-06-12): "Erro ao ler WIP_BOARD: Unexpected token '?'" no Telegram 06:00 UTC.
+  Causa provavel: caracter '?' (PowerShell null-coalescing) serializado incorretamente no JSON lido pelo n8n.
+  Acao: (a) inspecionar WIP_BOARD.json por '?' fora de string, (b) corrigir, (c) registrar FALHA-L no LEDGER,
+  (d) criar validacao no W-5 para JSON invalido (continueOnFail: true + alerta de parsing).
+
+- [ ] `2026-06-12` **[MUSCULO] Notion SUGESTOES -- classificadas P-092** [musculo]
+  S-3: Guia de uso das skills /find-skills /ultrathink /superpowers /mcp-builder -- gerar documento [musculo]
+  S-4: https://skills-nocode-startup.lovable.app/ -- Musculo analisa e propoe sistematizacao [musculo]
+  S-5: "Minha funcao e identificar falhas no raciocinio antes de concordar" -- inscrever como P-152 no LEDGER
+  S-1/S-2: Expandir LMM Embaixador + Antigravity em V30 -- registrar em backlog V30 [diretor delibera]
