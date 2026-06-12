@@ -50,7 +50,17 @@ $projetos = @()
 try {
     $wip = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
     $projetos = @($wip.board.build)
-    if ($wip.meta.loop_atual) { $loop = $wip.meta.loop_atual }
+    # Tentar meta.loop_atual primeiro; fallback: primeiro projeto VANGUARD
+    if ($wip.meta.loop_atual) {
+        $loop = $wip.meta.loop_atual
+    } else {
+        $vg = $projetos | Where-Object { $_.cliente -match "VANGUARD" } | Select-Object -First 1
+        if ($vg -and $vg.loop_atual) {
+            # Extrair so "Loop N" da string longa
+            if ($vg.loop_atual -match "Loop\s+(\d+)") { $loop = $Matches[1] }
+            else { $loop = ($vg.loop_atual -split " ")[0] }
+        }
+    }
 } catch {}
 
 # --- Commits das ultimas 24h ---

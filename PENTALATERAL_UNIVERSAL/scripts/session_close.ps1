@@ -1013,6 +1013,45 @@ if (Test-Path $n8nWorkflowDir) {
 }
 
 # ==========================================================================
+# GATE 7C -- Freshness dos 7 arquivos criticos (S1 DEF-M-6 -- 2026-06-12)
+# Alerta AMARELO nao-bloqueante -- Diretor decide se bypassa
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 7C] Verificando freshness dos 7 arquivos criticos..." -ForegroundColor Cyan
+
+$_g7cArqs = @(
+    "PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$DATA.md",
+    "PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$DATA.md",
+    "CLIENTES\WIP_BOARD.json",
+    "INTELLIGENCE_LEDGER.md",
+    "PENDENTES.md",
+    "CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md",
+    "CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
+)
+$_g7cNomes = @("PAINEL_ATIVIDADES","CONTEXTO_SESSAO_DIRETOR","WIP_BOARD","INTELLIGENCE_LEDGER","PENDENTES","16_VANGUARD_TIMELINE","MEMORIA_EMBAIXADOR")
+$_g7cFalhas = @()
+$_g7cHoje = (Get-Date).Date
+
+for ($i = 0; $i -lt $_g7cArqs.Count; $i++) {
+    $p = Join-Path $BASE $_g7cArqs[$i]
+    if (-not (Test-Path $p)) {
+        $_g7cFalhas += ("  [AUSENTE] " + $_g7cNomes[$i])
+    } else {
+        $delta = ($_g7cHoje - (Get-Item $p).LastWriteTime.Date).Days
+        if ($delta -gt 0) { $_g7cFalhas += ("  [STALE " + $delta + "d] " + $_g7cNomes[$i]) }
+    }
+}
+
+if ($_g7cFalhas.Count -gt 0) {
+    Write-Host "  [GATE 7C] ALERTA AMARELO -- arquivos nao atualizados hoje:" -ForegroundColor Yellow
+    foreach ($f in $_g7cFalhas) { Write-Host $f -ForegroundColor Yellow }
+    Write-Host "  [GATE 7C] gerar_msg_embaixador.ps1 bloqueara se estes arquivos estiverem stale." -ForegroundColor Yellow
+    Write-Host "  [GATE 7C] Recomendacao: atualizar antes de entregar ao Embaixador." -ForegroundColor Yellow
+} else {
+    Write-Host "  [GATE 7C] VERDE -- todos os 7 arquivos criticos atualizados hoje." -ForegroundColor Green
+}
+
+# ==========================================================================
 # GATE 8 -- Notificacao: e-mail + Telegram + Auto-preparacao dos 3 socios
 # ==========================================================================
 Write-Host ""
