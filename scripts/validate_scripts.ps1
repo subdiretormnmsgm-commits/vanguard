@@ -100,6 +100,22 @@ function Test-Script {
     return $erros.Count
 }
 
+# --- Verificar BOM em .json (FALHA-H -- json-bom-guard) ---
+function Test-JsonBom {
+    param([string]$caminho)
+    $BOM = [byte[]]@(0xEF, 0xBB, 0xBF)
+    try {
+        $bytes = [System.IO.File]::ReadAllBytes($caminho)
+        $temBom = ($bytes.Length -ge 3 -and $bytes[0] -eq $BOM[0] -and $bytes[1] -eq $BOM[1] -and $bytes[2] -eq $BOM[2])
+        if ($temBom) {
+            $nomeRel = $caminho.Replace($raiz + "\", "")
+            Write-Host ("  [BOM] " + $nomeRel + " -- BOM UTF-8 detectado. Rodar: .\scripts\fix_bom_json.ps1") -ForegroundColor Red
+            return 1
+        }
+    } catch { }
+    return 0
+}
+
 # --- Executar ---
 Write-Host ""
 Write-Host "[VALIDATE] Analise estatica de scripts PowerShell" -ForegroundColor Cyan
@@ -122,6 +138,18 @@ if ($Script) {
     foreach ($s in $todos) {
         $totalErros += Test-Script $s.FullName
     }
+
+    # Verificar BOM em todos os .json do repositorio
+    Write-Host ""
+    Write-Host "[VALIDATE] Verificando BOM em arquivos .json..." -ForegroundColor Cyan
+    $jsonFiles = Get-ChildItem $raiz -Recurse -Filter "*.json" -File -ErrorAction SilentlyContinue |
+                 Where-Object { $_.FullName -notmatch '\\\.git\\' }
+    $bomCount = 0
+    foreach ($j in $jsonFiles) { $bomCount += Test-JsonBom $j.FullName }
+    if ($bomCount -eq 0) {
+        Write-Host "  [OK] Nenhum BOM em $($jsonFiles.Count) arquivo(s) .json" -ForegroundColor Green
+    }
+    $totalErros += $bomCount
 } else {
     Write-Host "  Uso: -Script [caminho] | -Todos" -ForegroundColor Yellow
     exit 0

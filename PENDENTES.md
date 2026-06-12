@@ -135,15 +135,9 @@
 
 ### 🔧 LOOP 31 — ERROS → FERRAMENTAS (P-146: documentar sem automatizar = repetir o erro)
 
-- [ ] `2026-06-10` **[MÚSCULO] fix_bom_json.ps1 — eliminar BOM UTF-8 de todos os .json (3ª ocorrência)** [musculo]
-  Erro: WIP_BOARD.json com BOM quebra ChurnWatch (W-5), Notion sync (P-128), session_start.
-  Terceira vez em 6 semanas — documentar não basta.
-  O que construir:
-  (a) `scripts/fix_bom_json.ps1` — remove BOM de todo .json no repo + valida encoding UTF-8 sem BOM
-  (b) Integrar ao session_close.ps1 Gate 1: rodar fix_bom automaticamente antes de qualquer sync
-  (c) Integrar ao validate_scripts.ps1: checar BOM em .json além de .ps1
-  (d) Commit automático após correção com [RESOLVE: bom-json]
-  Custo: ~30min. Elimina classe inteira de falhas silenciosas de automação.
+- [x] `2026-06-10` ~~**[MÚSCULO] fix_bom_json.ps1 — eliminar BOM UTF-8 de todos os .json (3ª ocorrência)** [musculo]~~
+  ✅ fix_bom_json.ps1 existia; adicionado auto-commit + integração validate_scripts.ps1 (BOM check em .json).
+  14 arquivos corrigidos (WIP_BOARD.json x4 + knowledge_graph.json + _n8n + settings). Commit 690d0eb automático. [RESOLVE: bom-json]
 
 - [ ] `2026-06-10` **[MÚSCULO] update_memoria_embaixador.ps1 — atualização event-driven (P-145)** [musculo]
   Erro: MEMORIA_EMBAIXADOR ficou 2 loops desatualizada (Loop 30 + 31). Gate 6B só alerta, não age.
@@ -260,9 +254,8 @@
   Liga com item existente: `update_memoria_embaixador.ps1` (2026-06-10 LOOP 31).
   Custo: ~2h (script existe em design no PENDENTES — implementar agora).
 
-- [ ] `2026-06-12` **[MÚSCULO] P-150 → INTELLIGENCE_LEDGER — após autorização P-098** [musculo]
-  P-150 registrado no LEDGER_INBOX: deliberação individual de cada ideia com 7 pontos antes da síntese.
-  Aguarda: AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER.md
+- [x] `2026-06-12` ~~**[MÚSCULO] P-150 → INTELLIGENCE_LEDGER — após autorização P-098** [musculo]~~
+  ✅ Movido junto com P-149 em 2026-06-12. LEDGER_INBOX confirma STATUS: 0 entradas. [RESOLVE: LEDGER-INBOX-P150]
 
 - [x] `2026-06-12` **[MÚSCULO] P-149 → INTELLIGENCE_LEDGER — após autorização P-098** [musculo]
   P-149 registrado no LEDGER_INBOX: PASSO3 apresenta problemas, nunca soluções pré-compiladas.

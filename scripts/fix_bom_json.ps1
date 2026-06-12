@@ -64,6 +64,23 @@ if ($corrigidos.Count -gt 0) {
     foreach ($f in $corrigidos) {
         Write-Host "    $f" -ForegroundColor Yellow
     }
+
+    # Auto-commit se nao for DryRun (PENDENTES requisito d)
+    if (-not $DryRun) {
+        try {
+            $qtd   = $corrigidos.Count
+            $nomes = ($corrigidos | ForEach-Object { Split-Path $_ -Leaf } | Select-Object -First 3) -join ", "
+            if ($corrigidos.Count -gt 3) { $nomes += " e mais $($corrigidos.Count - 3)" }
+            & git -C $baseDir add ($corrigidos | ForEach-Object { $_ }) 2>$null
+            $msgCommit = "fix(json): remover BOM UTF-8 de $qtd arquivo(s) [RESOLVE: bom-json]`n`n$nomes`n`nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+            & git -C $baseDir commit -m $msgCommit 2>$null
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "  [FIX-BOM] Commit automatico criado [RESOLVE: bom-json]" -ForegroundColor Green
+            }
+        } catch {
+            Write-Host "  [FIX-BOM] AVISO: commit automatico falhou -- commitar manualmente" -ForegroundColor Yellow
+        }
+    }
 } else {
     Write-Host "  [OK] Nenhum BOM detectado em $($semBom + $corrigidos.Count) arquivo(s)." -ForegroundColor Green
 }
