@@ -79,10 +79,11 @@
   W-8 shadow mode 100% operacional — pode gravar em silenced_signals_log.
   ALERTA RESIDUAL (sem impacto): SUPABASE_URL_INGRID aponta para Vanguard (não Ingrid) — variável órfã, não usada por nenhum workflow.
 
-- [ ] `2026-06-14` **[DIRETOR] W-8 shadow mode — avaliar ativação plena** [diretor]
-  DEADLINE HARD: shadow mode expira 2026-06-14.
-  PRÉ-REQUISITO: item EasyPanel acima deve estar feito antes desta avaliação.
-  Decisão: se silenced_signals_log tiver dados → ativar pleno (`shadowMode = false` em w8 + reimport). Senão prorrogar.
+- [ ] `2026-06-21` **[DIRETOR] W-8 shadow mode — avaliar ativação plena** [diretor]
+  DEADLINE: shadow mode estendido até 2026-06-21 (decisão Diretor 2026-06-12 — 7 dias adicionais para coletar dados limpos).
+  CONTEXTO: Fix 5 (specifyBody keypair) resolveu gravação no Supabase — 2 registros corretos confirmados (ids 3 e 4). W-8 agora grava corretamente em ambos os branches (AUTO-RESOLVE + Rotear Sinal).
+  Decisão: ler silenced_signals_log — se dados consistentes → ativar pleno (`shadowMode = false` no jsCode do W-8 + reimport). Se anomalias → prorrogar novamente.
+  Workflow n8n renomeado: "W-8 Signal Classifier (shadow-mode -- expira 2026-06-21)".
 
 - [x] `2026-06-06` ~~**V28 — gate_coerencia.ps1 (E-1 Haiku API) + skill_parser_gate integrado:**~~
   ✅ gate_coerencia.ps1 criado e integrado ao skill_parser_gate.ps1 — commit baf693a.
@@ -162,15 +163,12 @@
   (c) Propagar para PASSO3 e PASSO7 templates com checklists equivalentes
   Custo: ~1h. Protege contra DEF-M-6 por esquecimento estrutural.
 
-- [ ] `2026-06-10` **[MÚSCULO] session_close Gate 6A — MEMORIA + relatorio obrigatórios ANTES de fechar** [musculo]
-  Erro: MEMORIA_V31 e relatorio_V31 escritos APÓS compactação de contexto (P-045 quase violado).
-  O que construir: session_close.ps1 Gate 6A:
-  (a) Para cada projeto com loop_status=ABERTO no LOOP_STATE.json:
-      verificar se `HISTORICO/MEMORIA_V[N]_[CLIENTE].md` existe
-      verificar se `HISTORICO/relatorio_evolutivo_V[N]_[CLIENTE].md` existe
-  (b) Se ausentes → exit 1 BLOQUEANTE: "Feche o Loop [N] antes de encerrar: MEMORIA + relatorio ausentes."
-  (c) Exceção: se LOOP_STATE.fase_atual = "AGUARDA_EMBAIXADOR" → alerta não-bloqueante (loop ainda aberto)
-  Custo: ~30min. Garante que P-045 é cumprido antes do contexto ser compactado.
+- [x] `2026-06-10` ~~**[MÚSCULO] session_close Gate 6A — MEMORIA + relatorio obrigatórios ANTES de fechar** [musculo]~~
+  ✅ Gate 6A implementado em 2026-06-12. Inserido entre Gate 6C e Gate 6B no script canônico.
+  Lógica: se musculo.status=OK no LOOP_STATE + MEMORIA/relatorio ausentes → exit 1 BLOQUEANTE.
+  Exceção: fase_atual=AGUARDA_EMBAIXADOR → alerta não-bloqueante.
+  DryRun confirmou detecção: VANGUARD Loop 33 sem MEMORIA_V33 + relatorio_V33 → "BLOQUEARIA com exit 1".
+  P-033 sync propagado. [RESOLVE: Gate-6A]
 
 - [ ] `2026-06-10` **[MÚSCULO] Expandir doc_freshness_checker para CLAUDE_PROJECT/ (TIMELINE + MEMORIA_EMBAIXADOR)** [musculo]
   Erro: CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md desatualizado (detectado pelo Diretor, não pelo sistema).

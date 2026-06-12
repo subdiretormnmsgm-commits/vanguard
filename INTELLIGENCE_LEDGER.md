@@ -2505,3 +2505,14 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Por que e critico:** disciplina falha em sessoes longas, sob pressao e apos compactacao de contexto. A restricao arquitetural nao tem memoria fragil.
 **Aplica-se a:** qualquer P-XXX que ja foi violado mais de 1 vez sem que uma ferramenta tenha sido criada.
 **Regra derivada (extensao de P-146):** quando uma falha aparece pela segunda vez no LEDGER, a proxima acao OBRIGATORIA e criar uma ferramenta de prevencao, nao registrar o principio novamente.
+
+---
+
+## P-152 — WORKFLOW N8N COM BRANCHES PARALELOS: REFERENCIAR NO POR NOME, NAO POR $JSON (2026-06-12)
+
+**Origem:** W-8 Signal Classifier -- no Supabase gravava campos vazios apesar de 4 execucoes bem-sucedidas. 3 rounds de debug necessarios para identificar a causa raiz.
+**Causa raiz:** em workflows n8n com branches (no IF diverge em 2+ caminhos), o `$json` no no convergente aponta para o output do ULTIMO no executado no caminho percorrido -- nao para um no fixo. Branch AUTO-RESOLVE passava por `Executar Auto-Resolve` (output: `$json.dados.sinal_original`); branch Rotear passava por `Telegram` (output: estrutura diferente). O mesmo no Supabase recebia `$json` diferente por branch, causando campos nulos ou erro PGRST204.
+**Solucao correta:** `$('Nome do No').first().json` -- referencia direta ao output de um no especifico por nome, independente do branch percorrido. Sempre valido, nunca ambiguo.
+**Solucao de body Supabase via httpRequest:** `specifyBody: "keypair"` com `bodyParameters.parameters` -- n8n monta o JSON internamente e garante Content-Type correto. `specifyBody: "string"` com `JSON.stringify()` causa PGRST204 (PostgREST interpreta o JSON todo como nome de coluna).
+**Aplica-se a:** todo no n8n convergente apos branches paralelos + qualquer httpRequest POST para Supabase REST API.
+**Nunca usar:** `$json` em no convergente sem verificar qual branch o alimenta.

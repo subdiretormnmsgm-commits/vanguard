@@ -84,6 +84,7 @@ $gateStatus = [ordered]@{
     G4  = "PENDENTE"
     G5  = "PENDENTE"
     G6  = "PENDENTE"
+    G6A = "PENDENTE"
     G7  = "PENDENTE"
     G8e = "PENDENTE"
     G8t = "PENDENTE"
@@ -757,6 +758,74 @@ if ($gate6CFalhou) {
     else { exit 1 }
 }
 Write-Host "  [GATE 6C] P-049 doc-sync -- OK" -ForegroundColor Green
+
+# ==========================================================================
+# GATE 6A -- P-045 BLOQUEANTE: MEMORIA + relatorio do loop atual escritos?
+# Se musculo=OK e artefatos ausentes -> exit 1 (exceto fase AGUARDA_EMBAIXADOR)
+# Origem: MEMORIA_V31 escrita APOS compactacao de contexto -- P-045 quase violado
+# ==========================================================================
+Write-Host ""
+Write-Host "  [GATE 6A] Artefatos de fechamento de loop (P-045)..." -ForegroundColor Cyan
+$gate6AFalhou = $false
+foreach ($proj6A in $projetosEmBuild) {
+    $cli6A   = $proj6A.cliente.ToUpper()
+    $cliL6A  = $proj6A.cliente.ToLower()
+    $histDir = "$BASE\CLIENTES\$cli6A\HISTORICO"
+    $lsPath  = "$BASE\CLIENTES\$cli6A\CLAUDE_PROJECT\LOOP_STATE.json"
+
+    if (-not (Test-Path $lsPath)) {
+        Write-Host "  [GATE 6A] $cli6A -- LOOP_STATE.json ausente -- IGNORADO" -ForegroundColor DarkGray
+        continue
+    }
+
+    try { $ls = Get-Content $lsPath -Raw -Encoding UTF8 | ConvertFrom-Json }
+    catch {
+        Write-Host "  [GATE 6A] $cli6A -- LOOP_STATE.json invalido -- IGNORADO" -ForegroundColor Yellow
+        continue
+    }
+
+    $loopN   = [int]$ls.loop_atual
+    $fase    = $ls.fase_atual
+    $musculo = $ls.socios.musculo.status
+
+    if ($musculo -ne "OK") {
+        Write-Host "  [GATE 6A] $cli6A Loop $loopN -- musculo PENDENTE (fase: $fase) -- IGNORADO" -ForegroundColor DarkGray
+        continue
+    }
+
+    $memoriaPath   = "$histDir\MEMORIA_V${loopN}_${cliL6A}.md"
+    $relatorioPath = "$histDir\relatorio_evolutivo_V${loopN}_${cliL6A}.md"
+    $memoriaOk6A   = Test-Path $memoriaPath
+    $relatorioOk6A = Test-Path $relatorioPath
+
+    if ($memoriaOk6A -and $relatorioOk6A) {
+        Write-Host "  [GATE 6A] $cli6A Loop $loopN -- MEMORIA + relatorio OK" -ForegroundColor Green
+        continue
+    }
+
+    if ($fase -eq "AGUARDA_EMBAIXADOR") {
+        Write-Host "  [!] [GATE 6A] $cli6A Loop $loopN -- fase AGUARDA_EMBAIXADOR -- artefatos podem ser gerados apos o Embaixador:" -ForegroundColor Yellow
+        if (-not $memoriaOk6A)   { Write-Host "       AUSENTE: HISTORICO\MEMORIA_V${loopN}_${cliL6A}.md" -ForegroundColor Yellow }
+        if (-not $relatorioOk6A) { Write-Host "       AUSENTE: HISTORICO\relatorio_evolutivo_V${loopN}_${cliL6A}.md" -ForegroundColor Yellow }
+        continue
+    }
+
+    # musculo=OK + artefatos ausentes + nao e AGUARDA_EMBAIXADOR -> BLOQUEANTE
+    Write-Host "  [BLOQUEIO P-045] $cli6A Loop $loopN -- musculo=OK mas artefatos ausentes:" -ForegroundColor Red
+    if (-not $memoriaOk6A)   { Write-Host "    AUSENTE: HISTORICO\MEMORIA_V${loopN}_${cliL6A}.md" -ForegroundColor Red }
+    if (-not $relatorioOk6A) { Write-Host "    AUSENTE: HISTORICO\relatorio_evolutivo_V${loopN}_${cliL6A}.md" -ForegroundColor Red }
+    Write-Host "    Gerar os artefatos antes de encerrar a sessao (P-045)." -ForegroundColor Yellow
+    $gate6AFalhou = $true
+}
+if ($gate6AFalhou) {
+    $gateStatus.G6A = "VERMELHO"
+    Write-Host "  [GATE 6A] FALHOU -- P-045 violado. Criar MEMORIA + relatorio antes de fechar." -ForegroundColor Red
+    if ($DryRun) { Write-Host "  [DRYRUN] GATE 6A -- BLOQUEARIA com exit 1" -ForegroundColor DarkCyan }
+    else { exit 1 }
+} else {
+    $gateStatus.G6A = "VERDE"
+    Write-Host "  [GATE 6A] P-045 artefatos de loop -- OK" -ForegroundColor Green
+}
 
 # ==========================================================================
 # GATE 6B -- P-032 BLOQUEANTE: MEMORIA_EMBAIXADOR atualizada apos vereditos?
