@@ -38,9 +38,12 @@ if ($clientesConhecidos -notcontains $clienteUpper) {
 # Resolver loop atual se nao passado
 if (-not $Loop) {
     $proj = $wip.board.build | Where-Object { $_.cliente.ToUpper() -eq $clienteUpper }
-    if ($proj -and $proj.loop_atual) { $Loop = $proj.loop_atual }
-    elseif ($wip.meta.loop_atual)   { $Loop = $wip.meta.loop_atual }
-    else                            { $Loop = "??" }
+    $rawLoop = ""
+    if ($proj -and $proj.loop_atual) { $rawLoop = $proj.loop_atual }
+    elseif ($wip.meta.loop_atual)   { $rawLoop = $wip.meta.loop_atual }
+    if ($rawLoop -match "(\d+)") { $Loop = $Matches[1] }
+    elseif ($rawLoop)            { $Loop = $rawLoop }
+    else                         { $Loop = "??" }
 }
 
 Write-Host ""
@@ -108,7 +111,7 @@ if (-not (Test-Path $timelinePath)) {
 }
 
 if (Test-Path $timelinePath) {
-    $entrada = "`n- **$data $hora** [$Tipo Loop $Loop] $Decisao — Impacto: $Impacto"
+    $entrada = "`n- **$data $hora** [${Tipo} Loop $Loop] $Decisao -- Impacto: $Impacto"
     if (-not $DryRun) {
         Add-Content -Path $timelinePath -Value $entrada -Encoding UTF8
         Write-Host "  [OK] 16_VANGUARD_TIMELINE atualizada." -ForegroundColor Green
@@ -130,7 +133,7 @@ if (-not $DryRun) {
         $updated  = $false
         foreach ($p in $wipObj.board.build) {
             if ($p.cliente.ToUpper() -eq $clienteUpper) {
-                $p | Add-Member -MemberType NoteProperty -Name "ultimo_veredito"       -Value "$data $Tipo: $Decisao" -Force
+                $p | Add-Member -MemberType NoteProperty -Name "ultimo_veredito"       -Value ("$data " + $Tipo + ": $Decisao") -Force
                 $p | Add-Member -MemberType NoteProperty -Name "ultimo_veredito_data"  -Value $data                  -Force
                 $updated = $true
             }
@@ -141,8 +144,8 @@ if (-not $DryRun) {
             Write-Host "  [OK] WIP_BOARD.json atualizado (ultimo_veredito)." -ForegroundColor Green
         }
     } catch {
-        $erros += "[ERRO WIP_BOARD] $_"
-        Write-Host "  [AVISO] Falha ao atualizar WIP_BOARD: $_" -ForegroundColor Yellow
+        $erros += ("[ERRO WIP_BOARD] " + $_.ToString())
+        Write-Host ("  [AVISO] Falha ao atualizar WIP_BOARD: " + $_.ToString()) -ForegroundColor Yellow
     }
 } else {
     Write-Host "  [DRYRUN] WIP_BOARD -- adicionaria ultimo_veredito para $clienteUpper" -ForegroundColor DarkCyan

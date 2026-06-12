@@ -1030,15 +1030,19 @@ $_g7cArqs = @(
 )
 $_g7cNomes = @("PAINEL_ATIVIDADES","CONTEXTO_SESSAO_DIRETOR","WIP_BOARD","INTELLIGENCE_LEDGER","PENDENTES","16_VANGUARD_TIMELINE","MEMORIA_EMBAIXADOR")
 $_g7cFalhas = @()
-$_g7cHoje = (Get-Date).Date
+$_g7cAgora = Get-Date
+$_g7cThreshold = 8  # horas -- arquivo mais antigo que isso e considerado stale
 
 for ($i = 0; $i -lt $_g7cArqs.Count; $i++) {
     $p = Join-Path $BASE $_g7cArqs[$i]
     if (-not (Test-Path $p)) {
         $_g7cFalhas += ("  [AUSENTE] " + $_g7cNomes[$i])
     } else {
-        $delta = ($_g7cHoje - (Get-Item $p).LastWriteTime.Date).Days
-        if ($delta -gt 0) { $_g7cFalhas += ("  [STALE " + $delta + "d] " + $_g7cNomes[$i]) }
+        $lw = (Get-Item $p).LastWriteTime
+        $deltaH = [math]::Round(($_g7cAgora - $lw).TotalHours, 1)
+        if ($deltaH -gt $_g7cThreshold) {
+            $_g7cFalhas += ("  [STALE " + $deltaH + "h] " + $_g7cNomes[$i] + " -- ultima mod: " + $lw.ToString("HH:mm"))
+        }
     }
 }
 

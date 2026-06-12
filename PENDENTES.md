@@ -432,3 +432,16 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   ✅ W-3: Code node "Validar Origem GitHub" adicionado via API PUT (HTTP 200). Verifica X-Hub-Signature.
   ✅ Script local: n8n_session_webhook.ps1 envia X-Webhook-Secret em todo POST para W-4.
   Segredo: N8N_WEBHOOK_SECRET (já no EasyPanel). [RESOLVE: seguranca-webhooks]
+
+- [ ] `2026-06-12` **[MUSCULO] GATE 1.6 -- calibrar reconcile_pendentes.ps1** [musculo]
+  Falso positivo: 22 matches de pendentes antigos (Loops 30-32) contra commits recentes.
+  Script retorna exit 2 -- bloqueia session_close e pula notion_sync.
+  Escopo: filtrar pendentes de loops ja fechados. Dívida Loop 34.
+
+- [ ] `2026-06-12` **[MUSCULO] Register-Veredito -- fix Loop display** [musculo]
+  "Loop Loop 32 FECHADO..." -- regex extrai string longa em vez de numero.
+  Aplicar mesmo fix do gerar_msg_embaixador (extrair só o número).
+
+- [ ] `2026-06-12` **[MUSCULO] Gate 7C -- verificacao por HORARIO, nao por data** [musculo]
+  Diretor: controles devem ser em HH:MM. Threshold: arquivo modificado nas ultimas 8h.
+  Alterar PENTALATERAL_UNIVERSAL/scripts/session_close.ps1 Gate 7C.
