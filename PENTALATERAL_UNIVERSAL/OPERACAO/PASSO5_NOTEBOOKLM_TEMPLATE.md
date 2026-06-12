@@ -1,67 +1,101 @@
 ﻿# PASSO 5 — TEMPLATE UNIVERSAL: PARA O NOTEBOOKLM (AUDITOR)
-# Versão: Universal v2.4 · 2026-06-09 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Versão: Universal v2.5 · 2026-06-12 · PENTALATERAL_UNIVERSAL/OPERACAO/
+# Atualização 2026-06-12: [CHECKLIST DO MÚSCULO] bloqueante + Deep Research WEB com critérios de qualidade
 # Atualização 2026-06-09: YT-ENRICHMENT (PASSO 2.5 obrigatório) + PARTE 5 AMPLIAR + ARTEFATOS RICOS
 # Atualização 2026-05-24: Auditor agora recebe DECISOES.json como contexto de vereditos do loop anterior.
 # Uso: O Músculo preenche os [PLACEHOLDERS] com dados reais antes de enviar.
 
 ---
 
-## 📌 INSTRUÇÕES PARA O DIRETOR — ANTES DE IR AO NOTEBOOKLM
+## ✅ [CHECKLIST DO MÚSCULO — BLOQUEANTE]
+> MÚSCULO EXECUTA TUDO — o Diretor não toca no NotebookLM. Zero upload manual, zero arrasto, zero cópia.
+> Toda interação com o NotebookLM é via Playwright remoto. Cada item é pré-requisito do seguinte.
+> skill_parser_gate.ps1 verifica a presença deste bloco — PASSO5 sem checklist = REJEITADO.
 
-**O que fazer (em 4 passos simples):**
+- [ ] **PASSO 1 — Fontes carregadas via Playwright:**
+      `preparar_notebooklm_projeto.ps1 -cliente [NOME]` → monta NOTEBOOKLM_FONTES/
+      Playwright: `browser_navigate` → caderno → deletar fontes antigas → `browser_file_upload` 01-17
+      Verificar: 17 fontes presentes, MANIFESTO_DE_FONTES.md entre elas
 
-```
-0. VERIFICAR antes de rodar:
-   Checar se CLIENTES\[NOME]\NOTEBOOKLM_FONTES\MANIFESTO_DE_FONTES.md existe.
-   Se não existir → pedir ao Músculo para criar antes de ir ao NotebookLM.
-   O MANIFESTO declara o que o Auditor pode e não pode ver — sem ele o Auditor
-   audita às cegas e pode alucinar sobre dados que simplesmente não tem (DEF-N-4).
+- [ ] **PASSO 2 — Deep Research WEB ativado via Playwright ANTES do PASSO5:**
+      Playwright: clicar botão "Deep Research" no caderno → aguardar grounding ativo
+      Critérios de qualidade do Auditor ao pesquisar (colar no chat do NotebookLM):
+      → Ver seção [DEEP RESEARCH WEB — COMANDO AO AUDITOR] abaixo
 
-1. RODAR no terminal:
-   .\scripts\preparar_notebooklm_projeto.ps1 -cliente [NOME]
-   → O Explorer abre com todos os documentos numerados (01 a 15) na pasta
-     CLIENTES\[NOME]\NOTEBOOKLM_FONTES\
-   → Importante: o arquivo 12_DIRETRIZ_GEMINI já estará lá se você salvou
-     a DIRETRIZ do Gemini como DIRETRIZ_GEMINI_V[N].txt na pasta do cliente.
+- [ ] **PASSO 3 — PASSO5 enviado via Playwright:**
+      Playwright: `browser_fill_form` → colar conteúdo deste arquivo no chat do NotebookLM
+      Aguardar geração completa da Skill (PARTES 0 a 5)
 
-2. NO NOTEBOOKLM:
-   Selecionar todos os arquivos da pasta (Ctrl+A) → arrastar como fontes.
+- [ ] **PASSO 4 — Artefatos capturados via Playwright:**
+      Playwright: copiar PARTE 3 (Skill) → Write `.claude/skills/[cliente]-v[N].md`
+      Playwright: copiar PARTES 1+2+4 → Write `HISTORICO/AUDITOR_LOOP_V[N]_[cliente].md`
+      `notebooklm generate report --format briefing-doc` → `HISTORICO/BRIEFING_LOOP_V[N]_[cliente].md`
 
-3. NO CHAT DO NOTEBOOKLM:
-   Digitar apenas o comando curto abaixo — o arquivo 13_PASSO5_NOTEBOOKLM.md
-   já está nas fontes carregadas. Não colar o conteúdo completo.
+- [ ] **PASSO 5 — Validação e propagação:**
+      `skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"` → exit 0 obrigatório
+      `update_memoria_embaixador.ps1 -cliente [NOME] -passo 5` → PASSO 5.5 automático
 
-   ┌──────────────────────────────────────────────────────────┐
-   │  Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill.           │
-   └──────────────────────────────────────────────────────────┘
-
-   Isso é gestão: um comando, zero cópia, zero esquecimento.
-   O Auditor localiza o arquivo nas fontes e executa o protocolo completo.
-```
-
-> Por que usar o script: ele monta a pasta certa com os 15 documentos na ordem
-> correta. Fatos do passado (01-11) antes das novas ideias (12-15). Nunca inverter.
+⛔ Músculo que pede ao Diretor para "arrastar", "colar" ou "fazer upload" = falha de automação (P-075).
+⛔ Músculo que envia PASSO5 sem Deep Research WEB ativo = Auditor sem grounding externo = câmara de eco (P-143).
+⛔ Músculo que não roda update_memoria_embaixador = Gate 6B bloqueia session_close (P-032).
 
 ---
 
-## 📥 AO RECEBER O OUTPUT DO AUDITOR — ANTES DE SAIR DO NOTEBOOKLM (P-049)
-
-O NotebookLM entrega 4 partes. Você vai copiar só a PARTE 3 para o arquivo skill.
-As PARTES 1, 2 e 4 são **irrecuperáveis** depois que você fechar a sessão.
+## 🔍 DEEP RESEARCH WEB — COMANDO AO AUDITOR
+> Colar no chat do NotebookLM APÓS ativar Deep Research WEB e ANTES de enviar o PASSO5.
+> Este comando define os critérios de qualidade da pesquisa externa do Auditor.
 
 ```
-Antes de sair:
-☐ Copiar PARTES 1 + 2 + 4 completas (tudo exceto a Skill)
-☐ Salvar em: CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_[N]_[CLIENTE].md
-☐ Copiar PARTE 3 (Skill) para: .claude/skills/[cliente]-v[N].md
-☐ Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"
+Auditor, antes de executar o PASSO5, você tem acesso ao Deep Research WEB.
+Aplique os seguintes critérios obrigatórios ao pesquisar fontes externas:
+
+FONTES ACEITAS (em ordem de prioridade):
+  1. Vídeos YouTube: selecionar os TOP 5 por número de visualizações
+     Canais aceitos: canais com >10.000 inscritos + ratio views/subs >0.3
+     Canais referência: Anthropic, Google DeepMind, IBM Technology, McKinsey, Gartner
+     Canais PT-BR aceitos: portais de notícias com canal oficial (G1, Valor, InfoMoney)
+  2. Notícias: portais com maior número de visualizações/compartilhamentos verificáveis
+     Aceitos: Reuters, Bloomberg, G1, Valor Econômico, InfoMoney, Agência Brasil, Exame
+     Aceitos internacionais: TechCrunch, MIT Technology Review, Harvard Business Review
+  3. Documentos técnicos: PDFs de reguladores (ANEEL, ANS, SUSEP, CFM, ANVISA, CVM)
+     Relatórios de consultorias: McKinsey, BCG, Deloitte, PwC, Accenture (publicações abertas)
+
+FONTES PROIBIDAS (não citar, não resumir, não usar como evidência):
+  ✗ Blogs pessoais — qualquer domínio sem equipe editorial identificada
+  ✗ Fóruns e comunidades (Reddit, Quora, Medium sem publicação oficial)
+  ✗ Sites de "guru" ou infoprodutor
+  ✗ Conteúdo sem autor identificado ou sem data de publicação
+  ✗ Vídeos com menos de 10.000 visualizações de canais sem histórico verificável
+  ✗ Wikipedia como fonte primária (pode usar como ponto de partida, não como citação)
+
+FORMATO DE CITAÇÃO obrigatório para cada fonte externa usada:
+  [FONTE EXTERNA] Canal/Portal · Título · Visualizações/Data · URL ou ID
+  Exemplo: [FONTE EXTERNA] IBM Technology · "AI Agents in 2026" · 2,3M views · 2026-03 · youtube.com/...
 ```
 
-> PARTES 1+2+4 não salvas = Músculo delibera sem [N-1 a N-5] + Auditoria = 20 inputs, não 25.
->
-> Sobre a MEMORIA_EMBAIXADOR: se disponível, ela deve ser incluída nas fontes (posição 12
-> ou como fonte complementar). O Embaixador gera [E-1 a E-5] — estas ideias devem ser
-> incluídas nas fontes se disponíveis. O Auditor deve reagir a elas na PARTE 4 da Skill.
+---
+
+---
+
+## 📥 AO RECEBER O OUTPUT DO AUDITOR — MÚSCULO CAPTURA VIA PLAYWRIGHT (P-049)
+
+O NotebookLM entrega 4 partes. O Músculo captura tudo via Playwright — zero interação do Diretor.
+As PARTES 1, 2 e 4 são **irrecuperáveis** depois de fechar a sessão — Músculo salva antes de sair.
+
+```
+Músculo executa via Playwright (browser_evaluate / browser_snapshot):
+  ① Capturar PARTES 1 + 2 + 4 completas via Playwright → Write tool
+     Destino: CLIENTES/[NOME]/HISTORICO/AUDITOR_LOOP_V[N]_[CLIENTE].md
+  ② Capturar PARTE 3 (Skill) via Playwright → Write tool
+     Destino: .claude/skills/[cliente]-v[N].md
+  ③ Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\[cliente]-v[N].md"
+  ④ Rodar: notebooklm generate report --format briefing-doc (via Playwright ou CLI)
+     Destino: CLIENTES/[NOME]/HISTORICO/BRIEFING_LOOP_V[N]_[CLIENTE].md
+  ⑤ Rodar: .\scripts\update_memoria_embaixador.ps1 -cliente [NOME] -passo 5
+```
+
+> PARTES 1+2+4 não capturadas = Músculo delibera sem [N-1 a N-5] = 20 inputs, não 25.
+> MEMORIA_EMBAIXADOR: incluir nas fontes (posição 12 ou complementar). Auditor reage a [E-1..E-5] na PARTE 4.
 
 ---
 

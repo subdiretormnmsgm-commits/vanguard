@@ -64,7 +64,26 @@ $erros   = [System.Collections.Generic.List[string]]::new()
 $avisos  = [System.Collections.Generic.List[string]]::new()
 $aprovado = $true
 
-# VALIDACAO 1: Os 4 blocos obrigatorios
+# DETECCAO AUTOMATICA: se for arquivo PASSO5, validar checklist P-143 em vez dos 4 blocos
+$nomeArquivo = [System.IO.Path]::GetFileName($skill).ToUpper()
+if ($nomeArquivo -match "PASSO5") {
+    Write-Host "Modo PASSO5 detectado -- validando [CHECKLIST DO MUSCULO] (P-143)" -ForegroundColor Cyan
+    Write-Host ""
+    if ($conteudoNorm -notmatch "CHECKLIST DO MUSCULO") {
+        Write-Host "RESULTADO: REJEITADO -- P-143 VIOLADO" -ForegroundColor Red
+        Write-Host "  [CHECKLIST DO MUSCULO -- BLOQUEANTE] ausente no arquivo PASSO5." -ForegroundColor Red
+        Write-Host "  Regenerar PASSO5 a partir do template atualizado (v2.5+)." -ForegroundColor Red
+        Write-Host ""
+        Write-Host "  Template: PENTALATERAL_UNIVERSAL\OPERACAO\PASSO5_NOTEBOOKLM_TEMPLATE.md" -ForegroundColor Yellow
+        exit 1
+    } else {
+        Write-Host "RESULTADO: APROVADO -- [CHECKLIST DO MUSCULO] presente" -ForegroundColor Green
+        Write-Host "  PASSO5 validado -- pronto para enviar ao Auditor." -ForegroundColor Green
+        exit 0
+    }
+}
+
+# VALIDACAO 1: Os 4 blocos obrigatorios (modo SKILL)
 $blocos = @(
     @{ padrao = "AUDITORIA.*COER|COERENCIA"; nome = "[AUDITORIA DE COERENCIA]" },
     @{ padrao = "CONEXAO.*HIST|HISTORICA";   nome = "[CONEXAO HISTORICA]" },
