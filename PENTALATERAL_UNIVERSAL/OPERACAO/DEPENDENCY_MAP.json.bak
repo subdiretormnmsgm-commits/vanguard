@@ -1,0 +1,527 @@
+{
+  "schema_version": "2.3",
+  "version": "2.3",
+  "updated": "2026-06-07",
+  "projetos_ativos": [
+    "INGRID",
+    "VALDECE",
+    "VANGUARD"
+  ],
+  "projetos_ativos_DEPRECATED": "Usar utils/Get-ProjetosAtivos.ps1 -- le dinamicamente do WIP_BOARD.board.build/check/retainer. Este campo sera removido em versao futura. Adicionar projeto novo = criar pasta CLIENTES/[NOME]/ + entrada WIP_BOARD + preparar_notebooklm.",
+  "ultima_atualizacao": "2026-06-07",
+  "description": "Mapa de dependencias do Pentalateral IAH v2.3. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060). n8n EasyPanel e dependencia estrutural universal a partir de 2026-06-05. v2.2: REGISTRO_DE_PREMISSAS.md + CANDIDATOS_A_PRINCIPIO.md adicionados ao PROJECT_ONLY (P-112). v2.3 (2026-06-07): NAMESPACE_NOTEBOOKS.md + LOOP_STATE_SCHEMA.json + INTELLIGENCE_HUB adicionados. W-9 Track TRENDS ativado. P-121 a P-126 inscritos no LEDGER.",
+  "infra_dependencias": {
+    "n8n": {
+      "tipo": "UNIVERSAL_ESTRUTURAL",
+      "host": "https://vanguard-vanguard-n8n.0ul9nk.easypanel.host",
+      "workflows_ativos": [
+        "W-1 check-in",
+        "W-2 monitor-supabase",
+        "W-3 github-push",
+        "W-4 session-close",
+        "W-5 churnwatch",
+        "W-6 session-watch",
+        "W-7 cerebro-de-bolso",
+        "W-8 signal-classifier (shadow mode ate 2026-06-14)",
+        "W-9 trends-semanal (importar no EasyPanel)"
+      ],
+      "nota": "Dependencia de toda automacao critica. P-110: fallback manual documentado para cada workflow. Verificar uptime via ping_n8n.ps1 no session_start (PASSO 8e).",
+      "campos_por_cliente_wip_board": {
+        "churn_watch_threshold": "dias de inatividade antes de alerta -- OBRIGATORIO em todo projeto WIP_BOARD. W-5 ChurnWatch le este campo -- nunca hardcoded no workflow.",
+        "ultimo_contato_cliente": "data ISO 8601 -- W-5 calcula delta vs data atual"
+      },
+      "n8n_as_code": {
+        "ativo_desde": "2026-06-05",
+        "config_fonte": "_n8n/N8N_CONFIG.json",
+        "workflows_dir": "_n8n/workflows/",
+        "linter": "scripts/n8n_audit.ps1",
+        "export": "scripts/n8n_export.ps1",
+        "gate_sessao": "Gate 7B -- session_close bloqueia se linter detectar hardcode",
+        "artefatos_rastreados": "_n8n/workflows/*.json",
+        "auditoria_notebooklm": {
+          "obrigatoria": true,
+          "acao_automatica": "preparar_notebooklm_projeto.ps1 inclui _n8n/workflows/*.json como slot 19+ em NOTEBOOKLM_FONTES quando existirem",
+          "ordem_auditor": "INSTRUCAO_AUDITOR.md secao [N8N_AUDIT] -- Auditor verifica hardcode em todo loop que contenha workflows nas fontes",
+          "nota": "Workflows no Git = Auditor pode auditar automacao. Sem essa inclusao automatica, o n8n e caixa preta para o Conselho."
+        },
+        "nota_git": "workflows/*.json sao versionados no Git. N8N_CONFIG.json e a unica fonte de valores de julgamento -- nunca hardcoded nos nodes (P-101 refinado 2026-06-05)."
+      }
+    },
+    "antigravity": {
+      "tipo": "INTEL_LOOP_MOTOR",
+      "versao": "1.0.6",
+      "instalado_em": "2026-06-07",
+      "exe": "C:/Users/Eduardo DELL/AppData/Local/agy/bin/agy.exe",
+      "config": "GEMINI.md (raiz do repo)",
+      "skills": ".agents/skills/intel-loop.md",
+      "papel": "Intel Loop Motor -- pesquisa COMPETITORS + TRENDS autonomamente",
+      "nota": "P-124: NAO entra no loop de cliente. NAO gera DIRETRIZes. Output vai para INTELLIGENCE_HUB/PENDING_REVIEW.md, revisado pelo Musculo antes de ir ao Conselho."
+    }
+  },
+  "fonte_canonica_base": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE",
+  "documentos": {
+    "UNIVERSAL_PURO": {
+      "descricao": "Arquivos editados apenas na fonte canonica. NUNCA editar em CLIENTES/*/NOTEBOOKLM_FONTES/. Deteccao de violacao ativa via detect_canonical_violation.ps1 (Gate 0c session_start).",
+      "deteccao_violacao": true,
+      "arquivos": [
+        {
+          "slot": "00",
+          "nome": "00_INSTRUCAO_AUDITOR.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/00_INSTRUCAO_AUDITOR.md"
+        },
+        {
+          "slot": "01",
+          "nome": "01_SKILL_PROTOCOLO_VANGUARD.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/01_SKILL_PROTOCOLO_VANGUARD.md"
+        },
+        {
+          "slot": "02",
+          "nome": "02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md"
+        },
+        {
+          "slot": "03",
+          "nome": "03_MANUAL_DIRETOR.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/03_MANUAL_DIRETOR.md"
+        },
+        {
+          "slot": "04",
+          "nome": "04_INTELLIGENCE_LEDGER.md",
+          "canonical": "INTELLIGENCE_LEDGER.md",
+          "nota": "Fonte raiz eh INTELLIGENCE_LEDGER.md na raiz do repo. NOTEBOOKLM_BASE eh espelho intermediario. R-001 propaga raiz -> NOTEBOOKLM_BASE -> CLIENTES."
+        },
+        {
+          "slot": "05",
+          "nome": "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/05_PROCESSO_EVOLUTIVO_PENTALATERAL.md"
+        },
+        {
+          "slot": "06",
+          "nome": "06_TEMPLATES_COMUNICACAO_PENTALATERAL.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/06_TEMPLATES_COMUNICACAO_PENTALATERAL.md"
+        },
+        {
+          "slot": "17",
+          "nome": "17_VANGUARD_TIMELINE.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md"
+        },
+        {
+          "slot": "18",
+          "nome": "18_ATUALIZACAO_PENTALATERAL_*.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_*.md",
+          "padrao": true
+        },
+        {
+          "slot": "19",
+          "nome": "19_NAMESPACE_NOTEBOOKS.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/NAMESPACE_NOTEBOOKS.md",
+          "nota": "P-123 (2026-06-07): modelo hibrido de namespaces — base permanente + loop efemero. Todo cliente tem exatamente dois notebooks."
+        },
+        {
+          "slot": "20",
+          "nome": "20_LOOP_STATE_SCHEMA.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.md",
+          "nota": "Documentacao Markdown do LOOP_STATE para o Auditor (NotebookLM nao le .json). Instancias JSON em CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json. Criado 2026-06-07."
+        },
+        {
+          "slot": "21",
+          "nome": "21_INTELLIGENCE_HUB_COMPETITORS.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/REPORT_COMPETITORS_2026-06.md",
+          "nota": "Ultimo relatorio COMPETITORS. Atualizacao mensal automatica via Antigravity. Musculo copia slot 21 manualmente apos cada novo relatorio aprovado."
+        },
+        {
+          "slot": "OPS-01",
+          "nome": "COMANDO_VERIFICACAO_SISTEMICA_FINAL.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md",
+          "nota": "Verificacao dos 12 cenarios do sistema -- universal. Executar a cada 3 loops (session_close alerta). Resetar com reset_checkup.ps1 apos responder ao Embaixador."
+        },
+        {
+          "slot": "TPL-01",
+          "nome": "briefing_labels.txt",
+          "canonical": "PENTALATERAL_UNIVERSAL/TEMPLATES/briefing_labels.txt",
+          "tipo": "UNIVERSAL_PURO",
+          "nota": "P-088: labels e icones do briefing_diario.ps1. Codigo ASCII -- Unicode vive aqui. Nao distribuir para NOTEBOOKLM_FONTES. Scripts leem diretamente de PENTALATERAL_UNIVERSAL/TEMPLATES/."
+        }
+      ]
+    },
+    "SCRIPTS_CANONICOS": {
+      "descricao": "Scripts de orquestracao do Pentalateral. Fonte canonica em PENTALATERAL_UNIVERSAL/scripts/. Wrappers em scripts/ chamam o universal via @args. NUNCA editar diretamente o wrapper -- editar o canonico e rodar validate_scripts.ps1 (P-096).",
+      "scripts": [
+        {
+          "nome": "session_close.ps1",
+          "canonical": "PENTALATERAL_UNIVERSAL/scripts/session_close.ps1",
+          "wrapper": "scripts/session_close.ps1",
+          "legado": "scripts/session_close_LEGADO_2026-06-04.ps1",
+          "nota": "P-096 + P-097. Parametros: -Projeto, -DryRun, -Friccao, -Principio, etc. Gates: 1,2,3,4,5,6,6B,6C,6.5,7,8,8B,9,9.5,9B (14 gates). Bloqueantes: 1,5,6B,6C."
+        },
+        {
+          "nome": "briefing_diario.ps1",
+          "canonical": "PENTALATERAL_UNIVERSAL/scripts/briefing_diario.ps1",
+          "wrapper": "scripts/briefing_diario.ps1",
+          "legado": "scripts/briefing_diario_LEGADO_2026-06-04.ps1",
+          "nota": "P-096 + P-088. Labels em TEMPLATES/briefing_labels.txt. Logica hardcoded Valdece/Ingrid removida -- usa campos WIP_BOARD (demo_realizada, relatorio_semanal)."
+        },
+        {
+          "nome": "testar_gates_criticos.ps1",
+          "canonical": "PENTALATERAL_UNIVERSAL/scripts/testar_gates_criticos.ps1",
+          "wrapper": null,
+          "nota": "P-097. Testa regressao dos gates bloqueantes. Rodar a cada 3 loops via meta.loops_desde_ultimo_checkup. Sem wrapper -- chamar diretamente."
+        },
+        {
+          "nome": "pre_loop_action.ps1",
+          "canonical": "scripts/pre_loop_action.ps1",
+          "wrapper": null,
+          "nota": "Criado 2026-06-07. Valida estado antes de iniciar novo loop (P-045 + P-091). Le LOOP_STATE.json do cliente. Bloqueante se loop anterior incompleto."
+        },
+        {
+          "nome": "post_loop_action.ps1",
+          "canonical": "scripts/post_loop_action.ps1",
+          "wrapper": null,
+          "nota": "Criado 2026-06-07. Atualiza LOOP_STATE.json apos concluir uma fase. Sincroniza com WIP_BOARD. Parametros: -cliente -socio -artefato."
+        }
+      ]
+    },
+    "TEMPLATE_COM_INSTANCIA": {
+      "descricao": "Templates universais que geram instancias por projeto via campos de contexto. Template nunca editado diretamente no projeto.",
+      "arquivos": [
+        {
+          "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md",
+          "instancia_padrao": "PASSO3_GEMINI_[CLIENTE].md",
+          "campos_contexto": [
+            "cliente",
+            "loop",
+            "missao"
+          ]
+        },
+        {
+          "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md",
+          "instancia_padrao": "PASSO5_NOTEBOOKLM_[CLIENTE].md",
+          "campos_contexto": [
+            "cliente",
+            "loop",
+            "skill_nome"
+          ]
+        },
+        {
+          "template": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md",
+          "instancia_padrao": "PASSO7_EMBAIXADOR_[CLIENTE].md",
+          "campos_contexto": [
+            "cliente",
+            "reuniao",
+            "temperatura"
+          ]
+        },
+        {
+          "template": "PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/gerar_artefato_embaixador_prompt.txt",
+          "instancia_padrao": "RELATORIOS_EMBAIXADOR/ARTEFATO_EMBAIXADOR_[CLIENTE]_[DATA].md",
+          "campos_contexto": [
+            "CLIENTE",
+            "DATA",
+            "MEMORIA",
+            "PAINEL"
+          ],
+          "nota": "P-088: template externo ASCII-safe. Codigo PS5.1 le este .txt e substitui {TOKEN}. Nunca editar instancia -- editar apenas este template."
+        },
+        {
+          "template": "PENTALATERAL_UNIVERSAL/TEMPLATES/scripts/passo3_template.txt",
+          "instancia_padrao": "CLIENTES/[CLIENTE]/PASSO3_GEMINI.md",
+          "campos_contexto": [
+            "CLIENTE",
+            "CLIENTE_LOWER",
+            "LOOP_NUM",
+            "LOOP_PREV",
+            "DATA",
+            "DIRETRIZ_NUM",
+            "DIAS_COMPLETOS",
+            "ESTADO_ATUAL",
+            "GATE_PROXIMO"
+          ],
+          "nota": "P-089: regenerado automaticamente pelo gemini_anchor_generator.ps1 ao marcar gemini=OK. Musculo completa secao MISSAO antes de enviar ao Gemini."
+        },
+        {
+          "template": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.json",
+          "instancia_padrao": "CLIENTES/[CLIENTE]/CLAUDE_PROJECT/LOOP_STATE.json",
+          "campos_contexto": [
+            "cliente",
+            "loop_atual",
+            "loop_status",
+            "socios",
+            "gates",
+            "contexto_snapshot"
+          ],
+          "nota": "Criado 2026-06-07. Instancias existem para INGRID, VALDECE e VANGUARD. pre_loop_action.ps1 valida. post_loop_action.ps1 atualiza."
+        }
+      ]
+    },
+    "PROJECT_ONLY": {
+      "descricao": "Arquivos gerados por processo para cada projeto. NAO existem em UNIVERSAL. NAO sao orfaos no sync_vanguard_docs.ps1. Nunca copiar de UNIVERSAL para instancia de projeto.",
+      "padroes": [
+        "07_WIP_BOARD.txt",
+        "08_ANALISE_SOCIO_ATUAL.txt",
+        "09_BRIEFING_DISCOVERY.*",
+        "09_BRIEFING_DISCOVERY.txt",
+        "10_MEMORIA_RECENTE.md",
+        "10_MEMORIA_RECENTE.*",
+        "11_RELATORIO_EVOLUTIVO.md",
+        "11_RELATORIO_EVOLUTIVO.*",
+        "12_DIRETRIZ_GEMINI.txt",
+        "12_DIRETRIZ_GEMINI.*",
+        "13_PASSO5_NOTEBOOKLM.md",
+        "13_PASSO5_NOTEBOOKLM.*",
+        "14_MEMORIA_EMBAIXADOR.md",
+        "14_PASSO3_GEMINI_TEMPLATE.md",
+        "15_PASSO5_NOTEBOOKLM_TEMPLATE.md",
+        "16_ALERTA_CONFLITO.md",
+        "PASSO3_GEMINI_*.md",
+        "PASSO5_NOTEBOOKLM_*.md",
+        "PASSO7_EMBAIXADOR_*.md",
+        "PASSO7_*.md",
+        "REGISTRO_DE_PREMISSAS.md",
+        "CANDIDATOS_A_PRINCIPIO.md",
+        "LOOP_STATE.json"
+      ]
+    },
+    "INTEL_LOOP": {
+      "descricao": "Arquivos do Intel Loop Motor (Antigravity). Nao propagam para projetos de cliente. Ficam em PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/ e raiz/Antigravity.",
+      "arquivos": [
+        {
+          "nome": "GEMINI.md",
+          "canonical": "GEMINI.md",
+          "nota": "Identidade do Antigravity como Intel Loop Motor. NAO propagar para clientes. P-124."
+        },
+        {
+          "nome": "intel-loop.md",
+          "canonical": ".agents/skills/intel-loop.md",
+          "nota": "Skill do Antigravity para COMPETITORS + TRENDS. NAO propagar para clientes."
+        },
+        {
+          "nome": "PENDING_REVIEW.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md",
+          "nota": "Canal de comunicacao Antigravity -> Musculo. Antigravity escreve. Musculo revisa e aprova."
+        },
+        {
+          "nome": "REPORT_COMPETITORS_[YYYY-MM].md",
+          "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/",
+          "nota": "Relatorios mensais de empresas concorrentes. Aprovados pelo Musculo entram em NOTEBOOKLM_FONTES como slot 21."
+        },
+        {
+          "nome": "REPORT_TRENDS_[YYYY-WW].md",
+          "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/",
+          "nota": "Relatorios semanais de tendencias. Aprovados pelo Musculo entram em NOTEBOOKLM_FONTES como slot 22."
+        }
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "R-001",
+      "trigger": "INTELLIGENCE_LEDGER.md",
+      "description": "LEDGER (raiz) -> NOTEBOOKLM_BASE (espelho) -> todos os clientes (P-073: fonte raiz e unica editavel)",
+      "destinations": [
+        {
+          "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/04_INTELLIGENCE_LEDGER.md",
+          "action": "copy_fixed"
+        },
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md",
+          "action": "copy_to_all_clients"
+        },
+        {
+          "pattern": "CLIENTES/*/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md",
+          "action": "copy_to_all_clients_claude_project"
+        }
+      ]
+    },
+    {
+      "id": "R-002",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md",
+      "description": "Template do Embaixador vai para todas as NOTEBOOKLM_FONTES",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/13_PASSO7_EMBAIXADOR_TEMPLATE.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-003",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/MANUAL_DIRETOR.md",
+      "description": "Manual do Diretor vai para todas as NOTEBOOKLM_FONTES e NOTEBOOKLM_BASE",
+      "destinations": [
+        {
+          "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/03_MANUAL_DIRETOR.md",
+          "action": "copy_fixed"
+        },
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/03_MANUAL_DIRETOR.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-004",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/SKILL_PROTOCOLO_VANGUARD.md",
+      "description": "Skill Protocolo vai para NOTEBOOKLM_BASE, NOTEBOOKLM_FONTES e .claude/skills",
+      "destinations": [
+        {
+          "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/01_SKILL_PROTOCOLO_VANGUARD.md",
+          "action": "copy_fixed"
+        },
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/01_SKILL_PROTOCOLO_VANGUARD.md",
+          "action": "copy_to_all_clients"
+        },
+        {
+          "pattern": ".claude/skills/vanguard-protocolo.md",
+          "action": "copy_fixed"
+        }
+      ]
+    },
+    {
+      "id": "R-005",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+      "description": "Memorando vai para NOTEBOOKLM_BASE e NOTEBOOKLM_FONTES",
+      "destinations": [
+        {
+          "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+          "action": "copy_fixed"
+        },
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-006",
+      "trigger": "CLIENTES/WIP_BOARD.json",
+      "description": "WIP_BOARD vai para todos os CLAUDE_PROJECT",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/CLAUDE_PROJECT/07_WIP_BOARD.json",
+          "action": "copy_to_all_clients_claude_project"
+        }
+      ]
+    },
+    {
+      "id": "R-007",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL_",
+      "description": "Arquivo de atualizacao do ciclo vai para todas as NOTEBOOKLM_FONTES como slot 18",
+      "action_type": "prefix_match",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/18_ATUALIZACAO_PENTALATERAL_{filename}",
+          "action": "copy_to_all_clients_named"
+        }
+      ]
+    },
+    {
+      "id": "R-008",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_ESTRATEGISTA_MASTER_v1.md",
+      "description": "MASTER vai para NOTEBOOKLM_FONTES como slot 09 de operacao",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/09_COMANDO_ESTRATEGISTA_MASTER.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-009",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO3_GEMINI_TEMPLATE.md",
+      "description": "Template PASSO3 vai para NOTEBOOKLM_FONTES",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/14_PASSO3_GEMINI_TEMPLATE.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-010",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/PASSO5_NOTEBOOKLM_TEMPLATE.md",
+      "description": "Template PASSO5 vai para NOTEBOOKLM_FONTES",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/15_PASSO5_NOTEBOOKLM_TEMPLATE.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-011",
+      "trigger": "PENTALATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md",
+      "description": "Timeline vai para NOTEBOOKLM_BASE, NOTEBOOKLM_FONTES/17 e CLAUDE_PROJECT/16 de todos os clientes",
+      "destinations": [
+        {
+          "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/17_VANGUARD_TIMELINE.md",
+          "action": "copy_fixed"
+        },
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/17_VANGUARD_TIMELINE.md",
+          "action": "copy_to_all_clients"
+        },
+        {
+          "pattern": "CLIENTES/*/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md",
+          "action": "copy_to_all_clients_claude_project"
+        }
+      ]
+    },
+    {
+      "id": "R-012",
+      "trigger": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/06_TEMPLATES_COMUNICACAO_PENTALATERAL.md",
+      "description": "Templates de comunicacao vao para NOTEBOOKLM_FONTES de todos os clientes (nome verbatim)",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/06_TEMPLATES_COMUNICACAO_PENTALATERAL.md",
+          "action": "copy_to_all_clients_verbatim"
+        }
+      ]
+    },
+    {
+      "id": "R-013",
+      "trigger": "PENTALATERAL_UNIVERSAL/CONSTITUICAO/MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+      "description": "Memorando canonico vai para NOTEBOOKLM_BASE e depois propaga via R-005",
+      "destinations": [
+        {
+          "pattern": "PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md",
+          "action": "copy_fixed"
+        }
+      ]
+    },
+    {
+      "id": "R-014",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/NAMESPACE_NOTEBOOKS.md",
+      "description": "P-123 Namespace model vai para NOTEBOOKLM_FONTES de todos os clientes como slot 19",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/19_NAMESPACE_NOTEBOOKS.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-015",
+      "trigger": "PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.md",
+      "description": "LOOP_STATE schema (formato Markdown) vai para NOTEBOOKLM_FONTES de todos os clientes como slot 20. Nota: LOOP_STATE_SCHEMA.json permanece como template de instancias — uso exclusivo de scripts.",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/20_LOOP_STATE_SCHEMA.md",
+          "action": "copy_to_all_clients"
+        }
+      ]
+    },
+    {
+      "id": "R-016",
+      "trigger": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/REPORT_COMPETITORS_",
+      "description": "Relatorio COMPETITORS aprovado vai para NOTEBOOKLM_FONTES como slot 21 (copia manual pelo Musculo apos aprovacao em PENDING_REVIEW.md)",
+      "action_type": "prefix_match_manual",
+      "destinations": [
+        {
+          "pattern": "CLIENTES/*/NOTEBOOKLM_FONTES/21_INTELLIGENCE_HUB_COMPETITORS.md",
+          "action": "copy_to_all_clients_manual"
+        }
+      ]
+    }
+  ]
+}

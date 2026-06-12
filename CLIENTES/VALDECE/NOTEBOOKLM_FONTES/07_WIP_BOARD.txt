@@ -1,46 +1,67 @@
-﻿WIP BOARD -- PENTALATERAL IAH
-Atualizado: 2026-06-12 | Fonte: CLIENTES/WIP_BOARD.json
+﻿WIP BOARD — PENTALATERAL IAH
+Atualizado em: 2026-06-10
+WIP Limits: BUILD=2  CHECK=1
 
-==================================================
-PROJETOS ATIVOS
-==================================================
+==============================
+COLUNA: BUILD
+==============================
 
---- PROJ-001 - Valdece ---
-Status: HYPERCARE ate 18-06-2026 -- Sistema LIVE -- Sentinel ativo
-Loop 7: Gemini=OK | NotebookLM=OK | Embaixador=OK | Musculo=PENDENTE
-Proximo: Musculo -- P-037 sintese Loop 7 Valdece -- DELIBERACAO_LOOP_V7_VALDECE.md
-Valor: R$5000
-Deploy: https://toga-digital-valdece.netlify.app
+-------------------------------
+PROJETO: PROJ-000 — VANGUARD
+  Descricao : VanguardV29 -- Pentalateral Autonomo
+  Area      : Infraestrutura Interna -- Pentalateral IAH
+  Camada    : 0 (Infraestrutura Vanguard -- nao e projeto cliente)
+  Stack     : Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)
+  Deadline  : 
+  Status    : BUILD
+  Loop atual: Loop 32 FECHADO -- V32 Deriva Documental -- Antigravity EXECUTOR + Hermes B + LOOP_STATE v1.1
 
---- PROJ-002 - Ingrid ---
-Status: RETAINER -- Loop 8 CONCLUIDO -- depoimento capturado
-Loop 8: Gemini=OK | NotebookLM=OK | Embaixador=OK | Musculo=OK
-Proximo: Loop 9 -- Gate 7.2 RLS + captacao 2a candidata antes 04-07-2026
-Prova cliente: 2026-09-06
+==============================
+COLUNA: CHECK
+==============================
 
---- INFRA INTERNA - PENTALATERAL ---
-Status: PLANEJAMENTO -- FASE 0 CONCLUIDA
-n8n FASE 1: desbloqueado apos 18-06-2026 (Hypercare Valdece encerra)
-  4 workflows: check-ins 7h/13h/20h + monitor Supabase + webhook GitHub + formulario->MEMORIA
-Notion: cockpit interno (ARQ-1) -- zero visibilidade de cliente
-OpenClaw: V2 -- gateway AI multi-canal -- apos n8n estabilizar 30 dias
-Data inicio build: 19-06-2026
-Skill gerada: pentalateral-stack-v1.md (NotebookLM -- 2026-06-05)
+-------------------------------
+PROJETO: PROJ-001 — Valdece
+  Descricao : Ferramenta de Busca Jurisprudencia STF/STJ
+  Area      : LegalTech - Direito Penal
+  Camada    : 1 (MVP Alto Impacto)
+  Stack     : FastAPI + Supabase + Claude API + Netlify
+  Deadline  : 2026-05-23
+  Status    : HYPERCARE -- ate 18-06-2026
+  Loop atual: Loop 7 CONCLUIDO -- V3 entregue + Deploy Netlify OK
+  Proximo passo: Hypercare termina 18-06-2026 -- Sentinel Report enviado 2026-06-04 -- aguardar feedback Valdece
 
-==================================================
-META DO BOARD
-==================================================
-Data ultima sessao: ver WIP_BOARD.json (encoding defeituoso)
+==============================
+COLUNA: RETAINER
+==============================
 
-==================================================
-PRINCIPIOS CRITICOS ATIVOS
-==================================================
-P-001: Claude Code nao e daemon autonomo -- automacao exige Claude API + n8n
-P-003: Scraping de terceiros e dependencia, nao ativo
-P-008: Primeiro cliente de nicho e canal de distribuicao, nao MRR
-P-059: Isolamento de contexto por cliente e lei -- nunca confundir projetos
-P-099: Ping Supabase obrigatorio no onboarding -- previne pausa free tier
+-------------------------------
+PROJETO: PROJ-002 — Ingrid
+  Descricao : Ferramenta de Estudo -- Concurso Sedes-DF
+  Area      : EdTech - Concursos Publicos
+  Camada    : 2 (Produto -- 15 dias)
+  Stack     : PWA + Supabase + Claude API
+  Deadline  : 2026-05-30
+  Status    : RETAINER
+  Loop atual: Loop 8 CONCLUIDO
+  Dias completos: dia1_schema_edge, dia2_gate_questoes, dia3_5_feed_sm2_pwa, dia6_8_tutor_fallback, dia9_11_heatmap_simulado, dia12_contador_socratica_vacina_push_cb
 
-==================================================
-FIM DO WIP BOARD
-==================================================
+==============================
+COLUNA: DISCOVERY
+==============================
+
+-------------------------------
+PROJETO: PROJ-003 — MUMUZINHO
+  Descricao : Plataforma de Gestao Integral de Carreira Artistica
+  Area      : MusicTech - Fonografia / Holding Artistica
+  Camada    : 5 (Monopolio -- escala enterprise)
+  Stack     : 
+  Deadline  : 
+  Status    : STANDBY -- aguarda acionamento do Diretor
+  Loop atual: 
+
+==============================
+PERFIS DE NICHO
+==============================
+  EdTech-Concurso: maturidade=70% status=consolidado -- Loop 8 concluido
+  LegalTech-Criminal: maturidade=75% status=HYPERCARE -- V3 entregue -- Sentinel Verde

@@ -1,0 +1,76 @@
+{
+  "schema": "v1.1",
+  "cliente": "VANGUARD",
+  "loop": 33,
+  "versao": "V2",
+  "data": "2026-06-12",
+  "titulo": "Virada Estratégica — Vertical Licitações",
+  "status": "AGUARDA_VEREDITO_DIRETOR",
+  "sintetizador": "Músculo (síntese P-037)",
+  "artefato_gate": "CLIENTES/VANGUARD/HISTORICO/DELIBERACAO_LOOP_V33_VANGUARD.md",
+
+  "contexto": {
+    "pipeline": "ZERO",
+    "clientes_ativos": ["Ingrid (retainer)", "Valdece (hypercare até 18-06)"],
+    "ledger_principios": 149,
+    "hermes_grau": "B",
+    "deadline_critico": "2026-06-18 — Valdece hypercare encerra; Ponte E-2 fecha junto",
+    "loop33_v1_descartado": "M-1..M-5 eram soluções pré-compiladas → câmara de eco. P-149 inscrito."
+  },
+
+  "confronto_critico_embaixador": {
+    "premissa_auditor_refutada": "Premissa 'poucos competidores / first-mover' está desatualizada. ConLicitação/Dr. Licita lançou em fev/2026 exatamente o que G-2 propõe.",
+    "espaco_real_disponivel": "Motion done-for-you outbound (dossiê entregue antes do contato) — não disputado pelos concorrentes identificados.",
+    "risco_comportamental_central": "Padrão builder-não-vendedor do Diretor. 'Abrir vertical' pode virar 4º loop de infraestrutura disfarçado se D1 não for operacionalizado como ato humano concreto.",
+    "urgencia_real": "Mantida — mas por razão diferente: janela de motion, não first-mover de ferramenta."
+  },
+
+  "decisoes": [
+    {
+      "id": "D1",
+      "pergunta": "Abrir Vertical Licitações esta semana — como?",
+      "opcao_A": "Eduardo completa 1 contato quente com 1 prospect nomeado (E-1+E-2). Build técnico pesado é option-B diferida.",
+      "opcao_B": "Aguardar infraestrutura (Motor Headless, Validador PNCP) antes do 1º contato.",
+      "recomendacao_musculo": "A — REDEFINIDO",
+      "definicao_operacional_A": "Abrir vertical = 1 ato humano concreto: Eduardo faz 1 contato quente com 1 prospect nomeado (preferencialmente via Ponte Valdece — E-2, janela até 18-06). O SISTEMA entrega o dossiê G-2+G-3 ANTES do contato. Build pesado não é gate.",
+      "risco_A_classico": "4º loop interno disfarçado; pipeline segue ZERO em 30-06.",
+      "fundamento": ["P-004 (aquisição vem de ligação)", "P-133 (gate fecha por discovery, não por vertical declarada)", "E-1 Embaixador", "E-2 Ponte Valdece"]
+    },
+    {
+      "id": "D2",
+      "pergunta": "Modelo de monetização Vertical Licitações — qual?",
+      "opcao_A": "Setup fee R$3-5k + Retainer R$2-3k/mês + 1-2% do contrato impugnado",
+      "opcao_B": "Projeto fechado (valor fixo por Dossiê) sem retainer inicial",
+      "recomendacao_musculo": "A (com porta de entrada)",
+      "nuance": "Primeiro deal pode abrir como forma-B (1 dossiê R$3-5k) low-friction SE converter para retainer (D2:A). Objetivo real é MRR, não receita única.",
+      "descartado": "M-2 (success fee puro) — viola Lei 5 + P-006. Eduardo nunca assumiu risco 100%. Histórico inequívoco.",
+      "fundamento": ["P-006 (piso + contrapartida sempre)", "Lei 5 (burn rate)", "Histórico Valdece R$5k+%"]
+    }
+  ],
+
+  "ideias_adotadas": {
+    "G2": "ENTRA AGORA — Auditoria do concorrente no PNCP. API pública confirmada. Custo zero.",
+    "G3": "ENTRA AGORA — Pitch Reverso com ROI calculado antes do contato. Melhor ideia do loop.",
+    "G4": "ENTRA AGORA — LOOP_STATE por cliente. Pré-requisito de escala. Ship este loop.",
+    "E1": "ADOTADA — Gate de fechamento do loop = 1 contato quente + prospect nomeado.",
+    "E2": "ADOTADA — URGENTE. Ponte Valdece enquanto hypercare está quente. Janela: até 18-06.",
+    "E3": "ADOTADA — Pré-requisito G5: linha P-139 vitrine/cofre antes de qualquer artifact público.",
+    "E4": "ADOTADA — Pitch central: 'anti-alucinação em 3 camadas'. Transforma P-124/P-132/P-135 em argumento de venda.",
+    "E5": "ADOTADA — BLOQUEANTE. Memória automática (P-032 via session_close) ship neste loop. Não é backlog."
+  },
+
+  "ideias_descartadas": {
+    "M1": "DESCARTADO — P-139. Vender o LEDGER é vender o moat.",
+    "M2": "DESCARTADO — Lei 5 + P-006. Success fee puro. Convergência unânime.",
+    "M3": "DESCARTADO — P-139. White-label cria concorrente com IP da Vanguard.",
+    "M5_ao_vivo": "CONDICIONADO — Aceito apenas com Mágico de Oz Gate interno completo primeiro."
+  },
+
+  "gates_pre_build": [
+    "P-139 linha vitrine/cofre definida antes de qualquer artifact público (E-3)",
+    "E-5: automação MEMORIA_EMBAIXADOR via session_close ship neste loop",
+    "Prospect nomeado pelo Diretor (entrada bloqueante — Músculo não assume por P-059)"
+  ],
+
+  "proxima_acao_diretor": "Responder: D1:[A/B] D2:[A/B]. Após veredito: nomear 1 prospect alvo para G-2+G-3."
+}

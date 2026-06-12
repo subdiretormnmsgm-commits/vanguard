@@ -1,0 +1,17 @@
+﻿# VANGUARD DOC SYNC -- RELATORIO 20260611
+> P-033 -- Sync universal -> projetos e obrigatorio e imediato
+> Pastas excluidas: PERFIS_NICHO, VANGUARD_HISTORICO
+
+## RODADA 0 -- Canonico OPERACAO -> BASE (P-073): 0 arquivo(s) sincronizado(s)
+
+## STATUS FINAL
+- Sincronizados: 6
+- Falhas de Integridade: 0
+- Orfaos: 5
+- Project_Only (nao sao orfaos): 14
+## DECISOES PENDENTES (ORFAOS REAIS)
+- INGRID|21_INTELLIGENCE_HUB_COMPETITORS.md
+- VALDECE|00_MANIFESTO_DE_FONTES.md
+- VANGUARD|00_MANIFESTO_DE_FONTES.md
+- VALDECE|21_INTELLIGENCE_HUB_COMPETITORS.md
+- INGRID|00_MANIFESTO_DE_FONTES.md

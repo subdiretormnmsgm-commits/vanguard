@@ -2491,3 +2491,17 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Confirmado pelo Diretor:** "Agora sim. Excelente." — 2026-06-12 apos deliberacao completa de 23 ideias com 7 pontos cada.
 **Aplica-se a:** todo loop de todo projeto. Prioridade maxima.
 **Resolucao:** [RESOLVE: LEDGER-INBOX-P150]
+## P-151 — DISCIPLINA NAO BASTA — RESTRICAO ARQUITETURAL E A SOLUCAO (2026-06-12)
+**Origem:** Loop 33 — Relatorio de falhas sistemicas: DEF-M-6 (Musculo Reativo) + P-032 (MEMORIA manual) + Falha 5 (placeholder commitado) + Falha 6 (auditoria de freshness por declaracao, nao por disco).
+**Padrao detectado:**
+  - Musculo confiava em disciplina ("lembrar de atualizar") em vez de restricao arquitetural ("sistema impede nao atualizar")
+  - Resultado: os mesmos 4 tipos de falha se repetiam a cada sessao, apenas com detalhes diferentes
+  - Antigravity (Estrategista) nomeou o padrao: "A maquina falhou porque confiamos na disciplina em vez da restricao arquitetural"
+**Principio:** TODA FALHA RECORRENTE EXIGE UMA RESTRICAO ARQUITETURAL, NAO UMA NOVA REGRA DE DISCIPLINA.
+**Solucoes implementadas (Loop 33):**
+  - S1: Gate 7C no session_close.ps1 -- verifica LastWriteTime dos 7 arquivos criticos antes de encerrar
+  - S2: Register-Veredito.ps1 -- Write-Through atomico: 1 comando atualiza MEMORIA + TIMELINE + WIP_BOARD
+  - S3a: check_placeholders.ps1 -- detecta [PREENCHER/Loop ??/[TODO] antes do commit
+**Por que e critico:** disciplina falha em sessoes longas, sob pressao e apos compactacao de contexto. A restricao arquitetural nao tem memoria fragil.
+**Aplica-se a:** qualquer P-XXX que ja foi violado mais de 1 vez sem que uma ferramenta tenha sido criada.
+**Regra derivada (extensao de P-146):** quando uma falha aparece pela segunda vez no LEDGER, a proxima acao OBRIGATORIA e criar uma ferramenta de prevencao, nao registrar o principio novamente.

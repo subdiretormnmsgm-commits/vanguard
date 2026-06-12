@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.1",
+  "cliente": "VANGUARD",
+  "loop": 30,
+  "data": "2026-06-09",
+  "status": "APROVADO",
+  "vereditos": [
+    {
+      "id": "D1",
+      "titulo": "Demo EdTech/Sedes-DF — timebox 7 dias",
+      "decisao": "APROVADO",
+      "descricao": "Demo EdTech focado em concurso Sedes-DF. Inscrições abertas 09/06, fecham 13/07. Janela de 34 dias. v0 em ≤7 dias, primeiro contato com lead real no dia 8. Trial com prazo que expira 06/09 → R$97/mês.",
+      "responsavel": "musculo",
+      "prazo": "2026-06-16"
+    },
+    {
+      "id": "D2",
+      "titulo": "W-8 Hermes — ativar Grau B",
+      "decisao": "APROVADO",
+      "descricao": "Ativar Hermes Grau B condicional: 7 dias de shadow mode limpos + V28-G5 aprovado. Shadow expira 14/06/2026.",
+      "responsavel": "diretor",
+      "prazo": "2026-06-14"
+    },
+    {
+      "id": "D3",
+      "titulo": "P-138 — Valdece Primeiro inscrito no LEDGER",
+      "decisao": "APROVADO",
+      "descricao": "Princípio inscrito: qualquer demo no nicho de cliente ativo exige pré-aviso de 48h antes de publicar. Gate E-4 inclui verificação obrigatória.",
+      "responsavel": "musculo",
+      "prazo": "2026-06-09",
+      "executado": true
+    },
+    {
+      "id": "D4",
+      "titulo": "P-139 — Vitrine vs Cofre inscrito no LEDGER",
+      "decisao": "APROVADO",
+      "descricao": "Linha traçada antes do primeiro Artifact público: vitrine = dados públicos; cofre = LEDGER + Skills + metodologia interna. Dúvida → cofre por padrão.",
+      "responsavel": "musculo",
+      "prazo": "2026-06-09",
+      "executado": true
+    },
+    {
+      "id": "D5",
+      "titulo": "Skills brainstorming + ultrathink — dois momentos",
+      "decisao": "APROVADO",
+      "descricao": "Usar brainstorming + ultrathink-trigger nos dois momentos do loop: (1) geração M-1 a M-5 no início e (2) síntese P-037 no fechamento.",
+      "responsavel": "musculo",
+      "prazo": "2026-06-09",
+      "executado": true
+    },
+    {
+      "id": "D6",
+      "titulo": "Loop 31 — missão: expansão da inteligência interna do Pentalateral",
+      "decisao": "APROVADO",
+      "descricao": "PASSO3 do Loop 31 escrito com missão correta: expandir o sistema, não pipeline de clientes. M-1 a M-5: JOIA-1, Rubrica PASSO3, Health Check, Intelligence HUB→PASSO3, LEDGER Index.",
+      "responsavel": "musculo",
+      "prazo": "2026-06-09",
+      "executado": true
+    }
+  ],
+  "principios_inscritos": ["P-136", "P-137", "P-138", "P-139"],
+  "artefatos_gerados": [
+    "CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V30_VANGUARD.md",
+    ".claude/skills/vanguard-v30.md",
+    "CLIENTES/VANGUARD/PASSO3_GEMINI.md (Loop 31)"
+  ],
+  "observacoes": "Loop 30 identificou falha de enquadramento: PASSO3 com missão sobre clientes gerou 91 ideias recicladas. Correção estrutural: Rubrica PASSO3 entra no Loop 31 como M-2. Loop 31 tem missão de expansão interna do sistema."
+}

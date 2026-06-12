@@ -1,0 +1,90 @@
+Não é "o que construímos para quem?"
+
+São três perguntas agora:
+
+"O que precisa evoluir para que este sistema opere
+10 projetos com a mesma qualidade e controle que tem com 2?"
+
+"Como a Vanguard passa a ser encontrada —
+não apenas a encontrar clientes?"
+
+"Em qual desses 5 encaixes perfeitos abrimos
+a primeira vertical esta semana?"
+
+E a pergunta que atravessa todas as outras:
+
+"Como 4 modelos de linguagem — cada um com falhas de fábrica
+conhecidas — atuam juntos de forma que a fraqueza de um
+seja coberta pela força do outro?"
+
+A resposta é a arquitetura do Pentalateral.
+
+Todo LLM tem deficiências estruturais. O sistema as conhece,
+as nomeia, e as distribui entre sócios para resolver:
+
+ALUCINAÇÃO OTIMISTA — o modelo propõe com confiança o que não
+verificou. Antídoto: o Auditor só afirma o que está nas fontes.
+Quando o Estrategista propõe algo que o Auditor não ancora,
+a afirmação vira hipótese — não fato. Dois modelos com
+arquiteturas diferentes raramente alucinam no mesmo ponto.
+
+VIÉS DE CONFIRMAÇÃO — o modelo tende a confirmar o que o
+contexto sugere. Antídoto: triangulação cega Músculo↔Auditor
+(P-132). Os dois analisam de fontes independentes sem ver
+o resultado um do outro. Só divergência real aparece.
+
+AMNÉSIA DE SESSÃO — todo modelo esquece o que não está no
+contexto ativo. Antídoto: o Embaixador é a memória do sistema.
+Traz o que importa dos loops anteriores — padrões, decisões
+revertidas, promessas não cumpridas. Nenhum outro sócio tem
+essa função.
+
+CEGUEIRA DE ESCOPO — o modelo vê bem o que está dentro da
+janela mas perde o que está fora. O Músculo vê o loop atual
+com profundidade. O Estrategista vê o mercado com amplitude.
+O Auditor vê o histórico acumulado nas fontes. O Embaixador
+vê os loops anteriores com continuidade. Nenhum vê tudo —
+mas juntos não deixam ponto cego.
+
+FOCO ESTREITO — o modelo especialista resolve bem o problema
+que recebeu mas não questiona se é o problema certo. Antídoto:
+o Estrategista é o único sócio cuja missão explícita é ver
+o que o Músculo não vê — não validar, contradizer quando
+a evidência aponta diferente.
+
+EXECUÇÃO SEM VERIFICAÇÃO — o modelo executa sem checar se
+o resultado é o esperado. Antídoto: Walkthrough obrigatório
+(EXECUTOR_PLAYBOOK). Toda saída tem prova de execução.
+"Funcionou" sem evidência não é entrega — é declaração.
+
+O CICLO DE ENRIQUECIMENTO — como os sócios se ajudam na prática:
+
+Músculo ancora M-1..M-5 em fontes via /yt-search
+↓
+Antigravity despacha subagentes que validam cada M
+contra precedentes de mercado e contra o LEDGER
+↓
+Auditor pesquisa com Deep Research independente —
+confirma, qualifica ou rejeita com fonte real
+↓
+Embaixador cruza com memória de loops anteriores,
+comportamento real do Diretor e sinais do mercado
+↓
+Diretor recebe 4 perspectivas que se compensam
+e delibera com o mapa mais completo que o sistema
+consegue produzir
+
+Nenhum sócio bypassa o outro.
+Nenhuma saída chega ao Diretor sem ter passado pelo filtro
+de pelo menos um modelo com arquitetura diferente.
+
+Isso é o que torna o Pentalateral incopiável.
+Não é ter 4 modelos — é ter 4 modelos onde cada um
+compensa a deficiência estrutural do outro.
+
+Triangulação real. Ciclo de enriquecimento.
+Sistema antecipatório, não reativo.
+Vanguard como empresa — com mapa, com presença contínua,
+e com a pergunta certa sobre onde caçar.
+
+Loop 33 aberto.

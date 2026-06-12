@@ -1,6 +1,6 @@
 {
     "projeto":  "VANGUARD",
-    "ultima_sincronizacao":  "2026-06-07T16:53:01",
+    "ultima_sincronizacao":  "2026-06-12T02:54:05",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -10,8 +10,8 @@
                      },
                      {
                          "nome":  "01_SKILL_PROTOCOLO_VANGUARD.md",
-                         "hash_universal":  "F420E10C0A29463CB9994A37B948676C0DD9BD3CEC0B416018DDD22CD541D5B4",
-                         "hash_local":  "F420E10C0A29463CB9994A37B948676C0DD9BD3CEC0B416018DDD22CD541D5B4",
+                         "hash_universal":  "E5C982A6A247F1318EA8D8F6CEF08DEEF230554AF1DBDEF27D847789E68CE08C",
+                         "hash_local":  "E5C982A6A247F1318EA8D8F6CEF08DEEF230554AF1DBDEF27D847789E68CE08C",
                          "status":  "SYNC"
                      },
                      {
@@ -22,20 +22,20 @@
                      },
                      {
                          "nome":  "03_MANUAL_DIRETOR.md",
-                         "hash_universal":  "F9463CA9A0755578C54C0EA2469B8153E220202521DBD736A5E4973D1711AB38",
-                         "hash_local":  "F9463CA9A0755578C54C0EA2469B8153E220202521DBD736A5E4973D1711AB38",
+                         "hash_universal":  "F46D72FFD02A2E74012C0DF54D7A1A7C6EED26F7B34125C9A3C17BF3A08DCC10",
+                         "hash_local":  "F46D72FFD02A2E74012C0DF54D7A1A7C6EED26F7B34125C9A3C17BF3A08DCC10",
                          "status":  "SYNC"
                      },
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
-                         "hash_universal":  "45C5FA99BD4AD7FAD15E6D5D4F347A5A782AD2F93089FD36AF1BD8F429AF608A",
-                         "hash_local":  "45C5FA99BD4AD7FAD15E6D5D4F347A5A782AD2F93089FD36AF1BD8F429AF608A",
-                         "status":  "SYNC"
+                         "hash_universal":  "416C8D2E18CF306C2772F441CD4CF358001780D06B6148B431B356222DEDD0FE",
+                         "hash_local":  "D88C573755CDA0301A3399F3FD7A7D7AFB47E76BEEEA3D9907B454269E470756",
+                         "status":  "DRIFT"
                      },
                      {
                          "nome":  "05_PROCESSO_EVOLUTIVO_PENTALATERAL.md",
-                         "hash_universal":  "573424CBF83BB5EFE834EFFFFE460FEE12A7AE5C860286C0E04A23A6C6F76087",
-                         "hash_local":  "573424CBF83BB5EFE834EFFFFE460FEE12A7AE5C860286C0E04A23A6C6F76087",
+                         "hash_universal":  "5E11A06BC76AEBF0EFBC59BC18D4EDD5D62399635E0A6F1AFE5F6F7493609A84",
+                         "hash_local":  "5E11A06BC76AEBF0EFBC59BC18D4EDD5D62399635E0A6F1AFE5F6F7493609A84",
                          "status":  "SYNC"
                      },
                      {
@@ -46,8 +46,8 @@
                      },
                      {
                          "nome":  "07_WIP_BOARD.txt",
-                         "hash_universal":  "F5CCD45DF909763F5CC1A1B8DBAEA380EDE6B6EC24A5FC18BA9D7E1A51FB8B0B",
-                         "hash_local":  "F5CCD45DF909763F5CC1A1B8DBAEA380EDE6B6EC24A5FC18BA9D7E1A51FB8B0B",
+                         "hash_universal":  "8BFEBF58A9C1922550BA84DD3F1830F09B8F5B056D08D6CD643550F0E247F48B",
+                         "hash_local":  "8BFEBF58A9C1922550BA84DD3F1830F09B8F5B056D08D6CD643550F0E247F48B",
                          "status":  "SYNC"
                      },
                      {
@@ -57,14 +57,26 @@
                          "status":  "SYNC"
                      },
                      {
+                         "nome":  "20_LOOP_STATE_SCHEMA.md",
+                         "hash_universal":  "0AD3670C3559271315BAEBE7CE128A50527D23C5ECC9B3C66D60B00153DD32DE",
+                         "hash_local":  "0AD3670C3559271315BAEBE7CE128A50527D23C5ECC9B3C66D60B00153DD32DE",
+                         "status":  "SYNC"
+                     },
+                     {
+                         "nome":  "20_LOOP_STATE_SCHEMA.md.bak",
+                         "hash_universal":  "0AD3670C3559271315BAEBE7CE128A50527D23C5ECC9B3C66D60B00153DD32DE",
+                         "hash_local":  "0AD3670C3559271315BAEBE7CE128A50527D23C5ECC9B3C66D60B00153DD32DE",
+                         "status":  "SYNC"
+                     },
+                     {
                          "nome":  "LEDGER_INDEX.md",
                          "hash_universal":  "F683043801A94C071E14988A385225B61534C4693932081DCA0E99463EAC7E5D",
                          "hash_local":  "F683043801A94C071E14988A385225B61534C4693932081DCA0E99463EAC7E5D",
                          "status":  "SYNC"
                      }
                  ],
-    "status_geral":  "VERDE",
-    "total":  10,
-    "drift_count":  0,
+    "status_geral":  "AMARELO",
+    "total":  12,
+    "drift_count":  1,
     "ausente_count":  0
 }

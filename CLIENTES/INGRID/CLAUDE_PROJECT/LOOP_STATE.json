@@ -1,9 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "cliente": "INGRID",
   "loop_atual": 8,
   "loop_status": "CONCLUIDO",
   "fase_atual": "LOOP_ENCERRADO",
+  "missao": "INGRID Loop 8 — App em produção. Retainer ativo. Aguardando captação 2ª candidata antes de 04-07-2026.",
   "socios": {
     "gemini": {
       "status": "OK",
@@ -34,7 +35,8 @@
     "p045_memoria_anterior_existe": true,
     "p037_deliberacao_concluida": true,
     "p032_memoria_embaixador_atualizada": true,
-    "p087_resolve_commitado": true
+    "p087_resolve_commitado": true,
+    "p133_gate_zero_captacao": false
   },
   "contexto_snapshot": {
     "cliente_temperatura": "ENGAJADA",
@@ -43,12 +45,39 @@
     "prazo": "2026-09-06",
     "observacoes": "Ingrid gostou muito da ferramenta (depoimento 2026-06-04). App em produção: https://subdiretormnmsgm-commits.github.io/vanguard/"
   },
+  "loop_anterior": {
+    "numero": 7,
+    "status": "FECHADO",
+    "data_fechamento": "2026-06-04",
+    "missao": "Build App + Deploy GitHub Pages",
+    "p087_commitado": true
+  },
+  "builds_aprovados_nao_iniciados": [
+    {
+      "id": "D5",
+      "descricao": "Link Demo — bloqueado até 2ª usuária confirmada",
+      "bloqueante": "2ª candidata",
+      "prioridade": 1
+    },
+    {
+      "id": "D6",
+      "descricao": "Semente E-4 — aguardar engajamento verbal de Ingrid",
+      "bloqueante": null,
+      "prioridade": 2
+    },
+    {
+      "id": "Gate-7.2",
+      "descricao": "RLS refactor — julho 2026",
+      "bloqueante": null,
+      "prioridade": 3
+    }
+  ],
   "pendentes_abertos": [
     "D5 — Link Demo bloqueado até 2ª usuária",
     "D6 — Semente E-4 aguardar engajamento verbal",
     "Gate 7.2 RLS refactor — julho 2026"
   ],
-  "ultima_atualizacao": "2026-06-07",
+  "ultima_atualizacao": "2026-06-12",
   "proxima_acao_musculo": "Loop 9: gemini_anchor_generator.ps1 com MEMORIA_V8 + relatorio_V8 + LEDGER → PASSO3 para Gemini",
   "proxima_acao_diretor": "Confirmar captação de 2ª candidata antes de 04-07-2026. Gate D5 e D6 aguardam este evento."
 }

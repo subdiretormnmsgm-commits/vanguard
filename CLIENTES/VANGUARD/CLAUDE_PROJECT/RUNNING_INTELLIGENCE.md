@@ -2,7 +2,42 @@
 # Mantido pelo Embaixador (BLOCO 8 ativo).
 # Decaimento: sinais sem validação de campo em 90 dias são compactados (N-4 — veredito pendente).
 # Proibição: nenhum dado aqui gera ação em cliente sem aprovação explícita do Diretor (P-121).
-# Última atualização: 2026-06-10 (Loop 31 — primeira versão)
+# Última atualização: 2026-06-12 (Loop 33 — Vertical Licitações + intel BLOCO 8)
+
+---
+
+## [SINAIS DA SEMANA — Loop 33 — 2026-06-12]
+
+| SINAL | FONTE | IMPACTO PARA O PENTALATERAL | URGÊNCIA |
+|-------|-------|----------------------------|----------|
+| ConLicitação lançou "Dr. Licita" (fev/2026) — IA jurídica para elaborar petições, impugnações, pedidos de esclarecimento, recursos e contrarrazões sobre banco de dados validado por advogados especializados. Declarou ser a maior plataforma de IA para licitações do Brasil | ConLicitação (plataforma oficial, fev/2026) | **A premissa "poucos competidores" do Auditor está errada.** A camada-ferramenta (self-service) está sendo commoditizada. O espaço disponível para a Vanguard é o de MOTION: done-for-you outbound (dossiê entregue antes do contato) — não construção de ferramenta | ALTA |
+| BLL publicou método "auditar concorrente com IA" — IA lê volume de documentos, cruza exigências com evidências do concorrente, aponta lacunas e monta matriz para embasar impugnação/recurso/contrarrazões. Reforça que IA "não decide nem substitui o pregoeiro" | BLL (mai/2026) | Valida G-2 (Auditoria PNCP) tecnicamente. Mas o mercado self-service já faz isso. A Vanguard entrega PRONTO, não ensina o cliente a usar | ALTA |
+| ConLicitantes publicou alerta: IA que alucina lei em impugnação pode causar sanção administrativa real ao licitante | ConLicitantes (mar/2026) | Confirma N-4/P-050/P-051 com evidência externa. Alucinação na peça = sanção ao CLIENTE, não erro estético. E-4 validado: "anti-alucinação em 3 camadas" é o argumento de venda central | ALTA |
+| PNCP conta com 3 APIs públicas (Integração e Serviços, Consulta e Busca), manual técnico versão 2.2.9. Consultas sem cadastro ou login. Mantido por SERPRO/MGI | pncp.gov.br (portal oficial) | G-2 e G-5 são tecnicamente viáveis hoje. Custo de fricção ~zero. Dados abertos = motor infinito de prospecção | ALTA |
+
+---
+
+## [AMEACAS DETECTADAS — Loop 33]
+
+1. **Commoditização da camada-ferramenta**: ConLicitação/Dr. Licita, Effecti, Licitei, Licita.ia e LiciteAI ativas em 2026. Vender "temos IA para licitação" não é diferencial. O que não é commoditizado: motion done-for-you (dossiê entregue antes do contato) + anti-alucinação auditável em 3 camadas.
+
+2. **Risco de alucinação como sanção real**: qualquer demo ao vivo com dados não auditados pode gerar impugnação com lei inventada → sanção administrativa ao prospecto → queima de reputação em mercado pequeno. P-050/P-051 inegociáveis. (Evidência externa confirmada: ConLicitantes mar/2026)
+
+3. **Padrão builder-não-vendedor do Diretor**: risco central identificado pelo Embaixador. "Abrir vertical" pode se tornar mais um loop de infraestrutura se D1 não for operacionalizado como "1 ato humano concreto" (E-1). Não é risco técnico — é comportamental.
+
+4. **Janela Valdece fechando**: hypercare termina 18-06. A Ponte Valdece (E-2) — pedir indicação enquanto relação está no auge — fecha junto. Janela de 6 dias.
+
+---
+
+## [OPORTUNIDADES DETECTADAS — Loop 33]
+
+1. **Motion done-for-you como espaço não disputado**: todos os concorrentes identificados operam em self-service (cliente usa a ferramenta). A Vanguard entrega o dossiê pronto antes do primeiro contato. Esse espaço está aberto.
+
+2. **Anti-alucinação como argumento de venda central (E-4)**: o medo nº1 do mercado em 2026 (alucinação → sanção) não está sendo explorado como pitch por nenhum competidor identificado. "3 camadas verificam antes de chegar em você" = diferencial que transforma P-124/P-132/P-135 em razão-de-compra.
+
+3. **PNCP API pública = motor infinito gratuito**: dados abertos permitem G-2 (auditoria de concorrente) e G-5 (Validador como isca) sem custo de dados. Janela de 90 dias antes que mais IAs entrem.
+
+4. **Ponte Valdece como canal quente imediato**: Valdece é advogado com adjacência a direito administrativo/licitações. Indicação via hypercare é o canal mais rápido para o 3º cliente — fechando em dias, não meses.
 
 ---
 

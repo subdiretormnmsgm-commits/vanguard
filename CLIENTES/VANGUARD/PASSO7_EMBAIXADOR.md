@@ -1,5 +1,5 @@
 # PASSO 7 -- EMBAIXADOR · VANGUARD UNIVERSAL
-# Sessao: 2026-06-09 · Loop 31 · EXPANSAO DA INTELIGENCIA INTERNA DO PENTALATERAL
+# Sessao: 2026-06-12 · Loop 33 V2 · VIRADA ESTRATEGICA -- MERCADO EXTERNO
 # COMO USAR: rodar .\scripts\ir_ao_embaixador.ps1 -cliente VANGUARD
 #             colar esta SECAO D no chat do Claude Projects (Vanguard)
 
@@ -9,10 +9,10 @@
 
 ```
 ATIVACAO DO EMBAIXADOR -- VANGUARD (Sistema Interno)
-Data: 2026-06-09
-Contexto: Loop 31 -- Expansao da Inteligencia Interna do Pentalateral
-Missao: REACAO AO PENTALATERAL + BLOCO 8 COMPLETO (inteligencia externa ativa)
-Ultima ativacao: 2026-06-09 (Loop 30 -- Poda Jobs + Demo Visionario + MCP)
+Data: 2026-06-12
+Contexto: Loop 33 V2 -- Virada Estrategica: Mercado Externo -- Vertical Licitacoes
+Missao: REACAO AO PENTALATERAL LOOP 33 + BLOCO 8 COMPLETO (inteligencia externa ativa)
+Ultima ativacao: Loop 31 (Expansao Inteligencia Interna)
 ```
 
 ---
@@ -42,208 +42,191 @@ voce alerta. Quando uma ideia parece certa mas o Diretor historicamente nao exec
 esse tipo de acao, voce diz. Voce e o filtro de realidade humana do Pentalateral.
 
 **RUNNING_INTELLIGENCE -- missao permanente**
-A partir deste loop, voce mantem um documento acumulativo de inteligencia competitiva.
-Ver PARTE 5 deste PASSO para instrucoes detalhadas.
+A partir do Loop 31, voce mantem RUNNING_INTELLIGENCE.md com inteligencia competitiva
+acumulada entre loops. Ver PARTE 5 deste PASSO para instrucoes detalhadas.
 
 ---
 
-## SECAO D -- REACAO AO PENTALATERAL
+## SECAO D -- REACAO AO PENTALATERAL LOOP 33
 
 ```
-Embaixador, reacao ao ciclo Loop 31 da Vanguard -- tema: Expansao da Inteligencia Interna.
+Embaixador, reacao ao ciclo Loop 33 V2 da Vanguard -- tema: VIRADA ESTRATEGICA.
 
 INSTRUCAO OBRIGATORIA ANTES DE COMECAR:
 Este ciclo ativa o BLOCO 8 -- INTELIGENCIA EXTERNA da sua instrucao de sistema.
-Voce tem acesso a internet, busca avancada e pesquisa profunda em tempo real.
+Voce tem acesso a internet, busca avancada e pesquisa em tempo real.
 Use estas capacidades ativamente nas PARTES 2, 3 e 5 deste pedido.
 Nao responda com base apenas em memoria -- pesquise, cite fontes, confronte dados.
 
 ---
 
 CONTEXTO DO EVENTO:
-O Loop 31 abre com missao interna: expandir a inteligencia do proprio Pentalateral.
-Os M-1 a M-5 foram gerados pelo Musculo com brainstorming + ultrathink.
-O Auditor ja analisou com Deep Research ativo (N-1 a N-5 + A-1 a A-3 abaixo).
+Loop 33 V2 -- a maior virada da historia recente da empresa.
+Estado real: 2 clientes ativos (Ingrid retainer + Valdece hypercare ate 18-06).
+Pipeline de novos clientes: ZERO. Nenhum cliente novo desde Mumuzinho.
+LEDGER com 149 principios. Sistema Pentalateral operacional + Hermes Grau B + 9 workflows n8n.
+O Diretor quer 1 movimento real de mercado neste loop -- nao mais infraestrutura interna.
 
-[M-1 a M-5] -- IDEIAS DO MUSCULO (Loop 31):
+DIRETRIZ DO LOOP 33 V2 (Antigravity / Estrategista):
+G-1: Motor Headless (n8n puro consumindo Claude API, sem GUI)
+G-2: Auditoria do Concorrente no PNCP (ataque ao 1o colocado -- flagrar inabilitacao)
+G-3: Pitch Reverso (calcular ROI do cliente antes do primeiro contato)
+G-4: Isolamento Celular de Estado (LOOP_STATE_[CLIENTE].json por cliente)
+G-5: Engineering as Marketing (Validador PNCP gratis como funil de leads)
 
-[M-1] LOOP SCOREBOARD
-session_close.ps1 calcula 5 metricas por loop: Taxa de Novidade, Densidade de Principios,
-Taxa de Violacao, Tempo de Ciclo, Score de Divergencia. SYSTEM_HEALTH.md lido em 30s
-antes de cada sessao. Primeiro dashboard de saude do Pentalateral.
+[M-1 a M-5] -- IDEIAS DO MUSCULO (Loop 33 V2):
 
-[M-2] LOOP TRANSCRIPT
-session_close.ps1 gera LOOP_TRANSCRIPT_V[N].md com ideias, disposicoes, arquivos, skills.
-Transcript vira fonte no caderno VANGUARD. Imunidade a amnesia de compactacao.
+[M-1] A VANGUARD VENDE O PROCESSO, NAO O PROJETO
+O LEDGER com 149 principios e o maior ativo. Nenhuma empresa de consultoria de IA
+no Brasil tem isso documentado. Vender como assinatura: "Manual de Operacao de IA
+Agentada" (R$ 3-5k/mes). O cliente paga para aprender O PROCESSO antes de contratar.
 
-[M-3] PASSO3 AUTO-CALIBRAVEL
-Score 1-5 do PASSO3 anterior injetado no proximo. Sistema se autocorrige: baixo score
-em divergencia --> PASSO3 forcado a angulo contrastante no Loop seguinte.
+[M-2] ENTRADA POR DOR PUBLICA SEM UPFRONT
+Licitacoes: fee zero no inicio. 1% do valor do contrato ganho ou R$ 15k fixo ao
+impugnar com sucesso. Cliente so paga se ganhar.
 
-[M-4] AUDITOR COMO INTELLIGENCE ENGINE
-Deep Research ativado com 5 research queries por loop + BRIEFING DE ESTADO DA ARTE
-alem da Skill. Auditor deixa de ser biblioteca estatica.
+[M-3] O SISTEMA PENTALATERAL COMO PRODUTO PARA OUTROS CONSULTORES
+Outros consultores independentes (marketing, financeiro, juridico) poderiam licenciar
+o sistema: acesso ao Musculo + Auditor + Estrategista configurados para o nicho deles.
+White-label do processo Pentalateral. MRR sem dependencia de projeto proprio.
 
-[M-5] EMBAIXADOR INTELLIGENCE LOOP
-BLOCO 8 completamente ativado. RUNNING_INTELLIGENCE.md acumula inteligencia competitiva
-entre loops. Em 6 loops: repositorio automatico sem intervencao do Diretor.
+[M-4] CASO ANONIMIZADO COMO ISCA DE AUTORIDADE
+2 casos reais (Ingrid + Valdece). Sem expor o cliente, publicar o processo anonimizado.
+SEO para queries de dor + CTA direto. Prospect chega com o problema ja qualificado.
 
-[G-1 a G-5] -- IDEIAS DO ESTRATEGISTA (Antigravity):
+[M-5] DEMO AO VIVO COMO PRIMEIRO CONTATO
+Primeiro contato: demonstracao de 20 minutos com dados publicos do nicho do prospect.
+Hermes analisa um edital real ao vivo. Musculo gera dossie de dor calculavel.
 
-[G-1] PENTALATERAL RED TEAMING
-1x/mes: Antigravity instanciado como "Atacante". Gera Diretriz persuasiva escondendo
-violacao deliberada ao P-059 ou P-121. Teste: Musculo e Auditor conseguem flagrar?
-Entrega: red_team_session.ps1 + log de resultado por Loop.
+[G-1 a G-5] -- IDEIAS DO ESTRATEGISTA (Antigravity -- DIRETRIZ V33 aprovada):
 
-[G-2] SKILL-DRIFT RADAR
-Subagente no session_start cruza ultimos 5 LOOP_TRANSCRIPT. Se o Musculo resolveu
-o mesmo tipo de bug 3 vezes identicamente: "Fadiga de Sistema -- virar Automacao".
-Entrega: drift_detector.ps1 integrado ao session_start.
+[G-1] MOTOR HEADLESS -- n8n puro consumindo Claude API (nao GUI Cowork)
+[G-2] AUDITORIA DO CONCORRENTE no PNCP -- atacar o 1o colocado em licitacoes
+[G-3] PITCH REVERSO -- calculadora de ROI do lado da Vanguard antes do contato
+[G-4] ISOLAMENTO CELULAR -- LOOP_STATE_[CLIENTE].json por cliente (P-059 escalado)
+[G-5] ENGINEERING AS MARKETING -- Validador de Atestado Tecnico PNCP (gratis como isca)
 
-[G-3] VEREDITO ENRIQUECIDO -- VOZ VIA TELEGRAM
-Telegram integra notas de voz do Diretor. Embaixador faz STT, extrai o "Porque"
-estrutural, injeta na calibracao do sistema. Menos digitacao, mais contexto.
-Entrega: webhook Telegram voz -> n8n -> STT -> LOOP_STATE.json enriquecido.
+[N-1 a N-5] -- IDEIAS DO AUDITOR (NotebookLM · Skill vanguard-v33.md · APROVADA):
 
-[G-4] BIBLIOTECA DINAMICA DE FEW-SHOT PROMPTS
-Quando loop recebe Score 5 no Scoreboard, Antigravity recorta inputs+outputs perfeitos
-e adiciona como few-shot examples para proximos loops. Entrega: few_shot_library.json.
+[N-1] VENDER O PROCESSO ANTES DO PROJETO (M-1)
+O comprador ideal para processos e outra agencia/consultoria, nao o cliente final.
+Mid-market quer resultado pronto (Services-as-Software), nao cartilhas. Viola P-139.
 
-[G-5] ORACULO DE CHURN -- HYPERCARE PREDITIVO
-Telemetria Valdece conectada ao Embaixador. Queda de 10% no uso -> alerta RUNNING_INTELLIGENCE
-com estrategia Hypercare Ativo antes do cliente notar.
-Entrega: webhook Supabase -> n8n -> Embaixador -> RUNNING_INTELLIGENCE.md.
+[N-2] SUCCESS FEE EM LICITACOES (M-2)
+Mercado publico impoe pagamentos lentos. Assuncao de risco 100% destroi margem (Lei 5).
+Modelo maduro: SaaS subscriptions continuas + honorario variavel + Setup Minimo (P-006).
 
-[N-1 a N-5] -- IDEIAS DO AUDITOR (NotebookLM · Skill vanguard-v31.md):
+[N-3] PENTALATERAL WHITE-LABEL (M-3)
+Beneficia consultores concorrentes que sugam IP da Vanguard. Expansao via Plataforma
+IAH propria controlada pelo Diretor (Fase 4 do Memorando V25), nao por franquia cega.
 
-[N-1] TAXA DE NOVIDADE E METRICA PERIGOSA
-Scoreboard: Token Burn Rate + Tempo de Ciclo sao automaticos. Taxa de Novidade nao --
-lagging indicator, avalia verbosidade nao valor. Exige curadoria humana via Veredito (P-131).
+[N-4] DEMO AO VIVO SEM REDE (M-5)
+P-050/P-051 inegociaveis. Demo sempre preparada assincronamente. Magico de Oz Gate
+interno primeiro. V10/V25 tiveram timeouts e erros 500 imprevistos.
 
-[N-2] LOOP TRANSCRIPT = DELTA, NAO DUMP
-Transcript deve ser "Delta de Inteligencia" -- max 100 linhas. Foco: DECISOES.json
-+ friction.log + principios inscritos. Dump completo destroi Context Window (DEF-N-4).
-
-[N-3] AUTO-CALIBRACAO EXIGE CRUZAMENTO -- NAO MUSCULO SOZINHO
-Auto-calibracao direta e camara de eco. Protocolo: Auditor avalia Musculo via Few-Shot
-historico (G-4) + P-132 Triangulacao Cega. Nunca o Musculo avaliar a si mesmo.
-
-[N-4] RUNNING_INTELLIGENCE.md COM DECAIMENTO DE 90 DIAS
-Dados sem validacao de campo apodrecem. Script de decaimento automatico: o que nao
-virou feature ou precificacao em 90 dias e compactado. P-059 escalabilidade.
-
-[N-5] SISTEMA MAIS RAPIDO QUE A ESTEIRA DE AQUISICAO
-22+ scripts, n8n, Hermes -- infraestrutura ofuscou ausencia de novos MRRs (P-062/P-133).
-Solucao imediata: converter M-4 e G-5 em maquinas de prospecao real (Mumuzinho + 3o cliente).
+[N-5] MENOR LEAD TIME
+Intersecao G-2 + G-3. Musculo extrai 3 licitacoes perdidas do prospecto, Auditor
+valida jurisprudencias, n8n monta relatorio de impugnacao, Vanguard aborda CEO com
+ROI financeiro pronto. Conversao leva dias, nao meses.
 
 [A-1 a A-3] -- IDEIAS EXCLUSIVAS DO AUDITOR (AMPLIAR):
 
-[A-1] ROTEADOR DE CONTEXTO DINAMICO via n8n/MCP (Supermemory)
-n8n atua como Memory Router entre Musculo e Antigravity: faz query vetorial nas MEMORIAs
-antigas (Supabase) e injeta apenas os principios P-XXX exatos que tangenciam a dor.
-Derruba peso do gemini_anchor_generator (Anti-DEF-G-3 Lost-in-Middle).
+[A-1] MODELO BOST-AGENTIVO (Build-Operate-Scale-Transfer)
+Inspirado em BCG X e Dan Martell. Vende o modelo BOST: cria a "Celula de Licitacoes"
+(Build), opera inicialmente (Operate), escala para multiplos setores (Scale), apos
+6 meses de IAH Retainer transfere controle basico mantendo suporte Nivel 3 (Transfer).
+Garante MRR continuo e justifica High-Ticket.
 
-[A-2] SUB-AGENTES NATIVOS DE PESQUISA (n8n AI Agent Tool)
-n8n instancia Research Agent (Haiku, 37x mais barato) para web fetch e parsing bruto.
-Musculo (Sonnet) recebe texto pre-digerido -- reducao de 30x no custo de tokens.
-Implementar como base do M-4 (Deep Research Hierarquico).
+[A-2] TROJAN HORSE AUDIT REPORTS (NotebooLM + Embaixador)
+Musculo caca no PNCP o alvo comercial. Auditor ingere PDFs dos concorrentes e gera
+Audio Overview (Podcast) debatendo "Falhas Fatais da Licitacao XYZ". Embaixador manda
+.wav para WhatsApp do CFO do alvo. Autoridade imediata, alta conversao, custo zero.
 
-[A-3] QA BROWSER AUTONOMO VIA EMBAIXADOR (Google Antigravity Browser Agent)
-Embaixador (Computer Use API) simula cena de sucesso do cliente em staging.
-Ao fim do dia de build: envia print + laudo para Telegram do Diretor.
-Amplifica P-127 sem violar P-124 (veredito final do QA ainda e do Diretor).
+[A-3] CONTEXT ROUTING VIA N8N (Fim da Amnesia Multi-Tenant)
+n8n injeta automaticamente LOOP_STATE_[CLIENTE].json + "Data Contract" do nicho no
+system prompt toda vez que requisitar o Musculo. Musculo stateless = 0% de contaminacao.
 
 ---
 
 PEDIDO AO EMBAIXADOR -- CINCO PARTES OBRIGATORIAS:
 
-PARTE 1 -- FILTRO DE REALIDADE (reagir individualmente a cada M):
+PARTE 1 -- FILTRO DE REALIDADE (reagir individualmente a cada M com historico real):
   CONFIRMA -- alinha com comportamento real do Diretor e do sistema
   EXPANDE  -- ha contexto que potencializa alem do proposto
   ALERTA   -- ha risco comportamental ou estrategico que os outros membros nao veem
 
-  Questoes especificas:
-  (a) M-1 (LOOP SCOREBOARD): Eduardo vai USAR o SYSTEM_HEALTH.md no dia a dia?
-      Historicamente, dashboards de processo que o Diretor nao olha diariamente
-      morrem em 2 loops. Qual e a probabilidade real de adocao?
-  (b) M-3 (AUTO-CALIBRACAO): o score dado pelo Musculo sobre o proprio PASSO3 --
-      Eduardo confia nessa auto-avaliacao? Ou precisa validar?
-  (c) M-5 (RUNNING_INTELLIGENCE): o Embaixador acumulando inteligencia competitiva
-      automaticamente -- Eduardo ficaria confortavel com isso? Ou prefere curar manualmente?
+  Questoes especificas para este loop:
+  (a) M-2 (Success fee): Eduardo historicamente topa assumir risco 100% de projetos?
+      Qual e o padrao comportamental dele quando os custos de operacao correm sem
+      garantia de receita? O que aconteceu em situacoes similares no passado?
+  (b) G-2 (Auditoria de Concorrente): Eduardo vai executar o prospecting de licitacoes
+      ele mesmo? Ou precisa de um "sistema que faz por ele"? Qual e o perfil de acao?
+  (c) G-5 (Validador PNCP como isca): Eduardo ja tentou criar ferramentas gratuitas
+      de captacao antes? Qual foi o resultado historico? Ele mantem ou abandona?
+  (d) A-2 (Trojan Horse): enviar Audio Overview para WhatsApp do CFO de forma fria --
+      o Diretor teria coragem de executar esse abordagem? Ou prefere o warmup via LinkedIn?
 
-PARTE 2 -- ANALISE ESTRATEGICA -- EXPANSAO INTERNA VS MERCADO
-  - Dedicar um loop inteiro a expansao interna (sem clientes, sem pipeline) --
-    qual e a leitura comportamental do Diretor? E um respiro necessario ou e esquiva?
-  - Os M-1 a M-5 atacam o sistema. O sistema melhorado vai aumentar MRR ou apenas
-    tornar Eduardo mais eficiente? Qual e a relacao?
-  - Ha risco de o Pentalateral se tornar tao sofisticado que o Diretor perca o
-    controle do proprio processo?
+PARTE 2 -- ANALISE ESTRATEGICA -- VIRADA PARA MERCADO EXTERNO
+  - Eduardo decidiu parar de construir infraestrutura interna e focar em mercado externo.
+    Esta e a leitura correta do comportamento dele? Ha historico de "voltar a infra"?
+  - G-2 + G-3 sao o caminho mais curto para o 3o cliente. Qual e o obstacul comportamental
+    real para Eduardo executar essa abordagem esta semana?
+  - A Vanguard tem pipeline ZERO. Em situacoes similares no passado, qual foi o gatilho
+    que fez o Diretor agir? O que precisa acontecer para ele sair do modo "construtor"?
 
 PARTE 3 -- INTEL DE MERCADO VANGUARD (busca ativa com BLOCO 8)
-  Foco: a Vanguard como empresa e sistema -- nao clientes especificos.
+  Foco: Vertical de Licitacoes + consultoria de IA para compliance publico no Brasil.
   USE SUA CAPACIDADE DE BUSCA AGORA para responder com dados reais:
-  - O que esta acontecendo no mercado de IA multi-agente / IAH / venture builder no Brasil?
-    (ultimos 60-90 dias -- competidores, movimentos, novos entrantes)
-  - Qual o estado atual de adocao de ferramentas como n8n, Antigravity, MCP em producao?
-    Ha atualizacoes criticas de API ou novidades que afetam a arquitetura do Pentalateral?
-  - Qual o positioning e pricing de sistemas IAH comparaveis no mercado global?
-    O que a Vanguard pode aprender para seu proximo modelo de venda?
+  - Quem ja atua com IA em licitacoes publicas no Brasil em 2026? Quais os players?
+    Qual o modelo de negocio deles (SaaS, consultoria, success fee)?
+  - Ha casos reais documentados de IA impugnando licitacoes com sucesso no Brasil?
+    Qual foi o resultado? (fonte: sites oficiais, TCU, STJ, publicacoes especializadas)
+  - O PNCP (Portal Nacional de Contratacoes Publicas) tem API aberta documentada?
+    Quais dados estao disponiveis publicamente para automacao?
   Criterio de fonte -- INVIOLAVEL: sites oficiais, relatorios de mercado, publicacoes tecnicas.
-  Proibido: blogs sem autoria institucional, posts sociais como fonte primaria.
 
 PARTE 4 -- [E-1 a E-5] SUAS 5 IDEIAS EXCLUSIVAS
   Perspectiva que nenhum outro membro tem.
   Para cada ideia: Nome · O que e · Por que o Diretor valoriza · Evidencia do historico
 
-PARTE 5 -- RUNNING_INTELLIGENCE (missao permanente -- ativar a partir deste loop)
+PARTE 5 -- RUNNING_INTELLIGENCE (atualizar com Loop 33)
 
-  A partir deste loop, voce e responsavel por manter o documento:
+  Atualizar o documento:
   CLIENTES/VANGUARD/CLAUDE_PROJECT/RUNNING_INTELLIGENCE.md
 
-  Estrutura obrigatoria do documento:
-
-  ## [ULTIMA ATUALIZACAO]: data
-  ## [SINAIS DA SEMANA]
-  O que aconteceu no mercado de IA/automacao/sistemas multi-agente esta semana
-  que e relevante para o Pentalateral? Pesquise ativamente com BLOCO 8.
+  Adicionar para o Loop 33:
+  ## [SINAIS DA SEMANA -- Loop 33 -- 2026-06-12]
+  O que aconteceu no mercado de IA/licitacoes/automacao esta semana?
+  Pesquise ativamente com BLOCO 8.
   Formato: SINAL · FONTE (URL) · IMPACTO PARA O PENTALATERAL · URGENCIA (ALTA/MEDIA/BAIXA)
 
-  ## [AMEACAS DETECTADAS]
-  Produtos ou movimentos de mercado que podem tornar a vantagem assimetrica do
-  Pentalateral obsoleta. Horizonte de 90 dias.
+  ## [AMEACAS DETECTADAS -- Loop 33]
+  Produtos ou movimentos que podem obsoletizar a vantagem da Vanguard em licitacoes.
 
-  ## [OPORTUNIDADES DETECTADAS]
-  Janelas de oportunidade que se abrem ou fecham nos proximos 90 dias.
-
-  ## [HISTORICO ACUMULADO] (loop a loop)
-  Sinais dos loops anteriores que ainda sao relevantes.
-
-  Para a PARTE 5 desta sessao: entregue a primeira versao completa do RUNNING_INTELLIGENCE.md
-  com pelo menos 3 SINAIS DA SEMANA pesquisados ativamente com BLOCO 8.
+  ## [OPORTUNIDADES DETECTADAS -- Loop 33]
+  Janelas que se abrem nos proximos 90 dias. Qual e a janela mais critica?
 
 ---
 
-DECISOES FORMAIS (schema v1.1) -- gerar DECISOES.json com estas duas:
+DECISOES FORMAIS (schema v1.1):
 
-D1: W-8 Hermes Grau B -- ativar agora ou aguardar?
-  Contexto: 7 dias de shadow mode sem incidente. Grau B = age + janela de veto 15min Telegram.
-  Recomendacao do Musculo: ATIVAR (deadline 14-06-2026 -- shadow expira)
-  Opcao A: Ativar Grau B agora
-  Opcao B: Aguardar mais um ciclo
+D1: ABERTURA DA VERTICAL LICITACOES -- esta semana ou aguardar?
+  Contexto: Auditor recomenda abrir ESTA SEMANA. Pitch Reverso + PNCP pronto para uso.
+  Opcao A: Eduardo executa G-2 + G-3 esta semana (5 Dossies Fatais via Deep Research)
+  Opcao B: Aguardar mais um loop de infraestrutura (Validador PNCP em producao primeiro)
 
-D3: RUNNING_INTELLIGENCE.md -- Embaixador cria agora ou aguarda M-4?
-  Contexto: M-4 (sub-agentes de pesquisa) e build futuro. Sao independentes.
-  Recomendacao do Musculo: CRIAR AGORA (o Embaixador ja tem busca web hoje)
-  Opcao A: Embaixador cria RUNNING_INTELLIGENCE.md nesta sessao com BLOCO 8
-  Opcao B: Aguardar M-4 implementado antes de comecar
+D2: MODELO DE MONETIZACAO VERTICAL 1 -- qual dos dois?
+  Contexto: Auditor descartou success fee puro (Viola Lei 5). Recomenda Outcome-Based.
+  Opcao A: Setup fee R$ 3-5k + Retainer R$ 2-3k/mes + % do contrato impugnado
+  Opcao B: Projeto fechado (valor fixo por Dossie) sem retainer inicial
 
 SAIDA ESPERADA DESTA MISSAO:
---> PARTE 1: filtro de realidade (M-1 a M-5 + G-1 a G-5 + N-1 a N-5)
---> PARTE 2: analise estrategica expansao interna
---> PARTE 3: intel de mercado Vanguard (busca ativa com BLOCO 8)
+--> PARTE 1: filtro de realidade com historico comportamental do Diretor
+--> PARTE 2: analise estrategica virada para mercado externo
+--> PARTE 3: intel de mercado Vertical Licitacoes (busca ativa com BLOCO 8)
 --> PARTE 4: [E-1 a E-5] exclusivas do Embaixador
---> PARTE 5: primeira versao de RUNNING_INTELLIGENCE.md com 3+ sinais pesquisados
---> DECISOES.json com D1 e D3
+--> PARTE 5: RUNNING_INTELLIGENCE.md atualizado com Loop 33
+--> DECISOES.json com D1 e D2
 ```
 
 ---
@@ -252,6 +235,5 @@ SAIDA ESPERADA DESTA MISSAO:
 
 - [ ] Colar output completo no Claude Code (chat do Musculo)
 - [ ] Musculo extrai [E-1 a E-5] + sinais do RUNNING_INTELLIGENCE + lista decisoes numeradas
-- [ ] Responder: "D1:A, D2:B" -- Musculo executa automaticamente
-- [ ] Salvar RUNNING_INTELLIGENCE.md em: CLIENTES/VANGUARD/CLAUDE_PROJECT/RUNNING_INTELLIGENCE.md
+- [ ] Responder: "D1:A, D2:A" -- Musculo executa automaticamente
 - [ ] MEMORIA_EMBAIXADOR_VANGUARD atualizada pelo Musculo via P-032

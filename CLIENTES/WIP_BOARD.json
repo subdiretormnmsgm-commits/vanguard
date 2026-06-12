@@ -1,4 +1,4 @@
-{
+﻿{
     "atualizado_em":  "2026-06-10",
     "wip_limits":  {
                        "build":  2,
@@ -132,7 +132,9 @@
                                                       ],
                                     "skill_path":  ".claude/skills/vanguard-v30.md",
                                     "memoria_embaixador_path":  "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
-                                    "historico_path":  "CLIENTES/VANGUARD/HISTORICO/"
+                                    "historico_path":  "CLIENTES/VANGUARD/HISTORICO/",
+                                    "ultimo_veredito":  "2026-06-12 VEREDITO: DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER",
+                                    "ultimo_veredito_data":  "2026-06-12"
                                 }
                             ],
                   "check":  [

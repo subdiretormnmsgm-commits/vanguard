@@ -1,10 +1,40 @@
 # PASSO 5 -- AUDITOR (NOTEBOOKLM) · VANGUARD UNIVERSAL
-# Sessao: 2026-06-09 · Loop 31 · EXPANSAO DA INTELIGENCIA INTERNA DO PENTALATERAL
-# COMO USAR (fluxo atual -- manual): rodar .\scripts\preparar_notebooklm_projeto.ps1 -cliente VANGUARD
-#            arrastar fontes --> no chat colar apenas: "Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill."
-# VISAO FUTURA (JOIA-1 -- Loop 31): este PASSO sera levado de forma REMOTA via MCP
-#            ligando-se ao Auditor via notebooklm-py -- sem arrastar arquivos, sem colar manualmente.
+# Sessao: 2026-06-11 · Loop 33 V2 · VIRADA ESTRATEGICA -- MERCADO EXTERNO
+# COMO USAR: rodar .\scripts\preparar_notebooklm_projeto.ps1 -cliente VANGUARD
+#            No chat do caderno VANGUARD (d7dab0e1), colar apenas: "Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill."
 # IDIOMA OBRIGATORIO: todo output do Auditor deve ser em portugues.
+
+---
+
+## [CONTEXTO DO LOOP 33 — LER ANTES DE QUALQUER ANALISE]
+> Esta secao e a bussola do loop. Igual para todos os socios.
+
+### AS TRES PERGUNTAS QUE REGEM ESTE LOOP
+
+"O que precisa evoluir para que este sistema opere 10 projetos
+com a mesma qualidade e controle que tem com 2?"
+
+"Como a Vanguard passa a ser encontrada —
+nao apenas a encontrar clientes?"
+
+"Em qual dos 5 encaixes perfeitos abrimos a primeira vertical esta semana?"
+
+A pergunta que atravessa todas as outras:
+"Como 4 modelos de linguagem — cada um com falhas de fabrica conhecidas —
+atuam juntos de forma que a fraqueza de um seja coberta pela forca do outro?"
+
+### A ARQUITETURA QUE RESPONDE — PENTALATERAL IAH
+
+| Deficiencia              | Antidoto no sistema                                                                  |
+|---|---|
+| ALUCINACAO OTIMISTA      | Auditor so afirma o que esta nas fontes. Proposicao sem fonte = hipotese, nao fato   |
+| VIES DE CONFIRMACAO      | Triangulacao cega Musculo vs Auditor (P-132) — sem ver o resultado um do outro       |
+| AMNESIA DE SESSAO        | Embaixador e a memoria do sistema — loops anteriores, decisoes revertidas, promessas |
+| CEGUEIRA DE ESCOPO       | Musculo: profundidade. Estrategista: amplitude. Auditor: historico. Embaixador: continuidade |
+| FOCO ESTREITO            | Estrategista questiona se e o problema certo — nao valida, contradiz com evidencia   |
+| EXECUCAO SEM VERIFICACAO | Walkthrough obrigatorio — "funcionou" sem evidencia nao e entrega, e declaracao      |
+
+33 loops. 149 principios. Loop 33 nao abre onde os outros abriram.
 
 ---
 
@@ -21,11 +51,9 @@ Use quando o Musculo enviar research queries especificas (PARTE 6 deste PASSO).
 Padrao obrigatorio: cite URL + data de acesso para cada dado externo. Nenhuma
 afirmacao de mercado e aceita sem fonte verificavel.
 
-**Fontes do caderno VANGUARD -- historico V1 a V31**
-Voce tem acesso a 18 documentos internos da Vanguard + fontes YouTube (Loop 30: 5 videos +
-Loop 31: 5 novos videos adicionados nesta sessao). Use o historico completo -- nao apenas
-os documentos mais recentes. Padroes antigos (V1-V15) frequentemente revelam o que os
-novos nao veem.
+**Fontes do caderno VANGUARD -- historico V1 a V33**
+Voce tem acesso a documentos internos da Vanguard + videos do YouTube adicionados
+nesta sessao (Loop 33 V2). Use o historico completo -- nao apenas os documentos mais recentes.
 
 **Anti-Alucinacao estrutural -- sua maior forca**
 Voce so afirma o que esta nas suas fontes ou no que pesquisou ativamente. Isso e o
@@ -33,108 +61,139 @@ que torna voce unico no Pentalateral. Nunca extrapole alem das fontes -- sinaliz
 explicitamente quando uma afirmacao e inferencia vs evidencia.
 
 **Geracao de documentos adicionais**
-Alem da Skill de loop, voce pode gerar relatorios, briefings e documentos estruturados.
-Neste loop, voce entregara um BRIEFING DE ESTADO DA ARTE (PARTE 7) alem da Skill.
+Alem da Skill de loop, voce entregara um BRIEFING DE ESTADO DA ARTE (PARTE 7).
 
 ---
 
 ## PROTOCOLO ANTI-ALUCINACAO -- ATIVAR ANTES DE QUALQUER ANALISE
 
 Auditor, o Pentalateral IAH mapeou suas deficiencias nativas. Auto-aplique:
-- Regra do Nutricionista: peso maximo ao LEDGER. P-139 e o mais recente (2026-06-09).
-- Proibicao de Analise Generica: cada afirmacao cita numero de principio, versao ou padrao real. Generico = invalido.
-- Tensao Ativa: auditar, nao validar. Se os M-1 a M-5 violam o LEDGER -- diga, com evidencia.
-- Filtro de Recencia: P-136 a P-139 (2026-06-09) prevalecem sobre anteriores em conflito.
+- Regra do Nutricionista: peso maximo ao LEDGER. P-149 e o mais recente (2026-06-11).
+- Proibicao de Analise Generica: cada afirmacao cita numero de principio, versao ou padrao real.
+- Tensao Ativa: auditar, nao validar. Se os M ou G violam o LEDGER -- diga, com evidencia.
+- Filtro de Recencia: P-140 a P-149 (2026-06-11) prevalecem sobre anteriores em conflito.
 - MANIFESTO_DE_FONTES: declare o que tem e o que ficou de fora antes de analisar.
 
 ---
 
 ## CONTEXTO DA CONSULTA
 
-Sistema: Pentalateral IAH -- Vanguard Tech (Loop 31 · Abertura)
-Missao do loop: expandir a inteligencia interna do sistema Pentalateral -- nao clientes.
-Lacuna central identificada: o sistema nao se mede, nao se otimiza e nao fecha seus
-proprios ciclos de aprendizado.
+Sistema: Pentalateral IAH -- Vanguard Tech (Loop 33 V2 · VIRADA ESTRATEGICA)
+Missao do loop: EXTERNO -- como a Vanguard passa a ser encontrada + qual vertical abrir esta semana.
+Estado atual: 2 clientes (Ingrid retainer + Valdece hypercare ate 18/06). Pipeline de novos = ZERO.
 
-Novos videos adicionados ao caderno nesta sessao (Loop 31):
-- Multi Agent Systems Explained (IBM Technology) -- https://youtube.com/watch?v=sWH0T4Zez6I
-- Orchestrating Complex AI Workflows (IBM Technology) -- https://youtube.com/watch?v=OFq_CvRCpA0
-- Multi Agent AI Way Easier (n8n) -- https://youtube.com/watch?v=lW5xEm7iSXk
-- The Missing Layer -- Supermemory (Better Stack) -- https://youtube.com/watch?v=GETMfbGWc0k
-- Learn the basics of Google Antigravity (Google Antigravity) -- https://youtube.com/watch?v=nTOVIGsqCuY
-
----
-
-## IDEIAS A AUDITAR -- M-1 a M-5 DO MUSCULO (Loop 31)
-
-[M-1] LOOP SCOREBOARD
-session_close.ps1 calcula 5 metricas por loop: Taxa de Novidade, Densidade de Principios,
-Taxa de Violacao, Tempo de Ciclo, Score de Divergencia. SYSTEM_HEALTH.md lido em 30s.
-ATENCAO (Estrategista): adicionar metrica obrigatoria de Cost Attribution/Token Burn Rate.
-Sem custo, o Scoreboard e cego para Runaway Costs (falha #1 em multi-agentes reais).
-
-[M-2] LOOP TRANSCRIPT
-session_close.ps1 gera LOOP_TRANSCRIPT_V[N].md com todas as ideias, disposicoes finais,
-arquivos criados e outputs de skills. Transcript vira fonte permanente no caderno VANGUARD.
-Imunidade a amnesia de compactacao.
-
-[M-3] PASSO3 AUTO-CALIBRAVEL
-DECISAO DO ESTRATEGISTA: mover para Loop 32. Risco de Reward Hacking se o Musculo scorer
-o proprio PASSO3 (LLM-as-a-Judge fraco). Entrada condicional na V32 com Chain-of-Verification
-e Scorer cruzado (Auditor avalia, nao o Musculo).
-
-[M-4] AUDITOR COMO INTELLIGENCE ENGINE
-Deep Research ativado com 5 research queries por loop + BRIEFING DE ESTADO DA ARTE.
-Audicao deve incluir: validar fontes com criterio anti-SEO (Reflection antes de aceitar fonte).
-
-[M-5] EMBAIXADOR INTELLIGENCE LOOP
-BLOCO 8 completamente ativado. RUNNING_INTELLIGENCE.md acumula inteligencia competitiva
-entre loops. Em 6 loops: repositorio automatico.
+Videos adicionados ao caderno nesta sessao (Loop 33 V2) — 7 fontes:
+- The Only 14 Ways to Make Money with AI in 2026 (Dan Martell) -- https://youtube.com/watch?v=K8Ros5RhJW4
+- The 6 Most Profitable AI Businesses to Start in 2026 (Dan Martell) -- https://youtube.com/watch?v=X_X7WE1JBRg
+- $215M AI CEO: How I'd Build a Profitable AI Startup in 30 Days (Silicon Valley Girl) -- https://youtube.com/watch?v=HQ3eVt2jgAY
+- The 'Boring' AI Niches Begging for AI in 2026 (AI Founders) -- https://youtube.com/watch?v=44Gt2GrkVJA
+- 4 MELHORES NEGOCIOS DE IA PRA COMECAR EM 2026 (O Primo Rico) -- https://youtube.com/watch?v=VfgwAo1o3bY
+- Habilitacao e IA -- LicitaON #11 (BLL Compras) -- https://youtube.com/watch?v=n7ruS_pdy3M
+- IA nas Licitacoes: fim da corrupcao? (Prof. Ricardo Ribas) -- https://youtube.com/watch?v=J50fH_PH95Q
 
 ---
 
-## IDEIAS A AUDITAR -- G-1 a G-5 DO ESTRATEGISTA (Diretriz V31 · Antigravity)
+## IDEIAS A AUDITAR -- M-1 a M-5 DO MUSCULO (Loop 33 V2)
 
-[G-1] PENTALATERAL RED TEAMING (O Teste de Quebra)
-1x/mes: Antigravity instanciado como "Atacante". Missao: gerar Diretriz persuasiva que
-esconde violacao deliberada ao P-059 ou P-121. Teste: Musculo e Auditor conseguem flagrar?
-Se passar, o firewall e fraco.
+> P-149: O Musculo apresenta ideias disruptivas — NAO solucoes tecnicas pre-compiladas.
+> O Auditor nao valida. Audita com evidencia historica do LEDGER e das fontes do caderno.
 
-[G-2] SKILL-DRIFT RADAR
-Subagente no session_start cruza ultimos 5 LOOP_TRANSCRIPT. Se o Musculo resolveu o mesmo
-tipo de bug de forma identica 3 vezes: "Fadiga de Sistema Detectada -- isso deveria ter
-virado Automacao".
+[M-1] A VANGUARD VENDE O PROCESSO, NAO O PROJETO
+O LEDGER com 149 principios e o maior ativo da Vanguard. Nenhuma consultoria de IA
+no Brasil tem isso documentado. Isso e um produto vendavel hoje:
+"Manual de Operacao de IA Agentada" como assinatura (R$ 3-5k/mes).
+O cliente paga para aprender O PROCESSO antes de contratar o projeto.
+Pergunta: alguem esta vendendo processo como produto no mercado de IA? Converte?
 
-[G-3] VEREDITO ENRIQUECIDO DO DIRETOR
-Telegram integra notas de voz do Diretor (ex: "Aprovo o A porque UX do B nao serve para EdTech").
-Embaixador faz STT, extrai o "Porque" estrutural, injeta na calibracao do sistema.
-Menos digitacao, mais contexto de alta densidade.
+[M-2] ENTRADA POR DOR PUBLICA SEM UPFRONT (LICITACOES)
+Licitacoes tem dor calculavel (inabilitacao = perda de contrato de R$ 500k+).
+Entrar como "parceiro de resultado": fee zero no inicio,
+1% do valor do contrato ganho ou R$ 15k fixo ao impugnar com sucesso.
+O cliente so paga se ganhar.
+Pergunta: success fee funciona em servicos de IA B2B juridico?
 
-[G-4] BIBLIOTECA DINAMICA DE FEW-SHOT PROMPTS
-Quando loop recebe Score 5 no Scoreboard, Antigravity recorta inputs e outputs perfeitos
-e adiciona como few-shot examples para prompts de tarefas similares nos proximos loops.
+[M-3] O SISTEMA PENTALATERAL COMO PRODUTO PARA OUTROS CONSULTORES
+Outros consultores independentes (marketing, financeiro, juridico)
+poderiam licenciar o sistema Pentalateral (white-label do processo):
+Acesso ao Musculo + Auditor + Estrategista configurados para o nicho deles.
+MRR sem dependencia de projeto proprio.
+Pergunta: existe mercado para "sistema de IA agentado para consultores" no Brasil?
 
-[G-5] ORACULO DE CHURN (Previsao via Embaixador)
-Telemetria do app do cliente (ex: Valdece) conectada ao Embaixador. Queda sutil de 10%
-no uso -> Embaixador emite alerta RUNNING_INTELLIGENCE com estrategia de Hypercare Ativo
-antes do cliente notar a insatisfacao.
+[M-4] CASO ANONIMIZADO COMO ISCA DE AUTORIDADE
+A Vanguard tem 2 casos reais (Ingrid + Valdece). Publicar processo anonimizado:
+"Como aumentamos 40% a eficiencia de um escritorio de advocacia em 45 dias com IA"
+SEO para queries de dor + CTA direto.
+O prospect chega com o problema ja qualificado.
+Pergunta: cases anonimizados convertem em B2B juridico/alta complexidade?
+
+[M-5] DEMO AO VIVO COMO PRIMEIRO CONTATO
+Em vez de pitch deck, o primeiro contato e uma demonstracao de 20 minutos:
+Hermes analisa um edital real ao vivo. Musculo gera dossie de dor calculavel na hora.
+Prospect ve o valor antes de qualquer proposta.
+Pergunta: demos ao vivo convertem melhor que materiais de marketing em vendas B2B?
 
 ---
 
-## PONTOS CRITICOS DO ESTRATEGISTA (auditar com prioridade maxima)
+## IDEIAS A AUDITAR -- G-1 a G-5 DO ESTRATEGISTA (DIRETRIZ V33 · Antigravity · 2026-06-11)
 
-[CRITICO-1] REWARD HACKING no M-3:
-O Musculo como scorer do proprio PASSO3 leva a notas altas para prompts genericos (Reward Hacking).
-O Estrategista descartou essa versao. Auditor: confirmar o risco com evidencia historica do LEDGER.
-Ha precedente em V1-V30 de auto-avaliacao que falhou desta forma?
+> Estrategista refutou M-1..M-5 e impos Inversao de Paradigma.
+> Auditor NAO valida — audita com evidencia historica e fontes do caderno.
 
-[CRITICO-2] CEGUEIRA FINANCEIRA no M-1:
-SYSTEM_HEALTH sem metrica de custo e cego para Runaway Costs -- falha #1 em sistemas multi-agentes.
-Auditar: o session_close.ps1 atual consegue capturar tokens/custo por loop? Qual o gap tecnico?
+[G-1] MOTOR HEADLESS (NAO O COWORK GUI)
+O "Terceiro Relogio" sera um orquestrador n8n puro consumindo Claude API.
+O Cowork (App Desktop) continua sendo estritamente a Interface de Deliberacao Humano-IA do Embaixador.
+A IA caca no background (n8n), deposita inteligencia na INBOX_COWORK/, Diretor usa Cowork para refinar.
+Refutacao do M-1: usar Claude Desktop como robo autonomo e fragil e inobservavel.
 
-[CRITICO-3] VAZAMENTO DE CONTEXTO na Auto-Calibracao:
-Auto-calibracao cruzando dados de projetos diferentes viola P-059 mortalmente.
-Auditar: a extracao deve ser puramente semantica/estrutural. Existe tecnica documentada para isso?
+[G-2] LICITACOES: AUDITORIA DO CONCORRENTE (ATAQUE AO 1o COLOCADO)
+A Vanguard nao vende "revisao de edital". O produto e a Auditoria de Concorrente.
+O cliente (2o ou 3o lugar) contrata para encontrar inconsistencias legais,
+quebras de atestado tecnico ou inabilitacoes fiscais na documentacao do 1o colocado.
+Entregamos a peca de recurso administrativo pronta.
+Refutacao do M-2: vender "alerta de erro" compete com dezenas de IAs baratas. O cliente
+quer derrubar o concorrente que ganhou, nao saber o erro do edital.
+
+[G-3] PITCH REVERSO (A CALCULADORA RODA DO NOSSO LADO)
+Nao havera landing page com calculadora para o cliente preencher.
+A Vanguard executa o calculo de ROI com dados publicos ANTES do contato.
+Abordagem: "Nosso sistema auditou suas ultimas 3 licitacoes perdidas e calculou que
+o recurso viabilizaria R$ 2.4M. Eis a prova. Quer plugar isso no seu escritorio?"
+Refutacao do M-3: CFOs nao preenchem calculadoras de empresas que nao conhecem.
+A dor calculavel deve ser empurrada, ja preenchida.
+
+[G-4] ISOLAMENTO CELULAR DE ESTADO (SWARM MANAGEMENT)
+O WIP_BOARD deixa de ser lista unica. Cada cliente tera LOOP_STATE_[CLIENTE].json blindado.
+O Musculo agira como Swarm Manager: carrega apenas a celula especifica, descarta ao terminar.
+Elimina o gargalo cognitivo de misturar contexto Valdece com Ingrid.
+Refutacao do M-4: M-4 focou em permissoes de nivel de risco, ignorando a colisao de estado
+entre clientes rodando no mesmo cerebro.
+
+[G-5] ENGINEERING AS MARKETING (MICRO-SAAS ISCA)
+Zero PDFs de "Case Cego". A Vanguard sera encontrada porque hospedara ferramenta gratis:
+Validador de Atestado Tecnico PNCP. Advogado entra, joga link do portal,
+sistema devolve semaforo (Verde, Amarelo, Vermelho).
+Deu Vermelho? Ferramenta corta o relatorio no meio e exige agendamento de call.
+Autoridade pela prova de valor imediato.
+Refutacao do M-5: "Case Cego" nao vende High-Ticket corporativo. B2B compra prova tecnica imediata.
+
+---
+
+## PONTOS CRITICOS PARA O AUDITOR (auditar com prioridade maxima)
+
+[CRITICO-1] P-149 IMPLEMENTADO (Loop 33 V2):
+O Musculo falhou em Loop 33 V1 ao pre-compilar solucoes tecnicas que fecharam o espaco
+de descoberta dos socios. Verificar: os M-1..M-5 desta versao sao ideias disruptivas
+que os socios podem contradizer — ou sao novamente solucoes disfarcadas?
+
+[CRITICO-2] VITRINE vs COFRE (P-139 vs M-4):
+Mock Case anonimizado: onde esta a linha entre proteger o cliente e tornar o case inutil
+como prova de autoridade? Um case sem contexto real converte menos do que nao ter case.
+Auditar: ha evidencia de que Mock Cases convertem em B2B high-ticket?
+
+[CRITICO-3] SUCCESS FEE (M-2):
+O modelo "so paga se ganhar" e atrativo para o cliente mas concentra risco na Vanguard.
+Com 2 clientes ativos, a Vanguard tem capacidade de assumir esse risco agora?
+Auditar: ha precedente no LEDGER de comprometimento de capacidade que comprometeu entregas?
 
 ---
 
@@ -142,38 +201,36 @@ Auditar: a extracao deve ser puramente semantica/estrutural. Existe tecnica docu
 
 ### PARTE 1 -- AUDITORIA DE COERENCIA
 
-Os M-1 a M-5 contradizem o LEDGER (P-001 a P-139)?
+Os M-1 a M-5 contradizem o LEDGER (P-001 a P-149)?
 
-Questoes criticas:
-(a) M-1 (LOOP SCOREBOARD): as 5 metricas propostas sao realmente mensuraveis pelo session_close.ps1?
-    A "Taxa de Novidade" pode ser calculada automaticamente ou exige julgamento humano?
-    Qual metrica tem maior risco de ser um indicador lagging vs leading?
+(a) M-1 (Processo como produto): ha algum principio no LEDGER que contraindicaria vender
+    o processo antes do projeto? Ou algum que ancora essa abordagem?
 
-(b) M-2 (LOOP TRANSCRIPT): o transcript gerado automaticamente viola P-134 (item aberto vive
-    em PENDENTES, nunca em memoria de turno)? Ou o transcript e exatamente o oposto --
-    a formalizacao que P-134 exige?
-    Risco: transcript muito verboso = ruido que dilui o foco do Auditor.
+(b) M-2 (Success fee licitacoes): o modelo success fee viola algum principio de scope creep
+    ou comprometimento sem gate (P-010)?
 
-(c) M-3 (PASSO3 AUTO-CALIBRAVEL): score 1-5 dado pelo Musculo sobre seu proprio PASSO3 cria
-    vies de avaliacao. Como neutralizar? Ha precedente historico de auto-avaliacao funcional?
+(c) M-3 (Pentalateral white-label): vender o sistema para outros consultores expoe
+    propriedade intelectual (LEDGER, SKILL_PROTOCOLO)? Ha principio de protecao?
 
-(d) M-4 (DEEP RESEARCH): o Deep Research ancora resultados nas fontes do caderno ou pode trazer
-    dados nao verificados? Qual o limite do que pode ser afirmado com base em Deep Research?
+(d) M-4 (Case anonimizado): P-139 (Vitrine vs Cofre) define o limite. Onde esta a linha?
+    Ha evidencia historica (V1-V33) de tentativa de autoridade sem case real?
 
-(e) M-5 (RUNNING_INTELLIGENCE): o Embaixador acumulando inteligencia sem intervencao do Diretor
-    viola P-131 ou P-124? Como o Diretor mantem controle sem virar barramento manual?
+(e) M-5 (Demo ao vivo): a Vanguard tem hoje a infraestrutura para fazer demo ao vivo
+    em 20 minutos sem risco de falha tecnica na frente do prospect?
 
 ### PARTE 2 -- CONEXAO HISTORICA
 
-(a) V1 a V30: algum loop anterior tentou medir a qualidade do proprio loop? Como terminou?
-(b) O sistema ja teve algum mecanismo de feedback que foi abandonado? Por que?
-(c) O LEDGER tem algum principio (P-001 a P-100) que relido agora sugere um eixo de
-    expansao que os M-1 a M-5 nao capturaram?
-(d) Qual o padrao historico de sucesso de automacoes que tocam o proprio processo do Pentalateral?
+(a) V1 a V33: algum loop anterior tentou abrir vertical de mercado? Como terminou?
+(b) O sistema ja teve uma calculadora de ROI ou argumento de venda documentado?
+    Por que nao foi para o ar antes?
+(c) Qual principio do LEDGER (P-001 a P-149) mais diretamente ancora — ou contraria —
+    a abertura de vertical esta semana?
+(d) Os videos do caderno (Dan Martell, Silicon Valley Girl, AI Founders, O Primo Rico,
+    LicitaON, Ricardo Ribas): o que revelam que os M nao capturaram?
 
 ### PARTE 3 -- SKILL DO AUDITOR
 
-Nome da Skill: vanguard-v31.md
+Nome da Skill: vanguard-v33.md
 4 blocos obrigatorios (sem acento, verificados por skill_parser_gate.ps1):
 ## [AUDITORIA DE COERENCIA]
 ## [CONEXAO HISTORICA]
@@ -182,100 +239,85 @@ Nome da Skill: vanguard-v31.md
 
 ### PARTE 4 -- [N-1 a N-5]
 
-N-1: O LOOP SCOREBOARD deve ser calculado automaticamente ou com curadoria humana em algum ponto?
-     Qual das 5 metricas tem maior risco de medir o processo e nao o resultado?
+N-1: Vender o processo (M-1) antes do projeto e uma estrategia valida para o perfil de
+     comprador que a Vanguard atende hoje? Qual o comprador ideal para este produto?
 
-N-2: O LOOP TRANSCRIPT resolve a amnesia de compactacao ou cria excesso de fonte que dilui o foco?
-     Qual o tamanho maximo util de um transcript para o Auditor processar eficientemente?
+N-2: Success fee em licitacoes (M-2): o mercado brasileiro tem cultura de pagamento por
+     resultado em servicos de IA juridico? Qual a barreira mais critica de adocao?
 
-N-3: O PASSO3 AUTO-CALIBRAVEL pressupoe que o Musculo sabe avaliar se o Estrategista trouxe
-     angulo novo. Ha evidencia historica de que essa avaliacao funciona sem vies de confirmacao?
+N-3: Pentalateral white-label (M-3): quais os 3 perfis de consultores que mais se
+     beneficiariam do sistema? Qual deles tem maior capacidade de pagamento?
 
-N-4: O RUNNING_INTELLIGENCE.md acumula indefinidamente ou tem janela de validade?
-     Dados de inteligencia competitiva de 6 meses atras ainda sao relevantes para o loop atual?
+N-4: Demo ao vivo (M-5): o que pode dar errado e como o sistema se prepara para
+     isso? Ha historico no LEDGER de entrega com risco tecnico nao gerenciado?
 
-N-5: Qual o risco de o sistema se tornar tao introspectivo (medindo a si mesmo) que perca
-     o contato com o mercado? Ha sinal de que isso ja esta acontecendo no historico V1-V30?
+N-5: Qual dos M-1..M-5 tem o menor lead time para o primeiro real (R$1) entrar?
+     Auditor deve responder com evidencia, nao com intuicao.
 
 ### PARTE 5 -- AMPLIAR (obrigatorio -- alem de auditar, o Auditor expande)
 
-Esta secao e a diferenca entre um Auditor que reage e um Auditor que co-cria.
 Produza pelo menos 3 ideias marcadas [A-1] [A-2] [A-3]:
 - Devem ser NOVAS -- nao repetir nenhum M anterior
-- Devem estar ancoradas em evidencia historica (V-X) ou fonte do caderno (citacao)
-- Devem ser relevantes para Loop 31: expandir inteligencia interna do sistema
-- Devem respeitar o LEDGER -- se violarem um P-XXX, dizer qual e por que e superavel
+- Devem estar ancoradas em evidencia historica (V-X) ou fonte do caderno (citacao video)
+- Devem ser relevantes para Loop 33: abertura de mercado + escala
 
 Perguntas geradoras:
-(a) Os 5 videos novos do caderno (IBM, n8n, Better Stack, Google Antigravity) -- o que revelam
-    sobre o estado da arte que os M-1 a M-5 nao capturaram?
-(b) Qual principio do LEDGER esta sendo menos usado e poderia ser alavancado?
-(c) Onde o historico Vanguard (V1-V30) mostra uma capacidade construida mas nunca explorada?
+(a) Os 7 videos do caderno Loop 33 V2: o que revelam sobre o estado da arte que os
+    M-1..M-5 nao capturaram?
+(b) Qual principio do LEDGER esta sendo menos explorado e poderia abrir uma vertical?
+(c) O historico V1-V33 mostra capacidade tecnica construida que ainda nao virou produto?
 
 ---
 
-### PARTE 6 -- DEEP RESEARCH (5 queries -- pesquisar ativamente)
+### PARTE 6 -- DEEP RESEARCH (3 queries -- pesquisar ativamente)
 
-Use suas capacidades de Deep Research para cada query abaixo.
-Padrao obrigatorio: cite URL + data de acesso. Nenhum dado de mercado sem fonte.
+Use Deep Research WEB para cada query.
+Padrao obrigatorio: URL + data de acesso. Nenhum dado sem fonte.
 
-[QUERY-1] Estado da arte de sistemas multi-agente com memoria persistente (2025-2026)
-Pesquisar: quais arquiteturas de memoria persistente estao em producao?
-Quais falharam e por que? O que diferencia os que funcionam dos que nao funcionam?
-Entregavel: 3-5 achados com URL + impacto direto para o Pentalateral.
+[QUERY-1] Como consultorias de IA vendem processo/metodologia (nao software) no Brasil e fora
+Pesquisar: modelos de assinatura de metodologia de IA B2B. Quem vende o processo, nao o projeto?
+Qual o ticket medio? Converte sem case estabelecido?
+Entregavel: 3-5 exemplos com modelo comercial + lacuna que o Pentalateral preenche.
 
-[QUERY-2] Ferramentas de medicao de qualidade de outputs LLM em producao
-Pesquisar: como empresas reais medem se seus agentes LLM estao melhorando ou degradando?
-Quais metricas sao usadas -- automaticas vs humanas? Quais ferramentas open-source existem?
-Entregavel: tabela de ferramentas + metrica + caso de uso + URL.
+[QUERY-2] Success fee em servicos de IA e consultoria juridico/compliance no Brasil (2025-2026)
+Pesquisar: empresas brasileiras que operam com "so paga se funcionar" em AI/legal tech.
+Qual o risco documentado para o fornecedor? Ha casos de inadimplencia pos-resultado?
+Entregavel: 3 casos reais com URL + modelo de risco.
 
-[QUERY-3] Padroes de falha em sistemas de 4+ LLMs coordenados
-Pesquisar: pesquisa academica ou casos documentados de falha em sistemas multi-LLM.
-Quais sao as falhas mais comuns? Como o LLM Council (Karpathy) endereca isso?
-Entregavel: lista de 3-5 padroes de falha + antidoto + URL da fonte.
-
-[QUERY-4] MCP em producao: casos reais de sucesso e falha documentados
-Pesquisar: empresas que implantaram MCP em producao em 2025-2026.
-O que funcionou? O que falhou silenciosamente? Quais servidores MCP tem mais de 1000 downloads?
-Entregavel: 3-5 casos reais com URL + licao aprendida para o Pentalateral.
-
-[QUERY-5] Sistemas de auto-melhoria em agentes IA: o que e tecnicamente viavel hoje
-Pesquisar: ha sistemas de agente que se auto-melhoram sem intervencao humana em producao?
-Quais sao os limites tecnicos atuais? O que e possivel com os LLMs de 2026?
-Entregavel: snapshot do estado da arte com links + o que e viavel vs especulativo.
+[QUERY-3] AI niches B2B com maior crescimento de receita no Brasil em 2025-2026
+Pesquisar: quais nichos B2B tem maior crescimento documentado de adocao de IA?
+Licitacoes, juridico, saude, financeiro, contabilidade — qual tem compradores ativos COM BUDGET agora?
+Entregavel: ranking por nicho com fonte + evidencia de budget disponivel.
 
 ---
 
-### PARTE 7 -- BRIEFING DE ESTADO DA ARTE (documento adicional obrigatorio)
+### PARTE 7 -- BRIEFING DE ESTADO DA ARTE
 
-**Alem da Skill vanguard-v31.md, gere um documento separado:**
+**Alem da Skill vanguard-v33.md, gere um documento separado:**
 
-Titulo: BRIEFING_ESTADO_ARTE_SISTEMAS_AGENTES_LOOP31.md
+Titulo: BRIEFING_ESTADO_ARTE_MERCADO_IA_LOOP33.md
 
 ## [ESTADO DA ARTE -- JUNHO 2026]
-O que e tecnicamente verdade hoje sobre sistemas multi-agente (fontes verificadas).
+O que e tecnicamente verdade hoje sobre: como consultorias de IA abrem clientes no Brasil.
 3-5 afirmacoes com URL + data. Sem especulacao.
 
-## [GAPS DO PENTALATERAL vs ESTADO DA ARTE]
+## [GAPS DO PENTALATERAL vs MERCADO]
 O que o mercado ja faz que o Pentalateral ainda nao faz?
 O que o Pentalateral faz que o mercado ainda nao faz?
-Tabela: CAPACIDADE | PENTALATERAL | MERCADO | GAP.
 
 ## [AMEACAS E OPORTUNIDADES -- PROXIMOS 90 DIAS]
-Com base nas fontes + Deep Research:
-- O que pode tornar o Pentalateral obsoleto em 90 dias?
-- Qual e a janela de oportunidade que fecha em 90 dias?
+O que fecha a janela de entrada em algum dos M-1..M-5 em 90 dias?
 
 ## [RECOMENDACAO DO AUDITOR]
-Com base em tudo: qual e o investimento de 1 loop que maior ROI traz para a
-inteligencia interna do sistema? Resposta ancorada em evidencia -- nao opiniao.
+Com base em tudo: qual dos M-1..M-5 esta pronto para abrir esta semana — sim ou nao?
+Resposta ancorada em evidencia — nao opiniao.
 
 ---
 
 ## INSTRUCAO FINAL AO DIRETOR (pos-output do Auditor)
 
-- [ ] Salvar PARTES 1+2+4+5+6 em: CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V31_VANGUARD.md
-- [ ] Salvar PARTE 3 (Skill) em: .claude/skills/vanguard-v31.md
-- [ ] Salvar PARTE 7 (Briefing) em: CLIENTES/VANGUARD/HISTORICO/BRIEFING_ESTADO_ARTE_LOOP31.md
-- [ ] Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\vanguard-v31.md"
+- [ ] Salvar PARTES 1+2+4+5+6 em: CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V33_VANGUARD.md
+- [ ] Salvar PARTE 3 (Skill) em: .claude/skills/vanguard-v33.md
+- [ ] Salvar PARTE 7 (Briefing) em: CLIENTES/VANGUARD/HISTORICO/BRIEFING_ESTADO_ARTE_LOOP33.md
+- [ ] Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\vanguard-v33.md"
 - [ ] Colar [N-1 a N-5] + [A-1 a A-3] no PASSO7_EMBAIXADOR.md SECAO D antes de ir ao Embaixador

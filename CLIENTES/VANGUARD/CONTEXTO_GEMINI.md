@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-10 22:07
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-12 03:12
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-0106992 feat(session_close): Gate 1.7 -- BLOQUEANTE se VANGUARD_TIMELINE desatualizada com o loop atual
-813c302 docs(timeline): TIMELINE V30/V31 -- Loop 30+31 FECHADOS + P-135..P-147 + Hermes GrauB + propagar 6 copias
-c1c6936 docs(ledger): FALHAS-PROCESSO-2026-06-10 A-G -- 7 falhas da sessao Loop 31 registradas
+eef91d0 docs(encerramento): PAINEL + CONTEXTO atualizados com DEF-M-6 patch e 14 commits
+c8bb443 docs(timeline): UNIVERSAL TIMELINE -- entrada Loop 33 2026-06-12 (desbloquear GATE 1.7)
+a7b0e0b docs(ledger): P-151 -- restricao arquitetural vs disciplina (Loop 33 falhas sistemicas) [RESOLVE: ledger-p151]
 
 ================================================================================
 
@@ -223,6 +223,10 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ## P-143 — FERRAMENTA AUTOMATICA ANTI-ESQUECIMENTO DO MUSCULO (2026-06-10)
 ## P-142 — NOTEBOOKLM E 100% REMOTO — MUSCULO OPERA VIA PLAYWRIGHT (2026-06-10)
 ## P-141 — LOOP TRANSCRIPT: IMUNIDADE ESTRUTURAL A AMNESIA DE COMPACTACAO (2026-06-09)
+## P-148 -- LEDGER_INBOX COMO BUFFER DE INTEGRIDADE (2026-06-10)
+## P-149 — PASSO3 APRESENTA PROBLEMAS, NAO SOLUCOES — CAMARA DE ECO E BLOQUEANTE (2026-06-11)
+## P-150 — DELIBERACAO INDIVIDUAL DE CADA IDEIA COM 7 PONTOS ANTES DE QUALQUER SINTESE (2026-06-12)
+## P-151 — DISCIPLINA NAO BASTA — RESTRICAO ARQUITETURAL E A SOLUCAO (2026-06-12)
 
 ### PRINCIPIOS RECENTES -- TEXTO INTEGRAL (P-116 ao ultimo)
 ## P-116 -- O QUE DOI E ERRO, NAO ESFORCO -- VERIFICACAO ANTES DE AUTOMACAO (2026-06-06)
@@ -417,6 +421,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 **Ferramentas/arquivos:** GEMINI.md v2.0 + CLIENTES/VANGUARD/PASSO3_GEMINI.md (missao V29) + CONTEXTO_GEMINI.md (via gemini_anchor_generator.ps1).
 **Aprovado pelo Diretor:** 2026-06-09.
 **Aplica-se a:** todo loop conduzido pelo Antigravity como Estrategista -- VANGUARD ja; clientes apenas apos as 3 travas.
+**ADDENDUM 2026-06-10 (Loop 32 -- veredito Diretor):** DIRETRIZ e papel exclusivo do Gemini Advanced -- Antigravity JAMAIS gera DIRETRIZ de loop. Antigravity = EXECUTOR do Estrategista, nao o Estrategista em si. A identidade foi corrigida em todos os documentos do sistema no Loop 32: PASSO3_GEMINI.md, GEMINI.md, CLAUDE.md, SKILL_PROTOCOLO_VANGUARD v7.0, MANUAL_DIRETOR v1.9 e demais (commit 4defaf6 -- 65 arquivos). Nomenclatura: `Estrategista` = Gemini via canal Antigravity; `Antigravity Executor` = o agente que transporta a missao. Nunca intercambiar os dois termos.
 
 ## [FALHA-PROCESSO-2026-06-09] -- PROMPT AD-HOC NO CHAT EM VEZ DE PASSO3+CONTEXTO
 **Detectada pelo Diretor:** "O Antigravity nao teria que ler Passo3Gemini e Contexto Gemini? Se sim, isso deve estar sempre presente. Processo e o que leva a Vanguard para frente, disciplina, inteligencia e firewall."
@@ -667,12 +672,100 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
   (e) Score do loop (5 metricas SYSTEM_HEALTH quando implementado)
 **O transcript torna-se fonte permanente no caderno do Auditor.** O Auditor le os ultimos 3 transcripts antes de gerar a Skill. Continuidade garantida apos compactacoes.
 **Aplica-se a:** todos os projetos, todos os loops. Prioridade de implementacao: Loop 31.
+## P-148 -- LEDGER_INBOX COMO BUFFER DE INTEGRIDADE (2026-06-10)
+**Origem:** FALHA [J] da sessao 2026-06-10 -- FALHAS [A-I] nao entraram no LEDGER porque P-098 bloqueava e o sistema nao tinha buffer entre "detectado" e "autorizado".
+**Principio:** Todo erro ou aprendizado identificado em sessao que nao possa ser inscrito no LEDGER imediatamente (P-098 bloqueante) DEVE ir para LEDGER_INBOX.md antes de qualquer outra coisa. Nao existe "vou registrar depois" -- o compacto de contexto apaga o que nao esta em arquivo.
+**Regra operacional:**
+  (1) Detectou falha -> registrar em LEDGER_INBOX imediatamente (sem flag P-098)
+  (2) Ao receber autorizacao: [RESOLVE: LEDGER-INBOX-P148] + mover para INTELLIGENCE_LEDGER.md
+  (3) LEDGER_INBOX nunca substitui o LEDGER -- e ponte, nao destino
+**Por que e critico:** sessao de Loop 31 gerou 11 falhas ([A]-[K]) que ficaram presas no PAINEL porque nao havia buffer. Algumas se repetiram.
+**Aplica-se a:** toda sessao que detecte falha operacional. Principios de processo tem prioridade de entrada.
+**Ferramenta:** LEDGER_INBOX.md (raiz) -- buffer oficial. Ao detectar falha em sessao: append imediato, sem perguntar.
+
+## [FALHA-PROCESSO-2026-06-10-H] DELIBERACAO SEM CITAR TEXTO DAS IDEIAS
+**Origem:** Sessao 2026-06-10. Musculo deliberou sobre ideias do Embaixador sem citar texto literal: [IDEIA: texto] -- analise ficou flutuante, nao ancorada no documento.
+**Gravidade:** ALTO -- veredito sem ancora textual e deliberacao de memoria, nao do documento atual.
+**Principio violado:** PADRAO DE DELIBERACAO (CLAUDE.md) -- reage a cada ideia pelo nome.
+**Correcao imediata:** padrao restabelecido na sessao.
+**Antidoto:** ao iniciar analise de E-1..E-5, citar texto literal antes de avaliar. Se secao nao tem texto claro, bloquear e pedir reforco ao Embaixador antes de deliberar.
+
+## [FALHA-PROCESSO-2026-06-10-I] sed SEM ESPECIFICAR CONTAINER LINUX
+**Origem:** Sessao 2026-06-10. Musculo sugeriu comando sed sem especificar em qual container Docker executar no EasyPanel.
+**Gravidade:** BAIXO -- gerou confusao de execucao no contexto de Hermes/EasyPanel.
+**Correcao:** RUNBOOK_EASYPANEL.md atualizado com prefixo "docker exec hermes-agent" obrigatorio.
+**Antidoto:** toda instrucao de terminal para EasyPanel DEVE incluir: "docker exec [nome-do-container] [comando]". Nunca assumir contexto de execucao sem nomear o container.
+
+## [FALHA-PROCESSO-2026-06-10-J] CRON W-1 1X/DIA EM VEZ DE 3X
+**Origem:** Sessao 2026-06-10. W-1 (Check-in diario) configurado para disparar 1x/dia (7h BRT) -- especificacao diz 3x (7h/13h/20h BRT). 2/3 dos briefings nunca chegaram ao Diretor.
+**Gravidade:** ALTO -- Diretor perdeu visibilidade operacional de tarde e noite.
+**Corrigido:** nao corrigido -- pendente sessao Loop 33 (n8n Studio).
+**Antidoto:** ao importar ou criar qualquer workflow n8n com schedule -> verificar schedule configurado contra especificacao em CLAUDE.md ANTES de declarar "ativo". Cron ativo nao e cron correto.
+
+## [FALHA-PROCESSO-2026-06-10-K] META-FALHA: FALHAS [A-I] NAO ENTRARAM NO LEDGER
+**Origem:** Sessao 2026-06-10. 11 falhas detectadas em Loop 31 ficaram presas no PAINEL porque P-098 bloqueava a escrita no LEDGER e nao havia buffer intermediario.
+**Gravidade:** MEDIO -- falha que nao entra no LEDGER nao tem prevencao permanente; ciclo se repete.
+**Diagnostico:** o LEDGER e o unico mecanismo de memoria de falhas entre sessoes. Se P-098 bloqueia a entrada, as falhas morrem com o compacto de contexto.
+**Solucao estrutural:** LEDGER_INBOX.md criado em Loop 32 (ATO 6) como buffer oficial. P-148 formaliza o principio.
+**Antidoto:** ao detectar qualquer falha em sessao -> LEDGER_INBOX.md imediatamente (sem autorizacao P-098). Ao receber autorizacao -> mover em lote com [RESOLVE: LEDGER-INBOX-FALHAS].
+
+## P-149 — PASSO3 APRESENTA PROBLEMAS, NAO SOLUCOES — CAMARA DE ECO E BLOQUEANTE (2026-06-11)
+**Origem:** Loop 33 — Musculo escreveu M-1 a M-5 como solucoes pre-compiladas no PASSO3_GEMINI.md. O Estrategista (Antigravity) pesquisou e validou essas solucoes em vez de descobrir o que estava fora do radar. DIRETRIZ V33 confirmou o que o Musculo ja havia decidido. Diretor detectou: "Voce esta indo de encontro ao que o Diretor quer." Loop refeito do zero.
+**Falha composta:**
+  - M-1 a M-5 eram solucoes pre-definidas — fecharam o espaco de descoberta dos socios
+  - Query do Deep Research no NotebookLM replicou as ideias compiladas — camara de eco tripla
+  - M-1 (Cowork) era tarefa do Embaixador — nao devia estar no PASSO3 para o Estrategista
+**Principio:** O MUSCULO APRESENTA PROBLEMAS E CONTEXTO AO PASSO3 — NUNCA SOLUCOES PRE-COMPILADAS.
+  As G-1..G-5 pertencem exclusivamente ao Estrategista.
+  As N-1..N-5 pertencem exclusivamente ao Auditor.
+  As E-1..E-5 pertencem exclusivamente ao Embaixador.
+  O Musculo apresenta: (a) onde a empresa esta, (b) o que nao esta funcionando, (c) perguntas abertas sem resposta.
+  Nunca: (x) solucoes tecnicas para os socios validarem.
+**Trava obrigatoria no PASSO3:** adicionar secao [GATE ANTI-CAMARA-DE-ECO] antes dos M-X:
+  "O Estrategista e proibido de validar M-X. Sua missao e descobrir o que M-X nao viu.
+  Se os G coincidem com os M, a DIRETRIZ e invalida — reiniciar com perspectiva oposta."
+**Aplica-se a:** todo PASSO3 de todo projeto. Prioridade maxima.
+**Resolucao:** [RESOLVE: LEDGER-INBOX-P149]
+
+## P-150 — DELIBERACAO INDIVIDUAL DE CADA IDEIA COM 7 PONTOS ANTES DE QUALQUER SINTESE (2026-06-12)
+**Origem:** Loop 33 — Musculo apresentou sintese consolidada (D1/D2 + plano) sem mostrar deliberacao individual das 23 ideias (M+G+N+A+E). Diretor: "Como 20 ideias disruptivas se resumem a isso? Voce so pode estar alucinando." Reapresentacao com 7 pontos por ideia: "Agora sim. Excelente."
+**Falha detectada:**
+  - Musculo foi direto para sintese P-037 sem deliberar cada ideia individualmente
+  - Diretor nao consegue veredar "D1:A" sem ver o raciocinio por tras de cada M/G/N/A/E
+  - Sintese sem deliberacao individual = camara de eco — o Musculo pre-decide sem o Diretor ver o processo
+**Principio:** AO RECEBER OUTPUT DOS SOCIOS (M+G+N+A+E), O MUSCULO DELIBERA CADA IDEIA INDIVIDUALMENTE COM 7 PONTOS ANTES DE QUALQUER SINTESE OU DECISOES.JSON.
+**Sequencia inviolavel:**
+  1. Bloco M — cada ideia com 7 pontos (Certo / Diverge / Decisao / Enhancement / Custo real / Impacto comercial / Proxima acao)
+  2. Bloco G — cada ideia com 7 pontos
+  3. Bloco N — cada contra-argumento com analise
+  4. Bloco A — cada ideia exclusiva com 7 pontos
+  5. Bloco E — cada ideia com 7 pontos
+  6. Tabela resumo de vereditos (ENTRA AGORA / V2 / DESCARTADO / CONDICIONADO)
+  7. SO ENTAO: sintese P-037 -> DECISOES.json
+**Por que e critico:** o Diretor nao consegue deliberar sobre "D1:A" sem saber o raciocinio por tras de cada uma das ideias. Sintese sem deliberacao individual e camara de eco — o Musculo pre-decide.
+**Confirmado pelo Diretor:** "Agora sim. Excelente." — 2026-06-12 apos deliberacao completa de 23 ideias com 7 pontos cada.
+**Aplica-se a:** todo loop de todo projeto. Prioridade maxima.
+**Resolucao:** [RESOLVE: LEDGER-INBOX-P150]
+## P-151 — DISCIPLINA NAO BASTA — RESTRICAO ARQUITETURAL E A SOLUCAO (2026-06-12)
+**Origem:** Loop 33 — Relatorio de falhas sistemicas: DEF-M-6 (Musculo Reativo) + P-032 (MEMORIA manual) + Falha 5 (placeholder commitado) + Falha 6 (auditoria de freshness por declaracao, nao por disco).
+**Padrao detectado:**
+  - Musculo confiava em disciplina ("lembrar de atualizar") em vez de restricao arquitetural ("sistema impede nao atualizar")
+  - Resultado: os mesmos 4 tipos de falha se repetiam a cada sessao, apenas com detalhes diferentes
+  - Antigravity (Estrategista) nomeou o padrao: "A maquina falhou porque confiamos na disciplina em vez da restricao arquitetural"
+**Principio:** TODA FALHA RECORRENTE EXIGE UMA RESTRICAO ARQUITETURAL, NAO UMA NOVA REGRA DE DISCIPLINA.
+**Solucoes implementadas (Loop 33):**
+  - S1: Gate 7C no session_close.ps1 -- verifica LastWriteTime dos 7 arquivos criticos antes de encerrar
+  - S2: Register-Veredito.ps1 -- Write-Through atomico: 1 comando atualiza MEMORIA + TIMELINE + WIP_BOARD
+  - S3a: check_placeholders.ps1 -- detecta [PREENCHER/Loop ??/[TODO] antes do commit
+**Por que e critico:** disciplina falha em sessoes longas, sob pressao e apos compactacao de contexto. A restricao arquitetural nao tem memoria fragil.
+**Aplica-se a:** qualquer P-XXX que ja foi violado mais de 1 vez sem que uma ferramenta tenha sido criada.
+**Regra derivada (extensao de P-146):** quando uma falha aparece pela segunda vez no LEDGER, a proxima acao OBRIGATORIA e criar uma ferramenta de prevencao, nao registrar o principio novamente.
 
 ================================================================================
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-06-09",
+    "atualizado_em":  "2026-06-10",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -710,18 +803,18 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
                                     "valor_fechado":  0,
                                     "tipo":  "Projeto Interno -- Evolucao do Sistema",
                                     "status":  "BUILD",
-                                    "loop_atual":  "Loop 31 FECHADO -- V31 Expansao da Inteligencia Interna -- P-143 a P-147",
+                                    "loop_atual":  "Loop 32 FECHADO -- V32 Deriva Documental -- Antigravity EXECUTOR + Hermes B + LOOP_STATE v1.1",
                                     "build_iniciado_em":  "2026-06-06",
                                     "deadline":  null,
                                     "churn_watch_threshold":  null,
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
-                                                            "loop":  32,
+                                                            "loop":  33,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "PENDENTE",
+                                                            "notebooklm":  "OK",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -- Skill vanguard-v32.md"
+                                                            "proximo":  "NotebookLM -- Skill vanguard-v33.md"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -820,288 +913,241 @@ EMBAIXADOR:       Claude Projects (um Project por cliente)
 
 ================================================================================
 
-## MEMORIA MAIS RECENTE -- MEMORIA_V31_VANGUARD.md
-# MEMÓRIA TÉCNICA — VANGUARD V31 · Loop 31 · Expansão da Inteligência Interna
-> Músculo · Data: 2026-06-09 · Síntese técnica completa para continuidade
+## MEMORIA MAIS RECENTE -- MEMORIA_V32_VANGUARD.md
+# MEMÓRIA — Loop 32 VANGUARD · Deriva Documental
+> Tipo: Loop INTERNO · Fechado: 2026-06-10 · Commit: 4defaf6
+> Missão: corrigir deriva de nomenclatura Antigravity + formalizar Hermes Grau B + LOOP_STATE v1.1
 
 ---
 
-## 1. RESUMO EXECUTIVO DO LOOP
+## ENTREGAS
 
-**Tema:** Expansão da Inteligência Interna do Pentalateral IAH — loop interno sem clientes.
-
-**Missão central:** Fazer o sistema se medir, se otimizar e fechar seus próprios ciclos de aprendizado. A lacuna detectada: 30 loops de histórico, 22+ scripts, n8n + Hermes em produção — mas sem dashboard de saúde, sem transcript de amnésia, sem métrica de deriva.
-
-**Status ao fechar:** Gemini=OK · Auditor=OK (Skill aprovada) · Embaixador=AGUARDA (PASSO7 pronto) · Músculo=AGUARDA_EMBAIXADOR.
-
-**Principal ganho estrutural:** P-143 (checklist anti-esquecimento obrigatório em todo PASSO) + P-144 (dois sócios têm pesquisa web avançada — mecanismos distintos e obrigatórios).
-
-**Principal alerta herdado:** P-133 (Gate Zero de Pipeline) — o sistema está girando rotores mais rápido do que a esteira de aquisição. Loop 32 deve endereçar isso.
-
----
-
-## 2. ENTREGAS CONFIRMADAS EM DISCO
-
-| Artefato | Caminho | Status |
-|----------|---------|--------|
-| Ideias M-1 a M-5 (Músculo) | PASSO3_GEMINI.md | ✅ Gerado |
-| DIRETRIZ V31 (Antigravity) | CLIENTES/VANGUARD/HISTORICO/DIRETRIZ_V31_VANGUARD.md | ✅ Recebida |
-| AUDITOR Loop 31 (NotebookLM) | CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V31_VANGUARD.md | ✅ Salvo |
-| Skill vanguard-v31.md | .claude/skills/vanguard-v31.md | ✅ APROVADA (skill_parser_gate) |
-| PASSO7 Embaixador | CLIENTES/VANGUARD/PASSO7_EMBAIXADOR.md | ✅ Pronto para uso |
-| LOOP_STATE.json | CLIENTES/VANGUARD/CLAUDE_PROJECT/LOOP_STATE.json | ✅ Atualizado |
-| P-143 + P-144 | INTELLIGENCE_LEDGER.md | ✅ Inscritos |
-| Commit de artefatos | 6ebb950 | ✅ Commitado |
+| Artefato | Mudança | Arquivos |
+|---|---|---|
+| Antigravity → EXECUTOR do Estrategista | Renomeação sistêmica | 62 arquivos |
+| Hermes Grau B | D1:A executado (age + confirma 15min) | CLAUDE.md + 10 docs |
+| LOOP_STATE schema v1.1 | missao + loop_anterior + builds_aprovados + p133 | JSON + MD |
+| pentalateral-firewall.md | R-01..R-04 declarados | .agents/skills/ |
+| SUGESTOES_DIRETOR.md | R-01 protegida + deletada de CONSELHO/ | — |
+| PASSO3_GEMINI.md | Identidade corrigida (4 linhas) | CLIENTES/VANGUARD/ |
+| CONTEXTO_GEMINI.md | Regenerado via anchor generator (110.677 chars) | CLIENTES/VANGUARD/ |
+| Slot 20 LOOP_STATE_SCHEMA.md | P-033 sync INGRID + VALDECE + VANGUARD | NOTEBOOKLM_FONTES/ |
+| LEDGER_INBOX.md | Criado — buffer P-148 + FALHAS A-K + addendum P-130 | Raiz |
 
 ---
 
-## 3. PRINCÍPIOS INSCRITOS
+## METODOLOGIA
 
-**P-143 — FERRAMENTA AUTOMÁTICA ANTI-ESQUECIMENTO DO MÚSCULO (2026-06-10)**
-Cada PASSO file contém [CHECKLIST DO MÚSCULO] com itens BLOQUEANTES.
-skill_parser_gate.ps1 verifica checklist no PASSO5 antes de executar.
-session_close.ps1 Gate 6D: AUDITOR_LOOP_V[N] + relatorio nativo obrigatórios.
+Loop 32 foi 100% build — zero deliberação nova. Protocolo de 3 mensagens:
+- MENSAGEM 1: contexto + REGRA ABSOLUTA (build primeiro)
+- MENSAGEM 2: ler 8 documentos + reportar
+- MENSAGEM 3: autorização completa PARTE A+B+C + ATOs 0-6 + constraints de segurança
 
-**P-144 — DOIS SÓCIOS TÊM PESQUISA AVANÇADA WEB — USAR OBRIGATORIAMENTE (2026-06-10)**
-AUDITOR: botão Deep Research WEB → NOVAS FONTES no caderno (persistentes) → clicar via Playwright ANTES do PASSO5.
-EMBAIXADOR: busca em tempo real → cita URLs → BLOCO 8 no PASSO7.
-Checklist PASSO5 Loop 32: (1) Deep Research WEB clicado → (2) fontes adicionadas → (3) enviar PASSO5 → (4) generate report nativo → (5) salvar artefatos.
+ATO 0: inventário completo (4 pastas, 100+ arquivos, tabela [TÉCNICO]/[IDENTIDADE]/[OK]).
+Execução: PARTE A → ATO 1a → LOOP_STATE → GRUPO 1 → GRUPO 2 → GRUPO 3 → CONSELHO → CLIENTES.
 
 ---
 
-## 4. DECISÕES E VEREDITOS
+## PRINCÍPIOS DERIVADOS
 
-**D1: W-8 Hermes Grau B**
-- Contexto: 7 dias de shadow mode sem incidente. Grau B = age + janela de veto 15min.
-- Veredito do Diretor: **D1:A — ATIVAR GRAU B** (2026-06-09)
-- Status: Autorizado. Requer EasyPanel Terminal para executar (sem script de automação local).
-  - Comando: `sed -i 's/grau: A/grau: B/' /opt/data/config.yaml && cat /opt/data/config.yaml`
-  - Reiniciar serviço hermes-agent no EasyPanel após edição.
-
-**D3: RUNNING_INTELLIGENCE.md**
-- Contexto: Embaixador tem busca web agora. M-4 (sub-agentes) é build futuro. São independentes.
-- Veredito do Diretor: **D3:A — CRIAR AGORA** (2026-06-09)
-- Status: Embutido no PASSO7. Embaixador cria ao receber SEÇÃO D.
-
-**D2 (removida pelo Diretor):** Mumuzinho não entra neste loop. Foco = Vanguard interna.
+- P-148: LEDGER_INBOX como buffer de integridade — falhas aguardam autorização sem perder sessão
 
 ---
 
-## 5. O QUE FICOU PENDENTE
+## PRÓXIMO LOOP
 
-| Item | Tipo | Prazo |
-|------|------|-------|
-| SEÇÃO D do Embaixador — colar output aqui | [diretor] | Próxima sessão |
-| Síntese P-037 + DELIBERAÇÃO_LOOP_V31 | [musculo] | Após Embaixador |
-| DECISOES.json (D1 + D3) | [musculo] | Após Embaixador |
-| Executar vereditos via executar_vereditos.ps1 | [musculo] | Após DECISOES.json |
-| D1:A EasyPanel Terminal — ativar Hermes Grau B | [diretor] | Antes de 2026-06-14 |
-| MEMORIA_EMBAIXADOR_VANGUARD (P-032) | [musculo] | Após síntese P-037 |
-| [CHECKLIST DO MÚSCULO] no PASSO5 template (P-143) | [musculo] | Loop 32 |
-| session_close.ps1 Gate 6D (P-143) | [musculo] | Loop 32 |
-| LOOP_TRANSCRIPT_V31 gerado pelo session_close (P-141) | [musculo] | Loop 32 |
-| SYSTEM_HEALTH.md schema + métricas (M-1) | [musculo] | Loop 32 |
-| BOM UTF-8 no WIP_BOARD.json — reintroduzido | [musculo] | Urgente (bloqueia ChurnWatch) |
-| VANGUARD_TIMELINE — update Loop 31 | [musculo] | Esta sessão |
-| Demo EdTech/Sedes-DF v0 | [musculo] | 2026-06-16 |
-
----
-
-## 6. ALERTAS ATIVOS PARA O PRÓXIMO LOOP
-
-**ALERT-1 [CRÍTICO] — P-133 Gate Zero de Pipeline ativo**
-Sistema girando rotores mais rápido que esteira de aquisição. Loops de otimização interna
-ofuscam ausência de novos MRRs. Loop 32 DEVE endereçar prospecção (M-4 + G-5 → leads reais).
-
-**ALERT-2 [ALTO] — BOM UTF-8 no WIP_BOARD.json**
-Detectado via Notion inbox: `Unexpected token '﻿'` quebra ChurnWatch + Notion sync.
-Músculo deve corrigir antes do próximo session_close.
-
-**ALERT-3 [ALTO] — Falhas Notion Inbox (4 registradas pelo Diretor)**
-1. VANGUARD_TIMELINE desatualizada no Claude Projects (e pastas similares)
-2. W-8 sinal classificado incorretamente como INFORMAR (shadow mode funcionando — verificar)
-3. Instagram/ChurnWatch: erro BOM + mensagens duplicadas / fora de horário
-4. Não recebimento de mensagens diárias (W-1, W-5, W-6 — verificar n8n)
-
-**ALERT-4 [MÉDIO] — Hermes Grau B não executado ainda**
-Diretor autorizou D1:A mas requer ação manual no EasyPanel Terminal. Prazo: antes de 2026-06-14.
-
-**ALERT-5 [MÉDIO] — Reward Hacking (M-3 / P-124)**
-Auto-calibração direta do Músculo é câmara de eco. M-3 movido para Loop 32 com Scorer cruzado
-(Auditor avalia Músculo via P-132 Triangulação Cega). Regra: nenhum LLM pontua a si mesmo.
-
-**ALERT-6 [BAIXO] — W-8 shadow mode expira 2026-06-14**
-Se D1:A não executado antes dessa data, Hermes continua em Grau A mas protocolo shadow expira.
-
----
-
-## 7. ESTADO DO CONSELHO
-
-| Membro | Status | Artefato | Próxima ação |
-|--------|--------|----------|--------------|
-| Estrategista (Antigravity) | ✅ OK | DIRETRIZ_V31_VANGUARD.md | Aguarda Loop 32 — PASSO3 calibrado |
-| Auditor (NotebookLM) | ✅ OK | AUDITOR_LOOP_V31_VANGUARD.md + vanguard-v31.md | Loop 32: Deep Research WEB ANTES do PASSO5 |
-| Embaixador (Claude Projects) | ⏳ AGUARDA | — | Receber PASSO7 → SEÇÃO D + E-1 a E-5 + RUNNING_INTELLIGENCE |
-| Músculo (Claude Code) | ⏳ AGUARDA_EMBAIXADOR | — | Síntese P-037 após SEÇÃO D |
-| Diretor (Eduardo) | ▶ ATIVO | — | Levar PASSO7 ao Embaixador (7 documentos) |
-
-**7 documentos para o Embaixador:**
-1. INTELLIGENCE_LEDGER.md
-2. WIP_BOARD.json
-3. MEMORIA_V31_VANGUARD.md (este arquivo)
-4. relatorio_evolutivo_V31_VANGUARD.md
-5. AUDITOR_LOOP_V31_VANGUARD.md
-6. vanguard-v31.md (.claude/skills/)
-7. PASSO7_EMBAIXADOR.md (colar SEÇÃO D no chat)
-
----
-
-## 8. CONTEXTO TÉCNICO PARA O PRÓXIMO LOOP
-
-**Arquitetura atual do sistema (Loop 32 herda):**
-- Antigravity CLI: lê PASSO3_GEMINI.md + CONTEXTO_GEMINI.md do disco → DIRETRIZ sem colagem manual
-- NotebookLM VANGUARD caderno: ID d7dab0e1, conta subdiretor.mnmsgm@gmail.com, 23+ fontes
-- Hermes Agent: Grau A (→ B pendente D1:A). Telegram @Eduardo431Vanguardbot
-- n8n EasyPanel: W-1 a W-8 ativos. W-9 Track TRENDS pendente de import.
-- LOOP_STATE.json: sistema de estado durável por loop (v1.0 ativo)
-- WIP_BOARD.json: problema BOM reintroduzido — corrigir antes de W-5/W-6/Notion sync
-
-**Prioridade técnica Loop 32:**
-1. Corrigir BOM WIP_BOARD.json (bloqueia 3 automações)
-2. Completar fechamento Loop 31 (SEÇÃO D + síntese P-037 + DECISOES.json)
-3. Implementar M-4 (Deep Research hierárquico via n8n) → converter em prospecção
-4. Adicionar [CHECKLIST DO MÚSCULO] ao PASSO5 template (P-143)
-5. Demo EdTech/Sedes-DF v0 (deadline 2026-06-16)
-
-**Regra de ouro para Loop 32:** P-133 não é alerta, é gate. Nenhum build de infraestrutura interna
-avança sem estar vinculado a um lead ou cliente real.
+Loop 33: 7 docs [IDENTIDADE] CONSTITUICAO + ATOs 2-6 + Antigravity PASSO3 V33 + Gate Zero P-133.
+Primeiro ato: B-1 gate (backup) + Wipe & Sync NotebookLM VANGUARD.
 
 
 ================================================================================
 
-## RELATORIO EVOLUTIVO -- relatorio_evolutivo_V31_VANGUARD.md
-# RELATÓRIO EVOLUTIVO — VANGUARD V31 · Loop 31 · Expansão da Inteligência Interna
-> Músculo · Data: 2026-06-09 · Análise de negócio + SWOT + PDCA + 5W2H
+## RELATORIO EVOLUTIVO -- relatorio_evolutivo_V32_VANGUARD.md
+# RELATORIO EVOLUTIVO -- Loop 32 VANGUARD · Deriva Documental
+> Tipo: Loop INTERNO · Fechado: 2026-06-10 · Commit: 4defaf6
+> Foco: correccao de deriva documental + formalizacao Hermes Grau B + LOOP_STATE v1.1
 
 ---
 
-## 1. ANÁLISE SWOT — VANGUARD AO FINAL DO V31
+## ANALISE DE NEGOCIO
 
-### Forças (construídas ou consolidadas no Loop 31)
-- **Sistema que se audita**: P-143 + P-144 institucionalizaram checklist anti-esquecimento e busca web obrigatória — o Músculo agora tem proteção contra suas próprias deficiências
-- **Auditor como Intelligence Engine**: N-1 a N-5 + A-1 a A-3 + PARTE 7 (Estado da Arte) elevaram o Auditor de "biblioteca estática" para gerador de inteligência competitiva ativa
-- **25 ideias por ciclo operacional**: M-1 a M-5 + G-1 a G-5 + N-1 a N-5 + A-1 a A-3 = 18 entradas qualificadas neste loop, com triangulação real (P-132)
-- **RUNNING_INTELLIGENCE.md em construção**: Embaixador começa a acumular inteligência competitiva persistente entre loops (D3:A autorizado)
-- **LOOP_STATE.json v1.0**: estado durável por loop resolve amnésia pós-compactação — base do LOOP_TRANSCRIPT futuro (M-2)
+### PONTOS FORTES DO LOOP 32
+1. **Consistencia sistêmica restaurada** -- 62 arquivos renomeados de "Antigravity" para
+   "EXECUTOR do Estrategista" sem quebra de dependencias. Zero falhas de hash pos-sync.
+2. **Hermes Grau B formalizado** -- D1:A executado; agente opera autonomamente com confirmacao
+   de 15min. Shadow mode encerrado. Grau C proximo marco.
+3. **LOOP_STATE v1.1 resiliente** -- schema expandido com missao, loop_anterior, builds_aprovados
+   e P-133; resolve amnesia pos-compactacao em loops longos.
+4. **Firewall de identidade** -- pentalateral-firewall.md com R-01..R-04; impede SUGESTOES_DIRETOR
+   de vazarem para CONSELHO/; regra de autoria protegida.
 
-### Fraquezas (detectadas ou persistentes no Loop 31)
-- **Pipeline vazio — P-133 ativo**: o sistema cresceu em sofisticação mas não em MRR. 2 clientes entregues e em standby, 0 em discovery ativo. Cada loop interno sem cliente novo é um custo de oportunidade.
-- **BOM UTF-8 no WIP_BOARD.json — reintroduzido**: quebra W-5 (ChurnWatch), W-6 (Session Watch), Notion sync. Terceira ocorrência em 6 semanas — padrão de falha recorrente.
-- **D1:A pendente de ação manual**: Hermes Grau B autorizado mas não executado. Dependência de EasyPanel Terminal sem script de automação = ponto de falha do Diretor.
-- **4 falhas registradas no Notion Inbox**: Timeline desatualizada, Instagram com erros, mensagens diárias não chegando — indica que o sistema de automação tem furos silenciosos.
+### PONTOS DE MELHORIA
+1. **Zero avanco em mercado e pipeline** -- Loop 32 foi 100% build interno. Nenhum lead
+   prospectado, nenhuma vertical ativada, nenhum argumento de venda construido.
+   A Vanguard saiu mais organizada mas nao mais lucrativa.
+2. **LEDGER_INBOX como palliativo** -- buffer criado para absorver falhas FALHAS A-K sem
+   perder sessao. Solucao correta, mas evidencia que o volume de falhas ainda e alto.
+3. **Gate 1.7 BLOQUEANTE** -- VANGUARD_TIMELINE como gate de sessao correto por principio
+   mas gerou fricao desnecessaria quando timeline estava desatualizada.
 
-### Oportunidades
-- **M-4 como máquina de prospecção**: Deep Research hierárquico via n8n (Haiku Research Agent) pode alimentar pipeline de leads reais — não apenas auditar o sistema
-- **A-2 (Sub-agentes Haiku)**: redução de 30x no custo de tokens para pesquisa web — habilita G-5 (Oráculo de Churn) e A-1 (Roteador de Contexto) sem explodir o burn rate
-- **A-3 (QA Browser via Embaixador)**: Computer Use API transforma Embaixador em executor de UI — primeiro passo para QA autônomo sem intervenção do Diretor
-- **Hermes Grau B pré-aprovado**: ativação imediata assim que EasyPanel Terminal for acessado
-
-### Ameaças
-- **Reward Hacking (M-3 / P-124)**: qualquer métrica que o Músculo gera sobre si mesmo é câmara de eco. Scoreboards internos sem Scorer cruzado degradam a qualidade sem que ninguém perceba.
-- **Sistema mais rápido que a esteira de aquisição (N-5)**: risco de "Museu Tecnológico" — sistema impecável com zero clientes novos
-- **Latência do Diretor em gates manuais**: D1:A esperando EasyPanel, Embaixador esperando PASSO7 — cada gate manual é ponto de quebra do fluxo autônomo
-
----
-
-## 2. PDCA DO LOOP 31
-
-### Plan (o que foi planejado)
-- Gerar M-1 a M-5 focados na expansão introspectiva do sistema
-- Receber DIRETRIZ V31 do Antigravity com G-1 a G-5
-- Auditor gera N-1 a N-5 + A-1 a A-3 + PARTE 7 Estado da Arte
-- Inscrever novos princípios no LEDGER
-- Embaixador gera SEÇÃO D + RUNNING_INTELLIGENCE.md (D3:A)
-- Fechar loop com DECISOES.json + vereditos
-
-### Do (o que foi executado)
-- M-1 a M-5 gerados com ultrathink (PASSO3)
-- DIRETRIZ V31 recebida do Antigravity
-- Auditor concluiu PARTES 1-7 com 23 fontes + PARTE 6 Deep Research interno
-- Skill vanguard-v31.md APROVADA pelo skill_parser_gate
-- P-143 e P-144 inscritos no LEDGER
-- PASSO7 montado com G-1 a G-5 + N-1 a N-5 + A-1 a A-3 + BLOCO 8 ativo
-- Commit 6ebb950: 6 arquivos, 651 inserções
-
-### Check (o que desviou do plano)
-- **Deep Research WEB não foi clicado ANTES do PASSO5** — P-144 criado exatamente para corrigir isso nos loops seguintes
-- **Embaixador ainda aguarda** — SEÇÃO D + RUNNING_INTELLIGENCE.md pendentes
-- **D1:A autorizado mas não executado** — dependência de EasyPanel Terminal
-- **4 falhas de automação** detectadas no Notion Inbox — não identificadas durante a sessão
-- BOM WIP_BOARD.json reintroduzido (origem desconhecida — investigar no Loop 32)
-
-### Act (o que muda no Loop 32)
-- P-143 obriga [CHECKLIST DO MÚSCULO] em todo PASSO file — nem o Músculo escapa
-- P-144 define sequência exata: Deep Research WEB PRIMEIRO, depois PASSO5
-- BOM WIP_BOARD.json: corrigir + adicionar validação no session_close Gate 1
-- M-3 (auto-calibração direta) descartado para Loop 32 — substituir por Scorer cruzado (P-132)
-- Loop 32 abre com P-133 como gate: nenhum build interno sem vínculo a lead/cliente real
+### RISCOS IDENTIFICADOS
+- **Concentracao de receita** -- Valdece em HYPERCARE, Ingrid standby, Mumuzinho discovery.
+  Nenhum projeto novo no pipeline. Risco de receita zero pos-junho.
+- **Tecnica sem traction** -- sistema mais capaz do que nunca mas sem canal de entrada.
+  O Pentalateral e invisivel para o mercado.
+- **Wipe & Sync Loop 33** -- Sync foi feito via Playwright (19 fontes); Wipe foi manual
+  (Diretor). Bug do codigo Playwright documentado no RUNBOOK. Dependencia do Diretor para
+  Wipe e risco operacional em escala.
 
 ---
 
-## 3. 5W2H — EXPANSÃO DA INTELIGÊNCIA INTERNA
+## ANALISE SWOT
 
-| Dimensão | Resposta |
-|----------|---------|
-| **WHAT** | Fazer o Pentalateral se medir, se otimizar e fechar ciclos de aprendizado sem depender da memória humana |
-| **WHY** | 30 loops sem dashboard de saúde, sem transcript de amnésia, sem métrica de deriva — o sistema evoluía cegamente |
-| **WHO** | Músculo lidera build · Auditor audita coerência histórica · Embaixador acumula inteligência externa · Estrategista orienta arquitetura |
-| **WHERE** | PENTALATERAL_UNIVERSAL/ (P-143/P-144 universais) · CLIENTES/VANGUARD/ (LOOP_STATE, RUNNING_INTELLIGENCE) · scripts/ (session_close, skill_parser_gate) |
-| **WHEN** | Loop 31 define a arquitetura · Loop 32 entrega M-1 (SYSTEM_HEALTH) + M-2 (LOOP_TRANSCRIPT) + [CHECKLIST] no PASSO5 |
-| **HOW** | SYSTEM_HEALTH.md (M-1) lido em 30s · LOOP_TRANSCRIPT delta ≤100 linhas (N-2) · Sub-agentes Haiku (A-2) reduzem custo 30x · RUNNING_INTELLIGENCE com decaimento 90 dias (N-4) |
-| **HOW MUCH** | 0 custo direto neste loop (apenas documentação/princípios) · Loop 32: 2-3h build M-1 + M-2 + templates · A-2: ~US$0.50/loop estimado com Haiku Research Agent |
+### FORCAS
+- Infraestrutura de automacao mais madura do sistema (W-1 a W-9, Hermes B, GRADOC-PARCIAL)
+- Consistencia documental restaurada: LEDGER P-001 a P-149 sem lacunas
+- Antigravity como EXECUTOR do Estrategista: canal de pesquisa de mercado ativo
 
----
+### FRAQUEZAS
+- Ausencia de presenca de mercado (sem pagina, sem case publico, sem SEO)
+- Pipeline vazio: 0 leads qualificados pos-Mumuzinho
+- Cowork (terceiro relogio) ainda nao operacional: INBOX_COWORK nao construido
 
-## 4. VISÃO DO CONSULTOR — O QUE ESSE LOOP REALMENTE ENTREGOU
+### OPORTUNIDADES
+- 5 nichos de encaixe perfeito mapeados pelo Embaixador aguardando ativacao
+- PNCP como gatilho publico gratuito para Vertical 1 (Licitacoes)
+- Argumento de venda "elimina o custo do erro de direcao" validado -- falta biblioteca de dor
 
-Loop 31 foi um loop de **consciência**, não de construção. O Pentalateral olhou para si mesmo pela primeira vez com rigor real:
-- Descobriu que dois de seus sócios têm capacidades inexploradas (P-144)
-- Descobriu que o Músculo pode esquecer coisas críticas sem um mecanismo de checklist (P-143)
-- Descobriu que M-3 (auto-avaliação) é uma armadilha de câmara de eco
-
-O risco real não é técnico — é estratégico: **P-133 não foi resolvido**. O sistema que emerge do Loop 31 é mais sofisticado, mais auto-consciente, mas ainda sem novo cliente desde Loop 29. A cada loop interno, o custo de oportunidade sobe.
-
-A recomendação do consultor para Loop 32 é direta: **M-4 + G-5 como máquinas de prospecção, não de auditoria**. O Pentalateral precisa atacar o mercado com as mesmas ferramentas que usa para se otimizar.
+### AMEACAS
+- Concentracao: se Valdece nao renovar pos-HYPERCARE, receita cai para zero
+- Mercado nao espera: concorrentes com IA podem ocupar os nichos antes da Vanguard
 
 ---
 
-## 5. IDEIAS PARA O LOOP 32 — [M-1 a M-5 SUGESTÕES]
+## PDCA DO LOOP 32
 
-Com base nos padrões deste loop, as 5 ideias que o Músculo leva para o Estrategista:
+### PLAN
+- Correcao de deriva documental identificada pelo Auditor (NotebookLM)
+- 7 documentos IDENTIDADE marcados para update + 6 documentos TECNICO
 
-**[M-1] SISTEMA_HEALTH COMO FIREWALL DE CUSTO**
-SYSTEM_HEALTH.md inclui Token Burn Rate como campo obrigatório. Se custo/loop > threshold → session_start bloqueia novos builds e alerta Diretor. Conectar ao campo billing_limit do WIP_BOARD.
+### DO
+- ATO 0: inventario completo (100+ arquivos, tabela tri-coluna)
+- ATO 1a..1f: renomeacao sistêmica + LOOP_STATE + firewall + PASSO3 + CONTEXTO_GEMINI
+- ATOs 2-6: LEDGER_INBOX + sessions gates + TIMELINE gate + Hermes B formal
+- Wipe & Sync NotebookLM VANGUARD (19 fontes Loop 33)
 
-**[M-2] LOOP_TRANSCRIPT COMO DELTA DE INTELIGÊNCIA**
-session_close gera LOOP_TRANSCRIPT_V[N].md com ≤100 linhas: DECISOES.json diff + friction.log + princípios inscritos + alerta de P-133. Fonte automática no NotebookLM VANGUARD.
+### CHECK
+- Hash post-sync: INTEGRIDADE VERDE para todos os 19 arquivos
+- LEDGER_INBOX: 10 principios (P-140 a P-149) registrados
+- Gate 1.7: VANGUARD_TIMELINE atualizada como condicao bloqueante
 
-**[M-3] M-4 ATACANDO PIPELINE REAL**
-Sub-agente Haiku via n8n faz varredura semanal de: startups de LegalTech/EdTech no Brasil com <50 funcionários + sem IA ativa + fundador acessível no LinkedIn. Output: 5 leads qualificados/semana → RUNNING_INTELLIGENCE.
+### ACT -- MANDATO DO LOOP 33
+- Abrir Vertical 1 (Licitacoes) esta semana
+- Construir INBOX_COWORK (terceiro relogio)
+- Gerar biblioteca de dor calculavel por nicho
+- Definir arquitetura de delegacao para escala 2→10
 
-**[M-4] CHECKLIST DO MÚSCULO COMO LEI**
-[CHECKLIST DO MÚSCULO] adicionado ao PASSO5 + PASSO7 + PASSO3. skill_parser_gate.ps1 rejeita PASSO5 sem checklist. Ponto de partida: lista dos 5 erros mais frequentes por P-XXX.
+---
 
-**[M-5] ORÁCULO DE BOM UTF-8**
-validate_scripts.ps1 adiciona verificação de BOM em todos os .json do repositório. Se BOM detectado → alerta imediato no Telegram + exit 1 no session_start. Nunca mais o ChurnWatch quebra silenciosamente.
+## 5 IDEIAS DISRUPTIVAS DO LOOP 32
+
+M-1: COWORK COMO TERCEIRO RELOGIO
+  O Embaixador so age quando chamado. O Cowork (Claude Desktop, modo agente) pode monitorar
+  continuamente: dor publica de nicho, sinais de mercado, deriva documental. INBOX_COWORK
+  e o canal de entrada do terceiro relogio no sistema.
+
+M-2: VERTICAL 1 POR GATILHO PUBLICO
+  PNCP e o maior banco de editais do Brasil -- publico, gratuito, estruturado.
+  Hermes + W-9 monitora PNCP, gera dossie automatico por edital relevante, alerta Diretor.
+  Custo: zero. Escala: ilimitada.
+
+M-3: ARGUMENTO DE VENDA BASEADO EM DOR CALCULAVEL
+  "Elimina o custo do erro de direcao" so converte quando a dor e calculada em R$ antes
+  da conversa comecar. Biblioteca de 3 casos por nicho + formula editavel = argumento
+  que o Diretor usa em 30 segundos.
+
+M-4: TRES NIVEIS DE DECISAO POR PROJETO
+  AUTO-AVANCO [musculo] / GATE-ESTRATEGICO / BLOQUEANTE -- inscritos no WIP_BOARD.
+  Com 10 projetos, o Diretor nao pode ser gargalo de auto-avanco. Delegacao estrutural
+  e o que diferencia um sistema de 2 de um sistema de 10.
+
+M-5: PRESENCA DE AUTORIDADE COMO CANAL PASSIVO
+  Uma pagina por nicho com caso de sucesso documentado e SEO para query de dor.
+  O Diretor nao precisa cacar -- o lead chega ja com a dor identificada.
+
+---
+
+## PROXIMA MISSAO
+
+Loop 33 · VIRADA ESTRATEGICA -- MERCADO + EMBAIXADOR AGENTADO
+Missao: transformar mapa em movimento. 3 frentes: Embaixador Agentado + Vertical 1 + Escala 2→10.
+Primeiro ato: PASSO3_GEMINI V33 → Antigravity → DIRETRIZ V33 → NotebookLM → Skill vanguard-v33.md.
 
 
 ================================================================================
 
 ## MISSAO DESTA SESSAO -- PASSO3_GEMINI (VANGUARD)
-# PASSO 3 — EXECUTOR DO ESTRATEGISTA (ANTIGRAVITY) · VANGUARD UNIVERSAL
-# Sessao: 2026-06-09 · Loop 31 · EXPANSAO DA INTELIGENCIA INTERNA DO PENTALATERAL
-# COMO USAR: o Antigravity (EXECUTOR do Estrategista) LE este arquivo do disco -- nao se cola nem se anexa.
-#            Contexto canonico lido junto: CLIENTES/VANGUARD/CONTEXTO_GEMINI.md (LEDGER+WIP+MEMORIA)
+# PASSO 3 -- EXECUTOR DO ESTRATEGISTA (ANTIGRAVITY) · VANGUARD UNIVERSAL
+# Sessao: 2026-06-11 · Loop 33 V2 · VIRADA ESTRATEGICA -- MERCADO EXTERNO
+# COMO USAR: o Antigravity LE este arquivo do disco + @CLIENTES/VANGUARD/CONTEXTO_GEMINI.md
+
+---
+
+## [CONTEXTO DO LOOP 33 — LER ANTES DE QUALQUER ANÁLISE]
+> Esta secao e a bussola do loop. Todo socio le antes de propor qualquer coisa.
+> Ela nao muda entre sócios — e o mesmo mapa para todos.
+
+### AS TRES PERGUNTAS QUE REGEM ESTE LOOP
+
+"O que precisa evoluir para que este sistema opere 10 projetos
+com a mesma qualidade e controle que tem com 2?"
+
+"Como a Vanguard passa a ser encontrada —
+nao apenas a encontrar clientes?"
+
+"Em qual dos 5 encaixes perfeitos abrimos a primeira vertical esta semana?"
+
+A pergunta que atravessa todas as outras:
+"Como 4 modelos de linguagem — cada um com falhas de fabrica conhecidas —
+atuam juntos de forma que a fraqueza de um seja coberta pela forca do outro?"
+
+### A ARQUITETURA QUE RESPONDE — PENTALATERAL IAH
+
+Todo LLM tem deficiencias estruturais. O sistema as conhece e distribui entre socios:
+
+| Deficiencia              | Antidoto no sistema                                                                 |
+|---|---|
+| ALUCINACAO OTIMISTA      | Auditor so afirma o que esta nas fontes. Proposicao sem fonte = hipotese, nao fato  |
+| VIES DE CONFIRMACAO      | Triangulacao cega Musculo vs Auditor (P-132) — sem ver o resultado um do outro      |
+| AMNESIA DE SESSAO        | Embaixador e a memoria do sistema — loops anteriores, decisoes revertidas, promessas|
+| CEGUEIRA DE ESCOPO       | Musculo: profundidade. Estrategista: amplitude. Auditor: historico. Embaixador: continuidade |
+| FOCO ESTREITO            | Estrategista questiona se e o problema certo — nao valida, contradiz com evidencia  |
+| EXECUCAO SEM VERIFICACAO | Walkthrough obrigatorio — "funcionou" sem evidencia nao e entrega, e declaracao     |
+
+### O CICLO DE ENRIQUECIMENTO
+
+Musculo ancora M-1..M-5 via YT-search (fontes do mundo real)
+  ↓
+Antigravity despacha subagentes — valida cada M contra mercado e LEDGER
+  ↓
+Auditor pesquisa com Deep Research independente — confirma, qualifica ou rejeita com fonte real
+  ↓
+Embaixador cruza com memoria de loops anteriores e sinais do mercado
+  ↓
+Diretor recebe 4 perspectivas que se compensam e delibera
+
+Nenhum socio bypassa o outro.
+Nenhuma saida chega ao Diretor sem ter passado pelo filtro de pelo menos
+um modelo com arquitetura diferente.
+
+**Isso e o que torna o Pentalateral incopiavel.**
+Nao e ter 4 modelos — e ter 4 modelos onde cada um compensa
+a deficiencia estrutural do outro. Triangulacao real. Ciclo de enriquecimento.
+Sistema antecipatorio, nao reativo.
+
+33 loops. 149 principios. Loop 33 nao abre onde os outros abriram.
+Os socios pensavam bem — mas atuavam com ferramentas incompletas.
+Hoje isso mudou.
 
 ---
 
@@ -1109,210 +1155,204 @@ validate_scripts.ps1 adiciona verificação de BOM em todos os .json do reposit�
 
 Voce e o EXECUTOR do Estrategista (Gemini) do Pentalateral IAH, operando pelo canal Antigravity.
 
-Seu papel neste loop e atacar uma lacuna que o Loop 30 revelou com clareza: o sistema
-Pentalateral sabe construir produtos para clientes, mas **nao se mede, nao se otimiza
-e nao fecha seus proprios ciclos de aprendizado**. A missao deste loop nao e sobre
-pipeline nem sobre clientes -- e sobre tornar o sistema mais inteligente do que ele era
-no loop anterior.
+O Pentalateral tem 5 membros. Cada membro apresenta **5 ideias disruptivas proprias** por loop.
+O Musculo abriu com M-1 a M-5. Agora e a sua vez:
 
-**Use suas capacidades de pesquisa para ancorar as ideias em evidencia real -- nao em inferencia.**
+**1. Contra-ataque as ideias do Musculo** — use pesquisa real para confirmar, expandir ou refutar cada uma.
+**2. Gere suas proprias G-1 a G-5** — ideias que o Musculo NAO chegou. Se coincide com M, descarte e va mais fundo.
 
-Deficiencia a combater: Alucinacao Otimista -- propor expansao sem questionar se os
-fundamentos ja estao solidos. A pesquisa real e o antidoto.
+O loop so evolui quando cada socio traz o que os outros nao viram.
+
+---
+
+## ⚠️ [GATE ANTI-CÂMARA-DE-ECO — OBRIGATORIO]
+
+**Regra inviolavel:** se G-X coincide com M-X em essencia → invalido. Descarte e pesquise mais.
+O Estrategista so entrega G que o Musculo NAO poderia ter chegado sozinho.
+**Consequencia de violar:** DIRETRIZ descartada e loop refeito. Isso ja aconteceu neste loop.
 
 ---
 
 ## [CAPACIDADES DO ESTRATEGISTA -- ANTIGRAVITY 2026]
 
-> Esta secao e permanente -- nao muda por loop. Leia antes de formular qualquer ideia.
+**Manager Surface:** despachar subagentes paralelos em background (Gemini 3.5 Flash). Gere Artifacts visuais — nao logs brutos.
 
-Voce nao e um modelo de chat. Voce e uma plataforma **Agent-First** com capacidades que
-a maioria dos sistemas nao usa. Use todas elas neste loop:
+**Deep Research com grounding nativo:** Google Search em tempo real. Use para contradizer os M com evidencia real. Nunca "provavelmente" quando pode pesquisar.
 
-**Manager Surface -- orquestracao de agentes em background**
-O Antigravity pode despachar subagentes de longo prazo rodando em background (Gemini 3.5 Flash).
-Nao apenas planeja -- orquestra. Cada ideia que voce entregar pode ser validada por um subagente
-antes de chegar ao Diretor. Gere **Artifacts visuais** -- nao logs brutos. O Diretor ve o resultado,
-nao o processo.
+**Leitura de arquivos via @:** le @CLIENTES/VANGUARD/PASSO3_GEMINI.md e @CLIENTES/VANGUARD/CONTEXTO_GEMINI.md do disco. Contexto completo: LEDGER P-001 a P-149 + WIP_BOARD + MEMORIA V32.
 
-**Deep Research com grounding nativo**
-Voce tem acesso ao Google Search em tempo real. Use para:
-- Verificar se as ideias que vai propor ja existem no mercado (e onde falharam)
-- Ancorar cada afirmacao em fonte verificavel (URL + data de acesso)
-- Contradizer o que o Musculo propus se a evidencia real apontar diferente
-Nunca responda com "provavelmente" ou "tipicamente" quando pode pesquisar.
-
-**Leitura de arquivos via @ -- contexto completo do sistema**
-Voce le @CLIENTES/VANGUARD/PASSO3_GEMINI.md e @CLIENTES/VANGUARD/CONTEXTO_GEMINI.md
-diretamente do disco. O CONTEXTO_GEMINI contem: LEDGER completo (P-001 a P-139) + WIP_BOARD
-+ MEMORIA do loop anterior. Voce tem a historia completa do sistema -- use-a.
-
-**Contexto longo -- ate 1M tokens**
-Voce pode processar o historico completo de V1 a V30 sem perda. Se o CONTEXTO_GEMINI
-trouxer documentos longos, leia todos -- nao atalhe.
-
-**Pesquisa de mercado ativa**
-Para cada ideia que propuser, pesquise: alguem ja tentou isso? Funcionou? Qual foi o
-ponto de falha? A evidencia real substitui a especulacao. Este e o antidoto da Alucinacao Otimista.
+**Contexto longo:** ate 1M tokens — historico V1 a V33 sem perda.
 
 ---
 
-## [MANDATO DO DIRETOR -- ABERTURA DO LOOP 31]
+## [PROTOCOLO DE EXECUCAO]
 
-O Diretor identificou que o Loop 30 focou em clientes quando o tema era expansao do
-sistema. O mandato deste loop e claro:
+### [PROTOCOLO 1] -- SUBAGENTES PARALELOS ANTES DOS G
 
-**"Quero expandir a inteligencia da Vanguard -- o sistema em si, nao os clientes."**
+SUBAGENTE A -- CONTRA-ATAQUE AOS M (evidencia de mercado)
+  Missao: para cada M-1 a M-5, pesquisar: alguem ja tentou? Funcionou? Onde falhou?
+          Qual e a evidencia que o Musculo nao tinha ao formular cada M?
+  Modelo: Gemini 3.5 Flash com Deep Research
+  Output: artefato_contraataque_M_V33.md em PENDING_REVIEW
 
-Isso significa: processos internos mais robustos, instrumentos de memoria mais ricos,
-medicao objetiva da evolucao, e automacao que reduz o custo cognitivo do Diretor no
-proprio processo de deliberacao.
+SUBAGENTE B -- INTELIGENCIA DE MERCADO: O QUE A VANGUARD NAO VIU
+  Missao: pesquisar o mercado brasileiro de IA B2B em 2025-2026.
+          O que esta emergindo fora do radar do sistema?
+          Quais nichos tem compradores ativos com budget agora?
+          O que as consultorias de IA que mais cresceram fizeram nos ultimos 6 meses?
+  Modelo: Gemini 3.5 Flash com Deep Research
+  Output: artefato_mercado_V33.md em PENDING_REVIEW
 
----
+SUBAGENTE C -- AUDITORIA DO LEDGER (valor nao monetizado)
+  Missao: ler INTELLIGENCE_LEDGER P-001 a P-149.
+          Identificar o que a Vanguard construiu e NAO ESTA USANDO para gerar clientes.
+          "A Vanguard tem P-XXX mas nao aplica isso na sua propria captacao."
+  Modelo: Gemini 3.5 Flash
+  Output: artefato_gap_interno_V33.md em PENDING_REVIEW
 
-## [CONTEXTO DO LOOP 30 -- O QUE FICOU PARA TRAS]
+### [PROTOCOLO 2] -- WALKTHROUGH COM GATE ANTI-CAMARA-DE-ECO
 
-Loop 30 fechado em 2026-06-09. Entregou:
-- P-136: /ultrathink obrigatorio na sintese P-037 -- Classe C apenas
-- P-137: mapa de skills por gate do Pentalateral
-- P-138: protocolo Valdece Primeiro -- demo no nicho de cliente exige pre-aviso
-- P-139: linha vitrine vs cofre -- antes do primeiro Artifact publico
-- Skills instaladas: brainstorming + writing-plans + ultrathink-trigger + mcp-builder
-- YT-ENRICHMENT ativo: 5 fontes YouTube adicionadas ao caderno VANGUARD
+Para cada G-1 a G-5, declarar explicitamente:
+"O Musculo chegaria a esta ideia sozinho? [SIM/NAO] — por que nao?"
+Se SIM → descartar e reformular.
 
-Estado atual dos projetos:
-- PROJ-001 Valdece: HYPERCARE ate 18/06 · standby
-- PROJ-002 Ingrid: RETAINER · standby
-- PROJ-003 Mumuzinho: DISCOVERY STANDBY
-- W-8 Hermes shadow mode: decisao pendente (deadline 14/06/2026)
+Walkthrough vai para PENDING_REVIEW como walkthrough_DIRETRIZ_V33_V2.md
 
-Problema estrutural identificado pelo Diretor no Loop 30:
-O PASSO3 tinha missao errada (pipeline) e as capacidades do Antigravity nao estavam
-registradas em arquivo -- perdidas no compacto de contexto. Loop 31 corrige ambos.
+### [PROTOCOLO 3] -- ANCORAS INVIOLAVEIS
 
----
-
-## [ABERTURA DO MUSCULO -- M-1 a M-5 · LOOP 31]
-
-Estes sao os 5 eixos que o Musculo identifica como criticos para expandir a
-inteligencia interna do sistema:
-
----
-
-**[M-1] LOOP SCOREBOARD -- O Sistema Que Finalmente Se Mede**
-
-O Pentalateral acumulou 30 loops e 139 principios sem uma unica metrica objetiva de saude.
-Como saber se o Loop 31 foi melhor que o 30?
-
-session_close.ps1 passa a calcular e gravar SYSTEM_HEALTH.md a cada loop com 5 metricas:
-1. Taxa de Novidade -- % das ideias [G+N] que nao repetem os ultimos 3 loops do LEDGER
-2. Densidade de Principios -- quantos P-XXX novos foram extraidos
-3. Taxa de Violacao -- quantos P-XXX foram violados e detectados
-4. Tempo de Ciclo -- do PASSO3 ao commit de fechamento (em horas)
-5. Score de Divergencia -- quantas vezes os socios discordaram entre si
-
-O Diretor ve em 30 segundos se o sistema esta evoluindo ou degradando antes de qualquer sessao.
+[ANCORA 1] Diretor tem veredito final. Voce propoe, ele decide.
+[ANCORA 2] INGRID/VALDECE/MUMUZINHO: qualquer sugestao exige nota EXIGE AUTORIZO P-059.
+[ANCORA 3] Toda saida passa pelo Musculo antes de virar acao (P-124).
 
 ---
 
-**[M-2] LOOP TRANSCRIPT -- Imunidade a Amnesia de Compactacao**
+## [MANDATO DO DIRETOR -- LOOP 33 V2]
 
-Esta sessao perdeu a secao de capacidades do Antigravity porque estava so no chat.
-O LOOP_STATE.json ajuda mas nao captura tudo.
+**"Maior virada da historia recente da empresa. Mercado externo — nao mais interno."**
 
-session_close.ps1 passa a gerar CLIENTES/VANGUARD/HISTORICO/LOOP_TRANSCRIPT_V[N].md com:
-- Todas as ideias M/G/N/A/E com disposicao final (APROVADO / V+1 / DESCARTADO)
-- Arquivos criados/modificados na sessao
-- Skills usadas e seus outputs criticos
-- Secoes que nao devem ser perdidas entre loops (capacidades dos socios, decisoes arquiteturais)
+Estado real da Vanguard:
+- 2 clientes ativos (Ingrid retainer + Valdece hypercare ate 18/06)
+- Pipeline de novos clientes: ZERO
+- Sistema Pentalateral operacional, Hermes Grau B, 9 workflows n8n ativos
+- LEDGER com 149 principios — manual de IA agentada que nao existe no mercado
+- Nenhum cliente novo desde Mumuzinho
 
-O transcript torna-se fonte permanente no caderno VANGUARD -- o Auditor le os ultimos 3
-transcripts antes de gerar a Skill. Continuidade garantida mesmo com compactacoes.
-
----
-
-**[M-3] PASSO3 AUTO-CALIBRAVEL -- Prevencao de Reciclagem**
-
-O Loop 30 gerou 91 ideias recicladas. A Rubrica PASSO3 previne a reincidencia.
-Ha uma camada mais profunda: apos cada loop, o Musculo scorea o PASSO3 anterior:
-- O Estrategista trouxe angulos que o Musculo sozinho nao veria? (1-5)
-- A DIRETRIZ forcou salto em relacao ao Loop N-1? (1-5)
-- % de ideias novas nas [G] vs ideias recicladas
-
-Esse score e gravado em SYSTEM_HEALTH.md e injetado no PROXIMO PASSO3 como contexto:
-"Loop anterior teve Score 2 em divergencia -- Estrategista deve forcar angulo contrastante."
-O sistema se autocorrige loop a loop.
+O Diretor quer que este loop traga 1 movimento real de mercado — nao mais infraestrutura interna.
 
 ---
 
-**[M-4] AUDITOR COMO INTELLIGENCE ENGINE -- Deep Research Ativo**
+## [M-1 a M-5 DO MUSCULO — IDEIAS DISRUPTIVAS PARA O ESTRATEGISTA CONTRA-ATACAR]
 
-O Auditor hoje e uma biblioteca estatica. Ele tem Deep Research -- pesquisa ativa na web
-ancorada nas fontes do caderno -- que nunca foi ativado em producao no Pentalateral.
-
-No PASSO5, o Musculo passa 5 research queries especificas para o Auditor pesquisar:
-1. Estado da arte de sistemas multi-agente com memoria persistente (2025-2026)
-2. Ferramentas de medicao de qualidade de outputs LLM em producao
-3. Padroes de falha em sistemas de 4+ LLMs coordenados
-4. MCP em producao: casos reais de sucesso e falha documentados
-5. Antigravity Manager Surface: capacidades tecnicas reais vs documentadas
-
-Output adicional: alem da Skill, o Auditor entrega um BRIEFING DE ESTADO DA ARTE --
-documento que serve o loop inteiro como referencia de inteligencia externa.
+> O Estrategista NAO valida. Questiona, contradiz com evidencia e gera G proprios.
+> Se M e forte → expanda e supere. Se M e fraco → descarte e traga o que o Musculo nao viu.
 
 ---
 
-**[M-5] EMBAIXADOR INTELLIGENCE LOOP -- Da Reatividade a Proatividade**
+**[M-1] A VANGUARD VENDE O PROCESSO, NAO O PROJETO**
 
-O Embaixador hoje reage ao PASSO7. Com BLOCO 8 completamente ativado, pode fazer mais.
-No PASSO7, alem da SECAO D, o Embaixador recebe missao adicional:
-- Manter RUNNING_INTELLIGENCE.md que acumula inteligencia competitiva entre loops
-- Pesquisar proativamente: "o que aconteceu no mercado esta semana relevante ao Pentalateral?"
-- Detectar deriva: "algum produto novo ameaca a vantagem assimetrica da Vanguard?"
+O LEDGER com 149 principios e o maior ativo da Vanguard. Nenhuma empresa de consultoria
+de IA no Brasil tem isso documentado. Isso e um produto vendavel hoje:
+- "Manual de Operacao de IA Agentada" como assinatura (R$ 3-5k/mes)
+- Acesso ao sistema de onboarding + processo documentado
+- O cliente paga para aprender O PROCESSO antes de contratar o projeto
 
-Em 6 loops, o Pentalateral tem repositorio de inteligencia competitiva construido automaticamente.
-
----
-
-## [MISSAO PARA O ESTRATEGISTA]
-
-Os M-1 a M-5 sao o ponto de partida -- nao o teto.
-
-O Estrategista nao esta aqui para validar o Musculo. Esta aqui para ver o que
-o Musculo nao consegue ver de dentro. Para propor o que parece impossivel hoje
-mas sera obvio em 6 meses. Para questionar se os 5 eixos atacam a raiz certa
-ou apenas o sintoma mais visivel.
-
-**Expanda livremente. Nao se limite ao que os M-1 a M-5 abriram.**
-
-O sistema Pentalateral tem hoje 4 LLMs coordenados, 139 principios acumulados,
-automacao ativa 24/7, e historico de 30 loops. O que esse sistema poderia fazer
-que ainda nao faz? Onde esta o salto de ordem de magnitude -- nao de 10%, mas de 10x?
-
-**Tres ancoras que nao mudam -- o resto e aberto:**
-- O Diretor delibera e tem veredito final em toda decisao
-- Nenhum socio age sobre dados de cliente sem aprovacao explicita (P-059)
-- Toda saida do Estrategista passa pelo Musculo antes de virar acao (P-124)
+Questao para o Estrategista: alguem esta vendendo processo como produto no mercado de IA?
+Qual e a evidencia de que isso converte — ou por que nao converte?
 
 ---
 
-## [FORMATO DA DIRETRIZ]
+**[M-2] ENTRADA POR DOR PUBLICA SEM UPFRONT**
 
-DIRETRIZ ESTRATEGICA V31 -- VANGUARD TECH -- Loop 31
+Licitacoes tem dor calculavel (inabilitacao = perda de contrato de R$ 500k+).
+Em vez de vender software ou consultoria, entrar como "parceiro de resultado":
+- Fee zero no inicio
+- 1% do valor do contrato ganho ou R$ 15k fixo ao impugnar com sucesso
+- O cliente so paga se ganhar
 
-[1. VALIDACAO DO MUSCULO] -- o que esta certo nos M-1 a M-5
-[2. O QUE O MUSCULO NAO VIU] -- angulos novos, pontos cegos, saltos de ordem
-[3. DECISAO] -- ENTRA AGORA / Loop 32 / DESCARTADO
-[4. COMO AMPLIFICAR] -- como tornar cada ideia mais forte
-[5. IMPACTO NO SISTEMA] -- o que muda nos loops seguintes se implementado
-[6. PROXIMA ACAO] -- o que desbloqueia imediatamente
+Questao para o Estrategista: success fee funciona em servicos de IA B2B juridico?
+Qual e o risco real para a Vanguard? Ha precedente de consultoria que usou esse modelo?
 
-[G-1 a G-5] -- cinco ideias disruptivas de expansao interna
+---
 
-[PARA O NOTEBOOKLM]
-Skill: vanguard-v31.md
-[IDENTIDADE DO AUDITOR UNIVERSAL]
-[O QUE AUDITAR NESTE LOOP]
-[PADROES HISTORICOS CRITICOS]
-[N-1 a N-5]
+**[M-3] O SISTEMA PENTALATERAL COMO PRODUTO PARA OUTROS CONSULTORES**
+
+A Vanguard nao precisa ser a unica empresa usando o Pentalateral.
+Outros consultores independentes (marketing, financeiro, juridico) poderiam licenciar o sistema:
+- Acesso ao Musculo + Auditor + Estrategista configurados para o nicho deles
+- White-label do processo Pentalateral
+- MRR sem dependencia de projeto proprio
+
+Questao para o Estrategista: existe mercado para "sistema de IA agentado para consultores"
+no Brasil? Quais os modelos de licenca que funcionam nesse segmento?
+
+---
+
+**[M-4] CASO ANONIMIZADO COMO ISCA DE AUTORIDADE**
+
+A Vanguard tem 2 casos reais (Ingrid + Valdece). Sem expor o cliente (P-139),
+publicar o processo anonimizado:
+- "Como aumentamos 40% a eficiencia de um escritorio de advocacia em 45 dias com IA"
+- SEO para queries de dor + CTA direto
+- O prospect chega com o problema ja qualificado
+
+Questao para o Estrategista: cases anonimizados convertem em B2B juridico/alta complexidade?
+Qual e a alternativa se o comprador exige case com nome?
+
+---
+
+**[M-5] DEMO AO VIVO COMO PRIMEIRO CONTATO**
+
+Em vez de pitch deck ou proposta comercial, o primeiro contato com um prospect e
+uma demonstracao de 20 minutos do sistema Pentalateral funcionando com dados publicos do nicho dele:
+- Hermes analisa um edital real ao vivo
+- Musculo gera um dossie de dor calculavel na hora
+- Prospect ve o valor antes de qualquer proposta
+
+Questao para o Estrategista: qual e a evidencia de que demos ao vivo convertem melhor
+que materiais de marketing em vendas B2B de alta complexidade?
+Qual e o risco (expectativa de entrega vs realidade)?
+
+---
+
+## [INSTRUCAO FINAL AO ESTRATEGISTA]
+
+**O que voce entrega:**
+
+G-1 a G-5: 5 ideias proprias que o Musculo nao chegou. Cada G com:
+- O que e (em 2 linhas, linguagem do cliente)
+- Por que o Musculo nao viu (o que voce pesquisou que ele nao tinha)
+- Evidencia de mercado (URL + data quando disponivel)
+- Risco principal (honesto — nao apenas otimismo)
+
+Contra-ataque dos M: para cada M-1 a M-5:
+- CONFIRMA (com evidencia que reforça) / EXPANDE (com o que o M nao capturou) / REFUTA (com evidencia contraria) / SUBSTITUI (M fraco → propoe algo melhor no lugar)
+
+---
+
+## [FORMATO DA DIRETRIZ V33 V2]
+
+  DIRETRIZ ESTRATEGICA V33-V2 -- VANGUARD TECH -- Loop 33
+
+  [GATE ANTI-CAMARA-DE-ECO: para cada G, declarar "o Musculo chegaria? SIM/NAO + por que"]
+  [ARTEFATOS DESPACHADOS: subagentes A, B, C + o que encontraram]
+  [CONTRA-ATAQUE DOS M: CONFIRMA/EXPANDE/REFUTA/SUBSTITUI para cada M-1 a M-5]
+  [G-1 a G-5: ideias proprias do Estrategista com evidencia de mercado]
+  [PROXIMA ACAO: o que o Diretor faz amanha para testar G-1 no mercado real]
+  [PARA O NOTEBOOKLM]
+    Nome da Skill: vanguard-v33.md
+    PARTE 1: auditoria de coerencia dos G-1..G-5 contra LEDGER
+    PARTE 2: conexao historica V1-V33
+    PARTE 3: Skill vanguard-v33.md (4 blocos exatos)
+    PARTE 4: N-1 a N-5 (ideias proprias do Auditor — nao repetir M nem G)
+    PARTE 5: AMPLIAR A-1 a A-3 (novas)
+    PARTE 6: Deep Research (3 queries externas sobre o mercado — nao sobre o sistema interno)
+    PARTE 7: Briefing de Estado da Arte
+
+---
+
+### [NOTA DE OPERACAO]
+
+DIRETRIZ V33 V1 foi descartada pelo Diretor. Causa: Musculo pre-compilou solucoes tecnicas
+que fecharam o espaco de descoberta. Os G coincidiram com os M. Camara de eco.
+Esta versao V2 parte do zero com o formato correto: M disruptivos + G independentes + gate ativo.
 

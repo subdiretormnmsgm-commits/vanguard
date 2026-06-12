@@ -1,9 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "cliente": "VALDECE",
   "loop_atual": 7,
   "loop_status": "CONCLUIDO",
   "fase_atual": "LOOP_ENCERRADO",
+  "missao": "VALDECE Loop 7 — HYPERCARE até 18-06-2026. Sentinel D30 + Gate da Vitória pendentes. PONTE VANGUARD ATIVA: indicação para Vertical Licitações antes de 18-06.",
   "socios": {
     "gemini": {
       "status": "OK",
@@ -34,21 +35,50 @@
     "p045_memoria_anterior_existe": true,
     "p037_deliberacao_concluida": true,
     "p032_memoria_embaixador_atualizada": true,
-    "p087_resolve_commitado": true
+    "p087_resolve_commitado": true,
+    "p133_gate_zero_captacao": false
   },
   "contexto_snapshot": {
     "cliente_temperatura": "AQUECENDO",
     "ultimo_contato_cliente": "2026-06-04",
-    "proximo_gate_externo": "Gate da Vitória — colega criminalista mencionado por Valdece",
+    "proximo_gate_externo": "Sentinel D30 + Gate da Vitória (colega criminalista)",
     "prazo": "2026-06-18",
-    "observacoes": "HYPERCARE até 18-06-2026. Sentinel Report Verde (2026-06-04). P-120 ATIVO: NÃO mencionar automação/IA/agentes ao Valdece durante Hypercare. Deploy: https://toga-digital-valdece.netlify.app"
+    "observacoes": "HYPERCARE até 18-06-2026. Sentinel Report Verde (2026-06-04). P-120 ATIVO: NÃO mencionar automação/IA/agentes ao Valdece durante Hypercare. Deploy: https://toga-digital-valdece.netlify.app. PONTE VANGUARD (E-2 Loop 33): pedir indicação para licitações ANTES de 18-06."
   },
+  "loop_anterior": {
+    "numero": 6,
+    "status": "FECHADO",
+    "data_fechamento": "2026-05-19",
+    "missao": "Deploy Toga Digital + Sentinel V1",
+    "p087_commitado": true
+  },
+  "builds_aprovados_nao_iniciados": [
+    {
+      "id": "Sentinel-D30",
+      "descricao": "Protocolo de reengajamento Valdece antes de 18-06-2026",
+      "bloqueante": null,
+      "prioridade": 1
+    },
+    {
+      "id": "Gate-da-Vitoria",
+      "descricao": "Aguardar menção a colega criminalista → 'Que legal! Ele é criminalista?'",
+      "bloqueante": null,
+      "prioridade": 2
+    },
+    {
+      "id": "Ponte-Vanguard-E2",
+      "descricao": "Pedir indicação de escritório/empresa com licitações para Vertical Licitações — janela até 18-06",
+      "bloqueante": null,
+      "prioridade": 0
+    }
+  ],
   "pendentes_abertos": [
+    "⚠️ URGENTE: Ponte Vanguard (E-2) — pedir indicação antes de 18-06-2026",
     "Sentinel D30 — protocolo de reengajamento antes de 18-06-2026",
     "Gate da Vitória — aguardar menção a colega criminalista",
     "Loop 8 gate: Sentinel Report uso ativo confirmado + Gemini anchor DIRETRIZ V8"
   ],
-  "ultima_atualizacao": "2026-06-07",
+  "ultima_atualizacao": "2026-06-12",
   "proxima_acao_musculo": "Loop 8: após Gate da Vitória ou confirmação Sentinel D30 → gemini_anchor_generator.ps1 com MEMORIA_V7 + relatorio_V7 + LEDGER → PASSO3",
-  "proxima_acao_diretor": "Antes de 18-06-2026: Sentinel D30 com Valdece. Ao ouvir menção a colega → 'Que legal! Ele é criminalista?' (Gate da Vitória)."
+  "proxima_acao_diretor": "⚠️ URGENTE (antes de 18-06): Contato Valdece com Ponte Vanguard. Pergunta sugerida: 'Você conhece algum escritório ou empresa que participou de licitações nos últimos 6 meses e não ficou satisfeito com os resultados?' Também: Sentinel D30 + Gate da Vitória."
 }
