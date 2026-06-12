@@ -449,11 +449,10 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   Sequencia obrigatoria: [1] Notion (hook automatico -- confirmar) → [2] Cowork MCP Drive → BLOCO 0.
   Musculo que solicita BLOCO 0 antes de executar PASSO 0 = DEF-M-6 automatico. [RESOLVE: passo0-bloqueante]
 
-- [ ] `2026-06-12` **[MUSCULO] Notion FALHA -- ChurnWatch JSON parse error (W-5)** [musculo]
-  Falha do Dia (Notion 2026-06-12): "Erro ao ler WIP_BOARD: Unexpected token '?'" no Telegram 06:00 UTC.
-  Causa provavel: caracter '?' (PowerShell null-coalescing) serializado incorretamente no JSON lido pelo n8n.
-  Acao: (a) inspecionar WIP_BOARD.json por '?' fora de string, (b) corrigir, (c) registrar FALHA-L no LEDGER,
-  (d) criar validacao no W-5 para JSON invalido (continueOnFail: true + alerta de parsing).
+- [x] `2026-06-12` ~~**[MUSCULO] Notion FALHA -- ChurnWatch JSON parse error (W-5)** [musculo]~~
+  ✅ Causa real: BOM UTF-8 no WIP_BOARD.json (FALHA-L, 2ª ocorrência de FALHA-F).
+  fix_bom_json.ps1 corrigiu (commit 6bcae81). W-5 atualizado via API: strip BOM no decode + continueOnFail:true + alerta dedicado.
+  FALHA-L inscrita no LEDGER. [RESOLVE: ChurnWatch-parse-error]
 
 - [ ] `2026-06-12` **[MUSCULO] Notion SUGESTOES -- classificadas P-092** [musculo]
   S-3: Guia de uso das skills /find-skills /ultrathink /superpowers /mcp-builder -- gerar documento [musculo]

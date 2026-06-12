@@ -2516,3 +2516,13 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Solucao de body Supabase via httpRequest:** `specifyBody: "keypair"` com `bodyParameters.parameters` -- n8n monta o JSON internamente e garante Content-Type correto. `specifyBody: "string"` com `JSON.stringify()` causa PGRST204 (PostgREST interpreta o JSON todo como nome de coluna).
 **Aplica-se a:** todo no n8n convergente apos branches paralelos + qualquer httpRequest POST para Supabase REST API.
 **Nunca usar:** `$json` em no convergente sem verificar qual branch o alimenta.
+
+---
+
+## [FALHA-PROCESSO-2026-06-12-L] BOM UTF-8 RECORRENTE NO WIP_BOARD.JSON — CHURNWATCH QUEBRADO
+**Origem:** Sessao 2026-06-12. W-5 ChurnWatch reportou "Erro ao ler WIP_BOARD: Unexpected token '?'" no Telegram 06:00 UTC. BOM (`﻿`) serializado como `?` no n8n (cp1252 fallback).
+**Esta foi a 2a ocorrencia documentada (FALHA-F foi a 1a em 2026-06-10).** fix_bom_json.ps1 corrigiu na 1a vez mas WIP_BOARD voltou a ter BOM na proxima escrita — P-151 ("disciplina nao basta").
+**Causa raiz:** qualquer Write-Item/Set-Content/Out-File em PS 5.1 sem `-Encoding utf8` usa UTF-16 LE ou adiciona BOM. O script que escreveu WIP_BOARD.json nesta sessao usou encoding incorreto.
+**Fix aplicado:** `fix_bom_json.ps1` removeu o BOM — commit 6bcae81 automatico.
+**Solucao estrutural necessaria (P-151):** todo script que escreve WIP_BOARD.json DEVE usar `[System.IO.File]::WriteAllText(path, content, [System.Text.UTF8Encoding]::new($false))` — encoding sem BOM via .NET, nunca via PS Out-File/Set-Content.
+**Antidoto:** W-5 ChurnWatch adicionado `continueOnFail: true` no node HTTP Request + alerta Telegram dedicado "WIP_BOARD invalido — verificar BOM".
