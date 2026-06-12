@@ -858,6 +858,21 @@ $bloco0Alert = @(
 ) -join "`n"
 $sections = @("## ⚠️  BLOCO 0 DO EMBAIXADOR (P-114) -- PRIMEIRA ACAO OBRIGATORIA`n$bloco0Alert") + $sections
 
+# PASSO 0.5 -- FIREWALL PENTALATERAL: lembrete nao-bloqueante de arquivos R-01 protegidos
+$firewallPath = Join-Path $projectDir ".agents\skills\pentalateral-firewall.md"
+$p05Lines = @("PASSO 0.5 -- FIREWALL PENTALATERAL (lembrete nao-bloqueante)", "")
+if (Test-Path $firewallPath) {
+    $p05Lines += "Firewall ATIVO. Arquivos R-01 protegidos nesta sessao:"
+    $p05Lines += "  -> INTELLIGENCE_LEDGER.md / PENDENTES.md / WIP_BOARD.json / DEPENDENCY_MAP.json"
+    $p05Lines += "  -> CLAUDE.md / GEMINI.md / AGENTS.md / PENTALATERAL_UNIVERSAL/** / .claude/skills/vanguard-*.md"
+    $p05Lines += ""
+    $p05Lines += "[AVISO AMARELO] Edicao em R-01 sem veredito do Diretor = violacao imediata."
+} else {
+    $p05Lines += "[ATENCAO] .agents/skills/pentalateral-firewall.md ausente -- verificar repositorio."
+}
+$passo05 = $p05Lines -join "`n"
+$sections = @("## [PASSO 0.5] FIREWALL PENTALATERAL`n$passo05") + $sections
+
 # PASSO 0 -- COLHEITA DO EMBAIXADOR -- primeira secao de toda sessao (antes de BLOCO 0)
 $sections = @("## ⚡ PASSO 0 -- COLHEITA DO EMBAIXADOR AGENTADO (Cowork / MCP Drive)`n$colheitaCowork") + $sections
 

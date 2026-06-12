@@ -70,6 +70,30 @@ Registrar em LEDGER_INBOX.md imediatamente.
 
 ---
 
+## CLASSIFICAÇÃO DE DERIVA — TIPO A / B / C
+
+Adotado do Antigravity Executor (Build A, Loop 33 ATO 3) — complementa o semáforo VERDE/AMARELO/VERMELHO com tipologia de causa.
+
+| Tipo | Nome | Critério |
+|---|---|---|
+| **A** | Deriva Temporal | Timestamp antigo, manifesto defasado, doc `[IDENTIDADE]` >30 dias sem revalidação |
+| **B** | Referência Fantasma | P-XXX citado mas ausente do LEDGER, Loop sem registro na TIMELINE, filepath inexistente em disco |
+| **C** | Drift de Propagação | `UNIVERSAL_PURO` atualizado mas cópia em `CLIENTES/*` desatualizada; schema JSON ou skill em versão obsoleta |
+
+### OUTPUT EM TABELA (quando emitir relatório completo)
+
+| Arquivo / Caminho | Data Local | Tipo (A/B/C) | Ação Proposta |
+|:---|:---|:---|:---|
+| `CLIENTES/INGRID/PASSO3...` | 2026-05-10 | TIPO A | Atualizar cabeçalho para Loop atual |
+| `PENTALATERAL_UNIVERSAL/...` | 2026-06-01 | TIPO B | Remover citação ao P-XXX (inexistente) |
+| `CLIENTES/VALDECE/skill.md` | 2026-05-20 | TIPO C | Re-sync a partir de UNIVERSAL_PURO |
+
+**LIMITE DE ALERTA:** >30 arquivos com deriva → emitir Alerta de Risco P-147 ao Diretor sem formatar tabela completa.
+
+**GUARDRAIL:** Output vai SEMPRE para `PENDING_REVIEW.md` — nunca gravação direta em LEDGER ou WIP_BOARD.
+
+---
+
 ## INTEGRAÇÃO
 
 - doc_freshness_checker.ps1 (Gate 0.5): verifica CONTEÚDO — automático

@@ -281,6 +281,18 @@
   watch_readonly.ps1 (monitor SHA-256 dos 7 arquivos R-01 em background). Integrados ao session_start
   (launch) + session_close (stop + flush). Teste AVISO "ATOs 1-6" confirmado no Telegram. [RESOLVE: ATO 6]
 
+- [ ] `2026-06-12` **[MÚSCULO] Dívida técnica Loop 34 — reescrever R-01/R-02 do pre-commit-firewall** [musculo]
+  Origem: Antigravity Build C analisado em Loop 33. Documentado em `.agents/workflows/pre-commit-firewall.md`.
+  O script não pode ser instalado como git hook porque:
+  (a) R-01: `$dirName -match "^scripts"` bloqueia commits normais dos scripts de orquestração
+  (b) R-02: exige `$env:PENTALATERAL_VEREDITO_DIRETOR` para commitar WIP_BOARD.json (editado em todo commit)
+  (c) Windows: hooks .git/ não rodam PS nativo sem wrapper .bat
+  O que reescrever no Loop 34:
+  - R-01: match por nome de arquivo exato (lista explícita) — NÃO por diretório
+  - R-02: verificar tag `[VEREDITO-DIRETOR]` na mensagem de commit ao invés de ENV_VAR
+  - Criar `pre-commit.bat` wrapper para Windows git hooks
+  Custo: ~1h. Após reescrita → instalar como hook real.
+
 ---
 
 ### 🧭 BACKLOG V30 — registrado no fechamento do Loop 29 (P-134)
