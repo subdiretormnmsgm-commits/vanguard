@@ -1,4 +1,4 @@
-﻿{
+{
     "atualizado_em":  "2026-06-10",
     "wip_limits":  {
                        "build":  2,
@@ -44,11 +44,11 @@
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
                                                             "loop":  33,
-                                                            "gemini":  "PENDENTE",
-                                                            "notebooklm":  "PENDENTE",
+                                                            "gemini":  "OK",
+                                                            "notebooklm":  "OK",
                                                             "embaixador":  "PENDENTE",
                                                             "musculo":  "PENDENTE",
-                                                            "proximo":  "Loop 33 -- 7 docs CONSTITUICAO + ATOs 2-6 + Antigravity PASSO3 V33"
+                                                            "proximo":  "NotebookLM -- Skill vanguard-v33.md"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -117,8 +117,8 @@
                                                           "P-121 a P-127 inscritos no INTELLIGENCE_LEDGER"
                                                       ],
                                     "principios_v32":  [
-                                                          "P-148 -- LEDGER_INBOX como buffer de integridade -- falhas aguardam autorizacao sem perder a sessao (2026-06-10)"
-                                                      ],
+                                                           "P-148 -- LEDGER_INBOX como buffer de integridade -- falhas aguardam autorizacao sem perder a sessao (2026-06-10)"
+                                                       ],
                                     "entregues_v32":  [
                                                           "Antigravity renomeado EXECUTOR do Estrategista (Gemini) em 62 arquivos -- commit 4defaf6",
                                                           "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",

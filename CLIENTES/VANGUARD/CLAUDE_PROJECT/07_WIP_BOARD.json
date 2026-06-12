@@ -1,5 +1,5 @@
-﻿{
-    "atualizado_em":  "2026-06-09",
+{
+    "atualizado_em":  "2026-06-10",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -37,18 +37,18 @@
                                     "valor_fechado":  0,
                                     "tipo":  "Projeto Interno -- Evolucao do Sistema",
                                     "status":  "BUILD",
-                                    "loop_atual":  "Loop 29 FECHADO -- V29 Motor de Verdade -- P-131/132/133/134 inscritos",
+                                    "loop_atual":  "Loop 32 FECHADO -- V32 Deriva Documental -- Antigravity EXECUTOR + Hermes B + LOOP_STATE v1.1",
                                     "build_iniciado_em":  "2026-06-06",
                                     "deadline":  null,
                                     "churn_watch_threshold":  null,
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
-                                                            "loop":  29,
+                                                            "loop":  33,
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
-                                                            "embaixador":  "OK",
-                                                            "musculo":  "OK",
-                                                            "proximo":  "NotebookLM -- Skill vanguard-v29.md"
+                                                            "embaixador":  "PENDENTE",
+                                                            "musculo":  "PENDENTE",
+                                                            "proximo":  "NotebookLM -- Skill vanguard-v33.md"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -86,7 +86,10 @@
                                                          "plataforma":  "EasyPanel hermes/hermes-agent",
                                                          "modelo":  "anthropic/claude-sonnet-4-6 via OpenRouter",
                                                          "telegram":  "configurado (home: 8895733647)",
-                                                         "grau_atual":  "A -- age apenas com aprovacao",
+                                                         "grau_atual":  "B -- age automaticamente + veto 15min Telegram",
+                                                         "grau_ativado_em":  "2026-06-10",
+                                                         "approvals_mode":  "auto",
+                                                         "approvals_timeout_s":  900,
                                                          "config_path":  "/opt/data/config.yaml",
                                                          "shadow_mode_w8_expira":  "2026-06-14"
                                                      },
@@ -113,7 +116,21 @@
                                                           "skill gemini-pentalateral v2.1 -- browser automation Embaixador-\u003eEstrategista",
                                                           "P-121 a P-127 inscritos no INTELLIGENCE_LEDGER"
                                                       ],
-                                    "skill_path":  ".claude/skills/vanguard-v29.md",
+                                    "principios_v32":  [
+                                                           "P-148 -- LEDGER_INBOX como buffer de integridade -- falhas aguardam autorizacao sem perder a sessao (2026-06-10)"
+                                                       ],
+                                    "entregues_v32":  [
+                                                          "Antigravity renomeado EXECUTOR do Estrategista (Gemini) em 62 arquivos -- commit 4defaf6",
+                                                          "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",
+                                                          "LOOP_STATE schema v1.1 -- missao + loop_anterior + builds_aprovados_nao_iniciados + p133",
+                                                          "pentalateral-firewall.md criado (.agents/skills/) -- R-01..R-04",
+                                                          "SUGESTOES_DIRETOR.md protegida R-01 + deletada de CONSELHO/",
+                                                          "PASSO3_GEMINI.md identidade corrigida + CONTEXTO_GEMINI regenerado (110.677 chars)",
+                                                          "P-033 sync slot 20 LOOP_STATE_SCHEMA propagado INGRID+VALDECE+VANGUARD",
+                                                          "LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130",
+                                                          "Loop 33 PENDENTE -- 7 docs CONSTITUICAO + ATOs 2-6 + Gate Zero P-133"
+                                                      ],
+                                    "skill_path":  ".claude/skills/vanguard-v30.md",
                                     "memoria_embaixador_path":  "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
                                     "historico_path":  "CLIENTES/VANGUARD/HISTORICO/"
                                 }
@@ -259,7 +276,7 @@
                  "loops_desde_ultimo_checkup":  2,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-09",
+                 "data_ultima_sessao":  "2026-06-10",
                  "claude_projects_pendente":  true
              }
 }
