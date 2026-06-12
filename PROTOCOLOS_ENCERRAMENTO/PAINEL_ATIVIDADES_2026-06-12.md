@@ -49,6 +49,16 @@
 - Sugestão 2 — Visão Computacional: ENTRA agora como complemento ao BUILD 5 PNCP (capacidade já existe)
 - Sugestão 3 — Sentry Mode: MVP Gmail MCP (2h) como gate antes de W-10
 
+### DEF-M-6 Patch (S1+S2+S3a) — Restrição Arquitetural Anti-Falha
+| Script | O que resolve | Commit |
+|---|---|---|
+| `session_close.ps1` Gate 7C | Falha 6 — freshness dos 7 arquivos críticos verificada por LastWriteTime | 55ef182 |
+| `scripts/Register-Veredito.ps1` | Falha 4 — P-032 atômico: 1 comando atualiza MEMORIA+TIMELINE+WIP | 55ef182 |
+| `scripts/check_placeholders.ps1` | Falha 5 — detecta [PREENCHER/Loop ??/[TODO antes do commit | 55ef182 |
+| LEDGER P-151 | Princípio: disciplina falha, restrição arquitetural não tem memória frágil | a7b0e0b |
+
+**Invoke-FechamentoTarefa.ps1 (Antigravity):** revisado por P-124. Descartado — 3 problemas críticos (path TIMELINE errado, dependência de LOOP_STATE inexistente, append fora da tabela LOG). Músculo construiu versão correta.
+
 ---
 
 ## 🔴 ALERTAS ATIVOS
@@ -83,4 +93,4 @@
 
 ---
 
-*Gerado pelo Músculo em 2026-06-12 01:56 | Loop 33 ATO 4*
+*Gerado pelo Músculo em 2026-06-12 | Atualizado com DEF-M-6 patch | Loop 33 ATO 4*
