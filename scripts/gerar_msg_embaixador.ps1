@@ -4,48 +4,12 @@
 # Uso: .\scripts\gerar_msg_embaixador.ps1
 # Output: scripts\embaixador_msg_sessao.txt + exibe no terminal para o Diretor copiar.
 
-$raiz = Split-Path -Parent $PSScriptRoot
-$data = Get-Date -Format "yyyy-MM-dd"
-$dataBR = Get-Date -Format "dd/MM/yyyy (dddd)"
+$raiz    = Split-Path -Parent $PSScriptRoot
+$data    = Get-Date -Format "yyyy-MM-dd"
+$dataBR  = Get-Date -Format "dd/MM/yyyy (dddd)"
+$hoje    = Get-Date
 
-# --- Ler WIP_BOARD para contexto ---
-$wipPath = Join-Path $raiz "CLIENTES\WIP_BOARD.json"
-$loop = "??"
-$projetos = @()
-try {
-    $wip = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
-    $projetos = @($wip.board.build)
-    if ($wip.meta.loop_atual) { $loop = $wip.meta.loop_atual }
-} catch {}
-
-# --- Ultimos commits da sessao ---
-$commits = ""
-try {
-    $commits = (git -C $raiz log --oneline -8 2>$null) -join "`n"
-} catch {}
-
-# --- Alertas do WIP_BOARD ---
-$alertas = @()
-$hoje = Get-Date
-foreach ($proj in $projetos) {
-    try {
-        $threshold = [int]($proj.churn_watch_threshold -replace "\D", "")
-        $ultimoContato = [datetime]::Parse($proj.ultimo_contato_cliente)
-        $dias = ($hoje.Date - $ultimoContato.Date).Days
-        if ($dias -ge $threshold) {
-            $alertas += ("[CHURNWATCH] " + $proj.cliente + " -- " + $dias + "d sem contato (threshold " + $threshold + "d)")
-        }
-    } catch {}
-    try {
-        $deadline = [datetime]::Parse($proj.deadline)
-        $diff = ($deadline.Date - $hoje.Date).Days
-        if ($diff -le 7) {
-            $alertas += ("[DEADLINE] " + $proj.cliente + " -- " + $proj.deadline + " (" + $diff + "d)")
-        }
-    } catch {}
-}
-
-# --- 7 arquivos obrigatorios (caminhos absolutos para o Diretor localizar) ---
+# --- 7 arquivos obrigatorios (definidos antes de qualquer uso) ---
 $arq1 = "PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$data.md"
 $arq2 = "PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$data.md"
 $arq3 = "CLIENTES\WIP_BOARD.json"
@@ -63,9 +27,9 @@ for ($i = 0; $i -lt $arquivos.Count; $i++) {
     if (-not (Test-Path $p)) {
         $erros += ("[AUSENTE] " + $nomes[$i])
     } else {
-        $diff = ($hoje.Date - (Get-Item $p).LastWriteTime.Date).Days
-        if ($diff -gt 0) {
-            $erros += ("[STALE " + $diff + "d] " + $nomes[$i])
+        $diffDias = ($hoje.Date - (Get-Item $p).LastWriteTime.Date).Days
+        if ($diffDias -gt 0) {
+            $erros += ("[STALE " + $diffDias + "d] " + $nomes[$i])
         }
     }
 }
@@ -79,25 +43,101 @@ if ($erros.Count -gt 0) {
     exit 1
 }
 
-# --- Alertas da sessao (lidos de PENDENTES.md) ---
-$pendentesPath = Join-Path $raiz "PENDENTES.md"
+# --- Ler WIP_BOARD para contexto ---
+$wipPath = Join-Path $raiz $arq3
+$loop    = "??"
+$projetos = @()
+try {
+    $wip = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $projetos = @($wip.board.build)
+    if ($wip.meta.loop_atual) { $loop = $wip.meta.loop_atual }
+} catch {}
+
+# --- Commits das ultimas 24h ---
+$commits = @()
+try {
+    $since = $hoje.AddDays(-1).ToString("yyyy-MM-dd")
+    $commits = @(git -C $raiz log --oneline --since="$since" 2>$null)
+} catch {}
+
+# --- Extrair DESTAQUES automaticamente do PAINEL_ATIVIDADES ---
+$destaques = @()
+try {
+    $painelPath = Join-Path $raiz $arq1
+    $lendo = $false
+    foreach ($linha in (Get-Content $painelPath -Encoding UTF8)) {
+        if ($linha -match "^## .*(ENTREGAS|ENTREGUES|ATIVIDADES DO COWORK|O QUE FOI ENTREGUE)") { $lendo = $true; continue }
+        if ($lendo -and $linha -match "^## ") { $lendo = $false }
+        if ($lendo -and $linha -match "^###\s+(.+)") { $destaques += $Matches[1].Trim() }
+        if ($lendo -and $linha -match "^-\s+\*\*([^*]+)\*\*") { $destaques += $Matches[1].Trim() }
+        elseif ($lendo -and $linha -match "^-\s+(.{10,80})$") { $destaques += $Matches[1].Trim() }
+    }
+} catch {}
+
+# Fallback: extrair do CONTEXTO_SESSAO_DIRETOR
+if ($destaques.Count -eq 0) {
+    try {
+        $ctxPath = Join-Path $raiz $arq2
+        $lendo = $false
+        foreach ($linha in (Get-Content $ctxPath -Encoding UTF8)) {
+            if ($linha -match "^## O QUE FOI FEITO HOJE") { $lendo = $true; continue }
+            if ($lendo -and $linha -match "^## ")         { $lendo = $false }
+            if ($lendo -and $linha -match "^-\s+(.{5,})") { $destaques += $Matches[1].Trim() }
+        }
+    } catch {}
+}
+
+# Fallback final: commits
+if ($destaques.Count -eq 0 -and $commits.Count -gt 0) {
+    $destaques = $commits
+}
+
+$destacosTxt = if ($destaques.Count -gt 0) {
+    ($destaques | Select-Object -First 10 | ForEach-Object { "- " + $_ }) -join "`n"
+} else {
+    "(ver PAINEL_ATIVIDADES_$data.md)"
+}
+
+# --- Alertas ChurnWatch e Deadlines do WIP_BOARD ---
+$alertas = @()
+foreach ($proj in $projetos) {
+    try {
+        $threshold    = [int]($proj.churn_watch_threshold -replace "\D", "")
+        $ultimoContato = [datetime]::Parse($proj.ultimo_contato_cliente)
+        $dias = ($hoje.Date - $ultimoContato.Date).Days
+        if ($dias -ge $threshold) {
+            $alertas += ("[CHURNWATCH] " + $proj.cliente + " -- " + $dias + "d sem contato (threshold " + $threshold + "d)")
+        }
+    } catch {}
+    try {
+        $deadline = [datetime]::Parse($proj.deadline)
+        $diff = ($deadline.Date - $hoje.Date).Days
+        if ($diff -le 7) {
+            $alertas += ("[DEADLINE] " + $proj.cliente + " -- " + $proj.deadline + " (" + $diff + "d)")
+        }
+    } catch {}
+}
+
+# --- Alertas de PENDENTES URGENTE ---
 $alertasDir = @()
 try {
-    $linhas = Get-Content $pendentesPath -Encoding UTF8
+    $linhas = Get-Content (Join-Path $raiz $arq5) -Encoding UTF8
     foreach ($l in $linhas) {
         if ($l -match "URGENTE" -and $l -match "\[ \]") {
-            $alertasDir += ($l -replace "^- \[ \] `\`"[^`"`"]*`"`" \*\*", "" -replace "\*\*.*$", "").Trim()
+            $txt = $l -replace "^-\s+\[\s\]\s+", "" -replace "\s+\[URGENTE\].*$", ""
+            if ($txt.Trim()) { $alertasDir += $txt.Trim() }
         }
     }
 } catch {}
 
-# --- Gerar alertas de perspectiva comportamental ---
+# --- Perspectiva comportamental (so se houver alertas) ---
 $perspectiva = ""
 if ($alertas.Count -gt 0 -or $alertasDir.Count -gt 0) {
-    $perspectiva = "PERSPECTIVA COMPORTAMENTAL QUE PECO DE VOCE:`n"
-    foreach ($a in $alertas)    { $perspectiva += ("- " + $a + "`n") }
-    foreach ($a in $alertasDir) { $perspectiva += ("- Diretor ainda sem acao: " + $a + "`n") }
-    $perspectiva += "O que estes padroes sinalizam sobre a capacidade de atencao do Diretor neste momento?`n"
+    $linhasPers = @("PERSPECTIVA COMPORTAMENTAL QUE PECO DE VOCE:")
+    foreach ($a in $alertas)    { $linhasPers += ("- " + $a) }
+    foreach ($a in $alertasDir) { $linhasPers += ("- Diretor ainda sem acao: " + $a) }
+    $linhasPers += "O que estes padroes sinalizam sobre a capacidade de atencao do Diretor neste momento?"
+    $perspectiva = ($linhasPers -join "`n") + "`n`n"
 }
 
 # --- Montar mensagem ---
@@ -114,7 +154,7 @@ Faco upload dos 7 arquivos abaixo (todos atualizados hoje):
 7. $arq7
 
 DESTAQUES DESTA SESSAO (para voce ancorar a analise):
-[PREENCHER PELO MUSCULO ANTES DE RODAR -- ver CONTEXTO_SESSAO_DIRETOR_$data.md para lista de entregas]
+$destacosTxt
 
 Com base nos 7 arquivos, gerar o artefato publicavel com:
 0. BRIEFING DE ABERTURA PARA O MUSCULO (gerar primeiro)
@@ -127,8 +167,7 @@ Com base nos 7 arquivos, gerar o artefato publicavel com:
 4. ANALISE GERENCIAL -- o que voce ve que o Musculo nao ve?
 5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens em ordem de prioridade
 
-$perspectiva
-Ao entregar, incluir instrucao ao Diretor:
+${perspectiva}Ao entregar, incluir instrucao ao Diretor:
 "Diretor, ao abrir o Claude Code, cole o BLOCO 0 acima como PRIMEIRA mensagem para o Musculo -- antes de qualquer outra coisa."
 "@
 
