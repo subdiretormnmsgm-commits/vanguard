@@ -201,15 +201,12 @@
 > Loop 32 FECHADO (commit 4defaf6). Loop 33 abre nesta sessão ou na próxima.
 > Missão: 7 docs CONSTITUICAO + ATOs 2-6 + Antigravity PASSO3 V33 + Gate Zero P-133.
 
-- [ ] `2026-06-11` **[DIRETOR] B-1 gate — confirmar backup antes de abrir Antigravity** [diretor]
-  Obrigatório antes de qualquer acionamento do Antigravity no Loop 33.
-  Confirmar verbalmente: "backup realizado" ou "ciente do risco sem backup".
-  Sem confirmação: Músculo não abre Antigravity nesta sessão.
+- [x] `2026-06-11` ~~**[DIRETOR] B-1 gate — confirmar backup antes de abrir Antigravity** [diretor]~~
+  ✅ Confirmado pelo Diretor em sessão 2026-06-11.
 
-- [ ] `2026-06-11` **[DIRETOR] Wipe & Sync NotebookLM VANGUARD — Loop 32 encerrado** [diretor]
-  Loop 32 FECHADO (commit 4defaf6). Caderno VANGUARD deve ser limpo e recarregado.
-  Executar: `preparar_notebooklm_projeto.ps1 -cliente VANGUARD` → arrastar fontes → Wipe & Sync.
-  ID caderno VANGUARD: d7dab0e1 (conta subdiretor.mnmsgm@gmail.com).
+- [x] `2026-06-11` ~~**[DIRETOR] Wipe & Sync NotebookLM VANGUARD — Loop 32 encerrado** [diretor]~~
+  ✅ Wipe: Diretor fez manualmente (Playwright falhou — bug "Excluir" documentado no RUNBOOK).
+     Sync: Músculo carregou 19 fontes via Playwright browser_file_upload. Caderno d7dab0e1 ativo.
 
 - [x] `2026-06-11` ~~**[DIRETOR] Autorizar SOBRESCREVER INTELLIGENCE_LEDGER.md — LEDGER_INBOX items** [diretor]~~
   ✅ Autorizado pelo Diretor em 2026-06-11. ATO 5 desbloqueado — Músculo move todos os itens para INTELLIGENCE_LEDGER.md.
@@ -234,6 +231,42 @@
 
 - [x] `2026-06-11` ~~**[MÚSCULO] ATO 4 — build_budget_guard (monitor builds_aprovados_nao_iniciados)** [musculo]~~
   ✅ build_budget_guard.ps1 criado + integrado ao session_start (relatório na abertura) + session_close (FALHA-PADRÃO no PAINEL se count>=5). Parâmetro -iniciar [id] remove do LOOP_STATE e cria PENDENTES com [RESOLVE:]. [RESOLVE: ATO 4]
+
+- [x] `2026-06-11` ~~**[MÚSCULO] PASSO3_GEMINI.md V33 + CONTEXTO_GEMINI + YT-SEARCH + fontes NotebookLM** [musculo]~~
+  ✅ relatorio_evolutivo_V32_VANGUARD.md criado (gate P-045 desbloqueado).
+  ✅ PASSO3_GEMINI.md V33 gravado: M-1..M-5 (Cowork, Licitações, Dor, Escala, Presença) + [CAPACIDADES] completas.
+  ✅ gemini_anchor_generator.ps1 → CONTEXTO_GEMINI.md (112K chars) gerado.
+  ✅ YT-SEARCH executado — 3 queries Loop 33: Licitações, AI Agents, Claude Cowork.
+  ✅ 5 vídeos adicionados ao caderno VANGUARD d7dab0e1 — total: 24 fontes (19 docs + 5 YT).
+  ✅ DIRETRIZ V33 recebida do Antigravity — G-1..G-5 + [PARA O NOTEBOOKLM]. [RESOLVE: Loop 33 abertura]
+
+- [ ] `2026-06-12` **[DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertical Licitações (G-2+G-3)** [diretor]
+  Loop 33 D1:A aprovado. O sistema está pronto para executar G-2 (auditoria PNCP) + G-3 (Pitch Reverso ROI).
+  GATE BLOQUEANTE: Músculo não pode iniciar sem um nome de prospect.
+  Pedir indicação ao Valdece ANTES de 18-06 (E-2 — janela fecha com o hypercare).
+  Resposta esperada do Diretor: nome/empresa/nicho do alvo.
+
+- [ ] `2026-06-12` **[DIRETOR] ⚠️ URGENTE — E-2 Ponte Valdece antes de 18-06** [diretor]
+  Contato sugerido: "Valdece, você conhece algum escritório ou empresa que participou de licitações nos últimos 6 meses e não ficou satisfeito com os resultados?"
+  Janela: hypercare encerra 18-06. Depois disso a relação esfria e a ponte perde força.
+
+- [ ] `2026-06-12` **[MÚSCULO] G-4+A-3 — LOOP_STATE v1.1 por cliente + Context Routing n8n** [musculo]
+  G-4 INGRID e VALDECE migrados para schema v1.1 (✅ feito nesta sessão — 2026-06-12).
+  A-3: documentar o design do Context Routing — n8n injeta LOOP_STATE_[CLIENTE].json no system prompt.
+  Custo: ~4h de build.
+
+- [ ] `2026-06-12` **[MÚSCULO] E-5 — update_memoria_embaixador.ps1 (automação P-032 completa)** [musculo]
+  E-5 é pré-requisito de escala. Automação do conteúdo da MEMORIA_EMBAIXADOR via session_close.
+  Liga com item existente: `update_memoria_embaixador.ps1` (2026-06-10 LOOP 31).
+  Custo: ~2h (script existe em design no PENDENTES — implementar agora).
+
+- [ ] `2026-06-12` **[MÚSCULO] P-150 → INTELLIGENCE_LEDGER — após autorização P-098** [musculo]
+  P-150 registrado no LEDGER_INBOX: deliberação individual de cada ideia com 7 pontos antes da síntese.
+  Aguarda: AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER.md
+
+- [x] `2026-06-12` **[MÚSCULO] P-149 → INTELLIGENCE_LEDGER — após autorização P-098** [musculo]
+  P-149 registrado no LEDGER_INBOX: PASSO3 apresenta problemas, nunca soluções pré-compiladas.
+  Aguarda: AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER.md
 
 - [ ] `2026-06-11` **[MÚSCULO] Build M-2 — LOOP TRANSCRIPT anti-amnésia** [musculo]
   Aprovado no Loop 31 ENTRA. Primeiro build concreto do Loop 33.
