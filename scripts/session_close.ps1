@@ -225,16 +225,32 @@ $arq6 = "CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md"
 $arq7 = "CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
 
 # GATE 7C -- FRESCOR DOS 7 ARQUIVOS DO EMBAIXADOR (BLOQUEANTE)
-# Verifica LastWriteTime de cada arquivo. Nenhum pode ter data anterior a hoje.
-# "So prossegue com dados atualizados" -- Diretor 2026-06-13.
+# FIX 2026-06-13: comparacao por DATA+HORA -- nao apenas por data.
+# PAINEL e CONTEXTO sao sempre regenerados antes da verificacao.
+# Threshold: 3 horas -- arquivo mais antigo que isso = STALE (mesmo dia).
+# Diretor: "a verificacao tinha de ser em data e hora" -- P-painel-hora.
+
+# AUTO-REGENERAR PAINEL e CONTEXTO antes de verificar Gate 7C
+$painelScript7c = "$baseDir\scripts\generate_protocolo_encerramento.ps1"
+if (Test-Path $painelScript7c) {
+    Write-Host "  [GATE 7C PRE] Regenerando PAINEL_ATIVIDADES e CONTEXTO..." -ForegroundColor DarkGray
+    & powershell.exe -NonInteractive -ExecutionPolicy Bypass -File $painelScript7c 2>$null | Out-Null
+    # Recarregar referencia ao PAINEL apos regeneracao
+    $painelMaisRecente = Get-ChildItem "$baseDir\PROTOCOLOS_ENCERRAMENTO" -Filter "PAINEL_ATIVIDADES_*$dataFim*.md" -ErrorAction SilentlyContinue |
+                         Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    $painelNome = if ($painelMaisRecente) { $painelMaisRecente.Name } else { "PAINEL_ATIVIDADES_$dataFim.md (AUSENTE)" }
+    $arq1 = "PROTOCOLOS_ENCERRAMENTO\$painelNome"
+}
+
 Write-Host ""
 Write-Host "  =======================================================" -ForegroundColor Cyan
 Write-Host "  [GATE 7C] Frescor dos 7 Arquivos para o Embaixador"    -ForegroundColor Cyan
-Write-Host "  Referencia: $dataFim ($(Get-Date -Format 'HH:mm'))"    -ForegroundColor Cyan
+Write-Host "  Referencia: $dataFim ($(Get-Date -Format 'HH:mm')) -- threshold 3h"    -ForegroundColor Cyan
 Write-Host "  =======================================================" -ForegroundColor Cyan
 Write-Host ""
 
-$dataHojeDate7c = (Get-Date).Date
+$agora7c     = Get-Date
+$threshold7c = 3  # horas -- arquivo mais antigo = STALE (mesmo dia ou nao)
 $stale7c = [System.Collections.Generic.List[string]]::new()
 
 $mapa7c = [ordered]@{
@@ -251,12 +267,13 @@ foreach ($entry in $mapa7c.GetEnumerator()) {
     $lbl  = $entry.Key
     $path = $entry.Value
     if (Test-Path $path) {
-        $lwt  = (Get-Item $path).LastWriteTime
-        $ts   = $lwt.ToString("yyyy-MM-dd HH:mm")
-        if ($lwt.Date -ge $dataHojeDate7c) {
-            Write-Host ("  [OK    ] {0,-44} {1}" -f $lbl, $ts) -ForegroundColor Green
+        $lwt      = (Get-Item $path).LastWriteTime
+        $ts       = $lwt.ToString("yyyy-MM-dd HH:mm")
+        $deltaH   = [math]::Round(($agora7c - $lwt).TotalHours, 1)
+        if ($deltaH -le $threshold7c) {
+            Write-Host ("  [OK    ] {0,-44} {1} ({2}h atras)" -f $lbl, $ts, $deltaH) -ForegroundColor Green
         } else {
-            Write-Host ("  [STALE ] {0,-44} {1}" -f $lbl, $ts) -ForegroundColor Red
+            Write-Host ("  [STALE ] {0,-44} {1} ({2}h atras -- max {3}h)" -f $lbl, $ts, $deltaH, $threshold7c) -ForegroundColor Red
             $stale7c.Add($lbl)
         }
     } else {
