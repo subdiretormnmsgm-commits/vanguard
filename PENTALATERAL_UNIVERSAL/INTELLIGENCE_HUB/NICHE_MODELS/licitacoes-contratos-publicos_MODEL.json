@@ -1,155 +1,137 @@
-{
-  "id": "licitacoes-contratos-publicos",
-  "nome": "Licitações e Contratos Públicos",
-  "vertical": 1,
-  "status": "MOVER_AGORA",
-  "fit_score": 4.8,
-
-  "setor": "Setor Público / Compliance",
-  "subsetor": "Auditoria Preventiva de Habilitação em Editais",
-  "match_keywords": ["licitação", "edital", "pregão", "habilitação", "PNCP", "inabilitação", "proposta pública", "contrato público", "obra pública", "licitante", "compras públicas", "certidão", "CNPJ", "habilitação documental", "TCU", "TCE", "Lei 14133"],
-  "match_setores": ["engenharia", "construção civil", "TI pública", "serviços públicos", "saneamento", "infraestrutura", "manutenção predial"],
-
-  "perfil_cliente": {
-    "porte": ["PME", "médio"],
-    "segmento": ["engenharia", "construção civil", "serviços técnicos"],
-    "regiao_preferencial": "DF e entorno (GDF contrata muito)",
-    "frequencia_uso": "2-8 editais/mês",
-    "valor_contratos_tipico": "R$500k–R$10M",
-    "sinal_de_encaixe": "Empresa com histórico de inabilitação OR participação em 2+ editais/mês"
-  },
-
-  "dores": [
-    {
-      "descricao": "Inabilitação por inconsistência documental — certidões vencidas, atestado técnico abaixo do exigido, divergência de dados CNPJ",
-      "custo_estimado": "R$3.200–14.800 por proposta perdida (custo de preparação) + contrato em risco (R$500k–R$10M)",
-      "fonte": "effecti.com.br · acesso 2026-06-11",
-      "urgencia": "ESTRUTURAL"
-    },
-    {
-      "descricao": "Tempo de preparação de proposta desperdiçado por erro evitável em documentação",
-      "custo_estimado": "40–80h internas × R$50–100/h = R$2.000–8.000 por edital",
-      "fonte": "F12 Briefing Fundador 2026-06-11",
-      "urgencia": "ALTA"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "Decreto 12.807/2025 + Lei 14.133/2021",
-    "orgao": "Ministério da Gestão / TCU",
-    "impacto": "Novos limites financeiros ampliam contratos na faixa R$500k–R$3M — exatamente onde o produto Vanguard tem melhor relação custo-benefício",
-    "prazo": "Em vigor 01/01/2026",
-    "urgencia": "ESTRUTURAL"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "R$1 trilhão em compras públicas em 2025 (~16% do PIB)",
-    "volume_leads": "50.000+ editais/mês — mercado estrutural sem sazonalidade",
-    "dados_chave": [
-      "R$1T em compras públicas 2025 — fonte: gov.br/gestao · 2026-06-11",
-      "50k+ editais/mês — fonte: effecti.com.br · 2026-06-11",
-      "GDF publica editais ativos de forma contínua — so.df.gov.br · 2026-06-11",
-      "Causa #1 de inabilitação: certidões vencidas (INSS, FGTS, Receita Federal) — effecti.com.br · 2026-06-11"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "80%+ nas desclassificações por documentação",
-    "payback": "Primeira proposta auditada que for aprovada",
-    "argumento_numerico": "Empresa de engenharia perdeu contrato de R$4,2M por inconsistência de 11 palavras no edital — auditoria custaria R$2.800"
-  },
-
-  "pricing": {
-    "referencia_mercado": "R$2.500–5.000/edital (consultoria geral); R$2.500–3.000/mês + 3-10% de êxito (retainer genérico)",
-    "vanguard": {
-      "por_edital_ate_500k": "R$1.200",
-      "por_edital_500k_3M": "R$2.800",
-      "por_edital_3M_10M": "R$5.500",
-      "por_edital_acima_10M": "Sob consulta",
-      "retainer_1_2_editais": "R$3.500/mês",
-      "retainer_3_6_editais": "R$6.500/mês",
-      "nota": "Âncora: custo da inabilitação, não comparação de mercado. Primeiro cliente: R$2.800 fixo para construir case de sucesso."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "Já fazemos internamente",
-      "medo_real": "Exposição de vulnerabilidade — admitir que pode não estar fazendo direito",
-      "resposta": "Faz sentido. A maioria das empresas que virou cliente nossa também achava que tinha o processo coberto. Na última inabilitação de vocês, o erro estava nos documentos ou na leitura deles?"
-    },
-    {
-      "objecao": "É caro demais para um check de documentos",
-      "medo_real": "Dificuldade de enxergar ROI — compara preço ao trabalho, não ao risco",
-      "resposta": "Depende do que você compara. Quanto a empresa investiu em montar a última proposta? Se a proposta custou R$8k e o contrato valia R$2M, R$2.800 é o seguro."
-    },
-    {
-      "objecao": "Nunca ouvi falar da Vanguard",
-      "medo_real": "Medo de mais um consultor vazio",
-      "resposta": "Por isso não peço que confie no que eu digo — peço 10 minutos para mostrar o que fazemos. Tenho um edital real. Você vê a auditoria na prática."
-    },
-    {
-      "objecao": "Vou esperar o edital grande",
-      "medo_real": "Procrastinação disfarçada de prudência",
-      "resposta": "A inabilitação não avisa que vai acontecer no edital menor. Me deixa o contato — quando aparecer o edital, me manda o objeto e o prazo."
-    },
-    {
-      "objecao": "Vocês usam sistema? Não confio em automação",
-      "medo_real": "Medo de responsabilidade difusa — quer humano responsável",
-      "resposta": "Nosso método é conduzido por especialistas — não é relatório automático. Item por item, com o trecho exato do edital ao lado do documento. Quem assina é nossa equipe."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "O edital que você perdeu custou quanto?",
-    "linkedin": "Uma empresa de engenharia perdeu um contrato de R$4,2 milhões por inconsistência entre o atestado técnico e o objeto do edital. A inconsistência tinha 11 palavras. As 11 palavras estavam na página 47 dos anexos.\n\nNão foi negligência. Foi volume. Um edital de obra pública tem em média 180 páginas de requisitos técnicos, legislação vigente e exigências de habilitação. Verificar cada ponto contra cada documento contra cada norma é humanamente inviável — no prazo de uma proposta.\n\nA Vanguard elimina esse risco antes da entrega. Auditoria cruzada de cada exigência do edital contra a documentação da empresa. O que diverge aparece antes — não depois da abertura de envelopes.\n\nQual foi o último edital que sua empresa perdeu por um detalhe que deveria ter sido visto?",
-    "whatsapp": "Quantos editais sua empresa perdeu por inconsistência documental nos últimos 12 meses? A Vanguard audita cada exigência do edital contra sua documentação antes da entrega. O erro aparece antes — não depois. Posso mostrar como funciona em 15 minutos?",
-    "proposta_comercial": "Auditoria Preventiva de Edital — por que a Vanguard existe neste mercado\n\nEmpresas que participam de licitações públicas convivem com um risco estrutural que raramente é nomeado: a inconsistência silenciosa. O edital exige habilitação A — e a empresa tem habilitação A', que é equivalente mas não idêntica no texto.\n\nEssas inconsistências não aparecem no checklist interno. Aparecem na sessão de abertura de envelopes, quando já não há o que fazer.\n\nA Vanguard entrega Auditoria Preventiva de Edital: análise sistemática de cada exigência documental, técnica e habilitatória contra a documentação atual da empresa. O produto final é um relatório de conformidade com classificação de risco — o que está OK, o que está em zona de risco, o que precisa ser corrigido antes da entrega.\n\nResultado esperado: eliminação de desclassificações por documentação antes da entrega da proposta. Empresas que implementam auditoria preventiva reduzem taxa de desclassificação em mais de 80%.\n\nQuando é o próximo prazo de entrega de proposta da sua empresa?"
-  },
-
-  "demo_disponivel": true,
-  "demo_drive_id": "1DlG_kITYXqEx72f-pRwtpXwk8dfYtxhM",
-  "roteiro_demo_drive_id": "17EDSQVB_x2TlUgYpvuIX6-XRBIFyZ9ml",
-  "roteiro_demo_arquivo": "2026-06-11_F8_roteiro_demo_licitacoes.md",
-
-  "concorrentes": {
-    "diretos": ["prolicitante.com.br (assessoria genérica)", "effecti.com.br (automação MPE)", "consultores de licitação por hora"],
-    "diferencial_vanguard": "Mercado vende elaboração de proposta — Vanguard vende auditoria preventiva de habilitação. São produtos distintos. O mercado não sabe precificar o que a Vanguard faz — vantagem competitiva de precificação."
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F1", "F7", "F8", "F11", "F12"],
-    "F1_diario_07h": "Radar de dor — novos editais PNCP, narrativas de venda",
-    "F7_mensal_dia1": "Simulação de objeções — atualizar campo objecoes[]",
-    "F8_mensal_dia1": "Demo visionário — atualizar demo HTML",
-    "F11_mensal_dia1": "Radar de preço — atualizar pricing.referencia_mercado",
-    "F12_semanal_segunda": "Briefing fundador — enriquecer perfil_cliente e narrativas",
-    "F1_ultima": "2026-06-11",
-    "F7_ultima": "2026-06-11",
-    "F8_ultima": "2026-06-11",
-    "F11_ultima": "2026-06-11",
-    "F12_ultima": "2026-06-11",
-    "proxima_revisao_F11": "2026-07-01"
-  },
-
-  "prospecao": {
-    "fonte_leads": "PNCP — atas de pregão mostram empresas inabilitadas (dado 100% público)",
-    "url_busca": "pncp.gov.br/app/editais?status=encerrado",
-    "api_publica": "pncp.gov.br/api/pncp/v1/orgaos (BUILD 4 planejado Loop 34)",
-    "perfil_ideal": "Empresa de engenharia/construção com 2+ editais/mês no DF, que já foi inabilitada",
-    "opcao_linkedin": "Publicar narrativa de 150 palavras (F1) — inbound qualificado em 2-4 semanas"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F7", "F8", "F11", "F12"],
-  "cowork_fontes": [
-    "F1 2026-06-11 (v1 e v2 expandida)",
-    "F7 2026-06-11 (simulador objeção)",
-    "F8 2026-06-11 (demo HTML + roteiro)",
-    "F11 2026-06-11 (benchmark pricing)",
-    "F12 2026-06-11 (briefing decisão)"
-  ],
-
-  "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13"
+﻿{
+    "roi_vanguard":  {
+                         "retorno":  "Reducao de inabilitacoes + aumento da taxa de contratos ganhos + protecao contra responsabilidade TCU",
+                         "ticket_estimado":  "R.000 a R.000 setup + R-2.500/mes manutencao",
+                         "pricing":  {
+                                         "modelo":  "Auditoria de habilitacao + Organizacao documental preventiva + Alertas de vencimento + Suporte a contestacao"
+                                     }
+                     },
+    "id":  "licitacoes-contratos-publicos",
+    "vertical":  1,
+    "objecoes":  [
+                     {
+                         "objecao":  "Ja participamos de licitacoes ha anos",
+                         "reversao":  "A Lei 14.133/2021 mudou o criterio de habilitacao. Empresas com historico de participacao bem-sucedida podem estar operando com documentacao do modelo anterior."
+                     },
+                     {
+                         "objecao":  "Nosso departamento juridico cuida",
+                         "reversao":  "Juridico trata recursos e contestacoes — nao faz a gestao preventiva de vencimento de certidoes e atualizacao conforme a Lei 14.133. Sao funcoes diferentes."
+                     },
+                     {
+                         "objecao":  "O edital e publico, qualquer um pode se preparar",
+                         "reversao":  "Exatamente — mas 70% das inabilitacoes ocorrem por documentacao, nao por tecnica ou preco. A vantagem competitiva e na organizacao preventiva."
+                     }
+                 ],
+    "match_keywords":  [
+                           "licitacao",
+                           "edital",
+                           "pregao",
+                           "habilitacao",
+                           "PNCP",
+                           "inabilitacao",
+                           "Lei 14133",
+                           "TCU",
+                           "certidao",
+                           "obra publica",
+                           "dispensa eletronica",
+                           "Alice TCU"
+                       ],
+    "setor":  "Setor Publico / Compliance",
+    "demo_disponivel":  true,
+    "subsetor":  "Auditoria Preventiva de Habilitacao em Licitacoes",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  5,
+                                "recorrencia":  4,
+                                "ticket_viavel":  5,
+                                "dor_clara":  5,
+                                "solucao_diferenciada":  5
+                            },
+    "cowork_densidade":  "ALTA — F1+F7+F8+F11+F12 convergindo",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_cold":  "70% das inabilitacoes em licitacoes sao por documentacao. O sistema Alice do TCU detecta irregularidades antes do julgamento. Nossa equipe organiza o acervo documental preventivamente para a Lei 14.133/2021. Sua empresa participa de licitacoes com frequencia?",
+                       "argumento_abertura":  "70% das inabilitacoes em licitacoes ocorrem por documentacao, nao por tecnica ou preco. O sistema Alice do TCU detecta irregularidades antes do julgamento. Sua empresa tem o acervo documental organizado para a Lei 14.133?",
+                       "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com dado 70% inabilitacoes + sistema Alice + Lei 14.133]"
+                   },
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "Lei 14.133/2021 — sua documentacao de habilitacao esta atualizada para a nova lei?",
+                           "perfil":  "Socio, Diretor ou Responsavel Tecnico de empresa fornecedora do setor publico",
+                           "busca_linkedin":  "\"licitacao\" OR \"pregao\" OR \"contrato publico\" + \"responsavel tecnico\" OR \"socio\" OR \"diretor\"",
+                           "tamanho_empresa":  "Empresa com faturamento acima de R com contratos publicos ou interesse em ampliar participacao",
+                           "canal":  "PNCP (busca por fornecedores) / LinkedIn / Associacoes setoriais (Sinduscon, Assespro)"
+                       },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Quantas licitacoes sua empresa participa por mes em media?",
+                                           "Ja foi inabilitada nos ultimos 12 meses por documentacao?",
+                                           "Tem processo de gestao de vencimento de certidoes e documentos de habilitacao?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Acima de 2 licitacoes/mes (frequencia que justifica manutencao)",
+                                                 "Historico de inabilitacao por documentacao OU processo manual de gestao",
+                                                 "Faturamento publico relevante (acima de R/ano)"
+                                             ]
+                     },
+    "fit_score":  4.8,
+    "urgencia_regulatoria":  "ESTRUTURAL",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F1",
+                                                          "F7",
+                                                          "F8",
+                                                          "F11",
+                                                          "F12"
+                                                      ]
+                        },
+    "dores":  [
+                  "Inabilitacao automatica por documentacao incorreta ou desatualizada — empresa perde o contrato sem possibilidade de saneamento",
+                  "Sistema Alice do TCU detecta irregularidades antes do julgamento — empresas sem rastreabilidade perdem antes de entrar",
+                  "Lei 14.133/2021 criou exigencias de habilitacao mais rigorosas — documentacao anterior nao e suficiente",
+                  "Prazo de certidoes e documentos curto e gestao manual gera perda de editais por vencimento",
+                  "Acordao TCU 117/2024 amplia responsabilidade do RT por irregularidades documentais"
+              ],
+    "notas_embaixador":  [
+                             "Licitacoes e o Vertical 1 prioritario — ha prospect de engenharia ou TI publica na rede de Eduardo?",
+                             "Sistema Alice do TCU esta sendo expandido — monitorar para atualizar argumento comercial."
+                         ],
+    "nome":  "Licitacoes e Contratos Publicos",
+    "status":  "MONITORAR",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "engenharia",
+                          "construcao civil",
+                          "TI publica",
+                          "infraestrutura",
+                          "servicos publicos",
+                          "fornecedores governo"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "Lei 14.133/2021 (Nova Lei de Licitacoes) + Acordao TCU 117/2024 + PL 2338 (IA)",
+                                "prazo":  "Estrutural — Nova Lei de Licitacoes em vigor. Acordao TCU 117/2024 amplia responsabilidade.",
+                                "impacto":  "Inabilitacao automatica por documentacao incorreta. Sistema Alice (TCU) detecta irregularidades antes do julgamento. PL 2338 exige supervisao humana em sistemas de alto risco usados em licitacoes."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "CONFIRMO fit 4.8. Gap: sistema Alice TCU + Lei 14133 + PL 2338. MONITORAR aguardando pipeline ativo (Gate E-4)."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "medicos-peritos-laudos",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Medicos que participam de licitacoes de servicos de saude — conformidade documental e habilitacao sao o mesmo problema em dominios diferentes"
+                       },
+                       {
+                           "nicho":  "ma-reestruturacao-societaria",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Empresas em M\u0026A que tem contratos publicos precisam de regularidade de habilitacao como due diligence"
+                       }
+                   ]
 }

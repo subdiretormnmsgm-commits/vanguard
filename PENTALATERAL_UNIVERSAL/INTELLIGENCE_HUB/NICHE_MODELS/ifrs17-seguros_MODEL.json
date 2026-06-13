@@ -1,118 +1,126 @@
-{
-  "id": "ifrs17-seguros",
-  "nome": "IFRS 17 — Implementação e Compliance para Seguradoras",
-  "vertical": 9,
-  "status": "MONITORAR",
-  "fit_score": 4.3,
-
-  "setor": "Financeiro / Seguros / Contabilidade",
-  "subsetor": "Implementação IFRS 17 e Normas de Seguros",
-  "match_keywords": ["IFRS 17", "seguradora", "ressegurador", "provisão técnica", "SUSEP", "norma contábil", "contrato de seguro", "atuária", "modelo de precificação", "prêmio de seguro", "sinistro", "IBNR", "BBA", "PAA", "GMM", "IFRS 4", "convergência contábil"],
-  "match_setores": ["seguros", "resseguros", "saúde suplementar", "previdência privada", "capitalização", "cooperativas de seguros"],
-
-  "perfil_cliente": {
-    "porte": ["médio", "grande"],
-    "segmento": ["seguradoras de médio porte", "corretoras de resseguros", "cooperativas de seguros", "operadoras de saúde suplementar"],
-    "regiao_preferencial": "SP (concentração do mercado de seguros brasileiro)",
-    "frequencia_uso": "Projeto de implementação (12–24 meses) + retainer de manutenção",
-    "ticket_minimo": "R$50.000 (projeto de gap analysis e roadmap)",
-    "sinal_de_encaixe": "Seguradora que ainda não implementou IFRS 17 OR que passou para compliance mas tem dúvidas sobre a consistência do modelo"
-  },
-
-  "dores": [
-    {
-      "descricao": "IFRS 17 obrigatório para seguradoras brasileiras desde 2024 (harmonização SUSEP com IASB) — empresas sem implementação completa em risco de não-conformidade",
-      "custo_estimado": "Autuação SUSEP + restatement das demonstrações financeiras + custo reputacional com investidores",
-      "fonte": "BIBLIOTECA_NICHOS v1 — IFRS 17 4.3",
-      "urgencia": "ALTA"
-    },
-    {
-      "descricao": "Modelos de precificação e provisão técnica desalinhados com IFRS 17 criam distorções nos relatórios financeiros — ativos e passivos incorretos",
-      "custo_estimado": "Distorção contábil em carteira de R$100M: erro de provisão de R$5M–R$30M impacta DRE e balanço",
-      "fonte": "BIBLIOTECA_NICHOS v1",
-      "urgencia": "ALTA"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "IFRS 17 / CPC 50 (equivalente brasileiro) + Circular SUSEP 667/2022",
-    "orgao": "SUSEP + CVM",
-    "impacto": "Mudança fundamental na forma de reconhecer receita e passivo de contratos de seguro — impacta DRE, balanço e KPIs operacionais. Empresas que comparavam com IFRS 4 precisam reaprender o modelo.",
-    "prazo": "Vigência para médias: 2024–2025. Algumas com prazo estendido pela SUSEP.",
-    "urgencia": "ALTA"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "Mercado segurador brasileiro: 130+ seguradoras, 700+ corretoras. Operadoras de saúde suplementar: 700+ ativas",
-    "volume_leads": "Seguradoras de médio porte sem implementação completa do IFRS 17: estimativa 30%–50% do mercado",
-    "dados_chave": [
-      "BIBLIOTECA_NICHOS: IFRS 17 score 4.3",
-      "130+ seguradoras no Brasil — parcela relevante com IFRS 17 incompleto",
-      "Circular SUSEP 667/2022 — obrigação de adoção progressiva",
-      "Ticket alto: projeto de 12–24 meses com equipe atuarial + contábil"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "Risco de restatement e autuação SUSEP eliminado",
-    "payback": "Evitar um restatement de demonstrações financeiras paga 5x–10x o projeto Vanguard",
-    "argumento_numerico": "Restatement de demonstrações financeiras em seguradora de médio porte: custo de R$500k–R$2M em auditoria, jurídico e impacto reputacional. Projeto Vanguard: R$100k–R$300k."
-  },
-
-  "pricing": {
-    "referencia_mercado": "Projeto IFRS 17 com big four: R$1M–R$5M (grande porte). Consultoria atuarial especializada: R$400–R$1.200/h. Sem referência pública para médio porte.",
-    "vanguard": {
-      "gap_analysis_roadmap": "R$50.000–R$100.000 (diagnóstico completo vs. IFRS 17/CPC 50)",
-      "implementacao_completa": "R$200.000–R$800.000 (12–24 meses, equipe dedicada)",
-      "retainer_manutencao": "R$15.000–R$40.000/mês (após implementação)",
-      "nota": "Ticket mais alto do portfólio — exige parceiro atuarial. Diferencial: big four não atende médias com atenção real."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "Já temos consultoria com big four",
-      "medo_real": "Status — big four é sinal de seriedade para o mercado",
-      "resposta": "As big four têm excelente competência técnica em IFRS 17. O que frequentemente falta é atenção dedicada para seguradoras de médio porte — os projetos menores ficam com equipe júnior. A Vanguard oferece sênior direto na sua equipe."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "Em que estágio está a implementação do IFRS 17 na sua seguradora?",
-    "linkedin": "A transição do IFRS 4 para o IFRS 17 não é uma mudança de código contábil. É uma mudança de como a empresa pensa sobre receita, risco e tempo.\n\nSeguradoras que implementaram o modelo mas não revisaram as premissas atuariais subjacentes têm compliance formal — mas números incorretos.\n\nOs erros mais comuns: tratamento da CSM (margem de serviço contratual) incorreto, agrupamento de contratos por cohort feito de forma não-auditável, e OCI (outros resultados abrangentes) mal reconhecida.\n\nO resultado são demonstrações financeiras que passam pela auditoria mas não refletem a realidade econômica da empresa.\n\nEm que estágio está a implementação do IFRS 17 da sua seguradora?",
-    "whatsapp": "Em que estágio está a implementação do IFRS 17 na sua seguradora? Seguradoras de médio porte frequentemente passam pelo compliance formal mas com premissas atuariais que criam distorções no DRE. A Vanguard faz o diagnóstico técnico do modelo implementado. Quando posso mostrar o que verificamos?",
-    "proposta_comercial": "IFRS 17 — compliance real, não apenas formal.\n\nA Circular SUSEP 667/2022 e o CPC 50 são claros sobre os requisitos técnicos do IFRS 17. O que é menos claro é se o modelo implementado pela sua seguradora reflete corretamente as premissas atuariais — não apenas formalmente, mas economicamente.\n\nA Vanguard faz o gap analysis técnico do modelo implementado: revisão das premissas de CSM, verificação do agrupamento de contratos por cohort, validação do tratamento de OCI e revisão dos KPIs operacionais à luz do novo padrão. O resultado é um relatório de diagnóstico com o que está em conformidade, o que tem risco de restatement e o roadmap de correção."
-  },
-
-  "demo_disponivel": false,
-
-  "concorrentes": {
-    "diretos": ["big four (deloitte, EY, PwC, KPMG)", "consultorias atuariais especializadas", "firmas de advisory financeiro"],
-    "diferencial_vanguard": "Big four inacessível para médias. Atuariais resolvem o modelo mas não o processo contábil integrado. Vanguard faz a ponte entre atuária e contabilidade para seguradoras de médio porte."
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F1", "F3", "F11"],
-    "F1_diario_07h": "Novas circulares SUSEP, atualizações CPC, casos de restatement publicados",
-    "F3_semanal": "Validar se SUSEP publicou novos prazos ou exigências",
-    "F11_mensal_dia1": "Atualizar pricing baseado em referências de mercado de consultoria atuarial",
-    "F1_ultima": "2026-06-11",
-    "F11_ultima": "2026-06-11",
-    "proxima_revisao_F11": "2026-07-01"
-  },
-
-  "prospecao": {
-    "fonte_leads": "SUSEP — cadastro de seguradoras registradas (público). LinkedIn (CFOs de seguradoras médias).",
-    "abordagem": "Diagnóstico técnico do modelo IFRS 17 implementado — ênfase em completude, não em compliance formal",
-    "perfil_ideal": "Seguradora com prêmio emitido entre R$50M e R$500M/ano, sem big four como parceiro"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F3"],
-  "cowork_fontes": [
-    "BIBLIOTECA_NICHOS v1 — IFRS 17 4.3"
-  ],
-
-  "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13"
+﻿{
+    "alerta_timing":  "88% das seguradoras brasileiras adotarao CPC 50. Mercado de R em investimentos de transicao.",
+    "id":  "ifrs17-seguros",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F1",
+                                                          "F3"
+                                                      ]
+                        },
+    "vertical":  9,
+    "objecoes":  [
+                     {
+                         "objecao":  "Ja temos uma big four cuidando disso",
+                         "reversao":  "Big Four atende as grandes seguradoras. PMEs do setor estao sem suporte especializado acessivel — nosso metodo e adaptado para seguradoras de medio porte."
+                     },
+                     {
+                         "objecao":  "Nossa equipe atuarial cuida",
+                         "reversao":  "A equipe atuarial faz o calculo — a conformidade documental e de processo para SUSEP e uma camada diferente que frequentemente fica descoberta."
+                     },
+                     {
+                         "objecao":  "Ainda temos tempo",
+                         "reversao":  "88% ja estao em transicao. Quem comeca agora tem o beneficio da curva de aprendizado antes do prazo final da SUSEP."
+                     }
+                 ],
+    "match_keywords":  [
+                           "IFRS 17",
+                           "seguradora",
+                           "SUSEP",
+                           "provisao tecnica",
+                           "CSM",
+                           "atuaria",
+                           "CPC 50",
+                           "resseguro",
+                           "saude suplementar"
+                       ],
+    "setor":  "Financeiro / Seguros / Contabilidade",
+    "demo_disponivel":  false,
+    "subsetor":  "Implementacao IFRS 17 e Normas de Seguros (CPC 50)",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  3,
+                                "recorrencia":  4,
+                                "ticket_viavel":  5,
+                                "dor_clara":  4,
+                                "solucao_diferenciada":  4
+                            },
+    "cowork_densidade":  "BAIXA — F1+F3",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_cold":  "88% das seguradoras brasileiras estao em transicao para o CPC 50 (IFRS 17). Nossa equipe especializada conduz o diagnostico de gap e o roadmap de adequacao para seguradoras de medio porte. Como esta o processo de transicao da sua empresa?",
+                       "argumento_abertura":  "88% das seguradoras brasileiras estao em transicao para o CPC 50 (IFRS 17). O mercado movimenta R em investimentos de conformidade. Onde sua seguradora esta nesse processo?",
+                       "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com dado 88% + CPC 50 + dor de transicao IFRS 4-\u003e17]"
+                   },
+    "roi_vanguard":  {
+                         "retorno":  "Demonstracoes financeiras IFRS 17 conformes + protecao contra autuacao SUSEP + credibilidade com investidores",
+                         "ticket_estimado":  "R.000 a R.000 por projeto de conformidade",
+                         "pricing":  {
+                                         "modelo":  "Diagnostico de gap IFRS 4 vs IFRS 17 + Roadmap de transicao + Documentacao CPC 50 + Suporte a auditoria SUSEP"
+                                     }
+                     },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Em que fase esta o processo de transicao para o CPC 50 (IFRS 17)?",
+                                           "Tem equipe atuarial propria ou terceirizada para conduzir o processo?",
+                                           "Qual e o maior gargalo atual: calculo das provisoes, documentacao para SUSEP ou treinamento da equipe?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Seguradora ou operadora com premio acima de R/ano",
+                                                 "Sem big four envolvida (segmento de medio porte)",
+                                                 "Transicao em andamento sem suporte metodologico estruturado"
+                                             ]
+                     },
+    "fit_score":  5,
+    "urgencia_regulatoria":  "ALTA",
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "CPC 50 (IFRS 17) — sua seguradora tem o roadmap de transicao documentado?",
+                           "perfil":  "CFO, Diretor Financeiro ou Atuario-Chefe de seguradora ou operadora de saude",
+                           "busca_linkedin":  "\"seguradora\" OR \"operadora de saude\" OR \"IFRS 17\" OR \"CPC 50\" + \"diretor\" OR \"CFO\" OR \"atuario\"",
+                           "tamanho_empresa":  "Seguradora ou operadora com premio acima de R/ano — fora do escopo das big four",
+                           "canal":  "LinkedIn / Associacoes (CNseg, FenaSaude, Abrass)"
+                       },
+    "dores":  [
+                  "Transicao de IFRS 4 para IFRS 17 exige reprocessamento completo de provisoes tecnicas — processo complexo e caro",
+                  "88% das seguradoras brasileiras em transicao — mercado massivo sem solucao acessivel para PMEs do setor",
+                  "CSM (Contractual Service Margin) calculo incorreto gera demonstracoes financeiras nao conformes",
+                  "SUSEP aumentou rigor de supervisao durante o periodo de transicao — risco de autuacao elevado",
+                  "Corretoras de seguros menores sem equipe atuarial propria para conduzir a transicao"
+              ],
+    "notas_embaixador":  [
+                             "Ha atuario ou CFO de seguradora de medio porte na rede de Eduardo?",
+                             "Corretoras de seguros podem ser canal de indicacao — elas trabalham com seguradoras PME diariamente."
+                         ],
+    "nome":  "IFRS 17 — Implementacao e Compliance para Seguradoras",
+    "status":  "MOVER_AGORA",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "seguros",
+                          "saude suplementar",
+                          "previdencia privada",
+                          "resseguros",
+                          "corretoras de seguros"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "IFRS 17 / CPC 50 (versao brasileira)",
+                                "prazo":  "Adocao progressiva — 88% das seguradoras em transicao",
+                                "impacto":  "Mercado de R em investimentos de transicao. Seguradoras sem conformidade CPC 50 enfrentam risco de autuacao SUSEP e credibilidade com investidores."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "UPGRADE 4.3-\u003e5.0 + PROMOVIDO MONITORAR-\u003eMOVER_AGORA (L34 Embaixador confirmado). 88% seguradoras adotam CPC 50, mercado R."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "glosa-hospitalar",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Operadoras de saude em transicao IFRS 17 com problema de glosa — dois produtos para o mesmo prospect"
+                       }
+                   ]
 }

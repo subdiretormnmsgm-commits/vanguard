@@ -1,126 +1,127 @@
-{
-  "id": "conformidade-ai-act",
-  "nome": "Conformidade AI Act + PL 2338",
-  "vertical": 10,
-  "status": "MOVER_AGORA",
-  "fit_score": 5.0,
-
-  "setor": "Tecnologia / Compliance de IA",
-  "subsetor": "Auditoria de Algoritmos e Governanca de Risco",
-  "match_keywords": ["AI Act", "PL 2338", "inteligencia artificial", "alto risco", "compliance de IA", "multa europeia", "algoritmo decisorio", "GDPR AI", "IA regulatoria"],
-  "match_setores": ["fintechs", "healthtechs", "legaltechs", "e-commerces", "SaaS exportador"],
-
-  "perfil_cliente": {
-    "porte": ["medio", "grande"],
-    "segmento": ["fintechs com operacoes internacionais", "healthtechs com usuarios europeus", "SaaS exportador para UE", "empresas com sistemas decisorios automatizados"],
-    "regiao_preferencial": "Nacional com operacoes internacionais (Europa)",
-    "frequencia_uso": "Projeto + retainer de monitoramento regulatorio",
-    "ticket_minimo": "R$15.000 (diagnostico inicial)",
-    "sinal_de_encaixe": "Empresa exporta software OU toma decisoes automatizadas sobre pessoas OU processa dados de cidadaos europeus"
-  },
-
-  "dores": [
-    {
-      "descricao": "Desconhecimento do escopo de alto risco — empresa nao sabe se seus sistemas se enquadram no AI Act ou no PL 2338",
-      "custo_estimado": "Multa de ate EUR 35M ou 7% do faturamento global. Bloqueio de acesso ao mercado europeu.",
-      "fonte": "Gemini NICHE_MODELER L33 — Biblioteca Nichos v4 + corpus F5/F12 2026-06-12",
-      "urgencia": "CRITICA"
-    },
-    {
-      "descricao": "Ausencia de documentacao tecnica obrigatoria — trilha de auditoria, avaliacao de risco, transparencia algortimica",
-      "custo_estimado": "63% das empresas operam sem politicas claras. Custo de adequacao emergencial 3-5x maior que prevencao.",
-      "fonte": "Gemini NICHE_MODELER L33",
-      "urgencia": "CRITICA"
-    },
-    {
-      "descricao": "Alcance extraterritorial do AI Act — empresa brasileira que atende UE esta sujeita mesmo sem sede na Europa",
-      "custo_estimado": "Bloqueio comercial sumario + multa proporcional ao faturamento global",
-      "fonte": "Gemini NICHE_MODELER L33",
-      "urgencia": "ALTA"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "AI Act da Uniao Europeia + PL 2338 (Brasil em tramitacao)",
-    "orgao": "Autoridade de IA da UE + ANPD (futura aplicacao PL 2338)",
-    "impacto": "Sistemas de IA de alto risco exigem documentacao tecnica detalhada, avaliacao de conformidade e trilha de auditoria. Deadline 02/08/2026 para obrigacoes criticas.",
-    "prazo": "02/08/2026",
-    "urgencia": "CRITICA"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "Empresas brasileiras exportadoras de software + fintechs + healthtechs com operacoes EU",
-    "volume_leads": "Estimativa: 500+ fintechs brasileiras com alguma exposicao ao AI Act",
-    "dados_chave": [
-      "63% das empresas operam sem politicas claras de IA documentadas",
-      "Multa maxima: EUR 35M ou 7% do faturamento global",
-      "Deadline 02/08/2026 para sistemas de alto risco",
-      "PL 2338 em tramitacao — aplicacao brasileira projetada para 2027"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "Prevencao de multa de ate EUR 35M e manutencao de operacoes internacionais",
-    "payback": "Diagnostico R$15k previne bloqueio de mercado europeu — ROI imediato",
-    "argumento_numerico": "Multa AI Act media projetada: EUR 5-10M para empresas medias. Diagnostico Vanguard: R$15-25k."
-  },
-
-  "pricing": {
-    "referencia_mercado": "Consultoria compliance GDPR (analogia mais proxima): R$50k-R$500k. Mercado AI Act ainda sem referencia consolidada.",
-    "vanguard": {
-      "diagnostico_inicial": "R$15.000-25.000 (mapeamento de sistemas + classificacao de risco)",
-      "roadmap_adequacao": "R$30.000-80.000 (documentacao tecnica completa + politicas)",
-      "retainer_monitoramento": "R$8.000-15.000/mes (acompanhamento regulatorio continuo)",
-      "nota": "Ticket justificado pela magnitude das multas e pela janela de oportunidade unica (02/08/2026)."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "Nao atuamos fisicamente na Europa, apenas exportamos software.",
-      "medo_real": "Custo de adequacao vs. risco percebido como distante",
-      "resposta": "O AI Act possui alcance extraterritorial. Qualquer software que tome decisoes sobre cidadaos europeus ou processe seus dados enquadra-se na regulacao, independentemente da sede da empresa. Nossa equipe audita exatamente essa fronteira invisivel para evitar bloqueios comerciais sumarios."
-    },
-    {
-      "objecao": "Nosso juridico ja esta acompanhando.",
-      "medo_real": "Nao quer admitir que juridico nao tem expertise tecnica em IA",
-      "resposta": "Faz sentido. O juridico cuida do risco legal — nossa equipe atua na lacuna tecnica: documentacao do algoritmo, trilha de auditoria e avaliacao de conformidade. Sao roles complementares."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "2 de agosto de 2026 e a data. Voces tem algum sistema de tecnologia que toma decisao sobre pessoas ou que serve clientes europeus? A multa e de ate EUR 35 milhoes.",
-    "linkedin": "O dia 2 de agosto de 2026 representa um divisor de aguas para empresas de tecnologia. Nesta data, o AI Act europeu ativa exigencias severas para sistemas que tomam decisoes sobre pessoas. Organizacoes brasileiras que operam internacionalmente ou estruturam algoritmos complexos nao estao isentas. O descumprimento gera multas que chegam a EUR 35 milhoes ou 7% do faturamento global. No entanto, 63% das empresas operam sem politicas claras e documentadas. Nossa equipe implementa um metodo de conformidade que produz dossies tecnicos rigorosos e mapeia integralmente os riscos, antecipando as auditorias internacionais e a futura aplicacao do PL 2338 no Brasil. O preparo preventivo preserva o acesso a mercados estrategicos e blinda a operacao corporativa contra passivos massivos. O seu principal sistema decisorio possui a trilha de auditoria tecnica que o regulador europeu vai exigir no proximo mes?",
-    "whatsapp": "Em 2 de agosto, o AI Act europeu passa a exigir documentacao tecnica estrita para sistemas decisorios, com multas de ate EUR 35 milhoes. Nossos especialistas estruturam o diagnostico preventivo necessario para garantir a conformidade e proteger sua atuacao internacional. O que o regulador encontrara ao auditar as operacoes da sua empresa?",
-    "proposta_comercial": "Conformidade AI Act — antes de 2 de agosto, nao depois. O diagnostico Vanguard mapeia em 30 dias quais sistemas se enquadram no escopo de alto risco, quais documentacoes estao ausentes e qual e o roadmap de adequacao. Resultado: dossie tecnico completo que satisfaz o regulador europeu."
-  },
-
-  "demo_disponivel": false,
-
-  "concorrentes": {
-    "diretos": ["grandes consultorias (McKinsey, Deloitte — escopo global, ticket minimo alto)", "escritorios de privacy law", "consultorias GDPR adaptadas para AI"],
-    "diferencial_vanguard": "Boutique especializada com entrega rapida. Grandes consultorias nao atendem empresas medias. Prazo 02/08 exige velocidade que consultorias grandes nao entregam."
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F17", "F22", "F1"],
-    "F1_diario": "Monitorar publicacoes regulatorias AI Act UE + atualizacoes PL 2338 no Brasil",
-    "F17_semanal": "Benchmark de empresas adequadas vs. autuadas (quando disponivel)",
-    "F22_quinzenal": "Mapeamento de fintechs/healthtechs brasileiras com exposicao UE",
-    "nota": "F17 e F22 sao frentes novas — criar roteiro de coleta antes do proximo ciclo"
-  },
-
-  "prospecao": {
-    "fonte_leads": "LinkedIn (CTOs e Diretores Juridicos de fintechs) + listas de empresas exportadoras de software",
-    "abordagem": "Deadline 02/08 cria urgencia natural — abordar com data especifica + valor da multa",
-    "perfil_ideal": "Fintech/healthtech com 50-500 funcionarios, produto com algoritmo decisorio, clientes europeus ou intencao de expansao UE"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F17", "F22"],
-  "cowork_fontes": ["Gemini NICHE_MODELER L33 — Biblioteca Nichos v4 + corpus 2026-06-12"],
-
-  "data_entrada": "2026-06-13",
-  "ultima_atualizacao": "2026-06-13",
-  "origem": "NICHE_MODELER L33 — identificado pelo Gemini Advanced com corpus completo"
+﻿{
+    "alerta_timing":  "AI Act UE ativa obrigacoes de alto risco em 02/08/2026. Multas ate EUR 35M ou 7% faturamento global. PL 2338 no Brasil em tramitacao.",
+    "id":  "conformidade-ai-act",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F17",
+                                                          "F22"
+                                                      ]
+                        },
+    "vertical":  10,
+    "objecoes":  [
+                     {
+                         "objecao":  "Nao atuamos fisicamente na Europa, apenas exportamos software",
+                         "reversao":  "O AI Act tem alcance extraterritorial. Qualquer software que tome decisoes sobre cidadaos europeus ou processe seus dados enquadra-se na regulacao, independente da sede da empresa."
+                     },
+                     {
+                         "objecao":  "Nao temos sistema de IA de alto risco",
+                         "reversao":  "Sistemas de credito, onboarding, score, triagem de candidatos e precificacao automatica sao classificados como alto risco pelo AI Act. Nossa auditoria identifica o enquadramento real."
+                     },
+                     {
+                         "objecao":  "Ainda nao caiu nenhuma multa",
+                         "reversao":  "O AI Act entra em vigor dia 02/08/2026 — faltam menos de 60 dias. A multa nao e retroativa, mas o bloqueio de mercado sim. Preparacao agora custa 1/100 do risco."
+                     }
+                 ],
+    "match_keywords":  [
+                           "AI Act",
+                           "PL 2338",
+                           "inteligencia artificial",
+                           "alto risco",
+                           "compliance de IA",
+                           "multa europeia",
+                           "algoritmo decisorio",
+                           "GDPR AI",
+                           "sistema decisorio"
+                       ],
+    "setor":  "Tecnologia / Compliance de IA",
+    "demo_disponivel":  false,
+    "subsetor":  "Auditoria de Algoritmos e Governanca de Risco",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  5,
+                                "recorrencia":  4,
+                                "ticket_viavel":  5,
+                                "dor_clara":  5,
+                                "solucao_diferenciada":  5
+                            },
+    "cowork_densidade":  "BAIXA — F17+F22 (frentes novas)",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "Oi [nome], [indicado por X]. O AI Act europeu entra em vigor dia 2 de agosto — faltam menos de 60 dias. Vi que voces tem operacoes com alcance europeu. Nossa equipe ajuda empresas a mapear o enquadramento e montar o dossie tecnico. Vale 20 minutos?",
+                       "whatsapp_cold":  "Em 2 de agosto, o AI Act europeu passa a exigir documentacao tecnica estrita para sistemas decisorios, com multas de ate EUR 35 milhoes. Nossos especialistas estruturam o diagnostico preventivo necessario para garantir a conformidade e proteger sua atuacao internacional. O que o regulador encontrara ao auditar as operacoes da sua empresa?",
+                       "argumento_abertura":  "2 de agosto de 2026 e a data. Voces tem algum sistema que toma decisao sobre pessoas ou que serve clientes europeus? A multa e de ate EUR 35 milhoes.",
+                       "linkedin_post":  "O dia 2 de agosto de 2026 representa um divisor de aguas para empresas de tecnologia. Nesta data, o AI Act europeu ativa exigencias severas para sistemas que tomam decisoes sobre pessoas. Organizacoes brasileiras que operam internacionalmente ou estruturam algoritmos complexos nao estao isentas. O descumprimento gera multas que chegam a EUR 35 milhoes ou 7% do faturamento global. No entanto, 63% das empresas operam sem politicas claras e documentadas. Nossa equipe implementa um metodo de conformidade que produz dossies tecnicos rigorosos e mapeia integralmente os riscos, antecipando as auditorias internacionais e a futura aplicacao do PL 2338 no Brasil. O preparo preventivo preserva o acesso a mercados estrategicos e blinda a operacao corporativa contra passivos massivos. O seu principal sistema decisorio possui a trilha de auditoria tecnica que o regulador europeu vai exigir no proximo mes?"
+                   },
+    "roi_vanguard":  {
+                         "retorno":  "Prevencao de multa de ate EUR 35M + manutencao de operacoes internacionais",
+                         "ticket_estimado":  "R.000 a R.000",
+                         "pricing":  {
+                                         "modelo":  "Diagnostico inicial de enquadramento + Roadmap de adequacao + Dossie tecnico regulatorio"
+                                     }
+                     },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Voces tem operacao ou parceiros na Europa ou processam dados de cidadaos europeus?",
+                                           "Tem sistema de score, onboarding automatizado ou decisao de credito?",
+                                           "Ja avaliaram se algum desses sistemas se enquadra como alto risco pelo AI Act?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Opera com alcance europeu (direto ou indireto)",
+                                                 "Tem pelo menos 1 sistema que toma decisao sobre pessoas",
+                                                 "Nao tem documentacao tecnica estruturada do sistema"
+                                             ]
+                     },
+    "fit_score":  5,
+    "urgencia_regulatoria":  "CRITICA",
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "AI Act 02/08/2026 — seu sistema decisorio esta em conformidade?",
+                           "perfil":  "CTO, Diretor de Tecnologia ou Diretor Juridico de fintech ou SaaS com operacao europeia",
+                           "busca_linkedin":  "\"CTO\" OR \"Diretor de Tecnologia\" OR \"Diretor Juridico\" + \"fintech\" + \"Europa\" OR \"Reino Unido\" OR \"Portugal\"",
+                           "tamanho_empresa":  "Startups Series A+ ou empresas estabelecidas com receita recorrente internacional",
+                           "canal":  "LinkedIn"
+                       },
+    "dores":  [
+                  "Desconhecimento do escopo de alto risco — empresas nao sabem se seus sistemas se enquadram",
+                  "Ausencia de documentacao tecnica detalhada exigida pelo regulador europeu",
+                  "Risco de multa de ate EUR 35M ou 7% do faturamento — impacto existencial",
+                  "Alcance extraterritorial: software brasileiro que atende cidadaos europeus esta sujeito ao AI Act",
+                  "63% das empresas operam sem politicas claras e documentadas de IA"
+              ],
+    "notas_embaixador":  [
+                             "Ha fintech na rede de Eduardo com operacao europeia que possa ser o primeiro caso?",
+                             "O PL 2338 no Brasil tem prazo estimado de aprovacao — acompanhar para ampliar o argumento domestico."
+                         ],
+    "nome":  "Conformidade AI Act + PL 2338",
+    "status":  "MOVER_AGORA",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "fintechs",
+                          "healthtechs",
+                          "legaltechs",
+                          "e-commerces",
+                          "SaaS exportador",
+                          "empresas com operacao europeia"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "AI Act UE + PL 2338 Brasil",
+                                "prazo":  "02/08/2026 (AI Act) — PL 2338 em tramitacao",
+                                "impacto":  "Sancoes de ate EUR 35M ou 7% do faturamento global. Bloqueio de operacoes internacionais para sistemas nao conformes."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "NICHO NOVO identificado — fit 5.0 MOVER_AGORA. Deadline 02/08/2026. Ticket R-R."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "ma-reestruturacao-societaria",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Empresas em captacao (Serie A+) precisam de conformidade AI Act para due diligence de investidores europeus"
+                       }
+                   ]
 }

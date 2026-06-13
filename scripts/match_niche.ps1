@@ -1,153 +1,114 @@
-# match_niche.ps1 - Repositorio de Nicho Vanguard - Matchmaking para novos projetos
-# Uso: .\scripts\match_niche.ps1 -setor "engenharia" -tags "edital,licitacao"
-# Uso: .\scripts\match_niche.ps1 -setor "saude" -minScore 4.5
-# Uso: .\scripts\match_niche.ps1 -status MOVER_AGORA
-# Uso: .\scripts\match_niche.ps1 -listar  (lista todos com fit_score)
+# match_niche.ps1 — Cruza prospect com NICHE_INDEX para identificar nicho mais provavel
+# Uso: .\scripts\match_niche.ps1 -Keywords "ANVISA,industria,recall" -Setor "alimentos"
+# Uso: .\scripts\match_niche.ps1 -Descricao "empresa de contabilidade preocupada com ECD"
 
 param(
-    [string]$setor = "",
-    [string]$tags = "",
-    [double]$minScore = 0.0,
-    [string]$status = "",
-    [switch]$listar,
-    [switch]$detalhado
+    [string]$Keywords = "",
+    [string]$Setor = "",
+    [string]$Descricao = "",
+    [switch]$SomenteAtivos,
+    [int]$Top = 5
 )
 
-$indexPath = "$PSScriptRoot\..\PENTALATERAL_UNIVERSAL\INTELLIGENCE_HUB\NICHE_INDEX.json"
-$modelsDir = "$PSScriptRoot\..\PENTALATERAL_UNIVERSAL\INTELLIGENCE_HUB\NICHE_MODELS"
-
+$indexPath = "PENTALATERAL_UNIVERSAL\INTELLIGENCE_HUB\NICHE_INDEX.json"
 if (-not (Test-Path $indexPath)) {
-    Write-Host "[ERRO] NICHE_INDEX.json nao encontrado: $indexPath" -ForegroundColor Red
+    Write-Error "NICHE_INDEX.json nao encontrado em $indexPath"
     exit 1
 }
 
 $index = Get-Content $indexPath -Raw -Encoding UTF8 | ConvertFrom-Json
-$nichos = $index.nichos
 
-Write-Host ""
-Write-Host "=== NICHE INTELLIGENCE REPOSITORY - VANGUARD ===" -ForegroundColor Cyan
-Write-Host "Versao: $($index._meta.versao) | Atualizado: $($index._meta.ultima_atualizacao)" -ForegroundColor DarkGray
-Write-Host "Total: $($nichos.Count) nichos | MOVER_AGORA: $($index.resumo.MOVER_AGORA) | MONITORAR: $($index.resumo.MONITORAR)" -ForegroundColor DarkGray
-Write-Host ""
+# Extrair termos de busca
+$termsBusca = @()
+if ($Keywords) { $termsBusca += $Keywords -split "," | ForEach-Object { $_.Trim().ToLower() } }
+if ($Setor) { $termsBusca += $Setor.ToLower() }
+if ($Descricao) { $termsBusca += $Descricao.ToLower() -split " " | Where-Object { $_.Length -gt 3 } }
 
-# Modo: listar todos
-if ($listar) {
-    Write-Host "--- TODOS OS NICHOS (por fit_score) ---" -ForegroundColor Yellow
-    $nichos | Sort-Object fit_score -Descending | ForEach-Object {
-        $cor = if ($_.status -eq "MOVER_AGORA") { "Green" } else { "Yellow" }
-        Write-Host ("  [{0:N1}] {1,-45} [{2}]" -f $_.fit_score, $_.nome, $_.status) -ForegroundColor $cor
-        Write-Host ("        Setor: {0}" -f $_.setor) -ForegroundColor DarkGray
-        Write-Host ("        Tags:  {0}" -f ($_.match_keywords -join ", ")) -ForegroundColor DarkGray
-        Write-Host ""
-    }
+if ($termsBusca.Count -eq 0) {
+    Write-Host "Uso: .\scripts\match_niche.ps1 -Keywords 'ECD,contador,SPED' [-Setor 'contabilidade'] [-SomenteAtivos]"
     exit 0
 }
 
-# Filtrar por status
-if ($status) {
-    $nichos = $nichos | Where-Object { $_.status -eq $status.ToUpper() }
-}
+Write-Host ""
+Write-Host "=== MATCH NICHE — VANGUARD IAH ==="
+Write-Host "Termos buscados: $($termsBusca -join ', ')"
+Write-Host ""
 
-# Filtrar por minScore
-if ($minScore -gt 0) {
-    $nichos = $nichos | Where-Object { $_.fit_score -ge $minScore }
-}
-
-# Scoring de match
 $resultados = @()
 
-foreach ($nicho in $nichos) {
+foreach ($nicho in $index.nichos) {
+    if ($SomenteAtivos -and $nicho.status -ne "MOVER_AGORA") { continue }
+    
     $score = 0
     $matches = @()
-
-    # Match por setor
-    if ($setor) {
-        $setorLower = $setor.ToLower()
-        foreach ($s in $nicho.match_setores) {
-            if ($s.ToLower() -like "*$setorLower*" -or $setorLower -like "*$s*") {
+    
+    # Match em keywords
+    foreach ($kw in $nicho.match_keywords) {
+        foreach ($termo in $termsBusca) {
+            if ($kw.ToLower().Contains($termo) -or $termo.Contains($kw.ToLower())) {
                 $score += 3
+                $matches += "keyword:$kw"
+            }
+        }
+    }
+    
+    # Match em setores
+    foreach ($s in $nicho.match_setores) {
+        foreach ($termo in $termsBusca) {
+            if ($s.ToLower().Contains($termo) -or $termo.Contains($s.ToLower())) {
+                $score += 2
                 $matches += "setor:$s"
-                break
-            }
-        }
-        if ($nicho.setor.ToLower() -like "*$setorLower*") {
-            $score += 2
-            $matches += "setor_macro:$($nicho.setor)"
-        }
-    }
-
-    # Match por tags
-    if ($tags) {
-        $tagList = $tags.ToLower() -split ","
-        foreach ($tag in $tagList) {
-            $tag = $tag.Trim()
-            foreach ($kw in $nicho.match_keywords) {
-                if ($kw.ToLower() -like "*$tag*" -or $tag -like "*$kw*") {
-                    $score += 2
-                    $matches += "kw:$kw"
-                    break
-                }
             }
         }
     }
-
-    # Sem filtro: incluir todos com score base pelo fit_score
-    if (-not $setor -and -not $tags) {
-        $score = [int]($nicho.fit_score * 10)
+    
+    # Match em nome/subsetor
+    foreach ($termo in $termsBusca) {
+        if ($nicho.nome.ToLower().Contains($termo)) {
+            $score += 1
+            $matches += "nome"
+        }
+        if ($nicho.subsetor.ToLower().Contains($termo)) {
+            $score += 1
+            $matches += "subsetor"
+        }
     }
-
+    
     if ($score -gt 0) {
         $resultados += [PSCustomObject]@{
-            id          = $nicho.id
-            nome        = $nicho.nome
-            status      = $nicho.status
-            fit_score   = $nicho.fit_score
-            match_score = $score
-            matches     = $matches
-            setor       = $nicho.setor
-            cowork      = $nicho.cowork_densidade
-            urgencia    = $nicho.urgencia_regulatoria
-            arquivo     = $nicho.arquivo_modelo
+            Score = $score
+            ID = $nicho.id
+            Nome = $nicho.nome
+            Status = $nicho.status
+            FitScore = $nicho.fit_score
+            Urgencia = $nicho.urgencia_regulatoria
+            Matches = ($matches | Select-Object -Unique) -join " | "
+            ArquivoModelo = $nicho.arquivo_modelo
         }
     }
 }
 
+$resultados = $resultados | Sort-Object -Property Score -Descending | Select-Object -First $Top
+
 if ($resultados.Count -eq 0) {
-    Write-Host "Nenhum nicho encontrado para os criterios informados." -ForegroundColor Yellow
-    Write-Host "Use -listar para ver todos os nichos disponiveis." -ForegroundColor DarkGray
+    Write-Host "Nenhum nicho encontrado para os termos buscados."
+    Write-Host "Sugestao: ampliar os termos ou verificar NICHE_INDEX.json"
     exit 0
 }
 
-# Ordenar por match_score DESC, fit_score DESC
-$resultados = @($resultados | Sort-Object @{e="match_score";d=$true}, @{e="fit_score";d=$true})
-
-Write-Host "--- NICHOS ENCONTRADOS: $($resultados.Count) resultado(s) ---" -ForegroundColor Yellow
+Write-Host "TOP $($resultados.Count) NICHOS IDENTIFICADOS:"
 Write-Host ""
 
 $rank = 1
 foreach ($r in $resultados) {
-    $statusCor = if ($r.status -eq "MOVER_AGORA") { "Green" } else { "Yellow" }
-    $urgenciaCor = if ($r.urgencia -eq "ESTRUTURAL") { "Red" } elseif ($r.urgencia -eq "ALTA") { "Yellow" } else { "White" }
-
-    Write-Host "#$rank  [fit $($r.fit_score)] $($r.nome)" -ForegroundColor $statusCor
-    Write-Host "      Status: $($r.status) | Urgencia: $($r.urgencia) | Cowork: $($r.cowork)" -ForegroundColor DarkGray
-
-    if ($r.matches.Count -gt 0) {
-        Write-Host "      Match: $($r.matches -join ' | ')" -ForegroundColor Cyan
-    }
-
-    if ($detalhado) {
-        $modelPath = Join-Path $PSScriptRoot "..\PENTALATERAL_UNIVERSAL\INTELLIGENCE_HUB\$($r.arquivo)"
-        if (Test-Path $modelPath) {
-            $model = Get-Content $modelPath -Raw | ConvertFrom-Json
-            Write-Host "      Argumento: $($model.roi_vanguard.argumento_numerico)" -ForegroundColor White
-        }
-    }
-
-    Write-Host "      Arquivo: $($r.arquivo)" -ForegroundColor DarkGray
+    $statusIcon = if ($r.Status -eq "MOVER_AGORA") { "[MOVER_AGORA]" } else { "[MONITORAR]" }
+    $urgIcon = if ($r.Urgencia -eq "CRITICA") { "!! " } elseif ($r.Urgencia -eq "ALTA") { "!  " } else { "   " }
+    Write-Host "$urgIcon #$rank — $($r.Nome)"
+    Write-Host "     Status: $statusIcon | Fit: $($r.FitScore) | Urgencia: $($r.Urgencia)"
+    Write-Host "     Match: $($r.Matches)"
+    Write-Host "     Modelo: $($r.ArquivoModelo)"
     Write-Host ""
     $rank++
 }
 
-Write-Host "Para modelo completo: cat PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_MODELS/[id]_MODEL.json" -ForegroundColor DarkGray
-Write-Host "Para todos: .\scripts\match_niche.ps1 -listar" -ForegroundColor DarkGray
+Write-Host "=== FIM DO MATCH ==="

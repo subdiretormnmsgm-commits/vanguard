@@ -1,124 +1,132 @@
-{
-  "id": "carbon-esg-mrv",
-  "nome": "Carbono, ESG e MRV",
-  "vertical": 8,
-  "status": "MONITORAR",
-  "fit_score": 4.5,
-
-  "setor": "Sustentabilidade / Regulatório / Finanças",
-  "subsetor": "Monitoramento, Reporte e Verificação (MRV) de Créditos de Carbono e ESG",
-  "match_keywords": ["crédito de carbono", "MRV", "ESG", "rastreamento de emissões", "REDD+", "mercado voluntário de carbono", "VERRA", "GoldStandard", "inventário de emissões", "descarbonização", "neutralidade de carbono", "scope 1 2 3", "offset carbono", "compliance ambiental", "GHG Protocol", "TCFD", "PAS 2060"],
-  "match_setores": ["agronegócio", "indústria", "energia", "transporte", "construção", "holding ESG", "gestoras de impacto"],
-
-  "perfil_cliente": {
-    "porte": ["médio", "grande"],
-    "segmento": ["produtores rurais com área para crédito de carbono", "indústrias com meta de descarbonização", "empresas sob pressão de ESG de clientes ou investidores", "gestoras de impacto"],
-    "regiao_preferencial": "MT, PA, GO (agronegócio + REDD+). SP, MG (indústria). Nacional (ESG corporate)",
-    "frequencia_uso": "Projeto inicial + monitoramento anual",
-    "ticket_minimo": "R$20.000 (MRV de pequeno produtor) a R$500k+ (certificação de grande projeto)",
-    "sinal_de_encaixe": "Empresa que recebe pressão de clientes ou investidores sobre ESG OR produtor rural com área preservada acima de 500ha"
-  },
-
-  "dores": [
-    {
-      "descricao": "Mercado voluntário de carbono no Brasil sem padronização — empresas não sabem como monetizar créditos ou validar offset de fornecedores",
-      "custo_estimado": "Crédito de carbono não certificado corretamente: R$0,50–R$2/tCO2 vs. R$15–R$40/tCO2 certificado — diferença de 10x–20x no valor",
-      "fonte": "BIBLIOTECA_NICHOS v1 — MRV Carbono 4.5",
-      "urgencia": "ALTA"
-    },
-    {
-      "descricao": "Empresas que exportam para Europa precisam de relatório CBAM (Carbon Border Adjustment Mechanism) a partir de 2026 — sem MRV, perdem contratos",
-      "custo_estimado": "Perda de contrato de exportação por ausência de certificação ambiental: valor do contrato",
-      "fonte": "BIBLIOTECA_NICHOS v1 + análise mercado",
-      "urgencia": "ALTA"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "CBAM (EU) · em vigor 2026 para setores selecionados | SBCE (Sistema Brasileiro de Comércio de Emissões) · regulamentação 2024-2026",
-    "orgao": "Comissão Europeia + MMA Brasil",
-    "impacto": "CBAM: exportadores para a Europa precisam de inventário certificado de emissões scope 1 e 2. SBCE: mercado regulado de carbono no Brasil em desenvolvimento — compliance obrigatório para grandes emissores",
-    "prazo": "CBAM transitório: 2023–2025. Definitivo: 2026. SBCE: regulamentação 2025-2026",
-    "urgencia": "ALTA"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "Mercado voluntário de carbono global: USD 2B+ em 2023, projeção USD 50B em 2030. Brasil: maior potencial de créditos REDD+ do mundo",
-    "volume_leads": "Empresas exportadoras afetadas pelo CBAM: estimativa 3.000+ no Brasil. Grandes emissores afetados pelo SBCE: 200–500",
-    "dados_chave": [
-      "BIBLIOTECA_NICHOS: MRV Carbono score 4.5",
-      "Diferença de valor: crédito certificado vs. não certificado = 10x–20x",
-      "CBAM definitivo a partir de 2026 — exportadores para Europa precisam de inventário",
-      "SBCE em regulamentação — janela de preparação antes de compliance obrigatório"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "Monetização de créditos que hoje valem R$0 (não certificados) para R$15–R$40/tCO2 (certificados)",
-    "payback": "Primeiro lote de créditos vendidos",
-    "argumento_numerico": "Fazenda de 1.000ha em área de preservação: 2.000–5.000 tCO2/ano × R$25/tCO2 = R$50k–R$125k/ano em créditos. MRV: R$20k–R$40k. Payback em 3–6 meses."
-  },
-
-  "pricing": {
-    "referencia_mercado": "MRV de pequeno projeto: R$15.000–R$50.000. Certificação VERRA: USD 20.000–USD 100.000. Consultoria ESG estratégica: R$500–1.500/h.",
-    "vanguard": {
-      "mrv_pequeno_produtor": "R$15.000–R$25.000 (até 500ha, inventário básico SBCE)",
-      "mrv_grande_projeto": "R$50.000–R$150.000 (REDD+, metodologia VERRA)",
-      "relatorio_cbam": "R$12.000–R$25.000 por empresa",
-      "nota": "Nicho com ticket alto e mercado em formação — primeiros mover advantage real. CBAM cria urgência imediata para exportadores."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "O mercado de carbono não é confiável",
-      "medo_real": "Já ouviu sobre escândalos de créditos falsos — desconfia do mercado todo",
-      "resposta": "O problema do mercado voluntário de carbono sem metodologia é real. Por isso existem os padrões VERRA e Gold Standard — metodologias auditadas independentemente. Os créditos falsos são justamente os que não têm certificação. A Vanguard opera exclusivamente com metodologias certificadas."
-    },
-    {
-      "objecao": "Não sei se minha empresa tem o que precisa para ter créditos de carbono",
-      "medo_real": "Insegurança sobre o processo — pede diagnóstico",
-      "resposta": "Esse é exatamente o ponto de partida: diagnóstico de elegibilidade. Em 30 minutos de conversa consigo dar um pré-diagnóstico. Não existe investimento na primeira etapa — é análise de viabilidade."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "Sua empresa exporta para a Europa? A partir de 2026, sem inventário de emissões, os contratos podem ser afetados.",
-    "linkedin": "Crédito de carbono não certificado vale R$0,50 por tonelada de CO2.\nCrédito certificado pelo VERRA ou Gold Standard vale R$15 a R$40.\n\nA diferença não é de produto — é de processo de verificação. O ativo existe em ambos os casos. O que muda é se existe uma metodologia auditada que o mercado reconhece.\n\nCBAM (mecanismo de ajuste de carbono da Europa) entra em vigor definitivo em 2026. Empresas que exportam para a Europa sem inventário de emissões certificado vão encontrar exigências nos contratos de compra — ou não vão ser qualificadas.\n\nO Brasil tem o maior potencial de créditos de carbono do mundo. O que falta é o processo correto de MRV — Monitoramento, Reporte e Verificação.",
-    "whatsapp": "Você sabia que crédito de carbono certificado vale 20x mais que não certificado? Sua propriedade pode ter ativos de carbono que não estão sendo monetizados. E se sua empresa exporta para a Europa, o CBAM de 2026 vai exigir inventário de emissões. A Vanguard faz o diagnóstico de elegibilidade gratuitamente.",
-    "proposta_comercial": "MRV de Carbono — do ativo latente para o crédito monetizável.\n\nA maioria das empresas e produtores rurais com ativos de carbono no Brasil não os monetiza por um único motivo: ausência do processo de certificação correto. O ativo existe. O mercado comprador existe. O que falta é o Monitoramento, Reporte e Verificação (MRV) em metodologia reconhecida.\n\nA Vanguard entrega o processo completo: diagnóstico de elegibilidade, levantamento de inventário, aplicação de metodologia certificada (VERRA, Gold Standard ou SBCE), relatório de verificação e suporte ao processo de comercialização dos créditos."
-  },
-
-  "demo_disponivel": false,
-
-  "concorrentes": {
-    "diretos": ["consultorias de sustentabilidade genéricas", "plataformas de compra-venda de créditos (Mercado de Carbono Brasil)", "auditorias de grandes firmas para grandes empresas"],
-    "diferencial_vanguard": "Grandes firmas não atendem PME. Plataformas vendem créditos mas não fazem MRV. Vanguard faz o processo end-to-end para empresas médias."
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F1", "F3", "F9"],
-    "F1_diario_07h": "Novas regulamentações SBCE, novidades CBAM, casos de certificação publicados",
-    "F3_semanal": "Validar urgência do CBAM 2026 e novidades do mercado voluntário",
-    "F9_quinzenal": "Monitorar oportunidades de capital não-dilutivo vinculadas a ESG (FINEP verde, BNDES clima)",
-    "F1_ultima": "2026-06-11",
-    "F9_ultima": "2026-06-11",
-    "proxima_revisao_F11": "2026-07-01"
-  },
-
-  "prospecao": {
-    "fonte_leads": "Produtores rurais em áreas de alta cobertura florestal (IBGE/PRODES). Empresas exportadoras para a Europa (MDIC — lista pública).",
-    "abordagem": "CBAM como urgência imediata para exportadores. Monetização de créditos para produtores rurais.",
-    "perfil_ideal": "Empresa exportadora para Europa (receita >R$5M/ano) OR produtor rural com >500ha em área de preservação"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F3", "F9"],
-  "cowork_fontes": [
-    "BIBLIOTECA_NICHOS v1 — MRV Carbono 4.5",
-    "F9 v2 2026-06-11 (capital não-dilutivo ESG — FINEP verde)"
-  ],
-
-  "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13"
+﻿{
+    "alerta_timing":  "Lei 15.042/2024 sancionada. CBAM em fase definitiva jan/2026. Inventarios 2026 sao pre-requisito para MRV 2027.",
+    "id":  "carbon-esg-mrv",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F1",
+                                                          "F9"
+                                                      ]
+                        },
+    "vertical":  8,
+    "objecoes":  [
+                     {
+                         "objecao":  "ESG e para grandes empresas",
+                         "reversao":  "CBAM afeta qualquer exportador para a UE independente do tamanho. Uma empresa de medio porte que exporta aco ou cimento ja esta sujeita."
+                     },
+                     {
+                         "objecao":  "Ja fazemos relatorio de sustentabilidade",
+                         "reversao":  "Relatorio ESG e diferente de MRV verificavel. CBAM e SBCE exigem metodologia de verificacao independente — relatorio interno nao e suficiente."
+                     },
+                     {
+                         "objecao":  "Ainda nao e obrigatorio no Brasil",
+                         "reversao":  "Para quem exporta para a UE, o CBAM ja e obrigatorio desde jan/2026. Para o mercado domestico, o SBCE (Lei 15.042/2024) esta em fase de regulamentacao — quem comecar agora tem vantagem de pioneiro."
+                     }
+                 ],
+    "match_keywords":  [
+                           "credito de carbono",
+                           "MRV",
+                           "ESG",
+                           "VERRA",
+                           "CBAM",
+                           "SBCE",
+                           "scope 1 2 3",
+                           "offset carbono",
+                           "Lei 15.042/2024",
+                           "inventario de emissoes"
+                       ],
+    "setor":  "Sustentabilidade / Regulatorio / Financas",
+    "demo_disponivel":  false,
+    "subsetor":  "Monitoramento, Reporte e Verificacao de Creditos de Carbono",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  4,
+                                "recorrencia":  3,
+                                "ticket_viavel":  5,
+                                "dor_clara":  5,
+                                "solucao_diferenciada":  4
+                            },
+    "cowork_densidade":  "BAIXA — F1+F9",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_cold":  "O CBAM europeu entrou em vigor em 2026 e exige inventario verificado de emissoes para exportadores. A Lei 15.042/2024 criou o mercado de carbono regulado no Brasil. Nossa equipe estrutura o MRV verificavel necessario para conformidade CBAM e elegibilidade ao SBCE. Voces exportam para a Europa?",
+                       "argumento_abertura":  "O CBAM europeu entrou em fase definitiva em janeiro de 2026. Empresas que exportam para a UE sem inventario verificado estao perdendo acesso ao mercado. Voces tem o dossie de conformidade pronto?",
+                       "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com Lei 15.042/2024 + CBAM + dor de exportadores]"
+                   },
+    "roi_vanguard":  {
+                         "retorno":  "Acesso ao mercado europeu (CBAM) + elegibilidade para creditos de carbono SBCE + vantagem competitiva ESG",
+                         "ticket_estimado":  "R.000 a R.000 por projeto de conformidade MRV",
+                         "pricing":  {
+                                         "modelo":  "Inventario verificado (Scope 1/2/3) + Metodologia MRV + Dossie CBAM para exportadores"
+                                     }
+                     },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Voces exportam produtos para a Uniao Europeia?",
+                                           "Ja fizeram inventario de emissoes (Scope 1, 2 ou 3) verificado por terceiro independente?",
+                                           "Tem interesse em gerar creditos de carbono pelo mercado regulado brasileiro (Lei 15.042/2024)?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Exporta para UE (CBAM obrigatorio) OU tem potencial de creditos de carbono",
+                                                 "Sem inventario verificado por terceiro",
+                                                 "Faturamento acima de R (ticket viavel)"
+                                             ]
+                     },
+    "fit_score":  5,
+    "urgencia_regulatoria":  "ALTA",
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "CBAM UE 2026 — sua empresa exporta para a Europa com inventario verificado?",
+                           "perfil":  "Diretor de Sustentabilidade, CFO ou Diretor de Exportacao de empresa industrialou agronegocio",
+                           "busca_linkedin":  "\"sustentabilidade\" OR \"ESG\" OR \"carbono\" + \"diretor\" OR \"gerente\" + \"industria\" OR \"agronegocio\"",
+                           "tamanho_empresa":  "Empresa com faturamento acima de R e/ou exportacoes para a UE",
+                           "canal":  "LinkedIn / Associacoes setoriais (CNI, CNA, Abraic)"
+                       },
+    "dores":  [
+                  "Inventarios de emissoes 2026 sao pre-requisito para MRV 2027 — quem nao comecar agora perde o ciclo",
+                  "CBAM (Carbon Border Adjustment Mechanism) UE em fase definitiva — exportadores sem conformidade perdem acesso ao mercado europeu",
+                  "Lei 15.042/2024 criou o SBCE — mercado regulado de carbono no Brasil sem protocolo claro de conformidade para PMEs",
+                  "Consultoras de ESG conhecem relatorio mas nao fazem MRV verificavel — gap de mercado",
+                  "Empresas do agronegocio com potencial de credito de carbono sem metodologia VERRA adequada"
+              ],
+    "notas_embaixador":  [
+                             "Ha empresa exportadora para a UE na rede de Eduardo que possa ser o primeiro caso?",
+                             "Consultoras de sustentabilidade podem ser parceiras — elas fazem relatorio, nos fazemos MRV verificavel."
+                         ],
+    "nome":  "Carbono, ESG e MRV",
+    "status":  "MOVER_AGORA",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "agronegocio",
+                          "industria",
+                          "energia",
+                          "gestoras de impacto",
+                          "exportadores UE"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "Lei 15.042/2024 (SBCE) + CBAM UE",
+                                "prazo":  "Inventarios 2026 obrigatorios para MRV 2027. CBAM em fase definitiva jan/2026.",
+                                "impacto":  "Empresas sem inventario verificado perdem acesso ao mercado europeu via CBAM. Inventarios 2026 nao verificados inviabilizam MRV 2027."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "UPGRADE 4.5-\u003e5.0 + PROMOVIDO MONITORAR-\u003eMOVER_AGORA (L34 Embaixador confirmado). Lei 15.042/2024 + CBAM jan/2026."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "setor-eletrico-regulatorio",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Integradoras GD com projetos documentados pela ANEEL tem ativo de carbono — conformidade ANEEL + MRV e combo natural"
+                       },
+                       {
+                           "nicho":  "ma-reestruturacao-societaria",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Empresas em M\u0026A com passivo ESG — due diligence de carbono e pre-requisito para fundos de impacto"
+                       }
+                   ]
 }

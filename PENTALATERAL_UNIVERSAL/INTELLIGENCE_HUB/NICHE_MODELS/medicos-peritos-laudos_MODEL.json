@@ -1,123 +1,125 @@
-{
-  "id": "medicos-peritos-laudos",
-  "nome": "Médicos Peritos — Laudos e Gestão de Processos",
-  "vertical": 7,
-  "status": "MOVER_AGORA",
-  "fit_score": 4.7,
-
-  "setor": "Saúde / Jurídico / Previdência",
-  "subsetor": "Gestão de Laudos Periciais e Conformidade com Órgãos Pagadores",
-  "match_keywords": ["médico perito", "laudo pericial", "INSS", "LOAS", "BPC", "perícia médica", "CRP", "CFM", "TFD", "junta médica", "avaliação incapacidade", "laudo psiquiátrico", "perito judicial", "auxílio-doença", "aposentadoria por invalidez", "deficiência", "CID-11"],
-  "match_setores": ["medicina", "saúde previdenciária", "perícia médica", "psicologia", "fisioterapia", "advocacia previdenciária"],
-
-  "perfil_cliente": {
-    "porte": ["PME", "individual"],
-    "segmento": ["médicos peritos autônomos", "clínicas de perícia", "juntas médicas", "advogados previdenciários que precisam de laudos"],
-    "regiao_preferencial": "Nacional — INSS é federal",
-    "frequencia_uso": "Recorrente — volume alto de laudos por mês",
-    "volume_minimo": "Clínica ou médico com >50 laudos/mês para escala fazer sentido",
-    "sinal_de_encaixe": "Médico perito com backlog de laudos pendentes OR recorrência de laudos rejeitados pelo INSS"
-  },
-
-  "dores": [
-    {
-      "descricao": "Laudos rejeitados por INSS por inconsistência de CID-10 ou ausência de informações exigidas pelo protocolo — médico refaz, tempo perdido, pagamento atrasado",
-      "custo_estimado": "Cada laudo rejeitado: 2–4h de retrabalho + perda de slot na agenda (R$300–800/h perito)",
-      "fonte": "BIBLIOTECA_NICHOS v1 — Médicos Peritos 4.7",
-      "urgencia": "ALTA"
-    },
-    {
-      "descricao": "Gestão manual de laudos e prazos — planilha ou papel — cria risco de laudos perdidos, prazos judiciais vencidos, auditoria CFM vulnerável",
-      "custo_estimado": "Laudo perdido em processo judicial: honorário perdido + risco disciplinar CFM",
-      "fonte": "BIBLIOTECA_NICHOS v1",
-      "urgencia": "ALTA"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "Resolução CFM 2.228/2018 (laudos eletrônicos) + CID-11 implementação 2026",
-    "orgao": "CFM + INSS + CRP (psicologia)",
-    "impacto": "CID-11 substituindo CID-10 em 2026 — médicos peritos precisam atualizar toda codificação. Laudos com CID-10 eventualmente rejeitados.",
-    "prazo": "CID-11: implementação gradual 2025-2026",
-    "urgencia": "MÉDIA"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "Mais de 500.000 perícias médicas/mês no INSS. Mercado de laudos judiciais: estimativa de 200.000 processos com laudo pericial/ano",
-    "volume_leads": "Médicos peritos credenciados INSS: ~6.000. Clínicas de perícia: estimativa 2.000–5.000",
-    "dados_chave": [
-      "BIBLIOTECA_NICHOS: Médicos Peritos score 4.7",
-      "500k+ perícias INSS/mês — volume estrutural",
-      "CID-11 implementação 2026 — janela de urgência real",
-      "Rejeitados por inconsistência de CID: estimativa 8%–15% dos laudos"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "90%+ nas rejeições por inconsistência de CID e protocolo",
-    "payback": "Primeiro mês — redução de retrabalho libera slots na agenda",
-    "argumento_numerico": "Médico perito com 5 laudos rejeitados/mês × 3h de retrabalho = 15h perdidas = R$4.500–R$12.000/mês em agenda ocupada sem receita"
-  },
-
-  "pricing": {
-    "referencia_mercado": "Sistemas de gestão para clínicas: R$200–800/mês (genérico). Treinamento CID-11: R$2.000–5.000 por curso. Sem produto específico para gestão de laudos periciais.",
-    "vanguard": {
-      "diagnostico_inicial": "R$2.000–3.500 (mapeamento do processo de laudo e identificação de gargalos)",
-      "implementacao_processo": "R$5.000–12.000 (estruturação do fluxo de laudos com templates e checklist INSS)",
-      "retainer_monitoramento": "R$800–2.000/mês (atualização de templates com novas exigências + suporte)",
-      "nota": "Mercado novo — sem concorrência direta. Âncora: custo do retrabalho de laudos rejeitados."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "Já uso um sistema de prontuário",
-      "medo_real": "Confusão entre prontuário eletrônico e gestão de laudos periciais",
-      "resposta": "O prontuário é para o atendimento clínico. O laudo pericial tem exigências específicas do INSS e do CFM — protocolo próprio, linguagem técnica diferente, documentação adicional. A maioria dos sistemas de prontuário não tem esse módulo."
-    },
-    {
-      "objecao": "Sei fazer o laudo — não preciso de ajuda",
-      "medo_real": "Orgulho técnico — questionar processo pode parecer questionar competência",
-      "resposta": "A qualidade técnica do laudo não está em discussão. O que estamos ajustando é o processo documental que o INSS e o CFM exigem — não o diagnóstico médico."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "Quantos laudos foram rejeitados nos últimos 30 dias? O que o INSS pediu que faltava?",
-    "linkedin": "Médico perito passa 3 horas refazendo um laudo que o INSS rejeitou por inconsistência de CID-10.\n\nO diagnóstico estava correto. A clínica estava impecável. O problema estava na codificação de um campo secundário que o protocolo do INSS passou a exigir após a última atualização.\n\nCom CID-11 em implementação, isso vai se repetir mais — não menos.\n\nA Vanguard estrutura o processo de laudo do início ao fim: templates validados contra o protocolo atual do INSS, checklist por tipo de perícia, sistema de acompanhamento de prazos judiciais. O laudo sai certo na primeira entrega.",
-    "whatsapp": "Quantos laudos foram rejeitados pelo INSS nos últimos 30 dias? Com CID-11 sendo implementado em 2026, esse número tende a crescer. A Vanguard estrutura o processo de laudo com templates validados contra o protocolo atual. Posso mostrar como funciona?",
-    "proposta_comercial": "Laudo certo na primeira entrega.\n\nMédicos peritos perdem em média 8%–15% dos laudos por inconsistência de protocolo — não por erro diagnóstico. O problema é documental: CID desatualizado, campo exigido ausente, prazo não monitorado.\n\nA Vanguard estrutura o processo completo de laudo pericial: templates por tipo de perícia (INSS, judicial, CFM), checklist de validação antes do envio, atualização automática quando o protocolo muda e monitoramento de prazos judiciais. O resultado é zero retrabalho e zero laudo perdido."
-  },
-
-  "demo_disponivel": false,
-
-  "concorrentes": {
-    "diretos": ["sistemas de prontuário genérico (iClinic, etc. — não específicos para perícia)", "cursos de CID-11 (formação, não processo)", "advogados previdenciários que orientam o médico informalmente"],
-    "diferencial_vanguard": "Produto inexistente no mercado: gestão de processo de laudo pericial. Não é sistema de prontuário — é processo documental especializado."
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F1", "F3", "F11"],
-    "F1_diario_07h": "Novas exigências INSS para laudos, atualizações CFM, CID-11 implementação",
-    "F3_semanal": "Validar fit — monitorar novidades no protocolo de perícia médica",
-    "F11_mensal_dia1": "Atualizar pricing baseado em referências de mercado para sistemas de gestão de saúde",
-    "F1_ultima": "2026-06-11",
-    "F11_ultima": "2026-06-11",
-    "proxima_revisao_F11": "2026-07-01"
-  },
-
-  "prospecao": {
-    "fonte_leads": "CFM — cadastro de peritos. Associações médicas previdenciárias. LinkedIn (médicos peritos credenciados INSS)",
-    "abordagem": "Dor de retrabalho como entrada + CID-11 como gatilho de urgência",
-    "perfil_ideal": "Médico perito autônomo com >50 laudos/mês ou clínica de perícia com 2+ médicos"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F3"],
-  "cowork_fontes": [
-    "BIBLIOTECA_NICHOS v1 — Médicos Peritos 4.7 (segundo score mais alto da biblioteca)"
-  ],
-
-  "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13"
+﻿{
+    "roi_vanguard":  {
+                         "retorno":  "Prevencao de impugnacao de laudos + protecao de honorarios + eliminacao de risco etico CFM",
+                         "ticket_estimado":  "R.000 a R.000 setup + R-1.500/mes recorrente",
+                         "pricing":  {
+                                         "modelo":  "Auditoria do portfolio de laudos + Atualizacao metodologica CFM 2.448/2025 + Sistema de gestao documental"
+                                     }
+                     },
+    "id":  "medicos-peritos-laudos",
+    "vertical":  7,
+    "objecoes":  [
+                     {
+                         "objecao":  "Faco laudos ha anos sem problema",
+                         "reversao":  "O CFM 2.448/2025 e de 2025 — o risco de impugnacao e retroativo para laudos que precisem de revisao. Medicos que estao a mais tempo no mercado tem portfolio maior de exposicao."
+                     },
+                     {
+                         "objecao":  "Tenho templates que uso sempre",
+                         "reversao":  "Templates anteriores ao CFM 2.448/2025 nao incorporam os novos requisitos de documentacao. O INSS ja usa o novo padrao — seus laudos sao aceitos?"
+                     },
+                     {
+                         "objecao":  "Nunca tive laudo rejeitado",
+                         "reversao":  "A nova norma e recente — as impugnacoes ainda estao chegando. Medicos com carteira de INSS e planos de saude serao os primeiros afetados."
+                     }
+                 ],
+    "match_keywords":  [
+                           "medico perito",
+                           "laudo pericial",
+                           "INSS",
+                           "LOAS",
+                           "CID-11",
+                           "junta medica",
+                           "pericia",
+                           "CFM 2.448/2025",
+                           "laudo impugnado"
+                       ],
+    "setor":  "Saude / Juridico / Previdencia",
+    "demo_disponivel":  false,
+    "subsetor":  "Gestao de Laudos Periciais e Conformidade",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  5,
+                                "recorrencia":  5,
+                                "ticket_viavel":  4,
+                                "dor_clara":  5,
+                                "solucao_diferenciada":  5
+                            },
+    "cowork_densidade":  "MEDIA — F1+F3",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "Oi doutor(a) [nome], [indicado por X]. O CFM 2.448/2025 mudou o padrao de laudos periciais e muitos medicos ainda nao fizeram a atualizacao. Nossa equipe audita o portfolio e adapta os templates. Vale uma conversa de 20 minutos?",
+                       "whatsapp_cold":  "O CFM 2.448/2025 atualizou o padrao de documentacao para laudos periciais. Laudos sem conformidade estao sendo impugnados — o medico perde os honorarios e pode responder ao CFM. Nossa equipe faz a auditoria do portfolio e a atualizacao metodologica. Voce ja revisou seus laudos com base na nova norma?",
+                       "argumento_abertura":  "O CFM 2.448/2025 criou novo padrao de documentacao para laudos periciais. Laudos fora do padrao estao sendo impugnados — o medico perde os honorarios e responde eticamente. Seu portfolio de laudos esta em conformidade?",
+                       "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com dado CFM 2.448/2025 + dor de impugnacao]"
+                   },
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "CFM 2.448/2025 — seus laudos estao no novo padrao?",
+                           "perfil":  "Medico perito credenciado no INSS ou em planos de saude, com carteira ativa de laudos",
+                           "busca_linkedin":  "\"medico perito\" OR \"perito medico\" OR \"laudo pericial\" + \"INSS\" OR \"previdencia\"",
+                           "tamanho_empresa":  "Medico autonomo ou pequena clinica de pericia (ate 5 profissionais)",
+                           "canal":  "LinkedIn / Indicacao de advogados previdenciaristas / Associacoes medicas"
+                       },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Quantos laudos voce emite por mes em media?",
+                                           "Voce fez alguma atualizacao metodologica apos o CFM 2.448/2025?",
+                                           "Ja teve algum laudo impugnado ou questionado nos ultimos 12 meses?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Acima de 10 laudos/mes (risco acumulado relevante)",
+                                                 "Sem atualizacao metodologica CFM 2.448/2025",
+                                                 "Credenciado no INSS ou planos de saude (maior volume de impugnacao)"
+                                             ]
+                     },
+    "fit_score":  5,
+    "urgencia_regulatoria":  "ALTA",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F1",
+                                                          "F3"
+                                                      ]
+                        },
+    "dores":  [
+                  "CFM 2.448/2025 criou novo padrao de documentacao que torna laudos anteriores vulneraveis a impugnacao",
+                  "Laudo impugnado por falta de conformidade CFM = medico perde honorarios + risco de processo etico",
+                  "Volume de laudos alto sem sistema de gestao documental — risco cresce com o portfolio",
+                  "Medico perito sem atualizacao metodologica formal ficou exposto sem saber",
+                  "Junta medica do INSS usa CFM 2.448/2025 como criterio de aceitacao — laudos nao conformes sao automaticamente rejeitados"
+              ],
+    "notas_embaixador":  [
+                             "Ha medico perito na rede de Eduardo para validar a dor antes de entrar comercialmente?",
+                             "Advogados previdenciaristas podem ser parceiros de indicacao — eles trabalham com medicos peritos diariamente."
+                         ],
+    "nome":  "Medicos Peritos — Laudos e Gestao de Processos",
+    "status":  "MOVER_AGORA",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "medicina",
+                          "previdencia",
+                          "pericia medica",
+                          "psicologia",
+                          "medicina do trabalho"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "CFM 2.448/2025",
+                                "prazo":  "Em vigor desde 2025 — atualizacao metodologica obrigatoria para laudos periciais",
+                                "impacto":  "Laudos sem o novo padrao CFM 2.448/2025 estao sendo impugnados — medico perde honorarios e enfrenta processo etico."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "UPGRADE fit 4.7-\u003e5.0 + PROMOVIDO MONITORAR-\u003eMOVER_AGORA (Diretor 2026-06-13). CFM 2.448/2025 novo padrao de laudos."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "glosa-hospitalar",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Hospital com medicos peritos internos — compliance de laudo e conformidade de faturamento sao o mesmo cliente em escala"
+                       }
+                   ]
 }

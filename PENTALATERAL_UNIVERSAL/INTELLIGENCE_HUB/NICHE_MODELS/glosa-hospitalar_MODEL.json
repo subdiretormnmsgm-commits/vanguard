@@ -1,136 +1,128 @@
-{
-  "id": "glosa-hospitalar",
-  "nome": "Glosa Hospitalar / Defesa Médica",
-  "vertical": 2,
-  "status": "MOVER_AGORA",
-  "fit_score": 4.6,
-
-  "setor": "Saúde / Faturamento Hospitalar",
-  "subsetor": "Auditoria Preventiva de Faturamento e Gestão de Glosas",
-  "match_keywords": ["glosa", "hospital", "plano de saúde", "faturamento hospitalar", "ANS", "TISS", "prontuário", "CID-10", "autorização prévia", "auditoria médica", "recuperação de receita", "contestação de glosa", "codificação de procedimentos", "Anahp"],
-  "match_setores": ["saúde", "hospital", "clínica", "operadora de saúde", "medicina"],
-
-  "perfil_cliente": {
-    "porte": ["médio", "grande"],
-    "segmento": ["hospitais privados", "clínicas especializadas", "grupos hospitalares"],
-    "regiao_preferencial": "Nacional (mercado estrutural em todo o Brasil)",
-    "frequencia_uso": "Recorrente — retainer mensal ou projeto inicial + manutenção",
-    "faturamento_minimo": "R$500k/mês (para glosa ser material)",
-    "sinal_de_encaixe": "Taxa de glosa >3% do faturamento OR reclamação ativa sobre planos de saúde"
-  },
-
-  "dores": [
-    {
-      "descricao": "15,89% do faturamento hospitalar glosado por planos de saúde em 2025-2026",
-      "custo_estimado": "Hospital médio: R$2M–R$15M/ano em glosas não contestadas",
-      "fonte": "Anahp Observatório 2026 · saudedigitalnews.com.br · 2026-06-11",
-      "urgencia": "ALTA"
-    },
-    {
-      "descricao": "98% das glosas são contestáveis, mas menos de 15% são contestadas por falta de processo organizado",
-      "custo_estimado": "84% das glosas contestáveis ficam na mesa sem recurso",
-      "fonte": "F1 Radar de Dor 2026-06-11 · F16 Dores Invisíveis",
-      "urgencia": "ALTA"
-    },
-    {
-      "descricao": "Gargalo de codificação de procedimentos — CID-10 incorreto, autorização vencida, documentação incompleta",
-      "custo_estimado": "Mais de 60% das glosas originárias de erro de processo — evitáveis antes do envio da conta",
-      "fonte": "F1 2026-06-11",
-      "urgencia": "ALTA"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "CFM 2.448/2025 + RDC 1.000/2025 (receituário eletrônico SNCR)",
-    "orgao": "CFM + ANVISA + ANS RN 566/2022",
-    "impacto": "Documentação de laudos e prescrições em conformidade obrigatória — expõe quem não tem rastreabilidade. Receituário eletrônico integrado ao SNCR obrigatório desde 01/06/2026",
-    "prazo": "CFM 2.448/2025 em vigor 2026 · SNCR desde 01/06/2026",
-    "urgencia": "ALTA"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "Hospitais privados brasileiros: R$5,8 bilhões glosados em 12 meses (fonte: Anahp 2026)",
-    "volume_leads": "Centenas de hospitais privados e milhares de clínicas especializadas",
-    "dados_chave": [
-      "R$5,8 bilhões glosados em hospitais privados em 12 meses — Anahp Observatório 2026",
-      "15,89% do faturamento retido pelos planos — Saúde Digital News 05/06/2026",
-      "Taxa de glosa subiu de 3,63% (2022) para 4,51% (2023) — tendência de alta",
-      "98% das glosas são contestáveis — apenas 1,96% mantidas após revisão",
-      "ROI de recuperação: 5–15x no primeiro ano para hospitais com auditoria ativa"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "60–80% na taxa de glosa em 90 dias (modelo preventivo vs. retroativo)",
-    "payback": "Primeiros 90 dias — ROI de 5–15x",
-    "argumento_numerico": "Hospital com faturamento de R$10M/mês perde R$1,5M em glosas/mês. Recuperação de 60% = R$900k/mês → payback da Vanguard na primeira fatura"
-  },
-
-  "pricing": {
-    "referencia_mercado": "Auditoria médica: R$150–600/h (tabela técnica). Solução SaaS de glosas: R$1.500–5.000/mês (estimativa de mercado). Sem referência pública consolidada para auditoria preventiva estratégica.",
-    "vanguard": {
-      "modelo_recomendado": "Success fee — % do valor recuperado nos primeiros 90 dias",
-      "entrada": "R$5.000–12.000 diagnóstico inicial (mapeamento do ciclo de faturamento)",
-      "retainer": "Negociado após diagnóstico com base no tamanho do faturamento",
-      "argumento": "Quanto custou o que os planos não pagaram nos últimos 12 meses? Esse é o número que determina o contrato — não o preço do serviço.",
-      "nota": "Pricing sem preço definido — oportunidade de modelo de sucesso. Âncora: volume de glosa do cliente, não hora técnica."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "Já temos auditoria interna",
-      "medo_real": "Exposição — admitir que auditoria própria pode não funcionar",
-      "resposta": "Quanto foi glosado nos últimos 12 meses mesmo com a auditoria interna? Se for acima de 3% do faturamento, há margem para melhora — a auditoria interna tende a focar na contestação, não na prevenção."
-    },
-    {
-      "objecao": "Planos sempre cortam mesmo, não adianta contestar",
-      "medo_real": "Resignação aprendida após tentativas frustradas de recurso",
-      "resposta": "98% das glosas são contestáveis — apenas 1,96% se sustentam após revisão. A Vanguard faz a contestação de forma processual. O que falta não é argumento — é processo."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "Quanto sua instituição perdeu em glosas nos últimos 12 meses?",
-    "linkedin": "A média dos hospitais brasileiros perde entre 10% e 20% do faturamento em glosas. Hospitais bem geridos ficam em 2% a 4%.\n\nA diferença não é tamanho nem convênio. É processo. Glosa por CID-10 incorreto, autorização vencida e documentação médica incompleta respondem por mais de 60% dos casos — e todos são evitáveis antes do envio da conta.\n\nO modelo de revisão retroativa recupera menos de 40% do valor contestado. O modelo preventivo elimina a glosa na origem.\n\nA Vanguard implementa auditoria preventiva de faturamento. O resultado típico é redução de 60-80% na taxa de glosa nos primeiros 90 dias.\n\nQuanto sua instituição perdeu em glosas nos últimos 12 meses?",
-    "whatsapp": "Quanto sua clínica perdeu em glosas nos últimos 12 meses? A média do setor é 10-20% do faturamento. Com auditoria preventiva antes do envio da conta, a Vanguard reduz isso para menos de 4% em 90 dias. Posso mostrar como em 20 minutos?",
-    "proposta_comercial": "Glosa hospitalar: o problema que parece ser dos planos mas é de processo.\n\nR$5,8 bilhões foram retidos pelos planos de saúde nos hospitais privados brasileiros em 12 meses. Desse total, apenas 1,96% se sustentam após revisão detalhada — o resto é tecnicamente contestável.\n\nO modelo retroativo (recurso após o não pagamento) é custoso, lento e recupera menos de 40% do contestado. A Vanguard opera no modelo preventivo: auditoria do ciclo de faturamento antes do envio da conta.\n\nEntregamos mapeamento completo do ciclo de faturamento, identificação dos gargalos de codificação e implementação de processo preventivo. Em 90 dias, o cliente opera com taxa de glosa abaixo de 4%."
-  },
-
-  "demo_disponivel": false,
-  "demo_html_drive_id": "1blZ-I8Ok26uj95nuGEocJEJa3Zu8CFKN",
-  "roteiro_demo_arquivo": "2026-06-11_F8_demo_rastreabilidade_sanitaria.html (referência — não lido, mime type não suportado)",
-
-  "concorrentes": {
-    "diretos": ["Carefy (SaaS de gestão de glosas)", "OfficeTotall", "auditorias internas hospitalares"],
-    "diferencial_vanguard": "Concorrentes focam em contestação retroativa. Vanguard opera prevenção na origem — modelo categoricamente diferente. White-label possível: o sistema parece da própria instituição."
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F1", "F3", "F11", "F16"],
-    "F1_diario_07h": "Radar de dor — novas regulamentações ANS/CFM, dados de glosa atualizados",
-    "F3_semanal": "Filtro de encaixe — validar se novos regulamentos aumentam urgência",
-    "F11_mensal_dia1": "Benchmark de pricing — tarifa de auditoria médica, SaaS de glosas",
-    "F16_dores_invisiveis": "Fonte original de sinal — marcado como PERFEITO",
-    "F1_ultima": "2026-06-11",
-    "F11_ultima": "2026-06-11",
-    "proxima_revisao_F11": "2026-07-01"
-  },
-
-  "prospecao": {
-    "fonte_leads": "Associações hospitalares (Anahp, FBH) — dados de glosa publicados anualmente",
-    "abordagem": "Narrativa de recuperação de receita — não de custo de serviço",
-    "perfil_ideal": "Hospital com faturamento >R$5M/mês, planos de saúde como principal pagador"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F3", "F16"],
-  "cowork_fontes": [
-    "F1 2026-06-11 (v2 expandida — glosa R$5,8bi)",
-    "F1 2026-06-11 (v1 — glosa, CFM 2.448/2025)",
-    "BIBLIOTECA_NICHOS v1 — Glosa Hospitalar"
-  ],
-
-  "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13"
+﻿{
+    "roi_vanguard":  {
+                         "retorno":  "Recuperacao de 40-60% das glosas indevidas + prevencao de novas glosas com documentacao CFM 2.448/2025",
+                         "ticket_estimado":  "R.000 a R.000 por projeto",
+                         "pricing":  {
+                                         "modelo":  "Auditoria de faturamento + Implementacao de protocolo de documentacao preventiva + Treinamento da equipe de faturamento"
+                                     }
+                     },
+    "id":  "glosa-hospitalar",
+    "vertical":  2,
+    "objecoes":  [
+                     {
+                         "objecao":  "Ja temos um setor de faturamento",
+                         "reversao":  "Faturamento codifica — nao audita preventivamente nem usa o CFM 2.448/2025 como argumento de defesa. Sao funcoes complementares."
+                     },
+                     {
+                         "objecao":  "Nossa taxa de glosa e de 5%, nao e grave",
+                         "reversao":  "5% sobre um faturamento de R sao R/ano perdidos. Com documentacao adequada, recupera-se 40-60% do que e glosado indevidamente."
+                     },
+                     {
+                         "objecao":  "Ja temos juridico para contestar",
+                         "reversao":  "Juridico age no passivo. Nosso metodo atua antes da glosa — documentacao preventiva que elimina o argumento do auditor do plano antes da contestacao."
+                     }
+                 ],
+    "match_keywords":  [
+                           "glosa",
+                           "hospital",
+                           "plano de saude",
+                           "faturamento hospitalar",
+                           "ANS",
+                           "CID-10",
+                           "auditoria medica",
+                           "Anahp",
+                           "CFM 2.448/2025",
+                           "taxa de glosa"
+                       ],
+    "setor":  "Saude / Faturamento Hospitalar",
+    "demo_disponivel":  false,
+    "subsetor":  "Auditoria Preventiva de Faturamento e Gestao de Glosas",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  4,
+                                "recorrencia":  5,
+                                "ticket_viavel":  5,
+                                "dor_clara":  5,
+                                "solucao_diferenciada":  5
+                            },
+    "cowork_densidade":  "ALTA — F1+F3+F11+F16 convergindo",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "Oi [nome], [indicado por X]. A taxa de glosa media chegou a 17% — e o CFM 2.448/2025 trouxe argumentos de defesa que poucos hospitais usam. Nossa equipe audita o faturamento de forma preventiva. Vale uma conversa?",
+                       "whatsapp_cold":  "A taxa de glosa hospitalar chegou a 17% no Q1/2025. O CFM 2.448/2025 criou um novo padrao de documentacao que pode ser usado como defesa — mas a maioria dos hospitais ainda nao adaptou os protocolos. Nossa equipe implementa a auditoria preventiva que reduz as glosas antes de acontecerem. Como esta a sua taxa atual?",
+                       "argumento_abertura":  "A taxa de glosa hospitalar atingiu 17% no Q1/2025 e o CFM 2.448/2025 criou um argumento legal que a maioria dos hospitais ainda nao usa para defesa. Sua equipe de faturamento ja adaptou os protocolos?",
+                       "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa de 200 palavras com dado 17% glosa + CFM 2.448/2025]"
+                   },
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "CFM 2.448/2025 — sua equipe de faturamento ja adaptou os protocolos de documentacao?",
+                           "perfil":  "Diretor Financeiro, Gerente de Faturamento ou Diretor Medico de hospital privado",
+                           "busca_linkedin":  "\"faturamento hospitalar\" OR \"auditoria medica\" OR \"glosa\" + \"hospital\" + \"diretor\" OR \"gerente\"",
+                           "tamanho_empresa":  "Hospital privado 50-500 leitos com faturamento acima de R/ano",
+                           "canal":  "LinkedIn / Associacoes hospitalares (ANAHP, FBH) / Indicacao"
+                       },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Qual e a taxa de glosa atual do hospital?",
+                                           "Tem um processo estruturado de contestacao de glosas indevidas?",
+                                           "A equipe de faturamento ja foi atualizada sobre o CFM 2.448/2025?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Taxa de glosa acima de 8% (benchmark de mercado e 5-7%)",
+                                                 "Sem processo sistematico de contestacao",
+                                                 "Faturamento acima de R/ano (impacto financeiro relevante)"
+                                             ]
+                     },
+    "fit_score":  5,
+    "urgencia_regulatoria":  "ALTA",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F1",
+                                                          "F3",
+                                                          "F11",
+                                                          "F16"
+                                                      ]
+                        },
+    "dores":  [
+                  "Taxa de glosa atingiu 17% no Q1/2025 — perda financeira direta e crescente",
+                  "CFM 2.448/2025 criou argumento legal que hospitais ainda nao usam para defesa de glosas",
+                  "Auditores de planos de saude aplicam glosas preventivas sabendo que hospitais nao documentam adequadamente",
+                  "Processo de contestacao de glosas e manual, lento e com baixa taxa de recuperacao",
+                  "CFM 2.448/2025 judicializada — hospitais sem documentacao adequada ficam vulneraveis nos dois lados"
+              ],
+    "notas_embaixador":  [
+                             "Ha diretor financeiro ou de faturamento hospitalar na rede de Eduardo?",
+                             "CFM 2.448/2025 judicializada pela FenaSaude — acompanhar desfecho juridico para atualizar argumento."
+                         ],
+    "nome":  "Glosa Hospitalar / Defesa Medica",
+    "status":  "MOVER_AGORA",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "saude",
+                          "hospital",
+                          "clinica",
+                          "medicina",
+                          "faturamento hospitalar"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "CFM 2.448/2025",
+                                "prazo":  "Em vigor — CFM 2.448/2025 judicializada pela FenaSaude em fev/2026 (incerteza juridica ativa)",
+                                "impacto":  "Taxa de glosa atingiu 17% no Q1/2025. CFM 2.448/2025 criou novo padrao de documentacao que hospitais ainda nao operacionalizaram — argumento legal para defesa de glosa."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "UPGRADE fit 4.6-\u003e5.0 + PROMOVIDO MONITORAR-\u003eMOVER_AGORA (Diretor 2026-06-13). Taxa glosa 17% Q1/2025. CFM 2.448/2025."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "medicos-peritos-laudos",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Hospital com problema de glosa frequentemente tem medicos peritos emitindo laudos sem o novo padrao CFM 2.448/2025 — mesmo prospect, dois produtos"
+                       }
+                   ]
 }

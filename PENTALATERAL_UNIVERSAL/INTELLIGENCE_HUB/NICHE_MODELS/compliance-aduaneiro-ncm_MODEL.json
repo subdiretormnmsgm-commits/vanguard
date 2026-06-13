@@ -1,124 +1,129 @@
-{
-  "id": "compliance-aduaneiro-ncm",
-  "nome": "Compliance Aduaneiro — NCM e Tributação de Importação",
-  "vertical": 3,
-  "status": "MOVER_AGORA",
-  "fit_score": 4.3,
-
-  "setor": "Comércio Exterior / Tributário",
-  "subsetor": "Classificação NCM e Compliance de Importação",
-  "match_keywords": ["NCM", "nomenclatura", "importação", "exportação", "classificação fiscal", "Receita Federal", "II", "IPI", "ICMS importação", "drawback", "ex-tarifário", "SISCOMEX", "DI", "tarifa aduaneira", "classificação de mercadoria", "multa aduaneira", "auditoria fiscal", "comércio exterior", "MDIC"],
-  "match_setores": ["importação", "comércio exterior", "manufatura", "distribuição", "varejo", "indústria", "tecnologia (importação de equipamentos)"],
-
-  "perfil_cliente": {
-    "porte": ["PME", "médio"],
-    "segmento": ["importadoras", "distribuidoras com importação direta", "indústrias com matéria-prima importada"],
-    "regiao_preferencial": "SP, RJ, RS (maiores volumes de importação no Brasil)",
-    "frequencia_uso": "Recorrente — revisão semestral + intervenção em auditoria",
-    "volume_minimo": "Empresas com importações >R$1M/ano",
-    "sinal_de_encaixe": "Empresa com importações recorrentes mas sem equipe de comércio exterior especializada"
-  },
-
-  "dores": [
-    {
-      "descricao": "LC 227/2026 (publicada 05/06/2026) — exige empresas com importações >R$5M em 3 anos a revisar classificações NCM de forma retroativa sob pena de autuação",
-      "custo_estimado": "Multa por incorreta classificação: 1%–30% do valor aduaneiro da mercadoria por DI. Imposto retroativo + juros + multa pode chegar a 300% do valor original",
-      "fonte": "F1 v1 2026-06-11 (Radar de Dor NCM) · MDIC",
-      "urgencia": "ALTA"
-    },
-    {
-      "descricao": "Classificação NCM errada por desatualização — tabela TIPI muda sem comunicação proativa",
-      "custo_estimado": "Custo por DI autuada: R$50k–R$2M dependendo do volume",
-      "fonte": "F1 2026-06-11",
-      "urgencia": "ESTRUTURAL"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "LC 227/2026 — publicada 05/06/2026",
-    "orgao": "Receita Federal / MDIC",
-    "impacto": "Revisão retroativa obrigatória de classificações NCM para importadoras com >R$5M em 3 anos. Prazo e sanções ainda sendo regulamentados.",
-    "prazo": "Regulamentação pendente — LC publicada 05/06/2026",
-    "urgencia": "ALTA"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "Empresas importadoras afetadas por LC 227/2026: estimativa 5.000–15.000 CNPJ com volume material",
-    "volume_leads": "Foco: importadoras de médio porte sem área de comércio exterior estruturada",
-    "dados_chave": [
-      "LC 227/2026 publicada 05/06/2026 — exige revisão retroativa de NCM · F1 2026-06-11",
-      "Multa por NCM incorreta: 1%–30% do valor aduaneiro por DI — potencial >R$1M por empresa",
-      "Empresa de médio porte típica: 20–50 DIs/mês, múltiplas NCMs — risco de classificação incorreta em 10%–30% dos itens"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "Eliminação de risco retroativo + redução de alíquota efetiva em 5–15% por reclassificação correta",
-    "payback": "Primeira auditoria — identificação de reclassificação gera economia imediata",
-    "argumento_numerico": "LC 227/2026: revisão retroativa obrigatória. Empresa com R$10M em importações nos últimos 3 anos → autuação potencial de R$500k–R$3M por classificação NCM incorreta"
-  },
-
-  "pricing": {
-    "referencia_mercado": "Despachante aduaneiro: R$300–800/DI. Escritório especializado em comércio exterior: R$400–800/h. Consultoria de classificação NCM: R$3.500–6.000/projeto.",
-    "vanguard": {
-      "auditoria_ncm": "R$3.500–6.000 por projeto de auditoria (até 50 NCMs revisadas)",
-      "retainer_monitoramento": "R$1.500–3.000/mês para monitoramento contínuo de mudanças na TIPI",
-      "nota": "Âncora: potencial de autuação retroativa vs. custo de prevenção. LC 227/2026 cria urgência real com prazo curto."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "Temos despachante que cuida disso",
-      "medo_real": "Despachante é operacional — não faz auditoria estratégica de classificação retroativa",
-      "resposta": "O despachante garante o processo de importação. A LC 227/2026 pede revisão retroativa das classificações — isso é auditoria fiscal, não processo de importação. São dois serviços distintos."
-    },
-    {
-      "objecao": "Nunca fui autuado, deve estar certo",
-      "medo_real": "Confusão entre ausência de fiscalização e conformidade",
-      "resposta": "A auditoria da Receita Federal em classificação NCM é cíclica — empresas ficam anos sem ser autuadas e depois recebem o retroativo com multa e juros. A LC 227/2026 sinaliza que a Receita vai intensificar revisões."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "Sua empresa importa mais de R$1M/ano? A LC 227/2026 exige revisão retroativa das suas classificações NCM.",
-    "linkedin": "Nova lei publicada em 5 de junho. LC 227/2026.\n\nEmpresas que importam acima de R$5 milhões em 3 anos precisam revisar as classificações NCM retroativamente. A multa por classificação incorreta varia de 1% a 30% do valor aduaneiro — por declaração de importação.\n\nO problema não é intenção. É que a tabela TIPI muda, o negócio muda, e a classificação original fica desatualizada sem que ninguém saiba. A maioria das empresas descobre na autuação.\n\nA janela de adequação voluntária é muito mais barata que a autuação retroativa. A Vanguard faz a auditoria de classificação NCM enquanto a janela ainda está aberta.",
-    "whatsapp": "A LC 227/2026 (publicada 05/06) obriga revisão retroativa de classificações NCM para importadoras acima de R$5M em 3 anos. Multa: até 30% do valor aduaneiro por DI. A Vanguard faz a auditoria NCM antes da autuação. Quando posso apresentar o que fazemos?",
-    "proposta_comercial": "Auditoria NCM — conformidade antes da autuação retroativa.\n\nA LC 227/2026 muda o cenário para importadoras brasileiras de médio porte: revisão retroativa obrigatória, com risco de multa de 1% a 30% do valor aduaneiro por declaração incorreta.\n\nA Vanguard entrega auditoria completa das classificações NCM — revisão de cada item importado contra a tabela TIPI vigente, identificação de divergências e reclassificação para conformidade. Resultado: empresa protegida da autuação retroativa e, frequentemente, com redução de alíquota efetiva."
-  },
-
-  "demo_disponivel": false,
-
-  "concorrentes": {
-    "diretos": ["despachantes aduaneiros", "escritórios de advocacia tributária (foco em litígio, não prevenção)", "consultorias de comércio exterior genéricas"],
-    "diferencial_vanguard": "Mercado atua em operação e litígio. Vanguard atua em prevenção e conformidade proativa — com timing na janela de adequação voluntária."
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F1", "F3", "F11"],
-    "F1_diario_07h": "Novas regulamentações Receita Federal, mudanças TIPI, casos de autuação NCM publicados",
-    "F3_semanal": "Validar urgência do gatilho LC 227/2026, monitorar regulamentação complementar",
-    "F11_mensal_dia1": "Atualizar pricing.referencia_mercado com tabela de honorários de comércio exterior",
-    "F1_ultima": "2026-06-11",
-    "F3_ultima": null,
-    "F11_ultima": "2026-06-11",
-    "proxima_revisao_F11": "2026-07-01",
-    "alerta_prazo": "LC 227/2026 regulamentação pendente — acompanhar publicação de prazo no DOU"
-  },
-
-  "prospecao": {
-    "fonte_leads": "SISCOMEX público — empresas habilitadas por volume de importação",
-    "abordagem": "LC 227/2026 como gatilho imediato de urgência",
-    "perfil_ideal": "Importadora com >R$5M em 3 anos, sem área especializada de comércio exterior interna"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F3"],
-  "cowork_fontes": [
-    "F1 v1 2026-06-11 (LC 227/2026 NCM radar de dor)",
-    "BIBLIOTECA_NICHOS v1 — NCM 3.2 (MONITORAR → promovido por LC 227/2026)"
-  ],
-
-  "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13"
+﻿{
+    "alerta_timing":  "LC 227/2026 publicada 05/06 — penalidade R.000 por informacao incorreta. Reforma Tributaria bloqueia NF com NCM errado diretamente na SEFAZ.",
+    "id":  "compliance-aduaneiro-ncm",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F1",
+                                                          "F3",
+                                                          "F11"
+                                                      ]
+                        },
+    "vertical":  3,
+    "objecoes":  [
+                     {
+                         "objecao":  "Nosso despachante aduaneiro atualiza as NCMs a cada embarque",
+                         "reversao":  "O despachante foca no desembaraco pontual, nao na auditoria historica do portfolio. O novo cruzamento de dados da Receita Federal exige coerencia retroativa e conformidade com ex-tarifarios."
+                     },
+                     {
+                         "objecao":  "Nunca tivemos problema com NCM",
+                         "reversao":  "A Reforma Tributaria mudou o risco: antes, um erro gerava multa negociavel. Agora, a SEFAZ rejeita a NF automaticamente — sem negociacao, sem transacao. O faturamento para."
+                     },
+                     {
+                         "objecao":  "E muito caro fazer uma auditoria de todo o portfolio",
+                         "reversao":  "Quanto custa um dia com todas as notas de importacao rejeitadas na SEFAZ? Nossa auditoria preventiva identifica os SKUs de maior risco primeiro — mitigamos o Pareto em 20% do tempo."
+                     }
+                 ],
+    "match_keywords":  [
+                           "NCM",
+                           "importacao",
+                           "classificacao fiscal",
+                           "Receita Federal",
+                           "SISCOMEX",
+                           "multa aduaneira",
+                           "LC 227/2026",
+                           "SEFAZ",
+                           "Reforma Tributaria",
+                           "ex-tarifario",
+                           "CAMEX"
+                       ],
+    "setor":  "Comercio Exterior / Tributario",
+    "demo_disponivel":  false,
+    "subsetor":  "Classificacao NCM e Compliance de Importacao",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  4,
+                                "recorrencia":  4,
+                                "ticket_viavel":  4,
+                                "dor_clara":  5,
+                                "solucao_diferenciada":  5
+                            },
+    "cowork_densidade":  "MEDIA — F1+F3+F11",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "Oi [nome], [indicado por X]. A LC 227/2026 mudou o custo de erro de NCM para R por informacao incorreta — e a Reforma Tributaria rejeita a NF direto na SEFAZ. Sua operacao de importacao passou por revisao recente? Nossa equipe faz o mapeamento preventivo.",
+                       "whatsapp_cold":  "A Reforma Tributaria de 2026 tornou o erro de classificacao NCM uma trava que rejeita notas fiscais automaticamente na SEFAZ. Nossos especialistas realizam a auditoria preventiva do seu portfolio para evitar que o faturamento da sua empresa seja paralisado. Qual foi a ultima vez que seus codigos passaram por uma validacao profunda?",
+                       "argumento_abertura":  "As importacoes brasileiras superam R,6 trilhao anuais, mas um erro de classificacao NCM agora para o faturamento automaticamente na SEFAZ. Quantos dos produtos da sua empresa circulam sem uma revisao atualizada da classificacao fiscal?",
+                       "linkedin_post":  "As importacoes brasileiras superam R$ 1,6 trilhao anuais, mas um detalhe documental ameaca paralisar as operacoes em 2026. Com a Reforma Tributaria, a inconsistencia na classificacao NCM deixou de ser apenas uma multa contornavel e tornou-se uma barreira imediata. Notas fiscais com codigos divergentes sao rejeitadas automaticamente pelo sistema da SEFAZ, congelando o faturamento. Alem disso, a nova legislacao substituiu penalidades antigas por sancoes de R$ 20.000 por informacao incompleta. Nossa equipe aplica um metodo de auditoria documental que revisa integralmente o portfolio de SKUs, cruzando dados com normas da CAMEX e ex-tarifarios para assegurar o fluxo continuo de desembaraco. A conformidade previa e a garantia de que as operacoes comerciais nao serao interrompidas nas fronteiras e nos sistemas tributarios. Quantos dos produtos da sua empresa circulam hoje sem uma revisao atualizada da classificacao fiscal?"
+                   },
+    "roi_vanguard":  {
+                         "retorno":  "Prevencao de rejeicao automatica de NF na SEFAZ + eliminacao de multa R por erro",
+                         "ticket_estimado":  "R.000 a R.000 por auditoria de portfolio",
+                         "pricing":  {
+                                         "modelo":  "Auditoria preventiva de portfolio NCM + mapeamento com CAMEX/ex-tarifarios + certificacao de conformidade"
+                                     }
+                     },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Qual e o volume anual de importacoes da empresa?",
+                                           "Com que frequencia o portfolio de SKUs passa por revisao de classificacao NCM?",
+                                           "Ja tiveram alguma nota rejeitada ou atuacao por erro de classificacao nos ultimos 12 meses?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Portfolio de importados acima de R/ano",
+                                                 "Sem revisao sistematica de NCM nos ultimos 12 meses",
+                                                 "Multiplos SKUs (acima de 50 produtos importados)"
+                                             ]
+                     },
+    "fit_score":  5,
+    "urgencia_regulatoria":  "ALTA",
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "LC 227/2026 — sua classificacao NCM esta auditada?",
+                           "perfil":  "Diretor Financeiro, Gerente de Importacao ou Compliance de empresa importadora",
+                           "busca_linkedin":  "\"importacao\" OR \"comercio exterior\" OR \"NCM\" + \"gerente\" OR \"diretor\" OR \"compliance\"",
+                           "tamanho_empresa":  "Empresa com portfolio de importados acima de R/ano",
+                           "canal":  "LinkedIn / Indicacao"
+                       },
+    "dores":  [
+                  "Erro de classificacao NCM agora rejeita nota fiscal automaticamente na SEFAZ — faturamento paralisado imediatamente",
+                  "LC 227/2026 substituiu multa de 1% por R.000 por informacao incorreta — impacto financeiro drastico",
+                  "Portfolio de SKUs sem revisao atualizada acumula risco silencioso de autuacao em bloco",
+                  "Despachante aduaneiro foca no desembaraco pontual, nao na auditoria historica do portfolio",
+                  "Importacoes brasileiras superam R,6 trilhao anuais — escala do risco e proporcional"
+              ],
+    "notas_embaixador":  [
+                             "Ha empresas de importacao na rede de Eduardo ou de clientes atuais (Ingrid, Valdece)?",
+                             "Despachantes aduaneiros podem ser parceiros de indicacao — eles nao fazem a auditoria de portfolio."
+                         ],
+    "nome":  "Compliance Aduaneiro — NCM e Tributacao de Importacao",
+    "status":  "MONITORAR",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "importacao",
+                          "comercio exterior",
+                          "manufatura",
+                          "distribuicao",
+                          "varejo com importados"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "LC 227/2026 + Reforma Tributaria",
+                                "prazo":  "Continuo — Reforma Tributaria ativa desde 2026",
+                                "impacto":  "R.000 por informacao incorreta + rejeicao automatica de NF na SEFAZ. Faturamento paralisado em tempo real."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "UPGRADE fit 4.3-\u003e5.0. LC 227/2026 substituiu multa 1% por R/erro. Rejeicao automatica SEFAZ."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "ma-reestruturacao-societaria",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Empresas em M\u0026A com operacao de importacao precisam de due diligence de NCM — passivo fiscal oculto e deal-breaker"
+                       }
+                   ]
 }

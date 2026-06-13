@@ -1,142 +1,134 @@
-{
-  "id": "ma-reestruturacao-societaria",
-  "nome": "M&A e Reestruturação Societária",
-  "vertical": 5,
-  "status": "MOVER_AGORA",
-  "fit_score": 4.5,
-
-  "setor": "Financeiro / Jurídico / Corporate Finance",
-  "subsetor": "Due Diligence Documental e Suporte a Processos de M&A",
-  "match_keywords": ["M&A", "fusão", "aquisição", "reestruturação societária", "due diligence", "valuation", "auditoria de empresa", "dataroom", "SPA", "letras de crédito", "private equity", "venture capital", "troca de sócios", "dissolução societária", "CVM", "CADE", "reestruturação", "holding", "participação societária", "LGPD compliance"],
-  "match_setores": ["escritórios de advocacia corporativa", "contabilidade corporate", "private equity", "gestoras de fundo", "empresas em crescimento estruturado"],
-
-  "perfil_cliente": {
-    "porte": ["médio", "grande"],
-    "segmento": ["escritórios de advocacia corporate", "empresas em processo de captação ou venda", "gestoras de PE/VC", "empresas em reestruturação"],
-    "regiao_preferencial": "SP (maior mercado de M&A do Brasil), DF (governo + concessões)",
-    "frequencia_uso": "Por projeto (M&A) + retainer de monitoramento para gestoras",
-    "ticket_minimo": "R$10.000 por projeto (due diligence parcial)",
-    "sinal_de_encaixe": "Empresa anunciando captação, fusão, reestruturação acionária ou desinvestimento"
-  },
-
-  "dores": [
-    {
-      "descricao": "Retomada do M&A pós-2026: volume de operações crescendo 22% em relação a 2023 — demanda por due diligence supera capacidade de escritórios tradicionais",
-      "custo_estimado": "Due diligence jurídico-financeira incompleta → operação travada ou condições desfavoráveis no fechamento",
-      "fonte": "F9 v2 2026-06-11 (M&A retomada pós-2026) · F1 2026-06-11",
-      "urgencia": "ALTA"
-    },
-    {
-      "descricao": "Dataroom desorganizado atrasa e desvaloriza o processo — passivo oculto descoberto na due diligence derruba valuations e mata deals",
-      "custo_estimado": "10%–30% de desconto no valuation por passivo detectado tardiamente. Desconto de urgência por processo mal organizado: 5%–15%",
-      "fonte": "F9 v2 2026-06-11",
-      "urgencia": "ALTA"
-    },
-    {
-      "descricao": "Empresa vendedora sem DRE auditado, LGPD compliance ou documentação societária atualizada perde poder de negociação antes mesmo de sentar à mesa",
-      "custo_estimado": "Diferencial de valuation: empresa com governança vs. sem = 20%–40% em operações de médio porte",
-      "fonte": "F9 v2 2026-06-11 · análise Músculo",
-      "urgencia": "MÉDIA"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "LGPD compliance + CVM regulação de fundos + reformas tributárias 2025-2026 (IRPJ holdings)",
-    "orgao": "CVM + ANPD + Receita Federal",
-    "impacto": "LGPD não implementada derruba valuation em processos de M&A — comprador exige compliance pré-closing. Reforma tributária muda estrutura ótima de holdings.",
-    "prazo": "Contínuo — cada operação de M&A tem seu próprio timeline",
-    "urgencia": "ESTRUTURAL"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "M&A Brasil 2026: projeção de crescimento 22% vs. 2023 — recuperação pós-ciclo de juros altos",
-    "volume_leads": "Escritórios de advocacia corporate no Brasil: ~3.000. Gestoras PE/VC ativas: ~500. Empresas em processo de M&A simultâneo: ~2.000–5.000",
-    "dados_chave": [
-      "Retomada M&A pós-2026 — crescimento 22% — F9 v2 2026-06-11",
-      "Ticket médio operação M&A PME: R$5M–R$50M — F9 v2",
-      "Diferencial de valuation por governança: 20%–40% — análise F9",
-      "FIP-IA R$205M (BNDES + EMBRAPII) liberado — operações estruturadas em crescimento — F9 2026-06-11"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "20%–40% de ganho de valuation por organização do dataroom e governança pré-venda",
-    "payback": "O ganho de valuation paga 10x–50x o custo da Vanguard no mesmo deal",
-    "argumento_numerico": "Empresa vendida por R$10M com dataroom mal organizado vs. R$13M–R$14M com governança completa. A diferença paga a Vanguard 20 vezes."
-  },
-
-  "pricing": {
-    "referencia_mercado": "Due diligence jurídica: R$20k–R$100k+ (escritório corporate SP). Assessoria M&A genérica: 1%–3% do valor da transação. Organização de dataroom: sem referência pública padronizada.",
-    "vanguard": {
-      "diagnostico_governanca": "R$8.000–12.000 (avaliação de maturidade para processo M&A)",
-      "organizacao_dataroom": "R$12.000–25.000 por projeto (100 a 500 documentos)",
-      "retainer_gestora": "R$5.000–10.000/mês para gestoras PE/VC com portfólio ativo",
-      "nota": "Âncora: diferencial de valuation. Ticket alto justificado — uma operação de R$10M com 20% de ganho paga 20x o custo da Vanguard."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "Já temos escritório jurídico para isso",
-      "medo_real": "Confusão entre serviço jurídico (SPA, documentação legal) e organização documental estratégica (dataroom, governança)",
-      "resposta": "O escritório jurídico redige o SPA e faz a due diligence legal. A Vanguard organiza o dataroom e prepara a empresa para a due diligence — são serviços complementares, não concorrentes."
-    },
-    {
-      "objecao": "O processo ainda está no início, não precisamos disso agora",
-      "medo_real": "Crença de que preparação pode ser deixada para depois",
-      "resposta": "O passivo descoberto na due diligence do comprador derruba valuation ou mata o deal. Quanto antes a empresa está pronta, mais forte é a posição de negociação. Dataroom mal organizado = sinal de desconto para o comprador."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "Quanto valerá a mais sua empresa com o dataroom organizado antes da due diligence?",
-    "linkedin": "Operações de M&A não morrem por falta de interesse. Morrem por surpresa.\n\nPassivo oculto descoberto na due diligence. Dataroom desorganizado que sinalizou falta de governança. LGPD não implementada que criou contingência relevante. Documentação societária desatualizada que atrasou o processo 90 dias.\n\nA diferença de valuation entre uma empresa preparada e uma empresa despreparada em um processo de M&A vai de 20% a 40% — na mesma operação, com o mesmo comprador.\n\nA Vanguard organiza o dataroom e estrutura a governança antes do processo começar. O comprador encontra o que quer encontrar — na ordem certa, com as respostas prontas.\n\nQual é o próximo passo do seu processo de M&A?",
-    "whatsapp": "Empresa vendida com dataroom organizado vale 20%–40% a mais do que a mesma empresa mal preparada. A Vanguard estrutura o dataroom e a governança antes da due diligence do comprador. Em que etapa está o processo de M&A da sua empresa?",
-    "proposta_comercial": "M&A preparado — valuation protegido.\n\nO passivo descoberto na due diligence não é o problema. O problema é que ele existia antes — e não foi organizado antes que o comprador chegasse.\n\nA Vanguard atua antes do processo de M&A: organização de dataroom completo, gap analysis de governança, identificação e mitigação de contingências. O comprador encontra empresa preparada — documentação em ordem, LGPD implementado, DRE auditado, societário atualizado.\n\nResultado: valuation protegido, processo acelerado, poder de negociação preservado."
-  },
-
-  "demo_disponivel": false,
-
-  "concorrentes": {
-    "diretos": ["escritórios de advocacia corporate", "big four (PwC, Deloitte, EY, KPMG — mercado de grande porte)", "boutiques de M&A (ticket > R$50M)"],
-    "diferencial_vanguard": "Big four não atende PME. Boutiques focam em assessoria financeira, não em preparação. Vanguard é a única especializada em preparação documental e governança pré-M&A para empresas de médio porte."
-  },
-
-  "capital_nao_dilutivo": {
-    "oportunidades": [
-      "FINEP R$300M — prazo 30/09/2026 — ALTA urgência",
-      "Embrapii — contínuo — ALTA",
-      "Lei do Bem — Lucro Real — redução de IRPJ em P&D"
-    ],
-    "nota": "Empresas em M&A frequentemente não exploram capital não-dilutivo disponível. Vanguard pode identificar oportunidades complementares no processo de preparação.",
-    "fonte": "F9 v2 2026-06-11"
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F1", "F9", "F11"],
-    "F1_diario_07h": "Notícias de fusões/aquisições no mercado alvo, mudanças regulatórias CVM",
-    "F9_quinzenal": "Mapa de oportunidades capital não-dilutivo — atualizar campo capital_nao_dilutivo",
-    "F11_mensal_dia1": "Atualizar pricing — honorários big four e boutiques de M&A",
-    "F1_ultima": "2026-06-11",
-    "F9_ultima": "2026-06-11",
-    "F11_ultima": "2026-06-11",
-    "proxima_revisao_F11": "2026-07-01"
-  },
-
-  "prospecao": {
-    "fonte_leads": "CVM — empresas em processo de registro + LinkedIn (C-level anunciando captação ou expansão)",
-    "abordagem": "Preparação pré-M&A como vantagem, não como custo — argumento de ROI no valuation",
-    "perfil_ideal": "Empresa de médio porte (faturamento R$10M–R$200M) em processo de captação, fusão ou venda"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F9", "F11"],
-  "cowork_fontes": [
-    "F9 v2 2026-06-11 (M&A retomada + FIP-IA + capital não-dilutivo)",
-    "F1 v2 2026-06-11 (M&A retomada — sinal de mercado)",
-    "BIBLIOTECA_NICHOS v1 — MRV Carbono 4.5 (sinal correlato de reestruturação)"
-  ],
-
-  "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13"
+﻿{
+    "roi_vanguard":  {
+                         "retorno":  "Reducao de prazo de fechamento + protecao de valuation + eliminacao de passivos ocultos pos-fechamento",
+                         "ticket_estimado":  "R.000 a R.000 por transacao",
+                         "pricing":  {
+                                         "modelo":  "Preparacao de dataroom + Due diligence cibernetica (BCB 538) + Mapeamento de passivo trabalhista/ambiental + Certificacao documental para fechamento"
+                                     }
+                     },
+    "id":  "ma-reestruturacao-societaria",
+    "vertical":  5,
+    "objecoes":  [
+                     {
+                         "objecao":  "Ja temos advogados fazendo a due diligence",
+                         "reversao":  "Advogados fazem due diligence juridica — nao fazem auditoria documental cibernetica (BCB 538) nem mapeamento de passivo trabalhista oculto. Sao camadas diferentes."
+                     },
+                     {
+                         "objecao":  "A transacao e pequena, due diligence completa e overkill",
+                         "reversao":  "Passivo trabalhista oculto e comum em PMEs justamente por falta de processo formal. Uma acao trabalhista pos-fechamento pode superar o valor da transacao."
+                     },
+                     {
+                         "objecao":  "O comprador e que faz a due diligence",
+                         "reversao":  "Vendedor que prepara o dataroom e a documentacao preventivamente fecha em 40% menos tempo e com valuation superior — o comprador confia mais."
+                     }
+                 ],
+    "match_keywords":  [
+                           "M\u0026A",
+                           "fusao",
+                           "aquisicao",
+                           "due diligence",
+                           "dataroom",
+                           "valuation",
+                           "LGPD compliance",
+                           "private equity",
+                           "BCB 538",
+                           "CMN 5.274",
+                           "passivo trabalhista",
+                           "due diligence cibernetica"
+                       ],
+    "setor":  "Financeiro / Juridico / Corporate Finance",
+    "demo_disponivel":  false,
+    "subsetor":  "Due Diligence Documental e Suporte a Processos de M\u0026A",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  4,
+                                "recorrencia":  3,
+                                "ticket_viavel":  5,
+                                "dor_clara":  5,
+                                "solucao_diferenciada":  4
+                            },
+    "cowork_densidade":  "MEDIA — F1+F9+F11",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_cold":  "O BCB 538 e CMN 5.274 tornaram a Due Diligence Cibernetica obrigatoria em transacoes M\u0026A do setor financeiro. Passivo trabalhista oculto e o principal deal-breaker em PMEs. Nossa equipe prepara o dataroom e conduz o mapeamento preventivo de passivos. Voces tem alguma transacao em andamento ou planejada?",
+                       "argumento_abertura":  "BCB 538 + CMN 5.274 tornaram a Due Diligence Cibernetica obrigatoria em M\u0026A do setor financeiro desde marco de 2026. Passivo trabalhista oculto e o principal deal-breaker em transacoes de PME. Sua empresa tem o dataroom preparado?",
+                       "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com BCB 538 + passivo oculto + dado de M\u0026A PME]"
+                   },
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "Due Diligence Cibernetica BCB 538 — sua transacao tem o mapeamento necessario?",
+                           "perfil":  "Socio de escritorio de advocacia corporativa, gestor de PE/VC ou CFO de empresa em processo de captacao ou venda",
+                           "busca_linkedin":  "\"M\u0026A\" OR \"private equity\" OR \"fusao aquisicao\" + \"socio\" OR \"CFO\" OR \"diretor financeiro\"",
+                           "tamanho_empresa":  "Empresa com faturamento acima de R em processo de M\u0026A, captacao ou reestruturacao",
+                           "canal":  "LinkedIn / Associacoes (ABVCAP, ANBIMA) / Indicacao de advogados M\u0026A"
+                       },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Tem alguma transacao de M\u0026A, captacao ou reestruturacao societaria em andamento ou planejada para os proximos 6 meses?",
+                                           "O dataroom esta organizado com documentacao completa e rastreavel?",
+                                           "A due diligence vai incluir mapeamento de passivo trabalhista e due diligence cibernetica (BCB 538)?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Transacao em andamento ou planejada nos proximos 6 meses",
+                                                 "Dataroom desestruturado ou sem mapeamento de passivos",
+                                                 "Transacao envolve setor financeiro (BCB 538 obrigatorio) OU empresa com historico trabalhista complexo"
+                                             ]
+                     },
+    "fit_score":  5,
+    "urgencia_regulatoria":  "ESTRUTURAL",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F1",
+                                                          "F9",
+                                                          "F11"
+                                                      ]
+                        },
+    "dores":  [
+                  "Due Diligence Cibernetica (BCB 538 + CMN 5.274) e obrigatoria em M\u0026A do setor financeiro mas poucos advogados a executam",
+                  "Passivo trabalhista oculto detectado pos-fechamento e o principal deal-breaker em M\u0026A de PMEs",
+                  "Dataroom desestruturado atrasa o fechamento e reduz o valuation percebido pelo comprador",
+                  "Passivo ambiental e tributario nao mapeado na due diligence gera ajuste de preco pos-fechamento",
+                  "Empresas alvo de M\u0026A com LGPD nao conformada geram risco de representacao falsa para o comprador"
+              ],
+    "notas_embaixador":  [
+                             "Ha advogado de M\u0026A ou gestor de PE na rede de Eduardo que possa ser canal de indicacao?",
+                             "BCB 538 + CMN 5.274 sao recentes (marco/2026) — monitorar como o mercado esta respondendo para atualizar o argumento."
+                         ],
+    "nome":  "M\u0026A e Reestruturacao Societaria",
+    "status":  "MONITORAR",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "corporate",
+                          "private equity",
+                          "advocacia corporativa",
+                          "empresas em captacao",
+                          "fundos de investimento"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "BCB 538 + CMN 5.274 (mar/2026) — Due Diligence Cibernetica",
+                                "prazo":  "Estrutural — toda transacao M\u0026A relevante requer due diligence",
+                                "impacto":  "BCB 538 + CMN 5.274 tornam Due Diligence Cibernetica obrigatoria em M\u0026A do setor financeiro. Passivo trabalhista oculto e passivo ambiental sao novos gatilhos de due diligence documental."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "UPGRADE 4.5-\u003e5.0. Due Diligence Cibernetica (BCB 538 + CMN 5.274 mar/2026) + passivo trabalhista oculto como novos gatilhos. MONITORAR."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "carbon-esg-mrv",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Fundos de impacto e PE com tese ESG exigem due diligence de carbono — conformidade MRV e pre-requisito de captacao"
+                       },
+                       {
+                           "nicho":  "compliance-aduaneiro-ncm",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Empresas importadoras em M\u0026A — passivo de NCM errado e deal-breaker oculto que auditamos na due diligence"
+                       }
+                   ]
 }

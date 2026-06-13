@@ -1,120 +1,128 @@
-{
-  "id": "setor-eletrico-regulatorio",
-  "nome": "Setor Elétrico — Compliance Regulatório ANEEL",
-  "vertical": 6,
-  "status": "MOVER_AGORA",
-  "fit_score": 5.0,
-
-  "setor": "Energia / Regulatório",
-  "subsetor": "Compliance de Concessões e Gestão de Ativos Regulados",
-  "match_keywords": ["ANEEL", "concessão elétrica", "distribuidora", "geração", "transmissão", "regulatório", "PRODIST", "ANSI", "IEE", "DEC", "FEC", "tarifas elétricas", "reajuste tarifário", "fiscalização ANEEL", "energia renovável", "GD", "geração distribuída", "micro-geração", "usina", "PCH"],
-  "match_setores": ["energia elétrica", "utilities", "concessões", "energia renovável", "geração distribuída"],
-
-  "perfil_cliente": {
-    "porte": ["médio", "grande"],
-    "segmento": ["distribuidoras regionais", "geradoras independentes", "transmissoras de menor porte", "projetos de energia renovável em desenvolvimento"],
-    "regiao_preferencial": "Nacional — ANEEL é federal",
-    "frequencia_uso": "Retainer contínuo — compliance regulatório não termina",
-    "ticket_minimo": "R$15.000/mês (complexidade regulatória do setor)",
-    "sinal_de_encaixe": "Distribuidora com histórico de penalidades ANEEL OR empresa em processo de renovação de concessão"
-  },
-
-  "dores": [
-    {
-      "descricao": "Indicadores DEC/FEC fora do limite ANEEL geram multas e penalidades contratuais que comprometem a renovação da concessão",
-      "custo_estimado": "Multas ANEEL: R$500k–R$50M dependendo da gravidade. Não-renovação de concessão: valor total do negócio",
-      "fonte": "BIBLIOTECA_NICHOS v1 — Setor Elétrico 4.8",
-      "urgencia": "ESTRUTURAL"
-    },
-    {
-      "descricao": "Mudanças frequentes nas regulamentações PRODIST e nos procedimentos ANEEL exigem atualização constante das equipes — maioria das distribuidoras médias não tem capacidade interna",
-      "custo_estimado": "Não-conformidade descoberta em fiscalização: auto de infração + ajuste retroativo",
-      "fonte": "BIBLIOTECA_NICHOS v1",
-      "urgencia": "ALTA"
-    }
-  ],
-
-  "gatilho_regulatorio": {
-    "norma": "PRODIST (Procedimentos de Distribuição) + Resolução ANEEL 1000/2021 (revisada continuamente)",
-    "orgao": "ANEEL",
-    "impacto": "Ciclo de revisões tarifárias e atualizações de PRODIST criam janelas de conformidade obrigatória. Empresa que não acompanha é autuada na próxima fiscalização.",
-    "prazo": "05/08/2026 — CP 009/2026 encerrada 06/06/2026, 60 dias auditoria compulsoria GD",
-    "urgencia": "CRITICA"
-  },
-
-  "evidencias_mercado": {
-    "tamanho_mercado": "63 distribuidoras de energia elétrica no Brasil + 200+ geradoras independentes + projetos de transmissão",
-    "volume_leads": "Foco: distribuidoras regionais e geradoras de médio porte sem equipe regulatória interna robusta",
-    "dados_chave": [
-      "ANEEL multou distribuidoras em R$1,8B em 2024 — Agência Brasil",
-      "63 distribuidoras no Brasil — 40+ sem equipe regulatória interna especializada",
-      "BIBLIOTECA_NICHOS: Setor Elétrico score 4.8 (mais alto da biblioteca)",
-      "Convergência F1+F3+F11+F7 — alta densidade de material disponível"
-    ]
-  },
-
-  "roi_vanguard": {
-    "reducao": "Eliminação de penalidades recorrentes + proteção da concessão",
-    "payback": "Uma multa ANEEL evitada paga o retainer do ano inteiro",
-    "argumento_numerico": "Distribuidora com DEC fora do limite por 3 meses consecutivos: multa de R$2M–R$15M. Retainer Vanguard: R$15k/mês."
-  },
-
-  "pricing": {
-    "referencia_mercado": "Consultoria regulatória ANEEL (grandes consultorias): R$800–1.500/h. Contrato de gestão regulatória para distribuidoras: não há referência pública — mercado fragmentado.",
-    "vanguard": {
-      "diagnostico_regulatorio": "R$15.000–25.000 (gap analysis completo vs. PRODIST vigente)",
-      "retainer_compliance": "R$15.000–40.000/mês dependendo do porte da distribuidora",
-      "projeto_renovacao_concessao": "Sob consulta (ticket R$100k–R$500k)",
-      "nota": "Ticket mais alto do portfólio Vanguard. Justificado pelo porte das penalidades ANEEL e pela criticidade da concessão."
-    }
-  },
-
-  "objecoes": [
-    {
-      "objecao": "Temos equipe interna de regulatório",
-      "medo_real": "Custo de admitir que a equipe interna pode ter lacunas",
-      "resposta": "Faz sentido. A equipe interna conhece o histórico da empresa — o que eles eventualmente não acompanham é o ritmo de atualização do PRODIST e as interpretações mais recentes da ANEEL. Nosso papel é complementar, não substituir."
-    }
-  ],
-
-  "narrativas": {
-    "argumento_abertura": "Quando foi a última auditoria ANEEL? O que apareceu?",
-    "linkedin": "A ANEEL multou distribuidoras brasileiras em R$1,8 bilhão em 2024.\n\nNão foi má-fé. Foi monitoramento insuficiente dos indicadores DEC e FEC, atualização tardia de procedimentos após mudanças no PRODIST, e interpretação incorreta de resoluções que mudam todo trimestre.\n\nDistribuidoras de médio porte não têm capacidade interna para acompanhar esse ritmo regulatório. Quando a fiscalização chega, a conformidade virou não-conformidade — e o auto de infração vem junto.\n\nA Vanguard monitora o ciclo regulatório e antecipa o que a ANEEL vai fiscalizar antes da fiscalização acontecer.",
-    "whatsapp": "A ANEEL multou distribuidoras em R$1,8B em 2024. A maioria dos autos de infração veio de não-conformidades com o PRODIST atualizado que a equipe interna não monitorou. A Vanguard faz o monitoramento regulatório contínuo. Quando foi a última auditoria ANEEL da sua empresa?",
-    "proposta_comercial": "Compliance ANEEL — antes da autuação, não depois.\n\nO ciclo regulatório do setor elétrico não é estático: PRODIST é atualizado, resoluções são revisadas, indicadores são recalculados. Distribuidoras médias não têm capacidade interna para acompanhar esse ritmo e manter a operação ao mesmo tempo.\n\nA Vanguard faz o monitoramento contínuo: DEC/FEC em tempo real contra os limites vigentes, atualização mensal das obrigações regulatórias, antecipação das próximas fiscalizações. O relatório mensal de conformidade chega antes do auditor da ANEEL."
-  },
-
-  "demo_disponivel": false,
-
-  "concorrentes": {
-    "diretos": ["grandes consultorias (Accenture, McKinsey — ticket mínimo R$500k)", "escritórios especializados em direito de energia", "firmas regionais de engenharia elétrica"],
-    "diferencial_vanguard": "Grandes consultorias não atendem distribuidoras médias. Escritórios jurídicos focam em litígio, não prevenção. Vanguard é especialista em compliance preventivo para o mercado médio do setor elétrico."
-  },
-
-  "cadencia_cowork": {
-    "frentes_alimentadoras": ["F1", "F3", "F7", "F11"],
-    "F1_diario_07h": "Novas resoluções ANEEL, atualizações PRODIST, casos de autuação publicados",
-    "F3_semanal": "Validar se atualizações ANEEL impactam o perfil do nicho",
-    "F7_mensal_dia1": "Atualizar simulações de objeção baseadas em novas regulamentações",
-    "F11_mensal_dia1": "Benchmark de pricing — consultoria regulatória de energia",
-    "F1_ultima": "2026-06-11",
-    "F11_ultima": "2026-06-11",
-    "proxima_revisao_F11": "2026-07-01"
-  },
-
-  "prospecao": {
-    "fonte_leads": "ANEEL — lista de distribuidoras + autos de infração publicados (público)",
-    "abordagem": "Empresa autuada recentemente é lead quente — medo real ativado",
-    "perfil_ideal": "Distribuidora regional com 100k–1M de consumidores, sem equipe regulatória interna"
-  },
-
-  "clientes_vanguard": [],
-  "convergencia_frentes": ["F1", "F3", "F7", "F11"],
-  "cowork_fontes": [
-    "BIBLIOTECA_NICHOS v1 — Setor Elétrico 4.8 (score mais alto da biblioteca)"
-  ],
-
-  "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13",
-  "niche_modeler_l33": "UPGRADE 4.8->5.0 + urgencia ESTRUTURAL->CRITICA — CP 009/2026 encerrada 06/06, 60 dias auditoria GD. Prazo: 05/08/2026."
+﻿{
+    "alerta_timing":  "CP 009/2026 encerrada 06/06/2026 — 60 dias para auditoria compulsoria de 100% das conexoes GD. Prazo: 05/08/2026",
+    "id":  "setor-eletrico-regulatorio",
+    "cadencia_cowork":  {
+                            "frentes_alimentadoras":  [
+                                                          "F1",
+                                                          "F3",
+                                                          "F7",
+                                                          "F11"
+                                                      ]
+                        },
+    "vertical":  6,
+    "objecoes":  [
+                     {
+                         "objecao":  "Nosso engenheiro ja enviou os projetos iniciais",
+                         "reversao":  "O projeto inicial nao comprova a trilha digital da expansao perante a nova norma da ANEEL. Auditoria de 60 dias exige evidencias documentais de ponta a ponta."
+                     },
+                     {
+                         "objecao":  "Ja estamos regularizados",
+                         "reversao":  "A CP 009/2026 criou exigencias especificas para cada conexao. Regularizacao anterior nao cobre as novas trilhas documentais."
+                     },
+                     {
+                         "objecao":  "Temos muitas instalacoes para auditar agora",
+                         "reversao":  "Exatamente — e cada instalacao sem trilha completa e uma cobranca retroativa potencial. Nosso metodo prioriza por risco."
+                     }
+                 ],
+    "match_keywords":  [
+                           "ANEEL",
+                           "concessao eletrica",
+                           "distribuidora",
+                           "DEC",
+                           "FEC",
+                           "PRODIST",
+                           "geracao distribuida",
+                           "energia renovavel",
+                           "CP 009/2026",
+                           "GD"
+                       ],
+    "setor":  "Energia / Regulatorio",
+    "demo_disponivel":  false,
+    "subsetor":  "Compliance de Concessoes e Gestao de Ativos Regulados GD",
+    "fit_score_criterios":  {
+                                "concorrencia_baixa":  4,
+                                "recorrencia":  5,
+                                "ticket_viavel":  5,
+                                "dor_clara":  5,
+                                "solucao_diferenciada":  5
+                            },
+    "cowork_densidade":  "ALTA — F1+F3+F7+F11 convergindo",
+    "narrativas":  {
+                       "whatsapp_indicacao":  "Oi [nome], [indicado por X]. A ANEEL iniciou auditoria de 60 dias em todas as conexoes GD. Vi que voces tem operacoes significativas instaladas. Nossa equipe ajuda integradores a organizar a trilha documental antes da fiscalizacao. Vale uma conversa de 20 minutos?",
+                       "whatsapp_cold":  "O ONS detectou 14 GW de energia nao declarada e a ANEEL exige auditoria de 100% das conexoes em 60 dias. O risco envolve cobracas retroativas de ate 36 ciclos. Nossa equipe estrutura as evidencias documentais necessarias para blindar suas operacoes. Voces tem a trilha de conformidade pronta para a fiscalizacao?",
+                       "argumento_abertura":  "O ONS identificou 14 GW de geracao distribuida nao declarada no Brasil em 2026. A ANEEL exige auditoria de 100% das conexoes em 60 dias. Suas instalacoes possuem trilha documental para evitar retroatividade de 36 ciclos?",
+                       "linkedin_post":  "O ONS identificou 14 GW de geracao distribuida nao declarada no Brasil em 2026. Em resposta, a ANEEL encerrou a Consulta Publica 009/2026 e determinou que 100% das conexoes passem por auditoria rigorosa em apenas 60 dias. Este e um momento critico para integradores e concessionarias. A documentacao inadequada ou a ausencia de trilhas auditaveis resultara em exclusoes do sistema de compensacao e cobracas retroativas severas. Para mitigar esse passivo, nossa equipe aplica um metodo especializado que constroi evidencias rastreaveis e garante a conformidade regulatoria antes que a fiscalizacao se transforme em autuacao. Estruturar a documentacao agora e a unica linha de defesa valida contra retroatividades que alcancam 36 ciclos. O processo de regularizacao exige precisao absoluta. Voces conseguem provar, com evidencia digital irrefutavel, que todas as suas instalacoes estao perfeitamente regularizadas perante a ANEEL?"
+                   },
+    "roi_vanguard":  {
+                         "retorno":  "Prevencao de cobracas retroativas de ate 36 ciclos + manutencao no sistema de compensacao ANEEL",
+                         "ticket_estimado":  "R.000 a R.000 por projeto de conformidade",
+                         "pricing":  {
+                                         "modelo":  "Diagnostico de conformidade + Organizacao documental + Suporte a auditoria ANEEL"
+                                     }
+                     },
+    "qualificacao":  {
+                         "perguntas":  [
+                                           "Quantos kW voces tem instalados e homologados atualmente?",
+                                           "Toda a documentacao tecnica das conexoes esta centralizada e rastreaveis?",
+                                           "Ja receberam alguma comunicacao da distribuidora sobre adequacao a nova norma?"
+                                       ],
+                         "criterios_ideal":  [
+                                                 "Mais de 500 kW instalados",
+                                                 "Sem processo documental estruturado (resposta \u0027nao\u0027 ou \u0027nao sei\u0027 na pergunta 2)",
+                                                 "Nao recebeu ainda comunicacao formal (janela comercial aberta)"
+                                             ]
+                     },
+    "fit_score":  5,
+    "urgencia_regulatoria":  "CRITICA",
+    "prospect_ideal":  {
+                           "gatilho_abordagem":  "CP 009/2026 ANEEL — sua operacao tem a trilha documental pronta?",
+                           "perfil":  "Socio ou Diretor Tecnico de integradora de energia solar",
+                           "busca_linkedin":  "\"energia solar\" OR \"geracao distribuida\" OR \"GD\" + \"socio\" OR \"diretor\"",
+                           "tamanho_empresa":  "Integradora com mais de 500 kW instalados",
+                           "canal":  "WhatsApp / Indicacao / Associacoes (ABSOLAR, CIAFEL)"
+                       },
+    "dores":  [
+                  "14 GW de GD nao declarados detectados pelo ONS — instalacoes em risco de exclusao do sistema de compensacao",
+                  "Ausencia de trilha documental das conexoes GD gera cobranca retroativa de ate 36 ciclos",
+                  "Documentacao tecnica das expansoes nao comprovada para nova norma ANEEL",
+                  "Prazo de 60 dias pressiona integradores sem processo estruturado"
+              ],
+    "notas_embaixador":  [
+                             "Ha parceiro com expertise em ANEEL GD que possa validar o escopo tecnico antes de entrar comercialmente?",
+                             "Qual e o perfil de integradora que Eduardo ja conhece na rede pessoal?"
+                         ],
+    "nome":  "Setor Eletrico — Compliance Regulatorio ANEEL",
+    "status":  "MOVER_AGORA",
+    "_meta":  {
+                  "proxima_atualizacao":  "NICHE_MODELER Loop 34",
+                  "versao_modelo":  "1.0",
+                  "atualizado_por":  "Musculo · Claude Code",
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "origem":  "NICHE_MODELER Loop 33 · 2026-06-13"
+              },
+    "match_setores":  [
+                          "energia eletrica",
+                          "utilities",
+                          "concessoes",
+                          "energia renovavel",
+                          "integradora solar"
+                      ],
+    "gatilho_regulatorio":  {
+                                "norma":  "CP 009/2026 ANEEL",
+                                "prazo":  "05/08/2026 (60 dias a partir de 06/06/2026)",
+                                "impacto":  "Auditoria compulsoria de 100% das conexoes GD. Cobracas retroativas de ate 36 ciclos para instalacoes sem trilha documental."
+                            },
+    "historico":  {
+                      "criado":  "2026-06-13",
+                      "loop_origem":  33,
+                      "ultima_atualizacao":  "2026-06-13",
+                      "notas_loop":  "UPGRADE fit 4.8-\u003e5.0 + urgencia_regulatoria ESTRUTURAL-\u003eCRITICA. CP 009/2026 encerrada 06/06."
+                  },
+    "cross_sell":  [
+                       {
+                           "nicho":  "carbon-esg-mrv",
+                           "ticket_combinado":  "R-R",
+                           "argumento":  "Instalacoes GD regularizadas sao ativo para creditos de carbono — documentacao que criamos para ANEEL serve como base MRV"
+                       }
+                   ]
 }
