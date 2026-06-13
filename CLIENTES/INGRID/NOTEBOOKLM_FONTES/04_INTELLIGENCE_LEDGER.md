@@ -2607,3 +2607,20 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Ferramentas criadas:** scripts\gate_passo0_abertura.ps1 (2026-06-13) + session_start.ps1 reordenado (BLOCO0 primeiro) + CLAUDE.md P-114 atualizado com 0A e 0B.
 **Aplica-se a:** toda abertura de sessao do Musculo. Liga com P-114 e P-146.
 **Resolucao:** [RESOLVE: LEDGER-INBOX-P158]
+
+## P-159 -- COWORK ENGINE E SISTEMATICO -- RUNBOOK + HANDOFF + GATE FASE 2 (2026-06-13)
+**Origem:** Sessao Cowork 2026-06-13 -- em 3 dias foram mapeados 15 nichos de forma ad-hoc, sem sequencia documentada. Diretor: "Registre toda essa atividade do Cowork para que nao tenhamos erros nas sessoes, crie gates, hooks, devemos sistematiza-la."
+**Principio:** O Cowork Engine e uma maquina de inteligencia de mercado -- nao pode depender de memoria ou disciplina. Toda sessao segue a sequencia de 7 fases do RUNBOOK. A Fase 2 (veredito INBOX) e gate bloqueante da Fase 3 (NICHE_MODELER). O COWORK_HANDOFF.md persiste o estado entre sessoes.
+**Sequencia inviolavel (7 fases):** Coleta (Embaixador) → Veredito INBOX (gate) → NICHE_MODELER (Antigravity) → Validacao P-124 → Execucao → Fechamento → Resumo de Encerramento.
+**Gate critico:** Fase 2 sem veredito completo = Fase 3 bloqueada. Nunca pular Fase 2 mesmo com urgencia.
+**Ferramentas criadas:** RUNBOOK_COWORK_ENGINE.md + COWORK_HANDOFF.md + bloco [SEQUENCIA] no PASSO_NICHE_MODELER.md.
+**Ferramentas pendentes:** gate_cowork_fase2.ps1 + hook session_start leitura automatica COWORK_HANDOFF quando Cowork em pauta.
+**Aplica-se a:** toda sessao que envolva Cowork Engine. Distincao obrigatoria: Cowork e Loop sao coisas distintas.
+
+## P-160 -- OBJETIVO DO LOOP E OBRIGATORIO ANTES DE INICIAR -- RESULTADO PRIMEIRO (2026-06-13)
+**Origem:** Reflexao do Diretor ao encerrar sessao 2026-06-13: "Antes de iniciarmos qualquer Loop, a primeira pergunta e: para que faremos o Loop? Temos que enxergar um resultado. Todas as sugestoes devem ser levadas ao Diretor, que com suas intencoes pessoais decidira o objetivo do proximo loop. Temos que ser inteligentes e criativos."
+**Principio:** Nenhum Loop comeca sem objetivo declarado pelo Diretor. Antes de qualquer ativacao de Loop (gemini_anchor_generator, ir_ao_embaixador, PASSO3): (a) Musculo compila sugestoes pendentes -- M+G+N+E do ciclo anterior; (b) apresenta ao Diretor com contexto de intencoes + oportunidades + deadlines; (c) aguarda Diretor declarar OBJETIVO em 1 frase; (d) so entao o Loop comeca com esse objetivo como norte.
+**Por que e critico:** Loop sem objetivo = 25 ideias sem convergencia = entrega sem resultado visivel. O resultado deve ser declaravel ANTES de comecar: "Ao final deste Loop, teremos [X] para [projeto]."
+**Gate a criar:** scripts/gate_loop_objetivo.ps1 -- verifica campo "objetivo_loop" no LOOP_STATE.json. Se ausente → bloqueia gemini_anchor_generator + ir_ao_embaixador com mensagem de gate P-160.
+**Formato obrigatorio do objetivo:** "Ao final deste Loop, teremos [resultado concreto] para [projeto/cliente]."
+**Aplica-se a:** todo Loop de todo projeto -- Ingrid, Valdece, Vanguard, futuros. Liga com P-037 (sintese) e P-045 (artefatos de fechamento).
