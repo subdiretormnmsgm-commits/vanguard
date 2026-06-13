@@ -17,8 +17,20 @@ Músculo conduz tudo — sem sócio externo no fluxo.
 
 1. Conta Google Drive: subdiretor.mnmsgm@gmail.com
 2. Folder ID INBOX_COWORK: `1EjaH6TmsxbYpgKWb7ASm7CohFJfwSLKi`
-3. Ler `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/BIBLIOTECA_NICHOS/Biblioteca_Nichos_Vanguard_v1.md` — saber quais nichos já estão catalogados
+3. Ler `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/BIBLIOTECA_NICHOS/Biblioteca_Nichos_Vanguard_v[N].md` (versão mais recente) — saber quais nichos já estão catalogados
 4. Ler `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` — não duplicar sinais já registrados
+
+### GATE NICHE_MODELER — TRIGGER AUTOMÁTICO (executar SEMPRE antes da Fase 1)
+
+```powershell
+.\scripts\niche_modeler_check_inbox.ps1 -Status
+```
+
+**Resultado:**
+- `[OK] Inbox NICHE_MODELER: 0 novos sinais` → **Encerrar Engine aqui.** Não há dados novos para o Antigravity neste ciclo — prosseguir desperdiça contexto e tempo.
+- `[TRIGGER] NICHE_MODELER: N run(s) nova(s)` → Continuar Engine normalmente. Ao final de tudo, notificar Diretor: "NICHE_MODELER: N run(s) nova(s) — Antigravity necessário. Execute PASSO_NICHE_MODELER.md."
+
+**Regra:** o Músculo NUNCA propõe ida ao Antigravity sem este gate confirmar sinais novos primeiro.
 
 ---
 

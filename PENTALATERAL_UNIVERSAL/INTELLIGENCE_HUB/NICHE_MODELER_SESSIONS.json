@@ -1,0 +1,29 @@
+{
+    "_meta": {
+        "descricao": "Log de sessoes NICHE_MODELER enviadas ao Antigravity. Fonte de verdade para filtrar sinais novos vs ja enviados.",
+        "atualizado_por": "niche_modeler_check_inbox.ps1 -MarcarProcessado",
+        "schema_versao": "1.0"
+    },
+    "sessions": [
+        {
+            "loop": 33,
+            "date": "2026-06-13",
+            "calibracao_runs_incluidos": [
+                "2026-06-11"
+            ],
+            "frentes_enviadas": [
+                "F1 2026-06-11 v1",
+                "F1 2026-06-11 v2",
+                "F5 2026-06-12",
+                "F7 2026-06-11",
+                "F8 2026-06-11 roteiro",
+                "F9 v2 2026-06-11",
+                "F11 2026-06-11",
+                "F12 v2 2026-06-11",
+                "F15 2026-06-11"
+            ],
+            "nichos_novos_aprovados": [],
+            "pending_review_processado": false
+        }
+    ]
+}
