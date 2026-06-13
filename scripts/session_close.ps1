@@ -38,12 +38,37 @@ if ($exitCode -eq 0) {
     }
 }
 
-# NOTION SYNC -- atualiza Pendentes + WIP Board + Ledger no fim de toda sessao (obrigatorio).
-# Diretor nao administra Notion -- este push e 100% por codigo. SEM 2>$null: erro deve ser visivel.
-if ($exitCode -eq 0) {
+# GATE NOTION -- sincronizacao bloqueante (P-128)
+# Pendentes abertos + WIP Board + Ledger chegam ao Notion antes de encerrar sessao.
+# Roda se exitCode <= 1 (nao roda se sessao ja esta em falha critica exit 2).
+if ($exitCode -le 1) {
     $notionSync = Join-Path $PSScriptRoot "notion_sync.ps1"
+    Write-Host ""
+    Write-Host "  ========================================================" -ForegroundColor Cyan
+    Write-Host "  [GATE NOTION] Sincronizando Notion (P-128 -- BLOQUEANTE)" -ForegroundColor Cyan
+    Write-Host "  ========================================================" -ForegroundColor Cyan
     if (Test-Path $notionSync) {
         & powershell.exe -NonInteractive -File $notionSync
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host ""
+            Write-Host "  ========================================================" -ForegroundColor Red
+            Write-Host "  [GATE NOTION] BLOQUEIO -- notion_sync.ps1 falhou"         -ForegroundColor Red
+            Write-Host "  ========================================================" -ForegroundColor Red
+            Write-Host "  Sessao nao pode ser declarada encerrada sem Notion atualizado." -ForegroundColor Red
+            Write-Host "  Secoes afetadas: Pendentes abertos + WIP Board + Ledger tail"  -ForegroundColor Yellow
+            Write-Host "  Para depurar: .\scripts\notion_sync.ps1"                  -ForegroundColor Yellow
+            Write-Host "  ========================================================" -ForegroundColor Red
+            Write-Host ""
+            $exitCode = 2
+        } else {
+            Write-Host "  [GATE NOTION] VERDE -- Pendentes + WIP + Ledger sincronizados." -ForegroundColor Green
+            Write-Host "  ========================================================" -ForegroundColor Cyan
+        }
+    } else {
+        Write-Host "  [GATE NOTION] BLOQUEIO -- notion_sync.ps1 nao encontrado."   -ForegroundColor Red
+        Write-Host "  Notion e canal obrigatorio (P-128). Instalar: scripts\notion_sync.ps1" -ForegroundColor Red
+        Write-Host "  ========================================================" -ForegroundColor Red
+        $exitCode = 2
     }
 }
 
@@ -137,8 +162,13 @@ if (Test-Path $emailBodyPath) {
 }
 # Se $emailSentFlag existir -- email ja foi enviado hoje -- gate OK, silencio total
 
-# POS-CLOSE: bloco Embaixador Operacional (A4 -- acao insubstituivel do Diretor)
-$dataFim = Get-Date -Format "yyyy-MM-dd"
+# GATE EMBAIXADOR FORMAT -- mensagem ao Embaixador segue formato canonico (BLOQUEANTE)
+# Formato exigido pelo Diretor em 2026-06-13.
+# Musculo escreve DESTAQUES + PENDENCIAS em scripts\embaixador_msg_sessao.txt.
+# Gate valida, auto-completa header + lista 7 arquivos + secoes 0-5 e exibe mensagem pronta.
+$dataFim   = Get-Date -Format "yyyy-MM-dd"
+$dataFimBR = Get-Date -Format "dd/MM/yyyy"
+$diaSem    = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
 
 $painelMaisRecente = Get-ChildItem "$baseDir\PROTOCOLOS_ENCERRAMENTO" -Filter "PAINEL_ATIVIDADES_*$dataFim*.md" -ErrorAction SilentlyContinue |
                      Sort-Object LastWriteTime -Descending | Select-Object -First 1
@@ -146,61 +176,134 @@ if (-not $painelMaisRecente) {
     $painelMaisRecente = Get-ChildItem "$baseDir\PROTOCOLOS_ENCERRAMENTO" -Filter "PAINEL_ATIVIDADES_*.md" -ErrorAction SilentlyContinue |
                          Sort-Object LastWriteTime -Descending | Select-Object -First 1
 }
-$painelNome = if ($painelMaisRecente) { $painelMaisRecente.Name } else { "PAINEL_ATIVIDADES_$dataFim.md (VERIFICAR)" }
+$painelNome = if ($painelMaisRecente) { $painelMaisRecente.Name } else { "PAINEL_ATIVIDADES_$dataFim.md (AUSENTE)" }
 
-Write-Host ""
-Write-Host "=======================================================" -ForegroundColor Magenta
-Write-Host "  EMBAIXADOR -- Vanguard" -ForegroundColor Magenta
-Write-Host "=======================================================" -ForegroundColor Magenta
-Write-Host ""
-Write-Host "  ARQUIVOS PARA ARRASTAR AO EMBAIXADOR (7):" -ForegroundColor Yellow
-Write-Host ""
-Write-Host "  PROTOCOLOS_ENCERRAMENTO\$painelNome" -ForegroundColor Cyan
-Write-Host "  PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md" -ForegroundColor Cyan
-Write-Host "  CLIENTES\WIP_BOARD.json" -ForegroundColor Cyan
-Write-Host "  INTELLIGENCE_LEDGER.md" -ForegroundColor Cyan
-Write-Host "  PENDENTES.md" -ForegroundColor Cyan
-Write-Host "  CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md" -ForegroundColor Cyan
-Write-Host "  CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "  ---" -ForegroundColor DarkGray
-Write-Host "  MENSAGEM PARA COLAR NO EMBAIXADOR:" -ForegroundColor Yellow
-Write-Host ""
+$arq1 = "PROTOCOLOS_ENCERRAMENTO\$painelNome"
+$arq2 = "PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md"
+$arq3 = "CLIENTES\WIP_BOARD.json"
+$arq4 = "INTELLIGENCE_LEDGER.md"
+$arq5 = "PENDENTES.md"
+$arq6 = "CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md"
+$arq7 = "CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
 
-# Contexto adaptado -- Musculo escreve scripts\embaixador_msg_sessao.txt antes do close
-$msgAdaptadaPath = Join-Path $baseDir "scripts\embaixador_msg_sessao.txt"
-if (Test-Path $msgAdaptadaPath) {
-    $linhas = Get-Content $msgAdaptadaPath -Encoding UTF8
-    foreach ($linha in $linhas) {
-        Write-Host "  $linha" -ForegroundColor White
+# Detectar loop + cliente para o header
+$loopLabel = ""
+try {
+    $wipRaw = Get-Content "$baseDir\CLIENTES\WIP_BOARD.json" -Raw -Encoding UTF8
+    $wipObj = $wipRaw | ConvertFrom-Json -ErrorAction SilentlyContinue
+    $projAtivo = @($wipObj.board.build) | Select-Object -First 1
+    if ($projAtivo -and $projAtivo.loop_atual) {
+        $loopLabel = " -- " + $projAtivo.loop_atual + " " + $projAtivo.cliente.ToUpper()
     }
-    Remove-Item $msgAdaptadaPath -Force
+} catch {}
+
+$msgAdaptadaPath = Join-Path $baseDir "scripts\embaixador_msg_sessao.txt"
+
+Write-Host ""
+Write-Host "=======================================================" -ForegroundColor Magenta
+Write-Host "  GATE EMBAIXADOR -- Formato Canonico (BLOQUEANTE)"    -ForegroundColor Magenta
+Write-Host "=======================================================" -ForegroundColor Magenta
+Write-Host ""
+
+if (-not (Test-Path $msgAdaptadaPath)) {
+    Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- embaixador_msg_sessao.txt nao encontrado." -ForegroundColor Red
     Write-Host ""
+    Write-Host "  Musculo: criar scripts\embaixador_msg_sessao.txt com no minimo:" -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "    DESTAQUES DESTA SESSAO:" -ForegroundColor Yellow
+    Write-Host "    - [entrega 1 com status]" -ForegroundColor Yellow
+    Write-Host "    - [entrega 2 com status]" -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "    PENDENCIAS DO DIRETOR:" -ForegroundColor Yellow
+    Write-Host "    - [acao 1 (prazo)]" -ForegroundColor Yellow
+    Write-Host "    - [acao 2 (prazo)]" -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "  Gate auto-completa: header + lista numerada 7 arquivos + secoes 0-5 + instrucao final." -ForegroundColor DarkGray
+    Write-Host ""
+    $exitCode = 2
 } else {
-    Write-Host "  [AVISO] Musculo nao escreveu scripts\embaixador_msg_sessao.txt -- contexto da sessao ausente." -ForegroundColor Yellow
-    Write-Host "  Embaixador, fechamento de sessao -- $dataFim." -ForegroundColor White
-    Write-Host "  Faco upload de 7 arquivos: PAINEL_ATIVIDADES, CONTEXTO_SESSAO_DIRETOR, WIP_BOARD," -ForegroundColor White
-    Write-Host "  INTELLIGENCE_LEDGER, PENDENTES, VANGUARD_TIMELINE e MEMORIA_EMBAIXADOR." -ForegroundColor White
-    Write-Host ""
+    $msgContent = Get-Content $msgAdaptadaPath -Raw -Encoding UTF8
+
+    $temDestaques  = $msgContent -match "DESTAQUES DESTA SESS"
+    $temPendencias = $msgContent -match "PEND.NCIAS DO DIRETOR|PENDENCIAS DO DIRETOR"
+    $formatOk      = $true
+
+    if (-not $temDestaques) {
+        Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- secao 'DESTAQUES DESTA SESSAO' ausente." -ForegroundColor Red
+        $formatOk = $false
+    }
+    if (-not $temPendencias) {
+        Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- secao 'PENDENCIAS DO DIRETOR' ausente." -ForegroundColor Red
+        $formatOk = $false
+    }
+
+    if (-not $formatOk) {
+        Write-Host ""
+        Write-Host "  Formato minimo obrigatorio do embaixador_msg_sessao.txt:" -ForegroundColor Yellow
+        Write-Host "    DESTAQUES DESTA SESSAO:" -ForegroundColor Yellow
+        Write-Host "    - [lista de entregas com status]" -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host "    PENDENCIAS DO DIRETOR:" -ForegroundColor Yellow
+        Write-Host "    - [acoes pendentes do Diretor com prazo]" -ForegroundColor Yellow
+        Write-Host ""
+        $exitCode = 2
+    } else {
+        # Extrair corpo contextual (pular header se existir)
+        $linhasArq = @(Get-Content $msgAdaptadaPath -Encoding UTF8)
+        $corpoIdx  = 0
+        if ($linhasArq.Count -gt 0 -and ($linhasArq[0] -match "Embaixador.*fechamento|fechamento.*sess")) { $corpoIdx = 1 }
+        while ($corpoIdx -lt $linhasArq.Count -and [string]::IsNullOrWhiteSpace($linhasArq[$corpoIdx])) { $corpoIdx++ }
+        $corpo = if ($corpoIdx -lt $linhasArq.Count) {
+            ($linhasArq[$corpoIdx..($linhasArq.Count-1)] -join "`n").Trim()
+        } else { $msgContent.Trim() }
+
+        # Construir mensagem completa no formato canonico do Diretor
+        $msgCompleta  = "Embaixador, fechamento de sessao -- $dataFimBR ($diaSem)$loopLabel`n`n"
+        $msgCompleta += "Faco upload dos 7 arquivos abaixo (todos atualizados hoje):`n"
+        $msgCompleta += "1. $arq1`n"
+        $msgCompleta += "2. $arq2`n"
+        $msgCompleta += "3. $arq3`n"
+        $msgCompleta += "4. $arq4`n"
+        $msgCompleta += "5. $arq5`n"
+        $msgCompleta += "6. $arq6`n"
+        $msgCompleta += "7. $arq7`n`n"
+        $msgCompleta += "$corpo`n`n"
+        $msgCompleta += "Com base nos 7 arquivos, gerar:`n`n"
+        $msgCompleta += "0. BRIEFING DE ABERTURA PARA O MUSCULO`n"
+        $msgCompleta += "1. SEMAFORO por projeto`n"
+        $msgCompleta += "2. DIAGNOSTICO DO DIA`n"
+        $msgCompleta += "3. PREVISAO DOS PROXIMOS DIAS`n"
+        $msgCompleta += "4. ANALISE GERENCIAL`n"
+        $msgCompleta += "5. PROXIMA ACAO DO DIRETOR (maximo 3 itens)`n`n"
+        $msgCompleta += '"Diretor, ao abrir o Claude Code, cole o BLOCO 0 como PRIMEIRA mensagem."'
+
+        # Exibir lista de arquivos
+        Write-Host "  ARQUIVOS PARA ARRASTAR AO EMBAIXADOR (7):" -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host "  1. $arq1" -ForegroundColor Cyan
+        Write-Host "  2. $arq2" -ForegroundColor Cyan
+        Write-Host "  3. $arq3" -ForegroundColor Cyan
+        Write-Host "  4. $arq4" -ForegroundColor Cyan
+        Write-Host "  5. $arq5" -ForegroundColor Cyan
+        Write-Host "  6. $arq6" -ForegroundColor Cyan
+        Write-Host "  7. $arq7" -ForegroundColor Cyan
+        Write-Host ""
+        Write-Host "  ---" -ForegroundColor DarkGray
+        Write-Host "  MENSAGEM COMPLETA -- COLAR NO EMBAIXADOR:" -ForegroundColor Yellow
+        Write-Host ""
+
+        # Exibir mensagem linha a linha
+        $msgCompleta -split "`n" | ForEach-Object { Write-Host "  $_" -ForegroundColor White }
+
+        # Limpar arquivo apos exibir
+        Remove-Item $msgAdaptadaPath -Force -ErrorAction SilentlyContinue
+        Write-Host ""
+        Write-Host "  [GATE EMBAIXADOR] VERDE -- mensagem exibida no formato canonico." -ForegroundColor Green
+    }
 }
 
-# Estrutura padrao -- SEMPRE impressa, adaptada ou nao
-Write-Host "  Com base nos arquivos, gerar o artefato publicavel com:" -ForegroundColor White
 Write-Host ""
-Write-Host "  0. BRIEFING DE ABERTURA PARA O MUSCULO (gerar primeiro)" -ForegroundColor White
-Write-Host "     Paragrafo que o Diretor colara ao abrir a proxima sessao do Claude Code." -ForegroundColor White
-Write-Host "     Conter: (a) o que foi entregue hoje e esta ativo, (b) o que ficou em aberto e por que," -ForegroundColor White
-Write-Host "     (c) proximo passo esperado do Musculo." -ForegroundColor White
-Write-Host '     Escrito na segunda pessoa: "Musculo, na ultima sessao..."' -ForegroundColor White
-Write-Host ""
-Write-Host "  1. SEMAFORO -- status visual por projeto (vermelho bloqueante / amarelo atencao / verde saudavel)" -ForegroundColor White
-Write-Host "  2. DIAGNOSTICO DO DIA -- saude dos projetos ativos + o que avancou hoje" -ForegroundColor White
-Write-Host "  3. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist do Diretor" -ForegroundColor White
-Write-Host "  4. ANALISE GERENCIAL -- o que voce ve que o Musculo nao ve?" -ForegroundColor White
-Write-Host "  5. PROXIMA ACAO DO DIRETOR -- maximo 3 itens em ordem de prioridade" -ForegroundColor White
-Write-Host ""
-Write-Host '  "Diretor, ao abrir o Claude Code, cole o BLOCO 0 acima como PRIMEIRA mensagem para o Musculo -- antes de qualquer outra coisa."' -ForegroundColor White
-Write-Host ""
+Write-Host "=======================================================" -ForegroundColor Magenta
 
 # n8n W-4 -- gate: TELEGRAM_BOT_TOKEN configurado (D2 ENV_VARS)
 $alertConfigPath = Join-Path $PSScriptRoot "alert_config.ps1"
