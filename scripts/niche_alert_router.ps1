@@ -67,11 +67,12 @@ foreach ($match in $alertMatches) {
     # Adicionar em PENDENTES.md como [diretor] com prazo
     if (-not $dryRun -and (Test-Path $pendentesFile)) {
         $pendentesContent = Get-Content $pendentesFile -Raw -Encoding UTF8
-        $novaLinha = "- [ ] [diretor] [ALERTA NICHO] $nichoLine — Prazo: $prazoLine"
+        $novaLinha = "- [ ] [diretor] $nichoLine - Prazo: $prazoLine"
 
-        if (-not ($pendentesContent -match [regex]::Escape($nichoLine.Substring(0, [Math]::Min(30, $nichoLine.Length))))) {
-            # Adicionar ao PENDENTES se nao existe ainda
-            $pendentesContent = $pendentesContent -replace "(## PENDENTES DO DIRETOR)", "`$1`n$novaLinha"
+        $matchKey = $nichoLine.Substring(0, [Math]::Min(30, $nichoLine.Length))
+        if (-not ($pendentesContent -match [regex]::Escape($matchKey))) {
+            # Inserir no bloco de ALERTAS CRITICOS (header real do PENDENTES.md)
+            $pendentesContent = $pendentesContent -replace "(## [^`n]+ALERTAS[^`n]+DIRETOR[^`n]*`n)", "`$1$novaLinha`n"
             $pendentesContent | Out-File $pendentesFile -Encoding UTF8 -NoNewline
             Write-Host "  [PENDENTES] Adicionado: $novaLinha" -ForegroundColor DarkGray
         }
@@ -99,7 +100,7 @@ if (-not $dryRun) {
         Write-Host "  [AVISO] Alertas registrados apenas em PENDENTES.md." -ForegroundColor Yellow
     }
 } else {
-    Write-Host "[DRY RUN] Alertas detectados — nao enviados (use sem -dryRun para enviar)" -ForegroundColor DarkGray
+    Write-Host "[DRY RUN] Alertas detectados - nao enviados (use sem -dryRun para enviar)" -ForegroundColor DarkGray
 }
 
 # Log

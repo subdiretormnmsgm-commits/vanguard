@@ -67,6 +67,201 @@
 2. Abrir `PASSO_NICHE_MODELER.md` no Gemini Advanced — sessão única de enriquecimento
 3. Colar output em PENDING_REVIEW — Músculo aplica aprovações nos modelos
 
+### NICHE MODELER — Gemini Advanced · Loop 33 · 2026-06-13
+> Corpus: 9 arquivos Drive (F1v1, F1v2, F5, F7, F8-roteiro, F9v2, F11, F12v2, F15) + Biblioteca + Competitors + NICHE_INDEX.json
+> Status: **AGUARDANDO VEREDITO DO DIRETOR** — 4 tarefas concluídas · 2 nichos novos (fit 5.0) · 3 alertas CRÍTICOS
+> P-124: output bruto em `.gemini_raw_response.txt` · esta seção é a versão curada para veredito
+
+---
+
+**NICHE MODELER — SESSÃO ÚNICA — 2026-06-13**
+
+#### PARTE 1: VALIDAÇÃO DOS MODELOS
+
+```
+NICHO: licitacoes-contratos-publicos
+FIT_SCORE: 4.8 → CONFIRMO
+GAPS: Risco sistema Alice (TCU) + Lei 14.133/21 + Acórdão 117/2024 — incluir no modelo.
+INCONSISTÊNCIAS: PL 2338 (IA) afeta nicho — exige supervisão humana em sistemas de alto risco.
+STATUS_AJUSTE: CONFIRMO
+
+NICHO: glosa-hospitalar
+FIT_SCORE: 4.6 → 5.0
+GAPS: Taxa de glosa atingiu 17% no Q1/2025. CFM 2.448/2025 judicializada pela FenaSaúde em fev/2026.
+INCONSISTÊNCIAS: Nenhuma.
+STATUS_AJUSTE: MOVER_AGORA ✅ UPGRADE
+
+NICHO: medicos-peritos-laudos
+FIT_SCORE: 4.7 → 5.0
+GAPS: CFM 2.448/2025 criou novo padrão de documentação para laudos — atualização metodológica obrigatória para evitar impugnações.
+INCONSISTÊNCIAS: Nenhuma.
+STATUS_AJUSTE: MOVER_AGORA ✅ UPGRADE
+
+NICHO: rastreabilidade-sanitaria-premium
+FIT_SCORE: 4.5 → 5.0
+GAPS: Casos Ypê/Nestlé (2025/2026) aumentaram rigor. Norma ANVISA 09/06/2026 com deadline 09/12/2026.
+INCONSISTÊNCIAS: Nenhuma.
+STATUS_AJUSTE: MOVER_AGORA ✅ UPGRADE
+
+NICHO: ma-reestruturacao-societaria
+FIT_SCORE: 4.5 → 5.0
+GAPS: Due Diligence Cibernética (BCB 538 + CMN 5.274 de mar/2026) e passivo trabalhista oculto como novos gatilhos.
+INCONSISTÊNCIAS: Nenhuma.
+STATUS_AJUSTE: MOVER_AGORA ✅ UPGRADE
+
+NICHO: setor-eletrico-regulatorio
+FIT_SCORE: 4.8 → 5.0
+GAPS: CP 009/2026 encerrada 06/06/2026 → 60 dias para auditoria compulsória de 100% das conexões GD.
+INCONSISTÊNCIAS: urgencia_regulatoria estava "ESTRUTURAL" → corrigir para "CRÍTICA" no JSON.
+STATUS_AJUSTE: MOVER_AGORA ✅ UPGRADE + INCONSISTÊNCIA DETECTADA
+
+NICHO: compliance-aduaneiro-ncm
+FIT_SCORE: 4.3 → 5.0
+GAPS: LC 227/2026 substituiu multa de 1% por R$20.000 por informação incorreta. Reforma Tributária bloqueia NF com NCM errado diretamente na SEFAZ.
+INCONSISTÊNCIAS: Nenhuma.
+STATUS_AJUSTE: MOVER_AGORA ✅ UPGRADE
+
+NICHO: carbon-esg-mrv
+FIT_SCORE: 4.5 → 5.0
+GAPS: Lei 15.042/2024 sancionada. CBAM em fase definitiva jan/2026.
+INCONSISTÊNCIAS: Status "MONITORAR" não reflete urgência — inventários 2026 são pré-requisito para MRV 2027.
+STATUS_AJUSTE: PROMOVER_PARA_MOVER_AGORA ✅ UPGRADE + PROMOÇÃO DE STATUS
+
+NICHO: ifrs17-seguros
+FIT_SCORE: 4.3 → 5.0
+GAPS: 88% das seguradoras brasileiras adotarão CPC 50. Mercado de R$630M em investimentos de transição.
+INCONSISTÊNCIAS: Nenhuma.
+STATUS_AJUSTE: PROMOVER_PARA_MOVER_AGORA ✅ UPGRADE + PROMOÇÃO DE STATUS
+```
+
+#### PARTE 2: NICHOS NOVOS (2 identificados — ambos fit 5.0 MOVER_AGORA)
+
+**NOVO 1 — `conformidade-ai-act`** · Deadline 02/08/2026 · Ticket R$15K–R$80K
+```json
+{
+  "id": "conformidade-ai-act",
+  "nome": "Conformidade AI Act + PL 2338",
+  "vertical": 6,
+  "status": "MOVER_AGORA",
+  "fit_score": 5.0,
+  "setor": "Tecnologia / Compliance de IA",
+  "subsetor": "Auditoria de Algoritmos e Governança de Risco",
+  "match_keywords": ["AI Act", "PL 2338", "inteligência artificial", "alto risco", "compliance de IA", "multa europeia"],
+  "match_setores": ["fintechs", "healthtechs", "legaltechs", "e-commerces", "SaaS exportador"],
+  "dores": [
+    "Desconhecimento do escopo de alto risco",
+    "Ausência de documentação técnica detalhada",
+    "Risco de multa de até €35M ou 7% do faturamento"
+  ],
+  "gatilho_regulatorio": {
+    "norma": "AI Act UE e PL 2338",
+    "prazo": "02/08/2026",
+    "impacto": "Sanções financeiras massivas e bloqueio de mercado"
+  },
+  "roi_vanguard": {
+    "ticket_estimado": "R$15.000 a R$80.000",
+    "retorno": "Prevenção de multa de até €35M e manutenção de operações internacionais"
+  },
+  "pricing": { "modelo": "Diagnóstico inicial + Roadmap de adequação" },
+  "narrativas": {
+    "argumento_abertura": "2 de agosto de 2026 é a data. Vocês têm algum sistema que toma decisão sobre pessoas ou que serve clientes europeus? A multa é de até €35 milhões.",
+    "linkedin": "A regulação europeia afeta empresas brasileiras a partir de agosto. Diagnósticos estruturados garantem a continuidade dos negócios.",
+    "whatsapp": "Sua empresa exporta software ou atende a UE? O AI Act entra em vigor dia 2 de agosto. Os especialistas da Vanguard entregam o dossiê técnico necessário para evitar bloqueios."
+  },
+  "cadencia_cowork": { "frentes_alimentadoras": ["F17", "F22"] }
+}
+```
+
+**NOVO 2 — `eventos-fiscais-contadores`** · Deadline 30/06/2026 ⚠️ · Ticket R$8K–R$40K
+```json
+{
+  "id": "eventos-fiscais-contadores",
+  "nome": "Automação Auditável de Eventos Fiscais para Contadores",
+  "vertical": 3,
+  "status": "MOVER_AGORA",
+  "fit_score": 5.0,
+  "setor": "Contabilidade / Tributário",
+  "subsetor": "Auditoria de Obrigações Acessórias e SPED",
+  "match_keywords": ["Eventos Fiscais", "SPED", "ECD 2026", "ECF 2026", "autuação automática", "compliance tributário"],
+  "match_setores": ["escritórios de contabilidade", "departamentos fiscais corporativos"],
+  "dores": [
+    "Transição do SPED para Eventos Fiscais em tempo real",
+    "Autuações automáticas por erros de preenchimento",
+    "Processos de validação manuais ineficientes"
+  ],
+  "gatilho_regulatorio": {
+    "norma": "ECD 2026 (leiaute 12) e ECF 2026",
+    "prazo": "30/06/2026 (ECD) e 31/07/2026 (ECF)",
+    "impacto": "Multas automáticas de 0,02% ao dia ou 5% sobre valor omitido"
+  },
+  "roi_vanguard": {
+    "ticket_estimado": "R$8.000 a R$40.000",
+    "retorno": "Eliminação de multas fiscais automáticas e redução do tempo de auditoria manual"
+  },
+  "pricing": { "modelo": "Diagnóstico de prontidão + Fluxo de validação documentado" },
+  "narrativas": {
+    "argumento_abertura": "O SPED está sendo substituído por Eventos Fiscais em tempo real. O erro agora é detectado imediatamente pela Receita. Sua operação suporta essa mudança?",
+    "linkedin": "A transição para Eventos Fiscais exige auditoria contínua. Contabilidades de ponta substituem a checagem manual por fluxos estruturados.",
+    "whatsapp": "O prazo da ECD encerra em 30 de junho. Sua contabilidade tem um processo validado para mitigar multas automáticas? Nossa equipe implementa fluxos de auditoria seguros."
+  },
+  "cadencia_cowork": { "frentes_alimentadoras": ["F20"] }
+}
+```
+
+#### PARTE 3: NARRATIVAS COMPLEMENTARES (→ INTENCAO_LINKEDIN.md)
+
+> Posts colados em `CLIENTES/VANGUARD/INTENCAO_LINKEDIN.md` na mesma sessão.
+
+**POST 1 — Setor Elétrico ANEEL:** "O ONS identificou 14 GW de geração distribuída não declarada no Brasil em 2026..." → [ver INTENCAO_LINKEDIN.md]
+**POST 2 — AI Act:** "O dia 2 de agosto de 2026 representa um divisor de águas..." → [ver INTENCAO_LINKEDIN.md]
+**POST 3 — NCM Aduaneiro:** "As importações brasileiras superam R$ 1,6 trilhão anuais..." → [ver INTENCAO_LINKEDIN.md]
+
+#### PARTE 4: MAPA DE PRIORIDADE COMERCIAL
+
+| # | Nicho | Razão | Prazo |
+|---|---|---|---|
+| 1 | Eventos Fiscais (Contadores) | Prazo ECD 30/06 — urgência máxima e dor operacional imediata | 30/06/2026 |
+| 2 | Conformidade AI Act | Deadline 02/08 — €35M de multa, concorrência inexistente | 02/08/2026 |
+| 3 | Setor Elétrico (ANEEL) | Auditoria 60 dias iniciada 06/06 — retroatividade pesada | 05/08/2026 |
+| 4 | Compliance Aduaneiro NCM | Rejeição automática SEFAZ — perda de receita diária | Contínuo |
+| 5 | Glosa Hospitalar | CFM 2.448/2025 — argumento legal que hospitais ainda não operacionalizam | Contínuo |
+
+**PRIMEIRO PROSPECT CONCRETO:**
+Alvo: Sócio/Diretor de Compliance de escritório de contabilidade de médio porte.
+Canal: WhatsApp / LinkedIn.
+Mensagem: "O prazo da ECD encerra no dia 30 de junho. A transição para Eventos Fiscais gera multas automáticas pela Receita para processos não estruturados. Nossa equipe implementa os fluxos de auditoria necessários hoje. Sua operação já suporta essa mudança?"
+
+#### [ALERTAS] — 3 CRÍTICOS
+
+```
+[ALERTA NICHE] — Automacao de Eventos Fiscais — 2026-06-13
+Urgencia: CRITICA
+Gatilho: Prazo de entrega ECD 2026 (leiaute 12) encerra 30/06/2026
+Prazo: 30/06/2026
+Destinatarios: Diretor + Musculo + Embaixador + Socios
+Acao imediata: Prospectar escritórios de contabilidade de médio porte via WhatsApp/LinkedIn esta semana
+Canal de prospecao: WhatsApp / LinkedIn
+Mensagem de abertura sugerida: O prazo da ECD encerra em 30 de junho e a Receita automatizou as multas por erro de preenchimento; sua contabilidade já opera com auditoria de Eventos Fiscais?
+
+[ALERTA NICHE] — Conformidade AI Act — 2026-06-13
+Urgencia: CRITICA
+Gatilho: AI Act UE ativa obrigações de IA de alto risco em 02/08/2026
+Prazo: 02/08/2026
+Destinatarios: Diretor + Musculo + Embaixador + Socios
+Acao imediata: Mapear e contatar 3 CTOs/Diretores Jurídicos de fintechs brasileiras que operam na Europa
+Canal de prospecao: LinkedIn
+Mensagem de abertura sugerida: Faltam apenas 7 semanas para o AI Act europeu exigir conformidade dos seus algoritmos sob pena de €35 milhões; o que o regulador encontrará na sua operação?
+
+[ALERTA NICHE] — Setor Eletrico / GD — 2026-06-13
+Urgencia: CRITICA
+Gatilho: ANEEL encerrou CP 009/2026 em 06/06/2026 — 60 dias para auditoria compulsória de 100% das conexões GD
+Prazo: 05/08/2026
+Destinatarios: Diretor + Musculo + Embaixador + Socios
+Acao imediata: Identificar 2 integradoras GD com mais de 500 kW instalados para abordagem imediata
+Canal de prospecao: WhatsApp / Indicacao
+Mensagem de abertura sugerida: A ANEEL iniciou auditoria de 60 dias em 100% das conexões de GD; suas instalações possuem trilha documental para evitar retroatividade de 36 ciclos?
+```
+
 ---
 
 ## MISSÕES DE INTELIGÊNCIA ATIVAS (deliberadas Loop 29, D5:A — aguardando execução/output)

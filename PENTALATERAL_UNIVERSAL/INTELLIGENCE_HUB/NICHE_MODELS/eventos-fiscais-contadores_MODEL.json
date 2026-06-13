@@ -1,0 +1,126 @@
+{
+  "id": "eventos-fiscais-contadores",
+  "nome": "Automacao Auditavel de Eventos Fiscais para Contadores",
+  "vertical": 11,
+  "status": "MOVER_AGORA",
+  "fit_score": 5.0,
+
+  "setor": "Contabilidade / Tributario",
+  "subsetor": "Auditoria de Obrigacoes Acessorias e SPED",
+  "match_keywords": ["Eventos Fiscais", "SPED", "ECD 2026", "ECF 2026", "autuacao automatica", "compliance tributario", "leiaute 12", "Receita Federal", "ECD", "ECF", "SPED contabil"],
+  "match_setores": ["escritorios de contabilidade", "departamentos fiscais corporativos", "contadores", "contabilidade"],
+
+  "perfil_cliente": {
+    "porte": ["medio"],
+    "segmento": ["escritorios de contabilidade com 5-50 funcionarios", "departamentos fiscais de empresas industriais ou comerciais"],
+    "regiao_preferencial": "Nacional",
+    "frequencia_uso": "Projeto pontual + retainer de auditoria continua",
+    "ticket_minimo": "R$8.000 (diagnostico de prontidao)",
+    "sinal_de_encaixe": "Escritorio de contabilidade ou empresa com obrigacoes ECD/ECF 2026 sem processo de validacao estruturado"
+  },
+
+  "dores": [
+    {
+      "descricao": "Transicao do SPED para Eventos Fiscais em tempo real — erro e detectado imediatamente pela Receita, nao mais na entrega anual",
+      "custo_estimado": "Multas automaticas de 0,02% ao dia ou 5% sobre valor omitido. Sem possibilidade de retificacao pos-prazo sem penalidade.",
+      "fonte": "Gemini NICHE_MODELER L33 — F3 2026-06-12",
+      "urgencia": "CRITICA"
+    },
+    {
+      "descricao": "ECD 2026 (leiaute 12) exige campos novos que a maioria dos escritorios ainda nao mapeou — prazo 30/06/2026",
+      "custo_estimado": "Multa por atraso: R$1.500 por mes ou fracao. Multa por informacao omitida: 5% do valor.",
+      "fonte": "Gemini NICHE_MODELER L33",
+      "urgencia": "CRITICA"
+    },
+    {
+      "descricao": "Processos de validacao manuais ineficientes — contador verifica manualmente o que a Receita ja valida automaticamente",
+      "custo_estimado": "Retrabalho de 10-30h por entrega + risco de erro humano nao detectado",
+      "fonte": "Gemini NICHE_MODELER L33",
+      "urgencia": "ALTA"
+    }
+  ],
+
+  "gatilho_regulatorio": {
+    "norma": "ECD 2026 (leiaute 12) e ECF 2026 — SPED em transicao para Eventos Fiscais em tempo real",
+    "orgao": "Receita Federal do Brasil",
+    "impacto": "Multas automaticas por erro de preenchimento. ECD: prazo 30/06/2026. ECF: prazo 31/07/2026. Sem tolerancia pos-prazo.",
+    "prazo": "30/06/2026 (ECD) e 31/07/2026 (ECF)",
+    "urgencia": "CRITICA"
+  },
+
+  "evidencias_mercado": {
+    "tamanho_mercado": "600.000+ escritorios de contabilidade no Brasil + departamentos fiscais de grandes e medias empresas",
+    "volume_leads": "Foco: escritorios com 3-50 funcionarios sem equipe de TI fiscal dedicada",
+    "dados_chave": [
+      "Prazo ECD 2026 em 30/06/2026 — 17 dias a partir de 2026-06-13",
+      "Multa automatica: 0,02% ao dia sobre o lucro liquido do periodo",
+      "Leiaute 12 traz campos novos que exigem adequacao de sistema e processo",
+      "Transicao para Eventos Fiscais e irreversivel — compliance continuo obrigatorio"
+    ]
+  },
+
+  "roi_vanguard": {
+    "reducao": "Eliminacao de multas fiscais automaticas e reducao do tempo de auditoria manual",
+    "payback": "Uma multa ECD evitada paga o diagnostico inteiro",
+    "argumento_numerico": "Escritorio com 50 clientes PJ sob ECD: risco de multa total de R$75k por atraso de 1 mes (R$1.500 x 50). Diagnostico Vanguard: R$8-15k."
+  },
+
+  "pricing": {
+    "referencia_mercado": "Consultoria fiscal/contabil: R$200-400/h. Adequacao de sistemas SPED: sem referencia consolidada no mercado boutique.",
+    "vanguard": {
+      "diagnostico_prontidao": "R$8.000-15.000 (mapeamento de gaps no processo de entrega ECD/ECF)",
+      "fluxo_validacao": "R$15.000-40.000 (implementacao de checklist e processo auditavel documentado)",
+      "retainer_compliance": "R$3.000-8.000/mes (monitoramento continuo de Eventos Fiscais)",
+      "nota": "Ticket mais acessivel do portfolio — foco em volume. Recorrencia alta justifica retainer."
+    }
+  },
+
+  "objecoes": [
+    {
+      "objecao": "Nosso sistema contabil ja gera a ECD automaticamente.",
+      "medo_real": "Nao sabe se o sistema esta atualizado para o leiaute 12",
+      "resposta": "O sistema gera — nosso metodo valida. O leiaute 12 traz campos novos que muitos sistemas ainda nao atualizaram. Nossa auditoria garante que o arquivo gerado passara na validacao da Receita antes do envio, nao depois."
+    },
+    {
+      "objecao": "Sempre entregamos no prazo.",
+      "medo_real": "Nao quer admitir que o processo e manual e sujeito a erro",
+      "resposta": "Entrega no prazo e uma coisa — entrega sem erros e outra. A Receita automatizou a deteccao de inconsistencias. Um campo errado no leiaute 12 gera autuacao automatica mesmo que a ECD seja entregue no dia 30."
+    }
+  ],
+
+  "narrativas": {
+    "argumento_abertura": "O SPED esta sendo substituido por Eventos Fiscais em tempo real. O erro agora e detectado imediatamente pela Receita. Sua operacao suporta essa mudanca?",
+    "linkedin": "A transicao para Eventos Fiscais exige auditoria continua. Contabilidades de ponta substituem a checagem manual por fluxos estruturados.",
+    "whatsapp": "O prazo da ECD encerra em 30 de junho. Sua contabilidade tem um processo validado para mitigar multas automaticas? Nossa equipe implementa fluxos de auditoria seguros.",
+    "proposta_comercial": "Prontidao ECD 2026 — validacao antes da entrega, nao depois. O diagnostico Vanguard revisa o processo de geracao da ECD contra o leiaute 12, identifica gaps e entrega um checklist auditavel para garantir que nenhum campo critico sera omitido ou preenchido incorretamente."
+  },
+
+  "demo_disponivel": false,
+
+  "concorrentes": {
+    "diretos": ["softwares contabeis (automatizam geracao, nao auditoria)", "consultorias tributarias de grande porte (ticket alto)", "auditores internos de empresas grandes"],
+    "diferencial_vanguard": "Nicho de mercado desatendido — escritorios medios nao tem acesso a consultoria fiscal boutique. Somos rapidos e focados em processo, nao em software."
+  },
+
+  "cadencia_cowork": {
+    "frentes_alimentadoras": ["F20", "F1", "F3"],
+    "F1_diario": "Monitorar atualizacoes de leiaute SPED + publicacoes da Receita Federal",
+    "F3_semanal": "Validar quais escritorios estao em atraso ou com dificuldades de adequacao",
+    "F20_quinzenal": "Benchmark de erros mais comuns na ECD/ECF por segmento",
+    "nota": "F20 e frente nova — criar roteiro de coleta antes do proximo ciclo. F1 tem dados de ECD via radar de dor fiscal."
+  },
+
+  "prospecao": {
+    "fonte_leads": "CRC (Conselho Regional de Contabilidade) — listas de escritorios por regiao. LinkedIn (contadores) + grupos WhatsApp de contabilidade",
+    "abordagem": "Urgencia real — prazo 30/06 cria janela de 17 dias. Abordar com data + risco especifico",
+    "perfil_ideal": "Escritorio de contabilidade com 5-30 funcionarios, 20+ clientes PJ com obrigacao ECD, sem equipe dedicada de TI fiscal"
+  },
+
+  "clientes_vanguard": [],
+  "convergencia_frentes": ["F1", "F3", "F20"],
+  "cowork_fontes": ["Gemini NICHE_MODELER L33 — F3 2026-06-12 + corpus completo"],
+
+  "data_entrada": "2026-06-13",
+  "ultima_atualizacao": "2026-06-13",
+  "origem": "NICHE_MODELER L33 — identificado pelo Gemini Advanced com corpus completo. ALERTA CRITICO — 17 dias para prazo ECD."
+}

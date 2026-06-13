@@ -1,7 +1,7 @@
 # INTENÇÃO LINKEDIN — VANGUARD IAH
 > Criado: 2026-06-13 · Músculo · Loop 33
-> Status: AGUARDANDO CONTEÚDO DO GEMINI (PASSO_NICHE_MODELER sessão única)
-> Próxima ação: Gemini entrega posts → colar seções abaixo
+> Status: ATUALIZADO com output da sessão Gemini Advanced 2026-06-13 — 3 posts prontos
+> Nichos selecionados: Setor Elétrico ANEEL (fit 5.0) · AI Act (fit 5.0 — NOVO) · NCM Aduaneiro (fit 5.0)
 
 ---
 
@@ -30,42 +30,39 @@
 
 ---
 
-### POST 1 — NICHO PRIORITÁRIO (fit_score mais alto)
-> Aguardando entrega do Gemini — colar aqui o post de 200 palavras
+### POST 1 — SETOR ELÉTRICO — Compliance ANEEL (fit 5.0)
+> Entregue pelo Gemini Advanced · 2026-06-13 · Pronto para publicar
+> Nicho: setor-eletrico-regulatorio · Urgência CRÍTICA — auditoria 60 dias iniciada 06/06/2026
 
-```
-[PLACEHOLDER — GEMINI ENTREGA AQUI]
+O ONS identificou 14 GW de geração distribuída não declarada no Brasil em 2026. Em resposta, a ANEEL encerrou a Consulta Pública 009/2026 e determinou que 100% das conexões passem por auditoria rigorosa em apenas 60 dias. Este é um momento crítico para integradores e concessionárias. A documentação inadequada ou a ausência de trilhas auditáveis resultará em exclusões do sistema de compensação e cobranças retroativas severas. Para mitigar esse passivo, nossa equipe aplica um método especializado que constrói evidências rastreáveis e garante a conformidade regulatória antes que a fiscalização se transforme em autuação. Estruturar a documentação agora é a única linha de defesa válida contra retroatividades que alcançam 36 ciclos. O processo de regularização exige precisão absoluta. Vocês conseguem provar, com evidência digital irrefutável, que todas as suas instalações estão perfeitamente regularizadas perante a ANEEL?
 
-Nicho: licitacoes-contratos-publicos (fit 4.8) OU setor-eletrico-regulatorio (fit 4.8)
-Formato: Post LinkedIn 200 palavras, pronto para publicar
-Regra: abre com número + fecha com pergunta aberta
-```
+**WhatsApp (60 palavras):** O ONS detectou 14 GW de energia não declarada e a ANEEL exige auditoria de 100% das conexões em 60 dias. O risco envolve cobranças retroativas de até 36 ciclos. Nossa equipe estrutura as evidências documentais necessárias para blindar suas operações. Vocês têm a trilha de conformidade pronta para a fiscalização?
 
----
-
-### POST 2 — NICHO URGÊNCIA REGULATÓRIA
-> Aguardando entrega do Gemini — colar aqui o post de 200 palavras
-
-```
-[PLACEHOLDER — GEMINI ENTREGA AQUI]
-
-Nicho: medicos-peritos-laudos (fit 4.7) OU rastreabilidade-sanitaria-premium (fit 4.5)
-Formato: Post LinkedIn 200 palavras, pronto para publicar
-Ênfase: gatilho regulatório com prazo (CID-11 2026 / ANVISA 09/12/2026)
-```
+**Reversão — "Nosso engenheiro já enviou os projetos iniciais":** Os especialistas da Vanguard não refazem o trabalho de engenharia; atuam na lacuna regulatória. O projeto inicial não comprova a trilha digital da expansão perante a nova norma da ANEEL, e a auditoria de 60 dias exige evidências documentais de ponta a ponta. A ausência dessa trilha específica gera a cobrança retroativa imediata.
 
 ---
 
-### POST 3 — NICHO TICKET ALTO
-> Aguardando entrega do Gemini — colar aqui o post de 200 palavras
+### POST 2 — CONFORMIDADE AI ACT + PL 2338 (fit 5.0 — NICHO NOVO)
+> Entregue pelo Gemini Advanced · 2026-06-13 · Pronto para publicar
+> Nicho NOVO identificado nesta sessão · Deadline 02/08/2026 (51 dias) · Ticket R$15K–R$80K
 
-```
-[PLACEHOLDER — GEMINI ENTREGA AQUI]
+O dia 2 de agosto de 2026 representa um divisor de águas para empresas de tecnologia. Nesta data, o AI Act europeu ativa exigências severas para sistemas que tomam decisões sobre pessoas. Organizações brasileiras que operam internacionalmente ou estruturam algoritmos complexos não estão isentas. O descumprimento gera multas que chegam a €35 milhões ou 7% do faturamento global. No entanto, 63% das empresas operam sem políticas claras e documentadas. Nossa equipe implementa um método de conformidade que produz dossiês técnicos rigorosos e mapeia integralmente os riscos, antecipando as auditorias internacionais e a futura aplicação do PL 2338 no Brasil. O preparo preventivo preserva o acesso a mercados estratégicos e blinda a operação corporativa contra passivos massivos. O seu principal sistema decisório possui a trilha de auditoria técnica que o regulador europeu vai exigir no próximo mês?
 
-Nicho: glosa-hospitalar (fit 4.6) OU ma-reestruturacao-societaria (fit 4.5)
-Formato: Post LinkedIn 200 palavras, pronto para publicar
-Ênfase: ROI mensurável, impacto financeiro direto
-```
+**WhatsApp (60 palavras):** Em 2 de agosto, o AI Act europeu passa a exigir documentação técnica estrita para sistemas decisórios, com multas de até €35 milhões. Nossos especialistas estruturam o diagnóstico preventivo necessário para garantir a conformidade e proteger sua atuação internacional. O que o regulador encontrará ao auditar as operações da sua empresa?
+
+**Reversão — "Não atuamos fisicamente na Europa, apenas exportamos software":** O AI Act possui alcance extraterritorial. Qualquer software que tome decisões sobre cidadãos europeus ou processe seus dados enquadra-se na regulação, independentemente da sede da empresa. Nossa equipe audita exatamente essa fronteira invisível para evitar bloqueios comerciais sumários.
+
+---
+
+### POST 3 — COMPLIANCE ADUANEIRO — NCM e Tributação (fit 5.0)
+> Entregue pelo Gemini Advanced · 2026-06-13 · Pronto para publicar
+> Nicho: compliance-aduaneiro-ncm · LC 227/2026 — R$20K multa por informação incorreta
+
+As importações brasileiras superam R$ 1,6 trilhão anuais, mas um detalhe documental ameaça paralisar as operações em 2026. Com a Reforma Tributária, a inconsistência na classificação NCM deixou de ser apenas uma multa contornável e tornou-se uma barreira imediata. Notas fiscais com códigos divergentes são rejeitadas automaticamente pelo sistema da SEFAZ, congelando o faturamento. Além disso, a nova legislação substituiu penalidades antigas por sanções de R$ 20.000 por informação incompleta. Nossa equipe aplica um método de auditoria documental que revisa integralmente o portfólio de SKUs, cruzando dados com normas da CAMEX e ex-tarifários para assegurar o fluxo contínuo de desembaraço. A conformidade prévia é a garantia de que as operações comerciais não serão interrompidas nas fronteiras e nos sistemas tributários. Quantos dos produtos da sua empresa circulam hoje sem uma revisão atualizada da classificação fiscal?
+
+**WhatsApp (60 palavras):** A Reforma Tributária de 2026 tornou o erro de classificação NCM uma trava que rejeita notas fiscais automaticamente na SEFAZ. Nossos especialistas realizam a auditoria preventiva do seu portfólio para evitar que o faturamento da sua empresa seja paralisado. Qual foi a última vez que seus códigos passaram por uma validação profunda?
+
+**Reversão — "Nosso despachante aduaneiro atualiza as NCMs a cada embarque":** O despachante foca no desembaraço pontual, não na auditoria histórica do portfólio. O novo cruzamento de dados da Receita Federal exige coerência retroativa e conformidade com ex-tarifários, sob risco de paralisação de faturamento via SEFAZ. Nossa equipe assegura a blindagem documental estrutural.
 
 ---
 
@@ -90,9 +87,11 @@ INTENCAO_LINKEDIN.md → posts prontos → publicação pelo Diretor
 
 | Data | Nicho | Status | Arquivo |
 |---|---|---|---|
+| 2026-06-13 | setor-eletrico-regulatorio (fit 5.0) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 1 |
+| 2026-06-13 | conformidade-ai-act (fit 5.0 NOVO) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 2 |
+| 2026-06-13 | compliance-aduaneiro-ncm (fit 5.0) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 3 |
 | 2026-07-01 | A definir (NICHE_MODELER jul) | AGUARDANDO | — |
 | 2026-08-01 | A definir (NICHE_MODELER ago) | AGUARDANDO | — |
-| 2026-09-01 | A definir (NICHE_MODELER set) | AGUARDANDO | — |
 
 ---
 
@@ -102,8 +101,10 @@ INTENCAO_LINKEDIN.md → posts prontos → publicação pelo Diretor
 
 ---
 
+**Status 2026-06-13:** Posts colados — sessão Gemini NICHE_MODELER concluída ✅
+
 **Próxima ação:**
-1. Diretor leva `PASSO_NICHE_MODELER.md` ao Gemini Advanced
-2. Gemini entrega TAREFA 3 (3 posts de 200 palavras por nicho)
-3. Músculo cola posts nas seções acima e remove os PLACEHOLDERs
-4. Diretor publica quando decidir criar a página
+1. ✅ Gemini Advanced entregou TAREFA 3 (3 posts de 200 palavras)
+2. ✅ Músculo colou posts nas seções acima
+3. [DIRETOR] Criar página LinkedIn da Vanguard quando decidir
+4. [DIRETOR] Publicar posts — cadência sugerida: 1 por semana, iniciando pelo POST 2 (AI Act — urgência 02/08)

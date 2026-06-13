@@ -1,4 +1,4 @@
-# PENDENTES — Vanguard IAH
+﻿# PENDENTES — Vanguard IAH
 > Atualizado pelo Músculo em tempo real durante qualquer sessão.
 > O briefing matinal lê este arquivo — tudo aqui aparece às 7h.
 > Regra P-047: qualquer tarefa identificada como pendente → registrar aqui IMEDIATAMENTE.
@@ -7,6 +7,21 @@
 ---
 
 ## 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR
+
+- [ ] `2026-06-13` **⚠️ [ALERTA NICHE] Eventos Fiscais / ECD 2026 — 17 DIAS** [diretor]
+  Prazo: **30/06/2026 (30-06-2026 terça-feira)**
+  Acao: Prospectar escritórios de contabilidade de médio porte via WhatsApp/LinkedIn esta semana
+  Mensagem: "O prazo da ECD encerra em 30 de junho e a Receita automatizou as multas; sua contabilidade já opera com auditoria de Eventos Fiscais?"
+
+- [ ] `2026-06-13` **[ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026** [diretor]
+  Prazo: **02/08/2026 (02-08-2026 domingo)**
+  Acao: Mapear e contatar 3 CTOs/Diretores Juridicos de fintechs brasileiras que operam na Europa
+  Canal: LinkedIn
+
+- [ ] `2026-06-13` **[ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias** [diretor]
+  Prazo: **05/08/2026 (05-08-2026 quarta-feira)**
+  Acao: Identificar 2 integradoras GD com mais de 500 kW instalados para abordagem imediata
+  Canal: WhatsApp / Indicacao
 
 - [x] `2026-05-26` ~~**TOKEN SUPABASE EXPOSTO — RESOLVIDO:**~~
   ✅ Token revogado no dashboard Supabase — confirmado pelo Diretor em 2026-05-27. Arquivos redatados.

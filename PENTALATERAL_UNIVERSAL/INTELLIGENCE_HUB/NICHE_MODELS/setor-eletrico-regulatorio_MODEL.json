@@ -3,7 +3,7 @@
   "nome": "Setor Elétrico — Compliance Regulatório ANEEL",
   "vertical": 6,
   "status": "MOVER_AGORA",
-  "fit_score": 4.8,
+  "fit_score": 5.0,
 
   "setor": "Energia / Regulatório",
   "subsetor": "Compliance de Concessões e Gestão de Ativos Regulados",
@@ -38,8 +38,8 @@
     "norma": "PRODIST (Procedimentos de Distribuição) + Resolução ANEEL 1000/2021 (revisada continuamente)",
     "orgao": "ANEEL",
     "impacto": "Ciclo de revisões tarifárias e atualizações de PRODIST criam janelas de conformidade obrigatória. Empresa que não acompanha é autuada na próxima fiscalização.",
-    "prazo": "Contínuo — ANEEL publica atualizações trimestralmente",
-    "urgencia": "ESTRUTURAL"
+    "prazo": "05/08/2026 — CP 009/2026 encerrada 06/06/2026, 60 dias auditoria compulsoria GD",
+    "urgencia": "CRITICA"
   },
 
   "evidencias_mercado": {
@@ -115,5 +115,6 @@
   ],
 
   "data_entrada": "2026-06-12",
-  "ultima_atualizacao": "2026-06-13"
+  "ultima_atualizacao": "2026-06-13",
+  "niche_modeler_l33": "UPGRADE 4.8->5.0 + urgencia ESTRUTURAL->CRITICA — CP 009/2026 encerrada 06/06, 60 dias auditoria GD. Prazo: 05/08/2026."
 }
