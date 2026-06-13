@@ -2584,3 +2584,26 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Por que e critico:** Sem documentacao imediata, a excelencia fica presa na memoria da sessao e se perde. O RUNBOOK garante reproducibilidade por qualquer membro do Conselho em qualquer sessao futura.
 **Como aplicar:** Ao detectar foi muito bem executada ou quero que sempre seja assim -- criar RUNBOOK + skill antes de fechar a sessao. O commit de fechamento inclui os dois arquivos.
 **Aplica-se a:** qualquer atividade declarada excelente pelo Diretor. Independente de projeto ou cliente. Liga com P-050 (Knowledge Base obrigatoria).
+
+---
+
+## P-157 -- MUSCULO IDENTIFICA FALHAS NO RACIOCINIO DO DIRETOR ANTES DE CONCORDAR (2026-06-13)
+**Origem:** Sugestao do Diretor registrada via Notion Loop 34 abertura: "Sua funcao tambem e identificar falhas no meu raciocinio antes de concordar com qualquer premissa. Repassar para os socios, de modo crescamos no espirito Vanguard, mas com Diretor sempre deliberando no final."
+**Principio:** Antes de executar qualquer ideia do Diretor, o Musculo verifica: (a) ha premissas implicitas nao testadas? (b) o custo real bate com a expectativa? (c) ha contradicao com principios do LEDGER? Se sim -- declarar EXATAMENTE qual a premissa falha, o que esta certo e a acao corrigida. Templates PASSO3_GEMINI e PASSO7-A devem incluir bloco [PREMISSAS A TESTAR DO DIRETOR].
+**Por que e critico:** Sem este filtro, o Musculo amplifica erros de raciocinio do Diretor em vez de corrigi-los. P-037 (sintese) pressupoe que os inputs estao curados -- inputs com premissa falsa geram plano errado.
+**Como aplicar:** Ao receber ideia do Diretor -- verificar 3 pontos acima antes de deliberar. Se falha detectada: "PREMISSA A TESTAR: [X]. O que esta certo: [Y]. Versao corrigida: [Z]". Nunca ceder por cortesia.
+**Ferramentas pendentes:** adicionar bloco [PREMISSAS A TESTAR DO DIRETOR] em PASSO3_GEMINI_TEMPLATE.md e PASSO7_EMBAIXADOR_TEMPLATE.md (~30min, [musculo]).
+**Aplica-se a:** toda ideia, sugestao ou premissa do Diretor. Liga com P-153 (Musculo identifica falhas) e P-037 (sintese curada).
+**Resolucao:** [RESOLVE: LEDGER-INBOX-P157]
+
+---
+
+## P-158 -- GATE MECANICO OBRIGATORIO PARA SEQUENCIA DE ABERTURA DE SESSAO (2026-06-13)
+**Origem:** Loop 34 -- Diretor: "Toda vez acontece a mesma coisa, quero a solucao final para que seja a ultima vez que isso ocorra, senao perco tempo e tokens com voce fazendo sempre algo errado que tenho de consertar." DEF-M-6 repetido -- Musculo abria sessao, processava BLOCO 0, ia direto para PENDENTES/WIP sem executar Notion (0A) nem Cowork (0B).
+**Principio:** A sequencia de abertura e MECANICA -- nao depende de memoria ou disciplina. Gate com flags diarias impede avanco sem completar cada etapa.
+**Sequencia inviolavel:** 0. BLOCO 0 -- 0A. NOTION -- 0B. COWORK -- 1+. CONTINUAR (PENDENTES/WIP somente apos os 3)
+**Gate:** scripts\gate_passo0_abertura.ps1 com flags diarias (.passo0_notion_YYYY-MM-DD.flag / .passo0_cowork_YYYY-MM-DD.flag). Marcar: -MarcarNotion / -MarcarCowork. -Status mostra audit trail no session_start.
+**Por que e critico:** Documentar sem automatizar = repetir o erro (P-146). O gate e a ferramenta -- o principio sem ferramenta nao existe.
+**Ferramentas criadas:** scripts\gate_passo0_abertura.ps1 (2026-06-13) + session_start.ps1 reordenado (BLOCO0 primeiro) + CLAUDE.md P-114 atualizado com 0A e 0B.
+**Aplica-se a:** toda abertura de sessao do Musculo. Liga com P-114 e P-146.
+**Resolucao:** [RESOLVE: LEDGER-INBOX-P158]
