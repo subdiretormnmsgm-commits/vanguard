@@ -1,8 +1,21 @@
-﻿# PENDENTES — Vanguard IAH
+# PENDENTES — Vanguard IAH
 > Atualizado pelo Músculo em tempo real durante qualquer sessão.
 > O briefing matinal lê este arquivo — tudo aqui aparece às 7h.
 > Regra P-047: qualquer tarefa identificada como pendente → registrar aqui IMEDIATAMENTE.
 > Feito? Marcar [x]. Músculo remove os [x] ao fechar sessão.
+
+---
+
+## ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO
+
+- [ ] `2026-06-13` **[MÚSCULO] AUDITORIA NOTEBOOKLM — preparar_notebooklm_projeto.ps1 -cliente VANGUARD** [musculo]
+  Motivo: 4 arquivos ausentes nas FONTES após sessão Cowork 2026-06-13:
+  - RUNBOOK_COWORK_ENGINE.md (novo)
+  - COWORK_HANDOFF.md (novo)
+  - PASSO_NICHE_MODELER.md (atualizado)
+  - NICHE_INDEX.json v1.5 (atualizado)
+  - 16_VANGUARD_TIMELINE.md (desatualizado na cópia FONTES)
+  Executar antes de qualquer ciclo com o Auditor.
 
 ---
 
@@ -291,7 +304,6 @@
 - [x] `2026-06-13` ~~**[DIRETOR] P-154 → INTELLIGENCE_LEDGER** [diretor]~~
   ✅ P-154 já inscrito no INTELLIGENCE_LEDGER.md — commit 1c28986 (Loop 33). [RESOLVE: LEDGER-INBOX-P154]
 
-- [ ] `2026-06-13` **[DIRETOR] Arrastar 7 arquivos ao Embaixador (Claude Projects) — sessão 2026-06-13** [diretor]
   Arquivos: PAINEL_ATIVIDADES_2026-06-13 · CONTEXTO_SESSAO_DIRETOR_2026-06-13 · WIP_BOARD.json · INTELLIGENCE_LEDGER.md · PENDENTES.md · 16_VANGUARD_TIMELINE.md · MEMORIA_EMBAIXADOR_VANGUARD.md
   Colar mensagem gerada pelo session_close (Gate EMBAIXADOR FORMAT).
 
