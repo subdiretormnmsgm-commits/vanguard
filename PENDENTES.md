@@ -258,10 +258,9 @@
   Transcript se torna fonte permanente no caderno VANGUARD.
   Custo: ~2h.
 
-- [ ] `2026-06-11` **[MÚSCULO] Cron W-1 — restaurar 3x/dia no n8n Studio** [musculo]
-  W-1 atual: 1x/dia (7h BRT). Deveria ser: 7h + 13h + 20h BRT.
-  Ação: EasyPanel → n8n Studio → W-1 → editar cron → reimportar.
-  FALHA-H da sessão — não bloqueante mas crítico para briefings.
+- [x] `2026-06-11` ~~**[MÚSCULO] Cron W-1 — restaurar 3x/dia no n8n Studio** [musculo]~~
+  ✅ Verificado via API 2026-06-12: W-1 já configurado com 3 intervalos (7h/13h/20h) — corrigido em sessão anterior.
+  Workflow name: "01 -- Check-in Temporal 7h 13h 20h" confirma. [RESOLVE: cron-w1-3x]
 
 - [x] `2026-06-11` ~~**[MÚSCULO] ATO 5 — LEDGER_INBOX → INTELLIGENCE_LEDGER (autorizado 2026-06-11)** [musculo]~~
   ✅ Concluído 2026-06-11. P-148 + P-130-ADDENDUM + FALHA-H..K adicionados ao LEDGER (2.419→2.455 linhas). Sync P-033 executado (9 arquivos). LEDGER_INBOX zerado. [RESOLVE: ATO 5]
@@ -431,18 +430,15 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   ✅ Script local: n8n_session_webhook.ps1 envia X-Webhook-Secret em todo POST para W-4.
   Segredo: N8N_WEBHOOK_SECRET (já no EasyPanel). [RESOLVE: seguranca-webhooks]
 
-- [ ] `2026-06-12` **[MUSCULO] GATE 1.6 -- calibrar reconcile_pendentes.ps1** [musculo]
-  Falso positivo: 22 matches de pendentes antigos (Loops 30-32) contra commits recentes.
-  Script retorna exit 2 -- bloqueia session_close e pula notion_sync.
-  Escopo: filtrar pendentes de loops ja fechados. Dívida Loop 34.
+- [x] `2026-06-12` ~~**[MUSCULO] GATE 1.6 -- calibrar reconcile_pendentes.ps1** [musculo]~~
+  ✅ 22 → 3 matches: (1) excluir commits com [RESOLVE:] da verificação; (2) comparar só contra título negrito **...**; (3) word boundary \b; (4) threshold 5→7 chars; (5) stopwords expandidas (+20 termos); restam 3 ruídos aceitáveis (1 genuíno: doc_freshness sem tag). [RESOLVE: GATE-1.6]
 
-- [ ] `2026-06-12` **[MUSCULO] Register-Veredito -- fix Loop display** [musculo]
-  "Loop Loop 32 FECHADO..." -- regex extrai string longa em vez de numero.
-  Aplicar mesmo fix do gerar_msg_embaixador (extrair só o número).
+- [x] `2026-06-12` ~~**[MUSCULO] Register-Veredito -- fix Loop display** [musculo]~~
+  ✅ Verificado 2026-06-12: commit fa9514d já aplica regex `$rawLoop -match "(\d+)"` — extrai só o número. [RESOLVE: register-veredito-loop]
 
-- [ ] `2026-06-12` **[MUSCULO] Gate 7C -- verificacao por HORARIO, nao por data** [musculo]
-  Diretor: controles devem ser em HH:MM. Threshold: arquivo modificado nas ultimas 8h.
-  Alterar PENTALATERAL_UNIVERSAL/scripts/session_close.ps1 Gate 7C.
+- [x] `2026-06-12` ~~**[MUSCULO] Gate 7C -- verificacao por HORARIO, nao por data** [musculo]~~
+  ✅ Verificado 2026-06-12: Gate 7C já usa threshold 8h (TotalHours) + exibe "yyyy-MM-dd HH:mm".
+  Commit 235fe57 aplicou o fix nesta sessão. [RESOLVE: gate7c-horario]
 
 - [x] `2026-06-12` ~~**[MUSCULO] PASSO 0 BLOQUEANTE -- Cowork + Notion com mesma forca que BLOCO 0** [musculo]~~
   ✅ session_start.ps1 atualizado: $colheitaCowork reescrito com linguagem ⛔ BLOQUEANTE.

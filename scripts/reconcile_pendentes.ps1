@@ -28,9 +28,12 @@ try {
     }
 
     # Filtrar commits de sistema (nao geram alertas)
+    # GATE 1.6: commits com [RESOLVE:] ja estao corretamente taggeados -- excluir da verificacao
+    # Apenas commits SEM [RESOLVE:] precisam ser verificados (podem ter resolvido sem taggar)
     $commitMsgs = $commitMsgs | Where-Object {
         $_ -and
         $_ -notmatch '\[AUTO-RESOLVE\]' -and
+        $_ -notmatch '\[RESOLVE:' -and
         $_ -notmatch '^chore\(session-close\)' -and
         $_ -notmatch '^chore\(pendentes\)' -and
         $_ -notmatch '^docs\(' -and
@@ -52,15 +55,25 @@ try {
                    'ingrid','valdece','musculo','diretor','script','arquivo','sessao',
                    'commit','update','added','remove','create','merge','branch','usando',
                    'projeto','processo','sistema','parte','antes','depois','primeiro','segundo',
-                   'vanguard','pentalateral','claude','supabase','github','netlify')
+                   'vanguard','pentalateral','claude','supabase','github','netlify',
+                   'bloqueante','resolve','gateway','relatorio','atividade','contexto',
+                   'template','preencher','checklist','artefato','delibera','executa',
+                   'session','notion','telegram','workflow','embaixador','antigravity',
+                   'intelligence','ledger','pendente','pendentes','wip_board','diretriz',
+                   'memoria','historico','notebooklm','skill','passo5','passo3','passo7',
+                   'estrategia','comercial','cliente','clientes','contato','threshold','timeout',
+                   'completa','completo','artefatos','artefato','freshness','cabecalho',
+                   'auditor','analise','encaixe','musculo','prospect','sugestoes','sugestao',
+                   'propagacao','sincronizado','sincronizados','atualizados','atualizado')
 
     $alertas = [System.Collections.ArrayList]@()
     $pendVistas = [System.Collections.Hashtable]@{}
 
     foreach ($msg in $commitMsgs) {
-        # Extrai palavras significativas (>=5 chars, nao stopwords, nao numeros puros)
+        # Extrai palavras significativas (>=7 chars, nao stopwords, nao numeros puros)
+        # GATE 1.6: minimo 7 chars (era 5) -- reduz falsos positivos de palavras genericas
         $words = $msg -split '[\s\-/\.\(\)\[\]:,_=+@#]' |
-                 Where-Object { $_.Length -ge 5 -and $_ -notmatch '^\d+$' } |
+                 Where-Object { $_.Length -ge 7 -and $_ -notmatch '^\d+$' } |
                  Where-Object { $stopwords -notcontains $_.ToLower() }
 
         if ($words.Count -eq 0) { continue }
@@ -69,13 +82,17 @@ try {
             $pendKey = $pend.Trim()
             if ($pendVistas.ContainsKey($pendKey)) { continue }
 
+            # GATE 1.6: comparar apenas contra o TITULO em negrito -- nao contra descricao completa
+            # Evita falsos positivos de palavras no contexto verboso da descricao
+            $tituloNegrito = ""
+            if ($pendKey -match '\*\*([^*]+)\*\*') { $tituloNegrito = $Matches[1] }
+            if ([string]::IsNullOrEmpty($tituloNegrito)) { continue }
+
             foreach ($word in $words) {
-                if ($pend -match [regex]::Escape($word)) {
+                # GATE 1.6: word boundary -- evita "termina" matchear "determinados"
+                if ($tituloNegrito -match ("\b" + [regex]::Escape($word) + "\b")) {
                     # Extrair descricao limpa do pendente
-                    $desc = $pendKey -replace '^\s*-\s*\[\s*\]\s*`[^`]+`\s*', '' `
-                                     -replace '\*\*([^*]+)\*\*:', '$1' `
-                                     -replace '\*\*', ''
-                    $desc = $desc.Trim()
+                    $desc = $tituloNegrito.Trim()
                     if ($desc.Length -gt 55) { $desc = $desc.Substring(0, 55) + '...' }
 
                     $alerta = "commit '$msg' | pendente: $desc"
