@@ -97,10 +97,11 @@ Não usar o Gemini App padrão (gemini.google.com/app) — o Deep Think não est
 
 **Contexto de 1M tokens:** PASSO3 + MEMORIA + RELATORIO podem ser colados em uma única interação sem truncamento. Aproveitar o contexto completo — não fragmentar em múltiplas mensagens.
 
-**ATENÇÃO — Distinção de nomenclatura crítica:**
-- **Antigravity CLI (local)** = o executor que lê PASSO3_GEMINI.md do disco. **Nunca gera DIRETRIZ.**
-- **Google Antigravity Platform** = a plataforma externa com Gemini 3.1 Pro High. **Gera DIRETRIZ.**
-São dois sistemas distintos com nomes similares. P-124 proíbe o CLI de gerar DIRETRIZ — não proíbe a plataforma.
+**NOTA — Antigravity é um sistema único:**
+Antigravity = plataforma + Gemini 3.1 Pro High como modelo. São a mesma coisa.
+"Antigravity jamais gera DIRETRIZ" (P-130) = a **automação cega sem Diretor** não gera DIRETRIZ.
+O Diretor + Gemini High no Antigravity = quem GERA a DIRETRIZ. Correto e esperado.
+P-124 proíbe câmara de eco (Claude gerando o que o Gemini deveria pensar) — não proíbe o Antigravity de operar.
 
 ### 2.1 Invocar a skill
 ```
