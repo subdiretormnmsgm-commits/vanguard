@@ -1,0 +1,136 @@
+{
+  "id": "glosa-hospitalar",
+  "nome": "Glosa Hospitalar / Defesa Médica",
+  "vertical": 2,
+  "status": "MOVER_AGORA",
+  "fit_score": 4.6,
+
+  "setor": "Saúde / Faturamento Hospitalar",
+  "subsetor": "Auditoria Preventiva de Faturamento e Gestão de Glosas",
+  "match_keywords": ["glosa", "hospital", "plano de saúde", "faturamento hospitalar", "ANS", "TISS", "prontuário", "CID-10", "autorização prévia", "auditoria médica", "recuperação de receita", "contestação de glosa", "codificação de procedimentos", "Anahp"],
+  "match_setores": ["saúde", "hospital", "clínica", "operadora de saúde", "medicina"],
+
+  "perfil_cliente": {
+    "porte": ["médio", "grande"],
+    "segmento": ["hospitais privados", "clínicas especializadas", "grupos hospitalares"],
+    "regiao_preferencial": "Nacional (mercado estrutural em todo o Brasil)",
+    "frequencia_uso": "Recorrente — retainer mensal ou projeto inicial + manutenção",
+    "faturamento_minimo": "R$500k/mês (para glosa ser material)",
+    "sinal_de_encaixe": "Taxa de glosa >3% do faturamento OR reclamação ativa sobre planos de saúde"
+  },
+
+  "dores": [
+    {
+      "descricao": "15,89% do faturamento hospitalar glosado por planos de saúde em 2025-2026",
+      "custo_estimado": "Hospital médio: R$2M–R$15M/ano em glosas não contestadas",
+      "fonte": "Anahp Observatório 2026 · saudedigitalnews.com.br · 2026-06-11",
+      "urgencia": "ALTA"
+    },
+    {
+      "descricao": "98% das glosas são contestáveis, mas menos de 15% são contestadas por falta de processo organizado",
+      "custo_estimado": "84% das glosas contestáveis ficam na mesa sem recurso",
+      "fonte": "F1 Radar de Dor 2026-06-11 · F16 Dores Invisíveis",
+      "urgencia": "ALTA"
+    },
+    {
+      "descricao": "Gargalo de codificação de procedimentos — CID-10 incorreto, autorização vencida, documentação incompleta",
+      "custo_estimado": "Mais de 60% das glosas originárias de erro de processo — evitáveis antes do envio da conta",
+      "fonte": "F1 2026-06-11",
+      "urgencia": "ALTA"
+    }
+  ],
+
+  "gatilho_regulatorio": {
+    "norma": "CFM 2.448/2025 + RDC 1.000/2025 (receituário eletrônico SNCR)",
+    "orgao": "CFM + ANVISA + ANS RN 566/2022",
+    "impacto": "Documentação de laudos e prescrições em conformidade obrigatória — expõe quem não tem rastreabilidade. Receituário eletrônico integrado ao SNCR obrigatório desde 01/06/2026",
+    "prazo": "CFM 2.448/2025 em vigor 2026 · SNCR desde 01/06/2026",
+    "urgencia": "ALTA"
+  },
+
+  "evidencias_mercado": {
+    "tamanho_mercado": "Hospitais privados brasileiros: R$5,8 bilhões glosados em 12 meses (fonte: Anahp 2026)",
+    "volume_leads": "Centenas de hospitais privados e milhares de clínicas especializadas",
+    "dados_chave": [
+      "R$5,8 bilhões glosados em hospitais privados em 12 meses — Anahp Observatório 2026",
+      "15,89% do faturamento retido pelos planos — Saúde Digital News 05/06/2026",
+      "Taxa de glosa subiu de 3,63% (2022) para 4,51% (2023) — tendência de alta",
+      "98% das glosas são contestáveis — apenas 1,96% mantidas após revisão",
+      "ROI de recuperação: 5–15x no primeiro ano para hospitais com auditoria ativa"
+    ]
+  },
+
+  "roi_vanguard": {
+    "reducao": "60–80% na taxa de glosa em 90 dias (modelo preventivo vs. retroativo)",
+    "payback": "Primeiros 90 dias — ROI de 5–15x",
+    "argumento_numerico": "Hospital com faturamento de R$10M/mês perde R$1,5M em glosas/mês. Recuperação de 60% = R$900k/mês → payback da Vanguard na primeira fatura"
+  },
+
+  "pricing": {
+    "referencia_mercado": "Auditoria médica: R$150–600/h (tabela técnica). Solução SaaS de glosas: R$1.500–5.000/mês (estimativa de mercado). Sem referência pública consolidada para auditoria preventiva estratégica.",
+    "vanguard": {
+      "modelo_recomendado": "Success fee — % do valor recuperado nos primeiros 90 dias",
+      "entrada": "R$5.000–12.000 diagnóstico inicial (mapeamento do ciclo de faturamento)",
+      "retainer": "Negociado após diagnóstico com base no tamanho do faturamento",
+      "argumento": "Quanto custou o que os planos não pagaram nos últimos 12 meses? Esse é o número que determina o contrato — não o preço do serviço.",
+      "nota": "Pricing sem preço definido — oportunidade de modelo de sucesso. Âncora: volume de glosa do cliente, não hora técnica."
+    }
+  },
+
+  "objecoes": [
+    {
+      "objecao": "Já temos auditoria interna",
+      "medo_real": "Exposição — admitir que auditoria própria pode não funcionar",
+      "resposta": "Quanto foi glosado nos últimos 12 meses mesmo com a auditoria interna? Se for acima de 3% do faturamento, há margem para melhora — a auditoria interna tende a focar na contestação, não na prevenção."
+    },
+    {
+      "objecao": "Planos sempre cortam mesmo, não adianta contestar",
+      "medo_real": "Resignação aprendida após tentativas frustradas de recurso",
+      "resposta": "98% das glosas são contestáveis — apenas 1,96% se sustentam após revisão. A Vanguard faz a contestação de forma processual. O que falta não é argumento — é processo."
+    }
+  ],
+
+  "narrativas": {
+    "argumento_abertura": "Quanto sua instituição perdeu em glosas nos últimos 12 meses?",
+    "linkedin": "A média dos hospitais brasileiros perde entre 10% e 20% do faturamento em glosas. Hospitais bem geridos ficam em 2% a 4%.\n\nA diferença não é tamanho nem convênio. É processo. Glosa por CID-10 incorreto, autorização vencida e documentação médica incompleta respondem por mais de 60% dos casos — e todos são evitáveis antes do envio da conta.\n\nO modelo de revisão retroativa recupera menos de 40% do valor contestado. O modelo preventivo elimina a glosa na origem.\n\nA Vanguard implementa auditoria preventiva de faturamento. O resultado típico é redução de 60-80% na taxa de glosa nos primeiros 90 dias.\n\nQuanto sua instituição perdeu em glosas nos últimos 12 meses?",
+    "whatsapp": "Quanto sua clínica perdeu em glosas nos últimos 12 meses? A média do setor é 10-20% do faturamento. Com auditoria preventiva antes do envio da conta, a Vanguard reduz isso para menos de 4% em 90 dias. Posso mostrar como em 20 minutos?",
+    "proposta_comercial": "Glosa hospitalar: o problema que parece ser dos planos mas é de processo.\n\nR$5,8 bilhões foram retidos pelos planos de saúde nos hospitais privados brasileiros em 12 meses. Desse total, apenas 1,96% se sustentam após revisão detalhada — o resto é tecnicamente contestável.\n\nO modelo retroativo (recurso após o não pagamento) é custoso, lento e recupera menos de 40% do contestado. A Vanguard opera no modelo preventivo: auditoria do ciclo de faturamento antes do envio da conta.\n\nEntregamos mapeamento completo do ciclo de faturamento, identificação dos gargalos de codificação e implementação de processo preventivo. Em 90 dias, o cliente opera com taxa de glosa abaixo de 4%."
+  },
+
+  "demo_disponivel": false,
+  "demo_html_drive_id": "1blZ-I8Ok26uj95nuGEocJEJa3Zu8CFKN",
+  "roteiro_demo_arquivo": "2026-06-11_F8_demo_rastreabilidade_sanitaria.html (referência — não lido, mime type não suportado)",
+
+  "concorrentes": {
+    "diretos": ["Carefy (SaaS de gestão de glosas)", "OfficeTotall", "auditorias internas hospitalares"],
+    "diferencial_vanguard": "Concorrentes focam em contestação retroativa. Vanguard opera prevenção na origem — modelo categoricamente diferente. White-label possível: o sistema parece da própria instituição."
+  },
+
+  "cadencia_cowork": {
+    "frentes_alimentadoras": ["F1", "F3", "F11", "F16"],
+    "F1_diario_07h": "Radar de dor — novas regulamentações ANS/CFM, dados de glosa atualizados",
+    "F3_semanal": "Filtro de encaixe — validar se novos regulamentos aumentam urgência",
+    "F11_mensal_dia1": "Benchmark de pricing — tarifa de auditoria médica, SaaS de glosas",
+    "F16_dores_invisiveis": "Fonte original de sinal — marcado como PERFEITO",
+    "F1_ultima": "2026-06-11",
+    "F11_ultima": "2026-06-11",
+    "proxima_revisao_F11": "2026-07-01"
+  },
+
+  "prospecao": {
+    "fonte_leads": "Associações hospitalares (Anahp, FBH) — dados de glosa publicados anualmente",
+    "abordagem": "Narrativa de recuperação de receita — não de custo de serviço",
+    "perfil_ideal": "Hospital com faturamento >R$5M/mês, planos de saúde como principal pagador"
+  },
+
+  "clientes_vanguard": [],
+  "convergencia_frentes": ["F1", "F3", "F16"],
+  "cowork_fontes": [
+    "F1 2026-06-11 (v2 expandida — glosa R$5,8bi)",
+    "F1 2026-06-11 (v1 — glosa, CFM 2.448/2025)",
+    "BIBLIOTECA_NICHOS v1 — Glosa Hospitalar"
+  ],
+
+  "data_entrada": "2026-06-12",
+  "ultima_atualizacao": "2026-06-13"
+}

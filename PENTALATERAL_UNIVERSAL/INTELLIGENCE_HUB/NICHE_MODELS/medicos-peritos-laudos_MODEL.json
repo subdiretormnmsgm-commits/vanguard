@@ -1,0 +1,123 @@
+{
+  "id": "medicos-peritos-laudos",
+  "nome": "Médicos Peritos — Laudos e Gestão de Processos",
+  "vertical": 7,
+  "status": "MOVER_AGORA",
+  "fit_score": 4.7,
+
+  "setor": "Saúde / Jurídico / Previdência",
+  "subsetor": "Gestão de Laudos Periciais e Conformidade com Órgãos Pagadores",
+  "match_keywords": ["médico perito", "laudo pericial", "INSS", "LOAS", "BPC", "perícia médica", "CRP", "CFM", "TFD", "junta médica", "avaliação incapacidade", "laudo psiquiátrico", "perito judicial", "auxílio-doença", "aposentadoria por invalidez", "deficiência", "CID-11"],
+  "match_setores": ["medicina", "saúde previdenciária", "perícia médica", "psicologia", "fisioterapia", "advocacia previdenciária"],
+
+  "perfil_cliente": {
+    "porte": ["PME", "individual"],
+    "segmento": ["médicos peritos autônomos", "clínicas de perícia", "juntas médicas", "advogados previdenciários que precisam de laudos"],
+    "regiao_preferencial": "Nacional — INSS é federal",
+    "frequencia_uso": "Recorrente — volume alto de laudos por mês",
+    "volume_minimo": "Clínica ou médico com >50 laudos/mês para escala fazer sentido",
+    "sinal_de_encaixe": "Médico perito com backlog de laudos pendentes OR recorrência de laudos rejeitados pelo INSS"
+  },
+
+  "dores": [
+    {
+      "descricao": "Laudos rejeitados por INSS por inconsistência de CID-10 ou ausência de informações exigidas pelo protocolo — médico refaz, tempo perdido, pagamento atrasado",
+      "custo_estimado": "Cada laudo rejeitado: 2–4h de retrabalho + perda de slot na agenda (R$300–800/h perito)",
+      "fonte": "BIBLIOTECA_NICHOS v1 — Médicos Peritos 4.7",
+      "urgencia": "ALTA"
+    },
+    {
+      "descricao": "Gestão manual de laudos e prazos — planilha ou papel — cria risco de laudos perdidos, prazos judiciais vencidos, auditoria CFM vulnerável",
+      "custo_estimado": "Laudo perdido em processo judicial: honorário perdido + risco disciplinar CFM",
+      "fonte": "BIBLIOTECA_NICHOS v1",
+      "urgencia": "ALTA"
+    }
+  ],
+
+  "gatilho_regulatorio": {
+    "norma": "Resolução CFM 2.228/2018 (laudos eletrônicos) + CID-11 implementação 2026",
+    "orgao": "CFM + INSS + CRP (psicologia)",
+    "impacto": "CID-11 substituindo CID-10 em 2026 — médicos peritos precisam atualizar toda codificação. Laudos com CID-10 eventualmente rejeitados.",
+    "prazo": "CID-11: implementação gradual 2025-2026",
+    "urgencia": "MÉDIA"
+  },
+
+  "evidencias_mercado": {
+    "tamanho_mercado": "Mais de 500.000 perícias médicas/mês no INSS. Mercado de laudos judiciais: estimativa de 200.000 processos com laudo pericial/ano",
+    "volume_leads": "Médicos peritos credenciados INSS: ~6.000. Clínicas de perícia: estimativa 2.000–5.000",
+    "dados_chave": [
+      "BIBLIOTECA_NICHOS: Médicos Peritos score 4.7",
+      "500k+ perícias INSS/mês — volume estrutural",
+      "CID-11 implementação 2026 — janela de urgência real",
+      "Rejeitados por inconsistência de CID: estimativa 8%–15% dos laudos"
+    ]
+  },
+
+  "roi_vanguard": {
+    "reducao": "90%+ nas rejeições por inconsistência de CID e protocolo",
+    "payback": "Primeiro mês — redução de retrabalho libera slots na agenda",
+    "argumento_numerico": "Médico perito com 5 laudos rejeitados/mês × 3h de retrabalho = 15h perdidas = R$4.500–R$12.000/mês em agenda ocupada sem receita"
+  },
+
+  "pricing": {
+    "referencia_mercado": "Sistemas de gestão para clínicas: R$200–800/mês (genérico). Treinamento CID-11: R$2.000–5.000 por curso. Sem produto específico para gestão de laudos periciais.",
+    "vanguard": {
+      "diagnostico_inicial": "R$2.000–3.500 (mapeamento do processo de laudo e identificação de gargalos)",
+      "implementacao_processo": "R$5.000–12.000 (estruturação do fluxo de laudos com templates e checklist INSS)",
+      "retainer_monitoramento": "R$800–2.000/mês (atualização de templates com novas exigências + suporte)",
+      "nota": "Mercado novo — sem concorrência direta. Âncora: custo do retrabalho de laudos rejeitados."
+    }
+  },
+
+  "objecoes": [
+    {
+      "objecao": "Já uso um sistema de prontuário",
+      "medo_real": "Confusão entre prontuário eletrônico e gestão de laudos periciais",
+      "resposta": "O prontuário é para o atendimento clínico. O laudo pericial tem exigências específicas do INSS e do CFM — protocolo próprio, linguagem técnica diferente, documentação adicional. A maioria dos sistemas de prontuário não tem esse módulo."
+    },
+    {
+      "objecao": "Sei fazer o laudo — não preciso de ajuda",
+      "medo_real": "Orgulho técnico — questionar processo pode parecer questionar competência",
+      "resposta": "A qualidade técnica do laudo não está em discussão. O que estamos ajustando é o processo documental que o INSS e o CFM exigem — não o diagnóstico médico."
+    }
+  ],
+
+  "narrativas": {
+    "argumento_abertura": "Quantos laudos foram rejeitados nos últimos 30 dias? O que o INSS pediu que faltava?",
+    "linkedin": "Médico perito passa 3 horas refazendo um laudo que o INSS rejeitou por inconsistência de CID-10.\n\nO diagnóstico estava correto. A clínica estava impecável. O problema estava na codificação de um campo secundário que o protocolo do INSS passou a exigir após a última atualização.\n\nCom CID-11 em implementação, isso vai se repetir mais — não menos.\n\nA Vanguard estrutura o processo de laudo do início ao fim: templates validados contra o protocolo atual do INSS, checklist por tipo de perícia, sistema de acompanhamento de prazos judiciais. O laudo sai certo na primeira entrega.",
+    "whatsapp": "Quantos laudos foram rejeitados pelo INSS nos últimos 30 dias? Com CID-11 sendo implementado em 2026, esse número tende a crescer. A Vanguard estrutura o processo de laudo com templates validados contra o protocolo atual. Posso mostrar como funciona?",
+    "proposta_comercial": "Laudo certo na primeira entrega.\n\nMédicos peritos perdem em média 8%–15% dos laudos por inconsistência de protocolo — não por erro diagnóstico. O problema é documental: CID desatualizado, campo exigido ausente, prazo não monitorado.\n\nA Vanguard estrutura o processo completo de laudo pericial: templates por tipo de perícia (INSS, judicial, CFM), checklist de validação antes do envio, atualização automática quando o protocolo muda e monitoramento de prazos judiciais. O resultado é zero retrabalho e zero laudo perdido."
+  },
+
+  "demo_disponivel": false,
+
+  "concorrentes": {
+    "diretos": ["sistemas de prontuário genérico (iClinic, etc. — não específicos para perícia)", "cursos de CID-11 (formação, não processo)", "advogados previdenciários que orientam o médico informalmente"],
+    "diferencial_vanguard": "Produto inexistente no mercado: gestão de processo de laudo pericial. Não é sistema de prontuário — é processo documental especializado."
+  },
+
+  "cadencia_cowork": {
+    "frentes_alimentadoras": ["F1", "F3", "F11"],
+    "F1_diario_07h": "Novas exigências INSS para laudos, atualizações CFM, CID-11 implementação",
+    "F3_semanal": "Validar fit — monitorar novidades no protocolo de perícia médica",
+    "F11_mensal_dia1": "Atualizar pricing baseado em referências de mercado para sistemas de gestão de saúde",
+    "F1_ultima": "2026-06-11",
+    "F11_ultima": "2026-06-11",
+    "proxima_revisao_F11": "2026-07-01"
+  },
+
+  "prospecao": {
+    "fonte_leads": "CFM — cadastro de peritos. Associações médicas previdenciárias. LinkedIn (médicos peritos credenciados INSS)",
+    "abordagem": "Dor de retrabalho como entrada + CID-11 como gatilho de urgência",
+    "perfil_ideal": "Médico perito autônomo com >50 laudos/mês ou clínica de perícia com 2+ médicos"
+  },
+
+  "clientes_vanguard": [],
+  "convergencia_frentes": ["F1", "F3"],
+  "cowork_fontes": [
+    "BIBLIOTECA_NICHOS v1 — Médicos Peritos 4.7 (segundo score mais alto da biblioteca)"
+  ],
+
+  "data_entrada": "2026-06-12",
+  "ultima_atualizacao": "2026-06-13"
+}

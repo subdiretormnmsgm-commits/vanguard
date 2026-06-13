@@ -1,0 +1,118 @@
+{
+  "id": "ifrs17-seguros",
+  "nome": "IFRS 17 — Implementação e Compliance para Seguradoras",
+  "vertical": 9,
+  "status": "MONITORAR",
+  "fit_score": 4.3,
+
+  "setor": "Financeiro / Seguros / Contabilidade",
+  "subsetor": "Implementação IFRS 17 e Normas de Seguros",
+  "match_keywords": ["IFRS 17", "seguradora", "ressegurador", "provisão técnica", "SUSEP", "norma contábil", "contrato de seguro", "atuária", "modelo de precificação", "prêmio de seguro", "sinistro", "IBNR", "BBA", "PAA", "GMM", "IFRS 4", "convergência contábil"],
+  "match_setores": ["seguros", "resseguros", "saúde suplementar", "previdência privada", "capitalização", "cooperativas de seguros"],
+
+  "perfil_cliente": {
+    "porte": ["médio", "grande"],
+    "segmento": ["seguradoras de médio porte", "corretoras de resseguros", "cooperativas de seguros", "operadoras de saúde suplementar"],
+    "regiao_preferencial": "SP (concentração do mercado de seguros brasileiro)",
+    "frequencia_uso": "Projeto de implementação (12–24 meses) + retainer de manutenção",
+    "ticket_minimo": "R$50.000 (projeto de gap analysis e roadmap)",
+    "sinal_de_encaixe": "Seguradora que ainda não implementou IFRS 17 OR que passou para compliance mas tem dúvidas sobre a consistência do modelo"
+  },
+
+  "dores": [
+    {
+      "descricao": "IFRS 17 obrigatório para seguradoras brasileiras desde 2024 (harmonização SUSEP com IASB) — empresas sem implementação completa em risco de não-conformidade",
+      "custo_estimado": "Autuação SUSEP + restatement das demonstrações financeiras + custo reputacional com investidores",
+      "fonte": "BIBLIOTECA_NICHOS v1 — IFRS 17 4.3",
+      "urgencia": "ALTA"
+    },
+    {
+      "descricao": "Modelos de precificação e provisão técnica desalinhados com IFRS 17 criam distorções nos relatórios financeiros — ativos e passivos incorretos",
+      "custo_estimado": "Distorção contábil em carteira de R$100M: erro de provisão de R$5M–R$30M impacta DRE e balanço",
+      "fonte": "BIBLIOTECA_NICHOS v1",
+      "urgencia": "ALTA"
+    }
+  ],
+
+  "gatilho_regulatorio": {
+    "norma": "IFRS 17 / CPC 50 (equivalente brasileiro) + Circular SUSEP 667/2022",
+    "orgao": "SUSEP + CVM",
+    "impacto": "Mudança fundamental na forma de reconhecer receita e passivo de contratos de seguro — impacta DRE, balanço e KPIs operacionais. Empresas que comparavam com IFRS 4 precisam reaprender o modelo.",
+    "prazo": "Vigência para médias: 2024–2025. Algumas com prazo estendido pela SUSEP.",
+    "urgencia": "ALTA"
+  },
+
+  "evidencias_mercado": {
+    "tamanho_mercado": "Mercado segurador brasileiro: 130+ seguradoras, 700+ corretoras. Operadoras de saúde suplementar: 700+ ativas",
+    "volume_leads": "Seguradoras de médio porte sem implementação completa do IFRS 17: estimativa 30%–50% do mercado",
+    "dados_chave": [
+      "BIBLIOTECA_NICHOS: IFRS 17 score 4.3",
+      "130+ seguradoras no Brasil — parcela relevante com IFRS 17 incompleto",
+      "Circular SUSEP 667/2022 — obrigação de adoção progressiva",
+      "Ticket alto: projeto de 12–24 meses com equipe atuarial + contábil"
+    ]
+  },
+
+  "roi_vanguard": {
+    "reducao": "Risco de restatement e autuação SUSEP eliminado",
+    "payback": "Evitar um restatement de demonstrações financeiras paga 5x–10x o projeto Vanguard",
+    "argumento_numerico": "Restatement de demonstrações financeiras em seguradora de médio porte: custo de R$500k–R$2M em auditoria, jurídico e impacto reputacional. Projeto Vanguard: R$100k–R$300k."
+  },
+
+  "pricing": {
+    "referencia_mercado": "Projeto IFRS 17 com big four: R$1M–R$5M (grande porte). Consultoria atuarial especializada: R$400–R$1.200/h. Sem referência pública para médio porte.",
+    "vanguard": {
+      "gap_analysis_roadmap": "R$50.000–R$100.000 (diagnóstico completo vs. IFRS 17/CPC 50)",
+      "implementacao_completa": "R$200.000–R$800.000 (12–24 meses, equipe dedicada)",
+      "retainer_manutencao": "R$15.000–R$40.000/mês (após implementação)",
+      "nota": "Ticket mais alto do portfólio — exige parceiro atuarial. Diferencial: big four não atende médias com atenção real."
+    }
+  },
+
+  "objecoes": [
+    {
+      "objecao": "Já temos consultoria com big four",
+      "medo_real": "Status — big four é sinal de seriedade para o mercado",
+      "resposta": "As big four têm excelente competência técnica em IFRS 17. O que frequentemente falta é atenção dedicada para seguradoras de médio porte — os projetos menores ficam com equipe júnior. A Vanguard oferece sênior direto na sua equipe."
+    }
+  ],
+
+  "narrativas": {
+    "argumento_abertura": "Em que estágio está a implementação do IFRS 17 na sua seguradora?",
+    "linkedin": "A transição do IFRS 4 para o IFRS 17 não é uma mudança de código contábil. É uma mudança de como a empresa pensa sobre receita, risco e tempo.\n\nSeguradoras que implementaram o modelo mas não revisaram as premissas atuariais subjacentes têm compliance formal — mas números incorretos.\n\nOs erros mais comuns: tratamento da CSM (margem de serviço contratual) incorreto, agrupamento de contratos por cohort feito de forma não-auditável, e OCI (outros resultados abrangentes) mal reconhecida.\n\nO resultado são demonstrações financeiras que passam pela auditoria mas não refletem a realidade econômica da empresa.\n\nEm que estágio está a implementação do IFRS 17 da sua seguradora?",
+    "whatsapp": "Em que estágio está a implementação do IFRS 17 na sua seguradora? Seguradoras de médio porte frequentemente passam pelo compliance formal mas com premissas atuariais que criam distorções no DRE. A Vanguard faz o diagnóstico técnico do modelo implementado. Quando posso mostrar o que verificamos?",
+    "proposta_comercial": "IFRS 17 — compliance real, não apenas formal.\n\nA Circular SUSEP 667/2022 e o CPC 50 são claros sobre os requisitos técnicos do IFRS 17. O que é menos claro é se o modelo implementado pela sua seguradora reflete corretamente as premissas atuariais — não apenas formalmente, mas economicamente.\n\nA Vanguard faz o gap analysis técnico do modelo implementado: revisão das premissas de CSM, verificação do agrupamento de contratos por cohort, validação do tratamento de OCI e revisão dos KPIs operacionais à luz do novo padrão. O resultado é um relatório de diagnóstico com o que está em conformidade, o que tem risco de restatement e o roadmap de correção."
+  },
+
+  "demo_disponivel": false,
+
+  "concorrentes": {
+    "diretos": ["big four (deloitte, EY, PwC, KPMG)", "consultorias atuariais especializadas", "firmas de advisory financeiro"],
+    "diferencial_vanguard": "Big four inacessível para médias. Atuariais resolvem o modelo mas não o processo contábil integrado. Vanguard faz a ponte entre atuária e contabilidade para seguradoras de médio porte."
+  },
+
+  "cadencia_cowork": {
+    "frentes_alimentadoras": ["F1", "F3", "F11"],
+    "F1_diario_07h": "Novas circulares SUSEP, atualizações CPC, casos de restatement publicados",
+    "F3_semanal": "Validar se SUSEP publicou novos prazos ou exigências",
+    "F11_mensal_dia1": "Atualizar pricing baseado em referências de mercado de consultoria atuarial",
+    "F1_ultima": "2026-06-11",
+    "F11_ultima": "2026-06-11",
+    "proxima_revisao_F11": "2026-07-01"
+  },
+
+  "prospecao": {
+    "fonte_leads": "SUSEP — cadastro de seguradoras registradas (público). LinkedIn (CFOs de seguradoras médias).",
+    "abordagem": "Diagnóstico técnico do modelo IFRS 17 implementado — ênfase em completude, não em compliance formal",
+    "perfil_ideal": "Seguradora com prêmio emitido entre R$50M e R$500M/ano, sem big four como parceiro"
+  },
+
+  "clientes_vanguard": [],
+  "convergencia_frentes": ["F1", "F3"],
+  "cowork_fontes": [
+    "BIBLIOTECA_NICHOS v1 — IFRS 17 4.3"
+  ],
+
+  "data_entrada": "2026-06-12",
+  "ultima_atualizacao": "2026-06-13"
+}

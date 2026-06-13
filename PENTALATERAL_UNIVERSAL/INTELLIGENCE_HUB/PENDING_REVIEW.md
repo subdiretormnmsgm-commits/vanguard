@@ -41,6 +41,32 @@
 | 2026-06-12 | PITCH | `CLIENTES/VANGUARD/PENDING_REVIEW/G3_PITCH_REVERSO_V33.md` | Aguarda aprovação Diretor |
 | 2026-06-12 | PITCH | `CLIENTES/VANGUARD/PENDING_REVIEW/E4_PITCH_ANTI_ALUCINACAO_V33.md` | Aguarda aprovação Diretor |
 
+### MÚSCULO — Niche Intelligence Repository · 2026-06-13
+
+> Construído com base no corpus completo de 18 arquivos Drive (Loop 33) + BIBLIOTECA + COMPETITORS.
+> Status: aguardando veredito do Diretor para commitar.
+
+| Data | Tipo | Arquivo | Status |
+|---|---|---|---|
+| 2026-06-13 | SCHEMA | `INTELLIGENCE_HUB/NICHE_MODELS/SCHEMA.md` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/licitacoes-contratos-publicos_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/glosa-hospitalar_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/rastreabilidade-sanitaria-premium_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/compliance-aduaneiro-ncm_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/ma-reestruturacao-societaria_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/setor-eletrico-regulatorio_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/medicos-peritos-laudos_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/carbon-esg-mrv_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | MODEL | `NICHE_MODELS/ifrs17-seguros_MODEL.json` | Aguarda aprovação |
+| 2026-06-13 | INDEX | `INTELLIGENCE_HUB/NICHE_INDEX.json` | Aguarda aprovação |
+| 2026-06-13 | SCRIPT | `scripts/match_niche.ps1` | Aguarda aprovação |
+| 2026-06-13 | PASSO | `CLIENTES/VANGUARD/PASSO_NICHE_MODELER.md` | Aguarda aprovação — usar na sessão Gemini |
+
+**Próximo passo após aprovação do Diretor:**
+1. Commit (Músculo executa)
+2. Abrir `PASSO_NICHE_MODELER.md` no Gemini Advanced — sessão única de enriquecimento
+3. Colar output em PENDING_REVIEW — Músculo aplica aprovações nos modelos
+
 ---
 
 ## MISSÕES DE INTELIGÊNCIA ATIVAS (deliberadas Loop 29, D5:A — aguardando execução/output)

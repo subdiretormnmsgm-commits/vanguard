@@ -1,6 +1,6 @@
 {
     "projeto":  "VANGUARD",
-    "ultima_sincronizacao":  "2026-06-12T02:54:05",
+    "ultima_sincronizacao":  "2026-06-12T19:26:57",
     "arquivos":  [
                      {
                          "nome":  "00_INSTRUCAO_AUDITOR.md",
@@ -10,8 +10,8 @@
                      },
                      {
                          "nome":  "01_SKILL_PROTOCOLO_VANGUARD.md",
-                         "hash_universal":  "E5C982A6A247F1318EA8D8F6CEF08DEEF230554AF1DBDEF27D847789E68CE08C",
-                         "hash_local":  "E5C982A6A247F1318EA8D8F6CEF08DEEF230554AF1DBDEF27D847789E68CE08C",
+                         "hash_universal":  "2E442026419138CCF6D984BA9E95A1BDCE98538D47225C9E855C1FEB0AFFFD9F",
+                         "hash_local":  "2E442026419138CCF6D984BA9E95A1BDCE98538D47225C9E855C1FEB0AFFFD9F",
                          "status":  "SYNC"
                      },
                      {
@@ -29,7 +29,7 @@
                      {
                          "nome":  "04_INTELLIGENCE_LEDGER.md",
                          "hash_universal":  "416C8D2E18CF306C2772F441CD4CF358001780D06B6148B431B356222DEDD0FE",
-                         "hash_local":  "D88C573755CDA0301A3399F3FD7A7D7AFB47E76BEEEA3D9907B454269E470756",
+                         "hash_local":  "E5FCC90AEA49016196D8E1DD853E1DD2B84184D50036ED24865E7DA04F43C952",
                          "status":  "DRIFT"
                      },
                      {

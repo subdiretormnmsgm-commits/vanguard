@@ -1,0 +1,237 @@
+{
+  "_meta": {
+    "versao": "1.0",
+    "criado": "2026-06-13",
+    "ultima_atualizacao": "2026-06-13",
+    "total_nichos": 9,
+    "schema": "NICHE_MODELS/SCHEMA.md",
+    "ferramenta_match": "scripts/match_niche.ps1",
+    "cadencia": "Atualizado por F1 (diário), F3 (semanal), F11 (mensal), F12 (semanal)",
+    "nota": "Este arquivo é o índice consultável. Os modelos completos estão em NICHE_MODELS/[id]_MODEL.json"
+  },
+
+  "nichos": [
+    {
+      "id": "licitacoes-contratos-publicos",
+      "nome": "Licitações e Contratos Públicos",
+      "vertical": 1,
+      "status": "MOVER_AGORA",
+      "fit_score": 4.8,
+      "setor": "Setor Público / Compliance",
+      "subsetor": "Auditoria Preventiva de Habilitação",
+      "match_keywords": ["licitação", "edital", "pregão", "habilitação", "PNCP", "inabilitação", "Lei 14133", "TCU", "certidão", "obra pública"],
+      "match_setores": ["engenharia", "construção civil", "TI pública", "infraestrutura"],
+      "fit_score_criterios": {
+        "dor_clara": 5,
+        "solucao_diferenciada": 5,
+        "concorrencia_baixa": 5,
+        "ticket_viavel": 5,
+        "recorrencia": 4
+      },
+      "demo_disponivel": true,
+      "cowork_densidade": "ALTA — F1+F7+F8+F11+F12 convergindo",
+      "urgencia_regulatoria": "ESTRUTURAL",
+      "proxima_revisao": "F11 2026-07-01",
+      "arquivo_modelo": "NICHE_MODELS/licitacoes-contratos-publicos_MODEL.json"
+    },
+    {
+      "id": "glosa-hospitalar",
+      "nome": "Glosa Hospitalar / Defesa Médica",
+      "vertical": 2,
+      "status": "MOVER_AGORA",
+      "fit_score": 4.6,
+      "setor": "Saúde / Faturamento Hospitalar",
+      "subsetor": "Auditoria Preventiva de Faturamento e Gestão de Glosas",
+      "match_keywords": ["glosa", "hospital", "plano de saúde", "faturamento hospitalar", "ANS", "CID-10", "auditoria médica", "Anahp"],
+      "match_setores": ["saúde", "hospital", "clínica", "medicina"],
+      "fit_score_criterios": {
+        "dor_clara": 5,
+        "solucao_diferenciada": 5,
+        "concorrencia_baixa": 4,
+        "ticket_viavel": 5,
+        "recorrencia": 5
+      },
+      "demo_disponivel": false,
+      "cowork_densidade": "ALTA — F1+F3+F11+F16 convergindo",
+      "urgencia_regulatoria": "ALTA",
+      "proxima_revisao": "F11 2026-07-01",
+      "arquivo_modelo": "NICHE_MODELS/glosa-hospitalar_MODEL.json"
+    },
+    {
+      "id": "medicos-peritos-laudos",
+      "nome": "Médicos Peritos — Laudos e Gestão de Processos",
+      "vertical": 7,
+      "status": "MOVER_AGORA",
+      "fit_score": 4.7,
+      "setor": "Saúde / Jurídico / Previdência",
+      "subsetor": "Gestão de Laudos Periciais e Conformidade",
+      "match_keywords": ["médico perito", "laudo pericial", "INSS", "LOAS", "CID-11", "junta médica", "perícia"],
+      "match_setores": ["medicina", "previdência", "perícia médica", "psicologia"],
+      "fit_score_criterios": {
+        "dor_clara": 5,
+        "solucao_diferenciada": 5,
+        "concorrencia_baixa": 5,
+        "ticket_viavel": 4,
+        "recorrencia": 5
+      },
+      "demo_disponivel": false,
+      "cowork_densidade": "MÉDIA — F1+F3",
+      "urgencia_regulatoria": "MÉDIA",
+      "proxima_revisao": "F11 2026-07-01",
+      "arquivo_modelo": "NICHE_MODELS/medicos-peritos-laudos_MODEL.json"
+    },
+    {
+      "id": "rastreabilidade-sanitaria-premium",
+      "nome": "Rastreabilidade Sanitária Premium",
+      "vertical": 4,
+      "status": "MOVER_AGORA",
+      "fit_score": 4.5,
+      "setor": "Indústria / Alimentos e Bebidas / ANVISA",
+      "subsetor": "Conformidade de Rastreabilidade e Plano de Recall",
+      "match_keywords": ["rastreabilidade", "ANVISA", "recall", "alimentos", "plano de recolhimento", "BPF", "Ypê"],
+      "match_setores": ["alimentos", "bebidas", "indústria alimentícia", "farmacêutico"],
+      "fit_score_criterios": {
+        "dor_clara": 5,
+        "solucao_diferenciada": 4,
+        "concorrencia_baixa": 4,
+        "ticket_viavel": 4,
+        "recorrencia": 4
+      },
+      "demo_disponivel": false,
+      "cowork_densidade": "MÉDIA — F1+F3",
+      "urgencia_regulatoria": "ALTA",
+      "alerta_timing": "Janela comercial de 60-90 dias antes de saturação — norma publicada 09/06/2026",
+      "proxima_revisao": "F3 próxima semana",
+      "arquivo_modelo": "NICHE_MODELS/rastreabilidade-sanitaria-premium_MODEL.json"
+    },
+    {
+      "id": "ma-reestruturacao-societaria",
+      "nome": "M&A e Reestruturação Societária",
+      "vertical": 5,
+      "status": "MOVER_AGORA",
+      "fit_score": 4.5,
+      "setor": "Financeiro / Jurídico / Corporate Finance",
+      "subsetor": "Due Diligence Documental e Suporte a Processos de M&A",
+      "match_keywords": ["M&A", "fusão", "aquisição", "due diligence", "dataroom", "valuation", "LGPD compliance", "private equity"],
+      "match_setores": ["corporate", "private equity", "advocacia corporativa", "empresas em captação"],
+      "fit_score_criterios": {
+        "dor_clara": 5,
+        "solucao_diferenciada": 4,
+        "concorrencia_baixa": 4,
+        "ticket_viavel": 5,
+        "recorrencia": 3
+      },
+      "demo_disponivel": false,
+      "cowork_densidade": "MÉDIA — F1+F9+F11",
+      "urgencia_regulatoria": "ESTRUTURAL",
+      "proxima_revisao": "F11 2026-07-01",
+      "arquivo_modelo": "NICHE_MODELS/ma-reestruturacao-societaria_MODEL.json"
+    },
+    {
+      "id": "setor-eletrico-regulatorio",
+      "nome": "Setor Elétrico — Compliance Regulatório ANEEL",
+      "vertical": 6,
+      "status": "MOVER_AGORA",
+      "fit_score": 4.8,
+      "setor": "Energia / Regulatório",
+      "subsetor": "Compliance de Concessões e Gestão de Ativos Regulados",
+      "match_keywords": ["ANEEL", "concessão elétrica", "distribuidora", "DEC", "FEC", "PRODIST", "geração distribuída", "energia renovável"],
+      "match_setores": ["energia elétrica", "utilities", "concessões", "energia renovável"],
+      "fit_score_criterios": {
+        "dor_clara": 5,
+        "solucao_diferenciada": 5,
+        "concorrencia_baixa": 4,
+        "ticket_viavel": 5,
+        "recorrencia": 5
+      },
+      "demo_disponivel": false,
+      "cowork_densidade": "ALTA — F1+F3+F7+F11 convergindo",
+      "urgencia_regulatoria": "ESTRUTURAL",
+      "proxima_revisao": "F11 2026-07-01",
+      "arquivo_modelo": "NICHE_MODELS/setor-eletrico-regulatorio_MODEL.json"
+    },
+    {
+      "id": "compliance-aduaneiro-ncm",
+      "nome": "Compliance Aduaneiro — NCM e Tributação de Importação",
+      "vertical": 3,
+      "status": "MOVER_AGORA",
+      "fit_score": 4.3,
+      "setor": "Comércio Exterior / Tributário",
+      "subsetor": "Classificação NCM e Compliance de Importação",
+      "match_keywords": ["NCM", "importação", "classificação fiscal", "Receita Federal", "SISCOMEX", "multa aduaneira", "LC 227/2026"],
+      "match_setores": ["importação", "comércio exterior", "manufatura", "distribuição"],
+      "fit_score_criterios": {
+        "dor_clara": 4,
+        "solucao_diferenciada": 5,
+        "concorrencia_baixa": 4,
+        "ticket_viavel": 4,
+        "recorrencia": 4
+      },
+      "demo_disponivel": false,
+      "cowork_densidade": "MÉDIA — F1+F3+F11",
+      "urgencia_regulatoria": "ALTA",
+      "alerta_timing": "LC 227/2026 publicada 05/06 — prazo de regulamentação ainda pendente",
+      "proxima_revisao": "F3 próxima semana",
+      "arquivo_modelo": "NICHE_MODELS/compliance-aduaneiro-ncm_MODEL.json"
+    },
+    {
+      "id": "carbon-esg-mrv",
+      "nome": "Carbono, ESG e MRV",
+      "vertical": 8,
+      "status": "MONITORAR",
+      "fit_score": 4.5,
+      "setor": "Sustentabilidade / Regulatório / Finanças",
+      "subsetor": "Monitoramento, Reporte e Verificação de Créditos de Carbono",
+      "match_keywords": ["crédito de carbono", "MRV", "ESG", "VERRA", "CBAM", "SBCE", "scope 1 2 3", "offset carbono"],
+      "match_setores": ["agronegócio", "indústria", "energia", "gestoras de impacto"],
+      "fit_score_criterios": {
+        "dor_clara": 4,
+        "solucao_diferenciada": 4,
+        "concorrencia_baixa": 4,
+        "ticket_viavel": 5,
+        "recorrencia": 3
+      },
+      "demo_disponivel": false,
+      "cowork_densidade": "BAIXA — F1+F9",
+      "urgencia_regulatoria": "ALTA",
+      "nota_status": "MONITORAR até SBCE ter prazo definido — CBAM 2026 pode accelerar",
+      "proxima_revisao": "F9 quinzenal",
+      "arquivo_modelo": "NICHE_MODELS/carbon-esg-mrv_MODEL.json"
+    },
+    {
+      "id": "ifrs17-seguros",
+      "nome": "IFRS 17 — Implementação e Compliance para Seguradoras",
+      "vertical": 9,
+      "status": "MONITORAR",
+      "fit_score": 4.3,
+      "setor": "Financeiro / Seguros / Contabilidade",
+      "subsetor": "Implementação IFRS 17 e Normas de Seguros",
+      "match_keywords": ["IFRS 17", "seguradora", "SUSEP", "provisão técnica", "CSM", "atuária", "CPC 50"],
+      "match_setores": ["seguros", "saúde suplementar", "previdência privada", "resseguros"],
+      "fit_score_criterios": {
+        "dor_clara": 4,
+        "solucao_diferenciada": 4,
+        "concorrencia_baixa": 3,
+        "ticket_viavel": 5,
+        "recorrencia": 4
+      },
+      "demo_disponivel": false,
+      "cowork_densidade": "BAIXA — F1+F3",
+      "urgencia_regulatoria": "ALTA",
+      "nota_status": "MONITORAR — requer parceiro atuarial para execução. Ticket alto justifica investimento de qualificação.",
+      "proxima_revisao": "F11 2026-07-01",
+      "arquivo_modelo": "NICHE_MODELS/ifrs17-seguros_MODEL.json"
+    }
+  ],
+
+  "resumo": {
+    "MOVER_AGORA": 7,
+    "MONITORAR": 2,
+    "ARQUIVAR": 0,
+    "verticais_ativas": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "prioridade_1": ["licitacoes-contratos-publicos", "setor-eletrico-regulatorio"],
+    "prioridade_2": ["medicos-peritos-laudos", "glosa-hospitalar"],
+    "prioridade_3": ["rastreabilidade-sanitaria-premium", "ma-reestruturacao-societaria", "compliance-aduaneiro-ncm"],
+    "lista_monitorar": ["carbon-esg-mrv", "ifrs17-seguros"]
+  }
+}

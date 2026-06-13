@@ -1,0 +1,124 @@
+{
+  "id": "compliance-aduaneiro-ncm",
+  "nome": "Compliance Aduaneiro — NCM e Tributação de Importação",
+  "vertical": 3,
+  "status": "MOVER_AGORA",
+  "fit_score": 4.3,
+
+  "setor": "Comércio Exterior / Tributário",
+  "subsetor": "Classificação NCM e Compliance de Importação",
+  "match_keywords": ["NCM", "nomenclatura", "importação", "exportação", "classificação fiscal", "Receita Federal", "II", "IPI", "ICMS importação", "drawback", "ex-tarifário", "SISCOMEX", "DI", "tarifa aduaneira", "classificação de mercadoria", "multa aduaneira", "auditoria fiscal", "comércio exterior", "MDIC"],
+  "match_setores": ["importação", "comércio exterior", "manufatura", "distribuição", "varejo", "indústria", "tecnologia (importação de equipamentos)"],
+
+  "perfil_cliente": {
+    "porte": ["PME", "médio"],
+    "segmento": ["importadoras", "distribuidoras com importação direta", "indústrias com matéria-prima importada"],
+    "regiao_preferencial": "SP, RJ, RS (maiores volumes de importação no Brasil)",
+    "frequencia_uso": "Recorrente — revisão semestral + intervenção em auditoria",
+    "volume_minimo": "Empresas com importações >R$1M/ano",
+    "sinal_de_encaixe": "Empresa com importações recorrentes mas sem equipe de comércio exterior especializada"
+  },
+
+  "dores": [
+    {
+      "descricao": "LC 227/2026 (publicada 05/06/2026) — exige empresas com importações >R$5M em 3 anos a revisar classificações NCM de forma retroativa sob pena de autuação",
+      "custo_estimado": "Multa por incorreta classificação: 1%–30% do valor aduaneiro da mercadoria por DI. Imposto retroativo + juros + multa pode chegar a 300% do valor original",
+      "fonte": "F1 v1 2026-06-11 (Radar de Dor NCM) · MDIC",
+      "urgencia": "ALTA"
+    },
+    {
+      "descricao": "Classificação NCM errada por desatualização — tabela TIPI muda sem comunicação proativa",
+      "custo_estimado": "Custo por DI autuada: R$50k–R$2M dependendo do volume",
+      "fonte": "F1 2026-06-11",
+      "urgencia": "ESTRUTURAL"
+    }
+  ],
+
+  "gatilho_regulatorio": {
+    "norma": "LC 227/2026 — publicada 05/06/2026",
+    "orgao": "Receita Federal / MDIC",
+    "impacto": "Revisão retroativa obrigatória de classificações NCM para importadoras com >R$5M em 3 anos. Prazo e sanções ainda sendo regulamentados.",
+    "prazo": "Regulamentação pendente — LC publicada 05/06/2026",
+    "urgencia": "ALTA"
+  },
+
+  "evidencias_mercado": {
+    "tamanho_mercado": "Empresas importadoras afetadas por LC 227/2026: estimativa 5.000–15.000 CNPJ com volume material",
+    "volume_leads": "Foco: importadoras de médio porte sem área de comércio exterior estruturada",
+    "dados_chave": [
+      "LC 227/2026 publicada 05/06/2026 — exige revisão retroativa de NCM · F1 2026-06-11",
+      "Multa por NCM incorreta: 1%–30% do valor aduaneiro por DI — potencial >R$1M por empresa",
+      "Empresa de médio porte típica: 20–50 DIs/mês, múltiplas NCMs — risco de classificação incorreta em 10%–30% dos itens"
+    ]
+  },
+
+  "roi_vanguard": {
+    "reducao": "Eliminação de risco retroativo + redução de alíquota efetiva em 5–15% por reclassificação correta",
+    "payback": "Primeira auditoria — identificação de reclassificação gera economia imediata",
+    "argumento_numerico": "LC 227/2026: revisão retroativa obrigatória. Empresa com R$10M em importações nos últimos 3 anos → autuação potencial de R$500k–R$3M por classificação NCM incorreta"
+  },
+
+  "pricing": {
+    "referencia_mercado": "Despachante aduaneiro: R$300–800/DI. Escritório especializado em comércio exterior: R$400–800/h. Consultoria de classificação NCM: R$3.500–6.000/projeto.",
+    "vanguard": {
+      "auditoria_ncm": "R$3.500–6.000 por projeto de auditoria (até 50 NCMs revisadas)",
+      "retainer_monitoramento": "R$1.500–3.000/mês para monitoramento contínuo de mudanças na TIPI",
+      "nota": "Âncora: potencial de autuação retroativa vs. custo de prevenção. LC 227/2026 cria urgência real com prazo curto."
+    }
+  },
+
+  "objecoes": [
+    {
+      "objecao": "Temos despachante que cuida disso",
+      "medo_real": "Despachante é operacional — não faz auditoria estratégica de classificação retroativa",
+      "resposta": "O despachante garante o processo de importação. A LC 227/2026 pede revisão retroativa das classificações — isso é auditoria fiscal, não processo de importação. São dois serviços distintos."
+    },
+    {
+      "objecao": "Nunca fui autuado, deve estar certo",
+      "medo_real": "Confusão entre ausência de fiscalização e conformidade",
+      "resposta": "A auditoria da Receita Federal em classificação NCM é cíclica — empresas ficam anos sem ser autuadas e depois recebem o retroativo com multa e juros. A LC 227/2026 sinaliza que a Receita vai intensificar revisões."
+    }
+  ],
+
+  "narrativas": {
+    "argumento_abertura": "Sua empresa importa mais de R$1M/ano? A LC 227/2026 exige revisão retroativa das suas classificações NCM.",
+    "linkedin": "Nova lei publicada em 5 de junho. LC 227/2026.\n\nEmpresas que importam acima de R$5 milhões em 3 anos precisam revisar as classificações NCM retroativamente. A multa por classificação incorreta varia de 1% a 30% do valor aduaneiro — por declaração de importação.\n\nO problema não é intenção. É que a tabela TIPI muda, o negócio muda, e a classificação original fica desatualizada sem que ninguém saiba. A maioria das empresas descobre na autuação.\n\nA janela de adequação voluntária é muito mais barata que a autuação retroativa. A Vanguard faz a auditoria de classificação NCM enquanto a janela ainda está aberta.",
+    "whatsapp": "A LC 227/2026 (publicada 05/06) obriga revisão retroativa de classificações NCM para importadoras acima de R$5M em 3 anos. Multa: até 30% do valor aduaneiro por DI. A Vanguard faz a auditoria NCM antes da autuação. Quando posso apresentar o que fazemos?",
+    "proposta_comercial": "Auditoria NCM — conformidade antes da autuação retroativa.\n\nA LC 227/2026 muda o cenário para importadoras brasileiras de médio porte: revisão retroativa obrigatória, com risco de multa de 1% a 30% do valor aduaneiro por declaração incorreta.\n\nA Vanguard entrega auditoria completa das classificações NCM — revisão de cada item importado contra a tabela TIPI vigente, identificação de divergências e reclassificação para conformidade. Resultado: empresa protegida da autuação retroativa e, frequentemente, com redução de alíquota efetiva."
+  },
+
+  "demo_disponivel": false,
+
+  "concorrentes": {
+    "diretos": ["despachantes aduaneiros", "escritórios de advocacia tributária (foco em litígio, não prevenção)", "consultorias de comércio exterior genéricas"],
+    "diferencial_vanguard": "Mercado atua em operação e litígio. Vanguard atua em prevenção e conformidade proativa — com timing na janela de adequação voluntária."
+  },
+
+  "cadencia_cowork": {
+    "frentes_alimentadoras": ["F1", "F3", "F11"],
+    "F1_diario_07h": "Novas regulamentações Receita Federal, mudanças TIPI, casos de autuação NCM publicados",
+    "F3_semanal": "Validar urgência do gatilho LC 227/2026, monitorar regulamentação complementar",
+    "F11_mensal_dia1": "Atualizar pricing.referencia_mercado com tabela de honorários de comércio exterior",
+    "F1_ultima": "2026-06-11",
+    "F3_ultima": null,
+    "F11_ultima": "2026-06-11",
+    "proxima_revisao_F11": "2026-07-01",
+    "alerta_prazo": "LC 227/2026 regulamentação pendente — acompanhar publicação de prazo no DOU"
+  },
+
+  "prospecao": {
+    "fonte_leads": "SISCOMEX público — empresas habilitadas por volume de importação",
+    "abordagem": "LC 227/2026 como gatilho imediato de urgência",
+    "perfil_ideal": "Importadora com >R$5M em 3 anos, sem área especializada de comércio exterior interna"
+  },
+
+  "clientes_vanguard": [],
+  "convergencia_frentes": ["F1", "F3"],
+  "cowork_fontes": [
+    "F1 v1 2026-06-11 (LC 227/2026 NCM radar de dor)",
+    "BIBLIOTECA_NICHOS v1 — NCM 3.2 (MONITORAR → promovido por LC 227/2026)"
+  ],
+
+  "data_entrada": "2026-06-12",
+  "ultima_atualizacao": "2026-06-13"
+}

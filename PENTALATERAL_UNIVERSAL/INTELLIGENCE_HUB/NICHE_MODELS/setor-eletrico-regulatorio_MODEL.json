@@ -1,0 +1,119 @@
+{
+  "id": "setor-eletrico-regulatorio",
+  "nome": "Setor Elétrico — Compliance Regulatório ANEEL",
+  "vertical": 6,
+  "status": "MOVER_AGORA",
+  "fit_score": 4.8,
+
+  "setor": "Energia / Regulatório",
+  "subsetor": "Compliance de Concessões e Gestão de Ativos Regulados",
+  "match_keywords": ["ANEEL", "concessão elétrica", "distribuidora", "geração", "transmissão", "regulatório", "PRODIST", "ANSI", "IEE", "DEC", "FEC", "tarifas elétricas", "reajuste tarifário", "fiscalização ANEEL", "energia renovável", "GD", "geração distribuída", "micro-geração", "usina", "PCH"],
+  "match_setores": ["energia elétrica", "utilities", "concessões", "energia renovável", "geração distribuída"],
+
+  "perfil_cliente": {
+    "porte": ["médio", "grande"],
+    "segmento": ["distribuidoras regionais", "geradoras independentes", "transmissoras de menor porte", "projetos de energia renovável em desenvolvimento"],
+    "regiao_preferencial": "Nacional — ANEEL é federal",
+    "frequencia_uso": "Retainer contínuo — compliance regulatório não termina",
+    "ticket_minimo": "R$15.000/mês (complexidade regulatória do setor)",
+    "sinal_de_encaixe": "Distribuidora com histórico de penalidades ANEEL OR empresa em processo de renovação de concessão"
+  },
+
+  "dores": [
+    {
+      "descricao": "Indicadores DEC/FEC fora do limite ANEEL geram multas e penalidades contratuais que comprometem a renovação da concessão",
+      "custo_estimado": "Multas ANEEL: R$500k–R$50M dependendo da gravidade. Não-renovação de concessão: valor total do negócio",
+      "fonte": "BIBLIOTECA_NICHOS v1 — Setor Elétrico 4.8",
+      "urgencia": "ESTRUTURAL"
+    },
+    {
+      "descricao": "Mudanças frequentes nas regulamentações PRODIST e nos procedimentos ANEEL exigem atualização constante das equipes — maioria das distribuidoras médias não tem capacidade interna",
+      "custo_estimado": "Não-conformidade descoberta em fiscalização: auto de infração + ajuste retroativo",
+      "fonte": "BIBLIOTECA_NICHOS v1",
+      "urgencia": "ALTA"
+    }
+  ],
+
+  "gatilho_regulatorio": {
+    "norma": "PRODIST (Procedimentos de Distribuição) + Resolução ANEEL 1000/2021 (revisada continuamente)",
+    "orgao": "ANEEL",
+    "impacto": "Ciclo de revisões tarifárias e atualizações de PRODIST criam janelas de conformidade obrigatória. Empresa que não acompanha é autuada na próxima fiscalização.",
+    "prazo": "Contínuo — ANEEL publica atualizações trimestralmente",
+    "urgencia": "ESTRUTURAL"
+  },
+
+  "evidencias_mercado": {
+    "tamanho_mercado": "63 distribuidoras de energia elétrica no Brasil + 200+ geradoras independentes + projetos de transmissão",
+    "volume_leads": "Foco: distribuidoras regionais e geradoras de médio porte sem equipe regulatória interna robusta",
+    "dados_chave": [
+      "ANEEL multou distribuidoras em R$1,8B em 2024 — Agência Brasil",
+      "63 distribuidoras no Brasil — 40+ sem equipe regulatória interna especializada",
+      "BIBLIOTECA_NICHOS: Setor Elétrico score 4.8 (mais alto da biblioteca)",
+      "Convergência F1+F3+F11+F7 — alta densidade de material disponível"
+    ]
+  },
+
+  "roi_vanguard": {
+    "reducao": "Eliminação de penalidades recorrentes + proteção da concessão",
+    "payback": "Uma multa ANEEL evitada paga o retainer do ano inteiro",
+    "argumento_numerico": "Distribuidora com DEC fora do limite por 3 meses consecutivos: multa de R$2M–R$15M. Retainer Vanguard: R$15k/mês."
+  },
+
+  "pricing": {
+    "referencia_mercado": "Consultoria regulatória ANEEL (grandes consultorias): R$800–1.500/h. Contrato de gestão regulatória para distribuidoras: não há referência pública — mercado fragmentado.",
+    "vanguard": {
+      "diagnostico_regulatorio": "R$15.000–25.000 (gap analysis completo vs. PRODIST vigente)",
+      "retainer_compliance": "R$15.000–40.000/mês dependendo do porte da distribuidora",
+      "projeto_renovacao_concessao": "Sob consulta (ticket R$100k–R$500k)",
+      "nota": "Ticket mais alto do portfólio Vanguard. Justificado pelo porte das penalidades ANEEL e pela criticidade da concessão."
+    }
+  },
+
+  "objecoes": [
+    {
+      "objecao": "Temos equipe interna de regulatório",
+      "medo_real": "Custo de admitir que a equipe interna pode ter lacunas",
+      "resposta": "Faz sentido. A equipe interna conhece o histórico da empresa — o que eles eventualmente não acompanham é o ritmo de atualização do PRODIST e as interpretações mais recentes da ANEEL. Nosso papel é complementar, não substituir."
+    }
+  ],
+
+  "narrativas": {
+    "argumento_abertura": "Quando foi a última auditoria ANEEL? O que apareceu?",
+    "linkedin": "A ANEEL multou distribuidoras brasileiras em R$1,8 bilhão em 2024.\n\nNão foi má-fé. Foi monitoramento insuficiente dos indicadores DEC e FEC, atualização tardia de procedimentos após mudanças no PRODIST, e interpretação incorreta de resoluções que mudam todo trimestre.\n\nDistribuidoras de médio porte não têm capacidade interna para acompanhar esse ritmo regulatório. Quando a fiscalização chega, a conformidade virou não-conformidade — e o auto de infração vem junto.\n\nA Vanguard monitora o ciclo regulatório e antecipa o que a ANEEL vai fiscalizar antes da fiscalização acontecer.",
+    "whatsapp": "A ANEEL multou distribuidoras em R$1,8B em 2024. A maioria dos autos de infração veio de não-conformidades com o PRODIST atualizado que a equipe interna não monitorou. A Vanguard faz o monitoramento regulatório contínuo. Quando foi a última auditoria ANEEL da sua empresa?",
+    "proposta_comercial": "Compliance ANEEL — antes da autuação, não depois.\n\nO ciclo regulatório do setor elétrico não é estático: PRODIST é atualizado, resoluções são revisadas, indicadores são recalculados. Distribuidoras médias não têm capacidade interna para acompanhar esse ritmo e manter a operação ao mesmo tempo.\n\nA Vanguard faz o monitoramento contínuo: DEC/FEC em tempo real contra os limites vigentes, atualização mensal das obrigações regulatórias, antecipação das próximas fiscalizações. O relatório mensal de conformidade chega antes do auditor da ANEEL."
+  },
+
+  "demo_disponivel": false,
+
+  "concorrentes": {
+    "diretos": ["grandes consultorias (Accenture, McKinsey — ticket mínimo R$500k)", "escritórios especializados em direito de energia", "firmas regionais de engenharia elétrica"],
+    "diferencial_vanguard": "Grandes consultorias não atendem distribuidoras médias. Escritórios jurídicos focam em litígio, não prevenção. Vanguard é especialista em compliance preventivo para o mercado médio do setor elétrico."
+  },
+
+  "cadencia_cowork": {
+    "frentes_alimentadoras": ["F1", "F3", "F7", "F11"],
+    "F1_diario_07h": "Novas resoluções ANEEL, atualizações PRODIST, casos de autuação publicados",
+    "F3_semanal": "Validar se atualizações ANEEL impactam o perfil do nicho",
+    "F7_mensal_dia1": "Atualizar simulações de objeção baseadas em novas regulamentações",
+    "F11_mensal_dia1": "Benchmark de pricing — consultoria regulatória de energia",
+    "F1_ultima": "2026-06-11",
+    "F11_ultima": "2026-06-11",
+    "proxima_revisao_F11": "2026-07-01"
+  },
+
+  "prospecao": {
+    "fonte_leads": "ANEEL — lista de distribuidoras + autos de infração publicados (público)",
+    "abordagem": "Empresa autuada recentemente é lead quente — medo real ativado",
+    "perfil_ideal": "Distribuidora regional com 100k–1M de consumidores, sem equipe regulatória interna"
+  },
+
+  "clientes_vanguard": [],
+  "convergencia_frentes": ["F1", "F3", "F7", "F11"],
+  "cowork_fontes": [
+    "BIBLIOTECA_NICHOS v1 — Setor Elétrico 4.8 (score mais alto da biblioteca)"
+  ],
+
+  "data_entrada": "2026-06-12",
+  "ultima_atualizacao": "2026-06-13"
+}

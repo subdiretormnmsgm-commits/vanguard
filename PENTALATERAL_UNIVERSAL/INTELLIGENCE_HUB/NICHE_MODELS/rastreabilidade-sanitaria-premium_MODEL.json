@@ -1,0 +1,130 @@
+{
+  "id": "rastreabilidade-sanitaria-premium",
+  "nome": "Rastreabilidade Sanitária Premium",
+  "vertical": 4,
+  "status": "MOVER_AGORA",
+  "fit_score": 4.5,
+
+  "setor": "Indústria / Alimentos e Bebidas / ANVISA",
+  "subsetor": "Conformidade de Rastreabilidade e Plano de Recall",
+  "match_keywords": ["rastreabilidade", "ANVISA", "recall", "alimentos", "bebidas", "cadeia produtiva", "BPF", "boas práticas de fabricação", "sanitário", "conformidade alimentar", "plano de recolhimento", "fiscalização ANVISA", "suplemento", "insumo farmacêutico", "cadeia de fornecimento alimentar"],
+  "match_setores": ["alimentos", "bebidas", "indústria alimentícia", "farmacêutico", "suplementos", "ingredientes", "embalagens alimentares"],
+
+  "perfil_cliente": {
+    "porte": ["médio", "grande"],
+    "segmento": ["fabricantes de alimentos premium", "importadores de insumos alimentares", "distribuidoras de bebidas", "indústria farmacêutica alimentar"],
+    "regiao_preferencial": "Nacional",
+    "frequencia_uso": "Projeto único com manutenção semestral",
+    "faturamento_minimo": "R$3M/ano (para custo de recall ser material)",
+    "sinal_de_encaixe": "Empresa sem plano de recall documentado OR sem rastreabilidade digitalizada OR setor premium com risco reputacional alto"
+  },
+
+  "dores": [
+    {
+      "descricao": "Nova norma ANVISA (09/06/2026) exige plano de recolhimento documentado e rastreabilidade integral — prazo 180 dias (até ~dezembro 2026)",
+      "custo_estimado": "Multas de R$2.000 a R$1.500.000 + interdição + cancelamento de autorização",
+      "fonte": "Prefeitura SP / ANVISA · 09/06/2026 · F1 v2 2026-06-11",
+      "urgencia": "ALTA"
+    },
+    {
+      "descricao": "Recall mal gerenciado destrói anos de construção de marca em 48 horas — caso Ypê (RE 1.834/2026)",
+      "custo_estimado": "Custo reputacional + perda de shelf space + recall compulsório ANVISA",
+      "fonte": "CNN Brasil maio/2026 · F1 v2 2026-06-11",
+      "urgencia": "ALTA"
+    },
+    {
+      "descricao": "Empresa de alimentos premium sem rastreabilidade digitalizada não consegue reconstruir cadeia em <48h durante incidente",
+      "custo_estimado": "Incidente não controlado em 48h = expansão de recall + cobertura de mídia negativa",
+      "fonte": "F1 v1 2026-06-11 — análise Embaixador",
+      "urgencia": "ALTA"
+    }
+  ],
+
+  "gatilho_regulatorio": {
+    "norma": "RDC ANVISA de 09/06/2026 — Norma de Recall e Rastreabilidade de Alimentos",
+    "orgao": "ANVISA",
+    "impacto": "Plano de recolhimento obrigatório + rastreabilidade integral de origem e destino em toda a cadeia + comunicação imediata à ANVISA em caso de recall",
+    "prazo": "180 dias a partir de 09/06/2026 — deadline ~09/12/2026",
+    "urgencia": "ALTA"
+  },
+
+  "evidencias_mercado": {
+    "tamanho_mercado": "Toda empresa da cadeia produtiva de alimentos e bebidas no Brasil — centenas de milhares de CNPJ",
+    "volume_leads": "Foco: empresas de alimentos premium com risco reputacional alto — estimativa: 5.000–15.000 empresas afetadas de forma material",
+    "dados_chave": [
+      "Norma ANVISA publicada 09/06/2026 — prazo 180 dias · Prefeitura SP + Idec · 2026-06-11",
+      "Multas de R$2.000 a R$1.500.000 por não conformidade — ANVISA",
+      "Caso Ypê: suspensão total de produtos RE 1.834/2026 — CNN Brasil maio/2026",
+      "Janela comercial estimada: 60-90 dias antes de saturação de consultores oportunistas"
+    ]
+  },
+
+  "roi_vanguard": {
+    "reducao": "Risco de recall não planejado eliminado — conformidade garantida antes do prazo",
+    "payback": "Evitar 1 multa de R$50k já paga o projeto inteiro",
+    "argumento_numerico": "A ANVISA publicou norma em 9 de junho. Você tem 180 dias para se adequar — ou R$1,5 milhão em multa"
+  },
+
+  "pricing": {
+    "referencia_mercado": "Consultoria regulatória ANVISA: R$200–500/h. Manual de Boas Práticas + POPs: ~R$3.424 (tabela nutricionistas RJ 2026). Consultoria estratégica: sem referência pública consolidada.",
+    "vanguard": {
+      "projeto_mapeamento": "R$5.500–7.000 por projeto de mapeamento de rastreabilidade + gap analysis",
+      "retainer_multisite": "R$2.000–3.500/mês para empresas com múltiplos produtos/fornecedores",
+      "nota": "Proposta deve incluir deadline: 'norma em vigor em dezembro — quem contratar antes de setembro tem entrega garantida'. Preço pelo risco de multa, não por hora de trabalho."
+    }
+  },
+
+  "objecoes": [
+    {
+      "objecao": "Já temos rastreabilidade no ERP",
+      "medo_real": "Achar que sistema interno resolve o que é exigência documental externa",
+      "resposta": "A norma ANVISA exige documentação que a ANVISA possa acessar e auditar — não apenas dados internos. O gap geralmente está na formalização do plano de recolhimento, não no rastreamento interno."
+    },
+    {
+      "objecao": "A ANVISA não vai fiscalizar antes do prazo",
+      "medo_real": "Crença de que prazo regulatório é negociável",
+      "resposta": "O caso Ypê aconteceu antes da norma atual. A ANVISA agiu com suspensão total por RE antes de qualquer prazo de adequação. Incidente sanitário não espera janela de fiscalização."
+    }
+  ],
+
+  "narrativas": {
+    "argumento_abertura": "Quanto custaria um recall de um lote premium não planejado?",
+    "linkedin": "A ANVISA publicou nova norma em 9 de junho. Você tem 180 dias para se adequar — ou R$1,5 milhão em multa.\n\nA nova resolução torna obrigatório, para toda empresa da cadeia de alimentos e bebidas, ter um Plano de Recolhimento documentado e rastreabilidade integral da cadeia produtiva. Não é opcional. Não é recomendação. É exigência com prazo e penalidade.\n\nO caso Ypê foi o alerta. A ANVISA manteve a suspensão total dos produtos em maio — e o impacto reputacional e financeiro foi imediato.\n\nOs especialistas da Vanguard fazem o diagnóstico completo da sua cadeia e entregam o plano de conformidade antes do prazo.",
+    "whatsapp": "Nova norma ANVISA obriga rastreabilidade total e plano de recall para alimentos/bebidas. Prazo: 180 dias. Multa: até R$1,5 milhão. A Vanguard entrega o diagnóstico da sua cadeia e o plano de conformidade antes do prazo. Quanto custaria um recall não planejado?",
+    "proposta_comercial": "Rastreabilidade Sanitária Premium — adequação antes do prazo, não depois da autuação.\n\nA nova norma ANVISA (09/06/2026) estabelece prazo de 180 dias para toda empresa da cadeia alimentar implementar: Plano de Recolhimento documentado, rastreabilidade integral de origem e destino, capacidade de resposta imediata em incidentes.\n\nO risco não é apenas a multa (R$2.000–1.500.000). É o recall compulsório, a interdição e o impacto reputacional — que no segmento premium pode custar mais do que o negócio inteiro.\n\nA Vanguard entrega diagnóstico completo da cadeia produtiva, gap analysis contra os requisitos da norma e plano de conformidade com prazo garantido anterior ao deadline regulatório."
+  },
+
+  "demo_disponivel": false,
+
+  "concorrentes": {
+    "diretos": ["nutricionistas regulatórios por hora", "consultorias de ANVISA genéricas", "escritórios de advocacia sanitária"],
+    "diferencial_vanguard": "Concorrentes entregam documentação genérica — Vanguard entrega conformidade auditável específica da cadeia produtiva do cliente. White-label possível."
+  },
+
+  "cadencia_cowork": {
+    "frentes_alimentadoras": ["F1", "F3"],
+    "F1_diario_07h": "Novas publicações ANVISA, casos de recall, novas regulamentações sanitárias",
+    "F3_semanal": "Filtro de encaixe — validar se novas normas aumentam urgência do nicho",
+    "F1_ultima": "2026-06-11",
+    "F3_ultima": null,
+    "proxima_revisao_F11": "2026-07-01",
+    "alerta_janela_comercial": "60-90 dias de vantagem de timing — agir antes de saturação do mercado"
+  },
+
+  "prospecao": {
+    "fonte_leads": "Indústria alimentícia premium, importadores de insumos, distribuidoras",
+    "abordagem": "Urgência regulatória como gatilho — prazo dezembro 2026 + multa como âncora",
+    "perfil_ideal": "Empresa de alimentos premium sem plano de recall documentado"
+  },
+
+  "clientes_vanguard": [],
+  "convergencia_frentes": ["F1", "F3"],
+  "cowork_fontes": [
+    "F1 v2 2026-06-11 (ANVISA 09/06/2026 + caso Ypê)",
+    "F1 v1 2026-06-11 (ANVISA BPF + rastreabilidade)",
+    "BIBLIOTECA_NICHOS v1 — Caso Ypê / ANVISA 180 dias (MONITORAR → promovido)"
+  ],
+
+  "data_entrada": "2026-06-12",
+  "ultima_atualizacao": "2026-06-13"
+}

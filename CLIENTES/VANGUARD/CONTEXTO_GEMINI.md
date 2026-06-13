@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-12 03:12
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-13 00:41
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-eef91d0 docs(encerramento): PAINEL + CONTEXTO atualizados com DEF-M-6 patch e 14 commits
-c8bb443 docs(timeline): UNIVERSAL TIMELINE -- entrada Loop 33 2026-06-12 (desbloquear GATE 1.7)
-a7b0e0b docs(ledger): P-151 -- restricao arquitetural vs disciplina (Loop 33 falhas sistemicas) [RESOLVE: ledger-p151]
+d1eb5fa feat(skills): instalar 11 skills + gate P-037 bloqueante + SKILLS_GATILHOS
+c19cd58 feat(skills+ledger): S-3 guia skills + P-153 no LEDGER + sugestoes Notion quitadas [RESOLVE: sugestoes-notion]
+62a2834 fix(freshness): status VEREDITO_CONFIRMADO + fechar pendentes doc-freshness [RESOLVE: doc-freshness] [RESOLVE: doc-freshness-expand]
 
 ================================================================================
 
@@ -222,11 +222,14 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ## P-144 — DOIS SOCIOS TEM PESQUISA AVANCADA WEB — USAR OBRIGATORIAMENTE (2026-06-10)
 ## P-143 — FERRAMENTA AUTOMATICA ANTI-ESQUECIMENTO DO MUSCULO (2026-06-10)
 ## P-142 — NOTEBOOKLM E 100% REMOTO — MUSCULO OPERA VIA PLAYWRIGHT (2026-06-10)
+## P-154 -- NICHE GATE: CONSULTA OBRIGATORIA AO REPOSITORIO DE NICHOS ANTES DE INICIAR PROJETO (2026-06-13)
 ## P-141 — LOOP TRANSCRIPT: IMUNIDADE ESTRUTURAL A AMNESIA DE COMPACTACAO (2026-06-09)
 ## P-148 -- LEDGER_INBOX COMO BUFFER DE INTEGRIDADE (2026-06-10)
 ## P-149 — PASSO3 APRESENTA PROBLEMAS, NAO SOLUCOES — CAMARA DE ECO E BLOQUEANTE (2026-06-11)
 ## P-150 — DELIBERACAO INDIVIDUAL DE CADA IDEIA COM 7 PONTOS ANTES DE QUALQUER SINTESE (2026-06-12)
 ## P-151 — DISCIPLINA NAO BASTA — RESTRICAO ARQUITETURAL E A SOLUCAO (2026-06-12)
+## P-152 — WORKFLOW N8N COM BRANCHES PARALELOS: REFERENCIAR NO POR NOME, NAO POR $JSON (2026-06-12)
+## P-153 — MUSCULO IDENTIFICA FALHAS NO RACIOCINIO ANTES DE CONCORDAR (2026-06-12)
 
 ### PRINCIPIOS RECENTES -- TEXTO INTEGRAL (P-116 ao ultimo)
 ## P-116 -- O QUE DOI E ERRO, NAO ESFORCO -- VERIFICACAO ANTES DE AUTOMACAO (2026-06-06)
@@ -625,6 +628,22 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Aplica-se a:** NotebookLM VANGUARD (d7dab0e1) e todos os cadernos de clientes. Sem excecao.
 **Ferramentas:** mcp__plugin_playwright_playwright__browser_* — carregadas via ToolSearch no inicio da sessao se nao disponiveis.
 
+## P-154 -- NICHE GATE: CONSULTA OBRIGATORIA AO REPOSITORIO DE NICHOS ANTES DE INICIAR PROJETO (2026-06-13)
+**Origem:** Diretor em 2026-06-13: "Nichos de mercado devem ser consultados no inicio de qualquer projeto."
+**Principio:** Antes do PASSO 1 (Qualificacao GO/NO-GO) de qualquer projeto cliente, o Musculo roda:
+  .\scripts\match_niche.ps1 -setor "[setor]" -tags "[tags do briefing]"
+  Resultado apresentado ao Diretor com fit_score e modelo disponivel.
+  fit >= 4.5 = Nicho mapeado -- dores, pricing, objecoes, narrativas prontos para uso imediato.
+  fit 3.0-4.4 = Adjacente -- consultar modelo para adaptar abordagem.
+  sem match = Nicho novo -- criar NICHE_MODEL antes de avancar para PASSO 3.
+  Nunca iniciar PASSO 3 (Gemini) sem consultar o repositorio de nichos.
+**Alerta Gemini:** Output do NICHE_MODELER (sessao mensal Gemini Advanced) inclui secao [ALERTAS NICHE].
+  Musculo processa via scripts/niche_alert_router.ps1 -- extrai alertas -- envia Telegram (n8n W-8) -- adiciona PENDENTES [diretor].
+  Destinatarios: Diretor + Musculo + Embaixador + Socios.
+**Cadencia:** Calendario em INTELLIGENCE_HUB/CALENDARIO_NICHE_INTELLIGENCE.md.
+  Diario (F1) -- atualiza dores. Semanal (F3) -- revisa fit_score. Mensal (dia 1) -- sessao Gemini.
+**Ferramentas:** scripts/match_niche.ps1 + INTELLIGENCE_HUB/NICHE_INDEX.json + scripts/niche_alert_router.ps1
+**Aplica-se a:** todo projeto -- Vanguard, Ingrid, Valdece, Mumuzinho e futuros. Sem excecao.
 ## [FALHA-PROCESSO-2026-06-10-A] SKILLS ERRADAS AO ANALISAR SECAO D — RECORRENTE POS-COMPACTACAO
 **Origem:** Sessao 2026-06-10. Ao analisar SECAO D do Embaixador (Loop 31), o Musculo invocou mcp-builder e notebooklm em vez das 3 skills corretas: ultrathink-trigger → brainstorming → writing-plans.
 **Por que acontece:** apos compactacao, o Musculo perde o contexto das skills corretas. O padrao esta na memoria mas nao num gatilho automatico antes da acao.
@@ -761,6 +780,41 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Aplica-se a:** qualquer P-XXX que ja foi violado mais de 1 vez sem que uma ferramenta tenha sido criada.
 **Regra derivada (extensao de P-146):** quando uma falha aparece pela segunda vez no LEDGER, a proxima acao OBRIGATORIA e criar uma ferramenta de prevencao, nao registrar o principio novamente.
 
+---
+
+## P-152 — WORKFLOW N8N COM BRANCHES PARALELOS: REFERENCIAR NO POR NOME, NAO POR $JSON (2026-06-12)
+
+**Origem:** W-8 Signal Classifier -- no Supabase gravava campos vazios apesar de 4 execucoes bem-sucedidas. 3 rounds de debug necessarios para identificar a causa raiz.
+**Causa raiz:** em workflows n8n com branches (no IF diverge em 2+ caminhos), o `$json` no no convergente aponta para o output do ULTIMO no executado no caminho percorrido -- nao para um no fixo. Branch AUTO-RESOLVE passava por `Executar Auto-Resolve` (output: `$json.dados.sinal_original`); branch Rotear passava por `Telegram` (output: estrutura diferente). O mesmo no Supabase recebia `$json` diferente por branch, causando campos nulos ou erro PGRST204.
+**Solucao correta:** `$('Nome do No').first().json` -- referencia direta ao output de um no especifico por nome, independente do branch percorrido. Sempre valido, nunca ambiguo.
+**Solucao de body Supabase via httpRequest:** `specifyBody: "keypair"` com `bodyParameters.parameters` -- n8n monta o JSON internamente e garante Content-Type correto. `specifyBody: "string"` com `JSON.stringify()` causa PGRST204 (PostgREST interpreta o JSON todo como nome de coluna).
+**Aplica-se a:** todo no n8n convergente apos branches paralelos + qualquer httpRequest POST para Supabase REST API.
+**Nunca usar:** `$json` em no convergente sem verificar qual branch o alimenta.
+
+---
+
+## [FALHA-PROCESSO-2026-06-12-L] BOM UTF-8 RECORRENTE NO WIP_BOARD.JSON — CHURNWATCH QUEBRADO
+**Origem:** Sessao 2026-06-12. W-5 ChurnWatch reportou "Erro ao ler WIP_BOARD: Unexpected token '?'" no Telegram 06:00 UTC. BOM (`﻿`) serializado como `?` no n8n (cp1252 fallback).
+**Esta foi a 2a ocorrencia documentada (FALHA-F foi a 1a em 2026-06-10).** fix_bom_json.ps1 corrigiu na 1a vez mas WIP_BOARD voltou a ter BOM na proxima escrita — P-151 ("disciplina nao basta").
+**Causa raiz:** qualquer Write-Item/Set-Content/Out-File em PS 5.1 sem `-Encoding utf8` usa UTF-16 LE ou adiciona BOM. O script que escreveu WIP_BOARD.json nesta sessao usou encoding incorreto.
+**Fix aplicado:** `fix_bom_json.ps1` removeu o BOM — commit 6bcae81 automatico.
+**Solucao estrutural necessaria (P-151):** todo script que escreve WIP_BOARD.json DEVE usar `[System.IO.File]::WriteAllText(path, content, [System.Text.UTF8Encoding]::new($false))` — encoding sem BOM via .NET, nunca via PS Out-File/Set-Content.
+**Antidoto:** W-5 ChurnWatch adicionado `continueOnFail: true` no node HTTP Request + alerta Telegram dedicado "WIP_BOARD invalido — verificar BOM".
+
+---
+
+## P-153 — MUSCULO IDENTIFICA FALHAS NO RACIOCINIO ANTES DE CONCORDAR (2026-06-12)
+**Origem:** Sugestao S-5 registrada pelo Diretor via Notion 2026-06-12.
+**Principio:** A funcao primaria do Musculo nao e concordar com o Diretor — e identificar falhas no raciocinio antes de concordar.
+**O que isso significa na pratica:**
+  - Antes de validar uma ideia do Diretor, o Musculo verifica se a premissa e verdadeira
+  - Antes de executar uma instrucao, o Musculo verifica se o resultado esperado e alcancavel pelo caminho proposto
+  - O Musculo pode (e deve) dizer "Eduardo, isso nao vai funcionar porque..." com evidencia tecnica antes de propor alternativa
+  - Concordar sem analise critica = comportamento Yes-Man = deficiencia do Auditor, nao do Musculo
+**Distinguir de bajulacao:** "Ótima ideia!" sem analise = violacao. "Certo no ponto X, mas diverge em Y por Z" = cumprimento do mandato.
+**Aplica-se a:** toda resposta ao Diretor, especialmente quando o Diretor propoe uma solucao tecnica pronta.
+**Liga com:** PADRÃO DE DELIBERACAO 7 PONTOS (ponto 2: Onde Diverge) · P-010 (gate sem evidencia = invalido) · DEF-M-6 (Musculo Reativo = falha quando concorda por padrao).
+
 ================================================================================
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
@@ -803,7 +857,6 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
                                     "valor_fechado":  0,
                                     "tipo":  "Projeto Interno -- Evolucao do Sistema",
                                     "status":  "BUILD",
-                                    "loop_atual":  "Loop 32 FECHADO -- V32 Deriva Documental -- Antigravity EXECUTOR + Hermes B + LOOP_STATE v1.1",
                                     "build_iniciado_em":  "2026-06-06",
                                     "deadline":  null,
                                     "churn_watch_threshold":  null,
@@ -844,6 +897,7 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
                                                                    "MEMORIA_EMBAIXADOR_VANGUARD.md -- perfil fundador",
                                                                    "NARRATIVA_FUNDADOR.md -- Vanguard como primeiro caso do proprio produto",
                                                                    "ping_hermes.ps1 -- health check Hermes",
+                                                                   "RUNBOOK_EASYPANEL.md -- fonte canonica EasyPanel",
 ... [truncado -- ver arquivo completo]
 
 ================================================================================

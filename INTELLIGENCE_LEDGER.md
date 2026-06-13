@@ -1,4 +1,4 @@
-# INTELLIGENCE LEDGER — Pentalateral IAH
+﻿# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -2370,6 +2370,22 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Aplica-se a:** NotebookLM VANGUARD (d7dab0e1) e todos os cadernos de clientes. Sem excecao.
 **Ferramentas:** mcp__plugin_playwright_playwright__browser_* — carregadas via ToolSearch no inicio da sessao se nao disponiveis.
 
+## P-154 -- NICHE GATE: CONSULTA OBRIGATORIA AO REPOSITORIO DE NICHOS ANTES DE INICIAR PROJETO (2026-06-13)
+**Origem:** Diretor em 2026-06-13: "Nichos de mercado devem ser consultados no inicio de qualquer projeto."
+**Principio:** Antes do PASSO 1 (Qualificacao GO/NO-GO) de qualquer projeto cliente, o Musculo roda:
+  .\scripts\match_niche.ps1 -setor "[setor]" -tags "[tags do briefing]"
+  Resultado apresentado ao Diretor com fit_score e modelo disponivel.
+  fit >= 4.5 = Nicho mapeado -- dores, pricing, objecoes, narrativas prontos para uso imediato.
+  fit 3.0-4.4 = Adjacente -- consultar modelo para adaptar abordagem.
+  sem match = Nicho novo -- criar NICHE_MODEL antes de avancar para PASSO 3.
+  Nunca iniciar PASSO 3 (Gemini) sem consultar o repositorio de nichos.
+**Alerta Gemini:** Output do NICHE_MODELER (sessao mensal Gemini Advanced) inclui secao [ALERTAS NICHE].
+  Musculo processa via scripts/niche_alert_router.ps1 -- extrai alertas -- envia Telegram (n8n W-8) -- adiciona PENDENTES [diretor].
+  Destinatarios: Diretor + Musculo + Embaixador + Socios.
+**Cadencia:** Calendario em INTELLIGENCE_HUB/CALENDARIO_NICHE_INTELLIGENCE.md.
+  Diario (F1) -- atualiza dores. Semanal (F3) -- revisa fit_score. Mensal (dia 1) -- sessao Gemini.
+**Ferramentas:** scripts/match_niche.ps1 + INTELLIGENCE_HUB/NICHE_INDEX.json + scripts/niche_alert_router.ps1
+**Aplica-se a:** todo projeto -- Vanguard, Ingrid, Valdece, Mumuzinho e futuros. Sem excecao.
 ## [FALHA-PROCESSO-2026-06-10-A] SKILLS ERRADAS AO ANALISAR SECAO D — RECORRENTE POS-COMPACTACAO
 **Origem:** Sessao 2026-06-10. Ao analisar SECAO D do Embaixador (Loop 31), o Musculo invocou mcp-builder e notebooklm em vez das 3 skills corretas: ultrathink-trigger → brainstorming → writing-plans.
 **Por que acontece:** apos compactacao, o Musculo perde o contexto das skills corretas. O padrao esta na memoria mas nao num gatilho automatico antes da acao.
