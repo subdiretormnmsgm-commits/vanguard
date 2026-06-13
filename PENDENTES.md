@@ -8,12 +8,12 @@
 
 ## COWORK ENGINE — Inteligência de Mercado Vanguard
 
-- [ ] `2026-06-13` **[MÚSCULO] DÍVIDA ESTRUTURAL COWORK — mover INTELLIGENCE_HUB para CLIENTES/VANGUARD/** [musculo]
-  Decisão: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/` → `CLIENTES/VANGUARD/INTELLIGENCE_HUB/`
-  Razão: Vanguard se tornou cliente — dados de inteligência de mercado pertencem em `CLIENTES/VANGUARD/`, não em UNIVERSAL (metodologia only). UNIVERSAL deve conter apenas o método, não os dados.
-  Custo: sessão dedicada de 4-6h · 8+ scripts afetados (gemini_anchor_generator, sync_vanguard_docs, preparar_notebooklm, DEPENDENCY_MAP, PENDING_REVIEW paths, PASSO_NICHE_MODELER referências)
-  Gate: Diretor aprova janela de sessão antes de executar. NÃO executar durante sessão com outro foco.
-  CONTEXT: Ação Cowork Engine — inteligência de mercado dinâmica da Vanguard, não Loop do Pentalateral.
+- [ ] `2026-06-13` **[DIRETOR] VEREDITO — INTELLIGENCE_HUB: mover para CLIENTES/VANGUARD/ ou manter em UNIVERSAL?** [diretor]
+  Contexto: INTELLIGENCE_HUB fica em `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/` hoje.
+  Diretor esclareceu (2026-06-13): UNIVERSAL não é "metodologia only" — dados de inteligência de mercado também ficam em UNIVERSAL.
+  DECISÃO PENDENTE: (A) manter em UNIVERSAL (sem mudança) · (B) mover para CLIENTES/VANGUARD/ (razão = outro motivo a definir) · (C) manter em ambos via sync
+  Custo se (B) ou (C): sessão dedicada 4-6h · 8+ scripts afetados.
+  GATE BLOQUEANTE: aguarda veredito do Diretor antes de qualquer ação.
 
 ---
 
