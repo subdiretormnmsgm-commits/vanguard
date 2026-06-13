@@ -1,0 +1,46 @@
+{
+  "id": "farmaceuticos-rt-compliance",
+  "nome": "Farmaceuticos RT / Compliance CFF+ANVISA",
+  "vertical": 4,
+  "status": "MONITORAR",
+  "fit_score": 4.4,
+  "monitorar_nota": "Fit 4.4 abaixo do threshold 5.0 dos MOVER_AGORA. Promover quando houver prazo regulatorio especifico ou mais evidencia de dor no corpus Cowork.",
+  "setor": "Farmaceutico / Compliance Regulatorio",
+  "subsetor": "Farmacias de Manipulacao",
+  "match_keywords": ["RT", "ANVISA 978/2025", "CFF", "responsabilidade solidaria", "CRF", "cassacao", "farmacia de manipulacao"],
+  "match_setores": ["farmacia de manipulacao", "industria farmaceutica", "drogarias"],
+  "dores": [
+    "RT assume responsabilidade solidaria por autuacoes ANVISA",
+    "Cassacao do CRF encerra carreira do farmaceutico",
+    "Resolucao ANVISA 978/2025 amplia BPF sem transicao clara"
+  ],
+  "gatilho_regulatorio": {
+    "norma": "Resolucao ANVISA 978/2025",
+    "prazo": "Fev/2026",
+    "impacto": "Cassacao de CRF e responsabilidade solidaria do RT por violacoes ANVISA"
+  },
+  "roi_vanguard": {
+    "ticket_estimado": "R$12.000 setup + R$1.500/mes",
+    "retorno": "Protecao do CRF e separacao de responsabilidade pessoal vs empresarial"
+  },
+  "pricing": {
+    "modelo": "Setup + Mensalidade",
+    "setup": 12000,
+    "mensalidade": 1500
+  },
+  "narrativas": {
+    "argumento_abertura": "78% das autuacoes ANVISA em farmacias de manipulacao recaem sobre o RT pessoalmente. Voce tem documentacao que separa a responsabilidade da empresa da sua?",
+    "linkedin_post": "[AGUARDA_COWORK]",
+    "whatsapp_cold": "Sua documentacao protege seu CRF contra o conflito CFF x ANVISA? A Resolucao 978/2025 criou responsabilidade solidaria para o RT de manipulacao. Nossa equipe estrutura a trilha documental que separa a responsabilidade pessoal da empresarial.",
+    "whatsapp_indicacao": "[AGUARDA_COWORK]",
+    "objection_reversal": {
+      "objection": "Nunca tivemos autuacao",
+      "reversal": "A ANVISA 978/2025 entrou em vigor em fev/2026 — o ciclo de fiscalizacao ainda nao chegou a maioria das farmacias de manipulacao. A documentacao preventiva custa muito menos do que a cassacao do CRF."
+    }
+  },
+  "cross_sell": ["rastreabilidade-sanitaria-premium"],
+  "demo_disponivel": false,
+  "arquivo_modelo": "farmaceuticos-rt-compliance_MODEL.json",
+  "cowork_sessao": "2026-06-13",
+  "aprovado_em": "2026-06-13"
+}

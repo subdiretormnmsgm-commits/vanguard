@@ -1,0 +1,45 @@
+{
+  "id": "saude-digital-conformidade",
+  "nome": "Saude Digital / RNDS+LGPD+CFM 2.448/2025",
+  "vertical": 2,
+  "status": "MOVER_AGORA",
+  "fit_score": 4.8,
+  "setor": "Saude Digital",
+  "subsetor": "Hospitais Privados",
+  "match_keywords": ["RNDS", "LGPD", "CFM 2.448", "ANPD", "ANS RN 558", "saude digital", "prontuario eletronico", "healthtech"],
+  "match_setores": ["hospitais privados", "healthtechs", "clinicas", "operadoras de saude"],
+  "dores": [
+    "77% dos hospitais em nao-conformidade com RNDS",
+    "4 reguladores simultaneos: CFM, ANPD, ANS e Ministerio da Saude",
+    "Diretor clinico com responsabilidade pessoal por violacoes"
+  ],
+  "gatilho_regulatorio": {
+    "norma": "CFM 2.448/2025 + MP RNDS + LGPD",
+    "prazo": "Imediato",
+    "impacto": "Multas ANPD + responsabilizacao pessoal do diretor clinico + interdição"
+  },
+  "roi_vanguard": {
+    "ticket_estimado": "R$45.000 setup + R$5.000/mes",
+    "retorno": "Eliminacao de risco de interdicao + protecao do diretor clinico + conformidade 4 reguladores"
+  },
+  "pricing": {
+    "modelo": "Setup + Mensalidade",
+    "setup": 45000,
+    "mensalidade": 5000
+  },
+  "narrativas": {
+    "argumento_abertura": "77% dos hospitais privados nao estao em conformidade com a RNDS. O CFM 2.448 responsabiliza o diretor clinico. Onde esta sua vulnerabilidade hoje?",
+    "linkedin_post": "[AGUARDA_COWORK]",
+    "whatsapp_cold": "Seu hospital ja esta adequado ao CFM 2.448 e enviando dados para a RNDS? Com 4 reguladores simultaneos, 77% dos hospitais privados estao em nao-conformidade. Nossa equipe mapeia e estrutura a trilha documental completa para proteger o diretor clinico e a operacao.",
+    "whatsapp_indicacao": "[AGUARDA_COWORK]",
+    "objection_reversal": {
+      "objection": "Nosso TI ja cuida da parte digital",
+      "reversal": "TI implementa o sistema, mas conformidade documental com 4 reguladores simultaneos e outra camada. A ANPD e o CFM nao auditam o software — auditam a trilha documental e os processos. Nossa auditoria estrutura exatamente essa camada que o TI nao cobre."
+    }
+  },
+  "cross_sell": ["glosa-hospitalar", "medicos-peritos-laudos"],
+  "demo_disponivel": false,
+  "arquivo_modelo": "saude-digital-conformidade_MODEL.json",
+  "cowork_sessao": "2026-06-13",
+  "aprovado_em": "2026-06-13"
+}

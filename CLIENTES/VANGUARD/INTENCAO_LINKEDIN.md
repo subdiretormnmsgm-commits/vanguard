@@ -1,6 +1,6 @@
 # INTENÇÃO LINKEDIN — VANGUARD IAH
-> Criado: 2026-06-13 · Músculo · Loop 33
-> Status: ATUALIZADO com output da sessão Gemini Advanced 2026-06-13 — 3 posts prontos
+> Criado: 2026-06-13 · Músculo · Cowork Engine
+> Status: ATUALIZADO — 4 posts prontos (Cowork 2026-06-13)
 > Nichos selecionados: Setor Elétrico ANEEL (fit 5.0) · AI Act (fit 5.0 — NOVO) · NCM Aduaneiro (fit 5.0)
 
 ---
@@ -66,6 +66,18 @@ As importações brasileiras superam R$ 1,6 trilhão anuais, mas um detalhe docu
 
 ---
 
+### POST 4 — EVENTOS FISCAIS — ECD 2026 / Contadores (fit 5.0)
+> Entregue pelo Antigravity Cowork · 2026-06-13 · Pronto para publicar
+> Nicho: eventos-fiscais-contadores · Urgência CRÍTICA — prazo 30/06/2026
+
+Faltam apenas 17 dias para o encerramento do prazo da ECD 2026 (leiaute 12). No dia 30 de junho, escritórios e departamentos fiscais enfrentarão o cruzamento implacável da Receita Federal. Um pequeno erro no SPED hoje resulta em autuações automáticas de 0,02% ao dia ou 5% sobre o valor omitido. A margem para falhas documentais zerou. Contadores não podem depender apenas da revisão manual para garantir conformidade em escala. Nossa equipe utiliza um método analítico rigoroso para auditar obrigações acessórias antes da transmissão, eliminando inconsistências tributárias que geram passivos ocultos. Garantimos a rastreabilidade que a fiscalização exige, com precisão metodológica. A sua equipe já realizou a auditoria preventiva de todos os arquivos ou vai assumir o risco da transmissão direta?
+
+**WhatsApp (60 palavras):** O prazo da ECD encerra em 30 de junho. Erros no leiaute 12 geram multas automáticas de 5% sobre o valor omitido. Nossos especialistas realizam a auditoria preventiva do SPED, garantindo conformidade antes da transmissão. Podemos proteger as declarações dos seus clientes esta semana?
+
+**Reversão — "Meu sistema contábil já faz a validação":** O validador da Receita aprova a estrutura do arquivo, mas não a consistência analítica das informações fiscais cruzadas. Nossa auditoria age exatamente nas entrelinhas que geram autuações automáticas por divergência tributária, protegendo o CNPJ do cliente e o do escritório.
+
+---
+
 ## FLUXO DE CONTEÚDO — COMO FUNCIONA
 
 ```
@@ -88,10 +100,11 @@ INTENCAO_LINKEDIN.md → posts prontos → publicação pelo Diretor
 | Data | Nicho | Status | Arquivo |
 |---|---|---|---|
 | 2026-06-13 | setor-eletrico-regulatorio (fit 5.0) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 1 |
-| 2026-06-13 | conformidade-ai-act (fit 5.0 NOVO) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 2 |
+| 2026-06-13 | conformidade-ai-act (fit 5.0) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 2 |
 | 2026-06-13 | compliance-aduaneiro-ncm (fit 5.0) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 3 |
-| 2026-07-01 | A definir (NICHE_MODELER jul) | AGUARDANDO | — |
-| 2026-08-01 | A definir (NICHE_MODELER ago) | AGUARDANDO | — |
+| 2026-06-13 | eventos-fiscais-contadores (fit 5.0) | PRONTO — publicar ANTES dos outros (prazo 30/06) | INTENCAO_LINKEDIN.md § POST 4 |
+| 2026-07-01 | A definir (Cowork jul) | AGUARDANDO | — |
+| 2026-08-01 | A definir (Cowork ago) | AGUARDANDO | — |
 
 ---
 

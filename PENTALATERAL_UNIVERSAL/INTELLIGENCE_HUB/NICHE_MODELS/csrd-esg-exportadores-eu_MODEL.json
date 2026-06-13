@@ -1,0 +1,46 @@
+{
+  "id": "csrd-esg-exportadores-eu",
+  "nome": "CSRD/ESG para Exportadores EU",
+  "vertical": 8,
+  "status": "MONITORAR",
+  "fit_score": 5.0,
+  "monitorar_nota": "Diferenciacao com carbon-esg-mrv pendente. carbon-esg = mercado regulado interno SBCE; CSRD = cadeia de fornecedores EU. Promover quando diferenciacao estiver clara no MODEL carbon-esg e cross-sell mapeado sem sobreposicao.",
+  "setor": "Exportacao / ESG",
+  "subsetor": "Conformidade Cadeia de Suprimentos EU",
+  "match_keywords": ["CSRD", "ESG", "exportacao UE", "sustentabilidade", "auditoria de cadeia", "Diretiva Europeia", "fornecedores"],
+  "match_setores": ["agronegocio", "industria exportadora", "construcao civil", "exportadores"],
+  "dores": [
+    "Exigencia europeia de comprovacao ESG da cadeia de fornecedores",
+    "Risco de bloqueio de exportacoes para a UE",
+    "Ausencia de documentacao auditavel da cadeia de fornecedores"
+  ],
+  "gatilho_regulatorio": {
+    "norma": "Diretiva CSRD (UE)",
+    "prazo": "2026/2027",
+    "impacto": "Bloqueio de exportacoes e perda de acesso ao mercado europeu"
+  },
+  "roi_vanguard": {
+    "ticket_estimado": "R$30.000 setup + R$2.000/mes",
+    "retorno": "Manutencao de acesso ao mercado europeu e certificacao ESG da cadeia de fornecedores"
+  },
+  "pricing": {
+    "modelo": "Setup + Mensalidade",
+    "setup": 30000,
+    "mensalidade": 2000
+  },
+  "narrativas": {
+    "argumento_abertura": "A nova diretiva europeia CSRD exige que fornecedores brasileiros provem conformidade ESG com dados auditaveis. Voces ja possuem esse dosie tecnico formatado?",
+    "linkedin_post": "[AGUARDA_COWORK]",
+    "whatsapp_cold": "Voces estao preparados para a auditoria ESG exigida por seus clientes europeus sob a CSRD? Nossa equipe estrutura o dosie tecnico auditavel que mantem suas exportacoes desbloqueadas.",
+    "whatsapp_indicacao": "[AGUARDA_COWORK]",
+    "objection_reversal": {
+      "objection": "Nosso cliente europeu nao pediu isso ainda",
+      "reversal": "A CSRD ja e obrigatoria para grandes empresas europeias desde 2024 e a responsabilidade se propaga pela cadeia de fornecedores. Seu cliente pode nao ter comunicado ainda, mas a auditoria chega com o proximo contrato."
+    }
+  },
+  "cross_sell": ["carbon-esg-mrv", "ma-reestruturacao-societaria"],
+  "demo_disponivel": false,
+  "arquivo_modelo": "csrd-esg-exportadores-eu_MODEL.json",
+  "cowork_sessao": "2026-06-13",
+  "aprovado_em": "2026-06-13"
+}

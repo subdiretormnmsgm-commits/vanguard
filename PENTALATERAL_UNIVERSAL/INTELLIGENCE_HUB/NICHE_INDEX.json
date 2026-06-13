@@ -456,11 +456,107 @@
                        "proxima_revisao":  "F1 diario — URGENTE (17 dias para prazo ECD)",
                        "arquivo_modelo":  "NICHE_MODELS/eventos-fiscais-contadores_MODEL.json",
                        "niche_modeler_l33":  "NICHO NOVO identificado — fit 5.0 MOVER_AGORA. Deadline ECD 30/06/2026 (CRITICO — 17 dias). Ticket R$8k-R$40k."
+                   },
+                   {
+                       "id":  "engenheiros-acervo-tecnico",
+                       "nome":  "Engenheiros / Acervo Tecnico ART+CREA+TCU",
+                       "vertical":  1,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  4.6,
+                       "nota_status":  "Aprovado Cowork 2026-06-13. Cross-sell natural com licitacoes-contratos-publicos.",
+                       "setor":  "Engenharia Civil / Obras Publicas",
+                       "subsetor":  "Licitacoes de Engenharia",
+                       "match_keywords":  [
+                                              "acervo tecnico",
+                                              "ART",
+                                              "CREA",
+                                              "TCU",
+                                              "CAT",
+                                              "Lei 14.133",
+                                              "inabilitacao"
+                                          ],
+                       "match_setores":  [
+                                             "construcao civil",
+                                             "engenharia",
+                                             "obras publicas"
+                                         ],
+                       "arquivo_modelo":  "engenheiros-acervo-tecnico_MODEL.json"
+                   },
+                   {
+                       "id":  "saude-digital-conformidade",
+                       "nome":  "Saude Digital / RNDS+LGPD+CFM 2.448/2025",
+                       "vertical":  2,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  4.8,
+                       "nota_status":  "Aprovado Cowork 2026-06-13. Maior ticket do portfolio (R45k+R5k/mes). Cluster A hospitais com glosa + medicos-peritos.",
+                       "setor":  "Saude Digital",
+                       "subsetor":  "Hospitais Privados",
+                       "match_keywords":  [
+                                              "RNDS",
+                                              "LGPD",
+                                              "CFM 2.448",
+                                              "ANPD",
+                                              "ANS RN 558",
+                                              "saude digital",
+                                              "prontuario eletronico"
+                                          ],
+                       "match_setores":  [
+                                             "hospitais privados",
+                                             "healthtechs",
+                                             "clinicas",
+                                             "operadoras de saude"
+                                         ],
+                       "arquivo_modelo":  "saude-digital-conformidade_MODEL.json"
+                   },
+                   {
+                       "id":  "farmaceuticos-rt-compliance",
+                       "nome":  "Farmaceuticos RT / Compliance CFF+ANVISA",
+                       "vertical":  4,
+                       "status":  "MONITORAR",
+                       "fit_score":  4.4,
+                       "monitorar_nota":  "Fit 4.4 abaixo do threshold 5.0 MOVER_AGORA. Promover quando houver prazo regulatorio especifico ou mais evidencia de dor no corpus Cowork.",
+                       "setor":  "Farmaceutico / Compliance Regulatorio",
+                       "subsetor":  "Farmacias de Manipulacao",
+                       "match_keywords":  [
+                                              "RT",
+                                              "ANVISA 978/2025",
+                                              "CFF",
+                                              "responsabilidade solidaria",
+                                              "CRF",
+                                              "cassacao"
+                                          ],
+                       "match_setores":  [
+                                             "farmacia de manipulacao",
+                                             "industria farmaceutica"
+                                         ],
+                       "arquivo_modelo":  "farmaceuticos-rt-compliance_MODEL.json"
+                   },
+                   {
+                       "id":  "csrd-esg-exportadores-eu",
+                       "nome":  "CSRD/ESG para Exportadores EU",
+                       "vertical":  8,
+                       "status":  "MONITORAR",
+                       "fit_score":  5,
+                       "monitorar_nota":  "Diferenciacao com carbon-esg-mrv pendente. Promover quando diferenciacao carbon-esg (mercado interno) vs CSRD (cadeia EU) estiver clara nos MODELs.",
+                       "setor":  "Exportacao / ESG",
+                       "subsetor":  "Conformidade Cadeia de Suprimentos EU",
+                       "match_keywords":  [
+                                              "CSRD",
+                                              "ESG",
+                                              "exportacao UE",
+                                              "sustentabilidade",
+                                              "auditoria de cadeia",
+                                              "Diretiva Europeia"
+                                          ],
+                       "match_setores":  [
+                                             "agronegocio",
+                                             "industria exportadora",
+                                             "construcao civil"
+                                         ],
+                       "arquivo_modelo":  "csrd-esg-exportadores-eu_MODEL.json"
                    }
                ],
     "resumo":  {
-                   "MOVER_AGORA":  7,
-                   "MONITORAR":  4,
                    "ARQUIVAR":  0,
                    "verticais_ativas":  [
                                             1,
@@ -494,12 +590,6 @@
                                                    "carbon-esg-mrv",
                                                    "ifrs17-seguros"
                                                ],
-                   "lista_monitorar":  [
-                                           "licitacoes-contratos-publicos",
-                                           "rastreabilidade-sanitaria-premium",
-                                           "ma-reestruturacao-societaria",
-                                           "compliance-aduaneiro-ncm"
-                                       ],
                    "nichos_novos_l33":  [
                                             "conformidade-ai-act",
                                             "eventos-fiscais-contadores"
@@ -513,6 +603,37 @@
                                         "compliance-aduaneiro-ncm",
                                         "carbon-esg-mrv",
                                         "ifrs17-seguros"
-                                    ]
-               }
+                                    ],
+                   "total":  15,
+                   "MOVER_AGORA":  9,
+                   "MONITORAR":  6,
+                   "lista_mover_agora":  [
+                                             "eventos-fiscais-contadores",
+                                             "conformidade-ai-act",
+                                             "setor-eletrico-regulatorio",
+                                             "carbon-esg-mrv",
+                                             "ifrs17-seguros",
+                                             "glosa-hospitalar",
+                                             "medicos-peritos-laudos",
+                                             "engenheiros-acervo-tecnico",
+                                             "saude-digital-conformidade"
+                                         ],
+                   "lista_monitorar":  [
+                                           "licitacoes-contratos-publicos",
+                                           "compliance-aduaneiro-ncm",
+                                           "rastreabilidade-sanitaria-premium",
+                                           "ma-reestruturacao-societaria",
+                                           "farmaceuticos-rt-compliance",
+                                           "csrd-esg-exportadores-eu"
+                                       ]
+               },
+    "versao":  "1.5",
+    "ultima_atualizacao":  "2026-06-13",
+    "historico_versoes":  [
+                              {
+                                  "versao":  "1.5",
+                                  "data":  "2026-06-13",
+                                  "mudancas":  "Cowork 2026-06-13: +N17 engenheiros-acervo-tecnico (MOVER_AGORA 4.6) +N18 saude-digital-conformidade (MOVER_AGORA 4.8) +N16 farmaceuticos-rt-compliance (MONITORAR 4.4) +N09 csrd-esg-exportadores-eu (MONITORAR 5.0). Total: 15 nichos (9 MOVER_AGORA / 6 MONITORAR)."
+                              }
+                          ]
 }

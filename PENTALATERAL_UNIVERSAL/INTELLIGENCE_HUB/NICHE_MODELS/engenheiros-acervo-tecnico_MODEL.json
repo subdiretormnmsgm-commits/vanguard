@@ -1,0 +1,45 @@
+{
+  "id": "engenheiros-acervo-tecnico",
+  "nome": "Engenheiros / Acervo Tecnico ART+CREA+TCU",
+  "vertical": 1,
+  "status": "MOVER_AGORA",
+  "fit_score": 4.6,
+  "setor": "Engenharia Civil / Obras Publicas",
+  "subsetor": "Licitacoes de Engenharia",
+  "match_keywords": ["acervo tecnico", "ART", "CREA", "TCU", "CAT", "Lei 14.133", "inabilitacao"],
+  "match_setores": ["construcao civil", "engenharia", "obras publicas"],
+  "dores": [
+    "Acervo nao sistematizado gera inabilitacao em licitacoes",
+    "TCU responsabiliza RT pessoalmente por irregularidades",
+    "CAT obrigatoria em obras acima de R$330k sem documentacao rastreavel"
+  ],
+  "gatilho_regulatorio": {
+    "norma": "Nova Resolucao Confea ART + Lei 14.133/2021",
+    "prazo": "120 dias apos publicacao",
+    "impacto": "Inabilitacao em licitacoes publicas e responsabilizacao pessoal pelo TCU"
+  },
+  "roi_vanguard": {
+    "ticket_estimado": "R$10.000 setup + R$1.200/mes",
+    "retorno": "Eliminacao de risco de inabilitacao e protecao pessoal do RT contra autuacoes do TCU"
+  },
+  "pricing": {
+    "modelo": "Setup + Mensalidade",
+    "setup": 10000,
+    "mensalidade": 1200
+  },
+  "narrativas": {
+    "argumento_abertura": "A nova Resolucao Confea da 120 dias para adaptacao. Voce sabe quais ARTs estao em ordem para nao perder licitacoes?",
+    "linkedin_post": "[AGUARDA_COWORK]",
+    "whatsapp_cold": "Sua construtora esta com a CAT validada para obras acima de R$330k? A nova Resolucao Confea e a Lei 14.133 responsabilizam o RT pessoalmente pelo TCU. Nossa equipe sistematiza o acervo tecnico e elimina o risco de inabilitacao antes da proxima licitacao.",
+    "whatsapp_indicacao": "[AGUARDA_COWORK]",
+    "objection_reversal": {
+      "objection": "Nosso engenheiro gerencia o acervo manualmente",
+      "reversal": "Gestao manual funciona ate o momento em que o TCU pede rastreabilidade de 5 anos de ARTs organizadas por obra e valor. Sem sistematizacao, a inabilitacao acontece na hora em que mais custa. Nossa auditoria previne exatamente essa lacuna."
+    }
+  },
+  "cross_sell": ["licitacoes-contratos-publicos"],
+  "demo_disponivel": false,
+  "arquivo_modelo": "engenheiros-acervo-tecnico_MODEL.json",
+  "cowork_sessao": "2026-06-13",
+  "aprovado_em": "2026-06-13"
+}
