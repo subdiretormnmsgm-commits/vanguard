@@ -1,4 +1,4 @@
-﻿# INTELLIGENCE LEDGER — Pentalateral IAH
+# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -2370,22 +2370,6 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Aplica-se a:** NotebookLM VANGUARD (d7dab0e1) e todos os cadernos de clientes. Sem excecao.
 **Ferramentas:** mcp__plugin_playwright_playwright__browser_* — carregadas via ToolSearch no inicio da sessao se nao disponiveis.
 
-## P-154 -- NICHE GATE: CONSULTA OBRIGATORIA AO REPOSITORIO DE NICHOS ANTES DE INICIAR PROJETO (2026-06-13)
-**Origem:** Diretor em 2026-06-13: "Nichos de mercado devem ser consultados no inicio de qualquer projeto."
-**Principio:** Antes do PASSO 1 (Qualificacao GO/NO-GO) de qualquer projeto cliente, o Musculo roda:
-  .\scripts\match_niche.ps1 -setor "[setor]" -tags "[tags do briefing]"
-  Resultado apresentado ao Diretor com fit_score e modelo disponivel.
-  fit >= 4.5 = Nicho mapeado -- dores, pricing, objecoes, narrativas prontos para uso imediato.
-  fit 3.0-4.4 = Adjacente -- consultar modelo para adaptar abordagem.
-  sem match = Nicho novo -- criar NICHE_MODEL antes de avancar para PASSO 3.
-  Nunca iniciar PASSO 3 (Gemini) sem consultar o repositorio de nichos.
-**Alerta Gemini:** Output do NICHE_MODELER (sessao mensal Gemini Advanced) inclui secao [ALERTAS NICHE].
-  Musculo processa via scripts/niche_alert_router.ps1 -- extrai alertas -- envia Telegram (n8n W-8) -- adiciona PENDENTES [diretor].
-  Destinatarios: Diretor + Musculo + Embaixador + Socios.
-**Cadencia:** Calendario em INTELLIGENCE_HUB/CALENDARIO_NICHE_INTELLIGENCE.md.
-  Diario (F1) -- atualiza dores. Semanal (F3) -- revisa fit_score. Mensal (dia 1) -- sessao Gemini.
-**Ferramentas:** scripts/match_niche.ps1 + INTELLIGENCE_HUB/NICHE_INDEX.json + scripts/niche_alert_router.ps1
-**Aplica-se a:** todo projeto -- Vanguard, Ingrid, Valdece, Mumuzinho e futuros. Sem excecao.
 ## [FALHA-PROCESSO-2026-06-10-A] SKILLS ERRADAS AO ANALISAR SECAO D — RECORRENTE POS-COMPACTACAO
 **Origem:** Sessao 2026-06-10. Ao analisar SECAO D do Embaixador (Loop 31), o Musculo invocou mcp-builder e notebooklm em vez das 3 skills corretas: ultrathink-trigger → brainstorming → writing-plans.
 **Por que acontece:** apos compactacao, o Musculo perde o contexto das skills corretas. O padrao esta na memoria mas nao num gatilho automatico antes da acao.
@@ -2469,118 +2453,3 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Diagnostico:** o LEDGER e o unico mecanismo de memoria de falhas entre sessoes. Se P-098 bloqueia a entrada, as falhas morrem com o compacto de contexto.
 **Solucao estrutural:** LEDGER_INBOX.md criado em Loop 32 (ATO 6) como buffer oficial. P-148 formaliza o principio.
 **Antidoto:** ao detectar qualquer falha em sessao -> LEDGER_INBOX.md imediatamente (sem autorizacao P-098). Ao receber autorizacao -> mover em lote com [RESOLVE: LEDGER-INBOX-FALHAS].
-
-## P-149 — PASSO3 APRESENTA PROBLEMAS, NAO SOLUCOES — CAMARA DE ECO E BLOQUEANTE (2026-06-11)
-**Origem:** Loop 33 — Musculo escreveu M-1 a M-5 como solucoes pre-compiladas no PASSO3_GEMINI.md. O Estrategista (Antigravity) pesquisou e validou essas solucoes em vez de descobrir o que estava fora do radar. DIRETRIZ V33 confirmou o que o Musculo ja havia decidido. Diretor detectou: "Voce esta indo de encontro ao que o Diretor quer." Loop refeito do zero.
-**Falha composta:**
-  - M-1 a M-5 eram solucoes pre-definidas — fecharam o espaco de descoberta dos socios
-  - Query do Deep Research no NotebookLM replicou as ideias compiladas — camara de eco tripla
-  - M-1 (Cowork) era tarefa do Embaixador — nao devia estar no PASSO3 para o Estrategista
-**Principio:** O MUSCULO APRESENTA PROBLEMAS E CONTEXTO AO PASSO3 — NUNCA SOLUCOES PRE-COMPILADAS.
-  As G-1..G-5 pertencem exclusivamente ao Estrategista.
-  As N-1..N-5 pertencem exclusivamente ao Auditor.
-  As E-1..E-5 pertencem exclusivamente ao Embaixador.
-  O Musculo apresenta: (a) onde a empresa esta, (b) o que nao esta funcionando, (c) perguntas abertas sem resposta.
-  Nunca: (x) solucoes tecnicas para os socios validarem.
-**Trava obrigatoria no PASSO3:** adicionar secao [GATE ANTI-CAMARA-DE-ECO] antes dos M-X:
-  "O Estrategista e proibido de validar M-X. Sua missao e descobrir o que M-X nao viu.
-  Se os G coincidem com os M, a DIRETRIZ e invalida — reiniciar com perspectiva oposta."
-**Aplica-se a:** todo PASSO3 de todo projeto. Prioridade maxima.
-**Resolucao:** [RESOLVE: LEDGER-INBOX-P149]
-
-## P-150 — DELIBERACAO INDIVIDUAL DE CADA IDEIA COM 7 PONTOS ANTES DE QUALQUER SINTESE (2026-06-12)
-**Origem:** Loop 33 — Musculo apresentou sintese consolidada (D1/D2 + plano) sem mostrar deliberacao individual das 23 ideias (M+G+N+A+E). Diretor: "Como 20 ideias disruptivas se resumem a isso? Voce so pode estar alucinando." Reapresentacao com 7 pontos por ideia: "Agora sim. Excelente."
-**Falha detectada:**
-  - Musculo foi direto para sintese P-037 sem deliberar cada ideia individualmente
-  - Diretor nao consegue veredar "D1:A" sem ver o raciocinio por tras de cada M/G/N/A/E
-  - Sintese sem deliberacao individual = camara de eco — o Musculo pre-decide sem o Diretor ver o processo
-**Principio:** AO RECEBER OUTPUT DOS SOCIOS (M+G+N+A+E), O MUSCULO DELIBERA CADA IDEIA INDIVIDUALMENTE COM 7 PONTOS ANTES DE QUALQUER SINTESE OU DECISOES.JSON.
-**Sequencia inviolavel:**
-  1. Bloco M — cada ideia com 7 pontos (Certo / Diverge / Decisao / Enhancement / Custo real / Impacto comercial / Proxima acao)
-  2. Bloco G — cada ideia com 7 pontos
-  3. Bloco N — cada contra-argumento com analise
-  4. Bloco A — cada ideia exclusiva com 7 pontos
-  5. Bloco E — cada ideia com 7 pontos
-  6. Tabela resumo de vereditos (ENTRA AGORA / V2 / DESCARTADO / CONDICIONADO)
-  7. SO ENTAO: sintese P-037 -> DECISOES.json
-**Por que e critico:** o Diretor nao consegue deliberar sobre "D1:A" sem saber o raciocinio por tras de cada uma das ideias. Sintese sem deliberacao individual e camara de eco — o Musculo pre-decide.
-**Confirmado pelo Diretor:** "Agora sim. Excelente." — 2026-06-12 apos deliberacao completa de 23 ideias com 7 pontos cada.
-**Aplica-se a:** todo loop de todo projeto. Prioridade maxima.
-**Resolucao:** [RESOLVE: LEDGER-INBOX-P150]
-## P-151 — DISCIPLINA NAO BASTA — RESTRICAO ARQUITETURAL E A SOLUCAO (2026-06-12)
-**Origem:** Loop 33 — Relatorio de falhas sistemicas: DEF-M-6 (Musculo Reativo) + P-032 (MEMORIA manual) + Falha 5 (placeholder commitado) + Falha 6 (auditoria de freshness por declaracao, nao por disco).
-**Padrao detectado:**
-  - Musculo confiava em disciplina ("lembrar de atualizar") em vez de restricao arquitetural ("sistema impede nao atualizar")
-  - Resultado: os mesmos 4 tipos de falha se repetiam a cada sessao, apenas com detalhes diferentes
-  - Antigravity (Estrategista) nomeou o padrao: "A maquina falhou porque confiamos na disciplina em vez da restricao arquitetural"
-**Principio:** TODA FALHA RECORRENTE EXIGE UMA RESTRICAO ARQUITETURAL, NAO UMA NOVA REGRA DE DISCIPLINA.
-**Solucoes implementadas (Loop 33):**
-  - S1: Gate 7C no session_close.ps1 -- verifica LastWriteTime dos 7 arquivos criticos antes de encerrar
-  - S2: Register-Veredito.ps1 -- Write-Through atomico: 1 comando atualiza MEMORIA + TIMELINE + WIP_BOARD
-  - S3a: check_placeholders.ps1 -- detecta [PREENCHER/Loop ??/[TODO] antes do commit
-**Por que e critico:** disciplina falha em sessoes longas, sob pressao e apos compactacao de contexto. A restricao arquitetural nao tem memoria fragil.
-**Aplica-se a:** qualquer P-XXX que ja foi violado mais de 1 vez sem que uma ferramenta tenha sido criada.
-**Regra derivada (extensao de P-146):** quando uma falha aparece pela segunda vez no LEDGER, a proxima acao OBRIGATORIA e criar uma ferramenta de prevencao, nao registrar o principio novamente.
-
----
-
-## P-152 — WORKFLOW N8N COM BRANCHES PARALELOS: REFERENCIAR NO POR NOME, NAO POR $JSON (2026-06-12)
-
-**Origem:** W-8 Signal Classifier -- no Supabase gravava campos vazios apesar de 4 execucoes bem-sucedidas. 3 rounds de debug necessarios para identificar a causa raiz.
-**Causa raiz:** em workflows n8n com branches (no IF diverge em 2+ caminhos), o `$json` no no convergente aponta para o output do ULTIMO no executado no caminho percorrido -- nao para um no fixo. Branch AUTO-RESOLVE passava por `Executar Auto-Resolve` (output: `$json.dados.sinal_original`); branch Rotear passava por `Telegram` (output: estrutura diferente). O mesmo no Supabase recebia `$json` diferente por branch, causando campos nulos ou erro PGRST204.
-**Solucao correta:** `$('Nome do No').first().json` -- referencia direta ao output de um no especifico por nome, independente do branch percorrido. Sempre valido, nunca ambiguo.
-**Solucao de body Supabase via httpRequest:** `specifyBody: "keypair"` com `bodyParameters.parameters` -- n8n monta o JSON internamente e garante Content-Type correto. `specifyBody: "string"` com `JSON.stringify()` causa PGRST204 (PostgREST interpreta o JSON todo como nome de coluna).
-**Aplica-se a:** todo no n8n convergente apos branches paralelos + qualquer httpRequest POST para Supabase REST API.
-**Nunca usar:** `$json` em no convergente sem verificar qual branch o alimenta.
-
----
-
-## [FALHA-PROCESSO-2026-06-12-L] BOM UTF-8 RECORRENTE NO WIP_BOARD.JSON — CHURNWATCH QUEBRADO
-**Origem:** Sessao 2026-06-12. W-5 ChurnWatch reportou "Erro ao ler WIP_BOARD: Unexpected token '?'" no Telegram 06:00 UTC. BOM (`﻿`) serializado como `?` no n8n (cp1252 fallback).
-**Esta foi a 2a ocorrencia documentada (FALHA-F foi a 1a em 2026-06-10).** fix_bom_json.ps1 corrigiu na 1a vez mas WIP_BOARD voltou a ter BOM na proxima escrita — P-151 ("disciplina nao basta").
-**Causa raiz:** qualquer Write-Item/Set-Content/Out-File em PS 5.1 sem `-Encoding utf8` usa UTF-16 LE ou adiciona BOM. O script que escreveu WIP_BOARD.json nesta sessao usou encoding incorreto.
-**Fix aplicado:** `fix_bom_json.ps1` removeu o BOM — commit 6bcae81 automatico.
-**Solucao estrutural necessaria (P-151):** todo script que escreve WIP_BOARD.json DEVE usar `[System.IO.File]::WriteAllText(path, content, [System.Text.UTF8Encoding]::new($false))` — encoding sem BOM via .NET, nunca via PS Out-File/Set-Content.
-**Antidoto:** W-5 ChurnWatch adicionado `continueOnFail: true` no node HTTP Request + alerta Telegram dedicado "WIP_BOARD invalido — verificar BOM".
-
----
-
-## P-153 — MUSCULO IDENTIFICA FALHAS NO RACIOCINIO ANTES DE CONCORDAR (2026-06-12)
-**Origem:** Sugestao S-5 registrada pelo Diretor via Notion 2026-06-12.
-**Principio:** A funcao primaria do Musculo nao e concordar com o Diretor — e identificar falhas no raciocinio antes de concordar.
-**O que isso significa na pratica:**
-  - Antes de validar uma ideia do Diretor, o Musculo verifica se a premissa e verdadeira
-  - Antes de executar uma instrucao, o Musculo verifica se o resultado esperado e alcancavel pelo caminho proposto
-  - O Musculo pode (e deve) dizer "Eduardo, isso nao vai funcionar porque..." com evidencia tecnica antes de propor alternativa
-  - Concordar sem analise critica = comportamento Yes-Man = deficiencia do Auditor, nao do Musculo
-**Distinguir de bajulacao:** "Ótima ideia!" sem analise = violacao. "Certo no ponto X, mas diverge em Y por Z" = cumprimento do mandato.
-**Aplica-se a:** toda resposta ao Diretor, especialmente quando o Diretor propoe uma solucao tecnica pronta.
-**Liga com:** PADRÃO DE DELIBERACAO 7 PONTOS (ponto 2: Onde Diverge) · P-010 (gate sem evidencia = invalido) · DEF-M-6 (Musculo Reativo = falha quando concorda por padrao).
-
----
-
-## P-154 -- COMUNICACAO DIRETA DO DIRETOR ENTRE SOCIOS NAO REQUER GATE DE DIRETRIZ (2026-06-13)
-**Origem:** Loop 33 -- ir_ao_embaixador.ps1 bloqueou com DIRETRIZ_GEMINI_V33.txt nao encontrada quando o Diretor ordenou consulta ao Embaixador sobre estrategia 3 canais NICHE_MODELER. Contexto correto, gate errado.
-**Regra:** Quando o Diretor ordena comunicacao direta com qualquer socio fora do fluxo padrao do loop, o gate de DIRETRIZ deve ser contornavel via flag -OrdemDiretor. Comunicacao direta do Diretor entre socios nao e loop padrao -- e prerrogativa do Diretor.
-**Diferenca critica:** Loop padrao (gate obrigatorio) x Comunicacao direta do Diretor (gate ignorado com -OrdemDiretor). O socio registra o motivo no LOG.
-**Ferramenta construida:** flag -OrdemDiretor adicionado ao ir_ao_embaixador.ps1 (sessao 2026-06-13).
-**Declaracao do Diretor:** nao e Diretriz, e comunicacao entre socios -- 2026-06-13.
-**Aplica-se a:** qualquer script de orquestracao que bloqueia acionamento direto do Diretor com gate de processo interno.
-
----
-
-## P-155 -- GATE E-4: PROXIMO CANAL DE OUTREACH SO ABRE APOS >=1 CONVERSA REAL NO CANAL ATUAL (2026-06-13)
-**Origem:** Loop 33 -- Embaixador identificou que inbound system para fundador em modo outbound = dispersao de energia. E-4 aprovado como lei estrutural e embutido na ESTRATEGIA_CANAIS_VANGUARD.md com campo gate_e4_status.
-**Regra:** Em estrategia de outreach multi-canal, o proximo canal nao abre por calendario -- abre por condicao: >=1 conversa real (resposta, reuniao, proposta) no canal em curso. Gate estrutural, nao meta de tempo.
-**Por que e critico:** Sem o gate, o plano de canais vira cronograma: 3 canais abertos com 0 conversas = dispersao de energia do Diretor. Tudo e prioridade = nada e prioridade (Embaixador, Loop 33).
-**Como aplicar:** Ao criar ou revisar estrategia de canais, verificar campo gate_e4_status preenchido. Proximo canal so entra em acao quando canal atual tem >=1 log real em conversas_ativas. Template: ESTRATEGIA_CANAIS_VANGUARD.md.
-**Aplica-se a:** toda estrategia de outreach com mais de 1 canal ativo ou planejado.
-
----
-
-## P-156 -- SESSAO BEM EXECUTADA VIRA RUNBOOK + SKILL COM GATILHO AUTOMATICO (2026-06-13)
-**Origem:** Loop 33 -- Diretor declarou foi muito bem executada. Quero que sempre seja assim sobre o processo Cowork Nicho de Mercado. RUNBOOK_NICHE_MODELER.md + niche-modeler.md criados na mesma sessao.
-**Regra:** Quando o Diretor declara que uma atividade foi muito bem executada ou quero que sempre seja assim, o Musculo cria na mesma sessao: (a) RUNBOOK permanente em PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_[NOME].md com todas as fases documentadas, (b) skill em .claude/skills/[nome].md com gatilho automatico por palavras-chave.
-**Por que e critico:** Sem documentacao imediata, a excelencia fica presa na memoria da sessao e se perde. O RUNBOOK garante reproducibilidade por qualquer membro do Conselho em qualquer sessao futura.
-**Como aplicar:** Ao detectar foi muito bem executada ou quero que sempre seja assim -- criar RUNBOOK + skill antes de fechar a sessao. O commit de fechamento inclui os dois arquivos.
-**Aplica-se a:** qualquer atividade declarada excelente pelo Diretor. Independente de projeto ou cliente. Liga com P-050 (Knowledge Base obrigatoria).
