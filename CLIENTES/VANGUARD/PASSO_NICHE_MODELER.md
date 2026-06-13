@@ -1,6 +1,6 @@
 # PASSO — NICHE MODELER (Sessão Única com Gemini Advanced)
-> Data: 2026-06-13 · Músculo · Loop 33
-> Objetivo: Sessão única com Gemini Advanced (1M contexto) para enriquecimento dos 9 modelos de nicho
+> Data: 2026-06-13 · Músculo · Loop 34 (atualizado de Loop 33)
+> Objetivo: Sessão única com Gemini Advanced (1M contexto) para enriquecimento dos 11 modelos de nicho + validação de 3 candidatos novos (N16/N17/N18)
 
 ---
 
@@ -33,37 +33,45 @@ Cole nesta ordem como arquivos ou texto:
 9. `F15 2026-06-11` — Semáforo de Compromissos (Drive ID: `1xQOBdnKxDSnOUMGNIH6CnCUWtnroLrAe`)
 
 ### BLOCO B — Biblioteca e Concorrência
-10. `BIBLIOTECA_NICHOS_Vanguard_v1.md` (arquivo local: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/BIBLIOTECA_NICHOS/`)
+10. `BIBLIOTECA_NICHOS_Vanguard_v4.md` (arquivo local: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/BIBLIOTECA_NICHOS/Biblioteca_Nichos_Vanguard_v4.md`)
 11. `REPORT_COMPETITORS_2026-06.md` (arquivo local: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/`)
 
 ### BLOCO C — Modelos atuais (para enriquecer)
-Cole como texto: `NICHE_INDEX.json` (arquivo: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json`)
+Cole como texto: `NICHE_INDEX.json` v1.2 — 11 nichos (arquivo: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json`)
 Cole como texto: `licitacoes-contratos-publicos_MODEL.json` (nicho prioritário)
+
+### BLOCO D — Candidatos novos (Loop 34 — identificados pelo Cowork Engine)
+Cole como texto os 3 cartões gerados hoje:
+- `N16_FARMACEUTICOS_RT_CARTAO.md` (score 4.4 — Farmacêuticos RT, conflito CFF×ANVISA)
+- `N17_ENGENHEIROS_ACERVO_CARTAO.md` (score 4.6 — Engenheiros Acervo Técnico, Nova Resolução Confea)
+- `N18_SAUDE_DIGITAL_CARTAO.md` (score 4.8 — Saúde Digital, 4 reguladores simultâneos — TRIPLA CONVERGÊNCIA)
 
 ---
 
 ## [MISSÃO]
 
 Você tem **todo o corpus** do sistema Cowork Engine da Vanguard.
-Sua missão: enriquecer, completar e validar os 9 modelos de nicho existentes.
+Sua missão: enriquecer, completar e validar os 11 modelos de nicho existentes + avaliar 3 candidatos novos.
 
-### TAREFA 1 — VALIDAÇÃO DOS MODELOS EXISTENTES
+### TAREFA 1 — VALIDAÇÃO DOS MODELOS EXISTENTES (11 nichos)
 
-Para cada um dos 9 nichos abaixo, avalie:
+Para cada um dos 11 nichos abaixo, avalie:
 - O fit_score está correto à luz de todo o corpus? Se não, sugira o valor correto com justificativa.
 - Algum campo crítico está ausente, impreciso ou desatualizado em relação ao corpus?
 - Existe alguma inconsistência entre o que os documentos dizem e o que o modelo registra?
 
-Lista dos 9 nichos:
-1. licitacoes-contratos-publicos (fit 4.8 — MOVER AGORA — Vertical 1)
-2. glosa-hospitalar (fit 4.6 — MOVER AGORA — Vertical 2)
-3. medicos-peritos-laudos (fit 4.7 — MOVER AGORA — Vertical 7)
-4. rastreabilidade-sanitaria-premium (fit 4.5 — MOVER AGORA — Vertical 4)
-5. ma-reestruturacao-societaria (fit 4.5 — MOVER AGORA — Vertical 5)
-6. setor-eletrico-regulatorio (fit 4.8 — MOVER AGORA — Vertical 6)
-7. compliance-aduaneiro-ncm (fit 4.3 — MOVER AGORA — Vertical 3)
-8. carbon-esg-mrv (fit 4.5 — MONITORAR — Vertical 8)
-9. ifrs17-seguros (fit 4.3 — MONITORAR — Vertical 9)
+Lista dos 11 nichos (NICHE_INDEX v1.2):
+1. licitacoes-contratos-publicos (fit 4.8 — MONITORAR — Vertical 1)
+2. glosa-hospitalar (fit 5.0 — MONITORAR — Vertical 2)
+3. medicos-peritos-laudos (fit 5.0 — MONITORAR — Vertical 7)
+4. rastreabilidade-sanitaria-premium (fit 5.0 — MONITORAR — Vertical 4)
+5. ma-reestruturacao-societaria (fit 5.0 — MONITORAR — Vertical 5)
+6. setor-eletrico-regulatorio (fit 5.0 — MOVER_AGORA — Vertical 6)
+7. compliance-aduaneiro-ncm (fit 5.0 — MONITORAR — Vertical 3)
+8. carbon-esg-mrv (fit 5.0 — MONITORAR — Vertical 8)
+9. ifrs17-seguros (fit 5.0 — MONITORAR — Vertical 9)
+10. conformidade-ai-act (fit 5.0 — MOVER_AGORA — Vertical 10)
+11. eventos-fiscais-contadores (fit 5.0 — MOVER_AGORA — Vertical 11)
 
 **Formato de resposta por nicho:**
 ```
@@ -76,9 +84,19 @@ STATUS_AJUSTE: CONFIRMO / MOVER_AGORA / PROMOVER_PARA_MOVER_AGORA / REBAIXAR_PAR
 
 ---
 
-### TAREFA 2 — NICHOS NOVOS (SE EXISTIREM)
+### TAREFA 2 — NICHOS NOVOS
 
-Com base no corpus completo, existe algum nicho com potencial MOVER_AGORA ou MONITORAR que NÃO está nos 9 modelos?
+#### 2A — Validar 3 candidatos identificados pelo Cowork Engine (Bloco D)
+
+Para cada candidato (N16, N17, N18), avalie com base no corpus completo:
+- O fit_score atribuído está correto? Confirme ou corrija com justificativa do corpus.
+- Há evidência suficiente nos documentos do Bloco A para suportar este nicho?
+- Deve entrar como MOVER_AGORA ou MONITORAR?
+- Entregue o JSON completo no schema abaixo se aprovado.
+
+#### 2B — Nichos adicionais não mapeados
+
+Com base no corpus completo, existe algum nicho com potencial MOVER_AGORA ou MONITORAR que NÃO está nos 11 modelos nem nos 3 candidatos?
 
 Critérios para incluir:
 - Dor clara e mensurável com fonte no corpus
@@ -86,7 +104,7 @@ Critérios para incluir:
 - Vanguard tem capacidade de endereçar (compliance, auditoria, governança, documentação)
 - Ticket mínimo R$5.000
 
-Para cada nicho novo identificado, entregue o JSON completo no schema:
+Para cada nicho novo identificado (2A e 2B), entregue o JSON completo no schema:
 ```json
 {
   "id": "slug-kebab",
@@ -113,7 +131,7 @@ Para cada nicho novo identificado, entregue o JSON completo no schema:
 
 > **DESTINO:** Posts LinkedIn gerados aqui vão para `CLIENTES/VANGUARD/INTENCAO_LINKEDIN.md` — Músculo cola após esta sessão.
 
-Para os 3 nichos com maior fit_score + MOVER_AGORA, entregue:
+Para os 3 nichos com maior fit_score + MOVER_AGORA (incluindo candidatos N16/N17/N18 se aprovados), entregue:
 1. Post LinkedIn de 200 palavras (completo, pronto para publicar)
 2. Mensagem WhatsApp de 60 palavras (cold outreach)
 3. Argumento de reversão para objeção mais comum
@@ -153,7 +171,7 @@ Quem abordar primeiro, em qual canal, com qual mensagem de abertura.
 ## [REGRAS DA SESSÃO]
 
 - Tudo que você produzir vai para o Músculo (Claude Code) em `PENDING_REVIEW.md` antes de qualquer ação
-- Não invente dados sem fonte — se o corpus não confirma, marque como [HIPÓTESE] 
+- Não invente dados sem fonte — se o corpus não confirma, marque como [HIPÓTESE]
 - Não sugira ações que dependem de informações externas ao corpus fornecido
 - Para cada sugestão de novo nicho, cite a fonte no corpus que o sustenta
 - Se houver contradição entre documentos do corpus, indique qual é mais recente e marque como [CONFLITO]
@@ -163,13 +181,16 @@ Quem abordar primeiro, em qual canal, com qual mensagem de abertura.
 ## [FORMATO DE ENTREGA]
 
 ```
-NICHE MODELER — SESSÃO ÚNICA — [DATA]
+NICHE MODELER — SESSÃO ÚNICA — 2026-06-13
 
-## PARTE 1: VALIDAÇÃO DOS MODELOS
+## PARTE 1: VALIDAÇÃO DOS MODELOS (11 nichos)
 [output da Tarefa 1]
 
-## PARTE 2: NICHOS NOVOS
-[output da Tarefa 2 — ou "NENHUM NOVO IDENTIFICADO"]
+## PARTE 2A: VALIDAÇÃO CANDIDATOS N16/N17/N18
+[output da Tarefa 2A]
+
+## PARTE 2B: NICHOS NOVOS ADICIONAIS
+[output da Tarefa 2B — ou "NENHUM NOVO IDENTIFICADO"]
 
 ## PARTE 3: NARRATIVAS COMPLEMENTARES
 [output da Tarefa 3]
@@ -198,12 +219,12 @@ Se nenhum alerta: escrever "SEM ALERTAS URGENTES NESTE CICLO".
 
 ## [COMO USAR ESTE ARQUIVO]
 
-1. Abrir Gemini Advanced (1M contexto)
+1. Abrir **Google Antigravity Platform** (Gemini 3.1 Pro High / Deep Think — 1M tokens)
 2. Colar este documento no chat
-3. Anexar os arquivos do Bloco A (Drive) + Bloco B (locais) + colar o NICHE_INDEX.json como texto
-4. Aguardar resposta completa
+3. Anexar os arquivos do Bloco A (Drive IDs acima) + Bloco B (locais) + Bloco C (colar como texto) + Bloco D (colar como texto)
+4. Aguardar resposta completa — pode levar 2-5 min com Deep Think ativo
 5. Colar resposta em `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` — seção NICHE MODELER
 6. Músculo revisa + aplica aprovações ao NICHE_INDEX.json e modelos individuais
 
-**NOTA P-090:** Este arquivo é o que vai ao Gemini — não o chat. Salvo em `CLIENTES/VANGUARD/PASSO_NICHE_MODELER.md`.
+**NOTA P-090:** Este arquivo é o que vai ao Gemini — não o chat.
 **NOTA P-124:** Output vai 100% para PENDING_REVIEW — nunca diretamente ao WIP_BOARD ou DECISOES.json.
