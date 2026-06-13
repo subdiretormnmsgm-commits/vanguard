@@ -1,6 +1,6 @@
-{
+﻿{
     "_meta":  {
-                  "versao":  "1.3",
+                  "versao":  "1.4",
                   "criado":  "2026-06-13",
                   "ultima_atualizacao":  "2026-06-13",
                   "total_nichos":  11,
@@ -12,7 +12,8 @@
                                             "1.0":  "2026-06-13 — criacao inicial com 9 nichos",
                                             "1.1":  "2026-06-13 — NICHE_MODELER L33: 8 upgrades fit_score para 5.0, 2 promocoes de status, 2 novos nichos adicionados",
                                             "1.2":  "2026-06-13 — Embaixador: rebaixar 8/11 para MONITORAR. 3 CRITICOS ficam MOVER_AGORA (ECD/AI Act/ANEEL). Gate E-4: proximo nicho so apos 1 conversa real.",
-                                            "1.3":  "2026-06-13 — Loop 34: carbon-esg-mrv + ifrs17-seguros MONITORAR->MOVER_AGORA confirmado. Total MOVER_AGORA: 5."
+                                            "1.3":  "2026-06-13 — Loop 34: carbon-esg-mrv + ifrs17-seguros MONITORAR-\u003eMOVER_AGORA confirmado. Total MOVER_AGORA: 5.",
+                                            "1.4":  "2026-06-13 — Diretor aprova glosa-hospitalar + medicos-peritos-laudos MONITORAR-\u003eMOVER_AGORA. Total MOVER_AGORA: 7."
                                         }
               },
     "nichos":  [
@@ -61,7 +62,7 @@
                        "id":  "glosa-hospitalar",
                        "nome":  "Glosa Hospitalar / Defesa Medica",
                        "vertical":  2,
-                       "status":  "MONITORAR",
+                       "status":  "MOVER_AGORA",
                        "fit_score":  5.0,
                        "setor":  "Saude / Faturamento Hospitalar",
                        "subsetor":  "Auditoria Preventiva de Faturamento e Gestao de Glosas",
@@ -95,13 +96,13 @@
                        "proxima_revisao":  "F11 2026-07-01",
                        "arquivo_modelo":  "NICHE_MODELS/glosa-hospitalar_MODEL.json",
                        "niche_modeler_l33":  "UPGRADE 4.6-\u003e5.0 — taxa de glosa 17% Q1/2025. CFM 2.448/2025 judicializada FenaSaude fev/2026.",
-                       "monitorar_nota":  "fit_score alto — aguarda pipeline ativo (Gate E-4 ECD confirmado). Ativar apos 1a conversa real no nicho ancora."
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — taxa glosa 17% Q1/2025 + CFM 2.448/2025 judicializada. Aprovado Diretor 2026-06-13."
                    },
                    {
                        "id":  "medicos-peritos-laudos",
                        "nome":  "Medicos Peritos — Laudos e Gestao de Processos",
                        "vertical":  7,
-                       "status":  "MONITORAR",
+                       "status":  "MOVER_AGORA",
                        "fit_score":  5.0,
                        "setor":  "Saude / Juridico / Previdencia",
                        "subsetor":  "Gestao de Laudos Periciais e Conformidade",
@@ -130,11 +131,11 @@
                                                },
                        "demo_disponivel":  false,
                        "cowork_densidade":  "MEDIA — F1+F3",
-                       "urgencia_regulatoria":  "MEDIA",
+                       "urgencia_regulatoria":  "ALTA",
                        "proxima_revisao":  "F11 2026-07-01",
                        "arquivo_modelo":  "NICHE_MODELS/medicos-peritos-laudos_MODEL.json",
                        "niche_modeler_l33":  "UPGRADE 4.7-\u003e5.0 — CFM 2.448/2025 criou novo padrao de documentacao para laudos.",
-                       "monitorar_nota":  "fit_score alto — aguarda pipeline ativo (Gate E-4 ECD confirmado). Ativar apos 1a conversa real no nicho ancora."
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — CFM 2.448/2025 novo padrao de laudos. Aprovado Diretor 2026-06-13."
                    },
                    {
                        "id":  "rastreabilidade-sanitaria-premium",
@@ -458,8 +459,8 @@
                    }
                ],
     "resumo":  {
-                   "MOVER_AGORA":  5,
-                   "MONITORAR":  6,
+                   "MOVER_AGORA":  7,
+                   "MONITORAR":  4,
                    "ARQUIVAR":  0,
                    "verticais_ativas":  [
                                             1,
@@ -495,8 +496,6 @@
                                                ],
                    "lista_monitorar":  [
                                            "licitacoes-contratos-publicos",
-                                           "glosa-hospitalar",
-                                           "medicos-peritos-laudos",
                                            "rastreabilidade-sanitaria-premium",
                                            "ma-reestruturacao-societaria",
                                            "compliance-aduaneiro-ncm"
