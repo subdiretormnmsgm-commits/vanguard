@@ -47,7 +47,7 @@
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
                                                             "musculo":  "EM_ANDAMENTO",
-                                                            "proximo":  "Embaixador -- Estrategia 3 canais (LinkedIn/Instagram/WhatsApp Business) por nicho NICHE_MODELER"
+                                                            "proximo":  "Estrategia ECD: disparar copy LinkedIn esta semana. NICHE_INDEX v1.2: 3 MOVER_AGORA. MEMORIA_V33 + relatorio_V33 antes Loop 34 (P-045)."
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -90,7 +90,9 @@
                                                          "approvals_mode":  "auto",
                                                          "approvals_timeout_s":  900,
                                                          "config_path":  "/opt/data/config.yaml",
-                                                         "shadow_mode_w8_expira":  "2026-06-14"
+                                                         "shadow_mode_w8_expira":  "2026-06-14",
+                                                         "shadow_mode_w8_avaliado":  "2026-06-13 — DECISAO: manter Grau B permanentemente. 7 dias shadow mode sem incidentes. Grau C adiar para Loop 35+ apos 30 dias de log limpo.",
+                                                         "grau_b_permanente":  true
                                                      },
                                     "principios_v28":  [
                                                            "P-115 -- Musculo assessora ativamente conclusao de pendentes (2026-06-06)",
@@ -207,7 +209,7 @@
                                        "deadline":  "2026-05-30",
                                        "prova_cliente":  "2026-09-06",
                                        "build_iniciado_em":  "2026-05-15",
-                                       "ultimo_contato_cliente":  "2026-06-09",
+                                       "ultimo_contato_cliente":  "2026-06-13",
                                        "churn_watch_threshold":  3,
                                        "cargo":  "TDAS -- Tecnico em Desenvolvimento e Assistencia Social -- Cargo 202",
                                        "banca":  "Instituto Quadrix",
@@ -278,7 +280,7 @@
                  "loops_desde_ultimo_checkup":  2,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-10",
+                 "data_ultima_sessao":  "2026-06-13",
                  "claude_projects_pendente":  true
              }
 }

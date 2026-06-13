@@ -1,5 +1,5 @@
-{
-    "atualizado_em":  "2026-06-10",
+﻿{
+    "atualizado_em":  "2026-06-13",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -37,7 +37,6 @@
                                     "valor_fechado":  0,
                                     "tipo":  "Projeto Interno -- Evolucao do Sistema",
                                     "status":  "BUILD",
-                                    "loop_atual":  "Loop 32 FECHADO -- V32 Deriva Documental -- Antigravity EXECUTOR + Hermes B + LOOP_STATE v1.1",
                                     "build_iniciado_em":  "2026-06-06",
                                     "deadline":  null,
                                     "churn_watch_threshold":  null,
@@ -46,9 +45,9 @@
                                                             "loop":  33,
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
-                                                            "embaixador":  "PENDENTE",
-                                                            "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -- Skill vanguard-v33.md"
+                                                            "embaixador":  "OK",
+                                                            "musculo":  "EM_ANDAMENTO",
+                                                            "proximo":  "Embaixador -- Estrategia 3 canais (LinkedIn/Instagram/WhatsApp Business) por nicho NICHE_MODELER"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -132,7 +131,10 @@
                                                       ],
                                     "skill_path":  ".claude/skills/vanguard-v30.md",
                                     "memoria_embaixador_path":  "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
-                                    "historico_path":  "CLIENTES/VANGUARD/HISTORICO/"
+                                    "historico_path":  "CLIENTES/VANGUARD/HISTORICO/",
+                                    "ultimo_veredito":  "2026-06-12 VEREDITO: DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER",
+                                    "ultimo_veredito_data":  "2026-06-12",
+                                    "loop_atual":  "Loop 33 -- DEF-M-6 Patch -- S1+S2+S3a Restricao Arquitetural"
                                 }
                             ],
                   "check":  [

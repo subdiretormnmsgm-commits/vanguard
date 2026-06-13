@@ -1,6 +1,6 @@
 # VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-06-12
+> Criado: 2026-05-17 | Última atualização: 2026-06-10
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -410,8 +410,6 @@ O script `ingest.py` que gerou 460 questões para Ingrid gera 460 questões para
 | **Motor de Verdade — Loop 29** | 2026-06-09 | **P-132 (diversidade de engines = Motor de Verdade; elo Músculo↔Auditor = par primário; triangulação cega — amplifica P-129).** P-131 (Diretor ativo; silêncio ≠ aprovação). P-133 (Gate Zero Pipeline). P-134 (item aberto em PENDING_REVIEW/PENDENTES). YT-SEARCH = 1º canal de FONTES. Loop 29 fechado (commit b30c342). |
 | **Inteligência Ativa — Loop 30** | 2026-06-09 | V30 — Inteligência Ativa nos 3 Sócios. Auditor e Embaixador com busca web ativa (P-144). NotebookLM 100% remoto via Playwright (P-142). Workflow YT-ENRICHMENT + BRIEFING (P-140). Skills externas mapeadas por gate (P-135/P-136/P-137). P-138 (Valdece primeiro), P-139 (Vitrine vs Cofre). Loop 30 fechado. Skill vanguard-v30.md gerada. |
 | **Expansão da Inteligência — Loop 31** | 2026-06-10 | V31 — Expansão da Inteligência Interna. DECISOES D1:A (Hermes Grau B) + D3:A (RUNNING_INTELLIGENCE.md) + D4:A (Loop 32 EXTERNO). Hermes token corrigido + canal Telegram verificado + approvals.mode=auto. BOM UTF-8 removido do WIP_BOARD. P-141 (LOOP TRANSCRIPT anti-amnésia), P-143 (checklist BLOQUEANTE), P-145 (event-driven), P-146 (documentar=automatizar), P-147 (Budget de Leitura). Loop 31 fechado (commit c1c6936). |
-| **Deriva Documental Corrigida — Loop 32** | 2026-06-10 | V32 — 62 arquivos com deriva corrigidos (commit 4defaf6). Hermes Grau B oficializado (D1:A executado). pentalateral-firewall.md criado (.agents/skills/ + .claude/skills/). LOOP_STATE schema v1.1 lançado (missao + loop_anterior + builds_aprovados). LEDGER_INBOX.md criado como buffer de princípios pendentes. P-145..P-148 inscritos. Loop 32 FECHADO. |
-| **Virada Estratégica — Loop 33 V2** | 2026-06-11/12 | Loop 33 V1 DESCARTADO: M-1..M-5 como soluções técnicas fecharam espaço de descoberta → câmara de eco. P-149 inscrito (PASSO3 apresenta problemas, não soluções). Loop 33 V2 reiniciado do zero com Gate Anti-Câmara-de-Eco. DIRETRIZ V33 V2 via Antigravity: G-1 Motor Headless, G-2 Auditoria Concorrente PNCP, G-3 Pitch Reverso, G-4 Isolamento Celular, G-5 Engineering as Marketing. Auditor entregou Skill vanguard-v33.md APROVADA + N-1..N-5 + A-1..A-3. Recomendação: abrir Vertical Licitações ESTA SEMANA. Pipeline ZERO — Vertical 1 como resposta ao P-133. |
 
 ### O Papel de Cada Membro — Definição Precisa (v6.1 — 2026-05-23)
 
@@ -758,4 +756,21 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 *Próxima atualização obrigatória: Loop 32 — Gate Zero P-133 + captação 2ª candidata Ingrid (04-07-2026) + primeiro MRR novo*
 *Responsável pela atualização: Músculo (Claude Code) ao fechar cada gate ou marco comercial*
 
-- **2026-06-12 03:08** [VEREDITO Loop Loop 32 FECHADO -- V32 Deriva Documental -- Antigravity EXECUTOR + Hermes B + LOOP_STATE v1.1] DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER -- Impacto: Restricao arquitetural substitui disciplina -- P-032/P-091 automatizados
+## Loop 33 — 2026-06-12 · EXECUCAO · DEF-M-6 Patch
+
+**Data:** 2026-06-12
+**Sessão:** Loop 33 ATO 4 — sessão técnica de infraestrutura e correção sistêmica
+
+**Entregas do loop:**
+- Firewall Pentalateral ativo — Antigravity Builds A-D filtrados e aplicados (MERGE/SKIP/DOC/SIMPLIFICADO)
+- Gate 7C no session_close — verifica freshness dos 7 arquivos críticos por LastWriteTime
+- Register-Veredito.ps1 — Write-Through atômico P-032 (MEMORIA + TIMELINE + WIP em 1 comando)
+- check_placeholders.ps1 — detector de [PREENCHER/Loop ?? antes do commit
+- P-151 registrado: restrição arquitetural supera disciplina como mecanismo de prevenção
+- TIMELINE reconciliada: 16_VANGUARD_TIMELINE.md (CLAUDE_PROJECT) → fonte canônica declarada
+- BOM UTF-8 eliminado de 14 arquivos (fix sistêmico auto-commit)
+- BUILD 5 PNCP — varredura de inabilitados em licitações DF
+
+**Status:** EXECUÇÃO ativa · próximos: G-4+A-3 (LOOP_STATE v1.1) + E-5 (P-032 completo)
+
+*Atualizado em: 2026-06-12 — Loop 33 EXECUCAO · Patch DEF-M-6 aplicado*
