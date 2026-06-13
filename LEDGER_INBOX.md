@@ -7,11 +7,31 @@
 
 ---
 
-## STATUS: 1 ENTRADA PENDENTE — Loop 33 sessão NICHE_MODELER · 2026-06-13
+## STATUS: 3 ENTRADAS PENDENTES — Loop 33 FECHAMENTO · 2026-06-13
 
 ---
 
 ## [PENDENTE — aguarda autorização P-098]
+
+### P-155 — GATE E-4: PROXIMO CANAL SO ABRE APOS ≥1 CONVERSA REAL NO CANAL ATUAL (2026-06-13)
+
+**Regra:** Em estratégia de outreach multi-canal, o próximo canal não abre por calendário — abre por condição: ≥1 conversa real (resposta, reunião, proposta) no canal em curso. Gate estrutural, não meta de tempo.
+
+**Por que:** Sem o gate, o plano de canais vira cronograma: 3 canais abertos com 0 conversas = dispersão de energia do Diretor. Evidência Loop 33: Embaixador identificou que "inbound system para fundador em modo outbound" dispersa. E-4 foi aprovado como lei estrutural e embutido na ESTRATEGIA_CANAIS_VANGUARD.md com campo `gate_e4_status`.
+
+**Como aplicar:** Ao criar ou revisar estratégia de canais → verificar se `gate_e4_status` está preenchido. Próximo canal só entra em ação quando canal atual tem ≥1 log real em `conversas_ativas`. Template: ESTRATEGIA_CANAIS_VANGUARD.md.
+
+---
+
+### P-156 — SESSAO BEM EXECUTADA VIRA RUNBOOK + SKILL COM GATILHO AUTOMATICO (2026-06-13)
+
+**Regra:** Quando o Diretor declara que uma atividade "foi muito bem executada, quero que sempre seja assim", o Músculo cria na mesma sessão: (a) RUNBOOK permanente em `PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_[NOME].md` com todas as fases documentadas, (b) skill em `.claude/skills/[nome].md` com gatilho automático por palavras-chave.
+
+**Por que:** Sem documentação imediata, a excelência fica presa na memória da sessão e se perde. O RUNBOOK garante que o processo possa ser reproduzido por qualquer membro do Conselho em qualquer sessão futura. Evidência Loop 33: RUNBOOK_NICHE_MODELER.md criado com 7 fases + niche-modeler.md com gatilho — processo NICHE_MODELER agora é reproduzível.
+
+**Como aplicar:** Ao detectar "foi muito bem executada" ou "quero que sempre seja assim" → criar RUNBOOK + skill antes de fechar a sessão. O commit de fechamento inclui os dois arquivos.
+
+---
 
 ### P-154 — COMUNICACAO DIRETA DO DIRETOR ENTRE SOCIOS NAO REQUER GATE DE DIRETRIZ (2026-06-13)
 

@@ -85,11 +85,8 @@
   W-8 shadow mode 100% operacional — pode gravar em silenced_signals_log.
   ALERTA RESIDUAL (sem impacto): SUPABASE_URL_INGRID aponta para Vanguard (não Ingrid) — variável órfã, não usada por nenhum workflow.
 
-- [ ] `2026-06-21` **[DIRETOR] W-8 shadow mode — avaliar ativação plena** [diretor]
-  DEADLINE: shadow mode estendido até 2026-06-21 (decisão Diretor 2026-06-12 — 7 dias adicionais para coletar dados limpos).
-  CONTEXTO: Fix 5 (specifyBody keypair) resolveu gravação no Supabase — 2 registros corretos confirmados (ids 3 e 4). W-8 agora grava corretamente em ambos os branches (AUTO-RESOLVE + Rotear Sinal).
-  Decisão: ler silenced_signals_log — se dados consistentes → ativar pleno (`shadowMode = false` no jsCode do W-8 + reimport). Se anomalias → prorrogar novamente.
-  Workflow n8n renomeado: "W-8 Signal Classifier (shadow-mode -- expira 2026-06-21)".
+- [x] `2026-06-21` ~~**[DIRETOR] W-8 shadow mode — avaliar ativação plena** [diretor]~~
+  ✅ Avaliado 2026-06-13 — Grau B permanente confirmado. 7 dias shadow mode limpos — dados consistentes em Supabase. Grau C adiado para Loop 35+ (após ≥30 dias log limpo). W-8 permanece em shadow mode registrando sinais. [RESOLVE: W8-grau-b]
 
 - [x] `2026-06-06` ~~**V28 — gate_coerencia.ps1 (E-1 Haiku API) + skill_parser_gate integrado:**~~
   ✅ gate_coerencia.ps1 criado e integrado ao skill_parser_gate.ps1 — commit baf693a.
@@ -282,6 +279,31 @@
   - R-02: verificar tag `[VEREDITO-DIRETOR]` na mensagem de commit ao invés de ENV_VAR
   - Criar `pre-commit.bat` wrapper para Windows git hooks
   Custo: ~1h. Após reescrita → instalar como hook real.
+
+### 🔒 LOOP 33 — PENDENTES PÓS-FECHAMENTO (2026-06-13)
+
+- [ ] `2026-06-13` **[MÚSCULO] E-1: PADROES_FUNDADOR — seção na MEMORIA_EMBAIXADOR_VANGUARD.md** [musculo]
+  Origem: E-1 deliberado Loop 33 — padrão builder>vendedor detectado em 2 instâncias (Loops 31 e 33). BLOQUEANTE.
+  Ação: adicionar seção "PADROES_FUNDADOR" na MEMORIA_EMBAIXADOR_VANGUARD.md com os padrões confirmados.
+  Custo: ~30min.
+
+- [ ] `2026-06-13` **[MÚSCULO] E-3: ARTEFATO_DE_PROVA — campo no template PAINEL_ATIVIDADES** [musculo]
+  Origem: E-3 deliberado Loop 33 — gate único por campanha exige artefato de prova da entrega.
+  Ação: adicionar campo "ARTEFATO_DE_PROVA" no template PAINEL_ATIVIDADES gerado pelo session_close.
+  Custo: ~30min.
+
+- [ ] `2026-06-13` **[MÚSCULO] E-5 RED-TEAM — seção no PASSO7-A template** [musculo]
+  Origem: E-5 deliberado Loop 33 — atenção do Diretor como recurso escasso; RED-TEAM evita ilusão de consenso.
+  Ação: adicionar seção RED-TEAM no PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md.
+  Custo: ~30min.
+
+- [ ] `2026-06-13` **[DIRETOR] P-154 → INTELLIGENCE_LEDGER** [diretor]
+  P-154 registrado no LEDGER_INBOX: comunicação direta Diretor entre sócios não requer gate DIRETRIZ.
+  Aguarda: "AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER"
+
+- [ ] `2026-06-13` **[DIRETOR] Arrastar 7 arquivos ao Embaixador (Claude Projects) — sessão 2026-06-13** [diretor]
+  Arquivos: PAINEL_ATIVIDADES_2026-06-13 · CONTEXTO_SESSAO_DIRETOR_2026-06-13 · WIP_BOARD.json · INTELLIGENCE_LEDGER.md · PENDENTES.md · 16_VANGUARD_TIMELINE.md · MEMORIA_EMBAIXADOR_VANGUARD.md
+  Colar mensagem gerada pelo session_close (Gate EMBAIXADOR FORMAT).
 
 ---
 
