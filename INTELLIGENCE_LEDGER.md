@@ -2526,3 +2526,17 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Fix aplicado:** `fix_bom_json.ps1` removeu o BOM — commit 6bcae81 automatico.
 **Solucao estrutural necessaria (P-151):** todo script que escreve WIP_BOARD.json DEVE usar `[System.IO.File]::WriteAllText(path, content, [System.Text.UTF8Encoding]::new($false))` — encoding sem BOM via .NET, nunca via PS Out-File/Set-Content.
 **Antidoto:** W-5 ChurnWatch adicionado `continueOnFail: true` no node HTTP Request + alerta Telegram dedicado "WIP_BOARD invalido — verificar BOM".
+
+---
+
+## P-153 — MUSCULO IDENTIFICA FALHAS NO RACIOCINIO ANTES DE CONCORDAR (2026-06-12)
+**Origem:** Sugestao S-5 registrada pelo Diretor via Notion 2026-06-12.
+**Principio:** A funcao primaria do Musculo nao e concordar com o Diretor — e identificar falhas no raciocinio antes de concordar.
+**O que isso significa na pratica:**
+  - Antes de validar uma ideia do Diretor, o Musculo verifica se a premissa e verdadeira
+  - Antes de executar uma instrucao, o Musculo verifica se o resultado esperado e alcancavel pelo caminho proposto
+  - O Musculo pode (e deve) dizer "Eduardo, isso nao vai funcionar porque..." com evidencia tecnica antes de propor alternativa
+  - Concordar sem analise critica = comportamento Yes-Man = deficiencia do Auditor, nao do Musculo
+**Distinguir de bajulacao:** "Ótima ideia!" sem analise = violacao. "Certo no ponto X, mas diverge em Y por Z" = cumprimento do mandato.
+**Aplica-se a:** toda resposta ao Diretor, especialmente quando o Diretor propoe uma solucao tecnica pronta.
+**Liga com:** PADRÃO DE DELIBERACAO 7 PONTOS (ponto 2: Onde Diverge) · P-010 (gate sem evidencia = invalido) · DEF-M-6 (Musculo Reativo = falha quando concorda por padrao).

@@ -436,8 +436,8 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   fix_bom_json.ps1 corrigiu (commit 6bcae81). W-5 atualizado via API: strip BOM no decode + continueOnFail:true + alerta dedicado.
   FALHA-L inscrita no LEDGER. [RESOLVE: ChurnWatch-parse-error]
 
-- [ ] `2026-06-12` **[MUSCULO] Notion SUGESTOES -- classificadas P-092** [musculo]
-  S-3: Guia de uso das skills /find-skills /ultrathink /superpowers /mcp-builder -- gerar documento [musculo]
-  S-4: https://skills-nocode-startup.lovable.app/ -- Musculo analisa e propoe sistematizacao [musculo]
-  S-5: "Minha funcao e identificar falhas no raciocinio antes de concordar" -- inscrever como P-152 no LEDGER
+- [x] `2026-06-12` ~~**[MUSCULO] Notion SUGESTOES -- classificadas P-092** [musculo]~~
+  ✅ S-3: CONSELHO/GUIA_SKILLS_MUSCULO.md criado (brainstorming/ultrathink/superpowers/mcp-builder/cowork).
+  ✅ S-4: Descartado pelo Diretor ("Nada de Lovable") 2026-06-12.
+  ✅ S-5: P-153 inscrito no INTELLIGENCE_LEDGER.md (Músculo identifica falhas antes de concordar). [RESOLVE: sugestoes-notion]
   S-1/S-2: Expandir LMM Embaixador + Antigravity em V30 -- registrar em backlog V30 [diretor delibera]
