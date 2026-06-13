@@ -39,14 +39,13 @@ Cole nesta ordem como arquivos ou texto:
 11. `REPORT_COMPETITORS_2026-06.md` (arquivo local: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/`)
 
 ### BLOCO C — Modelos atuais (para enriquecer)
-Cole como texto: `NICHE_INDEX.json` v1.3 — 11 nichos (arquivo: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json`)
-Cole como texto: `licitacoes-contratos-publicos_MODEL.json` (nicho prioritário)
+`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json` v1.4 — 11 nichos (7 MOVER_AGORA / 4 MONITORAR)
+`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_MODELS/` — 11 arquivos MODEL.json (ler todos)
 
 ### BLOCO D — Candidatos novos (identificados pelo Cowork Engine — Inteligência de Mercado)
-Cole como texto os 3 cartões gerados hoje:
-- `N16_FARMACEUTICOS_RT_CARTAO.md` (score 4.4 — Farmacêuticos RT, conflito CFF×ANVISA)
-- `N17_ENGENHEIROS_ACERVO_CARTAO.md` (score 4.6 — Engenheiros Acervo Técnico, Nova Resolução Confea)
-- `N18_SAUDE_DIGITAL_CARTAO.md` (score 4.8 — Saúde Digital, 4 reguladores simultâneos — TRIPLA CONVERGÊNCIA)
+`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/BIBLIOTECA_NICHOS/N16_FARMACEUTICOS_RT_CARTAO.md` (score 4.4 — Farmacêuticos RT, conflito CFF×ANVISA)
+`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/BIBLIOTECA_NICHOS/N17_ENGENHEIROS_ACERVO_CARTAO.md` (score 4.6 — Engenheiros Acervo Técnico, Nova Resolução Confea)
+`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/BIBLIOTECA_NICHOS/N18_SAUDE_DIGITAL_CARTAO.md` (score 4.8 — Saúde Digital, 4 reguladores simultâneos — TRIPLA CONVERGÊNCIA)
 
 ---
 
