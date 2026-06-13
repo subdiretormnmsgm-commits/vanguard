@@ -17,6 +17,17 @@
   Detalhes em: `CLIENTES/VANGUARD/COWORK_HANDOFF.md` → seção FASE 2
   Gate bloqueante: sem veredito completo, próximo NICHE_MODELER (Antigravity) não começa
 
+- [ ] `2026-06-13` **[MÚSCULO] P-159 — gate_cowork_fase2.ps1 — bloquear Fase 3 se Fase 2 pendente** [musculo]
+  Construir: `scripts/gate_cowork_fase2.ps1`
+  Lógica: verificar NICHE_MODELER_SESSIONS.json + PENDING_REVIEW INBOX_COWORK → se houver AGUARDANDO → exit 1 com mensagem "GATE P-159: veredito INBOX pendente"
+  Integrar em: PASSO_NICHE_MODELER.md [COMO USAR] como verificação pré-Antigravity
+
+- [ ] `2026-06-13` **[MÚSCULO] P-160 — gate_loop_objetivo.ps1 — bloquear Loop sem objetivo declarado** [musculo]
+  Construir: `scripts/gate_loop_objetivo.ps1`
+  Lógica: verificar LOOP_STATE.json campo "objetivo_loop" → se ausente/vazio → exit 1 com mensagem "GATE P-160: declare o objetivo deste Loop antes de continuar"
+  Formato: "Ao final deste Loop, teremos [resultado concreto] para [projeto/cliente]"
+  Integrar em: gemini_anchor_generator.ps1 + ir_ao_embaixador.ps1 (verificação pré-ativação)
+
 - [ ] `2026-06-13` **[MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIENTES/VANGUARD/ via sync** [musculo]
   Veredito Diretor (2026-06-13): Opção C — manter em PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/ (fonte canônica) + espelhar para CLIENTES/VANGUARD/INTELLIGENCE_HUB/ via sync automático.
   Custo: sessão dedicada 4-6h · scripts afetados: sync_vanguard_docs.ps1, DEPENDENCY_MAP, preparar_notebooklm, gemini_anchor_generator, PENDING_REVIEW paths.
