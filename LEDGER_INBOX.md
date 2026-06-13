@@ -7,11 +7,19 @@
 
 ---
 
-## STATUS: 3 ENTRADAS PENDENTES — Loop 33 FECHAMENTO · 2026-06-13
+## STATUS: 0 ENTRADAS — P-154/P-155/P-156 movidos para INTELLIGENCE_LEDGER.md · 2026-06-13
 
 ---
 
-## [PENDENTE — aguarda autorização P-098]
+## [MOVIDOS PARA INTELLIGENCE_LEDGER.md — 2026-06-13]
+
+- **P-154** → adicionado após P-153 · Loop 33 · [RESOLVE: LEDGER-INBOX-P154]
+- **P-155** → adicionado após P-154 · Loop 33 · [RESOLVE: LEDGER-INBOX-P155]
+- **P-156** → adicionado após P-155 · Loop 33 · [RESOLVE: LEDGER-INBOX-P156]
+
+---
+
+## [ARQUIVO — princípios anteriores que foram movidos em 2026-06-13]
 
 ### P-155 — GATE E-4: PROXIMO CANAL SO ABRE APOS ≥1 CONVERSA REAL NO CANAL ATUAL (2026-06-13)
 
