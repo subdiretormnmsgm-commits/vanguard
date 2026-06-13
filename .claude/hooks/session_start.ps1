@@ -808,6 +808,68 @@ $colheitaCowork = @(
     "  ⛔ Musculo que lista sinais sem invocar a skill = [3] incompleto."
 ) -join "`n"
 
+# --- GATE 7C MIRROR: Frescor dos 7 Arquivos do Embaixador (informativo na abertura) ---
+# Mesmo check do Gate 7C do session_close -- exibe no INICIO para que o Musculo
+# saiba quais arquivos precisam ser atualizados ANTES de fechar a sessao.
+# Nao bloqueia a abertura -- session_close BLOQUEIA se arquivos estiverem stale.
+function Get-FrescorEmbaixador {
+    $dataRef = [datetime]::Today
+    $dataStr = Get-Date -Format "yyyy-MM-dd"
+    $protDir = Join-Path $projectDir "PROTOCOLOS_ENCERRAMENTO"
+
+    $painelFile = Get-ChildItem $protDir -Filter "PAINEL_ATIVIDADES_*$dataStr*.md" -ErrorAction SilentlyContinue |
+                  Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    if (-not $painelFile) {
+        $painelFile = Get-ChildItem $protDir -Filter "PAINEL_ATIVIDADES_*.md" -ErrorAction SilentlyContinue |
+                      Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    }
+    $painelPath = if ($painelFile) { $painelFile.FullName } else { "$protDir\PAINEL_ATIVIDADES_$dataStr.md" }
+
+    $mapa = [ordered]@{
+        "1. PAINEL_ATIVIDADES"           = $painelPath
+        "2. CONTEXTO_SESSAO_DIRETOR"     = "$projectDir\PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataStr.md"
+        "3. WIP_BOARD.json"              = "$projectDir\CLIENTES\WIP_BOARD.json"
+        "4. INTELLIGENCE_LEDGER.md"      = "$projectDir\INTELLIGENCE_LEDGER.md"
+        "5. PENDENTES.md"                = "$projectDir\PENDENTES.md"
+        "6. 16_VANGUARD_TIMELINE.md"     = "$projectDir\CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md"
+        "7. MEMORIA_EMBAIXADOR_VANGUARD" = "$projectDir\CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
+    }
+
+    $stale  = [System.Collections.Generic.List[string]]::new()
+    $linhas = [System.Collections.Generic.List[string]]::new()
+    $linhas.Add("Referencia: $dataStr -- session_close BLOQUEIA se qualquer arquivo estiver STALE.")
+    $linhas.Add("")
+
+    foreach ($entry in $mapa.GetEnumerator()) {
+        $lbl  = $entry.Key
+        $path = $entry.Value
+        if (Test-Path $path) {
+            $lwt = (Get-Item $path).LastWriteTime
+            $ts  = $lwt.ToString("yyyy-MM-dd HH:mm")
+            if ($lwt.Date -ge $dataRef) {
+                $linhas.Add(("  [OK    ] {0,-44} {1}" -f $lbl, $ts))
+            } else {
+                $linhas.Add(("  [STALE ] {0,-44} {1}  <<< ATUALIZAR NESTA SESSAO" -f $lbl, $ts))
+                $stale.Add($lbl)
+            }
+        } else {
+            $linhas.Add(("  [AUSENTE] {0,-44} ARQUIVO NAO ENCONTRADO" -f $lbl))
+            $stale.Add($lbl)
+        }
+    }
+
+    $linhas.Add("")
+    if ($stale.Count -gt 0) {
+        $linhas.Add("ATENCAO: $($stale.Count) arquivo(s) desatualizado(s).")
+        $linhas.Add("Musculo: atualizar estes arquivos ANTES de fechar a sessao (session_close vai bloquear):")
+        foreach ($s in $stale) { $linhas.Add("  >> $s") }
+    } else {
+        $linhas.Add("[VERDE] Todos os 7 arquivos atualizados hoje.")
+    }
+    return $linhas -join "`n"
+}
+$frescorEmbaixador = Get-FrescorEmbaixador
+
 $sections = @()
 if ($pendentesAlert)     { $sections += "## PENDENTES (P-048) - LER PRIMEIRO`n$pendentesAlert" }
 if ($pendentesWatchOutput) { $sections += "## PENDENTES-WATCH (P-087) -- CONFIRMAR MARCACAO`n$pendentesWatchOutput" }
@@ -828,6 +890,7 @@ if ($buildBudgetOutput)  { $sections += "## BUILD BUDGET GUARD (P-148) -- BUILDS
 if ($agentsMdAlert)      { $sections += "## [CRÍTICO] AGENTS.md AUSENTE -- FIREWALL DO ANTIGRAVITY INATIVO`n$agentsMdAlert" }
 
 if ($manifestStatus)       { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
+if ($frescorEmbaixador)    { $sections = @("## ⚠️ FRESCOR DOS 7 ARQUIVOS DO EMBAIXADOR (Gate 7C)`n$frescorEmbaixador") + $sections }
 if ($mapaDiarioOutput)     { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }
 if ($pendentesVencidosP069) { $sections = @("## PENDENTES VENCIDOS (P-069) -- ATENCAO IMEDIATA`n$pendentesVencidosP069") + $sections }
 if ($decisoesPendentes) { $sections = @("## DECISOES PENDENTES -- AGENDA BLOQUEADA ATE VEREDITO`n$decisoesPendentes") + $sections }
