@@ -48,7 +48,7 @@
                             },
     "cowork_densidade":  "ALTA — F1+F7+F8+F11+F12 convergindo",
     "narrativas":  {
-                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_indicacao":  "[AGUARDA_COWORK]",
                        "whatsapp_cold":  "70% das inabilitacoes em licitacoes sao por documentacao. O sistema Alice do TCU detecta irregularidades antes do julgamento. Nossa equipe organiza o acervo documental preventivamente para a Lei 14.133/2021. Sua empresa participa de licitacoes com frequencia?",
                        "argumento_abertura":  "70% das inabilitacoes em licitacoes ocorrem por documentacao, nao por tecnica ou preco. O sistema Alice do TCU detecta irregularidades antes do julgamento. Sua empresa tem o acervo documental organizado para a Lei 14.133?",
                        "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com dado 70% inabilitacoes + sistema Alice + Lei 14.133]"
@@ -135,3 +135,4 @@
                        }
                    ]
 }
+

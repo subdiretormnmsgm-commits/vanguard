@@ -46,7 +46,7 @@
                             },
     "cowork_densidade":  "MEDIA — F1+F3",
     "narrativas":  {
-                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_indicacao":  "[AGUARDA_COWORK]",
                        "whatsapp_cold":  "A norma ANVISA de junho de 2026 exige rastreabilidade lote-a-lote com deadline em dezembro. Apos os casos Ype e Nestle, o nivel de exigencia aumentou para toda a industria. Nossa equipe atualiza o Plano de Recall e implementa o protocolo de rastreabilidade necessario. Sua empresa esta adequada para o novo padrao?",
                        "argumento_abertura":  "A norma ANVISA de junho de 2026 exige rastreabilidade lote-a-lote com prazo de adequacao ate dezembro. Os casos Ype e Nestle mostraram o custo de um recall sem trilha documental. Seu plano de recall esta atualizado?",
                        "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com norma ANVISA 09/06 + casos Ype/Nestle + dor de recall]"
@@ -125,3 +125,4 @@
                        }
                    ]
 }
+

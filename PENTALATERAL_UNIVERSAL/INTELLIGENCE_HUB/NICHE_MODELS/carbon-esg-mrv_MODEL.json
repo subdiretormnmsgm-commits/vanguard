@@ -46,7 +46,7 @@
                             },
     "cowork_densidade":  "BAIXA — F1+F9",
     "narrativas":  {
-                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_indicacao":  "[AGUARDA_COWORK]",
                        "whatsapp_cold":  "O CBAM europeu entrou em vigor em 2026 e exige inventario verificado de emissoes para exportadores. A Lei 15.042/2024 criou o mercado de carbono regulado no Brasil. Nossa equipe estrutura o MRV verificavel necessario para conformidade CBAM e elegibilidade ao SBCE. Voces exportam para a Europa?",
                        "argumento_abertura":  "O CBAM europeu entrou em fase definitiva em janeiro de 2026. Empresas que exportam para a UE sem inventario verificado estao perdendo acesso ao mercado. Voces tem o dossie de conformidade pronto?",
                        "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com Lei 15.042/2024 + CBAM + dor de exportadores]"
@@ -130,3 +130,4 @@
                        }
                    ]
 }
+

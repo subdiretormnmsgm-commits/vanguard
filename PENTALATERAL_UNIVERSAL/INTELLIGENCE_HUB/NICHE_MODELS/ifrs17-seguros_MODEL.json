@@ -45,7 +45,7 @@
                             },
     "cowork_densidade":  "BAIXA — F1+F3",
     "narrativas":  {
-                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_indicacao":  "[AGUARDA_COWORK]",
                        "whatsapp_cold":  "88% das seguradoras brasileiras estao em transicao para o CPC 50 (IFRS 17). Nossa equipe especializada conduz o diagnostico de gap e o roadmap de adequacao para seguradoras de medio porte. Como esta o processo de transicao da sua empresa?",
                        "argumento_abertura":  "88% das seguradoras brasileiras estao em transicao para o CPC 50 (IFRS 17). O mercado movimenta R em investimentos de conformidade. Onde sua seguradora esta nesse processo?",
                        "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com dado 88% + CPC 50 + dor de transicao IFRS 4-\u003e17]"
@@ -124,3 +124,4 @@
                        }
                    ]
 }
+

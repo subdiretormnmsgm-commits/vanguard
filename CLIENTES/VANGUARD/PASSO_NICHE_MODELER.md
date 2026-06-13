@@ -1,6 +1,6 @@
-# PASSO — NICHE MODELER (Sessão Única com Gemini Advanced)
-> Data: 2026-06-13 · Músculo · Loop 34 (atualizado de Loop 33)
-> Objetivo: Sessão única com Gemini Advanced (1M contexto) para enriquecimento dos 11 modelos de nicho + validação de 3 candidatos novos (N16/N17/N18)
+# PASSO — NICHE MODELER (Sessão Única com Antigravity Cowork)
+> Data: 2026-06-13 · Músculo · Cowork Engine — Inteligência de Mercado Vanguard
+> Objetivo: Sessão única com Antigravity IDE (VS Code + Gemini 3.1 Pro High) para enriquecimento dos 11 modelos de nicho + validação de 3 candidatos novos (N16/N17/N18)
 
 ---
 
@@ -42,7 +42,7 @@ Cole nesta ordem como arquivos ou texto:
 Cole como texto: `NICHE_INDEX.json` v1.3 — 11 nichos (arquivo: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json`)
 Cole como texto: `licitacoes-contratos-publicos_MODEL.json` (nicho prioritário)
 
-### BLOCO D — Candidatos novos (Loop 34 — identificados pelo Cowork Engine)
+### BLOCO D — Candidatos novos (identificados pelo Cowork Engine — Inteligência de Mercado)
 Cole como texto os 3 cartões gerados hoje:
 - `N16_FARMACEUTICOS_RT_CARTAO.md` (score 4.4 — Farmacêuticos RT, conflito CFF×ANVISA)
 - `N17_ENGENHEIROS_ACERVO_CARTAO.md` (score 4.6 — Engenheiros Acervo Técnico, Nova Resolução Confea)
@@ -248,12 +248,14 @@ Se nenhum alerta: escrever "SEM ALERTAS URGENTES NESTE CICLO".
 > **⚠️ AMBIENTE: Antigravity IDE (VS Code + Gemini 3.1 Pro High no painel lateral)**
 > O agente lê os arquivos do workspace diretamente. **Não é necessário colar nem anexar nada.**
 
-1. Abrir o **Antigravity IDE** (já está no VS Code — painel Gemini 3.1 Pro High na lateral direita)
+1. Abrir o **Antigravity IDE** (VS Code — painel Gemini 3.1 Pro High na lateral direita)
 2. No chat do painel, descrever a missão — o agente lê `PASSO_NICHE_MODELER.md` e os demais arquivos do workspace direto do disco
 3. Para referenciar arquivo específico: usar `@nome-do-arquivo` no chat se necessário
 4. Aguardar resposta completa — pode levar 2-5 min com Deep Think ativo
 5. O Músculo salva o output em `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` — seção NICHE MODELER
 6. Músculo revisa + aplica aprovações ao NICHE_INDEX.json e modelos individuais
+
+**Nota de contexto:** Este PASSO faz parte do Cowork Engine — inteligência de mercado dinâmica da Vanguard. Não é um Loop do Pentalateral. São coisas distintas.
 
 **NOTA P-090:** Este arquivo é o que vai ao Gemini — não o chat.
 **NOTA P-124:** Output vai 100% para PENDING_REVIEW — nunca diretamente ao WIP_BOARD ou DECISOES.json.

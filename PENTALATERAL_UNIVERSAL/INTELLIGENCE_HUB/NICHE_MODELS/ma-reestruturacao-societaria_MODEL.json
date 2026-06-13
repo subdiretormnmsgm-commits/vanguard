@@ -48,7 +48,7 @@
                             },
     "cowork_densidade":  "MEDIA — F1+F9+F11",
     "narrativas":  {
-                       "whatsapp_indicacao":  "[AGUARDA_NICHE_MODELER_L34]",
+                       "whatsapp_indicacao":  "[AGUARDA_COWORK]",
                        "whatsapp_cold":  "O BCB 538 e CMN 5.274 tornaram a Due Diligence Cibernetica obrigatoria em transacoes M\u0026A do setor financeiro. Passivo trabalhista oculto e o principal deal-breaker em PMEs. Nossa equipe prepara o dataroom e conduz o mapeamento preventivo de passivos. Voces tem alguma transacao em andamento ou planejada?",
                        "argumento_abertura":  "BCB 538 + CMN 5.274 tornaram a Due Diligence Cibernetica obrigatoria em M\u0026A do setor financeiro desde marco de 2026. Passivo trabalhista oculto e o principal deal-breaker em transacoes de PME. Sua empresa tem o dataroom preparado?",
                        "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa 200 palavras com BCB 538 + passivo oculto + dado de M\u0026A PME]"
@@ -132,3 +132,4 @@
                        }
                    ]
 }
+

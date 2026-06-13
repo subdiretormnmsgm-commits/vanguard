@@ -6,7 +6,7 @@
 
 ## AGUARDANDO VEREDITO
 
-### INBOX_COWORK — 18 arquivos · Embaixador Agentado · Loop 33 · registrados 2026-06-12
+### INBOX_COWORK — 18 arquivos · Embaixador Agentado · Cowork · registrados 2026-06-12
 
 > Lidos pelo Músculo via MCP Drive em 2026-06-12. Gap de design detectado (F5 v2): Embaixador não atualiza PENDING_REVIEW automaticamente — correção necessária na skill v2.1.
 
@@ -41,35 +41,9 @@
 | 2026-06-12 | PITCH | `CLIENTES/VANGUARD/PENDING_REVIEW/G3_PITCH_REVERSO_V33.md` | Aguarda aprovação Diretor |
 | 2026-06-12 | PITCH | `CLIENTES/VANGUARD/PENDING_REVIEW/E4_PITCH_ANTI_ALUCINACAO_V33.md` | Aguarda aprovação Diretor |
 
-### MÚSCULO — Niche Intelligence Repository · 2026-06-13
-
-> Construído com base no corpus completo de 18 arquivos Drive (Loop 33) + BIBLIOTECA + COMPETITORS.
-> Status: aguardando veredito do Diretor para commitar.
-
-| Data | Tipo | Arquivo | Status |
-|---|---|---|---|
-| 2026-06-13 | SCHEMA | `INTELLIGENCE_HUB/NICHE_MODELS/SCHEMA.md` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/licitacoes-contratos-publicos_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/glosa-hospitalar_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/rastreabilidade-sanitaria-premium_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/compliance-aduaneiro-ncm_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/ma-reestruturacao-societaria_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/setor-eletrico-regulatorio_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/medicos-peritos-laudos_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/carbon-esg-mrv_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | MODEL | `NICHE_MODELS/ifrs17-seguros_MODEL.json` | Aguarda aprovação |
-| 2026-06-13 | INDEX | `INTELLIGENCE_HUB/NICHE_INDEX.json` | Aguarda aprovação |
-| 2026-06-13 | SCRIPT | `scripts/match_niche.ps1` | Aguarda aprovação |
-| 2026-06-13 | PASSO | `CLIENTES/VANGUARD/PASSO_NICHE_MODELER.md` | Aguarda aprovação — usar na sessão Gemini |
-
-**Próximo passo após aprovação do Diretor:**
-1. Commit (Músculo executa)
-2. Abrir `PASSO_NICHE_MODELER.md` no Gemini Advanced — sessão única de enriquecimento
-3. Colar output em PENDING_REVIEW — Músculo aplica aprovações nos modelos
-
-### NICHE MODELER — Gemini Advanced · Loop 33 · 2026-06-13
+### NICHE MODELER — Antigravity Cowork · 2026-06-13
 > Corpus: 9 arquivos Drive (F1v1, F1v2, F5, F7, F8-roteiro, F9v2, F11, F12v2, F15) + Biblioteca + Competitors + NICHE_INDEX.json
-> Status: **AGUARDANDO VEREDITO DO DIRETOR** — 4 tarefas concluídas · 2 nichos novos (fit 5.0) · 3 alertas CRÍTICOS
+> Status: **✅ APROVADO PELO DIRETOR · 2026-06-13** — Niche Intelligence Repository commitado em `173c5f4` · PASSO_NICHE_MODELER pronto para sessão Antigravity
 > P-124: output bruto em `.gemini_raw_response.txt` · esta seção é a versão curada para veredito
 
 ---
@@ -289,6 +263,19 @@ Mensagem de abertura sugerida: A ANEEL iniciou auditoria de 60 dias em 100% das 
 | 2026-06-11 | ARTEFATO_AUDITORIA | `CLIENTES/VANGUARD/PENDING_REVIEW/artefato_auditoria_M_V33.md` | Sim — tensões M-1..M-5 vs LEDGER validadas |
 | 2026-06-11 | ARTEFATO_NICHOS | `CLIENTES/VANGUARD/PENDING_REVIEW/artefato_nichos_V33.md` | Sim — 5 nichos aprovados; Licitações como Vertical 1 |
 | 2026-06-11 | WALKTHROUGH | `CLIENTES/VANGUARD/PENDING_REVIEW/walkthrough_DIRETRIZ_V33_2026-06-11.md` | Sim — fontes e trade-offs documentados |
+| 2026-06-13 | COWORK_SCHEMA | `INTELLIGENCE_HUB/NICHE_MODELS/SCHEMA.md` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/licitacoes-contratos-publicos_MODEL.json` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/glosa-hospitalar_MODEL.json` | Sim — commit 173c5f4 · promovido MOVER_AGORA |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/rastreabilidade-sanitaria-premium_MODEL.json` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/compliance-aduaneiro-ncm_MODEL.json` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/ma-reestruturacao-societaria_MODEL.json` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/setor-eletrico-regulatorio_MODEL.json` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/medicos-peritos-laudos_MODEL.json` | Sim — commit 173c5f4 · promovido MOVER_AGORA |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/carbon-esg-mrv_MODEL.json` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_MODEL | `NICHE_MODELS/ifrs17-seguros_MODEL.json` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_INDEX | `INTELLIGENCE_HUB/NICHE_INDEX.json` v1.4 | Sim — commit 86853b4 · 7 MOVER_AGORA / 4 MONITORAR |
+| 2026-06-13 | COWORK_SCRIPT | `scripts/match_niche.ps1` | Sim — commit 173c5f4 |
+| 2026-06-13 | COWORK_PASSO | `CLIENTES/VANGUARD/PASSO_NICHE_MODELER.md` | Sim — pronto para sessão Antigravity Cowork |
 
 ---
 
