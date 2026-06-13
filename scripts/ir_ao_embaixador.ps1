@@ -231,6 +231,73 @@ if ($resumosExistentes -and $resumosExistentes.Count -gt 0) {
     Write-Host "  Verificar AutoSync antes de continuar -- Embaixador abre sem rastreabilidade de decisoes." -ForegroundColor Yellow
     Write-Host "  Eduardo decide se abre o Project mesmo assim ou resolve o sync primeiro." -ForegroundColor White
 }
+# GATE 7C -- FRESCOR DOS 7 ARQUIVOS DO EMBAIXADOR (BLOQUEANTE)
+# "Ao anexar qualquer documento, essa verificacao deve ser feita" -- Diretor 2026-06-13.
+# Roda ANTES de abrir browser e listar arquivos -- nao faz sentido enviar docs desatualizados.
+Write-Host ""
+Write-Host "  =======================================================" -ForegroundColor Cyan
+Write-Host "  [GATE 7C] Frescor dos 7 Arquivos -- $(Get-Date -Format 'yyyy-MM-dd HH:mm')" -ForegroundColor Cyan
+Write-Host "  =======================================================" -ForegroundColor Cyan
+Write-Host ""
+
+$dataHojeG7 = [datetime]::Today
+$dataStr7   = Get-Date -Format "yyyy-MM-dd"
+$protDir7   = "$raiz\PROTOCOLOS_ENCERRAMENTO"
+
+$painelG7 = Get-ChildItem $protDir7 -Filter "PAINEL_ATIVIDADES_*$dataStr7*.md" -ErrorAction SilentlyContinue |
+            Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if (-not $painelG7) {
+    $painelG7 = Get-ChildItem $protDir7 -Filter "PAINEL_ATIVIDADES_*.md" -ErrorAction SilentlyContinue |
+                Sort-Object LastWriteTime -Descending | Select-Object -First 1
+}
+$painelPathG7 = if ($painelG7) { $painelG7.FullName } else { "$protDir7\PAINEL_ATIVIDADES_$dataStr7.md" }
+
+$mapaG7 = [ordered]@{
+    "1. PAINEL_ATIVIDADES"               = $painelPathG7
+    "2. CONTEXTO_SESSAO_DIRETOR"         = "$raiz\PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataStr7.md"
+    "3. WIP_BOARD.json"                  = "$raiz\CLIENTES\WIP_BOARD.json"
+    "4. INTELLIGENCE_LEDGER.md"          = "$raiz\INTELLIGENCE_LEDGER.md"
+    "5. PENDENTES.md"                    = "$raiz\PENDENTES.md"
+    "6. 16_VANGUARD_TIMELINE.md"         = "$claude_project_dir\16_VANGUARD_TIMELINE.md"
+    "7. MEMORIA_EMBAIXADOR_$cliente"     = "$claude_project_dir\MEMORIA_EMBAIXADOR_$cliente.md"
+}
+
+$staleG7 = [System.Collections.Generic.List[string]]::new()
+foreach ($entry in $mapaG7.GetEnumerator()) {
+    $lbl7  = $entry.Key
+    $path7 = $entry.Value
+    if (Test-Path $path7) {
+        $lwt7 = (Get-Item $path7).LastWriteTime
+        $ts7  = $lwt7.ToString("yyyy-MM-dd HH:mm")
+        if ($lwt7.Date -ge $dataHojeG7) {
+            Write-Host ("  [OK    ] {0,-46} {1}" -f $lbl7, $ts7) -ForegroundColor Green
+        } else {
+            Write-Host ("  [STALE ] {0,-46} {1}" -f $lbl7, $ts7) -ForegroundColor Red
+            $staleG7.Add($lbl7)
+        }
+    } else {
+        Write-Host ("  [AUSENTE] {0,-46} ARQUIVO NAO ENCONTRADO" -f $lbl7) -ForegroundColor Red
+        $staleG7.Add($lbl7)
+    }
+}
+
+Write-Host ""
+if ($staleG7.Count -gt 0) {
+    Write-Host "  =======================================================" -ForegroundColor Red
+    Write-Host "  [GATE 7C] BLOQUEIO -- $($staleG7.Count) arquivo(s) desatualizado(s)" -ForegroundColor Red
+    Write-Host "  =======================================================" -ForegroundColor Red
+    foreach ($sl in $staleG7) { Write-Host "    >> $sl" -ForegroundColor Red }
+    Write-Host ""
+    Write-Host "  Musculo: atualizar antes de ir ao Embaixador." -ForegroundColor Yellow
+    Write-Host "  =======================================================" -ForegroundColor Red
+    Write-Host ""
+    exit 1
+} else {
+    Write-Host "  [GATE 7C] VERDE -- todos os 7 arquivos atualizados hoje. Prosseguindo." -ForegroundColor Green
+    Write-Host "  =======================================================" -ForegroundColor Cyan
+}
+Write-Host ""
+
 # PASSO 2 -- Abrir browser no Claude Projects
 Write-Host ""
 Write-Host "[2/4] Abrindo Claude Projects no browser..." -ForegroundColor Yellow
