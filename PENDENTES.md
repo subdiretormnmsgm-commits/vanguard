@@ -8,12 +8,11 @@
 
 ## COWORK ENGINE — Inteligência de Mercado Vanguard
 
-- [ ] `2026-06-13` **[DIRETOR] VEREDITO — INTELLIGENCE_HUB: mover para CLIENTES/VANGUARD/ ou manter em UNIVERSAL?** [diretor]
-  Contexto: INTELLIGENCE_HUB fica em `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/` hoje.
-  Diretor esclareceu (2026-06-13): UNIVERSAL não é "metodologia only" — dados de inteligência de mercado também ficam em UNIVERSAL.
-  DECISÃO PENDENTE: (A) manter em UNIVERSAL (sem mudança) · (B) mover para CLIENTES/VANGUARD/ (razão = outro motivo a definir) · (C) manter em ambos via sync
-  Custo se (B) ou (C): sessão dedicada 4-6h · 8+ scripts afetados.
-  GATE BLOQUEANTE: aguarda veredito do Diretor antes de qualquer ação.
+- [ ] `2026-06-13` **[MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIENTES/VANGUARD/ via sync** [musculo]
+  Veredito Diretor (2026-06-13): Opção C — manter em PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/ (fonte canônica) + espelhar para CLIENTES/VANGUARD/INTELLIGENCE_HUB/ via sync automático.
+  Custo: sessão dedicada 4-6h · scripts afetados: sync_vanguard_docs.ps1, DEPENDENCY_MAP, preparar_notebooklm, gemini_anchor_generator, PENDING_REVIEW paths.
+  Gate: executar em sessão dedicada — NÃO misturar com outro foco.
+  CONTEXT: Ação Cowork Engine — não é Loop do Pentalateral.
 
 ---
 
