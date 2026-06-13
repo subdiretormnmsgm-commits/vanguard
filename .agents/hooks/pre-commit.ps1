@@ -71,7 +71,9 @@ foreach ($file in $stagedFiles) {
     }
 
     # --- R-03: FRONTEIRAS DE CLIENTE (P-059) ---
-    if ($filePath -match "CLIENTES/VANGUARD") {
+    # VANGUARD e meta-projeto -- LEDGER/FONTES referenciam todos os clientes por design
+    $r03Excluir = $filePath -match "INTELLIGENCE_LEDGER|NOTEBOOKLM_FONTES/04_|CONTEXTO_GEMINI"
+    if ($filePath -match "CLIENTES/VANGUARD" -and -not $r03Excluir) {
         try {
             $content = git show ":$file" 2>$null
             if ($content) {
