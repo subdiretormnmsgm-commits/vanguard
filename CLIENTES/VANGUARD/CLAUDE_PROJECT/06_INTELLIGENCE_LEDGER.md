@@ -2556,3 +2556,31 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Distinguir de bajulacao:** "Ótima ideia!" sem analise = violacao. "Certo no ponto X, mas diverge em Y por Z" = cumprimento do mandato.
 **Aplica-se a:** toda resposta ao Diretor, especialmente quando o Diretor propoe uma solucao tecnica pronta.
 **Liga com:** PADRÃO DE DELIBERACAO 7 PONTOS (ponto 2: Onde Diverge) · P-010 (gate sem evidencia = invalido) · DEF-M-6 (Musculo Reativo = falha quando concorda por padrao).
+
+---
+
+## P-154 -- COMUNICACAO DIRETA DO DIRETOR ENTRE SOCIOS NAO REQUER GATE DE DIRETRIZ (2026-06-13)
+**Origem:** Loop 33 -- ir_ao_embaixador.ps1 bloqueou com DIRETRIZ_GEMINI_V33.txt nao encontrada quando o Diretor ordenou consulta ao Embaixador sobre estrategia 3 canais NICHE_MODELER. Contexto correto, gate errado.
+**Regra:** Quando o Diretor ordena comunicacao direta com qualquer socio fora do fluxo padrao do loop, o gate de DIRETRIZ deve ser contornavel via flag -OrdemDiretor. Comunicacao direta do Diretor entre socios nao e loop padrao -- e prerrogativa do Diretor.
+**Diferenca critica:** Loop padrao (gate obrigatorio) x Comunicacao direta do Diretor (gate ignorado com -OrdemDiretor). O socio registra o motivo no LOG.
+**Ferramenta construida:** flag -OrdemDiretor adicionado ao ir_ao_embaixador.ps1 (sessao 2026-06-13).
+**Declaracao do Diretor:** nao e Diretriz, e comunicacao entre socios -- 2026-06-13.
+**Aplica-se a:** qualquer script de orquestracao que bloqueia acionamento direto do Diretor com gate de processo interno.
+
+---
+
+## P-155 -- GATE E-4: PROXIMO CANAL DE OUTREACH SO ABRE APOS >=1 CONVERSA REAL NO CANAL ATUAL (2026-06-13)
+**Origem:** Loop 33 -- Embaixador identificou que inbound system para fundador em modo outbound = dispersao de energia. E-4 aprovado como lei estrutural e embutido na ESTRATEGIA_CANAIS_VANGUARD.md com campo gate_e4_status.
+**Regra:** Em estrategia de outreach multi-canal, o proximo canal nao abre por calendario -- abre por condicao: >=1 conversa real (resposta, reuniao, proposta) no canal em curso. Gate estrutural, nao meta de tempo.
+**Por que e critico:** Sem o gate, o plano de canais vira cronograma: 3 canais abertos com 0 conversas = dispersao de energia do Diretor. Tudo e prioridade = nada e prioridade (Embaixador, Loop 33).
+**Como aplicar:** Ao criar ou revisar estrategia de canais, verificar campo gate_e4_status preenchido. Proximo canal so entra em acao quando canal atual tem >=1 log real em conversas_ativas. Template: ESTRATEGIA_CANAIS_VANGUARD.md.
+**Aplica-se a:** toda estrategia de outreach com mais de 1 canal ativo ou planejado.
+
+---
+
+## P-156 -- SESSAO BEM EXECUTADA VIRA RUNBOOK + SKILL COM GATILHO AUTOMATICO (2026-06-13)
+**Origem:** Loop 33 -- Diretor declarou foi muito bem executada. Quero que sempre seja assim sobre o processo Cowork Nicho de Mercado. RUNBOOK_NICHE_MODELER.md + niche-modeler.md criados na mesma sessao.
+**Regra:** Quando o Diretor declara que uma atividade foi muito bem executada ou quero que sempre seja assim, o Musculo cria na mesma sessao: (a) RUNBOOK permanente em PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_[NOME].md com todas as fases documentadas, (b) skill em .claude/skills/[nome].md com gatilho automatico por palavras-chave.
+**Por que e critico:** Sem documentacao imediata, a excelencia fica presa na memoria da sessao e se perde. O RUNBOOK garante reproducibilidade por qualquer membro do Conselho em qualquer sessao futura.
+**Como aplicar:** Ao detectar foi muito bem executada ou quero que sempre seja assim -- criar RUNBOOK + skill antes de fechar a sessao. O commit de fechamento inclui os dois arquivos.
+**Aplica-se a:** qualquer atividade declarada excelente pelo Diretor. Independente de projeto ou cliente. Liga com P-050 (Knowledge Base obrigatoria).

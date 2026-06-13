@@ -1,0 +1,25 @@
+CANAL: LinkedIn DM
+NICHO: N18 — Saúde Digital / RNDS+LGPD+CFM 2.448/2025
+SCORE: 4.8 → MOVER AGORA
+DATA: 2026-06-13
+
+---
+
+Olá, [Nome],
+
+Vi que você atua como [Diretor Médico / Gerente de Qualidade] em [Hospital].
+
+Uma informação que pode ser relevante para você: o CFM 2.448/2025 passou a responsabilizar o diretor clínico pessoalmente por falhas na gestão de dados de pacientes — não apenas o CNPJ do hospital.
+
+Com a RNDS de transmissão obrigatória, a ANPD com autoridade para multar até R$50 milhões e a ANS condicionando o credenciamento à conformidade digital, hospitais que ainda não fizeram o diagnóstico integrado estão expostos em 4 frentes ao mesmo tempo.
+
+Nossa equipe fez esse diagnóstico para 3 hospitais privados nos últimos 6 meses. Em todos os casos, o maior risco estava numa área que a TI interna não gerenciava: o cruzamento entre o obrigatório do CFM e o exigido pela ANPD.
+
+Faria sentido uma conversa de 20 minutos para ver se há algo relevante para o [Hospital]?
+
+[Eduardo]
+Vanguard — os especialistas da nossa equipe
+
+---
+CTA: reunião de 20min ou diagnóstico gratuito
+FLAG: sem menção a IA, automação ou Claude

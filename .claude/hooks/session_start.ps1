@@ -741,42 +741,11 @@ try {
 # Mesmo nivel de bloqueio que BLOCO 0. Musculo NAO responde ao Diretor antes de executar.
 # Notion ja e executado automaticamente pelo hook (paralelo acima) -- confirmar processamento.
 $colheitaCowork = @(
-    "⛔ PASSO 0 -- BLOQUEANTE -- PRIMEIRA ACAO DA SESSAO (ANTES DO BLOCO 0)",
+    "⛔ PASSO 0B -- COWORK -- BLOQUEANTE -- EXECUTAR APOS BLOCO 0 E NOTION (P-158)",
     "",
-    "SEQUENCIA OBRIGATORIA -- nao inverter, nao pular etapas:",
+    "Notion (PASSO 0A) ja esta na secao acima. Esta secao e exclusivamente COWORK + ARTIFACT ENGINE.",
     "",
-    "━━━ [1] NOTION -- LER + DELIBERAR + AGIR (bloqueante) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    "  Fonte: secao 'NOTION INBOX DO DIRETOR' ja injetada neste contexto pelo hook.",
-    "  Se secao ausente -> rodar scripts\notion_inbox.ps1 antes de continuar.",
-    "",
-    "  FALHAS DO DIA -- para cada falha encontrada, executar OBRIGATORIAMENTE:",
-    "    (a) DIAGNOSTICO: causa raiz em 1 frase (nao sintoma -- a origem real)",
-    "    (b) SOLUCAO IMEDIATA: o que o Musculo faz AGORA para corrigir",
-    "    (c) FERRAMENTA ANTI-RECORRENCIA: script/gate/validacao que impede que volte",
-    "        Se nao existe ferramenta -> criar entrada em PENDENTES [musculo] com especificacao",
-    "    (d) LEDGER: inscrever como FALHA-[LETRA] se for nova classe de erro",
-    "    (e) APRESENTAR ao Diretor: 'FALHA [X]: causa / solucao agora / ferramenta proposta'",
-    "    Musculo que registra falha sem propor ferramenta = P-146 violado.",
-    "",
-    "  SUGESTOES DO DIA -- para cada sugestao, executar OBRIGATORIAMENTE:",
-    "    (a) DELIBERACAO 7 PONTOS (padrao Pentalateral):",
-    "        1. O que esta certo na sugestao",
-    "        2. Onde diverge (tecnico/comercial -- nunca ceder por cortesia)",
-    "        3. DECISAO: ENTRA AGORA / V2 / BACKLOG / DESCARTADO",
-    "        4. ENHANCEMENT: como tornar a ideia mais forte",
-    "        5. CUSTO REAL: tempo de build + pre-requisitos",
-    "        6. IMPACTO COMERCIAL: o que muda para o sistema",
-    "        7. PROXIMA ACAO: o que desbloqueia",
-    "    (b) Se ENTRA AGORA -> criar entrada em PENDENTES [musculo] com especificacao completa",
-    "    (c) Se BACKLOG -> registrar em CONSELHO/SUGESTOES_DIRETOR.md",
-    "    (d) APRESENTAR ao Diretor: deliberacao compacta por sugestao",
-    "    Musculo que classifica sugestao sem deliberar = câmara de eco.",
-    "",
-    "  APRESENTACAO OBRIGATORIA ANTES DE PROSSEGUIR:",
-    "  -> Bloco 'NOTION PROCESSADO' com: FALHAS (diagnostico+ferramenta) + SUGESTOES (veredito+acao)",
-    "  -> Aguardar confirmacao do Diretor ou correcao antes de avancar para [2]",
-    "",
-    "━━━ [2] COWORK -- MCP Google Drive (conta: subdiretor.mnmsgm@gmail.com) ━━━━━━━━━━━━",
+    "━━━ [1] COWORK -- MCP Google Drive (conta: subdiretor.mnmsgm@gmail.com) ━━━━━━━━━━━━",
     "  Folder ID INBOX_COWORK: 1EjaH6TmsxbYpgKWb7ASm7CohFJfwSLKi",
     "  Frentes ativas: F1 (diario) - F5 (quinzenal) - F8 - F9 - F12 - F15 (agendadas)",
     "",
@@ -791,10 +760,11 @@ $colheitaCowork = @(
     "     COLHEITA DO EMBAIXADOR -- [N] arquivo(s) novo(s)",
     "     [F1] [nome da frente] - [data]: bullet1 / bullet2 / bullet3",
     "",
-    "  SE INBOX VAZIO: exibir [AMARELO] e continuar para BLOCO 0.",
+    "  SE INBOX VAZIO: exibir [AMARELO] e continuar para ARTIFACT ENGINE.",
+    "  Apos processar: & '.\scripts\gate_passo0_abertura.ps1' -MarcarCowork",
     "",
-    "━━━ [3] ARTIFACT ENGINE -- invocar Skill cowork-engine-v1 (bloqueante) ━━━━━━━━━━━━━━",
-    "  Executar APOS a COLHEITA ([2]). Nao pular. Nao simplificar.",
+    "━━━ [2] ARTIFACT ENGINE -- invocar Skill cowork-engine-v1 (bloqueante) ━━━━━━━━━━━━━━",
+    "  Executar APOS a COLHEITA ([1]). Nao pular. Nao simplificar.",
     "",
     "  ACAO OBRIGATORIA:",
     "    Invocar: Skill tool -> skill: 'cowork-engine-v1'",
@@ -804,8 +774,8 @@ $colheitaCowork = @(
     "  A skill e a fonte unica de verdade deste processo.",
     "  Nao replicar as instrucoes aqui -- seguir a skill.",
     "",
-    "  ⛔ Musculo que solicita BLOCO 0 sem ter executado [1]+[2]+[3] = DEF-M-6 automatico.",
-    "  ⛔ Musculo que lista sinais sem invocar a skill = [3] incompleto."
+    "  ⛔ Musculo que avanca para PENDENTES/WIP sem ter executado [1]+[2] = P-158 VIOLADO + DEF-M-6.",
+    "  ⛔ Musculo que lista sinais sem invocar a skill = [2] incompleto."
 ) -join "`n"
 
 # --- GATE 7C MIRROR: Frescor dos 7 Arquivos do Embaixador (informativo na abertura) ---
@@ -929,26 +899,6 @@ try {
         $todos | Remove-Job -Force -ErrorAction SilentlyContinue
     }
 } catch { $notionInbox = $null; $notionPull = $null }
-if ($notionInbox) { $sections = @("## NOTION INBOX DO DIRETOR -- LEITURA OBRIGATORIA (Falhas + Sugestoes)`n$notionInbox") + $sections }
-if ($notionPull)  { $sections = @("## NOTION -> PENDENTES (Diretor quitou itens [diretor] no Notion)`n$notionPull") + $sections }
-
-# BLOCO 0 -- sempre a primeira secao, nunca truncada (P-114 / 2026-06-08)
-$bloco0Alert = @(
-    "ACAO OBRIGATORIA ANTES DE QUALQUER RESPOSTA AO DIRETOR:",
-    "",
-    "  Verificar se Diretor colou o BLOCO 0 do Embaixador ao abrir esta sessao.",
-    "  Se NAO colou -> dizer EXATAMENTE:",
-    "    'Diretor, cole aqui o BLOCO 0 do Embaixador da sessao anterior antes de continuarmos.'",
-    "  Aguardar o BLOCO 0 ou confirmacao explícita de indisponibilidade.",
-    "  Nao apresentar MAPA DIARIO nem responder sobre tarefas antes disso.",
-    "",
-    "  FALLBACK (somente apos confirmacao do Diretor de que nao esta disponivel):",
-    "  Ler: PROTOCOLOS_ENCERRAMENTO/CONTEXTO_SESSAO_DIRETOR_[data mais recente].md",
-    "",
-    "  Musculo que responde antes de solicitar BLOCO 0 = DEF-M-6 (Musculo Reativo)."
-) -join "`n"
-$sections = @("## ⚠️  BLOCO 0 DO EMBAIXADOR (P-114) -- PRIMEIRA ACAO OBRIGATORIA`n$bloco0Alert") + $sections
-
 # PASSO 0.5 -- FIREWALL PENTALATERAL: lembrete nao-bloqueante de arquivos R-01 protegidos
 $firewallPath = Join-Path $projectDir ".agents\skills\pentalateral-firewall.md"
 $p05Lines = @("PASSO 0.5 -- FIREWALL PENTALATERAL (lembrete nao-bloqueante)", "")
@@ -964,8 +914,47 @@ if (Test-Path $firewallPath) {
 $passo05 = $p05Lines -join "`n"
 $sections = @("## [PASSO 0.5] FIREWALL PENTALATERAL`n$passo05") + $sections
 
-# PASSO 0 -- COLHEITA DO EMBAIXADOR -- primeira secao de toda sessao (antes de BLOCO 0)
-$sections = @("## ⚡ PASSO 0 -- COLHEITA DO EMBAIXADOR AGENTADO (Cowork / MCP Drive)`n$colheitaCowork") + $sections
+# GATE PASSO 0 -- audit trail de flags do dia (P-158 / 2026-06-13)
+$gatePasso0Status = ""
+$gateScript = Join-Path $projectDir "scripts\gate_passo0_abertura.ps1"
+if (Test-Path $gateScript) {
+    try {
+        $gateLines = (& powershell.exe -NonInteractive -File $gateScript -Status 2>$null)
+        if ($gateLines) { $gatePasso0Status = ($gateLines | Where-Object { $_ -ne $null }) -join "`n" }
+    } catch {}
+}
+
+# PASSO 0B -- COWORK (prepend 1o: aparece 3o na saida, apos BLOCO0 e NOTION)
+$coworkFooter = if ($gatePasso0Status) { "`n`n---`n[GATE P-158] STATUS HOJE:`n$gatePasso0Status" } else { "" }
+$sections = @("## ⚡ PASSO 0B -- COWORK DO EMBAIXADOR (MCP Google Drive) -- APOS BLOCO 0 E NOTION`n$colheitaCowork$coworkFooter") + $sections
+
+# NOTION (prepend 2o: aparece 2o na saida, logo apos BLOCO 0)
+if ($notionInbox) {
+    $notionFooter = "`n`nApos processar Falhas+Sugestoes: & '.\scripts\gate_passo0_abertura.ps1' -MarcarNotion"
+    $sections = @("## ⚠️  PASSO 0A -- NOTION INBOX DO DIRETOR (Falhas + Sugestoes) -- APOS BLOCO 0`n$notionInbox$notionFooter") + $sections
+}
+if ($notionPull)  { $sections = @("## NOTION -> PENDENTES (Diretor quitou itens [diretor] no Notion)`n$notionPull") + $sections }
+
+# BLOCO 0 -- prepend POR ULTIMO = aparece PRIMEIRO na saida (P-114 + P-158 / 2026-06-13)
+$bloco0Alert = @(
+    "SEQUENCIA OBRIGATORIA DE ABERTURA (P-114 + P-158):",
+    "",
+    "  [PASSO 0 ] BLOCO 0  -- VOCE ESTA AQUI. Processar o BLOCO 0 colado pelo Diretor.",
+    "  [PASSO 0A] NOTION   -- apos BLOCO 0: ler Falhas+Sugestoes via MCP Notion. Marcar -MarcarNotion.",
+    "  [PASSO 0B] COWORK   -- apos NOTION: ler Drive INBOX_COWORK via MCP Google Drive. Marcar -MarcarCowork.",
+    "  [PASSO 1+] CONTINUAR -- somente apos 0+0A+0B: apresentar PENDENTES, WIP, MAPA DIARIO.",
+    "",
+    "  Se Diretor NAO colou BLOCO 0 -> dizer EXATAMENTE:",
+    "    'Diretor, cole aqui o BLOCO 0 do Embaixador da sessao anterior antes de continuarmos.'",
+    "  Aguardar BLOCO 0 ou confirmacao de indisponibilidade.",
+    "",
+    "  FALLBACK (somente apos confirmacao do Diretor de que nao esta disponivel):",
+    "  Ler: PROTOCOLOS_ENCERRAMENTO/CONTEXTO_SESSAO_DIRETOR_[data mais recente].md",
+    "",
+    "  ⛔ Musculo que pula para PENDENTES/WIP sem executar 0A+0B = P-158 VIOLADO (DEF-M-6).",
+    "  Marcar gates apos cada etapa: scripts\gate_passo0_abertura.ps1 -MarcarNotion / -MarcarCowork"
+) -join "`n"
+$sections = @("## ⚠️  BLOCO 0 DO EMBAIXADOR (P-114) -- PRIMEIRA ACAO OBRIGATORIA`n$bloco0Alert") + $sections
 
 # ATO 6 -- Iniciar watch_readonly.ps1 em background (P-033 guardian)
 $watchScript = Join-Path $projectDir "scripts\watch_readonly.ps1"

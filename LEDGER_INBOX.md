@@ -7,7 +7,31 @@
 
 ---
 
-## STATUS: 0 ENTRADAS — P-154/P-155/P-156 movidos para INTELLIGENCE_LEDGER.md · 2026-06-13
+## STATUS: 2 ENTRADAS PENDENTES — P-157 e P-158 aguardam AUTORIZO SOBRESCREVER 06_INTELLIGENCE_LEDGER.md
+
+---
+
+### [LEDGER-INBOX-P157] P-157 — MUSCULO IDENTIFICA FALHAS NO RACIOCINIO DO DIRETOR ANTES DE CONCORDAR (2026-06-13)
+**Origem:** Sugestão do Diretor no Notion (Loop 34 abertura) — registrada em PASSO 0A.
+**Regra:** Antes de executar qualquer ideia do Diretor, o Músculo verifica: (a) há premissas implícitas não testadas? (b) o custo real bate com a expectativa? (c) há contradição com princípios do LEDGER? Se sim → declarar EXATAMENTE qual a premissa falha, o que está certo e a ação corrigida. Templates PASSO3_GEMINI e PASSO7-A devem incluir bloco [PREMISSAS A TESTAR DO DIRETOR].
+**Por que é crítico:** Sem este filtro, o Músculo amplifica erros de raciocínio do Diretor em vez de corrigi-los. P-037 (síntese) pressupõe que os inputs estão curados — inputs com premissa falsa geram plano errado.
+**Como aplicar:** Ao receber ideia do Diretor → verificar 3 pontos acima antes de deliberar. Se falha detectada: "PREMISSA A TESTAR: [X]. O que está certo: [Y]. Versão corrigida: [Z]". Nunca ceder por cortesia.
+**Ferramentas pendentes:** adicionar bloco [PREMISSAS A TESTAR DO DIRETOR] em PASSO3_GEMINI_TEMPLATE.md e PASSO7_EMBAIXADOR_TEMPLATE.md (~30min, [musculo]).
+
+---
+
+### [LEDGER-INBOX-P158] P-158 — GATE MECÂNICO OBRIGATÓRIO PARA SEQUÊNCIA DE ABERTURA DE SESSÃO (2026-06-13)
+**Origem:** Loop 34 — Diretor: "Toda vez acontece a mesma coisa, quero a solução final para que seja a ultima vez que isso ocorra, senão perco tempo e tokens com você fazendo sempre algo errado que tenho de consertar."
+**Falha que originou:** DEF-M-6 repetido — Músculo abriu sessão, processou BLOCO 0, foi direto para PENDENTES/WIP sem executar Notion (0A) nem Cowork (0B).
+**Regra:** A sequência de abertura é MECÂNICA — não depende de memória ou disciplina:
+  0. BLOCO 0 → 0A. NOTION → 0B. COWORK → 1+. CONTINUAR (PENDENTES/WIP somente após os 3)
+**Gate:** `scripts\gate_passo0_abertura.ps1` com flags diárias (.passo0_notion_YYYY-MM-DD.flag / .passo0_cowork_YYYY-MM-DD.flag).
+  Marcar: `-MarcarNotion` / `-MarcarCowork`. `-Status` mostra audit trail no session_start.
+**Por que é crítico:** Documentar sem automatizar = repetir o erro (P-146). O gate é a ferramenta — o princípio sem ferramenta não existe.
+**Ferramentas criadas:** `scripts\gate_passo0_abertura.ps1` (2026-06-13) + session_start.ps1 reordenado (BLOCO0 primeiro) + CLAUDE.md P-114 atualizado.
+**Aplica-se a:** toda abertura de sessão do Músculo. Liga com P-114 e P-146.
+
+---
 
 ---
 
