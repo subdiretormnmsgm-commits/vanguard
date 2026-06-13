@@ -28,17 +28,8 @@
   Arquivos: PAINEL_ATIVIDADES · CONTEXTO_SESSAO_DIRETOR · WIP_BOARD · LEDGER · PENDENTES · VANGUARD_TIMELINE · MEMORIA_EMBAIXADOR
   Mensagem já preparada: colar a mensagem copiada do terminal da sessão 2026-06-08.
 
-- [ ] `2026-06-09` **[MÚSCULO] doc_freshness_checker.ps1 — detecção de deriva de documentos** [musculo] — AGENDADO para amanhã (09-06-2026 terça-feira) por decisão do Diretor em 2026-06-08
-  Problema: documentos críticos ficam desatualizados entre sessões sem detecção (caso: TIMELINE 3 dias atrás).
-  Solução aprovada pelo Diretor: script signal-driven, não calendar-driven.
-  O que construir:
-  (a) Para cada doc RASTREADO (TIMELINE, MEMORIA_EMBAIXADOR, DEPENDENCY_MAP, WIP_BOARD, PENDENTES):
-      comparar data da última atualização do doc vs. commits desde essa data
-  (b) Se houver commit que deveria ter disparado update → doc marcado como STALE
-  (c) Reportar: "[STALE] 16_VANGUARD_TIMELINE.md — 3 commits desde último update"
-  (d) Docs CRÍTICOS stale → exit 1 bloqueante no session_close.ps1
-  Integrar ao session_close.ps1 como Gate 0.5 (antes do Gate 1 atual).
-  Custo estimado: ~2h. Elimina classe inteira de DEF-M-6 por documento desatualizado.
+- [x] `2026-06-09` ~~**[MÚSCULO] doc_freshness_checker.ps1 — detecção de deriva de documentos** [musculo]~~
+  ✅ Script existe e funcional — criado no ATO 1 do Loop 33. Rastreia WIP_BOARD, LOOP_STATE, PENDENTES, MEMORIA_EMBAIXADOR, LEDGER_INBOX, 16_VANGUARD_TIMELINE (CLAUDE_PROJECT/), 17_VANGUARD_TIMELINE. Status "VEREDITO_CONFIRMADO" adicionado como válido 2026-06-12. [RESOLVE: doc-freshness]
 
 - [x] `2026-06-09` ~~**[MÚSCULO+DIRETOR] Triar sugestões órfãs em `.claude/skills/Sugestões.md`** [musculo]~~
   ✅ Triagem concluída 2026-06-09: (a) code-review + (b) Instagram + (c) n8n vs Hermes migrados para CONSELHO/SUGESTOES_DIRETOR.md como itens 11-13 [PENDENTE]. (d) Antigravity nos sócios descartado (feito no Loop 29). Resíduo `.claude/skills/Sugestões.md` apagado.
@@ -170,13 +161,8 @@
   DryRun confirmou detecção: VANGUARD Loop 33 sem MEMORIA_V33 + relatorio_V33 → "BLOQUEARIA com exit 1".
   P-033 sync propagado. [RESOLVE: Gate-6A]
 
-- [ ] `2026-06-10` **[MÚSCULO] Expandir doc_freshness_checker para CLAUDE_PROJECT/ (TIMELINE + MEMORIA_EMBAIXADOR)** [musculo]
-  Erro: CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md desatualizado (detectado pelo Diretor, não pelo sistema).
-  Liga ao doc_freshness_checker.ps1 do backlog V30 — mas esta expansão é urgente:
-  (a) Adicionar à lista RASTREADO: CLIENTES/*/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md
-  (b) Adicionar: CLIENTES/*/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_*.md
-  (c) Threshold: stale se >1 loop sem update (não >3 dias — loops têm cadência variável)
-  Custo: ~30min se doc_freshness_checker já existir. Caso contrário: parte do épico V30.
+- [x] `2026-06-10` ~~**[MÚSCULO] Expandir doc_freshness_checker para CLAUDE_PROJECT/ (TIMELINE + MEMORIA_EMBAIXADOR)** [musculo]~~
+  ✅ Verificado 2026-06-12: doc_freshness_checker.ps1 JÁ rastreia 16_VANGUARD_TIMELINE.md (CLAUDE_PROJECT/) e MEMORIA_EMBAIXADOR — itens [4] e [6] do script. Confirmado execução VERDE. [RESOLVE: doc-freshness-expand]
 
 ---
 

@@ -53,7 +53,7 @@ if (Test-Path $wipPath) {
 }
 
 # [2] LOOP_STATE.json -- loop_status valido e fase_atual coerente?
-$statusValidos = @("ABERTO", "FECHADO", "PRE_LOOP", "ATOS_PRE_ABERTURA", "AGUARDA_EMBAIXADOR", "CONCLUIDO")
+$statusValidos = @("ABERTO", "FECHADO", "PRE_LOOP", "ATOS_PRE_ABERTURA", "AGUARDA_EMBAIXADOR", "CONCLUIDO", "VEREDITO_CONFIRMADO", "D1A_APROVADO", "SINTESE_FEITA")
 if ($loopState.loop_status -in $statusValidos) {
     Add-Resultado "LOOP_STATE.json" "VERDE" "loop_status='$($loopState.loop_status)' valido · fase_atual='$($loopState.fase_atual)'"
 } else {
