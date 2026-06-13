@@ -8,6 +8,15 @@
 
 ## COWORK ENGINE — Inteligência de Mercado Vanguard
 
+- [ ] `2026-06-13` **[MÚSCULO] LEITURA OBRIGATÓRIA — COWORK_HANDOFF.md ao iniciar sessão Cowork** [musculo]
+  Arquivo: `CLIENTES/VANGUARD/COWORK_HANDOFF.md`
+  Ação: ler antes de qualquer atividade Cowork — contém estado da última sessão + pendências + próximas ações
+  Gate: Fase 2 (veredito 14 arquivos INBOX) deve ser executada ANTES da próxima Fase 3 (NICHE_MODELER)
+
+- [ ] `2026-06-13` **[MÚSCULO] FASE 2 COWORK — veredito 14 arquivos INBOX_COWORK via MCP Drive** [musculo]
+  Detalhes em: `CLIENTES/VANGUARD/COWORK_HANDOFF.md` → seção FASE 2
+  Gate bloqueante: sem veredito completo, próximo NICHE_MODELER (Antigravity) não começa
+
 - [ ] `2026-06-13` **[MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIENTES/VANGUARD/ via sync** [musculo]
   Veredito Diretor (2026-06-13): Opção C — manter em PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/ (fonte canônica) + espelhar para CLIENTES/VANGUARD/INTELLIGENCE_HUB/ via sync automático.
   Custo: sessão dedicada 4-6h · scripts afetados: sync_vanguard_docs.ps1, DEPENDENCY_MAP, preparar_notebooklm, gemini_anchor_generator, PENDING_REVIEW paths.
