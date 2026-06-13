@@ -23,6 +23,16 @@
                 "F15 2026-06-11"
             ],
             "nichos_novos_aprovados": [],
+            "pending_review_processado": true
+        },
+        {
+            "loop": 34,
+            "date": "2026-06-13",
+            "calibracao_runs_incluidos": [
+                "2026-06-13"
+            ],
+            "frentes_enviadas": [],
+            "nichos_novos_aprovados": [],
             "pending_review_processado": false
         }
     ]

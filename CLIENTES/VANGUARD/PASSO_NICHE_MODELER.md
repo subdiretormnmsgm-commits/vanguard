@@ -15,6 +15,8 @@ A Vanguard opera como consultoria de conformidade e inteligência documental par
 
 **Regra crítica:** Toda análise vai para revisão do Músculo (Claude Code) antes de qualquer ação. Você gera — o Músculo valida — Eduardo aprova.
 
+**⚠️ ALERTA CRÍTICO:** eventos-fiscais-contadores — ECD leiaute 12, prazo 30/06/2026, 17 dias. Este nicho tem prioridade de ataque acima de todos os outros com deadline próximo.
+
 ---
 
 ## [CORPUS — O QUE VOCÊ VAI RECEBER]
@@ -37,7 +39,7 @@ Cole nesta ordem como arquivos ou texto:
 11. `REPORT_COMPETITORS_2026-06.md` (arquivo local: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/`)
 
 ### BLOCO C — Modelos atuais (para enriquecer)
-Cole como texto: `NICHE_INDEX.json` v1.2 — 11 nichos (arquivo: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json`)
+Cole como texto: `NICHE_INDEX.json` v1.3 — 11 nichos (arquivo: `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json`)
 Cole como texto: `licitacoes-contratos-publicos_MODEL.json` (nicho prioritário)
 
 ### BLOCO D — Candidatos novos (Loop 34 — identificados pelo Cowork Engine)
@@ -68,8 +70,8 @@ Lista dos 11 nichos (NICHE_INDEX v1.2):
 5. ma-reestruturacao-societaria (fit 5.0 — MONITORAR — Vertical 5)
 6. setor-eletrico-regulatorio (fit 5.0 — MOVER_AGORA — Vertical 6)
 7. compliance-aduaneiro-ncm (fit 5.0 — MONITORAR — Vertical 3)
-8. carbon-esg-mrv (fit 5.0 — MONITORAR — Vertical 8)
-9. ifrs17-seguros (fit 5.0 — MONITORAR — Vertical 9)
+8. carbon-esg-mrv (fit 5.0 — MOVER_AGORA — Vertical 8)
+9. ifrs17-seguros (fit 5.0 — MOVER_AGORA — Vertical 9)
 10. conformidade-ai-act (fit 5.0 — MOVER_AGORA — Vertical 10)
 11. eventos-fiscais-contadores (fit 5.0 — MOVER_AGORA — Vertical 11)
 
@@ -168,6 +170,27 @@ Quem abordar primeiro, em qual canal, com qual mensagem de abertura.
 
 ---
 
+### TAREFA 5 — MAPA DE CROSS-SELL
+
+Com base nos 11 modelos de nicho + candidatos novos (N16/N17/N18 se aprovados), identifique:
+
+1. **Quais nichos têm sobreposição de setor-alvo?** (mesma empresa pode ter 2+ dores simultâneas)
+2. **Qual é a sequência natural de venda?** (nicho âncora → expansão)
+3. **Qual combinação de nichos maximiza o ticket médio por cliente?**
+
+Formato de resposta por cluster:
+```
+CLUSTER [letra] — [setor-alvo]
+Nichos que convergem: [nicho 1] + [nicho 2]
+Empresa-tipo: [perfil do prospect]
+Argumento de expansão: "Já que resolvemos X, temos um problema Y que..."
+Ticket combinado estimado: R$ [range]
+```
+
+Mínimo: 3 clusters identificados. Se não houver sobreposição clara em algum par, escrever "SEM CROSS-SELL IMEDIATO" com justificativa.
+
+---
+
 ## [REGRAS DA SESSÃO]
 
 - Tudo que você produzir vai para o Músculo (Claude Code) em `PENDING_REVIEW.md` antes de qualquer ação
@@ -197,6 +220,9 @@ NICHE MODELER — SESSÃO ÚNICA — 2026-06-13
 
 ## PARTE 4: MAPA DE PRIORIDADE COMERCIAL
 [output da Tarefa 4]
+
+## PARTE 5: MAPA DE CROSS-SELL
+[output da Tarefa 5]
 
 ## [ALERTAS] — OPORTUNIDADES E URGÊNCIAS DETECTADAS
 [OBRIGATÓRIO — sempre presente, mesmo que vazio]
