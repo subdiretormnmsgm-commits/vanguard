@@ -1,5 +1,6 @@
 # GUIA DE USO DAS SKILLS DO MÚSCULO
-> Gerado 2026-06-12 — S-3 do Notion Sugestões do Diretor
+> Atualizado 2026-06-12 — 11 skills instaladas (S-4 revisado + S-3)
+> Para mapa operacional completo de gatilhos: `CONSELHO/SKILLS_GATILHOS.md`
 > Atualizar quando nova skill for instalada ou o comportamento mudar.
 
 ---
@@ -85,12 +86,12 @@ O Músculo verifica `.claude/skills/` e retorna as opções.
 ### Skills por categoria:
 | Categoria | Skills |
 |-----------|--------|
-| **Processo** | `/brainstorming`, `/ultrathink-trigger`, `/superpowers` |
-| **Build** | `/mcp-builder`, `/executing-plans` |
-| **Análise** | `/doc-drift-audit`, `/json-bom-guard` |
+| **Processo** | `/brainstorming`, `/ultrathink-trigger`, `/writing-plans`, `/executing-plans`, `/find-skills` |
+| **Build** | `/mcp-builder`, `/webapp-testing`, `/frontend-design`, `/skill-creator` |
+| **Análise** | `/systematic-debugging`, `/verification-before-completion`, `/doc-drift-audit`, `/json-bom-guard` |
+| **Inteligência** | `/firecrawl` |
 | **Clientes** | `/ingrid-v8`, `/cowork-engine-v1`, `/vanguard-v33` |
 | **Automação** | `/n8n-orquestracao-v1`, `/notebooklm` |
-| **Agentes** | `/dispatching-parallel-agents` |
 
 ---
 
