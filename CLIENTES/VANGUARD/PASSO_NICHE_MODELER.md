@@ -4,6 +4,24 @@
 
 ---
 
+## [SEQUÊNCIA DO COWORK ENGINE]
+
+> Fonte canônica completa: `PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_COWORK_ENGINE.md`
+
+```
+Fase 1 — COLETA         Embaixador coleta frentes → INBOX_COWORK Drive
+Fase 2 — VEREDITO       ⛔ GATE: Músculo emite APROVADO/STANDBY/REJEITAR por arquivo
+Fase 3 — NICHE_MODELER  Diretor ativa Antigravity COWORK CONDUCTOR → este PASSO
+Fase 4 — VALIDAÇÃO      Músculo delibera (P-124) → lista numerada → Diretor vota
+Fase 5 — EXECUÇÃO       Músculo executa aprovados: MODELs + NICHE_INDEX + LINKEDIN
+Fase 6 — FECHAMENTO     PENDING_REVIEW fechado + SESSIONS.json + commit
+Fase 7 — RESUMO         Músculo gera Resumo de Encerramento → Diretor confirma
+```
+
+> ⚠️ Esta é a Fase 3. As Fases 1 e 2 devem estar concluídas antes de ativar o Antigravity.
+
+---
+
 ## [CONTEXTO DO SISTEMA]
 
 Você está atuando como Estrategista do Pentalateral IAH — sistema de Venture Builder de Eduardo.
