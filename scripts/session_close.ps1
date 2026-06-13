@@ -108,21 +108,59 @@ if ($exitCode -eq 0) {
     }
 }
 
-# GATE P-032: MEMORIA_EMBAIXADOR_VANGUARD deve ter sido atualizada hoje
-$memoriaVanguardPath = "$baseDir\CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
-$memoriaOk = $false
-if (Test-Path $memoriaVanguardPath) {
-    $memoriaOk = ((Get-Item $memoriaVanguardPath).LastWriteTime.Date -eq (Get-Date).Date)
+# GATE P-032 / GATE 6B (P-145): MEMORIA_EMBAIXADOR deve ter sido atualizada em todo cliente ativo
+# Ordem de verificacao: (1) flag de update_memoria_embaixador.ps1 do dia (evento)
+#                       (2) fallback: LastWriteTime da MEMORIA_EMBAIXADOR.md
+$wipBoardPath = "$baseDir\CLIENTES\WIP_BOARD.json"
+$statusAtivos = @("BUILD","RETAINER","HYPERCARE")
+$clientesAtivos = @()
+if (Test-Path $wipBoardPath) {
+    try {
+        $wipObj = Get-Content $wipBoardPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        foreach ($proj in $wipObj.projetos) {
+            if ($proj.status -in $statusAtivos) { $clientesAtivos += $proj.cliente.ToUpper() }
+        }
+    } catch {}
 }
-if (-not $memoriaOk) {
+# Garantir que VANGUARD sempre esta na lista (projeto interno)
+if ("VANGUARD" -notin $clientesAtivos) { $clientesAtivos += "VANGUARD" }
+
+$p032Falhos = @()
+foreach ($cli in $clientesAtivos) {
+    $flagHoje = "$baseDir\scripts\.memoria_atualizada_hoje_$cli.flag"
+    $memoriaPath = "$baseDir\CLIENTES\$cli\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR*.md"
+    $memoriaOk = $false
+
+    # Verificacao primaria: flag do dia (update_memoria_embaixador.ps1 rodou)
+    if (Test-Path $flagHoje) {
+        $flagData = (Get-Item $flagHoje).LastWriteTime.Date
+        if ($flagData -eq (Get-Date).Date) { $memoriaOk = $true }
+    }
+
+    # Fallback: LastWriteTime do arquivo MEMORIA_EMBAIXADOR
+    if (-not $memoriaOk) {
+        $memoriaFiles = Get-Item $memoriaPath -ErrorAction SilentlyContinue
+        if ($memoriaFiles) {
+            $arq = $memoriaFiles | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+            if ($arq.LastWriteTime.Date -eq (Get-Date).Date) { $memoriaOk = $true }
+        }
+    }
+
+    if (-not $memoriaOk) { $p032Falhos += $cli }
+}
+
+if ($p032Falhos.Count -gt 0) {
     Write-Host ""
     Write-Host "  ========================================================" -ForegroundColor Red
-    Write-Host "  [GATE P-032] BLOQUEIO -- MEMORIA_EMBAIXADOR desatualizada" -ForegroundColor Red
+    Write-Host "  [GATE P-032 / GATE 6B] BLOQUEIO -- MEMORIA desatualizada" -ForegroundColor Red
     Write-Host "  ========================================================" -ForegroundColor Red
-    Write-Host "  MEMORIA_EMBAIXADOR_VANGUARD.md nao foi modificada hoje." -ForegroundColor Red
-    Write-Host "  Musculo: atualizar antes de encerrar (P-032 obrigatorio)." -ForegroundColor Red
-    Write-Host "  Arquivo: CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md" -ForegroundColor Red
-    Write-Host "  Atualizar: gates, log de contatos, hipoteses, proxima acao." -ForegroundColor Yellow
+    Write-Host "  Clientes sem MEMORIA_EMBAIXADOR atualizada hoje:" -ForegroundColor Red
+    foreach ($cli in $p032Falhos) {
+        Write-Host "    - $cli" -ForegroundColor Yellow
+    }
+    Write-Host ""
+    Write-Host "  Correcao rapida (por cliente):" -ForegroundColor Yellow
+    Write-Host "    .\scripts\update_memoria_embaixador.ps1 -Cliente [X] -Passo 7 -Resumo 'resumo do dia'" -ForegroundColor Cyan
     Write-Host "  ========================================================" -ForegroundColor Red
     Write-Host ""
     $exitCode = 2
@@ -382,5 +420,29 @@ if ($telegramAtivo) {
 }
 Write-Host ""
 Write-Host "=======================================================" -ForegroundColor Magenta
+
+# LOOP TRANSCRIPT (M-2 P-141) -- gerar para cada cliente ativo com loop CONCLUIDO
+$transcriptScript = Join-Path $PSScriptRoot "generate_loop_transcript.ps1"
+if ((Test-Path $transcriptScript) -and $exitCode -eq 0) {
+    if (Test-Path $wipBoardPath) {
+        try {
+            $wipForTranscript = Get-Content $wipBoardPath -Raw -Encoding UTF8 | ConvertFrom-Json
+            foreach ($projT in $wipForTranscript.projetos) {
+                if ($projT.status -notin @("BUILD","RETAINER","HYPERCARE")) { continue }
+                $cliT = $projT.cliente.ToUpper()
+                $lsPathT = "$baseDir\CLIENTES\$cliT\CLAUDE_PROJECT\LOOP_STATE.json"
+                if (-not (Test-Path $lsPathT)) { continue }
+                $lsT = Get-Content $lsPathT -Raw -Encoding UTF8 | ConvertFrom-Json
+                # Gerar transcript apenas se loop CONCLUIDO ou ENCERRADO (nao EXECUCAO em andamento)
+                $statusValidos = @("CONCLUIDO","VEREDITO_CONFIRMADO","LOOP_ENCERRADO")
+                if ($lsT.loop_status -notin $statusValidos) { continue }
+                $transcriptJaExiste = Test-Path "$baseDir\CLIENTES\$cliT\HISTORICO\LOOP_TRANSCRIPT_V$($lsT.loop_atual)_$($cliT.ToLower()).md"
+                if ($transcriptJaExiste) { continue }
+                Write-Host "  [M-2] Gerando LOOP_TRANSCRIPT_V$($lsT.loop_atual) para $cliT..." -ForegroundColor Cyan
+                & powershell.exe -NonInteractive -File $transcriptScript -Cliente $cliT -Loop $lsT.loop_atual 2>$null
+            }
+        } catch {}
+    }
+}
 
 exit $exitCode

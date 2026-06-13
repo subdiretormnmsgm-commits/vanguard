@@ -839,12 +839,16 @@ foreach ($projB in $projetosEmBuild) {
                        -ErrorAction SilentlyContinue |
                    Where-Object { $_.LastWriteTime.Date -eq [datetime]::Today }
     if ($vereditos.Count -gt 0 -and (Test-Path $memoriaB)) {
-        $memoriaHoje = (Get-Item $memoriaB).LastWriteTime.Date -eq [datetime]::Today
+        # Verificar: (1) flag do update_memoria_embaixador.ps1 do dia (P-145)
+        #            (2) fallback: LastWriteTime da MEMORIA_EMBAIXADOR.md
+        $flagHojeB = "$BASE\scripts\.memoria_atualizada_hoje_$cliB.flag"
+        $flagOk    = (Test-Path $flagHojeB) -and ((Get-Item $flagHojeB).LastWriteTime.Date -eq [datetime]::Today)
+        $memoriaHoje = $flagOk -or ((Get-Item $memoriaB).LastWriteTime.Date -eq [datetime]::Today)
         if (-not $memoriaHoje) {
             Write-Host ""
             Write-Host "  [BLOQUEIO P-032] $cliB" -ForegroundColor Red
             Write-Host "  Vereditos executados hoje mas MEMORIA_EMBAIXADOR nao atualizada." -ForegroundColor Red
-            Write-Host "  Atualizar antes de fechar a sessao." -ForegroundColor Red
+            Write-Host "  Correcao rapida: .\scripts\update_memoria_embaixador.ps1 -Cliente $cliB -Passo 7 -Resumo 'resumo'" -ForegroundColor Yellow
             try {
                 $lc = & git -C $BASE log -1 --format="%h %ar -- %s" `
                     -- "CLIENTES\$cliB\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md" 2>$null

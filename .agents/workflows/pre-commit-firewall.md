@@ -1,19 +1,21 @@
 ---
 name: pre-commit-firewall
 description: Verifica conformidade com AGENTS.md antes de qualquer commit. Bloqueia se arquivo da lista R-01 está no diff sem autorização explícita do Diretor.
-status: DOCUMENTACAO_APENAS
-dívida: "R-01 e R-02 precisam ser reescritos com lógica cirúrgica antes de instalar como git hook — Loop 34"
+status: ATIVO
+loop_implementacao: 34
 ---
 
-# WORKFLOW: Pre-Commit Firewall (Documentação)
+# WORKFLOW: Pre-Commit Firewall (ATIVO desde Loop 34)
 
-> **STATUS:** DOCUMENTAÇÃO APENAS — NÃO instalar como `.git/hooks/pre-commit` até que R-01 e R-02 sejam reescritos.
-> **Problemas bloqueantes antes de ativar como hook:**
-> 1. R-01: `$dirName -match "^scripts"` é amplo demais — bloquearia commits normais dos scripts de orquestração.
-> 2. R-02: exige `$env:PENTALATERAL_VEREDITO_DIRETOR` para commitar `WIP_BOARD.json`, arquivo modificado em praticamente todo commit.
-> 3. Git hooks no Windows não executam PowerShell nativo sem wrapper `.bat` ou configuração adicional.
+> **STATUS:** ATIVO — Instalado em `.git/hooks/pre-commit` (R-01/R-03/R-04) + `.git/hooks/commit-msg` (R-02)
+> **Dívida R-01/R-02 resolvida em Loop 34 (2026-06-13):**
+> 1. R-01: match por nome de arquivo exato (não por diretório) — `.git/hooks/pre-commit.ps1`
+> 2. R-02: tag `[VEREDITO-DIRETOR]` na mensagem de commit (não ENV_VAR) — `.git/hooks/commit-msg.ps1`
+> 3. Wrappers Windows: `pre-commit.bat` + `commit-msg.bat` criados (chamados pelos hooks bash)
 >
-> **Dívida técnica Loop 34:** reescrever R-01 para match por arquivo específico (não diretório), R-02 para usar flag de commit msg ao invés de ENV_VAR.
+> **Fluxo de autorização:**
+> - R-01 (filenames protegidos): bypass via `PENTALATERAL_AUTORIZO` env var (de emergência)
+> - R-02 (WIP_BOARD/INTELLIGENCE_LEDGER/DECISOES): incluir `[VEREDITO-DIRETOR]` na msg de commit
 
 Este workflow funciona como a última trincheira do Pentalateral IAH. Aborta commits do LLM se o diff tocar em arquivos do R-01 a R-04 sem flag de autorização.
 

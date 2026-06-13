@@ -135,17 +135,8 @@
   ✅ fix_bom_json.ps1 existia; adicionado auto-commit + integração validate_scripts.ps1 (BOM check em .json).
   14 arquivos corrigidos (WIP_BOARD.json x4 + knowledge_graph.json + _n8n + settings). Commit 690d0eb automático. [RESOLVE: bom-json]
 
-- [ ] `2026-06-10` **[MÚSCULO] update_memoria_embaixador.ps1 — atualização event-driven (P-145)** [musculo]
-  Erro: MEMORIA_EMBAIXADOR ficou 2 loops desatualizada (Loop 30 + 31). Gate 6B só alerta, não age.
-  O que construir:
-  (a) `scripts/update_memoria_embaixador.ps1 -cliente [X] -passo [5|7]`
-      Extrai do LOOP_STATE + AUDITOR_LOOP_V[N] ou SECAO_D os achados do sócio concluído
-      Acrescenta seção "[DATA] Loop N — sócio Y concluído: [resumo]" ao LOG DE CONTATOS
-      Atualiza D2 (temperatura) e Gates automaticamente
-  (b) PASSO5.5: chamado automaticamente após salvar AUDITOR_LOOP_V[N].md
-  (c) PASSO7.5: chamado automaticamente após colar SEÇÃO D
-  (d) session_close Gate 6B: exit 1 se NENHUM dos dois scripts rodou na sessão com vereditos
-  Custo: ~2h. Escala para 10 projetos sem colapso.
+- [x] `2026-06-10` ~~**[MÚSCULO] update_memoria_embaixador.ps1 — atualização event-driven (P-145)** [musculo]~~
+  ✅ scripts/update_memoria_embaixador.ps1 criado 2026-06-13: -Passo 5|7, extrai AUDITOR_LOOP/SECAO_D, insere LOG DE CONTATOS, atualiza p032 gate em LOOP_STATE.json, cria flag do dia. Gate 6B em session_close.ps1 atualizado para verificar flag por cliente ativo (BUILD/RETAINER/HYPERCARE). [RESOLVE: update-memoria-embaixador]
 
 - [x] `2026-06-10` **[MÚSCULO] [CHECKLIST DO MÚSCULO] bloqueante no PASSO5 template (P-143)** [musculo]
   Erro: Deep Research WEB não clicado antes do PASSO5 + relatorio nativo esquecido (Loop 31).
@@ -228,10 +219,8 @@
   ✅ G-4: INGRID + VALDECE migrados para schema v1.1 em 2026-06-12.
   ✅ A-3: DESIGN_CONTEXT_ROUTING.md criado (PENTALATERAL_UNIVERSAL/OPERACAO/) — Opção A (local, session_start.ps1 PASSO 8g) recomendada. Gate de build: Diretor aprova Opção A vs B antes de implementar. [RESOLVE: G4-A3]
 
-- [ ] `2026-06-12` **[MÚSCULO] E-5 — update_memoria_embaixador.ps1 (automação P-032 completa)** [musculo]
-  E-5 é pré-requisito de escala. Automação do conteúdo da MEMORIA_EMBAIXADOR via session_close.
-  Liga com item existente: `update_memoria_embaixador.ps1` (2026-06-10 LOOP 31).
-  Custo: ~2h (script existe em design no PENDENTES — implementar agora).
+- [x] `2026-06-12` ~~**[MÚSCULO] E-5 — update_memoria_embaixador.ps1 (automação P-032 completa)** [musculo]~~
+  ✅ Implementado junto com Loop 31 item. [RESOLVE: E-5-update-memoria]
 
 - [x] `2026-06-12` ~~**[MÚSCULO] P-150 → INTELLIGENCE_LEDGER — após autorização P-098** [musculo]~~
   ✅ Movido junto com P-149 em 2026-06-12. LEDGER_INBOX confirma STATUS: 0 entradas. [RESOLVE: LEDGER-INBOX-P150]
@@ -240,12 +229,8 @@
   P-149 registrado no LEDGER_INBOX: PASSO3 apresenta problemas, nunca soluções pré-compiladas.
   Aguarda: AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER.md
 
-- [ ] `2026-06-11` **[MÚSCULO] Build M-2 — LOOP TRANSCRIPT anti-amnésia** [musculo]
-  Aprovado no Loop 31 ENTRA. Primeiro build concreto do Loop 33.
-  session_close.ps1 passa a gerar `CLIENTES/VANGUARD/HISTORICO/LOOP_TRANSCRIPT_V[N].md`
-  com: ideias M/G/N/E com disposição final + arquivos criados + skills usadas.
-  Transcript se torna fonte permanente no caderno VANGUARD.
-  Custo: ~2h.
+- [x] `2026-06-11` ~~**[MÚSCULO] Build M-2 — LOOP TRANSCRIPT anti-amnésia** [musculo]~~
+  ✅ scripts/generate_loop_transcript.ps1 criado 2026-06-13: extrai M/G/N/E por sócio, arquivos do git log, skills usadas, síntese P-037. Integrado ao session_close.ps1 -- gera automaticamente para clientes com loop CONCLUIDO. [RESOLVE: M-2-loop-transcript]
 
 - [x] `2026-06-11` ~~**[MÚSCULO] Cron W-1 — restaurar 3x/dia no n8n Studio** [musculo]~~
   ✅ Verificado via API 2026-06-12: W-1 já configurado com 3 intervalos (7h/13h/20h) — corrigido em sessão anterior.
@@ -259,17 +244,8 @@
   watch_readonly.ps1 (monitor SHA-256 dos 7 arquivos R-01 em background). Integrados ao session_start
   (launch) + session_close (stop + flush). Teste AVISO "ATOs 1-6" confirmado no Telegram. [RESOLVE: ATO 6]
 
-- [ ] `2026-06-12` **[MÚSCULO] Dívida técnica Loop 34 — reescrever R-01/R-02 do pre-commit-firewall** [musculo]
-  Origem: Antigravity Build C analisado em Loop 33. Documentado em `.agents/workflows/pre-commit-firewall.md`.
-  O script não pode ser instalado como git hook porque:
-  (a) R-01: `$dirName -match "^scripts"` bloqueia commits normais dos scripts de orquestração
-  (b) R-02: exige `$env:PENTALATERAL_VEREDITO_DIRETOR` para commitar WIP_BOARD.json (editado em todo commit)
-  (c) Windows: hooks .git/ não rodam PS nativo sem wrapper .bat
-  O que reescrever no Loop 34:
-  - R-01: match por nome de arquivo exato (lista explícita) — NÃO por diretório
-  - R-02: verificar tag `[VEREDITO-DIRETOR]` na mensagem de commit ao invés de ENV_VAR
-  - Criar `pre-commit.bat` wrapper para Windows git hooks
-  Custo: ~1h. Após reescrita → instalar como hook real.
+- [x] `2026-06-12` ~~**[MÚSCULO] Dívida técnica Loop 34 — reescrever R-01/R-02 do pre-commit-firewall** [musculo]~~
+  ✅ R-01 reescrito por filename (não diretório) em .git/hooks/pre-commit.ps1. R-02 migrado para .git/hooks/commit-msg.ps1 com tag [VEREDITO-DIRETOR]. Wrappers pre-commit.bat + commit-msg.bat criados. Hook pre-commit (bash) atualizado para chamar pre-commit.ps1. Hook commit-msg (bash) criado para chamar commit-msg.ps1. Status pre-commit-firewall.md: ATIVO. [RESOLVE: divida-pre-commit-firewall]
 
 ### 🔒 LOOP 33 — PENDENTES PÓS-FECHAMENTO (2026-06-13)
 
