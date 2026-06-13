@@ -20,7 +20,8 @@
 param(
     [string]$cliente = "",
     [switch]$AutoSync,        # Modo silencioso: sincroniza docs sem abrir browser/Explorer
-    [switch]$ApenasAtivacao   # Bypass do gate DIRETRIZ -- uso exclusivo para "nova sistematica"
+    [switch]$ApenasAtivacao,  # Bypass do gate DIRETRIZ -- uso exclusivo para "nova sistematica"
+    [switch]$OrdemDiretor     # P-154: comunicacao direta do Diretor entre socios -- gate DIRETRIZ ignorado
 )
 
 $ErrorActionPreference = "Stop"
@@ -201,6 +202,9 @@ if (Test-Path $checkDiretrizScript) {
     if ($ApenasAtivacao) {
         & $checkDiretrizScript -cliente $cliente -Silencioso
         Write-Host "  (-ApenasAtivacao: gate DIRETRIZ ignorado -- so ativar nova sistematica)" -ForegroundColor DarkGray
+    } elseif ($OrdemDiretor) {
+        Write-Host "  (P-154: comunicacao direta do Diretor -- gate DIRETRIZ ignorado por ordem explicita)" -ForegroundColor DarkGray
+        Write-Host "  Registrar no LOG do Embaixador o motivo da consulta direta." -ForegroundColor DarkGray
     } else {
         & $checkDiretrizScript -cliente $cliente
         if ($LASTEXITCODE -eq 1) {

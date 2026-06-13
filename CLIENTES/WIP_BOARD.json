@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-06-10",
+    "atualizado_em":  "2026-06-13",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -45,9 +45,9 @@
                                                             "loop":  33,
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
-                                                            "embaixador":  "PENDENTE",
-                                                            "musculo":  "PENDENTE",
-                                                            "proximo":  "NotebookLM -- Skill vanguard-v33.md"
+                                                            "embaixador":  "OK",
+                                                            "musculo":  "EM_ANDAMENTO",
+                                                            "proximo":  "Embaixador -- Estrategia 3 canais (LinkedIn/Instagram/WhatsApp Business) por nicho NICHE_MODELER"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",

@@ -1,4 +1,4 @@
-{
+﻿{
     "schema_version":  "1.1",
     "cliente":  "VANGUARD",
     "loop_atual":  33,
@@ -137,15 +137,18 @@
                   "ato5_ledger_inbox_movido":  true,
                   "ato6_notify_hermes_watch":  true
               },
-    "proxima_acao_diretor":  "ESTA SEMANA: 1ª ação comercial Licitações (LinkedIn hoje 5min + PNCP amanhã 1 empresa). Ponte Valdece antes de 18-06. Antigravity CLI migração: TESTADO E APROVADO 2026-06-12.",
-    "proxima_acao_musculo":  "G-2: dossiê PNCP do nicho licitações (~4h) + G-3: Pitch Reverso ROI (~1h). E-4: pitch anti-alucinação 3 parágrafos (~30min). E-5: update_memoria_embaixador.ps1 (~2h). BUILD 1: instrução permanente PENDENTES para abertura de sessão.",
+    "proxima_acao_diretor":  "Enviar ao Embaixador (Claude Projects) os 9 arquivos verificados + PASSO7 canal strategy. URGENTE: ECD 2026 prazo 30/06 -- 17 dias. Ponte Valdece antes de 18-06. LinkedIn post setor-eletrico (5min).",
+    "proxima_acao_musculo":  "Rodar ir_ao_embaixador.ps1 -cliente VANGUARD -OrdemDiretor. Pos-Embaixador: MEMORIA_V33 + relatorio_V33 (P-045 bloqueante). E-5: update_memoria_embaixador.ps1 (~2h). G-2: dossie PNCP (~4h).",
     "alertas_criticos":  [
-                             "W-8 shadow mode expira 2026-06-14 — avaliar Hermes Grau C (SIM confirmado pelo Diretor)",
-                             "BLOQUEANTE P-133: captação 2ª candidata Ingrid — deadline 04-07-2026",
-                             "W-1 cron ainda 1x/dia — deveria ser 3x (7h/13h/20h BRT)",
-                             "Wipe \u0026 Sync NotebookLM VANGUARD pendente [DIRETOR] — problemas técnicos"
+                             "CRITICO: ECD 2026 prazo 30/06/2026 -- 17 dias -- nicho eventos-fiscais-contadores",
+                             "CRITICO: AI Act deadline 02/08/2026 -- 50 dias -- nicho conformidade-ai-act",
+                             "CRITICO: ANEEL GD 60d auditoria -- prazo 05/08/2026 -- nicho setor-eletrico",
+                             "W-8 shadow mode expira 2026-06-14 -- avaliar Hermes Grau C (SIM confirmado pelo Diretor)",
+                             "BLOQUEANTE P-133: captacao 2a candidata Ingrid -- deadline 04-07-2026",
+                             "W-1 cron ainda 1x/dia -- deveria ser 3x (7h/13h/20h BRT)",
+                             "Wipe \u0026 Sync NotebookLM VANGUARD pendente [DIRETOR] -- problemas tecnicos"
                          ],
-    "ultima_atualizacao":  "2026-06-12",
+    "ultima_atualizacao":  "2026-06-13",
     "loop_32_entregues":  [
                               "Antigravity → EXECUTOR do Estrategista (Gemini) em 62 arquivos — commit 4defaf6",
                               "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",
@@ -157,5 +160,21 @@
                               "P-033 sync slot 20 LOOP_STATE_SCHEMA propagado para INGRID+VALDECE+VANGUARD",
                               "Commit 4defaf6 — 65 arquivos · 4039 inserções · 1037 deleções",
                               "LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130"
-                          ]
+                          ],
+    "niche_modeler_l33":  {
+                              "data":  "2026-06-13",
+                              "status":  "CONCLUIDO",
+                              "commit":  "ea038d9",
+                              "entregues":  [
+                                                "NICHE_INDEX.json v1.1 -- 11 nichos, todos MOVER_AGORA, fit_score 5.0",
+                                                "setor-eletrico_MODEL.json -- urgencia ESTRUTURAL-\u003eCRITICA + prazo 05/08/2026",
+                                                "conformidade-ai-act_MODEL.json -- CRIADO (vertical 10, deadline 02/08/2026)",
+                                                "eventos-fiscais-contadores_MODEL.json -- CRIADO (vertical 11, deadline 30/06/2026 -- 17 dias)",
+                                                "INTENCAO_LINKEDIN.md -- 3 posts reais (setor-eletrico + ai-act + ncm-aduaneiro)",
+                                                "niche_alert_router.ps1 -- corrigido (4 bugs encoding/logica)",
+                                                "PENDING_REVIEW.md -- output NICHE_MODELER completo (P-124)",
+                                                "3 alertas CRITICOS adicionados ao PENDENTES.md"
+                                            ],
+                              "proximo":  "Embaixador -- Estrategia 3 canais (LinkedIn/Instagram/WhatsApp Business) por nicho -- P-154 OrdemDiretor"
+                          }
 }

@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 2.0 | Loop 33 V2 SÍNTESE P-037 CONCLUÍDA — aguarda veredito D1/D2 | Atualizada: 2026-06-12 (P-032)
+> Criada em: 2026-06-06 | Versão: 2.1 | Loop 33 NICHE_MODELER + Estratégia 3 Canais — Embaixador consultado (P-154) | Atualizada: 2026-06-13 (P-032)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -123,18 +123,26 @@
 
 ## PROXIMA ACAO DO EMBAIXADOR
 
-Loop 33 V2 — **SÍNTESE P-037 CONCLUÍDA. Aguarda veredito D1/D2 do Diretor.**
+Loop 33 NICHE_MODELER — **ESTRATÉGIA 3 CANAIS por nicho. Diretor consultando o Embaixador (P-154).**
 
-**Missão imediata (pós-veredito):**
-- Receber D1 e D2 do Diretor (resposta em até 2 palavras: "D1:A D2:A")
-- Músculo executa: G-4 (LOOP_STATE por cliente) + G-2 (auditoria PNCP prospect nomeado) + G-3 (Pitch Reverso ROI) + E-5 (MEMORIA automática)
-- E-2 (Ponte Valdece): ação imediata — Valdece em hypercare até 18-06, janela fecha junto
+**Missão imediata (Embaixador):**
+- Analisar os 11 nichos do NICHE_INDEX.json com 3 canais: LinkedIn (autoridade B2B), Instagram (awareness/humanização), WhatsApp Business (conversão 1:1)
+- Confirmar/Expandir/Alertar a abordagem por canal com base no perfil comportamental do Diretor e na realidade do mercado
+- Priorizar os 3 nichos com deadline CRÍTICO (ECD 30/06, AI Act 02/08, ANEEL 05/08)
+- Alertar se a abordagem 3 canais está alinhada com o modelo de negócio IAH
+
+**Alertas CRÍTICOS para o Embaixador:**
+- ECD 2026: prazo 30/06/2026 — **17 dias** — nicho `eventos-fiscais-contadores` (ticket R$8-40k, 600k+ escritórios)
+- AI Act UE: prazo 02/08/2026 — 50 dias — nicho `conformidade-ai-act` (ticket R$15-80k)
+- ANEEL GD: prazo 05/08/2026 — 53 dias — nicho `setor-eletrico` (ticket R$15k/mês retainer)
 
 **Aprendizados críticos do Loop 33 (para o Embaixador):**
 - **Embaixador identificou risco que nenhum sócio viu:** comportamental — pattern builder vs vendedor
 - **Confronto do Embaixador confirmado:** premissa "poucos competidores" do Auditor está stale. ConLicitação/Dr. Licita existe desde fev/2026
 - **E-4 validado como pitch central:** "anti-alucinação em 3 camadas" transforma P-124/P-132/P-135 em argumento de venda
 - **E-5 bloqueante:** automação MEMORIA é pré-requisito de escala, não backlog
+
+**P-154 ativo:** esta consulta ao Embaixador é comunicação direta do Diretor (não loop padrão) — gate DIRETRIZ ignorado por ordem explícita.
 
 **W-8 shadow mode:** expira 2026-06-14 — avaliar Hermes Grau C no próximo loop
 
@@ -186,3 +194,5 @@ Loop 33 V2 — **SÍNTESE P-037 CONCLUÍDA. Aguarda veredito D1/D2 do Diretor.**
 | 2026-06-12 | Síntese P-037 Loop 33 concluída | DELIBERACAO_LOOP_V33 criada. D1:A redefinido (1 contato quente + prospect nomeado ≠ build técnico). D2:A (Setup + Retainer + %). E-4 (anti-alucinação como pitch central) adotada. E-5 (MEMORIA automática) bloqueante |
 | 2026-06-12 | Sessão técnica — Firewall Pentalateral | Antigravity Builds A-D analisados e filtrados (MERGE/SKIP/DOC/SIMPLIFICADO). PASSO 0 COLHEITA refinado. BUILD 5 PNCP criado (Vertical Licitações). BOM UTF-8 eliminado (14 arquivos, fix sistêmico). TIMELINE reconciliada — fonte canônica 16_CP definida e propagada x3. Padrão DEF-G-2 detectado no Cowork e corrigido. 11 commits. Integridade documental: VERDE. |
 | 2026-06-12 03:08 | VEREDITO -- Loop Loop 32 FECHADO -- V32 Deriva Documental -- Antigravity EXECUTOR + Hermes B + LOOP_STATE v1.1 | DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER -- Impacto: Restricao arquitetural substitui disciplina -- P-032/P-091 automatizados |
+| 2026-06-13 | NICHE_MODELER L33 — Gemini Advanced · 9 upgrades + 2 novos nichos | NICHE_INDEX.json v1.1: 11 nichos, todos MOVER_AGORA, fit_score 5.0. 3 alertas CRITICOS: ECD 30/06 (17 dias), AI Act 02/08, ANEEL 05/08. 3 posts LinkedIn criados. niche_alert_router.ps1 corrigido. Commit ea038d9 (9 arquivos, 658 ins) |
+| 2026-06-13 | Diretor solicita estratégia 3 canais por nicho + consulta ao Embaixador (P-154) | Comunicação direta entre sócios -- não é loop padrão, não requer DIRETRIZ. Flag -OrdemDiretor adicionado ao ir_ao_embaixador.ps1. P-154 inscrito no LEDGER_INBOX. Músculo verificou e atualizou os 9 arquivos para upload ao Embaixador. |

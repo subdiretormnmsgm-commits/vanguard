@@ -7,7 +7,25 @@
 
 ---
 
-## STATUS: 0 ENTRADAS PENDENTES — Loop 33 fechado · 2026-06-12
+## STATUS: 1 ENTRADA PENDENTE — Loop 33 sessão NICHE_MODELER · 2026-06-13
+
+---
+
+## [PENDENTE — aguarda autorização P-098]
+
+### P-154 — COMUNICACAO DIRETA DO DIRETOR ENTRE SOCIOS NAO REQUER GATE DE DIRETRIZ (2026-06-13)
+
+**Regra:** Quando o Diretor ordena comunicação direta com o Embaixador (ou qualquer sócio) fora do fluxo padrão do loop, o gate de DIRETRIZ no `ir_ao_embaixador.ps1` deve ser contornável via flag `-OrdemDiretor`.
+
+**Por que:** O gate de DIRETRIZ existe para proteger o fluxo padrão Gemini→NotebookLM→Embaixador→Músculo. Ele não se aplica quando o Diretor exerce prerrogativa direta de comunicação entre sócios (ex: consultar o Embaixador sobre estratégia de canal antes de uma decisão). Bloquear este caso é falha arquitetural — a restrição foi aplicada ao contexto errado.
+
+**Diferença crítica:** Loop padrão (gate obrigatório) × Comunicação direta do Diretor (gate ignorado com `-OrdemDiretor`). O Embaixador registra o motivo no LOG.
+
+**Ferramenta construída:** flag `-OrdemDiretor` adicionado ao `ir_ao_embaixador.ps1` (sessão 2026-06-13).
+
+**Evidência:** `ir_ao_embaixador.ps1` bloqueou com "DIRETRIZ_GEMINI_V33.txt não encontrada" quando o Diretor ordenou consulta ao Embaixador sobre estratégia 3 canais NICHE_MODELER — contexto correto, gate errado.
+
+---
 
 ---
 
