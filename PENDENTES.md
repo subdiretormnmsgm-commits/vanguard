@@ -224,10 +224,9 @@
   Contato sugerido: "Valdece, você conhece algum escritório ou empresa que participou de licitações nos últimos 6 meses e não ficou satisfeito com os resultados?"
   Janela: hypercare encerra 18-06. Depois disso a relação esfria e a ponte perde força.
 
-- [ ] `2026-06-12` **[MÚSCULO] G-4+A-3 — LOOP_STATE v1.1 por cliente + Context Routing n8n** [musculo]
-  G-4 INGRID e VALDECE migrados para schema v1.1 (✅ feito nesta sessão — 2026-06-12).
-  A-3: documentar o design do Context Routing — n8n injeta LOOP_STATE_[CLIENTE].json no system prompt.
-  Custo: ~4h de build.
+- [x] `2026-06-12` ~~**[MÚSCULO] G-4+A-3 — LOOP_STATE v1.1 por cliente + Context Routing n8n** [musculo]~~
+  ✅ G-4: INGRID + VALDECE migrados para schema v1.1 em 2026-06-12.
+  ✅ A-3: DESIGN_CONTEXT_ROUTING.md criado (PENTALATERAL_UNIVERSAL/OPERACAO/) — Opção A (local, session_start.ps1 PASSO 8g) recomendada. Gate de build: Diretor aprova Opção A vs B antes de implementar. [RESOLVE: G4-A3]
 
 - [ ] `2026-06-12` **[MÚSCULO] E-5 — update_memoria_embaixador.ps1 (automação P-032 completa)** [musculo]
   E-5 é pré-requisito de escala. Automação do conteúdo da MEMORIA_EMBAIXADOR via session_close.
