@@ -245,11 +245,14 @@ Se nenhum alerta: escrever "SEM ALERTAS URGENTES NESTE CICLO".
 
 ## [COMO USAR ESTE ARQUIVO]
 
-1. Abrir **Google Antigravity Platform** (Gemini 3.1 Pro High / Deep Think — 1M tokens)
-2. Colar este documento no chat
-3. Anexar os arquivos do Bloco A (Drive IDs acima) + Bloco B (locais) + Bloco C (colar como texto) + Bloco D (colar como texto)
+> **⚠️ AMBIENTE: Antigravity IDE (VS Code + Gemini 3.1 Pro High no painel lateral)**
+> O agente lê os arquivos do workspace diretamente. **Não é necessário colar nem anexar nada.**
+
+1. Abrir o **Antigravity IDE** (já está no VS Code — painel Gemini 3.1 Pro High na lateral direita)
+2. No chat do painel, descrever a missão — o agente lê `PASSO_NICHE_MODELER.md` e os demais arquivos do workspace direto do disco
+3. Para referenciar arquivo específico: usar `@nome-do-arquivo` no chat se necessário
 4. Aguardar resposta completa — pode levar 2-5 min com Deep Think ativo
-5. Colar resposta em `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` — seção NICHE MODELER
+5. O Músculo salva o output em `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` — seção NICHE MODELER
 6. Músculo revisa + aplica aprovações ao NICHE_INDEX.json e modelos individuais
 
 **NOTA P-090:** Este arquivo é o que vai ao Gemini — não o chat.
