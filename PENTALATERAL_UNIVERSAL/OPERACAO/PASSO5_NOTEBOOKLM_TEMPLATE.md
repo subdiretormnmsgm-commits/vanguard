@@ -310,7 +310,7 @@ notebooklm download mind-map "CLIENTES/[NOME]/HISTORICO/MINDMAP_LOOP_V[N]_[NOME]
 
 **Prioridade:** BRIEFING obrigatório · PODCAST obrigatório se loop > 2h · MINDMAP recomendado.
 **Uso dos artefatos:**
-- BRIEFING → fonte extra para o próximo CONTEXTO_GEMINI (Antigravity ficará mais informado)
+- BRIEFING → fonte extra para o próximo CONTEXTO_GEMINI (Google Antigravity Platform — Estrategista — ficará mais informado)
 - PODCAST → Diretor escuta briefing sem abrir documentos
 - MINDMAP → referência visual das conexões do loop para deliberações futuras
 

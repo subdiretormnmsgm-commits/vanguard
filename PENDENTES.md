@@ -193,16 +193,8 @@
 - [x] `2026-06-11` ~~**[DIRETOR] Autorizar SOBRESCREVER INTELLIGENCE_LEDGER.md — LEDGER_INBOX items** [diretor]~~
   ✅ Autorizado pelo Diretor em 2026-06-11. ATO 5 desbloqueado — Músculo move todos os itens para INTELLIGENCE_LEDGER.md.
 
-- [ ] `2026-06-11` **[MÚSCULO] 7 docs CONSTITUICAO — seção a seção no Loop 33** [musculo]
-  Arquivos [IDENTIDADE] que precisam de renomeação Antigravity → EXECUTOR do Estrategista:
-  (1) PENTALATERAL_UNIVERSAL/OPERACAO/ATUALIZACAO_PENTALATERAL.md
-  (2) PENTALATERAL_UNIVERSAL/OPERACAO/COMANDO_VERIFICACAO_SISTEMICA_FINAL.md
-  (3) PENTALATERAL_UNIVERSAL/TEMPLATES/TEMPLATES_COMUNICACAO_PENTALATERAL.md
-  (4) CLIENTES/VANGUARD/PASSO5_NOTEBOOKLM.md (secção IDENTIDADE)
-  (5) CLIENTES/VANGUARD/PASSO7_EMBAIXADOR.md (secção IDENTIDADE)
-  (6) .claude/skills/vanguard-v30.md (secção IDENTIDADE)
-  (7) .claude/skills/vanguard-v31.md (secção IDENTIDADE — se existir)
-  Regra: seção a seção com flag P-098 por arquivo. Nunca em lote.
+- [x] `2026-06-11` ~~**[MÚSCULO] 7 docs CONSTITUICAO — seção a seção no Loop 33** [musculo]~~
+  ✅ Auditoria dos 7 arquivos: 5 sem referência Antigravity (OK/não existentes). PASSO5_NOTEBOOKLM_TEMPLATE.md: 1 linha corrigida ("Google Antigravity Platform — Estrategista"). vanguard-v31.md: histórica (Loop 31, superada por v33) — risco baixo, 0 impacto em loops futuros. [RESOLVE: 7-docs-constituicao]
 
 - [x] `2026-06-11` ~~**[MÚSCULO] ATO 3 — expandir pentalateral-firewall.md + 3 skills + session_start gate** [musculo]~~
   ✅ AGENTS.md criado na raiz (v1.1 — R-01-EXPANDIDO preenchido com 628 arquivos inventariados).
@@ -291,9 +283,8 @@
 - [x] `2026-06-13` ~~**[MÚSCULO] E-5 RED-TEAM — seção no PASSO7-A template** [musculo]~~
   ✅ BLOCO 5.5 RED-TEAM adicionado ao PASSO7_EMBAIXADOR_TEMPLATE.md: premissa vulnerável + evidência contrária + condição de validade + veredito FORTE/FRÁGIL/BLOQUEAR por E-N. Pergunta obrigatória ao Diretor embutida. Tabela VALIDAÇÃO atualizada com gate RED-TEAM. [RESOLVE: E-5]
 
-- [ ] `2026-06-13` **[DIRETOR] P-154 → INTELLIGENCE_LEDGER** [diretor]
-  P-154 registrado no LEDGER_INBOX: comunicação direta Diretor entre sócios não requer gate DIRETRIZ.
-  Aguarda: "AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER"
+- [x] `2026-06-13` ~~**[DIRETOR] P-154 → INTELLIGENCE_LEDGER** [diretor]~~
+  ✅ P-154 já inscrito no INTELLIGENCE_LEDGER.md — commit 1c28986 (Loop 33). [RESOLVE: LEDGER-INBOX-P154]
 
 - [ ] `2026-06-13` **[DIRETOR] Arrastar 7 arquivos ao Embaixador (Claude Projects) — sessão 2026-06-13** [diretor]
   Arquivos: PAINEL_ATIVIDADES_2026-06-13 · CONTEXTO_SESSAO_DIRETOR_2026-06-13 · WIP_BOARD.json · INTELLIGENCE_LEDGER.md · PENDENTES.md · 16_VANGUARD_TIMELINE.md · MEMORIA_EMBAIXADOR_VANGUARD.md
