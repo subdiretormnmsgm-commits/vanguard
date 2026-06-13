@@ -82,7 +82,25 @@ O Gemini recebe (na ordem):
 
 ## FASE 2 — INVOCAÇÃO DA SKILL gemini-pentalateral
 
-**Objetivo:** Abrir o Gemini Advanced via browser automation (acesso remoto) e posicionar os artefatos.
+**Objetivo:** Abrir o Google Antigravity Platform via browser automation (acesso remoto) e posicionar os artefatos.
+
+### MOTOR CORRETO — GOOGLE ANTIGRAVITY PLATFORM (Gemini 3.1 Pro High)
+> Pesquisa do Diretor confirmada em 2026-06-13. Atualização de protocolo obrigatória.
+
+| Ambiente | Modelo | Diferencial |
+|----------|--------|-------------|
+| Gemini App padrão | Gemini 3.1 Pro (Standard) | Processamento direto e rápido |
+| **Google Antigravity Platform** | **Gemini 3.1 Pro (High) + Deep Think** | **Pensamento estendido pré-geração — mais assertivo em tarefas estruturais** |
+
+**Regra:** sempre usar o **Google Antigravity Platform** para NICHE_MODELER e geração de DIRETRIZ.
+Não usar o Gemini App padrão (gemini.google.com/app) — o Deep Think não está disponível lá.
+
+**Contexto de 1M tokens:** PASSO3 + MEMORIA + RELATORIO podem ser colados em uma única interação sem truncamento. Aproveitar o contexto completo — não fragmentar em múltiplas mensagens.
+
+**ATENÇÃO — Distinção de nomenclatura crítica:**
+- **Antigravity CLI (local)** = o executor que lê PASSO3_GEMINI.md do disco. **Nunca gera DIRETRIZ.**
+- **Google Antigravity Platform** = a plataforma externa com Gemini 3.1 Pro High. **Gera DIRETRIZ.**
+São dois sistemas distintos com nomes similares. P-124 proíbe o CLI de gerar DIRETRIZ — não proíbe a plataforma.
 
 ### 2.1 Invocar a skill
 ```
@@ -90,10 +108,11 @@ O Gemini recebe (na ordem):
 ```
 A skill `gemini-pentalateral` (`.claude/skills/gemini-pentalateral.md`) faz:
 - Abre browser via Playwright
-- Navega para Gemini Advanced (conta correta)
+- Navega para o **Google Antigravity Platform** (não Gemini App padrão)
+- Ativa modo High / Deep Think se disponível
 - Prepara o contexto para o Diretor colar os artefatos
 
-**Atenção P-124:** o Gemini Advanced é um motor DIFERENTE do Antigravity/Claude.
+**Atenção P-124:** o Google Antigravity Platform (Gemini 3.1 Pro High) é motor DIFERENTE do Claude/Músculo.
 Essa diferença é o valor — triangulação cega. Nunca usar Claude para gerar a DIRETRIZ do Gemini.
 
 ### 2.2 O que a skill verifica antes de abrir
@@ -109,7 +128,7 @@ Essa diferença é o valor — triangulação cega. Nunca usar Claude para gerar
 
 ### 3.1 Sequência de ações no browser
 ```
-1. browser_navigate → gemini.google.com/app (conta correta verificada)
+1. browser_navigate → Google Antigravity Platform (NÃO gemini.google.com/app)
 2. browser_snapshot → confirmar que está na sessão certa / sem conversa residual
 3. browser_new_conversation → limpar contexto anterior
 4. browser_file_upload ou browser_fill_form → anexar MEMORIA + RELATORIO como arquivos
