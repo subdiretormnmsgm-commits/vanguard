@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 2.1 | Loop 33 NICHE_MODELER + Estratégia 3 Canais — Embaixador consultado (P-154) | Atualizada: 2026-06-13 (P-032)
+> Criada em: 2026-06-06 | Versão: 2.2 | Atualizada: 2026-06-13 · E-1 Loop 33 — PADROES_FUNDADOR adicionado (6 padrões confirmados PF-1..PF-6) (P-032)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -37,6 +37,30 @@
 - Transparência: "não posso perder o controle"
 - Integridade do processo — desvio sem justificativa é falha, não flexibilidade
 - **Documentos sempre refletindo a realidade — deriva é incidente, não detalhe (09/06)**
+
+---
+
+## PADROES_FUNDADOR — Padrões Comportamentais Confirmados (Eduardo)
+
+> Criada pelo Músculo (E-1 Loop 33 — BLOQUEANTE). Padrões com ≥2 instâncias documentadas são CONFIRMADOS.
+> O sistema nunca ignora estes padrões — eles informam todo loop, toda deliberação, todo alerta.
+
+| ID | Padrão | Instâncias Confirmadas | Impacto Operacional para o Sistema |
+|----|--------|----------------------|-----------------------------------|
+| **PF-1** | **Builder > Vendedor** | Loop 31 + Loop 33 (Embaixador) | Eduardo gera excelência técnica por default; prospecção/venda requer gatilho externo. Sistema deve injetar urgência comercial ativa — NUNCA esperar o Diretor pedir para ir ao mercado. Quando o loop produz só build sem contato externo = alerta PF-1 ativo. |
+| **PF-2** | **Originator Burst** | Loop 29 + Loop 30 + Loop 33 | Em sessões de alta energia, Eduardo gera mais ideias que todos os sócios combinados. Sistema não barra — canaliza e amplifica. Burst sem captura estruturada = perda de IP. Injetar PASSO3/MEMORIA em momento de burst. |
+| **PF-3** | **Aprovação por Silêncio** | Loop 28→33 (recorrente) | Continuidade sem objeção = aprovação implícita. "ok" e "Pode" são vereditos definitivos. Sistema nunca solicita confirmação redundante após resposta curta direta. |
+| **PF-4** | **Intervenção por CAPS** | Loop 29 + Loop 31 + Loop 33 (recorrente) | CAPS = freio de emergência do Diretor. Sistema para TUDO ao detectar CAPS — responde exclusivamente ao que foi sinalizado, descarta qualquer plano anterior. |
+| **PF-5** | **Tolerância Zero a Falha Repetida** | Loop 31 (BOM UTF-8) + Loop 32 (deriva docs) + Loop 33 (DEF-M-6 Cowork) | Mesma falha documentada no LEDGER que se repete = incidente sistêmico grave. Alerta automático quando padrão de falha já tem entrada no LEDGER — nunca reiterar o que já está escrito. |
+| **PF-6** | **Deriva Documental como Incidente** | Loop 32 (62 arquivos) + Loop 33 (Cowork sem gatilho) | Eduardo trata deriva documental como incidente crítico, não detalhe operacional. Sistema corrige ANTES do Diretor detectar. Quando o Diretor detecta = DEF-M-6 automático. |
+
+### Alertas PF-1 Ativos — Builder>Vendedor (Loop 34)
+
+> O padrão mais crítico do sistema. Cada loop sem contato externo confirma PF-1 em ação.
+
+**Status atual:** Loop 34 em curso — gate E-4 (≥1 conversa real antes do próximo canal) é o antídoto cirúrgico.
+**Urgência ECD:** 17 dias para 30/06/2026 — prazo externo comprime o padrão PF-1.
+**Ação do Embaixador:** ao fechar Loop 34 sem contato externo documentado → emitir ALERTA PF-1 explicitamente no BLOCO 0 da próxima sessão.
 
 ---
 

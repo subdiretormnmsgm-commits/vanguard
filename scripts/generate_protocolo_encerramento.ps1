@@ -508,6 +508,39 @@ $linhasDoc.Add($entregasBloco)
 $linhasDoc.Add("")
 $linhasDoc.Add($separador)
 $linhasDoc.Add("")
+# E-3 Loop 33: ARTEFATO_DE_PROVA -- gate unico por campanha
+$linhasDoc.Add("## ARTEFATO_DE_PROVA")
+$linhasDoc.Add("")
+$linhasDoc.Add("> Gate E-3: cada campanha/entrega do dia deve ter um artefato de prova em disco.")
+$linhasDoc.Add("> O Embaixador NAO declara campanha encerrada sem verificar que o artefato existe.")
+$linhasDoc.Add("")
+try {
+    $filesHoje = & git -C $raiz diff --name-only HEAD~1 HEAD 2>$null
+    if (-not $filesHoje) { $filesHoje = & git -C $raiz log --since="$($data)T00:00:00" --name-only --format="" 2>$null }
+    if ($filesHoje) {
+        $arteProvaLinhas = $filesHoje | Where-Object { $_ -match "\.(md|json|ps1|txt|py|js|ts)$" } | Select-Object -Unique
+        if ($arteProvaLinhas) {
+            $linhasDoc.Add("Arquivos gerados/modificados hoje (evidencia automatica):")
+            foreach ($f in $arteProvaLinhas) {
+                $linhasDoc.Add("  - $f")
+            }
+        } else {
+            $linhasDoc.Add("[ARTEFATO] Nenhum arquivo relevante detectado no commit mais recente.")
+        }
+    } else {
+        $linhasDoc.Add("[ARTEFATO] Sem commits hoje -- preencher manualmente.")
+    }
+} catch {
+    $linhasDoc.Add("[ARTEFATO] Erro ao ler git log -- preencher manualmente.")
+}
+$linhasDoc.Add("")
+$linhasDoc.Add("CAMPANHA ATIVA:")
+$linhasDoc.Add("  Nome     : [preencher -- ex: ECD 30/06 outreach]")
+$linhasDoc.Add("  Artefato : [arquivo em disco que prova a entrega -- ex: PIPELINE/2026-06-13_ECD_contato.txt]")
+$linhasDoc.Add("  Gate E-4 : [ ] >=1 conversa real registrada antes de abrir proximo canal")
+$linhasDoc.Add("")
+$linhasDoc.Add($separador)
+$linhasDoc.Add("")
 $linhasDoc.Add("## ALERTAS DO MUSCULO")
 $linhasDoc.Add("")
 $linhasDoc.Add("> Escopo: anomalias de sistema (manifesto hash, canonical violation). Pendentes e gargalos estao nas secoes ATIVIDADES EM DEFICIT e ALERTA GARGALO acima.")
@@ -574,6 +607,8 @@ $linhasDoc.Add("4. DIAGNOSTICO DO DIA -- saude dos projetos ativos")
 $linhasDoc.Add("5. PREVISAO DOS PROXIMOS DIAS -- data a data com checklist de acoes do Diretor")
 $linhasDoc.Add("6. ANALISE GERENCIAL -- amplificar a analise do Musculo com perspectiva do Embaixador")
 $linhasDoc.Add("7. PARA DELIBERACAO DO DIRETOR -- opcoes para deliberar, nunca lista de comandos")
+$linhasDoc.Add("8. ARTEFATO_DE_PROVA -- verificar: o artefato listado na secao ARTEFATO_DE_PROVA existe em disco?")
+$linhasDoc.Add("   Se nao existe: BLOQUEIO -- campanha NAO pode ser declarada encerrada. Alerta ao Diretor.")
 $linhasDoc.Add("")
 $linhasDoc.Add("O artefato deve ser autossuficiente: o Diretor abre e sabe exatamente o que fazer.")
 $linhasDoc.Add("")

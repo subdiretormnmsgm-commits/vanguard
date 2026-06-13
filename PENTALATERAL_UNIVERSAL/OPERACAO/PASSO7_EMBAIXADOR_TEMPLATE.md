@@ -414,6 +414,20 @@ BLOCO 5 — [E-1 a E-5] IDEIAS EXCLUSIVAS DO EMBAIXADOR
     Por que [NOME_DO_CLIENTE] valorizaria: [razão fundamentada no histórico]
     Evidência: [o que o cliente disse/fez]
 
+BLOCO 5.5 — RED-TEAM (E-5 Loop 33 — obrigatório)
+  Objetivo: evitar ilusão de consenso. A atenção do Diretor é recurso escasso — o Embaixador
+  deve desafiar ativamente os [E-1 a E-5] antes de o Diretor deliberar.
+  Para cada E-N gerado no BLOCO 5, o Embaixador responde:
+    [E-N] RED-TEAM:
+    Premissa vulnerável : [o que esta ideia assume que pode estar errado]
+    Evidência contrária : [algo no histórico do cliente ou do mercado que contradiz]
+    Condição de validade: [o que teria que ser verdade para E-N funcionar]
+    Veredito RED-TEAM   : FORTE (premissa sólida) / FRÁGIL (condição não verificada) / BLOQUEAR (contradição direta)
+
+  Pergunta obrigatória ao Diretor após o RED-TEAM:
+  "Diretor, das ideias acima, qual você priorizaria mesmo com as fragilidades expostas?"
+  [Aguardar resposta — não sugerir a ordem.]
+
 BLOCO 6 — INTELIGÊNCIA DE MERCADO ([NICHO])
   O que o comportamento real do cliente revela sobre o nicho — não sobre ele individualmente:
   Padrão confirmado no nicho: [comportamento que provavelmente se repete em outros clientes similares]
@@ -433,6 +447,7 @@ BLOCO 7 — PRÓXIMA AÇÃO RECOMENDADA
 | Item | Critério |
 |---|---|
 | [E-1 a E-5] foram geradas? | Sim — exclusivas, não síntese |
+| RED-TEAM aplicado a cada E-N (BLOCO 5.5)? | Sim — premissa vulnerável + evidência contrária + veredito FORTE/FRÁGIL/BLOQUEAR. Ausência = ilusão de consenso |
 | Todas as 15 ideias receberam reação individual? | Sim — M-1 a M-5 + G-1 a G-5 + N-1 a N-5 com CONFIRMA/EXPANDE/ALERTA. Zero omissões. |
 | SCOPE-WATCH atualizado? | Sim — novos itens adicionados se detectados |
 | Temperatura do cliente atualizada? | Sim — com razão declarada |

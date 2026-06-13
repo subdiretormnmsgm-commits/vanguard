@@ -282,20 +282,14 @@
 
 ### 🔒 LOOP 33 — PENDENTES PÓS-FECHAMENTO (2026-06-13)
 
-- [ ] `2026-06-13` **[MÚSCULO] E-1: PADROES_FUNDADOR — seção na MEMORIA_EMBAIXADOR_VANGUARD.md** [musculo]
-  Origem: E-1 deliberado Loop 33 — padrão builder>vendedor detectado em 2 instâncias (Loops 31 e 33). BLOQUEANTE.
-  Ação: adicionar seção "PADROES_FUNDADOR" na MEMORIA_EMBAIXADOR_VANGUARD.md com os padrões confirmados.
-  Custo: ~30min.
+- [x] `2026-06-13` ~~**[MÚSCULO] E-1: PADROES_FUNDADOR — seção na MEMORIA_EMBAIXADOR_VANGUARD.md** [musculo]~~
+  ✅ PADROES_FUNDADOR adicionado à MEMORIA_EMBAIXADOR_VANGUARD.md v2.2. 6 padrões confirmados: PF-1 (Builder>Vendedor) · PF-2 (Originator Burst) · PF-3 (Aprovação por Silêncio) · PF-4 (Intervenção por CAPS) · PF-5 (Tolerância Zero a Falha Repetida) · PF-6 (Deriva Documental como Incidente). Alertas PF-1 ativos para Loop 34 documentados. [RESOLVE: E-1]
 
-- [ ] `2026-06-13` **[MÚSCULO] E-3: ARTEFATO_DE_PROVA — campo no template PAINEL_ATIVIDADES** [musculo]
-  Origem: E-3 deliberado Loop 33 — gate único por campanha exige artefato de prova da entrega.
-  Ação: adicionar campo "ARTEFATO_DE_PROVA" no template PAINEL_ATIVIDADES gerado pelo session_close.
-  Custo: ~30min.
+- [x] `2026-06-13` ~~**[MÚSCULO] E-3: ARTEFATO_DE_PROVA — campo no template PAINEL_ATIVIDADES** [musculo]~~
+  ✅ Seção ARTEFATO_DE_PROVA adicionada ao generate_protocolo_encerramento.ps1: auto-popula com arquivos do commit do dia + campo CAMPANHA ATIVA + Gate E-4. INSTRUCAO PARA O EMBAIXADOR recebeu bloco 8 com verificação de existência do artefato em disco. [RESOLVE: E-3]
 
-- [ ] `2026-06-13` **[MÚSCULO] E-5 RED-TEAM — seção no PASSO7-A template** [musculo]
-  Origem: E-5 deliberado Loop 33 — atenção do Diretor como recurso escasso; RED-TEAM evita ilusão de consenso.
-  Ação: adicionar seção RED-TEAM no PENTALATERAL_UNIVERSAL/OPERACAO/PASSO7_EMBAIXADOR_TEMPLATE.md.
-  Custo: ~30min.
+- [x] `2026-06-13` ~~**[MÚSCULO] E-5 RED-TEAM — seção no PASSO7-A template** [musculo]~~
+  ✅ BLOCO 5.5 RED-TEAM adicionado ao PASSO7_EMBAIXADOR_TEMPLATE.md: premissa vulnerável + evidência contrária + condição de validade + veredito FORTE/FRÁGIL/BLOQUEAR por E-N. Pergunta obrigatória ao Diretor embutida. Tabela VALIDAÇÃO atualizada com gate RED-TEAM. [RESOLVE: E-5]
 
 - [ ] `2026-06-13` **[DIRETOR] P-154 → INTELLIGENCE_LEDGER** [diretor]
   P-154 registrado no LEDGER_INBOX: comunicação direta Diretor entre sócios não requer gate DIRETRIZ.
