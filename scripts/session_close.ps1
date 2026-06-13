@@ -186,6 +186,66 @@ $arq5 = "PENDENTES.md"
 $arq6 = "CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md"
 $arq7 = "CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
 
+# GATE 7C -- FRESCOR DOS 7 ARQUIVOS DO EMBAIXADOR (BLOQUEANTE)
+# Verifica LastWriteTime de cada arquivo. Nenhum pode ter data anterior a hoje.
+# "So prossegue com dados atualizados" -- Diretor 2026-06-13.
+Write-Host ""
+Write-Host "  =======================================================" -ForegroundColor Cyan
+Write-Host "  [GATE 7C] Frescor dos 7 Arquivos para o Embaixador"    -ForegroundColor Cyan
+Write-Host "  Referencia: $dataFim ($(Get-Date -Format 'HH:mm'))"    -ForegroundColor Cyan
+Write-Host "  =======================================================" -ForegroundColor Cyan
+Write-Host ""
+
+$dataHojeDate7c = (Get-Date).Date
+$stale7c = [System.Collections.Generic.List[string]]::new()
+
+$mapa7c = [ordered]@{
+    "1. PAINEL_ATIVIDADES"           = if ($painelMaisRecente) { $painelMaisRecente.FullName } else { "$baseDir\PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_$dataFim.md" }
+    "2. CONTEXTO_SESSAO_DIRETOR"     = "$baseDir\PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_$dataFim.md"
+    "3. WIP_BOARD.json"              = "$baseDir\CLIENTES\WIP_BOARD.json"
+    "4. INTELLIGENCE_LEDGER.md"      = "$baseDir\INTELLIGENCE_LEDGER.md"
+    "5. PENDENTES.md"                = "$baseDir\PENDENTES.md"
+    "6. 16_VANGUARD_TIMELINE.md"     = "$baseDir\CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md"
+    "7. MEMORIA_EMBAIXADOR_VANGUARD" = "$baseDir\CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md"
+}
+
+foreach ($entry in $mapa7c.GetEnumerator()) {
+    $lbl  = $entry.Key
+    $path = $entry.Value
+    if (Test-Path $path) {
+        $lwt  = (Get-Item $path).LastWriteTime
+        $ts   = $lwt.ToString("yyyy-MM-dd HH:mm")
+        if ($lwt.Date -ge $dataHojeDate7c) {
+            Write-Host ("  [OK    ] {0,-44} {1}" -f $lbl, $ts) -ForegroundColor Green
+        } else {
+            Write-Host ("  [STALE ] {0,-44} {1}" -f $lbl, $ts) -ForegroundColor Red
+            $stale7c.Add($lbl)
+        }
+    } else {
+        Write-Host ("  [AUSENTE] {0,-44} ARQUIVO NAO ENCONTRADO" -f $lbl) -ForegroundColor Red
+        $stale7c.Add($lbl)
+    }
+}
+
+Write-Host ""
+if ($stale7c.Count -gt 0) {
+    Write-Host "  =======================================================" -ForegroundColor Red
+    Write-Host "  [GATE 7C] BLOQUEIO -- $($stale7c.Count) arquivo(s) desatualizado(s)" -ForegroundColor Red
+    Write-Host "  =======================================================" -ForegroundColor Red
+    foreach ($sl in $stale7c) {
+        Write-Host "    >> $sl" -ForegroundColor Red
+    }
+    Write-Host ""
+    Write-Host "  Musculo: atualizar os arquivos acima antes de rodar session_close novamente." -ForegroundColor Yellow
+    Write-Host "  =======================================================" -ForegroundColor Red
+    Write-Host ""
+    $exitCode = 2
+} else {
+    Write-Host "  [GATE 7C] VERDE -- todos os 7 arquivos atualizados hoje." -ForegroundColor Green
+    Write-Host "  =======================================================" -ForegroundColor Cyan
+}
+Write-Host ""
+
 # Detectar loop + cliente para o header
 $loopLabel = ""
 try {
