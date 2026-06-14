@@ -124,7 +124,7 @@
       "main": [[{"node": "W-8 -- Sinal W-10", "type": "main", "index": 0}]]
     }
   },
-  "settings": {"executionOrder": "v1", "continueOnFail": true},
+  "settings": {"executionOrder": "v1"},
   "staticData": {},
   "meta": {"templateId": "w10-n8n-healthcheck"},
   "pinData": {}

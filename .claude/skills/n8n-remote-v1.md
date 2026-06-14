@@ -27,7 +27,8 @@ ENDPOINTS PRINCIPAIS:
   POST /api/v1/workflows/{id}/deactivate   → desativar
 
 WORKFLOWS ATIVOS (2026-06-14):
-  W-7 | KisAa6ynD4btgrkL | Telegram + HTTP /webhook/w7-cmds | /status /score /custo /aprovar /rejeitar /veredito
+  W-7  | KisAa6ynD4btgrkL | Telegram + HTTP /webhook/w7-cmds | /status /score /custo /aprovar /rejeitar /veredito
+  W-10 | 8yvX4MBzdaK5l6IQ | Cron 6h30 BRT diario | Health Check auto -- erros 24h + inativos + Telegram + PENDING_REVIEW
 
 BRIDGE HERMES->N8N:
   Script: /opt/data/mcp_n8n_bridge.py (Python stdio JSON-RPC 2.0)
