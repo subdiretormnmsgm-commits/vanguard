@@ -25,18 +25,17 @@ Como Socio-Consultor, o encerramento e o momento mais critico para a memoria per
 
 ---
 
-## ARQUIVOS DO ENCERRAMENTO
+## ARQUIVOS DO ENCERRAMENTO (7 fixos — toda sessao)
 
-### 5 arquivos universais (toda sessao)
-1. PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_[YYYY-MM-DD].md  — gerado por session_close
-2. PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_[YYYY-MM-DD].md  — gerado por session_close
+1. PROTOCOLOS_ENCERRAMENTO\PAINEL_ATIVIDADES_[YYYY-MM-DD].md       — gerado por session_close
+2. PROTOCOLOS_ENCERRAMENTO\CONTEXTO_SESSAO_DIRETOR_[YYYY-MM-DD].md — gerado por session_close
 3. CLIENTES\WIP_BOARD.json
-4. INTELLIGENCE_LEDGER.md  (raiz)
-5. PENDENTES.md  (raiz)
+4. INTELLIGENCE_LEDGER.md                                           — raiz
+5. PENDENTES.md                                                     — raiz
+6. CLIENTES\VANGUARD\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md        — ATENCAO: nao em NOTEBOOKLM_FONTES
+7. CLIENTES\VANGUARD\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_VANGUARD.md
 
-### Arquivos especificos do cliente ativo
-Consultar embaixador-passo7-[cliente]-v1 para a lista exata.
-Exemplos: MEMORIA_EMBAIXADOR_VANGUARD.md + 16_VANGUARD_TIMELINE.md para cliente VANGUARD.
+GATE: verificar com Glob os paths 6 e 7 antes de cada upload — path errado causa ENOENT silencioso.
 
 ### Projeto destino
 URL: https://claude.ai/project/019e4c70-7e31-75d4-a568-cbb1077fb439
