@@ -12,25 +12,41 @@
 ---
 
 ## 🧠 ESTRATEGISTA (Gemini)
-> Papel: planejamento estratégico, roteamento de decisões, definição do que o Músculo executa.
+> Papel FORMAL P-163: planejamento estratégico, suporte à produção da DIRETRIZ, roteamento de decisões.
+> NUNCA gera DIRETRIZ de Loop autonomamente — papel exclusivo do Gemini Advanced via chat.
 > Quando invocar: antes de qualquer nova feature, gate de projeto ou decisão arquitetural.
+> Ferramentas primárias: Google AI Studio · Gemini CLI · Gemini Code Assist Agent Mode · Gemini Enterprise Agent Platform.
 
 | Skill | Quando usar |
 |---|---|
-| `@brainstorming` | Antes de qualquer feature ou mudança arquitetural — transforma requisito vago em design validado |
-| `@architecture` | Decisões de stack, trade-offs e documentação ADR para a infra da Vanguard |
-| `@concise-planning` | Abertura de toda sessão — força plano antes de delegar ao Músculo |
-| `@analyze-project` | Revisão de desvios de escopo, retrabalho e saúde do projeto (PROJ-001 / PROJ-002) |
+| `@concise-planning` | **Abertura obrigatória de toda sessão** — força plano antes de qualquer ação |
+| `@brainstorming` | Antes de qualquer feature ou DIRETRIZ — 7 passos + Understanding Lock + Decision Log. YAGNI ruthlessly |
+| `@multi-agent-brainstorming` | Escalada automática quando @brainstorming detecta alto impacto/risco — 5 agentes: Designer + Skeptic + Constraint Guardian + User Advocate + Arbiter |
+| `@architecture` | Decisões de stack, trade-offs e documentação ADR — após @brainstorming confirmar o design |
+| `@analyze-project` | Revisão de desvios de escopo, retrabalho e saúde do projeto |
+
+### Fluxo padrão do ESTRATEGISTA
+```
+1. @concise-planning [objetivo da sessão]           ← obrigatório, toda sessão
+2. @brainstorming [problema ou feature]             ← sempre antes de propor design
+   → Understanding Lock → 2-3 abordagens → Decision Log
+3. @multi-agent-brainstorming                       ← se alto impacto/risco (a própria @brainstorming chama)
+   → Skeptic + Constraint Guardian + User Advocate + Arbiter
+4. @architecture [documenta a decisão final]        ← após design validado
+5. @analyze-project [revisa desvios e saúde]        ← revisão de loop
+```
 
 ### Exemplo de uso — Estrategista
 ```
-@concise-planning Planeje a próxima etapa do Ledger API: endpoints de fechamento de ciclo
+@concise-planning Planeje o Loop 34 Vanguard: objetivo, gates e sequência de sócios
 
-@brainstorming Quais abordagens para versionamento da API sem quebrar clientes existentes?
+@brainstorming Quais abordagens para o n8n auto-manutenção sem depender do Diretor?
 
-@architecture Documente a decisão de usar FastAPI vs Flask para o Ledger API
+@multi-agent-brainstorming  (escalada automática — alto impacto na infra)
 
-@analyze-project Revise o escopo do PROJ-002 Ingrid e identifique desvios
+@architecture Documente a decisão de arquitetura do workflow de manutenção n8n
+
+@analyze-project Revise o escopo do PROJ-002 Ingrid e identifique desvios de loop
 ```
 
 ---
