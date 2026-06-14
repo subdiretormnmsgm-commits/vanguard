@@ -37,6 +37,19 @@
 - [x] `2026-06-14` ~~**[MÚSCULO] sync_inbox_pending_review.ps1 — gap F5 v2 (Embaixador nao notificava PENDING_REVIEW)** [musculo]~~
   ✅ Script criado 2026-06-14. Le manifesto CLIENTES/VANGUARD/INTEL/INBOX_COWORK_MANIFEST.json e registra novos arquivos em PENDING_REVIEW. Modo -Status (sem alterar) + modo -Arquivo direto. Testado. [RESOLVE: sync-inbox-pending-review]
 
+- [x] `2026-06-14` ~~**[MÚSCULO] ARQUITETURA DRIVE-FIRST — Embaixador busca arquivos do gdrive:vanguard em vez de receber upload** [musculo]~~
+  ✅ Entregue 2026-06-14: verify_gdrive_freshness.ps1 criado + 4 skills atualizadas (encerramento + passo7 VANGUARD/INGRID/VALDECE). Playwright agora envia apenas mensagem com paths do Drive. Embaixador busca via MCP. [RESOLVE: drive-first-embaixador]
+  Decisão do Diretor (2026-06-14): eliminar upload Playwright de arquivos. Novo fluxo:
+  1. Músculo atualiza docs localmente
+  2. Gate 10 (rclone) sincroniza para gdrive:vanguard
+  3. `scripts/verify_gdrive_freshness.ps1` — verifica frescor dos arquivos no Drive (timestamp local vs Drive) — gate bloqueante
+  4. Playwright abre Claude Projects → envia mensagem no chat (SEM upload):
+     - ENCERRAMENTO: template canônico (ENCERRAMENTO DE SESSÃO + ENTREGAS + FICOU NO AR + PRÓXIMA SESSÃO + pedido BLOCO 0 texto simples)
+     - PASSO7 [cliente]: template padrão do PASSO7 daquele cliente
+  Skills a atualizar: embaixador-encerramento-v1 · embaixador-passo7-vanguard-v1 · embaixador-passo7-ingrid-v1 · embaixador-passo7-valdece-v1
+  Remover: bloco de exclusão de arquivos antigos + bloco browser_file_upload de todas as skills
+  Custo estimado: 60-90 min · Gate: sessão dedicada.
+
 - [ ] `2026-06-13` **[MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIENTES/VANGUARD/ via sync** [musculo]
   Veredito Diretor (2026-06-13): Opção C — manter em PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/ (fonte canônica) + espelhar para CLIENTES/VANGUARD/INTELLIGENCE_HUB/ via sync automático.
   Custo: sessão dedicada 4-6h · scripts afetados: sync_vanguard_docs.ps1, DEPENDENCY_MAP, preparar_notebooklm, gemini_anchor_generator, PENDING_REVIEW paths.

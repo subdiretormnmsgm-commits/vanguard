@@ -155,7 +155,7 @@
                                     "contrato_assinado_em":  "2026-05-19",
                                     "deadline":  "2026-05-23",
                                     "build_iniciado_em":  "2026-05-13",
-                                    "ultimo_contato_cliente":  "2026-06-09",
+                                    "ultimo_contato_cliente":  "2026-06-14",
                                     "churn_watch_threshold":  3,
                                     "stack":  "FastAPI + Supabase + Claude API + Netlify",
                                     "loop_fase_atual":  {

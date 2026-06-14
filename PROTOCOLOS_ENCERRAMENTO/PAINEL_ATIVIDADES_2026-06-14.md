@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Domingo, 2026-06-14 13:18
+### Pentalateral IAH - Domingo, 2026-06-14 15:23
 
 ---
 
@@ -62,14 +62,22 @@ Ingrid     [RETAINER ]  Loop 8 -- Gemini:OK NBook:OK Embaixador:OK Musculo:OK --
 
 ## COMMIT DA SESSAO
 
-Commit : 95735df - 2 arquivo(s) alterado(s)
-Mensagem: feat(session_close): GATE P-059 Notion isolamento por cliente + tracking de prefixo
+Commit : 045ec03 - 1 arquivo(s) alterado(s)
+Mensagem: feat(skill): notebooklm-remote-v1 -- camada tecnica Playwright RPA para NotebookLM
 
 ---
 
 ## ENTREGAS DO DIA
 
 Commits do dia:
+- 045ec03 feat(skill): notebooklm-remote-v1 -- camada tecnica Playwright RPA para NotebookLM
+- a30e0a1 feat(skills): passo7 por cliente -- VANGUARD(9 arquivos reais) + INGRID + VALDECE com gate P-059
+- f6c7a32 fix(skill): embaixador-encerramento-v1 -- lista 7 arquivos fixos do encerramento
+- 78961fd refactor(skills): arquitetura 3 camadas para interacoes com Embaixador
+- 0382be1 feat(skill): criar embaixador-remote-v1 -- protocolo Playwright para interacoes com Claude Projects
+- 300e1aa chore(memoria): MEMORIA_EMBAIXADOR_VANGUARD -- V29-G3 concluido + header 2026-06-14 [VEREDITO-DIRETOR]
+- 717cc1d chore(ledger): P-162 -- protocolo de skills remotas EasyPanel/n8n [VEREDITO-DIRETOR]
+- e3df9b6 chore(session): fechamento 2026-06-14 -- artefatos e flags de sessao
 - 95735df feat(session_close): GATE P-059 Notion isolamento por cliente + tracking de prefixo
 - 034c56b fix(notion): P-059 -- prefixo [CLIENTE] por projeto no Notion (Opcao A)
 - 44f4b07 feat(skills): Operacao EasyPanel -- easypanel-remote-v1 + n8n-remote-v1
@@ -83,8 +91,7 @@ Commits do dia:
 > O Embaixador NAO declara campanha encerrada sem verificar que o artefato existe.
 
 Arquivos gerados/modificados hoje (evidencia automatica):
-  - scripts/notion_sync.ps1
-  - scripts/session_close.ps1
+  - .claude/skills/notebooklm-remote-v1.md
 
 CAMPANHA ATIVA:
   Nome     : [preencher -- ex: ECD 30/06 outreach]

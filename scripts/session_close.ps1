@@ -505,4 +505,43 @@ if ((Test-Path $transcriptScript) -and $exitCode -eq 0) {
     }
 }
 
+# GATE 10 -- SYNC ONEDRIVE -> GOOGLE DRIVE (rclone)
+Write-Host ""
+Write-Host "  =======================================================" -ForegroundColor Cyan
+Write-Host "  [GATE 10] Sync OneDrive -> Google Drive (rclone)"       -ForegroundColor Cyan
+Write-Host "  =======================================================" -ForegroundColor Cyan
+$rcloneFallback = "$env:LOCALAPPDATA\Microsoft\WinGet\Packages\Rclone.Rclone_Microsoft.Winget.Source_8wekyb3d8bbwe\rclone-v1.74.3-windows-amd64\rclone.exe"
+$_rcloneObj = Get-Command rclone -ErrorAction SilentlyContinue
+$rcloneCmd = if ($_rcloneObj) { $_rcloneObj.Source } else { $null }
+if (-not $rcloneCmd -and (Test-Path $rcloneFallback)) { $rcloneCmd = $rcloneFallback }
+if ($rcloneCmd) {
+    try {
+        $logFile = "$([Environment]::GetFolderPath('Desktop'))\rclone_sync_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
+        $srcPath = Split-Path $PSScriptRoot -Parent
+        & $rcloneCmd sync `
+            $srcPath `
+            "gdrive:vanguard" `
+            --exclude ".git/**" `
+            --exclude ".playwright-mcp/**" `
+            --exclude ".serena/**" `
+            --exclude "node_modules/**" `
+            --exclude "*.pyc" `
+            --log-file $logFile `
+            --log-level INFO
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "  [GATE 10] gdrive:vanguard -- OK (log: $logFile)" -ForegroundColor Green
+        } else {
+            Write-Host "  [GATE 10] gdrive:vanguard -- aviso (exitcode $LASTEXITCODE -- ver log: $logFile)" -ForegroundColor Yellow
+        }
+    } catch {
+        Write-Host "  [GATE 10] Sync falhou: $_" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "  [GATE 10] rclone nao encontrado -- instalar com:" -ForegroundColor Red
+    Write-Host "            winget install Rclone.Rclone" -ForegroundColor Yellow
+    Write-Host "            Apos instalar: rclone config  (remote name: gdrive, tipo: drive)" -ForegroundColor Yellow
+}
+Write-Host "  =======================================================" -ForegroundColor Cyan
+Write-Host ""
+
 exit $exitCode

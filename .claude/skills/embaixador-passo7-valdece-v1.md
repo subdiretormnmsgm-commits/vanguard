@@ -1,47 +1,90 @@
-﻿---
+---
 name: embaixador-passo7-valdece-v1
-description: "Invocar ao executar PASSO 7 para o cliente VALDECE. GATE: confirmar cliente ativo = VALDECE antes de qualquer acao."
+description: "Invocar ao executar PASSO 7 para VALDECE. GATE: confirmar cliente ativo = VALDECE. Drive-First: sem upload, Embaixador busca no Drive."
 ---
 
 SKILL: embaixador-passo7-valdece-v1.md
-Camada: Pentalateral IAH — Embaixador PASSO 7 | Projeto: VALDECE (PROJ-001) | Dependencia: claude-projects-remote-v1
+Camada: Pentalateral IAH -- Embaixador PASSO 7 | Projeto: VALDECE (PROJ-001) | Dependencia: claude-projects-remote-v1
 
 [GATE DE INVOCACAO]
-BLOQUEANTE: verificar WIP_BOARD.json -> projeto com status = VALDECE antes de prosseguir.
-Se cliente ativo for diferente -> parar + alertar: "CLIENTE DETECTADO: [X] — esta skill e para VALDECE. Invocar embaixador-passo7-[X]-v1."
-P-059: isolamento de contexto e lei — nunca misturar arquivos de clientes.
+BLOQUEANTE: verificar WIP_BOARD.json -> cliente ativo = VALDECE antes de qualquer acao.
+Se diferente -> parar: "CLIENTE DETECTADO: [X] -- esta skill e para VALDECE. Invocar embaixador-passo7-[X]-v1."
+P-059: isolamento de contexto e lei -- nunca misturar arquivos de clientes.
+GATE ADICIONAL -- Hypercare: se (hoje >= hypercare_ate - 7 dias), ler 02_OFFBOARDING_RUNBOOK.md e incluir na mensagem como contexto de transicao.
 
 [AUDITORIA DE COERENCIA]
-VALDECE e cliente externo (PROJ-001) — nicho LegalTech, Hypercare ativa ate 18-06-2026. O PASSO 7 da VALDECE usa arquivos especificos: MEMORIA_EMBAIXADOR (historico de comportamento do cliente), LOOP_STATE (fase do loop), PERFIL_NICHO_LEGALTECH_V1 (contexto de mercado juridico), INTELLIGENCE_LEDGER e 16_VANGUARD_TIMELINE (base universal). Coerencia com P-059: URL do projeto Claude.ai da VALDECE e diferente do VANGUARD e INGRID — confirmar com o Diretor antes da primeira operacao remota. Coerencia com P-032: MEMORIA_EMBAIXADOR deve estar atualizada antes do upload. Refs: INTELLIGENCE_LEDGER.md P-059/P-032, CLIENTES\VALDECE\CLAUDE_PROJECT\LOOP_STATE.json, MEMORIA_EMBAIXADOR.md VALDECE.
+VALDECE e cliente externo (PROJ-001) -- nicho LegalTech, Hypercare ativa ate 18-06-2026. O PASSO 7 usa: MEMORIA_EMBAIXADOR (historico e temperatura do cliente), LOOP_STATE, PERFIL_NICHO_LEGALTECH_V1. Coerencia com Drive-First (2026-06-14): verify_gdrive_freshness.ps1 -Perfil VALDECE confirma 6 arquivos no Drive antes de acionar. Nenhum upload via Playwright. URL do projeto VALDECE diferente do VANGUARD e INGRID -- confirmar com Diretor. Refs: P-059/P-032, CLIENTES\VALDECE\CLAUDE_PROJECT\LOOP_STATE.json, WIP_BOARD.json hypercare_ate.
 
 [CONEXAO HISTORICA]
-PROJ-001 VALDECE — LegalTech (automacao juridica). Entrega V3 concluida. Hypercare ativa ate 18-06-2026 — proximo gate e a renovacao ou offboarding. MEMORIA_EMBAIXADOR.md (VALDECE) registra comportamento real do cliente e temperatura atual. PERFIL_NICHO_LEGALTECH_V1.md contem mapa do mercado juridico gerado pelo Cowork Engine. 02_OFFBOARDING_RUNBOOK.md indica que processo de transicao esta planejado. Refs: INTELLIGENCE_LEDGER.md P-001 (PROJ-001 Valdece), CLIENTES\VALDECE\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md, WIP_BOARD.json campo hypercare_ate 2026-06-18.
+PROJ-001 VALDECE -- LegalTech (automacao juridica). Entrega V3 concluida. Hypercare ate 18-06-2026. MEMORIA_EMBAIXADOR.md registra temperatura atual e historico de comportamento. PERFIL_NICHO_LEGALTECH_V1.md contem mapa do mercado juridico do Cowork Engine. 02_OFFBOARDING_RUNBOOK.md disponivel para caso o cliente nao renove.
 
 [PADRAO DE SUCESSO/FALHA]
-SUCESSO — Gate P-059 antes do upload: confirmar WIP_BOARD cliente ativo = VALDECE.
-SUCESSO — MEMORIA_EMBAIXADOR VALDECE atualizada (LastWriteTime do dia) antes de enviar ao Embaixador.
-FALHA (BLOQUEANTE) — Upload sem URL confirmada do projeto VALDECE: risco de enviar para projeto errado.
-FALHA — Passo7 sem 02_OFFBOARDING_RUNBOOK.md quando Hypercare expira: Embaixador opera sem saber que o cliente esta em transicao de saida.
+SUCESSO -- verify_gdrive_freshness.ps1 -Perfil VALDECE exit 0 + Playwright envia PASSO 7 no chat correto (URL VALDECE). Embaixador le 6 arquivos do Drive.
+FALHA BLOQUEANTE -- Gate P-059 ignorado: risco de enviar contexto VALDECE para projeto errado.
+FALHA BLOQUEANTE -- URL do projeto VALDECE nao confirmada: confirmar com Diretor antes da primeira operacao.
+FALHA -- Passo7 sem 02_OFFBOARDING_RUNBOOK.md quando Hypercare expira: Embaixador opera sem saber que cliente esta em transicao. Gate adicional acima previne isso.
 
 [PERSPECTIVA DO SOCIO]
-Como Socio-Consultor, a VALDECE esta em fase critica: Hypercare expira 18-06-2026 e a renovacao nao esta garantida. O Embaixador no PASSO 7 deve priorizar o diagnostico de temperatura do cliente e a probabilidade de renovacao vs offboarding. IDEIA DISRUPTIVA: incluir 02_OFFBOARDING_RUNBOOK.md no upload do PASSO7 quando a data de Hypercare estiver a menos de 7 dias — Embaixador tem o plano de saida para caso o cliente nao renove. PROPONHO adicionar esta logica condicional ao gate de invocacao da skill.
+VALDECE em fase critica: Hypercare expira 18-06-2026. O PASSO 7 deve priorizar diagnostico de temperatura e probabilidade de renovacao vs offboarding. Quando Hypercare < 7 dias: incluir 02_OFFBOARDING_RUNBOOK.md na mensagem -- Embaixador precisa do plano de saida para calibrar a recomendacao.
 
 ---
 
-## ARQUIVOS DO PASSO 7 — VALDECE
+## FLUXO PASSO 7 VALDECE
 
-| # | Arquivo | Path local |
-|---|---------|-----------|
-| 1 | MEMORIA_EMBAIXADOR.md | CLIENTES\VALDECE\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md |
-| 2 | LOOP_STATE.json | CLIENTES\VALDECE\CLAUDE_PROJECT\LOOP_STATE.json |
-| 3 | 07_WIP_BOARD.json | CLIENTES\VALDECE\CLAUDE_PROJECT\07_WIP_BOARD.json |
-| 4 | 06_INTELLIGENCE_LEDGER.md | CLIENTES\VALDECE\CLAUDE_PROJECT\06_INTELLIGENCE_LEDGER.md |
-| 5 | 16_VANGUARD_TIMELINE.md | CLIENTES\VALDECE\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md |
-| 6 | PERFIL_NICHO_LEGALTECH_V1.md | CLIENTES\VALDECE\CLAUDE_PROJECT\PERFIL_NICHO_LEGALTECH_V1.md |
+### PASSO 0 -- Gate Hypercare (condicional)
+```powershell
+$wip = Get-Content "CLIENTES\WIP_BOARD.json" -Raw | ConvertFrom-Json
+$valdece = $wip.projetos | Where-Object { $_.cliente -eq "VALDECE" }
+$hypercare = [datetime]::Parse($valdece.hypercare_ate)
+$diasRestantes = ($hypercare - (Get-Date)).Days
+if ($diasRestantes -le 7) { Write-Host "HYPERCARE < 7 DIAS -- incluir 02_OFFBOARDING_RUNBOOK.md na mensagem" -ForegroundColor Yellow }
+```
 
-## PROJETO
-URL: [CONFIRMAR COM DIRETOR — Claude Projects VALDECE]
-Conta: subdiretor.mnmsgm@gmail.com
+### PASSO 1 -- Gate de frescor (BLOQUEANTE)
+```
+.\scripts\verify_gdrive_freshness.ps1 -Perfil VALDECE
+```
+EXIT 0: prosseguir | EXIT 1: atualizar + Gate 10 + re-executar
 
-## MENSAGEM PASSO 7
-Conteudo: colar o texto de CLIENTES\VALDECE\CLAUDE_PROJECT\PASSO7_EMBAIXADOR.md diretamente no chat.
+### PASSO 2 -- Playwright (claude-projects-remote-v1)
+1. browser_navigate -> [URL DO PROJETO VALDECE -- confirmar com Diretor]
+2. browser_snapshot -> localizar campo de chat
+3. browser_type -> colar mensagem PASSO 7 (template abaixo)
+4. browser_press_key -> Enter
+5. browser_snapshot -> confirmar envio
+
+SEM exclusao de arquivos. SEM browser_file_upload.
+
+---
+
+## ARQUIVOS NO DRIVE (6 -- gdrive:vanguard)
+
+1. CLIENTES/VALDECE/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md
+2. CLIENTES/VALDECE/CLAUDE_PROJECT/LOOP_STATE.json
+3. CLIENTES/VALDECE/CLAUDE_PROJECT/07_WIP_BOARD.json
+4. CLIENTES/VALDECE/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
+5. CLIENTES/VALDECE/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md
+6. CLIENTES/VALDECE/CLAUDE_PROJECT/PERFIL_NICHO_LEGALTECH_V1.md
+[+ 02_OFFBOARDING_RUNBOOK.md se Hypercare < 7 dias]
+
+---
+
+## TEMPLATE PASSO 7
+
+```
+Embaixador, PASSO 7 VALDECE -- Loop [N] V[X] -- [data]
+
+Os documentos estao no Google Drive (subdiretor.mnmsgm@gmail.com, pasta vanguard). Leia via Drive MCP:
+
+1. CLIENTES/VALDECE/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR.md
+2. CLIENTES/VALDECE/CLAUDE_PROJECT/LOOP_STATE.json
+3. CLIENTES/VALDECE/CLAUDE_PROJECT/07_WIP_BOARD.json
+4. CLIENTES/VALDECE/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
+5. CLIENTES/VALDECE/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md
+6. CLIENTES/VALDECE/CLAUDE_PROJECT/PERFIL_NICHO_LEGALTECH_V1.md
+[7. CLIENTES/VALDECE/CLAUDE_PROJECT/02_OFFBOARDING_RUNBOOK.md -- incluir se Hypercare < 7 dias]
+
+[SECAO D do PASSO7_EMBAIXADOR.md de VALDECE -- colar aqui o conteudo completo]
+```
+
+Nota: conteudo da SECAO D lido de CLIENTES\VALDECE\CLAUDE_PROJECT\PASSO7_EMBAIXADOR.md antes de enviar.
