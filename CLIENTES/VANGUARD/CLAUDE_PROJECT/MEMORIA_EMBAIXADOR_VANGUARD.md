@@ -97,10 +97,10 @@
 | V28-G2 | Signal Classifier W-8 shadow mode | ✅ ATIVO — expira 2026-06-14 |
 | V28-G3 | Hermes Agent Docker EasyPanel | ✅ ONLINE — Grau A ativo |
 | V28-G5 | 7 dias shadow mode validados | ✅ OK — prazo atingido (sem incidentes) |
-| V28-G6 | Hermes Grau A→B | ⬜ AUTORIZADO (D1:A) — aguarda EasyPanel Terminal manual |
+| V28-G6 | Hermes Grau A→B | ✅ CONCLUÍDO — Grau B ativo desde 2026-06-10 (D1:A executado) · Grau B permanente decidido 2026-06-13 |
 | V29-G1 | DIRETRIZ V29 | ✅ OK |
 | V29-G2 | Skill vanguard-v29.md | ✅ APROVADA |
-| V29-G3 | W-9 importado no EasyPanel n8n | ⬜ PENDENTE — Diretor arrasta workflow |
+| V29-G3 | W-9 importado no EasyPanel n8n | ✅ CONCLUÍDO — GOOGLE_AI_API_KEY adicionada via Playwright 2026-06-14 · W-9 Track TRENDS desbloqueado |
 | V29-G4 | Auditoria cirúrgica de documentos | ✅ CORRIGIDA 2026-06-09 |
 | V29-G5 | Embaixador reage Loop 29 (SEÇÃO D) | ✅ OK |
 | V29-G6 | Síntese P-037 + DECISOES.json Loop 29 | ✅ OK — DELIBERACAO_LOOP_V29 + DECISOES_V29 |
@@ -121,7 +121,7 @@
 | V33-G2 | Skill vanguard-v33.md (Auditor) | ✅ APROVADA — 2026-06-12 · N-1..N-5 + A-1..A-3 |
 | V33-G3 | Embaixador reage Loop 33 (SEÇÃO D) | ✅ OK — E-1..E-5 + D1/D2 propostos + intel BLOCO 8 entregues 2026-06-12 |
 | V33-G4 | RUNNING_INTELLIGENCE.md (Loop 33) | ✅ OK — Embaixador entregou sinais/ameaças/oportunidades Loop 33 |
-| V33-G5 | Síntese P-037 + DECISOES.json Loop 33 | ⬜ DELIBERACAO criada — aguarda veredito D1/D2 do Diretor |
+| V33-G5 | Síntese P-037 + DECISOES.json Loop 33 | ✅ CONCLUÍDO — D1:A + D2:A CONFIRMADOS 2026-06-12 · DELIBERACAO_LOOP_V33_VANGUARD.md + DECISOES_VANGUARD_V33 gerados |
 
 ---
 

@@ -1,5 +1,5 @@
 # WIP BOARD — Pentalateral IAH
-**Atualizado em:** 2026-06-09
+**Atualizado em:** 2026-06-14
 **Fonte:** WIP_BOARD.json (versao Markdown para o Auditor — NotebookLM nao le JSON)
 
 ---
@@ -29,34 +29,47 @@
 ## BUILD
 
 ### PROJ-000 — VANGUARD (Projeto Interno)
-- **Projeto:** VanguardV29 -- Pentalateral Autonomo
+- **Projeto:** VanguardV29 — Pentalateral Autonomo
 - **Area:** Infraestrutura Interna — Pentalateral IAH
 - **Tipo:** Projeto Interno — Evolucao do Sistema (nao e projeto cliente)
-- **Status:** BUILD — Loop 29 FECHADO · V29 Motor de Verdade · P-131/132/133/134 inscritos · Loop 30 aguarda veredito do Diretor
-- **Loop:** 29 EM BUILD | Gemini PENDENTE | auditoria cirurgica desbloqueou
-- **Stack:** Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API Haiku + Antigravity CLI (Intel Loop Motor)
+- **Status:** BUILD — Loop 33 EM ANDAMENTO · DEF-M-6 Patch · S1+S2+S3a Restricao Arquitetural
+- **Loop atual:** 33 | Gemini OK | NotebookLM OK | Embaixador OK | Musculo EM_ANDAMENTO
+- **Stack:** Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku — verificacao)
 - **Loop fase atual:**
-  - Gemini: PENDENTE | NotebookLM: PENDENTE | Embaixador: PENDENTE | Musculo: EM BUILD
-  - Proximo: Gemini — PASSO3_GEMINI.md pronto — skill gemini-pentalateral v2.1
-- **Entregues V29:**
-  - INTELLIGENCE HUB — Track COMPETITORS (mensal) + Track TRENDS (semanal W-9) — ATIVO
-  - Antigravity CLI — Intel Loop Motor isolado (P-124) — GEMINI.md + intel-loop.md + PENDING_REVIEW.md
-  - /notebooklm skill v2 — YouTube nativo + podcast PT-BR — validada em producao pelo Diretor
-  - LOOP_STATE system v1.0 — estado duravel por cliente/loop — resolve amnesia pos-compactacao
-  - W-9 n8n — Track TRENDS semanal (segunda 8h BRT) — arquivo criado (importacao EasyPanel: [DIRETOR])
-  - session_close.ps1 — gate e-mail bloqueante adicionado
-  - skill gemini-pentalateral v2.1 — browser automation Embaixador->Estrategista
-  - P-121 a P-127 inscritos no INTELLIGENCE_LEDGER
-- **Principios V29:** P-121 a P-127 (2026-06-08/09)
+  - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: EM_ANDAMENTO
+  - Proximo: NotebookLM — Skill vanguard-v33.md
 - **Hermes Agent:**
   - Status: ONLINE
   - Plataforma: EasyPanel hermes/hermes-agent
   - Modelo: anthropic/claude-sonnet-4-6 via OpenRouter
   - Telegram: configurado (home: 8895733647)
-  - Grau atual: A — age apenas com aprovacao
+  - Grau atual: B — age automaticamente + veto 15min Telegram (PERMANENTE — decidido 2026-06-13)
+  - Grau ativado em: 2026-06-10
+  - W-8 shadow mode: ENCERRADO — 7 dias sem incidentes — Grau B permanente · Grau C adiar para Loop 35+ apos 30 dias log limpo
   - Config: /opt/data/config.yaml (volume persistido)
-  - W-8 shadow mode expira: 2026-06-14
-- **Skill:** .claude/skills/vanguard-v29.md (pendente — aguarda DIRETRIZ V29)
+- **Entregues V29:**
+  - INTELLIGENCE HUB — Track COMPETITORS (mensal) + Track TRENDS (semanal W-9) — ATIVO
+  - Antigravity CLI — Intel Loop Motor isolado (P-124) — GEMINI.md + intel-loop.md + PENDING_REVIEW.md
+  - /notebooklm skill v2 — YouTube nativo + podcast PT-BR — validada em producao
+  - LOOP_STATE system v1.0 — estado duravel por cliente/loop — resolve amnesia pos-compactacao
+  - W-9 n8n — Track TRENDS semanal (segunda 8h BRT) — ATIVO — GOOGLE_AI_API_KEY configurada via Playwright 2026-06-14
+  - session_close.ps1 — gate e-mail bloqueante adicionado
+  - skill gemini-pentalateral v2.1 — browser automation Embaixador->Estrategista
+  - P-121 a P-127 inscritos no INTELLIGENCE_LEDGER
+- **Entregues V32:**
+  - Antigravity renomeado EXECUTOR do Estrategista (Gemini) em 62 arquivos — commit 4defaf6
+  - Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)
+  - LOOP_STATE schema v1.1 — missao + loop_anterior + builds_aprovados_nao_iniciados + p133
+  - pentalateral-firewall.md criado (.agents/skills/) — R-01..R-04
+  - SUGESTOES_DIRETOR.md protegida R-01 + deletada de CONSELHO/
+  - PASSO3_GEMINI.md identidade corrigida + CONTEXTO_GEMINI regenerado (110.677 chars)
+  - P-033 sync slot 20 LOOP_STATE_SCHEMA propagado INGRID+VALDECE+VANGUARD
+  - LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130
+- **Principios V28:** P-115, P-116
+- **Principios V29:** P-121 a P-127 (2026-06-08/09)
+- **Principios V32:** P-148 — LEDGER_INBOX como buffer de integridade (2026-06-10)
+- **Ultimo veredito:** 2026-06-12 — DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER
+- **Skill:** .claude/skills/vanguard-v30.md
 
 ---
 
@@ -67,17 +80,17 @@
 - **Area:** LegalTech - Direito Penal
 - **Status:** HYPERCARE — ate 18-06-2026
 - **Loop:** 7 CONCLUIDO — V3 entregue + Deploy Netlify OK
-- **Deploy:** https://toga-digital-valdece.netlify.app
+- **Deploy:** https://toga-digital-valdece.netlify.app (2026-05-19)
 - **Contrato:** Assinado 2026-05-19 | R$5.000
-- **Ultimo contato:** 2026-06-09 (confirmou: ferramenta OK — standby)
+- **Ultimo contato:** 2026-06-14
 - **Churn threshold:** 3 dias
 - **Sentinel:** VERDE — 2026-06-04 (Supabase pause resolvido)
 - **Corpus:** 61 acordaos | 22 temas | threshold 0.45 | TESTADO E VERDE
 - **Loop fase atual:**
   - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: OK
   - Proximo: Loop 8 gate — Sentinel Report uso ativo + Gemini anchor DIRETRIZ V8 Valdece
-- **V2 Pipeline:** Sovereign Upload + Radar de Divergencia + Citacao DOCX | R$8.500-12.000
-- **Proximo passo:** Hypercare termina 18-06-2026 — aguardar feedback Valdece apos Sentinel
+- **V2 Pipeline:** Sovereign Upload + Radar de Divergencia + Citacao DOCX | R$8.500-12.000 + R$300/mes manutencao
+- **Proximo passo:** Hypercare termina 18-06-2026 — Sentinel Report enviado 2026-06-04 — aguardar feedback Valdece
 
 ---
 
@@ -86,14 +99,15 @@
 ### PROJ-002 — Ingrid
 - **Projeto:** Ferramenta de Estudo — Concurso Sedes-DF
 - **Area:** EdTech - Concursos Publicos
-- **Status:** RETAINER — STANDBY
+- **Status:** RETAINER
 - **Loop:** 8 CONCLUIDO
-- **Ultimo contato:** 2026-06-09 (confirmou: ferramenta OK — standby)
-- **Churn threshold:** 3 dias (P-106 — EdTech perfil nao-verbal)
+- **Ultimo contato:** 2026-06-13
+- **Churn threshold:** 3 dias
 - **Depoimento:** Ingrid gostou muito da ferramenta — capturado 2026-06-04
-- **Prova:** 2026-09-06 (Instituto Quadrix)
+- **Prova:** 2026-09-06 (Instituto Quadrix — cargo TDAS 202)
 - **URL publica:** https://subdiretormnmsgm-commits.github.io/vanguard/
-- **Banco questoes:** 460 validadas
+- **Banco questoes:** 460 validadas — expansao para 1000+ aguarda creditos Anthropic
+- **Termo de uso:** ASSINADO 2026-05-18
 - **Loop fase atual:**
   - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: OK
   - Proximo: Loop 9 — Gate 7.2 RLS + captacao 2a candidata antes 04-07-2026
@@ -129,9 +143,9 @@
 |-------|-------|
 | Loops desde ultimo checkup | 2 |
 | Data ultimo checkup | 2026-05-27 |
-| Data ultima sessao | 2026-06-09 |
+| Data ultima sessao | 2026-06-13 |
 | Claude Projects pendente | Sim |
 
 ---
 
-*V29 EM BUILD 2026-06-09 — INTELLIGENCE HUB + Antigravity + /notebooklm v2 + LOOP_STATE + P-127 — Gemini PENDENTE*
+*V33 EM ANDAMENTO 2026-06-14 — Drive-First Embaixador + skills remotas + Hermes Grau B permanente — COWORK sync INTELLIGENCE_HUB pendente (proxima sessao dedicada 4-6h)*
