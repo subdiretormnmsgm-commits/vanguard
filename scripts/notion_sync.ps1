@@ -66,6 +66,12 @@ function B-Para($t) { '{"object":"block","type":"paragraph","paragraph":{"rich_t
 function B-Todo($t, $chk) { '{"object":"block","type":"to_do","to_do":{"checked":' + ($chk.ToString().ToLower()) + ',"rich_text":' + (RT $t) + '}}' }
 function B-Bullet($t) { '{"object":"block","type":"bulleted_list_item","bulleted_list_item":{"rich_text":' + (RT $t) + '}}' }
 
+# P-059: prefixo [CLIENTE] por secao de projeto -- isola contexto quando >1 cliente em BUILD
+function Get-ClientPrefix($heading) {
+    if ($heading -match 'PROJ-\d+\s*(?:[·.]\s*)?(\w+)') { return "[" + $matches[1].ToUpper() + "] " }
+    return ""
+}
+
 # Markdown generico -> blocos (preserva estado dos checkboxes; pula linhas vazias e tabelas-divisorias)
 function Md-Blocks($lines) {
     $out = New-Object System.Collections.ArrayList
@@ -132,10 +138,17 @@ if (Test-Path $pend) {
     $bl = New-Object System.Collections.ArrayList
     [void]$bl.Add((B-Para "Atualizado pelo Musculo em $ts (fim de sessao) -- somente pendentes em aberto"))
     $abertos = 0
+    $clientPrefix = ""
     foreach ($s in $secoes) {
         if ($s.items.Count -eq 0) { continue }
-        if ($s.head) { [void]$bl.Add((B-Head $s.head)) }
-        foreach ($it in $s.items) { [void]$bl.Add((B-Todo $it $false)); $abertos++ }
+        if ($s.head) {
+            $clientPrefix = Get-ClientPrefix $s.head
+            [void]$bl.Add((B-Head $s.head))
+        }
+        foreach ($it in $s.items) {
+            $display = if ($clientPrefix) { $clientPrefix + $it } else { $it }
+            [void]$bl.Add((B-Todo $display $false)); $abertos++
+        }
     }
     if ($abertos -eq 0) { [void]$bl.Add((B-Para "Nenhum pendente em aberto.")) }
     if (-not (Sync-Page $pgPend $bl "Pendentes")) { $okAll = $false }

@@ -38,6 +38,8 @@ try {
         foreach ($b in $r.results) {
             if ($b.type -eq 'to_do' -and $b.to_do.checked) {
                 $txt = ($b.to_do.rich_text | ForEach-Object { $_.plain_text }) -join ''
+                # P-059: remover prefixo [CLIENTE] antes de normalizar -- match continua funcionando
+                $txt = $txt -replace '^\[\w+\]\s*', ''
                 if ($txt.Trim()) { [void]$checked.Add((Norm $txt)) }
             }
         }

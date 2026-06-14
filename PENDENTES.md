@@ -103,7 +103,8 @@
   Afeta: 01_SKILL_PROTOCOLO + 03_MANUAL_DIRETOR (detectado em 2026-06-09).
   Baixa prioridade mas recorrente — eliminar para sempre.
 
-- [ ] `2026-06-09` **[MÚSCULO] Dívida arquitetural P-059 — páginas Notion globais vs. isolamento por cliente** [musculo] — DÍVIDA REGISTRADA (não bloqueante hoje · Dia único 09-06-2026 terça-feira)
+- [x] `2026-06-09` ~~**[MÚSCULO] Dívida arquitetural P-059 — páginas Notion globais vs. isolamento por cliente** [musculo]~~
+  ✅ Opção A implementada 2026-06-14: notion_sync.ps1 prefixa [CLIENTE] por seção PROJ-N; notion_pendentes_pull.ps1 strip o prefixo antes do match — isolamento sem quebrar quitação. [RESOLVE: P-059-notion-isolamento]
   Contexto: o canal bidirecional Notion (P-128) usa páginas GLOBAIS (Pendentes/WIP/Ledger/Falhas/Sugestões), únicas para todo o sistema. O Pentalateral suporta até 20 projetos simultâneos (P-059) com isolamento de contexto por cliente.
   Risco: com >1 cliente em BUILD, o Diretor veria pendentes de vários clientes numa única página Notion — pode marcar [x] no item do cliente errado.
   Mitigação atual (suficiente com 1 cliente ativo): o pull casa por TEXTO EXATO da linha do PENDENTES.md (não por cliente) e só quita itens [diretor]; o #2 agora alerta órfãos (marcado no Notion sem casar no PENDENTES).
