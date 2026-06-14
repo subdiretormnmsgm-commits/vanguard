@@ -1,6 +1,6 @@
 # skills.md — Pentalateral IAH · Vanguard Tech
 # Formato: Antigravity IDE (docs/users/bundles.md)
-# Versão: 2.0 · Eduardo · 2026-06-14 · P-163: 3 papéis formais (ESTRATEGISTA + EXECUTOR + COWORK CONDUCTOR)
+# Versão: 2.3 · Eduardo · 2026-06-14 · P-163: 3 papéis formais + GATILHOS por evento Pentalateral IAH
 #
 # COMO O ANTIGRAVITY LÊ ESTE ARQUIVO:
 # 1. Coloque este arquivo na raiz do projeto: ./skills.md
@@ -128,6 +128,52 @@ do PROJ-001 em pastas por data e tipo de documento
 
 5. ESTRATEGISTA revisa:
    @analyze-project [revise o que foi entregue]
+```
+
+---
+
+## 🎯 GATILHOS — QUANDO INVOCAR CADA SKILL
+
+> Esta seção ensina o Antigravity QUANDO usar cada skill no Pentalateral IAH.
+> Regra absoluta: **@concise-planning é obrigatória na abertura de toda sessão.** Todas as demais são por gatilho.
+
+### ESTRATEGISTA — Gatilhos por evento do Pentalateral IAH
+
+| Gatilho (evento) | Skill | Porquê |
+|---|---|---|
+| **Abertura de qualquer sessão** | `@concise-planning [objetivo]` | Plano antes de qualquer ação — P-163 obrigatório |
+| Receber DIRETRIZ do Gemini ou propor feature | `@brainstorming [problema]` | 7 passos + Understanding Lock + Decision Log — YAGNI |
+| @brainstorming detecta alto impacto ou risco | `@multi-agent-brainstorming` | 5 agentes: Designer+Skeptic+Guardian+Advocate+Arbiter |
+| Design validado, decisão aprovada pelo Diretor | `@architecture [decisão]` | Documenta ADR formal — irreversível exige registro |
+| Fechar loop ou revisar saúde do projeto | `@analyze-project [escopo]` | Detecta desvios, retrabalho, escopo inflado |
+
+### EXECUTOR — Gatilhos por evento do Pentalateral IAH
+
+| Gatilho (evento) | Skill | Porquê |
+|---|---|---|
+| Criar novo workflow n8n | `@n8n-workflow-patterns [tipo]` | Define padrão antes de construir: webhook/API/AI/scheduled |
+| Configurar nó específico (HTTP, DB, Slack, Telegram) | `@n8n-node-configuration [nó]` | Evita erros de configuração que causam execuções vazias |
+| Escrever expressão `{{$json.campo}}` no n8n | `@n8n-expression-syntax [expressão]` | Expressão errada = dados perdidos silenciosamente |
+| Antes de ativar workflow no EasyPanel | `@n8n-validation-expert [workflow]` | Valida estrutura, edge cases e error handling |
+| Falha em gateway, script ou pipeline | `@systematic-debugging [erro]` | Root cause estruturado — não tentar fix sem diagnóstico |
+| Criar/editar script PowerShell ou Bash | `@bash-scripting [objetivo]` | Padrões de segurança e encoding PS 5.1 |
+
+### COWORK CONDUCTOR — Gatilhos por evento do Pentalateral IAH
+
+| Gatilho (evento) | Skill | Porquê |
+|---|---|---|
+| Iniciar sessão NICHE_MODELER | `@20-andruia-niche-intelligence [nicho]` | Dossier de domínio: regulações + UX + stack do nicho |
+| Pesquisa de mercado (dados quantitativos) | `@apify-market-research [nicho]` | Scraping de dados de mercado via Apify |
+| Análise de tendências do nicho | `@apify-trend-analysis [nicho]` | Tendências emergentes e curva de adoção |
+| Mapear concorrentes e posicionamento | `@apify-competitor-intelligence [nicho]` | Inteligência competitiva via Apify |
+| Dimensionar TAM/SAM/SOM | `@market-sizing-analysis [nicho]` | Tamanho do mercado endereçável |
+| Pesquisa multi-fonte profunda | `@deep-research [pergunta]` | Busca de alta profundidade quando Apify é insuficiente |
+
+### Regras críticas — Isolamento de sessão (P-124 + P-059)
+```
+EXECUTOR e COWORK CONDUCTOR nunca na mesma sessão.
+Todo output vai para PENDING_REVIEW.md — Músculo revisa ANTES de DECISOES.json.
+DIRETRIZ de Loop = exclusividade do Gemini Advanced. Antigravity NUNCA gera DIRETRIZ autonomamente.
 ```
 
 ---

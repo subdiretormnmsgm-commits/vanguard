@@ -859,6 +859,22 @@ if ($ultimosCommits)     { $sections += "## COMMITS RECENTES (ultimos 10)`n$ulti
 if ($buildBudgetOutput)  { $sections += "## BUILD BUDGET GUARD (P-148) -- BUILDS APROVADOS SEM INICIO`n$buildBudgetOutput" }
 if ($agentsMdAlert)      { $sections += "## [CRÍTICO] AGENTS.md AUSENTE -- FIREWALL DO ANTIGRAVITY INATIVO`n$agentsMdAlert" }
 
+# ANTIGRAVITY -- lembrete de abertura obrigatoria (P-163 / 2026-06-14)
+$antigravityBlock = @(
+    "PAPEL DESTA SESSAO: definir antes de abrir VS Code (padrao = ESTRATEGISTA)",
+    "",
+    "  Gerar prompt + clipboard:",
+    "  .\scripts\ir_ao_antigravity.ps1 -papel ESTRATEGISTA -Clipboard -AbrirVSCode",
+    "",
+    "  Se sessao EXECUTOR  -> .\scripts\ir_ao_antigravity.ps1 -papel EXECUTOR -Clipboard",
+    "  Se sessao COWORK    -> .\scripts\ir_ao_antigravity.ps1 -papel COWORK   -Clipboard",
+    "",
+    "REGRA P-163: @concise-planning OBRIGATORIA na abertura. Sem ela, Antigravity age sem plano.",
+    "Verificar skills: .\scripts\ir_ao_antigravity.ps1 -papel ESTRATEGISTA -VerificarSkill",
+    "GATILHOS completos: .agents/skills/skills.md"
+) -join "`n"
+$sections += "## ANTIGRAVITY -- ABRIR COM @concise-planning (P-163)`n$antigravityBlock"
+
 if ($manifestStatus)       { $sections = @("## MANIFEST SYNC (P-071) -- ESTADO DOS DOCUMENTOS`n$manifestStatus") + $sections }
 if ($frescorEmbaixador)    { $sections = @("## ⚠️ FRESCOR DOS 7 ARQUIVOS DO EMBAIXADOR (Gate 7C)`n$frescorEmbaixador") + $sections }
 if ($mapaDiarioOutput)     { $sections = @("## MAPA DIARIO -- P-069 (PENDENCIAS POR DATA / TODOS OS PROJETOS)`n$mapaDiarioOutput") + $sections }

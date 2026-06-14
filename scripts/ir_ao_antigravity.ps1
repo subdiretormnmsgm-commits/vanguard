@@ -1,0 +1,201 @@
+#Requires -Version 5.1
+# ir_ao_antigravity.ps1 -- Gera comando @skill para Antigravity + clipboard + abre VS Code
+# P-163: Musculo gera o prompt, Diretor cola no VS Code (Gemini chat)
+#
+# Uso:
+#   -papel ESTRATEGISTA   -- @concise-planning com contexto da sessao (padrao toda abertura)
+#   -papel EXECUTOR       -- @n8n-workflow-patterns com contexto do workflow ativo
+#   -papel COWORK         -- @20-andruia-niche-intelligence com nicho ativo
+#   -skill <nome>         -- skill especifica (sobrescreve a padrao do papel)
+#   -acao <descricao>     -- contexto da acao atual (opcional, gera contexto automatico se omitido)
+#   -Clipboard            -- copia o prompt para o clipboard automaticamente
+#   -AbrirVSCode          -- abre o VS Code com o workspace do Vanguard
+#   -VerificarSkill       -- verifica se a skill esta instalada sem gerar prompt
+
+param(
+    [ValidateSet("ESTRATEGISTA","EXECUTOR","COWORK")]
+    [string]$papel = "ESTRATEGISTA",
+    [string]$skill = "",
+    [string]$acao = "",
+    [switch]$Clipboard,
+    [switch]$AbrirVSCode,
+    [switch]$VerificarSkill
+)
+
+$raiz     = Split-Path -Parent $PSScriptRoot
+$dataHoje = Get-Date -Format "yyyy-MM-dd"
+$diaSemana = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+
+# Mapa papel -> skill padrao + skills complementares
+$skillMap = @{
+    ESTRATEGISTA = @{
+        principal    = "concise-planning"
+        complementar = @("brainstorming", "multi-agent-brainstorming", "architecture", "analyze-project")
+        descricao    = "Planejamento estrategico e suporte a DIRETRIZ"
+    }
+    EXECUTOR = @{
+        principal    = "n8n-workflow-patterns"
+        complementar = @("n8n-node-configuration", "n8n-expression-syntax", "n8n-validation-expert", "systematic-debugging", "bash-scripting")
+        descricao    = "Execucao de decisoes do Estrategista-Gemini"
+    }
+    COWORK = @{
+        principal    = "20-andruia-niche-intelligence"
+        complementar = @("apify-market-research", "apify-trend-analysis", "competitive-landscape", "market-sizing-analysis", "deep-research")
+        descricao    = "Sessao NICHE_MODELER e inteligencia de mercado"
+    }
+}
+
+$cfg       = $skillMap[$papel]
+$skillAtual = if ($skill) { $skill } else { $cfg.principal }
+
+# Verificar instalacao da skill
+$skillInstPath = "$env:USERPROFILE\.agents\skills\$skillAtual"
+$instalada     = Test-Path $skillInstPath
+
+# Modo verificacao rapida
+if ($VerificarSkill) {
+    if ($instalada) {
+        Write-Host "[OK] @$skillAtual instalada em: $skillInstPath" -ForegroundColor Green
+    } else {
+        Write-Host "[XX] @$skillAtual NAO instalada." -ForegroundColor Red
+        Write-Host "     Instalar: npx antigravity-awesome-skills --antigravity" -ForegroundColor Yellow
+    }
+    foreach ($comp in $cfg.complementar) {
+        $compPath = "$env:USERPROFILE\.agents\skills\$comp"
+        $compIcon = if (Test-Path $compPath) { "[OK]" } else { "[--]" }
+        $cor = if (Test-Path $compPath) { "Green" } else { "DarkGray" }
+        Write-Host "  $compIcon @$comp" -ForegroundColor $cor
+    }
+    exit 0
+}
+
+# Ler contexto ativo do WIP_BOARD
+$clienteAtivo = "VANGUARD"
+$loopAtivo    = "?"
+$projetoDesc  = ""
+$wipPath = Join-Path $raiz "CLIENTES\WIP_BOARD.json"
+if (Test-Path $wipPath) {
+    try {
+        $wip      = Get-Content $wipPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $projBuild = @($wip.board.build) | Select-Object -First 1
+        if ($projBuild) {
+            $clienteAtivo = $projBuild.cliente
+            $loopAtivo    = $projBuild.loop_fase_atual.loop
+            $fasePend     = ""
+            $lfa = $projBuild.loop_fase_atual
+            if ($lfa.gemini     -ne "OK") { $fasePend = "aguardando Gemini" }
+            elseif ($lfa.notebooklm -ne "OK") { $fasePend = "aguardando NotebookLM" }
+            elseif ($lfa.embaixador -ne "OK") { $fasePend = "aguardando Embaixador" }
+            elseif ($lfa.musculo    -ne "OK") { $fasePend = "aguardando Musculo" }
+            else { $fasePend = "loop completo" }
+            $projetoDesc = "[$clienteAtivo Loop $loopAtivo -- $fasePend]"
+        }
+    } catch {}
+}
+
+# Ler pendentes abertas (top 3 mais antigas)
+$pendentes = @()
+$pendPath = Join-Path $raiz "PENDENTES.md"
+if (Test-Path $pendPath) {
+    $linhas = Get-Content $pendPath -Encoding UTF8 -ErrorAction SilentlyContinue
+    foreach ($l in $linhas) {
+        if ($l -match '^\s*- \[ \]') {
+            $titulo = $l -replace '^\s*- \[ \]\s*`[^`]+`\s*', '' -replace '\*\*([^*]+)\*\*', '$1'
+            $titulo = $titulo.Trim() -replace '^\[musculo\]\s*', '' -replace '^\[diretor\]\s*', ''
+            if ($titulo.Length -gt 60) { $titulo = $titulo.Substring(0, 57) + "..." }
+            $pendentes += $titulo
+            if ($pendentes.Count -ge 3) { break }
+        }
+    }
+}
+
+# Contexto da acao
+$contextoAcao = if ($acao) { $acao } else {
+    switch ($papel) {
+        "ESTRATEGISTA" {
+            "Abertura $dataHoje ($diaSemana) $projetoDesc. Objetivo desta sessao: [descreva aqui]"
+        }
+        "EXECUTOR" {
+            "Executar decisoes Gemini para $clienteAtivo. Arquivo de entrada: PASSO3_GEMINI.md + CONTEXTO_GEMINI.md"
+        }
+        "COWORK" {
+            "Sessao NICHE_MODELER $dataHoje. Le INBOX_COWORK + BIBLIOTECA + NICHE_INDEX. 5 tarefas: fit_score, enriquecimento, alertas, nichos novos, mapa prioridade"
+        }
+    }
+}
+
+# Montar o prompt
+$linhasPrompt = @("@$skillAtual $contextoAcao")
+if ($pendentes.Count -gt 0) {
+    $linhasPrompt += ""
+    $linhasPrompt += "Pendentes abertas: " + ($pendentes -join " | ")
+}
+if ($papel -eq "ESTRATEGISTA") {
+    $linhasPrompt += ""
+    $linhasPrompt += "Instrucao: apos @concise-planning, invocar @brainstorming para qualquer decisao arquitetural ou DIRETRIZ."
+}
+$prompt = $linhasPrompt -join "`n"
+
+# --- Output ---
+Write-Host ""
+Write-Host "================================================================" -ForegroundColor Cyan
+Write-Host "  ANTIGRAVITY -- PAPEL: $papel" -ForegroundColor Cyan
+Write-Host "  $($cfg.descricao)" -ForegroundColor DarkGray
+Write-Host "================================================================" -ForegroundColor Cyan
+Write-Host ""
+
+$corSkill = if ($instalada) { "Green" } else { "Red" }
+$statusSkill = if ($instalada) { "[INSTALADA]" } else { "[NAO INSTALADA]" }
+Write-Host "Skill principal : @$skillAtual $statusSkill" -ForegroundColor $corSkill
+if (-not $instalada) {
+    Write-Host "  Instalar: npx antigravity-awesome-skills --antigravity" -ForegroundColor Yellow
+}
+Write-Host "Projeto ativo   : $clienteAtivo | Loop $loopAtivo" -ForegroundColor White
+Write-Host ""
+Write-Host "Skills complementares (invocar conforme necessidade):" -ForegroundColor DarkGray
+foreach ($comp in $cfg.complementar) {
+    $compOk = Test-Path "$env:USERPROFILE\.agents\skills\$comp"
+    $icon = if ($compOk) { "[OK]" } else { "[--]" }
+    $cor  = if ($compOk) { "Gray" } else { "DarkGray" }
+    Write-Host "  $icon @$comp" -ForegroundColor $cor
+}
+Write-Host ""
+Write-Host "COLAR NO VS CODE (Gemini chat) -- Ctrl+V apos abrir:" -ForegroundColor Yellow
+Write-Host "----------------------------------------------------------------" -ForegroundColor DarkGray
+Write-Host $prompt -ForegroundColor White
+Write-Host "----------------------------------------------------------------" -ForegroundColor DarkGray
+Write-Host ""
+
+# Gravar prompt em arquivo
+$promptFile = Join-Path $raiz "scripts\.antigravity_prompt.txt"
+[System.IO.File]::WriteAllText($promptFile, $prompt, [System.Text.Encoding]::UTF8)
+Write-Host "Prompt salvo em : scripts/.antigravity_prompt.txt" -ForegroundColor DarkGray
+
+# Clipboard
+if ($Clipboard) {
+    try {
+        Set-Clipboard -Value $prompt
+        Write-Host "[CLIPBOARD] Copiado -- cole no VS Code com Ctrl+V" -ForegroundColor Green
+    } catch {
+        Write-Host "[CLIPBOARD] Falhou -- copiar do texto acima" -ForegroundColor Yellow
+    }
+}
+
+# Abrir VS Code
+if ($AbrirVSCode) {
+    try {
+        Start-Process "code" -ArgumentList "`"$raiz`"" -ErrorAction Stop
+        Write-Host "[VS CODE] Workspace aberto -- ir ao Gemini chat e colar" -ForegroundColor Green
+    } catch {
+        Write-Host "[VS CODE] Nao encontrado -- abrir manualmente: code `"$raiz`"" -ForegroundColor Yellow
+    }
+}
+
+Write-Host ""
+Write-Host "Proximas skills a invocar durante a sessao (ver GATILHOS em .agents/skills/skills.md):" -ForegroundColor DarkGray
+switch ($papel) {
+    "ESTRATEGISTA" { Write-Host "  @brainstorming -> @multi-agent-brainstorming (alto impacto) -> @architecture -> @analyze-project" -ForegroundColor DarkGray }
+    "EXECUTOR"     { Write-Host "  @n8n-node-configuration -> @n8n-expression-syntax -> @n8n-validation-expert -> @systematic-debugging" -ForegroundColor DarkGray }
+    "COWORK"       { Write-Host "  @apify-market-research -> @apify-trend-analysis -> @competitive-landscape -> @market-sizing-analysis" -ForegroundColor DarkGray }
+}
+Write-Host ""
