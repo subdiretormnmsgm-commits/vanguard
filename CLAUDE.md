@@ -2,7 +2,7 @@
 - CURRENT_VERSION: 13
 - MODEL: "Venture Builder Autônoma & Holding de Dados SaaS — The Sovereign Autonomous Layer"
 - SISTEMA: Pentalateral IAH + Hermes Agent — 5 atores + motor autônomo 24/7: Diretor + Músculo + Estrategista + Auditor + Embaixador + Hermes
-- ÚLTIMA_ATUALIZAÇÃO: 2026-06-10 — V29/L32: Antigravity = EXECUTOR do Estrategista (Gemini) + INTELLIGENCE HUB + LOOP_STATE + W-9 Track TRENDS + P-119 a P-130 · Hermes Grau B
+- ÚLTIMA_ATUALIZAÇÃO: 2026-06-14 — P-163: Antigravity 3 papéis formais (ESTRATEGISTA + EXECUTOR + COWORK CONDUCTOR) + Arsenal de ferramentas por função · Hermes Grau B Permanente
 
 ---
 
@@ -568,7 +568,13 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 
 > **Função:** motor de inteligência de mercado — separado e ISOLADO do loop de cliente (P-124: câmara de eco proibida).
 > **Estrutura:** `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/` → `COMPETITORS/` + `TRENDS/` + `PENDING_REVIEW.md`
-> **Antigravity CLI (= EXECUTOR do Estrategista Gemini, V29/L32 · P-130):** é o braço executor do Estrategista — lê `CLIENTES/[PROJ]/PASSO3_GEMINI.md` + `CONTEXTO_GEMINI.md` do disco. **DIRETRIZ é papel exclusivo do Gemini (Advanced) — Antigravity jamais gera DIRETRIZ de loop (veredito Diretor 2026-06-10).** Acumula a função de Intel Loop Motor (COMPETITORS mensal + TRENDS semanal via W-9), nunca misturada na mesma sessão. **P-124 preservada:** toda saída vai ao Músculo (engine diferente) antes do veredito. **Escopo atual:** loop VANGUARD liberado; INGRID/VALDECE só após as 3 ferramentas bloqueantes (P-059).
+> **Antigravity (VS Code + Gemini 3.1 Pro High · V29/L32 · P-130 · P-163) — 3 PAPÉIS FORMAIS:**
+> · **ESTRATEGISTA:** suporta produção da DIRETRIZ — @concise-planning → @brainstorming → @architecture → @analyze-project. NUNCA gera DIRETRIZ de Loop autonomamente (papel exclusivo do Gemini Advanced).
+> · **EXECUTOR:** executa o que Estrategista-Gemini definiu — lê PASSO3_GEMINI.md + CONTEXTO_GEMINI.md do disco. Age pelo que Gemini definiu, nunca por intuição. Skills: @systematic-debugging, @bash-scripting, @git-pushing.
+> · **COWORK CONDUCTOR:** conduz sessões NICHE_MODELER — lê INBOX_COWORK + BIBLIOTECA + NICHE_INDEX. 5 tarefas: fit_score, enriquecimento, alertas regulatórios, nichos novos, mapa de prioridade.
+> **Regras obrigatórias:** (a) Papéis não se misturam na mesma sessão; (b) Todo output vai para `PENDING_REVIEW.md` — Músculo revisa ANTES de qualquer ação (P-124); (c) Antigravity lê workspace direto — NUNCA pedir ao Diretor para colar/anexar; (d) @concise-planning obrigatória em toda abertura, qualquer papel; (e) Músculo declara papel ao iniciar: "Sessão Antigravity: [PAPEL]".
+> **Intel Loop Motor:** COMPETITORS mensal + TRENDS semanal via W-9 — função do EXECUTOR, nunca misturada com COWORK na mesma sessão. Escopo atual: loop VANGUARD liberado; INGRID/VALDECE só após P-059.
+> **Alerta 2026-06:** Google lançou plataforma oficial "Antigravity" (substitui Gemini Code Assist IDE a partir de 2026-06-18). Monitorar migração e alinhar nomenclatura se necessário.
 > **Regra obrigatória:** todo output do Antigravity vai para `PENDING_REVIEW.md` — Músculo revisa ANTES de qualquer ação. Nunca direto para DECISOES.json ou WIP_BOARD.
 > **LOOP_STATE system:** `CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json` por cliente — estado durável por loop, resolve amnésia pós-compactação.
 
