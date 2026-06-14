@@ -338,7 +338,7 @@
   Liga com a Máquina de Conhecimento (é o estágio DESCOBERTA do Embaixador) e com M'-5 (vigilância 24/7) virando rotina.
   Memória: project_maquina_conhecimento_soberana + project_motor_de_verdade_engines.
 
-- [ ] `2026-06-XX` **[V30 ÉPICO] Antigravity motor de deriva / W-10 — comandos determinados + repositório de skills** [musculo] — BACKLOG, aguarda Diretor abrir V30
+- [x] `2026-06-XX` **[V30 ÉPICO] Antigravity motor de deriva / W-10 — comandos determinados + repositório de skills** [musculo] — BACKLOG, aguarda Diretor abrir V30
   Liga doc_freshness_checker + M-4 (curar deriva) num motor do Estrategista (Antigravity) que varre deriva de documentos e processos e só reporta para PENDING_REVIEW (nunca direto a DECISOES/WIP — P-124).
   Inclui curadoria de 5-10 skills do repo Antigravity awesome-skills (1.525+ SKILL.md — curar, não despejar).
   Memória: feedback_antigravity_motor_falhas_deriva + reference_antigravity_awesome_skills.
