@@ -38,6 +38,49 @@ if ($exitCode -eq 0) {
     }
 }
 
+# GATE P-059 NOTION ISOLAMENTO -- verificar prefixo por cliente ANTES do sync (P-059)
+# Verde:    Get-ClientPrefix presente + secao PROJ-xxx detectada para cada cliente ativo
+# Amarelo:  funcao presente mas cliente sem secao em PENDENTES -> itens irao sem prefixo
+# Vermelho: funcao ausente em notion_sync.ps1 -> sync sem qualquer isolamento
+$notionSyncPath59 = Join-Path $PSScriptRoot "notion_sync.ps1"
+$p059FuncOk = $false
+if (Test-Path $notionSyncPath59) {
+    $p059FuncOk = ((Get-Content $notionSyncPath59 -Raw -Encoding UTF8) -match 'Get-ClientPrefix')
+}
+$cliAtivos59 = @()
+try {
+    $wipP059 = Get-Content (Join-Path $baseDir "CLIENTES\WIP_BOARD.json") -Raw -Encoding UTF8 | ConvertFrom-Json
+    foreach ($p59 in $wipP059.projetos) {
+        if ($p59.status -in @("BUILD","RETAINER","HYPERCARE")) { $cliAtivos59 += $p59.cliente.ToUpper() }
+    }
+} catch {}
+$numAtivos59 = $cliAtivos59.Count
+
+Write-Host ""
+Write-Host "  ========================================================" -ForegroundColor Cyan
+Write-Host "  [GATE P-059] Isolamento Notion por Cliente"              -ForegroundColor Cyan
+Write-Host "  ========================================================" -ForegroundColor Cyan
+if (-not $p059FuncOk) {
+    Write-Host "  [P-059] VERMELHO -- Get-ClientPrefix AUSENTE em notion_sync.ps1"  -ForegroundColor Red
+    Write-Host "  Sync sem prefixo de cliente -- risco de contexto cruzado no Notion." -ForegroundColor Red
+    Write-Host "  Correcao: restaurar funcao Get-ClientPrefix + logica de prefixo (P-059)." -ForegroundColor Yellow
+} elseif ($numAtivos59 -le 1) {
+    Write-Host ("  [P-059] INFO -- {0} projeto(s) ativo(s) -- isolamento pronto, nao critico agora." -f $numAtivos59) -ForegroundColor DarkGray
+} else {
+    Write-Host ("  [P-059] VERDE -- {0} projetos ativos -- prefixo [CLIENTE] ativo:" -f $numAtivos59) -ForegroundColor Green
+    $pendLines59 = Get-Content (Join-Path $baseDir "PENDENTES.md") -Encoding UTF8 -ErrorAction SilentlyContinue
+    foreach ($cli59 in $cliAtivos59) {
+        $hasSecao59 = @($pendLines59 | Where-Object { $_ -match "PROJ-\d+.*$cli59" })
+        if ($hasSecao59.Count -gt 0) {
+            Write-Host "    [$cli59] secao PROJ-xxx detectada -- prefixo [$cli59] sera aplicado" -ForegroundColor Green
+        } else {
+            Write-Host "    [$cli59] AVISO -- secao PROJ-xxx nao detectada em PENDENTES.md"      -ForegroundColor Yellow
+            Write-Host "             Itens deste cliente irao sem prefixo ao Notion."             -ForegroundColor Yellow
+        }
+    }
+}
+Write-Host "  ========================================================" -ForegroundColor Cyan
+
 # GATE NOTION -- sincronizacao bloqueante (P-128)
 # Pendentes abertos + WIP Board + Ledger chegam ao Notion antes de encerrar sessao.
 # Roda se exitCode <= 1 (nao roda se sessao ja esta em falha critica exit 2).

@@ -139,6 +139,7 @@ if (Test-Path $pend) {
     [void]$bl.Add((B-Para "Atualizado pelo Musculo em $ts (fim de sessao) -- somente pendentes em aberto"))
     $abertos = 0
     $clientPrefix = ""
+    $p059Stats = @{}  # P-059: rastrear itens por prefixo de cliente
     foreach ($s in $secoes) {
         if ($s.items.Count -eq 0) { continue }
         if ($s.head) {
@@ -148,9 +149,15 @@ if (Test-Path $pend) {
         foreach ($it in $s.items) {
             $display = if ($clientPrefix) { $clientPrefix + $it } else { $it }
             [void]$bl.Add((B-Todo $display $false)); $abertos++
+            # P-059: contabilizar itens por cliente
+            $p059Key = if ($clientPrefix) { ([regex]::Match($clientPrefix, '\[(\w+)\]')).Groups[1].Value } else { 'sem-prefixo' }
+            $p059Stats[$p059Key] = ([int]$p059Stats[$p059Key]) + 1
         }
     }
     if ($abertos -eq 0) { [void]$bl.Add((B-Para "Nenhum pendente em aberto.")) }
+    # P-059: log de isolamento -- visivel no GATE NOTION do session_close
+    $p059Resumo = if ($p059Stats.Count -gt 0) { ($p059Stats.GetEnumerator() | Sort-Object Name | ForEach-Object { "$($_.Key):$($_.Value)" }) -join ' | ' } else { 'vazio' }
+    Log "[P-059] $abertos item(s) sincronizados -- $p059Resumo" "Cyan"
     if (-not (Sync-Page $pgPend $bl "Pendentes")) { $okAll = $false }
 }
 
