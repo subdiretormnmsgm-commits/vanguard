@@ -220,6 +220,21 @@ if ($atualizacoes.Count -gt 0) {
     Write-Host "  [--] 18_ATUALIZACAO_PENTALATERAL (nao encontrado)" -ForegroundColor Yellow
 }
 
+# P-161 -- Auto-converter .json para .txt (NotebookLM nao aceita .json)
+$jsonFiles = Get-ChildItem $fontes_dir -Filter "*.json" -File
+if ($jsonFiles.Count -gt 0) {
+    Write-Host ""
+    Write-Host "--- P-161: Convertendo .json -> .txt (NotebookLM nao aceita .json) ---" -ForegroundColor Yellow
+    foreach ($jf in $jsonFiles) {
+        $txtPath = $jf.FullName -replace "\.json$", ".txt"
+        Copy-Item $jf.FullName $txtPath -Force
+        Remove-Item $jf.FullName -Force
+        Write-Host "  [P-161] $($jf.Name) -> $([System.IO.Path]::GetFileName($txtPath))" -ForegroundColor Green
+    }
+} else {
+    Write-Host "  [P-161] Nenhum .json encontrado nas FONTES." -ForegroundColor DarkGray
+}
+
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Cyan
 

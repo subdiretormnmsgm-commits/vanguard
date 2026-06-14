@@ -8,7 +8,8 @@
 
 ## ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO
 
-- [ ] `2026-06-13` **[MÚSCULO] AUDITORIA NOTEBOOKLM — preparar_notebooklm_projeto.ps1 -cliente VANGUARD** [musculo]
+- [x] `2026-06-13` ~~**[MÚSCULO] AUDITORIA NOTEBOOKLM — preparar_notebooklm_projeto.ps1 -cliente VANGUARD** [musculo]~~
+  ✅ Wipe & Sync concluido 2026-06-14. 23 fontes carregadas. P-161 registrado (auto-conversao .json→.txt implementada). [RESOLVE: auditoria-notebooklm-vanguard]
   Motivo: 4 arquivos ausentes nas FONTES após sessão Cowork 2026-06-13:
   - RUNBOOK_COWORK_ENGINE.md (novo)
   - COWORK_HANDOFF.md (novo)
@@ -21,25 +22,20 @@
 
 ## COWORK ENGINE — Inteligência de Mercado Vanguard
 
-- [ ] `2026-06-13` **[MÚSCULO] LEITURA OBRIGATÓRIA — COWORK_HANDOFF.md ao iniciar sessão Cowork** [musculo]
-  Arquivo: `CLIENTES/VANGUARD/COWORK_HANDOFF.md`
-  Ação: ler antes de qualquer atividade Cowork — contém estado da última sessão + pendências + próximas ações
-  Gate: Fase 2 (veredito 14 arquivos INBOX) deve ser executada ANTES da próxima Fase 3 (NICHE_MODELER)
+- [x] `2026-06-13` ~~**[MÚSCULO] LEITURA OBRIGATÓRIA — COWORK_HANDOFF.md ao iniciar sessão Cowork** [musculo]~~
+  ✅ Lido + HANDOFF atualizado 2026-06-14: Fase 2 marcada concluida, gate_cowork_fase2.ps1 libera. [RESOLVE: cowork-handoff-leitura]
 
-- [ ] `2026-06-13` **[MÚSCULO] FASE 2 COWORK — veredito 14 arquivos INBOX_COWORK via MCP Drive** [musculo]
-  Detalhes em: `CLIENTES/VANGUARD/COWORK_HANDOFF.md` → seção FASE 2
-  Gate bloqueante: sem veredito completo, próximo NICHE_MODELER (Antigravity) não começa
+- [x] `2026-06-13` ~~**[MÚSCULO] FASE 2 COWORK — veredito 14 arquivos INBOX_COWORK via MCP Drive** [musculo]~~
+  ✅ Veredito emitido 2026-06-14: 13 APROVADOS + 1 STANDBY (F5 v2 -- scheduler gap). COWORK_HANDOFF.md atualizado. [RESOLVE: fase2-cowork-veredito]
 
-- [ ] `2026-06-13` **[MÚSCULO] P-159 — gate_cowork_fase2.ps1 — bloquear Fase 3 se Fase 2 pendente** [musculo]
-  Construir: `scripts/gate_cowork_fase2.ps1`
-  Lógica: verificar NICHE_MODELER_SESSIONS.json + PENDING_REVIEW INBOX_COWORK → se houver AGUARDANDO → exit 1 com mensagem "GATE P-159: veredito INBOX pendente"
-  Integrar em: PASSO_NICHE_MODELER.md [COMO USAR] como verificação pré-Antigravity
+- [x] `2026-06-13` ~~**[MÚSCULO] P-159 — gate_cowork_fase2.ps1 — bloquear Fase 3 se Fase 2 pendente** [musculo]~~
+  ✅ scripts/gate_cowork_fase2.ps1 criado e testado 2026-06-14. Saida: BLOQUEADO (exit 1) / liberado (exit 0). [RESOLVE: P-159]
 
-- [ ] `2026-06-13` **[MÚSCULO] P-160 — gate_loop_objetivo.ps1 — bloquear Loop sem objetivo declarado** [musculo]
-  Construir: `scripts/gate_loop_objetivo.ps1`
-  Lógica: verificar LOOP_STATE.json campo "objetivo_loop" → se ausente/vazio → exit 1 com mensagem "GATE P-160: declare o objetivo deste Loop antes de continuar"
-  Formato: "Ao final deste Loop, teremos [resultado concreto] para [projeto/cliente]"
-  Integrar em: gemini_anchor_generator.ps1 + ir_ao_embaixador.ps1 (verificação pré-ativação)
+- [x] `2026-06-13` ~~**[MÚSCULO] P-160 — gate_loop_objetivo.ps1 — bloquear Loop sem objetivo declarado** [musculo]~~
+  ✅ scripts/gate_loop_objetivo.ps1 criado e testado 2026-06-14. Modo -registrar e -verificar funcionais. [RESOLVE: P-160]
+
+- [x] `2026-06-14` ~~**[MÚSCULO] sync_inbox_pending_review.ps1 — gap F5 v2 (Embaixador nao notificava PENDING_REVIEW)** [musculo]~~
+  ✅ Script criado 2026-06-14. Le manifesto CLIENTES/VANGUARD/INTEL/INBOX_COWORK_MANIFEST.json e registra novos arquivos em PENDING_REVIEW. Modo -Status (sem alterar) + modo -Arquivo direto. Testado. [RESOLVE: sync-inbox-pending-review]
 
 - [ ] `2026-06-13` **[MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIENTES/VANGUARD/ via sync** [musculo]
   Veredito Diretor (2026-06-13): Opção C — manter em PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/ (fonte canônica) + espelhar para CLIENTES/VANGUARD/INTELLIGENCE_HUB/ via sync automático.
@@ -114,11 +110,8 @@
   Fix a decidir ANTES do 2º projeto simultâneo em BUILD: (a) prefixar `[CLIENTE]` em toda linha [diretor] sincronizada ao Notion, ou (b) páginas Notion por projeto.
   Origem: análise dos 4 desafios do canal Notion bidirecional, 2026-06-09.
 
-- [ ] `2026-06-09` **[DIRETOR] W-9 Track TRENDS — importar no EasyPanel n8n** [diretor]
-  Arquivo: `_n8n/workflows/w9_trends_semanal.json` (criado em 2026-06-08, pronto para import).
-  Acesso: EasyPanel → n8n → Workflows → Import from file.
-  Após import: configurar ENV_VARS (ANTHROPIC_API_KEY + TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID já existem).
-  Cron: segunda-feira 8h BRT. Gera relatório de tendências por nicho no INTELLIGENCE_HUB/TRENDS/.
+- [x] `2026-06-09` ~~**[MÚSCULO] W-9 Track TRENDS — importar no EasyPanel n8n** [musculo]~~
+  ✅ Importado e publicado via Playwright 2026-06-14. JSON reconstruído via Node.js (BOM + escape bug no original). 9 nós ativos: Cron→Gemini→GitHub→Telegram→PENDING_REVIEW. Status: Published. [RESOLVE: w9-trends]
 
 - [x] `2026-06-09` ~~**[MÚSCULO] W-8 — deploy 4 workflows via API + reativar** [musculo]~~
   ✅ Músculo deployou via API (GET live→modify→PUT): W-1 (7 nodes) · W-3 (7 nodes) · W-5 (8 nodes) · W-8 (7 nodes). Todos reativados. Shadow mode real começou — silenced_signals_log receberá dados a partir de 2026-06-09. Fix crítico descoberto: settings com binaryMode/timeSavedMode/availableInMCP causa 400 no PUT — usar só executionOrder. [RESOLVE: W-8-deploy]
@@ -254,9 +247,8 @@
   Pedir indicação ao Valdece ANTES de 18-06 (E-2 — janela fecha com o hypercare).
   Resposta esperada do Diretor: nome/empresa/nicho do alvo.
 
-- [ ] `2026-06-12` **[DIRETOR] ⚠️ URGENTE — E-2 Ponte Valdece antes de 18-06** [diretor]
-  Contato sugerido: "Valdece, você conhece algum escritório ou empresa que participou de licitações nos últimos 6 meses e não ficou satisfeito com os resultados?"
-  Janela: hypercare encerra 18-06. Depois disso a relação esfria e a ponte perde força.
+- [x] `2026-06-12` ~~**[DIRETOR] ⚠️ URGENTE — E-2 Ponte Valdece antes de 18-06** [diretor]~~
+  ✅ Realizado 2026-06-14. Valdece respondeu que nao conhece prospects no nicho de Licitacoes. Gate de prospecção via Valdece encerrado -- buscar prospect por canal direto (LinkedIn/evento). [RESOLVE: E-2-ponte-valdece]
 
 - [x] `2026-06-12` ~~**[MÚSCULO] G-4+A-3 — LOOP_STATE v1.1 por cliente + Context Routing n8n** [musculo]~~
   ✅ G-4: INGRID + VALDECE migrados para schema v1.1 em 2026-06-12.

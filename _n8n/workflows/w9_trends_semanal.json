@@ -1,1 +1,332 @@
-{"name":"09 -- Track TRENDS Semanal","nodes":[{"id":"cron-trends","name":"Cron -- Segunda 8h BRT","type":"n8n-nodes-base.scheduleTrigger","typeVersion":1.2,"position":[240,300],"parameters":{"rule":{"interval":[{"field":"hours","minutesInterval":10080,"triggerAtDay":["1"],"triggerAtHour":11,"triggerAtMinute":0}]}}},{"id":"code-prep","name":"Preparar Contexto e Prompt","type":"n8n-nodes-base.code","typeVersion":2,"position":[460,300],"parameters":{"jsCode":"const hoje = new Date();\nconst ano = hoje.getUTCFullYear();\nconst inicioAno = new Date(Date.UTC(ano, 0, 1));\nconst diasDesdeInicio = Math.floor((hoje - inicioAno) / (1000*60*60*24));\nconst semana = Math.ceil((diasDesdeInicio + inicioAno.getUTCDay() + 1) / 7);\nconst isoWeek = ano + '-' + String(semana).padStart(2, '0');\nconst dataFormatada = hoje.toISOString().slice(0, 10);\n\nconst prompt = `Voce eh o Intel Loop Motor da Vanguard Tech. Pesquise tendencias da semana ${isoWeek} em 5 nichos do mercado brasileiro.\n\nPara cada nicho, faca uma busca real na web e encontre:\n- Top 5 videos YouTube da semana (URL completa + titulo + canal + insight principal em 1 frase)\n- Tendencia emergente detectada esta semana\n- Relevancia para clientes Vanguard: ALTA / MEDIA / BAIXA\n\nNichos para pesquisar (use os termos de busca para cada um):\n1. LegalTech Brasil -- termos: legaltech brasil IA jurisprudencia advogado\n2. EdTech Concursos -- termos: edtech concurso publico estudo IA personalizado\n3. HealthTech Clinicas -- termos: healthtech clinica gestao IA automacao medico\n4. Micro SaaS IA Brasil -- termos: micro saas inteligencia artificial nicho brasil\n5. Venture Builder Brasil -- termos: venture builder startup builder SaaS brasil\n\nFormato obrigatorio de resposta:\n## NICHO 1 -- LegalTech Brasil\n### Videos da semana\n1. [titulo] -- [canal] -- [URL] -- Insight: [frase]\n...\n### Tendencia emergente\n[descricao em 2-3 frases]\n### Relevancia\n[ALTA/MEDIA/BAIXA] -- [motivo em 1 frase]\n\n[repetir para todos os 5 nichos]`;\n\nreturn [{ json: {\n  isoWeek: isoWeek,\n  dataFormatada: dataFormatada,\n  prompt: prompt,\n  googleApiKey: $env.GOOGLE_AI_API_KEY || '',\n  githubToken: $env.GITHUB_PAT || '',\n  telegramToken: $env.TELEGRAM_BOT_TOKEN || '',\n  telegramChatId: $env.TELEGRAM_CHAT_ID || '8895733647',\n  githubOwner: 'subdiretormnmsgm-commits',\n  githubRepo: 'vanguard',\n  reportPath: 'PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/REPORT_TRENDS_' + isoWeek + '.md'\n}}];\n"}},{"id":"http-gemini","name":"Gemini -- Pesquisa com Grounding","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[680,300],"continueOnFail":true,"parameters":{"method":"POST","url":"=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={{ $json.googleApiKey }}","sendBody":true,"specifyBody":"json","jsonBody":"={{ JSON.stringify({ contents: [{ parts: [{ text: $json.prompt }] }], tools: [{ google_search: {} }], generationConfig: { temperature: 0.3, maxOutputTokens: 8192 } }) }}","sendHeaders":true,"specifyHeaders":"keypair","headerParameters":{"parameters":[{"name":"Content-Type","value":"application/json"}]},"options":{"timeout":60000}}},{"id":"code-format","name":"Formatar Relatorio Markdown","type":"n8n-nodes-base.code","typeVersion":2,"position":[900,300],"parameters":{"jsCode":"const input = $input.item.json;\nconst isoWeek = $node['Preparar Contexto e Prompt'].json.isoWeek;\nconst dataFormatada = $node['Preparar Contexto e Prompt'].json.dataFormatada;\n\nlet conteudo_gemini = '';\ntry {\n  const resp = input;\n  if (resp.candidates && resp.candidates[0] && resp.candidates[0].content) {\n    conteudo_gemini = resp.candidates[0].content.parts.map(p => p.text).join('');\n  } else if (resp.error) {\n    conteudo_gemini = 'ERRO API Gemini: ' + JSON.stringify(resp.error);\n  } else {\n    conteudo_gemini = 'RESPOSTA INESPERADA: ' + JSON.stringify(resp).slice(0,500);\n  }\n} catch(e) {\n  conteudo_gemini = 'ERRO ao parsear resposta: ' + e.message;\n}\n\nconst relatorio = `# INTELLIGENCE HUB -- TRACK TRENDS\\n## Relatório Semana ${isoWeek} · Gerado automaticamente · W-9 n8n\\n\\n> Cadencia: semanal (segunda-feira 8h BRT)\\n> Fonte: Gemini 2.0 Flash com Google Search Grounding\\n> Processamento: autonomo via n8n EasyPanel\\n\\n---\\n\\n${conteudo_gemini}\\n\\n---\\n\\n## PENDENTE\\nStatus: AGUARDANDO_VEREDITO\\nGerado em: ${dataFormatada}\\nAdicionar entrada em INTELLIGENCE_HUB/PENDING_REVIEW.md apos validar.\\n\\n*W-9 Auto-gerado · ${dataFormatada} · Alimentar NotebookLM: INTELLIGENCE_HUB/TRENDS/*\\n`;\n\nconst relatorio_b64 = Buffer.from(relatorio, 'utf8').toString('base64');\n\nreturn [{ json: {\n  relatorio: relatorio,\n  relatorio_b64: relatorio_b64,\n  isoWeek: isoWeek,\n  dataFormatada: dataFormatada,\n  githubToken: $node['Preparar Contexto e Prompt'].json.githubToken,\n  telegramToken: $node['Preparar Contexto e Prompt'].json.telegramToken,\n  telegramChatId: $node['Preparar Contexto e Prompt'].json.telegramChatId,\n  githubOwner: $node['Preparar Contexto e Prompt'].json.githubOwner,\n  githubRepo: $node['Preparar Contexto e Prompt'].json.githubRepo,\n  reportPath: $node['Preparar Contexto e Prompt'].json.reportPath\n}}];\n"}},{"id":"http-github-write","name":"GitHub -- Salvar Relatorio TRENDS","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[1120,300],"continueOnFail":true,"parameters":{"method":"PUT","url":"={{ 'https://api.github.com/repos/' + $json.githubOwner + '/' + $json.githubRepo + '/contents/' + $json.reportPath }}","sendBody":true,"specifyBody":"json","jsonBody":"={{ JSON.stringify({ message: 'feat(trends): REPORT_TRENDS_' + $json.isoWeek + ' -- W-9 auto-gerado', content: $json.relatorio_b64, committer: { name: 'Vanguard W-9', email: 'w9@vanguard.tech' } }) }}","sendHeaders":true,"specifyHeaders":"keypair","headerParameters":{"parameters":[{"name":"Authorization","value":"={{ 'token ' + $json.githubToken }}"},{"name":"Accept","value":"application/vnd.github.v3+json"},{"name":"Content-Type","value":"application/json"}]},"options":{"timeout":30000}}},{"id":"http-telegram","name":"Telegram -- Notificar Diretor","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[1340,300],"continueOnFail":true,"parameters":{"method":"POST","url":"={{ 'https://api.telegram.org/bot' + $json.telegramToken + '/sendMessage' }}","sendBody":true,"specifyBody":"keypair","bodyParameters":{"parameters":[{"name":"chat_id","value":"={{ $json.telegramChatId }}"},{"name":"text","value":"={{ 'W-9 TRACK TRENDS -- Semana ' + $json.isoWeek + '\\n\\nRelatorio gerado automaticamente.\\nArquivo: TRENDS/REPORT_TRENDS_' + $json.isoWeek + '.md\\n\\nStatus: AGUARDANDO_VEREDITO do Musculo\\nAcao: revisar e aprovar antes de enviar ao Conselho.' }}"]}}},{"id":"http-pending-read","name":"GitHub -- Ler PENDING_REVIEW","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[1560,200],"continueOnFail":true,"parameters":{"method":"GET","url":"={{ 'https://api.github.com/repos/' + $json.githubOwner + '/' + $json.githubRepo + '/contents/PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md' }}","sendHeaders":true,"specifyHeaders":"keypair","headerParameters":{"parameters":[{"name":"Authorization","value":"={{ 'token ' + $json.githubToken }}"},{"name":"Accept","value":"application/vnd.github.v3+json"}]},"options":{"timeout":15000}}},{"id":"code-pending-update","name":"Montar Update PENDING_REVIEW","type":"n8n-nodes-base.code","typeVersion":2,"position":[1780,200],"parameters":{"jsCode":"const rawFile = $input.item.json;\nconst prev = $node['Telegram -- Notificar Diretor'].json;\nconst isoWeek = prev.isoWeek || '';\nconst dataFormatada = prev.dataFormatada || new Date().toISOString().slice(0,10);\nconst reportPath = prev.reportPath || '';\n\nlet conteudoAtual = '';\nlet sha = '';\ntry {\n  sha = rawFile.sha || '';\n  conteudoAtual = Buffer.from((rawFile.content||'').replace(/\\n/g,''), 'base64').toString('utf8');\n} catch(e) {\n  conteudoAtual = '';\n}\n\nconst novaLinha = `| ${dataFormatada} | TRENDS | \\`${reportPath}\\` | AGUARDANDO_VEREDITO |`;\nconst novoConteudo = conteudoAtual.replace(\n  '| *(Antigravity adiciona aqui ao concluir cada relatório)* | — | — | — |',\n  novaLinha + '\\n| *(Antigravity adiciona aqui ao concluir cada relatório)* | — | — | — |'\n);\n\nconst novoConteudo_b64 = Buffer.from(novoConteudo, 'utf8').toString('base64');\n\nreturn [{ json: {\n  conteudo_b64: novoConteudo_b64,\n  sha: sha,\n  githubToken: $node['Preparar Contexto e Prompt'].json.githubToken,\n  githubOwner: $node['Preparar Contexto e Prompt'].json.githubOwner,\n  githubRepo: $node['Preparar Contexto e Prompt'].json.githubRepo\n}}];\n"}},{"id":"http-pending-write","name":"GitHub -- Atualizar PENDING_REVIEW","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[2000,200],"continueOnFail":true,"parameters":{"method":"PUT","url":"={{ 'https://api.github.com/repos/' + $json.githubOwner + '/' + $json.githubRepo + '/contents/PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md' }}","sendBody":true,"specifyBody":"json","jsonBody":"={{ JSON.stringify({ message: 'chore(pending): W-9 adiciona TRENDS ao PENDING_REVIEW', content: $json.conteudo_b64, sha: $json.sha, committer: { name: 'Vanguard W-9', email: 'w9@vanguard.tech' } }) }}","sendHeaders":true,"specifyHeaders":"keypair","headerParameters":{"parameters":[{"name":"Authorization","value":"={{ 'token ' + $json.githubToken }}"},{"name":"Accept","value":"application/vnd.github.v3+json"},{"name":"Content-Type","value":"application/json"}]},"options":{"timeout":15000}}}],"connections":{"Cron -- Segunda 8h BRT":{"main":[[{"node":"Preparar Contexto e Prompt","type":"main","index":0}]]},"Preparar Contexto e Prompt":{"main":[[{"node":"Gemini -- Pesquisa com Grounding","type":"main","index":0}]]},"Gemini -- Pesquisa com Grounding":{"main":[[{"node":"Formatar Relatorio Markdown","type":"main","index":0}]]},"Formatar Relatorio Markdown":{"main":[[{"node":"GitHub -- Salvar Relatorio TRENDS","type":"main","index":0}]]},"GitHub -- Salvar Relatorio TRENDS":{"main":[[{"node":"Telegram -- Notificar Diretor","type":"main","index":0}]]},"Telegram -- Notificar Diretor":{"main":[[{"node":"GitHub -- Ler PENDING_REVIEW","type":"main","index":0}]]},"GitHub -- Ler PENDING_REVIEW":{"main":[[{"node":"Montar Update PENDING_REVIEW","type":"main","index":0}]]},"Montar Update PENDING_REVIEW":{"main":[[{"node":"GitHub -- Atualizar PENDING_REVIEW","type":"main","index":0}]]}},"settings":{"executionOrder":"v1"},"staticData":null}
+{
+  "name": "09 -- Track TRENDS Semanal",
+  "nodes": [
+    {
+      "id": "cron-trends",
+      "name": "Cron -- Segunda 8h BRT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "minutesInterval": 10080,
+              "triggerAtDay": [
+                "1"
+              ],
+              "triggerAtHour": 11,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "code-prep",
+      "name": "Preparar Contexto e Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        300
+      ],
+      "parameters": {
+        "jsCode": "const hoje = new Date();\nconst ano = hoje.getUTCFullYear();\nconst inicioAno = new Date(Date.UTC(ano, 0, 1));\nconst diasDesdeInicio = Math.floor((hoje - inicioAno) / (1000*60*60*24));\nconst semana = Math.ceil((diasDesdeInicio + inicioAno.getUTCDay() + 1) / 7);\nconst isoWeek = ano + '-' + String(semana).padStart(2, '0');\nconst dataFormatada = hoje.toISOString().slice(0, 10);\n\nconst prompt = `Voce eh o Intel Loop Motor da Vanguard Tech. Pesquise tendencias da semana ${isoWeek} em 5 nichos do mercado brasileiro.\\n\\nPara cada nicho, faca uma busca real na web e encontre:\\n- Top 5 videos YouTube da semana (URL completa + titulo + canal + insight principal em 1 frase)\\n- Tendencia emergente detectada esta semana\\n- Relevancia para clientes Vanguard: ALTA / MEDIA / BAIXA\\n\\nNichos para pesquisar (use os termos de busca para cada um):\\n1. LegalTech Brasil -- termos: legaltech brasil IA jurisprudencia advogado\\n2. EdTech Concursos -- termos: edtech concurso publico estudo IA personalizado\\n3. HealthTech Clinicas -- termos: healthtech clinica gestao IA automacao medico\\n4. Micro SaaS IA Brasil -- termos: micro saas inteligencia artificial nicho brasil\\n5. Venture Builder Brasil -- termos: venture builder startup builder SaaS brasil\\n\\nFormato obrigatorio de resposta:\\n## NICHO 1 -- LegalTech Brasil\\n### Videos da semana\\n1. [titulo] -- [canal] -- [URL] -- Insight: [frase]\\n...\\n### Tendencia emergente\\n[descricao em 2-3 frases]\\n### Relevancia\\n[ALTA/MEDIA/BAIXA] -- [motivo em 1 frase]\\n\\n[repetir para todos os 5 nichos]`;\n\nreturn [{ json: {\n  isoWeek: isoWeek,\n  dataFormatada: dataFormatada,\n  prompt: prompt,\n  googleApiKey: $env.GOOGLE_AI_API_KEY || '',\n  githubToken: $env.GITHUB_PAT || '',\n  telegramToken: $env.TELEGRAM_BOT_TOKEN || '',\n  telegramChatId: $env.TELEGRAM_CHAT_ID || '8895733647',\n  githubOwner: 'subdiretormnmsgm-commits',\n  githubRepo: 'vanguard',\n  reportPath: 'PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/REPORT_TRENDS_' + isoWeek + '.md'\n}}];"
+      }
+    },
+    {
+      "id": "http-gemini",
+      "name": "Gemini -- Pesquisa com Grounding",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        680,
+        300
+      ],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={{ $json.googleApiKey }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contents: [{ parts: [{ text: $json.prompt }] }], tools: [{ google_search: {} }], generationConfig: { temperature: 0.3, maxOutputTokens: 8192 } }) }}",
+        "sendHeaders": true,
+        "specifyHeaders": "keypair",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 60000
+        }
+      }
+    },
+    {
+      "id": "code-format",
+      "name": "Formatar Relatorio Markdown",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        900,
+        300
+      ],
+      "parameters": {
+        "jsCode": "const input = $input.item.json;\nconst isoWeek = $node['Preparar Contexto e Prompt'].json.isoWeek;\nconst dataFormatada = $node['Preparar Contexto e Prompt'].json.dataFormatada;\n\nlet conteudo_gemini = '';\ntry {\n  const resp = input;\n  if (resp.candidates && resp.candidates[0] && resp.candidates[0].content) {\n    conteudo_gemini = resp.candidates[0].content.parts.map(p => p.text).join('');\n  } else if (resp.error) {\n    conteudo_gemini = 'ERRO API Gemini: ' + JSON.stringify(resp.error);\n  } else {\n    conteudo_gemini = 'RESPOSTA INESPERADA: ' + JSON.stringify(resp).slice(0,500);\n  }\n} catch(e) {\n  conteudo_gemini = 'ERRO ao parsear resposta: ' + e.message;\n}\n\nconst relatorio = `# INTELLIGENCE HUB -- TRACK TRENDS\\n## Relatorio Semana ${isoWeek} - Gerado automaticamente - W-9 n8n\\n\\n> Cadencia: semanal (segunda-feira 8h BRT)\\n> Fonte: Gemini 2.0 Flash com Google Search Grounding\\n> Processamento: autonomo via n8n EasyPanel\\n\\n---\\n\\n${conteudo_gemini}\\n\\n---\\n\\n## PENDENTE\\nStatus: AGUARDANDO_VEREDITO\\nGerado em: ${dataFormatada}\\nAdicionar entrada em INTELLIGENCE_HUB/PENDING_REVIEW.md apos validar.\\n\\n*W-9 Auto-gerado - ${dataFormatada} - Alimentar NotebookLM: INTELLIGENCE_HUB/TRENDS/*\\n`;\n\nconst relatorio_b64 = Buffer.from(relatorio, 'utf8').toString('base64');\n\nreturn [{ json: {\n  relatorio: relatorio,\n  relatorio_b64: relatorio_b64,\n  isoWeek: isoWeek,\n  dataFormatada: dataFormatada,\n  githubToken: $node['Preparar Contexto e Prompt'].json.githubToken,\n  telegramToken: $node['Preparar Contexto e Prompt'].json.telegramToken,\n  telegramChatId: $node['Preparar Contexto e Prompt'].json.telegramChatId,\n  githubOwner: $node['Preparar Contexto e Prompt'].json.githubOwner,\n  githubRepo: $node['Preparar Contexto e Prompt'].json.githubRepo,\n  reportPath: $node['Preparar Contexto e Prompt'].json.reportPath\n}}];"
+      }
+    },
+    {
+      "id": "http-github-write",
+      "name": "GitHub -- Salvar Relatorio TRENDS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        300
+      ],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ 'https://api.github.com/repos/' + $json.githubOwner + '/' + $json.githubRepo + '/contents/' + $json.reportPath }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: 'feat(trends): REPORT_TRENDS_' + $json.isoWeek + ' -- W-9 auto-gerado', content: $json.relatorio_b64, committer: { name: 'Vanguard W-9', email: 'w9@vanguard.tech' } }) }}",
+        "sendHeaders": true,
+        "specifyHeaders": "keypair",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'token ' + $json.githubToken }}"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      }
+    },
+    {
+      "id": "http-telegram",
+      "name": "Telegram -- Notificar Diretor",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1340,
+        300
+      ],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://api.telegram.org/bot' + $json.telegramToken + '/sendMessage' }}",
+        "sendBody": true,
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "chat_id",
+              "value": "={{ $json.telegramChatId }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ 'W-9 TRACK TRENDS - Semana ' + $json.isoWeek + '\\n\\nRelatorio gerado automaticamente.\\nArquivo: TRENDS/REPORT_TRENDS_' + $json.isoWeek + '.md\\n\\nStatus: AGUARDANDO_VEREDITO do Musculo\\nAcao: revisar e aprovar antes de enviar ao Conselho.' }}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "http-pending-read",
+      "name": "GitHub -- Ler PENDING_REVIEW",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1560,
+        200
+      ],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://api.github.com/repos/' + $json.githubOwner + '/' + $json.githubRepo + '/contents/PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md' }}",
+        "sendHeaders": true,
+        "specifyHeaders": "keypair",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'token ' + $json.githubToken }}"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      }
+    },
+    {
+      "id": "code-pending-update",
+      "name": "Montar Update PENDING_REVIEW",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        200
+      ],
+      "parameters": {
+        "jsCode": "const rawFile = $input.item.json;\nconst prev = $node['Telegram -- Notificar Diretor'].json;\nconst isoWeek = prev.isoWeek || '';\nconst dataFormatada = prev.dataFormatada || new Date().toISOString().slice(0,10);\nconst reportPath = prev.reportPath || '';\n\nlet conteudoAtual = '';\nlet sha = '';\ntry {\n  sha = rawFile.sha || '';\n  conteudoAtual = Buffer.from((rawFile.content||'').replace(/\\n/g,''), 'base64').toString('utf8');\n} catch(e) {\n  conteudoAtual = '';\n}\n\nconst novaLinha = `| ${dataFormatada} | TRENDS | \\`${reportPath}\\` | AGUARDANDO_VEREDITO |`;\nconst novoConteudo = conteudoAtual.replace(\n  '| *(Antigravity adiciona aqui ao concluir cada relatorio)* | -- | -- | -- |',\n  novaLinha + '\\n| *(Antigravity adiciona aqui ao concluir cada relatorio)* | -- | -- | -- |'\n);\n\nconst novoConteudo_b64 = Buffer.from(novoConteudo, 'utf8').toString('base64');\n\nreturn [{ json: {\n  conteudo_b64: novoConteudo_b64,\n  sha: sha,\n  githubToken: $node['Preparar Contexto e Prompt'].json.githubToken,\n  githubOwner: $node['Preparar Contexto e Prompt'].json.githubOwner,\n  githubRepo: $node['Preparar Contexto e Prompt'].json.githubRepo\n}}];"
+      }
+    },
+    {
+      "id": "http-pending-write",
+      "name": "GitHub -- Atualizar PENDING_REVIEW",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        200
+      ],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ 'https://api.github.com/repos/' + $json.githubOwner + '/' + $json.githubRepo + '/contents/PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md' }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: 'chore(pending): W-9 adiciona TRENDS ao PENDING_REVIEW', content: $json.conteudo_b64, sha: $json.sha, committer: { name: 'Vanguard W-9', email: 'w9@vanguard.tech' } }) }}",
+        "sendHeaders": true,
+        "specifyHeaders": "keypair",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'token ' + $json.githubToken }}"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cron -- Segunda 8h BRT": {
+      "main": [
+        [
+          {
+            "node": "Preparar Contexto e Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Contexto e Prompt": {
+      "main": [
+        [
+          {
+            "node": "Gemini -- Pesquisa com Grounding",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini -- Pesquisa com Grounding": {
+      "main": [
+        [
+          {
+            "node": "Formatar Relatorio Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatar Relatorio Markdown": {
+      "main": [
+        [
+          {
+            "node": "GitHub -- Salvar Relatorio TRENDS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub -- Salvar Relatorio TRENDS": {
+      "main": [
+        [
+          {
+            "node": "Telegram -- Notificar Diretor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram -- Notificar Diretor": {
+      "main": [
+        [
+          {
+            "node": "GitHub -- Ler PENDING_REVIEW",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub -- Ler PENDING_REVIEW": {
+      "main": [
+        [
+          {
+            "node": "Montar Update PENDING_REVIEW",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Montar Update PENDING_REVIEW": {
+      "main": [
+        [
+          {
+            "node": "GitHub -- Atualizar PENDING_REVIEW",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
