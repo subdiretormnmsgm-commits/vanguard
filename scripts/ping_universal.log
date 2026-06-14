@@ -9,3 +9,7 @@
 [2026-06-04 14:58:34] VERDE -- Valdece -- valdece-juridico (conta Valdece) -- 1 registro(s)
 [2026-06-04 14:58:34] VERDE -- Valdece -- toga-digital-valdece (conta Vanguard) -- 1 registro(s)
 [2026-06-04 14:58:34] VERDE -- Vanguard (infra principal) -- HTTP 404 (projeto ativo)
+[2026-06-14 09:00:02] VERDE -- Ingrid (sedes-ingrid-2026) -- 1 registro(s)
+[2026-06-14 09:00:02] VERDE -- Valdece -- valdece-juridico (conta Valdece) -- 1 registro(s)
+[2026-06-14 09:00:02] VERMELHO -- Valdece -- toga-digital-valdece (conta Vanguard) -- FALHA CONEXAO: O nome remoto não pôde ser resolvido: 'uslkhnselzmbbnupmfsp.supabase.co'
+[2026-06-14 09:00:02] VERDE -- Vanguard (infra principal) -- HTTP 404 (projeto ativo)

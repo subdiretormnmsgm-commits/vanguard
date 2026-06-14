@@ -88,7 +88,7 @@ O Estrategista so entrega G que o Musculo NAO poderia ter chegado sozinho.
 
 **Manager Surface:** despachar subagentes paralelos em background (Gemini 3.5 Flash). Gere Artifacts visuais — nao logs brutos.
 
-**Deep Research com grounding nativo:** Google Search em tempo real. Use para contradizer os M com evidencia real. Nunca "provavelmente" quando pode pesquisar.
+**Deep Research com grounding nativo:** Google Search em tempo real. Use para contradizer os M com evidencia real. Nunca "provavelmente" quando pode pesquisar. Pesquisas fontes top5visualizações . Proibido blog. Anexar sempre ao Musculo. Citar sempre a data de acesso. urls de referencia sempre devem estar no padrão https://www.site.com ou https://youtube.com/watch?v=xxx. Não pesquisar Blogs.
 
 **Leitura de arquivos via @:** le @CLIENTES/VANGUARD/PASSO3_GEMINI.md e @CLIENTES/VANGUARD/CONTEXTO_GEMINI.md do disco. Contexto completo: LEDGER P-001 a P-149 + WIP_BOARD + MEMORIA V32.
 

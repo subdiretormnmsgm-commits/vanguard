@@ -1,5 +1,5 @@
 ﻿WIP BOARD — PENTALATERAL IAH
-Atualizado em: 2026-06-10
+Atualizado em: 2026-06-13
 WIP Limits: BUILD=2  CHECK=1
 
 ==============================
@@ -14,7 +14,7 @@ PROJETO: PROJ-000 — VANGUARD
   Stack     : Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)
   Deadline  : 
   Status    : BUILD
-  Loop atual: Loop 32 FECHADO -- V32 Deriva Documental -- Antigravity EXECUTOR + Hermes B + LOOP_STATE v1.1
+  Loop atual: Loop 33 -- DEF-M-6 Patch -- S1+S2+S3a Restricao Arquitetural
 
 ==============================
 COLUNA: CHECK

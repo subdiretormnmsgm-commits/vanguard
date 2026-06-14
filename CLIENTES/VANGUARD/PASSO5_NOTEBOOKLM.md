@@ -3,6 +3,14 @@
 # COMO USAR: rodar .\scripts\preparar_notebooklm_projeto.ps1 -cliente VANGUARD
 #            No chat do caderno VANGUARD (d7dab0e1), colar apenas: "Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill."
 # IDIOMA OBRIGATORIO: todo output do Auditor deve ser em portugues.
+#
+# PRE-REQUISITOS ANTES DO UPLOAD (verificar sempre -- P-161):
+# [1] VERIFICACAO DE DATAS: confirmar que FONTES refletem os arquivos originais
+#     Get-ChildItem NOTEBOOKLM_FONTES\ | Sort-Object LastWriteTime | Select Name,LastWriteTime
+#     Se desatualizado -> rodar preparar_notebooklm_projeto.ps1 novamente
+# [2] TIPOS ACEITOS: NotebookLM NAO aceita .json (P-161, detectado 2026-06-14)
+#     Solucao obrigatoria: Copy-Item arquivo.json arquivo.txt antes do upload
+#     Exemplo: Copy-Item 24_NICHE_INDEX_v1.5.json 24_NICHE_INDEX_v1.5.txt
 
 ---
 
@@ -47,6 +55,7 @@ capacidades que vao alem de responder perguntas sobre as fontes carregadas:
 
 **Deep Research -- pesquisa ativa na web**
 Voce pode realizar pesquisas profundas na internet, ancoradas nas suas fontes internas.
+Nas pesquisas, pesquisar as top5 visualizações, proibida a pesquisa em Blog. Quero as 5 melhores pesquisas para serem anexadas às fontes 
 Use quando o Musculo enviar research queries especificas (PARTE 6 deste PASSO).
 Padrao obrigatorio: cite URL + data de acesso para cada dado externo. Nenhuma
 afirmacao de mercado e aceita sem fonte verificavel.

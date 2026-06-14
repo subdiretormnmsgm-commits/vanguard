@@ -1,73 +1,114 @@
-DIRETRIZ ESTRATEGICA V33 -- VANGUARD TECH -- Loop 33 (VERSÃO DISRUPTIVA - REFAZIMENTO ORDENADO)
+DIRETRIZ ESTRATÉGICA V29 — VANGUARD TECH — Loop 29
+Canal: Estrategista (Antigravity) · Eixo: EXPANSÃO EXPONENCIAL · 2026-06-09
+[Transcrição da saída do Estrategista desta sessão — fonte 12 para o Auditor]
 
-[CONTEXTO ATUALIZADO DO ESTRATEGISTA]
-O Músculo errou o diagnóstico de execução. Ao analisar P-140 a P-149, ele focou em soluções incrementais e na adaptação de ferramentas existentes (usar o Claude Desktop como robô, vender alerta de PNCP, fazer calculadora de ROI). Para a Vanguard escalar de 2 para 10 clientes High-Ticket simultâneos, não precisamos de adaptações, mas de Inversão de Paradigma. O gargalo não é de volume, é de fricção na conversão. Esta versão destrói as premissas conservadoras do Músculo e impõe a força bruta analítica do Pentalateral.
+═══════════════════════════════════════════════════════════════════
+[1. VALIDAÇÃO DO MÚSCULO]
+═══════════════════════════════════════════════════════════════════
+As cinco teses [M-1 a M-5] estão corretas e convergem num único movimento:
+sair do modelo "Diretor como barramento manual entre silos" para um ENXAME
+ORQUESTRADO de sócios que se autoalimenta. O Músculo acertou o diagnóstico
+central (M-3): o gargalo do exponencial não é técnico, é o acoplamento entre
+nº de clientes e horas-Diretor. Acertou também ao reposicionar o firewall
+(M-5) como habilitador da escala, não como freio.
 
-[ARTEFATOS DESPACHADOS]
-- SUBAGENTE A: artefato_precedentes_V33.md (Precedentes web refutados)
-- SUBAGENTE B: artefato_auditoria_M_V33.md (Destruição do M1-M5 do Músculo via LEDGER)
-- SUBAGENTE D: artefato_nichos_V33.md (Pivotagem nos 5 Nichos)
-- WALKTHROUGH: walkthrough_DIRETRIZ_V33_2026-06-11.md
+═══════════════════════════════════════════════════════════════════
+[2. DIVERGÊNCIA ESTRATÉGICA]
+═══════════════════════════════════════════════════════════════════
+Divirjo de tratar "enxame" como sincronização de todos os sócios o tempo todo.
+O exponencial real vem de COMPUTAÇÃO ANTECIPATÓRIA: cada sócio trabalha em
+background ANTES de ser requisitado, deixando resultado pronto em PENDING_REVIEW.
+O Diretor não orquestra o enxame em tempo real — ele colhe o que o enxame já
+produziu. A unidade de escala não é "mais sócios ligados", é "mais trabalho
+adiantado por pista paralela desacoplada".
 
-[1. VALIDACAO DO MUSCULO]
-O Músculo acertou apenas no diagnóstico das dores raízes: precisamos de um motor assíncrono (M-1), precisamos entrar em licitações (M-2), ancorar em ROI (M-3), delegar execução (M-4) e gerar autoridade (M-5). Mas a *forma* como ele propôs resolver cada uma delas foi ineficiente, commoditizada ou violadora de princípios sistêmicos.
+═══════════════════════════════════════════════════════════════════
+[3. DECISÃO CLARA]
+═══════════════════════════════════════════════════════════════════
+[M-1] Enxame Músculo+Auditor .................. ENTRA AGORA (sob Shadow Mode P-116)
+[M-2] Embaixador agendado (Cowork) ........... ENTRA AGORA (depende das 3 travas)
+[M-3] Desacoplar clientes × horas-Diretor .... ENTRA AGORA (cerne do loop)
+[M-4] Antigravity expandido com sabedoria .... ENTRA AGORA (modo manutenção/INTEL)
+[M-5] Firewall como habilitador .............. ENTRA AGORA (precondição inviolável)
 
-[2. O QUE O MUSCULO NAO VIU (A REFUTAÇÃO)]
-- **Sobre M-1 (Cowork como Relógio 3):** O Músculo não viu que usar o Claude Desktop App com MCP como "robô autônomo" é tentar fazer uma interface gráfica rodar como servidor. É frágil e inobservável.
-- **Sobre M-2 (Licitações via Alerta/Impugnação):** O Músculo não viu que vender "alerta de erro em edital" concorre com dezenas de IAs baratas no mercado. O cliente não quer saber o erro do edital, ele quer desclassificar o concorrente que ganhou.
-- **Sobre M-3 (Calculadora de ROI):** O Músculo não viu que CFOs não preenchem calculadoras web de empresas que não conhecem. A dor calculável deve ser *empurrada* para eles, já preenchida.
-- **Sobre M-4 (Delegação WIP):** O Músculo focou em permissões de "nível de risco", ignorando que o verdadeiro bloqueio de escala é a *colisão de estado* entre clientes diferentes rodando no mesmo cérebro.
-- **Sobre M-5 (Landing Page com Case Cego):** O Músculo não viu que "Case Cego" (Mock Case) não vende High-Ticket corporativo. O B2B compra prova técnica imediata, não narrativas higienizadas.
+═══════════════════════════════════════════════════════════════════
+[4. ENHANCEMENT]
+═══════════════════════════════════════════════════════════════════
+- Embaixador deixa de ser "memória persistente" e vira MOTOR DE PIPELINE:
+  agendado, ele simula necessidade futura do cliente e prepara o upsell antes
+  do cliente pedir (computação antecipatória aplicada à receita).
+- Antigravity (M-4) ganha função de varredura de deriva: cruza o código/docs
+  com o LEDGER e reporta inconsistências — sempre só para PENDING_REVIEW.
+- Pistas paralelas desacopladas: cada cliente = 1 pista que roda sozinha;
+  só a exceção sobe ao Diretor (Hermes/W-8 como balanceador cognitivo).
 
-[3. DECISAO]
-A abordagem incremental do Músculo está **DESCARTADA**. A execução será pivotada imediatamente para as soluções G-1 a G-5 abaixo. 
+═══════════════════════════════════════════════════════════════════
+[5. CUSTO REAL]
+═══════════════════════════════════════════════════════════════════
+- M-1/M-3: arquitetura de subagentes isolados (P-059) + n8n como trilho de
+  disparo. Build incremental; risco = engarrafamento do PENDING_REVIEW (mitigar
+  com fila e Circuit Breaker já decididos).
+- M-2: depende das 3 travas bloqueantes (isolamento que aborta · gate que recusa
+  DIRETRIZ sem PASSO3+CONTEXTO · saída sempre → PENDING_REVIEW). Sem elas, V30.
+- M-4: Antigravity já lê o repo do disco; custo marginal baixo. Risco = furar
+  isolamento → manter modo manutenção, nunca tocar arquivo de cliente sozinho.
 
-[4. COMO AMPLIFICAR]
-Em vez de esperar o cliente bater na porta da Vanguard por causa de SEO, a Vanguard construirá o "Pitch Reverso" (G-3). O Músculo não programará bots de chat, programará motores de scraping que geram o dossiê da falha do cliente *antes* da primeira reunião.
+═══════════════════════════════════════════════════════════════════
+[6. IMPACTO COMERCIAL]
+═══════════════════════════════════════════════════════════════════
+Desacoplar clientes de horas-Diretor é o que transforma a Vanguard de
+consultoria-gargalo em holding que escala. Cada pista nova vira receita sem
+custo linear de tempo do Diretor. O Embaixador-motor antecipa upsell = expande
+LTV sem ação reativa. O firewall blindado é o que permite vender escala com
+segurança (diferencial impossível de copiar).
 
-[5. IMPACTO NO SISTEMA]
-A infraestrutura precisará ser adaptada. A `INBOX_COWORK/` não será alimentada pelo Claude App, mas via Webhooks/n8n chamando as APIs LLM diretamente. Cada cliente ganhará um namespace estrito no WIP_BOARD para evitar vazamento de contexto (G-4).
+═══════════════════════════════════════════════════════════════════
+[7. PRÓXIMA AÇÃO]
+═══════════════════════════════════════════════════════════════════
+Auditar [M-1..M-5] + [G-1..G-5] contra o LEDGER (P-001 a P-130), com foco na
+tensão P-124 (checkpoint humano) × P-129 (elo Músculo↔Auditor aberto).
+Gerar a Skill vanguard-v29.md.
 
-[6. PROXIMA ACAO]
-O Músculo abandona a ideia do Cowork "autônomo". Em vez disso, ele foca no código da ferramenta "Auditor Público" (G-5) e na segmentação do armazenamento de estado. 
+═══════════════════════════════════════════════════════════════════
+[G-1 a G-5] — IDEIAS DISRUPTIVAS DE EXPANSÃO (zero freios)
+═══════════════════════════════════════════════════════════════════
+[G-1] EMBAIXADOR PREDANTE — upsell antecipado via simulação de necessidade
+      futura do cliente; o Embaixador agendado prepara a próxima oferta antes
+      do cliente perceber que precisa.
+[G-2] CLONAGEM DE PROSPECTOS EM BACKGROUND — o Intel alimenta uma persona do
+      decisor; o conselho ensaia a abordagem contra o "clone" antes da reunião real.
+[G-3] AUDITORIA ATIVA DE DERIVA — o Antigravity cruza continuamente código/docs
+      com o LEDGER e levanta deriva/gaps de propagação → PENDING_REVIEW.
+[G-4] CONSELHO DIALÉTICO — Músculo × Estrategista em debate autônomo (tese ×
+      antítese) antes do Diretor; o Diretor recebe a síntese, não o ruído.
+[G-5] SUPER-CARD NO HERMES — decisão do Diretor de 15 min → 5 seg: o card no
+      Telegram traz contexto + opções + recomendação prontos para 1 toque.
 
-[G-1] O MOTOR HEADLESS (E NÃO O COWORK GUI)
-O "Terceiro Relógio" será um orquestrador n8n puro consumindo Claude API (Motor Headless). O Cowork (App Desktop) continua sendo estritamente a Interface de Deliberação Humano-IA do Embaixador. A IA caça no background (n8n), deposita a inteligência na `INBOX_COWORK/`, e o Diretor usa o Cowork para refinar e aprovar.
-
-[G-2] LICITAÇÕES: A DEFESA DO GANHO (ATAQUE AO 1º COLOCADO)
-A Vertical 1 pivotou. A Vanguard não vai vender "revisão de edital". O produto é a **Auditoria de Concorrente**. O cliente (que ficou em 2º ou 3º lugar) contrata a Vanguard para encontrar inconsistências legais, quebras de atestado técnico ou inabilitações fiscais na documentação do 1º colocado. Entregamos a peça de recurso administrativo pronta. É o ROI mais visceral do mercado.
-
-[G-3] PITCH REVERSO (A CALCULADORA RODA DO NOSSO LADO)
-Não haverá landing page com calculadora para o cliente preencher. A Vanguard executará o cálculo de ROI com dados públicos *antes* do contato. A abordagem de venda será: "O nosso sistema auditou suas últimas 3 licitações perdidas e calculou que o recurso viabilizaria R$ 2.4M. Eis a prova. Quer plugar isso no seu escritório?".
-
-[G-4] ISOLAMENTO CELULAR DE ESTADO (SWARM MANAGEMENT)
-Para delegar de 2 para 10, o WIP_BOARD deixa de ser uma lista única. O Músculo implementará o **Contexto Celular**: cada cliente terá seu próprio `LOOP_STATE_[ID].json` blindado. O Músculo agirá como um *Swarm Manager*, carregando apenas a célula específica na memória e descartando-a ao terminar, eliminando o gargalo cognitivo de tentar lembrar das regras do Valdece enquanto programa para a Ingrid.
-
-[G-5] ENGINEERING AS MARKETING (O MICRO-SAAS ISCA)
-Zero PDFs de "Case Cego". A Vanguard será encontrada porque hospedará uma ferramenta grátis: o *Validador de Atestado Técnico PNCP*. O advogado entra, joga o link do portal, e o Músculo devolve um semáforo (Verde, Amarelo, Vermelho). Deu Vermelho? A ferramenta corta o relatório no meio e exige agendamento de call com a Vanguard para a liberação da peça de defesa. Autoridade pela prova de valor imediato.
-
-[ANCORAGEM NOTEBOOKLM]
-- Ancoragem validada para G-2: O mercado jurídico é movido por recursos e impugnações diretas a concorrentes (o ganho indireto). Focar no "ataque jurídico" encontra eco massivo na jurisprudência de tribunais de contas.
-- Ancoragem validada para G-5: "Engineering as Marketing" (construir ferramentas grátis de alta utilidade) é historicamente a melhor estratégia de crescimento de SaaS B2B, muito superior a SEO estático.
-
-[WALKTHROUGH ARTIFACT -- ref: walkthrough_DIRETRIZ_V33_2026-06-11.md]
-
+═══════════════════════════════════════════════════════════════════
 [PARA O NOTEBOOKLM]
-Skill: vanguard-v33.md
+═══════════════════════════════════════════════════════════════════
+Skill: vanguard-v29.md
+
 [IDENTIDADE DO AUDITOR UNIVERSAL]
-Você é o Auditor do Pentalateral (NotebookLM). Sua função é consolidar a VIRADA ESTRATÉGICA DISRUPTIVA do Loop 33. O Músculo teve suas premissas iniciais refutadas. Você deve garantir que as novas âncoras ofensivas da Vanguard sejam cumpridas à risca.
+Auditor do Pentalateral IAH. Tensão ativa: auditar, não validar. Peso máximo ao
+LEDGER (P-001 a P-130). Cada afirmação cita princípio/versão/padrão.
 
 [O QUE AUDITAR NESTE LOOP]
-Auditar se o Músculo tentará voltar ao plano original (usar o Cowork para caçar, ou criar calculadoras web vazias). Bloquear qualquer tentativa do Músculo de não isolar o estado dos clientes em células independentes.
+- [M-1..M-5] e [G-1..G-5] contradizem o LEDGER?
+- CRÍTICO: o elo Músculo↔Auditor (M-1) viola P-124 ("nenhum sócio aciona outro
+  diretamente")? Como reconciliar P-129 (elo aberto) com P-124 (checkpoint humano)?
+- G-1/G-2 conflitam com P-121 (automação não iniciada pelo cliente = risco churn)
+  ou P-059 (isolamento) para Ingrid/Valdece?
+- Precisão obrigatória: P-018 = "Diretor é o 4º LLM — orquestração de deficiências
+  como vantagem"; P-128 = "Notion canal bidirecional" (NÃO single-writer).
 
-[PADROES HISTORICOS CRITICOS]
-P-124 (Checkpoint Humano - O Cowork não opera sem o Diretor, o n8n é que faz o trabalho braçal Headless).
-P-130 (Isolamento Cirúrgico - Reforçado agora pelo G-4: Contexto Celular Estrito).
-P-119 (Contato Bilateral - A venda é via Pitch Reverso com prova de valor, nunca cold email genérico).
+[PADRÕES HISTÓRICOS CRÍTICOS]
+Citar loops/versões: que automações funcionaram e quais falharam ao longo dos
++50 loops. Onde a câmara de eco (P-124) já evitou erro.
 
 [N-1 a N-5]
-[N-1] Motor Headless: Documentar que a caça assíncrona pertence ao n8n/API, não ao Claude Desktop.
-[N-2] Produto Vertical 1: Registrar o escopo final: "Auditoria de Concorrentes Vencedores no PNCP".
-[N-3] Pitch Reverso: Exigir o levantamento de dados públicos antes de qualquer contato comercial.
-[N-4] Arquitetura de Estado: O Músculo deve implementar o `LOOP_STATE_[CLIENTE].json` para escala segura.
-[N-5] Engineering as Marketing: A autoridade da Vanguard será estabelecida construindo Micro-SaaS "Isca" abertos ao público.
+N-1: topologia n8n resiliente para disparo concorrente sem engarrafar PENDING_REVIEW?
+N-2: como sócios interrogam schemas cruzados sem violar P-059?
+N-3: há espaço para o Auditor ler continuamente, validando a cada artefato? Respeita P-124?
+N-4: fluxo Hermes otimizado para aprovação instantânea do Diretor sem fricção?
+N-5: como medir a "sabedoria expandida" do Antigravity convertendo background em MRR?

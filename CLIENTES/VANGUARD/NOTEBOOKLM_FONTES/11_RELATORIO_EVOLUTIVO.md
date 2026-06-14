@@ -1,119 +1,116 @@
-# RELATORIO EVOLUTIVO -- Loop 32 VANGUARD · Deriva Documental
-> Tipo: Loop INTERNO · Fechado: 2026-06-10 · Commit: 4defaf6
-> Foco: correccao de deriva documental + formalizacao Hermes Grau B + LOOP_STATE v1.1
+# RELATÓRIO EVOLUTIVO — LOOP 33 — VANGUARD TECH
+> Versão: V33 | Data: 2026-06-13 | Gerado pelo Músculo
+> Framework: SWOT + PDCA + 5W2H | Entregue ao Gemini com MEMORIA_V33
 
 ---
 
-## ANALISE DE NEGOCIO
+## SWOT DO LOOP 33
 
-### PONTOS FORTES DO LOOP 32
-1. **Consistencia sistêmica restaurada** -- 62 arquivos renomeados de "Antigravity" para
-   "EXECUTOR do Estrategista" sem quebra de dependencias. Zero falhas de hash pos-sync.
-2. **Hermes Grau B formalizado** -- D1:A executado; agente opera autonomamente com confirmacao
-   de 15min. Shadow mode encerrado. Grau C proximo marco.
-3. **LOOP_STATE v1.1 resiliente** -- schema expandido com missao, loop_anterior, builds_aprovados
-   e P-133; resolve amnesia pos-compactacao em loops longos.
-4. **Firewall de identidade** -- pentalateral-firewall.md com R-01..R-04; impede SUGESTOES_DIRETOR
-   de vazarem para CONSELHO/; regra de autoria protegida.
-
-### PONTOS DE MELHORIA
-1. **Zero avanco em mercado e pipeline** -- Loop 32 foi 100% build interno. Nenhum lead
-   prospectado, nenhuma vertical ativada, nenhum argumento de venda construido.
-   A Vanguard saiu mais organizada mas nao mais lucrativa.
-2. **LEDGER_INBOX como palliativo** -- buffer criado para absorver falhas FALHAS A-K sem
-   perder sessao. Solucao correta, mas evidencia que o volume de falhas ainda e alto.
-3. **Gate 1.7 BLOQUEANTE** -- VANGUARD_TIMELINE como gate de sessao correto por principio
-   mas gerou fricao desnecessaria quando timeline estava desatualizada.
-
-### RISCOS IDENTIFICADOS
-- **Concentracao de receita** -- Valdece em HYPERCARE, Ingrid standby, Mumuzinho discovery.
-  Nenhum projeto novo no pipeline. Risco de receita zero pos-junho.
-- **Tecnica sem traction** -- sistema mais capaz do que nunca mas sem canal de entrada.
-  O Pentalateral e invisivel para o mercado.
-- **Wipe & Sync Loop 33** -- Sync foi feito via Playwright (19 fontes); Wipe foi manual
-  (Diretor). Bug do codigo Playwright documentado no RUNBOOK. Dependencia do Diretor para
-  Wipe e risco operacional em escala.
-
----
-
-## ANALISE SWOT
-
-### FORCAS
-- Infraestrutura de automacao mais madura do sistema (W-1 a W-9, Hermes B, GRADOC-PARCIAL)
-- Consistencia documental restaurada: LEDGER P-001 a P-149 sem lacunas
-- Antigravity como EXECUTOR do Estrategista: canal de pesquisa de mercado ativo
+### FORÇAS
+- **NICHE_INDEX como ativo proprietário**: 11 nichos mapeados com dor real, urgência regulatória e modelo de negócio validado. Nenhum concorrente tem esta camada de inteligência pré-build.
+- **Embaixador com E-1 ativo**: detecção comportamental do Diretor antes de qualquer build. Valor diferencial incopiável.
+- **Copy ECD pronta e aprovada**: ciclo Embaixador→Músculo→E-3 entregou mensagem com dor real, prova pública (0,02%/dia) e CTA baixo atrito. Pronta para disparar hoje.
+- **Gate E-4 formalizado**: estrutura que impede dispersão de canais — fundamento de execução disciplinada.
+- **Hermes Grau B estável**: 7 dias shadow mode sem incidentes. Automação ativa sem custo de atenção do Diretor.
 
 ### FRAQUEZAS
-- Ausencia de presenca de mercado (sem pagina, sem case publico, sem SEO)
-- Pipeline vazio: 0 leads qualificados pos-Mumuzinho
-- Cowork (terceiro relogio) ainda nao operacional: INBOX_COWORK nao construido
+- **Pipeline ZERO com contatos nomeados**: NICHE_INDEX tem 11 vetores mas zero prospects reais identificados. A distância entre "nicho mapeado" e "conversa real" ainda não foi percorrida.
+- **E-1 confirmado (2 instâncias)**: padrão builder>vendedor é estrutural, não episódico. Loop 33 foi mais um loop de build (NICHE_MODELER + ESTRATEGIA) do que de outreach.
+- **Ingrid sem 2ª candidata**: P-133 ativo mas sem ação concreta além do monitoramento. Risco de churn pós-prova em setembro.
+- **update_memoria_embaixador.ps1 ausente**: P-032 ainda manual. Com 10+ projetos, isso colapsa.
 
 ### OPORTUNIDADES
-- 5 nichos de encaixe perfeito mapeados pelo Embaixador aguardando ativacao
-- PNCP como gatilho publico gratuito para Vertical 1 (Licitacoes)
-- Argumento de venda "elimina o custo do erro de direcao" validado -- falta biblioteca de dor
+- **ECD 30/06 como janela real**: 17 dias de prazo criam urgência genuína no prospect. É o nicho com menor atrito para a primeira conversa.
+- **AI Act 02/08 e ANEEL 05/08 como segundos vetores**: janela regulatória de 3 meses para os 3 nichos CRÍTICOS. Raridade no mercado.
+- **Embaixador com E-1 como produto**: a lógica de detecção de padrão comportamental do fundador é o diferencial do Pentalateral IAH como produto. Pode ser o pitch central do Loop 34.
+- **Hermes como follow-up engine**: Grau B já operacional pode automatizar follow-up de prospects que não responderam em 48h — zero build adicional.
 
-### AMEACAS
-- Concentracao: se Valdece nao renovar pos-HYPERCARE, receita cai para zero
-- Mercado nao espera: concorrentes com IA podem ocupar os nichos antes da Vanguard
-
----
-
-## PDCA DO LOOP 32
-
-### PLAN
-- Correcao de deriva documental identificada pelo Auditor (NotebookLM)
-- 7 documentos IDENTIDADE marcados para update + 6 documentos TECNICO
-
-### DO
-- ATO 0: inventario completo (100+ arquivos, tabela tri-coluna)
-- ATO 1a..1f: renomeacao sistêmica + LOOP_STATE + firewall + PASSO3 + CONTEXTO_GEMINI
-- ATOs 2-6: LEDGER_INBOX + sessions gates + TIMELINE gate + Hermes B formal
-- Wipe & Sync NotebookLM VANGUARD (19 fontes Loop 33)
-
-### CHECK
-- Hash post-sync: INTEGRIDADE VERDE para todos os 19 arquivos
-- LEDGER_INBOX: 10 principios (P-140 a P-149) registrados
-- Gate 1.7: VANGUARD_TIMELINE atualizada como condicao bloqueante
-
-### ACT -- MANDATO DO LOOP 33
-- Abrir Vertical 1 (Licitacoes) esta semana
-- Construir INBOX_COWORK (terceiro relogio)
-- Gerar biblioteca de dor calculavel por nicho
-- Definir arquitetura de delegacao para escala 2→10
+### AMEAÇAS
+- **Janela ECD fecha em 17 dias**: se o Diretor não disparar a copy esta semana, o nicho âncora fecha sem teste real.
+- **ConLicitação / Dr. Licita**: concorrentes identificados pelo Embaixador em Licitações (fev/2026). Validação de posicionamento antes de ativar V1.
+- **Atenção do Diretor como gargalo**: 2 clientes ativos (Ingrid + Valdece) + campanha ECD + Loop 34 = 4 frentes simultâneas para 1 Diretor outbound.
+- **Deriva documental recorrente**: Loop 32 corrigiu 62 arquivos. Sem update_memoria_embaixador.ps1, a deriva recomeça.
 
 ---
 
-## 5 IDEIAS DISRUPTIVAS DO LOOP 32
+## PDCA DO LOOP 33
 
-M-1: COWORK COMO TERCEIRO RELOGIO
-  O Embaixador so age quando chamado. O Cowork (Claude Desktop, modo agente) pode monitorar
-  continuamente: dor publica de nicho, sinais de mercado, deriva documental. INBOX_COWORK
-  e o canal de entrada do terceiro relogio no sistema.
+### PLAN (o que planejamos)
+- Sair do loop interno e mapear vetores de entrada no mercado
+- NICHE_MODELER: atualizar 9 nichos e identificar novos
+- Definir estratégia de canais por nicho
+- Consultar Embaixador sobre ampliation de papel e canais
 
-M-2: VERTICAL 1 POR GATILHO PUBLICO
-  PNCP e o maior banco de editais do Brasil -- publico, gratuito, estruturado.
-  Hermes + W-9 monitora PNCP, gera dossie automatico por edital relevante, alerta Diretor.
-  Custo: zero. Escala: ilimitada.
+### DO (o que foi executado)
+- ✅ NICHE_MODELER L33: 9 upgrades + 2 novos = 11 nichos fit_score 5.0 (Gemini Advanced)
+- ✅ Skill vanguard-v33.md aprovada (NotebookLM)
+- ✅ Embaixador entregou análise 3 canais + E-1..E-5 BLOCO 5
+- ✅ P-154 implementado + ir_ao_embaixador.ps1 atualizado
+- ✅ ESTRATEGIA_CANAIS_VANGUARD.md criado (7 campos + Gate E-4)
+- ✅ NICHE_INDEX v1.2: 3 MOVER_AGORA + 8 MONITORAR
+- ✅ Copy ECD aprovada E-3 (2 peças: LinkedIn + WhatsApp)
+- ✅ W-8 avaliado: Grau B permanente
+- ✅ Ingrid churn resolvido (contato 2026-06-13, "gostando da ferramenta")
 
-M-3: ARGUMENTO DE VENDA BASEADO EM DOR CALCULAVEL
-  "Elimina o custo do erro de direcao" so converte quando a dor e calculada em R$ antes
-  da conversa comecar. Biblioteca de 3 casos por nicho + formula editavel = argumento
-  que o Diretor usa em 30 segundos.
+### CHECK (o que aprendemos)
+- **Câmara de eco identificada e corrigida (P-149)**: Loop 33 V1 descartado porque M era eco do sistema. Sinal de saúde do processo — o mecanismo de detecção funcionou.
+- **Embaixador foi o membro mais crítico do loop**: E-1 (padrão builder>vendedor), E-4 (gate de canal), E-5 (atenção do Diretor como recurso escasso) são os insights mais valiosos do loop.
+- **Copy ECD em 1 ciclo**: Embaixador entregou copy pronta sem brief detalhado. Profundidade de contexto acumulado funciona.
+- **Gate E-4 resolveu a dispersão de canais estruturalmente**: em vez de disciplina, uma condição. Melhor design.
 
-M-4: TRES NIVEIS DE DECISAO POR PROJETO
-  AUTO-AVANCO [musculo] / GATE-ESTRATEGICO / BLOQUEANTE -- inscritos no WIP_BOARD.
-  Com 10 projetos, o Diretor nao pode ser gargalo de auto-avanco. Delegacao estrutural
-  e o que diferencia um sistema de 2 de um sistema de 10.
-
-M-5: PRESENCA DE AUTORIDADE COMO CANAL PASSIVO
-  Uma pagina por nicho com caso de sucesso documentado e SEO para query de dor.
-  O Diretor nao precisa cacar -- o lead chega ja com a dor identificada.
+### ACT (o que muda no Loop 34)
+- Disparar copy ECD esta semana — sem isso, o loop foi de build, não de mercado
+- PADROES_FUNDADOR na MEMORIA_EMBAIXADOR (E-1 formalizado)
+- update_memoria_embaixador.ps1 como prioridade máxima [musculo]
+- Loop 34 = loop de outreach, não de build técnico (unless E-4 for atingido)
 
 ---
 
-## PROXIMA MISSAO
+## 5W2H — LOOP 33
 
-Loop 33 · VIRADA ESTRATEGICA -- MERCADO + EMBAIXADOR AGENTADO
-Missao: transformar mapa em movimento. 3 frentes: Embaixador Agentado + Vertical 1 + Escala 2→10.
-Primeiro ato: PASSO3_GEMINI V33 → Antigravity → DIRETRIZ V33 → NotebookLM → Skill vanguard-v33.md.
+| Pergunta | Resposta |
+|----------|----------|
+| **WHAT** | Mapeamento de 11 nichos + estratégia de canais + gate E-4 + copy ECD aprovada |
+| **WHY** | Pipeline ZERO com contatos nomeados — sistema precisa de primeiro cliente externo |
+| **WHO** | Diretor (outreach) · Músculo (build/síntese) · Embaixador (filter + copy) |
+| **WHEN** | ECD: esta semana (30/06 fecha a janela) · AI Act/ANEEL: julho/agosto |
+| **WHERE** | LinkedIn (busca ativa ECD) → WhatsApp (conversão) |
+| **HOW** | Mensagem 1 LinkedIn frio → Gate E-4 → Mensagem 2 WhatsApp → chamada 15min → laudo |
+| **HOW MUCH** | Zero build adicional. Copy está pronta. Custo = tempo do Diretor no outreach |
+
+---
+
+## IMPACTO COMERCIAL DO LOOP 33
+
+**O que mudou para a Vanguard como empresa:**
+
+1. **De "onde atuar" para "como entrar"**: antes do loop, Vanguard tinha capacidade mas não sabia qual nicho atacar primeiro. Depois: ECD como âncora, copy pronta, deadline real em 17 dias.
+
+2. **Primeiro funil externo formalizado**: ESTRATEGIA_CANAIS é o primeiro documento de go-to-market da Vanguard. LinkedIn → WhatsApp → chamada → laudo. Ciclo de venda de consultoria mapeado.
+
+3. **Gate E-4 como antídoto comportamental**: o principal risco interno (Diretor em modo build > modo vendedor) tem agora uma condição estrutural que obriga outreach antes de abrir novo canal.
+
+4. **Hermes como aliado de outreach**: Grau B pode automatizar follow-up de prospects. Primeiro uso real do Hermes em função comercial (não só operacional).
+
+---
+
+## [M-1 a M-5] — 5 IDEIAS DISRUPTIVAS PARA O LOOP 34
+
+**M-1 — Loop 34 é 100% outreach, zero build**
+O maior risco do sistema é o padrão builder>vendedor (E-1, 2 instâncias). Loop 34 deve ter um mandato explícito: nenhum build novo antes de Gate E-4 (1ª conversa real ECD). Qualquer proposta de build no PASSO3 do Loop 34 deve ser etiquetada como [BLOQUEADO-E4].
+
+**M-2 — Hermes como closer assistido**
+Hermes Grau B já opera com confirmação 15min. Próximo passo: n8n webhook recebe resposta do LinkedIn → Hermes envia follow-up WhatsApp personalizado em 48h. Zero intervenção do Diretor. Primeiro caso de uso comercial do Hermes. Custo: 2-3h de build.
+
+**M-3 — ECD como sensor de validação do produto**
+Cada resposta à campanha ECD é um dado: respondeu/não respondeu, porte do escritório, objeção levantada, interesse no laudo. Loop 34 deve ter estrutura para capturar esses dados em NICHE_INDEX.json — feedback real de mercado que atualiza os 8 nichos MONITORAR.
+
+**M-4 — Padrão Fundador como produto**
+A E-1 (padrão builder>vendedor em fundadores técnicos) é universal. Todo founder que contrata o Pentalateral IAH tem este risco. Documentar a E-1 como módulo formal do produto — "Diagnóstico de Padrão Fundador" — é o diferencial de abertura de conversa com o próximo cliente. "Antes de construir, identificamos onde você mesmo é o gargalo."
+
+**M-5 — Primeira prova como multiplicador**
+O primeiro laudo ECD entregue (quando Gate E-4 for atingido) deve ser documentado como CASO_PROVA_001. Não como case study de marketing — como artefato técnico que alimenta o pitch dos outros 8 nichos MONITORAR. "Um escritório de contabilidade em SP, 17 dias antes do prazo, evitou R$X em multa" é o argumento de abertura para ANEEL, AI Act e todos os demais.
+
+---
+
+*Gerado em 2026-06-13 · Músculo · Loop 33 FECHADO · P-037 satisfeito*

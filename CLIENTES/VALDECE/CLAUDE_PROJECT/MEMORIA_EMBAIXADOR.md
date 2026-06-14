@@ -47,7 +47,7 @@ O Valdece precisa do precedente certo, em 10 segundos, com citação pronta.
 | commit 9709649 | **Loop 6:** ementa completa (600 chars) + badge UF + boost monocrático (+0.15) ✅ |
 | fix HC 512.290/RJ | Dado errado corrigido no banco + re-embedding executado ✅ |
 | 5 áudios Valdece | Feedback técnico processado: ementa ✅ UF ✅ data_dje ❌V3 repercussão ❌V3 |
-| Temperatura | **QUENTE** — Score 6.8 · Hypercare até 18-06-2026 · uso ativo confirmado 2026-06-09 (ferramenta OK via WhatsApp) · silêncio = uso operacional (H-3 CONFIRMADA) · STANDBY · CHURN-WATCH VERDE |
+| Temperatura | **MUITO QUENTE** — Score 8.5 · Hypercare até 18-06-2026 · uso ativo confirmado 2026-06-14 (Valdece fez contato espontâneo — está GOSTANDO da ferramenta) · H-3 CONFIRMADA · ChurnWatch VERDE · JANELA E-2 ABERTA AGORA |
 | ⚠️ REGRA P-120 | **NÃO mencionar automação, IA, agentes ou /notebooklm ao Valdece durante Hypercare.** Termos de automação = desconforto jurídico. Apresentar sempre como "equipe sincronizada". |
 | Contrato | **ASSINADO — 2026-05-19** · R$5k fixo + sem mensalidade · Gate V3 DESBLOQUEADO |
 

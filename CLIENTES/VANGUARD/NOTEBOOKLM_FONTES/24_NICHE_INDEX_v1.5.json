@@ -1,0 +1,639 @@
+{
+    "_meta":  {
+                  "versao":  "1.4",
+                  "criado":  "2026-06-13",
+                  "ultima_atualizacao":  "2026-06-13",
+                  "total_nichos":  11,
+                  "schema":  "NICHE_MODELS/SCHEMA.md",
+                  "ferramenta_match":  "scripts/match_niche.ps1",
+                  "cadencia":  "Atualizado por F1 (diario), F3 (semanal), F11 (mensal), F12 (semanal)",
+                  "nota":  "Este arquivo e o indice consultavel. Os modelos completos estao em NICHE_MODELS/[id]_MODEL.json",
+                  "historico_versoes":  {
+                                            "1.0":  "2026-06-13 — criacao inicial com 9 nichos",
+                                            "1.1":  "2026-06-13 — NICHE_MODELER L33: 8 upgrades fit_score para 5.0, 2 promocoes de status, 2 novos nichos adicionados",
+                                            "1.2":  "2026-06-13 — Embaixador: rebaixar 8/11 para MONITORAR. 3 CRITICOS ficam MOVER_AGORA (ECD/AI Act/ANEEL). Gate E-4: proximo nicho so apos 1 conversa real.",
+                                            "1.3":  "2026-06-13 — Loop 34: carbon-esg-mrv + ifrs17-seguros MONITORAR-\u003eMOVER_AGORA confirmado. Total MOVER_AGORA: 5.",
+                                            "1.4":  "2026-06-13 — Diretor aprova glosa-hospitalar + medicos-peritos-laudos MONITORAR-\u003eMOVER_AGORA. Total MOVER_AGORA: 7."
+                                        }
+              },
+    "nichos":  [
+                   {
+                       "id":  "licitacoes-contratos-publicos",
+                       "nome":  "Licitacoes e Contratos Publicos",
+                       "vertical":  1,
+                       "status":  "MONITORAR",
+                       "fit_score":  4.8,
+                       "setor":  "Setor Publico / Compliance",
+                       "subsetor":  "Auditoria Preventiva de Habilitacao",
+                       "match_keywords":  [
+                                              "licitacao",
+                                              "edital",
+                                              "pregao",
+                                              "habilitacao",
+                                              "PNCP",
+                                              "inabilitacao",
+                                              "Lei 14133",
+                                              "TCU",
+                                              "certidao",
+                                              "obra publica"
+                                          ],
+                       "match_setores":  [
+                                             "engenharia",
+                                             "construcao civil",
+                                             "TI publica",
+                                             "infraestrutura"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  5,
+                                                   "concorrencia_baixa":  5,
+                                                   "ticket_viavel":  5,
+                                                   "recorrencia":  4
+                                               },
+                       "demo_disponivel":  true,
+                       "cowork_densidade":  "ALTA — F1+F7+F8+F11+F12 convergindo",
+                       "urgencia_regulatoria":  "ESTRUTURAL",
+                       "proxima_revisao":  "F11 2026-07-01",
+                       "arquivo_modelo":  "NICHE_MODELS/licitacoes-contratos-publicos_MODEL.json",
+                       "niche_modeler_l33":  "CONFIRMO — fit 4.8 validado. Gap: sistema Alice TCU + Lei 14133 + PL 2338.",
+                       "monitorar_nota":  "fit_score alto — aguarda pipeline ativo (Gate E-4 ECD confirmado). Ativar apos 1a conversa real no nicho ancora."
+                   },
+                   {
+                       "id":  "glosa-hospitalar",
+                       "nome":  "Glosa Hospitalar / Defesa Medica",
+                       "vertical":  2,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  5.0,
+                       "setor":  "Saude / Faturamento Hospitalar",
+                       "subsetor":  "Auditoria Preventiva de Faturamento e Gestao de Glosas",
+                       "match_keywords":  [
+                                              "glosa",
+                                              "hospital",
+                                              "plano de saude",
+                                              "faturamento hospitalar",
+                                              "ANS",
+                                              "CID-10",
+                                              "auditoria medica",
+                                              "Anahp",
+                                              "CFM 2.448/2025"
+                                          ],
+                       "match_setores":  [
+                                             "saude",
+                                             "hospital",
+                                             "clinica",
+                                             "medicina"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  5,
+                                                   "concorrencia_baixa":  4,
+                                                   "ticket_viavel":  5,
+                                                   "recorrencia":  5
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "ALTA — F1+F3+F11+F16 convergindo",
+                       "urgencia_regulatoria":  "ALTA",
+                       "proxima_revisao":  "F11 2026-07-01",
+                       "arquivo_modelo":  "NICHE_MODELS/glosa-hospitalar_MODEL.json",
+                       "niche_modeler_l33":  "UPGRADE 4.6-\u003e5.0 — taxa de glosa 17% Q1/2025. CFM 2.448/2025 judicializada FenaSaude fev/2026.",
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — taxa glosa 17% Q1/2025 + CFM 2.448/2025 judicializada. Aprovado Diretor 2026-06-13."
+                   },
+                   {
+                       "id":  "medicos-peritos-laudos",
+                       "nome":  "Medicos Peritos — Laudos e Gestao de Processos",
+                       "vertical":  7,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  5.0,
+                       "setor":  "Saude / Juridico / Previdencia",
+                       "subsetor":  "Gestao de Laudos Periciais e Conformidade",
+                       "match_keywords":  [
+                                              "medico perito",
+                                              "laudo pericial",
+                                              "INSS",
+                                              "LOAS",
+                                              "CID-11",
+                                              "junta medica",
+                                              "pericia",
+                                              "CFM 2.448/2025"
+                                          ],
+                       "match_setores":  [
+                                             "medicina",
+                                             "previdencia",
+                                             "pericia medica",
+                                             "psicologia"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  5,
+                                                   "concorrencia_baixa":  5,
+                                                   "ticket_viavel":  4,
+                                                   "recorrencia":  5
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "MEDIA — F1+F3",
+                       "urgencia_regulatoria":  "ALTA",
+                       "proxima_revisao":  "F11 2026-07-01",
+                       "arquivo_modelo":  "NICHE_MODELS/medicos-peritos-laudos_MODEL.json",
+                       "niche_modeler_l33":  "UPGRADE 4.7-\u003e5.0 — CFM 2.448/2025 criou novo padrao de documentacao para laudos.",
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — CFM 2.448/2025 novo padrao de laudos. Aprovado Diretor 2026-06-13."
+                   },
+                   {
+                       "id":  "rastreabilidade-sanitaria-premium",
+                       "nome":  "Rastreabilidade Sanitaria Premium",
+                       "vertical":  4,
+                       "status":  "MONITORAR",
+                       "fit_score":  5.0,
+                       "setor":  "Industria / Alimentos e Bebidas / ANVISA",
+                       "subsetor":  "Conformidade de Rastreabilidade e Plano de Recall",
+                       "match_keywords":  [
+                                              "rastreabilidade",
+                                              "ANVISA",
+                                              "recall",
+                                              "alimentos",
+                                              "plano de recolhimento",
+                                              "BPF",
+                                              "Ype",
+                                              "Nestle"
+                                          ],
+                       "match_setores":  [
+                                             "alimentos",
+                                             "bebidas",
+                                             "industria alimenticia",
+                                             "farmaceutico"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  4,
+                                                   "concorrencia_baixa":  4,
+                                                   "ticket_viavel":  4,
+                                                   "recorrencia":  4
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "MEDIA — F1+F3",
+                       "urgencia_regulatoria":  "ALTA",
+                       "alerta_timing":  "Janela comercial de 60-90 dias antes de saturacao — norma ANVISA publicada 09/06/2026, deadline 09/12/2026",
+                       "proxima_revisao":  "F3 proxima semana",
+                       "arquivo_modelo":  "NICHE_MODELS/rastreabilidade-sanitaria-premium_MODEL.json",
+                       "niche_modeler_l33":  "UPGRADE 4.5-\u003e5.0 — casos Ype/Nestle (2025/2026) + norma ANVISA 09/06/2026, deadline 09/12/2026.",
+                       "monitorar_nota":  "fit_score alto — aguarda pipeline ativo (Gate E-4 ECD confirmado). Ativar apos 1a conversa real no nicho ancora."
+                   },
+                   {
+                       "id":  "ma-reestruturacao-societaria",
+                       "nome":  "M\u0026A e Reestruturacao Societaria",
+                       "vertical":  5,
+                       "status":  "MONITORAR",
+                       "fit_score":  5.0,
+                       "setor":  "Financeiro / Juridico / Corporate Finance",
+                       "subsetor":  "Due Diligence Documental e Suporte a Processos de M\u0026A",
+                       "match_keywords":  [
+                                              "M\u0026A",
+                                              "fusao",
+                                              "aquisicao",
+                                              "due diligence",
+                                              "dataroom",
+                                              "valuation",
+                                              "LGPD compliance",
+                                              "private equity",
+                                              "BCB 538",
+                                              "CMN 5.274"
+                                          ],
+                       "match_setores":  [
+                                             "corporate",
+                                             "private equity",
+                                             "advocacia corporativa",
+                                             "empresas em captacao"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  4,
+                                                   "concorrencia_baixa":  4,
+                                                   "ticket_viavel":  5,
+                                                   "recorrencia":  3
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "MEDIA — F1+F9+F11",
+                       "urgencia_regulatoria":  "ESTRUTURAL",
+                       "proxima_revisao":  "F11 2026-07-01",
+                       "arquivo_modelo":  "NICHE_MODELS/ma-reestruturacao-societaria_MODEL.json",
+                       "niche_modeler_l33":  "UPGRADE 4.5-\u003e5.0 — Due Diligence Cibernetica (BCB 538 + CMN 5.274 mar/2026) + passivo trabalhista oculto como novos gatilhos.",
+                       "monitorar_nota":  "fit_score alto — aguarda pipeline ativo (Gate E-4 ECD confirmado). Ativar apos 1a conversa real no nicho ancora."
+                   },
+                   {
+                       "id":  "setor-eletrico-regulatorio",
+                       "nome":  "Setor Eletrico — Compliance Regulatorio ANEEL",
+                       "vertical":  6,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  5.0,
+                       "setor":  "Energia / Regulatorio",
+                       "subsetor":  "Compliance de Concessoes e Gestao de Ativos Regulados",
+                       "match_keywords":  [
+                                              "ANEEL",
+                                              "concessao eletrica",
+                                              "distribuidora",
+                                              "DEC",
+                                              "FEC",
+                                              "PRODIST",
+                                              "geracao distribuida",
+                                              "energia renovavel",
+                                              "CP 009/2026",
+                                              "GD"
+                                          ],
+                       "match_setores":  [
+                                             "energia eletrica",
+                                             "utilities",
+                                             "concessoes",
+                                             "energia renovavel"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  5,
+                                                   "concorrencia_baixa":  4,
+                                                   "ticket_viavel":  5,
+                                                   "recorrencia":  5
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "ALTA — F1+F3+F7+F11 convergindo",
+                       "urgencia_regulatoria":  "CRITICA",
+                       "alerta_timing":  "CP 009/2026 encerrada 06/06/2026 — 60 dias para auditoria compulsoria de 100% das conexoes GD. Prazo: 05/08/2026",
+                       "proxima_revisao":  "F11 2026-07-01",
+                       "arquivo_modelo":  "NICHE_MODELS/setor-eletrico-regulatorio_MODEL.json",
+                       "niche_modeler_l33":  "UPGRADE 4.8-\u003e5.0 + urgencia_regulatoria ESTRUTURAL-\u003eCRITICA — CP 009/2026 encerrada 06/06, 60 dias para auditoria GD."
+                   },
+                   {
+                       "id":  "compliance-aduaneiro-ncm",
+                       "nome":  "Compliance Aduaneiro — NCM e Tributacao de Importacao",
+                       "vertical":  3,
+                       "status":  "MONITORAR",
+                       "fit_score":  5.0,
+                       "setor":  "Comercio Exterior / Tributario",
+                       "subsetor":  "Classificacao NCM e Compliance de Importacao",
+                       "match_keywords":  [
+                                              "NCM",
+                                              "importacao",
+                                              "classificacao fiscal",
+                                              "Receita Federal",
+                                              "SISCOMEX",
+                                              "multa aduaneira",
+                                              "LC 227/2026",
+                                              "SEFAZ",
+                                              "Reforma Tributaria"
+                                          ],
+                       "match_setores":  [
+                                             "importacao",
+                                             "comercio exterior",
+                                             "manufatura",
+                                             "distribuicao"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  5,
+                                                   "concorrencia_baixa":  4,
+                                                   "ticket_viavel":  4,
+                                                   "recorrencia":  4
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "MEDIA — F1+F3+F11",
+                       "urgencia_regulatoria":  "ALTA",
+                       "alerta_timing":  "LC 227/2026 publicada 05/06 — penalidade R$20.000 por informacao incorreta. Reforma Tributaria bloqueia NF com NCM errado na SEFAZ.",
+                       "proxima_revisao":  "F3 proxima semana",
+                       "arquivo_modelo":  "NICHE_MODELS/compliance-aduaneiro-ncm_MODEL.json",
+                       "niche_modeler_l33":  "UPGRADE 4.3-\u003e5.0 — LC 227/2026 substituiu multa 1% por R$20k/erro. Rejeicao automatica SEFAZ.",
+                       "monitorar_nota":  "fit_score alto — aguarda pipeline ativo (Gate E-4 ECD confirmado). Ativar apos 1a conversa real no nicho ancora."
+                   },
+                   {
+                       "id":  "carbon-esg-mrv",
+                       "nome":  "Carbono, ESG e MRV",
+                       "vertical":  8,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  5.0,
+                       "setor":  "Sustentabilidade / Regulatorio / Financas",
+                       "subsetor":  "Monitoramento, Reporte e Verificacao de Creditos de Carbono",
+                       "match_keywords":  [
+                                              "credito de carbono",
+                                              "MRV",
+                                              "ESG",
+                                              "VERRA",
+                                              "CBAM",
+                                              "SBCE",
+                                              "scope 1 2 3",
+                                              "offset carbono",
+                                              "Lei 15.042/2024"
+                                          ],
+                       "match_setores":  [
+                                             "agronegocio",
+                                             "industria",
+                                             "energia",
+                                             "gestoras de impacto"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  4,
+                                                   "concorrencia_baixa":  4,
+                                                   "ticket_viavel":  5,
+                                                   "recorrencia":  3
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "BAIXA — F1+F9",
+                       "urgencia_regulatoria":  "ALTA",
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — Lei 15.042/2024 sancionada. CBAM em fase definitiva jan/2026. Inventarios 2026 sao pre-requisito para MRV 2027.",
+                       "proxima_revisao":  "F9 quinzenal",
+                       "arquivo_modelo":  "NICHE_MODELS/carbon-esg-mrv_MODEL.json",
+                       "niche_modeler_l33":  "UPGRADE 4.5-\u003e5.0 + PROMOVIDO MONITORAR-\u003eMOVER_AGORA — Lei 15.042/2024 + CBAM jan/2026.",
+                       "monitorar_nota":  "fit_score alto — aguarda pipeline ativo (Gate E-4 ECD confirmado). Ativar apos 1a conversa real no nicho ancora."
+                   },
+                   {
+                       "id":  "ifrs17-seguros",
+                       "nome":  "IFRS 17 — Implementacao e Compliance para Seguradoras",
+                       "vertical":  9,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  5.0,
+                       "setor":  "Financeiro / Seguros / Contabilidade",
+                       "subsetor":  "Implementacao IFRS 17 e Normas de Seguros",
+                       "match_keywords":  [
+                                              "IFRS 17",
+                                              "seguradora",
+                                              "SUSEP",
+                                              "provisao tecnica",
+                                              "CSM",
+                                              "atuaria",
+                                              "CPC 50"
+                                          ],
+                       "match_setores":  [
+                                             "seguros",
+                                             "saude suplementar",
+                                             "previdencia privada",
+                                             "resseguros"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  4,
+                                                   "solucao_diferenciada":  4,
+                                                   "concorrencia_baixa":  3,
+                                                   "ticket_viavel":  5,
+                                                   "recorrencia":  4
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "BAIXA — F1+F3",
+                       "urgencia_regulatoria":  "ALTA",
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — 88% das seguradoras brasileiras adotarao CPC 50. Mercado R$630M em investimentos de transicao.",
+                       "proxima_revisao":  "F11 2026-07-01",
+                       "arquivo_modelo":  "NICHE_MODELS/ifrs17-seguros_MODEL.json",
+                       "niche_modeler_l33":  "UPGRADE 4.3-\u003e5.0 + PROMOVIDO MONITORAR-\u003eMOVER_AGORA — 88% seguradoras adotam CPC 50, mercado R$630M.",
+                       "monitorar_nota":  "fit_score alto — aguarda pipeline ativo (Gate E-4 ECD confirmado). Ativar apos 1a conversa real no nicho ancora."
+                   },
+                   {
+                       "id":  "conformidade-ai-act",
+                       "nome":  "Conformidade AI Act + PL 2338",
+                       "vertical":  10,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  5.0,
+                       "setor":  "Tecnologia / Compliance de IA",
+                       "subsetor":  "Auditoria de Algoritmos e Governanca de Risco",
+                       "match_keywords":  [
+                                              "AI Act",
+                                              "PL 2338",
+                                              "inteligencia artificial",
+                                              "alto risco",
+                                              "compliance de IA",
+                                              "multa europeia",
+                                              "algoritmo decisorio",
+                                              "GDPR AI"
+                                          ],
+                       "match_setores":  [
+                                             "fintechs",
+                                             "healthtechs",
+                                             "legaltechs",
+                                             "e-commerces",
+                                             "SaaS exportador"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  5,
+                                                   "concorrencia_baixa":  5,
+                                                   "ticket_viavel":  5,
+                                                   "recorrencia":  4
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "BAIXA — F17+F22 (frentes novas)",
+                       "urgencia_regulatoria":  "CRITICA",
+                       "alerta_timing":  "AI Act UE ativa obrigacoes em 02/08/2026. Multas ate EUR 35M ou 7% faturamento global. PL 2338 no Brasil em tramitacao.",
+                       "proxima_revisao":  "F1 diario — monitorar publicacoes regulatorias AI Act",
+                       "arquivo_modelo":  "NICHE_MODELS/conformidade-ai-act_MODEL.json",
+                       "niche_modeler_l33":  "NICHO NOVO identificado — fit 5.0 MOVER_AGORA. Deadline 02/08/2026. Ticket R$15k-R$80k."
+                   },
+                   {
+                       "id":  "eventos-fiscais-contadores",
+                       "nome":  "Automacao Auditavel de Eventos Fiscais para Contadores",
+                       "vertical":  11,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  5.0,
+                       "setor":  "Contabilidade / Tributario",
+                       "subsetor":  "Auditoria de Obrigacoes Acessorias e SPED",
+                       "match_keywords":  [
+                                              "Eventos Fiscais",
+                                              "SPED",
+                                              "ECD 2026",
+                                              "ECF 2026",
+                                              "autuacao automatica",
+                                              "compliance tributario",
+                                              "leiaute 12",
+                                              "Receita Federal"
+                                          ],
+                       "match_setores":  [
+                                             "escritorios de contabilidade",
+                                             "departamentos fiscais corporativos"
+                                         ],
+                       "fit_score_criterios":  {
+                                                   "dor_clara":  5,
+                                                   "solucao_diferenciada":  5,
+                                                   "concorrencia_baixa":  5,
+                                                   "ticket_viavel":  4,
+                                                   "recorrencia":  5
+                                               },
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "BAIXA — F20 (frente nova)",
+                       "urgencia_regulatoria":  "CRITICA",
+                       "alerta_timing":  "ECD 2026 (leiaute 12) prazo 30/06/2026. ECF 2026 prazo 31/07/2026. Multas automaticas 0,02%/dia ou 5% sobre valor omitido.",
+                       "proxima_revisao":  "F1 diario — URGENTE (17 dias para prazo ECD)",
+                       "arquivo_modelo":  "NICHE_MODELS/eventos-fiscais-contadores_MODEL.json",
+                       "niche_modeler_l33":  "NICHO NOVO identificado — fit 5.0 MOVER_AGORA. Deadline ECD 30/06/2026 (CRITICO — 17 dias). Ticket R$8k-R$40k."
+                   },
+                   {
+                       "id":  "engenheiros-acervo-tecnico",
+                       "nome":  "Engenheiros / Acervo Tecnico ART+CREA+TCU",
+                       "vertical":  1,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  4.6,
+                       "nota_status":  "Aprovado Cowork 2026-06-13. Cross-sell natural com licitacoes-contratos-publicos.",
+                       "setor":  "Engenharia Civil / Obras Publicas",
+                       "subsetor":  "Licitacoes de Engenharia",
+                       "match_keywords":  [
+                                              "acervo tecnico",
+                                              "ART",
+                                              "CREA",
+                                              "TCU",
+                                              "CAT",
+                                              "Lei 14.133",
+                                              "inabilitacao"
+                                          ],
+                       "match_setores":  [
+                                             "construcao civil",
+                                             "engenharia",
+                                             "obras publicas"
+                                         ],
+                       "arquivo_modelo":  "engenheiros-acervo-tecnico_MODEL.json"
+                   },
+                   {
+                       "id":  "saude-digital-conformidade",
+                       "nome":  "Saude Digital / RNDS+LGPD+CFM 2.448/2025",
+                       "vertical":  2,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  4.8,
+                       "nota_status":  "Aprovado Cowork 2026-06-13. Maior ticket do portfolio (R45k+R5k/mes). Cluster A hospitais com glosa + medicos-peritos.",
+                       "setor":  "Saude Digital",
+                       "subsetor":  "Hospitais Privados",
+                       "match_keywords":  [
+                                              "RNDS",
+                                              "LGPD",
+                                              "CFM 2.448",
+                                              "ANPD",
+                                              "ANS RN 558",
+                                              "saude digital",
+                                              "prontuario eletronico"
+                                          ],
+                       "match_setores":  [
+                                             "hospitais privados",
+                                             "healthtechs",
+                                             "clinicas",
+                                             "operadoras de saude"
+                                         ],
+                       "arquivo_modelo":  "saude-digital-conformidade_MODEL.json"
+                   },
+                   {
+                       "id":  "farmaceuticos-rt-compliance",
+                       "nome":  "Farmaceuticos RT / Compliance CFF+ANVISA",
+                       "vertical":  4,
+                       "status":  "MONITORAR",
+                       "fit_score":  4.4,
+                       "monitorar_nota":  "Fit 4.4 abaixo do threshold 5.0 MOVER_AGORA. Promover quando houver prazo regulatorio especifico ou mais evidencia de dor no corpus Cowork.",
+                       "setor":  "Farmaceutico / Compliance Regulatorio",
+                       "subsetor":  "Farmacias de Manipulacao",
+                       "match_keywords":  [
+                                              "RT",
+                                              "ANVISA 978/2025",
+                                              "CFF",
+                                              "responsabilidade solidaria",
+                                              "CRF",
+                                              "cassacao"
+                                          ],
+                       "match_setores":  [
+                                             "farmacia de manipulacao",
+                                             "industria farmaceutica"
+                                         ],
+                       "arquivo_modelo":  "farmaceuticos-rt-compliance_MODEL.json"
+                   },
+                   {
+                       "id":  "csrd-esg-exportadores-eu",
+                       "nome":  "CSRD/ESG para Exportadores EU",
+                       "vertical":  8,
+                       "status":  "MONITORAR",
+                       "fit_score":  5,
+                       "monitorar_nota":  "Diferenciacao com carbon-esg-mrv pendente. Promover quando diferenciacao carbon-esg (mercado interno) vs CSRD (cadeia EU) estiver clara nos MODELs.",
+                       "setor":  "Exportacao / ESG",
+                       "subsetor":  "Conformidade Cadeia de Suprimentos EU",
+                       "match_keywords":  [
+                                              "CSRD",
+                                              "ESG",
+                                              "exportacao UE",
+                                              "sustentabilidade",
+                                              "auditoria de cadeia",
+                                              "Diretiva Europeia"
+                                          ],
+                       "match_setores":  [
+                                             "agronegocio",
+                                             "industria exportadora",
+                                             "construcao civil"
+                                         ],
+                       "arquivo_modelo":  "csrd-esg-exportadores-eu_MODEL.json"
+                   }
+               ],
+    "resumo":  {
+                   "ARQUIVAR":  0,
+                   "verticais_ativas":  [
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            5,
+                                            6,
+                                            7,
+                                            8,
+                                            9,
+                                            10,
+                                            11
+                                        ],
+                   "prioridade_1_critica":  [
+                                                "eventos-fiscais-contadores",
+                                                "conformidade-ai-act",
+                                                "setor-eletrico-regulatorio"
+                                            ],
+                   "prioridade_2":  [
+                                        "licitacoes-contratos-publicos",
+                                        "glosa-hospitalar",
+                                        "medicos-peritos-laudos"
+                                    ],
+                   "prioridade_3":  [
+                                        "rastreabilidade-sanitaria-premium",
+                                        "ma-reestruturacao-societaria",
+                                        "compliance-aduaneiro-ncm"
+                                    ],
+                   "prioridade_4_promovidos":  [
+                                                   "carbon-esg-mrv",
+                                                   "ifrs17-seguros"
+                                               ],
+                   "nichos_novos_l33":  [
+                                            "conformidade-ai-act",
+                                            "eventos-fiscais-contadores"
+                                        ],
+                   "upgrades_l33":  [
+                                        "glosa-hospitalar",
+                                        "medicos-peritos-laudos",
+                                        "rastreabilidade-sanitaria-premium",
+                                        "ma-reestruturacao-societaria",
+                                        "setor-eletrico-regulatorio",
+                                        "compliance-aduaneiro-ncm",
+                                        "carbon-esg-mrv",
+                                        "ifrs17-seguros"
+                                    ],
+                   "total":  15,
+                   "MOVER_AGORA":  9,
+                   "MONITORAR":  6,
+                   "lista_mover_agora":  [
+                                             "eventos-fiscais-contadores",
+                                             "conformidade-ai-act",
+                                             "setor-eletrico-regulatorio",
+                                             "carbon-esg-mrv",
+                                             "ifrs17-seguros",
+                                             "glosa-hospitalar",
+                                             "medicos-peritos-laudos",
+                                             "engenheiros-acervo-tecnico",
+                                             "saude-digital-conformidade"
+                                         ],
+                   "lista_monitorar":  [
+                                           "licitacoes-contratos-publicos",
+                                           "compliance-aduaneiro-ncm",
+                                           "rastreabilidade-sanitaria-premium",
+                                           "ma-reestruturacao-societaria",
+                                           "farmaceuticos-rt-compliance",
+                                           "csrd-esg-exportadores-eu"
+                                       ]
+               },
+    "versao":  "1.5",
+    "ultima_atualizacao":  "2026-06-13",
+    "historico_versoes":  [
+                              {
+                                  "versao":  "1.5",
+                                  "data":  "2026-06-13",
+                                  "mudancas":  "Cowork 2026-06-13: +N17 engenheiros-acervo-tecnico (MOVER_AGORA 4.6) +N18 saude-digital-conformidade (MOVER_AGORA 4.8) +N16 farmaceuticos-rt-compliance (MONITORAR 4.4) +N09 csrd-esg-exportadores-eu (MONITORAR 5.0). Total: 15 nichos (9 MOVER_AGORA / 6 MONITORAR)."
+                              }
+                          ]
+}
