@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 2.2 | Atualizada: 2026-06-13 · E-1 Loop 33 — PADROES_FUNDADOR adicionado (6 padrões confirmados PF-1..PF-6) (P-032)
+> Criada em: 2026-06-06 | Versão: 2.2 | Atualizada: 2026-06-14 (P-032) · Session close — EasyPanel skills + P-059 Notion isolation + GATE P-059
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
