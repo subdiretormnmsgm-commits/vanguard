@@ -924,6 +924,18 @@ if (Test-Path $gateScript) {
     } catch {}
 }
 
+# PASSO 0C -- CALENDARIO COWORK (prepend antes do 0B: aparece apos 0B na saida)
+$calendarioOutput = ""
+if (Test-Path $gateScript) {
+    try {
+        $calLines = (& powershell.exe -NonInteractive -File $gateScript -ConsultarCalendario 2>$null)
+        if ($calLines) { $calendarioOutput = ($calLines | Where-Object { $_ -ne $null }) -join "`n" }
+    } catch {}
+}
+if ($calendarioOutput) {
+    $sections = @("## 📅 PASSO 0C -- CALENDARIO COWORK (analisar e decidir SIM/NAO com Diretor)`n$calendarioOutput") + $sections
+}
+
 # PASSO 0B -- COWORK (prepend 1o: aparece 3o na saida, apos BLOCO0 e NOTION)
 $coworkFooter = if ($gatePasso0Status) { "`n`n---`n[GATE P-158] STATUS HOJE:`n$gatePasso0Status" } else { "" }
 $sections = @("## ⚡ PASSO 0B -- COWORK DO EMBAIXADOR (MCP Google Drive) -- APOS BLOCO 0 E NOTION`n$colheitaCowork$coworkFooter") + $sections
@@ -942,7 +954,8 @@ $bloco0Alert = @(
     "  [PASSO 0 ] BLOCO 0  -- VOCE ESTA AQUI. Processar o BLOCO 0 colado pelo Diretor.",
     "  [PASSO 0A] NOTION   -- apos BLOCO 0: ler Falhas+Sugestoes via MCP Notion. Marcar -MarcarNotion.",
     "  [PASSO 0B] COWORK   -- apos NOTION: ler Drive INBOX_COWORK via MCP Google Drive. Marcar -MarcarCowork.",
-    "  [PASSO 1+] CONTINUAR -- somente apos 0+0A+0B: apresentar PENDENTES, WIP, MAPA DIARIO.",
+    "  [PASSO 0C] CALENDARIO -- apos COWORK: consultar CALENDARIO_NICHE_INTELLIGENCE -- ver abaixo. Marcar -MarcarCalendario.",
+    "  [PASSO 1+] CONTINUAR -- somente apos 0+0A+0B+0C: apresentar PENDENTES, WIP, MAPA DIARIO.",
     "",
     "  Se Diretor NAO colou BLOCO 0 -> dizer EXATAMENTE:",
     "    'Diretor, cole aqui o BLOCO 0 do Embaixador da sessao anterior antes de continuarmos.'",
@@ -951,8 +964,8 @@ $bloco0Alert = @(
     "  FALLBACK (somente apos confirmacao do Diretor de que nao esta disponivel):",
     "  Ler: PROTOCOLOS_ENCERRAMENTO/CONTEXTO_SESSAO_DIRETOR_[data mais recente].md",
     "",
-    "  ⛔ Musculo que pula para PENDENTES/WIP sem executar 0A+0B = P-158 VIOLADO (DEF-M-6).",
-    "  Marcar gates apos cada etapa: scripts\gate_passo0_abertura.ps1 -MarcarNotion / -MarcarCowork"
+    "  ⛔ Musculo que pula para PENDENTES/WIP sem executar 0A+0B+0C = P-158 VIOLADO (DEF-M-6).",
+    "  Marcar gates apos cada etapa: scripts\gate_passo0_abertura.ps1 -MarcarNotion / -MarcarCowork / -MarcarCalendario"
 ) -join "`n"
 $sections = @("## ⚠️  BLOCO 0 DO EMBAIXADOR (P-114) -- PRIMEIRA ACAO OBRIGATORIA`n$bloco0Alert") + $sections
 
