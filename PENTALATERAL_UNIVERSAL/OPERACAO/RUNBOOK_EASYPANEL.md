@@ -116,6 +116,53 @@ cat /opt/data/logs/gateways/default/current | tail -30  # ver logs
 
 ---
 
+## OPERAÇÕES REMOTAS VIA PLAYWRIGHT — CODEMIRROR 6 E XTERM.JS
+
+**Operação EasyPanel (2026-06-14):** Adição de variável de ambiente ao n8n via Playwright MCP.
+
+### Editar variáveis de ambiente (CodeMirror 6) — MÉTODO CORRETO
+
+```js
+// Acessar EditorView do CodeMirror 6
+const cm = document.querySelector('.cm-content');
+const view = cm.cmTile.view;
+
+// Inserir nova variável no final sem destruir o conteúdo
+const docText = view.state.doc.toString();
+const docLength = view.state.doc.length;
+const lastNL = docText.lastIndexOf('\n');
+view.dispatch({
+  changes: { from: lastNL + 1, to: docLength, insert: 'NOME_VAR=VALOR' }
+});
+
+// Verificar antes de salvar
+view.state.doc.toString().slice(-60);
+```
+
+**PROIBIDO:** `browser_type` com `.cm-content` → usa `fill()` que SUBSTITUI TODO O CONTEÚDO.
+**PROIBIDO:** `execCommand('insertText')` e `InputEvent('beforeinput')` → ignorados pelo CodeMirror 6.
+**RECUPERAÇÃO:** `browser_press_key(key="Control+z")` → restaura estado anterior após `fill()` acidental.
+
+Após editar → clicar **Salvar** → clicar **Implantar** (Salvar NÃO dispara redeploy automático).
+
+### Terminal do container (xterm.js) — MÉTODO CORRETO
+
+```
+browser_type(
+  target: ".terminal.xterm.focus textarea[aria-label='Terminal input']",
+  text: "comando"
+)
+```
+
+**PROIBIDO:** execCommand, InputEvent, WebSocket monkey-patch, keyboard.press sem foco.
+Aguardar 2s após abrir Console antes de digitar.
+
+### Skills operacionais associadas
+- `.claude/skills/easypanel-remote-v1.md` — protocolo completo de operação remota no EasyPanel
+- `.claude/skills/n8n-remote-v1.md` — protocolo completo de operação remota no n8n
+
+---
+
 ## ERROS CONHECIDOS
 
 | Erro | Causa | Solução |
@@ -127,3 +174,5 @@ cat /opt/data/logs/gateways/default/current | tail -30  # ver logs
 | `yaml: line N: did not find expected key` | `version:` ou `container_name:` no compose | Remover essas diretivas — incompatíveis com Compose BETA |
 | `ports is used in X. It might cause conflicts` | `ports:` no compose conflita com roteamento do EasyPanel | Remover `ports:` — configurar exposição via aba Domínios |
 | Env vars do Ambiente não chegam ao container | Bug do Compose BETA — vars não injetadas no processo | Usar `hermes config set` para persistir no volume |
+| `fill()` no CodeMirror substitui tudo | `browser_type` usa fill() internamente | Usar `dispatch({ changes })` via `cm-content.cmTile.view` |
+| `request/body must NOT have additional properties` (n8n PUT) | Campos read-only incluídos no body | Remover id, versionId, active, meta, homeProject, sharedWithProjects, tags, hash |
