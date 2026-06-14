@@ -61,6 +61,26 @@ Deploy Docker Compose = sempre manual pelo painel.
 → Causa: campos read-only no body do PUT/POST
 → Solução: remover os campos listados acima
 
+### RESTRIÇÃO CRÍTICA DO SANDBOX DE CODE NODE (descoberta 2026-06-14):
+
+**`$helpers` e `fetch()` NÃO existem no sandbox do Code node nesta instância EasyPanel.**
+
+Qualquer chamada HTTP dentro de um Code node falha com:
+- `$helpers is not defined` → ao usar `$helpers.httpRequest()`
+- `fetch is not defined` → ao usar `fetch()` nativo
+
+**REGRA ARQUITETURAL DEFINITIVA:**
+- `Code node` = lógica pura (transformação, cálculo, formatação) — ZERO chamadas HTTP
+- `n8n-nodes-base.httpRequest` (typeVersion 4.2) = toda e qualquer chamada HTTP/REST
+
+**Para ler output de node anterior em um Code node (typeVersion 2):**
+```javascript
+// Acessa dados de qualquer node por nome (não precisa ser conexão direta)
+const dados = $('Nome do Node').all()[0].json;
+// Acessa dados do node imediatamente anterior (input)
+const dadosInput = $input.all()[0].json;
+```
+
 **Erro frequente:** `Cannot publish workflow: Missing chatId`
 → Causa: Telegram node usa `$env.TELEGRAM_CHAT_ID_DIRETOR` que não existe no n8n
 → Solução: hardcodar o chat ID `8895733647` no parâmetro `chatId` do nó
@@ -176,3 +196,7 @@ Aguardar 2s após abrir Console antes de digitar.
 | Env vars do Ambiente não chegam ao container | Bug do Compose BETA — vars não injetadas no processo | Usar `hermes config set` para persistir no volume |
 | `fill()` no CodeMirror substitui tudo | `browser_type` usa fill() internamente | Usar `dispatch({ changes })` via `cm-content.cmTile.view` |
 | `request/body must NOT have additional properties` (n8n PUT) | Campos read-only incluídos no body | Remover id, versionId, active, meta, homeProject, sharedWithProjects, tags, hash |
+| `$helpers is not defined` em Code node | $helpers indisponível nesta instância EasyPanel | Usar n8n-nodes-base.httpRequest node para chamadas HTTP |
+| `fetch is not defined` em Code node | fetch() indisponível nesta instância EasyPanel | Usar n8n-nodes-base.httpRequest node para chamadas HTTP |
+| PUT retorna HTTP 500 após ConvertTo-Json | body inclui campos extras do n8n (id, versionId etc) | ConvertFrom-Json → remover extras → ConvertTo-Json -Depth 20 |
+| connections array inválido no PUT via PowerShell | `@(@{})` gera `[{}]` mas n8n precisa de `[[{}]]` | Usar comma operator: `,@(@{})` → `[[{}]]` correto |

@@ -14,13 +14,49 @@
       }
     },
     {
-      "id": "code-health-engine",
-      "name": "Health Check Engine",
+      "id": "http-get-workflows",
+      "name": "HTTP Get Workflows",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 300],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "GET",
+        "url": "={{ ($env.N8N_BASE_URL || 'https://vanguard-vanguard-n8n.0ul9nk.easypanel.host') + '/api/v1/workflows?limit=250' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {"name": "X-N8N-API-KEY", "value": "={{ $env.N8N_API_KEY }}"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "http-get-executions",
+      "name": "HTTP Get Executions",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [720, 300],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "GET",
+        "url": "={{ ($env.N8N_BASE_URL || 'https://vanguard-vanguard-n8n.0ul9nk.easypanel.host') + '/api/v1/executions?status=error&limit=50&includeData=false' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {"name": "X-N8N-API-KEY", "value": "={{ $env.N8N_API_KEY }}"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "code-analyze-health",
+      "name": "Analyze Health",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [480, 300],
+      "position": [960, 300],
       "parameters": {
-        "jsCode": "// W-10 Health Check Engine -- P-163 Antigravity Auto-Manutencao\nconst apiKey  = $env.N8N_API_KEY  || '';\nconst baseUrl = $env.N8N_BASE_URL || 'https://vanguard-vanguard-n8n.0ul9nk.easypanel.host';\nconst chatId  = $env.TELEGRAM_CHAT_ID || '8895733647';\n\n// Workflows conhecidos (W-1 a W-9) que devem estar ativos\nconst EXPECTED_ACTIVE = ['W-1','W-2','W-3','W-4','W-5','W-6','W-7','W-8','W-9','W-10'];\n\nlet workflows = [];\nlet failedExecs = [];\nlet apiError = null;\n\n// Buscar lista de workflows\ntry {\n  const wfResp = await $helpers.httpRequest({\n    method: 'GET',\n    url: `${baseUrl}/api/v1/workflows?limit=250`,\n    headers: { 'X-N8N-API-KEY': apiKey },\n    returnFullResponse: false\n  });\n  workflows = (wfResp && wfResp.data) ? wfResp.data : [];\n} catch(e) {\n  apiError = `n8n API inacessivel: ${e.message}`;\n}\n\n// Buscar execucoes com erro (ultimas 50)\nif (!apiError) {\n  try {\n    const execResp = await $helpers.httpRequest({\n      method: 'GET',\n      url: `${baseUrl}/api/v1/executions?status=error&limit=50&includeData=false`,\n      headers: { 'X-N8N-API-KEY': apiKey },\n      returnFullResponse: false\n    });\n    failedExecs = (execResp && execResp.data) ? execResp.data : [];\n  } catch(e) {\n    failedExecs = [];\n  }\n}\n\nconst now    = new Date();\nconst ontem  = new Date(now.getTime() - 24*60*60*1000);\nconst dataHora = now.toISOString().replace('T',' ').slice(0,16) + ' UTC';\n\n// Erro critico: API inacessivel\nif (apiError) {\n  const texto = `🔴 W-10 CRITICO -- ${dataHora}\\n\\n${apiError}\\n\\n🤖 ANTIGRAVITY:\\n  .\\\\scripts\\\\n8n_antigravity_repair.ps1\\n  Skill: @systematic-debugging n8n API offline`;\n  return [{ json: { textoOK: '', textoAlerta: texto, temAlerta: true, chatId, antigravityContext: apiError, dataHora } }];\n}\n\n// Mapa id->nome dos workflows\nconst wfMap = {};\nworkflows.forEach(function(w) { wfMap[w.id] = w.name; });\n\n// Filtrar execucoes das ultimas 24h\nconst erros24h = failedExecs.filter(function(e) {\n  const dt = new Date(e.startedAt || e.createdAt || 0);\n  return dt >= ontem;\n});\n\n// Agrupar erros por workflow\nconst errorsByWf = {};\nerros24h.forEach(function(e) {\n  const nome = wfMap[e.workflowId] || ('ID:' + e.workflowId);\n  if (!errorsByWf[nome]) errorsByWf[nome] = [];\n  const msg = (e.data && e.data.resultData && e.data.resultData.error)\n    ? (e.data.resultData.error.message || 'erro sem mensagem')\n    : 'sem detalhes';\n  errorsByWf[nome].push({ id: e.id, startedAt: e.startedAt, msg: msg.substring(0, 150) });\n});\n\n// Verificar workflows esperados inativos\nconst inactivos = [];\nEXPECTED_ACTIVE.forEach(function(wName) {\n  const found = workflows.find(function(w) { return w.name.includes(wName); });\n  if (found && !found.active) {\n    inactivos.push(found.name);\n  }\n});\n\nconst totalWf = workflows.length;\nconst ativosCount = workflows.filter(function(w) { return w.active; }).length;\nconst wfComErro = Object.keys(errorsByWf).length;\nconst temAlerta = wfComErro > 0 || inactivos.length > 0;\n\nlet textoOK = '';\nlet textoAlerta = '';\nlet antigravityContext = '';\n\nif (!temAlerta) {\n  textoOK = `✅ n8n SAUDAVEL -- ${dataHora}\\n\\n` +\n    `Workflows: ${totalWf} total | ${ativosCount} ativos\\n` +\n    `Erros 24h: 0\\n` +\n    `Inativos inesperados: 0\\n\\n` +\n    `Sistema operando normalmente. Proximo check: amanha 6h30 BRT.`;\n} else {\n  const linhas = ['🔴 n8n FALHA -- ' + dataHora, ''];\n\n  if (wfComErro > 0) {\n    linhas.push(`❌ Erros nas ultimas 24h (${wfComErro} workflow(s)):`);\n    Object.entries(errorsByWf).forEach(function([nome, erros]) {\n      linhas.push(`  • ${nome}: ${erros.length} falha(s)`);\n      const ultimo = erros[0];\n      if (ultimo.msg && ultimo.msg !== 'sem detalhes') {\n        linhas.push(`    └ ${ultimo.msg}`);\n      }\n      linhas.push(`    └ ID execucao: ${ultimo.id}`);\n    });\n    linhas.push('');\n  }\n\n  if (inactivos.length > 0) {\n    linhas.push(`⚠️ Workflows INATIVOS inesperados (${inactivos.length}):`);\n    inactivos.forEach(function(n) { linhas.push(`  • ${n}`); });\n    linhas.push('');\n  }\n\n  const workflowsDebug = Object.keys(errorsByWf).concat(inactivos).join(', ');\n  antigravityContext = `Workflows com problema: ${workflowsDebug}. Data: ${dataHora}.`;\n\n  linhas.push('🤖 ANTIGRAVITY -- Para diagnosticar:');\n  linhas.push('  .\\\\scripts\\\\n8n_antigravity_repair.ps1');\n  linhas.push('  Skill: @n8n-validation-expert -> @systematic-debugging');\n\n  textoAlerta = linhas.join('\\n');\n}\n\nreturn [{ json: { textoOK, textoAlerta, temAlerta, chatId, antigravityContext, wfComErro, inativosCount: inactivos.length, dataHora } }];"
+        "jsCode": "// W-10 Analyze Health -- logica pura, sem HTTP calls\n// Recebe dados de 'HTTP Get Workflows' e 'HTTP Get Executions' via n8n node selector\nconst EXPECTED_ACTIVE = ['W-1','W-2','W-3','W-4','W-5','W-6','W-7','W-8','W-9','W-10'];\n\nconst wfNode = $('HTTP Get Workflows').all();\nconst wfData = (wfNode.length > 0) ? wfNode[0].json : { data: [] };\nconst workflows = wfData.data || [];\n\nconst failedExecs = $input.all()[0].json.data || [];\n\nconst now = new Date();\nconst ontem = new Date(now.getTime() - 86400000);\nconst chatId = $env.TELEGRAM_CHAT_ID || '8895733647';\nconst dataHora = now.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';\n\nconst wfMap = {};\nworkflows.forEach(function(w) { wfMap[w.id] = w.name; });\n\nconst erros24h = failedExecs.filter(function(e) {\n  const dt = new Date(e.startedAt || e.createdAt || 0);\n  return dt >= ontem;\n});\n\nconst errorsByWf = {};\nerros24h.forEach(function(e) {\n  const nome = wfMap[e.workflowId] || ('ID:' + e.workflowId);\n  if (!errorsByWf[nome]) errorsByWf[nome] = [];\n  errorsByWf[nome].push({ id: e.id, startedAt: e.startedAt });\n});\n\nconst inactivos = [];\nEXPECTED_ACTIVE.forEach(function(wName) {\n  const found = workflows.find(function(w) { return w.name.indexOf(wName) >= 0; });\n  if (found && !found.active) inactivos.push(found.name);\n});\n\nconst totalWf = workflows.length;\nconst ativosCount = workflows.filter(function(w) { return w.active; }).length;\nconst wfComErro = Object.keys(errorsByWf).length;\nconst temAlerta = wfComErro > 0 || inactivos.length > 0;\n\nlet textoOK = '', textoAlerta = '', antigravityContext = '';\n\nif (!temAlerta) {\n  textoOK = '[OK] n8n SAUDAVEL -- ' + dataHora + '\\n\\nWorkflows: ' + totalWf + ' total | ' + ativosCount + ' ativos\\nErros 24h: 0\\nInativos inesperados: 0\\n\\nSistema operando normalmente. Proximo check: amanha 6h30 BRT.';\n} else {\n  const linhas = ['[ALERTA] n8n FALHA -- ' + dataHora, ''];\n  if (wfComErro > 0) {\n    linhas.push('Erros 24h (' + wfComErro + ' workflow(s)):');\n    Object.keys(errorsByWf).forEach(function(nome) {\n      linhas.push('  - ' + nome + ': ' + errorsByWf[nome].length + ' falha(s)');\n    });\n    linhas.push('');\n  }\n  if (inactivos.length > 0) {\n    linhas.push('Inativos inesperados (' + inactivos.length + '):');\n    inactivos.forEach(function(n) { linhas.push('  - ' + n); });\n    linhas.push('');\n  }\n  antigravityContext = 'Problemas: ' + Object.keys(errorsByWf).concat(inactivos).join(', ') + '. Data: ' + dataHora;\n  linhas.push('[ANTIGRAVITY] Para diagnosticar:');\n  linhas.push('  .\\\\scripts\\\\n8n_antigravity_repair.ps1');\n  linhas.push('  Skill: @n8n-validation-expert -> @systematic-debugging');\n  textoAlerta = linhas.join('\\n');\n}\n\nreturn [{ json: { textoOK: textoOK, textoAlerta: textoAlerta, temAlerta: temAlerta, chatId: chatId, antigravityContext: antigravityContext, wfComErro: wfComErro, inativosCount: inactivos.length, dataHora: dataHora } }];"
       }
     },
     {
@@ -28,7 +64,7 @@
       "name": "Tem Falha?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
-      "position": [720, 300],
+      "position": [1200, 300],
       "parameters": {
         "conditions": {
           "boolean": [{"value1": "={{ $json.temAlerta }}", "value2": true}]
@@ -40,7 +76,7 @@
       "name": "Telegram -- n8n Saudavel",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [960, 420],
+      "position": [1440, 420],
       "continueOnFail": true,
       "parameters": {
         "method": "POST",
@@ -60,7 +96,7 @@
       "name": "Telegram -- ALERTA Falha",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [960, 180],
+      "position": [1440, 180],
       "continueOnFail": true,
       "parameters": {
         "method": "POST",
@@ -80,10 +116,10 @@
       "name": "GitHub -- Registrar em PENDING_REVIEW",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1200, 180],
+      "position": [1680, 180],
       "continueOnFail": true,
       "parameters": {
-        "jsCode": "// Registrar falha no PENDING_REVIEW.md via GitHub API\nconst githubToken = $env.GITHUB_PAT_READONLY || '';\nconst repo        = 'subdiretormnmsgm-commits/vanguard';\nconst path        = 'PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md';\nconst contexto    = $json.antigravityContext || 'Falha detectada pelo W-10';\nconst dataHora    = $json.dataHora || new Date().toISOString();\n\ntry {\n  // Ler sha atual do arquivo\n  const getResp = await $helpers.httpRequest({\n    method: 'GET',\n    url: `https://api.github.com/repos/${repo}/contents/${path}`,\n    headers: { 'Authorization': `token ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' },\n    returnFullResponse: false,\n    ignoreHttpStatusErrors: true\n  });\n\n  const sha = (getResp && getResp.sha) ? getResp.sha : null;\n  const existingContent = (getResp && getResp.content)\n    ? Buffer.from(getResp.content.replace(/\\n/g,''), 'base64').toString('utf8')\n    : '';\n\n  const entrada = `\\n## W-10 ALERTA -- ${dataHora}\\n**Contexto:** ${contexto}\\n**Skill recomendada:** @n8n-validation-expert -> @systematic-debugging\\n**Status:** PENDENTE REVISAO\\n\\n`;\n  const novoConteudo = existingContent + entrada;\n  const novoBase64   = Buffer.from(novoConteudo).toString('base64');\n\n  const body = { message: `chore(w10): alerta n8n health check ${dataHora}`, content: novoBase64 };\n  if (sha) body.sha = sha;\n\n  await $helpers.httpRequest({\n    method: 'PUT',\n    url: `https://api.github.com/repos/${repo}/contents/${path}`,\n    headers: { 'Authorization': `token ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' },\n    body: JSON.stringify(body),\n    returnFullResponse: false,\n    ignoreHttpStatusErrors: true\n  });\n\n  return [{ json: { ...$json, githubPushOk: true } }];\n} catch(e) {\n  return [{ json: { ...$json, githubPushOk: false, githubError: e.message } }];\n}"
+        "jsCode": "// Registrar falha no PENDING_REVIEW.md via GitHub API\n// NOTA: $helpers e fetch() NAO disponiveis nesta versao do n8n.\n// Este node usa dados do item anterior e faz chamada via HTTP Request node subsequente.\n// Por hora, apenas passa os dados adiante com flag de pendencia.\nreturn [{ json: { ...$json, githubPushOk: false, githubNote: 'Implementar via HTTP Request node -- $helpers/fetch indisponiveis' } }];"
       }
     },
     {
@@ -91,7 +127,7 @@
       "name": "W-8 -- Sinal W-10",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1440, 180],
+      "position": [1920, 180],
       "continueOnFail": true,
       "parameters": {
         "method": "POST",
@@ -99,16 +135,21 @@
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={{ JSON.stringify({origem:'W-10',tipo:$json.temAlerta?'n8n_falha':'check_rotina',dados:{wf_com_erro:$json.wfComErro,inativos:$json.inativosCount},timestamp:new Date().toISOString()}) }}",
-        "ignoreResponseCode": true,
         "options": {"timeout": 5000}
       }
     }
   ],
   "connections": {
     "Cron -- 6h30 BRT Diario": {
-      "main": [[{"node": "Health Check Engine", "type": "main", "index": 0}]]
+      "main": [[{"node": "HTTP Get Workflows", "type": "main", "index": 0}]]
     },
-    "Health Check Engine": {
+    "HTTP Get Workflows": {
+      "main": [[{"node": "HTTP Get Executions", "type": "main", "index": 0}]]
+    },
+    "HTTP Get Executions": {
+      "main": [[{"node": "Analyze Health", "type": "main", "index": 0}]]
+    },
+    "Analyze Health": {
       "main": [[{"node": "Tem Falha?", "type": "main", "index": 0}]]
     },
     "Tem Falha?": {
@@ -126,6 +167,5 @@
   },
   "settings": {"executionOrder": "v1"},
   "staticData": {},
-  "meta": {"templateId": "w10-n8n-healthcheck"},
   "pinData": {}
 }
