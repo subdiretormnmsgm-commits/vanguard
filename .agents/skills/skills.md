@@ -132,23 +132,103 @@ do PROJ-001 em pastas por data e tipo de documento
 
 ---
 
-## 📦 INSTALAÇÃO DAS SKILLS
+## 📦 COMO BAIXAR E INSTALAR SKILLS (Antigravity)
 
+> Antes de invocar qualquer skill com @, verifique se ela está instalada em `~/.agents/skills/`.
+> Se não estiver, instale com os comandos abaixo. Antigravity executa estes comandos autonomamente.
+
+### Verificar se uma skill está instalada
 ```powershell
-# Instalar no Antigravity (já executado):
+# Checar skill específica antes de invocar:
+Test-Path "$env:USERPROFILE\.agents\skills\<nome-da-skill>"
+
+# Listar todas instaladas:
+Get-ChildItem "$env:USERPROFILE\.agents\skills" -Directory | Select-Object Name
+```
+
+### Instalar skills
+```powershell
+# Instalar TODAS (1.500+ skills) — uso único, demora alguns minutos:
 npx antigravity-awesome-skills --antigravity
 
-# Verificar instalação:
-dir $env:USERPROFILE\.agents\skills
+# Instalar por categoria (mais rápido e específico):
+npx antigravity-awesome-skills --antigravity --category development,backend
+npx antigravity-awesome-skills --antigravity --category planning,strategy
+npx antigravity-awesome-skills --antigravity --category marketing,seo
 
-# Skills instaladas em:
-# ~/.agents/skills/<nome-da-skill>/SKILL.md
+# Instalar apenas skills de risco seguro:
+npx antigravity-awesome-skills --antigravity --risk safe,none
+
+# Atualizar para versão específica:
+npx antigravity-awesome-skills --antigravity --version 12.5.0
+```
+
+### Como invocar após instalar
+```
+@nome-da-skill [prompt/contexto]
+```
+O arquivo lido é: `~/.agents/skills/<nome-da-skill>/SKILL.md`
+
+---
+
+## 🎯 SKILLS RECOMENDADAS POR PAPEL (curadas — instalar se ausentes)
+
+### ESTRATEGISTA — suporte à produção da DIRETRIZ
+```powershell
+# Verificar e invocar (já instaladas):
+@concise-planning    # abertura obrigatória
+@brainstorming       # antes de qualquer DIRETRIZ — 7 passos + Understanding Lock
+@multi-agent-brainstorming  # escalada automática se alto impacto/risco
+@architecture        # documentar decisão final (ADR)
+@analyze-project     # revisão de desvios e saúde
+
+# Skills adicionais recomendadas (instalar se ausentes):
+# @decision-navigator          — navegar trade-offs complexos antes de recomendar
+# @architecture-decision-records — ADR formal para decisões irreversíveis
+# @executing-plans             — estruturar plano de execução após @architecture
+# @planning-with-files         — planejar com leitura de arquivos do workspace
+```
+
+### EXECUTOR — execução das decisões do Estrategista-Gemini
+```powershell
+# Skills n8n (críticas para o Hermes + workflows):
+@n8n-workflow-patterns      # padrões arquiteturais: webhook, API, scheduled, AI-agent
+@n8n-code-javascript        # código JS nos nós Code do n8n
+@n8n-expression-syntax      # expressões e variáveis do n8n
+@n8n-node-configuration     # configuração correta de nós
+@n8n-validation-expert      # validar workflows antes de ativar
+@n8n-mcp-tools-expert       # integração MCP no n8n
+
+# Skills de orquestração e automação:
+@bash-scripting              # scripts PS1/Bash de automação
+@systematic-debugging        # debug estruturado de falhas
+@workflow-orchestration-patterns  # padrões de orquestração multi-step
+@supabase-automation         # Supabase (banco de dados Vanguard)
+@telegram-automation         # Telegram (canal do Hermes Agent)
+
+# Instalar ausentes:
+# npx antigravity-awesome-skills --antigravity --tags n8n,automation,workflow
+```
+
+### COWORK CONDUCTOR — sessões NICHE_MODELER e inteligência de mercado
+```powershell
+# Skills de inteligência de nicho (já instaladas):
+@20-andruia-niche-intelligence  # dossier de domínio: regulações, UX do nicho, stack padrão
+@apify-market-research          # pesquisa de mercado via Apify scraping
+@apify-trend-analysis           # análise de tendências de mercado
+@apify-competitor-intelligence  # inteligência de concorrentes via Apify
+@competitive-landscape          # mapa competitivo do nicho
+@market-sizing-analysis         # TAM/SAM/SOM do nicho
+@deep-research                  # pesquisa profunda multi-fonte
+
+# Instalar ausentes:
+# npx antigravity-awesome-skills --antigravity --tags market-research,competitive,niche
 ```
 
 ---
 
 ## 📌 REFERÊNCIAS
-- Repositório: https://github.com/sickn33/antigravity-awesome-skills
-- Bundles oficiais: docs/users/bundles.md
-- Catálogo completo: CATALOG.md (1.441 skills)
-- Versão instalada: antigravity-awesome-skills@12.4.0
+- Repositório: github.com/sickn33/antigravity-awesome-skills
+- Versão instalada: antigravity-awesome-skills@12.5.0 (atualizado 2026-06-14)
+- Skills em: `~/.agents/skills/<nome>/SKILL.md`
+- Total disponível: 1.500+ skills (curar 5-10 por papel — não despejar tudo)
