@@ -2683,3 +2683,29 @@ Top 5 ferramentas:
 (d) @concise-planning obrigatoria em toda abertura de sessao, qualquer papel
 (e) Musculo declara o papel ao iniciar: "Sessao Antigravity: [PAPEL]"
 **Alerta de mercado 2026-06:** Google lancou plataforma oficial chamada Antigravity como substituta do Gemini Code Assist IDE (fim em 2026-06-18). Alinhar nomenclatura interna se necessario.
+
+---
+
+## P-164 -- n8n CODE NODE SANDBOX: $helpers E fetch() INDISPONIVEIS NESTA INSTANCIA EASYPANEL (2026-06-14)
+**Origem:** W-10 Health Check -- execucoes 489 ($helpers is not defined) e 491 (fetch is not defined) -- 2026-06-14.
+
+**O que nunca fazer em Code node nesta instancia n8n EasyPanel:**
+- `$helpers.httpRequest()` → ReferenceError: $helpers is not defined
+- `fetch(url, options)` → ReferenceError: fetch is not defined
+- Qualquer outra chamada HTTP direta de dentro do Code node
+
+**Regra arquitetural definitiva:**
+Code node = logica pura APENAS (transformacao, calculo, formatacao, decisao).
+Chamadas HTTP = n8n-nodes-base.httpRequest (typeVersion 4.2) nodes dedicados.
+
+**Para ler dados de nodes anteriores em Code node (typeVersion 2):**
+```javascript
+const dados = $('Nome Exato do Node').all()[0].json; // node qualquer por nome
+const dadosInput = $input.all()[0].json;              // node imediatamente anterior
+```
+
+**Licoes adicionais desta sessao:**
+- connections no PUT via PowerShell: usar comma operator `,@(@{node="...";type="main";index=0})` para gerar `[[{...}]]` (sem comma = `[{...}]` = erro n8n)
+- PUT body: apenas `{ name, nodes, connections, settings, staticData }` -- campos extras (id, versionId, active, meta) causam HTTP 500
+- PS here-string @"..."@: interpola $env como PSDrive PS -- usar Write tool para gravar JS sem interpolacao
+- WebClient.UploadData: mais confiavel que Invoke-RestMethod para PUT UTF-8 em PS 5.1

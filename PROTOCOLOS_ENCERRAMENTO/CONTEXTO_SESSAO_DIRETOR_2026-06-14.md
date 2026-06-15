@@ -79,9 +79,28 @@
 - [ ] [MÚSCULO] Fix P-073 sync_vanguard_docs → NOTEBOOKLM_BASE (suspeito — verificar)
 - [ ] [MÚSCULO] Checklist PASSO5 template P-143 (suspeito — verificar se realmente feito)
 - [ ] [DIRETOR] WIP_BOARD.md regenerar após hoje (JSON mais novo)
+- [ ] [MÚSCULO] GitHub Code node W-10 — converter de fetch() para HTTP Request node (continueOnFail=true mitiga, mas não registra em PENDING_REVIEW)
 
 ---
 
 ## 9. PRÓXIMA SESSÃO
 
 COWORK sync INTELLIGENCE_HUB + iniciar Loop 34 com objetivo declarado (P-160) se Diretor trouxer sugestões consolidadas do ciclo anterior.
+
+---
+
+## SESSÃO COMPLEMENTAR — 2026-06-14 (tarde/noite) — W-10 REDESIGN
+
+### O que foi construído nesta continuação
+
+- **W-10 redesenhado de 1 → 9 nós** (commit d8a3a8b): root cause da falha era restrição do sandbox do Code node nesta instância EasyPanel — `$helpers` e `fetch()` ambos indisponíveis. Solução: HTTP Request nodes dedicados para GET /workflows e GET /executions; Code node reservado para lógica pura.
+- **Execução 499 confirmou 9 nós verdes** (2026-06-14 23:14 UTC): temAlerta=True (2 wf com erro legacy das execuções de debug), inativosCount=0. W-10 operacional.
+- **Skill n8n-remote-v1.md atualizada** (commit d8a3a8b): +8 entradas SUCESSO/FALHA incluindo regra arquitetural definitiva: Code node = lógica pura, HTTP = HTTP Request nodes.
+- **RUNBOOK_EASYPANEL.md atualizado** (commit d8a3a8b): seção "RESTRIÇÃO CRÍTICA DO SANDBOX" + 4 novos erros na tabela.
+- **P-033 executado**: sync PENTALATERAL_UNIVERSAL → 3 arquivos propagados, integridade AMARELO (10 órfãos — esperado).
+
+### P-164 registrado no INTELLIGENCE_LEDGER
+n8n Code node sandbox nesta instância EasyPanel não disponibiliza `$helpers.httpRequest` nem `fetch()`. Arquitetura obrigatória: HTTP Request nodes para chamadas HTTP, Code nodes apenas para lógica pura.
+
+### O que ficou no ar (adicional)
+- GitHub Code node no W-10 ainda usa fetch() → continueOnFail=true mitiga → converter para HTTP Request node (backlog).

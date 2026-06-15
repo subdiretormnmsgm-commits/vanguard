@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Domingo, 2026-06-14 15:23
+### Pentalateral IAH - Domingo, 2026-06-14 21:06
 
 ---
 
@@ -62,14 +62,26 @@ Ingrid     [RETAINER ]  Loop 8 -- Gemini:OK NBook:OK Embaixador:OK Musculo:OK --
 
 ## COMMIT DA SESSAO
 
-Commit : 045ec03 - 1 arquivo(s) alterado(s)
-Mensagem: feat(skill): notebooklm-remote-v1 -- camada tecnica Playwright RPA para NotebookLM
+Commit : d8a3a8b - 3 arquivo(s) alterado(s)
+Mensagem: feat(w10): redesign arquitetura HTTP Request nodes -- Code node sandbox sem `$helpers`/fetch [RESOLVE: w10-healthcheck]
 
 ---
 
 ## ENTREGAS DO DIA
 
 Commits do dia:
+- d8a3a8b feat(w10): redesign arquitetura HTTP Request nodes -- Code node sandbox sem `$helpers`/fetch [RESOLVE: w10-healthcheck]
+- c1fc2ca chore(pendentes): [AUTO-RESOLVE] W-10
+- b186362 feat(n8n): W-10 ativado + skill atualizada [RESOLVE: W-10]
+- dc0f410 feat(n8n): W-10 Health Check automatico + Antigravity repair script
+- 13044c8 feat(antigravity): skills.md v2.3 + ir_ao_antigravity.ps1 + session_start GATILHOS
+- 98a8ce6 feat(antigravity): skills.md v2.2 -- guia de download + skills curadas por papel
+- 71afe93 feat(antigravity): skills.md v2.1 -- @multi-agent-brainstorming no ESTRATEGISTA
+- 7f08a2f feat(antigravity): P-163 -- 3 papeis formais + arsenal ferramentas por funcao [VEREDITO-DIRETOR]
+- 0f79437 feat(gate): PASSO 0C -- analise obrigatoria do Calendario Cowork na abertura de sessao
+- f5a95ec fix(memoria): corrigir 3 inconsistencias flagradas pelo Embaixador no BLOCO0 [VEREDITO-DIRETOR]
+- 4fd3ad7 chore(sync): propagacao sync_vanguard_docs -- NOTEBOOKLM_FONTES + LEDGER cópias + PASSO VANGUARD [VEREDITO-DIRETOR]
+- cff9e05 feat(skills): Drive-First -- verify_gdrive_freshness + 4 skills sem upload [RESOLVE: drive-first-embaixador] [VEREDITO-DIRETOR]
 - 045ec03 feat(skill): notebooklm-remote-v1 -- camada tecnica Playwright RPA para NotebookLM
 - a30e0a1 feat(skills): passo7 por cliente -- VANGUARD(9 arquivos reais) + INGRID + VALDECE com gate P-059
 - f6c7a32 fix(skill): embaixador-encerramento-v1 -- lista 7 arquivos fixos do encerramento
@@ -91,7 +103,9 @@ Commits do dia:
 > O Embaixador NAO declara campanha encerrada sem verificar que o artefato existe.
 
 Arquivos gerados/modificados hoje (evidencia automatica):
-  - .claude/skills/notebooklm-remote-v1.md
+  - .claude/skills/n8n-remote-v1.md
+  - PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_EASYPANEL.md
+  - scripts/w10_n8n_healthcheck.json
 
 CAMPANHA ATIVA:
   Nome     : [preencher -- ex: ECD 30/06 outreach]
@@ -128,9 +142,8 @@ CAMPANHA ATIVA:
 
 - [sem data definida] [V30 ÉPICO] Máquina de Conhecimento Soberana — canais → FONTES → Au... [musculo]
 - [sem data definida] [V30 ÉPICO] Embaixador agentado via Cowork — 2º motor de tempo real... [musculo]
-- [sem data definida] [V30 ÉPICO] Antigravity motor de deriva / W-10 — comandos determina... [musculo]
 
-Total pendentes abertos: 8 (5 urgente(s) + 3 agendado(s))
+Total pendentes abertos: 7 (5 urgente(s) + 2 agendado(s))
 
 ---
 
@@ -144,7 +157,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Sessao de 2026-06-14 encerrou sessao com 8 pendente(s) -- 5 urgente(s) + 3 agendado(s) e 0 gargalo(s). Status documental: VERDE.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Sessao de 2026-06-14 encerrou sessao com 7 pendente(s) -- 5 urgente(s) + 2 agendado(s) e 0 gargalo(s). Status documental: VERDE.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 

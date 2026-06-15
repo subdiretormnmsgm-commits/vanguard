@@ -1,4 +1,4 @@
-# INTELLIGENCE LEDGER — Pentalateral IAH
+﻿# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -2617,13 +2617,6 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Ferramentas pendentes:** gate_cowork_fase2.ps1 + hook session_start leitura automatica COWORK_HANDOFF quando Cowork em pauta.
 **Aplica-se a:** toda sessao que envolva Cowork Engine. Distincao obrigatoria: Cowork e Loop sao coisas distintas.
 
-## P-161 -- NOTEBOOKLM NAO ACEITA ARQUIVO .JSON -- CONVERTER PARA .TXT ANTES DO UPLOAD (2026-06-14)
-**Origem:** Wipe & Sync do caderno VANGUARD em 2026-06-14 -- arquivo 24_NICHE_INDEX_v1.5.json rejeitado com toast "Apenas os seguintes tipos sao aceitos".
-**Principio:** O NotebookLM nao aceita arquivos com extensao .json. Qualquer arquivo JSON que precise ir ao caderno deve ser copiado com extensao .txt antes do upload. O arquivo original .json permanece intacto em disco -- apenas a copia vai ao NotebookLM.
-**Solucao padrao:** Copy-Item arquivo.json arquivo.txt (antes do upload). Implementado no PASSO5_NOTEBOOKLM.md como pre-requisito [2].
-**Aplica-se a:** todo Wipe & Sync de qualquer caderno NotebookLM -- VANGUARD, INGRID, VALDECE e futuros.
-**Pendente:** preparar_notebooklm_projeto.ps1 deve converter automaticamente todo .json da pasta FONTES para .txt na proxima versao.
-
 ## P-160 -- OBJETIVO DO LOOP E OBRIGATORIO ANTES DE INICIAR -- RESULTADO PRIMEIRO (2026-06-13)
 **Origem:** Reflexao do Diretor ao encerrar sessao 2026-06-13: "Antes de iniciarmos qualquer Loop, a primeira pergunta e: para que faremos o Loop? Temos que enxergar um resultado. Todas as sugestoes devem ser levadas ao Diretor, que com suas intencoes pessoais decidira o objetivo do proximo loop. Temos que ser inteligentes e criativos."
 **Principio:** Nenhum Loop comeca sem objetivo declarado pelo Diretor. Antes de qualquer ativacao de Loop (gemini_anchor_generator, ir_ao_embaixador, PASSO3): (a) Musculo compila sugestoes pendentes -- M+G+N+E do ciclo anterior; (b) apresenta ao Diretor com contexto de intencoes + oportunidades + deadlines; (c) aguarda Diretor declarar OBJETIVO em 1 frase; (d) so entao o Loop comeca com esse objetivo como norte.
@@ -2631,55 +2624,3 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Gate a criar:** scripts/gate_loop_objetivo.ps1 -- verifica campo "objetivo_loop" no LOOP_STATE.json. Se ausente → bloqueia gemini_anchor_generator + ir_ao_embaixador com mensagem de gate P-160.
 **Formato obrigatorio do objetivo:** "Ao final deste Loop, teremos [resultado concreto] para [projeto/cliente]."
 **Aplica-se a:** todo Loop de todo projeto -- Ingrid, Valdece, Vanguard, futuros. Liga com P-037 (sintese) e P-045 (artefatos de fechamento).
-## P-162 -- SKILLS DE PROTOCOLO REMOTO -- INVOCAR ANTES DE AGIR (2026-06-14)
-**Origem:** Sessao EasyPanel 2026-06-14 -- browser_type no CodeMirror 6 destruiu todo o conteudo de env vars do n8n. Recuperacao por Ctrl+Z. Causa: Playwright usa fill() internamente, que substitui todo o conteudo do editor.
-**Principio:** Antes de qualquer interacao com EasyPanel ou n8n, o Musculo DEVE invocar a skill correspondente: easypanel-remote-v1 (env vars, deploys, terminal) ou n8n-remote-v1 (workflows, webhooks, credenciais). As skills documentam metodos corretos e metodos proibidos. Agir sem invocar = risco de destruir conteudo ou receber erro 400 silencioso.
-**Metodo correto CodeMirror 6:** dispatch({ changes: { from, to, insert } }) via cm-content.cmTile.view. PROIBIDO: fill(), execCommand(), InputEvent.
-**Metodo correto xterm.js:** browser_type no seletor .terminal.xterm.focus textarea -- aguardar 2s apos abrir Console. PROIBIDO: keyboard.press sem foco.
-**EasyPanel deploy flow:** Salvar NAO dispara redeploy. Clicar Implantar separadamente (botao indice 6).
-**n8n PUT payload:** somente name, nodes, connections, settings, staticData. Campos read-only (id, versionId, active, meta) causam erro 400.
-**Aplica-se a:** toda sessao que envolva EasyPanel (ambientes, servicos, terminal) ou n8n (workflows, webhooks, ativacao).
-
-## P-163 -- ANTIGRAVITY: 3 PAPEIS FORMAIS + ARSENAL DE FERRAMENTAS POR FUNCAO (2026-06-14)
-**Origem:** Diretor 2026-06-14 -- "precisamos nomea-lo nas funcoes de EXECUTOR e COWORK CONDUCTOR" + "quero que ele atue com as melhores ferramentas nas suas 3 funcoes". Skills em .agents/skills/skills.md.
-
-**PAPEL 1 -- ESTRATEGISTA (produz DIRETRIZ e decisoes arquiteturais):**
-Skills: @concise-planning (toda abertura) -> @brainstorming -> @architecture -> @analyze-project.
-Missao principal: planejar estrategicamente e suportar a producao da DIRETRIZ que o Diretor leva ao Gemini Advanced para validacao.
-Sequencia: @concise-planning (escopo) -> @brainstorming (opcoes) -> @architecture (estrutura) -> deliberacao 7 pontos.
-NUNCA gera DIRETRIZ de Loop autonomamente -- papel exclusivo do Gemini Advanced via chat.
-Top 5 ferramentas:
-  1. Google AI Studio (aistudio.google.com) -- playground Gemini 3.1 Pro High; contexto 1M tokens; raciocinio profundo para arquitetura
-  2. Gemini CLI (github.com/google-gemini/gemini-cli) -- agente open-source no terminal; le workspace direto; mesmo mecanismo do VS Code
-  3. Gemini Code Assist Agent Mode (developers.google.com/gemini-code-assist) -- modo agente VS Code; MCP nativo desde Out/2025; decisoes arquiteturais em contexto real
-  4. Gemini Enterprise Agent Platform (docs.cloud.google.com/gemini-enterprise-agent-platform) -- Gemini 2.5 Pro; 1M tokens para repositorios inteiros
-  5. Antigravity Google Cloud (cloud.google.com) -- plataforma multi-agente oficial Google; substitui Gemini Code Assist IDE a partir de 2026-06-18; monitorar migracao
-
-**PAPEL 2 -- EXECUTOR (executa o que Estrategista-Gemini definiu):**
-Skills: @systematic-debugging, @bash-scripting, @git-pushing, @error-detective.
-Entrada obrigatoria: PASSO3_GEMINI.md + CONTEXTO_GEMINI.md do disco. Nao age por intuicao -- age pelo que Gemini definiu.
-Todo output vai para PENDING_REVIEW.md antes de qualquer acao (P-124 camara de eco proibida).
-Top 5 ferramentas:
-  1. n8n docs + canal oficial YouTube (docs.n8n.io / youtube.com/c/n8n-io) -- referencia primaria; AI Agent Node v2.0 com suporte Gemini/Anthropic; 500+ integracoes
-  2. PowerShell oficial (learn.microsoft.com/powershell) -- linguagem padrao de orquestracao do Pentalateral IAH; scripts PS1 validados por validate_scripts.ps1
-  3. GitHub CLI (cli.github.com) -- automacao de commits, PRs, hooks; gh api para operacoes avancadas sem browser
-  4. n8n AI Agent Node tutorial (docs.n8n.io/advanced-ai/intro-tutorial) -- no de agente para workflows inteligentes; base do Hermes Agent
-  5. EasyPanel (easypanel.io) -- deploy e gerenciamento Docker; painel do Hermes Agent + n8n cloud 24/7
-
-**PAPEL 3 -- COWORK CONDUCTOR (conduz sessoes NICHE_MODELER e inteligencia de mercado):**
-Skills: @bash-scripting (leitura corpus), @error-detective (validacao fit_score).
-Missao: le INBOX_COWORK + BIBLIOTECA + NICHE_INDEX. 5 tarefas: (1) fit_score, (2) enriquecimento de campos, (3) alertas regulatorios, (4) nichos novos, (5) mapa de prioridade.
-Top 5 ferramentas:
-  1. Semrush (semrush.com) -- analise competitiva, keyword research, Market Explorer por nicho; referencia primaria de dados de mercado
-  2. Ahrefs (ahrefs.com) -- backlinks, organic keywords, Content Explorer; cobre 10+ motores de busca incluindo YouTube e Amazon
-  3. SimilarWeb (similarweb.com) -- trafego web, audience demographics, market share; benchmarking de concorrentes por segmento
-  4. Google Trends (trends.google.com) -- tendencias de busca em tempo real; gratuito; dados nativos para CALENDARIO_NICHE_INTELLIGENCE
-  5. SpyFu (spyfu.com) -- estrategias PPC e historico de palavras-chave dos concorrentes; complementa Semrush em paid search
-
-**Regras cross-papel (inviolaveis):**
-(a) Papeis nao se misturam na mesma sessao -- EXECUTOR != COWORK CONDUCTOR != ESTRATEGISTA
-(b) Todo output passa pelo Musculo antes do veredito do Diretor (P-124)
-(c) Antigravity le workspace direto -- NUNCA pedir ao Diretor para colar ou anexar
-(d) @concise-planning obrigatoria em toda abertura de sessao, qualquer papel
-(e) Musculo declara o papel ao iniciar: "Sessao Antigravity: [PAPEL]"
-**Alerta de mercado 2026-06:** Google lancou plataforma oficial chamada Antigravity como substituta do Gemini Code Assist IDE (fim em 2026-06-18). Alinhar nomenclatura interna se necessario.

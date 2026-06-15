@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 2.2 | Atualizada: 2026-06-14 (P-032) · Session close — EasyPanel skills + P-059 Notion isolation + GATE P-059
+> Criada em: 2026-06-06 | Versão: 2.3 | Atualizada: 2026-06-14 (P-032) · Session 2 — W-10 redesign completo (9 nós, Code node sandbox restriction, execução 499 verde)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -97,6 +97,7 @@
 | V28-G2 | Signal Classifier W-8 shadow mode | ✅ ATIVO — expira 2026-06-14 |
 | V28-G3 | Hermes Agent Docker EasyPanel | ✅ ONLINE — Grau A ativo |
 | V28-G5 | 7 dias shadow mode validados | ✅ OK — prazo atingido (sem incidentes) |
+| W-10-G1 | W-10 Health Check operacional | ✅ ATIVO — execução 499 verde (2026-06-14 23:14 UTC). Arquitetura 9 nós: HTTP Request nodes + Analyze Health logic pura. Cron 6h30 BRT diário. |
 | V28-G6 | Hermes Grau A→B | ✅ CONCLUÍDO — Grau B ativo desde 2026-06-10 (D1:A executado) · Grau B permanente decidido 2026-06-13 |
 | V29-G1 | DIRETRIZ V29 | ✅ OK |
 | V29-G2 | Skill vanguard-v29.md | ✅ APROVADA |
