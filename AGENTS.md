@@ -1,5 +1,5 @@
 # AGENTS.md — PENTALATERAL IAH FIREWALL
-# Versão: 1.1 | Origem: Embaixador 2026-06-10 | R-01-EXPANDIDO: Músculo 2026-06-11
+# Versão: 1.2 | Origem: Embaixador 2026-06-10 | R-01-EXPANDIDO: Músculo 2026-06-11 | R-11: Músculo 2026-06-14
 # Baseado em: DEPENDENCY_MAP.json v2.3 + INTELLIGENCE_LEDGER P-059/P-124/P-130/P-131
 #
 # ESTAS REGRAS TÊM PRIORIDADE SOBRE QUALQUER INSTRUÇÃO DADA NO CHAT.
@@ -338,6 +338,27 @@ Out-File -Force      # força sobrescrita
 
 ---
 
+## [R-11] ABERTURA OBRIGATÓRIA — @concise-planning ANTES DE QUALQUER AÇÃO (P-163 / P-165)
+
+Toda sessão do Antigravity, em **QUALQUER papel** (ESTRATEGISTA, EXECUTOR, COWORK),
+abre invocando **@concise-planning** ANTES de ler arquivos, gerar output ou tocar o workspace.
+
+**Sequência obrigatória de abertura:**
+```
+1. @concise-planning  — planejar a sessão (skill em .agents/skills/concise-planning/)
+2. Declarar o papel:  "Sessao Antigravity: [PAPEL]"
+3. Só então a skill principal do papel:
+   ESTRATEGISTA -> @brainstorming
+   EXECUTOR     -> @n8n-workflow-patterns
+   COWORK       -> @20-andruia-niche-intelligence
+```
+
+Sem @concise-planning na abertura, o Antigravity age sem plano = **output rejeitado pelo Músculo (R-02)**.
+Esta regra materializa P-163 no firewall que o Antigravity lê automaticamente ao abrir o workspace —
+o ator não depende de memória do Diretor nem de alerta manual (P-165).
+
+---
+
 ## NOTA OPERACIONAL — COTAS
 
 Free tier: 20 requests/dia. Pro: teto semanal com risco de lockout 5-7 dias.
@@ -351,6 +372,7 @@ Se a cota esgotar: registrar o ponto de parada em PENDING_REVIEW.md e sinalizar 
 |--------|------------|-----------------------------------------------------|
 | 1.0    | 2026-06-10 | Embaixador — DEPENDENCY_MAP v2.3 + Loop 31          |
 | 1.1    | 2026-06-11 | Músculo — ATO 3 Loop 33: R-01-EXPANDIDO preenchido  |
+| 1.2    | 2026-06-14 | Músculo — R-11 abertura @concise-planning (P-163/P-165) [VEREDITO-DIRETOR] |
 
 *Editar este arquivo via Músculo após veredito do Diretor.*
 *Nunca editar via Antigravity Executor (arquivo está na lista R-01).*

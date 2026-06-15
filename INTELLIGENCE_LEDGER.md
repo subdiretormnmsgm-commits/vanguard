@@ -2709,3 +2709,29 @@ const dadosInput = $input.all()[0].json;              // node imediatamente ante
 - PUT body: apenas `{ name, nodes, connections, settings, staticData }` -- campos extras (id, versionId, active, meta) causam HTTP 500
 - PS here-string @"..."@: interpola $env como PSDrive PS -- usar Write tool para gravar JS sem interpolacao
 - WebClient.UploadData: mais confiavel que Invoke-RestMethod para PUT UTF-8 em PS 5.1
+
+---
+
+## P-165 -- O GATE VIVE NO ARTEFATO DE LEITURA AUTOMATICA DE CADA ATOR, NAO NA MEMORIA (2026-06-14) [FALHA-PROCESSO-2026-06-14]
+**Origem:** Duas falhas do Musculo na MESMA abertura de sessao, ambas DEF-M-6 (Musculo Reativo), detectadas pelo Diretor:
+1. **PASSO 0C pulado** -- Musculo marcou 0A (Notion) e 0B (Cowork INBOX, que estava vazio) e tratou o Cowork como "concluido", saltando para o MAPA DIARIO sem consultar o CALENDARIO_NICHE_INTELLIGENCE (0C). Confundiu "INBOX vazio" com "abertura Cowork completa".
+2. **Skill de abertura do Antigravity** -- o session_start injeta "ANTIGRAVITY -- ABRIR COM @concise-planning (P-163)" no contexto, mas (a) o Musculo nao converteu isso em alerta ao Diretor, E (b) -- mais grave -- nao existe NADA que faca o Antigravity invocar @concise-planning sozinho: a regra P-163 existe ("ja falei para ele ler a skill"), mas nunca foi materializada no AGENTS.md (firewall que o Antigravity le automaticamente ao abrir o workspace). A skill esta instalada (.agents/skills/concise-planning/SKILL.md), mas o Antigravity nao sabe que deve le-la.
+
+**Causa raiz (comum):** o gate dependia de MEMORIA -- do Musculo lembrar de processar, ou do Diretor lembrar de digitar @concise-planning. Gate que depende de memoria nao e gate -- e decoracao (P-146). Regra declarada (P-163) que nao vive no artefato que o ator consome automaticamente = regra invisivel ao ator.
+
+**Principio:** todo gate de abertura deve viver no artefato de leitura automatica do ator que ele governa:
+- Gate do MUSCULO -> MAPA DIARIO (o Musculo sempre o le/apresenta): deve recusar gerar se 0A+0B+0C nao estiverem marcados, e carregar o lembrete da skill Antigravity.
+- Gate do ANTIGRAVITY -> AGENTS.md (o Antigravity sempre o le ao abrir): deve conter a regra "abrir TODA sessao com @concise-planning antes de qualquer acao".
+
+**Como aplicar:**
+(a) mapa_diario_pendencias.ps1 chama gate_passo0_abertura.ps1 -Verificar e recusa gerar (exit 1) se 0A+0B+0C incompletos. Excecao: modo -Silencioso (session_start, roda ANTES da abertura) nunca bloqueia.
+(b) mapa_diario carrega no rodape o LEMBRETE ANTIGRAVITY (@concise-planning, P-163).
+(c) AGENTS.md ganha regra de abertura (R-11): "ABERTURA OBRIGATORIA -- @concise-planning antes de qualquer acao, qualquer papel". Materializa P-163 no firewall que o Antigravity le.
+(d) INBOX vazio != etapa concluida. 0B (Cowork) so e completo apos INBOX + CALENDARIO (0C).
+
+**Ferramentas criadas/ajustadas:**
+- scripts/mapa_diario_pendencias.ps1 -- gate -Verificar bloqueante + rodape LEMBRETE ANTIGRAVITY
+- scripts/gate_passo0_abertura.ps1 -- modo -Verificar (ja existente) agora consumido pelo mapa
+- AGENTS.md -- regra R-11 de abertura (materializa P-163)
+
+**Aplica-se a:** toda abertura de sessao do Musculo e do Antigravity.

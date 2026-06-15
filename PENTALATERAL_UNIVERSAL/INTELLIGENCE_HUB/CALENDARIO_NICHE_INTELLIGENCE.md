@@ -49,7 +49,7 @@
 | **15/06** | Seg | F1+F2+F4a+F12 | ALTA | Briefing Fundador → atualizar narrativas Licitações |
 | **16/06** | Ter | F1+F3 | ALTA | Filtro de Encaixe → validar fit_score ANVISA (prazo 180d) |
 | **17/06** | Qua | F1+F6 | NORMAL | Radar profundo |
-| **18/06** | Qui | F1+F4b | **⚠️ DEADLINE** | Antigravity CLI deadline — BUILD 2 Loop 34 |
+| **18/06** | Qui | F1+F4b | **⚠️ DEADLINE** | Migração plataforma Antigravity (Google) substitui Gemini Code Assist IDE — verificar IDE + nomenclatura |
 | **19/06** | Sex | F1+F15 | ALTA | Guardião: confirmar atualizações da semana nos modelos |
 | **22/06** | Seg | F1+F2+F4a+F12 | NORMAL | — |
 | **23/06** | Ter | F1+F3 | NORMAL | — |
@@ -180,7 +180,7 @@ Resultado apresentado ao Diretor:
 
 | Prazo | Nicho | Evento | Dias Restantes (hoje 13/06/2026) |
 |---|---|---|---|
-| **18/06/2026** | Licitações | Antigravity CLI deadline (BUILD 2) | 5 dias |
+| **18/06/2026** | Infra / Ferramenta | Migração plataforma Antigravity (Google) substitui Gemini Code Assist IDE | 5 dias |
 | **21/06/2026** | Vanguard | W-8 shadow mode expira — avaliar ativação | 8 dias |
 | **30/09/2026** | M&A / Capital | FINEP R$300M — prazo OPP-01 | 109 dias |
 | **09/12/2026** | Rastreabilidade Sanitária | Deadline ANVISA 180 dias | 179 dias |

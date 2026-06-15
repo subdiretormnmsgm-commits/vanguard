@@ -1,18 +1,35 @@
-# mapa_diario_pendencias.ps1 — P-069
+# mapa_diario_pendencias.ps1 -- P-069
 # Visibilidade cruzada de pendencias por data calendario em todos os projetos ativos.
 # Uso: .\scripts\mapa_diario_pendencias.ps1
 # Output: mapa agrupado por data + sugestao de acao ao Diretor
-
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 param(
     [switch]$Silencioso  # retorna texto sem cabecalho de execucao
 )
 
-$root       = Split-Path $PSScriptRoot -Parent
-$pendPath   = Join-Path $root "PENDENTES.md"
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
+$raiz       = Split-Path $PSScriptRoot -Parent
+$pendPath   = Join-Path $raiz "PENDENTES.md"
 $hoje       = (Get-Date).Date
 $diaSemana  = (Get-Date).ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
+
+# --- GATE PASSO 0 (P-158 / P-165): bloqueia o MAPA se 0A+0B+0C nao concluidos ---
+# Excecao: modo -Silencioso (session_start, roda ANTES da abertura) nunca bloqueia.
+if (-not $Silencioso) {
+    $gateScript = Join-Path $PSScriptRoot "gate_passo0_abertura.ps1"
+    if (Test-Path $gateScript) {
+        $gateOut = & powershell.exe -NonInteractive -File $gateScript -Verificar 2>$null
+        if ($LASTEXITCODE -ne 0) {
+            Write-Output ($gateOut -join "`n")
+            Write-Output ""
+            Write-Output "==== MAPA DIARIO BLOQUEADO (P-165) ===="
+            Write-Output "Sequencia de abertura incompleta. Conclua 0A (Notion) + 0B (Cowork INBOX) + 0C (Calendario)"
+            Write-Output "antes de apresentar o MAPA DIARIO. INBOX vazio != etapa concluida."
+            exit 1
+        }
+    }
+}
 
 if (-not (Test-Path $pendPath)) {
     Write-Output "[MAPA DIARIO] PENDENTES.md nao encontrado."
@@ -75,14 +92,14 @@ $sep   = "-" * 60
 $linhasOut = @()
 
 $linhasOut += ""
-$linhasOut += "==== MAPA DIARIO DE PENDENCIAS — P-069 ===="
+$linhasOut += "==== MAPA DIARIO DE PENDENCIAS -- P-069 ===="
 $linhasOut += "Data: $(Get-Date -Format 'yyyy-MM-dd') ($diaSemana)"
 $linhasOut += $sep
 
 # Vencidas
 if ($vencidas.Count -gt 0) {
     $linhasOut += ""
-    $linhasOut += "VENCIDAS ($($vencidas.Count)) — resolver PRIMEIRO:"
+    $linhasOut += "VENCIDAS ($($vencidas.Count)) -- resolver PRIMEIRO:"
     foreach ($p in $vencidas) {
         $quem    = if ($p.PrecisaDiretor) { "[GATE -> Diretor]" } else { "[Musculo executa]" }
         $d       = if ($p.Atraso -eq 1) { "1 dia atraso" } else { "$($p.Atraso) dias atraso" }
@@ -95,7 +112,7 @@ if ($vencidas.Count -gt 0) {
 # Hoje
 if ($hoje_items.Count -gt 0) {
     $linhasOut += ""
-    $linhasOut += "HOJE — $(Get-Date -Format 'dd/MM') ($diaSemana) ($($hoje_items.Count) item(ns)):"
+    $linhasOut += "HOJE -- $(Get-Date -Format 'dd/MM') ($diaSemana) ($($hoje_items.Count) item(ns)):"
     foreach ($p in $hoje_items) {
         $quem    = if ($p.PrecisaDiretor) { "[GATE -> Diretor]" } else { "[Musculo executa]" }
         $diaSemH = $p.Data.ToString("dddd", [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR"))
@@ -104,7 +121,7 @@ if ($hoje_items.Count -gt 0) {
     }
 } else {
     $linhasOut += ""
-    $linhasOut += "HOJE — $(Get-Date -Format 'dd/MM'): Nenhuma pendencia com data de hoje."
+    $linhasOut += "HOJE -- $(Get-Date -Format 'dd/MM'): Nenhuma pendencia com data de hoje."
 }
 
 # Proximos 7 dias
@@ -151,6 +168,15 @@ if ($diretorHoje.Count -gt 0) {
 }
 
 $linhasOut += ""
+
+# --- LEMBRETE ANTIGRAVITY (P-163 / P-165): vive no artefato que o Musculo sempre apresenta ---
+if (-not $Silencioso) {
+    $linhasOut += $sep
+    $linhasOut += "LEMBRETE ANTIGRAVITY (P-163): ao acionar o Antigravity nesta sessao, abrir SEMPRE"
+    $linhasOut += "com @concise-planning (qualquer papel) ANTES da skill do papel. Alertar o Diretor."
+    $linhasOut += "Estrategista: @concise-planning -> @brainstorming | Comando: scripts\ir_ao_antigravity.ps1"
+    $linhasOut += ""
+}
 
 Write-Output ($linhasOut -join "`n")
 exit 0
