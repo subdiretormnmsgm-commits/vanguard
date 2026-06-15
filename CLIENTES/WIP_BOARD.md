@@ -32,12 +32,12 @@
 - **Projeto:** VanguardV29 — Pentalateral Autonomo
 - **Area:** Infraestrutura Interna — Pentalateral IAH
 - **Tipo:** Projeto Interno — Evolucao do Sistema (nao e projeto cliente)
-- **Status:** BUILD — Loop 33 EM ANDAMENTO · DEF-M-6 Patch · S1+S2+S3a Restricao Arquitetural
-- **Loop atual:** 33 | Gemini OK | NotebookLM OK | Embaixador OK | Musculo EM_ANDAMENTO
+- **Status:** BUILD — Loop 33 CONCLUIDO · W-10 redesign 9 nos + P-164 · Loop 34 aguarda objetivo P-160
+- **Loop atual:** 33 CONCLUIDO | Gemini OK | NotebookLM OK | Embaixador OK | Musculo OK
 - **Stack:** Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku — verificacao)
 - **Loop fase atual:**
-  - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: EM_ANDAMENTO
-  - Proximo: NotebookLM — Skill vanguard-v33.md
+  - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: OK
+  - Proximo: Loop 34 — aguarda objetivo declarado pelo Diretor (P-160 gate bloqueante)
 - **Hermes Agent:**
   - Status: ONLINE
   - Plataforma: EasyPanel hermes/hermes-agent
@@ -67,8 +67,15 @@
   - LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130
 - **Principios V28:** P-115, P-116
 - **Principios V29:** P-121 a P-127 (2026-06-08/09)
+- **Entregues V33:**
+  - W-10 Health Check n8n — redesenhado 1 no para 9 nos (HTTP Request + Analyze Health logica pura) — execucao 499 verde (2026-06-14)
+  - P-164 inscrito — Code node sandbox EasyPanel: $helpers e fetch() indisponiveis — regra arquitetural definitiva
+  - n8n-remote-v1.md atualizado — 8 entradas SUCESSO/FALHA
+  - RUNBOOK_EASYPANEL.md atualizado — secao restricao sandbox + 4 erros conhecidos
+  - w10_n8n_healthcheck.json atualizado — reflete arquitetura 9 nos live (commit d8a3a8b)
 - **Principios V32:** P-148 — LEDGER_INBOX como buffer de integridade (2026-06-10)
-- **Ultimo veredito:** 2026-06-12 — DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER
+- **Principios V33:** P-164 — Code node sandbox EasyPanel sem $helpers/fetch() (2026-06-14)
+- **Ultimo veredito:** 2026-06-14 — Loop 33 V2 CONCLUIDO: W-10 redesign 9 nos + P-164 + RUNBOOK + Skill atualizados
 - **Skill:** .claude/skills/vanguard-v30.md
 
 ---
@@ -143,9 +150,9 @@
 |-------|-------|
 | Loops desde ultimo checkup | 2 |
 | Data ultimo checkup | 2026-05-27 |
-| Data ultima sessao | 2026-06-13 |
+| Data ultima sessao | 2026-06-14 |
 | Claude Projects pendente | Sim |
 
 ---
 
-*V33 EM ANDAMENTO 2026-06-14 — Drive-First Embaixador + skills remotas + Hermes Grau B permanente — COWORK sync INTELLIGENCE_HUB pendente (proxima sessao dedicada 4-6h)*
+*Loop 33 CONCLUIDO 2026-06-14 — W-10 redesign 9 nos + P-164 Code sandbox + Drive-First Embaixador — Loop 34 aguarda objetivo P-160 — COWORK sync INTELLIGENCE_HUB pendente (proxima sessao dedicada 4-6h)*

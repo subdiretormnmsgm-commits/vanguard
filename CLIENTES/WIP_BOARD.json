@@ -1,5 +1,5 @@
 ﻿{
-    "atualizado_em":  "2026-06-13",
+    "atualizado_em":  "2026-06-14",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -46,8 +46,8 @@
                                                             "gemini":  "OK",
                                                             "notebooklm":  "OK",
                                                             "embaixador":  "OK",
-                                                            "musculo":  "EM_ANDAMENTO",
-                                                            "proximo":  "NotebookLM -- Skill vanguard-v33.md"
+                                                            "musculo":  "OK",
+                                                            "proximo":  "Loop 34 -- aguarda objetivo declarado pelo Diretor (P-160 gate bloqueante)"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -131,12 +131,19 @@
                                                           "LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130",
                                                           "Loop 33 PENDENTE -- 7 docs CONSTITUICAO + ATOs 2-6 + Gate Zero P-133"
                                                       ],
+                                    "entregues_v33":  [
+                                                          "W-10 Health Check n8n -- redesenhado 1 no para 9 nos (HTTP Request + Analyze Health logica pura) -- execucao 499 verde (2026-06-14)",
+                                                          "P-164 inscrito no INTELLIGENCE_LEDGER -- Code node sandbox EasyPanel: $helpers e fetch() indisponiveis -- regra arquitetural definitiva",
+                                                          "n8n-remote-v1.md atualizado -- 8 entradas SUCESSO/FALHA adicionadas",
+                                                          "RUNBOOK_EASYPANEL.md atualizado -- secao restricao sandbox + 4 erros conhecidos",
+                                                          "w10_n8n_healthcheck.json atualizado -- reflete arquitetura 9 nos live (commit d8a3a8b)"
+                                                      ],
                                     "skill_path":  ".claude/skills/vanguard-v30.md",
                                     "memoria_embaixador_path":  "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
                                     "historico_path":  "CLIENTES/VANGUARD/HISTORICO/",
                                     "ultimo_veredito":  "2026-06-12 VEREDITO: DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER",
                                     "ultimo_veredito_data":  "2026-06-12",
-                                    "loop_atual":  "Loop 33 -- DEF-M-6 Patch -- S1+S2+S3a Restricao Arquitetural"
+                                    "loop_atual":  "Loop 33 CONCLUIDO -- W-10 redesign 9 nos + P-164 Code sandbox -- Loop 34 aguarda objetivo P-160"
                                 }
                             ],
                   "check":  [
@@ -280,7 +287,7 @@
                  "loops_desde_ultimo_checkup":  2,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-13",
+                 "data_ultima_sessao":  "2026-06-14",
                  "claude_projects_pendente":  true
              }
 }
