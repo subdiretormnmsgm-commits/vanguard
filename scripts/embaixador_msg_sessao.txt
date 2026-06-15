@@ -1,24 +1,39 @@
-CONTINUAÇÃO DE SESSÃO — 15/06/2026 (domingo, madrugada) — WIP_BOARD sync + artefatos pendentes VANGUARD
+Embaixador, fechamento de sessao -- 15-06-2026 (segunda-feira) Loop 34 V1 -- auditoria de processo + direcionamento do Loop 35
 
-DESTAQUES DESTA CONTINUAÇÃO:
-- WIP_BOARD.json corrigido: Loop 33 CONCLUIDO (musculo EM_ANDAMENTO→OK), entregues_v33 adicionado, atualizado_em e data_ultima_sessao → 2026-06-14
-- WIP_BOARD.md regenerado: Loop 33 CONCLUIDO + Entregues V33 + Principios V33 + Proximo: Loop 34 aguarda P-160
-- 07_WIP_BOARD.txt propagado para 5 NOTEBOOKLM_FONTES + PENTALATERAL_UNIVERSAL (P-033)
-- INTELLIGENCE_LEDGER.md P-164 commitado + propagado para INGRID/VALDECE/VANGUARD (04 e 06)
-- MEMORIA_EMBAIXADOR_VANGUARD.md v2.3 commitado
-- 16_VANGUARD_TIMELINE.md commitado
-- rclone sincronizou GDrive após commits (gap da continuação fechado)
-- DEF-M-6 corrigido: Músculo anotou V29-G3 mas não executou na sessão anterior
+Os documentos estao no Google Drive (subdiretor.mnmsgm@gmail.com, pasta vanguard). Leia via Drive MCP:
 
-PENDENCIAS DO DIRETOR PARA PRÓXIMA SESSÃO:
-- [GATE P-160 — BLOQUEANTE] Declarar objetivo Loop 34 — "Ao final deste Loop, teremos [X] para [projeto]"
-- [ECD 2026] LinkedIn outreach — deadline 30/06 — 16 dias restantes
-- [G-2/G-3] Nomear 1 prospect Vertical Licitações — pipeline ZERO
+1. PROTOCOLOS_ENCERRAMENTO/PAINEL_ATIVIDADES_2026-06-15.md
+2. PROTOCOLOS_ENCERRAMENTO/CONTEXTO_SESSAO_DIRETOR_2026-06-15.md
+3. CLIENTES/WIP_BOARD.json
+4. INTELLIGENCE_LEDGER.md
+5. PENDENTES.md
+6. CLIENTES/VANGUARD/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md
+7. CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md
 
-ESTADO DO SISTEMA:
-- W-10: ATIVO — cron 6h30 BRT diário, 9 nós verdes (execução 499)
-- Hermes Grau B: ATIVO permanente (decidido 2026-06-13)
-- W-8 shadow mode: encerrado — sem ativação plena decidida ainda
-- Loop 33: CONCLUIDO — Loop 34 aguarda gate P-160
-- GitHub Code node W-10: ainda usa fetch() (continueOnFail mitiga) — backlog Loop 34
-- Gate 1.6: 2 commits legacy sem [RESOLVE:] — backlog próxima sessão
+DESTAQUES DESTA SESSAO:
+- Sessao de AUDITORIA DE PROCESSO (22h30 -> ~05h00), nao de build. [OK]
+- Regua/principios: P-167..P-172 no LEDGER; P-173..P-177 no INBOX. [OK]
+- DELIBERACAO_LOOP_V34 (20 ideias, 7 pontos, sintese P-037). [OK]
+- EXECUCAO_AUTORIZADA_LOOP34 (4 vereditos travados + roteiro de formalizacao). [OK]
+- DIRECIONAMENTO_LOOP_35 (objetivo proposto + R1..R6 tipados). [OK]
+- Formalizacao dos 3 atores (Conselho 6->8) + atividades agendadas. [NAO ENTREGUE -- nucleo do Loop 35]
+- Falhas da sessao DIAGNOSTICADAS, nao corrigidas em codigo (P-146): gates anti-recorrencia ainda sao principio no papel.
+
+PENDENCIAS DO DIRETOR:
+- [DIRETOR] Declarar o objetivo do Loop 35 (ver DIRECIONAMENTO_LOOP_35: principal / Alt. A so Detector / Alt. B atores+gates). Sem deadline externo.
+- [DIRETOR] Decidir: commitar as mudancas desta sessao (nada commitado, aguarda veredito).
+- [DIRETOR] Decidir remocao dos 2 orfaos LEDGER (INGRID/VALDECE) -- P-171.
+
+FICOU NO AR:
+- [MUSCULO] Executar a formalizacao autorizada (CONSELHO/ + D1-D5 + CLAUDE.md 6->8 + DEPENDENCY_MAP + sync) -- primeiro passo do Loop 35.
+- [MUSCULO] Construir as atividades agendadas dos 3 atores (R4) e os gates P-173..P-177 como scripts.
+
+PROXIMA SESSAO: Diretor declara o objetivo do Loop 35 -> executa formalizacao autorizada -> constroi as atividades agendadas dos atores.
+
+Leia os 7 arquivos e gere o BLOCO 0 em texto simples (sem HTML, sem artefato):
+-- BLOCO 0: 3-5 linhas com o que ficou + o que o Musculo ataca primeiro + alertas criticos
+-- Semaforo: VANGUARD / INGRID / VALDECE (1 linha cada)
+-- Contexto da ultima sessao (3 linhas max)
+-- Padrao detectado (so se aparecer em 2+ sessoes)
+-- Inconsistencias abertas
+-- Maximo 3 acoes do Diretor para esta semana

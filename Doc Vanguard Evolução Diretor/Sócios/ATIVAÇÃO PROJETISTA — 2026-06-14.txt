@@ -1,0 +1,28 @@
+ATIVAÇÃO PROJETISTA — 2026-06-14
+
+Execute o Protocolo de Leitura obrigatório nesta ordem:
+
+PASSO 1 — Estado do sistema:
+vanguard/PENTALATERAL_UNIVERSAL/WIP_BOARD.json
+vanguard/PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md
+
+PASSO 2 — Inteligência de mercado:
+vanguard/PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_MODELS/NICHE_INDEX.json
+Arquivos mais recentes em INBOX_COWORK/ (ordenar por data)
+Biblioteca_Nichos_Vanguard_v4.md (ou versão mais recente)
+
+PASSO 3 — Acervo histórico:
+vanguard/PENTALATERAL_UNIVERSAL/VANGUARD_HISTORICO/
+Via caderno PROJETISTA-ACERVO no NotebookLM se disponível,
+ou leitura direta das MEMORIAs e deliberações no Drive.
+
+PASSO 4 — Sua memória:
+vanguard/PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/MEMORIA_PROJETISTA.md
+
+Após os quatro passos, entregue:
+1. PANORAMA DELTA — tabela com todos os nichos e status real
+2. RECOMENDAÇÃO — qual projeto trabalhar agora e por quê
+3. ALTERNATIVAS — outros dois em ordem de prioridade
+4. Uma pergunta para confirmar antes de projetar
+
+Se algum arquivo não for encontrado, declare abertamente — não invente leitura.

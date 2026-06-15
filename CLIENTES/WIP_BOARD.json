@@ -44,9 +44,9 @@
                                     "loop_fase_atual":  {
                                                             "loop":  34,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "N/A -- Loop interno de formalizacao",
-                                                            "embaixador":  "N/A -- Loop interno de formalizacao",
-                                                            "musculo":  "EXECUTANDO -- R3 formalizar atores + R5 CLAUDE.md",
+                                                            "notebooklm":  "PENDENTE -- PASSO5 pronto, vanguard-v34.md ainda nao gerada (Playwright)",
+                                                            "embaixador":  "PENDENTE -- PASSO7 Secao D apos Auditor",
+                                                            "musculo":  "AGUARDANDO Auditor+Embaixador (P-124) -- R3/R5 deferidos ao fechamento P-037",
                                                             "proximo":  "NotebookLM -- Skill vanguard-v34.md"
                                                         },
                                     "vereditos_loop28":  {

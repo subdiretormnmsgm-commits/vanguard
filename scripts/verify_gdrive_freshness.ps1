@@ -1,12 +1,18 @@
-# verify_gdrive_freshness.ps1 -- Gate: verifica se arquivos do perfil estao frescos localmente
-# e se o ultimo rclone sync rodou APOS a modificacao mais recente.
-# Uso: .\verify_gdrive_freshness.ps1 -Perfil [ENCERRAMENTO|VANGUARD|INGRID|VALDECE]
+# verify_gdrive_freshness.ps1 -- Gate: verifica se os arquivos do perfil EXISTEM localmente
+# e se o ultimo rclone sync rodou APOS a modificacao mais recente (Drive em dia).
+# P-168: a idade (mtime) de cada arquivo e apenas informativa -- NAO bloqueia. Docs estaticos
+# nao mudam todo loop; o que importa e o Drive ter a versao atual (sync apos modificacao).
+# Uso: .\verify_gdrive_freshness.ps1 -Perfil [ENCERRAMENTO|VANGUARD|INGRID|VALDECE] [-AutoSync]
 # Exit 0 = Drive em dia | Exit 1 = sync necessario antes de acionar Embaixador
+# P-169 (-AutoSync): se o unico problema for de SYNC (Drive atras do local ou sem log), roda
+# rclone sync sozinho e re-valida -- fecha o ciclo G1/G2/G4 sem o Diretor pedir. NAO auto-sincroniza
+# se houver arquivo LOCAL AUSENTE (rclone mirror apagaria o arquivo do Drive).
 param(
     [Parameter(Mandatory=$true)]
     [ValidateSet("ENCERRAMENTO","VANGUARD","INGRID","VALDECE")]
     [string]$Perfil,
-    [int]$ThresholdHoras = 3
+    [int]$ThresholdHoras = 3,
+    [switch]$AutoSync
 )
 
 $RAIZ = Split-Path $PSScriptRoot -Parent
@@ -85,8 +91,11 @@ foreach ($entry in $mapa.GetEnumerator()) {
     if ($deltaH -le $ThresholdHoras) {
         Write-Host ("  [OK    ] {0,-40} {1}h atras" -f $lbl, $deltaH) -ForegroundColor Green
     } else {
-        Write-Host ("  [STALE ] {0,-40} {1}h atras (max {2}h)" -f $lbl, $deltaH, $ThresholdHoras) -ForegroundColor Yellow
-        $stale.Add($lbl)
+        # P-168: idade do arquivo NAO bloqueia. Docs estaticos (intel/timeline) e MEMORIA
+        # (atualizada apos o PASSO7 via P-032) nao mudam todo loop. O que garante que o
+        # Embaixador le a versao atual no Drive e o sync ter rodado APOS a ultima modificacao
+        # -- validado no PASSO 2. Bloquear por mtime gera falso positivo e desperdicio de token.
+        Write-Host ("  [INFO  ] {0,-40} {1}h atras (estavel -- validado pelo sync no PASSO 2)" -f $lbl, $deltaH) -ForegroundColor DarkGray
     }
 }
 
@@ -94,16 +103,20 @@ foreach ($entry in $mapa.GetEnumerator()) {
 Write-Host ""
 Write-Host "  [2/2] Verificando ultimo sync rclone..." -ForegroundColor DarkGray
 $desktop  = [Environment]::GetFolderPath("Desktop")
-$logsHoje = Get-ChildItem "$desktop\rclone_sync_*.txt" -ErrorAction SilentlyContinue |
-            Where-Object { $_.Name -match "rclone_sync_$($dataHoje -replace '-','')" } |
-            Sort-Object LastWriteTime -Descending
+# P-168 (data+hora, nao data): NAO filtrar log por data. Filtrar por data fazia sessoes no
+# mesmo dia ficarem desatualizadas -- o gate perguntava "tem sync de hoje?" em vez de "o sync
+# rodou APOS a ultima modificacao?". Ex: mod 09h -> sync 09h05 (OK) -> mod 14h: a 2a sessao
+# via "houve sync hoje" e passava o arquivo das 14h sem re-sync. Pegamos o log mais recente
+# por LastWriteTime (data+hora) e comparamos datetime contra a ultima modificacao local.
+$logsTodos = Get-ChildItem "$desktop\rclone_sync_*.txt" -ErrorAction SilentlyContinue |
+             Sort-Object LastWriteTime -Descending
 
-if (-not $logsHoje) {
-    Write-Host "  [SYNC   ] Nenhum log de sync encontrado hoje -- Drive pode estar desatualizado" -ForegroundColor Red
+if (-not $logsTodos) {
+    Write-Host "  [SYNC   ] Nenhum log de sync rclone encontrado -- Drive pode estar desatualizado" -ForegroundColor Red
     Write-Host "            Acao: rodar Gate 10 (session_close.ps1) ou rclone sync manualmente" -ForegroundColor Yellow
-    $stale.Add("SYNC-NAO-EXECUTADO-HOJE")
+    $stale.Add("SYNC-NENHUM-LOG")
 } else {
-    $logMaisRecente   = $logsHoje[0]
+    $logMaisRecente   = $logsTodos[0]
     $syncTime         = $logMaisRecente.LastWriteTime
     $syncAposModLocal = $syncTime -gt $ultimaModLocal
     $logContent       = Get-Content $logMaisRecente.FullName -ErrorAction SilentlyContinue
@@ -126,6 +139,39 @@ if (-not $logsHoje) {
     }
 }
 
+# PASSO 2.5 -- AutoSync (P-169 G1/G2/G4): se o unico problema for de SYNC, corrigir sozinho
+$staleSyncTags = @("SYNC-NENHUM-LOG","SYNC-ANTERIOR-A-MODIFICACAO")
+$temSyncStale  = (@($stale | Where-Object { $staleSyncTags -contains $_ }).Count) -gt 0
+$naoAutoFix    = @($stale | Where-Object { $staleSyncTags -notcontains $_ })
+if ($AutoSync -and $temSyncStale -and ($naoAutoFix.Count -eq 0)) {
+    Write-Host ""
+    if (-not $rcloneCmd) {
+        Write-Host "  [AUTOSYNC] rclone nao encontrado -- nao foi possivel auto-sincronizar" -ForegroundColor Red
+    } else {
+        Write-Host "  [AUTOSYNC] P-169 -- Drive atras do local. Rodando rclone sync..." -ForegroundColor Yellow
+        $stamp   = Get-Date -Format "yyyyMMdd_HHmmss"
+        $logNovo = Join-Path $desktop "rclone_sync_$stamp.txt"
+        & $rcloneCmd sync $RAIZ "gdrive:vanguard" --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --log-file $logNovo --log-level INFO
+        $rc = $LASTEXITCODE
+        if ($rc -eq 0) {
+            $syncTime2   = (Get-Item $logNovo).LastWriteTime
+            $logContent2 = Get-Content $logNovo -ErrorAction SilentlyContinue
+            $temErro2    = $logContent2 | Where-Object { $_ -match "^.*ERROR" } | Select-Object -First 1
+            if (($syncTime2 -gt $ultimaModLocal) -and (-not $temErro2)) {
+                $restantes = @($stale | Where-Object { $staleSyncTags -notcontains $_ })
+                $stale = [System.Collections.Generic.List[string]]::new()
+                foreach ($r in $restantes) { $stale.Add($r) }
+                $lagMin2 = [math]::Round(($syncTime2 - $ultimaModLocal).TotalMinutes, 0)
+                Write-Host ("  [AUTOSYNC] OK -- sync {0} ({1}min apos ultima modificacao). Drive em dia." -f $syncTime2.ToString("HH:mm"), $lagMin2) -ForegroundColor Green
+            } else {
+                Write-Host "  [AUTOSYNC] Sync rodou mas ainda inconsistente -- verificar log: $logNovo" -ForegroundColor Red
+            }
+        } else {
+            Write-Host "  [AUTOSYNC] rclone exit $rc -- sync falhou. Ver log: $logNovo" -ForegroundColor Red
+        }
+    }
+}
+
 # RESULTADO FINAL
 Write-Host ""
 Write-Host "  =======================================================" -ForegroundColor Cyan
@@ -134,8 +180,8 @@ if ($stale.Count -gt 0) {
     foreach ($s in $stale) { Write-Host "    >> $s" -ForegroundColor Red }
     Write-Host ""
     Write-Host "  Acao antes de acionar o Embaixador:" -ForegroundColor Yellow
-    Write-Host "    1. Atualizar arquivos locais desatualizados" -ForegroundColor Yellow
-    Write-Host "    2. Rodar: .\scripts\session_close.ps1  (Gate 10 sincroniza)" -ForegroundColor Yellow
+    Write-Host "    1. Se arquivo LOCAL AUSENTE: gerar/restaurar o arquivo" -ForegroundColor Yellow
+    Write-Host "    2. Se SYNC desatualizado/com erro: rodar rclone sync (Gate 10 ou manual)" -ForegroundColor Yellow
     Write-Host "    3. Re-executar este gate" -ForegroundColor Yellow
     Write-Host "  =======================================================" -ForegroundColor Cyan
     Write-Host ""

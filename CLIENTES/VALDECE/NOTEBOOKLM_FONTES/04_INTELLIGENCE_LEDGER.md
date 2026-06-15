@@ -1,4 +1,4 @@
-﻿# INTELLIGENCE LEDGER — Pentalateral IAH
+# INTELLIGENCE LEDGER — Pentalateral IAH
 **Organismo Vivo — atualizado a cada sessão pelo Músculo**
 **Criado:** 2026-05-12 | **Compactação:** mensal (arquivar entradas > 90 dias)
 
@@ -2617,6 +2617,13 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Ferramentas pendentes:** gate_cowork_fase2.ps1 + hook session_start leitura automatica COWORK_HANDOFF quando Cowork em pauta.
 **Aplica-se a:** toda sessao que envolva Cowork Engine. Distincao obrigatoria: Cowork e Loop sao coisas distintas.
 
+## P-161 -- NOTEBOOKLM NAO ACEITA ARQUIVO .JSON -- CONVERTER PARA .TXT ANTES DO UPLOAD (2026-06-14)
+**Origem:** Wipe & Sync do caderno VANGUARD em 2026-06-14 -- arquivo 24_NICHE_INDEX_v1.5.json rejeitado com toast "Apenas os seguintes tipos sao aceitos".
+**Principio:** O NotebookLM nao aceita arquivos com extensao .json. Qualquer arquivo JSON que precise ir ao caderno deve ser copiado com extensao .txt antes do upload. O arquivo original .json permanece intacto em disco -- apenas a copia vai ao NotebookLM.
+**Solucao padrao:** Copy-Item arquivo.json arquivo.txt (antes do upload). Implementado no PASSO5_NOTEBOOKLM.md como pre-requisito [2].
+**Aplica-se a:** todo Wipe & Sync de qualquer caderno NotebookLM -- VANGUARD, INGRID, VALDECE e futuros.
+**Pendente:** preparar_notebooklm_projeto.ps1 deve converter automaticamente todo .json da pasta FONTES para .txt na proxima versao.
+
 ## P-160 -- OBJETIVO DO LOOP E OBRIGATORIO ANTES DE INICIAR -- RESULTADO PRIMEIRO (2026-06-13)
 **Origem:** Reflexao do Diretor ao encerrar sessao 2026-06-13: "Antes de iniciarmos qualquer Loop, a primeira pergunta e: para que faremos o Loop? Temos que enxergar um resultado. Todas as sugestoes devem ser levadas ao Diretor, que com suas intencoes pessoais decidira o objetivo do proximo loop. Temos que ser inteligentes e criativos."
 **Principio:** Nenhum Loop comeca sem objetivo declarado pelo Diretor. Antes de qualquer ativacao de Loop (gemini_anchor_generator, ir_ao_embaixador, PASSO3): (a) Musculo compila sugestoes pendentes -- M+G+N+E do ciclo anterior; (b) apresenta ao Diretor com contexto de intencoes + oportunidades + deadlines; (c) aguarda Diretor declarar OBJETIVO em 1 frase; (d) so entao o Loop comeca com esse objetivo como norte.
@@ -2624,3 +2631,193 @@ mcp-builder e para Claude↔servicos externos (NotebookLM, Supabase, GitHub). An
 **Gate a criar:** scripts/gate_loop_objetivo.ps1 -- verifica campo "objetivo_loop" no LOOP_STATE.json. Se ausente → bloqueia gemini_anchor_generator + ir_ao_embaixador com mensagem de gate P-160.
 **Formato obrigatorio do objetivo:** "Ao final deste Loop, teremos [resultado concreto] para [projeto/cliente]."
 **Aplica-se a:** todo Loop de todo projeto -- Ingrid, Valdece, Vanguard, futuros. Liga com P-037 (sintese) e P-045 (artefatos de fechamento).
+## P-162 -- SKILLS DE PROTOCOLO REMOTO -- INVOCAR ANTES DE AGIR (2026-06-14)
+**Origem:** Sessao EasyPanel 2026-06-14 -- browser_type no CodeMirror 6 destruiu todo o conteudo de env vars do n8n. Recuperacao por Ctrl+Z. Causa: Playwright usa fill() internamente, que substitui todo o conteudo do editor.
+**Principio:** Antes de qualquer interacao com EasyPanel ou n8n, o Musculo DEVE invocar a skill correspondente: easypanel-remote-v1 (env vars, deploys, terminal) ou n8n-remote-v1 (workflows, webhooks, credenciais). As skills documentam metodos corretos e metodos proibidos. Agir sem invocar = risco de destruir conteudo ou receber erro 400 silencioso.
+**Metodo correto CodeMirror 6:** dispatch({ changes: { from, to, insert } }) via cm-content.cmTile.view. PROIBIDO: fill(), execCommand(), InputEvent.
+**Metodo correto xterm.js:** browser_type no seletor .terminal.xterm.focus textarea -- aguardar 2s apos abrir Console. PROIBIDO: keyboard.press sem foco.
+**EasyPanel deploy flow:** Salvar NAO dispara redeploy. Clicar Implantar separadamente (botao indice 6).
+**n8n PUT payload:** somente name, nodes, connections, settings, staticData. Campos read-only (id, versionId, active, meta) causam erro 400.
+**Aplica-se a:** toda sessao que envolva EasyPanel (ambientes, servicos, terminal) ou n8n (workflows, webhooks, ativacao).
+
+## P-163 -- ANTIGRAVITY: 3 PAPEIS FORMAIS + ARSENAL DE FERRAMENTAS POR FUNCAO (2026-06-14)
+**Origem:** Diretor 2026-06-14 -- "precisamos nomea-lo nas funcoes de EXECUTOR e COWORK CONDUCTOR" + "quero que ele atue com as melhores ferramentas nas suas 3 funcoes". Skills em .agents/skills/skills.md.
+
+**PAPEL 1 -- ESTRATEGISTA (produz DIRETRIZ e decisoes arquiteturais):**
+Skills: @concise-planning (toda abertura) -> @brainstorming -> @architecture -> @analyze-project.
+Missao principal: planejar estrategicamente e suportar a producao da DIRETRIZ que o Diretor leva ao Gemini Advanced para validacao.
+Sequencia: @concise-planning (escopo) -> @brainstorming (opcoes) -> @architecture (estrutura) -> deliberacao 7 pontos.
+NUNCA gera DIRETRIZ de Loop autonomamente -- papel exclusivo do Gemini Advanced via chat.
+Top 5 ferramentas:
+  1. Google AI Studio (aistudio.google.com) -- playground Gemini 3.1 Pro High; contexto 1M tokens; raciocinio profundo para arquitetura
+  2. Gemini CLI (github.com/google-gemini/gemini-cli) -- agente open-source no terminal; le workspace direto; mesmo mecanismo do VS Code
+  3. Gemini Code Assist Agent Mode (developers.google.com/gemini-code-assist) -- modo agente VS Code; MCP nativo desde Out/2025; decisoes arquiteturais em contexto real
+  4. Gemini Enterprise Agent Platform (docs.cloud.google.com/gemini-enterprise-agent-platform) -- Gemini 2.5 Pro; 1M tokens para repositorios inteiros
+  5. Antigravity Google Cloud (cloud.google.com) -- plataforma multi-agente oficial Google; substitui Gemini Code Assist IDE a partir de 2026-06-18; monitorar migracao
+
+**PAPEL 2 -- EXECUTOR (executa o que Estrategista-Gemini definiu):**
+Skills: @systematic-debugging, @bash-scripting, @git-pushing, @error-detective.
+Entrada obrigatoria: PASSO3_GEMINI.md + CONTEXTO_GEMINI.md do disco. Nao age por intuicao -- age pelo que Gemini definiu.
+Todo output vai para PENDING_REVIEW.md antes de qualquer acao (P-124 camara de eco proibida).
+Top 5 ferramentas:
+  1. n8n docs + canal oficial YouTube (docs.n8n.io / youtube.com/c/n8n-io) -- referencia primaria; AI Agent Node v2.0 com suporte Gemini/Anthropic; 500+ integracoes
+  2. PowerShell oficial (learn.microsoft.com/powershell) -- linguagem padrao de orquestracao do Pentalateral IAH; scripts PS1 validados por validate_scripts.ps1
+  3. GitHub CLI (cli.github.com) -- automacao de commits, PRs, hooks; gh api para operacoes avancadas sem browser
+  4. n8n AI Agent Node tutorial (docs.n8n.io/advanced-ai/intro-tutorial) -- no de agente para workflows inteligentes; base do Hermes Agent
+  5. EasyPanel (easypanel.io) -- deploy e gerenciamento Docker; painel do Hermes Agent + n8n cloud 24/7
+
+**PAPEL 3 -- COWORK CONDUCTOR (conduz sessoes NICHE_MODELER e inteligencia de mercado):**
+Skills: @bash-scripting (leitura corpus), @error-detective (validacao fit_score).
+Missao: le INBOX_COWORK + BIBLIOTECA + NICHE_INDEX. 5 tarefas: (1) fit_score, (2) enriquecimento de campos, (3) alertas regulatorios, (4) nichos novos, (5) mapa de prioridade.
+Top 5 ferramentas:
+  1. Semrush (semrush.com) -- analise competitiva, keyword research, Market Explorer por nicho; referencia primaria de dados de mercado
+  2. Ahrefs (ahrefs.com) -- backlinks, organic keywords, Content Explorer; cobre 10+ motores de busca incluindo YouTube e Amazon
+  3. SimilarWeb (similarweb.com) -- trafego web, audience demographics, market share; benchmarking de concorrentes por segmento
+  4. Google Trends (trends.google.com) -- tendencias de busca em tempo real; gratuito; dados nativos para CALENDARIO_NICHE_INTELLIGENCE
+  5. SpyFu (spyfu.com) -- estrategias PPC e historico de palavras-chave dos concorrentes; complementa Semrush em paid search
+
+**Regras cross-papel (inviolaveis):**
+(a) Papeis nao se misturam na mesma sessao -- EXECUTOR != COWORK CONDUCTOR != ESTRATEGISTA
+(b) Todo output passa pelo Musculo antes do veredito do Diretor (P-124)
+(c) Antigravity le workspace direto -- NUNCA pedir ao Diretor para colar ou anexar
+(d) @concise-planning obrigatoria em toda abertura de sessao, qualquer papel
+(e) Musculo declara o papel ao iniciar: "Sessao Antigravity: [PAPEL]"
+**Alerta de mercado 2026-06:** Google lancou plataforma oficial chamada Antigravity como substituta do Gemini Code Assist IDE (fim em 2026-06-18). Alinhar nomenclatura interna se necessario.
+
+---
+
+## P-164 -- n8n CODE NODE SANDBOX: $helpers E fetch() INDISPONIVEIS NESTA INSTANCIA EASYPANEL (2026-06-14)
+**Origem:** W-10 Health Check -- execucoes 489 ($helpers is not defined) e 491 (fetch is not defined) -- 2026-06-14.
+
+**O que nunca fazer em Code node nesta instancia n8n EasyPanel:**
+- `$helpers.httpRequest()` → ReferenceError: $helpers is not defined
+- `fetch(url, options)` → ReferenceError: fetch is not defined
+- Qualquer outra chamada HTTP direta de dentro do Code node
+
+**Regra arquitetural definitiva:**
+Code node = logica pura APENAS (transformacao, calculo, formatacao, decisao).
+Chamadas HTTP = n8n-nodes-base.httpRequest (typeVersion 4.2) nodes dedicados.
+
+**Para ler dados de nodes anteriores em Code node (typeVersion 2):**
+```javascript
+const dados = $('Nome Exato do Node').all()[0].json; // node qualquer por nome
+const dadosInput = $input.all()[0].json;              // node imediatamente anterior
+```
+
+**Licoes adicionais desta sessao:**
+- connections no PUT via PowerShell: usar comma operator `,@(@{node="...";type="main";index=0})` para gerar `[[{...}]]` (sem comma = `[{...}]` = erro n8n)
+- PUT body: apenas `{ name, nodes, connections, settings, staticData }` -- campos extras (id, versionId, active, meta) causam HTTP 500
+- PS here-string @"..."@: interpola $env como PSDrive PS -- usar Write tool para gravar JS sem interpolacao
+- WebClient.UploadData: mais confiavel que Invoke-RestMethod para PUT UTF-8 em PS 5.1
+
+---
+
+## P-165 -- O GATE VIVE NO ARTEFATO DE LEITURA AUTOMATICA DE CADA ATOR, NAO NA MEMORIA (2026-06-14) [FALHA-PROCESSO-2026-06-14]
+**Origem:** Duas falhas do Musculo na MESMA abertura de sessao, ambas DEF-M-6 (Musculo Reativo), detectadas pelo Diretor:
+1. **PASSO 0C pulado** -- Musculo marcou 0A (Notion) e 0B (Cowork INBOX, que estava vazio) e tratou o Cowork como "concluido", saltando para o MAPA DIARIO sem consultar o CALENDARIO_NICHE_INTELLIGENCE (0C). Confundiu "INBOX vazio" com "abertura Cowork completa".
+2. **Skill de abertura do Antigravity** -- o session_start injeta "ANTIGRAVITY -- ABRIR COM @concise-planning (P-163)" no contexto, mas (a) o Musculo nao converteu isso em alerta ao Diretor, E (b) -- mais grave -- nao existe NADA que faca o Antigravity invocar @concise-planning sozinho: a regra P-163 existe ("ja falei para ele ler a skill"), mas nunca foi materializada no AGENTS.md (firewall que o Antigravity le automaticamente ao abrir o workspace). A skill esta instalada (.agents/skills/concise-planning/SKILL.md), mas o Antigravity nao sabe que deve le-la.
+
+**Causa raiz (comum):** o gate dependia de MEMORIA -- do Musculo lembrar de processar, ou do Diretor lembrar de digitar @concise-planning. Gate que depende de memoria nao e gate -- e decoracao (P-146). Regra declarada (P-163) que nao vive no artefato que o ator consome automaticamente = regra invisivel ao ator.
+
+**Principio:** todo gate de abertura deve viver no artefato de leitura automatica do ator que ele governa:
+- Gate do MUSCULO -> MAPA DIARIO (o Musculo sempre o le/apresenta): deve recusar gerar se 0A+0B+0C nao estiverem marcados, e carregar o lembrete da skill Antigravity.
+- Gate do ANTIGRAVITY -> AGENTS.md (o Antigravity sempre o le ao abrir): deve conter a regra "abrir TODA sessao com @concise-planning antes de qualquer acao".
+
+**Como aplicar:**
+(a) mapa_diario_pendencias.ps1 chama gate_passo0_abertura.ps1 -Verificar e recusa gerar (exit 1) se 0A+0B+0C incompletos. Excecao: modo -Silencioso (session_start, roda ANTES da abertura) nunca bloqueia.
+(b) mapa_diario carrega no rodape o LEMBRETE ANTIGRAVITY (@concise-planning, P-163).
+(c) AGENTS.md ganha regra de abertura (R-11): "ABERTURA OBRIGATORIA -- @concise-planning antes de qualquer acao, qualquer papel". Materializa P-163 no firewall que o Antigravity le.
+(d) INBOX vazio != etapa concluida. 0B (Cowork) so e completo apos INBOX + CALENDARIO (0C).
+
+**Ferramentas criadas/ajustadas:**
+- scripts/mapa_diario_pendencias.ps1 -- gate -Verificar bloqueante + rodape LEMBRETE ANTIGRAVITY
+- scripts/gate_passo0_abertura.ps1 -- modo -Verificar (ja existente) agora consumido pelo mapa
+- AGENTS.md -- regra R-11 de abertura (materializa P-163)
+
+**Aplica-se a:** toda abertura de sessao do Musculo e do Antigravity.
+
+---
+
+## P-166 -- O COMANDO AO ANTIGRAVITY DEVE DECLARAR O PAPEL + CITAR O ARSENAL EXATO DE SKILLS DAQUELE PAPEL (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Diretor 2026-06-15 -- ao preparar a DIRETRIZ do Loop 34, o Musculo gerou o comando para o Antigravity SEM declarar o papel ("Sessao Antigravity: ESTRATEGISTA") e -- falha principal apontada pelo Diretor -- SEM citar o arsenal exato de skills do papel ESTRATEGISTA. O Diretor teve que perguntar "ele tem que executar quais skills?" -- pergunta que o proprio comando ja deveria ter respondido.
+
+**Causa raiz:** P-165 materializou @concise-planning no AGENTS.md (R-11), mas isso cobre APENAS a abertura. As demais skills do arsenal por papel (P-163) nao sao invocadas por nada -- nem pelo AGENTS.md (so a abertura), nem pelo comando (generico). gemini_anchor_generator.ps1 emite um comando generico ("Voce e o Estrategista... gere a DIRETRIZ") sem papel declarado e sem o arsenal. Regra P-163 (d)+(e) existe, mas nao vive no artefato que o Musculo entrega ao Diretor (o comando). Regra que nao vive no artefato que o ator consome = regra invisivel -- mesma causa raiz de P-165.
+
+**Arsenal canonico por papel (P-163) -- fonte de verdade do comando:**
+- ESTRATEGISTA: @concise-planning -> @brainstorming -> @architecture -> @analyze-project -> deliberacao 7 pontos. Fronteira: SUPORTA a producao da DIRETRIZ; NUNCA emite DIRETRIZ de Loop sozinho (emissao = Gemini Advanced / veredito do Diretor).
+- EXECUTOR: @systematic-debugging, @bash-scripting, @git-pushing, @error-detective. Age pelo que o Estrategista-Gemini definiu (le PASSO3 + CONTEXTO_GEMINI do disco).
+- COWORK CONDUCTOR: @bash-scripting, @error-detective. Conduz NICHE_MODELER (le INBOX_COWORK + BIBLIOTECA + NICHE_INDEX).
+
+**Principio:** todo comando que o Musculo entrega ao Antigravity DEVE conter, embutido pelo gerador:
+1. Declaracao de papel: "Sessao Antigravity: [ESTRATEGISTA | EXECUTOR | COWORK CONDUCTOR]" (P-163 regra e)
+2. Citacao do arsenal EXATO daquele papel, na ordem (P-163)
+3. Nota de fronteira do papel
+Comando sem papel declarado ou sem arsenal citado = comando invalido.
+
+**Ferramentas criadas/ajustadas (P-146):**
+- scripts/gemini_anchor_generator.ps1 -- ganha mapa PAPEL->arsenal (P-163) e injeta papel + arsenal + nota de fronteira no comando gerado automaticamente (item no PENDENTES.md ate concluir o build).
+- CLIENTES/VANGUARD/PASSO3_GEMINI.md -- secao [SKILLS DO ESTRATEGISTA -- EXECUTAR NESTA ORDEM (P-163 PAPEL 1)] adicionada.
+
+**Aplica-se a:** todo comando do Musculo ao Antigravity, qualquer papel.
+
+---
+
+## P-167 -- PASSO 7 AUTO-INVOCA A SKILL embaixador-passo7-[cliente]-v1 (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- Diretor: "no passo7 voce tem que invocar uma skill", "esta descrito", "voce nao invocou automaticamente, falha".
+**Falha que originou:** DEF-M-6 -- ao chegar no PASSO 7 o Musculo escreveu o PASSO7_EMBAIXADOR.md e ia direto para ir_ao_embaixador.ps1 (upload antigo) SEM invocar a skill embaixador-passo7-vanguard-v1 (Drive-First). O Diretor teve que apontar a skill.
+**Principio:** ao iniciar o PASSO 7 de qualquer cliente, o Musculo INVOCA automaticamente a skill embaixador-passo7-[cliente]-v1 ANTES de qualquer acao. A skill conduz Drive-First: gate de frescor + Playwright cola SECAO D no Claude Projects + Embaixador le os 9 arquivos via Drive MCP (sem upload). ir_ao_embaixador.ps1 (upload) esta aposentado para VANGUARD.
+**Ferramentas (P-146):** skill_parser_gate.ps1 bloco P-067 reescrito -- acao obrigatoria nº2 = "INVOCAR a skill embaixador-passo7-[cliente]-v1 (Drive-First)"; removido o auto-run de ir_ao_embaixador.ps1.
+**Aplica-se a:** todo PASSO 7 de qualquer cliente. Liga com P-067, P-146, DEF-M-6.
+
+---
+
+## P-168 -- GATE DE FRESCOR VALIDA O SYNC, NAO A IDADE DO ARQUIVO (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- verify_gdrive_freshness.ps1 -Perfil VANGUARD bloqueou (exit 1) mesmo com rclone sync posterior a ultima modificacao. Diretor: "Cuidado para nao pegar arquivos desatualizados" + "consumo muito token".
+**Falha que originou (2 camadas):** (1) o gate marcava STALE qualquer arquivo com mtime > 3h mesmo apos sync OK -- falso positivo permanente em docs estaticos e na MEMORIA_EMBAIXADOR (atualizada so APOS o PASSO7). (2) Causa-raiz: o gate selecionava o log de sync POR DATA (rclone_sync_$dataHoje). Granularidade de DATA deixava sessoes do mesmo dia desatualizadas: mod 09h -> sync 09h05 -> mod 14h -> 2ª sessao via "houve sync hoje" e passava o arquivo das 14h sem re-sync.
+**Principio:** comparar sempre DATA+HORA (datetime), nunca so data. (a) a idade (mtime) e apenas INFORMATIVA; (b) a selecao do log de sync e por LastWriteTime (datetime), o mais recente, sem filtro de data; (c) o gate bloqueia SOMENTE se: arquivo LOCAL ausente, ou ultimo sync rodou ANTES da modificacao mais recente (syncTime < max(mtime)), ou log com erro.
+**Ferramentas (P-146):** verify_gdrive_freshness.ps1 corrigido -- STALE-por-idade vira [INFO]; selecao do log por datetime (removido filtro rclone_sync_$dataHoje).
+**Aplica-se a:** todo gate de frescor Drive-First. Liga com P-167, P-169, P-146.
+
+---
+
+## P-169 -- GATILHOS OBRIGATORIOS DE rclone sync PARA MANTER O DRIVE-FIRST FRESCO (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- verificacao datetime detectou WIP_BOARD.json no Drive 35 min atras do local. Diretor: "veja por data e hora" + "sempre dando os gatilhos para usar rclone" + "Registre para nao acontecer mais".
+**Falha que originou:** Drive-First adotado como caminho oficial (Embaixador le de gdrive:vanguard via Drive MCP, sem upload), mas o rclone sync rodava so ad-hoc / no session_close. Arquivo modificado no meio da sessao ficava velho no Drive silenciosamente -- socio remoto leria dado desatualizado.
+**Principio -- rclone sync DEVE rodar nestes gatilhos (sem o Diretor pedir):**
+  (G1) ANTES de acionar qualquer socio remoto via Drive-First -- rodar verify_gdrive_freshness.ps1; se exit 1 -> rclone sync + re-verificar ate exit 0.
+  (G2) APOS modificar qualquer arquivo espelhado na sessao, SE for acionar socio remoto na mesma sessao -> re-sync antes do acionamento.
+  (G3) No session_close (Gate 10) -- mirror final do dia.
+  (G4) Comparacao sempre por datetime (P-168): re-sync se local.LastWriteTimeUtc > Drive.modifiedTime em qualquer arquivo espelhado.
+**Comando canonico:** rclone sync "<raiz>" gdrive:vanguard --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --log-file <Desktop>\rclone_sync_yyyyMMdd_HHmmss.txt --log-level INFO (rclone preserva mtime -> Drive vira mirror exato).
+**Ferramentas (P-146):** embutir G1+G2+G4 no verify_gdrive_freshness.ps1 (auto-sync quando detectar local>Drive) e na skill embaixador-passo7-vanguard-v1.
+**Aplica-se a:** todo fluxo Drive-First. Liga com P-167, P-168, P-146.
+
+---
+
+## P-170 -- DELIBERACAO DE 7 PONTOS POR IDEIA E GRAVADA NO ARQUIVO ANTES DO VEREDITO, NUNCA SO NO CHAT (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- Diretor verificando o processo: "Cade as ideias dos socios, a analise do Musculo para a Deliberacao do Diretor? Cade as 20 ideias? Viriam depois ou seria esquecido."
+**Falha que originou:** o Musculo deliberou as 20 ideias (G+M+N+E, 7 pontos cada) NO CHAT antes do veredito D1:A/D2:A, mas so persistiu os vereditos CONDENSADOS (decisao + razao) no DELIBERACAO_LOOP_V34. A deliberacao completa viveu so no chat -> apagada na compactacao. O Diretor recebeu vereditos sem ver a analise que os fundamentou.
+**Principio:** a deliberacao individual de 7 pontos por ideia (todo bloco M+G+N+A+E) e escrita com Write/Edit no CLIENTES/[CLIENTE]/HISTORICO/DELIBERACAO_LOOP_V[N]_[CLIENTE].md ANTES de apresentar ao Diretor para veredito -- nunca apenas no chat. Chat e volatil (compactacao apaga); o arquivo e a unica fonte duravel.
+**Ferramentas (P-146):** gate de fechamento de loop deve verificar que o DELIBERACAO_LOOP contem a secao "DELIBERACAO INDIVIDUAL -- 7 PONTOS POR IDEIA" com >= N ideias antes de permitir DECISOES.json.
+**Aplica-se a:** toda sintese P-037 de qualquer cliente. Liga com P-037, P-090, P-141, P-146, DEF-M-6.
+
+---
+
+## P-171 -- CANONICIDADE DO LEDGER: A RAIZ INTELLIGENCE_LEDGER.md E A UNICA FONTE; 06_/04_ SAO COPIAS DE SYNC; SEM PREFIXO EM CLAUDE_PROJECT E ORFAO PROIBIDO (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- Diretor: "existem arquivos 06_INTELLIGENCE_LEDGER e INTELLIGENCE_LEDGER, confunde". O proprio LEDGER_INBOX e a autorizacao do Diretor citavam "06_INTELLIGENCE_LEDGER.md" -- apontando para a COPIA, nao para a fonte; o gate P-098 protege a raiz e rejeitou ate o Diretor corrigir para "INTELLIGENCE_LEDGER.md".
+**Falha que originou (2 camadas):** (1) nomenclatura: instrucao do INBOX citava 06_INTELLIGENCE_LEDGER.md (copia de sync) como alvo de edicao, quando o alvo correto e a raiz INTELLIGENCE_LEDGER.md. (2) orfaos fisicos: em CLIENTES/INGRID/CLAUDE_PROJECT e CLIENTES/VALDECE/CLAUDE_PROJECT coexistiam INTELLIGENCE_LEDGER.md (sem prefixo, hash c619e12c, de 06-06, 186 KB) E 06_INTELLIGENCE_LEDGER.md (atual, hash 0083fc09, 270 KB) -- dois arquivos do mesmo conteudo logico na mesma pasta, um velho um novo. Quem lesse o sem-prefixo pegava dado de 9 dias atras.
+**Principio -- mapa canonico do LEDGER:**
+  - FONTE UNICA (editar so aqui): raiz ./INTELLIGENCE_LEDGER.md (TIPO 1 UNIVERSAL_PURO, P-073).
+  - COPIAS DE SYNC (nunca editar): 06_INTELLIGENCE_LEDGER.md em CLAUDE_PROJECT + 04_INTELLIGENCE_LEDGER.md em NOTEBOOKLM_FONTES e NOTEBOOKLM_BASE. Geradas por sync_vanguard_docs.ps1; o prefixo numerico identifica copia.
+  - PROIBIDO: INTELLIGENCE_LEDGER.md SEM prefixo dentro de qualquer CLAUDE_PROJECT/ -- e orfao residual; deve ser removido. So o 06_ vale ali.
+**Ferramentas (P-146):** detect_canonical_violation.ps1 deve sinalizar INTELLIGENCE_LEDGER.md sem prefixo em CLAUDE_PROJECT/ como orfao; LEDGER_INBOX corrigido para citar a raiz INTELLIGENCE_LEDGER.md (nunca 06_).
+**Aplica-se a:** todo documento TIPO 1 com copias numeradas. Liga com P-073, P-074, P-033, P-146.
+
+---
+
+## P-172 -- A SINTESE P-037 E MEDIDA CONTRA O OBJETIVO DECLARADO DO LOOP (P-160), NUNCA REORGANIZADA POR UM UNICO SOCIO (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- Diretor: "Qual era o resultado esperado no inicio do Loop e o que voce me apresentou. Veja e entenda que se basear na decisao de 1 socio fica dificil" + "Sempre veja se conseguimos atingir o resultado esperado".
+**Falha que originou:** a sintese P-037 adotou o achado de UM socio (Embaixador, E-1/PF-1 "Builder > Vendedor") como EIXO de todo o loop ("FORMALIZAR SUBORDINADO A PUBLICAR"), rebaixando a formalizacao dos 3 atores + Company Page (R1/R3/R5 do objetivo_loop declarado pelo Diretor) a "scaffolding subordinado". Consequencia: ao fim do loop, R1 (Company Page) nao criada e R5 (CLAUDE.md 6->9) deferida -- o resultado esperado declarado NAO foi atingido, e o Diretor recebeu vereditos centrados no post como se fossem o objetivo.
+**Principio:** (a) toda sintese P-037 ABRE com a tabela RESULTADO ESPERADO (objetivo_loop + R1..Rn do LOOP_STATE) x ENTREGUE x LACUNA -- antes de qualquer veredito por ideia; (b) nenhum socio isolado redefine o eixo/objetivo do loop -- o objetivo e do Diretor (P-160); o achado de um socio AJUSTA prioridade dentro do objetivo, nunca o substitui; (c) ao fechar, o Musculo verifica explicitamente se CADA resultado esperado foi atingido e reporta as lacunas -- "atingimos R1? R2? ..." -- nunca declara loop pronto sem esse cruzamento.
+**Ferramentas (P-146):** gate de fechamento le objetivo_loop + resultados_esperados do LOOP_STATE.json e exige mapeamento ENTREGUE/LACUNA por resultado antes de permitir commit de fechamento.
+**Aplica-se a:** toda sintese P-037 e todo fechamento de loop. Liga com P-031, P-037, P-124, P-160.

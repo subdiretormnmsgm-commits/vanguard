@@ -2759,3 +2759,65 @@ Comando sem papel declarado ou sem arsenal citado = comando invalido.
 - CLIENTES/VANGUARD/PASSO3_GEMINI.md -- secao [SKILLS DO ESTRATEGISTA -- EXECUTAR NESTA ORDEM (P-163 PAPEL 1)] adicionada.
 
 **Aplica-se a:** todo comando do Musculo ao Antigravity, qualquer papel.
+
+---
+
+## P-167 -- PASSO 7 AUTO-INVOCA A SKILL embaixador-passo7-[cliente]-v1 (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- Diretor: "no passo7 voce tem que invocar uma skill", "esta descrito", "voce nao invocou automaticamente, falha".
+**Falha que originou:** DEF-M-6 -- ao chegar no PASSO 7 o Musculo escreveu o PASSO7_EMBAIXADOR.md e ia direto para ir_ao_embaixador.ps1 (upload antigo) SEM invocar a skill embaixador-passo7-vanguard-v1 (Drive-First). O Diretor teve que apontar a skill.
+**Principio:** ao iniciar o PASSO 7 de qualquer cliente, o Musculo INVOCA automaticamente a skill embaixador-passo7-[cliente]-v1 ANTES de qualquer acao. A skill conduz Drive-First: gate de frescor + Playwright cola SECAO D no Claude Projects + Embaixador le os 9 arquivos via Drive MCP (sem upload). ir_ao_embaixador.ps1 (upload) esta aposentado para VANGUARD.
+**Ferramentas (P-146):** skill_parser_gate.ps1 bloco P-067 reescrito -- acao obrigatoria nº2 = "INVOCAR a skill embaixador-passo7-[cliente]-v1 (Drive-First)"; removido o auto-run de ir_ao_embaixador.ps1.
+**Aplica-se a:** todo PASSO 7 de qualquer cliente. Liga com P-067, P-146, DEF-M-6.
+
+---
+
+## P-168 -- GATE DE FRESCOR VALIDA O SYNC, NAO A IDADE DO ARQUIVO (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- verify_gdrive_freshness.ps1 -Perfil VANGUARD bloqueou (exit 1) mesmo com rclone sync posterior a ultima modificacao. Diretor: "Cuidado para nao pegar arquivos desatualizados" + "consumo muito token".
+**Falha que originou (2 camadas):** (1) o gate marcava STALE qualquer arquivo com mtime > 3h mesmo apos sync OK -- falso positivo permanente em docs estaticos e na MEMORIA_EMBAIXADOR (atualizada so APOS o PASSO7). (2) Causa-raiz: o gate selecionava o log de sync POR DATA (rclone_sync_$dataHoje). Granularidade de DATA deixava sessoes do mesmo dia desatualizadas: mod 09h -> sync 09h05 -> mod 14h -> 2ª sessao via "houve sync hoje" e passava o arquivo das 14h sem re-sync.
+**Principio:** comparar sempre DATA+HORA (datetime), nunca so data. (a) a idade (mtime) e apenas INFORMATIVA; (b) a selecao do log de sync e por LastWriteTime (datetime), o mais recente, sem filtro de data; (c) o gate bloqueia SOMENTE se: arquivo LOCAL ausente, ou ultimo sync rodou ANTES da modificacao mais recente (syncTime < max(mtime)), ou log com erro.
+**Ferramentas (P-146):** verify_gdrive_freshness.ps1 corrigido -- STALE-por-idade vira [INFO]; selecao do log por datetime (removido filtro rclone_sync_$dataHoje).
+**Aplica-se a:** todo gate de frescor Drive-First. Liga com P-167, P-169, P-146.
+
+---
+
+## P-169 -- GATILHOS OBRIGATORIOS DE rclone sync PARA MANTER O DRIVE-FIRST FRESCO (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- verificacao datetime detectou WIP_BOARD.json no Drive 35 min atras do local. Diretor: "veja por data e hora" + "sempre dando os gatilhos para usar rclone" + "Registre para nao acontecer mais".
+**Falha que originou:** Drive-First adotado como caminho oficial (Embaixador le de gdrive:vanguard via Drive MCP, sem upload), mas o rclone sync rodava so ad-hoc / no session_close. Arquivo modificado no meio da sessao ficava velho no Drive silenciosamente -- socio remoto leria dado desatualizado.
+**Principio -- rclone sync DEVE rodar nestes gatilhos (sem o Diretor pedir):**
+  (G1) ANTES de acionar qualquer socio remoto via Drive-First -- rodar verify_gdrive_freshness.ps1; se exit 1 -> rclone sync + re-verificar ate exit 0.
+  (G2) APOS modificar qualquer arquivo espelhado na sessao, SE for acionar socio remoto na mesma sessao -> re-sync antes do acionamento.
+  (G3) No session_close (Gate 10) -- mirror final do dia.
+  (G4) Comparacao sempre por datetime (P-168): re-sync se local.LastWriteTimeUtc > Drive.modifiedTime em qualquer arquivo espelhado.
+**Comando canonico:** rclone sync "<raiz>" gdrive:vanguard --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --log-file <Desktop>\rclone_sync_yyyyMMdd_HHmmss.txt --log-level INFO (rclone preserva mtime -> Drive vira mirror exato).
+**Ferramentas (P-146):** embutir G1+G2+G4 no verify_gdrive_freshness.ps1 (auto-sync quando detectar local>Drive) e na skill embaixador-passo7-vanguard-v1.
+**Aplica-se a:** todo fluxo Drive-First. Liga com P-167, P-168, P-146.
+
+---
+
+## P-170 -- DELIBERACAO DE 7 PONTOS POR IDEIA E GRAVADA NO ARQUIVO ANTES DO VEREDITO, NUNCA SO NO CHAT (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- Diretor verificando o processo: "Cade as ideias dos socios, a analise do Musculo para a Deliberacao do Diretor? Cade as 20 ideias? Viriam depois ou seria esquecido."
+**Falha que originou:** o Musculo deliberou as 20 ideias (G+M+N+E, 7 pontos cada) NO CHAT antes do veredito D1:A/D2:A, mas so persistiu os vereditos CONDENSADOS (decisao + razao) no DELIBERACAO_LOOP_V34. A deliberacao completa viveu so no chat -> apagada na compactacao. O Diretor recebeu vereditos sem ver a analise que os fundamentou.
+**Principio:** a deliberacao individual de 7 pontos por ideia (todo bloco M+G+N+A+E) e escrita com Write/Edit no CLIENTES/[CLIENTE]/HISTORICO/DELIBERACAO_LOOP_V[N]_[CLIENTE].md ANTES de apresentar ao Diretor para veredito -- nunca apenas no chat. Chat e volatil (compactacao apaga); o arquivo e a unica fonte duravel.
+**Ferramentas (P-146):** gate de fechamento de loop deve verificar que o DELIBERACAO_LOOP contem a secao "DELIBERACAO INDIVIDUAL -- 7 PONTOS POR IDEIA" com >= N ideias antes de permitir DECISOES.json.
+**Aplica-se a:** toda sintese P-037 de qualquer cliente. Liga com P-037, P-090, P-141, P-146, DEF-M-6.
+
+---
+
+## P-171 -- CANONICIDADE DO LEDGER: A RAIZ INTELLIGENCE_LEDGER.md E A UNICA FONTE; 06_/04_ SAO COPIAS DE SYNC; SEM PREFIXO EM CLAUDE_PROJECT E ORFAO PROIBIDO (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- Diretor: "existem arquivos 06_INTELLIGENCE_LEDGER e INTELLIGENCE_LEDGER, confunde". O proprio LEDGER_INBOX e a autorizacao do Diretor citavam "06_INTELLIGENCE_LEDGER.md" -- apontando para a COPIA, nao para a fonte; o gate P-098 protege a raiz e rejeitou ate o Diretor corrigir para "INTELLIGENCE_LEDGER.md".
+**Falha que originou (2 camadas):** (1) nomenclatura: instrucao do INBOX citava 06_INTELLIGENCE_LEDGER.md (copia de sync) como alvo de edicao, quando o alvo correto e a raiz INTELLIGENCE_LEDGER.md. (2) orfaos fisicos: em CLIENTES/INGRID/CLAUDE_PROJECT e CLIENTES/VALDECE/CLAUDE_PROJECT coexistiam INTELLIGENCE_LEDGER.md (sem prefixo, hash c619e12c, de 06-06, 186 KB) E 06_INTELLIGENCE_LEDGER.md (atual, hash 0083fc09, 270 KB) -- dois arquivos do mesmo conteudo logico na mesma pasta, um velho um novo. Quem lesse o sem-prefixo pegava dado de 9 dias atras.
+**Principio -- mapa canonico do LEDGER:**
+  - FONTE UNICA (editar so aqui): raiz ./INTELLIGENCE_LEDGER.md (TIPO 1 UNIVERSAL_PURO, P-073).
+  - COPIAS DE SYNC (nunca editar): 06_INTELLIGENCE_LEDGER.md em CLAUDE_PROJECT + 04_INTELLIGENCE_LEDGER.md em NOTEBOOKLM_FONTES e NOTEBOOKLM_BASE. Geradas por sync_vanguard_docs.ps1; o prefixo numerico identifica copia.
+  - PROIBIDO: INTELLIGENCE_LEDGER.md SEM prefixo dentro de qualquer CLAUDE_PROJECT/ -- e orfao residual; deve ser removido. So o 06_ vale ali.
+**Ferramentas (P-146):** detect_canonical_violation.ps1 deve sinalizar INTELLIGENCE_LEDGER.md sem prefixo em CLAUDE_PROJECT/ como orfao; LEDGER_INBOX corrigido para citar a raiz INTELLIGENCE_LEDGER.md (nunca 06_).
+**Aplica-se a:** todo documento TIPO 1 com copias numeradas. Liga com P-073, P-074, P-033, P-146.
+
+---
+
+## P-172 -- A SINTESE P-037 E MEDIDA CONTRA O OBJETIVO DECLARADO DO LOOP (P-160), NUNCA REORGANIZADA POR UM UNICO SOCIO (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Loop 34 -- Diretor: "Qual era o resultado esperado no inicio do Loop e o que voce me apresentou. Veja e entenda que se basear na decisao de 1 socio fica dificil" + "Sempre veja se conseguimos atingir o resultado esperado".
+**Falha que originou:** a sintese P-037 adotou o achado de UM socio (Embaixador, E-1/PF-1 "Builder > Vendedor") como EIXO de todo o loop ("FORMALIZAR SUBORDINADO A PUBLICAR"), rebaixando a formalizacao dos 3 atores + Company Page (R1/R3/R5 do objetivo_loop declarado pelo Diretor) a "scaffolding subordinado". Consequencia: ao fim do loop, R1 (Company Page) nao criada e R5 (CLAUDE.md 6->9) deferida -- o resultado esperado declarado NAO foi atingido, e o Diretor recebeu vereditos centrados no post como se fossem o objetivo.
+**Principio:** (a) toda sintese P-037 ABRE com a tabela RESULTADO ESPERADO (objetivo_loop + R1..Rn do LOOP_STATE) x ENTREGUE x LACUNA -- antes de qualquer veredito por ideia; (b) nenhum socio isolado redefine o eixo/objetivo do loop -- o objetivo e do Diretor (P-160); o achado de um socio AJUSTA prioridade dentro do objetivo, nunca o substitui; (c) ao fechar, o Musculo verifica explicitamente se CADA resultado esperado foi atingido e reporta as lacunas -- "atingimos R1? R2? ..." -- nunca declara loop pronto sem esse cruzamento.
+**Ferramentas (P-146):** gate de fechamento le objetivo_loop + resultados_esperados do LOOP_STATE.json e exige mapeamento ENTREGUE/LACUNA por resultado antes de permitir commit de fechamento.
+**Aplica-se a:** toda sintese P-037 e todo fechamento de loop. Liga com P-031, P-037, P-124, P-160.

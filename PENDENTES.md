@@ -494,3 +494,5 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   ✅ S-4: Descartado pelo Diretor ("Nada de Lovable") 2026-06-12.
   ✅ S-5: P-153 inscrito no INTELLIGENCE_LEDGER.md (Músculo identifica falhas antes de concordar). [RESOLVE: sugestoes-notion]
   S-1/S-2: Expandir LMM Embaixador + Antigravity em V30 -- registrar em backlog V30 [diretor delibera]
+
+- [ ] [musculo] [P-146/P-140] Build `gate_yt_search.ps1` — bloquear upload ao NotebookLM se NAO existir `19_FONTES_YOUTUBE_*.md` do loop atual. Causa-raiz (2026-06-15): Musculo seguiu resumo de compactacao e pulou o YT-SEARCH de abertura. Gate integra preparar_notebooklm_projeto.ps1 (exit 1 sem fonte YT do loop). [FALHA-PROCESSO-2026-06-15-YTSEARCH]

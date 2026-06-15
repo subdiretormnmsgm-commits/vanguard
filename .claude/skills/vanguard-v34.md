@@ -1,0 +1,14 @@
+# Skill vanguard-v34.md — Loop 34 — Vanguard Tech
+# Gerado pelo Auditor (NotebookLM) · 2026-06-15
+# Expansão do Conselho 6→9 + Presença Externa (LinkedIn Company Page / Embaixador Digital)
+
+---
+
+[AUDITORIA DE COERENCIA]
+O Eixo de Presença Externa (Loop 34) propõe formalizar três novos atores para o Pentalateral IAH. O M-4 sugere um circuito "autorregulado" entre Projetista, Embaixador Digital e Detector de Deriva, o que constitui ameaça grave ao P-124 (Câmara de Eco Proibida) se contornar a caixa de Vereditos do Diretor. O P-131 determina que a automação executa, mas o Diretor é quem aprova os gates de conteúdo. Paralelamente, G-1, G-4 e M-5 propõem análises públicas de casos e deep-dives técnicos. Isto respeita rigorosamente o P-139 (Vitrine vs. Cofre) e o P-059 (Isolamento por Cliente), desde que o conteúdo seja anonimizado ou originado de fontes governamentais já publicadas (ex: TCU), contanto que nenhuma nuance viole a norma R-3 (Linguagem Blindada).
+[CONEXAO HISTORICA]
+O sistema avança da ingenuidade comercial da V16 (Visual Authority sem clientes) e do funil cego da V2 (Shadow Closer Lite), amadurecendo em V34 na forma de "Smarketing" estruturado. A infraestrutura do n8n de V27 (W-1 a W-7) e o Notion Bidirecional de V29 (P-128) fornecem o encanamento real que permite ao Embaixador Digital atuar no LinkedIn, rastrear sinais de prospecção e enviar dossiês cirúrgicos para a mesa de Eduardo sem sobrecarregá-lo de abas de navegador. Os erros históricos forjaram o P-119: vídeo público/like em post é marketing, não intenção de compra — exige contato bilateral mediado por humano.
+[PADRAO DE SUCESSO/FALHA]
+Padrão de Sucesso: Uso de "Technical Deep-Dives" ancorados em prazos punitivos (P-107, ancoragem no custo do erro da ECD). Encadeamento do Embaixador Digital capturando métricas de Dwell Time e encaminhando os leads de alto potencial para a "Vanguard Pendentes" no Notion (G-2 aderente ao P-128). Padrão de Falha: Permitir que o Embaixador Digital opere como um "daemon autônomo" nas redes sociais do Diretor (G-5 alucinado), agindo em nome da Vanguard sem passar pela triagem de Grau B do Hermes Agent (P-116: Verificação antes de automação). Quebra da regra R-3 ao usar terminologias de engenharia de prompt num mercado B2B convencional.
+[PERSPECTIVA DO SOCIO]
+Não há atalho digital que substitua o ciclo de confiança B2B. A criação da Company Page e a postagem de "Autópsias Regulatórias" servem unicamente à infraestrutura de Due Diligence. O tomador de decisão (CFO, Diretor Contábil) não clica em botão "Comprar" após ler um post. Ele vê o post, valida que a dor dele foi dissecada cirurgicamente pela Vanguard, audita o perfil do Diretor Eduardo, e aguarda o contato humano. Os três novos atores não substituem a venda B2B — eles preparam a pista de pouso (Gate Zero, P-133) para que a ligação telefônica de Eduardo comece na fase de fechamento.

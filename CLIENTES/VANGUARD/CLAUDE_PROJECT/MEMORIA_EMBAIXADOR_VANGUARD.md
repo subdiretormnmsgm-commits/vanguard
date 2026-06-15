@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 2.3 | Atualizada: 2026-06-14 (P-032) · Session 2 — W-10 redesign completo (9 nós, Code node sandbox restriction, execução 499 verde)
+> Criada em: 2026-06-06 | Versão: 2.4 | Atualizada: 2026-06-15 (P-032) · Loop 34 — Expansão Conselho 6→9 + Presença LinkedIn (1º post ECD) · D1:A (Freeze Embaixador Digital) + D2:A (Régua de Risco)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -47,20 +47,22 @@
 
 | ID | Padrão | Instâncias Confirmadas | Impacto Operacional para o Sistema |
 |----|--------|----------------------|-----------------------------------|
-| **PF-1** | **Builder > Vendedor** | Loop 31 + Loop 33 (Embaixador) | Eduardo gera excelência técnica por default; prospecção/venda requer gatilho externo. Sistema deve injetar urgência comercial ativa — NUNCA esperar o Diretor pedir para ir ao mercado. Quando o loop produz só build sem contato externo = alerta PF-1 ativo. |
+| **PF-1** | **Builder > Vendedor** | Loop 31 + Loop 33 + **Loop 34** (Embaixador) | Eduardo gera excelência técnica por default; prospecção/venda requer gatilho externo. Sistema deve injetar urgência comercial ativa — NUNCA esperar o Diretor pedir para ir ao mercado. Quando o loop produz só build sem contato externo = alerta PF-1 ativo. **3ª instância (Loop 34): POST ECD pronto há 2 dias parado, pipeline ZERO, enquanto o loop formalizava 3 atores + infra.** E-1 virou gate mecânico de fechamento. |
 | **PF-2** | **Originator Burst** | Loop 29 + Loop 30 + Loop 33 | Em sessões de alta energia, Eduardo gera mais ideias que todos os sócios combinados. Sistema não barra — canaliza e amplifica. Burst sem captura estruturada = perda de IP. Injetar PASSO3/MEMORIA em momento de burst. |
 | **PF-3** | **Aprovação por Silêncio** | Loop 28→33 (recorrente) | Continuidade sem objeção = aprovação implícita. "ok" e "Pode" são vereditos definitivos. Sistema nunca solicita confirmação redundante após resposta curta direta. |
 | **PF-4** | **Intervenção por CAPS** | Loop 29 + Loop 31 + Loop 33 (recorrente) | CAPS = freio de emergência do Diretor. Sistema para TUDO ao detectar CAPS — responde exclusivamente ao que foi sinalizado, descarta qualquer plano anterior. |
 | **PF-5** | **Tolerância Zero a Falha Repetida** | Loop 31 (BOM UTF-8) + Loop 32 (deriva docs) + Loop 33 (DEF-M-6 Cowork) | Mesma falha documentada no LEDGER que se repete = incidente sistêmico grave. Alerta automático quando padrão de falha já tem entrada no LEDGER — nunca reiterar o que já está escrito. |
 | **PF-6** | **Deriva Documental como Incidente** | Loop 32 (62 arquivos) + Loop 33 (Cowork sem gatilho) | Eduardo trata deriva documental como incidente crítico, não detalhe operacional. Sistema corrige ANTES do Diretor detectar. Quando o Diretor detecta = DEF-M-6 automático. |
 
-### Alertas PF-1 Ativos — Builder>Vendedor (Loop 34)
+### Alertas PF-1 Ativos — Builder>Vendedor (Loop 34 — SÍNTESE P-037 CONCLUÍDA)
 
 > O padrão mais crítico do sistema. Cada loop sem contato externo confirma PF-1 em ação.
 
-**Status atual:** Loop 34 em curso — gate E-4 (≥1 conversa real antes do próximo canal) é o antídoto cirúrgico.
-**Urgência ECD:** 17 dias para 30/06/2026 — prazo externo comprime o padrão PF-1.
-**Ação do Embaixador:** ao fechar Loop 34 sem contato externo documentado → emitir ALERTA PF-1 explicitamente no BLOCO 0 da próxima sessão.
+**Status atual:** Loop 34 — síntese P-037 fechada com eixo "FORMALIZAR SUBORDINADO A PUBLICAR". A formalização dos 3 atores é scaffolding subordinado à publicação do POST ECD.
+**Gate mecânico (E-1):** Loop 34 NÃO fecha sem o POST ECD publicado OU com data dura agendada. Esta é a tradução de PF-1 em regra de fechamento.
+**Antídoto cirúrgico:** D2:A (Régua de Risco) + E-4 (régua de aprovação 24h) + E-5 (exemplo I157 concreto). O Freeze (D1:A) trava o agente, NÃO o Diretor — não pode virar desculpa para não publicar.
+**Urgência ECD:** 15 dias para 30/06/2026; pico de atenção em 17/06 (webinar nacional ECD — Mauro Negruni/Titax). Publicar o post ANTES de 17/06.
+**Ação do Embaixador:** ao abrir a próxima sessão, verificar se o POST ECD foi publicado. Se NÃO → ALERTA PF-1 explícito no BLOCO 0 (4ª instância iminente).
 
 ---
 
@@ -72,7 +74,7 @@
 |----------|-------|--------|
 | Processo Pentalateral | 9.5/10 | Loop 33 V2 em curso — Virada Estratégica; 33 loops de histórico; P-149 inscrito (câmara de eco) |
 | Autonomia do sistema | 8.0/10 | Hermes Grau B ATIVO (D1:A 2026-06-10) — age + confirma 15min; W-8 shadow expira 2026-06-14 |
-| Base de clientes | 5.0/10 | Valdece hypercare até 18-06; Ingrid retainer ativo; pipeline ZERO; P-133 CRÍTICO |
+| Base de clientes | 4.5/10 | Valdece hypercare até 18-06 (via indicação ESGOTADA); Ingrid retainer ativo; pipeline ZERO; P-133 CRÍTICO. LinkedIn é a nova via de 3º cliente (POST ECD = 1º tiro). |
 | Receita | 4.0/10 | R$5k comprometido; sem MRR novo; Loop 33 aponta Vertical Licitações como saída |
 | Infraestrutura técnica | 9.0/10 | n8n + Hermes Grau B + LOOP_STATE v1.1 + RUNNING_INTELLIGENCE + pentalateral-firewall |
 | Integridade documental | 9.5/10 | Loop 32 corrigiu deriva em 62 arquivos (4defaf6); LEDGER_INBOX.md ativo como buffer |
@@ -123,6 +125,12 @@
 | V33-G3 | Embaixador reage Loop 33 (SEÇÃO D) | ✅ OK — E-1..E-5 + D1/D2 propostos + intel BLOCO 8 entregues 2026-06-12 |
 | V33-G4 | RUNNING_INTELLIGENCE.md (Loop 33) | ✅ OK — Embaixador entregou sinais/ameaças/oportunidades Loop 33 |
 | V33-G5 | Síntese P-037 + DECISOES.json Loop 33 | ✅ CONCLUÍDO — D1:A + D2:A CONFIRMADOS 2026-06-12 · DELIBERACAO_LOOP_V33_VANGUARD.md + DECISOES_VANGUARD_V33 gerados |
+| V34-G1 | DIRETRIZ V34 (Estrategista) | ✅ OK — G-1..G-5 (Expansão Conselho 6→9 + LinkedIn) |
+| V34-G2 | Skill vanguard-v34.md (Auditor) | ✅ APROVADA — N-1..N-5 |
+| V34-G3 | Embaixador reage Loop 34 (E-1..E-5 + D1/D2 + intel) | ✅ OK — filtro de realidade + erro factual leiaute 12 pego + RUNNING_INTELLIGENCE Loop 34 |
+| V34-G4 | Síntese P-037 + DECISOES.json Loop 34 | ✅ CONCLUÍDO — D1:A + D2:A · DELIBERACAO_LOOP_V34_VANGUARD.md + DECISOES.json Loop 34 gerados 2026-06-15 |
+| V34-G5 | POST ECD publicado (gate mecânico E-1) | ⏳ PENDENTE — Régua de Risco, perfil pessoal, antes de 17/06. Loop 34 NÃO fecha sem este gate. |
+| V34-G6 | Formalização 3 atores (CLAUDE.md 6→9 + DEPENDENCY_MAP + sync) | ⏳ PENDENTE — scaffolding subordinado; requer veredito do Diretor (P-098 CLAUDE.md protegido) |
 
 ---
 
@@ -148,28 +156,28 @@
 
 ## PROXIMA ACAO DO EMBAIXADOR
 
-Loop 33 NICHE_MODELER — **ESTRATÉGIA 3 CANAIS por nicho. Diretor consultando o Embaixador (P-154).**
+Loop 34 — **SÍNTESE P-037 FECHADA. Eixo: FORMALIZAR SUBORDINADO A PUBLICAR.** D1:A (Freeze) + D2:A (Régua de Risco).
 
-**Missão imediata (Embaixador):**
-- Analisar os 11 nichos do NICHE_INDEX.json com 3 canais: LinkedIn (autoridade B2B), Instagram (awareness/humanização), WhatsApp Business (conversão 1:1)
-- Confirmar/Expandir/Alertar a abordagem por canal com base no perfil comportamental do Diretor e na realidade do mercado
-- Priorizar os 3 nichos com deadline CRÍTICO (ECD 30/06, AI Act 02/08, ANEEL 05/08)
-- Alertar se a abordagem 3 canais está alinhada com o modelo de negócio IAH
+**Missão imediata do Embaixador (próxima sessão):**
+- **VERIFICAR se o POST ECD foi publicado** (gate mecânico E-1 / V34-G5). Se NÃO → ALERTA PF-1 explícito no BLOCO 0 (4ª instância).
+- Acompanhar a reescrita do POST 4 em formato Régua de Risco (perfil pessoal, exemplo I157 concreto, fora do corporate-speak) — pendente antes da publicação.
+- Aplicar a régua de aprovação 24h (E-4) aos drafts do perfil (G-5).
+- Manter o ARTEFATO_DE_PROVA bloqueante (E-3): nenhum número ao ar sem fonte rastreável.
 
 **Alertas CRÍTICOS para o Embaixador:**
-- ECD 2026: prazo 30/06/2026 — **17 dias** — nicho `eventos-fiscais-contadores` (ticket R$8-40k, 600k+ escritórios)
-- AI Act UE: prazo 02/08/2026 — 50 dias — nicho `conformidade-ai-act` (ticket R$15-80k)
-- ANEEL GD: prazo 05/08/2026 — 53 dias — nicho `setor-eletrico` (ticket R$15k/mês retainer)
+- ECD 2026: prazo 30/06/2026 — **15 dias** — pico de atenção 17/06 (webinar nacional ECD, Mauro Negruni/Titax). POST publicar ANTES de 17/06.
+- AI Act UE: prazo 02/08/2026 — nicho `conformidade-ai-act` (POST 2 pronto, V2).
+- ANEEL GD: prazo 05/08/2026 — nicho `setor-eletrico` (POST 1 pronto, V2).
+- Captação 2ª candidata Ingrid fecha 04/07/2026.
+- Valdece: via de indicação ESGOTADA (mensagem enviada, não tem indicação). Hypercare encerra 18/06.
 
-**Aprendizados críticos do Loop 33 (para o Embaixador):**
-- **Embaixador identificou risco que nenhum sócio viu:** comportamental — pattern builder vs vendedor
-- **Confronto do Embaixador confirmado:** premissa "poucos competidores" do Auditor está stale. ConLicitação/Dr. Licita existe desde fev/2026
-- **E-4 validado como pitch central:** "anti-alucinação em 3 camadas" transforma P-124/P-132/P-135 em argumento de venda
-- **E-5 bloqueante:** automação MEMORIA é pré-requisito de escala, não backlog
+**Aprendizados críticos do Loop 34 (para o Embaixador):**
+- **PF-1 3ª instância confirmada:** POST ECD parado 2 dias enquanto o loop formalizava infra. E-1 virou gate mecânico de fechamento.
+- **Embaixador pegou erro factual antes de publicar:** "leiaute 12" é da ECF, não da ECD — corrigido em INTENCAO_LINKEDIN.md. Valida o ARTEFATO_DE_PROVA (E-3) como guarda-rail obrigatório.
+- **People-First confirmado com dado real:** perfil pessoal +561% vs Company Pages -60-66% de alcance. O 1º post sai do perfil do Diretor.
+- **D1:A (Freeze) trava o agente, não o Diretor.** Distinção registrada para impedir que vire desculpa de inação.
 
-**P-154 ativo:** esta consulta ao Embaixador é comunicação direta do Diretor (não loop padrão) — gate DIRETRIZ ignorado por ordem explícita.
-
-**W-8 shadow mode:** expira 2026-06-14 — avaliar Hermes Grau C no próximo loop
+**W-8 shadow mode:** Hermes Grau B permanente (decidido 2026-06-13). Grau C só após 30 dias de log limpo (Loop 35+).
 
 ---
 
@@ -223,3 +231,7 @@ Loop 33 NICHE_MODELER — **ESTRATÉGIA 3 CANAIS por nicho. Diretor consultando 
 | 2026-06-13 | Diretor solicita estratégia 3 canais por nicho + consulta ao Embaixador (P-154) | Comunicação direta entre sócios -- não é loop padrão, não requer DIRETRIZ. Flag -OrdemDiretor adicionado ao ir_ao_embaixador.ps1. P-154 inscrito no LEDGER_INBOX. Músculo verificou e atualizou os 9 arquivos para upload ao Embaixador. |
 | 2026-06-13 | Embaixador entregou análise 3 canais + Músculo deliberou E-1..E-5 BLOCO 5 | Recomendação: 1 canal agora (LinkedIn busca ativa + WhatsApp conversão), ECD como âncora, Instagram Loop 35+. E-4 (1 conversa antes do próximo canal) APROVADO. Padrão builder>vendedor confirmado (2 instâncias). Ingrid churn resolvido — Diretor contatou hoje, "está gostando da ferramenta". ultimo_contato_cliente Ingrid atualizado para 2026-06-13. Copy ECD verificada E-3: APROVADA para disparo. |
 | 2026-06-13 | ESTRATEGIA_CANAIS_VANGUARD.md criado + NICHE_INDEX v1.2 + W-8 decisão final | ESTRATEGIA_CANAIS: 7 campos, copy ECD embutida, Gate E-4 como lei. NICHE_INDEX: 3 MOVER_AGORA (ECD/AI Act/ANEEL) + 8 MONITORAR. W-8: shadow mode avaliado sem incidentes — DECISÃO: Hermes mantém Grau B permanentemente. Grau C adiar para Loop 35+ após 30 dias de log limpo. |
+| 2026-06-15 | Loop 34 aberto — Expansão Conselho 6→9 + Presença LinkedIn | OBJETIVO P-160: formalizar Projetista (7º) + Embaixador Digital (8º) + Detector de Deriva (coadjuvante) e publicar 1º post (nicho ECD). G-1..G-5 + M-1..M-5 + N-1..N-5 (skill vanguard-v34) + E-1..E-5 entregues. |
+| 2026-06-15 | Embaixador entregou Loop 34 — filtro de realidade + erro factual | E-1 (PF-1 3ª instância: POST ECD parado 2 dias) + E-2 (Valdece — Diretor informou via esgotada) + E-3 (pegou "leiaute 12" = ECF, não ECD — corrigido) + E-4 (régua 24h) + E-5 (red-team: exemplo I157). RUNNING_INTELLIGENCE Loop 34 gravado localmente (Drive-First / P-169). |
+| 2026-06-15 | Vereditos Loop 34 | **D1:A** (Freeze do Embaixador Digital — trava o agente, não o Diretor) + **D2:A** (1º post = Régua de Risco, 3 condições: perfil pessoal + leiaute 12 corrigido + reescrita com exemplo I157). Síntese P-037: eixo "Formalizar subordinado a publicar". DELIBERACAO_LOOP_V34 + DECISOES.json Loop 34 gerados. |
+| 2026-06-15 | Falha DEF-M-6 detectada pelo Diretor (2x) | (1) Músculo ia pular as skills antes da síntese — corrigido (ultrathink peso 12 + brainstorming). (2) Músculo perguntou "aprova?" com veredito já dado em vez de executar — "Pq vocew nao ia execuatr. Mais uma falha." Writes locais são reversíveis → executar; só commit/CLAUDE.md exige veredito. |

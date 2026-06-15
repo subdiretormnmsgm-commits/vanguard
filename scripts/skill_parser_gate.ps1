@@ -199,35 +199,21 @@ if ($aprovado) {
     Write-Host "    [ ] Embaixador -> SECAO D  <-- AGORA"
     Write-Host "    [ ] Musculo -> sintese P-037"
     Write-Host ""
-    Write-Host "  ACAO OBRIGATORIA:"
+    Write-Host "  ACAO OBRIGATORIA (P-167 -- AUTO-INVOCAR SKILL, nao esperar o Diretor lembrar):"
 
     if ($clienteDetectado -ne "") {
-        Write-Host "    Atualizar [N-1 a N-5] no PASSO7_EMBAIXADOR.md SECAO D"
-        Write-Host "    Depois rodar:"
+        $skillEmb = "embaixador-passo7-$($clienteDetectado.ToLower())-v1"
+        Write-Host "    1. Atualizar [N-1 a N-5] no PASSO7_EMBAIXADOR.md SECAO D"
+        Write-Host "    2. INVOCAR (carregar e seguir) a skill: $skillEmb"
+        Write-Host "       -> Drive-First: gate de frescor + Playwright cola SECAO D no Claude Projects."
+        Write-Host "       -> O Embaixador le os 9 arquivos via Drive MCP (SEM upload)."
         Write-Host ""
-        Write-Host "    .\scripts\ir_ao_embaixador.ps1 -cliente $clienteDetectado"
+        Write-Host "    NAO usar ir_ao_embaixador.ps1 (caminho antigo de upload -- substituido por Drive-First)."
         Write-Host ""
-
-        # Verificar se sessao e interativa antes de usar Read-Host
-        $isInteractive = [Environment]::UserInteractive -and $Host.Name -ne "Default Host"
-        if ($isInteractive) {
-            try {
-                $resposta = Read-Host "  Rodar ir_ao_embaixador.ps1 -cliente $clienteDetectado agora? (S/N)"
-                if ($resposta -match "^[Ss]") {
-                    Write-Host ""
-                    Write-Host "  Ativando Embaixador para $clienteDetectado ..."
-                    & "$BASE\scripts\ir_ao_embaixador.ps1" -cliente $clienteDetectado
-                }
-            } catch {
-                # Modo nao-interativo — mostrar instrucao
-            }
-        }
-        Write-Host ""
-        Write-Host "  Colar SECAO D no Claude Projects antes de"
-        Write-Host "  trazer qualquer output ao Musculo."
+        Write-Host "  Colar SECAO D no Claude Projects antes de trazer qualquer output ao Musculo."
     } else {
-        Write-Host "    .\scripts\ir_ao_embaixador.ps1 -cliente [NOME_DO_CLIENTE]"
-        Write-Host "    Colar SECAO D no Claude Projects."
+        Write-Host "    1. Atualizar [N-1 a N-5] no PASSO7_EMBAIXADOR.md SECAO D"
+        Write-Host "    2. INVOCAR a skill embaixador-passo7-[cliente]-v1 (Drive-First)."
         Write-Host "    So depois trazer output do Embaixador ao Musculo."
     }
     Write-Host ""

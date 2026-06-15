@@ -2,7 +2,36 @@
 # Mantido pelo Embaixador (BLOCO 8 ativo).
 # Decaimento: sinais sem validação de campo em 90 dias são compactados (N-4 — veredito pendente).
 # Proibição: nenhum dado aqui gera ação em cliente sem aprovação explícita do Diretor (P-121).
-# Última atualização: 2026-06-12 (Loop 33 — Vertical Licitações + intel BLOCO 8)
+# Última atualização: 2026-06-15 (Loop 34 — Expansão Conselho 6→9 + Presença LinkedIn)
+
+---
+
+## [SINAIS DA SEMANA — Loop 34 — 2026-06-15]
+
+| SINAL | FONTE | IMPACTO PARA O PENTALATERAL | URGÊNCIA |
+|-------|-------|----------------------------|----------|
+| Company Pages caíram 60-66% de alcance orgânico (2024→2026); perfil pessoal gera 561% mais; páginas = 1,6-5% do feed | linkboost.co/blog/linkedin-organic-reach-2026 · designace.ca · growleads.io | Valida M-3/N-3. O motor de distribuição é o perfil PESSOAL do Eduardo; a Company Page é âncora de credibilidade, não canal de lead. Robô operando a página = canal já estrangulado | ALTA |
+| Algoritmo 2026 estrangula corporate-speak e conteúdo genérico (Depth Score: dwell time + saves + comentários); links externos cortam alcance ~60% | zoomsphere.com/blog/linkedin-algorithm-2026 · digitalapplied.com | Os 4 posts atuais (INTENCAO_LINKEDIN) são institucionais = punição dupla com R-3. Copy precisa virar insight específico em voz de pessoa. CTA com link externo no corpo derruba alcance | ALTA |
+| ECD 2026 prazo 30/06 CONFIRMADO; leiaute 12 é da ECF (não ECD); ECD só teve atualização de manual | iob.com.br · escolasuperioresn.com.br · contaazul.com/blog/parceiros/ecd | E-3: POST 4 corrigido nesta sessão ("ECD leiaute 12" era erro factual). Hoje 15/06 = 15 dias reais (arquivos diziam 17) | CRÍTICA |
+| Pico de ansiedade ECD AGORA: webinar nacional "ECD atualização 2026" em 17/06 (Mauro Negruni, Titax) | contabeis.com.br/noticias/77345 | Janela quente confirmada. Publicar POST ECD do perfil do Eduardo ANTES de 17/06 pega a onda. Autoridade do nicho já tem nomes consolidados — competir por especificidade, não por "temos método" | CRÍTICA |
+| Trilha que converte p/ contador: traduzir regra em impacto financeiro, cadência sustentável, evitar textão, focar aplicabilidade | grupodpg.com.br/linkedin-para-contadores | Reforça N-4 (autodiagnóstico) e M-5 (prova sintética) contra posts institucionais | MÉDIA |
+
+## [AMEACAS DETECTADAS — Loop 34]
+
+1. **PF-1 mascarado de progresso**: ativo pronto (POST ECD, 13/06) não-publicado enquanto o loop formaliza 3 atores + infra. Risco central — comportamental, não técnico.
+2. **Deriva de mensagem**: copy corporate-speak + R-3 = alcance estrangulado pelo algoritmo 2026, mesmo com conteúdo tecnicamente correto.
+3. **Erro factual em peça externa** (leiaute 12 ECD vs ECF) — queima de autoridade + contradiz pitch E-4 anti-alucinação. [RESOLVIDO nesta sessão — POST 4 corrigido.]
+4. **Janela Valdece fecha 18/06 (3 dias)** — Ponte de indicação OAB. [NOTA MÚSCULO: Diretor informou que a mensagem já foi enviada e Valdece não tem indicação — via esgotada.]
+5. **Deriva interna Drive↔local**: P-169 detectou WIP_BOARD defasado no Drive. Drive-First só é confiável com rclone em todos os gatilhos.
+
+## [OPORTUNIDADES DETECTADAS — Loop 34]
+
+| OPORTUNIDADE | JANELA | AÇÃO |
+|---|---|---|
+| **ECD 30/06 — janela mais crítica** | Fecha 30/06 (15 dias) | Publicar POST ECD corrigido do perfil do Eduardo ANTES de 17/06 (pico webinar nacional) |
+| Ponte Valdece (indicação OAB) | Fecha 18/06 (3 dias) | [esgotada — Diretor confirmou que Valdece não tem indicação] |
+| Captação 2ª candidata Ingrid | Fecha 04/07 | Outbound direto, não esperar inbound |
+| People-First: perfil do Eduardo como autoridade | Aberta agora | Página = âncora; distribuição = perfil pessoal + comentários (N-3) |
 
 ---
 

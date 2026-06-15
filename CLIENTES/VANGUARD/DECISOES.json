@@ -1,70 +1,68 @@
 {
   "schema": "v1.1",
   "cliente": "VANGUARD",
-  "loop": 31,
-  "data": "2026-06-10",
-  "origem": "SINTESE P-037 -- Musculo apos SECAO D do Embaixador",
+  "loop": 34,
+  "data": "2026-06-15",
+  "origem": "Sintese P-037 Loop 34 -- Expansao Conselho 6->9 + Presenca LinkedIn (1o post nicho ECD)",
   "decisoes": [
     {
       "id": "D1",
-      "titulo": "Hermes Grau B -- ativar agora ou aguardar",
-      "contexto": "7 dias de shadow mode sem incidente. Grau B = age + janela de veto 15min via Telegram. Shadow expira 2026-06-14. ALERTA do Embaixador: canal Telegram com falha (mensagens nao chegando em 09/06) -- veto que nao chega nao e veto. Diretor pre-autorizou verbalmente D1:A em 2026-06-10.",
+      "titulo": "Grau de autonomia do Embaixador Digital (8o ator) nos Loops 34-35",
+      "contexto": "O Embaixador Digital eh formalizado neste loop como 8o ator. Risco: percepcao externa de agente autonomo (R-3) + robo de likes/interacoes (P-121). N-5 propos Freeze de Acao Externa.",
       "opcoes": {
-        "A": "Ativar Grau B agora -- com condicao: auditar canal Telegram primeiro",
-        "B": "Aguardar mais um ciclo"
+        "A": "Freeze -- Embaixador Digital so le e gera dossies internos; toda interacao externa (comentario/DM) eh ato manual do Diretor ate o Detector validar ausencia de automacao visivel.",
+        "B": "Interacao moderada -- Embaixador Digital pode curtir/comentar com aprovacao previa do Diretor por item."
       },
-      "recomendacao_musculo": "A",
-      "recomendacao_embaixador": "A -- com condicao: auditar canal Telegram ANTES de ativar. Se canal falhar 1x com veto nao entregue, regredir para Grau A automaticamente.",
-      "deadline": "2026-06-14",
-      "veredito_diretor": "A — ATIVAR apos auditoria canal Telegram (2026-06-10)"
+      "recomendacao_musculo": "A -- Freeze. Em pipeline ZERO e presenca externa nova, qualquer rastro de automacao queima o R-3 antes de existir cliente. O Freeze trava o agente, nao o Diretor.",
+      "recomendacao_embaixador": "A -- com correcao: o Freeze nao pode virar desculpa para nao publicar. Trava a maquina, nao a mao do Diretor.",
+      "deadline": "Vigente Loops 34-35; reavaliar quando o Detector validar ausencia de automacao visivel",
+      "veredito_diretor": "A"
     },
     {
-      "id": "D3",
-      "titulo": "RUNNING_INTELLIGENCE.md -- criar agora ou aguardar M-4",
-      "contexto": "M-4 (sub-agentes de pesquisa) e build futuro independente. Embaixador ja tem busca web hoje. Diretor autorizou D3:A em 2026-06-10.",
+      "id": "D2",
+      "titulo": "Escopo do 1o post LinkedIn (nicho ECD, deadline 30/06)",
+      "contexto": "POST 4 ECD pronto ha 2 dias, parado. PF-1 (Builder>Vendedor) 3a instancia. N-4 propos formato Regua de Risco (autodiagnostico) > oferta de servico. Embaixador pegou erro factual (leiaute 12 eh da ECF, nao da ECD).",
       "opcoes": {
-        "A": "Embaixador cria nesta sessao com BLOCO 8 -- EXECUTADO",
-        "B": "Aguardar M-4 implementado"
+        "A": "Regua de Risco -- post autodiagnostico (o leitor se mede), CTA 'fale com nossa equipe tecnica' (R-3), 3 condicoes: perfil pessoal + corrigir leiaute 12 + reescrever fora do corporate-speak com exemplo I157 concreto.",
+        "B": "Planta Baixa Deep-Dive -- post tecnico denso (infografico N-1) explicando o metodo de auditoria."
       },
-      "recomendacao_musculo": "A",
-      "recomendacao_embaixador": "A -- EXECUTADO. Condicoes permanentes: decaimento 90 dias (N-4) + proibicao de acao em cliente sem Diretor (P-121).",
-      "deadline": null,
-      "veredito_diretor": "A (pre-autorizado 2026-06-10) -- RUNNING_INTELLIGENCE.md criado em CLIENTES/VANGUARD/CLAUDE_PROJECT/"
-    },
-    {
-      "id": "D4",
-      "titulo": "Loop 32 abre externo ou interno?",
-      "contexto": "4 loops internos consecutivos (28, 29, 30, 31). P-133 ativo (receita 4/10, 0 MRR novo). Gate temporal: captacao 2a candidata Ingrid e prospecção Mumuzinho fecham em 04-07-2026. O Embaixador chama de 'pre-compromisso' -- nao e desvio da soberania do Diretor, e dar um mecanismo para que a decisao de amanha nao seja capturada pela inercio de 4 loops.",
-      "opcoes": {
-        "A": "Loop 32 abre EXTERNO -- M-4/A-2 apontados para prospeccao. Gate Zero P-133 ativo.",
-        "B": "Loop 32 abre INTERNO -- mais um ciclo de infraestrutura"
-      },
-      "recomendacao_musculo": "A",
-      "recomendacao_embaixador": "A -- com urgencia. Receita 4/10 + gate 04-07-2026 + 4 loops sem novo MRR = risco real de P-133 se tornar letra morta.",
-      "deadline": "Commit de fechamento do Loop 31",
-      "veredito_diretor": "A — Loop 32 EXTERNO — Gate Zero P-133 ativo (2026-06-10)"
+      "recomendacao_musculo": "A -- Regua de Risco. Post frio converte por dor autodiagnosticada, nao por densidade tecnica. Planta Baixa vira ancora da pagina (V2).",
+      "recomendacao_embaixador": "A -- com 3 condicoes bloqueantes: publicar do perfil pessoal (561% mais alcance), corrigir leiaute 12 (feito), reescrever com 1 exemplo I157 real -- nada de adjetivos ('precisao metodologica').",
+      "deadline": "Publicar antes de 17/06/2026 (webinar nacional ECD -- pico de atencao)",
+      "veredito_diretor": "A"
     }
   ],
-  "pacote_loop31_aprovacoes_pendentes": {
-    "ENTRA_LOOP31": [
-      "M-2: LOOP TRANSCRIPT (Delta max 100 linhas -- N-2 incorporado)",
-      "M-5: EMBAIXADOR INTELLIGENCE LOOP -- RUNNING_INTELLIGENCE.md criado (D3:A)",
-      "E-2: BUDGET DE LEITURA como P-147 no LEDGER",
-      "G-2 + W-10: SKILL-DRIFT RADAR (fusionar com W-10 -- nao criar script separado)"
+  "pacote_loop34_aprovacoes_pendentes": {
+    "ENTRA_LOOP34": [
+      "M-1: Pagina = ancora estatica reduzida (quem somos + metodo + 1 deep-dive fixado)",
+      "M-2: Entrada por janela regulatoria (coracao do 1o post ECD)",
+      "M-3: Perfil = motor / pagina = ancora (People-First confirmado com dado real)",
+      "M-4: 3 atores como arquitetura -- dry-run no Loop 34 (Detector de Deriva primeiro)",
+      "N-3: Cadencia Ping Regulatorio reduzida a 1 post + 1 comentario/semana",
+      "N-4: 1o post = Regua de Risco (= D2:A)",
+      "N-5: Freeze de Acao Externa (= D1:A)",
+      "G-2: Loop de Smarketing em modo leitura (dossie de leads no Notion)",
+      "G-5: Employee Advocacy Invertido (drafts p/ perfil, expiram 24h)",
+      "E-1: Alerta PF-1 como gate mecanico de fechamento do loop",
+      "E-3: ARTEFATO_DE_PROVA bloqueante (nenhum numero ao ar sem fonte)",
+      "E-4: Regua de aprovacao 24h",
+      "E-5: Red-team da narrativa ECD (exemplo I157 concreto)"
     ],
     "ENTRA_CONDICIONAL": [
-      "M-1 + E-1: SCOREBOARD PUSH -- condicao: canal Telegram auditado primeiro",
-      "G-3 + E-4: VEREDITO POR VOZ + ECO-CONFIRMACAO -- entram juntos",
-      "G-1 + E-3: RED TEAMING + QUARENTENA -- entram juntos"
+      "M-5: Prova social sintetica -- so com fonte rastreavel (E-3) ou como cenario de teste declarado",
+      "N-2: Due diligence Teste de Stress -- condicionada a correcao do leiaute 12 (FEITO nesta sessao)"
     ],
-    "LOOP32_PLUS": [
-      "M-4 + A-2: AUDITOR INTELLIGENCE ENGINE + sub-agentes Haiku",
-      "A-1: MEMORY ROUTER via Supabase pgvector (nao Supermemory)",
-      "M-3: AUTO-CALIBRACAO apenas na forma N-3 (Auditor pontua Musculo)",
-      "G-4: FEW-SHOT LIBRARY -- depende de M-1 maduro"
+    "LOOP35_PLUS": [
+      "G-1: Technical Deep-Dives (2o post)",
+      "G-4: Carrosseis de Autopsia -- redirecionar formato do TCU para erro de escrituracao (2o+ post)",
+      "N-1: Infografico Planta Baixa -- vira deep-dive fixado na pagina"
     ],
-    "ADIADO_V32_PLUS": [
-      "A-3: QA BROWSER -- aguarda Computer Use no Embaixador"
+    "ADIADO": [],
+    "DESCARTADO": [
+      "G-3: Shadow Metrics de Concorrentes -- obsessao com concorrente, nao cliente; tom anti-BIG4 queima"
+    ],
+    "RESOLVIDO": [
+      "E-2: Ponte Valdece 72h -- via esgotada (mensagem ja enviada, Valdece nao tem indicacao)"
     ]
   }
 }

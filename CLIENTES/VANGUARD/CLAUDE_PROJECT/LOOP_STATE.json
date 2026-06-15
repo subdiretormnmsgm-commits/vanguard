@@ -3,7 +3,7 @@
     "cliente":  "VANGUARD",
     "loop_atual":  34,
     "loop_status":  "ABERTO",
-    "fase_atual":  "DIRETRIZ_EM_PRODUCAO",
+    "fase_atual":  "DIRETRIZ_V34_RECEBIDA — PASSO5 NotebookLM pronto",
     "missao":  "EXTERNO — Vanguard como Empresa · Presença LinkedIn no ar (Company Page + 1º post nicho ECD) + formalização dos 3 novos atores (Projetista 7º, Embaixador Digital 8º, Detector de Deriva coadjuvante) · 2026-06-14",
     "objetivo_loop":  "Ao final do Loop 34, teremos os 3 novos atores FORMALIZADOS e prontos para operar (Projetista 7º, Embaixador Digital 8º, Detector de Deriva coadjuvante) — integrados ao sistema (CLAUDE.md 6→9, DEPENDENCY_MAP, sync, firewall P-059/R-3) — com a Company Page LinkedIn criada e o 1º post (nicho ECD, blindado R-3) preparados. A OPERAÇÃO PLENA dos atores inicia APÓS o fim do Loop 34.",
     "objetivo_declarado_em":  "2026-06-14",
@@ -40,10 +40,10 @@
     "socios":  {
                    "gemini":  {
                                   "status":  "OK",
-                                  "artefato":  "DIRETRIZ_ESTRATEGICA_V33 — G-1..G-5 + PARA_NOTEBOOKLM recebidos",
-                                  "data_conclusao":  "2026-06-11",
-                                  "proximo":  "NotebookLM — Skill vanguard-v33.md (PASSO5 + Deep Research WEB + 24 fontes carregadas)",
-                                  "nota":  "Subagentes A+B+D despachados. G-1=INBOX_COWORK G-2=Impugnacao G-3=ROI G-4=Delegacao G-5=Mock Case"
+                                  "artefato":  "DIRETRIZ_ESTRATEGICA_V34 — contra-ataque M-1..M-5 (CONFIRMA/EXPANDE) + 5a amplificacao por ator + G-1..G-5 (todas Gate SIM) + critica de arquitetura + avaliacao Cowork + 1o post ECD + PARA_NOTEBOOKLM",
+                                  "data_conclusao":  "2026-06-15",
+                                  "proximo":  "NotebookLM — Skill vanguard-v34.md (PASSO5_NOTEBOOKLM.md pronto + Deep Research WEB + Briefing Estado da Arte PARTE 6)",
+                                  "nota":  "G-1 Technical Deep-Dives · G-2 Loop Smarketing · G-3 Shadow Metrics BIG4 · G-4 Autopsia Regulatoria (casos publicos TCU) · G-5 Employee Advocacy Invertido. Aguardando Auditor + Embaixador antes de qualquer deliberacao do Musculo (P-124)."
                               },
                    "notebooklm":  {
                                       "status":  "OK",
@@ -176,7 +176,7 @@
                   "ato6_notify_hermes_watch":  true
               },
     "proxima_acao_diretor":  "Loop 34 DIRETRIZ_EM_PRODUCAO: levar PASSO3 ao Antigravity (Estrategista) — comando @ pronto no chat. A DIRETRIZ V34 volta ao Musculo antes do veredito (P-124). URGENTE: ECD 2026 prazo 30/06. Ponte Valdece antes de 18-06.",
-    "proxima_acao_musculo":  "Aguardar DIRETRIZ V34 do Estrategista. Templates dos atores ja criados (PROJETISTA v5.0 + EMBAIXADOR_DIGITAL v2.0 em CLAUDE_PROJECTS/ + amplificacoes L34). Pendente: alinhar doc-drift-audit.md (Detector) + R5 wiring (CLAUDE.md 6->9 + DEPENDENCY_MAP + sync). Apos DIRETRIZ: PASSO5 NotebookLM -> Embaixador -> sintese P-037.",
+    "proxima_acao_musculo":  "DIRETRIZ V34 RECEBIDA. PASSO5_NOTEBOOKLM.md (vanguard-v34) PRONTO. doc-drift-audit.md v1.1 + DEPENDENCY_MAP v2.4 (categoria CLAUDE_PROJECT_INSTRUCAO) feitos. PROXIMO: executar NotebookLM remoto via Playwright (login Auditor + Deep Research WEB ANTES do PASSO5 + gerar vanguard-v34.md) -> Embaixador PASSO7 SECAO D -> sintese P-037. DEFERIDO ao fechamento (P-037): CLAUDE.md 6->9 + sync + firewall novos atores. Zero deliberacao do Musculo sobre G-1..G-5 ate Auditor+Embaixador (P-124).",
     "alertas_criticos":  [
                              "CRITICO: ECD 2026 prazo 30/06/2026 -- 17 dias -- nicho eventos-fiscais-contadores",
                              "CRITICO: AI Act deadline 02/08/2026 -- 50 dias -- nicho conformidade-ai-act",

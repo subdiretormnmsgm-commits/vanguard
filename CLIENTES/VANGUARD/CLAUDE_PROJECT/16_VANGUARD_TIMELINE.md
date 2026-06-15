@@ -1,6 +1,6 @@
 # VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-06-14
+> Criado: 2026-05-17 | Última atualização: 2026-06-10
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -741,7 +741,6 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 | ✅ 2026-06-09 | **Loop 30 FECHADO — Inteligência Ativa nos 3 Sócios** · Skill vanguard-v30.md · P-135 a P-140 | Processo |
 | ✅ 2026-06-10 | **Loop 31 FECHADO — Expansão da Inteligência Interna** · Hermes Grau B ativo · RUNNING_INTELLIGENCE.md · D1:A D3:A D4:A · P-141 a P-147 · commit c1c6936 | Processo |
 | ✅ 2026-06-10 | BOM UTF-8 removido do WIP_BOARD · ChurnWatch desbloqueado · commit f11e441 | Infraestrutura |
-| ✅ 2026-06-13 | **Cowork Engine** — NICHE_INDEX v1.5 · 15 nichos · RUNBOOK + COWORK_HANDOFF · P-159+P-160 inscritos | Inteligência |
 | [ ] 2026-06-14 | W-8 — avaliar ativação plena (HARD deadline) | Infraestrutura |
 | [ ] 2026-06-18 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
 | [ ] 2026-06-18 | Sentinel Report Valdece — avaliação de satisfação + proposta V4 (R$8.500–12.000) | Comercial |
@@ -775,28 +774,3 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 **Status:** EXECUÇÃO ativa · próximos: G-4+A-3 (LOOP_STATE v1.1) + E-5 (P-032 completo)
 
 *Atualizado em: 2026-06-12 — Loop 33 EXECUCAO · Patch DEF-M-6 aplicado*
-
-## Cowork Engine — 2026-06-13 · INTELIGÊNCIA DE MERCADO · 15 Nichos Mapeados
-
-**Data:** 2026-06-13 (sexta-feira)
-**Sessão:** Cowork Engine — motor de inteligência de mercado dinâmica da Vanguard
-
-**Entregas do Cowork:**
-- NICHE_INDEX v1.5 — 15 nichos (9 MOVER_AGORA / 6 MONITORAR)
-- 4 MODELs novos: N17 Engenheiros Acervo (4.6) · N18 Saúde Digital (4.8) · N16 Farmacêuticos (4.4) · N09 CSRD/ESG (5.0)
-- Glosa Hospitalar + Médicos Peritos promovidos para MOVER_AGORA
-- POST 4 LinkedIn — Eventos Fiscais / ECD 2026 (prazo 30/06) — 4 posts prontos
-- RUNBOOK_COWORK_ENGINE.md — sequência 7 fases codificada
-- COWORK_HANDOFF.md — estado persistente entre sessões Cowork
-- P-159: COWORK ENGINE SISTEMÁTICO — RUNBOOK + HANDOFF + GATE FASE 2
-- P-160: OBJETIVO DO LOOP OBRIGATÓRIO — "Ao final deste Loop, teremos [X] para [projeto]"
-- P-160 inserido na Constituição (CLAUDE.md item 40)
-
-**Alertas ativos:**
-- Eventos Fiscais / ECD leiaute 12 — prazo 30/06/2026 — prospecção urgente esta semana
-- Setor Elétrico / ANEEL 60 dias — prazo 05/08/2026
-- Conformidade AI Act UE — prazo 02/08/2026
-
-**Status:** Cowork sessão encerrada · Fase 2 INBOX (14 arquivos) aguarda próxima sessão Cowork
-
-*Atualizado em: 2026-06-13 — Cowork Engine · NICHE_INDEX v1.5 · P-159+P-160 inscritos*

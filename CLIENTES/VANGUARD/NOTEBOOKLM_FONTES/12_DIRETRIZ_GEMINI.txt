@@ -1,114 +1,88 @@
-DIRETRIZ ESTRATÉGICA V29 — VANGUARD TECH — Loop 29
-Canal: Estrategista (Antigravity) · Eixo: EXPANSÃO EXPONENCIAL · 2026-06-09
-[Transcrição da saída do Estrategista desta sessão — fonte 12 para o Auditor]
+DIRETRIZ ESTRATEGICA V34 -- VANGUARD TECH -- Loop 34
 
-═══════════════════════════════════════════════════════════════════
-[1. VALIDAÇÃO DO MÚSCULO]
-═══════════════════════════════════════════════════════════════════
-As cinco teses [M-1 a M-5] estão corretas e convergem num único movimento:
-sair do modelo "Diretor como barramento manual entre silos" para um ENXAME
-ORQUESTRADO de sócios que se autoalimenta. O Músculo acertou o diagnóstico
-central (M-3): o gargalo do exponencial não é técnico, é o acoplamento entre
-nº de clientes e horas-Diretor. Acertou também ao reposicionar o firewall
-(M-5) como habilitador da escala, não como freio.
+[GATE ANTI-CAMARA-DE-ECO]
+Declarado individualmente em cada G-1 a G-5 abaixo para garantir que o Músculo não chegaria a elas sem o Estrategista.
 
-═══════════════════════════════════════════════════════════════════
-[2. DIVERGÊNCIA ESTRATÉGICA]
-═══════════════════════════════════════════════════════════════════
-Divirjo de tratar "enxame" como sincronização de todos os sócios o tempo todo.
-O exponencial real vem de COMPUTAÇÃO ANTECIPATÓRIA: cada sócio trabalha em
-background ANTES de ser requisitado, deixando resultado pronto em PENDING_REVIEW.
-O Diretor não orquestra o enxame em tempo real — ele colhe o que o enxame já
-produziu. A unidade de escala não é "mais sócios ligados", é "mais trabalho
-adiantado por pista paralela desacoplada".
+[CONTRA-ATAQUE DOS M]
+**M-1 [Pagina como Prova de Método]**: CONFIRMA E EXPANDE. Dados B2B mostram que páginas sem cases são vistas com ceticismo. A resposta não é ser uma "vitrine de método" passiva, mas usar "Technical Deep-Dives" (prova técnica ativa). A página ensina o método desconstruindo a dor publicamente.
+**M-2 [Janela Regulatória Just-In-Time]**: CONFIRMA E EXPANDE. B2B reage à urgência. A expansão aqui é que posts "assustadores" (multas) sem reter o usuário (Dwell Time) não geram autoridade. O post precisa segurar o leitor na página (via carrossel técnico).
+**M-3 [Perfil é o Motor, Página é a Âncora]**: CONFIRMA. A pesquisa indica que perfis pessoais em 2026 superam Company Pages em 5x a 8x de alcance. A Company Page atua na infraestrutura de "Due Diligence" (credibilidade).
+**M-4 [Circuito Autorregulado]**: CONFIRMA E EXPANDE. O modelo de "Closed-Loop Feedback System" é a grande tendência. Expandimos garantindo que a retroalimentação seja "Smarketing" (dados de engajamento do LinkedIn viram pipeline de qualificação do Embaixador).
+**M-5 [Prova Social Sintética]**: EXPANDE. "Padrão de mercado anonimizado" soa vago sem métricas. A Prova Sintética eficiente exige volumes ("Auditamos 400 editais") ou "Sabedoria das Multidões".
 
-═══════════════════════════════════════════════════════════════════
-[3. DECISÃO CLARA]
-═══════════════════════════════════════════════════════════════════
-[M-1] Enxame Músculo+Auditor .................. ENTRA AGORA (sob Shadow Mode P-116)
-[M-2] Embaixador agendado (Cowork) ........... ENTRA AGORA (depende das 3 travas)
-[M-3] Desacoplar clientes × horas-Diretor .... ENTRA AGORA (cerne do loop)
-[M-4] Antigravity expandido com sabedoria .... ENTRA AGORA (modo manutenção/INTEL)
-[M-5] Firewall como habilitador .............. ENTRA AGORA (precondição inviolável)
+[DELIBERACAO DAS AMPLIFICACOES POR ATOR]
+**PROJETISTA (M'P-1 a M'P-4)**: 
+CONFIRMA M'P-1 (Pre-mortem) e M'P-2 (Materialização Calibrada). 
+*A 5ª que falta*: **Ciclo de Dwell Time**. O Projetista deve projetar pensando no tempo de tela do usuário (formato carrossel longo, vídeos), pois o LinkedIn 2026 pune posts rasos e premia profundidade técnica.
 
-═══════════════════════════════════════════════════════════════════
-[4. ENHANCEMENT]
-═══════════════════════════════════════════════════════════════════
-- Embaixador deixa de ser "memória persistente" e vira MOTOR DE PIPELINE:
-  agendado, ele simula necessidade futura do cliente e prepara o upsell antes
-  do cliente pedir (computação antecipatória aplicada à receita).
-- Antigravity (M-4) ganha função de varredura de deriva: cruza o código/docs
-  com o LEDGER e reporta inconsistências — sempre só para PENDING_REVIEW.
-- Pistas paralelas desacopladas: cada cliente = 1 pista que roda sozinha;
-  só a exceção sobe ao Diretor (Hermes/W-8 como balanceador cognitivo).
+**EMBAIXADOR DIGITAL (M'D-1 a M'D-3)**: 
+CONFIRMA M'D-1 (Post é Sonar) e M'D-2 (Calendário Regulatório). 
+*A 4ª que falta*: **Employee Advocacy Bridge**. O Embaixador não apenas posta na Company Page, ele comenta como Vanguard nos posts do Eduardo e vice-versa. Essa triangulação simula uma equipe robusta.
 
-═══════════════════════════════════════════════════════════════════
-[5. CUSTO REAL]
-═══════════════════════════════════════════════════════════════════
-- M-1/M-3: arquitetura de subagentes isolados (P-059) + n8n como trilho de
-  disparo. Build incremental; risco = engarrafamento do PENDING_REVIEW (mitigar
-  com fila e Circuit Breaker já decididos).
-- M-2: depende das 3 travas bloqueantes (isolamento que aborta · gate que recusa
-  DIRETRIZ sem PASSO3+CONTEXTO · saída sempre → PENDING_REVIEW). Sem elas, V30.
-- M-4: Antigravity já lê o repo do disco; custo marginal baixo. Risco = furar
-  isolamento → manter modo manutenção, nunca tocar arquivo de cliente sozinho.
+**DETECTOR DE DERIVA (M'X-1 a M'X-3)**: 
+CONFIRMA M'X-1 (Deriva Preditiva) e M'X-3 (Audita Atores Novos).
+*A 4ª que falta*: **Red Flag Due Diligence**. Antes de qualquer publicação, o Detector garante que o conteúdo não soa como "Agente Autônomo" (R-3) preservando a aura de "Equipe Humana Sênior".
 
-═══════════════════════════════════════════════════════════════════
-[6. IMPACTO COMERCIAL]
-═══════════════════════════════════════════════════════════════════
-Desacoplar clientes de horas-Diretor é o que transforma a Vanguard de
-consultoria-gargalo em holding que escala. Cada pista nova vira receita sem
-custo linear de tempo do Diretor. O Embaixador-motor antecipa upsell = expande
-LTV sem ação reativa. O firewall blindado é o que permite vender escala com
-segurança (diferencial impossível de copiar).
+[G-1 a G-5: IDEIAS PROPRIAS DO ESTRATEGISTA]
+**G-1: Technical Deep-Dives como Prova Social Sintética**
+- O que é: O Projetista desconstrói um problema regulatório (ex: "Onde o fluxo da ECD quebra em escritórios com +500 clientes") publicando a arquitetura da solução.
+- Por que o Músculo não viu: Focou no "padrão anonimizado" genérico; Deep-Dive técnico prova a maestria sem citar cliente.
+- Evidência: Tendências de Marketing B2B 2026 priorizam "Show Your Work" para produtos Enterprise sem depoimentos de clientes.
+- Risco: Pode gerar posts densos demais para leitura rápida se o Projetista errar o "RACI" do formato.
+- Gate: SIM. O Músculo pensou no método, mas não na hiper-profundidade técnica como ferramenta primária de tração.
 
-═══════════════════════════════════════════════════════════════════
-[7. PRÓXIMA AÇÃO]
-═══════════════════════════════════════════════════════════════════
-Auditar [M-1..M-5] + [G-1..G-5] contra o LEDGER (P-001 a P-130), com foco na
-tensão P-124 (checkpoint humano) × P-129 (elo Músculo↔Auditor aberto).
-Gerar a Skill vanguard-v29.md.
+**G-2: O Loop de "Smarketing" (Sales + Marketing) do Embaixador**
+- O que é: O Embaixador Digital não só rastreia quem comentou/salvou (M'D-1), mas converte isso automaticamente em um dossiê de prospecção e joga no Notion ("Vanguard Pendentes") para o Eduardo agir como SDR Humano.
+- Por que o Músculo não viu: Músculo focou no engajamento, mas não amarrou isso a um pipeline ativo de Vendas direto na mesa do Diretor.
+- Evidência: B2B Content Marketing Closed Feedback Loop (Smarketing) é a maior alavanca de SaaS B2B hoje.
+- Risco: Ruído se o Embaixador não souber distinguir um curioso de um decisor.
+- Gate: SIM. O Músculo parou na "classificação do lead"; o Estrategista liga o "Lead" ao SDR (Diretor).
 
-═══════════════════════════════════════════════════════════════════
-[G-1 a G-5] — IDEIAS DISRUPTIVAS DE EXPANSÃO (zero freios)
-═══════════════════════════════════════════════════════════════════
-[G-1] EMBAIXADOR PREDANTE — upsell antecipado via simulação de necessidade
-      futura do cliente; o Embaixador agendado prepara a próxima oferta antes
-      do cliente perceber que precisa.
-[G-2] CLONAGEM DE PROSPECTOS EM BACKGROUND — o Intel alimenta uma persona do
-      decisor; o conselho ensaia a abordagem contra o "clone" antes da reunião real.
-[G-3] AUDITORIA ATIVA DE DERIVA — o Antigravity cruza continuamente código/docs
-      com o LEDGER e levanta deriva/gaps de propagação → PENDING_REVIEW.
-[G-4] CONSELHO DIALÉTICO — Músculo × Estrategista em debate autônomo (tese ×
-      antítese) antes do Diretor; o Diretor recebe a síntese, não o ruído.
-[G-5] SUPER-CARD NO HERMES — decisão do Diretor de 15 min → 5 seg: o card no
-      Telegram traz contexto + opções + recomendação prontos para 1 toque.
+**G-3: Shadow Metrics de Concorrentes (Inteligência Competitiva Reversa)**
+- O que é: O Detector de Deriva monitora não só a Vanguard, mas a deriva das consultorias concorrentes e BIG 4s. A Company Page da Vanguard critica abertamente as "falsas soluções de IA" de mercado.
+- Por que o Músculo não viu: Músculo pensa apenas "intra-Vanguard".
+- Evidência: Autoridade por oposição ("Contrarian B2B Marketing").
+- Risco: Parecer arrogante. O tom precisa ser estritamente técnico e respeitoso.
+- Gate: SIM. Músculo foca na conformidade interna.
 
-═══════════════════════════════════════════════════════════════════
+**G-4: Carrosséis Regulares de "Autópsia Regulatória"**
+- O que é: Aproveitar os P-XXX (como P-139 Vitrine vs Cofre) e aplicar em casos públicos do governo que deram errado e publicar um carrossel "Autópsia: Por que a Prefeitura X perdeu milhões e como evitar".
+- Por que o Músculo não viu: Focou nos nichos Mover_Agora. Casos governamentais públicos não violam P-059 e são relates fortes para o B2B.
+- Evidência: Casos de "Autópsia" tem 3x mais "Dwell time" e "Saves" no LinkedIn B2B.
+- Risco: Processo judicial ou associar a imagem a falhas políticas. Usar apenas acórdãos já transitados em julgado (TCU).
+- Gate: SIM.
+
+**G-5: Employee Advocacy Invertido (O Sistema comenta pelo Diretor)**
+- O que é: O Embaixador Digital analisa a timeline do LinkedIn de decisores dos nichos Quentes e gera drafts de comentários de alto valor para o Diretor apenas "Aprovar" e disparar como "Eduardo DELL".
+- Por que o Músculo não viu: Músculo pensou no alcance do Perfil vs Page (M-3). Aqui usamos a IA para *escala* outbound sem ser bot automático.
+- Evidência: "Social Selling" baseado em comentários relevantes converte 6x mais conexões qualificadas.
+- Risco: O draft não captar a nuance cultural do post do Prospect.
+- Gate: SIM. Músculo foca na emissão passiva, o Estrategista foca no outbound agressivo.
+
+[CRITICA DA ARQUITETURA DOS 3 ATORES]
+A divisão (Projetista = Cérebro Conteúdo, Embaixador = Operador Canal, Detector = Guarda-Costas) é funcional. 
+**Risco Crítico**: O fluxo M-4 tem um gargalo se o Embaixador não conseguir se comunicar fluidamente com o Projetista após coletar o sinal do mercado. O Embaixador deve **gerar o Briefing** do próximo post para o Projetista, não apenas devolver "likes". O Detector não deve travar o post se ele estiver divergente, mas disparar um `[ALERTA]` de ajuste proativo.
+
+[AVALIACAO DAS 13 ATIVIDADES DE COWORK]
+- *Refinar*: "T5 Retroalimentacao Digital (Sexta 23:00)". O tempo entre coletar os dados do Embaixador e processá-los é muito longo. Deve ser "Quarta e Sexta", logo após o "Radar de Prospects".
+- *Adicionar*: Tarefa: **"E1 - Hand-off Smarketing"** (Terça/Quinta 03:00). Embaixador pega leads quentes e empurra pro Notion do Diretor. Tarefa: **"X1 - Due Diligence de Página"** (Quarta 01:00). Detector audita a própria Company Page e perfis pra garantir R-3.
+- *Cortar*: Nenhuma. A cadência em baixo pico está otimizada.
+
+[DIRETRIZ DO 1o POST ECD]
+- **Nicho**: Eventos Fiscais - Contadores
+- **Ângulo**: "O Fim do Ajuste Manual: A Receita já sabe do erro antes do seu auditor"
+- **Gancho**: "Faltam 15 dias para a ECD. A transição para Eventos Fiscais não é só uma mudança de layout, é a adoção de autuações automatizadas pela SEFAZ."
+- **Formato**: Carrossel Técnico (Technical Deep-Dive) desconstruindo como a falha manual gera o 0,02% de multa ao dia e mostrando a arquitetura de validação (blindada via R-3: "O método de especialistas da Vanguard atua no fluxo...").
+- **CTA**: "Sua operação já suporta fluxos com rastreabilidade contínua? Nossos especialistas ajudam a auditar essa transição."
+
+[PROXIMA ACAO]
+Diretor: Validar essa arquitetura em Deliberação (7 pontos), criar a Company Page via browser manualmente (o Músculo orienta no setup), e autorizar a produção do Carrossel ECD pelo Projetista.
+
 [PARA O NOTEBOOKLM]
-═══════════════════════════════════════════════════════════════════
-Skill: vanguard-v29.md
-
-[IDENTIDADE DO AUDITOR UNIVERSAL]
-Auditor do Pentalateral IAH. Tensão ativa: auditar, não validar. Peso máximo ao
-LEDGER (P-001 a P-130). Cada afirmação cita princípio/versão/padrão.
-
-[O QUE AUDITAR NESTE LOOP]
-- [M-1..M-5] e [G-1..G-5] contradizem o LEDGER?
-- CRÍTICO: o elo Músculo↔Auditor (M-1) viola P-124 ("nenhum sócio aciona outro
-  diretamente")? Como reconciliar P-129 (elo aberto) com P-124 (checkpoint humano)?
-- G-1/G-2 conflitam com P-121 (automação não iniciada pelo cliente = risco churn)
-  ou P-059 (isolamento) para Ingrid/Valdece?
-- Precisão obrigatória: P-018 = "Diretor é o 4º LLM — orquestração de deficiências
-  como vantagem"; P-128 = "Notion canal bidirecional" (NÃO single-writer).
-
-[PADRÕES HISTÓRICOS CRÍTICOS]
-Citar loops/versões: que automações funcionaram e quais falharam ao longo dos
-+50 loops. Onde a câmara de eco (P-124) já evitou erro.
-
-[N-1 a N-5]
-N-1: topologia n8n resiliente para disparo concorrente sem engarrafar PENDING_REVIEW?
-N-2: como sócios interrogam schemas cruzados sem violar P-059?
-N-3: há espaço para o Auditor ler continuamente, validando a cada artefato? Respeita P-124?
-N-4: fluxo Hermes otimizado para aprovação instantânea do Diretor sem fricção?
-N-5: como medir a "sabedoria expandida" do Antigravity convertendo background em MRR?
+Nome da Skill: vanguard-v34.md
+PARTE 1: Auditoria G-1..G-5 confirma aderência estrita a R-3 (Linguagem Blindada) e P-059 (sem clientes reais nomeados).
+PARTE 2: Conexão histórica V1-V34: A Vanguard atinge a maturidade pública. O Conselho 6→9 estabiliza as funções de C-Level de Operações (Projetista) e C-Level Marketing (Embaixador).
+PARTE 3: Skill vanguard-v34.md (4 blocos).
+PARTE 4: N-1 a N-5 (Foco em autoridade orgânica e Due Diligence B2B).
+PARTE 5: Deep Research WEB ("B2B LinkedIn Company pages growth 2026", "Employee advocacy scaling", "Technical Deep-Dives B2B Trust").
+PARTE 6: Briefing de Estado da Arte.

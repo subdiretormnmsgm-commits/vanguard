@@ -66,15 +66,31 @@ As importações brasileiras superam R$ 1,6 trilhão anuais, mas um detalhe docu
 
 ---
 
-### POST 4 — EVENTOS FISCAIS — ECD 2026 / Contadores (fit 5.0)
-> Entregue pelo Antigravity Cowork · 2026-06-13 · Pronto para publicar
+### POST 4 — EVENTOS FISCAIS — ECD 2026 / Contadores (fit 5.0) — RÉGUA DE RISCO (D2:A)
+> Reescrito pelo Músculo · 2026-06-15 · Loop 34 · Formato: Régua de Risco (autodiagnóstico)
 > Nicho: eventos-fiscais-contadores · Urgência CRÍTICA — prazo 30/06/2026
+> PUBLICAR DO PERFIL PESSOAL (não da Company Page) · antes de 17/06 (pico de atenção — webinar nacional ECD)
+> Verificação factual: CLAUDE_PROJECT/ARTEFATO_DE_PROVA_ECD.md (E-3)
 
-Faltam apenas 17 dias para o encerramento do prazo da ECD 2026 (leiaute 12). No dia 30 de junho, escritórios e departamentos fiscais enfrentarão o cruzamento implacável da Receita Federal. Um pequeno erro no SPED hoje resulta em autuações automáticas de 0,02% ao dia ou 5% sobre o valor omitido. A margem para falhas documentais zerou. Contadores não podem depender apenas da revisão manual para garantir conformidade em escala. Nossa equipe utiliza um método analítico rigoroso para auditar obrigações acessórias antes da transmissão, eliminando inconsistências tributárias que geram passivos ocultos. Garantimos a rastreabilidade que a fiscalização exige, com precisão metodológica. A sua equipe já realizou a auditoria preventiva de todos os arquivos ou vai assumir o risco da transmissão direta?
+Faltam 15 dias para o dia 30 de junho — e eu queria deixar uma régua aqui, para você medir o seu próprio risco na ECD 2026 (ano-calendário 2025) antes de transmitir.
 
-**WhatsApp (60 palavras):** O prazo da ECD encerra em 30 de junho. Erros no leiaute 12 geram multas automáticas de 5% sobre o valor omitido. Nossos especialistas realizam a auditoria preventiva do SPED, garantindo conformidade antes da transmissão. Podemos proteger as declarações dos seus clientes esta semana?
+Não é sobre o validador da Receita aceitar o arquivo. Ele aceita arquivos errados o tempo todo. É sobre o que a malha encontra depois.
 
-**Reversão — "Meu sistema contábil já faz a validação":** O validador da Receita aprova a estrutura do arquivo, mas não a consistência analítica das informações fiscais cruzadas. Nossa auditoria age exatamente nas entrelinhas que geram autuações automáticas por divergência tributária, protegendo o CNPJ do cliente e o do escritório.
+Pegue um caso comum: você assumiu um cliente novo este ano, ou trocou de sistema contábil. O plano de contas mudou. Isso significa que o registro I157 — Transferência de Saldos de Plano de Contas Anterior — tem que amarrar, conta por conta, o saldo final do ano passado ao saldo inicial deste ano. Se essa amarração não fecha, a ECD sai inconsistente. E como é a ECD que alimenta a ECF, o problema não fica num lugar só: ele se propaga.
+
+A régua, então. Responda para você mesmo:
+
+→ Algum cliente seu trocou de plano de contas, de software ou de contador neste ano? O I157 desses está conferido?
+→ Os saldos iniciais de 2025 batem exatamente com os finais de 2024 em todos eles?
+→ Se a Receita cruzar a sua ECD com a ECF na semana que vem, o que ela acha?
+
+Se você travou em alguma dessas, o risco não é teórico: a multa por omissão é de 5% sobre o valor omitido, e a de atraso corre a 0,02% ao dia. E como a ECD trava a ECF, um arquivo parado em junho vira dois problemas em julho.
+
+Eu e a equipe técnica da Vanguard fazemos exatamente essa auditoria preventiva — antes da transmissão, não depois da intimação. Se você respondeu "não sei" para qualquer pergunta acima, me chama aqui que a gente revisa antes do dia 30.
+
+**WhatsApp (60 palavras):** Faltam 15 dias para a ECD (30/06). Uma pergunta rápida: algum cliente seu trocou de plano de contas, de sistema ou de contador este ano? Se sim, o registro I157 precisa amarrar os saldos do ano anterior aos deste ano — e é aí que a malha pega. Posso revisar isso com você antes da transmissão. Quer?
+
+**Reversão — "Meu sistema contábil já faz a validação":** O validador da Receita confere a estrutura do arquivo, não a consistência entre os planos de contas nem a amarração de saldos do I157 quando houve troca de plano/sistema. É exatamente nessa lacuna que a malha autua. Nossa equipe técnica revisa essa amarração conta a conta antes de você transmitir.
 
 ---
 
@@ -102,7 +118,7 @@ INTENCAO_LINKEDIN.md → posts prontos → publicação pelo Diretor
 | 2026-06-13 | setor-eletrico-regulatorio (fit 5.0) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 1 |
 | 2026-06-13 | conformidade-ai-act (fit 5.0) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 2 |
 | 2026-06-13 | compliance-aduaneiro-ncm (fit 5.0) | PRONTO — aguarda página LinkedIn | INTENCAO_LINKEDIN.md § POST 3 |
-| 2026-06-13 | eventos-fiscais-contadores (fit 5.0) | PRONTO — publicar ANTES dos outros (prazo 30/06) | INTENCAO_LINKEDIN.md § POST 4 |
+| 2026-06-15 | eventos-fiscais-contadores (fit 5.0) | PRONTO (Régua de Risco, perfil pessoal) — publicar ANTES de 17/06 | INTENCAO_LINKEDIN.md § POST 4 |
 | 2026-07-01 | A definir (Cowork jul) | AGUARDANDO | — |
 | 2026-08-01 | A definir (Cowork ago) | AGUARDANDO | — |
 

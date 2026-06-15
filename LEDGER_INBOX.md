@@ -2,36 +2,51 @@
 > Arquivo: `LEDGER_INBOX.md` · Raiz do projeto
 > Função: buffer oficial para princípios e erros que aguardam autorização P-098 para entrar no INTELLIGENCE_LEDGER.md
 > Regra: ao detectar falha ou princípio na sessão → registrar aqui IMEDIATAMENTE, mesmo sem flag P-098.
-> Quando autorizado: Músculo move para INTELLIGENCE_LEDGER.md com `[RESOLVE: LEDGER_INBOX-XXX]`.
+> Quando autorizado: Músculo move para INTELLIGENCE_LEDGER.md (raiz canônica — NUNCA o 06_, ver P-171) com `[RESOLVE: LEDGER-INBOX-XXX]`.
 > Criado: 2026-06-10 · Loop 32 · ATO 6
 
 ---
 
-## STATUS: 2 ENTRADAS PENDENTES — P-157 e P-158 aguardam AUTORIZO SOBRESCREVER 06_INTELLIGENCE_LEDGER.md
+## STATUS: 2 ENTRADAS PENDENTES (2026-06-15)
+
+### FALHA-PROCESSO-2026-06-15-A — LOOP LONGO DEMAIS + CÓDIGOS ERRADOS (inadmissível em escala 20 projetos)
+- **Sintoma:** Loop 34 durou ~5h30 (22h30 → 04h00). Muitas falhas e scripts errados no meio do caminho. Diretor: "Com 20 projetos não se consegue. Sou humano."
+- **Causa raiz (3):** (1) deliberação feita no chat e perdida na compactação → retrabalho de reconstrução; (2) edição de arquivos P-098 sem flag preparada → ciclos de bloqueio/retry; (3) eixo do loop reorganizado por 1 sócio (P-172) → síntese teve de ser refeita.
+- **Solução proposta (P-146 — construir, não só documentar):** (a) gate `gate_loop_objetivo` já existe — adicionar `gate_fechamento_resultado.ps1` que compara `resultados_esperados` × entregue antes de fechar; (b) deliberação de 7 pontos gravada no arquivo ANTES do veredito (P-170) — já em vigor; (c) pré-criar `.musculo_autorizacao.flag` quando o Diretor sinaliza formalização P-098, eliminando o ciclo bloqueio/retry; (d) BUDGET DE TEMPO POR LOOP: meta ≤90min; estourou → parar e fatiar em sessões. → mover para LEDGER como **P-173**.
+- **Palco:** próxima sessão (Diretor: "isso será palco de outra sessão" p/ docs desatualizados; a ferramenta de tempo entra junto).
+
+### FALHA-PROCESSO-2026-06-15-B — LOOP RECICLA O BAU EM VEZ DE ENTREGAR O DELTA DA INTENÇÃO (raiz)
+- **Sintoma:** a intenção do Loop 34 pedia CONSTRUIR o que capacita o papel dos 3 novos sócios. O loop entregou pesquisa de mercado (ECD/nicho/post) — trabalho HABITUAL (Cowork/Intel Hub) que já se faz. Nenhum sócio propôs UMA atividade agendável para os novos atores. Diretor: "O que foi construído para contribuir para o papel dos sócios, eu pedi na intenção... focamos em pesquisa de mercado que já se faz. Ninguém falou de atividade que poderia ser agendada. Não dá." (2026-06-15)
+- **Causa raiz:** (1) não há gate que verifique INTENÇÃO→ENTREGA — `resultados_esperados` existe no LOOP_STATE mas ninguém confere no fim; (2) o PASSO3/5/7 não EXIGE que cada sócio proponha atividade agendável para um ator novo; (3) o loop não distingue DELTA (o que a intenção pede) de BAU (pesquisa de mercado rotineira) — recicla o fácil; (4) "formalizar ator" não tem definição de pronto (ferramenta + atividade agendada + integração).
+- **Mecanismo anti-recorrência (4 builds — P-146):**
+  - **P-174 GATE INTENÇÃO→ENTREGA** — `resultados_esperados` no LOOP_STATE vira TIPADO; `gate_fechamento_resultado.ps1` lê cada Rn e exige evidência em disco antes de fechar (exit 1 se faltar). Loop não fecha com R não entregue.
+  - **P-175 DEFINIÇÃO DE PRONTO DE ATOR NOVO** — formalizar ator = 5 itens obrigatórios: (a) system prompt reconciliado com paths reais; (b) skill operacional; (c) CLAUDE.md + DEPENDENCY_MAP; (d) **atividade agendada** (cron/n8n/gate: o quê, gatilho, frequência); (e) canal de devolução de sinal (output→PENDING_REVIEW). Sem os 5 = ator nominal, não funcional.
+  - **P-176 SÓCIO OBRIGADO A PROPOR ATIVIDADE AGENDÁVEL** — quando o loop trata ator/capacidade nova, cada PASSO (3/5/7) exige de cada sócio ≥1 atividade agendável (o quê + gatilho + frequência). Ideia sobre ator sem atividade agendada = incompleta.
+  - **P-177 LOOP ENTREGA O DELTA, NÃO O BAU** — abertura do loop lista o que JÁ é feito rotineiramente (Cowork/Intel Hub/pesquisa de mercado) e marca como FORA DO ESCOPO, salvo se a intenção pedir explicitamente. O loop produz o delta pedido pela intenção.
+- **Palco:** sessão dedicada de PROCESSO (construir os 4 gates com cabeça fresca — não às 04h, para não repetir o erro de código errado). Desenho pronto neste INBOX.
+
+### INTENCAO-OBSIDIAN-2026-06-15 — captura pendente
+- Diretor declarou intenção sobre Obsidian "desde o começo"; o Músculo NÃO capturou/registrou → falha de retenção (memory `project_obsidian_intencao`). Escopo a confirmar com o Diretor (drift detection? gestão de docs? base de conhecimento?). Arquivos de referência estão em pasta exclusiva do Diretor (proibida) — não ler; aguardar 1 frase de escopo.
 
 ---
 
-### [LEDGER-INBOX-P157] P-157 — MUSCULO IDENTIFICA FALHAS NO RACIOCINIO DO DIRETOR ANTES DE CONCORDAR (2026-06-13)
-**Origem:** Sugestão do Diretor no Notion (Loop 34 abertura) — registrada em PASSO 0A.
-**Regra:** Antes de executar qualquer ideia do Diretor, o Músculo verifica: (a) há premissas implícitas não testadas? (b) o custo real bate com a expectativa? (c) há contradição com princípios do LEDGER? Se sim → declarar EXATAMENTE qual a premissa falha, o que está certo e a ação corrigida. Templates PASSO3_GEMINI e PASSO7-A devem incluir bloco [PREMISSAS A TESTAR DO DIRETOR].
-**Por que é crítico:** Sem este filtro, o Músculo amplifica erros de raciocínio do Diretor em vez de corrigi-los. P-037 (síntese) pressupõe que os inputs estão curados — inputs com premissa falsa geram plano errado.
-**Como aplicar:** Ao receber ideia do Diretor → verificar 3 pontos acima antes de deliberar. Se falha detectada: "PREMISSA A TESTAR: [X]. O que está certo: [Y]. Versão corrigida: [Z]". Nunca ceder por cortesia.
-**Ferramentas pendentes:** adicionar bloco [PREMISSAS A TESTAR DO DIRETOR] em PASSO3_GEMINI_TEMPLATE.md e PASSO7_EMBAIXADOR_TEMPLATE.md (~30min, [musculo]).
+## STATUS ANTERIOR: 0 ENTRADAS PENDENTES — INBOX limpo (2026-06-15, antes do lote acima)
 
 ---
 
-### [LEDGER-INBOX-P158] P-158 — GATE MECÂNICO OBRIGATÓRIO PARA SEQUÊNCIA DE ABERTURA DE SESSÃO (2026-06-13)
-**Origem:** Loop 34 — Diretor: "Toda vez acontece a mesma coisa, quero a solução final para que seja a ultima vez que isso ocorra, senão perco tempo e tokens com você fazendo sempre algo errado que tenho de consertar."
-**Falha que originou:** DEF-M-6 repetido — Músculo abriu sessão, processou BLOCO 0, foi direto para PENDENTES/WIP sem executar Notion (0A) nem Cowork (0B).
-**Regra:** A sequência de abertura é MECÂNICA — não depende de memória ou disciplina:
-  0. BLOCO 0 → 0A. NOTION → 0B. COWORK → 1+. CONTINUAR (PENDENTES/WIP somente após os 3)
-**Gate:** `scripts\gate_passo0_abertura.ps1` com flags diárias (.passo0_notion_YYYY-MM-DD.flag / .passo0_cowork_YYYY-MM-DD.flag).
-  Marcar: `-MarcarNotion` / `-MarcarCowork`. `-Status` mostra audit trail no session_start.
-**Por que é crítico:** Documentar sem automatizar = repetir o erro (P-146). O gate é a ferramenta — o princípio sem ferramenta não existe.
-**Ferramentas criadas:** `scripts\gate_passo0_abertura.ps1` (2026-06-13) + session_start.ps1 reordenado (BLOCO0 primeiro) + CLAUDE.md P-114 atualizado.
-**Aplica-se a:** toda abertura de sessão do Músculo. Liga com P-114 e P-146.
+## [MOVIDOS PARA INTELLIGENCE_LEDGER.md (raiz canônica) — 2026-06-15]
 
----
+> Autorização do Diretor: "AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER.md" (2026-06-15).
+> Alvo correto = raiz `./INTELLIGENCE_LEDGER.md` (não o `06_`, conforme P-171 criado nesta mesma sessão).
+
+- **P-167** → PASSO 7 auto-invoca skill embaixador-passo7-[cliente]-v1 · Loop 34 · [RESOLVE: LEDGER-INBOX-P167]
+- **P-168** → Gate de frescor valida o sync, não a idade do arquivo (datetime) · Loop 34 · [RESOLVE: LEDGER-INBOX-P168]
+- **P-169** → Gatilhos obrigatórios de rclone sync (G1..G4) · Loop 34 · [RESOLVE: LEDGER-INBOX-P169]
+- **P-170** → Deliberação de 7 pontos por ideia gravada no arquivo antes do veredito · Loop 34 · [RESOLVE: LEDGER-INBOX-P170]
+- **P-171** → Canonicidade do LEDGER (raiz = fonte; 06_/04_ = cópias; sem prefixo em CLAUDE_PROJECT = órfão) · Loop 34 · criado direto na análise da falha
+- **P-172** → Síntese P-037 medida contra o objetivo declarado do Loop (P-160), nunca reorganizada por 1 sócio · Loop 34 · criado direto na análise da falha
+
+> NOTA: P-157 e P-158 estavam listados como pendentes neste INBOX mas já constavam no LEDGER canônico (linhas 2590 e 2601) — eram resíduo obsoleto. Removidos do buffer sem reinserir (já estavam lá).
 
 ---
 
@@ -40,44 +55,6 @@
 - **P-154** → adicionado após P-153 · Loop 33 · [RESOLVE: LEDGER-INBOX-P154]
 - **P-155** → adicionado após P-154 · Loop 33 · [RESOLVE: LEDGER-INBOX-P155]
 - **P-156** → adicionado após P-155 · Loop 33 · [RESOLVE: LEDGER-INBOX-P156]
-
----
-
-## [ARQUIVO — princípios anteriores que foram movidos em 2026-06-13]
-
-### P-155 — GATE E-4: PROXIMO CANAL SO ABRE APOS ≥1 CONVERSA REAL NO CANAL ATUAL (2026-06-13)
-
-**Regra:** Em estratégia de outreach multi-canal, o próximo canal não abre por calendário — abre por condição: ≥1 conversa real (resposta, reunião, proposta) no canal em curso. Gate estrutural, não meta de tempo.
-
-**Por que:** Sem o gate, o plano de canais vira cronograma: 3 canais abertos com 0 conversas = dispersão de energia do Diretor. Evidência Loop 33: Embaixador identificou que "inbound system para fundador em modo outbound" dispersa. E-4 foi aprovado como lei estrutural e embutido na ESTRATEGIA_CANAIS_VANGUARD.md com campo `gate_e4_status`.
-
-**Como aplicar:** Ao criar ou revisar estratégia de canais → verificar se `gate_e4_status` está preenchido. Próximo canal só entra em ação quando canal atual tem ≥1 log real em `conversas_ativas`. Template: ESTRATEGIA_CANAIS_VANGUARD.md.
-
----
-
-### P-156 — SESSAO BEM EXECUTADA VIRA RUNBOOK + SKILL COM GATILHO AUTOMATICO (2026-06-13)
-
-**Regra:** Quando o Diretor declara que uma atividade "foi muito bem executada, quero que sempre seja assim", o Músculo cria na mesma sessão: (a) RUNBOOK permanente em `PENTALATERAL_UNIVERSAL/OPERACAO/RUNBOOK_[NOME].md` com todas as fases documentadas, (b) skill em `.claude/skills/[nome].md` com gatilho automático por palavras-chave.
-
-**Por que:** Sem documentação imediata, a excelência fica presa na memória da sessão e se perde. O RUNBOOK garante que o processo possa ser reproduzido por qualquer membro do Conselho em qualquer sessão futura. Evidência Loop 33: RUNBOOK_NICHE_MODELER.md criado com 7 fases + niche-modeler.md com gatilho — processo NICHE_MODELER agora é reproduzível.
-
-**Como aplicar:** Ao detectar "foi muito bem executada" ou "quero que sempre seja assim" → criar RUNBOOK + skill antes de fechar a sessão. O commit de fechamento inclui os dois arquivos.
-
----
-
-### P-154 — COMUNICACAO DIRETA DO DIRETOR ENTRE SOCIOS NAO REQUER GATE DE DIRETRIZ (2026-06-13)
-
-**Regra:** Quando o Diretor ordena comunicação direta com o Embaixador (ou qualquer sócio) fora do fluxo padrão do loop, o gate de DIRETRIZ no `ir_ao_embaixador.ps1` deve ser contornável via flag `-OrdemDiretor`.
-
-**Por que:** O gate de DIRETRIZ existe para proteger o fluxo padrão Gemini→NotebookLM→Embaixador→Músculo. Ele não se aplica quando o Diretor exerce prerrogativa direta de comunicação entre sócios (ex: consultar o Embaixador sobre estratégia de canal antes de uma decisão). Bloquear este caso é falha arquitetural — a restrição foi aplicada ao contexto errado.
-
-**Diferença crítica:** Loop padrão (gate obrigatório) × Comunicação direta do Diretor (gate ignorado com `-OrdemDiretor`). O Embaixador registra o motivo no LOG.
-
-**Ferramenta construída:** flag `-OrdemDiretor` adicionado ao `ir_ao_embaixador.ps1` (sessão 2026-06-13).
-
-**Evidência:** `ir_ao_embaixador.ps1` bloqueou com "DIRETRIZ_GEMINI_V33.txt não encontrada" quando o Diretor ordenou consulta ao Embaixador sobre estratégia 3 canais NICHE_MODELER — contexto correto, gate errado.
-
----
 
 ---
 
@@ -102,11 +79,11 @@ Commit: [RESOLVE: ATO 5] [RESOLVE: LEDGER-INBOX-FALHAS]
 ## COMO USAR ESTE ARQUIVO
 
 1. **Adicionar:** ao detectar falha ou novo princípio → adicionar seção aqui imediatamente
-2. **Autorizar:** quando Diretor disser "AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER.md" → Músculo move os itens
-3. **Commit:** `[RESOLVE: LEDGER-INBOX-FALHAS]` fecha o lote
+2. **Autorizar:** quando Diretor disser "AUTORIZO SOBRESCREVER INTELLIGENCE_LEDGER.md" → Músculo move os itens para a RAIZ canônica (P-171), nunca o 06_
+3. **Commit:** `[RESOLVE: LEDGER-INBOX-XXX]` fecha cada item
 4. **Limpar:** após mover para LEDGER, remover a seção do INBOX
 5. **Nunca:** deixar item no INBOX por mais de 3 loops sem mover
 
 ---
 
-*LEDGER_INBOX v1.1 · Atualizado 2026-06-11 · Loop 33 · ATO 5 concluído*
+*LEDGER_INBOX v1.2 · Atualizado 2026-06-15 · Loop 34 · lote P-167..P-172 movido*

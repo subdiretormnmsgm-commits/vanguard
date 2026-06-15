@@ -1,5 +1,5 @@
 {
-    "atualizado_em":  "2026-06-13",
+    "atualizado_em":  "2026-06-14",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -42,12 +42,12 @@
                                     "churn_watch_threshold":  null,
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
-                                                            "loop":  33,
+                                                            "loop":  34,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "OK",
-                                                            "embaixador":  "OK",
-                                                            "musculo":  "EM_ANDAMENTO",
-                                                            "proximo":  "Embaixador -- Estrategia 3 canais (LinkedIn/Instagram/WhatsApp Business) por nicho NICHE_MODELER"
+                                                            "notebooklm":  "PENDENTE -- PASSO5 pronto, vanguard-v34.md ainda nao gerada (Playwright)",
+                                                            "embaixador":  "PENDENTE -- PASSO7 Secao D apos Auditor",
+                                                            "musculo":  "AGUARDANDO Auditor+Embaixador (P-124) -- R3/R5 deferidos ao fechamento P-037",
+                                                            "proximo":  "NotebookLM -- Skill vanguard-v34.md"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -90,7 +90,9 @@
                                                          "approvals_mode":  "auto",
                                                          "approvals_timeout_s":  900,
                                                          "config_path":  "/opt/data/config.yaml",
-                                                         "shadow_mode_w8_expira":  "2026-06-14"
+                                                         "shadow_mode_w8_expira":  "2026-06-14",
+                                                         "shadow_mode_w8_avaliado":  "2026-06-13 — DECISAO: manter Grau B permanentemente. 7 dias shadow mode sem incidentes. Grau C adiar para Loop 35+ apos 30 dias de log limpo.",
+                                                         "grau_b_permanente":  true
                                                      },
                                     "principios_v28":  [
                                                            "P-115 -- Musculo assessora ativamente conclusao de pendentes (2026-06-06)",
@@ -129,12 +131,19 @@
                                                           "LEDGER_INBOX.md criado com P-148 + FALHAS A-K + addendum P-130",
                                                           "Loop 33 PENDENTE -- 7 docs CONSTITUICAO + ATOs 2-6 + Gate Zero P-133"
                                                       ],
+                                    "entregues_v33":  [
+                                                          "W-10 Health Check n8n -- redesenhado 1 no para 9 nos (HTTP Request + Analyze Health logica pura) -- execucao 499 verde (2026-06-14)",
+                                                          "P-164 inscrito no INTELLIGENCE_LEDGER -- Code node sandbox EasyPanel: $helpers e fetch() indisponiveis -- regra arquitetural definitiva",
+                                                          "n8n-remote-v1.md atualizado -- 8 entradas SUCESSO/FALHA adicionadas",
+                                                          "RUNBOOK_EASYPANEL.md atualizado -- secao restricao sandbox + 4 erros conhecidos",
+                                                          "w10_n8n_healthcheck.json atualizado -- reflete arquitetura 9 nos live (commit d8a3a8b)"
+                                                      ],
                                     "skill_path":  ".claude/skills/vanguard-v30.md",
                                     "memoria_embaixador_path":  "CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md",
                                     "historico_path":  "CLIENTES/VANGUARD/HISTORICO/",
                                     "ultimo_veredito":  "2026-06-12 VEREDITO: DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER",
                                     "ultimo_veredito_data":  "2026-06-12",
-                                    "loop_atual":  "Loop 33 -- DEF-M-6 Patch -- S1+S2+S3a Restricao Arquitetural"
+                                    "loop_atual":  "Loop 34 ABERTO (2026-06-14) -- formalizacao 3 novos atores (Projetista 7o / Embaixador Digital 8o / Detector de Deriva) -- objetivo P-160 declarado -- atores ativam APOS fim do loop"
                                 }
                             ],
                   "check":  [
@@ -153,7 +162,7 @@
                                     "contrato_assinado_em":  "2026-05-19",
                                     "deadline":  "2026-05-23",
                                     "build_iniciado_em":  "2026-05-13",
-                                    "ultimo_contato_cliente":  "2026-06-09",
+                                    "ultimo_contato_cliente":  "2026-06-14",
                                     "churn_watch_threshold":  3,
                                     "stack":  "FastAPI + Supabase + Claude API + Netlify",
                                     "loop_fase_atual":  {
@@ -207,7 +216,7 @@
                                        "deadline":  "2026-05-30",
                                        "prova_cliente":  "2026-09-06",
                                        "build_iniciado_em":  "2026-05-15",
-                                       "ultimo_contato_cliente":  "2026-06-09",
+                                       "ultimo_contato_cliente":  "2026-06-13",
                                        "churn_watch_threshold":  3,
                                        "cargo":  "TDAS -- Tecnico em Desenvolvimento e Assistencia Social -- Cargo 202",
                                        "banca":  "Instituto Quadrix",
@@ -278,7 +287,7 @@
                  "loops_desde_ultimo_checkup":  2,
                  "data_ultimo_checkup":  "2026-05-27",
                  "checkup_recomendado":  false,
-                 "data_ultima_sessao":  "2026-06-10",
+                 "data_ultima_sessao":  "2026-06-14",
                  "claude_projects_pendente":  true
              }
 }
