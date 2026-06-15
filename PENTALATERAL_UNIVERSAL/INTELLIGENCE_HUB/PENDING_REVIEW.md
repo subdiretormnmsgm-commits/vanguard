@@ -271,6 +271,50 @@ Mensagem de abertura sugerida: A ANEEL iniciou auditoria de 60 dias em 100% das 
 
 ---
 
+### EMBAIXADOR AGENTADO — COWORK · Stream NICHO MÚSICA/ENTRETENIMENTO · anunciado 2026-06-15
+
+> Mensagem terminal do Embaixador ao Músculo, marcada **"Para conhecimento"**. Anúncio de 7 frentes (M1–M7)
+> de pesquisa do mercado brasileiro de música/entretenimento. **COWORK ≠ LOOP** — inteligência de mercado dinâmica,
+> não ciclo Pentalateral de cliente. **P-059 N/A** (pesquisa de mercado, não dado de cliente ativo).
+> Fluxo declarado pelo Embaixador: "O Embaixador entrega. Você delibera e redige as instruções. O Antigravity executa."
+> Saída das frentes → INBOX_COWORK (Folder `1EjaH6TmsxbYpgKWb7ASm7CohFJfwSLKi`) → registradas aqui quando entregues.
+
+| Frente | Status |
+|---|---|
+| M1–M7 — mercado música/entretenimento BR | ✅ ENTREGUE — corpus rodando no INBOX_COWORK. Colheita do dia 15/06 abaixo. |
+
+**Ação Músculo:** quando o corpus M1–M7 chegar ao INBOX_COWORK, deliberar em sessão COWORK dedicada e redigir as instruções para o Antigravity (P-124). Sem ação de build imediata — anúncio é "para conhecimento".
+
+---
+
+### COLHEITA COWORK FONOGRÁFICO — 2026-06-15 (segunda) · GATE DE DATA aplicado
+
+> Inteligência de mercado da Vanguard (Claude Cowork). **NÃO é loop. P-059 N/A** (pesquisa de nicho, não dado de cliente).
+> Alimentará o discovery do PROJ-003 Mumuzinho/Dudu Félix quando o projeto sair de STANDBY.
+> GATE DE DATA (Diretor 2026-06-15): hoje, segunda dia 15 → previstos **M1 + M4 + M7**. Colhidos os 3. Fonte+data sempre (P-132).
+
+| Task | Arquivo (versão colhida) | Drive ID | Sinal #1 (mais urgente) |
+|---|---|---|---|
+| **M1** Radar de Artista | `2026-06-16_BRIEFING_MUSCULO_M1_radar_artista.md` | `1l0FyDNPe9Df1Pr302IJ0-OCuh1tLEQqP` | Lei 15.270/2025 — IRRF 10% sobre dividendos de PJ artística (vigente 2026) |
+| **M4** ECAD + Streaming | `2026-06-15_BRIEFING_MUSCULO_M4_ecad_v2.md` | `15xuPmXptzQJ25LYk5fc2_7f1Op4qehy0` | ECAD cobra por música gerada por IA — precedentes TJSC + TJPA ("Suno free" encerrada) |
+| **M7** Concorrência Musical | `2026-06-15_BRIEFING_MUSCULO_M7_concorrencia_v2` | `11zZzk5azzCtSg5y9frUnL0AOnBH4F_tq` | Nenhum dos 24+ players oferece compliance preventivo integrado (gap-núcleo Vanguard) |
+
+**Oportunidades recorrentes nos 3 briefings (convergência — sinal forte):**
+1. **Diagnóstico Pós-Lei 15.270/2025** — revisão de estrutura societária de artistas PJ/holdings (M1 + M7 cruzam com a Lei). Ticket alto, mercado sem oferta especializada.
+2. **Compliance ECAD × IA** — regularização retroativa (Suno) + auditoria de declaração de uso de IA (M4). Precedentes judiciais já firmados; ticket R$10–15k.
+3. **Compliance preventivo multi-regulatório integrado** (ECAD + tributário + trabalhista + contratual) — gap confirmado por M7: ninguém integra os 4 eixos. Produto-núcleo possível: "Raio-X de Conformidade do Artista".
+4. **Reforma Tributária 2026 para artistas** (M7) — janela aberta, zero concorrentes comunicando; CBS efetiva 2027.
+
+**Alerta operacional do próprio Cowork (não comercial):**
+- **M4 e M7 rodaram 2× hoje** (v1 + v2). O briefing M7 (pergunta 5 + Prioridade 4) sinaliza **possível duplicação de agendamento no scheduler** → verificar para evitar consumo desnecessário.
+- **M1 com rótulo de data divergente:** arquivo nomeado `2026-06-16` mas criado/executado em 15/06 (primeira execução). Conferir convenção de nomeação do Cowork.
+
+**Concorrente a monitorar (M7):** **Luna Advogados** — jurídico preventivo para entretenimento, o mais próximo da proposta Vanguard no eixo jurídico. Ameaça BAIXA-MÉDIA; elevar se ampliar para tributário/financeiro.
+
+**Ação Músculo (pendente de veredito do Diretor):** estes são **insumos de nicho**, não decisões. Nenhum vira ação/DECISOES sem veredito. Sugestões de routing aguardam o Diretor (P-075).
+
+---
+
 ## MISSÕES DE INTELIGÊNCIA ATIVAS (deliberadas Loop 29, D5:A — aguardando execução/output)
 
 > P-134: missão aberta vive aqui, nunca na memória de turno. Firewall P-132/P-124/P-119/P-059.

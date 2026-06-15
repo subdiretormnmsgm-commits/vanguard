@@ -1,7 +1,34 @@
 # CALENDÁRIO — NICHE INTELLIGENCE REPOSITORY
-> Versão 1.0 · Criado 2026-06-13 · Músculo
+> Versão 1.2 · Criado 2026-06-13 · Atualizado 2026-06-15 (+ M1–M7 fonográficas + GATE DE DATA) · Músculo
 > Referência: SKILL.md v2.0 · cowork-engine-v1.md
 > Horizonte: Junho–Setembro 2026 (atualizar trimestralmente)
+>
+> **NATUREZA DESTE CALENDÁRIO:** isto é **GESTÃO DE INTELIGÊNCIA DE MERCADO DA VANGUARD** —
+> motor autônomo (Claude Cowork), dinâmico, multi-nicho. **NÃO é loop.** Loop = ciclo Pentalateral
+> de projeto cliente. As frentes F1–F15 e as tarefas M1–M7 são inteligência de mercado e nunca
+> devem ser rotuladas, contadas ou tratadas como etapas de loop (Diretor 2026-06-15).
+
+---
+
+## ⛔ GATE DE DATA — CONSULTA OBRIGATÓRIA ANTES DE QUALQUER ATIVIDADE COWORK
+
+> Regra declarada pelo Diretor em 2026-06-15. **Bloqueante.**
+
+**O Músculo NUNCA executa nem colhe uma atividade Cowork fora da data estipulada.**
+Antes de qualquer ação ligada ao Cowork (colher briefing, atualizar Niche Model, preparar PASSO_NICHE_MODELER), o Músculo:
+
+1. **Consulta a data de hoje** (DD-MM-YYYY + dia da semana).
+2. **Cruza com este calendário** (mês → data → frentes/tarefas previstas).
+3. **Age SOMENTE no que a data de hoje prevê.** Nada fora da grade.
+4. Briefing **previsto e ausente** no `INBOX_COWORK` = alerta de falha do Cowork (reportar ao Diretor).
+5. Briefing **presente mas não previsto** para hoje = registrar mas NÃO colher; checar a data correta na grade.
+
+**Por isso o calendário é organizado por mês e data** (seções "CALENDÁRIO ESPECÍFICO — [MÊS]" abaixo):
+a data é a única unidade de autorização. Sem data correspondente na grade → o Músculo não age.
+
+**Ferramenta de apoio:** `.\scripts\cowork_calendar.ps1` cruza a data de hoje com este arquivo e
+informa ao Músculo, na abertura (gate 0B), exatamente quais frentes/tarefas estão previstas e quais
+briefings esperar. Integrada ao `session_start`.
 
 ---
 
@@ -41,12 +68,50 @@
 
 ---
 
+## NICHO FONOGRÁFICO — INTELIGÊNCIA DE DISCOVERY · MUMUZINHO / DUDU FÉLIX (M1–M7)
+
+> Adicionado 2026-06-15 (Diretor). Tarefas Cowork dedicadas ao nicho MusicTech/Fonografia, agendadas
+> para **preparar o discovery do PROJ-003 Mumuzinho** (decisor presumido Dudu Félix, ex-Universal Music).
+> PROJ-003 está em **STANDBY** no WIP_BOARD — esta é inteligência de **NICHO**, não dados do cliente. Intencional (Diretor 2026-06-15).
+> Motor: **Claude Cowork** (2º motor — roda sozinho nos horários). O Músculo **colhe**, não executa.
+> Output: `INBOX_COWORK` (Drive folder `1EjaH6TmsxbYpgKWb7ASm7CohFJfwSLKi`, conta subdiretor.mnmsgm@gmail.com),
+> em pares `M[n]_*` (bruto) + `BRIEFING_MUSCULO_M[n]_*` (para colher).
+> Firewall: colher → `PENDING_REVIEW` (P-124, fonte+data sempre P-132) → tag `[NICHO-FONOGRAFICO]`.
+> **P-059 N/A** — isto é inteligência de NICHO, não dado de cliente. Alimentará o discovery do Mumuzinho quando o PROJ-003 sair de STANDBY. Nunca direto ao MAPA DIÁRIO.
+
+| Task | Tema | Cadência | Dia | Horário (BRT) | YouTube |
+|---|---|---|---|---|---|
+| **M1** | Radar de Artista | Semanal | Segunda | 03:00 | ✅ |
+| **M2** | Regulatório (entretenimento) | Semanal | Terça | 03:15 | ✅ |
+| **M3** | Prospecção de Holdings | Semanal | Quarta | 03:30 | ✅ |
+| **M4** | ECAD + Streaming | Quinzenal | Dias 1 e 15 | 03:45 | ✅ |
+| **M5** | Mercado Fonográfico | Mensal | Dia 1 | 04:00 | ✅ |
+| **M6** | Licenciamento de Eventos | Quinzenal | Dias 8 e 22 | 04:15 | ✅ |
+| **M7** | Concorrência Musical | Mensal | Dia 15 | 04:30 | ✅ |
+
+### O que cai em cada dia (mapa de colheita)
+
+| Quando | Tarefas que rodam | Músculo colhe na próxima abertura |
+|---|---|---|
+| **Toda segunda** | M1 | `BRIEFING_MUSCULO_M1` |
+| **Toda terça** | M2 | `BRIEFING_MUSCULO_M2` |
+| **Toda quarta** | M3 | `BRIEFING_MUSCULO_M3` |
+| **Dia 1** | M4 + M5 (+ semanal do dia) | `BRIEFING_MUSCULO_M4`, `M5` |
+| **Dia 8** | M6 (+ semanal do dia) | `BRIEFING_MUSCULO_M6` |
+| **Dia 15** | M4 + M7 (+ semanal do dia) | `BRIEFING_MUSCULO_M4`, `M7` |
+| **Dia 22** | M6 (+ semanal do dia) | `BRIEFING_MUSCULO_M6` |
+
+**Regra de colheita (gate 0B):** ao abrir sessão, cruzar a data de hoje com este mapa → saber quais
+`BRIEFING_MUSCULO_M[n]` esperar no `INBOX_COWORK`. Briefing esperado e ausente = alerta de falha do Cowork.
+
+---
+
 ## CALENDÁRIO ESPECÍFICO — JUNHO 2026 (restante)
 
 | Data | Dia | Frente(s) | Prioridade | Ação no Niche Model |
 |---|---|---|---|---|
 | **13/06** | Sáb | — | — | ✅ NICHE_MODELS criados (esta sessão) |
-| **15/06** | Seg | F1+F2+F4a+F12 | ALTA | Briefing Fundador → atualizar narrativas Licitações |
+| **15/06** | Seg | F1+F2+F4a+F12 · **Fono: M1+M4+M7** | ALTA | Briefing Fundador → narrativas Licitações · colher M1/M4/M7 (fonográfico → PENDING_REVIEW [NICHO-FONOGRAFICO]) ✅ colhido |
 | **16/06** | Ter | F1+F3 | ALTA | Filtro de Encaixe → validar fit_score ANVISA (prazo 180d) |
 | **17/06** | Qua | F1+F6 | NORMAL | Radar profundo |
 | **18/06** | Qui | F1+F4b | **⚠️ DEADLINE** | Migração plataforma Antigravity (Google) substitui Gemini Code Assist IDE — verificar IDE + nomenclatura |

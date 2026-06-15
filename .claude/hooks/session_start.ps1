@@ -948,8 +948,27 @@ if (Test-Path $gateScript) {
         if ($calLines) { $calendarioOutput = ($calLines | Where-Object { $_ -ne $null }) -join "`n" }
     } catch {}
 }
+
+# PASSO 0C (cadencia-aware) -- cowork_calendar.ps1 cruza a data de hoje com as regras
+# de cadencia (M1-M7 semanal/quinzenal/mensal + ritmo das frentes F). Diz quais briefings
+# esperar no INBOX. GATE DE DATA (Diretor 2026-06-15): agir SO no que a data preve.
+$coworkCalOutput = ""
+$coworkCalScript = Join-Path $projectDir "scripts\cowork_calendar.ps1"
+if (Test-Path $coworkCalScript) {
+    try {
+        $ccLines = (& powershell.exe -NonInteractive -File $coworkCalScript 2>$null)
+        if ($ccLines) { $coworkCalOutput = ($ccLines | Where-Object { $_ -ne $null }) -join "`n" }
+    } catch {}
+}
+
+$secao0C = ""
+if ($coworkCalOutput) { $secao0C += $coworkCalOutput }
 if ($calendarioOutput) {
-    $sections = @("## 📅 PASSO 0C -- CALENDARIO COWORK (analisar e decidir SIM/NAO com Diretor)`n$calendarioOutput") + $sections
+    if ($secao0C -ne "") { $secao0C += "`n`n-- match literal por data (calendario especifico) --`n" }
+    $secao0C += $calendarioOutput
+}
+if ($secao0C -ne "") {
+    $sections = @("## 📅 PASSO 0C -- GATE DE DATA COWORK (agir SO no que a data preve -- Diretor 2026-06-15)`n$secao0C") + $sections
 }
 
 # PASSO 0B -- COWORK (prepend 1o: aparece 3o na saida, apos BLOCO0 e NOTION)
