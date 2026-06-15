@@ -1,15 +1,15 @@
 {
-  "schema_version": "2.3",
-  "version": "2.3",
-  "updated": "2026-06-07",
+  "schema_version": "2.4",
+  "version": "2.4",
+  "updated": "2026-06-15",
   "projetos_ativos": [
     "INGRID",
     "VALDECE",
     "VANGUARD"
   ],
   "projetos_ativos_DEPRECATED": "Usar utils/Get-ProjetosAtivos.ps1 -- le dinamicamente do WIP_BOARD.board.build/check/retainer. Este campo sera removido em versao futura. Adicionar projeto novo = criar pasta CLIENTES/[NOME]/ + entrada WIP_BOARD + preparar_notebooklm.",
-  "ultima_atualizacao": "2026-06-07",
-  "description": "Mapa de dependencias do Pentalateral IAH v2.3. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060). n8n EasyPanel e dependencia estrutural universal a partir de 2026-06-05. v2.2: REGISTRO_DE_PREMISSAS.md + CANDIDATOS_A_PRINCIPIO.md adicionados ao PROJECT_ONLY (P-112). v2.3 (2026-06-07): NAMESPACE_NOTEBOOKS.md + LOOP_STATE_SCHEMA.json + INTELLIGENCE_HUB adicionados. W-9 Track TRENDS ativado. P-121 a P-126 inscritos no LEDGER.",
+  "ultima_atualizacao": "2026-06-15",
+  "description": "Mapa de dependencias do Pentalateral IAH v2.4. Classifica documentos em 3 tipos e define propagacao automatica. Eduardo nunca gerencia propagacao manualmente (P-060). n8n EasyPanel e dependencia estrutural universal a partir de 2026-06-05. v2.2: REGISTRO_DE_PREMISSAS.md + CANDIDATOS_A_PRINCIPIO.md adicionados ao PROJECT_ONLY (P-112). v2.3 (2026-06-07): NAMESPACE_NOTEBOOKS.md + LOOP_STATE_SCHEMA.json + INTELLIGENCE_HUB adicionados. W-9 Track TRENDS ativado. P-121 a P-126 inscritos no LEDGER. v2.4 (2026-06-15, Loop 34): categoria CLAUDE_PROJECT_INSTRUCAO criada -- fontes-mestre dos Claude Projects dos atores (Embaixador 6o + Projetista 7o + Embaixador Digital 8o). Projetista/Embaixador Digital/Detector de Deriva FORMALIZADOS no Loop 34, operam apos fechamento. P-166 inscrito no LEDGER.",
   "infra_dependencias": {
     "n8n": {
       "tipo": "UNIVERSAL_ESTRUTURAL",
@@ -309,6 +309,39 @@
           "nome": "REPORT_TRENDS_[YYYY-WW].md",
           "canonical": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/",
           "nota": "Relatorios semanais de tendencias. Aprovados pelo Musculo entram em NOTEBOOKLM_FONTES como slot 22."
+        }
+      ]
+    },
+    "CLAUDE_PROJECT_INSTRUCAO": {
+      "descricao": "Fontes-mestre de instrucao (system prompt) coladas nos Claude Projects de cada ator do Conselho via browser pelo Musculo. NAO sao fontes NotebookLM -- nunca propagam para NOTEBOOKLM_FONTES nem sao orfas no sync. Fonte canonica em PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/. Editar apenas aqui; recolar no Claude Project apos qualquer mudanca.",
+      "isolamento_p059": "Cada ator tem um Claude Project proprio. Conteudo de cliente colado no projeto errado = incidente P-059 irrecuperavel. O Musculo confirma o ator antes de qualquer upload/cola.",
+      "ativacao": "Loop 34 (2026-06-15): Projetista (7o), Embaixador Digital (8o) e Detector de Deriva (coadjuvante) sao FORMALIZADOS no loop mas so OPERAM apos o fechamento (sintese P-037).",
+      "arquivos": [
+        {
+          "nome": "TEMPLATE_INSTRUCAO_EMBAIXADOR.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR.md",
+          "ator": "Embaixador",
+          "ordem_conselho": 6,
+          "claude_project": "Embaixador - Diretor",
+          "status": "ATIVO"
+        },
+        {
+          "nome": "TEMPLATE_INSTRUCAO_PROJETISTA.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_PROJETISTA.md",
+          "ator": "Projetista",
+          "ordem_conselho": 7,
+          "claude_project": "Projetista",
+          "status": "FORMALIZADO_LOOP_34 -- opera apos fechamento",
+          "nota": "v5.0 + BLOCO 14 (ampliacoes Loop 34: A1 pre-mortem, A2 materializacao calibrada, A4 auto-obsolescencia/ponte Detector, A5 cliente interno do Cowork)."
+        },
+        {
+          "nome": "TEMPLATE_INSTRUCAO_EMBAIXADOR_DIGITAL.md",
+          "canonical": "PENTALATERAL_UNIVERSAL/CLAUDE_PROJECTS/TEMPLATE_INSTRUCAO_EMBAIXADOR_DIGITAL.md",
+          "ator": "Embaixador Digital",
+          "ordem_conselho": 8,
+          "claude_project": "Embaixador Digital",
+          "status": "FORMALIZADO_LOOP_34 -- opera apos fechamento",
+          "nota": "v2.0 + BLOCO 11 (ampliacoes Loop 34: A1 post e sonar, A2 calendario por deadline regulatorio, A3 prova social sintetica etica). R-3 blindagem de linguagem externa obrigatoria."
         }
       ]
     }

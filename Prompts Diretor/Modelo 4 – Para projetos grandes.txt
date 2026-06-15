@@ -1,0 +1,34 @@
+Monte um Plano para o Diretor Criar um LinkedIn 
+
+Antes de montar o plano, decomponha em:
+
+1. Fase de diagnóstico
+2. Fase de planejamento
+3. Fase de execução
+4. Fase de validação
+5. Fase de otimização
+
+Explique o que entra em cada fase, com prazos e ações definidas
+
+
+Depois detalhe o plano completo e quais entregas será realizadas
+
+
+
+ Alertas CRÍTICOS no PENDENTES.md (ação do Diretor)
+
+  ┌────────────┬────────────────────────────┬────────────┬───────────────────────────────────────────────────────────────┐
+  │  Urgência  │           Nicho            │   Prazo    │                             Ação                              │
+  ├────────────┼────────────────────────────┼────────────┼───────────────────────────────────────────────────────────────┤
+  │ 🔴 17 DIAS │ Eventos Fiscais / ECD 2026 │ 30/06/2026 │ Prospectar escritórios de contabilidade via WhatsApp/LinkedIn │
+  ├────────────┼────────────────────────────┼────────────┼───────────────────────────────────────────────────────────────┤
+  │ 🔴         │ Conformidade AI Act        │ 02/08/2026 │ 3 CTOs/Diretores Jurídicos de fintechs via LinkedIn           │
+  ├────────────┼────────────────────────────┼────────────┼───────────────────────────────────────────────────────────────┤
+  │ 🔴         │ Setor Elétrico / GD ANEEL  │ 05/08/2026 │ 2 integradoras GD via WhatsApp                                │
+  └────────────┴────────────────────────────┴────────────┴───────────────────────────────────────────────────────────────┘
+
+Próximas ações do Diretor (por urgência):
+
+  1. ⚠️ 30/06 — 17 dias — Prospectar escritórios de contabilidade via WhatsApp — ECD 2026 é o gatilho
+  2. 02/08 — LinkedIn/fintechs — AI Act (post LinkedIn pronto em INTENCAO_LINKEDIN.md)
+  3. 05/08 — Integradoras GD via WhatsApp — ANEEL CP 009/2026

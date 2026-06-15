@@ -42,12 +42,12 @@
                                     "churn_watch_threshold":  null,
                                     "stack":  "Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)",
                                     "loop_fase_atual":  {
-                                                            "loop":  33,
+                                                            "loop":  34,
                                                             "gemini":  "OK",
-                                                            "notebooklm":  "OK",
-                                                            "embaixador":  "OK",
-                                                            "musculo":  "OK",
-                                                            "proximo":  "Loop 34 -- aguarda objetivo declarado pelo Diretor (P-160 gate bloqueante)"
+                                                            "notebooklm":  "N/A -- Loop interno de formalizacao",
+                                                            "embaixador":  "N/A -- Loop interno de formalizacao",
+                                                            "musculo":  "EXECUTANDO -- R3 formalizar atores + R5 CLAUDE.md",
+                                                            "proximo":  "NotebookLM -- Skill vanguard-v34.md"
                                                         },
                                     "vereditos_loop28":  {
                                                              "D1":  "C -- Hibrido: Hermes + n8n + Claude API",
@@ -143,7 +143,7 @@
                                     "historico_path":  "CLIENTES/VANGUARD/HISTORICO/",
                                     "ultimo_veredito":  "2026-06-12 VEREDITO: DEF-M-6 patch: Gate 7C + Register-Veredito.ps1 + check_placeholders.ps1 + P-151 LEDGER",
                                     "ultimo_veredito_data":  "2026-06-12",
-                                    "loop_atual":  "Loop 33 CONCLUIDO -- W-10 redesign 9 nos + P-164 Code sandbox -- Loop 34 aguarda objetivo P-160"
+                                    "loop_atual":  "Loop 34 ABERTO (2026-06-14) -- formalizacao 3 novos atores (Projetista 7o / Embaixador Digital 8o / Detector de Deriva) -- objetivo P-160 declarado -- atores ativam APOS fim do loop"
                                 }
                             ],
                   "check":  [

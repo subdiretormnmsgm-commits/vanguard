@@ -1,0 +1,108 @@
+ RELATÓRIO DE CONECTIVIDADE — n8n + Hermes · 2026-06-14
+
+  ---
+  INFRAESTRUTURA
+
+  ┌───────────────┬─────────────────────────────────────────────┬─────────────────────────┐
+  │    Serviço    │                     URL                     │         Status          │
+  ├───────────────┼─────────────────────────────────────────────┼─────────────────────────┤
+  │ n8n EasyPanel │ vanguard-vanguard-n8n.0ul9nk.easypanel.host │ ✅ UP ({"status":"ok"}) │
+  ├───────────────┼─────────────────────────────────────────────┼─────────────────────────┤
+  │ Telegram Bot  │ @Eduardo431Vanguardbot                      │ ✅ UP (getMe respondeu) │
+  ├───────────────┼─────────────────────────────────────────────┼─────────────────────────┤
+  │ Hermes Agent  │ hermes-hermes-agent.0ul9nk.easypanel.host   │ ❌ DOWN (HTTP 502)      │
+  └───────────────┴─────────────────────────────────────────────┴─────────────────────────┘
+
+  ---
+  N8N — 10 WORKFLOWS (9 ATIVOS + 1 INATIVO)
+
+  ┌─────┬──────────────────────────────┬────────────────────────┬───────────────────────┬───────────────────┐
+  │  #  │           Workflow           │        Trigger         │      Última Exec      │      Status       │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-1 │ Check-in Temporal 7h/13h/20h │ Cron 3x/dia            │ 14-06 10:00           │ ✅ OK             │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-2 │ Monitor Supabase Horário     │ Cron a cada hora       │ 14-06 13:00           │ ✅ OK             │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-3 │ GitHub Webhook Push          │ Webhook push           │ (sem push recente)    │ ✅ Ativo          │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-4 │ Session Close MEMORIA        │ Webhook POST           │ —                     │ ✅ Ativo          │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-5 │ ChurnWatch Diário            │ Cron diário 6h UTC     │ 14-06 06:00           │ ✅ OK             │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-6 │ Session Watch 17h BRT        │ Cron 17h BRT (20h UTC) │ 13-06 23:00           │ ✅ OK             │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-7 │ Veredito via Telegram        │ Webhook Telegram /cmd  │ (on-demand)           │ ✅ Ativo          │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-8 │ Signal Classifier (shadow)   │ Webhook POST           │ 14-06 10:00           │ ✅ OK             │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ W-9 │ Track TRENDS Semanal         │ Cron segunda 8h BRT    │ 14-06 13:00 (startup) │ ✅ PUBLICADO HOJE │
+  ├─────┼──────────────────────────────┼────────────────────────┼───────────────────────┼───────────────────┤
+  │ —   │ Session Watch 22h BRT        │ —                      │ —                     │ ⚪ INATIVO        │
+  └─────┴──────────────────────────────┴────────────────────────┴───────────────────────┴───────────────────┘
+
+  ---
+  O QUE CADA WORKFLOW FAZ (+ interação com Hermes)
+
+  W-1 — Check-in 3x/dia (7h / 13h / 20h BRT)
+  → Lê WIP_BOARD.json do GitHub, calcula dias sem contato de cada cliente, envia briefing ao Telegram. Também atualiza Notion WIP Board.
+  Hermes: independente — W-1 não chama Hermes.
+
+  W-2 — Monitor Supabase (toda hora)
+  → Faz GET nos endpoints Supabase (Vanguard + Ingrid + Valdece) e envia alerta Telegram se offline.
+  Hermes: independente.
+
+  W-3 — GitHub Push (webhook por commit)
+  → Todo git push aciona o webhook: extrai commit message + arquivos → notifica Telegram + Notion WIP Board.
+  Hermes: independente. Mas Hermes pode ler essas notificações.
+
+  W-4 — Session Close (webhook POST do session_close.ps1)
+  → O script local dispara POST ao fechar sessão: envia resumo de fricções + pendentes → Telegram + Notion Pendentes.
+  Hermes: independente.
+
+  W-5 — ChurnWatch Diário (6h UTC = 3h BRT)
+  → Compara ultimo_contato_cliente vs churn_watch_threshold do WIP_BOARD. Se ultrapassado → mensagem WhatsApp pronta + alerta Telegram. Principal guardião de relacionamento.
+  Hermes: independente.
+
+  W-6 — Session Watch 17h BRT
+  → Lê PENDENTES.md do GitHub (raw), lista itens abertos por tag [musculo] e [diretor] → envia Telegram. Silencia se 0 pendentes.
+  Hermes: independente.
+
+  W-7 — Veredito via Telegram (webhook on-demand)
+  → Comandos: /status (estado projetos), /score (NPS Ingrid), /custo (custo API), /veredito (processa DECISOES.json). Conecta Supabase (Ingrid/Vanguard) e GitHub.
+  Hermes: o Hermes recebe mensagens de texto livre. W-7 recebe comandos estruturados com /. São canais diferentes no mesmo bot.
+
+  W-8 — Signal Classifier (shadow mode — expira 2026-06-21)
+  → Classifica sinais recebidos via POST em: AUTO-RESOLVE / INFORMAR / DELIBERAR-A/B/C. Grava em Supabase silenced_signals_log. Em shadow mode: só registra, não executa ações.
+  Hermes: quando Hermes sair do shadow mode (Grau C), W-8 processará os sinais que Hermes enviar e devolverá classificação.
+
+  W-9 — Track TRENDS Semanal (segunda 8h BRT — NOVO HOJE)
+  → Toda segunda: prompt ao Gemini Flash com Google Grounding → pesquisa 5 nichos (LegalTech, EdTech, HealthTech, Micro SaaS, Venture Builder) → formata relatório MD → salva no GitHub em INTELLIGENCE_HUB/TRENDS/REPORT_TRENDS_[semana].md 
+  → notifica Telegram → atualiza PENDING_REVIEW.md.
+  Hermes: independente. Resultado fica no PENDING_REVIEW para o Músculo curar na próxima abertura.
+
+  ---
+  HERMES AGENT — STATUS DETALHADO
+
+  ┌───────────────────────────────────────┬────────────────────────────┐
+  │                 Item                  │           Status           │
+  ├───────────────────────────────────────┼────────────────────────────┤
+  │ Container EasyPanel                   │ ❌ DOWN (HTTP 502)         │
+  ├───────────────────────────────────────┼────────────────────────────┤
+  │ Telegram Bot (@Eduardo431Vanguardbot) │ ✅ UP (bot responde getMe) │
+  ├───────────────────────────────────────┼────────────────────────────┤
+  │ Grau atual                            │ B (age + confirma 15min)   │
+  ├───────────────────────────────────────┼────────────────────────────┤
+  │ Shadow mode W-8                       │ Expira 2026-06-21          │
+  └───────────────────────────────────────┴────────────────────────────┘
+
+  O que Hermes faz (quando UP):
+  - Recebe mensagens de texto livre no Telegram e age de forma autônoma
+  - Em Grau B: executa ação e notifica o Diretor em 15 minutos via Telegram
+  - Modelo: claude-sonnet-4-6 via OpenRouter
+  - Skills carregadas: pentalateral-graus-abc.md (no container /opt/data/skills/)
+
+  Relação n8n ↔ Hermes:
+  - São dois motores independentes e complementares
+  - n8n = automações estruturadas (cron, webhook, fluxos determinísticos)
+  - Hermes = agente autônomo via linguagem natural (Telegram)
+  - Integração futura prevista: W-8 enviará sinais classificados ao Hermes para execução (quando Grau C)

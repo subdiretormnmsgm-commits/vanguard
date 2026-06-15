@@ -2735,3 +2735,27 @@ const dadosInput = $input.all()[0].json;              // node imediatamente ante
 - AGENTS.md -- regra R-11 de abertura (materializa P-163)
 
 **Aplica-se a:** toda abertura de sessao do Musculo e do Antigravity.
+
+---
+
+## P-166 -- O COMANDO AO ANTIGRAVITY DEVE DECLARAR O PAPEL + CITAR O ARSENAL EXATO DE SKILLS DAQUELE PAPEL (2026-06-15) [FALHA-PROCESSO-2026-06-15]
+**Origem:** Diretor 2026-06-15 -- ao preparar a DIRETRIZ do Loop 34, o Musculo gerou o comando para o Antigravity SEM declarar o papel ("Sessao Antigravity: ESTRATEGISTA") e -- falha principal apontada pelo Diretor -- SEM citar o arsenal exato de skills do papel ESTRATEGISTA. O Diretor teve que perguntar "ele tem que executar quais skills?" -- pergunta que o proprio comando ja deveria ter respondido.
+
+**Causa raiz:** P-165 materializou @concise-planning no AGENTS.md (R-11), mas isso cobre APENAS a abertura. As demais skills do arsenal por papel (P-163) nao sao invocadas por nada -- nem pelo AGENTS.md (so a abertura), nem pelo comando (generico). gemini_anchor_generator.ps1 emite um comando generico ("Voce e o Estrategista... gere a DIRETRIZ") sem papel declarado e sem o arsenal. Regra P-163 (d)+(e) existe, mas nao vive no artefato que o Musculo entrega ao Diretor (o comando). Regra que nao vive no artefato que o ator consome = regra invisivel -- mesma causa raiz de P-165.
+
+**Arsenal canonico por papel (P-163) -- fonte de verdade do comando:**
+- ESTRATEGISTA: @concise-planning -> @brainstorming -> @architecture -> @analyze-project -> deliberacao 7 pontos. Fronteira: SUPORTA a producao da DIRETRIZ; NUNCA emite DIRETRIZ de Loop sozinho (emissao = Gemini Advanced / veredito do Diretor).
+- EXECUTOR: @systematic-debugging, @bash-scripting, @git-pushing, @error-detective. Age pelo que o Estrategista-Gemini definiu (le PASSO3 + CONTEXTO_GEMINI do disco).
+- COWORK CONDUCTOR: @bash-scripting, @error-detective. Conduz NICHE_MODELER (le INBOX_COWORK + BIBLIOTECA + NICHE_INDEX).
+
+**Principio:** todo comando que o Musculo entrega ao Antigravity DEVE conter, embutido pelo gerador:
+1. Declaracao de papel: "Sessao Antigravity: [ESTRATEGISTA | EXECUTOR | COWORK CONDUCTOR]" (P-163 regra e)
+2. Citacao do arsenal EXATO daquele papel, na ordem (P-163)
+3. Nota de fronteira do papel
+Comando sem papel declarado ou sem arsenal citado = comando invalido.
+
+**Ferramentas criadas/ajustadas (P-146):**
+- scripts/gemini_anchor_generator.ps1 -- ganha mapa PAPEL->arsenal (P-163) e injeta papel + arsenal + nota de fronteira no comando gerado automaticamente (item no PENDENTES.md ate concluir o build).
+- CLIENTES/VANGUARD/PASSO3_GEMINI.md -- secao [SKILLS DO ESTRATEGISTA -- EXECUTAR NESTA ORDEM (P-163 PAPEL 1)] adicionada.
+
+**Aplica-se a:** todo comando do Musculo ao Antigravity, qualquer papel.

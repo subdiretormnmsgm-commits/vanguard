@@ -1,0 +1,2 @@
+﻿2026-06-13 01:32 - 3 alerta(s) processados - dryRun=True
+2026-06-13 01:33 - 3 alerta(s) processados - dryRun=False

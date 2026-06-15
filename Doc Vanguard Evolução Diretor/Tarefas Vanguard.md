@@ -1,4 +1,5 @@
 # O que a Vanguard faz enquanto o Eduardo não está trabalhando
+**Versão 2 — atualizada em 12/06/2026 — 10 tarefas ativas**
 
 Este documento explica, de forma simples, as tarefas automáticas que foram programadas para rodar sozinhas no computador do Eduardo. Cada tarefa tem um horário fixo, pesquisa informações na internet, analisa os dados e salva um arquivo no Google Drive com o resultado.
 
@@ -36,7 +37,7 @@ A Vanguard nunca menciona tecnologia para os clientes. Sempre fala de resultado.
 
 ---
 
-## As 8 tarefas automáticas
+## As 10 tarefas automáticas
 
 ---
 
@@ -88,7 +89,7 @@ Além do briefing, sempre que houver um relatório longo, paper acadêmico ou li
 
 **O que entrega:**
 
-Documento de até 2 páginas com análise da decisão, os erros a evitar, o que a evidência recomenda e as fontes consultadas. Exemplo real desta semana: como precificar o primeiro serviço de auditoria de licitações — com tabela de preços praticados no mercado, âncora de negociação baseada no custo da inabilitação e script de como apresentar o preço para o cliente.
+Documento de até 2 páginas com análise da decisão, os erros a evitar, o que a evidência recomenda e as fontes consultadas.
 
 ---
 
@@ -100,17 +101,25 @@ Documento de até 2 páginas com análise da decisão, os erros a evitar, o que 
 
 A Vanguard depende de uma série de serviços para funcionar: a empresa que fornece o sistema de inteligência artificial, o Google para armazenamento e colaboração, sistemas de automação, hospedagem de software, banco de dados. Se qualquer um desses fornecedores mudar o preço, descontinuar um produto ou sofrer um problema, a Vanguard pode ser impactada.
 
-O sistema monitora tudo isso toda semana.
+O sistema monitora tudo isso toda semana. Os fornecedores acompanhados são: Anthropic (o sistema de IA principal), Google, n8n (automações), EasyPanel (hospedagem), Supabase (banco de dados) e Netlify (publicação de sites).
 
-Ele também acompanha a legislação de inteligência artificial no Brasil — o PL 2338, o Marco Legal da IA que está em tramitação. Qualquer mudança nessa lei pode exigir adaptação na forma como a Vanguard opera. E mais importante: pode criar um produto novo para os clientes da Vanguard, que também vão precisar se adaptar.
+Para cada um deles, o sistema verifica:
+- O preço mudou?
+- Algum recurso importante foi descontinuado?
+- A licença do software mudou de gratuita para paga?
+- Houve algum problema de segurança?
 
-Uma vez por mês (no dia 1), o sistema faz um mapeamento mais profundo: identifica onde a Vanguard tem um ponto único de falha — ou seja, algo que se quebrar, para tudo, sem plano B. Para cada ponto desse, estima o custo de criar uma redundância versus o custo de não ter.
+Além dos fornecedores, o sistema acompanha a legislação de inteligência artificial no Brasil — o PL 2338, o Marco Legal da IA que está em tramitação. Qualquer mudança nessa lei pode exigir adaptação na forma como a Vanguard opera. E mais importante: pode criar um produto novo para os clientes da Vanguard, que também vão precisar se adaptar.
+
+O sistema também monitora a regulação de IA da União Europeia (AI Act), que já está em vigor e afeta empresas brasileiras que atendem clientes europeus. Em agosto de 2026, novas obrigações entram em vigor — e isso é tanto um risco para a Vanguard quanto uma oportunidade de produto para os clientes.
+
+Uma vez por mês (no dia 1), o sistema faz um mapeamento mais profundo: identifica onde a Vanguard tem um ponto único de falha — algo que se quebrar, para tudo, sem plano B. Para cada ponto desse, estima o custo de criar uma redundância versus o custo de não ter.
 
 **O que entrega:**
 
 Relatório com:
 - Status de cada fornecedor crítico (OK / Alerta / Crítico) com o que mudou
-- O que mudou no Marco Legal da IA naquela semana e o que isso muda para a Vanguard e para seus clientes
+- O que mudou na legislação de IA naquela semana e o que isso muda para a Vanguard e para seus clientes
 - Plano B mapeado para cada fornecedor com problemas
 - No dia 1 do mês: lista de pontos únicos de falha com recomendação de ação
 
@@ -163,7 +172,7 @@ Ele monitora continuamente:
 
 Para cada edital encontrado, o sistema avalia o encaixe com a Vanguard em uma escala de 1 a 5, estima quanto esforço seria necessário para se candidatar e prepara um rascunho inicial de candidatura — para que o Eduardo não precise escrever do zero se decidir entrar.
 
-Também monitora a Lei do Bem (Lei 11.196/2005), que permite às empresas no Lucro Real deduzir o investimento em pesquisa e desenvolvimento do imposto de renda. O Pentalateral IAH pode se qualificar como P&D — isso pode representar um benefício fiscal significativo.
+Também monitora a Lei do Bem (Lei 11.196/2005), que permite às empresas no Lucro Real deduzir o investimento em pesquisa e desenvolvimento do imposto de renda. O sistema de IA da Vanguard pode se qualificar como P&D — isso pode representar um benefício fiscal significativo.
 
 **Regra absoluta:** o sistema nunca submete nada. Só prepara. Submissão é sempre decisão do Eduardo.
 
@@ -269,6 +278,94 @@ Tudo isso fica salvo no cofre. O que sai para uso público é sempre uma decisã
 
 ---
 
+### Tarefa 9 — Motor de Caça de Novos Mercados
+
+**Quando roda:** Toda segunda-feira às 16h
+
+**O que faz:**
+
+Esta é a tarefa mais nova do sistema, ativada em junho de 2026. Ela representa uma mudança importante na forma como a Vanguard cresce.
+
+Até agora, os mercados da Vanguard (licitações, saúde, M&A, comércio exterior, alimentos) foram escolhidos com base no que o Eduardo e a equipe conheciam. Esta tarefa existe para **descobrir os mercados que ninguém pensou ainda** — aqueles que passam despercebidos porque a dor está tão normalizada que ninguém reclama, ou porque a regulação mudou e criou uma nova obrigação da noite para o dia.
+
+Todo mercado candidato passa por um filtro de 3 perguntas obrigatórias antes de ser apresentado ao Eduardo:
+
+**Pergunta 1 — O custo do erro é brutal?**
+Uma decisão errada nesse mercado custa milhões, mata a empresa, destrói a marca, gera processo criminal ou perde um contrato irrecuperável? Se a resposta for não, descarta.
+
+**Pergunta 2 — A auditoria é obrigatória?**
+Alguém — um regulador, um tribunal, um auditor externo, um sócio — precisa provar, com documentação, como a decisão foi tomada? Se não há obrigação de rastrear, descarta.
+
+**Pergunta 3 — O erro confiante é punido de forma irreversível?**
+Se um sistema der uma resposta errada com muita confiança, o dano causado é permanente — não apenas uma inconveniência, mas uma catástrofe? Se não, descarta.
+
+Os 3 juntos = mercado perfeito para a Vanguard. Faltando qualquer um = qualquer agência genérica atende e a Vanguard não tem vantagem.
+
+O sistema varre sete territórios diferentes a cada semana, em rotação:
+
+**Território 1 — Dores Invisíveis:** onde muitas empresas perdem dinheiro com o mesmo erro e ninguém reclama porque "é assim mesmo que funciona". Exemplo real detectado em junho de 2026: hospitais perdendo em média 16% do faturamento para bloqueios das operadoras de plano de saúde. Mais de 98% desse valor é recuperável — mas os hospitais não contestam porque acham que não adianta.
+
+**Território 2 — Regulação Global chegando ao Brasil:** o que já é lei obrigatória na Europa ou nos EUA e está chegando ao Brasil. Chegar preparado antes da obrigação nascer é uma vantagem enorme. Exemplo real detectado em junho de 2026: o AI Act europeu entra em vigor em agosto de 2026. Empresas brasileiras que atendem clientes europeus já precisam estar em conformidade — e muitas ainda não sabem.
+
+**Território 3 — Catástrofes que se repetem:** onde o mesmo desastre acontece em série, sempre pela mesma causa evitável. Exemplo real detectado em junho de 2026: em 2025, 16 pessoas morreram no Brasil por contaminação de bebidas com metanol. A causa é sempre a mesma — álcool não rastreado na cadeia de produção. O mesmo padrão se repetiu em dezenas de empresas diferentes nos últimos anos. Uma verificação preventiva de R$ 300 por lote de matéria-prima teria evitado cada uma dessas mortes e cada um desses processos criminais.
+
+**Território 4 — Complexidade Lucrativa:** domínios onde o assunto é tão difícil que poucos especialistas existem no mundo e quem sabe cobra fortunas. Onde a escassez de conhecimento + o custo do erro = disposição altíssima para pagar.
+
+**Território 5 — Tribos Profissionais Fechadas:** comunidades de profissionais — peritos judiciais, despachantes aduaneiros, atuários, registradores de imóveis — que têm dores caras e linguagem própria, mas nenhuma solução moderna foi desenvolvida para eles porque o mercado não os entende.
+
+**Território 6 — Assimetria de Informação:** onde uma parte da negociação sabe muito mais que a outra e a parte que sabe menos paga caro por isso. A Vanguard como árbitro independente que entrega informação auditada para equilibrar o jogo.
+
+**Território 7 — Mudança Estrutural de Indústria:** quando uma regulação, uma norma contábil ou uma exigência nova força uma indústria inteira a se adaptar ao mesmo tempo. Quem controla a ponte que todo o setor precisa atravessar cresce na escala do setor, não na escala de um cliente.
+
+**O que entrega:**
+
+Três arquivos separados por semana, um para cada território varrido, com:
+- Os mercados candidatos encontrados
+- As três perguntas do filtro respondidas com evidência e fontes
+- O veredicto: mercado perfeito / bom mas não perfeito (descartado) / condição limitante (descartado com explicação)
+- O argumento de venda para os mercados aprovados
+- Por que uma agência genérica não conseguiria fazer esse serviço tão bem quanto a Vanguard
+
+---
+
+### Tarefa 10 — Filtro e Curadoria dos Novos Mercados
+
+**Quando roda:** Toda sexta-feira às 16h
+
+**O que faz:**
+
+A Tarefa 9 roda toda segunda e traz candidatos brutos da semana. A Tarefa 10 fecha o ciclo toda sexta: ela lê tudo que foi trazido durante a semana e faz a curadoria final antes de apresentar ao Eduardo.
+
+É a diferença entre um garimpeiro e um joalheiro. A Tarefa 9 garimpa. A Tarefa 10 corta e poliu as pedras antes de colocar na vitrine.
+
+O que a Tarefa 10 faz especificamente:
+
+**1. Aplica o filtro de 3 critérios em tudo**
+Alguns candidatos trazidos pela Tarefa 9 podem ter passado por uma análise rápida. A Tarefa 10 revisa cada um com mais cuidado, confirma as fontes, verifica se a evidência sustenta o veredicto.
+
+**2. Verifica se o mercado já foi analisado antes**
+Não adianta o sistema trazer o mesmo mercado de volta todo mês com nomenclatura diferente. A Tarefa 10 cruza com o histórico de semanas anteriores e descarta repetições.
+
+**3. Faz a pergunta de ouro**
+Para cada candidato que sobreviveu até aqui: "Uma agência de automação genérica conseguiria fazer isso tão bem quanto a Vanguard?" Se sim — descarta. A Vanguard só entra onde o trabalho exige triangulação de múltiplas fontes, auditabilidade e zero tolerância ao erro.
+
+**4. Ranqueia por urgência**
+Alguns mercados têm janela de tempo — uma regulação que entra em vigor, um edital que abre, uma crise que está acontecendo agora. Esses vêm primeiro. Oportunidades que existem agora valem mais que oportunidades que existirão em 2028.
+
+**5. Prepara a recomendação para o Eduardo**
+No final, a Tarefa 10 entrega para o Eduardo uma lista enxuta e ranqueada — os 2 ou 3 mercados da semana que realmente merecem atenção, com o argumento de por que cada um é uma oportunidade real para a Vanguard.
+
+**O que entrega:**
+
+Um único arquivo consolidado por semana com:
+- Tabela de todos os candidatos avaliados (mercado, os 3 critérios, veredicto)
+- Análise detalhada dos mercados que passaram no filtro
+- Lista dos que foram descartados e por quê (transparência total — o Eduardo sabe o que o sistema descartou e pode discordar)
+- Estado do rodízio semanal: quais territórios foram varridos, quantos mercados foram avaliados, quantos passaram
+- Recomendação direta ao Eduardo: os 2-3 mercados da semana, ordenados por urgência
+
+---
+
 ## Resumo de todos os horários
 
 | Tarefa | Quando | Horário |
@@ -276,19 +373,44 @@ Tudo isso fica salvo no cofre. O que sai para uso público é sempre uma decisã
 | Radar de Dor do Mercado | Todo dia | 7h |
 | Tutor do Fundador | Toda segunda | 8h |
 | Guardião de Dependências | Toda segunda | 8h |
+| Motor de Caça de Novos Mercados | Toda segunda | 16h |
 | Espelho Estratégico | Dias 1 e 15 | 8h |
 | Caçador de Capital | Dias 1 e 15 | 16h |
 | Câmara de Guerra | Dia 1 do mês | 16h |
 | Demo Visionário | Dia 1 do mês | 16h |
 | O Cronista | Dia 1 do mês | 16h |
+| Filtro e Curadoria dos Novos Mercados | Toda sexta | 16h |
 
-Todas as tarefas rodam fora do horário de pico (9h–15h) para consumir menos recursos.
+Todas as tarefas rodam fora do horário de pico (9h–15h) para não competir com o trabalho do Eduardo durante o expediente.
+
+---
+
+## Como as tarefas se conectam
+
+As 10 tarefas não são independentes — elas se alimentam.
+
+A **Tarefa 1** detecta sinais de dor nos mercados que a Vanguard já conhece.
+As **Tarefas 9 e 10** descobrem mercados que a Vanguard ainda não conhece.
+
+Quando um mercado novo passa pelo filtro da Tarefa 10, ele pode virar o nicho de amanhã — e aí a Tarefa 1 começa a monitorá-lo todo dia.
+
+A **Tarefa 2** prepara o Eduardo para as decisões que vêm pela frente.
+A **Tarefa 4** verifica se as decisões tomadas estão sendo de fato executadas.
+A **Tarefa 6** quebra a Vanguard antes que o mercado quebre.
+
+A **Tarefa 3** garante que a estrutura técnica não vai falhar.
+A **Tarefa 5** traz dinheiro que não cobra juros nem pede participação.
+
+A **Tarefa 7** constrói o material de venda antes do cliente pedir.
+A **Tarefa 8** registra a história enquanto ela acontece.
+
+O resultado: o Eduardo nunca começa uma sessão do zero. Ele sempre encontra inteligência acumulada, oportunidades mapeadas, riscos antecipados e decisões preparadas.
 
 ---
 
 ## Uma coisa importante sobre o que esse sistema é — e o que não é
 
-O sistema não toma decisões. Não envia e-mails. Não assina contratos. Não submete candidaturas. Não fala com clientes.
+O sistema não toma decisões. Não envia e-mails. Não assina contratos. Não submete candidaturas. Não fala com clientes. Não entra em contato com ninguém.
 
 O que ele faz é trabalhar enquanto o Eduardo não está trabalhando, para que quando ele voltar, a inteligência necessária para tomar a próxima decisão já esteja pronta. O Eduardo colhe. O sistema acumula.
 

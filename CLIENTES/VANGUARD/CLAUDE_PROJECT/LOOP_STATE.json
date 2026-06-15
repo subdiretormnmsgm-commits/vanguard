@@ -1,10 +1,42 @@
 {
     "schema_version":  "1.1",
     "cliente":  "VANGUARD",
-    "loop_atual":  33,
-    "loop_status":  "VEREDITO_CONFIRMADO",
-    "fase_atual":  "EXECUCAO",
-    "missao":  "EXTERNO — Vanguard como Empresa · ATOs 1-6 pré-abertura + EXECUTOR_PLAYBOOK + PASSO3 AMPLIACAO V2 · 2026-06-11",
+    "loop_atual":  34,
+    "loop_status":  "ABERTO",
+    "fase_atual":  "DIRETRIZ_EM_PRODUCAO",
+    "missao":  "EXTERNO — Vanguard como Empresa · Presença LinkedIn no ar (Company Page + 1º post nicho ECD) + formalização dos 3 novos atores (Projetista 7º, Embaixador Digital 8º, Detector de Deriva coadjuvante) · 2026-06-14",
+    "objetivo_loop":  "Ao final do Loop 34, teremos os 3 novos atores FORMALIZADOS e prontos para operar (Projetista 7º, Embaixador Digital 8º, Detector de Deriva coadjuvante) — integrados ao sistema (CLAUDE.md 6→9, DEPENDENCY_MAP, sync, firewall P-059/R-3) — com a Company Page LinkedIn criada e o 1º post (nicho ECD, blindado R-3) preparados. A OPERAÇÃO PLENA dos atores inicia APÓS o fim do Loop 34.",
+    "objetivo_declarado_em":  "2026-06-14",
+    "ativacao_atores":  "REGRA (Diretor 2026-06-14): os 3 atores são FORMALIZADOS durante o Loop 34, mas só começam a FUNCIONAR (operação plena) APÓS o fim do Loop 34. Durante o loop = scaffolding + preparação. Após o loop = ativação.",
+    "resultados_esperados":  [
+                                "R1 — Company Page LinkedIn da Vanguard CRIADA no loop (logo, banner, descrição blindada R-3, setor, URL); operação contínua pelos atores APÓS o fim do loop",
+                                "R2 — 1º post de autoridade PREPARADO no loop (nicho ECD, gancho prazo 30-06, blindado R-3); publicação pelo Embaixador Digital APÓS o fim do loop",
+                                "R3 MEIO — 3 atores formalizados: TEMPLATE_INSTRUCAO_PROJETISTA.md v5.0 + TEMPLATE_INSTRUCAO_EMBAIXADOR_DIGITAL.md v2.0 em CLAUDE_PROJECTS/ + skill doc-drift-audit.md alinhada (Detector de Deriva)",
+                                "R4 MEIO — Material do 1º post projetado pelo Projetista (PLANO + conteúdo nicho ECD) entregue ao Embaixador Digital",
+                                "R5 MEIO — CLAUDE.md atualizado: Conselho 6->9 membros + firewall P-059/R-3 nos novos atores + DEPENDENCY_MAP + sync",
+                                "R6 RESOLVIDO 2026-06-14 — 13 tarefas Cowork criadas e agendadas em baixo pico (6 Embaixador Digital + 7 Projetista)"
+                            ],
+    "cowork_tasks_l34":  {
+                             "embaixador_digital":  [
+                                                        "Radar Regulatório — segunda 02:00",
+                                                        "Radar de Prospects — terça e quinta 02:30",
+                                                        "Concorrentes LinkedIn — quarta 02:00",
+                                                        "Thought Leadership — dia 1 e 15 03:00",
+                                                        "Auditoria de ICP — sexta 02:30",
+                                                        "Síntese Diária — todo dia 23:00"
+                                                    ],
+                             "projetista":  [
+                                                "T1 Radar de Fronteira — segunda 05:00",
+                                                "T2 Pré-digestão de Mercado — terça 05:00",
+                                                "T3 Diário do Projetista — todo dia 23:00",
+                                                "T4 Acervo Reaproveitável — semanas pares, segunda 04:00",
+                                                "T5 Retroalimentação Digital — sexta 23:00",
+                                                "T6 Pré-mortem (F7) — manual",
+                                                "T7 Smoke Test (F10) — manual"
+                                            ],
+                             "registrado_em":  "2026-06-14",
+                             "nota":  "Criadas e agendadas no Cowork pelo Diretor (baixo pico). Incorporar aos templates dos atores (R3). Horarios separados por ator — P-123 namespaces distintos, sem conflito."
+                         },
     "socios":  {
                    "gemini":  {
                                   "status":  "OK",
@@ -48,6 +80,11 @@
                                                  "D2_A":  "CONFIRMADO — setup + retainer + % com valores F12: R$2.800 primeiro edital / R$3.500mês retainer / R$5.500 edital R$5M+",
                                                  "FINEP":  "DESCARTADA — regime tributário não elegível",
                                                  "inbox_cowork_lido":  "SIM — 18 arquivos via MCP Drive · BUILD 1 executado manualmente nesta sessão"
+                                             },
+                              "2026-06-15":  {
+                                                 "gate2_quem_cria_company_page":  "MUSCULO — o Musculo constroi a Company Page via browser (decisao do Diretor). Embaixador Digital opera o conteudo depois.",
+                                                 "passo3_loop34":  "AUTORIZADO SOBRESCREVER — PASSO3 Loop 34 gravado com M-1..M-5 + amplificacoes por ator (M'P/M'D/M'X) + escopo Cowork",
+                                                 "cowork_no_escopo_diretriz":  "SIM — socios consideram as 13 atividades de Cowork dos atores, alem da construcao da pagina"
                                              }
                           },
     "builds_aprovados_nao_iniciados":  [
@@ -117,11 +154,12 @@
                                            }
                                        ],
     "loop_anterior":  {
-                          "numero":  32,
+                          "numero":  33,
                           "status":  "FECHADO",
-                          "data_fechamento":  "2026-06-10",
-                          "missao":  "INTERNO — Deriva Documental: Antigravity→EXECUTOR, Hermes Grau B, LOOP_STATE v1.1, pentalateral-firewall",
-                          "p087_commitado":  true
+                          "data_fechamento":  "2026-06-14",
+                          "missao":  "EXTERNO — Vanguard como Empresa · ATOs 1-6 + EXECUTOR_PLAYBOOK · D1:A 1 contato quente + prospect nomeado + D2:A pricing F12 · NICHE_MODELER 11 nichos",
+                          "p087_commitado":  true,
+                          "artefatos_fechamento":  "MEMORIA_V33_vanguard.md + relatorio_evolutivo_V33_vanguard.md + DELIBERACAO_LOOP_V33_VANGUARD.md + AUDITOR_LOOP_V33_vanguard.md + DECISOES_VANGUARD_V33 (P-045 OK)"
                       },
     "gates":  {
                   "p045_memoria_anterior_existe":  true,
@@ -137,8 +175,8 @@
                   "ato5_ledger_inbox_movido":  true,
                   "ato6_notify_hermes_watch":  true
               },
-    "proxima_acao_diretor":  "Enviar ao Embaixador (Claude Projects) os 9 arquivos verificados + PASSO7 canal strategy. URGENTE: ECD 2026 prazo 30/06 -- 17 dias. Ponte Valdece antes de 18-06. LinkedIn post setor-eletrico (5min).",
-    "proxima_acao_musculo":  "Rodar ir_ao_embaixador.ps1 -cliente VANGUARD -OrdemDiretor. Pos-Embaixador: MEMORIA_V33 + relatorio_V33 (P-045 bloqueante). E-5: update_memoria_embaixador.ps1 (~2h). G-2: dossie PNCP (~4h).",
+    "proxima_acao_diretor":  "Loop 34 DIRETRIZ_EM_PRODUCAO: levar PASSO3 ao Antigravity (Estrategista) — comando @ pronto no chat. A DIRETRIZ V34 volta ao Musculo antes do veredito (P-124). URGENTE: ECD 2026 prazo 30/06. Ponte Valdece antes de 18-06.",
+    "proxima_acao_musculo":  "Aguardar DIRETRIZ V34 do Estrategista. Templates dos atores ja criados (PROJETISTA v5.0 + EMBAIXADOR_DIGITAL v2.0 em CLAUDE_PROJECTS/ + amplificacoes L34). Pendente: alinhar doc-drift-audit.md (Detector) + R5 wiring (CLAUDE.md 6->9 + DEPENDENCY_MAP + sync). Apos DIRETRIZ: PASSO5 NotebookLM -> Embaixador -> sintese P-037.",
     "alertas_criticos":  [
                              "CRITICO: ECD 2026 prazo 30/06/2026 -- 17 dias -- nicho eventos-fiscais-contadores",
                              "CRITICO: AI Act deadline 02/08/2026 -- 50 dias -- nicho conformidade-ai-act",
@@ -148,7 +186,7 @@
                              "W-1 cron ainda 1x/dia -- deveria ser 3x (7h/13h/20h BRT)",
                              "Wipe \u0026 Sync NotebookLM VANGUARD pendente [DIRETOR] -- problemas tecnicos"
                          ],
-    "ultima_atualizacao":  "2026-06-13",
+    "ultima_atualizacao":  "2026-06-15",
     "loop_32_entregues":  [
                               "Antigravity → EXECUTOR do Estrategista (Gemini) em 62 arquivos — commit 4defaf6",
                               "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",

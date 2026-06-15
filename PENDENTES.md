@@ -18,6 +18,14 @@
   - 16_VANGUARD_TIMELINE.md (desatualizado na cópia FONTES)
   Executar antes de qualquer ciclo com o Auditor.
 
+- [ ] `2026-06-15` **[MÚSCULO] P-166 — gemini_anchor_generator.ps1: injetar PAPEL + ARSENAL DE SKILLS no comando ao Antigravity** [musculo]
+  Ferramenta anti-recorrência (P-146) da falha P-166. Adicionar mapa PAPEL→arsenal (P-163):
+  ESTRATEGISTA = @concise-planning → @brainstorming → @architecture → @analyze-project → deliberação 7 pontos;
+  EXECUTOR = @systematic-debugging, @bash-scripting, @git-pushing, @error-detective;
+  COWORK CONDUCTOR = @bash-scripting, @error-detective.
+  O comando gerado deve sempre conter: (1) "Sessão Antigravity: [PAPEL]", (2) arsenal exato na ordem, (3) nota de fronteira.
+  Comando sem papel/arsenal = inválido. [RESOLVE: P-166]
+
 ---
 
 ## COWORK ENGINE — Inteligência de Mercado Vanguard
