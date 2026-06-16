@@ -342,6 +342,16 @@
           "claude_project": "Embaixador Digital",
           "status": "FORMALIZADO_LOOP_34 -- opera apos fechamento",
           "nota": "v2.0 + BLOCO 11 (ampliacoes Loop 34: A1 post e sonar, A2 calendario por deadline regulatorio, A3 prova social sintetica etica). R-3 blindagem de linguagem externa obrigatoria."
+        },
+        {
+          "nome": "SYSTEM_PROMPT_DETECTOR_DERIVA.md",
+          "canonical": "CONSELHO/SYSTEM_PROMPT_DETECTOR_DERIVA.md",
+          "ator": "Detector de Deriva",
+          "ordem_conselho": "coadjuvante",
+          "claude_project": "Detector de Deriva (subagente Claude Code read-only)",
+          "status": "FORMALIZADO_LOOP_34 -- opera apos fechamento",
+          "tipo": "PROJECT_ONLY",
+          "nota": "v1.4 (2026-06-16): limite epistemico arXiv 2604.03447 (Policy-as-Code para deriva codigo<->doc) + Drive-First espelho local (P-181) + defesa prompt injection/deny-list (OWASP ASI01) + MCP atualizado (jacksteamdev arquivado -> cyanheads/mcpvault + Tool Search). CANONICO em CONSELHO/ (raiz) -- system prompt de ator coadjuvante, classe distinta dos TEMPLATE_INSTRUCAO_*. PROJECT_ONLY: nao propaga para clientes, nao e fonte NotebookLM, nunca e orfao no sync. Escopo: read-only sobre o vault; unica escrita = INTELLIGENCE_HUB/PENDING_REVIEW.md (append, P-124). DECISAO Diretor 2026-06-16 (Opcao B): CONSELHO/ PERMANECE na RAIZ -- nao mover para PENTALATERAL_UNIVERSAL/ (evita arrastar historico Gemini/NotebookLM para o sync universal); §7 do prompt corrigido para refletir a raiz. PENDENTE P-115b: SYSTEM_PROMPT_PROJETISTA/EMBAIXADOR_DIGITAL (CONSELHO/) ainda nao registrados -- verificar relacao com TEMPLATE_INSTRUCAO_* antes de registrar."
         }
       ]
     }
