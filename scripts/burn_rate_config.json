@@ -1,0 +1,19 @@
+{
+  "schema": "burn-rate-v1",
+  "teto_usd_dia": 10.0,
+  "teto_usd_janela_madrugada": 3.0,
+  "janela_madrugada": { "inicio_hora": 2, "fim_hora": 5 },
+  "custo_estimado_por_tarefa_usd": {
+    "radar_regulatorio": 0.40,
+    "radar_prospects": 0.35,
+    "concorrentes_linkedin": 0.30,
+    "thought_leadership": 0.50,
+    "auditoria_icp": 0.30,
+    "sintese_diaria": 0.20,
+    "dd_auditoria_politica": 0.10,
+    "dd_baseline_promessas": 0.15,
+    "default": 0.50
+  },
+  "kill_switch": false,
+  "nota": "kill_switch=true bloqueia TODA tarefa Cowork independente de teto. teto_usd_* sao limites superiores; ajustar conforme custo real medido."
+}

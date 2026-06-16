@@ -9,7 +9,7 @@
 # se houver arquivo LOCAL AUSENTE (rclone mirror apagaria o arquivo do Drive).
 param(
     [Parameter(Mandatory=$true)]
-    [ValidateSet("ENCERRAMENTO","VANGUARD","INGRID","VALDECE")]
+    [ValidateSet("ENCERRAMENTO","VANGUARD","INGRID","VALDECE","CONSELHO")]
     [string]$Perfil,
     [int]$ThresholdHoras = 3,
     [switch]$AutoSync
@@ -62,6 +62,19 @@ $mapas = @{
         "4. 06_INTELLIGENCE_LEDGER.md"   = "CLIENTES\VALDECE\CLAUDE_PROJECT\06_INTELLIGENCE_LEDGER.md"
         "5. 16_VANGUARD_TIMELINE"        = "CLIENTES\VALDECE\CLAUDE_PROJECT\16_VANGUARD_TIMELINE.md"
         "6. PERFIL_NICHO_LEGALTECH"      = "CLIENTES\VALDECE\CLAUDE_PROJECT\PERFIL_NICHO_LEGALTECH_V1.md"
+    }
+    # G5 (Loop 35): perfil CONSELHO -- arquivos de definicao dos atores lidos via Drive-First.
+    # Antes do G5 o gate era cego a estes caminhos (mapa fixo VANGUARD nao os cobria) -> VERDE
+    # enganoso entregava prompt velho ao ator. Agora a verificacao data+hora (P-168) os cobre.
+    "CONSELHO" = [ordered]@{
+        "1. SP_PROJETISTA"               = "CONSELHO\SYSTEM_PROMPT_PROJETISTA.md"
+        "2. SP_EMBAIXADOR_DIGITAL"       = "CONSELHO\SYSTEM_PROMPT_EMBAIXADOR_DIGITAL.md"
+        "3. SP_DETECTOR_DERIVA"          = "CONSELHO\SYSTEM_PROMPT_DETECTOR_DERIVA.md"
+        "4. TASKS_COWORK_PROJETISTA"     = "CONSELHO\TASKS_COWORK_PROJETISTA.md"
+        "5. TASKS_COWORK_EMB_DIGITAL"    = "CONSELHO\TASKS_COWORK_EMBAIXADOR_DIGITAL.md"
+        "6. TPL_INSTR_PROJETISTA"        = "PENTALATERAL_UNIVERSAL\CLAUDE_PROJECTS\TEMPLATE_INSTRUCAO_PROJETISTA.md"
+        "7. TPL_INSTR_EMB_DIGITAL"       = "PENTALATERAL_UNIVERSAL\CLAUDE_PROJECTS\TEMPLATE_INSTRUCAO_EMBAIXADOR_DIGITAL.md"
+        "8. MEMORIA_PROJETISTA"          = "PENTALATERAL_UNIVERSAL\CLAUDE_PROJECTS\MEMORIA_PROJETISTA.md"
     }
 }
 
