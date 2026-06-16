@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "versao": "2.1",
+    "principio": "P-180",
+    "origem": "FALHA-PROCESSO-2026-06-16 -- skill nao invocada nos gatilhos do processo (6 ocorrencias apontadas pelo Diretor). v2.1: etapa ANALISE_DELIBERACAO (Diretor 2026-06-16) -- ultrathink-trigger + brainstorming na analise; writing-plans pos-veredito.",
+    "regra": "1% de chance de skill aplicar = invocacao OBRIGATORIA antes de qualquer acao da etapa. Skill por GATILHO MECANICO, nunca por memoria do Musculo (DEF-M-6).",
+    "skills_read_based": ["ultrathink-trigger"],
+    "skills_read_based_doc": "Skills que NAO sao invocadas via tool Skill, mas via Read do .md (ex: ultrathink-trigger -> Read('.claude/skills/ultrathink-trigger.md')). skill_tracker registra o Read DESTAS skills no estado da sessao. SEGURANCA: somente as desta allowlist contam por Read -- todas as outras skills (notebooklm-remote-v1, embaixador-*, gemini-pentalateral, YT-SEARCH) so contam via tool Skill, senao o Read do .md seria um bypass da trava.",
+    "fonte_de_verdade": true,
+    "consumido_por": [
+      "scripts/skill_gate.ps1 (consulta humana)",
+      ".claude/hooks/skill_gate_guard.ps1 (PreToolUse -- TRAVA DURA)",
+      ".claude/hooks/skill_gate_prompt.ps1 (UserPromptSubmit -- imperativo)",
+      ".claude/hooks/skill_tracker.ps1 (PostToolUse Skill -- rastreador)"
+    ],
+    "campos": {
+      "gatilhos": "frases do Diretor -> casadas pelo UserPromptSubmit (skill_gate_prompt) e por skill_gate.ps1 -Detectar.",
+      "gatilho_acao": "assinaturas de tool call que DEFINEM a etapa mecanicamente. Consumido pela TRAVA DURA (skill_gate_guard). Cada item: { tool, campo, padrao(regex) }. Se a acao casa e a skill_obrigatoria NAO foi invocada na sessao -> tool call NEGADO.",
+      "skill_obrigatoria": "skill UNICA que DEVE estar invocada na sessao antes da acao da etapa. Comparacao case-insensitive por substring do nome no estado da sessao.",
+      "skills_obrigatorias": "lista de skills que DEVEM TODAS estar invocadas na sessao antes da acao da etapa (usada quando a etapa exige mais de uma skill, ex: ANALISE). A TRAVA DURA bloqueia listando as que faltam. Coexiste com skill_obrigatoria.",
+      "nota_extra": "texto opcional anexado ao imperativo verbal -- usado para sinalizar skills com timing diferente (ex: writing-plans pos-veredito)."
+    }
+  },
+  "etapas": [
+    {
+      "etapa": "INICIO_LOOP",
+      "gatilhos": ["iniciar loop", "abrir loop", "novo loop", "preparar passo3", "objetivo do loop", "p-160", "compilar sugestoes", "frescor de videos", "yt-search"],
+      "skill_obrigatoria": "YT-SEARCH",
+      "gatilho_acao": [
+        { "tool": "Bash", "campo": "command", "padrao": "yt\\.ps1" }
+      ],
+      "acao": "Invocar a skill YT-SEARCH + rodar .\\scripts\\yt.ps1 para frescor de videos ANTES de montar o PASSO3.",
+      "falha_se_pular": "Loop aberto com dados desatualizados (P-173)."
+    },
+    {
+      "etapa": "PASSO3_GEMINI_ANTIGRAVITY",
+      "gatilhos": ["passo3", "passo 3", "gemini", "antigravity", "diretriz", "estrategista", "ir ao gemini"],
+      "skill_obrigatoria": "gemini-pentalateral",
+      "gatilho_acao": [
+        { "tool": "Bash", "campo": "command", "padrao": "gemini_anchor_generator\\.ps1|ir_ao_antigravity\\.ps1" }
+      ],
+      "acao": "Invocar gemini-pentalateral. Para Antigravity: declarar PAPEL + citar ARSENAL exato de skills (P-166) via .\\scripts\\ir_ao_antigravity.ps1 -papel <PAPEL>.",
+      "falha_se_pular": "DIRETRIZ invalida / Antigravity age sem plano (P-163 / P-166)."
+    },
+    {
+      "etapa": "PASSO5_NOTEBOOKLM_AUDITOR",
+      "gatilhos": ["passo5", "passo 5", "notebooklm", "auditor", "fontes", "deep research", "inserir videos", "ir ao auditor"],
+      "skill_obrigatoria": "notebooklm-remote-v1",
+      "gatilho_acao": [
+        { "tool": "browser_navigate", "campo": "url", "padrao": "notebooklm\\.google\\.com" }
+      ],
+      "acao": "Invocar notebooklm-remote-v1 (100% remoto via Playwright): inserir videos/fontes no Auditor + Deep Research + chat. NUNCA pedir ao Diretor para arrastar/colar/upload.",
+      "falha_se_pular": "Videos nao inseridos no Auditor / Skill gerada sem base atual."
+    },
+    {
+      "etapa": "PASSO7_EMBAIXADOR",
+      "gatilhos": ["passo7", "passo 7", "embaixador", "pre-reuniao", "debrief", "reuniao com cliente", "ir ao embaixador", "deliberacao do embaixador"],
+      "skill_obrigatoria": "embaixador-passo7",
+      "dependencia": "claude-projects-remote-v1",
+      "gatilho_acao": [
+        { "tool": "browser_navigate", "campo": "url", "padrao": "019eab2b" }
+      ],
+      "acao": "Invocar embaixador-passo7-<cliente>-v1 (substituir <cliente> pelo projeto ativo: vanguard / ingrid / valdece). Caderno 'Vanguard Pentalateral IAH' (019eab2b). Playwright via claude-projects-remote-v1.",
+      "falha_se_pular": "Embaixador nao recebe contexto / loop sem filtro de realidade (P-031)."
+    },
+    {
+      "etapa": "ANALISE_DELIBERACAO",
+      "gatilhos": ["analise", "analisar as ideias", "analisar os inputs", "delibere", "deliberar", "deliberacao", "deliberação", "7 pontos", "sete pontos", "sintese", "síntese", "p-037", "e-1", "e-1 a e-5", "filtro do embaixador", "secao d", "seção d"],
+      "skills_obrigatorias": ["ultrathink-trigger", "brainstorming"],
+      "nota_extra": "writing-plans e a 3a skill da analise -- OBRIGATORIA, mas SOMENTE APOS o veredito do Diretor (P-037). Nao invocar antes da decisao. Skills ERRADAS aqui: mcp-builder, notebooklm (erro 2026-06-10).",
+      "gatilho_acao": [
+        { "tool": "Write", "campo": "file_path", "padrao": "DELIBERACAO_LOOP" },
+        { "tool": "Edit", "campo": "file_path", "padrao": "DELIBERACAO_LOOP" },
+        { "tool": "Write", "campo": "file_path", "padrao": "DECISOES.*\\.json" },
+        { "tool": "Edit", "campo": "file_path", "padrao": "DECISOES.*\\.json" }
+      ],
+      "acao": "Antes de escrever DELIBERACAO_LOOP_V[N]_[CLIENTE].md ou DECISOES*.json: ultrathink-trigger (score >= 5 -> prefixar 'ultrathink:') -> Skill('brainstorming') (deliberar cada ideia com 7 pontos: certo->diverge->decisao->enhancement->custo->impacto->acao). Apos o veredito do Diretor: Skill('writing-plans').",
+      "falha_se_pular": "Sintese vira camara de eco -- DECISOES.json sem deliberacao real (P-037 nulo). Erro documentado 2026-06-10 (Diretor sentiu-se enganado)."
+    },
+    {
+      "etapa": "ENCERRAMENTO",
+      "gatilhos": ["encerrar", "encerramento", "fechar sessao", "protocolo de fechamento", "session_close", "fechamento de sessao", "fechar a sessao", "bloco 0"],
+      "skill_obrigatoria": "embaixador-encerramento-v1",
+      "dependencia": "claude-projects-remote-v1",
+      "gatilho_acao": [
+        { "tool": "browser_navigate", "campo": "url", "padrao": "019e4c70" },
+        { "tool": "Bash", "campo": "command", "padrao": "session_close\\.ps1" }
+      ],
+      "acao": "Invocar embaixador-encerramento-v1: verify_gdrive_freshness -Perfil ENCERRAMENTO + Playwright envia mensagem canonico ao caderno 'Embaixador -- Diretor' (019e4c70) (Drive-First, sem upload, BLOCO 0 em texto simples).",
+      "falha_se_pular": "Sessao fecha sem o BLOCO 0 que ancora a proxima abertura (P-114)."
+    }
+  ]
+}

@@ -1004,6 +1004,64 @@ $bloco0Alert = @(
 ) -join "`n"
 $sections = @("## ⚠️  BLOCO 0 DO EMBAIXADOR (P-114) -- PRIMEIRA ACAO OBRIGATORIA`n$bloco0Alert") + $sections
 
+# P-180 -- observabilidade: confirmar que a trava de skill por etapa esta armada (FALHA-PROCESSO-2026-06-16)
+$p180Nota = @(
+    "[GATE P-180 ARMADO] Skill por GATILHO MECANICO, nunca por memoria (DEF-M-6).",
+    "A TRAVA DURA (PreToolUse) NEGA a acao de uma etapa se a skill obrigatoria nao foi invocada nesta sessao.",
+    "  INICIO_LOOP=YT-SEARCH | PASSO3=gemini-pentalateral | PASSO5=notebooklm-remote-v1 |",
+    "  PASSO7=embaixador-passo7-<cliente> | ENCERRAMENTO=embaixador-encerramento-v1 |",
+    "  ANALISE_DELIBERACAO=ultrathink-trigger+brainstorming (writing-plans POS-veredito).",
+    "Consulta humana do mapa: .\scripts\skill_gate.ps1 -Listar"
+) -join "`n"
+$sections += "## 🔒 SKILLS OBRIGATORIAS POR ETAPA (P-180)`n$p180Nota"
+
+# CODE-REVIEW (P-178) -- inicio do processo: codigo sem review da sessao anterior
+# Gatilho de COBERTURA DO INICIO (Diretor 2026-06-15: "falhas no inicio do processo").
+# O bloqueio mecanico real e no pre-commit (R-05); aqui e so o aviso de abertura.
+try {
+    $crScript = Join-Path $projectDir "scripts\gate_code_review.ps1"
+    if (Test-Path $crScript) {
+        $crPend = @(& powershell.exe -NonInteractive -File $crScript -List 2>$null | Where-Object { $_ -and $_.Trim() -ne "" })
+        if ($crPend.Count -gt 0) {
+            $crLines = @(
+                "$($crPend.Count) arquivo(s) de codigo SEM review (P-178) -- resolver antes de commitar:",
+                ""
+            )
+            $crLines += ($crPend | ForEach-Object { "  - $_" })
+            $crLines += @(
+                "",
+                "Acao: invocar a skill requesting-code-review nesses arquivos,",
+                "depois & '.\scripts\gate_code_review.ps1' -MarkReviewed.",
+                "O pre-commit (R-05) BLOQUEIA o commit ate o review estar marcado."
+            )
+            $sections += "## 🔍 CODE-REVIEW PENDENTE (P-178)`n" + ($crLines -join "`n")
+        }
+    }
+} catch {}
+
+# TRANSICAO DE LOOP (P-179) -- gatilho mecanico de fechamento de loop (combate DEF-M-6).
+# Detecta loop fechado nao-transicionado OU eixo (objetivo_loop) de outro loop.
+# Origem: FALHA-PROCESSO-2026-06-15 -- Loop 34 fechou e LOOP_STATE nao avancou.
+try {
+    $clScript = Join-Path $projectDir "scripts\close_loop.ps1"
+    if (Test-Path $clScript) {
+        $clDrift = @(& powershell.exe -NonInteractive -File $clScript -Detect 2>$null | Where-Object { $_ -and $_.Trim() -ne "" })
+        if ($clDrift.Count -gt 0) {
+            $clLines = @(
+                "$($clDrift.Count) deriva(s) de transicao de loop detectada(s):",
+                ""
+            )
+            $clLines += ($clDrift | ForEach-Object { "  - $_" })
+            $clLines += @(
+                "",
+                "Acao: rodar .\scripts\close_loop.ps1 -cliente [NOME] para transicionar.",
+                "O close_loop arquiva o loop, bumpa +1, ZERA o eixo e reativa o gate P-160."
+            )
+            $sections += "## 🔁 TRANSICAO DE LOOP PENDENTE (P-179)`n" + ($clLines -join "`n")
+        }
+    }
+} catch {}
+
 # ATO 6 -- Iniciar watch_readonly.ps1 em background (P-033 guardian)
 $watchScript = Join-Path $projectDir "scripts\watch_readonly.ps1"
 $watchPidFile = Join-Path $projectDir "scripts\.watch_readonly.pid"
