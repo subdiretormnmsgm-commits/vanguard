@@ -1,10 +1,12 @@
 # RUNBOOK — W-11 ATIVAÇÃO MANUAL NOTIFIER (n8n → Telegram)
 
 > Desenho aprovado pelo Diretor em 2026-06-16. Cadências ratificadas na mesma data.
-> CONSTRUÍDO em 2026-06-16 — **id n8n: `vew2fonxWwiGB9uQ`** · estado: **INATIVO (staging)**.
+> CONSTRUÍDO em 2026-06-16 — **id n8n: `vew2fonxWwiGB9uQ`** · estado: **ATIVO**.
 > Nome corrigido de W-10 → **W-11**: "W-10" já existe (`8yvX4MBzdaK5l6IQ` — n8n Health Check).
 > Skill usada: `n8n-remote-v1` (Code = lógica pura · Telegram = httpRequest dedicado typeVersion 4.2).
-> **ATIVAÇÃO LIBERADA A PARTIR DE 2026-06-23** (regra dos 7 dias de staging).
+> **ATIVADO em 2026-06-16 por ordem do Diretor** ("Tudo ativado automaticamente" → "Ativar W-11 agora"),
+> sobrepondo a regra dos 7 dias de staging. Primeiro disparo: 2026-06-17 07:05 BRT (se houver ator do dia).
+> Reverter (se preciso): `POST /api/v1/workflows/vew2fonxWwiGB9uQ/deactivate`.
 
 ---
 
@@ -108,8 +110,8 @@ return [{ json: { temAtivacao: ativacoes.length > 0, textoAtivacao: texto, chatI
 - [x] `continueOnFail: true` no node Telegram.
 - [x] Validar lógica de cadência (hoje silencia; dia 1 dispara os 3; cadências batem).
 - [x] Testar 1 disparo Telegram — recebido pelo Diretor (message_id 432), Markdown OK.
-- [ ] **7 dias em staging** → ativar a partir de **2026-06-23** via `POST /api/v1/workflows/vew2fonxWwiGB9uQ/activate`.
-- [ ] Registrar W-11 na tabela de workflows do `CLAUDE.md` + `RUNBOOK_EASYPANEL.md` (no commit).
+- [x] **ATIVADO em 2026-06-16** por ordem do Diretor (staging sobreposto) — `active: True` confirmado via API.
+- [ ] Registrar W-11 na tabela de workflows do `CLAUDE.md` + `RUNBOOK_EASYPANEL.md` (P-098 → `.musculo_autorizacao.flag`).
 
 > Infra n8n: EasyPanel cloud 24/7. Credenciais em `N8N Easypanel.txt` (gitignored).
 > Ativação (após 2026-06-23): `curl -X POST -H "X-N8N-API-KEY: $KEY" "$HOST/api/v1/workflows/vew2fonxWwiGB9uQ/activate"`
