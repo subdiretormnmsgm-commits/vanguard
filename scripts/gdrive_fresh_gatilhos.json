@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "versao": "1.0",
+    "principio": "P-168 (data+hora) / P-169 (Drive-First) -- trava mecanica de frescor",
+    "origem": "Diretor 2026-06-16: estender a arquitetura da trava P-180 para o frescor do gdrive:vanguard. NAO so o Embaixador -- QUALQUER operacao que dependa de anexacao/leitura de arquivos do Drive (browser_file_upload + navigate a Embaixador/NotebookLM) exige verify_gdrive_freshness VERDE recente E por data+hora. Combate DEF-M-6 (gate por memoria).",
+    "regra": "Antes de anexar arquivo OU navegar a superficie que le do gdrive:vanguard, o Drive DEVE estar fresco: (a) existe marcador VERDE da sessao; (b) NENHUM arquivo monitorado foi modificado DEPOIS do ultimo VERDE (data+hora, P-168); (c) marcador dentro do teto de idade. Falhou qualquer condicao -> tool call NEGADO.",
+    "marcador_verde_assinatura": "VERDE -- Drive em dia",
+    "max_age_horas": 12,
+    "max_age_doc": "Teto de sanidade: um marcador VERDE alem disso obriga re-verificar mesmo sem edicoes (sessao longa). A condicao mestra continua sendo data+hora (nenhuma edicao apos o VERDE).",
+    "monitorados_doc": "Conjunto de arquivos/dirs Drive-First. O guard calcula o mtime MAIS RECENTE entre eles e exige marcadorTS >= esse mtime. Cobre todos os perfis de verify_gdrive_freshness (ENCERRAMENTO/VANGUARD/INGRID/VALDECE/CONSELHO) sem duplicar o mapa de perfis -- via diretorios-raiz dos docs.",
+    "monitorados_dirs": [
+      "PROTOCOLOS_ENCERRAMENTO",
+      "CONSELHO",
+      "PENTALATERAL_UNIVERSAL\\CLAUDE_PROJECTS",
+      "CLIENTES\\VANGUARD\\CLAUDE_PROJECT",
+      "CLIENTES\\INGRID\\CLAUDE_PROJECT",
+      "CLIENTES\\VALDECE\\CLAUDE_PROJECT"
+    ],
+    "monitorados_files": [
+      "PENDENTES.md",
+      "INTELLIGENCE_LEDGER.md",
+      "LEDGER_INBOX.md",
+      "CLIENTES\\WIP_BOARD.json",
+      "CLIENTES\\VANGUARD\\INTENCAO_LINKEDIN.md",
+      "PENTALATERAL_UNIVERSAL\\INTELLIGENCE_HUB\\NICHE_INDEX.json"
+    ],
+    "consumido_por": [
+      ".claude/hooks/gdrive_fresh_guard.ps1 (PreToolUse -- TRAVA DURA)",
+      ".claude/hooks/gdrive_fresh_tracker.ps1 (PostToolUse Bash -- rastreador VERDE)"
+    ],
+    "fail_open": "Qualquer erro / stdin invalido / config ausente / excecao -> exit 0 (libera). Bug no hook NUNCA trava o trabalho do Musculo.",
+    "como_destravar": "Rodar .\\scripts\\verify_gdrive_freshness.ps1 -Perfil <ENCERRAMENTO|VANGUARD|INGRID|VALDECE|CONSELHO> -AutoSync (ate sair VERDE). O tracker grava o marcador e a operacao libera."
+  },
+  "operacoes": [
+    {
+      "nome": "ATTACH_UPLOAD",
+      "tool": "browser_file_upload",
+      "campo": null,
+      "padrao": null,
+      "descricao": "Anexacao literal de QUALQUER arquivo em QUALQUER browser (NotebookLM, Gemini, Claude Projects). Exige Drive fresco."
+    },
+    {
+      "nome": "NAV_EMBAIXADOR_PASSO7",
+      "tool": "browser_navigate",
+      "campo": "url",
+      "padrao": "019eab2b",
+      "descricao": "Caderno Embaixador 'Vanguard Pentalateral IAH' (PASSO7) -- le docs do gdrive:vanguard via MCP."
+    },
+    {
+      "nome": "NAV_EMBAIXADOR_ENCERRAMENTO",
+      "tool": "browser_navigate",
+      "campo": "url",
+      "padrao": "019e4c70",
+      "descricao": "Caderno Embaixador 'Embaixador -- Diretor' (ENCERRAMENTO) -- le docs do gdrive:vanguard via MCP."
+    },
+    {
+      "nome": "NAV_NOTEBOOKLM",
+      "tool": "browser_navigate",
+      "campo": "url",
+      "padrao": "notebooklm\\.google\\.com",
+      "descricao": "NotebookLM (Auditor) -- fontes lidas/anexadas do Drive. Exige Drive fresco."
+    }
+  ]
+}
