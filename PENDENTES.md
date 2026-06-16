@@ -43,6 +43,18 @@
   ONDE EXECUTAR (APROVADO Diretor 2026-06-15 "sigo a sua sugestão"): PRIMÁRIO = pós-build dentro do loop (antes do veredito/commit) + ENFORCEMENT = novo Gate no session_close.ps1. RESERVADO = /code-review ultra só p/ fechamento de versão de software de cliente.
   Build na sessão dedicada de processo (junto com P-173..P-177, cabeça fresca). [RESOLVE: P-178]
 
+- [ ] `2026-06-16` **[MÚSCULO] P-184 — fechar as superfícies não cobertas do firewall P-098 (shell-install + incerteza no PreToolUse de Edit)** [musculo]
+  Ferramenta anti-recorrência (P-146) da lacuna P-184. Duas brechas comprovadas em 2026-06-16:
+  (1) SHELL-BYPASS: instalar/sobrescrever arquivo protegido via `curl`/Bash (ex.: as 10 skills SKILL.md baixadas) passa POR FORA do `file_protection_guard.ps1`, que só intercepta Write/Edit.
+  (2) PreToolUse DE EDIT INCERTO: ao editar o CLAUDE.md (protegido) com a flag presente, a flag NÃO foi auto-consumida — não dá para confirmar que o guard interceptou o Edit nesta sessão (o harness pode ter concedido por permissão própria sem passar pelo hook).
+  Build: (a) guard PreToolUse em Bash que detecta gravação/sobrescrita em caminho protegido (curl -o, > redirect, mv/cp para `.claude/skills/**`, CLAUDE.md, LEDGER, DEPENDENCY_MAP, PASSO*) → exige a mesma `.musculo_autorizacao.flag` ou [VEREDITO-DIRETOR]; (b) teste determinístico que confirma que o `file_protection_guard.ps1` consome a flag num Edit real (provar o caminho do hook) — se não consumir, corrigir o wire em settings.json; (c) registrar no LEDGER como P-184 (pendente de veredito explícito do Diretor — arquivo protegido). [RESOLVE: P-184]
+
+- [ ] `2026-06-16` **[DIRETOR] P-185 — ROTACIONAR as 7 credenciais que ficaram expostas no gdrive:vanguard** [diretor]
+  As 7 chaves foram empurradas ao Drive de terceiros (Google) por syncs anteriores sem filtro e ficaram expostas por tempo indeterminado. Purga do Drive já feita (7/7 limpos) + fix do sync aplicado — MAS purgar não desfaz a exposição passada. Rotacionar/regerar: (1) OpenRouter API key · (2) Anthropic API key · (3) Telegram bot token (@Eduardo431Vanguardbot) · (4) n8n API key (EasyPanel) · (5) Supabase keys · (6) credenciais EasyPanel · (7) qualquer segredo em scripts/n8n_config.ps1 / alert_config.ps1 / hermes-agent/.env. Após rotacionar, atualizar CHAVES_SISTEMA_VANGUARD.txt + N8N Easypanel.txt locais (gitignored). Ação exclusiva do Diretor — Músculo não gira chave.
+
+- [ ] `2026-06-16` **[MÚSCULO] P-185 — guard mecânico: recusar rclone sync para destino externo sem --exclude-from do filtro de segredos** [musculo]
+  Ferramenta anti-recorrência (P-146) da falha P-185. Mesma filosofia do P-180/P-181 (mecânico, nunca por memória): guard PreToolUse em Bash que detecta `rclone sync`/`rclone copy` com destino remoto (`gdrive:`, qualquer `*:`) e BLOQUEIA se o comando não contiver `--exclude-from` apontando para `scripts/rclone_secrets_exclude.txt` (ou se faltar exclude das credenciais). FAIL-OPEN para bug próprio. Padrão de subida pontual = `rclone copyto` arquivo a arquivo (G2 cirúrgico); sync de árvore inteira só com filtro de segredos ativo. [RESOLVE: P-185-guard]
+
 - [x] `2026-06-16` ~~**[MÚSCULO] P-173 — WIRE do gate_yt_search.ps1 na abertura de loop + antes da síntese P-037**~~ [musculo]
   ✅ Wire concluído e testado nesta sessão. (a) ADVISORY em `gate_loop_objetivo.ps1` (abertura de loop — lembra, não bloqueia); (b) BLOQUEANTE em `render_painel.ps1` (antes da síntese P-037 — exit 2 sem yt-search <24h, com bypass `-forcar` p/ o Diretor). Ambos os caminhos VERDE/BLOQUEIO testados. validate_scripts sem erro crítico. [RESOLVE: P-173-wire]
 

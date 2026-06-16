@@ -164,7 +164,9 @@ if ($AutoSync -and $temSyncStale -and ($naoAutoFix.Count -eq 0)) {
         Write-Host "  [AUTOSYNC] P-169 -- Drive atras do local. Rodando rclone sync..." -ForegroundColor Yellow
         $stamp   = Get-Date -Format "yyyyMMdd_HHmmss"
         $logNovo = Join-Path $desktop "rclone_sync_$stamp.txt"
-        & $rcloneCmd sync $RAIZ "gdrive:vanguard" --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --log-file $logNovo --log-level INFO
+        # P-185 (HV-1): nunca empurrar credenciais ao Drive -- filtro espelha o .gitignore
+        $secretsExclude = Join-Path $PSScriptRoot "rclone_secrets_exclude.txt"
+        & $rcloneCmd sync $RAIZ "gdrive:vanguard" --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --exclude-from $secretsExclude --log-file $logNovo --log-level INFO
         $rc = $LASTEXITCODE
         if ($rc -eq 0) {
             $syncTime2   = (Get-Item $logNovo).LastWriteTime
