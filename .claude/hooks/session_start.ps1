@@ -1015,6 +1015,30 @@ $p180Nota = @(
 ) -join "`n"
 $sections += "## 🔒 SKILLS OBRIGATORIAS POR ETAPA (P-180)`n$p180Nota"
 
+# TIER 1 SKILLS -- REFLEXO POR ACAO VANGUARD (Diretor 2026-06-16, item 41 CLAUDE.md)
+# Eleva a salience das 4 skills cujo gatilho e a ACAO (escrever copy, construir UI, gerar deck),
+# nao um estagio de pipeline. O vocabulario Vanguard pode nao disparar a descricao generica
+# da skill -- este bloco amarra ACAO -> skill toda sessao. Mapa: memory/reference_skills_tier_map.md
+$tier1Reflex = @(
+    "Invocar a skill ANTES de produzir o artefato -- nao depois, nao 'se lembrar':",
+    "",
+    "  [ogilvy]                -> COPY que vende: headline, landing, post LinkedIn,",
+    "                             e-mail de prospeccao, CAMPANHA do Projetista, descricao de produto.",
+    "                             (Casa com R-3: 'especialistas da Vanguard', nunca 'IA'.)",
+    "  [frontend-design]       -> construir/redesenhar UI: pagina, componente, PWA,",
+    "                             tela de diagnostico/quiz, dashboard de cliente.",
+    "  [web-design-guidelines] -> ANTES do deploy de UI: auditar acessibilidade + UX",
+    "                             (antes do teste manual do Diretor no gate de deploy).",
+    "  [pptx]                  -> gerar/editar apresentacao: deck, pitch, slides de produto.",
+    "",
+    "Desempate (processo antes de implementacao): UI que vende ->",
+    "  frontend-design + ogilvy primeiro, web-design-guidelines antes do deploy.",
+    "Tier 2 sob demanda: pdf / xlsx / composition-patterns(SO React) / docx.",
+    "Tier 3 cautela: agent-browser SO fallback (skill remota dedicada vem 1o:",
+    "  easypanel-remote-v1 / n8n-remote-v1 / claude-projects-remote-v1) | vercel-deploy = stack ausente."
+) -join "`n"
+$sections += "## 🎯 SKILLS TIER 1 -- REFLEXO POR ACAO (confirmado Diretor 2026-06-16)`n$tier1Reflex"
+
 # CODE-REVIEW (P-178) -- inicio do processo: codigo sem review da sessao anterior
 # Gatilho de COBERTURA DO INICIO (Diretor 2026-06-15: "falhas no inicio do processo").
 # O bloqueio mecanico real e no pre-commit (R-05); aqui e so o aviso de abertura.
