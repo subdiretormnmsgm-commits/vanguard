@@ -5,7 +5,7 @@
 ## RODADA 0 -- Canonico OPERACAO -> BASE (P-073): 0 arquivo(s) sincronizado(s)
 
 ## STATUS FINAL
-- Sincronizados: 3
+- Sincronizados: 0
 - Falhas de Integridade: 0
 - Orfaos: 6
 - Project_Only (nao sao orfaos): 14

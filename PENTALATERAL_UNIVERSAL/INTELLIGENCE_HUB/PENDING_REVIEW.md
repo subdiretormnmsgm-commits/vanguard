@@ -373,3 +373,5 @@ Mensagem de abertura sugerida: A ANEEL iniciou auditoria de 60 dias em 100% das 
 **Veredito possíveis:**
 - `APROVADO` → mover para bloco APROVADOS + registrar se foi encaminhado ao Conselho
 - `REJEITADO` → mover para bloco REJEITADOS + declarar razão objetiva + Antigravity refaz
+
+| 2026-06-15 | CURADORIA | `CLIENTES/VANGUARD/PENDING_REVIEW/CURADORIA_SKILLS_V35.md` | AGUARDANDO_VEREDITO |

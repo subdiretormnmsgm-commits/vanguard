@@ -1,0 +1,121 @@
+{
+  "schema": "v1.1",
+  "cliente": "VANGUARD",
+  "loop": 35,
+  "versao": "V35",
+  "data": "2026-06-16",
+  "titulo": "Aperfeicoamento dos 3 atores — Projetista (7) + Embaixador Digital (8) + Detector de Deriva (coadjuvante)",
+  "status": "AGUARDA_VEREDITO_DIRETOR",
+  "sintetizador": "Musculo (sintese P-037)",
+  "artefato_gate": "CLIENTES/VANGUARD/HISTORICO/DELIBERACAO_LOOP_V35_VANGUARD.md",
+
+  "objetivo_loop": "Ao final do Loop 35, teremos os 3 atores com FUNCOES APERFEICOADAS e funcionais — cada um com (a) atividade agendada executavel no Cowork, (b) skills best-fit curadas via pesquisa de internet, (c) canal de devolucao PENDING_REVIEW — formalizados no Conselho (8 membros + Detector coadjuvante). Loop de APERFEICOAMENTO, nao de mera formalizacao.",
+
+  "contexto": {
+    "loop_anterior": "Loop 34 = FRACASSO (PF-1: ativo pronto nao-publicado; promessa != entrega)",
+    "ideias_ciclo": "23 (6 M' + 5 G + 5 N + 7 E) — todas em disco (DIRETRIZ_GEMINI_V35, AUDITOR_LOOP_V35, EMBAIXADOR_LOOP_V35)",
+    "lacunas_duras_eixo": [
+      "R2 — Company Page nao existe (matou o Loop 34)",
+      "R3 — Detector com 0 atividades Cowork agendadas",
+      "R4b — 15 skills curadas mas sem crivo best-fit contra pesquisa viva"
+    ],
+    "p059": "N/A — loop interno Vanguard; nenhum dado de Ingrid/Valdece/Mumuzinho tocado",
+    "p124": "INTELLIGENCE_HUB isolado; output via PENDING_REVIEW",
+    "alertas_ativos": ["ECD prazo 30/06/2026", "ECF prazo 31/07/2026", "AI Act 02/08", "ANEEL 05/08", "Ingrid captacao 04/07"]
+  },
+
+  "confronto_critico_embaixador": {
+    "filtro": "Embaixador filtra a realidade (P-067) — NAO decide. Quem decide e o Diretor.",
+    "risco_comportamental_central": "PF-1 (builder-nao-publicador). Loop 35 corre risco de virar 5o loop de motor interno se a Company Page nao for publicada e o gate E-1 nao for ativado.",
+    "deriva_factual_viva": "NICHE_INDEX/MODEL vendiam falsamente 'leiaute 12 e novo para a ECD'. ECD 2026 = Leiaute 9 (inalterado); Leiaute 12 e da ECF. CORRIGIDO em 2 ondas neste loop.",
+    "first_mover_refutado": "Vanguard NAO e first-mover em AEO B2B Brasil (Brasil GEO jan/2026 + guia oficial Google mai/2026). Diferencial = profundidade regulatoria do nicho (E-7)."
+  },
+
+  "placar_aprovado_diretor": {
+    "evento": "Diretor: 'Execute' (2026-06-16)",
+    "entra_loop_35": ["M'P-1 (CBR sintetico)", "M'P-2", "N-4", "G-4 (restrito)", "M'D-1 (pos-Company Page)", "M'D-2 (com freio P-121)", "N-1", "N-5", "E-2", "E-5", "E-6", "E-7", "M'X-A", "M'X-B", "E-1", "E-3", "E-4 (bloqueante)", "N-2 (condicional)"],
+    "proximo_loop_36": ["G-1", "G-2", "G-3", "N-3"],
+    "descartado": ["G-5 (viola P-121 — outbound nao iniciado pelo cliente)"],
+    "total": "18 entram + 4 Loop 36 + 1 descartado = 23"
+  },
+
+  "crivo_skills_best_fit": {
+    "entram": [
+      "cbr-rag-orchestrator (CBR sintetico)",
+      "adversarial-red-teaming",
+      "notebooklm-studio-director",
+      "aeo-entity-optimizer (pos-Company Page)",
+      "objection-to-content-converter",
+      "icp-behavioral-auditor",
+      "policy-as-code-validator",
+      "baseline-promise-tracker",
+      "pre-commit-compliance-hook",
+      "ledger-consistency-checker"
+    ],
+    "loop_36": ["cross-domain-pattern-matcher", "signal-based-lead-scorer", "linkedin-b2b-authority-builder"],
+    "descartada": ["wbs-eap-generator (commodity, nao amplia)"],
+    "pendente_diretor": ["obsidian-graph-query (Diretor conduz pesquisa propria Obsidian<->Vanguard — V-OBS parqueado)"]
+  },
+
+  "decisoes": [
+    {
+      "id": "D1",
+      "pergunta": "Orquestracao hibrida (N-2) — ativar agora?",
+      "opcao_A": "A-condicional — so liga com E-4 (Burn Rate Shield) ativo",
+      "opcao_B": "Adiar para Loop 36",
+      "recomendacao_musculo": "A-condicional",
+      "status": "CONFIRMADO_CONDICIONAL",
+      "fundamento": ["N-2 Auditor", "E-4 Embaixador (circuit breaker antes de autonomia)"]
+    },
+    {
+      "id": "D2",
+      "pergunta": "Acervo do Projetista (M'P-1) — CBR com grafo de conhecimento?",
+      "opcao_A": "CBR sintetico SEM Knowledge Graph (acervo de 2 clientes pequeno demais para KG)",
+      "opcao_B": "CBR + RAG vetorial + grafo agora",
+      "recomendacao_musculo": "A",
+      "status": "CONFIRMADO (Diretor 2026-06-16)",
+      "nuance": "RAG vetorial/grafo = Loop 36 (segue G-1).",
+      "fundamento": ["P-006 burn rate", "P-043 ancoragem", "Embaixador D2"]
+    },
+    {
+      "id": "V-PAGE",
+      "pergunta": "Company Page + POST ECD — quem e quando?",
+      "definicao": "Musculo constroi a Company Page (gate2 = MUSCULO) e publica POST ECD com gancho REAL: prazo 30/06 + multa automatica (NAO 'formato novo').",
+      "recomendacao_musculo": "SIM nesta sessao — publicar antes de 17/06 (webinar nacional ECD)",
+      "status": "PENDENTE_VEREDITO",
+      "fundamento": ["E-1", "R2 (lacuna que matou Loop 34)", "PF-1"]
+    },
+    {
+      "id": "V-DET",
+      "pergunta": "Atividades Cowork do Detector (fecha GAP R3)",
+      "atividade_1": "DD-Auditoria de Politica (diaria 04:30) — policy-as-code roda no commit E server-side W-10 (E-3)",
+      "atividade_2": "DD-Baseline de Promessas (no fechamento) — drift semantico promessa!=entrega (M'X-B); teria pego o FRACASSO do Loop 34",
+      "recomendacao_musculo": "Ambas ENTRAM (sob gate E-4)",
+      "status": "PENDENTE_VEREDITO",
+      "fundamento": ["M'X-A", "M'X-B", "E-1", "E-3", "R3"]
+    },
+    {
+      "id": "V-E2",
+      "pergunta": "Correcao da deriva leiaute ECD/ECF",
+      "recomendacao_musculo": "Fix em 2 ondas (ECD Leiaute 9 prazo/multa + ECF Leiaute 12 novo 31/07)",
+      "status": "EXECUTADO (AUTORIZO 2026-06-16) — NICHE_INDEX.json + eventos-fiscais-contadores_MODEL.json corrigidos",
+      "fundamento": ["E-2", "fonte oficial iob.com.br", "RUNNING_INTELLIGENCE"]
+    },
+    {
+      "id": "V-OBS",
+      "pergunta": "obsidian-graph-query skill",
+      "recomendacao_musculo": "PARQUEADO — Diretor conduz pesquisa propria sobre interacao Obsidian<->Vanguard",
+      "status": "PARQUEADO_DIRETOR"
+    }
+  ],
+
+  "gates_pre_build": [
+    "E-4 Burn Rate Shield (circuit breaker + teto de custo testado) ANTES de ativar qualquer agendamento Cowork — bloqueante",
+    "E-1 Trava-PF-1: Loop 35 nao fecha sem POST ECD publicado OU 1 conversa real registrada (aguarda palavra final do Diretor)",
+    "P-033 sync de NICHE_INDEX.json + MODEL.json no fechamento (INTELLIGENCE_HUB isolado, P-124)"
+  ],
+
+  "divida_proposta_ledger": "P-XXX (aguarda AUTORIZO): ideia de socio que so existe no chat NAO existe — toda entrega do Embaixador gravada em EMBAIXADOR_LOOP_V[N].md no fechamento, como Gemini (DIRETRIZ) e Auditor (AUDITOR_LOOP) ja sao.",
+
+  "proxima_acao_diretor": "Responder: D1[A-cond] D2[A confirmado] V-PAGE[SIM/NAO] V-DET[SIM/NAO] E-1-gate-duro[SIM/NAO]. Apos veredito: Musculo segue para writing-plans (build dos 3 atores)."
+}

@@ -452,8 +452,8 @@
                        "demo_disponivel":  false,
                        "cowork_densidade":  "BAIXA — F20 (frente nova)",
                        "urgencia_regulatoria":  "CRITICA",
-                       "alerta_timing":  "ECD 2026 (leiaute 12) prazo 30/06/2026. ECF 2026 prazo 31/07/2026. Multas automaticas 0,02%/dia ou 5% sobre valor omitido.",
-                       "proxima_revisao":  "F1 diario — URGENTE (17 dias para prazo ECD)",
+                       "alerta_timing":  "ECD 2026 (Leiaute 9, inalterado — so atualizacao de manual) prazo 30/06/2026. ECF 2026 (Leiaute 12, novo) prazo 31/07/2026. Multas automaticas 0,02%/dia ou 5% sobre valor omitido.",
+                       "proxima_revisao":  "F1 diario — URGENTE (prazo ECD 30/06/2026)",
                        "arquivo_modelo":  "NICHE_MODELS/eventos-fiscais-contadores_MODEL.json",
                        "niche_modeler_l33":  "NICHO NOVO identificado — fit 5.0 MOVER_AGORA. Deadline ECD 30/06/2026 (CRITICO — 17 dias). Ticket R$8k-R$40k."
                    },

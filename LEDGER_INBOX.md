@@ -7,7 +7,7 @@
 
 ---
 
-## STATUS: 2 ENTRADAS PENDENTES (2026-06-15)
+## STATUS: 3 ENTRADAS PENDENTES (2026-06-15)
 
 ### FALHA-PROCESSO-2026-06-15-A — LOOP LONGO DEMAIS + CÓDIGOS ERRADOS (inadmissível em escala 20 projetos)
 - **Sintoma:** Loop 34 durou ~5h30 (22h30 → 04h00). Muitas falhas e scripts errados no meio do caminho. Diretor: "Com 20 projetos não se consegue. Sou humano."
@@ -24,6 +24,21 @@
   - **P-176 SÓCIO OBRIGADO A PROPOR ATIVIDADE AGENDÁVEL** — quando o loop trata ator/capacidade nova, cada PASSO (3/5/7) exige de cada sócio ≥1 atividade agendável (o quê + gatilho + frequência). Ideia sobre ator sem atividade agendada = incompleta.
   - **P-177 LOOP ENTREGA O DELTA, NÃO O BAU** — abertura do loop lista o que JÁ é feito rotineiramente (Cowork/Intel Hub/pesquisa de mercado) e marca como FORA DO ESCOPO, salvo se a intenção pedir explicitamente. O loop produz o delta pedido pela intenção.
 - **Palco:** sessão dedicada de PROCESSO (construir os 4 gates com cabeça fresca — não às 04h, para não repetir o erro de código errado). Desenho pronto neste INBOX.
+
+### FALHA-PROCESSO-2026-06-15-C — CODE-REVIEW E DOUTRINA, NAO EXECUCAO (origem dos "muitos erros de codigo ao longo dos loops")
+- **Sintoma:** Diretor (2026-06-15): "Percebi muitos erros de codigos ao longo dos loops." Code-review existe so como CHECKLIST/PRINCIPIO em 3 lugares (vanguard-protocolo.md secao "Code Review Antes do Commit"; MEMORANDO_QUADRILATERAL_CLIENTE.txt "Code review interno"; memory feedback_code_review) mas NUNCA e executado: nao ha passo no loop Pentalateral, nao ha task no Cowork, nenhum hook/gate dispara. O unico parente que roda e validate_scripts.ps1 (P-060) = so sintaxe/encoding de .ps1, nao revisa logica/HTML/JS.
+- **Causa raiz:** code-review nasceu para fechamento de versao de SOFTWARE DE CLIENTE (Vanguard V1..V16). O Pentalateral migrou para deliberacao + automacao (.ps1/.json/.html) e o code-review nao acompanhou → virou doutrina sem ponto de execucao. Liga direto a FALHA-PROCESSO-2026-06-15-A (mesma raiz: scripts errados no meio do loop).
+- **Mecanismo anti-recorrencia (P-146 — construir, nao so documentar):**
+  - **P-178 CODE-REVIEW EXECUTADO, NAO SO DOUTRINADO** — build `scripts/gate_code_review.ps1`:
+    (a) detecta arquivos de CODIGO modificados na sessao via `git diff --name-only` filtrando extensoes .ps1/.psm1/.js/.mjs/.html/.py + .json de infra/config — NUNCA .md de conteudo, NUNCA dados de cliente (P-059);
+    (b) se >=1 arquivo de codigo modificado E nao houver marcador `.code_review_done.flag` (com hash dos arquivos) → exit 1 + lista os arquivos: "N arquivos de codigo sem code-review. Invocar skill requesting-code-review antes do commit.";
+    (c) escopo restrito aos MODIFICADOS da sessao — nao o repo inteiro (/code-review ultra fica reservado a fechamento de versao de software de cliente);
+    (d) o .ps1 NAO invoca a skill (skill e do Claude/Musculo) — o gate DETECTA + BLOQUEIA + LISTA; o Musculo EXECUTA a skill superpowers `requesting-code-review` nos arquivos listados, corrige inline, grava o flag → gate libera (exit 0).
+- **ENCAIXE (1) — ONDE EXECUTAR (APROVADO pelo Diretor 2026-06-15 "sigo a sua sugestao" = PRIMARIO + ENFORCEMENT):**
+  - **PRIMARIO (recomendado): pos-build, antes do veredito/commit, DENTRO do loop** — Musculo roda `gate_code_review.ps1` ao terminar qualquer fatia que tocou codigo. Erro corrigido aqui e o mais barato (antes de cascatear). Maior ganho de qualidade.
+  - **ENFORCEMENT (rede de seguranca): novo Gate no `session_close.ps1`** — nada com codigo modificado fecha o dia sem review. Chokepoint confiavel.
+  - **RESERVADO: `/code-review ultra`** — so para fechamento de versao de software de cliente real (repo/branch inteiro), como a memoria original previa. Nao para cada loop.
+- **Palco:** build entra como item [musculo] no PENDENTES (P-146). Sessao dedicada de PROCESSO (junto com os gates P-173..P-177 — cabeca fresca, nao as 04h).
 
 ### INTENCAO-OBSIDIAN-2026-06-15 — captura pendente
 - Diretor declarou intenção sobre Obsidian "desde o começo"; o Músculo NÃO capturou/registrou → falha de retenção (memory `project_obsidian_intencao`). Escopo a confirmar com o Diretor (drift detection? gestão de docs? base de conhecimento?). Arquivos de referência estão em pasta exclusiva do Diretor (proibida) — não ler; aguardar 1 frase de escopo.

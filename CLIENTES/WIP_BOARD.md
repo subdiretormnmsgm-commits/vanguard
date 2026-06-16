@@ -32,12 +32,12 @@
 - **Projeto:** VanguardV29 — Pentalateral Autonomo
 - **Area:** Infraestrutura Interna — Pentalateral IAH
 - **Tipo:** Projeto Interno — Evolucao do Sistema (nao e projeto cliente)
-- **Status:** BUILD — Loop 33 CONCLUIDO · W-10 redesign 9 nos + P-164 · Loop 34 aguarda objetivo P-160
-- **Loop atual:** 33 CONCLUIDO | Gemini OK | NotebookLM OK | Embaixador OK | Musculo OK
+- **Status:** BUILD — Loop 34 FRACASSO (arquivado 2026-06-15) · Loop 35 ABERTO — APERFEICOAMENTO dos 3 atores (R-AMPLIATIVO)
+- **Loop atual:** 35 ABERTO | Gemini PENDENTE | NotebookLM PENDENTE | Embaixador PENDENTE | Musculo PENDENTE
 - **Stack:** Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku — verificacao)
 - **Loop fase atual:**
-  - Gemini: OK | NotebookLM: OK | Embaixador: OK | Musculo: OK
-  - Proximo: Loop 34 — aguarda objetivo declarado pelo Diretor (P-160 gate bloqueante)
+  - Gemini: PENDENTE (PASSO3 Loop 35 pronto, aguarda DIRETRIZ V35) | NotebookLM: PENDENTE (apos DIRETRIZ, com arquivos dos socios) | Embaixador: PENDENTE | Musculo: PENDENTE
+  - Proximo: Estrategista (Antigravity ESTRATEGISTA) gera DIRETRIZ V35 a partir do PASSO3 — rota sequencial
 - **Hermes Agent:**
   - Status: ONLINE
   - Plataforma: EasyPanel hermes/hermes-agent

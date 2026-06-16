@@ -31,6 +31,12 @@ Três princípios fundadores (amplificações M'X do Loop 34):
 > risco de virar burocracia que trava o sistema — é decisão da síntese P-037. Esta skill é operacional
 > e neutra a essa decisão: roda igual em qualquer das duas formas.
 
+> **1 DETECTOR / 2 MODOS (Loop 35):** existe UM só Detector de Deriva. Ele opera em dois MODOS conforme
+> o ambiente: **(A) obsidian-cli** quando o vault Obsidian está aberto (segue wikilinks/backlinks) e
+> **(B) Claude Code/grep** como fallback quando fechado. Mesma régua (`./INTELLIGENCE_LEDGER.md` na RAIZ,
+> P-171), mesmo destino único (`INTELLIGENCE_HUB/PENDING_REVIEW.md`, append, P-124). O persona completo
+> está em `CONSELHO/SYSTEM_PROMPT_DETECTOR_DERIVA.md` (v1.3); esta skill é a camada operacional.
+
 ---
 
 ## QUANDO USAR
@@ -57,7 +63,8 @@ Três princípios fundadores (amplificações M'X do Loop 34):
 | CRÍTICO | CLIENTES/VANGUARD/CLAUDE_PROJECT/LOOP_STATE.json | loop_atual != loop em WIP_BOARD |
 | CRÍTICO | PENDENTES.md | Seção "LOOP [N]" ausente para loop atual |
 | CRÍTICO | CLIENTES/WIP_BOARD.json | loop_fase_atual.loop != LOOP_STATE.loop_atual |
-| CRÍTICO | CLAUDE.md | Nº de atores no SISTEMA divergente do Conselho real (6→9 pós-Loop 34) |
+| CRÍTICO | CLAUDE.md | Nº de membros no SISTEMA divergente do Conselho real (6→8 membros + Detector coadjuvante, pós-Loop 35) |
+| ATOR-NOVO | CONSELHO/SYSTEM_PROMPT_{PROJETISTA,EMBAIXADOR_DIGITAL,DETECTOR_DERIVA}.md | Prompt de definição do ator desatualizado vs. Drive (G5 estrutural — `verify_gdrive_freshness.ps1 -Perfil CONSELHO`) |
 | ALTO | INTELLIGENCE_LEDGER.md | Último P-XXX tem mais de 2 loops sem adição |
 | ALTO | CLIENTES/*/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md | Diverge do LEDGER raiz |
 | ALTO | CLIENTES/*/NOTEBOOKLM_FONTES/02_MEMORANDO_PENTALATERAL_UNIVERSAL.md | Diverge do UNIVERSAL |

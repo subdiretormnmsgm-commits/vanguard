@@ -1,7 +1,7 @@
 # PASSO 5 -- AUDITOR (NOTEBOOKLM) · VANGUARD UNIVERSAL
-# Sessao: 2026-06-15 · Loop 34 · PRESENCA LINKEDIN + FORMALIZACAO DOS 3 NOVOS ATORES
+# Sessao: 2026-06-15 · Loop 35 · APERFEICOAMENTO DOS 3 ATORES (R-AMPLIATIVO)
 # COMO USAR: rodar .\scripts\preparar_notebooklm_projeto.ps1 -cliente VANGUARD
-#            No chat do caderno VANGUARD (d7dab0e1), colar apenas: "Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill vanguard-v34.md."
+#            No chat do caderno VANGUARD (d7dab0e1), colar apenas: "Ler 13_PASSO5_NOTEBOOKLM.md e gerar a Skill vanguard-v35.md."
 # IDIOMA OBRIGATORIO: todo output do Auditor deve ser em portugues.
 # CONTA: subdiretor.mnmsgm@gmail.com · CADERNO: VANGUARD (d7dab0e1)
 #
@@ -10,54 +10,68 @@
 #     Get-ChildItem NOTEBOOKLM_FONTES\ | Sort-Object LastWriteTime | Select Name,LastWriteTime
 #     Se desatualizado -> rodar preparar_notebooklm_projeto.ps1 novamente
 # [2] TIPOS ACEITOS: NotebookLM NAO aceita .json (P-161). Copy-Item arquivo.json arquivo.txt antes do upload.
-# [3] DEEP RESEARCH WEB: clicar Deep Research ANTES de gerar a Skill (P-144) — anexar as 5 melhores fontes.
+# [3] DEEP RESEARCH WEB: clicar Deep Research ANTES de gerar a Skill (P-144) -- anexar as melhores fontes.
+# [4] FONTE OBRIGATORIA DESTE LOOP: 12_DIRETRIZ_GEMINI.txt (DIRETRIZ V35) ja deve estar no caderno.
 
 ---
 
-## [CONTEXTO DO LOOP 34 — LER ANTES DE QUALQUER ANALISE]
+## [CONTEXTO DO LOOP 35 -- LER ANTES DE QUALQUER ANALISE]
 > Esta secao e a bussola do loop. Igual para todos os socios. Nao muda entre eles.
 
-### O QUE MUDOU: O CONSELHO PASSA DE 6 PARA 9 MEMBROS
+### O QUE ESTE LOOP E -- E O QUE NAO E
 
-Este loop formaliza tres novos atores no Pentalateral IAH:
+O Loop 34 FRACASSOU: ele apenas FORMALIZOU os 3 atores (scaffolding estatico). O Loop 35 e a refacao
+correta -- um loop de APERFEICOAMENTO: pegar os 3 atores ja formalizados (Projetista, Embaixador Digital,
+Detector de Deriva) e AMPLIAR a capacidade de cada um para que se tornem motores vivos, nao papeis no papel.
 
-| # | Ator | Funcao | Motor |
+**NAO e re-formalizacao. E ampliacao de capacidade real e funcional.**
+
+### LEI INVIOLAVEL DESTE LOOP -- R-AMPLIATIVO
+
+Os resultados deste loop sao AMPLIATIVOS / ABERTOS, NUNCA delimitados. Delimitar algema os socios e
+gera resultados ruins. As tres alavancas abaixo sao MEIOS, nunca a meta -- a meta e a CAPACIDADE
+AMPLIADA de cada ator, com teto indefinido:
+  (a) atividade agendada executavel no Cowork por cada ator;
+  (b) skills best-fit curadas via pesquisa de internet (curar, nao despejar);
+  (c) canal de devolucao PENDING_REVIEW (P-124).
+
+> R-AMPLIATIVO VALE TAMBEM PARA A PESQUISA: nenhuma instrucao de Deep Research neste documento fixa
+> numero de queries nem fronteira de tema. Os vetores citados sao PONTOS DE PARTIDA -- o socio DEVE
+> expandir e descobrir vetores que ninguem listou.
+
+### P-160 -- OBJETIVO DECLARADO DO LOOP 35 (Diretor)
+
+"Ao final do Loop 35, teremos os 3 atores (Projetista, Embaixador Digital, Detector de Deriva) com
+FUNCOES APERFEICOADAS e funcionais -- cada um com (a) atividade agendada executavel no Cowork, (b)
+skills best-fit curadas via pesquisa de internet, (c) canal de devolucao PENDING_REVIEW -- formalizados
+no Conselho (8 membros + Detector coadjuvante). Loop de APERFEICOAMENTO, nao de mera formalizacao."
+
+### A ARQUITETURA -- CONSELHO DE 8 MEMBROS + 1 COADJUVANTE
+
+| # | Ator | Funcao (ampliada no Loop 35) | Motor |
 |---|---|---|---|
-| 7 | **Projetista** | Projeta (cruza VANGUARD_HISTORICO + mercado) e materializa (relatorios/audios/infograficos) | Claude Opus 4.8 · caderno PROJETISTA-ACERVO |
-| 8 | **Embaixador Digital** | Opera os canais sociais (LinkedIn primeiro) — presenca social como pre-qualificacao silenciosa | Claude Opus 4.8 |
-| coadj. | **Detector de Deriva** | Audita coerencia intencao↔execucao + fronteira REPETIDO→DERIVA dos documentos e dos atores | skill doc-drift-audit |
+| 7 | **Projetista** | De projetista estatico -> motor vivo de Case-Based Reasoning + Adversario continuo | Claude Opus 4.8 · caderno PROJETISTA-ACERVO |
+| 8 | **Embaixador Digital** | De publicador -> autoridade citada por IA (AEO) + sensor de intencao de compra | Claude Opus 4.8 · LinkedIn |
+| coadj. | **Detector de Deriva** | De leitor reativo -> guardiao preditivo (Policy-as-Code + baseline semantico) | Claude Code · skill doc-drift-audit |
 
-**Regra de ativacao (Diretor 2026-06-14):** os 3 atores sao FORMALIZADOS durante o Loop 34, mas so
-comecam a OPERAR (operacao plena) APOS o fim do Loop 34. Durante o loop = scaffolding. Apos = ativacao.
-
-### AS TRES PERGUNTAS QUE REGEM ESTE LOOP
-
-"Como a Vanguard passa a SER ENCONTRADA no LinkedIn — nao apenas a encontrar clientes?"
-
-"Como uma Company Page nova, sem cases nomeaveis (P-059 isola clientes),
-constroi autoridade B2B real em um nicho com prazo regulatorio batendo (ECD 30/06)?"
-
-"Como os 3 novos atores formam um CIRCUITO que se autorregula — e nao 3 ilhas de conteudo desconexo?"
-
-### A LINGUAGEM E BLINDADA — R-3 (INVIOLAVEL)
+### A LINGUAGEM E BLINDADA -- R-3 (INVIOLAVEL)
 
 NENHUM conteudo externo (Company Page, posts, descricao) menciona: IA, automacao, Claude, Opus,
 NotebookLM, Cowork, Gemini, modelos de linguagem, agentes ou ferramentas. Sempre: "especialistas
-da Vanguard", "nossa equipe", "nosso metodo". A inteligencia e o motor invisivel — nunca o discurso.
+da Vanguard", "nossa equipe", "nosso metodo". A inteligencia e o motor invisivel -- nunca o discurso.
 **O Auditor audita TODO output (Skill, briefing, sugestoes) contra R-3 antes de entregar.**
 
-### A ARQUITETURA QUE RESPONDE — PENTALATERAL IAH
+### A ARQUITETURA QUE RESPONDE -- PENTALATERAL IAH
 
 | Deficiencia | Antidoto no sistema |
 |---|---|
 | ALUCINACAO OTIMISTA | Auditor so afirma o que esta nas fontes. Proposicao sem fonte = hipotese |
-| VIES DE CONFIRMACAO | Triangulacao cega Musculo vs Auditor (P-132) — sem ver o resultado um do outro |
-| AMNESIA DE SESSAO | Embaixador e a memoria do sistema — loops, decisoes revertidas, promessas |
+| VIES DE CONFIRMACAO | Triangulacao cega Musculo vs Auditor (P-132) -- sem ver o resultado um do outro |
+| AMNESIA DE SESSAO | Embaixador e a memoria do sistema -- loops, decisoes revertidas, promessas |
 | CEGUEIRA DE ESCOPO | Musculo: profundidade. Estrategista: amplitude. Auditor: historico. Embaixador: continuidade |
-| DERIVA SILENCIOSA | Detector de Deriva vigia a fronteira REPETIDO→DERIVA e a coerencia intencao↔execucao |
+| DERIVA SILENCIOSA | Detector de Deriva vigia a fronteira REPETIDO->DERIVA e a coerencia intencao<->execucao |
 
-34 loops. 165 principios (LEDGER ate P-165, P-166 em registro). Loop 34 abre o primeiro objeto
-EXTERNO-PUBLICO da historia da Vanguard: a propria presenca no LinkedIn.
+35 loops. LEDGER ate P-179. Loop 35 transforma 3 papeis formais em 3 motores funcionais e ampliados.
 
 ---
 
@@ -66,211 +80,193 @@ EXTERNO-PUBLICO da historia da Vanguard: a propria presenca no LinkedIn.
 > Esta secao e permanente -- nao muda por loop. Leia antes de qualquer analise.
 
 **Deep Research -- pesquisa ativa na web**
-Realize pesquisas profundas ancoradas nas suas fontes internas. Pesquisar as top5 visualizacoes;
-PROIBIDA pesquisa em Blog. Use nas queries da PARTE 5. Padrao obrigatorio: URL + data de acesso
-para cada dado externo. Nenhuma afirmacao de mercado sem fonte verificavel.
+Realize pesquisas profundas ancoradas nas suas fontes internas. Padrao obrigatorio: Top 5 videos +
+Top 5 visualizacoes (mais vistos) + fontes confiaveis e registradas + URL e data de acesso para cada
+dado externo. PROIBIDA pesquisa em Blog. R-AMPLIATIVO: sem numero fixo de queries, sem fronteira de
+tema. Nenhuma afirmacao de mercado sem fonte verificavel.
 
-**Fontes do caderno VANGUARD -- historico V1 a V34**
-Acesso ao historico completo Vanguard + DIRETRIZ V34 do Estrategista. Use o historico inteiro,
-nao apenas os documentos mais recentes.
+**Fontes do caderno VANGUARD -- historico V1 a V35 + DIRETRIZ V35**
+Acesso ao historico completo Vanguard + a DIRETRIZ V35 do Estrategista (12_DIRETRIZ_GEMINI.txt). Use
+o historico inteiro, nao apenas os documentos mais recentes.
 
 **Anti-Alucinacao estrutural -- sua maior forca**
 Voce so afirma o que esta nas fontes ou no que pesquisou ativamente. Sinalize explicitamente
 inferencia vs evidencia.
 
 **Geracao de documentos adicionais**
-Alem da Skill de loop, voce entregara um BRIEFING DE ESTADO DA ARTE (PARTE 6) — fonte de
-conteudo para a presenca LinkedIn da Vanguard.
+Alem da Skill de loop, voce entregara um BRIEFING DE ESTADO DA ARTE (PARTE 6) -- estado da arte de
+sistemas multi-agentes corporativos 2026 nos tres dominios dos atores (CBR, AEO B2B, Policy-as-Code).
 
 ---
 
 ## PROTOCOLO ANTI-ALUCINACAO -- ATIVAR ANTES DE QUALQUER ANALISE
 
-- Regra do Nutricionista: peso maximo ao LEDGER. P-165 e o mais recente (P-166 em registro).
+- Regra do Nutricionista: peso maximo ao LEDGER. P-179 e o mais recente.
 - Proibicao de Analise Generica: cada afirmacao cita numero de principio, versao ou padrao real.
-- Tensao Ativa: auditar, nao validar. Se os M, G ou amplificacoes violam o LEDGER — diga, com evidencia.
-- Filtro de Recencia: principios do Loop 33-34 prevalecem sobre anteriores em conflito.
+- Tensao Ativa: auditar, nao validar. Se os M, G ou amplificacoes violam o LEDGER -- diga, com evidencia.
+- Filtro de Recencia: principios do Loop 34-35 prevalecem sobre anteriores em conflito.
 - MANIFESTO_DE_FONTES: declare o que tem e o que ficou de fora antes de analisar.
 
 ---
 
 ## CONTEXTO DA CONSULTA
 
-Sistema: Pentalateral IAH -- Vanguard Tech (Loop 34 · PRESENCA LINKEDIN + 3 NOVOS ATORES)
-Missao do loop: colocar a Vanguard NO AR (Company Page + 1o post ECD) e formalizar os 3 atores
-que vao sustentar essa presenca de forma autorregulada.
-Estado atual: 2 clientes (Ingrid retainer + Valdece hypercare ate 18/06). Pipeline novo = ZERO.
-ZERO presenca publica hoje. Janela critica: ECD 2026 prazo 30/06 — nicho eventos-fiscais-contadores.
+Sistema: Pentalateral IAH -- Vanguard Tech (Loop 35 · APERFEICOAMENTO DOS 3 ATORES)
+Missao do loop: transformar os 3 atores formalizados (Loop 34) em motores VIVOS e AMPLIADOS --
+cada um com atividade Cowork executavel, skills best-fit curadas e canal PENDING_REVIEW.
+Estado atual: 2 clientes (Ingrid retainer + Valdece hypercare). Presenca LinkedIn aberta no Loop 34.
+O Embaixador Digital e o Projetista EXECUTAM atividades Cowork (Deep Research) -- nao apenas sao consultados.
 
 ---
 
-## IDEIAS A AUDITAR -- M-1 a M-5 DO MUSCULO (Loop 34)
+## IDEIAS A AUDITAR -- AS 6 IDEIAS DO MUSCULO (2 POR ATOR · Loop 35)
 
 > O Auditor NAO valida. Audita com evidencia historica do LEDGER e das fontes do caderno.
 
-[M-1] A PAGINA E PROVA VIVA DO METODO, NAO VITRINE DE SERVICOS
-A Company Page e a demonstracao do proprio metodo Vanguard operando — cadencia, precisao, leitura
-de mercado de cada post sao a evidencia. A pagina e o primeiro case, anonimo quanto a clientes (P-059).
+### PROJETISTA
+[M'P-1] ACERVO INDEXADO POR DOR (CBR) -- o acervo deixa de ser recuperado por data/projeto e passa a
+ser indexado por DOR do cliente (Case-Based Reasoning): dado um novo problema, recupera casos analogos
+por vizinhanca semantica de dor e adapta a solucao.
+[M'P-2] PRE-MORTEM ADVERSARIO PERMANENTE -- o Projetista roda um Red Team continuo durante o desenho
+do projeto, injetando objecoes adversarias enquanto o plano e construido (nao um checklist ao final).
 
-[M-2] ENTRADA POR JANELA REGULATORIA, NAO POR SERVICO
-O 1o post fala da DOR com data (ECD 30/06), nao da Vanguard. Calendario editorial PUXADO pelos
-deadlines legais dos nichos (ECD 30/06, AI Act 02/08, ANEEL 05/08). Conteudo just-in-time.
+### EMBAIXADOR DIGITAL
+[M'D-1] SER A FONTE QUE A IA CITA (AEO) -- Answer Engine Optimization: estruturar o conteudo do LinkedIn
+em blocos semanticos densos para ser ingerido e citado por Perplexity / Google AI Overviews / LLMs.
+[M'D-2] SINTESE DIARIA VIRA SENSOR DE SINAL DE COMPRA -- a sintese diaria deixa de ser passiva e passa
+a detectar sinais de intencao de compra entre quem engaja com o conteudo.
 
-[M-3] O PERFIL DE EDUARDO E O MOTOR; A COMPANY PAGE E A ANCORA
-O LinkedIn 2026 suprime alcance de Company Pages e favorece People-First. Distribuicao vem do
-perfil PESSOAL; a Company Page ancora credibilidade institucional. Arquitetura coordenada, nao isolada.
-
-[M-4] OS 3 ATORES SAO UM CIRCUITO AUTORREGULADO, NAO 3 ILHAS
-Projetista PROJETA → Embaixador Digital OPERA e devolve sinal de pipeline → Detector audita
-coerencia e deriva → sinal retroalimenta o Projetista. O conteudo melhora sozinho a cada ciclo.
-
-[M-5] PROVA SOCIAL SINTETICA — O PADRAO DE MERCADO COMO AUTORIDADE
-Sem cases nomeaveis (P-059), a autoridade vem de "vemos ISTO se repetir no nicho Y". A restricao
-de isolamento vira vantagem: a Vanguard fala do PADRAO que so quem opera muitos casos enxerga.
+### DETECTOR DE DERIVA
+[M'X-A] LEDGER COMO POLICY-AS-CODE -- traduzir os principios objetivos do LEDGER em regras executaveis
+em hooks de pre-commit (guardrail deterministico, nao analise semantica reativa).
+[M'X-B] DRIFT INDEX COM BASELINE SEMANTICO DE PROMESSA -- medir a distancia entre a promessa inicial
+de um artefato/ator e o estado atual, sinalizando perda de foco ou inflacao de escopo.
 
 ---
 
-## IDEIAS JA AUDITADAS PELO ESTRATEGISTA -- DIRETRIZ V34 (Antigravity/Gemini · 2026-06-15)
+## IDEIAS JA AUDITADAS PELO ESTRATEGISTA -- DIRETRIZ V35 (Antigravity/Gemini · 2026-06-15)
 
-> O Estrategista CONFIRMOU/EXPANDIU os M-1..M-5 e adicionou G-1..G-5. O Auditor faz a TERCEIRA
-> leitura cega (P-132): audita os G contra o LEDGER e o historico, sem repetir o Estrategista.
+> O Estrategista DEBATEU as 6 ideias e adicionou G-1..G-5. O Auditor faz a TERCEIRA leitura cega
+> (P-132): audita os G contra o LEDGER e o historico, sem repetir o Estrategista. Fonte completa:
+> 12_DIRETRIZ_GEMINI.txt no caderno.
 
-CONTRA-ATAQUE DOS M (DIRETRIZ V34): M-1 CONFIRMA (Technical Deep-Dives como prova) · M-2 EXPANDE
-(Dwell Time via carrossel) · M-3 CONFIRMA (perfil pessoal 5-8x > company page) · M-4 EXPANDE
-(loop Smarketing closed-loop) · M-5 CONFIRMA (prova sintetica ancorada em volumes/padroes).
+DEBATE DAS 6 IDEIAS (DIRETRIZ V35):
+- M'P-1 EXPANDE -- CBR nao so recupera; ADAPTA (injeta contexto do novo problema, deduz o delta).
+- M'P-2 CONFIRMA -- Red Team continuo endurece o plano (adversarial review reduz refacao ~40%).
+- M'D-1 EXPANDE -- LinkedIn e 2o dominio mais citado por LLMs; ~75% da autoridade vem do PERFIL pessoal.
+- M'D-2 SUBSTITUI -> "Intencao Baseada em Evento Regulatorio" (Event-Driven Intent): o gatilho nao e
+  um like, e uma consulta normativa no dia de uma portaria.
+- M'X-A CONFIRMA -- Policy-as-Code moderno >95% acuracia, lead time curto.
+- M'X-B EXPANDE -> "Baseline de Expectativa de Nicho" (o nicho mudou; a promessa do template ficou para tras?).
 
-5a AMPLIFICACAO POR ATOR (DIRETRIZ V34):
-- Projetista 5a = "Ciclo de Dwell Time" (projetar para tempo de permanencia, nao clique).
-- Embaixador Digital 4a = "Employee Advocacy Bridge" (ponte perfil↔pagina via advocacia).
-- Detector 4a = "Red Flag Due Diligence" (garante que o conteudo nao soe como Agente Autonomo —
-  preserva a aura de Equipe Humana Senior; blindagem R-3 ativa no conteudo).
+SUGESTOES CRUZADAS (DIRETRIZ V35): dores do acervo CBR viram blocos extraiveis para o Embaixador (AEO) ·
+objecoes do Red Team alimentam a base Policy-as-Code do Detector · todo plano do Projetista passa por
+dry-run no PaC antes do Diretor · Detector alerta o Projetista quando o plano diverge de norma atualizada.
 
-G-1 TECHNICAL DEEP-DIVES COMO PROVA SOCIAL SINTETICA — conteudo tecnico profundo prova competencia
-sem expor cliente. Gate: SIM.
-G-2 LOOP SMARKETING — Embaixador gera dossie de quem engaja → Notion "Vanguard Pendentes" →
-Eduardo atua como SDR sobre lead ja qualificado. Gate: SIM.
-G-3 SHADOW METRICS DE CONCORRENTES/BIG 4 — autoridade por oposicao: medir e contrapor o que as
-grandes consultorias dizem. Gate: SIM.
-G-4 CARROSSEIS "AUTOPSIA REGULATORIA" — casos PUBLICOS (TCU, transitados em julgado) — nao viola
-P-059 por serem publicos. Gate: SIM.
-G-5 EMPLOYEE ADVOCACY INVERTIDO — sistema gera drafts de comentarios para Eduardo aprovar/disparar.
-Gate: SIM.
-
-CRITICA DE ARQUITETURA (DIRETRIZ V34): (a) o Embaixador Digital deve GERAR o Briefing do proximo
-post para o Projetista — nao apenas devolver likes; (b) o Detector dispara [ALERTA] proativo,
-NAO trava o post (anti-burocracia).
-
-DIRETRIZ DO 1o POST ECD: Nicho Eventos Fiscais-Contadores · Angulo "O Fim do Ajuste Manual" ·
-Gancho "Faltam 15 dias para a ECD..." · Formato Carrossel Tecnico blindado R-3 ·
-CTA "Sua operacao ja suporta fluxos com rastreabilidade continua?".
+G-1 (PROJETISTA) CROSS-DOMAIN PIVOT ENGINE -- reaproveita produto de um nicho para outro a custo marginal ~zero.
+G-2 (EMBAIXADOR DIGITAL) NETWORK FLYWHEEL -- mapeia o "Shadow Board" de quem os decisores seguem; ~3x conversao.
+G-3 (DETECTOR) CONTEXT DEBT TRACKER -- score de decaimento de validade (idade da validacao x velocidade regulatoria).
+G-4 (PROJETISTA) WHAT-IF PROJECTOR -- gera cenarios contrafactuais (pior caso) como "Seguro" vendavel.
+G-5 (EMBAIXADOR DIGITAL) INBOUND-TO-OUTBOUND TRIGGER -- 3 consumos -> "Dossie Relampago" -> DM hi-touch antes do lead levantar a mao.
 
 ---
 
 ## PONTOS CRITICOS PARA O AUDITOR (auditar com prioridade maxima)
 
-[CRITICO-1] BLINDAGEM R-3 NO CONTEUDO PUBLICO: os G-1 (Technical Deep-Dives), G-4 (Autopsia
-Regulatoria) e o 1o post ECD podem, sem querer, revelar o motor (IA/automacao)? Auditar cada um
-contra R-3 e a "Red Flag Due Diligence" do Detector.
+[CRITICO-1] P-121 / ANTI-AUTOMACAO SEM SUPERVISAO: G-5 (Inbound-to-Outbound) e M'D-2 (sensor de sinal)
+acoplam deteccao automatica a abordagem outbound. Isso cria risco de churn / "falso artesanal" que o
+LEDGER ja sinalizou? Onde esta o gate humano obrigatorio antes de qualquer DM?
 
-[CRITICO-2] P-059 EM CASOS PUBLICOS (G-4): "casos publicos TCU transitados em julgado" realmente
-escapam de P-059? Onde esta a linha entre caso publico e exposicao indireta de cliente ativo?
+[CRITICO-2] R-3 NO CONTEUDO GERADO POR AEO (M'D-1 + G-5): conteudo otimizado para ser citado por IA
+pode, sem querer, soar gerado por IA e revelar o motor? Auditar contra R-3.
 
-[CRITICO-3] CIRCUITO AUTORREGULADO (M-4 + critica de arquitetura): o loop Projetista→Embaixador
-Digital→Detector→Projetista e realista ou cria dependencia circular que trava a producao? Ha
-precedente no LEDGER de loop de feedback que virou gargalo?
+[CRITICO-3] DEPENDENCIA CIRCULAR (sugestoes cruzadas): Projetista->Embaixador->Detector->Projetista.
+O circuito de consulta cruzada e realista ou cria gargalo que trava a producao? Ha precedente no LEDGER?
 
-[CRITICO-4] COMPANY PAGE SEM CASE NOMEAVEL: ha evidencia (V1-V34 ou web) de que autoridade B2B
-high-ticket se constroi sobre padrao de mercado anonimizado, sem um unico case com nome?
+[CRITICO-4] CUSTO COMPUTACIONAL (G-3 Context Debt + G-4 What-If): rodar score de decaimento em todos os
+nichos e gerar cenarios contrafactuais consome tokens. Onde esta o limite de execucao focada?
+
+[CRITICO-5] VERIFICACAO DE EXISTENCIA DAS SKILLS CURADAS: a curadoria (15 skills, PENDING_REVIEW) cita
+nomes que podem ser plausiveis mas inexistentes (risco Shadow Architect do Gemini). Quais sao reais?
 
 ---
 
 ## MISSAO PARA O AUDITOR
 
-### PARTE 1 -- AUDITORIA DE COERENCIA (R-3 + P-059 + LEDGER)
+### PARTE 1 -- AUDITORIA DE COERENCIA (LEDGER + R-3 + R-AMPLIATIVO)
 
-(a) Os G-1..G-5 contradizem o LEDGER (P-001 a P-165)? Cite o principio.
-(b) Algum output publico proposto (posts, deep-dives, carrosseis) viola R-3 (revela o motor)?
-(c) G-4 (casos publicos TCU) respeita P-059? Onde esta o limite seguro?
-(d) A formalizacao dos 3 atores (Conselho 6→9) cria conflito com algum principio de isolamento
-    ou de processo ja estabelecido?
+(a) Os G-1..G-5 contradizem o LEDGER (P-001 a P-179)? Cite o principio (atencao a R-01, P-059, P-121).
+(b) Algum output proposto viola R-3 (revela o motor IA/automacao)?
+(c) As amplificacoes respeitam R-AMPLIATIVO (sao motores abertos, nao checklists fechados)?
+(d) A ampliacao dos 3 atores cria conflito com algum principio de isolamento (P-059) ou de processo?
 
-### PARTE 2 -- CONEXAO HISTORICA V1-V34 + INTEGRACAO DOS 3 NOVOS ATORES
+### PARTE 2 -- CONEXAO HISTORICA V1-V35 + AMPLIACAO DOS 3 ATORES
 
-(a) V1 a V34: algum loop anterior tentou presenca publica/marketing? Como terminou?
-(b) Os 3 novos atores no corpo do sistema: o Projetista equivale a um C-Level de Operacoes
-    (projeta + materializa) e o Embaixador Digital a um C-Level de Marketing (opera canais)?
-    Esta leitura ancora no historico do sistema ou e extrapolacao?
-(c) Qual principio do LEDGER mais diretamente ancora — ou contraria — a entrada da Vanguard
-    no LinkedIn agora?
+(a) V1 a V35: ha precedente de ator que evoluiu de papel estatico para motor vivo? Como terminou?
+(b) Como os 3 atores saem da formalizacao estatica (Loop 34) para motores de retroalimentacao adaptativa
+    (CBR, AEO B2B, Policy-as-Code, preditivo)? Esta leitura ancora no historico ou e extrapolacao?
+(c) Qual principio do LEDGER mais diretamente ancora -- ou contraria -- a ampliacao proposta?
 
 ### PARTE 3 -- SKILL DO AUDITOR
 
-Nome da Skill: vanguard-v34.md
+Nome da Skill: vanguard-v35.md
 4 blocos obrigatorios (sem acento, verificados por skill_parser_gate.ps1):
 ## [AUDITORIA DE COERENCIA]
 ## [CONEXAO HISTORICA]
 ## [PADRAO DE SUCESSO/FALHA]
 ## [PERSPECTIVA DO SOCIO]
 
-### PARTE 4 -- [N-1 a N-5] (ideias proprias do Auditor — nao repetir M nem G)
+### PARTE 4 -- [N-1 a N-5] (ideias proprias do Auditor -- nao repetir M nem G)
 
-N-1: Autoridade organica B2B no LinkedIn 2026 — qual o vetor que converte sem case nomeado?
-N-2: Due Diligence B2B — como o comprador high-ticket valida um fornecedor sem case com nome?
-     Que prova substitui o case?
-N-3: Cadencia de Company Page nova — qual o ritmo minimo que constroi autoridade sem parecer ruido?
-N-4: O 1o post ECD — qual o risco historico de conteudo ancorado em deadline (parecer oportunista)?
-     Como o LEDGER recomenda mitigar?
-N-5: Dos 3 atores formalizados, qual tem o maior risco de deriva no primeiro ciclo de operacao?
+Sobre auditoria continua e defesa contra deriva/falha sistemica na operacao dos 3 atores ampliados.
+N-1: Qual o maior risco de falha sistemica quando os 3 atores operam em circuito autorregulado?
+N-2: Como auditar a qualidade do CBR do Projetista (recuperacao por dor) sem case nomeado (P-059)?
+N-3: Como medir se o AEO do Embaixador Digital esta funcionando (citacao por IA) de forma verificavel?
+N-4: Qual o sinal precoce de que o Policy-as-Code do Detector virou burocracia que trava a producao?
+N-5: Dos 3 atores ampliados, qual tem o maior risco de deriva no primeiro ciclo de operacao?
 
-### PARTE 5 -- DEEP RESEARCH WEB (3 queries externas — nao sobre o sistema interno)
+### PARTE 5 -- DEEP RESEARCH WEB AMPLIATIVA (R-AMPLIATIVO -- NAO DELIMITAR)
 
-Use Deep Research WEB. Top5 visualizacoes, PROIBIDO blog. URL + data de acesso. Anexar as melhores fontes.
-
-[QUERY-1] B2B LinkedIn Company pages growth 2026 — crescimento e alcance organico de paginas B2B novas.
-[QUERY-2] Employee advocacy scaling B2B — como advocacia de funcionario/perfil pessoal escala alcance B2B.
-[QUERY-3] Technical Deep-Dives B2B Trust — conteudo tecnico profundo como construtor de confianca/autoridade B2B.
+O Auditor pesquisa livremente, sem limite de numero de queries e sem fronteira de tema. Os vetores
+abaixo sao apenas PONTOS DE PARTIDA, nunca a borda: RAG em CBR aplicado a consultoria B2B; AEO tatico
+no LinkedIn; Policy-as-Code com Git Hooks em times pequenos. O Auditor DEVE expandir para tudo que
+ampliar as capacidades dos 3 atores (e descobrir vetores que ninguem listou).
+PADRAO OBRIGATORIO: Top 5 videos + Top 5 visualizacoes (mais vistos) + fontes confiaveis e registradas
++ URL e data de acesso. PROIBIDO blog. Anexar as melhores fontes.
 
 ### PARTE 6 -- BRIEFING DE ESTADO DA ARTE (comando personalizado do Musculo)
 
-> Esta parte e um COMANDO PERSONALIZADO escrito pelo Musculo para o Auditor produzir um ou mais
-> relatorios que servem de FONTE para o motor de conteudo da Vanguard (Projetista + Embaixador Digital).
-> Nao e a Skill. E materia-prima de autoridade. Pode gerar mais de um arquivo.
+> Esta parte e um COMANDO PERSONALIZADO escrito pelo Musculo para o Auditor produzir um relatorio que
+> serve de FONTE para a ampliacao dos 3 atores. Nao e a Skill. E materia-prima de capacidade.
 
 **COMANDO DO MUSCULO AO AUDITOR:**
 
-"Produza o documento BRIEFING_ESTADO_ARTE_LINKEDIN_LOOP34.md — um dossie de estado da arte que sirva
-de FONTE BRUTA para os posts da Vanguard no nicho eventos-fiscais-contadores (janela ECD 30/06),
-inteiramente blindado R-3 (zero mencao a IA/automacao/ferramentas). Estruture em 4 secoes:
+"Produza o documento BRIEFING_ESTADO_ARTE_AGENTES_LOOP35.md -- um dossie de estado da arte de sistemas
+multi-agentes corporativos 2026 nos tres dominios dos atores ampliados. Estruture em 3 secoes:
 
-## [1. ESTADO DA ARTE — ECD 2026 E A DOR DO CONTADOR]
-3-5 afirmacoes tecnicamente verdadeiras hoje sobre a ECD 2026 (prazo, obrigatoriedade, penalidade
-por erro/atraso, pontos de falha no fechamento manual). Cada uma com URL oficial + data de acesso
-(Receita/SPED/legislacao). Materia-prima factual para o gancho 'Faltam 15 dias para a ECD'.
+## [1. CASE-BASED REASONING + RAG EM CONSULTORIA B2B (PROJETISTA)]
+Estado da arte de CBR acoplado a RAG: como recuperar por dor/problema e adaptar solucao. 3-5 padroes
+arquiteturais reais, cada um com fonte (URL + data). O que funciona em times pequenos vs grandes.
 
-## [2. ANGULOS DE AUTORIDADE — O QUE A EQUIPE VANGUARD VE QUE O MERCADO NAO FALA]
-3 anglos de conteudo (Technical Deep-Dive) sobre rastreabilidade continua, conciliacao e o custo
-oculto do ajuste manual — escritos em linguagem de 'nosso metodo/nossa equipe', nunca de ferramenta.
-Cada angulo: tese + dado que a sustenta + por que o concorrente (BIG 4 / contabilidade tradicional)
-nao diz isso (ganchos de G-3 Shadow Metrics).
+## [2. AEO + EVENT-DRIVEN INTENT NO LINKEDIN B2B (EMBAIXADOR DIGITAL)]
+Estado da arte de Answer Engine Optimization e deteccao de intencao baseada em evento regulatorio.
+Como estruturar conteudo para citacao por IA; como medir citacao; gate humano antes de outbound (P-121).
+Cada ponto com fonte (URL + data).
 
-## [3. AUTOPSIA REGULATORIA — CASOS PUBLICOS (G-4)]
-2 casos PUBLICOS (TCU / decisoes transitadas em julgado / autuacoes publicadas) relacionados a
-falha de obrigacao fiscal acessoria — exclusivamente publicos, zero cliente Vanguard (P-059).
-Cada caso: o que aconteceu + a licao replicavel + URL da fonte publica + data de acesso.
-
-## [4. GLOSSARIO DE LINGUAGEM BLINDADA (R-3)]
-Tabela: termo-tecnico-interno (proibido) → como dizer publicamente. Ex.: 'pipeline automatizado'
-→ 'fluxo com rastreabilidade continua'. Garante que o Projetista/Embaixador Digital nunca quebrem R-3.
+## [3. POLICY-AS-CODE + SEMANTIC DRIFT (DETECTOR)]
+Estado da arte de Policy-as-Code em git hooks e medicao de drift semantico de promessa. Acuracia,
+lead time, custo computacional. Onde vira burocracia. Cada ponto com fonte (URL + data).
 
 Regra final: tudo ancorado em fonte verificavel (URL + data). Se algo for inferencia, marque [INFERENCIA].
-Se faltar fonte confiavel para um ponto, omita o ponto — nao invente."
+Se faltar fonte confiavel para um ponto, omita o ponto -- nao invente. R-AMPLIATIVO: nao se limite aos
+3 vetores -- adicione vetores adjacentes que ampliem a capacidade dos atores."
 
 ---
 
 ## INSTRUCAO FINAL AO DIRETOR (pos-output do Auditor)
 
-- [ ] Salvar PARTES 1+2+4+5 em: CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V34_VANGUARD.md
-- [ ] Salvar PARTE 3 (Skill) em: .claude/skills/vanguard-v34.md
-- [ ] Salvar PARTE 6 (Briefing) em: CLIENTES/VANGUARD/HISTORICO/BRIEFING_ESTADO_ARTE_LINKEDIN_LOOP34.md
-- [ ] Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\vanguard-v34.md"
+- [ ] Salvar PARTES 1+2+4+5 em: CLIENTES/VANGUARD/HISTORICO/AUDITOR_LOOP_V35_VANGUARD.md
+- [ ] Salvar PARTE 3 (Skill) em: .claude/skills/vanguard-v35.md
+- [ ] Salvar PARTE 6 (Briefing) em: CLIENTES/VANGUARD/HISTORICO/BRIEFING_ESTADO_ARTE_AGENTES_LOOP35.md
+- [ ] Rodar: .\scripts\skill_parser_gate.ps1 -skill ".claude\skills\vanguard-v35.md"
 - [ ] Colar [N-1 a N-5] no PASSO7_EMBAIXADOR.md SECAO D antes de ir ao Embaixador

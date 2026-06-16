@@ -13,7 +13,8 @@
 param(
     [switch]$Report,
     [switch]$Verify,
-    [switch]$MarkReviewed
+    [switch]$MarkReviewed,
+    [switch]$List
 )
 
 $raiz = git rev-parse --show-toplevel 2>$null
@@ -119,6 +120,14 @@ foreach ($f in $codeFiles) {
 
 if ($pendentes.Count -eq 0) {
     if ($Verify) { Write-Host "[CODE-REVIEW R-05] Codigo staged ja revisado. OK." -ForegroundColor Green }
+    exit 0
+}
+
+# ----------------------------------------------------------------------------
+# MODO -List: saida limpa em stdout (uma path por linha) -- para session_start
+# ----------------------------------------------------------------------------
+if ($List) {
+    $pendentes | ForEach-Object { Write-Output $_ }
     exit 0
 }
 

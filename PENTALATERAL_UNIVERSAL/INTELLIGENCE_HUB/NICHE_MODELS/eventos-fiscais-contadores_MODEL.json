@@ -1,5 +1,5 @@
 {
-    "alerta_timing":  "ECD 2026 (leiaute 12) prazo 30/06/2026 (17 dias). ECF 2026 prazo 31/07/2026. Multas automaticas 0,02%/dia ou 5% sobre valor omitido.",
+    "alerta_timing":  "ECD 2026 (Leiaute 9, inalterado — so atualizacao de manual) prazo 30/06/2026. ECF 2026 (Leiaute 12, novo) prazo 31/07/2026. Multas automaticas 0,02%/dia ou 5% sobre valor omitido.",
     "id":  "eventos-fiscais-contadores",
     "cadencia_cowork":  {
                             "frentes_alimentadoras":  [
@@ -14,11 +14,11 @@
                      },
                      {
                          "objecao":  "Ja entregamos ECD todo ano sem problema",
-                         "reversao":  "O leiaute 12 e novo — escritorios que entregaram corretamente nos anos anteriores podem ter inconsistencias no novo formato que o software nao detecta."
+                         "reversao":  "O risco em 2026 nao e o formato (o leiaute 9 da ECD nao mudou) — e o prazo (30/06) e a multa automatica de 0,02%/dia. A Receita cruza ECD x ECF em tempo real; uma inconsistencia antes tolerada agora vira autuacao."
                      },
                      {
                          "objecao":  "O prazo ainda esta longe",
-                         "reversao":  "30 de junho esta a 17 dias. A validacao do leiaute 12 exige ao menos 5 dias uteis — sem contar o prazo para correcoes. O processo precisa comecar hoje."
+                         "reversao":  "A ECD vence em 30 de junho. A validacao e a conciliacao com a ECF exigem ao menos 5 dias uteis — sem contar o prazo para correcoes. E a ECF (leiaute 12, novo) vence logo em seguida, 31 de julho. O processo precisa comecar hoje."
                      }
                  ],
     "match_keywords":  [
@@ -44,10 +44,10 @@
                             },
     "cowork_densidade":  "BAIXA — F20 (frente nova — expandir)",
     "narrativas":  {
-                       "whatsapp_indicacao":  "Oi [nome], [indicado por X]. O leiaute 12 da ECD trouxe mudancas que muitos escritorios ainda nao processaram. Prazo: 30 de junho. Nossa equipe faz o diagnostico de prontidao em 48h. Vale uma conversa?",
-                       "whatsapp_cold":  "O prazo da ECD encerra no dia 30 de junho. A transicao para Eventos Fiscais gera multas automaticas pela Receita para processos nao estruturados. Nossa equipe implementa os fluxos de auditoria necessarios hoje. Sua operacao ja suporta essa mudanca?",
+                       "whatsapp_indicacao":  "Oi [nome], [indicado por X]. A ECD 2026 vence em 30 de junho e a multa por atraso e automatica (0,02%/dia). A Receita cruza ECD x ECF em tempo real. Nossa equipe faz o diagnostico de prontidao em 48h. Vale uma conversa?",
+                       "whatsapp_cold":  "O prazo da ECD encerra no dia 30 de junho. Atraso ou inconsistencia gera multa automatica da Receita e ainda bloqueia a ECF. Nossa equipe implementa os fluxos de auditoria e conciliacao hoje. Sua operacao ja suporta isso?",
                        "argumento_abertura":  "O SPED esta sendo substituido por Eventos Fiscais em tempo real. O erro agora e detectado imediatamente pela Receita. Sua operacao suporta essa mudanca?",
-                       "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa de 200 palavras. Usar argumento_abertura + dados ECD leiaute 12 + dor de autuacao automatica]"
+                       "linkedin_post":  "[AGUARDA_NICHE_MODELER_L34 — narrativa de 200 palavras. Usar argumento_abertura + prazo ECD 30/06 (leiaute 9 inalterado) + ECF leiaute 12 novo (31/07) + dor de autuacao automatica]"
                    },
     "roi_vanguard":  {
                          "retorno":  "Eliminacao de multas fiscais automaticas + reducao do tempo de auditoria manual do escritorio",
@@ -59,19 +59,19 @@
     "qualificacao":  {
                          "perguntas":  [
                                            "Sua carteira tem empresas obrigadas a entregar a ECD? Lucro Real ou algumas do Presumido?",
-                                           "Voces ja rodaram a validacao do leiaute 12 ou ainda estao na versao anterior?",
+                                           "Voces ja fazem a conciliacao entre ECD e ECF, ou tratam cada obrigacao isoladamente?",
                                            "Qual e o maior risco que voce ve hoje: erro de preenchimento, prazo ou conciliacao com a ECF?"
                                        ],
                          "criterios_ideal":  [
                                                  "Carteira com empresas no Lucro Real (ECD obrigatoria)",
-                                                 "Sem validacao especifica do leiaute 12 realizada",
+                                                 "Sem processo de conciliacao ECD x ECF estruturado",
                                                  "Processo de entrega ainda manual ou semi-automatizado"
                                              ]
                      },
     "fit_score":  5,
     "urgencia_regulatoria":  "CRITICA",
     "prospect_ideal":  {
-                           "gatilho_abordagem":  "ECD leiaute 12 — seu escritorio tem o fluxo de validacao pronto?",
+                           "gatilho_abordagem":  "ECD 2026 vence em 30/06 — seu escritorio tem o fluxo de validacao e conciliacao pronto, ou corre risco de multa automatica?",
                            "perfil":  "Socio ou Diretor de escritorio de contabilidade com carteira de empresas no Lucro Real ou Presumido",
                            "busca_linkedin":  "\"socio\" OR \"diretor\" + \"escritorio de contabilidade\" OR \"contador\" + \"SPED\" OR \"ECD\" OR \"obrigacoes acessorias\"",
                            "tamanho_empresa":  "Escritorio com 5 a 30 funcionarios e mais de 20 clientes com obrigacao ECD",
@@ -80,12 +80,12 @@
     "dores":  [
                   "Transicao do SPED para Eventos Fiscais em tempo real — o erro agora e detectado imediatamente pela Receita Federal",
                   "Processos de validacao manuais ineficientes nao acompanham o novo ritmo de autuacoes automaticas",
-                  "Leiaute 12 da ECD trouxe mudancas que passam despercebidas nos escritorios sem atualizacao metodologica",
+                  "Cruzamento ECD x ECF em tempo real — inconsistencias antes toleradas viram autuacao imediata; o leiaute 12 novo e da ECF (prazo 31/07), nao da ECD",
                   "Prazo de 30/06/2026 pressiona escritorios sem fluxo de validacao estruturado",
                   "Multa automatica de 0,02%/dia ou 5% do valor omitido — risco financeiro proporcional ao porte do cliente"
               ],
     "notas_embaixador":  [
-                             "Ha contador conhecido na rede de Eduardo que possa validar a dor do leiaute 12 antes de entrar comercialmente?",
+                             "Ha contador conhecido na rede de Eduardo que possa validar a dor de prazo/conciliacao ECD-ECF antes de entrar comercialmente?",
                              "Associacoes contabeis (CRC, Fenacon) podem ser canais de divulgacao — verificar possibilidade de parceria."
                          ],
     "nome":  "Automacao Auditavel de Eventos Fiscais para Contadores",
@@ -104,7 +104,7 @@
                           "BPO contabil"
                       ],
     "gatilho_regulatorio":  {
-                                "norma":  "ECD 2026 (leiaute 12) e ECF 2026",
+                                "norma":  "ECD 2026 (Leiaute 9, inalterado) e ECF 2026 (Leiaute 12, novo)",
                                 "prazo":  "30/06/2026 (ECD) e 31/07/2026 (ECF)",
                                 "impacto":  "Multas automaticas de 0,02% ao dia ou 5% sobre valor omitido. Transicao do SPED para Eventos Fiscais em tempo real — erros sao detectados imediatamente pela Receita."
                             },

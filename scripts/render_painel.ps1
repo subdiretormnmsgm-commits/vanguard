@@ -131,6 +131,26 @@ if (-not $sinteseArquivo) {
 }
 Write-Host ""
 
+# --- P-173 GATE: pesquisa viva (yt-search) deve preceder a sintese P-037 ---
+$ytGate = Join-Path $PSScriptRoot "gate_yt_search.ps1"
+if (Test-Path $ytGate) {
+    & $ytGate -Horas 24 | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        if ($forcar) {
+            Write-Host "  [P-173] Sem yt-search recente -- BYPASS por -forcar." -ForegroundColor DarkYellow
+        } else {
+            Write-Host "=== P-173 GATE -- BLOQUEADO ===" -ForegroundColor Red
+            Write-Host "Sintese P-037 exige pesquisa viva: nenhuma invocacao de yt-search nas ultimas 24h." -ForegroundColor Red
+            Write-Host "ACAO: rodar  .\scripts\yt.ps1 ""<query do tema do loop>""  antes de gerar o Painel." -ForegroundColor Yellow
+            Write-Host "Bypass (excecao do Diretor): repetir com -forcar." -ForegroundColor DarkGray
+            exit 2
+        }
+    } else {
+        Write-Host "  [P-173] Pesquisa viva OK (yt-search <24h)." -ForegroundColor Green
+    }
+    Write-Host ""
+}
+
 # --- 3. Ler template HTML ---
 if (-not (Test-Path $templatePath)) {
     Write-Error ("Template nao encontrado: " + $templatePath)

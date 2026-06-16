@@ -109,6 +109,20 @@ Write-Host "     $objetivo"
 if ($state.objetivo_declarado_em) {
     Write-Host "     Declarado em: $($state.objetivo_declarado_em)"
 }
+
+# --- P-173: lembrete de pesquisa viva na abertura do loop (advisory, nao bloqueia) ---
+$ytGate = Join-Path $PSScriptRoot "gate_yt_search.ps1"
+if (Test-Path $ytGate) {
+    & $ytGate -Horas 24 | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host ""
+        Write-Host "[P-173] LEMBRETE: nenhuma invocacao de yt-search nas ultimas 24h." -ForegroundColor Yellow
+        Write-Host "        Antes de pesquisar/sintetizar este Loop, rode: .\scripts\yt.ps1 ""<query>""" -ForegroundColor Yellow
+    } else {
+        Write-Host "[P-173] Pesquisa viva OK (yt-search <24h)." -ForegroundColor Green
+    }
+}
+
 Write-Host "[P-160] Loop liberado."
 Write-Host "=================================================="
 exit 0
