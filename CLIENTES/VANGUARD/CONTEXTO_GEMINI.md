@@ -1,4 +1,4 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-16 10:54
+﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-16 11:55
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +9,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-3fa1b2a chore(sync): propaga P-180+P-181 aos espelhos do LEDGER (P-033/P-060) [VEREDITO-DIRETOR]
-65a0e93 feat(gate): P-181 -- trava dura de frescor gdrive:vanguard por data+hora (P-168/P-169 mecanizado) [VEREDITO-DIRETOR]
-17ce776 fix(security): neutraliza service_role Valdece vazada -- migra frontend p/ publishable + desativa chaves JWT legadas
+bc6bb1e chore(sync): propaga estado WIP_BOARD Loop 35 aos espelhos dos clientes (P-033/P-059) [VEREDITO-DIRETOR]
+f7f5d67 feat(loop35): fechamento -- 3 atores formalizados + artefatos canonicos do Loop 35 [VEREDITO-DIRETOR]
+9844a55 feat(detector): system prompt v1.4 + registro no DEPENDENCY_MAP [VEREDITO-DIRETOR]
 
 ================================================================================
 

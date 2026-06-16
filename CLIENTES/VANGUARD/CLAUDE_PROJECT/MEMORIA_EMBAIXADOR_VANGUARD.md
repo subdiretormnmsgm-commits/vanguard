@@ -1,7 +1,9 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 2.4 | Atualizada: 2026-06-15 (P-032) · Loop 34 — Expansão Conselho 6→9 + Presença LinkedIn (1º post ECD) · D1:A (Freeze Embaixador Digital) + D2:A (Régua de Risco)
+> Criada em: 2026-06-06 | Versão: 2.5 | Atualizada: 2026-06-16 (P-032) · Loop 35 consolidado no master — 3 atores formalizados + Detector v1.4 + P-180/P-181 · FALHA-PROCESSO P-180 ENCERRAMENTO corrigida · LOOP 35 ABERTO aguardando fato externo (E-1/PF-1)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
+
+> **Loop 35 (2026-06-16):** sessão de consolidação técnica — merge `loop35-e4` → master (87 arquivos). 3 atores (Projetista 7º, Embaixador Digital 8º, Detector de Deriva) formalizados; Detector v1.4 com 4 correções do Deep Research; P-180 (trava de skill por gatilho) + P-181 (frescor gdrive). **PF-1 segue ATIVO:** loop continua sem fato externo (pipeline ZERO) — POST ECD pronto, Company Page pendente, ambos aguardando veredito do Diretor para publicar. O LOOP 35 não fecha (E-1) até prova de fato externo. Padrão Builder>Vendedor confirmado pela 4ª vez.
 
 ---
 

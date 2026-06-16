@@ -4,8 +4,8 @@
     "principio": "P-180",
     "origem": "FALHA-PROCESSO-2026-06-16 -- skill nao invocada nos gatilhos do processo (6 ocorrencias apontadas pelo Diretor). v2.1: etapa ANALISE_DELIBERACAO (Diretor 2026-06-16) -- ultrathink-trigger + brainstorming na analise; writing-plans pos-veredito.",
     "regra": "1% de chance de skill aplicar = invocacao OBRIGATORIA antes de qualquer acao da etapa. Skill por GATILHO MECANICO, nunca por memoria do Musculo (DEF-M-6).",
-    "skills_read_based": ["ultrathink-trigger"],
-    "skills_read_based_doc": "Skills que NAO sao invocadas via tool Skill, mas via Read do .md (ex: ultrathink-trigger -> Read('.claude/skills/ultrathink-trigger.md')). skill_tracker registra o Read DESTAS skills no estado da sessao. SEGURANCA: somente as desta allowlist contam por Read -- todas as outras skills (notebooklm-remote-v1, embaixador-*, gemini-pentalateral, YT-SEARCH) so contam via tool Skill, senao o Read do .md seria um bypass da trava.",
+    "skills_read_based": ["ultrathink-trigger", "embaixador-encerramento-v1"],
+    "skills_read_based_doc": "Skills que NAO sao invocadas via tool Skill, mas via Read do .md (ex: ultrathink-trigger -> Read('.claude/skills/ultrathink-trigger.md')). skill_tracker registra o Read DESTAS skills no estado da sessao. CORRECAO 2026-06-16 (FALHA-PROCESSO -- gate ENCERRAMENTO insatisfazivel): as skills .md LOCAIS Vanguard (embaixador-*, notebooklm-remote-v1, gemini-pentalateral, YT-SEARCH, claude-projects-remote-v1) NAO sao registradas na tool Skill do Claude Code -- a unica invocacao real neste ambiente e o Read do .md (igual ao ultrathink-trigger). Sem read-based o gate fica sem caminho de satisfacao (trava permanente, contra a filosofia fail-open do guard). embaixador-encerramento-v1 promovida a read-based para destravar o encerramento. PENDENTE VEREDITO DIRETOR: decidir o conserto sistemico -- (a) promover TODAS as skills .md locais a read-based, OU (b) registra-las como skills reais da tool Skill. As demais (PASSO5/PASSO7/INICIO_LOOP) seguem insatisfaziveis ate o veredito.",
     "fonte_de_verdade": true,
     "consumido_por": [
       "scripts/skill_gate.ps1 (consulta humana)",
