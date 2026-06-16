@@ -99,6 +99,7 @@ $fQuinzenal = @()
 if ($diaMes -eq 1 -or $diaMes -eq 15) { $fQuinzenal += "F5 + F9 (Espelho Estrategico + Radar de Fomento)" }
 $fMensal = @()
 if ($diaMes -eq 1) { $fMensal += "F7 + F8 + F11 + NICHE_MODELER (enriquecimento mensal -- sessao Gemini)" }
+if ($diaMes -eq 1) { $fMensal += "M-STATS (Analise Estatistica de Nicho -- skill market-stats-analysis: market sizing TAM/SAM/SOM dupla-via + tendencia c/ IC sobre o produto Vanguard; saida -> PENDING_REVIEW)" }
 
 # ── Briefings esperados no INBOX_COWORK ─────────────────────────────────────────
 $briefingsEsperados = @()

@@ -63,8 +63,11 @@ briefings esperar. Integrada ao `session_start`.
 | **F8** | Demo Visionário — roteiro/artefato por vertical | `demo_disponivel`, `roteiro_demo_arquivo` | SIM — envia para revisão |
 | **F11** | Radar de Preço — benchmark do mercado | `pricing.referencia_mercado` | SIM — valida pricing Vanguard |
 | **NICHE_MODELER** | Sessão única Gemini Advanced para enriquecer todos os modelos | Todos os campos — revisão completa | **SIM — SESSÃO PRINCIPAL** |
+| **M-STATS** | Análise Estatística de Nicho — skill `market-stats-analysis`: market sizing TAM/SAM/SOM (dupla-via, ±15%) + tendência com IC sobre o produto Vanguard mais recente | `market_sizing`, `tendencia_ic`, `pricing.referencia_mercado` | NÃO — camada analítica fria; handoff ao Projetista (R-3) |
 
 **Regra mensal:** No dia 1, após F7+F8+F11 rodarem, o Músculo prepara PASSO_NICHE_MODELER.md atualizado e o Diretor abre sessão Gemini. Output vai para PENDING_REVIEW com flag `[ALERTA]` se urgência detectada.
+
+**M-STATS (engrenagem analítica, dia 1 + sob demanda):** quem usa é o Músculo (análise base, via skill `market-stats-analysis`) e o Executor Cowork (robustece). Input = Cartões de Nicho / produto Vanguard; output = camada de números anexada ao Cartão → `PENDING_REVIEW` (P-124) → handoff ao Projetista. Ativação manual pelo Diretor é **notificada via Telegram** (W-11 Ativação Manual Notifier, n8n).
 
 ---
 

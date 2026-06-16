@@ -17,7 +17,15 @@ param(
     [switch]$List
 )
 
-$raiz = git rev-parse --show-toplevel 2>$null
+# raiz por $PSScriptRoot (P-183 / #17): sob o git-sh o console e CP850 e a saida UTF-8
+# de 'git rev-parse --show-toplevel' corrompe o acento de 'Area de Trabalho' -- quebrava
+# Test-Path do flag e bloqueava o commit mesmo com a review feita. $PSScriptRoot chega
+# correto via -File. Mesmo padrao ja usado por .git/hooks/pre-commit.ps1.
+if ($PSScriptRoot) {
+    $raiz = Split-Path $PSScriptRoot -Parent   # <raiz>/scripts -> <raiz>
+} else {
+    $raiz = git rev-parse --show-toplevel 2>$null
+}
 if (-not $raiz) { Write-Host "[CODE-REVIEW] Nao e repositorio git -- pulado." -ForegroundColor DarkGray; exit 0 }
 
 $flag = Join-Path $raiz ".code_review_done.flag"
