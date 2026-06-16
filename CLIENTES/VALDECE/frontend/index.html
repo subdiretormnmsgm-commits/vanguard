@@ -679,7 +679,11 @@
 
   // ── Config ──
   const SUPABASE_URL  = 'https://hqqxzecftkvtrlpkhvnc.supabase.co';
-  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcXh6ZWNmdGt2dHJscGtodm5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzg5NjYsImV4cCI6MjA5NDcxNDk2Nn0.AFWbk2oi7zKDu7Q922CqS-cc-pG_VJNYMqqH2BeouxA';
+  // Chave PUBLISHABLE (sistema novo de chaves) — substitui a anon JWT legada em
+  // 2026-06-16. Publica por design e protegida por RLS, igual a anon. Migracao para
+  // permitir desativar as chaves JWT legadas (a service_role legada vazou no git).
+  // Confirmada HTTP 200 no Data API antes do deploy. Ver CHAVES + LEDGER 2026-06-16.
+  const SUPABASE_ANON = 'sb_publishable_aeHpH5o9Ia-5oRZBxt3Trg_EGMBZEH4';
   // GEMINI_KEY removida do frontend — agora via proxy Netlify (embed.js)
   // Nunca colocar API keys de terceiros no frontend — P-061
 

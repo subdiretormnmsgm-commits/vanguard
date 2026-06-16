@@ -16,9 +16,9 @@ load_dotenv(Path(__file__).parent.parent / ".env")
 NEW_URL = os.environ["SUPABASE_URL"]
 NEW_KEY = os.environ["SUPABASE_SERVICE_KEY"]
 
-# Supabase antigo (origem) — credenciais hardcoded para esta migração
-OLD_URL = "https://hqqxzecftkvtrlpkhvnc.supabase.co"
-OLD_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcXh6ZWNmdGt2dHJscGtodm5jIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3OTEzODk2NiwiZXhwIjoyMDk0NzE0OTY2fQ.z-AhKLYy9bKupZEAqfZnn_yYuI75l7dWPiozRSddfsY"
+# Supabase antigo (origem) — chave via .env (NUNCA hardcoded — HV-1/P-098)
+OLD_URL = os.environ.get("SUPABASE_OLD_URL", "https://hqqxzecftkvtrlpkhvnc.supabase.co")
+OLD_KEY = os.environ["SUPABASE_OLD_SERVICE_KEY"]
 
 HEADERS_OLD = {"apikey": OLD_KEY, "Authorization": f"Bearer {OLD_KEY}"}
 HEADERS_NEW = {
