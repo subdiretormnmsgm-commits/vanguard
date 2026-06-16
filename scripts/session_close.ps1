@@ -81,6 +81,25 @@ if (-not $p059FuncOk) {
 }
 Write-Host "  ========================================================" -ForegroundColor Cyan
 
+# AVISO E-1 -- Trava-PF-1 (advisory no fechamento de SESSAO; o bloqueio DURO esta no
+# close_loop.ps1, que e onde o LOOP fecha). Aqui so da visibilidade ao Diretor.
+$gateE1 = Join-Path $PSScriptRoot "gate_e1_fechamento.ps1"
+if (Test-Path $gateE1) {
+    # VANGUARD e o loop interno -- pode nao estar em cliAtivos59 (WIP_BOARD BUILD/RETAINER).
+    # Garantir que o loop com E-1 armado sempre recebe o aviso.
+    $cliE1List = @($cliAtivos59) + @("VANGUARD") | Select-Object -Unique
+    foreach ($cliE1 in $cliE1List) {
+        & powershell.exe -NonInteractive -File $gateE1 -cliente $cliE1 | Out-Null
+        if ($LASTEXITCODE -eq 2) {
+            Write-Host ""
+            Write-Host "  [E-1] AVISO -- $cliE1 : Loop sem prova de fato externo (PF-1)."   -ForegroundColor Yellow
+            Write-Host "        POST nao publicado e nenhuma conversa real registrada."        -ForegroundColor Yellow
+            Write-Host "        A SESSAO pode fechar, mas o LOOP nao fecha (close_loop.ps1)"    -ForegroundColor Yellow
+            Write-Host "        ate registrar e1_evidencia.post_url OU e1_evidencia.conversa_real." -ForegroundColor Yellow
+        }
+    }
+}
+
 # GATE NOTION -- sincronizacao bloqueante (P-128)
 # Pendentes abertos + WIP Board + Ledger chegam ao Notion antes de encerrar sessao.
 # Roda se exitCode <= 1 (nao roda se sessao ja esta em falha critica exit 2).
