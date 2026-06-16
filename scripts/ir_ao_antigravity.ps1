@@ -109,6 +109,27 @@ if (Test-Path $pendPath) {
     }
 }
 
+# Ler ultima entrada do ANTIGRAVITY_SESSION_LOG (memoria de contexto entre sessoes)
+# Origem: Sugestao do Diretor no Notion 2026-06-16 -- "Antigravity saber contexto da ultima sessao dele"
+$ultimaSessao = ""
+$logPath = Join-Path $raiz "CONSELHO\ANTIGRAVITY_SESSION_LOG.md"
+if (Test-Path $logPath) {
+    $logLinhas = Get-Content $logPath -Encoding UTF8 -ErrorAction SilentlyContinue
+    $capturando = $false
+    $bloco = @()
+    foreach ($l in $logLinhas) {
+        if ($l -match '^##\s') {
+            if ($capturando) { break }   # ja capturou a 1a entrada (mais recente) -- para na 2a
+            $capturando = $true
+        }
+        if ($capturando) { $bloco += $l }
+    }
+    if ($bloco.Count -gt 0) {
+        $ultimaSessao = ($bloco | Where-Object { $_.Trim() -ne "" }) -join " "
+        if ($ultimaSessao.Length -gt 400) { $ultimaSessao = $ultimaSessao.Substring(0, 397) + "..." }
+    }
+}
+
 # Contexto da acao
 $contextoAcao = if ($acao) { $acao } else {
     switch ($papel) {
@@ -126,6 +147,14 @@ $contextoAcao = if ($acao) { $acao } else {
 
 # Montar o prompt
 $linhasPrompt = @("@$skillAtual $contextoAcao")
+# ETAPA 0 -- contexto da ultima sessao do Antigravity (memoria entre sessoes)
+$linhasPrompt += ""
+if ($ultimaSessao) {
+    $linhasPrompt += "ETAPA 0 (contexto da sua ultima sessao): $ultimaSessao"
+    $linhasPrompt += "Leia CONSELHO/ANTIGRAVITY_SESSION_LOG.md no workspace se precisar do historico completo."
+} else {
+    $linhasPrompt += "ETAPA 0: leia CONSELHO/ANTIGRAVITY_SESSION_LOG.md no workspace (sua memoria de sessoes anteriores)."
+}
 if ($pendentes.Count -gt 0) {
     $linhasPrompt += ""
     $linhasPrompt += "Pendentes abertas: " + ($pendentes -join " | ")
@@ -134,6 +163,9 @@ if ($papel -eq "ESTRATEGISTA") {
     $linhasPrompt += ""
     $linhasPrompt += "Instrucao: apos @concise-planning, invocar @brainstorming para qualquer decisao arquitetural ou DIRETRIZ."
 }
+# ETAPA FINAL -- anexar entrada ao log (memoria para a proxima sessao)
+$linhasPrompt += ""
+$linhasPrompt += "ETAPA FINAL (obrigatoria): ao terminar, anexe no TOPO da lista em CONSELHO/ANTIGRAVITY_SESSION_LOG.md uma entrada: ## $dataHoje ($diaSemana) -- $papel | Objetivo | O que fiz | Arquivos tocados | Decisao/output (destino PENDING_REVIEW.md) | Proximo passo."
 $prompt = $linhasPrompt -join "`n"
 
 # --- Output ---
@@ -151,6 +183,11 @@ if (-not $instalada) {
     Write-Host "  Instalar: npx antigravity-awesome-skills --antigravity" -ForegroundColor Yellow
 }
 Write-Host "Projeto ativo   : $clienteAtivo | Loop $loopAtivo" -ForegroundColor White
+if ($ultimaSessao) {
+    Write-Host "Ultima sessao   : $ultimaSessao" -ForegroundColor DarkCyan
+} else {
+    Write-Host "Ultima sessao   : (log vazio -- primeira sessao registrada)" -ForegroundColor DarkGray
+}
 Write-Host ""
 Write-Host "Skills complementares (invocar conforme necessidade):" -ForegroundColor DarkGray
 foreach ($comp in $cfg.complementar) {

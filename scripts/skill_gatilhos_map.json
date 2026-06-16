@@ -27,7 +27,7 @@
       "gatilhos": ["iniciar loop", "abrir loop", "novo loop", "preparar passo3", "objetivo do loop", "p-160", "compilar sugestoes", "frescor de videos", "yt-search"],
       "skill_obrigatoria": "YT-SEARCH",
       "gatilho_acao": [
-        { "tool": "Bash", "campo": "command", "padrao": "yt\\.ps1" }
+        { "tool": "Bash", "campo": "command", "padrao": "\\.\\\\scripts\\\\yt\\.ps1" }
       ],
       "acao": "Invocar a skill YT-SEARCH + rodar .\\scripts\\yt.ps1 para frescor de videos ANTES de montar o PASSO3.",
       "falha_se_pular": "Loop aberto com dados desatualizados (P-173)."
@@ -37,7 +37,7 @@
       "gatilhos": ["passo3", "passo 3", "gemini", "antigravity", "diretriz", "estrategista", "ir ao gemini"],
       "skill_obrigatoria": "gemini-pentalateral",
       "gatilho_acao": [
-        { "tool": "Bash", "campo": "command", "padrao": "gemini_anchor_generator\\.ps1|ir_ao_antigravity\\.ps1" }
+        { "tool": "Bash", "campo": "command", "padrao": "\\.\\\\scripts\\\\(gemini_anchor_generator|ir_ao_antigravity)\\.ps1" }
       ],
       "acao": "Invocar gemini-pentalateral. Para Antigravity: declarar PAPEL + citar ARSENAL exato de skills (P-166) via .\\scripts\\ir_ao_antigravity.ps1 -papel <PAPEL>.",
       "falha_se_pular": "DIRETRIZ invalida / Antigravity age sem plano (P-163 / P-166)."
@@ -84,7 +84,7 @@
       "dependencia": "claude-projects-remote-v1",
       "gatilho_acao": [
         { "tool": "browser_navigate", "campo": "url", "padrao": "019e4c70" },
-        { "tool": "Bash", "campo": "command", "padrao": "session_close\\.ps1" }
+        { "tool": "Bash", "campo": "command", "padrao": "\\.\\\\scripts\\\\session_close\\.ps1" }
       ],
       "acao": "Invocar embaixador-encerramento-v1: verify_gdrive_freshness -Perfil ENCERRAMENTO + Playwright envia mensagem canonico ao caderno 'Embaixador -- Diretor' (019e4c70) (Drive-First, sem upload, BLOCO 0 em texto simples).",
       "falha_se_pular": "Sessao fecha sem o BLOCO 0 que ancora a proxima abertura (P-114)."
