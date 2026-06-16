@@ -14,7 +14,7 @@ PROJETO: PROJ-000 — VANGUARD
   Stack     : Hermes Agent (Docker EasyPanel) + n8n (orquestrador) + Claude API (Haiku -- verificacao)
   Deadline  : 
   Status    : BUILD
-  Loop atual: Loop 34 ABERTO (2026-06-14) -- formalizacao 3 novos atores (Projetista 7o / Embaixador Digital 8o / Detector de Deriva) -- objetivo P-160 declarado -- atores ativam APOS fim do loop
+  Loop atual: Loop 35 ABERTO (2026-06-15) -- APERFEICOAMENTO dos 3 atores (Projetista / Embaixador Digital / Detector de Deriva) -- amplia capacidade de cada um (R-AMPLIATIVO, teto indefinido) -- objetivo P-160 declarado -- Loop 34 FRACASSO arquivado
 
 ==============================
 COLUNA: CHECK
