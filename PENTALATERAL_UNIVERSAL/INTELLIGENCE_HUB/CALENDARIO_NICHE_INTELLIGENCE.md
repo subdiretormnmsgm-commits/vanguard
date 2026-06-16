@@ -67,7 +67,7 @@ briefings esperar. Integrada ao `session_start`.
 
 **Regra mensal:** No dia 1, após F7+F8+F11 rodarem, o Músculo prepara PASSO_NICHE_MODELER.md atualizado e o Diretor abre sessão Gemini. Output vai para PENDING_REVIEW com flag `[ALERTA]` se urgência detectada.
 
-**M-STATS (engrenagem analítica, dia 1 + sob demanda):** quem usa é o Músculo (análise base, via skill `market-stats-analysis`) e o Executor Cowork (robustece). Input = Cartões de Nicho / produto Vanguard; output = camada de números anexada ao Cartão → `PENDING_REVIEW` (P-124) → handoff ao Projetista. Ativação manual pelo Diretor é **notificada via Telegram** (W-11 Ativação Manual Notifier, n8n).
+**M-STATS (engrenagem analítica, dia 1 + sob demanda):** quem usa é o Músculo (análise base, via skill `market-stats-analysis`) e o Executor Cowork (robustece). Input = Cartões de Nicho / produto Vanguard; output = camada de números anexada ao Cartão → `PENDING_REVIEW` (P-124) → handoff ao Projetista. **Execução interna do motor — NÃO é ativação manual do Diretor**, portanto **não entra na notificação do W-11** (que cobre apenas Projetista e Embaixador Digital, por refinamento do Diretor em 2026-06-16, terça-feira).
 
 ---
 

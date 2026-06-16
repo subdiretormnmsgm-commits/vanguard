@@ -1,21 +1,27 @@
 # RUNBOOK — W-11 ATIVAÇÃO MANUAL NOTIFIER (n8n → Telegram)
 
 > Desenho aprovado pelo Diretor em 2026-06-16. Cadências ratificadas na mesma data.
-> CONSTRUÍDO em 2026-06-16 — **id n8n: `vew2fonxWwiGB9uQ`** · estado: **ATIVO**.
+> CONSTRUÍDO em 2026-06-16 (terça-feira) — **id n8n: `vew2fonxWwiGB9uQ`** · estado: **ATIVO**.
 > Nome corrigido de W-10 → **W-11**: "W-10" já existe (`8yvX4MBzdaK5l6IQ` — n8n Health Check).
 > Skill usada: `n8n-remote-v1` (Code = lógica pura · Telegram = httpRequest dedicado typeVersion 4.2).
-> **ATIVADO em 2026-06-16 por ordem do Diretor** ("Tudo ativado automaticamente" → "Ativar W-11 agora"),
-> sobrepondo a regra dos 7 dias de staging. Primeiro disparo: 2026-06-17 07:05 BRT (se houver ator do dia).
+> **ATIVADO em 2026-06-16 (terça-feira) por ordem do Diretor** ("Tudo ativado automaticamente" → "Ativar W-11 agora"),
+> sobrepondo a regra dos 7 dias de staging. Primeiro disparo possível: 2026-06-17 (quarta-feira) 07:05 BRT —
+> mas quarta não é dia de cadência, então o primeiro disparo real será 2026-06-19 (sexta-feira) → Projetista.
 > Reverter (se preciso): `POST /api/v1/workflows/vew2fonxWwiGB9uQ/deactivate`.
 
 ---
 
 ## PROPÓSITO
 
-Notificar o Diretor no Telegram, toda manhã, **somente** quando há ator a ativar
-manualmente hoje (M-STATS / Projetista / Embaixador Digital). Silencia nos dias sem
-ativação (mesmo padrão do W-6 Session Watch). O motor prepara o insumo; o W-11 só
+Notificar o Diretor no Telegram, toda manhã, **somente** quando há ator de **ativação
+manual do Diretor** a acionar hoje — **Projetista** e **Embaixador Digital**. Silencia nos
+dias sem ativação (mesmo padrão do W-6 Session Watch). O motor prepara o insumo; o W-11 só
 lembra o Diretor de **quando** acionar cada ator manual.
+
+> **Refinamento do Diretor (2026-06-16, terça-feira):** o W-11 notifica **apenas** Projetista e Embaixador
+> Digital. **M-STATS saiu da notificação** — é camada analítica fria rodada pelo **Músculo/Executor**
+> dentro do motor (não é ação do Diretor), então não deve interromper o Diretor. **Diretor Vanguard**
+> ainda é intenção futura (não implementado) — quando existir, ganha sua própria notificação.
 
 Natureza: camada de automação (Hermes/n8n). NÃO é loop. P-160 não se aplica.
 
@@ -23,11 +29,14 @@ Natureza: camada de automação (Hermes/n8n). NÃO é loop. P-160 não se aplica
 
 ## CADÊNCIAS (ratificadas pelo Diretor 2026-06-16)
 
-| Ator | Quando ativar | Ação que o Diretor dispara |
+| Ator | Quando notificar | Ação que o Diretor dispara |
 |---|---|---|
-| **M-STATS** (skill `market-stats-analysis`) | dia 1 do mês | rodar a skill sobre o Cartão de Nicho do mês |
 | **PROJETISTA** | toda Sexta + dia 1 | gerar PLANOS + CAMPANHA do produto Vanguard |
 | **EMBAIXADOR DIGITAL** | toda Segunda + dia 5 | prospectar (LinkedIn) a partir do produto + camada M-STATS |
+
+> **M-STATS NÃO entra na notificação** (skill `market-stats-analysis`): roda mensal (dia 1) pelo
+> **Músculo/Executor** dentro do motor, alimentando o produto que o Projetista consome. É execução
+> interna, não ativação do Diretor — por isso não dispara mensagem no Telegram.
 
 ---
 
@@ -61,10 +70,9 @@ const agora = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/S
 const dow = agora.getDay();   // 0=Dom .. 1=Seg .. 5=Sex
 const dia = agora.getDate();  // 1..31
 
-// Cadências ratificadas pelo Diretor 2026-06-16.
+// Refinado pelo Diretor 2026-06-16: notificar SOMENTE atores de ativação manual do Diretor.
+// M-STATS saiu da notificação (roda no Músculo/Executor dentro do motor — não é ação do Diretor).
 const regras = [
-  { ator: 'M-STATS (Análise Estatística de Nicho)', quando: (dia === 1),
-    acao: 'rodar skill market-stats-analysis sobre o Cartão de Nicho do mês' },
   { ator: 'PROJETISTA', quando: (dow === 5 || dia === 1),
     acao: 'gerar PLANOS + CAMPANHA do produto Vanguard' },
   { ator: 'EMBAIXADOR DIGITAL', quando: (dow === 1 || dia === 5),
@@ -110,7 +118,7 @@ return [{ json: { temAtivacao: ativacoes.length > 0, textoAtivacao: texto, chatI
 - [x] `continueOnFail: true` no node Telegram.
 - [x] Validar lógica de cadência (hoje silencia; dia 1 dispara os 3; cadências batem).
 - [x] Testar 1 disparo Telegram — recebido pelo Diretor (message_id 432), Markdown OK.
-- [x] **ATIVADO em 2026-06-16** por ordem do Diretor (staging sobreposto) — `active: True` confirmado via API.
+- [x] **ATIVADO em 2026-06-16 (terça-feira)** por ordem do Diretor (staging sobreposto) — `active: True` confirmado via API.
 - [ ] Registrar W-11 na tabela de workflows do `CLAUDE.md` + `RUNBOOK_EASYPANEL.md` (P-098 → `.musculo_autorizacao.flag`).
 
 > Infra n8n: EasyPanel cloud 24/7. Credenciais em `N8N Easypanel.txt` (gitignored).

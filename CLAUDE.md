@@ -612,7 +612,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 | W-7 Cérebro de Bolso | Webhook Telegram | /status /score /custo /veredito via Telegram → resposta imediata |
 | W-8 Signal Classifier | Webhook POST | Classifica sinais AUTO-RESOLVE/INFORMAR/DELIBERAR-A/B/C → `silenced_signals_log` (shadow mode 7d) |
 | W-9 Track TRENDS | Cron segunda 8h BRT | Relatório semanal de tendências por nicho via Antigravity + /notebooklm → INTELLIGENCE_HUB/TRENDS/ → Telegram |
-| W-11 Ativação Manual Notifier | Cron 7:05 BRT (1x/dia) | Notifica Telegram só quando há ator manual a acionar hoje (M-STATS dia 1 · Projetista Sexta+dia 1 · Embaixador Digital Segunda+dia 5); silencia nos demais dias. Runbook: `RUNBOOK_W11_ATIVACAO_NOTIFIER.md` · id n8n `vew2fonxWwiGB9uQ` (ATIVO 2026-06-16) |
+| W-11 Ativação Manual Notifier | Cron 7:05 BRT (1x/dia) | Notifica Telegram só quando há ativação MANUAL do Diretor hoje — Projetista (Sexta+dia 1) · Embaixador Digital (Segunda+dia 5); silencia nos demais dias. M-STATS NÃO entra (roda no Músculo/Executor). Runbook: `RUNBOOK_W11_ATIVACAO_NOTIFIER.md` · id n8n `vew2fonxWwiGB9uQ` (ATIVO 2026-06-16 terça-feira) |
 
 **Regras obrigatórias para o Músculo:**
 - Nunca chamar APIs externas (Claude, Gemini, Telegram) diretamente do código local — usar n8n como proxy quando possível
