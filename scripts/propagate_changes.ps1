@@ -1,5 +1,7 @@
 #Requires -Version 5.1
-# propagate_changes.ps1 — Propaga mudancas de arquivos-fonte para todos os destinos
+# propagate_changes.ps1 - Propaga mudancas de arquivos-fonte para todos os destinos
+# ASCII puro obrigatorio (sem em-dash/acentos): PS 5.1 -File le arquivo sem BOM na
+# codepage ANSI/OEM e corrompe multibyte, desviando o fluxo silenciosamente. P-183.
 # Baseado em DEPENDENCY_MAP.json. P-060: Eduardo nunca gerencia propagacao.
 #
 # Uso:
@@ -43,7 +45,7 @@ if ($Arquivo -ne "") {
 $modoForcar = $modoForcar -or ($arquivosAlterados.Count -eq 0 -and $Arquivo -eq "")
 
 if ($arquivosAlterados.Count -eq 0) {
-    Write-Host "  [OK] Nenhum arquivo alterado — propagacao nao necessaria." -ForegroundColor DarkGray
+    Write-Host "  [OK] Nenhum arquivo alterado - propagacao nao necessaria." -ForegroundColor DarkGray
     exit 0
 }
 
@@ -148,7 +150,7 @@ foreach ($regra in $map.rules) {
 
 Write-Host ""
 if ($propagados -gt 0) {
-    Write-Host "  [PROPAGATE] $propagados destino(s) atualizados — zero intervencao do Diretor." -ForegroundColor Cyan
+    Write-Host "  [PROPAGATE] $propagados destino(s) atualizados - zero intervencao do Diretor." -ForegroundColor Cyan
 } else {
     Write-Host "  [PROPAGATE] Nenhuma propagacao necessaria." -ForegroundColor DarkGray
 }
