@@ -66,6 +66,25 @@ foreach ($t in $mTasks) {
     if (Test-CadenciaHoje $t.Regra) { $mHoje += $t }
 }
 
+# ── E-4 Burn Rate Shield gate (Loop 35) ─────────────────────────────────────────
+# DRY-RUN (sem -Registrar): NAO consome orcamento. So anota, para cada tarefa M
+# prevista hoje, se o custo projetado violaria o teto diario/madrugada.
+# rc 0 = LIBERADO, rc 2 = BLOQUEADO, qualquer outro (incl. 1 ou shield ausente)
+# = INDISPONIVEL (aviso leve, NUNCA bloqueia o proprio gate de data).
+$shieldPath = Join-Path $PSScriptRoot "burn_rate_shield.ps1"
+$shieldExiste = Test-Path $shieldPath
+foreach ($t in $mHoje) {
+    if (-not $shieldExiste) {
+        $t.Orcamento = "INDISPONIVEL"
+        continue
+    }
+    & $shieldPath -Tarefa $t.Id -Cliente "VANGUARD" 2>&1 | Out-Null
+    $rc = $LASTEXITCODE
+    if     ($rc -eq 0) { $t.Orcamento = "LIBERADO" }
+    elseif ($rc -eq 2) { $t.Orcamento = "BLOQUEADO" }
+    else               { $t.Orcamento = "INDISPONIVEL" }
+}
+
 # ── Ritmo semanal das frentes F (inteligencia de mercado generica) ──────────────
 $fSemanal = switch ($diaSemana) {
     "Monday"    { "F1 + F2 + F4a + F12 (Radar de Dor + Oportunidades + 1a rodada + Briefing Fundador)" }
@@ -91,7 +110,7 @@ if ($Json) {
         data                = $hoje.ToString("yyyy-MM-dd")
         dia_semana          = "$diaSemana"
         dia_mes             = $diaMes
-        cowork_m_hoje       = @($mHoje | ForEach-Object { @{ id = $_.Id; tema = $_.Tema; hora = $_.Hora } })
+        cowork_m_hoje       = @($mHoje | ForEach-Object { @{ id = $_.Id; tema = $_.Tema; hora = $_.Hora; orcamento = $_.Orcamento } })
         frentes_semanal     = $fSemanal
         frentes_quinzenal   = $fQuinzenal
         frentes_mensal      = $fMensal
@@ -111,7 +130,12 @@ Write-Host ""
 if ($mHoje.Count -gt 0) {
     Write-Host "  TAREFAS COWORK FONOGRAFICAS (M1-M7) PREVISTAS HOJE:"
     foreach ($t in $mHoje) {
-        Write-Host ("    {0} {1,-32} (roda {2} BRT) -> colher BRIEFING_MUSCULO_{0}" -f $t.Id, $t.Tema, $t.Hora)
+        switch ($t.Orcamento) {
+            "LIBERADO"  { $e4 = " [E-4: LIBERADO]" }
+            "BLOQUEADO" { $e4 = " [E-4: BLOQUEADO -- NAO COLHER hoje]" }
+            default     { $e4 = " [E-4: INDISPONIVEL -- shield off]" }
+        }
+        Write-Host (("    {0} {1,-32} (roda {2} BRT) -> colher BRIEFING_MUSCULO_{0}" -f $t.Id, $t.Tema, $t.Hora) + $e4)
     }
 } else {
     Write-Host "  Nenhuma tarefa Cowork fonografica (M1-M7) prevista para hoje."
@@ -126,7 +150,13 @@ Write-Host ""
 
 if ($briefingsEsperados.Count -gt 0) {
     Write-Host "  BRIEFINGS A COLHER NO INBOX_COWORK (folder 1EjaH6TmsxbYpgKWb7ASm7CohFJfwSLKi):"
-    foreach ($b in $briefingsEsperados) { Write-Host "    -> $b   (firewall: PENDING_REVIEW [NICHO-FONOGRAFICO] -- P-124/P-132 -- P-059 N/A)" }
+    foreach ($b in $briefingsEsperados) {
+        $bId = $b -replace "^BRIEFING_MUSCULO_", ""
+        $bTask = $mHoje | Where-Object { $_.Id -eq $bId } | Select-Object -First 1
+        $flag = ""
+        if ($bTask -and $bTask.Orcamento -eq "BLOQUEADO") { $flag = " -- BLOQUEADO POR E-4, NAO COLHER" }
+        Write-Host "    -> $b   (firewall: PENDING_REVIEW [NICHO-FONOGRAFICO] -- P-124/P-132 -- P-059 N/A)$flag"
+    }
     Write-Host ""
     Write-Host "  Briefing previsto e AUSENTE = alerta de falha do Cowork (reportar ao Diretor)."
     Write-Host "  Briefing presente mas NAO previsto hoje = registrar, NAO colher; checar a data na grade."
