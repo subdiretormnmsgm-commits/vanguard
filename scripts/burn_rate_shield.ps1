@@ -17,16 +17,16 @@ Set-StrictMode -Off
 $ErrorActionPreference = "Stop"
 
 # --- Resolucao de caminhos ---
-$RepoRoot = Split-Path $PSScriptRoot -Parent
+$raiz = Split-Path $PSScriptRoot -Parent
 
 if ($ConfigPath -eq "") {
-    $ConfigPath = Join-Path $RepoRoot "scripts\burn_rate_config.json"
+    $ConfigPath = Join-Path $raiz "scripts\burn_rate_config.json"
 }
 elseif (-not [System.IO.Path]::IsPathRooted($ConfigPath)) {
-    $ConfigPath = Join-Path $RepoRoot $ConfigPath
+    $ConfigPath = Join-Path $raiz $ConfigPath
 }
 
-$StateDir  = Join-Path $RepoRoot "CLIENTES\$Cliente\CLAUDE_PROJECT"
+$StateDir  = Join-Path $raiz "CLIENTES\$Cliente\CLAUDE_PROJECT"
 $StateFile = Join-Path $StateDir "burn_rate_state.json"
 
 # --- Carregar config ---
