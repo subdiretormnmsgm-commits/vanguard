@@ -567,8 +567,27 @@ if (-not (Test-Path $msgAdaptadaPath)) {
         # Limpar arquivo apos exibir
         Remove-Item $msgAdaptadaPath -Force -ErrorAction SilentlyContinue
         Write-Host ""
-        Write-Host "  [GATE EMBAIXADOR] VERDE -- mensagem exibida no formato canonico." -ForegroundColor Green
+        Write-Host "  [GATE EMBAIXADOR] mensagem PREPARADA -- falta a captura remota do BLOCO 0." -ForegroundColor Yellow
     }
+}
+
+# GATE EMBAIXADOR EVIDENCIA -- BLOCO 0 capturado remotamente (BLOQUEANTE)
+# A mensagem acima e apenas o PREPARO. A prova de encerramento e o BLOCO 0 salvo pela
+# skill embaixador-encerramento-v1 (Playwright -> caderno 019e4c70, Drive-First, sem upload).
+# Sem esse arquivo a sessao NAO fecha -- impede confundir "mensagem exibida" com "encerramento feito".
+# Piso de tamanho (>100 bytes): arquivo vazio/placeholder passa em Test-Path -- exigir conteudo real
+# fecha a mesma classe de auto-engano que o gate combate (mensagem preparada != encerramento feito).
+$bloco0Path = "$baseDir\PROTOCOLOS_ENCERRAMENTO\BLOCO0_$dataFim.md"
+if ((Test-Path $bloco0Path) -and ((Get-Item $bloco0Path).Length -gt 100)) {
+    Write-Host ""
+    Write-Host "  [GATE EMBAIXADOR] VERDE -- BLOCO 0 capturado remotamente: BLOCO0_$dataFim.md" -ForegroundColor Green
+} else {
+    Write-Host ""
+    Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- BLOCO 0 NAO capturado remotamente." -ForegroundColor Red
+    Write-Host "  A mensagem acima foi apenas PREPARADA. Falta executar a captura remota." -ForegroundColor Yellow
+    Write-Host "  Musculo: invoque a skill embaixador-encerramento-v1 (Playwright -> caderno 019e4c70)" -ForegroundColor Yellow
+    Write-Host "           e salve a resposta em PROTOCOLOS_ENCERRAMENTO\BLOCO0_$dataFim.md." -ForegroundColor Yellow
+    $exitCode = 2
 }
 
 Write-Host ""

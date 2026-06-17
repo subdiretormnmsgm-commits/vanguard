@@ -13,7 +13,8 @@ O encerramento e unico -- acontece uma vez ao fim de qualquer sessao. Destino: p
 Encerramento original (2026-06-14, Loop 33 V2): Playwright com upload de 7 arquivos. Arquitetura evoluida em 2026-06-14 para Drive-First: Gate 10 sincroniza gdrive:vanguard + verify_gdrive_freshness.ps1 confirma frescor + Playwright envia apenas mensagem (sem upload, sem exclusao). Licao: HTML artefato travou mais de 5 min -- texto simples sempre. Refs: session_close.ps1 Gate 10, scripts/verify_gdrive_freshness.ps1, P-114/P-032.
 
 [PADRAO DE SUCESSO/FALHA]
-SUCESSO -- verify_gdrive_freshness.ps1 -Perfil ENCERRAMENTO retorna exit 0 + Playwright envia mensagem. Embaixador busca no Drive e responde em ~60s com BLOCO 0 texto simples.
+SUCESSO -- verify_gdrive_freshness.ps1 -Perfil ENCERRAMENTO retorna exit 0 + Playwright envia mensagem. Embaixador busca no Drive e responde em ~60s com BLOCO 0 texto simples. Musculo salva o BLOCO 0 em PROTOCOLOS_ENCERRAMENTO\BLOCO0_[hoje].md (PASSO 3) -- so isso encerra a etapa.
+FALHA BLOQUEANTE -- Confundir "mensagem canonica impressa pelo session_close.ps1" com encerramento feito: o script so PREPARA a mensagem. Sem BLOCO0_[hoje].md salvo, a etapa nao ocorreu. Evidencia: sessao 2026-06-17 fechou sem captura remota porque o Gate exibia VERDE so por imprimir a mensagem.
 FALHA BLOQUEANTE -- Acionar Embaixador sem verify_gdrive_freshness.ps1: Embaixador le arquivos desatualizados sem avisar.
 FALHA BLOQUEANTE -- Gate 10 (rclone) nao rodou apos ultima modificacao: sync desatualizado. session_close.ps1 executa Gate 10 automaticamente.
 FALHA -- BLOCO 0 em HTML: Embaixador fica "Trabalhando" mais de 5 min. Re-solicitar em texto simples imediatamente.
@@ -39,6 +40,17 @@ EXIT 0: prosseguir | EXIT 1: atualizar localmente + session_close.ps1 (Gate 10 s
 5. browser_snapshot -> confirmar envio + aguardar BLOCO 0 em texto simples
 
 SEM exclusao de arquivos. SEM browser_file_upload.
+
+### PASSO 3 -- Salvar BLOCO 0 como PROVA de encerramento (BLOQUEANTE)
+Apos capturar o BLOCO 0 do Embaixador, salvar o texto integral em:
+```
+PROTOCOLOS_ENCERRAMENTO\BLOCO0_[YYYY-MM-DD].md
+```
+Este arquivo e a UNICA prova aceita de que o encerramento remoto ocorreu. O Gate EMBAIXADOR
+do session_close.ps1 verifica a existencia de BLOCO0_[hoje].md -- ausente = BLOQUEIO.
+Imprimir a mensagem canonica NAO encerra a etapa; so o BLOCO 0 salvo encerra.
+A etapa de encerramento CONCLUI no instante em que o BLOCO 0 e salvo -- o conteudo e insumo
+da PROXIMA sessao (P-114), nunca processado na sessao corrente.
 
 ---
 
