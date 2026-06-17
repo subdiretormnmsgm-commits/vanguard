@@ -30,7 +30,7 @@ O sistema os trata como um so. Esta dualidade e a raiz da maioria dos furos.
 | 7 | ⚪ | WhatsApp/Instagram no mandato do Digital sem task (sub-execucao) | aceitar (canal de envio manual) ou criar task | Diretor |
 | 8 | ⚪ | P-T2 (terca 5h04) consolida F1 antes do F1 de terca (7h05) -- defasagem 1 dia | trivial; reordenar horario se incomodar | Cowork |
 | 9 | ⚪ | Dois diarios quase simultaneos: P-T3 (23h02) x Sintese Digital (23h00) | lentes distintas; aceitavel | -- |
-| 10 | 🟡 | Regra global #1 ("output -> INBOX exclusivo") ja contrariada por P-T3/P-T4/Sintese Digital -> Drive | alinhar regra ao real (ou real a regra) -- regra que mente sobre o sistema gera falso-positivo em auditoria | Cowork (Diretor) |
+| 10 | ✅ | Regra global #1 ("output -> INBOX exclusivo") ja contrariada por P-T3/P-T4/Sintese Digital -> Drive | RESOLVIDO 2026-06-16: regra alinhada ao real = NAO ha 1 INBOX unico, ha 3 INBOX por ator (Vanguard->INBOX_COWORK · Projetista->PROJETISTA/INBOX · Digital->DIGITAL/INBOX). O portao P-124 fica na SAIDA (Opcao B), nao na entrada. Texto novo entregue ao Diretor p/ colar na SKILL.md | Cowork (Diretor) |
 
 **TOPOLOGIA CONFIRMADA PELO DIRETOR (2026-06-16) -- documento: MOTOR_INTELIGENCIA_NICHO.md:**
 - ENGRENAGENS = tarefas agendadas do Cowork (rodam por calendario) -> motor perpetuo, sempre gera PRODUTO VANGUARD.
@@ -45,8 +45,31 @@ O sistema os trata como um so. Esta dualidade e a raiz da maioria dos furos.
 - Achado 1: pastas `PROJETISTA/PLANOS` e `/CAMPANHA` criadas (OneDrive + Drive). VEREDITO DIRETOR 2026-06-16:
   Musculo grava o plano aprovado (P-124) -- escrita unica, motivo correto (portao com veredito, nao autoria).
 - Achado 5: pastas `EMBAIXADOR_DIGITAL/{RADAR,CAMPANHAS,VALIDACOES}` -- APROVADO pelo Diretor; criadas 2026-06-16.
-- Achados 2/3/4/6/10: correcao nas SKILL.md das tasks -- ambiente Cowork, prerrogativa do Diretor (Musculo nao edita).
+- Achados 2/3/4/6: correcao nas SKILL.md das tasks -- ambiente Cowork, prerrogativa do Diretor (Musculo nao edita).
   Texto de reapontamento entregue ao Diretor para colar no Cowork (2026-06-16).
+
+**VEREDITO 31 TASKS COWORK + B1 (Diretor 2026-06-16):**
+- 31 tasks conferidas (aritmetica 18+7+6): 18 Vanguard (noticias mercado -> INBOX_COWORK) OK ·
+  7 Projetista (projeto -> PROJETISTA/INBOX, sao INPUT do ator) OK · 6 Embaixador Digital (redes -> DIGITAL/INBOX).
+- NENHUMA das 31 precisa mudar a SAIDA para INBOX_COWORK. OPCAO B macro confirmada: portao P-124 fica na SAIDA
+  (Musculo grava PLANO pos-veredito + Diretor 2 cliques), NAO na entrada. As 3 INBOX por ator sao INPUT-only.
+- ACHADO B1 (gemeo do Achado 1): as 6 tasks Digital escreviam em DIGITAL/INBOX mas o prompt do Embaixador Digital
+  (BLOCO 7) NAO lia DIGITAL/INBOX -> cadeia orfa. RESOLVIDO: template v2.1 religado (BLOCO 2 + BLOCO 7 PASSO 2 +
+  BLOCO 10). Instancia RE-COLADA pelo Diretor no Claude Project em 2026-06-17 (P-073) -> B1 100% (template + instancia).
+
+**PROJETISTA v5.1 -- CAMADA FRIA M-STATS + NOMEACAO DE PASTAS (Diretor 2026-06-17):**
+- Template TEMPLATE_INSTRUCAO_PROJETISTA.md editado v5.0 -> v5.1 (10 pontos, somente adicoes). Instancia RE-COLADA
+  pelo Diretor no Claude Project do Projetista em 2026-06-17 (P-073) -> mudanca em vigor.
+- DIFERENCIACAO CENTRAL: camada FRIA (M-STATS: TAM/SAM/SOM dupla via, convergencia +-15%, tendencia com IC, fonte/data/N)
+  e RECEBIDA pelo Projetista, NAO calculada. Quem roda a skill market-stats-analysis = Musculo + Executor Cowork (linha 14).
+  Camada QUENTE (projecao/plano/campanha) = funcao do Projetista. Mandato 23 + BLOCO 4 tabela + BLOCO 9 secao 3b.
+- NOMEACAO DE PASTAS (gemeo do B1, agora fechado): PROJETISTA/INBOX (INPUT-only, tasks Cowork ao Projetista) +
+  PROJETISTA/PLANOS (output, Musculo grava pos-veredito) + PROJETISTA/CAMPANHA (output, material p/ Embaixador Digital).
+- HANDOFF M-STATS -> DRIVE -> PROJETISTA VERIFICADO FISICAMENTE CONECTADO: parecer vai a PENDING_REVIEW.md (canonico,
+  P-124); rclone espelha a RAIZ inteira a gdrive:vanguard (verify_gdrive_freshness.ps1 linha 169 -- PENDING_REVIEW.md
+  NAO esta em nenhuma exclusao). Dependencia operacional: rclone sync (G2 / Gate 10) deve rodar APOS o parecer ser escrito.
+- propagate_changes.ps1: 0 cascade (TIPO 2 puro, instancia fora do repo) · sync_vanguard_docs.ps1: integridade VERDE
+  (0 falhas hash, 0 desatualizados; AMARELO so por 14 orfaos pre-existentes).
 
 ### INBOX_COWORK — 18 arquivos · Embaixador Agentado · Cowork · registrados 2026-06-12
 
