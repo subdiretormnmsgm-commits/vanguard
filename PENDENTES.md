@@ -26,12 +26,8 @@
   O comando gerado deve sempre conter: (1) "Sessão Antigravity: [PAPEL]", (2) arsenal exato na ordem, (3) nota de fronteira.
   Comando sem papel/arsenal = inválido. [RESOLVE: P-166]
 
-- [ ] `2026-06-16` **[MÚSCULO] P-174 — gate em session_close.ps1: EMBAIXADOR_LOOP_V[N] obrigatório quando o Embaixador entregou no loop** [musculo]
-  Ferramenta anti-recorrência (P-146) da falha P-174 (ideia de sócio que só existe no chat não existe — E-5/E-6 perdidos na compactação do Loop 35).
-  Build no `session_close.ps1` (análogo ao Gate 6B/6C):
-  (a) se há veredito com `E-X` no DECISOES/LOOP_STATE do loop e `CLIENTES/[CLIENTE]/HISTORICO/EMBAIXADOR_LOOP_V[N]_[CLIENTE].md` ausente OU mais antigo que o `DELIBERACAO_LOOP_V[N]` → exit 1 bloqueante;
-  (b) checagem espelho em `render_painel.ps1` (gate P-037): arquivo do Embaixador deve existir antes de gerar DECISOES.json.
-  Build na sessão dedicada de processo (junto com P-173..P-178, cabeça fresca). [RESOLVE: P-174]
+- [x] `2026-06-16` ~~**[MÚSCULO] P-174 — gate em session_close.ps1: EMBAIXADOR_LOOP_V[N] obrigatório quando o Embaixador entregou no loop**~~ [musculo]
+  ✅ Concluído nesta sessão. (a) GATE 6D no `session_close.ps1` (após Gate 6B/P-032): por cliente ativo, se `LOOP_STATE.json` declara `socios.embaixador.status=OK` E `DELIBERACAO_LOOP_V[N]` existe → exige `EMBAIXADOR_LOOP_V[N]_[CLI].md` presente e NÃO mais antigo que a DELIBERACAO; senão exit 2 bloqueante. Fail-safe: só bloqueia com evidência positiva de entrega (sem LOOP_STATE / status!=OK / sem DELIBERACAO → skip). (b) GATE espelho no `render_painel.ps1` (após gate P-037, antes do P-173): `EMBAIXADOR_LOOP_V[loop]_[projeto].md` deve existir e não-stale antes de abrir o Painel/DECISOES.json, com bypass `-forcar`. Testado 6/6 cenários sintéticos (OK/AUSENTE/STALE/skip×3) + estado real Loop 35 VANGUARD = VERDE (sem falso-positivo). Parse PS 5.1 0 erros, ASCII puro (P-183), validate_scripts sem erro crítico. [RESOLVE: P-174]
 
 - [ ] `2026-06-15` **[MÚSCULO] P-178 — gate_code_review.ps1: code-review EXECUTADO nos arquivos de código modificados na sessão** [musculo]
   Ferramenta anti-recorrência (P-146) da lacuna P-178 (LEDGER_INBOX FALHA-2026-06-15-C). Origem: Diretor percebeu muitos erros de código ao longo dos loops; code-review hoje é só checklist, nunca executado.
@@ -44,6 +40,7 @@
   Build na sessão dedicada de processo (junto com P-173..P-177, cabeça fresca). [RESOLVE: P-178]
 
 - [ ] `2026-06-16` **[MÚSCULO] P-184 — fechar as superfícies não cobertas do firewall P-098 (shell-install + incerteza no PreToolUse de Edit)** [musculo]
+  ⏳ PARCIAL (2026-06-16): (a) ✅ `.claude/hooks/shell_protection_guard.ps1` (PreToolUse Bash, wired) bloqueia gravação shell em caminho protegido (`>` redirect, `curl -o`, `tee`, `dd of=`, `mv`/`cp` destino, params PS `-Path`/`-Destination`); leitura (cat/grep) nunca bloqueia; autoriza via `.musculo_autorizacao.flag` ou `[VEREDITO-DIRETOR]`; FAIL-OPEN — testado 11/11. (b) ✅ lista canônica `.claude/hooks/protected_paths.txt` (fonte única dos 2 guards, fallback inline = firewall não enfraquece); `file_protection_guard.ps1` refatorado para lê-la; teste determinístico 3/3 PROVA que a flag é CONSUMIDA num Write real (antes=True→depois=False). validate_scripts sem erro crítico. (c) ⛔ FALTA: registrar P-184 no INTELLIGENCE_LEDGER (arquivo protegido — aguarda VEREDITO do Diretor).
   Ferramenta anti-recorrência (P-146) da lacuna P-184. Duas brechas comprovadas em 2026-06-16:
   (1) SHELL-BYPASS: instalar/sobrescrever arquivo protegido via `curl`/Bash (ex.: as 10 skills SKILL.md baixadas) passa POR FORA do `file_protection_guard.ps1`, que só intercepta Write/Edit.
   (2) PreToolUse DE EDIT INCERTO: ao editar o CLAUDE.md (protegido) com a flag presente, a flag NÃO foi auto-consumida — não dá para confirmar que o guard interceptou o Edit nesta sessão (o harness pode ter concedido por permissão própria sem passar pelo hook).
@@ -52,8 +49,8 @@
 - [ ] `2026-06-16` **[DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ficaram expostas no gdrive:vanguard** [diretor] (NÃO fechar por RESOLVE/git — só o Diretor encerra após rotacionar)
   As 7 chaves foram empurradas ao Drive de terceiros (Google) por syncs anteriores sem filtro e ficaram expostas por tempo indeterminado. Purga do Drive já feita (7/7 limpos) + fix do sync aplicado — MAS purgar não desfaz a exposição passada. Rotacionar/regerar: (1) OpenRouter API key · (2) Anthropic API key · (3) Telegram bot token (@Eduardo431Vanguardbot) · (4) n8n API key (EasyPanel) · (5) Supabase keys · (6) credenciais EasyPanel · (7) qualquer segredo em scripts/n8n_config.ps1 / alert_config.ps1 / hermes-agent/.env. Após rotacionar, atualizar CHAVES_SISTEMA_VANGUARD.txt + N8N Easypanel.txt locais (gitignored). Ação exclusiva do Diretor — Músculo não gira chave.
 
-- [ ] `2026-06-16` **[MÚSCULO] P-185 — guard mecânico: recusar rclone sync para destino externo sem --exclude-from do filtro de segredos** [musculo]
-  Ferramenta anti-recorrência (P-146) da falha P-185. Mesma filosofia do P-180/P-181 (mecânico, nunca por memória): guard PreToolUse em Bash que detecta `rclone sync`/`rclone copy` com destino remoto (`gdrive:`, qualquer `*:`) e BLOQUEIA se o comando não contiver `--exclude-from` apontando para `scripts/rclone_secrets_exclude.txt` (ou se faltar exclude das credenciais). FAIL-OPEN para bug próprio. Padrão de subida pontual = `rclone copyto` arquivo a arquivo (G2 cirúrgico); sync de árvore inteira só com filtro de segredos ativo. [RESOLVE: P-185-guard]
+- [x] `2026-06-16` ~~**[MÚSCULO] P-185 — guard mecânico: recusar rclone sync para destino externo sem --exclude-from do filtro de segredos**~~ [musculo]
+  ✅ Concluído nesta sessão. `.claude/hooks/rclone_secrets_guard.ps1` (PreToolUse Bash, wired no settings.json matcher `Bash`). Bloqueia `rclone sync`/`rclone copy` para destino remoto (`name:` 2+ chars, exclui drive `C:\` e URLs `://`) sem `rclone_secrets_exclude`. LIBERA `copyto` (G2 cirúrgico), não-rclone, e sync local→local. FAIL-OPEN por bug próprio (try/catch→exit 0). Testado 6/6 RED/GREEN + validate_scripts sem erro crítico. ASCII puro (P-183). [RESOLVE: P-185-guard]
 
 - [x] `2026-06-16` ~~**[MÚSCULO] P-173 — WIRE do gate_yt_search.ps1 na abertura de loop + antes da síntese P-037**~~ [musculo]
   ✅ Wire concluído e testado nesta sessão. (a) ADVISORY em `gate_loop_objetivo.ps1` (abertura de loop — lembra, não bloqueia); (b) BLOQUEANTE em `render_painel.ps1` (antes da síntese P-037 — exit 2 sem yt-search <24h, com bypass `-forcar` p/ o Diretor). Ambos os caminhos VERDE/BLOQUEIO testados. validate_scripts sem erro crítico. [RESOLVE: P-173-wire]

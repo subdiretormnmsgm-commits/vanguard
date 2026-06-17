@@ -1,0 +1,15 @@
+# protected_paths.txt -- Lista CANONICA de caminhos protegidos pelo firewall P-098 / P-184.
+# Lida por file_protection_guard.ps1 (Write/Edit) E shell_protection_guard.ps1 (Bash).
+# Fonte unica = sem drift entre os dois guards. Se este arquivo sumir, cada guard cai
+# para sua lista inline (fail-safe: o firewall nunca enfraquece por arquivo ausente).
+# Formato: 1 regex .NET por linha, testada contra o caminho com barras normalizadas (/).
+# Linhas em branco e iniciadas por # sao ignoradas.
+PASSO5_NOTEBOOKLM\.md$
+PASSO3_GEMINI\.md$
+PASSO7_EMBAIXADOR\.md$
+\.claude[/\\]skills[/\\].+\.md$
+PASSO3_GEMINI_TEMPLATE\.md$
+passo3_template\.txt$
+INTELLIGENCE_LEDGER\.md$
+DEPENDENCY_MAP\.json$
+CLAUDE\.md$

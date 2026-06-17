@@ -131,6 +131,33 @@ if (-not $sinteseArquivo) {
 }
 Write-Host ""
 
+# --- P-174 GATE: artefato do Embaixador deve existir antes de abrir Painel de vereditos ---
+# Ciclo inviolavel Gemini->NotebookLM->Embaixador->Musculo (P-067). No P-037 o Embaixador ja
+# entregou: EMBAIXADOR_LOOP_V[N] tem de estar em disco e NAO ser mais antigo que a sintese.
+# Ideia de socio que so vive no chat (E-5/E-6) e perdida na compactacao -- P-174.
+$embPath174 = Join-Path $historicoDirP037 ("EMBAIXADOR_LOOP_V" + $loop + "_" + $projeto + ".md")
+$emb174Falha = $null
+if (-not (Test-Path $embPath174)) {
+    $emb174Falha = "AUSENTE: " + (Split-Path $embPath174 -Leaf)
+} elseif ($sinteseArquivo -and (Get-Item $embPath174).LastWriteTime -lt $sinteseArquivo.LastWriteTime) {
+    $emb174Falha = "STALE: " + (Split-Path $embPath174 -Leaf) + " e mais antigo que " + $sinteseArquivo.Name
+}
+if ($emb174Falha) {
+    if ($forcar) {
+        Write-Host ("  [P-174] Embaixador " + $emb174Falha + " -- BYPASS por -forcar.") -ForegroundColor DarkYellow
+    } else {
+        Write-Host "=== P-174 GATE -- BLOQUEADO ===" -ForegroundColor Red
+        Write-Host "DECISOES.json nao pode ser aberto sem o artefato do Embaixador do loop." -ForegroundColor Red
+        Write-Host ("  " + $emb174Falha) -ForegroundColor Yellow
+        Write-Host ("ACAO: gravar " + $historicoDirP037 + "\EMBAIXADOR_LOOP_V" + $loop + "_" + $projeto + ".md") -ForegroundColor Yellow
+        Write-Host "      com E-1..E-X + SECAO D persistidas (P-067/P-174). Bypass: -forcar." -ForegroundColor DarkGray
+        exit 2
+    }
+} else {
+    Write-Host ("  [P-174] Artefato do Embaixador OK: EMBAIXADOR_LOOP_V" + $loop + "_" + $projeto + ".md") -ForegroundColor Green
+}
+Write-Host ""
+
 # --- P-173 GATE: pesquisa viva (yt-search) deve preceder a sintese P-037 ---
 $ytGate = Join-Path $PSScriptRoot "gate_yt_search.ps1"
 if (Test-Path $ytGate) {

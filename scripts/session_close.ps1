@@ -228,6 +228,61 @@ if ($p032Falhos.Count -gt 0) {
     $exitCode = 2
 }
 
+# GATE 6D (P-174): EMBAIXADOR_LOOP_V[N] obrigatorio quando o Embaixador entregou no loop.
+# Falha P-174: ideia de socio que so existe no chat nao existe -- E-5/E-6 perdidos na
+# compactacao (Loop 35). Se o Embaixador entregou (socios.embaixador.status=OK no LOOP_STATE)
+# e o loop foi sintetizado (DELIBERACAO_LOOP_V[N] existe), o artefato EMBAIXADOR_LOOP_V[N]
+# deve estar em disco e NAO ser mais antigo que a DELIBERACAO. Fail-safe: so bloqueia com
+# evidencia positiva de entrega do Embaixador.
+$p174Falhos = @()
+foreach ($cli in $clientesAtivos) {
+    $loopStatePath = "$baseDir\CLIENTES\$cli\CLAUDE_PROJECT\LOOP_STATE.json"
+    if (-not (Test-Path $loopStatePath)) { continue }
+    try {
+        $ls = Get-Content $loopStatePath -Raw -Encoding UTF8 | ConvertFrom-Json
+    } catch { continue }
+    $n = $ls.loop_atual
+    if (-not $n) { continue }
+
+    # Embaixador entregou neste loop? (sinal positivo no LOOP_STATE)
+    $embOk = $false
+    if ($ls.socios -and $ls.socios.embaixador -and $ls.socios.embaixador.status) {
+        if ([string]$ls.socios.embaixador.status -match 'OK') { $embOk = $true }
+    }
+    if (-not $embOk) { continue }
+
+    # Loop sintetizado? (P-037 gate cobre a ausencia da sintese -- aqui so prosseguimos se existe)
+    $delibPath = "$baseDir\CLIENTES\$cli\HISTORICO\DELIBERACAO_LOOP_V${n}_$cli.md"
+    if (-not (Test-Path $delibPath)) { continue }
+    $delibTime = (Get-Item $delibPath).LastWriteTime
+
+    # Artefato do Embaixador presente e nao-stale?
+    $embPath = "$baseDir\CLIENTES\$cli\HISTORICO\EMBAIXADOR_LOOP_V${n}_$cli.md"
+    if (-not (Test-Path $embPath)) {
+        $p174Falhos += "${cli}: EMBAIXADOR_LOOP_V${n}_$cli.md AUSENTE (Embaixador entregou E-X no Loop $n)"
+        continue
+    }
+    if ((Get-Item $embPath).LastWriteTime -lt $delibTime) {
+        $p174Falhos += "${cli}: EMBAIXADOR_LOOP_V${n} mais ANTIGO que DELIBERACAO_LOOP_V${n} (E-X do loop nao persistido)"
+    }
+}
+
+if ($p174Falhos.Count -gt 0) {
+    Write-Host ""
+    Write-Host "  ========================================================" -ForegroundColor Red
+    Write-Host "  [GATE 6D / P-174] BLOQUEIO -- artefato do Embaixador ausente/stale" -ForegroundColor Red
+    Write-Host "  ========================================================" -ForegroundColor Red
+    Write-Host "  Ideia de socio que so existe no chat nao existe. O Embaixador entregou" -ForegroundColor Yellow
+    Write-Host "  E-X no loop, mas o artefato nao esta em disco (ou e mais antigo que a sintese):" -ForegroundColor Yellow
+    foreach ($f in $p174Falhos) { Write-Host "    - $f" -ForegroundColor Red }
+    Write-Host ""
+    Write-Host "  Correcao: gravar CLIENTES\[CLI]\HISTORICO\EMBAIXADOR_LOOP_V[N]_[CLI].md" -ForegroundColor Yellow
+    Write-Host "  com as ideias E-1..E-X + SECAO D persistidas (nunca so no chat)." -ForegroundColor Yellow
+    Write-Host "  ========================================================" -ForegroundColor Red
+    Write-Host ""
+    $exitCode = 2
+}
+
 # GATE EMAIL -- e-mail de fechamento deve ter sido enviado antes de encerrar
 $emailBodyPath = Join-Path $baseDir "scripts\.email_body.txt"
 $emailSentFlag = Join-Path $baseDir "scripts\.email_sent_$dataHoje.flag"

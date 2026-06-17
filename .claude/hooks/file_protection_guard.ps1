@@ -22,8 +22,10 @@ if (-not $FilePath) { exit 0 }
 
 $BASE = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 
-# Padroes protegidos -- arquivos que o Musculo NAO pode sobrescrever sem veredito
-$protegidos = @(
+# Padroes protegidos -- arquivos que o Musculo NAO pode sobrescrever sem veredito.
+# Fonte canonica = protected_paths.txt (compartilhada com shell_protection_guard.ps1, P-184).
+# Fallback inline (fail-safe): se a lista sumir, o firewall NAO enfraquece.
+$protegidosInline = @(
     "PASSO5_NOTEBOOKLM\.md$",
     "PASSO3_GEMINI\.md$",
     "PASSO7_EMBAIXADOR\.md$",
@@ -34,6 +36,16 @@ $protegidos = @(
     "DEPENDENCY_MAP\.json$",
     "CLAUDE\.md$"
 )
+$listaPath = Join-Path $PSScriptRoot "protected_paths.txt"
+$protegidos = $null
+if (Test-Path $listaPath) {
+    try {
+        $protegidos = Get-Content $listaPath -ErrorAction Stop |
+            ForEach-Object { $_.Trim() } |
+            Where-Object { $_ -and ($_ -notmatch '^\s*#') }
+    } catch { $protegidos = $null }
+}
+if (-not $protegidos -or @($protegidos).Count -eq 0) { $protegidos = $protegidosInline }
 
 $pathNorm = $FilePath -replace "\\", "/"
 $protegido = $false

@@ -52,6 +52,23 @@
             "statusMessage": "P-168/P-169 -- Verificando frescor do gdrive:vanguard (data+hora)..."
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/rclone_secrets_guard.ps1",
+            "timeout": 5,
+            "statusMessage": "P-185 -- Verificando filtro de segredos no rclone sync/copy..."
+          },
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/shell_protection_guard.ps1",
+            "timeout": 5,
+            "statusMessage": "P-184 -- Verificando gravacao shell em arquivo protegido..."
+          }
+        ]
       }
     ],
     "PostToolUse": [
