@@ -7,8 +7,19 @@
 # Origem: Antigravity Build C Loop 33 -- reescrito Loop 34 (dívida R-01/R-02)
 
 $ErrorActionPreference = "Stop"
-$raiz = git rev-parse --show-toplevel 2>$null
-if (-not $raiz) { Write-Host "[FIREWALL] Nao e repositorio git." -ForegroundColor Red; exit 1 }
+# raiz derivada de $PSScriptRoot (argv chega em UTF-16 correto via -File).
+# NAO usar 'git rev-parse --show-toplevel' para o path: no powershell.exe spawned
+# pelo git-sh o console e CP850 e a saida UTF-8 do git corrompe o acento de
+# 'Area de Trabalho' -- quebrava Test-Path do flag P-098 (.musculo_autorizacao.flag)
+# e do gate R-05. Confirmado 2026-06-16 (CP850, Test-Path via raiz=False). #17 PENDENTES.
+if ($PSScriptRoot) {
+    # $PSScriptRoot = <raiz>/.git/hooks  -> dois niveis acima = <raiz>
+    $raiz = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+} else {
+    $raiz = git rev-parse --show-toplevel 2>$null
+}
+$ehRepo = git rev-parse --is-inside-work-tree 2>$null
+if ($ehRepo -ne 'true' -or -not $raiz) { Write-Host "[FIREWALL] Nao e repositorio git." -ForegroundColor Red; exit 1 }
 
 Write-Host "[PRE-COMMIT FIREWALL] Varredura R-01/R-03/R-04..." -ForegroundColor Cyan
 
@@ -108,5 +119,36 @@ if ($abortCommit) {
     exit 1
 }
 
-Write-Host "[PRE-COMMIT FIREWALL] OK -- R-01/R-03/R-04 limpos." -ForegroundColor Green
+# --- R-05: CODE-REVIEW (P-178) -- codigo staged exige review antes do commit ---
+# Gatilho mecanico nao-bypassavel: combate "muitos erros de codigo ao longo dos loops".
+# A engine detecta+bloqueia; o Musculo roda a skill requesting-code-review + -MarkReviewed.
+$crScript = Join-Path $raiz "scripts\gate_code_review.ps1"
+if (Test-Path $crScript) {
+    & $crScript -Verify
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host ""
+        Write-Host "[PRE-COMMIT FIREWALL] COMMIT ABORTADO -- R-05 (code-review P-178)." -ForegroundColor Red
+        exit 1
+    }
+}
+
+# --- R-06: DRIFT DE ATIVACAO (P-146) -- JSON fonte vs Code node embutido do W-11 ---
+# So roda se um dos 2 arquivos de ativacao estiver staged (barato; evita ruido).
+# Comandos vivem duplicados (n8n nao le repo) -> impede divergencia silenciosa.
+$ativStaged = $stagedFiles | Where-Object { $_ -match "comandos_ativacao_atores\.json$" -or $_ -match "w11_calcular_ativacoes\.js$" }
+if ($ativStaged) {
+    $driftScript = Join-Path $raiz "scripts\gate_drift_ativacao.ps1"
+    if (Test-Path $driftScript) {
+        & $driftScript -Quiet
+        # exit 1 = drift (BLOQUEIA) | exit 2 = fonte ausente (ex.: delecao do .js -- NAO bloqueia) | 0 = ok
+        if ($LASTEXITCODE -eq 1) {
+            Write-Host ""
+            Write-Host "[PRE-COMMIT FIREWALL] COMMIT ABORTADO -- R-06 (drift ativacao A/B P-146)." -ForegroundColor Red
+            & $driftScript   # reexibe os detalhes da divergencia
+            exit 1
+        }
+    }
+}
+
+Write-Host "[PRE-COMMIT FIREWALL] OK -- R-01/R-03/R-04/R-05/R-06 limpos." -ForegroundColor Green
 exit 0

@@ -519,6 +519,8 @@ Formato: traço, espaço, `[ ]`, espaço, data entre crases, bold com contexto +
   ✅ S-5: P-153 inscrito no INTELLIGENCE_LEDGER.md (Músculo identifica falhas antes de concordar). [RESOLVE: sugestoes-notion]
   S-1/S-2: Expandir LMM Embaixador + Antigravity em V30 -- registrar em backlog V30 [diretor delibera]
 
+- [ ] [musculo] [P-146] Build drift-guard `comandos_ativacao_atores.json` ↔ `w11_calcular_ativacoes.js`. Causa-raiz potencial (2026-06-17): os comandos de ativacao A/B vivem DUPLICADOS — no JSON (lido pelo `cowork_calendar.ps1`/gate 0C) e embutidos no Code node do W-11 (n8n nao le arquivo do repo). Hoje sao identicos (verificado no code-review), mas nada impede divergencia silenciosa se editarem um e esquecerem o outro → gate 0C e Telegram diriam comandos diferentes. Build: pre-commit/validate que compara `comandos_canonicos` + `agenda_ativacao_manual` do JSON contra `COMANDOS` + `AGENDA` do .js (e contra a tabela Categoria B do CALENDARIO_NICHE_INTELLIGENCE.md). Sem o guard, a regra "nao podem divergir" e disciplina manual = decoracao (P-146). [FALHA-PROCESSO-2026-06-17] [RESOLVE: drift-guard-ativacao]
+
 - [ ] [musculo] [P-146/P-140] Build `gate_yt_search.ps1` — bloquear upload ao NotebookLM se NAO existir `19_FONTES_YOUTUBE_*.md` do loop atual. Causa-raiz (2026-06-15): Musculo seguiu resumo de compactacao e pulou o YT-SEARCH de abertura. Gate integra preparar_notebooklm_projeto.ps1 (exit 1 sem fonte YT do loop). [FALHA-PROCESSO-2026-06-15-YTSEARCH]
 
 - [x] `2026-06-16` ~~**[MÚSCULO] R-01/flag P-098 quebrado em OneDrive — `.git/hooks/pre-commit.ps1` não enxerga `.musculo_autorizacao.flag`**~~ [musculo]
