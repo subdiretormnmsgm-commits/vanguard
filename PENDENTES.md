@@ -229,7 +229,7 @@
       - [ ] PASSO5 enviado com todas as PARTES
       - [ ] notebooklm generate report --format briefing-doc executado
       - [ ] AUDITOR_LOOP_V[N]_[CLIENTE].md salvo em HISTORICO/
-      - [ ] Skill [nome].md salva em .claude/skills/ e validada por skill_parser_gate
+- [x] Skill [nome].md salva em .claude/skills/ e validada por skill_parser_gate
       - [ ] update_memoria_embaixador.ps1 rodado (PASSO5.5)
       ```
   (b) skill_parser_gate.ps1: verificar se PASSO5 tem [CHECKLIST DO MÚSCULO] — exit 1 se ausente
