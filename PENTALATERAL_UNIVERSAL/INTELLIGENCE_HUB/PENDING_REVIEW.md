@@ -101,7 +101,7 @@ O sistema os trata como um so. Esta dualidade e a raiz da maioria dos furos.
 
 | Data | Tipo | Arquivo | Status |
 |---|---|---|---|
-| 2026-06-16 | BLUEPRINT | `CLIENTES/VANGUARD/PENDING_REVIEW/OPS_INCIDENTS_PROPOSAL.md` | AGUARDANDO_VEREDITO |
+| 2026-06-16 | BLUEPRINT | `CLIENTES/VANGUARD/PENDING_REVIEW/OPS_INCIDENTS_PROPOSAL.md` | ✅ APROVADO DIRETOR 2026-06-16 · W-10 já aplicado pelo Diretor |
 
 ### ANTIGRAVITY COWORK CONDUCTOR — Sessão Única · 2026-06-13 · Aguarda veredito Músculo+Diretor
 
@@ -119,6 +119,29 @@ O sistema os trata como um so. Esta dualidade e a raiz da maioria dos furos.
 | PARTE 4 — Mapa Prioridade Comercial | Eventos Fiscais→Setor Elétrico→AI Act→Saúde Digital→ANVISA | INFORMATIVO |
 | PARTE 5 — Cross-sell Clusters A/B/C | Hospitais / ESG Exportadores / Obras Públicas | INFORMATIVO |
 | Alertas | 3 CRÍTICOS já registrados em PENDENTES.md | AUTO-VERDE — duplicata ignorada |
+
+### ANTIGRAVITY COWORK CONDUCTOR — Oferta Emergencial M2 · 2026-06-16
+
+> Origem: BRIEFING_MUSCULO_M2 (Drive ID 1ZH81i4EdGiPrGy3qwKsDmOKTf4Rm26uD)
+> Objetivo: Adequação de NF para IBS/CBS obrigatórios (prazo 31/07/2026)
+
+#### 🚨 CARD DE OFERTA COMERCIAL: ADEQUAÇÃO TRIBUTÁRIA IBS/CBS
+
+**Nicho:** Produtoras de Shows e Eventos (Eixo Rio-SP, Faturamento > R$500k/ano)
+**Gatilho:** Implementação obrigatória IBS/CBS na NF-e a partir de agosto de 2026
+**Deadline de Adequação:** 31/07/2026 (45 dias)
+**Ticket:** R$ 8.000 a R$ 15.000
+
+**O Problema (Urgência):**
+A partir do dia 1º de agosto, qualquer nota fiscal emitida sem o destaque correto da nova CBS e do IBS será sumariamente rejeitada pela SEFAZ. Produtoras que não adaptarem seus ERPs e revisarem seus contratos até 31/07 ficarão com a operação travada e impedidas de faturar no início do segundo semestre.
+
+**A Solução Vanguard:**
+Nossa equipe de especialistas desenhou um pacote de adequação emergencial rápido. Nós auditamos a parametrização do seu ERP atual, revisamos e elaboramos aditivos contratuais para repasse e retenção da nova carga tributária, e homologamos a emissão da NF-e para garantir que sua produtora vire a chave em agosto sem nenhuma interrupção operacional.
+
+**Abordagem (Copy para WhatsApp/LinkedIn):**
+> "O prazo para adequação da sua emissão de NF-e ao novo formato do IBS/CBS encerra em 31/07 (45 dias). A partir de agosto, notas no padrão antigo serão rejeitadas. Seu ERP e seus contratos já estão adaptados para evitar o travamento do seu faturamento? Os especialistas da Vanguard estão conduzindo a adequação emergencial em produtoras do eixo Rio-SP para garantir uma virada de semestre segura. Vamos agendar uma call de 15 minutos para avaliar sua operação?"
+
+**Status:** ✅ APROVADO DIRETOR 2026-06-16 · liberado para prospecção (Embaixador Digital / Diretor)
 
 ---
 
