@@ -774,35 +774,3 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 **Status:** EXECUÇÃO ativa · próximos: G-4+A-3 (LOOP_STATE v1.1) + E-5 (P-032 completo)
 
 *Atualizado em: 2026-06-12 — Loop 33 EXECUCAO · Patch DEF-M-6 aplicado*
-
-## Loop 34 — 2026-06-14 · ARQUIVADO (FRACASSO controlado)
-
-**Data:** 2026-06-14
-**Sessão:** Expansão do Conselho 6→9 + primeira presença LinkedIn (1º POST ECD)
-
-**O que ficou:**
-- Auditoria de processo (régua + princípios) + direcionamento para o Loop 35 [VEREDITO-DIRETOR]
-- P-166 + DEPENDENCY_MAP v2.4 (CLAUDE_PROJECT_INSTRUCAO) + PASSO3 V34 + templates dos novos atores
-- P-165 (gate de abertura mecânico) + P-164 (ledger sandbox) + D1:A Freeze Embaixador Digital + D2:A Régua de Risco
-
-**Por que FRACASSO:** o loop formalizou 3 atores + infraestrutura mas NÃO produziu fato externo — POST ECD ficou pronto e parado, pipeline ZERO. 3ª instância confirmada do padrão PF-1 (Builder > Vendedor). E-1 virou gate mecânico de fechamento a partir daqui.
-
-**Status:** ARQUIVADO — lição absorvida pelo gate E-1 (LOOP não fecha sem prova de fato externo).
-
-*Atualizado em: 2026-06-14 — Loop 34 arquivado FRACASSO controlado*
-
-## Loop 35 — 2026-06-15/16 · ABERTO · APERFEIÇOAMENTO dos 3 atores (R-AMPLIATIVO)
-
-**Data abertura:** 2026-06-15 | **Consolidação master:** 2026-06-16
-**Objetivo P-160:** ampliar a capacidade de cada um dos 3 novos atores (Projetista 7º, Embaixador Digital 8º, Detector de Deriva coadjuvante) — resultados ampliativos, teto indefinido.
-
-**Entregas consolidadas no master (merge loop35-e4 → master, fast-forward, 87 arquivos):**
-- 3 atores formalizados + artefatos canônicos do Loop 35 (commit f7f5d67)
-- Detector de Deriva v1.4 — system prompt com 4 correções do Deep Research (TRACE/Policy-as-Code para deriva código↔doc; Drive-First é o risco real; OWASP ASI01 anti prompt-injection + deny-list; MCP atualizado cyanheads/mcpvault) + registro no DEPENDENCY_MAP (commit 9844a55)
-- P-180 (trava dura de skill por gatilho mecânico) + P-181 (gate de frescor gdrive por data+hora) + sync dos espelhos do LEDGER
-- Sync P-033/P-059 — propagação do estado WIP_BOARD Loop 35 aos espelhos dos clientes (commit bc6bb1e)
-- FALHA-PROCESSO 2026-06-16: gate P-180 ENCERRAMENTO estava insatisfazível (skills .md locais não invocáveis pela tool Skill) — embaixador-encerramento-v1 promovida a read-based; conserto sistêmico pendente de veredito.
-
-**Status:** SESSÃO fechada · LOOP 35 ABERTO — não fecha até registrar prova de fato externo (E-1/PF-1: POST ECD publicado OU conversa real). Ato externo Fase 1 (Company Page + POST ECD) aguarda veredito do Diretor.
-
-*Atualizado em: 2026-06-16 — Loop 35 consolidado no master · sessão fechada · LOOP aberto aguardando fato externo*
