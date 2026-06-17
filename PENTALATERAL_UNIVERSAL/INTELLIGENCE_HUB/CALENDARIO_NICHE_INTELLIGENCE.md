@@ -1,5 +1,5 @@
 # CALENDÁRIO — NICHE INTELLIGENCE REPOSITORY
-> Versão 1.2 · Criado 2026-06-13 · Atualizado 2026-06-15 (+ M1–M7 fonográficas + GATE DE DATA) · Músculo
+> Versão 1.4 · Criado 2026-06-13 · Atualizado 2026-06-17 (v1.3: entrelaçado à AGENDA VANGUARD oficial: F2/F4a/F4b/F6 descontinuadas · F3→Sexta · F15→Segunda · +ROD +BIB. v1.4: classificação A/B das ativações Projetista/Embaixador Digital derivada dos system prompts — Categoria A=frente Cowork automática, Categoria B=comando manual; só B notifica; textos em scripts/comandos_ativacao_atores.json) · Músculo
 > Referência: SKILL.md v2.0 · cowork-engine-v1.md
 > Horizonte: Junho–Setembro 2026 (atualizar trimestralmente)
 >
@@ -32,17 +32,59 @@ briefings esperar. Integrada ao `session_start`.
 
 ---
 
-## RITMO SEMANAL FIXO (recorrente — toda semana)
+## RITMO SEMANAL FIXO — EMBAIXADOR AGENTADO (automático Cowork · o Músculo COLHE)
+
+> Alinhado à AGENDA VANGUARD oficial (Embaixador Agentado, 2026-06-17). **F2, F4a, F4b e F6 foram
+> descontinuadas** (não constam mais da agenda). **F3** migrou de Terça → **Sexta** (consolidação).
+> **F15** migrou de Sexta → **Segunda**. **ROD** (rodízio caça F16–F22) adicionado à Segunda.
 
 | Dia | Frente(s) | O que acontece | Niche Model: campos atualizados |
 |---|---|---|---|
-| **Segunda** | F1 + F2 + F4a + F12 | F1: Radar de Dor (07h) · F2: Análise de Oportunidades · F4a: 1ª rodada semanal · F12: Briefing Fundador | `dores[]`, `evidencias_mercado`, `narrativas.whatsapp`, `perfil_cliente` |
-| **Terça** | F1 + F3 | F1: Radar de Dor (07h) · F3: Filtro de Encaixe Perfeito | `fit_score`, `status` (promoção MONITORAR→MOVER_AGORA) |
-| **Quarta** | F1 + F6 | F1: Radar de Dor (07h) · F6: Radar Profundo (versão semanal intensiva) | `evidencias_mercado.dados_chave`, `gatilho_regulatorio` |
-| **Quinta** | F1 + F4b | F1: Radar de Dor (07h) · F4b: 2ª rodada semanal | `narrativas.linkedin` |
-| **Sexta** | F1 + F15 | F1: Radar de Dor (07h) · F15: Guardião de Promessas (semáforo) | `cadencia_cowork.[F]_ultima` (confirmar atualização da semana) |
+| **Segunda** | F1 + F12 + F15 + ROD | F1: Radar de Dor (07h05) · F12: Tutor do Fundador (08h03) · F15: Guardião de Dependências (08h05) · ROD: Rodízio Caça F16–F22 (16h03) | `dores[]`, `evidencias_mercado`, `narrativas`, `cadencia_cowork.[F]_ultima` |
+| **Terça** | F1 | F1: Radar de Dor (07h05) | `dores[]`, `evidencias_mercado` |
+| **Quarta** | F1 | F1: Radar de Dor (07h05) | `dores[]`, `evidencias_mercado` |
+| **Quinta** | F1 | F1: Radar de Dor (07h05) | `dores[]`, `evidencias_mercado` |
+| **Sexta** | F1 + F3 | F1: Radar de Dor (07h05) · F3: Caçador de Encaixe — consolidação semanal (16h00) | `fit_score`, `status` (promoção MONITORAR→MOVER_AGORA) |
 
-**Regra do F1 (diário):** Todo sinal novo de F1 que impactar um nicho existente → Músculo atualiza `dores[]` ou `evidencias_mercado` do modelo correspondente no mesmo dia.
+**Regra do F1 (diário):** Todo sinal novo de F1 que impactar um nicho existente → Músculo atualiza `dores[]` ou `evidencias_mercado` do modelo correspondente no mesmo dia. F1 roda **todos os dias** (inclusive sábado e domingo).
+
+---
+
+## ⚡ ATIVAÇÕES MANUAIS DO DIRETOR — PROJETISTA + EMBAIXADOR DIGITAL (Claude Projects)
+
+> Adicionado 2026-06-17 (Diretor). Diferente do Embaixador Agentado (Cowork automático que o Músculo
+> colhe), o **Projetista** e o **Embaixador Digital** são atores no **Claude Projects**.
+> **Classificação A/B (derivada dos system prompts — Embaixador Digital v2.1 + Projetista v5.1, 2026-06-17):**
+> os system prompts têm comandos por **tipo de sessão**, não por código ED#/P-T#. E vários ED#/P-T# são,
+> na verdade, **frentes Cowork automáticas** (o prompt do Embaixador Digital declara: a pasta DIGITAL/INBOX é
+> a SAÍDA das suas 6 frentes agendadas no Cowork). Logo:
+>
+> - **Categoria A — frente Cowork AUTOMÁTICA** (roda na madrugada, deposita em DIGITAL/INBOX ou PROJETISTA/INBOX,
+>   o Diretor **NÃO ativa**): ED1, ED2, ED3, ED4, ED6 · P-T3, P-T4, P-T6.
+> - **Categoria B — COMANDO DE ATIVAÇÃO MANUAL** (o Diretor **cola o comando** no Claude Project): os comandos
+>   canônicos abaixo. **Só a Categoria B vira notificação** (W-11 Telegram de manhã + abertura da sessão via
+>   `cowork_calendar.ps1` gate 0C). Os horários da AGENDA são teóricos — vale **quando o Diretor efetivamente ativa**.
+>
+> Fonte dos textos: `scripts/comandos_ativacao_atores.json` (lido pelo `cowork_calendar.ps1` e pelo W-11).
+
+**Comandos manuais (Categoria B) que o Diretor cola — por dia:**
+
+| Dia | 🟨 Projetista — comando manual | 🟩 Embaixador Digital — comando manual |
+|---|---|---|
+| **Segunda** | `PROJETISTA, triagem.` (consome P-T1) | `EMBAIXADOR DIGITAL, mostrar radar.` |
+| **Terça** | `PROJETISTA, nova oportunidade.` (consome P-T2) | `EMBAIXADOR DIGITAL, mostrar radar.` |
+| **Quarta** | — (frentes Cowork rodam sozinhas) | `EMBAIXADOR DIGITAL, mostrar radar.` |
+| **Quinta** | — | `EMBAIXADOR DIGITAL, mostrar radar.` |
+| **Sexta** | `PROJETISTA, retroalimentação.` (consome P-T5) | `EMBAIXADOR DIGITAL, mostrar radar.` + `relatório de validação.` (consome ED5) |
+| **Sábado / Domingo** | — | `EMBAIXADOR DIGITAL, mostrar radar.` |
+| **Sob gatilho** | `materialização` (plano aprovado) · `sessão de agendamento` (lacuna / novo nicho — P-T7) | `trabalhar [nicho]` (ao escolher nicho no radar) · `setup inicial` (1ª vez) |
+
+**Frentes Cowork automáticas (Categoria A — o Diretor NÃO ativa, documentadas para rastreio):**
+ED1 (síntese diária → alimenta `radar`) · ED2 (regulatório, seg) · ED3 (concorrentes, qua) · ED4 (prospects, ter/qui) ·
+ED6 (temas, dias 1 e 15) · P-T3 (diário do Projetista) · P-T4 (acervo, seg semana par) · P-T6 (pré-mortem, gatilho > R$5k).
+
+**Persistentes (append diário):** `DIARIO_PROJETISTA.md` (P-T3, 23h02) · `DIARIO_DIGITAL.md` (ED1, 23h00) — destino INBOX_COWORK.
+**Regra de notificação:** todo dia, o Músculo (via `cowork_calendar.ps1` na abertura + W-11 no Telegram) apresenta ao Diretor **o texto completo** dos comandos manuais (Categoria B) previstos para o dia, prontos para colar. **M-STATS NÃO entra** (execução interna do motor, não ativação manual).
 
 ---
 
@@ -66,6 +108,8 @@ briefings esperar. Integrada ao `session_start`.
 | **M-STATS** | Análise Estatística de Nicho — skill `market-stats-analysis`: market sizing TAM/SAM/SOM (dupla-via, ±15%) + tendência com IC sobre o produto Vanguard mais recente | `market_sizing`, `tendencia_ic`, `pricing.referencia_mercado` | NÃO — camada analítica fria; handoff ao Projetista (R-3) |
 
 **Regra mensal:** No dia 1, após F7+F8+F11 rodarem, o Músculo prepara PASSO_NICHE_MODELER.md atualizado e o Diretor abre sessão Gemini. Output vai para PENDING_REVIEW com flag `[ALERTA]` se urgência detectada.
+
+**BIB — Biblioteca de Nichos (dia 12, 10h00):** atualização mensal do catálogo de nichos pelo Embaixador Agentado → `BIBLIOTECA_NICHOS_v[X]_[data].md` no INBOX_COWORK. Roda em **dia 12** (não dia 1) — o Músculo colhe na abertura do dia 12.
 
 **M-STATS (engrenagem analítica transversal, dia 1 + sob demanda) — DOIS PASSOS distintos.** Protocolo completo em `MOTOR_INTELIGENCIA_NICHO.md` → "PROTOCOLO DE EXECUÇÃO M-STATS — DOIS PASSOS":
 - **Passo 1 — Músculo (análise BASE):** ao processar o `INBOX_COWORK`, roda a skill `market-stats-analysis` em regime base (market sizing inicial + gate N pequeno) → parecer BASE anexado ao Cartão → `PENDING_REVIEW` (P-124).
@@ -118,18 +162,18 @@ briefings esperar. Integrada ao `session_start`.
 | Data | Dia | Frente(s) | Prioridade | Ação no Niche Model |
 |---|---|---|---|---|
 | **13/06** | Sáb | — | — | ✅ NICHE_MODELS criados (esta sessão) |
-| **15/06** | Seg | F1+F2+F4a+F12 · **Fono: M1+M4+M7** | ALTA | Briefing Fundador → narrativas Licitações · colher M1/M4/M7 (fonográfico → PENDING_REVIEW [NICHO-FONOGRAFICO]) ✅ colhido |
-| **16/06** | Ter | F1+F3 | ALTA | Filtro de Encaixe → validar fit_score ANVISA (prazo 180d) |
-| **17/06** | Qua | F1+F6 | NORMAL | Radar profundo |
-| **18/06** | Qui | F1+F4b | **⚠️ DEADLINE** | Migração plataforma Antigravity (Google) substitui Gemini Code Assist IDE — verificar IDE + nomenclatura |
-| **19/06** | Sex | F1+F15 | ALTA | Guardião: confirmar atualizações da semana nos modelos |
-| **22/06** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **23/06** | Ter | F1+F3 | NORMAL | — |
-| **24/06** | Qua | F1+F6 | NORMAL | — |
-| **25/06** | Qui | F1+F4b | NORMAL | — |
-| **26/06** | Sex | F1+F15 | ALTA | Semáforo quinzenal (pré-dia 30) |
-| **29/06** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **30/06** | Ter | F1+F3 | **ALTA** | Pré-revisão: preparar lista de atualizações para dia 1/jul |
+| **15/06** | Seg | F1+F12+F15+ROD · **Fono: M1+M4+M7** | ALTA | Briefing Fundador → narrativas Licitações · colher M1/M4/M7 (fonográfico → PENDING_REVIEW [NICHO-FONOGRAFICO]) ✅ colhido |
+| **16/06** | Ter | F1 | ALTA | Filtro de Encaixe → validar fit_score ANVISA (prazo 180d) |
+| **17/06** | Qua | F1 | NORMAL | Radar profundo |
+| **18/06** | Qui | F1 | **⚠️ DEADLINE** | Migração plataforma Antigravity (Google) substitui Gemini Code Assist IDE — verificar IDE + nomenclatura |
+| **19/06** | Sex | F1+F3 | ALTA | Guardião: confirmar atualizações da semana nos modelos |
+| **22/06** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **23/06** | Ter | F1 | NORMAL | — |
+| **24/06** | Qua | F1 | NORMAL | — |
+| **25/06** | Qui | F1 | NORMAL | — |
+| **26/06** | Sex | F1+F3 | ALTA | Semáforo quinzenal (pré-dia 30) |
+| **29/06** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **30/06** | Ter | F1 | **ALTA** | Pré-revisão: preparar lista de atualizações para dia 1/jul |
 
 ---
 
@@ -138,26 +182,26 @@ briefings esperar. Integrada ao `session_start`.
 | Data | Dia | Frente(s) | Prioridade | Ação no Niche Model |
 |---|---|---|---|---|
 | **01/07** | Qua | **F5+F7+F8+F9+F11+NICHE_MODELER** | **🔴 CRÍTICO** | **DIA DE ENRIQUECIMENTO MENSAL** — Sessão Gemini Advanced |
-| **06/07** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **07/07** | Ter | F1+F3 | NORMAL | — |
-| **08/07** | Qua | F1+F6 | NORMAL | — |
-| **09/07** | Qui | F1+F4b | NORMAL | — |
-| **10/07** | Sex | F1+F15 | NORMAL | — |
-| **13/07** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **14/07** | Ter | F1+F3 | NORMAL | — |
+| **06/07** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **07/07** | Ter | F1 | NORMAL | — |
+| **08/07** | Qua | F1 | NORMAL | — |
+| **09/07** | Qui | F1 | NORMAL | — |
+| **10/07** | Sex | F1+F3 | NORMAL | — |
+| **13/07** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **14/07** | Ter | F1 | NORMAL | — |
 | **15/07** | Qua | **F5+F9** | ALTA | **QUINZENAL** — Espelho Estratégico + Fomento |
-| **16/07** | Qui | F1+F4b | NORMAL | — |
-| **17/07** | Sex | F1+F15 | ALTA | Semáforo + confirmar quinzenal |
-| **20/07** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **21/07** | Ter | F1+F3 | NORMAL | — |
-| **22/07** | Qua | F1+F6 | NORMAL | — |
-| **23/07** | Qui | F1+F4b | NORMAL | — |
-| **24/07** | Sex | F1+F15 | NORMAL | — |
-| **27/07** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **28/07** | Ter | F1+F3 | NORMAL | — |
-| **29/07** | Qua | F1+F6 | NORMAL | Pré-revisão mensal agosto |
-| **30/07** | Qui | F1+F4b | NORMAL | — |
-| **31/07** | Sex | F1+F15 | ALTA | Semáforo: preparar lista agosto |
+| **16/07** | Qui | F1 | NORMAL | — |
+| **17/07** | Sex | F1+F3 | ALTA | Semáforo + confirmar quinzenal |
+| **20/07** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **21/07** | Ter | F1 | NORMAL | — |
+| **22/07** | Qua | F1 | NORMAL | — |
+| **23/07** | Qui | F1 | NORMAL | — |
+| **24/07** | Sex | F1+F3 | NORMAL | — |
+| **27/07** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **28/07** | Ter | F1 | NORMAL | — |
+| **29/07** | Qua | F1 | NORMAL | Pré-revisão mensal agosto |
+| **30/07** | Qui | F1 | NORMAL | — |
+| **31/07** | Sex | F1+F3 | ALTA | Semáforo: preparar lista agosto |
 
 ---
 
@@ -166,22 +210,22 @@ briefings esperar. Integrada ao `session_start`.
 | Data | Dia | Frente(s) | Prioridade | Ação no Niche Model |
 |---|---|---|---|---|
 | **01/08** | Sáb | **F5+F7+F8+F9+F11+NICHE_MODELER** | **🔴 CRÍTICO** | **DIA DE ENRIQUECIMENTO MENSAL** — Sessão Gemini Advanced |
-| **03/08** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **04/08** | Ter | F1+F3 | NORMAL | — |
-| **05/08** | Qua | F1+F6 | NORMAL | — |
-| **06/08** | Qui | F1+F4b | NORMAL | — |
-| **07/08** | Sex | F1+F15 | NORMAL | — |
-| **10/08** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **11/08** | Ter | F1+F3 | NORMAL | — |
-| **12/08** | Qua | F1+F6 | NORMAL | — |
-| **13/08** | Qui | F1+F4b | NORMAL | — |
-| **14/08** | Sex | F1+F15 | NORMAL | — |
+| **03/08** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **04/08** | Ter | F1 | NORMAL | — |
+| **05/08** | Qua | F1 | NORMAL | — |
+| **06/08** | Qui | F1 | NORMAL | — |
+| **07/08** | Sex | F1+F3 | NORMAL | — |
+| **10/08** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **11/08** | Ter | F1 | NORMAL | — |
+| **12/08** | Qua | F1 | NORMAL | — |
+| **13/08** | Qui | F1 | NORMAL | — |
+| **14/08** | Sex | F1+F3 | NORMAL | — |
 | **15/08** | Sáb | **F5+F9** | ALTA | **QUINZENAL** — Espelho + Fomento |
-| **17/08** | Seg | F1+F2+F4a+F12 | NORMAL | — |
-| **18/08** | Ter | F1+F3 | ALTA | **ALERTA:** prazo ANVISA 09/12 se aproxima (120 dias) |
-| **19/08** | Qua | F1+F6 | NORMAL | — |
-| **20/08** | Qui | F1+F4b | NORMAL | — |
-| **21/08** | Sex | F1+F15 | ALTA | Semáforo: verificar ANVISA + LC 227/2026 |
+| **17/08** | Seg | F1+F12+F15+ROD | NORMAL | — |
+| **18/08** | Ter | F1 | ALTA | **ALERTA:** prazo ANVISA 09/12 se aproxima (120 dias) |
+| **19/08** | Qua | F1 | NORMAL | — |
+| **20/08** | Qui | F1 | NORMAL | — |
+| **21/08** | Sex | F1+F3 | ALTA | Semáforo: verificar ANVISA + LC 227/2026 |
 
 ---
 
@@ -191,7 +235,7 @@ briefings esperar. Integrada ao `session_start`.
 |---|---|---|---|---|
 | **01/09** | Ter | **F5+F7+F8+F9+F11+NICHE_MODELER** | **🔴 CRÍTICO** | **DIA DE ENRIQUECIMENTO MENSAL** — Sessão Gemini Advanced |
 | **06/09** | Dom | — | **⚠️ ALERTA** | Prova SEDES-DF (contexto Ingrid — F13) |
-| **09/09** | Qua | F1+F6 | **🔴 ALERTA** | **90 dias para deadline ANVISA (09/12/2026)** — urgência máxima Rastreabilidade |
+| **09/09** | Qua | F1 | **🔴 ALERTA** | **90 dias para deadline ANVISA (09/12/2026)** — urgência máxima Rastreabilidade |
 | **15/09** | Ter | **F5+F9** | ALTA | **QUINZENAL** — Espelho + Fomento |
 | **30/09** | Qua | — | **⚠️ DEADLINE** | Prazo FINEP R$300M (OPP-01 F9) |
 

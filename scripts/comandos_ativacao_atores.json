@@ -1,0 +1,102 @@
+{
+  "_doc": "Comandos de ativacao do PROJETISTA e do EMBAIXADOR DIGITAL (atores Claude Projects).",
+  "_fonte": "SYSTEM PROMPT Embaixador Digital v2.1 (BLOCO 10) + SYSTEM PROMPT Projetista v5.1 (COMANDOS DE ATIVACAO RAPIDA), colados pelo Diretor 2026-06-17.",
+  "_uso": "cowork_calendar.ps1 (abertura/gate 0C) e W-11 (Telegram) leem este arquivo e exibem o TEXTO do comando que o Diretor deve colar no ator hoje, para ativar cada um com excelencia.",
+  "_status": "PREENCHIDO 2026-06-17 a partir dos 2 system prompts.",
+  "_classificacao": "Categoria A = frente Cowork AUTOMATICA (roda na madrugada, deposita em DIGITAL/INBOX ou PROJETISTA/INBOX, o Diretor NAO ativa). Categoria B = COMANDO DE ATIVACAO MANUAL que o Diretor cola no Claude Project. SO a categoria B vira notificacao de abertura/Telegram. Texto ASCII-safe (sem emoji/acento) por compatibilidade PS 5.1 console.",
+  "_atualizado": "2026-06-17",
+
+  "comandos_canonicos": {
+    "embaixador_digital": {
+      "radar": {
+        "rotulo": "Radar (abertura -- diario)",
+        "cadencia": "Diario",
+        "texto": "EMBAIXADOR DIGITAL, mostrar radar.\nExecute o Protocolo de Leitura (material do Projetista + DIGITAL/INBOX + PENDING_REVIEW + NICHE_INDEX).\nApresente: nichos prontos para campanha, material do Projetista disponivel, alertas criticos novos -- ordenados pela prioridade comercial. Me pergunte qual nicho trabalhar.\nNao monte campanha ainda."
+      },
+      "campanha": {
+        "rotulo": "Campanha (sob escolha de nicho)",
+        "cadencia": "Sob gatilho",
+        "texto": "EMBAIXADOR DIGITAL, trabalhar [nicho].\nUse o material do Projetista (se houver) + o _MODEL.json do nicho.\nMonte a CAMPANHA LINKEDIN seguindo as 5 fases: diagnostico, conteudo para o perfil do Eduardo (distribuicao) e para a Company Page (validacao), prospeccao com a busca_linkedin, e SEO aplicado. Me entregue para os 2 cliques."
+      },
+      "validacao": {
+        "rotulo": "Relatorio de validacao",
+        "cadencia": "Sexta / a cada 30-45 dias",
+        "texto": "EMBAIXADOR DIGITAL, relatorio de validacao.\nAnalise os seguidores por porte (ICP), o CTR vs curtidas, e a auditoria comportamental dos novos seguidores. Me diga se o posicionamento esta atraindo os decisores certos.\nPrepare a retroalimentacao para o Projetista."
+      },
+      "setup": {
+        "rotulo": "Setup inicial do LinkedIn",
+        "cadencia": "Primeira vez",
+        "texto": "EMBAIXADOR DIGITAL, setup inicial do LinkedIn.\nDiagnostique o estado do perfil do Eduardo e da Company Page da Vanguard.\nProponha: matriz semantica (SEO), Tagline, secao Sobre, especialidades (20 tags), e o calendario editorial de 30 dias. Sem publicar nada -- so o plano para eu aprovar."
+      }
+    },
+    "projetista": {
+      "projecao": {
+        "rotulo": "Nova oportunidade (projecao)",
+        "cadencia": "Terca / quando ha nicho MOVER_AGORA",
+        "texto": "PROJETISTA, nova oportunidade.\nNicho: [nome/codigo] | DELTA: [sinal] | Ciclos: [N] | Janela: [quando]\nUltima deliberacao Cowork: [data] | Tipo: [LEVE/PADRAO/PESADA]\nCruze o VANGUARD_HISTORICO com a inteligencia de mercado e estruture o plano pelo ciclo de vida de projeto."
+      },
+      "materializacao": {
+        "rotulo": "Materializacao + Ligacao Digital",
+        "cadencia": "Sob gatilho (plano aprovado)",
+        "texto": "PROJETISTA, materializacao.\nNicho: [X] | Plano-base: [referencia]\nGere via NotebookLM: [deck ao cliente / audio / infografico EAP / cards p/ Digital]\nEmita os prompts e me entregue o material com linguagem blindada + a recomendacao de despacho ao Embaixador Digital."
+      },
+      "agendamento": {
+        "rotulo": "Sessao de agendamento",
+        "cadencia": "Sob gatilho (lacuna / novo nicho)",
+        "texto": "PROJETISTA, sessao de agendamento.\nProjetando [nicho], suspeito de lacuna em [tema].\nIdentifique qual frente Cowork preencheria e proponha o foco da coleta."
+      },
+      "retroalimentacao": {
+        "rotulo": "Retroalimentacao",
+        "cadencia": "Sexta / quando o Digital reporta campo",
+        "texto": "PROJETISTA, retroalimentacao.\nO Embaixador Digital reportou: [resultado de campanha].\nAtualize as projecoes dos nichos afetados (Encerramento -- licoes aprendidas)."
+      },
+      "triagem": {
+        "rotulo": "Triagem (fronteira DELTA)",
+        "cadencia": "Segunda / periodica",
+        "texto": "PROJETISTA, triagem.\nOlhe os REPETIDOS prestes a virar TENDENCIA (DELTA). Sinalize a fronteira. Nao projete."
+      }
+    }
+  },
+
+  "agenda_ativacao_manual": {
+    "Monday":    { "embaixador_digital": ["radar"],              "projetista": ["triagem"] },
+    "Tuesday":   { "embaixador_digital": ["radar"],              "projetista": ["projecao"] },
+    "Wednesday": { "embaixador_digital": ["radar"],              "projetista": [] },
+    "Thursday":  { "embaixador_digital": ["radar"],              "projetista": [] },
+    "Friday":    { "embaixador_digital": ["radar","validacao"], "projetista": ["retroalimentacao"] },
+    "Saturday":  { "embaixador_digital": ["radar"],              "projetista": [] },
+    "Sunday":    { "embaixador_digital": ["radar"],              "projetista": [] }
+  },
+
+  "sob_gatilho": {
+    "embaixador_digital": {
+      "campanha": "quando o Diretor escolhe um nicho no radar do dia",
+      "setup": "primeira configuracao do LinkedIn (uma vez)"
+    },
+    "projetista": {
+      "materializacao": "quando ha plano aprovado a transformar em deck/audio/cards",
+      "agendamento": "quando a projecao revela lacuna de inteligencia (smoke test / novo nicho)"
+    }
+  },
+
+  "frentes_cowork_automaticas": {
+    "_nota": "Categoria A -- rodam no Cowork (madrugada), NAO sao ativacao manual. Documentadas para rastreio; consumidas pelo comando indicado.",
+    "embaixador_digital": {
+      "ED1": "Sintese Digital do Dia (diario) -- consumida pelo comando 'radar'",
+      "ED2": "Radar Regulatorio p/ Conteudo (Seg) -- alimenta 'radar'",
+      "ED3": "Concorrentes LinkedIn (Qua) -- alimenta 'radar'",
+      "ED4": "Radar de Prospects (Ter/Qui) -- alimenta 'radar'",
+      "ED5": "Auditoria ICP (Sex) -- consumida pelo comando 'validacao'",
+      "ED6": "Thought Leadership Banco de Temas (dias 1 e 15) -- alimenta 'radar'"
+    },
+    "projetista": {
+      "P-T1": "Radar de Fronteira DELTA (Seg) -- consumida pelo comando 'triagem'",
+      "P-T2": "Pre-digestao MOVER_AGORA (Ter) -- consumida pelo comando 'projecao'",
+      "P-T3": "Diario do Projetista (diario) -- input em PROJETISTA/INBOX",
+      "P-T4": "Acervo Reutilizavel (Seg semana par) -- input em PROJETISTA/INBOX",
+      "P-T5": "Retroalimentacao Digital (Sex) -- consumida pelo comando 'retroalimentacao'",
+      "P-T6": "Pre-mortem de Proposta (gatilho proposta > R$5k)",
+      "P-T7": "Smoke Test de Demanda (novo nicho) -- consumida pelo comando 'agendamento'"
+    }
+  }
+}

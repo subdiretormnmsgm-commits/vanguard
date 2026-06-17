@@ -88,12 +88,14 @@ foreach ($t in $mHoje) {
 }
 
 # -- Ritmo semanal das frentes F (inteligencia de mercado generica) --------------
+# Alinhado a AGENDA VANGUARD oficial (2026-06-17): F2/F4a/F4b/F6 DESCONTINUADAS.
+# F3 migrou Terca->Sexta (consolidacao); F15 migrou Sexta->Segunda; ROD adicionado a Segunda.
 $fSemanal = switch ($diaSemana) {
-    "Monday"    { "F1 + F2 + F4a + F12 (Radar de Dor + Oportunidades + 1a rodada + Briefing Fundador)" }
-    "Tuesday"   { "F1 + F3 (Radar de Dor + Filtro de Encaixe)" }
-    "Wednesday" { "F1 + F6 (Radar de Dor + Radar Profundo)" }
-    "Thursday"  { "F1 + F4b (Radar de Dor + 2a rodada)" }
-    "Friday"    { "F1 + F15 (Radar de Dor + Guardiao de Promessas)" }
+    "Monday"    { "F1 + F12 + F15 + ROD (Radar de Dor + Tutor do Fundador + Guardiao de Dependencias + Rodizio Caca F16-F22)" }
+    "Tuesday"   { "F1 (Radar de Dor -- diario)" }
+    "Wednesday" { "F1 (Radar de Dor -- diario)" }
+    "Thursday"  { "F1 (Radar de Dor -- diario)" }
+    "Friday"    { "F1 + F3 (Radar de Dor + Cacador de Encaixe -- consolidacao semanal)" }
     default     { "F1 (Radar de Dor -- diario)" }
 }
 
@@ -102,6 +104,32 @@ if ($diaMes -eq 1 -or $diaMes -eq 15) { $fQuinzenal += "F5 + F9 (Espelho Estrate
 $fMensal = @()
 if ($diaMes -eq 1) { $fMensal += "F7 + F8 + F11 + NICHE_MODELER (enriquecimento mensal -- sessao Gemini)" }
 if ($diaMes -eq 1) { $fMensal += "M-STATS (Analise Estatistica de Nicho -- skill market-stats-analysis: market sizing TAM/SAM/SOM dupla-via + tendencia c/ IC sobre o produto Vanguard; saida -> PENDING_REVIEW)" }
+
+# -- Ativacoes MANUAIS do Diretor: Projetista (P-T) + Embaixador Digital (ED) -----
+# Diretor 2026-06-17: estes atores (Claude Projects) so entregam quando o Diretor
+# roda o COMANDO DE ATIVACAO. Fonte: scripts\comandos_ativacao_atores.json (preenchido
+# dos 2 system prompts: Embaixador Digital v2.1 + Projetista v5.1). Categoria A = frente
+# Cowork AUTOMATICA (Diretor NAO ativa); Categoria B = comando manual. So a B vira
+# notificacao aqui + Telegram (W-11). Horarios da AGENDA sao teoricos; vale quando o Diretor ativa.
+# A notificacao mostra o TEXTO do comando para o Diretor colar no ator com excelencia.
+$ativCmdPath = Join-Path $PSScriptRoot "comandos_ativacao_atores.json"
+$ativDigital    = @()   # array de @{ comando = rotulo; texto = comando completo }
+$ativProjetista = @()
+$ativErro = $null
+try {
+    $jCmd  = Get-Content -LiteralPath $ativCmdPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $agDia = $jCmd.agenda_ativacao_manual.$diaSemana
+    foreach ($k in @($agDia.embaixador_digital)) {
+        $c = $jCmd.comandos_canonicos.embaixador_digital.$k
+        if ($c) { $ativDigital += @{ comando = $c.rotulo; texto = $c.texto } }
+    }
+    foreach ($k in @($agDia.projetista)) {
+        $c = $jCmd.comandos_canonicos.projetista.$k
+        if ($c) { $ativProjetista += @{ comando = $c.rotulo; texto = $c.texto } }
+    }
+} catch {
+    $ativErro = $_.Exception.Message
+}
 
 # -- M-STATS: check de ESTADO (independe da data) -- "e sempre bom conferir" (Diretor 2026-06-17)
 # O M-STATS Passo 2 (robustecer) e downstream e NAO segue o mapa de colheita do calendario.
@@ -134,6 +162,9 @@ if ($Json) {
         frentes_mensal      = $fMensal
         briefings_esperados = $briefingsEsperados
         mstats_aguardando_robustecer = @($mstatsPendentes)
+        ativacoes_projetista = @($ativProjetista)
+        ativacoes_digital    = @($ativDigital)
+        ativacoes_fonte_erro = $ativErro
     }
     Write-Output ($obj | ConvertTo-Json -Depth 6 -Compress)
     exit 0
@@ -176,6 +207,34 @@ if ($mstatsPendentes.Count -gt 0) {
 } else {
     Write-Host "    Nenhum parecer M-STATS BASE aguardando robustecer."
 }
+Write-Host ""
+
+Write-Host "  ATIVACOES MANUAIS DO DIRETOR HOJE (Claude Projects -- COLAR o comando no ator):"
+if ($ativErro) {
+    Write-Host "    [FALLBACK] Falha ao ler comandos_ativacao_atores.json: $ativErro"
+    Write-Host "    EMBAIXADOR DIGITAL: colar 'EMBAIXADOR DIGITAL, mostrar radar.' (diario)"
+    Write-Host "    PROJETISTA: ver scripts\comandos_ativacao_atores.json"
+} else {
+    Write-Host "  -- EMBAIXADOR DIGITAL --"
+    if ($ativDigital.Count -gt 0) {
+        foreach ($a in $ativDigital) {
+            Write-Host "    >> $($a.comando):"
+            foreach ($ln in ($a.texto -split "`n")) { Write-Host "       $ln" }
+        }
+    } else { Write-Host "    (nenhuma ativacao manual hoje)" }
+    Write-Host "  -- PROJETISTA --"
+    if ($ativProjetista.Count -gt 0) {
+        foreach ($a in $ativProjetista) {
+            Write-Host "    >> $($a.comando):"
+            foreach ($ln in ($a.texto -split "`n")) { Write-Host "       $ln" }
+        }
+    } else { Write-Host "    (nenhuma ativacao manual hoje -- frentes Cowork rodam sozinhas)" }
+    Write-Host ""
+    Write-Host "    SOB GATILHO (rodar quando aplicavel): ED 'trabalhar [nicho]' (ao escolher nicho no radar) /"
+    Write-Host "    ED 'setup inicial' (1a vez) / PROJETISTA 'materializacao' (plano aprovado) /"
+    Write-Host "    PROJETISTA 'sessao de agendamento' (lacuna / novo nicho)."
+}
+Write-Host "    (espelhadas no Telegram via W-11 -- horarios da AGENDA sao teoricos; vale quando o Diretor ativa)"
 Write-Host ""
 
 if ($briefingsEsperados.Count -gt 0) {
