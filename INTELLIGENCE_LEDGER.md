@@ -2754,8 +2754,8 @@ const dadosInput = $input.all()[0].json;              // node imediatamente ante
 3. Nota de fronteira do papel
 Comando sem papel declarado ou sem arsenal citado = comando invalido.
 
-**Ferramentas criadas/ajustadas (P-146):**
-- scripts/gemini_anchor_generator.ps1 -- ganha mapa PAPEL->arsenal (P-163) e injeta papel + arsenal + nota de fronteira no comando gerado automaticamente (item no PENDENTES.md ate concluir o build).
+**Ferramentas criadas/ajustadas (P-146) [CONSTRUIDO 2026-06-16]:**
+- scripts/gemini_anchor_generator.ps1 -- ganha param -papel (ESTRATEGISTA|EXECUTOR|COWORK) + mapa PAPEL->arsenal (P-163); injeta automaticamente no comando gerado: declaracao "Sessao Antigravity: [PAPEL]", arsenal EXATO na ordem, e nota de fronteira do papel. Body do comando varia por papel (EXECUTOR le PASSO3+CONTEXTO; COWORK le INBOX_COWORK+BIBLIOTECA+NICHE_INDEX). Testado: parse 0 erros, 3/3 papeis com papel+arsenal corretos, ASCII puro.
 - CLIENTES/VANGUARD/PASSO3_GEMINI.md -- secao [SKILLS DO ESTRATEGISTA -- EXECUTAR NESTA ORDEM (P-163 PAPEL 1)] adicionada.
 
 **Aplica-se a:** todo comando do Musculo ao Antigravity, qualquer papel.

@@ -55,6 +55,15 @@ function Get-StagedSha([string]$path) {
     return $null
 }
 
+function Get-WorktreeSha([string]$path) {
+    # Hash do conteudo ATUAL na arvore de trabalho (cobre unstaged + untracked).
+    # Usado por -List/-Report: um arquivo revisado num commit anterior e MODIFICADO de novo
+    # depois tem sha de working-tree != sha gravado na flag -> volta a ser pendente (P-178).
+    $sha = git hash-object -- "$path" 2>$null
+    if ($LASTEXITCODE -eq 0 -and $sha) { return $sha.Trim() }
+    return $null
+}
+
 # ----------------------------------------------------------------------------
 # MODO -MarkReviewed: grava path + blob sha (staged) dos arquivos de codigo
 # ----------------------------------------------------------------------------
@@ -122,7 +131,10 @@ foreach ($f in $codeFiles) {
         $sha = Get-StagedSha $f
         if (-not ($reviewed.ContainsKey($f) -and $reviewed[$f] -eq $sha)) { $pendentes += $f }
     } else {
-        if (-not $reviewed.ContainsKey($f)) { $pendentes += $f }
+        # Compara o hash da arvore de trabalho (nao so a presenca da chave): codigo revisado
+        # antes mas modificado de novo na sessao volta a contar como pendente (P-178).
+        $wsha = Get-WorktreeSha $f
+        if (-not ($reviewed.ContainsKey($f) -and $wsha -and $reviewed[$f] -eq $wsha)) { $pendentes += $f }
     }
 }
 

@@ -6,7 +6,12 @@
 # Output: CLIENTES\[NOME]\CONTEXTO_GEMINI.md + comando @ pronto no clipboard
 
 param(
-    [string]$cliente = ""
+    [string]$cliente = "",
+
+    # P-166: o comando ao Antigravity declara o PAPEL e cita o ARSENAL EXATO de skills (P-163).
+    # ESTRATEGISTA e o papel padrao deste script (produz o CONTEXTO + PASSO3 da DIRETRIZ).
+    [ValidateSet("ESTRATEGISTA","EXECUTOR","COWORK")]
+    [string]$papel = "ESTRATEGISTA"
 )
 
 [Console]::InputEncoding  = [System.Text.Encoding]::UTF8
@@ -233,14 +238,51 @@ if ($projetoAtivo) {
     $passo3Rel   = "CLIENTES/VANGUARD/PASSO3_GEMINI.md"
     $contextoRel = "CONTEXTO_GEMINI.md"
 }
-$antigravityCmd = "@$passo3Rel @$contextoRel @INTELLIGENCE_LEDGER.md`n`nVoce e o Estrategista do Pentalateral (GEMINI.md v2.0). Leia os 3 arquivos acima e gere a DIRETRIZ ESTRATEGICA no formato obrigatorio do PASSO3 (7 blocos), com [G-1 a G-5] e o bloco [PARA O NOTEBOOKLM]."
+
+# --- P-166: PAPEL + ARSENAL EXATO (P-163) injetados no comando ao Antigravity ---
+# Falha P-166: comando sem papel/arsenal = invalido. O comando gerado SEMPRE contem
+# (1) "Sessao Antigravity: [PAPEL]", (2) arsenal exato na ordem, (3) nota de fronteira.
+$arsenalMap = @{
+    "ESTRATEGISTA" = @{
+        skills    = "@concise-planning -> @brainstorming -> @architecture -> @analyze-project -> deliberacao 7 pontos"
+        fronteira = "ESTRATEGISTA SUPORTA a producao da DIRETRIZ -- NUNCA a gera autonomamente (papel exclusivo do Gemini Advanced). Todo output -> PENDING_REVIEW.md; o Musculo revisa antes de qualquer acao (P-124). Papeis nao se misturam na mesma sessao."
+    }
+    "EXECUTOR" = @{
+        skills    = "@systematic-debugging, @bash-scripting, @git-pushing, @error-detective"
+        fronteira = "EXECUTOR age pelo que o Estrategista-Gemini definiu (le PASSO3_GEMINI.md + CONTEXTO_GEMINI.md do disco) -- nunca por intuicao. Output -> PENDING_REVIEW.md; Musculo revisa antes de aplicar (P-124). Papeis nao se misturam na mesma sessao."
+    }
+    "COWORK" = @{
+        skills    = "@bash-scripting, @error-detective"
+        fronteira = "COWORK CONDUCTOR conduz NICHE_MODELER (le INBOX_COWORK + BIBLIOTECA + NICHE_INDEX). COWORK != LOOP. Output -> PENDING_REVIEW.md; Musculo revisa (P-124). Papeis nao se misturam na mesma sessao."
+    }
+}
+$pp = $arsenalMap[$papel]
+$papelHeader = "Sessao Antigravity: $papel" + "`n`n" +
+    "ARSENAL OBRIGATORIO (invocar nesta ordem): " + $pp.skills + "`n" +
+    "@concise-planning e obrigatoria na abertura de QUALQUER papel." + "`n`n" +
+    "FRONTEIRA DO PAPEL: " + $pp.fronteira
+
+# Corpo da instrucao por papel (file refs @ lidos do disco -- nada de colar/arrastar)
+switch ($papel) {
+    "EXECUTOR" {
+        $antigravityBody = "@$passo3Rel @$contextoRel @INTELLIGENCE_LEDGER.md`n`nVoce e o EXECUTOR do Pentalateral. Leia os arquivos acima e execute exatamente o que o Estrategista-Gemini definiu no PASSO3 -- nao gere DIRETRIZ. Grave o resultado em PENDING_REVIEW.md."
+    }
+    "COWORK" {
+        $antigravityBody = "Voce e o COWORK CONDUCTOR. Leia INBOX_COWORK + BIBLIOTECA + NICHE_INDEX e conduza a sessao NICHE_MODELER (5 tarefas: fit_score, enriquecimento, alertas regulatorios, nichos novos, mapa de prioridade). Grave o resultado em PENDING_REVIEW.md. COWORK != LOOP."
+    }
+    default {
+        $antigravityBody = "@$passo3Rel @$contextoRel @INTELLIGENCE_LEDGER.md`n`nVoce e o Estrategista do Pentalateral (GEMINI.md v2.0). Leia os 3 arquivos acima e gere a DIRETRIZ ESTRATEGICA no formato obrigatorio do PASSO3 (7 blocos), com [G-1 a G-5] e o bloco [PARA O NOTEBOOKLM]."
+    }
+}
+$antigravityCmd = $papelHeader + "`n`n" + ("-" * 60) + "`n`n" + $antigravityBody
 
 try { $antigravityCmd | Set-Clipboard; $clipMsg = "comando @ copiado" } catch { $clipMsg = "indisponivel -- copie do terminal" }
 
 Write-Host "  =============================================="
-Write-Host "  PROTOCOLO ESTRATEGISTA (ANTIGRAVITY) -- EXECUTAR AGORA" -ForegroundColor Cyan
+Write-Host "  PROTOCOLO $papel (ANTIGRAVITY) -- EXECUTAR AGORA" -ForegroundColor Cyan
 Write-Host "  =============================================="
 Write-Host "  O Antigravity LE os arquivos do disco via @ -- nada de colar payload nem arrastar."
+Write-Host "  P-166: o comando abaixo declara PAPEL + ARSENAL EXATO (P-163) + fronteira." -ForegroundColor DarkGray
 Write-Host ""
 Write-Host "  [ ] 1. Cole no Antigravity ($clipMsg):"
 Write-Host "         $antigravityCmd" -ForegroundColor Yellow

@@ -283,6 +283,43 @@ if ($p174Falhos.Count -gt 0) {
     $exitCode = 2
 }
 
+# GATE 6E (P-178): code-review EXECUTADO no codigo modificado da sessao -- ENFORCEMENT no fechamento.
+# Origem: FALHA-PROCESSO-2026-06-15-C (Diretor: "muitos erros de codigo ao longo dos loops").
+# Camadas: session_start avisa na abertura; pre-commit R-05 bloqueia o commit; este gate fecha a
+# brecha do codigo da sessao que NAO foi commitado (ficaria sem review ao virar a sessao).
+# So bloqueia se ha codigo modificado (staged+unstaged+untracked) sem .code_review_done.flag.
+# FAIL-OPEN por bug proprio (try/catch) -- gate quebrado nunca trava o fechamento.
+try {
+    $crScript = Join-Path $baseDir "scripts\gate_code_review.ps1"
+    if (Test-Path $crScript) {
+        $crPend = @(& powershell.exe -NoProfile -NonInteractive -File $crScript -List 2>$null |
+            Where-Object { $_ -and $_.Trim() -ne "" })
+        if ($crPend.Count -gt 0 -and $env:PENTALATERAL_AUTORIZO) {
+            Write-Host "  [GATE 6E / P-178] Bypass de emergencia (PENTALATERAL_AUTORIZO) -- $($crPend.Count) arquivo(s) sem review." -ForegroundColor Yellow
+        } elseif ($crPend.Count -gt 0) {
+            Write-Host ""
+            Write-Host "  ========================================================" -ForegroundColor Red
+            Write-Host "  [GATE 6E / P-178] BLOQUEIO -- codigo da sessao sem code-review" -ForegroundColor Red
+            Write-Host "  ========================================================" -ForegroundColor Red
+            Write-Host "  $($crPend.Count) arquivo(s) de codigo modificados sem review nesta sessao:" -ForegroundColor Yellow
+            foreach ($f in $crPend) { Write-Host "    - $f" -ForegroundColor Red }
+            Write-Host ""
+            Write-Host "  Correcao (P-178): Musculo invoca a skill requesting-code-review nesses" -ForegroundColor Yellow
+            Write-Host "  arquivos, corrige inline, depois:" -ForegroundColor Yellow
+            Write-Host "    & '.\scripts\gate_code_review.ps1' -MarkReviewed" -ForegroundColor Yellow
+            Write-Host "  (codigo ja commitado nao aparece -- o R-05 ja o revisou no commit)." -ForegroundColor DarkGray
+            Write-Host "  Bypass de emergencia: `$env:PENTALATERAL_AUTORIZO = '1' (mesmo do R-05)." -ForegroundColor DarkGray
+            Write-Host "  ========================================================" -ForegroundColor Red
+            Write-Host ""
+            $exitCode = 2
+        } else {
+            Write-Host "  [GATE 6E / P-178] Code-review da sessao OK (sem codigo pendente)." -ForegroundColor Green
+        }
+    }
+} catch {
+    Write-Host "  [GATE 6E / P-178] Aviso: gate de code-review falhou ($($_.Exception.Message)) -- FAIL-OPEN." -ForegroundColor DarkYellow
+}
+
 # GATE EMAIL -- e-mail de fechamento deve ter sido enviado antes de encerrar
 $emailBodyPath = Join-Path $baseDir "scripts\.email_body.txt"
 $emailSentFlag = Join-Path $baseDir "scripts\.email_sent_$dataHoje.flag"
