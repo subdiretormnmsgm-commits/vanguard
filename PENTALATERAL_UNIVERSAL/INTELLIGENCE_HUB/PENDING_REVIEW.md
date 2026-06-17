@@ -6,6 +6,48 @@
 
 ## AGUARDANDO VEREDITO
 
+### [GOVERNANCA-ATORES] — Analise cirurgica PROJETISTA x EMBAIXADOR DIGITAL · 2026-06-16
+
+> Origem: Diretor pediu analise cirurgica das atividades dos 2 novos atores (Projetista + Embaixador
+> Digital) e da integridade da cadeia COWORK -> PROJETISTA -> EMBAIXADOR DIGITAL.
+> Insumos: system prompt Projetista v5.0 + fontes/entregas Embaixador Digital + inventario 31 tasks.
+> Skills da etapa ANALISE_DELIBERACAO: ultrathink-trigger (Read) + brainstorming. writing-plans pos-veredito.
+> NATUREZA: governanca/instrumentacao -- NAO exige modificar os system prompts (ja corretos). A correcao
+> e alinhar a EXECUCAO (SKILL.md das tasks Cowork + pastas do Drive) ao que os prompts ja mandam.
+
+**TESE CENTRAL:** existem DOIS atores por nome com permissoes opostas -- a encarnacao A (Claude Project,
+deliberativa, read-only no acervo, P-124/P-075) e a encarnacao B (Cowork Scheduled Task, que ESCREVE).
+O sistema os trata como um so. Esta dualidade e a raiz da maioria dos furos.
+
+| # | Severidade | Achado | Onde corrige (NAO e prompt) | Dono |
+|---|---|---|---|---|
+| 1 | 🔴 | Cadeia quebrada: ninguem grava `PROJETISTA/PLANOS`; Digital le de pasta inexistente | pastas Drive (FEITO 2026-06-16) + rotina Musculo grava plano aprovado | Infra+Musculo |
+| 2 | 🔴 | Tasks `projetista-task1..4` escrevem em INTELLIGENCE_HUB/Drive -- viola Mandato 6/P-124 | reapontar destino p/ INBOX_COWORK na SKILL.md das tasks | Cowork (Diretor) |
+| 3 | 🟡 | Triplice sobreposicao no status DELTA (P-T1 x F3 x F5) | definir F3 dono unico; F5 audita; P-T1 so sinaliza | Cowork (Diretor) |
+| 4 | 🟡 | Radar regulatorio quadruplicado (F1+F17+M2+embaixador-radar) -- custo API/E-4 | Digital consome INBOX em vez de varrer | Cowork (Diretor) |
+| 5 | 🟡 | Embaixador Digital sem pasta de saida definida | criar `EMBAIXADOR_DIGITAL/{RADAR,CAMPANHAS,VALIDACOES}` se Diretor aprovar | Infra |
+| 6 | 🟡 | P-T5 retroalimentacao roda sem fonte (sem campo/metricas reais ainda) | [AGUARDA-CAMPO]; FONTE DEFINIDA = loop de calibracao (retorno de prospeccao real) | Cowork (Diretor) |
+| 7 | ⚪ | WhatsApp/Instagram no mandato do Digital sem task (sub-execucao) | aceitar (canal de envio manual) ou criar task | Diretor |
+| 8 | ⚪ | P-T2 (terca 5h04) consolida F1 antes do F1 de terca (7h05) -- defasagem 1 dia | trivial; reordenar horario se incomodar | Cowork |
+| 9 | ⚪ | Dois diarios quase simultaneos: P-T3 (23h02) x Sintese Digital (23h00) | lentes distintas; aceitavel | -- |
+| 10 | 🟡 | Regra global #1 ("output -> INBOX exclusivo") ja contrariada por P-T3/P-T4/Sintese Digital -> Drive | alinhar regra ao real (ou real a regra) -- regra que mente sobre o sistema gera falso-positivo em auditoria | Cowork (Diretor) |
+
+**TOPOLOGIA CONFIRMADA PELO DIRETOR (2026-06-16) -- documento: MOTOR_INTELIGENCIA_NICHO.md:**
+- ENGRENAGENS = tarefas agendadas do Cowork (rodam por calendario) -> motor perpetuo, sempre gera PRODUTO VANGUARD.
+- PRODUTO = a ENTREGA DO COWORK (robustecida pelo Executor). A analise do Musculo e a base/insumo; o Musculo
+  NAO e autor do produto -- e PORTAO de governanca (revisa via PENDING_REVIEW, grava apos veredito, P-124).
+- Embaixador Digital consome 2 fontes: a entrega do Cowork + os produtos do Projetista -> prospecta a Vanguard.
+- DIRETOR = unico no humano (origina P-160 / veredito P-124 / recebe briefing / executa abordagem final).
+- CAMADA CRITICA: rclone/Drive-First -- atores leem do Google Drive; produto nao propagado ao Drive nao existe
+  para eles (G2 obrigatorio apos gravar/editar arquivo que ator remoto le).
+
+**VEREDITO PARCIAL (aguarda Diretor):**
+- Achado 1: pastas `PROJETISTA/PLANOS` e `/CAMPANHA` criadas (OneDrive + Drive). VEREDITO DIRETOR 2026-06-16:
+  Musculo grava o plano aprovado (P-124) -- escrita unica, motivo correto (portao com veredito, nao autoria).
+- Achado 5: pastas `EMBAIXADOR_DIGITAL/{RADAR,CAMPANHAS,VALIDACOES}` -- APROVADO pelo Diretor; criadas 2026-06-16.
+- Achados 2/3/4/6/10: correcao nas SKILL.md das tasks -- ambiente Cowork, prerrogativa do Diretor (Musculo nao edita).
+  Texto de reapontamento entregue ao Diretor para colar no Cowork (2026-06-16).
+
 ### INBOX_COWORK — 18 arquivos · Embaixador Agentado · Cowork · registrados 2026-06-12
 
 > Lidos pelo Músculo via MCP Drive em 2026-06-12. Gap de design detectado (F5 v2): Embaixador não atualiza PENDING_REVIEW automaticamente — correção necessária na skill v2.1.
@@ -54,6 +96,12 @@
 | Data | Tipo | Arquivo | Status |
 |---|---|---|---|
 | 2026-06-15 | DIRETRIZ | `CLIENTES/VANGUARD/PENDING_REVIEW/DIRETRIZ_ESTRATEGICA_V34.md` | AGUARDANDO_VEREDITO |
+
+### ANTIGRAVITY EXECUTOR — Sessão de Infraestrutura · 2026-06-16
+
+| Data | Tipo | Arquivo | Status |
+|---|---|---|---|
+| 2026-06-16 | BLUEPRINT | `CLIENTES/VANGUARD/PENDING_REVIEW/OPS_INCIDENTS_PROPOSAL.md` | AGUARDANDO_VEREDITO |
 
 ### ANTIGRAVITY COWORK CONDUCTOR — Sessão Única · 2026-06-13 · Aguarda veredito Músculo+Diretor
 
@@ -312,6 +360,44 @@ Mensagem de abertura sugerida: A ANEEL iniciou auditoria de 60 dias em 100% das 
 **Concorrente a monitorar (M7):** **Luna Advogados** — jurídico preventivo para entretenimento, o mais próximo da proposta Vanguard no eixo jurídico. Ameaça BAIXA-MÉDIA; elevar se ampliar para tributário/financeiro.
 
 **Ação Músculo (pendente de veredito do Diretor):** estes são **insumos de nicho**, não decisões. Nenhum vira ação/DECISOES sem veredito. Sugestões de routing aguardam o Diretor (P-075).
+
+---
+
+### COLHEITA COWORK — 2026-06-16 (terça) · GATE DE DATA aplicado (M2 + F1)
+
+> Cowork Artifact Engine conduzido pelo Músculo (skill `cowork-engine-v1` lida — orientação). **NÃO é loop.** Output cru para veredito (P-124).
+> GATE DE DATA: terça 16-06 → previstos **M2 (fonográfico) + F1 (radar diário)**. NICHE_MODELER é Mensal-1 → **não roda hoje**.
+> GATE DE SINAIS: `CALIBRACAO.md` tem 1 run (2026-06-13) já enviada (Loop 34) → **0 runs novas → ida ao Antigravity NÃO justificada hoje** (correto: Músculo conduz, Antigravity só com run nova).
+
+**STREAM F1 — genérico (Biblioteca de Nichos) · 6 sinais novos + 2 evoluídos**
+
+Inventário: todos os sinais F1 de hoje são **ADICIONAL/EVOLUÍDO de nichos já catalogados** — nenhum nicho novo. Mais importante: **confirmam (2ª aparição = DELTA) os upgrades que o NICHE_MODELER já fez em 2026-06-13.** Não altera a Biblioteca (TIPO 1); valor = manter prioridade de pipeline.
+
+| Sinal | Nicho (status atual) | Score D1-D5 | Veredito |
+|---|---|---|---|
+| ANVISA recall/rastreabilidade (180d, ~dez/2026; multa até R$1,5M) | `rastreabilidade-sanitaria-premium` (já 5.0 MOVER_AGORA) | **5.0** (D1 5·D2 5·D3 5·D4 4·D5 5 +0.5) | 🟢 **MOVER AGORA** — CONFIRMA upgrade 13/06 |
+| LC 227/2026 retroatividade benigna NCM (cancela multa no CARF) | `compliance-aduaneiro-ncm` (já 5.0 MOVER_AGORA) | **4.2** | 🟢 **MOVER AGORA** — nova dimensão: serviço pontual ROI imediato |
+| CFM 2.448/2025 sob contestação judicial + ANS CP 170 | `glosa-hospitalar` / `medicos-peritos-laudos` (já 5.0) | **4.4** | 🟢 **MOVER AGORA** ⚠️ **só com narrativa de janela** — norma pode ser suspensa; não construir produto pesado em cima |
+| TCU Acórdão 37/2026 (dever de motivação em licitações) | sem nicho dedicado (adjacente `licitacoes-contratos-publicos`) | **3.2** | 🟡 **MONITORAR** — difuso; janela operacional apertada |
+| Reforma Tributária complexifica due diligence M&A | `ma-reestruturacao-societaria` (ângulo tributário novo) | **3.4** | 🟡 **MONITORAR** — verificar capacidade interna |
+
+**STREAM M2 — fonográfico (→ PROJ-003 Mumuzinho/Dudu Félix) · `[NICHO-FONOGRÁFICO]` · P-059 N/A**
+
+3 sinais NOVOS desta semana (não entram no Score Vanguard da Biblioteca — insumo de discovery fonográfico):
+1. **IBS/CBS obrigatório em NF** (ago/2026 — **45 dias**, prazo crítico): produtoras/agências/casas de show precisam adequar ERP+contratos até 31/07. Ticket sugerido R$8–15k.
+2. **PEC 13/26** — última barreira antes da extinção automática de incentivos culturais (ICMS/ISS) → produto "planejamento de captação pós-Reforma".
+3. **PL 2269/24** — licença ambiental obrigatória para grandes eventos (pena de detenção aprovada em comissão) → checklist pré-evento.
+- PL 2338/23 (IA autoral, escalada 2ª semana) cruza com `conformidade-ai-act` já catalogado. Decreto Segurança Privada → repetido.
+
+**Perguntas que exigem o Diretor (dos briefings):** (a) há fabricante de alimentos/cosméticos na carteira p/ abordar ANVISA esta semana? (b) Vanguard executa levantamento NCM internamente ou precisa de parceiro tributarista? (c) acelerar clínicas antes de possível suspensão da CFM 2.448?
+
+**Ação Músculo:** registro consolidado, sem alterar Biblioteca/MODELs (sem nicho novo). Nenhum vira DECISOES/WIP sem veredito (P-124/P-075). Stream M2 fica como insumo de discovery do PROJ-003 (STANDBY).
+
+**DELIBERAÇÃO DO DIRETOR — 2026-06-16** (resposta às 3 perguntas dos briefings):
+- **Não há prospecção imediata.** Antes de abordar qualquer prospect (ANVISA/NCM/CFM), é preciso **criar a infraestrutura de ativação** — "iniciar página, outras coisas para tais atividades".
+- **Cadência incremental:** "iremos criando nichos aos poucos" — não despejar os MOVER_AGORA de uma vez; ativar nicho a nicho.
+- **Ressalva CFM (#3):** acelerar só **com narrativa de janela** ("use enquanto a norma te protege") — norma sob contestação judicial pode ser suspensa; não construir produto pesado em cima.
+- **ATRELAMENTO:** toda essa frente (páginas + atividades + criação de nichos) está **atrelada a um assunto maior que o Diretor abordará depois**. Portanto: **intenção registrada, build NÃO iniciado.** Aguardar o Diretor trazer o tema antes de qualquer construção.
 
 ---
 

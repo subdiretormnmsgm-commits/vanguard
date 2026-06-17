@@ -1,11 +1,11 @@
 {
   "meta": {
-    "versao": "2.1",
+    "versao": "2.2",
     "principio": "P-180",
-    "origem": "FALHA-PROCESSO-2026-06-16 -- skill nao invocada nos gatilhos do processo (6 ocorrencias apontadas pelo Diretor). v2.1: etapa ANALISE_DELIBERACAO (Diretor 2026-06-16) -- ultrathink-trigger + brainstorming na analise; writing-plans pos-veredito.",
+    "origem": "FALHA-PROCESSO-2026-06-16 -- skill nao invocada nos gatilhos do processo (6 ocorrencias apontadas pelo Diretor). v2.1: etapa ANALISE_DELIBERACAO (Diretor 2026-06-16) -- ultrathink-trigger + brainstorming na analise; writing-plans pos-veredito. v2.2: VEREDITO DIRETOR (a) 2026-06-16 -- TODAS as skills .md locais Vanguard promovidas a read-based (destrava o gate de forma definitiva, alinhado a fail-open do guard). + etapa COWORK adicionada (gatilho Cowork/NICHE_MODELER -> cowork-engine-v1).",
     "regra": "1% de chance de skill aplicar = invocacao OBRIGATORIA antes de qualquer acao da etapa. Skill por GATILHO MECANICO, nunca por memoria do Musculo (DEF-M-6).",
-    "skills_read_based": ["ultrathink-trigger", "embaixador-encerramento-v1"],
-    "skills_read_based_doc": "Skills que NAO sao invocadas via tool Skill, mas via Read do .md (ex: ultrathink-trigger -> Read('.claude/skills/ultrathink-trigger.md')). skill_tracker registra o Read DESTAS skills no estado da sessao. CORRECAO 2026-06-16 (FALHA-PROCESSO -- gate ENCERRAMENTO insatisfazivel): as skills .md LOCAIS Vanguard (embaixador-*, notebooklm-remote-v1, gemini-pentalateral, YT-SEARCH, claude-projects-remote-v1) NAO sao registradas na tool Skill do Claude Code -- a unica invocacao real neste ambiente e o Read do .md (igual ao ultrathink-trigger). Sem read-based o gate fica sem caminho de satisfacao (trava permanente, contra a filosofia fail-open do guard). embaixador-encerramento-v1 promovida a read-based para destravar o encerramento. PENDENTE VEREDITO DIRETOR: decidir o conserto sistemico -- (a) promover TODAS as skills .md locais a read-based, OU (b) registra-las como skills reais da tool Skill. As demais (PASSO5/PASSO7/INICIO_LOOP) seguem insatisfaziveis ate o veredito.",
+    "skills_read_based": ["ultrathink-trigger", "embaixador-encerramento-v1", "gemini-pentalateral", "notebooklm-remote-v1", "embaixador-passo7", "claude-projects-remote-v1", "YT-SEARCH", "cowork-engine-v1"],
+    "skills_read_based_doc": "Skills que NAO sao invocadas via tool Skill, mas via Read do .md (ex: ultrathink-trigger -> Read('.claude/skills/ultrathink-trigger.md')). skill_tracker registra o Read DESTAS skills no estado da sessao. VEREDITO DIRETOR (a) 2026-06-16: as skills .md LOCAIS Vanguard NAO sao registradas na tool Skill do Claude Code -- neste ambiente a unica invocacao real e o Read do .md (igual ao ultrathink-trigger). Por isso TODAS foram promovidas a read-based: ultrathink-trigger, embaixador-encerramento-v1, gemini-pentalateral, notebooklm-remote-v1, embaixador-passo7 (match por substring -> -vanguard/-ingrid/-valdece-v1), claude-projects-remote-v1, YT-SEARCH (arquivo 'YT-SEARCH CLAUDE SKILL.md'), cowork-engine-v1. NOTA: brainstorming e writing-plans NAO entram aqui -- sao skills REAIS da tool Skill (superpowers), invocadas via tool Skill. Opcao (b) -- registrar as .md locais como skills nativas da tool Skill -- fica como investigacao futura (V2) no PENDENTES, sem urgencia.",
     "fonte_de_verdade": true,
     "consumido_por": [
       "scripts/skill_gate.ps1 (consulta humana)",
@@ -37,10 +37,21 @@
       "gatilhos": ["passo3", "passo 3", "gemini", "antigravity", "diretriz", "estrategista", "ir ao gemini"],
       "skill_obrigatoria": "gemini-pentalateral",
       "gatilho_acao": [
-        { "tool": "Bash", "campo": "command", "padrao": "\\.\\\\scripts\\\\(gemini_anchor_generator|ir_ao_antigravity)\\.ps1" }
+        { "tool": "Bash", "campo": "command", "padrao": "\\.\\\\scripts\\\\gemini_anchor_generator\\.ps1" },
+        { "tool": "Bash", "campo": "command", "padrao": "ir_ao_antigravity\\.ps1.*-papel\\s+(ESTRATEGISTA|EXECUTOR)" }
       ],
-      "acao": "Invocar gemini-pentalateral. Para Antigravity: declarar PAPEL + citar ARSENAL exato de skills (P-166) via .\\scripts\\ir_ao_antigravity.ps1 -papel <PAPEL>.",
+      "acao": "Invocar gemini-pentalateral. Para Antigravity (papel ESTRATEGISTA/EXECUTOR): declarar PAPEL + citar ARSENAL exato de skills (P-166) via .\\scripts\\ir_ao_antigravity.ps1 -papel <PAPEL>.",
       "falha_se_pular": "DIRETRIZ invalida / Antigravity age sem plano (P-163 / P-166)."
+    },
+    {
+      "etapa": "COWORK",
+      "gatilhos": ["cowork", "co-work", "niche", "niche_modeler", "niche modeler", "nicho", "fonografico", "fonografica", "inbox_cowork", "inbox cowork", "briefing cowork", "fit_score", "fit score", "cowork conductor", "inteligencia de mercado", "intel loop"],
+      "skill_obrigatoria": "cowork-engine-v1",
+      "gatilho_acao": [
+        { "tool": "Bash", "campo": "command", "padrao": "ir_ao_antigravity\\.ps1.*-papel\\s+COWORK" }
+      ],
+      "acao": "GATE DE DATA primeiro: rodar cowork_calendar.ps1 -- Cowork so e acionado se a data coincidir (Cowork e inteligencia de mercado, NAO Loop). Verificada a data + colhidos os briefings do INBOX_COWORK, invocar cowork-engine-v1 (Read do .md -- orientacao do protocolo; o Musculo NUNCA edita esta skill, que e do Embaixador agentado) e acionar o Antigravity papel COWORK CONDUCTOR via .\\scripts\\ir_ao_antigravity.ps1 -papel COWORK. Output sempre para PENDING_REVIEW.md (P-124).",
+      "falha_se_pular": "Antigravity COWORK acionado sem protocolo / fora da data / output direto sem revisao do Musculo (P-124 -- camara de eco)."
     },
     {
       "etapa": "PASSO5_NOTEBOOKLM_AUDITOR",

@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Terça-feira, 2026-06-16 11:40
+### Pentalateral IAH - Terça-feira, 2026-06-16 14:16
 
 ---
 
@@ -11,14 +11,13 @@
 | # | Projeto | Tarefa | Prazo | Dias em atraso |
 |---|---------|--------|-------|---------------|
 | 1 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertic... | 2026-06-12 | 4d |
-| 2 | COWORK ENGINE — Inteligência de Mercado Vanguard | [MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIE... | 2026-06-13 | 3d |
+| 2 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | ⚠️ [ALERTA NICHE] Eventos Fiscais / ECD 2026 — 17 DIAS | 2026-06-13 | 3d |
 | 3 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026 | 2026-06-13 | 3d |
-| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | ⚠️ [ALERTA NICHE] Eventos Fiscais / ECD 2026 — 17 DIAS | 2026-06-13 | 3d |
-| 5 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias | 2026-06-13 | 3d |
-| 6 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-178 — gate_code_review.ps1: code-review EXECU... | 2026-06-15 | 1d |
-| 7 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-166 — gemini_anchor_generator.ps1: injetar PA... | 2026-06-15 | 1d |
-| 8 | PROCESSO / INFRA -- n8n FASE 1 (adicionado 2026-06-04) | [MÚSCULO] R-01/flag P-098 quebrado em OneDrive — `.git/ho... | 2026-06-16 | HOJE |
-| 9 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-174 — gate em session_close.ps1: EMBAIXADOR_L... | 2026-06-16 | HOJE |
+| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias | 2026-06-13 | 3d |
+| 5 | COWORK ENGINE — Inteligência de Mercado Vanguard | [MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIE... | 2026-06-13 | 3d |
+| 6 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-166 — gemini_anchor_generator.ps1: injetar PA... | 2026-06-15 | 1d |
+| 7 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-178 — gate_code_review.ps1: code-review EXECU... | 2026-06-15 | 1d |
+| 8 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-174 — gate em session_close.ps1: EMBAIXADOR_L... | 2026-06-16 | HOJE |
 
 ---
 
@@ -66,14 +65,20 @@ Ingrid     [RETAINER ]  Loop 8 -- Gemini:OK NBook:OK Embaixador:OK Musculo:OK --
 
 ## COMMIT DA SESSAO
 
-Commit : bc6bb1e - 7 arquivo(s) alterado(s)
-Mensagem: chore(sync): propaga estado WIP_BOARD Loop 35 aos espelhos dos clientes (P-033/P-059) [VEREDITO-DIRETOR]
+Commit : 30d8f7a - 1 arquivo(s) alterado(s)
+Mensagem: docs(pendentes): P-146 do P-183 -- item guard anti-nao-ASCII em .ps1 (44 scripts em risco)
 
 ---
 
 ## ENTREGAS DO DIA
 
 Commits do dia:
+- 30d8f7a docs(pendentes): P-146 do P-183 -- item guard anti-nao-ASCII em .ps1 (44 scripts em risco)
+- 372b954 docs(ledger): P-183 -- script .ps1 sem BOM + nao-ASCII corrompe PS 5.1 via -File [VEREDITO-DIRETOR]
+- 8732f7d fix(propagate): ASCII puro em propagate_changes.ps1 -- em-dash sem BOM corrompia parse via -File [RESOLVE: propagate-noop-arquivo]
+- 439abd7 fix(firewall): P-182 -- raiz por $PSScriptRoot no pre-commit (CP850 corrompia flag P-098) + #17 quitado [VEREDITO-DIRETOR]
+- 969179e fix(processo): 0A Notion deliberado + memoria de contexto Antigravity + anti-falso-positivo P-180 [VEREDITO-DIRETOR]
+- 22c1dc6 docs(loop35): artefatos de fechamento -- P-180 read-based ENCERRAMENTO + P-173 yt-search wire + item #17 causa-raiz R-01 [VEREDITO-DIRETOR]
 - bc6bb1e chore(sync): propaga estado WIP_BOARD Loop 35 aos espelhos dos clientes (P-033/P-059) [VEREDITO-DIRETOR]
 - f7f5d67 feat(loop35): fechamento -- 3 atores formalizados + artefatos canonicos do Loop 35 [VEREDITO-DIRETOR]
 - 9844a55 feat(detector): system prompt v1.4 + registro no DEPENDENCY_MAP [VEREDITO-DIRETOR]
@@ -96,13 +101,7 @@ Commits do dia:
 > O Embaixador NAO declara campanha encerrada sem verificar que o artefato existe.
 
 Arquivos gerados/modificados hoje (evidencia automatica):
-  - CLIENTES/INGRID/CLAUDE_PROJECT/02_DIRETRIZ_GEMINI_LATEST.txt
-  - CLIENTES/INGRID/CLAUDE_PROJECT/07_WIP_BOARD.json
-  - CLIENTES/INGRID/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md
-  - CLIENTES/INGRID/NOTEBOOKLM_FONTES/07_WIP_BOARD.txt
-  - CLIENTES/MUMUZINHO/NOTEBOOKLM_FONTES/07_WIP_BOARD.txt
-  - CLIENTES/STANDBY/NOTEBOOKLM_FONTES/07_WIP_BOARD.txt
-  - CLIENTES/VALDECE/NOTEBOOKLM_FONTES/07_WIP_BOARD.txt
+  - PENDENTES.md
 
 CAMPANHA ATIVA:
   Nome     : [preencher -- ex: ECD 30/06 outreach]
@@ -144,7 +143,7 @@ CAMPANHA ATIVA:
 ### PROCESSO / INFRA -- n8n FASE 1 (adicionado 2026-06-04)
 
 🔴 - [ ] [musculo] [P-146/P-140] Build `gate_yt_search.ps1` — bloquear... [musculo]
-🔴 [MÚSCULO] R-01/flag P-098 quebrado em OneDrive — `.git/hooks/pre-co... [musculo]
+🔴 - [ ] [musculo] [P-146/P-183] [musculo]
 
 ## PENDENTES FUTUROS (nao urgentes)
 

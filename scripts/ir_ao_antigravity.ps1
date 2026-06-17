@@ -109,24 +109,43 @@ if (Test-Path $pendPath) {
     }
 }
 
-# Ler ultima entrada do ANTIGRAVITY_SESSION_LOG (memoria de contexto entre sessoes)
+# Ler entradas do ANTIGRAVITY_SESSION_LOG (memoria de contexto entre sessoes)
 # Origem: Sugestao do Diretor no Notion 2026-06-16 -- "Antigravity saber contexto da ultima sessao dele"
+# Furo 4 (2026-06-16): capturar a ultima entrada GLOBAL (qualquer papel) + a ultima entrada DO PAPEL ATUAL.
 $ultimaSessao = ""
+$ultimaPapel  = ""
 $logPath = Join-Path $raiz "CONSELHO\ANTIGRAVITY_SESSION_LOG.md"
 if (Test-Path $logPath) {
     $logLinhas = Get-Content $logPath -Encoding UTF8 -ErrorAction SilentlyContinue
-    $capturando = $false
-    $bloco = @()
+    $blocos = @()        # ordem do arquivo: topo = mais recente (append-only no topo)
+    $atual  = $null
     foreach ($l in $logLinhas) {
-        if ($l -match '^##\s') {
-            if ($capturando) { break }   # ja capturou a 1a entrada (mais recente) -- para na 2a
-            $capturando = $true
+        if ($l -match '^##\s+\d{4}-\d{2}-\d{2}') {
+            if ($atual) { $blocos += ,$atual }
+            $papelBloco = "OUTRO"
+            foreach ($p in @("ESTRATEGISTA","EXECUTOR","COWORK","SISTEMA")) {
+                if ($l -match $p) { $papelBloco = $p; break }
+            }
+            $atual = @{ papel = $papelBloco; linhas = @($l) }
+        } elseif ($atual) {
+            $atual.linhas += $l
         }
-        if ($capturando) { $bloco += $l }
     }
-    if ($bloco.Count -gt 0) {
-        $ultimaSessao = ($bloco | Where-Object { $_.Trim() -ne "" }) -join " "
-        if ($ultimaSessao.Length -gt 400) { $ultimaSessao = $ultimaSessao.Substring(0, 397) + "..." }
+    if ($atual) { $blocos += ,$atual }
+
+    if ($blocos.Count -gt 0) {
+        $t0 = ($blocos[0].linhas | Where-Object { $_.Trim() -ne "" }) -join " "
+        if ($t0.Length -gt 400) { $t0 = $t0.Substring(0, 397) + "..." }
+        $ultimaSessao = $t0
+        # so injeta a ultima do papel se a global mais recente NAO for ja desse papel (evita duplicar)
+        if ($blocos[0].papel -ne $papel) {
+            $bloPapel = $blocos | Where-Object { $_.papel -eq $papel } | Select-Object -First 1
+            if ($bloPapel) {
+                $tp = ($bloPapel.linhas | Where-Object { $_.Trim() -ne "" }) -join " "
+                if ($tp.Length -gt 400) { $tp = $tp.Substring(0, 397) + "..." }
+                $ultimaPapel = $tp
+            }
+        }
     }
 }
 
@@ -150,7 +169,10 @@ $linhasPrompt = @("@$skillAtual $contextoAcao")
 # ETAPA 0 -- contexto da ultima sessao do Antigravity (memoria entre sessoes)
 $linhasPrompt += ""
 if ($ultimaSessao) {
-    $linhasPrompt += "ETAPA 0 (contexto da sua ultima sessao): $ultimaSessao"
+    $linhasPrompt += "ETAPA 0 (ultima sessao -- mais recente, qualquer papel): $ultimaSessao"
+    if ($ultimaPapel) {
+        $linhasPrompt += "ETAPA 0 (sua ultima sessao como $papel): $ultimaPapel"
+    }
     $linhasPrompt += "Leia CONSELHO/ANTIGRAVITY_SESSION_LOG.md no workspace se precisar do historico completo."
 } else {
     $linhasPrompt += "ETAPA 0: leia CONSELHO/ANTIGRAVITY_SESSION_LOG.md no workspace (sua memoria de sessoes anteriores)."
@@ -185,6 +207,9 @@ if (-not $instalada) {
 Write-Host "Projeto ativo   : $clienteAtivo | Loop $loopAtivo" -ForegroundColor White
 if ($ultimaSessao) {
     Write-Host "Ultima sessao   : $ultimaSessao" -ForegroundColor DarkCyan
+    if ($ultimaPapel) {
+        Write-Host "Ultima ($papel) : $ultimaPapel" -ForegroundColor DarkCyan
+    }
 } else {
     Write-Host "Ultima sessao   : (log vazio -- primeira sessao registrada)" -ForegroundColor DarkGray
 }
