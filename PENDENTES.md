@@ -8,6 +8,9 @@
 
 ## ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO
 
+- [ ] `2026-06-17` **[MÚSCULO] OPERAÇÃO VAULT SOBERANO — plano cirúrgico de 7 fases pronto para arranque** [musculo] (quarta-feira)
+  Plano cristalizado em `PENTALATERAL_UNIVERSAL/OPERACAO/PLANO_OPERACAO_VAULT_SOBERANO.md`. Vereditos de arranque do Diretor (2026-06-17): F1 (auditoria por data/hora de TODO o vault) primeiro + F0 (skills .md como skills reais) em paralelo · exclusão CONSERVADORA (`_ARQUIVO/` antes de apagar). Sequência: F1 auditoria → F2 dedup/reorg → F3 organograma + F4 markdown + F5 sync/adaptação contextual por cliente → F6 espelho Drive → **F7 (pós-operação) ATIVAÇÃO DO DETECTOR DE DERIVA** (kit Segundo Cérebro em `CONSELHO/Detentor de Deriva` adaptado ao Vanguard + ações automáticas + integração com sócios). Constraints: LOCAL-FIRST absoluto (nunca varrer sobre rclone, C1/P-169), nada destrutivo sem veredito item a item (C2). Estimativa ~14-24h → 4-5 sessões Opus dedicadas. Abrir a próxima sessão dedicada por F0+F1. Nenhuma fase arranca sem veredito de início. [RESOLVE: operacao-vault-soberano-arranque]
+
 - [x] `2026-06-13` ~~**[MÚSCULO] AUDITORIA NOTEBOOKLM — preparar_notebooklm_projeto.ps1 -cliente VANGUARD** [musculo]~~
   ✅ Wipe & Sync concluido 2026-06-14. 23 fontes carregadas. P-161 registrado (auto-conversao .json→.txt implementada). [RESOLVE: auditoria-notebooklm-vanguard]
   Motivo: 4 arquivos ausentes nas FONTES após sessão Cowork 2026-06-13:
