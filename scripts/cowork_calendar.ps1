@@ -35,7 +35,7 @@ $ptBR      = [System.Globalization.CultureInfo]::GetCultureInfo("pt-BR")
 $diaSemPt  = $ptBR.TextInfo.ToTitleCase($hoje.ToString("dddd", $ptBR))
 $dataFmt   = $hoje.ToString("dd-MM-yyyy")
 
-# ── Cadencia das tarefas Cowork fonograficas M1-M7 ──────────────────────────────
+# -- Cadencia das tarefas Cowork fonograficas M1-M7 ------------------------------
 # Fonte: CALENDARIO_NICHE_INTELLIGENCE.md -> secao "NICHO FONOGRAFICO (M1-M7)"
 $mTasks = @(
     @{ Id = "M1"; Tema = "Radar de Artista";              Regra = "Semanal-Segunda";  Hora = "03:00" },
@@ -66,7 +66,7 @@ foreach ($t in $mTasks) {
     if (Test-CadenciaHoje $t.Regra) { $mHoje += $t }
 }
 
-# ── E-4 Burn Rate Shield gate (Loop 35) ─────────────────────────────────────────
+# -- E-4 Burn Rate Shield gate (Loop 35) -----------------------------------------
 # DRY-RUN (sem -Registrar): NAO consome orcamento. So anota, para cada tarefa M
 # prevista hoje, se o custo projetado violaria o teto diario/madrugada.
 # rc 0 = LIBERADO, rc 2 = BLOQUEADO, qualquer outro (incl. 1 ou shield ausente)
@@ -78,14 +78,16 @@ foreach ($t in $mHoje) {
         $t.Orcamento = "INDISPONIVEL"
         continue
     }
-    & $shieldPath -Tarefa $t.Id -Cliente "VANGUARD" 2>&1 | Out-Null
+    # 6>$null suprime tambem o stream Information (Write-Host do shield), senao o [BURN]
+    # vaza para o stdout quando o script roda via -File (subprocesso) e polui o -Json.
+    & $shieldPath -Tarefa $t.Id -Cliente "VANGUARD" 6>$null 2>&1 | Out-Null
     $rc = $LASTEXITCODE
     if     ($rc -eq 0) { $t.Orcamento = "LIBERADO" }
     elseif ($rc -eq 2) { $t.Orcamento = "BLOQUEADO" }
     else               { $t.Orcamento = "INDISPONIVEL" }
 }
 
-# ── Ritmo semanal das frentes F (inteligencia de mercado generica) ──────────────
+# -- Ritmo semanal das frentes F (inteligencia de mercado generica) --------------
 $fSemanal = switch ($diaSemana) {
     "Monday"    { "F1 + F2 + F4a + F12 (Radar de Dor + Oportunidades + 1a rodada + Briefing Fundador)" }
     "Tuesday"   { "F1 + F3 (Radar de Dor + Filtro de Encaixe)" }
@@ -116,11 +118,11 @@ if (Test-Path $pendingPath) {
     }
 }
 
-# ── Briefings esperados no INBOX_COWORK ─────────────────────────────────────────
+# -- Briefings esperados no INBOX_COWORK -----------------------------------------
 $briefingsEsperados = @()
 foreach ($t in $mHoje) { $briefingsEsperados += "BRIEFING_MUSCULO_$($t.Id)" }
 
-# ── Saida JSON (consumida pelo session_start) ───────────────────────────────────
+# -- Saida JSON (consumida pelo session_start) -----------------------------------
 if ($Json) {
     $obj = [ordered]@{
         data                = $hoje.ToString("yyyy-MM-dd")
@@ -137,7 +139,7 @@ if ($Json) {
     exit 0
 }
 
-# ── Saida humana ────────────────────────────────────────────────────────────────
+# -- Saida humana ----------------------------------------------------------------
 Write-Host ""
 Write-Host "  GATE DE DATA -- COWORK (inteligencia de mercado Vanguard)  -- $dataFmt $diaSemPt"
 Write-Host "  ============================================================================"
