@@ -63,3 +63,28 @@ _n8n/w8_put_payload.json
 _n8n/w8_updated_api.json
 _n8n/w8_current_api.json
 hermes-agent/.env
+
+# Screenshots e capturas que podem conter credenciais (P-185 -- nunca versionar print de chave)
+/*.png
+hermes_*.png
+anthropic-*.png
+nblm_*.png
+notebooklm_*.png
+
+# Scratch de automacao (NICHE_MODELER / NotebookLM) e backups
+/*.yml
+nblm_*.yml
+*.bak
+.claude/skills/*.zip
+
+# Transientes de sessao (flags, state, logs e prompts efemeros)
+.code_review_done.flag
+.claude/state/
+scripts/*.flag
+scripts/.antigravity_prompt.txt
+scripts/.close_log.txt
+scripts/embaixador_msg_sessao.txt
+bloco0_capture.md
+
+# Runbook de rotacao de chaves -- referencia operacional local (HV-1)
+ROTACAO_CHAVES_RUNBOOK.md
