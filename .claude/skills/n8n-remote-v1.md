@@ -25,6 +25,14 @@ FALHA -- PUT HTTP 500 com JSON completo: body incluindo campos extras do n8n cau
 GATE APRENDIDO: workflow desativado nao processa webhooks. Sempre verificar status e ativar antes de testar endpoints.
 GATE APRENDIDO: GitHub Code node com fetch() tem continueOnFail:true como mitigacao -- workflow nao falha mas nao registra em PENDING_REVIEW. Converter para HTTP Request node esta no backlog W-10.
 
+[CLONE DE WORKFLOW VIA POWERSHELL 5.1 -- 2026-06-17 (build do W-12)]
+Clonar um workflow inteiro (GET workflow A -> patch -> POST como workflow B) expoe 4 armadilhas de serializacao do PS 5.1 que NAO aparecem ao editar um unico campo via PUT. Documentadas por P-146 (documentar sem automatizar = repetir o erro):
+1. FALHA CRITICA -- ConvertTo-Json -Depth N TRAVA na estrutura completa de um workflow (PSInvalidCastException "Nao e possivel converter o valor para o tipo System.String"). Vale para o clone inteiro mesmo que -Depth 20 funcione para um PUT pequeno (linha 24). SOLUCAO: System.Web.Script.Serialization.JavaScriptSerializer -- Add-Type -AssemblyName System.Web.Extensions; $ser = New-Object System.Web.Script.Serialization.JavaScriptSerializer; $ser.MaxJsonLength = [int]::MaxValue; $json = $ser.Serialize($body).
+2. FALHA CRITICA -- atribuir $node.parameters.jsCode = $novoCodigo num PSCustomObject vindo de ConvertFrom-Json introduz ciclo RuntimeModule que quebra QUALQUER serializador. SOLUCAO: NAO mutar o objeto. Serializar com o jsCode ORIGINAL e trocar por substituicao de TEXTO no JSON ja serializado: $oldEsc = $ser.Serialize($oldJs); $newEsc = $ser.Serialize($novoJs); $json = $json.Replace($oldEsc, $newEsc). Patch de campos simples (ex: cron) DIRETO no objeto e seguro -- so jsCode/strings grandes geram o ciclo.
+3. FALHA CRITICA -- @(...) ACHATA arrays aninhados: connections [[{...}]] vira [{...}] = erro 400 "Expected array, received object". SOLUCAO: funcao recursiva de limpeza com System.Collections.ArrayList e retorno com comma operator: $al = New-Object System.Collections.ArrayList; foreach ($i in $o) { [void]$al.Add((Clean $i)) }; return ,($al.ToArray()). A virgula impede o PS de desempacotar object[] de 1 elemento. NAO usar List[object] -- gera outro ciclo (PSParameterizedProperty).
+4. FALHA -- POST /workflows/{id}/activate e /deactivate retornam 415 "unsupported media type application/x-www-form-urlencoded" se chamados sem Content-Type. SOLUCAO: Invoke-RestMethod ... -ContentType 'application/json' MESMO sem body.
+SUCESSO -- W-12 (dfIMwQOS6qh5EEA7) criado como clone do W-11 (vew2fonxWwiGB9uQ) aplicando as 4 solucoes acima. POST cria sempre DESATIVADO; ativado por veredito apos teste local de 7 datas. Runbook: RUNBOOK_W12_NICHE_INTELLIGENCE.md.
+
 [PERSPECTIVA DO SOCIO]
 Como Socio-Consultor, emito alerta sobre a arquitetura de comandos via Telegram: o sistema atual (Hermes polls Telegram + chama n8n via HTTP) funciona mas cria uma cadeia de dependencias: Hermes online -> MCP bridge em /opt/data/ -> n8n online -> workflow W-7 ativo -> Telegram responde. Qualquer no desta cadeia quebrando silencia os comandos do Diretor. Recomendacoes: (1) W-7 deve ter Circuit Breaker -- se n8n cair, Hermes deve alertar Telegram diretamente sem depender do W-7; (2) ping_hermes.ps1 deve verificar tambem se W-7 esta ativo (GET /api/v1/workflows/KisAa6ynD4btgrkL e checar campo active=true); (3) toda nova variavel de ambiente adicionada ao n8n deve ser documentada em RUNBOOK_EASYPANEL.md antes de fechar a sessao -- env vars nao documentadas tornam debugging impossivel apos restarts do container.
 
@@ -36,9 +44,11 @@ ENDPOINTS PRINCIPAIS:
   POST /api/v1/workflows/{id}/activate     → ativar
   POST /api/v1/workflows/{id}/deactivate   → desativar
 
-WORKFLOWS ATIVOS (2026-06-14):
+WORKFLOWS ATIVOS (2026-06-17):
   W-7  | KisAa6ynD4btgrkL | Telegram + HTTP /webhook/w7-cmds | /status /score /custo /aprovar /rejeitar /veredito
   W-10 | 8yvX4MBzdaK5l6IQ | Cron 6h30 BRT diario | Health Check auto -- erros 24h + inativos + Telegram + PENDING_REVIEW
+  W-11 | vew2fonxWwiGB9uQ | Cron 7h05 BRT diario | Ativacao Manual Notifier -- Projetista (Sexta+dia1) + Embaixador Digital (Segunda+dia5); silencia nos demais dias
+  W-12 | dfIMwQOS6qh5EEA7 | Cron 7h10 BRT diario | Niche Intelligence Notifier (clone do W-11) -- ENRIQUECIMENTO MENSAL (dia1) + QUINZENAL F5+F9 (dia15) + deadlines FINEP 30/09 e ANVISA 09/12 (D-30/7/1/0); silencia nos demais dias
 
 BRIDGE HERMES->N8N:
   Script: /opt/data/mcp_n8n_bridge.py (Python stdio JSON-RPC 2.0)
