@@ -628,6 +628,7 @@ Ao ouvir "PROTOCOLO VANGUARD", executar IMEDIATAMENTE antes de qualquer resposta
 | W-8 Signal Classifier | Webhook POST | Classifica sinais AUTO-RESOLVE/INFORMAR/DELIBERAR-A/B/C → `silenced_signals_log` (shadow mode 7d) |
 | W-9 Track TRENDS | Cron segunda 8h BRT | Relatório semanal de tendências por nicho via Antigravity + /notebooklm → INTELLIGENCE_HUB/TRENDS/ → Telegram |
 | W-11 Ativação Manual Notifier | Cron 7:05 BRT (1x/dia) | Notifica Telegram só quando há ativação MANUAL do Diretor hoje — Projetista (Sexta+dia 1) · Embaixador Digital (Segunda+dia 5); silencia nos demais dias. M-STATS NÃO entra (roda no Músculo/Executor). Runbook: `RUNBOOK_W11_ATIVACAO_NOTIFIER.md` · id n8n `vew2fonxWwiGB9uQ` (ATIVO 2026-06-16 terça-feira) |
+| W-12 Niche Intelligence Notifier | Cron 7:10 BRT (1x/dia) | Clone do W-11 → notifica Telegram só quando há marco de inteligência de mercado hoje (CALENDARIO_NICHE_INTELLIGENCE): ENRIQUECIMENTO MENSAL (dia 1) · QUINZENAL F5+F9 (dia 15) · deadlines FINEP 30/09 + ANVISA 09/12 (D-30/7/1/0); silencia nos demais dias. Cowork ≠ Loop (P-160 N/A). Runbook: `RUNBOOK_W12_NICHE_INTELLIGENCE.md` · id n8n `dfIMwQOS6qh5EEA7` (ATIVO 2026-06-17 quarta-feira) |
 
 **Regras obrigatórias para o Músculo:**
 - Nunca chamar APIs externas (Claude, Gemini, Telegram) diretamente do código local — usar n8n como proxy quando possível
