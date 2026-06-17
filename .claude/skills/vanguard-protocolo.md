@@ -4,7 +4,7 @@ description: ativa o Modelo PENTALATERAL IAH para QUALQUER projeto — ecommerce
 ---
 
 # PROTOCOLO VANGUARD — Modelo PENTALATERAL IAH
-**Versão da Skill:** 6.6 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 a P-117 (2026-06-07)**
+**Versão da Skill:** 7.0 — Universal · Colaborativo · Qualquer projeto · Qualquer operador · 7 Leis Soberanas + 8 Frameworks de Gestão ativos · Intelligence Compounding · Protocolo de Imunidade do Conselho (2026-05-14) · **5º Membro: Embaixador + P-031 (2026-05-18) · 12 novas DEF + P-052/053/054/055 (2026-05-23) · DEF-E-8 + Pipeline DECISOES JSON + P-056/057/058 (2026-05-24) · n8n como Sistema Nervoso Autônomo + W-7 Veredito Telegram + P-101 a P-111 (2026-06-04) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + W-8 Signal Classifier + P-116 a P-117 (2026-06-07) · Gate 1.6 bloqueante + P-087 + P-090 + P-118 (2026-06-07) · Audit P-070 a P-101 adicionados (2026-06-07) · INTELLIGENCE HUB + Antigravity + LOOP_STATE + W-9 + P-119 a P-127 (2026-06-09) · Antigravity = EXECUTOR do Estrategista (Gemini) + Hermes Grau B + RUNNING_INTELLIGENCE + P-128 a P-147 (2026-06-10)**
 
 ---
 
@@ -75,9 +75,9 @@ N8N:              Sistema Nervoso Autônomo (EasyPanel — 24/7) [adicionado V26
 
 HERMES AGENT:     Motor Autonomo 24/7 (EasyPanel -- ativo desde 2026-06-07)
   └── Papel: Executor autonomo entre sessoes. Responde no Telegram 24h. Graus A/B/C.
-  └── Grau A: age apenas com /aprovar do Diretor (atual)
-  └── Grau B: age + da 15min para veto (futuro -- apos validacao)
-  └── Grau C: autonomo + loga tudo (futuro -- apos Grau B estavel)
+  └── Grau A: age apenas com /aprovar do Diretor (histórico — superado 2026-06-10)
+  └── Grau B: age + dá 15min para veto no Telegram (ATUAL — D1:A executado 2026-06-10)
+  └── Grau C: autônomo + loga tudo (futuro — exige Grau B validado)
   └── Host: EasyPanel projeto hermes/hermes-agent · Modelo: claude-sonnet-4-6 via OpenRouter
   └── Telegram: @Eduardo431Vanguardbot · Config: /opt/data/config.yaml (volume persistido)
   └── W-8 shadow mode expira: 2026-06-14 --> avaliar ativacao plena
@@ -763,8 +763,15 @@ O ciclo continua.
 >
 > ```
 > PASSO 0 — Embaixador ativado (ir_ao_embaixador.ps1 -cliente [NOME])
+>           + ENRIQUECIMENTO DE NICHO (Musculo — obrigatorio):
+>             1. Identificar setor/nicho do prospect (WIP_BOARD ou briefing inicial)
+>             2. Consultar Biblioteca_Nichos_Vanguard_v[N].md — buscar Cartao correspondente
+>             3. Se Cartao existe → copiar para CLIENTES/[NOME]/INTELIGENCIA_NICHO.md
+>                + injetar custo da dor + gatilhos + objecoes na MEMORIA_EMBAIXADOR inicial
+>             4. Se Cartao ausente → rodar /cowork-engine focado no nicho antes de continuar
+>                (Biblioteca cresce a cada projeto novo — nunca iniciar sem ela)
 >      ↓
-> PASSO 1-2 — Diretor faz Discovery → Embaixador popula MEMORIA_EMBAIXADOR + hipóteses [H]
+> PASSO 1-2 — Diretor faz Discovery → Embaixador popula MEMORIA_EMBAIXADOR + hipoteses [H]
 >      ↓
 > PASSO 3 — Eduardo → Gemini  (Comando 1 inclui LOG_CLIENTE + [E-1 a E-5] do Embaixador)
 >      ↓
@@ -2632,6 +2639,71 @@ Todo dia interno de projeto (ex: "Dia 15") tem data calendário correspondente �
 
 ---
 
+### PRINCÍPIOS RECENTES — P-070 a P-101 (2026-05-26 a 2026-06-05)
+
+**[P-070] — Onboarding Invisível — O Cliente Nunca Cria Conta (2026-05-26)**
+A Vanguard absorve toda fricção técnica de cadastro no kickoff. O cliente recebe um único WhatsApp com login e senha — nunca menciona as plataformas subjacentes. A Vanguard cria `[nome]@vanguardtech.cloud` e usa essa identidade para todas as contas necessárias. Pré-requisito: Termo de Uso assinado com cláusula de autorização + cofre de senhas ativo. Aplica-se a: todo projeto cliente, sem exceção, desde o kickoff.
+
+**[P-071] — Sessão Encerrada é Fato Técnico, não Intenção — Gate Bloqueante Obrigatório (2026-05-26)**
+`session_close.ps1` é o ÚNICO ponto de saída de qualquer sessão. Executa 9 gates sequenciais: auditoria → sync_docs → propagate → ledger_sync → validate → artefatos → LOG → e-mail/Telegram → PAINEL. Gates 1 e 5 com VERMELHO = `exit 1`. Músculo que declara "sessão encerrada" sem os 9 gates = dado falso ao Diretor. Disciplina não escala — arquitetura escala.
+
+**[P-073] — Documento Editado Fora da Fonte Canônica é Duplicata — não Versão (2026-05-27)**
+Toda edição acontece NA FONTE CANÔNICA. Derivados são gerados, nunca editados. Se um derivado tem hash diferente do canonical E timestamp mais novo → violação confirmada. `detect_canonical_violation.ps1` detecta e bloqueia no PASSO 0c do `session_start.ps1`. DEPENDENCY_MAP v2.0 é a fonte de verdade da classificação.
+
+**[P-074] — Propagação de Decisão é Total ou não é Propagação — Parcial é Pior que Zero (2026-05-27)**
+Propagação incompleta cria falsa sensação de integridade. `decision_impact.ps1` expõe cascata ANTES de commitar: mostra SYNC / DESATUAL / AUSENTE por destino. `sync_vanguard_docs.ps1 v2.3` distingue ORFAO real de PROJECT_ONLY via DEPENDENCY_MAP. Declarar "propagação concluída" só após `decision_impact.ps1` confirmar ZERO desatualizados.
+
+**[P-075] — O Diretor Delibera — Não Transporta Contexto entre Membros do Pentalateral (2026-05-27)**
+O Diretor é o originador da estratégia e o emissor do veredito — nunca o transportador de arquivos entre membros. Todo contexto é preparado e entregue automaticamente pelo Músculo antes de qualquer ação do Diretor. `gemini_anchor_generator.ps1` compila e abre o browser. `skill_watcher.ps1` instala a Skill assim que chega. Se o Diretor precisar copiar ou arrastar algo manualmente → o Músculo falhou.
+
+**[P-076] — Pendente Identificado durante a Sessão = Registrar no PENDENTES.md Imediatamente (2026-05-27)**
+Todo pendente detectado durante a sessão vai para PENDENTES.md no momento da detecção — nunca "vou registrar depois". P-076 viola: Músculo detectou mas anotou mentalmente → desapareceu na compactação. Regra: se identificou, escreveu. Sem registro = não existe.
+
+**[P-077] — loop_fase_atual é Atualizado pelo Script do Sócio — não pelo session_close (2026-05-27)**
+Cada script de orquestração atualiza `loop_fase_atual` imediatamente ao finalizar: `gemini_anchor_generator.ps1` escreve `gemini = "OK"` e `proximo` com o próximo passo. `preparar_notebooklm_projeto.ps1` escreve `notebooklm = "OK"`. `ir_ao_embaixador.ps1` escreve `embaixador = "OK"`. O LEMBRETE DE LOOP no session_start reflete estado real do loop no momento de leitura — não o estado do fim da última sessão.
+
+**[P-088] — PS5.1 Código-Fonte ASCII-ONLY — Conteúdo Rico vai para Template Externo (2026-05-28)**
+Caracteres Unicode fora do ASCII (acentos, em-dashes, aspas curvas U+2018/2019/201C/201D) em here-strings de PS5.1 causam falha silenciosa de parsing. Todo `.ps1` usa apenas ASCII puro no código-fonte. Conteúdo com acentuação vai em template externo `.txt` com placeholders `{TOKEN}`. Sempre `Write` tool + `validate_scripts.ps1` após criar/editar qualquer `.ps1`.
+
+**[P-089] — Documento de Contexto do Sócio é Regenerado pelo Script do Sócio Anterior (2026-05-28)**
+PASSO3_GEMINI.md é regenerado automaticamente por `gemini_anchor_generator.ps1` ao marcar `gemini = "OK"`. PASSO5_NOTEBOOKLM.md é regenerado pelo gate de aprovação da Skill. Se o PASSO3 do loop anterior está no arquivo quando o loop novo começa → `gemini_anchor_generator.ps1` estava desacoplado. Verificar: cabeçalho do PASSO3 referencia o loop atual do WIP_BOARD.
+
+**[P-091] — WIP_BOARD Reflete Realidade, não Intenção (2026-05-30)**
+Ao ler WIP_BOARD com `socio=OK`, cruzar com artefato em disco ANTES de reportar como verdade. `gemini=OK` → verificar `12_DIRETRIZ_GEMINI_V[N].txt`. `notebooklm=OK` → verificar `.claude/skills/[cliente]-v[N].md`. `musculo=OK` → verificar `DELIBERACAO_LOOP_V[N]_[cliente].md`. Se artefato ausente → "INCONSISTÊNCIA — WIP_BOARD declara OK sem evidência em disco." `auditar_consistencia.ps1` (Gate 0) detecta automaticamente.
+
+**[P-092] — Pergunta Aberta é Falha de Design — Verificação Autônoma (2026-06-01)**
+O Músculo NUNCA pergunta "o que avançou?" — isso é falha de design (DEF-M-6). Ao iniciar sessão: classificar CADA pendente em [AUTO-VERDE] (evidência [RESOLVE:] em git → marcar [x]), [AUTO-AMARELO] (tarefa do Músculo sem evidência → executar), [DIRETOR-CONFIRMAR] (ação externa → lista SIM/NÃO numerada). Diretor responde "1-SIM 2-NÃO" — Músculo processa via `marcar_confirmados.ps1`.
+
+**[P-094] — Validação no Momento da Escrita Supera Documentação (2026-06-01)**
+Verificar inline no momento em que o dado é registrado é mais eficaz que documentar e checar depois. Dependência declarada inline no painel é mais confiável que check separado. Sempre que possível, o sistema valida no momento da escrita — não em gate posterior. `validate_scripts.ps1` após criar `.ps1` é aplicação direta.
+
+**[P-095] — Gate Checker deve Cruzar Todas as Fontes de Evidência (2026-06-01)**
+Gate que declara "vencido" sem cruzar `loops_programados` + `PENDENTES.md` + artefatos em disco = falso VERMELHO. `generate_protocolo_encerramento.ps1` e qualquer script de gate DEVE consultar todas as fontes antes de emitir status. Uma fonte discordante não invalida — ela é investigada antes de declarar veredito.
+
+**[P-096] — Universalidade é o Critério de Aceite da Arquitetura (2026-06-04)**
+Se o script contém nome de projeto, cliente ou caminho hardcoded no corpo → não é universal → não está pronto. Universalidade não é refinamento futuro — é critério de aceite inicial. Todo script de orquestração aceita `-cliente [NOME]` ou lê do WIP_BOARD. Aplica-se a: `session_close.ps1`, `briefing_diario.ps1`, `churn_watch.ps1`, `monitor_hypercare.ps1` e todos os scripts de ciclo.
+
+**[P-097] — Gates Bloqueantes Precisam de Cobertura de Regressão (2026-06-04)**
+Todo gate que bloqueia (`exit 1`) precisa de teste de regressão: (a) cenário verde — gate não bloqueia quando não deveria; (b) cenário vermelho — gate bloqueia corretamente. Novo gate sem teste de regressão = pode criar falsos negativos em silêncio. Ao adicionar qualquer gate bloqueante: documentar os dois cenários no cabeçalho do script.
+
+**[P-100] — Embaixador Opera por RAG — Design do PASSO7 Deve Respeitar Isso (2026-06-05)**
+Claude Projects usa recuperação semântica (RAG interno) — não carrega todos os documentos de uma vez. PASSO7 deve ser AUTOCONTIDO: cada seção contém o contexto necessário para gerar resposta útil sem depender de outras seções. Não dividir contexto em "seções anteriores" implícitas. Cada seção do PASSO7 deve funcionar como uma pergunta independente.
+
+**[P-101] — Mensagem Externa Nunca Acessa Claude Diretamente — n8n como Camada Obrigatória (2026-06-04)**
+Todo canal externo (Telegram, WhatsApp, e-mail) que precisar acionar inteligência do Conselho deve passar pelo n8n. n8n valida, sanitiza, roteia e loga — Claude não vê entrada bruta. Claude responde ao n8n — n8n entrega ao canal. Sem o intermediário: auditoria impossível, custos incontroláveis, acesso sem gate ao Conselho.
+
+---
+
+### PRINCÍPIOS RECENTES — P-087 e P-090 (2026-05-28 a 2026-05-29)
+
+**[P-087] — Tag [RESOLVE:] Obrigatória em Commit que Conclui Pendente (2026-05-28)**
+Todo commit que fecha tarefa do PENDENTES.md DEVE incluir `[RESOLVE: keyword]` na mensagem — formato: `<tipo>(<escopo>): <descricao> [RESOLVE: <keyword-do-pendente>]`. O hook `.git/hooks/post-commit` detecta a tag e chama `auto_resolve_pendentes.ps1` automaticamente (commit separado `[AUTO-RESOLVE]` — nunca amend). Fallback: `reconcile_pendentes.ps1` no session_start alerta via PENDENTES-WATCH. A partir de 2026-06-07, `reconcile_pendentes.ps1` é Gate 1.6 do `session_close.ps1` — exit 2 bloqueia o fechamento com exit 1. Músculo que omite [RESOLVE:] = violação P-087 detectada no próximo fechamento de sessão.
+
+**[P-090] — PASSO3 é Escrito no Arquivo, não no Chat (2026-05-29)**
+Conteúdo gerado no chat (M-1 a M-5, MISSÃO do loop) é rascunho — invisível ao Gemini. O Gemini lê `PASSO3_GEMINI.md` — não o chat. Ao gerar qualquer conteúdo para PASSO3: escrever no arquivo com Write tool antes de qualquer outra coisa. Gate: `gemini_anchor_generator.ps1` bloqueia se detectar `[MUSCULO:` no arquivo. Placeholder no arquivo = Gemini faz análise livre = DIRETRIZ inválida.
+
+---
+
 ### PRINCÍPIOS RECENTES — P-112 a P-117 (2026-06-07)
 
 **[P-112] — n8n como Pré-processador Controlado: Palco Pronto, Conselho Delibera (2026-06-04)**
@@ -2654,4 +2726,80 @@ Todo diagrama do ciclo Pentalateral deve incluir os 5 membros (Gemini → Notebo
 
 ---
 
-*V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid · P-069 (2026-05-29) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + P-116 a P-117 (2026-06-07)*
+### PRINCÍPIOS RECENTES — P-118 (2026-06-07)
+
+**[P-118] — Auditar Execução Antes de Construir — O Mapa de Ferramentas Pode Estar Incompleto (2026-06-07)**
+Problema recorrente com ferramenta de prevenção já inscrita no LEDGER → primeira ação é auditar execução, não construir camada nova. A auditoria pode revelar que a ferramenta funciona e o defeito está num componente vizinho não mapeado. Antes de emitir briefing de auditoria ou propor nova ferramenta: mapear TODOS os scripts que escrevem no arquivo-alvo — não só os declarados no LEDGER. Perguntar explicitamente: "que outros scripts tocam este arquivo?" antes de concluir o mapa. DEPENDENCY_MAP cobre documentos canônicos; para scripts, a pergunta é obrigatória. Evidência: `sync_ficou_no_ar.ps1` não constava no briefing inicial — era o componente com os dois bugs. Aprovado pelo Diretor em 2026-06-07.
+
+---
+
+### PRINCÍPIOS RECENTES — P-119 a P-127 (2026-06-07/09) — Loop 29
+
+**[P-119] — Vídeo Público de Dor é Dado de Marketing, Não de Intenção de Compra (2026-06-07)**
+Prospecto que declara dor em vídeo público confirma que o problema existe — não que quer contratar. GUT calculado sem contato bilateral é provisório. Gate Zero obrigatório: contato bilateral confirmado com o decisor real antes de qualquer estimativa ou proposta. Aplica-se a toda análise iniciada por vídeo, podcast ou post público.
+
+**[P-120] — Embaixador Pode Acionar o Auditor Programaticamente via Claude in Chrome (2026-06-07)**
+A skill /notebooklm permite automação de browser para controlar o NotebookLM sem que o Diretor arraste arquivos manualmente. Embaixador pode adicionar fontes, gerar Studio outputs e criar notebooks via Claude in Chrome. Descoberta pelo Diretor Eduardo — Embaixador foi o canal estruturado de transmissão (correção de atribuição registrada em P-126).
+
+**[P-121] — Automação Não Iniciada Pelo Cliente é Ameaça de Churn (2026-06-08)**
+Qualquer automação que o cliente não pediu e não vê o valor imediato pode gerar fricção e churn. Regra: apresentar antes de implementar. O cliente deve sempre entender o que mudou na ferramenta e por quê. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-122] — Deliberação Precede P-032 (2026-06-08)**
+Receber output de sócio é o primeiro passo da deliberação — não o último. O Músculo apresenta ao Diretor as decisões identificadas (D1, D2...). Somente após veredito: executar P-032 e demais ações. O Músculo concordar internamente com um output não é deliberação. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-123] — Dois Namespaces de Notebook: Base Permanente + Loop Efêmero (2026-06-08)**
+[cliente]-base: notebook permanente com LEDGER + universais + histórico — NUNCA recebe docs de loop efêmero nem dados sensíveis do cliente. [cliente]-loop-N: notebook efêmero criado no início do loop, destruído após skill extraída. A skill gerada (..[cliente]-vN.md) é o único artefato que sobrevive ao loop. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-124] — Câmara de Eco Proibida — Checkpoint Humano Obrigatório Entre Sócios (2026-06-08)**
+Nenhum sócio aciona outro sócio diretamente no loop de cliente — o Diretor é o intermediário obrigatório. Automações de infraestrutura (INTELLIGENCE HUB, ChurnWatch) podem rodar LLM→LLM pois não geram vereditos de cliente. Câmara de Eco de Silício: dois LLMs do mesmo provedor no mesmo loop de cliente = vieses amplificados sem filtro humano — nunca permitido. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-125] — Fire-and-Forget com Webhook — Studio Outputs Não Bloqueiam o Terminal (2026-06-08)**
+Studio outputs (Audio Overview, Infográfico) levam 3-10min. O Músculo dispara via skill /notebooklm + webhook n8n e libera o terminal imediatamente. O n8n monitora e notifica o Diretor via Telegram quando pronto. Nunca aguardar sincronamente. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-126] — Dois Caminhos de Evolução, Mesma Origem (2026-06-08)**
+CICLO FORMAL: Diretor define direção → Gemini gera DIRETRIZ → NotebookLM gera Skill → Músculo constrói. CICLO EMERGENTE: Diretor descobre capacidade nova → usa Embaixador como canal → 4 sócios analisam → Diretor homologa. Em nenhum dos dois caminhos o sistema evolui sem o Diretor como ponto de origem. Aprovado pelo Diretor em 2026-06-08.
+
+**[P-127] — Embaixador Opera o Estrategista de Forma Autônoma com Grounding Verificado (2026-06-09)**
+O Embaixador (Claude Projects) pode acionar o Estrategista (Gemini) via skill gemini-pentalateral v2.1 — browser automation, upload de contexto, grounding verificado. Loop Embaixador→Estrategista→Músculo é válido quando iniciado pelo Diretor. Uso permitido: pesquisa de nicho, grounding pré-prospecção. NÃO para DIRETRIZ de cliente. P-124 permanece: Diretor aprova antes. Output vai para PENDING_REVIEW.md. Evidência: teste Médico Concurseiro 2026-06-08 bem-sucedido. Aprovado pelo Diretor em 2026-06-09.
+
+---
+
+### INTELLIGENCE HUB — MOTOR DE INTELIGÊNCIA DE MERCADO (Loop 29 — 2026-06-08)
+
+**Estrutura:** `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/`
+- `COMPETITORS/` — relatórios mensais por nicho (5 concorrentes, gerados pelo Antigravity)
+- `TRENDS/` — relatórios semanais via W-9 + /notebooklm (YouTube + artigos por nicho)
+- `PENDING_REVIEW.md` — canal Antigravity → Músculo → Conselho (Músculo revisa antes de qualquer ação)
+
+**Regras operacionais:**
+- P-124: Antigravity NÃO entra no loop de cliente — câmara de eco proibida
+- Relatório COMPETITORS: cópia manual para slot 21 de NOTEBOOKLM_FONTES após aprovação pelo Músculo
+- Uso pré-venda: REPORT_COMPETITORS do nicho gerado antes de qualquer reunião de prospecção
+
+### ANTIGRAVITY CLI — INTEL LOOP MOTOR (Loop 29 — 2026-06-08)
+
+**Função:** motor autônomo do INTELLIGENCE HUB — gera relatórios COMPETITORS + TRENDS via Gemini CLI
+**Identidade isolada:** `GEMINI.md` (raiz) — Intel Loop Motor, NÃO é o Estrategista do Pentalateral
+**Skill:** `.agents/skills/intel-loop.md` — checklists COMPETITORS + TRENDS
+**Canal de saída:** `PENDING_REVIEW.md` — Antigravity escreve, Músculo revisa, Conselho recebe
+**Regra P-124:** output do Antigravity vai para PENDING_REVIEW — NUNCA direto para DECISOES.json ou WIP_BOARD
+
+### LOOP_STATE SYSTEM v1.0 (Loop 29 — 2026-06-08)
+
+**Função:** estado durável por cliente/loop — resolve amnésia pós-compactação de contexto
+**Instâncias:** `CLIENTES/[NOME]/CLAUDE_PROJECT/LOOP_STATE.json` por projeto
+**Schema Markdown:** `PENTALATERAL_UNIVERSAL/OPERACAO/LOOP_STATE_SCHEMA.md` (slot 20 nos NOTEBOOKLM_FONTES)
+**Scripts:** `pre_loop_action.ps1` (verifica estado antes do loop) + `post_loop_action.ps1` (atualiza após fase)
+**Uso:** ao iniciar novo loop — verificar estado anterior antes de avançar qualquer fase
+
+### W-9 TRACK TRENDS — INTELIGÊNCIA SEMANAL (Loop 29 — 2026-06-08)
+
+**Trigger:** cron segunda-feira 8h BRT (11h UTC)
+**Fluxo:** W-9 n8n → Gemini grounding → relatório semanal → GitHub → Telegram Diretor
+**Arquivo:** `_n8n/workflows/w9_trends_semanal.json`
+**Status:** arquivo criado e validado — importação no EasyPanel pendente [DIRETOR]
+**Output:** `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/` — slot 21 propagado para NOTEBOOKLM_FONTES
+
+---
+
+*V25 — 3 Alavancas (LEDGER Vivo + Auditor API + deploy_guard) + Encoding Fix + PROJ-002 Ingrid · P-069 (2026-05-29) · BLOCO 0 Embaixador + Sync Guard + P-112 a P-115 (2026-06-06) · Hermes Agent ONLINE + P-116 a P-117 (2026-06-07) · Gate 1.6 + P-087 + P-090 + P-118 (2026-06-07) · Audit P-070 a P-101 (2026-06-07) · INTELLIGENCE HUB + Antigravity + LOOP_STATE + W-9 + P-119 a P-127 (2026-06-09)*
