@@ -67,7 +67,11 @@ briefings esperar. Integrada ao `session_start`.
 
 **Regra mensal:** No dia 1, após F7+F8+F11 rodarem, o Músculo prepara PASSO_NICHE_MODELER.md atualizado e o Diretor abre sessão Gemini. Output vai para PENDING_REVIEW com flag `[ALERTA]` se urgência detectada.
 
-**M-STATS (engrenagem analítica, dia 1 + sob demanda):** quem usa é o Músculo (análise base, via skill `market-stats-analysis`) e o Executor Cowork (robustece). Input = Cartões de Nicho / produto Vanguard; output = camada de números anexada ao Cartão → `PENDING_REVIEW` (P-124) → handoff ao Projetista. **Execução interna do motor — NÃO é ativação manual do Diretor**, portanto **não entra na notificação do W-11** (que cobre apenas Projetista e Embaixador Digital, por refinamento do Diretor em 2026-06-16, terça-feira).
+**M-STATS (engrenagem analítica transversal, dia 1 + sob demanda) — DOIS PASSOS distintos.** Protocolo completo em `MOTOR_INTELIGENCIA_NICHO.md` → "PROTOCOLO DE EXECUÇÃO M-STATS — DOIS PASSOS":
+- **Passo 1 — Músculo (análise BASE):** ao processar o `INBOX_COWORK`, roda a skill `market-stats-analysis` em regime base (market sizing inicial + gate N pequeno) → parecer BASE anexado ao Cartão → `PENDING_REVIEW` (P-124).
+- **Passo 2 — Executor Cowork (ROBUSTECE):** disparo mensal (dia 1) **ou** sob demanda do Projetista — pega o parecer BASE e robustece (convergência ±15%, métodos completos, IC pelo horizonte) → `PENDING_REVIEW` atualizado → handoff ao Projetista (R-3).
+
+⚠️ **Diferente das atividades Cowork usuais:** o Passo 2 **não é pesquisa nova, não cai no `INBOX_COWORK` e não é colhido** como M1–M7/F-series. É downstream (opera sobre a BASE já depositada), analítico e transversal. O calendário só agenda o **disparo mensal**; o resto é sob demanda. **Execução interna do motor — NÃO é ativação manual do Diretor**, portanto **não entra no W-11** (refinamento do Diretor em 2026-06-16; reconfirmado 2026-06-17).
 
 ---
 

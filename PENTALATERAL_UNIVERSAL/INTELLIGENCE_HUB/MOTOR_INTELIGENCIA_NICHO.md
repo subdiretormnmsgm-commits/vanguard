@@ -112,6 +112,72 @@ Síntese: **a máquina prospecta; o Diretor converte.**
 
 ---
 
+## PROTOCOLO DE EXECUÇÃO M-STATS — DOIS PASSOS + CALIBRAÇÃO
+
+> Confirmado pelo Diretor em 2026-06-17. A skill `market-stats-analysis` tem **dois usuários em
+> momentos distintos** (skill linha 14). Aqui cada um vira um **passo operacional separado**, com
+> gatilho, ação e output próprios — para o motor saber QUANDO e COMO cada um roda, em vez de fundir
+> os dois numa frase. O 3º elemento (CALIBRAÇÃO) é a seta que fecha o ciclo.
+
+### PASSO M-STATS-1 — MÚSCULO (análise BASE)
+- **Quem:** o Músculo (Claude Code), via skill `market-stats-analysis`.
+- **Gatilho:** ao processar o `INBOX_COWORK` (gate 0B de colheita) com um produto de nicho / Cartão
+  novo ou atualizado que assere um número de mercado. É reflexo por ação (P-180), não agenda fixa.
+- **Ação:** declara o regime de dados (A estruturado / B esparso — gate de entrada da skill); roda o
+  **market sizing base** (TAM/SAM/SOM pela(s) via(s) que o dado permite); aplica o **gate de honestidade
+  N pequeno** (N insuficiente → "INCONCLUSIVO — N=x", nunca fabrica). Linguagem fria; fonte + data + N
+  sempre (P-132).
+- **Output:** parecer **M-STATS BASE** anexado ao Cartão → `PENDING_REVIEW.md` (AGUARDANDO_VEREDITO, P-124).
+- **Propagação:** G2 (rclone) após gravar — o parecer precisa existir no Drive para o Executor e o Projetista.
+
+### PASSO M-STATS-2 — EXECUTOR COWORK (ROBUSTECE)
+- **Quem:** o **Antigravity no papel EXECUTOR** (P-163: "executa o que foi definido, lê do disco/Drive").
+  É o EXECUTOR que **roda a skill `market-stats-analysis`** sobre a BASE. **NÃO** é uma task agendada do
+  Embaixador Agentado (confirmado pelo Diretor 2026-06-17): o "agendado" do calendário é só **disparo/lembrete**
+  mensal — a execução real é o EXECUTOR lendo a BASE do `PENDING_REVIEW`/Drive, robustecendo e gravando de volta.
+- **Gatilho:** **disparo mensal** (dia 1, junto do NICHE_MODELER — apenas lembra que é hora de robustecer)
+  **OU sob demanda** — quem aciona é o **Projetista** (Ação 3 do template Projetista v5.1); ao receber a
+  encomenda, o **Músculo prepara o COMANDO EXECUTOR** (`ir_ao_antigravity.ps1 -papel EXECUTOR`). Respeita o
+  GATE DE DATA do calendário só no disparo mensal; sob demanda é estado-dependente, não data-dependente.
+- **Ação:** pega o parecer **BASE** do Passo 1 e o **robustece** — fecha a convergência **±15%**
+  (top-down × bottom-up), completa os métodos que o N agora permite (MaxDiff → Conjoint, regressão/ARIMA
+  com diagnóstico de resíduos), e **alarga o IC pelo horizonte** (previsão distante nunca como ponto firme).
+- **Output:** parecer **M-STATS ROBUSTECIDO** → `PENDING_REVIEW.md` (atualiza o BASE, P-124) → **handoff
+  ao Projetista** (R-3 — camada fria recebida, traduzida em PLANOS/CAMPANHA com linguagem blindada).
+- **Propagação:** G2 (rclone) obrigatório — sem isso o Projetista (Claude Project no Drive) lê a versão velha.
+- **⚠️ DIFERENTE DAS ATIVIDADES COWORK USUAIS (Diretor 2026-06-17):** as tarefas Cowork normais (M1–M7,
+  F-series) são **pesquisa de mercado upstream** — geram sinal bruto que cai no `INBOX_COWORK`, e o Músculo
+  **colhe** (gate 0B). O M-STATS-2 **não é pesquisa nova e não escreve no `INBOX_COWORK`**: ele é **downstream**,
+  opera sobre o parecer **BASE** que o Músculo já depositou no `PENDING_REVIEW`, robustece com método estatístico
+  e devolve ao **próprio `PENDING_REVIEW`** (não há "colheita" pelo Músculo). Por isso **não segue o mapa de
+  colheita do calendário** nem é colhido como M1–M7 — é uma engrenagem **analítica transversal**, não uma frente
+  de coleta. O que o calendário agenda é apenas o **disparo mensal** (dia 1); o resto é sob demanda do Projetista.
+
+### 3º ELEMENTO — CALIBRAÇÃO (fecha o ciclo)
+- **Onde:** `CALIBRACAO.md` (Biblioteca de Nichos).
+- **O que:** o **resultado real da prospecção** (respondeu? marcou reunião? virou cliente?) volta ao
+  `CALIBRACAO.md` e reajusta o score/parâmetros dos nichos. Efeito: na próxima rodada, os Passos 1 e 2
+  partem de parâmetros calibrados e as engrenagens priorizam os nichos que de fato convertem.
+- **Hoje:** em `[AGUARDA-CAMPO]` (0 clientes) — a fonte da calibração é exatamente esse retorno de campo.
+
+> **Fronteira de papéis (não confundir):** o Músculo produz a BASE e é **portão de governança** (P-124);
+> o Executor **robustece** e gera o PRODUTO; nenhum dos dois escreve discurso de venda — isso é do
+> Projetista (R-3). M-STATS é **execução interna do motor**, NÃO ativação manual do Diretor → **não entra
+> no W-11** (confirmado 2026-06-16).
+
+### ALERTA NO TERMINAL — duas vias (Diretor 2026-06-17: "é sempre bom conferir")
+Toda atividade Cowork já é alertada no terminal na abertura (gate 0C, `cowork_calendar.ps1` no session_start).
+O M-STATS, por ser **diferente do Cowork usual** (transversal, não colhido por data), precisa de **duas vias**:
+1. **Alerta por DATA (disparo):** `cowork_calendar.ps1` já lista o M-STATS no bloco **Mensal** quando é dia 1
+   — cobre o disparo/lembrete mensal. Confirmado em código (linha do `fMensal`).
+2. **Alerta por ESTADO (conferir):** check de pé que varre o `PENDING_REVIEW.md` por parecer **M-STATS BASE**
+   com a keyword `AGUARDANDO_ROBUSTECER` e o lista no terminal **toda sessão, independente da data**. É o que
+   garante que um Passo 1 (BASE) não fique esquecido sem o Passo 2 (robustecer) — fecha o P-146 da via de estado.
+   O Passo 1 marca a entrada com a tag `[M-STATS-BASE AGUARDANDO_ROBUSTECER]`; quando o EXECUTOR robustece,
+   troca para `ROBUSTECIDO`, e o alerta some sozinho.
+
+---
+
 ## LOOP DE CALIBRAÇÃO (a seta que fecha o ciclo)
 
 Hoje o motor *gera*, mas ainda não *aprende*. O resultado real de cada prospecção (respondeu?

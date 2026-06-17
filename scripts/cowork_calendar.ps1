@@ -101,6 +101,21 @@ $fMensal = @()
 if ($diaMes -eq 1) { $fMensal += "F7 + F8 + F11 + NICHE_MODELER (enriquecimento mensal -- sessao Gemini)" }
 if ($diaMes -eq 1) { $fMensal += "M-STATS (Analise Estatistica de Nicho -- skill market-stats-analysis: market sizing TAM/SAM/SOM dupla-via + tendencia c/ IC sobre o produto Vanguard; saida -> PENDING_REVIEW)" }
 
+# -- M-STATS: check de ESTADO (independe da data) -- "e sempre bom conferir" (Diretor 2026-06-17)
+# O M-STATS Passo 2 (robustecer) e downstream e NAO segue o mapa de colheita do calendario.
+# Alem do disparo mensal (dia 1, ja no fMensal), varremos o PENDING_REVIEW por parecer BASE
+# (Passo 1) marcado com a keyword AGUARDANDO_ROBUSTECER -- para nenhum BASE ficar sem Passo 2.
+# Quem robustece: Antigravity papel EXECUTOR (skill market-stats-analysis). Disparo: Projetista
+# encomenda (Acao 3 v5.1 -- mensal dia 1 + sob demanda) -> Musculo prepara COMANDO EXECUTOR.
+$pendingPath = Join-Path $PSScriptRoot "..\PENTALATERAL_UNIVERSAL\INTELLIGENCE_HUB\PENDING_REVIEW.md"
+$mstatsPendentes = @()
+if (Test-Path $pendingPath) {
+    $linhasPending = Get-Content -LiteralPath $pendingPath -Encoding UTF8 -ErrorAction SilentlyContinue
+    foreach ($ln in $linhasPending) {
+        if ($ln -match "\[M-STATS-BASE\s+AGUARDANDO_ROBUSTECER\]") { $mstatsPendentes += $ln.Trim() }
+    }
+}
+
 # ── Briefings esperados no INBOX_COWORK ─────────────────────────────────────────
 $briefingsEsperados = @()
 foreach ($t in $mHoje) { $briefingsEsperados += "BRIEFING_MUSCULO_$($t.Id)" }
@@ -116,6 +131,7 @@ if ($Json) {
         frentes_quinzenal   = $fQuinzenal
         frentes_mensal      = $fMensal
         briefings_esperados = $briefingsEsperados
+        mstats_aguardando_robustecer = @($mstatsPendentes)
     }
     Write-Output ($obj | ConvertTo-Json -Depth 6 -Compress)
     exit 0
@@ -147,6 +163,17 @@ Write-Host "  FRENTES F PREVISTAS HOJE:"
 Write-Host "    Semanal  : $fSemanal"
 if ($fQuinzenal.Count -gt 0) { foreach ($f in $fQuinzenal) { Write-Host "    Quinzenal: $f" } }
 if ($fMensal.Count    -gt 0) { foreach ($f in $fMensal)    { Write-Host "    Mensal   : $f" } }
+Write-Host ""
+
+Write-Host "  M-STATS -- CONFERIR (estado, independe da data):"
+if ($mstatsPendentes.Count -gt 0) {
+    Write-Host "    $($mstatsPendentes.Count) parecer(es) M-STATS BASE aguardando ROBUSTECER (Passo 2 -- EXECUTOR):"
+    foreach ($m in $mstatsPendentes) { Write-Host "      -> $m" }
+    Write-Host "    Robustecer = Antigravity papel EXECUTOR. Disparo: Projetista (Acao 3 v5.1) ou dia 1."
+    Write-Host "    Musculo prepara: scripts\ir_ao_antigravity.ps1 -papel EXECUTOR"
+} else {
+    Write-Host "    Nenhum parecer M-STATS BASE aguardando robustecer."
+}
 Write-Host ""
 
 if ($briefingsEsperados.Count -gt 0) {
