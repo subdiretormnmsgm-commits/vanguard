@@ -1,8 +1,8 @@
 {
-    "gerado_em":  "2026-06-17 21:29",
+    "gerado_em":  "2026-06-17 22:49",
     "raiz":  "C:\\Users\\Eduardo DELL\\OneDrive\\Área de Trabalho\\vanguard",
-    "total_arquivos":  834,
-    "total_bytes":  20530493,
+    "total_arquivos":  831,
+    "total_bytes":  20481705,
     "por_formato":  [
                         {
                             "formato":  "pdf",
@@ -31,10 +31,6 @@
                         {
                             "formato":  "json",
                             "n":  61
-                        },
-                        {
-                            "formato":  "bak",
-                            "n":  4
                         },
                         {
                             "formato":  "jsx",
@@ -115,16 +111,20 @@
                         {
                             "formato":  "flag",
                             "n":  1
+                        },
+                        {
+                            "formato":  "bak",
+                            "n":  1
                         }
                     ],
     "por_tipo":  [
                      {
                          "tipo":  "NAO_CLASSIFICADO",
-                         "n":  704
+                         "n":  702
                      },
                      {
                          "tipo":  "TIPO1_UNIVERSAL",
-                         "n":  64
+                         "n":  63
                      },
                      {
                          "tipo":  "TIPO2_TEMPLATE",
@@ -138,7 +138,7 @@
     "por_bucket":  [
                        {
                            "bucket":  "OUTROS_NAO_CLASS",
-                           "n":  333
+                           "n":  331
                        },
                        {
                            "bucket":  "HISTORICO",
@@ -150,7 +150,7 @@
                        },
                        {
                            "bucket":  "TIPO1_UNIVERSAL",
-                           "n":  64
+                           "n":  63
                        },
                        {
                            "bucket":  "TIPO2_TEMPLATE",
@@ -172,9 +172,9 @@
     "semaforo_pasta":  [
                            {
                                "pasta":  "CLIENTES",
-                               "arquivos":  483,
+                               "arquivos":  482,
                                "doc_conv":  63,
-                               "nao_class":  383,
+                               "nao_class":  382,
                                "dup":  173,
                                "semaforo":  "AMARELO"
                            },
@@ -204,10 +204,10 @@
                            },
                            {
                                "pasta":  "PENTALATERAL_UNIVERSAL",
-                               "arquivos":  348,
+                               "arquivos":  346,
                                "doc_conv":  40,
-                               "nao_class":  318,
-                               "dup":  65,
+                               "nao_class":  317,
+                               "dup":  64,
                                "semaforo":  "AMARELO"
                            }
                        ],
@@ -376,10 +376,9 @@
                               },
                               {
                                   "hash":  "0AD3670C3559271315BAEBE7CE128A50527D23C5ECC9B3C66D60B00153DD32DE",
-                                  "n":  9,
+                                  "n":  8,
                                   "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\NOTEBOOKLM_BASE\\20_LOOP_STATE_SCHEMA.md",
-                                                   "PENTALATERAL_UNIVERSAL\\NOTEBOOKLM_BASE\\20_LOOP_STATE_SCHEMA.md.bak",
                                                    "PENTALATERAL_UNIVERSAL\\OPERACAO\\LOOP_STATE_SCHEMA.md",
                                                    "CLIENTES\\INGRID\\NOTEBOOKLM_FONTES\\20_LOOP_STATE_SCHEMA.md",
                                                    "CLIENTES\\MUMUZINHO\\NOTEBOOKLM_FONTES\\20_LOOP_STATE_SCHEMA.md",
@@ -994,7 +993,7 @@
                             "n_hashes":  3,
                             "donos":  "CLIENTE:VANGUARD, CLIENTE:INGRID, CLIENTE:VALDECE",
                             "versoes":  [
-                                            "2026-06-17 21:12:53 | 26550A4A | CLIENTES\\VANGUARD\\CONTEXTO_GEMINI.md",
+                                            "2026-06-17 22:42:43 | F52D8FA4 | CLIENTES\\VANGUARD\\CONTEXTO_GEMINI.md",
                                             "2026-06-04 13:32:07 | 34E2FAEA | CLIENTES\\INGRID\\CONTEXTO_GEMINI.md",
                                             "2026-06-04 13:32:06 | 400FB7C3 | CLIENTES\\VALDECE\\CONTEXTO_GEMINI.md"
                                         ]
@@ -1795,10 +1794,6 @@
                              },
                              {
                                  "caminho":  "PENTALATERAL_UNIVERSAL\\OPERACAO\\DEPENDENCY_MAP.json",
-                                 "bucket":  "OUTROS_NAO_CLASS"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\OPERACAO\\DEPENDENCY_MAP.json.bak",
                                  "bucket":  "OUTROS_NAO_CLASS"
                              },
                              {
@@ -2735,10 +2730,6 @@
                              },
                              {
                                  "caminho":  "CLIENTES\\WIP_BOARD.json",
-                                 "bucket":  "OUTROS_NAO_CLASS"
-                             },
-                             {
-                                 "caminho":  "CLIENTES\\WIP_BOARD.json.bak",
                                  "bucket":  "OUTROS_NAO_CLASS"
                              },
                              {
@@ -5130,16 +5121,6 @@
                          "bucket":  "TIPO1_UNIVERSAL"
                      },
                      {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\NOTEBOOKLM_BASE\\20_LOOP_STATE_SCHEMA.md.bak",
-                         "formato":  "bak",
-                         "tamanho":  6946,
-                         "modificado":  "2026-06-10 21:52:45",
-                         "sha256":  "0AD3670C3559271315BAEBE7CE128A50527D23C5ECC9B3C66D60B00153DD32DE",
-                         "tipo":  "TIPO1_UNIVERSAL",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "TIPO1_UNIVERSAL"
-                     },
-                     {
                          "caminho":  "PENTALATERAL_UNIVERSAL\\NOTEBOOKLM_BASE\\LEDGER_INDEX.md",
                          "formato":  "md",
                          "tamanho":  8103,
@@ -5255,16 +5236,6 @@
                          "tamanho":  27228,
                          "modificado":  "2026-06-16 11:18:17",
                          "sha256":  "C6B254EB68884807DC13C577CAB92B70F5459A68302FADA76A01D598597E0180",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "OUTROS_NAO_CLASS"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\OPERACAO\\DEPENDENCY_MAP.json.bak",
-                         "formato":  "bak",
-                         "tamanho":  22552,
-                         "modificado":  "2026-06-08 00:41:55",
-                         "sha256":  "19833F3C9585085563983399322DDAA3C19E6FAE28C46CC36D70BB26E351B8CE",
                          "tipo":  "NAO_CLASSIFICADO",
                          "dono":  "UNIVERSAL",
                          "bucket":  "OUTROS_NAO_CLASS"
@@ -7763,20 +7734,10 @@
                          "caminho":  "CLIENTES\\WIP_BOARD.json",
                          "formato":  "json",
                          "tamanho":  25538,
-                         "modificado":  "2026-06-17 21:12:54",
+                         "modificado":  "2026-06-17 22:42:43",
                          "sha256":  "512F3948930F074026E580F5342EB02375E5689D0601EDADF36AA9876381B52A",
                          "tipo":  "NAO_CLASSIFICADO",
                          "dono":  "CLIENTE:WIP_BOARD.json",
-                         "bucket":  "OUTROS_NAO_CLASS"
-                     },
-                     {
-                         "caminho":  "CLIENTES\\WIP_BOARD.json.bak",
-                         "formato":  "bak",
-                         "tamanho":  22202,
-                         "modificado":  "2026-06-10 01:39:43",
-                         "sha256":  "487C7CB264F6B753C3420A8E8533031FA2654606FC07A9E8D911D53FDDBF2DF3",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "CLIENTE:WIP_BOARD.json.bak",
                          "bucket":  "OUTROS_NAO_CLASS"
                      },
                      {
@@ -11382,9 +11343,9 @@
                      {
                          "caminho":  "CLIENTES\\VANGUARD\\CONTEXTO_GEMINI.md",
                          "formato":  "md",
-                         "tamanho":  189406,
-                         "modificado":  "2026-06-17 21:12:53",
-                         "sha256":  "26550A4A1325C6F7ABDC5E0AC560FB3D670A9E8DCF4C356CC6CB3BFA3A23032F",
+                         "tamanho":  189499,
+                         "modificado":  "2026-06-17 22:42:43",
+                         "sha256":  "F52D8FA405EA90202C394437E7576326EF6A4DD2568EEA89012481F745E4AAA5",
                          "tipo":  "NAO_CLASSIFICADO",
                          "dono":  "CLIENTE:VANGUARD",
                          "bucket":  "OUTROS_NAO_CLASS"
@@ -12592,9 +12553,9 @@
                      {
                          "caminho":  "PENDENTES.md",
                          "formato":  "md",
-                         "tamanho":  59259,
-                         "modificado":  "2026-06-17 20:34:56",
-                         "sha256":  "C5289F4EF9FDBE1C220DBD1B97A74F59513CF7F8971756AC1929E952E499CDCB",
+                         "tamanho":  62078,
+                         "modificado":  "2026-06-17 22:36:55",
+                         "sha256":  "8D067F060301D7A95A251BC0405EB59731930DB93BE0EA0F7082D65AA73215F5",
                          "tipo":  "NAO_CLASSIFICADO",
                          "dono":  "RAIZ",
                          "bucket":  "OUTROS_NAO_CLASS"

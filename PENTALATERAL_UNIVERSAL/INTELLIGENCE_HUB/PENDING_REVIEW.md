@@ -507,3 +507,138 @@ Inventário: todos os sinais F1 de hoje são **ADICIONAL/EVOLUÍDO de nichos já
 - `REJEITADO` → mover para bloco REJEITADOS + declarar razão objetiva + Antigravity refaz
 
 | 2026-06-15 | CURADORIA | `CLIENTES/VANGUARD/PENDING_REVIEW/CURADORIA_SKILLS_V35.md` | AGUARDANDO_VEREDITO |
+
+---
+
+# 🛰️ DETECTOR DE DERIVA — PRIMEIRA VARREDURA (ATIVAÇÃO F7 · 2026-06-17)
+
+> Prova-de-vida do Detector ativado na Operação Vault Soberano F7. Camada determinística
+> (`scripts/detector_deriva.ps1`) + auto-auditoria §7 da persona + P-059 sweep. O Detector
+> **detecta, não corrige** (Mandato 1/P-124) — cada achado abaixo aguarda veredito do Diretor;
+> a correção, quando aprovada, é do Músculo. Modo: `[fallback grep — Obsidian fechado]`.
+
+## DERIVA DETECTADA — 2026-06-17 — F7-01
+
+### TIPO
+Omissão de frescor (documento defasado)
+
+### PRINCÍPIO VIOLADO
+[P-005] Inteligência acumulada por sessão — documento de timeline deve refletir o loop atual.
+
+### DOCUMENTO(S) EM DERIVA
+`CLIENTES/VANGUARD/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md`
+`CLIENTES/VANGUARD/NOTEBOOKLM_FONTES/17_VANGUARD_TIMELINE.md`
+
+### TRECHO DIVERGENTE
+> (ausência) Nem "Loop 35" nem "Loop 34" aparecem na Timeline — sistema está no Loop 35.
+
+### NATUREZA DA DERIVA
+A Timeline da Vanguard parou ≥2 loops atrás. Gate 0.5 (`doc_freshness_checker`) marca VERMELHO.
+Documento de histórico que não acompanha o loop corrente induz contexto defasado em quem o lê.
+
+### SUGESTÃO AO DIRETOR
+Atualizar as duas Timelines com os marcos dos Loops 34–35 (tarefa do Músculo, pós-veredito).
+Não é bloqueante para a Operação Vault — é dívida de conteúdo do loop VANGUARD.
+
+### SEVERIDADE
+MÉDIA
+
+---
+
+## DERIVA DETECTADA — 2026-06-17 — F7-02
+
+### TIPO
+Erro de referência (caminho inexistente no próprio mapa do Detector)
+
+### PRINCÍPIO VIOLADO
+[P-033] Sync/coerência de mapa — caminho citado deve existir na estrutura real.
+
+### DOCUMENTO(S) EM DERIVA
+`CONSELHO/SYSTEM_PROMPT_DETECTOR_DERIVA.md` (§7, linha ~441)
+
+### TRECHO DIVERGENTE
+> `PENTALATERAL_UNIVERSAL/MAPA_VAULT.md ← mapa do vault (verificar consistência com estrutura real)`
+
+### NATUREZA DA DERIVA
+A persona v1.4 §7 lista `PENTALATERAL_UNIVERSAL/MAPA_VAULT.md` como alvo de varredura, mas o
+arquivo NÃO existe — só existe `CONSELHO/MAPA_VAULT.md`. Auto-auditoria pós-reorg F2–F5: o §7
+referencia um caminho que a reorg tornou órfão (ou que nunca foi criado nesse local).
+
+### SUGESTÃO AO DIRETOR
+Corrigir o §7 da persona: ou apontar para `CONSELHO/MAPA_VAULT.md`, ou criar o MAPA_VAULT
+em PENTALATERAL_UNIVERSAL/. Dogfooding bem-sucedido: o Detector pegou deriva no próprio prompt.
+
+### SEVERIDADE
+MÉDIA
+
+---
+
+## DERIVA DETECTADA — 2026-06-17 — F7-03
+
+### TIPO
+Zona-cinza P-059 (possível cross-referência cliente fora de CLIENTES/*) — deliberação do Diretor
+
+### PRINCÍPIO VIOLADO
+[P-059] Isolamento de Contexto por Cliente — a decidir se aplica ou se é inteligência de nicho.
+
+### DOCUMENTO(S) EM DERIVA
+`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/COMPETITORS/REPORT_COMPETITORS_2026-06.md`
+`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/TRENDS/README.md`
+`PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_MODELS/compliance-aduaneiro-ncm_MODEL.json`
+
+### TRECHO DIVERGENTE
+> COMPETITORS: "competição direta com Valdece" · "Relevância Ingrid: ALTO"
+> TRENDS: "Valdece + próximos clientes jurídicos" · "Ingrid + próximos clientes educação"
+> NICHE_MODELS: "Ha empresas de importacao na rede ... de clientes atuais (Ingrid, Valdece)?"
+
+### NATUREZA DA DERIVA
+Três docs do Intelligence Hub cross-referenciam clientes ativos por nome para priorização de
+mercado. NÃO há dado privado/credencial/segredo de cliente — é correlação nicho↔cliente. Precedente:
+`CALENDARIO_NICHE_INTELLIGENCE.md` faz o mesmo e foi declarado "P-059 N/A — inteligência de NICHO"
+pelo Diretor (2026-06-15). Por isso NÃO marco CRÍTICA: é decisão do Diretor se o mesmo veredito
+de exceção se estende a estes três (padrão consistente) ou se exige refatorar para anonimizar.
+
+### SUGESTÃO AO DIRETOR
+Decidir: (a) estender a exceção "inteligência de nicho, P-059 N/A" e anotar nos 3 docs (como já
+está no CALENDARIO), OU (b) anonimizar as referências (trocar nome do cliente por "cliente jurídico
+ativo" etc.). Recomendação do Detector: (a) — é o precedente vigente; basta anotar a exceção.
+
+### SEVERIDADE
+MÉDIA
+
+---
+
+## DERIVA DETECTADA — 2026-06-17 — F7-04
+
+### TIPO
+Omissão de robustez (guardrail de leitura)
+
+### PRINCÍPIO VIOLADO
+[OWASP ASI01 / §2.6 persona] Deny-list de credenciais — declarada na prosa, sem enforcement em hook.
+
+### DOCUMENTO(S) EM DERIVA
+`.claude/hooks/protected_paths.txt` (cobre Write/Edit de canônicos; não cobre READ de credenciais)
+
+### TRECHO DIVERGENTE
+> protected_paths.txt protege LEDGER/CLAUDE.md/DEPENDENCY_MAP/PASSO/skills contra Write/Edit —
+> nenhuma entrada `.env`/`CHAVES`/`*.key` como deny de LEITURA.
+
+### NATUREZA DA DERIVA
+A persona v1.4 (§2.6 + Mandato 10) proíbe o Detector de abrir credenciais, mas não há hook que
+BARRE a leitura de `.env`/CHAVES. Risco residual BAIXO: segredos já estão fora do git (`.gitignore`)
+e fora do Drive (`rclone_secrets_exclude.txt`, P-185), e o Detector roda como subagente read-only
+com escrita só em PENDING_REVIEW. Mas a defesa é "por confiança na persona", não mecânica.
+
+### SUGESTÃO AO DIRETOR
+Opcional (defesa em profundidade): adicionar `\.env$`, `CHAVES_SISTEMA`, `\.key$` a um read-guard.
+Não bloqueia F7 — é endurecimento futuro. Registrado para não virar dívida silenciosa (P-146).
+
+### SEVERIDADE
+BAIXA
+
+---
+
+> **Resumo da varredura F7 (Detector ativado):** 4 derivas — 0 CRÍTICA · 3 MÉDIA · 1 BAIXA.
+> Mais grave: nenhuma é crítica (nenhum vazamento de dado privado de cliente). O Detector
+> **funciona** — pegou deriva real em 3 frentes distintas (frescor, referência da própria persona,
+> zona-cinza P-059) + 1 achado de guardrail. Detecta e reporta; o Diretor decide; o Músculo corrige.

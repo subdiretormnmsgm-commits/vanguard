@@ -1086,6 +1086,29 @@ try {
     }
 } catch {}
 
+# DETECTOR DE DERIVA (F7 / Operacao Vault Soberano) -- briefing read-only na abertura (c-1).
+# Roda a camada DETERMINISTICA leve (detector_deriva.ps1 -Leve -Quiet): pula o vault_audit pesado.
+# READ-ONLY: so le filesystem local (C1/P-181); nunca move/edita/apaga; nunca derruba o hook (try/catch).
+# So exibe secao quando ha sinal (exit >= 1). VERDE = silencio total. Achados semanticos -> PENDING_REVIEW.
+try {
+    $ddScript = Join-Path $projectDir "scripts\detector_deriva.ps1"
+    if (Test-Path $ddScript) {
+        & powershell.exe -NonInteractive -NoProfile -File $ddScript -Leve -Quiet *> $null
+        $ddSev = $LASTEXITCODE
+        if ($ddSev -ge 1) {
+            $ddRotulo = if ($ddSev -ge 2) { "VERMELHO" } else { "AMARELO" }
+            $ddLines = @(
+                "Drift status (camada deterministica, varredura leve): $ddRotulo",
+                "",
+                "Acao: rodar .\scripts\detector_deriva.ps1 (varredura completa) para o detalhe por motor.",
+                "Camada semantica (prosa-vs-LEDGER): subagente read-only via skill doc-drift-audit.",
+                "Achados -> PENDING_REVIEW.md (append, P-124). O Detector detecta; o Diretor decide."
+            )
+            $sections += "## 🛰️ DETECTOR DE DERIVA (F7)`n" + ($ddLines -join "`n")
+        }
+    }
+} catch {}
+
 # ATO 6 -- Iniciar watch_readonly.ps1 em background (P-033 guardian)
 $watchScript = Join-Path $projectDir "scripts\watch_readonly.ps1"
 $watchPidFile = Join-Path $projectDir "scripts\.watch_readonly.pid"

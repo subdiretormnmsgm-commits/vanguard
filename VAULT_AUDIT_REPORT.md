@@ -1,24 +1,24 @@
 ﻿# VAULT AUDIT REPORT -- Operacao Vault Soberano (Fase 1)
 
-> Gerado: 2026-06-17 21:29 | LOCAL-FIRST (C1) | READ-ONLY | Gate: Diretor revisa antes da Fase 2.
+> Gerado: 2026-06-17 22:49 | LOCAL-FIRST (C1) | READ-ONLY | Gate: Diretor revisa antes da Fase 2.
 > v2: divergentes classificados (drift real vs isolamento P-059); nao-classificados em buckets.
 
 ## Resumo
 
-- **Arquivos no escopo:** 834 (19.6 MB)
+- **Arquivos no escopo:** 831 (19.5 MB)
 - **Duplicados exatos (hash):** 72 grupo(s) -- maioria = sync canonico CORRETO
 - **Divergentes totais:** 33 grupo(s)
   - **DRIFT_CANONICO ALTA (TIPO1/TIPO2 divergiu -- acao imediata):** 0
   - DRIFT_INTRA / CRUZA / REVISAR (MEDIA -- decidir na F2): 7
   - ISOLAMENTO_P059 + COLISAO_NOME_GENERICO (BAIXA -- sem acao): 26
 - **Doc .txt convertivel (Fase 4):** 103 (exclui produto/sistema)
-- **TIPO nao classificado:** 704 -- segmentado em buckets abaixo
+- **TIPO nao classificado:** 702 -- segmentado em buckets abaixo
 
 ## Buckets dos nao-classificados (porque nao casam o DEPENDENCY_MAP)
 
 | Bucket | N | Leitura |
 |---|---|---|
-| OUTROS_NAO_CLASS | 333 | Revisar caso a caso na Fase 2 |
+| OUTROS_NAO_CLASS | 331 | Revisar caso a caso na Fase 2 |
 | HISTORICO | 184 | Snapshots/sessoes arquivadas -- candidato a _ARQUIVO |
 | INSTANCIA_CLIENTE | 117 | Instancia por cliente (P-059) -- conteudo proprio |
 | CODIGO_PRODUTO | 63 | Codigo de produto do cliente -- fora do dicionario, nao e lixo |
@@ -28,11 +28,11 @@
 
 | Pasta | Arquivos | Doc-conv | Nao-class | Dup | Semaforo |
 |---|---|---|---|---|---|
-| CLIENTES | 483 | 63 | 383 | 173 | AMARELO |
+| CLIENTES | 482 | 63 | 382 | 173 | AMARELO |
 | INTELLIGENCE_LEDGER.md | 1 | 0 |  |  | VERDE |
 | LEDGER_INBOX.md | 1 | 0 |  | 0 | VERDE |
 | PENDENTES.md | 1 | 0 |  | 0 | VERDE |
-| PENTALATERAL_UNIVERSAL | 348 | 40 | 318 | 65 | AMARELO |
+| PENTALATERAL_UNIVERSAL | 346 | 40 | 317 | 64 | AMARELO |
 
 ## >>> DRIFT_CANONICO prioridade ALTA (acao imediata) <<<
 
@@ -177,7 +177,7 @@ _Nenhum drift CANONICO de prioridade ALTA -- firewall R-01 + sync mantiveram os 
 
 - **11x** (42133672): PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\04_INTELLIGENCE_LEDGER.md ...
 - **11x** (DC44DB1B): PENTALATERAL_UNIVERSAL\HISTORICO\VANGUARD_TIMELINE.md ...
-- **9x** (0AD3670C): PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\20_LOOP_STATE_SCHEMA.md ...
+- **8x** (0AD3670C): PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\20_LOOP_STATE_SCHEMA.md ...
 - **7x** (2E442026): PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\01_SKILL_PROTOCOLO_VANGUARD.md ...
 - **7x** (239FE2C8): PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\06_TEMPLATES_COMUNICACAO_PENTALATERAL.md ...
 - **7x** (F46D72FF): PENTALATERAL_UNIVERSAL\NOTEBOOKLM_BASE\03_MANUAL_DIRETOR.md ...

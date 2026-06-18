@@ -1,11 +1,12 @@
 ---
 titulo: OPERACAO VAULT SOBERANO -- Plano Cirurgico
 tipo: PLANO_OPERACIONAL
-status: aguardando_arranque
+status: CONCLUIDA
 created: 2026-06-17
 updated: 2026-06-17
 autor: Musculo (Claude Code)
-veredito_diretor: pendente
+veredito_diretor: aprovado_por_fase
+fases: F0 OK | F1 OK | F2 OK | F3 OK | F4 OK | F5 OK | F6 verificado (push no Gate 10) | F7 OK (Detector ativo)
 related: [INTELLIGENCE_LEDGER, DEPENDENCY_MAP, reference_detector_deriva_estado_arte, project_obsidian_intencao]
 ---
 
@@ -199,3 +200,32 @@ Detector. A Fase 7 nao cria do zero -- ela ADAPTA esse kit ao contexto Vanguard 
 
 Proxima sessao dedicada (Opus): iniciar por **F0 (diagnostico skills ~30min) em paralelo a F1 (auditoria)**.
 Nenhuma fase destrutiva sem veredito do Diretor.
+
+---
+
+## ENCERRAMENTO DA OPERACAO (2026-06-17)
+
+**Operacao Vault Soberano CONCLUIDA.** As 7 fases foram executadas com veredito por fase (consultor-first):
+F0-F5 OK, F6 verificado (zero segredo no dry-run; push real defere ao Gate 10/session_close, estrito C1),
+F7 OK -- **Detector de Deriva ATIVO**.
+
+### F7 -- o que foi feito (achado central: o Detector ja existia, disperso)
+F7 nao construiu motor de deteccao novo. ATIVOU e cabeou os gates deterministicos ja existentes:
+- **`scripts/detector_deriva.ps1`** (b-min): maestro fino que orquestra 5 motores ja presentes
+  (frescor, consistencia textual, violacao canonica TIPO 1, drift de comandos de ativacao, inventario do vault),
+  mapeia exit codes heterogeneos para semaforo comum (0 VERDE / 1 AMARELO / 2 VERMELHO), read-only, LOCAL-FIRST.
+- **`session_start.ps1`** (c-1): briefing read-only na abertura (`-Leve -Quiet`), fault-tolerant, so exibe se exit >= 1.
+- **CLAUDE.md**: Detector registrado como ATOR COADJUVANTE (nao 6o membro) -- detecta, nunca corrige (P-124).
+- **Persona `CONSELHO/SYSTEM_PROMPT_DETECTOR_DERIVA.md` v1.4** + skill `.claude/skills/doc-drift-audit.md`: camada semantica.
+
+### Prova-de-vida (Bloco F) -- o Detector pegou 4 derivas REAIS na 1a varredura
+Registradas em `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` (Detector detecta, Diretor decide):
+- **F7-01** (MEDIA): Timelines 16/17 defasadas (sem Loop 34/35).
+- **F7-02** (MEDIA): persona sec 7 referencia `PENTALATERAL_UNIVERSAL/MAPA_VAULT.md` inexistente (so existe em CONSELHO/).
+- **F7-03** (MEDIA): zona-cinza P-059 -- 3 docs do Intelligence Hub cross-referenciam clientes por nome (decisao do Diretor).
+- **F7-04** (BAIXA): sem read-guard de credenciais em hook (defesa "por persona", nao mecanica).
+
+### Decisao diferida (Bloco E)
+Obsidian permanece **camada VISUAL opcional**, nunca runtime do Detector. Orientacao de uso entregue ao Diretor.
+
+Esta operacao **fecha o item guarda-chuva #11** do PENDENTES (`operacao-vault-soberano-arranque`).
