@@ -85,6 +85,10 @@ scripts/.antigravity_prompt.txt
 scripts/.close_log.txt
 scripts/embaixador_msg_sessao.txt
 bloco0_capture.md
+_cowork_bridge.json
 
 # Runbook de rotacao de chaves -- referencia operacional local (HV-1)
 ROTACAO_CHAVES_RUNBOOK.md
+
+# Config local do Obsidian (camada visual do Detector de Deriva, F7) -- nunca versionar UI local
+.obsidian/
