@@ -1,4 +1,0 @@
-[    1118ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://toga-digital-valdece.netlify.app/favicon.ico:0
-[    1228ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://toga-digital-valdece.netlify.app/icon-192.png:0
-[    1229ms] [WARNING] Error while trying to use the following icon from the Manifest: https://toga-digital-valdece.netlify.app/icon-192.png (Download error or resource isn't a valid image) @ https://toga-digital-valdece.netlify.app/:0
-[   43102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=AIzaSyBkrrCZINFNnC66wjpwld15TOmGyYLlrEw:0

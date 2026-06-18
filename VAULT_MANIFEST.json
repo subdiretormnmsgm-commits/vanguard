@@ -1,8 +1,8 @@
 {
-    "gerado_em":  "2026-06-17 20:57",
+    "gerado_em":  "2026-06-17 21:29",
     "raiz":  "C:\\Users\\Eduardo DELL\\OneDrive\\Área de Trabalho\\vanguard",
-    "total_arquivos":  904,
-    "total_bytes":  21176189,
+    "total_arquivos":  834,
+    "total_bytes":  20530493,
     "por_formato":  [
                         {
                             "formato":  "pdf",
@@ -14,7 +14,7 @@
                         },
                         {
                             "formato":  "md",
-                            "n":  588
+                            "n":  552
                         },
                         {
                             "formato":  "webp",
@@ -25,12 +25,8 @@
                             "n":  1
                         },
                         {
-                            "formato":  "rhistory",
-                            "n":  7
-                        },
-                        {
                             "formato":  "txt",
-                            "n":  131
+                            "n":  104
                         },
                         {
                             "formato":  "json",
@@ -124,7 +120,7 @@
     "por_tipo":  [
                      {
                          "tipo":  "NAO_CLASSIFICADO",
-                         "n":  774
+                         "n":  704
                      },
                      {
                          "tipo":  "TIPO1_UNIVERSAL",
@@ -142,11 +138,11 @@
     "por_bucket":  [
                        {
                            "bucket":  "OUTROS_NAO_CLASS",
-                           "n":  339
+                           "n":  333
                        },
                        {
                            "bucket":  "HISTORICO",
-                           "n":  247
+                           "n":  184
                        },
                        {
                            "bucket":  "KNOWLEDGE_BASE",
@@ -170,16 +166,16 @@
                        },
                        {
                            "bucket":  "INSTANCIA_CLIENTE",
-                           "n":  118
+                           "n":  117
                        }
                    ],
     "semaforo_pasta":  [
                            {
                                "pasta":  "CLIENTES",
-                               "arquivos":  486,
+                               "arquivos":  483,
                                "doc_conv":  63,
-                               "nao_class":  386,
-                               "dup":  176,
+                               "nao_class":  383,
+                               "dup":  173,
                                "semaforo":  "AMARELO"
                            },
                            {
@@ -208,10 +204,10 @@
                            },
                            {
                                "pasta":  "PENTALATERAL_UNIVERSAL",
-                               "arquivos":  415,
-                               "doc_conv":  67,
-                               "nao_class":  385,
-                               "dup":  122,
+                               "arquivos":  348,
+                               "doc_conv":  40,
+                               "nao_class":  318,
+                               "dup":  65,
                                "semaforo":  "AMARELO"
                            }
                        ],
@@ -222,19 +218,6 @@
                                   "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\index.html",
                                                    "PENTALATERAL_UNIVERSAL\\Inicio-de-Projeto-Estrategico-Vanguard.html"
-                                               ]
-                              },
-                              {
-                                  "hash":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-                                  "n":  7,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\CLAUDE_PROJECTS\\.Rhistory",
-                                                   "PENTALATERAL_UNIVERSAL\\CONSTITUICAO\\.Rhistory",
-                                                   "PENTALATERAL_UNIVERSAL\\OPERACAO\\.Rhistory",
-                                                   "PENTALATERAL_UNIVERSAL\\TEMPLATES\\.Rhistory",
-                                                   "CLIENTES\\.Rhistory",
-                                                   "CLIENTES\\VALDECE\\.Rhistory",
-                                                   "CLIENTES\\VALDECE\\CLAUDE_PROJECT\\.Rhistory"
                                                ]
                               },
                               {
@@ -497,15 +480,6 @@
                                                ]
                               },
                               {
-                                  "hash":  "7E45149F16A42FE5D8CD1B0A10EEA01249D901E4FE5F77EBC271DD451EC0B1AD",
-                                  "n":  3,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\OPERACAO\\RITUAL_POS_VERSAO.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_RITUAL_POS_VERSAO.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_RITUAL_POS_VERSAO.txt"
-                                               ]
-                              },
-                              {
                                   "hash":  "2F85D40BE9F95DE61C226C1740BB0A2B1ED9DD7CD7FFD81304978314EC59C778",
                                   "n":  2,
                                   "caminhos":  [
@@ -514,156 +488,37 @@
                                                ]
                               },
                               {
-                                  "hash":  "BB82C6F84DD04B281E3BDEAD77F1E5EDF7148CE1DB175592BDEF3870C1C6877F",
+                                  "hash":  "888D245C4D388C0C3B57048B458E321AA255C89DAB13141365D7092F08A4E058",
                                   "n":  2,
                                   "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\PLANEJAMENTO\\PLANO_DE_ACAO_SEMANA1.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\14_PLANO_DE_ACAO_SEMANA1.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "A3A278E2F189751BFC0B44E1BE9FE47CF6B13FF3CD552B4D733BD99C2DA1B279",
-                                  "n":  3,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\PLANEJAMENTO\\TODO_FUTURE.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\10_TODO_FUTURE.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\10_TODO_FUTURE.txt"
-                                               ]
-                              },
-                              {
-                                  "hash":  "888D245C4D388C0C3B57048B458E321AA255C89DAB13141365D7092F08A4E058",
-                                  "n":  3,
-                                  "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\07_MEMORIA_V16.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V16.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V16.md"
+                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V16.md"
                                                ]
                               },
                               {
                                   "hash":  "CCC0BCCA95AD6BBABBEA15F6F9F480DF8464304AD0B26B80B3A9F20949322123",
-                                  "n":  5,
+                                  "n":  3,
                                   "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\07_MEMORIA_V17.md",
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\07_MEMORIA_V17.txt",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V17.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V17.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V17.txt"
+                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V17.md"
                                                ]
                               },
                               {
                                   "hash":  "8D119D4CAF76B2C2B11CED727E5F6BFD07341331BF5F71A7352A79CBA44D5217",
-                                  "n":  3,
+                                  "n":  2,
                                   "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\07_MEMORIA_V18.txt",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V18.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V18.txt"
+                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V18.md"
                                                ]
                               },
                               {
                                   "hash":  "E5DA88817D2C94448B1C59E28DECBF4D4866E9B0830813318A60C4A21A03AB91",
-                                  "n":  4,
+                                  "n":  3,
                                   "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\07_MEMORIA_V24.md",
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V24.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIAS\\MEMORIA_V24.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V24.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "4E63C2C9EC695FA4D75222B2BEA43223055B3946E4E2E6F34C2096080DE00EFF",
-                                  "n":  3,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\23_relatorio_evolutivo_v16.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v16.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\23_relatorio_evolutivo_v16.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "210E2FDCE863A2A6B6AAABCC8A465AB98C8E8A47076EE19CD5AA7269CFD7DB2D",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\24_relatorio_evolutivo_v15.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\24_relatorio_evolutivo_v15.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "0B38DAA3E1F898E3C47CB6B2589FB29CBCFB01B94EE129EE08A556E14339BE7A",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\25_relatorio_evolutivo_v14.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\25_relatorio_evolutivo_v14.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "53135D8DAD98FCB9603F144367E6E603DD5328146DDD9507834DB0E71696A5A1",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\26_relatorio_evolutivo_v13.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\26_relatorio_evolutivo_v13.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "3249668518A815E5F2B811CB01A083ED7A86DE541C45D7C7FBF6BE2C4EBE8B39",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\27_relatorio_evolutivo_v12.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\27_relatorio_evolutivo_v12.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "BBE75D228C412CCCBCFAB1294A548B2B1603ECF5F6B4AFF26AC674EAC17F2876",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\28_relatorio_evolutivo_v11.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\28_relatorio_evolutivo_v11.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "985BE966084E8F387D69D34719DDAE0B48D9BFD49E088BCCADD9B53D65833D32",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\29_MEMORIA_15_INVASION.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\29_MEMORIA_15_INVASION.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "2E9C9F4C79C4F6CBF30F0D0629FB239ACB7C82DDE42532F980CE202505343571",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\30_MEMORIA_14_OPTIMIZATION.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\30_MEMORIA_14_OPTIMIZATION.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "8B34D67EEFEA6AEABE2E22420A36DEAB685289F2264A0E8CC060413D5C2CB0E1",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\31_MEMORIA_13_DOMINATION.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\31_MEMORIA_13_DOMINATION.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "773E5FDB4D36C2E76BC9E0B4C02942A115D92C1DB24EC92F96048AF0D73CC8D7",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\32_MEMORIA_12_IGNITION_COCKPIT.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\32_MEMORIA_12_IGNITION_COCKPIT.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "03681F4155E58FA513E2F926F2896EDE85B6CAE7644622CA89DF6DC50D5DA18F",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\33_MEMORIA_11_LAUNCH.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\33_MEMORIA_11_LAUNCH.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "776B261AC919D7E03C5E06970436029036F5B060F1043348EC59D814032836F9",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V19.txt",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\MEMORIA_V19.txt"
+                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIAS\\MEMORIA_V24.md"
                                                ]
                               },
                               {
@@ -672,14 +527,6 @@
                                   "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V20.md",
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIAS\\MEMORIA_V20.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "9DD4ACB652743D0F855169239E1AA1ED7B4AA3CBB964C92EB5F84468F7E4B31E",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\MEMORIA_V20.txt",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\MEMORIA_V20.txt"
                                                ]
                               },
                               {
@@ -731,14 +578,6 @@
                                                ]
                               },
                               {
-                                  "hash":  "DDC2D11BC220032E5E7E24F96B27F479D32C4C41C47764605B4D3B29B37798C8",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\relatorio_evolutivo_v19.txt",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\relatorio_evolutivo_v19.txt"
-                                               ]
-                              },
-                              {
                                   "hash":  "B4CB28B4A9AB711A8BFD84BEAFE57DE41594B292C4C135118EBD60AF1487CC14",
                                   "n":  2,
                                   "caminhos":  [
@@ -748,11 +587,10 @@
                               },
                               {
                                   "hash":  "D49AA58807FF72C3972956D5591F41BEE080C51B48C4E03A205BCB6961901E93",
-                                  "n":  3,
+                                  "n":  2,
                                   "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\relatorio_evolutivo_v24.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\RELATORIOS\\relatorio_evolutivo_v24.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v24.md"
+                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\RELATORIOS\\relatorio_evolutivo_v24.md"
                                                ]
                               },
                               {
@@ -825,46 +663,6 @@
                                   "caminhos":  [
                                                    "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_LOOP1_VALDECE\\16_RELATORIO_EVOLUTIVO_V1.txt",
                                                    "CLIENTES\\VALDECE\\HISTORICO\\relatorio_evolutivo_V1_VALDECE.md"
-                                               ]
-                              },
-                              {
-                                  "hash":  "1411D0B199E8679E162645BF0EB5B844FCFAEC67B75890FA3C9D9DDCD06F1B97",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\01_INTELIGENCIA_ARTIFICIAL_HUMANA.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\01_INTELIGENCIA_ARTIFICIAL_HUMANA.txt"
-                                               ]
-                              },
-                              {
-                                  "hash":  "6EE343AD153287EA1E5C375098D1612260FABA3265388C7B336062410E8154AB",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\03_VANGUARD_BUSINESS_RULES.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\03_VANGUARD_BUSINESS_RULES.txt"
-                                               ]
-                              },
-                              {
-                                  "hash":  "5B3986290BA640813F3B40047C5B51CECA7982BD5E0FDF3BC36D8389F74D45DD",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v17.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v17.txt"
-                                               ]
-                              },
-                              {
-                                  "hash":  "227F6E25318CC7FAA498D9248E47B40ED444C13C21515037445F4B3EFA9A3F68",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V17.md",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V17.txt"
-                                               ]
-                              },
-                              {
-                                  "hash":  "423565616127E3C3B3AD94A59A0E2C873667EE48A8EE3DCD564E83F854BD5271",
-                                  "n":  2,
-                                  "caminhos":  [
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\17_DIRETRIZ_GEMINI.txt",
-                                                   "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\22_DIRETRIZ GEMINI V12.txt"
                                                ]
                               },
                               {
@@ -1135,42 +933,6 @@
                                         ]
                         },
                         {
-                            "nome":  "EMPRESA_VANGUARD.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | FD6473E3 | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\06_EMPRESA_VANGUARD.md",
-                                            "2026-06-04 13:32:06 | D7D18F63 | PENTALATERAL_UNIVERSAL\\CONSTITUICAO\\EMPRESA_VANGUARD.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "INTELIGENCIA_ARTIFICIAL_HUMANA.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | 1411D0B1 | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\01_INTELIGENCIA_ARTIFICIAL_HUMANA.md",
-                                            "2026-06-04 13:32:06 | 4989B088 | PENTALATERAL_UNIVERSAL\\CONSTITUICAO\\INTELIGENCIA_ARTIFICIAL_HUMANA.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "VANGUARD_BUSINESS_RULES.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | 6EE343AD | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\03_VANGUARD_BUSINESS_RULES.md",
-                                            "2026-06-04 13:32:06 | 450FF561 | PENTALATERAL_UNIVERSAL\\CONSTITUICAO\\VANGUARD_BUSINESS_RULES.md"
-                                        ]
-                        },
-                        {
                             "nome":  "INDEX.md",
                             "classe":  "ISOLAMENTO_P059",
                             "prioridade":  "BAIXA",
@@ -1181,90 +943,6 @@
                                             "2026-06-06 23:35:53 | F4F1A30B | PENTALATERAL_UNIVERSAL\\KNOWLEDGE_BASE\\INDEX.md",
                                             "2026-06-04 13:32:06 | E80175E7 | CLIENTES\\VALDECE\\KNOWLEDGE_BASE\\INDEX.md",
                                             "2026-06-04 13:32:05 | 9F5A5AC0 | CLIENTES\\INGRID\\KNOWLEDGE_BASE\\INDEX.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "REPOSITORIO_ESTRUTURA.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | 86CAE94F | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\05_REPOSITORIO_ESTRUTURA.md",
-                                            "2026-06-04 13:32:06 | 6E82DA1C | PENTALATERAL_UNIVERSAL\\OPERACAO\\REPOSITORIO_ESTRUTURA.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "SOP_VANGUARD_MASTER.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | 3FFAFB06 | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\02_SOP_VANGUARD_MASTER.md",
-                                            "2026-06-04 13:32:06 | 725270E2 | PENTALATERAL_UNIVERSAL\\OPERACAO\\SOP_VANGUARD_MASTER.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "VANGUARD_INNOVATION_AUDIT.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | 272113B4 | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\11_VANGUARD_INNOVATION_AUDIT.md",
-                                            "2026-06-04 13:32:06 | 58C3D851 | PENTALATERAL_UNIVERSAL\\OPERACAO\\VANGUARD_INNOVATION_AUDIT.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "VANGUARD_KNOWLEDGE_GRAPH.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | AC57C26E | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\15_VANGUARD_KNOWLEDGE_GRAPH.md",
-                                            "2026-06-04 13:32:06 | B2220881 | PENTALATERAL_UNIVERSAL\\OPERACAO\\VANGUARD_KNOWLEDGE_GRAPH.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "VANGUARD_OPERATIONAL_COSTS.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | 88D30762 | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\13_VANGUARD_OPERATIONAL_COSTS.md",
-                                            "2026-06-04 13:32:06 | 810E42C3 | PENTALATERAL_UNIVERSAL\\OPERACAO\\VANGUARD_OPERATIONAL_COSTS.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "VANGUARD_PERFORMANCE_LEDGER.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | 5423EC20 | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\16_VANGUARD_PERFORMANCE_LEDGER.md",
-                                            "2026-06-04 13:32:06 | 009F433D | PENTALATERAL_UNIVERSAL\\OPERACAO\\VANGUARD_PERFORMANCE_LEDGER.md"
-                                        ]
-                        },
-                        {
-                            "nome":  "MASTER_PLAN.md",
-                            "classe":  "DRIFT_INTRA",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  2,
-                            "n_hashes":  2,
-                            "donos":  "UNIVERSAL",
-                            "versoes":  [
-                                            "2026-06-04 13:32:06 | 7BE2FD22 | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_MASTER_PLAN.md",
-                                            "2026-06-04 13:32:06 | DE1359D7 | PENTALATERAL_UNIVERSAL\\PLANEJAMENTO\\MASTER_PLAN.md"
                                         ]
                         },
                         {
@@ -1293,21 +971,6 @@
                                         ]
                         },
                         {
-                            "nome":  "DIRETRIZ_GEMINI.txt",
-                            "classe":  "CRUZA_CONTEXTO",
-                            "prioridade":  "MEDIA",
-                            "n_copias":  5,
-                            "n_hashes":  4,
-                            "donos":  "CLIENTE:VANGUARD, UNIVERSAL, CLIENTE:VALDECE, CLIENTE:INGRID",
-                            "versoes":  [
-                                            "2026-06-16 11:18:17 | 7D1732DF | CLIENTES\\VANGUARD\\NOTEBOOKLM_FONTES\\12_DIRETRIZ_GEMINI.txt",
-                                            "2026-06-04 13:32:06 | 42356561 | PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\17_DIRETRIZ_GEMINI.txt",
-                                            "2026-06-04 13:32:06 | FB15EA4E | CLIENTES\\VALDECE\\NOTEBOOKLM_FONTES\\12_DIRETRIZ_GEMINI.txt",
-                                            "2026-06-04 13:32:06 | FB15EA4E | CLIENTES\\VALDECE\\CLAUDE_PROJECT\\12_DIRETRIZ_GEMINI.txt",
-                                            "2026-06-04 13:32:05 | 427071F6 | CLIENTES\\INGRID\\NOTEBOOKLM_FONTES\\12_DIRETRIZ_GEMINI.txt"
-                                        ]
-                        },
-                        {
                             "nome":  "BRIEFING_DISCOVERY.txt",
                             "classe":  "CRUZA_CONTEXTO",
                             "prioridade":  "MEDIA",
@@ -1331,7 +994,7 @@
                             "n_hashes":  3,
                             "donos":  "CLIENTE:VANGUARD, CLIENTE:INGRID, CLIENTE:VALDECE",
                             "versoes":  [
-                                            "2026-06-17 20:51:08 | 16917D4D | CLIENTES\\VANGUARD\\CONTEXTO_GEMINI.md",
+                                            "2026-06-17 21:12:53 | 26550A4A | CLIENTES\\VANGUARD\\CONTEXTO_GEMINI.md",
                                             "2026-06-04 13:32:07 | 34E2FAEA | CLIENTES\\INGRID\\CONTEXTO_GEMINI.md",
                                             "2026-06-04 13:32:06 | 400FB7C3 | CLIENTES\\VALDECE\\CONTEXTO_GEMINI.md"
                                         ]
@@ -1634,6 +1297,20 @@
                                         ]
                         },
                         {
+                            "nome":  "DIRETRIZ_GEMINI.txt",
+                            "classe":  "CRUZA_CONTEXTO",
+                            "prioridade":  "MEDIA",
+                            "n_copias":  4,
+                            "n_hashes":  3,
+                            "donos":  "CLIENTE:VANGUARD, CLIENTE:VALDECE, CLIENTE:INGRID",
+                            "versoes":  [
+                                            "2026-06-16 11:18:17 | 7D1732DF | CLIENTES\\VANGUARD\\NOTEBOOKLM_FONTES\\12_DIRETRIZ_GEMINI.txt",
+                                            "2026-06-04 13:32:06 | FB15EA4E | CLIENTES\\VALDECE\\NOTEBOOKLM_FONTES\\12_DIRETRIZ_GEMINI.txt",
+                                            "2026-06-04 13:32:06 | FB15EA4E | CLIENTES\\VALDECE\\CLAUDE_PROJECT\\12_DIRETRIZ_GEMINI.txt",
+                                            "2026-06-04 13:32:05 | 427071F6 | CLIENTES\\INGRID\\NOTEBOOKLM_FONTES\\12_DIRETRIZ_GEMINI.txt"
+                                        ]
+                        },
+                        {
                             "nome":  "schema.sql",
                             "classe":  "ISOLAMENTO_P059",
                             "prioridade":  "BAIXA",
@@ -1690,33 +1367,6 @@
                             "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_LOOP1_VALDECE\\15_MEMORIA_V1_VALDECE.txt",
                             "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_LOOP1_VALDECE\\16_RELATORIO_EVOLUTIVO_V1.txt",
                             "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_LOOP1_VALDECE\\17_DIRETRIZ_GEMINI_V3.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\01_INTELIGENCIA_ARTIFICIAL_HUMANA.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\03_VANGUARD_BUSINESS_RULES.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\04_O Protocolo Quadrilateral.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V17.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V18.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v17.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v18.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V17.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\10_TODO_FUTURE.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\11_VANGUARD_INNOVATION_AUDIT.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_RITUAL_POS_VERSAO.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\13_FRAMEWORKS_GESTAO_ELITE.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\17_DIRETRIZ_GEMINI.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\17_DIRETRIZ_GEMINI_V17.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\18_DIRETRIZ GEMINI V16.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\19_DIRETRIZ GEMINI V15.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\20_DIRETRIZ GEMINI V14.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\21_DIRETRIZ GEMINI V13.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\22_DIRETRIZ GEMINI V12.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V18.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V19.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V20.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V21.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V24.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\MEMORIA_V19.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\MEMORIA_V20.txt",
-                            "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\relatorio_evolutivo_v19.txt",
                             "CLIENTES\\INGRID\\BRIEFING_DISCOVERY.txt",
                             "CLIENTES\\INGRID\\CONTRATO_STATUS.txt",
                             "CLIENTES\\INGRID\\DIRETRIZ_GEMINI_V1.txt",
@@ -1840,10 +1490,6 @@
                                  "bucket":  "OUTROS_NAO_CLASS"
                              },
                              {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\CLAUDE_PROJECTS\\.Rhistory",
-                                 "bucket":  "OUTROS_NAO_CLASS"
-                             },
-                             {
                                  "caminho":  "PENTALATERAL_UNIVERSAL\\CLAUDE_PROJECTS\\INSIGHT_EMBAIXADOR_TEMPLATE.md",
                                  "bucket":  "OUTROS_NAO_CLASS"
                              },
@@ -1881,10 +1527,6 @@
                              },
                              {
                                  "caminho":  "PENTALATERAL_UNIVERSAL\\CLAUDE_PROJECTS\\TEMPLATE_INSTRUCAO_PROJETISTA.md",
-                                 "bucket":  "OUTROS_NAO_CLASS"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\CONSTITUICAO\\.Rhistory",
                                  "bucket":  "OUTROS_NAO_CLASS"
                              },
                              {
@@ -2114,10 +1756,6 @@
                              {
                                  "caminho":  "PENTALATERAL_UNIVERSAL\\KNOWLEDGE_BASE\\TESTES_REMOTOS.md",
                                  "bucket":  "KNOWLEDGE_BASE"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\OPERACAO\\.Rhistory",
-                                 "bucket":  "OUTROS_NAO_CLASS"
                              },
                              {
                                  "caminho":  "PENTALATERAL_UNIVERSAL\\OPERACAO\\ALERTA_CONFLITO.md",
@@ -2557,10 +2195,6 @@
                              },
                              {
                                  "caminho":  "PENTALATERAL_UNIVERSAL\\REFERENCIAS\\TROUBLESHOOTING_SUPABASE_CLAUDE_API.md",
-                                 "bucket":  "OUTROS_NAO_CLASS"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\TEMPLATES\\.Rhistory",
                                  "bucket":  "OUTROS_NAO_CLASS"
                              },
                              {
@@ -3098,262 +2732,6 @@
                              {
                                  "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_LOOP1_VALDECE\\17_DIRETRIZ_GEMINI_V3.txt",
                                  "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\00_GUIA_NOTEBOOKLM.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\01_INTELIGENCIA_ARTIFICIAL_HUMANA.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\01_INTELIGENCIA_ARTIFICIAL_HUMANA.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\02_SOP_VANGUARD_MASTER.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\03_VANGUARD_BUSINESS_RULES.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\03_VANGUARD_BUSINESS_RULES.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\04_O Protocolo Quadrilateral.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\05_REPOSITORIO_ESTRUTURA.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\06_EMPRESA_VANGUARD.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V16.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V17.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V17.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V18.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V24.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v16.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v17.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v17.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v18.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v24.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V17.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V17.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V24.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_HANDOFF_V16_PARA_GEMINI.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\10_TODO_FUTURE.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\10_TODO_FUTURE.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\11_VANGUARD_INNOVATION_AUDIT.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\11_VANGUARD_INNOVATION_AUDIT.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_MASTER_PLAN.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_RITUAL_POS_VERSAO.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_RITUAL_POS_VERSAO.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\13_FRAMEWORKS_GESTAO_ELITE.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\13_VANGUARD_OPERATIONAL_COSTS.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\14_PLANO_DE_ACAO_SEMANA1.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\15_VANGUARD_KNOWLEDGE_GRAPH.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\16_VANGUARD_PERFORMANCE_LEDGER.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\17_DIRETRIZ_GEMINI.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\17_DIRETRIZ_GEMINI_V17.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\18_DIRETRIZ GEMINI V16.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\19_DIRETRIZ GEMINI V15.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\20_DIRETRIZ GEMINI V14.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\21_DIRETRIZ GEMINI V13.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\22_DIRETRIZ GEMINI V12.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\23_relatorio_evolutivo_v16.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\24_relatorio_evolutivo_v15.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\25_relatorio_evolutivo_v14.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\26_relatorio_evolutivo_v13.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\27_relatorio_evolutivo_v12.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\28_relatorio_evolutivo_v11.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\29_MEMORIA_15_INVASION.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\30_MEMORIA_14_OPTIMIZATION.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\31_MEMORIA_13_DOMINATION.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\32_MEMORIA_12_IGNITION_COCKPIT.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\33_MEMORIA_11_LAUNCH.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\COMANDO_GEMINI_V19.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\COMANDO_GEMINI_V20.md",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V18.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V19.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V20.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V21.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V24.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\MEMORIA_V19.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\MEMORIA_V20.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\relatorio_evolutivo_v19.txt",
-                                 "bucket":  "HISTORICO"
-                             },
-                             {
-                                 "caminho":  "CLIENTES\\.Rhistory",
-                                 "bucket":  "OUTROS_NAO_CLASS"
                              },
                              {
                                  "caminho":  "CLIENTES\\WIP_BOARD.json",
@@ -4052,10 +3430,6 @@
                                  "bucket":  "OUTROS_NAO_CLASS"
                              },
                              {
-                                 "caminho":  "CLIENTES\\VALDECE\\.Rhistory",
-                                 "bucket":  "OUTROS_NAO_CLASS"
-                             },
-                             {
                                  "caminho":  "CLIENTES\\VALDECE\\BRIEFING_DISCOVERY.txt",
                                  "bucket":  "OUTROS_NAO_CLASS"
                              },
@@ -4210,10 +3584,6 @@
                              {
                                  "caminho":  "CLIENTES\\VALDECE\\backend\\test_key.py",
                                  "bucket":  "CODIGO_PRODUTO"
-                             },
-                             {
-                                 "caminho":  "CLIENTES\\VALDECE\\CLAUDE_PROJECT\\.Rhistory",
-                                 "bucket":  "INSTANCIA_CLIENTE"
                              },
                              {
                                  "caminho":  "CLIENTES\\VALDECE\\CLAUDE_PROJECT\\00_INSTRUCAO_SISTEMA.md",
@@ -4980,16 +4350,6 @@
                          "bucket":  "OUTROS_NAO_CLASS"
                      },
                      {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\CLAUDE_PROJECTS\\.Rhistory",
-                         "formato":  "rhistory",
-                         "tamanho":  0,
-                         "modificado":  "2026-05-20 11:33:50",
-                         "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "OUTROS_NAO_CLASS"
-                     },
-                     {
                          "caminho":  "PENTALATERAL_UNIVERSAL\\CLAUDE_PROJECTS\\INSIGHT_EMBAIXADOR_TEMPLATE.md",
                          "formato":  "md",
                          "tamanho":  2236,
@@ -5085,16 +4445,6 @@
                          "tamanho":  34383,
                          "modificado":  "2026-06-17 00:14:38",
                          "sha256":  "E2B5E9DF903CEE7C07B4B5B7F2C629A2EF81CDBA2AC92CB196479F1D21C701E9",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "OUTROS_NAO_CLASS"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\CONSTITUICAO\\.Rhistory",
-                         "formato":  "rhistory",
-                         "tamanho":  0,
-                         "modificado":  "2026-05-23 22:43:17",
-                         "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
                          "tipo":  "NAO_CLASSIFICADO",
                          "dono":  "UNIVERSAL",
                          "bucket":  "OUTROS_NAO_CLASS"
@@ -5798,16 +5148,6 @@
                          "tipo":  "TIPO1_UNIVERSAL",
                          "dono":  "UNIVERSAL",
                          "bucket":  "TIPO1_UNIVERSAL"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\OPERACAO\\.Rhistory",
-                         "formato":  "rhistory",
-                         "tamanho":  0,
-                         "modificado":  "2026-06-05 13:56:18",
-                         "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "OUTROS_NAO_CLASS"
                      },
                      {
                          "caminho":  "PENTALATERAL_UNIVERSAL\\OPERACAO\\ALERTA_CONFLITO.md",
@@ -7048,16 +6388,6 @@
                          "tipo":  "TIPO1_UNIVERSAL",
                          "dono":  "UNIVERSAL",
                          "bucket":  "TIPO1_UNIVERSAL"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\TEMPLATES\\.Rhistory",
-                         "formato":  "rhistory",
-                         "tamanho":  0,
-                         "modificado":  "2026-05-14 20:09:24",
-                         "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "OUTROS_NAO_CLASS"
                      },
                      {
                          "caminho":  "PENTALATERAL_UNIVERSAL\\TEMPLATES\\briefing_labels.txt",
@@ -8430,650 +7760,10 @@
                          "bucket":  "HISTORICO"
                      },
                      {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\00_GUIA_NOTEBOOKLM.md",
-                         "formato":  "md",
-                         "tamanho":  6239,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "F2BA517688EB55823D94E3C54C546E6F77C8E00FFDFE64C2C13AA3F65BDD2BFA",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\01_INTELIGENCIA_ARTIFICIAL_HUMANA.md",
-                         "formato":  "md",
-                         "tamanho":  16199,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "1411D0B199E8679E162645BF0EB5B844FCFAEC67B75890FA3C9D9DDCD06F1B97",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\01_INTELIGENCIA_ARTIFICIAL_HUMANA.txt",
-                         "formato":  "txt",
-                         "tamanho":  16199,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "1411D0B199E8679E162645BF0EB5B844FCFAEC67B75890FA3C9D9DDCD06F1B97",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\02_SOP_VANGUARD_MASTER.md",
-                         "formato":  "md",
-                         "tamanho":  19850,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "3FFAFB067471F3C0162B6C47C4D6615E69CDCEBAA1C019DC0F274CC6B2EB5F9E",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\03_VANGUARD_BUSINESS_RULES.md",
-                         "formato":  "md",
-                         "tamanho":  55543,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "6EE343AD153287EA1E5C375098D1612260FABA3265388C7B336062410E8154AB",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\03_VANGUARD_BUSINESS_RULES.txt",
-                         "formato":  "txt",
-                         "tamanho":  55543,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "6EE343AD153287EA1E5C375098D1612260FABA3265388C7B336062410E8154AB",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\04_O Protocolo Quadrilateral.txt",
-                         "formato":  "txt",
-                         "tamanho":  6491,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "60B806C496628B2786A5D74F84BC56C5F896485390997BF28CCE56EF4C970C54",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\05_REPOSITORIO_ESTRUTURA.md",
-                         "formato":  "md",
-                         "tamanho":  10281,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "86CAE94FCD3516B8D0EF68360B46E500C173AFFD999FFB16408F8DD3B91A59BD",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\06_EMPRESA_VANGUARD.md",
-                         "formato":  "md",
-                         "tamanho":  11181,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "FD6473E3CAA29801218B65175575CC6FF5FE8C4E83D65125C0CC7730140DFEF2",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V16.md",
-                         "formato":  "md",
-                         "tamanho":  5189,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "888D245C4D388C0C3B57048B458E321AA255C89DAB13141365D7092F08A4E058",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V17.md",
-                         "formato":  "md",
-                         "tamanho":  6697,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "CCC0BCCA95AD6BBABBEA15F6F9F480DF8464304AD0B26B80B3A9F20949322123",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V17.txt",
-                         "formato":  "txt",
-                         "tamanho":  6697,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "CCC0BCCA95AD6BBABBEA15F6F9F480DF8464304AD0B26B80B3A9F20949322123",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V18.txt",
-                         "formato":  "txt",
-                         "tamanho":  5556,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "8D119D4CAF76B2C2B11CED727E5F6BFD07341331BF5F71A7352A79CBA44D5217",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\07_MEMORIA_V24.md",
-                         "formato":  "md",
-                         "tamanho":  7862,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "E5DA88817D2C94448B1C59E28DECBF4D4866E9B0830813318A60C4A21A03AB91",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v16.md",
-                         "formato":  "md",
-                         "tamanho":  12709,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "4E63C2C9EC695FA4D75222B2BEA43223055B3946E4E2E6F34C2096080DE00EFF",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v17.md",
-                         "formato":  "md",
-                         "tamanho":  5615,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "5B3986290BA640813F3B40047C5B51CECA7982BD5E0FDF3BC36D8389F74D45DD",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v17.txt",
-                         "formato":  "txt",
-                         "tamanho":  5615,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "5B3986290BA640813F3B40047C5B51CECA7982BD5E0FDF3BC36D8389F74D45DD",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v18.txt",
-                         "formato":  "txt",
-                         "tamanho":  6910,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "73C42472463C8E83D7EEF1B820BC91DE740A4925E96E1CFE8FEDE1892CD55381",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\08_relatorio_evolutivo_v24.md",
-                         "formato":  "md",
-                         "tamanho":  6825,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "D49AA58807FF72C3972956D5591F41BEE080C51B48C4E03A205BCB6961901E93",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V17.md",
-                         "formato":  "md",
-                         "tamanho":  17840,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "227F6E25318CC7FAA498D9248E47B40ED444C13C21515037445F4B3EFA9A3F68",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V17.txt",
-                         "formato":  "txt",
-                         "tamanho":  17840,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "227F6E25318CC7FAA498D9248E47B40ED444C13C21515037445F4B3EFA9A3F68",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_COMANDO_GEMINI_V24.md",
-                         "formato":  "md",
-                         "tamanho":  20026,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "333E9524562A418557945AA3CB19D219A4B7C84EA9182BF105A0985781556567",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\09_HANDOFF_V16_PARA_GEMINI.md",
-                         "formato":  "md",
-                         "tamanho":  9954,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "F4817AD00520FED6F1ADFB563662EE999EE9322ADD25BC2B171892AE7DCCAE4A",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\10_TODO_FUTURE.md",
-                         "formato":  "md",
-                         "tamanho":  11411,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "A3A278E2F189751BFC0B44E1BE9FE47CF6B13FF3CD552B4D733BD99C2DA1B279",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\10_TODO_FUTURE.txt",
-                         "formato":  "txt",
-                         "tamanho":  11411,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "A3A278E2F189751BFC0B44E1BE9FE47CF6B13FF3CD552B4D733BD99C2DA1B279",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\11_VANGUARD_INNOVATION_AUDIT.md",
-                         "formato":  "md",
-                         "tamanho":  19357,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "272113B4E4708E045F49B8B2293F7AEF35C94D31EF4F0F7627051542D737CE26",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\11_VANGUARD_INNOVATION_AUDIT.txt",
-                         "formato":  "txt",
-                         "tamanho":  5403,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "9C70594FCF0D6E29C1CC4257B41D5AAF40786AAD8FEF9A24FAD0331460B0BBAA",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_MASTER_PLAN.md",
-                         "formato":  "md",
-                         "tamanho":  20110,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "7BE2FD221F83FB0097D4471941F0DF6BB9EC4EA4A88164F8144ED1744693F4BD",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_RITUAL_POS_VERSAO.md",
-                         "formato":  "md",
-                         "tamanho":  8203,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "7E45149F16A42FE5D8CD1B0A10EEA01249D901E4FE5F77EBC271DD451EC0B1AD",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\12_RITUAL_POS_VERSAO.txt",
-                         "formato":  "txt",
-                         "tamanho":  8203,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "7E45149F16A42FE5D8CD1B0A10EEA01249D901E4FE5F77EBC271DD451EC0B1AD",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\13_FRAMEWORKS_GESTAO_ELITE.txt",
-                         "formato":  "txt",
-                         "tamanho":  20762,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "663210D5A2947C7917DBD2849778CFD0305613C7B082DC34917C4675856BE30E",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\13_VANGUARD_OPERATIONAL_COSTS.md",
-                         "formato":  "md",
-                         "tamanho":  17880,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "88D3076233C217D3B6EAB96401E62CD46DE0280A70CDD358108CB88A3C4EF2F8",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\14_PLANO_DE_ACAO_SEMANA1.md",
-                         "formato":  "md",
-                         "tamanho":  6561,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "BB82C6F84DD04B281E3BDEAD77F1E5EDF7148CE1DB175592BDEF3870C1C6877F",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\15_VANGUARD_KNOWLEDGE_GRAPH.md",
-                         "formato":  "md",
-                         "tamanho":  26348,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "AC57C26E0844DB85325929BD5E35D9B1EF661BE692A558767FC41032D3048EC5",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\16_VANGUARD_PERFORMANCE_LEDGER.md",
-                         "formato":  "md",
-                         "tamanho":  9562,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "5423EC20403858875C336FDC1A0FD0690DA4C3DF8C9913E95EA7940FCB77F78E",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\17_DIRETRIZ_GEMINI.txt",
-                         "formato":  "txt",
-                         "tamanho":  2377,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "423565616127E3C3B3AD94A59A0E2C873667EE48A8EE3DCD564E83F854BD5271",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\17_DIRETRIZ_GEMINI_V17.txt",
-                         "formato":  "txt",
-                         "tamanho":  1281,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "2B8C09ADAE979499940C79AB2BD0A55810FD52668C5C39E89E0AD142852F1DE2",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\18_DIRETRIZ GEMINI V16.txt",
-                         "formato":  "txt",
-                         "tamanho":  2102,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "0D427C60E65246B325A5500AA98925A6A23E4C866AC7B6CFBF91942AFFFFF0F9",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\19_DIRETRIZ GEMINI V15.txt",
-                         "formato":  "txt",
-                         "tamanho":  1847,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "DE79BC0912CC8119DD362A457741FB68272B0C3DC2257A80B5483E93F99F5346",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\20_DIRETRIZ GEMINI V14.txt",
-                         "formato":  "txt",
-                         "tamanho":  2124,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "28564B2AEE1BE716411A5C35C23FEA0E3E51C11BE6ED6265B6FBEDB0549E89CB",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\21_DIRETRIZ GEMINI V13.txt",
-                         "formato":  "txt",
-                         "tamanho":  1998,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "5BE1AA9A3E7373044DF6722C466962C9CF8BD1B8BB0458B0CC9CDDAE915690EE",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\22_DIRETRIZ GEMINI V12.txt",
-                         "formato":  "txt",
-                         "tamanho":  2377,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "423565616127E3C3B3AD94A59A0E2C873667EE48A8EE3DCD564E83F854BD5271",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\23_relatorio_evolutivo_v16.md",
-                         "formato":  "md",
-                         "tamanho":  12709,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "4E63C2C9EC695FA4D75222B2BEA43223055B3946E4E2E6F34C2096080DE00EFF",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\24_relatorio_evolutivo_v15.md",
-                         "formato":  "md",
-                         "tamanho":  9529,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "210E2FDCE863A2A6B6AAABCC8A465AB98C8E8A47076EE19CD5AA7269CFD7DB2D",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\25_relatorio_evolutivo_v14.md",
-                         "formato":  "md",
-                         "tamanho":  8362,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "0B38DAA3E1F898E3C47CB6B2589FB29CBCFB01B94EE129EE08A556E14339BE7A",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\26_relatorio_evolutivo_v13.md",
-                         "formato":  "md",
-                         "tamanho":  9585,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "53135D8DAD98FCB9603F144367E6E603DD5328146DDD9507834DB0E71696A5A1",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\27_relatorio_evolutivo_v12.md",
-                         "formato":  "md",
-                         "tamanho":  8722,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "3249668518A815E5F2B811CB01A083ED7A86DE541C45D7C7FBF6BE2C4EBE8B39",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\28_relatorio_evolutivo_v11.md",
-                         "formato":  "md",
-                         "tamanho":  9674,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "BBE75D228C412CCCBCFAB1294A548B2B1603ECF5F6B4AFF26AC674EAC17F2876",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\29_MEMORIA_15_INVASION.md",
-                         "formato":  "md",
-                         "tamanho":  7311,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "985BE966084E8F387D69D34719DDAE0B48D9BFD49E088BCCADD9B53D65833D32",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\30_MEMORIA_14_OPTIMIZATION.md",
-                         "formato":  "md",
-                         "tamanho":  7989,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "2E9C9F4C79C4F6CBF30F0D0629FB239ACB7C82DDE42532F980CE202505343571",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\31_MEMORIA_13_DOMINATION.md",
-                         "formato":  "md",
-                         "tamanho":  8654,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "8B34D67EEFEA6AEABE2E22420A36DEAB685289F2264A0E8CC060413D5C2CB0E1",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\32_MEMORIA_12_IGNITION_COCKPIT.md",
-                         "formato":  "md",
-                         "tamanho":  3239,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "773E5FDB4D36C2E76BC9E0B4C02942A115D92C1DB24EC92F96048AF0D73CC8D7",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\33_MEMORIA_11_LAUNCH.md",
-                         "formato":  "md",
-                         "tamanho":  5427,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "03681F4155E58FA513E2F926F2896EDE85B6CAE7644622CA89DF6DC50D5DA18F",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\COMANDO_GEMINI_V19.md",
-                         "formato":  "md",
-                         "tamanho":  14332,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "7E1A907D4F5A2253C6670DE26A22536DBE5C2336FE9F9C095F7B17FC9FC812E1",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\COMANDO_GEMINI_V20.md",
-                         "formato":  "md",
-                         "tamanho":  7120,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "50BDF05D76763F07C0301548E87F72D5973AD98829336E8BF2BBC324CAC8E2E9",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V18.txt",
-                         "formato":  "txt",
-                         "tamanho":  1682,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "59FBFCBAE703FDF2F5A056A071FBEAD9B9DAF306ADAC4F997CD02CD735DD7CCD",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V19.txt",
-                         "formato":  "txt",
-                         "tamanho":  1490,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "6FE2CEC9D2EF76624FBF8E3F6DE72865B2467A0511A5C838CFB558E6E1A3A699",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V20.txt",
-                         "formato":  "txt",
-                         "tamanho":  1148,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "934D8BF323BF5C096C27ECAF35DC6685F3F931494515392102D12C4382CC8FBE",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V21.txt",
-                         "formato":  "txt",
-                         "tamanho":  1227,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "DD97B31C01D3061963F264A6AAA1133992BFC6AE6B318B2C187DF8310029D544",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\DIRETRIZ GEMINI V24.txt",
-                         "formato":  "txt",
-                         "tamanho":  2390,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "1EA296FEC4A8D32F22D655C277AFF157B74EADCE664240B2043D6502DB0EBC58",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\MEMORIA_V19.txt",
-                         "formato":  "txt",
-                         "tamanho":  4331,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "776B261AC919D7E03C5E06970436029036F5B060F1043348EC59D814032836F9",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\MEMORIA_V20.txt",
-                         "formato":  "txt",
-                         "tamanho":  3432,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "9DD4ACB652743D0F855169239E1AA1ED7B4AA3CBB964C92EB5F84468F7E4B31E",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "PENTALATERAL_UNIVERSAL\\VANGUARD_HISTORICO\\SESOES\\NOTEBOOKLM_RAIZ_V16-V24\\relatorio_evolutivo_v19.txt",
-                         "formato":  "txt",
-                         "tamanho":  5171,
-                         "modificado":  "2026-06-04 13:32:06",
-                         "sha256":  "DDC2D11BC220032E5E7E24F96B27F479D32C4C41C47764605B4D3B29B37798C8",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "UNIVERSAL",
-                         "bucket":  "HISTORICO"
-                     },
-                     {
-                         "caminho":  "CLIENTES\\.Rhistory",
-                         "formato":  "rhistory",
-                         "tamanho":  0,
-                         "modificado":  "2026-05-18 19:42:44",
-                         "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "CLIENTE:.Rhistory",
-                         "bucket":  "OUTROS_NAO_CLASS"
-                     },
-                     {
                          "caminho":  "CLIENTES\\WIP_BOARD.json",
                          "formato":  "json",
                          "tamanho":  25538,
-                         "modificado":  "2026-06-17 20:51:08",
+                         "modificado":  "2026-06-17 21:12:54",
                          "sha256":  "512F3948930F074026E580F5342EB02375E5689D0601EDADF36AA9876381B52A",
                          "tipo":  "NAO_CLASSIFICADO",
                          "dono":  "CLIENTE:WIP_BOARD.json",
@@ -11300,16 +9990,6 @@
                          "bucket":  "OUTROS_NAO_CLASS"
                      },
                      {
-                         "caminho":  "CLIENTES\\VALDECE\\.Rhistory",
-                         "formato":  "rhistory",
-                         "tamanho":  0,
-                         "modificado":  "2026-05-19 17:02:44",
-                         "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "CLIENTE:VALDECE",
-                         "bucket":  "OUTROS_NAO_CLASS"
-                     },
-                     {
                          "caminho":  "CLIENTES\\VALDECE\\BRIEFING_DISCOVERY.txt",
                          "formato":  "txt",
                          "tamanho":  4836,
@@ -11728,16 +10408,6 @@
                          "tipo":  "NAO_CLASSIFICADO",
                          "dono":  "CLIENTE:VALDECE",
                          "bucket":  "CODIGO_PRODUTO"
-                     },
-                     {
-                         "caminho":  "CLIENTES\\VALDECE\\CLAUDE_PROJECT\\.Rhistory",
-                         "formato":  "rhistory",
-                         "tamanho":  0,
-                         "modificado":  "2026-05-16 20:49:12",
-                         "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-                         "tipo":  "NAO_CLASSIFICADO",
-                         "dono":  "CLIENTE:VALDECE",
-                         "bucket":  "INSTANCIA_CLIENTE"
                      },
                      {
                          "caminho":  "CLIENTES\\VALDECE\\CLAUDE_PROJECT\\00_INSTRUCAO_SISTEMA.md",
@@ -12712,9 +11382,9 @@
                      {
                          "caminho":  "CLIENTES\\VANGUARD\\CONTEXTO_GEMINI.md",
                          "formato":  "md",
-                         "tamanho":  189400,
-                         "modificado":  "2026-06-17 20:51:08",
-                         "sha256":  "16917D4D410E188206FBC377009AFF1DE0F73BF291F56E20C5D0BA6693310CD9",
+                         "tamanho":  189406,
+                         "modificado":  "2026-06-17 21:12:53",
+                         "sha256":  "26550A4A1325C6F7ABDC5E0AC560FB3D670A9E8DCF4C356CC6CB3BFA3A23032F",
                          "tipo":  "NAO_CLASSIFICADO",
                          "dono":  "CLIENTE:VANGUARD",
                          "bucket":  "OUTROS_NAO_CLASS"

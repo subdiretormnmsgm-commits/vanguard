@@ -1,9 +1,0 @@
-- generic [active] [ref=e1]:
-  - banner [ref=e2]:
-    - generic [ref=e3]: Sedes-DF 2026
-    - generic [ref=e4]:
-      - generic [ref=e5]: pts
-      - generic [ref=e6]: "0"
-    - generic [ref=e7]: –
-  - main [ref=e8]:
-    - paragraph [ref=e11]: Carregando…
