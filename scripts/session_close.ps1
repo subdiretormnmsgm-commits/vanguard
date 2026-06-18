@@ -467,15 +467,29 @@ try {
 } catch {}
 
 $msgAdaptadaPath = Join-Path $baseDir "scripts\embaixador_msg_sessao.txt"
+$bloco0Path      = "$baseDir\PROTOCOLOS_ENCERRAMENTO\BLOCO0_$dataFim.md"
+
+# Procedimento de encerramento (Diretor 2026-06-18):
+# O encerramento conclui QUANDO (1) o BLOCO 0 e gerado pelo Embaixador + (2) Notion sincronizado
+# (GATE NOTION acima ja garante o item 2). Extrair o BLOCO 0 como prova (BLOCO0_<data>.md, piso
+# >100 bytes para barrar placeholder) e o MOMENTO DE ENCERRAMENTO -- opcional porem aceito como
+# evidencia forte. Por isso a EVIDENCIA e verificada PRIMEIRO: se o BLOCO 0 ja foi capturado, o
+# encerramento esta feito e o gate fecha VERDE -- NAO re-preparar nem re-bloquear pela mensagem.
+# embaixador_msg_sessao.txt e consumida (Remove-Item) ao ser preparada no 1o run; sua ausencia em
+# re-run NAO e bloqueio. A preparacao da mensagem so corre quando o BLOCO 0 ainda NAO existe.
+$bloco0Capturado = (Test-Path $bloco0Path) -and ((Get-Item $bloco0Path).Length -gt 100)
 
 Write-Host ""
 Write-Host "=======================================================" -ForegroundColor Magenta
-Write-Host "  GATE EMBAIXADOR -- Formato Canonico (BLOQUEANTE)"    -ForegroundColor Magenta
+Write-Host "  GATE EMBAIXADOR -- Encerramento (BLOQUEANTE)"          -ForegroundColor Magenta
 Write-Host "=======================================================" -ForegroundColor Magenta
 Write-Host ""
 
-if (-not (Test-Path $msgAdaptadaPath)) {
-    Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- embaixador_msg_sessao.txt nao encontrado." -ForegroundColor Red
+if ($bloco0Capturado) {
+    Write-Host "  [GATE EMBAIXADOR] VERDE -- BLOCO 0 capturado: BLOCO0_$dataFim.md (momento de encerramento)." -ForegroundColor Green
+    Write-Host "  Encerramento concluido: BLOCO 0 gerado pelo Embaixador + Notion sincronizado." -ForegroundColor DarkGray
+} elseif (-not (Test-Path $msgAdaptadaPath)) {
+    Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- BLOCO 0 nao capturado e embaixador_msg_sessao.txt nao encontrado." -ForegroundColor Red
     Write-Host ""
     Write-Host "  Musculo: criar scripts\embaixador_msg_sessao.txt com no minimo:" -ForegroundColor Yellow
     Write-Host ""
@@ -569,22 +583,11 @@ if (-not (Test-Path $msgAdaptadaPath)) {
         Write-Host ""
         Write-Host "  [GATE EMBAIXADOR] mensagem PREPARADA -- falta a captura remota do BLOCO 0." -ForegroundColor Yellow
     }
-}
 
-# GATE EMBAIXADOR EVIDENCIA -- BLOCO 0 capturado remotamente (BLOQUEANTE)
-# A mensagem acima e apenas o PREPARO. A prova de encerramento e o BLOCO 0 salvo pela
-# skill embaixador-encerramento-v1 (Playwright -> caderno 019e4c70, Drive-First, sem upload).
-# Sem esse arquivo a sessao NAO fecha -- impede confundir "mensagem exibida" com "encerramento feito".
-# Piso de tamanho (>100 bytes): arquivo vazio/placeholder passa em Test-Path -- exigir conteudo real
-# fecha a mesma classe de auto-engano que o gate combate (mensagem preparada != encerramento feito).
-$bloco0Path = "$baseDir\PROTOCOLOS_ENCERRAMENTO\BLOCO0_$dataFim.md"
-if ((Test-Path $bloco0Path) -and ((Get-Item $bloco0Path).Length -gt 100)) {
-    Write-Host ""
-    Write-Host "  [GATE EMBAIXADOR] VERDE -- BLOCO 0 capturado remotamente: BLOCO0_$dataFim.md" -ForegroundColor Green
-} else {
+    # BLOCO 0 ainda nao capturado: encerramento NAO concluido (a mensagem foi so preparada).
     Write-Host ""
     Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- BLOCO 0 NAO capturado remotamente." -ForegroundColor Red
-    Write-Host "  A mensagem acima foi apenas PREPARADA. Falta executar a captura remota." -ForegroundColor Yellow
+    Write-Host "  Encerramento conclui com BLOCO 0 (gerado pelo Embaixador) + Notion sincronizado." -ForegroundColor Yellow
     Write-Host "  Musculo: invoque a skill embaixador-encerramento-v1 (Playwright -> caderno 019e4c70)" -ForegroundColor Yellow
     Write-Host "           e salve a resposta em PROTOCOLOS_ENCERRAMENTO\BLOCO0_$dataFim.md." -ForegroundColor Yellow
     $exitCode = 2
