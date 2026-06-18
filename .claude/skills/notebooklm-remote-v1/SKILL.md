@@ -1,4 +1,4 @@
-﻿---
+---
 name: notebooklm-remote-v1
 description: "Camada tecnica pura para operar o NotebookLM via Playwright MCP (RPA) — navegar, Wipe & Sync de fontes, enviar PASSO5, extrair Skill. Invocar antes de qualquer operacao remota no NotebookLM. Primario: CLI notebooklm-py. Fallback: esta skill."
 ---

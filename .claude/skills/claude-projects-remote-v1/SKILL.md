@@ -1,4 +1,4 @@
-﻿---
+---
 name: claude-projects-remote-v1
 description: "Camada técnica pura para operar o Claude.ai via Playwright MCP — navegar, excluir arquivos, fazer upload, enviar mensagens. Invocar antes de qualquer operação remota no Claude Projects."
 ---

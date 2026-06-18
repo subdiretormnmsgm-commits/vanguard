@@ -1,4 +1,9 @@
-﻿SKILL: n8n-remote-v1.md
+---
+name: n8n-remote-v1
+description: Invocar ANTES de qualquer operacao no n8n (criar/atualizar/ativar workflows W-1..W-12) via REST API /api/v1 com X-N8N-API-KEY. PUT so com {name,nodes,connections,settings,staticData}. Chave de CHAVES_SISTEMA_VANGUARD.txt, nunca hardcoded (P-HV1).
+---
+
+SKILL: n8n-remote-v1.md
 Camada: Infraestrutura Pentalateral (Universal) | Loop: Operacao EasyPanel 2026-06-14 | Stack: n8n REST API + Playwright MCP + Hermes MCP Bridge
 
 [AUDITORIA DE COERENCIA]

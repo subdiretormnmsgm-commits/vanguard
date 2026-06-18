@@ -1,4 +1,4 @@
-﻿---
+---
 name: niche-modeler
 description: Processo completo de Cowork Nicho de Mercado -- invocacao gemini-pentalateral, acesso remoto, processamento da resposta, consolidacao e sintese
 triggers:

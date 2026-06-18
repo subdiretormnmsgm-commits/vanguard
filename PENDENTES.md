@@ -378,6 +378,22 @@
   Memória: feedback_antigravity_motor_falhas_deriva + reference_antigravity_awesome_skills.
 
 ---
+
+### 💡 SUGESTÕES DO DIRETOR (Notion) — aguardam deliberação
+
+- [ ] `2026-06-18` **[S-2] Telegram avisa para abrir sessão no Músculo quando há tarefa F(x) Cowork pendente de deliberação** [diretor delibera]
+  Origem: sugestão do Diretor no Notion (18-06-2026 quinta-feira).
+  PROBLEMA QUE RESOLVE (confirmado em campo neste mesmo dia): o Cowork roda no relógio do mundo e deposita `BRIEFING_MUSCULO_*` no Drive INBOX_COWORK, mas o Músculo só colhe ao abrir sessão. Em 18-06 havia briefing F1 endereçado ao Músculo ("deliberar HOJE") que não foi colhido na abertura — buraco do 0B. S-2 fecha esse buraco.
+  Mecânica proposta: clone do modelo W-11/W-12 (cron n8n + leitura GitHub/Drive) → quando existir `*_BRIEFING_MUSCULO_*` novo no INBOX_COWORK do dia → notifica Telegram "Abrir sessão Músculo: F(x) pendente de deliberação"; silencia se nada novo.
+  Consultor: liga com S-3 e com o V30 ÉPICO "Embaixador agentado via Cowork". Custo baixo (reaproveita infra W-11/W-12). Risco: ruído se disparar todo dia — mitigar com gatilho só em briefing NOVO não-colhido.
+
+- [ ] `2026-06-18` **[S-3] Telegram confirma diariamente que os agentes (Antigravity/Cowork/falhas) rodaram** [diretor delibera]
+  Origem: sugestão do Diretor no Notion (18-06-2026 quinta-feira).
+  PROBLEMA QUE RESOLVE: hoje não há prova passiva de que o motor autônomo executou — o Músculo descobre por harvest manual. S-3 dá heartbeat: confirmação diária de que cada frente rodou (ou alerta se NÃO rodou).
+  Mecânica proposta: cron n8n diário verifica timestamp do último output de cada frente (Cowork INBOX, Antigravity, agentes de falha) → "✅ rodou às HH:MM" ou "🔴 NÃO rodou há Nd". Watchdog do relógio do mundo.
+  Consultor: complementa S-2 (S-2 = "tem tarefa para você"; S-3 = "os motores estão vivos"). Liga com `cowork_notify.ps1` já existente.
+
+---
 > 📂 PROJ-001 Valdece · PROJ-002 Ingrid · PROJ-003 Mumuzinho em **STANDBY** por decisão do Diretor (09-06-2026) — ver `CLIENTES/STANDBY/PENDENTES_STANDBY.md`. Músculo não toca sem gatilho explícito.
 
 ---

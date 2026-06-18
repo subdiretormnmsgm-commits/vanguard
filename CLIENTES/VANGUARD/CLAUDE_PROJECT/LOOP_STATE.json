@@ -2,9 +2,11 @@
     "schema_version":  "1.1",
     "cliente":  "VANGUARD",
     "loop_atual":  35,
-    "loop_status":  "ABERTO",
-    "fase_atual":  "SINTESE P-037 CONCLUIDA -- DELIBERACAO_LOOP_V35 + DECISOES_V35 gerados -- placar aprovado -- aguardando veredito V-PAGE/V-DET/E-1 antes de writing-plans",
-    "missao":  "AGUARDANDO OBJETIVO -- Loop 35 (P-160)",
+    "loop_status":  "CONCLUIDO",
+    "fase_atual":  "Loop 35 CONCLUIDO (commit 96b2b5e, fechado 2026-06-18). NAO existe Loop 36 -- Loop so nasce quando o DIRETOR julga que precisa de TODOS os membros (correcao do Diretor 2026-06-18). P-180 foi MANUTENCAO pos-Loop 35 (10 skills operacionais convertidas para <nome>/SKILL.md e invocaveis), nao um loop.",
+    "missao":  "NENHUM loop ativo. Loop 35 encerrado. Proximo Loop so quando o Diretor convocar (julgar que precisa de todos).",
+    "regra_loop":  "Loop so existe quando o DIRETOR julga que precisa de TODOS os membros (Pentalateral completo). Nao e ciclo automatico nem manutencao. O Musculo NUNCA declara, numera ou abre um Loop. loop_atual so avanca por veredito explicito de abertura do Diretor. (Diretor 2026-06-18 -- ver memoria feedback_loop_so_quando_diretor_julga.)",
+    "manutencao_pos_loop35":  "P-180 (2026-06-18): 10 skills operacionais do loop convertidas de .md solto para <nome>/SKILL.md, invocaveis pelo Skill tool (cowork-engine-v1, notebooklm-remote-v1, niche-modeler, embaixador-passo7-{vanguard,ingrid,valdece}-v1, embaixador-encerramento-v1, claude-projects-remote-v1, easypanel-remote-v1, n8n-remote-v1). BOM removido + frontmatter prepended em easypanel/n8n. Commit autorizado pelo Diretor.",
     "ativacao_atores":  "REGRA (Diretor 2026-06-14): os 3 atores são FORMALIZADOS durante o Loop 34, mas só começam a FUNCIONAR (operação plena) APÓS o fim do Loop 34. Durante o loop = scaffolding + preparação. Após o loop = ativação.",
     "resultados_esperados":  [
                                  "R-AMPLIATIVO (nao delimitado): cada novo socio SAI do Loop 35 mais capaz do que entrou. O teto e indefinido de proposito -- o loop descobre ate onde cada ator pode chegar.",
@@ -187,7 +189,7 @@
                              "W-1 cron ainda 1x/dia -- deveria ser 3x (7h/13h/20h BRT)",
                              "Wipe \u0026 Sync NotebookLM VANGUARD pendente [DIRETOR] -- problemas tecnicos"
                          ],
-    "ultima_atualizacao":  "2026-06-16",
+    "ultima_atualizacao":  "2026-06-18",
     "loop_32_entregues":  [
                               "Antigravity → EXECUTOR do Estrategista (Gemini) em 62 arquivos — commit 4defaf6",
                               "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",

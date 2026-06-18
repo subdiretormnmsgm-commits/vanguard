@@ -1,4 +1,9 @@
-﻿SKILL: easypanel-remote-v1.md
+---
+name: easypanel-remote-v1
+description: Invocar ANTES de qualquer operacao no EasyPanel (env vars, deploy, terminal, redeploy) via Playwright MCP. CodeMirror 6 via dispatch API (cmTile.view), xterm.js via browser_type. Requer sessao de login ativa do Diretor no browser. Sem API REST de admin.
+---
+
+SKILL: easypanel-remote-v1.md
 Camada: Infraestrutura Pentalateral (Universal) | Loop: Operacao EasyPanel 2026-06-14 | Stack: EasyPanel + Playwright MCP + CodeMirror 6 + xterm.js
 
 [AUDITORIA DE COERENCIA]
