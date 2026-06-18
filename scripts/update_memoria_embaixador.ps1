@@ -25,7 +25,12 @@ $clienteUpper = $Cliente.ToUpper()
 $data = Get-Date -Format "yyyy-MM-dd"
 $hora = Get-Date -Format "HH:mm"
 
-$memoriaPath = "$raiz\CLIENTES\$clienteUpper\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
+# P-032 fix -- nome da MEMORIA varia por cliente: alguns usam sufixo _CLIENTE, outros nao.
+# Tenta primeiro o nome com sufixo (canonico VANGUARD/MUMUZINHO), depois o nome simples (INGRID/VALDECE).
+$memoriaPath = "$raiz\CLIENTES\$clienteUpper\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR_$clienteUpper.md"
+if (-not (Test-Path $memoriaPath)) {
+    $memoriaPath = "$raiz\CLIENTES\$clienteUpper\CLAUDE_PROJECT\MEMORIA_EMBAIXADOR.md"
+}
 $loopStatePath = "$raiz\CLIENTES\$clienteUpper\CLAUDE_PROJECT\LOOP_STATE.json"
 $flagPath = "$raiz\scripts\.memoria_atualizada_hoje_$clienteUpper.flag"
 

@@ -125,6 +125,12 @@
             "type": "command",
             "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/stop_checklist.ps1",
             "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/cowork_notify.ps1",
+            "timeout": 10,
+            "statusMessage": "COWORK -- Notificando Cowork do encerramento da sessao..."
           }
         ]
       }

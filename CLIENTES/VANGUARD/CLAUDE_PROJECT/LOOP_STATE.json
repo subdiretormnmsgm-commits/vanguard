@@ -165,7 +165,7 @@
     "gates":  {
                   "p045_memoria_anterior_existe":  false,
                   "p037_deliberacao_concluida":  true,
-                  "p032_memoria_embaixador_atualizada":  false,
+                  "p032_memoria_embaixador_atualizada": true,
                   "p087_resolve_commitado":  false,
                   "p133_gate_zero_captacao":  false,
                   "b1_backup_confirmado":  true,

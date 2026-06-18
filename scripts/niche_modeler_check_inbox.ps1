@@ -3,7 +3,7 @@
 # Elimina idas desnecessarias ao Antigravity quando nao ha dados novos.
 #
 # Uso:
-#   -Status          : exibe status atual (novos sinais disponíveis ou não)
+#   -Status          : exibe status atual (novos sinais disponiveis ou nao)
 #   -MarcarProcessado: atualiza NICHE_MODELER_SESSIONS.json com as runs do CALIBRACAO processadas
 #   -GerarPasso      : gera COWORK_INBOX_NOVOS.md com apenas os novos arquivos para o Antigravity
 
@@ -51,7 +51,7 @@ function Get-RunsJaEnviadas {
     return $jaEnviadas | Select-Object -Unique
 }
 
-# --- Lógica principal ---
+# --- Logica principal ---
 $todasRuns  = Get-CalibracaoRuns
 $jaEnviadas = Get-RunsJaEnviadas
 $novasRuns  = $todasRuns | Where-Object { $_.date -notin $jaEnviadas }
@@ -85,7 +85,7 @@ if ($GerarPasso) {
         exit 0
     }
     $linhas = @(
-        "# COWORK_INBOX_NOVOS — Sinais para proxima sessao Antigravity",
+        "# COWORK_INBOX_NOVOS -- Sinais para proxima sessao Antigravity",
         "> Gerado automaticamente por niche_modeler_check_inbox.ps1",
         "> Data: $(Get-Date -Format 'yyyy-MM-dd HH:mm')",
         "",
