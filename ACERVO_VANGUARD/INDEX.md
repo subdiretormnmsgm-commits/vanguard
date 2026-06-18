@@ -9,6 +9,25 @@
 
 ---
 
+## ⚠️ DÍVIDA DE SEGURANÇA — CORRIGIR ANTES DE QUALQUER REUSO EM PRODUÇÃO
+
+> Revisão automática de segurança (2026-06-17) flagou 6 vulnerabilidades no código-produto deste
+> acervo. **Inertes hoje** (nada roda), mas o acervo semeia componentes para projetos-cliente —
+> qualquer reuso DEVE remediar o item correspondente ANTES do deploy. Não copiar "as-is".
+
+| Arquivo | Severidade | Falha | Correção exigida no reuso |
+|---|---|---|---|
+| `api/arbitrage.py` | **CRÍTICO** | Stripe webhook usa `stripe.api_key` em vez de webhook secret → bypass de assinatura | Usar `STRIPE_*_WEBHOOK_SECRET` dedicado em `construct_event` |
+| `api/main.py` | ALTO | CORS `allow_origins=['*']` com `allow_credentials=True` | Allowlist explícita de domínios; sem wildcard com credenciais |
+| `api/main.py` | MÉDIO | Tenant data não validada em argv de `docker run` (flag injection via `cidade`) | Pydantic `pattern` em `cidade` + `--` antes de positionais |
+| `api/partner_portal.py` | ALTO | `/commission/record` sem auth interna real (só partner key) | Exigir segredo interno/CRON ou validar referral+assinatura paga |
+| `api/partner_portal.py` | ALTO | `/referral/register` sem auth → IDOR de tenant | Exigir JWT do tenant ou chamada server-side com segredo |
+| `api/oracle_pulse.py` | MÉDIO | Query params interpolados em PostgREST sem validação | Regex/allowlist em `nicho`/`region` ou RPC tipado |
+
+> Origem: alerta `security-guidance` em 2026-06-17, pós-F2. Tag de rastreio: `[ACERVO-SEC-DEBT]`.
+
+---
+
 ## Mapa de componentes → origem → reuso
 
 | Pasta/arquivo | O que é | Versão de origem | Reusável para |
