@@ -1,5 +1,5 @@
 # CALENDÁRIO — NICHE INTELLIGENCE REPOSITORY
-> Versão 1.4 · Criado 2026-06-13 · Atualizado 2026-06-17 (v1.3: entrelaçado à AGENDA VANGUARD oficial: F2/F4a/F4b/F6 descontinuadas · F3→Sexta · F15→Segunda · +ROD +BIB. v1.4: classificação A/B das ativações Projetista/Embaixador Digital derivada dos system prompts — Categoria A=frente Cowork automática, Categoria B=comando manual; só B notifica; textos em scripts/comandos_ativacao_atores.json) · Músculo
+> Versão 1.5 · Criado 2026-06-13 · Atualizado 2026-06-18 (v1.3: entrelaçado à AGENDA VANGUARD oficial: F2/F4a/F4b/F6 descontinuadas · F3→Sexta · F15→Segunda · +ROD +BIB. v1.4: classificação A/B das ativações Projetista/Embaixador Digital derivada dos system prompts — Categoria A=frente Cowork automática, Categoria B=comando manual; só B notifica; textos em scripts/comandos_ativacao_atores.json. **v1.5: GATE DE DEPENDÊNCIA Projetista→Embaixador Digital — esteira, não atores diários independentes; `trabalhar [nicho]` travado até Projetista entregar plano**) · Músculo
 > Referência: SKILL.md v2.0 · cowork-engine-v1.md
 > Horizonte: Junho–Setembro 2026 (atualizar trimestralmente)
 >
@@ -66,6 +66,18 @@ briefings esperar. Integrada ao `session_start`.
 >   `cowork_calendar.ps1` gate 0C). Os horários da AGENDA são teóricos — vale **quando o Diretor efetivamente ativa**.
 >
 > Fonte dos textos: `scripts/comandos_ativacao_atores.json` (lido pelo `cowork_calendar.ps1` e pelo W-11).
+
+> ⛔ **GATE DE DEPENDÊNCIA — PROJETISTA ANTES DO EMBAIXADOR DIGITAL (2026-06-18, Diretor). Bloqueante.**
+> Projetista e Embaixador Digital **NÃO são atores diários independentes — são uma esteira**:
+> o **Projetista PROJETA** o nicho → o **Embaixador Digital OPERA** o que ele projetou → o **Diretor publica**.
+> - O comando **`EMBAIXADOR DIGITAL, trabalhar [nicho]`** (e `setup inicial`) só é válido **DEPOIS** que o
+>   Projetista entregou ≥1 plano em `INTELLIGENCE_HUB/PROJETISTA/PLANOS/` para aquele nicho.
+> - Enquanto essa pasta estiver vazia, o Embaixador Digital só roda **`mostrar radar`** (monitoramento
+>   passivo — reporta `[AGUARDA Projetista]`). Rodar o fim da esteira antes do começo = operar pipeline vazio.
+> - **Causa-raiz (corrigida 2026-06-18):** o Projetista nunca havia rodado; toda a esteira estava parada na
+>   origem, mas o calendário mandava ativar o Embaixador Digital todo dia. Por isso a ativação dava "nada montado".
+> - **Ordem de ativação correta a cada nicho novo:** `PROJETISTA, materialização do nicho [X]` → (entrega o
+>   plano) → `EMBAIXADOR DIGITAL, trabalhar [X]` → Diretor aprova (2 cliques) → publica.
 
 **Comandos manuais (Categoria B) que o Diretor cola — por dia:**
 
