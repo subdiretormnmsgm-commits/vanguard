@@ -64,7 +64,7 @@ $sep = "`n`n" + ("=" * 80) + "`n`n"
 $blocos = @()
 $blocos += @"
 ## GATE PERMANENTE -- PILARES COMPORTAMENTAIS (vale em TODA sessao)
-Fonte canonica: CONSELHO/PILARES COMPORTAMENTAIS.md · Harmonizacao Diretor 2026-06-17: "Amplitude maxima na busca, economia na entrega."
+Fonte canonica: CONSELHO/PILARES COMPORTAMENTAIS.md -- Harmonizacao Diretor 2026-06-17: "Amplitude maxima na busca, economia na entrega."
 I.   PENSAR ANTES DE AGIR -- declare a premissa; pergunte se incerto; confronte quando houver razao tecnica.
 II.  SIMPLICIDADE NA ENTREGA -- o minimo que resolve; sem feature alem do pedido; sem inchaco.
 III. MUDANCAS CIRURGICAS -- toque so no escopo; fora do escopo -> sinalize ao Diretor, nao corrija em silencio.
