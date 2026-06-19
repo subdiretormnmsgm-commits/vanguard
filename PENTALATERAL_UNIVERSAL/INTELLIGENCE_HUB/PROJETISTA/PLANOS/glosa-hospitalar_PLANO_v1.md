@@ -47,8 +47,10 @@ Produzido por: Músculo (Projetista nunca ativado — esteira destravada com est
 
 ### 6. PRODUTO DEFINIDO + RACI
 - **Produto:** "Auditoria de faturamento + Implementação de protocolo de documentação preventiva (CFM 2.448/2025) + Treinamento da equipe de faturamento."
-- **ROI âncora:** recuperação de **40–60% das glosas indevidas** + prevenção de novas glosas com documentação adequada.
-- **Ticket:** modelo com valores corrompidos (ver ALERTAS) — usar enquadramento de ROI ("5% de glosa sobre o faturamento X = perda anual Y; recupera-se 40–60% do indevido") até restaurar os números.
+- **ROI âncora:** recuperação de **40–60% das glosas indevidas** + prevenção de novas glosas com documentação adequada. Mercado: **R$5,8 bi glosados em 12 meses (Anahp 2026)** — apenas **1,96%** se sustentam após revisão detalhada; o resto é tecnicamente contestável.
+- **Ticket (restaurado do Loop 33 / F1):** **R$5.000–12.000** no diagnóstico inicial + projeto de implementação sob escopo. Cross-sell peritos: **R$8.000–20.000** combinado.
+- **Argumento numérico:** hospital com faturamento R$10M/mês perde ~R$1,5M/mês em glosas; recuperação de 60% = **R$900k/mês → payback na 1ª fatura**. Meta: taxa de glosa **<4% em 90 dias**.
+- **Perfil financeiro do prospect:** faturamento **>R$5M/mês** (abaixo disso a glosa não é material).
 - **RACI:**
   - **Diretor** — R/A na venda, reunião e fechamento.
   - **Músculo** — R no build dos pacotes 1–4 (motor de auditoria, selo, trilha, painel).
@@ -100,7 +102,7 @@ Produzido por: Músculo (Projetista nunca ativado — esteira destravada com est
 - **Aguarda decisão sua:** (a) gerar os materiais da Seção 9 via NotebookLM agora? (b) montar o caderno PROJETISTA-ACERVO para ativar o Projetista remoto de fato?
 
 ### 11. ALERTAS
-- ⚠️ **Pricing corrompido:** `glosa-hospitalar_MODEL.json` tem `ticket_estimado: "R.000 a R.000"` e dores com `R/ano` — caracteres de moeda/números **perdidos** (provável artefato de encoding). Restaurar antes de qualquer material que cite valor. Registrado para correção no modelo.
+- ✅ **Pricing RESTAURADO (2026-06-18):** valores recuperados do commit `196a86f` (Loop 33 / F1) — corrupção entrou no reformat `8773230`. Modelo corrigido: ticket R$5.000–12.000, faturamento-alvo >R$5M/mês, cross-sell R$8.000–20.000, mercado R$5,8 bi (Anahp 2026). JSON revalidado.
 - ⚠️ **Projetista remoto nunca ativado:** pastas `PLANOS/` e `CAMPANHA/` só tinham README. Este PLANO foi produzido pelo método do Projetista executado pelo Músculo (Bloco 5/10: quem escreve o acervo é o Músculo). A materialização via NotebookLM exige montar o caderno PROJETISTA-ACERVO — decisão do Diretor.
 - ⚠️ **Dependência jurídica:** o argumento central repousa no CFM 2.448/2025, **judicializado pela FenaSaúde (fev/2026)**. Monitorar desfecho — se a norma cair, o gatilho enfraquece.
 - ⚠️ **R-3:** Seção 8 e os cards da Seção 9 saem da Vanguard — varredura de linguagem blindada obrigatória antes de publicar.

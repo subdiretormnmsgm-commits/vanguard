@@ -1,7 +1,7 @@
 {
     "roi_vanguard":  {
                          "retorno":  "Recuperacao de 40-60% das glosas indevidas + prevencao de novas glosas com documentacao CFM 2.448/2025",
-                         "ticket_estimado":  "R.000 a R.000 por projeto",
+                         "ticket_estimado":  "R$5.000 a R$12.000 diagnostico inicial + projeto de implementacao sob escopo",
                          "pricing":  {
                                          "modelo":  "Auditoria de faturamento + Implementacao de protocolo de documentacao preventiva + Treinamento da equipe de faturamento"
                                      }
@@ -15,7 +15,7 @@
                      },
                      {
                          "objecao":  "Nossa taxa de glosa e de 5%, nao e grave",
-                         "reversao":  "5% sobre um faturamento de R sao R/ano perdidos. Com documentacao adequada, recupera-se 40-60% do que e glosado indevidamente."
+                         "reversao":  "5% sobre um faturamento de R$10M/mes sao R$6M/ano perdidos. Com documentacao adequada, recupera-se 40-60% do que e glosado indevidamente."
                      },
                      {
                          "objecao":  "Ja temos juridico para contestar",
@@ -55,7 +55,7 @@
                            "gatilho_abordagem":  "CFM 2.448/2025 — sua equipe de faturamento ja adaptou os protocolos de documentacao?",
                            "perfil":  "Diretor Financeiro, Gerente de Faturamento ou Diretor Medico de hospital privado",
                            "busca_linkedin":  "\"faturamento hospitalar\" OR \"auditoria medica\" OR \"glosa\" + \"hospital\" + \"diretor\" OR \"gerente\"",
-                           "tamanho_empresa":  "Hospital privado 50-500 leitos com faturamento acima de R/ano",
+                           "tamanho_empresa":  "Hospital privado 50-500 leitos com faturamento acima de R$5M/mes",
                            "canal":  "LinkedIn / Associacoes hospitalares (ANAHP, FBH) / Indicacao"
                        },
     "qualificacao":  {
@@ -67,7 +67,7 @@
                          "criterios_ideal":  [
                                                  "Taxa de glosa acima de 8% (benchmark de mercado e 5-7%)",
                                                  "Sem processo sistematico de contestacao",
-                                                 "Faturamento acima de R/ano (impacto financeiro relevante)"
+                                                 "Faturamento acima de R$5M/mes (impacto financeiro relevante)"
                                              ]
                      },
     "fit_score":  5,
@@ -121,7 +121,7 @@
     "cross_sell":  [
                        {
                            "nicho":  "medicos-peritos-laudos",
-                           "ticket_combinado":  "R-R",
+                           "ticket_combinado":  "R$8.000 a R$20.000 (auditoria de glosa + adequacao de laudos periciais ao CFM 2.448/2025)",
                            "argumento":  "Hospital com problema de glosa frequentemente tem medicos peritos emitindo laudos sem o novo padrao CFM 2.448/2025 — mesmo prospect, dois produtos"
                        }
                    ]
