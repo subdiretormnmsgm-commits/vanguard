@@ -89,6 +89,21 @@ function Test-Script {
         $avisos += "Script usa `$PSScriptRoot mas nao define `$raiz - verificar"
     }
 
+    # --- Regra 5: qualquer caractere nao-ASCII em .ps1 sem BOM (P-183 / P-189) ---
+    # PS 5.1 decodifica .ps1 sem BOM pela codepage ANSI legada, nao UTF-8: byte > 127 vira mojibake.
+    # "validei ASCII" tem de varrer o ARQUIVO INTEIRO, nunca so o bloco novo (P-189 / GATE DE FATO).
+    $temBomPs = ($bytesRaw.Length -ge 3 -and $bytesRaw[0] -eq 0xEF -and $bytesRaw[1] -eq 0xBB -and $bytesRaw[2] -eq 0xBF)
+    if (-not $temBomPs) {
+        $naoAscii = [regex]::Matches($textoRaw, '[^\x00-\x7F]')
+        foreach ($m in $naoAscii) {
+            $cp = [int][char]$m.Value[0]
+            # aspas curvas ja reportadas pela Regra 0 com mensagem especifica -- nao duplicar
+            if ($cp -ge 0x2018 -and $cp -le 0x201D) { continue }
+            $linhaNum = ($textoRaw.Substring(0, $m.Index) -split "`n").Count
+            $erros += ("Linha " + $linhaNum + " [P-183]: caractere nao-ASCII U+" + $cp.ToString('X4') + " em .ps1 sem BOM - usar ASCII (P-189)")
+        }
+    }
+
     # --- Relatorio ---
     $status = if ($erros.Count -gt 0) { "FALHA" } elseif ($avisos.Count -gt 0) { "AVISO" } else { "OK" }
     $cor    = if ($erros.Count -gt 0) { "Red" } elseif ($avisos.Count -gt 0) { "Yellow" } else { "Green" }
