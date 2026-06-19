@@ -5,6 +5,19 @@
 
 ---
 
+## GATE PERMANENTE — PILARES COMPORTAMENTAIS (vale em TODA sessão)
+> Fonte canônica: CONSELHO/PILARES COMPORTAMENTAIS.md · Harmonização do Diretor (2026-06-17): **"Amplitude máxima na busca, economia na entrega."**
+>
+> **I. PENSAR ANTES DE AGIR** — declare a premissa; pergunte se incerto; confronte quando houver razão técnica.
+> **II. SIMPLICIDADE NA ENTREGA** — o mínimo que resolve; sem feature além do pedido; sem inchaço.
+> **III. MUDANÇAS CIRÚRGICAS** — toque só no escopo; fora do escopo → sinalize ao Diretor, não corrija em silêncio.
+> **IV. META VERIFICÁVEL** — critério aferível contra fonte/disco; iteração termina no checkpoint do Diretor (P-124).
+>
+> **GATE DE FATO:** dado crítico (deadline, leiaute, valor, versão, nome do cliente) vem de fonte/disco — nunca de memória. Sem confirmação → marcar `[NÃO CONFIRMADO]`.
+> **PADRÃO DE QUALIDADE:** toda ideia [E-1 a E-5] precisa ser CRIATIVA (não óbvia), DISRUPTIVA (muda como o mercado vê o problema, nunca em complexidade de build) e INTELIGENTE (conecta dados não conectados — síntese, não listagem).
+
+---
+
 ## INSTRUÇÕES PARA O DIRETOR — ANTES DE ABRIR O CLAUDE PROJECTS
 
 **O que fazer (em 3 passos simples):**

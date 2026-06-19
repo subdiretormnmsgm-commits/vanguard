@@ -164,8 +164,34 @@ $contextoAcao = if ($acao) { $acao } else {
     }
 }
 
-# Montar o prompt
-$linhasPrompt = @("@$skillAtual $contextoAcao")
+# GATE PERMANENTE -- PILARES COMPORTAMENTAIS (Loop 36+) -- carrega em TODA sessao Antigravity
+# Injetado na geracao (P-033): o .antigravity_prompt.txt e regenerado a cada run, entao o gate
+# vive aqui, no script, nunca no artefato. Harmonizacao Diretor 2026-06-17.
+$gatePilares = @'
+## GATE PERMANENTE -- PILARES COMPORTAMENTAIS (Loop 36+)
+Fonte: CONSELHO/PILARES COMPORTAMENTAIS.md (Vanguard vault)
+REGRA: os 4 pilares valem em TODA sessao do Antigravity, antes de qualquer tarefa.
+Harmonizacao Diretor (2026-06-17): "Amplitude maxima na busca, economia na entrega."
+  -> Amplitude maxima: Deep Research sem teto de vetores, subagentes e fontes.
+  -> Economia: entrega concisa, sem listagem sem sintese, sem verbose.
+
+I.  PENSAR ANTES DE AGIR -- declare premissa; pergunte se incerto; confronte quando justificado.
+II. SIMPLICIDADE NA ENTREGA -- minimo que resolve; sem feature alem do pedido.
+III.MUDANCAS CIRURGICAS -- toque so no escopo; fora do escopo -> sinaliza ao Diretor.
+IV. META VERIFICAVEL -- criterio contra fonte/disco. Iteracao termina em P-124.
+
+PADRAO DE QUALIDADE (toda ideia [G-1..G-N]):
+- CRIATIVA: nao e a primeira solucao obvia -- ha camada que o Embaixador nao faria imediatamente.
+- DISRUPTIVA: muda como o mercado enxerga o problema. Nunca disruptiva em complexidade de build.
+- INTELIGENTE: conecta pelo menos dois dados nao conectados. Sintese, nao listagem.
+Teste: "O Diretor diria que isso e obvio?" -> se sim, refazer.
+
+GATE DE FATO: toda afirmacao de mercado exige fonte + data. Sem fonte -> [NAO CONFIRMADO].
+---
+'@
+
+# Montar o prompt -- gate dos pilares SEMPRE primeiro (antes do @skill)
+$linhasPrompt = @($gatePilares, "@$skillAtual $contextoAcao")
 # ETAPA 0 -- contexto da ultima sessao do Antigravity (memoria entre sessoes)
 $linhasPrompt += ""
 if ($ultimaSessao) {

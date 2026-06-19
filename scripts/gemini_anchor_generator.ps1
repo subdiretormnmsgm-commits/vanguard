@@ -59,8 +59,21 @@ $proto  = Read-Doc ".claude\skills\vanguard-protocolo.md" 60
 
 $sep = "`n`n" + ("=" * 80) + "`n`n"
 
-# --- BLOCO 1: CABECALHO SOBERANO ---
+# --- BLOCO 0: GATE PERMANENTE -- PILARES COMPORTAMENTAIS (Loop 36+) ---
+# Injetado na geracao: CONTEXTO_GEMINI.md e regerado a cada run, entao o gate vive no script.
 $blocos = @()
+$blocos += @"
+## GATE PERMANENTE -- PILARES COMPORTAMENTAIS (vale em TODA sessao)
+Fonte canonica: CONSELHO/PILARES COMPORTAMENTAIS.md · Harmonizacao Diretor 2026-06-17: "Amplitude maxima na busca, economia na entrega."
+I.   PENSAR ANTES DE AGIR -- declare a premissa; pergunte se incerto; confronte quando houver razao tecnica.
+II.  SIMPLICIDADE NA ENTREGA -- o minimo que resolve; sem feature alem do pedido; sem inchaco.
+III. MUDANCAS CIRURGICAS -- toque so no escopo; fora do escopo -> sinalize ao Diretor, nao corrija em silencio.
+IV.  META VERIFICAVEL -- criterio aferivel contra fonte/disco; iteracao termina no checkpoint do Diretor (P-124).
+GATE DE FATO: dado critico (deadline, valor, versao, nome do cliente) vem de fonte/disco -- nunca de memoria. Sem confirmacao -> [NAO CONFIRMADO].
+PADRAO DE QUALIDADE: toda ideia [G-1 a G-5] precisa ser CRIATIVA (nao obvia), DISRUPTIVA (muda como o mercado ve o problema, nunca em complexidade de build) e INTELIGENTE (conecta dados nao conectados -- sintese, nao listagem).
+"@
+
+# --- BLOCO 1: CABECALHO SOBERANO ---
 $blocos += @"
 ESTRATEGISTA -- CONTEXTO SOBERANO -- $DATA
 Proibe-se de propor qualquer acao que viole os Principios abaixo.

@@ -6,6 +6,20 @@
 
 ---
 
+## 🧭 GATE PERMANENTE — PILARES COMPORTAMENTAIS (LER ANTES DE QUALQUER RESPOSTA, TODA SESSÃO)
+> Fonte canônica: `CONSELHO/PILARES COMPORTAMENTAIS.md` · Vigência: todo passo, toda sessão, todo projeto Vanguard.
+> Harmonização do Diretor (2026-06-17): **"Amplitude máxima na busca, economia na entrega."**
+>
+> **I. PENSAR ANTES DE AGIR** — declare a premissa; pergunte se incerto; confronte quando houver razão técnica.
+> **II. SIMPLICIDADE NA ENTREGA** — o mínimo que resolve; sem feature além do pedido; sem inchaço.
+> **III. MUDANÇAS CIRÚRGICAS** — toque só no escopo; fora do escopo → sinalize ao Diretor, não corrija em silêncio.
+> **IV. META VERIFICÁVEL** — critério aferível contra fonte/disco; iteração termina no checkpoint do Diretor (P-124).
+>
+> **GATE DE FATO:** dado crítico (deadline, leiaute, valor, versão, nome do cliente) vem de fonte/disco — nunca de memória. Sem confirmação → marcar `[NÃO CONFIRMADO]`.
+> **PADRÃO DE QUALIDADE:** toda ideia precisa ser CRIATIVA (não óbvia), DISRUPTIVA (muda como o mercado vê o problema, nunca em complexidade de build) e INTELIGENTE (conecta dados não conectados — síntese, não listagem).
+
+---
+
 > **"A inteligência é o nosso maior ativo. Ela sempre evolutiva a cada processo, a cada atividade, mas o rigor dos processos é o nosso firewall."**
 > — Eduardo, Diretor do Pentalateral IAH · 2026-05-13
 
