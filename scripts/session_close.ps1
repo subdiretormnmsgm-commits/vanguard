@@ -477,7 +477,19 @@ $bloco0Path      = "$baseDir\PROTOCOLOS_ENCERRAMENTO\BLOCO0_$dataFim.md"
 # encerramento esta feito e o gate fecha VERDE -- NAO re-preparar nem re-bloquear pela mensagem.
 # embaixador_msg_sessao.txt e consumida (Remove-Item) ao ser preparada no 1o run; sua ausencia em
 # re-run NAO e bloqueio. A preparacao da mensagem so corre quando o BLOCO 0 ainda NAO existe.
-$bloco0Capturado = (Test-Path $bloco0Path) -and ((Get-Item $bloco0Path).Length -gt 100)
+#
+# FIX FRESCOR (Diretor 2026-06-18, ordem direta "Corrija o GATE EMBAIXADOR agora"):
+# Existencia + tamanho NAO bastam -- um BLOCO0_<data>.md de uma sessao ANTERIOR no mesmo dia
+# (ex.: fechamento da madrugada) passava o gate sem captura remota desta sessao. Foi o que
+# mascarou a falha em 17/06 e 18/06: gate VERDE falso. O BLOCO 0 e capturado NO momento do
+# encerramento, logo um BLOCO 0 legitimo desta sessao e sempre fresco (minutos). Exigimos
+# LastWriteTime dentro de uma janela de frescor (6h: barra o da madrugada com ~19h, acomoda
+# sessao longa + re-runs do session_close). Arquivo velho = recapturar (nao conta como prova).
+$bloco0FrescorJanelaH = 6
+$bloco0Existe   = (Test-Path $bloco0Path) -and ((Get-Item $bloco0Path).Length -gt 100)
+$bloco0IdadeH   = if ($bloco0Existe) { ((Get-Date) - (Get-Item $bloco0Path).LastWriteTime).TotalHours } else { 9999 }
+$bloco0Capturado = $bloco0Existe -and ($bloco0IdadeH -le $bloco0FrescorJanelaH)
+$bloco0Obsoleto  = $bloco0Existe -and ($bloco0IdadeH -gt $bloco0FrescorJanelaH)
 
 Write-Host ""
 Write-Host "=======================================================" -ForegroundColor Magenta
@@ -486,8 +498,16 @@ Write-Host "=======================================================" -Foreground
 Write-Host ""
 
 if ($bloco0Capturado) {
-    Write-Host "  [GATE EMBAIXADOR] VERDE -- BLOCO 0 capturado: BLOCO0_$dataFim.md (momento de encerramento)." -ForegroundColor Green
+    $idadeFmt = [math]::Round($bloco0IdadeH, 1)
+    Write-Host "  [GATE EMBAIXADOR] VERDE -- BLOCO 0 capturado: BLOCO0_$dataFim.md (${idadeFmt}h atras, dentro da janela ${bloco0FrescorJanelaH}h)." -ForegroundColor Green
     Write-Host "  Encerramento concluido: BLOCO 0 gerado pelo Embaixador + Notion sincronizado." -ForegroundColor DarkGray
+} elseif ($bloco0Obsoleto) {
+    $idadeFmt = [math]::Round($bloco0IdadeH, 1)
+    Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- BLOCO0_$dataFim.md existe mas e OBSOLETO (${idadeFmt}h atras > janela ${bloco0FrescorJanelaH}h)." -ForegroundColor Red
+    Write-Host "  Esse arquivo e de uma sessao ANTERIOR (mesmo dia) -- NAO conta como captura desta sessao." -ForegroundColor Yellow
+    Write-Host "  Musculo: invoque embaixador-encerramento-v1 (Playwright -> caderno 019e4c70) e" -ForegroundColor Yellow
+    Write-Host "           SOBRESCREVA PROTOCOLOS_ENCERRAMENTO\BLOCO0_$dataFim.md com a resposta nova." -ForegroundColor Yellow
+    $exitCode = 2
 } elseif (-not (Test-Path $msgAdaptadaPath)) {
     Write-Host "  [GATE EMBAIXADOR] BLOQUEIO -- BLOCO 0 nao capturado e embaixador_msg_sessao.txt nao encontrado." -ForegroundColor Red
     Write-Host ""
