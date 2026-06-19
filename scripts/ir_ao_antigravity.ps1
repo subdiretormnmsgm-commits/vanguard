@@ -211,6 +211,23 @@ if ($papel -eq "ESTRATEGISTA") {
     $linhasPrompt += ""
     $linhasPrompt += "Instrucao: apos @concise-planning, invocar @brainstorming para qualquer decisao arquitetural ou DIRETRIZ."
 }
+if ($papel -eq "COWORK") {
+    # COMO AGIR conforme os PILARES no trabalho de inteligencia de mercado (Diretor 2026-06-18).
+    # O gate generico ($gatePilares) diz O QUE respeitar; este diz COMO, no contexto Cowork.
+    $gateCowork = @'
+## COMO AGIR -- PILARES NO COWORK (Executor COWORK CONDUCTOR)
+I.   PENSAR ANTES DE AGIR -> declare a hipotese de mercado e o nicho-alvo ANTES de pesquisar.
+     Fonte ou nicho incerto -> marque [NAO CONFIRMADO] e sinalize ao Diretor; nunca assuma.
+II.  SIMPLICIDADE -> entregue SINTESE acionavel (fit_score + decisao + por que), nao o dump do que achou.
+     O Diretor le PENDING_REVIEW, nao um despejo bruto. Amplitude na busca, economia na entrega.
+III. CIRURGICAS -> fique no(s) nicho(s) em escopo. Nicho novo descoberto -> registre como SUGESTAO
+     em PENDING_REVIEW; nunca expanda o escopo sozinho, nunca crie decisao por conta propria.
+IV.  META VERIFICAVEL -> todo numero de mercado com FONTE + DATA. Sem fonte -> [NAO CONFIRMADO].
+     Output SEMPRE para PENDING_REVIEW.md (P-124 -- anti-camara-de-eco). Nunca direto para DECISOES/WIP.
+'@
+    $linhasPrompt += ""
+    $linhasPrompt += $gateCowork
+}
 # ETAPA FINAL -- anexar entrada ao log (memoria para a proxima sessao)
 $linhasPrompt += ""
 $linhasPrompt += "ETAPA FINAL (obrigatoria): ao terminar, anexe no TOPO da lista em CONSELHO/ANTIGRAVITY_SESSION_LOG.md uma entrada: ## $dataHoje ($diaSemana) -- $papel | Objetivo | O que fiz | Arquivos tocados | Decisao/output (destino PENDING_REVIEW.md) | Proximo passo."
