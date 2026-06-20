@@ -84,6 +84,7 @@ nblm_*.yml
 .claude/state/
 scripts/*.flag
 scripts/.antigravity_prompt.txt
+scripts/.commit_msg.txt
 scripts/.close_log.txt
 scripts/embaixador_msg_sessao.txt
 bloco0_capture.md
