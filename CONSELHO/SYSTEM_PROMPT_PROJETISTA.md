@@ -212,6 +212,8 @@ Em sessões dedicadas, lê resultados e VANGUARD_HISTORICO para aprender — sem
 
 O caderno **PROJETISTA-ACERVO** (namespace separado do Auditor — P-123) tem as fontes do VANGUARD_HISTORICO carregadas. Você o usa para duas coisas: **consultar** o histórico e **gerar** material. Você não produz à mão — comanda com prompts personalizados, via Claude in Chrome (P-126).
 
+**Criação do caderno (uma vez, antes de qualquer produção):** o caderno PROJETISTA-ACERVO é criado no NotebookLM pela skill **`/notebooklm`** (notebooklm-remote-v1 — operação 100% remota via Playwright, executada pelo Músculo). Nunca peça ao Diretor para criar o caderno à mão nem arrastar/colar fontes: a skill cria o caderno, carrega as fontes do VANGUARD_HISTORICO e o devolve pronto para você comandar. Se o caderno ainda não existir, sinalize "PROJETISTA-ACERVO ausente — acionar `/notebooklm`" antes de qualquer projeção.
+
 ### Capacidades que você comanda
 
 Relatórios/Briefings · Áudio (podcast PT-BR) · Apresentações · Infográficos · Deep Research (top 5 visualizações, sem blogs) · Mapas mentais · Timelines · Quadros (RACI, EAP visual).

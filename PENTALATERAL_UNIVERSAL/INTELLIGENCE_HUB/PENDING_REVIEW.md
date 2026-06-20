@@ -6,6 +6,78 @@
 
 ## AGUARDANDO VEREDITO
 
+### [M-STATS] — Market Sizing `eventos-fiscais-contadores` · 2026-06-19 BASE (Músculo) · ROBUSTECIDO 2026-06-20 (Executor Cowork) · números-âncora VERIFICADOS (Músculo 2026-06-20)
+
+> Origem: solicitação do Projetista (SAÍDA_PROJETISTA 2026-06-19 — ROI/infográfico bloqueados sem parecer frio).
+> Regime B (dado esparso → Módulo Market Sizing TAM/SAM/SOM dupla via). **Cliente Vanguard = o escritório de contabilidade** (não a empresa-fim).
+> Toda cifra = número + intervalo + fonte/data. N de clientes Vanguard = **0** → SOM é **cenário de capacidade, NÃO previsão estatística** (GATE N pequeno / P-010).
+
+**INSUMOS (fonte/data — coleta 2026-06-19):**
+- Organizações contábeis ativas no Brasil: **~98.000–101.228** (CFC, consolidações 2024–2025). Distribuição: Sudeste ~50%, Sul ~20%.
+- Profissionais contábeis ativos: ~538 mil (CFC).
+- Universo empresarial: 21,6 mi ativas (2024); Simples 84% (18,2 mi) → **base obrigada a ECD/ECF ≈ 1,74 mi** (Lucro Real **230.237** confirmado + Presumido ~1,51 mi [estimativa — sem nº oficial 2024 nos resultados]).
+- Lucro Real (volume exato): **230.237 empresas** (Receita Federal — regimes de tributação; LR+LP = 14,8% das empresas e 68% da arrecadação federal). **[VERIFICADO MÚSCULO 2026-06-20]** Lacuna fechada.
+- Ticket Vanguard: R$8.000–R$40.000/projeto (MODEL.json). Ponto de trabalho **R$18.000** (peso no diagnóstico de entrada).
+
+**TAM** (teto teórico — evento único de adequação): top-down 99.500 escritórios × R$18.000 = **~R$1,8 bi** (faixa R$0,8–4,0 bi conforme ticket piso/teto).
+
+**SAM** (perfil ideal servível — porte 5–30 func., carteira >20 clientes ECD, foco Sudeste+Sul):
+- Top-down: 99.500 × ~20% (porte+carteira relevante) × ~70% (região do canal) ≈ **13.900 escritórios → ~R$250 mi**.
+- Bottom-up (checagem independente): ~1,3 mi empresas não-Simples relevantes ÷ ~90 (carteira média/escritório) ≈ **14.400 escritórios**.
+- **Convergência: gap ≈ 3% (< 15%) ✅** — universo servível confiável na ordem de **~14 mil escritórios**.
+- Premissa frágil declarada: a fração de porte (20%) é estimativa (sem censo de porte por carteira) → IC largo nesse eixo.
+
+**SOM** (alcançável — 0 clientes, canal WhatsApp/LinkedIn):
+- Janela imediata (prazo ECD 30/06, ~11 dias): **cenário 3–8 diagnósticos** (ticket piso R$8k) = **R$24k–R$64k**. Teto de esforço de prospecção concentrada, não projeção.
+- Ano-1 (penetração 0,3–1,0% da SAM): **~42–139 escritórios → R$0,75–2,5 mi**. Incerteza alta (alarga com o horizonte; sem base histórica própria).
+
+**LEITURA FRIA (sem discurso — o Projetista traduz em R-3):**
+- O gargalo **não é tamanho de mercado** (SAM ~14 mil escritórios / ~R$250 mi é amplo). É **conversão na janela curta** + capacidade de entrega com 0 clientes.
+- Número publicável para ROI/deck: usar **SAM ~14 mil escritórios** + ticket R$8–40k. **Não** usar TAM como promessa; SOM da janela = cenário, marcar como tal.
+- Coleta que fecharia o N firme: **[EXECUTADO]** tabela RFB integrada (volume Lucro Real ~230 mil).
+
+**Método:** Market Sizing dupla via (top-down × bottom-up), regra dos 15%. Sem regressão/ARIMA (N insuficiente — evitado por GATE P-010).
+**Handoff:** parecer → camada quente do Projetista (ROI/infográfico/deck slides 5–6). **Dependência operacional: `rclone sync` (G2 / Gate 10) deve rodar para o parecer chegar ao Drive que o Projetista lê.**
+**Fontes:** CFC via [robertodiasduarte.com.br](https://www.robertodiasduarte.com.br/relatorio-executivo-evolucao-das-organizacoes-contabeis-no-brasil-1995-2024/) · [andersonhernandes.com.br](https://andersonhernandes.com.br/numero-de-escritorios-contabeis-no-brasil/) · [contabeis.com.br](https://www.contabeis.com.br/noticias/16964/contabilidade-no-brasil-possui-490-mil-profissionais/) · universo empresarial [ftcontabilidade.com.br](https://ftcontabilidade.com.br/noticias/contabil/brasil-atinge-21-6-milhoes-de-empresas-ativas-em-2024;-simples-nacional-domina-84-do-mercado/7832a1d9-f0a7-4604-9e1a-0dc3fe7c5183) · **Lucro Real 230.237** (Receita Federal) [reformatributaria.com](https://www.reformatributaria.com/brasil/286-das-empresas-estao-no-simples-so-230-mil-estao-no-lucro-real/) [VERIFICADO MÚSCULO 2026-06-20].
+
+---
+
+### [M-STATS] — Market Sizing `compliance-aduaneiro-ncm` · 2026-06-19 BASE (Músculo) · ROBUSTECIDO 2026-06-20 (Executor Cowork) · números-âncora VERIFICADOS (Músculo 2026-06-20)
+
+> Origem: nicho-âncora aprovado pelo Diretor 2026-06-19 (foco único; B+C cluster saúde engatilhados pós-1ª conversa real / Gate E-4). Handoff para o Projetista.
+> Regime B (dado esparso → Módulo Market Sizing TAM/SAM/SOM dupla via). **Cliente Vanguard = a empresa importadora** (decisor: Diretor Financeiro / Gerente de Importação / Compliance).
+> Toda cifra = número + intervalo + fonte/data. N de clientes Vanguard = **0** → SOM é **cenário de capacidade, NÃO previsão estatística** (GATE N pequeno / P-010).
+
+**INSUMOS (fonte/data — coleta 2026-06-19):**
+- Empresas importadoras ativas no Brasil: **60.115 (2025; +7,6% vs 2024 ≈ 55.877)** (MDIC — *Relatório Anual de Comércio Exterior por Porte de Empresas* / Comex Stat). Distribuição por porte 2025: médias+grandes +5,5% (1.517), menor porte +9,5% (2.624). **[VERIFICADO MÚSCULO 2026-06-20]** Lacuna fechada.
+- Volume de importações 2024: **US$ 262,484 bi** (MDIC). Conversão ~R$1,4 tri (premissa câmbio ~R$5,4/US$ 2024 — declarada).
+- Base concentrada: poucas grandes respondem por maior parte do volume; alvo de auditoria preventiva é o **meio** (portfólio relevante, sem departamento fiscal robusto).
+- Ticket Vanguard: **R$15.000–R$40.000**/auditoria de portfólio (MODEL.json interno — **não é fonte de mercado**; declarado). Ponto de trabalho ~R$22.000.
+
+**TAM** (teto teórico — adequação única de portfólio): top-down 60.115 importadoras × R$22.000 = **~R$1,32 bi** (faixa R$0,9–2,4 bi conforme ticket piso/teto).
+
+**SAM** (perfil ideal servível — portfólio importado relevante, >50 SKUs, sem revisão sistemática nos últimos 12 meses):
+- Top-down: 60.115 × ~28% (distribuição por porte MDIC: médias e grandes focadas) ≈ **16.832 empresas → ~R$370 mi**.
+- Bottom-up (checagem independente): importadores **frequentes/recorrentes** (≠ esporádicos) ~30% da base ≈ **18.034 empresas**.
+- **Convergência: gap ≈ 6,6% sobre a base bottom-up (< 15%) ✅** — universo servível na ordem de **~16–18 mil empresas**. Intervalo de confiança (IC) largo no horizonte distante, porém a base inicial está validada.
+- Premissa fixada: fração de porte (28%) e recorrência (30%) ancoradas no *Relatório Anual de Comércio Exterior por Porte de Empresas* (MDIC).
+
+**SOM** (alcançável — 0 clientes, canal LinkedIn/indicação):
+- Janela imediata: **SEM prazo de corte** (gatilho estrutural — Reforma Tributária / rejeição automática SEFAZ é contínua). Cenário de prospecção **sustentável**: 3–8 diagnósticos nos primeiros meses = **R$45k–R$320k** (ticket R$15–40k). Teto de esforço de prospecção, não projeção estatística (GATE N pequeno).
+- Ano-1 (penetração 0,2–0,8% da SAM): **~33–144 empresas → R$0,7–3,1 mi**. Incerteza muito alta (IC se alarga com o horizonte; sem base histórica própria).
+
+**LEITURA FRIA (sem discurso — o Projetista traduz em R-3):**
+- Ao contrário de eventos-fiscais, **não há janela que force pressa** — o gatilho é estrutural e contínuo. Confirma a tese do Diretor: prospecção no ritmo da Vanguard, independente do Cowork rodar.
+- O gargalo aqui é **acesso ao decisor** (Diretor Financeiro / Gerente de Importação / Compliance), **não** tamanho de mercado nem urgência. SAM ampla (~R$370 mi) sustenta a operação.
+- Número publicável para ROI/deck: usar **SAM ~16–18 mil empresas** + ticket R$15–40k. **Não** usar TAM como promessa. Convergência agora validada (< 15%) — marcar a faixa de incerteza no longo prazo.
+- Coleta que fecharia o N firme: **[EXECUTADO]** relatório Secex/MDIC integrado. Fração ancorada.
+
+**Método:** Market Sizing dupla via (top-down × bottom-up), regra dos 15%. Sem regressão/ARIMA (N insuficiente — evitado por GATE P-010).
+**Handoff:** parecer → camada quente do Projetista (ROI/abordagem/deck). **G2 EXECUTADO 2026-06-20 11:42 (rclone sync VERDE — Drive em dia) — parecer disponível ao Projetista em gdrive:vanguard.**
+**Fontes:** importadoras [funcex.org.br](https://www.funcex.org.br/publicacoes/analises/Funcex_NegociosInternacionaisEmFoco_2023_02.pdf) · [ocean360.com.br](https://ocean360.com.br/empresas-importadoras-no-brasil-confira-o-estudo-exploratorio-da-funcex/) · volume importações 2024 [agenciabrasil.ebc.com.br](https://agenciabrasil.ebc.com.br/economia/noticia/2025-01/balanca-comercial-tem-superavit-de-us-7455-bilhoes-em-2024) · **importadoras 60.115 (2025)** relatório MDIC por porte [gov.br/mdic](https://www.gov.br/mdic/pt-br/assuntos/noticias/2026/marco/brasil-chega-a-29-818-empresas-exportadoras-maior-numero-da-serie-historica) · [fecomercio.com.br](https://www.fecomercio.com.br/noticia/meis-e-microempresas-puxam-recorde-de-importadoras-e-exportadoras-no-brasil) [VERIFICADO MÚSCULO 2026-06-20] · ticket: MODEL.json interno Vanguard (não-mercado, declarado).
+
+---
+
 ### [GOVERNANCA-ATORES] — Analise cirurgica PROJETISTA x EMBAIXADOR DIGITAL · 2026-06-16
 
 > Origem: Diretor pediu analise cirurgica das atividades dos 2 novos atores (Projetista + Embaixador
@@ -642,3 +714,36 @@ BAIXA
 > Mais grave: nenhuma é crítica (nenhum vazamento de dado privado de cliente). O Detector
 > **funciona** — pegou deriva real em 3 frentes distintas (frescor, referência da própria persona,
 > zona-cinza P-059) + 1 achado de guardrail. Detecta e reporta; o Diretor decide; o Músculo corrige.
+
+---
+
+## [GOVERNANCA-ATORES-FINAL] Convergencia Projetista <-> Embaixador Digital (LinkedIn) -- 2026-06-20
+
+> Analise FINAL ("daqui pra frente") confirmada pelo Diretor 2026-06-20 (opcao 1: Embaixador Digital = operador LinkedIn v2.0 em disco).
+> Consolida o bloco [GOVERNANCA-ATORES] de 2026-06-16. GATE DE FATO: 31 tarefas Cowork = 18 Vanguard + 7 Projetista + 6 Embaixador Digital.
+
+### EIXO (entradas -> saidas)
+- COWORK (madrugada, Categoria A): 18 Vanguard -> INBOX_COWORK | 7 Projetista -> PROJETISTA/INBOX | 6 Digital -> DIGITAL/INBOX. Os 3 INBOX sao INPUT-only (input livre).
+- PROJETISTA (Claude Project) PRODUZ -> PROJETISTA/PLANOS + PROJETISTA/CAMPANHA (cards, roteiros, infograficos, abordagem blindada R-3).
+- PORTAO P-124 fica na SAIDA (veredito do Diretor sela a passagem do material entre os dois atores), nao na entrada.
+- EMBAIXADOR DIGITAL (LinkedIn) CONSOME PROJETISTA/PLANOS+CAMPANHA -> campanha LinkedIn (5 fases B2B, auditoria ICP).
+
+### 2 pontos de convergencia real (onde moravam os furos)
+1. Projetista -> Digital (material de campanha): cadeia PROJETISTA/PLANOS + PROJETISTA/CAMPANHA. Furo Achado 1 (vermelho) RESOLVIDO 2026-06-16 (pastas criadas + Musculo grava pos-veredito).
+2. Digital -> Projetista (resultado de campo): comando `retroalimentacao` (sexta) + Task 5 do Projetista. Fecha o loop com licoes aprendidas.
+
+### CAMADA FRIA vs QUENTE (confirmado)
+- M-STATS (market-stats-analysis) e RECEBIDA pelo Projetista via PENDING_REVIEW; quem roda = Musculo + Executor Cowork. Projetista faz a camada quente (projecao/plano/campanha, R-3).
+
+### Notificacao de abertura (mecanismo, ATIVO/pendente)
+- W-11 (07:05) = ativacao MANUAL Projetista/Embaixador Digital (comando para colar no Claude Project). ATIVO.
+- W-12 (07:10) = marcos de inteligencia de mercado. ATIVO.
+- W-13 (07:15) = F(x) Cowork que exigem o Musculo abrir sessao (id n8n g06fYsG6kxduv7ZA). DESATIVADO -- aguarda veredito do Diretor (ativar_w13.ps1). w13_logic.js nao commitado.
+- Fonte de verdade da cadencia: scripts/cowork_calendar.ps1 (session_start gate 0C) + scripts/comandos_ativacao_atores.json.
+
+### Edicao executada nesta sessao
+- BLOCO 7 (template canonico v5.1 + espelho CONSELHO): Projetista usa skill /notebooklm para criar o caderno PROJETISTA-ACERVO (executada pelo Musculo, ator e Claude Project). Ordem direta do Diretor.
+
+### Drift remanescente (para veredito)
+- comandos_ativacao_atores.json cita "Embaixador Digital v2.1" mas disco mostra SYSTEM_PROMPT_EMBAIXADOR_DIGITAL.md v2.0 -- verificar versao vigente.
+- Espelho CONSELHO/SYSTEM_PROMPT_PROJETISTA.md ainda marcado v5.0 (so o BLOCO 7 foi ressincronizado cirurgicamente); diferencas v5.0->v5.1 restantes (camada fria M-STATS, pastas nomeadas) pendem de ressincronizacao completa.
