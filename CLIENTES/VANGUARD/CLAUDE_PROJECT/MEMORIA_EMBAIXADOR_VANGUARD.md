@@ -1,5 +1,5 @@
 # MEMORIA_EMBAIXADOR — VANGUARD TECH (Projeto Interno)
-> Criada em: 2026-06-06 | Versão: 2.5 | Atualizada: 2026-06-16 (P-032) · Loop 35 consolidado no master — 3 atores formalizados + Detector v1.4 + P-180/P-181 · FALHA-PROCESSO P-180 ENCERRAMENTO corrigida · LOOP 35 ABERTO aguardando fato externo (E-1/PF-1)
+> Criada em: 2026-06-06 | Versão: 2.5 | Atualizada: 2026-06-20 (P-032) · Madrugada de infra: P-190 (rclone = teto duro do classificador) + campanha Projetista `compliance-aduaneiro-ncm` GRAVADA porém RETIDA (base legal a confirmar) · LOOP 35 ABERTO aguardando fato externo (E-1/PF-1)
 > Perfil do Fundador + Estado Operacional da Vanguard como empresa
 > Atualizada pelo Músculo (P-032) após toda deliberação que afete o sistema interno
 
@@ -240,3 +240,9 @@ Loop 34 — **SÍNTESE P-037 FECHADA. Eixo: FORMALIZAR SUBORDINADO A PUBLICAR.**
 
 
 | 2026-06-17 | Embaixador (Secao D) | **Loop 35 concluido** -- Sessao F7 Operacao Vault Soberano encerrada: Detector de Deriva ativado (ator coadjuvante read-only, camada deterministica detector_deriva.ps1 + camada semantica doc-drift-audit persona v1.4). Obsidian DIFERIDO como camada visual. W-12 Niche Notifier ativado de manha. Vereditos F7: 1-SIM 2-b-min 3-c-1 4-SIM 5-DIFERIR 6-SIM. Timeline 32-35 atualizada. Commit 7478777. | Musculo (P-032) |
+
+| 2026-06-18 | Embaixador (Secao D) | **Loop 35 concluido** -- Fechamento da sessao (continuacao 18/06 madrugada): commit de fechamento b994f22 (GATE 0.5 timelines + P-032 + GATE 6E cowork + F7 PENDING_REVIEW). Reconciliacao canonica P-073: fonte HISTORICO/VANGUARD_TIMELINE.md atualizada + 10 derivados propagados (detect_canonical VERDE). Encerramento substantivo (F7/W-12/BLOCO0) ocorreu em 17/06 e foi dispensado pelo Diretor. | Musculo (P-032) |
+
+| 2026-06-19 | Embaixador (Secao D) | **Loop 35 concluido** -- Sessao de infraestrutura: W-13 Cowork F(x) Notifier criado e ativado (cron 07:15 BRT) fechando S-2; W-10 Health Check estendido com resumo POSITIVO 24h fechando S-3; verify_gdrive_freshness ganhou exclude da awesome-claude-skills; Drive VANGUARD sincronizado VERDE (sync 20:53). Teto duro do rclone confirmado (P-190): so a mao do Diretor destrava via prefixo de comando. | Musculo (P-032) |
+
+| 2026-06-20 | Embaixador (Secao D) | **Loop 35 ABERTO (continuacao madrugada)** -- Sessao estendida pela meia-noite. P-190 GRAVADO no LEDGER (02:17): rclone sync de arvore inteira ao Drive e teto duro do classificador -- so a mao do Diretor via prefixo `! ` destrava; Musculo usa copyto cirurgico (G2) para mudancas pontuais; usar sandbox-bypass para contornar = exatamente o que P-190 proibe (Auto-Mode Bypass). Campanha do Projetista `compliance-aduaneiro-ncm` GRAVADA em INTELLIGENCE_HUB/PROJETISTA/CAMPANHA/ (A ROI+TAM/SAM/SOM, B abordagem, C deck 8 slides) -- **GRAVADA, NAO disparada**: flag [base legal a confirmar antes do disparo]. Despacho ao Embaixador Digital so apos Diretor confirmar LC 227/2026 + R$20.000/erro + rejeicao automatica NF por fonte juridica citavel. M-STATS confirma o mercado, NAO o dispositivo legal (gravar != disparar). Virada de meia-noite quebrou frescor (sync 21:38 anterior as edicoes 02:17) -- exigiu novo sync pela mao do Diretor (02:36). BLOCO 0 capturado via Drive-First (contornou lag de indexacao same-day). PF-1 reforcado: sessao infra pura, contato externo ZERO, pipeline ZERO. | Musculo (P-032) |

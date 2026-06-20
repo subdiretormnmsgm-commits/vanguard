@@ -166,7 +166,7 @@ if ($AutoSync -and $temSyncStale -and ($naoAutoFix.Count -eq 0)) {
         $logNovo = Join-Path $desktop "rclone_sync_$stamp.txt"
         # P-185 (HV-1): nunca empurrar credenciais ao Drive -- filtro espelha o .gitignore
         $secretsExclude = Join-Path $PSScriptRoot "rclone_secrets_exclude.txt"
-        & $rcloneCmd sync $RAIZ "gdrive:vanguard" --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --exclude-from $secretsExclude --log-file $logNovo --log-level INFO
+        & $rcloneCmd sync $RAIZ "gdrive:vanguard" --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --exclude ".claude/skills/awesome-claude-skills-master/**" --exclude-from $secretsExclude --log-file $logNovo --log-level INFO
         $rc = $LASTEXITCODE
         if ($rc -eq 0) {
             $syncTime2   = (Get-Item $logNovo).LastWriteTime

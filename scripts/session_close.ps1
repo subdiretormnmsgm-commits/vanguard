@@ -671,6 +671,9 @@ if ($rcloneCmd) {
     try {
         $logFile = "$([Environment]::GetFolderPath('Desktop'))\rclone_sync_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
         $srcPath = Split-Path $PSScriptRoot -Parent
+        # P-185 / P-190: o filtro de segredos e o exclude da biblioteca de terceiros sao OBRIGATORIOS.
+        # Espelha verify_gdrive_freshness.ps1 -- sem isto, GATE 10 re-exporia as 7 credenciais ao gdrive.
+        $secretsExclude = Join-Path $PSScriptRoot "rclone_secrets_exclude.txt"
         & $rcloneCmd sync `
             $srcPath `
             "gdrive:vanguard" `
@@ -679,6 +682,8 @@ if ($rcloneCmd) {
             --exclude ".serena/**" `
             --exclude "node_modules/**" `
             --exclude "*.pyc" `
+            --exclude ".claude/skills/awesome-claude-skills-master/**" `
+            --exclude-from $secretsExclude `
             --log-file $logFile `
             --log-level INFO
         if ($LASTEXITCODE -eq 0) {

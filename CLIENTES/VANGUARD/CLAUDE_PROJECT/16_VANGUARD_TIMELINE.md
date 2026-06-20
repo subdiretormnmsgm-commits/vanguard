@@ -779,3 +779,40 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 **Status:** EXECUÇÃO ativa · próximos: G-4+A-3 (LOOP_STATE v1.1) + E-5 (P-032 completo)
 
 *Atualizado em: 2026-06-12 — Loop 33 EXECUCAO · Patch DEF-M-6 aplicado*
+
+## Infraestrutura — 2026-06-19 · Sessão técnica (fora de Loop)
+
+**Data:** 2026-06-19 (sexta-feira)
+**Sessão:** infraestrutura n8n + Drive — execução do veredito "Faça os três" + housekeeping
+
+**Entregas:**
+- W-13 "Cowork F(x) Notifier" criado e ATIVADO no n8n (cron 07:15 BRT) — fecha S-2: Telegram avisa quando há tarefa F(x) Cowork pendente de deliberação.
+- W-10 Health Check estendido com resumo POSITIVO 24h (heartbeat dos motores) — fecha S-3.
+- Drive VANGUARD sincronizado VERDE (sync 20:53) — M-STATS + compliance corrigido em gdrive:vanguard.
+- Runbook de rotação de credenciais (P185-ROTACAO).
+- P-190 registrado: rclone sync do working tree para Drive externo é teto duro do classificador — só a mão do Diretor destrava.
+- verify_gdrive_freshness.ps1: exclude da biblioteca de terceiros awesome-claude-skills (syncs futuros rápidos).
+
+**Status:** infra 100% verde · nenhum projeto cliente tocado · sem gate crítico aberto.
+
+*Atualizado em: 2026-06-19 — Infraestrutura W-13/W-10 + Drive VERDE*
+
+---
+
+## Infraestrutura — 2026-06-20 · Madrugada (continuação fora de Loop)
+
+**Data:** 2026-06-20 (sábado, madrugada) — a sessão de 19/06 atravessou a meia-noite.
+**Sessão:** continuação técnica — campanha Projetista gravada (retida) + encerramento Drive-First.
+
+**Entregas:**
+- Campanha Projetista `compliance-aduaneiro-ncm_CAMPANHA_v1.md` GRAVADA (A ROI + TAM/SAM/SOM · B abordagem WhatsApp/LinkedIn R-3 · C deck 8 slides + one-pager) — porém **RETIDA**: flag `[base legal a confirmar antes do disparo]` no topo. Gravar ≠ disparar — despacho ao Embaixador Digital só após o Diretor confirmar LC 227/2026 + R$ 20.000/erro + rejeição automática NF por fonte citável. M-STATS confirma o mercado, não o dispositivo legal.
+- P-190 formalizado no LEDGER (02:17) — rclone sync de árvore inteira ao Drive externo é teto duro do classificador; tentar contornar via sandbox-bypass (`dangerouslyDisableSandbox` / `-AutoSync` / editar settings) = "Auto-Mode Bypass" proibido. Só a mão do Diretor via `! <comando>` destrava; Músculo usa copyto cirúrgico (G2) para mudanças pontuais.
+- Encerramento Drive-First executado: Embaixador (caderno 019e4c70) leu os 7 arquivos via Drive MCP e gerou o BLOCO 0 em texto simples → salvo em `PROTOCOLOS_ENCERRAMENTO/BLOCO0_2026-06-20.md`. Contornou o lag de indexação same-day do Drive (fallback por modifiedTime).
+
+**Fricção registrada:** virada de meia-noite quebrou o frescor — PAINEL/CONTEXTO regenerados como `_2026-06-20` e o sync de 21:38 ficou anterior às edições de 02:17, exigindo novo sync para o encerramento.
+
+**Padrão reforçado (PF-1 Builder>Vendedor):** sessão de infra pura, contato externo ZERO — 4ª instância. Máquina comercial pronta; cada gargalo restante é ato humano do Diretor (nomear 1 prospect · confirmar base legal NCM · P185-ROTACAO).
+
+**Status:** infra verde · campanha pronta e retida · Loop 35 ABERTO (não fecha sem prova externa E-1/PF-1) · nenhum projeto cliente tocado.
+
+*Atualizado em: 2026-06-20 — Campanha NCM gravada (retida) + P-190 + encerramento Drive-First*
