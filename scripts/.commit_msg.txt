@@ -1,0 +1,14 @@
+chore(arvore): commit do working tree residual a pedido do Diretor [VEREDITO-DIRETOR]
+
+Abrange (commite tudo o que nao foi commitado -- Diretor 2026-06-20):
+- skills reorganizadas em subpastas (P-180): SKILL.md por skill; removidos .md soltos legados
+- infra W-13/W-10: ativar_w13.ps1, build_w13.ps1, patch_w10.ps1 (revisados R-05)
+- runbooks novos: RUNBOOK_ROTACAO_CREDENCIAIS.md, RUNBOOK_W13_COWORK_FX.md
+- ledgers/WIP/CONTEXTO_GEMINI dos clientes + NOTEBOOKLM_BASE atualizados
+- paineis e contexto de encerramento 2026-06-18/19
+- PROJETISTA: compliance-aduaneiro-ncm CAMPANHA v1 + MODEL.json; removidos artefatos glosa-hospitalar
+- .gitignore: ignora biblioteca de terceiros awesome-claude-skills-master/
+- logs de watchers + relatorios de sync
+- pasta exclusiva "Doc Vanguard Evolucao Diretor/" removida (limpeza confirmada pelo Diretor)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>

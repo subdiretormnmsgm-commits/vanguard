@@ -104,7 +104,10 @@ if (Test-Path $flag) {
 #   -Report  : staged + unstaged (codigo nao-commitado da sessao)
 # ----------------------------------------------------------------------------
 if ($Verify) {
-    $changed = @(git diff --cached --name-only 2>$null)
+    # --diff-filter=d EXCLUI delecoes staged: arquivo removido nao tem conteudo a revisar
+    # e 'git rev-parse :path' falha (sem blob no indice) -> sob EAP=Stop herdado do
+    # pre-commit isso travava o firewall ANTES do bypass. Correcao P-146 (2026-06-20).
+    $changed = @(git diff --cached --name-only --diff-filter=d 2>$null)
 } else {
     $changed = @()
     $changed += @(git diff --cached --name-only 2>$null)

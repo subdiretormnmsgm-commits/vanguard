@@ -1,4 +1,15 @@
-﻿ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-16 22:58
+﻿## GATE PERMANENTE -- PILARES COMPORTAMENTAIS (vale em TODA sessao)
+Fonte canonica: CONSELHO/PILARES COMPORTAMENTAIS.md -- Harmonizacao Diretor 2026-06-17: "Amplitude maxima na busca, economia na entrega."
+I.   PENSAR ANTES DE AGIR -- declare a premissa; pergunte se incerto; confronte quando houver razao tecnica.
+II.  SIMPLICIDADE NA ENTREGA -- o minimo que resolve; sem feature alem do pedido; sem inchaco.
+III. MUDANCAS CIRURGICAS -- toque so no escopo; fora do escopo -> sinalize ao Diretor, nao corrija em silencio.
+IV.  META VERIFICAVEL -- criterio aferivel contra fonte/disco; iteracao termina no checkpoint do Diretor (P-124).
+GATE DE FATO: dado critico (deadline, valor, versao, nome do cliente) vem de fonte/disco -- nunca de memoria. Sem confirmacao -> [NAO CONFIRMADO].
+PADRAO DE QUALIDADE: toda ideia [G-1 a G-5] precisa ser CRIATIVA (nao obvia), DISRUPTIVA (muda como o mercado ve o problema, nunca em complexidade de build) e INTELIGENTE (conecta dados nao conectados -- sintese, nao listagem).
+
+================================================================================
+
+ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-20 13:04
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -9,9 +20,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-3d694f5 chore(gitignore): ignorar screenshots de credencial + scratch + transientes (P-185)
-2401467 feat(processo): P-166 papel+arsenal no comando Antigravity + P-178 code-review executado em 3 camadas [VEREDITO-DIRETOR]
-e3abe0f feat(firewall): 3 guards anti-recorrencia -- P-174 + P-184 + P-185-guard [VEREDITO-DIRETOR]
+9417443 chore(n8n): patch_w11.ps1 -- deploy reproduzivel do W-11 (Opcao A jsCode via PUT)
+c2a1ade feat(cowork): Opcao A cadencia ED + rename Embaixador Agentado -> Cowork Agentado + 4 prompts atores [VEREDITO-DIRETOR]
+257664a feat(w13): ativa W-13 Cowork F(x) Notifier + versiona jsCode n8n solto (W-13/W-10/W-11) [VEREDITO-DIRETOR] [RESOLVE: W-13]
 
 ================================================================================
 
@@ -257,6 +268,12 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ## P-183 -- SCRIPT .ps1 SEM BOM + CARACTERE NAO-ASCII E PARSE CORROMPIDO PELO PS 5.1 VIA -File -- SCRIPTS EM ASCII PURO (2026-06-16) [FALHA-PROCESSO-2026-06-16]
 ## P-184 -- FIREWALL P-098 TEM SUPERFICIES NAO COBERTAS: SHELL-INSTALL + INCERTEZA NO PreToolUse DE EDIT (2026-06-16) [FALHA-PROCESSO-2026-06-16]
 ## P-185 -- O SYNC rclone PARA gdrive:vanguard EXFILTRAVA CREDENCIAIS: TODO MIRROR EXTERNO ESPELHA O .gitignore (2026-06-16) [FALHA-PROCESSO-2026-06-16]
+## P-186 -- GATE 0.5 / ATUALIZACAO DE TIMELINE EDITA A FONTE CANONICA, NUNCA A INSTANCIA DERIVADA (2026-06-17) [FALHA-PROCESSO-2026-06-17]
+## P-187 -- SESSION_CLOSE QUE ATRAVESSA A MEIA-NOITE EXIGE RE-DATACAO DE ARTEFATOS (2026-06-18) [FALHA-PROCESSO-2026-06-18]
+## P-188 -- PILARES COMPORTAMENTAIS SAO GATE PERMANENTE EM TODO PONTO DE CARGA INCONDICIONAL, NAO SO NO LOOP (2026-06-18) [DIRETRIZ-DIRETOR-2026-06-18]
+## P-189 -- "VALIDEI ASCII" SIGNIFICA O ARQUIVO .ps1 INTEIRO, NUNCA SO O BLOCO NOVO (2026-06-18) [FALHA-PROCESSO-2026-06-18]
+## P-190 -- rclone SYNC DE ARVORE INTEIRA PARA DRIVE EXTERNO E TETO DURO DO CLASSIFICADOR: SO A MAO DO DIRETOR DESTRAVA (2026-06-19) [VEREDITO-DIRETOR]
+## P-191 -- O GATE DE FECHAMENTO NAO PODE SER O GEMEO INSEGURO DO GATE DE FRESCOR: SYNC AO DRIVE EXIGE O MESMO FILTRO DE SEGREDOS EM TODA SAIDA (2026-06-20) [VEREDITO-DIRETOR] [FALHA-PROCESSO-2026-06-20]
 
 ### PRINCIPIOS RECENTES -- TEXTO INTEGRAL (P-116 ao ultimo)
 ## P-116 -- O QUE DOI E ERRO, NAO ESFORCO -- VERIFICACAO ANTES DE AUTOMACAO (2026-06-06)
@@ -1198,6 +1215,57 @@ Consulta humana: scripts/skill_gate.ps1 -Listar.
 **Aplica-se a:** todo sync/copy para destino fora do disco local. Generaliza: nenhum segredo cruza o perimetro local sem filtro explicito.
 **Aplica-se a:** todo .ps1 do repo executado via powershell.exe -File (hooks, scripts de orquestracao, session_start/close). Generaliza para qualquer PS 5.1 + arquivo sem BOM + caractere multibyte.
 **Aplica-se a:** toda operacao de anexacao/navegacao a superficie que le do gdrive:vanguard, todo loop, todo cliente. Liga com P-168, P-169, P-167, P-146, P-180, DEF-M-6.
+
+---
+
+## P-186 -- GATE 0.5 / ATUALIZACAO DE TIMELINE EDITA A FONTE CANONICA, NUNCA A INSTANCIA DERIVADA (2026-06-17) [FALHA-PROCESSO-2026-06-17]
+**Origem:** no GATE 0.5 (F7-01), a Timeline foi atualizada editando a copia CLIENTES/VANGUARD/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md (lugar onde o Embaixador le) + PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/17_, e propagada via sync para os FONTES dos clientes. O post-commit detect_canonical_violation.ps1 disparou VERMELHO: 6 violacoes P-073 -- todas as instancias 17_/16_ "mais novas que a fonte canonical e hash diferente".
+**Falha que originou:** confusao sobre qual e a fonte canonica. O DEPENDENCY_MAP.json (linha 106 + trigger 497) declara que a fonte de 16_/17_VANGUARD_TIMELINE.md e PENTALATERAL_UNIVERSAL/HISTORICO/VANGUARD_TIMELINE.md -- NAO a instancia 16_ no CLAUDE_PROJECT (apesar de PENDENTES de 2026-06-12 ter declarado 16_ como "fonte canonica" -- declaracao informal que nunca foi refletida no DEPENDENCY_MAP). Editar a derivada e propagar inverte o fluxo: a fonte canonica fica defasada e o gate acusa toda instancia como violacao.
+**Principio:** para TODO documento TIPO 1/TIPO 2 com entrada no DEPENDENCY_MAP, a unica edicao valida e na fonte `canonical` declarada no mapa -- depois propagate_changes.ps1. Antes de editar uma timeline/doc universal, consultar DEPENDENCY_MAP para achar o campo `canonical`; nunca inferir pela posicao do arquivo nem por declaracao informal em PENDENTES. A fonte de verdade da classificacao e o DEPENDENCY_MAP (CLAUDE.md item 25), nao a memoria.
+**Fix aplicado:** copiado o derivado atualizado (identico a fonte + as 2 edicoes do GATE 0.5, diff verificado limpo) por cima de HISTORICO/VANGUARD_TIMELINE.md -> propagate_changes.ps1 (10 destinos reassentados) -> detect_canonical_violation VERDE exit 0. Commit b994f22 [VEREDITO-DIRETOR].
+**Aplica-se a:** todo GATE 0.5 e toda atualizacao de timeline/doc universal. Liga com P-073 (classificacao de documentos), P-060 (propagacao e responsabilidade do Musculo), DEPENDENCY_MAP. Candidato a guard: o passo de atualizacao de timeline le `canonical` do DEPENDENCY_MAP e edita la, nao na instancia.
+
+---
+
+## P-187 -- SESSION_CLOSE QUE ATRAVESSA A MEIA-NOITE EXIGE RE-DATACAO DE ARTEFATOS (2026-06-18) [FALHA-PROCESSO-2026-06-18]
+**Origem:** sessao de continuacao do encerramento iniciado em 2026-06-17 (F7/W-12). O commit de fechamento caiu em 2026-06-18 04h. O session_close.ps1, rodando ja em 18/06, disparou cascata de bloqueios: GATE 6B/P-032 (flag de MEMORIA era de 17/06, nao "hoje"), GATE 7C (CONTEXTO_SESSAO_DIRETOR_2026-06-18 AUSENTE + LEDGER/PENDENTES/TIMELINE/MEMORIA marcados STALE por threshold de 3h), GATE EMBAIXADOR (exige BLOCO0_2026-06-18 + embaixador_msg). O encerramento substantivo ja fora concluido em 17/06 -- o gate pediu um segundo ciclo completo por causa da virada de data.
+**Principio:** quando uma sessao atravessa a meia-noite, os artefatos datados (CONTEXTO/PAINEL/BLOCO0/flags P-032) ficam "de ontem" e o session_close trata como fechamento novo do dia corrente. O threshold de 3h do GATE 7C e apertado demais para fechamento que vira o dia -- qualquer doc nao tocado nas ultimas 3h falha, mesmo correto. A correcao e re-datar os artefatos baratos (flag P-032, CONTEXTO de continuacao) e refazer o que o Diretor pedir.
+**Fix aplicado (manual nesta sessao):** re-run update_memoria_embaixador (flag 18/06) + CONTEXTO_SESSAO_DIRETOR_2026-06-18 enxuto de continuacao + este registro no LEDGER (re-toca LastWriteTime) + captura remota do Embaixador refeita em 18/06 por ordem do Diretor.
+**Aplica-se a:** todo session_close que cruza a meia-noite ou roda como continuacao de um encerramento ja iniciado. Candidato a automacao Loop 36: (a) session_close detecta continuacao (CONTEXTO do dia anterior existe + commit de fechamento recente) e oferece modo "continuacao"; (b) GATE 7C usa data-da-sessao, nao threshold-de-horas fixo. Liga com P-114 (BLOCO 0 ancora), feedback_encerramento_conclui_no_bloco0.
+
+---
+
+## P-188 -- PILARES COMPORTAMENTAIS SAO GATE PERMANENTE EM TODO PONTO DE CARGA INCONDICIONAL, NAO SO NO LOOP (2026-06-18) [DIRETRIZ-DIRETOR-2026-06-18]
+**Origem:** o Diretor formalizou os PILARES COMPORTAMENTAIS (CONSELHO/PILARES COMPORTAMENTAIS.md) e ordenou instala-los como comportamento de TODA sessao -- de todos os atores -- nao apenas dentro de um Loop. "Comportamentos durante todas as sessoes. Vamos fazer isso agora, porque e importante." Enfase explicita: o Antigravity tambem precisa saber durante as sessoes.
+**Os 4 pilares (harmonizacao Diretor 2026-06-17: "Amplitude maxima na busca, economia na entrega"):** I. PENSAR ANTES DE AGIR (declarar premissa, perguntar se incerto, confrontar com razao tecnica). II. SIMPLICIDADE NA ENTREGA (minimo que resolve, sem feature alem do pedido). III. MUDANCAS CIRURGICAS (so o escopo; fora do escopo -> sinalizar, nao corrigir em silencio). IV. META VERIFICAVEL (criterio contra fonte/disco; iteracao termina em P-124). Acoplados: GATE DE FATO (dado critico vem de disco, nunca de memoria; sem confirmacao -> [NAO CONFIRMADO]) e PADRAO DE QUALIDADE (ideia CRIATIVA + DISRUPTIVA + INTELIGENTE).
+**Principio:** comportamento que vale "em toda sessao" tem de ser plantado em CADA ponto de carga incondicional do ator -- nunca depender da memoria do Musculo (mesma falha-mae de DEF-M-6 / P-180 / P-181). Quando o artefato lido pelo ator e REGENERADO a cada execucao (CONTEXTO_GEMINI.md, .antigravity_prompt.txt), o gate NAO pode ser escrito no artefato (seria sobrescrito) -- tem de ser injetado no GERADOR. Mesma isomorfia do P-180/P-181: a regra vira mecanismo na fonte, nao lembrete.
+**Fix aplicado (instalacao em 9 pontos):** (a) Musculo: ~/.claude/rules/pilares_vanguard.md (regra global, carrega 100% automatico). (b) Antigravity: scripts/ir_ao_antigravity.ps1 -- gate prependido ao $linhasPrompt (o .txt e regenerado, linha ~233 WriteAllText). (c) Gemini: scripts/gemini_anchor_generator.ps1 -- BLOCO 0 prependido ao conteudo gerado do CONTEXTO_GEMINI.md. (d) CLAUDE.md topo (RIDER A -- carrega em todo projeto). (e-g) Templates PASSO3_GEMINI / PASSO5_NOTEBOOKLM / PASSO7_EMBAIXADOR -- gate no topo (PADRAO DE QUALIDADE adaptado a [G/N/E]-1..5). (h) Este registro no LEDGER. (i) NotebookLM: PILARES subido como fonte permanente do caderno pelo Diretor. Os 5 canonicos via flag .musculo_autorizacao.flag (P-098) com VEREDITO-DIRETOR explicito. Scripts validados (parse PS 5.1 0 erros, ASCII puro -- P-183).
+**Pendente (decisao do Diretor):** Cowork global -- nao existe arquivo global local; a skill cowork-engine-v1 e off-limits ao Musculo (skill do Embaixador agentado). Opcoes: (a) Diretor cola os pilares na config do Claude Projects do Embaixador, ou (b) wrapper externo que prefixa o gate no insumo do Cowork.
+**Aplica-se a:** todo ator, todo passo, toda sessao -- com ou sem Loop. Liga com P-180 (skill por gatilho mecanico), P-181 (frescor mecanico), P-124 (checkpoint do Diretor), P-098 (firewall de arquivo), DEF-M-6 (Musculo reativo). Fonte canonica viva: CONSELHO/PILARES COMPORTAMENTAIS.md.
+**Adendo 2026-06-18 (Cowork resolvido -- 10 pontos):** o pendente Cowork foi fechado em DOIS caminhos. Caminho 1 (Antigravity COWORK CONDUCTOR via ir_ao_antigravity.ps1): alem do gate generico, o Diretor pediu que o Executor Cowork saiba COMO AGIR conforme os pilares -- bloco condicional ($papel -eq "COWORK") traduzindo cada pilar em acao de inteligencia de mercado (declarar hipotese/nicho antes de pesquisar; sintese acionavel nao dump; nicho novo = SUGESTAO em PENDING_REVIEW nunca auto-expansao; todo numero com fonte+data, [NAO CONFIRMADO] sem fonte, output sempre para PENDING_REVIEW.md P-124). Vive no gerador (durabilidade isomorfa). Caminho 2 (Embaixador agentado / cowork-engine-v1, runtime remoto off-limits ao Musculo): Diretor colou os pilares na config do Claude Projects -- set-and-forget, opcao (a). Gate dos pilares agora em 10 pontos de carga incondicional.
+
+## P-189 -- "VALIDEI ASCII" SIGNIFICA O ARQUIVO .ps1 INTEIRO, NUNCA SO O BLOCO NOVO (2026-06-18) [FALHA-PROCESSO-2026-06-18]
+**Origem:** ao instalar os pilares (commit c95496e), o Musculo afirmou "Scripts validados (parse PS 5.1 0 erros, ASCII puro -- P-183)" para os dois scripts editados. A validacao de ASCII, porem, so contou bytes nao-ASCII NO BLOCO NOVO de um deles (ir_ao_antigravity.ps1) e foi extrapolada para o outro sem verificacao. O gemini_anchor_generator.ps1 carregava um `·` (U+00B7 MIDDLE DOT, 2 bytes) preexistente na linha do BLOCO 0 -- violando P-183 num .ps1 sem BOM. O defeito so apareceu no code-review formal (subagente) rodado depois, nao na auto-validacao -- a afirmacao do commit era falsa.
+**Principio:** "validei ASCII" tem de significar varredura do ARQUIVO INTEIRO de CADA .ps1 tocado (ReadAllBytes -> Where $_ -gt 127 == 0 + checar BOM), nunca amostra do bloco recem-editado nem extrapolacao de um script para outro. Toda afirmacao factual em mensagem de commit ("ASCII puro", "parse OK", "0 erros") exige evidencia do arquivo inteiro -- senao e GATE DE FATO violado (Pilar IV / Pilar I: nao afirmar o que nao foi aferido contra disco).
+**Fix aplicado:** commit 8b5b32f trocou o `·` por ` -- ` (estilo do resto do bloco); revalidacao do ARQUIVO INTEIRO confirmou parse OK + 0 bytes nao-ASCII + sem BOM. Ambos os scripts dos pilares passaram por code-review formal (R-05) -- divida do bypass de emergencia de c95496e zerada.
+**Anti-recorrencia CONSTRUIDA (P-146 -- documentar sem automatizar = repetir):** Regra 5 adicionada a validate_scripts.ps1 (commit 8428f07) -- varre o ARQUIVO INTEIRO de todo .ps1 sem BOM e emite [FALHA] P-183 / exit 1 para qualquer byte > 127 (exceto aspas curvas, ja cobertas pela Regra 0). Testada: positivo (U+00B7 pego), BOM (ignorado), aspa curva (sem duplicar), repo limpo. Code-review R-05 aprovado. Limitacao conhecida (deferida): caractere astral fora do BMP exibe os 2 surrogates em vez do codepoint real -- nao afeta deteccao nem exit. O principio agora e mecanismo, nao disciplina.
+
+---
+
+## P-190 -- rclone SYNC DE ARVORE INTEIRA PARA DRIVE EXTERNO E TETO DURO DO CLASSIFICADOR: SO A MAO DO DIRETOR DESTRAVA (2026-06-19) [VEREDITO-DIRETOR]
+**Origem:** o veredito #1 desta sessao tecnica pedia sincronizar a arvore local -> gdrive:vanguard (Drive-First, P-169). O classificador de seguranca recusou rodar `rclone sync` da arvore de trabalho inteira para destino remoto -- tratou como exfiltracao em massa. O bloqueio NAO e contornavel pelo Musculo: rodar o comando cru, embrulhar em script, ou editar as settings para liberar = "Auto-Mode Bypass" (a mesma acao por outro canal continua sendo a acao proibida). O sync so completou quando o Diretor digitou o comando no proprio chat com o prefixo `! ` -- que executa no contexto dele, nao no do agente.
+**Principio:** a fronteira do gate nao e o CONTEUDO da autorizacao, e o CANAL de execucao. O Musculo pode ter veredito explicito e por escrito do Diretor e AINDA ASSIM nao ser o canal legitimo para executar movimento de dados em massa para fora do perimetro local. Autorizacao verbal nao transfere o ato para a mao do agente; sync de arvore inteira para Drive externo e um ato que so a mao humana do Diretor pratica (prefixo `! <comando>` no Claude Code). Procurar uma rota alternativa (cmd/script/settings) para fazer o mesmo movimento e exatamente o bypass que o gate existe para impedir -- nao se tenta.
+**Workaround validado (P-146 -- a regra so vale se houver caminho construido):** o Diretor roda no chat `! rclone sync "<arvore>" gdrive:vanguard --exclude-from scripts/rclone_secrets_exclude.txt ...`. Para mudanca PONTUAL, o Musculo usa o G2 cirurgico (`rclone copyto` arquivo a arquivo) -- esse passa, pois nao e sync de arvore. Dois gates ortogonais e independentes: **P-185** governa QUE bytes podem sair (filtro de segredos obrigatorio no sync); **P-190** governa QUEM/QUAL CANAL executa a saida em massa (so a mao do Diretor). Um nao substitui o outro.
+**Aplica-se a:** todo `rclone sync` (ou equivalente bulk) da arvore de trabalho para qualquer destino remoto, todo loop, todo cliente. Liga com P-185 (filtro de segredos / rclone_secrets_guard.ps1), P-098 (firewall de arquivo protegido -- mesma logica de canal/autorizacao explicita), P-169/P-181 (Drive-First e o G2 copyto cirurgico como alternativa do Musculo), P-124 (checkpoint do Diretor), DEF-M-6. Nao tentar contornar por outro canal = comportamento permanente.
+**Aplica-se a:** todo .ps1 editado em qualquer sessao. Liga com P-183 (ASCII puro em .ps1 sem BOM), P-178/R-05 (code-review pegou o que a auto-validacao nao pegou), P-146 (automatizar o principio), GATE DE FATO (afirmar so o aferido). Detectado pelo code-review, nao pelo Diretor.
+
+---
+
+## P-191 -- O GATE DE FECHAMENTO NAO PODE SER O GEMEO INSEGURO DO GATE DE FRESCOR: SYNC AO DRIVE EXIGE O MESMO FILTRO DE SEGREDOS EM TODA SAIDA (2026-06-20) [VEREDITO-DIRETOR] [FALHA-PROCESSO-2026-06-20]
+**Origem:** ao fechar a sessao da madrugada de 20/06, o GATE 10 do `session_close.ps1` chamava `rclone sync <arvore> -> gdrive:vanguard` excluindo apenas `.git/.playwright-mcp/.serena/node_modules/*.pyc` -- SEM `--exclude-from scripts/rclone_secrets_exclude.txt` e SEM o exclude da biblioteca de terceiros `awesome-claude-skills-master`. Era o gemeo inseguro do sync de `verify_gdrive_freshness.ps1` (linha 169), que JA tinha os dois excludes. A cada fechamento, esse gate re-empurraria ao Drive de terceiros exatamente as 7 credenciais que o P185-ROTACAO esta tratando -- desfazendo a purga e perpetuando a exposicao.
+**Principio:** quando duas rotas de codigo executam o MESMO movimento de dados para fora do perimetro (aqui: dois `rclone sync` para `gdrive:vanguard`), elas precisam carregar o MESMO filtro de seguranca -- senao a rota mais fraca anula a mais forte. O `rclone_secrets_guard.ps1` (P-185) so intercepta `rclone` invocado como comando Bash pelo agente; uma chamada interna de `.ps1` para `rclone.exe` passa POR BAIXO do guard. Logo, o filtro de segredos nao pode depender so do guard de canal -- tem de estar HARD-CODED em cada script que sincroniza ao Drive. Gate de seguranca que existe em um script e falta no seu gemeo nao e protecao: e a ilusao de protecao.
+**Workaround/correcao (P-146 -- a regra so vale com caminho construido):** GATE 10 do `session_close.ps1` recebeu `--exclude ".claude/skills/awesome-claude-skills-master/**"` + `--exclude-from $secretsExclude` (onde `$secretsExclude = scripts/rclone_secrets_exclude.txt`), espelhando `verify_gdrive_freshness.ps1`. Parse OK, ASCII puro (P-183). Backlog: extrair o sync rclone canonico para uma unica funcao/script compartilhado, para que nunca mais existam dois `rclone sync -> gdrive` com listas de exclude divergentes.
+**Aplica-se a:** todo script que sincroniza a arvore para destino remoto (session_close.ps1, verify_gdrive_freshness.ps1, qualquer futuro). Liga com P-185 (QUE bytes podem sair -- filtro obrigatorio), P-190 (QUEM executa a saida em massa -- so a mao do Diretor), P-098 (firewall de arquivo protegido), P-178/R-05 (revisao pega o gemeo divergente), DEF-M-6. Detectado pelo Musculo no fechamento, antes do Diretor.
 
 ================================================================================
 

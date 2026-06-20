@@ -1147,3 +1147,283 @@
 [2026-06-16 22:58:25] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
 [2026-06-16 22:58:25] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
 [2026-06-16 22:58:25] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-16 23:14:39] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-16 23:14:39] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:14:39] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:14:39] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:14:39] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-16 23:25:38] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-16 23:25:38] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:25:38] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:25:38] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:25:38] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-16 23:44:19] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-16 23:44:19] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:44:19] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:44:20] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:44:20] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-16 23:57:42] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-16 23:57:42] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:57:42] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:57:42] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-16 23:57:42] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 00:07:29] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 00:07:29] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:07:29] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:07:29] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:07:29] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 00:20:55] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 00:20:55] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:20:55] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:20:55] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:20:55] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 00:37:26] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 00:37:26] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:37:26] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:37:26] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:37:26] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 00:57:28] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 00:57:28] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:57:28] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:57:28] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 00:57:28] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 01:28:19] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 01:28:19] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 01:28:19] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 01:28:19] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 01:28:19] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 06:49:32] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 06:49:32] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 06:49:32] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 06:49:32] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 06:49:32] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 07:31:51] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 07:31:51] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 07:31:51] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 07:31:51] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 07:31:52] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 07:43:30] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 07:43:30] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 07:43:30] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 07:43:30] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 07:43:30] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 08:10:21] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 08:10:21] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 08:10:21] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 08:10:21] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 08:10:21] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 17:58:17] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 17:58:17] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 17:58:17] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 17:58:17] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 17:58:17] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 19:59:33] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 19:59:33] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 19:59:33] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 19:59:33] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 19:59:33] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 20:33:16] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 20:33:17] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 20:33:17] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 20:33:17] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 20:33:17] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 20:51:12] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 20:51:12] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 20:51:12] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 20:51:13] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 20:51:13] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 21:12:58] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 21:12:58] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 21:12:58] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 21:12:58] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 21:12:58] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 21:39:22] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 21:39:22] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 21:39:22] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 21:39:22] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 21:39:22] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 22:07:49] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 22:07:49] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:07:49] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:07:49] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:07:49] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 22:42:48] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 22:42:48] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:42:48] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:42:48] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:42:48] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 22:56:11] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 22:56:11] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:56:11] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:56:11] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 22:56:11] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 23:37:16] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 23:37:16] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 23:37:16] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 23:37:16] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 23:37:16] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-17 23:48:58] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-17 23:48:58] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 23:48:58] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 23:48:58] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-17 23:48:58] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 00:03:04] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 00:03:04] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 00:03:04] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 00:03:04] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 00:03:04] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 04:21:39] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 04:21:39] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 04:21:39] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 04:21:39] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 04:21:39] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 04:32:55] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 04:32:56] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 04:32:56] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 04:32:56] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 04:32:56] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 05:08:56] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 05:08:56] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 05:08:56] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 05:08:56] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 05:08:56] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 20:03:04] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 20:03:05] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 20:03:05] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 20:03:05] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 20:03:05] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 20:38:11] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 20:38:11] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 20:38:11] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 20:38:11] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 20:38:11] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 21:07:17] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 21:07:17] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:07:17] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:07:17] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:07:17] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 21:23:54] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 21:23:54] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:23:54] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:23:54] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:23:54] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 21:44:40] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 21:44:40] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:44:40] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:44:40] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 21:44:40] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 22:13:03] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 22:13:03] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 22:13:03] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 22:13:03] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 22:13:03] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 23:21:14] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 23:21:14] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 23:21:14] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 23:21:14] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 23:21:14] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-18 23:53:33] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-18 23:53:33] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 23:53:33] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 23:53:33] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-18 23:53:33] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-19 15:33:26] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-19 15:33:26] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 15:33:26] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 15:33:26] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 15:33:26] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-19 16:30:22] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-19 16:30:22] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 16:30:22] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 16:30:22] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 16:30:22] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-19 17:38:54] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-19 17:38:54] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 17:38:54] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 17:38:54] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 17:38:54] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-19 18:47:55] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-19 18:47:55] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 18:47:55] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 18:47:55] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 18:47:55] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-19 19:02:28] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-19 19:02:28] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 19:02:28] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 19:02:28] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 19:02:28] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-19 19:34:35] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-19 19:34:35] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 19:34:35] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 19:34:35] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 19:34:35] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-19 21:30:29] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-19 21:30:29] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 21:30:29] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 21:30:29] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-19 21:30:29] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 02:41:57] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 02:41:57] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 02:41:57] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 02:41:57] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 02:41:57] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 02:52:25] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 02:52:25] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 02:52:25] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 02:52:25] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 02:52:25] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 09:36:08] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 09:36:08] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 09:36:08] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 09:36:08] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 09:36:08] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 09:57:07] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 09:57:07] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 09:57:07] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 09:57:07] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 09:57:07] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 10:11:50] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 10:11:50] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 10:11:50] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 10:11:50] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 10:11:50] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 10:27:06] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 10:27:07] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 10:27:07] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 10:27:07] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 10:27:07] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 11:06:50] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 11:06:50] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 11:06:50] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 11:06:50] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 11:06:50] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 11:34:07] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 11:34:07] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 11:34:07] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 11:34:07] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 11:34:07] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 12:02:28] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 12:02:28] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:02:28] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:02:28] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:02:28] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 12:08:37] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 12:08:37] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:08:37] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:08:37] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:08:37] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 12:36:37] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 12:36:37] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:36:37] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:36:37] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:36:37] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 12:50:40] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 12:50:40] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:50:40] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:50:40] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 12:50:40] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 13:04:24] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 13:04:24] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 13:04:24] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 13:04:24] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 13:04:24] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...

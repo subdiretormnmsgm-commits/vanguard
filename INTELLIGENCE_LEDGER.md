@@ -1695,6 +1695,12 @@ WIP_BOARD dizia "aguardando seed nas credenciais do Valdece" — Eduardo confirm
 
 ---
 
+### [SESSÃO 2026-06-20] — Frente M-STATS / ciclo da fonte Músculo→EXECUTOR Cowork
+
+`[FRICÇÃO]` **Músculo não consultou P-190 ao bater no bloqueio do G2.** Ao propagar o parecer M-STATS robustecido ao Drive, o `rclone sync` de árvore inteira foi negado pelo classificador (comportamento esperado — P-190). Em vez de aplicar o **G2 cirúrgico** (`rclone copyto` arquivo a arquivo, que passa por não ser sync de árvore), pedi ao Diretor para rodar o sync de árvore via `! ` — trabalho desnecessário para ele. Corrigido na mesma sessão: a propagação pontual seguinte (status no parecer) foi feita via `rclone copyto`, exit 0. **Reforço anti-recorrência:** ao ver bloqueio de `rclone sync`, consultar P-190 ANTES de escalar ao Diretor — `copyto` cirúrgico é a rota do Músculo para mudança pontual; o `! ` do Diretor reserva-se ao sync de árvore inteira.
+
+---
+
 ## P-093 — FERRAMENTA NORMALIZADA ANTES DO ROI PERCEBIDO (2026-06-01)
 **Origem:** Embaixador Valdece · Hypercare Dia 13 · 2026-06-01
 **Veredito:** Inscrito pelo Músculo (P-032 automático).

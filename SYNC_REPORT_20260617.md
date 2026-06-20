@@ -1,11 +1,11 @@
-﻿# VANGUARD DOC SYNC -- RELATORIO 20260616
+﻿# VANGUARD DOC SYNC -- RELATORIO 20260617
 > P-033 -- Sync universal -> projetos e obrigatorio e imediato
 > Pastas excluidas: PERFIS_NICHO, VANGUARD_HISTORICO
 
 ## RODADA 0 -- Canonico OPERACAO -> BASE (P-073): 0 arquivo(s) sincronizado(s)
 
 ## STATUS FINAL
-- Sincronizados: 0
+- Sincronizados: 5
 - Falhas de Integridade: 0
 - Orfaos: 14
 - Project_Only (nao sao orfaos): 14

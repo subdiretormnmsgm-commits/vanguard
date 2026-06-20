@@ -202,7 +202,11 @@ if ($stale.Count -gt 0) {
     Write-Host ""
     exit 1
 } else {
-    Write-Host "  [DRIVE FRESHNESS] VERDE -- Drive em dia. Embaixador pode buscar em gdrive:vanguard" -ForegroundColor Green
+    if ($Perfil -eq "ENCERRAMENTO") {
+        Write-Host "  [DRIVE FRESHNESS] VERDE -- Drive em dia. Embaixador pode buscar em gdrive:vanguard" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRIVE FRESHNESS] VERDE -- Drive em dia. Atores remotos (perfil $Perfil) podem buscar em gdrive:vanguard" -ForegroundColor Green
+    }
     Write-Host "  =======================================================" -ForegroundColor Cyan
     Write-Host ""
     exit 0

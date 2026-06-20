@@ -76,6 +76,8 @@ notebooklm_*.png
 nblm_*.yml
 *.bak
 .claude/skills/*.zip
+# Biblioteca publica de terceiros clonada pelo Diretor p/ avaliacao (2026-06-19) -- nao e codigo Vanguard, so disco local
+.claude/skills/awesome-claude-skills-master/
 
 # Transientes de sessao (flags, state, logs e prompts efemeros)
 .code_review_done.flag

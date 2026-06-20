@@ -1,4 +1,4 @@
-﻿# VANGUARD DOC SYNC -- RELATORIO 20260616
+﻿# VANGUARD DOC SYNC -- RELATORIO 20260620
 > P-033 -- Sync universal -> projetos e obrigatorio e imediato
 > Pastas excluidas: PERFIS_NICHO, VANGUARD_HISTORICO
 

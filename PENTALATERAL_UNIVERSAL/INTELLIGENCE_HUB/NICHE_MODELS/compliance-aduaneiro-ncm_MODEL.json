@@ -1,5 +1,5 @@
 {
-    "alerta_timing":  "LC 227/2026 publicada 05/06 — penalidade R.000 por informacao incorreta. Reforma Tributaria bloqueia NF com NCM errado diretamente na SEFAZ.",
+    "alerta_timing":  "LC 227/2026 publicada 05/06 — penalidade R$20.000 por informacao incorreta. Reforma Tributaria bloqueia NF com NCM errado diretamente na SEFAZ.",
     "id":  "compliance-aduaneiro-ncm",
     "cadencia_cowork":  {
                             "frentes_alimentadoras":  [
@@ -48,14 +48,14 @@
                             },
     "cowork_densidade":  "MEDIA — F1+F3+F11",
     "narrativas":  {
-                       "whatsapp_indicacao":  "Oi [nome], [indicado por X]. A LC 227/2026 mudou o custo de erro de NCM para R por informacao incorreta — e a Reforma Tributaria rejeita a NF direto na SEFAZ. Sua operacao de importacao passou por revisao recente? Nossa equipe faz o mapeamento preventivo.",
+                       "whatsapp_indicacao":  "Oi [nome], [indicado por X]. A LC 227/2026 mudou o custo de erro de NCM para R$20.000 por informacao incorreta — e a Reforma Tributaria rejeita a NF direto na SEFAZ. Sua operacao de importacao passou por revisao recente? Nossa equipe faz o mapeamento preventivo.",
                        "whatsapp_cold":  "A Reforma Tributaria de 2026 tornou o erro de classificacao NCM uma trava que rejeita notas fiscais automaticamente na SEFAZ. Nossos especialistas realizam a auditoria preventiva do seu portfolio para evitar que o faturamento da sua empresa seja paralisado. Qual foi a ultima vez que seus codigos passaram por uma validacao profunda?",
-                       "argumento_abertura":  "As importacoes brasileiras superam R,6 trilhao anuais, mas um erro de classificacao NCM agora para o faturamento automaticamente na SEFAZ. Quantos dos produtos da sua empresa circulam sem uma revisao atualizada da classificacao fiscal?",
+                       "argumento_abertura":  "As importacoes brasileiras superam R$1,6 trilhao anuais, mas um erro de classificacao NCM agora para o faturamento automaticamente na SEFAZ. Quantos dos produtos da sua empresa circulam sem uma revisao atualizada da classificacao fiscal?",
                        "linkedin_post":  "As importacoes brasileiras superam R$ 1,6 trilhao anuais, mas um detalhe documental ameaca paralisar as operacoes em 2026. Com a Reforma Tributaria, a inconsistencia na classificacao NCM deixou de ser apenas uma multa contornavel e tornou-se uma barreira imediata. Notas fiscais com codigos divergentes sao rejeitadas automaticamente pelo sistema da SEFAZ, congelando o faturamento. Alem disso, a nova legislacao substituiu penalidades antigas por sancoes de R$ 20.000 por informacao incompleta. Nossa equipe aplica um metodo de auditoria documental que revisa integralmente o portfolio de SKUs, cruzando dados com normas da CAMEX e ex-tarifarios para assegurar o fluxo continuo de desembaraco. A conformidade previa e a garantia de que as operacoes comerciais nao serao interrompidas nas fronteiras e nos sistemas tributarios. Quantos dos produtos da sua empresa circulam hoje sem uma revisao atualizada da classificacao fiscal?"
                    },
     "roi_vanguard":  {
-                         "retorno":  "Prevencao de rejeicao automatica de NF na SEFAZ + eliminacao de multa R por erro",
-                         "ticket_estimado":  "R.000 a R.000 por auditoria de portfolio",
+                         "retorno":  "Prevencao de rejeicao automatica de NF na SEFAZ + eliminacao de multa R$20.000 por erro",
+                         "ticket_estimado":  "R$15.000 a R$40.000 por auditoria de portfolio",
                          "pricing":  {
                                          "modelo":  "Auditoria preventiva de portfolio NCM + mapeamento com CAMEX/ex-tarifarios + certificacao de conformidade"
                                      }
@@ -67,7 +67,7 @@
                                            "Ja tiveram alguma nota rejeitada ou atuacao por erro de classificacao nos ultimos 12 meses?"
                                        ],
                          "criterios_ideal":  [
-                                                 "Portfolio de importados acima de R/ano",
+                                                 "Portfolio de importados acima de R$5 milhoes/ano",
                                                  "Sem revisao sistematica de NCM nos ultimos 12 meses",
                                                  "Multiplos SKUs (acima de 50 produtos importados)"
                                              ]
@@ -78,15 +78,15 @@
                            "gatilho_abordagem":  "LC 227/2026 — sua classificacao NCM esta auditada?",
                            "perfil":  "Diretor Financeiro, Gerente de Importacao ou Compliance de empresa importadora",
                            "busca_linkedin":  "\"importacao\" OR \"comercio exterior\" OR \"NCM\" + \"gerente\" OR \"diretor\" OR \"compliance\"",
-                           "tamanho_empresa":  "Empresa com portfolio de importados acima de R/ano",
+                           "tamanho_empresa":  "Empresa com portfolio de importados acima de R$5 milhoes/ano",
                            "canal":  "LinkedIn / Indicacao"
                        },
     "dores":  [
                   "Erro de classificacao NCM agora rejeita nota fiscal automaticamente na SEFAZ — faturamento paralisado imediatamente",
-                  "LC 227/2026 substituiu multa de 1% por R.000 por informacao incorreta — impacto financeiro drastico",
+                  "LC 227/2026 substituiu multa de 1% por R$20.000 por informacao incorreta — impacto financeiro drastico",
                   "Portfolio de SKUs sem revisao atualizada acumula risco silencioso de autuacao em bloco",
                   "Despachante aduaneiro foca no desembaraco pontual, nao na auditoria historica do portfolio",
-                  "Importacoes brasileiras superam R,6 trilhao anuais — escala do risco e proporcional"
+                  "Importacoes brasileiras superam R$1,6 trilhao anuais — escala do risco e proporcional"
               ],
     "notas_embaixador":  [
                              "Ha empresas de importacao na rede de Eduardo ou de clientes atuais (Ingrid, Valdece)?",
@@ -111,18 +111,18 @@
     "gatilho_regulatorio":  {
                                 "norma":  "LC 227/2026 + Reforma Tributaria",
                                 "prazo":  "Continuo — Reforma Tributaria ativa desde 2026",
-                                "impacto":  "R.000 por informacao incorreta + rejeicao automatica de NF na SEFAZ. Faturamento paralisado em tempo real."
+                                "impacto":  "R$20.000 por informacao incorreta + rejeicao automatica de NF na SEFAZ. Faturamento paralisado em tempo real."
                             },
     "historico":  {
                       "criado":  "2026-06-13",
                       "loop_origem":  33,
                       "ultima_atualizacao":  "2026-06-13",
-                      "notas_loop":  "UPGRADE fit 4.3-\u003e5.0. LC 227/2026 substituiu multa 1% por R/erro. Rejeicao automatica SEFAZ."
+                      "notas_loop":  "UPGRADE fit 4.3-\u003e5.0. LC 227/2026 substituiu multa 1% por R$20.000/erro. Rejeicao automatica SEFAZ."
                   },
     "cross_sell":  [
                        {
                            "nicho":  "ma-reestruturacao-societaria",
-                           "ticket_combinado":  "R-R",
+                           "ticket_combinado":  "R$15.000 a R$40.000 (NCM) + ticket de due diligence M&A (a definir)",
                            "argumento":  "Empresas em M\u0026A com operacao de importacao precisam de due diligence de NCM — passivo fiscal oculto e deal-breaker"
                        }
                    ]

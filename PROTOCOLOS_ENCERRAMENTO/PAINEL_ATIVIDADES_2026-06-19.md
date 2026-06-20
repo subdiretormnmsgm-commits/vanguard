@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Quinta-feira, 2026-06-18 23:21
+### Pentalateral IAH - Sexta-feira, 2026-06-19 21:34
 
 ---
 
@@ -10,15 +10,13 @@
 
 | # | Projeto | Tarefa | Prazo | Dias em atraso |
 |---|---------|--------|-------|---------------|
-| 1 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertic... | 2026-06-12 | 6d |
-| 2 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | ⚠️ [ALERTA NICHE] Eventos Fiscais / ECD 2026 — 17 DIAS | 2026-06-13 | 5d |
-| 3 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias | 2026-06-13 | 5d |
-| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026 | 2026-06-13 | 5d |
-| 5 | COWORK ENGINE — Inteligência de Mercado Vanguard | [MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIE... | 2026-06-13 | 5d |
-| 6 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-185-guard REFINO (achado #2) — rclone_secrets... | 2026-06-16 | 2d |
-| 7 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ... | 2026-06-16 | 2d |
-| 8 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [S-3] Telegram confirma diariamente que os agentes (Antig... | 2026-06-18 | HOJE |
-| 9 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [S-2] Telegram avisa para abrir sessão no Músculo quando ... | 2026-06-18 | HOJE |
+| 1 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertic... | 2026-06-12 | 7d |
+| 2 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026 | 2026-06-13 | 6d |
+| 3 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias | 2026-06-13 | 6d |
+| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | ⚠️ [ALERTA NICHE] Eventos Fiscais / ECD 2026 — 17 DIAS | 2026-06-13 | 6d |
+| 5 | COWORK ENGINE — Inteligência de Mercado Vanguard | [MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIE... | 2026-06-13 | 6d |
+| 6 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ... | 2026-06-16 | 3d |
+| 7 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-185-guard REFINO (achado #2) — rclone_secrets... | 2026-06-16 | 3d |
 
 ---
 
@@ -33,7 +31,7 @@ Nenhum gate vencido detectado.
 > Copiar o bloco abaixo e colar no Claude Projects junto com o upload deste arquivo.
 
 ```
-Embaixador, fechamento de sessao -- 2026-06-18.
+Embaixador, fechamento de sessao -- 2026-06-19.
 
 Faco upload do PAINEL_ATIVIDADES desta sessao.
 Com base nele, gerar o artefato publicavel com:
@@ -66,28 +64,14 @@ Ingrid     [RETAINER ]  Loop 8 -- Gemini:OK NBook:OK Embaixador:OK Musculo:OK --
 
 ## COMMIT DA SESSAO
 
-Commit : 74e63c1 - 1 arquivo(s) alterado(s)
-Mensagem: docs(ledger): P-189 anti-recorrencia CONSTRUIDA (Regra 5, commit 8428f07) [VEREDITO-DIRETOR]
+Commit : 8cd8ebf - 1 arquivo(s) alterado(s)
+Mensagem: fix(session-close): GATE EMBAIXADOR exige frescor do BLOCO 0 (janela 6h) -- barra arquivo de sessao anterior que dava VERDE falso [VEREDITO-DIRETOR]
 
 ---
 
 ## ENTREGAS DO DIA
 
-Commits do dia:
-- 74e63c1 docs(ledger): P-189 anti-recorrencia CONSTRUIDA (Regra 5, commit 8428f07) [VEREDITO-DIRETOR]
-- 8428f07 feat(validate): Regra 5 -- ASCII de arquivo inteiro em .ps1 sem BOM (P-189/P-146) [VEREDITO-DIRETOR] [RESOLVE: P-189]
-- 37ff783 docs(ledger): P-189 -- validacao ASCII varre o .ps1 inteiro, nao so o bloco novo [VEREDITO-DIRETOR] [FALHA-PROCESSO-2026-06-18]
-- 8b5b32f fix(pilares): P-183 -- troca U+00B7 por ASCII em gemini_anchor BLOCO 0 [VEREDITO-DIRETOR]
-- 8b1aebc feat(pilares): gate COMO AGIR para Executor Cowork + adendo P-188 (10 pontos) [VEREDITO-DIRETOR] [RESOLVE: pilares-comportamentais]
-- c95496e feat(pilares): GATE PERMANENTE dos PILARES COMPORTAMENTAIS em todo ponto de carga incondicional [VEREDITO-DIRETOR] [RESOLVE: pilares-comportamentais]
-- ef8bb77 feat(projetista): glosa-hospitalar materializado -- pricing restaurado + 3 cards LinkedIn + reel + deck 8 slides [VEREDITO-DIRETOR]
-- a466016 feat(projetista): PLANO DE EXECUCAO glosa-hospitalar v1 -- 1o ativo da esteira, destrava Embaixador Digital [VEREDITO-DIRETOR]
-- 287c657 docs(calendario): GATE DE DEPENDENCIA Projetista->Embaixador Digital -- esteira nao atores diarios independentes [VEREDITO-DIRETOR]
-- 15fdb85 fix(embaixador-digital): BLOCO 7 le via Google Drive, nao filesystem local [VEREDITO-DIRETOR]
-- 7fdc91a fix(skills): P-180 -- 10 skills operacionais do loop convertidas para <nome>/SKILL.md invocaveis [RESOLVE: P-180] [VEREDITO-DIRETOR]
-- 96b2b5e fix(session-close): GATE EMBAIXADOR fecha por evidencia BLOCO 0 + P-186/P-187 no LEDGER [VEREDITO-DIRETOR]
-- b994f22 chore(fechamento): GATE 0.5 timelines + P-032 MEMORIA + GATE 6E cowork + F7 [VEREDITO-DIRETOR]
-- 434ece8 chore(gitignore): ignora .obsidian/ (camada visual F7) e _cowork_bridge.json (transiente)
+Sessao de 2026-06-19. Nenhum commit registrado hoje.
 
 ---
 
@@ -97,7 +81,7 @@ Commits do dia:
 > O Embaixador NAO declara campanha encerrada sem verificar que o artefato existe.
 
 Arquivos gerados/modificados hoje (evidencia automatica):
-  - INTELLIGENCE_LEDGER.md
+  - scripts/session_close.ps1
 
 CAMPANHA ATIVA:
   Nome     : [preencher -- ex: ECD 30/06 outreach]
@@ -134,8 +118,6 @@ CAMPANHA ATIVA:
 ### PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo)
 
 🔴 [DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertical Licitaç... [diretor]
-🔴 [S-2] Telegram avisa para abrir sessão no Músculo quando há tarefa ...
-🟡 [S-3] Telegram confirma diariamente que os agentes (Antigravity/Cow...
 
 ### PROCESSO / INFRA -- n8n FASE 1 (adicionado 2026-06-04)
 
@@ -147,7 +129,7 @@ CAMPANHA ATIVA:
 - [sem data definida] [V30 ÉPICO] Máquina de Conhecimento Soberana — canais → FONTES → Au... [musculo]
 - [sem data definida] [V30 ÉPICO] Embaixador agentado via Cowork — 2º motor de tempo real... [musculo]
 
-Total pendentes abertos: 13 (11 urgente(s) + 2 agendado(s))
+Total pendentes abertos: 11 (9 urgente(s) + 2 agendado(s))
 
 ---
 
@@ -161,7 +143,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Sessao de 2026-06-18 encerrou sessao com 13 pendente(s) -- 11 urgente(s) + 2 agendado(s) e 0 gargalo(s). Status documental: VERDE.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Sessao de 2026-06-19 encerrou sessao com 11 pendente(s) -- 9 urgente(s) + 2 agendado(s) e 0 gargalo(s). Status documental: VERDE.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 
@@ -183,4 +165,4 @@ O artefato deve ser autossuficiente: o Diretor abre e sabe exatamente o que faze
 
 ---
 
-Musculo - Pentalateral IAH - 2026-06-18
+Musculo - Pentalateral IAH - 2026-06-19
