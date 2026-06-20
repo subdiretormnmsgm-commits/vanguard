@@ -747,3 +747,44 @@ BAIXA
 ### Drift remanescente (para veredito)
 - comandos_ativacao_atores.json cita "Embaixador Digital v2.1" mas disco mostra SYSTEM_PROMPT_EMBAIXADOR_DIGITAL.md v2.0 -- verificar versao vigente.
 - Espelho CONSELHO/SYSTEM_PROMPT_PROJETISTA.md ainda marcado v5.0 (so o BLOCO 7 foi ressincronizado cirurgicamente); diferencas v5.0->v5.1 restantes (camada fria M-STATS, pastas nomeadas) pendem de ressincronizacao completa.
+
+## [DESENHO-MAE-AQUISICAO] Esteira de Aquisicao Vanguard -- inteligencia mira, DNA monta -- 2026-06-20
+
+> Sintese estrategica ORIGINADA pelo Diretor 2026-06-20 e confirmada por ele nesta sessao ("Sim").
+> Status: MODELO DO FUNIL = CONFIRMADO. Sub-decisoes de execucao = AGUARDANDO_VEREDITO (ver fim do bloco).
+> Contexto que disparou: atores Projetista v5.1 + Embaixador Digital v2.2 inicializados; diagnostico "inteligencia de sobra, materializacao de menos -- esteira represada no Projetista".
+
+### PRINCIPIO RAIZ (o DNA nao mudou -- a mira mudou)
+- Como a Vanguard nasceu (intacto): cliente com DOR -> responde PERGUNTAS (Diagnostico/quiz) -> LOOP Pentalateral monta o projeto. Foi assim com INGRID e VALDECE. O mecanismo e o coracao e permanece.
+- O que a inteligencia de mercado acrescentou: antes o cliente chegava aleatorio; agora SABEMOS quais nichos elevados perseguir. A inteligencia e a CAMADA DE MIRA -- nao substitui o DNA, aponta ele.
+
+### FUNIL UNIFICADO
+INTELIGENCIA DE MERCADO (mira: quais nichos elevados)
+  -> SITE + LINKEDIN orientados ao nicho (atracao: "chama a atencao" do cliente certo)
+  -> QUIZ / DIAGNOSTICO (as perguntas: captura a dor)
+  -> LOOP PENTALATERAL (monta o projeto, como Ingrid/Valdece)
+  -> CLIENTE
+LinkedIn e site NAO competem: ambos orientados pela inteligencia para os nichos elevados, ambos desaguam no quiz, que aciona o Loop.
+
+### DECISOES TRAVADAS (veredito do Diretor 2026-06-20)
+1. MARCA LARGA, ATRACAO MIRADA. "Vende qualquer projeto" intacto na capacidade; inteligencia escolhe em quem bater. Mesmo principio do LinkedIn (marca larga/campanha afiada) estendido ao site. Ver memory feedback-vanguard-vende-qualquer-projeto-linkedin.
+2. SITE JA EXISTE -- ORIENTAR, NUNCA RECONSTRUIR. Site no ar (vanguardtech.cloud), feito antes da inteligencia existir (Vanguard v1). Evolui COM DIRECAO: ganha superficies de atracao para os nichos elevados (secao/landing que fala a dor + gatilho de cada nicho), reaproveitando o quiz existente. Nao e rebuild.
+3. DESTINO DO CANAL = QUIZ/DIAGNOSTICO -> LOOP (nao "conversa avulsa"; o quiz e o mecanismo de captura de dor que sempre foi). [CORRIGE proposta anterior do Musculo de "site fora do caminho critico".]
+4. RECUO DO ECD. eventos-fiscais-contadores (ECD 30/06, 10 dias) NAO ancora lancamento -- "10 dias e muita correria, temos material para nao sair desesperado". ECD vira, no maximo, post de autoridade da semana. Sem sprint de outbound.
+5. CANAL NASCE NA MARCA AMPLA (Vanguard movida a inteligencia, resolve problema de alto risco). Nichos = pipeline ROTATIVO de campanhas (1 por vez, no seu tempo).
+
+### LEI DE PRECEDENCIA (ja vigente, reconfirmada em disco)
+Projetista PRODUZ antes; Embaixador Digital CONSOME. Verificado nesta sessao: PROJETISTA/PLANOS vazio -> Digital corretamente parou em [AGUARDA Projetista]. Mecanismo vivo.
+
+### SITE -- GATE DE FATO (corrigido pelo Diretor 2026-06-20: "Ja construimos o site, tem tudo na memoria")
+- Site JA EXISTE e esta NO AR: vanguardtech.cloud. Stack estatica (HTML/CSS/JS vanilla + Supabase), deploy via EasyPanel/Hostinger (memory project_deploy_hostinger; historico V1-V23). NAO construir do zero.
+- Conteudo atual (lido 2026-06-20): Vanguard v1 -- agencia de transformacao digital p/ PMEs de servicos: Diagnostico Vanguard(TM) (Presenca/Aquisicao/Conversao/Retencao), Hermes (prospeccao WhatsApp), planos R$97/mes e R$3-6k. O quiz/Diagnostico do site E o "responde perguntas" do DNA -> reaproveitar.
+- Acao = ORIENTAR aos nichos elevados (superficies de atracao mirada), no ritmo da trilha separada, sem correria.
+
+### AGUARDANDO_VEREDITO (sub-decisoes de execucao -- nao agir sem o Diretor)
+- A1. Nicho-ancora da 1a campanha COM push real de outbound: AI Act (02/08, com folego) ou um nicho ESTRUTURAL sem prazo (glosa-hospitalar / ifrs17-seguros)? [Musculo recomenda AI Act -- runway ~6 semanas.]
+- A2. Orientacao do site aos nichos elevados: localizar a pasta-fonte exata do vanguardtech.cloud no repo + definir quais nichos ganham superficie de atracao primeiro e como o EasyPanel/Hostinger redeploya.
+  NOTA (DIFERIDO -- Diretor 2026-06-20 "depois vemos isso"): existe uma versao "www" construida que NUNCA foi ao ar -- provavel problema tecnico de deploy. Diagnosticar antes/junto da orientacao do site.
+- A3. Ordem operacional do lancamento do canal (Projetista projeta -> Digital setup marca-ampla -> MUSCULO cria a Company Page remotamente -> 1o lote). So apos A1.
+  CORRECAO (Diretor 2026-06-20): a Company Page do LinkedIn e criada REMOTAMENTE pelo Musculo (Playwright / claude-projects-remote-v1), nao pelo Diretor. Marca AMPLA (memory feedback-vanguard-vende-qualquer-projeto-linkedin).
+  NOTA TECNICA (Pilar I -- deliberar na execucao): LinkedIn exige perfil pessoal vinculado a Company Page + tem deteccao anti-automacao. Criacao via Playwright e viavel mas pode demandar 1 passo manual do Diretor (login/verificacao). Confirmar viabilidade no inicio do A3.

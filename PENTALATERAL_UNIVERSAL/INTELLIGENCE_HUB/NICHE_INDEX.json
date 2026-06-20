@@ -1,9 +1,9 @@
 {
     "_meta":  {
-                  "versao":  "1.4",
+                  "versao":  "1.5",
                   "criado":  "2026-06-13",
                   "ultima_atualizacao":  "2026-06-13",
-                  "total_nichos":  11,
+                  "total_nichos":  15,
                   "schema":  "NICHE_MODELS/SCHEMA.md",
                   "ferramenta_match":  "scripts/match_niche.ps1",
                   "cadencia":  "Atualizado por F1 (diario), F3 (semanal), F11 (mensal), F12 (semanal)",
