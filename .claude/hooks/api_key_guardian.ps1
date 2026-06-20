@@ -1,4 +1,4 @@
-# HOOK: UserPromptSubmit — API Key Guardian
+﻿# HOOK: UserPromptSubmit — API Key Guardian
 # Detecta padroes de API keys no prompt do Diretor antes de processar.
 # Protege contra exposicao acidental de credenciais no chat do Claude Code.
 
@@ -72,3 +72,4 @@ $resposta = [ordered]@{
 
 Write-Output $resposta
 exit 2
+

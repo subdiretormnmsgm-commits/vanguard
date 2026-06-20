@@ -9,7 +9,7 @@ PADRAO DE QUALIDADE: toda ideia [G-1 a G-5] precisa ser CRIATIVA (nao obvia), DI
 
 ================================================================================
 
-ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-20 13:04
+ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-20 19:30
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -20,9 +20,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-9417443 chore(n8n): patch_w11.ps1 -- deploy reproduzivel do W-11 (Opcao A jsCode via PUT)
-c2a1ade feat(cowork): Opcao A cadencia ED + rename Embaixador Agentado -> Cowork Agentado + 4 prompts atores [VEREDITO-DIRETOR]
-257664a feat(w13): ativa W-13 Cowork F(x) Notifier + versiona jsCode n8n solto (W-13/W-10/W-11) [VEREDITO-DIRETOR] [RESOLVE: W-13]
+23c90bd docs(intel): desenho-mae da esteira de aquisicao + fix NICHE_INDEX _meta v1.5/15 nichos
+f98836d docs(ledger): P-192 [FALHA-PROCESSO-2026-06-20] gate R-05 travava em delecao de arquivo-codigo (corrigido em --diff-filter=d) [VEREDITO-DIRETOR]
+8b0fbf8 docs(conselho): espelhos Projetista (v5.0->v5.1 +BLOCO 14) e Embaixador Digital (v2.0->v2.2 +BLOCO 7 Drive +BLOCO 11) em paridade com os canonicos [VEREDITO-DIRETOR]
 
 ================================================================================
 
@@ -274,6 +274,7 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ## P-189 -- "VALIDEI ASCII" SIGNIFICA O ARQUIVO .ps1 INTEIRO, NUNCA SO O BLOCO NOVO (2026-06-18) [FALHA-PROCESSO-2026-06-18]
 ## P-190 -- rclone SYNC DE ARVORE INTEIRA PARA DRIVE EXTERNO E TETO DURO DO CLASSIFICADOR: SO A MAO DO DIRETOR DESTRAVA (2026-06-19) [VEREDITO-DIRETOR]
 ## P-191 -- O GATE DE FECHAMENTO NAO PODE SER O GEMEO INSEGURO DO GATE DE FRESCOR: SYNC AO DRIVE EXIGE O MESMO FILTRO DE SEGREDOS EM TODA SAIDA (2026-06-20) [VEREDITO-DIRETOR] [FALHA-PROCESSO-2026-06-20]
+## P-192 -- O GATE DE CODE-REVIEW (R-05) NAO PODE TRAVAR EM DELECAO DE ARQUIVO-CODIGO: -Verify SO REVISA O QUE TEM CONTEUDO (2026-06-20) [FALHA-PROCESSO-2026-06-20]
 
 ### PRINCIPIOS RECENTES -- TEXTO INTEGRAL (P-116 ao ultimo)
 ## P-116 -- O QUE DOI E ERRO, NAO ESFORCO -- VERIFICACAO ANTES DE AUTOMACAO (2026-06-06)
@@ -1266,6 +1267,14 @@ Consulta humana: scripts/skill_gate.ps1 -Listar.
 **Principio:** quando duas rotas de codigo executam o MESMO movimento de dados para fora do perimetro (aqui: dois `rclone sync` para `gdrive:vanguard`), elas precisam carregar o MESMO filtro de seguranca -- senao a rota mais fraca anula a mais forte. O `rclone_secrets_guard.ps1` (P-185) so intercepta `rclone` invocado como comando Bash pelo agente; uma chamada interna de `.ps1` para `rclone.exe` passa POR BAIXO do guard. Logo, o filtro de segredos nao pode depender so do guard de canal -- tem de estar HARD-CODED em cada script que sincroniza ao Drive. Gate de seguranca que existe em um script e falta no seu gemeo nao e protecao: e a ilusao de protecao.
 **Workaround/correcao (P-146 -- a regra so vale com caminho construido):** GATE 10 do `session_close.ps1` recebeu `--exclude ".claude/skills/awesome-claude-skills-master/**"` + `--exclude-from $secretsExclude` (onde `$secretsExclude = scripts/rclone_secrets_exclude.txt`), espelhando `verify_gdrive_freshness.ps1`. Parse OK, ASCII puro (P-183). Backlog: extrair o sync rclone canonico para uma unica funcao/script compartilhado, para que nunca mais existam dois `rclone sync -> gdrive` com listas de exclude divergentes.
 **Aplica-se a:** todo script que sincroniza a arvore para destino remoto (session_close.ps1, verify_gdrive_freshness.ps1, qualquer futuro). Liga com P-185 (QUE bytes podem sair -- filtro obrigatorio), P-190 (QUEM executa a saida em massa -- so a mao do Diretor), P-098 (firewall de arquivo protegido), P-178/R-05 (revisao pega o gemeo divergente), DEF-M-6. Detectado pelo Musculo no fechamento, antes do Diretor.
+
+---
+
+## P-192 -- O GATE DE CODE-REVIEW (R-05) NAO PODE TRAVAR EM DELECAO DE ARQUIVO-CODIGO: -Verify SO REVISA O QUE TEM CONTEUDO (2026-06-20) [FALHA-PROCESSO-2026-06-20]
+**Origem:** ao commitar a arvore residual de 20/06 (que incluia DELECOES de arquivos de codigo -- skills .md soltas legadas removidas pela reorg P-180), o firewall pre-commit travou ANTES de chegar ao bypass. O modo `-Verify` do `gate_code_review.ps1` (R-05) coletava os arquivos staged com `git diff --cached --name-only` SEM `--diff-filter=d` -- ou seja, incluia as delecoes. Para um arquivo DELETADO, `Get-StagedSha` chama `git rev-parse ":$path"`, que falha (o blob nao existe mais no indice). Sob o `$ErrorActionPreference = "Stop"` herdado do `pre-commit.ps1`, essa falha escalou para terminating e matou o firewall ANTES de o Musculo poder usar o bypass `PENTALATERAL_AUTORIZO`. Resultado: commit autorizado pelo Diretor travado por um arquivo que nem tinha conteudo a revisar.
+**Principio:** um gate de code-review revisa CONTEUDO -- arquivo deletado nao tem conteudo a revisar e nao deve sequer entrar na coleta do `-Verify`. Alem disso, todo gate chamado de dentro de um firewall com `EAP=Stop` precisa ser robusto a comandos git que legitimamente "falham" (sem blob, sem upstream, arquivo ausente): a falha esperada nao pode escalar para terminating e derrubar o proprio firewall antes do ponto de bypass. Gate que bloqueia por um caso que ele nao deveria nem analisar e ruido que erode a confianca no firewall.
+**Fix aplicado:** `gate_code_review.ps1` linha 110 -- a coleta do `-Verify` passou a usar `git diff --cached --name-only --diff-filter=d` (exclui delecoes staged). Os modos `-Report`/`-List` (staged + unstaged + untracked) seguem inalterados, pois la o objetivo e listar pendencias, nao bloquear commit. Correcao ja commitada nesta sessao; este e o registro doutrinario.
+**Aplica-se a:** todo gate deterministico invocado pelo pre-commit (R-01..R-06) e todo .ps1 que itera sobre arquivos staged. Liga com P-178/R-05 (code-review executado, nao so doutrinado), P-098/P-190 (bypass so por canal/flag legitimo -- nunca rotear em volta do gate), P-183 (raiz por $PSScriptRoot, nao git rev-parse), GATE DE FATO (gate que trava por motivo errado e tao nocivo quanto ausencia de gate), DEF-M-6. Detectado no proprio commit autorizado pelo Diretor.
 
 ================================================================================
 

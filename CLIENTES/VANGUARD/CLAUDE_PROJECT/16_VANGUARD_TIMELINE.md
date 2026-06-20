@@ -1,6 +1,6 @@
 # VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-06-17
+> Criado: 2026-05-17 | Última atualização: 2026-06-20 (tarde — desenho-mãe da esteira de aquisição)
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -816,3 +816,27 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 **Status:** infra verde · campanha pronta e retida · Loop 35 ABERTO (não fecha sem prova externa E-1/PF-1) · nenhum projeto cliente tocado.
 
 *Atualizado em: 2026-06-20 — Campanha NCM gravada (retida) + P-190 + encerramento Drive-First*
+
+---
+
+## Estratégia — 2026-06-20 · Tarde (sessão estratégica, Opus 4.8)
+
+**Data:** 2026-06-20 (sábado, tarde).
+**Sessão:** desenho-mãe da esteira de aquisição — disparada pela inicialização dos atores Projetista (7º) v5.1 e Embaixador Digital (8º) v2.2.
+
+**Contexto:** os dois Claude Projects foram inicializados e confirmaram carga. O Embaixador Digital parou corretamente em `[AGUARDA Projetista]` (pasta PROJETISTA/PLANOS vazia) — a lei de precedência (Projetista PRODUZ, Digital CONSOME) está viva. Diagnóstico do Diretor: **"inteligência de sobra, materialização de menos — a esteira está represada no Projetista"** (15 nichos mapeados, zero planos materializados, zero pipeline, nem Company Page existe).
+
+**Entrega — DESENHO-MÃE travado em `INTELLIGENCE_HUB/PENDING_REVIEW.md` (P-124):**
+- **Funil unificado:** INTELIGÊNCIA (mira: quais nichos) → SITE + LINKEDIN (atração mirada) → QUIZ/DIAGNÓSTICO (captura a dor) → LOOP PENTALATERAL (monta o projeto, como Ingrid/Valdece) → CLIENTE.
+- **Princípio raiz:** o DNA não mudou (dor → perguntas → Loop); a inteligência de mercado é a nova **camada de mira**, não substitui o mecanismo.
+- **5 decisões travadas pelo Diretor:** (1) marca larga, atração mirada — "Vanguard vende qualquer projeto", nicho é ponta de lança; (2) site já existe (vanguardtech.cloud) → orientar aos nichos, nunca reconstruir; (3) destino do canal = quiz → Loop; (4) recuo do ECD (10 dias = correria, sem sprint desesperado); (5) canal nasce na marca ampla, nichos = pipeline rotativo de campanhas.
+- **Correção de fato:** `NICHE_INDEX.json` `_meta` triplo-stale corrigido (versão 1.4→1.5, total_nichos 11→15) — dívida do Músculo (P-060). Commit `23c90bd`.
+- **Company Page do LinkedIn:** será criada **remotamente pelo Músculo** (Playwright), não pelo Diretor — ressalva anti-automação registrada (pode exigir 1 passo manual de login/verificação).
+
+**AGUARDANDO_VEREDITO (execução adiada p/ próxima sessão por ordem do Diretor):** A1 — escolher o nicho-âncora da 1ª campanha (Músculo recomenda AI Act 02/08, runway ~6 semanas, sobre o ECD recuado). A2 — orientar o site aos nichos + diagnosticar o `www` construído-mas-fora-do-ar (DIFERIDO). A3 — ordem operacional do lançamento.
+
+**Padrão reforçado (PF-1 Builder>Vendedor):** sessão estratégica sem contato externo — mas pela 1ª vez o canal tem **desenho fechado**; a próxima sessão materializa (A1 destrava tudo).
+
+**Status:** desenho-mãe travado e sincronizado ao Drive · execução na próxima sessão · Loop 35 ABERTO (não fecha sem prova externa E-1/PF-1).
+
+*Atualizado em: 2026-06-20 (tarde) — Desenho-mãe da esteira de aquisição + fix NICHE_INDEX*

@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Sábado, 2026-06-20 03:00
+### Pentalateral IAH - Sábado, 2026-06-20 16:03
 
 ---
 
@@ -13,13 +13,13 @@
 | 1 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertic... | 2026-06-12 | 8d |
 | 2 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | ⚠️ [ALERTA NICHE] Eventos Fiscais / ECD 2026 — 17 DIAS | 2026-06-13 | 7d |
 | 3 | COWORK ENGINE — Inteligência de Mercado Vanguard | [MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIE... | 2026-06-13 | 7d |
-| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026 | 2026-06-13 | 7d |
-| 5 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias | 2026-06-13 | 7d |
+| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias | 2026-06-13 | 7d |
+| 5 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026 | 2026-06-13 | 7d |
 | 6 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ... | 2026-06-16 | 4d |
 | 7 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-185-guard REFINO (achado #2) — rclone_secrets... | 2026-06-16 | 4d |
-| 8 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirm... | 2026-06-20 | HOJE |
+| 8 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] DETECTOR DE DERIVA — decidir cadência da camada... | 2026-06-20 | HOJE |
 | 9 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] AVALIAÇÃO `awesome-claude-skills` — shortlist d... | 2026-06-20 | HOJE |
-| 10 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] LEDGER — registrar [FALHA-PROCESSO-2026-06-20]:... | 2026-06-20 | HOJE |
+| 10 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirm... | 2026-06-20 | HOJE |
 
 ---
 
@@ -67,14 +67,24 @@ Ingrid     [RETAINER ]  Loop 8 -- Gemini:OK NBook:OK Embaixador:OK Musculo:OK --
 
 ## COMMIT DA SESSAO
 
-Commit : 8cd8ebf - 1 arquivo(s) alterado(s)
-Mensagem: fix(session-close): GATE EMBAIXADOR exige frescor do BLOCO 0 (janela 6h) -- barra arquivo de sessao anterior que dava VERDE falso [VEREDITO-DIRETOR]
+Commit : 23c90bd - 2 arquivo(s) alterado(s)
+Mensagem: docs(intel): desenho-mae da esteira de aquisicao + fix NICHE_INDEX _meta v1.5/15 nichos
 
 ---
 
 ## ENTREGAS DO DIA
 
-Sessao de 2026-06-20. Nenhum commit registrado hoje.
+Commits do dia:
+- 23c90bd docs(intel): desenho-mae da esteira de aquisicao + fix NICHE_INDEX _meta v1.5/15 nichos
+- f98836d docs(ledger): P-192 [FALHA-PROCESSO-2026-06-20] gate R-05 travava em delecao de arquivo-codigo (corrigido em --diff-filter=d) [VEREDITO-DIRETOR]
+- 8b0fbf8 docs(conselho): espelhos Projetista (v5.0->v5.1 +BLOCO 14) e Embaixador Digital (v2.0->v2.2 +BLOCO 7 Drive +BLOCO 11) em paridade com os canonicos [VEREDITO-DIRETOR]
+- 0706e38 chore(gitignore): remove transitorio scripts/.commit_msg.txt do tracking + ignora
+- 2295dbe chore(arvore): commit do working tree residual a pedido do Diretor [VEREDITO-DIRETOR]
+- 9417443 chore(n8n): patch_w11.ps1 -- deploy reproduzivel do W-11 (Opcao A jsCode via PUT)
+- c2a1ade feat(cowork): Opcao A cadencia ED + rename Embaixador Agentado -> Cowork Agentado + 4 prompts atores [VEREDITO-DIRETOR]
+- 257664a feat(w13): ativa W-13 Cowork F(x) Notifier + versiona jsCode n8n solto (W-13/W-10/W-11) [VEREDITO-DIRETOR] [RESOLVE: W-13]
+- b198962 feat(projetista): /notebooklm cria PROJETISTA-ACERVO (BLOCO 7 v5.1+espelho) + convergencia final Projetista->Digital [VEREDITO-DIRETOR]
+- 901aa7c fix(session-close): GATE 10 rclone usa --exclude-from de segredos + exclude awesome-skills (espelha verify_gdrive_freshness) [VEREDITO-DIRETOR] [RESOLVE: gate10-secrets-exclude]
 
 ---
 
@@ -84,7 +94,8 @@ Sessao de 2026-06-20. Nenhum commit registrado hoje.
 > O Embaixador NAO declara campanha encerrada sem verificar que o artefato existe.
 
 Arquivos gerados/modificados hoje (evidencia automatica):
-  - scripts/session_close.ps1
+  - PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json
+  - PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md
 
 CAMPANHA ATIVA:
   Nome     : [preencher -- ex: ECD 30/06 outreach]
@@ -105,10 +116,10 @@ CAMPANHA ATIVA:
 
 ### ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO
 
+🔴 [DIRETOR] DETECTOR DE DERIVA — decidir cadência da camada semântica... [diretor]
 🔴 [DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ficaram ex... [diretor]
-🔴 [DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirmar antes d... [diretor]
+🟡 [DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirmar antes d... [diretor]
 🟡 [DIRETOR] AVALIAÇÃO `awesome-claude-skills` — shortlist de skills c... [diretor]
-🟡 [MÚSCULO] LEDGER — registrar [FALHA-PROCESSO-2026-06-20]: GATE 10 d... [musculo]
 ⚪ [MÚSCULO] P-185-guard REFINO (achado #2) — rclone_secrets_guard não... [musculo]
 
 ### COWORK ENGINE — Inteligência de Mercado Vanguard
