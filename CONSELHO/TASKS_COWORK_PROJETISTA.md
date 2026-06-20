@@ -7,7 +7,7 @@
 
 ## COMO FUNCIONA A RELAÇÃO COWORK → PROJETISTA
 
-O Cowork (Embaixador) produz inteligência de mercado via F1-F22.
+O Cowork Agentado produz inteligência de mercado via F1-F22.
 O Projetista cruza essa inteligência com o VANGUARD_HISTORICO e projeta.
 
 As tasks abaixo fazem o Cowork **preparar o terreno** para o Projetista —
@@ -29,7 +29,7 @@ quando quiser colher. A automação prepara; você aciona.
 
 **Texto para colar no /schedule:**
 ```
-Toda segunda-feira de manhã, você é o Embaixador Agentado da Vanguard Tech
+Toda segunda-feira de manhã, você é o Cowork Agentado da Vanguard Tech
 preparando material para o Projetista.
 
 Leia o arquivo NICHE_INDEX.json (ou .txt) na pasta
@@ -55,7 +55,7 @@ INTELLIGENCE_HUB/PROJETISTA/INBOX/[data]_RADAR_FRONTEIRA_PROJETISTA.md
 
 Cabeçalho obrigatório:
 # RADAR DE FRONTEIRA — PROJETISTA · [DATA]
-# Produzido por: Embaixador Agentado · Cowork
+# Produzido por: Cowork Agentado · Cowork
 # Destino: PROJETISTA/INBOX → leitura de abertura do Projetista
 ```
 
@@ -69,7 +69,7 @@ por nicho MOVER_AGORA — exatamente o que o Projetista precisa na Fase 1 (Inici
 
 **Texto para colar no /schedule:**
 ```
-Toda terça-feira, você é o Embaixador Agentado da Vanguard Tech preparando
+Toda terça-feira, você é o Cowork Agentado da Vanguard Tech preparando
 o briefing de mercado para o Projetista.
 
 Leia os arquivos mais recentes depositados nas pastas temáticas
@@ -102,7 +102,7 @@ INTELLIGENCE_HUB/PROJETISTA/INBOX/[data]_PREDIGESTAO_MERCADO_PROJETISTA.md
 
 Cabeçalho obrigatório:
 # PRÉ-DIGESTÃO DE MERCADO — PROJETISTA · [DATA]
-# Produzido por: Embaixador Agentado · Cowork
+# Produzido por: Cowork Agentado · Cowork
 # Destino: PROJETISTA/INBOX → alimenta Fase 1 (Iniciação) do Projetista
 ```
 
@@ -116,7 +116,7 @@ para o Projetista não precisar reler tudo
 
 **Texto para colar no /schedule:**
 ```
-Todo fim de dia, você é o Embaixador Agentado da Vanguard Tech fazendo
+Todo fim de dia, você é o Cowork Agentado da Vanguard Tech fazendo
 a síntese diária para o Projetista.
 
 Verifique se houve arquivos novos ou modificados em:
@@ -152,7 +152,7 @@ em novas projeções — alimenta diretamente a Fase 2 (Planejamento) do Projeti
 
 **Texto para colar no /schedule:**
 ```
-A cada duas semanas, você é o Embaixador Agentado da Vanguard Tech
+A cada duas semanas, você é o Cowork Agentado da Vanguard Tech
 mapeando o acervo reaproveitável para o Projetista.
 
 Varra as seguintes pastas no Google Drive:
@@ -181,7 +181,7 @@ INTELLIGENCE_HUB/PROJETISTA/INBOX/[data]_ACERVO_REAPROVEITAVEL_PROJETISTA.md
 
 Cabeçalho obrigatório:
 # ACERVO REAPROVEITÁVEL — PROJETISTA · [DATA]
-# Produzido por: Embaixador Agentado · Cowork
+# Produzido por: Cowork Agentado · Cowork
 # Destino: PROJETISTA/INBOX → alimenta Fase 2 (Planejamento/EAP) do Projetista
 ```
 
@@ -196,7 +196,7 @@ projeções (Fase 4 — Encerramento: lições aprendidas)
 
 **Texto para colar no /schedule:**
 ```
-Toda sexta-feira, você é o Embaixador Agentado da Vanguard Tech
+Toda sexta-feira, você é o Cowork Agentado da Vanguard Tech
 consolidando os resultados de campo para o Projetista.
 
 Leia o PENDING_REVIEW.md e qualquer arquivo de resultado de campanha
@@ -226,7 +226,7 @@ INTELLIGENCE_HUB/PROJETISTA/INBOX/[data]_RETROALIMENTACAO_DIGITAL_PROJETISTA.md
 
 Cabeçalho obrigatório:
 # RETROALIMENTAÇÃO DIGITAL — PROJETISTA · [DATA]
-# Produzido por: Embaixador Agentado · Cowork
+# Produzido por: Cowork Agentado · Cowork
 # Destino: PROJETISTA/INBOX → alimenta Fase 4 (Encerramento/Lições) do Projetista
 ```
 
@@ -242,7 +242,7 @@ antes do envio — alimenta a seção "Abordagem Blindada" do Projetista
 ```
 GATILHO MANUAL — acionar quando o Diretor indicar proposta >R$5k.
 
-Você é o Embaixador Agentado da Vanguard Tech simulando o pré-mortem
+Você é o Cowork Agentado da Vanguard Tech simulando o pré-mortem
 desta proposta.
 
 Nicho: [PREENCHER AO ACIONAR]
@@ -273,7 +273,7 @@ INTELLIGENCE_HUB/PROJETISTA/INBOX/[data]_F7_PREMORTEM_[nicho].md
 
 Cabeçalho obrigatório:
 # PRÉ-MORTEM DE PROPOSTA — [NICHO] · [DATA]
-# Produzido por: Embaixador Agentado · Cowork (F7)
+# Produzido por: Cowork Agentado · Cowork (F7)
 # Destino: PROJETISTA/INBOX → alimenta Abordagem Blindada do Projetista
 ```
 

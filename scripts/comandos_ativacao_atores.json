@@ -9,8 +9,8 @@
   "comandos_canonicos": {
     "embaixador_digital": {
       "radar": {
-        "rotulo": "Radar (abertura -- diario)",
-        "cadencia": "Diario",
+        "rotulo": "Radar (abertura -- Segunda)",
+        "cadencia": "Segunda (Opcao A 2026-06-20)",
         "texto": "EMBAIXADOR DIGITAL, mostrar radar.\nExecute o Protocolo de Leitura (material do Projetista + DIGITAL/INBOX + PENDING_REVIEW + NICHE_INDEX).\nApresente: nichos prontos para campanha, material do Projetista disponivel, alertas criticos novos -- ordenados pela prioridade comercial. Me pergunte qual nicho trabalhar.\nNao monte campanha ainda."
       },
       "campanha": {
@@ -58,14 +58,15 @@
     }
   },
 
+  "_cadencia_ed_nota": "Opcao A (Diretor 2026-06-20): Embaixador Digital NAO e ativado todo dia. radar SO Segunda (revisa o acumulado da semana depositado pelas frentes ED1-ED6 na madrugada) + validacao Sexta. campanha/setup sob gatilho. Razao: (1) precedencia Projetista-upstream -- o Digital age DEPOIS de receber produto; (2) campanha LinkedIn e episodica, nao diaria; (3) ED1 (Sintese diaria) e Categoria A automatica, ja cai no INBOX sem ativacao manual.",
   "agenda_ativacao_manual": {
-    "Monday":    { "embaixador_digital": ["radar"],              "projetista": ["triagem"] },
-    "Tuesday":   { "embaixador_digital": ["radar"],              "projetista": ["projecao"] },
-    "Wednesday": { "embaixador_digital": ["radar"],              "projetista": [] },
-    "Thursday":  { "embaixador_digital": ["radar"],              "projetista": [] },
-    "Friday":    { "embaixador_digital": ["radar","validacao"], "projetista": ["retroalimentacao"] },
-    "Saturday":  { "embaixador_digital": ["radar"],              "projetista": [] },
-    "Sunday":    { "embaixador_digital": ["radar"],              "projetista": [] }
+    "Monday":    { "embaixador_digital": ["radar"],      "projetista": ["triagem"] },
+    "Tuesday":   { "embaixador_digital": [],             "projetista": ["projecao"] },
+    "Wednesday": { "embaixador_digital": [],             "projetista": [] },
+    "Thursday":  { "embaixador_digital": [],             "projetista": [] },
+    "Friday":    { "embaixador_digital": ["validacao"],  "projetista": ["retroalimentacao"] },
+    "Saturday":  { "embaixador_digital": [],             "projetista": [] },
+    "Sunday":    { "embaixador_digital": [],             "projetista": [] }
   },
 
   "sob_gatilho": {

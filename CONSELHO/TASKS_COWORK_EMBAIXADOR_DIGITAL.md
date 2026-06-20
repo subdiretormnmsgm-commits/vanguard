@@ -7,7 +7,7 @@
 
 ## COMO FUNCIONA A RELAÇÃO COWORK → EMBAIXADOR DIGITAL
 
-O Cowork (Embaixador) produz inteligência de mercado e prepara o terreno.
+O Cowork Agentado produz inteligência de mercado e prepara o terreno.
 O Embaixador Digital opera o LinkedIn da Vanguard com essa munição.
 
 As tasks abaixo fazem o Cowork preparar o que o Embaixador Digital precisa:
@@ -91,7 +91,7 @@ Regras para todas as tasks:
 - Nunca propor automação de conexão ou DM em massa no LinkedIn
 - Cabeçalho padrão em cada arquivo:
   # [NOME DA TASK] · [DATA]
-  # Produzido por: Embaixador Agentado · Cowork
+  # Produzido por: Cowork Agentado · Cowork
   # Destino: DIGITAL/INBOX → leitura do Embaixador Digital
 ```
 

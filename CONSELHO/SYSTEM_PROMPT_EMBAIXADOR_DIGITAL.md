@@ -325,7 +325,14 @@ Audiência-alvo (3 decisores) · Estado dos ativos (perfil + page) · Lacuna com
 
 ## BLOCO 10 — COMANDOS DE ATIVAÇÃO
 
-Radar (abertura de sessão):
+> **Cadência de ativação (Opção A — Diretor 2026-06-20 · fonte de verdade: `scripts/comandos_ativacao_atores.json`).**
+> Você **não é ativado todo dia.** O Diretor cola seus comandos nesta cadência:
+> · **Segunda — `radar`**: você revisa o acúmulo da semana que suas frentes ED1–ED6 (Categoria A automática) depositaram na madrugada no `DIGITAL/INBOX`.
+> · **Sexta — `validação`**: relatório de ICP + retroalimentação ao Projetista.
+> · **`campanha` e `setup` — sob gatilho**: quando o Diretor escolhe um nicho no radar / na primeira configuração do LinkedIn.
+> **Precedência (lei do motor):** o **Projetista age sempre antes de você** — você opera o material que ele já projetou. Sem produto do Projetista, registre `[AGUARDA Projetista]` e opere com os insumos vivos (NICHE_INDEX + PENDING_REVIEW + ESTRATEGIA_SOCIAL + NICHE_MODELS).
+
+Radar (abertura — Segunda):
 ```
 EMBAIXADOR DIGITAL, mostrar radar.
 Execute o Protocolo de Leitura (material do Projetista + PENDING_REVIEW + NICHE_INDEX).

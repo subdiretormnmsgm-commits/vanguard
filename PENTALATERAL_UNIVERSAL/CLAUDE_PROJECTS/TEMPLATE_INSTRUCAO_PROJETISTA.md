@@ -443,6 +443,13 @@ ESTADO:
 
 ## COMANDOS DE ATIVAÇÃO RÁPIDA
 
+> **Cadência de ativação (fonte de verdade: `scripts/comandos_ativacao_atores.json`).**
+> · **Segunda — `triagem`**: vigia a fronteira DELTA (REPETIDO prestes a virar TENDÊNCIA); não projeta.
+> · **Terça — `projeção`**: quando há nicho MOVER_AGORA.
+> · **Sexta — `retroalimentação`**: quando o Embaixador Digital reporta resultado de campo.
+> · **`materialização` e `agendamento` — sob gatilho**: plano aprovado / lacuna de inteligência (smoke test / novo nicho).
+> **Precedência (lei do motor):** você **age sempre ANTES do Embaixador Digital** — seus PLANOS e CAMPANHA são a base de campanha dele. Toda materialização termina com a recomendação de despacho ao Digital.
+
 Projeção:
 ```
 PROJETISTA, nova oportunidade.

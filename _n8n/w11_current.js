@@ -6,7 +6,7 @@
 
 const COMANDOS = {
   ed: {
-    radar: { rotulo: 'Radar (abertura -- diario)',
+    radar: { rotulo: 'Radar (abertura -- Segunda)',
       texto: 'EMBAIXADOR DIGITAL, mostrar radar.\nExecute o Protocolo de Leitura (material do Projetista + DIGITAL/INBOX + PENDING_REVIEW + NICHE_INDEX).\nApresente: nichos prontos para campanha, material do Projetista disponivel, alertas criticos novos -- ordenados pela prioridade comercial. Me pergunte qual nicho trabalhar.\nNao monte campanha ainda.' },
     validacao: { rotulo: 'Relatorio de validacao',
       texto: 'EMBAIXADOR DIGITAL, relatorio de validacao.\nAnalise os seguidores por porte (ICP), o CTR vs curtidas, e a auditoria comportamental dos novos seguidores. Me diga se o posicionamento esta atraindo os decisores certos.\nPrepare a retroalimentacao para o Projetista.' }
@@ -22,14 +22,15 @@ const COMANDOS = {
 };
 
 // dow: 0=Dom 1=Seg 2=Ter 3=Qua 4=Qui 5=Sex 6=Sab
+// Opcao A (Diretor 2026-06-20): ED nao e diario. radar SO Segunda + validacao Sexta.
 const AGENDA = {
-  0: { ed: ['radar'],              pj: [] },
-  1: { ed: ['radar'],              pj: ['triagem'] },
-  2: { ed: ['radar'],              pj: ['projecao'] },
-  3: { ed: ['radar'],              pj: [] },
-  4: { ed: ['radar'],              pj: [] },
-  5: { ed: ['radar', 'validacao'], pj: ['retroalimentacao'] },
-  6: { ed: ['radar'],              pj: [] }
+  0: { ed: [],            pj: [] },
+  1: { ed: ['radar'],     pj: ['triagem'] },
+  2: { ed: [],            pj: ['projecao'] },
+  3: { ed: [],            pj: [] },
+  4: { ed: [],            pj: [] },
+  5: { ed: ['validacao'], pj: ['retroalimentacao'] },
+  6: { ed: [],            pj: [] }
 };
 
 const agora = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));

@@ -69,8 +69,9 @@ Princípio fundador em forma de arquitetura: **o sistema gera, o Diretor deliber
 
 ### Engrenagens — tarefas agendadas do Cowork
 Rodam por calendário. São a fonte perpétua. Cada task tem sua `SKILL.md` (em
-`C:\Users\Eduardo DELL\Claude\Scheduled\[task-id]\SKILL.md`) — o roteiro que o **Embaixador
-Agentado** executa para fazer a pesquisa daquela frente. O Músculo lê essas skills, nunca edita
+`C:\Users\Eduardo DELL\Claude\Scheduled\[task-id]\SKILL.md`) — o roteiro que o **Cowork Agentado**
+(renomeado de "Embaixador Agentado" em 2026-06-20 — para não confundir com o Embaixador Digital)
+executa para fazer a pesquisa daquela frente. O Músculo lê essas skills, nunca edita
 (igual à `cowork-engine-v1`).
 
 ### Músculo
@@ -133,7 +134,7 @@ Síntese: **a máquina prospecta; o Diretor converte.**
 ### PASSO M-STATS-2 — EXECUTOR COWORK (ROBUSTECE)
 - **Quem:** o **Antigravity no papel EXECUTOR** (P-163: "executa o que foi definido, lê do disco/Drive").
   É o EXECUTOR que **roda a skill `market-stats-analysis`** sobre a BASE. **NÃO** é uma task agendada do
-  Embaixador Agentado (confirmado pelo Diretor 2026-06-17): o "agendado" do calendário é só **disparo/lembrete**
+  Cowork Agentado (confirmado pelo Diretor 2026-06-17): o "agendado" do calendário é só **disparo/lembrete**
   mensal — a execução real é o EXECUTOR lendo a BASE do `PENDING_REVIEW`/Drive, robustecendo e gravando de volta.
 - **Gatilho:** **disparo mensal** (dia 1, junto do NICHE_MODELER — apenas lembra que é hora de robustecer)
   **OU sob demanda** — quem aciona é o **Projetista** (Ação 3 do template Projetista v5.1); ao receber a

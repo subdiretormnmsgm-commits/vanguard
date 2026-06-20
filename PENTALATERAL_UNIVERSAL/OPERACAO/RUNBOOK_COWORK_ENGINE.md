@@ -21,7 +21,7 @@ Produção contínua de inteligência sobre nichos, concorrentes e tendências �
 
 | Membro | Papel no Cowork |
 |---|---|
-| **Embaixador** | Coleta frentes de inteligência (F1–F15) via interações com mercado |
+| **Cowork Agentado** | Coleta frentes de inteligência (F1–F15) via interações com mercado |
 | **Antigravity IDE** | Executa sessão NICHE_MODELER — valida modelos, identifica nichos, gera narrativas |
 | **Músculo** | Valida toda saída (P-124), delibera, executa aprovações, gera Resumo |
 | **Diretor** | Emite veredito por item — decide o que avança |
@@ -32,7 +32,7 @@ Produção contínua de inteligência sobre nichos, concorrentes e tendências �
 
 ### Fase 1 — COLETA (Embaixador)
 
-**Quem:** Embaixador agentado  
+**Quem:** Cowork Agentado  
 **O que:** Coleta frentes de inteligência de mercado durante interações (F1 Radar de Dor, F5 Espelho Estratégico, F7 Simulador de Objeções, F8 Demo, F9 Capital, F11 Radar de Preço, F12 Briefing, F15 Guardião de Promessas)  
 **Onde salva:** Google Drive → pasta INBOX_COWORK (`1EjaH6TmsxbYpgKWb7ASm7CohFJfwSLKi`)  
 **Output:** arquivos `YYYY-MM-DD_FX_nome.md` no Drive

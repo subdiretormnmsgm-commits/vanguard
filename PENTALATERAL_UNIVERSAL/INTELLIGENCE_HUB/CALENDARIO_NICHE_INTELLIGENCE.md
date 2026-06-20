@@ -32,9 +32,9 @@ briefings esperar. Integrada ao `session_start`.
 
 ---
 
-## RITMO SEMANAL FIXO — EMBAIXADOR AGENTADO (automático Cowork · o Músculo COLHE)
+## RITMO SEMANAL FIXO — COWORK AGENTADO (automático Cowork · o Músculo COLHE)
 
-> Alinhado à AGENDA VANGUARD oficial (Embaixador Agentado, 2026-06-17). **F2, F4a, F4b e F6 foram
+> Alinhado à AGENDA VANGUARD oficial (Cowork Agentado, 2026-06-17). **F2, F4a, F4b e F6 foram
 > descontinuadas** (não constam mais da agenda). **F3** migrou de Terça → **Sexta** (consolidação).
 > **F15** migrou de Sexta → **Segunda**. **ROD** (rodízio caça F16–F22) adicionado à Segunda.
 
@@ -52,7 +52,7 @@ briefings esperar. Integrada ao `session_start`.
 
 ## ⚡ ATIVAÇÕES MANUAIS DO DIRETOR — PROJETISTA + EMBAIXADOR DIGITAL (Claude Projects)
 
-> Adicionado 2026-06-17 (Diretor). Diferente do Embaixador Agentado (Cowork automático que o Músculo
+> Adicionado 2026-06-17 (Diretor). Diferente do Cowork Agentado (Cowork automático que o Músculo
 > colhe), o **Projetista** e o **Embaixador Digital** são atores no **Claude Projects**.
 > **Classificação A/B (derivada dos system prompts — Embaixador Digital v2.1 + Projetista v5.1, 2026-06-17):**
 > os system prompts têm comandos por **tipo de sessão**, não por código ED#/P-T#. E vários ED#/P-T# são,
@@ -121,7 +121,7 @@ ED6 (temas, dias 1 e 15) · P-T3 (diário do Projetista) · P-T4 (acervo, seg se
 
 **Regra mensal:** No dia 1, após F7+F8+F11 rodarem, o Músculo prepara PASSO_NICHE_MODELER.md atualizado e o Diretor abre sessão Gemini. Output vai para PENDING_REVIEW com flag `[ALERTA]` se urgência detectada.
 
-**BIB — Biblioteca de Nichos (dia 12, 10h00):** atualização mensal do catálogo de nichos pelo Embaixador Agentado → `BIBLIOTECA_NICHOS_v[X]_[data].md` no INBOX_COWORK. Roda em **dia 12** (não dia 1) — o Músculo colhe na abertura do dia 12.
+**BIB — Biblioteca de Nichos (dia 12, 10h00):** atualização mensal do catálogo de nichos pelo Cowork Agentado → `BIBLIOTECA_NICHOS_v[X]_[data].md` no INBOX_COWORK. Roda em **dia 12** (não dia 1) — o Músculo colhe na abertura do dia 12.
 
 **M-STATS (engrenagem analítica transversal, dia 1 + sob demanda) — DOIS PASSOS distintos.** Protocolo completo em `MOTOR_INTELIGENCIA_NICHO.md` → "PROTOCOLO DE EXECUÇÃO M-STATS — DOIS PASSOS":
 - **Passo 1 — Músculo (análise BASE):** ao processar o `INBOX_COWORK`, roda a skill `market-stats-analysis` em regime base (market sizing inicial + gate N pequeno) → parecer BASE anexado ao Cartão → `PENDING_REVIEW` (P-124).
