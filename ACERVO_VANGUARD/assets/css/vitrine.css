@@ -1,0 +1,119 @@
+/* Vitrine de Nichos — porta de inteligência. Herda o design system cyber-premium
+   (tokens de style.css). Card = link para ?nicho=<slug>#quiz; rank 1 = hero.
+   Se /js/vitrine.js não achar nichos, a seção é ocultada via display:none (porta orgânica intacta). */
+
+.vitrine {
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+  position: relative;
+}
+
+.vitrine__container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.vitrine__intro {
+  color: var(--c-muted);
+  font-family: var(--ff-body);
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  max-width: 60ch;
+  margin: 0.75rem 0 2.5rem;
+}
+
+.vitrine__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+/* ── Card (é um <a>) ───────────────────────────────────────────── */
+.vitrine__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.6rem 1.5rem;
+  border-radius: 16px;
+  background: var(--glass-2);
+  border: 1px solid var(--glass-border);
+  text-decoration: none;
+  color: var(--c-text);
+  touch-action: manipulation; /* PWA mobile: elimina o delay de double-tap no toque do card */
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.vitrine__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--c-primary-rgb), 0.45);
+  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.12);
+}
+
+/* Foco de teclado visível — acessibilidade (web-design-guidelines) */
+.vitrine__card:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 3px;
+}
+
+.vitrine__rank {
+  font-family: var(--ff-mono);
+  font-size: 0.8rem;
+  color: var(--c-primary);
+  letter-spacing: 0.05em;
+}
+
+.vitrine__nome {
+  font-family: var(--ff-display);
+  font-size: 1.18rem;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--c-text);
+}
+
+.vitrine__headline {
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  /* contraste reforçado vs --c-muted para legibilidade do texto-âncora da dor */
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+}
+
+.vitrine__cta {
+  margin-top: auto;
+  padding-top: 0.4rem;
+  font-family: var(--ff-mono);
+  font-size: 0.82rem;
+  color: var(--c-primary);
+}
+
+/* ── Hero (rank 1) ─────────────────────────────────────────────── */
+.vitrine__card--hero {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--glass-3), rgba(123, 47, 255, 0.10));
+  border-color: rgba(var(--c-primary-rgb), 0.4);
+  box-shadow: 0 0 0 1px rgba(var(--c-primary-rgb), 0.12), 0 16px 50px rgba(0, 240, 255, 0.10);
+}
+
+.vitrine__card--hero .vitrine__nome {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+}
+
+.vitrine__card--hero .vitrine__headline {
+  font-size: 1.1rem;
+  max-width: 50ch;
+}
+
+@media (min-width: 720px) {
+  .vitrine__card--hero {
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem;
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vitrine__card { transition: none; }
+  .vitrine__card:hover { transform: none; }
+}

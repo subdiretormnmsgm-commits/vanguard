@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="/assets/css/v22-sovereign.css?v=27">
   <link rel="stylesheet" href="/assets/css/v25-sovereign-ui.css?v=27">
   <link rel="stylesheet" href="/assets/css/v26-design-unification.css?v=27">
+  <link rel="stylesheet" href="/assets/css/vitrine.css?v=27">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="/assets/js/neural-v-logo.js"></script>
   <style>
@@ -489,6 +490,15 @@
         <div class="v26-diferencial-title">Soberania total</div>
         <div class="v26-diferencial-desc">Seus dados, seu servidor, sua marca. Nenhum ativo digital fica preso em sistema de terceiro.</div>
       </div>
+    </div>
+  </section>
+
+  <!-- VITRINE DE NICHOS — preenchida em runtime por /js/vitrine.js (porta inteligência) -->
+  <section class="vitrine" id="vitrine" aria-labelledby="vitrine-title">
+    <div class="vitrine__container">
+      <h2 class="section__title" id="vitrine-title">Setores em foco neste mês</h2>
+      <p class="vitrine__intro">Mapeamos os gargalos críticos de cada setor. Encontre o seu.</p>
+      <div class="vitrine__grid" id="vitrine-grid" role="list"></div>
     </div>
   </section>
 
@@ -1086,6 +1096,8 @@
   <script src="/js/supabase-lib.js?v=27"></script>
   <script src="/js/supabase.js?v=27"></script>
   <script src="/js/quiz.js?v=27"></script>
+  <script type="module" src="/js/niche-quiz-bridge.js?v=27"></script>
+  <script type="module" src="/js/vitrine.js?v=27"></script>
   <script src="/js/main.js?v=27"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
