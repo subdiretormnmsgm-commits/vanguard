@@ -33,10 +33,11 @@ export function assertEditorialSafe(text) {
 
 export function toPublicCard(model, rank) {
   const dores = Array.isArray(model.dores) ? model.dores : [];
-  const headline = assertEditorialSafe(dores[0] || model.nome || model.id);
+  const nome = assertEditorialSafe(model.nome || model.id);
+  const headline = assertEditorialSafe(dores[0] || nome);
   return {
     id: model.id,
-    nome: model.nome || model.id,
+    nome,
     setor: model.setor || '',
     rank,
     fit_score: model.fit_score || 0,
@@ -55,14 +56,23 @@ export function buildNicheQuiz(model) {
   };
 }
 
-export function buildPublicArtifact(models, month) {
+export function buildPublicArtifact(models, month, opts = {}) {
   const selected = selectPublicNiches(models);
-  const niches = selected.map((m, i) => {
-    const card = toPublicCard(m, i + 1);
-    card.quiz = buildNicheQuiz(m);
-    return card;
-  });
-  return { schema: 'vitrine_v1', generated_for_month: month, niches };
+  const niches = [];
+  const excluded = [];
+  for (const m of selected) {
+    try {
+      const card = toPublicCard(m, niches.length + 1);
+      card.quiz = buildNicheQuiz(m);
+      niches.push(card);
+    } catch (err) {
+      if (opts.resilient) excluded.push({ id: m.id, reason: err.message });
+      else throw err;
+    }
+  }
+  const result = { schema: 'vitrine_v1', generated_for_month: month, niches };
+  if (opts.resilient) result.excluded = excluded;
+  return result;
 }
 
 // Datas DD/MM/YYYY (calendário) -> DD-MM-YYYY (chave interna).

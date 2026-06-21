@@ -143,3 +143,9 @@ test('buildLeadRow usa origem default organico e aceita override', () => {
   assert.equal(r.origem, 'vitrine_nicho');
   assert.equal(r.nicho, 'x');
 });
+
+// --- Parte A1: toPublicCard guarda nome (nome sujo lança)
+test('toPublicCard guarda o nome do nicho (nome sujo lança)', () => {
+  const dirty = { ...MODEL_FIX, nome: 'Plataforma de Automação Fiscal', dores: ['dor limpa'] };
+  assert.throws(() => toPublicCard(dirty, 1), /editorial/i);
+});
