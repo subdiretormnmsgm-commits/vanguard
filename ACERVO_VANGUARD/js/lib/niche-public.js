@@ -89,6 +89,21 @@ export function shouldRegenerate({ today, regenDates, lastGeneratedMonth }) {
   return { regen: true, month, reason: 'liberado' };
 }
 
-// Stubs temporários — serão implementados nas funções seguintes
-export function resolveEntrada(search) { return { porta: 'organica', nicho: null, origem: 'organico' }; }
-export function buildLeadRow(opts) { return {}; }
+const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+export function resolveEntrada(search) {
+  let slug = null;
+  try {
+    slug = new URLSearchParams(search || '').get('nicho');
+  } catch (_) { slug = null; }
+  if (slug && SLUG_RE.test(slug)) {
+    return { porta: 'inteligencia', nicho: slug, origem: 'vitrine_nicho' };
+  }
+  return { porta: 'organica', nicho: null, origem: 'organico' };
+}
+
+export function buildLeadRow({ nicho, gargalo, nome, whatsapp, metadata, origem }) {
+  const row = { nicho, gargalo, nome, whatsapp, origem: origem || 'organico' };
+  if (metadata) row.metadata = metadata;
+  return row;
+}

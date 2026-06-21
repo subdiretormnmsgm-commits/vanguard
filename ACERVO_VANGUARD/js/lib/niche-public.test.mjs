@@ -124,3 +124,22 @@ test('shouldRegenerate NÃO age fora da data', () => {
 test('shouldRegenerate NÃO age se o mês já foi gerado (idempotente)', () => {
   assert.equal(shouldRegenerate({ today: '02-07-2026', regenDates: ['02-07-2026'], lastGeneratedMonth: '2026-07' }).regen, false);
 });
+
+// --- Função 7: roteamento de origem + lead row
+test('resolveEntrada: sem nicho -> porta orgânica', () => {
+  assert.deepEqual(resolveEntrada(''), { porta: 'organica', nicho: null, origem: 'organico' });
+  assert.deepEqual(resolveEntrada('?foo=bar'), { porta: 'organica', nicho: null, origem: 'organico' });
+});
+test('resolveEntrada: com nicho -> porta inteligência + slug saneado', () => {
+  assert.deepEqual(resolveEntrada('?nicho=compliance-aduaneiro-ncm'),
+    { porta: 'inteligencia', nicho: 'compliance-aduaneiro-ncm', origem: 'vitrine_nicho' });
+});
+test('resolveEntrada: slug inválido cai para porta orgânica (anti-injeção)', () => {
+  assert.equal(resolveEntrada('?nicho=<script>').porta, 'organica');
+});
+test('buildLeadRow usa origem default organico e aceita override', () => {
+  assert.equal(buildLeadRow({ nicho: 'x', gargalo: 'A', nome: 'n', whatsapp: 'w' }).origem, 'organico');
+  const r = buildLeadRow({ nicho: 'x', gargalo: 'A', nome: 'n', whatsapp: 'w', origem: 'vitrine_nicho' });
+  assert.equal(r.origem, 'vitrine_nicho');
+  assert.equal(r.nicho, 'x');
+});
