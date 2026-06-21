@@ -1,0 +1,331 @@
+{
+  "schema": "vitrine_v1",
+  "generated_for_month": "2026-06",
+  "niches": [
+    {
+      "id": "carbon-esg-mrv",
+      "nome": "Carbono, ESG e MRV",
+      "setor": "Sustentabilidade / Regulatorio / Financas",
+      "rank": 1,
+      "fit_score": 5,
+      "headline": "Inventarios de emissoes 2026 sao pre-requisito para MRV 2027 — quem nao comecar agora perde o ciclo",
+      "dor_vetores": [
+        "Inventarios de emissoes 2026 sao pre-requisito para MRV 2027 — quem nao comecar agora perde o ciclo",
+        "CBAM (Carbon Border Adjustment Mechanism) UE em fase definitiva — exportadores sem conformidade perdem acesso ao mercado europeu",
+        "Lei 15.042/2024 criou o SBCE — mercado regulado de carbono no Brasil sem protocolo claro de conformidade para PMEs",
+        "Consultoras de ESG conhecem relatorio mas nao fazem MRV verificavel — gap de mercado",
+        "Empresas do agronegocio com potencial de credito de carbono sem metodologia VERRA adequada"
+      ],
+      "quiz": {
+        "intro": "Reconhecemos o seu setor. Qual destes cenários mais pesa hoje?",
+        "perguntas": [
+          {
+            "id": "dor",
+            "texto": "Qual desses você reconhece no seu dia a dia?",
+            "opcoes": [
+              {
+                "value": "d0",
+                "label": "Inventarios de emissoes 2026 sao pre-requisito para MRV 2027 — quem nao comecar agora perde o ciclo"
+              },
+              {
+                "value": "d1",
+                "label": "CBAM (Carbon Border Adjustment Mechanism) UE em fase definitiva — exportadores sem conformidade perdem acesso ao mercado europeu"
+              },
+              {
+                "value": "d2",
+                "label": "Lei 15.042/2024 criou o SBCE — mercado regulado de carbono no Brasil sem protocolo claro de conformidade para PMEs"
+              },
+              {
+                "value": "d3",
+                "label": "Consultoras de ESG conhecem relatorio mas nao fazem MRV verificavel — gap de mercado"
+              },
+              {
+                "value": "d4",
+                "label": "Empresas do agronegocio com potencial de credito de carbono sem metodologia VERRA adequada"
+              },
+              {
+                "value": "outra",
+                "label": "Outra situação — quero descrever"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "glosa-hospitalar",
+      "nome": "Glosa Hospitalar / Defesa Medica",
+      "setor": "Saude / Faturamento Hospitalar",
+      "rank": 2,
+      "fit_score": 5,
+      "headline": "Taxa de glosa atingiu 17% no Q1/2025 — perda financeira direta e crescente",
+      "dor_vetores": [
+        "Taxa de glosa atingiu 17% no Q1/2025 — perda financeira direta e crescente",
+        "CFM 2.448/2025 criou argumento legal que hospitais ainda nao usam para defesa de glosas",
+        "Auditores de planos de saude aplicam glosas preventivas sabendo que hospitais nao documentam adequadamente",
+        "Processo de contestacao de glosas e manual, lento e com baixa taxa de recuperacao",
+        "CFM 2.448/2025 judicializada — hospitais sem documentacao adequada ficam vulneraveis nos dois lados"
+      ],
+      "quiz": {
+        "intro": "Reconhecemos o seu setor. Qual destes cenários mais pesa hoje?",
+        "perguntas": [
+          {
+            "id": "dor",
+            "texto": "Qual desses você reconhece no seu dia a dia?",
+            "opcoes": [
+              {
+                "value": "d0",
+                "label": "Taxa de glosa atingiu 17% no Q1/2025 — perda financeira direta e crescente"
+              },
+              {
+                "value": "d1",
+                "label": "CFM 2.448/2025 criou argumento legal que hospitais ainda nao usam para defesa de glosas"
+              },
+              {
+                "value": "d2",
+                "label": "Auditores de planos de saude aplicam glosas preventivas sabendo que hospitais nao documentam adequadamente"
+              },
+              {
+                "value": "d3",
+                "label": "Processo de contestacao de glosas e manual, lento e com baixa taxa de recuperacao"
+              },
+              {
+                "value": "d4",
+                "label": "CFM 2.448/2025 judicializada — hospitais sem documentacao adequada ficam vulneraveis nos dois lados"
+              },
+              {
+                "value": "outra",
+                "label": "Outra situação — quero descrever"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ifrs17-seguros",
+      "nome": "IFRS 17 — Implementacao e Compliance para Seguradoras",
+      "setor": "Financeiro / Seguros / Contabilidade",
+      "rank": 3,
+      "fit_score": 5,
+      "headline": "Transicao de IFRS 4 para IFRS 17 exige reprocessamento completo de provisoes tecnicas — processo complexo e caro",
+      "dor_vetores": [
+        "Transicao de IFRS 4 para IFRS 17 exige reprocessamento completo de provisoes tecnicas — processo complexo e caro",
+        "88% das seguradoras brasileiras em transicao — mercado massivo sem solucao acessivel para PMEs do setor",
+        "CSM (Contractual Service Margin) calculo incorreto gera demonstracoes financeiras nao conformes",
+        "SUSEP aumentou rigor de supervisao durante o periodo de transicao — risco de autuacao elevado",
+        "Corretoras de seguros menores sem equipe atuarial propria para conduzir a transicao"
+      ],
+      "quiz": {
+        "intro": "Reconhecemos o seu setor. Qual destes cenários mais pesa hoje?",
+        "perguntas": [
+          {
+            "id": "dor",
+            "texto": "Qual desses você reconhece no seu dia a dia?",
+            "opcoes": [
+              {
+                "value": "d0",
+                "label": "Transicao de IFRS 4 para IFRS 17 exige reprocessamento completo de provisoes tecnicas — processo complexo e caro"
+              },
+              {
+                "value": "d1",
+                "label": "88% das seguradoras brasileiras em transicao — mercado massivo sem solucao acessivel para PMEs do setor"
+              },
+              {
+                "value": "d2",
+                "label": "CSM (Contractual Service Margin) calculo incorreto gera demonstracoes financeiras nao conformes"
+              },
+              {
+                "value": "d3",
+                "label": "SUSEP aumentou rigor de supervisao durante o periodo de transicao — risco de autuacao elevado"
+              },
+              {
+                "value": "d4",
+                "label": "Corretoras de seguros menores sem equipe atuarial propria para conduzir a transicao"
+              },
+              {
+                "value": "outra",
+                "label": "Outra situação — quero descrever"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "medicos-peritos-laudos",
+      "nome": "Medicos Peritos — Laudos e Gestao de Processos",
+      "setor": "Saude / Juridico / Previdencia",
+      "rank": 4,
+      "fit_score": 5,
+      "headline": "CFM 2.448/2025 criou novo padrao de documentacao que torna laudos anteriores vulneraveis a impugnacao",
+      "dor_vetores": [
+        "CFM 2.448/2025 criou novo padrao de documentacao que torna laudos anteriores vulneraveis a impugnacao",
+        "Laudo impugnado por falta de conformidade CFM = medico perde honorarios + risco de processo etico",
+        "Volume de laudos alto sem sistema de gestao documental — risco cresce com o portfolio",
+        "Medico perito sem atualizacao metodologica formal ficou exposto sem saber",
+        "Junta medica do INSS usa CFM 2.448/2025 como criterio de aceitacao — laudos nao conformes sao automaticamente rejeitados"
+      ],
+      "quiz": {
+        "intro": "Reconhecemos o seu setor. Qual destes cenários mais pesa hoje?",
+        "perguntas": [
+          {
+            "id": "dor",
+            "texto": "Qual desses você reconhece no seu dia a dia?",
+            "opcoes": [
+              {
+                "value": "d0",
+                "label": "CFM 2.448/2025 criou novo padrao de documentacao que torna laudos anteriores vulneraveis a impugnacao"
+              },
+              {
+                "value": "d1",
+                "label": "Laudo impugnado por falta de conformidade CFM = medico perde honorarios + risco de processo etico"
+              },
+              {
+                "value": "d2",
+                "label": "Volume de laudos alto sem sistema de gestao documental — risco cresce com o portfolio"
+              },
+              {
+                "value": "d3",
+                "label": "Medico perito sem atualizacao metodologica formal ficou exposto sem saber"
+              },
+              {
+                "value": "d4",
+                "label": "Junta medica do INSS usa CFM 2.448/2025 como criterio de aceitacao — laudos nao conformes sao automaticamente rejeitados"
+              },
+              {
+                "value": "outra",
+                "label": "Outra situação — quero descrever"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "setor-eletrico-regulatorio",
+      "nome": "Setor Eletrico — Compliance Regulatorio ANEEL",
+      "setor": "Energia / Regulatorio",
+      "rank": 5,
+      "fit_score": 5,
+      "headline": "14 GW de GD nao declarados detectados pelo ONS — instalacoes em risco de exclusao do sistema de compensacao",
+      "dor_vetores": [
+        "14 GW de GD nao declarados detectados pelo ONS — instalacoes em risco de exclusao do sistema de compensacao",
+        "Ausencia de trilha documental das conexoes GD gera cobranca retroativa de ate 36 ciclos",
+        "Documentacao tecnica das expansoes nao comprovada para nova norma ANEEL",
+        "Prazo de 60 dias pressiona integradores sem processo estruturado"
+      ],
+      "quiz": {
+        "intro": "Reconhecemos o seu setor. Qual destes cenários mais pesa hoje?",
+        "perguntas": [
+          {
+            "id": "dor",
+            "texto": "Qual desses você reconhece no seu dia a dia?",
+            "opcoes": [
+              {
+                "value": "d0",
+                "label": "14 GW de GD nao declarados detectados pelo ONS — instalacoes em risco de exclusao do sistema de compensacao"
+              },
+              {
+                "value": "d1",
+                "label": "Ausencia de trilha documental das conexoes GD gera cobranca retroativa de ate 36 ciclos"
+              },
+              {
+                "value": "d2",
+                "label": "Documentacao tecnica das expansoes nao comprovada para nova norma ANEEL"
+              },
+              {
+                "value": "d3",
+                "label": "Prazo de 60 dias pressiona integradores sem processo estruturado"
+              },
+              {
+                "value": "outra",
+                "label": "Outra situação — quero descrever"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "saude-digital-conformidade",
+      "nome": "Saude Digital / RNDS+LGPD+CFM 2.448/2025",
+      "setor": "Saude Digital",
+      "rank": 6,
+      "fit_score": 4.8,
+      "headline": "77% dos hospitais em nao-conformidade com RNDS",
+      "dor_vetores": [
+        "77% dos hospitais em nao-conformidade com RNDS",
+        "4 reguladores simultaneos: CFM, ANPD, ANS e Ministerio da Saude",
+        "Diretor clinico com responsabilidade pessoal por violacoes"
+      ],
+      "quiz": {
+        "intro": "Reconhecemos o seu setor. Qual destes cenários mais pesa hoje?",
+        "perguntas": [
+          {
+            "id": "dor",
+            "texto": "Qual desses você reconhece no seu dia a dia?",
+            "opcoes": [
+              {
+                "value": "d0",
+                "label": "77% dos hospitais em nao-conformidade com RNDS"
+              },
+              {
+                "value": "d1",
+                "label": "4 reguladores simultaneos: CFM, ANPD, ANS e Ministerio da Saude"
+              },
+              {
+                "value": "d2",
+                "label": "Diretor clinico com responsabilidade pessoal por violacoes"
+              },
+              {
+                "value": "outra",
+                "label": "Outra situação — quero descrever"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "engenheiros-acervo-tecnico",
+      "nome": "Engenheiros / Acervo Tecnico ART+CREA+TCU",
+      "setor": "Engenharia Civil / Obras Publicas",
+      "rank": 7,
+      "fit_score": 4.6,
+      "headline": "Acervo nao sistematizado gera inabilitacao em licitacoes",
+      "dor_vetores": [
+        "Acervo nao sistematizado gera inabilitacao em licitacoes",
+        "TCU responsabiliza RT pessoalmente por irregularidades",
+        "CAT obrigatoria em obras acima de R$330k sem documentacao rastreavel"
+      ],
+      "quiz": {
+        "intro": "Reconhecemos o seu setor. Qual destes cenários mais pesa hoje?",
+        "perguntas": [
+          {
+            "id": "dor",
+            "texto": "Qual desses você reconhece no seu dia a dia?",
+            "opcoes": [
+              {
+                "value": "d0",
+                "label": "Acervo nao sistematizado gera inabilitacao em licitacoes"
+              },
+              {
+                "value": "d1",
+                "label": "TCU responsabiliza RT pessoalmente por irregularidades"
+              },
+              {
+                "value": "d2",
+                "label": "CAT obrigatoria em obras acima de R$330k sem documentacao rastreavel"
+              },
+              {
+                "value": "outra",
+                "label": "Outra situação — quero descrever"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
