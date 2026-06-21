@@ -31,8 +31,21 @@ export function assertEditorialSafe(text) {
   return text;
 }
 
+export function toPublicCard(model, rank) {
+  const dores = Array.isArray(model.dores) ? model.dores : [];
+  const headline = assertEditorialSafe(dores[0] || model.nome || model.id);
+  return {
+    id: model.id,
+    nome: model.nome || model.id,
+    setor: model.setor || '',
+    rank,
+    fit_score: model.fit_score || 0,
+    headline,
+    dor_vetores: dores.map(d => assertEditorialSafe(d)),
+  };
+}
+
 // Stubs temporários — serão implementados nas funções seguintes
-export function toPublicCard(model, rank) { return {}; }
 export function buildNicheQuiz(model) { return {}; }
 export function buildPublicArtifact(models, month) { return {}; }
 export function parseRegenDates(calendarMarkdown) { return []; }
