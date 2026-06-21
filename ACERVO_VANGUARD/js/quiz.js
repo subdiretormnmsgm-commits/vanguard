@@ -381,13 +381,16 @@ const Quiz = (() => {
     showStep('step-processing');
     computeScores();
 
+    var entrada = window.VG_ENTRADA || { nicho: null, origem: 'organico' };
     var payload = {
-      nicho:    state.q1,
+      nicho:    entrada.nicho || state.q1,
       gargalo:  getWeakestQuadrant(),
       nome:     state.nome,
       whatsapp: state.whatsapp,
+      origem:   entrada.origem,
       metadata: {
         email:        state.email,
+        setor_quiz:   state.q1,
         faturamento:  state.q2,
         canal:        state.q3,
         presenca:     state.q4,

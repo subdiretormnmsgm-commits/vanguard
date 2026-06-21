@@ -4,8 +4,8 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const supabaseClient = (() => {
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  async function saveLeadDiagnostico({ nicho, gargalo, nome, whatsapp, metadata }) {
-    const row = { nicho, gargalo, nome, whatsapp, origem: 'landing_v18' };
+  async function saveLeadDiagnostico({ nicho, gargalo, nome, whatsapp, metadata, origem }) {
+    const row = { nicho, gargalo, nome, whatsapp, origem: origem || 'landing_v18' };
     if (metadata) row.metadata = metadata;
     const { error } = await client
       .from('leads_diagnostico')
