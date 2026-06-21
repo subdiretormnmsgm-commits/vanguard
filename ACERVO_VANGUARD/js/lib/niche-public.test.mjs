@@ -149,3 +149,22 @@ test('toPublicCard guarda o nome do nicho (nome sujo lança)', () => {
   const dirty = { ...MODEL_FIX, nome: 'Plataforma de Automação Fiscal', dores: ['dor limpa'] };
   assert.throws(() => toPublicCard(dirty, 1), /editorial/i);
 });
+
+// --- Parte A2: buildPublicArtifact resilient
+test('buildPublicArtifact resilient pula nicho editorial-inválido e registra excluded, com rank contíguo', () => {
+  const models = [
+    { id: 'limpo-1', nome: 'Auditoria NCM', setor: 'X', status: 'MOVER_AGORA', fit_score: 5, dores: ['Erro de NCM rejeita nota'] },
+    { id: 'sujo', nome: 'Plataforma de Automação', setor: 'Y', status: 'MOVER_AGORA', fit_score: 4.9, dores: ['Gargalo manual'] },
+    { id: 'limpo-2', nome: 'Glosa hospitalar', setor: 'Z', status: 'MOVER_AGORA', fit_score: 4, dores: ['Glosa recorrente'] },
+  ];
+  const art = buildPublicArtifact(models, '2026-07', { resilient: true });
+  assert.deepEqual(art.niches.map(n => n.id), ['limpo-1', 'limpo-2']);
+  assert.deepEqual(art.niches.map(n => n.rank), [1, 2]);   // contíguo, sem buraco
+  assert.equal(art.excluded.length, 1);
+  assert.equal(art.excluded[0].id, 'sujo');
+  assert.match(art.excluded[0].reason, /editorial/i);
+});
+test('buildPublicArtifact NÃO-resiliente (default) propaga o throw', () => {
+  const models = [{ id: 'sujo', nome: 'Automação', status: 'MOVER_AGORA', fit_score: 5, dores: ['x'] }];
+  assert.throws(() => buildPublicArtifact(models, '2026-07'), /editorial/i);
+});
