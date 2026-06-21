@@ -14,6 +14,9 @@ const MODELS_DIR = join(ROOT, 'PENTALATERAL_UNIVERSAL', 'INTELLIGENCE_HUB', 'NIC
 const CALENDAR = join(ROOT, 'PENTALATERAL_UNIVERSAL', 'INTELLIGENCE_HUB', 'CALENDARIO_NICHE_INTELLIGENCE.md');
 const DATA_DIR = join(ROOT, 'ACERVO_VANGUARD', 'data');
 const OUT = join(DATA_DIR, 'niches_public.json');
+// Log de curadoria: vive em INTELLIGENCE_HUB (operacao interna), NUNCA no webroot servido — carrega
+// os termos editoriais que dispararam a exclusao, que jamais podem vazar em view-source.
+const CURATION = join(ROOT, 'PENTALATERAL_UNIVERSAL', 'INTELLIGENCE_HUB', 'NICHE_VITRINE_CURATION.json');
 
 function loadModels() {
   return readdirSync(MODELS_DIR)
@@ -59,8 +62,17 @@ const publicArtifact = {
 };
 writeFileSync(OUT, JSON.stringify(publicArtifact, null, 2) + '\n', 'utf8');
 
+// Persiste o estado de curadoria (sempre — reflete o run atual; vazio = 0 pendencias de copy).
+const curation = {
+  schema: 'niche-vitrine-curation@1',
+  generated_for_month: month,
+  generated_on: today,
+  excluded: result.excluded,
+};
+writeFileSync(CURATION, JSON.stringify(curation, null, 2) + '\n', 'utf8');
+
 if (result.excluded.length) {
-  console.log(`[regen-vitrine] EXCLUIDOS por editorial (${result.excluded.length}) — requerem curadoria de copy publica:`);
+  console.log(`[regen-vitrine] EXCLUIDOS por editorial (${result.excluded.length}) — requerem curadoria de copy publica (log: ${CURATION}):`);
   for (const e of result.excluded) console.log(`  - ${e.id}: ${e.reason}`);
 }
 console.log(`[regen-vitrine] ${result.niches.length} nichos publicados -> ${OUT} (mes ${month})`);

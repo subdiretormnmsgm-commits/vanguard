@@ -1,0 +1,15 @@
+{
+  "schema": "niche-vitrine-curation@1",
+  "generated_for_month": "2026-06",
+  "generated_on": "21-06-2026",
+  "excluded": [
+    {
+      "id": "conformidade-ai-act",
+      "reason": "Violação editorial: termo proibido \"ia\" em \"63% das empresas operam sem politicas claras e documentadas de IA\""
+    },
+    {
+      "id": "eventos-fiscais-contadores",
+      "reason": "Violação editorial: termo proibido \"automação\" em \"Automacao Auditavel de Eventos Fiscais para Contadores\""
+    }
+  ]
+}

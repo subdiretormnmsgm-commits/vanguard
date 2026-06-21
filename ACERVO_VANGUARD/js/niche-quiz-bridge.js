@@ -4,8 +4,6 @@
 import { resolveEntrada } from './lib/niche-public.js';
 
 const entrada = resolveEntrada(window.location.search);
+// porta ('organica' | 'inteligencia') fica publicada aqui para quem precisar diferenciar a entrada
+// (quiz.js lê origem/nicho; a V2 quiz-por-nicho lerá .porta). Sem hook DOM enquanto nada o consome.
 window.VG_ENTRADA = { nicho: entrada.nicho, origem: entrada.origem, porta: entrada.porta };
-
-if (entrada.porta === 'inteligencia') {
-  document.documentElement.setAttribute('data-porta', 'inteligencia');
-}

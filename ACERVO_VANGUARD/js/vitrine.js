@@ -1,7 +1,6 @@
 // Vitrine de nichos — fetch do artefato público + render dos cards (hero = rank 1).
 // ES module (carregado via <script type="module">). Editorial: o artefato já é guarded
-// na geração; aqui só renderiza.
-import { } from './lib/niche-public.js'; // marca a dependência de domínio (mesma pasta servida)
+// na geração (scripts/regen-vitrine-site.mjs via js/lib/niche-public.js); aqui só renderiza.
 
 async function loadNiches() {
   try {
