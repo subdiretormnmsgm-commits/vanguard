@@ -521,3 +521,52 @@ que o Cowork deve responder no próximo ciclo (foco de F2/F3/F7/F10/F18) e entre
 O Cowork passa a trabalhar SOB ENCOMENDA do Projetista — fecha o laço de inteligência dinâmica.
 
 > Backlog V2 (registrado, não ativo): M-P3 grafo de tijolos reutilizáveis · demais ideias do ciclo em LOOP_STATE.json.
+
+---
+
+## BLOCO 15 — CAMADA DE SKILLS INSTALADAS (orquestração)
+> Anexo ao Loop 35+. Não altera os Blocos 1–14 — apenas declara QUANDO cada skill
+> instalada dispara dentro das ações e comandos já definidos. As skills disparam por
+> contexto (description); este bloco é o mapa de cobertura, não mecânica de chamada.
+
+### Por COMANDO DE ATIVAÇÃO
+
+**`projeção`** (Terça — nicho MOVER_AGORA) — dispara a cadeia completa, nesta ordem:
+1. `protocolo-leitura` — ANTES de tudo (Bloco 3, os 4 passos). Bloqueante.
+2. `cruzamento-acervo` — logo após a leitura, ANTES da pré-mortem (Bloco 2 / Ação 1, eixo Aproveitamento). Consulta o VANGUARD_HISTORICO/PROJETISTA-ACERVO e emite a HERANÇA (Reutilizar/Adaptar/Combinar/Construir) que alimenta a pré-mortem, a viabilidade e a EAP. Bloqueante: não projeta sem cruzar o histórico.
+3. `pre-mortem-risco` — abre a FASE 1, ANTES da SWOT (§3 / L34-A1).
+4. `discovery-regulatorio` — FASE 1 §1+§2, se o nicho tem gatilho normativo.
+5. `viabilidade-roi` — FASE 1 §3+§3b+§6 (SWOT, filtro, ROI duas camadas, M-STATS).
+6. `eap-raci` — FASE 2 §5+§6 (decomposição + RACI + verificação anti-fator-morte).
+7. `abordagem-blindada` — FASE 4 §8 (insumo de campanha; chama `verificacao-r3-blindagem`).
+8. `confronto-conselho` — ANTES de fechar o veredito do plano (§11 / Bloco 12).
+
+**`materialização`** (sob gatilho — plano aprovado):
+- `materializar-notebooklm` — toda a sessão (Ação 2 + Bloco 7); chama `verificacao-r3-blindagem` no artefato antes da entrega.
+
+**`agendamento`** (sob gatilho — lacuna):
+- `viabilidade-roi` — é ela que detecta a lacuna de dimensionamento e formula o pedido de M-STATS/frente (Ação 3 / L34-A5). Nenhuma skill nova; reuso do gate dela.
+
+**`retroalimentação`** (Sexta — campo do Digital reporta):
+- `confronto-conselho` — ao reavaliar se a lição muda a direção de um nicho (Encerramento / lições aprendidas).
+- (As demais não disparam aqui — retroalimentação lê campo, não projeta.)
+
+**`triagem`** (Segunda — fronteira DELTA):
+- Nenhuma skill dispara. Triagem é varredura de borda, não projeção (Mandato 11). Declarado para evitar disparo indevido.
+
+### GATE TRANSVERSAL (independe de comando)
+- `verificacao-r3-blindagem` — dispara SEMPRE que qualquer output for sair para mercado/cliente,
+  em qualquer ação. É chamada por `abordagem-blindada` e `materializar-notebooklm`, e também
+  isoladamente quando o Diretor pedir "revisar/aprovar/finalizar" conteúdo externo (Bloco 12 / R-3).
+
+### Mapa de dependência (quem alimenta quem)
+- `protocolo-leitura` → abre tudo (lê o presente; bloqueante).
+- `cruzamento-acervo` → **HERANÇA** → `pre-mortem-risco` · `viabilidade-roi` · `eap-raci` (lê o histórico; Bloco 2 / eixo Aproveitamento).
+- `pre-mortem-risco` → `viabilidade-roi` · `eap-raci` (o risco vira tijolo da EAP — L34-A1).
+- `discovery-regulatorio` → `viabilidade-roi` (gatilho normativo entra na SWOT/ROI).
+- `viabilidade-roi` → `eap-raci`; lacuna de dimensionamento → aciona `agendamento` (Ação 3).
+- `eap-raci` → `abordagem-blindada` (prospect-alvo definido na EAP/RACI).
+- `abordagem-blindada` → `verificacao-r3-blindagem` → Embaixador Digital (via Diretor, P-075).
+- `materializar-notebooklm` → `verificacao-r3-blindagem`.
+- `confronto-conselho` → veredito do plano (gate final §11).
+- `verificacao-r3-blindagem` = gate transversal, chamada por `abordagem-blindada` e `materializar-notebooklm`.
