@@ -97,12 +97,38 @@ foreach ($l in $linhas) {
 }
 if ($infoVault) { Say $infoVault "Gray" }
 
+# GATILHO DOUTRINA (DECISAO 1 do Diretor, 2026-06-21): a camada SEMANTICA (subagente LLM,
+# cara) NAO roda toda sessao. Alem do gatilho deterministico (>= AMARELO), aciona-se quando a
+# DOUTRINA mudou desde a ultima sessao -- onde prosa e principio mais provavelmente divergiram.
+# Doutrina = INTELLIGENCE_LEDGER.md, CLAUDE.md, **/SKILL.md, PENTALATERAL_UNIVERSAL/.
+# Fail-safe (P-110): qualquer erro => $doutrinaMudou = $false; o gatilho >= AMARELO segue valendo.
+$doutrinaMudou = $false
+$doutrinaQtd   = 0
+try {
+    $desde = $null
+    $wip = Join-Path $raiz "CLIENTES\WIP_BOARD.json"
+    if (Test-Path $wip) {
+        $meta = (Get-Content $wip -Raw -Encoding UTF8 | ConvertFrom-Json).meta
+        if ($meta -and $meta.data_ultima_sessao) { $desde = $meta.data_ultima_sessao }
+    }
+    if (-not $desde) { $desde = "1 day ago" }   # fallback conservador se o campo sumir
+    Push-Location $raiz
+    $mexidos = & git log --since="$desde" --name-only --pretty=format:"" -- "INTELLIGENCE_LEDGER.md" "CLAUDE.md" ".claude/skills" "PENTALATERAL_UNIVERSAL" 2>$null
+    Pop-Location
+    $doutrina = @($mexidos | Where-Object { $_ -match "INTELLIGENCE_LEDGER\.md|^CLAUDE\.md|/SKILL\.md|^PENTALATERAL_UNIVERSAL/" } | Sort-Object -Unique)
+    $doutrinaQtd   = $doutrina.Count
+    $doutrinaMudou = $doutrinaQtd -gt 0
+} catch { $doutrinaMudou = $false }
+
 Say "" Gray
 Say "------------------------------------------------------------" Cyan
 Say "  DRIFT STATUS (deterministico): $($rotulo[$pior])" $cor[$pior]
-if ($pior -ge 1) {
+if ($pior -ge 1 -or $doutrinaMudou) {
     Say "  -> camada SEMANTICA: acione o subagente read-only via skill doc-drift-audit" "Yellow"
-    Say "     (varre prosa-vs-LEDGER; achados -> PENDING_REVIEW.md, append, P-124)" "Yellow"
+    Say "     (varre prosa-vs-LEDGER; achados -> INTELLIGENCE_HUB/PENDING_REVIEW.md, secao DERIVA DOCUMENTAL, append, P-124)" "Yellow"
+    if ($doutrinaMudou -and $pior -lt 1) {
+        Say "     motivo: DOUTRINA mudou desde a ultima sessao ($doutrinaQtd arq) -- deterministico VERDE, prosa-vs-principio pede revisao" "Yellow"
+    }
 }
 Say "------------------------------------------------------------" Cyan
 Say "" Gray

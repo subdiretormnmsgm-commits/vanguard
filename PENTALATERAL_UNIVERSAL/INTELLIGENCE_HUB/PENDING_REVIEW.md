@@ -4,6 +4,18 @@
 
 ---
 
+## DERIVA DOCUMENTAL
+> **Destino ÚNICO de achado prosa-vs-LEDGER do Detector de Deriva (DECISÃO 2/A do Diretor, 2026-06-21).**
+> Escrito SÓ em append pelo subagente read-only da skill `doc-drift-audit` — nunca por mão humana, nunca direto para DECISOES/WIP.
+> **Gatilho da camada semântica (DECISÃO 1):** o subagente NÃO roda toda sessão. É acionado pelo `detector_deriva.ps1`
+> quando (a) o determinístico acusa ≥ AMARELO **ou** (b) a DOUTRINA mudou desde a última sessão
+> (commit tocando INTELLIGENCE_LEDGER.md · CLAUDE.md · `**/SKILL.md` · PENTALATERAL_UNIVERSAL/).
+> Formato de cada achado: `[DERIVA] <arquivo:trecho> — diverge de <P-XXX/regra> — <1 linha>`. O Músculo revisa ANTES de qualquer correção (P-124).
+
+_(sem achados pendentes)_
+
+---
+
 ## AGUARDANDO VEREDITO
 
 ### [ANÁLISE VIBEHUB/LASY AI] — 4 ações → atores designados · 2026-06-20 (Embaixador → Músculo)

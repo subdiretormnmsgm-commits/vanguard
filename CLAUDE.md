@@ -498,7 +498,7 @@ PENDENTE:     [requer decisão do Diretor]
 | Camada | Onde | O que faz |
 |---|---|---|
 | **Determinística (Policy-as-Code)** | `scripts/detector_deriva.ps1` | Maestro fino que orquestra os gates determinísticos já existentes (frescor, consistência textual, violação canônica TIPO 1, drift de comandos de ativação, inventário do vault). Exit 0 VERDE / 1 AMARELO / 2 VERMELHO. `-Leve` para session_start; `-Quiet` para hook. |
-| **Semântica (subagente)** | `.claude/skills/doc-drift-audit.md` + persona `CONSELHO/SYSTEM_PROMPT_DETECTOR_DERIVA.md` (v1.4) | Subagente read-only (Read/Grep/Glob) que audita prosa-vs-LEDGER. Escreve SÓ append em `PENDING_REVIEW.md`. |
+| **Semântica (subagente)** | `.claude/skills/doc-drift-audit.md` + persona `CONSELHO/SYSTEM_PROMPT_DETECTOR_DERIVA.md` (v1.4) | Subagente read-only (Read/Grep/Glob) que audita prosa-vs-LEDGER. Escreve SÓ append em `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` → seção `## DERIVA DOCUMENTAL`. **Não roda toda sessão** (DECISÃO 1 do Diretor, P-196): acionado pelo `detector_deriva.ps1` quando o determinístico ≥ AMARELO **ou** a doutrina mudou desde a última sessão (LEDGER · CLAUDE.md · `**/SKILL.md` · PENTALATERAL_UNIVERSAL/). |
 
 **Limite epistêmico (persona §2.5, arXiv 2604.03447):** o LLM é auditor CONFIÁVEL de prosa/documento, mas
 NÃO-confiável para drift código↔doc — esse gate é SEMPRE determinístico (Policy-as-Code), o LLM só audita prosa.
@@ -506,7 +506,7 @@ NÃO-confiável para drift código↔doc — esse gate é SEMPRE determinístico
 
 **Regras obrigatórias para o Músculo:**
 - `session_start.ps1` roda `detector_deriva.ps1 -Leve -Quiet` na abertura (read-only, fault-tolerant, só exibe se exit ≥ 1).
-- Todo achado vai para `PENDING_REVIEW.md` (append, P-124) — Músculo revisa ANTES de qualquer correção. Nunca direto para DECISOES/WIP.
+- Todo achado vai para `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` → seção `## DERIVA DOCUMENTAL` (append, P-124) — Músculo revisa ANTES de qualquer correção. Nunca direto para DECISOES/WIP.
 - O Detector NUNCA edita o canônico, NUNCA roda sobre mount rclone (C1/P-181). Detecta e reporta; o Diretor delibera.
 - **Camada visual opcional (DIFERIDA):** o vault é 100% Markdown — abrir em Obsidian dá grafo/backlinks de leitura. Obsidian é camada VISUAL, nunca runtime do Detector.
 

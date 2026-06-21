@@ -127,20 +127,14 @@
 
 ## 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR
 
-- [ ] `2026-06-13` **⚠️ [ALERTA NICHE] Eventos Fiscais / ECD 2026 — 17 DIAS** [diretor]
-  Prazo: **30/06/2026 (30-06-2026 terça-feira)**
-  Acao: Prospectar escritórios de contabilidade de médio porte via WhatsApp/LinkedIn esta semana
-  Mensagem: "O prazo da ECD encerra em 30 de junho e a Receita automatizou as multas; sua contabilidade já opera com auditoria de Eventos Fiscais?"
+- [x] `2026-06-13` ~~**[ALERTA NICHE] Eventos Fiscais / ECD 2026**~~ [diretor] — ARQUIVADO 2026-06-21 [VIRADA P-194]: ECD recuado; campanha-âncora passou a ser o AI Act 02/08. Alerta morto — sai do radar.
 
 - [ ] `2026-06-13` **[ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026** [diretor]
   Prazo: **02/08/2026 (02-08-2026 domingo)**
   Acao: Mapear e contatar 3 CTOs/Diretores Juridicos de fintechs brasileiras que operam na Europa
   Canal: LinkedIn
 
-- [ ] `2026-06-13` **[ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias** [diretor]
-  Prazo: **05/08/2026 (05-08-2026 quarta-feira)**
-  Acao: Identificar 2 integradoras GD com mais de 500 kW instalados para abordagem imediata
-  Canal: WhatsApp / Indicacao
+- [x] `2026-06-13` ~~**[ALERTA NICHE] Setor Eletrico / GD — ANEEL**~~ [diretor] — ARQUIVADO 2026-06-21 [VIRADA P-194]: alerta de lista fixa pré-virada (Loop 33). Hoje o nicho vem do motor de inteligência de mercado, não desta lista. Sai do radar.
 
 - [x] `2026-05-26` ~~**TOKEN SUPABASE EXPOSTO — RESOLVIDO:**~~
   ✅ Token revogado no dashboard Supabase — confirmado pelo Diretor em 2026-05-27. Arquivos redatados.
@@ -255,7 +249,7 @@
 - [x] `2026-06-10` ~~**[MÚSCULO] update_memoria_embaixador.ps1 — atualização event-driven (P-145)** [musculo]~~
   ✅ scripts/update_memoria_embaixador.ps1 criado 2026-06-13: -Passo 5|7, extrai AUDITOR_LOOP/SECAO_D, insere LOG DE CONTATOS, atualiza p032 gate em LOOP_STATE.json, cria flag do dia. Gate 6B em session_close.ps1 atualizado para verificar flag por cliente ativo (BUILD/RETAINER/HYPERCARE). [RESOLVE: update-memoria-embaixador]
 
-- [x] `2026-06-10` **[MÚSCULO] [CHECKLIST DO MÚSCULO] bloqueante no PASSO5 template (P-143)** [musculo]
+- [ ] `2026-06-10` **[MÚSCULO] [CHECKLIST DO MÚSCULO] bloqueante no PASSO5 template (P-143)** [musculo] — REABERTO 2026-06-21: estava `[x]` sem evidência (sem commit; corpo ainda descreve "o que construir"). Verificar se o template foi atualizado de fato antes de fechar.
   Erro: Deep Research WEB não clicado antes do PASSO5 + relatorio nativo esquecido (Loop 31).
   P-143 registrado mas template não atualizado — registro sem ferramenta é decoração.
   O que construir:
@@ -322,11 +316,7 @@
   ✅ 5 vídeos adicionados ao caderno VANGUARD d7dab0e1 — total: 24 fontes (19 docs + 5 YT).
   ✅ DIRETRIZ V33 recebida do Antigravity — G-1..G-5 + [PARA O NOTEBOOKLM]. [RESOLVE: Loop 33 abertura]
 
-- [ ] `2026-06-12` **[DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertical Licitações (G-2+G-3)** [diretor]
-  Loop 33 D1:A aprovado. O sistema está pronto para executar G-2 (auditoria PNCP) + G-3 (Pitch Reverso ROI).
-  GATE BLOQUEANTE: Músculo não pode iniciar sem um nome de prospect.
-  Pedir indicação ao Valdece ANTES de 18-06 (E-2 — janela fecha com o hypercare).
-  Resposta esperada do Diretor: nome/empresa/nicho do alvo.
+- [x] `2026-06-12` ~~**[DIRETOR] URGENTE — nomear prospect Vertical Licitações (G-2+G-3)**~~ [diretor] — ARQUIVADO 2026-06-21 [VIRADA P-194]: nicho do Loop 33 pré-virada; ponte Valdece já fechada sem prospect (linha 332). Vertical não é mais o foco. Sai do radar.
 
 - [x] `2026-06-12` ~~**[DIRETOR] ⚠️ URGENTE — E-2 Ponte Valdece antes de 18-06** [diretor]~~
   ✅ Realizado 2026-06-14. Valdece respondeu que nao conhece prospects no nicho de Licitacoes. Gate de prospecção via Valdece encerrado -- buscar prospect por canal direto (LinkedIn/evento). [RESOLVE: E-2-ponte-valdece]
@@ -405,7 +395,7 @@
   Liga com a Máquina de Conhecimento (é o estágio DESCOBERTA do Embaixador) e com M'-5 (vigilância 24/7) virando rotina.
   Memória: project_maquina_conhecimento_soberana + project_motor_de_verdade_engines.
 
-- [x] `2026-06-XX` **[V30 ÉPICO] Antigravity motor de deriva / W-10 — comandos determinados + repositório de skills** [musculo] — BACKLOG, aguarda Diretor abrir V30
+- [ ] `2026-06-XX` **[V30 ÉPICO] Antigravity motor de deriva / W-10 — comandos determinados + repositório de skills** [musculo] — BACKLOG, aguarda Diretor abrir V30 — REABERTO 2026-06-21: estava `[x]` sem evidência (épico nunca entregue = falso-fechamento). Permanece backlog, mas honesto como aberto.
   Liga doc_freshness_checker + M-4 (curar deriva) num motor do Estrategista (Antigravity) que varre deriva de documentos e processos e só reporta para PENDING_REVIEW (nunca direto a DECISOES/WIP — P-124).
   Inclui curadoria de 5-10 skills do repo Antigravity awesome-skills (1.525+ SKILL.md — curar, não despejar).
   Memória: feedback_antigravity_motor_falhas_deriva + reference_antigravity_awesome_skills.
