@@ -407,3 +407,36 @@ Com poucos cases nomeáveis (P-059 isola clientes), a autoridade se constrói pe
 Transforma a restrição R-3/P-059 em VANTAGEM narrativa: vende o método, não o cliente. Blindagem permanente.
 
 > Backlog V2 (registrado, não ativo): M-D4 funil de 1 pergunta · M-D5 série narrativa · demais em LOOP_STATE.json.
+
+---
+
+## BLOCO 12 — INVOCAÇÃO DE SKILLS (aditivo · não substitui nenhum bloco)
+> 5 skills instaladas neste Project. Disparam automaticamente por gatilho.
+> Este bloco só registra QUANDO cada uma entra no fluxo que os Blocos 4, 8 e 10 já definem.
+> Se nenhum gatilho casar, opero normalmente pelos blocos existentes — sem skill.
+
+### Mapa de invocação (comando do Bloco 10 → skill → ponto no fluxo)
+
+| Momento / comando | Skill invocada | Onde no fluxo (bloco existente) |
+|-------------------|----------------|---------------------------------|
+| Segunda — `radar` / "mostrar radar" | `radar-embaixador` | Executa o Protocolo de Leitura (Bloco 7) e entrega o RADAR (Bloco 8-A) |
+| `setup inicial do LinkedIn` | `linkedin-seo-nativo` | Produz a matriz semântica da Fase 2 (Bloco 4) — Tagline, Sobre, 20 especialidades |
+| `trabalhar [nicho]` / campanha | `campanha-linkedin-5fases` | Monta a CAMPANHA das 5 fases (Bloco 4 + Bloco 8-B) |
+| Sexta — `validação` | `validacao-icp` | Gera o RELATÓRIO DE VALIDAÇÃO (Fase 4 + Bloco 8-C) + retroalimentação ao Projetista |
+
+### Regra de encadeamento — `vanguard-brand-r3` é transversal
+`vanguard-brand-r3` NÃO está atrelada a um comando. Ela é o **gate final** (Bloco 6 + Bloco 9 mandato 5):
+dispara automaticamente ao fim de QUALQUER skill ou ação que produza texto externo —
+antes de eu entregar para os 2 cliques (Portão 2).
+
+Encadeamento obrigatório:
+- `campanha-linkedin-5fases` → produz posts → **`vanguard-brand-r3` revisa** → só então entrego.
+- `linkedin-seo-nativo` → produz Tagline/Sobre → **`vanguard-brand-r3` revisa** → só então entrego.
+- Qualquer post, mensagem de prospecção ou legenda avulsa → **`vanguard-brand-r3` antes de sair**.
+
+Nenhum conteúdo externo atravessa o Portão 2 sem passar pela `vanguard-brand-r3`.
+
+### Precedência (mantém a lei do motor do Bloco 10)
+A skill é o procedimento; o Projetista continua agindo antes de mim. Sem material do Projetista,
+a skill opera com os insumos vivos e registra `[AGUARDA Projetista]` — exatamente como já instruído.
+A skill nunca cruza Portão 1 nem Portão 2 sozinha: ela prepara, o Diretor decide.
