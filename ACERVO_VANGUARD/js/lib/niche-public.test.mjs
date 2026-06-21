@@ -102,3 +102,25 @@ test('buildPublicArtifact monta artefato com mês, ranking e quiz por nicho', ()
   assert.equal(art.niches[1].rank, 2);
   assert.equal(art.niches[0].quiz.perguntas.length, 1);
 });
+
+// --- Função 6: gate de data
+// Datas com ano de 4 dígitos (formato P-069 DD/MM/YYYY) — calendário real sempre tem ano.
+const CAL_FIX = [
+  '| **02/07/2026** | Qui | REGEN_VITRINE_SITE | NORMAL | Regenerar Vitrine pós-NICHE_MODELER |',
+  '| **01/07/2026** | Qua | NICHE_MODELER | CRÍTICO | enriquecimento |',
+  '| **02/08/2026** | Sáb | REGEN_VITRINE_SITE | NORMAL | idem |',
+].join('\n');
+test('parseRegenDates extrai só as datas marcadas REGEN_VITRINE_SITE', () => {
+  assert.deepEqual(parseRegenDates(CAL_FIX), ['02-07-2026', '02-08-2026']);
+});
+test('shouldRegenerate libera quando hoje é data de regen e o mês ainda não foi gerado', () => {
+  const r = shouldRegenerate({ today: '02-07-2026', regenDates: ['02-07-2026'], lastGeneratedMonth: '2026-06' });
+  assert.equal(r.regen, true);
+  assert.equal(r.month, '2026-07');
+});
+test('shouldRegenerate NÃO age fora da data', () => {
+  assert.equal(shouldRegenerate({ today: '05-07-2026', regenDates: ['02-07-2026'], lastGeneratedMonth: '2026-06' }).regen, false);
+});
+test('shouldRegenerate NÃO age se o mês já foi gerado (idempotente)', () => {
+  assert.equal(shouldRegenerate({ today: '02-07-2026', regenDates: ['02-07-2026'], lastGeneratedMonth: '2026-07' }).regen, false);
+});

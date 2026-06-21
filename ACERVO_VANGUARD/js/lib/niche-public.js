@@ -65,8 +65,30 @@ export function buildPublicArtifact(models, month) {
   return { schema: 'vitrine_v1', generated_for_month: month, niches };
 }
 
+// Datas DD/MM/YYYY (calendário) -> DD-MM-YYYY (chave interna).
+export function parseRegenDates(calendarMarkdown) {
+  const out = [];
+  const re = /(\d{2})\/(\d{2})\/(\d{4})[^\n]*REGEN_VITRINE_SITE/g;
+  let m;
+  while ((m = re.exec(calendarMarkdown)) !== null) {
+    out.push(`${m[1]}-${m[2]}-${m[3]}`);
+  }
+  return out;
+}
+
+function monthKey(ddmmyyyy) {
+  const [, mm, yyyy] = ddmmyyyy.split('-');
+  return `${yyyy}-${mm}`;
+}
+
+export function shouldRegenerate({ today, regenDates, lastGeneratedMonth }) {
+  const isRegenDay = Array.isArray(regenDates) && regenDates.includes(today);
+  const month = today ? monthKey(today) : null;
+  if (!isRegenDay) return { regen: false, month, reason: 'fora-da-data' };
+  if (month === lastGeneratedMonth) return { regen: false, month, reason: 'mes-ja-gerado' };
+  return { regen: true, month, reason: 'liberado' };
+}
+
 // Stubs temporários — serão implementados nas funções seguintes
-export function parseRegenDates(calendarMarkdown) { return []; }
-export function shouldRegenerate(opts) { return { regen: false }; }
 export function resolveEntrada(search) { return { porta: 'organica', nicho: null, origem: 'organico' }; }
 export function buildLeadRow(opts) { return {}; }
