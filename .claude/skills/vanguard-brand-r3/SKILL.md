@@ -131,3 +131,9 @@ Se um dado não tem fonte confirmada:
 Em caso de dúvida se um termo é problemático: **reprova e sinaliza**. O Diretor decide se libera. Nunca o contrário.
 
 O custo de um falso positivo (segurar um post limpo) é zero. O custo de um falso negativo (liberar um post com vazamento) é irreversível.
+
+---
+
+## Âncoras
+Embaixador Digital · Bloco 6 · Bloco 9 (mandato 5) · R-3 · P-059 · gate do Portão 2
+Chamada por: `campanha-linkedin-5fases`, `linkedin-seo-nativo` (e qualquer texto externo avulso, antes do Portão 2)
