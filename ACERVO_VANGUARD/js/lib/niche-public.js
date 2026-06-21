@@ -9,9 +9,29 @@ export function selectPublicNiches(models) {
     .sort((a, b) => (b.fit_score || 0) - (a.fit_score || 0));
 }
 
+export const EDITORIAL_BANNED = [
+  'ia', 'inteligência artificial', 'inteligencia artificial',
+  'automação', 'automacao', 'automatizado', 'automatizada',
+  'claude', 'gpt', 'robô', 'robo', 'bot', 'algoritmo', 'machine learning',
+];
+
+function normalize(s) {
+  return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+
+export function assertEditorialSafe(text) {
+  const norm = normalize(text);
+  for (const banned of EDITORIAL_BANNED) {
+    const b = normalize(banned).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp('(^|[^a-z0-9])' + b + '($|[^a-z0-9])');
+    if (re.test(norm)) {
+      throw new Error(`Violação editorial: termo proibido "${banned}" em "${text}"`);
+    }
+  }
+  return text;
+}
+
 // Stubs temporários — serão implementados nas funções seguintes
-export const EDITORIAL_BANNED = [];
-export function assertEditorialSafe(text) { return text; }
 export function toPublicCard(model, rank) { return {}; }
 export function buildNicheQuiz(model) { return {}; }
 export function buildPublicArtifact(models, month) { return {}; }
