@@ -31,6 +31,7 @@ jobs:
             **/*.ps1
             **/*.py
             **/tests/**
+            **/*.test.mjs
             **/infra/**
             **/scripts/**
             **/.env*
