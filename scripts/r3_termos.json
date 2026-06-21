@@ -1,0 +1,46 @@
+{
+  "schema": "r3-termos@1",
+  "atualizado": "2026-06-21",
+  "fonte": "Fonte CANONICA unica da blindagem R-3. Consolida vanguard-brand-r3 (Varredura 1 termos + Varredura 2 clientes) e verificacao-r3-blindagem. As listas em prosa das skills sao ilustrativas; esta e a lista que o scanner aplica.",
+  "bloqueio": {
+    "descricao": "Termos internos inequivocos. Match = R-3 FAIL absoluto, output nao sai (Varredura 1).",
+    "termos": [
+      "inteligencia artificial",
+      "machine learning",
+      "LLM",
+      "Claude",
+      "Opus",
+      "Sonnet",
+      "Anthropic",
+      "NotebookLM",
+      "Gemini",
+      "ChatGPT",
+      "OpenAI",
+      "Cowork",
+      "automacao",
+      "automatizado",
+      "automaticamente gerado"
+    ]
+  },
+  "clientes": {
+    "descricao": "Nomes de cliente real. Isolamento absoluto P-059. Match = R-3 FAIL (Varredura 2).",
+    "termos": [
+      "Valdece",
+      "Ingrid",
+      "Mumuzinho"
+    ]
+  },
+  "alerta": {
+    "descricao": "Termos ambiguos cujo sentido depende do contexto (modelo de negocio vs. modelo de IA). Sinaliza, NAO bloqueia; o Diretor decide. 'IA'/'AI' so contam quando isolados em caixa-alta para nao casar com 'media', 'associacao' etc.",
+    "termos": [
+      "IA",
+      "AI",
+      "modelo",
+      "algoritmo",
+      "ferramenta",
+      "bot",
+      "prompt"
+    ],
+    "case_sensitive": ["IA", "AI"]
+  }
+}
