@@ -55,8 +55,17 @@ export function buildNicheQuiz(model) {
   };
 }
 
+export function buildPublicArtifact(models, month) {
+  const selected = selectPublicNiches(models);
+  const niches = selected.map((m, i) => {
+    const card = toPublicCard(m, i + 1);
+    card.quiz = buildNicheQuiz(m);
+    return card;
+  });
+  return { schema: 'vitrine_v1', generated_for_month: month, niches };
+}
+
 // Stubs temporários — serão implementados nas funções seguintes
-export function buildPublicArtifact(models, month) { return {}; }
 export function parseRegenDates(calendarMarkdown) { return []; }
 export function shouldRegenerate(opts) { return { regen: false }; }
 export function resolveEntrada(search) { return { porta: 'organica', nicho: null, origem: 'organico' }; }

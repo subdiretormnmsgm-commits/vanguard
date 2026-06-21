@@ -85,3 +85,20 @@ test('buildNicheQuiz aplica editorial guard a cada opção', () => {
   const dirty = { ...MODEL_FIX, dores: ['dor limpa', 'dor com robô embutido'] };
   assert.throws(() => buildNicheQuiz(dirty), /editorial/i);
 });
+
+// --- Função 5: buildPublicArtifact
+test('buildPublicArtifact monta artefato com mês, ranking e quiz por nicho', () => {
+  const models = [
+    MODEL_FIX,
+    { id: 'setor-eletrico', nome: 'Setor Elétrico', setor: 'Energia', status: 'MOVER_AGORA', fit_score: 4.5, dores: ['Glosa ANEEL recorrente'] },
+    { id: 'ignorado', status: 'MONITORAR', fit_score: 9, dores: ['x'] },
+  ];
+  const art = buildPublicArtifact(models, '2026-07');
+  assert.equal(art.schema, 'vitrine_v1');
+  assert.equal(art.generated_for_month, '2026-07');
+  assert.equal(art.niches.length, 2);
+  assert.equal(art.niches[0].id, 'compliance-aduaneiro-ncm');
+  assert.equal(art.niches[0].rank, 1);
+  assert.equal(art.niches[1].rank, 2);
+  assert.equal(art.niches[0].quiz.perguntas.length, 1);
+});
