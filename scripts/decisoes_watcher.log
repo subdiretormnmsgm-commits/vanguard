@@ -1482,3 +1482,23 @@
 [2026-06-20 19:30:28] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
 [2026-06-20 19:30:28] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
 [2026-06-20 19:30:28] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 19:49:28] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 19:49:28] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 19:49:28] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 19:49:28] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 19:49:28] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 20:13:48] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 20:13:48] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 20:13:48] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 20:13:48] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 20:13:48] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 20:43:10] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 20:43:10] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 20:43:10] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 20:43:10] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 20:43:10] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...
+[2026-06-20 21:25:06] [WATCHER] Iniciando pipeline DECISOES -- projetos: VANGUARD, VALDECE, INGRID
+[2026-06-20 21:25:06] [WATCHER] [VANGUARD] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 21:25:06] [WATCHER] [VALDECE] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 21:25:06] [WATCHER] [INGRID] Monitorando DECISOES_*.json e VEREDITOS_*.json
+[2026-06-20 21:25:06] [WATCHER] Pipeline ativo para 3 projeto(s). Aguardando eventos...

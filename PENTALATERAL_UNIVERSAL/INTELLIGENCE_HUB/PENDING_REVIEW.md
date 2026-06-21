@@ -6,6 +6,45 @@
 
 ## AGUARDANDO VEREDITO
 
+### [ANÁLISE VIBEHUB/LASY AI] — 4 ações → atores designados · 2026-06-20 (Embaixador → Músculo)
+
+> Origem: Embaixador | Destino: Músculo → atores designados | **AGUARDA VEREDITO DO DIRETOR** (P-124).
+> Colado pelo Diretor ao fechar a sessão de 2026-06-20 como pauta da PRÓXIMA sessão. NADA executado nesta sessão — só registro.
+
+**AÇÃO 1 — Criar KPI Human-to-Revenue Ratio**
+- Ator: Músculo executa; Estrategista valida meta alvo.
+- Destino: `CLIENTES/WIP_BOARD.json` → novo item **W-14**.
+- Bloco a gravar:
+  - **W-14: Human-to-Revenue Ratio** — KPI que mede receita gerada por humano na operação.
+  - Fórmula: `MRR_atual ÷ humanos_na_operação`.
+  - Dados atuais: MRR R$5.000 (fonte MEMORIA_EMBAIXADOR, campo receita) ÷ 2 humanos (Eduardo + sócio) = **R$2.500/pessoa**.
+  - Meta alvo: **AGUARDA veredito do Diretor**.
+  - Uso: define o teto de MRR possível com a estrutura atual antes de nova contratação humana. Loop que produz só build sem contato externo → comparar com este KPI para acionar alerta **PF-1**.
+
+**AÇÃO 2 — Atualizar frame de pitch nos arquivos de canal**
+- Ator: Músculo localiza/edita; Embaixador Digital (8º) aplica nos posts.
+- Destino: `ESTRATEGIA_CANAIS_VANGUARD.md` + `INTENCAO_LINKEDIN.md` (Músculo localiza caminho exato no vault).
+- Substituir: DE *"orquestração governada de IA"* PARA *"crescimento sem headcount proporcional, com auditoria embutida em cada etapa"*.
+- Razão: mercado regulado (Valdece/LegalTech) não compra "orquestração" — compra crescer sem contratar proporcionalmente mantendo controle. Mesmo conteúdo, linguagem do problema do cliente (não da solução técnica). Após editar → sinalizar ao Embaixador Digital.
+
+**AÇÃO 3 — Testar novo hook no próximo post LinkedIn**
+- Ator: Embaixador Digital redige; Auditor valida contra NICHE_INDEX antes de publicar.
+- Destino: rascunho do próximo post (calendário Seg/Qua/Sex) → `PENDING_REVIEW`.
+- 1ª linha testa o frame novo (ex.: *"Você não precisa contratar mais pessoas para crescer. Precisa de um sistema que escale sem você precisar escalar junto. E que prove isso para o auditor quando ele chegar."*).
+- Fluxo: Embaixador Digital redige → Auditor verifica nicho vs NICHE_INDEX → Músculo grava rascunho em PENDING_REVIEW → Diretor aprova antes de publicar.
+
+**AÇÃO 4 — Inserir critério MVA no BLOCO A de qualificação de prospects**
+- Ator: Músculo localiza o arquivo; Auditor verifica conflito com LEDGER antes de gravar.
+- Destino: arquivo de qualificação de prospects (BLOCO A) — Músculo localiza o caminho exato no vault.
+- Critério **MVA (Minimum Viable Automation)**: *"Prospect sem processo mínimo documentado não entra no pipeline da Vanguard."*
+- Justificativa: sem fluxo mapeado, o produto Vanguard não tem onde ancorar; o diagnóstico vira retrabalho pago pela Vanguard, não pelo cliente.
+- Gate prático na 1ª conversa: *"qual processo você quer automatizar e quem é o dono desse processo hoje?"* — se não souber → qualificação falhou → não avança.
+- Auditor verifica conflito com INTELLIGENCE_LEDGER antes de gravar; se conflitar → sinalizar ao Diretor antes de executar.
+
+> **Nota do Músculo (a deliberar):** AÇÃO 4 (MVA = exige processo documentado) tensiona o DNA `dor→quiz→Loop monta` (Ingrid/Valdece entraram pela dor, não por processo mapeado) e a AÇÃO 3 do CONTEXTO (abordagem pós-inteligência). Levar essa tensão à mesa na próxima sessão — não resolver em silêncio (Pilar III). Casa com `[[feedback_funil_dna_mira_ingrid_valdece]]`.
+
+---
+
 ### [M-STATS] — Market Sizing `eventos-fiscais-contadores` · 2026-06-19 BASE (Músculo) · ROBUSTECIDO 2026-06-20 (Executor Cowork) · números-âncora VERIFICADOS (Músculo 2026-06-20)
 
 > Origem: solicitação do Projetista (SAÍDA_PROJETISTA 2026-06-19 — ROI/infográfico bloqueados sem parecer frio).

@@ -40,7 +40,7 @@
 - Nenhuma detectada (NICHE_INDEX `_meta` que estava stale foi corrigido).
 
 ## 8. FICOU NO AR
-- **[DIRETOR] A1 — nicho-âncora da 1ª campanha real** (BLOQUEIA o lançamento do canal). Músculo recomenda **AI Act 02/08** (~6 semanas de fôlego) sobre o ECD recuado, ou um nicho estrutural sem prazo (glosa-hospitalar / ifrs17-seguros).
+- **[DIRETOR] A1 — nicho-âncora da 1ª campanha real ✅ DECIDIDO 2026-06-20 = `conformidade-ai-act` (AI Act, deadline 02/08).** Marca larga mantida; nicho = ponta de lança / campanha pinada. Registrado em LOOP_STATE.json. Destrava A3 — mas só após a pauta de abertura (abaixo) ser deliberada.
 - **[MÚSCULO] A2** — localizar a pasta-fonte do vanguardtech.cloud no repo + diagnosticar o **`www` construído-mas-fora-do-ar** (DIFERIDO) + definir quais nichos ganham superfície primeiro.
 - **[MÚSCULO] A3** — ordem operacional do lançamento (Projetista projeta → Digital setup marca-ampla → Músculo cria Company Page remota → 1º lote). Só após A1.
 - **[DIRETOR] Base legal `compliance-aduaneiro-ncm`** — confirmar LC 227/2026 + R$ 20.000/erro + rejeição automática NF por fonte citável ANTES de qualquer disparo. Campanha pronta e retida.
@@ -48,4 +48,8 @@
 - **E-1/PF-1 VANGUARD:** loop não fecha sem prova externa — não bloqueia a sessão.
 
 ## 9. PRÓXIMA SESSÃO
-**Primeira ação: A1 — o Diretor escolhe o nicho-âncora.** Nada da esteira executa antes disso. Sequência depois do A1: Projetista projeta o nicho → Embaixador Digital faz setup da marca-ampla → Músculo cria a Company Page remotamente → 1º lote. Também: varrer os 10 commits sem `[RESOLVE:]`.
+**A1 já decidido (AI Act 02/08).** ANTES de executar a esteira, deliberar a PAUTA DE ABERTURA (3 itens travados pelo Diretor, ordem de discussão):
+1. **DETECTOR DE DERIVA** — "de onde, quando, como e o quê ele faria". Músculo já propôs cadência (gatilho por mudança de doutrina + AMARELO + piso 1×/loop) e falta definir o destino canônico dos achados. Ficou para trás na ativação F7; o Diretor quer fechar agora.
+2. **LINK SITE ↔ COMPANY PAGE** — resolver o mismatch (Company Page regulatória × vanguardtech.cloud v1 de ticket baixo) antes de o canal ir ao ar. Casa com A2.
+3. **ABORDAGEM AO CLIENTE pós-inteligência** — o Quiz/Diagnóstico ainda é o destino certo? Quando a inteligência de mercado leva ao nicho, já chegamos com a dor mapeada (o nicho É a dor). A porta de entrada talvez mude (autoridade direta em vez de diagnóstico genérico); o DNA (dor→Loop monta, como Ingrid/Valdece) não muda.
+**Só depois da pauta:** sequência da esteira A3 — Projetista projeta o nicho AI Act → Embaixador Digital setup marca-ampla → Músculo cria/ajusta a Company Page remotamente → 1º lote. Também: varrer os 10 commits sem `[RESOLVE:]`. **Lembrete-régua: a Vanguard vende qualquer projeto** (marca nunca estreita ao nicho).

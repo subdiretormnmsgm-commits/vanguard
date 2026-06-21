@@ -1,6 +1,6 @@
 # VANGUARD TECH — LINHA DO TEMPO EVOLUTIVA
 > Organismo vivo. Atualizado pelo Músculo a cada marco real.
-> Criado: 2026-05-17 | Última atualização: 2026-06-20 (tarde — desenho-mãe da esteira de aquisição)
+> Criado: 2026-05-17 | Última atualização: 2026-06-20 (noite — A1 decidido AI Act 02/08 + pauta de abertura travada)
 > Fonte obrigatória do Auditor (NotebookLM) em todo ciclo. Documento 16 em NOTEBOOKLM_FONTES.
 
 ---
@@ -840,3 +840,23 @@ Essa pergunta é papel do Músculo perguntar proativamente — não esperar o Di
 **Status:** desenho-mãe travado e sincronizado ao Drive · execução na próxima sessão · Loop 35 ABERTO (não fecha sem prova externa E-1/PF-1).
 
 *Atualizado em: 2026-06-20 (tarde) — Desenho-mãe da esteira de aquisição + fix NICHE_INDEX*
+
+---
+
+## Decisão + Pauta — 2026-06-20 · Noite (sessão de recuperação + fechamento, Opus 4.8)
+
+**Data:** 2026-06-20 (sábado, noite). A sessão anterior havia travado (crash); esta recuperou o working tree residual (commit `17bd013`, 16 duplicatas de memória limpas) e fechou a estratégia.
+
+**Veredito do Diretor — A1 DECIDIDO:** o nicho-âncora da 1ª campanha real é **`conformidade-ai-act` (AI Act, deadline 02/08)** — ~6 semanas de runway, sobre o ECD recuado. **Marca larga mantida** — "a Vanguard vende qualquer projeto"; o nicho é ponta de lança / campanha pinada que troca sem rebranding. Registrado em `LOOP_STATE.json`.
+
+**Pauta travada para a PRÓXIMA sessão (deliberar ANTES de executar a esteira A3):**
+1. **Detector de Deriva** — de onde / quando / como / o quê (ficou para trás na ativação F7); Músculo propôs cadência (gatilho por mudança de doutrina + AMARELO + piso 1×/loop), falta o destino canônico dos achados.
+2. **Link site ↔ Company Page** — resolver o mismatch (página regulatória de ticket alto × vanguardtech.cloud v1 de ticket baixo) antes de o canal ir ao ar. Casa com A2.
+3. **Abordagem ao cliente pós-inteligência** — o Quiz/Diagnóstico ainda é o destino certo? Quando a **inteligência de mercado** leva ao nicho, já chegamos com a **dor mapeada** (o nicho regulatório É a dor). A porta de entrada pode mudar (autoridade direta, não diagnóstico genérico); o DNA dor→Loop monta (como Ingrid/Valdece) **não muda** — muda a porta.
+4. **PENDING_REVIEW Vibehub/Lasy AI** — 4 ações do Embaixador (KPI Human-to-Revenue → W-14 · frame de pitch "crescimento sem headcount proporcional" · hook LinkedIn · critério MVA no BLOCO A). Tensão sinalizada: AÇÃO 4 (MVA exige processo documentado) tensiona o DNA dor→Loop e o item 3 — deliberar, não resolver em silêncio.
+
+**Régua preservada:** a Vanguard vende qualquer projeto — o nicho mira, a marca não estreita.
+
+**Status:** pauta + A1 registrados em PENDENTES + CONTEXTO + PENDING_REVIEW + LOOP_STATE · execução da esteira adiada · Loop 35 segue ABERTO (não fecha sem prova externa E-1/PF-1).
+
+*Atualizado em: 2026-06-20 (noite) — A1 decidido (AI Act 02/08) + pauta de abertura travada (4 itens)*

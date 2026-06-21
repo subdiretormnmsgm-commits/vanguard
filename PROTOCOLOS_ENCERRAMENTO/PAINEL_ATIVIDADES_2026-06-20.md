@@ -1,5 +1,5 @@
 ﻿# PAINEL DE ATIVIDADES - DIRETOR EDUARDO
-### Pentalateral IAH - Sábado, 2026-06-20 16:03
+### Pentalateral IAH - Sábado, 2026-06-20 21:31
 
 ---
 
@@ -13,13 +13,16 @@
 | 1 | PROJ-000 · Vanguard (VanguardV29 — Pentalateral Autônomo) | [DIRETOR] ⚠️ URGENTE — nomear 1 prospect alvo para Vertic... | 2026-06-12 | 8d |
 | 2 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | ⚠️ [ALERTA NICHE] Eventos Fiscais / ECD 2026 — 17 DIAS | 2026-06-13 | 7d |
 | 3 | COWORK ENGINE — Inteligência de Mercado Vanguard | [MÚSCULO] COWORK — sincronizar INTELLIGENCE_HUB para CLIE... | 2026-06-13 | 7d |
-| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias | 2026-06-13 | 7d |
-| 5 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026 | 2026-06-13 | 7d |
-| 6 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ... | 2026-06-16 | 4d |
-| 7 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-185-guard REFINO (achado #2) — rclone_secrets... | 2026-06-16 | 4d |
-| 8 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] DETECTOR DE DERIVA — decidir cadência da camada... | 2026-06-20 | HOJE |
-| 9 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] AVALIAÇÃO `awesome-claude-skills` — shortlist d... | 2026-06-20 | HOJE |
-| 10 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirm... | 2026-06-20 | HOJE |
+| 4 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Conformidade AI Act — Deadline 02/08/2026 | 2026-06-13 | 7d |
+| 5 | 🔴 ALERTAS CRÍTICOS — AÇÃO IMEDIATA DO DIRETOR | [ALERTA NICHE] Setor Eletrico / GD — ANEEL auditoria 60 dias | 2026-06-13 | 7d |
+| 6 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [MÚSCULO] P-185-guard REFINO (achado #2) — rclone_secrets... | 2026-06-16 | 4d |
+| 7 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ... | 2026-06-16 | 4d |
+| 8 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] LINK SITE ↔ COMPANY PAGE — resolver o mismatch ... | 2026-06-20 | HOJE |
+| 9 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] PENDING_REVIEW Vibehub/Lasy AI — 4 ações do Emb... | 2026-06-20 | HOJE |
+| 10 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] ABORDAGEM AO CLIENTE — o Quiz/Diagnóstico ainda... | 2026-06-20 | HOJE |
+| 11 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] DETECTOR DE DERIVA — decidir cadência da camada... | 2026-06-20 | HOJE |
+| 12 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] AVALIAÇÃO `awesome-claude-skills` — shortlist d... | 2026-06-20 | HOJE |
+| 13 | ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO | [DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirm... | 2026-06-20 | HOJE |
 
 ---
 
@@ -67,14 +70,15 @@ Ingrid     [RETAINER ]  Loop 8 -- Gemini:OK NBook:OK Embaixador:OK Musculo:OK --
 
 ## COMMIT DA SESSAO
 
-Commit : 23c90bd - 2 arquivo(s) alterado(s)
-Mensagem: docs(intel): desenho-mae da esteira de aquisicao + fix NICHE_INDEX _meta v1.5/15 nichos
+Commit : 17bd013 - 20 arquivo(s) alterado(s)
+Mensagem: chore(arvore): fecha working tree residual da sessao 2026-06-20 (encerramento travou) [VEREDITO-DIRETOR]
 
 ---
 
 ## ENTREGAS DO DIA
 
 Commits do dia:
+- 17bd013 chore(arvore): fecha working tree residual da sessao 2026-06-20 (encerramento travou) [VEREDITO-DIRETOR]
 - 23c90bd docs(intel): desenho-mae da esteira de aquisicao + fix NICHE_INDEX _meta v1.5/15 nichos
 - f98836d docs(ledger): P-192 [FALHA-PROCESSO-2026-06-20] gate R-05 travava em delecao de arquivo-codigo (corrigido em --diff-filter=d) [VEREDITO-DIRETOR]
 - 8b0fbf8 docs(conselho): espelhos Projetista (v5.0->v5.1 +BLOCO 14) e Embaixador Digital (v2.0->v2.2 +BLOCO 7 Drive +BLOCO 11) em paridade com os canonicos [VEREDITO-DIRETOR]
@@ -94,8 +98,24 @@ Commits do dia:
 > O Embaixador NAO declara campanha encerrada sem verificar que o artefato existe.
 
 Arquivos gerados/modificados hoje (evidencia automatica):
-  - PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/NICHE_INDEX.json
-  - PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md
+  - .claude/hooks/api_key_guardian.ps1
+  - CLIENTES/INGRID/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
+  - CLIENTES/INGRID/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md
+  - CLIENTES/MUMUZINHO/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
+  - CLIENTES/MUMUZINHO/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md
+  - CLIENTES/STANDBY/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md
+  - CLIENTES/VALDECE/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
+  - CLIENTES/VALDECE/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md
+  - CLIENTES/VANGUARD/CLAUDE_PROJECT/06_INTELLIGENCE_LEDGER.md
+  - CLIENTES/VANGUARD/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md
+  - CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md
+  - CLIENTES/VANGUARD/CONTEXTO_GEMINI.md
+  - CLIENTES/VANGUARD/NOTEBOOKLM_FONTES/04_INTELLIGENCE_LEDGER.md
+  - PENTALATERAL_UNIVERSAL/NOTEBOOKLM_BASE/04_INTELLIGENCE_LEDGER.md
+  - PENTALATERAL_UNIVERSAL/VANGUARD_HISTORICO/MEMORIAS/MEMORIA_V20.md
+  - PENTALATERAL_UNIVERSAL/VANGUARD_HISTORICO/MEMORIAS/MEMORIA_V24.md
+  - PROTOCOLOS_ENCERRAMENTO/CONTEXTO_SESSAO_DIRETOR_2026-06-20.md
+  - PROTOCOLOS_ENCERRAMENTO/PAINEL_ATIVIDADES_2026-06-20.md
 
 CAMPANHA ATIVA:
   Nome     : [preencher -- ex: ECD 30/06 outreach]
@@ -116,10 +136,13 @@ CAMPANHA ATIVA:
 
 ### ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO
 
-🔴 [DIRETOR] DETECTOR DE DERIVA — decidir cadência da camada semântica... [diretor]
-🔴 [DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ficaram ex... [diretor]
-🟡 [DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirmar antes d... [diretor]
-🟡 [DIRETOR] AVALIAÇÃO `awesome-claude-skills` — shortlist de skills c... [diretor]
+🔴 [DIRETOR] LINK SITE ↔ COMPANY PAGE — resolver o mismatch antes de o... [diretor]
+🔴 [DIRETOR] ABORDAGEM AO CLIENTE — o Quiz/Diagnóstico ainda é o desti... [diretor]
+🟡 [DIRETOR] PENDING_REVIEW Vibehub/Lasy AI — 4 ações do Embaixador ag... [diretor]
+🟡 [DIRETOR] DETECTOR DE DERIVA — decidir cadência da camada semântica... [diretor]
+⚪ [DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ficaram ex... [diretor]
+⚪ [DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirmar antes d... [diretor]
+⚪ [DIRETOR] AVALIAÇÃO `awesome-claude-skills` — shortlist de skills c... [diretor]
 ⚪ [MÚSCULO] P-185-guard REFINO (achado #2) — rclone_secrets_guard não... [musculo]
 
 ### COWORK ENGINE — Inteligência de Mercado Vanguard
@@ -146,7 +169,7 @@ CAMPANHA ATIVA:
 - [sem data definida] [V30 ÉPICO] Máquina de Conhecimento Soberana — canais → FONTES → Au... [musculo]
 - [sem data definida] [V30 ÉPICO] Embaixador agentado via Cowork — 2º motor de tempo real... [musculo]
 
-Total pendentes abertos: 14 (12 urgente(s) + 2 agendado(s))
+Total pendentes abertos: 17 (15 urgente(s) + 2 agendado(s))
 
 ---
 
@@ -160,7 +183,7 @@ Ver PENDENTES.md -- itens vencidos acima exigem deliberacao do Diretor.
 
 ## ANALISE GERENCIAL DO MUSCULO
 
-Sessao de 2026-06-20 encerrou sessao com 14 pendente(s) -- 12 urgente(s) + 2 agendado(s) e 0 gargalo(s). Status documental: VERDE.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
+Sessao de 2026-06-20 encerrou sessao com 17 pendente(s) -- 15 urgente(s) + 2 agendado(s) e 0 gargalo(s). Status documental: VERDE.  Musculo: verificar se gargalos bloqueiam o proximo loop antes de ir ao Gemini.
 
 ---
 

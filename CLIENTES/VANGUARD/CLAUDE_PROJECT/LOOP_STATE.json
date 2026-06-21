@@ -85,6 +85,11 @@
                                                  "passo3_loop34":  "AUTORIZADO SOBRESCREVER — PASSO3 Loop 34 gravado com M-1..M-5 + amplificacoes por ator (M\u0027P/M\u0027D/M\u0027X) + escopo Cowork",
                                                  "cowork_no_escopo_diretriz":  "SIM — socios consideram as 13 atividades de Cowork dos atores, alem da construcao da pagina"
                                              },
+                              "2026-06-20":  {
+                                                 "A1_nicho_ancora":  "conformidade-ai-act (deadline 02/08/2026, ~50 dias) — 1a campanha pinada. MARCA LARGA mantida (Vanguard vende qualquer projeto); o nicho e ponta de lanca que troca sem rebranding. ECD recuado (so post de autoridade).",
+                                                 "pauta_proxima_sessao":  "ANTES de executar a esteira, tratar 2 itens deixados para tras: (1) DETECTOR DE DERIVA — de onde/quando/como/o que ele faria (avancar a sugestao: camada deterministica detector_deriva.ps1 + camada semantica subagente read-only -> PENDING_REVIEW; cadencia e escopo em aberto). (2) LINK SITE x COMPANY PAGE — reconciliar o descasamento: site vanguardtech.cloud (Vanguard v1, diagnostico digital/WhatsApp, ticket baixo) x Company Page ancorada em nicho regulatorio elevado (AI Act, ticket alto). Risco: prospect clica e nao encontra o gancho -> esteira quebra no destino. Resolucao acordada nao materializada: site continua no funil MIRADO ('coloca coisas na direcao dos nichos elevados'). Liga ao A2 (pasta-fonte do site + www fora do ar DIFERIDO).",
+                                                 "sessao_recuperacao":  "Sessao 2026-06-20 (tarde-2): recuperacao do encerramento travado da sessao anterior. api_key_guardian.ps1 corrigido (BOM UTF-8), 16 duplicatas de memoria limpas, working tree residual commitado (17bd013 [VEREDITO-DIRETOR]). NAO foi Loop."
+                                             },
                               "2026-06-16":  {
                                                  "placar_23_ideias":  "EXECUTE (aprovado) — 18 entram + 4 Loop 36 (G-1/G-2/G-3/N-3) + 1 descartado (G-5 viola P-121)",
                                                  "D2_CBR_sem_grafo":  "CONFIRMADO — CBR sintetico sem Knowledge Graph (acervo pequeno demais); RAG vetorial -\u003e Loop 36",
@@ -189,7 +194,7 @@
                              "W-1 cron ainda 1x/dia -- deveria ser 3x (7h/13h/20h BRT)",
                              "Wipe \u0026 Sync NotebookLM VANGUARD pendente [DIRETOR] -- problemas tecnicos"
                          ],
-    "ultima_atualizacao":  "2026-06-18",
+    "ultima_atualizacao":  "2026-06-20",
     "loop_32_entregues":  [
                               "Antigravity → EXECUTOR do Estrategista (Gemini) em 62 arquivos — commit 4defaf6",
                               "Hermes Grau B registrado formalmente (D1:A executado 2026-06-10)",
