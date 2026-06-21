@@ -68,3 +68,20 @@ test('toPublicCard passa o headline pelo editorial guard', () => {
   const dirty = { ...MODEL_FIX, dores: ['Nossa automação resolve a NCM'] };
   assert.throws(() => toPublicCard(dirty, 1), /editorial/i);
 });
+
+// --- Função 4: buildNicheQuiz
+test('buildNicheQuiz gera 1 pergunta de confirmação com 1 opção por dor + opção "outra"', () => {
+  const q = buildNicheQuiz(MODEL_FIX);
+  assert.equal(typeof q.intro, 'string');
+  assert.equal(q.perguntas.length, 1);
+  const p = q.perguntas[0];
+  assert.equal(p.id, 'dor');
+  assert.equal(p.opcoes.length, 4);
+  assert.deepEqual(p.opcoes.map(o => o.value), ['d0', 'd1', 'd2', 'outra']);
+  assert.equal(p.opcoes[0].label, MODEL_FIX.dores[0]);
+  assert.equal(p.opcoes[3].label, 'Outra situação — quero descrever');
+});
+test('buildNicheQuiz aplica editorial guard a cada opção', () => {
+  const dirty = { ...MODEL_FIX, dores: ['dor limpa', 'dor com robô embutido'] };
+  assert.throws(() => buildNicheQuiz(dirty), /editorial/i);
+});

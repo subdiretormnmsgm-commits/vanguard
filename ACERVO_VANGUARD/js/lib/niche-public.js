@@ -45,8 +45,17 @@ export function toPublicCard(model, rank) {
   };
 }
 
+export function buildNicheQuiz(model) {
+  const dores = Array.isArray(model.dores) ? model.dores : [];
+  const opcoes = dores.map((d, i) => ({ value: 'd' + i, label: assertEditorialSafe(d) }));
+  opcoes.push({ value: 'outra', label: 'Outra situação — quero descrever' });
+  return {
+    intro: 'Reconhecemos o seu setor. Qual destes cenários mais pesa hoje?',
+    perguntas: [{ id: 'dor', texto: 'Qual desses você reconhece no seu dia a dia?', opcoes }],
+  };
+}
+
 // Stubs temporários — serão implementados nas funções seguintes
-export function buildNicheQuiz(model) { return {}; }
 export function buildPublicArtifact(models, month) { return {}; }
 export function parseRegenDates(calendarMarkdown) { return []; }
 export function shouldRegenerate(opts) { return { regen: false }; }
