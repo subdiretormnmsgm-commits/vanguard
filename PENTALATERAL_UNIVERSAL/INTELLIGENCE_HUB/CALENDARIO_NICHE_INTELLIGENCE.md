@@ -1,5 +1,5 @@
 # CALENDÁRIO — NICHE INTELLIGENCE REPOSITORY
-> Versão 1.5 · Criado 2026-06-13 · Atualizado 2026-06-18 (v1.3: entrelaçado à AGENDA VANGUARD oficial: F2/F4a/F4b/F6 descontinuadas · F3→Sexta · F15→Segunda · +ROD +BIB. v1.4: classificação A/B das ativações Projetista/Embaixador Digital derivada dos system prompts — Categoria A=frente Cowork automática, Categoria B=comando manual; só B notifica; textos em scripts/comandos_ativacao_atores.json. **v1.5: GATE DE DEPENDÊNCIA Projetista→Embaixador Digital — esteira, não atores diários independentes; `trabalhar [nicho]` travado até Projetista entregar plano**) · Músculo
+> Versão 1.6 · Criado 2026-06-13 · Atualizado 2026-06-21 (**v1.6: +GATE REGEN DA VITRINE DO SITE — dia 2 pós-enriquecimento, sincronizado a este calendário (plano Site Dupla Entrada); datas 02/07, 02/08, 02/09**) · 2026-06-18 (v1.3: entrelaçado à AGENDA VANGUARD oficial: F2/F4a/F4b/F6 descontinuadas · F3→Sexta · F15→Segunda · +ROD +BIB. v1.4: classificação A/B das ativações Projetista/Embaixador Digital derivada dos system prompts — Categoria A=frente Cowork automática, Categoria B=comando manual; só B notifica; textos em scripts/comandos_ativacao_atores.json. **v1.5: GATE DE DEPENDÊNCIA Projetista→Embaixador Digital — esteira, não atores diários independentes; `trabalhar [nicho]` travado até Projetista entregar plano**) · Músculo
 > Referência: SKILL.md v2.0 · cowork-engine-v1.md
 > Horizonte: Junho–Setembro 2026 (atualizar trimestralmente)
 >
@@ -128,6 +128,28 @@ ED6 (temas, dias 1 e 15) · P-T3 (diário do Projetista) · P-T4 (acervo, seg se
 - **Passo 2 — Executor Cowork (ROBUSTECE):** disparo mensal (dia 1) **ou** sob demanda do Projetista — pega o parecer BASE e robustece (convergência ±15%, métodos completos, IC pelo horizonte) → `PENDING_REVIEW` atualizado → handoff ao Projetista (R-3).
 
 ⚠️ **Diferente das atividades Cowork usuais:** o Passo 2 **não é pesquisa nova, não cai no `INBOX_COWORK` e não é colhido** como M1–M7/F-series. É downstream (opera sobre a BASE já depositada), analítico e transversal. O calendário só agenda o **disparo mensal**; o resto é sob demanda. **Execução interna do motor — NÃO é ativação manual do Diretor**, portanto **não entra no W-11** (refinamento do Diretor em 2026-06-16; reconfirmado 2026-06-17).
+
+---
+
+## REGEN DA VITRINE DO SITE — GATE DE DATA (dia 2 de cada mês, pós-enriquecimento)
+
+> Adicionado 2026-06-21 (Músculo, sob veredito do plano "Site Dupla Entrada + Vitrine de Nichos").
+> A **Vitrine de Nichos** do site público (cards dos nichos MOVER_AGORA, hero = nº 1 por `fit_score`)
+> **só é regenerada sob este gate** — nunca cron cego. A ação roda **no dia 2**, logo após o
+> enriquecimento mensal de **dia 1** (NICHE_MODELER, que produz o `fit_score` e o `status`).
+> Princípio do Diretor (2026-06-21): **nenhuma ação de calendário sem sincronização com este calendário.**
+>
+> **Mecânica:** `scripts\gate_regen_vitrine.ps1` cruza hoje × estas datas e, se liberar, roda
+> `node scripts\regen-vitrine-site.mjs --gate` (idempotente por mês — não regenera duas vezes no mesmo
+> mês). O parser exige **data com ano de 4 dígitos** (conformidade P-069). Fora da data → não age.
+> Sem score novo no mês → a Vitrine permanece. Editorial: nichos com termo proibido (IA/automação) são
+> excluídos da Vitrine e logados para curadoria — o site servido nunca os exibe.
+
+| Data | Ação | Depende de |
+|---|---|---|
+| **02/07/2026** | REGEN_VITRINE_SITE | NICHE_MODELER de 01/07 (score do mês) |
+| **02/08/2026** | REGEN_VITRINE_SITE | NICHE_MODELER de 01/08 |
+| **02/09/2026** | REGEN_VITRINE_SITE | NICHE_MODELER de 01/09 |
 
 ---
 
