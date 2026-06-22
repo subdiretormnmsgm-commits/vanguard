@@ -2,6 +2,7 @@
   "schema": "r3-termos@1",
   "atualizado": "2026-06-21",
   "fonte": "Fonte CANONICA unica da blindagem R-3. Consolida vanguard-brand-r3 (Varredura 1 termos + Varredura 2 clientes) e verificacao-r3-blindagem. As listas em prosa das skills sao ilustrativas; esta e a lista que o scanner aplica.",
+  "fronteira_corpo_identidade": "O scanner aplica-se ao CORPO do conteudo externo (texto de post, mensagem, legenda, roteiro). Nomes de membros da Vanguard (Diretor, socios, titular da pagina) na camada de IDENTIDADE -- nome do perfil pessoal, assinatura, autoria, administracao da Company Page -- NAO sao vazamento de cliente, mesmo quando coincidem com nome de cliente real. Caso 'Ingrid': a socia-titular da pagina e a cliente PROJ-002 sao a mesma pessoa fisica em DOIS contextos isolados (P-059) que nunca se cruzam. Por isso 'Ingrid' PERMANECE bloqueada na Varredura 2 do CORPO (protege a cliente), e esse bloqueio NAO restringe a identidade/autoria do perfil nem a administracao da pagina. Esclarecimento do Diretor 2026-06-21.",
   "bloqueio": {
     "descricao": "Termos internos inequivocos. Match = R-3 FAIL absoluto, output nao sai (Varredura 1).",
     "termos": [
@@ -23,7 +24,7 @@
     ]
   },
   "clientes": {
-    "descricao": "Nomes de cliente real. Isolamento absoluto P-059. Match = R-3 FAIL (Varredura 2).",
+    "descricao": "Nomes de cliente real. Isolamento absoluto P-059. Match = R-3 FAIL (Varredura 2). Aplica-se ao CORPO; nome de titular/socio na identidade do perfil ou administracao da pagina nao e vazamento -- ver campo fronteira_corpo_identidade.",
     "termos": [
       "Valdece",
       "Ingrid",
