@@ -54,6 +54,8 @@ Os seguintes nomes **nunca aparecem** em nenhum contexto externo, mesmo anonimiz
 - Ingrid  
 - Mumuzinho
 
+> **Fronteira corpo × identidade (esclarecimento do Diretor, 2026-06-21).** Esta varredura vale para o **corpo** do conteúdo (texto de post, legenda, mensagem, roteiro) — é onde um cliente real não pode aparecer. O nome de um **membro da Vanguard na camada de identidade** (nome do perfil pessoal, assinatura, autoria, administração da Company Page) **não é vazamento**, mesmo coincidindo com nome de cliente real. Caso "Ingrid": a sócia-titular da página e a cliente PROJ-002 são a mesma pessoa física em **dois contextos isolados (P-059) que nunca se cruzam** — por isso "Ingrid" **permanece bloqueada** aqui no corpo (protege a cliente), e esse bloqueio não restringe a identidade/autoria do perfil nem a administração da página. Como os posts nascem em 1ª pessoa nome-neutro, "Ingrid" nunca aparece no corpo de qualquer forma. Fonte canônica: `scripts/r3_termos.json` (campo `fronteira_corpo_identidade`).
+
 **Qualquer referência a cliente real** deve ser substituída por descritor genérico anonimizado:
 - ❌ "nosso cliente do setor hospitalar de BH"
 - ✅ "um hospital de médio porte"
