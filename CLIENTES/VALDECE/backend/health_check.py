@@ -14,8 +14,8 @@ SUPABASE_URL   = os.environ["SUPABASE_URL"]
 SUPABASE_ANON  = os.environ["SUPABASE_ANON_KEY"]
 GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 
-TELEGRAM_TOKEN   = "8146192723:AAHVZJzzV0R_jp2sAaSE3T2AFFjnzMWuOgE"
-TELEGRAM_CHAT_ID = "8895733647"
+TELEGRAM_TOKEN   = os.environ["TELEGRAM_TOKEN"]              # P-185: rotacionar via @BotFather (token antigo exposto no repo publico)
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "8895733647")
 
 EMBED_URL = (
     f"https://generativelanguage.googleapis.com/v1beta/models/"
