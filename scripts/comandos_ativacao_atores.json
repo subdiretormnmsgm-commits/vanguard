@@ -16,7 +16,7 @@
       "campanha": {
         "rotulo": "Campanha (sob escolha de nicho)",
         "cadencia": "Sob gatilho",
-        "texto": "EMBAIXADOR DIGITAL, trabalhar [nicho].\nUse o material do Projetista (se houver) + o _MODEL.json do nicho.\nMonte a CAMPANHA LINKEDIN seguindo as 5 fases: diagnostico, conteudo para o perfil do Eduardo (distribuicao) e para a Company Page (validacao), prospeccao com a busca_linkedin, e SEO aplicado. Me entregue para os 2 cliques."
+        "texto": "EMBAIXADOR DIGITAL, trabalhar [nicho].\nUse o material do Projetista (se houver) + o _MODEL.json do nicho.\nMonte a CAMPANHA LINKEDIN seguindo as 5 fases: diagnostico, conteudo para o perfil da Ingrid (distribuicao -- voz publica titular) e para a Company Page (validacao), prospeccao com a busca_linkedin, e SEO aplicado. Me entregue para os 2 cliques."
       },
       "validacao": {
         "rotulo": "Relatorio de validacao",
@@ -26,7 +26,7 @@
       "setup": {
         "rotulo": "Setup inicial do LinkedIn",
         "cadencia": "Primeira vez",
-        "texto": "EMBAIXADOR DIGITAL, setup inicial do LinkedIn.\nDiagnostique o estado do perfil do Eduardo e da Company Page da Vanguard.\nProponha: matriz semantica (SEO), Tagline, secao Sobre, especialidades (20 tags), e o calendario editorial de 30 dias. Sem publicar nada -- so o plano para eu aprovar."
+        "texto": "EMBAIXADOR DIGITAL, setup inicial do LinkedIn.\nDiagnostique o estado do perfil da Ingrid (voz publica titular) e da Company Page da Vanguard.\nProponha: matriz semantica (SEO), Tagline, secao Sobre, especialidades (20 tags), e o calendario editorial de 30 dias. Sem publicar nada -- so o plano para eu aprovar."
       }
     },
     "projetista": {

@@ -75,7 +75,7 @@ Ler `NICHE_INDEX.json` → extrair:
 
 Ler `ESTRATEGIA_SOCIAL_VANGUARD_v[N].md` → confirmar:
 - Pilares ativos e cadência atual
-- Portão 2 (LinkedIn setup): perfil do Eduardo + Company Page — confirmados ou pendentes?
+- Portão 2 (LinkedIn setup): perfil da Ingrid + Company Page — confirmados ou pendentes?
 - Métricas de referência da última validação
 
 ---
@@ -119,7 +119,7 @@ Se vazio → `[SEM VALIDAÇÃO ANTERIOR]`.
 [prospects novos, gatilhos, lacunas competitivas — ou [AGUARDA frentes]]
 
 ## PORTÃO 2 — LINKEDIN SETUP
-[perfil Eduardo: confirmado/pendente | Company Page: confirmada/pendente]
+[perfil Ingrid: confirmado/pendente | Company Page: confirmada/pendente]
 
 ## PERGUNTA AO DIRETOR
 Qual nicho você quer que eu trabalhe?

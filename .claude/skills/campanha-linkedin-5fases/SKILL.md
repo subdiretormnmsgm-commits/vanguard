@@ -47,7 +47,7 @@ Fonte: campo `prospect_ideal.perfil` do `_MODEL.json`.
 ### 1B. Estado dos ativos digitais
 
 ```
-Perfil Eduardo:
+Perfil Ingrid:
 [ ] Headline otimizada com palavras-chave do nicho
 [ ] Seção Sobre com pirâmide invertida
 [ ] All-Star do LinkedIn confirmado
@@ -76,7 +76,7 @@ Se INBOX vazio → `[AGUARDA ED1]` + operar com análise baseada no nicho.
 
 ### Calendário editorial — 30 dias
 
-Cadência: **5 posts/semana no perfil do Eduardo** + **1 post/semana na Company Page**.
+Cadência: **5 posts/semana no perfil da Ingrid** + **1 post/semana na Company Page**.
 
 Distribuição por pilar (semana-tipo):
 
@@ -95,7 +95,7 @@ Distribuição por pilar (semana-tipo):
 
 ## FASE 3 — EXECUÇÃO (conteúdo pronto)
 
-### Posts do perfil do Eduardo (5 posts da semana)
+### Posts do perfil da Ingrid (5 posts da semana)
 
 Para cada post entregar:
 
@@ -106,7 +106,7 @@ HEADLINE (primeira linha — gancho):
 [texto — max 2 linhas visíveis antes do "ver mais"]
 
 CORPO:
-[texto completo — linguagem do Eduardo — primeira pessoa]
+[texto completo — linguagem da Ingrid — primeira pessoa]
 [sem bullet points excessivos — parágrafos curtos — voz humana]
 [palavra-chave de cauda longa no 1º parágrafo]
 
@@ -124,7 +124,7 @@ NOTA INTERNA (não publica):
 
 Business case anonimizado ou posicionamento institucional.
 Formato mais denso, mais formal — voz institucional, não pessoal.
-Eduardo compartilha do perfil pessoal para romper inércia algorítmica.
+Ingrid compartilha do perfil pessoal para romper inércia algorítmica.
 
 ---
 
@@ -200,7 +200,7 @@ Confirmar que as palavras-chave do nicho ativo estão nas Especialidades da Comp
 [tabela semana-tipo + ajuste por gatilho regulatório]
 
 ## FASE 3 — CONTEÚDO PRONTO
-### Posts — Perfil Eduardo (semana 1)
+### Posts — Perfil Ingrid (semana 1)
 [5 posts completos]
 ### Post — Company Page (semana 1)
 [1 post completo]

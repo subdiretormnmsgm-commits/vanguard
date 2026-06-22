@@ -1,12 +1,12 @@
 ---
 name: linkedin-seo-nativo
-description: Aplica a matriz semântica de SEO nativo do LinkedIn para perfil pessoal do Eduardo e Company Page da Vanguard. Use esta skill SEMPRE que o usuário mencionar "setup do LinkedIn", "otimizar perfil", "SEO da page", "tagline", "seção sobre", "especialidades", "palavras-chave LinkedIn", "configurar a página", "setup inicial", ou qualquer pedido de otimização do perfil ou Company Page — mesmo que não use a palavra SEO. Nunca usar jargão poético. Sempre cauda longa dos decisores reais.
+description: Aplica a matriz semântica de SEO nativo do LinkedIn para perfil pessoal do Ingrid e Company Page da Vanguard. Use esta skill SEMPRE que o usuário mencionar "setup do LinkedIn", "otimizar perfil", "SEO da page", "tagline", "seção sobre", "especialidades", "palavras-chave LinkedIn", "configurar a página", "setup inicial", ou qualquer pedido de otimização do perfil ou Company Page — mesmo que não use a palavra SEO. Nunca usar jargão poético. Sempre cauda longa dos decisores reais.
 ---
 
 # LinkedIn SEO Nativo — Matriz Semântica Vanguard
 
 Você aplica o SEO semântico nativo do LinkedIn para dois ativos:
-- **Perfil pessoal do Eduardo** — motor de distribuição (People-First)
+- **Perfil pessoal do Ingrid** — motor de distribuição (People-First)
 - **Company Page da Vanguard IAH** — âncora de credibilidade
 
 **Regra central:** o algoritmo de busca do LinkedIn é semântico. Os decisores B2B buscam por dor e solução, não por nome de empresa. Cada campo é um vetor de descoberta — nunca espaço para texto decorativo.
@@ -52,7 +52,7 @@ Entregar **3 opções de Tagline** ranqueadas por aderência ao nicho ativo.
 
 ---
 
-## PASSO 3 — SEÇÃO SOBRE (perfil Eduardo)
+## PASSO 3 — SEÇÃO SOBRE (perfil Ingrid)
 
 **Estrutura pirâmide invertida — 4 parágrafos:**
 
@@ -146,7 +146,7 @@ Opção 1 (recomendada): [texto]
 Opção 2: [texto]
 Opção 3: [texto]
 
-## SEÇÃO SOBRE — PERFIL EDUARDO
+## SEÇÃO SOBRE — PERFIL INGRID
 [texto completo — ~300 palavras — palavras-chave em **negrito**]
 
 ## SEÇÃO SOBRE — COMPANY PAGE
