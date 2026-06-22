@@ -28,3 +28,16 @@
 - Tripla convergência em N18 (F16+F20+F22) é o sinal mais forte do catálogo — prioridade 1 para prospecção
 
 ---
+
+## 2026-06-22 | Frentes: F19, F21 (+ N01 sinal adicional) | Aprovados: 2 / Total: 2
+
+**Nichos aprovados:**
+- N19 — Holdings com Offshore (Lei 14.754/2023) · nicho NOVO · score 4,9 · MOVER AGORA · 4 ativos gerados (Cartão + Pipeline + LinkedIn + Instagram)
+- N01 — Compliance de IA (AI Act + PL 2338) · SINAL ADICIONAL a nicho já catalogado · cartão NÃO duplicado · 3 ativos de ativação gerados (Pipeline + LinkedIn + Instagram)
+
+**Descartados:** 0
+
+**Insight para próxima execução:**
+- GATE DE FATO evitou duplicação: Compliance de IA já era N01 da Biblioteca — sempre cruzar candidato com catálogo antes de gerar Cartão.
+- Biblioteca_Nichos_Vanguard_v4.md estava CORROMPIDA (pipe-por-caractere, 50.876 pipes + escape markdown + emojis mojibake). Reparada para v4.1 sem alterar texto. Causa-raiz do encoding não identificada — monitorar se o gerador (Embaixador Agentado/Drive) reintroduz.
+- PENDÊNCIA SINALIZADA AO DIRETOR: este CALIBRACAO.md tem mojibake double-encode (UTF-8 lido como Latin-1) nas entradas anteriores — requer reparo próprio, fora do escopo deste ciclo.

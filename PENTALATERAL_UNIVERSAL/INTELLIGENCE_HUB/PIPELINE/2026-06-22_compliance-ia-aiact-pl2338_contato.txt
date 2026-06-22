@@ -1,0 +1,23 @@
+CANAL: LinkedIn DM (perfil: CTO / DPO / Head de Compliance / fundador de SaaS, fintech, healthtech, legaltech)
+NICHO: Compliance de IA — AI Act + PL 2338 (N01 da Biblioteca — sinal adicional 2026-06-22)
+DATA: 2026-06-22
+
+────────────────────────────────────────────────────────
+[ABERTURA — copiar e enviar sem editar]
+
+Olá, [Nome]. 2 de agosto de 2026. Faltam 41 dias.
+
+É a data em que as obrigações de alto risco do AI Act europeu entram em vigor — e elas alcançam empresas brasileiras em dois casos: quem serve clientes ou usuários na UE, e quem usa IA para decidir sobre pessoas (crédito, triagem, RH, saúde). A multa chega a €35 milhões ou 7% do faturamento global. No Brasil, o PL 2338 vem logo atrás, com sanções de até R$ 50 milhões.
+
+A maioria das empresas trata isso como parecer jurídico. Parecer é necessário — mas não é o que o regulador pede. Ele pede o inventário técnico dos seus sistemas de IA, a classificação de risco pelo Anexo III, o gap analysis e o dossiê técnico. Isso é dado estruturado, não opinião.
+
+Eu não escrevo o parecer. Eu monto o inventário e mostro, com evidência, em qual categoria de risco cada sistema seu cai — e o que falta até 2 de agosto.
+
+Te mostro num diagnóstico de 20 minutos onde está a sua exposição real. Consegue esta semana?
+
+[Eduardo — Vanguard IAH]
+────────────────────────────────────────────────────────
+
+CTA: reunião de 20 min (diagnóstico de conformidade AI Act / PL 2338)
+NÚMERO DE DOR DE REFERÊNCIA: €35M ou 7% do faturamento global · deadline 02/08/2026 (41 dias a partir de 22/06)
+OBSERVAÇÃO: não mencionar preço; cruzar com Cartão N01 da Biblioteca antes de enviar.

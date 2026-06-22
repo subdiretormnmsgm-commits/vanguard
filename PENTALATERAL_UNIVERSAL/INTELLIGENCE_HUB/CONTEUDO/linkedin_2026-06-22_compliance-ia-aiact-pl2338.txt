@@ -1,0 +1,17 @@
+PILAR: Urgência Regulatória + Número de Dor
+NICHO: Compliance de IA — AI Act + PL 2338 (N01 — sinal adicional)
+DATA: 2026-06-22
+
+────────────────────────────────────────────────────────
+Faltam 41 dias. Depois disso, a multa é de até €35 milhões — ou 7% do seu faturamento global.
+
+2 de agosto de 2026 é a data em que as obrigações de alto risco do AI Act europeu entram em vigor. E "europeu" engana: a lei alcança empresa brasileira em dois casos muito comuns — quem atende clientes ou usuários na União Europeia, e quem usa IA para decidir sobre pessoas (crédito, triagem de currículos, recomendação clínica, RH). O PL 2338 traz o mesmo para o Brasil, com sanções de até R$ 50 milhões.
+
+O reflexo da maioria é pedir um parecer jurídico. Necessário — mas não é o que o regulador cobra. Ele cobra o inventário técnico dos seus sistemas de IA, a classificação de risco pelo Anexo III, o gap analysis e o dossiê técnico auditável. Isso não se resolve com opinião: resolve-se com dado estruturado, mapeando sistema por sistema em que categoria cada um cai. 63% das empresas ainda não têm sequer uma política de uso de IA — e o relógio não para nelas.
+
+Você já sabe quais dos seus sistemas de IA são "alto risco" pelo Anexo III — ou vai descobrir quando o regulador perguntar?
+
+Vanguard IAH — Inteligência que decide sozinha.
+
+#AIAct #PL2338 #ComplianceDeIA #GovernançaDeIA #InteligênciaArtificial
+────────────────────────────────────────────────────────
