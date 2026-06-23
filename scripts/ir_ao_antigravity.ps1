@@ -149,6 +149,26 @@ if (Test-Path $logPath) {
     }
 }
 
+# Ler MEMORIA PERMANENTE do Antigravity (licoes que NUNCA expiram -- ele "nao sabe nada, age por gatilho")
+# Origem: Diretor 2026-06-22 -- "Temos que criar uma memoria para ele, esta sempre sem contexto".
+# Distinta do SESSION_LOG (cronologico, so a ultima entrada): esta e injetada INTEIRA, todo comando, qualquer papel.
+$memoriaPermanente = ""
+$memoriaPath = Join-Path $raiz "CONSELHO\ANTIGRAVITY_MEMORIA.md"
+if (Test-Path $memoriaPath) {
+    $memoriaPermanente = ((Get-Content $memoriaPath -Encoding UTF8 -ErrorAction SilentlyContinue) -join "`n").Trim()
+    # Espelho NATIVO -- Antigravity le .agents/rules/ sozinho toda sessao (Workspace Rules persistem contexto,
+    # igual o CLAUDE.md do Claude Code). Opcao A do Diretor (2026-06-22): canonico em CONSELHO/ANTIGRAVITY_MEMORIA.md,
+    # espelhado aqui a cada run -> UMA fonte, duas saidas (injecao inline + arquivo nativo), zero deriva (P-110).
+    # Limite Antigravity: 12.000 chars por arquivo de regras -- a memoria cabe folgado.
+    if ($memoriaPermanente) {
+        $rulesDir = Join-Path $raiz ".agents\rules"
+        if (-not (Test-Path $rulesDir)) { New-Item -ItemType Directory -Path $rulesDir -Force | Out-Null }
+        # BOM-less (UTF8Encoding $false): PS 5.1 Set-Content -Encoding UTF8 grava BOM e divergiria do canonico
+        # CONSELHO/ANTIGRAVITY_MEMORIA.md (sem BOM) -- contradiz o "zero deriva / P-110". FALHA-H / json-bom-guard.
+        [System.IO.File]::WriteAllText((Join-Path $rulesDir "00-vanguard-memoria.md"), $memoriaPermanente, (New-Object System.Text.UTF8Encoding($false)))
+    }
+}
+
 # Contexto da acao
 $contextoAcao = if ($acao) { $acao } else {
     switch ($papel) {
@@ -192,6 +212,13 @@ GATE DE FATO: toda afirmacao de mercado exige fonte + data. Sem fonte -> [NAO CO
 
 # Montar o prompt -- gate dos pilares SEMPRE primeiro (antes do @skill)
 $linhasPrompt = @($gatePilares, "@$skillAtual $contextoAcao")
+# MEMORIA PERMANENTE -- injetada INTEIRA em todo comando, qualquer papel (Antigravity e stateless).
+# Vem ANTES da ETAPA 0 porque licao permanente > contexto da ultima sessao.
+if ($memoriaPermanente) {
+    $linhasPrompt += ""
+    $linhasPrompt += "## MEMORIA PERMANENTE DO ANTIGRAVITY (vale SEMPRE, qualquer papel -- leia ANTES de agir):"
+    $linhasPrompt += $memoriaPermanente
+}
 # ETAPA 0 -- contexto da ultima sessao do Antigravity (memoria entre sessoes)
 $linhasPrompt += ""
 if ($ultimaSessao) {
@@ -225,8 +252,41 @@ III. CIRURGICAS -> fique no(s) nicho(s) em escopo. Nicho novo descoberto -> regi
 IV.  META VERIFICAVEL -> todo numero de mercado com FONTE + DATA. Sem fonte -> [NAO CONFIRMADO].
      Output SEMPRE para PENDING_REVIEW.md (P-124 -- anti-camara-de-eco). Nunca direto para DECISOES/WIP.
 '@
+    # RUBRICA FIT_SCORE -- antidoto anti-inflacao (Diretor 2026-06-22).
+    # Causa raiz: motor Gemini 3.1 Pro High tem vies otimista/yes-man nativo; a instrucao "fit_score
+    # recalculado" nao trazia trava. Resultado: 11/16 nichos com media 5.0 cravada, D1-D5 uniformes,
+    # 5.5 fora de escala. Conserto: discriminar pela EVIDENCIA, NAO por cota fixa (sem anti-volume).
+    $rubricaFitScore = @'
+## RUBRICA FIT_SCORE -- ANTIDOTO ANTI-INFLACAO (Score Vanguard D1-D5, escala 1-5)
+Motivo: o motor tende a dar nota alta a tudo (vies otimista / yes-man). A nota so
+serve se DISCRIMINA. Discriminacao vem da EVIDENCIA, nunca de uma cota fixa.
+
+1. ANCORA POR NOTA (cada dimensao D1-D5):
+   5 = evidencia dura citavel (numero + fonte + data) que prova a dimensao no grau maximo.
+   3 = sinal real porem parcial / sem numero fechado.
+   1 = sem evidencia ou irrelevante ao nicho.   (2 e 4 = graus intermediarios.)
+2. EVIDENCIA OBRIGA NOTA: qualquer D >= 4 EXIGE numero + FONTE + DATA na propria nota.
+   Sem evidencia citavel -> teto 3 naquela dimensao. Sem excecao.
+   >> ANTES DE APLICAR TETO 3, BUSQUE O NUMERO NO CARTAO DO NICHO
+   (BIBLIOTECA_NICHOS/[SLUG]_CARTAO.md) e no INTELLIGENCE_HUB. Teto 3 vale para evidencia
+   AUSENTE -- nao para evidencia que voce nao foi procurar. Ex.: Saude Digital tem "6.000+
+   hospitais" no cartao; subpontuar por preguica de busca e ERRO (detectado no cruzamento
+   2026-06-22). So aplique teto 3 apos confirmar que o numero NAO existe em disco.
+3. ANTI-UNIFORMIDADE -- MAS NAO ANTI-VOLUME: e proibido repetir a mesma linha D1-D5 entre
+   nichos diferentes sem justificativa (variacao tem de refletir diferenca real de evidencia).
+   NAO existe cota maxima de MOVER AGORA: se muitos nichos tem deadline real + dor documentada,
+   MUITOS MOVER AGORA e o resultado CORRETO -- volume alto e natural (ha ~33 nichos ativos).
+   Discrimina pela PROVA, jamais por limite numerico artificial. Nem inflar tudo, nem podar bom nicho.
+4. TRAVA DE ESCALA: 1 a 5 estrito. Rejeitar valor fora (ex.: 5.5) -> recalcular.
+5. CLASSIFICACAO = CALCULO DA MEDIA: >= 4.0 MOVER AGORA | 2.5-3.9 MONITORAR | < 2.5 ARQUIVAR.
+   A classificacao TEM de bater com a media. Se nao bate, ha erro -> corrigir.
+6. TESTE FINAL: se a tabela deu nota maxima a quase todos SEM evidencia por celula, falhou em
+   discriminar -> refazer. Se cada nota alta tem prova, qualquer distribuicao (alta ou baixa) vale.
+'@
     $linhasPrompt += ""
     $linhasPrompt += $gateCowork
+    $linhasPrompt += ""
+    $linhasPrompt += $rubricaFitScore
 }
 # ETAPA FINAL -- anexar entrada ao log (memoria para a proxima sessao)
 $linhasPrompt += ""

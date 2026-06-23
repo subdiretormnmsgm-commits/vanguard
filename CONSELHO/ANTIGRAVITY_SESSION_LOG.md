@@ -24,6 +24,15 @@
 
 ---
 
+## 2026-06-22 (segunda-feira) — SISTEMA (memoria permanente)
+- **Objetivo:** dar ao Antigravity memoria PERMANENTE — ele "nao sabe nada, age por gatilho" (Diretor).
+- **O que foi feito:** criado `CONSELHO/ANTIGRAVITY_MEMORIA.md` (CONTEXTO VANGUARD + identidade de SOCIO que delibera/confronta + operacao + LICOES, L-001 = teto-3/buscar numero no cartao); espelho NATIVO em `.agents/rules/00-vanguard-memoria.md` (Workspace Rules — Antigravity le sozinho toda sessao, igual CLAUDE.md); wire no `ir_ao_antigravity.ps1` injeta a memoria INTEIRA em todo comando, qualquer papel, antes da ETAPA 0.
+- **Arquivos tocados:** `CONSELHO/ANTIGRAVITY_MEMORIA.md` (novo), `.agents/rules/00-vanguard-memoria.md` (novo, gerado/espelhado), `scripts/ir_ao_antigravity.ps1` (wire + espelhamento). Estado de runtime.
+- **Decisao / output (Opcao A do Diretor):** UMA fonte canonica (CONSELHO), espelhada automaticamente a cada run -> zero deriva. Memoria ativa em 3 camadas.
+- **Proximo passo:** confirmar reconhecimento na proxima abertura; avaliar `AGENTS.md` para formalizar os 3 papeis.
+
+## 2026-06-22 (segunda-feira) -- COWORK | Objetivo: Nova rota P-194 e Rubrica Anti-Inflação | O que fiz (4 subagentes): Despachei SA1 (Derrubou 13 nichos sem prova para MONITORAR; manteve 3 MOVER AGORA), SA2 (Dados de AI Act e Offshores), SA3 (Alertas D-41) e SA4 (Ranking). | Arquivos tocados: PENDING_REVIEW.md, ANTIGRAVITY_SESSION_LOG.md | Decisao/output (PENDING_REVIEW.md): Consolidação em PENDING_REVIEW.md com tabela blindada e provas cruzadas. | Proximo passo: Músculo cruzar deltas no PENDING_REVIEW.
+
 ## 2026-06-16 (terça-feira) — COWORK
 - **Objetivo:** Processar BRIEFING_MUSCULO_M2 e redigir card de oferta comercial de emergência (IBS/CBS para produtoras de shows).
 - **O que fiz:** Criei o card comercial de urgência com ticket R$8k-R$15k e linguagem especialista (R-3) e adicionei ao PENDING_REVIEW.
