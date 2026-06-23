@@ -971,6 +971,21 @@ if ($secao0C -ne "") {
     $sections = @("## 📅 PASSO 0C -- GATE DE DATA COWORK (agir SO no que a data preve -- Diretor 2026-06-15)`n$secao0C") + $sections
 }
 
+# ATIVACOES MANUAIS DO DIA -- rede de seguranca do W-11 (FALHA-PROCESSO-2026-06-22)
+# O W-11 (Telegram) avisa que ha ativacao hoje; este bloco LISTA quais na abertura,
+# para que um Telegram perdido nunca mais esconda o que era para ser acionado.
+$ativacoesOutput = ""
+$ativacoesScript = Join-Path $projectDir "scripts\ativacoes_do_dia.ps1"
+if (Test-Path $ativacoesScript) {
+    try {
+        $atvLines = (& powershell.exe -NonInteractive -File $ativacoesScript 2>$null)
+        if ($atvLines) { $ativacoesOutput = ($atvLines | Where-Object { $_ -ne $null }) -join "`n" }
+    } catch {}
+}
+if ($ativacoesOutput) {
+    $sections = @("## 🔔 ATIVACOES MANUAIS DE HOJE (Projetista / Embaixador Digital / Executor Cowork)`n$ativacoesOutput") + $sections
+}
+
 # PASSO 0B -- COWORK (prepend 1o: aparece 3o na saida, apos BLOCO0 e NOTION)
 $coworkFooter = if ($gatePasso0Status) { "`n`n---`n[GATE P-158] STATUS HOJE:`n$gatePasso0Status" } else { "" }
 $sections = @("## ⚡ PASSO 0B -- COWORK DO EMBAIXADOR (MCP Google Drive) -- APOS BLOCO 0 E NOTION`n$colheitaCowork$coworkFooter") + $sections
