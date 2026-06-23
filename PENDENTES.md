@@ -8,6 +8,16 @@
 
 ## ABERTURA DA PRÓXIMA SESSÃO — OBRIGATÓRIO
 
+- [x] `2026-06-23` **[DIRETOR] W-11 — 2 achados aguardando veredito (diagnóstico fechado, nada alterado)** [diretor] (23-06-2026 terça-feira) ✅ VEREDITO "Executar" + EXECUTADO 2026-06-23: (a) cron PUT `5 10 * * *`→`5 7 * * *` (7:05 BRT, HTTP 200 confirmado) — alinhado ao nome do nó + CLAUDE.md; (b) snapshot `_n8n/w11_current.js` reescrito com jsCode real (ator `cw` presente, 7378 chars).
+  Diagnóstico do W-11 concluído nesta sessão (GET read-only no n8n, ZERO alteração). Estado SÃO: W-11 ativo, rodou hoje com sucesso (exec ID 1015), 3º ator `cw`/condução Cowork já commitado em `c6977ef`; auto-fix do Antigravity já existe (`n8n_antigravity_repair.ps1` + W-10) — nada a construir. **2 desalinhamentos pequenos pendentes de veredito:**
+  (a) **FUSO DO DISPARO:** cron real `5 10 * * *` + instância em BRT → W-11 dispara **10:05 BRT**, mas o nó se chama "Cron — 7h05 BRT" e o CLAUDE.md diz 7:05. Notificação chega ~3h depois do pretendido. Pergunta de fato ao Diretor: o senhor recebe às 7:05 ou 10:05? Se for para ser 7:05 → trocar expressão para `5 7 * * *` (1 campo, via API n8n). VEREDITO: corrigir SIM/NÃO.
+  (b) **SNAPSHOT VELHO:** `_n8n\w11_current.js` em disco é a versão antiga (sem `cw`) — não reflete o n8n real (que já tem `cw`). Confunde auditoria futura. VEREDITO: atualizar o snapshot para refletir o real SIM/NÃO. [RESOLVE: w11-2-achados]
+
+- [ ] `2026-06-23` **[MÚSCULO] PROJETISTA + AUDITORIA DOS SCORES 5.0 — duas frentes que o Diretor deixou para depois** [musculo] (23-06-2026 terça-feira · Diretor: "depois veja isso")
+  Origem: cruzamento Cowork 2026-06-23 (PENDING_REVIEW, seção `[COWORK — 2026-06-23]` + instrução de consumo ao Projetista). Já FEITO nesta sessão: PENDING_REVIEW marcado para o Projetista consumir SEM Eventos Fiscais ECD (arquivado P-194) + alerta de inflação dos scores 5.0. Ficou DIFERIDO para sessão futura ("depois"):
+  (a) **Auditar os scores-teto 5.0** do Antigravity (Produtoras IBS/CBS · BPF ANVISA) via camada fria M-STATS (`market-stats-analysis`) — buscar NÚMERO+FONTE+DATA para D1 (custo da dor) / D5 (volume) hoje `[NÃO CONFIRMADO]`; confirmar se há inflação por narrativa ou se o score se sustenta.
+  (b) **Avaliar o arsenal do Projetista** — mapear `CONSELHO/SYSTEM_PROMPT_PROJETISTA.md` v5.1 (BLOCO 4/5/8) vs. as tarefas que ele executa → o Projetista (Claude Project, opera fora de Loop) dispõe de todas as ferramentas? Precisa de subagentes próprios? Identificar lacunas e propor ao Diretor. [RESOLVE: projetista-auditar-arsenal]
+
 - [x] `2026-06-20` **[DIRETOR] A1 — NICHO-ÂNCORA DA 1ª CAMPANHA REAL = `conformidade-ai-act` (AI Act, deadline 02/08)** [diretor] ✅ DECIDIDO 2026-06-20
   Veredito do Diretor: a 1ª campanha pinada nasce no **AI Act 02/08** (~6 semanas de fôlego), sobre o ECD recuado. **MARCA LARGA mantida** — "a Vanguard vende qualquer projeto"; o nicho é a ponta de lança / campanha pinada que troca sem rebranding. Destrava A3 (ordem operacional do lançamento) — mas só APÓS a pauta de abertura (link + quiz + Detector) ser deliberada. Registrado em `LOOP_STATE.json` (vereditos_diretor 2026-06-20).
 
@@ -63,7 +73,7 @@
   (2) PreToolUse DE EDIT INCERTO: ao editar o CLAUDE.md (protegido) com a flag presente, a flag NÃO foi auto-consumida — não dá para confirmar que o guard interceptou o Edit nesta sessão (o harness pode ter concedido por permissão própria sem passar pelo hook).
   Build: (a) guard PreToolUse em Bash que detecta gravação/sobrescrita em caminho protegido (curl -o, > redirect, mv/cp para `.claude/skills/**`, CLAUDE.md, LEDGER, DEPENDENCY_MAP, PASSO*) → exige a mesma `.musculo_autorizacao.flag` ou [VEREDITO-DIRETOR]; (b) teste determinístico que confirma que o `file_protection_guard.ps1` consome a flag num Edit real (provar o caminho do hook) — se não consumir, corrigir o wire em settings.json; (c) registrar no LEDGER como P-184 (pendente de veredito explícito do Diretor — arquivo protegido). [RESOLVE: P-184]
 
-- [ ] `2026-06-16` **[DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ficaram expostas no gdrive:vanguard** [diretor] (NÃO fechar por RESOLVE/git — só o Diretor encerra após rotacionar)
+- [x] `2026-06-16` **[DIRETOR] P185-ROTACAO — ROTACIONAR as 7 credenciais que ficaram expostas no gdrive:vanguard** [diretor] ✅ ROTACIONADO pelo Diretor 2026-06-23 ("já fiz") + arquivos locais de chave atualizados (confirmado — chave n8n local validada via GET 200 nesta sessão).
   As 7 chaves foram empurradas ao Drive de terceiros (Google) por syncs anteriores sem filtro e ficaram expostas por tempo indeterminado. Purga do Drive já feita (7/7 limpos) + fix do sync aplicado — MAS purgar não desfaz a exposição passada. Rotacionar/regerar: (1) OpenRouter API key · (2) Anthropic API key · (3) Telegram bot token (@Eduardo431Vanguardbot) · (4) n8n API key (EasyPanel) · (5) Supabase keys · (6) credenciais EasyPanel · (7) qualquer segredo em scripts/n8n_config.ps1 / alert_config.ps1 / hermes-agent/.env. Após rotacionar, atualizar CHAVES_SISTEMA_VANGUARD.txt + N8N Easypanel.txt locais (gitignored). Ação exclusiva do Diretor — Músculo não gira chave.
 
 - [ ] `2026-06-20` **[DIRETOR] BASE LEGAL `compliance-aduaneiro-ncm` — confirmar antes de qualquer disparo do Embaixador Digital** [diretor] (sábado, madrugada · NÃO fechar por RESOLVE/git — só o Diretor encerra)
@@ -122,6 +132,12 @@
   Custo: sessão dedicada 4-6h · scripts afetados: sync_vanguard_docs.ps1, DEPENDENCY_MAP, preparar_notebooklm, gemini_anchor_generator, PENDING_REVIEW paths.
   Gate: executar em sessão dedicada — NÃO misturar com outro foco.
   CONTEXT: Ação Cowork Engine — não é Loop do Pentalateral.
+
+- [ ] `2026-06-23` **[ESTUDO — DIRETOR] Desacoplar a verificação de frescor de documentos do PASSO5/Loop** [musculo] (terça-feira) — LEVANTADO PELO DIRETOR 2026-06-23
+  PROBLEMA (Diretor): com a virada P-194 (modo inteligência de mercado, Loop dormente), a atualização de vários documentos ficou atrelada ao ritual de Loop / PASSO5 — que não roda mais. Resultado: documentos envelhecem em silêncio. "Devem haver vários arquivos desatualizados."
+  ESCOPO 1 — gates: mapear quais verificações de frescor só disparam no Loop (doc_freshness_checker, CHECKLIST DO MÚSCULO no PASSO5, etc.) e adicioná-las à ABERTURA e/ou FECHAMENTO de sessão — mantendo também nos Loops. "Manter nos Loops, mas adicionar para a abertura, fechamento."
+  ESCOPO 2 — TIMELINE: a 16_VANGUARD_TIMELINE NÃO é só re-timestamp — precisa ser REESCRITA com os eventos reais que aconteceram (virada P-194, Cowork diário, pódio de nichos, W-11/W-12, logos/marca, company page). "Reescrever a Vanguard Timeline pois coisas aconteceram."
+  GATE: "depois estudar com calma" (Diretor) — NÃO executar agora. Sessão dedicada: levantamento dos docs desatualizados primeiro → veredito do Diretor → execução.
 
 ---
 
