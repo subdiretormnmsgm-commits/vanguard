@@ -116,12 +116,14 @@ foreach ($entry in $mapa.GetEnumerator()) {
 Write-Host ""
 Write-Host "  [2/2] Verificando ultimo sync rclone..." -ForegroundColor DarkGray
 $desktop  = [Environment]::GetFolderPath("Desktop")
+$rcloneLogDir = Join-Path $desktop "rclone_logs"
+if (-not (Test-Path $rcloneLogDir)) { New-Item -ItemType Directory -Path $rcloneLogDir -Force | Out-Null }
 # P-168 (data+hora, nao data): NAO filtrar log por data. Filtrar por data fazia sessoes no
 # mesmo dia ficarem desatualizadas -- o gate perguntava "tem sync de hoje?" em vez de "o sync
 # rodou APOS a ultima modificacao?". Ex: mod 09h -> sync 09h05 (OK) -> mod 14h: a 2a sessao
 # via "houve sync hoje" e passava o arquivo das 14h sem re-sync. Pegamos o log mais recente
 # por LastWriteTime (data+hora) e comparamos datetime contra a ultima modificacao local.
-$logsTodos = Get-ChildItem "$desktop\rclone_sync_*.txt" -ErrorAction SilentlyContinue |
+$logsTodos = Get-ChildItem "$rcloneLogDir\rclone_sync_*.txt" -ErrorAction SilentlyContinue |
              Sort-Object LastWriteTime -Descending
 
 if (-not $logsTodos) {
@@ -163,10 +165,10 @@ if ($AutoSync -and $temSyncStale -and ($naoAutoFix.Count -eq 0)) {
     } else {
         Write-Host "  [AUTOSYNC] P-169 -- Drive atras do local. Rodando rclone sync..." -ForegroundColor Yellow
         $stamp   = Get-Date -Format "yyyyMMdd_HHmmss"
-        $logNovo = Join-Path $desktop "rclone_sync_$stamp.txt"
+        $logNovo = Join-Path $rcloneLogDir "rclone_sync_$stamp.txt"
         # P-185 (HV-1): nunca empurrar credenciais ao Drive -- filtro espelha o .gitignore
         $secretsExclude = Join-Path $PSScriptRoot "rclone_secrets_exclude.txt"
-        & $rcloneCmd sync $RAIZ "gdrive:vanguard" --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --exclude ".claude/skills/awesome-claude-skills-master/**" --exclude-from $secretsExclude --log-file $logNovo --log-level INFO
+        & $rcloneCmd sync $RAIZ "gdrive:vanguard" --exclude ".git/**" --exclude ".playwright-mcp/**" --exclude ".serena/**" --exclude "node_modules/**" --exclude "*.pyc" --exclude ".claude/skills/awesome-claude-skills-master/**" --exclude ".claude/skills/*.exe" --exclude-from $secretsExclude --log-file $logNovo --log-level INFO
         $rc = $LASTEXITCODE
         if ($rc -eq 0) {
             $syncTime2   = (Get-Item $logNovo).LastWriteTime

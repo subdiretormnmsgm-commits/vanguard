@@ -669,7 +669,9 @@ $rcloneCmd = if ($_rcloneObj) { $_rcloneObj.Source } else { $null }
 if (-not $rcloneCmd -and (Test-Path $rcloneFallback)) { $rcloneCmd = $rcloneFallback }
 if ($rcloneCmd) {
     try {
-        $logFile = "$([Environment]::GetFolderPath('Desktop'))\rclone_sync_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
+        $rcloneLogDir = Join-Path ([Environment]::GetFolderPath('Desktop')) "rclone_logs"
+        if (-not (Test-Path $rcloneLogDir)) { New-Item -ItemType Directory -Path $rcloneLogDir -Force | Out-Null }
+        $logFile = Join-Path $rcloneLogDir "rclone_sync_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
         $srcPath = Split-Path $PSScriptRoot -Parent
         # P-185 / P-190: o filtro de segredos e o exclude da biblioteca de terceiros sao OBRIGATORIOS.
         # Espelha verify_gdrive_freshness.ps1 -- sem isto, GATE 10 re-exporia as 7 credenciais ao gdrive.
@@ -683,6 +685,7 @@ if ($rcloneCmd) {
             --exclude "node_modules/**" `
             --exclude "*.pyc" `
             --exclude ".claude/skills/awesome-claude-skills-master/**" `
+            --exclude ".claude/skills/*.exe" `
             --exclude-from $secretsExclude `
             --log-file $logFile `
             --log-level INFO
