@@ -144,6 +144,12 @@
             "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/skill_gate_prompt.ps1",
             "timeout": 10,
             "statusMessage": "P-180 -- Detectando gatilho de etapa..."
+          },
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/nicho_role_guard.ps1",
+            "timeout": 10,
+            "statusMessage": "GATE DE PAPEL -- Verificando tema nicho/projecao (item 42)..."
           }
         ]
       }

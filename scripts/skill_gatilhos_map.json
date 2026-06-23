@@ -45,8 +45,9 @@
     },
     {
       "etapa": "COWORK",
-      "gatilhos": ["cowork", "co-work", "niche", "niche_modeler", "niche modeler", "nicho", "fonografico", "fonografica", "inbox_cowork", "inbox cowork", "briefing cowork", "fit_score", "fit score", "cowork conductor", "inteligencia de mercado", "intel loop"],
+      "gatilhos": ["cowork", "co-work", "niche", "niche_modeler", "niche modeler", "nicho", "fonografico", "fonografica", "inbox_cowork", "inbox cowork", "briefing cowork", "fit_score", "fit score", "cowork conductor", "inteligencia de mercado", "intel loop", "projetista", "projecao", "projeção", "mover_agora", "mover agora"],
       "skill_obrigatoria": "cowork-engine-v1",
+      "nota_extra": "GATE DE PAPEL + PILARES (item 42 / FALHA-PROCESSO-2026-06-23). Na fase Cowork voce PRODUZ material (Engine) + camada fria M-STATS -> PENDING_REVIEW; quem DECIDE/classifica/prioriza nicho e o PROJETISTA junto ao Diretor -- NUNCA o Musculo. PILAR I (PENSAR ANTES DE AGIR): NAO se atropele -- uma acao por vez, verifique cada etapa (P-010), nada por momentum; pare e confirme com o Diretor antes de disparar a conducao. ENVIO AO PROJETISTA: SEM direcionamento -- entregue o material bruto (radar/briefings do INBOX) para ELE analisar; nao eleja nicho, nao opine merito. Reforco vivo do nicho_role_guard.ps1 dentro da fase Cowork (o Diretor instalou os Pilares Comportamentais exatamente para isto).",
       "gatilho_acao": [
         { "tool": "Bash", "campo": "command", "padrao": "ir_ao_antigravity\\.ps1.*-papel\\s+COWORK" }
       ],
