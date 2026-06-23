@@ -115,6 +115,7 @@ if ($diaMes -eq 1) { $fMensal += "M-STATS (Analise Estatistica de Nicho -- skill
 $ativCmdPath = Join-Path $PSScriptRoot "comandos_ativacao_atores.json"
 $ativDigital    = @()   # array de @{ comando = rotulo; texto = comando completo }
 $ativProjetista = @()
+$ativExecutor   = @()   # executor_cowork (Antigravity COWORK) -- Categoria B, notifica (Diretor 2026-06-22)
 $ativErro = $null
 try {
     $jCmd  = Get-Content -LiteralPath $ativCmdPath -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -126,6 +127,10 @@ try {
     foreach ($k in @($agDia.projetista)) {
         $c = $jCmd.comandos_canonicos.projetista.$k
         if ($c) { $ativProjetista += @{ comando = $c.rotulo; texto = $c.texto } }
+    }
+    foreach ($k in @($agDia.executor_cowork)) {
+        $c = $jCmd.comandos_canonicos.executor_cowork.$k
+        if ($c) { $ativExecutor += @{ comando = $c.rotulo; texto = $c.texto } }
     }
 } catch {
     $ativErro = $_.Exception.Message
@@ -164,6 +169,7 @@ if ($Json) {
         mstats_aguardando_robustecer = @($mstatsPendentes)
         ativacoes_projetista = @($ativProjetista)
         ativacoes_digital    = @($ativDigital)
+        ativacoes_executor   = @($ativExecutor)
         ativacoes_fonte_erro = $ativErro
     }
     Write-Output ($obj | ConvertTo-Json -Depth 6 -Compress)
@@ -229,6 +235,13 @@ if ($ativErro) {
             foreach ($ln in ($a.texto -split "`n")) { Write-Host "       $ln" }
         }
     } else { Write-Host "    (nenhuma ativacao manual hoje -- frentes Cowork rodam sozinhas)" }
+    Write-Host "  -- ANTIGRAVITY COWORK / EXECUTOR --"
+    if ($ativExecutor.Count -gt 0) {
+        foreach ($a in $ativExecutor) {
+            Write-Host "    >> $($a.comando):"
+            foreach ($ln in ($a.texto -split "`n")) { Write-Host "       $ln" }
+        }
+    } else { Write-Host "    (nenhuma conducao Cowork hoje -- fim de semana)" }
     Write-Host ""
     Write-Host "    SOB GATILHO (rodar quando aplicavel): ED 'trabalhar [nicho]' (ao escolher nicho no radar) /"
     Write-Host "    ED 'setup inicial' (1a vez) / PROJETISTA 'materializacao' (plano aprovado) /"

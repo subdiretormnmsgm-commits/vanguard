@@ -3,8 +3,9 @@
   "_fonte": "SYSTEM PROMPT Embaixador Digital v2.1 (BLOCO 10) + SYSTEM PROMPT Projetista v5.1 (COMANDOS DE ATIVACAO RAPIDA), colados pelo Diretor 2026-06-17.",
   "_uso": "cowork_calendar.ps1 (abertura/gate 0C) e W-11 (Telegram) leem este arquivo e exibem o TEXTO do comando que o Diretor deve colar no ator hoje, para ativar cada um com excelencia.",
   "_status": "PREENCHIDO 2026-06-17 a partir dos 2 system prompts.",
-  "_classificacao": "Categoria A = frente Cowork AUTOMATICA (roda na madrugada, deposita em DIGITAL/INBOX ou PROJETISTA/INBOX, o Diretor NAO ativa). Categoria B = COMANDO DE ATIVACAO MANUAL que o Diretor cola no Claude Project. SO a categoria B vira notificacao de abertura/Telegram. Texto ASCII-safe (sem emoji/acento) por compatibilidade PS 5.1 console.",
-  "_atualizado": "2026-06-17",
+  "_classificacao": "Categoria A = frente Cowork AUTOMATICA (roda na madrugada, deposita em DIGITAL/INBOX ou PROJETISTA/INBOX, o Diretor NAO ativa). Categoria B = COMANDO DE ATIVACAO MANUAL que o Diretor cola (Claude Project OU Antigravity VS Code). SO a categoria B vira notificacao de abertura/Telegram. Texto ASCII-safe (sem emoji/acento) por compatibilidade PS 5.1 console.",
+  "_decisao_2026-06-22": "Diretor: o COMANDO de conducao Cowork (ator executor_cowork = Antigravity COWORK CONDUCTOR) passa a ser NOTIFICADO no Telegram, simetrico a Projetista/Embaixador Digital. E Categoria B (comando que o Diretor cola no VS Code), NAO frente A automatica -- as frentes A continuam rodando sozinhas sem notificacao. Motivo: 'as mensagens do Executor Cowork devem chegar ate mim' (Diretor 2026-06-22).",
+  "_atualizado": "2026-06-22",
 
   "comandos_canonicos": {
     "embaixador_digital": {
@@ -55,18 +56,25 @@
         "cadencia": "Segunda / periodica",
         "texto": "PROJETISTA, triagem.\nOlhe os REPETIDOS prestes a virar TENDENCIA (DELTA). Sinalize a fronteira. Nao projete."
       }
+    },
+    "executor_cowork": {
+      "conduzir": {
+        "rotulo": "Conducao Cowork do dia (Antigravity)",
+        "cadencia": "Dias uteis (Seg-Sex) -- ha frente F1 diaria + M/F especificas",
+        "texto": "ANTIGRAVITY COWORK -- conducao do dia.\nHa atividade Cowork prevista hoje. Abra a sessao Claude Code: o Musculo gera o COMANDO COWORK (ir_ao_antigravity.ps1 -papel COWORK) com os briefings M e frentes F do dia para voce colar no Antigravity (VS Code)."
+      }
     }
   },
 
   "_cadencia_ed_nota": "Opcao A (Diretor 2026-06-20): Embaixador Digital NAO e ativado todo dia. radar SO Segunda (revisa o acumulado da semana depositado pelas frentes ED1-ED6 na madrugada) + validacao Sexta. campanha/setup sob gatilho. Razao: (1) precedencia Projetista-upstream -- o Digital age DEPOIS de receber produto; (2) campanha LinkedIn e episodica, nao diaria; (3) ED1 (Sintese diaria) e Categoria A automatica, ja cai no INBOX sem ativacao manual.",
   "agenda_ativacao_manual": {
-    "Monday":    { "embaixador_digital": ["radar"],      "projetista": ["triagem"] },
-    "Tuesday":   { "embaixador_digital": [],             "projetista": ["projecao"] },
-    "Wednesday": { "embaixador_digital": [],             "projetista": [] },
-    "Thursday":  { "embaixador_digital": [],             "projetista": [] },
-    "Friday":    { "embaixador_digital": ["validacao"],  "projetista": ["retroalimentacao"] },
-    "Saturday":  { "embaixador_digital": [],             "projetista": [] },
-    "Sunday":    { "embaixador_digital": [],             "projetista": [] }
+    "Monday":    { "embaixador_digital": ["radar"],      "projetista": ["triagem"],          "executor_cowork": ["conduzir"] },
+    "Tuesday":   { "embaixador_digital": [],             "projetista": ["projecao"],         "executor_cowork": ["conduzir"] },
+    "Wednesday": { "embaixador_digital": [],             "projetista": [],                   "executor_cowork": ["conduzir"] },
+    "Thursday":  { "embaixador_digital": [],             "projetista": [],                   "executor_cowork": ["conduzir"] },
+    "Friday":    { "embaixador_digital": ["validacao"],  "projetista": ["retroalimentacao"], "executor_cowork": ["conduzir"] },
+    "Saturday":  { "embaixador_digital": [],             "projetista": [],                   "executor_cowork": [] },
+    "Sunday":    { "embaixador_digital": [],             "projetista": [],                   "executor_cowork": [] }
   },
 
   "sob_gatilho": {

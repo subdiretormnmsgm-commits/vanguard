@@ -28,8 +28,8 @@ $jsRaw = Get-Content -LiteralPath $jsPath   -Raw -Encoding UTF8
 
 # Mapa nome-do-dia (JSON) -> indice getDay() (JS)
 $diaNum = @{ Sunday=0; Monday=1; Tuesday=2; Wednesday=3; Thursday=4; Friday=5; Saturday=6 }
-# Grupo JSON -> chave curta usada no .js (ed / pj)
-$grupos = @{ embaixador_digital = "ed"; projetista = "pj" }
+# Grupo JSON -> chave curta usada no .js (ed / pj / cw)
+$grupos = @{ embaixador_digital = "ed"; projetista = "pj"; executor_cowork = "cw" }
 
 $erros = @()
 
@@ -39,16 +39,24 @@ $mBloco = [regex]::Match($jsRaw, 'const\s+AGENDA\s*=\s*\{(.+?)\};', 'Singleline'
 if (-not $mBloco.Success) { Say "[DRIFT-ATIVACAO] Nao encontrei 'const AGENDA' no .js -- estrutura mudou." Red; exit 1 }
 $blocoAgenda = $mBloco.Groups[1].Value
 
-$jsAgenda = @{}  # num -> @{ ed = @(...); pj = @(...) }
-foreach ($lm in [regex]::Matches($blocoAgenda, '(\d)\s*:\s*\{\s*ed\s*:\s*\[([^\]]*)\]\s*,\s*pj\s*:\s*\[([^\]]*)\]\s*\}')) {
-    $num = [int]$lm.Groups[1].Value
-    $ed = @([regex]::Matches($lm.Groups[2].Value, "'([^']+)'") | ForEach-Object { $_.Groups[1].Value })
-    $pj = @([regex]::Matches($lm.Groups[3].Value, "'([^']+)'") | ForEach-Object { $_.Groups[1].Value })
-    $jsAgenda[$num] = @{ ed = $ed; pj = $pj }
+$jsAgenda = @{}  # num -> @{ ed = @(...); pj = @(...); cw = @(...) }
+# Captura o corpo { ... } de cada dia e extrai cada grupo individualmente --
+# robusto a ordem e ao numero de grupos (ed/pj/cw e futuros).
+foreach ($lm in [regex]::Matches($blocoAgenda, '(\d)\s*:\s*\{([^}]*)\}')) {
+    $num   = [int]$lm.Groups[1].Value
+    $corpo = $lm.Groups[2].Value
+    $dia   = @{ ed = @(); pj = @(); cw = @() }
+    foreach ($curto in @('ed','pj','cw')) {
+        $mg = [regex]::Match($corpo, "$curto\s*:\s*\[([^\]]*)\]")
+        if ($mg.Success) {
+            $dia[$curto] = @([regex]::Matches($mg.Groups[1].Value, "'([^']+)'") | ForEach-Object { $_.Groups[1].Value })
+        }
+    }
+    $jsAgenda[$num] = $dia
 }
 
 # ---------- CHECK B: agenda dia-a-dia ----------
-$comandosUsados = @{ ed = @{}; pj = @{} }  # coleta uniao p/ CHECK A
+$comandosUsados = @{ ed = @{}; pj = @{}; cw = @{} }  # coleta uniao p/ CHECK A
 foreach ($nome in $diaNum.Keys) {
     $num = $diaNum[$nome]
     $jDia = $json.agenda_ativacao_manual.$nome
