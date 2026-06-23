@@ -839,3 +839,89 @@ Projetista PRODUZ antes; Embaixador Digital CONSOME. Verificado nesta sessao: PR
 - A3. Ordem operacional do lancamento do canal (Projetista projeta -> Digital setup marca-ampla -> MUSCULO cria a Company Page remotamente -> 1o lote). So apos A1.
   CORRECAO (Diretor 2026-06-20): a Company Page do LinkedIn e criada REMOTAMENTE pelo Musculo (Playwright / claude-projects-remote-v1), nao pelo Diretor. Marca AMPLA (memory feedback-vanguard-vende-qualquer-projeto-linkedin).
   NOTA TECNICA (Pilar I -- deliberar na execucao): LinkedIn exige perfil pessoal vinculado a Company Page + tem deteccao anti-automacao. Criacao via Playwright e viavel mas pode demandar 1 passo manual do Diretor (login/verificacao). Confirmar viabilidade no inicio do A3.
+
+---
+
+### COWORK CONDUCTOR — ORQUESTRAÇÃO DE SUBAGENTES EM PARALELO · 2026-06-22
+
+> **Mecanismo:** Despacho de 4 subagentes independentes sob o Pilar P-194 (Inteligência de Mercado para prospecção).
+> **Inbox:** 0 sinais novos. (Dimensão "nichos novos" marcada como vazia).
+
+**[SUBAGENTE 1 -- FIT_SCORE]**
+*Recálculo do Score Vanguard (D1 a D5) sob a Rubrica Anti-Inflação. (Teto 3 para notas sem evidência dura citável).*
+
+| Nicho | D1 (Dor) | D2 (Auditab.) | D3 (Urgência) | D4 (Anti-gen.) | D5 (Volume) | Média | Classificação | Evidência (p/ D>=4) |
+|---|---|---|---|---|---|---|---|---|
+| conformidade-ai-act | 5.0 | 5.0 | 5.0 | 3.0 | 3.0 | **4.2** | MOVER AGORA | D1: Multa €35M / D2: Dossiê exigido CE Mark / D3: Prazo 02/08/2026 (EU AI Act, Jun/26) |
+| eventos-fiscais-contadores | 5.0 | 5.0 | 5.0 | 3.0 | 3.0 | **4.2** | MOVER AGORA | D1: Multa 5% ou 0,02%/d / D2: SPED autom. / D3: ECD 30/06/2026 (RFB, Jun/26) |
+| holdings-offshores-14754 | 5.0 | 5.0 | 5.0 | 3.0 | 3.0 | **4.2** | MOVER AGORA | D1: 15% lucros / D2: CRS automático / D3: Fato gerador 31/12 (Lei 14.754, Jun/26) |
+| ifrs17-seguros | 3.0 | 3.0 | 3.0 | 3.0 | 5.0 | **3.4** | MONITORAR | D5: Mercado R$630M (SUSEP, Jun/26) |
+| glosa-hospitalar | 5.0 | 3.0 | 3.0 | 3.0 | 3.0 | **3.4** | MONITORAR | D1: Taxa de glosa 17% Q1/2025 (FenaSaúde, Fev/26) |
+| compliance-aduaneiro-ncm | 5.0 | 3.0 | 3.0 | 3.0 | 3.0 | **3.4** | MONITORAR | D1: Penalidade R$20.000 (LC 227, Jun/26) |
+| setor-eletrico-regulatorio | 3.0 | 3.0 | 5.0 | 3.0 | 3.0 | **3.4** | MONITORAR | D3: Prazo 05/08/2026 (ANEEL CP 009, Jun/26) |
+| rastreabilidade-sanitaria | 3.0 | 3.0 | 5.0 | 3.0 | 3.0 | **3.4** | MONITORAR | D3: Prazo 09/12/2026 (ANVISA, Jun/26) |
+| carbon-esg-mrv | 3.0 | 3.0 | 4.0 | 3.0 | 3.0 | **3.2** | MONITORAR | D3: Fase final CBAM jan/2026 (Lei 15.042, Jun/26) |
+| ma-reestruturacao-societaria | 3.0 | 3.0 | 4.0 | 3.0 | 3.0 | **3.2** | MONITORAR | D3: Normas em vigor mar/2026 (BCB 538, Mar/26) |
+| medicos-peritos-laudos | 3.0 | 3.0 | 3.0 | 3.0 | 3.0 | **3.0** | MONITORAR | [Teto 3 - Falta evidência quantificada] |
+| licitacoes-contratos-publicos | 3.0 | 3.0 | 3.0 | 3.0 | 3.0 | **3.0** | MONITORAR | [Teto 3 - Falta evidência quantificada] |
+| engenheiros-acervo-tecnico | 3.0 | 3.0 | 3.0 | 3.0 | 3.0 | **3.0** | MONITORAR | [Teto 3 - Falta evidência quantificada] |
+| saude-digital-conformidade | 3.0 | 3.0 | 3.0 | 3.0 | 3.0 | **3.0** | MONITORAR | [Teto 3 - Falta evidência quantificada] |
+| farmaceuticos-rt-compliance | 3.0 | 3.0 | 3.0 | 3.0 | 3.0 | **3.0** | MONITORAR | [Teto 3 - Falta evidência quantificada] |
+| csrd-esg-exportadores-eu | 3.0 | 3.0 | 3.0 | 3.0 | 3.0 | **3.0** | MONITORAR | [Teto 3 - Falta evidência quantificada] |
+
+**[SUBAGENTE 2 -- ENRIQUECIMENTO]**
+*Pesquisa de dados de mercado novos (Deep Research).*
+
+- **Conformidade AI Act (PL 2338)**: Sanções fixadas em €35 milhões ou 7% do faturamento global da empresa (para infrações proibidas). Enforcement total em 02/08/2026. (Fonte: *ArtificialIntelligenceAct.eu*, Junho/2026).
+- **Holdings/Offshores (Lei 14.754)**: Tributação automática de 15% sobre o lucro exigível sobre o resultado contábil a cada 31/12. A EC 132/2023 expandiu o risco patrimonial validando a progressividade do ITCMD em inventários no exterior, o que agrava a dor da sucessão. (Fonte: *Receita Federal e EC 132/2023*, Junho/2026).
+
+**[SUBAGENTE 3 -- ALERTAS REGULATÓRIOS]**
+*Mapeamento do relógio regulatório ativo.*
+
+- **02-08-2026 (D-41)**: Conformidade EU AI Act (Sistemas Alto Risco). Nicho: `conformidade-ai-act`.
+- **05-08-2026 (D-44)**: ANEEL CP 009/2026 (60 dias auditoria). Nicho: `setor-eletrico-regulatorio`.
+- **09-12-2026**: ANVISA Rastreabilidade e Recall. Nicho: `rastreabilidade-sanitaria-premium`.
+- **31-12-2026**: Fato gerador ininterrupto da Lei 14.754. Nicho: `holdings-offshores-14754`.
+
+**[SUBAGENTE 4 -- MAPA DE PRIORIDADE]**
+*Ranking de prospeccão cruzando Fit_Score (Evidência) x Urgência.*
+
+1. **[MOVER AGORA] Conformidade AI Act:** Único nicho com multa milionária comprovada e deadline curto (02/08/2026). Ideal para prospecção cirúrgica imediata na vanguarda Tech/SaaS.
+2. **[MOVER AGORA] Eventos Fiscais / ECD:** Ticket ancorado em risco real e SPED automático sem margem de manobra (prazo 30/06).
+3. **[MOVER AGORA] Holdings/Offshores:** A virada do exercício em 31/12 engatilha os 15% de imposto sem saída, forçando serviços preventivos urgentes em Family Offices.
+
+---
+
+### CRUZAMENTO DO MÚSCULO — DELTAS vs DISCO · 2026-06-22
+
+> Moto da inteligência de mercado (memory `reference_moto_inteligencia_mercado.md`): dois atores coexistem (subagente Músculo + Antigravity) → se o Antigravity erra, o Músculo **SINALIZA** ao Diretor. Não corrige a tabela acima em silêncio — o veredito é do Diretor (P-124).
+
+**CONSENSO (Antigravity ↔ disco ↔ decisão canônica) — sólido:**
+- **conformidade-ai-act (4.2 MOVER AGORA)** — bate com a âncora do Diretor (AI Act 02/08, BLOCO0). ✅
+- **holdings-offshores-14754 (4.2 MOVER AGORA)** — bate com o cartão N19 recém-commitado (5977b05). ✅
+
+**DIVERGÊNCIAS — aguardam veredito (não toquei a tabela):**
+
+1. **3 nichos rebaixados a teto-3 por "falta de evidência" JÁ TÊM cartão MOVER AGORA na BIBLIOTECA desde 13/06.** A rubrica L-001 exige buscar o número no cartão ANTES de aplicar teto-3 — e cita `saude-digital` nominalmente como o exemplo a não repetir. O Antigravity deflacionou por preguiça de busca exatamente os 3 que tinham prova dura em disco:
+   - `saude-digital-conformidade` → Antigravity **3.0 MONITORAR**; cartão **N18 = 4.8 MOVER AGORA** (77% hospitais sem RNDS · ANPD até R$50M · CFM 2.448/2025 · ticket R$45k).
+   - `engenheiros-acervo-tecnico` → Antigravity **3.0 MONITORAR**; cartão **N17 = 4.6 MOVER AGORA** (CAT obrigatória >R$330k, 70% sem sistema · TCU: devolução + multa 100% + suspensão 5 anos).
+   - `farmaceuticos-rt-compliance` → Antigravity **3.0 MONITORAR**; cartão **N16 = 4.4 MOVER AGORA** (78% das autuações ANVISA recaem sobre o RT · multa até R$1,5M · ANVISA 978/2025 vigor fev/2026).
+   *Causa:* a rubrica L-001 foi adicionada à memória NESTA sessão — ela vale para a PRÓXIMA run; esta run rodou antes da memória. Próxima sessão Cowork deve recalcular esses 3 com o cartão na mão.
+
+2. **`eventos-fiscais-contadores` rankeado #2 MOVER AGORA (deadline ECD 30/06) conflita com decisão canônica.** O Diretor ARQUIVOU o nicho ECD/eventos-fiscais em 2026-06-21 (VIRADA P-194 — âncora migrou para AI Act 02/08). Além do conflito de decisão, 30/06 está a ~8 dias → janela curta demais para prospecção fria. **Não promover sem reabertura explícita do Diretor.**
+
+3. **(leve) `setor-eletrico-regulatorio` (3.4 MONITORAR) reaparece via norma nova** (ANEEL CP 009/2026, 05/08). Também foi arquivado em 21/06 como lista-fixa pré-virada; o ressurgimento via motor é legítimo, mas o alerta segue arquivado pelo Diretor. Apenas registro.
+
+**Teto-3 LEGÍTIMO (sem cartão em disco — candidatos a enriquecimento):** `medicos-peritos-laudos`, `licitacoes-contratos-publicos`, `csrd-esg-exportadores-eu`. Aqui o teto-3 está correto: não há prova quantificada em disco. Próximo enriquecimento deve atacá-los.
+
+**SÍNTESE:** dos 3 MOVER AGORA do Antigravity, 2 têm consenso pleno (AI Act, Holdings) e 1 (ECD) está em conflito com a virada P-194. Há ainda 3 MOVER AGORA legítimos que o Antigravity perdeu (N16/N17/N18) — o pódio real de prospecção, cruzado com a doutrina, é **AI Act · Holdings · + os 3 nichos de cartão subavaliados**, não AI Act · ECD · Holdings.
+
+---
+
+#### [VEREDITO-DIRETOR — 2026-06-22] Pódio corrigido CONFIRMADO
+
+O Diretor deliberou sobre o cruzamento acima (1 SIM · 2 SIM · 3 SIM):
+
+1. **Pódio de prospecção CONFIRMADO:** 🥇 **Conformidade AI Act** (02/08) · 🥈 **Holdings/Offshores (Lei 14.754)** · 🥉 **os 3 nichos de cartão subavaliados — N18 Saúde Digital (4.8) · N17 Engenheiros/Acervo (4.6) · N16 Farmacêuticos RT (4.4)**.
+2. **ECD / eventos-fiscais-contadores SAI do MOVER AGORA** — mantido arquivado (VIRADA P-194, 21/06); prazo 30/06 sem fôlego para prospecção fria. Não reabrir sem ordem explícita.
+3. **Próxima sessão Cowork autorizada a RECALCULAR N16/N17/N18** sob a rubrica L-001 com o cartão da BIBLIOTECA em mãos (a memória permanente já está commitada — 035adcc — e ativa na próxima run via `.agents/rules/`).

@@ -24,6 +24,13 @@
 
 ---
 
+## 2026-06-22 (segunda-feira) — COWORK (cruzamento do Musculo + veredito)
+- **Objetivo:** cruzar a consolidacao Cowork (4 subagentes) com o disco e fechar o veredito do Diretor.
+- **O que foi feito:** Musculo cruzou o FIT_SCORE com a BIBLIOTECA. Achado: 3 nichos rebaixados a teto-3 "sem evidencia" JA TINHAM cartao MOVER AGORA (N18 Saude Digital 4.8 / N17 Engenheiros-Acervo 4.6 / N16 Farmaceuticos RT 4.4) -- deflacao por preguica de busca (a propria L-001 proibe). ECD/eventos-fiscais rankeado #2 conflita com VIRADA P-194 (arquivado 21/06). Sinalizado ao Diretor (moto: Musculo sinaliza, nao corrige).
+- **Arquivos tocados:** PENDING_REVIEW.md (cruzamento + VEREDITO-DIRETOR), este log.
+- **Decisao / output (VEREDITO-DIRETOR 2026-06-22):** Podio CONFIRMADO = AI Act / Holdings / N18+N17+N16. ECD SAI do MOVER AGORA. Causa-raiz da deflacao: L-001 foi gravada NESTA sessao (vale para a proxima run).
+- **Proximo passo (ETAPA 0 da proxima Cowork):** RECALCULAR fit_score de N18/N17/N16 sob a rubrica L-001 COM o cartao da BIBLIOTECA em maos -- esses 3 sao MOVER AGORA confirmados pelo Diretor, nao MONITORAR. Enriquecer depois os teto-3 legitimos (medicos-peritos, licitacoes, csrd).
+
 ## 2026-06-22 (segunda-feira) — SISTEMA (memoria permanente)
 - **Objetivo:** dar ao Antigravity memoria PERMANENTE — ele "nao sabe nada, age por gatilho" (Diretor).
 - **O que foi feito:** criado `CONSELHO/ANTIGRAVITY_MEMORIA.md` (CONTEXTO VANGUARD + identidade de SOCIO que delibera/confronta + operacao + LICOES, L-001 = teto-3/buscar numero no cartao); espelho NATIVO em `.agents/rules/00-vanguard-memoria.md` (Workspace Rules — Antigravity le sozinho toda sessao, igual CLAUDE.md); wire no `ir_ao_antigravity.ps1` injeta a memoria INTEIRA em todo comando, qualquer papel, antes da ETAPA 0.
