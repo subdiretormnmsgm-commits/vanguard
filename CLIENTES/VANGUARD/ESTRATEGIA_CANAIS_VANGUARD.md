@@ -8,6 +8,10 @@
 
 **Um canal ativo por nicho. O próximo canal só abre quando o atual gerar ≥1 conversa real (Gate E-4).**
 
+### Frame de pitch (AÇÃO 2 do Embaixador · veredito Diretor 2026-06-23 · RASCUNHO)
+> **"Crescer sem contratar proporcionalmente — com auditoria embutida em cada etapa."**
+> Substitui o discurso de *solução técnica* ("orquestração governada de IA") pelo discurso do *problema do cliente*. Casa com o KPI W-14 (Human-to-Revenue Ratio) — o número é a prova do frame. R-3 preservado (sem menção a IA). Aplicar nos posts via Embaixador Digital após aprovação do Diretor.
+
 ### Definição: Conversa Real (Gate E-4)
 Qualquer resposta que não seja recusa direta. Dúvida, objeção, pedido de informação — tudo conta.
 O que NÃO conta: silêncio, visualização sem resposta, "não tenho interesse".

@@ -46,6 +46,13 @@ DECISÃO:  [ ] GO — avançar para Bloco B
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
+> **MVA — Minimum Viable Automation · TERMÔMETRO DE ESCOPO (não é gate)** · veredito Diretor 2026-06-23 (C4 AÇÃO 4 = TERMÔMETRO)
+> O critério de entrada continua sendo **a DOR** (Q1–Q3 acima) — nunca a maturidade de processo do cliente.
+> "Prospect tem processo mínimo documentado?" **NÃO é 4ª pergunta eliminatória.** É um termômetro consultado em BLOCO C / P6 que **precifica o escopo**, não barra o lead:
+> - **Tem processo documentado** → o Loop ancora rápido → projeto mais barato/curto.
+> - **Não tem** → o **Loop Pentalateral monta o processo** (DNA Ingrid/Valdece — ambos entraram pela dor, sem processo mapeado) → isso entra no **escopo e no preço**, não na recusa.
+> Razão da forma (não-gate): MVA como gate barraria os dois casos de sucesso da Vanguard e colidiria com a abordagem pós-inteligência (`[[feedback_funil_dna_mira_ingrid_valdece]]`). Como termômetro, protege margem sem fechar a porta.
+
 ---
 
 ## BLOCO B — DISCOVERY (8 perguntas · 30–60 minutos)

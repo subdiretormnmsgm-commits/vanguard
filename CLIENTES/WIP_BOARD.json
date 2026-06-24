@@ -1,5 +1,5 @@
-{
-    "atualizado_em":  "2026-06-14",
+﻿{
+    "atualizado_em":  "2026-06-23",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
@@ -283,6 +283,24 @@
                                "regra_4":  "Sentinel do cliente atual validado antes de novo projeto entrar em BUILD",
                                "regra_5":  "Retainer so apos 30 dias de dados reais do Sentinel"
                            },
+    "kpis":  {
+                 "W-14":  {
+                              "nome":  "Human-to-Revenue Ratio",
+                              "formula":  "MRR_atual / humanos_na_operacao",
+                              "mrr_atual":  5000,
+                              "humanos_operacao":  2,
+                              "valor_atual_por_pessoa":  2500,
+                              "unidade":  "R$/pessoa",
+                              "meta_alvo":  5000,
+                              "meta_definida_em":  "2026-06-23",
+                              "meta_por":  "Diretor -- veredito C4 acao 1 (1-SIM meta R$5000)",
+                              "fonte_mrr":  "MEMORIA_EMBAIXADOR_VANGUARD campo receita",
+                              "uso":  "teto de MRR com a estrutura humana atual antes de nova contratacao -- prova de pitch da AÇÃO 2 (crescer sem headcount)",
+                              "nota_musculo":  "denominador conta humanos-carbono; cruzar com custo de API/maquina ao reportar para nao inflar a metrica",
+                              "pf1":  "NAO wired -- PF-1 APOSENTADO (Diretor 2026-06-20, memoria feedback_pf1_aposentado_nova_rota)",
+                              "origem":  "AÇÃO 1 do Embaixador (PENDING_REVIEW Vibehub) -- veredito Diretor 2026-06-23"
+                          }
+             },
     "meta":  {
                  "loops_desde_ultimo_checkup":  2,
                  "data_ultimo_checkup":  "2026-05-27",

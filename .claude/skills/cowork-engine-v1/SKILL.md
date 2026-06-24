@@ -9,7 +9,14 @@ description: Artifact Engine do Cowork — lê INBOX_COWORK no Drive e executa 5
 Executa as 5 fases do Artifact Engine independentemente do session_start.
 Trigger: `/cowork-engine`
 Resultado mínimo: ≥1 Cartão de Nicho gravado em disco + ≥1 ativo de conteúdo.
-Músculo conduz tudo — sem sócio externo no fluxo.
+
+> ⚠️ COEXISTÊNCIA OBRIGATÓRIA E AUTOMÁTICA (Diretor 2026-06-22 — P-146):
+> O Músculo NÃO conduz sozinho. Toda execução do Engine dispara DOIS atores em paralelo, SEMPRE:
+> (1) **subagente Músculo** — robustece as ideias (análise densa, cruzamento de inteligência);
+> (2) **Antigravity COWORK CONDUCTOR** — `ir_ao_antigravity.ps1 -papel COWORK` (membro externo do Pentalateral).
+> Os dois COEXISTEM, nunca se substituem. O Músculo NUNCA decide pular o Antigravity por conta própria —
+> nenhum gate interno autoriza suprimir um membro do Pentalateral. Só o Diretor decide isso.
+> "Se for assim, você faz tudo e não existe Pentalateral." — Diretor 2026-06-22.
 
 ---
 
@@ -19,18 +26,22 @@ Músculo conduz tudo — sem sócio externo no fluxo.
 2. Folder ID INBOX_COWORK: `1EjaH6TmsxbYpgKWb7ASm7CohFJfwSLKi`
 3. Ler `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/BIBLIOTECA_NICHOS/Biblioteca_Nichos_Vanguard_v[N].md` (versão mais recente) — saber quais nichos já estão catalogados
 4. Ler `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md` — não duplicar sinais já registrados
+5. **ACIONAR OS DOIS ATORES (obrigatório, automático — pré-condição inviolável da Fase 1):**
+   (a) `.\scripts\ir_ao_antigravity.ps1 -papel COWORK` → gera o comando do Antigravity COWORK CONDUCTOR (Diretor cola no VS Code)
+   (b) lançar o **subagente Músculo** (Agent tool) para robustecer as ideias em paralelo
+   Os dois SEMPRE — nunca um sem o outro. Nenhum gate interno pode suprimir o item (a).
 
-### GATE NICHE_MODELER — TRIGGER AUTOMÁTICO (executar SEMPRE antes da Fase 1)
+### GATE NICHE_MODELER — TRIGGER INFORMATIVO (executar SEMPRE antes da Fase 1)
 
 ```powershell
 .\scripts\niche_modeler_check_inbox.ps1 -Status
 ```
 
-**Resultado:**
-- `[OK] Inbox NICHE_MODELER: 0 novos sinais` → **Encerrar Engine aqui.** Não há dados novos para o Antigravity neste ciclo — prosseguir desperdiça contexto e tempo.
-- `[TRIGGER] NICHE_MODELER: N run(s) nova(s)` → Continuar Engine normalmente. Ao final de tudo, notificar Diretor: "NICHE_MODELER: N run(s) nova(s) — Antigravity necessário. Execute PASSO_NICHE_MODELER.md."
+**Resultado (o gate INFORMA o volume — NUNCA suprime o Antigravity):**
+- `[OK] Inbox NICHE_MODELER: 0 novos sinais` → registrar a observação ("ciclo sem sinais novos do NICHE_MODELER") e **PROSSEGUIR**. O Antigravity COWORK e o subagente Músculo rodam mesmo assim — ausência de sinais novos é um dado para o Diretor, não autorização para pular um membro.
+- `[TRIGGER] NICHE_MODELER: N run(s) nova(s)` → registrar "N run(s) nova(s)" e prosseguir com volume reforçado. Notificar Diretor: "NICHE_MODELER: N run(s) nova(s)."
 
-**Regra:** o Músculo NUNCA propõe ida ao Antigravity sem este gate confirmar sinais novos primeiro.
+**Regra (Diretor 2026-06-22):** este gate NUNCA decide pular o Antigravity. O Músculo não suprime membro do Pentalateral por conta própria — só o Diretor decide isso. O acionamento do Antigravity COWORK é obrigatório e automático (ver bloco COEXISTÊNCIA no topo + pré-execução item 5).
 
 ---
 
@@ -203,3 +214,4 @@ Mensal (1º de cada mês):
 - `Biblioteca_Nichos_Vanguard_v[N].md` é TIPO 1 UNIVERSAL_PURO: editar só em `PENTALATERAL_UNIVERSAL/`
 - Após qualquer alteração em `PENTALATERAL_UNIVERSAL/` → rodar `sync_vanguard_docs.ps1` (P-033)
 - Músculo que exibe score sem gravar arquivo = Fase 3 ausente = Engine incompleto
+- **O Antigravity COWORK e o subagente Músculo SEMPRE coexistem (bloco COEXISTÊNCIA no topo). Nenhum gate suprime um membro do Pentalateral — só o Diretor.**

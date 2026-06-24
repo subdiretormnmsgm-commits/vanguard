@@ -20,8 +20,14 @@ _(sem achados pendentes)_
 
 ### [ANÁLISE VIBEHUB/LASY AI] — 4 ações → atores designados · 2026-06-20 (Embaixador → Músculo)
 
-> Origem: Embaixador | Destino: Músculo → atores designados | **AGUARDA VEREDITO DO DIRETOR** (P-124).
-> Colado pelo Diretor ao fechar a sessão de 2026-06-20 como pauta da PRÓXIMA sessão. NADA executado nesta sessão — só registro.
+> Origem: Embaixador | Destino: Músculo → atores designados | ✅ **VEREDITADO PELO DIRETOR — 2026-06-23** (P-124).
+> Colado pelo Diretor ao fechar a sessão de 2026-06-20 como pauta da PRÓXIMA sessão.
+>
+> **VEREDITO DO DIRETOR (2026-06-23): "1-SIM meta R$5000 · 2-SIM · 3-SIM · 4-TERMÔMETRO" — EXECUTADO pelo Músculo:**
+> - **AÇÃO 1 ✅** KPI W-14 gravado em `CLIENTES/WIP_BOARD.json` → `kpis.W-14`, meta alvo **R$5.000/pessoa**. ⚠️ NÃO wired ao PF-1 (APOSENTADO, Diretor 2026-06-20).
+> - **AÇÃO 2 ✅** Frame *"crescer sem contratar proporcionalmente, com auditoria embutida"* adicionado (rascunho) a `CLIENTES/VANGUARD/INTENCAO_LINKEDIN.md` + `ESTRATEGIA_CANAIS_VANGUARD.md`. Nota de fato: a string antiga "orquestração governada de IA" não existia literalmente — frame foi **adicionado**, não substituído.
+> - **AÇÃO 3 ✅** Autorizada no fluxo Embaixador Digital → Auditor (NICHE_INDEX) → Músculo grava rascunho → Diretor aprova. COMANDO de ativação preparado pelo Músculo (chat, P-075).
+> - **AÇÃO 4 ✅ TERMÔMETRO** (não gate): MVA inscrito como *termômetro de escopo* no `OPERACAO/DISCOVERY_CARD.md` (BLOCO A). Entrada continua pela DOR; processo documentado precifica escopo, não barra lead. Conflito DNA resolvido pelo próprio veredito do Diretor.
 
 **AÇÃO 1 — Criar KPI Human-to-Revenue Ratio**
 - Ator: Músculo executa; Estrategista valida meta alvo.
@@ -925,3 +931,191 @@ O Diretor deliberou sobre o cruzamento acima (1 SIM · 2 SIM · 3 SIM):
 1. **Pódio de prospecção CONFIRMADO:** 🥇 **Conformidade AI Act** (02/08) · 🥈 **Holdings/Offshores (Lei 14.754)** · 🥉 **os 3 nichos de cartão subavaliados — N18 Saúde Digital (4.8) · N17 Engenheiros/Acervo (4.6) · N16 Farmacêuticos RT (4.4)**.
 2. **ECD / eventos-fiscais-contadores SAI do MOVER AGORA** — mantido arquivado (VIRADA P-194, 21/06); prazo 30/06 sem fôlego para prospecção fria. Não reabrir sem ordem explícita.
 3. **Próxima sessão Cowork autorizada a RECALCULAR N16/N17/N18** sob a rubrica L-001 com o cartão da BIBLIOTECA em mãos (a memória permanente já está commitada — 035adcc — e ativa na próxima run via `.agents/rules/`).
+
+---
+
+### [COWORK — 2026-06-23 terça-feira] Execução Executor Cowork (M2 Regulatório Entretenimento + F1 Radar de Dor)
+
+**Atividade Cowork agendada do dia** (não-Loop · `cowork_calendar.ps1`): M2 Radar Regulatório do Entretenimento (terças) + F1 Radar de Dor (diário). Tag `[NICHO-FONOGRAFICO]` no eixo M2 · P-059 N/A. GATE NICHE_MODELER: `0 novos sinais` (não suprime atores). **Coexistência obrigatória disparada (P-146):** subagente Músculo (robustecimento) + Antigravity COWORK CONDUCTOR (comando gerado, aguarda execução do Diretor no VS Code).
+
+> **Material BRUTO, sem eleição de nicho** (item 42 — Músculo produz, Projetista com Diretor decide). Nada aqui é MOVER AGORA/score de mérito. Insumo para consumo do Projetista.
+
+**Inventário INBOX_COWORK:** 6 arquivos novos de 23/06 (M2 + briefing M2 · F1 + briefing F1 · PROSPECTS_LINKEDIN Embaixador Digital · PREDIGESTAO Projetista). M2 = 3ª execução (15 temas: 10 confirmados, 3 repetidos, 2 novos). F1 = 9ª execução (5 nichos, 12 tendências, 4 sinais novos).
+
+**CONEXÕES NÃO ÓBVIAS (cruzamento M2×F1 — subagente Músculo):**
+- **C1** — IBS/CBS (LC 214/2025) é o mesmo tremor sob eixos desconexos: NF de produtoras de shows (M2, prazo 31/07) **e** complexidade tributária em M&A (F1, Nicho 3).
+- **C2** — "Enforcement intensificado" simultâneo em 3 órgãos: ECAD aciona Justiça (festas juninas, Petrolina, >R$5M) · ANVISA interdita 3º fabricante de suplementos no mês · CRM pode suspender registro por honorário atrasado (CFM 2.462). Sinal de macroambiente.
+- **C3** — Responsabilidade transferida ao elo solvente: patrocinador solidário por inadimplência ECAD (M2) ≡ hospital responde por repasse atrasado (CFM 2.462, F1).
+- **C4** — Duas retroatividades correndo: benigna (CARF 3002-004.124, LC 227/2026 cancela multa NCM — F1) vs. maligna (PEC 13/26, incentivos culturais em risco na extinção ICMS/ISS — M2).
+- **C5** — IA chegando a setores não-tech setor-a-setor: CFM 2.454/2026 (registro de IA no prontuário, agosto — F1) ≡ PL 2338/23 (IA + obra musical — M2).
+- **C6** — Criminalização progressiva: PL 2269/24 (licença ambiental de eventos, detenção) + Decreto Segurança Privada (M2).
+
+**JANELA TEMPORAL — D-day com data fixa e contagem curta (único):** adequação de NF p/ IBS/CBS — **31/07/2026 (38 dias)**; NFs sem IBS/CBS rejeitadas a partir de 01/08. Demais: já em vigor (Decreto Seg. Privada 09/06 · CFM 2.460 15/06 · CFM 2.462 21/06), janela de regime no Simples (set/2026, escolha jan-jun/2027 irreversível), ou `[NÃO CONFIRMADO]` (PL 2338/23, PL 2269/24, PEC 13/26, ANS CP 170).
+
+**VETORES DE DOR TRANSVERSAIS (por mecanismo, não por nicho):** V1 responsabilidade solidária/pessoal ao elo solvente · V2 rejeição/glosa automática de documento · V3 retroatividade (benigna+maligna) · V4 suspensão/interdição de registro ou licença · V5 regime irreversível com janela curta.
+
+**⚠️ FLAG ABERTO — NÃO ORIENTAR:** alíquota reduzida IBS/CBS para artistas (30% vs 60%, LC 214/2025) exige verificação de **CNAE em fonte primária** antes de qualquer afirmação de enquadramento. Risco de sobrecobrança/autuação se orientado errado. `[NÃO CONFIRMADO]`.
+
+**OUTRAS LACUNAS `[NÃO CONFIRMADO]`:** PL 2338/23 perda R$116bi/5anos (sem fonte); datas de plenário de PLs/PEC; ANS CP 170 prazo; PNAB data limite; alcance do CNPJ-PF habitual sobre saúde (inferência mecânica de C7); padrão declarado do cluster BPF ANVISA; status atual da CFM 2.448 suspensa (estado fluido).
+
+**PERGUNTAS ABERTAS AO DIRETOR (decisão do Diretor/Projetista — Músculo não sugere):**
+1. Autoriza acionar checagem de fonte primária do FLAG 30%/60% + CNAE artístico (LC 214/2025)? Por qual via?
+2. Janelas jurídicas "abertas indefinidamente" (retroatividade LC 227 · CFM 2.448 suspensa) entram em monitoramento semanal do radar ou ficam fora de escopo?
+3. Leitura de macroambiente "enforcement simultâneo" (C2) — registra em PENDING_REVIEW como insumo ou outro destino?
+4. Qual o limiar de confirmação exigido antes de um item bruto poder ser consumido pelo Projetista?
+
+**Status atores:** subagente Músculo CONCLUÍDO · Antigravity COWORK CONDUCTOR comando entregue ao Diretor (FLUXO FIXO — aguarda colar no VS Code e devolver a resposta para síntese).
+
+### NICHE MODELER — SESSÃO ÚNICA — 2026-06-23
+> Papel: COWORK CONDUCTOR
+> Origem: Diretor (2026-06-23)
+> Foco: F1 (Compliance BPF/CARF/CFM) e M2 (Entretenimento/Fonográfico IBS/CBS/ECAD/PL2338)
+
+#### PARTE 1 — FIT_SCORE E ENRIQUECIMENTO (L-001 Aplicada)
+*Nota: Evidência obriga nota. D>=4 exige NÚMERO+FONTE+DATA. Recálculo efetuado com base em NICHE_INDEX e Cartões da Biblioteca para evitar deflação.*
+
+- **N18: saude-digital-conformidade** (Cartão: RNDS/LGPD/CFM 2.448/2025)
+  - EVIDÊNCIA: 77% hospitais sem conformidade RNDS, multas ANPD R$50M, CFM responsabiliza diretor (FONTE: Cartão N18, 2026-06-13).
+  - FIT_SCORE: Mantido **4.8 → MOVER AGORA**. Dores validadas.
+
+- **N17: engenheiros-acervo-tecnico** (Cartão: ART+CREA+TCU)
+  - EVIDÊNCIA: 70% engenheiros sem CAT, Acórdão TCU inabilita licitantes, CAT obrigatória >R$330k (FONTE: Cartão N17, 2026-06-13).
+  - FIT_SCORE: Mantido **4.6 → MOVER AGORA**.
+
+- **N16: farmaceuticos-rt-compliance** (Cartão: CFF+ANVISA)
+  - EVIDÊNCIA: 78% autuações recaem no RT, multa até R$1.5M, Resolução ANVISA 978/2025 (FONTE: Cartão N16, 2026-06-13).
+  - FIT_SCORE: Mantido **4.4 → MOVER AGORA** (conforme veredito de 2026-06-22).
+
+- **Nicho: glosa-hospitalar / medicos-peritos-laudos** (Cruzamento F1)
+  - EVIDÊNCIA: CFM 2.448 honorários sob contestação (FONTE: Radar F1 2026-06-23).
+  - FIT_SCORE: **3.8 → MONITORAR** temporariamente. Justificativa: Risco na suspensão normativa. Não focar produto pesado até consolidação.
+
+#### PARTE 2 — ALERTAS REGULATÓRIOS E NICHOS NOVOS (F1 e M2)
+
+**ALERTA 1: Produtoras e IBS/CBS (M2)**
+- **Gatilho:** Adequação NF p/ IBS/CBS até 31/07 (38 dias). Notas antigas serão rejeitadas.
+- **Evidência:** 38 dias para o prazo 31/07 (FONTE: M2 Radar, 2026-06-23).
+- **Ação:** Abordagem de Produtoras Fonográficas de imediato. Ticket sugerido R$8-15K.
+- **Score:** 5.0 → **MOVER AGORA**
+
+**ALERTA 2: ECAD x Juninas x IA (M2)**
+- **Gatilho:** Cobrança de direitos sobre músicas geradas por IA. PL 2338/23 (IA e direitos autorais).
+- **Evidência:** Crescente litigiosidade em eventos juninos com faixas IA (FONTE: M2 Radar, 2026-06-23).
+- **Score:** 4.2 → **MOVER AGORA** (Compliance ECAD x IA).
+
+**ALERTA 3: Rastreabilidade BPF ANVISA (F1)**
+- **Gatilho:** Cluster de conformidade BPF (Boas Práticas de Fabricação) ANVISA para alimentos/farmacêuticos.
+- **Evidência:** Foco tríplice nas novas atuações do regulador (FONTE: F1 Radar, 2026-06-23).
+- **Ação:** Confirma tese N16 e rastreabilidade-sanitaria-premium.
+- **Score:** 5.0 → **MOVER AGORA**.
+
+**ALERTA 4: CARF e Retroatividade NCM (F1)**
+- **Gatilho:** Retroatividade benigna NCM cancela multa.
+- **Evidência:** LC 227/2026 retroatividade pacificada no CARF (FONTE: F1 Radar, 2026-06-23).
+- **Ação:** Nova oferta (revisão de passivo aduaneiro NCM).
+- **Score:** 4.8 → **MOVER AGORA**.
+
+*(FLAG OBSERVADA: Nenhuma orientação gerada sobre alíquota 30% vs 60% da LC 214/2025 devido à falta de confirmação CNAE primária).*
+
+#### PARTE 3 — MAPA DE PRIORIDADE (CONVERGÊNCIA 23/06)
+1. **Produtoras IBS/CBS (M2):** CRÍTICO. 38 dias (31/07). Maior urgência.
+2. **Eventos Fiscais ECD:** CRÍTICO. 7 dias restantes (30/06).
+3. **Saúde Digital (N18) & BPF ANVISA:** ALTO (ticket R$45k).
+4. **Acervo Engenheiros (N17) / RT Farmacêuticos (N16):** ALTO. Nichos já aprovados e robustecidos.
+5. **Aduaneiro NCM (CARF):** MÉDIO-ALTO (ofensiva para passivo).
+
+---
+
+#### [CRUZAMENTO MÚSCULO × ANTIGRAVITY — 2026-06-23] consenso × divergência (sem eleição de nicho)
+
+Reviso a run do Antigravity COWORK CONDUCTOR (NICHE MODELER — PARTE 1-3 acima) contra os 3 subagentes Músculo (fit_score-auditoria D1-D5 · enriquecimento de evidência · mapa de prazos/sanções) e a doutrina em disco. **P-124 + item 42:** material BRUTO para o Projetista (com o Diretor) decidir — o Músculo NÃO elege nicho nem score de mérito; apenas reconcilia fato e SINALIZA divergência contra a fonte.
+
+**CONSENSO (Antigravity ↔ subagentes Músculo ↔ doutrina):**
+- ✅ **L-001 aplicada certo** — N18 (4.8) · N17 (4.6) · N16 (4.4) mantidos com o cartão da BIBLIOTECA em mãos; o Antigravity NÃO repetiu a deflação por preguiça de 22/06. Era exatamente o que o VEREDITO-DIRETOR 22/06 (item 3) autorizou recalcular.
+- ✅ **FLAG 30/60 respeitado** — nenhuma orientação sobre alíquota reduzida IBS/CBS (30% vs 60%, LC 214/2025); bate com a restrição do subagente enriquecimento. CNAE artístico segue `[NÃO CONFIRMADO]`.
+- ✅ **D-day duro único** — 31/07/2026 IBS/CBS em NF (38 dias); convergência plena com o subagente mapa de prazos (BLOCO B).
+
+**DIVERGÊNCIAS — SINALIZADAS ao Diretor (Músculo não corrige veredito, item 42):**
+1. ⛔ **ECD ressuscitado pelo motor.** PARTE 3 item 2 do Antigravity rankeia "Eventos Fiscais ECD — CRÍTICO, 7 dias (30/06)" como prioridade #2. Isso REPETE o erro que o cruzamento de 22/06 já havia pego: o Diretor ARQUIVOU ECD/eventos-fiscais (VEREDITO 22/06 item 2 + VIRADA P-194 21/06 — "não reabrir sem ordem explícita"). O motor voltou a empurrá-lo sozinho. **Sinalizo; não promovo.**
+2. ⚠️ **Inflação de score 5.0** (risco que a auditoria fit_score Músculo havia previsto). Produtoras IBS/CBS = 5.0 e BPF ANVISA = 5.0. Score-teto exige NÚMERO+FONTE+DATA em D1-D5: Produtoras tem D3 (data 31/07) mas D1 (custo da dor em R$) e D5 (volume ≥500 produtoras BR) seguem `[NÃO CONFIRMADO]` — "ticket R$8-15K" é preço Vanguard, não custo da dor do cliente. BPF ANVISA 5.0 apoia-se em "foco tríplice" (qualitativo). Possível inflação por narrativa.
+3. 〰️ **glosa-hospitalar / medicos-peritos — leitura divergente.** Antigravity rebaixou a 3.8 MONITORAR por "CFM 2.448 suspensa / estado fluido"; a auditoria Músculo registrava CFM 2.448 ≈ R$5,8bi em glosas como número duro em disco. Ambos parciais — o número existe, mas a norma está suspensa (lacuna já confirmada). Insumo para o Projetista; não eleger.
+
+**GOVERNANÇA:** Antigravity declarou "painel de 5 partes" mas gravou 3 (PARTE 1-3) — sem PARTE 4-5. Nota, não bloqueio. Log permanente anexado por ele em `CONSELHO/ANTIGRAVITY_SESSION_LOG.md`.
+
+**DESTINO:** todo o material (radar M2/F1 bruto + scores Antigravity + este cruzamento) permanece em PENDING_REVIEW como INSUMO para o Projetista (com o Diretor) analisar/projetar. Nenhum nicho eleito pelo Músculo (item 42).
+
+---
+
+#### [PARA O PROJETISTA — INSTRUÇÃO DE CONSUMO · ordem direta do Diretor 2026-06-23]
+
+Ao consumir este PENDING_REVIEW na projeção, o Projetista (com o Diretor) observa duas restrições de **integridade do insumo** — ordem do Diretor, não juízo de mérito do Músculo:
+
+1. ⛔ **EXCLUIR Eventos Fiscais ECD / eventos-fiscais-contadores.** Nicho ARQUIVADO pelo Diretor (VIRADA P-194, 21/06). NÃO consumir nem projetar sobre ele. O ressurgimento via motor Antigravity (prioridade #2, "7 dias") está sinalizado, mas NÃO reabre o nicho — janela de poucos dias é curta demais; horizonte do Diretor é planejado, médio/longo prazo (gravado como L-002 na memória permanente do Antigravity).
+2. ⚠️ **AUDITAR antes de usar os scores 5.0.** "Temos que auditar" (Diretor). Os scores-teto 5.0 do Antigravity (Produtoras IBS/CBS · BPF ANVISA) carecem de NÚMERO+FONTE+DATA em D1 (custo da dor) / D5 (volume) — `[NÃO CONFIRMADO]`, possível inflação por narrativa. Tratar como **provisórios** até auditoria de evidência.
+
+**Pendência diferida (Diretor: "depois veja isso"):** avaliar se o Projetista dispõe das ferramentas/subagentes necessários para executar as tarefas dele — registrado no PENDENTES para sessão futura.
+
+---
+
+#### [ROTEAMENTO AO PROJETISTA — 2026-06-23 terça-feira] Resync NICHE_INDEX ao veredito 22/06 — 3 pontos de decisão (Músculo NÃO elege — item 42)
+
+O Projetista (via Diretor) instruiu: (1) ressincronizar o NICHE_INDEX ao veredito 22/06; (2) rodar M-STATS para N18. Ao confrontar o índice (v1.5, herança L33 13/06, pré-VIRADA P-194) com a fonte, 3 pontos são projeção/classificação de nicho — cadeira do Projetista, não do Músculo. Roteados via comando `projecao` (terça). Material BRUTO, sem mérito:
+
+- **P1 — Score do N19 holdings-offshores-14754:** dois números em disco. Cartão = 4,9/5; cruzamento Antigravity 23/06 = 4,2. Qual grava no índice?
+- **P2 — Escopo da deflação L-001:** a run decidida 23/06 recalculou 5 nichos (N18 4.8 / N17 4.6 / N16 4.4 mantidos; glosa+medicos 3.8 MONITORAR flagado ''não eleger''). O índice ainda carrega 7 fit_scores 5.0 herdados do L33 NÃO recalculados (rastreabilidade-sanitaria, M&A-reestruturacao, compliance-aduaneiro-NCM, carbon-ESG-MRV, IFRS17-seguros, CSRD-exportadores, conformidade-AI-Act). Deflacionar agora (cartão a cartão) ou fica para a próxima sessão Cowork?
+- **P3 — Membros do MOVER_AGORA pós-virada:** pódio confirmado 22/06 = 5 (AI Act / Holdings / N18 / N17 / N16). Índice lista 9 MOVER_AGORA do L33. Dos 4 restantes (setor-eletrico, carbon-ESG, IFRS17, glosa, medicos), quais permanecem e quais saem?
+
+**Mecânico (executo na devolução, sem novo juízo):** eventos-fiscais-contadores → ARQUIVAR (veredito 22/06 item 2) · N16 farmaceuticos → MOVER_AGORA 4.4 · inserir N19 holdings MOVER_AGORA · gravar pódio + bump v1.5→v1.6 + sync_vanguard_docs.ps1 (P-033).
+
+**Status:** AGUARDANDO PROJETISTA. NICHE_INDEX intocado até a devolução. M-STATS do N18 (camada fria, cadeira do Músculo) entra na sequência ''nesta ordem'' após o item 1.
+
+---
+
+## [ATUALIZAÇÃO 2026-06-23 — VEREDITO DO PROJETISTA/DIRETOR + M-STATS N18]
+
+> O roteamento acima (P1/P2/P3 + "NICHE_INDEX intocado") está **RESOLVIDO**. Reconciliação abaixo. NICHE_INDEX agora em **v1.7**.
+
+### A) RESYNC MECÂNICO (v1.6) — JÁ EXECUTADO por ordem do Diretor ("Foi só o que lhe pedi")
+- P1 → holdings-offshores-14754 gravado **4,9** (número do cartão, fonte canônica do nicho; o 4,2 do Antigravity ficou como segunda opinião, não prevaleceu).
+- P2 → deflação L-001 aplicada aos herdados (ai-act 4.8 · compliance-aduaneiro 4.4 · rastreabilidade/ma/carbon 4.2 · ifrs17 4.0); csrd ficou flagado (sem critérios).
+- P3 → os 10 MOVER_AGORA mantidos no resync; pódio gravado (AI-Act/Holdings/N18/N17/N16).
+
+### B) VEREDITO DAS 3 FLAGS (v1.7) — resposta do Projetista, aplicada 2026-06-23
+| Flag | Veredito Diretor/Projetista | Aplicado no índice |
+|---|---|---|
+| **glosa-hospitalar** | MANTÉM **MOVER_AGORA** + **reancorar OFF-CFM** | status MOVER_AGORA · âncora passa a **taxa glosa 17% Q1/2025 + ANS/TISS** (CFM 2.448 judicializada sai do papel de âncora) |
+| **medicos-peritos-laudos** | **DESCE a MONITORAR** | status → MONITORAR · movido p/ lista_monitorar · fit 4.8 mantido como registro histórico |
+| **csrd-esg-exportadores-eu** | vira **[PENDENTE-CRITÉRIOS]** | `status_fit: [PENDENTE-CRITERIOS]` · fit 5 não vale até fit_score_criterios preenchidos |
+
+Contagens v1.7: **9 MOVER_AGORA · 6 MONITORAR · 1 ARQUIVAR** (total 16). Pódio inalterado. Sync P-033 VERDE (0 falhas de hash).
+
+### C) M-STATS N18 — saude-digital-conformidade (CAMADA FRIA · AGUARDANDO_VEREDITO)
+**Escopo:** hospitais privados + healthtechs, Brasil. **Ticket:** R$45k projeto (one-time) + R$5k/mês (R$60k/ano) → R$105k valor ano-1/conta. **Regime de dados:** B (esparso/público) → Módulo Market Sizing dupla-via.
+
+**🔴 SOURCE-LOCK — o número "77% dos hospitais sem conformidade RNDS" → [NÃO CONFIRMADO].**
+- Em disco é **circular**: cartão N18 → Biblioteca v4 → conteúdo LinkedIn/Instagram, todos da run F22-M2 (12-13/06). A única URL citada (`gov.br/.../seidigi/rnds`) é a página institucional do programa — **não traz a estatística**.
+- **Fonte primária real = TIC Saúde / CETIC.br–CGI.br** (11ª ed., pub. 11/10/2024): **92%** dos estabelecimentos têm algum sistema eletrônico de registro; **só 28% do setor privado** trocam dados eletronicamente (vs 64% público) → **~72% dos privados sem interoperabilidade**. Métrica diferente (interoperabilidade ≠ "conformidade RNDS") e número diferente (72%, não 77%).
+- **AÇÃO PARA O PROJETISTA:** substituir "77% sem conformidade RNDS" por **"~72% dos hospitais privados ainda não trocam dados de saúde eletronicamente (TIC Saúde 2024, CETIC.br/CGI.br)"** em TODA copy (cartão N18, LinkedIn, Instagram, abertura). O 77% atual é número órfão — risco de objeção factual do prospect.
+
+**Universo (fontes registradas):**
+- Hospitais privados Brasil: **~3.900** (≈60% de ~6.500 hospitais gerais/especializados, CNES fim-2024, via Research Setorial Moody's Local jan/2025). [acesso 2026-06-23]
+- Healthtechs Brasil: **~900** [ESTIMAR — faixa 540–1.300, sem URL confirmada nesta sessão; refinar na calibração].
+- ANAHP = 197 hospitais alto padrão (>150 leitos, ~100% budget) — âncora do bottom-up.
+- Universo N18 ≈ **4.800 organizações**.
+
+**TAM** (universo total sujeito a RNDS/LGPD/CFM 2.448 · valor ano-1):
+- TAM = 4.800 × R$105k ≈ **R$504M** (ano-1, projeto+recorrência). Esteira recorrente madura = 4.800 × R$60k ≈ **R$288M/ano**.
+
+**SAM** (sem interoperabilidade × com porte/budget) — dupla-via:
+- Top-down: 72% × 3.900 = 2.808 sem interop × ~35% porte = ~983 hosp + ~315 healthtechs = **~1.300 orgs · R$137M ano-1**.
+- Bottom-up: ANAHP 197 (~70% gap = 138) + médio/grande fora-ANAHP ~750 + healthtechs ~200 = **~1.090 orgs · R$114M ano-1**.
+- **Convergência (regra 15%): gap ≈ 17,6% → ACIMA de 15%.** Não publicar ponto. **SAM = FAIXA 1.090–1.300 orgs · R$114M–R$137M ano-1.** Driver de incerteza: definição de "porte com budget" e de "gap de conformidade integrada".
+
+**SOM** (12-24 meses · boutique IAH · 0 clientes no nicho · sem força de vendas escalada):
+- Penetração realista 0,5%–2% do SAM → **5–26 contas** no horizonte. Valor ano-1: **R$525k (piso) … R$2,73M (teto)**.
+- Âncora conservadora 12m: **~6–10 contas · R$630k–R$1,05M ano-1**.
+- **🟡 GATE DE HONESTIDADE (N=0):** a taxa de conversão prospecção→contrato é **INCONCLUSIVA** — não há cliente no nicho para calibrar. SOM é **cenário, não previsão**; a incerteza alarga com o horizonte (24m mais frouxo que 12m). Resolve-se com a 1ª prospecção real (loop de calibração do motor).
+
+**Handoff:** camada fria → **Projetista**, que traduz em PLANO/CAMPANHA com linguagem blindada (R-3). **Pré-condição do Projetista:** trocar o 77% órfão pelo 72% TIC Saúde antes de qualquer peça pública.
+
+**Status M-STATS:** ✅ APROVADO DIRETOR 2026-06-23 ("Ok"). Camada fria liberada para handoff ao Projetista. **Pré-condição mantida:** trocar o "77% órfão" pelo 72% TIC Saúde (CETIC.br) antes de qualquer peça pública.

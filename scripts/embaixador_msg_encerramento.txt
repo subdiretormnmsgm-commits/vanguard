@@ -1,0 +1,31 @@
+Embaixador, fechamento de sessao -- 23-06-2026 (terca) Loop 35 -- Executor Cowork passa a notificar no Telegram
+
+Os documentos estao no Google Drive (subdiretor.mnmsgm@gmail.com, pasta vanguard). Leia via Drive MCP:
+
+1. PROTOCOLOS_ENCERRAMENTO/PAINEL_ATIVIDADES_2026-06-23.md
+2. PROTOCOLOS_ENCERRAMENTO/CONTEXTO_SESSAO_DIRETOR_2026-06-23.md
+3. CLIENTES/WIP_BOARD.json
+4. INTELLIGENCE_LEDGER.md
+5. PENDENTES.md
+6. CLIENTES/VANGUARD/CLAUDE_PROJECT/16_VANGUARD_TIMELINE.md
+7. CLIENTES/VANGUARD/CLAUDE_PROJECT/MEMORIA_EMBAIXADOR_VANGUARD.md
+
+ENTREGAS DESTA SESSAO:
+* Executor Cowork passa a notificar no Telegram (3o ator A/B do W-11), simetrico a Projetista e Embaixador Digital -- so o COMANDO de conducao (Categoria B) notifica; as frentes Cowork automaticas (Categoria A) seguem sem notificacao. Commit c6977ef, firewall pre-commit limpo. Teste real validado (msg id 550, com o bloco "ANTIGRAVITY COWORK / EXECUTOR").
+* Drift-guard R-06 (gate_drift_ativacao.ps1) corrigido na causa-raiz: parser agora e agnostico ao numero de atores (ed/pj/cw).
+* Erro de sync rclone eliminado: os 2 binarios .exe do Diretor (.claude/skills/*.exe) passam a ser excluidos do sync para o Drive (consistente com a exclusao da awesome-claude-skills). Drive freshness VERDE.
+
+FICOU NO AR:
+* [DIRETOR] Confirmar visualmente no Telegram o bloco "ANTIGRAVITY COWORK / EXECUTOR" (msg 550) e amanha o cron real das 7h05.
+* [DIRETOR] Decidir o destino dos arquivos modificados fora do escopo desta sessao (LEDGER cascade, WIP, logs, 2 HTML em PENDING_REVIEW) -- de outras frentes, nao tocados aqui.
+* [DIRETOR] P-185 -- rotacao das 7 credenciais expostas (so o Diretor rotaciona).
+
+PROXIMA SESSAO: confirmar a chegada do bloco Cowork no Telegram no cron das 7h05 e seguir a inteligencia de mercado Cowork pela data (gate cowork_calendar.ps1).
+
+Leia os 7 arquivos e gere o BLOCO 0 em texto simples (sem HTML, sem artefato):
+-- BLOCO 0: 3-5 linhas com o que ficou + o que o Musculo ataca primeiro + alertas criticos
+-- Semaforo: VANGUARD / INGRID / VALDECE (1 linha cada)
+-- Contexto da ultima sessao (3 linhas max)
+-- Padrao detectado (so se aparecer em 2+ sessoes)
+-- Inconsistencias abertas
+-- Maximo 3 acoes do Diretor para esta semana

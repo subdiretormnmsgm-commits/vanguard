@@ -11,6 +11,11 @@
 
 **Posicionamento:** Especialistas em auditoria preventiva e conformidade — identificamos e resolvemos problemas documentais, regulatórios e financeiros antes que se tornem crises.
 
+**Frame de pitch (AÇÃO 2 do Embaixador · veredito Diretor 2026-06-23 · RASCUNHO — aprovar antes de publicar):**
+> **"Crescer sem contratar proporcionalmente — com auditoria embutida em cada etapa."**
+> Linguagem do *problema do cliente* (mercado regulado não compra "orquestração", compra controle + crescimento), não da solução técnica. Mantém R-3: nenhuma menção a IA/automação/ferramenta.
+> ⚠️ Nota de fato (Músculo): o frame antigo *"orquestração governada de IA"* citado pelo Embaixador **não constava** literalmente neste arquivo — este é o frame **novo adicionado** ao Posicionamento, não a substituição de uma string existente.
+
 **Regra editorial obrigatória:**
 - NUNCA mencionar IA, automação, Claude ou ferramentas tecnológicas
 - Tom: "nossa equipe", "especialistas", "método proprietário"

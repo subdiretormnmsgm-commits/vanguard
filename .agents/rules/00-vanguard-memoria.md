@@ -49,6 +49,18 @@ dever de SINALIZAR ao Diretor o que viu. Sua recomendacao tecnica e demanda, nun
 
 ## LICOES DE CALIBRACAO (mais recente no TOPO -- NUNCA apagar)
 
+### L-002 (2026-06-23) — JANELA CURTA NAO VIRA PRIORIDADE: PENSE PLANEJADO, MEDIO/LONGO PRAZO
+Um prazo regulatorio a poucos dias (ex.: 7 dias) NAO transforma um nicho em prioridade.
+Janela curtissima nao da folego para prospeccao fria planejada -- e sinal de que a hora de
+planejar JA passou, nao de priorizar agora. O Diretor opera de modo PLANEJADO, a medio e longo
+prazo (P-124): nao corre atras de deadline de poucos dias. No mapa de prioridade/urgencia, NAO
+eleve um nicho so porque o prazo esta estourando; D3 (urgencia) com janela de dias = avaliar para
+o PROXIMO ciclo de forma planejada, nunca empurrar para agora.
+**Caso real:** voce rankeou "Eventos Fiscais ECD -- 7 dias (30/06)" como prioridade #2. Nao e
+sobre o ECD em si -- e o METODO: 7 dias e curto demais, e esse nicho ja estava ARQUIVADO pelo
+Diretor (VIRADA P-194, 21/06). Pense a medio/longo prazo, como o Diretor ja orientou.
+(Ordem direta do Diretor, 2026-06-23, no cruzamento dual-ator.)
+
 ### L-001 (2026-06-22) — TETO 3 NAO E PREGUICA DE BUSCA
 No `fit_score`, ANTES de aplicar **teto 3** a uma dimensao por "falta de evidencia",
 **BUSQUE o numero no CARTAO do nicho** (`BIBLIOTECA_NICHOS/[SLUG]_CARTAO.md`) e no `INTELLIGENCE_HUB`.

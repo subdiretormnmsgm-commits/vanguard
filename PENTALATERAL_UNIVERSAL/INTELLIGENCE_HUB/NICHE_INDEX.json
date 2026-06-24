@@ -1,9 +1,16 @@
 {
     "_meta":  {
-                  "versao":  "1.5",
+                  "versao":  "1.6",
                   "criado":  "2026-06-13",
-                  "ultima_atualizacao":  "2026-06-13",
-                  "total_nichos":  15,
+                  "ultima_atualizacao":  "2026-06-23",
+                  "total_nichos":  16,
+                  "podio_inteligencia_2026-06-22":  [
+                                                        "1o conformidade-ai-act (AI Act 02/08)",
+                                                        "2o holdings-offshores-14754 (Lei 14.754)",
+                                                        "3o saude-digital-conformidade (N18 4.8)",
+                                                        "4o engenheiros-acervo-tecnico (N17 4.6)",
+                                                        "5o farmaceuticos-rt-compliance (N16 4.4)"
+                                                    ],
                   "schema":  "NICHE_MODELS/SCHEMA.md",
                   "ferramenta_match":  "scripts/match_niche.ps1",
                   "cadencia":  "Atualizado por F1 (diario), F3 (semanal), F11 (mensal), F12 (semanal)",
@@ -13,7 +20,9 @@
                                             "1.1":  "2026-06-13 — NICHE_MODELER L33: 8 upgrades fit_score para 5.0, 2 promocoes de status, 2 novos nichos adicionados",
                                             "1.2":  "2026-06-13 — Embaixador: rebaixar 8/11 para MONITORAR. 3 CRITICOS ficam MOVER_AGORA (ECD/AI Act/ANEEL). Gate E-4: proximo nicho so apos 1 conversa real.",
                                             "1.3":  "2026-06-13 — Loop 34: carbon-esg-mrv + ifrs17-seguros MONITORAR-\u003eMOVER_AGORA confirmado. Total MOVER_AGORA: 5.",
-                                            "1.4":  "2026-06-13 — Diretor aprova glosa-hospitalar + medicos-peritos-laudos MONITORAR-\u003eMOVER_AGORA. Total MOVER_AGORA: 7."
+                                            "1.4":  "2026-06-13 — Diretor aprova glosa-hospitalar + medicos-peritos-laudos MONITORAR-\u003eMOVER_AGORA. Total MOVER_AGORA: 7.",
+                                            "1.5":  "2026-06-13 — Cowork: +N17 engenheiros +N18 saude-digital +N16 farmaceuticos +N09 csrd. Total 15.",
+                                            "1.6":  "2026-06-23 — Ressincronizacao ao veredito 22/06: eventos-fiscais para ARQUIVAR (VIRADA P-194); deflacao L-001 dos fit_score 5.0 (recalculo = media dos fit_score_criterios documentados); +N19 holdings-offshores-14754 MOVER_AGORA 4.9; N16 farmaceuticos promovido a MOVER_AGORA; podio de inteligencia gravado. Total 16."
                                         }
               },
     "nichos":  [
@@ -63,7 +72,7 @@
                        "nome":  "Glosa Hospitalar / Defesa Medica",
                        "vertical":  2,
                        "status":  "MOVER_AGORA",
-                       "fit_score":  5.0,
+                       "fit_score":  4.8,
                        "setor":  "Saude / Faturamento Hospitalar",
                        "subsetor":  "Auditoria Preventiva de Faturamento e Gestao de Glosas",
                        "match_keywords":  [
@@ -96,14 +105,15 @@
                        "proxima_revisao":  "F11 2026-07-01",
                        "arquivo_modelo":  "NICHE_MODELS/glosa-hospitalar_MODEL.json",
                        "niche_modeler_l33":  "UPGRADE 4.6-\u003e5.0 — taxa de glosa 17% Q1/2025. CFM 2.448/2025 judicializada FenaSaude fev/2026.",
-                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — taxa glosa 17% Q1/2025 + CFM 2.448/2025 judicializada. Aprovado Diretor 2026-06-13."
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — taxa glosa 17% Q1/2025 + CFM 2.448/2025 judicializada. Aprovado Diretor 2026-06-13.",
+                       "veredito_diretor_2026-06-23":  "MANTIDO MOVER_AGORA com REANCORAGEM OFF-CFM: ancora deixa de ser CFM 2.448/2025 (judicializada FenaSaude fev/2026 = norma contestada, risco de ancorar discurso em norma instavel) e passa para taxa de glosa 17% Q1/2025 + ANS/TISS (dor financeira mensuravel, nao regulatoria contestada). Veredito Diretor/Projetista 2026-06-23."
                    },
                    {
                        "id":  "medicos-peritos-laudos",
                        "nome":  "Medicos Peritos — Laudos e Gestao de Processos",
                        "vertical":  7,
-                       "status":  "MOVER_AGORA",
-                       "fit_score":  5.0,
+                       "status":  "MONITORAR",
+                       "fit_score":  4.8,
                        "setor":  "Saude / Juridico / Previdencia",
                        "subsetor":  "Gestao de Laudos Periciais e Conformidade",
                        "match_keywords":  [
@@ -135,14 +145,15 @@
                        "proxima_revisao":  "F11 2026-07-01",
                        "arquivo_modelo":  "NICHE_MODELS/medicos-peritos-laudos_MODEL.json",
                        "niche_modeler_l33":  "UPGRADE 4.7-\u003e5.0 — CFM 2.448/2025 criou novo padrao de documentacao para laudos.",
-                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — CFM 2.448/2025 novo padrao de laudos. Aprovado Diretor 2026-06-13."
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA — CFM 2.448/2025 novo padrao de laudos. Aprovado Diretor 2026-06-13.",
+                       "veredito_diretor_2026-06-23":  "REBAIXADO PARA MONITORAR. Veredito Diretor/Projetista 2026-06-23 (run NICHE MODELER 23/06 sugeriu 3.8; ancora era CFM 2.448/2025, norma judicializada). fit_score 4.8 mantido como registro historico; status agora MONITORAR — reativar so com sinal de pipeline real."
                    },
                    {
                        "id":  "rastreabilidade-sanitaria-premium",
                        "nome":  "Rastreabilidade Sanitaria Premium",
                        "vertical":  4,
                        "status":  "MONITORAR",
-                       "fit_score":  5.0,
+                       "fit_score":  4.2,
                        "setor":  "Industria / Alimentos e Bebidas / ANVISA",
                        "subsetor":  "Conformidade de Rastreabilidade e Plano de Recall",
                        "match_keywords":  [
@@ -182,7 +193,7 @@
                        "nome":  "M\u0026A e Reestruturacao Societaria",
                        "vertical":  5,
                        "status":  "MONITORAR",
-                       "fit_score":  5.0,
+                       "fit_score":  4.2,
                        "setor":  "Financeiro / Juridico / Corporate Finance",
                        "subsetor":  "Due Diligence Documental e Suporte a Processos de M\u0026A",
                        "match_keywords":  [
@@ -223,7 +234,7 @@
                        "nome":  "Setor Eletrico — Compliance Regulatorio ANEEL",
                        "vertical":  6,
                        "status":  "MOVER_AGORA",
-                       "fit_score":  5.0,
+                       "fit_score":  4.8,
                        "setor":  "Energia / Regulatorio",
                        "subsetor":  "Compliance de Concessoes e Gestao de Ativos Regulados",
                        "match_keywords":  [
@@ -264,7 +275,7 @@
                        "nome":  "Compliance Aduaneiro — NCM e Tributacao de Importacao",
                        "vertical":  3,
                        "status":  "MONITORAR",
-                       "fit_score":  5.0,
+                       "fit_score":  4.4,
                        "setor":  "Comercio Exterior / Tributario",
                        "subsetor":  "Classificacao NCM e Compliance de Importacao",
                        "match_keywords":  [
@@ -305,7 +316,7 @@
                        "nome":  "Carbono, ESG e MRV",
                        "vertical":  8,
                        "status":  "MOVER_AGORA",
-                       "fit_score":  5.0,
+                       "fit_score":  4.2,
                        "setor":  "Sustentabilidade / Regulatorio / Financas",
                        "subsetor":  "Monitoramento, Reporte e Verificacao de Creditos de Carbono",
                        "match_keywords":  [
@@ -346,7 +357,7 @@
                        "nome":  "IFRS 17 — Implementacao e Compliance para Seguradoras",
                        "vertical":  9,
                        "status":  "MOVER_AGORA",
-                       "fit_score":  5.0,
+                       "fit_score":  4.0,
                        "setor":  "Financeiro / Seguros / Contabilidade",
                        "subsetor":  "Implementacao IFRS 17 e Normas de Seguros",
                        "match_keywords":  [
@@ -385,7 +396,7 @@
                        "nome":  "Conformidade AI Act + PL 2338",
                        "vertical":  10,
                        "status":  "MOVER_AGORA",
-                       "fit_score":  5.0,
+                       "fit_score":  4.8,
                        "setor":  "Tecnologia / Compliance de IA",
                        "subsetor":  "Auditoria de Algoritmos e Governanca de Risco",
                        "match_keywords":  [
@@ -424,8 +435,9 @@
                        "id":  "eventos-fiscais-contadores",
                        "nome":  "Automacao Auditavel de Eventos Fiscais para Contadores",
                        "vertical":  11,
-                       "status":  "MOVER_AGORA",
-                       "fit_score":  5.0,
+                       "status":  "ARQUIVAR",
+                       "fit_score":  4.8,
+                       "arquivar_nota":  "ARQUIVADO 2026-06-23 — VIRADA P-194: foco migrou para inteligencia de mercado; ECD/eventos-fiscais sai do MOVER_AGORA por veredito do Diretor 2026-06-22.",
                        "setor":  "Contabilidade / Tributario",
                        "subsetor":  "Auditoria de Obrigacoes Acessorias e SPED",
                        "match_keywords":  [
@@ -512,9 +524,9 @@
                        "id":  "farmaceuticos-rt-compliance",
                        "nome":  "Farmaceuticos RT / Compliance CFF+ANVISA",
                        "vertical":  4,
-                       "status":  "MONITORAR",
+                       "status":  "MOVER_AGORA",
                        "fit_score":  4.4,
-                       "monitorar_nota":  "Fit 4.4 abaixo do threshold 5.0 MOVER_AGORA. Promover quando houver prazo regulatorio especifico ou mais evidencia de dor no corpus Cowork.",
+                       "nota_status":  "PROMOVIDO PARA MOVER_AGORA 2026-06-23 — veredito do Diretor (podio de inteligencia: N16 Farmaceuticos RT, 5o lugar). Mantem 4.4.",
                        "setor":  "Farmaceutico / Compliance Regulatorio",
                        "subsetor":  "Farmacias de Manipulacao",
                        "match_keywords":  [
@@ -537,7 +549,8 @@
                        "vertical":  8,
                        "status":  "MONITORAR",
                        "fit_score":  5,
-                       "monitorar_nota":  "Diferenciacao com carbon-esg-mrv pendente. Promover quando diferenciacao carbon-esg (mercado interno) vs CSRD (cadeia EU) estiver clara nos MODELs.",
+                       "status_fit":  "[PENDENTE-CRITERIOS]",
+                       "monitorar_nota":  "Diferenciacao com carbon-esg-mrv pendente. Promover quando diferenciacao carbon-esg (mercado interno) vs CSRD (cadeia EU) estiver clara nos MODELs. [VEREDITO DIRETOR 2026-06-23: fit 5 marcado [PENDENTE-CRITERIOS] — score nao vale ate que os fit_score_criterios (5 dimensoes) sejam preenchidos em disco; nao usar o 5 como prioridade ate la.]",
                        "setor":  "Exportacao / ESG",
                        "subsetor":  "Conformidade Cadeia de Suprimentos EU",
                        "match_keywords":  [
@@ -554,10 +567,43 @@
                                              "construcao civil"
                                          ],
                        "arquivo_modelo":  "csrd-esg-exportadores-eu_MODEL.json"
+                   },
+                   {
+                       "id":  "holdings-offshores-14754",
+                       "nome":  "Holdings Patrimoniais com Offshore (Lei 14.754/2023)",
+                       "vertical":  5,
+                       "status":  "MOVER_AGORA",
+                       "fit_score":  4.9,
+                       "nota_status":  "INSERIDO 2026-06-23 — veredito do Diretor (podio de inteligencia: 2o lugar / prata). Cartao BIBLIOTECA_NICHOS/holdings-offshores-14754_CARTAO.md (4,9/5). Fato gerador anual 31/12; convergencia F19+F21.",
+                       "setor":  "Financeiro / Tributario / Planejamento Patrimonial",
+                       "subsetor":  "Reestruturacao Societaria PJ-PJ e Substancia Economica (offshores)",
+                       "match_keywords":  [
+                                              "Lei 14.754",
+                                              "offshore",
+                                              "holding patrimonial",
+                                              "trust",
+                                              "tributacao exterior",
+                                              "15% offshore",
+                                              "regra antiabuso",
+                                              "proposito negocial",
+                                              "Lei 14.689"
+                                          ],
+                       "match_setores":  [
+                                             "holdings familiares",
+                                             "alto patrimonio",
+                                             "private banking",
+                                             "planejamento sucessorio"
+                                         ],
+                       "demo_disponivel":  false,
+                       "cowork_densidade":  "MEDIA — F19+F21 convergindo",
+                       "urgencia_regulatoria":  "ALTA",
+                       "alerta_timing":  "Fato gerador recorrente 31/12 (Lei 14.754/2023, vigencia 01/01/2024) — janela de reestruturacao fecha a cada exercicio. Multa de oficio 75% (Lei 9.430/96 art.44), agravavel a 150% (Lei 14.689/2023).",
+                       "proxima_revisao":  "F19 proxima semana",
+                       "arquivo_modelo":  "NICHE_MODELS/holdings-offshores-14754_MODEL.json"
                    }
                ],
     "resumo":  {
-                   "ARQUIVAR":  0,
+                   "ARQUIVAR":  1,
                    "verticais_ativas":  [
                                             1,
                                             2,
@@ -572,14 +618,13 @@
                                             11
                                         ],
                    "prioridade_1_critica":  [
-                                                "eventos-fiscais-contadores",
                                                 "conformidade-ai-act",
+                                                "holdings-offshores-14754",
                                                 "setor-eletrico-regulatorio"
                                             ],
                    "prioridade_2":  [
                                         "licitacoes-contratos-publicos",
-                                        "glosa-hospitalar",
-                                        "medicos-peritos-laudos"
+                                        "glosa-hospitalar"
                                     ],
                    "prioridade_3":  [
                                         "rastreabilidade-sanitaria-premium",
@@ -604,36 +649,61 @@
                                         "carbon-esg-mrv",
                                         "ifrs17-seguros"
                                     ],
-                   "total":  15,
+                   "total":  16,
                    "MOVER_AGORA":  9,
                    "MONITORAR":  6,
                    "lista_mover_agora":  [
-                                             "eventos-fiscais-contadores",
                                              "conformidade-ai-act",
+                                             "holdings-offshores-14754",
+                                             "saude-digital-conformidade",
+                                             "engenheiros-acervo-tecnico",
+                                             "farmaceuticos-rt-compliance",
                                              "setor-eletrico-regulatorio",
                                              "carbon-esg-mrv",
                                              "ifrs17-seguros",
-                                             "glosa-hospitalar",
-                                             "medicos-peritos-laudos",
-                                             "engenheiros-acervo-tecnico",
-                                             "saude-digital-conformidade"
+                                             "glosa-hospitalar"
                                          ],
                    "lista_monitorar":  [
                                            "licitacoes-contratos-publicos",
                                            "compliance-aduaneiro-ncm",
                                            "rastreabilidade-sanitaria-premium",
                                            "ma-reestruturacao-societaria",
-                                           "farmaceuticos-rt-compliance",
-                                           "csrd-esg-exportadores-eu"
+                                           "csrd-esg-exportadores-eu",
+                                           "medicos-peritos-laudos"
+                                       ],
+                   "lista_arquivar":  [
+                                          "eventos-fiscais-contadores"
+                                      ],
+                   "podio_inteligencia":  [
+                                              "1o conformidade-ai-act",
+                                              "2o holdings-offshores-14754",
+                                              "3o saude-digital-conformidade",
+                                              "4o engenheiros-acervo-tecnico",
+                                              "5o farmaceuticos-rt-compliance"
+                                          ],
+                   "flags_resolvidas_2026-06-23":  [
+                                           "glosa-hospitalar: VEREDITO Diretor/Projetista 23/06 — MANTIDO MOVER_AGORA com reancoragem off-CFM (ancora = taxa glosa 17% + ANS/TISS, nao CFM judicializada).",
+                                           "medicos-peritos-laudos: VEREDITO Diretor/Projetista 23/06 — REBAIXADO para MONITORAR (run sugeriu 3.8; ancora CFM judicializada).",
+                                           "csrd-esg-exportadores-eu: VEREDITO Diretor 23/06 — marcado [PENDENTE-CRITERIOS]; fit 5 nao vale ate fit_score_criterios preenchidos."
                                        ]
                },
-    "versao":  "1.5",
-    "ultima_atualizacao":  "2026-06-13",
+    "versao":  "1.7",
+    "ultima_atualizacao":  "2026-06-23",
     "historico_versoes":  [
                               {
                                   "versao":  "1.5",
                                   "data":  "2026-06-13",
                                   "mudancas":  "Cowork 2026-06-13: +N17 engenheiros-acervo-tecnico (MOVER_AGORA 4.6) +N18 saude-digital-conformidade (MOVER_AGORA 4.8) +N16 farmaceuticos-rt-compliance (MONITORAR 4.4) +N09 csrd-esg-exportadores-eu (MONITORAR 5.0). Total: 15 nichos (9 MOVER_AGORA / 6 MONITORAR)."
+                              },
+                              {
+                                  "versao":  "1.6",
+                                  "data":  "2026-06-23",
+                                  "mudancas":  "Ressincronizacao ao veredito do Diretor 22/06. (1) eventos-fiscais-contadores: MOVER_AGORA para ARQUIVAR (VIRADA P-194). (2) Deflacao L-001: fit_score 5.0 realinhados a media dos fit_score_criterios documentados (glosa/medicos/setor-eletrico/ai-act 4.8; compliance-aduaneiro 4.4; rastreabilidade/ma/carbon 4.2; ifrs17 4.0). (3) +N19 holdings-offshores-14754 MOVER_AGORA 4.9. (4) N16 farmaceuticos-rt-compliance MONITORAR para MOVER_AGORA. (5) Podio de inteligencia gravado. Total: 16 nichos (10 MOVER_AGORA / 5 MONITORAR / 1 ARQUIVAR). FLAGS: glosa/medicos membership pendente de veredito; csrd sem criterios para L-001."
+                              },
+                              {
+                                  "versao":  "1.7",
+                                  "data":  "2026-06-23",
+                                  "mudancas":  "Veredito Diretor/Projetista das 3 flags pendentes da v1.6 (resposta do Projetista). (1) glosa-hospitalar: MANTIDO MOVER_AGORA com REANCORAGEM OFF-CFM (ancora passa a taxa glosa 17% + ANS/TISS; CFM 2.448 judicializada sai do papel de ancora). (2) medicos-peritos-laudos: REBAIXADO MOVER_AGORA para MONITORAR. (3) csrd-esg-exportadores-eu: marcado status_fit [PENDENTE-CRITERIOS] (fit 5 invalido ate fit_score_criterios preenchidos). Total: 16 nichos (9 MOVER_AGORA / 6 MONITORAR / 1 ARQUIVAR). Podio inalterado."
                               }
                           ]
 }

@@ -437,7 +437,14 @@ foreach ($entry in $mapa7c.GetEnumerator()) {
 }
 
 Write-Host ""
-if ($stale7c.Count -gt 0) {
+if ($stale7c.Count -gt 0 -and $env:PENTALATERAL_7C_BYPASS) {
+    # Bypass pontual por VEREDITO-DIRETOR (env var -- vale so nesta invocacao, nao enfraquece o gate).
+    # Uso: docs do Embaixador cuja atualizacao esta atrelada ao ritual de Loop e que, no modo
+    # inteligencia-de-mercado (P-194), nao mudam a cada sessao (ex.: 16_VANGUARD_TIMELINE -- pendente
+    # de reescrita [ESTUDO-DIRETOR], "depois com calma"). Espelha o bypass do GATE 6E.
+    Write-Host "  [GATE 7C] Bypass pontual (PENTALATERAL_7C_BYPASS) -- $($stale7c.Count) arquivo(s) stale aceitos por veredito do Diretor:" -ForegroundColor Yellow
+    foreach ($sl in $stale7c) { Write-Host "    >> (bypass) $sl" -ForegroundColor DarkYellow }
+} elseif ($stale7c.Count -gt 0) {
     Write-Host "  =======================================================" -ForegroundColor Red
     Write-Host "  [GATE 7C] BLOQUEIO -- $($stale7c.Count) arquivo(s) desatualizado(s)" -ForegroundColor Red
     Write-Host "  =======================================================" -ForegroundColor Red
@@ -446,6 +453,7 @@ if ($stale7c.Count -gt 0) {
     }
     Write-Host ""
     Write-Host "  Musculo: atualizar os arquivos acima antes de rodar session_close novamente." -ForegroundColor Yellow
+    Write-Host "  Bypass de emergencia (VEREDITO-DIRETOR): `$env:PENTALATERAL_7C_BYPASS = '1'." -ForegroundColor DarkGray
     Write-Host "  =======================================================" -ForegroundColor Red
     Write-Host ""
     $exitCode = 2

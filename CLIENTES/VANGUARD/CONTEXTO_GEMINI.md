@@ -9,7 +9,7 @@ PADRAO DE QUALIDADE: toda ideia [G-1 a G-5] precisa ser CRIATIVA (nao obvia), DI
 
 ================================================================================
 
-ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-20 21:25
+ESTRATEGISTA -- CONTEXTO SOBERANO -- 2026-06-23 22:55
 Proibe-se de propor qualquer acao que viole os Principios abaixo.
 Aja exclusivamente com base nesta Memoria e neste Ledger.
 Toda proposta que contradiga um [P-XXX] ativo sera vetada pelo Musculo.
@@ -20,9 +20,9 @@ acoes para etapas ja concluidas.
 
 ## BUILD RECENTE -- ESTADO REAL DO REPOSITORIO
 ULTIMOS 3 COMMITS:
-17bd013 chore(arvore): fecha working tree residual da sessao 2026-06-20 (encerramento travou) [VEREDITO-DIRETOR]
-23c90bd docs(intel): desenho-mae da esteira de aquisicao + fix NICHE_INDEX _meta v1.5/15 nichos
-f98836d docs(ledger): P-192 [FALHA-PROCESSO-2026-06-20] gate R-05 travava em delecao de arquivo-codigo (corrigido em --diff-filter=d) [VEREDITO-DIRETOR]
+d20f230 fix(w11): cron 7:05 BRT + snapshot atualizado [RESOLVE: w11-2-achados]
+47ae575 feat(ativacao): session_start lista ativacoes manuais do dia -- rede de seguranca do W-11
+4a87bc5 feat(gate): Musculo NAO decide nicho -- 3 camadas + gatilho na fase Cowork [VEREDITO-DIRETOR] [RESOLVE: nicho-role-guard]
 
 ================================================================================
 
@@ -275,6 +275,11 @@ Princípios extraídos de fricções reais. Cada um tem evidência — não é t
 ## P-190 -- rclone SYNC DE ARVORE INTEIRA PARA DRIVE EXTERNO E TETO DURO DO CLASSIFICADOR: SO A MAO DO DIRETOR DESTRAVA (2026-06-19) [VEREDITO-DIRETOR]
 ## P-191 -- O GATE DE FECHAMENTO NAO PODE SER O GEMEO INSEGURO DO GATE DE FRESCOR: SYNC AO DRIVE EXIGE O MESMO FILTRO DE SEGREDOS EM TODA SAIDA (2026-06-20) [VEREDITO-DIRETOR] [FALHA-PROCESSO-2026-06-20]
 ## P-192 -- O GATE DE CODE-REVIEW (R-05) NAO PODE TRAVAR EM DELECAO DE ARQUIVO-CODIGO: -Verify SO REVISA O QUE TEM CONTEUDO (2026-06-20) [FALHA-PROCESSO-2026-06-20]
+## P-193 -- A JANELA DE FRESCOR DE 3h DO GATE 7C NAO ACOMODA MULTIPLAS SESSOES NO MESMO DIA: ATUALIZAR OS 7 ARQUIVOS DO EMBAIXADOR E O ULTIMO ATO ANTES DO session_close (2026-06-20) [FALHA-PROCESSO-2026-06-20] [VEREDITO-DIRETOR]
+## P-194 -- VIRADA ESTRATEGICA: O MODO CORRENTE DA VANGUARD E INTELIGENCIA DE MERCADO; O LOOP DE CONSELHO FICA DORMENTE, INVOCAVEL SO PELO DIRETOR (2026-06-20) [VEREDITO-DIRETOR]
+## P-195 -- O SELF-REVIEW DO PLANO NAO PODE DECLARAR UM REQUISITO DE UX COBERTO TENDO SO O SUBSTRATO DE DADOS: ENTREGA DE EXPERIENCIA EXIGE O RENDER QUE O USUARIO VE, NAO O JSON QUE O ALIMENTA (2026-06-21) [FALHA-PROCESSO-2026-06-21] [VEREDITO-DIRETOR]
+## P-196 -- A CAMADA SEMANTICA DO DETECTOR DE DERIVA E CARA: NAO RODA TODA SESSAO, MAS QUANDO O DETERMINISTICO ACUSA OU A DOUTRINA MUDA -- E TEM UM INBOX UNICO E NOMEADO (2026-06-21) [VEREDITO-DIRETOR]
+## P-197 -- SAM NAO-CONVERGIDO ENTRA NO DECK COMO FAIXA DECLARADA, NUNCA COMO PONTO: A INCERTEZA E DADO, NAO DEFEITO A ESCONDER (2026-06-23) [VEREDITO-DIRETOR]
 
 ### PRINCIPIOS RECENTES -- TEXTO INTEGRAL (P-116 ao ultimo)
 ## P-116 -- O QUE DOI E ERRO, NAO ESFORCO -- VERIFICACAO ANTES DE AUTOMACAO (2026-06-06)
@@ -1276,11 +1281,43 @@ Consulta humana: scripts/skill_gate.ps1 -Listar.
 **Fix aplicado:** `gate_code_review.ps1` linha 110 -- a coleta do `-Verify` passou a usar `git diff --cached --name-only --diff-filter=d` (exclui delecoes staged). Os modos `-Report`/`-List` (staged + unstaged + untracked) seguem inalterados, pois la o objetivo e listar pendencias, nao bloquear commit. Correcao ja commitada nesta sessao; este e o registro doutrinario.
 **Aplica-se a:** todo gate deterministico invocado pelo pre-commit (R-01..R-06) e todo .ps1 que itera sobre arquivos staged. Liga com P-178/R-05 (code-review executado, nao so doutrinado), P-098/P-190 (bypass so por canal/flag legitimo -- nunca rotear em volta do gate), P-183 (raiz por $PSScriptRoot, nao git rev-parse), GATE DE FATO (gate que trava por motivo errado e tao nocivo quanto ausencia de gate), DEF-M-6. Detectado no proprio commit autorizado pelo Diretor.
 
+---
+
+## P-193 -- A JANELA DE FRESCOR DE 3h DO GATE 7C NAO ACOMODA MULTIPLAS SESSOES NO MESMO DIA: ATUALIZAR OS 7 ARQUIVOS DO EMBAIXADOR E O ULTIMO ATO ANTES DO session_close (2026-06-20) [FALHA-PROCESSO-2026-06-20] [VEREDITO-DIRETOR]
+**Origem:** 2a vez no MESMO dia (tarde + noite) que o GATE 7C + GATE EMBAIXADOR barraram o fechamento. Os 7 arquivos foram atualizados as 14-16h; ao rodar session_close as 19:57, 3 deles (06_INTELLIGENCE_LEDGER, 16_VANGUARD_TIMELINE, MEMORIA_EMBAIXADOR_VANGUARD) cruzaram o threshold de 3h e o BLOCO0 da tarde envelheceu alem da janela de 6h. Resultado: o Musculo re-tocou os mesmos arquivos com a sintese da sessao e regerou o BLOCO0 -- retrabalho previsivel, ja antecipado na sessao da tarde (CONTEXTO secao 5) mas nao convertido em ferramenta (P-146 violado).
+**Principio:** frescor estourado nao e falha de conteudo -- e sinal de que a ORDEM de operacao esta errada. A atualizacao dos 7 arquivos do Embaixador (MEMORIA_EMBAIXADOR/P-032 + TIMELINE + LEDGER + CONTEXTO + PAINEL + WIP + PENDENTES) deve ser o ULTIMO ato substantivo antes de invocar session_close, nao distribuida ao longo da sessao. Em sessao longa ou em 2a sessao no mesmo dia, qualquer atualizacao feita >3h antes do fechamento e bloqueio 7C garantido. O gate esta CORRETO (o Embaixador precisa do estado fresco); o erro e operacional.
+**Proposta de ferramenta (P-146 -- PENDE VEREDITO DO DIRETOR, nao construir sem aprovacao):** (a) `session_close`, ao detectar staleness 7C, oferecer `-RefreshEmbaixador` que re-carimba os 7 arquivos com a sintese da sessao em 1 passo; OU (b) um pre-close que ordena a atualizacao dos 7 como etapa final obrigatoria antes do gate. Registrado na pauta da proxima sessao.
+**Aplica-se a:** todo fechamento. Liga com GATE 7C / GATE EMBAIXADOR (P-114 BLOCO0 ancora), P-032 (MEMORIA_EMBAIXADOR automatica), P-180 (skill embaixador-encerramento por gatilho), P-146 (documentar sem automatizar = repetir), DEF-M-6. Detectado no 2o fechamento do dia 2026-06-20.
+
+---
+
+## P-194 -- VIRADA ESTRATEGICA: O MODO CORRENTE DA VANGUARD E INTELIGENCIA DE MERCADO; O LOOP DE CONSELHO FICA DORMENTE, INVOCAVEL SO PELO DIRETOR (2026-06-20) [VEREDITO-DIRETOR]
+**Origem:** declaracao enfatica e repetida do Diretor em 2026-06-20 (noite): "Nao havera LOOp36!!!!!!!!!!!!!!!" + "So trabalhamos com inteligencia de mercado" + "Avise a todos os socios". Esclarecimento subsequente do Diretor ao autorizar o registro: "isso se revela a empresa Vanguard, como cliente. Se o Diretor julgar necessario, como fez da V25 a V35, ele invocara o conselho para iniciar um loop."
+**Principio:** o MODO DE OPERACAO CORRENTE da Vanguard e INTELIGENCIA DE MERCADO -- papeis EXECUTOR e COWORK CONDUCTOR (NICHE_MODELER, Intelligence Hub, esteira de aquisicao, inteligencia competitiva, nichos, TRENDS/COMPETITORS). O ciclo de Loops Pentalateral NAO esta extinto -- esta DORMENTE: o Diretor retem a prerrogativa de invocar o conselho para um loop quando JULGAR necessario (como fez de V25 a V35), agora tratando a propria VANGUARD como cliente. Consequencias vinculantes: (a) o Musculo NUNCA numera, declara ou propoe "Loop 36" ou Loops seguintes por conta propria -- loop so existe quando o DIRETOR o invoca (liga com feedback_loop_so_quando_diretor_julga); (b) sem cobranca de pipeline por loop; PF-1 (Builder>Vendedor) esta APOSENTADO -- a regua "vendeu neste loop?" pertencia ao modelo de loops e sai de cena; nao trazer PF-1 como padrao nem alerta em BLOCO 0, PAINEL, e-mail ou sintese; (c) semaforo de projeto-cliente (INGRID/VALDECE) so aparece se o Diretor REATIVAR explicitamente um projeto; (d) a regua de valor corrente e inteligencia de mercado, nao entrega de infra por loop.
+**Notificacao dos 4 socios (ordem do Diretor "Avise a todos os socios"):** Embaixador -- confirmado 2026-06-20 20:41, memoria persistente atualizada por ele ("modelo de loops de cliente encerrado, opera em Inteligencia de Mercado, PF-1 aposentado, semaforo de cliente so sob reativacao explicita"). Gemini/Estrategista + NotebookLM/Auditor -- notificados por esta inscricao no LEDGER (fonte que o gemini_anchor_generator e as NOTEBOOKLM_FONTES herdam). Hermes -- notificado por Telegram (CRITICO enviado 2026-06-20).
+**Constitucional -- PENDE VEREDITO:** o CLAUDE.md esta estruturado em Loops de cliente (PROTOCOLO VANGUARD passos 0-10, PDCA, 25 ideias/ciclo, ritual de fechamento de loop). Como o loop fica DORMENTE (nao extinto), a reescrita deve REENQUADRAR -- modo corrente = inteligencia de mercado; loop = capitulo invocavel pelo Diretor -- nao deletar o maquinario de loop. Reescrita estrutural exige veredito do Diretor (P-124); NAO reescrever unilateralmente.
+
+## P-195 -- O SELF-REVIEW DO PLANO NAO PODE DECLARAR UM REQUISITO DE UX COBERTO TENDO SO O SUBSTRATO DE DADOS: ENTREGA DE EXPERIENCIA EXIGE O RENDER QUE O USUARIO VE, NAO O JSON QUE O ALIMENTA (2026-06-21) [FALHA-PROCESSO-2026-06-21] [VEREDITO-DIRETOR]
+**Origem:** plano `site-vanguard-dupla-entrada` (Subagent-Driven). O self-review do plano (writing-plans) declarou a spec secao 3 -- quiz-por-nicho, mini-pagina + perguntas derivadas de `dores[]` -- como COBERTA via Tasks 4/8, quando essas tasks entregaram APENAS `buildNicheQuiz` (substrato de dados gravado em `niches_public.json`), e NAO a superficie/render que a secao 3 especifica. A lacuna foi pega pelo reviewer final da entrega (APROVADO_COM_RESSALVAS, zero criticos), nao pelo self-review. Diretor decidiu V2 diferido em 2026-06-21.
+**Principio:** um requisito de UX/experiencia so esta "coberto" quando existe a SUPERFICIE que o usuario ve e usa -- nao quando existe apenas o dado que a alimentaria. Substrato pronto != feature entregue. O self-review de plano deve checar cada requisito de experiencia contra a FRONTEIRA DE CONSUMO: "ha frontend que RENDERIZA isto, ou so o produtor do dado?". Ao marcar um requisito coberto, citar o arquivo que o CONSOME (render/handler/componente), nao apenas o que o PRODUZ.
+**Ferramenta anti-recorrencia (P-146):** a secao 3 diferida virou item de backlog rastreado no `PENDENTES.md` (`SITE V2 -- quiz-por-nicho renderizado`) com o substrato (`niches[].quiz`) ja pronto para consumo da V2; e o gate de fato (verificacao em disco do arquivo CONSUMIDOR) passa a substituir a confianca no self-review textual ao declarar requisito de UX coberto. Liga com `feedback_resultado_esperado_vs_apresentado` (RESULTADO ESPERADO x ENTREGUE x LACUNA) e com o gate de fato dos Pilares.
+
+## P-196 -- A CAMADA SEMANTICA DO DETECTOR DE DERIVA E CARA: NAO RODA TODA SESSAO, MAS QUANDO O DETERMINISTICO ACUSA OU A DOUTRINA MUDA -- E TEM UM INBOX UNICO E NOMEADO (2026-06-21) [VEREDITO-DIRETOR]
+**Origem:** ao deliberar a limpeza do `PENDENTES.md` (VIRADA P-194, foco LinkedIn/site), o Diretor notou que "a interacao entre o que/como/quando o Detector de Deriva deve agir estava solta e nao foi deliberada". Vereditos: DECISAO 1 = SIM (gatilho da camada semantica = "doutrina mudou + AMARELO", nao toda sessao); DECISAO 2 = A (inbox unico em `INTELLIGENCE_HUB/PENDING_REVIEW.md`, secao nomeada).
+**Principio (QUANDO):** a camada DETERMINISTICA (Policy-as-Code, barata) roda toda abertura via `session_start` (`detector_deriva.ps1 -Leve -Quiet`). A camada SEMANTICA (subagente LLM `doc-drift-audit`, cara e probabilistica) NAO roda toda sessao -- e acionada pelo proprio `detector_deriva.ps1` em DOIS gatilhos OR: (a) o determinístico acusa >= AMARELO; ou (b) a DOUTRINA mudou desde a ultima sessao -- commit tocando `INTELLIGENCE_LEDGER.md`, `CLAUDE.md`, `**/SKILL.md` ou `PENTALATERAL_UNIVERSAL/` (janela = `meta.data_ultima_sessao` do WIP_BOARD; fallback "1 day ago"). Razao: a divergencia prosa-vs-principio so nasce quando a prosa OU o principio muda -- rodar o LLM em vault estavel e VERDE e queimar token a toa.
+**Principio (ONDE):** todo achado da camada semantica vai para UM destino canonico e nomeado -- `PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PENDING_REVIEW.md`, secao `## DERIVA DOCUMENTAL` (append, P-124). Nunca para DECISOES.json nem WIP_BOARD direto. O Musculo revisa ANTES de qualquer correcao; o Diretor delibera; so o Diretor destrava correcao no canonico.
+**Implementacao (Gate de Fato, nao memoria):** `scripts/detector_deriva.ps1` -- bloco "GATILHO DOUTRINA" (`$doutrinaMudou` via `git log --since` sobre os 4 alvos de doutrina) + condicao `if ($pior -ge 1 -or $doutrinaMudou)`, tudo em try/catch fail-safe (P-110: erro => nao aciona, mas o gatilho >= AMARELO segue). Destino criado em `PENDING_REVIEW.md`; espelho atualizado no `CLAUDE.md` (secao DETECTOR DE DERIVA). Liga com `reference_detector_deriva_estado_arte` (limite epistemico: LLM bom auditor de prosa, ruim em deriva codigo->doc -> esse gate fica determinístico) e com P-194 (reescrita do CLAUDE.md so com veredito).
+
+## P-197 -- SAM NAO-CONVERGIDO ENTRA NO DECK COMO FAIXA DECLARADA, NUNCA COMO PONTO: A INCERTEZA E DADO, NAO DEFEITO A ESCONDER (2026-06-23) [VEREDITO-DIRETOR]
+**Origem:** SAIDA do Projetista para o nicho N18 (saude-digital-conformidade), 2026-06-23. O M-STATS consumido fechou com o SAM NAO-convergido (Market Sizing dupla-via fora da regra dos +-15%). O Projetista propos -- e o Diretor ratificou ("4-SIM ratifica") -- que um SAM nao-convergido NAO trava o material: entra no deck/plano como FAIXA declarada (intervalo com premissas explicitas), nunca como numero pontual de falsa precisao.
+**Principio:** todo dado de dimensionamento sem convergencia (dupla-via fora de +-15%, ou serie sem intervalo) e apresentado ao prospect como FAIXA com premissa declarada -- jamais como ponto. Numero pontual sem intervalo = invalido (DISCIPLINA DE INCERTEZA do `market-stats-analysis`). A incerteza honesta vence a precisao fabricada (GATE DE HONESTIDADE -- N PEQUENO).
+**Como aplicar:** (a) Projetista/deck: faixa + premissas + fonte/data, nunca "o mercado e R$ X"; (b) o gap de convergencia vira ACAO de pesquisa (ex.: F3 -- corte de porte de hospitais-alvo p/ fechar a convergencia do SAM N18), nao motivo de travar a entrega; (c) o resultado de campo realimenta e estreita a faixa (loop de calibracao). Liga com P-195 (entrega de experiencia exige o que o usuario ve, nao so o substrato) e com o MODULO MARKET SIZING (regra dos 15%) do `market-stats-analysis`.
+
 ================================================================================
 
 ## WIP BOARD -- ESTADO DOS PROJETOS
 {
-    "atualizado_em":  "2026-06-14",
+    "atualizado_em":  "2026-06-23",
     "wip_limits":  {
                        "build":  2,
                        "check":  1
