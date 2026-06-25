@@ -1,0 +1,29 @@
+{
+  "_doc": "Maquina de estados do pipeline Vanguard (Cowork -> Projetista -> Embaixador Digital). Fonte UNICA da verdade do ESTAGIO de cada produto. NAO decide nicho (GATE DE PAPEL item 42) -- so rastreia estagio mecanico. Avanco S2->S3 e S2b->S3 exige veredito do Diretor.",
+  "_estagios": ["S0_ACUMULANDO", "S1_PROJETADO", "S2_CAMPANHA_PRONTA", "S2b_RETIDO", "S3_LIBERADO", "S4_EM_PROSPECCAO", "S5_CAMPO", "S6_RETROALIMENTADO"],
+  "_atualizado": "2026-06-25",
+  "produtos": [
+    {
+      "id": "saude-digital-n18",
+      "rotulo": "Saude Digital (N18)",
+      "estagio": "S1_PROJETADO",
+      "evidencia": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PROJETISTA/PLANOS/PLANO_EXECUCAO_N18_saude-digital_v1.md",
+      "ultima_saida_ator": "projetista",
+      "ultima_saida_data": "2026-06-23",
+      "proxima_acao_ator": "projetista",
+      "proxima_acao_comando": "materializacao",
+      "retido_motivo": null
+    },
+    {
+      "id": "compliance-aduaneiro-ncm",
+      "rotulo": "Compliance Aduaneiro NCM",
+      "estagio": "S2b_RETIDO",
+      "evidencia": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PROJETISTA/CAMPANHA/compliance-aduaneiro-ncm_CAMPANHA_v1.md",
+      "ultima_saida_ator": "projetista",
+      "ultima_saida_data": "2026-06-19",
+      "proxima_acao_ator": "embaixador_digital",
+      "proxima_acao_comando": "campanha",
+      "retido_motivo": "Base legal LC 227/2026 (R$20.000/erro + rejeicao automatica NF SEFAZ) a confirmar com fonte juridica citavel antes do disparo ao Embaixador Digital."
+    }
+  ]
+}
