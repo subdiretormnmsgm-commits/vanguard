@@ -20,6 +20,15 @@ _(sem achados pendentes)_
 > Origem: condução Cowork Engine (COEXISTÊNCIA — subagente Músculo + Antigravity COWORK). Destino: **Projetista (com Diretor) DECIDE**.
 > GATE DE PAPEL (CLAUDE.md item 42): o Músculo NÃO elege nicho, NÃO classifica MOVER AGORA, NÃO emite juízo de mérito. Camada fria (M-STATS) + fatos. O que estiver sem fonte fechada vai marcado `[NÃO CONFIRMADO]`.
 
+### DEVOLUÇÃO AO PROJETISTA — Compliance Aduaneiro NCM — base legal corrigida (2026-06-25)
+> Veredito do Diretor: **devolver ao Projetista corrigir a narrativa jurídica ANTES do disparo ao Embaixador Digital.** Produto segue em **S2b_RETIDO** (Portão 2 do Diretor). O Músculo entrega o FATO verificado; o Projetista (com o Diretor) decide o ângulo da campanha — sem direcionamento de mérito.
+- **Premissa anterior (imprecisa):** "LC 227/2026 → R$20.000/erro + rejeição automática NF SEFAZ".
+- **FATO VERIFICADO (WebSearch, fontes citáveis):**
+  - **LC 227/2026 (13-01-2026) NÃO cria multa punitiva nova — ela REVOGOU** a multa de 1% sobre o valor aduaneiro (Art. 84, MP 2.158-35/2001) e a **substituiu por valor fixo padronizado: 100 UPF por erro** (~R$200/UPF ≈ **~R$20.000/erro**), piso de 50 UPF/documento, via **Art. 341-G, XIX da LC 214/2025**. Escritórios titulam como *"fim da multa por erro na classificação fiscal"*.
+  - **"Rejeição automática NF SEFAZ" = regime SEPARADO:** Rejeição **778 "Informado NCM inexistente"** (NT 2016.003, regra I05-20) — validação da NF-e, **não** decorre da LC 227.
+- **Ângulo correto sugerido (o Projetista decide):** *padronização — agora é ~R$20k FIXO e objetivo por erro + a NF-e é rejeitada na hora pela SEFAZ se o NCM for inexistente.* Vender "LC 227 = multa nova pesada" é refutável por tributarista do prospect.
+- **Fontes:** IPDA (fim da multa) · Souto Correa (revoga 1%) · Planalto LCP 214 (Art. 341-G) · Avalara/Tax Radar (Rejeição 778 NCM).
+
 ### MATERIAL BRUTO — M2 REGULATÓRIO — 2026-06-24
 - **Inventário:** os 6 sinais do briefing M2 (IBS/CBS NF obrigatória 01/08/2026 · Simples opção set/2026 · PL 2338/23 IA · ECAD juninas · Decreto Segurança Privada · FLAG alíquota 30% vs 60%) **já constavam** no PENDING_REVIEW — nenhum inédito. Decreto Segurança Privada = duplicata pura.
 - **Contribuição nova (M-STATS — setor entretenimento/eventos, inexistente em disco até hoje):** ~28.970 empresas de serviços de eventos (Econodata 2025) a ~103.100 no núcleo do setor (Abrape 2025). Fecha o item D5 que o disco marcava `[NÃO CONFIRMADO]`.
@@ -36,6 +45,19 @@ _(sem achados pendentes)_
   - Licitantes: `[NÃO CONFIRMADO]` — coletar via PNCP.
 - **3 perguntas de capacidade (para o Diretor/Projetista, não decisão do Músculo):** (a) capacidade técnica BPF; (b) viabilidade de honorário-por-êxito em reclassificação NCM; (c) extração de dados PNCP/holdings.
 - **Nenhuma eleição de nicho.**
+
+### MATERIAL BRUTO — CAMADAS PROFUNDAS (4 subagentes Músculo) — 2026-06-24
+> Origem: COEXISTÊNCIA — 4 subagentes Músculo (fit_score · enriquecimento · alertas regulatórios · mapa de prioridade). **`[AGUARDA cruzamento Antigravity]`** — o lado Antigravity COWORK ainda não foi colado pelo Diretor (FLUXO FIXO); o cruzamento dual-ator (consenso/divergência, MOTO) será feito na colagem. As tabelas célula-a-célula completas (D1–D5, 19 linhas regulatórias, candidatos do enriquecimento) permanecem no transcript da sessão. Abaixo só os ALERTAS para o Projetista (não decisão do Músculo) com fato fechado ou marcado `[NÃO CONFIRMADO]`.
+
+**ALERTAS DE MUDANÇA DE PREMISSA (para o Projetista/Diretor — o Músculo SINALIZA, não corrige):**
+- **N04 — CFM 2.448/2025 PARCIALMENTE SUSPENSA** por decisão do TRF1 (Processo 1017752-74.2026.4.01.3400); operadoras retomaram glosa. Muda a premissa do nicho já catalogado N04 — verificar andamento processual antes de qualquer orientação. `[verificar fonte processual]`
+- **N10 — IFRS 17 / CPC 50:** a SUSEP **não** endossou o CPC 50 → o subagente rebaixa a leitura para **AGUARDAR** (não tratar como gatilho ativo). `[verificar posição SUSEP]`
+- **N11 — norma-âncora correta é CFM 2.430/2025**, não a 2.448 (correção de referência no cartão existente).
+- **FLAG bloqueante 30% vs 60% (IBS/CBS artistas):** artistas NÃO estão na lista taxativa de 30% (art. 127, LC 214/2025); caminho é 60% via Anexo X com condições de conteúdo nacional. **Não orientar enquadramento** até fechar o recorte por CNAE. `[NÃO CONFIRMADO — CNAE]`
+
+**LACUNAS / M-STATS (camada fria — fato mecânico, sem eleição):**
+- Cluster **artista-empresário (M1/M2/M6) SEM cartão em disco** → dimensão D5 (volume) ausente. O subagente fit_score recomenda extração M-STATS **se** o Projetista priorizar (recomendação técnica, não eleição de nicho).
+- **Gap M-STATS:** `eventos-fiscais-contadores` não teve M-STATS extraído; o subagente mapa registra que o próprio `PENDING_REVIEW.md` passou de ~78k tokens e sugere extrair a camada M-STATS para arquivo separado — **decisão de arquitetura do Diretor**, não ação autônoma do Músculo.
 
 ---
 
@@ -1142,3 +1164,77 @@ Contagens v1.7: **9 MOVER_AGORA · 6 MONITORAR · 1 ARQUIVAR** (total 16). Pódi
 **Handoff:** camada fria → **Projetista**, que traduz em PLANO/CAMPANHA com linguagem blindada (R-3). **Pré-condição do Projetista:** trocar o 77% órfão pelo 72% TIC Saúde antes de qualquer peça pública.
 
 **Status M-STATS:** ✅ APROVADO DIRETOR 2026-06-23 ("Ok"). Camada fria liberada para handoff ao Projetista. **Pré-condição mantida:** trocar o "77% órfão" pelo 72% TIC Saúde (CETIC.br) antes de qualquer peça pública.
+## [NICHE_MODELER] — SESSÃO 2026-06-24 (quarta-feira)
+**Autor:** Antigravity (Cowork Conductor)
+**Status:** AGUARDANDO_VEREDITO
+
+### PREMISSA E CONFRONTO (Pilar I)
+**Ausência de Depósitos:** Os depósitos M1, M2, M6, F1 e PREDIGESTÃO PROJETISTA não foram encontrados no workspace local (Drive não sincronizado ou ausente). O briefing M3 (NICHO-FONOGRÁFICO) já havia sido declarado ausente pelo Diretor no gate. 
+**Ação tomada:** A sessão foi executada apenas com os dados residentes no NICHE_INDEX.json e BIBLIOTECA_NICHOS, aplicando a rubrica de deflação de forma estrita, conforme Pilar I.
+
+### 1. TAREFA 1 — FIT_SCORE E DEFLAÇÃO (Rubrica Anti-Inflação)
+Aplicada a regra: D >= 4 EXIGE número + FONTE + DATA na própria nota — senão teto 3.
+- licitacoes-contratos-publicos: Sem evidência dura citável no cartão/notas -> Deflacionado para 3.4 (MONITORAR).
+- glosa-hospitalar: Taxa 17% Q1/2025 + CFM judicializada. Evidência mantida -> CONFIRMO 5.0 (MOVER_AGORA).
+- medicos-peritos-laudos: Baseado no CFM, mas sem impacto numérico duro. -> Deflacionado para 3.8 (MONITORAR).
+- rastreabilidade-sanitaria-premium: Deadline ANVISA (12/2026), sem ticket/impacto numérico duro claro -> Deflacionado para 4.2 (MOVER_AGORA).
+- ma-reestruturacao-societaria: Normas BCB/CMN, sem ticket duro -> Deflacionado para 4.2 (MOVER_AGORA).
+- setor-eletrico-regulatorio: CP 009/2026, 60 dias auditoria -> CONFIRMO 4.8 (MOVER_AGORA).
+- compliance-aduaneiro-ncm: Multa R/erro SEFAZ. -> CONFIRMO 5.0 (MOVER_AGORA).
+- carbon-esg-mrv: Lei 15.042/2024. -> CONFIRMO 4.2 (MOVER_AGORA).
+- ifrs17-seguros: R mercado (88% seguradoras). -> CONFIRMO 5.0 (MOVER_AGORA).
+- conformidade-ai-act: Deadline 02/08/2026, multas até 35M EUR. -> CONFIRMO 5.0 (MOVER_AGORA).
+- engenheiros-acervo-tecnico: CAT obrigatória >R (N17). -> CONFIRMO 4.6 (MOVER_AGORA).
+- saude-digital-conformidade: Multa até R, 77% hospitais privados (N18). -> CONFIRMO 4.8 (MOVER_AGORA).
+- farmaceuticos-rt-compliance: Multas R,5M, Res. 978/2025 (N16). -> CONFIRMO 4.4 (MOVER_AGORA).
+- csrd-esg-exportadores-eu: Mantido [PENDENTE-CRITERIOS].
+- holdings-offshores-14754: Multa 75%, fato gerador 31/12. -> CONFIRMO 4.9 (MOVER_AGORA).
+
+### 2. TAREFA 2 — ENRIQUECIMENTO
+[NÃO CONFIRMADO / AUSÊNCIA DE DEPÓSITOS] — O enriquecimento com sinais novos não ocorreu devido à ausência dos arquivos M1, M2, M6, F1 e PREDIGESTÃO no workspace local.
+
+### 3. TAREFA 3 — ALERTAS REGULATÓRIOS
+Alertas mantidos por força de prazo regulatório validado no index:
+- conformidade-ai-act: Deadline obrigatório 02/08/2026.
+- compliance-aduaneiro-ncm: LC 227/2026 em vigor desde 05/06/2026.
+- farmaceuticos-rt-compliance: Res. ANVISA 978/2025 (Fev/2026).
+- holdings-offshores-14754: Fato gerador recorrente em 31/12/2026.
+
+### 4. TAREFA 4 — MAPA DE PRIORIDADE (Força de Evidência)
+Ordenados exclusivamente pelo impacto documentado (número/multa), e NÃO por deadline curto (regra L-002):
+1. conformidade-ai-act — Multa dura (EUR 35M ou 7% global)
+2. saude-digital-conformidade — Multa R (ANPD)
+3. compliance-aduaneiro-ncm — Multa automática e quantificada (R/erro na SEFAZ)
+4. holdings-offshores-14754 — Multa de 75% sobre offshore, fato gerador inadiável
+5. ifrs17-seguros — Mercado quantificado R, conversão de 88%
+
+### 5. TAREFA 5 — NICHOS NOVOS
+**[SUGESTÃO]**: A recomendação técnica é NÃO adicionar novos nichos neste ciclo, estabilizando as operações nos nichos priorizados. Sem novos depósitos (M1-M6), qualquer expansão seria invenção.
+
+---
+
+## CRUZAMENTO DUAL-ATOR (MOTO) — 2026-06-24 (quarta-feira) — Músculo
+> Cruzamento factual entre os 4 subagentes Músculo e a sessão Antigravity COWORK. **O Músculo SINALIZA consenso/divergência — NÃO elege nicho, NÃO classifica mérito.** Quem DECIDE é o Projetista junto ao Diretor (GATE DE PAPEL, item 42). Destino: material bruto para o Projetista (P-124).
+
+### ⚠️ DIVERGÊNCIA ESTRUTURAL #1 — BASE DE DADOS ASSIMÉTRICA (a mais importante — SINALIZAÇÃO AO DIRETOR)
+- **Antigravity rodou CEGO aos depósitos:** declarou que M1/M2/M6/F1/PREDIGESTÃO **não estavam no workspace local** do VS Code → executou só sobre `NICHE_INDEX.json` + `BIBLIOTECA_NICHOS`. A TAREFA 2 (enriquecimento) dele veio **vazia** `[NÃO CONFIRMADO]`.
+- **Subagentes Músculo rodaram COM os depósitos:** leram os briefings (22–23/06) via **MCP Google Drive** → enriquecimento real + alertas de premissa.
+- **CAUSA-RAIZ (fato mecânico, não juízo de nicho):** canais de acesso diferentes — Músculo lê o Drive online (MCP); Antigravity lê o **disco local**, e o `INBOX_COWORK` (Google Drive) **não está sincronizado ao disco** do VS Code. → **AÇÃO PARA O DIRETOR:** sincronizar `INBOX_COWORK` → disco local (gatilho rclone) **antes da próxima sessão Antigravity**, senão o dual-ator roda sem paridade e o enriquecimento do Antigravity sempre virá vazio.
+
+### DIVERGÊNCIAS DE PREMISSA (Músculo viu / Antigravity não — falta de depósitos + atualização regulatória recente)
+1. **ifrs17-seguros (N10):** Antigravity CONFIRMA **5.0 MOVER_AGORA** (R$630M, 88% seguradoras). Subagente Músculo SINALIZA: **SUSEP não endossou o CPC 50** → leitura rebaixada para **AGUARDAR**. → **DIVERGÊNCIA DIRETA** — verificar posição atual da SUSEP. `[NÃO CONFIRMADO]`
+2. **glosa-hospitalar (N04):** Antigravity CONFIRMA **5.0** (taxa 17% Q1/2025, CFM judicializada). Músculo SINALIZA dado mais recente: **CFM 2.448/2025 PARCIALMENTE SUSPENSA** pelo TRF1 (proc. 1017752-74.2026.4.01.3400). Convergem na direção, **divergem no estado atual** — verificar andamento. `[verificar fonte processual]`
+3. **Referência de norma (N11):** Músculo aponta âncora correta = **CFM 2.430/2025** (não 2.448). Antigravity não tocou.
+4. **FLAG 30% vs 60% IBS/CBS artistas:** Músculo levantou (do briefing M2); Antigravity não viu (sem M2). **Não orientar enquadramento** até fechar CNAE. `[NÃO CONFIRMADO — CNAE]`
+
+### ✅ CONSENSO (os dois atores concordam — material robusto, sem divergência)
+- **compliance-aduaneiro-ncm:** ambos confirmam (multa R$20k/erro SEFAZ; LC 227/2026 em vigor 05/06/2026). Antigravity 5.0.
+- **conformidade-ai-act:** ambos altíssimo (deadline 02/08/2026; multa até €35M / 7% global). Antigravity 5.0.
+- **N16 farmacêuticos-RT / N17 engenheiros-acervo / N18 saúde-digital:** ambos com evidência dura de cartão. O Antigravity **aplicou L-001 corretamente** (resgatou os números dos cartões antes de qualquer deflação).
+- **holdings-offshores-14754:** ambos alto (multa 75%, fato gerador 31/12).
+
+### Observação de método (fato, não mérito de nicho)
+O Antigravity aplicou **L-001** (buscar número no cartão antes de teto 3) e **L-002** (não priorizar por deadline curto) corretamente — calibração saudável. Registro como fato.
+
+> **Encaminhamento:** material bruto pronto para o **Projetista** (com o Diretor) decidir o que sobe/ativa. O Músculo não elege. Nenhum commit até veredito do Diretor.
+

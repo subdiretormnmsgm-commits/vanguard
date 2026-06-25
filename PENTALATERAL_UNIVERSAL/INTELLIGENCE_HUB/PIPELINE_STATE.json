@@ -21,9 +21,9 @@
       "evidencia": "PENTALATERAL_UNIVERSAL/INTELLIGENCE_HUB/PROJETISTA/CAMPANHA/compliance-aduaneiro-ncm_CAMPANHA_v1.md",
       "ultima_saida_ator": "projetista",
       "ultima_saida_data": "2026-06-19",
-      "proxima_acao_ator": "embaixador_digital",
-      "proxima_acao_comando": "campanha",
-      "retido_motivo": "Base legal LC 227/2026 (R$20.000/erro + rejeicao automatica NF SEFAZ) a confirmar com fonte juridica citavel antes do disparo ao Embaixador Digital."
+      "proxima_acao_ator": "projetista",
+      "proxima_acao_comando": "retroalimentacao",
+      "retido_motivo": "DEVOLVIDO AO PROJETISTA (veredito Diretor 2026-06-25): corrigir narrativa juridica antes do disparo. FATO VERIFICADO (WebSearch): LC 227/2026 (13-01-2026) NAO institui multa nova punitiva -- REVOGOU a multa de 1% sobre valor aduaneiro (Art 84 MP 2.158-35/2001) e padronizou em multa fixa de 100 UPF (~R$200/UPF = ~R$20.000)/erro via Art 341-G XIX da LC 214/2025, piso 50 UPF/documento. 'Rejeicao automatica NF SEFAZ' = regime SEPARADO (Rejeicao 778 'NCM inexistente', NT 2016.003 regra I05-20), NAO vem da LC 227. Angulo correto p/ campanha: padronizacao -- agora e ~R$20k FIXO e objetivo por erro + NF-e rejeitada na hora pela SEFAZ se NCM inexistente. Disparo ao Embaixador Digital so apos narrativa corrigida pelo Projetista. S2b->S3 segue Portao 2 (Diretor)."
     }
   ]
 }
