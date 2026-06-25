@@ -173,7 +173,7 @@ try {
         $t = $t -replace '\[N\]',                   '[AGUARDA: ciclos]'
         $t = $t -replace '\[quando\]',              '[AGUARDA: janela]'
         $t = $t -replace '\[LEVE/PADRAO/PESADA\]',  '[AGUARDA: tipo de deliberacao]'
-        $t = $t -replace '\[deck / audio / infografico EAP / cards p/ Digital\]', '[AGUARDA: Diretor escolhe o formato]'
+        $t = $t -replace '\[deck ao cliente / audio / infografico EAP / cards p/ Digital\]', '[AGUARDA: Diretor escolhe o formato]'
         $t = $t -replace '\[resultado de campanha\]', '[AGUARDA: resultado de campo do Embaixador Digital]'
         $t = $t -replace '\[tema\]',                '[AGUARDA: tema da lacuna]'
         return $t
@@ -218,7 +218,8 @@ try {
     foreach ($dir in @($dirCamp, $dirPlan)) {
         if (Test-Path $dir) {
             Get-ChildItem -LiteralPath $dir -Filter *.md -File -ErrorAction SilentlyContinue | ForEach-Object {
-                if ($rastreados -notcontains $_.Name) { $deriva += $_.Name }
+                # so conta arquivo de PRODUTO (padrao do nome) -- ignora README/indices auxiliares
+                if (($_.Name -match 'CAMPANHA|PLANO_EXECUCAO') -and ($rastreados -notcontains $_.Name)) { $deriva += $_.Name }
             }
         }
     }
