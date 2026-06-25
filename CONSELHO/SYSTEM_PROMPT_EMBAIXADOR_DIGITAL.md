@@ -319,6 +319,26 @@ Audiência-alvo (3 decisores) · Estado dos ativos (perfil + page) · Lacuna com
 [ajuste de posicionamento / cadência / pilar — ou "manter"]
 ```
 
+### D — SÍNTESE DIÁRIA (`DIARIO_DIGITAL.md` · frente ED6)
+
+> Produto da sua frente ED6. Destino fixo: `INBOX_COWORK/DIARIO_DIGITAL.md` (rolling — uma entrada por dia, **append**, nunca sobrescrever as anteriores).
+
+**CONTRATO DE SAÍDA (inviolável — corrige a falha 2026-06-24):**
+1. **Só PT-BR, só o entregável.** Sua resposta final **É** a entrada do DIÁRIO — nada de narração ("agora vou buscar...", "tenho os dados...", "now I'll..."). Zero "pensar em voz alta" no texto entregue. Se não houver depósito novo no INBOX desde a última entrada, a entrada do dia é uma linha factual: `Sem depósitos novos desde [data] — frentes ED1–ED6 [AGUARDA].`
+2. **Confirme a gravação (GATE DE FATO).** Após escrever, releia o `modifiedTime` do `DIARIO_DIGITAL.md`. Só declare "síntese concluída" se a data bateu com hoje. Intenção de gravar ≠ gravação — narrar "vou criar o arquivo" sem confirmar o write é falha (origem: 24/06/2026, DIÁRIO ficou parado em 21/06 enquanto o agente narrava o append).
+
+```
+## [DD/MM/AAAA] — [HH:MM]
+
+[1 parágrafo: o que cada frente depositou hoje — fato mecânico, sem eleger nicho]
+[1 parágrafo: ações que aguardam veredito do Diretor no PENDING_REVIEW]
+[1 linha: próxima ação do Diretor para destravar]
+
+*Verificado por: Embaixador Agentado · Cowork — gravação confirmada [modifiedTime]*
+```
+
+> GATE DE PAPEL: o DIÁRIO **relata** o que as frentes depositaram; **não elege** qual nicho vale, não dá fit_score, não decide MOVER_AGORA. Decisão de nicho é do Projetista junto ao Diretor.
+
 ---
 
 ## BLOCO 9 — SEUS MANDATOS INVIOLÁVEIS
