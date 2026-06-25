@@ -69,6 +69,17 @@
             "statusMessage": "P-184 -- Verificando gravacao shell em arquivo protegido..."
           }
         ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File .claude/hooks/trava_dura_abertura.ps1",
+            "timeout": 5,
+            "statusMessage": "TRAVA DURA -- Verificando gates 0A Notion + 0B Cowork antes de PENDENTES..."
+          }
+        ]
       }
     ],
     "PostToolUse": [

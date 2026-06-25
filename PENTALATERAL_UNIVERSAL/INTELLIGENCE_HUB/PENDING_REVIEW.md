@@ -16,6 +16,29 @@ _(sem achados pendentes)_
 
 ---
 
+## COWORK — MATERIAL BRUTO (2026-06-24 quarta-feira)
+> Origem: condução Cowork Engine (COEXISTÊNCIA — subagente Músculo + Antigravity COWORK). Destino: **Projetista (com Diretor) DECIDE**.
+> GATE DE PAPEL (CLAUDE.md item 42): o Músculo NÃO elege nicho, NÃO classifica MOVER AGORA, NÃO emite juízo de mérito. Camada fria (M-STATS) + fatos. O que estiver sem fonte fechada vai marcado `[NÃO CONFIRMADO]`.
+
+### MATERIAL BRUTO — M2 REGULATÓRIO — 2026-06-24
+- **Inventário:** os 6 sinais do briefing M2 (IBS/CBS NF obrigatória 01/08/2026 · Simples opção set/2026 · PL 2338/23 IA · ECAD juninas · Decreto Segurança Privada · FLAG alíquota 30% vs 60%) **já constavam** no PENDING_REVIEW — nenhum inédito. Decreto Segurança Privada = duplicata pura.
+- **Contribuição nova (M-STATS — setor entretenimento/eventos, inexistente em disco até hoje):** ~28.970 empresas de serviços de eventos (Econodata 2025) a ~103.100 no núcleo do setor (Abrape 2025). Fecha o item D5 que o disco marcava `[NÃO CONFIRMADO]`.
+- **FLAG alíquota:** artistas NÃO estão na lista taxativa de 30% (art. 127, LC 214/2025); caminho é 60% via Anexo X com condições de conteúdo nacional. Recorte por CNAE permanece `[NÃO CONFIRMADO]`.
+- **Lacunas remanescentes:** D1 (custo unitário da dor) e SAM/SOM `[NÃO CONFIRMADO]`.
+
+### MATERIAL BRUTO — F1 RADAR DE DOR — 2026-06-24
+- **Inventário:** zero nichos novos; todos os sinais (CFM 2.462/2026 · cluster ANVISA Sanibras/IDNLABS/Bioghen · CARF NCM LC 227/2026 · TCU 37/2026 · M&A passivo oculto) = ADICIONAL a nichos já catalogados.
+- **M-STATS por setor (camada fria):**
+  - Importadores: **60.115** (VERIFICADO — único dimensionamento totalmente fechado).
+  - Hospitais: ~3.900 (CNES).
+  - M&A: 1.581 deals/ano (Bain/PwC).
+  - Suplementos: ~800 no total / 207 em "canal vermelho".
+  - Licitantes: `[NÃO CONFIRMADO]` — coletar via PNCP.
+- **3 perguntas de capacidade (para o Diretor/Projetista, não decisão do Músculo):** (a) capacidade técnica BPF; (b) viabilidade de honorário-por-êxito em reclassificação NCM; (c) extração de dados PNCP/holdings.
+- **Nenhuma eleição de nicho.**
+
+---
+
 ## AGUARDANDO VEREDITO
 
 ### [ANÁLISE VIBEHUB/LASY AI] — 4 ações → atores designados · 2026-06-20 (Embaixador → Músculo)
