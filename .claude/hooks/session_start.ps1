@@ -986,6 +986,21 @@ if ($ativacoesOutput) {
     $sections = @("## 🔔 ATIVACOES MANUAIS DE HOJE (Projetista / Embaixador Digital / Executor Cowork)`n$ativacoesOutput") + $sections
 }
 
+# PIPELINE -- ACAO DO DIA POR PRODUTO (orquestrador por estagio + calendario)
+# Le PIPELINE_STATE.json e, para cada produto, traz o comando JA PREENCHIDO com a ultima
+# saida do ator. Memoria fora do loop (Diretor 2026-06-25): o estado mora em disco, nao na cabeca.
+$pipelineOutput = ""
+$pipelineScript = Join-Path $projectDir "scripts\pipeline_orquestrador.ps1"
+if (Test-Path $pipelineScript) {
+    try {
+        $plLines = (& powershell.exe -NonInteractive -File $pipelineScript 2>$null)
+        if ($plLines) { $pipelineOutput = ($plLines | Where-Object { $_ -ne $null }) -join "`n" }
+    } catch {}
+}
+if ($pipelineOutput) {
+    $sections = @("## 🚦 PIPELINE -- ACAO DO DIA POR PRODUTO (Cowork -> Projetista -> Embaixador Digital)`n$pipelineOutput") + $sections
+}
+
 # PASSO 0B -- COWORK (prepend 1o: aparece 3o na saida, apos BLOCO0 e NOTION)
 $coworkFooter = if ($gatePasso0Status) { "`n`n---`n[GATE P-158] STATUS HOJE:`n$gatePasso0Status" } else { "" }
 $sections = @("## ⚡ PASSO 0B -- COWORK DO EMBAIXADOR (MCP Google Drive) -- APOS BLOCO 0 E NOTION`n$colheitaCowork$coworkFooter") + $sections
