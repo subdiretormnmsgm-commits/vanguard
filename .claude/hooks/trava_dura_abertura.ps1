@@ -26,6 +26,11 @@ if ($fp -notmatch '(^|[\\/])PENDENTES\.md$') { exit 0 }
 # Localizar scripts\ a partir da raiz (hook esta em .claude\hooks\)
 $raiz       = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $scriptsDir = Join-Path $raiz "scripts"
+
+# PAUSA DO SISTEMA (Diretor 2026-07-08): flag presente -> nao bloqueia a abertura.
+# Aditivo e reversivel: deletar scripts\.SISTEMA_PAUSADO.flag restaura o comportamento normal.
+if (Test-Path (Join-Path $scriptsDir ".SISTEMA_PAUSADO.flag")) { exit 0 }
+
 $hoje       = Get-Date -Format "yyyy-MM-dd"
 $flagNotion = Join-Path $scriptsDir ".passo0_notion_$hoje.flag"
 $flagCowork = Join-Path $scriptsDir ".passo0_cowork_$hoje.flag"

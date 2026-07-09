@@ -7,6 +7,41 @@
 
 $projectDir = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 
+# ============================================================================
+# PAUSA DO SISTEMA (Diretor 2026-07-08) -- SHORT-CIRCUIT ADITIVO E REVERSIVEL.
+# Enquanto scripts\.SISTEMA_PAUSADO.flag existir, a abertura NAO injeta Cowork/n8n/
+# ativacoes/pipeline/PENDENTES: emite apenas um banner de pausa. TODO o restante
+# deste hook (1100+ linhas) permanece INTACTO -- deletar o flag restaura tudo
+# automaticamente, sem reconstruir nada.
+# ============================================================================
+$flagPausa = Join-Path $projectDir "scripts\.SISTEMA_PAUSADO.flag"
+if (Test-Path $flagPausa) {
+    $motivoPausa = (Get-Content $flagPausa -Raw -Encoding UTF8 -ErrorAction SilentlyContinue)
+    $banner = @(
+        "## ⏸️  SISTEMA PENTALATERAL EM PAUSA (ordem do Diretor)",
+        "",
+        "O Diretor pausou as atividades da empresa. NESTA SESSAO:",
+        "  - NAO cobrar / executar Cowork, n8n, nichos, loops, PENDENTES, PASSO 0A/0B/0C.",
+        "  - NAO disparar gate de abertura nem atividades autonomas.",
+        "  - Modo PROJETOS PESSOAIS do Diretor -- aguardar o que ele pedir.",
+        "  - Qualquer projeto pessoal roda com o MESMO rigor das 35 versoes Vanguard.",
+        "",
+        "Motivo registrado em disco:",
+        (($motivoPausa) -replace '(?m)^', '  ').TrimEnd(),
+        "",
+        "Para RETOMAR a empresa: deletar scripts\.SISTEMA_PAUSADO.flag",
+        "(a abertura completa volta sozinha -- NADA foi destruido)."
+    ) -join "`n"
+    $out = [ordered]@{
+        hookSpecificOutput = [ordered]@{
+            hookEventName     = "SessionStart"
+            additionalContext = $banner
+        }
+    } | ConvertTo-Json -Depth 5 -Compress
+    Write-Output $out
+    exit 0
+}
+
 function Read-Instrument {
     param([string]$relativePath, [int]$maxLines = 80)
     $fullPath = Join-Path $projectDir $relativePath
