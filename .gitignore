@@ -35,6 +35,9 @@ CLIENTES/**/*.flac
 # Logs do Playwright MCP
 .playwright-mcp/
 
+# Cache e credenciais do Wrangler/Cloudflare -- NUNCA commitar (HV-1)
+**/.wrangler/
+
 # Screenshots avulsas na raiz
 query*.png
 *.screenshot.png

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR — Base de Consultas · Asse Ct Orç</title>
+<style>
+  :root { --tinta:#14181d; --suave:#5b6570; --ciano:#0891a6; --linha:#e3e7ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#f2f4f6; color:var(--tinta);
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    display:flex; flex-direction:column; align-items:center; min-height:100vh; padding:32px 16px; }
+  .card { background:#fff; width:100%; max-width:420px; border:1px solid var(--linha);
+    border-radius:16px; padding:34px 30px 30px; text-align:center;
+    box-shadow:0 10px 34px rgba(20,24,29,.08); }
+  .krest { font-size:11px; letter-spacing:.16em; color:var(--suave); text-transform:uppercase; margin:0 0 4px; }
+  h1 { font-size:18px; margin:0 0 2px; font-weight:700; }
+  .sub { font-size:12.5px; color:var(--suave); line-height:1.45; margin:0 0 22px; }
+  .qwrap { display:inline-block; padding:14px; border-radius:12px; background:#fff;
+    border:1px solid var(--linha); }
+  .qwrap img { display:block; width:236px; height:236px; image-rendering:pixelated; }
+  .call { font-size:14.5px; font-weight:600; margin:20px 0 4px; }
+  .call b { color:var(--ciano); }
+  .hint { font-size:12px; color:var(--suave); margin:0; }
+  .rule { height:3px; width:46px; background:var(--ciano); border-radius:2px; margin:22px auto 0; }
+  .acts { margin-top:26px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  button { font:inherit; font-size:13.5px; font-weight:600; padding:11px 18px; border-radius:9px;
+    cursor:pointer; border:1px solid var(--linha); background:#fff; color:var(--tinta); }
+  button.p { background:var(--tinta); color:#fff; border-color:var(--tinta); }
+  button:hover { filter:brightness(.97); }
+  .foot { margin-top:18px; font-size:11px; color:#9aa4ad; }
+  @media print {
+    body { background:#fff; padding:0; }
+    .card { box-shadow:none; border:none; max-width:none; }
+    .acts, .foot { display:none !important; }
+    .qwrap img { width:300px; height:300px; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <p class="krest">Assessoria de Controle Orçamentário — DCEM</p>
+    <h1>Base de Consultas</h1>
+    <p class="sub">Formulário de dúvidas</p>
+    <div class="qwrap"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtwAAALcCAIAAABby/A+AAAT3klEQVR4nO3dUY7rQHJFQcno/W9ZhhcwBoFXyDlZjFiARJGU+oAffb+/3+8DAPDf9j//7QMAAPg/ogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAk/H1ivt/v561+v99rz/OTz/7kmCdfp3aeJ++fJ958njceT+1avPn3cFLtd8OTEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEjIbd9s/F/9tW2FyZ2L2hbGqfeqbWHU9k02OnUON24wbVQ7PxuvxTf2O/aEJyUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQsHL7pvY//2ubCLXjOWVyc+TWvZVJtV2SyXO4cetq8vzUvqen1H5bNvKkBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABKu3b651althdrGR23bZeNmTW13Y/JevfU8b9yRmbxetd8N/p0nJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJBg+2aZ2s7FJDsXnXujdo+9eYvnlNrx3HrM/P88KQEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAICEa7dvbt1EOLWpcep1Tp3nya2QjftBtfNzyuR5nvxctS2e2vHc6s2f/RRPSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBh5fZNbZfkzSY3WTZuxNx6r9563Te+zhO149l4H9Y++608KQEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAICE7+Q+Bf/O/sKMjfsmp9y6WXPr/fPE5PmZvF7+ft3HkxIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIWLl9s3E3obZzUXuvjce88X6ubcSc4t545/m59Tv4W3gOT/GkBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABL+Ppeq7YDYnrhvH6f22Sd3iJ7YuN+x8ZhPOXXda9sutd+Nyd+6b+xaPOFJCQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACR8a//3fnJz5InalsrGvYPajswpb97UOOXN57D2OqfUjmfj351JtWvhSQkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAkrNy+2bgHUTN5np+YfK8navdY7bPfuidS+03Y+D19YuN3p3aev7FreoonJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJDw91motqlR2yWpnZ/atsLk8Zza+Kgd8xO1Y57cM6ptu5w65sn7ufa7ygxPSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACDhu/F//k9uc9R2QCZ3Lp7YeP888eYtlUlvvg9r13Tj8Uya/A1/4tbfDU9KAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIOHvs9DGHZk3b3xMOnVNaxsftZ2dN3+Xb90ceaL2uWr388bvYI0nJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJDwre0vTG7E1HYcansHt+6SnHLr9Zp06yZU7Z6v7Rm9+btTu6a/2HfHkxIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIyG3fnHLr9sTGjYZJtU2Nmtqe0Zu/7xt/N249P0+8+XpN8qQEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEv4+C9V2E2r7Ahv3X06dw9ruxuSGxa33z+R5rl33mo3fr9rrPPF98T3mSQkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAk5LZvbv2f/7X9hdrrTKp9rtqW0ykbj+fUvtKp49l4P9sdmzmHt/KkBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABK+b/4f+7X9l9reyqQ378jcem/UPtcTtePZ+F1+YuN38JTad/kXu589KQEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAICEv89Ck5sItS2VW/cgbt1x2Lj/UjuHT9TOYe14artIb74PN77XJE9KAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIOH75n2Byc2a2nmu7SZMbnPUdkBqn712DmubNU/U7rGNv4cb7+dTvguP+RRPSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACAht32zcVvhiY07DrX3eqL22WsbQ5M2btac8ubP/sSbfzdqfrEG8KQEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEnLbN0+8eR/nlNpuy63ncOPOzsb3qt0/tXN463fnzdf0G7t/TvGkBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABL+PjEbdy4mNyNqarsJtx7z5D7O5P288ft+6ng27k/V7o1JteO5lSclAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkJDbvqntXNS2VGp7PZObLLXzXNsKOaV2nk+9zsbNo43fndo20Jvv5+/C3x9PSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACAht31z6n/+1zZ0ahsNk7sJk5/9zfsmkzsXk9f01s+18bPfqnbdfwt/x07xpAQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQAScts3t+441LYMTm091DYjTl33W7eBJs/PpDffq7X32qh2P38v/Z4+4UkJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJFy7fTO5l3HrrkRt22Xjrs1Gtc++cYfoza/zhN0f/hNPSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACDh+2TvoKa24/BE7TzX9k2ecE1nvhdPTO4QPVHbRZp8nVNuvaan1K7FL/Y35RRPSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACDh77PQxn2K2uvUtjlqOxcbt0Imr0VtB+TNmyO3HvOtm1m19/rF7g1PSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACAht31T20Cp7dps3FaYZJNl5hxu3P3Z+L2Y3C6pncNJtf2XX+x4JnlSAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAm57ZuN+yYbNyM2HnNtK+TNx1w7nsl7vvabULt/Js/Pqc81ueW08bszyZMSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASMht39Q2EU6pbU888eZjru3+1PZWNm4nbTyHT9y6oVO7FpPn+Yna37hTPCkBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCAhNz2zSmndhxqGx+njvnWjYbJ6z55PKfeq6Z2njder9oGysaNocnrXrteNZ6UAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQMJ34//hr20r3LrxsXFXYuPmiGvq/PzLvXHKxt/MjVtFGz/7JE9KAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIOHvs1BtF+DJe9WOp7Zz8URtr2fy/NSuRe1zTd7zt16LN/+GP7FxQ2cjT0oAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAg4Tu5HXCrjbs2NZN7EJO7P7Xrbnfj39W+XxvvjY3n8Inaed54LTwpAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgIS/T8zGXYDa3kFtw6J2TTceT22vZ/KYN95jT9SuV01tf2rjDtpGnpQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAQm77ZtLkNkdt7+DUZ9+4szO5hTFp8pqeOoe113nizff8xr2VN1+vjTwpAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgIRrt28mNwhq2wpPbNxfqF2vyd2WyQ2mN28e1b4Xk+d5467NE7XrtXHvaZInJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJCQ277ZuF0y+V61z24vo2NyH2fyeGpqOztv/g5O7jRNbkv9Lv07+IQnJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJCQ276Z3HGovdfktsLkbkJt6+GJyfeqXffatTjl1s9+aruktoGyccPLLtK/86QEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEr4b9w4md1smbdzmqG1P1Eyen9q9cYrPNXN+Nv4enjL52Wvf5V/suntSAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAl/n4VqeyKn3mvS5LZCbXdj4/FMvk5NbStk455ITe1erR3Pm+8xT0oAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAg4Xvr/8+/VW0HpLZDVNs3mTzPtWv6RO16bdxJ2Xi9ar8bt97P39j5ecKTEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEj4+8TUdiUmPdkgmNwp2Li3snHfpLbp88TGTY3aMdfOzxO37sjU7o0386QEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEnLbN09s3CCobZfUNj5qWzOTJveDaltFk+9V++y146ntyLif38mTEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEhYuX3zhC2Vd+7a3GryPNeu18ZtoI3HM7lrM/m5audw0i+2i/SEJyUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQcO32DRSc2gE5tTnyxOR73brbUtsqOnW9audn8j7ceDxP1L7LnpQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgu2bZTbubty6qfHmLYza7sbGHZma2r7S5Os8+Vy134Tf4Pd0kiclAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkHDt9s2t+xQbNywmtx5qJrcnarskt25zTJq85zder9ox136jfrHjecKTEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEj41v43fm1bYdKbt0vevGFRu+dr1/3Nu1GT12vydd78vaj9tvxi30FPSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACAht30DALyTJyUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAAmiBABIECUAQIIoAQASRAkAkCBKAIAEUQIAJIgSACBBlAAACaIEAEgQJQBAgigBABJECQCQIEoAgARRAgAkiBIAIEGUAAAJogQASBAlAECCKAEAEkQJAJAgSgCABFECACSIEgAgQZQAAJ+C/wXm48tLbCGNnQAAAABJRU5ErkJggg==" alt="QR Code de acesso"></div>
+    <p class="call">Aponte a <b>câmera do celular</b> para o código</p>
+    <p class="hint">e registre sua dúvida em ≈ 60 segundos.</p>
+    <div class="rule"></div>
+    <div class="acts">
+      <button class="p" onclick="baixar()">Baixar PNG</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+    <p class="foot">Seus dados ficam 100% na conta da Seção. A resposta oficial vai por e-mail.</p>
+  </div>
+<script>
+  function baixar(){
+    const a=document.createElement('a');
+    a.href=document.querySelector('.qwrap img').src;
+    a.download='QR_Base_Consultas_AsseCtOrc.png';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+</script>
+</body>
+</html>

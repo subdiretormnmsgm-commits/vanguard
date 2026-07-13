@@ -1,0 +1,83 @@
+ENDERECO CANONICO DO FORMULARIO VIVO — BASE DE CONSULTAS ASSE CT ORG (DCEM)
+============================================================================
+Fonte de verdade (GATE DE FATO). Extraido da fonte viva do Apps Script.
+NAO truncar. NAO recall. Copiar deste arquivo sempre.
+
+/exec (App da Web):
+https://script.google.com/macros/s/AKfycbyZW1XO8edEEk1szLPoax4Yml1NvIUBzfp4ZzHz6Jc4oQvobz99wH3p-YhdRRLV8LzSdw/exec
+
+Codigo de implantacao: AKfycbyZW1XO8edEEk1szLPoax4Yml1NvIUBzfp4ZzHz6Jc4oQvobz99wH3p-YhdRRLV8LzSdw
+Tail correto: RRLV8LzSdw   (ATENCAO: nao e RDLV8 — um caractere gera QR morto)
+
+Apps Script Project ID: 1fJeD4iwmlAygoPD8dxDZsTF8YSow0IfF945TijTNhSrfnW_aZ1_7XlSX
+Conta Google: orcamentariodcem@gmail.com
+Deploy vivo: Versao 10 (12/07/2026) — Telegram + e-mail ao curador (ver bloco proprio abaixo).
+  Historico: Versao 8 tornou o motor API JSON (Rota B). Alem do HtmlService
+  original, doGet responde GET ?mode=casos com {sucesso,casos,secoes} e doPost recebe o
+  POST do formulario hospedado FORA do Apps Script. Mesma engine V7 (doPostData): validacao
+  server-side, fix da coluna E, ID sequencial, e-mail de confirmacao. Mesma URL/exec das
+  versoes anteriores — tail RRLV8LzSdw preservado. Testado ponta-a-ponta: GET ?mode=casos
+  devolveu 14 casos + 13 secoes; POST doPost gravou CONS-20260712-004 e retornou sucesso.
+
+O /exec agora e o BACKEND (API JSON) da Rota B. Nao e mais aberto direto pela camera.
+
+============================================================================
+NOTIFICACAO TELEGRAM — cada consulta chega no Telegram do Diretor — 12/07/2026
+============================================================================
+Ao gravar uma consulta, o doPostData dispara notificarTelegram_(dados, idConsulta),
+que envia a nova duvida para o bot dedicado do Diretor. Validado ponta-a-ponta:
+formulario publico (Pages) -> POST /exec -> gravou CONS-20260712-001 -> Telegram + e-mail
+receberam a notificacao. Teste real feito em 12/07/2026.
+
+AVISO AO CURADOR POR E-MAIL (Versao 10, 12/07/2026) — cada consulta agora manda TRES sinais:
+  (1) Telegram ao bot do Diretor;
+  (2) e-mail ao DEMANDANTE (dados.email) — confirmacao "Consulta registrada";
+  (3) e-mail ao CURADOR (Session.getEffectiveUser().getEmail() = orcamentariodcem) — assunto
+      "NOVA CONSULTA <id> — <secao> · <tema>", com replyTo=dados.email (Responder ja vai ao
+      demandante). Bloco "4b" no doPostData, best-effort (P-110: nunca quebra a gravacao).
+  Motivo: ate a V9 quem RESPONDE so era avisado por Telegram, nao por e-mail (falha apontada
+  pelo Diretor em 12/07). Validado ponta-a-ponta: CONS-20260712-004 -> Telegram + e-mail ao
+  demandante + e-mail ao curador chegaram. Deploy Versao 10 preservou o tail RRLV8LzSdw.
+
+- Bot dedicado ao projeto DCEM: @DCEM_Consultas_bot (isolado do Hermes/Pentalateral, P-059).
+- Segredos ficam APENAS em Script Properties do Apps Script (NUNCA no codigo, NUNCA no git):
+    TELEGRAM_TOKEN    (token do @DCEM_Consultas_bot — inserido pelo proprio Diretor)
+    TELEGRAM_CHAT_ID  (chat do Diretor com esse bot — capturado por configurarTelegram)
+- Como (re)capturar o chat_id: enviar uma mensagem ao @DCEM_Consultas_bot e rodar a
+    funcao configurarTelegram() no editor Apps Script (le getUpdates, salva o chat_id).
+- Diagnostico: funcao diagnosticoTelegram() no editor — mostra getMe/webhook/getUpdates
+    sem expor o token. Ambas sao utilitarios do editor; nao entram no fluxo do Web App.
+- chat_id e token sao lidos em tempo de execucao das Script Properties — trocar qualquer
+    um deles NAO exige redeploy; so vale para o Web App ja implantado.
+
+============================================================================
+ENDERECO PUBLICO DE ESCANEAMENTO (ROTA B — host externo Cloudflare Pages) — 12/07/2026
+============================================================================
+>>> ESTE E O ENDERECO OFICIAL DE DISTRIBUICAO/CAMERA A PARTIR DE 12/07/2026 <<<
+
+Formulario vivo (frontend estatico, visual cyber-premium intacto):
+https://dcem-consultas.pages.dev
+
+POR QUE EXISTE: abrir o /exec direto pela camera do celular falha em navegadores
+logados em 2+ contas Google ("Nao foi possivel abrir o arquivo" — bug de roteamento
+de conta do Apps Script no mobile). Hospedar o formulario fora do Google (Cloudflare
+Pages, dominio proprio *.pages.dev) elimina o bug na raiz: a pagina abre como site
+estatico comum, sem roteamento de conta Google. O JS chama o /exec como API:
+  - GET  ?mode=casos  -> carrega as listas vivas (secoes + casos)
+  - POST (Content-Type text/plain) -> grava a consulta e dispara o e-mail
+Ambas sao "simple requests" (sem preflight OPTIONS), e o Google injeta
+Access-Control-Allow-Origin:* no destino final — fetch cross-origin funciona.
+
+>>> QR PARA DISTRIBUICAO/CAMERA: qr_dcem_pages.png (aponta para o Pages acima).
+    URL curta -> QR de baixa densidade (validado por decode: le exatamente a URL).
+    Cartao de impressao: QR_CARD_FORMULARIO.html.
+>>> Hosting: Cloudflare Pages, projeto "dcem-consultas", conta orcamentariodcem@gmail.com.
+    Deploy via Wrangler CLI (npx wrangler pages deploy CLOUDFLARE_UPLOAD
+    --project-name=dcem-consultas --branch=main). Fonte: CLOUDFLARE_UPLOAD/index.html.
+
+----------------------------------------------------------------------------
+APOSENTADO em 12/07/2026 (substituido pela Rota B acima) — NAO DISTRIBUIR:
+----------------------------------------------------------------------------
+- Google Site https://sites.google.com/view/dcem-consultas (Opcao B anterior, iframe).
+- qr_dcem_site.png + QR_CARD_SITE.html (apontavam para o Google Site).
+- qr_dcem_exec.png (apontava para o /exec direto — nunca foi a prova de camera).

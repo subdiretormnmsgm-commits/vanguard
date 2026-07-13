@@ -1,0 +1,255 @@
+<title>Guia do Curador — Asse Ct Orç / DCEM</title>
+<style>
+  :root{
+    --marinho:#12243d; --marinho-2:#1b3557; --tinta:#1a2231; --tinta-2:#48566b;
+    --oliva:#4a5d3a; --dourado:#9a7b3f; --vinho:#7a2e2e;
+    --papel:#fbfaf7; --cartao:#ffffff; --linha:#e4e0d6; --gelo:#eef2f6;
+    --alerta-bg:#fbf3ef; --alerta-bd:#e0c3b8; --opsec-bg:#f3f5ef; --opsec-bd:#c7d0b6;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  body{background:var(--papel);color:var(--tinta);font-family:var(--sans);
+    line-height:1.62;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .folha{max-width:820px;margin:0 auto;padding:48px 30px 72px;}
+
+  header.capa{border-bottom:3px double var(--marinho);padding-bottom:22px;margin-bottom:8px;}
+  .brasao{display:flex;align-items:center;gap:14px;}
+  .brasao .selo{width:46px;height:46px;flex:none;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,var(--marinho-2),var(--marinho));
+    color:#eef2f6;display:flex;align-items:center;justify-content:center;font-size:22px;
+    box-shadow:0 2px 6px rgba(18,36,61,.25);}
+  .brasao .org{font-family:var(--serif);font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--tinta-2);}
+  h1{font-family:var(--serif);font-size:29px;line-height:1.18;margin:18px 0 6px;
+    color:var(--marinho);text-wrap:balance;font-weight:700;}
+  .sub{font-size:14px;color:var(--tinta-2);letter-spacing:.02em;}
+  .meta{margin-top:14px;font-size:12px;color:var(--tinta-2);
+    display:flex;gap:18px;flex-wrap:wrap;}
+  .meta b{color:var(--oliva);font-weight:600;}
+
+  .intro{background:var(--gelo);border-left:4px solid var(--marinho);
+    padding:16px 20px;border-radius:0 8px 8px 0;margin:26px 0 8px;font-size:15px;}
+
+  section{margin-top:30px;}
+  h2{font-family:var(--serif);font-size:19px;color:var(--marinho);margin:0 0 10px;
+    display:flex;align-items:baseline;gap:12px;padding-bottom:7px;
+    border-bottom:1px solid var(--linha);text-wrap:balance;}
+  h2 .num{flex:none;font-size:13px;font-weight:700;color:#fff;background:var(--marinho);
+    width:26px;height:26px;border-radius:6px;display:inline-flex;align-items:center;
+    justify-content:center;font-family:var(--sans);align-self:center;}
+  p{margin:10px 0;}
+  strong{color:var(--tinta);}
+
+  ol.passos{counter-reset:p;list-style:none;padding:0;margin:14px 0;}
+  ol.passos li{counter-increment:p;position:relative;padding:8px 0 8px 42px;
+    border-bottom:1px dashed var(--linha);}
+  ol.passos li:last-child{border-bottom:0;}
+  ol.passos li::before{content:counter(p);position:absolute;left:0;top:8px;
+    width:26px;height:26px;background:var(--oliva);color:#fff;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+
+  table.hier{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+  table.hier th,table.hier td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--linha);}
+  table.hier th{background:var(--marinho);color:#eef2f6;font-weight:600;font-size:13px;}
+  table.hier td.nv{font-weight:700;color:var(--marinho);font-variant-numeric:tabular-nums;width:52px;}
+  table.hier tr:nth-child(even) td{background:#faf9f5;}
+
+  .duas{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+  .card{border:1px solid var(--linha);border-radius:10px;padding:15px 17px;background:var(--cartao);}
+  .card h3{margin:0 0 6px;font-size:15px;font-family:var(--serif);}
+  .card.armadilha{border-top:4px solid var(--vinho);} .card.armadilha h3{color:var(--vinho);}
+  .card.macete{border-top:4px solid var(--oliva);} .card.macete h3{color:var(--oliva);}
+  .card .ex{font-size:13px;color:var(--tinta-2);font-style:italic;margin-top:8px;
+    border-top:1px dotted var(--linha);padding-top:8px;}
+
+  .aviso{border-radius:10px;padding:15px 18px;margin:16px 0;font-size:14.5px;}
+  .aviso.opsec{background:var(--opsec-bg);border:1px solid var(--opsec-bd);}
+  .aviso.atencao{background:var(--alerta-bg);border:1px solid var(--alerta-bd);}
+  .aviso .rot{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:2px 9px;border-radius:20px;margin-bottom:8px;color:#fff;}
+  .aviso.opsec .rot{background:var(--oliva);}
+  .aviso.atencao .rot{background:var(--vinho);}
+
+  code{background:var(--gelo);padding:1px 6px;border-radius:4px;font-size:13.5px;
+    font-family:"SFMono-Regular",Consolas,monospace;color:var(--marinho);}
+
+  ul.check{list-style:none;padding:0;margin:12px 0;}
+  ul.check li{padding:7px 0 7px 34px;position:relative;border-bottom:1px dashed var(--linha);font-size:15px;}
+  ul.check li::before{content:"";position:absolute;left:2px;top:9px;width:17px;height:17px;
+    border:2px solid var(--marinho);border-radius:4px;}
+  .checkbox-sec{background:var(--gelo);border-radius:10px;padding:6px 22px 14px;margin-top:14px;}
+
+  footer{margin-top:44px;padding-top:16px;border-top:3px double var(--marinho);
+    font-size:12px;color:var(--tinta-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:640px){.duas{grid-template-columns:1fr;}.folha{padding:32px 18px 56px;}}
+  @media print{
+    body{background:#fff;font-size:12pt;}
+    .folha{max-width:none;padding:0;}
+    section,.duas,.aviso,table.hier{break-inside:avoid;}
+    h2{break-after:avoid;}
+    a{color:inherit;text-decoration:none;}
+  }
+</style>
+
+<div class="folha">
+
+  <header class="capa">
+    <div class="brasao">
+      <div class="selo">🎖</div>
+      <div class="org">Ministério da Defesa · Exército Brasileiro<br>Assessoria de Controle Orçamentário — DCEM</div>
+    </div>
+    <h1>Guia do Curador</h1>
+    <div class="sub">Base de Consultas · Como analisar e confeccionar as respostas às 12 seções demandantes</div>
+    <div class="meta">
+      <span>Painel: <b>Análise e confecção das respostas</b></span>
+      <span>Janela: <b>Painel da Assessoria</b></span>
+      <span>Versão: <b>2026-07-12</b></span>
+      <span>Uso: <b>interno</b></span>
+    </div>
+  </header>
+
+  <div class="intro">
+    Esta base transforma a dúvida de uma seção demandante em uma <strong>resposta fundamentada e rastreável</strong>.
+    Você recebe a consulta, lê o embasamento que o sistema monta sozinho — já na ordem hierárquica correta das
+    normas —, redige o parecer e o envia. O demandante recebe por e-mail, e nada se perde quando alguém é movimentado.
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> Abrir o painel</h2>
+    <p>No menu superior da planilha, clique em <code>⬤ Análise e confecção das respostas</code> →
+    <code>Abrir painel</code>. Abre a janela <strong>Painel da Assessoria</strong>. É por aqui que você
+    trabalha — nunca digitando direto nas abas.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> O que aparece no painel</h2>
+    <p>No alto, dois contadores: <strong>pendentes</strong> e <strong>respondidas</strong>.
+    À esquerda, a <strong>lista de consultas</strong> (as pendentes vêm primeiro). Ao clicar numa consulta,
+    à direita surgem três coisas:</p>
+    <ol class="passos">
+      <li>Os <strong>dados do demandante</strong> e a pergunta feita.</li>
+      <li>O <strong>embasamento</strong> — as normas aplicáveis, já ordenadas da mais alta para a mais baixa.</li>
+      <li>O <strong>campo do parecer</strong>, onde você redige a resposta.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> Ler o embasamento — a regra da hierarquia</h2>
+    <p>As normas vêm etiquetadas por nível. <strong>Quanto menor o número, mais forte a norma.</strong>
+    Uma norma inferior <strong>nunca</strong> contraria uma superior.</p>
+    <table class="hier">
+      <thead><tr><th>Nível</th><th>Tipo de norma</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        <tr><td class="nv">n1</td><td>Constituição / Súmula Vinculante</td><td>CF art. 37 §5º</td></tr>
+        <tr><td class="nv">n2</td><td>Lei Complementar</td><td>LC 73/1993</td></tr>
+        <tr><td class="nv">n3</td><td>Lei / Medida Provisória (força de lei)</td><td>Lei 6.880/1980 · MP 2.215-10</td></tr>
+        <tr><td class="nv">n4</td><td>Decreto</td><td>Decreto 2.040/1996</td></tr>
+        <tr><td class="nv">n5</td><td>Portaria</td><td>Port 066-DGP</td></tr>
+        <tr><td class="nv">n6</td><td>Norma Técnica</td><td>NT-DCEM</td></tr>
+      </tbody>
+    </table>
+    <div class="aviso atencao">
+      <span class="rot">Atenção</span>
+      <div>Se o embasamento aparecer apoiado <strong>só numa Portaria solta</strong> (n5) numa matéria cuja
+      origem é um Decreto ou uma Lei, é sinal de <strong>amarração faltando</strong>. Não invente a norma-mãe:
+      registre a consulta, responda com o que há e <strong>avise o Cel</strong> para corrigir a base.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> Passo a passo para responder</h2>
+    <ol class="passos">
+      <li>Clique na <strong>consulta pendente</strong>.</li>
+      <li>Leia a pergunta e confira o <strong>embasamento</strong> sugerido.</li>
+      <li>Escolha a <strong>Norma-chave</strong> — a principal em que a resposta se apoia.</li>
+      <li>Redija o <strong>parecer</strong> em linguagem de expediente, citando as normas na ordem hierárquica (da maior para a menor).</li>
+      <li>Se for o caso, preencha o <strong>Tipo do registro</strong> e o <strong>Macete tácito</strong> (seções 5 e 6).</li>
+      <li><code>Salvar rascunho</code> guarda sem enviar (fica marcado <code>[RASCUNHO]</code>). <code>Enviar parecer</code> grava e <strong>dispara o e-mail</strong> ao demandante.</li>
+      <li>O contador de <strong>pendentes cai</strong> e o de <strong>respondidas sobe</strong> — confirmação de que saiu.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span> Tipo do registro — Armadilha × Macete Cinzento</h2>
+    <p>Cada resposta pode carregar um <strong>aprendizado interno</strong>, de um de dois tipos.
+    Escolha no menu <code>Tipo do registro</code>. Isto <strong>não</strong> vai ao demandante — fica na
+    base para o próximo curador.</p>
+    <div class="duas">
+      <div class="card armadilha">
+        <h3>⚠ Armadilha</h3>
+        <div>A <strong>cilada</strong>: o erro comum que faz o processo voltar ou ser indeferido. O que NÃO se deve fazer.</div>
+        <div class="ex">Ex.: "não confundir ajuda de custo com diária — indeferimento certo".</div>
+      </div>
+      <div class="card macete">
+        <h3>◆ Macete Cinzento</h3>
+        <div>O <strong>atalho de resolução</strong>: o jeito prático (de "zona cinzenta", não-oficial) que resolve rápido. O que faz andar.</div>
+        <div class="ex">Ex.: "só tramita com o DIEx do comandante anexado".</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span> O macete tácito é OPSEC</h2>
+    <p>O campo <strong>Macete tácito</strong> (máx. 150 caracteres) guarda o conhecimento de bastidor da
+    Assessoria — aquilo que estava só na cabeça de quem tem experiência. "Tácito" porque agora vira texto e
+    fica registrado.</p>
+    <div class="aviso opsec">
+      <span class="rot">OPSEC — nunca no e-mail</span>
+      <div>O macete é <strong>restrito à Asse Ct Orç</strong>. <strong>Nunca cole o macete cru na resposta ao
+      demandante.</strong> O sistema já garante isso: o e-mail leva <strong>apenas o texto do parecer</strong>,
+      nunca o macete. Escreva o macete pensando no <strong>colega que assumirá sua função</strong> — não no demandante.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">7</span> O que o demandante recebe</h2>
+    <p>Um e-mail com o assunto <code>Parecer — sua consulta [ID]</code> e o corpo do parecer, assinado
+    <em>"Assessoria de Controle Orçamentário / DCEM"</em>. Só isso. Sem macete, sem anotações internas,
+    sem a cozinha da resposta.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">8</span> As abas — o que não mexer</h2>
+    <p>Trabalhe <strong>sempre pelo painel</strong>. As abas
+    <code>NORMAS</code>, <code>CASOS</code>, <code>REGISTROS</code>,
+    <code>PARAMETROS_ANO_CORRENTE</code> e <code>PAINEL_AUDITORIA</code> estão com
+    <strong>"aviso ao editar"</strong>: se você tentar digitar direto nelas, aparece um pop-up de confirmação.</p>
+    <div class="aviso atencao">
+      <span class="rot">Se aparecer o aviso</span>
+      <div>Quase sempre a resposta certa é <strong>"cancelar"</strong> e voltar ao painel. O aviso existe de
+      propósito — para você não estragar a base por engano. <em>(O Google Planilhas não tem senha por aba;
+      o "aviso ao editar" é a proteção nativa contra edição acidental.)</em></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">9</span> Livro de Passagem de Função</h2>
+    <p>Quando você for <strong>movimentado</strong>, antes de sair — e isto <strong>não é opcional</strong>:</p>
+    <ol class="passos">
+      <li>Revise suas <strong>consultas em aberto</strong>.</li>
+      <li>Confirme o <strong>macete</strong> de cada Caso-Tipo que você dominava.</li>
+      <li>Registre o repasse na aba <strong>"Livro de Passagem de Função"</strong>.</li>
+    </ol>
+    <p>A memória da Assessoria não vai embora com você — ela fica na base para quem assume.</p>
+  </section>
+
+  <section class="checkbox-sec">
+    <h2><span class="num">✓</span> Checklist rápido</h2>
+    <ul class="check">
+      <li>Abri pelo menu <strong>Análise e confecção das respostas</strong></li>
+      <li>Li a pergunta e o embasamento</li>
+      <li>Escolhi a norma-chave</li>
+      <li>Redigi o parecer na ordem hierárquica (da maior norma para a menor)</li>
+      <li>Preenchi Armadilha / Macete se havia — e <strong>nunca</strong> coloquei o macete no texto do e-mail</li>
+      <li>Enviei o parecer (ou salvei rascunho) e vi o contador mudar</li>
+      <li>Ao sair de função: preenchi o <strong>Livro de Passagem de Função</strong></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Assessoria de Controle Orçamentário · DCEM — documento de uso interno</span>
+    <span>Guia do Curador · v. 2026-07-12</span>
+  </footer>
+
+</div>

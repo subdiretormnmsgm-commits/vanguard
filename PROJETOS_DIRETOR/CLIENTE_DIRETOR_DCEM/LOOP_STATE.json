@@ -1,0 +1,58 @@
+{
+  "projeto": "CLIENTE_DIRETOR_DCEM",
+  "tipo": "projeto_pessoal_do_diretor",
+  "isolado_de_clientes_vanguard": true,
+  "P-059": "DCEM nao e cliente Vanguard - nao engaja CLIENTES/, WIP_BOARD, ChurnWatch, PASSO7 de cliente",
+  "loop": 1,
+  "modo": "LOOP_PESSOAL_SEM_RETOMAR_EMPRESA",
+  "empresa_pausada": true,
+  "maquina_autonoma": "PAUSADA - n8n/Cowork/Telegram/ChurnWatch intocados (flag .SISTEMA_PAUSADO.flag permanece)",
+  "socios_acionados_apenas_para_dcem": [
+    "Estrategista (Gemini Advanced / Antigravity) -> DIRETRIZ",
+    "Auditor (NotebookLM) -> SKILL nomeada",
+    "Embaixador (Claude Projects) -> filtro de realidade (opcional, sob decisao do Diretor)"
+  ],
+  "objetivo_loop": "[RATIFICADO PELO DIRETOR 2026-07-11] Ao final deste Loop, teremos a arquitetura da Base de Consultas da Asse Ct Org validada pelos socios (NORMA VIVA + fluxo oficial de 5 passos) + o vocabulario controlado fundacional, PROJETADA PARA RETER O CONHECIMENTO TACITO DE RESOLUCAO RAPIDA dos militares experientes da Assessoria - o macete/atalho institucional que hoje se perde quando o militar e movimentado. Gestao de conhecimento a partir das duvidas reais e das respostas dadas por quem sabe resolver rapido.",
+  "objetivo_ratificado": true,
+  "objetivo_ampliacao_diretor": "O valor nao e so a norma citada - e o conhecimento tacito de resolucao rapida do militar experiente (situacoes de resolucao rapida que ele sabe pela vivencia). Nao perder esse conhecimento e a missao.",
+  "loop_fase_atual": {
+    "musculo_conselho_local": "OK (01_VEREDITO_CONSELHO_2026-07-11.md)",
+    "gemini": "OK - DIRETRIZ V1 recebida do Antigravity 2026-07-11 e salva em 05_DIRETRIZ_V1_ANTIGRAVITY_DCEM.md. Skill nomeada: AUDITOR_BASE_DCEM_V1 (elo verificado NOTEBOOKLM==MUSCULO).",
+    "notebooklm": "OK - caderno DCEM montado via Playwright (18 fontes: metodo Vanguard + docs DCEM + Drive) e SKILL AUDITOR_BASE_DCEM_V1 gerada 2026-07-11. Artefatos: AUDITOR_BASE_DCEM_V1.md (completo) + 08_AUDITOR_LOOP_V1_DCEM.md (partes 1+2+5). Auditor alinha NORMA VIVA (PK) + Caso-Tipo (indice); veta G-4 e G-5.",
+    "embaixador": "OK - filtro de realidade recebido via caderno IAH (cabecalho de isolamento P-059) 2026-07-11. Artefato: 09B_EMBAIXADOR_RESPOSTA_LOOP_V1_DCEM.md. Veredito de temperatura: risco ALTO de MORRER VAZIO em 90 dias do jeito atual (banco enche de ementa fria; G-4 mata o unico sinal). Para VINGAR: atribuicao visivel (E-1) + ancoragem no handover (E-2) + separar armadilha/macete (E-3) + substituir satisfacao por 1-toque. Norma Viva = indice canonico (data) + Caso-Tipo = porta de busca (UX): dissolve a tensao G-1.",
+    "musculo_blueprint": "OK - writing-plans consolidou o blueprint do ativo soberano em 10_PLANO_IMPLEMENTACAO_DCEM_V1.md (2026-07-11). 3 camadas: captura sem IA (Trilho 4 intacto) / base Norma Viva AI-ready (o ativo, independente de IA) / consulta IA Caminho A (fase 6 posterior).",
+    "proximo": "FASE 2 (captura Web App) ENTREGUE E EM TESTE. Arquivos em disco: captura_webapp.gs + captura.html (revisados pelo Musculo contra os 7 criterios do FASE2_SPEC; fixes A=validacao de Assunto contra CASOS + C=linha de gravacao deterministica pela coluna A aplicados 2026-07-11). AGUARDA: Diretor cola os 2 arquivos no Apps Script (HTML nomeado 'captura'), implanta como App da Web (Executar como: Eu / Qualquer pessoa com conta Google), autoriza escopos, testa /exec e reporta o criterio 2 ao vivo (linha A-G, F e H-P vazios, Q sem #ERROR). As 5 ideias do Antigravity deliberadas e travadas em FASE2.1_DELIBERACAO_IDEIAS_ANTIGRAVITY.md: (1) deep-link ENTRA v2.1 editavel (2) terminal do curador V2.1 PRIORITARIA (3) gatilho de doutrina ENTRA v2.1 (4) prioridade por evidencia DESCARTADO (5) indice de qualidade V3/CAUTELA. Sequencia 2.1: ideia 2 -> 1 -> 3. Fase 3 = motor notificacao (MailApp+UrlFetchApp Telegram, nativo, nao n8n). Fase 6 = consulta IA Caminho A. HISTORICO: Fase 0 fechada; Fase 1 - A BASE fechada. VEREDITO DO DIRETOR 2026-07-11: (1) N1-N14 SIM (2) C1-C14 SIM (3) Nr Ordem 01-133 como chave Anexo_Referencia SIM (4) endurecimentos: Diretor pediu sugestao -> Musculo recomendou E-alpha+E-beta+E-gamma+E-epsilon na Fase 1 agora, E-delta na Fase 3 (motor grava>email>notifica, nao pertence ao Gerador da base). GERADOR REESCRITO: FASE1_GERADOR_BASE.gs (autossuficiente, todos os AUXILIARES incluidos - corrige o ReferenceError obterOuCriar que era paste truncado). 7 abas: LEIA-ME + NORMAS(N1-N14 com Anexo_Referencia) + CASOS(C1-C14 + Docs_Acervo_NrOrdem) + PARAMETROS(E-alpha coluna Valor_Utilizavel = #N/D ate CONFIRMADO) + REGISTROS(E-beta cols Anexo_Referencia+Versao_Registrada+Status_Obsolescencia ARRAYFORMULA 🔴/🟠/🟢) + PAINEL_AUDITORIA(E-gamma) + HANDOVER_LOG(E-gamma/E-epsilon ritual de saida). AGUARDA: Diretor cola o ARQUIVO INTEIRO no Apps Script e roda construirBase 1x -> checkpoint Tarefa 1.4 (a base retem o tacito?). Fase 2 = captura premium Web App. Fase 6 (IA Caminho A) posterior."
+  },
+  "decisoes_diretor_2026-07-11": {
+    "ambicao": "B - ativo soberano AI-ready, nao formulario",
+    "camada_consulta_ia": "Caminho A - API externa zero-retention (nao-treinamento)",
+    "banco_independente_de_ia": "SIM - o banco de dados de gestao do conhecimento existe independente de IA; IA e camada de consulta sobre ele",
+    "custo_ia_mensal_estimado": "R$ 2 a R$ 25/mes para ~22 consultas/mes - nao e fator; fator e soberania (resolvido pelo Caminho A)",
+    "trilho_4": "mantido na captura; reaberto SO na consulta/recuperacao (Fase 6)",
+    "writing_plans": "autorizado e executado (pos-veredito, P-180 respeitado)",
+    "cancelavel": "Diretor pode cancelar/mudar a qualquer momento - plano e documento de deliberacao, nada construido sem vai explicito"
+  },
+  "skill_nomeada_pela_diretriz": "AUDITOR_BASE_DCEM_V1",
+  "diretriz_NAO_deliberada_ainda": "Regra do ciclo: Musculo nao analisa a DIRETRIZ antes de Auditor + Embaixador. So apos os dois: sintese P-037 + deliberacao 7 pontos. Ponto a reconciliar registrado: G-1 (Caso-Tipo como chave) vs Conselho local (Norma Viva como chave).",
+  "caderno_notebooklm_a_montar": {
+    "quando": "Apos a DIRETRIZ V1 voltar do Estrategista (define o nome da SKILL) - preparo o PASSO5 + monto o caderno",
+    "lembrete_do_diretor": "2026-07-11: 'voce tera que montar um caderno para o notebooklm com o projeto, versoes ate 35, etc'",
+    "conteudo_previsto": [
+      "METODO VANGUARD (destilacao das 35 versoes) - base universal do processo, para o Auditor gerar SKILL com o mesmo rigor",
+      "Docs do projeto DCEM: 00_BRIEF + 01_VEREDITO + 02_ESTADO + 03_PASSO3 + 04_INVENTARIO",
+      "DIRETRIZ V1 (quando voltar do Antigravity)",
+      "Semente de legislacao do Drive (base de normas + Prompt Notebook LM a aperfeicoar)"
+    ],
+    "cuidado": "Caderno ISOLADO do DCEM (P-059) - NAO reaproveitar caderno de cliente Vanguard nem misturar contexto. NAO rodar preparar_notebooklm_projeto.ps1 (pipeline de CLIENTES/) - montar manual, projeto e pessoal e a empresa esta em pausa.",
+    "status": "MANIFESTADO - lista de fontes pronta em 07_CADERNO_NOTEBOOKLM_MANIFESTO.md (Grupo A metodo+35 versoes, Grupo B docs DCEM, Grupo C legislacao do Drive). Falta o Diretor montar o caderno e colar o PASSO5.",
+    "manifesto": "07_CADERNO_NOTEBOOKLM_MANIFESTO.md",
+    "passo5": "06_PASSO5_NOTEBOOKLM_DCEM.md"
+  },
+  "material_de_contexto_em_disco": [
+    "00_BRIEF_INTENCAO_TRILHOS.md (intencao + 4 trilhos + fluxo oficial + 13 secoes)",
+    "01_VEREDITO_CONSELHO_2026-07-11.md (recomendacao NORMA VIVA)",
+    "02_ESTADO_E_PROXIMAS_ACOES.md (6 decisoes P-124)"
+  ],
+  "data": "2026-07-11",
+  "atualizado_por": "Musculo"
+}
