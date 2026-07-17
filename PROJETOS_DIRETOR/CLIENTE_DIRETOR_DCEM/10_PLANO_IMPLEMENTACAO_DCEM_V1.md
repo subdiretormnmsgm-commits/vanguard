@@ -160,7 +160,7 @@ Tarifa_m3            | 29,64  | DEC-4307-2002 (Anexo II) | 2026
 | `Caso_Tipo_Tema` | Auditor | dropdown `CASOS` |
 | `Norma_Chave_Primaria` | Auditor | dropdown `NORMAS` (**PK — Norma Viva**) |
 | `Fato_Gerador` | Auditor | ex.: "Adt DCEM com legenda 10" |
-| `Tipo_Registro` | Embaixador (E-3) | dropdown: `Armadilha` \| `Macete Cinzento` |
+| `Tipo_Registro` | Embaixador (E-3) | dropdown: `Ponto de atenção` \| `Atalho de resolução` (rótulos atualizados 2026-07-17; antes `Armadilha`/`Macete Cinzento`) |
 | `MACETE_TACITO` **[OPSEC]** | Auditor | 1 campo curto (~150 char) — texto livre limitado, não dropdown |
 | `Parecer_Oficial_Email` | Auditor | texto limpo/público enviado ao militar |
 | `Autoria_Posto_Nome` | Embaixador (E-1) | quem resolveu |
