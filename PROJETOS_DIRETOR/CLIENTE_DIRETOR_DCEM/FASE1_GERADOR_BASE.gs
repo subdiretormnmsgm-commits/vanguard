@@ -81,14 +81,14 @@ function criarLeiaMe(ss) {
     ['BASE DE CONSULTAS — ASSE CT ORÇ / DCEM', ''],
     ['', ''],
     ['O que é', 'A memória viva da seção: cada consulta interna vira conhecimento pesquisável, ancorado na norma que a fundamentou. O produto é a MEMÓRIA, não o formulário.'],
-    ['O ativo', 'Não é só a norma citada — é o MACETE TÁCITO (como o militar experiente resolve rápido) e a ARMADILHA. Isso é o que se perde na movimentação; é o que esta base retém.'],
+    ['O ativo', 'Não é só a norma citada — é o MACETE TÁCITO (como o militar experiente resolve rápido) e o PONTO DE ATENÇÃO (a armadilha a evitar). Isso é o que se perde na movimentação; é o que esta base retém.'],
     ['Perímetro soberano', 'Tudo mora na conta orcamentariodcem@gmail.com. O dado não sai (Trilho 1). O campo MACETE_TÁCITO é OPSEC — restrito à Asse Ct Orç, nunca visível às 12 seções demandantes.'],
     ['GATE DE FATO', 'Valor legal/financeiro vem da NORMA, nunca de memória. Em PARAMETROS, nada é usável enquanto o Status não for CONFIRMADO (coluna Valor_Utilizavel retorna #N/D).'],
     ['HIERARQUIA DAS NORMAS', 'A resposta segue a hierarquia: Constituição/Súmula Vinculante > Lei Complementar > Lei/MP com força de lei > Decreto > Portaria > Norma Técnica. Quando um Caso-Tipo tem várias normas, ordene pela coluna Hierarquia_Nivel (menor número manda) — a inferior NUNCA contraria a superior.'],
     ['Chave do acervo', 'Cada Norma/Registro aponta para o documento pela coluna Anexo_Referencia = "Nr Ordem" (01–133) do índice.docx do Cel Santos. Imune a mojibake de nome de arquivo.'],
     ['', ''],
     ['AS 7 ABAS', ''],
-    ['REGISTROS', 'O coração. Cada consulta atendida = uma linha. Norma_Chave_Primaria (PK) + MACETE_TÁCITO + Armadilha/Macete + autoria e satisfação.'],
+    ['REGISTROS', 'O coração. Cada consulta atendida = uma linha. Norma_Chave_Primaria (PK) + MACETE_TÁCITO + Ponto de atenção/Atalho de resolução + autoria e satisfação.'],
     ['PAINEL_AUDITORIA', 'Saúde da base num relance: volume, macetes capturados, satisfação, registros obsoletos, parâmetros confirmados.'],
     ['NORMAS', 'As normas subjacentes (Norma Viva = PK). 24 sementes (18 do acervo + 6 mães do inventário 04; cadeia sobe até Constituição/MP, nível 1-3). Ementa a completar pelo curador.'],
     ['CASOS', 'O vocabulário controlado (Caso-Tipo) — a porta de busca. 18 Casos-Tipo do acervo (17 macro-temas; C12 dividido em 12a/12b; +C15 saúde, +C16 permanência, +C17 reserva de capelão).'],
@@ -249,6 +249,7 @@ function criarCasos(ss) {
 function criarParametros(ss) {
   var aba = obterOuCriar(ss, 'PARAMETROS_ANO_CORRENTE');
   aba.clear();
+  aba.getRange(1, 1, aba.getMaxRows(), aba.getMaxColumns()).clearDataValidations();   // hardening: clear() nao remove validacoes; se os rotulos da lista (col E) mudarem, reescrever os dados colidiria. Mesmo padrao de criarNormas/criarHandoverLog.
 
   var cabecalho = ['Parametro', 'Valor', 'Norma_Fonte', 'Vigencia',
                    'Status_Confirmacao', 'Valor_Utilizavel'];
@@ -296,7 +297,9 @@ function criarRegistros(ss) {
     'Caso_Tipo_Tema', 'Norma_Chave_Primaria', 'Fato_Gerador', 'Tipo_Registro',// E F G H
     'MACETE_TACITO', 'Parecer_Oficial_Email', 'Autoria_Posto_Nome',           // I J K
     'Autoria_Visivel', 'Dono_da_Norma_Funcao', 'Satisfacao',                  // L M N
-    'Anexo_Referencia', 'Versao_Registrada', 'Status_Obsolescencia'           // O P Q  (E-β)
+    'Anexo_Referencia', 'Versao_Registrada', 'Status_Obsolescencia',          // O P Q  (E-β)
+    'Posto_Graduacao', 'Nome_Guerra', 'Prioridade',                           // R S T  (Fase 2.1 — identificação + prioridade)
+    'Status_Fluxo', 'Chefe_Nota'                                              // U V    (Fase 2.2 — fluxo de aprovação do Chefe)
   ];
   aba.getRange(1, 1, 1, cabecalho.length).setValues([cabecalho]);
 
@@ -324,8 +327,9 @@ function criarRegistros(ss) {
   var faixaNormas = ss.getSheetByName('NORMAS').getRange(2, 1, nNormas, 1);
   aplicarIntervalo(aba, 6, ultimaLinha, faixaNormas);
 
-  // H — Tipo_Registro (E-3 do Embaixador): separa armadilha de macete
-  aplicarLista(aba, 8, ultimaLinha, ['Armadilha', 'Macete Cinzento']);
+  // H — Tipo_Registro (E-3 do Embaixador): separa "o que evitar" de "o que fazer".
+  // Rótulos humanizados por veredito do Diretor 2026-07-17 (antes: Armadilha | Macete Cinzento).
+  aplicarLista(aba, 8, ultimaLinha, ['Atalho de resolução', 'Ponto de atenção']);
 
   // I — MACETE_TACITO [OPSEC]: texto livre, limitado a ~150 caracteres
   var regraMacete = SpreadsheetApp.newDataValidation()
@@ -340,6 +344,11 @@ function criarRegistros(ss) {
 
   // N — Satisfacao (V-D): 1 toque
   aplicarLista(aba, 14, ultimaLinha, ['👍', '👎']);
+
+  // R — Posto_Graduacao (Fase 2.1): identificação do demandante — texto livre (lista fechada só quando o Diretor passar a hierarquia oficial da força)
+  // S — Nome_Guerra (Fase 2.1): identificação do demandante — texto livre
+  // T — Prioridade (Fase 2.1): marcador de urgência declarado na captura — ecoa no Telegram e ordena a fila do curador
+  aplicarLista(aba, 20, ultimaLinha, ['Normal', 'Urgente']);
 
   // O — Anexo_Referencia: Nr Ordem (01–133) do acervo (E-β: liga o registro ao documento)
   // P — Versao_Registrada: congela a versão da norma no momento do registro (E-β)
@@ -373,8 +382,71 @@ function criarRegistros(ss) {
   aba.setColumnWidth(15, 120);
   aba.setColumnWidth(16, 130);
   aba.setColumnWidth(17, 170);
+  aba.setColumnWidth(18, 150);
+  aba.setColumnWidth(19, 140);
+  aba.setColumnWidth(20, 110);
+  aba.setColumnWidth(21, 190);
+  aba.setColumnWidth(22, 260);
+  aba.getRange(1, 18).setNote('Fase 2.1: Posto/Graduação declarado pelo demandante na captura.');
+  aba.getRange(1, 19).setNote('Fase 2.1: Nome de guerra declarado pelo demandante na captura.');
+  aba.getRange(1, 20).setNote('Fase 2.1: Prioridade declarada — Normal ou Urgente. Ecoa no Telegram (🔴) e ordena a fila do curador.');
+  aba.getRange(1, 21).setNote('Fase 2.2: estado do fluxo de aprovação — Em redação · Aguardando Chefe · Validado (com curador) · Devolvido (com curador) · Enviado ao demandante.');
+  aba.getRange(1, 22).setNote('Fase 2.2: observação do Chefe ao validar com edição ou ao devolver — o curador lê antes do disparo final.');
   aba.setFrozenRows(1);
   aba.setFrozenColumns(1);
+}
+
+/**
+ * MIGRAÇÃO Fase 2 — adiciona à aba REGISTROS VIVA, SEM apagar as consultas já
+ * gravadas (CONS-* existentes):
+ *   R Posto_Graduacao · S Nome_Guerra · T Prioridade   (Fase 2.1 — identificação + prioridade)
+ *   U Status_Fluxo     · V Chefe_Nota                   (Fase 2.2 — aprovação do Chefe)
+ * Idempotente por coluna: só escreve o cabeçalho que ainda não existe. Não toca A–Q
+ * nem a ARRAYFORMULA da coluna Q (que lê F/P/A por nome — imune a colunas à direita).
+ * COMO USAR (1x): abrir o editor Apps Script → selecionar esta função → Executar.
+ * Não exige redeploy do Web App (só altera dados/estrutura da planilha).
+ */
+function migrarColunasFase2() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var aba = ss.getSheetByName('REGISTROS');
+  if (!aba) throw new Error('Aba REGISTROS não encontrada.');
+
+  var cabecalhos = {
+    18: 'Posto_Graduacao', 19: 'Nome_Guerra', 20: 'Prioridade',
+    21: 'Status_Fluxo', 22: 'Chefe_Nota'
+  };
+  var notas = {
+    18: 'Fase 2.1: Posto/Graduação declarado pelo demandante na captura.',
+    19: 'Fase 2.1: Nome de guerra declarado pelo demandante na captura.',
+    20: 'Fase 2.1: Prioridade declarada — Normal ou Urgente. Ecoa no Telegram (🔴) e ordena a fila do curador.',
+    21: 'Fase 2.2: estado do fluxo — Em redação · Aguardando Chefe · Validado (com curador) · Devolvido (com curador) · Enviado ao demandante.',
+    22: 'Fase 2.2: observação do Chefe ao validar com edição ou ao devolver — o curador lê antes do disparo final.'
+  };
+  var larguras = { 18: 150, 19: 140, 20: 110, 21: 190, 22: 260 };
+
+  var criadas = [];
+  Object.keys(cabecalhos).forEach(function (colStr) {
+    var col = parseInt(colStr, 10);
+    var atual = String(aba.getRange(1, col).getValue() || '').trim();
+    if (atual !== cabecalhos[col]) {
+      aba.getRange(1, col).setValue(cabecalhos[col]);
+      aba.getRange(1, col).setNote(notas[col]);
+      aba.setColumnWidth(col, larguras[col]);
+      criadas.push(cabecalhos[col]);
+    }
+  });
+
+  // T = Prioridade: dropdown Normal/Urgente (as demais são texto/gravadas por código).
+  aplicarLista(aba, 20, 1000, ['Normal', 'Urgente']);
+
+  // Reaproveita a estilização do cabeçalho para as novas colunas ficarem no mesmo padrão visual.
+  estilizarCabecalho(aba, 22);
+  aba.setFrozenColumns(1);
+
+  var msg = criadas.length ? ('OK — colunas adicionadas: ' + criadas.join(', ') + '. Consultas preservadas.')
+                           : 'Nada a fazer — R..V já presentes.';
+  Logger.log(msg);
+  return msg;
 }
 
 /* ─────────────────── ABA PAINEL_AUDITORIA (E-γ) ─────────────────── */
@@ -392,8 +464,8 @@ function criarPainelAuditoria(ss) {
     ['Indicador', 'Valor'],
     ['Consultas registradas',              '=COUNTA(REGISTROS!A2:A)'],
     ['Registros com MACETE preenchido',    '=COUNTA(REGISTROS!I2:I)'],
-    ['— dos quais Macete Cinzento',        '=COUNTIF(REGISTROS!H2:H;"Macete Cinzento")'],
-    ['— dos quais Armadilha',              '=COUNTIF(REGISTROS!H2:H;"Armadilha")'],
+    ['— dos quais Atalho de resolução',    '=COUNTIF(REGISTROS!H2:H;"Atalho de resolução")'],
+    ['— dos quais Ponto de atenção',       '=COUNTIF(REGISTROS!H2:H;"Ponto de atenção")'],
     ['Satisfação (👍 / total)',            '=IFERROR(COUNTIF(REGISTROS!N2:N;"👍")&" / "&(COUNTIF(REGISTROS!N2:N;"👍")+COUNTIF(REGISTROS!N2:N;"👎"));"—")'],
     ['Registros OBSOLETOS (🔴 + 🟠)',       '=COUNTIF(REGISTROS!Q2:Q;"🔴*")+COUNTIF(REGISTROS!Q2:Q;"🟠*")'],
     ['Autoria visível (Sim)',              '=COUNTIF(REGISTROS!L2:L;"Sim")'],
@@ -430,6 +502,7 @@ function criarPainelAuditoria(ss) {
 function criarHandoverLog(ss) {
   var aba = obterOuCriar(ss, 'Livro de Passagem de Função');
   aba.clear();
+  aba.getRange(1, 1, aba.getMaxRows(), aba.getMaxColumns()).clearDataValidations();   // rebuild: clear() nao remove validacoes; sem isto, reescrever o cabecalho B2 colide com a regra antiga da coluna B (fix bug 2026-07-17)
 
   aba.getRange(1, 1, 1, 9).merge()
      .setValue('LIVRO DE PASSAGEM DE FUNÇÃO — RITUAL DE MOVIMENTAÇÃO (E-ε · não é opcional)')
@@ -442,10 +515,12 @@ function criarHandoverLog(ss) {
                    'DIEx_Registro', 'Observacoes / Macetes revisados na saída'];
   aba.getRange(2, 1, 1, cabecalho.length).setValues([cabecalho]);
 
-  aplicarLista(aba, 2, 500, ['Assunção de função', 'Movimentação (saída)']);   // B
-  aplicarLista(aba, 5, 500, ['Sim', 'Não']);   // E
-  aplicarLista(aba, 6, 500, ['Sim', 'Não']);   // F
-  aplicarLista(aba, 7, 500, ['Sim', 'Não']);   // G
+  // Cabecalho desta aba mora na linha 2 (linha 1 = titulo mesclado) — validacao comeca na linha 3,
+  // senao as regras cobririam a propria celula de cabecalho (B2/E2/F2/G2 marcadas "dado invalido"). Fix 2026-07-17.
+  aplicarLista(aba, 2, 500, ['Assunção de função', 'Movimentação (saída)'], 3);   // B
+  aplicarLista(aba, 5, 500, ['Sim', 'Não'], 3);   // E
+  aplicarLista(aba, 6, 500, ['Sim', 'Não'], 3);   // F
+  aplicarLista(aba, 7, 500, ['Sim', 'Não'], 3);   // G
 
   aba.getRange(2, 1, 1, cabecalho.length)
      .setBackground(COR_CABECALHO).setFontColor(COR_TEXTO_CAB).setFontWeight('bold');
@@ -468,12 +543,41 @@ function obterOuCriar(ss, nome) {
   return aba;
 }
 
-function aplicarLista(aba, coluna, ultimaLinha, itens) {
+/**
+ * Migração idempotente dos rótulos do Tipo_Registro (col H) — veredito Diretor 2026-07-17.
+ * Converte registros legados 'Macete Cinzento' → 'Atalho de resolução' e
+ * 'Armadilha' → 'Ponto de atenção' e reaplica a validação de lista com os nomes novos.
+ * Converte os valores ANTES de reaplicar a lista (setAllowInvalid=false bloquearia os antigos).
+ * Seguro rodar múltiplas vezes: só toca células que ainda tenham o rótulo velho.
+ */
+function migrarRotulosTipo() {
+  var reg = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('REGISTROS');
+  if (!reg) throw new Error('Aba REGISTROS não encontrada.');
+  var ultima = reg.getLastRow();
+  var mapa = { 'Macete Cinzento': 'Atalho de resolução', 'Armadilha': 'Ponto de atenção' };
+  var trocados = 0;
+  if (ultima >= 2) {
+    var rng = reg.getRange(2, 8, ultima - 1, 1);   // col H = Tipo_Registro
+    var vals = rng.getValues();
+    for (var i = 0; i < vals.length; i++) {
+      var v = String(vals[i][0] || '').trim();
+      if (mapa[v]) { vals[i][0] = mapa[v]; trocados++; }
+    }
+    if (trocados) rng.setValues(vals);
+  }
+  aplicarLista(reg, 8, Math.max(ultima, 2), ['Atalho de resolução', 'Ponto de atenção']);
+  var msg = 'Rótulos do Tipo migrados — ' + trocados + ' registro(s) convertido(s) + validação reaplicada.';
+  Logger.log(msg);
+  return msg;
+}
+
+function aplicarLista(aba, coluna, ultimaLinha, itens, linhaInicial) {
+  var ini = linhaInicial || 2;   // default: cabecalho na linha 1, dados a partir da 2.
   var regra = SpreadsheetApp.newDataValidation()
     .requireValueInList(itens, true)
     .setAllowInvalid(false)
     .build();
-  aba.getRange(2, coluna, ultimaLinha - 1, 1).setDataValidation(regra);
+  aba.getRange(ini, coluna, ultimaLinha - ini + 1, 1).setDataValidation(regra);   // cobre as linhas ini..ultimaLinha
 }
 
 function aplicarIntervalo(aba, coluna, ultimaLinha, faixa) {
