@@ -97,10 +97,18 @@ function doPostData(dados) {
     // validado por validar_() no servidor, então o dropdown ali não protege mais nada.
     aba.getRange(ultimaLinha, 5).setDataValidation(null);
 
+    // Blindagem anti-injeção de fórmula: campos de texto livre do usuário gravados como
+    // texto puro ('@'). Um valor iniciado por '='/'+'/'-'/'@' fica literal, nunca é
+    // interpretado como fórmula no PAINEL. B (data) fica de fora para preservar o tipo
+    // Date; A (ID gerado), D (seção da lista fechada), F (vazio) são controlados no servidor.
+    aba.getRange(ultimaLinha, 3).setNumberFormat('@'); // C: Demandante_Email
+    aba.getRange(ultimaLinha, 5).setNumberFormat('@'); // E: Caso_Tipo_Tema
+    aba.getRange(ultimaLinha, 7).setNumberFormat('@'); // G: Fato_Gerador
     aba.getRange(ultimaLinha, 1, 1, 7).setValues(linhaGravar);
 
     // 3b. Fase 2.1 — identificação militar (R,S) + prioridade (T). Colunas à direita de Q:
     //     a ARRAYFORMULA de Q lê F/P/A por nome, então escrever em R:T na mesma linha não a afeta.
+    aba.getRange(ultimaLinha, 18, 1, 2).setNumberFormat('@'); // R,S texto puro (anti-injeção de fórmula)
     aba.getRange(ultimaLinha, 18, 1, 3).setValues([[
       dados.posto,                    // R: Posto_Graduacao
       dados.nomeGuerra,               // S: Nome_Guerra
@@ -340,6 +348,20 @@ function registrarSatisfacao_(id, r) {
  * do script), nunca no código. Se não estiverem configurados, a função
  * simplesmente não faz nada — a consulta continua gravando normal.
  */
+/**
+ * Escapa os 3 caracteres reservados pelo parse_mode HTML do Telegram (& < >).
+ * Sem isso, um valor do usuário (dúvida, nome, tema) com '<' ou '&' solto gera HTML
+ * malformado → a API responde 400 → muteHttpExceptions engole o erro → o curador NÃO
+ * recebe o alerta daquela consulta. As tags <b> do template não passam por aqui; só os
+ * VALORES interpolados. Ordem importa: '&' primeiro (senão re-escaparia as entidades).
+ */
+function escaparHtmlTelegram_(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 function notificarTelegram_(dados, idConsulta) {
   var props = PropertiesService.getScriptProperties();
   var token = props.getProperty('TELEGRAM_TOKEN');
@@ -347,15 +369,16 @@ function notificarTelegram_(dados, idConsulta) {
   if (!token || !chatId) return; // não configurado → silêncio (fallback: planilha + e-mail)
 
   var urgente = (dados.prioridade === 'Urgente');
-  var quem = ((dados.posto || '') + ' ' + (dados.nomeGuerra || '')).trim() || '-';
+  var esc = escaparHtmlTelegram_;
+  var quem = esc(((dados.posto || '') + ' ' + (dados.nomeGuerra || '')).trim() || '-');
   var texto =
     (urgente ? '🔴 <b>URGENTE</b> — ' : '🔔 ') + '<b>Nova consulta — Asse Ct Orç / DCEM</b>\n\n' +
     '<b>ID:</b> ' + idConsulta + '\n' +
-    '<b>De:</b> ' + quem + '  ·  ' + (dados.secao || '-') + '\n' +
-    '<b>E-mail:</b> ' + (dados.email || '-') + '\n' +
-    '<b>Tema:</b> ' + (dados.assunto || '-') + '\n' +
+    '<b>De:</b> ' + quem + '  ·  ' + esc(dados.secao || '-') + '\n' +
+    '<b>E-mail:</b> ' + esc(dados.email || '-') + '\n' +
+    '<b>Tema:</b> ' + esc(dados.assunto || '-') + '\n' +
     (urgente ? '<b>Prioridade:</b> 🔴 URGENTE\n' : '') +
-    '\n<b>Dúvida:</b>\n' + (dados.duvida || '-');
+    '\n<b>Dúvida:</b>\n' + esc(dados.duvida || '-');
 
   UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
     method: 'post',
