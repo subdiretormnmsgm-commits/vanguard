@@ -11,7 +11,9 @@ Tail correto: RRLV8LzSdw   (ATENCAO: nao e RDLV8 — um caractere gera QR morto)
 
 Apps Script Project ID: 1fJeD4iwmlAygoPD8dxDZsTF8YSow0IfF945TijTNhSrfnW_aZ1_7XlSX
 Conta Google: orcamentariodcem@gmail.com
-Deploy vivo: Versao 10 (12/07/2026) — Telegram + e-mail ao curador (ver bloco proprio abaixo).
+Deploy vivo: Versao 12 (17/07/2026) — blindagem anti-injecao de formula (setNumberFormat '@')
+  + escape HTML no Telegram (escaparHtmlTelegram_). V11 adicionou o handler de satisfacao
+  (?mode=satisfacao). Base: Telegram + e-mail ao curador desde a V10 (ver bloco proprio abaixo).
   Historico: Versao 8 tornou o motor API JSON (Rota B). Alem do HtmlService
   original, doGet responde GET ?mode=casos com {sucesso,casos,secoes} e doPost recebe o
   POST do formulario hospedado FORA do Apps Script. Mesma engine V7 (doPostData): validacao
