@@ -29,6 +29,18 @@ function doGet(e) {
       .setMimeType(ContentService.MimeType.JSON);
   }
 
+  // ── ITEM 5 — Pesquisa de satisfação (Rota B). O e-mail de resposta ao demandante
+  //    traz dois links para o Pages: /?sat=<id>&r=sim|nao. O Pages, por sua vez,
+  //    chama ESTE endpoint (GET ?mode=satisfacao&id=<id>&r=sim|nao) como API. Grava
+  //    👍/👎 na coluna N (Satisfacao) da linha do ID — emoji que casa com as fórmulas
+  //    já existentes no PAINEL_AUDITORIA (não a string "Sim/Não"). "Simple request":
+  //    sem preflight; Google injeta Access-Control-Allow-Origin:* na resposta final.
+  if (e && e.parameter && e.parameter.mode === 'satisfacao') {
+    return ContentService
+      .createTextOutput(JSON.stringify(registrarSatisfacao_(e.parameter.id, e.parameter.r)))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   var template = HtmlService.createTemplateFromFile('captura');
   template.secoes = SECOES_VALIDAS;
   template.casos = casos;
@@ -87,6 +99,14 @@ function doPostData(dados) {
 
     aba.getRange(ultimaLinha, 1, 1, 7).setValues(linhaGravar);
 
+    // 3b. Fase 2.1 — identificação militar (R,S) + prioridade (T). Colunas à direita de Q:
+    //     a ARRAYFORMULA de Q lê F/P/A por nome, então escrever em R:T na mesma linha não a afeta.
+    aba.getRange(ultimaLinha, 18, 1, 3).setValues([[
+      dados.posto,                    // R: Posto_Graduacao
+      dados.nomeGuerra,               // S: Nome_Guerra
+      dados.prioridade || 'Normal'    // T: Prioridade
+    ]]);
+
     // 4. Trilho 3: E-mail de confirmação ao demandante
     MailApp.sendEmail({
       to: dados.email,
@@ -101,14 +121,18 @@ function doPostData(dados) {
     // 4b. Aviso ao CURADOR (quem responde) — orcamentariodcem recebe cada nova consulta.
     //     best-effort (P-110): o registro já está gravado; se o e-mail falhar não quebra nada.
     try {
+      var ehUrgente = (dados.prioridade === 'Urgente');
+      var identificacao = ((dados.posto || '') + ' ' + (dados.nomeGuerra || '')).trim() || '-';
       MailApp.sendEmail({
         to: Session.getEffectiveUser().getEmail(),   // = orcamentariodcem@gmail.com (dono do script)
         replyTo: dados.email,                          // "Responder" já vai direto ao demandante
-        subject: 'NOVA CONSULTA ' + idConsulta + ' — ' + (dados.secao || '-') + ' · ' + (dados.assunto || '-'),
+        subject: (ehUrgente ? '🔴 [URGENTE] ' : '') + 'NOVA CONSULTA ' + idConsulta + ' — ' + (dados.secao || '-') + ' · ' + (dados.assunto || '-'),
         body: 'Nova consulta registrada — responder ao demandante.\n\n' +
               'Protocolo: ' + idConsulta + '\n' +
+              'Demandante: ' + identificacao + '\n' +
               'Seção: ' + (dados.secao || '-') + '\n' +
               'Tema: ' + (dados.assunto || '-') + '\n' +
+              (ehUrgente ? 'Prioridade: 🔴 URGENTE\n' : '') +
               'Responder a: ' + (dados.email || '-') + '\n\n' +
               'Dúvida:\n' + (dados.duvida || '-')
       });
@@ -173,6 +197,24 @@ function validar_(dados, casosValidos) {
   }
   if (dados.duvida.length > 1000) {
     throw new Error('Dúvida não pode exceder 1000 caracteres.');
+  }
+  // Fase 2.1 — identificação militar OBRIGATÓRIA (Diretor 2026-07-12: "sem identificação, travar").
+  if (!dados.posto || dados.posto.trim() === '') {
+    throw new Error('Posto/Graduação é obrigatório.');
+  }
+  if (dados.posto.length > 40) {
+    throw new Error('Posto/Graduação muito longo.');
+  }
+  if (!dados.nomeGuerra || dados.nomeGuerra.trim() === '') {
+    throw new Error('Nome de guerra é obrigatório.');
+  }
+  if (dados.nomeGuerra.length > 40) {
+    throw new Error('Nome de guerra muito longo.');
+  }
+  // Prioridade tem default 'Normal'; só rejeita valor fora do par válido.
+  var prio = dados.prioridade || 'Normal';
+  if (['Normal', 'Urgente'].indexOf(prio) === -1) {
+    throw new Error('Prioridade inválida.');
   }
 }
 
@@ -254,6 +296,42 @@ function gerarIdConsulta_(aba) {
 }
 
 /**
+ * ITEM 5 — Registra a resposta da pesquisa de satisfação na coluna N (Satisfacao).
+ * @param {string} id  protocolo CONS-AAAAMMDD-NNN (col. A)
+ * @param {string} r   'sim' → 👍  ·  'nao' → 👎
+ * Grava emoji (não texto) para bater com as fórmulas do PAINEL_AUDITORIA.
+ * Idempotente: reescrever o mesmo voto não muda nada; trocar o voto atualiza.
+ */
+function registrarSatisfacao_(id, r) {
+  id = String(id || '').trim();
+  r = String(r || '').trim().toLowerCase();
+  if (!id) return { sucesso: false, erro: 'ID ausente.' };
+  if (r !== 'sim' && r !== 'nao') return { sucesso: false, erro: 'Resposta inválida.' };
+  var emoji = (r === 'sim') ? '👍' : '👎';
+
+  var lock = LockService.getScriptLock();
+  try { lock.waitLock(10000); } catch (e) { return { sucesso: false, erro: 'Sistema ocupado.' }; }
+  try {
+    var aba = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('REGISTROS');
+    if (!aba) return { sucesso: false, erro: 'Base indisponível.' };
+    var total = aba.getLastRow();
+    if (total < 2) return { sucesso: false, erro: 'Protocolo não encontrado.' };
+
+    // Busca a linha pelo ID na coluna A (única sem fórmula → imune à inflação de Q).
+    var colA = aba.getRange(2, 1, total - 1, 1).getValues();
+    for (var i = 0; i < colA.length; i++) {
+      if (String(colA[i][0]).trim() === id) {
+        aba.getRange(i + 2, 14).setValue(emoji);   // col N = Satisfacao
+        return { sucesso: true, emoji: emoji, id: id };
+      }
+    }
+    return { sucesso: false, erro: 'Protocolo não encontrado.' };
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+/**
  * ═══════════════════════════════════════════════════════════════════════
  * TELEGRAM — Notificação ao curador a cada nova consulta
  * ═══════════════════════════════════════════════════════════════════════
@@ -268,13 +346,16 @@ function notificarTelegram_(dados, idConsulta) {
   var chatId = props.getProperty('TELEGRAM_CHAT_ID');
   if (!token || !chatId) return; // não configurado → silêncio (fallback: planilha + e-mail)
 
+  var urgente = (dados.prioridade === 'Urgente');
+  var quem = ((dados.posto || '') + ' ' + (dados.nomeGuerra || '')).trim() || '-';
   var texto =
-    '🔔 <b>Nova consulta — Asse Ct Orç / DCEM</b>\n\n' +
+    (urgente ? '🔴 <b>URGENTE</b> — ' : '🔔 ') + '<b>Nova consulta — Asse Ct Orç / DCEM</b>\n\n' +
     '<b>ID:</b> ' + idConsulta + '\n' +
-    '<b>Seção:</b> ' + (dados.secao || '-') + '\n' +
-    '<b>De:</b> ' + (dados.email || '-') + '\n' +
-    '<b>Tema:</b> ' + (dados.assunto || '-') + '\n\n' +
-    '<b>Dúvida:</b>\n' + (dados.duvida || '-');
+    '<b>De:</b> ' + quem + '  ·  ' + (dados.secao || '-') + '\n' +
+    '<b>E-mail:</b> ' + (dados.email || '-') + '\n' +
+    '<b>Tema:</b> ' + (dados.assunto || '-') + '\n' +
+    (urgente ? '<b>Prioridade:</b> 🔴 URGENTE\n' : '') +
+    '\n<b>Dúvida:</b>\n' + (dados.duvida || '-');
 
   UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
     method: 'post',

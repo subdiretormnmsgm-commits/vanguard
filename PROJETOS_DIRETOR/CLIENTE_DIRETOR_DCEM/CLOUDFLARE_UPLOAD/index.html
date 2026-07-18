@@ -176,6 +176,17 @@
       </header>
 
       <form id="form" onsubmit="return enviar(event)">
+        <div class="linha">
+          <div class="campo">
+            <label>Posto / Graduação <span class="req">*</span></label>
+            <input type="text" id="posto" required maxlength="40" placeholder="Ex.: 1º Ten">
+          </div>
+          <div class="campo">
+            <label>Nome de guerra <span class="req">*</span></label>
+            <input type="text" id="nomeGuerra" required maxlength="40" placeholder="Ex.: Silva">
+          </div>
+        </div>
+
         <div class="campo">
           <label>Sua Seção <span class="req">*</span></label>
           <select id="secao" required>
@@ -207,6 +218,14 @@
         </div>
 
         <div class="campo">
+          <label>Prioridade</label>
+          <select id="prioridade">
+            <option value="Normal" selected>Normal</option>
+            <option value="Urgente">Urgente — preciso de resposta com urgência</option>
+          </select>
+        </div>
+
+        <div class="campo">
           <label>E-mail para o parecer <span class="req">*</span></label>
           <input type="email" id="email" required placeholder="voce@dcem">
         </div>
@@ -229,12 +248,68 @@
       <div class="prot">Protocolo <b id="protocolo"></b></div>
       <button class="enviar" type="button" onclick="novaConsulta()" style="margin-top:22px">Registrar outra consulta</button>
     </div>
+
+    <!-- ITEM 5 — Landing da pesquisa de satisfação (?sat=<id>&r=sim|nao) -->
+    <div class="ok" id="sat">
+      <div class="marca" id="satMarca">…</div>
+      <h2 id="satTitulo">Registrando sua resposta…</h2>
+      <p id="satTexto">Um instante.</p>
+      <div class="prot" id="satProt" style="display:none">Consulta <b id="satId"></b></div>
+    </div>
   </main>
 
 <script>
   // ── ROTA B — endereço do motor (Apps Script /exec). GATE DE FATO: copiado de
   //    ENDERECO_EXEC.txt. Tail RRLV8LzSdw (não é RDLV8 — um caractere gera QR/URL morto).
   var EXEC = 'https://script.google.com/macros/s/AKfycbyZW1XO8edEEk1szLPoax4Yml1NvIUBzfp4ZzHz6Jc4oQvobz99wH3p-YhdRRLV8LzSdw/exec';
+
+  // ── ITEM 5 — Pesquisa de satisfação. O e-mail de resposta ao demandante traz
+  //    dois links para cá: /?sat=<id>&r=sim|nao. Detectamos o parâmetro, escondemos
+  //    o formulário e chamamos o motor (GET ?mode=satisfacao) que grava 👍/👎 na
+  //    coluna N da consulta. Roteia pelo Pages (não pelo /exec cru) para não reabrir
+  //    o bug de múltiplas contas Google no celular — a razão de existir da Rota B.
+  (function () {
+    var qs = new URLSearchParams(window.location.search);
+    var satId = qs.get('sat');
+    if (!satId) return;                       // fluxo normal (formulário) segue abaixo
+    var r = (qs.get('r') || '').toLowerCase();
+    var formArea = document.getElementById('formArea');
+    if (formArea) { formArea.style.display = 'none'; }
+    var painel = document.getElementById('sat');
+    painel.classList.add('show');
+    var marca = document.getElementById('satMarca');
+    var titulo = document.getElementById('satTitulo');
+    var texto = document.getElementById('satTexto');
+    var prot = document.getElementById('satProt');
+    document.getElementById('satId').textContent = satId;
+
+    if (r !== 'sim' && r !== 'nao') {
+      marca.textContent = '!';
+      titulo.textContent = 'Link inválido';
+      texto.textContent = 'Use um dos dois botões (👍 SIM / 👎 NÃO) do e-mail da resposta.';
+      return;
+    }
+    marca.textContent = (r === 'sim') ? '👍' : '👎';
+    fetch(EXEC + '?mode=satisfacao&id=' + encodeURIComponent(satId) + '&r=' + r, { method: 'GET' })
+      .then(function (resp) { return resp.json(); })
+      .then(function (d) {
+        if (d && d.sucesso) {
+          titulo.textContent = 'Obrigado pela resposta!';
+          texto.textContent = (r === 'sim')
+            ? 'Que bom que sua dúvida foi retirada. Sua avaliação foi registrada.'
+            : 'Registramos que a dúvida não foi retirada — a Assessoria vai retomar o caso.';
+          prot.style.display = 'block';
+        } else {
+          titulo.textContent = 'Não foi possível registrar';
+          texto.textContent = (d && d.erro) ? d.erro : 'Tente novamente pelo link do e-mail.';
+        }
+      })
+      .catch(function () {
+        titulo.textContent = 'Falha de conexão';
+        texto.textContent = 'Verifique a internet e toque no link do e-mail novamente.';
+      });
+    return;   // não carrega listas nem o formulário neste modo
+  })();
 
   // Seções são fixas (13) — servem de rede de segurança caso a rede falhe no load.
   var SECOES_FALLBACK = ['QEMA','QSG','Cursos e Estágios','Praças','Ajudância Geral',
@@ -275,7 +350,8 @@
         preencherSelect(selSecao, SECOES_FALLBACK, null);
       });
   }
-  carregarListas();
+  // No modo satisfação (?sat=) o formulário está oculto — não busca as listas vivas.
+  if (!new URLSearchParams(window.location.search).get('sat')) { carregarListas(); }
 
   // Mostra/esconde o campo de assunto livre quando "Outros" é escolhido.
   function toggleOutros() {
@@ -311,10 +387,13 @@
     }
 
     var dados = {
+      posto: document.getElementById('posto').value.trim(),
+      nomeGuerra: document.getElementById('nomeGuerra').value.trim(),
       secao: document.getElementById('secao').value,
       assunto: assuntoSel,
       duvida: document.getElementById('fato').value,
-      email: document.getElementById('email').value
+      email: document.getElementById('email').value,
+      prioridade: document.getElementById('prioridade').value
     };
 
     // POST como text/plain torna a chamada "simple request" (sem preflight OPTIONS, que o
